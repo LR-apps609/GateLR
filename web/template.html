@@ -277,7 +277,7 @@ const APP_STORE_URL = null;   // quando l'app sarà pubblicata
 const TZ = "Europe/Rome";
 // Testi del sito in inglese, italiano e tedesco
 const T = {
- en:{get:"Get the app", h1:"Can I drive <em>in?</em>", lead:"Search your hotel or destination. GateLR tells you at once if it's inside a ZTL, whether you can drive there when you arrive, and what a wrong turn costs.",
+ en:{get:"Get the app", whyTicket:t=>`The gates are on. You can enter with the day ticket (€${t.price.toFixed(2)}). ${t.howTo}`, h1:"Can I drive <em>in?</em>", lead:"Search your hotel or destination. GateLR tells you at once if it's inside a ZTL, whether you can drive there when you arrive, and what a wrong turn costs.",
   ph:"Hotel, address or place in Florence", now:"Now", arrival:"Arrival", try:"Try", draft:"Draft: taken from the city's official sources, not yet reviewed by a person. Signs at the gate always win.",
   tap:"Tap anywhere to check it", lsector:"ZTL sector", lgate:"Camera gate", lplace:"Your place", hoursT:"When the gates are on", fineL:"If you drive in by mistake", fineT:"The fine",
   hotelL:"Staying inside the ZTL?", hotelT:"Ask your hotel first", hotelP:"Hotels inside the zone can register your plate with the city. Send this before you arrive.",
@@ -295,7 +295,7 @@ const T = {
   read:(d,c)=>`Read ${d} from the City of ${c}:`, official:"official page ↗", nights:"nights", open:"open to all", notConf:"not confirmed", hol:"Public holidays",
   perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", far:"We don't cover this place yet. GateLR starts with Florence; more cities are coming.",
   msg:(day,time)=>`Hello,\n\nI'm arriving by car on ${day} at about ${time}. Could you please register my plate [PLATE] for the ZTL, so I can reach the hotel without a fine?\n\nThank you!`},
- it:{get:"Scarica l'app", h1:"Posso <em>entrare?</em>", lead:"Cerca il tuo hotel o la destinazione. GateLR ti dice subito se è in ZTL, se puoi entrarci quando arrivi e quanto costa sbagliare strada.",
+ it:{get:"Scarica l'app", whyTicket:t=>`I varchi sono accesi. Puoi entrare con il biglietto giornaliero (${t.price.toFixed(2).replace(".",",")} €). ${t.howTo}`, h1:"Posso <em>entrare?</em>", lead:"Cerca il tuo hotel o la destinazione. GateLR ti dice subito se è in ZTL, se puoi entrarci quando arrivi e quanto costa sbagliare strada.",
   ph:"Hotel, indirizzo o luogo a Firenze", now:"Adesso", arrival:"Arrivo", try:"Prova", draft:"Bozza: presa dalle fonti ufficiali del Comune, non ancora rivista da una persona. Vale sempre il cartello al varco.",
   tap:"Tocca un punto per controllarlo", lsector:"Settore ZTL", lgate:"Varco con telecamera", lplace:"Il tuo luogo", hoursT:"Quando i varchi sono accesi", fineL:"Se entri per sbaglio", fineT:"La multa",
   hotelL:"Dormi dentro la ZTL?", hotelT:"Prima scrivi all'hotel", hotelP:"Gli hotel dentro la zona possono comunicare la tua targa al Comune. Mandalo prima di arrivare.",
@@ -313,7 +313,7 @@ const T = {
   read:(d,c)=>`Letto il ${d} dal sito del Comune di ${c}:`, official:"pagina ufficiale ↗", nights:"notti", open:"libero", notConf:"da confermare", hol:"Festivi",
   perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", far:"Questo luogo non è ancora coperto. GateLR parte da Firenze; altre città in arrivo.",
   msg:(day,time)=>`Buongiorno,\n\narrivo in auto ${day} verso le ${time}. Potete registrare la mia targa [TARGA] per la ZTL, così raggiungo l'hotel senza multa?\n\nGrazie!`},
- de:{get:"App holen", h1:"Darf ich <em>rein?</em>", lead:"Suche dein Hotel oder Ziel. GateLR sagt dir sofort, ob es in einer ZTL liegt, ob du bei deiner Ankunft hineinfahren darfst und was ein Fehler kostet.",
+ de:{get:"App holen", whyTicket:t=>`Die Kameras sind aktiv. Du darfst mit dem Tagesticket hinein (${t.price.toFixed(2).replace(".",",")} €). ${t.howTo}`, h1:"Darf ich <em>rein?</em>", lead:"Suche dein Hotel oder Ziel. GateLR sagt dir sofort, ob es in einer ZTL liegt, ob du bei deiner Ankunft hineinfahren darfst und was ein Fehler kostet.",
   ph:"Hotel, Adresse oder Ort in Florenz", now:"Jetzt", arrival:"Ankunft", try:"Probier", draft:"Entwurf: aus den offiziellen Quellen der Stadt, noch nicht von einer Person geprüft. Es gilt immer das Schild an der Einfahrt.",
   tap:"Tippe auf einen Punkt, um ihn zu prüfen", lsector:"ZTL-Sektor", lgate:"Kamera-Einfahrt", lplace:"Dein Ort", hoursT:"Wann die Kameras aktiv sind", fineL:"Wenn du aus Versehen hineinfährst", fineT:"Das Bußgeld",
   hotelL:"Hotel in der ZTL?", hotelT:"Schreib zuerst dem Hotel", hotelP:"Hotels in der Zone können dein Kennzeichen bei der Stadt anmelden. Schick das vor deiner Ankunft.",
@@ -381,6 +381,7 @@ function answer(zone, t, staying){
   if (zone.freeOnHolidays == null && isHoliday(rome(t)) && activeAt(zone, t, true))
     return {v:"unsure", title:t_("unsure"), why:t_("whyHol"), on:true, next, since};
   if (!on) return {v:"yes", title:t_("yes"), why:T[lang].whyOff(next ? when(next, t) : ""), on, next, since};
+  if (zone.ticket) return {v:"cond", title:t_("cond"), why:T[lang].whyTicket(zone.ticket), on, next, since};
   if (staying && zone.hotelCanRegister) return {v:"cond", title:t_("cond"), why:t_("whyCond"), on, next, since};
   return {v:"no", title:t_("no"), why:T[lang].whyOn(next ? when(next, t) : ""), on, next, since};
 }

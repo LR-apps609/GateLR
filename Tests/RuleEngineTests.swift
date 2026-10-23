@@ -125,6 +125,14 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertFalse(fine.notes.isEmpty)
     }
 
+    func testPaidZoneIsConditional() {
+        var z = zone
+        z.ticket = Ticket(price: 7.5, howTo: "Pay online by midnight of the next day.", url: nil)
+        let a = engine.answer(zone: z, vehicle: car, permits: [], hotelInside: false, at: date(2026, 10, 26, 18))
+        guard case .conditional(_, let c) = a.verdict else { return XCTFail("atteso con condizioni, ottenuto \(a.verdict)") }
+        XCTAssertTrue(c.contains("7"))
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)

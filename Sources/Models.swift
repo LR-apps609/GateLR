@@ -42,7 +42,17 @@ struct Zone: Codable, Identifiable, Hashable {
     var freeOnHolidays: Bool?   // nil = non sappiamo: nei festivi la risposta è «non sicuro»
     var exemptFuels: Set<Fuel>  // es. elettriche ammesse
     var hotelCanRegister: Bool  // l'hotel dentro la zona può comunicare la targa
+    var ticket: Ticket? = nil   // ZTL a pagamento (es. Area C di Milano): si entra pagando
     var source: Source
+}
+
+/// Il biglietto d'ingresso di una ZTL a pagamento
+struct Ticket: Codable, Hashable {
+    var price: Double           // euro
+    var howTo: String           // come si paga, con parole nostre
+    var url: URL?
+
+    var priceText: String { price.formatted(.currency(code: "EUR")) }
 }
 
 struct Gate: Codable, Identifiable, Hashable {
