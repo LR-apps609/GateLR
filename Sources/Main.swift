@@ -9,6 +9,8 @@ struct GateLRApp: App {
         WindowGroup {
             RootView()
                 .environmentObject(store)
+                // Solo per il giro automatico delle foto: forza il tema scuro
+                .preferredColorScheme(ProcessInfo.processInfo.arguments.contains("-uiDark") ? .dark : nil)
                 .task { await GateMonitor.shared.startIfReady(store: store) }
         }
     }

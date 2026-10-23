@@ -66,8 +66,7 @@ final class ScreenshotTests: XCTestCase {
     }
 
     func test3Dark() {
-        XCUIDevice.shared.appearance = .dark
-        app.launchArguments = ["-uitest"]
+        app.launchArguments = ["-uitest", "-uiDark"]
         app.launch()
         XCTAssertTrue(app.tabBars.buttons["Now"].waitForExistence(timeout: 10))
         sleep(1)
@@ -75,7 +74,6 @@ final class ScreenshotTests: XCTestCase {
         app.tabBars.buttons["Map"].tap()
         sleep(5)
         snap("13-map-dark")
-        XCUIDevice.shared.appearance = .light
     }
 
     private func snap(_ name: String) {
