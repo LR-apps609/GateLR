@@ -1,0 +1,14 @@
+:root{--paper:#F4EFE6;--sheet:#FFFCF6;--ink:#2B2433;--muted:#6B6372;--line:#DDD3C3;--brass:#A97E3F;--red:#C1272D;--blue:#1F4E9E}
+@media (prefers-color-scheme: dark){:root{--paper:#17141E;--sheet:#221E2B;--ink:#EDE6F2;--muted:#ADA4B6;--line:#3A3445;--brass:#D6AA62;--red:#EF5B55;--blue:#8CB0EE;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "Atkinson Hyperlegible Next",system-ui,sans-serif;padding:24px max(16px,env(safe-area-inset-left,0px)) 48px max(16px,env(safe-area-inset-right,0px))}
+main{max-width:720px;margin:0 auto;display:grid;gap:18px}
+a{color:var(--blue)}
+h1,h2{font-family:"Titillium Web",system-ui,sans-serif;line-height:1.1;margin:0}
+h1{font-size:40px}
+h2{font-size:24px;margin-top:10px}
+.brand{font-family:"Titillium Web",system-ui,sans-serif;font-weight:700;font-size:22px;text-decoration:none;color:var(--ink)}
+.brand span{color:var(--red)}
+.muted{color:var(--muted);font-size:15px}
+section{background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+ul{padding-left:20px;margin:8px 0}
