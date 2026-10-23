@@ -52,10 +52,13 @@ struct ZoneDetailView: View {
                     if let t = zone.source.quoteTranslation {
                         Text("Translation: \(t)").font(.system(size: 13)).foregroundStyle(Theme.muted)
                     }
+                    if let act = zone.source.ordinance, zone.source.ordinanceURL == nil {
+                        Text(act).font(.system(size: 13)).foregroundStyle(Theme.muted)
+                    }
                     Link(destination: zone.source.ordinanceURL ?? zone.source.pageURL) {
                         HStack {
                             Image(systemName: "doc.text")
-                            Text(zone.source.ordinance.map { "\($0) · PDF" } ?? "Official page").fontWeight(.semibold)
+                            Text(zone.source.ordinanceURL != nil ? "\(zone.source.ordinance ?? "Ordinance") · PDF" : "Read it on the city's page").fontWeight(.semibold)
                             Spacer()
                             Image(systemName: "arrow.up.right")
                         }
@@ -106,6 +109,7 @@ struct ZoneDetailView: View {
             .padding(20)
         }
         .background(Theme.ground)
+        .tint(Theme.blue)
         .toolbar { ToolbarItem(placement: .topBarTrailing) { Button("Done") { dismiss() } } }
     }
 

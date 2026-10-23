@@ -73,6 +73,7 @@ struct GarageView: View {
                 }
             }
             .navigationTitle("Garage")
+            .tint(Theme.blue)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { editing = Vehicle(name: "", fuel: .petrol, euro: 6) } label: { Image(systemName: "plus") }

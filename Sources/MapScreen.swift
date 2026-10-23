@@ -64,21 +64,21 @@ struct MapScreen: View {
                     Menu {
                         ForEach(store.city.zones) { z in Button(z.name) { store.zoneId = z.id } }
                     } label: {
-                        HStack(spacing: 4) { Text(zone.name).font(Theme.display(22)).multilineTextAlignment(.leading); Image(systemName: "chevron.down").font(.system(size: 13, weight: .bold)) }
+                        HStack(spacing: 4) { Text(zone.name).font(Theme.display(21)).lineLimit(1).minimumScaleFactor(0.75); Image(systemName: "chevron.down").font(.system(size: 13, weight: .bold)) }
                             .foregroundStyle(Theme.ink)
                     }
                     Text("\(store.city.name) · \(zone.gates.count) gates, \(on ? "on" : "off")")
                         .font(.system(size: 14)).foregroundStyle(Theme.muted)
                 }
                 Spacer()
-                Pill(text: answer.verdict.title, fill: on ? Theme.amberSoft : Theme.greenSoft, ink: on ? Theme.amberInk : Theme.greenInk)
+                Pill(text: answer.gatesOn ? "Gates on" : "Gates off", fill: on ? Theme.amberSoft : Theme.greenSoft, ink: on ? Theme.amberInk : Theme.greenInk)
             }
             if store.hotelInside {
                 HStack {
                     Image(systemName: "house")
                     Text("Your hotel is **inside** the ZTL")
                     Spacer()
-                    Button("What to do") { tab = .trip }.fontWeight(.semibold)
+                    Button("What to do") { tab = .trip }.fontWeight(.semibold).tint(Theme.blue)
                 }
                 .font(.system(size: 14))
                 .padding(12).background(Theme.ground, in: RoundedRectangle(cornerRadius: 12))

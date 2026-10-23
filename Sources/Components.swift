@@ -64,7 +64,7 @@ struct VerdictCard: View {
     var answer: Answer
     var heading: String
     var source: Source
-    var onWhy: () -> Void = {}
+    var onWhy: (() -> Void)? = nil
 
     var body: some View {
         let v = answer.verdict
@@ -80,7 +80,7 @@ struct VerdictCard: View {
                     .foregroundStyle(v.badgeInk)
                     .frame(width: 56, height: 56)
                     .background(v.badgeFill, in: Circle())
-                Text(v.title).font(Theme.display(36, .black)).lineLimit(2).minimumScaleFactor(0.7)
+                Text(v.title).font(Theme.display(34)).lineSpacing(-6).lineLimit(2).minimumScaleFactor(0.7)
             }
             Text(detail).font(.system(size: 16)).fixedSize(horizontal: false, vertical: true)
             Divider().overlay(v.onFill.opacity(0.3))
@@ -88,7 +88,9 @@ struct VerdictCard: View {
                 Text("\(source.reviewedByHuman ? "Checked" : "Read") \(source.checkedOn.formatted(.dateTime.day().month())) · \(source.authority)")
                     .font(.system(size: 13)).opacity(0.92)
                 Spacer()
-                Button("Why?", action: onWhy).font(.system(size: 13, weight: .semibold)).underline().foregroundStyle(v.onFill)
+                if let onWhy {
+                    Button("Why?", action: onWhy).font(.system(size: 13, weight: .semibold)).underline().foregroundStyle(v.onFill)
+                }
             }
         }
         .padding(20)
