@@ -2,7 +2,9 @@
 
 **Know before the gate.** Ogni ZTL d'Italia spiegata in modo chiaro, nella lingua di chi guida, con il link alla pagina ufficiale del Comune che lo dimostra. App per iPhone (SwiftUI, iOS 17 o successivo), in inglese.
 
-> ⚠️ Versione 0.2: Firenze è presa dai dati aperti e dalle pagine ufficiali del Comune, ma è ancora una **bozza** non rivista da una persona. L'app lo scrive in chiaro e mostra cosa resta da verificare.
+> ⚠️ Versione 0.3: Firenze, Bologna e Milano (Area C) sono prese dai dati aperti e dalle pagine ufficiali dei Comuni, ma sono ancora **bozze** non riviste da una persona. L'app lo scrive in chiaro e mostra cosa resta da verificare.
+
+Riepilogo completo: [`docs/STATO.md`](docs/STATO.md).
 
 ## Come è fatto
 
@@ -22,6 +24,11 @@
 | `Tests/RuleEngineTests.swift` | Test del motore delle regole |
 | `Tools/make_icon.py` | Ridisegna l'icona (Pillow) |
 | `Tools/build_firenze.py` | Scarica i dati aperti di Firenze e costruisce `Resources/Cities/firenze.json` |
+| `Tools/build_cities.py` | Costruisce Bologna e Milano da `data/raw/` |
+| `Tools/translations.py` | Traduzioni italiano e tedesco dell'app |
+| `Tools/build_site.py` | Costruisce il sito `web/index.html` con tutte le città |
+| `Widget/` | Widget per Home e schermata di blocco |
+| `web/` | Il sito (vedi `web/README.md`) |
 | `Resources/Fonts` | Titillium Web (SIL Open Font License) |
 | `docs/ricerca-citta.md` | Ricerca sulle fonti ufficiali delle prime città |
 

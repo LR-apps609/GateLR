@@ -715,7 +715,11 @@ const mlScript = document.getElementById("maplibre-js");
 if (window.maplibregl) startRealMap(); else if (mlScript) mlScript.addEventListener("load", startRealMap);
 
 applyLang(lang);
-choose({name:"Duomo (Cathedral)", lat:43.7731, lon:11.2560});
+// Link diretti a una città: …/#firenze, #bologna, #milano
+const START = {firenze:["Duomo (Cathedral)", 43.7731, 11.2560], bologna:["Piazza Maggiore, Bologna", 44.4938, 11.3430], milano:["Duomo di Milano", 45.4642, 9.1900]};
+function startFromHash(){ const s = START[(location.hash || "").slice(1).toLowerCase()] || START.firenze; choose({name:s[0], lat:s[1], lon:s[2]}); }
+window.addEventListener("hashchange", startFromHash);
+startFromHash();
 setInterval(() => { if (!state.later) render(); }, 60000);
 })();
 </script>
