@@ -1,6 +1,8 @@
 {
  "id": "bologna",
  "name": "Bologna",
+ "name_it": "Bologna",
+ "name_de": "Bologna",
  "center": {
   "lat": 44.4938,
   "lon": 11.343
@@ -9,6 +11,9 @@
   {
    "id": "bologna-ztl",
    "name": "ZTL · Historic Centre",
+   "name_it": "ZTL · Centro storico",
+   "name_de": "ZTL · Altstadt",
+   "kind": "pass",
    "summary": "Every day from 7 am to 8 pm you can't drive in without a permit or a day ticket. Inside, Zona T and the pedestrian areas stay closed around the clock.",
    "summary_it": "Tutti i giorni dalle 7 alle 20 non si entra senza permesso o ticket giornaliero. Dentro, la zona T e le aree pedonali restano chiuse 24 ore su 24.",
    "summary_de": "Täglich von 7 bis 20 Uhr keine Einfahrt ohne Genehmigung oder Tagesticket. Zone T und Fußgängerzonen bleiben rund um die Uhr gesperrt.",
@@ -20,6 +25,10 @@
     {
      "lat": 44.498446,
      "lon": 11.332551
+    },
+    {
+     "lat": 44.49847,
+     "lon": 11.332871
     },
     {
      "lat": 44.498437,
@@ -122,6 +131,10 @@
      "lon": 11.337335
     },
     {
+     "lat": 44.502318,
+     "lon": 11.336755
+    },
+    {
      "lat": 44.502546,
      "lon": 11.336018
     },
@@ -150,6 +163,14 @@
      "lon": 11.340106
     },
     {
+     "lat": 44.501115,
+     "lon": 11.340341
+    },
+    {
+     "lat": 44.500958,
+     "lon": 11.34089
+    },
+    {
      "lat": 44.50068,
      "lon": 11.3417
     },
@@ -162,8 +183,24 @@
      "lon": 11.342307
     },
     {
+     "lat": 44.501345,
+     "lon": 11.34342
+    },
+    {
      "lat": 44.501125,
      "lon": 11.344267
+    },
+    {
+     "lat": 44.499923,
+     "lon": 11.343951
+    },
+    {
+     "lat": 44.499104,
+     "lon": 11.34371
+    },
+    {
+     "lat": 44.499014,
+     "lon": 11.343718
     },
     {
      "lat": 44.494971,
@@ -182,6 +219,10 @@
      "lon": 11.341319
     },
     {
+     "lat": 44.494555,
+     "lon": 11.344216
+    },
+    {
      "lat": 44.494209,
      "lon": 11.346371
     },
@@ -192,6 +233,10 @@
     {
      "lat": 44.494907,
      "lon": 11.342732
+    },
+    {
+     "lat": 44.49707,
+     "lon": 11.343324
     },
     {
      "lat": 44.49908,
@@ -206,12 +251,20 @@
      "lon": 11.343967
     },
     {
+     "lat": 44.499007,
+     "lon": 11.34422
+    },
+    {
      "lat": 44.499019,
      "lon": 11.344402
     },
     {
      "lat": 44.498822,
      "lon": 11.345428
+    },
+    {
+     "lat": 44.499012,
+     "lon": 11.345478
     },
     {
      "lat": 44.499639,
@@ -226,8 +279,16 @@
      "lon": 11.346824
     },
     {
+     "lat": 44.49997,
+     "lon": 11.347093
+    },
+    {
      "lat": 44.500385,
      "lon": 11.347302
+    },
+    {
+     "lat": 44.500001,
+     "lon": 11.348917
     },
     {
      "lat": 44.499271,
@@ -240,6 +301,10 @@
     {
      "lat": 44.499068,
      "lon": 11.352385
+    },
+    {
+     "lat": 44.499066,
+     "lon": 11.352481
     },
     {
      "lat": 44.499081,
@@ -274,12 +339,28 @@
      "lon": 11.354437
     },
     {
+     "lat": 44.495615,
+     "lon": 11.35377
+    },
+    {
      "lat": 44.495524,
      "lon": 11.353745
     },
     {
+     "lat": 44.495367,
+     "lon": 11.354357
+    },
+    {
+     "lat": 44.495363,
+     "lon": 11.354506
+    },
+    {
      "lat": 44.495196,
      "lon": 11.355234
+    },
+    {
+     "lat": 44.495156,
+     "lon": 11.355339
     },
     {
      "lat": 44.49479,
@@ -288,6 +369,10 @@
     {
      "lat": 44.494751,
      "lon": 11.356836
+    },
+    {
+     "lat": 44.49456,
+     "lon": 11.35685
     },
     {
      "lat": 44.494224,
@@ -322,6 +407,10 @@
      "lon": 11.357339
     },
     {
+     "lat": 44.490144,
+     "lon": 11.357223
+    },
+    {
      "lat": 44.490029,
      "lon": 11.357158
     },
@@ -336,6 +425,10 @@
     {
      "lat": 44.487431,
      "lon": 11.35767
+    },
+    {
+     "lat": 44.487372,
+     "lon": 11.356848
     },
     {
      "lat": 44.487004,
@@ -360,6 +453,14 @@
     {
      "lat": 44.484851,
      "lon": 11.355936
+    },
+    {
+     "lat": 44.484784,
+     "lon": 11.355859
+    },
+    {
+     "lat": 44.48467,
+     "lon": 11.355833
     },
     {
      "lat": 44.484611,
@@ -394,6 +495,10 @@
      "lon": 11.348427
     },
     {
+     "lat": 44.485718,
+     "lon": 11.348279
+    },
+    {
      "lat": 44.485714,
      "lon": 11.34813
     },
@@ -410,8 +515,16 @@
      "lon": 11.346513
     },
     {
+     "lat": 44.486301,
+     "lon": 11.345916
+    },
+    {
      "lat": 44.486507,
      "lon": 11.34552
+    },
+    {
+     "lat": 44.486798,
+     "lon": 11.345116
     },
     {
      "lat": 44.486985,
@@ -442,12 +555,32 @@
      "lon": 11.344676
     },
     {
+     "lat": 44.486648,
+     "lon": 11.34463
+    },
+    {
      "lat": 44.48598,
      "lon": 11.344454
     },
     {
+     "lat": 44.486058,
+     "lon": 11.343616
+    },
+    {
+     "lat": 44.486158,
+     "lon": 11.342863
+    },
+    {
+     "lat": 44.486244,
+     "lon": 11.341983
+    },
+    {
      "lat": 44.486518,
      "lon": 11.33981
+    },
+    {
+     "lat": 44.486664,
+     "lon": 11.339752
     },
     {
      "lat": 44.486817,
@@ -458,12 +591,20 @@
      "lon": 11.339715
     },
     {
+     "lat": 44.487602,
+     "lon": 11.339757
+    },
+    {
      "lat": 44.488051,
      "lon": 11.339786
     },
     {
      "lat": 44.488354,
      "lon": 11.339894
+    },
+    {
+     "lat": 44.488429,
+     "lon": 11.339971
     },
     {
      "lat": 44.488648,
@@ -490,8 +631,16 @@
      "lon": 11.339724
     },
     {
+     "lat": 44.488755,
+     "lon": 11.339686
+    },
+    {
      "lat": 44.488701,
      "lon": 11.339705
+    },
+    {
+     "lat": 44.488714,
+     "lon": 11.337948
     },
     {
      "lat": 44.48874,
@@ -500,6 +649,10 @@
     {
      "lat": 44.488597,
      "lon": 11.337709
+    },
+    {
+     "lat": 44.48857,
+     "lon": 11.337931
     },
     {
      "lat": 44.488567,
@@ -518,8 +671,16 @@
      "lon": 11.339535
     },
     {
+     "lat": 44.486669,
+     "lon": 11.339485
+    },
+    {
      "lat": 44.486594,
      "lon": 11.339419
+    },
+    {
+     "lat": 44.48736,
+     "lon": 11.337393
     },
     {
      "lat": 44.489784,
@@ -552,6 +713,14 @@
     {
      "lat": 44.491462,
      "lon": 11.331494
+    },
+    {
+     "lat": 44.491963,
+     "lon": 11.33188
+    },
+    {
+     "lat": 44.491956,
+     "lon": 11.33191
     },
     {
      "lat": 44.492067,
@@ -590,12 +759,20 @@
      "lon": 11.329407
     },
     {
+     "lat": 44.49478,
+     "lon": 11.328494
+    },
+    {
      "lat": 44.495658,
      "lon": 11.328242
     },
     {
      "lat": 44.495723,
      "lon": 11.328625
+    },
+    {
+     "lat": 44.497128,
+     "lon": 11.328172
     },
     {
      "lat": 44.497281,
@@ -612,6 +789,10 @@
     {
      "lat": 44.497338,
      "lon": 11.329491
+    },
+    {
+     "lat": 44.497417,
+     "lon": 11.329707
     },
     {
      "lat": 44.497451,
@@ -833,6 +1014,8 @@
    "ticket": {
     "price": 6.0,
     "howTo": "Buy and activate it on the Sosty website before you drive in, and wait for the confirmation. Max 3 per month per car.",
+    "howTo_it": "Compralo e attivalo sul sito Sosty prima di entrare e attendi la conferma. Massimo 3 al mese per auto.",
+    "howTo_de": "Vor der Einfahrt auf der Sosty-Website kaufen und aktivieren und die Bestätigung abwarten. Höchstens 3 pro Monat und Auto.",
     "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/ticket-accesso-ztl"
    },
    "source": {
@@ -842,27 +1025,44 @@
     "ordinanceURL": null,
     "quote": "tutti i giorni, dalle 7 alle 20",
     "quoteTranslation": "every day, from 7 am to 8 pm",
+    "quoteTranslation_de": "täglich von 7 bis 20 Uhr",
     "checkedOn": "2026-10-23T12:00:00Z",
     "reviewedByHuman": false,
     "pending": [
      "Public holidays: the city says \"every day\" without mentioning holidays; written confirmation still to be asked.",
      "The perimeter in the open data is from 2021: to compare with the current map."
     ],
+    "pending_it": [
+     "Festivi: il Comune scrive «tutti i giorni» senza citare i festivi; conferma scritta da chiedere.",
+     "Il perimetro nei dati aperti è del 2021: da confrontare con la mappa attuale."
+    ],
+    "pending_de": [
+     "Feiertage: Die Stadt schreibt «täglich», ohne Feiertage zu erwähnen; schriftliche Bestätigung steht aus.",
+     "Die Grenze in den offenen Daten ist von 2021: mit der aktuellen Karte zu vergleichen."
+    ],
     "links": [
      {
       "title": "City of Bologna: ZTL",
+      "title_it": "Comune di Bologna: ZTL",
+      "title_de": "Stadt Bologna: ZTL",
       "url": "https://www.comune.bologna.it/informazioni/zona-traffico-limitato-ztl"
      },
      {
       "title": "City of Bologna: ZTL day ticket",
+      "title_it": "Comune di Bologna: ticket giornaliero ZTL",
+      "title_de": "Stadt Bologna: ZTL-Tagesticket",
       "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/ticket-accesso-ztl"
      },
      {
       "title": "City of Bologna: hotel guests",
+      "title_it": "Comune di Bologna: clienti degli alberghi",
+      "title_de": "Stadt Bologna: Hotelgäste",
       "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/accesso-sosta-ztl-clienti-alberghi-autorimesse-autofficine"
      },
      {
       "title": "Open data: ZTL perimeter and gates (CC BY 4.0)",
+      "title_it": "Dati aperti: perimetro e varchi ZTL (CC BY 4.0)",
+      "title_de": "Offene Daten: ZTL-Grenze und Kameras (CC BY 4.0)",
       "url": "https://opendata.comune.bologna.it/explore/dataset/zona-a-traffico-limitato/"
      }
     ]
@@ -871,6 +1071,7 @@
   {
    "id": "bologna-t",
    "name": "Zona T · Rizzoli · Indipendenza · Ugo Bassi",
+   "kind": "restricted",
    "summary": "Closed to cars around the clock, also with a day ticket. Only authorised vehicles may enter.",
    "summary_it": "Chiusa alle auto 24 ore su 24, anche con il ticket giornaliero. Entrano solo i veicoli autorizzati.",
    "summary_de": "Rund um die Uhr für Autos gesperrt, auch mit Tagesticket. Nur berechtigte Fahrzeuge dürfen hinein.",
@@ -994,26 +1195,41 @@
     "ordinanceURL": null,
     "quote": "alcune zone limitate 24 ore su 24: le zone pedonali e l'area T",
     "quoteTranslation": "some zones are limited 24 hours a day: the pedestrian areas and Zona T",
+    "quoteTranslation_de": "einige Zonen sind rund um die Uhr beschränkt: die Fußgängerzonen und die Zone T",
     "checkedOn": "2026-10-23T12:00:00Z",
     "reviewedByHuman": false,
     "pending": [
      "Hotel guests: the hotel shows the allowed route; to be checked with the city."
     ],
+    "pending_it": [
+     "Ospiti degli hotel: l'hotel indica il percorso consentito; da verificare con il Comune."
+    ],
+    "pending_de": [
+     "Hotelgäste: Das Hotel zeigt den erlaubten Weg; mit der Stadt zu klären."
+    ],
     "links": [
      {
       "title": "City of Bologna: ZTL",
+      "title_it": "Comune di Bologna: ZTL",
+      "title_de": "Stadt Bologna: ZTL",
       "url": "https://www.comune.bologna.it/informazioni/zona-traffico-limitato-ztl"
      },
      {
       "title": "City of Bologna: ZTL day ticket",
+      "title_it": "Comune di Bologna: ticket giornaliero ZTL",
+      "title_de": "Stadt Bologna: ZTL-Tagesticket",
       "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/ticket-accesso-ztl"
      },
      {
       "title": "City of Bologna: hotel guests",
+      "title_it": "Comune di Bologna: clienti degli alberghi",
+      "title_de": "Stadt Bologna: Hotelgäste",
       "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/accesso-sosta-ztl-clienti-alberghi-autorimesse-autofficine"
      },
      {
       "title": "Open data: ZTL perimeter and gates (CC BY 4.0)",
+      "title_it": "Dati aperti: perimetro e varchi ZTL (CC BY 4.0)",
+      "title_de": "Offene Daten: ZTL-Grenze und Kameras (CC BY 4.0)",
       "url": "https://opendata.comune.bologna.it/explore/dataset/zona-a-traffico-limitato/"
      }
     ]

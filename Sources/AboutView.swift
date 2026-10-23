@@ -22,11 +22,11 @@ struct AboutView: View {
             }
             .font(.system(size: 14))
             ForEach(store.cities) { city in
-                Section(city.name) {
-                    if let license = city.license { Text(license).font(.system(size: 13)) }
-                    ForEach(Array(Set(city.zones.flatMap(\.source.links))).sorted { $0.title < $1.title }, id: \.self) { l in
+                Section(city.localizedName) {
+                    if let license = city.license { Text(L(license)).font(.system(size: 13)) }
+                    ForEach(Array(Set(city.zones.flatMap(\.source.links))).sorted { $0.localizedTitle < $1.localizedTitle }, id: \.self) { l in
                         Link(destination: l.url) {
-                            HStack { Text(l.title).font(.system(size: 14)).multilineTextAlignment(.leading); Spacer(); Image(systemName: "arrow.up.right").font(.system(size: 12)) }
+                            HStack { Text(l.localizedTitle).font(.system(size: 14)).multilineTextAlignment(.leading); Spacer(); Image(systemName: "arrow.up.right").font(.system(size: 12)) }
                         }
                     }
                 }

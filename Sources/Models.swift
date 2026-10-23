@@ -13,6 +13,9 @@ struct Coordinate: Codable, Hashable {
 struct City: Codable, Identifiable, Hashable {
     var id: String              // "firenze"
     var name: String            // "Florence"
+    var name_it: String?
+    var name_de: String?
+    var localizedName: String { pick(name, it: name_it, de: name_de) }
     var center: Coordinate
     var zones: [Zone]
     var status: Status
@@ -24,18 +27,18 @@ struct City: Codable, Identifiable, Hashable {
 
 struct Zone: Codable, Identifiable, Hashable {
     var id: String
-    var name: String            // "Historic Centre · Sector A"
+    var name: String            // "Sector A · Historic Centre"
+    var name_it: String?
+    var name_de: String?
+    var kind: ZoneKind?         // tipo di zona: colore sulla mappa e logica della risposta
+    /// Il nome nella lingua del telefono
+    var localizedName: String { pick(name, it: name_it, de: name_de) }
+    var type: ZoneKind { kind ?? (ticket != nil ? .pass : .restricted) }
     var summary: String         // il riassunto «In short», con parole nostre
     var summary_it: String?
     var summary_de: String?
     /// Il riassunto nella lingua del telefono, se c'è
-    var localizedSummary: String {
-        switch Locale.current.language.languageCode?.identifier {
-        case "it": summary_it ?? summary
-        case "de": summary_de ?? summary
-        default: summary
-        }
-    }
+    var localizedSummary: String { pick(summary, it: summary_it, de: summary_de) }
     var perimeter: [Coordinate]
     var gates: [Gate]
     var windows: [TimeWindow]   // quando i varchi sono accesi
@@ -46,11 +49,36 @@ struct Zone: Codable, Identifiable, Hashable {
     var source: Source
 }
 
+/// Rosso: accesso vietato senza permesso · giallo: si entra con il pass · verde: zona a basse emissioni
+enum ZoneKind: String, Codable, CaseIterable {
+    case restricted, pass, green
+    var title: String {
+        switch self {
+        case .restricted: L("No entry")
+        case .pass: L("Pass needed")
+        case .green: L("Green zone")
+        }
+    }
+}
+
+/// Il testo nella lingua del telefono, se c'è; altrimenti l'inglese
+func pick(_ en: String, it: String?, de: String?) -> String {
+    switch Locale.current.language.languageCode?.identifier {
+    case "it": it ?? en
+    case "de": de ?? en
+    default: en
+    }
+}
+
 /// Il biglietto d'ingresso di una ZTL a pagamento
 struct Ticket: Codable, Hashable {
     var price: Double           // euro
     var howTo: String           // come si paga, con parole nostre
+    var howTo_it: String?
+    var howTo_de: String?
     var url: URL?
+
+    var localizedHowTo: String { pick(howTo, it: howTo_it, de: howTo_de) }
 
     var priceText: String { price.formatted(.currency(code: "EUR")) }
 }
@@ -83,15 +111,41 @@ struct Source: Codable, Hashable {
     var ordinanceURL: URL?
     var quote: String?          // la frase originale, in italiano
     var quoteTranslation: String?
+    var quoteTranslation_de: String?
+    var pending_it: [String]?
+    var pending_de: [String]?
     var checkedOn: Date         // quando abbiamo letto le fonti
     var reviewedByHuman: Bool   // la promessa: nessuna scheda «verificata» senza un controllo umano
     var pending: [String]       // punti ancora da verificare, mostrati nella scheda
     var links: [SourceLink]
 }
 
+extension Source {
+    /// «City of Florence» → «Comune di Firenze»
+    var localizedAuthority: String { L(authority) }
+    /// La traduzione della frase del Comune (in italiano non serve: la frase è già italiana)
+    var localizedTranslation: String? {
+        switch Locale.current.language.languageCode?.identifier {
+        case "it": nil
+        case "de": quoteTranslation_de ?? quoteTranslation
+        default: quoteTranslation
+        }
+    }
+    var localizedPending: [String] {
+        switch Locale.current.language.languageCode?.identifier {
+        case "it": pending_it ?? pending
+        case "de": pending_de ?? pending
+        default: pending
+        }
+    }
+}
+
 struct SourceLink: Codable, Hashable {
     var title: String
+    var title_it: String?
+    var title_de: String?
     var url: URL
+    var localizedTitle: String { pick(title, it: title_it, de: title_de) }
 }
 
 enum Fuel: String, Codable, CaseIterable, Identifiable {
@@ -174,10 +228,39 @@ struct FineInfo: Codable {
 extension Zone {
     /// «B» da «Sector B · Historic Centre»
     var letter: String { name.split(separator: "·").first.map { String($0.split(separator: " ").last ?? "") } ?? "" }
-    /// «Historic Centre» da «Sector B · Historic Centre»
-    var place: String { name.split(separator: "·").dropFirst().joined(separator: "·").trimmingCharacters(in: .whitespaces) }
+    /// «Centro storico» da «Settore B · Centro storico»
+    var place: String { localizedName.split(separator: "·").dropFirst().joined(separator: "·").trimmingCharacters(in: .whitespaces) }
+    /// «Settore B», «Area C», «Zona T»
     var shortName: String {
-        let head = name.split(separator: "·").first.map { $0.trimmingCharacters(in: .whitespaces) } ?? name
-        return head.hasPrefix("Sector") ? String(format: L("Sector %@"), letter) : head
+        localizedName.split(separator: "·").first.map { $0.trimmingCharacters(in: .whitespaces) } ?? localizedName
+    }
+
+    /// Il punto è dentro il perimetro? (ray casting sulle coordinate)
+    func contains(lat: Double, lon: Double) -> Bool {
+        var inside = false
+        var j = perimeter.count - 1
+        for i in perimeter.indices {
+            let a = perimeter[i], b = perimeter[j]
+            if (a.lat > lat) != (b.lat > lat), lon < (b.lon - a.lon) * (lat - a.lat) / (b.lat - a.lat) + a.lon {
+                inside.toggle()
+            }
+            j = i
+        }
+        return inside
+    }
+
+    /// Area approssimata (gradi²): serve a scegliere il settore più piccolo quando sono uno dentro l'altro
+    var roughArea: Double {
+        var s = 0.0
+        var j = perimeter.count - 1
+        for i in perimeter.indices { s += (perimeter[j].lon + perimeter[i].lon) * (perimeter[j].lat - perimeter[i].lat); j = i }
+        return abs(s / 2)
+    }
+
+    /// Distanza approssimata in metri dal perimetro (0 se dentro)
+    func distance(lat: Double, lon: Double) -> Double {
+        if contains(lat: lat, lon: lon) { return 0 }
+        let k = cos(lat * .pi / 180)
+        return perimeter.map { p in hypot((p.lat - lat) * 111_000, (p.lon - lon) * 111_000 * k) }.min() ?? .infinity
     }
 }

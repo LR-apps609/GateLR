@@ -47,5 +47,5 @@ enum SampleData {
             pending: [],
             links: []))
 
-    static let rental = Vehicle(name: "Rental car", model: "Fiat 500", fuel: .petrol, euro: 6, plate: "", isRental: true)
+    static let rental = Vehicle(name: L("Rental car"), model: "Fiat 500", fuel: .petrol, euro: 6, plate: "", isRental: true)
 }

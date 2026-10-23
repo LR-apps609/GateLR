@@ -145,11 +145,59 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertFalse(engine.isActive(bo, at: date(2026, 10, 25, 21)))
         let a = engine.answer(zone: bo, vehicle: car, permits: [], hotelInside: false, at: date(2026, 10, 26, 10))
         guard case .conditional = a.verdict else { return XCTFail("Bologna: atteso biglietto, ottenuto \(a.verdict)") }
-        let mi = try XCTUnwrap(cities["milano"]?.zones.first)
+        let mi = try XCTUnwrap(cities["milano"]?.zones.first { $0.id == "milano-c" })
         XCTAssertTrue(engine.isActive(mi, at: date(2026, 10, 26, 10)))           // lunedì
         XCTAssertFalse(engine.isActive(mi, at: date(2026, 10, 24, 10)))          // sabato
         XCTAssertFalse(engine.isActive(mi, at: date(2026, 12, 8, 10)))           // Immacolata: festivi esclusi
         XCTAssertNotNil(mi.ticket)
+    }
+
+    private func bundledCities() throws -> [String: City] {
+        let dir = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Resources/Cities")
+        let files = try FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
+        var cities: [String: City] = [:]
+        for f in files { let c = try CityLoader.decode(Data(contentsOf: f)); cities[c.id] = c }
+        return cities
+    }
+
+    /// Area B di Milano: zona verde, con condizioni per le auto normali, sì per le elettriche
+    func testGreenZone() throws {
+        let b = try XCTUnwrap(try bundledCities()["milano"]?.zones.first { $0.id == "milano-b" })
+        XCTAssertEqual(b.type, .green)
+        let a = engine.answer(zone: b, vehicle: car, permits: [], hotelInside: false, at: date(2026, 10, 26, 10))
+        guard case .conditional = a.verdict else { return XCTFail("Area B: atteso con condizioni, ottenuto \(a.verdict)") }
+        var ev = car; ev.fuel = .electric
+        guard case .yes = engine.answer(zone: b, vehicle: ev, permits: [], hotelInside: false, at: date(2026, 10, 26, 10)).verdict
+        else { return XCTFail("Area B: elettrica attesa sì") }
+        XCTAssertFalse(engine.isActive(b, at: date(2026, 10, 25, 10)))     // domenica
+    }
+
+    /// Dall'indirizzo alla zona: il Duomo di Milano è in Area C (dentro Area B), Palazzo Vecchio in un settore di Firenze
+    func testZoneAtAddress() throws {
+        let cities = try bundledCities()
+        func zones(_ lat: Double, _ lon: Double) -> [Zone] {
+            cities.values.flatMap(\.zones).filter { $0.contains(lat: lat, lon: lon) }.sorted { $0.roughArea < $1.roughArea }
+        }
+        XCTAssertEqual(zones(45.4641, 9.1919).map(\.id), ["milano-c", "milano-b"])
+        XCTAssertEqual(zones(43.7696, 11.2558).first?.type, .restricted)
+        XCTAssertTrue(zones(43.7764, 11.2480).contains { $0.id.hasPrefix("firenze") })      // Santa Maria Novella
+        XCTAssertTrue(zones(41.9028, 12.4964).isEmpty)                                       // Roma: non ancora nell'app
+        let c = try XCTUnwrap(cities["milano"]?.zones.first { $0.id == "milano-c" })
+        XCTAssertEqual(c.distance(lat: 45.4641, lon: 9.1919), 0)
+        XCTAssertGreaterThan(c.distance(lat: 45.4850, lon: 9.2040), 300)                     // Stazione Centrale: fuori
+    }
+
+    func testCitiesAreTranslated() throws {
+        for city in try bundledCities().values {
+            XCTAssertNotNil(city.name_it, city.id)
+            for z in city.zones {
+                XCTAssertNotNil(z.summary_it, z.id); XCTAssertNotNil(z.summary_de, z.id)
+                XCTAssertNotNil(z.kind, z.id)
+                XCTAssertNotNil(z.source.pending_it, z.id)
+                XCTAssertNotNil(z.source.quoteTranslation_de, z.id)
+                if let t = z.ticket { XCTAssertNotNil(t.howTo_it, z.id) }
+            }
+        }
     }
 
     func testEaster() {

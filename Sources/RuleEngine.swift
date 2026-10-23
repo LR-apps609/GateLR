@@ -62,13 +62,18 @@ struct RuleEngine {
             return Answer(verdict: .conditional(reason: L("The gates are on."), condition: L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")),
                           gatesOn: true, nextChange: next)
         }
+        if zone.type == .green {
+            return Answer(verdict: .conditional(reason: L("The low-emission zone is active."),
+                                                condition: L("Most cars can enter; the most polluting can't. Check your car on the city's page.")),
+                          gatesOn: true, nextChange: next)
+        }
         if hotelInside && zone.hotelCanRegister {
             return Answer(verdict: .conditional(reason: L("The gates are on."), condition: L("You can drive to the hotel only if the hotel registers your plate with the city.")),
                           gatesOn: true, nextChange: next)
         }
         if let ticket = zone.ticket {
             return Answer(verdict: .conditional(reason: L("The gates are on."),
-                                                condition: String(format: L("You can enter with the day ticket (%@). %@"), ticket.priceText, ticket.howTo)),
+                                                condition: String(format: L("You can enter with the day ticket (%@). %@"), ticket.priceText, ticket.localizedHowTo)),
                           gatesOn: true, nextChange: next)
         }
         let off = next.map { " " + String(format: L("They switch off %@."), describe($0, from: date)) } ?? ""

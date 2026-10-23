@@ -8,3 +8,4 @@ Sources/Info.plist
 build-test/
 test.log
 Widget/Info.plist
+__pycache__/

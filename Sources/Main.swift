@@ -11,7 +11,18 @@ struct GateLRApp: App {
                 .environmentObject(store)
                 // Solo per il giro automatico delle foto: forza il tema scuro
                 .preferredColorScheme(ProcessInfo.processInfo.arguments.contains("-uiDark") ? .dark : nil)
-                .task { await GateMonitor.shared.startIfReady(store: store) }
+                .task {
+                    Self.uiTestPlace(store)
+                    await GateMonitor.shared.startIfReady(store: store)
+                }
         }
+    }
+
+    /// Solo per le foto automatiche: «-uiPlace "Duomo di Milano" 45.4641 9.1919» sceglie un posto senza cercarlo in rete
+    @MainActor private static func uiTestPlace(_ store: Store) {
+        let args = ProcessInfo.processInfo.arguments
+        guard let i = args.firstIndex(of: "-uiPlace"), args.count > i + 3,
+              let lat = Double(args[i + 2]), let lon = Double(args[i + 3]) else { return }
+        store.select(Place(name: args[i + 1], address: "", location: Coordinate(lat: lat, lon: lon)))
     }
 }

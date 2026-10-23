@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// «Garage»: veicoli, permessi, città salvate per l'uso offline.
+/// «Garage»: veicoli e permessi.
 struct GarageView: View {
     @EnvironmentObject var store: Store
     @State private var editing: Vehicle?
@@ -23,7 +23,7 @@ struct GarageView: View {
                             }
                             Spacer()
                             if v.id == store.vehicle.id {
-                                Pill(text: "In use", fill: Theme.blueSoft, ink: Theme.blue)
+                                Pill(text: L("In use"), fill: Theme.blueSoft, ink: Theme.blue)
                             } else {
                                 Button("Use") { store.activeVehicleId = v.id }.fontWeight(.semibold)
                             }
@@ -50,7 +50,7 @@ struct GarageView: View {
                                     store.permits[i].status = p.status == .confirmed ? .waiting : .confirmed
                                 }
                             } label: {
-                                Pill(text: p.status == .confirmed ? "Confirmed" : "Waiting",
+                                Pill(text: L(p.status == .confirmed ? "Confirmed" : "Waiting"),
                                      fill: p.status == .confirmed ? Theme.greenSoft : Theme.amberSoft,
                                      ink: p.status == .confirmed ? Theme.greenInk : Theme.amberInk)
                             }
@@ -62,30 +62,8 @@ struct GarageView: View {
                 }
 
                 Section {
-                    Stepper("Warn me \(Int(store.alertDistance)) m before a gate", value: $store.alertDistance, in: 200...1000, step: 100)
-                    Toggle("Gate alerts", isOn: $store.alertsOn)
-                } header: { Text("Alerts") } footer: {
-                    Text("Alerts work with the app closed for the saved cities. They need location access \"Always\".")
-                }
-
-                Section("Offline cities") {
-                    ForEach(store.cities) { c in
-                        HStack {
-                            Image(systemName: "checkmark").foregroundStyle(Theme.green)
-                            Text(c.name)
-                            Spacer()
-                            Text(c.status == .verified ? "saved" : c.status == .sample ? "sample data" : "draft · \(c.zones.count) zones").font(.system(size: 13)).foregroundStyle(Theme.muted)
-                        }
-                    }
-                }
-
-                Section("About GateLR") {
-                    NavigationLink {
-                        AboutView()
-                    } label: {
-                        Label("Sources, licences and disclaimer", systemImage: "info.circle")
-                    }
-                    LabeledContent("Version", value: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "–")
+                    Label("Soon: pick make and model from a list, with advice for your car in each city.", systemImage: "sparkles")
+                        .font(.system(size: 13)).foregroundStyle(Theme.muted)
                 }
             }
             .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 4) }
@@ -147,7 +125,7 @@ struct PermitForm: View {
                 Picker("Type", selection: $kind) { ForEach(Permit.Kind.allCases, id: \.self) { Text($0.label).tag($0) } }
                 DatePicker("From", selection: $from)
                 DatePicker("To", selection: $to, in: from...)
-                Text("For \(store.vehicle.name) in \(store.city.name)").foregroundStyle(Theme.muted)
+                Text(String(format: L("For %@ in %@"), store.vehicle.name, store.city.localizedName)).foregroundStyle(Theme.muted)
             }
             .navigationTitle("New permit")
             .toolbar {

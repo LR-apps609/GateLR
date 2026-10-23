@@ -1,5 +1,6 @@
 import WidgetKit
 import SwiftUI
+import AppIntents
 
 // Widget per la schermata Home e di blocco: lo stato dei varchi del settore scelto, adesso.
 // Calcola tutto sul telefono con gli stessi dati e lo stesso motore dell'app.
@@ -12,32 +13,64 @@ struct GateEntry: TimelineEntry {
     let next: Date?
 }
 
-struct GateProvider: TimelineProvider {
+/// Una zona da scegliere nelle impostazioni del widget (tieni premuto → Modifica widget)
+struct ZoneEntity: AppEntity {
+    static var typeDisplayRepresentation: TypeDisplayRepresentation = "ZTL zone"
+    static var defaultQuery = ZoneQuery()
+    var id: String
+    var name: String
+    var city: String
+    var displayRepresentation: DisplayRepresentation { DisplayRepresentation(title: "\(name)", subtitle: "\(city)") }
+
+    static func all() -> [ZoneEntity] {
+        CityLoader.bundled().flatMap { c in c.zones.map { ZoneEntity(id: $0.id, name: $0.localizedName, city: c.localizedName) } }
+    }
+}
+
+struct ZoneQuery: EntityQuery {
+    func entities(for identifiers: [String]) async throws -> [ZoneEntity] { ZoneEntity.all().filter { identifiers.contains($0.id) } }
+    func suggestedEntities() async throws -> [ZoneEntity] { ZoneEntity.all() }
+    func defaultResult() async -> ZoneEntity? { ZoneEntity.all().first { $0.id == "firenze-b" } ?? ZoneEntity.all().first }
+}
+
+struct SelectZoneIntent: WidgetConfigurationIntent {
+    static var title: LocalizedStringResource = "Choose the zone"
+    static var description = IntentDescription("The ZTL zone the widget shows.")
+    @Parameter(title: "Zone") var zone: ZoneEntity?
+}
+
+struct GateProvider: AppIntentTimelineProvider {
     private let engine = RuleEngine()
 
-    private func zone() -> (City, Zone)? {
+    private func zone(_ wanted: String?) -> (City, Zone)? {
         let cities = CityLoader.bundled()
-        guard let city = cities.first(where: { $0.id == "firenze" }) ?? cities.first else { return nil }
-        let wanted = UserDefaults.standard.string(forKey: "widget.zone") ?? "firenze-b"
-        return (city, city.zones.first { $0.id == wanted } ?? city.zones[0])
+        let id = wanted ?? "firenze-b"
+        if let city = cities.first(where: { $0.zones.contains { $0.id == id } }), let z = city.zones.first(where: { $0.id == id }) {
+            return (city, z)
+        }
+        guard let city = cities.first else { return nil }
+        return (city, city.zones[0])
     }
 
-    private func entry(at date: Date) -> GateEntry {
-        guard let pair = zone() else { return GateEntry(date: date, city: "–", zone: nil, on: false, next: nil) }
+    private func entry(at date: Date, zone wanted: String?) -> GateEntry {
+        guard let pair = zone(wanted) else { return GateEntry(date: date, city: "–", zone: nil, on: false, next: nil) }
         let (city, z) = pair
-        return GateEntry(date: date, city: city.name, zone: z, on: engine.isActive(z, at: date), next: engine.nextChange(z, after: date))
+        return GateEntry(date: date, city: city.localizedName, zone: z, on: engine.isActive(z, at: date), next: engine.nextChange(z, after: date))
     }
 
-    func placeholder(in context: Context) -> GateEntry { entry(at: Date()) }
-    func getSnapshot(in context: Context, completion: @escaping (GateEntry) -> Void) { completion(entry(at: Date())) }
+    func placeholder(in context: Context) -> GateEntry { entry(at: Date(), zone: nil) }
+    func snapshot(for configuration: SelectZoneIntent, in context: Context) async -> GateEntry {
+        entry(at: Date(), zone: configuration.zone?.id)
+    }
 
     /// Una voce adesso e una a ogni cambio di stato nelle prossime 24 ore
-    func getTimeline(in context: Context, completion: @escaping (Timeline<GateEntry>) -> Void) {
-        var entries = [entry(at: Date())]
+    func timeline(for configuration: SelectZoneIntent, in context: Context) async -> Timeline<GateEntry> {
+        let id = configuration.zone?.id
+        var entries = [entry(at: Date(), zone: id)]
         while let next = entries.last?.next, next < Date().addingTimeInterval(86_400), entries.count < 12 {
-            entries.append(entry(at: next))
+            entries.append(entry(at: next, zone: id))
         }
-        completion(Timeline(entries: entries, policy: .atEnd))
+        return Timeline(entries: entries, policy: .atEnd)
     }
 }
 
@@ -46,10 +79,10 @@ struct GateWidgetView: View {
     let entry: GateEntry
 
     private var letter: String { entry.zone?.letter ?? "–" }
-    private var state: String { entry.on ? "Gates on" : "Gates off" }
+    private var state: String { entry.on ? L("Gates on") : L("Gates off") }
     private var change: String {
         guard let next = entry.next else { return "" }
-        return "\(entry.on ? "Off" : "On") at \(next.formatted(date: .omitted, time: .shortened))"
+        return String(format: L(entry.on ? "Off at %@" : "On at %@"), next.formatted(date: .omitted, time: .shortened))
     }
     private var tint: Color { entry.on ? Color(hex: 0xC1272D) : Color(hex: 0x2B7A47) }
 
@@ -91,10 +124,10 @@ struct GateWidgetView: View {
 @main
 struct GateLRWidget: Widget {
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: "GateLRWidget", provider: GateProvider()) { entry in
+        AppIntentConfiguration(kind: "GateLRWidget", intent: SelectZoneIntent.self, provider: GateProvider()) { entry in
             GateWidgetView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
-                .widgetURL(URL(string: "gatelr://now"))
+                .widgetURL(URL(string: "gatelr://varco"))
         }
         .configurationDisplayName("ZTL gates")
         .description("Whether the gates of your sector are on, and when that changes.")

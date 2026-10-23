@@ -1,3 +1,17 @@
+Novità della 0.5.0 «Varco e Mappa»:
+• Prima scheda «Varco»: scegli la città e cerca un indirizzo o un hotel. Solo città = panoramica delle zone; indirizzo = risposta per quel punto, «Adesso» o «All'arrivo»
+• Fuori dalla ZTL: lo dice chiaro, con la distanza dalla zona più vicina
+• Viaggio: cerchi l'hotel e l'app capisce da sola se è in ZTL e in quale settore; viaggi salvati
+• Nuova scheda «Account»: avvisi (con avviso di prova), lingua, città offline, abbonamento (presto), informazioni, e «Cos'è una ZTL?» con cartello e pannello del varco disegnati
+• Garage più semplice: solo veicoli e permessi
+• Lingua coerente: nomi delle zone, riassunti, fonti, «da verificare», biglietti, widget e CarPlay in italiano e tedesco
+• Mappa: zone colorate per tipo (rosso «Accesso vietato», giallo «Pass necessario», verde «Zona verde»), scritte grandi da lontano che svaniscono avvicinandosi, lettere dei settori da vicino
+• Mappa: stili Mappa, Ibrida, Satellite, edifici 3D, «Vista strada» (Look Around di Apple dove c'è), tutte le città insieme
+• Perimetri più precisi (meno semplificati)
+• Milano Area B (zona verde, lun–ven 7:30–19:30, festivi esclusi), con 188 varchi
+• Widget configurabile: tieni premuto → Modifica widget → scegli la zona
+• Avvisi: si seguono i varchi più vicini a te
+
 Novità della 0.3.0 «Più professionale»:
 • Nuove città in bozza: Bologna (ZTL ogni giorno 7–20, ticket 6 €, zona T chiusa 24 ore) e Milano Area C (lun–ven 7:30–19:30, ticket 7,50 €)
 • ZTL a pagamento: «Sì, con il biglietto giornaliero», con prezzo e come pagare

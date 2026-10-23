@@ -5,7 +5,7 @@ import UserNotifications
 // Avvisi ad app chiusa: un cerchio attorno a ogni varco delle città salvate (CLMonitor, iOS 17).
 // Quando entri nel cerchio, GateLR calcola la risposta per quel momento e manda la notifica.
 @MainActor
-final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
     static let shared = GateMonitor()
 
     @Published private(set) var location: CLLocation?
@@ -29,6 +29,7 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
     func start(store: Store) async {
         self.store = store
         manager.delegate = self
+        UNUserNotificationCenter.current().delegate = self
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         guard store.alertsOn else { return }
@@ -39,7 +40,12 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.monitor = monitor
         for id in await monitor.identifiers { await monitor.remove(id) }
         let ordered = [store.city] + store.cities.filter { $0.id != store.city.id }
-        let gates = ordered.flatMap { c in c.zones.flatMap { z in z.gates.map { (z, $0) } } }
+        var gates = ordered.flatMap { c in c.zones.flatMap { z in z.gates.map { (z, $0) } } }
+        // Se sappiamo dove sei, i varchi più vicini a te (Area B di Milano da sola ne ha più di 180)
+        if let here = manager.location {
+            gates.sort { here.distance(from: CLLocation(latitude: $0.1.location.lat, longitude: $0.1.location.lon))
+                       < here.distance(from: CLLocation(latitude: $1.1.location.lat, longitude: $1.1.location.lon)) }
+        }
         for (zone, gate) in gates.prefix(maxRegions) {
             let condition = CLMonitor.CircularGeographicCondition(center: gate.location.cl, radius: store.alertDistance)
             await monitor.add(condition, identifier: "\(zone.id)|\(gate.id)", assuming: .unsatisfied)
@@ -49,6 +55,20 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
                 notify(identifier: event.identifier)
             }
         } catch {}
+    }
+
+    /// Un avviso di prova, dalla scheda Account: com'è fatto, senza aspettare un varco vero
+    func sendTest(store: Store) {
+        UNUserNotificationCenter.current().delegate = self
+        Task {
+            _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
+            let content = UNMutableNotificationContent()
+            content.title = String(format: L("ZTL gate in %lld m · it's ON"), Int(store.alertDistance))
+            content.body = (store.zone.gates.first?.name ?? store.zone.shortName) + ". " + L("Don't drive in. Tap for parking outside.")
+            content.sound = .default
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
+            try? await UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "test", content: content, trigger: trigger))
+        }
     }
 
     private func notify(identifier: String) {
@@ -71,6 +91,12 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
         content.sound = .default
         content.interruptionLevel = .timeSensitive
         UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: identifier, content: content, trigger: nil))
+    }
+
+    /// Anche con l'app aperta l'avviso si vede in alto
+    nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
+                                            withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound])
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

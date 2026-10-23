@@ -31,7 +31,7 @@ struct Wordmark: View {
     var body: some View {
         HStack(spacing: 10) {
             LogoMark(size: size * 1.5)
-            (Text("Gate").foregroundStyle(Theme.ink) + Text("LR").foregroundStyle(Theme.red))
+            (Text(verbatim: "Gate").foregroundStyle(Theme.ink) + Text(verbatim: "LR").foregroundStyle(Theme.red))
                 .font(Theme.display(size))
         }
         .accessibilityElement(children: .ignore)
@@ -121,7 +121,7 @@ struct VerdictCard: View {
                 Label(String(format: L(source.reviewedByHuman ? "Checked %@" : "Read %@"), source.checkedOn.formatted(.dateTime.day().month())),
                       systemImage: source.reviewedByHuman ? "checkmark.seal" : "doc.text.magnifyingglass")
                     .font(.system(size: 13)).opacity(0.92)
-                Text("· \(source.authority)").font(.system(size: 13)).opacity(0.92).lineLimit(1)
+                Text("· \(source.localizedAuthority)").font(.system(size: 13)).opacity(0.92).lineLimit(1)
                 Spacer()
                 if let onWhy {
                     Button(action: onWhy) {

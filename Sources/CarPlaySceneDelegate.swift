@@ -23,10 +23,10 @@ final class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegat
         let zone = store.zone
         let items = [
             CPInformationItem(title: answer.verdict.title, detail: detail(answer.verdict)),
-            CPInformationItem(title: zone.name, detail: answer.gatesOn ? "Gates are ON" : "Gates are off"),
-            CPInformationItem(title: "Source", detail: "\(zone.source.authority), checked \(zone.source.checkedOn.formatted(date: .abbreviated, time: .omitted))"),
+            CPInformationItem(title: zone.localizedName, detail: answer.gatesOn ? L("Gates on") : L("Gates off")),
+            CPInformationItem(title: L("Source"), detail: "\(zone.source.localizedAuthority) · " + String(format: L("Read %@"), zone.source.checkedOn.formatted(date: .abbreviated, time: .omitted))),
         ]
-        let refresh = CPTextButton(title: "Refresh", textStyle: .normal) { [weak self] _ in
+        let refresh = CPTextButton(title: L("Refresh"), textStyle: .normal) { [weak self] _ in
             Task { @MainActor in
                 guard let self else { return }
                 self.interfaceController?.setRootTemplate(self.template(), animated: false, completion: nil)

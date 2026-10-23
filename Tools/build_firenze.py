@@ -13,19 +13,25 @@ PORTE = "https://datigis.comune.fi.it/json/sas_porte_telematiche_od.json"
 CHECKED = "2026-10-23T12:00:00Z"
 
 OPEN_DATA = [
-    {"title": "Open data: ZTL perimeter (day)", "url": "https://opendata.comune.fi.it/page_dataset_show?id=9257a75e-3af3-4845-b37d-1540be29115a"},
-    {"title": "Open data: ZTL gates (porte telematiche)", "url": "https://opendata.comune.fi.it/page_dataset_show?id=0fe68709-c864-4e21-b18e-07ee3e9328e2"},
+    {"title": "Open data: ZTL perimeter (day)", "title_it": "Dati aperti: perimetro ZTL (diurna)", "title_de": "Offene Daten: ZTL-Grenze (Tag)", "url": "https://opendata.comune.fi.it/page_dataset_show?id=9257a75e-3af3-4845-b37d-1540be29115a"},
+    {"title": "Open data: ZTL gates (porte telematiche)", "title_it": "Dati aperti: porte telematiche ZTL", "title_de": "Offene Daten: ZTL-Kameratore", "url": "https://opendata.comune.fi.it/page_dataset_show?id=0fe68709-c864-4e21-b18e-07ee3e9328e2"},
 ]
 DAY_HOURS = {
     "title": "City of Florence, 30 Sept 2020: back to the usual hours",
+    "title_it": "Comune di Firenze, 30 settembre 2020: tornano gli orari di sempre",
+    "title_de": "Stadt Florenz, 30. Sept. 2020: wieder die üblichen Zeiten",
     "url": "https://www.comune.firenze.it/novita/notizie/ztl-dal-1deg-ottobre-torna-lorario-pre-covid-tutte-le-porte-telematiche",
 }
 DAY_START = {
     "title": "City of Florence, 15 June 2019: ZTL rules revised",
+    "title_it": "Comune di Firenze, 15 giugno 2019: revisione della disciplina ZTL",
+    "title_de": "Stadt Florenz, 15. Juni 2019: ZTL-Regeln überarbeitet",
     "url": "https://www.comune.firenze.it/istruzione/novita/area-stampa/comunicati-stampa/ztl-da-martedi-entra-vigore-la-revisione-della-disciplina-di",
 }
 NIGHT_2026 = {
     "title": "City of Florence, 31 March 2026: summer night ZTL",
+    "title_it": "Comune di Firenze, 31 marzo 2026: ZTL notturna estiva",
+    "title_de": "Stadt Florenz, 31. März 2026: Sommer-Nacht-ZTL",
     "url": "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/ztl-estiva-dal-primo-giovedi-di-aprile-torna-lo-stop-serale-2",
 }
 
@@ -45,6 +51,33 @@ NAMES = {
     "F": "Sector F · San Niccolò (summer nights)",
     "G": "Sector G · Piazza Piave – Cavalleggeri (summer nights)",
 }
+
+NAMES_IT = {
+    "A": "Settore A · Centro storico",
+    "B": "Settore B · Centro storico",
+    "O": "Settore O · Oltrarno",
+    "F": "Settore F · San Niccolò (notti d'estate)",
+    "G": "Settore G · Piazza Piave – Cavalleggeri (notti d'estate)",
+}
+NAMES_DE = {
+    "A": "Sektor A · Altstadt",
+    "B": "Sektor B · Altstadt",
+    "O": "Sektor O · Oltrarno",
+    "F": "Sektor F · San Niccolò (Sommernächte)",
+    "G": "Sektor G · Piazza Piave – Cavalleggeri (Sommernächte)",
+}
+
+PENDING_COMMON_IT = [
+    "Festivi: le pagine del Comune che abbiamo letto non dicono se i varchi sono spenti. Nei festivi l'app risponde «Non sicuro».",
+    "Gli orari esatti vengono dai comunicati del Comune; da confrontare con il disciplinare in vigore (Provv. Dir. 2011/M/04192 e aggiornamenti).",
+]
+PENDING_COMMON_DE = [
+    "Feiertage: Die gelesenen Seiten der Stadt sagen nicht, ob die Kameras aus sind. An Feiertagen antwortet die App «Nicht sicher».",
+    "Die genauen Zeiten stammen aus Pressemitteilungen der Stadt; noch mit der geltenden Regelung abzugleichen (Provv. Dir. 2011/M/04192 und Folgende).",
+]
+HOTEL_PENDING = "Hotel guests: SAS has a form for hotels to add plates; the current online procedure is still to be confirmed."
+HOTEL_PENDING_IT = "Ospiti degli hotel: SAS ha un modulo per comunicare le targhe; la procedura online attuale è da confermare."
+HOTEL_PENDING_DE = "Hotelgäste: SAS hat ein Formular, mit dem Hotels Kennzeichen melden; das aktuelle Online-Verfahren ist noch zu bestätigen."
 
 PENDING_COMMON = [
     "Public holidays: the city pages we read don't say whether the gates are off. The app answers \"Not sure\" on holidays.",
@@ -75,7 +108,7 @@ def simplify(points, tol):
 
 
 def ring(feature):
-    pts = simplify(feature["geometry"]["coordinates"][0], 0.00003)
+    pts = simplify(feature["geometry"]["coordinates"][0], 0.000008)
     return [{"lat": round(p[1], 6), "lon": round(p[0], 6)} for p in pts]
 
 
@@ -118,6 +151,9 @@ def main():
         zones.append({
             "id": f"firenze-{s.lower()}",
             "name": NAMES[s],
+            "name_it": NAMES_IT[s],
+            "name_de": NAMES_DE[s],
+            "kind": "restricted",
             "summary": summary,
             "summary_it": summary_it,
             "summary_de": summary_de,
@@ -136,15 +172,18 @@ def main():
                           else "apertura al transito alle 20 nei giorni feriali e dalle 16 il sabato"),
                 "quoteTranslation": ("from 11 pm on Thursday, Friday and Saturday to 3 am the next day" if summer_only
                                      else "open to traffic from 8 pm on weekdays and from 4 pm on Saturdays"),
+                "quoteTranslation_de": ("von 23 Uhr am Donnerstag, Freitag und Samstag bis 3 Uhr am nächsten Tag" if summer_only
+                                        else "Durchfahrt frei ab 20 Uhr an Werktagen und ab 16 Uhr am Samstag"),
                 "checkedOn": CHECKED,
                 "reviewedByHuman": False,
-                "pending": PENDING_COMMON + ([] if summer_only else [
-                    "Hotel guests: SAS has a form for hotels to add plates; the current online procedure is still to be confirmed."]),
+                "pending": PENDING_COMMON + ([] if summer_only else [HOTEL_PENDING]),
+                "pending_it": PENDING_COMMON_IT + ([] if summer_only else [HOTEL_PENDING_IT]),
+                "pending_de": PENDING_COMMON_DE + ([] if summer_only else [HOTEL_PENDING_DE]),
                 "links": ([NIGHT_2026] if summer_only else [DAY_HOURS, DAY_START, NIGHT_2026]) + OPEN_DATA,
             },
         })
 
-    city = {"id": "firenze", "name": "Florence", "center": {"lat": 43.7712, "lon": 11.2550},
+    city = {"id": "firenze", "name": "Florence", "name_it": "Firenze", "name_de": "Florenz", "center": {"lat": 43.7712, "lon": 11.2550},
             "zones": zones, "status": "draft",
             "license": "Perimeters and gates: Comune di Firenze open data, CC-BY 4.0"}
     out = Path(__file__).resolve().parent.parent / "Resources/Cities/firenze.json"

@@ -12,12 +12,13 @@ struct ZoneDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(zone.name).font(Theme.display(30))
+                    Text(zone.localizedName).font(Theme.display(30))
                     HStack(spacing: 8) {
-                        Pill(text: answer.gatesOn ? "Gates on" : "Gates off · you can enter",
+                        Pill(text: zone.type.title, fill: zone.type.color.opacity(0.16), ink: zone.type.color)
+                        Pill(text: answer.gatesOn ? L("Gates on") : L("Gates off · you can enter"),
                              fill: answer.gatesOn ? Theme.amberSoft : Theme.greenSoft,
                              ink: answer.gatesOn ? Theme.amberInk : Theme.greenInk)
-                        Text(city.name).font(.system(size: 13)).foregroundStyle(Theme.muted)
+                        Text(city.localizedName).font(.system(size: 13)).foregroundStyle(Theme.muted)
                     }
                     StatusBanner(status: city.status)
                 }
@@ -49,7 +50,7 @@ struct ZoneDetailView: View {
                         Text("«\(q)»").italic().font(.system(size: 14)).foregroundStyle(Color(hex: 0x3D454E))
                             .environment(\.locale, Locale(identifier: "it"))
                     }
-                    if let t = zone.source.quoteTranslation {
+                    if let t = zone.source.localizedTranslation {
                         Text("Translation: \(t)").font(.system(size: 13)).foregroundStyle(Theme.muted)
                     }
                     if let act = zone.source.ordinance, zone.source.ordinanceURL == nil {
@@ -58,7 +59,7 @@ struct ZoneDetailView: View {
                     Link(destination: zone.source.ordinanceURL ?? zone.source.pageURL) {
                         HStack {
                             Image(systemName: "doc.text")
-                            Text(zone.source.ordinanceURL != nil ? "\(zone.source.ordinance ?? "Ordinance") · PDF" : "Read it on the city's page").fontWeight(.semibold)
+                            Text(zone.source.ordinanceURL != nil ? "\(zone.source.ordinance ?? L("Ordinance")) · PDF" : L("Read it on the city's page")).fontWeight(.semibold)
                             Spacer()
                             Image(systemName: "arrow.up.right")
                         }
@@ -73,7 +74,7 @@ struct ZoneDetailView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         SectionLabel("Day ticket")
                         Text(ticket.priceText).font(Theme.display(34)).foregroundStyle(Theme.blue).monospacedDigit()
-                        Text(ticket.howTo).font(.system(size: 14))
+                        Text(ticket.localizedHowTo).font(.system(size: 14))
                         if let url = ticket.url {
                             Link(destination: url) { Label("How to pay", systemImage: "arrow.up.right") }.font(.system(size: 14, weight: .semibold))
                         }
@@ -98,10 +99,10 @@ struct ZoneDetailView: View {
                     .padding(14).card()
                 }
 
-                if !zone.source.pending.isEmpty {
+                if !zone.source.localizedPending.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
                         SectionLabel("Still to check")
-                        ForEach(zone.source.pending, id: \.self) { item in
+                        ForEach(zone.source.localizedPending, id: \.self) { item in
                             Label(item, systemImage: "questionmark.circle").font(.system(size: 14))
                         }
                     }
@@ -115,7 +116,7 @@ struct ZoneDetailView: View {
                         SectionLabel("Sources").padding(.horizontal, 14).padding(.top, 12).padding(.bottom, 4)
                         ForEach(zone.source.links, id: \.self) { l in
                             Link(destination: l.url) {
-                                HStack { Text(l.title).multilineTextAlignment(.leading); Spacer(); Image(systemName: "arrow.up.right") }
+                                HStack { Text(l.localizedTitle).multilineTextAlignment(.leading); Spacer(); Image(systemName: "arrow.up.right") }
                                     .font(.system(size: 14)).padding(.horizontal, 14).padding(.vertical, 10)
                             }
                         }
@@ -124,15 +125,16 @@ struct ZoneDetailView: View {
                 }
 
                 Label {
-                    Text(zone.source.reviewedByHuman
-                         ? "Checked by a person on \(zone.source.checkedOn.formatted(date: .long, time: .omitted)). Road signs on site always win over the app."
-                         : "Read from official sources on \(zone.source.checkedOn.formatted(date: .long, time: .omitted)), not yet reviewed by a person. Road signs on site always win over the app.")
+                    Text(String(format: L(zone.source.reviewedByHuman
+                         ? "Checked by a person on %@. Road signs on site always win over the app."
+                         : "Read from official sources on %@, not yet reviewed by a person. Road signs on site always win over the app."),
+                         zone.source.checkedOn.formatted(date: .long, time: .omitted)))
                 } icon: {
                     Image(systemName: zone.source.reviewedByHuman ? "checkmark.circle" : "clock").foregroundStyle(zone.source.reviewedByHuman ? Theme.green : Theme.amber)
                 }
                 .font(.system(size: 13)).foregroundStyle(Theme.muted)
                 if let license = city.license {
-                    Text(license).font(.system(size: 12)).foregroundStyle(Theme.muted)
+                    Text(L(license)).font(.system(size: 12)).foregroundStyle(Theme.muted)
                 }
             }
             .padding(20)
@@ -147,7 +149,8 @@ struct ZoneDetailView: View {
     /// Le fasce raggruppate per orario: «Monday – Friday 7:30 am – 8:00 pm»
     private var scheduleRows: [Row] {
         let names = Calendar.current.weekdaySymbols   // 0 = domenica
-        let f = DateFormatter(); f.dateFormat = "h:mm a"; f.locale = Locale(identifier: "en_GB")
+        // Orari nel formato del telefono (in Italia e in Germania 24 ore)
+        let f = DateFormatter(); f.timeStyle = .short; f.dateStyle = .none
         func time(_ m: Int) -> String {
             f.string(from: Calendar.current.date(bySettingHour: m / 60 % 24, minute: m % 60, second: 0, of: Date())!).lowercased()
         }
@@ -158,17 +161,18 @@ struct ZoneDetailView: View {
                 ? "\(names[days.first! - 1]) – \(names[days.last! - 1])"
                 : days.map { names[$0 - 1] }.joined(separator: ", ")
             let season = w.season.map { s in
-                let f = DateFormatter(); f.dateFormat = "d MMM"; f.locale = Locale(identifier: "en_GB")
+                let f = DateFormatter(); f.setLocalizedDateFormatFromTemplate("d MMM")
                 let c = Calendar(identifier: .gregorian)
                 let a = c.date(from: DateComponents(year: 2026, month: s.fromMonth, day: s.fromDay))!
                 let b = c.date(from: DateComponents(year: 2026, month: s.toMonth, day: s.toDay))!
                 return " (\(f.string(from: a)) – \(f.string(from: b)))"
             } ?? ""
-            return Row(days: label + season, hours: "\(time(w.start)) – \(time(w.end))")
+            let hours = w.start == 0 && w.end >= 24 * 60 ? L("all day") : "\(time(w.start)) – \(time(w.end))"
+            return Row(days: label + season, hours: hours)
         }
         let covered = Set(zone.windows.filter { $0.season == nil }.flatMap(\.weekdays))
         let free = order.filter { !covered.contains($0) }.map { names[$0 - 1] }
-        let holidays = zone.freeOnHolidays == true ? ["holidays"] : []
+        let holidays = zone.freeOnHolidays == true ? [L("holidays")] : []
         if !free.isEmpty || !holidays.isEmpty {
             rows.append(Row(days: (free + holidays).joined(separator: ", ").capitalizedFirst, hours: L("open to all"), free: true))
         }
