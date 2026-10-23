@@ -71,11 +71,12 @@ jobs:
             -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
             CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" > ui.log 2>&1 || status=$?
           grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true
+          grep -E "error:|Test Case .*failed" ui.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
           ls -la screenshots || true
           exit $status
 
       - name: Pubblica le foto nel ramo «screenshots»
-        if: github.ref == 'refs/heads/main'
+        if: always() && github.ref == 'refs/heads/main'
         run: |
           mkdir -p screenshots
           # Se il test non ha potuto scrivere le foto, si prendono dagli allegati del risultato
