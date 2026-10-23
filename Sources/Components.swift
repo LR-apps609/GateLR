@@ -105,7 +105,7 @@ struct VerdictCard: View {
                     .frame(width: 56, height: 56)
                     .background(v.badgeFill, in: Circle())
                     .accessibilityHidden(true)
-                VStack(alignment: .leading, spacing: -7) {
+                VStack(alignment: .leading, spacing: -15) {
                     ForEach(v.titleLines, id: \.self) { line in
                         Text(line).font(Theme.display(36)).lineLimit(1).minimumScaleFactor(0.6)
                     }
