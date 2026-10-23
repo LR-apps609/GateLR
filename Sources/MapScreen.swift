@@ -328,8 +328,12 @@ extension Zone {
     /// Larghezza approssimata in metri: le scritte delle zone piccole compaiono solo da vicino
     var widthMeters: Double {
         let lats = perimeter.map(\.lat), lons = perimeter.map(\.lon)
-        let k = cos(((lats.min() ?? 0) + (lats.max() ?? 0)) / 2 * .pi / 180)
-        return max(((lats.max() ?? 0) - (lats.min() ?? 0)) * 111_000, ((lons.max() ?? 0) - (lons.min() ?? 0)) * 111_000 * k)
+        let latLo: Double = lats.min() ?? 0, latHi: Double = lats.max() ?? 0
+        let lonLo: Double = lons.min() ?? 0, lonHi: Double = lons.max() ?? 0
+        let k: Double = cos((latLo + latHi) / 2 * Double.pi / 180)
+        let tall: Double = (latHi - latLo) * 111_000
+        let wide: Double = (lonHi - lonLo) * 111_000 * k
+        return max(tall, wide)
     }
 
     func region(padding: Double) -> MKCoordinateRegion {
