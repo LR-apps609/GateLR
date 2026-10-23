@@ -43,6 +43,10 @@ struct RuleEngine {
             return Answer(verdict: .unsure(reason: "This zone hasn't been checked for \(age) days. Look at the city's page before driving in."),
                           gatesOn: on, nextChange: next)
         }
+        if zone.freeOnHolidays == nil && ItalianHolidays.isHoliday(date, calendar: calendar) && isActive(zone, at: date, ignoringHolidays: true) {
+            return Answer(verdict: .unsure(reason: "It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate."),
+                          gatesOn: true, nextChange: next)
+        }
         guard on else {
             let until = next.map { " The gates switch back on \(describe($0, from: date))." } ?? ""
             return Answer(verdict: .yes(reason: "The gates are off.\(until)"), gatesOn: false, nextChange: next)
@@ -68,8 +72,8 @@ struct RuleEngine {
 
     // MARK: Orari
 
-    func isActive(_ zone: Zone, at date: Date) -> Bool {
-        if zone.freeOnHolidays && ItalianHolidays.isHoliday(date, calendar: calendar) { return false }
+    func isActive(_ zone: Zone, at date: Date, ignoringHolidays: Bool = false) -> Bool {
+        if !ignoringHolidays && zone.freeOnHolidays == true && ItalianHolidays.isHoliday(date, calendar: calendar) { return false }
         let weekday = calendar.component(.weekday, from: date)
         let minute = calendar.component(.hour, from: date) * 60 + calendar.component(.minute, from: date)
         let yesterday = weekday == 1 ? 7 : weekday - 1

@@ -1,7 +1,7 @@
 import Foundation
 
 // DATI DI ESEMPIO, non verificati: servono a far girare l'app finché non arrivano le schede vere.
-// Ogni città di esempio ha isSample = true e l'app lo dice in chiaro.
+// Ogni città di esempio ha status = .sample e l'app lo dice in chiaro. Usati dai test e se manca Resources/Cities.
 
 enum SampleData {
     static let florence = City(
@@ -9,7 +9,8 @@ enum SampleData {
         name: "Florence",
         center: Coordinate(lat: 43.7731, lon: 11.2560),
         zones: [sectorA],
-        isSample: true)
+        status: .sample,
+        license: nil)
 
     static let sectorA = Zone(
         id: "firenze-a",
@@ -41,7 +42,10 @@ enum SampleData {
             ordinanceURL: nil,
             quote: "[Frase originale dell'ordinanza, in italiano.]",
             quoteTranslation: "[The same sentence in English.]",
-            checkedOn: Date()))
+            checkedOn: Date(),
+            reviewedByHuman: false,
+            pending: [],
+            links: []))
 
     static let rental = Vehicle(name: "Rental car", model: "Fiat 500", fuel: .petrol, euro: 6, plate: "", isRental: true)
 }

@@ -14,7 +14,7 @@ struct NowView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     header
-                    if store.city.isSample { SampleBanner() }
+                    StatusBanner(status: store.city.status)
                     vehicleRow
                     VerdictCard(answer: answer,
                                 heading: "Right now · \(ctx.date.formatted(date: .omitted, time: .shortened))",
@@ -37,9 +37,9 @@ struct NowView: View {
                 .font(Theme.display(24))
             Spacer()
             Menu {
-                ForEach(store.cities) { c in Button(c.name) { store.cityId = c.id } }
+                ForEach(store.city.zones) { z in Button(z.name) { store.zoneId = z.id } }
             } label: {
-                Label(store.city.name, systemImage: "mappin")
+                Label("\(store.city.name) · \(store.zone.id.split(separator: "-").last!.uppercased())", systemImage: "mappin")
                     .font(.system(size: 14, weight: .semibold))
                     .padding(.horizontal, 14).frame(height: 36)
                     .background(Theme.card, in: Capsule())

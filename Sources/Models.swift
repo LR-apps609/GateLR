@@ -15,7 +15,11 @@ struct City: Codable, Identifiable, Hashable {
     var name: String            // "Florence"
     var center: Coordinate
     var zones: [Zone]
-    var isSample = false        // dati di esempio, non verificati
+    var status: Status
+    var license: String?
+
+    /// sample = dati inventati; draft = presi dalle fonti ufficiali ma non ancora rivisti da una persona
+    enum Status: String, Codable { case sample, draft, verified }
 }
 
 struct Zone: Codable, Identifiable, Hashable {
@@ -25,7 +29,7 @@ struct Zone: Codable, Identifiable, Hashable {
     var perimeter: [Coordinate]
     var gates: [Gate]
     var windows: [TimeWindow]   // quando i varchi sono accesi
-    var freeOnHolidays: Bool
+    var freeOnHolidays: Bool?   // nil = non sappiamo: nei festivi la risposta è «non sicuro»
     var exemptFuels: Set<Fuel>  // es. elettriche ammesse
     var hotelCanRegister: Bool  // l'hotel dentro la zona può comunicare la targa
     var source: Source
@@ -59,7 +63,15 @@ struct Source: Codable, Hashable {
     var ordinanceURL: URL?
     var quote: String?          // la frase originale, in italiano
     var quoteTranslation: String?
-    var checkedOn: Date
+    var checkedOn: Date         // quando abbiamo letto le fonti
+    var reviewedByHuman: Bool   // la promessa: nessuna scheda «verificata» senza un controllo umano
+    var pending: [String]       // punti ancora da verificare, mostrati nella scheda
+    var links: [SourceLink]
+}
+
+struct SourceLink: Codable, Hashable {
+    var title: String
+    var url: URL
 }
 
 enum Fuel: String, Codable, CaseIterable, Identifiable {

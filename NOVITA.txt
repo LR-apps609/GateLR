@@ -1,3 +1,11 @@
+Novità della 0.2.0 «Firenze vera»:
+• Firenze dai dati aperti del Comune (CC-BY 4.0): perimetri dei settori A, B, O e dei settori estivi F, G, con i varchi telematici
+• Orari dalle pagine ufficiali del Comune: feriali 7:30–20, sabato 7:30–16; ZTL notturna estiva 2026 giovedì–sabato 23–3, dal 2 aprile al 3 ottobre
+• La scheda zona mostra le fonti e cosa resta «da verificare»; nei festivi, finché non è confermato, la risposta è «Not sure»
+• Scheda «Draft»: dati presi dalle fonti ufficiali ma non ancora rivisti da una persona
+• Titoli con il carattere Titillium Web
+• Sulla mappa tutti i settori; si sceglie il settore dal menu
+
 Novità della 0.1.0 «Prima bozza»:
 • Quattro schede: Now, Map, Trip, Garage
 • «Can I enter?» con quattro risposte: sì, no, con condizioni, non sicuro

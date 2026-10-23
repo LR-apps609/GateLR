@@ -86,6 +86,35 @@ final class RuleEngineTests: XCTestCase {
         guard case .unsure = a.verdict else { return XCTFail("atteso non sicuro, ottenuto \(a.verdict)") }
     }
 
+    func testUnknownHolidayIsUnsure() {
+        var z = zone
+        z.freeOnHolidays = nil
+        let a = engine.answer(zone: z, vehicle: car, permits: [], hotelInside: false, at: date(2026, 12, 8, 10))
+        guard case .unsure = a.verdict else { return XCTFail("atteso non sicuro, ottenuto \(a.verdict)") }
+        // fuori orario, anche di festa, la risposta resta «sì»
+        let b = engine.answer(zone: z, vehicle: car, permits: [], hotelInside: false, at: date(2026, 12, 8, 21))
+        guard case .yes = b.verdict else { return XCTFail("atteso sì, ottenuto \(b.verdict)") }
+    }
+
+    /// Il file di Firenze incluso nell'app si legge e dà le risposte attese
+    func testFlorenceFile() throws {
+        let url = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
+            .appendingPathComponent("Resources/Cities/firenze.json")
+        let city = try CityLoader.decode(Data(contentsOf: url))
+        XCTAssertEqual(city.status, .draft)
+        XCTAssertEqual(Set(city.zones.map(\.id)), ["firenze-a", "firenze-b", "firenze-o", "firenze-f", "firenze-g"])
+        let b = try XCTUnwrap(city.zones.first { $0.id == "firenze-b" })
+        let g = try XCTUnwrap(city.zones.first { $0.id == "firenze-g" })
+        XCTAssertFalse(b.gates.isEmpty)
+        XCTAssertGreaterThan(b.perimeter.count, 10)
+        XCTAssertTrue(engine.isActive(b, at: date(2026, 10, 26, 10)))       // lunedì mattina
+        XCTAssertFalse(engine.isActive(b, at: date(2026, 10, 26, 20, 30)))  // lunedì sera
+        XCTAssertTrue(engine.isActive(b, at: date(2026, 7, 4, 1, 0)))       // notte estiva, sabato
+        XCTAssertFalse(engine.isActive(b, at: date(2026, 10, 10, 1, 0)))    // estate finita il 3 ottobre
+        XCTAssertTrue(engine.isActive(g, at: date(2026, 6, 5, 23, 30)))     // G solo d'estate, venerdì notte
+        XCTAssertFalse(engine.isActive(g, at: date(2026, 10, 26, 10)))
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)

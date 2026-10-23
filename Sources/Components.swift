@@ -85,7 +85,7 @@ struct VerdictCard: View {
             Text(detail).font(.system(size: 16)).fixedSize(horizontal: false, vertical: true)
             Divider().overlay(v.onFill.opacity(0.3))
             HStack {
-                Text("Checked \(source.checkedOn.formatted(.dateTime.day().month())) · \(source.authority)")
+                Text("\(source.reviewedByHuman ? "Checked" : "Read") \(source.checkedOn.formatted(.dateTime.day().month())) · \(source.authority)")
                     .font(.system(size: 13)).opacity(0.92)
                 Spacer()
                 Button("Why?", action: onWhy).font(.system(size: 13, weight: .semibold)).underline().foregroundStyle(v.onFill)
@@ -105,12 +105,16 @@ struct VerdictCard: View {
     }
 }
 
-struct SampleBanner: View {
+struct StatusBanner: View {
+    var status: City.Status
     var body: some View {
-        Label("Sample data, not verified", systemImage: "exclamationmark.triangle.fill")
+        if status != .verified {
+            Label(status == .sample ? "Sample data, not real" : "Draft: from official sources, not yet reviewed by a person",
+                  systemImage: "exclamationmark.triangle.fill")
             .font(.system(size: 13, weight: .semibold))
             .foregroundStyle(Theme.amberInk)
             .padding(.horizontal, 12).padding(.vertical, 6)
-            .background(Theme.amberSoft, in: Capsule())
+            .background(Theme.amberSoft, in: RoundedRectangle(cornerRadius: 12))
+        }
     }
 }

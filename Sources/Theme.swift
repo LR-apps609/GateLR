@@ -17,9 +17,10 @@ enum Theme {
     static let amberSoft = Color(hex: 0xFBECC8)
     static let amberInk = Color(hex: 0x5C3C00)
 
-    /// Titoli: pesanti e stretti come i cartelli (Titillium Web quando sarà incluso nell'app)
+    /// Titoli: Titillium Web, il carattere dei cartelli (licenza OFL, in Resources/Fonts)
     static func display(_ size: CGFloat, _ weight: Font.Weight = .bold) -> Font {
-        .system(size: size, weight: weight, design: .default)
+        let name = weight == .black ? "TitilliumWeb-Black" : weight == .semibold ? "TitilliumWeb-SemiBold" : "TitilliumWeb-Bold"
+        return .custom(name, size: size)
     }
 }
 

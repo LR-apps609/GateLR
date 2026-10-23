@@ -2,7 +2,7 @@
 
 **Know before the gate.** Ogni ZTL d'Italia spiegata in modo chiaro, nella lingua di chi guida, con il link alla pagina ufficiale del Comune che lo dimostra. App per iPhone (SwiftUI, iOS 17 o successivo), in inglese.
 
-> ⚠️ Versione 0.1: i dati di Firenze dentro l'app sono **di esempio**, non verificati. L'app lo scrive in chiaro.
+> ⚠️ Versione 0.2: Firenze è presa dai dati aperti e dalle pagine ufficiali del Comune, ma è ancora una **bozza** non rivista da una persona. L'app lo scrive in chiaro e mostra cosa resta da verificare.
 
 ## Come è fatto
 
@@ -21,6 +21,8 @@
 | `Sources/Theme.swift`, `Components.swift` | Colori della segnaletica, logo, riquadro della risposta |
 | `Tests/RuleEngineTests.swift` | Test del motore delle regole |
 | `Tools/make_icon.py` | Ridisegna l'icona (Pillow) |
+| `Tools/build_firenze.py` | Scarica i dati aperti di Firenze e costruisce `Resources/Cities/firenze.json` |
+| `Resources/Fonts` | Titillium Web (SIL Open Font License) |
 | `docs/ricerca-citta.md` | Ricerca sulle fonti ufficiali delle prime città |
 
 ## Compilazione e prove
@@ -30,8 +32,8 @@
 
 ## Percorso
 
-1. **Bozza** (0.1): quattro schede, motore delle regole, avvisi, CarPlay di base ← *siamo qui*
-2. **Prime città vere**: Firenze, Roma, Bologna, Milano, Verona dai dati aperti ufficiali, con verifica umana
+1. **Bozza** (0.1): quattro schede, motore delle regole, avvisi, CarPlay di base
+2. **Prime città vere**: Firenze (0.2, bozza da rivedere) ← *siamo qui*; poi Roma, Bologna, Milano, Verona, con verifica umana
 3. **Offline e aggiornamenti**: città scaricabili, controllo automatico delle pagine comunali
 4. **CarPlay e App Store**: richiesta dell'autorizzazione CarPlay, Pass viaggio, lingue
 5. **Sito** per la pubblicazione

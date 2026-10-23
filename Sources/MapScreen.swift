@@ -13,10 +13,12 @@ struct MapScreen: View {
         let zone = store.zone
         let on = store.answer().gatesOn
         Map(position: $camera) {
-            MapPolygon(coordinates: zone.perimeter.map(\.cl))
-                .foregroundStyle(Theme.red.opacity(0.12))
-                .stroke(Theme.red, style: StrokeStyle(lineWidth: 3, dash: [8, 5]))
-            ForEach(zone.gates) { g in
+            ForEach(store.city.zones) { z in
+                MapPolygon(coordinates: z.perimeter.map(\.cl))
+                    .foregroundStyle(Theme.red.opacity(z.id == zone.id ? 0.16 : 0.05))
+                    .stroke(Theme.red.opacity(z.id == zone.id ? 1 : 0.4), style: StrokeStyle(lineWidth: z.id == zone.id ? 3 : 1.5, dash: [8, 5]))
+            }
+            ForEach(store.city.zones.flatMap(\.gates)) { g in
                 Annotation(g.name, coordinate: g.location.cl) {
                     Circle().fill(on ? Theme.red : .white)
                         .overlay(Circle().stroke(on ? .white : Theme.green, lineWidth: 4))
@@ -59,8 +61,13 @@ struct MapScreen: View {
         return VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(zone.name).font(Theme.display(22))
-                    Text("\(store.city.name) · \(zone.gates.count) gates, all \(on ? "on" : "off")")
+                    Menu {
+                        ForEach(store.city.zones) { z in Button(z.name) { store.zoneId = z.id } }
+                    } label: {
+                        HStack(spacing: 4) { Text(zone.name).font(Theme.display(22)).multilineTextAlignment(.leading); Image(systemName: "chevron.down").font(.system(size: 13, weight: .bold)) }
+                            .foregroundStyle(Theme.ink)
+                    }
+                    Text("\(store.city.name) · \(zone.gates.count) gates, \(on ? "on" : "off")")
                         .font(.system(size: 14)).foregroundStyle(Theme.muted)
                 }
                 Spacer()

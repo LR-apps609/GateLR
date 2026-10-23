@@ -67,7 +67,7 @@ struct GarageView: View {
                             Image(systemName: "checkmark").foregroundStyle(Theme.green)
                             Text(c.name)
                             Spacer()
-                            Text(c.isSample ? "sample data" : "saved").font(.system(size: 13)).foregroundStyle(Theme.muted)
+                            Text(c.status == .verified ? "saved" : c.status == .sample ? "sample data" : "draft · \(c.zones.count) zones").font(.system(size: 13)).foregroundStyle(Theme.muted)
                         }
                     }
                 }

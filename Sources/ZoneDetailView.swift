@@ -19,7 +19,7 @@ struct ZoneDetailView: View {
                              ink: answer.gatesOn ? Theme.amberInk : Theme.greenInk)
                         Text(city.name).font(.system(size: 13)).foregroundStyle(Theme.muted)
                     }
-                    if city.isSample { SampleBanner() }
+                    StatusBanner(status: city.status)
                 }
 
                 VStack(alignment: .leading, spacing: 6) {
@@ -66,12 +66,42 @@ struct ZoneDetailView: View {
                 }
                 .padding(14).card()
 
+                if !zone.source.pending.isEmpty {
+                    VStack(alignment: .leading, spacing: 8) {
+                        SectionLabel("Still to check")
+                        ForEach(zone.source.pending, id: \.self) { item in
+                            Label(item, systemImage: "questionmark.circle").font(.system(size: 14))
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(14).background(Theme.amberSoft, in: RoundedRectangle(cornerRadius: 14))
+                    .foregroundStyle(Theme.amberInk)
+                }
+
+                if !zone.source.links.isEmpty {
+                    VStack(alignment: .leading, spacing: 0) {
+                        SectionLabel("Sources").padding(.horizontal, 14).padding(.top, 12).padding(.bottom, 4)
+                        ForEach(zone.source.links, id: \.self) { l in
+                            Link(destination: l.url) {
+                                HStack { Text(l.title).multilineTextAlignment(.leading); Spacer(); Image(systemName: "arrow.up.right") }
+                                    .font(.system(size: 14)).padding(.horizontal, 14).padding(.vertical, 10)
+                            }
+                        }
+                    }
+                    .card()
+                }
+
                 Label {
-                    Text("Checked by a person on \(zone.source.checkedOn.formatted(date: .long, time: .omitted)). Road signs on site always win over the app.")
+                    Text(zone.source.reviewedByHuman
+                         ? "Checked by a person on \(zone.source.checkedOn.formatted(date: .long, time: .omitted)). Road signs on site always win over the app."
+                         : "Read from official sources on \(zone.source.checkedOn.formatted(date: .long, time: .omitted)), not yet reviewed by a person. Road signs on site always win over the app.")
                 } icon: {
-                    Image(systemName: "checkmark.circle").foregroundStyle(Theme.green)
+                    Image(systemName: zone.source.reviewedByHuman ? "checkmark.circle" : "clock").foregroundStyle(zone.source.reviewedByHuman ? Theme.green : Theme.amber)
                 }
                 .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                if let license = city.license {
+                    Text(license).font(.system(size: 12)).foregroundStyle(Theme.muted)
+                }
             }
             .padding(20)
         }
@@ -94,13 +124,23 @@ struct ZoneDetailView: View {
             let label = days.count > 2 && days == Array(order[order.firstIndex(of: days[0])!..<order.firstIndex(of: days[0])! + days.count])
                 ? "\(names[days.first! - 1]) – \(names[days.last! - 1])"
                 : days.map { names[$0 - 1] }.joined(separator: ", ")
-            return Row(days: label, hours: "\(time(w.start)) – \(time(w.end))")
+            let season = w.season.map { s in
+                let f = DateFormatter(); f.dateFormat = "d MMM"; f.locale = Locale(identifier: "en_GB")
+                let c = Calendar(identifier: .gregorian)
+                let a = c.date(from: DateComponents(year: 2026, month: s.fromMonth, day: s.fromDay))!
+                let b = c.date(from: DateComponents(year: 2026, month: s.toMonth, day: s.toDay))!
+                return " (\(f.string(from: a)) – \(f.string(from: b)))"
+            } ?? ""
+            return Row(days: label + season, hours: "\(time(w.start)) – \(time(w.end))")
         }
-        let covered = Set(zone.windows.flatMap(\.weekdays))
+        let covered = Set(zone.windows.filter { $0.season == nil }.flatMap(\.weekdays))
         let free = order.filter { !covered.contains($0) }.map { names[$0 - 1] }
-        if !free.isEmpty || zone.freeOnHolidays {
-            rows.append(Row(days: (free + (zone.freeOnHolidays ? ["holidays"] : [])).joined(separator: ", ").capitalizedFirst,
-                            hours: "open to all", free: true))
+        let holidays = zone.freeOnHolidays == true ? ["holidays"] : []
+        if !free.isEmpty || !holidays.isEmpty {
+            rows.append(Row(days: (free + holidays).joined(separator: ", ").capitalizedFirst, hours: "open to all", free: true))
+        }
+        if zone.freeOnHolidays == nil {
+            rows.append(Row(days: "Public holidays", hours: "not confirmed"))
         }
         return rows
     }
