@@ -107,7 +107,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: ""
         TARGETED_DEVICE_FAMILY: "1"
-        APPLICATION_EXTENSION_API_ONLY: NO
+        APPLICATION_EXTENSION_API_ONLY: YES
 
   # Test automatici del motore delle regole: girano sul Mac di GitHub a ogni modifica.
   GateLRTests:
