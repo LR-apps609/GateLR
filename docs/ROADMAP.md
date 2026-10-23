@@ -60,3 +60,21 @@ Difficoltà: 🟢 facile · 🟡 media · 🔴 difficile. Tempi in **sessioni di
 7. Molto più avanti, se serve: 3.4, 4.3, 2.6
 
 Tempo totale stimato per le fasi 1–5 senza parti a pagamento: **8–11 sessioni**.
+
+---
+
+## Decisione: la prima pagina si chiama «Varco» (EN «Gate», DE «Einfahrt»)
+
+## Cose difficili ma fattibili
+
+| Cosa | Come | Tempo | Costo |
+|---|---|---|---|
+| Guida passo-passo con voce nell'app | Percorso Apple + istruzioni lette dal telefono + ricalcolo se esci dal percorso | 2–3 sessioni | gratis |
+| Percorsi che evitano la ZTL | Motore GraphHopper (aree vietate) su un piccolo server o via API | 2 sessioni | API: piano gratuito limitato, poi a pagamento |
+| Avvisi affidabili ad app chiusa oltre il limite di 20 varchi | Ricarica dei varchi più vicini mentre ti sposti (cambio di zona significativo) | 1 sessione | gratis |
+| Aggiornamento dei dati senza nuova versione dell'app | File delle città scaricati da GitHub, firmati e con data | 1 sessione | gratis |
+| Controllo automatico delle pagine dei Comuni | Workflow giornaliero che segnala le pagine cambiate | 1 sessione | gratis |
+| Live Activity / Dynamic Island durante il viaggio | «Varco tra 400 m · acceso» sulla schermata di blocco | 1–2 sessioni | gratis |
+| CarPlay | Codice pronto; serve l'autorizzazione di Apple | 1 sessione + attesa Apple | Developer Program |
+| Account e sincronizzazione | Accedi con Apple + iCloud | 1–2 sessioni | Developer Program |
+| Abbonamento / Pass viaggio | StoreKit 2 | 1–2 sessioni | Developer Program |
