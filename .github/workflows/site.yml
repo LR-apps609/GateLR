@@ -1,0 +1,37 @@
+# Pubblica il sito (cartella web/) su GitHub Pages.
+# Si avvia a mano: Actions → «Pubblica il sito» → Run workflow.
+# Prima volta: Settings → Pages → Source: «GitHub Actions».
+name: Pubblica il sito
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Costruisci la pagina
+        run: python3 Tools/build_site.py
+      - name: Prepara i file
+        run: |
+          mkdir -p _site
+          cp -r web/index.html web/_page.css web/app web/privacy web/support _site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
