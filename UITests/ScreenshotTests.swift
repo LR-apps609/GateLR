@@ -59,7 +59,7 @@ final class ScreenshotTests: XCTestCase {
     }
 
     func test2Onboarding() {
-        app.launchArguments = ["-showOnboarding", "-onboarded", "NO"]
+        app.launchArguments = ["-uitest", "-showOnboarding", "-onboarded", "NO"]
         app.launch()
         sleep(2)
         snap("11-onboarding")

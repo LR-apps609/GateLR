@@ -26,7 +26,10 @@ struct RootView: View {
         }
         .fullScreenCover(isPresented: Binding(get: { RootView.showOnboarding(onboarded) },
                                               set: { if !$0 { onboarded = true } })) {
-            Onboarding { onboarded = true }
+            Onboarding {
+                onboarded = true
+                Task { await GateMonitor.shared.startIfReady(store: store) }
+            }
         }
     }
 

@@ -79,6 +79,15 @@ extension Verdict {
         case .unsure: "questionmark"
         }
     }
+    /// Il titolo spezzato a mano in righe: Titillium ha un'interlinea ampia, così le righe stanno strette
+    var titleLines: [String] {
+        switch self {
+        case .yes: ["Yes, you can", "enter"]
+        case .no: ["No, don't", "enter"]
+        case .conditional: ["Yes, on one", "condition"]
+        case .unsure: ["Not sure"]
+        }
+    }
     /// Versione breve per pillole e liste
     var short: String {
         switch self {

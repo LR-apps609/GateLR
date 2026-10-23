@@ -134,7 +134,15 @@ struct MapScreen: View {
         let request = MKLocalPointsOfInterestRequest(coordinateRegion: zone.region(padding: 2.2))
         request.pointOfInterestFilter = MKPointOfInterestFilter(including: [.parking])
         do {
-            let items = try await MKLocalSearch(request: request).start().mapItems
+            var items = (try? await MKLocalSearch(request: request).start().mapItems) ?? []
+            if items.isEmpty {
+                // Seconda strada: ricerca per parola nella stessa zona
+                let text = MKLocalSearch.Request()
+                text.naturalLanguageQuery = "parking"
+                text.region = zone.region(padding: 2.4)
+                text.resultTypes = .pointOfInterest
+                items = try await MKLocalSearch(request: text).start().mapItems
+            }
             let outside = items.filter { item in !store.city.zones.contains { $0.contains(item.placemark.coordinate) } }
             parkings = outside.prefix(12).map { Parking(item: $0) }
             parkingMessage = parkings.isEmpty ? "No car parks found just outside the zone." : "\(parkings.count) car parks outside the ZTL. Tap a P for directions."

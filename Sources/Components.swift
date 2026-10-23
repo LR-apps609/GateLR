@@ -105,8 +105,14 @@ struct VerdictCard: View {
                     .frame(width: 56, height: 56)
                     .background(v.badgeFill, in: Circle())
                     .accessibilityHidden(true)
-                Text(v.title).font(Theme.display(36)).lineLimit(2).minimumScaleFactor(0.7)
-                    .accessibilityAddTraits(.isHeader)
+                VStack(alignment: .leading, spacing: -7) {
+                    ForEach(v.titleLines, id: \.self) { line in
+                        Text(line).font(Theme.display(36)).lineLimit(1).minimumScaleFactor(0.6)
+                    }
+                }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(v.title)
+                .accessibilityAddTraits(.isHeader)
             }
             Text(detail).font(.system(size: 16)).fixedSize(horizontal: false, vertical: true)
             if let next = answer.nextChange { countdown(to: next) }

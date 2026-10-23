@@ -15,6 +15,17 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
     /// iOS segue al massimo 20 regioni per app: si scelgono i varchi più vicini
     private let maxRegions = 20
 
+    private var started = false
+
+    /// Si parte solo dopo la presentazione del primo avvio (i permessi si chiedono dopo averli spiegati)
+    /// e mai nel giro automatico delle foto.
+    func startIfReady(store: Store) async {
+        guard !started, UserDefaults.standard.bool(forKey: "onboarded"),
+              !ProcessInfo.processInfo.arguments.contains("-uitest") else { return }
+        started = true
+        await start(store: store)
+    }
+
     func start(store: Store) async {
         self.store = store
         manager.delegate = self
