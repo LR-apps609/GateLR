@@ -8,6 +8,11 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Una compilazione alla volta: se ne arrivano altre, resta in coda solo l'ultima
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: write        # per pubblicare le foto dell'app nel ramo «screenshots»
 
