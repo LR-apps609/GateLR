@@ -36,7 +36,7 @@
 
 ## Documenti
 
-- `docs/verifica-firenze.md` – lista di controllo per segnare Firenze «verificata» (ultima cosa da fare)
+- `docs/verifica-firenze.md` e `docs/verifica-bologna-milano.md` – liste di controllo per segnare le città «verificate» (ultima cosa da fare)
 - `docs/multe-mappe-caratteri.md` – multe, scelta delle mappe e dei caratteri, con fonti
 - `docs/ricerca-citta.md` e `docs/citta-successive.md` – le città dopo Firenze
 - `docs/app-store.md` – scheda App Store pronta in tre lingue

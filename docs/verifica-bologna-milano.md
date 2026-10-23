@@ -1,0 +1,31 @@
+# Bologna e Milano: lista di controllo prima di segnarle «verificate»
+
+Come per Firenze (`docs/verifica-firenze.md`): ogni punto ha il link, cosa cercare e dove si cambia il dato (`Tools/build_cities.py`, poi `python3 Tools/build_cities.py`). Dati preparati il 23 ottobre 2026.
+
+---
+
+## Bologna
+
+Nell'app oggi: **ZTL tutti i giorni 7–20**, festivi compresi; **zona T chiusa 24 ore su 24**; **ticket giornaliero 6 €** (4 giorni 15 €); l'hotel comunica la targa.
+
+- [ ] **Orari**: [scheda ZTL del Comune](https://www.comune.bologna.it/informazioni/zona-traffico-limitato-ztl). Cerca: «tutti i giorni, dalle 7 alle 20».
+- [ ] **Festivi**: la pagina dice «tutti i giorni» ma non nomina i festivi. Chiedere conferma: numero verde 800 108 088 o [Sosty](https://solweb.sostyscarl.it/). Se i festivi fossero liberi: `"freeOnHolidays": True`.
+- [ ] **Ticket**: [pagina del ticket](https://www.comune.bologna.it/servizi/mobilita-trasporti/ticket-accesso-ztl). Cerca: «Il ticket giornaliero costa 6 euro», «Devi attivare il titolo prima dell'accesso», limite di 3 al mese.
+- [ ] **Hotel**: [clienti di alberghi](https://www.comune.bologna.it/servizi/mobilita-trasporti/accesso-sosta-ztl-clienti-alberghi-autorimesse-autofficine). Cerca: «puoi farlo direttamente al tuo arrivo presso la struttura». Da aggiungere nel messaggio: abbonamento hotel 9 € con sosta sulle strisce blu.
+- [ ] **Perimetro**: i dati aperti sono del 2021 (`codice = 40`). Confrontarlo con la mappa attuale del Comune.
+- [ ] **Zona T e cantieri**: dal 15/07/2024 l'ordinanza P.G.n. 466849/2024 (Garisenda, tram) cambia gli accessi a zona T. Controllare se è ancora in vigore.
+- [ ] **Varchi**: 22 varchi «ZTL» presi; esclusi 33 corsie bus, 10 aree pedonali, 6 «ZTLS» (università), 2 «ZTL speciale». Valutare se mostrare anche questi come zone 24 ore su 24.
+- [ ] **Elettrici**: contrassegno gratuito anche per i non residenti, da chiedere prima. Oggi l'app non lo considera: aggiungere «Electric» in `exemptFuels` solo con il contrassegno.
+
+## Milano (Area C)
+
+Nell'app oggi: **lun–ven 7:30–19:30, festivi esclusi**; **ticket 7,50 €** da attivare entro la mezzanotte del giorno dopo (22,50 € fino al 7° giorno, 4,50 € in autorimessa convenzionata); nessuna procedura hotel.
+
+- [ ] **Orari**: [pagina Area C](https://www.comune.milano.it/argomenti/mobilita/area-c). Cerca: «dal lunedì al venerdì, dalle 7:30 alle 19:30 (festivi esclusi)».
+- [ ] **Prezzi**: [PDF tariffe](https://www.comune.milano.it/documents/20118/35188/Area+C+nuove+tariffe+dal+2023+Area+C.pdf/5ee21a73-7301-60c7-d2fe-5e2f77e8a158?version=1.0&t=1746021538283&download=true) e [acquisto del ticket](https://www.comune.milano.it/servizi/mobilita/area-c-acquista-il-ticket).
+- [ ] **7 dicembre** (Sant'Ambrogio): Area C è attiva? Oggi l'app lo tratta come giorno normale.
+- [ ] **Elettrici**: esenzione trovata solo in un estratto di ricerca (FAQ del Comune). Se confermata: `"exemptFuels": ["electric"]`.
+- [ ] **Perimetro**: dal dataset DS51 (2023). Confrontarlo con il [geoportale](https://geoportale.comune.milano.it/portal/apps/webappviewer/index.html?id=bab7a4fea79f4e8bb0ab01e203168995).
+- [ ] **Varchi**: 42 varchi di Area C (aggiornati il 14/10/2026).
+- [ ] **Area B**: non è in GateLR (dipende dalla classe Euro del veicolo). Decidere se aggiungerla.
+- [ ] **Veicoli lunghi e merci**: divieti dalle 8 alle 10 per veicoli > 7,50 m (DD 1856/2026). Non riguarda le auto dei turisti, ma va scritto nella scheda.
