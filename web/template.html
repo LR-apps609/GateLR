@@ -1,0 +1,529 @@
+<title>GateLR ZTL Checker</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Driving to an Italian old town? Search your hotel or destination and see at once if it's inside a ZTL, if you can drive in, the hours and the fine.">
+<!-- Quando l'app sarà sull'App Store: <meta name="apple-itunes-app" content="app-id=APP_ID, app-argument=https://gatelr.app/"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a road-sign search bar on LR-family paper; answer panel beside a drawn map of the sectors, stacked on phones */
+:root{
+  --paper:#F4EFE6; --sheet:#FFFCF6; --well:#EEE7DA; --ink:#2B2433; --muted:#6B6372; --line:#DDD3C3;
+  --brass:#A97E3F; --red:#C1272D; --red-soft:#F7DEDC; --blue:#1F4E9E; --blue-soft:#E2EAF6;
+  --green:#2B7A47; --green-soft:#DCEFE2; --amber:#8A5A00; --amber-soft:#FBECC8; --unsure:#E3E0EA;
+  --on-strong:#FFFFFF; --map-land:#EAE3D5; --map-water:#C9DCE8;
+  --display:"Titillium Web","Segoe UI",system-ui,sans-serif;
+  --text:"Atkinson Hyperlegible Next",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --radius:18px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#17141E; --sheet:#221E2B; --well:#1B1823; --ink:#EDE6F2; --muted:#ADA4B6; --line:#3A3445;
+  --brass:#D6AA62; --red:#EF5B55; --red-soft:#3D1A1C; --blue:#8CB0EE; --blue-soft:#1D2B44;
+  --green:#3E9A61; --green-soft:#183021; --amber:#E3A64C; --amber-soft:#3A2C0E; --unsure:#2E2A38;
+  --map-land:#211D29; --map-water:#1F3140; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#17141E; --sheet:#221E2B; --well:#1B1823; --ink:#EDE6F2; --muted:#ADA4B6; --line:#3A3445;
+  --brass:#D6AA62; --red:#EF5B55; --red-soft:#3D1A1C; --blue:#8CB0EE; --blue-soft:#1D2B44;
+  --green:#3E9A61; --green-soft:#183021; --amber:#E3A64C; --amber-soft:#3A2C0E; --unsure:#2E2A38;
+  --map-land:#211D29; --map-water:#1F3140; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:17px/1.55 var(--text);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1120px;margin:0 auto}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+.label{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.tnum{font-variant-numeric:tabular-nums}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+/* top bar */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand svg{width:40px;height:40px;flex:none}
+.brand b{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:-.01em}
+.brand b span{color:var(--red)}
+.family{font-family:var(--display);font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--brass);display:flex;align-items:center;gap:8px}
+.family i{font-style:normal;border:1.5px solid var(--brass);border-radius:6px;padding:0 5px;font-weight:700;letter-spacing:.02em}
+.get{font-family:var(--display);font-weight:700;font-size:15px;color:var(--paper);background:var(--ink);border-radius:999px;padding:9px 16px;text-decoration:none;white-space:nowrap}
+
+/* hero + search */
+.hero{padding-block:28px 22px;display:grid;gap:18px}
+.hero h1{font-size:clamp(44px,7.5vw,84px);font-weight:700;letter-spacing:-.02em;max-width:15ch}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p.lead{font-size:19px;color:var(--muted);max-width:56ch}
+.search{display:grid;grid-template-columns:1fr auto;gap:10px;background:var(--sheet);border:2px solid var(--ink);border-radius:var(--radius);padding:10px;position:relative}
+.search .field{display:flex;align-items:center;gap:10px;min-width:0;padding-inline:8px}
+.search input[type=search]{border:0;background:transparent;font:600 19px var(--text);color:var(--ink);width:100%;min-width:0;padding-block:10px;outline:none}
+.search input::placeholder{color:var(--muted);font-weight:500}
+.when{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.seg{display:flex;background:var(--well);border-radius:12px;padding:3px}
+.seg button{border:0;background:transparent;font:600 15px var(--text);color:var(--muted);padding:8px 12px;border-radius:9px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--sheet);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+#arrival{font:600 15px var(--text);color:var(--ink);background:var(--well);border:0;border-radius:12px;padding:9px 10px}
+.suggest{position:absolute;left:10px;right:10px;top:calc(100% + 6px);background:var(--sheet);border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.14);z-index:5;overflow:hidden}
+.suggest button{display:flex;justify-content:space-between;gap:10px;width:100%;text-align:left;border:0;background:transparent;padding:12px 14px;font:16px var(--text);color:var(--ink);cursor:pointer;border-bottom:1px solid var(--line)}
+.suggest button:last-child{border-bottom:0}
+.suggest button:hover,.suggest button[aria-selected=true]{background:var(--well)}
+.suggest small{color:var(--muted)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chips .label{margin-right:4px}
+.chip{border:1px solid var(--line);background:var(--sheet);color:var(--ink);font:600 14px var(--text);padding:6px 12px;border-radius:999px;cursor:pointer}
+.chip:hover{border-color:var(--ink)}
+.locate{border:0;background:var(--blue);color:#fff;font:700 15px var(--display);padding:0 16px;border-radius:12px;cursor:pointer;min-height:44px}
+@media (max-width:640px){.search{grid-template-columns:1fr}.when{justify-content:space-between}}
+
+/* answer + map */
+.result{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:18px;align-items:start;padding-block:8px 32px}
+@media (max-width:860px){.result{grid-template-columns:1fr}}
+.answer{border-radius:26px;padding:24px;display:grid;gap:14px;background:var(--v-bg);color:var(--v-fg);transition:background .25s}
+.answer[data-v=yes]{--v-bg:var(--green);--v-fg:#fff;--v-badge:#fff;--v-mark:var(--green)}
+.answer[data-v=no]{--v-bg:#C1272D;--v-fg:#fff;--v-badge:#fff;--v-mark:#C1272D}
+.answer[data-v=cond]{--v-bg:var(--amber-soft);--v-fg:var(--ink);--v-badge:#8A5A00;--v-mark:#fff}
+.answer[data-v=unsure]{--v-bg:var(--unsure);--v-fg:var(--ink);--v-badge:var(--muted);--v-mark:var(--paper)}
+.answer[data-v=out]{--v-bg:var(--sheet);--v-fg:var(--ink);--v-badge:var(--green);--v-mark:#fff;border:1px solid var(--line)}
+.answer .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.answer .where{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.09em;text-transform:uppercase;opacity:.9}
+.pill{font:700 12.5px var(--text);padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--v-fg) 16%,transparent)}
+.verdict{display:flex;align-items:center;gap:16px}
+.badge{width:60px;height:60px;border-radius:50%;background:var(--v-badge);display:grid;place-items:center;flex:none}
+.badge svg{width:30px;height:30px;stroke:var(--v-mark);fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.verdict h2{font-size:clamp(32px,4.6vw,46px);font-weight:700}
+.answer .why{font-size:17px}
+.bar{height:6px;border-radius:3px;background:color-mix(in srgb,var(--v-fg) 22%,transparent);overflow:hidden}
+.bar span{display:block;height:100%;background:var(--v-fg);border-radius:3px}
+.answer .meta{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;opacity:.92;flex-wrap:wrap}
+.answer hr{border:0;border-top:1px solid color-mix(in srgb,var(--v-fg) 25%,transparent);margin:0}
+.answer .src{font-size:14px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.answer .src a{color:inherit;font-weight:700}
+.draft{background:var(--amber-soft);color:var(--ink);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:600}
+
+.mapcard{background:var(--sheet);border:1px solid var(--line);border-radius:26px;padding:12px;display:grid;gap:8px}
+.mapcard svg{width:100%;height:auto;display:block;border-radius:18px;background:var(--map-land);cursor:crosshair;touch-action:manipulation}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);padding-inline:6px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+
+/* details */
+.details{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;padding-block:8px 36px}
+.panel{background:var(--sheet);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:grid;gap:12px;align-content:start;min-width:0}
+.panel h3{font-size:24px;font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:16px}
+td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:last-child{text-align:right;font-weight:700;white-space:nowrap;padding-left:12px}
+td.free{color:var(--green)}
+.fine{font-family:var(--display);font-weight:700;font-size:44px;line-height:1;color:var(--red)}
+.fine small{font-size:18px;font-weight:600;color:var(--muted)}
+.list{display:grid;gap:8px;padding-left:20px;margin:0}
+.msg{background:var(--well);border-radius:12px;padding:12px;font-size:15px;white-space:pre-line}
+.btn{font:700 15px var(--display);border:0;border-radius:12px;padding:11px 16px;cursor:pointer;background:var(--blue);color:#fff;justify-self:start}
+.btn.quiet{background:var(--blue-soft);color:var(--blue)}
+
+/* app */
+.app{background:var(--ink);color:var(--paper);border-radius:28px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center;margin-bottom:36px}
+.app h2{font-size:clamp(30px,4vw,44px);font-weight:700}
+.app p{color:color-mix(in srgb,var(--paper) 78%,transparent);margin-top:10px;max-width:46ch}
+.app ul{margin:14px 0 0;padding-left:20px;display:grid;gap:6px}
+.app .cta{display:grid;gap:10px;justify-items:start}
+.app .store{display:inline-flex;align-items:center;gap:10px;background:var(--paper);color:var(--ink);border-radius:14px;padding:12px 18px;font:700 17px var(--display);text-decoration:none}
+.app .store svg{width:22px;height:22px}
+.app small{color:color-mix(in srgb,var(--paper) 70%,transparent)}
+@media (max-width:760px){.app{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap:12px;color:var(--muted);font-size:14px}
+.fam{display:flex;gap:10px;flex-wrap:wrap}
+.fam span{font-family:var(--display);font-weight:700;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:4px 10px}
+.fam span b{color:var(--brass)}
+.fam span.me{border-color:var(--red)}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top" aria-label="GateLR home">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><defs><clipPath id="lg"><rect width="100" height="100" rx="22"/></clipPath></defs><g clip-path="url(#lg)"><rect width="34" height="100" fill="#1f9d55"/><rect x="33" width="34" height="100" fill="#fff"/><rect x="66" width="34" height="100" fill="#d32f2f"/></g><circle cx="50" cy="50" r="38" fill="#fff"/><circle cx="50" cy="50" r="31" fill="none" stroke="#d32f2f" stroke-width="8"/><path d="M38 70 V52 A12 12 0 0 1 62 52 V70" fill="none" stroke="#1b2128" stroke-width="7" stroke-linecap="round"/></svg>
+      <b>Gate<span>LR</span></b>
+    </a>
+    <div class="family"><i>LR</i> family</div>
+    <a class="get" href="#app">Get the app</a>
+  </header>
+
+  <section class="hero" id="top">
+    <h1>Can I drive <em>in?</em></h1>
+    <p class="lead">Search your hotel or destination. GateLR tells you at once if it's inside a ZTL, whether you can drive there when you arrive, and what a wrong turn costs.</p>
+
+    <form class="search" id="search" role="search" autocomplete="off">
+      <div class="field">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <label for="q" class="label" hidden>Destination or hotel</label>
+        <input id="q" type="search" placeholder="Hotel, address or place in Florence" aria-autocomplete="list" aria-controls="suggest" aria-expanded="false">
+      </div>
+      <div class="when">
+        <div class="seg" role="group" aria-label="When">
+          <button type="button" id="w-now" aria-pressed="true">Now</button>
+          <button type="button" id="w-later" aria-pressed="false">Arrival</button>
+        </div>
+        <label for="arrival" hidden>Arrival time</label>
+        <input id="arrival" type="datetime-local" hidden>
+      </div>
+      <div class="suggest" id="suggest" role="listbox" hidden></div>
+    </form>
+    <div class="chips" aria-label="Try a place">
+      <span class="label">Try</span>
+      <span id="tries"></span>
+    </div>
+  </section>
+
+  <section class="result" aria-live="polite">
+    <article class="answer" id="answer" data-v="out">
+      <div class="row"><span class="where" id="a-where">Florence</span><span class="pill" id="a-gates">–</span></div>
+      <div class="verdict">
+        <div class="badge"><svg id="a-mark" viewBox="0 0 32 32"><path d="M8 16l6 6 11-12"/></svg></div>
+        <h2 id="a-title">Pick a place</h2>
+      </div>
+      <p class="why" id="a-why">Search above, tap a suggestion, or tap the map.</p>
+      <div id="a-count" hidden>
+        <div class="bar"><span id="a-bar"></span></div>
+        <div class="meta tnum"><span id="a-since"></span><span id="a-next"></span></div>
+      </div>
+      <hr>
+      <div class="src" id="a-src"></div>
+      <div class="draft" id="a-draft" hidden>Draft: taken from the city's official sources, not yet reviewed by a person. Signs at the gate always win.</div>
+    </article>
+
+    <div class="mapcard">
+      <svg id="map" role="img" aria-label="Map of Florence's ZTL sectors and gates. Tap a point to check it."></svg>
+      <div class="legend">
+        <span><i class="dot" style="background:var(--red)"></i>ZTL sector</span>
+        <span><i class="dot" style="background:var(--ink)"></i>Camera gate</span>
+        <span><i class="dot" style="background:var(--blue)"></i>Your place</span>
+        <span>Tap anywhere to check it</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="details">
+    <div class="panel">
+      <span class="label" id="h-label">Florence · Sector B</span>
+      <h3>When the gates are on</h3>
+      <table class="tnum" id="hours"></table>
+      <p style="font-size:14px;color:var(--muted)" id="h-note"></p>
+    </div>
+    <div class="panel">
+      <span class="label">If you drive in by mistake</span>
+      <h3>The fine</h3>
+      <div class="fine tnum" id="fine"></div>
+      <ul class="list" id="fine-notes"></ul>
+    </div>
+    <div class="panel">
+      <span class="label">Staying inside the ZTL?</span>
+      <h3>Ask your hotel first</h3>
+      <p>Hotels inside the zone can register your plate with the city. Send this before you arrive.</p>
+      <div class="msg" id="hotel-msg"></div>
+      <button class="btn" type="button" id="copy">Copy message</button>
+      <p style="font-size:13px;color:var(--muted)">The current online procedure in Florence is still being checked.</p>
+    </div>
+  </section>
+
+  <section class="app" id="app">
+    <div>
+      <span class="label" style="color:var(--brass)">GateLR for iPhone</span>
+      <h2>The same answer, while you drive.</h2>
+      <p>The app warns you 500 m before a gate that's on, even with the app closed, and keeps your car and permits in one place.</p>
+      <ul>
+        <li>Alerts before every gate, offline too</li>
+        <li>Car parks just outside the zone</li>
+        <li>CarPlay, once Apple approves it</li>
+      </ul>
+    </div>
+    <div class="cta">
+      <a class="store" id="store" href="#app">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+        Coming soon on iPhone
+      </a>
+      <small>On an iPhone, this button will open the App Store as soon as GateLR is published.</small>
+    </div>
+  </section>
+
+  <footer>
+    <div class="fam" aria-label="The LR family">
+      <span>Audio<b>LR</b></span><span>Orbit<b>LR</b></span><span>Webcam<b>LR</b></span><span class="me">Gate<b>LR</b></span>
+    </div>
+    <p>Florence data: Comune di Firenze open data (CC-BY 4.0) and the city's official pages, read on 23 October 2026. GateLR is not affiliated with any city or with the police. Road signs on site always win.</p>
+  </footer>
+</div>
+
+<script id="city" type="application/json">/*CITY*/</script>
+<script>
+(() => {
+"use strict";
+const city = JSON.parse(document.getElementById("city").textContent);
+// Multa per l'ingresso in ZTL senza permesso (art. 7 c. 9 e 14 Codice della Strada). Valori da docs/multe-mappe-caratteri.md
+const FINE = /*FINE*/null;
+const APP_STORE_URL = null;   // quando l'app sarà pubblicata
+const TZ = "Europe/Rome";
+
+// Luoghi d'esempio: sul sito pubblico la ricerca usa un geocoder (vedi GEOCODER); qui servono quando la rete è chiusa
+const PLACES = [
+  ["Duomo (Cathedral)", 43.7731, 11.2560], ["Ponte Vecchio", 43.7679, 11.2531], ["Piazza della Signoria", 43.7696, 11.2558],
+  ["Santa Maria Novella station", 43.7764, 11.2480], ["Mercato Centrale", 43.7765, 11.2534], ["Galleria dell'Accademia", 43.7768, 11.2587],
+  ["Santa Croce", 43.7686, 11.2622], ["Palazzo Pitti", 43.7651, 11.2500], ["Piazza del Carmine", 43.7680, 11.2440],
+  ["Sant'Ambrogio market", 43.7700, 11.2660], ["Fortezza da Basso", 43.7810, 11.2470], ["Piazzale Michelangelo", 43.7629, 11.2650],
+  ["Porta Romana", 43.7590, 11.2440], ["Florence airport", 43.8100, 11.2051]
+];
+const GEOCODER = q => `https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&lat=43.7712&lon=11.2550&limit=6&lang=en`;
+
+// ── Motore delle regole (lo stesso dell'app: Sources/RuleEngine.swift) ─────────────────────
+const fmtParts = new Intl.DateTimeFormat("en-GB", {timeZone: TZ, year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", weekday:"short", hourCycle:"h23"});
+const WD = {Sun:1, Mon:2, Tue:3, Wed:4, Thu:5, Fri:6, Sat:7};
+function rome(t){ const p = {}; for (const x of fmtParts.formatToParts(t)) p[x.type] = x.value;
+  return {y:+p.year, m:+p.month, d:+p.day, min:(+p.hour)*60 + (+p.minute), wd:WD[p.weekday]}; }
+function easter(y){ const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),
+  h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451);
+  return [Math.floor((h+l-7*m+114)/31), (h+l-7*m+114)%31+1]; }
+function isHoliday(r){ if (r.wd === 1) return false;
+  const md = r.m*100 + r.d; if ([101,106,425,501,602,815,1101,1208,1225,1226].includes(md)) return true;
+  const [em, ed] = easter(r.y); const mon = new Date(Date.UTC(r.y, em-1, ed+1)); return mon.getUTCMonth()+1 === r.m && mon.getUTCDate() === r.d; }
+function inSeason(w, r){ if (!w.season) return true; const s = w.season, md = r.m*100 + r.d, a = s.fromMonth*100+s.fromDay, b = s.toMonth*100+s.toDay;
+  return a <= b ? (md >= a && md <= b) : (md >= a || md <= b); }
+function activeAt(zone, t, ignoreHolidays){
+  const r = rome(t);
+  if (!ignoreHolidays && zone.freeOnHolidays === true && isHoliday(r)) return false;
+  const prev = rome(new Date(t.getTime() - 86400000)); const yesterday = r.wd === 1 ? 7 : r.wd - 1;
+  return zone.windows.some(w => w.end > w.start
+    ? w.weekdays.includes(r.wd) && inSeason(w, r) && r.min >= w.start && r.min < w.end
+    : (w.weekdays.includes(r.wd) && inSeason(w, r) && r.min >= w.start) || (w.weekdays.includes(yesterday) && inSeason(w, prev) && r.min < w.end));
+}
+function scan(zone, t, dir){ const on = activeAt(zone, t); let x = new Date(Math.floor(t.getTime()/300000)*300000);
+  if (dir > 0) x = new Date(x.getTime() + 300000);
+  for (let i = 0; i < 8*24*12; i++){ const probe = dir > 0 ? x : new Date(x.getTime() - 300000);
+    if (activeAt(zone, probe) !== on) return x; x = new Date(x.getTime() + dir*300000); } return null; }
+function answer(zone, t, staying){
+  const on = activeAt(zone, t), next = scan(zone, t, 1), since = scan(zone, t, -1);
+  if (zone.freeOnHolidays == null && isHoliday(rome(t)) && activeAt(zone, t, true))
+    return {v:"unsure", title:"Not sure", why:"It's a public holiday and the city hasn't confirmed whether the gates are off. Check the panel at the gate.", on:true, next, since};
+  if (!on) return {v:"yes", title:"Yes, you can drive in", why:`The gates are off${next ? ". They switch on " + when(next, t) : ""}.`, on, next, since};
+  if (staying && zone.hotelCanRegister) return {v:"cond", title:"Yes, on one condition", why:"The gates are on. You can drive to your hotel only if the hotel registers your plate with the city.", on, next, since};
+  return {v:"no", title:"No, don't drive in", why:`The gates are on${next ? " until " + when(next, t) : ""}. Park outside the zone, or come back later.`, on, next, since};
+}
+const tf = new Intl.DateTimeFormat("en-GB", {timeZone: TZ, hour:"numeric", minute:"2-digit", hour12:true});
+const df = new Intl.DateTimeFormat("en-GB", {timeZone: TZ, weekday:"long"});
+function hm(t){ return tf.format(t).replace(" ", " "); }
+function when(t, ref){ const a = rome(t), b = rome(ref); if (a.y===b.y && a.m===b.m && a.d===b.d) return "today at " + hm(t);
+  const tm = rome(new Date(ref.getTime()+86400000)); if (a.y===tm.y && a.m===tm.m && a.d===tm.d) return "tomorrow at " + hm(t);
+  return "on " + df.format(t) + " at " + hm(t); }
+function dur(ms){ const m = Math.round(ms/60000), h = Math.floor(m/60), d = Math.floor(h/24);
+  return d >= 1 ? `${d} d ${h%24} h` : h >= 1 ? `${h} h ${m%60} min` : `${m} min`; }
+
+// ── Geometria ─────────────────────────────────────────────────────────────
+function contains(zone, lat, lon){ let inside = false; const p = zone.perimeter;
+  for (let i = 0, j = p.length-1; i < p.length; j = i++){ const a = p[i], b = p[j];
+    if ((a.lat > lat) !== (b.lat > lat) && lon < (b.lon-a.lon)*(lat-a.lat)/(b.lat-a.lat) + a.lon) inside = !inside; }
+  return inside; }
+// Il settore più specifico che contiene il punto (A sta dentro B: vince quello con area minore)
+function area(z){ let s = 0; const p = z.perimeter; for (let i = 0, j = p.length-1; i < p.length; j = i++) s += (p[j].lon + p[i].lon)*(p[j].lat - p[i].lat); return Math.abs(s/2); }
+const ZONES = [...city.zones].sort((a, b) => area(a) - area(b));
+function zoneAt(lat, lon){ return ZONES.find(z => contains(z, lat, lon)) || null; }
+function nearestZone(lat, lon){ let best = null, bd = 1e9;
+  for (const z of city.zones) for (const p of z.perimeter){ const d = (p.lat-lat)**2 + ((p.lon-lon)*0.72)**2; if (d < bd){ bd = d; best = z; } }
+  return {zone: best, meters: Math.sqrt(bd)*111000}; }
+
+// ── Mappa disegnata (SVG): niente servizi esterni ─────────────────────────────
+const svg = document.getElementById("map"), NS = "http://www.w3.org/2000/svg";
+const all = city.zones.flatMap(z => z.perimeter);
+const box = {minLat: Math.min(...all.map(p=>p.lat)) - .004, maxLat: Math.max(...all.map(p=>p.lat)) + .004,
+             minLon: Math.min(...all.map(p=>p.lon)) - .006, maxLon: Math.max(...all.map(p=>p.lon)) + .006};
+const KX = Math.cos(43.77*Math.PI/180), W = 1000, H = Math.round(W * (box.maxLat-box.minLat) / ((box.maxLon-box.minLon)*KX));
+svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+const X = lon => (lon - box.minLon) / (box.maxLon - box.minLon) * W, Y = lat => (box.maxLat - lat) / (box.maxLat - box.minLat) * H;
+const el = (n, a, parent = svg) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); parent.appendChild(e); return e; };
+// L'Arno, approssimato a mano per orientarsi
+el("path", {d:`M0 ${Y(43.7712)} C ${X(11.240)} ${Y(43.7705)}, ${X(11.2470)} ${Y(43.7700)}, ${X(11.2531)} ${Y(43.7679)} S ${X(11.2620)} ${Y(43.7655)}, ${X(11.2720)} ${Y(43.7640)} L ${W} ${Y(43.7625)}`,
+  fill:"none", stroke:"var(--map-water)", "stroke-width":22, "stroke-linecap":"round"});
+const gZones = el("g", {}), gGates = el("g", {}), gPin = el("g", {});
+const zoneEls = {};
+for (const z of [...ZONES].reverse()){
+  const d = z.perimeter.map((p, i) => (i ? "L" : "M") + X(p.lon).toFixed(1) + " " + Y(p.lat).toFixed(1)).join(" ") + "Z";
+  zoneEls[z.id] = el("path", {d, fill:"var(--red)", "fill-opacity":.08, stroke:"var(--red)", "stroke-width":2, "stroke-dasharray":"9 6", "stroke-linejoin":"round"}, gZones);
+  const lats = z.perimeter.map(p=>p.lat), lons = z.perimeter.map(p=>p.lon);
+  const cx = X((Math.min(...lons)+Math.max(...lons))/2), cy = Y((Math.min(...lats)+Math.max(...lats))/2);
+  el("circle", {cx, cy, r:22, fill:"var(--sheet)", stroke:"var(--red)", "stroke-width":2.5}, gZones);
+  const t = el("text", {x:cx, y:cy+8.5, "text-anchor":"middle", "font-family":"Titillium Web, sans-serif", "font-weight":700, "font-size":25, fill:"var(--red)"}, gZones);
+  t.textContent = z.name.split("·")[0].trim().split(" ").pop();
+}
+for (const z of city.zones) for (const g of z.gates){
+  const c = el("circle", {cx:X(g.location.lon), cy:Y(g.location.lat), r:8, fill:"var(--ink)", stroke:"var(--sheet)", "stroke-width":2.5}, gGates);
+  el("title", {}, c).textContent = g.name;
+}
+svg.addEventListener("click", e => {
+  const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+  const p = pt.matrixTransform(svg.getScreenCTM().inverse());
+  const lon = box.minLon + p.x / W * (box.maxLon - box.minLon), lat = box.maxLat - p.y / H * (box.maxLat - box.minLat);
+  choose({name:"Point on the map", lat, lon});
+});
+
+// ── Stato e disegno della risposta ─────────────────────────────────────────
+const state = {place: null, later: false};
+const $ = id => document.getElementById(id);
+const MARKS = {yes:"M8 16l6 6 11-12", no:"M10 10l12 12M22 10L10 22", cond:"M16 8v10M16 23v.5", unsure:"M12 12a4 4 0 1 1 5 3.9c-.6.2-1 .8-1 1.4V19M16 23v.5", out:"M8 16l6 6 11-12"};
+function arrivalTime(){ if (!state.later || !$("arrival").value) return new Date();
+  // il valore è l'ora locale di Firenze: si trova l'istante che a Roma ha quell'ora
+  const [d, t] = $("arrival").value.split("T"); const [y, m, dd] = d.split("-").map(Number); const [h, mi] = t.split(":").map(Number);
+  let guess = new Date(Date.UTC(y, m-1, dd, h, mi)); const r = rome(guess); const diff = (r.min - (h*60+mi)) + ((r.d - dd) * 1440);
+  return new Date(guess.getTime() - diff*60000); }
+
+function render(){
+  const t = arrivalTime(), p = state.place, a = $("answer");
+  gPin.innerHTML = "";
+  for (const id in zoneEls) zoneEls[id].setAttribute("fill-opacity", .08);
+  if (!p){ a.dataset.v = "out"; return; }
+  el("circle", {cx:X(p.lon), cy:Y(p.lat), r:24, fill:"var(--blue)", "fill-opacity":.18}, gPin);
+  el("circle", {cx:X(p.lon), cy:Y(p.lat), r:12, fill:"var(--blue)", stroke:"var(--sheet)", "stroke-width":4}, gPin);
+  const z = zoneAt(p.lat, p.lon);
+  const stamp = state.later ? when(t, new Date()).replace(/^on /, "") : "now " + hm(t);
+  $("a-draft").hidden = city.status === "verified";
+  if (!z){
+    const n = nearestZone(p.lat, p.lon);
+    Object.assign(a.dataset, {v:"out"});
+    $("a-where").textContent = `${p.name} · outside the ZTL`;
+    $("a-gates").textContent = "No gates here";
+    $("a-title").textContent = "Yes, drive freely";
+    $("a-why").textContent = `This place is outside Florence's ZTL. The nearest sector starts about ${Math.round(n.meters/50)*50} m away: don't follow the satnav through it.`;
+    $("a-mark").innerHTML = `<path d="${MARKS.out}"/>`;
+    $("a-count").hidden = true;
+    renderDetails(n.zone, t);
+    sources(n.zone);
+    return;
+  }
+  zoneEls[z.id].setAttribute("fill-opacity", .22);
+  const staying = /hotel|b&b|hostel|albergo|residence/i.test(p.name) || p.hotel;
+  const r = answer(z, t, staying);
+  a.dataset.v = r.v;
+  $("a-where").textContent = `${p.name} · ${z.name.split("·")[0].trim()} · ${stamp}`;
+  $("a-gates").textContent = r.on ? "Gates on" : "Gates off";
+  $("a-title").textContent = r.title;
+  $("a-why").textContent = r.why + (staying ? "" : (r.on && z.hotelCanRegister ? " Staying at a hotel inside? Your hotel can register your plate." : ""));
+  $("a-mark").innerHTML = `<path d="${MARKS[r.v]}"/>`;
+  if (r.next && r.since){ $("a-count").hidden = false;
+    const span = r.next - r.since, done = Math.min(1, Math.max(.03, (t - r.since)/span));
+    $("a-bar").style.width = (done*100).toFixed(1) + "%";
+    $("a-since").textContent = `${r.on ? "On" : "Off"} since ${hm(r.since)}`;
+    $("a-next").textContent = `${r.on ? "Off" : "On"} in ${dur(r.next - t)}`;
+  } else $("a-count").hidden = true;
+  renderDetails(z, t);
+  sources(z);
+}
+
+function sources(z){
+  const s = z.source, read = new Date(s.checkedOn).toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric"});
+  $("a-src").innerHTML = "";
+  const span = document.createElement("span"); span.textContent = `Read ${read} from the ${s.authority}:`; $("a-src").append(span);
+  const link = document.createElement("a"); link.href = s.pageURL; link.target = "_blank"; link.rel = "noopener"; link.textContent = "official page ↗"; $("a-src").append(link);
+}
+
+const DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], ORDER = [2,3,4,5,6,7,1];
+const SH = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+function clock(m){ const h = Math.floor(m/60)%24, mm = m%60, ap = h < 12 ? "am" : "pm"; return `${h%12 || 12}${mm ? ":" + String(mm).padStart(2,"0") : ""} ${ap}`; }
+function renderDetails(z, t){
+  $("h-label").textContent = `${city.name} · ${z.name}`;
+  const rows = z.windows.map(w => {
+    const days = ORDER.filter(d => w.weekdays.includes(d));
+    const contiguous = days.length > 2 && days.every((d, i) => i === 0 || ORDER.indexOf(d) === ORDER.indexOf(days[i-1]) + 1);
+    let label = contiguous ? `${SH[days[0]-1]} – ${SH[days[days.length-1]-1]}` : days.map(d => SH[d-1]).join(", ");
+    if (w.season){ const mo = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]; label += ` nights (${w.season.fromDay} ${mo[w.season.fromMonth-1]} – ${w.season.toDay} ${mo[w.season.toMonth-1]})`; }
+    return [label, `${clock(w.start)} – ${clock(w.end)}`, ""];
+  });
+  const covered = new Set(z.windows.filter(w => !w.season).flatMap(w => w.weekdays));
+  const free = ORDER.filter(d => !covered.has(d)).map(d => DAYS[d-1] + "s");
+  if (free.length) rows.push([free.join(", "), "open to all", "free"]);
+  if (z.freeOnHolidays == null) rows.push(["Public holidays", "not confirmed", ""]);
+  $("hours").innerHTML = "";
+  for (const [a, b, c] of rows){ const tr = document.createElement("tr"); const t1 = document.createElement("td"); t1.textContent = a;
+    const t2 = document.createElement("td"); t2.textContent = b; if (c) t2.className = c; tr.append(t1, t2); $("hours").append(tr); }
+  $("h-note").textContent = z.summary;
+  hotelMessage(t);
+}
+
+function renderFine(){
+  if (FINE){
+    $("fine").innerHTML = `€${FINE.min}–${FINE.max} <small>per day</small>`;
+    $("fine-notes").innerHTML = "";
+    for (const n of FINE.notes){ const li = document.createElement("li"); li.textContent = n; $("fine-notes").append(li); }
+    const st = document.createElement("li"); st.textContent = "Amounts still being checked against the official text."; st.style.color = "var(--muted)"; $("fine-notes").append(st);
+  } else {
+    $("fine").innerHTML = `<small>Amount being verified</small>`;
+    $("fine-notes").innerHTML = "<li>Entering without a permit is fined under article 7 of the Italian Highway Code. We are checking the 2026 amounts before showing them.</li>";
+  }
+}
+
+function hotelMessage(t){
+  const day = t.toLocaleDateString("en-GB", {timeZone:TZ, weekday:"long", day:"numeric", month:"long"});
+  $("hotel-msg").textContent = `Hello,\n\nI'm arriving by car on ${day} at about ${hm(t)}. Could you please register my plate [PLATE] for the ZTL, so I can reach the hotel without a fine?\n\nThank you!`;
+}
+$("copy").addEventListener("click", () => {
+  const text = $("hotel-msg").textContent, b = $("copy");
+  const ok = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy message", 1500); };
+  if (navigator.clipboard) navigator.clipboard.writeText(text).then(ok, () => select());
+  else select();
+  function select(){ const r = document.createRange(); r.selectNodeContents($("hotel-msg")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Text selected: copy it"; }
+});
+
+// ── Ricerca ────────────────────────────────────────────────────────────────
+const q = $("q"), box2 = $("suggest");
+let results = [], active = -1, timer = null, remoteOK = true;
+function choose(p){ state.place = p; q.value = p.name === "Point on the map" ? "" : p.name; closeSuggest(); render(); }
+function closeSuggest(){ box2.hidden = true; q.setAttribute("aria-expanded", "false"); active = -1; }
+function showSuggest(list){
+  results = list; box2.innerHTML = ""; active = -1;
+  if (!list.length){ closeSuggest(); return; }
+  list.forEach((p, i) => { const b = document.createElement("button"); b.type = "button"; b.setAttribute("role", "option"); b.id = "opt" + i;
+    const z = zoneAt(p.lat, p.lon); b.innerHTML = `<span></span><small>${z ? "inside the ZTL" : "outside"}</small>`; b.firstChild.textContent = p.name;
+    b.addEventListener("click", () => choose(p)); box2.append(b); });
+  box2.hidden = false; q.setAttribute("aria-expanded", "true");
+}
+function local(text){ const s = text.trim().toLowerCase(); if (!s) return [];
+  return PLACES.filter(([n]) => n.toLowerCase().includes(s)).map(([name, lat, lon]) => ({name, lat, lon})); }
+async function remote(text){
+  if (!remoteOK) return [];
+  try {
+    const r = await fetch(GEOCODER(text)); if (!r.ok) throw 0; const j = await r.json();
+    return j.features.filter(f => f.properties.country === "Italy" || f.properties.countrycode === "IT").map(f => {
+      const pr = f.properties; const name = [pr.name, pr.street && pr.housenumber ? pr.street + " " + pr.housenumber : pr.street, pr.city].filter(Boolean).join(", ");
+      return {name, lat:f.geometry.coordinates[1], lon:f.geometry.coordinates[0], hotel: /hotel|guest_house|hostel|motel|apartment/.test(pr.osm_value || "")}; });
+  } catch { remoteOK = false; return []; }
+}
+q.addEventListener("input", () => { clearTimeout(timer); const v = q.value;
+  showSuggest(local(v)); timer = setTimeout(async () => { const r = await remote(v); if (q.value === v && r.length) showSuggest([...local(v), ...r].slice(0, 7)); }, 280); });
+q.addEventListener("keydown", e => {
+  const opts = [...box2.querySelectorAll("button")]; if (box2.hidden || !opts.length) return;
+  if (e.key === "ArrowDown" || e.key === "ArrowUp"){ e.preventDefault(); active = (active + (e.key === "ArrowDown" ? 1 : -1) + opts.length) % opts.length;
+    opts.forEach((o, i) => o.setAttribute("aria-selected", i === active)); q.setAttribute("aria-activedescendant", "opt" + active); }
+  if (e.key === "Enter"){ e.preventDefault(); choose(results[Math.max(0, active)]); }
+  if (e.key === "Escape") closeSuggest();
+});
+$("search").addEventListener("submit", e => { e.preventDefault(); if (results.length) choose(results[0]); });
+document.addEventListener("click", e => { if (!$("search").contains(e.target)) closeSuggest(); });
+
+for (const [name] of PLACES.filter(([n]) => ["Duomo (Cathedral)", "Palazzo Pitti", "Santa Maria Novella station", "Piazzale Michelangelo"].includes(n))){
+  const b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.textContent = name.replace(" (Cathedral)", "");
+  b.addEventListener("click", () => { const p = PLACES.find(x => x[0] === name); choose({name:p[0], lat:p[1], lon:p[2]}); });
+  $("tries").append(b, " ");
+}
+
+// Ora: adesso o all'arrivo
+function setLater(v){ state.later = v; $("w-now").setAttribute("aria-pressed", !v); $("w-later").setAttribute("aria-pressed", v); $("arrival").hidden = !v;
+  if (v && !$("arrival").value){ const r = rome(new Date(Date.now() + 86400000)); $("arrival").value = `${r.y}-${String(r.m).padStart(2,"0")}-${String(r.d).padStart(2,"0")}T18:00`; }
+  render(); }
+$("w-now").addEventListener("click", () => setLater(false));
+$("w-later").addEventListener("click", () => setLater(true));
+$("arrival").addEventListener("change", render);
+
+// L'app: su iPhone porta all'App Store quando sarà pubblicata
+if (APP_STORE_URL){ $("store").href = APP_STORE_URL; $("store").lastChild.textContent = " Download on the App Store"; }
+
+renderFine();
+choose({name:"Duomo (Cathedral)", lat:43.7731, lon:11.2560});
+setInterval(() => { if (!state.later) render(); }, 60000);
+})();
+</script>

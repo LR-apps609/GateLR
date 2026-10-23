@@ -4,6 +4,7 @@ name: Compila GateLR
 
 on:
   push:
+    paths-ignore: ["web/**", "docs/**", "**.md"]   # il sito e i documenti non toccano l'app
   pull_request:
   workflow_dispatch:
 
