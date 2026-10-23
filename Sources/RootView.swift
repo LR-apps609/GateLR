@@ -21,6 +21,14 @@ struct RootView: View {
         }
         .tint(Theme.red)
         .sensoryFeedback(.selection, trigger: tab)
+        .onOpenURL { url in
+            switch url.host {
+            case "map": tab = .map
+            case "trip": tab = .trip
+            case "garage": tab = .garage
+            default: tab = .now
+            }
+        }
         .sheet(isPresented: $showZone) {
             NavigationStack { ZoneDetailView(zone: store.zone, city: store.city) }
         }

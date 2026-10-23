@@ -39,6 +39,10 @@ targets:
         CFBundleName: GateLR
         CFBundleDevelopmentRegion: en
         CFBundleLocalizations: [en, it, de]
+        # gatelr://now, gatelr://map, gatelr://trip: aperture dal widget e dal sito
+        CFBundleURLTypes:
+          - CFBundleURLName: it.ledion.GateLR
+            CFBundleURLSchemes: [gatelr]
         CFBundleShortVersionString: "0.3.0"
         CFBundleVersion: "3"
         LSRequiresIPhoneOS: true
