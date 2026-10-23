@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Get GateLR</title>
+<!-- Link breve per l'app (es. gatelr.app/app, nei QR code e negli hotel): su iPhone apre l'App Store, altrove torna al sito -->
+<style>
+:root{--paper:#F4EFE6;--ink:#2B2433;--muted:#6B6372;--red:#C1272D}
+@media (prefers-color-scheme: dark){:root{--paper:#17141E;--ink:#EDE6F2;--muted:#ADA4B6;--red:#EF5B55;color-scheme:dark}}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--paper);color:var(--ink);font:18px/1.5 system-ui,sans-serif;padding:24px}
+main{max-width:420px;display:grid;gap:14px;text-align:center}
+h1{font:700 34px/1.1 "Titillium Web",system-ui,sans-serif;margin:0}
+h1 span{color:var(--red)}
+a{color:inherit;font-weight:700}
+p{margin:0;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Gate<span>LR</span></h1>
+  <p id="msg">GateLR for iPhone is coming soon.</p>
+  <p><a href="../">Check a place on the website</a></p>
+</main>
+<script>
+// Quando l'app sarà pubblicata: inserire qui l'indirizzo dell'App Store
+const APP_STORE_URL = null;
+const iOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+if (APP_STORE_URL && iOS) location.replace(APP_STORE_URL);
+else if (APP_STORE_URL) document.getElementById("msg").innerHTML = 'GateLR is on the <a href="' + APP_STORE_URL + '">App Store</a>. Open this page on your iPhone.';
+</script>
+</body>
+</html>
