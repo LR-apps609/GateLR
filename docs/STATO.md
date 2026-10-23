@@ -1,27 +1,20 @@
-# GateLR: a che punto siamo (23 ottobre 2026, sera)
-
-## App iPhone (versione 0.3)
+# GateLR: a che punto siamo (24 ottobre 2026, notte)
+## App iPhone (versione 0.5)
 
 | Cosa | Stato |
 |---|---|
-| Quattro schede: Now, Map, Trip, Garage | ✅ |
-| Firenze dai dati aperti del Comune (settori A, B, O, F, G, 15 varchi) | ✅ bozza, da verificare (`docs/verifica-firenze.md`) |
-| Bologna (ZTL + zona T, 22 varchi) e Milano Area C (42 varchi), ZTL a pagamento | ✅ bozza, da verificare (`docs/citta-successive.md`) |
-| Motore delle regole: sì / no / con condizioni / non sicuro, orari notturni e stagionali, festivi | ✅ con test automatici |
-| Conto alla rovescia «Off in 21 min», elenco dei settori con la risposta di ciascuno | ✅ |
-| Mappa Apple con settori, varchi, tocco per scegliere il settore | ✅ |
-| «Park outside»: parcheggi fuori ZTL da Apple Maps, con indicazioni | ✅ (nel simulatore di GitHub a volte non trova risultati) |
-| Messaggio per l'hotel in EN / IT / DE con nome dell'hotel e targa | ✅ |
-| Riquadro della multa (83–332 € al giorno) | ✅ importi da verificare sul testo ufficiale |
-| Modalità scura | ✅ |
-| Presentazione al primo avvio; permessi chiesti dopo | ✅ |
-| Avvisi vicino ai varchi ad app chiusa | ✅ da provare sull'iPhone |
-| Widget Home e schermata di blocco | ✅ compilato (da provare sull'iPhone) |
-| App in italiano e tedesco (segue la lingua dell'iPhone) | ✅ compilata |
-| ZTL a pagamento: «Sì, con il biglietto giornaliero» (Bologna 6 €, Milano 7,50 €) | ✅ con test |
-| Icona chiara, scura e tinta (iOS 18+) | ✅ |
+| Cinque schede: Varco, Mappa, Viaggio, Garage, Account | ✅ |
+| Varco: città → indirizzo o hotel (ricerca Apple), risposta per quel punto adesso o all'arrivo; «Fuori dalla ZTL» con distanza | ✅ |
+| Viaggio: indirizzo dell'hotel → zona trovata da sola; viaggi salvati; messaggio per l'hotel EN/IT/DE | ✅ |
+| Account: avvisi (con prova), lingua, città offline, abbonamento (grafica), «Cos'è una ZTL?» | ✅ prima versione |
+| Mappa: colori per tipo (vietato / pass / verde), scritte grandi che svaniscono, stili satellite e 3D, Look Around | ✅ |
+| Firenze (A, B, O, F, G), Bologna (ZTL + T), Milano (Area C + Area B verde) | ✅ bozza, da verificare |
+| Lingua coerente IT/DE anche nei dati delle città (controllo automatico: `Tools/check_strings.py`) | ✅ |
+| Motore delle regole con zona verde; test automatici su indirizzi e città | ✅ |
+| Widget configurabile per zona | ✅ da provare sull'iPhone |
+| Avvisi ai varchi più vicini (limite iOS di 20) | ✅ da provare sull'iPhone |
 | CarPlay | codice pronto, serve l'autorizzazione Apple |
-| Foto automatiche a ogni modifica | ✅ ramo `screenshots` (la modalità scura nel simulatore non si attiva ancora nelle foto) |
+
 
 ## Sito (`web/`)
 
@@ -53,7 +46,8 @@
 
 ## Prossimi passi
 
-1. Il tuo test sull'iPhone (`Installa su iPhone.command`).
+1. Il tuo test della 0.5 sull'iPhone (`git pull` + `Installa su iPhone.command` + ▶︎).
+2. 0.6 Navigazione (percorso, controllo ZTL del percorso, «apri nel navigatore»), poi Garage 4.1–4.2.
 2. Roma (orari pronti, servono le geometrie dall'hub RSM) e Siena (perimetro da digitalizzare dal PDF).
 3. Pubblicare il sito su GitHub Pages.
 4. Verifiche di Firenze (ultime, come deciso).
