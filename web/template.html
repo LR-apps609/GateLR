@@ -265,11 +265,12 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
 </div>
 
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" async id="maplibre-js"></script>
-<script id="city" type="application/json">/*CITY*/</script>
+<script id="cities" type="application/json">/*CITIES*/</script>
 <script>
 (() => {
 "use strict";
-const city = JSON.parse(document.getElementById("city").textContent);
+const CITIES = JSON.parse(document.getElementById("cities").textContent);
+const CITY_NAMES = {firenze:{en:"Florence", it:"Firenze", de:"Florenz"}, bologna:{en:"Bologna", it:"Bologna", de:"Bologna"}};
 // Multa per l'ingresso in ZTL senza permesso (art. 7 c. 9 e 14 Codice della Strada). Valori da docs/multe-mappe-caratteri.md
 const FINE = /*FINE*/null;
 const APP_STORE_URL = null;   // quando l'app sarà pubblicata
@@ -288,11 +289,11 @@ const T = {
   yes:"Yes, you can drive in", no:"No, don't drive in", cond:"Yes, on one condition", unsure:"Not sure", out:"Yes, drive freely",
   whyOff:n=>`The gates are off${n ? ". They switch on " + n : ""}.`, whyOn:n=>`The gates are on${n ? " until " + n : ""}. Park outside the zone, or come back later.`,
   whyCond:"The gates are on. You can drive to your hotel only if the hotel registers your plate with the city.", whyHol:"It's a public holiday and the city hasn't confirmed whether the gates are off. Check the panel at the gate.",
-  hint:" Staying at a hotel inside? Your hotel can register your plate.", whyOut:m=>`This place is outside Florence's ZTL. The nearest sector starts about ${m} m away: don't follow the satnav through it.`,
+  hint:" Staying at a hotel inside? Your hotel can register your plate.", whyOut:(m,c)=>`This place is outside ${c}'s ZTL. The nearest sector starts about ${m} m away: don't follow the satnav through it.`,
   outside:"outside the ZTL", inside:"inside the ZTL", out2:"outside", noGates:"No gates here", gOn:"Gates on", gOff:"Gates off", nowAt:"now",
   today:"today at", tomorrow:"tomorrow at", on:"on", at:"at", d:"d", h:"h", min:"min", onSince:"On since", offSince:"Off since", onIn:"On in", offIn:"Off in",
-  read:(d,a)=>`Read ${d} from the ${a}:`, official:"official page ↗", nights:"nights", open:"open to all", notConf:"not confirmed", hol:"Public holidays",
-  perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map",
+  read:(d,c)=>`Read ${d} from the City of ${c}:`, official:"official page ↗", nights:"nights", open:"open to all", notConf:"not confirmed", hol:"Public holidays",
+  perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", far:"We don't cover this place yet. GateLR starts with Florence; more cities are coming.",
   msg:(day,time)=>`Hello,\n\nI'm arriving by car on ${day} at about ${time}. Could you please register my plate [PLATE] for the ZTL, so I can reach the hotel without a fine?\n\nThank you!`},
  it:{get:"Scarica l'app", h1:"Posso <em>entrare?</em>", lead:"Cerca il tuo hotel o la destinazione. GateLR ti dice subito se è in ZTL, se puoi entrarci quando arrivi e quanto costa sbagliare strada.",
   ph:"Hotel, indirizzo o luogo a Firenze", now:"Adesso", arrival:"Arrivo", try:"Prova", draft:"Bozza: presa dalle fonti ufficiali del Comune, non ancora rivista da una persona. Vale sempre il cartello al varco.",
@@ -306,11 +307,11 @@ const T = {
   yes:"Sì, puoi entrare", no:"No, non entrare", cond:"Sì, a una condizione", unsure:"Non sicuro", out:"Sì, circola liberamente",
   whyOff:n=>`I varchi sono spenti${n ? ". Si accendono " + n : ""}.`, whyOn:n=>`I varchi sono accesi${n ? " fino a " + n : ""}. Parcheggia fuori dalla zona o torna più tardi.`,
   whyCond:"I varchi sono accesi. Puoi arrivare all'hotel solo se l'hotel comunica la tua targa al Comune.", whyHol:"È festivo e il Comune non ha confermato se i varchi sono spenti. Controlla il pannello al varco.",
-  hint:" Dormi in un hotel dentro la zona? L'hotel può comunicare la tua targa.", whyOut:m=>`Questo luogo è fuori dalla ZTL di Firenze. Il settore più vicino inizia a circa ${m} m: non seguire il navigatore attraverso il centro.`,
+  hint:" Dormi in un hotel dentro la zona? L'hotel può comunicare la tua targa.", whyOut:(m,c)=>`Questo luogo è fuori dalla ZTL di ${c}. Il settore più vicino inizia a circa ${m} m: non seguire il navigatore attraverso il centro.`,
   outside:"fuori ZTL", inside:"in ZTL", out2:"fuori", noGates:"Nessun varco", gOn:"Varchi accesi", gOff:"Varchi spenti", nowAt:"adesso",
   today:"oggi alle", tomorrow:"domani alle", on:"", at:"alle", d:"g", h:"h", min:"min", onSince:"Accesi dalle", offSince:"Spenti dalle", onIn:"Si accendono tra", offIn:"Si spengono tra",
-  read:(d,a)=>`Letto il ${d} dal sito del Comune di Firenze:`, official:"pagina ufficiale ↗", nights:"notti", open:"libero", notConf:"da confermare", hol:"Festivi",
-  perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa",
+  read:(d,c)=>`Letto il ${d} dal sito del Comune di ${c}:`, official:"pagina ufficiale ↗", nights:"notti", open:"libero", notConf:"da confermare", hol:"Festivi",
+  perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", far:"Questo luogo non è ancora coperto. GateLR parte da Firenze; altre città in arrivo.",
   msg:(day,time)=>`Buongiorno,\n\narrivo in auto ${day} verso le ${time}. Potete registrare la mia targa [TARGA] per la ZTL, così raggiungo l'hotel senza multa?\n\nGrazie!`},
  de:{get:"App holen", h1:"Darf ich <em>rein?</em>", lead:"Suche dein Hotel oder Ziel. GateLR sagt dir sofort, ob es in einer ZTL liegt, ob du bei deiner Ankunft hineinfahren darfst und was ein Fehler kostet.",
   ph:"Hotel, Adresse oder Ort in Florenz", now:"Jetzt", arrival:"Ankunft", try:"Probier", draft:"Entwurf: aus den offiziellen Quellen der Stadt, noch nicht von einer Person geprüft. Es gilt immer das Schild an der Einfahrt.",
@@ -324,11 +325,11 @@ const T = {
   yes:"Ja, du darfst rein", no:"Nein, nicht hineinfahren", cond:"Ja, unter einer Bedingung", unsure:"Nicht sicher", out:"Ja, frei befahrbar",
   whyOff:n=>`Die Kameras sind aus${n ? ". Sie gehen " + n + " an" : ""}.`, whyOn:n=>`Die Kameras sind aktiv${n ? " bis " + n : ""}. Parke außerhalb der Zone oder komm später.`,
   whyCond:"Die Kameras sind aktiv. Du darfst nur zum Hotel fahren, wenn das Hotel dein Kennzeichen bei der Stadt anmeldet.", whyHol:"Heute ist Feiertag und die Stadt hat nicht bestätigt, ob die Kameras aus sind. Achte auf die Anzeige an der Einfahrt.",
-  hint:" Dein Hotel liegt in der Zone? Das Hotel kann dein Kennzeichen anmelden.", whyOut:m=>`Dieser Ort liegt außerhalb der ZTL von Florenz. Der nächste Sektor beginnt etwa ${m} m entfernt: folge dem Navi nicht durch die Altstadt.`,
+  hint:" Dein Hotel liegt in der Zone? Das Hotel kann dein Kennzeichen anmelden.", whyOut:(m,c)=>`Dieser Ort liegt außerhalb der ZTL von ${c}. Der nächste Sektor beginnt etwa ${m} m entfernt: folge dem Navi nicht durch die Altstadt.`,
   outside:"außerhalb der ZTL", inside:"in der ZTL", out2:"außerhalb", noGates:"Keine Einfahrten", gOn:"Kameras aktiv", gOff:"Kameras aus", nowAt:"jetzt",
   today:"heute um", tomorrow:"morgen um", on:"am", at:"um", d:"T", h:"Std", min:"Min", onSince:"Aktiv seit", offSince:"Aus seit", onIn:"Aktiv in", offIn:"Aus in",
-  read:(d,a)=>`Gelesen am ${d} bei der Stadt Florenz:`, official:"offizielle Seite ↗", nights:"Nächte", open:"frei", notConf:"unbestätigt", hol:"Feiertage",
-  perDay:"pro Tag", verifying:"Betrag wird geprüft", stillChecking:"Beträge werden noch am offiziellen Text geprüft.", point:"Punkt auf der Karte",
+  read:(d,c)=>`Gelesen am ${d} bei der Stadt ${c}:`, official:"offizielle Seite ↗", nights:"Nächte", open:"frei", notConf:"unbestätigt", hol:"Feiertage",
+  perDay:"pro Tag", verifying:"Betrag wird geprüft", stillChecking:"Beträge werden noch am offiziellen Text geprüft.", point:"Punkt auf der Karte", far:"Diesen Ort decken wir noch nicht ab. GateLR startet mit Florenz; weitere Städte folgen.",
   msg:(day,time)=>`Guten Tag,\n\nich komme am ${day} gegen ${time} mit dem Auto an. Könnten Sie bitte mein Kennzeichen [KENNZEICHEN] für die ZTL anmelden, damit ich das Hotel ohne Bußgeld erreiche?\n\nVielen Dank!`}
 };
 const LOCALE = {en:"en-GB", it:"it-IT", de:"de-DE"};
@@ -336,7 +337,6 @@ let lang = "en";
 try { lang = localStorage.getItem("gatelr.lang") || (navigator.language || "en").slice(0, 2); } catch { lang = (navigator.language || "en").slice(0, 2); }
 if (!T[lang]) lang = "en";
 const t_ = k => T[lang][k];
-const CITY_NAME = {en:"Florence", it:"Firenze", de:"Florenz"};
 const SECTOR = {en:"Sector", it:"Settore", de:"Sektor"};
 const zoneLabel = z => z.name.split("·")[0].trim().replace("Sector", SECTOR[lang]);
 
@@ -399,38 +399,47 @@ function contains(zone, lat, lon){ let inside = false; const p = zone.perimeter;
   return inside; }
 // Il settore più specifico che contiene il punto (A sta dentro B: vince quello con area minore)
 function area(z){ let s = 0; const p = z.perimeter; for (let i = 0, j = p.length-1; i < p.length; j = i++) s += (p[j].lon + p[i].lon)*(p[j].lat - p[i].lat); return Math.abs(s/2); }
-const ZONES = [...city.zones].sort((a, b) => area(a) - area(b));
-function zoneAt(lat, lon){ return ZONES.find(z => contains(z, lat, lon)) || null; }
-function nearestZone(lat, lon){ let best = null, bd = 1e9;
-  for (const z of city.zones) for (const p of z.perimeter){ const d = (p.lat-lat)**2 + ((p.lon-lon)*0.72)**2; if (d < bd){ bd = d; best = z; } }
-  return {zone: best, meters: Math.sqrt(bd)*111000}; }
+// Tutte le città: si cerca il settore in ognuna; la città «attiva» è quella del luogo scelto
+const ZONES_OF = {};
+for (const c of CITIES) ZONES_OF[c.id] = [...c.zones].sort((a, b) => area(a) - area(b));
+function zoneAt(lat, lon){
+  for (const c of CITIES){ const z = ZONES_OF[c.id].find(z => contains(z, lat, lon)); if (z) return {city: c, zone: z}; }
+  return null; }
+function nearestZone(lat, lon){ let best = null, bc = null, bd = 1e9;
+  for (const c of CITIES) for (const z of c.zones) for (const p of z.perimeter){ const d = (p.lat-lat)**2 + ((p.lon-lon)*0.72)**2; if (d < bd){ bd = d; best = z; bc = c; } }
+  return {city: bc, zone: best, meters: Math.sqrt(bd)*111000}; }
 
 // ── Mappa disegnata (SVG): niente servizi esterni ─────────────────────────────
 const svg = document.getElementById("map"), NS = "http://www.w3.org/2000/svg";
-const all = city.zones.flatMap(z => z.perimeter);
-const box = {minLat: Math.min(...all.map(p=>p.lat)) - .004, maxLat: Math.max(...all.map(p=>p.lat)) + .004,
-             minLon: Math.min(...all.map(p=>p.lon)) - .006, maxLon: Math.max(...all.map(p=>p.lon)) + .006};
-const KX = Math.cos(43.77*Math.PI/180), W = 1000, H = Math.round(W * (box.maxLat-box.minLat) / ((box.maxLon-box.minLon)*KX));
-svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
-const X = lon => (lon - box.minLon) / (box.maxLon - box.minLon) * W, Y = lat => (box.maxLat - lat) / (box.maxLat - box.minLat) * H;
 const el = (n, a, parent = svg) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); parent.appendChild(e); return e; };
-// L'Arno, approssimato a mano per orientarsi
-el("path", {d:`M0 ${Y(43.7712)} C ${X(11.240)} ${Y(43.7705)}, ${X(11.2470)} ${Y(43.7700)}, ${X(11.2531)} ${Y(43.7679)} S ${X(11.2620)} ${Y(43.7655)}, ${X(11.2720)} ${Y(43.7640)} L ${W} ${Y(43.7625)}`,
-  fill:"none", stroke:"var(--map-water)", "stroke-width":22, "stroke-linecap":"round"});
-const gZones = el("g", {}), gGates = el("g", {}), gPin = el("g", {});
-const zoneEls = {};
-for (const z of [...ZONES].reverse()){
-  const d = z.perimeter.map((p, i) => (i ? "L" : "M") + X(p.lon).toFixed(1) + " " + Y(p.lat).toFixed(1)).join(" ") + "Z";
-  zoneEls[z.id] = el("path", {d, fill:"var(--red)", "fill-opacity":.08, stroke:"var(--red)", "stroke-width":2, "stroke-dasharray":"9 6", "stroke-linejoin":"round"}, gZones);
-  const lats = z.perimeter.map(p=>p.lat), lons = z.perimeter.map(p=>p.lon);
-  const cx = X((Math.min(...lons)+Math.max(...lons))/2), cy = Y((Math.min(...lats)+Math.max(...lats))/2);
-  el("circle", {cx, cy, r:22, fill:"var(--sheet)", stroke:"var(--red)", "stroke-width":2.5}, gZones);
-  const t = el("text", {x:cx, y:cy+8.5, "text-anchor":"middle", "font-family":"Titillium Web, sans-serif", "font-weight":700, "font-size":25, fill:"var(--red)"}, gZones);
-  t.textContent = z.name.split("·")[0].trim().split(" ").pop();
-}
-for (const z of city.zones) for (const g of z.gates){
-  const c = el("circle", {cx:X(g.location.lon), cy:Y(g.location.lat), r:8, fill:"var(--ink)", stroke:"var(--sheet)", "stroke-width":2.5}, gGates);
-  el("title", {}, c).textContent = g.name;
+let box, W = 1000, H, gZones, gGates, gPin, zoneEls = {}, drawn = null;
+const X = lon => (lon - box.minLon) / (box.maxLon - box.minLon) * W, Y = lat => (box.maxLat - lat) / (box.maxLat - box.minLat) * H;
+function drawMap(c){
+  if (drawn === c.id) return; drawn = c.id;
+  svg.innerHTML = ""; zoneEls = {};
+  const all = c.zones.flatMap(z => z.perimeter);
+  box = {minLat: Math.min(...all.map(p=>p.lat)) - .004, maxLat: Math.max(...all.map(p=>p.lat)) + .004,
+         minLon: Math.min(...all.map(p=>p.lon)) - .006, maxLon: Math.max(...all.map(p=>p.lon)) + .006};
+  const KX = Math.cos((box.minLat + box.maxLat) / 2 * Math.PI/180);
+  H = Math.round(W * (box.maxLat-box.minLat) / ((box.maxLon-box.minLon)*KX));
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  // L'Arno, approssimato a mano per orientarsi a Firenze
+  if (c.id === "firenze") el("path", {d:`M0 ${Y(43.7712)} C ${X(11.240)} ${Y(43.7705)}, ${X(11.2470)} ${Y(43.7700)}, ${X(11.2531)} ${Y(43.7679)} S ${X(11.2620)} ${Y(43.7655)}, ${X(11.2720)} ${Y(43.7640)} L ${W} ${Y(43.7625)}`,
+    fill:"none", stroke:"var(--map-water)", "stroke-width":22, "stroke-linecap":"round"});
+  gZones = el("g", {}); gGates = el("g", {}); gPin = el("g", {});
+  for (const z of [...ZONES_OF[c.id]].reverse()){
+    const d = z.perimeter.map((p, i) => (i ? "L" : "M") + X(p.lon).toFixed(1) + " " + Y(p.lat).toFixed(1)).join(" ") + "Z";
+    zoneEls[z.id] = el("path", {d, fill:"var(--red)", "fill-opacity":.08, stroke:"var(--red)", "stroke-width":2, "stroke-dasharray":"9 6", "stroke-linejoin":"round"}, gZones);
+    const lats = z.perimeter.map(p=>p.lat), lons = z.perimeter.map(p=>p.lon);
+    const cx = X((Math.min(...lons)+Math.max(...lons))/2), cy = Y((Math.min(...lats)+Math.max(...lats))/2);
+    el("circle", {cx, cy, r:22, fill:"var(--sheet)", stroke:"var(--red)", "stroke-width":2.5}, gZones);
+    const t = el("text", {x:cx, y:cy+8.5, "text-anchor":"middle", "font-family":"Titillium Web, sans-serif", "font-weight":700, "font-size":25, fill:"var(--red)"}, gZones);
+    t.textContent = z.name.split("·")[0].trim().split(" ").pop();
+  }
+  for (const z of c.zones) for (const g of z.gates){
+    const dot = el("circle", {cx:X(g.location.lon), cy:Y(g.location.lat), r:8, fill:"var(--ink)", stroke:"var(--sheet)", "stroke-width":2.5}, gGates);
+    el("title", {}, dot).textContent = g.name;
+  }
 }
 svg.addEventListener("click", e => {
   const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
@@ -438,6 +447,9 @@ svg.addEventListener("click", e => {
   const lon = box.minLon + p.x / W * (box.maxLon - box.minLon), lat = box.maxLat - p.y / H * (box.maxLat - box.minLat);
   choose({name:t_("point"), lat, lon, map:true});
 });
+let city = CITIES.find(c => c.id === "firenze") || CITIES[0];
+drawMap(city);
+const cityName = c => (CITY_NAMES[c.id] || {})[lang] || c.name;
 
 // ── Stato e disegno della risposta ─────────────────────────────────────────
 const state = {place: null, later: false};
@@ -454,19 +466,24 @@ function render(){
   gPin.innerHTML = "";
   for (const id in zoneEls) zoneEls[id].setAttribute("fill-opacity", .08);
   if (!p){ a.dataset.v = "out"; $("a-title").textContent = t_("pick"); $("a-why").textContent = t_("pickWhy"); return; }
+  const hit = zoneAt(p.lat, p.lon), near = hit ? null : nearestZone(p.lat, p.lon);
+  const c = hit ? hit.city : near.city;
+  if (c !== city){ city = c; drawMap(city); }
+  gPin.innerHTML = "";
   el("circle", {cx:X(p.lon), cy:Y(p.lat), r:24, fill:"var(--blue)", "fill-opacity":.18}, gPin);
   el("circle", {cx:X(p.lon), cy:Y(p.lat), r:12, fill:"var(--blue)", stroke:"var(--sheet)", "stroke-width":4}, gPin);
-  const z = zoneAt(p.lat, p.lon);
+  const z = hit ? hit.zone : null;
   const stamp = state.later ? when(t, new Date()) : t_("nowAt") + " " + hm(t);
+  $("a-draft").hidden = true;
   $("a-draft").hidden = city.status === "verified";
   if (!z){
-    const n = nearestZone(p.lat, p.lon);
+    const n = near;
     updateRealMap(p, null);
     Object.assign(a.dataset, {v:"out"});
     $("a-where").textContent = `${p.name} · ${t_("outside")}`;
     $("a-gates").textContent = t_("noGates");
     $("a-title").textContent = t_("out");
-    $("a-why").textContent = T[lang].whyOut(Math.round(n.meters/50)*50);
+    $("a-why").textContent = n.meters > 15000 ? t_("far") : T[lang].whyOut(Math.round(n.meters/50)*50, cityName(n.city));
     $("a-mark").innerHTML = `<path d="${MARKS.out}"/>`;
     $("a-count").hidden = true;
     renderDetails(n.zone, t);
@@ -496,7 +513,7 @@ function render(){
 function sources(z){
   const s = z.source, read = new Date(s.checkedOn).toLocaleDateString(LOCALE[lang], {day:"numeric", month:"short", year:"numeric"});
   $("a-src").innerHTML = "";
-  const span = document.createElement("span"); span.textContent = T[lang].read(read, s.authority); $("a-src").append(span);
+  const span = document.createElement("span"); span.textContent = T[lang].read(read, cityName(city)); $("a-src").append(span);
   const link = document.createElement("a"); link.href = s.pageURL; link.target = "_blank"; link.rel = "noopener"; link.textContent = t_("official"); $("a-src").append(link);
 }
 
@@ -508,7 +525,7 @@ function clock(m){ const h = Math.floor(m/60)%24, mm = m%60;
   if (lang !== "en") return `${h}:${String(mm).padStart(2,"0")}`;
   return `${h%12 || 12}${mm ? ":" + String(mm).padStart(2,"0") : ""}\u202f${h < 12 ? "am" : "pm"}`; }
 function renderDetails(z, t){
-  $("h-label").textContent = `${CITY_NAME[lang]} · ${zoneLabel(z)}`;
+  $("h-label").textContent = `${cityName(city)} · ${zoneLabel(z)}`;
   const rows = z.windows.map(w => {
     const days = ORDER.filter(d => w.weekdays.includes(d));
     const contiguous = days.length > 2 && days.every((d, i) => i === 0 || ORDER.indexOf(d) === ORDER.indexOf(days[i-1]) + 1);
@@ -560,7 +577,13 @@ function showSuggest(list){
   results = list; box2.innerHTML = ""; active = -1;
   if (!list.length){ closeSuggest(); return; }
   list.forEach((p, i) => { const b = document.createElement("button"); b.type = "button"; b.setAttribute("role", "option"); b.id = "opt" + i;
-    const z = zoneAt(p.lat, p.lon); b.innerHTML = `<span></span><small>${z ? t_("inside") : t_("out2")}</small>`; b.firstChild.textContent = p.name;
+    const hit = zoneAt(p.lat, p.lon), near = hit ? null : nearestZone(p.lat, p.lon);
+  const c = hit ? hit.city : near.city;
+  if (c !== city){ city = c; drawMap(city); el("g", {}); }
+  gPin.innerHTML = "";
+  el("circle", {cx:X(p.lon), cy:Y(p.lat), r:24, fill:"var(--blue)", "fill-opacity":.18}, gPin);
+  el("circle", {cx:X(p.lon), cy:Y(p.lat), r:12, fill:"var(--blue)", stroke:"var(--sheet)", "stroke-width":4}, gPin);
+  const z = hit ? hit.zone : null; b.innerHTML = `<span></span><small>${z ? t_("inside") : t_("out2")}</small>`; b.firstChild.textContent = p.name;
     b.addEventListener("click", () => choose(p)); box2.append(b); });
   box2.hidden = false; q.setAttribute("aria-expanded", "true");
 }
@@ -650,6 +673,7 @@ function startRealMap(){
 function updateRealMap(p, z){
   if (!ml.ready) return;
   ml.selected = z ? z.id : "";
+  if (ml.city !== city.id){ ml.city = city.id; ml.map.getSource("zones").setData(geo()); ml.map.getSource("gates").setData(gatesGeo()); }
   ml.map.setPaintProperty("zones-fill", "fill-opacity", ["case", ["==", ["get","id"], ml.selected], 0.25, 0.08]);
   if (!p) return;
   if (!ml.marker){ const dot = document.createElement("div"); dot.style.cssText = "width:22px;height:22px;border-radius:50%;background:#1F4E9E;border:4px solid #fff;box-shadow:0 0 0 8px rgba(31,78,158,.2)"; ml.marker = new maplibregl.Marker({element: dot}); }

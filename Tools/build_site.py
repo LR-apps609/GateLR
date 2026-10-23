@@ -7,10 +7,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 FINE_FILE = ROOT / "Resources/Rules/fine.json"          # importi verificati, con fonte (se manca: «in verifica»)
 
-city = json.loads((ROOT / "Resources/Cities/firenze.json").read_text(encoding="utf-8"))
+cities = [json.loads(f.read_text(encoding="utf-8")) for f in sorted((ROOT / "Resources/Cities").glob("*.json"))]
 fine = json.loads(FINE_FILE.read_text(encoding="utf-8")) if FINE_FILE.exists() else None
 html = (ROOT / "web/template.html").read_text(encoding="utf-8")
-html = html.replace("/*CITY*/", json.dumps(city, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
+html = html.replace("/*CITIES*/", json.dumps(cities, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/"))
 html = html.replace("/*FINE*/null", json.dumps(fine, ensure_ascii=False) if fine else "null")
 (ROOT / "web/index.html").write_text(html, encoding="utf-8")
-print("web/index.html", len(html), "byte", "· multe:", "sì" if fine else "in verifica")
+print("web/index.html", len(html), "byte ·", len(cities), "città · multe:", "sì" if fine else "in verifica")
