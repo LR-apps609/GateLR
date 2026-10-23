@@ -18,7 +18,8 @@ permissions:
 
 jobs:
   build:
-    runs-on: macos-15
+    # I Mac Apple Silicon di GitHub sono spesso esauriti: si usa il Mac Intel, come per AudioLR
+    runs-on: macos-15-intel
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
