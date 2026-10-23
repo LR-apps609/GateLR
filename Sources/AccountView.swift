@@ -125,7 +125,7 @@ struct LearnZTLView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 
-    private func lesson(_ title: String, _ text: String, @ViewBuilder art: () -> some View) -> some View {
+    private func lesson<Art: View>(_ title: String, _ text: String, @ViewBuilder art: () -> Art) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack { Spacer(); art(); Spacer() }.padding(.vertical, 6)
             Text(L(title)).font(Theme.display(24)).foregroundStyle(Theme.ink)

@@ -177,7 +177,7 @@ struct VarcoView: View {
             if hits.count > 1 {
                 VStack(alignment: .leading, spacing: 8) {
                     SectionLabel("Also inside")
-                    zoneList(hits.dropFirst().map(\.zone), at: date)
+                    zoneList(hits.dropFirst().map { $0.zone }, at: date)
                 }
             }
             if hit.zone.hotelCanRegister {
