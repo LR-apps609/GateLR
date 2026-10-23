@@ -43,7 +43,7 @@ struct SectionLabel: View {
     var text: String
     init(_ text: String) { self.text = text }
     var body: some View {
-        Text(text.uppercased())
+        Text(L(text).uppercased())
             .font(Theme.label(13))
             .tracking(1.1)
             .foregroundStyle(Theme.muted)
@@ -96,7 +96,7 @@ struct VerdictCard: View {
             HStack {
                 Text(heading.uppercased()).font(Theme.label(13)).tracking(1.1).opacity(0.9)
                 Spacer()
-                Pill(text: answer.gatesOn ? "Gates on" : "Gates off", fill: v.onFill.opacity(0.16), ink: v.onFill)
+                Pill(text: answer.gatesOn ? L("Gates on") : L("Gates off"), fill: v.onFill.opacity(0.16), ink: v.onFill)
             }
             HStack(spacing: 14) {
                 Image(systemName: v.symbol)
@@ -118,7 +118,7 @@ struct VerdictCard: View {
             if let next = answer.nextChange { countdown(to: next) }
             Rectangle().fill(v.onFill.opacity(0.22)).frame(height: 1)
             HStack {
-                Label(source.reviewedByHuman ? "Checked \(source.checkedOn.formatted(.dateTime.day().month()))" : "Read \(source.checkedOn.formatted(.dateTime.day().month()))",
+                Label(String(format: L(source.reviewedByHuman ? "Checked %@" : "Read %@"), source.checkedOn.formatted(.dateTime.day().month())),
                       systemImage: source.reviewedByHuman ? "checkmark.seal" : "doc.text.magnifyingglass")
                     .font(.system(size: 13)).opacity(0.92)
                 Text("· \(source.authority)").font(.system(size: 13)).opacity(0.92).lineLimit(1)
@@ -158,9 +158,9 @@ struct VerdictCard: View {
                 .accessibilityHidden(true)
             }
             HStack {
-                if let since { Text("\(answer.gatesOn ? "On" : "Off") since \(since.formatted(date: .omitted, time: .shortened))") }
+                if let since { Text(String(format: L(answer.gatesOn ? "On since %@" : "Off since %@"), since.formatted(date: .omitted, time: .shortened))) }
                 Spacer()
-                Text("\(answer.gatesOn ? "Off" : "On") in \(Self.duration(left))")
+                Text(String(format: L(answer.gatesOn ? "Off in %@" : "On in %@"), Self.duration(left)))
             }
             .font(.system(size: 12.5, weight: .medium)).opacity(0.9).monospacedDigit()
         }
@@ -168,9 +168,9 @@ struct VerdictCard: View {
 
     static func duration(_ seconds: TimeInterval) -> String {
         let m = Int(seconds / 60), h = m / 60, d = h / 24
-        if d >= 1 { return "\(d) d \(h % 24) h" }
-        if h >= 1 { return "\(h) h \(m % 60) min" }
-        return "\(m) min"
+        if d >= 1 { return String(format: L("%lld d %lld h"), d, h % 24) }
+        if h >= 1 { return String(format: L("%lld h %lld min"), h, m % 60) }
+        return String(format: L("%lld min"), m)
     }
 
     private var detail: String {
@@ -185,7 +185,7 @@ struct StatusBanner: View {
     var status: City.Status
     var body: some View {
         if status != .verified {
-            Label(status == .sample ? "Sample data, not real" : "Draft: from official sources, not yet reviewed by a person",
+            Label(L(status == .sample ? "Sample data, not real" : "Draft: from official sources, not yet reviewed by a person"),
                   systemImage: "exclamationmark.triangle.fill")
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundStyle(Theme.amberInk)
@@ -206,7 +206,7 @@ struct WideButton: View {
         Button(action: action) {
             HStack(spacing: 8) {
                 if let systemImage { Image(systemName: systemImage) }
-                Text(title)
+                Text(L(title))
             }
             .font(.system(size: 15, weight: .semibold))
             .frame(maxWidth: .infinity, minHeight: 48)

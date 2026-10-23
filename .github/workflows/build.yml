@@ -4,7 +4,7 @@ name: Compila GateLR
 
 on:
   push:
-    paths-ignore: ["web/**", "docs/**", "**.md"]   # il sito e i documenti non toccano l'app
+    paths-ignore: ["web/**", "docs/**", "**.md", ".github/workflows/site.yml"]   # il sito e i documenti non toccano l'app
   pull_request:
   workflow_dispatch:
 

@@ -26,6 +26,9 @@ targets:
       - path: Resources/Rules
         type: folder
         buildPhase: resources
+      # Traduzioni (italiano, tedesco): generate da Tools/translations.py
+      - path: Resources/Localizations
+        buildPhase: resources
       # Titillium Web (SIL Open Font License)
       - path: Resources/Fonts
         buildPhase: resources
@@ -35,6 +38,7 @@ targets:
         CFBundleDisplayName: GateLR
         CFBundleName: GateLR
         CFBundleDevelopmentRegion: en
+        CFBundleLocalizations: [en, it, de]
         CFBundleShortVersionString: "0.3.0"
         CFBundleVersion: "3"
         LSRequiresIPhoneOS: true

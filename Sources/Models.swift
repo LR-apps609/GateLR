@@ -26,6 +26,16 @@ struct Zone: Codable, Identifiable, Hashable {
     var id: String
     var name: String            // "Historic Centre · Sector A"
     var summary: String         // il riassunto «In short», con parole nostre
+    var summary_it: String?
+    var summary_de: String?
+    /// Il riassunto nella lingua del telefono, se c'è
+    var localizedSummary: String {
+        switch Locale.current.language.languageCode?.identifier {
+        case "it": summary_it ?? summary
+        case "de": summary_de ?? summary
+        default: summary
+        }
+    }
     var perimeter: [Coordinate]
     var gates: [Gate]
     var windows: [TimeWindow]   // quando i varchi sono accesi
@@ -79,11 +89,11 @@ enum Fuel: String, Codable, CaseIterable, Identifiable {
     var id: String { rawValue }
     var label: String {
         switch self {
-        case .petrol: "Petrol"
-        case .diesel: "Diesel"
-        case .hybrid: "Hybrid"
-        case .electric: "Electric"
-        case .lpg: "LPG / methane"
+        case .petrol: L("Petrol")
+        case .diesel: L("Diesel")
+        case .hybrid: L("Hybrid")
+        case .electric: L("Electric")
+        case .lpg: L("LPG / methane")
         }
     }
 }
@@ -119,10 +129,10 @@ struct Permit: Codable, Identifiable, Hashable {
 extension Permit.Kind {
     var label: String {
         switch self {
-        case .hotelRegistration: "Hotel registration"
-        case .resident: "Resident permit"
-        case .disabledBadge: "Disabled badge"
-        case .other: "Other permit"
+        case .hotelRegistration: L("Hotel registration")
+        case .resident: L("Resident permit")
+        case .disabledBadge: L("Disabled badge")
+        case .other: L("Other permit")
         }
     }
 }
@@ -132,7 +142,17 @@ struct FineInfo: Codable {
     var min: Int
     var max: Int
     var notes: [String]
+    var notes_it: [String]?
+    var notes_de: [String]?
     var status: String?
+
+    var localizedNotes: [String] {
+        switch Locale.current.language.languageCode?.identifier {
+        case "it": notes_it ?? notes
+        case "de": notes_de ?? notes
+        default: notes
+        }
+    }
 
     static let bundled: FineInfo? = {
         guard let url = Bundle.main.url(forResource: "fine", withExtension: "json", subdirectory: "Rules"),
@@ -146,5 +166,5 @@ extension Zone {
     var letter: String { name.split(separator: "·").first.map { String($0.split(separator: " ").last ?? "") } ?? "" }
     /// «Historic Centre» da «Sector B · Historic Centre»
     var place: String { name.split(separator: "·").dropFirst().joined(separator: "·").trimmingCharacters(in: .whitespaces) }
-    var shortName: String { "Sector \(letter)" }
+    var shortName: String { String(format: L("Sector %@"), letter) }
 }

@@ -24,7 +24,7 @@ struct ZoneDetailView: View {
 
                 VStack(alignment: .leading, spacing: 6) {
                     SectionLabel("In short")
-                    Text(zone.summary).font(.system(size: 15))
+                    Text(zone.localizedSummary).font(.system(size: 15))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading).padding(14).card()
 
@@ -76,7 +76,7 @@ struct ZoneDetailView: View {
                             Text("€\(fine.min)–\(fine.max)").font(Theme.display(34)).foregroundStyle(Theme.red).monospacedDigit()
                             Text("per day").font(.system(size: 15)).foregroundStyle(Theme.muted)
                         }
-                        ForEach(fine.notes, id: \.self) { n in
+                        ForEach(fine.localizedNotes, id: \.self) { n in
                             Label(n, systemImage: "circle.fill").labelStyle(BulletLabel()).font(.system(size: 14))
                         }
                         Text("Amounts still being checked against the official text.").font(.system(size: 12)).foregroundStyle(Theme.muted)
@@ -133,7 +133,7 @@ struct ZoneDetailView: View {
 
     /// Le fasce raggruppate per orario: «Monday – Friday 7:30 am – 8:00 pm»
     private var scheduleRows: [Row] {
-        let names = Calendar(identifier: .gregorian).weekdaySymbols   // 0 = domenica
+        let names = Calendar.current.weekdaySymbols   // 0 = domenica
         let f = DateFormatter(); f.dateFormat = "h:mm a"; f.locale = Locale(identifier: "en_GB")
         func time(_ m: Int) -> String {
             f.string(from: Calendar.current.date(bySettingHour: m / 60 % 24, minute: m % 60, second: 0, of: Date())!).lowercased()
@@ -157,10 +157,10 @@ struct ZoneDetailView: View {
         let free = order.filter { !covered.contains($0) }.map { names[$0 - 1] }
         let holidays = zone.freeOnHolidays == true ? ["holidays"] : []
         if !free.isEmpty || !holidays.isEmpty {
-            rows.append(Row(days: (free + holidays).joined(separator: ", ").capitalizedFirst, hours: "open to all", free: true))
+            rows.append(Row(days: (free + holidays).joined(separator: ", ").capitalizedFirst, hours: L("open to all"), free: true))
         }
         if zone.freeOnHolidays == nil {
-            rows.append(Row(days: "Public holidays", hours: "not confirmed"))
+            rows.append(Row(days: L("Public holidays"), hours: L("not confirmed")))
         }
         return rows
     }

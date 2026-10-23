@@ -6,6 +6,7 @@ Novità della 0.3.0 «Più professionale»:
 • Garage: distanza degli avvisi, sezione About con fonti, licenze e avvertenze
 • Primo avvio con tre pagine di presentazione
 • Titoli Titillium Web con interlinea corretta
+• App in italiano e tedesco, oltre all'inglese (segue la lingua dell'iPhone)
 • Widget per la schermata Home e di blocco: varchi accesi o spenti e prossimo cambio
 • I permessi (posizione, notifiche) si chiedono dopo la presentazione
 • Scheda zona: riquadro della multa (83–332 € al giorno, importi ancora da verificare)

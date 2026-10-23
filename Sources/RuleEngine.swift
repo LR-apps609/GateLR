@@ -11,10 +11,10 @@ enum Verdict: Equatable {
 
     var title: String {
         switch self {
-        case .yes: "Yes, you can enter"
-        case .no: "No, don't enter"
-        case .conditional: "Yes, on one condition"
-        case .unsure: "Not sure"
+        case .yes: L("Yes, you can enter")
+        case .no: L("No, don't enter")
+        case .conditional: L("Yes, on one condition")
+        case .unsure: L("Not sure")
         }
     }
 }
@@ -40,34 +40,34 @@ struct RuleEngine {
         let next = nextChange(zone, after: date)
 
         if let age = calendar.dateComponents([.day], from: zone.source.checkedOn, to: now()).day, age > staleAfterDays {
-            return Answer(verdict: .unsure(reason: "This zone hasn't been checked for \(age) days. Look at the city's page before driving in."),
+            return Answer(verdict: .unsure(reason: String(format: L("This zone hasn't been checked for %lld days. Look at the city's page before driving in."), age)),
                           gatesOn: on, nextChange: next)
         }
         if zone.freeOnHolidays == nil && ItalianHolidays.isHoliday(date, calendar: calendar) && isActive(zone, at: date, ignoringHolidays: true) {
-            return Answer(verdict: .unsure(reason: "It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate."),
+            return Answer(verdict: .unsure(reason: L("It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate.")),
                           gatesOn: true, nextChange: next)
         }
         guard on else {
-            let until = next.map { " The gates switch back on \(describe($0, from: date))." } ?? ""
-            return Answer(verdict: .yes(reason: "The gates are off.\(until)"), gatesOn: false, nextChange: next)
+            let until = next.map { " " + String(format: L("The gates switch back on %@."), describe($0, from: date)) } ?? ""
+            return Answer(verdict: .yes(reason: L("The gates are off.") + until), gatesOn: false, nextChange: next)
         }
         let mine = permits.filter { $0.covers(zone: zone, vehicle: vehicle, at: date) }
         if mine.contains(where: { $0.status == .confirmed }) {
-            return Answer(verdict: .yes(reason: "The gates are on, but your permit covers this vehicle."), gatesOn: true, nextChange: next)
+            return Answer(verdict: .yes(reason: L("The gates are on, but your permit covers this vehicle.")), gatesOn: true, nextChange: next)
         }
         if zone.exemptFuels.contains(vehicle.fuel) {
-            return Answer(verdict: .yes(reason: "The gates are on, but \(vehicle.fuel.label.lowercased()) vehicles may enter."), gatesOn: true, nextChange: next)
+            return Answer(verdict: .yes(reason: String(format: L("The gates are on, but %@ vehicles may enter."), vehicle.fuel.label.lowercased())), gatesOn: true, nextChange: next)
         }
         if mine.contains(where: { $0.status == .waiting }) {
-            return Answer(verdict: .conditional(reason: "The gates are on.", condition: "Your permit is still waiting for confirmation. Drive in only once it's confirmed."),
+            return Answer(verdict: .conditional(reason: L("The gates are on."), condition: L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")),
                           gatesOn: true, nextChange: next)
         }
         if hotelInside && zone.hotelCanRegister {
-            return Answer(verdict: .conditional(reason: "The gates are on.", condition: "You can drive to the hotel only if the hotel registers your plate with the city."),
+            return Answer(verdict: .conditional(reason: L("The gates are on."), condition: L("You can drive to the hotel only if the hotel registers your plate with the city.")),
                           gatesOn: true, nextChange: next)
         }
-        let off = next.map { " They switch off \(describe($0, from: date))." } ?? ""
-        return Answer(verdict: .no(reason: "The gates are on.\(off)"), gatesOn: true, nextChange: next)
+        let off = next.map { " " + String(format: L("They switch off %@."), describe($0, from: date)) } ?? ""
+        return Answer(verdict: .no(reason: L("The gates are on.") + off), gatesOn: true, nextChange: next)
     }
 
     // MARK: Orari
@@ -123,14 +123,15 @@ struct RuleEngine {
 
     func describe(_ date: Date, from ref: Date) -> String {
         let f = DateFormatter()
-        f.locale = Locale(identifier: "en_GB")
+        f.locale = Locale.current
         f.timeZone = calendar.timeZone
-        f.dateFormat = "h:mm a"
-        let time = f.string(from: date).lowercased()
-        if calendar.isDate(date, inSameDayAs: ref) { return "today at \(time)" }
-        if let tomorrow = calendar.date(byAdding: .day, value: 1, to: ref), calendar.isDate(date, inSameDayAs: tomorrow) { return "tomorrow at \(time)" }
+        f.timeStyle = .short
+        let time = f.string(from: date)
+        if calendar.isDate(date, inSameDayAs: ref) { return String(format: L("today at %@"), time) }
+        if let tomorrow = calendar.date(byAdding: .day, value: 1, to: ref), calendar.isDate(date, inSameDayAs: tomorrow) { return String(format: L("tomorrow at %@"), time) }
+        f.timeStyle = .none
         f.dateFormat = "EEEE"
-        return "on \(f.string(from: date)) at \(time)"
+        return String(format: L("on %@ at %@"), f.string(from: date), time)
     }
 }
 

@@ -60,10 +60,10 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
         guard answer.gatesOn else { return }      // varco spento: nessun disturbo
 
         let content = UNMutableNotificationContent()
-        content.title = "ZTL gate in \(Int(store.alertDistance)) m · it's ON"
+        content.title = String(format: L("ZTL gate in %lld m · it's ON"), Int(store.alertDistance))
         switch answer.verdict {
         case .yes(let r): content.body = "\(gate.name). \(r)"
-        case .no: content.body = "\(gate.name). Don't drive in. Tap for parking outside."
+        case .no: content.body = "\(gate.name). " + L("Don't drive in. Tap for parking outside.")
         case .conditional(_, let c): content.body = "\(gate.name). \(c)"
         case .unsure(let r): content.body = "\(gate.name). \(r)"
         }

@@ -29,8 +29,8 @@ struct Onboarding: View {
                             .frame(width: 88, height: 88)
                             .background(p.tint, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
                             .accessibilityHidden(true)
-                        Text(p.title).font(Theme.display(38)).foregroundStyle(Theme.ink)
-                        Text(p.text).font(.system(size: 18)).foregroundStyle(Theme.muted)
+                        Text(L(p.title)).font(Theme.display(38)).foregroundStyle(Theme.ink)
+                        Text(L(p.text)).font(.system(size: 18)).foregroundStyle(Theme.muted)
                         Spacer(); Spacer()
                     }
                     .padding(.horizontal, 28)

@@ -3,6 +3,9 @@ import UIKit
 
 // Lo stile della segnaletica italiana: rosso del divieto, blu dei pannelli, verde del «via libera».
 // Ogni colore ha la sua versione per la modalità scura.
+/// Testo tradotto (Resources/Localizations/*.lproj/Localizable.strings); senza traduzione resta l'inglese
+func L(_ key: String) -> String { NSLocalizedString(key, comment: "") }
+
 enum Theme {
     static let ground = Color(light: 0xF3F4F2, dark: 0x0F1318)
     static let card = Color(light: 0xFFFFFF, dark: 0x1A2027)
@@ -82,19 +85,19 @@ extension Verdict {
     /// Il titolo spezzato a mano in righe: Titillium ha un'interlinea ampia, così le righe stanno strette
     var titleLines: [String] {
         switch self {
-        case .yes: ["Yes, you can", "enter"]
-        case .no: ["No, don't", "enter"]
-        case .conditional: ["Yes, on one", "condition"]
-        case .unsure: ["Not sure"]
+        case .yes: L("Yes, you can|enter").components(separatedBy: "|")
+        case .no: L("No, don't|enter").components(separatedBy: "|")
+        case .conditional: L("Yes, on one|condition").components(separatedBy: "|")
+        case .unsure: [L("Not sure")]
         }
     }
     /// Versione breve per pillole e liste
     var short: String {
         switch self {
-        case .yes: "You can enter"
-        case .no: "Don't enter"
-        case .conditional: "On one condition"
-        case .unsure: "Not sure"
+        case .yes: L("You can enter")
+        case .no: L("Don't enter")
+        case .conditional: L("On one condition")
+        case .unsure: L("Not sure")
         }
     }
     var pillFill: Color {
