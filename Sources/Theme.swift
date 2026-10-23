@@ -1,32 +1,43 @@
 import SwiftUI
+import UIKit
 
 // Lo stile della segnaletica italiana: rosso del divieto, blu dei pannelli, verde del «via libera».
+// Ogni colore ha la sua versione per la modalità scura.
 enum Theme {
-    static let ground = Color(hex: 0xF3F4F2)
-    static let card = Color.white
-    static let ink = Color(hex: 0x1B2128)
-    static let muted = Color(hex: 0x5D6670)
-    static let line = Color(hex: 0xE6E9E7)
-    static let red = Color(hex: 0xC1272D)
-    static let blue = Color(hex: 0x1F4E9E)
-    static let blueSoft = Color(hex: 0xE2EAF6)
+    static let ground = Color(light: 0xF3F4F2, dark: 0x0F1318)
+    static let card = Color(light: 0xFFFFFF, dark: 0x1A2027)
+    static let raised = Color(light: 0xF7F8F7, dark: 0x222A33)      // campi dentro le schede
+    static let ink = Color(light: 0x1B2128, dark: 0xE8ECEF)
+    static let muted = Color(light: 0x5D6670, dark: 0x9BA5AE)
+    static let line = Color(light: 0xE6E9E7, dark: 0x2C343D)
+    static let red = Color(light: 0xC1272D, dark: 0xEF5B55)
+    static let blue = Color(light: 0x1F4E9E, dark: 0x8CB0EE)
+    static let blueSoft = Color(light: 0xE2EAF6, dark: 0x1D2B44)
     static let green = Color(hex: 0x2B7A47)
-    static let greenSoft = Color(hex: 0xDCEFE2)
-    static let greenInk = Color(hex: 0x22653A)
+    static let greenSoft = Color(light: 0xDCEFE2, dark: 0x183021)
+    static let greenInk = Color(light: 0x22653A, dark: 0x7FD19B)
     static let amber = Color(hex: 0x8A5A00)
-    static let amberSoft = Color(hex: 0xFBECC8)
-    static let amberInk = Color(hex: 0x5C3C00)
+    static let amberSoft = Color(light: 0xFBECC8, dark: 0x3A2C0E)
+    static let amberInk = Color(light: 0x5C3C00, dark: 0xF2CB79)
+    static let brass = Color(light: 0xA97E3F, dark: 0xD6AA62)       // il filo della famiglia LR
 
-    /// Titoli: Titillium Web, il carattere dei cartelli (licenza OFL, in Resources/Fonts)
+    /// Titoli: Titillium Web, il carattere dei cartelli (licenza OFL, in Resources/Fonts), interlinea stretta
     static func display(_ size: CGFloat, _ weight: Font.Weight = .bold) -> Font {
         let name = weight == .black ? "TitilliumWeb-Black" : weight == .semibold ? "TitilliumWeb-SemiBold" : "TitilliumWeb-Bold"
-        return .custom(name, size: size)
+        return Font.custom(name, size: size).leading(.tight)
     }
+    static func label(_ size: CGFloat = 13) -> Font { .custom("TitilliumWeb-SemiBold", size: size) }
 }
 
 extension Color {
     init(hex: UInt32) {
         self.init(red: Double((hex >> 16) & 0xFF) / 255, green: Double((hex >> 8) & 0xFF) / 255, blue: Double(hex & 0xFF) / 255)
+    }
+    init(light: UInt32, dark: UInt32) {
+        func ui(_ h: UInt32) -> UIColor {
+            UIColor(red: CGFloat((h >> 16) & 0xFF) / 255, green: CGFloat((h >> 8) & 0xFF) / 255, blue: CGFloat(h & 0xFF) / 255, alpha: 1)
+        }
+        self.init(uiColor: UIColor { $0.userInterfaceStyle == .dark ? ui(dark) : ui(light) })
     }
 }
 
@@ -34,9 +45,9 @@ extension Verdict {
     var fill: Color {
         switch self {
         case .yes: Theme.green
-        case .no: Theme.red
+        case .no: Color(hex: 0xC1272D)
         case .conditional: Theme.amberSoft
-        case .unsure: Color(hex: 0xE3E6E8)
+        case .unsure: Color(light: 0xE3E6E8, dark: 0x2A323B)
         }
     }
     var onFill: Color {
@@ -66,6 +77,31 @@ extension Verdict {
         case .no: "xmark"
         case .conditional: "exclamationmark"
         case .unsure: "questionmark"
+        }
+    }
+    /// Versione breve per pillole e liste
+    var short: String {
+        switch self {
+        case .yes: "You can enter"
+        case .no: "Don't enter"
+        case .conditional: "On one condition"
+        case .unsure: "Not sure"
+        }
+    }
+    var pillFill: Color {
+        switch self {
+        case .yes: Theme.greenSoft
+        case .no: Color(light: 0xF8DADB, dark: 0x3D1A1C)
+        case .conditional: Theme.amberSoft
+        case .unsure: Color(light: 0xE3E6E8, dark: 0x2A323B)
+        }
+    }
+    var pillInk: Color {
+        switch self {
+        case .yes: Theme.greenInk
+        case .no: Color(light: 0x9E1F25, dark: 0xF59A96)
+        case .conditional: Theme.amberInk
+        case .unsure: Theme.ink
         }
     }
 }

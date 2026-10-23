@@ -101,6 +101,19 @@ struct RuleEngine {
         return nil
     }
 
+    /// L'ultimo momento in cui lo stato è cambiato (per la barra «da quando / fino a quando»)
+    func previousChange(_ zone: Zone, before date: Date) -> Date? {
+        let now = isActive(zone, at: date)
+        var t = calendar.date(bySetting: .second, value: 0, of: date) ?? date
+        t = calendar.date(byAdding: .minute, value: -(calendar.component(.minute, from: t) % 5), to: t)!
+        for _ in 0..<(8 * 24 * 12) {
+            let before = calendar.date(byAdding: .minute, value: -5, to: t)!
+            if isActive(zone, at: before) != now { return t }
+            t = before
+        }
+        return nil
+    }
+
     private func inSeason(_ w: TimeWindow, _ date: Date) -> Bool {
         guard let s = w.season else { return true }
         let md = calendar.component(.month, from: date) * 100 + calendar.component(.day, from: date)

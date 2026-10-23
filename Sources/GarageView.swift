@@ -61,6 +61,13 @@ struct GarageView: View {
                     Button { addingPermit = true } label: { Label("Add a permit", systemImage: "plus.circle") }
                 }
 
+                Section {
+                    Stepper("Warn me \(Int(store.alertDistance)) m before a gate", value: $store.alertDistance, in: 200...1000, step: 100)
+                    Toggle("Gate alerts", isOn: $store.alertsOn)
+                } header: { Text("Alerts") } footer: {
+                    Text("Alerts work with the app closed for the saved cities. They need location access \"Always\".")
+                }
+
                 Section("Offline cities") {
                     ForEach(store.cities) { c in
                         HStack {
@@ -71,7 +78,17 @@ struct GarageView: View {
                         }
                     }
                 }
+
+                Section("About GateLR") {
+                    NavigationLink {
+                        AboutView()
+                    } label: {
+                        Label("Sources, licences and disclaimer", systemImage: "info.circle")
+                    }
+                    LabeledContent("Version", value: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "–")
+                }
             }
+            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 4) }
             .navigationTitle("Garage")
             .tint(Theme.blue)
             .toolbar {

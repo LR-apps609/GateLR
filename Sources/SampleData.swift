@@ -14,7 +14,7 @@ enum SampleData {
 
     static let sectorA = Zone(
         id: "firenze-a",
-        name: "Historic Centre · Sector A",
+        name: "Sector A · Historic Centre",
         summary: "On weekdays you can't drive in during the day without a permit. If your hotel is inside the zone, the hotel can register your plate.",
         perimeter: [
             Coordinate(lat: 43.7790, lon: 11.2405), Coordinate(lat: 43.7800, lon: 11.2580),

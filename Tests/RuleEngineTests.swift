@@ -17,6 +17,7 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertFalse(a.gatesOn)
         guard case .yes = a.verdict else { return XCTFail("atteso sì, ottenuto \(a.verdict)") }
         XCTAssertEqual(a.nextChange, date(2026, 10, 24, 7, 30))      // sabato mattina
+        XCTAssertEqual(engine.previousChange(zone, before: date(2026, 10, 23, 21, 40)), date(2026, 10, 23, 20))
     }
 
     func testWeekdayDaytimeIsNo() {
