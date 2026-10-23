@@ -79,7 +79,31 @@ targets:
         SWIFT_VERSION: "5.0"
         SWIFT_STRICT_CONCURRENCY: minimal
 
+  # Giro dell'app nel simulatore con le foto di ogni schermata
+  GateLRUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: UITests
+    dependencies:
+      - target: GateLR
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: it.ledion.GateLRUITests
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_VERSION: "5.0"
+        TEST_TARGET_NAME: GateLR
+
 schemes:
+  GateLRUITests:
+    build:
+      targets:
+        GateLR: all
+        GateLRUITests: [test]
+    test:
+      config: Debug
+      targets:
+        - GateLRUITests
   GateLRTests:
     build:
       targets:

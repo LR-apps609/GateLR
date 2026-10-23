@@ -94,7 +94,6 @@ struct VerdictCard: View {
         .padding(20)
         .foregroundStyle(v.onFill)
         .background(v.fill, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
-        .accessibilityElement(children: .combine)
     }
 
     private var detail: String {

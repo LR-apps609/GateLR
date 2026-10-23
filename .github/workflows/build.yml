@@ -7,6 +7,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: write        # per pubblicare le foto dell'app nel ramo «screenshots»
+
 jobs:
   build:
     runs-on: macos-15
@@ -50,6 +53,26 @@ jobs:
           grep -E "error:|Test Case .*(passed|failed)|Executed|TEST (SUCCEEDED|FAILED)" test.log | sort -u | head -n 80 || true
           exit $status
 
+      - name: Foto dell'app (giro nel simulatore)
+        run: |
+          SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
+          status=0
+          xcodebuild test -project GateLR.xcodeproj -scheme GateLRUITests \
+            -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
+            CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" > ui.log 2>&1 || status=$?
+          grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true
+          ls -la screenshots || true
+          exit $status
+
+      - name: Pubblica le foto nel ramo «screenshots»
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cd screenshots
+          echo "Foto di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ))" > README.md
+          git init -q && git checkout -q -b screenshots && git add .
+          git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Foto dell'app per $GITHUB_SHA"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" screenshots
+
       - name: Registri
         if: failure()
         uses: actions/upload-artifact@v4
@@ -58,3 +81,4 @@ jobs:
           path: |
             build.log
             test.log
+            ui.log

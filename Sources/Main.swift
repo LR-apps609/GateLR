@@ -9,7 +9,11 @@ struct GateLRApp: App {
         WindowGroup {
             RootView()
                 .environmentObject(store)
-                .task { await GateMonitor.shared.start(store: store) }
+                .task {
+                    // Nel giro automatico con le foto niente richieste di permessi
+                    guard !ProcessInfo.processInfo.arguments.contains("-uitest") else { return }
+                    await GateMonitor.shared.start(store: store)
+                }
         }
     }
 }
