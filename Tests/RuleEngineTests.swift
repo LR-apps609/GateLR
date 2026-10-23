@@ -1,0 +1,100 @@
+import XCTest
+
+final class RuleEngineTests: XCTestCase {
+    private let engine = RuleEngine()
+    private var cal: Calendar { engine.calendar }
+
+    private func date(_ y: Int, _ m: Int, _ d: Int, _ h: Int, _ min: Int = 0) -> Date {
+        cal.date(from: DateComponents(year: y, month: m, day: d, hour: h, minute: min))!
+    }
+
+    private var zone: Zone { SampleData.sectorA }
+    private var car: Vehicle { SampleData.rental }
+
+    func testGatesOffAtNightMeansYes() {
+        // venerdì 23 ottobre 2026, 21:40
+        let a = engine.answer(zone: zone, vehicle: car, permits: [], hotelInside: false, at: date(2026, 10, 23, 21, 40))
+        XCTAssertFalse(a.gatesOn)
+        guard case .yes = a.verdict else { return XCTFail("atteso sì, ottenuto \(a.verdict)") }
+        XCTAssertEqual(a.nextChange, date(2026, 10, 24, 7, 30))      // sabato mattina
+    }
+
+    func testWeekdayDaytimeIsNo() {
+        let a = engine.answer(zone: zone, vehicle: car, permits: [], hotelInside: false, at: date(2026, 10, 26, 18))
+        XCTAssertTrue(a.gatesOn)
+        guard case .no = a.verdict else { return XCTFail("atteso no, ottenuto \(a.verdict)") }
+        XCTAssertEqual(a.nextChange, date(2026, 10, 26, 20))
+    }
+
+    func testHotelInsideIsConditional() {
+        let a = engine.answer(zone: zone, vehicle: car, permits: [], hotelInside: true, at: date(2026, 10, 26, 18))
+        guard case .conditional = a.verdict else { return XCTFail("atteso con condizioni, ottenuto \(a.verdict)") }
+    }
+
+    func testConfirmedPermitIsYes() {
+        let p = Permit(kind: .hotelRegistration, cityId: "x", zoneId: nil, vehicleId: car.id,
+                       from: date(2026, 10, 26, 0), to: date(2026, 10, 28, 23), status: .confirmed)
+        let a = engine.answer(zone: zone, vehicle: car, permits: [p], hotelInside: true, at: date(2026, 10, 26, 18))
+        guard case .yes = a.verdict else { return XCTFail("atteso sì, ottenuto \(a.verdict)") }
+    }
+
+    func testPermitForAnotherCarDoesNotCount() {
+        let p = Permit(kind: .resident, cityId: "x", zoneId: nil, vehicleId: UUID(),
+                       from: date(2026, 10, 26, 0), to: date(2026, 10, 28, 23), status: .confirmed)
+        let a = engine.answer(zone: zone, vehicle: car, permits: [p], hotelInside: false, at: date(2026, 10, 26, 18))
+        guard case .no = a.verdict else { return XCTFail("atteso no, ottenuto \(a.verdict)") }
+    }
+
+    func testSaturdayAfternoonAndSundayAreFree() {
+        XCTAssertFalse(engine.isActive(zone, at: date(2026, 10, 24, 17)))
+        XCTAssertTrue(engine.isActive(zone, at: date(2026, 10, 24, 10)))
+        XCTAssertFalse(engine.isActive(zone, at: date(2026, 10, 25, 10)))
+    }
+
+    func testHolidaysAreFree() {
+        XCTAssertFalse(engine.isActive(zone, at: date(2026, 12, 8, 10)))   // Immacolata, martedì
+        XCTAssertFalse(engine.isActive(zone, at: date(2026, 4, 6, 10)))    // Pasquetta 2026
+        XCTAssertTrue(engine.isActive(zone, at: date(2026, 4, 7, 10)))
+    }
+
+    func testNightWindowCrossesMidnight() {
+        var z = zone
+        // ZTL notturna estiva: giovedì, venerdì, sabato 23:00 – 3:00, da maggio a ottobre
+        z.windows = [TimeWindow(weekdays: [5, 6, 7], start: 23 * 60, end: 3 * 60,
+                                season: .init(fromMonth: 5, fromDay: 1, toMonth: 10, toDay: 31))]
+        XCTAssertTrue(engine.isActive(z, at: date(2026, 7, 3, 23, 30)))    // venerdì sera
+        XCTAssertTrue(engine.isActive(z, at: date(2026, 7, 4, 2, 0)))      // la notte dopo
+        XCTAssertFalse(engine.isActive(z, at: date(2026, 7, 4, 4, 0)))
+        XCTAssertFalse(engine.isActive(z, at: date(2026, 7, 6, 1, 0)))     // lunedì notte
+        XCTAssertFalse(engine.isActive(z, at: date(2026, 12, 4, 23, 30)))  // fuori stagione
+    }
+
+    func testElectricExemption() {
+        var z = zone
+        z.exemptFuels = [.electric]
+        let ev = Vehicle(name: "EV", fuel: .electric, euro: 6)
+        let a = engine.answer(zone: z, vehicle: ev, permits: [], hotelInside: false, at: date(2026, 10, 26, 18))
+        guard case .yes = a.verdict else { return XCTFail("atteso sì, ottenuto \(a.verdict)") }
+    }
+
+    func testStaleSourceIsUnsure() {
+        var z = zone
+        z.source.checkedOn = date(2026, 1, 1, 12)
+        var e = engine
+        e.now = { self.date(2026, 10, 23, 12) }
+        let a = e.answer(zone: z, vehicle: car, permits: [], hotelInside: false, at: date(2026, 10, 26, 18))
+        guard case .unsure = a.verdict else { return XCTFail("atteso non sicuro, ottenuto \(a.verdict)") }
+    }
+
+    func testEaster() {
+        XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
+        XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)
+        XCTAssertEqual(ItalianHolidays.easterSunday(2027).month, 3)
+        XCTAssertEqual(ItalianHolidays.easterSunday(2027).day, 28)
+    }
+
+    func testHotelMessageHasPlate() {
+        let m = MessageLanguage.de.message(arrival: date(2026, 10, 26, 18), plate: "AB123CD")
+        XCTAssertTrue(m.contains("AB123CD"))
+    }
+}

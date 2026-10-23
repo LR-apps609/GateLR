@@ -1,0 +1,60 @@
+# Compila GateLR su un Mac di GitHub a ogni modifica ed esegue i test del motore delle regole.
+# Gli errori finiscono come «annotazioni» nella pagina della compilazione.
+name: Compila GateLR
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Xcode più recente disponibile
+        run: |
+          XCODE=$(ls -d /Applications/Xcode*.app | sort -V | tail -n 1)
+          sudo xcode-select -s "$XCODE/Contents/Developer"
+          xcodebuild -version
+
+      - name: XcodeGen
+        run: brew install xcodegen
+
+      - name: Progetto
+        run: xcodegen generate
+
+      - name: Compilazione (simulatore iPhone, senza firma)
+        run: |
+          status=0
+          xcodebuild -project GateLR.xcodeproj -scheme GateLR -configuration Debug \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build > build.log 2>&1 || status=$?
+          grep -E "^/.*:[0-9]+:[0-9]+: (error|warning):" build.log | sort -u | head -n 40 | while IFS= read -r l; do
+            f=$(echo "$l" | cut -d: -f1); n=$(echo "$l" | cut -d: -f2); k=$(echo "$l" | cut -d: -f4 | tr -d ' '); m=$(echo "$l" | cut -d: -f5-)
+            echo "::$k file=${f#$GITHUB_WORKSPACE/},line=$n::$m"
+          done
+          grep -E "error:|BUILD (SUCCEEDED|FAILED)" build.log | sort -u | head -n 60 || true
+          exit $status
+
+      - name: Test automatici (motore delle regole)
+        run: |
+          SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
+          echo "Simulatore: $SIM"
+          status=0
+          xcodebuild test -project GateLR.xcodeproj -scheme GateLRTests \
+            -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-test \
+            CODE_SIGNING_ALLOWED=NO > test.log 2>&1 || status=$?
+          grep -E "error:|Test Case .*(passed|failed)|Executed|TEST (SUCCEEDED|FAILED)" test.log | sort -u | head -n 80 || true
+          exit $status
+
+      - name: Registri
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: registri
+          path: |
+            build.log
+            test.log

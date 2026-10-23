@@ -1,0 +1,8 @@
+Novità della 0.1.0 «Prima bozza»:
+• Quattro schede: Now, Map, Trip, Garage
+• «Can I enter?» con quattro risposte: sì, no, con condizioni, non sicuro
+• Scheda zona con orari, frase del Comune, link alla fonte e data del controllo
+• Trip: risposta per il giorno e l'ora di arrivo, messaggio per l'hotel in inglese, italiano e tedesco
+• Garage: veicoli, permessi, città salvate
+• Avviso vicino ai varchi anche ad app chiusa; CarPlay pronto per quando Apple dà l'autorizzazione
+• Dati di Firenze di esempio, non verificati
