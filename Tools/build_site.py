@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-FINE_FILE = ROOT / "web/fine.json"          # importi verificati, con fonte (se manca: «in verifica»)
+FINE_FILE = ROOT / "Resources/Rules/fine.json"          # importi verificati, con fonte (se manca: «in verifica»)
 
 city = json.loads((ROOT / "Resources/Cities/firenze.json").read_text(encoding="utf-8"))
 fine = json.loads(FINE_FILE.read_text(encoding="utf-8")) if FINE_FILE.exists() else None

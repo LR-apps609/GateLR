@@ -126,3 +126,17 @@ extension Permit.Kind {
         }
     }
 }
+
+/// La multa per l'ingresso in ZTL senza permesso (art. 7 Codice della Strada): Resources/Rules/fine.json
+struct FineInfo: Codable {
+    var min: Int
+    var max: Int
+    var notes: [String]
+    var status: String?
+
+    static let bundled: FineInfo? = {
+        guard let url = Bundle.main.url(forResource: "fine", withExtension: "json", subdirectory: "Rules"),
+              let data = try? Data(contentsOf: url) else { return nil }
+        return try? JSONDecoder().decode(FineInfo.self, from: data)
+    }()
+}

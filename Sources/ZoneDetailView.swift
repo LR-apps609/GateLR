@@ -69,6 +69,22 @@ struct ZoneDetailView: View {
                 }
                 .padding(14).card()
 
+                if let fine = FineInfo.bundled {
+                    VStack(alignment: .leading, spacing: 8) {
+                        SectionLabel("If you drive in by mistake")
+                        HStack(alignment: .firstTextBaseline, spacing: 6) {
+                            Text("€\(fine.min)–\(fine.max)").font(Theme.display(34)).foregroundStyle(Theme.red).monospacedDigit()
+                            Text("per day").font(.system(size: 15)).foregroundStyle(Theme.muted)
+                        }
+                        ForEach(fine.notes, id: \.self) { n in
+                            Label(n, systemImage: "circle.fill").labelStyle(BulletLabel()).font(.system(size: 14))
+                        }
+                        Text("Amounts still being checked against the official text.").font(.system(size: 12)).foregroundStyle(Theme.muted)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(14).card()
+                }
+
                 if !zone.source.pending.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
                         SectionLabel("Still to check")
@@ -152,4 +168,14 @@ struct ZoneDetailView: View {
 
 private extension String {
     var capitalizedFirst: String { prefix(1).uppercased() + dropFirst() }
+}
+
+/// Un elenco puntato compatto
+struct BulletLabel: LabelStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: 8) {
+            Circle().frame(width: 5, height: 5).foregroundStyle(Theme.muted).alignmentGuide(.firstTextBaseline) { $0[.bottom] + 1 }
+            configuration.title
+        }
+    }
 }

@@ -20,6 +20,10 @@ targets:
       - path: Resources/Cities
         type: folder
         buildPhase: resources
+      # Regole valide in tutta Italia (multe), le stesse del sito
+      - path: Resources/Rules
+        type: folder
+        buildPhase: resources
       # Titillium Web (SIL Open Font License)
       - path: Resources/Fonts
         buildPhase: resources

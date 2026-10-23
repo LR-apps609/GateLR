@@ -116,6 +116,15 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertFalse(engine.isActive(g, at: date(2026, 10, 26, 10)))
     }
 
+    /// Il file delle multe, condiviso con il sito, si legge
+    func testFineFile() throws {
+        let url = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
+            .appendingPathComponent("Resources/Rules/fine.json")
+        let fine = try JSONDecoder().decode(FineInfo.self, from: Data(contentsOf: url))
+        XCTAssertLessThan(fine.min, fine.max)
+        XCTAssertFalse(fine.notes.isEmpty)
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)
