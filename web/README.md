@@ -5,6 +5,6 @@ Una sola pagina: cerchi un hotel o un luogo e vedi subito se è in ZTL, se puoi 
 - `template.html` – la pagina (HTML, CSS e JavaScript in un file)
 - `../Resources/Rules/fine.json` – importi delle multe (gli stessi dell app) con note (da `docs/multe-mappe-caratteri.md`)
 - `index.html` – generato: `python3 Tools/build_site.py` mette dentro i dati di Firenze e le multe
-- Mappa: per ora disegnata in SVG dai perimetri ufficiali (nessun servizio esterno). Per la pubblicazione: MapLibre GL JS + OpenFreeMap.
+- Mappa: MapLibre GL JS + OpenFreeMap (gratuita, senza chiave, attribuzione «© OpenMapTiles, OpenStreetMap»). Se non si carica (es. anteprima su claude.ai) resta la mappa disegnata in SVG dai perimetri ufficiali.
 - Ricerca: luoghi d'esempio + geocoder Photon (komoot) quando la rete lo permette. Per la pubblicazione: Apple MapKit JS o Photon.
 - «Get the app»: quando l'app è sull'App Store, mettere l'URL in `APP_STORE_URL` e attivare il meta `apple-itunes-app` (banner di Safari).

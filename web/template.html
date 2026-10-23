@@ -2,6 +2,8 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Driving to an Italian old town? Search your hotel or destination and see at once if it's inside a ZTL, if you can drive in, the hours and the fine.">
 <!-- Quando l'app sarà sull'App Store: <meta name="apple-itunes-app" content="app-id=APP_ID, app-argument=https://gatelr.app/"> -->
+<!-- Stile di MapLibre per la mappa vera; nell'anteprima chiusa non si carica e resta la mappa disegnata -->
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&display=swap">
@@ -104,6 +106,8 @@ p{margin:0}
 
 .mapcard{background:var(--sheet);border:1px solid var(--line);border-radius:26px;padding:12px;display:grid;gap:8px}
 .mapcard svg{width:100%;height:auto;display:block;border-radius:18px;background:var(--map-land);cursor:crosshair;touch-action:manipulation}
+#mlmap{width:100%;aspect-ratio:1/1;max-height:640px;border-radius:18px;overflow:hidden}
+.maplibregl-ctrl-attrib{font-size:11px}
 .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);padding-inline:6px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
@@ -197,6 +201,7 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
     </article>
 
     <div class="mapcard">
+      <div id="mlmap" hidden></div>
       <svg id="map" role="img" aria-label="Map of Florence's ZTL sectors and gates. Tap a point to check it."></svg>
       <div class="legend">
         <span><i class="dot" style="background:var(--red)"></i><b data-i18n="lsector" style="font-weight:inherit">ZTL sector</b></span>
@@ -258,6 +263,7 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
   </footer>
 </div>
 
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" async id="maplibre-js"></script>
 <script id="city" type="application/json">/*CITY*/</script>
 <script>
 (() => {
@@ -454,6 +460,7 @@ function render(){
   $("a-draft").hidden = city.status === "verified";
   if (!z){
     const n = nearestZone(p.lat, p.lon);
+    updateRealMap(p, null);
     Object.assign(a.dataset, {v:"out"});
     $("a-where").textContent = `${p.name} · ${t_("outside")}`;
     $("a-gates").textContent = t_("noGates");
@@ -466,6 +473,7 @@ function render(){
     return;
   }
   zoneEls[z.id].setAttribute("fill-opacity", .22);
+  updateRealMap(p, z);
   const staying = /hotel|b&b|hostel|albergo|residence/i.test(p.name) || p.hotel;
   const r = answer(z, t, staying);
   a.dataset.v = r.v;
@@ -606,6 +614,50 @@ function applyLang(l){
   renderFine(); render();
 }
 for (const b of document.querySelectorAll(".langs button")) b.addEventListener("click", () => applyLang(b.dataset.lang));
+// ── Mappa vera (MapLibre + OpenFreeMap, gratuita, senza chiave). Se non si carica resta quella disegnata ──
+const ml = {map:null, ready:false, marker:null};
+function geo(){
+  return {type:"FeatureCollection", features: city.zones.map(z => ({type:"Feature", properties:{id:z.id, letter:z.name.split("·")[0].trim().split(" ").pop()},
+    geometry:{type:"Polygon", coordinates:[z.perimeter.map(p => [p.lon, p.lat]).concat([[z.perimeter[0].lon, z.perimeter[0].lat]])]}}))};
+}
+function gatesGeo(){
+  return {type:"FeatureCollection", features: city.zones.flatMap(z => z.gates.map(g => ({type:"Feature", properties:{name:g.name}, geometry:{type:"Point", coordinates:[g.location.lon, g.location.lat]}})))};
+}
+function startRealMap(){
+  if (!window.maplibregl || ml.map) return;
+  const box = document.getElementById("mlmap");
+  let map;
+  try {
+    map = new maplibregl.Map({container: box, style: "https://tiles.openfreemap.org/styles/positron", bounds: [[11.235, 43.755], [11.285, 43.785]], attributionControl: {compact: true}});
+  } catch { return; }
+  ml.map = map;
+  const fail = setTimeout(() => { if (!ml.ready){ try { map.remove(); } catch {} ml.map = null; } }, 6000);
+  map.on("error", () => {});
+  map.on("load", () => {
+    clearTimeout(fail); ml.ready = true;
+    box.hidden = false; svg.hidden = true;
+    const red = getComputedStyle(document.documentElement).getPropertyValue("--red").trim() || "#C1272D";
+    map.addSource("zones", {type:"geojson", data: geo()});
+    map.addLayer({id:"zones-fill", type:"fill", source:"zones", paint:{"fill-color": red, "fill-opacity": ["case", ["==", ["get","id"], ml.selected || ""], 0.25, 0.08]}});
+    map.addLayer({id:"zones-line", type:"line", source:"zones", paint:{"line-color": red, "line-width": 2, "line-dasharray": [3, 2]}});
+    map.addSource("gates", {type:"geojson", data: gatesGeo()});
+    map.addLayer({id:"gates", type:"circle", source:"gates", paint:{"circle-radius": 5, "circle-color": "#2B2433", "circle-stroke-color": "#fff", "circle-stroke-width": 2}});
+    map.on("click", e => choose({name: t_("point"), lat: e.lngLat.lat, lon: e.lngLat.lng, map: true}));
+    render();
+  });
+}
+function updateRealMap(p, z){
+  if (!ml.ready) return;
+  ml.selected = z ? z.id : "";
+  ml.map.setPaintProperty("zones-fill", "fill-opacity", ["case", ["==", ["get","id"], ml.selected], 0.25, 0.08]);
+  if (!p) return;
+  if (!ml.marker){ const dot = document.createElement("div"); dot.style.cssText = "width:22px;height:22px;border-radius:50%;background:#1F4E9E;border:4px solid #fff;box-shadow:0 0 0 8px rgba(31,78,158,.2)"; ml.marker = new maplibregl.Marker({element: dot}); }
+  ml.marker.setLngLat([p.lon, p.lat]).addTo(ml.map);
+  if (!p.map) ml.map.easeTo({center: [p.lon, p.lat], zoom: Math.max(ml.map.getZoom(), 14)});
+}
+const mlScript = document.getElementById("maplibre-js");
+if (window.maplibregl) startRealMap(); else if (mlScript) mlScript.addEventListener("load", startRealMap);
+
 applyLang(lang);
 choose({name:"Duomo (Cathedral)", lat:43.7731, lon:11.2560});
 setInterval(() => { if (!state.later) render(); }, 60000);
