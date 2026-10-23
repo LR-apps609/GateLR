@@ -28,7 +28,8 @@
 ## Compilazione e prove
 
 - **Ogni modifica** → workflow «Compila GateLR» sul Mac di GitHub: genera il progetto con XcodeGen, compila per il simulatore iPhone ed esegue i test.
-- **Sul tuo iPhone**: `brew install xcodegen`, poi `xcodegen generate` nella cartella, apri `GateLR.xcodeproj`, scegli il tuo Apple ID in *Signing & Capabilities* e premi ▶︎ con l'iPhone collegato.
+- **Foto dell'app** → lo stesso workflow fa il giro delle schermate nel simulatore e pubblica le foto nel ramo `screenshots`.
+- **Sul tuo iPhone**: doppio clic su `Installa su iPhone.command`; poi in Xcode scegli il tuo Apple ID in *Signing & Capabilities* e premi ▶︎ con l'iPhone collegato.
 
 ## Percorso
 

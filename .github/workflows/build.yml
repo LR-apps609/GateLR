@@ -67,11 +67,32 @@ jobs:
       - name: Pubblica le foto nel ramo «screenshots»
         if: github.ref == 'refs/heads/main'
         run: |
+          mkdir -p screenshots
+          # Se il test non ha potuto scrivere le foto, si prendono dagli allegati del risultato
+          if ! ls screenshots/*.png >/dev/null 2>&1; then
+            RESULT=$(ls -d build-ui/Logs/Test/*.xcresult | head -n 1)
+            xcrun xcresulttool export attachments --path "$RESULT" --output-path attachments || true
+            python3 - <<'PY'
+          import json, shutil, pathlib
+          src = pathlib.Path("attachments"); out = pathlib.Path("screenshots")
+          try:
+              manifest = json.loads((src / "manifest.json").read_text())
+              for test in manifest:
+                  for a in test.get("attachments", []):
+                      name = a.get("suggestedHumanReadableName", a["exportedFileName"]).split("_")[0]
+                      shutil.copy(src / a["exportedFileName"], out / (name if name.endswith(".png") else name + ".png"))
+          except Exception as e:
+              print("allegati non letti:", e)
+          PY
+          fi
+          N=$(ls screenshots/*.png 2>/dev/null | wc -l | tr -d ' ')
+          echo "::notice::Foto dell'app: $N"
+          test "$N" -gt 0
           cd screenshots
           echo "Foto di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ))" > README.md
           git init -q && git checkout -q -b screenshots && git add .
           git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Foto dell'app per $GITHUB_SHA"
-          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" screenshots
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" screenshots 2>&1 | sed 's/x-access-token:[^@]*@/***@/' || { echo "::error::Push delle foto non riuscito"; exit 1; }
 
       - name: Registri
         if: failure()
