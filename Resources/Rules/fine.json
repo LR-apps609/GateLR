@@ -7,5 +7,17 @@
     "Living abroad? The fine can arrive up to 360 days later. Rental companies usually add their own fee, often €25–60.",
     "No penalty points on your licence."
   ],
-  "status": "Amounts from secondary sources (2026 values, ISTAT update frozen until the end of 2026); official text still to be checked. See docs/multe-mappe-caratteri.md."
+  "status": "Amounts from secondary sources (2026 values, ISTAT update frozen until the end of 2026); official text still to be checked. See docs/multe-mappe-caratteri.md.",
+  "notes_it": [
+    "58,10 € se paghi entro 5 giorni (30% di sconto sul minimo), più le spese di notifica.",
+    "Da dicembre 2024 gli ingressi nella stessa ZTL rilevati dalle telecamere si multano una volta al giorno (art. 198, comma 2-bis, Codice della Strada).",
+    "Vivi all'estero? La multa può arrivare fino a 360 giorni dopo. Le società di noleggio di solito aggiungono una loro commissione, spesso 25–60 €.",
+    "Nessuna decurtazione di punti dalla patente."
+  ],
+  "notes_de": [
+    "58,10 €, wenn du innerhalb von 5 Tagen zahlst (30 % Rabatt auf den Mindestbetrag), plus Zustellkosten.",
+    "Seit Dezember 2024 wird die per Kamera erfasste Einfahrt in dieselbe ZTL nur einmal pro Tag bestraft (Art. 198 Abs. 2-bis, italienische Straßenverkehrsordnung).",
+    "Wohnst du im Ausland? Der Bescheid kann bis zu 360 Tage später kommen. Mietwagenfirmen verlangen meist eine eigene Gebühr, oft 25–60 €.",
+    "Keine Punkte im Führerschein."
+  ]
 }

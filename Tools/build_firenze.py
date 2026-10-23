@@ -105,10 +105,22 @@ def main():
         else:
             summary = ("On weekdays you can't drive in from 7:30 am to 8 pm without a permit, on Saturdays until 4 pm. "
                        "In summer it's also closed on Thursday, Friday and Saturday nights, 11 pm to 3 am.")
+        if summary_only := summer_only:
+            summary_it = ("Solo nelle notti d'estate: da inizio aprile al primo fine settimana di ottobre, "
+                          "giovedì, venerdì e sabato dalle 23 alle 3. Il resto dell'anno è libero.")
+            summary_de = ("Nur in Sommernächten: von Anfang April bis zum ersten Oktoberwochenende, "
+                          "Donnerstag, Freitag und Samstag von 23 bis 3 Uhr. Den Rest des Jahres frei.")
+        else:
+            summary_it = ("Nei feriali non si entra dalle 7:30 alle 20 senza permesso, il sabato fino alle 16. "
+                          "D'estate è chiusa anche giovedì, venerdì e sabato notte, dalle 23 alle 3.")
+            summary_de = ("Werktags keine Einfahrt von 7:30 bis 20 Uhr ohne Genehmigung, samstags bis 16 Uhr. "
+                          "Im Sommer auch Donnerstag-, Freitag- und Samstagnacht gesperrt, von 23 bis 3 Uhr.")
         zones.append({
             "id": f"firenze-{s.lower()}",
             "name": NAMES[s],
             "summary": summary,
+            "summary_it": summary_it,
+            "summary_de": summary_de,
             "perimeter": ring(feature),
             "gates": sorted(gates.get(s, []), key=lambda g: g["name"]),
             "windows": windows,
