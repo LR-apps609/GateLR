@@ -6,6 +6,7 @@
 |---|---|
 | Quattro schede: Now, Map, Trip, Garage | ✅ |
 | Firenze dai dati aperti del Comune (settori A, B, O, F, G, 15 varchi) | ✅ bozza, da verificare (`docs/verifica-firenze.md`) |
+| Bologna (ZTL + zona T, 22 varchi) e Milano Area C (42 varchi), ZTL a pagamento | ✅ bozza, da verificare (`docs/citta-successive.md`) |
 | Motore delle regole: sì / no / con condizioni / non sicuro, orari notturni e stagionali, festivi | ✅ con test automatici |
 | Conto alla rovescia «Off in 21 min», elenco dei settori con la risposta di ciascuno | ✅ |
 | Mappa Apple con settori, varchi, tocco per scegliere il settore | ✅ |
@@ -28,7 +29,7 @@
 | Adesso o all'ora di arrivo | ✅ |
 | Inglese, italiano, tedesco | ✅ |
 | Mappa vera MapLibre + OpenFreeMap, con mappa disegnata di riserva | ✅ |
-| Pronto per più città | ✅ (oggi solo Firenze) |
+| Più città | ✅ Firenze, Bologna, Milano |
 | Carattere della famiglia LR: carta chiara, ottone, Titillium Web + Atkinson Hyperlegible Next | ✅ |
 | Pagina `/app` (su iPhone porterà all'App Store), Privacy, Supporto | ✅ |
 | Pubblicazione su GitHub Pages | workflow pronto, da attivare (Settings → Pages → «GitHub Actions») |
@@ -50,6 +51,6 @@
 ## Prossimi passi
 
 1. Il tuo test sull'iPhone (`Installa su iPhone.command`).
-2. Seconda città (Bologna o Milano Area C) con i dati aperti già scaricati in `data/raw/`.
+2. Roma (orari pronti, servono le geometrie dall'hub RSM) e Siena (perimetro da digitalizzare dal PDF).
 3. Pubblicare il sito su GitHub Pages.
 4. Verifiche di Firenze (ultime, come deciso).

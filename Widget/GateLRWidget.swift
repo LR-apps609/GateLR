@@ -17,7 +17,7 @@ struct GateProvider: TimelineProvider {
 
     private func zone() -> (City, Zone)? {
         let cities = CityLoader.bundled()
-        guard let city = cities.first else { return nil }
+        guard let city = cities.first(where: { $0.id == "firenze" }) ?? cities.first else { return nil }
         let wanted = UserDefaults.standard.string(forKey: "widget.zone") ?? "firenze-b"
         return (city, city.zones.first { $0.id == wanted } ?? city.zones[0])
     }

@@ -102,6 +102,7 @@ p{margin:0}
 .answer hr{border:0;border-top:1px solid color-mix(in srgb,var(--v-fg) 25%,transparent);margin:0}
 .answer .src{font-size:14px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .answer .src a{color:inherit;font-weight:700}
+.answer[data-v=cond] .draft{background:var(--sheet)}
 .draft{background:var(--amber-soft);color:var(--ink);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:600}
 
 .mapcard{background:var(--sheet);border:1px solid var(--line);border-radius:26px;padding:12px;display:grid;gap:8px}
@@ -288,7 +289,7 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
 (() => {
 "use strict";
 const CITIES = JSON.parse(document.getElementById("cities").textContent);
-const CITY_NAMES = {firenze:{en:"Florence", it:"Firenze", de:"Florenz"}, bologna:{en:"Bologna", it:"Bologna", de:"Bologna"}};
+const CITY_NAMES = {firenze:{en:"Florence", it:"Firenze", de:"Florenz"}, bologna:{en:"Bologna", it:"Bologna", de:"Bologna"}, milano:{en:"Milan", it:"Milano", de:"Mailand"}};
 // Multa per l'ingresso in ZTL senza permesso (art. 7 c. 9 e 14 Codice della Strada). Valori da docs/multe-mappe-caratteri.md
 const FINE = /*FINE*/null;
 const APP_STORE_URL = null;   // quando l'app sarà pubblicata
@@ -299,7 +300,7 @@ const T = {
   q2:"How do I know if a gate is on?", a2:"Each entry has a sign and usually a light panel that reads 'Varco attivo' (gate on) or 'Varco non attivo' (gate off). GateLR tells you in advance from the city's official hours, but the panel at the gate always wins.",
   q3:"My hotel is inside the ZTL. What do I do?", a3:"Write to the hotel before you arrive and ask them to register your plate with the city. Many hotels can do this for the day you arrive and leave. Use the message above: it's ready in English, Italian and German.",
   q4:"I drove in by mistake. What now?", a4:"Note the time and the gate. If your hotel is inside the zone, tell them at once: some cities accept a registration after the fact, within a short time. Otherwise the fine arrives by post; paying within 5 days of notification saves 30%.", whyTicket:t=>`The gates are on. You can enter with the day ticket (€${t.price.toFixed(2)}). ${t.howTo}`, h1:"Can I drive <em>in?</em>", lead:"Search your hotel or destination. GateLR tells you at once if it's inside a ZTL, whether you can drive there when you arrive, and what a wrong turn costs.",
-  ph:"Hotel, address or place in Florence", now:"Now", arrival:"Arrival", try:"Try", draft:"Draft: taken from the city's official sources, not yet reviewed by a person. Signs at the gate always win.",
+  ph:"Hotel, address or place: Florence, Bologna, Milan", now:"Now", arrival:"Arrival", try:"Try", draft:"Draft: taken from the city's official sources, not yet reviewed by a person. Signs at the gate always win.",
   tap:"Tap anywhere to check it", lsector:"ZTL sector", lgate:"Camera gate", lplace:"Your place", hoursT:"When the gates are on", fineL:"If you drive in by mistake", fineT:"The fine",
   hotelL:"Staying inside the ZTL?", hotelT:"Ask your hotel first", hotelP:"Hotels inside the zone can register your plate with the city. Send this before you arrive.",
   copy:"Copy message", copied:"Copied", selected:"Text selected: copy it", hotelN:"The current online procedure in Florence is still being checked.",
@@ -308,19 +309,19 @@ const T = {
   foot:"Florence data: Comune di Firenze open data (CC-BY 4.0) and the city's official pages, read on 23 October 2026. GateLR is not affiliated with any city or with the police. Road signs on site always win.",
   pick:"Pick a place", pickWhy:"Search above, tap a suggestion, or tap the map.",
   yes:"Yes, you can drive in", no:"No, don't drive in", cond:"Yes, on one condition", unsure:"Not sure", out:"Yes, drive freely",
-  whyOff:n=>`The gates are off${n ? ". They switch on " + n : ""}.`, whyOn:n=>`The gates are on${n ? " until " + n : ""}. Park outside the zone, or come back later.`,
+  whyOff:n=>`The gates are off${n ? ". They switch on " + n : ""}.`, whyOn:n=>`The gates are on${n ? ". They switch off " + n : ""}. Park outside the zone, or come back later.`,
   whyCond:"The gates are on. You can drive to your hotel only if the hotel registers your plate with the city.", whyHol:"It's a public holiday and the city hasn't confirmed whether the gates are off. Check the panel at the gate.",
-  hint:" Staying at a hotel inside? Your hotel can register your plate.", whyOut:(m,c)=>`This place is outside ${c}'s ZTL. The nearest sector starts about ${m} m away: don't follow the satnav through it.`,
+  hint:" Staying at a hotel inside? Your hotel can register your plate.", whyOut:(m,c)=>`This place is outside ${c}'s ZTL. The restricted zone starts about ${m} m away: don't follow the satnav through it.`,
   outside:"outside the ZTL", inside:"inside the ZTL", out2:"outside", noGates:"No gates here", gOn:"Gates on", gOff:"Gates off", nowAt:"now",
   today:"today at", tomorrow:"tomorrow at", on:"on", at:"at", d:"d", h:"h", min:"min", onSince:"On since", offSince:"Off since", onIn:"On in", offIn:"Off in",
   read:(d,c)=>`Read ${d} from the City of ${c}:`, official:"official page ↗", nights:"nights", open:"open to all", notConf:"not confirmed", hol:"Public holidays",
-  perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", far:"We don't cover this place yet. GateLR starts with Florence; more cities are coming.",
+  perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", far:"We don't cover this place yet. GateLR covers Florence, Bologna and Milan; more cities are coming.",
   msg:(day,time)=>`Hello,\n\nI'm arriving by car on ${day} at about ${time}. Could you please register my plate [PLATE] for the ZTL, so I can reach the hotel without a fine?\n\nThank you!`},
  it:{get:"Scarica l'app", faqT:"Da sapere", q1:"Cos'è una ZTL?", a1:"Una zona a traffico limitato, di solito un centro storico. A ogni ingresso le telecamere leggono la targa. Se entri senza permesso mentre i varchi sono accesi, la multa arriva al proprietario dell'auto: per un noleggio vuol dire a te, più la commissione della società di noleggio.",
   q2:"Come capisco se un varco è acceso?", a2:"A ogni ingresso c'è un cartello e di solito un pannello luminoso con scritto «Varco attivo» o «Varco non attivo». GateLR te lo dice prima, dagli orari ufficiali del Comune, ma vale sempre il pannello al varco.",
   q3:"Il mio hotel è dentro la ZTL. Cosa faccio?", a3:"Scrivi all'hotel prima di arrivare e chiedi di comunicare la tua targa al Comune. Molti hotel possono farlo per il giorno di arrivo e di partenza. Usa il messaggio qui sopra: è pronto in italiano, inglese e tedesco.",
   q4:"Sono entrato per sbaglio. E adesso?", a4:"Annota l'ora e il varco. Se dormi in un hotel dentro la zona, avvisalo subito: alcuni Comuni accettano la comunicazione anche dopo, entro poco tempo. Altrimenti la multa arriva per posta; pagando entro 5 giorni dalla notifica risparmi il 30%.", whyTicket:t=>`I varchi sono accesi. Puoi entrare con il biglietto giornaliero (${t.price.toFixed(2).replace(".",",")} €). ${t.howTo}`, h1:"Posso <em>entrare?</em>", lead:"Cerca il tuo hotel o la destinazione. GateLR ti dice subito se è in ZTL, se puoi entrarci quando arrivi e quanto costa sbagliare strada.",
-  ph:"Hotel, indirizzo o luogo a Firenze", now:"Adesso", arrival:"Arrivo", try:"Prova", draft:"Bozza: presa dalle fonti ufficiali del Comune, non ancora rivista da una persona. Vale sempre il cartello al varco.",
+  ph:"Hotel, indirizzo o luogo: Firenze, Bologna, Milano", now:"Adesso", arrival:"Arrivo", try:"Prova", draft:"Bozza: presa dalle fonti ufficiali del Comune, non ancora rivista da una persona. Vale sempre il cartello al varco.",
   tap:"Tocca un punto per controllarlo", lsector:"Settore ZTL", lgate:"Varco con telecamera", lplace:"Il tuo luogo", hoursT:"Quando i varchi sono accesi", fineL:"Se entri per sbaglio", fineT:"La multa",
   hotelL:"Dormi dentro la ZTL?", hotelT:"Prima scrivi all'hotel", hotelP:"Gli hotel dentro la zona possono comunicare la tua targa al Comune. Mandalo prima di arrivare.",
   copy:"Copia il messaggio", copied:"Copiato", selected:"Testo selezionato: copialo", hotelN:"La procedura online attuale di Firenze è ancora in verifica.",
@@ -329,19 +330,19 @@ const T = {
   foot:"Dati di Firenze: open data del Comune di Firenze (CC-BY 4.0) e pagine ufficiali del Comune, lette il 23 ottobre 2026. GateLR non è collegata ad alcun Comune né alla polizia. Vale sempre la segnaletica sul posto.",
   pick:"Scegli un luogo", pickWhy:"Cerca qui sopra, tocca un suggerimento o tocca la mappa.",
   yes:"Sì, puoi entrare", no:"No, non entrare", cond:"Sì, a una condizione", unsure:"Non sicuro", out:"Sì, circola liberamente",
-  whyOff:n=>`I varchi sono spenti${n ? ". Si accendono " + n : ""}.`, whyOn:n=>`I varchi sono accesi${n ? " fino a " + n : ""}. Parcheggia fuori dalla zona o torna più tardi.`,
+  whyOff:n=>`I varchi sono spenti${n ? ". Si accendono " + n : ""}.`, whyOn:n=>`I varchi sono accesi${n ? ". Si spengono " + n : ""}. Parcheggia fuori dalla zona o torna più tardi.`,
   whyCond:"I varchi sono accesi. Puoi arrivare all'hotel solo se l'hotel comunica la tua targa al Comune.", whyHol:"È festivo e il Comune non ha confermato se i varchi sono spenti. Controlla il pannello al varco.",
-  hint:" Dormi in un hotel dentro la zona? L'hotel può comunicare la tua targa.", whyOut:(m,c)=>`Questo luogo è fuori dalla ZTL di ${c}. Il settore più vicino inizia a circa ${m} m: non seguire il navigatore attraverso il centro.`,
+  hint:" Dormi in un hotel dentro la zona? L'hotel può comunicare la tua targa.", whyOut:(m,c)=>`Questo luogo è fuori dalla ZTL di ${c}. La zona limitata inizia a circa ${m} m: non seguire il navigatore attraverso il centro.`,
   outside:"fuori ZTL", inside:"in ZTL", out2:"fuori", noGates:"Nessun varco", gOn:"Varchi accesi", gOff:"Varchi spenti", nowAt:"adesso",
   today:"oggi alle", tomorrow:"domani alle", on:"", at:"alle", d:"g", h:"h", min:"min", onSince:"Accesi dalle", offSince:"Spenti dalle", onIn:"Si accendono tra", offIn:"Si spengono tra",
   read:(d,c)=>`Letto il ${d} dal sito del Comune di ${c}:`, official:"pagina ufficiale ↗", nights:"notti", open:"libero", notConf:"da confermare", hol:"Festivi",
-  perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", far:"Questo luogo non è ancora coperto. GateLR parte da Firenze; altre città in arrivo.",
+  perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", far:"Questo luogo non è ancora coperto. GateLR copre Firenze, Bologna e Milano; altre città in arrivo.",
   msg:(day,time)=>`Buongiorno,\n\narrivo in auto ${day} verso le ${time}. Potete registrare la mia targa [TARGA] per la ZTL, così raggiungo l'hotel senza multa?\n\nGrazie!`},
  de:{get:"App holen", faqT:"Gut zu wissen", q1:"Was ist eine ZTL?", a1:"Eine zona a traffico limitato ist eine verkehrsberuhigte Zone, meist eine Altstadt. Kameras an jeder Einfahrt lesen das Kennzeichen. Wer ohne Genehmigung hineinfährt, während die Kameras aktiv sind, bekommt ein Bußgeld an den Halter – beim Mietwagen also an dich, plus Gebühr der Mietwagenfirma.",
   q2:"Woran erkenne ich, ob eine Einfahrt aktiv ist?", a2:"An jeder Einfahrt steht ein Schild und meist eine Leuchtanzeige mit „Varco attivo“ (aktiv) oder „Varco non attivo“ (nicht aktiv). GateLR sagt es dir vorher anhand der offiziellen Zeiten der Stadt, aber die Anzeige an der Einfahrt gilt immer.",
   q3:"Mein Hotel liegt in der ZTL. Was tun?", a3:"Schreib dem Hotel vor der Ankunft und bitte es, dein Kennzeichen bei der Stadt anzumelden. Viele Hotels können das für An- und Abreisetag tun. Nutze die Nachricht oben: fertig auf Deutsch, Englisch und Italienisch.",
   q4:"Ich bin aus Versehen hineingefahren. Was jetzt?", a4:"Notiere Uhrzeit und Einfahrt. Wenn dein Hotel in der Zone liegt, sag sofort Bescheid: Manche Städte akzeptieren die Anmeldung auch kurz danach. Sonst kommt das Bußgeld per Post; wer innerhalb von 5 Tagen nach Zustellung zahlt, spart 30 %.", whyTicket:t=>`Die Kameras sind aktiv. Du darfst mit dem Tagesticket hinein (${t.price.toFixed(2).replace(".",",")} €). ${t.howTo}`, h1:"Darf ich <em>rein?</em>", lead:"Suche dein Hotel oder Ziel. GateLR sagt dir sofort, ob es in einer ZTL liegt, ob du bei deiner Ankunft hineinfahren darfst und was ein Fehler kostet.",
-  ph:"Hotel, Adresse oder Ort in Florenz", now:"Jetzt", arrival:"Ankunft", try:"Probier", draft:"Entwurf: aus den offiziellen Quellen der Stadt, noch nicht von einer Person geprüft. Es gilt immer das Schild an der Einfahrt.",
+  ph:"Hotel, Adresse oder Ort: Florenz, Bologna, Mailand", now:"Jetzt", arrival:"Ankunft", try:"Probier", draft:"Entwurf: aus den offiziellen Quellen der Stadt, noch nicht von einer Person geprüft. Es gilt immer das Schild an der Einfahrt.",
   tap:"Tippe auf einen Punkt, um ihn zu prüfen", lsector:"ZTL-Sektor", lgate:"Kamera-Einfahrt", lplace:"Dein Ort", hoursT:"Wann die Kameras aktiv sind", fineL:"Wenn du aus Versehen hineinfährst", fineT:"Das Bußgeld",
   hotelL:"Hotel in der ZTL?", hotelT:"Schreib zuerst dem Hotel", hotelP:"Hotels in der Zone können dein Kennzeichen bei der Stadt anmelden. Schick das vor deiner Ankunft.",
   copy:"Nachricht kopieren", copied:"Kopiert", selected:"Text markiert: kopieren", hotelN:"Das aktuelle Online-Verfahren in Florenz wird noch geprüft.",
@@ -350,13 +351,13 @@ const T = {
   foot:"Daten für Florenz: Open Data der Stadt Florenz (CC-BY 4.0) und offizielle Seiten der Stadt, gelesen am 23. Oktober 2026. GateLR ist mit keiner Stadt und nicht mit der Polizei verbunden. Es gelten immer die Schilder vor Ort.",
   pick:"Wähle einen Ort", pickWhy:"Suche oben, tippe auf einen Vorschlag oder auf die Karte.",
   yes:"Ja, du darfst rein", no:"Nein, nicht hineinfahren", cond:"Ja, unter einer Bedingung", unsure:"Nicht sicher", out:"Ja, frei befahrbar",
-  whyOff:n=>`Die Kameras sind aus${n ? ". Sie gehen " + n + " an" : ""}.`, whyOn:n=>`Die Kameras sind aktiv${n ? " bis " + n : ""}. Parke außerhalb der Zone oder komm später.`,
+  whyOff:n=>`Die Kameras sind aus${n ? ". Sie gehen " + n + " an" : ""}.`, whyOn:n=>`Die Kameras sind aktiv${n ? ". Sie gehen " + n + " aus" : ""}. Parke außerhalb der Zone oder komm später.`,
   whyCond:"Die Kameras sind aktiv. Du darfst nur zum Hotel fahren, wenn das Hotel dein Kennzeichen bei der Stadt anmeldet.", whyHol:"Heute ist Feiertag und die Stadt hat nicht bestätigt, ob die Kameras aus sind. Achte auf die Anzeige an der Einfahrt.",
-  hint:" Dein Hotel liegt in der Zone? Das Hotel kann dein Kennzeichen anmelden.", whyOut:(m,c)=>`Dieser Ort liegt außerhalb der ZTL von ${c}. Der nächste Sektor beginnt etwa ${m} m entfernt: folge dem Navi nicht durch die Altstadt.`,
+  hint:" Dein Hotel liegt in der Zone? Das Hotel kann dein Kennzeichen anmelden.", whyOut:(m,c)=>`Dieser Ort liegt außerhalb der ZTL von ${c}. Die gesperrte Zone beginnt etwa ${m} m entfernt: folge dem Navi nicht durch die Altstadt.`,
   outside:"außerhalb der ZTL", inside:"in der ZTL", out2:"außerhalb", noGates:"Keine Einfahrten", gOn:"Kameras aktiv", gOff:"Kameras aus", nowAt:"jetzt",
   today:"heute um", tomorrow:"morgen um", on:"am", at:"um", d:"T", h:"Std", min:"Min", onSince:"Aktiv seit", offSince:"Aus seit", onIn:"Aktiv in", offIn:"Aus in",
   read:(d,c)=>`Gelesen am ${d} bei der Stadt ${c}:`, official:"offizielle Seite ↗", nights:"Nächte", open:"frei", notConf:"unbestätigt", hol:"Feiertage",
-  perDay:"pro Tag", verifying:"Betrag wird geprüft", stillChecking:"Beträge werden noch am offiziellen Text geprüft.", point:"Punkt auf der Karte", far:"Diesen Ort decken wir noch nicht ab. GateLR startet mit Florenz; weitere Städte folgen.",
+  perDay:"pro Tag", verifying:"Betrag wird geprüft", stillChecking:"Beträge werden noch am offiziellen Text geprüft.", point:"Punkt auf der Karte", far:"Diesen Ort decken wir noch nicht ab. GateLR deckt Florenz, Bologna und Mailand ab; weitere Städte folgen.",
   msg:(day,time)=>`Guten Tag,\n\nich komme am ${day} gegen ${time} mit dem Auto an. Könnten Sie bitte mein Kennzeichen [KENNZEICHEN] für die ZTL anmelden, damit ich das Hotel ohne Bußgeld erreiche?\n\nVielen Dank!`}
 };
 const LOCALE = {en:"en-GB", it:"it-IT", de:"de-DE"};
@@ -374,7 +375,9 @@ const PLACES = [
   ["Santa Maria Novella station", 43.7764, 11.2480], ["Mercato Centrale", 43.7765, 11.2534], ["Galleria dell'Accademia", 43.7768, 11.2587],
   ["Santa Croce", 43.7686, 11.2622], ["Palazzo Pitti", 43.7651, 11.2500], ["Piazza del Carmine", 43.7680, 11.2440],
   ["Sant'Ambrogio market", 43.7700, 11.2660], ["Fortezza da Basso", 43.7810, 11.2470], ["Piazzale Michelangelo", 43.7629, 11.2650],
-  ["Porta Romana", 43.7590, 11.2440], ["Florence airport", 43.8100, 11.2051]
+  ["Porta Romana", 43.7590, 11.2440], ["Florence airport", 43.8100, 11.2051],
+  ["Piazza Maggiore, Bologna", 44.4938, 11.3430], ["Two Towers, Bologna", 44.4943, 11.3467], ["Bologna Centrale station", 44.5058, 11.3427],
+  ["Duomo di Milano", 45.4642, 9.1900], ["Castello Sforzesco, Milan", 45.4705, 9.1795], ["Milano Centrale station", 45.4860, 9.2040], ["Darsena, Milan", 45.4520, 9.1770]
 ];
 const GEOCODER = q => `https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&lat=43.7712&lon=11.2550&limit=6&lang=${lang}`;
 
@@ -407,10 +410,10 @@ function answer(zone, t, staying){
   const on = activeAt(zone, t), next = scan(zone, t, 1), since = scan(zone, t, -1);
   if (zone.freeOnHolidays == null && isHoliday(rome(t)) && activeAt(zone, t, true))
     return {v:"unsure", title:t_("unsure"), why:t_("whyHol"), on:true, next, since};
-  if (!on) return {v:"yes", title:t_("yes"), why:T[lang].whyOff(next ? when(next, t) : ""), on, next, since};
-  if (zone.ticket) return {v:"cond", title:t_("cond"), why:T[lang].whyTicket(zone.ticket), on, next, since};
+  if (!on) return {v:"yes", title:t_("yes"), why:T[lang].whyOff(next ? when(next, new Date()) : ""), on, next, since};
   if (staying && zone.hotelCanRegister) return {v:"cond", title:t_("cond"), why:t_("whyCond"), on, next, since};
-  return {v:"no", title:t_("no"), why:T[lang].whyOn(next ? when(next, t) : ""), on, next, since};
+  if (zone.ticket) return {v:"cond", title:t_("cond"), why:T[lang].whyTicket(zone.ticket), on, next, since};
+  return {v:"no", title:t_("no"), why:T[lang].whyOn(next ? when(next, new Date()) : ""), on, next, since};
 }
 function hm(t){ return new Intl.DateTimeFormat(LOCALE[lang], {timeZone: TZ, hour:"numeric", minute:"2-digit", hour12: lang === "en"}).format(t).replace(" ", "\u202f"); }
 function when(t, ref){ const a = rome(t), b = rome(ref); if (a.y===b.y && a.m===b.m && a.d===b.d) return t_("today") + " " + hm(t);
@@ -638,7 +641,7 @@ q.addEventListener("keydown", e => {
 $("search").addEventListener("submit", e => { e.preventDefault(); if (results.length) choose(results[0]); });
 document.addEventListener("click", e => { if (!$("search").contains(e.target)) closeSuggest(); });
 
-for (const [name] of PLACES.filter(([n]) => ["Duomo (Cathedral)", "Palazzo Pitti", "Santa Maria Novella station", "Piazzale Michelangelo"].includes(n))){
+for (const [name] of PLACES.filter(([n]) => ["Duomo (Cathedral)", "Palazzo Pitti", "Piazza Maggiore, Bologna", "Duomo di Milano"].includes(n))){
   const b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.textContent = name.replace(" (Cathedral)", "");
   b.addEventListener("click", () => { const p = PLACES.find(x => x[0] === name); choose({name:p[0], lat:p[1], lon:p[2]}); });
   $("tries").append(b, " ");

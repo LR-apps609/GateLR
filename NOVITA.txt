@@ -1,4 +1,6 @@
 Novità della 0.3.0 «Più professionale»:
+• Nuove città in bozza: Bologna (ZTL ogni giorno 7–20, ticket 6 €, zona T chiusa 24 ore) e Milano Area C (lun–ven 7:30–19:30, ticket 7,50 €)
+• ZTL a pagamento: «Sì, con il biglietto giornaliero», con prezzo e come pagare
 • Modalità scura completa
 • Now: conto alla rovescia dei varchi («Off in 9 h 50 min») con barra, elenco di tutti i settori con la risposta di ciascuno
 • Mappa: lettere dei settori, tocca un settore per sceglierlo, telecamere dei varchi, «Park outside» trova i parcheggi fuori dalla ZTL con Apple Maps e porta lì

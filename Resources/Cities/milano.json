@@ -1,0 +1,777 @@
+{
+ "id": "milano",
+ "name": "Milan",
+ "center": {
+  "lat": 45.4642,
+  "lon": 9.19
+ },
+ "zones": [
+  {
+   "id": "milano-c",
+   "name": "Area C · City Centre",
+   "summary": "A paid zone: from Monday to Friday, 7:30 am to 7:30 pm, you can drive in with a €7.50 ticket, activated by midnight of the next day. Public holidays are free.",
+   "summary_it": "Zona a pagamento: dal lunedì al venerdì, dalle 7:30 alle 19:30, si entra con il ticket da 7,50 €, da attivare entro la mezzanotte del giorno dopo. Festivi esclusi.",
+   "summary_de": "Gebührenpflichtige Zone: Montag bis Freitag, 7:30 bis 19:30 Uhr, Einfahrt mit dem 7,50-€-Ticket, das bis Mitternacht des Folgetags aktiviert werden muss. Feiertage frei.",
+   "perimeter": [
+    {
+     "lat": 45.462303,
+     "lon": 9.164691
+    },
+    {
+     "lat": 45.462465,
+     "lon": 9.164906
+    },
+    {
+     "lat": 45.463422,
+     "lon": 9.165336
+    },
+    {
+     "lat": 45.463606,
+     "lon": 9.165326
+    },
+    {
+     "lat": 45.467206,
+     "lon": 9.166493
+    },
+    {
+     "lat": 45.46758,
+     "lon": 9.167047
+    },
+    {
+     "lat": 45.46799,
+     "lon": 9.166507
+    },
+    {
+     "lat": 45.467669,
+     "lon": 9.165871
+    },
+    {
+     "lat": 45.467739,
+     "lon": 9.165436
+    },
+    {
+     "lat": 45.471387,
+     "lon": 9.166537
+    },
+    {
+     "lat": 45.471449,
+     "lon": 9.16663
+    },
+    {
+     "lat": 45.470489,
+     "lon": 9.167894
+    },
+    {
+     "lat": 45.469832,
+     "lon": 9.166884
+    },
+    {
+     "lat": 45.469698,
+     "lon": 9.167058
+    },
+    {
+     "lat": 45.470885,
+     "lon": 9.168876
+    },
+    {
+     "lat": 45.470882,
+     "lon": 9.169003
+    },
+    {
+     "lat": 45.471027,
+     "lon": 9.169226
+    },
+    {
+     "lat": 45.471116,
+     "lon": 9.169231
+    },
+    {
+     "lat": 45.471847,
+     "lon": 9.170352
+    },
+    {
+     "lat": 45.471981,
+     "lon": 9.170183
+    },
+    {
+     "lat": 45.471776,
+     "lon": 9.169867
+    },
+    {
+     "lat": 45.472732,
+     "lon": 9.168614
+    },
+    {
+     "lat": 45.472802,
+     "lon": 9.168722
+    },
+    {
+     "lat": 45.472978,
+     "lon": 9.168497
+    },
+    {
+     "lat": 45.477147,
+     "lon": 9.174877
+    },
+    {
+     "lat": 45.476029,
+     "lon": 9.176416
+    },
+    {
+     "lat": 45.476104,
+     "lon": 9.176805
+    },
+    {
+     "lat": 45.476793,
+     "lon": 9.177853
+    },
+    {
+     "lat": 45.476941,
+     "lon": 9.178212
+    },
+    {
+     "lat": 45.477343,
+     "lon": 9.181358
+    },
+    {
+     "lat": 45.477536,
+     "lon": 9.181324
+    },
+    {
+     "lat": 45.480614,
+     "lon": 9.182472
+    },
+    {
+     "lat": 45.480865,
+     "lon": 9.183164
+    },
+    {
+     "lat": 45.479742,
+     "lon": 9.189753
+    },
+    {
+     "lat": 45.479868,
+     "lon": 9.189977
+    },
+    {
+     "lat": 45.479627,
+     "lon": 9.191721
+    },
+    {
+     "lat": 45.479259,
+     "lon": 9.192266
+    },
+    {
+     "lat": 45.477853,
+     "lon": 9.191967
+    },
+    {
+     "lat": 45.478079,
+     "lon": 9.189594
+    },
+    {
+     "lat": 45.478003,
+     "lon": 9.189565
+    },
+    {
+     "lat": 45.477504,
+     "lon": 9.195319
+    },
+    {
+     "lat": 45.476376,
+     "lon": 9.19777
+    },
+    {
+     "lat": 45.476819,
+     "lon": 9.198053
+    },
+    {
+     "lat": 45.476777,
+     "lon": 9.198187
+    },
+    {
+     "lat": 45.476861,
+     "lon": 9.198464
+    },
+    {
+     "lat": 45.47487,
+     "lon": 9.202725
+    },
+    {
+     "lat": 45.474439,
+     "lon": 9.204059
+    },
+    {
+     "lat": 45.474403,
+     "lon": 9.204022
+    },
+    {
+     "lat": 45.474295,
+     "lon": 9.204243
+    },
+    {
+     "lat": 45.474258,
+     "lon": 9.204209
+    },
+    {
+     "lat": 45.47377,
+     "lon": 9.205206
+    },
+    {
+     "lat": 45.472614,
+     "lon": 9.205181
+    },
+    {
+     "lat": 45.472455,
+     "lon": 9.205082
+    },
+    {
+     "lat": 45.469405,
+     "lon": 9.205381
+    },
+    {
+     "lat": 45.467204,
+     "lon": 9.205681
+    },
+    {
+     "lat": 45.467065,
+     "lon": 9.20562
+    },
+    {
+     "lat": 45.463142,
+     "lon": 9.206162
+    },
+    {
+     "lat": 45.46306,
+     "lon": 9.206344
+    },
+    {
+     "lat": 45.462136,
+     "lon": 9.206508
+    },
+    {
+     "lat": 45.461283,
+     "lon": 9.206617
+    },
+    {
+     "lat": 45.460774,
+     "lon": 9.206529
+    },
+    {
+     "lat": 45.459955,
+     "lon": 9.20623
+    },
+    {
+     "lat": 45.45843,
+     "lon": 9.204995
+    },
+    {
+     "lat": 45.458456,
+     "lon": 9.20491
+    },
+    {
+     "lat": 45.454078,
+     "lon": 9.202305
+    },
+    {
+     "lat": 45.454097,
+     "lon": 9.202242
+    },
+    {
+     "lat": 45.455249,
+     "lon": 9.201924
+    },
+    {
+     "lat": 45.455237,
+     "lon": 9.201838
+    },
+    {
+     "lat": 45.453852,
+     "lon": 9.202207
+    },
+    {
+     "lat": 45.452659,
+     "lon": 9.201856
+    },
+    {
+     "lat": 45.452118,
+     "lon": 9.201198
+    },
+    {
+     "lat": 45.452081,
+     "lon": 9.200329
+    },
+    {
+     "lat": 45.452257,
+     "lon": 9.197915
+    },
+    {
+     "lat": 45.452164,
+     "lon": 9.196378
+    },
+    {
+     "lat": 45.452149,
+     "lon": 9.189627
+    },
+    {
+     "lat": 45.452318,
+     "lon": 9.187804
+    },
+    {
+     "lat": 45.452529,
+     "lon": 9.186673
+    },
+    {
+     "lat": 45.452942,
+     "lon": 9.181227
+    },
+    {
+     "lat": 45.453147,
+     "lon": 9.180305
+    },
+    {
+     "lat": 45.453026,
+     "lon": 9.177389
+    },
+    {
+     "lat": 45.453478,
+     "lon": 9.176843
+    },
+    {
+     "lat": 45.453671,
+     "lon": 9.176824
+    },
+    {
+     "lat": 45.453673,
+     "lon": 9.176688
+    },
+    {
+     "lat": 45.455396,
+     "lon": 9.174398
+    },
+    {
+     "lat": 45.455533,
+     "lon": 9.174599
+    },
+    {
+     "lat": 45.456625,
+     "lon": 9.17308
+    },
+    {
+     "lat": 45.456495,
+     "lon": 9.172888
+    },
+    {
+     "lat": 45.458205,
+     "lon": 9.169966
+    },
+    {
+     "lat": 45.460307,
+     "lon": 9.166714
+    },
+    {
+     "lat": 45.461501,
+     "lon": 9.16447
+    },
+    {
+     "lat": 45.462303,
+     "lon": 9.164691
+    }
+   ],
+   "gates": [
+    {
+     "id": "mi-c-81",
+     "name": "Aurispa",
+     "location": {
+      "lat": 45.452808,
+      "lon": 9.184412
+     }
+    },
+    {
+     "id": "mi-c-86",
+     "name": "Ausonio",
+     "location": {
+      "lat": 45.457607,
+      "lon": 9.171372
+     }
+    },
+    {
+     "id": "mi-c-90",
+     "name": "Bandello",
+     "location": {
+      "lat": 45.462839,
+      "lon": 9.165292
+     }
+    },
+    {
+     "id": "mi-c-66",
+     "name": "Baretti",
+     "location": {
+      "lat": 45.471545,
+      "lon": 9.205038
+     }
+    },
+    {
+     "id": "mi-c-95",
+     "name": "Bazzoni",
+     "location": {
+      "lat": 45.467898,
+      "lon": 9.166435
+     }
+    },
+    {
+     "id": "mi-c-72",
+     "name": "Besana",
+     "location": {
+      "lat": 45.460103,
+      "lon": 9.206074
+     }
+    },
+    {
+     "id": "mi-c-78",
+     "name": "Bianca Di Savoia",
+     "location": {
+      "lat": 45.452288,
+      "lon": 9.191054
+     }
+    },
+    {
+     "id": "mi-c-93",
+     "name": "Boccaccio",
+     "location": {
+      "lat": 45.46747,
+      "lon": 9.166924
+     }
+    },
+    {
+     "id": "mi-c-76",
+     "name": "Cabrini",
+     "location": {
+      "lat": 45.452297,
+      "lon": 9.198915
+     }
+    },
+    {
+     "id": "mi-c-63",
+     "name": "Castelfidardo",
+     "location": {
+      "lat": 45.479456,
+      "lon": 9.191497
+     }
+    },
+    {
+     "id": "mi-c-74",
+     "name": "Curtatone",
+     "location": {
+      "lat": 45.455151,
+      "lon": 9.202753
+     }
+    },
+    {
+     "id": "mi-c-61",
+     "name": "Garibaldi",
+     "location": {
+      "lat": 45.480148,
+      "lon": 9.18653
+     }
+    },
+    {
+     "id": "mi-c-85",
+     "name": "Genova",
+     "location": {
+      "lat": 45.455983,
+      "lon": 9.173769
+     }
+    },
+    {
+     "id": "mi-c-80",
+     "name": "Italia",
+     "location": {
+      "lat": 45.45259,
+      "lon": 9.186817
+     }
+    },
+    {
+     "id": "mi-c-73",
+     "name": "Lamarmora",
+     "location": {
+      "lat": 45.457392,
+      "lon": 9.204114
+     }
+    },
+    {
+     "id": "mi-c-58",
+     "name": "Legnano",
+     "location": {
+      "lat": 45.476948,
+      "lon": 9.181095
+     }
+    },
+    {
+     "id": "mi-c-92",
+     "name": "Magenta",
+     "location": {
+      "lat": 45.46595,
+      "lon": 9.166377
+     }
+    },
+    {
+     "id": "mi-c-70",
+     "name": "Mascagni",
+     "location": {
+      "lat": 45.466514,
+      "lon": 9.205585
+     }
+    },
+    {
+     "id": "mi-c-96",
+     "name": "Mascheroni",
+     "location": {
+      "lat": 45.469424,
+      "lon": 9.166059
+     }
+    },
+    {
+     "id": "mi-c-79",
+     "name": "Melegnano",
+     "location": {
+      "lat": 45.452368,
+      "lon": 9.188655
+     }
+    },
+    {
+     "id": "mi-c-62",
+     "name": "Milazzo",
+     "location": {
+      "lat": 45.479921,
+      "lon": 9.187839
+     }
+    },
+    {
+     "id": "mi-c-98",
+     "name": "Milton",
+     "location": {
+      "lat": 45.473807,
+      "lon": 9.170103
+     }
+    },
+    {
+     "id": "mi-c-69",
+     "name": "Monforte",
+     "location": {
+      "lat": 45.467746,
+      "lon": 9.205464
+     }
+    },
+    {
+     "id": "mi-c-97",
+     "name": "Monti",
+     "location": {
+      "lat": 45.470916,
+      "lon": 9.169088
+     }
+    },
+    {
+     "id": "mi-c-59",
+     "name": "Moscova",
+     "location": {
+      "lat": 45.478283,
+      "lon": 9.181903
+     }
+    },
+    {
+     "id": "mi-c-89",
+     "name": "Olivetani",
+     "location": {
+      "lat": 45.460319,
+      "lon": 9.166913
+     }
+    },
+    {
+     "id": "mi-c-83",
+     "name": "Panzeri",
+     "location": {
+      "lat": 45.453211,
+      "lon": 9.178377
+     }
+    },
+    {
+     "id": "mi-c-75",
+     "name": "Porta Romana",
+     "location": {
+      "lat": 45.452565,
+      "lon": 9.201568
+     }
+    },
+    {
+     "id": "mi-c-57",
+     "name": "Porta Tenaglia",
+     "location": {
+      "lat": 45.477615,
+      "lon": 9.181736
+     }
+    },
+    {
+     "id": "mi-c-82",
+     "name": "Porta Ticinese",
+     "location": {
+      "lat": 45.453255,
+      "lon": 9.180274
+     }
+    },
+    {
+     "id": "mi-c-77",
+     "name": "Porta Vigentina",
+     "location": {
+      "lat": 45.452307,
+      "lon": 9.196445
+     }
+    },
+    {
+     "id": "mi-c-71",
+     "name": "Porta Vittoria",
+     "location": {
+      "lat": 45.462396,
+      "lon": 9.206366
+     }
+    },
+    {
+     "id": "mi-c-84",
+     "name": "Ronzoni",
+     "location": {
+      "lat": 45.454332,
+      "lon": 9.176284
+     }
+    },
+    {
+     "id": "mi-c-68",
+     "name": "Rossini",
+     "location": {
+      "lat": 45.469437,
+      "lon": 9.205282
+     }
+    },
+    {
+     "id": "mi-c-91",
+     "name": "San Vittore",
+     "location": {
+      "lat": 45.46464,
+      "lon": 9.165995
+     }
+    },
+    {
+     "id": "mi-c-87",
+     "name": "Sant'Agostino",
+     "location": {
+      "lat": 45.458653,
+      "lon": 9.169753
+     }
+    },
+    {
+     "id": "mi-c-88",
+     "name": "Servio Tullio",
+     "location": {
+      "lat": 45.459318,
+      "lon": 9.168622
+     }
+    },
+    {
+     "id": "mi-c-64",
+     "name": "Turati",
+     "location": {
+      "lat": 45.47722,
+      "lon": 9.195749
+     }
+    },
+    {
+     "id": "mi-c-65",
+     "name": "Venezia",
+     "location": {
+      "lat": 45.474,
+      "lon": 9.204511
+     }
+    },
+    {
+     "id": "mi-c-67",
+     "name": "Vitali",
+     "location": {
+      "lat": 45.470842,
+      "lon": 9.205063
+     }
+    },
+    {
+     "id": "mi-c-60",
+     "name": "Volta",
+     "location": {
+      "lat": 45.480523,
+      "lon": 9.182925
+     }
+    },
+    {
+     "id": "mi-c-94",
+     "name": "Xx Settembre",
+     "location": {
+      "lat": 45.467772,
+      "lon": 9.166858
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 450,
+     "end": 1170
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "ticket": {
+    "price": 7.5,
+    "howTo": "Pay and activate it by midnight of the next day (online, at newsagents or by phone). Later, up to the 7th day, it costs €22.50. Parked in a partner garage: €4.50.",
+    "url": "https://www.comune.milano.it/servizi/mobilita/area-c-acquista-il-ticket"
+   },
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://www.comune.milano.it/argomenti/mobilita/area-c",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "Area C è attiva tutto l'anno dal lunedì al venerdì, dalle 7:30 alle 19:30 (festivi esclusi).",
+    "quoteTranslation": "Area C is active all year from Monday to Friday, 7:30 am to 7:30 pm (public holidays excluded).",
+    "checkedOn": "2026-10-23T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Electric cars: exemption found only in a search extract, to be confirmed.",
+     "7 December (Sant'Ambrogio, Milan's patron saint): not known whether it counts as a holiday.",
+     "Area B (low-emission zone for the whole city) is not in GateLR yet."
+    ],
+    "links": [
+     {
+      "title": "City of Milan: Area C",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-c"
+     },
+     {
+      "title": "City of Milan: buy the Area C ticket",
+      "url": "https://www.comune.milano.it/servizi/mobilita/area-c-acquista-il-ticket"
+     },
+     {
+      "title": "City of Milan: activate the ticket",
+      "url": "https://www.comune.milano.it/servizi/mobilita/area-c-attiva-il-ticket"
+     },
+     {
+      "title": "Open data: Area C gates (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds82_infogeo_varchi_elettronici_localizzazione_"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Perimeter and gates: Comune di Milano open data, CC BY"
+}

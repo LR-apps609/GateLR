@@ -133,6 +133,25 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertTrue(c.contains("7"))
     }
 
+    /// Tutte le città incluse nell'app si leggono, e Bologna e Milano rispondono come dicono i Comuni
+    func testAllCityFiles() throws {
+        let dir = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Resources/Cities")
+        let files = try FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
+        XCTAssertGreaterThanOrEqual(files.count, 3)
+        var cities: [String: City] = [:]
+        for f in files { let c = try CityLoader.decode(Data(contentsOf: f)); cities[c.id] = c }
+        let bo = try XCTUnwrap(cities["bologna"]?.zones.first { $0.id == "bologna-ztl" })
+        XCTAssertTrue(engine.isActive(bo, at: date(2026, 10, 25, 10)))          // domenica: attiva tutti i giorni
+        XCTAssertFalse(engine.isActive(bo, at: date(2026, 10, 25, 21)))
+        let a = engine.answer(zone: bo, vehicle: car, permits: [], hotelInside: false, at: date(2026, 10, 26, 10))
+        guard case .conditional = a.verdict else { return XCTFail("Bologna: atteso biglietto, ottenuto \(a.verdict)") }
+        let mi = try XCTUnwrap(cities["milano"]?.zones.first)
+        XCTAssertTrue(engine.isActive(mi, at: date(2026, 10, 26, 10)))           // lunedì
+        XCTAssertFalse(engine.isActive(mi, at: date(2026, 10, 24, 10)))          // sabato
+        XCTAssertFalse(engine.isActive(mi, at: date(2026, 12, 8, 10)))           // Immacolata: festivi esclusi
+        XCTAssertNotNil(mi.ticket)
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)

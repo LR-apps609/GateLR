@@ -176,5 +176,8 @@ extension Zone {
     var letter: String { name.split(separator: "·").first.map { String($0.split(separator: " ").last ?? "") } ?? "" }
     /// «Historic Centre» da «Sector B · Historic Centre»
     var place: String { name.split(separator: "·").dropFirst().joined(separator: "·").trimmingCharacters(in: .whitespaces) }
-    var shortName: String { String(format: L("Sector %@"), letter) }
+    var shortName: String {
+        let head = name.split(separator: "·").first.map { $0.trimmingCharacters(in: .whitespaces) } ?? name
+        return head.hasPrefix("Sector") ? String(format: L("Sector %@"), letter) : head
+    }
 }

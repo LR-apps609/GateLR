@@ -25,6 +25,7 @@ struct MapScreen: View {
                     Annotation("", coordinate: z.labelPoint, anchor: .center) {
                         Text(z.letter)
                             .font(Theme.display(selected ? 18 : 14))
+                            .lineLimit(1).minimumScaleFactor(0.5)
                             .foregroundStyle(selected ? .white : Theme.red)
                             .frame(width: selected ? 30 : 24, height: selected ? 30 : 24)
                             .background(selected ? Theme.red : Color.white.opacity(0.9), in: Circle())

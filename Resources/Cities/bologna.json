@@ -1,0 +1,1025 @@
+{
+ "id": "bologna",
+ "name": "Bologna",
+ "center": {
+  "lat": 44.4938,
+  "lon": 11.343
+ },
+ "zones": [
+  {
+   "id": "bologna-ztl",
+   "name": "ZTL · Historic Centre",
+   "summary": "Every day from 7 am to 8 pm you can't drive in without a permit or a day ticket. Inside, Zona T and the pedestrian areas stay closed around the clock.",
+   "summary_it": "Tutti i giorni dalle 7 alle 20 non si entra senza permesso o ticket giornaliero. Dentro, la zona T e le aree pedonali restano chiuse 24 ore su 24.",
+   "summary_de": "Täglich von 7 bis 20 Uhr keine Einfahrt ohne Genehmigung oder Tagesticket. Zone T und Fußgängerzonen bleiben rund um die Uhr gesperrt.",
+   "perimeter": [
+    {
+     "lat": 44.497853,
+     "lon": 11.331323
+    },
+    {
+     "lat": 44.498446,
+     "lon": 11.332551
+    },
+    {
+     "lat": 44.498437,
+     "lon": 11.333339
+    },
+    {
+     "lat": 44.49822,
+     "lon": 11.334279
+    },
+    {
+     "lat": 44.49744,
+     "lon": 11.333981
+    },
+    {
+     "lat": 44.497282,
+     "lon": 11.334252
+    },
+    {
+     "lat": 44.49692,
+     "lon": 11.334046
+    },
+    {
+     "lat": 44.496896,
+     "lon": 11.334098
+    },
+    {
+     "lat": 44.497175,
+     "lon": 11.33428
+    },
+    {
+     "lat": 44.497005,
+     "lon": 11.335488
+    },
+    {
+     "lat": 44.497127,
+     "lon": 11.336611
+    },
+    {
+     "lat": 44.497201,
+     "lon": 11.336731
+    },
+    {
+     "lat": 44.497951,
+     "lon": 11.336239
+    },
+    {
+     "lat": 44.498416,
+     "lon": 11.335864
+    },
+    {
+     "lat": 44.498836,
+     "lon": 11.337974
+    },
+    {
+     "lat": 44.499068,
+     "lon": 11.337963
+    },
+    {
+     "lat": 44.499098,
+     "lon": 11.338462
+    },
+    {
+     "lat": 44.499705,
+     "lon": 11.338732
+    },
+    {
+     "lat": 44.499945,
+     "lon": 11.338328
+    },
+    {
+     "lat": 44.499985,
+     "lon": 11.338076
+    },
+    {
+     "lat": 44.50023,
+     "lon": 11.338149
+    },
+    {
+     "lat": 44.500168,
+     "lon": 11.338939
+    },
+    {
+     "lat": 44.501414,
+     "lon": 11.339532
+    },
+    {
+     "lat": 44.502098,
+     "lon": 11.33748
+    },
+    {
+     "lat": 44.50163,
+     "lon": 11.337271
+    },
+    {
+     "lat": 44.501684,
+     "lon": 11.337126
+    },
+    {
+     "lat": 44.502157,
+     "lon": 11.337335
+    },
+    {
+     "lat": 44.502546,
+     "lon": 11.336018
+    },
+    {
+     "lat": 44.502888,
+     "lon": 11.336117
+    },
+    {
+     "lat": 44.502261,
+     "lon": 11.339172
+    },
+    {
+     "lat": 44.501686,
+     "lon": 11.339681
+    },
+    {
+     "lat": 44.501655,
+     "lon": 11.339759
+    },
+    {
+     "lat": 44.501321,
+     "lon": 11.339591
+    },
+    {
+     "lat": 44.501215,
+     "lon": 11.340106
+    },
+    {
+     "lat": 44.50068,
+     "lon": 11.3417
+    },
+    {
+     "lat": 44.500676,
+     "lon": 11.341883
+    },
+    {
+     "lat": 44.501592,
+     "lon": 11.342307
+    },
+    {
+     "lat": 44.501125,
+     "lon": 11.344267
+    },
+    {
+     "lat": 44.494971,
+     "lon": 11.342581
+    },
+    {
+     "lat": 44.495699,
+     "lon": 11.337835
+    },
+    {
+     "lat": 44.495576,
+     "lon": 11.337756
+    },
+    {
+     "lat": 44.49508,
+     "lon": 11.341319
+    },
+    {
+     "lat": 44.494209,
+     "lon": 11.346371
+    },
+    {
+     "lat": 44.494355,
+     "lon": 11.346409
+    },
+    {
+     "lat": 44.494907,
+     "lon": 11.342732
+    },
+    {
+     "lat": 44.49908,
+     "lon": 11.343929
+    },
+    {
+     "lat": 44.499079,
+     "lon": 11.343984
+    },
+    {
+     "lat": 44.499019,
+     "lon": 11.343967
+    },
+    {
+     "lat": 44.499019,
+     "lon": 11.344402
+    },
+    {
+     "lat": 44.498822,
+     "lon": 11.345428
+    },
+    {
+     "lat": 44.499639,
+     "lon": 11.345769
+    },
+    {
+     "lat": 44.499429,
+     "lon": 11.34672
+    },
+    {
+     "lat": 44.499366,
+     "lon": 11.346824
+    },
+    {
+     "lat": 44.500385,
+     "lon": 11.347302
+    },
+    {
+     "lat": 44.499271,
+     "lon": 11.351775
+    },
+    {
+     "lat": 44.499241,
+     "lon": 11.351764
+    },
+    {
+     "lat": 44.499068,
+     "lon": 11.352385
+    },
+    {
+     "lat": 44.499081,
+     "lon": 11.352514
+    },
+    {
+     "lat": 44.498317,
+     "lon": 11.35552
+    },
+    {
+     "lat": 44.498129,
+     "lon": 11.355542
+    },
+    {
+     "lat": 44.498003,
+     "lon": 11.355622
+    },
+    {
+     "lat": 44.49806,
+     "lon": 11.356128
+    },
+    {
+     "lat": 44.496409,
+     "lon": 11.356327
+    },
+    {
+     "lat": 44.496305,
+     "lon": 11.356195
+    },
+    {
+     "lat": 44.496837,
+     "lon": 11.354437
+    },
+    {
+     "lat": 44.495524,
+     "lon": 11.353745
+    },
+    {
+     "lat": 44.495196,
+     "lon": 11.355234
+    },
+    {
+     "lat": 44.49479,
+     "lon": 11.356816
+    },
+    {
+     "lat": 44.494751,
+     "lon": 11.356836
+    },
+    {
+     "lat": 44.494224,
+     "lon": 11.356924
+    },
+    {
+     "lat": 44.49419,
+     "lon": 11.356647
+    },
+    {
+     "lat": 44.494091,
+     "lon": 11.356505
+    },
+    {
+     "lat": 44.493712,
+     "lon": 11.356545
+    },
+    {
+     "lat": 44.493706,
+     "lon": 11.356929
+    },
+    {
+     "lat": 44.493355,
+     "lon": 11.357019
+    },
+    {
+     "lat": 44.490569,
+     "lon": 11.357344
+    },
+    {
+     "lat": 44.490273,
+     "lon": 11.357339
+    },
+    {
+     "lat": 44.490029,
+     "lon": 11.357158
+    },
+    {
+     "lat": 44.48991,
+     "lon": 11.357134
+    },
+    {
+     "lat": 44.489586,
+     "lon": 11.357451
+    },
+    {
+     "lat": 44.487431,
+     "lon": 11.35767
+    },
+    {
+     "lat": 44.487004,
+     "lon": 11.353232
+    },
+    {
+     "lat": 44.486358,
+     "lon": 11.353856
+    },
+    {
+     "lat": 44.485253,
+     "lon": 11.355313
+    },
+    {
+     "lat": 44.485275,
+     "lon": 11.355367
+    },
+    {
+     "lat": 44.484882,
+     "lon": 11.355906
+    },
+    {
+     "lat": 44.484851,
+     "lon": 11.355936
+    },
+    {
+     "lat": 44.484611,
+     "lon": 11.355767
+    },
+    {
+     "lat": 44.484795,
+     "lon": 11.35424
+    },
+    {
+     "lat": 44.48516,
+     "lon": 11.354255
+    },
+    {
+     "lat": 44.485468,
+     "lon": 11.353394
+    },
+    {
+     "lat": 44.484913,
+     "lon": 11.353286
+    },
+    {
+     "lat": 44.485476,
+     "lon": 11.348578
+    },
+    {
+     "lat": 44.485629,
+     "lon": 11.348521
+    },
+    {
+     "lat": 44.485685,
+     "lon": 11.348427
+    },
+    {
+     "lat": 44.485714,
+     "lon": 11.34813
+    },
+    {
+     "lat": 44.485649,
+     "lon": 11.347936
+    },
+    {
+     "lat": 44.485897,
+     "lon": 11.347008
+    },
+    {
+     "lat": 44.486037,
+     "lon": 11.346513
+    },
+    {
+     "lat": 44.486507,
+     "lon": 11.34552
+    },
+    {
+     "lat": 44.486985,
+     "lon": 11.344932
+    },
+    {
+     "lat": 44.48768,
+     "lon": 11.344466
+    },
+    {
+     "lat": 44.487645,
+     "lon": 11.344239
+    },
+    {
+     "lat": 44.487537,
+     "lon": 11.34413
+    },
+    {
+     "lat": 44.487431,
+     "lon": 11.34414
+    },
+    {
+     "lat": 44.487348,
+     "lon": 11.344487
+    },
+    {
+     "lat": 44.48699,
+     "lon": 11.344676
+    },
+    {
+     "lat": 44.48598,
+     "lon": 11.344454
+    },
+    {
+     "lat": 44.486518,
+     "lon": 11.33981
+    },
+    {
+     "lat": 44.486817,
+     "lon": 11.339726
+    },
+    {
+     "lat": 44.487359,
+     "lon": 11.339715
+    },
+    {
+     "lat": 44.488051,
+     "lon": 11.339786
+    },
+    {
+     "lat": 44.488354,
+     "lon": 11.339894
+    },
+    {
+     "lat": 44.488648,
+     "lon": 11.340065
+    },
+    {
+     "lat": 44.488627,
+     "lon": 11.340352
+    },
+    {
+     "lat": 44.48868,
+     "lon": 11.340365
+    },
+    {
+     "lat": 44.488682,
+     "lon": 11.340258
+    },
+    {
+     "lat": 44.488857,
+     "lon": 11.340297
+    },
+    {
+     "lat": 44.488914,
+     "lon": 11.339724
+    },
+    {
+     "lat": 44.488701,
+     "lon": 11.339705
+    },
+    {
+     "lat": 44.48874,
+     "lon": 11.337789
+    },
+    {
+     "lat": 44.488597,
+     "lon": 11.337709
+    },
+    {
+     "lat": 44.488567,
+     "lon": 11.338453
+    },
+    {
+     "lat": 44.488618,
+     "lon": 11.338573
+    },
+    {
+     "lat": 44.488602,
+     "lon": 11.339701
+    },
+    {
+     "lat": 44.486851,
+     "lon": 11.339535
+    },
+    {
+     "lat": 44.486594,
+     "lon": 11.339419
+    },
+    {
+     "lat": 44.489784,
+     "lon": 11.331129
+    },
+    {
+     "lat": 44.490298,
+     "lon": 11.329882
+    },
+    {
+     "lat": 44.490392,
+     "lon": 11.329747
+    },
+    {
+     "lat": 44.490452,
+     "lon": 11.329792
+    },
+    {
+     "lat": 44.490421,
+     "lon": 11.330196
+    },
+    {
+     "lat": 44.490278,
+     "lon": 11.330829
+    },
+    {
+     "lat": 44.490777,
+     "lon": 11.331073
+    },
+    {
+     "lat": 44.491462,
+     "lon": 11.331494
+    },
+    {
+     "lat": 44.492067,
+     "lon": 11.331978
+    },
+    {
+     "lat": 44.492159,
+     "lon": 11.331486
+    },
+    {
+     "lat": 44.492092,
+     "lon": 11.331448
+    },
+    {
+     "lat": 44.492017,
+     "lon": 11.331791
+    },
+    {
+     "lat": 44.491813,
+     "lon": 11.331624
+    },
+    {
+     "lat": 44.491973,
+     "lon": 11.330758
+    },
+    {
+     "lat": 44.491844,
+     "lon": 11.330732
+    },
+    {
+     "lat": 44.491756,
+     "lon": 11.330558
+    },
+    {
+     "lat": 44.492016,
+     "lon": 11.329407
+    },
+    {
+     "lat": 44.495658,
+     "lon": 11.328242
+    },
+    {
+     "lat": 44.495723,
+     "lon": 11.328625
+    },
+    {
+     "lat": 44.497281,
+     "lon": 11.328146
+    },
+    {
+     "lat": 44.497398,
+     "lon": 11.328758
+    },
+    {
+     "lat": 44.497276,
+     "lon": 11.328785
+    },
+    {
+     "lat": 44.497338,
+     "lon": 11.329491
+    },
+    {
+     "lat": 44.497451,
+     "lon": 11.329922
+    },
+    {
+     "lat": 44.497419,
+     "lon": 11.329963
+    },
+    {
+     "lat": 44.497519,
+     "lon": 11.33067
+    },
+    {
+     "lat": 44.497699,
+     "lon": 11.3312
+    },
+    {
+     "lat": 44.497853,
+     "lon": 11.331323
+    }
+   ],
+   "gates": [
+    {
+     "id": "bo-8",
+     "name": "Alessandrini",
+     "location": {
+      "lat": 44.4994,
+      "lon": 11.346812
+     }
+    },
+    {
+     "id": "bo-61",
+     "name": "Angeli",
+     "location": {
+      "lat": 44.485459,
+      "lon": 11.349032
+     }
+    },
+    {
+     "id": "bo-1062",
+     "name": "Azzarita",
+     "location": {
+      "lat": 44.498953,
+      "lon": 11.332613
+     }
+    },
+    {
+     "id": "bo-60",
+     "name": "Bocca di Lupo",
+     "location": {
+      "lat": 44.488822,
+      "lon": 11.337924
+     }
+    },
+    {
+     "id": "bo-52",
+     "name": "Borgo San Pietro",
+     "location": {
+      "lat": 44.501718,
+      "lon": 11.350152
+     }
+    },
+    {
+     "id": "bo-54",
+     "name": "Borgo San Pietro",
+     "location": {
+      "lat": 44.500174,
+      "lon": 11.349171
+     }
+    },
+    {
+     "id": "bo-1058",
+     "name": "Calari",
+     "location": {
+      "lat": 44.497497,
+      "lon": 11.327979
+     }
+    },
+    {
+     "id": "bo-51",
+     "name": "Capo di Lucca",
+     "location": {
+      "lat": 44.500452,
+      "lon": 11.347904
+     }
+    },
+    {
+     "id": "bo-76",
+     "name": "Chiudare",
+     "location": {
+      "lat": 44.486197,
+      "lon": 11.346432
+     }
+    },
+    {
+     "id": "bo-23",
+     "name": "D’Azeglio",
+     "location": {
+      "lat": 44.488863,
+      "lon": 11.340185
+     }
+    },
+    {
+     "id": "bo-50",
+     "name": "Finelli",
+     "location": {
+      "lat": 44.501953,
+      "lon": 11.348759
+     }
+    },
+    {
+     "id": "bo-4",
+     "name": "Marconi",
+     "location": {
+      "lat": 44.499447,
+      "lon": 11.338636
+     }
+    },
+    {
+     "id": "bo-53",
+     "name": "Mascarella",
+     "location": {
+      "lat": 44.501685,
+      "lon": 11.352191
+     }
+    },
+    {
+     "id": "bo-9",
+     "name": "Riva di Reno",
+     "location": {
+      "lat": 44.49884,
+      "lon": 11.337882
+     }
+    },
+    {
+     "id": "bo-77",
+     "name": "San Domenico",
+     "location": {
+      "lat": 44.490052,
+      "lon": 11.343606
+     }
+    },
+    {
+     "id": "bo-10",
+     "name": "San Felice",
+     "location": {
+      "lat": 44.49773,
+      "lon": 11.331421
+     }
+    },
+    {
+     "id": "bo-1059",
+     "name": "San Felice",
+     "location": {
+      "lat": 44.498921,
+      "lon": 11.327967
+     }
+    },
+    {
+     "id": "bo-2",
+     "name": "San Vitale",
+     "location": {
+      "lat": 44.494009,
+      "lon": 11.356337
+     }
+    },
+    {
+     "id": "bo-1",
+     "name": "Sant'Isaia",
+     "location": {
+      "lat": 44.494527,
+      "lon": 11.329338
+     }
+    },
+    {
+     "id": "bo-6",
+     "name": "Santo Stefano",
+     "location": {
+      "lat": 44.487192,
+      "lon": 11.353093
+     }
+    },
+    {
+     "id": "bo-59",
+     "name": "Saragozza",
+     "location": {
+      "lat": 44.49028,
+      "lon": 11.330778
+     }
+    },
+    {
+     "id": "bo-7",
+     "name": "XII Giugno",
+     "location": {
+      "lat": 44.487624,
+      "lon": 11.344465
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 420,
+     "end": 1200
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 6.0,
+    "howTo": "Buy and activate it on the Sosty website before you drive in, and wait for the confirmation. Max 3 per month per car.",
+    "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/ticket-accesso-ztl"
+   },
+   "source": {
+    "authority": "City of Bologna",
+    "pageURL": "https://www.comune.bologna.it/informazioni/zona-traffico-limitato-ztl",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "tutti i giorni, dalle 7 alle 20",
+    "quoteTranslation": "every day, from 7 am to 8 pm",
+    "checkedOn": "2026-10-23T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Public holidays: the city says \"every day\" without mentioning holidays; written confirmation still to be asked.",
+     "The perimeter in the open data is from 2021: to compare with the current map."
+    ],
+    "links": [
+     {
+      "title": "City of Bologna: ZTL",
+      "url": "https://www.comune.bologna.it/informazioni/zona-traffico-limitato-ztl"
+     },
+     {
+      "title": "City of Bologna: ZTL day ticket",
+      "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/ticket-accesso-ztl"
+     },
+     {
+      "title": "City of Bologna: hotel guests",
+      "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/accesso-sosta-ztl-clienti-alberghi-autorimesse-autofficine"
+     },
+     {
+      "title": "Open data: ZTL perimeter and gates (CC BY 4.0)",
+      "url": "https://opendata.comune.bologna.it/explore/dataset/zona-a-traffico-limitato/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "bologna-t",
+   "name": "Zona T · Rizzoli · Indipendenza · Ugo Bassi",
+   "summary": "Closed to cars around the clock, also with a day ticket. Only authorised vehicles may enter.",
+   "summary_it": "Chiusa alle auto 24 ore su 24, anche con il ticket giornaliero. Entrano solo i veicoli autorizzati.",
+   "summary_de": "Rund um die Uhr für Autos gesperrt, auch mit Tagesticket. Nur berechtigte Fahrzeuge dürfen hinein.",
+   "perimeter": [
+    {
+     "lat": 44.49456,
+     "lon": 11.344065
+    },
+    {
+     "lat": 44.494656,
+     "lon": 11.343645
+    },
+    {
+     "lat": 44.494373,
+     "lon": 11.343571
+    },
+    {
+     "lat": 44.494424,
+     "lon": 11.343296
+    },
+    {
+     "lat": 44.494567,
+     "lon": 11.343355
+    },
+    {
+     "lat": 44.494642,
+     "lon": 11.342981
+    },
+    {
+     "lat": 44.494852,
+     "lon": 11.342457
+    },
+    {
+     "lat": 44.494949,
+     "lon": 11.341805
+    },
+    {
+     "lat": 44.495084,
+     "lon": 11.341178
+    },
+    {
+     "lat": 44.495574,
+     "lon": 11.337733
+    },
+    {
+     "lat": 44.495735,
+     "lon": 11.337791
+    },
+    {
+     "lat": 44.495249,
+     "lon": 11.340995
+    },
+    {
+     "lat": 44.494994,
+     "lon": 11.34253
+    },
+    {
+     "lat": 44.499025,
+     "lon": 11.343688
+    },
+    {
+     "lat": 44.499022,
+     "lon": 11.343867
+    },
+    {
+     "lat": 44.499001,
+     "lon": 11.343898
+    },
+    {
+     "lat": 44.497429,
+     "lon": 11.343412
+    },
+    {
+     "lat": 44.495422,
+     "lon": 11.342854
+    },
+    {
+     "lat": 44.494958,
+     "lon": 11.342711
+    },
+    {
+     "lat": 44.494393,
+     "lon": 11.346399
+    },
+    {
+     "lat": 44.494174,
+     "lon": 11.346347
+    },
+    {
+     "lat": 44.494205,
+     "lon": 11.346281
+    },
+    {
+     "lat": 44.49456,
+     "lon": 11.344065
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Bologna",
+    "pageURL": "https://www.comune.bologna.it/informazioni/zona-traffico-limitato-ztl",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "alcune zone limitate 24 ore su 24: le zone pedonali e l'area T",
+    "quoteTranslation": "some zones are limited 24 hours a day: the pedestrian areas and Zona T",
+    "checkedOn": "2026-10-23T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotel guests: the hotel shows the allowed route; to be checked with the city."
+    ],
+    "links": [
+     {
+      "title": "City of Bologna: ZTL",
+      "url": "https://www.comune.bologna.it/informazioni/zona-traffico-limitato-ztl"
+     },
+     {
+      "title": "City of Bologna: ZTL day ticket",
+      "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/ticket-accesso-ztl"
+     },
+     {
+      "title": "City of Bologna: hotel guests",
+      "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/accesso-sosta-ztl-clienti-alberghi-autorimesse-autofficine"
+     },
+     {
+      "title": "Open data: ZTL perimeter and gates (CC BY 4.0)",
+      "url": "https://opendata.comune.bologna.it/explore/dataset/zona-a-traffico-limitato/"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Perimeters and gates: Comune di Bologna open data, CC BY 4.0"
+}

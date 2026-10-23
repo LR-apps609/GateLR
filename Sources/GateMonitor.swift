@@ -38,7 +38,8 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
         let monitor = await CLMonitor("gates")
         self.monitor = monitor
         for id in await monitor.identifiers { await monitor.remove(id) }
-        let gates = store.cities.flatMap { c in c.zones.flatMap { z in z.gates.map { (z, $0) } } }
+        let ordered = [store.city] + store.cities.filter { $0.id != store.city.id }
+        let gates = ordered.flatMap { c in c.zones.flatMap { z in z.gates.map { (z, $0) } } }
         for (zone, gate) in gates.prefix(maxRegions) {
             let condition = CLMonitor.CircularGeographicCondition(center: gate.location.cl, radius: store.alertDistance)
             await monitor.add(condition, identifier: "\(zone.id)|\(gate.id)", assuming: .unsatisfied)
