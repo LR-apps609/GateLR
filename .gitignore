@@ -7,3 +7,4 @@ dist/
 Sources/Info.plist
 build-test/
 test.log
+Widget/Info.plist

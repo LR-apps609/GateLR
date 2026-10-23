@@ -168,11 +168,3 @@ struct NowView: View {
         return m.formatted(.measurement(width: .abbreviated, usage: .road))
     }
 }
-
-extension Zone {
-    /// «B» da «Sector B · Historic Centre»
-    var letter: String { name.split(separator: "·").first.map { String($0.split(separator: " ").last ?? "") } ?? "" }
-    /// «Historic Centre» da «Sector B · Historic Centre»
-    var place: String { name.split(separator: "·").dropFirst().joined(separator: "·").trimmingCharacters(in: .whitespaces) }
-    var shortName: String { "Sector \(letter)" }
-}

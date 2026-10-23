@@ -11,6 +11,8 @@ targets:
     type: application
     platform: iOS
     scheme: {}
+    dependencies:
+      - target: GateLRWidget          # widget per Home e schermata di blocco, incluso nell'app
     sources:
       - path: Sources
       - path: Resources/Assets.xcassets
@@ -64,6 +66,40 @@ targets:
         SWIFT_STRICT_CONCURRENCY: minimal
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: ""
+
+  # Widget: lo stato dei varchi del settore scelto, calcolato sul telefono
+  GateLRWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Widget
+      - path: Sources/Models.swift
+      - path: Sources/RuleEngine.swift
+      - path: Sources/SampleData.swift
+      - path: Sources/Store.swift
+      - path: Sources/Theme.swift
+      - path: Sources/Components.swift
+      - path: Resources/Cities
+        type: folder
+        buildPhase: resources
+    info:
+      path: Widget/Info.plist
+      properties:
+        CFBundleDisplayName: GateLR
+        CFBundleShortVersionString: "0.3.0"
+        CFBundleVersion: "3"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: it.ledion.GateLR.Widget
+        GENERATE_INFOPLIST_FILE: NO
+        SWIFT_VERSION: "5.0"
+        SWIFT_STRICT_CONCURRENCY: minimal
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: ""
+        TARGETED_DEVICE_FAMILY: "1"
+        APPLICATION_EXTENSION_API_ONLY: NO
 
   # Test automatici del motore delle regole: girano sul Mac di GitHub a ogni modifica.
   GateLRTests:
