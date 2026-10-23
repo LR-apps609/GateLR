@@ -144,4 +144,6 @@
 "Skip" = "Salta";
 "ZTL gate in %lld m · it's ON" = "Varco ZTL tra %lld m · è ACCESO";
 "You can enter with the day ticket (%@). %@" = "Puoi entrare con il biglietto giornaliero (%@). %@";
+"Day ticket" = "Biglietto giornaliero";
+"How to pay" = "Come pagare";
 "Don't drive in. Tap for parking outside." = "Non entrare. Tocca per i parcheggi fuori.";

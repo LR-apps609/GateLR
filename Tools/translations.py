@@ -89,6 +89,7 @@ T = {
 # Avvisi
 "ZTL gate in %lld m · it's ON": ("Varco ZTL tra %lld m · è ACCESO", "ZTL-Einfahrt in %lld m · AKTIV"),
 "You can enter with the day ticket (%@). %@": ("Puoi entrare con il biglietto giornaliero (%@). %@", "Du darfst mit dem Tagesticket hinein (%@). %@"),
+"Day ticket": ("Biglietto giornaliero", "Tagesticket"), "How to pay": ("Come pagare", "So bezahlst du"),
 "Don't drive in. Tap for parking outside.": ("Non entrare. Tocca per i parcheggi fuori.", "Nicht hineinfahren. Tippe für Parkplätze außerhalb."),
 }
 

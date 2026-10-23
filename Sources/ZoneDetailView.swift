@@ -69,6 +69,19 @@ struct ZoneDetailView: View {
                 }
                 .padding(14).card()
 
+                if let ticket = zone.ticket {
+                    VStack(alignment: .leading, spacing: 8) {
+                        SectionLabel("Day ticket")
+                        Text(ticket.priceText).font(Theme.display(34)).foregroundStyle(Theme.blue).monospacedDigit()
+                        Text(ticket.howTo).font(.system(size: 14))
+                        if let url = ticket.url {
+                            Link(destination: url) { Label("How to pay", systemImage: "arrow.up.right") }.font(.system(size: 14, weight: .semibold))
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(14).card()
+                }
+
                 if let fine = FineInfo.bundled {
                     VStack(alignment: .leading, spacing: 8) {
                         SectionLabel("If you drive in by mistake")

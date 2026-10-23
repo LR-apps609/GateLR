@@ -144,4 +144,6 @@
 "Skip" = "Überspringen";
 "ZTL gate in %lld m · it's ON" = "ZTL-Einfahrt in %lld m · AKTIV";
 "You can enter with the day ticket (%@). %@" = "Du darfst mit dem Tagesticket hinein (%@). %@";
+"Day ticket" = "Tagesticket";
+"How to pay" = "So bezahlst du";
 "Don't drive in. Tap for parking outside." = "Nicht hineinfahren. Tippe für Parkplätze außerhalb.";
