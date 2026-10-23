@@ -128,6 +128,16 @@ td.free{color:var(--green)}
 .btn{font:700 15px var(--display);border:0;border-radius:12px;padding:11px 16px;cursor:pointer;background:var(--blue);color:#fff;justify-self:start}
 .btn.quiet{background:var(--blue-soft);color:var(--blue)}
 
+/* faq */
+.faq{display:grid;gap:10px;padding-block:4px 36px;max-width:820px}
+.faq h2{font-size:clamp(28px,3.6vw,38px);font-weight:700;margin-bottom:6px}
+.faq details{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:4px 18px}
+.faq summary{cursor:pointer;font-weight:700;font-size:18px;padding-block:12px;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--muted);font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding-bottom:14px;color:var(--ink);max-width:68ch}
+
 /* app */
 .app{background:var(--ink);color:var(--paper);border-radius:28px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:center;margin-bottom:36px}
 .app h2{font-size:clamp(30px,4vw,44px);font-weight:700}
@@ -235,6 +245,14 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
     </div>
   </section>
 
+  <section class="faq" aria-labelledby="faq-t">
+    <h2 id="faq-t" data-i18n="faqT">Good to know</h2>
+    <details><summary data-i18n="q1">What is a ZTL?</summary><p data-i18n="a1"></p></details>
+    <details><summary data-i18n="q2">How do I know if a gate is on?</summary><p data-i18n="a2"></p></details>
+    <details><summary data-i18n="q3">My hotel is inside the ZTL. What do I do?</summary><p data-i18n="a3"></p></details>
+    <details><summary data-i18n="q4">I drove in by mistake. What now?</summary><p data-i18n="a4"></p></details>
+  </section>
+
   <section class="app" id="app">
     <div>
       <span class="label" style="color:var(--brass)" data-i18n="appL">GateLR for iPhone</span>
@@ -277,7 +295,10 @@ const APP_STORE_URL = null;   // quando l'app sarà pubblicata
 const TZ = "Europe/Rome";
 // Testi del sito in inglese, italiano e tedesco
 const T = {
- en:{get:"Get the app", whyTicket:t=>`The gates are on. You can enter with the day ticket (€${t.price.toFixed(2)}). ${t.howTo}`, h1:"Can I drive <em>in?</em>", lead:"Search your hotel or destination. GateLR tells you at once if it's inside a ZTL, whether you can drive there when you arrive, and what a wrong turn costs.",
+ en:{get:"Get the app", faqT:"Good to know", q1:"What is a ZTL?", a1:"A zona a traffico limitato is a limited traffic zone, usually an old town. Cameras at every entry read the plate of each car. If you don't have a permit while the gates are on, a fine is sent to the car's owner, which for a rental car means you, plus the rental company's fee.",
+  q2:"How do I know if a gate is on?", a2:"Each entry has a sign and usually a light panel that reads 'Varco attivo' (gate on) or 'Varco non attivo' (gate off). GateLR tells you in advance from the city's official hours, but the panel at the gate always wins.",
+  q3:"My hotel is inside the ZTL. What do I do?", a3:"Write to the hotel before you arrive and ask them to register your plate with the city. Many hotels can do this for the day you arrive and leave. Use the message above: it's ready in English, Italian and German.",
+  q4:"I drove in by mistake. What now?", a4:"Note the time and the gate. If your hotel is inside the zone, tell them at once: some cities accept a registration after the fact, within a short time. Otherwise the fine arrives by post; paying within 5 days of notification saves 30%.", whyTicket:t=>`The gates are on. You can enter with the day ticket (€${t.price.toFixed(2)}). ${t.howTo}`, h1:"Can I drive <em>in?</em>", lead:"Search your hotel or destination. GateLR tells you at once if it's inside a ZTL, whether you can drive there when you arrive, and what a wrong turn costs.",
   ph:"Hotel, address or place in Florence", now:"Now", arrival:"Arrival", try:"Try", draft:"Draft: taken from the city's official sources, not yet reviewed by a person. Signs at the gate always win.",
   tap:"Tap anywhere to check it", lsector:"ZTL sector", lgate:"Camera gate", lplace:"Your place", hoursT:"When the gates are on", fineL:"If you drive in by mistake", fineT:"The fine",
   hotelL:"Staying inside the ZTL?", hotelT:"Ask your hotel first", hotelP:"Hotels inside the zone can register your plate with the city. Send this before you arrive.",
@@ -295,7 +316,10 @@ const T = {
   read:(d,c)=>`Read ${d} from the City of ${c}:`, official:"official page ↗", nights:"nights", open:"open to all", notConf:"not confirmed", hol:"Public holidays",
   perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", far:"We don't cover this place yet. GateLR starts with Florence; more cities are coming.",
   msg:(day,time)=>`Hello,\n\nI'm arriving by car on ${day} at about ${time}. Could you please register my plate [PLATE] for the ZTL, so I can reach the hotel without a fine?\n\nThank you!`},
- it:{get:"Scarica l'app", whyTicket:t=>`I varchi sono accesi. Puoi entrare con il biglietto giornaliero (${t.price.toFixed(2).replace(".",",")} €). ${t.howTo}`, h1:"Posso <em>entrare?</em>", lead:"Cerca il tuo hotel o la destinazione. GateLR ti dice subito se è in ZTL, se puoi entrarci quando arrivi e quanto costa sbagliare strada.",
+ it:{get:"Scarica l'app", faqT:"Da sapere", q1:"Cos'è una ZTL?", a1:"Una zona a traffico limitato, di solito un centro storico. A ogni ingresso le telecamere leggono la targa. Se entri senza permesso mentre i varchi sono accesi, la multa arriva al proprietario dell'auto: per un noleggio vuol dire a te, più la commissione della società di noleggio.",
+  q2:"Come capisco se un varco è acceso?", a2:"A ogni ingresso c'è un cartello e di solito un pannello luminoso con scritto «Varco attivo» o «Varco non attivo». GateLR te lo dice prima, dagli orari ufficiali del Comune, ma vale sempre il pannello al varco.",
+  q3:"Il mio hotel è dentro la ZTL. Cosa faccio?", a3:"Scrivi all'hotel prima di arrivare e chiedi di comunicare la tua targa al Comune. Molti hotel possono farlo per il giorno di arrivo e di partenza. Usa il messaggio qui sopra: è pronto in italiano, inglese e tedesco.",
+  q4:"Sono entrato per sbaglio. E adesso?", a4:"Annota l'ora e il varco. Se dormi in un hotel dentro la zona, avvisalo subito: alcuni Comuni accettano la comunicazione anche dopo, entro poco tempo. Altrimenti la multa arriva per posta; pagando entro 5 giorni dalla notifica risparmi il 30%.", whyTicket:t=>`I varchi sono accesi. Puoi entrare con il biglietto giornaliero (${t.price.toFixed(2).replace(".",",")} €). ${t.howTo}`, h1:"Posso <em>entrare?</em>", lead:"Cerca il tuo hotel o la destinazione. GateLR ti dice subito se è in ZTL, se puoi entrarci quando arrivi e quanto costa sbagliare strada.",
   ph:"Hotel, indirizzo o luogo a Firenze", now:"Adesso", arrival:"Arrivo", try:"Prova", draft:"Bozza: presa dalle fonti ufficiali del Comune, non ancora rivista da una persona. Vale sempre il cartello al varco.",
   tap:"Tocca un punto per controllarlo", lsector:"Settore ZTL", lgate:"Varco con telecamera", lplace:"Il tuo luogo", hoursT:"Quando i varchi sono accesi", fineL:"Se entri per sbaglio", fineT:"La multa",
   hotelL:"Dormi dentro la ZTL?", hotelT:"Prima scrivi all'hotel", hotelP:"Gli hotel dentro la zona possono comunicare la tua targa al Comune. Mandalo prima di arrivare.",
@@ -313,7 +337,10 @@ const T = {
   read:(d,c)=>`Letto il ${d} dal sito del Comune di ${c}:`, official:"pagina ufficiale ↗", nights:"notti", open:"libero", notConf:"da confermare", hol:"Festivi",
   perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", far:"Questo luogo non è ancora coperto. GateLR parte da Firenze; altre città in arrivo.",
   msg:(day,time)=>`Buongiorno,\n\narrivo in auto ${day} verso le ${time}. Potete registrare la mia targa [TARGA] per la ZTL, così raggiungo l'hotel senza multa?\n\nGrazie!`},
- de:{get:"App holen", whyTicket:t=>`Die Kameras sind aktiv. Du darfst mit dem Tagesticket hinein (${t.price.toFixed(2).replace(".",",")} €). ${t.howTo}`, h1:"Darf ich <em>rein?</em>", lead:"Suche dein Hotel oder Ziel. GateLR sagt dir sofort, ob es in einer ZTL liegt, ob du bei deiner Ankunft hineinfahren darfst und was ein Fehler kostet.",
+ de:{get:"App holen", faqT:"Gut zu wissen", q1:"Was ist eine ZTL?", a1:"Eine zona a traffico limitato ist eine verkehrsberuhigte Zone, meist eine Altstadt. Kameras an jeder Einfahrt lesen das Kennzeichen. Wer ohne Genehmigung hineinfährt, während die Kameras aktiv sind, bekommt ein Bußgeld an den Halter – beim Mietwagen also an dich, plus Gebühr der Mietwagenfirma.",
+  q2:"Woran erkenne ich, ob eine Einfahrt aktiv ist?", a2:"An jeder Einfahrt steht ein Schild und meist eine Leuchtanzeige mit „Varco attivo“ (aktiv) oder „Varco non attivo“ (nicht aktiv). GateLR sagt es dir vorher anhand der offiziellen Zeiten der Stadt, aber die Anzeige an der Einfahrt gilt immer.",
+  q3:"Mein Hotel liegt in der ZTL. Was tun?", a3:"Schreib dem Hotel vor der Ankunft und bitte es, dein Kennzeichen bei der Stadt anzumelden. Viele Hotels können das für An- und Abreisetag tun. Nutze die Nachricht oben: fertig auf Deutsch, Englisch und Italienisch.",
+  q4:"Ich bin aus Versehen hineingefahren. Was jetzt?", a4:"Notiere Uhrzeit und Einfahrt. Wenn dein Hotel in der Zone liegt, sag sofort Bescheid: Manche Städte akzeptieren die Anmeldung auch kurz danach. Sonst kommt das Bußgeld per Post; wer innerhalb von 5 Tagen nach Zustellung zahlt, spart 30 %.", whyTicket:t=>`Die Kameras sind aktiv. Du darfst mit dem Tagesticket hinein (${t.price.toFixed(2).replace(".",",")} €). ${t.howTo}`, h1:"Darf ich <em>rein?</em>", lead:"Suche dein Hotel oder Ziel. GateLR sagt dir sofort, ob es in einer ZTL liegt, ob du bei deiner Ankunft hineinfahren darfst und was ein Fehler kostet.",
   ph:"Hotel, Adresse oder Ort in Florenz", now:"Jetzt", arrival:"Ankunft", try:"Probier", draft:"Entwurf: aus den offiziellen Quellen der Stadt, noch nicht von einer Person geprüft. Es gilt immer das Schild an der Einfahrt.",
   tap:"Tippe auf einen Punkt, um ihn zu prüfen", lsector:"ZTL-Sektor", lgate:"Kamera-Einfahrt", lplace:"Dein Ort", hoursT:"Wann die Kameras aktiv sind", fineL:"Wenn du aus Versehen hineinfährst", fineT:"Das Bußgeld",
   hotelL:"Hotel in der ZTL?", hotelT:"Schreib zuerst dem Hotel", hotelP:"Hotels in der Zone können dein Kennzeichen bei der Stadt anmelden. Schick das vor deiner Ankunft.",
