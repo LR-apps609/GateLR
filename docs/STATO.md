@@ -16,16 +16,19 @@
 | Modalità scura | ✅ |
 | Presentazione al primo avvio; permessi chiesti dopo | ✅ |
 | Avvisi vicino ai varchi ad app chiusa | ✅ da provare sull'iPhone |
-| Widget Home e schermata di blocco | ✅ (in compilazione) |
-| App in italiano e tedesco | ✅ (in compilazione) |
+| Widget Home e schermata di blocco | ✅ compilato (da provare sull'iPhone) |
+| App in italiano e tedesco (segue la lingua dell'iPhone) | ✅ compilata |
+| ZTL a pagamento: «Sì, con il biglietto giornaliero» (Bologna 6 €, Milano 7,50 €) | ✅ con test |
+| Icona chiara, scura e tinta (iOS 18+) | ✅ |
 | CarPlay | codice pronto, serve l'autorizzazione Apple |
-| Foto automatiche a ogni modifica | ✅ ramo `screenshots` |
+| Foto automatiche a ogni modifica | ✅ ramo `screenshots` (la modalità scura nel simulatore non si attiva ancora nelle foto) |
 
 ## Sito (`web/`)
 
 | Cosa | Stato |
 |---|---|
-| Cerca hotel o luogo → in ZTL? posso entrare? orari, multa, messaggio per l'hotel | ✅ |
+| Cerca hotel o luogo → in ZTL? posso entrare? orari, prezzi, multa, messaggio per l'hotel (con nome e targa) | ✅ |
+| «Usa la mia posizione», link diretti `#firenze`, `#bologna`, `#milano`, domande frequenti | ✅ |
 | Adesso o all'ora di arrivo | ✅ |
 | Inglese, italiano, tedesco | ✅ |
 | Mappa vera MapLibre + OpenFreeMap, con mappa disegnata di riserva | ✅ |
