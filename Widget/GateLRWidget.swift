@@ -23,7 +23,8 @@ struct GateProvider: TimelineProvider {
     }
 
     private func entry(at date: Date) -> GateEntry {
-        guard let (city, z) = zone() else { return GateEntry(date: date, city: "–", zone: nil, on: false, next: nil) }
+        guard let pair = zone() else { return GateEntry(date: date, city: "–", zone: nil, on: false, next: nil) }
+        let (city, z) = pair
         return GateEntry(date: date, city: city.name, zone: z, on: engine.isActive(z, at: date), next: engine.nextChange(z, after: date))
     }
 
