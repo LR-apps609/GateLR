@@ -7,6 +7,8 @@ import android.provider.Settings
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -166,9 +168,10 @@ private fun TripAnswer(p: Place) {
             Text(p.name, fontSize = 24.sp, fontWeight = FontWeight.Bold)
             if (p.address.isNotEmpty()) Text(p.address, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f))
         }
-        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+        // Le scelte dell'arrivo scorrono di lato: niente etichette spezzate su due righe
+        Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.horizontalScroll(rememberScrollState())) {
             saved?.let { s -> FilterChip(selected = true, onClick = {}, label = { Text(shortWhen(s), fontSize = 12.sp) }) }
-            Arrival.entries.forEach { a -> FilterChip(selected = saved == null && arrival == a, onClick = { saved = null; arrival = a }, label = { Text(L(a.label), fontSize = 12.sp) }) }
+            Arrival.entries.forEach { a -> FilterChip(selected = saved == null && arrival == a, onClick = { saved = null; arrival = a }, label = { Text(L(a.label), fontSize = 12.sp, maxLines = 1) }) }
         }
 
         when {
