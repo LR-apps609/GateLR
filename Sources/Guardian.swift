@@ -107,7 +107,16 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
                 if d == 0 {                                              // ci sei già dentro: niente allarme d'ingresso
                     if let before = lastDistances[z.id], before > 0 {
                         let a = store.answer(zone: z, hotelInside: false)
-                        if case .yes = a.verdict {} else { store.record(.entered, zone: z, verdict: a.verdict) }
+                        if case .yes = a.verdict {} else {
+                            store.record(.entered, zone: z, verdict: a.verdict)
+                            // Il consiglio che evita le multe a catena: non girare dentro cercando l'uscita
+                            if !alerted.contains("in|\(z.id)") {
+                                alerted.insert("in|\(z.id)")
+                                say(String(format: L("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine."), z.shortName))
+                                notify(title: String(format: L("You're inside %@"), z.shortName),
+                                       body: L("Leave by the nearest exit and don't drive around: every gate can mean another fine."), id: "in|\(z.id)")
+                            }
+                        }
                     }
                     continue
                 }
