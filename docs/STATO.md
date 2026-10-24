@@ -1,4 +1,14 @@
-# GateLR: a che punto siamo (24 ottobre 2026, mattina## App iPhone (versione 1.0)
+# GateLR: a che punto siamo (24 ottobre 2026, sera) — versione 1.8.0
+
+## Novità dalla 1.2 alla 1.8 (in prova)
+- Prima pagina d'impatto; ricerca solo in Viaggio
+- Mappa: verde più visibile, segni piccoli al posto delle scritte, ricerca con spillo colorato
+- Guardiano con Apple Maps, Google Maps, Waze; navigatore di GateLR rifinito
+- Hotel sicuro, diario dei passaggi, guida alle multe, ticket con promemoria, lettura del cartello
+- Testi che seguono «Testo più grande»
+- Checklist: `docs/checklist-prova.md`
+
+## App iPhone (fino alla 1.1)
 
 | Cosa | Stato |
 |---|---|
