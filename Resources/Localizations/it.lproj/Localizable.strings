@@ -430,3 +430,7 @@
 "You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine." = "Sei dentro %@. Esci dal punto più vicino e non girare dentro: ogni varco può voler dire un'altra multa.";
 "Leave by the nearest exit and don't drive around: every gate can mean another fine." = "Esci dal punto più vicino e non girare dentro: ogni varco può voler dire un'altra multa.";
 "Recent" = "Recenti";
+"Start · %@" = "Avvia · %@";
+"Other navigators" = "Altri navigatori";
+"Preferred navigator" = "Navigatore preferito";
+"Ask every time" = "Chiedi ogni volta";

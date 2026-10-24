@@ -152,6 +152,37 @@ struct RouteCard: View {
     var onMap: () -> Void
     var onStart: (Place) -> Void = { _ in }
     var onGuardian: (Place, Navigator) -> Void = { _, _ in }
+    @AppStorage("navigator") private var preferred = ""
+
+    private func startMenu<Content: View>(@ViewBuilder label: () -> Content) -> some View {
+        Menu {
+            Section(L("Your navigator + GateLR alerts")) {
+                ForEach(Navigator.allCases) { n in
+                    Button { onGuardian(target, n) } label: { Label(n.title, systemImage: "shield.lefthalf.filled") }
+                }
+            }
+            Section {
+                Button { onStart(target) } label: { Label(L("GateLR navigation"), systemImage: "location.north.fill") }
+            }
+        } label: { label() }
+    }
+
+    private func startLabel(_ text: String) -> some View {
+        Label(text, systemImage: "location.north.fill")
+            .font(.app(size: 16, weight: .bold))
+            .lineLimit(1).minimumScaleFactor(0.8)
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .foregroundStyle(.white)
+    }
+
+    private var moreLabel: some View {
+        Image(systemName: "ellipsis").font(.app(size: 17, weight: .bold))
+            .frame(width: 52, height: 50)
+            .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .foregroundStyle(Theme.blue)
+            .accessibilityLabel(L("Other navigators"))
+    }
 
     private var target: Place { plan.destinationBlocked ? (plan.parking ?? plan.destination) : plan.destination }
 
@@ -214,24 +245,21 @@ struct RouteCard: View {
                 }
             }
             HStack(spacing: 10) {
-                Menu {
-                    Section(L("Your navigator + GateLR alerts")) {
-                        ForEach(Navigator.allCases) { n in
-                            Button { onGuardian(target, n) } label: { Label(n.title, systemImage: "shield.lefthalf.filled") }
-                        }
-                    }
-                    Section {
-                        Button { onStart(target) } label: { Label(L("GateLR navigation"), systemImage: "location.north.fill") }
-                    }
-                } label: {
-                    Label(plan.destinationBlocked && plan.parking != nil ? L("Drive to the car park") : L("Start"),
-                          systemImage: "location.north.fill")
-                        .font(.app(size: 16, weight: .bold))
-                        .frame(maxWidth: .infinity, minHeight: 50)
-                        .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-                        .foregroundStyle(.white)
+                if let pref = Navigator(rawValue: preferred) {
+                    // Navigatore preferito (Account): «Avvia» parte subito, gli altri nel menu accanto
+                    Button { onGuardian(target, pref) } label: { startLabel(String(format: L("Start · %@"), pref.title)) }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("route.start")
+                    startMenu { moreLabel }
+                } else if preferred == "gatelr" {
+                    Button { onStart(target) } label: { startLabel(L("Start")) }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("route.start")
+                    startMenu { moreLabel }
+                } else {
+                    startMenu { startLabel(plan.destinationBlocked && plan.parking != nil ? L("Drive to the car park") : L("Start")) }
+                        .accessibilityIdentifier("route.start")
                 }
-                .accessibilityIdentifier("route.start")
                 Button(action: onMap) {
                     Image(systemName: "map").font(.app(size: 17, weight: .semibold))
                         .frame(width: 52, height: 50)

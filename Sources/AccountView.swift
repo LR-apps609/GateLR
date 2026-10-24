@@ -7,6 +7,7 @@ struct AccountView: View {
     @EnvironmentObject var store: Store
     @State private var testSent = false
     @State private var reporting = false
+    @AppStorage("navigator") private var preferredNavigator = ""
     @ObservedObject private var updater = CityUpdater.shared
 
     var body: some View {
@@ -73,6 +74,11 @@ struct AccountView: View {
                 }
 
                 Section {
+                    Picker(L("Preferred navigator"), selection: $preferredNavigator) {
+                        Text("Ask every time").tag("")
+                        ForEach(Navigator.allCases) { Text($0.title).tag($0.rawValue) }
+                        Text("GateLR navigation").tag("gatelr")
+                    }
                     Button {
                         if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
                     } label: {

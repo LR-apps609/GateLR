@@ -313,6 +313,8 @@ T = {
 "You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine.": ("Sei dentro %@. Esci dal punto più vicino e non girare dentro: ogni varco può voler dire un'altra multa.", "Du bist in %@. Fahr am nächsten Punkt hinaus und nicht herum: Jede Einfahrt kann ein weiteres Bußgeld bedeuten."),
 "Leave by the nearest exit and don't drive around: every gate can mean another fine.": ("Esci dal punto più vicino e non girare dentro: ogni varco può voler dire un'altra multa.", "Fahr am nächsten Punkt hinaus und nicht herum: Jede Einfahrt kann ein weiteres Bußgeld bedeuten."),
 "Recent": ("Recenti", "Zuletzt"),
+"Start · %@": ("Avvia · %@", "Starten · %@"), "Other navigators": ("Altri navigatori", "Andere Navis"),
+"Preferred navigator": ("Navigatore preferito", "Bevorzugtes Navi"), "Ask every time": ("Chiedi ogni volta", "Jedes Mal fragen"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

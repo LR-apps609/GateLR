@@ -430,3 +430,7 @@
 "You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine." = "Du bist in %@. Fahr am nächsten Punkt hinaus und nicht herum: Jede Einfahrt kann ein weiteres Bußgeld bedeuten.";
 "Leave by the nearest exit and don't drive around: every gate can mean another fine." = "Fahr am nächsten Punkt hinaus und nicht herum: Jede Einfahrt kann ein weiteres Bußgeld bedeuten.";
 "Recent" = "Zuletzt";
+"Start · %@" = "Starten · %@";
+"Other navigators" = "Andere Navis";
+"Preferred navigator" = "Bevorzugtes Navi";
+"Ask every time" = "Jedes Mal fragen";
