@@ -1,0 +1,26 @@
+# Scarica le geometrie delle città (OpenStreetMap, mappe ufficiali) che dall'ambiente di lavoro non si raggiungono.
+# Si avvia a mano o da Claude; il risultato va nel ramo «geo-data».
+name: Geometrie città
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: "Script da eseguire"
+        default: "Tools/fetch_geo.py"
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - name: Scarica
+        run: python3 "${{ github.event.inputs.script }}" 2>&1 | tee fetch.log
+      - name: Pubblica nel ramo «geo-data»
+        run: |
+          mkdir -p out && cp -r data/raw/geo/. out/ && cp fetch.log out/
+          cd out
+          git init -q && git checkout -q -b geo-data && git add .
+          git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Geometrie $(date -u +%F)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" geo-data 2>&1 | tail -n 2
