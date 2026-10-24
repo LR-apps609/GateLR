@@ -92,7 +92,13 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate {
                 let d = z.distance(lat: p.lat, lon: p.lon)
                 defer { lastDistances[z.id] = d }
                 guard d < 3_000 else { continue }
-                if d == 0 { continue }                                   // ci sei già dentro: niente allarme d'ingresso
+                if d == 0 {                                              // ci sei già dentro: niente allarme d'ingresso
+                    if let before = lastDistances[z.id], before > 0 {
+                        let a = store.answer(zone: z, hotelInside: false)
+                        if case .yes = a.verdict {} else { store.record(.entered, zone: z, verdict: a.verdict) }
+                    }
+                    continue
+                }
                 let a = store.answer(at: Date().addingTimeInterval(d / 9), zone: z, hotelInside: false)
                 if case .yes = a.verdict { continue }
                 let approaching = (lastDistances[z.id].map { d < $0 - 3 } ?? true)

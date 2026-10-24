@@ -34,6 +34,17 @@ struct AccountView: View {
                 }
 
                 Section {
+                    NavigationLink { DriveLogView() } label: {
+                        HStack {
+                            Label("Drive log", systemImage: "list.bullet.rectangle")
+                            Spacer()
+                            if !store.log.isEmpty { Pill(text: "\(store.log.count)", fill: Theme.amberSoft, ink: Theme.amberInk) }
+                        }
+                    }
+                    NavigationLink { FineGuideView() } label: { Label("Got a fine?", systemImage: "envelope.badge") }
+                } header: { Text("Fines") }
+
+                Section {
                     HStack(spacing: 12) {
                         Image(systemName: "star.circle.fill").font(.system(size: 28)).foregroundStyle(Theme.brass)
                         VStack(alignment: .leading, spacing: 2) {

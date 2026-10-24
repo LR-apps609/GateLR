@@ -20,6 +20,8 @@ final class Store: ObservableObject {
     @Published var trips: [Trip] { didSet { save() } }
     /// I soggiorni in hotel dentro la ZTL: date e stato della registrazione della targa (chiave: Place.key)
     @Published var stays: [String: HotelStay] = [:] { didSet { save() } }
+    /// Il diario dei passaggi: quando sei stato vicino o dentro una ZTL attiva (solo sul telefono)
+    @Published var log: [LogEntry] = [] { didSet { save() } }
     /// Il posto scelto nella pagina Varco (indirizzo, hotel, piazza); nil = solo la città
     @Published var place: Place?
 
@@ -31,11 +33,12 @@ final class Store: ObservableObject {
         var hotelInside: Bool, alertsOn: Bool, alertDistance: Double
         var trips: [Trip]?
         var stays: [String: HotelStay]?
+        var log: [LogEntry]?
     }
 
     init() {
         if let data = UserDefaults.standard.data(forKey: key), let s = try? JSONDecoder().decode(Saved.self, from: data) {
-            vehicles = s.vehicles; activeVehicleId = s.activeVehicleId; permits = s.permits; trips = s.trips ?? []; stays = s.stays ?? [:]
+            vehicles = s.vehicles; activeVehicleId = s.activeVehicleId; permits = s.permits; trips = s.trips ?? []; stays = s.stays ?? [:]; log = s.log ?? []
             hotelInside = s.hotelInside; alertsOn = s.alertsOn; alertDistance = s.alertDistance
         } else {
             vehicles = [SampleData.rental]; activeVehicleId = SampleData.rental.id; permits = []; trips = []
@@ -44,7 +47,7 @@ final class Store: ObservableObject {
 
     private func save() {
         let s = Saved(vehicles: vehicles, activeVehicleId: activeVehicleId, permits: permits,
-                      hotelInside: hotelInside, alertsOn: alertsOn, alertDistance: alertDistance, trips: trips, stays: stays)
+                      hotelInside: hotelInside, alertsOn: alertsOn, alertDistance: alertDistance, trips: trips, stays: stays, log: log)
         if let data = try? JSONEncoder().encode(s) { UserDefaults.standard.set(data, forKey: key) }
     }
 
@@ -119,6 +122,29 @@ struct HotelStay: Codable, Hashable {
         let last = c.startOfDay(for: max(departure, arrival))
         while d <= last && out.count < 31 { out.append(d); d = c.date(byAdding: .day, value: 1, to: d) ?? last.addingTimeInterval(1) }
         return out
+    }
+}
+
+/// Una riga del diario dei passaggi
+struct LogEntry: Codable, Hashable, Identifiable {
+    enum Kind: String, Codable { case nearGate, entered }
+    var id = UUID()
+    var date: Date
+    var kind: Kind
+    var zoneId: String
+    var zoneName: String
+    var gateName: String?
+    var verdict: String              // «Non entrare», «A una condizione»…
+    var plate: String
+}
+
+extension Store {
+    /// Aggiunge al diario, senza doppioni nella stessa mezz'ora per la stessa zona
+    func record(_ kind: LogEntry.Kind, zone: Zone, gate: Gate? = nil, verdict: Verdict) {
+        if let last = log.first(where: { $0.zoneId == zone.id }), Date().timeIntervalSince(last.date) < 30 * 60 { return }
+        log.insert(LogEntry(date: Date(), kind: kind, zoneId: zone.id, zoneName: zone.localizedName, gateName: gate?.name,
+                            verdict: verdict.short, plate: vehicle.plate), at: 0)
+        if log.count > 500 { log.removeLast(log.count - 500) }
     }
 }
 

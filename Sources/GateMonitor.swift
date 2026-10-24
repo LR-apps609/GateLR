@@ -125,6 +125,7 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
               let gate = zone.gates.first(where: { $0.id == parts[1] }) else { return }
         let answer = store.answer(zone: zone)
         guard answer.gatesOn else { return }      // varco spento: nessun disturbo
+        if case .yes = answer.verdict {} else { store.record(.nearGate, zone: zone, gate: gate, verdict: answer.verdict) }
 
         let content = UNMutableNotificationContent()
         content.title = String(format: L("ZTL gate in %lld m · ZTL active"), Int(store.alertDistance))
