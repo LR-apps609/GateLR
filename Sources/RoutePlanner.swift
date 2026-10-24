@@ -18,6 +18,14 @@ struct RoutePlan: Equatable {
     var arrival: Date { departure.addingTimeInterval(travelTime) }
     var worst: RouteCrossing? { RouteCheck.worst(crossings) }
     var blocked: Bool { if case .no = worst?.answer.verdict { true } else { false } }
+    /// La destinazione stessa è in una zona dove non si può entrare a quell'ora
+    var destinationBlocked: Bool {
+        crossings.contains { c in
+            guard c.isDestination else { return false }
+            if case .no = c.answer.verdict { return true }
+            return false
+        }
+    }
 }
 
 @MainActor
@@ -58,7 +66,8 @@ final class RoutePlanner: ObservableObject {
             }
             var plan = RoutePlan(destination: place, path: raw, distance: route.distance, travelTime: route.expectedTravelTime,
                                  departure: departure, crossings: crossings)
-            if plan.blocked, let parking = await Self.parkingOutside(near: place, zones: zones) {
+            if plan.destinationBlocked,
+               let parking = await Self.parkingOutside(near: place, zones: zones, vehicle: store.vehicle, at: plan.arrival) {
                 plan.parking = parking
                 plan.walkMeters = Self.meters(parking.location, place.location)
             }
@@ -70,7 +79,7 @@ final class RoutePlanner: ObservableObject {
     }
 
     /// Il parcheggio fuori dalle zone vietate o a pagamento più vicino alla destinazione
-    static func parkingOutside(near place: Place, zones: [Zone]) async -> Place? {
+    static func parkingOutside(near place: Place, zones: [Zone], vehicle: Vehicle, at date: Date) async -> Place? {
         let region = MKCoordinateRegion(center: place.location.cl, latitudinalMeters: 3_000, longitudinalMeters: 3_000)
         let poi = MKLocalPointsOfInterestRequest(coordinateRegion: region)
         poi.pointOfInterestFilter = MKPointOfInterestFilter(including: [.parking])
@@ -83,7 +92,7 @@ final class RoutePlanner: ObservableObject {
         }
         let outside = items.compactMap { item -> Place? in
             let c = item.placemark.coordinate
-            guard !zones.contains(where: { $0.type != .green && $0.contains(c) }) else { return nil }
+            guard !zones.contains(where: { $0.contains(c) && $0.closes(to: vehicle, at: date) }) else { return nil }
             return Place(name: item.name ?? L("Car park"), address: item.placemark.title ?? "", location: Coordinate(lat: c.latitude, lon: c.longitude))
         }
         return outside.min { meters($0.location, place.location) < meters($1.location, place.location) }
@@ -139,7 +148,7 @@ struct RouteCard: View {
     var plan: RoutePlan
     var onMap: () -> Void
 
-    private var target: Place { plan.blocked ? (plan.parking ?? plan.destination) : plan.destination }
+    private var target: Place { plan.destinationBlocked ? (plan.parking ?? plan.destination) : plan.destination }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -175,7 +184,11 @@ struct RouteCard: View {
                     }
                 }
             }
-            if plan.blocked {
+            if plan.blocked && !plan.destinationBlocked {
+                Label("A zone on the way is active: your navigator may route you through it. Watch the signs and avoid the gates.", systemImage: "exclamationmark.triangle.fill")
+                    .font(.system(size: 14, weight: .semibold)).foregroundStyle(Theme.amberInk)
+            }
+            if plan.destinationBlocked {
                 if let parking = plan.parking {
                     HStack(alignment: .top, spacing: 10) {
                         Text("P").font(.system(size: 15, weight: .heavy)).foregroundStyle(.white)
@@ -199,7 +212,7 @@ struct RouteCard: View {
                 Menu {
                     ForEach(Navigator.allCases) { n in Button(n.title) { n.open(to: target) } }
                 } label: {
-                    Label(plan.blocked && plan.parking != nil ? L("Drive to the car park") : L("Navigate"),
+                    Label(plan.destinationBlocked && plan.parking != nil ? L("Drive to the car park") : L("Navigate"),
                           systemImage: "arrow.triangle.turn.up.right.diamond.fill")
                         .font(.system(size: 15, weight: .semibold))
                         .frame(maxWidth: .infinity, minHeight: 48)

@@ -81,7 +81,8 @@ struct EuroBan: Codable, Hashable {
         var c = Calendar(identifier: .gregorian)
         c.timeZone = TimeZone(identifier: "Europe/Rome")!
         let p = since.split(separator: "-").compactMap { Int($0) }
-        return c.date(from: DateComponents(year: p.first, month: p.count > 1 ? p[1] : 1, day: p.count > 2 ? p[2] : 1)) ?? .distantPast
+        guard p.count == 3 else { return .distantFuture }      // data scritta male: meglio non vietare nulla
+        return c.date(from: DateComponents(year: p[0], month: p[1], day: p[2])) ?? .distantFuture
     }
 }
 
@@ -101,6 +102,10 @@ extension Zone {
     func ban(for vehicle: Vehicle, at date: Date) -> EuroBan? {
         guard let group = vehicle.fuel.banGroup else { return nil }
         return (bans ?? []).filter { $0.fuel == group && vehicle.euro <= $0.maxEuro && $0.date <= date }.max { $0.date < $1.date }
+    }
+    /// Lasciare l'auto qui è un problema? Zone vietate o a pagamento sì; zone verdi solo se l'auto è vietata
+    func closes(to vehicle: Vehicle, at date: Date) -> Bool {
+        type != .green || ban(for: vehicle, at: date) != nil
     }
     /// Il prossimo divieto che toccherà questa auto, se c'è
     func nextBan(for vehicle: Vehicle, after date: Date) -> EuroBan? {

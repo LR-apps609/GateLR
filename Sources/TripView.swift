@@ -8,7 +8,7 @@ struct TripView: View {
     @Binding var showZone: Bool
     @StateObject private var search = AddressSearch()
     @FocusState private var typing: Bool
-    @State private var arrival = TripView.at(dayOffset: 3, hour: 18)
+    @State private var arrival = TripView.upcoming(hour: 18, days: 3)
     @State private var hotel: Place?
     @AppStorage("hotelName") private var hotelName = ""
     @State private var language: MessageLanguage = .en
@@ -170,7 +170,7 @@ struct TripView: View {
             .padding(.horizontal, 14).padding(.vertical, 8)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
-                    chip("Tonight 9 pm", TripView.at(dayOffset: 0, hour: 21))
+                    chip(Calendar.current.component(.hour, from: Date()) < 21 ? "Tonight 9 pm" : "Tomorrow 9 pm", TripView.upcoming(hour: 21))
                     chip("Tomorrow 10 am", TripView.at(dayOffset: 1, hour: 10))
                     chip("Saturday 6 pm", TripView.next(weekday: 7, hour: 18))
                     chip("Sunday noon", TripView.next(weekday: 1, hour: 12))
@@ -210,8 +210,7 @@ struct TripView: View {
                             VStack(alignment: .leading, spacing: 1) {
                                 Text(t.hotelName.isEmpty ? (t.hotel?.name ?? L("Trip")) : t.hotelName)
                                     .font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
-                                Text([t.arrival.formatted(.dateTime.day().month().hour().minute()), zone?.shortName ?? (t.hotel == nil ? nil : L("Outside the ZTL"))]
-                                        .compactMap { $0 }.joined(separator: " · "))
+                                Text(tripSubtitle(t, zone: zone))
                                     .font(.system(size: 13)).foregroundStyle(Theme.muted)
                             }
                             Spacer()
@@ -232,10 +231,16 @@ struct TripView: View {
         }
     }
 
+    private func tripSubtitle(_ t: Trip, zone: Zone?) -> String {
+        let when: String = t.arrival.formatted(.dateTime.day().month().hour().minute())
+        let where_: String? = zone?.shortName ?? (t.hotel == nil ? nil : L("Outside the ZTL"))
+        return [when, where_].compactMap { $0 }.joined(separator: " · ")
+    }
+
     private func chip(_ title: String, _ date: Date) -> some View {
         let on = abs(arrival.timeIntervalSince(date)) < 60
         return Button { withAnimation(.snappy) { arrival = date } } label: {
-            Text(title).font(.system(size: 13, weight: .semibold))
+            Text(L(title)).font(.system(size: 13, weight: .semibold))
                 .padding(.horizontal, 12).frame(height: 32)
                 .background(on ? Color(hex: 0x1F4E9E) : Theme.blueSoft, in: Capsule())
                 .foregroundStyle(on ? .white : Theme.blue)
@@ -284,6 +289,12 @@ struct TripView: View {
             .font(.system(size: 15, weight: .semibold))
         }
         .padding(14).card()
+    }
+
+    /// La prossima volta che sono le «hour» (oggi o domani), più «days» giorni
+    static func upcoming(hour: Int, days: Int = 0) -> Date {
+        let next = Calendar.current.nextDate(after: Date(), matching: DateComponents(hour: hour, minute: 0, second: 0), matchingPolicy: .nextTime) ?? Date()
+        return Calendar.current.date(byAdding: .day, value: days, to: next) ?? next
     }
 
     static func at(dayOffset: Int, hour: Int) -> Date {

@@ -2,7 +2,14 @@ import XCTest
 import CoreLocation
 
 final class RuleEngineTests: XCTestCase {
-    private let engine = RuleEngine()
+    /// «Oggi» fisso al 26 ottobre 2026: le schede delle città non diventano «vecchie» col passare dei mesi
+    private let engine: RuleEngine = {
+        var e = RuleEngine()
+        var c = Calendar(identifier: .gregorian); c.timeZone = TimeZone(identifier: "Europe/Rome")!
+        let today = c.date(from: DateComponents(year: 2026, month: 10, day: 26, hour: 12))!
+        e.now = { today }
+        return e
+    }()
     private var cal: Calendar { engine.calendar }
 
     private func date(_ y: Int, _ m: Int, _ d: Int, _ h: Int, _ min: Int = 0) -> Date {

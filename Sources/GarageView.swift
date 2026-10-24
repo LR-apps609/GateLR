@@ -18,20 +18,25 @@ struct GarageView: View {
                                 .background(v.id == store.vehicle.id ? Theme.blueSoft : Theme.ground, in: RoundedRectangle(cornerRadius: 12))
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(v.name).font(.system(size: 16, weight: .semibold))
-                                Text([[v.make, v.model].compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " "), v.fuel.label, "Euro \(v.euro)", v.plate].filter { !$0.isEmpty }.joined(separator: " · "))
+                                Text(Self.subtitle(v))
                                     .font(.system(size: 13)).foregroundStyle(Theme.muted)
                             }
                             Spacer()
                             if v.id == store.vehicle.id {
                                 Pill(text: L("In use"), fill: Theme.blueSoft, ink: Theme.blue)
                             } else {
-                                Button("Use") { store.activeVehicleId = v.id }.fontWeight(.semibold)
+                                Button("Use") { store.activeVehicleId = v.id }.fontWeight(.semibold).buttonStyle(.borderless)
                             }
                         }
                         .contentShape(Rectangle())
                         .onTapGesture { editing = v }
                     }
-                    .onDelete { store.vehicles.remove(atOffsets: $0) }
+                    .onDelete { offsets in
+                        let gone = Set(offsets.map { store.vehicles[$0].id })
+                        store.vehicles.remove(atOffsets: offsets)
+                        store.permits.removeAll { gone.contains($0.vehicleId) }
+                        if let id = store.activeVehicleId, gone.contains(id) { store.activeVehicleId = store.vehicles.first?.id }
+                    }
                 }
 
                 Section("Permits") {
@@ -75,6 +80,15 @@ struct GarageView: View {
             .sheet(item: $editing) { v in VehicleForm(vehicle: v) }
             .sheet(isPresented: $addingPermit) { PermitForm() }
         }
+    }
+}
+
+extension GarageView {
+    /// «Fiat Panda · Benzina · Euro 6 · AB123CD»
+    static func subtitle(_ v: Vehicle) -> String {
+        let car: String = [v.make ?? "", v.model].filter { !$0.isEmpty }.joined(separator: " ")
+        let parts: [String] = [car, v.fuel.label, "Euro \(v.euro)", v.plate]
+        return parts.filter { !$0.isEmpty }.joined(separator: " · ")
     }
 }
 
@@ -130,7 +144,10 @@ struct VehicleForm: View {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
-                        if vehicle.name.isEmpty { vehicle.name = [vehicle.make, vehicle.model].compactMap { $0 }.joined(separator: " ") }
+                        if vehicle.name.isEmpty {
+                            let parts: [String] = [vehicle.make ?? "", vehicle.model].filter { !$0.isEmpty }
+                            vehicle.name = parts.joined(separator: " ")
+                        }
                         if let i = store.vehicles.firstIndex(where: { $0.id == vehicle.id }) { store.vehicles[i] = vehicle }
                         else { store.vehicles.append(vehicle) }
                         dismiss()
@@ -148,7 +165,7 @@ struct CarAdvice: View {
 
     struct Line: Hashable { var city: String; var zone: String; var text: String; var ok: Bool }
 
-    static func lines(for v: Vehicle, cities: [City], at date: Date = Date()) -> [Line] {
+    nonisolated static func lines(for v: Vehicle, cities: [City], at date: Date = Date()) -> [Line] {
         cities.flatMap { city in
             city.zones.compactMap { z -> Line? in
                 if z.exemptFuels.contains(v.fuel) {

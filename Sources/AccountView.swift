@@ -93,6 +93,8 @@ struct AccountView: View {
             .navigationTitle("Account")
             .tint(Theme.blue)
             .sheet(isPresented: $reporting) { BugReportView() }
+            .onChange(of: store.alertsOn) { GateMonitor.shared.settingsChanged() }
+            .onChange(of: store.alertDistance) { GateMonitor.shared.settingsChanged() }
         }
     }
 }

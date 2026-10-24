@@ -12,7 +12,7 @@ struct VarcoView: View {
     @Binding var tab: Tab
     @FocusState private var typing: Bool
     @State private var atArrival = false
-    @State private var arrival = TripView.at(dayOffset: 0, hour: 18)
+    @State private var arrival = TripView.upcoming(hour: 18)
     @State private var resolving = false
 
     var body: some View {
@@ -48,6 +48,7 @@ struct VarcoView: View {
         .onChange(of: store.cityId) { search.focus(on: store.city) }
         .onChange(of: store.place) { planner.clear() }
         .onChange(of: atArrival) { planner.clear() }
+        .onChange(of: arrival) { planner.clear() }
     }
 
     // MARK: Testata e ricerca

@@ -32,9 +32,8 @@ final class Store: ObservableObject {
 
     init() {
         if let data = UserDefaults.standard.data(forKey: key), let s = try? JSONDecoder().decode(Saved.self, from: data) {
-            vehicles = s.vehicles; activeVehicleId = s.activeVehicleId; permits = s.permits
+            vehicles = s.vehicles; activeVehicleId = s.activeVehicleId; permits = s.permits; trips = s.trips ?? []
             hotelInside = s.hotelInside; alertsOn = s.alertsOn; alertDistance = s.alertDistance
-            trips = s.trips ?? []
         } else {
             vehicles = [SampleData.rental]; activeVehicleId = SampleData.rental.id; permits = []; trips = []
         }

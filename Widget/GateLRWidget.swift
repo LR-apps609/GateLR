@@ -70,7 +70,8 @@ struct GateProvider: AppIntentTimelineProvider {
         while let next = entries.last?.next, next < Date().addingTimeInterval(86_400), entries.count < 12 {
             entries.append(entry(at: next, zone: id))
         }
-        return Timeline(entries: entries, policy: .atEnd)
+        // Zone sempre attive (es. zona T di Bologna): nessun cambio, si ricontrolla tra qualche ora
+        return Timeline(entries: entries, policy: entries.count > 1 ? .atEnd : .after(Date().addingTimeInterval(6 * 3600)))
     }
 }
 

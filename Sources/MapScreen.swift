@@ -77,16 +77,20 @@ struct MapScreen: View {
                         .accessibilityAddTraits(.isButton)
                     }
                 }
-                ForEach(zones.filter { $0.id == zone.id || distance < 6_000 }.flatMap(\.gates)) { g in
-                    Annotation(g.name, coordinate: g.location.cl) {
-                        Image(systemName: "video.fill")
-                            .font(.system(size: 9, weight: .bold))
-                            .foregroundStyle(.white)
-                            .frame(width: 20, height: 20)
-                            .background(answer.gatesOn ? Theme.red : Theme.green, in: Circle())
-                            .overlay(Circle().stroke(.white, lineWidth: 2))
+                // Ogni varco con lo stato della sua zona
+                ForEach(zones.filter { $0.id == zone.id || distance < 6_000 }) { z in
+                    let on = store.engine.isActive(z, at: Date())
+                    ForEach(z.gates) { g in
+                        Annotation(g.name, coordinate: g.location.cl) {
+                            Image(systemName: "video.fill")
+                                .font(.system(size: 9, weight: .bold))
+                                .foregroundStyle(.white)
+                                .frame(width: 20, height: 20)
+                                .background(on ? Theme.red : Theme.green, in: Circle())
+                                .overlay(Circle().stroke(.white, lineWidth: 2))
+                        }
+                        .annotationTitles(.hidden)
                     }
-                    .annotationTitles(.hidden)
                 }
                 if let plan = planner.plan {
                     MapPolyline(coordinates: plan.path.map(\.cl))
@@ -305,7 +309,9 @@ struct MapScreen: View {
                 items = try await MKLocalSearch(request: text).start().mapItems
             }
             // Fuori dalle zone vietate o a pagamento (dentro l'Area B verde si può parcheggiare)
-            let outside = items.filter { item in !store.city.zones.contains { $0.type != .green && $0.contains(item.placemark.coordinate) } }
+            let outside = items.filter { item in
+                !store.city.zones.contains { $0.contains(item.placemark.coordinate) && $0.closes(to: store.vehicle, at: Date()) }
+            }
             parkings = outside.prefix(12).map { Parking(item: $0) }
             parkingMessage = parkings.isEmpty ? L("No car parks found just outside the zone.")
                 : String(format: L("%lld car parks outside the ZTL. Tap a P for directions."), parkings.count)

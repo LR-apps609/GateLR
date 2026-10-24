@@ -34,7 +34,12 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
         manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.distanceFilter = 50
         manager.startUpdatingLocation()
-        guard store.alertsOn else { return }
+        await startAlerts()
+    }
+
+    /// Gli avvisi: permessi, cerchi attorno ai varchi più vicini, ascolto degli ingressi
+    private func startAlerts() async {
+        guard let store, store.alertsOn, monitor == nil else { return }
         _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
         manager.requestAlwaysAuthorization()
 
@@ -48,6 +53,20 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
                 notify(identifier: event.identifier)
             }
         } catch {}
+    }
+
+    /// Dalla scheda Account: avvisi accesi o spenti, nuova distanza
+    func settingsChanged() {
+        guard started, let store else { return }
+        if !store.alertsOn {
+            manager.stopMonitoringSignificantLocationChanges()
+            Task { if let monitor { for id in await monitor.identifiers { await monitor.remove(id) } }; registeredAt = nil }
+        } else if monitor == nil {
+            Task { await startAlerts() }
+        } else {
+            manager.startMonitoringSignificantLocationChanges()
+            Task { await registerNearest(to: location ?? manager.location) }
+        }
     }
 
     private var registeredAt: CLLocation?
@@ -93,8 +112,13 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
         }
     }
 
+    /// Ultimo avviso per ogni varco: niente doppioni quando i cerchi vengono rifatti mentre ci sei vicino
+    private var lastNotified: [String: Date] = [:]
+
     private func notify(identifier: String) {
         guard let store, store.alertsOn else { return }
+        if let last = lastNotified[identifier], Date().timeIntervalSince(last) < 30 * 60 { return }
+        lastNotified[identifier] = Date()
         let parts = identifier.split(separator: "|").map(String.init)
         guard parts.count == 2,
               let zone = store.cities.flatMap(\.zones).first(where: { $0.id == parts[0] }),
