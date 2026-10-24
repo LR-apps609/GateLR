@@ -142,3 +142,9 @@ fun changeText(a: Answer, now: java.time.Instant): String? {
     val w = AppState.engine.describe(n, now)
     return if (a.gatesOn) app.gatelr.core.F("Ends %@", w) else app.gatelr.core.F("Starts %@", w)
 }
+
+/** «2026-10-23T…» → «23 ott 2026» nella lingua dell'app */
+fun shortDate(iso: String): String = runCatching {
+    java.time.LocalDate.parse(iso.take(10)).format(java.time.format.DateTimeFormatter.ofLocalizedDate(java.time.format.FormatStyle.MEDIUM)
+        .withLocale(java.util.Locale.forLanguageTag(app.gatelr.core.Strings.language)))
+}.getOrDefault(iso.take(10))

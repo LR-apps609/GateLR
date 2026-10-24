@@ -90,7 +90,7 @@ fun AccountScreen(modifier: Modifier) {
             CardBox {
                 Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     AppState.cities.forEach { c ->
-                        val checked = c.zones.minOfOrNull { it.source.checkedOn }?.take(10) ?: ""
+                        val checked = c.zones.minOfOrNull { it.source.checkedOn }?.let(::shortDate) ?: ""
                         Text("${c.localizedName} · ${F("Checked on %@", checked)}", fontSize = 14.sp)
                     }
                     Text(L("Road signs on site always win over the app."), fontSize = 12.sp, color = muted)

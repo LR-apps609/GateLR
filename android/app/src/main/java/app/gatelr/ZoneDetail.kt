@@ -94,7 +94,7 @@ fun ZoneDetail(z: Zone) {
                     Text("«$q»", fontStyle = FontStyle.Italic, fontSize = 14.sp)
                     z.source.localizedTranslation?.let { Text(it, fontSize = 13.sp, color = muted) }
                 }
-                Text(F("Checked on %@", z.source.checkedOn.take(10)), fontSize = 12.sp, color = muted)
+                Text(F("Checked on %@", shortDate(z.source.checkedOn)), fontSize = 12.sp, color = muted)
                 Text(L("Official page") + " ›", color = MaterialTheme.colorScheme.primary, modifier = Modifier.clickable { open(z.source.pageURL) })
                 z.source.ordinanceURL?.let { u -> Text((z.source.ordinance ?: L("Ordinance")) + " ›", color = MaterialTheme.colorScheme.primary, modifier = Modifier.clickable { open(u) }) }
                 z.source.links.forEach { l -> Text(l.localizedTitle + " ›", color = MaterialTheme.colorScheme.primary, modifier = Modifier.clickable { open(l.url) }) }
