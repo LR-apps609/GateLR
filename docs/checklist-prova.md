@@ -3,8 +3,8 @@
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 
 ## 0. Installazione (Mac)
-- [ ] `cd ~/Developer/GateLR && git pull`
-- [ ] `zsh "Installa su iPhone.command"`, poi in Xcode: Team impostato su **GateLR** e **GateLRWidget**
+- [ ] `cd ~/Developer/GateLR && git pull` (solo questa volta: da ora lo fa lo script da solo)
+- [ ] `zsh "Installa su iPhone.command"` (chiude Xcode da solo e mostra «Versione: 1.1.0»), poi in Xcode: Team impostato su **GateLR** e **GateLRWidget**
 - [ ] iPhone collegato e scelto come destinazione, ▶︎ → l'app si apre senza errori
 - [ ] Al primo avvio dopo l'aggiornamento: le auto, i permessi e il nome dell'hotel di prima ci sono ancora
 
@@ -30,6 +30,16 @@ Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, 
 - [ ] «Naviga» → Apple Maps, Google Maps e Waze si aprono con la meta giusta
 - [ ] Icona mappa → la scheda Mappa mostra il percorso in blu e la P del parcheggio
 
+## 3b. Guida dentro l'app (meglio in auto, con un passeggero)
+- [ ] Dal percorso, «Avvia» → schermata di guida: freccia, distanza, istruzione, ora di arrivo
+- [ ] La voce legge le istruzioni («Tra 300 metri, svolta a destra…»); il pulsante altoparlante la spegne
+- [ ] Uscendo dal percorso: «Ricalcolo il percorso» e nuova strada
+- [ ] Avvicinandoti a una ZTL attiva: banner rosso e avviso a voce verso i 500 m
+- [ ] Vicino a una telecamera di corsia bus: avviso a voce
+- [ ] Schermata di blocco e Dynamic Island mostrano manovra, distanza e avviso
+- [ ] Con un'altra app aperta o lo schermo spento la voce continua
+- [ ] All'arrivo: «Sei arrivato»; «Fine» chiude la guida e la Live Activity
+
 ## 4. Mappa
 - [ ] Zone colorate: rosso «Accesso vietato» (Firenze, zona T), giallo «Pass necessario» (Bologna ZTL, Area C), verde «Zona verde» (Area B)
 - [ ] Da lontano: scritte grandi; avvicinandosi svaniscono e compaiono le lettere dei settori
@@ -38,6 +48,8 @@ Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, 
 - [ ] Tocco su una zona → la scheda in basso cambia zona
 - [ ] «Parcheggia fuori» → P blu fuori dalle ZTL; tocco su una P → indicazioni
 - [ ] La mappa resta fluida muovendola e zoomando (soprattutto su Milano)
+- [ ] Da vicino a Bologna o Milano: aree pedonali in rosso chiaro e telecamere delle corsie bus (icona bus blu)
+- [ ] Varco: cerca «Piazza Maggiore Bologna» → riquadro rosso «Area pedonale»
 
 ## 5. Viaggio
 - [ ] Cerca «Hotel Brunelleschi Firenze» → l'app dice da sola «Dentro la ZTL · Settore …»
@@ -60,7 +72,9 @@ Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, 
 - [ ] Lingua → apre le Impostazioni dell'iPhone
 - [ ] Città offline: tre città «bozza»
 - [ ] «Segnala un bug» → testo, dove, info tecniche; Invia / Copia
-- [ ] Versione 1.0.0
+- [ ] Versione **1.1.0** (se vedi 0.3.0 l'aggiornamento non è arrivato)
+- [ ] Regole e mappe → «Controlla aggiornamenti» → «Aggiornati»
+- [ ] «Cos'è una ZTL?»: anche orari sotto il cartello, aree pedonali, corsie bus, zone a basse emissioni
 
 ## 8. Lingue
 - [ ] iPhone in italiano: nessuna parola inglese rimasta (schede, risposte, schede delle zone, fonti, widget)

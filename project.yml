@@ -9,8 +9,8 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.0.0"
-    CURRENT_PROJECT_VERSION: "11"
+    MARKETING_VERSION: "1.1.0"
+    CURRENT_PROJECT_VERSION: "12"
 
 targets:
   GateLR:

@@ -1,3 +1,14 @@
+Novità della 1.1.0 «Guida»:
+• Navigazione dentro l'app: «Avvia» dal percorso, istruzioni svolta per svolta con la voce, ricalcolo se esci dal percorso
+• Avviso a voce prima di entrare in una ZTL attiva («Attenzione: tra 500 metri entri in Settore A. Non entrare.») e vicino alle telecamere delle corsie bus
+• Live Activity e Dynamic Island: prossima manovra, distanza, arrivo e avviso ZTL sulla schermata di blocco
+• Si può ancora aprire il percorso in Apple Maps, Google Maps o Waze
+• Aree pedonali (Bologna 62, Milano 110) e telecamere delle corsie bus (Bologna, Firenze) sulla mappa; avviso se la destinazione è in un'area pedonale
+• Dati delle città aggiornabili da GitHub senza nuova versione dell'app (Account → Regole e mappe)
+• «Cos'è una ZTL?»: orari sotto il cartello, aree pedonali, corsie bus, zone a basse emissioni
+• Corretto: la versione mostrata in Account restava «0.3.0»
+• Installa su iPhone: scarica da solo gli aggiornamenti e chiude Xcode prima di ricaricare il progetto
+
 Novità della 1.0.0 «Il colosso»:
 • Percorso (0.6): dalla pagina Varco, «Controlla il percorso» calcola tempo e km e controlla ogni ZTL lungo la strada all'ora in cui ci passi
 • Se la destinazione è in una ZTL attiva: parcheggio fuori zona più vicino, minuti a piedi, «Vai al parcheggio»
