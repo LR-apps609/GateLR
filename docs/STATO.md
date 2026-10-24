@@ -1,4 +1,4 @@
-# GateLR: a che punto siamo (24 ottobre 2026, sera) — versione 1.8.0
+# GateLR: a che punto siamo (24 ottobre 2026, sera) — versione 1.8.1 (iPhone) e 0.1.0 (Android)
 
 ## Novità dalla 1.2 alla 1.8 (in prova)
 - Prima pagina d'impatto; ricerca solo in Viaggio
