@@ -13,6 +13,9 @@
 - Cinque schede: Varco, Mappa (MapLibre + OpenFreeMap, va anche su Huawei/Honor senza Google), Viaggio, Garage, Account
 - Guardiano: notifica fissa, voce, bolla sopra Google Maps / Waze / Petal Maps; si ferma all'arrivo
 - Compilato su GitHub (Actions → Android) con giro di prova sull'emulatore Android 14: nessun crash
+- Anche: benvenuto che spiega la posizione (richiesto da Google Play), controllo del tragitto (ZTL attraversate e ora), widget per la schermata Home, «Leggi il cartello» (foto letta sul telefono), «Ho preso una multa?», diario dei passaggi
+- Revisione del codice fatta: 10 correzioni (tra cui: il permesso dell'hotel vale solo nella sua città, anche su iPhone)
+- Versione per gli store pronta: basta la chiave di firma nei segreti di GitHub (`docs/android-store.md`)
 - Checklist: `docs/checklist-android.md`
 
 ## Sito (W1–W2)

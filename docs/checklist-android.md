@@ -7,7 +7,7 @@ Telefoni da provare se li hai: uno Samsung, uno Xiaomi/Redmi, uno Huawei o Honor
 
 ## 0. Installazione
 - [ ] L'app si apre senza chiudersi; icona GateLR nel launcher
-- [ ] Alla prima apertura chiede la posizione (e su Android 13+ le notifiche)
+- [ ] Alla prima apertura: pagina blu di benvenuto con 4 punti (la posizione resta sul telefono) → «Continua» → chiede la posizione (e su Android 13+ le notifiche)
 - [ ] Account → in fondo «Versione 0.1.0»
 
 ## 1. Varco (prima pagina)
