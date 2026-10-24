@@ -25,6 +25,10 @@ import kotlinx.serialization.json.jsonPrimitive
 import java.time.Instant
 import java.util.Locale
 
+/** Una riga del diario dei passaggi (solo sul telefono) */
+@kotlinx.serialization.Serializable
+data class LogEntry(val date: Long, val kind: String, val zoneId: String, val zoneName: String, val verdict: String, val plate: String)
+
 /** Lo stato dell'app: città, garage, posto scelto, impostazioni. Resta sul telefono. */
 object AppState {
     lateinit var cities: List<City>
@@ -41,6 +45,7 @@ object AppState {
     var recent by mutableStateOf(listOf<Place>())
     var preferredNavigator by mutableStateOf("")
     var overlayOn by mutableStateOf(true)
+    var log by mutableStateOf(listOf<LogEntry>())
 
     fun init(ctx: Context) {
         // Lingua: italiano, tedesco o inglese, come il telefono
@@ -63,6 +68,7 @@ object AppState {
         preferredNavigator = prefs.getString("navigator", "") ?: ""
         overlayOn = prefs.getBoolean("overlay", true)
         cityId = prefs.getString("city", cityId) ?: cityId
+        log = prefs.getString("log", null)?.let { runCatching { json.decodeFromString(ListSerializer(LogEntry.serializer()), it) }.getOrNull() } ?: emptyList()
         zoneId = prefs.getString("zone", zoneId) ?: zoneId
     }
 
@@ -75,6 +81,7 @@ object AppState {
             .putString("navigator", preferredNavigator)
             .putBoolean("overlay", overlayOn)
             .putString("city", cityId)
+            .putString("log", json.encodeToString(ListSerializer(LogEntry.serializer()), log))
             .putString("zone", zoneId)
             .apply()
     }
@@ -104,6 +111,14 @@ object AppState {
         if (hit != null) { cityId = hit.first.id; zoneId = hit.second.id }
         else cities.minByOrNull { (it.center.lat - p.location.lat).let { a -> a * a } + (it.center.lon - p.location.lon).let { b -> b * b } }
             ?.let { selectCity(it.id) }
+        save()
+    }
+
+    /** Aggiunge al diario, senza doppioni nella stessa mezz'ora per la stessa zona */
+    fun record(kind: String, zone: Zone, verdict: app.gatelr.core.Verdict) {
+        val now = System.currentTimeMillis()
+        if (log.any { it.zoneId == zone.id && it.kind == kind && now - it.date < 30 * 60_000 }) return
+        log = (listOf(LogEntry(now, kind, zone.id, zone.localizedName, verdict.short, vehicle.plate)) + log).take(500)
         save()
     }
 

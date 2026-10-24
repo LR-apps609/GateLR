@@ -46,6 +46,7 @@ Telefoni da provare se li hai: uno Samsung, uno Xiaomi/Redmi, uno Huawei o Honor
 - [ ] Aggiungi un'auto: anno → classe Euro proposta; carburante; targa; noleggio
 - [ ] «Dove può andare la tua auto» (diesel Euro 5: Area B e C in rosso)
 - [ ] Navigatore preferito: mostra solo quelli installati
+- [ ] Account → Impara → «Diario dei passaggi»: dopo un giro col guardiano compaiono i passaggi; Condividi / Cancella
 - [ ] «Segnala un bug» apre la mail con modello del telefono e versione
 - [ ] Account → Impara → «Leggi il cartello»: foto del pannello o testo «7.30-20.00 feriali» → spiegazione e «attiva adesso?»
 - [ ] Account → Impara → «Ho preso una multa?»: 7 passi

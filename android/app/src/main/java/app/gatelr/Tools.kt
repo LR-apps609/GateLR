@@ -146,3 +146,36 @@ fun FineGuide() {
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
     }
 }
+
+/** Diario dei passaggi: quando sei passato vicino a un varco attivo o sei entrato dove non potevi */
+@Composable
+fun DriveLog() {
+    val ctx = LocalContext.current
+    val f = java.time.format.DateTimeFormatter.ofPattern("d MMM yyyy · HH:mm", java.util.Locale.forLanguageTag(Strings.language))
+    fun d(ms: Long) = Instant.ofEpochMilli(ms).atZone(java.time.ZoneId.systemDefault()).format(f)
+    val muted = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f)
+    Column(Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp).padding(bottom = 32.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp)) {
+        Text(L("Drive log"), fontSize = 24.sp, fontWeight = FontWeight.Bold)
+        Text(L("GateLR writes here when you pass close to an active gate or drive into a zone you can't enter. Only on this phone."), color = muted, fontSize = 14.sp)
+        if (AppState.log.isEmpty()) CardBox { Text(L("Nothing yet: no active gate on your way.")) }
+        AppState.log.forEach { e ->
+            CardBox {
+                Column {
+                    Text((if (e.kind == "entered") L("Drove into the zone") else L("Near an active gate")) + " · " + e.zoneName, fontWeight = FontWeight.SemiBold,
+                        color = if (e.kind == "entered") Palette.red else MaterialTheme.colorScheme.onSurface)
+                    Text(listOf(d(e.date), e.verdict, e.plate).filter { it.isNotBlank() }.joinToString(" · "), fontSize = 13.sp, color = muted)
+                }
+            }
+        }
+        if (AppState.log.isNotEmpty()) {
+            Text(L("A row here doesn't mean you'll be fined: maybe you didn't cross the gate, or your plate was registered. It's a reminder, and a note of when and where."), fontSize = 12.sp, color = muted)
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(onClick = {
+                    HotelMessage.share(ctx, AppState.log.joinToString("\n") { e -> "${d(e.date)} · ${e.zoneName} · ${if (e.kind == "entered") L("Drove into the zone") else L("Near an active gate")} · ${e.verdict} ${e.plate}".trim() })
+                }) { Text(L("Share the log")) }
+                OutlinedButton(onClick = { AppState.log = emptyList(); AppState.save() }) { Text(L("Delete the log")) }
+            }
+        }
+    }
+}

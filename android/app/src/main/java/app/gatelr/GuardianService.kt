@@ -157,6 +157,7 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
         val scan = GuardianScan.scan(p, zones, lastDistances) { z, d -> AppState.answer(z, Instant.now().plusSeconds((d / 9).toLong())) }
         lastDistances = scan.distances
         for ((z, a) in scan.entered) {
+            AppState.record("entered", z, a.verdict)
             if (a.verdict is Verdict.No && alerted.add("in|${z.id}")) {
                 val body = L("Leave by the nearest exit and don't drive around: every gate can mean another fine.")
                 say(F("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine.", z.shortName))
@@ -174,6 +175,7 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
                 alert(F("%@ in %@", t.zone.shortName, dist), t.answer.verdict.short, "far|${t.zone.id}")
             }
             if (t.meters < 150 && alerted.add("near|${t.zone.id}")) {
+                AppState.record("nearGate", t.zone, t.answer.verdict)
                 say(F("Gate ahead: %@.", t.answer.verdict.short))
                 alert(F("Gate ahead: %@", t.zone.shortName), t.answer.verdict.short, "near|${t.zone.id}")
             }

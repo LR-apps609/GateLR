@@ -51,7 +51,7 @@ object Here {
 object Nav {
     var tab by mutableIntStateOf(0)
     var zone by mutableStateOf<Zone?>(null)
-    var tool by mutableStateOf<String?>(null)      // "sign" | "fines"
+    var tool by mutableStateOf<String?>(null)      // "sign" | "fines" | "log"
 }
 
 class MainActivity : ComponentActivity() {
@@ -129,7 +129,7 @@ fun Root() {
     }
     Nav.tool?.let { t ->
         ModalBottomSheet(onDismissRequest = { Nav.tool = null }, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
-            if (t == "sign") SignReaderScreen() else FineGuide()
+            when (t) { "sign" -> SignReaderScreen(); "log" -> DriveLog(); else -> FineGuide() }
         }
     }
 }

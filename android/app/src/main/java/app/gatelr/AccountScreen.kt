@@ -79,6 +79,7 @@ fun AccountScreen(modifier: Modifier) {
             CardBox {
                 Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
                     Text(L("Read the sign") + " ›", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.SemiBold, modifier = Modifier.clickable { Nav.tool = "sign" })
+                    Text(L("Drive log") + " ›", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.SemiBold, modifier = Modifier.clickable { Nav.tool = "log" })
                     Text(L("Got a fine?") + " ›", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.SemiBold, modifier = Modifier.clickable { Nav.tool = "fines" })
                 }
             }
