@@ -28,6 +28,15 @@ enum PathMath {
         return zip(path, path.dropFirst()).map { project(p, $0, $1).distance }.min() ?? .infinity
     }
 
+    /// Il punto del percorso più vicino, cercando solo un po' avanti (si va sempre avanti)
+    static func nearestIndex(of p: Coordinate, in path: [Coordinate], from start: Int) -> Int {
+        guard !path.isEmpty else { return 0 }
+        let lo = max(0, min(start, path.count - 1)), hi = min(path.count - 1, lo + 80)
+        var best = lo, d = Double.infinity
+        for i in lo...hi { let m = meters(p, path[i]); if m < d { d = m; best = i } }
+        return best
+    }
+
     /// I metri di strada che restano, dal punto del percorso più vicino fino alla fine
     static func remaining(from p: Coordinate, along path: [Coordinate]) -> Double {
         guard path.count > 1 else { return path.first.map { meters(p, $0) } ?? 0 }
@@ -68,6 +77,10 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
     @Published private(set) var rerouting = false
     @Published private(set) var error: String?
     @Published private(set) var here: Coordinate?
+    @Published private(set) var course: Double = 0             // direzione di marcia in gradi
+    @Published private(set) var speed: Double = 0              // km/h
+    @Published private(set) var progress = 0                   // punto del percorso già raggiunto
+    @Published private(set) var nextZTL: (crossing: RouteCrossing, meters: Double, answer: Answer)?
     @Published var muted = false
 
     private let manager = CLLocationManager()
@@ -81,6 +94,15 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
 
     /// La prossima manovra (l'istruzione del tratto successivo)
     var nextInstruction: String? { index + 1 < steps.count ? steps[index + 1].instruction : nil }
+    /// La manovra dopo quella successiva («Poi …»), se è vicina
+    var thenInstruction: String? {
+        guard index + 2 < steps.count, PathMath.remaining(from: steps[index + 1].path.first ?? Coordinate(lat: 0, lon: 0),
+                                                           along: steps[index + 1].path) < 250 else { return nil }
+        return steps[index + 2].instruction
+    }
+    /// Percorso già fatto e da fare (per disegnarli in modo diverso)
+    var travelled: [Coordinate] { Array(path.prefix(progress + 1)) }
+    var ahead: [Coordinate] { Array(path.dropFirst(progress)) }
 
     override init() {
         super.init()
@@ -123,7 +145,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
         }
         activity = nil; lastShown = nil
         active = false
-        steps = []; path = []; crossings = []; warning = nil; destination = nil
+        steps = []; path = []; crossings = []; warning = nil; destination = nil; nextZTL = nil; progress = 0
     }
 
     /// Il percorso Apple, diviso in tratti con le istruzioni, e il controllo delle ZTL lungo la strada
@@ -141,6 +163,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
             Step(instruction: s.instructions, path: s.polyline.coordinates.map { Coordinate(lat: $0.latitude, lon: $0.longitude) })
         }.filter { !$0.path.isEmpty }
         index = 0
+        progress = 0
         path = r.polyline.coordinates.map { Coordinate(lat: $0.latitude, lon: $0.longitude) }
         secondsPerMeter = r.distance > 0 ? r.expectedTravelTime / r.distance : 0.08
         if let store {
@@ -154,8 +177,13 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
 
     // MARK: A ogni nuova posizione
 
-    func update(_ p: Coordinate) {
+    func update(_ p: Coordinate, course c: Double? = nil, speed v: Double? = nil) {
+        if let c, c >= 0 { course = c } else if let here, PathMath.meters(here, p) > 8 {
+            course = atan2((p.lon - here.lon) * cos(p.lat * .pi / 180), p.lat - here.lat) * 180 / .pi
+        }
+        if let v, v >= 0 { speed = v * 3.6 }
         here = p
+        progress = PathMath.nearestIndex(of: p, in: path, from: progress)
         guard active, let destination, !steps.isEmpty else { return }
 
         // Arrivo
@@ -202,6 +230,14 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
         }
 
         // ZTL davanti: avviso a voce verso i 500 metri, se a quell'ora non si entra liberamente
+        // La prossima ZTL sul percorso, sempre visibile (anche se è lontana o non attiva)
+        nextZTL = crossings.compactMap { c -> (RouteCrossing, Double, Answer)? in
+            guard let entry = c.entry, let store, !c.zone.contains(lat: p.lat, lon: p.lon) else { return nil }
+            let ahead = PathMath.remaining(from: p, along: path) - PathMath.remaining(from: entry, along: path)
+            guard ahead > 0 else { return nil }
+            return (c, ahead, store.answer(at: Date().addingTimeInterval(ahead * secondsPerMeter), zone: c.zone, hotelInside: false))
+        }.min { $0.1 < $1.1 }.map { (crossing: $0.0, meters: $0.1, answer: $0.2) }
+
         warning = nil
         for c in crossings {
             guard let entry = c.entry, let store else { continue }
@@ -277,6 +313,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let l = locations.last, l.horizontalAccuracy >= 0, l.horizontalAccuracy < 65 else { return }
         let c = Coordinate(lat: l.coordinate.latitude, lon: l.coordinate.longitude)
-        Task { @MainActor in self.update(c) }
+        let course = l.course, speed = l.speed
+        Task { @MainActor in self.update(c, course: course, speed: speed) }
     }
 }
