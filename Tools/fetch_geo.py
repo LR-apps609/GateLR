@@ -74,4 +74,18 @@ for svc in ["confini_ZTL_centro_diurna", "settori_ZTL_centro", "varchi_ZTL_centr
         else: print("FAILED rsm", svc, lid)
     if not layers: print("FAILED rsm", svc)
 
+# Firenze, Scudo Verde (vedi docs/fonti-scudo-verde.md): la relazione OSM usata dall'app, per vedere se cambia,
+# e l'area ufficiale del PUMS della Città Metropolitana (CC BY 4.0), che da qui non si raggiunge
+overpass("firenze-scudo-verde-osm", "[out:json][timeout:120];relation(19205738);out geom;")
+PUMS = "http://pubblicazioni.cittametropolitana.fi.it/geoserver/pian_pums_2021"
+caps = get(PUMS + "/wfs?service=WFS&version=2.0.0&request=GetCapabilities", tries=2)
+if caps: (OUT / "firenze-scudo-verde-pums-wfs-caps.xml").write_bytes(caps); print("ok pums caps", len(caps))
+for name in ["pian_pums_2021:pums_progetto_scudo-verde_area", "pums_progetto_scudo-verde_area"]:
+    raw = get(PUMS + "/wfs?" + urllib.parse.urlencode({"service": "WFS", "version": "2.0.0", "request": "GetFeature", "typeNames": name,
+                                                        "outputFormat": "application/json", "srsName": "EPSG:4326"}), tries=2)
+    if raw and raw.lstrip().startswith(b"{"):
+        (OUT / "firenze-scudo-verde-pums.geojson").write_bytes(raw); print("ok pums", name, len(raw)); break
+else:
+    print("FAILED pums scudo verde")
+
 print("files:", sorted(p.name for p in OUT.iterdir()))

@@ -112,7 +112,16 @@ final class RuleEngineTests: XCTestCase {
             .appendingPathComponent("Resources/Cities/firenze.json")
         let city = try CityLoader.decode(Data(contentsOf: url))
         XCTAssertEqual(city.status, .draft)
-        XCTAssertEqual(Set(city.zones.map(\.id)), ["firenze-a", "firenze-b", "firenze-o", "firenze-f", "firenze-g"])
+        XCTAssertEqual(Set(city.zones.map(\.id)), ["firenze-a", "firenze-b", "firenze-o", "firenze-f", "firenze-g", "firenze-scudo-verde"])
+        // Scudo Verde: Duomo dentro, aeroporto fuori; diesel Euro 2 libero fino al 30/11/2026, vietato dal 1/12/2026
+        let sv = try XCTUnwrap(city.zones.first { $0.id == "firenze-scudo-verde" })
+        XCTAssertEqual(sv.type, .green)
+        XCTAssertTrue(sv.contains(lat: 43.7731, lon: 11.2560))
+        XCTAssertFalse(sv.contains(lat: 43.8100, lon: 11.2051))
+        var diesel2 = car; diesel2.fuel = .diesel; diesel2.euro = 2
+        XCTAssertNil(sv.ban(for: diesel2, at: date(2026, 11, 30, 12)))
+        XCTAssertNotNil(sv.ban(for: diesel2, at: date(2026, 12, 1, 12)))
+        XCTAssertNil(sv.ban(for: car, at: date(2026, 12, 1, 12)))
         let b = try XCTUnwrap(city.zones.first { $0.id == "firenze-b" })
         let g = try XCTUnwrap(city.zones.first { $0.id == "firenze-g" })
         XCTAssertFalse(b.gates.isEmpty)

@@ -42,6 +42,17 @@ class CoreTest {
         assertTrue(verdict(b, at = date(2026, 10, 26, 18), hotel = true) is Verdict.Conditional)
     }
 
+    @Test fun florenceScudoVerde() {
+        val sv = zone("firenze", "firenze-scudo-verde")
+        assertTrue(sv.contains(43.7731, 11.2560))                                          // Duomo dentro
+        assertTrue(!sv.contains(43.8100, 11.2051))                                         // aeroporto fuori
+        val diesel2 = car.copy(fuel = Fuel.DIESEL, euro = 2)
+        assertNull(sv.ban(diesel2, date(2026, 11, 30, 12)))
+        assertNotNull(sv.ban(diesel2, date(2026, 12, 1, 12)))                               // seconda fase
+        assertTrue(engine.answer(sv, diesel2, emptyList(), false, date(2026, 12, 1, 3)).verdict is Verdict.No)
+        assertTrue(engine.answer(sv, car, emptyList(), false, date(2026, 12, 1, 3)).verdict is Verdict.Yes)
+    }
+
     @Test fun summerNightSector() {
         val g = zone("firenze", "firenze-g")
         assertEquals(date(2026, 7, 2, 23), engine.nextChange(g, date(2026, 7, 2, 12)))

@@ -3,8 +3,12 @@
 #   - perimetri ZTL diurna (settori A, B, O) e notturna estiva (anche F, G)
 #   - porte telematiche (si tengono solo quelle dei settori ZTL, non corsie bus o aree pedonali)
 # Gli orari vengono dalle pagine del Comune citate qui sotto, riassunti a mano.
+#   - Scudo Verde (ZTL ambientale): varchi dai dati aperti del Comune, perimetro dalla relazione OSM 19205738
+#     (ricalcata dal dataset PUMS «Scudo verde» della Città Metropolitana), file salvati in data/raw/scudo-verde/.
+#     Fonti e verifiche: docs/fonti-scudo-verde.md
 # Uso: python3 Tools/build_firenze.py   (serve accesso a datigis.comune.fi.it)
 import json, math, re, urllib.request
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 DIURNA = "https://datigis.comune.fi.it/json/ztl_diurna.json"
@@ -83,6 +87,108 @@ PENDING_COMMON = [
     "Public holidays: the city pages we read don't say whether the gates are off. The app answers \"Not sure\" on holidays.",
     "Exact gate times come from city news releases; still to be checked against the current disciplinare (Provv. Dir. 2011/M/04192 and later updates).",
 ]
+
+
+SV_RAW = Path(__file__).resolve().parent.parent / "data/raw/scudo-verde"
+SV_CHECKED = "2026-10-24T12:00:00Z"
+EVERY_DAY = [1, 2, 3, 4, 5, 6, 7]
+SV_LINKS = [
+    {"title": "City of Florence, 31 March 2025: Scudo Verde starts (banned vehicles, exemptions)",
+     "title_it": "Comune di Firenze, 31 marzo 2025: attivazione dello Scudo Verde (veicoli vietati, deroghe)",
+     "title_de": "Stadt Florenz, 31. März 2025: Start des Scudo Verde (verbotene Fahrzeuge, Ausnahmen)",
+     "url": "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/domani-lattivazione-dello-scudo-verde-pre-esercizio"},
+    {"title": "City of Florence, 27 May 2025: fines from 1 July 2025",
+     "title_it": "Comune di Firenze, 27 maggio 2025: sanzioni dal 1° luglio 2025",
+     "title_de": "Stadt Florenz, 27. Mai 2025: Bußgelder ab 1. Juli 2025",
+     "url": "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/scudo-verde-rinviata-al-1deg-luglio-lattivazione-del-sistema"},
+    {"title": "City of Florence, 21 Aug 2026: second phase from 1 December 2026",
+     "title_it": "Comune di Firenze, 21 agosto 2026: seconda fase dal 1° dicembre 2026",
+     "title_de": "Stadt Florenz, 21. Aug. 2026: zweite Phase ab 1. Dezember 2026",
+     "url": "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/scudo-verde-da-dicembre-al-la-seconda-fase"},
+    {"title": "Open data: Scudo Verde gates", "title_it": "Dati aperti: varchi Scudo Verde", "title_de": "Offene Daten: Scudo-Verde-Kameratore",
+     "url": "https://opendata.comune.fi.it/page_dataset_show?id=varchi-scudo-verde"},
+    {"title": "Metropolitan City of Florence, PUMS: Scudo Verde area (dataset)",
+     "title_it": "Città Metropolitana di Firenze, PUMS: area Scudo Verde (dataset)",
+     "title_de": "Metropolitanstadt Florenz, PUMS: Scudo-Verde-Gebiet (Datensatz)",
+     "url": "https://www.dati.gov.it/view-dataset/dataset?id=ee3c2463-5912-4b32-8802-c4966abf901d"},
+    {"title": "Exemptions and plate registration: SAS", "title_it": "Deroghe e registrazione targhe: SAS", "title_de": "Ausnahmen und Kennzeichen-Registrierung: SAS",
+     "url": "https://www.serviziallastrada.it/"},
+]
+# Auto (M1). Fase 1: divieti già in vigore nel centro abitato, controllati dai varchi con sanzioni dal 1/7/2025.
+# Fase 2 (delibera di giunta dell'11/8/2026): dal 1/12/2026 anche benzina Euro 1 e diesel Euro 2.
+SV_BANS = [{"fuel": "petrol", "maxEuro": 0, "since": "2025-07-01"}, {"fuel": "diesel", "maxEuro": 1, "since": "2025-07-01"},
+           {"fuel": "petrol", "maxEuro": 1, "since": "2026-12-01"}, {"fuel": "diesel", "maxEuro": 2, "since": "2026-12-01"}]
+SV_PENDING = [
+    ("Perimeter: from OpenStreetMap (relation 19205738), traced from the Metropolitan City's PUMS «Scudo verde» dataset. 75 of the 77 official gates are within 35 m of it; Via della Pietra and Via Etruria are 240–270 m away. Near the edge, look at the signs.",
+     "Perimetro: da OpenStreetMap (relazione 19205738), ricalcato dal dataset PUMS «Scudo verde» della Città Metropolitana. 75 dei 77 varchi ufficiali sono entro 35 m dal confine; via della Pietra e via Etruria sono a 240–270 m. Vicino al bordo guarda i cartelli.",
+     "Grenze: aus OpenStreetMap (Relation 19205738), nachgezeichnet nach dem PUMS-Datensatz «Scudo verde» der Metropolitanstadt. 75 der 77 offiziellen Tore liegen höchstens 35 m davon entfernt; Via della Pietra und Via Etruria 240–270 m. In Randnähe auf die Schilder achten."),
+    ("Foreign and rental cars: the city pages don't make an exception for them, and don't say how foreign plates are checked. A car of a banned class should not drive in.",
+     "Auto straniere e a noleggio: le pagine del Comune non le escludono e non dicono come si controllano le targhe estere. Un'auto di una classe vietata non deve entrare.",
+     "Ausländische und Mietwagen: Die Seiten der Stadt nehmen sie nicht aus und sagen nicht, wie ausländische Kennzeichen geprüft werden. Ein Auto einer verbotenen Klasse sollte nicht hineinfahren."),
+    ("From 1 Dec 2026: one-off bonus of 3 days (also not consecutive) for any banned vehicle, without registration; 25 days a year for residents of the Metropolitan City, 50 for Florence residents, after registering with SAS. How the 3 days are counted is to be confirmed.",
+     "Dal 1° dicembre 2026: bonus una tantum di 3 giorni (anche non consecutivi) per qualsiasi veicolo vietato, senza registrazione; 25 giorni l'anno per i residenti della Città Metropolitana, 50 per i residenti a Firenze, con registrazione su SAS. Come si contano i 3 giorni è da confermare.",
+     "Ab 1. Dez. 2026: einmaliger Bonus von 3 Tagen (auch nicht aufeinanderfolgend) für jedes verbotene Fahrzeug, ohne Registrierung; 25 Tage im Jahr für Einwohner der Metropolitanstadt, 50 für Einwohner von Florenz, nach Registrierung bei SAS. Wie die 3 Tage gezählt werden, ist noch zu bestätigen."),
+    ("LPG, methane and bifuel cars are exempt only after registering the plate with SAS: without registration GateLR treats them like petrol cars of the same class.",
+     "Le auto a GPL, metano e bifuel sono esenti solo registrando la targa su SAS: senza registrazione GateLR le tratta come le benzina della stessa classe.",
+     "Autogas-, Erdgas- und Bifuel-Autos sind nur nach Registrierung des Kennzeichens bei SAS befreit: ohne Registrierung behandelt GateLR sie wie Benziner derselben Klasse."),
+    ("Other exemptions (disabled badge CUDE with the holder on board, historic vehicles with CRS, a valid ZTL permit until it expires…) need registration with SAS: see the city's page.",
+     "Altre deroghe (contrassegno disabili CUDE con il titolare a bordo, veicoli storici con CRS, permesso ZTL valido fino alla scadenza…) richiedono la registrazione su SAS: vedi la pagina del Comune.",
+     "Weitere Ausnahmen (Behindertenausweis CUDE mit Inhaber an Bord, historische Fahrzeuge mit CRS, gültige ZTL-Genehmigung bis zum Ablauf…) erfordern die Registrierung bei SAS: siehe Seite der Stadt."),
+    ("Fine: the city mentions €83 per violation (stated for tourist coaches); the amount for cars is to be confirmed. The rules for vans, motorbikes and coaches are different and not covered here.",
+     "Multa: il Comune cita 83 € a violazione (detto per i bus turistici); l'importo per le auto è da confermare. Le regole per furgoni, moto e bus sono diverse e qui non sono considerate.",
+     "Bußgeld: Die Stadt nennt 83 € pro Verstoß (für Reisebusse); der Betrag für Autos ist noch zu bestätigen. Für Lieferwagen, Motorräder und Busse gelten andere Regeln, hier nicht berücksichtigt."),
+]
+
+
+def scudo_verde():
+    root = ET.parse(SV_RAW / "osm-relation-19205738-full.xml").getroot()
+    nodes = {n.get("id"): [float(n.get("lon")), float(n.get("lat"))] for n in root.iter("node")}
+    outer = next(m.get("ref") for m in root.iter("member") if m.get("type") == "way" and m.get("role") == "outer")
+    way = next(w for w in root.iter("way") if w.get("id") == outer)
+    pts = simplify([nodes[nd.get("ref")] for nd in way.iter("nd")], 0.00008)
+    gates = []
+    for f in json.loads((SV_RAW / "varchi_scudoverde.json").read_text())["features"]:
+        p = f["properties"]
+        if p["tipo_varco"] != "IN":
+            continue          # le 4 telecamere «OUT» controllano chi esce
+        lon, lat = f["geometry"]["coordinates"]
+        gates.append({"id": f"sv-{p['num_varco']}", "name": p["nome_varco"].strip(),
+                      "location": {"lat": round(lat, 6), "lon": round(lon, 6)}})
+    return {
+        "id": "firenze-scudo-verde",
+        "name": "Scudo Verde · Low-emission zone",
+        "name_it": "Scudo Verde · Zona a basse emissioni",
+        "name_de": "Scudo Verde · Umweltzone",
+        "kind": "green",
+        "summary": ("Most of the city, inside a ring of 77 cameras (the airport and Careggi hospital are outside). Active 24 hours a day, every day. "
+                    "Petrol Euro 0 and diesel Euro 0–1 cars can't drive in; from 1 December 2026 also petrol Euro 1 and diesel Euro 2. Other cars enter free, no ticket."),
+        "summary_it": ("Gran parte della città, dentro un anello di 77 telecamere (aeroporto e ospedale di Careggi restano fuori). Attivo 24 ore su 24, tutti i giorni. "
+                       "Non entrano le auto benzina Euro 0 e diesel Euro 0–1; dal 1° dicembre 2026 anche benzina Euro 1 e diesel Euro 2. Le altre auto entrano gratis, senza ticket."),
+        "summary_de": ("Der größte Teil der Stadt, innerhalb eines Rings aus 77 Kameras (Flughafen und Klinikum Careggi liegen außerhalb). Rund um die Uhr, jeden Tag aktiv. "
+                       "Benziner Euro 0 und Diesel Euro 0–1 dürfen nicht hinein; ab 1. Dezember 2026 auch Benziner Euro 1 und Diesel Euro 2. Andere Autos fahren kostenlos ein, ohne Ticket."),
+        "perimeter": [{"lat": round(p[1], 6), "lon": round(p[0], 6)} for p in pts],
+        "gates": sorted(gates, key=lambda g: g["name"]),
+        "windows": [{"weekdays": EVERY_DAY, "start": 0, "end": 24 * 60}],
+        "freeOnHolidays": False,
+        "exemptFuels": [],
+        "hotelCanRegister": False,
+        "bans": SV_BANS,
+        "source": {
+            "authority": "City of Florence",
+            "pageURL": SV_LINKS[0]["url"],
+            "ordinance": "Deliberazione DG/2023/00607 (gates); Giunta decision of 11 Aug 2026 (second phase)",
+            "ordinanceURL": None,
+            "quote": "sarà in vigore h24 tutti i giorni dell'anno",
+            "quoteTranslation": "it will be in force 24 hours a day, every day of the year",
+            "quoteTranslation_de": "es gilt rund um die Uhr, an jedem Tag des Jahres",
+            "checkedOn": SV_CHECKED,
+            "reviewedByHuman": False,
+            "pending": [p[0] for p in SV_PENDING],
+            "pending_it": [p[1] for p in SV_PENDING],
+            "pending_de": [p[2] for p in SV_PENDING],
+            "links": SV_LINKS,
+        },
+    }
 
 
 def fetch(url):
@@ -190,9 +296,11 @@ def main():
             },
         })
 
+    zones.append(scudo_verde())
     city = {"id": "firenze", "name": "Florence", "name_it": "Firenze", "name_de": "Florenz", "center": {"lat": 43.7712, "lon": 11.2550},
             "zones": zones, "cameras": sorted(cameras, key=lambda c: c["name"]), "status": "draft",
-            "license": "Perimeters and gates: Comune di Firenze open data, CC-BY 4.0"}
+            "license": ("Perimeters and gates: Comune di Firenze open data, CC-BY 4.0. Scudo Verde perimeter: © OpenStreetMap contributors, ODbL 1.0 "
+                        "(traced from the Città Metropolitana di Firenze PUMS dataset, CC BY 4.0)")}
     out = Path(__file__).resolve().parent.parent / "Resources/Cities/firenze.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(city, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
