@@ -334,6 +334,62 @@ INFO = {
 for i, code in enumerate(["it", "de"]):
     lines = [f'"{k}" = "{esc(v[i])}";' for k, v in INFO.items()]
     (root / f"{code}.lproj" / "InfoPlist.strings").write_text("/* Generato da Tools/translations.py */\n" + "\n".join(lines) + "\n", encoding="utf-8")
+
+# Solo Android (le frasi dell'app Android che l'iPhone non ha)
+ANDROID = {
+"%@ up to Euro %lld: banned since %@": ("%@ fino a Euro %lld: vietate dal %@", "%@ bis Euro %lld: verboten seit %@"),
+"Activate it before you drive in.": ("Attivalo prima di entrare.", "Vor der Einfahrt aktivieren."),
+"Activate it by midnight of the next day.": ("Attivalo entro la mezzanotte del giorno dopo.", "Bis Mitternacht des Folgetags aktivieren."),
+"Add a car": ("Aggiungi un'auto", "Auto hinzufügen"),
+"Add your plate in Garage first.": ("Prima aggiungi la targa nel Garage.", "Trage zuerst dein Kennzeichen in der Garage ein."),
+"Allow «Display over other apps»": ("Consenti «Mostra sopra altre app»", "«Über anderen Apps einblenden» erlauben"),
+"Arriving %@": ("Arrivo %@", "Ankunft %@"),
+"Battery: if alerts stop, set GateLR to «Unrestricted» in the battery settings.": ("Batteria: se gli avvisi si fermano, imposta GateLR su «Senza restrizioni» nelle impostazioni della batteria.", "Akku: Wenn Hinweise ausbleiben, stelle GateLR in den Akku-Einstellungen auf «Nicht eingeschränkt»."),
+"Bubble over the navigator": ("Bolla sopra il navigatore", "Blase über dem Navi"),
+"Cars can't drive here. Park outside and walk.": ("Qui le auto non passano. Parcheggia fuori e vai a piedi.", "Hier dürfen keine Autos fahren. Draußen parken und zu Fuß gehen."),
+"Check it on the registration document, field V.9.": ("Controllala sul libretto, campo V.9.", "Prüfe sie im Fahrzeugschein, Feld V.9."),
+"Checked on %@": ("Controllato il %@", "Geprüft am %@"),
+"Distance to the next ZTL on top of Google Maps or Waze. You can move it with your finger.": ("La distanza dalla prossima ZTL sopra Google Maps o Waze. Si sposta col dito.", "Entfernung zur nächsten ZTL über Google Maps oder Waze. Mit dem Finger verschiebbar."),
+"Edit": ("Modifica", "Bearbeiten"),
+"Free on public holidays": ("Libera nei giorni festivi", "An Feiertagen frei"),
+"GateLR stays on with a notification and warns you before every gate.": ("GateLR resta acceso con una notifica e ti avvisa prima di ogni varco.", "GateLR bleibt mit einer Mitteilung aktiv und warnt dich vor jedem Tor."),
+"Guardian": ("Guardiano", "Wächter"),
+"Guardian on": ("Guardiano attivo", "Wächter aktiv"),
+"Help": ("Aiuto", "Hilfe"),
+"Hotel, address or square": ("Hotel, indirizzo o piazza", "Hotel, Adresse oder Platz"),
+"Is this your hotel? It can register your plate.": ("È il tuo hotel? Può registrare la tua targa.", "Ist das dein Hotel? Es kann dein Kennzeichen anmelden."),
+"Map data © OpenStreetMap contributors, OpenFreeMap": ("Dati mappa © contributori OpenStreetMap, OpenFreeMap", "Kartendaten © OpenStreetMap-Mitwirkende, OpenFreeMap"),
+"More": ("Altro", "Mehr"),
+"My car": ("La mia auto", "Mein Auto"),
+"Name": ("Nome", "Name"),
+"Nights": ("Notti", "Nächte"),
+"No permits yet. A hotel registration you confirm in Trip shows up here.": ("Ancora nessun permesso. La registrazione dell'hotel che confermi in Viaggio compare qui.", "Noch keine Genehmigungen. Eine in Reise bestätigte Hotelanmeldung erscheint hier."),
+"No results": ("Nessun risultato", "Keine Ergebnisse"),
+"Official page": ("Pagina ufficiale", "Offizielle Seite"),
+"Permit": ("Permesso", "Genehmigung"),
+"Plan this trip": ("Prepara questo viaggio", "Diese Reise planen"),
+"Search hotel or address": ("Cerca hotel o indirizzo", "Hotel oder Adresse suchen"),
+"Search your hotel or where you're going: GateLR tells you if you can drive in, when, and how to get the plate registered.": ("Cerca il tuo hotel o dove vai: GateLR ti dice se puoi entrare, quando, e come far registrare la targa.", "Suche dein Hotel oder dein Ziel: GateLR sagt dir, ob und wann du einfahren darfst und wie du das Kennzeichen anmelden lässt."),
+"Send to the hotel": ("Manda all'hotel", "An das Hotel senden"),
+"Show the bubble over the navigator": ("Mostra la bolla sopra il navigatore", "Blase über dem Navi zeigen"),
+"Ticket": ("Ticket", "Ticket"),
+"To %@": ("Verso %@", "Nach %@"),
+"To ask": ("Da chiedere", "Noch anfragen"),
+"Version %@": ("Versione %@", "Version %@"),
+"Website": ("Sito web", "Website"),
+"Where your car can go": ("Dove può andare la tua auto", "Wohin dein Auto darf"),
+"Year of first registration": ("Anno di prima immatricolazione", "Jahr der Erstzulassung"),
+"You can drive here freely.": ("Qui puoi guidare liberamente.", "Hier darfst du frei fahren."),
+"Your cars": ("Le tue auto", "Deine Autos"),
+"ZTL alerts": ("Avvisi ZTL", "ZTL-Hinweise"),
+}
+
+# Gli stessi testi per l'app Android (assets/i18n/strings_it.json, strings_de.json)
+import json as _json
+adir = Path(__file__).resolve().parent.parent / "android/app/src/main/assets/i18n"
+adir.mkdir(parents=True, exist_ok=True)
+for i, code in enumerate(["it", "de"]):
+    (adir / f"strings_{code}.json").write_text(_json.dumps({k: v[i] for k, v in {**T, **ANDROID}.items()}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
 en = root / "en.lproj"; en.mkdir(parents=True, exist_ok=True)
 (en / "Localizable.strings").write_text("/* Inglese: le chiavi sono già il testo */\n", encoding="utf-8")
 print(len(T), "testi")

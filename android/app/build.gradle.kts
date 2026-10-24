@@ -1,0 +1,65 @@
+plugins {
+    id("com.android.application")
+    kotlin("android")
+    kotlin("plugin.compose")
+    kotlin("plugin.serialization")
+}
+
+android {
+    namespace = "app.gatelr"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "app.gatelr"
+        minSdk = 26                 // Android 8 e successivi: circa il 97% dei telefoni
+        targetSdk = 35
+        versionCode = 1
+        versionName = "0.1.0"
+    }
+
+    buildTypes {
+        release {
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+
+    sourceSets["main"].apply {
+        // Il motore condiviso (stesso codice provato con i test in core/)
+        java.srcDir("../core/src/main/kotlin")
+        // Le città e le regole: gli stessi file dell'app iPhone, copiati negli assets alla compilazione
+        assets.srcDir(layout.buildDirectory.dir("generated/gatelrAssets"))
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = "17" }
+    buildFeatures { compose = true }
+}
+
+val copyCityData by tasks.registering(Copy::class) {
+    from(rootDir.resolve("../Resources")) {
+        include("Cities/*.json", "Rules/*.json")
+    }
+    into(layout.buildDirectory.dir("generated/gatelrAssets"))
+}
+tasks.named("preBuild") { dependsOn(copyCityData) }
+
+dependencies {
+    val composeBom = platform("androidx.compose:compose-bom:2024.10.01")
+    implementation(composeBom)
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.activity:activity-compose:1.9.3")
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
+    // Mappe senza servizi Google (vanno anche sui Huawei): MapLibre + OpenFreeMap
+    implementation("org.maplibre.gl:android-sdk:11.5.2")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+}

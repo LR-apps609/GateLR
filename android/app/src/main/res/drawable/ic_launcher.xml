@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Il logo LR: cartello ZTL con la porta, sul tricolore -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="100" android:viewportHeight="100">
+    <path android:fillColor="#1F9D55" android:pathData="M0,0h34v100h-34z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M33,0h34v100h-34z" />
+    <path android:fillColor="#D32F2F" android:pathData="M66,0h34v100h-34z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M50,12a38,38 0,1 1,0 76a38,38 0,1 1,0 -76z" />
+    <path android:strokeColor="#D32F2F" android:strokeWidth="8" android:pathData="M50,19a31,31 0,1 1,0 62a31,31 0,1 1,0 -62z" />
+    <path android:strokeColor="#1B2128" android:strokeWidth="7" android:strokeLineCap="round"
+        android:pathData="M38,70 L38,52 A12,12 0,0 1,62 52 L62,70" />
+</vector>

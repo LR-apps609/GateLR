@@ -1,0 +1,6 @@
+<resources>
+    <style name="Theme.GateLR" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">#F3F4F2</item>
+    </style>
+</resources>
