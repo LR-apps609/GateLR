@@ -6,6 +6,14 @@ import ActivityKit
 
 /// Conti sul percorso, senza mappe (testabili): distanza da una linea e strada che manca
 enum PathMath {
+    /// Il punto a «meters» metri da p nella direzione «bearing» (gradi, 0 = nord)
+    static func offset(_ p: Coordinate, meters m: Double, bearing: Double) -> Coordinate {
+        let r = bearing * .pi / 180
+        let dLat = m * cos(r) / 111_320
+        let dLon = m * sin(r) / (111_320 * max(0.2, cos(p.lat * .pi / 180)))
+        return Coordinate(lat: p.lat + dLat, lon: p.lon + dLon)
+    }
+
     static func meters(_ a: Coordinate, _ b: Coordinate) -> Double {
         let k = cos(a.lat * .pi / 180)
         return hypot((a.lat - b.lat) * 111_000, (a.lon - b.lon) * 111_000 * k)
@@ -31,9 +39,15 @@ enum PathMath {
     /// Il punto del percorso più vicino, cercando solo un po' avanti (si va sempre avanti)
     static func nearestIndex(of p: Coordinate, in path: [Coordinate], from start: Int) -> Int {
         guard !path.isEmpty else { return 0 }
-        let lo = max(0, min(start, path.count - 1)), hi = min(path.count - 1, lo + 80)
-        var best = lo, d = Double.infinity
-        for i in lo...hi { let m = meters(p, path[i]); if m < d { d = m; best = i } }
+        // Si cerca solo poco più avanti (al massimo 250 m di strada): se il percorso torna vicino a sé
+        // stesso (rotonde, vie parallele) non si salta avanti colorando di grigio la strada ancora da fare
+        let lo = max(0, min(start, path.count - 1))
+        var best = lo, d = meters(p, path[lo]), along = 0.0, i = lo
+        while i + 1 < path.count && along < 250 {
+            along += meters(path[i], path[i + 1]); i += 1
+            let m = meters(p, path[i])
+            if m < d { d = m; best = i }
+        }
         return best
     }
 
@@ -100,6 +114,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
                                                            along: steps[index + 1].path) < 250 else { return nil }
         return steps[index + 2].instruction
     }
+    /// Dove avviene la prossima manovra (per disegnarla sulla strada)
+    var nextManeuverPoint: Coordinate? { index + 1 < steps.count ? steps[index + 1].path.first : nil }
     /// Percorso già fatto e da fare (per disegnarli in modo diverso)
     var travelled: [Coordinate] { Array(path.prefix(progress + 1)) }
     var ahead: [Coordinate] { Array(path.dropFirst(progress)) }
@@ -275,7 +291,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
             symbol: DriveView.symbol(for: arrived ? "" : (nextInstruction ?? "")),
             distance: arrived ? "" : DriveSession.distanceText(toNext),
             instruction: arrived ? L("You have arrived") : (nextInstruction ?? destination?.name ?? ""),
-            warning: warning, eta: eta)
+            warning: warning, eta: eta, level: warning == nil ? nil : "no")
     }
 
     private func startActivity(to place: Place) {
@@ -303,10 +319,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     private func say(_ text: String) {
         guard !muted, !text.isEmpty else { return }
         try? AVAudioSession.sharedInstance().setActive(true)
-        let u = AVSpeechUtterance(string: text)
-        u.voice = AVSpeechSynthesisVoice(language: Locale.preferredLanguages.first ?? "en-GB")
-        u.rate = AVSpeechUtteranceDefaultSpeechRate * 1.02
-        voice.speak(u)
+        voice.speak(SpeechVoice.utterance(text, rate: 1.02))
     }
 
     // MARK: Posizione

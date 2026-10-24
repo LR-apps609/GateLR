@@ -165,13 +165,14 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
 
     private var state: DriveAttributes.ContentState {
         if let t = threat {
+            let level: String = switch t.answer.verdict { case .no: "no"; case .yes: "ok"; default: "cond" }
             return DriveAttributes.ContentState(symbol: t.zone.type.symbol, distance: DriveSession.distanceText(t.meters),
                                                 instruction: "\(t.zone.shortName) · \(t.answer.verdict.short)",
                                                 warning: t.meters < 600 ? String(format: L("%@ in %@: %@"), t.zone.shortName, DriveSession.distanceText(t.meters), t.answer.verdict.short) : nil,
-                                                eta: nil)
+                                                eta: nil, level: level, zone: t.zone.shortName)
         }
         return DriveAttributes.ContentState(symbol: "checkmark.shield.fill", distance: "",
-                                            instruction: L("No active ZTL ahead"), warning: nil, eta: nil)
+                                            instruction: L("No active ZTL ahead"), warning: nil, eta: nil, level: "ok", zone: nil)
     }
 
     private func startActivity() {
@@ -194,9 +195,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
 
     private func say(_ text: String) {
         try? AVAudioSession.sharedInstance().setActive(true)
-        let u = AVSpeechUtterance(string: text)
-        u.voice = AVSpeechSynthesisVoice(language: Locale.preferredLanguages.first ?? "en-GB")
-        voice.speak(u)
+        voice.speak(SpeechVoice.utterance(text))
     }
 
     private func notify(title: String, body: String, id: String) {

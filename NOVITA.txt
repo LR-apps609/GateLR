@@ -1,3 +1,14 @@
+Novità della 1.9.0 «Navigatore»:
+• Mappa: «Avvia» direttamente dalla scheda del posto cercato (niente più passaggio da Viaggio)
+• La prima volta che scegli un navigatore, GateLR chiede se usarlo sempre
+• Navigatore di GateLR: vista «Guida 3D» da vicino, Classica, Satellite e Notte; percorso come fascia larga e luminosa; la prossima svolta disegnata sulla strada
+• Il tratto da fare non diventa più grigio per errore nelle rotonde e nelle vie parallele
+• «Ricentra» compare anche dopo zoom e inclinazione fatti con le dita
+• Modellini al posto della freccia: berlina, SUV, utilitaria, moto, in 7 colori (Account)
+• Voce: la migliore installata nella lingua dell'app; in Account il link per scaricare una voce Premium
+• Dynamic Island del guardiano: scudo verde/giallo/rosso e distanza, riconoscibile anche accanto ad Apple Maps
+• Siri: «Ehi Siri, ZTL vicine con GateLR» → la ZTL più vicina, la distanza e se puoi entrare
+
 Novità della 1.8.1:
 • Un permesso vale solo nella sua città: la registrazione dell'hotel a Firenze non fa più dire «Sì» all'Area C di Milano
 • Giro di prova automatico più affidabile

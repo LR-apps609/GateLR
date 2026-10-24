@@ -8,6 +8,8 @@ struct AccountView: View {
     @State private var testSent = false
     @State private var reporting = false
     @AppStorage("navigator") private var preferredNavigator = ""
+    @AppStorage("vehicleMarker") private var vehicleMarker = VehicleMarker.arrow.rawValue
+    @AppStorage("vehicleColor") private var vehicleColor = VehicleColor.blue.rawValue
     @ObservedObject private var updater = CityUpdater.shared
 
     var body: some View {
@@ -87,6 +89,37 @@ struct AccountView: View {
                     .foregroundStyle(Theme.ink)
                 } header: { Text("Settings") } footer: {
                     Text("GateLR speaks English, Italian and German. The language is chosen in the iPhone Settings.")
+                }
+
+                // Navigatore di GateLR: il segno dell'auto e la voce
+                Section {
+                    Picker(L("Vehicle on the map"), selection: $vehicleMarker) {
+                        ForEach(VehicleMarker.allCases) { m in Text(m.title).tag(m.rawValue) }
+                    }
+                    if vehicleMarker != VehicleMarker.arrow.rawValue {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 12) {
+                                ForEach(VehicleColor.allCases) { c in
+                                    Button { vehicleColor = c.rawValue } label: {
+                                        VehicleMarkerView(marker: VehicleMarker(rawValue: vehicleMarker) ?? .sedan, tint: c, heading: 0)
+                                            .frame(width: 58, height: 58)
+                                            .background(vehicleColor == c.rawValue ? Theme.blueSoft : .clear, in: RoundedRectangle(cornerRadius: 12))
+                                    }
+                                    .buttonStyle(.plain)
+                                    .accessibilityLabel(c.rawValue)
+                                }
+                            }
+                        }
+                    }
+                    if SpeechVoice.onlyBasicVoice {
+                        Button {
+                            if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
+                        } label: {
+                            Label("Better voice: download a Premium or Enhanced voice", systemImage: "waveform")
+                        }
+                    }
+                } header: { Text("GateLR navigation") } footer: {
+                    Text("For clearer street names: Settings → Accessibility → Spoken Content → Voices → your language → a Premium or Enhanced voice (e.g. Alice). GateLR uses the best one installed.")
                 }
 
                 Section {

@@ -17,6 +17,8 @@ struct MapScreen: View {
     @State private var center: CLLocationCoordinate2D?
     @State private var style: Style = .standard
     @State private var tilted = false
+    @State private var driving = false
+    @ObservedObject private var drive = DriveSession.shared
     @State private var parkings: [Parking] = []
     @State private var searchingParking = false
     @State private var parkingMessage: String?
@@ -172,6 +174,7 @@ struct MapScreen: View {
         .onChange(of: store.place) { focus() }
         .onChange(of: planner.plan) { focus() }
         .sheet(item: $selectedParking) { p in ParkingSheet(parking: p).presentationDetents([.height(260)]) }
+        .fullScreenCover(isPresented: $driving) { DriveView() }
         .sheet(isPresented: $showLookAround) {
             LookAroundPreview(initialScene: lookAround)
                 .ignoresSafeArea()
@@ -377,14 +380,27 @@ struct MapScreen: View {
             if let answer, pedestrian == nil {
                 Text(Self.detail(answer.verdict)).font(.app(size: 14)).foregroundStyle(Theme.ink).lineLimit(3)
             }
+            // «Avvia» direttamente da qui: il navigatore preferito con gli avvisi di GateLR
+            HStack(spacing: 10) {
+                StartControls(target: place, label: L("Start"), onStart: { target in
+                    Task {
+                        await DriveSession.shared.start(to: target, store: store)
+                        driving = drive.active
+                    }
+                }, onGuardian: { target, navigator in
+                    Guardian.shared.start(to: target, with: navigator, store: store)
+                }, identifier: "map.start")
+            }
             HStack(spacing: 10) {
                 if hit != nil {
-                    WideButton(title: "Zone details", systemImage: "doc.text") {
+                    WideButton(title: "Zone details", systemImage: "doc.text", prominent: false) {
                         if let hit { store.cityId = hit.city.id; store.zoneId = hit.zone.id }
                         showZone = true
                     }
                 }
-                WideButton(title: "Check the drive", systemImage: "car.fill", prominent: hit == nil) { tab = .trip }
+                WideButton(title: "Trip details", systemImage: "suitcase.rolling", prominent: false) {
+                    store.select(place); tab = .trip
+                }
             }
         }
         .padding(18)

@@ -152,38 +152,6 @@ struct RouteCard: View {
     var onMap: () -> Void
     var onStart: (Place) -> Void = { _ in }
     var onGuardian: (Place, Navigator) -> Void = { _, _ in }
-    @AppStorage("navigator") private var preferred = ""
-
-    private func startMenu<Content: View>(@ViewBuilder label: () -> Content) -> some View {
-        Menu {
-            Section(L("Your navigator + GateLR alerts")) {
-                ForEach(Navigator.allCases) { n in
-                    Button { onGuardian(target, n) } label: { Label(n.title, systemImage: "shield.lefthalf.filled") }
-                }
-            }
-            Section {
-                Button { onStart(target) } label: { Label(L("GateLR navigation"), systemImage: "location.north.fill") }
-            }
-        } label: { label() }
-    }
-
-    private func startLabel(_ text: String) -> some View {
-        Label(text, systemImage: "location.north.fill")
-            .font(.app(size: 16, weight: .bold))
-            .lineLimit(1).minimumScaleFactor(0.8)
-            .frame(maxWidth: .infinity, minHeight: 50)
-            .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-            .foregroundStyle(.white)
-    }
-
-    private var moreLabel: some View {
-        Image(systemName: "ellipsis").font(.app(size: 17, weight: .bold))
-            .frame(width: 52, height: 50)
-            .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-            .foregroundStyle(Theme.blue)
-            .accessibilityLabel(L("Other navigators"))
-    }
-
     private var target: Place { plan.destinationBlocked ? (plan.parking ?? plan.destination) : plan.destination }
 
     var body: some View {
@@ -245,21 +213,9 @@ struct RouteCard: View {
                 }
             }
             HStack(spacing: 10) {
-                if let pref = Navigator(rawValue: preferred) {
-                    // Navigatore preferito (Account): «Avvia» parte subito, gli altri nel menu accanto
-                    Button { onGuardian(target, pref) } label: { startLabel(String(format: L("Start · %@"), pref.title)) }
-                        .buttonStyle(.plain)
-                        .accessibilityIdentifier("route.start")
-                    startMenu { moreLabel }
-                } else if preferred == "gatelr" {
-                    Button { onStart(target) } label: { startLabel(L("Start")) }
-                        .buttonStyle(.plain)
-                        .accessibilityIdentifier("route.start")
-                    startMenu { moreLabel }
-                } else {
-                    startMenu { startLabel(plan.destinationBlocked && plan.parking != nil ? L("Drive to the car park") : L("Start")) }
-                        .accessibilityIdentifier("route.start")
-                }
+                StartControls(target: target,
+                              label: plan.destinationBlocked && plan.parking != nil ? L("Drive to the car park") : L("Start"),
+                              onStart: onStart, onGuardian: onGuardian)
                 Button(action: onMap) {
                     Image(systemName: "map").font(.app(size: 17, weight: .semibold))
                         .frame(width: 52, height: 50)
@@ -272,5 +228,81 @@ struct RouteCard: View {
                 .font(.app(size: 12)).foregroundStyle(Theme.muted)
         }
         .padding(16).card(20)
+    }
+}
+
+/// «Avvia»: il navigatore preferito con le avvisi di GateLR, oppure il menu con tutti.
+/// La prima volta che scegli un navigatore, GateLR chiede se usarlo sempre (Account → Navigatore preferito).
+struct StartControls: View {
+    var target: Place
+    var label: String
+    var onStart: (Place) -> Void
+    var onGuardian: (Place, Navigator) -> Void
+    var identifier = "route.start"
+    @AppStorage("navigator") private var preferred = ""
+    @State private var askDefault: Navigator?
+
+    private func choose(_ n: Navigator) {
+        if preferred.isEmpty { askDefault = n } else { onGuardian(target, n) }
+    }
+
+    private func startMenu<Content: View>(@ViewBuilder label: () -> Content) -> some View {
+        Menu {
+            Section(L("Your navigator + GateLR alerts")) {
+                ForEach(Navigator.allCases) { n in
+                    Button { choose(n) } label: { Label(n.title, systemImage: "shield.lefthalf.filled") }
+                }
+            }
+            Section {
+                Button { onStart(target) } label: { Label(L("GateLR navigation"), systemImage: "location.north.fill") }
+            }
+        } label: { label() }
+    }
+
+    private func startLabel(_ text: String) -> some View {
+        Label(text, systemImage: "location.north.fill")
+            .font(.app(size: 16, weight: .bold))
+            .lineLimit(1).minimumScaleFactor(0.8)
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .foregroundStyle(.white)
+    }
+
+    private var moreLabel: some View {
+        Image(systemName: "ellipsis").font(.app(size: 17, weight: .bold))
+            .frame(width: 52, height: 50)
+            .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .foregroundStyle(Theme.blue)
+            .accessibilityLabel(L("Other navigators"))
+    }
+
+    var body: some View {
+        Group {
+            if let pref = Navigator(rawValue: preferred) {
+                // Navigatore preferito: «Avvia» parte subito, gli altri nel menu accanto
+                Button { onGuardian(target, pref) } label: { startLabel(String(format: L("Start · %@"), pref.title)) }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier(identifier)
+                startMenu { moreLabel }
+            } else if preferred == "gatelr" {
+                Button { onStart(target) } label: { startLabel(L("Start")) }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier(identifier)
+                startMenu { moreLabel }
+            } else {
+                startMenu { startLabel(label) }
+                    .accessibilityIdentifier(identifier)
+            }
+        }
+        .confirmationDialog(askDefault.map { String(format: L("Always use %@?"), $0.title) } ?? "",
+                            isPresented: Binding(get: { askDefault != nil }, set: { if !$0 { askDefault = nil } }),
+                            titleVisibility: .visible) {
+            if let n = askDefault {
+                Button(String(format: L("Always %@"), n.title)) { preferred = n.rawValue; askDefault = nil; onGuardian(target, n) }
+                Button(L("Just this time")) { askDefault = nil; onGuardian(target, n) }
+            }
+        } message: {
+            Text("You can change it in Account → Preferred navigator.")
+        }
     }
 }

@@ -10,6 +10,33 @@ struct DriveView: View {
     @State private var camera: MapCameraPosition = .userLocation(followsHeading: true, fallback: .automatic)
     @State private var following = true
     @State private var movedByUs = Date.distantPast
+    @State private var setDistance: Double = 0            // la distanza della camera decisa da noi
+    @AppStorage("driveView") private var view = DriveViewStyle.guide.rawValue
+    @AppStorage("vehicleMarker") private var marker = VehicleMarker.arrow.rawValue
+    @AppStorage("vehicleColor") private var markerColor = VehicleColor.blue.rawValue
+
+    /// Le viste della guida: 3D da vicino (la più chiara), classica, satellite, notte
+    enum DriveViewStyle: String, CaseIterable, Identifiable {
+        case guide, classic, satellite, night
+        var id: String { rawValue }
+        var title: String {
+            switch self {
+            case .guide: L("3D guide")
+            case .classic: L("Classic")
+            case .satellite: L("Satellite")
+            case .night: L("Night")
+            }
+        }
+        var symbol: String {
+            switch self {
+            case .guide: "view.3d"
+            case .classic: "map"
+            case .satellite: "globe.europe.africa.fill"
+            case .night: "moon.fill"
+            }
+        }
+    }
+    private var style: DriveViewStyle { DriveViewStyle(rawValue: view) ?? .guide }
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -50,16 +77,29 @@ struct DriveView: View {
                     .foregroundStyle(c.zone.type.color.opacity(c.zone.type == .green ? 0.18 : 0.14))
                     .stroke(c.zone.type.color, style: StrokeStyle(lineWidth: c.zone.type == .green ? 4 : 2.5, dash: c.zone.type == .green ? [] : [8, 5]))
             }
-            // Il percorso: già fatto in grigio, davanti in blu con il bordo bianco
+            // Il percorso: già fatto sottile e chiaro; davanti una fascia larga con bordo scuro, blu acceso e riflesso
             if drive.travelled.count > 1 {
                 MapPolyline(coordinates: drive.travelled.map(\.cl))
-                    .stroke(Color.gray.opacity(0.7), style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                    .stroke(Color(hex: 0x9AA3AE).opacity(0.75), style: StrokeStyle(lineWidth: 7, lineCap: .round, lineJoin: .round))
             }
             if drive.ahead.count > 1 {
-                MapPolyline(coordinates: drive.ahead.map(\.cl))
-                    .stroke(.white, style: StrokeStyle(lineWidth: 13, lineCap: .round, lineJoin: .round))
-                MapPolyline(coordinates: drive.ahead.map(\.cl))
-                    .stroke(Color(hex: 0x2F6FE4), style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                let line = drive.ahead.map(\.cl)
+                MapPolyline(coordinates: line)
+                    .stroke(Color(hex: 0x0B2F73).opacity(0.9), style: StrokeStyle(lineWidth: wide + 6, lineCap: .round, lineJoin: .round))
+                MapPolyline(coordinates: line)
+                    .stroke(Color(hex: 0x2F7BFF), style: StrokeStyle(lineWidth: wide, lineCap: .round, lineJoin: .round))
+                MapPolyline(coordinates: line)
+                    .stroke(Color(hex: 0x9CCBFF).opacity(0.55), style: StrokeStyle(lineWidth: max(2, wide * 0.25), lineCap: .round, lineJoin: .round))
+            }
+            // La prossima manovra disegnata sulla strada
+            if let m = drive.nextManeuverPoint, !drive.arrived {
+                Annotation("", coordinate: m.cl, anchor: .center) {
+                    Image(systemName: Self.symbol(for: drive.nextInstruction ?? ""))
+                        .font(.app(size: 16, weight: .heavy)).foregroundStyle(Color(hex: 0x1D4FA8))
+                        .frame(width: 34, height: 34).background(.white, in: Circle())
+                        .overlay(Circle().stroke(Color(hex: 0x2F7BFF), lineWidth: 3))
+                        .shadow(color: .black.opacity(0.3), radius: 3, y: 1)
+                }
             }
             // Dove si entra in ogni ZTL
             ForEach(drive.crossings) { c in
@@ -77,30 +117,55 @@ struct DriveView: View {
             if let h = drive.here {
                 // La freccia dell'auto, girata nella direzione di marcia
                 Annotation("", coordinate: h.cl, anchor: .center) {
-                    Image(systemName: "location.north.fill")
-                        .font(.app(size: 22, weight: .bold)).foregroundStyle(Color(hex: 0x2F6FE4))
-                        .rotationEffect(.degrees(drive.course - currentHeading))
-                        .frame(width: 44, height: 44)
-                        .background(.white, in: Circle())
-                        .shadow(color: .black.opacity(0.3), radius: 4, y: 2)
+                    VehicleMarkerView(marker: VehicleMarker(rawValue: marker) ?? .arrow,
+                                      tint: VehicleColor(rawValue: markerColor) ?? .blue,
+                                      heading: drive.course - currentHeading)
                 }
             }
         }
-        .mapStyle(.standard(elevation: .realistic, pointsOfInterest: .excludingAll, showsTraffic: true))
+        .mapStyle(mapStyle)
+        .environment(\.colorScheme, style == .night ? .dark : colorScheme)
         .mapControls { MapCompass(); MapScaleView() }
         // Il dito sposta la mappa: si smette di seguire finché non tocchi «Ricentra»
         .simultaneousGesture(DragGesture(minimumDistance: 10).onChanged { _ in following = false })
+        // Anche zoom e inclinazione fatti con le dita: se la camera non è più quella decisa da noi, compare «Ricentra»
+        .onMapCameraChange(frequency: .onEnd) { ctx in
+            guard following, setDistance > 0, Date().timeIntervalSince(movedByUs) > 0.3 else { return }
+            if abs(ctx.camera.distance - setDistance) / setDistance > 0.25 { following = false }
+        }
         .ignoresSafeArea()
     }
 
     @State private var currentHeading: Double = 0
+    @Environment(\.colorScheme) private var colorScheme
+
+    private var mapStyle: MapStyle {
+        switch style {
+        case .guide: .standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: true)
+        case .classic: .standard(elevation: .flat, pointsOfInterest: .excludingAll, showsTraffic: true)
+        case .satellite: .hybrid(elevation: .realistic, pointsOfInterest: .excludingAll, showsTraffic: true)
+        case .night: .standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: true)
+        }
+    }
+
+    /// Larghezza della fascia del percorso: più larga nella vista 3D da vicino
+    private var wide: CGFloat { style == .guide ? 14 : 10 }
 
     /// La camera dietro l'auto: più lontana quando vai veloce, inclinata come un navigatore
     private func follow(animated: Bool) {
         guard let h = drive.here else { return }
-        let distance = min(1_100, max(450, 380 + drive.speed * 9))
-        let cam = MapCamera(centerCoordinate: h.cl, distance: distance, heading: drive.course, pitch: 55)
+        // 3D da vicino: camera bassa dietro l'auto; le altre viste un po' più alte
+        let (base, pitch): (Double, Double) = switch style {
+        case .guide: (240, 68)
+        case .classic: (420, 45)
+        case .satellite, .night: (380, 55)
+        }
+        let distance = min(1_100, max(base, base * 0.85 + drive.speed * 8))
+        // La camera guarda un po' più avanti dell'auto, così si vede la strada che arriva
+        let ahead = PathMath.offset(h, meters: distance * 0.18, bearing: drive.course)
+        let cam = MapCamera(centerCoordinate: ahead.cl, distance: distance, heading: drive.course, pitch: pitch)
         movedByUs = Date()
+        setDistance = distance
         currentHeading = drive.course
         if animated { withAnimation(.linear(duration: 0.9)) { camera = .camera(cam) } } else { camera = .camera(cam) }
     }
@@ -203,6 +268,16 @@ struct DriveView: View {
             .accessibilityElement(children: .combine)
             roundButton(drive.muted ? "speaker.slash.fill" : "speaker.wave.2.fill", L(drive.muted ? "Voice off" : "Voice on")) { drive.muted.toggle() }
             roundButton("point.topleft.down.to.point.bottomright.curvepath", L("Overview")) { overview() }
+            Menu {
+                Picker(L("View"), selection: $view) {
+                    ForEach(DriveViewStyle.allCases) { v in Label(v.title, systemImage: v.symbol).tag(v.rawValue) }
+                }
+            } label: {
+                Image(systemName: style.symbol).font(.app(size: 17, weight: .semibold))
+                    .frame(width: 48, height: 48).background(Theme.raised, in: Circle()).foregroundStyle(Theme.ink)
+            }
+            .accessibilityLabel(L("View"))
+            .onChange(of: view) { if following { follow(animated: true) } }
             Button {
                 drive.stop()
                 dismiss()

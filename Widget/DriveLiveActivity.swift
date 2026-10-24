@@ -7,6 +7,29 @@ struct DriveLiveActivity: Widget {
     private static let blue = Color(hex: 0x1F4E9E)
     private static let red = Color(hex: 0xC1272D)
 
+    private static let green = Color(hex: 0x34C26B)
+    private static let amber = Color(hex: 0xF2B230)
+
+    /// Colore della risposta: rosso non entrare, giallo con condizioni, verde nessuna ZTL attiva davanti
+    static func tint(_ s: DriveAttributes.ContentState) -> Color {
+        if s.warning != nil && s.level == nil { return red }
+        switch s.level {
+        case "no": return Color(hex: 0xFF4D52)
+        case "cond": return amber
+        case "ok": return green
+        default: return .white
+        }
+    }
+
+    static func shield(_ s: DriveAttributes.ContentState) -> String {
+        switch s.level {
+        case "no": return "exclamationmark.shield.fill"
+        case "cond": return "shield.lefthalf.filled"
+        case "ok": return "checkmark.shield.fill"
+        default: return s.warning == nil ? s.symbol : "exclamationmark.triangle.fill"
+        }
+    }
+
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: DriveAttributes.self) { context in
             VStack(alignment: .leading, spacing: 8) {
@@ -39,7 +62,9 @@ struct DriveLiveActivity: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    Image(systemName: context.state.symbol).font(.system(size: 28, weight: .bold)).padding(.leading, 4)
+                    Image(systemName: context.state.level == nil ? context.state.symbol : Self.shield(context.state))
+                        .font(.system(size: 28, weight: .bold)).foregroundStyle(context.state.level == nil ? .white : Self.tint(context.state))
+                        .padding(.leading, 4)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
                     Text(context.state.distance).font(.system(size: 22, weight: .bold)).monospacedDigit()
@@ -55,13 +80,20 @@ struct DriveLiveActivity: Widget {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
             } compactLeading: {
-                Image(systemName: context.state.warning == nil ? context.state.symbol : "exclamationmark.triangle.fill")
-                    .foregroundStyle(context.state.warning == nil ? .white : Self.red)
+                // Lo scudo di GateLR colorato come la risposta: si riconosce anche accanto ad Apple Maps
+                Image(systemName: Self.shield(context.state)).foregroundStyle(Self.tint(context.state))
             } compactTrailing: {
-                Text(context.state.distance).font(.system(size: 13, weight: .semibold)).monospacedDigit()
+                if context.state.distance.isEmpty {
+                    Text("OK").font(.system(size: 13, weight: .bold)).foregroundStyle(Self.tint(context.state))
+                } else {
+                    Text(context.state.distance).font(.system(size: 13, weight: .semibold)).monospacedDigit()
+                        .foregroundStyle(Self.tint(context.state))
+                }
             } minimal: {
-                Image(systemName: context.state.warning == nil ? context.state.symbol : "exclamationmark.triangle.fill")
+                // Quando un'altra app (es. Apple Maps) occupa l'isola, resta questo pallino
+                Image(systemName: Self.shield(context.state)).foregroundStyle(Self.tint(context.state))
             }
+            .keylineTint(Self.tint(context.state))
             .widgetURL(URL(string: "gatelr://varco"))
         }
     }
