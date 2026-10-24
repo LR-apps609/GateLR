@@ -1,0 +1,31 @@
+name: Controllo pagine dei Comuni
+
+# Ogni mattina: le pagine ufficiali citate nell'app sono cambiate? Se sì, apre una segnalazione (issue).
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Controllo
+        run: python3 Tools/check_sources.py --update | tee result.txt
+      - name: Segnalazione e nuove impronte
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q "^CAMBIATA" result.txt; then
+            { echo "Pagine dei Comuni cambiate: rileggerle e aggiornare orari e regole in Tools/ e Resources/Cities/."; echo; grep "^CAMBIATA" result.txt | sed 's/^CAMBIATA /- /'; } > body.md
+            gh issue create --title "Pagine dei Comuni cambiate ($(date -u +%F))" --body-file body.md
+          fi
+          if ! git diff --quiet data/source-hashes.json; then
+            git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qam "Impronte delle pagine dei Comuni aggiornate"
+            git push -q
+          fi

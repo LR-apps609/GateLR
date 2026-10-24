@@ -1,4 +1,5 @@
 import XCTest
+import CoreLocation
 
 final class RuleEngineTests: XCTestCase {
     private let engine = RuleEngine()
@@ -249,6 +250,18 @@ final class RuleEngineTests: XCTestCase {
         let catalog = try JSONSerialization.jsonObject(with: Data(contentsOf: URL(fileURLWithPath: #filePath)
             .deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Resources/Rules/cars.json"))) as? [String: Any]
         XCTAssertGreaterThan((catalog?["makes"] as? [Any])?.count ?? 0, 20)
+    }
+
+    func testNearestGates() throws {
+        let milan = try XCTUnwrap(try bundledCities()["milano"])
+        let all = milan.zones.flatMap { z in z.gates.map { (z, $0) } }
+        XCTAssertGreaterThan(all.count, 200)
+        let duomo = CLLocation(latitude: 45.4641, longitude: 9.1919)
+        let near = GateMonitor.nearest(all, to: duomo, limit: 20)
+        XCTAssertEqual(near.count, 20)
+        let far = near.map { duomo.distance(from: CLLocation(latitude: $0.1.location.lat, longitude: $0.1.location.lon)) }
+        XCTAssertEqual(far, far.sorted())
+        XCTAssertTrue(near.allSatisfy { $0.0.id == "milano-c" } || near.contains { $0.0.id == "milano-c" })
     }
 
     func testEaster() {

@@ -31,6 +31,8 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
         manager.delegate = self
         UNUserNotificationCenter.current().delegate = self
         manager.requestWhenInUseAuthorization()
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        manager.distanceFilter = 50
         manager.startUpdatingLocation()
         guard store.alertsOn else { return }
         _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
@@ -38,23 +40,43 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
 
         let monitor = await CLMonitor("gates")
         self.monitor = monitor
-        for id in await monitor.identifiers { await monitor.remove(id) }
-        let ordered = [store.city] + store.cities.filter { $0.id != store.city.id }
-        var gates = ordered.flatMap { c in c.zones.flatMap { z in z.gates.map { (z, $0) } } }
-        // Se sappiamo dove sei, i varchi più vicini a te (Area B di Milano da sola ne ha più di 180)
-        if let here = manager.location {
-            gates.sort { here.distance(from: CLLocation(latitude: $0.1.location.lat, longitude: $0.1.location.lon))
-                       < here.distance(from: CLLocation(latitude: $1.1.location.lat, longitude: $1.1.location.lon)) }
-        }
-        for (zone, gate) in gates.prefix(maxRegions) {
-            let condition = CLMonitor.CircularGeographicCondition(center: gate.location.cl, radius: store.alertDistance)
-            await monitor.add(condition, identifier: "\(zone.id)|\(gate.id)", assuming: .unsatisfied)
-        }
+        await registerNearest(to: manager.location)
+        // Ti sposti di qualche chilometro → si passa ai varchi più vicini (anche ad app chiusa)
+        manager.startMonitoringSignificantLocationChanges()
         do {
             for try await event in await monitor.events where event.state == .satisfied {
                 notify(identifier: event.identifier)
             }
         } catch {}
+    }
+
+    private var registeredAt: CLLocation?
+
+    /// iOS segue al massimo 20 cerchi: si scelgono i varchi più vicini a dove sei (Area B di Milano da sola ne ha più di 180)
+    func registerNearest(to here: CLLocation?) async {
+        guard let monitor, let store else { return }
+        registeredAt = here
+        for id in await monitor.identifiers { await monitor.remove(id) }
+        let ordered = [store.city] + store.cities.filter { $0.id != store.city.id }
+        let gates = Self.nearest(ordered.flatMap { c in c.zones.flatMap { z in z.gates.map { (z, $0) } } }, to: here, limit: maxRegions)
+        for (zone, gate) in gates {
+            let condition = CLMonitor.CircularGeographicCondition(center: gate.location.cl, radius: store.alertDistance)
+            await monitor.add(condition, identifier: "\(zone.id)|\(gate.id)", assuming: .unsatisfied)
+        }
+    }
+
+    nonisolated static func nearest(_ gates: [(Zone, Gate)], to here: CLLocation?, limit: Int) -> [(Zone, Gate)] {
+        guard let here else { return Array(gates.prefix(limit)) }
+        func d(_ g: Gate) -> CLLocationDistance { here.distance(from: CLLocation(latitude: g.location.lat, longitude: g.location.lon)) }
+        return Array(gates.sorted { d($0.1) < d($1.1) }.prefix(limit))
+    }
+
+    private func moved(to here: CLLocation) {
+        location = here
+        guard monitor != nil, store?.alertsOn == true else { return }
+        if registeredAt.map({ here.distance(from: $0) > 1_500 }) ?? true {
+            Task { await registerNearest(to: here) }
+        }
     }
 
     /// Un avviso di prova, dalla scheda Account: com'è fatto, senza aspettare un varco vero
@@ -101,6 +123,6 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let last = locations.last else { return }
-        Task { @MainActor in self.location = last }
+        Task { @MainActor in self.moved(to: last) }
     }
 }
