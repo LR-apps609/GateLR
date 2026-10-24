@@ -96,6 +96,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     @Published private(set) var progress = 0                   // punto del percorso già raggiunto
     @Published private(set) var nextZTL: (crossing: RouteCrossing, meters: Double, answer: Answer)?
     @Published var muted = false
+    @Published private(set) var routeLength: Double = 0          // metri totali del percorso
+    private(set) var signals: [(point: Coordinate, along: Double)] = []
 
     private let manager = CLLocationManager()
     private let voice = AVSpeechSynthesizer()
@@ -114,6 +116,11 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
                                                            along: steps[index + 1].path) < 250 else { return nil }
         return steps[index + 2].instruction
     }
+    /// Metri già percorsi lungo il percorso
+    var done: Double { max(0, routeLength - remaining) }
+    /// I semafori davanti, entro 900 m, e il primo con la sua distanza
+    var signalsAhead: [Coordinate] { signals.filter { $0.along > done + 5 && $0.along < done + 900 }.map(\.point) }
+    var nextSignal: Double? { signals.first { $0.along > done + 5 }.map { $0.along - done } }
     /// Dove avviene la prossima manovra (per disegnarla sulla strada)
     var nextManeuverPoint: Coordinate? { index + 1 < steps.count ? steps[index + 1].path.first : nil }
     /// Percorso già fatto e da fare (per disegnarli in modo diverso)
@@ -182,6 +189,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         index = 0
         progress = 0
         path = r.polyline.coordinates.map { Coordinate(lat: $0.latitude, lon: $0.longitude) }
+        routeLength = r.distance
+        signals = TrafficSignals.along(path)
         secondsPerMeter = r.distance > 0 ? r.expectedTravelTime / r.distance : 0.08
         if let store {
             crossings = RouteCheck.crossings(path: RouteCheck.densify(path), zones: store.cities.flatMap(\.zones),

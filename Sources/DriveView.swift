@@ -41,6 +41,7 @@ struct DriveView: View {
     var body: some View {
         ZStack(alignment: .top) {
             map
+            if style == .guide { guideOverlay }
             VStack(spacing: 8) {
                 maneuver
                 ztlBar
@@ -85,11 +86,11 @@ struct DriveView: View {
             if drive.ahead.count > 1 {
                 let line = drive.ahead.map(\.cl)
                 MapPolyline(coordinates: line)
-                    .stroke(Color(hex: 0x0B2F73).opacity(0.9), style: StrokeStyle(lineWidth: wide + 6, lineCap: .round, lineJoin: .round))
+                    .stroke(routeEdge.opacity(0.95), style: StrokeStyle(lineWidth: wide + 6, lineCap: .round, lineJoin: .round))
                 MapPolyline(coordinates: line)
-                    .stroke(Color(hex: 0x2F7BFF), style: StrokeStyle(lineWidth: wide, lineCap: .round, lineJoin: .round))
+                    .stroke(routeFill, style: StrokeStyle(lineWidth: wide, lineCap: .round, lineJoin: .round))
                 MapPolyline(coordinates: line)
-                    .stroke(Color(hex: 0x9CCBFF).opacity(0.55), style: StrokeStyle(lineWidth: max(2, wide * 0.25), lineCap: .round, lineJoin: .round))
+                    .stroke(routeShine.opacity(0.6), style: StrokeStyle(lineWidth: max(2, wide * 0.22), lineCap: .round, lineJoin: .round))
             }
             // La prossima manovra disegnata sulla strada
             if let m = drive.nextManeuverPoint, !drive.arrived {
@@ -100,6 +101,10 @@ struct DriveView: View {
                         .overlay(Circle().stroke(Color(hex: 0x2F7BFF), lineWidth: 3))
                         .shadow(color: .black.opacity(0.3), radius: 3, y: 1)
                 }
+            }
+            // I semafori lungo la strada davanti (OpenStreetMap): il disegno, senza tempi
+            ForEach(Array(drive.signalsAhead.enumerated()), id: \.offset) { _, sgn in
+                Annotation("", coordinate: sgn.cl, anchor: .bottom) { TrafficLightView(compact: style != .guide) }
             }
             // Dove si entra in ogni ZTL
             ForEach(drive.crossings) { c in
@@ -141,7 +146,7 @@ struct DriveView: View {
 
     private var mapStyle: MapStyle {
         switch style {
-        case .guide: .standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: true)
+        case .guide: .standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: false)
         case .classic: .standard(elevation: .flat, pointsOfInterest: .excludingAll, showsTraffic: true)
         case .satellite: .hybrid(elevation: .realistic, pointsOfInterest: .excludingAll, showsTraffic: true)
         case .night: .standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll, showsTraffic: true)
@@ -149,7 +154,11 @@ struct DriveView: View {
     }
 
     /// Larghezza della fascia del percorso: più larga nella vista 3D da vicino
-    private var wide: CGFloat { style == .guide ? 14 : 10 }
+    private var wide: CGFloat { style == .guide ? 18 : 10 }
+    /// Colori del percorso: nella Guida 3D una fascia verde smeraldo luminosa, nelle altre blu
+    private var routeFill: Color { style == .guide ? Color(hex: 0x1ED67F) : Color(hex: 0x2F7BFF) }
+    private var routeEdge: Color { style == .guide ? Color(hex: 0x0A7A44) : Color(hex: 0x0B2F73) }
+    private var routeShine: Color { style == .guide ? Color(hex: 0xC8FFE2) : Color(hex: 0x9CCBFF) }
 
     /// La camera dietro l'auto: più lontana quando vai veloce, inclinata come un navigatore
     private func follow(animated: Bool) {
@@ -176,6 +185,77 @@ struct DriveView: View {
         movedByUs = Date()
         currentHeading = 0
         withAnimation { camera = .region(r) }
+    }
+
+    // MARK: Guida 3D: velocità, prossimo semaforo, barra del percorso con le ZTL
+
+    private var guideOverlay: some View {
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 10) {
+                // La velocità in un cerchio bianco, numeri blu
+                VStack(spacing: -2) {
+                    Text("\(Int(drive.speed.rounded()))").font(.system(size: 26, weight: .heavy, design: .rounded)).monospacedDigit()
+                        .foregroundStyle(Color(hex: 0x2F6FE4))
+                    Text("km/h").font(.system(size: 10, weight: .semibold)).foregroundStyle(Color(hex: 0x5D6670))
+                }
+                .frame(width: 66, height: 66)
+                .background(.white, in: Circle())
+                .overlay(Circle().stroke(Color(hex: 0x2F6FE4).opacity(0.25), lineWidth: 3))
+                .shadow(color: .black.opacity(0.2), radius: 6, y: 2)
+                // Il prossimo semaforo
+                if let d = drive.nextSignal, d < 900 {
+                    HStack(spacing: 6) {
+                        TrafficLightView(compact: true)
+                        Text(DriveSession.distanceText(d)).font(.system(size: 15, weight: .bold, design: .rounded)).monospacedDigit()
+                            .foregroundStyle(.white)
+                    }
+                    .padding(.horizontal, 10).padding(.vertical, 6)
+                    .background(Color(hex: 0x2A323D).opacity(0.92), in: Capsule())
+                    .shadow(color: .black.opacity(0.2), radius: 4, y: 2)
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel(String(format: L("Traffic light in %@"), DriveSession.distanceText(d)))
+                }
+            }
+            Spacer()
+            routeProgressBar
+        }
+        .padding(.horizontal, 12)
+        .padding(.top, 190)
+        .allowsHitTesting(false)
+    }
+
+    /// La barra verticale del viaggio: verde la strada libera, rossa/gialla dove passi in una ZTL attiva, l'auto dove sei
+    private var routeProgressBar: some View {
+        let total = max(drive.routeLength, 1)
+        let height: CGFloat = 300
+        let segments: [(from: Double, to: Double, color: Color)] = drive.crossings.compactMap { c in
+            guard let e = c.entry else { return nil }
+            let start = max(0, total - PathMath.remaining(from: e, along: drive.path))
+            let color: Color = switch c.answer.verdict {
+            case .no: Color(hex: 0xFF3B30)
+            case .yes: Color(hex: 0x1ED67F)
+            default: Color(hex: 0xFFB800)
+            }
+            return (start, min(total, start + 600), color)
+        }
+        return ZStack(alignment: .bottom) {
+            Capsule().fill(Color(hex: 0x1ED67F)).frame(width: 8, height: height)
+            ForEach(Array(segments.enumerated()), id: \.offset) { _, s in
+                Capsule().fill(s.color)
+                    .frame(width: 8, height: max(8, height * CGFloat((s.to - s.from) / total)))
+                    .offset(y: -height * CGFloat(s.from / total))
+            }
+            // il tratto già fatto, grigio, dal basso
+            Capsule().fill(Color(hex: 0xB9C0C8)).frame(width: 8, height: height * CGFloat(min(1, drive.done / total)))
+            Image(systemName: "location.north.circle.fill")
+                .font(.system(size: 18)).foregroundStyle(.white, Color(hex: 0x2F6FE4))
+                .offset(y: -height * CGFloat(min(1, drive.done / total)) + 9)
+        }
+        .frame(width: 22, height: height, alignment: .bottom)
+        .padding(.vertical, 6)
+        .background(.white.opacity(0.75), in: Capsule())
+        .shadow(color: .black.opacity(0.15), radius: 4, y: 1)
+        .accessibilityHidden(true)
     }
 
     // MARK: Pannelli
@@ -213,7 +293,7 @@ struct DriveView: View {
         }
         .foregroundStyle(.white)
         .frame(maxWidth: .infinity)
-        .background(drive.arrived ? Theme.green : Color(hex: 0x1D4FA8))
+        .background(drive.arrived ? Theme.green : (style == .guide ? Color(hex: 0x2A323D) : Color(hex: 0x1D4FA8)))
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
         .shadow(color: .black.opacity(0.25), radius: 10, y: 4)
         .accessibilityElement(children: .combine)

@@ -318,6 +318,8 @@ T = {
 "Rental car: you'll know the plate only at pick-up. Add it in Garage then, and send the message to the hotel straight away.": ("Auto a noleggio: la targa la sai solo al ritiro. Aggiungila nel Garage in quel momento e manda subito il messaggio all'hotel.", "Mietwagen: Das Kennzeichen kennst du erst bei der Abholung. Trag es dann in der Garage ein und schick sofort die Nachricht ans Hotel."),
 "Leave now for %@": ("Parti ora per %@", "Jetzt losfahren nach %@"),
 # 1.9 Navigatore
+"Traffic light": ("Semaforo", "Ampel"),
+"Traffic light in %@": ("Semaforo tra %@", "Ampel in %@"),
 "Better voice: download a Premium or Enhanced voice": ("Voce migliore: scarica una voce Premium o Avanzata", "Bessere Stimme: eine Premium- oder erweiterte Stimme laden"),
 "For clearer street names: Settings → Accessibility → Spoken Content → Voices → your language → a Premium or Enhanced voice (e.g. Alice). GateLR uses the best one installed.": ("Per nomi delle vie più chiari: Impostazioni → Accessibilità → Contenuto letto ad alta voce → Voci → la tua lingua → una voce Premium o Avanzata (es. Alice). GateLR usa la migliore installata.", "Für deutlichere Straßennamen: Einstellungen → Bedienungshilfen → Gesprochene Inhalte → Stimmen → deine Sprache → eine Premium- oder erweiterte Stimme. GateLR nutzt die beste installierte."),
 "Vehicle on the map": ("Veicolo sulla mappa", "Fahrzeug auf der Karte"),

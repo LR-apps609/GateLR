@@ -28,6 +28,10 @@ targets:
       - path: Resources/Cities
         type: folder
         buildPhase: resources
+      # Semafori lungo le strade (OpenStreetMap, ODbL): disegnati nella vista «Guida 3D»
+      - path: Resources/Signals
+        type: folder
+        buildPhase: resources
       # Regole valide in tutta Italia (multe), le stesse del sito
       - path: Resources/Rules
         type: folder
