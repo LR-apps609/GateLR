@@ -30,7 +30,8 @@ android {
 
     buildTypes {
         release {
-            if (keystore != null) signingConfig = signingConfigs.getByName("store")
+            // Senza chiave degli store si firma con quella di prova: così il giro sull'emulatore prova proprio la versione ottimizzata
+            signingConfig = if (keystore != null) signingConfigs.getByName("store") else signingConfigs.getByName("debug")
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }

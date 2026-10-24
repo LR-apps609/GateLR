@@ -2,7 +2,9 @@
 # Giro di prova sull'emulatore: installa l'APK, apre ogni scheda, fa le foto e controlla che l'app non si chiuda.
 set -u
 OUT=${1:-shots}; mkdir -p "$OUT"
-APK=$(ls android/app/build/outputs/apk/debug/*.apk | head -1)
+APK=$(ls android/app/build/outputs/apk/release/*.apk 2>/dev/null | head -1)
+[ -n "$APK" ] || APK=$(ls android/app/build/outputs/apk/debug/*.apk | head -1)
+echo "::notice::Provo $APK"
 adb install -r -g "$APK"
 adb shell pm grant app.gatelr android.permission.ACCESS_FINE_LOCATION || true
 adb shell pm grant app.gatelr android.permission.POST_NOTIFICATIONS || true

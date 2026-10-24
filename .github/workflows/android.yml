@@ -53,7 +53,7 @@ jobs:
           GATELR_KEY_PASSWORD: ${{ secrets.GATELR_KEY_PASSWORD }}
         run: |
           if [ -z "$KEYSTORE_B64" ]; then
-            echo "::notice::Firma non configurata: versione store compilata senza firma, solo per prova (vedi docs/android-store.md)"
+            echo "::notice::Firma degli store non configurata: versione ottimizzata firmata con la chiave di prova (vedi docs/android-store.md)"
             gradle -p android :app:assembleRelease --no-daemon; exit 0
           fi
           echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/gatelr.jks"
