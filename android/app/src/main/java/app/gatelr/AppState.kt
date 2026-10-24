@@ -29,6 +29,10 @@ import java.util.Locale
 @kotlinx.serialization.Serializable
 data class LogEntry(val date: Long, val kind: String, val zoneId: String, val zoneName: String, val verdict: String, val plate: String)
 
+/** Un viaggio salvato: il posto e l'ora d'arrivo */
+@kotlinx.serialization.Serializable
+data class SavedTrip(val id: String = java.util.UUID.randomUUID().toString(), val place: Place, val arrival: Long)
+
 /** Lo stato dell'app: città, garage, posto scelto, impostazioni. Resta sul telefono. */
 object AppState {
     lateinit var cities: List<City>
@@ -46,6 +50,8 @@ object AppState {
     var preferredNavigator by mutableStateOf("")
     var overlayOn by mutableStateOf(true)
     var log by mutableStateOf(listOf<LogEntry>())
+    var trips by mutableStateOf(listOf<SavedTrip>())
+    var tripAt by mutableStateOf<Long?>(null)         // ora d'arrivo del viaggio salvato aperto
 
     fun init(ctx: Context) {
         // Lingua: italiano, tedesco o inglese, come il telefono
@@ -68,6 +74,7 @@ object AppState {
         preferredNavigator = prefs.getString("navigator", "") ?: ""
         overlayOn = prefs.getBoolean("overlay", true)
         cityId = prefs.getString("city", cityId) ?: cityId
+        trips = prefs.getString("trips", null)?.let { runCatching { json.decodeFromString(ListSerializer(SavedTrip.serializer()), it) }.getOrNull() } ?: emptyList()
         log = prefs.getString("log", null)?.let { runCatching { json.decodeFromString(ListSerializer(LogEntry.serializer()), it) }.getOrNull() } ?: emptyList()
         zoneId = prefs.getString("zone", zoneId) ?: zoneId
     }
@@ -81,6 +88,7 @@ object AppState {
             .putString("navigator", preferredNavigator)
             .putBoolean("overlay", overlayOn)
             .putString("city", cityId)
+            .putString("trips", json.encodeToString(ListSerializer(SavedTrip.serializer()), trips))
             .putString("log", json.encodeToString(ListSerializer(LogEntry.serializer()), log))
             .putString("zone", zoneId)
             .apply()
@@ -103,8 +111,11 @@ object AppState {
     }
 
     /** Sceglie il posto: la pagina passa alla sua città e alla zona che lo contiene */
+    fun open(t: SavedTrip) { select(t.place); tripAt = t.arrival }
+
     fun select(p: Place?) {
         place = p
+        tripAt = null
         if (p == null) return
         recent = (listOf(p) + recent.filter { it.key != p.key }).take(6)
         val hit = zonesAt(cities, p.location).firstOrNull()

@@ -34,6 +34,8 @@ Telefoni da provare se li hai: uno Samsung, uno Xiaomi/Redmi, uno Huawei o Honor
 - [ ] Con il permesso confermato a Firenze, a Milano la risposta **non** diventa «Sì»
 - [ ] «Controlla il tragitto» → tempo, km, ora d'arrivo e ZTL attraversate con l'ora e la risposta
 - [ ] Widget: tieni premuto sulla schermata Home → Widget → GateLR; mostra la zona e la risposta, il colore cambia
+- [ ] «Salva questo viaggio» → in Viaggio (senza ricerca) compare tra i «Viaggi salvati» con data e ora; tocco lo riapre con quell'ora; «…» → Elimina
+- [ ] Viaggio salvato futuro: nella prima pagina riquadro «Il tuo prossimo viaggio»
 - [ ] Recenti con gli ultimi posti
 
 ## 4. Guardiano 🚗

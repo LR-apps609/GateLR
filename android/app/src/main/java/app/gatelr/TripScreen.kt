@@ -38,6 +38,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Switch
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -120,6 +121,10 @@ fun TripScreen(modifier: Modifier) {
                         color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f))
                 }
             }
+            if (AppState.trips.isNotEmpty()) {
+                item { SectionLabel("Saved trips") }
+                items(AppState.trips.sortedBy { it.arrival }, key = { it.id }) { t -> TripRow(t) }
+            }
             if (AppState.recent.isNotEmpty()) {
                 item { SectionLabel("Recent") }
                 items(AppState.recent, key = { it.key }) { p -> PlaceRow(p, recent = true) { AppState.select(p) } }
@@ -148,7 +153,9 @@ private fun TripAnswer(p: Place) {
     val ctx = LocalContext.current
     var arrival by remember(p.key) { mutableStateOf(Arrival.NOW) }
     val nowZ = ZonedDateTime.now(ROME).also { rememberNow() }
-    val at = arrival.at(nowZ)
+    // Viaggio salvato aperto: vale la sua ora d'arrivo finché non scegli un'altra opzione
+    var saved by remember(p.key, AppState.tripAt) { mutableStateOf(AppState.tripAt) }
+    val at = saved?.let { java.time.Instant.ofEpochMilli(it).atZone(ROME) } ?: arrival.at(nowZ)
     val zone = zonesAt(AppState.cities, p.location).minByOrNull { it.second.roughArea }?.second
     val pedestrian = pedestrianAreaAt(AppState.cities, p.location)
     var hotelInside by remember(p.key) { mutableStateOf(false) }
@@ -160,7 +167,8 @@ private fun TripAnswer(p: Place) {
             if (p.address.isNotEmpty()) Text(p.address, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f))
         }
         Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            Arrival.entries.forEach { a -> FilterChip(selected = arrival == a, onClick = { arrival = a }, label = { Text(L(a.label), fontSize = 12.sp) }) }
+            saved?.let { s -> FilterChip(selected = true, onClick = {}, label = { Text(shortWhen(s), fontSize = 12.sp) }) }
+            Arrival.entries.forEach { a -> FilterChip(selected = saved == null && arrival == a, onClick = { saved = null; arrival = a }, label = { Text(L(a.label), fontSize = 12.sp) }) }
         }
 
         when {
@@ -170,7 +178,7 @@ private fun TripAnswer(p: Place) {
                 Text(L("Cars can't drive here. Park outside and walk."), color = androidx.compose.ui.graphics.Color.White)
             }
             zone != null && answer != null -> {
-                VerdictCard(answer, if (arrival == Arrival.NOW) L("Now") else F("Arriving %@", AppState.engine.describe(at.toInstant(), nowZ.toInstant())), onWhy = { Nav.zone = zone })
+                VerdictCard(answer, if (saved == null && arrival == Arrival.NOW) L("Now") else F("Arriving %@", AppState.engine.describe(at.toInstant(), nowZ.toInstant())), onWhy = { Nav.zone = zone })
                 Text(zone.localizedName, fontSize = 13.sp, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f), modifier = Modifier.clickable { Nav.zone = zone })
             }
             else -> {
@@ -190,8 +198,13 @@ private fun TripAnswer(p: Place) {
         if (zone != null && zone.hotelCanRegister && pedestrian == null) {
             HotelBox(p, zone, at, hotelInside) { hotelInside = it }
         }
-        RouteBox(p, if (arrival == Arrival.NOW) null else at)
+        RouteBox(p, if (saved == null && arrival == Arrival.NOW) null else at)
         StartButtons(p)
+        // Salva il viaggio con l'ora d'arrivo scelta (adesso → si salva l'ora di adesso)
+        val already = AppState.trips.any { it.place.key == p.key && Math.abs(it.arrival - at.toInstant().toEpochMilli()) < 60_000 }
+        TextButton(onClick = {
+            AppState.trips = AppState.trips + SavedTrip(place = p, arrival = at.toInstant().toEpochMilli()); AppState.save()
+        }, enabled = !already) { Text(if (already) L("Trip saved") else L("Save this trip")) }
     }
 }
 
@@ -386,6 +399,29 @@ fun StartButtons(p: Place) {
             OutlinedButton(onClick = {
                 ctx.startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${ctx.packageName}")))
             }) { Text(L("Show the bubble over the navigator")) }
+        }
+    }
+}
+
+fun shortWhen(ms: Long): String = java.time.Instant.ofEpochMilli(ms).atZone(ROME)
+    .format(DateTimeFormatter.ofPattern("EEE d MMM · HH:mm", Locale.forLanguageTag(Strings.language)))
+
+@Composable
+private fun TripRow(t: SavedTrip) {
+    var menu by remember { mutableStateOf(false) }
+    val past = t.arrival < System.currentTimeMillis() - 24 * 3_600_000
+    CardBox(Modifier.clickable { AppState.open(t) }) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Column(Modifier.weight(1f)) {
+                Text(t.place.name, fontWeight = FontWeight.SemiBold)
+                Text(shortWhen(t.arrival) + if (past) " · " + L("Past") else "", fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+            }
+            Box {
+                IconButton(onClick = { menu = true }) { Icon(Icons.Filled.MoreHoriz, L("More")) }
+                DropdownMenu(expanded = menu, onDismissRequest = { menu = false }) {
+                    DropdownMenuItem(text = { Text(L("Delete")) }, onClick = { menu = false; AppState.trips = AppState.trips.filter { it.id != t.id }; AppState.save() })
+                }
+            }
         }
     }
 }

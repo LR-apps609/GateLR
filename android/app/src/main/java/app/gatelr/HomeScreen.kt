@@ -94,6 +94,19 @@ fun HomeScreen(modifier: Modifier) {
             }
         }
 
+        // Il prossimo viaggio salvato (fino a un giorno dopo l'arrivo)
+        AppState.trips.filter { it.arrival > System.currentTimeMillis() - 24 * 3_600_000 }.minByOrNull { it.arrival }?.let { t ->
+            item {
+                CardBox(Modifier.clickable { AppState.open(t); Nav.tab = 2 }) {
+                    Column {
+                        Text(L("Your next trip").uppercase(), fontSize = 12.sp, fontWeight = FontWeight.SemiBold, color = Palette.brass)
+                        Text(t.place.name, fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                        Text(shortWhen(t.arrival), fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                    }
+                }
+            }
+        }
+
         // La ZTL vicino a te
         item { NearYou(now) }
 
