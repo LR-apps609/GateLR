@@ -93,6 +93,7 @@ Da fare quando tutte le funzioni sono pronte, in quest'ordine:
 6. Pulizia delle parole strane: cercare in rete i termini più comuni nelle app di questo tipo (navigatori, ZTL, parcheggi) e usare quelli
 7. Più velocità nei tocchi e nelle azioni dentro l'app
 8. Grafica professionale e seria, che rappresenti la famiglia LR Apps
-9. Velocità di esecuzione e «divisione dell'audio» (da chiarire: in GateLR l'audio sono gli avvisi vocali della navigazione, fase 3.3)
-10. Controllo finale e conferma in chat, con l'elenco di tutte le modifiche fatte
-11. Checklist di tutte le azioni da provare a mano sul Mac e sull'iPhone
+9. Controllo finale e conferma in chat, con l'elenco di tutte le modifiche fatte
+10. Checklist di tutte le azioni da provare a mano sul Mac e sull'iPhone
+
+(Il punto «velocità e divisione dell'audio» era per AudioLR, non per GateLR.)

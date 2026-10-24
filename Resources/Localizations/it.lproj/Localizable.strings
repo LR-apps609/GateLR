@@ -248,3 +248,14 @@
 "Perimeters and gates: Comune di Bologna open data, CC BY 4.0" = "Perimetri e varchi: dati aperti del Comune di Bologna, CC BY 4.0";
 "Perimeters and gates: Comune di Milano open data, CC BY" = "Perimetri e varchi: dati aperti del Comune di Milano, CC BY";
 "Shows the official source" = "Mostra la fonte ufficiale";
+"Report a bug" = "Segnala un bug";
+"Bug report" = "Segnalazione di un bug";
+"Widget" = "Widget";
+"Other" = "Altro";
+"Where" = "Dove";
+"What happened? What did you expect?" = "Cosa è successo? Cosa ti aspettavi?";
+"Describe the problem" = "Descrivi il problema";
+"Add technical info" = "Aggiungi info tecniche";
+"Technical info: app version, iOS, iPhone model, language and the chosen zone. No location, no plate." = "Info tecniche: versione dell'app, iOS, modello di iPhone, lingua e zona scelta. Niente posizione, niente targa.";
+"Send by email" = "Invia per email";
+"Send" = "Invia";

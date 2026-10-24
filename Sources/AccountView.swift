@@ -6,6 +6,7 @@ import UIKit
 struct AccountView: View {
     @EnvironmentObject var store: Store
     @State private var testSent = false
+    @State private var reporting = false
 
     var body: some View {
         NavigationStack {
@@ -84,11 +85,14 @@ struct AccountView: View {
                     NavigationLink { AboutView() } label: {
                         Label("Sources, licences and disclaimer", systemImage: "info.circle")
                     }
+                    Button { reporting = true } label: { Label("Report a bug", systemImage: "ladybug") }
+                        .foregroundStyle(Theme.ink)
                     LabeledContent(L("Version"), value: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "–")
                 }
             }
             .navigationTitle("Account")
             .tint(Theme.blue)
+            .sheet(isPresented: $reporting) { BugReportView() }
         }
     }
 }

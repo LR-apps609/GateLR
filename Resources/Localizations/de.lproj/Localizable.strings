@@ -248,3 +248,14 @@
 "Perimeters and gates: Comune di Bologna open data, CC BY 4.0" = "Grenzen und Kameras: offene Daten der Stadt Bologna, CC BY 4.0";
 "Perimeters and gates: Comune di Milano open data, CC BY" = "Grenzen und Kameras: offene Daten der Stadt Mailand, CC BY";
 "Shows the official source" = "Zeigt die offizielle Quelle";
+"Report a bug" = "Fehler melden";
+"Bug report" = "Fehlerbericht";
+"Widget" = "Widget";
+"Other" = "Anderes";
+"Where" = "Wo";
+"What happened? What did you expect?" = "Was ist passiert? Was hast du erwartet?";
+"Describe the problem" = "Beschreibe das Problem";
+"Add technical info" = "Technische Infos anhängen";
+"Technical info: app version, iOS, iPhone model, language and the chosen zone. No location, no plate." = "Technische Infos: App-Version, iOS, iPhone-Modell, Sprache und gewählte Zone. Kein Standort, kein Kennzeichen.";
+"Send by email" = "Per E-Mail senden";
+"Send" = "Senden";

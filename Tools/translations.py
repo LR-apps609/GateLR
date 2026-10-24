@@ -166,6 +166,13 @@ T = {
 "Perimeters and gates: Comune di Bologna open data, CC BY 4.0": ("Perimetri e varchi: dati aperti del Comune di Bologna, CC BY 4.0", "Grenzen und Kameras: offene Daten der Stadt Bologna, CC BY 4.0"),
 "Perimeters and gates: Comune di Milano open data, CC BY": ("Perimetri e varchi: dati aperti del Comune di Milano, CC BY", "Grenzen und Kameras: offene Daten der Stadt Mailand, CC BY"),
 "Shows the official source": ("Mostra la fonte ufficiale", "Zeigt die offizielle Quelle"),
+# Segnala un bug
+"Report a bug": ("Segnala un bug", "Fehler melden"), "Bug report": ("Segnalazione di un bug", "Fehlerbericht"),
+"Widget": ("Widget", "Widget"), "Other": ("Altro", "Anderes"), "Where": ("Dove", "Wo"),
+"What happened? What did you expect?": ("Cosa è successo? Cosa ti aspettavi?", "Was ist passiert? Was hast du erwartet?"),
+"Describe the problem": ("Descrivi il problema", "Beschreibe das Problem"), "Add technical info": ("Aggiungi info tecniche", "Technische Infos anhängen"),
+"Technical info: app version, iOS, iPhone model, language and the chosen zone. No location, no plate.": ("Info tecniche: versione dell'app, iOS, modello di iPhone, lingua e zona scelta. Niente posizione, niente targa.", "Technische Infos: App-Version, iOS, iPhone-Modell, Sprache und gewählte Zone. Kein Standort, kein Kennzeichen."),
+"Send by email": ("Invia per email", "Per E-Mail senden"), "Send": ("Invia", "Senden"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
