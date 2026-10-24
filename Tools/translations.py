@@ -232,6 +232,7 @@ T = {
 "Low-emission zones": ("Zone a basse emissioni", "Umweltzonen"),
 "In zones like Milan's Area B the question isn't the time but your car: the most polluting Euro classes can't enter on weekdays. Set your car in Garage and GateLR checks it for you.": ("In zone come l'Area B di Milano non conta l'ora ma la tua auto: le classi Euro più inquinanti non entrano nei feriali. Imposta l'auto nel Garage e GateLR la controlla per te.", "In Zonen wie der Area B in Mailand zählt nicht die Uhrzeit, sondern dein Auto: Die umweltschädlichsten Euro-Klassen dürfen werktags nicht hinein. Trag dein Auto in der Garage ein und GateLR prüft es für dich."),
 "It's a pedestrian area: cars can't drive in at any time, whatever the ZTL hours.": ("È un'area pedonale: le auto non possono entrare a nessuna ora, qualunque sia l'orario della ZTL.", "Es ist eine Fußgängerzone: Autos dürfen nie hinein, egal zu welchen ZTL-Zeiten."),
+"Legend": ("Legenda", "Legende"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

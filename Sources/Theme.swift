@@ -126,7 +126,7 @@ extension ZoneKind {
         switch self {
         case .restricted: Color(light: 0xC1272D, dark: 0xEF5B55)
         case .pass: Color(light: 0xD99A00, dark: 0xF2C14E)
-        case .green: Color(light: 0x2B7A47, dark: 0x5CC27F)
+        case .green: Color(light: 0x0FA34A, dark: 0x3DDC74)
         }
     }
     var symbol: String {

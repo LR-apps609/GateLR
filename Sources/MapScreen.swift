@@ -6,6 +6,10 @@ import MapKit
 struct MapScreen: View {
     @EnvironmentObject var store: Store
     @ObservedObject private var planner = RoutePlanner.shared
+    @StateObject private var search = AddressSearch()
+    @FocusState private var typing: Bool
+    @State private var resolving = false
+    @State private var showLegend = false
     @Binding var showZone: Bool
     @Binding var tab: Tab
     @State private var camera: MapCameraPosition = .automatic
@@ -39,10 +43,6 @@ struct MapScreen: View {
         }
     }
 
-    /// Le scritte grandi («Accesso vietato») si vedono da lontano e svaniscono avvicinandosi;
-    /// le lettere dei settori fanno il contrario
-    private var bigLabelOpacity: Double { min(1, max(0, (distance - 3_500) / 3_000)) }
-    private var letterOpacity: Double { min(1, max(0, (6_500 - distance) / 2_500)) }
 
     private var mapStyle: MapStyle {
         let elevation: MapStyle.Elevation = tilted ? .realistic : .automatic
@@ -62,19 +62,19 @@ struct MapScreen: View {
                 ForEach(zones) { z in
                     let selected = z.id == zone.id
                     let tint = z.type.color
+                    // Il verde (zone a basse emissioni) pieno e ben visibile; rosso e giallo tratteggiati
                     MapPolygon(coordinates: z.perimeter.map(\.cl))
-                        .foregroundStyle(tint.opacity(selected ? 0.22 : (z.type == .green ? 0.06 : 0.12)))
-                        .stroke(tint.opacity(selected ? 1 : 0.6), style: StrokeStyle(lineWidth: selected ? 3 : 1.5, dash: z.type == .green ? [] : [8, 5]))
-                    Annotation("", coordinate: z.labelPoint, anchor: .center) {
-                        ZStack {
-                            kindLabel(z)
-                                .opacity(z.widthMeters > distance * 0.12 ? bigLabelOpacity : 0)
+                        .foregroundStyle(tint.opacity(z.type == .green ? (selected ? 0.30 : 0.20) : (selected ? 0.24 : 0.13)))
+                        .stroke(tint.opacity(selected || z.type == .green ? 1 : 0.7),
+                                style: StrokeStyle(lineWidth: z.type == .green ? 4 : (selected ? 3 : 2), dash: z.type == .green ? [] : [8, 5]))
+                    // Un solo segno piccolo per zona: lettera e colore (la legenda spiega i colori)
+                    if z.widthMeters > distance * 0.06 {
+                        Annotation("", coordinate: z.labelPoint, anchor: .center) {
                             letterBadge(z, selected: selected)
-                                .opacity(letterOpacity)
+                                .onTapGesture { withAnimation(.snappy) { select(z) } }
+                                .accessibilityLabel("\(z.localizedName), \(z.type.title)")
+                                .accessibilityAddTraits(.isButton)
                         }
-                        .onTapGesture { withAnimation(.snappy) { select(z) } }
-                        .accessibilityLabel("\(z.localizedName), \(z.type.title)")
-                        .accessibilityAddTraits(.isButton)
                     }
                 }
                 // Da vicino: aree pedonali e telecamere delle corsie bus
@@ -125,7 +125,7 @@ struct MapScreen: View {
                     }
                 }
                 if let place = store.place {
-                    Marker(place.name, systemImage: "mappin", coordinate: place.location.cl).tint(Theme.blue)
+                    Marker(place.name, systemImage: "mappin", coordinate: place.location.cl).tint(placeTint(place))
                 }
                 ForEach(parkings) { p in
                     Annotation(p.name, coordinate: p.coordinate) {
@@ -159,7 +159,12 @@ struct MapScreen: View {
             }
         }
         .safeAreaInset(edge: .top) { topBar }
-        .safeAreaInset(edge: .bottom) { sheet(zone: zone, answer: answer) }
+        .safeAreaInset(edge: .bottom) {
+            if !typing {
+                if let place = store.place { placeSheet(place) } else { sheet(zone: zone, answer: answer) }
+            }
+        }
+        .onAppear { search.focus(on: store.city) }
         .onAppear { focus() }
         .onChange(of: store.cityId) { parkings = []; focus() }
         .onChange(of: store.place) { focus() }
@@ -200,66 +205,72 @@ struct MapScreen: View {
             if let plan = planner.plan, plan.destination == store.place, let r = Self.region(plan.path) {
                 camera = .region(r)
             } else if let place = store.place {
-                camera = .region(MKCoordinateRegion(center: place.location.cl, latitudinalMeters: 1_600, longitudinalMeters: 1_600))
+                camera = .camera(MapCamera(centerCoordinate: place.location.cl, distance: 1_500, heading: 0, pitch: 0))
             } else {
                 camera = .region(store.zone.region(padding: 1.4))
             }
         }
     }
 
-    private func kindLabel(_ z: Zone) -> some View {
-        HStack(spacing: 6) {
-            Image(systemName: z.type.symbol).font(.system(size: 13, weight: .bold))
-            Text(z.type.title.uppercased()).font(Theme.display(15)).tracking(0.6).lineLimit(1)
-        }
-        .foregroundStyle(.white)
-        .padding(.horizontal, 12).padding(.vertical, 6)
-        .background(z.type.color, in: Capsule())
-        .overlay(Capsule().stroke(.white.opacity(0.9), lineWidth: 1.5))
-        .shadow(color: .black.opacity(0.18), radius: 4, y: 2)
-        .fixedSize()
-    }
-
     private func letterBadge(_ z: Zone, selected: Bool) -> some View {
         let tint = z.type.color
-        return Text(z.letter)
-            .font(Theme.display(selected ? 18 : 14))
+        let size: CGFloat = selected ? 32 : 26
+        return Text(z.letter.count > 2 ? String(z.letter.prefix(1)) : z.letter)
+            .font(Theme.display(selected ? 17 : 14))
             .lineLimit(1).minimumScaleFactor(0.5)
-            .foregroundStyle(selected ? .white : tint)
-            .frame(width: selected ? 30 : 24, height: selected ? 30 : 24)
-            .background(selected ? tint : Color.white.opacity(0.92), in: Circle())
-            .overlay(Circle().stroke(tint, lineWidth: 1.5))
+            .foregroundStyle(.white)
+            .frame(width: size, height: size)
+            .background(tint, in: Circle())
+            .overlay(Circle().stroke(.white, lineWidth: selected ? 3 : 2))
+            .shadow(color: .black.opacity(0.25), radius: 3, y: 1)
     }
 
     private var topBar: some View {
-        HStack(spacing: 8) {
-            ScrollView(.horizontal, showsIndicators: false) {
+        VStack(spacing: 8) {
+            HStack(spacing: 8) {
                 HStack(spacing: 8) {
-                    ForEach(ZoneKind.allCases, id: \.self) { k in
-                        legendItem(k.title, RoundedRectangle(cornerRadius: 3).fill(k.color))
+                    Image(systemName: "magnifyingglass").foregroundStyle(Theme.muted)
+                    TextField(String(format: L("Address or hotel in %@"), store.city.localizedName), text: $search.query)
+                        .focused($typing).autocorrectionDisabled().submitLabel(.search)
+                        .accessibilityIdentifier("map.search")
+                    if resolving { ProgressView() }
+                    if !search.query.isEmpty || store.place != nil {
+                        Button { search.clear(); store.place = nil; typing = false; focus() } label: {
+                            Image(systemName: "xmark.circle.fill").foregroundStyle(Theme.muted)
+                        }
+                        .accessibilityLabel(L("Clear"))
                     }
-                    legendItem(L("Camera on"), Circle().fill(Theme.red))
-                    legendItem(L("Camera off"), Circle().fill(Theme.green))
-                    legendItem(L("Pedestrian area"), RoundedRectangle(cornerRadius: 3).fill(Theme.red.opacity(0.4)))
-                    legendItem(L("Bus lane camera"), RoundedRectangle(cornerRadius: 3).fill(Theme.blueFill))
                 }
-            }
-            Menu {
-                Picker(L("Map style"), selection: $style) {
-                    ForEach(Style.allCases) { Label($0.title, systemImage: $0.symbol).tag($0) }
+                .font(.system(size: 16))
+                .padding(.horizontal, 12).frame(height: 44)
+                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                Button { withAnimation(.snappy) { showLegend.toggle() } } label: {
+                    Image(systemName: "info").font(.system(size: 16, weight: .bold))
+                        .frame(width: 44, height: 44).background(.regularMaterial, in: Circle()).foregroundStyle(Theme.ink)
                 }
-                Toggle(isOn: $tilted.animation()) { Label("3D buildings", systemImage: "building.2") }
-                Button { Task { await openLookAround() } } label: { Label("Street view", systemImage: "binoculars") }
-            } label: {
-                Image(systemName: "square.3.layers.3d")
-                    .font(.system(size: 16, weight: .semibold))
-                    .frame(width: 40, height: 40)
-                    .background(.regularMaterial, in: Circle())
-                    .foregroundStyle(Theme.ink)
+                .accessibilityLabel(L("Legend"))
+                Menu {
+                    Picker(L("Map style"), selection: $style) {
+                        ForEach(Style.allCases) { Label($0.title, systemImage: $0.symbol).tag($0) }
+                    }
+                    Toggle(isOn: $tilted.animation()) { Label("3D buildings", systemImage: "building.2") }
+                    Button { Task { await openLookAround() } } label: { Label("Street view", systemImage: "binoculars") }
+                } label: {
+                    Image(systemName: "square.3.layers.3d")
+                        .font(.system(size: 16, weight: .semibold))
+                        .frame(width: 44, height: 44)
+                        .background(.regularMaterial, in: Circle())
+                        .foregroundStyle(Theme.ink)
+                }
+                .accessibilityLabel(L("Map style"))
             }
-            .accessibilityLabel(L("Map style"))
+            if typing && !search.query.isEmpty {
+                suggestions
+            } else if showLegend {
+                legend.transition(.opacity.combined(with: .move(edge: .top)))
+            }
         }
-        .padding(.horizontal, 16).padding(.top, 8)
+        .padding(.horizontal, 12).padding(.top, 8)
         .onChange(of: tilted) {
             guard let center else { return }
             withAnimation {
@@ -268,12 +279,121 @@ struct MapScreen: View {
         }
     }
 
-    private func legendItem(_ text: String, _ mark: some View) -> some View {
-        HStack(spacing: 6) { mark.frame(width: 10, height: 10); Text(text) }
-            .font(.system(size: 13, weight: .semibold))
+    private var legend: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            ForEach(ZoneKind.allCases, id: \.self) { k in
+                legendRow(k.title, RoundedRectangle(cornerRadius: 3).fill(k.color))
+            }
+            legendRow(L("Pedestrian area"), RoundedRectangle(cornerRadius: 3).fill(Theme.red.opacity(0.4)))
+            legendRow(L("Camera on"), Circle().fill(Theme.red))
+            legendRow(L("Camera off"), Circle().fill(Theme.green))
+            legendRow(L("Bus lane camera"), RoundedRectangle(cornerRadius: 3).fill(Theme.blueFill))
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    }
+
+    private func legendRow(_ text: String, _ mark: some View) -> some View {
+        HStack(spacing: 10) { mark.frame(width: 14, height: 14); Text(text).font(.system(size: 14, weight: .medium)) }
             .foregroundStyle(Theme.ink)
-            .padding(.horizontal, 12).frame(height: 32)
-            .background(.regularMaterial, in: Capsule())
+    }
+
+    private var suggestions: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            if search.results.isEmpty {
+                Text(search.failed ? L("Search isn't working right now. Check your connection.") : L("Keep typing…"))
+                    .font(.system(size: 14)).foregroundStyle(Theme.muted).padding(14)
+            }
+            ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
+                Button {
+                    Task {
+                        resolving = true
+                        if let place = await search.resolve(r) {
+                            store.select(place)
+                            search.query = ""
+                            typing = false
+                        }
+                        resolving = false
+                    }
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: "mappin.circle.fill").font(.system(size: 22)).foregroundStyle(Theme.red)
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(r.title).font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
+                            if !r.subtitle.isEmpty { Text(r.subtitle).font(.system(size: 13)).foregroundStyle(Theme.muted).lineLimit(1) }
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal, 14).padding(.vertical, 10).contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("map.result.\(i)")
+                if i < search.results.count - 1 { Divider().padding(.leading, 48) }
+            }
+        }
+        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    }
+
+    /// Il colore dello spillo: verde se si entra, rosso se no, giallo con condizioni
+    private func placeTint(_ place: Place) -> Color {
+        guard let z = store.zones(at: place.location).first?.zone else { return Theme.green }
+        if store.pedestrianArea(at: place.location) != nil { return Theme.red }
+        switch store.answer(zone: z, hotelInside: false).verdict {
+        case .yes: return Theme.green
+        case .no: return Theme.red
+        case .conditional: return Color(hex: 0xD99A00)
+        case .unsure: return Theme.muted
+        }
+    }
+
+    /// La scheda del posto cercato: dov'è, in che zona, se adesso si entra
+    private func placeSheet(_ place: Place) -> some View {
+        let hit = store.zones(at: place.location).first
+        let pedestrian = store.pedestrianArea(at: place.location)
+        let answer = hit.map { store.answer(zone: $0.zone, hotelInside: false) }
+        return VStack(alignment: .leading, spacing: 12) {
+            HStack(alignment: .top, spacing: 12) {
+                Image(systemName: "mappin.circle.fill").font(.system(size: 30)).foregroundStyle(placeTint(place))
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(place.name).font(Theme.display(21)).lineLimit(2).foregroundStyle(Theme.ink)
+                    Text(pedestrian.map { String(format: L("Pedestrian area · %@"), $0.name) }
+                         ?? hit.map { "\($0.zone.type.title) · \($0.zone.shortName)" } ?? L("Outside the ZTL"))
+                        .font(.system(size: 14)).foregroundStyle(Theme.muted)
+                }
+                Spacer()
+                if pedestrian != nil {
+                    Pill(text: L("Don't enter"), fill: Verdict.no(reason: "").pillFill, ink: Verdict.no(reason: "").pillInk)
+                } else if let answer {
+                    VerdictPill(verdict: answer.verdict)
+                } else {
+                    Pill(text: L("You can enter"), fill: Theme.greenSoft, ink: Theme.greenInk)
+                }
+            }
+            if let answer, pedestrian == nil {
+                Text(Self.detail(answer.verdict)).font(.system(size: 14)).foregroundStyle(Theme.ink).lineLimit(3)
+            }
+            HStack(spacing: 10) {
+                if hit != nil {
+                    WideButton(title: "Zone details", systemImage: "doc.text") {
+                        if let hit { store.cityId = hit.city.id; store.zoneId = hit.zone.id }
+                        showZone = true
+                    }
+                }
+                WideButton(title: "Check the drive", systemImage: "car.fill", prominent: hit == nil) { tab = .varco }
+            }
+        }
+        .padding(18)
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .shadow(color: .black.opacity(0.12), radius: 12, y: -2)
+        .padding(.horizontal, 8).padding(.bottom, 8)
+    }
+
+    private static func detail(_ v: Verdict) -> String {
+        switch v {
+        case .yes(let r), .no(let r), .unsure(let r): r
+        case .conditional(let r, let c): "\(r) \(c)"
+        }
     }
 
     /// Look Around di Apple: dove c'è (molte città italiane), la vista a livello strada del centro della mappa
