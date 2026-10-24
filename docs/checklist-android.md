@@ -30,6 +30,8 @@ Telefoni da provare se li hai: uno Samsung, uno Xiaomi/Redmi, uno Huawei o Honor
 - [ ] «Piazza Maggiore Bologna» → riquadro rosso Area pedonale
 - [ ] Hotel dentro la ZTL di Firenze: interruttore «Registrazione dell'hotel» → notti, messaggio IT/EN/DE, «Manda all'hotel» apre WhatsApp/Mail…
 - [ ] «Confermato» → nel Garage compare il permesso e la risposta diventa «Sì»
+- [ ] «Controlla il tragitto» → tempo, km, ora d'arrivo e ZTL attraversate con l'ora e la risposta
+- [ ] Widget: tieni premuto sulla schermata Home → Widget → GateLR; mostra la zona e la risposta, il colore cambia
 - [ ] Recenti con gli ultimi posti
 
 ## 4. Guardiano 🚗
@@ -45,6 +47,8 @@ Telefoni da provare se li hai: uno Samsung, uno Xiaomi/Redmi, uno Huawei o Honor
 - [ ] «Dove può andare la tua auto» (diesel Euro 5: Area B e C in rosso)
 - [ ] Navigatore preferito: mostra solo quelli installati
 - [ ] «Segnala un bug» apre la mail con modello del telefono e versione
+- [ ] Account → Impara → «Leggi il cartello»: foto del pannello o testo «7.30-20.00 feriali» → spiegazione e «attiva adesso?»
+- [ ] Account → Impara → «Ho preso una multa?»: 7 passi
 
 ## 6. Lingue e tema
 - [ ] Telefono in italiano: nessuna parola inglese; in tedesco idem

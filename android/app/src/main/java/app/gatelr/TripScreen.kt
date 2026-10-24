@@ -22,6 +22,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.DirectionsCar
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material.icons.filled.Navigation
@@ -44,6 +45,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
+import app.gatelr.core.RouteCheck
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -187,7 +191,68 @@ private fun TripAnswer(p: Place) {
         if (zone != null && zone.hotelCanRegister && pedestrian == null) {
             HotelBox(p, zone, at, hotelInside) { hotelInside = it }
         }
+        RouteBox(p, if (arrival == Arrival.NOW) null else at)
         StartButtons(p)
+    }
+}
+
+/** «Controlla il tragitto»: tempo, km, ZTL attraversate con l'ora del passaggio e la risposta */
+@Composable
+private fun RouteBox(p: Place, arrival: ZonedDateTime?) {
+    var working by remember(p.key) { mutableStateOf(false) }
+    var error by remember(p.key) { mutableStateOf<String?>(null) }
+    var route by remember(p.key) { mutableStateOf<Router.Route?>(null) }
+    val scope = rememberCoroutineScope()
+    val r = route
+    if (r == null) {
+        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            OutlinedButton(onClick = {
+                val from = Here.coordinate
+                if (from == null) { error = L("Couldn't find your position. Allow location access to plan the drive."); return@OutlinedButton }
+                working = true; error = null
+                scope.launch {
+                    val got = Router.drive(from, p.location)
+                    working = false
+                    if (got == null) error = L("Couldn't plan the drive right now. Check your connection.") else route = got
+                }
+            }, enabled = !working, modifier = Modifier.fillMaxWidth()) {
+                Icon(Icons.Filled.DirectionsCar, null); Spacer(Modifier.width(8.dp)); Text(if (working) L("Planning…") else L("Check the drive"))
+            }
+            error?.let { Text(it, fontSize = 13.sp, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)) }
+        }
+        return
+    }
+    // Partenza: adesso, oppure all'ora giusta per arrivare quando hai scelto
+    val departure = arrival?.toInstant()?.minusSeconds(r.seconds.toLong()) ?: Instant.now()
+    val crossings = remember(r, departure.epochSecond / 60) {
+        RouteCheck.crossings(RouteCheck.densify(r.path), AppState.cities.flatMap { it.zones }, departure, r.seconds) { z, t -> AppState.answer(z, t) }
+    }
+    val tf = DateTimeFormatter.ofPattern("HH:mm")
+    fun hm(i: Instant) = i.atZone(ROME).format(tf)
+    CardBox {
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(verticalAlignment = Alignment.Bottom) {
+                val min = (r.seconds / 60).toInt()
+                Text(if (min >= 60) "${min / 60} h ${min % 60} min" else "$min min", fontSize = 26.sp, fontWeight = FontWeight.Bold)
+                Spacer(Modifier.width(10.dp))
+                Text(String.format(Locale.getDefault(), "%.1f km", r.meters / 1000), color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                Spacer(Modifier.weight(1f))
+                Text(F("Arrive %@", hm(departure.plusSeconds(r.seconds.toLong()))), fontWeight = FontWeight.SemiBold)
+            }
+            if (crossings.isEmpty()) Text(L("No ZTL on the way."), color = Palette.green, fontWeight = FontWeight.SemiBold)
+            crossings.forEach { c ->
+                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { Nav.zone = c.zone }) {
+                    Column(Modifier.weight(1f)) {
+                        Text(c.zone.shortName, fontWeight = FontWeight.SemiBold)
+                        Text(if (c.isDestination) F("Destination · at %@", hm(c.at)) else F("On the way · at %@", hm(c.at)), fontSize = 12.sp,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                    }
+                    VerdictPill(c.answer.verdict)
+                }
+            }
+            if (crossings.any { !it.isDestination && it.answer.verdict !is Verdict.Yes })
+                Text(L("A zone on the way is active: your navigator may route you through it. Watch the signs and avoid the gates."), fontSize = 13.sp, color = Palette.amber)
+        }
     }
 }
 

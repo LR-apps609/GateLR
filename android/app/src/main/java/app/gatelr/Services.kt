@@ -116,3 +116,22 @@ object HotelMessage {
 }
 
 val ROME: ZoneId = app.gatelr.core.RuleEngine.ROME
+
+/** Il percorso in auto (OSRM, dati OpenStreetMap): serve solo a dire quali ZTL attraversi e a che ora */
+object Router {
+    data class Route(val path: List<Coordinate>, val meters: Double, val seconds: Double)
+    private val json = Json { ignoreUnknownKeys = true }
+
+    suspend fun drive(from: Coordinate, to: Coordinate): Route? = withContext(Dispatchers.IO) {
+        runCatching {
+            val url = URL("https://router.project-osrm.org/route/v1/driving/${from.lon},${from.lat};${to.lon},${to.lat}?overview=full&geometries=geojson")
+            val c = url.openConnection() as HttpURLConnection
+            c.connectTimeout = 10000; c.readTimeout = 15000
+            c.setRequestProperty("User-Agent", "GateLR-Android/0.1")
+            val o = json.parseToJsonElement(c.inputStream.bufferedReader().use { it.readText() }).jsonObject
+            val r = o["routes"]!!.jsonArray.first().jsonObject
+            val pts = r["geometry"]!!.jsonObject["coordinates"]!!.jsonArray.map { p -> val a = p.jsonArray; Coordinate(a[1].jsonPrimitive.double, a[0].jsonPrimitive.double) }
+            Route(pts, r["distance"]!!.jsonPrimitive.double, r["duration"]!!.jsonPrimitive.double)
+        }.getOrNull()
+    }
+}
