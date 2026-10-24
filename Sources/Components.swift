@@ -96,7 +96,7 @@ struct VerdictCard: View {
             HStack {
                 Text(heading.uppercased()).font(Theme.label(13)).tracking(1.1).opacity(0.9)
                 Spacer()
-                Pill(text: answer.gatesOn ? L("Gates on") : L("Gates off"), fill: v.onFill.opacity(0.16), ink: v.onFill)
+                Pill(text: answer.gatesOn ? L("ZTL active") : L("ZTL not active"), fill: v.onFill.opacity(0.16), ink: v.onFill)
             }
             HStack(spacing: 14) {
                 Image(systemName: v.symbol)
@@ -158,9 +158,9 @@ struct VerdictCard: View {
                 .accessibilityHidden(true)
             }
             HStack {
-                if let since { Text(String(format: L(answer.gatesOn ? "On since %@" : "Off since %@"), since.formatted(date: .omitted, time: .shortened))) }
+                if let since { Text(String(format: L(answer.gatesOn ? "Active since %@" : "Not active since %@"), since.formatted(date: .omitted, time: .shortened))) }
                 Spacer()
-                Text(String(format: L(answer.gatesOn ? "Off in %@" : "On in %@"), Self.duration(left)))
+                Text(String(format: L(answer.gatesOn ? "Ends in %@" : "Starts in %@"), Self.duration(left)))
             }
             .font(.system(size: 12.5, weight: .medium)).opacity(0.9).monospacedDigit()
         }

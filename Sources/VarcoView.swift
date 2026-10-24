@@ -277,7 +277,7 @@ struct VarcoView: View {
         let on = zones.filter { store.answer(at: date, zone: $0).gatesOn }.count
         VStack(alignment: .leading, spacing: 4) {
             Text(store.city.localizedName).font(Theme.display(34)).foregroundStyle(Theme.ink)
-            Text(on == 0 ? L("All gates are off right now.") : String(format: L("%lld of %lld zones have the gates on."), on, zones.count))
+            Text(on == 0 ? L("No ZTL is active right now.") : String(format: L("%lld of %lld zones are active now."), on, zones.count))
                 .font(.system(size: 15)).foregroundStyle(Theme.muted)
         }
         zoneList(zones, at: date)
@@ -302,7 +302,7 @@ struct VarcoView: View {
                             .foregroundStyle(z.type.color)
                         VStack(alignment: .leading, spacing: 1) {
                             Text(z.localizedName).font(.system(size: 15)).foregroundStyle(Theme.ink).lineLimit(1)
-                            Text("\(z.type.title) · \(a.gatesOn ? L("Gates on") : L("Gates off"))")
+                            Text("\(z.type.title) · \(a.gatesOn ? L("ZTL active") : L("ZTL not active"))")
                                 .font(.system(size: 12)).foregroundStyle(Theme.muted)
                         }
                         Spacer()

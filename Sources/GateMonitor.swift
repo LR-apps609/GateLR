@@ -85,7 +85,7 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
         Task {
             _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
             let content = UNMutableNotificationContent()
-            content.title = String(format: L("ZTL gate in %lld m · it's ON"), Int(store.alertDistance))
+            content.title = String(format: L("ZTL gate in %lld m · ZTL active"), Int(store.alertDistance))
             content.body = (store.zone.gates.first?.name ?? store.zone.shortName) + ". " + L("Don't drive in. Tap for parking outside.")
             content.sound = .default
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
@@ -103,7 +103,7 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
         guard answer.gatesOn else { return }      // varco spento: nessun disturbo
 
         let content = UNMutableNotificationContent()
-        content.title = String(format: L("ZTL gate in %lld m · it's ON"), Int(store.alertDistance))
+        content.title = String(format: L("ZTL gate in %lld m · ZTL active"), Int(store.alertDistance))
         switch answer.verdict {
         case .yes(let r): content.body = "\(gate.name). \(r)"
         case .no: content.body = "\(gate.name). " + L("Don't drive in. Tap for parking outside.")

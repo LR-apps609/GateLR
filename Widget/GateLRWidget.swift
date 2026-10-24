@@ -79,10 +79,10 @@ struct GateWidgetView: View {
     let entry: GateEntry
 
     private var letter: String { entry.zone?.letter ?? "–" }
-    private var state: String { entry.on ? L("Gates on") : L("Gates off") }
+    private var state: String { entry.on ? L("ZTL active") : L("ZTL not active") }
     private var change: String {
         guard let next = entry.next else { return "" }
-        return String(format: L(entry.on ? "Off at %@" : "On at %@"), next.formatted(date: .omitted, time: .shortened))
+        return String(format: L(entry.on ? "Ends at %@" : "Starts at %@"), next.formatted(date: .omitted, time: .shortened))
     }
     private var tint: Color { entry.on ? Color(hex: 0xC1272D) : Color(hex: 0x2B7A47) }
 

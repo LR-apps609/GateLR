@@ -48,18 +48,18 @@ struct RuleEngine {
                           gatesOn: true, nextChange: next)
         }
         guard on else {
-            let until = next.map { " " + String(format: L("The gates switch back on %@."), describe($0, from: date)) } ?? ""
-            return Answer(verdict: .yes(reason: L("The gates are off.") + until), gatesOn: false, nextChange: next)
+            let until = next.map { " " + String(format: L("It becomes active again %@."), describe($0, from: date)) } ?? ""
+            return Answer(verdict: .yes(reason: L("The ZTL is not active.") + until), gatesOn: false, nextChange: next)
         }
         let mine = permits.filter { $0.covers(zone: zone, vehicle: vehicle, at: date) }
         if mine.contains(where: { $0.status == .confirmed }) {
-            return Answer(verdict: .yes(reason: L("The gates are on, but your permit covers this vehicle.")), gatesOn: true, nextChange: next)
+            return Answer(verdict: .yes(reason: L("The ZTL is active, but your permit covers this vehicle.")), gatesOn: true, nextChange: next)
         }
         if zone.exemptFuels.contains(vehicle.fuel) {
-            return Answer(verdict: .yes(reason: String(format: L("The gates are on, but %@ vehicles may enter."), vehicle.fuel.label.lowercased())), gatesOn: true, nextChange: next)
+            return Answer(verdict: .yes(reason: String(format: L("The ZTL is active, but %@ vehicles may enter."), vehicle.fuel.label.lowercased())), gatesOn: true, nextChange: next)
         }
         if mine.contains(where: { $0.status == .waiting }) {
-            return Answer(verdict: .conditional(reason: L("The gates are on."), condition: L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")),
+            return Answer(verdict: .conditional(reason: L("The ZTL is active."), condition: L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")),
                           gatesOn: true, nextChange: next)
         }
         if zone.ban(for: vehicle, at: date) != nil {
@@ -77,16 +77,16 @@ struct RuleEngine {
                           gatesOn: true, nextChange: next)
         }
         if hotelInside && zone.hotelCanRegister {
-            return Answer(verdict: .conditional(reason: L("The gates are on."), condition: L("You can drive to the hotel only if the hotel registers your plate with the city.")),
+            return Answer(verdict: .conditional(reason: L("The ZTL is active."), condition: L("You can drive to the hotel only if the hotel registers your plate with the city.")),
                           gatesOn: true, nextChange: next)
         }
         if let ticket = zone.ticket {
-            return Answer(verdict: .conditional(reason: L("The gates are on."),
+            return Answer(verdict: .conditional(reason: L("The ZTL is active."),
                                                 condition: String(format: L("You can enter with the day ticket (%@). %@"), ticket.priceText, ticket.localizedHowTo)),
                           gatesOn: true, nextChange: next)
         }
-        let off = next.map { " " + String(format: L("They switch off %@."), describe($0, from: date)) } ?? ""
-        return Answer(verdict: .no(reason: L("The gates are on.") + off), gatesOn: true, nextChange: next)
+        let off = next.map { " " + String(format: L("It ends %@."), describe($0, from: date)) } ?? ""
+        return Answer(verdict: .no(reason: L("The ZTL is active.") + off), gatesOn: true, nextChange: next)
     }
 
     // MARK: Orari

@@ -15,7 +15,7 @@ struct ZoneDetailView: View {
                     Text(zone.localizedName).font(Theme.display(30))
                     HStack(spacing: 8) {
                         Pill(text: zone.type.title, fill: zone.type.color.opacity(0.16), ink: zone.type.color)
-                        Pill(text: answer.gatesOn ? L("Gates on") : L("Gates off · you can enter"),
+                        Pill(text: answer.gatesOn ? L("ZTL active") : L("ZTL not active · you can enter"),
                              fill: answer.gatesOn ? Theme.amberSoft : Theme.greenSoft,
                              ink: answer.gatesOn ? Theme.amberInk : Theme.greenInk)
                         Text(city.localizedName).font(.system(size: 13)).foregroundStyle(Theme.muted)

@@ -201,8 +201,8 @@ struct MapScreen: View {
                     ForEach(ZoneKind.allCases, id: \.self) { k in
                         legendItem(k.title, RoundedRectangle(cornerRadius: 3).fill(k.color))
                     }
-                    legendItem(L("Gate on"), Circle().fill(Theme.red))
-                    legendItem(L("Gate off"), Circle().fill(Theme.green))
+                    legendItem(L("Camera on"), Circle().fill(Theme.red))
+                    legendItem(L("Camera off"), Circle().fill(Theme.green))
                 }
             }
             Menu {
