@@ -34,8 +34,10 @@ final class RoutePlanner: ObservableObject {
     @Published private(set) var plan: RoutePlan?
     @Published private(set) var working = false
     @Published private(set) var error: String?
+    /// Il percorso Apple completo (con le istruzioni svolta per svolta), per la navigazione dentro l'app
+    private(set) var route: MKRoute?
 
-    func clear() { plan = nil; error = nil }
+    func clear() { plan = nil; error = nil; route = nil }
 
     /// Solo per le foto automatiche: «-uiOrigin 45.4850 9.2040» fa partire il percorso da lì (nel simulatore non c'è il GPS)
     static var testOrigin: CLLocationCoordinate2D? {
@@ -71,6 +73,7 @@ final class RoutePlanner: ObservableObject {
                 plan.parking = parking
                 plan.walkMeters = Self.meters(parking.location, place.location)
             }
+            self.route = route
             self.plan = plan
         } catch {
             self.error = origin == nil ? L("Couldn't find your position. Allow location access to plan the drive.")
@@ -147,6 +150,7 @@ extension MKPolyline {
 struct RouteCard: View {
     var plan: RoutePlan
     var onMap: () -> Void
+    var onStart: (Place) -> Void = { _ in }
 
     private var target: Place { plan.destinationBlocked ? (plan.parking ?? plan.destination) : plan.destination }
 
@@ -209,25 +213,36 @@ struct RouteCard: View {
                 }
             }
             HStack(spacing: 10) {
-                Menu {
-                    ForEach(Navigator.allCases) { n in Button(n.title) { n.open(to: target) } }
-                } label: {
-                    Label(plan.destinationBlocked && plan.parking != nil ? L("Drive to the car park") : L("Navigate"),
-                          systemImage: "arrow.triangle.turn.up.right.diamond.fill")
-                        .font(.system(size: 15, weight: .semibold))
-                        .frame(maxWidth: .infinity, minHeight: 48)
+                Button { onStart(target) } label: {
+                    Label(plan.destinationBlocked && plan.parking != nil ? L("Drive to the car park") : L("Start"),
+                          systemImage: "location.north.fill")
+                        .font(.system(size: 16, weight: .bold))
+                        .frame(maxWidth: .infinity, minHeight: 50)
                         .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                         .foregroundStyle(.white)
                 }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("route.start")
+                Menu {
+                    Section(L("Open in")) {
+                        ForEach(Navigator.allCases) { n in Button(n.title) { n.open(to: target) } }
+                    }
+                } label: {
+                    Image(systemName: "arrow.triangle.turn.up.right.diamond").font(.system(size: 18, weight: .semibold))
+                        .frame(width: 52, height: 50)
+                        .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        .foregroundStyle(Theme.blue)
+                }
+                .accessibilityLabel(L("Open in another navigator"))
                 Button(action: onMap) {
                     Image(systemName: "map").font(.system(size: 17, weight: .semibold))
-                        .frame(width: 52, height: 48)
+                        .frame(width: 52, height: 50)
                         .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                         .foregroundStyle(Theme.blue)
                 }
                 .accessibilityLabel(L("Show on the map"))
             }
-            Text("GateLR doesn't steer you around the ZTL: your navigator picks the road. Watch the gate signs.")
+            Text("GateLR guides you with the voice and warns you before every active ZTL. It doesn't avoid them by itself: watch the gate signs.")
                 .font(.system(size: 12)).foregroundStyle(Theme.muted)
         }
         .padding(16).card(20)

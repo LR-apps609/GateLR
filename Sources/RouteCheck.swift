@@ -8,6 +8,7 @@ struct RouteCrossing: Identifiable, Equatable {
     var answer: Answer
     var at: Date                // quando ci entri, stimato
     var isDestination: Bool     // la destinazione è dentro questa zona
+    var entry: Coordinate? = nil // il punto del percorso in cui si entra
     var id: String { zone.id }
 }
 
@@ -29,7 +30,7 @@ enum RouteCheck {
                 && !result.contains(where: { $0.zone.id == z.id }) && z.contains(lat: p.lat, lon: p.lon) {
                 let when = departure.addingTimeInterval(travelTime * Double(i) / total)
                 result.append(RouteCrossing(zone: z, answer: answer(z, when), at: when,
-                                            isDestination: z.contains(lat: last.lat, lon: last.lon)))
+                                            isDestination: z.contains(lat: last.lat, lon: last.lon), entry: p))
             }
         }
         return result

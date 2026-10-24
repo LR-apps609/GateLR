@@ -104,6 +104,14 @@ final class ScreenshotTests: XCTestCase {
             app.swipeUp()
             sleep(1)
             snap("14b-route-milan-dark")
+            let start = app.buttons["route.start"]
+            if start.waitForExistence(timeout: 3) {
+                start.tap()
+                sleep(8)
+                snap("14c-drive-milan-dark")
+                let end = app.buttons["drive.end"]
+                if end.waitForExistence(timeout: 3) { end.tap(); sleep(1) }
+            }
         }
         app.tabBars.buttons.element(boundBy: 1).tap()
         sleep(5)

@@ -289,6 +289,18 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertEqual(engine.previousChange(g, before: date(2026, 7, 3, 1)), date(2026, 7, 2, 23))
     }
 
+    func testPathMathAndManeuvers() {
+        let path = [Coordinate(lat: 43.7700, lon: 11.2500), Coordinate(lat: 43.7700, lon: 11.2600), Coordinate(lat: 43.7800, lon: 11.2600)]
+        let total = PathMath.remaining(from: path[0], along: path)
+        XCTAssertEqual(total, 806 + 1110, accuracy: 30)                                   // ~806 m verso est + ~1110 m verso nord
+        XCTAssertEqual(PathMath.remaining(from: path[2], along: path), 0, accuracy: 1)
+        XCTAssertLessThan(PathMath.distance(from: Coordinate(lat: 43.7701, lon: 11.2550), to: path), 15)
+        XCTAssertGreaterThan(PathMath.distance(from: Coordinate(lat: 43.7750, lon: 11.2500), to: path), 300)
+        XCTAssertEqual(DriveView.symbol(for: "Svolta a sinistra in Via Roma"), "arrow.turn.up.left")
+        XCTAssertEqual(DriveView.symbol(for: "Turn right onto Via Roma"), "arrow.turn.up.right")
+        XCTAssertEqual(DriveView.symbol(for: "Im Kreisverkehr die zweite Ausfahrt nehmen"), "arrow.triangle.turn.up.right.circle")
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)

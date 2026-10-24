@@ -204,6 +204,14 @@ T = {
 "Tomorrow 9 pm": ("Domani alle 21", "Morgen 21 Uhr"),
 "A zone on the way is active: your navigator may route you through it. Watch the signs and avoid the gates.": ("Una zona lungo la strada è attiva: il navigatore potrebbe farti passare di lì. Guarda i cartelli ed evita i varchi.", "Eine Zone auf dem Weg ist aktiv: Dein Navi könnte dich hindurchführen. Achte auf die Schilder und meide die Einfahrten."),
 "€%lld–%lld": ("%lld–%lld €", "%lld–%lld €"),
+# Navigazione
+"You have arrived.": ("Sei arrivato.", "Du bist angekommen."), "You have arrived": ("Sei arrivato", "Du bist angekommen"),
+"Recalculating.": ("Ricalcolo il percorso.", "Route wird neu berechnet."), "Recalculating…": ("Ricalcolo…", "Neuberechnung…"),
+"In %@, %@": ("Tra %@, %@", "In %@ %@"), "%@ in %@: %@": ("%@ tra %@: %@", "%@ in %@: %@"),
+"Attention: in %@ you enter %@. %@.": ("Attenzione: tra %@ entri in %@. %@.", "Achtung: In %@ fährst du in %@. %@."),
+"Voice off": ("Voce spenta", "Sprache aus"), "Voice on": ("Voce accesa", "Sprache an"), "End": ("Fine", "Beenden"),
+"Start": ("Avvia", "Starten"), "Open in": ("Apri in", "Öffnen in"), "Open in another navigator": ("Apri in un altro navigatore", "In einer anderen Navi-App öffnen"),
+"GateLR guides you with the voice and warns you before every active ZTL. It doesn't avoid them by itself: watch the gate signs.": ("GateLR ti guida con la voce e ti avvisa prima di ogni ZTL attiva. Non le evita da solo: guarda i cartelli dei varchi.", "GateLR führt dich mit Sprachansagen und warnt dich vor jeder aktiven ZTL. Es umfährt sie nicht von selbst: Achte auf die Schilder an den Einfahrten."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

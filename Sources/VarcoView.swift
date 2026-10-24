@@ -14,6 +14,7 @@ struct VarcoView: View {
     @State private var atArrival = false
     @State private var arrival = TripView.upcoming(hour: 18)
     @State private var resolving = false
+    @State private var driving = false
 
     var body: some View {
         TimelineView(.everyMinute) { ctx in
@@ -47,6 +48,7 @@ struct VarcoView: View {
         .onAppear { search.focus(on: store.city) }
         .onChange(of: store.cityId) { search.focus(on: store.city) }
         .onChange(of: store.place) { planner.clear() }
+        .fullScreenCover(isPresented: $driving) { DriveView() }
         .onChange(of: atArrival) { planner.clear() }
         .onChange(of: arrival) { planner.clear() }
     }
@@ -199,7 +201,13 @@ struct VarcoView: View {
     @ViewBuilder
     private func routeCard(_ place: Place) -> some View {
         if let plan = planner.plan, plan.destination == place {
-            RouteCard(plan: plan, onMap: { tab = .map })
+            RouteCard(plan: plan, onMap: { tab = .map }, onStart: { target in
+                Task {
+                    await DriveSession.shared.start(to: target, store: store)
+                    driving = DriveSession.shared.active
+                }
+            })
+            if let e = DriveSession.shared.error { Text(e).font(.system(size: 13)).foregroundStyle(Theme.red) }
         } else {
             VStack(alignment: .leading, spacing: 8) {
                 WideButton(title: planner.working ? "Planning…" : "Check the drive", systemImage: "car.fill") {

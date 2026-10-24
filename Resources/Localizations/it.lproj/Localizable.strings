@@ -140,7 +140,7 @@
 "Every rule has its source" = "Ogni regola ha la sua fonte";
 "Each answer links to the city's official page, with the date we read it. Road signs on site always win over the app." = "Ogni risposta porta alla pagina ufficiale del Comune, con la data in cui l'abbiamo letta. Vale sempre la segnaletica sul posto.";
 "Next" = "Avanti";
-"Start" = "Inizia";
+"Start" = "Avvia";
 "Skip" = "Salta";
 "ZTL gate in %lld m · ZTL active" = "Varco ZTL tra %lld m · ZTL attiva";
 "You can enter with the day ticket (%@). %@" = "Puoi entrare con il biglietto giornaliero (%@). %@";
@@ -295,3 +295,16 @@
 "Tomorrow 9 pm" = "Domani alle 21";
 "A zone on the way is active: your navigator may route you through it. Watch the signs and avoid the gates." = "Una zona lungo la strada è attiva: il navigatore potrebbe farti passare di lì. Guarda i cartelli ed evita i varchi.";
 "€%lld–%lld" = "%lld–%lld €";
+"You have arrived." = "Sei arrivato.";
+"You have arrived" = "Sei arrivato";
+"Recalculating." = "Ricalcolo il percorso.";
+"Recalculating…" = "Ricalcolo…";
+"In %@, %@" = "Tra %@, %@";
+"%@ in %@: %@" = "%@ tra %@: %@";
+"Attention: in %@ you enter %@. %@." = "Attenzione: tra %@ entri in %@. %@.";
+"Voice off" = "Voce spenta";
+"Voice on" = "Voce accesa";
+"End" = "Fine";
+"Open in" = "Apri in";
+"Open in another navigator" = "Apri in un altro navigatore";
+"GateLR guides you with the voice and warns you before every active ZTL. It doesn't avoid them by itself: watch the gate signs." = "GateLR ti guida con la voce e ti avvisa prima di ogni ZTL attiva. Non le evita da solo: guarda i cartelli dei varchi.";
