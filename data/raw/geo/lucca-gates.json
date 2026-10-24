@@ -1,0 +1,109 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-24T19:26:41Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 8164568940,
+  "lat": 43.8462524,
+  "lon": 10.4956475,
+  "tags": {
+    "highway": "speed_camera",
+    "maxspeed": "50"
+  }
+},
+{
+  "type": "node",
+  "id": 13064210386,
+  "lat": 43.8384997,
+  "lon": 10.4987528,
+  "tags": {
+    "colour": "#662d10",
+    "highway": "speed_camera",
+    "maxspeed": "50"
+  }
+},
+{
+  "type": "relation",
+  "id": 11942605,
+  "bounds": {
+    "minlat": 43.8458606,
+    "minlon": 10.4956475,
+    "maxlat": 43.8462524,
+    "maxlon": 10.4957600
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 8164568939,
+      "role": "from",
+      "lat": 43.8458606,
+      "lon": 10.4956498
+    },
+    {
+      "type": "node",
+      "ref": 8164568940,
+      "role": "device",
+      "lat": 43.8462524,
+      "lon": 10.4956475
+    },
+    {
+      "type": "node",
+      "ref": 8164568938,
+      "role": "to",
+      "lat": 43.8462335,
+      "lon": 10.4957600
+    }
+  ],
+  "tags": {
+    "enforcement": "maxspeed",
+    "maxspeed": "50",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 19450137,
+  "bounds": {
+    "minlat": 43.8382590,
+    "minlon": 10.4984144,
+    "maxlat": 43.8386799,
+    "maxlon": 10.4997387
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 6042504699,
+      "role": "from",
+      "lat": 43.8386799,
+      "lon": 10.4984144
+    },
+    {
+      "type": "node",
+      "ref": 13064210386,
+      "role": "device",
+      "lat": 43.8384997,
+      "lon": 10.4987528
+    },
+    {
+      "type": "node",
+      "ref": 6042504618,
+      "role": "to",
+      "lat": 43.8382590,
+      "lon": 10.4997387
+    }
+  ],
+  "tags": {
+    "enforcement": "maxspeed",
+    "maxspeed": "50",
+    "type": "enforcement"
+  }
+}
+
+  ]
+}

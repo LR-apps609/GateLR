@@ -1,0 +1,23 @@
+ok siena-ztl 219279 https://overpass-api.de/api/interpreter
+  retry 1 https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
+ok siena-walls 129895 https://overpass-api.de/api/interpreter
+ok siena-gates 256649 https://overpass-api.de/api/interpreter
+ok pisa-ztl 2678 https://overpass-api.de/api/interpreter
+  retry 1 https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
+ok pisa-walls 39662 https://overpass-api.de/api/interpreter
+ok pisa-gates 6296 https://overpass-api.de/api/interpreter
+ok roma-ztl 711271 https://overpass-api.de/api/interpreter
+ok roma-walls 472874 https://overpass-api.de/api/interpreter
+ok roma-gates 48752 https://overpass-api.de/api/interpreter
+ok lucca-ztl 152138 https://overpass-api.de/api/interpreter
+  retry 1 https://overpass-api.de/api/interpreter HTTP Error 504: Gateway Timeout
+ok lucca-walls 81444 https://overpass-api.de/api/interpreter
+ok lucca-gates 1966 https://overpass-api.de/api/interpreter
+ok firenze-signals 125497 https://overpass-api.de/api/interpreter
+  retry 1 https://overpass-api.de/api/interpreter HTTP Error 502: Bad Gateway
+ok bologna-signals 62377 https://overpass-api.de/api/interpreter
+ok milano-signals 280411 https://overpass-api.de/api/interpreter
+ok hub ztl 32972
+ok hub varchi 6749
+ok hub zona traffico limitato 439
+files: ['bologna-signals.json', 'firenze-signals.json', 'lucca-gates.json', 'lucca-walls.json', 'lucca-ztl.json', 'milano-signals.json', 'pisa-gates.json', 'pisa-walls.json', 'pisa-ztl.json', 'roma-gates.json', 'roma-hub-varchi.json', 'roma-hub-zona_traffico_limitato.json', 'roma-hub-ztl.json', 'roma-walls.json', 'roma-ztl.json', 'siena-gates.json', 'siena-walls.json', 'siena-ztl.json']
