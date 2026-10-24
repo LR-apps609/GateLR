@@ -21,6 +21,7 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
   - [ ] «Stazione Termini» → fuori dalla ZTL
   - [ ] «Piazza del Campo» → Siena: sempre «Non entrare» (ZTL 24 ore su 24)
   - [ ] Mappa: i confini di Roma e Siena sono credibili (controlla con i cartelli quando sei lì)
+- [ ] **Firenze · Scudo Verde** (zona a basse emissioni, multe dal 1/7/2025): Viaggio → «Stazione Campo di Marte» → zona verde «Puoi entrare» per un'auto recente; Garage → auto diesel Euro 1 → «Non entrare»; mappa: area verde grande intorno alla città con i 73 varchi
 - [ ] **Siri**: «Ehi Siri, ZTL vicine con GateLR» (anche a telefono bloccato) → «Settore A è a 400 metri: Non entrare. I varchi si spengono oggi alle 20:00»
 
 ## 0. Installazione (Windows con Sideloadly, oppure Mac: vedi `docs/windows.md`)
@@ -54,7 +55,7 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
   - [ ] Con il permesso confermato a Firenze, cerca «Duomo di Milano» o «Castello Sforzesco»: la risposta **non** diventa «Sì» (il permesso vale solo nella sua città)
   - [ ] messaggio per l'hotel con la data di partenza e la richiesta di conferma scritta (IT/EN/DE)
 - [ ] «Salva questo viaggio» → compare nei viaggi salvati; tocco lo riapre; tieni premuto → Elimina
-- [ ] Fuori ZTL (es. «Stazione Campo di Marte Firenze») → «Fuori dalla ZTL» con la distanza
+- [ ] Fuori ZTL (es. «Stazione Campo di Marte Firenze») → nessun Settore, ma dentro lo **Scudo Verde** (verde, puoi entrare con un'auto recente)
 
 ## 3. Percorso e partenza
 - [ ] «Controlla il percorso» → tempo, km, ZTL attraversate con l'ora e la risposta
