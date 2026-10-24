@@ -66,6 +66,9 @@ jobs:
       - name: Foto dell'app (giro nel simulatore)
         run: |
           SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
+          # Simulatore acceso prima dei test: al primo avvio a freddo l'app rischia il tempo scaduto
+          xcrun simctl boot "$SIM" 2>/dev/null || true
+          xcrun simctl bootstatus "$SIM" -b > /dev/null 2>&1 || true
           status=0
           xcodebuild test -project GateLR.xcodeproj -scheme GateLRUITests \
             -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \

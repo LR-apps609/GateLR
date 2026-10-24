@@ -302,7 +302,7 @@ struct VarcoView: View {
                             .background(z.type.color.opacity(0.16), in: Circle())
                             .foregroundStyle(z.type.color)
                         VStack(alignment: .leading, spacing: 1) {
-                            Text(z.localizedName).font(.system(size: 15)).foregroundStyle(Theme.ink).lineLimit(1)
+                            Text(z.localizedName).font(.system(size: 15)).foregroundStyle(Theme.ink).lineLimit(2)
                             Text("\(z.type.title) · \(a.gatesOn ? L("ZTL active") : L("ZTL not active"))")
                                 .font(.system(size: 12)).foregroundStyle(Theme.muted)
                         }

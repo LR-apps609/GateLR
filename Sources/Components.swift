@@ -210,7 +210,7 @@ struct WideButton: View {
             }
             .font(.system(size: 15, weight: .semibold))
             .frame(maxWidth: .infinity, minHeight: 48)
-            .background(prominent ? Theme.blue : Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .background(prominent ? Theme.blueFill : Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
             .foregroundStyle(prominent ? Color.white : Theme.blue)
         }
         .buttonStyle(.plain)

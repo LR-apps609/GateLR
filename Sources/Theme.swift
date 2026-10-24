@@ -15,6 +15,8 @@ enum Theme {
     static let line = Color(light: 0xE6E9E7, dark: 0x2C343D)
     static let red = Color(light: 0xC1272D, dark: 0xEF5B55)
     static let blue = Color(light: 0x1F4E9E, dark: 0x8CB0EE)
+    /// Fondo dei pulsanti pieni: abbastanza scuro anche in modalità scura, per il testo bianco
+    static let blueFill = Color(light: 0x1F4E9E, dark: 0x2F5FB3)
     static let blueSoft = Color(light: 0xE2EAF6, dark: 0x1D2B44)
     static let green = Color(hex: 0x2B7A47)
     static let greenSoft = Color(light: 0xDCEFE2, dark: 0x183021)

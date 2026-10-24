@@ -44,7 +44,7 @@ final class ScreenshotTests: XCTestCase {
             app.buttons["Done"].tap()
         }
 
-        app.tabBars.buttons["Map"].tap()
+        app.tabBars.buttons.element(boundBy: 1).tap()
         sleep(6)                       // le mappe si caricano dalla rete
         snap("06-map")
         let park = app.buttons["Park outside"].firstMatch
@@ -54,7 +54,7 @@ final class ScreenshotTests: XCTestCase {
             snap("07-map-parking")
         }
 
-        app.tabBars.buttons["Trip"].tap()
+        app.tabBars.buttons.element(boundBy: 2).tap()
         sleep(1)
         let hotel = app.textFields["trip.search"]
         if hotel.waitForExistence(timeout: 3) {
@@ -68,11 +68,11 @@ final class ScreenshotTests: XCTestCase {
         sleep(1)
         snap("09-trip-message")
 
-        app.tabBars.buttons["Garage"].tap()
+        app.tabBars.buttons.element(boundBy: 3).tap()
         sleep(1)
         snap("10-garage")
 
-        app.tabBars.buttons["Account"].tap()
+        app.tabBars.buttons.element(boundBy: 4).tap()
         sleep(1)
         snap("11-account")
         let learn = app.buttons["What is a ZTL?"].firstMatch
@@ -105,7 +105,7 @@ final class ScreenshotTests: XCTestCase {
             sleep(1)
             snap("14b-route-milan-dark")
         }
-        app.tabBars.buttons["Map"].tap()
+        app.tabBars.buttons.element(boundBy: 1).tap()
         sleep(5)
         app.pinch(withScale: 0.25, velocity: -1)
         sleep(4)

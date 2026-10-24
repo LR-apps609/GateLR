@@ -192,7 +192,7 @@ struct RouteCard: View {
                 if let parking = plan.parking {
                     HStack(alignment: .top, spacing: 10) {
                         Text("P").font(.system(size: 15, weight: .heavy)).foregroundStyle(.white)
-                            .frame(width: 28, height: 28).background(Theme.blue, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
+                            .frame(width: 28, height: 28).background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
                         VStack(alignment: .leading, spacing: 2) {
                             Text(String(format: L("Park at %@"), parking.name)).font(.system(size: 15, weight: .semibold))
                             if let m = plan.walkMeters {
@@ -216,7 +216,7 @@ struct RouteCard: View {
                           systemImage: "arrow.triangle.turn.up.right.diamond.fill")
                         .font(.system(size: 15, weight: .semibold))
                         .frame(maxWidth: .infinity, minHeight: 48)
-                        .background(Theme.blue, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                         .foregroundStyle(.white)
                 }
                 Button(action: onMap) {

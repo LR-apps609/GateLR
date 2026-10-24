@@ -203,6 +203,7 @@ T = {
 "From the cities' emission calendars. Old towns with a ZTL stay closed to all cars without a permit, whatever the class.": ("Dai calendari delle emissioni dei Comuni. I centri storici con ZTL restano chiusi a tutte le auto senza permesso, di qualunque classe.", "Aus den Emissionskalendern der Städte. Altstädte mit ZTL bleiben für alle Autos ohne Genehmigung gesperrt, egal welche Klasse."),
 "Tomorrow 9 pm": ("Domani alle 21", "Morgen 21 Uhr"),
 "A zone on the way is active: your navigator may route you through it. Watch the signs and avoid the gates.": ("Una zona lungo la strada è attiva: il navigatore potrebbe farti passare di lì. Guarda i cartelli ed evita i varchi.", "Eine Zone auf dem Weg ist aktiv: Dein Navi könnte dich hindurchführen. Achte auf die Schilder und meide die Einfahrten."),
+"€%lld–%lld": ("%lld–%lld €", "%lld–%lld €"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

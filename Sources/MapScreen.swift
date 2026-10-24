@@ -99,7 +99,7 @@ struct MapScreen: View {
                         Annotation(p.name, coordinate: p.location.cl) {
                             Text("P").font(.system(size: 15, weight: .heavy)).foregroundStyle(.white)
                                 .frame(width: 30, height: 30)
-                                .background(Theme.blue, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
+                                .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
                                 .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous).stroke(.white, lineWidth: 2))
                         }
                     }

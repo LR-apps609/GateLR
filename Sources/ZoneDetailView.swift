@@ -87,7 +87,7 @@ struct ZoneDetailView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         SectionLabel("If you drive in by mistake")
                         HStack(alignment: .firstTextBaseline, spacing: 6) {
-                            Text("€\(fine.min)–\(fine.max)").font(Theme.display(34)).foregroundStyle(Theme.red).monospacedDigit()
+                            Text(String(format: L("€%lld–%lld"), fine.min, fine.max)).font(Theme.display(34)).foregroundStyle(Theme.red).monospacedDigit()
                             Text("per day").font(.system(size: 15)).foregroundStyle(Theme.muted)
                         }
                         ForEach(fine.localizedNotes, id: \.self) { n in
