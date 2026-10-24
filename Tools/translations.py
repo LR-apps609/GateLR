@@ -289,6 +289,12 @@ T = {
 "Don't ignore it": ("Non ignorarla", "Nicht ignorieren"),
 "Unpaid fines grow after 60 days and can be sent to a collection agency, also abroad.": ("Le multe non pagate aumentano dopo 60 giorni e possono passare a una società di riscossione, anche all'estero.", "Unbezahlte Bußgelder steigen nach 60 Tagen und können an ein Inkassobüro gehen, auch im Ausland."),
 "General information, not legal advice. The notice you receive always wins: read its deadlines and amounts.": ("Informazioni generali, non consulenza legale. Vale sempre il verbale che ricevi: leggi le sue scadenze e i suoi importi.", "Allgemeine Informationen, keine Rechtsberatung. Es gilt immer dein Bescheid: Lies seine Fristen und Beträge."),
+# 1.6 Ticket
+"Activate it by %@.": ("Attivalo entro %@.", "Aktiviere es bis %@."), "Buy and activate it before you drive in.": ("Compralo e attivalo prima di entrare.", "Kauf und aktiviere es vor der Einfahrt."),
+"Pay the ticket": ("Paga il ticket", "Ticket bezahlen"), "Remind me": ("Ricordamelo", "Erinnere mich"), "Reminder set": ("Promemoria impostato", "Erinnerung gesetzt"),
+"%@: ticket": ("%@: ticket", "%@: Ticket"),
+"Have you activated the ticket? Deadline: %@.": ("Hai attivato il ticket? Scadenza: %@.", "Hast du das Ticket aktiviert? Frist: %@."),
+"Buy and activate the ticket before you drive in.": ("Compra e attiva il ticket prima di entrare.", "Kauf und aktiviere das Ticket vor der Einfahrt."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

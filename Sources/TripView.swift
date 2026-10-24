@@ -208,6 +208,9 @@ struct TripView: View {
                 }
             }
             routeCard(place)
+            if let ticket = hit.zone.ticket, store.engine.isActive(hit.zone, at: date), store.pedestrianArea(at: place.location) == nil {
+                TicketCard(zone: hit.zone, ticket: ticket, entry: date)
+            }
             if hit.zone.hotelCanRegister {
                 HotelStayCard(place: place, zone: hit.zone, arrival: atArrival ? arrival : Date())
                 hotelMessage

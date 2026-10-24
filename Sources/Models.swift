@@ -143,6 +143,8 @@ struct Ticket: Codable, Hashable {
     var howTo_it: String?
     var howTo_de: String?
     var url: URL?
+    /// Entro quando va attivato: «beforeEntry» (Bologna) o «nextDayMidnight» (Milano Area C)
+    var deadline: String? = nil
 
     var localizedHowTo: String { pick(howTo, it: howTo_it, de: howTo_de) }
 

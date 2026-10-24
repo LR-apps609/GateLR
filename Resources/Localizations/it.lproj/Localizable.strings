@@ -399,3 +399,11 @@
 "Don't ignore it" = "Non ignorarla";
 "Unpaid fines grow after 60 days and can be sent to a collection agency, also abroad." = "Le multe non pagate aumentano dopo 60 giorni e possono passare a una società di riscossione, anche all'estero.";
 "General information, not legal advice. The notice you receive always wins: read its deadlines and amounts." = "Informazioni generali, non consulenza legale. Vale sempre il verbale che ricevi: leggi le sue scadenze e i suoi importi.";
+"Activate it by %@." = "Attivalo entro %@.";
+"Buy and activate it before you drive in." = "Compralo e attivalo prima di entrare.";
+"Pay the ticket" = "Paga il ticket";
+"Remind me" = "Ricordamelo";
+"Reminder set" = "Promemoria impostato";
+"%@: ticket" = "%@: ticket";
+"Have you activated the ticket? Deadline: %@." = "Hai attivato il ticket? Scadenza: %@.";
+"Buy and activate the ticket before you drive in." = "Compra e attiva il ticket prima di entrare.";

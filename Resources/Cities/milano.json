@@ -9067,6 +9067,7 @@
     "howTo": "Pay and activate it by midnight of the next day (online, at newsagents or by phone). Later, up to the 7th day, it costs €22.50. Parked in a partner garage: €4.50.",
     "howTo_it": "Paga e attivalo entro la mezzanotte del giorno dopo (online, in edicola o per telefono). Più tardi, fino al 7° giorno, costa 22,50 €. Con sosta in un garage convenzionato: 4,50 €.",
     "howTo_de": "Bis Mitternacht des Folgetags bezahlen und aktivieren (online, am Kiosk oder per Telefon). Später, bis zum 7. Tag, kostet es 22,50 €. Mit Parken in einer Partnergarage: 4,50 €.",
+    "deadline": "nextDayMidnight",
     "url": "https://www.comune.milano.it/servizi/mobilita/area-c-acquista-il-ticket"
    },
    "source": {

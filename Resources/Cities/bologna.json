@@ -6265,6 +6265,7 @@
     "howTo": "Buy and activate it on the Sosty website before you drive in, and wait for the confirmation. Max 3 per month per car.",
     "howTo_it": "Compralo e attivalo sul sito Sosty prima di entrare e attendi la conferma. Massimo 3 al mese per auto.",
     "howTo_de": "Vor der Einfahrt auf der Sosty-Website kaufen und aktivieren und die Bestätigung abwarten. Höchstens 3 pro Monat und Auto.",
+    "deadline": "beforeEntry",
     "url": "https://www.comune.bologna.it/servizi/mobilita-trasporti/ticket-accesso-ztl"
    },
    "source": {
