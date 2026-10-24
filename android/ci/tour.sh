@@ -19,7 +19,7 @@ shot() { dismiss; adb exec-out screencap -p > "$OUT/$1.png"; echo "::notice::fot
 find() {
   # uiautomator a volte non legge lo schermo (animazioni in corso): fino a 4 tentativi
   local r="" i
-  for i in 1 2 3 4; do
+  for i in $(seq 1 ${TRIES:-4}); do
     adb shell rm -f /sdcard/ui.xml; adb shell uiautomator dump /sdcard/ui.xml >/dev/null 2>&1
     r=$(adb shell cat /sdcard/ui.xml 2>/dev/null | tr '>' '\n' | grep -F "text=\"$1\"" | sed -n "${2:-1}p" | grep -oE 'bounds="\[[0-9]+,[0-9]+\]\[[0-9]+,[0-9]+\]"' | grep -oE '[0-9]+' | tr '\n' ' ')
     [ -n "$r" ] && break; sleep 2
@@ -27,7 +27,7 @@ find() {
   echo "$r"
 }
 # Gli avvisi «… isn't responding» dell'emulatore (launcher, sistema): si chiudono con «Wait»
-dismiss() { local w; [ -n "$(find "GateLR isn't responding")" ] && echo "::error::GateLR non risponde (ANR)"; w=$(find "Wait"); [ -n "$w" ] && { set -- $w; adb shell input tap $(( ($1 + $3) / 2 )) $(( ($2 + $4) / 2 )); sleep 2; }; }
+dismiss() { local w; [ -n "$(TRIES=1 find "GateLR isn't responding")" ] && echo "::error::GateLR non risponde (ANR)"; w=$(TRIES=1 find "Wait"); [ -n "$w" ] && { set -- $w; adb shell input tap $(( ($1 + $3) / 2 )) $(( ($2 + $4) / 2 )); sleep 2; }; }
 tap() {
   local b; b=$(find "$1" "${2:-1}")
   if [ -z "$b" ]; then dismiss; b=$(find "$1" "${2:-1}"); fi
