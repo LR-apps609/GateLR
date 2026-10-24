@@ -85,7 +85,7 @@ struct GateWidgetView: View {
         guard let next = entry.next else { return "" }
         return String(format: L(entry.on ? "Ends at %@" : "Starts at %@"), next.formatted(date: .omitted, time: .shortened))
     }
-    private var tint: Color { entry.on ? Color(hex: 0xC1272D) : Color(hex: 0x2B7A47) }
+    private var tint: Color { entry.on ? Color(hex: 0xC1272D) : Color(hex: 0x0FA34A) }
 
     var body: some View {
         switch family {
@@ -111,6 +111,12 @@ struct GateWidgetView: View {
                     LogoMark(size: 24)
                     Spacer()
                     Text("\(entry.city) · \(letter)").font(.system(size: 12, weight: .semibold)).foregroundStyle(.secondary)
+                }
+                if let z = entry.zone {
+                    // Il tipo di zona con il suo colore (vietato, pass, verde)
+                    Label(z.type.title, systemImage: z.type.symbol)
+                        .font(.system(size: 11, weight: .semibold)).lineLimit(1)
+                        .foregroundStyle(z.type.color)
                 }
                 Spacer(minLength: 0)
                 Image(systemName: entry.on ? "video.fill" : "checkmark.circle.fill")
