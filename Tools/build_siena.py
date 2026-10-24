@@ -4,9 +4,13 @@
 # Siena non pubblica dati aperti sulla ZTL: la mappa ufficiale è un PDF senza coordinate.
 # Se un giorno arriva un perimetro verificato, basta salvarlo come data/raw/siena/ztl_perimetro.geojson
 # (Polygon o MultiPolygon in WGS84) e i varchi come data/raw/siena/varchi.geojson (Point con "name").
+# Finché non c'è, perimetro e varchi vengono da OpenStreetMap (data/raw/geo/siena-ztl.json, © OpenStreetMap
+# contributors, ODbL 1.0): la relazione «ZTL Siena» non ha un contorno ma elenca le strade della ZTL (ruolo
+# «section») e le telecamere (ruolo «device»); il perimetro è l'area coperta da quelle strade (osm_geo.street_area).
 # Non aggiorna manifest.json. Uso: python3 Tools/build_siena.py
 import html, json, re
 from pathlib import Path
+import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/siena"
@@ -19,6 +23,7 @@ RULES_PAGE = "https://www.comune.siena.it/documento-pubblico/disciplinare-il-ril
 RULES_PDF = "https://www.comune.siena.it/sites/default/files/2026-05/disciplinare__allegato%20A_1_d.pdf"
 TARIFFS_PDF = "https://www.comune.siena.it/sites/default/files/2025-09/Tabella%20Tariffe_%20GC_327_2025.pdf"
 MAP_PDF = "https://www.comune.siena.it/sites/default/files/2025-06/Mappa%20ZTL%20con%20Varchi.pdf"
+OSM_ZTL = 4081506   # relazione OSM «ZTL Siena» (enforcement=access, strade «section» e varchi «device»)
 ZONES_AY_PDF = "https://www.comune.siena.it/sites/default/files/2025-03/Planimetria%20Y%20storica%20ampliata%20%281%29.pdf"
 
 
@@ -76,21 +81,21 @@ for q in ["entro 2 giorni lavorativi successivi al transito", "per massimo 2 vol
 
 
 def perimeter():
-    """Solo da un file di coordinate verificato; altrimenti vuoto (mai disegnato a mano)"""
+    """Da un file di coordinate verificato, se c'è; altrimenti dalle strade della relazione OSM (mai disegnato a mano)"""
     f = RAW / "ztl_perimetro.geojson"
     if not f.exists():
-        return []
+        return osm_geo.perimeter(osm_geo.street_area(osm_geo.relation(osm_geo.load("siena-ztl"), OSM_ZTL)), tol_m=8), True
     g = json.loads(f.read_text())
     g = g["features"][0]["geometry"] if "features" in g else g
     polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]
     outer = max((p[0] for p in polys), key=len)
-    return [{"lat": round(p[1], 6), "lon": round(p[0], 6)} for p in outer]
+    return [{"lat": round(p[1], 6), "lon": round(p[0], 6)} for p in outer], False
 
 
 def gates():
     f = RAW / "varchi.geojson"
-    if not f.exists():
-        return []
+    if not f.exists():   # le telecamere («device») della relazione OSM, con il loro nome
+        return [osm_geo.gate_json("si", g) for g in osm_geo.gates(osm_geo.load("siena-gates"), {OSM_ZTL}, name_prefix=None)]
     return [{"id": f"si-{i}", "name": v["properties"]["name"],
              "location": {"lat": round(v["geometry"]["coordinates"][1], 6), "lon": round(v["geometry"]["coordinates"][0], 6)}}
             for i, v in enumerate(json.loads(f.read_text())["features"], 1) if v.get("geometry")]
@@ -110,8 +115,15 @@ links = [link("City of Siena: ZTL access for private persons (permits and prices
          link("City of Siena: map of Zona A and Zona Y storica (PDF)", "Comune di Siena: mappa Zona A e Zona Y storica (PDF)",
               "Stadt Siena: Karte von Zona A und Zona Y storica (PDF)", ZONES_AY_PDF)]
 
-shape = perimeter()
+shape, from_osm = perimeter()
 pending = []
+if from_osm:
+    links.append(link(f"OpenStreetMap: relation {OSM_ZTL} (ZTL streets and gates, ODbL)",
+                      f"OpenStreetMap: relazione {OSM_ZTL} (strade e varchi della ZTL, ODbL)",
+                      f"OpenStreetMap: Relation {OSM_ZTL} (ZTL-Straßen und Kameras, ODbL)", osm_geo.osm_url("relation", OSM_ZTL)))
+    pending.append(("Perimeter from OpenStreetMap, to be checked against the official map. It is drawn around the streets mapped as ZTL, so the edge is approximate.",
+                    "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale. È tracciato attorno alle strade segnate come ZTL, quindi il bordo è approssimato.",
+                    "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen. Sie umfasst die als ZTL erfassten Straßen, der Rand ist daher ungefähr."))
 if not shape:
     pending.append(("Map outline and cameras still missing: Siena publishes no open data and its official map is a PDF without coordinates. Until they are added, GateLR can't tell whether a point is inside the ZTL: check the official map.",
                     "Mancano ancora perimetro e varchi: Siena non pubblica dati aperti e la mappa ufficiale è un PDF senza coordinate. Finché non ci sono, GateLR non sa dire se un punto è dentro la ZTL: guarda la mappa ufficiale.",
@@ -140,12 +152,13 @@ zone = {"id": "siena-ztl", "name": "ZTL · Historic Centre", "name_it": "ZTL · 
 
 city = {"id": "siena", "name": "Siena", "name_it": "Siena", "name_de": "Siena",
         "center": {"lat": 43.3184, "lon": 11.3316}, "zones": [zone], "status": "draft",
-        "license": "Rules: Comune di Siena official pages and documents. No ZTL geometry published yet."}
+        "license": "Rules: Comune di Siena official pages and documents. "
+                   + ("Perimeter and gates: " + osm_geo.ODBL + " (approximate, not official)." if from_osm else "Perimeter and gates: Comune di Siena.")}
 
 # Senza perimetro l'app non può dire se un punto è dentro: finché manca, la città resta tra le bozze (data/drafts)
 ready = all(len(z["perimeter"]) >= 4 for z in city["zones"])
 out = ROOT / ("Resources/Cities/siena.json" if ready else "data/drafts/siena.json")
 out.parent.mkdir(parents=True, exist_ok=True)
-(ROOT / "Resources/Cities/siena.json").unlink(missing_ok=True) if not ready else None
+(ROOT / ("Resources/Cities/siena.json" if not ready else "data/drafts/siena.json")).unlink(missing_ok=True)
 out.write_text(json.dumps(city, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 print(out.name, [(z["id"], len(z["perimeter"]), len(z["gates"])) for z in city["zones"]])

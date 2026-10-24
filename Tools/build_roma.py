@@ -3,15 +3,16 @@
 # salvate in data/raw/roma/ (testo estratto, con URL e data di lettura in testa a ogni file).
 # Le fonti di ogni regola sono elencate in docs/fonti-roma.md.
 #
-# Geometria: al 24/10/2026 i perimetri e i varchi ufficiali (hub ArcGIS di RSM, CC BY 3.0 IT) non sono
-# scaricabili da questa rete e anche Overpass/OSM non risponde. Nessuna geometria viene inventata:
-# le zone escono con perimeter [] e gates [] e una nota «pending». Quando qualcuno salva i dati ufficiali
+# Geometria: i dati ufficiali (hub ArcGIS di RSM, CC BY 3.0 IT) da questa rete non si scaricano. Se qualcuno li salva
 # in data/raw/roma/perimetri.geojson (un poligono per zona, proprietà "gatelr_id" = id della zona qui sotto)
-# e data/raw/roma/varchi.geojson (punti, proprietà "gatelr_id", "id", "nome"), lo script li usa da solo.
+# e data/raw/roma/varchi.geojson (punti, proprietà "gatelr_id", "id", "nome"), lo script usa quelli.
+# Altrimenti usa OpenStreetMap (data/raw/geo/roma-ztl.json e roma-gates.json, scaricati da Tools/fetch_geo.py,
+# © OpenStreetMap contributors, ODbL 1.0): una relazione per zona (OSM_ZONES). Una zona senza perimetro non esce.
 #
 # Uso: python3 Tools/build_roma.py   (scrive solo roma.json: non tocca le altre città né manifest.json)
 import json, re
 from pathlib import Path
+import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/roma"
@@ -78,9 +79,12 @@ HOTEL_LINKS = [link("Rome: permit X (hotels)", "Roma: permesso X (alberghi)", "R
                     "Rom: Regeln des Hotel-Kennzeichendienstes (PDF)", HOTEL_RULES)]
 
 # Le note «da verificare» comuni (inglese, italiano, tedesco)
-P_GEOMETRY = ("Map outline and camera gates not loaded yet: the official open data could not be downloaded. Check the map on the official page.",
-              "Perimetro e varchi non ancora caricati: i dati aperti ufficiali non si sono potuti scaricare. Guarda la mappa sulla pagina ufficiale.",
-              "Grenze und Kameras noch nicht geladen: Die offenen Daten konnten nicht heruntergeladen werden. Karte auf der offiziellen Seite prüfen.")
+P_GEOMETRY = ("Perimeter from OpenStreetMap, to be checked against the official map.",
+              "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale.",
+              "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen.")
+P_NIGHT_AREA = ("At night (Friday and Saturday 11 pm–3 am) the ZTL covers a smaller area than by day; GateLR uses the larger daytime outline at night too.",
+                "Di notte (venerdì e sabato 23–3) la ZTL copre un'area più piccola che di giorno; GateLR usa anche di notte il perimetro diurno, più ampio.",
+                "Nachts (Freitag und Samstag 23–3 Uhr) ist die ZTL kleiner als tagsüber; GateLR nutzt auch nachts die größere Tagesgrenze.")
 P_EVENTS = ("The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it.",
             "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it.",
             "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen.")
@@ -109,7 +113,19 @@ def source(quote, translation, pending, links=LINKS):
             "links": links}
 
 
-def geometry():
+# Zona → relazione OpenStreetMap (data/raw/geo/roma-ztl.json). Per il Trastevere notturno c'è una relazione apposita.
+# La ZTL notturna del Centro Storico (relazione 2573034) è più piccola: la zona roma-centro usa quella diurna.
+OSM_ZONES = {"roma-centro": 2459882,            # ZTL Diurna Centro Storico
+             "roma-tridente": 2459883,          # ZTL Tridente
+             "roma-trastevere": 2572441,        # ZTL Diurna Trastevere
+             "roma-trastevere-notte": 2691714,  # ZTL Notturna Trastevere
+             "roma-san-lorenzo": 2573006,       # ZTL Notturna San Lorenzo
+             "roma-testaccio": 2573007}         # ZTL Notturna Testaccio
+OSM_ONLY_NAMED = {"roma-tridente": "Tridente", "roma-san-lorenzo": "San Lorenzo"}   # varchi con il nome della zona
+GATE_MAX_M = 50   # un varco OSM appartiene a una zona se sta a meno di 50 m dal suo bordo
+
+
+def official_geometry():
     """Perimetri e varchi ufficiali, se qualcuno li ha salvati (vedi in testa); altrimenti niente"""
     perims, gates = {}, {}
     pf, vf = RAW / "perimetri.geojson", RAW / "varchi.geojson"
@@ -125,6 +141,29 @@ def geometry():
             gates.setdefault(p["gatelr_id"], []).append({"id": f"rm-{p['id']}", "name": p["nome"].strip(),
                                                          "location": {"lat": round(y, 6), "lon": round(x, 6)}})
     return perims, gates
+
+
+def osm_geometry():
+    """Perimetri dalle relazioni OSM_ZONES e varchi «Varco ZTL…» vicini al bordo (telecamere delle corsie preferenziali escluse)"""
+    elements = osm_geo.load("roma-ztl")
+    perims = {zid: osm_geo.perimeter(osm_geo.outer_ring(osm_geo.relation(elements, rid))) for zid, rid in OSM_ZONES.items()}
+    found = osm_geo.gates(osm_geo.load("roma-gates"))
+    nodes = {e["id"]: e.get("tags", {}) for e in osm_geo.load("roma-gates") if e["type"] == "node"}
+    found = [g for g in found if nodes.get(g[0], {}).get("name", "").startswith("Varco ZTL")]
+    gates = {}
+    for zid, ring in perims.items():
+        for g in found:
+            named = [k for k, word in OSM_ONLY_NAMED.items() if word in g[1]]
+            if (named and zid not in named) or (zid in OSM_ONLY_NAMED and zid not in named):
+                continue
+            if osm_geo.distance_m(ring, g[2], g[3]) <= GATE_MAX_M:
+                gates.setdefault(zid, []).append(osm_geo.gate_json("rm", g))
+    return perims, gates
+
+
+def osm_link(rid):
+    return link(f"OpenStreetMap: relation {rid} (perimeter, ODbL)", f"OpenStreetMap: relazione {rid} (perimetro, ODbL)",
+                f"OpenStreetMap: Relation {rid} (Grenze, ODbL)", osm_geo.osm_url("relation", rid))
 
 
 def zones():
@@ -163,7 +202,7 @@ def zones():
          "source": source("6.30-18.00 da lunedì a venerdì (esclusi i festivi) 14.00-18.00 il sabato (esclusi i festivi) … notturna … 23.00-3.00 venerdì e sabato (esclusi i festivi) nel mese di agosto la ZTL notturna non è attiva",
                           ("6:30 am–6 pm Monday to Friday (holidays excluded), 2–6 pm on Saturday (holidays excluded) … night … 11 pm–3 am Friday and Saturday (holidays excluded); in August the night ZTL is not active",
                            "6:30–18 Uhr Montag bis Freitag (außer Feiertage), 14–18 Uhr am Samstag (außer Feiertage) … Nacht … 23–3 Uhr Freitag und Samstag (außer Feiertage); im August ist die Nacht-ZTL nicht aktiv"),
-                          [P_GEOMETRY, P_ELECTRIC, P_HOLIDAY_NIGHT, P_PATRON, P_EVENTS], LINKS + HOTEL_LINKS)},
+                          [P_GEOMETRY, P_NIGHT_AREA, P_ELECTRIC, P_HOLIDAY_NIGHT, P_PATRON, P_EVENTS], LINKS + HOTEL_LINKS)},
         {"id": "roma-tridente", "name": "ZTL · Tridente (A1)", "name_it": "ZTL · Tridente (A1)", "name_de": "ZTL · Tridente (A1)",
          "kind": "restricted",
          "summary": "Closed without a permit Monday to Friday 6:30 am–7 pm and Saturday 10 am–7 pm. Public holidays are free. Motorbikes need a permit here too." + no_ticket_en,
@@ -226,15 +265,25 @@ def zones():
                            "von 23 bis 3 Uhr Freitag und Samstag (außer Feiertage); im August ist die ZTL nicht aktiv"),
                           [P_GEOMETRY, P_ELECTRIC, P_HOLIDAY_NIGHT, P_HOTEL_NIGHT, P_PATRON, P_EVENTS])},
     ]
-    perims, gates = geometry()
+    perims, gates = official_geometry()
+    osm_perims, osm_gates = osm_geometry() if len(perims) < len(out) else ({}, {})
+    kept = []
     for z in out:
-        z["perimeter"] = perims.get(z["id"], [])
-        z["gates"] = sorted(gates.get(z["id"], []), key=lambda g: g["name"])
+        official = z["id"] in perims
+        z["perimeter"] = perims.get(z["id"]) or osm_perims.get(z["id"], [])
+        z["gates"] = sorted(gates.get(z["id"]) if official else osm_gates.get(z["id"], []), key=lambda g: (g["name"], g["id"]))
         z["exemptFuels"] = []          # dal 1/7/2026 nessuna esenzione per le elettriche
-        if z["perimeter"]:             # con la geometria ufficiale la nota sul perimetro mancante non serve più
-            s = z["source"]
+        s = z["source"]
+        if official:                   # con la geometria ufficiale la nota sul perimetro non serve più
             for key, i in (("pending", 0), ("pending_it", 1), ("pending_de", 2)):
                 s[key] = [p for p in s[key] if p != P_GEOMETRY[i]]
+        elif z["id"] in OSM_ZONES:
+            s["links"] = s["links"] + [osm_link(OSM_ZONES[z["id"]])]
+        if len(z["perimeter"]) >= 4:   # una zona senza perimetro non si spedisce (l'app non saprebbe dire se sei dentro)
+            kept.append(z)
+        else:
+            print("zona senza perimetro, esclusa:", z["id"])
+    out = kept
     order = ["id", "name", "name_it", "name_de", "kind", "summary", "summary_it", "summary_de", "perimeter", "gates",
              "windows", "freeOnHolidays", "exemptFuels", "hotelCanRegister", "source"]
     return [{k: z[k] for k in order} for z in out]
@@ -242,10 +291,13 @@ def zones():
 
 city = {"id": "roma", "name": "Rome", "name_it": "Roma", "name_de": "Rom", "center": {"lat": 41.8960, "lon": 12.4823},
         "zones": zones(), "status": "draft",
-        "license": "Hours and rules: Roma Servizi per la Mobilità (romamobilita.it). Perimeters and gates: not loaded yet (official RSM open data, CC BY 3.0 IT, still to be downloaded)"}
+        "license": "Hours and rules: Roma Servizi per la Mobilità (romamobilita.it). Perimeters and gates: " + osm_geo.ODBL
+                   + " (approximate, not official; the official RSM open data, CC BY 3.0 IT, are still to be downloaded)"}
 # Senza perimetri l'app non può dire se un punto è dentro: finché mancano, Roma resta tra le bozze (data/drafts)
-if not all(len(z["perimeter"]) >= 4 for z in city["zones"]):
+if not city["zones"] or not all(len(z["perimeter"]) >= 4 for z in city["zones"]):
     (ROOT / "Resources/Cities/roma.json").unlink(missing_ok=True)
     OUT = ROOT / "data/drafts/roma.json"
+else:
+    (ROOT / "data/drafts/roma.json").unlink(missing_ok=True)   # la bozza vecchia non serve più
 OUT.write_text(json.dumps(city, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 print(OUT.name, [(z["id"], len(z["perimeter"]), len(z["gates"]), len(z["windows"])) for z in city["zones"]])

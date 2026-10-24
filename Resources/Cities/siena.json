@@ -1,0 +1,856 @@
+{
+ "id": "siena",
+ "name": "Siena",
+ "name_it": "Siena",
+ "name_de": "Siena",
+ "center": {
+  "lat": 43.3184,
+  "lon": 11.3316
+ },
+ "zones": [
+  {
+   "id": "siena-ztl",
+   "name": "ZTL · Historic Centre",
+   "name_it": "ZTL · Centro storico",
+   "name_de": "ZTL · Altstadt",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised vehicles 24 hours a day, every day, holidays included. There is no tourist day pass: short permits are only for specific needs (heavy items, passengers over 70 or under 6, pets to the vet). If your hotel is inside, it can register your plate for luggage only: max 45 minutes, twice a day.",
+   "summary_it": "Chiusa ai veicoli non autorizzati 24 ore su 24, tutti i giorni, festivi compresi. Non c'è un ticket per i turisti: i permessi brevi valgono solo per motivi precisi (oggetti pesanti, passeggeri sopra i 70 o sotto i 6 anni, animali dal veterinario). Se l'hotel è dentro, può registrare la targa solo per i bagagli: massimo 45 minuti, due volte al giorno.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Fahrzeuge gesperrt. Es gibt kein Tagesticket für Touristen: kurze Genehmigungen nur für bestimmte Zwecke (schwere Gegenstände, Mitfahrer über 70 oder unter 6, Tiere zum Tierarzt). Liegt dein Hotel innen, kann es dein Kennzeichen nur fürs Gepäck melden: höchstens 45 Minuten, zweimal am Tag.",
+   "perimeter": [
+    {
+     "lat": 43.316078,
+     "lon": 11.331881
+    },
+    {
+     "lat": 43.316367,
+     "lon": 11.33198
+    },
+    {
+     "lat": 43.316657,
+     "lon": 11.332375
+    },
+    {
+     "lat": 43.316801,
+     "lon": 11.333066
+    },
+    {
+     "lat": 43.316729,
+     "lon": 11.333659
+    },
+    {
+     "lat": 43.31644,
+     "lon": 11.334054
+    },
+    {
+     "lat": 43.316295,
+     "lon": 11.334054
+    },
+    {
+     "lat": 43.316512,
+     "lon": 11.334647
+    },
+    {
+     "lat": 43.31644,
+     "lon": 11.335437
+    },
+    {
+     "lat": 43.316223,
+     "lon": 11.336128
+    },
+    {
+     "lat": 43.316295,
+     "lon": 11.336524
+    },
+    {
+     "lat": 43.316223,
+     "lon": 11.336919
+    },
+    {
+     "lat": 43.315861,
+     "lon": 11.337413
+    },
+    {
+     "lat": 43.315571,
+     "lon": 11.337511
+    },
+    {
+     "lat": 43.315571,
+     "lon": 11.337906
+    },
+    {
+     "lat": 43.315137,
+     "lon": 11.3384
+    },
+    {
+     "lat": 43.315065,
+     "lon": 11.339191
+    },
+    {
+     "lat": 43.314776,
+     "lon": 11.339487
+    },
+    {
+     "lat": 43.314776,
+     "lon": 11.339783
+    },
+    {
+     "lat": 43.315571,
+     "lon": 11.339586
+    },
+    {
+     "lat": 43.316006,
+     "lon": 11.339092
+    },
+    {
+     "lat": 43.316584,
+     "lon": 11.338993
+    },
+    {
+     "lat": 43.316657,
+     "lon": 11.338795
+    },
+    {
+     "lat": 43.317308,
+     "lon": 11.338795
+    },
+    {
+     "lat": 43.317597,
+     "lon": 11.339191
+    },
+    {
+     "lat": 43.31767,
+     "lon": 11.339586
+    },
+    {
+     "lat": 43.317525,
+     "lon": 11.340178
+    },
+    {
+     "lat": 43.317453,
+     "lon": 11.341462
+    },
+    {
+     "lat": 43.317163,
+     "lon": 11.342154
+    },
+    {
+     "lat": 43.317308,
+     "lon": 11.342845
+    },
+    {
+     "lat": 43.317597,
+     "lon": 11.340771
+    },
+    {
+     "lat": 43.317959,
+     "lon": 11.340277
+    },
+    {
+     "lat": 43.317814,
+     "lon": 11.337808
+    },
+    {
+     "lat": 43.318031,
+     "lon": 11.337215
+    },
+    {
+     "lat": 43.31767,
+     "lon": 11.33682
+    },
+    {
+     "lat": 43.317597,
+     "lon": 11.336425
+    },
+    {
+     "lat": 43.31767,
+     "lon": 11.335832
+    },
+    {
+     "lat": 43.317887,
+     "lon": 11.335635
+    },
+    {
+     "lat": 43.317887,
+     "lon": 11.335437
+    },
+    {
+     "lat": 43.318321,
+     "lon": 11.334844
+    },
+    {
+     "lat": 43.318683,
+     "lon": 11.334746
+    },
+    {
+     "lat": 43.319117,
+     "lon": 11.334943
+    },
+    {
+     "lat": 43.319117,
+     "lon": 11.33435
+    },
+    {
+     "lat": 43.319261,
+     "lon": 11.334252
+    },
+    {
+     "lat": 43.319334,
+     "lon": 11.333857
+    },
+    {
+     "lat": 43.31984,
+     "lon": 11.333165
+    },
+    {
+     "lat": 43.32013,
+     "lon": 11.333066
+    },
+    {
+     "lat": 43.320491,
+     "lon": 11.333165
+    },
+    {
+     "lat": 43.320636,
+     "lon": 11.333461
+    },
+    {
+     "lat": 43.321359,
+     "lon": 11.33356
+    },
+    {
+     "lat": 43.321649,
+     "lon": 11.333955
+    },
+    {
+     "lat": 43.321649,
+     "lon": 11.334153
+    },
+    {
+     "lat": 43.322011,
+     "lon": 11.333955
+    },
+    {
+     "lat": 43.322372,
+     "lon": 11.334054
+    },
+    {
+     "lat": 43.322589,
+     "lon": 11.334449
+    },
+    {
+     "lat": 43.322879,
+     "lon": 11.334647
+    },
+    {
+     "lat": 43.322589,
+     "lon": 11.333857
+    },
+    {
+     "lat": 43.322662,
+     "lon": 11.333363
+    },
+    {
+     "lat": 43.322951,
+     "lon": 11.332968
+    },
+    {
+     "lat": 43.323602,
+     "lon": 11.33277
+    },
+    {
+     "lat": 43.323675,
+     "lon": 11.332572
+    },
+    {
+     "lat": 43.32353,
+     "lon": 11.332177
+    },
+    {
+     "lat": 43.323385,
+     "lon": 11.332177
+    },
+    {
+     "lat": 43.322372,
+     "lon": 11.330794
+    },
+    {
+     "lat": 43.322372,
+     "lon": 11.329906
+    },
+    {
+     "lat": 43.322662,
+     "lon": 11.32951
+    },
+    {
+     "lat": 43.322879,
+     "lon": 11.32951
+    },
+    {
+     "lat": 43.323458,
+     "lon": 11.329115
+    },
+    {
+     "lat": 43.323602,
+     "lon": 11.328819
+    },
+    {
+     "lat": 43.324398,
+     "lon": 11.328819
+    },
+    {
+     "lat": 43.324688,
+     "lon": 11.329214
+    },
+    {
+     "lat": 43.32476,
+     "lon": 11.329609
+    },
+    {
+     "lat": 43.32476,
+     "lon": 11.330893
+    },
+    {
+     "lat": 43.324832,
+     "lon": 11.32872
+    },
+    {
+     "lat": 43.325122,
+     "lon": 11.328325
+    },
+    {
+     "lat": 43.325411,
+     "lon": 11.328226
+    },
+    {
+     "lat": 43.325845,
+     "lon": 11.328424
+    },
+    {
+     "lat": 43.326279,
+     "lon": 11.328325
+    },
+    {
+     "lat": 43.326713,
+     "lon": 11.32714
+    },
+    {
+     "lat": 43.326858,
+     "lon": 11.327041
+    },
+    {
+     "lat": 43.327147,
+     "lon": 11.326251
+    },
+    {
+     "lat": 43.327437,
+     "lon": 11.325954
+    },
+    {
+     "lat": 43.327726,
+     "lon": 11.325164
+    },
+    {
+     "lat": 43.327437,
+     "lon": 11.325164
+    },
+    {
+     "lat": 43.327147,
+     "lon": 11.324868
+    },
+    {
+     "lat": 43.326496,
+     "lon": 11.324868
+    },
+    {
+     "lat": 43.326496,
+     "lon": 11.325856
+    },
+    {
+     "lat": 43.326207,
+     "lon": 11.326251
+    },
+    {
+     "lat": 43.325845,
+     "lon": 11.32635
+    },
+    {
+     "lat": 43.325411,
+     "lon": 11.326053
+    },
+    {
+     "lat": 43.325411,
+     "lon": 11.326251
+    },
+    {
+     "lat": 43.325122,
+     "lon": 11.326646
+    },
+    {
+     "lat": 43.324543,
+     "lon": 11.326843
+    },
+    {
+     "lat": 43.324253,
+     "lon": 11.32714
+    },
+    {
+     "lat": 43.323964,
+     "lon": 11.32714
+    },
+    {
+     "lat": 43.323964,
+     "lon": 11.327337
+    },
+    {
+     "lat": 43.323675,
+     "lon": 11.327732
+    },
+    {
+     "lat": 43.323096,
+     "lon": 11.327732
+    },
+    {
+     "lat": 43.322879,
+     "lon": 11.328029
+    },
+    {
+     "lat": 43.3223,
+     "lon": 11.328226
+    },
+    {
+     "lat": 43.321866,
+     "lon": 11.328128
+    },
+    {
+     "lat": 43.321794,
+     "lon": 11.32793
+    },
+    {
+     "lat": 43.321432,
+     "lon": 11.328128
+    },
+    {
+     "lat": 43.320998,
+     "lon": 11.328029
+    },
+    {
+     "lat": 43.320636,
+     "lon": 11.327535
+    },
+    {
+     "lat": 43.320419,
+     "lon": 11.326646
+    },
+    {
+     "lat": 43.320057,
+     "lon": 11.327239
+    },
+    {
+     "lat": 43.319334,
+     "lon": 11.327239
+    },
+    {
+     "lat": 43.318755,
+     "lon": 11.326547
+    },
+    {
+     "lat": 43.31861,
+     "lon": 11.326053
+    },
+    {
+     "lat": 43.318538,
+     "lon": 11.326942
+    },
+    {
+     "lat": 43.318248,
+     "lon": 11.327337
+    },
+    {
+     "lat": 43.317814,
+     "lon": 11.327436
+    },
+    {
+     "lat": 43.317525,
+     "lon": 11.327239
+    },
+    {
+     "lat": 43.317091,
+     "lon": 11.327239
+    },
+    {
+     "lat": 43.316946,
+     "lon": 11.327535
+    },
+    {
+     "lat": 43.316295,
+     "lon": 11.32793
+    },
+    {
+     "lat": 43.315861,
+     "lon": 11.327831
+    },
+    {
+     "lat": 43.315499,
+     "lon": 11.327337
+    },
+    {
+     "lat": 43.315427,
+     "lon": 11.326646
+    },
+    {
+     "lat": 43.315282,
+     "lon": 11.326547
+    },
+    {
+     "lat": 43.315065,
+     "lon": 11.325757
+    },
+    {
+     "lat": 43.313907,
+     "lon": 11.326547
+    },
+    {
+     "lat": 43.31369,
+     "lon": 11.326547
+    },
+    {
+     "lat": 43.313401,
+     "lon": 11.327041
+    },
+    {
+     "lat": 43.313039,
+     "lon": 11.32714
+    },
+    {
+     "lat": 43.31275,
+     "lon": 11.327041
+    },
+    {
+     "lat": 43.312316,
+     "lon": 11.326448
+    },
+    {
+     "lat": 43.312026,
+     "lon": 11.325757
+    },
+    {
+     "lat": 43.311954,
+     "lon": 11.325164
+    },
+    {
+     "lat": 43.311737,
+     "lon": 11.325164
+    },
+    {
+     "lat": 43.311448,
+     "lon": 11.325954
+    },
+    {
+     "lat": 43.311158,
+     "lon": 11.326251
+    },
+    {
+     "lat": 43.311086,
+     "lon": 11.326745
+    },
+    {
+     "lat": 43.313763,
+     "lon": 11.328621
+    },
+    {
+     "lat": 43.314052,
+     "lon": 11.329017
+    },
+    {
+     "lat": 43.314414,
+     "lon": 11.330301
+    },
+    {
+     "lat": 43.314197,
+     "lon": 11.330992
+    },
+    {
+     "lat": 43.313618,
+     "lon": 11.331683
+    },
+    {
+     "lat": 43.314197,
+     "lon": 11.331486
+    },
+    {
+     "lat": 43.314486,
+     "lon": 11.331585
+    },
+    {
+     "lat": 43.314776,
+     "lon": 11.33198
+    },
+    {
+     "lat": 43.314776,
+     "lon": 11.332968
+    },
+    {
+     "lat": 43.314414,
+     "lon": 11.333461
+    },
+    {
+     "lat": 43.314559,
+     "lon": 11.333461
+    },
+    {
+     "lat": 43.314848,
+     "lon": 11.333066
+    },
+    {
+     "lat": 43.314993,
+     "lon": 11.332375
+    },
+    {
+     "lat": 43.315282,
+     "lon": 11.33198
+    },
+    {
+     "lat": 43.316078,
+     "lon": 11.331881
+    }
+   ],
+   "gates": [
+    {
+     "id": "si-osm2858918101",
+     "name": "Varco Bastianini",
+     "location": {
+      "lat": 43.314661,
+      "lon": 11.326106
+     }
+    },
+    {
+     "id": "si-osm11293424474",
+     "name": "Varco Camollia",
+     "location": {
+      "lat": 43.327649,
+      "lon": 11.325388
+     }
+    },
+    {
+     "id": "si-osm195511300",
+     "name": "Varco Esterna Fontebranda",
+     "location": {
+      "lat": 43.318342,
+      "lon": 11.325655
+     }
+    },
+    {
+     "id": "si-osm5254410850",
+     "name": "Varco Fontanella",
+     "location": {
+      "lat": 43.314427,
+      "lon": 11.333447
+     }
+    },
+    {
+     "id": "si-osm11076462779",
+     "name": "Varco Garibaldi",
+     "location": {
+      "lat": 43.324779,
+      "lon": 11.330467
+     }
+    },
+    {
+     "id": "si-osm11290763870",
+     "name": "Varco Gazzani",
+     "location": {
+      "lat": 43.324129,
+      "lon": 11.327156
+     }
+    },
+    {
+     "id": "si-osm316877611",
+     "name": "Varco Malizia",
+     "location": {
+      "lat": 43.325467,
+      "lon": 11.326164
+     }
+    },
+    {
+     "id": "si-osm8038755134",
+     "name": "Varco Mascagni",
+     "location": {
+      "lat": 43.315031,
+      "lon": 11.325865
+     }
+    },
+    {
+     "id": "si-osm9172410868",
+     "name": "Varco Matteotti",
+     "location": {
+      "lat": 43.321635,
+      "lon": 11.328142
+     }
+    },
+    {
+     "id": "si-osm5254405919",
+     "name": "Varco Mattioli",
+     "location": {
+      "lat": 43.313131,
+      "lon": 11.331948
+     }
+    },
+    {
+     "id": "si-osm8038755133",
+     "name": "Varco Porta Ovile",
+     "location": {
+      "lat": 43.323475,
+      "lon": 11.33244
+     }
+    },
+    {
+     "id": "si-osm11293488965",
+     "name": "Varco Porta Pispini",
+     "location": {
+      "lat": 43.317467,
+      "lon": 11.341826
+     }
+    },
+    {
+     "id": "si-osm11293488968",
+     "name": "Varco Porta Romana",
+     "location": {
+      "lat": 43.314934,
+      "lon": 11.339646
+     }
+    },
+    {
+     "id": "si-osm11078533034",
+     "name": "Varco San Domenico",
+     "location": {
+      "lat": 43.320361,
+      "lon": 11.326851
+     }
+    },
+    {
+     "id": "si-osm9169950030",
+     "name": "Varco San Marco",
+     "location": {
+      "lat": 43.311968,
+      "lon": 11.325302
+     }
+    },
+    {
+     "id": "si-osm12288418454",
+     "name": "Varco Sasso di San Bernardino",
+     "location": {
+      "lat": 43.323087,
+      "lon": 11.328038
+     }
+    },
+    {
+     "id": "si-osm305926526",
+     "name": "Varco Sperandie",
+     "location": {
+      "lat": 43.311721,
+      "lon": 11.325359
+     }
+    },
+    {
+     "id": "si-osm11293424486",
+     "name": "Varco Vallerozzi",
+     "location": {
+      "lat": 43.323474,
+      "lon": 11.332254
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Siena",
+    "pageURL": "https://www.comune.siena.it/documento-pubblico/disciplinare-il-rilascio-dei-permessi-di-accesso-e-circolazione-zona-traffico",
+    "ordinance": "Deliberazione GC n. 177 del 19/05/2026 (Disciplinare ZTL)",
+    "ordinanceURL": "https://www.comune.siena.it/sites/default/files/2026-05/disciplinare__allegato%20A_1_d.pdf",
+    "quote": "ha validità tutti i giorni nell’orario 0/24 e l’ingresso, la circolazione e la sosta sono vietati ai veicoli non autorizzati",
+    "quoteTranslation": "valid every day, 0–24, and entry, driving and parking are forbidden to unauthorised vehicles",
+    "quoteTranslation_de": "gilt täglich von 0 bis 24 Uhr; Einfahrt, Fahren und Parken sind für nicht berechtigte Fahrzeuge verboten",
+    "checkedOn": "2026-10-24T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter from OpenStreetMap, to be checked against the official map. It is drawn around the streets mapped as ZTL, so the edge is approximate.",
+     "Inside the ZTL, Zona Y storica (open only 6–10 am) and Zona A (6–10 am and 3:30–5 pm) are stricter even with a permit; they are not drawn on the map yet.",
+     "Hotel deadline: the city's page says within 2 working days after entry, the 2026 rules say no later than 2 days after. To be confirmed with the city."
+    ],
+    "pending_it": [
+     "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale. È tracciato attorno alle strade segnate come ZTL, quindi il bordo è approssimato.",
+     "Dentro la ZTL, la Zona Y storica (solo 6–10) e la Zona A (6–10 e 15:30–17) sono più restrittive anche con il permesso; non sono ancora disegnate sulla mappa.",
+     "Scadenza per l'hotel: la pagina del Comune dice entro 2 giorni lavorativi dal transito, il disciplinare 2026 non oltre 2 giorni successivi. Da confermare con il Comune."
+    ],
+    "pending_de": [
+     "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen. Sie umfasst die als ZTL erfassten Straßen, der Rand ist daher ungefähr.",
+     "Innerhalb der ZTL sind Zona Y storica (nur 6–10 Uhr) und Zona A (6–10 und 15:30–17 Uhr) auch mit Genehmigung strenger; sie sind noch nicht auf der Karte eingezeichnet.",
+     "Frist für das Hotel: Die Seite der Stadt nennt 2 Werktage nach der Einfahrt, die Regeln von 2026 höchstens 2 Tage danach. Mit der Stadt zu klären."
+    ],
+    "links": [
+     {
+      "title": "City of Siena: ZTL access for private persons (permits and prices)",
+      "title_it": "Comune di Siena: accesso ZTL per persone fisiche (permessi e tariffe)",
+      "title_de": "Stadt Siena: ZTL-Zufahrt für Privatpersonen (Genehmigungen und Preise)",
+      "url": "https://www.comune.siena.it/servizi/accesso-ztl-persone-fisiche"
+     },
+     {
+      "title": "City of Siena: ZTL access for hotel guests",
+      "title_it": "Comune di Siena: accesso ZTL per strutture ricettive",
+      "title_de": "Stadt Siena: ZTL-Zufahrt für Hotelgäste",
+      "url": "https://www.comune.siena.it/servizi/accesso-ztl-strutture-ricettive"
+     },
+     {
+      "title": "City of Siena: ZTL permit rules (Council decision 177/2026)",
+      "title_it": "Comune di Siena: disciplinare permessi ZTL (delibera GC 177/2026)",
+      "title_de": "Stadt Siena: Regeln für ZTL-Genehmigungen (Beschluss 177/2026)",
+      "url": "https://www.comune.siena.it/documento-pubblico/disciplinare-il-rilascio-dei-permessi-di-accesso-e-circolazione-zona-traffico"
+     },
+     {
+      "title": "City of Siena: ZTL prices",
+      "title_it": "Comune di Siena: tariffe ZTL",
+      "title_de": "Stadt Siena: ZTL-Tarife",
+      "url": "https://www.comune.siena.it/sites/default/files/2025-09/Tabella%20Tariffe_%20GC_327_2025.pdf"
+     },
+     {
+      "title": "City of Siena: map of the ZTL with gates (PDF)",
+      "title_it": "Comune di Siena: mappa ZTL con varchi (PDF)",
+      "title_de": "Stadt Siena: Karte der ZTL mit Kameras (PDF)",
+      "url": "https://www.comune.siena.it/sites/default/files/2025-06/Mappa%20ZTL%20con%20Varchi.pdf"
+     },
+     {
+      "title": "City of Siena: map of Zona A and Zona Y storica (PDF)",
+      "title_it": "Comune di Siena: mappa Zona A e Zona Y storica (PDF)",
+      "title_de": "Stadt Siena: Karte von Zona A und Zona Y storica (PDF)",
+      "url": "https://www.comune.siena.it/sites/default/files/2025-03/Planimetria%20Y%20storica%20ampliata%20%281%29.pdf"
+     },
+     {
+      "title": "OpenStreetMap: relation 4081506 (ZTL streets and gates, ODbL)",
+      "title_it": "OpenStreetMap: relazione 4081506 (strade e varchi della ZTL, ODbL)",
+      "title_de": "OpenStreetMap: Relation 4081506 (ZTL-Straßen und Kameras, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/4081506"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Siena official pages and documents. Perimeter and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

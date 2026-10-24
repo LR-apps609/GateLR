@@ -1,6 +1,6 @@
 # Pisa: fonti e stato delle verifiche
 
-Letture del **24/10/2026**. Scheda `Resources/Cities/pisa.json` in stato **draft** (`reviewedByHuman: false`), generata da `Tools/build_pisa.py` a partire dai file in `data/raw/pisa/`.
+Letture del **24/10/2026**. Scheda `data/drafts/pisa.json` (bozza, **non nell'app**) in stato **draft** (`reviewedByHuman: false`), generata da `Tools/build_pisa.py` a partire dai file in `data/raw/pisa/`.
 
 **Raggiungibilità:** www.comune.pisa.it funziona. Le pagine si leggono via API OpenCity (`/api/opendata/v2/content/read/<id>`), e i JSON sono salvati come `comune-pisa-content-<id>.json`. Non raggiungibili (CONNECT 403 o DNS): pisamo.it, mobilita.pisamo.it/.net, varchi.pisamo.it, opendata.comune.pisa.it, overpass-api.de e i mirror, api.openstreetmap.org, geofabrik. Su dati.gov.it (CKAN) non c'è nessun dataset ZTL del Comune di Pisa: `package_search` per "pisa ztl" dà 0 risultati, e per "pisa" escono solo i dati acustici RNDT.
 
@@ -26,15 +26,20 @@ Letture del **24/10/2026**. Scheda `Resources/Cities/pisa.json` in stato **draft
 - Settori: il Comune parla di ZTL "Nord", "Sud", "Lungarni" (2010) e di quartieri (San Francesco, Santa Maria, San Martino, Sant'Antonio). Composizione e orari attuali sono ignoti, quindi la scheda ha **una sola zona**.
 - Nessun ticket giornaliero per turisti trovato (`ticket` assente). Il servizio "Autorizzazione giornaliera" (obj 3414) vale solo per disabili e taxi/NCC.
 - Prezzo (12 €/24 h) e scadenza (10 ore) per gli ospiti delle strutture: dati del 2023.
-- Varchi: elenco e coordinate non pubblicati nelle fonti aperte (`gates: []`).
+- Varchi: elenco e coordinate non pubblicati nelle fonti ufficiali aperte. Nel JSON ci sono i 15 di OpenStreetMap, da verificare.
 
 ## Geometria
 
-**Nessuna.** Non ci sono open data del Comune (portale irraggiungibile, niente su dati.gov.it) e Overpass/OSM non era raggiungibile nemmeno dopo molti tentativi. Il `perimeter` è vuoto: l'app non disegna la zona e non la rileva sulla mappa (con un perimetro vuoto non va in crash).
+**Perimetro: nessuno. Varchi: 15, da OpenStreetMap** (© OpenStreetMap contributors, ODbL 1.0, scritto nel campo `license`).
+
+- Dati: `data/raw/geo/pisa-ztl.json` e `pisa-gates.json`, scaricati con `Tools/fetch_geo.py` (GitHub Actions, Overpass `out geom`).
+- La relazione [9342809](https://www.openstreetmap.org/relation/9342809) «Zona a Traffico Limitato» (`type=enforcement`, `operator=Comune di Pisa`) contiene **solo le 15 telecamere** (ruolo `device`): niente contorno e niente strade, quindi non si può ricavare un perimetro senza inventarlo. I 15 varchi sono nel JSON (id `pi-osm<id nodo>`, nome «Varco ZTL»), con la nota «posizioni da OpenStreetMap, da verificare».
+- Le mura (`pisa-walls.json`) racchiudono tutta la città storica, che non coincide con la ZTL (settori Nord, Sud e Lungarni): non sono usate.
+- `Tools/build_pisa.py` usa da solo un perimetro se in `pisa-ztl.json` compare una relazione `boundary=limited_traffic_zone` (o se si salva `data/raw/pisa/osm-ztl.json` con una way chiusa).
+
+**Pisa resta in `data/drafts/` anche con un perimetro**: nello script `HOURS_OFFICIAL = False`, perché la fascia 0–24 è una scelta prudenziale di GateLR e non un orario del Comune. Quando gli orari saranno verificati, si mette `True` e si toglie il primo punto «pending».
 
 La Fig. 2-1 del Piano del traffico del 2002 ("Il Centro Storico e la ZTL", obj 18166) è una mappa raster datata, ed è stata scartata.
-
-Quando OSM sarà raggiungibile, si salva la risposta Overpass (`out geom`) in `data/raw/pisa/osm-ztl.json` e si rilancia lo script. Lo script usa il poligono chiuso più grande, aggiunge il pending "perimetro approssimato da OpenStreetMap (way/ID)" e la licenza "© OpenStreetMap contributors, ODbL 1.0".
 
 ## File in data/raw/pisa/
 

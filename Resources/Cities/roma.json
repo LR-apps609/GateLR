@@ -1,0 +1,2266 @@
+{
+ "id": "roma",
+ "name": "Rome",
+ "name_it": "Roma",
+ "name_de": "Rom",
+ "center": {
+  "lat": 41.896,
+  "lon": 12.4823
+ },
+ "zones": [
+  {
+   "id": "roma-centro",
+   "name": "ZTL · Historic Centre",
+   "name_it": "ZTL · Centro Storico",
+   "name_de": "ZTL · Altstadt",
+   "kind": "restricted",
+   "summary": "Closed without a permit Monday to Friday 6:30 am–6 pm and Saturday 2–6 pm, and on Friday and Saturday nights 11 pm–3 am (not in August). Public holidays are free. There is no day ticket for visitors, electric cars included. If you sleep in a hotel inside the ZTL and the hotel is signed up to the city's service, it can register your plate by the same day you drive in.",
+   "summary_it": "Chiusa senza permesso dal lunedì al venerdì 6:30–18 e il sabato 14–18, e nelle notti di venerdì e sabato 23–3 (non ad agosto). Festivi esclusi. Non esiste un biglietto giornaliero per i turisti, nemmeno per le auto elettriche. Se dormi in un hotel dentro la ZTL e l'hotel è iscritto al servizio del Comune, può registrare la tua targa entro il giorno stesso dell'ingresso.",
+   "summary_de": "Ohne Genehmigung gesperrt Montag bis Freitag 6:30–18 Uhr und Samstag 14–18 Uhr, dazu Freitag- und Samstagnacht 23–3 Uhr (nicht im August). Feiertage frei. Es gibt kein Tagesticket für Besucher, auch nicht für Elektroautos. Wenn du in einem Hotel in der ZTL übernachtest und das Hotel beim Dienst der Stadt angemeldet ist, kann es dein Kennzeichen bis zum Tag der Einfahrt melden.",
+   "perimeter": [
+    {
+     "lat": 41.892722,
+     "lon": 12.491399
+    },
+    {
+     "lat": 41.892472,
+     "lon": 12.49031
+    },
+    {
+     "lat": 41.891549,
+     "lon": 12.490892
+    },
+    {
+     "lat": 41.891431,
+     "lon": 12.491798
+    },
+    {
+     "lat": 41.891464,
+     "lon": 12.492275
+    },
+    {
+     "lat": 41.89135,
+     "lon": 12.492931
+    },
+    {
+     "lat": 41.890808,
+     "lon": 12.494228
+    },
+    {
+     "lat": 41.890625,
+     "lon": 12.494313
+    },
+    {
+     "lat": 41.890319,
+     "lon": 12.494067
+    },
+    {
+     "lat": 41.889598,
+     "lon": 12.493732
+    },
+    {
+     "lat": 41.889392,
+     "lon": 12.493494
+    },
+    {
+     "lat": 41.889246,
+     "lon": 12.492913
+    },
+    {
+     "lat": 41.889201,
+     "lon": 12.491411
+    },
+    {
+     "lat": 41.889007,
+     "lon": 12.490897
+    },
+    {
+     "lat": 41.888635,
+     "lon": 12.4904
+    },
+    {
+     "lat": 41.885263,
+     "lon": 12.489382
+    },
+    {
+     "lat": 41.884907,
+     "lon": 12.489205
+    },
+    {
+     "lat": 41.888186,
+     "lon": 12.483261
+    },
+    {
+     "lat": 41.888544,
+     "lon": 12.483536
+    },
+    {
+     "lat": 41.889767,
+     "lon": 12.483841
+    },
+    {
+     "lat": 41.891334,
+     "lon": 12.484946
+    },
+    {
+     "lat": 41.891454,
+     "lon": 12.484897
+    },
+    {
+     "lat": 41.89201,
+     "lon": 12.483807
+    },
+    {
+     "lat": 41.891156,
+     "lon": 12.482433
+    },
+    {
+     "lat": 41.890875,
+     "lon": 12.480297
+    },
+    {
+     "lat": 41.890662,
+     "lon": 12.479418
+    },
+    {
+     "lat": 41.891054,
+     "lon": 12.478974
+    },
+    {
+     "lat": 41.891491,
+     "lon": 12.478289
+    },
+    {
+     "lat": 41.891812,
+     "lon": 12.477309
+    },
+    {
+     "lat": 41.891882,
+     "lon": 12.476491
+    },
+    {
+     "lat": 41.891719,
+     "lon": 12.473785
+    },
+    {
+     "lat": 41.891866,
+     "lon": 12.472793
+    },
+    {
+     "lat": 41.892158,
+     "lon": 12.47213
+    },
+    {
+     "lat": 41.892895,
+     "lon": 12.471093
+    },
+    {
+     "lat": 41.896876,
+     "lon": 12.466026
+    },
+    {
+     "lat": 41.899161,
+     "lon": 12.464402
+    },
+    {
+     "lat": 41.89979,
+     "lon": 12.464253
+    },
+    {
+     "lat": 41.89987,
+     "lon": 12.465217
+    },
+    {
+     "lat": 41.901056,
+     "lon": 12.466203
+    },
+    {
+     "lat": 41.901196,
+     "lon": 12.466207
+    },
+    {
+     "lat": 41.901331,
+     "lon": 12.468044
+    },
+    {
+     "lat": 41.901589,
+     "lon": 12.469648
+    },
+    {
+     "lat": 41.902002,
+     "lon": 12.471295
+    },
+    {
+     "lat": 41.902373,
+     "lon": 12.472328
+    },
+    {
+     "lat": 41.902835,
+     "lon": 12.473286
+    },
+    {
+     "lat": 41.90326,
+     "lon": 12.473917
+    },
+    {
+     "lat": 41.904282,
+     "lon": 12.474778
+    },
+    {
+     "lat": 41.904923,
+     "lon": 12.475084
+    },
+    {
+     "lat": 41.905391,
+     "lon": 12.475168
+    },
+    {
+     "lat": 41.906033,
+     "lon": 12.4752
+    },
+    {
+     "lat": 41.906843,
+     "lon": 12.475074
+    },
+    {
+     "lat": 41.907563,
+     "lon": 12.475235
+    },
+    {
+     "lat": 41.909473,
+     "lon": 12.4739
+    },
+    {
+     "lat": 41.909693,
+     "lon": 12.475301
+    },
+    {
+     "lat": 41.911323,
+     "lon": 12.474591
+    },
+    {
+     "lat": 41.911636,
+     "lon": 12.475841
+    },
+    {
+     "lat": 41.911775,
+     "lon": 12.476971
+    },
+    {
+     "lat": 41.912076,
+     "lon": 12.477541
+    },
+    {
+     "lat": 41.912373,
+     "lon": 12.478408
+    },
+    {
+     "lat": 41.912917,
+     "lon": 12.480557
+    },
+    {
+     "lat": 41.912914,
+     "lon": 12.48093
+    },
+    {
+     "lat": 41.912781,
+     "lon": 12.481067
+    },
+    {
+     "lat": 41.911333,
+     "lon": 12.481344
+    },
+    {
+     "lat": 41.910409,
+     "lon": 12.481769
+    },
+    {
+     "lat": 41.910024,
+     "lon": 12.482233
+    },
+    {
+     "lat": 41.909663,
+     "lon": 12.482997
+    },
+    {
+     "lat": 41.908634,
+     "lon": 12.484737
+    },
+    {
+     "lat": 41.908524,
+     "lon": 12.485215
+    },
+    {
+     "lat": 41.908576,
+     "lon": 12.48569
+    },
+    {
+     "lat": 41.909491,
+     "lon": 12.487899
+    },
+    {
+     "lat": 41.909142,
+     "lon": 12.487977
+    },
+    {
+     "lat": 41.908424,
+     "lon": 12.487117
+    },
+    {
+     "lat": 41.907803,
+     "lon": 12.486548
+    },
+    {
+     "lat": 41.906772,
+     "lon": 12.485921
+    },
+    {
+     "lat": 41.906341,
+     "lon": 12.485868
+    },
+    {
+     "lat": 41.90683,
+     "lon": 12.487893
+    },
+    {
+     "lat": 41.906072,
+     "lon": 12.488284
+    },
+    {
+     "lat": 41.906467,
+     "lon": 12.489108
+    },
+    {
+     "lat": 41.906024,
+     "lon": 12.489374
+    },
+    {
+     "lat": 41.906215,
+     "lon": 12.489919
+    },
+    {
+     "lat": 41.906392,
+     "lon": 12.490188
+    },
+    {
+     "lat": 41.905747,
+     "lon": 12.491187
+    },
+    {
+     "lat": 41.905119,
+     "lon": 12.493048
+    },
+    {
+     "lat": 41.904193,
+     "lon": 12.494514
+    },
+    {
+     "lat": 41.903073,
+     "lon": 12.495794
+    },
+    {
+     "lat": 41.902558,
+     "lon": 12.495989
+    },
+    {
+     "lat": 41.902333,
+     "lon": 12.496642
+    },
+    {
+     "lat": 41.901499,
+     "lon": 12.497631
+    },
+    {
+     "lat": 41.901369,
+     "lon": 12.497608
+    },
+    {
+     "lat": 41.900906,
+     "lon": 12.496877
+    },
+    {
+     "lat": 41.900299,
+     "lon": 12.49787
+    },
+    {
+     "lat": 41.899472,
+     "lon": 12.49699
+    },
+    {
+     "lat": 41.898672,
+     "lon": 12.497487
+    },
+    {
+     "lat": 41.89716,
+     "lon": 12.495778
+    },
+    {
+     "lat": 41.894675,
+     "lon": 12.493282
+    },
+    {
+     "lat": 41.894101,
+     "lon": 12.491007
+    },
+    {
+     "lat": 41.892758,
+     "lon": 12.491539
+    },
+    {
+     "lat": 41.892769,
+     "lon": 12.491385
+    },
+    {
+     "lat": 41.892722,
+     "lon": 12.491399
+    }
+   ],
+   "gates": [
+    {
+     "id": "rm-osm1125488401",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.892932,
+      "lon": 12.47129
+     }
+    },
+    {
+     "id": "rm-osm1603316081",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.891271,
+      "lon": 12.480455
+     }
+    },
+    {
+     "id": "rm-osm1706540367",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.910383,
+      "lon": 12.475245
+     }
+    },
+    {
+     "id": "rm-osm1923808683",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.904541,
+      "lon": 12.475369
+     }
+    },
+    {
+     "id": "rm-osm2141788522",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.901056,
+      "lon": 12.466924
+     }
+    },
+    {
+     "id": "rm-osm2141788579",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.905967,
+      "lon": 12.489191
+     }
+    },
+    {
+     "id": "rm-osm2141788601",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.906164,
+      "lon": 12.485874
+     }
+    },
+    {
+     "id": "rm-osm2141800766",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.897319,
+      "lon": 12.495624
+     }
+    },
+    {
+     "id": "rm-osm2141800767",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.899493,
+      "lon": 12.496906
+     }
+    },
+    {
+     "id": "rm-osm2141865772",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.89911,
+      "lon": 12.464593
+     }
+    },
+    {
+     "id": "rm-osm2959672886",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.892769,
+      "lon": 12.491385
+     }
+    },
+    {
+     "id": "rm-osm2959672887",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.894095,
+      "lon": 12.490883
+     }
+    },
+    {
+     "id": "rm-osm534612091",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.892537,
+      "lon": 12.490278
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 390,
+     "end": 1080
+    },
+    {
+     "weekdays": [
+      7
+     ],
+     "start": 840,
+     "end": 1080
+    },
+    {
+     "weekdays": [
+      6,
+      7
+     ],
+     "start": 1380,
+     "end": 180,
+     "season": {
+      "fromMonth": 1,
+      "fromDay": 1,
+      "toMonth": 7,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      6,
+      7
+     ],
+     "start": 1380,
+     "end": 180,
+     "season": {
+      "fromMonth": 9,
+      "fromDay": 1,
+      "toMonth": 12,
+      "toDay": 31
+     }
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "Roma Servizi per la Mobilità",
+    "pageURL": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "6.30-18.00 da lunedì a venerdì (esclusi i festivi) 14.00-18.00 il sabato (esclusi i festivi) … notturna … 23.00-3.00 venerdì e sabato (esclusi i festivi) nel mese di agosto la ZTL notturna non è attiva",
+    "quoteTranslation": "6:30 am–6 pm Monday to Friday (holidays excluded), 2–6 pm on Saturday (holidays excluded) … night … 11 pm–3 am Friday and Saturday (holidays excluded); in August the night ZTL is not active",
+    "quoteTranslation_de": "6:30–18 Uhr Montag bis Freitag (außer Feiertage), 14–18 Uhr am Samstag (außer Feiertage) … Nacht … 23–3 Uhr Freitag und Samstag (außer Feiertage); im August ist die Nacht-ZTL nicht aktiv",
+    "checkedOn": "2026-10-24T18:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter from OpenStreetMap, to be checked against the official map.",
+     "At night (Friday and Saturday 11 pm–3 am) the ZTL covers a smaller area than by day; GateLR uses the larger daytime outline at night too.",
+     "Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
+     "Holidays: GateLR checks the holiday on the current calendar day; for the part after midnight the city may count the evening's date.",
+     "29 June (Saints Peter and Paul, Rome's patron saints): not known whether it counts as a holiday for the ZTL.",
+     "The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it."
+    ],
+    "pending_it": [
+     "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale.",
+     "Di notte (venerdì e sabato 23–3) la ZTL copre un'area più piccola che di giorno; GateLR usa anche di notte il perimetro diurno, più ampio.",
+     "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
+     "Festivi: GateLR guarda il festivo del giorno di calendario attuale; per la parte dopo mezzanotte il Comune potrebbe contare la data della sera.",
+     "29 giugno (Santi Pietro e Paolo, patroni di Roma): non sappiamo se vale come festivo per la ZTL.",
+     "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it."
+    ],
+    "pending_de": [
+     "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen.",
+     "Nachts (Freitag und Samstag 23–3 Uhr) ist die ZTL kleiner als tagsüber; GateLR nutzt auch nachts die größere Tagesgrenze.",
+     "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.",
+     "Feiertage: GateLR prüft den aktuellen Kalendertag; für die Zeit nach Mitternacht könnte die Stadt das Datum des Abends zählen.",
+     "29. Juni (Peter und Paul, Roms Schutzpatrone): unklar, ob er für die ZTL als Feiertag gilt.",
+     "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen."
+    ],
+    "links": [
+     {
+      "title": "Rome: ZTL in the centre (boundaries and hours)",
+      "title_it": "Roma: ZTL in centro (confini e orari)",
+      "title_de": "Rom: ZTL im Zentrum (Grenzen und Zeiten)",
+      "url": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/"
+     },
+     {
+      "title": "Rome: all ZTL hours",
+      "title_it": "Roma: tutti gli orari delle ZTL",
+      "title_de": "Rom: alle ZTL-Zeiten",
+      "url": "https://romamobilita.it/infomobilita/ztl-tutti-gli-orari/"
+     },
+     {
+      "title": "Rome: electric cars need a permit from 1 July 2026",
+      "title_it": "Roma: dal 1° luglio 2026 serve il permesso anche alle elettriche",
+      "title_de": "Rom: ab 1. Juli 2026 brauchen auch Elektroautos eine Genehmigung",
+      "url": "https://romamobilita.it/servizi-al-pubblico/accesso-in-ztl-di-veicoli-elettrici-o-a-idrogeno-novita-dal-1-luglio-2026/"
+     },
+     {
+      "title": "Rome: temporary permits (only for some categories)",
+      "title_it": "Roma: permessi temporanei (solo per alcune categorie)",
+      "title_de": "Rom: befristete Genehmigungen (nur für bestimmte Gruppen)",
+      "url": "https://romamobilita.it/servizi-al-pubblico/permessi-temporanei/"
+     },
+     {
+      "title": "Rome: permit X (hotels)",
+      "title_it": "Roma: permesso X (alberghi)",
+      "title_de": "Rom: Genehmigung X (Hotels)",
+      "url": "https://romamobilita.it/servizi-al-pubblico/permesso-x-circolazione-e-sosta/"
+     },
+     {
+      "title": "Rome: hotel plate service rules (PDF)",
+      "title_it": "Roma: regolamento Servizio Alberghi Web (PDF)",
+      "title_de": "Rom: Regeln des Hotel-Kennzeichendienstes (PDF)",
+      "url": "https://romamobilita.it/wp-content/uploads/2016/06/ZTL_Regolamento_Alberghi.pdf"
+     },
+     {
+      "title": "OpenStreetMap: relation 2459882 (perimeter, ODbL)",
+      "title_it": "OpenStreetMap: relazione 2459882 (perimetro, ODbL)",
+      "title_de": "OpenStreetMap: Relation 2459882 (Grenze, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/2459882"
+     }
+    ]
+   }
+  },
+  {
+   "id": "roma-tridente",
+   "name": "ZTL · Tridente (A1)",
+   "name_it": "ZTL · Tridente (A1)",
+   "name_de": "ZTL · Tridente (A1)",
+   "kind": "restricted",
+   "summary": "Closed without a permit Monday to Friday 6:30 am–7 pm and Saturday 10 am–7 pm. Public holidays are free. Motorbikes need a permit here too. There is no day ticket for visitors, electric cars included.",
+   "summary_it": "Chiusa senza permesso dal lunedì al venerdì 6:30–19 e il sabato 10–19. Festivi esclusi. Qui anche le moto hanno bisogno del permesso. Non esiste un biglietto giornaliero per i turisti, nemmeno per le auto elettriche.",
+   "summary_de": "Ohne Genehmigung gesperrt Montag bis Freitag 6:30–19 Uhr und Samstag 10–19 Uhr. Feiertage frei. Hier brauchen auch Motorräder eine Genehmigung. Es gibt kein Tagesticket für Besucher, auch nicht für Elektroautos.",
+   "perimeter": [
+    {
+     "lat": 41.90502,
+     "lon": 12.478425
+    },
+    {
+     "lat": 41.904971,
+     "lon": 12.477936
+    },
+    {
+     "lat": 41.905009,
+     "lon": 12.477687
+    },
+    {
+     "lat": 41.905108,
+     "lon": 12.477676
+    },
+    {
+     "lat": 41.905102,
+     "lon": 12.477072
+    },
+    {
+     "lat": 41.906519,
+     "lon": 12.47722
+    },
+    {
+     "lat": 41.906627,
+     "lon": 12.475733
+    },
+    {
+     "lat": 41.906844,
+     "lon": 12.475232
+    },
+    {
+     "lat": 41.907004,
+     "lon": 12.475135
+    },
+    {
+     "lat": 41.907535,
+     "lon": 12.475236
+    },
+    {
+     "lat": 41.907705,
+     "lon": 12.475184
+    },
+    {
+     "lat": 41.909473,
+     "lon": 12.4739
+    },
+    {
+     "lat": 41.909789,
+     "lon": 12.476234
+    },
+    {
+     "lat": 41.910172,
+     "lon": 12.476218
+    },
+    {
+     "lat": 41.910228,
+     "lon": 12.475706
+    },
+    {
+     "lat": 41.910487,
+     "lon": 12.475387
+    },
+    {
+     "lat": 41.910839,
+     "lon": 12.475472
+    },
+    {
+     "lat": 41.911056,
+     "lon": 12.475893
+    },
+    {
+     "lat": 41.91123,
+     "lon": 12.476677
+    },
+    {
+     "lat": 41.911198,
+     "lon": 12.476968
+    },
+    {
+     "lat": 41.910517,
+     "lon": 12.477873
+    },
+    {
+     "lat": 41.911482,
+     "lon": 12.47713
+    },
+    {
+     "lat": 41.911535,
+     "lon": 12.477176
+    },
+    {
+     "lat": 41.910561,
+     "lon": 12.478261
+    },
+    {
+     "lat": 41.907971,
+     "lon": 12.48251
+    },
+    {
+     "lat": 41.906073,
+     "lon": 12.483324
+    },
+    {
+     "lat": 41.905817,
+     "lon": 12.483754
+    },
+    {
+     "lat": 41.905705,
+     "lon": 12.483717
+    },
+    {
+     "lat": 41.903998,
+     "lon": 12.485448
+    },
+    {
+     "lat": 41.90385,
+     "lon": 12.484414
+    },
+    {
+     "lat": 41.902825,
+     "lon": 12.485594
+    },
+    {
+     "lat": 41.901812,
+     "lon": 12.481431
+    },
+    {
+     "lat": 41.902244,
+     "lon": 12.481254
+    },
+    {
+     "lat": 41.901857,
+     "lon": 12.480064
+    },
+    {
+     "lat": 41.905076,
+     "lon": 12.478702
+    },
+    {
+     "lat": 41.90502,
+     "lon": 12.478425
+    }
+   ],
+   "gates": [
+    {
+     "id": "rm-osm3141587667",
+     "name": "Varco ZTL Tridente",
+     "location": {
+      "lat": 41.903821,
+      "lon": 12.484226
+     }
+    },
+    {
+     "id": "rm-osm3141587668",
+     "name": "Varco ZTL Tridente",
+     "location": {
+      "lat": 41.904651,
+      "lon": 12.479172
+     }
+    },
+    {
+     "id": "rm-osm3141587669",
+     "name": "Varco ZTL Tridente",
+     "location": {
+      "lat": 41.906496,
+      "lon": 12.477471
+     }
+    },
+    {
+     "id": "rm-osm3141587670",
+     "name": "Varco ZTL Tridente",
+     "location": {
+      "lat": 41.909718,
+      "lon": 12.476223
+     }
+    },
+    {
+     "id": "rm-osm746725001",
+     "name": "Varco ZTL Tridente",
+     "location": {
+      "lat": 41.908076,
+      "lon": 12.482121
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 390,
+     "end": 1140
+    },
+    {
+     "weekdays": [
+      7
+     ],
+     "start": 600,
+     "end": 1140
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "Roma Servizi per la Mobilità",
+    "pageURL": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "6.30-19.00 da lunedì a venerdì (esclusi i festivi); 10.00-19.00 il sabato (esclusi i festivi)",
+    "quoteTranslation": "6:30 am–7 pm Monday to Friday (holidays excluded); 10 am–7 pm on Saturday (holidays excluded)",
+    "quoteTranslation_de": "6:30–19 Uhr Montag bis Freitag (außer Feiertage); 10–19 Uhr am Samstag (außer Feiertage)",
+    "checkedOn": "2026-10-24T18:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter from OpenStreetMap, to be checked against the official map.",
+     "Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
+     "Hotel guests: the hotel permit (X) is valid in the Historic Centre except the Tridente; whether a hotel inside the Tridente can register guests is not stated.",
+     "Night hours: the page gives no night hours for the Tridente; not known whether the Historic Centre night ZTL applies here.",
+     "29 June (Saints Peter and Paul, Rome's patron saints): not known whether it counts as a holiday for the ZTL.",
+     "The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it."
+    ],
+    "pending_it": [
+     "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale.",
+     "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
+     "Ospiti degli hotel: il permesso X degli alberghi vale nel Centro Storico tranne il Tridente; non è scritto se un hotel dentro il Tridente possa registrare i clienti.",
+     "Orari notturni: la pagina non dà orari notturni per il Tridente; non sappiamo se qui vale la ZTL notturna del Centro Storico.",
+     "29 giugno (Santi Pietro e Paolo, patroni di Roma): non sappiamo se vale come festivo per la ZTL.",
+     "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it."
+    ],
+    "pending_de": [
+     "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen.",
+     "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.",
+     "Hotelgäste: Die Hotelgenehmigung (X) gilt in der Altstadt außer im Tridente; ob ein Hotel im Tridente Gäste melden kann, steht nicht da.",
+     "Nachtzeiten: Die Seite nennt keine Nachtzeiten für den Tridente; unklar, ob hier die Nacht-ZTL der Altstadt gilt.",
+     "29. Juni (Peter und Paul, Roms Schutzpatrone): unklar, ob er für die ZTL als Feiertag gilt.",
+     "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen."
+    ],
+    "links": [
+     {
+      "title": "Rome: ZTL in the centre (boundaries and hours)",
+      "title_it": "Roma: ZTL in centro (confini e orari)",
+      "title_de": "Rom: ZTL im Zentrum (Grenzen und Zeiten)",
+      "url": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/"
+     },
+     {
+      "title": "Rome: all ZTL hours",
+      "title_it": "Roma: tutti gli orari delle ZTL",
+      "title_de": "Rom: alle ZTL-Zeiten",
+      "url": "https://romamobilita.it/infomobilita/ztl-tutti-gli-orari/"
+     },
+     {
+      "title": "Rome: electric cars need a permit from 1 July 2026",
+      "title_it": "Roma: dal 1° luglio 2026 serve il permesso anche alle elettriche",
+      "title_de": "Rom: ab 1. Juli 2026 brauchen auch Elektroautos eine Genehmigung",
+      "url": "https://romamobilita.it/servizi-al-pubblico/accesso-in-ztl-di-veicoli-elettrici-o-a-idrogeno-novita-dal-1-luglio-2026/"
+     },
+     {
+      "title": "Rome: temporary permits (only for some categories)",
+      "title_it": "Roma: permessi temporanei (solo per alcune categorie)",
+      "title_de": "Rom: befristete Genehmigungen (nur für bestimmte Gruppen)",
+      "url": "https://romamobilita.it/servizi-al-pubblico/permessi-temporanei/"
+     },
+     {
+      "title": "Rome: permit X (hotels)",
+      "title_it": "Roma: permesso X (alberghi)",
+      "title_de": "Rom: Genehmigung X (Hotels)",
+      "url": "https://romamobilita.it/servizi-al-pubblico/permesso-x-circolazione-e-sosta/"
+     },
+     {
+      "title": "Rome: hotel plate service rules (PDF)",
+      "title_it": "Roma: regolamento Servizio Alberghi Web (PDF)",
+      "title_de": "Rom: Regeln des Hotel-Kennzeichendienstes (PDF)",
+      "url": "https://romamobilita.it/wp-content/uploads/2016/06/ZTL_Regolamento_Alberghi.pdf"
+     },
+     {
+      "title": "OpenStreetMap: relation 2459883 (perimeter, ODbL)",
+      "title_it": "OpenStreetMap: relazione 2459883 (perimetro, ODbL)",
+      "title_de": "OpenStreetMap: Relation 2459883 (Grenze, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/2459883"
+     }
+    ]
+   }
+  },
+  {
+   "id": "roma-trastevere",
+   "name": "ZTL · Trastevere (day)",
+   "name_it": "ZTL · Trastevere (diurna)",
+   "name_de": "ZTL · Trastevere (Tag)",
+   "kind": "restricted",
+   "summary": "Closed without a permit Monday to Saturday from 6:30 to 10 am. Public holidays are free. At night a separate ZTL applies, also on holidays. There is no day ticket for visitors, electric cars included. If you sleep in a hotel inside the ZTL and the hotel is signed up to the city's service, it can register your plate by the same day you drive in.",
+   "summary_it": "Chiusa senza permesso dal lunedì al sabato dalle 6:30 alle 10. Festivi esclusi. Di notte vale una ZTL a parte, anche nei festivi. Non esiste un biglietto giornaliero per i turisti, nemmeno per le auto elettriche. Se dormi in un hotel dentro la ZTL e l'hotel è iscritto al servizio del Comune, può registrare la tua targa entro il giorno stesso dell'ingresso.",
+   "summary_de": "Ohne Genehmigung gesperrt Montag bis Samstag von 6:30 bis 10 Uhr. Feiertage frei. Nachts gilt eine eigene ZTL, auch an Feiertagen. Es gibt kein Tagesticket für Besucher, auch nicht für Elektroautos. Wenn du in einem Hotel in der ZTL übernachtest und das Hotel beim Dienst der Stadt angemeldet ist, kann es dein Kennzeichen bis zum Tag der Einfahrt melden.",
+   "perimeter": [
+    {
+     "lat": 41.886553,
+     "lon": 12.465165
+    },
+    {
+     "lat": 41.887647,
+     "lon": 12.466134
+    },
+    {
+     "lat": 41.88758,
+     "lon": 12.465407
+    },
+    {
+     "lat": 41.887685,
+     "lon": 12.465279
+    },
+    {
+     "lat": 41.887945,
+     "lon": 12.466563
+    },
+    {
+     "lat": 41.88812,
+     "lon": 12.46671
+    },
+    {
+     "lat": 41.888264,
+     "lon": 12.466662
+    },
+    {
+     "lat": 41.88869,
+     "lon": 12.464731
+    },
+    {
+     "lat": 41.888992,
+     "lon": 12.464297
+    },
+    {
+     "lat": 41.888908,
+     "lon": 12.463621
+    },
+    {
+     "lat": 41.889223,
+     "lon": 12.463124
+    },
+    {
+     "lat": 41.889934,
+     "lon": 12.46252
+    },
+    {
+     "lat": 41.890555,
+     "lon": 12.461587
+    },
+    {
+     "lat": 41.891099,
+     "lon": 12.461117
+    },
+    {
+     "lat": 41.891543,
+     "lon": 12.461018
+    },
+    {
+     "lat": 41.892099,
+     "lon": 12.460497
+    },
+    {
+     "lat": 41.892822,
+     "lon": 12.460271
+    },
+    {
+     "lat": 41.893231,
+     "lon": 12.460276
+    },
+    {
+     "lat": 41.893549,
+     "lon": 12.46055
+    },
+    {
+     "lat": 41.893811,
+     "lon": 12.460644
+    },
+    {
+     "lat": 41.89464,
+     "lon": 12.460564
+    },
+    {
+     "lat": 41.895534,
+     "lon": 12.460741
+    },
+    {
+     "lat": 41.895632,
+     "lon": 12.460641
+    },
+    {
+     "lat": 41.895589,
+     "lon": 12.460477
+    },
+    {
+     "lat": 41.894908,
+     "lon": 12.460312
+    },
+    {
+     "lat": 41.894844,
+     "lon": 12.460094
+    },
+    {
+     "lat": 41.894966,
+     "lon": 12.460021
+    },
+    {
+     "lat": 41.895757,
+     "lon": 12.460209
+    },
+    {
+     "lat": 41.895943,
+     "lon": 12.460468
+    },
+    {
+     "lat": 41.896058,
+     "lon": 12.46121
+    },
+    {
+     "lat": 41.896166,
+     "lon": 12.461317
+    },
+    {
+     "lat": 41.896803,
+     "lon": 12.461245
+    },
+    {
+     "lat": 41.897343,
+     "lon": 12.461538
+    },
+    {
+     "lat": 41.897606,
+     "lon": 12.461528
+    },
+    {
+     "lat": 41.897736,
+     "lon": 12.461324
+    },
+    {
+     "lat": 41.898204,
+     "lon": 12.461457
+    },
+    {
+     "lat": 41.898618,
+     "lon": 12.462939
+    },
+    {
+     "lat": 41.895838,
+     "lon": 12.465238
+    },
+    {
+     "lat": 41.891847,
+     "lon": 12.470332
+    },
+    {
+     "lat": 41.891316,
+     "lon": 12.471082
+    },
+    {
+     "lat": 41.890889,
+     "lon": 12.471875
+    },
+    {
+     "lat": 41.890574,
+     "lon": 12.471606
+    },
+    {
+     "lat": 41.890266,
+     "lon": 12.472304
+    },
+    {
+     "lat": 41.890152,
+     "lon": 12.473041
+    },
+    {
+     "lat": 41.889845,
+     "lon": 12.472993
+    },
+    {
+     "lat": 41.889531,
+     "lon": 12.473154
+    },
+    {
+     "lat": 41.887818,
+     "lon": 12.472993
+    },
+    {
+     "lat": 41.885728,
+     "lon": 12.471204
+    },
+    {
+     "lat": 41.885931,
+     "lon": 12.469539
+    },
+    {
+     "lat": 41.884799,
+     "lon": 12.468535
+    },
+    {
+     "lat": 41.88548,
+     "lon": 12.467185
+    },
+    {
+     "lat": 41.885852,
+     "lon": 12.466542
+    },
+    {
+     "lat": 41.885897,
+     "lon": 12.466588
+    },
+    {
+     "lat": 41.886553,
+     "lon": 12.465165
+    }
+   ],
+   "gates": [
+    {
+     "id": "rm-osm1001085050",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.895505,
+      "lon": 12.465536
+     }
+    },
+    {
+     "id": "rm-osm1119375699",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.887853,
+      "lon": 12.472692
+     }
+    },
+    {
+     "id": "rm-osm1640364041",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.887647,
+      "lon": 12.466276
+     }
+    },
+    {
+     "id": "rm-osm2001954485",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.886057,
+      "lon": 12.469365
+     }
+    },
+    {
+     "id": "rm-osm2142007239",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.890758,
+      "lon": 12.471778
+     }
+    },
+    {
+     "id": "rm-osm3739088577",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.891939,
+      "lon": 12.469911
+     }
+    },
+    {
+     "id": "rm-osm385120537",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.887821,
+      "lon": 12.473403
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 390,
+     "end": 600
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "Roma Servizi per la Mobilità",
+    "pageURL": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "dalle 6.30 alle 10.00 dal lunedì al sabato (esclusi i festivi)",
+    "quoteTranslation": "from 6:30 to 10 am Monday to Saturday (holidays excluded)",
+    "quoteTranslation_de": "von 6:30 bis 10 Uhr Montag bis Samstag (außer Feiertage)",
+    "checkedOn": "2026-10-24T18:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter from OpenStreetMap, to be checked against the official map.",
+     "Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
+     "29 June (Saints Peter and Paul, Rome's patron saints): not known whether it counts as a holiday for the ZTL.",
+     "The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it."
+    ],
+    "pending_it": [
+     "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale.",
+     "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
+     "29 giugno (Santi Pietro e Paolo, patroni di Roma): non sappiamo se vale come festivo per la ZTL.",
+     "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it."
+    ],
+    "pending_de": [
+     "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen.",
+     "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.",
+     "29. Juni (Peter und Paul, Roms Schutzpatrone): unklar, ob er für die ZTL als Feiertag gilt.",
+     "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen."
+    ],
+    "links": [
+     {
+      "title": "Rome: ZTL in the centre (boundaries and hours)",
+      "title_it": "Roma: ZTL in centro (confini e orari)",
+      "title_de": "Rom: ZTL im Zentrum (Grenzen und Zeiten)",
+      "url": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/"
+     },
+     {
+      "title": "Rome: all ZTL hours",
+      "title_it": "Roma: tutti gli orari delle ZTL",
+      "title_de": "Rom: alle ZTL-Zeiten",
+      "url": "https://romamobilita.it/infomobilita/ztl-tutti-gli-orari/"
+     },
+     {
+      "title": "Rome: electric cars need a permit from 1 July 2026",
+      "title_it": "Roma: dal 1° luglio 2026 serve il permesso anche alle elettriche",
+      "title_de": "Rom: ab 1. Juli 2026 brauchen auch Elektroautos eine Genehmigung",
+      "url": "https://romamobilita.it/servizi-al-pubblico/accesso-in-ztl-di-veicoli-elettrici-o-a-idrogeno-novita-dal-1-luglio-2026/"
+     },
+     {
+      "title": "Rome: temporary permits (only for some categories)",
+      "title_it": "Roma: permessi temporanei (solo per alcune categorie)",
+      "title_de": "Rom: befristete Genehmigungen (nur für bestimmte Gruppen)",
+      "url": "https://romamobilita.it/servizi-al-pubblico/permessi-temporanei/"
+     },
+     {
+      "title": "Rome: permit X (hotels)",
+      "title_it": "Roma: permesso X (alberghi)",
+      "title_de": "Rom: Genehmigung X (Hotels)",
+      "url": "https://romamobilita.it/servizi-al-pubblico/permesso-x-circolazione-e-sosta/"
+     },
+     {
+      "title": "Rome: hotel plate service rules (PDF)",
+      "title_it": "Roma: regolamento Servizio Alberghi Web (PDF)",
+      "title_de": "Rom: Regeln des Hotel-Kennzeichendienstes (PDF)",
+      "url": "https://romamobilita.it/wp-content/uploads/2016/06/ZTL_Regolamento_Alberghi.pdf"
+     },
+     {
+      "title": "OpenStreetMap: relation 2572441 (perimeter, ODbL)",
+      "title_it": "OpenStreetMap: relazione 2572441 (perimetro, ODbL)",
+      "title_de": "OpenStreetMap: Relation 2572441 (Grenze, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/2572441"
+     }
+    ]
+   }
+  },
+  {
+   "id": "roma-trastevere-notte",
+   "name": "ZTL · Trastevere (night)",
+   "name_it": "ZTL · Trastevere (notturna)",
+   "name_de": "ZTL · Trastevere (Nacht)",
+   "kind": "restricted",
+   "summary": "Closed without a permit on Friday and Saturday nights from 9:30 pm to 3 am, and from May to October also on Wednesday and Thursday nights. Also on public holidays. Not active in August. There is no day ticket for visitors, electric cars included.",
+   "summary_it": "Chiusa senza permesso nelle notti di venerdì e sabato dalle 21:30 alle 3, e da maggio a ottobre anche il mercoledì e il giovedì. Anche nei festivi. Non attiva ad agosto. Non esiste un biglietto giornaliero per i turisti, nemmeno per le auto elettriche.",
+   "summary_de": "Ohne Genehmigung gesperrt Freitag- und Samstagnacht von 21:30 bis 3 Uhr, von Mai bis Oktober auch Mittwoch und Donnerstag. Auch an Feiertagen. Im August nicht aktiv. Es gibt kein Tagesticket für Besucher, auch nicht für Elektroautos.",
+   "perimeter": [
+    {
+     "lat": 41.886153,
+     "lon": 12.466085
+    },
+    {
+     "lat": 41.886102,
+     "lon": 12.466031
+    },
+    {
+     "lat": 41.886553,
+     "lon": 12.465165
+    },
+    {
+     "lat": 41.887647,
+     "lon": 12.466134
+    },
+    {
+     "lat": 41.887579,
+     "lon": 12.465433
+    },
+    {
+     "lat": 41.887654,
+     "lon": 12.465267
+    },
+    {
+     "lat": 41.887737,
+     "lon": 12.465404
+    },
+    {
+     "lat": 41.887945,
+     "lon": 12.466563
+    },
+    {
+     "lat": 41.88812,
+     "lon": 12.46671
+    },
+    {
+     "lat": 41.888264,
+     "lon": 12.466662
+    },
+    {
+     "lat": 41.88869,
+     "lon": 12.464731
+    },
+    {
+     "lat": 41.888992,
+     "lon": 12.464297
+    },
+    {
+     "lat": 41.888908,
+     "lon": 12.463621
+    },
+    {
+     "lat": 41.889223,
+     "lon": 12.463124
+    },
+    {
+     "lat": 41.889934,
+     "lon": 12.46252
+    },
+    {
+     "lat": 41.890555,
+     "lon": 12.461587
+    },
+    {
+     "lat": 41.891099,
+     "lon": 12.461117
+    },
+    {
+     "lat": 41.891543,
+     "lon": 12.461018
+    },
+    {
+     "lat": 41.892099,
+     "lon": 12.460497
+    },
+    {
+     "lat": 41.892822,
+     "lon": 12.460271
+    },
+    {
+     "lat": 41.893231,
+     "lon": 12.460276
+    },
+    {
+     "lat": 41.893549,
+     "lon": 12.46055
+    },
+    {
+     "lat": 41.893811,
+     "lon": 12.460644
+    },
+    {
+     "lat": 41.89464,
+     "lon": 12.460564
+    },
+    {
+     "lat": 41.895534,
+     "lon": 12.460741
+    },
+    {
+     "lat": 41.895632,
+     "lon": 12.460641
+    },
+    {
+     "lat": 41.895589,
+     "lon": 12.460477
+    },
+    {
+     "lat": 41.894908,
+     "lon": 12.460312
+    },
+    {
+     "lat": 41.894844,
+     "lon": 12.460094
+    },
+    {
+     "lat": 41.894966,
+     "lon": 12.460021
+    },
+    {
+     "lat": 41.895757,
+     "lon": 12.460209
+    },
+    {
+     "lat": 41.895943,
+     "lon": 12.460468
+    },
+    {
+     "lat": 41.896058,
+     "lon": 12.46121
+    },
+    {
+     "lat": 41.896166,
+     "lon": 12.461317
+    },
+    {
+     "lat": 41.896803,
+     "lon": 12.461245
+    },
+    {
+     "lat": 41.897343,
+     "lon": 12.461538
+    },
+    {
+     "lat": 41.897606,
+     "lon": 12.461528
+    },
+    {
+     "lat": 41.897736,
+     "lon": 12.461324
+    },
+    {
+     "lat": 41.898204,
+     "lon": 12.461457
+    },
+    {
+     "lat": 41.898618,
+     "lon": 12.462939
+    },
+    {
+     "lat": 41.895838,
+     "lon": 12.465238
+    },
+    {
+     "lat": 41.891847,
+     "lon": 12.470332
+    },
+    {
+     "lat": 41.891316,
+     "lon": 12.471082
+    },
+    {
+     "lat": 41.890889,
+     "lon": 12.471875
+    },
+    {
+     "lat": 41.890574,
+     "lon": 12.471606
+    },
+    {
+     "lat": 41.890266,
+     "lon": 12.472304
+    },
+    {
+     "lat": 41.890152,
+     "lon": 12.473041
+    },
+    {
+     "lat": 41.889845,
+     "lon": 12.472993
+    },
+    {
+     "lat": 41.889531,
+     "lon": 12.473154
+    },
+    {
+     "lat": 41.887818,
+     "lon": 12.472993
+    },
+    {
+     "lat": 41.885728,
+     "lon": 12.471204
+    },
+    {
+     "lat": 41.885931,
+     "lon": 12.469539
+    },
+    {
+     "lat": 41.884799,
+     "lon": 12.468535
+    },
+    {
+     "lat": 41.88548,
+     "lon": 12.467185
+    },
+    {
+     "lat": 41.886153,
+     "lon": 12.466085
+    }
+   ],
+   "gates": [
+    {
+     "id": "rm-osm1001085050",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.895505,
+      "lon": 12.465536
+     }
+    },
+    {
+     "id": "rm-osm1119375699",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.887853,
+      "lon": 12.472692
+     }
+    },
+    {
+     "id": "rm-osm1640364041",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.887647,
+      "lon": 12.466276
+     }
+    },
+    {
+     "id": "rm-osm2001954485",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.886057,
+      "lon": 12.469365
+     }
+    },
+    {
+     "id": "rm-osm2142007239",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.890758,
+      "lon": 12.471778
+     }
+    },
+    {
+     "id": "rm-osm3739088577",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.891939,
+      "lon": 12.469911
+     }
+    },
+    {
+     "id": "rm-osm385120537",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.887821,
+      "lon": 12.473403
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      6,
+      7
+     ],
+     "start": 1290,
+     "end": 180,
+     "season": {
+      "fromMonth": 1,
+      "fromDay": 1,
+      "toMonth": 7,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      6,
+      7
+     ],
+     "start": 1290,
+     "end": 180,
+     "season": {
+      "fromMonth": 9,
+      "fromDay": 1,
+      "toMonth": 12,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      4,
+      5
+     ],
+     "start": 1290,
+     "end": 180,
+     "season": {
+      "fromMonth": 5,
+      "fromDay": 1,
+      "toMonth": 7,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      4,
+      5
+     ],
+     "start": 1290,
+     "end": 180,
+     "season": {
+      "fromMonth": 9,
+      "fromDay": 1,
+      "toMonth": 10,
+      "toDay": 31
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "Roma Servizi per la Mobilità",
+    "pageURL": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "dalle 21.30 alle 3.00 venerdì e sabato (anche se festivi) da maggio a ottobre è attiva anche il mercoledì e il giovedì (anche se festivi) con gli stessi orari nel mese di agosto la ZTL notturna non è attiva",
+    "quoteTranslation": "from 9:30 pm to 3 am Friday and Saturday (also on holidays); from May to October it is also active on Wednesday and Thursday (also on holidays) with the same hours; in August the night ZTL is not active",
+    "quoteTranslation_de": "von 21:30 bis 3 Uhr Freitag und Samstag (auch an Feiertagen); von Mai bis Oktober auch Mittwoch und Donnerstag (auch an Feiertagen) zu denselben Zeiten; im August ist die Nacht-ZTL nicht aktiv",
+    "checkedOn": "2026-10-24T18:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter from OpenStreetMap, to be checked against the official map.",
+     "Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
+     "Wednesday and Thursday: the detail page says May to October only, the city's short guide says Wednesday to Saturday without a season. GateLR follows the detail page.",
+     "Hotel guests: the hotel plate service only lists a night slot from 11 pm to 3 am on Friday and Saturday; not known whether it covers this zone.",
+     "The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it."
+    ],
+    "pending_it": [
+     "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale.",
+     "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
+     "Mercoledì e giovedì: la pagina di dettaglio dice solo da maggio a ottobre, la mini guida del Comune dice dal mercoledì al sabato senza stagione. GateLR segue la pagina di dettaglio.",
+     "Ospiti degli hotel: il servizio targhe per gli alberghi prevede solo una fascia notturna dalle 23 alle 3 di venerdì e sabato; non sappiamo se vale per questa zona.",
+     "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it."
+    ],
+    "pending_de": [
+     "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen.",
+     "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.",
+     "Mittwoch und Donnerstag: Die Detailseite sagt nur Mai bis Oktober, der Kurzführer der Stadt Mittwoch bis Samstag ohne Saison. GateLR folgt der Detailseite.",
+     "Hotelgäste: Der Kennzeichendienst für Hotels kennt nur ein Nachtfenster von 23 bis 3 Uhr am Freitag und Samstag; unklar, ob er für diese Zone gilt.",
+     "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen."
+    ],
+    "links": [
+     {
+      "title": "Rome: ZTL in the centre (boundaries and hours)",
+      "title_it": "Roma: ZTL in centro (confini e orari)",
+      "title_de": "Rom: ZTL im Zentrum (Grenzen und Zeiten)",
+      "url": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/"
+     },
+     {
+      "title": "Rome: all ZTL hours",
+      "title_it": "Roma: tutti gli orari delle ZTL",
+      "title_de": "Rom: alle ZTL-Zeiten",
+      "url": "https://romamobilita.it/infomobilita/ztl-tutti-gli-orari/"
+     },
+     {
+      "title": "Rome: electric cars need a permit from 1 July 2026",
+      "title_it": "Roma: dal 1° luglio 2026 serve il permesso anche alle elettriche",
+      "title_de": "Rom: ab 1. Juli 2026 brauchen auch Elektroautos eine Genehmigung",
+      "url": "https://romamobilita.it/servizi-al-pubblico/accesso-in-ztl-di-veicoli-elettrici-o-a-idrogeno-novita-dal-1-luglio-2026/"
+     },
+     {
+      "title": "Rome: temporary permits (only for some categories)",
+      "title_it": "Roma: permessi temporanei (solo per alcune categorie)",
+      "title_de": "Rom: befristete Genehmigungen (nur für bestimmte Gruppen)",
+      "url": "https://romamobilita.it/servizi-al-pubblico/permessi-temporanei/"
+     },
+     {
+      "title": "OpenStreetMap: relation 2691714 (perimeter, ODbL)",
+      "title_it": "OpenStreetMap: relazione 2691714 (perimetro, ODbL)",
+      "title_de": "OpenStreetMap: Relation 2691714 (Grenze, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/2691714"
+     }
+    ]
+   }
+  },
+  {
+   "id": "roma-san-lorenzo",
+   "name": "ZTL · San Lorenzo (night)",
+   "name_it": "ZTL · San Lorenzo (notturna)",
+   "name_de": "ZTL · San Lorenzo (Nacht)",
+   "kind": "restricted",
+   "summary": "Closed to cars on Friday and Saturday nights from 9:30 pm to 3 am, and from May to October also on Wednesday and Thursday nights. Also on public holidays. Not active in August. There is no day ticket for visitors, electric cars included.",
+   "summary_it": "Chiusa alle auto nelle notti di venerdì e sabato dalle 21:30 alle 3, e da maggio a ottobre anche il mercoledì e il giovedì. Anche nei festivi. Non attiva ad agosto. Non esiste un biglietto giornaliero per i turisti, nemmeno per le auto elettriche.",
+   "summary_de": "Für Autos gesperrt Freitag- und Samstagnacht von 21:30 bis 3 Uhr, von Mai bis Oktober auch Mittwoch und Donnerstag. Auch an Feiertagen. Im August nicht aktiv. Es gibt kein Tagesticket für Besucher, auch nicht für Elektroautos.",
+   "perimeter": [
+    {
+     "lat": 41.898591,
+     "lon": 12.515048
+    },
+    {
+     "lat": 41.899771,
+     "lon": 12.517243
+    },
+    {
+     "lat": 41.897401,
+     "lon": 12.519455
+    },
+    {
+     "lat": 41.894769,
+     "lon": 12.517184
+    },
+    {
+     "lat": 41.894845,
+     "lon": 12.51672
+    },
+    {
+     "lat": 41.894276,
+     "lon": 12.516817
+    },
+    {
+     "lat": 41.892953,
+     "lon": 12.515581
+    },
+    {
+     "lat": 41.893259,
+     "lon": 12.51493
+    },
+    {
+     "lat": 41.893799,
+     "lon": 12.514101
+    },
+    {
+     "lat": 41.894138,
+     "lon": 12.513926
+    },
+    {
+     "lat": 41.896543,
+     "lon": 12.511294
+    },
+    {
+     "lat": 41.896756,
+     "lon": 12.511701
+    },
+    {
+     "lat": 41.896879,
+     "lon": 12.511722
+    },
+    {
+     "lat": 41.897124,
+     "lon": 12.512415
+    },
+    {
+     "lat": 41.897901,
+     "lon": 12.513617
+    },
+    {
+     "lat": 41.898591,
+     "lon": 12.515048
+    }
+   ],
+   "gates": [
+    {
+     "id": "rm-osm1455388913",
+     "name": "Varco ZTL San Lorenzo",
+     "location": {
+      "lat": 41.892984,
+      "lon": 12.515605
+     }
+    },
+    {
+     "id": "rm-osm1836671845",
+     "name": "Varco ZTL San Lorenzo",
+     "location": {
+      "lat": 41.898591,
+      "lon": 12.515048
+     }
+    },
+    {
+     "id": "rm-osm2142042253",
+     "name": "Varco ZTL San Lorenzo",
+     "location": {
+      "lat": 41.89655,
+      "lon": 12.518693
+     }
+    },
+    {
+     "id": "rm-osm2142042254",
+     "name": "Varco ZTL San Lorenzo",
+     "location": {
+      "lat": 41.897124,
+      "lon": 12.512415
+     }
+    },
+    {
+     "id": "rm-osm2142042255",
+     "name": "Varco ZTL San Lorenzo",
+     "location": {
+      "lat": 41.897901,
+      "lon": 12.513617
+     }
+    },
+    {
+     "id": "rm-osm2142042256",
+     "name": "Varco ZTL San Lorenzo",
+     "location": {
+      "lat": 41.898014,
+      "lon": 12.518887
+     }
+    },
+    {
+     "id": "rm-osm3141587666",
+     "name": "Varco ZTL San Lorenzo",
+     "location": {
+      "lat": 41.899247,
+      "lon": 12.517672
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      6,
+      7
+     ],
+     "start": 1290,
+     "end": 180,
+     "season": {
+      "fromMonth": 1,
+      "fromDay": 1,
+      "toMonth": 7,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      6,
+      7
+     ],
+     "start": 1290,
+     "end": 180,
+     "season": {
+      "fromMonth": 9,
+      "fromDay": 1,
+      "toMonth": 12,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      4,
+      5
+     ],
+     "start": 1290,
+     "end": 180,
+     "season": {
+      "fromMonth": 5,
+      "fromDay": 1,
+      "toMonth": 7,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      4,
+      5
+     ],
+     "start": 1290,
+     "end": 180,
+     "season": {
+      "fromMonth": 9,
+      "fromDay": 1,
+      "toMonth": 10,
+      "toDay": 31
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "Roma Servizi per la Mobilità",
+    "pageURL": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "dalle 21.30 alle 3.00 venerdì e sabato (anche se festivi) da maggio ad ottobre è attiva anche il mercoledì e il giovedì (anche se festivi) con gli stessi orari nel mese di agosto la ZTL non è attiva",
+    "quoteTranslation": "from 9:30 pm to 3 am Friday and Saturday (also on holidays); from May to October it is also active on Wednesday and Thursday (also on holidays) with the same hours; in August the ZTL is not active",
+    "quoteTranslation_de": "von 21:30 bis 3 Uhr Freitag und Samstag (auch an Feiertagen); von Mai bis Oktober auch Mittwoch und Donnerstag (auch an Feiertagen) zu denselben Zeiten; im August ist die ZTL nicht aktiv",
+    "checkedOn": "2026-10-24T18:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter from OpenStreetMap, to be checked against the official map.",
+     "Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
+     "Wednesday and Thursday: the detail page says May to October only, the city's short guide says Wednesday to Saturday without a season. GateLR follows the detail page.",
+     "Hotel guests: the hotel plate service only lists a night slot from 11 pm to 3 am on Friday and Saturday; not known whether it covers this zone.",
+     "The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it."
+    ],
+    "pending_it": [
+     "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale.",
+     "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
+     "Mercoledì e giovedì: la pagina di dettaglio dice solo da maggio a ottobre, la mini guida del Comune dice dal mercoledì al sabato senza stagione. GateLR segue la pagina di dettaglio.",
+     "Ospiti degli hotel: il servizio targhe per gli alberghi prevede solo una fascia notturna dalle 23 alle 3 di venerdì e sabato; non sappiamo se vale per questa zona.",
+     "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it."
+    ],
+    "pending_de": [
+     "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen.",
+     "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.",
+     "Mittwoch und Donnerstag: Die Detailseite sagt nur Mai bis Oktober, der Kurzführer der Stadt Mittwoch bis Samstag ohne Saison. GateLR folgt der Detailseite.",
+     "Hotelgäste: Der Kennzeichendienst für Hotels kennt nur ein Nachtfenster von 23 bis 3 Uhr am Freitag und Samstag; unklar, ob er für diese Zone gilt.",
+     "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen."
+    ],
+    "links": [
+     {
+      "title": "Rome: ZTL in the centre (boundaries and hours)",
+      "title_it": "Roma: ZTL in centro (confini e orari)",
+      "title_de": "Rom: ZTL im Zentrum (Grenzen und Zeiten)",
+      "url": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/"
+     },
+     {
+      "title": "Rome: all ZTL hours",
+      "title_it": "Roma: tutti gli orari delle ZTL",
+      "title_de": "Rom: alle ZTL-Zeiten",
+      "url": "https://romamobilita.it/infomobilita/ztl-tutti-gli-orari/"
+     },
+     {
+      "title": "Rome: electric cars need a permit from 1 July 2026",
+      "title_it": "Roma: dal 1° luglio 2026 serve il permesso anche alle elettriche",
+      "title_de": "Rom: ab 1. Juli 2026 brauchen auch Elektroautos eine Genehmigung",
+      "url": "https://romamobilita.it/servizi-al-pubblico/accesso-in-ztl-di-veicoli-elettrici-o-a-idrogeno-novita-dal-1-luglio-2026/"
+     },
+     {
+      "title": "Rome: temporary permits (only for some categories)",
+      "title_it": "Roma: permessi temporanei (solo per alcune categorie)",
+      "title_de": "Rom: befristete Genehmigungen (nur für bestimmte Gruppen)",
+      "url": "https://romamobilita.it/servizi-al-pubblico/permessi-temporanei/"
+     },
+     {
+      "title": "OpenStreetMap: relation 2573006 (perimeter, ODbL)",
+      "title_it": "OpenStreetMap: relazione 2573006 (perimetro, ODbL)",
+      "title_de": "OpenStreetMap: Relation 2573006 (Grenze, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/2573006"
+     }
+    ]
+   }
+  },
+  {
+   "id": "roma-testaccio",
+   "name": "ZTL · Testaccio (night)",
+   "name_it": "ZTL · Testaccio (notturna)",
+   "name_de": "ZTL · Testaccio (Nacht)",
+   "kind": "restricted",
+   "summary": "Closed without a permit on Friday and Saturday nights from 11 pm to 3 am. Public holidays are free. Not active in August. There is no day ticket for visitors, electric cars included.",
+   "summary_it": "Chiusa senza permesso nelle notti di venerdì e sabato dalle 23 alle 3. Festivi esclusi. Non attiva ad agosto. Non esiste un biglietto giornaliero per i turisti, nemmeno per le auto elettriche.",
+   "summary_de": "Ohne Genehmigung gesperrt Freitag- und Samstagnacht von 23 bis 3 Uhr. Feiertage frei. Im August nicht aktiv. Es gibt kein Tagesticket für Besucher, auch nicht für Elektroautos.",
+   "perimeter": [
+    {
+     "lat": 41.878612,
+     "lon": 12.479081
+    },
+    {
+     "lat": 41.882255,
+     "lon": 12.476555
+    },
+    {
+     "lat": 41.882496,
+     "lon": 12.476244
+    },
+    {
+     "lat": 41.882645,
+     "lon": 12.475453
+    },
+    {
+     "lat": 41.880857,
+     "lon": 12.472946
+    },
+    {
+     "lat": 41.879337,
+     "lon": 12.471383
+    },
+    {
+     "lat": 41.878852,
+     "lon": 12.471044
+    },
+    {
+     "lat": 41.878224,
+     "lon": 12.470808
+    },
+    {
+     "lat": 41.877454,
+     "lon": 12.470743
+    },
+    {
+     "lat": 41.876788,
+     "lon": 12.470888
+    },
+    {
+     "lat": 41.877642,
+     "lon": 12.473069
+    },
+    {
+     "lat": 41.876697,
+     "lon": 12.473736
+    },
+    {
+     "lat": 41.876656,
+     "lon": 12.473863
+    },
+    {
+     "lat": 41.877408,
+     "lon": 12.475864
+    },
+    {
+     "lat": 41.877386,
+     "lon": 12.475988
+    },
+    {
+     "lat": 41.878612,
+     "lon": 12.479081
+    }
+   ],
+   "gates": [
+    {
+     "id": "rm-osm2407423122",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.877478,
+      "lon": 12.476141
+     }
+    },
+    {
+     "id": "rm-osm2407423123",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.877715,
+      "lon": 12.47581
+     }
+    },
+    {
+     "id": "rm-osm2407423124",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.877735,
+      "lon": 12.473
+     }
+    },
+    {
+     "id": "rm-osm2407423125",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.878027,
+      "lon": 12.470971
+     }
+    },
+    {
+     "id": "rm-osm2407423126",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.878622,
+      "lon": 12.478917
+     }
+    },
+    {
+     "id": "rm-osm2407423127",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.879533,
+      "lon": 12.471691
+     }
+    },
+    {
+     "id": "rm-osm2407423128",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.880224,
+      "lon": 12.477867
+     }
+    },
+    {
+     "id": "rm-osm2407423129",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.880392,
+      "lon": 12.472642
+     }
+    },
+    {
+     "id": "rm-osm2407423130",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.881722,
+      "lon": 12.476774
+     }
+    },
+    {
+     "id": "rm-osm2407423131",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 41.881796,
+      "lon": 12.474467
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      6,
+      7
+     ],
+     "start": 1380,
+     "end": 180,
+     "season": {
+      "fromMonth": 1,
+      "fromDay": 1,
+      "toMonth": 7,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      6,
+      7
+     ],
+     "start": 1380,
+     "end": 180,
+     "season": {
+      "fromMonth": 9,
+      "fromDay": 1,
+      "toMonth": 12,
+      "toDay": 31
+     }
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "Roma Servizi per la Mobilità",
+    "pageURL": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "dalle 23.00 alle 3.00 venerdì e sabato (esclusi i festivi); nel mese di agosto la ZTL non è attiva",
+    "quoteTranslation": "from 11 pm to 3 am Friday and Saturday (holidays excluded); in August the ZTL is not active",
+    "quoteTranslation_de": "von 23 bis 3 Uhr Freitag und Samstag (außer Feiertage); im August ist die ZTL nicht aktiv",
+    "checkedOn": "2026-10-24T18:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter from OpenStreetMap, to be checked against the official map.",
+     "Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
+     "Holidays: GateLR checks the holiday on the current calendar day; for the part after midnight the city may count the evening's date.",
+     "Hotel guests: the hotel plate service only lists a night slot from 11 pm to 3 am on Friday and Saturday; not known whether it covers this zone.",
+     "29 June (Saints Peter and Paul, Rome's patron saints): not known whether it counts as a holiday for the ZTL.",
+     "The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it."
+    ],
+    "pending_it": [
+     "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale.",
+     "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
+     "Festivi: GateLR guarda il festivo del giorno di calendario attuale; per la parte dopo mezzanotte il Comune potrebbe contare la data della sera.",
+     "Ospiti degli hotel: il servizio targhe per gli alberghi prevede solo una fascia notturna dalle 23 alle 3 di venerdì e sabato; non sappiamo se vale per questa zona.",
+     "29 giugno (Santi Pietro e Paolo, patroni di Roma): non sappiamo se vale come festivo per la ZTL.",
+     "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it."
+    ],
+    "pending_de": [
+     "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen.",
+     "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.",
+     "Feiertage: GateLR prüft den aktuellen Kalendertag; für die Zeit nach Mitternacht könnte die Stadt das Datum des Abends zählen.",
+     "Hotelgäste: Der Kennzeichendienst für Hotels kennt nur ein Nachtfenster von 23 bis 3 Uhr am Freitag und Samstag; unklar, ob er für diese Zone gilt.",
+     "29. Juni (Peter und Paul, Roms Schutzpatrone): unklar, ob er für die ZTL als Feiertag gilt.",
+     "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen."
+    ],
+    "links": [
+     {
+      "title": "Rome: ZTL in the centre (boundaries and hours)",
+      "title_it": "Roma: ZTL in centro (confini e orari)",
+      "title_de": "Rom: ZTL im Zentrum (Grenzen und Zeiten)",
+      "url": "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/"
+     },
+     {
+      "title": "Rome: all ZTL hours",
+      "title_it": "Roma: tutti gli orari delle ZTL",
+      "title_de": "Rom: alle ZTL-Zeiten",
+      "url": "https://romamobilita.it/infomobilita/ztl-tutti-gli-orari/"
+     },
+     {
+      "title": "Rome: electric cars need a permit from 1 July 2026",
+      "title_it": "Roma: dal 1° luglio 2026 serve il permesso anche alle elettriche",
+      "title_de": "Rom: ab 1. Juli 2026 brauchen auch Elektroautos eine Genehmigung",
+      "url": "https://romamobilita.it/servizi-al-pubblico/accesso-in-ztl-di-veicoli-elettrici-o-a-idrogeno-novita-dal-1-luglio-2026/"
+     },
+     {
+      "title": "Rome: temporary permits (only for some categories)",
+      "title_it": "Roma: permessi temporanei (solo per alcune categorie)",
+      "title_de": "Rom: befristete Genehmigungen (nur für bestimmte Gruppen)",
+      "url": "https://romamobilita.it/servizi-al-pubblico/permessi-temporanei/"
+     },
+     {
+      "title": "OpenStreetMap: relation 2573007 (perimeter, ODbL)",
+      "title_it": "OpenStreetMap: relazione 2573007 (perimetro, ODbL)",
+      "title_de": "OpenStreetMap: Relation 2573007 (Grenze, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/2573007"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Hours and rules: Roma Servizi per la Mobilità (romamobilita.it). Perimeters and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official; the official RSM open data, CC BY 3.0 IT, are still to be downloaded)"
+}

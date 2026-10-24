@@ -201,7 +201,8 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertEqual(zones(45.4641, 9.1919).map(\.id), ["milano-c", "milano-b"])
         XCTAssertEqual(zones(43.7696, 11.2558).first?.type, .restricted)
         XCTAssertTrue(zones(43.7764, 11.2480).contains { $0.id.hasPrefix("firenze") })      // Santa Maria Novella
-        XCTAssertTrue(zones(41.9028, 12.4964).isEmpty)                                       // Roma: non ancora nell'app
+        XCTAssertTrue(zones(41.9028, 12.4964).isEmpty)                                       // Roma, piazza della Repubblica: fuori dalle ZTL
+        XCTAssertTrue(zones(41.8986, 12.4769).contains { $0.id == "roma-centro" })            // Pantheon (perimetro OSM dal 24/10/2026)
         let c = try XCTUnwrap(cities["milano"]?.zones.first { $0.id == "milano-c" })
         XCTAssertEqual(c.distance(lat: 45.4641, lon: 9.1919), 0)
         XCTAssertGreaterThan(c.distance(lat: 45.4850, lon: 9.2040), 300)                     // Stazione Centrale: fuori

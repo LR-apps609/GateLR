@@ -1,6 +1,6 @@
 # Siena: fonti della scheda ZTL
 
-Scheda generata da `Tools/build_siena.py` → `Resources/Cities/siena.json` (stato **draft**, `reviewedByHuman: false`, non inserita in `manifest.json`).
+Scheda generata da `Tools/build_siena.py` → `Resources/Cities/siena.json` (stato **draft**, `reviewedByHuman: false`). Dal 24/10/2026 è **nell'app** (`manifest.json`), con perimetro e varchi da OpenStreetMap.
 Fonti lette il **24/10/2026** e salvate in `data/raw/siena/`. Lo script controlla che ogni frase usata sia presente nei file salvati.
 
 ## Novità rispetto a `citta-successive.md`
@@ -20,23 +20,27 @@ Il disciplinare citato prima (GC n. 327 del 02/09/2025) è stato **sostituito** 
 | Il permesso va esposto sul cruscotto al passaggio sotto il varco | Comunicato del 24/09/2025: https://www.comune.siena.it/novita/ztl-polizia-locale-al-lavoro-sui-varchi-di-accesso | `notizia-varchi.html` |
 | Nomi dei 27 varchi (14 di ingresso, 13 di uscita) | "Mappa ZTL con Varchi" (giugno 2025): https://www.comune.siena.it/sites/default/files/2025-06/Mappa%20ZTL%20con%20Varchi.pdf | `mappa_ztl_varchi_2025-06.pdf` |
 
-Varchi di ingresso secondo la tabella della mappa: 01 Mattioli (Tufi), 03 Fontanella, 04 Romana, 08 Ovile, 10 Matteotti, 12 San Domenico, 14 Fontebranda, 16 Bastianini, 17 Sperandie, 18 Mascagni, 21 Garibaldi, 24 Gazzani, 26 Fontegiusta, 28 Sasso S. Bernardino. Varchi di uscita: 02, 05, 07, 09, 11, 13, 15, 19, 20, 22, 23, 25, 27. Il n. 06 non compare. **Nel JSON non ci sono, perché non abbiamo le coordinate.**
+Varchi di ingresso secondo la tabella della mappa: 01 Mattioli (Tufi), 03 Fontanella, 04 Romana, 08 Ovile, 10 Matteotti, 12 San Domenico, 14 Fontebranda, 16 Bastianini, 17 Sperandie, 18 Mascagni, 21 Garibaldi, 24 Gazzani, 26 Fontegiusta, 28 Sasso S. Bernardino. Varchi di uscita: 02, 05, 07, 09, 11, 13, 15, 19, 20, 22, 23, 25, 27. Il n. 06 non compare. Nel JSON ci sono i **18 varchi di OpenStreetMap** (vedi sotto), con i nomi di OSM. I numeri della mappa ufficiale non sono stati abbinati.
 
 Il centro della città (43.3184, 11.3316, cioè piazza del Campo) serve solo a inquadrare la mappa: non è un dato della ZTL.
 
 ## Geometria: provenienza e licenza
 
-**Nessuna geometria nel JSON** (perimetro e varchi vuoti):
-- Il Comune non pubblica dati aperti sulla ZTL: su dati.gov.it non c'è niente per Siena. Il Comune pubblica altri strati (es. "Aree di circolazione veicolare") su `siena.ldpgis.it`, ma il proxy blocca quel dominio, quindi non è stato possibile verificare se c'è un attributo ZTL.
-- La mappa ufficiale è un PDF vettoriale A0 (scala 1:2000) **senza georeferenziazione** e senza testo estraibile. Ricavarne le coordinate vorrebbe dire ricalcarla a mano, e questo è escluso.
-- Il proxy blocca OpenStreetMap/Overpass (overpass-api.de e i mirror, osm.org), che si poteva usare come fallback (ODbL).
-- La licenza della mappa sul sito del Comune è indicata come "licenza aperta", senza dire quale.
+**Da OpenStreetMap, non ufficiale** (© OpenStreetMap contributors, ODbL 1.0; scritto nel campo `license`, con un link alla relazione e la nota «Perimetro da OpenStreetMap, da verificare con la mappa ufficiale»).
 
-Per aggiungere la geometria basta salvare `data/raw/siena/ztl_perimetro.geojson` (e `varchi.geojson` con `name`) e rilanciare lo script. Poi vanno aggiornati qui la provenienza e la licenza, e tolto il punto in sospeso sul perimetro.
+- Dati: `data/raw/geo/siena-ztl.json` e `siena-gates.json`, scaricati con `Tools/fetch_geo.py` (GitHub Actions, Overpass `out geom`).
+- La relazione [4081506](https://www.openstreetmap.org/relation/4081506) «ZTL Siena» (`type=enforcement`, `enforcement=access`, `motor_vehicle=permit`) **non ha un contorno**. Elenca le 448 strade della ZTL (ruolo `section`) e 18 telecamere (ruolo `device`).
+- **Perimetro** (149 punti, 0,68 km²): è l'area coperta da quelle strade, calcolata da `Tools/osm_geo.py` (`street_area`). Le strade vanno su una griglia di 8 m; poi si fa una chiusura morfologica di 70 m, che riempie i vuoti tra strade vicine, cortili e giardini; si prende il contorno esterno e lo si semplifica a 8 m. È un calcolo automatico, non un disegno a mano. Il bordo passa sulle strade ZTL più esterne, quindi è **approssimato**. Le valli verdi dentro le mura senza strade ZTL restano fuori, e così anche piazza Gramsci e La Lizza.
+- **Varchi**: i 18 nodi `device`, con il loro nome OSM (`Varco Porta Romana`, `Varco Fontebranda`, …). Id `si-osm<id nodo>`. Quasi tutti stanno a meno di 20 m dal bordo; «Varco Esterna Fontebranda» e «Varco Mattioli» (Porta Tufi) sono 40–60 m fuori.
+- In OSM ci sono anche le relazioni «Y Storica Siena» ([16603477](https://www.openstreetmap.org/relation/16603477)) e «Zona A Siena» ([16603478](https://www.openstreetmap.org/relation/16603478)), con le loro strade. **Non sono usate**: le due zone restano solo nella nota «pending». Con `street_area` si potrebbero aggiungere come zone a parte.
+- Le mura (`siena-walls.json`) sono tratti e torri, non un anello chiuso. Servono solo come controllo: il perimetro sta dentro il riquadro delle mura (43,3116–43,3278 / 11,3214–11,3426) e contiene piazza del Campo (43,3184, 11,3316).
+- Se arriva un perimetro ufficiale, si salva `data/raw/siena/ztl_perimetro.geojson` (e `varchi.geojson`): lo script usa quelli al posto di OSM.
+
+Perché non c'è una fonte ufficiale: il Comune non pubblica dati aperti sulla ZTL (su dati.gov.it non c'è niente; `siena.ldpgis.it` è bloccato dal proxy). La mappa ufficiale è un PDF A0 vettoriale **senza georeferenziazione**, che si potrebbe solo ricalcare a mano, e questo è escluso.
 
 ## Da verificare
 
-- **Perimetro e varchi** (vedi sopra). Senza perimetro l'app non può dire se un punto è nella ZTL.
+- **Perimetro e varchi**: vengono da OpenStreetMap (vedi sopra) e vanno confrontati con la «Mappa ZTL con Varchi» ufficiale.
 - **Zona A / Zona Y storica**: non sono disegnate. Nella scheda compaiono solo nei punti in sospeso.
 - **Scadenza hotel**: la pagina dice "entro 2 giorni lavorativi successivi al transito", il disciplinare 2026 "non oltre 2 giorni successivi". Chiedere a permessiztl@comune.siena.it (0577 292531).
 - **Permessi temporanei per turisti stranieri**: il permesso da 1 a 3 giorni rimanda alle "motivazioni indicate nelle singole categorie". Non esiste un ticket turistico generico, e per questo la zona è `restricted` e senza `ticket`.

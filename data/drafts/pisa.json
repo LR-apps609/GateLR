@@ -18,7 +18,128 @@
    "summary_it": "Il centro storico di Pisa è una ZTL controllata da telecamere. Non abbiamo confermato gli orari da una fonte ufficiale, quindi GateLR la considera sempre attiva. Se dormi in un hotel o B&B, la struttura può registrare la tua targa.",
    "summary_de": "Pisas Altstadt ist eine kameraüberwachte ZTL. Die Zeiten sind nicht amtlich bestätigt, daher behandelt GateLR sie als immer aktiv. Wenn du im Hotel oder B&B übernachtest, kann die Unterkunft dein Kennzeichen registrieren.",
    "perimeter": [],
-   "gates": [],
+   "gates": [
+    {
+     "id": "pi-osm11184543009",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.722229,
+      "lon": 10.401505
+     }
+    },
+    {
+     "id": "pi-osm2996195894",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.723346,
+      "lon": 10.398395
+     }
+    },
+    {
+     "id": "pi-osm2996195895",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.719937,
+      "lon": 10.395611
+     }
+    },
+    {
+     "id": "pi-osm3358108593",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.715333,
+      "lon": 10.407027
+     }
+    },
+    {
+     "id": "pi-osm3358118456",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.716756,
+      "lon": 10.407255
+     }
+    },
+    {
+     "id": "pi-osm3358120379",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.711581,
+      "lon": 10.405552
+     }
+    },
+    {
+     "id": "pi-osm3483939523",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.710775,
+      "lon": 10.400511
+     }
+    },
+    {
+     "id": "pi-osm5105785566",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.719718,
+      "lon": 10.406605
+     }
+    },
+    {
+     "id": "pi-osm5599820736",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.711409,
+      "lon": 10.397624
+     }
+    },
+    {
+     "id": "pi-osm6073331857",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.71675,
+      "lon": 10.399893
+     }
+    },
+    {
+     "id": "pi-osm6290979184",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.715646,
+      "lon": 10.400319
+     }
+    },
+    {
+     "id": "pi-osm6290984385",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.715522,
+      "lon": 10.398897
+     }
+    },
+    {
+     "id": "pi-osm6290984390",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.713771,
+      "lon": 10.395941
+     }
+    },
+    {
+     "id": "pi-osm6290984391",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.713347,
+      "lon": 10.406413
+     }
+    },
+    {
+     "id": "pi-osm6290984392",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.713587,
+      "lon": 10.404541
+     }
+    }
+   ],
    "windows": [
     {
      "weekdays": [
@@ -49,34 +170,34 @@
     "reviewedByHuman": false,
     "pending": [
      "Hours: no official page with the current hours could be opened (the Pisamo sites were unreachable). GateLR treats the ZTL as always active, to be safe; travel guides say 24 hours a day, every day.",
-     "Perimeter: no official or OpenStreetMap geometry available yet, so the zone is not drawn on the map.",
+     "Perimeter: no official geometry, and OpenStreetMap has the ZTL cameras but no outline, so the zone is not drawn on the map.",
      "Public holidays: no official rule found.",
      "Hotel guests: in 2023 the city announced €12 for 24 hours (ZTL access and blue-line parking), with the plate uploaded by the accommodation within 10 hours of entry and permits limited to the number of rooms. Current price and deadline to be confirmed with Pisamo.",
      "Only professional accommodation (hotels, B&Bs and similar) can register plates; holiday flats are not mentioned.",
      "No day ticket for tourists found.",
-     "Gates: list and positions not published in the sources we could open.",
+     "Gates: camera positions from OpenStreetMap, to be checked against the official list (not published in the sources we could open).",
      "Electric cars: a 2010 ordinance let them in for 2011 only; the current rule is unknown, so GateLR does not exempt them.",
      "Not shown yet: the ZTL Stadio at Porta a Lucca (home matches of Pisa SC, from 2 hours before kick-off to the end of the first half), the summer night ZTL on the Lungarni and the pedestrian area of via Corsica and piazza Buonamici."
     ],
     "pending_it": [
      "Orari: nessuna pagina ufficiale con gli orari attuali è stata raggiungibile (siti Pisamo irraggiungibili). GateLR considera la ZTL sempre attiva, per prudenza; le guide non ufficiali indicano 24 ore su 24, tutti i giorni.",
-     "Perimetro: nessuna geometria ufficiale o OpenStreetMap disponibile, quindi la zona non è disegnata sulla mappa.",
+     "Perimetro: nessuna geometria ufficiale, e OpenStreetMap ha le telecamere della ZTL ma non il contorno, quindi la zona non è disegnata sulla mappa.",
      "Festivi: nessuna regola ufficiale trovata.",
      "Ospiti delle strutture ricettive: nel 2023 il Comune ha annunciato 12 € per 24 ore (accesso ZTL e sosta sulle strisce blu), targa caricata dalla struttura entro 10 ore dall'ingresso, permessi non oltre il numero di camere. Prezzo e scadenza attuali da confermare con Pisamo.",
      "Solo le strutture ricettive professionali (alberghi, B&B e similari) possono registrare le targhe; gli affitti brevi non sono citati.",
      "Nessun permesso giornaliero per turisti trovato.",
-     "Varchi: elenco e posizioni non pubblicati nelle fonti raggiungibili.",
+     "Varchi: posizioni delle telecamere da OpenStreetMap, da verificare con l'elenco ufficiale (non pubblicato nelle fonti raggiungibili).",
      "Auto elettriche: un'ordinanza del 2010 le ammetteva solo per il 2011; la regola attuale non è nota, quindi GateLR non le esenta.",
      "Non ancora mostrate: la ZTL Stadio a Porta a Lucca (partite casalinghe del Pisa SC, da due ore prima del fischio d'inizio al termine del primo tempo), la ZTL notturna estiva dei Lungarni e l'area pedonale di via Corsica e piazza Buonamici."
     ],
     "pending_de": [
      "Zeiten: Keine offizielle Seite mit den aktuellen Zeiten war erreichbar (Pisamo-Seiten nicht erreichbar). GateLR behandelt die ZTL vorsichtshalber als immer aktiv; Reiseführer nennen rund um die Uhr, täglich.",
-     "Grenze: noch keine amtliche oder OpenStreetMap-Geometrie, daher wird die Zone nicht auf der Karte gezeigt.",
+     "Grenze: keine amtliche Geometrie, und OpenStreetMap hat die ZTL-Kameras, aber keinen Umriss; daher wird die Zone nicht auf der Karte gezeigt.",
      "Feiertage: keine offizielle Regel gefunden.",
      "Hotelgäste: 2023 kündigte die Stadt 12 € für 24 Stunden an (ZTL-Zufahrt und Parken auf blauen Linien), Kennzeichen von der Unterkunft binnen 10 Stunden nach der Einfahrt eingetragen, höchstens so viele Genehmigungen wie Zimmer. Aktueller Preis und Frist bei Pisamo zu bestätigen.",
      "Nur gewerbliche Unterkünfte (Hotels, B&Bs u. ä.) können Kennzeichen registrieren; Ferienwohnungen werden nicht erwähnt.",
      "Kein Tagesticket für Touristen gefunden.",
-     "Kameras: Liste und Standorte in den erreichbaren Quellen nicht veröffentlicht.",
+     "Kameras: Standorte aus OpenStreetMap, mit der offiziellen Liste abzugleichen (in den erreichbaren Quellen nicht veröffentlicht).",
      "Elektroautos: Eine Verordnung von 2010 ließ sie nur für 2011 zu; die aktuelle Regel ist unbekannt, daher keine Ausnahme.",
      "Noch nicht angezeigt: die ZTL Stadio in Porta a Lucca (Heimspiele von Pisa SC, ab 2 Stunden vor Anpfiff bis Ende der ersten Halbzeit), die sommerliche Nacht-ZTL an den Lungarni und die Fußgängerzone Via Corsica / Piazza Buonamici."
     ],
@@ -110,10 +231,17 @@
       "title_it": "Pisamo: permessi ZTL",
       "title_de": "Pisamo: ZTL-Genehmigungen",
       "url": "https://mobilita.pisamo.net/"
+     },
+     {
+      "title": "OpenStreetMap: relation 9342809 (ZTL gates, ODbL)",
+      "title_it": "OpenStreetMap: relazione 9342809 (varchi ZTL, ODbL)",
+      "title_de": "OpenStreetMap: Relation 9342809 (ZTL-Kameras, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/9342809"
      }
     ]
    }
   }
  ],
- "status": "draft"
+ "status": "draft",
+ "license": "Rules: Comune di Pisa official pages. Gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)"
 }

@@ -96,7 +96,8 @@ class CoreTest {
         val all = cities.values.toList()
         assertEquals(listOf("milano-c", "milano-b"), zonesAt(all, Coordinate(45.4641, 9.1919)).map { it.second.id })
         assertEquals(ZoneKind.RESTRICTED, zonesAt(all, Coordinate(43.7696, 11.2558)).first().second.type)
-        assertTrue(zonesAt(all, Coordinate(41.9028, 12.4964)).isEmpty())
+        assertTrue(zonesAt(all, Coordinate(41.9028, 12.4964)).isEmpty())                  // Roma, piazza della Repubblica: fuori dalle ZTL
+        assertTrue(zonesAt(all, Coordinate(41.8986, 12.4769)).any { it.second.id == "roma-centro" })  // Pantheon (perimetro OSM)
         assertTrue(zone("milano", "milano-c").distance(45.4850, 9.2040) > 300)
         assertNotNull(pedestrianAreaAt(all, Coordinate(44.4939, 11.3426)))                 // Piazza Maggiore
     }

@@ -1,6 +1,6 @@
 {
- "version": "202610241027",
- "digest": "781bc3815776",
+ "version": "202610241938",
+ "digest": "9d3617dad2a5",
  "schema": 1,
  "cities": [
   {
@@ -17,6 +17,16 @@
    "id": "milano",
    "file": "milano.json",
    "sha256": "164d1e1146f69acdeb48cb835f77eec5f8aa8b3502efa51b541c1803ec73c1c4"
+  },
+  {
+   "id": "roma",
+   "file": "roma.json",
+   "sha256": "6bf0f52f177ca6c9f5999e8b4b55b981234bf839bf335b58a25f2d5aeaa16a1d"
+  },
+  {
+   "id": "siena",
+   "file": "siena.json",
+   "sha256": "0560571017b9038e2418fb179aa1fa342f91fe216f46f150f02178109526e71a"
   }
  ]
 }

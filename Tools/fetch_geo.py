@@ -62,4 +62,16 @@ for q in ["ztl", "varchi", "zona traffico limitato"]:
     if raw: (OUT / f"roma-hub-{q.replace(' ', '_')}.json").write_bytes(raw); print("ok hub", q, len(raw))
     else: print("FAILED hub", q)
 
+# Roma: i layer ufficiali di RSM trovati sull'hub (vedi docs/fonti-roma.md), in GeoJSON WGS84, un file per layer
+RSM = "https://services2.arcgis.com/NZMqCJwY3kMjFOqf/arcgis/rest/services/{}/FeatureServer"
+for svc in ["confini_ZTL_centro_diurna", "settori_ZTL_centro", "varchi_ZTL_centro_diurna", "ZTL_Centro_notturna",
+            "ZTL_Tridente", "ZTL_Trastevere", "San_Lorenzo", "Testaccio", "ZTL_Fascia_Verde"]:
+    meta = get(RSM.format(svc) + "?f=json", tries=2)
+    layers = [l["id"] for l in json.loads(meta).get("layers", [])] if meta else []
+    for lid in layers:
+        raw = get(RSM.format(svc) + f"/{lid}/query?" + urllib.parse.urlencode({"where": "1=1", "outFields": "*", "outSR": 4326, "f": "geojson"}), tries=2)
+        if raw: (OUT / f"roma-rsm-{svc}-{lid}.geojson").write_bytes(raw); print("ok rsm", svc, lid, len(raw))
+        else: print("FAILED rsm", svc, lid)
+    if not layers: print("FAILED rsm", svc)
+
 print("files:", sorted(p.name for p in OUT.iterdir()))

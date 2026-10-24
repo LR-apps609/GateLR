@@ -7,18 +7,25 @@
 # - www.comune.pisa.it raggiungibile (contenuti letti via API OpenCity /api/opendata/v2/content/read/<id>);
 # - pisamo.it, mobilita.pisamo.it, varchi.pisamo.it, opendata.comune.pisa.it e overpass-api.de NON raggiungibili;
 # - dati.gov.it: nessun dataset ZTL del Comune di Pisa.
-# Quindi: orari ufficiali, varchi e perimetro restano «da verificare». Se in futuro si salva un estratto
-# OpenStreetMap in data/raw/pisa/osm-ztl.json (risposta Overpass «out geom» con il poligono della ZTL),
-# questo script lo usa come perimetro approssimato (ODbL) e lo dichiara nella licenza.
+# Quindi: orari ufficiali, varchi e perimetro restano «da verificare».
+# OpenStreetMap (data/raw/geo/pisa-ztl.json e pisa-gates.json, scaricati da Tools/fetch_geo.py, ODbL 1.0):
+# la relazione 9342809 «Zona a Traffico Limitato» elenca solo le telecamere (ruolo «device»), senza contorno.
+# Lo script prende i varchi da lì; il perimetro solo da una relazione-area chiusa (boundary=limited_traffic_zone),
+# se un giorno compare in quei dati, o da data/raw/pisa/osm-ztl.json (way chiusa).
+# Finché gli orari non sono ufficiali (HOURS_OFFICIAL = False) Pisa resta in data/drafts, anche con il perimetro.
 import html
 import json
 import re
 from pathlib import Path
 
+import osm_geo
+
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/pisa"
 CHECKED = "2026-10-24T12:00:00Z"
 EVERY_DAY = [1, 2, 3, 4, 5, 6, 7]
+HOURS_OFFICIAL = False   # la fascia 0–24 è prudenziale, non del Comune: finché resta così, la scheda è una bozza
+OSM_ZTL = 9342809        # relazione OSM «Zona a Traffico Limitato» (enforcement=access, solo varchi)
 
 
 def link(en, it, de, url):
@@ -38,6 +45,9 @@ def text(object_id, field):
 
 def osm_perimeter():
     """Perimetro da OpenStreetMap, se è stato salvato. Restituisce (punti, id OSM) o ([], None)."""
+    for e in osm_geo.load("pisa-ztl"):
+        if e["type"] == "relation" and e.get("tags", {}).get("boundary") == "limited_traffic_zone":
+            return osm_geo.perimeter(osm_geo.outer_ring(e)), f"relation/{e['id']}"
     f = RAW / "osm-ztl.json"
     if not f.exists():
         return [], None
@@ -82,6 +92,13 @@ links = [
 ]
 
 perimeter, osm_id = osm_perimeter()
+# I varchi (telecamere) della relazione OSM, con coordinate; i nomi dai nodi di pisa-gates.json
+gate_nodes = osm_geo.load("pisa-ztl") + [e for e in osm_geo.load("pisa-gates") if e["type"] == "node"]
+gates = sorted((osm_geo.gate_json("pi", g) for g in osm_geo.gates(gate_nodes, {OSM_ZTL}, name_prefix=None)),
+               key=lambda g: (g["name"], g["id"]))
+if gates:
+    links.append(link(f"OpenStreetMap: relation {OSM_ZTL} (ZTL gates, ODbL)", f"OpenStreetMap: relazione {OSM_ZTL} (varchi ZTL, ODbL)",
+                      f"OpenStreetMap: Relation {OSM_ZTL} (ZTL-Kameras, ODbL)", osm_geo.osm_url("relation", OSM_ZTL)))
 
 pending = [
     ("Hours: no official page with the current hours could be opened (the Pisamo sites were unreachable). "
@@ -105,9 +122,12 @@ pending = [
     ("No day ticket for tourists found.",
      "Nessun permesso giornaliero per turisti trovato.",
      "Kein Tagesticket für Touristen gefunden."),
-    ("Gates: list and positions not published in the sources we could open.",
-     "Varchi: elenco e posizioni non pubblicati nelle fonti raggiungibili.",
-     "Kameras: Liste und Standorte in den erreichbaren Quellen nicht veröffentlicht."),
+    ("Gates: camera positions from OpenStreetMap, to be checked against the official list (not published in the sources we could open)."
+     if gates else "Gates: list and positions not published in the sources we could open.",
+     "Varchi: posizioni delle telecamere da OpenStreetMap, da verificare con l'elenco ufficiale (non pubblicato nelle fonti raggiungibili)."
+     if gates else "Varchi: elenco e posizioni non pubblicati nelle fonti raggiungibili.",
+     "Kameras: Standorte aus OpenStreetMap, mit der offiziellen Liste abzugleichen (in den erreichbaren Quellen nicht veröffentlicht)."
+     if gates else "Kameras: Liste und Standorte in den erreichbaren Quellen nicht veröffentlicht."),
     ("Electric cars: a 2010 ordinance let them in for 2011 only; the current rule is unknown, so GateLR does not exempt them.",
      "Auto elettriche: un'ordinanza del 2010 le ammetteva solo per il 2011; la regola attuale non è nota, quindi GateLR non le esenta.",
      "Elektroautos: Eine Verordnung von 2010 ließ sie nur für 2011 zu; die aktuelle Regel ist unbekannt, daher keine Ausnahme."),
@@ -123,9 +143,9 @@ if osm_id:
                        f"Perimetro approssimato da OpenStreetMap ({osm_id}), non ufficiale.",
                        f"Grenze aus OpenStreetMap angenähert ({osm_id}), nicht amtlich."))
 else:
-    pending.insert(1, ("Perimeter: no official or OpenStreetMap geometry available yet, so the zone is not drawn on the map.",
-                       "Perimetro: nessuna geometria ufficiale o OpenStreetMap disponibile, quindi la zona non è disegnata sulla mappa.",
-                       "Grenze: noch keine amtliche oder OpenStreetMap-Geometrie, daher wird die Zone nicht auf der Karte gezeigt."))
+    pending.insert(1, ("Perimeter: no official geometry, and OpenStreetMap has the ZTL cameras but no outline, so the zone is not drawn on the map.",
+                       "Perimetro: nessuna geometria ufficiale, e OpenStreetMap ha le telecamere della ZTL ma non il contorno, quindi la zona non è disegnata sulla mappa.",
+                       "Grenze: keine amtliche Geometrie, und OpenStreetMap hat die ZTL-Kameras, aber keinen Umriss; daher wird die Zone nicht auf der Karte gezeigt."))
 
 zone = {
     "id": "pisa-ztl", "name": "ZTL · Historic Centre", "name_it": "ZTL · Centro storico", "name_de": "ZTL · Altstadt",
@@ -133,7 +153,7 @@ zone = {
     "summary": "Pisa's historic centre is a camera-controlled ZTL. We haven't confirmed the hours from an official source, so GateLR treats it as always active. If you sleep in a hotel or B&B, it can register your plate.",
     "summary_it": "Il centro storico di Pisa è una ZTL controllata da telecamere. Non abbiamo confermato gli orari da una fonte ufficiale, quindi GateLR la considera sempre attiva. Se dormi in un hotel o B&B, la struttura può registrare la tua targa.",
     "summary_de": "Pisas Altstadt ist eine kameraüberwachte ZTL. Die Zeiten sind nicht amtlich bestätigt, daher behandelt GateLR sie als immer aktiv. Wenn du im Hotel oder B&B übernachtest, kann die Unterkunft dein Kennzeichen registrieren.",
-    "perimeter": perimeter, "gates": [],
+    "perimeter": perimeter, "gates": gates,
     # Fascia prudenziale, NON ufficiale: vedi il primo punto «pending»
     "windows": [{"weekdays": EVERY_DAY, "start": 0, "end": 24 * 60}],
     "freeOnHolidays": None, "exemptFuels": [], "hotelCanRegister": True,
@@ -148,11 +168,12 @@ zone = {
 
 city = {"id": "pisa", "name": "Pisa", "name_it": "Pisa", "name_de": "Pisa",
         "center": {"lat": 43.7167, "lon": 10.4017}, "zones": [zone], "status": "draft"}
-if osm_id:
-    city["license"] = "Perimeter: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)"
+if osm_id or gates:
+    city["license"] = ("Rules: Comune di Pisa official pages. " + ("Perimeter and gates" if osm_id else "Gates") + ": "
+                       + osm_geo.ODBL + " (approximate, not official)")
 
-# Senza perimetro (e con orari non ancora confermati) Pisa resta tra le bozze (data/drafts)
-ready = all(len(z["perimeter"]) >= 4 for z in city["zones"])
+# Senza perimetro, o con orari non ancora confermati, Pisa resta tra le bozze (data/drafts)
+ready = HOURS_OFFICIAL and all(len(z["perimeter"]) >= 4 for z in city["zones"])
 out = ROOT / ("Resources/Cities/pisa.json" if ready else "data/drafts/pisa.json")
 if not ready: (ROOT / "Resources/Cities/pisa.json").unlink(missing_ok=True)
 out.write_text(json.dumps(city, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
