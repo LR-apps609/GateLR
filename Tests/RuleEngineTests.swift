@@ -271,6 +271,24 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertTrue(near.allSatisfy { $0.0.id == "milano-c" } || near.contains { $0.0.id == "milano-c" })
     }
 
+    /// Zone sempre attive o ferme per mesi: il calcolo del prossimo cambio deve restare veloce
+    func testChangeScanIsFast() throws {
+        let cities = try bundledCities()
+        let t = try XCTUnwrap(cities["bologna"]?.zones.first { $0.id == "bologna-t" })
+        let g = try XCTUnwrap(cities["firenze"]?.zones.first { $0.id == "firenze-g" })
+        let start = Date()
+        for _ in 0..<200 {
+            _ = engine.nextChange(t, after: date(2026, 10, 26, 10)); _ = engine.previousChange(t, before: date(2026, 10, 26, 10))
+            _ = engine.nextChange(g, after: date(2026, 11, 26, 10))
+        }
+        XCTAssertLessThan(Date().timeIntervalSince(start), 2)
+        XCTAssertNil(engine.nextChange(t, after: date(2026, 10, 26, 10)))
+        // ZTL notturna estiva: dal giovedì 23:00 al venerdì 3:00
+        XCTAssertEqual(engine.nextChange(g, after: date(2026, 7, 2, 12)), date(2026, 7, 2, 23))
+        XCTAssertEqual(engine.nextChange(g, after: date(2026, 7, 2, 23, 30)), date(2026, 7, 3, 3))
+        XCTAssertEqual(engine.previousChange(g, before: date(2026, 7, 3, 1)), date(2026, 7, 2, 23))
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)

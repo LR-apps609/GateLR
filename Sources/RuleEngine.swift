@@ -108,29 +108,34 @@ struct RuleEngine {
     }
 
     /// Il prossimo momento in cui lo stato cambia, cercato a passi di 5 minuti per 8 giorni.
+    /// I soli istanti in cui lo stato può cambiare: inizio e fine di ogni fascia e le mezzanotti
+    /// (festivi e stagioni), da «days» giorni prima a «days» giorni dopo. Pochi controlli invece di uno ogni 5 minuti.
+    private func boundaries(_ zone: Zone, around date: Date, back: Int, forward: Int) -> [Date] {
+        let today = calendar.startOfDay(for: date)
+        var out: [Date] = []
+        for d in -back...forward {
+            guard let day = calendar.date(byAdding: .day, value: d, to: today) else { continue }
+            out.append(day)
+            for w in zone.windows {
+                for m in [w.start, w.end] where m > 0 && m < 24 * 60 {
+                    if let t = calendar.date(bySettingHour: m / 60, minute: m % 60, second: 0, of: day) { out.append(t) }
+                }
+            }
+        }
+        return out
+    }
+
     func nextChange(_ zone: Zone, after date: Date) -> Date? {
         let now = isActive(zone, at: date)
-        var t = calendar.date(bySetting: .second, value: 0, of: date) ?? date
-        let minute = calendar.component(.minute, from: t)
-        t = calendar.date(byAdding: .minute, value: 5 - minute % 5, to: t)!
-        for _ in 0..<(8 * 24 * 12) {
-            if isActive(zone, at: t) != now { return t }
-            t = calendar.date(byAdding: .minute, value: 5, to: t)!
-        }
-        return nil
+        return boundaries(zone, around: date, back: 0, forward: 8).filter { $0 > date }.sorted()
+            .first { isActive(zone, at: $0) != now }
     }
 
     /// L'ultimo momento in cui lo stato è cambiato (per la barra «da quando / fino a quando»)
     func previousChange(_ zone: Zone, before date: Date) -> Date? {
         let now = isActive(zone, at: date)
-        var t = calendar.date(bySetting: .second, value: 0, of: date) ?? date
-        t = calendar.date(byAdding: .minute, value: -(calendar.component(.minute, from: t) % 5), to: t)!
-        for _ in 0..<(8 * 24 * 12) {
-            let before = calendar.date(byAdding: .minute, value: -5, to: t)!
-            if isActive(zone, at: before) != now { return t }
-            t = before
-        }
-        return nil
+        return boundaries(zone, around: date, back: 8, forward: 0).filter { $0 <= date }.sorted(by: >)
+            .first { isActive(zone, at: $0.addingTimeInterval(-60)) != now && isActive(zone, at: $0) == now }
     }
 
     private func inSeason(_ w: TimeWindow, _ date: Date) -> Bool {

@@ -78,7 +78,7 @@ struct MapScreen: View {
                     }
                 }
                 // Ogni varco con lo stato della sua zona
-                ForEach(zones.filter { $0.id == zone.id || distance < 6_000 }) { z in
+                ForEach(zones.filter { $0.id == zone.id || (distance < 6_000 && isNear($0)) }) { z in
                     let on = store.engine.isActive(z, at: Date())
                     ForEach(z.gates) { g in
                         Annotation(g.name, coordinate: g.location.cl) {
@@ -159,6 +159,13 @@ struct MapScreen: View {
         let center = CLLocationCoordinate2D(latitude: (lo.lat + hi.lat) / 2, longitude: (lo.lon + hi.lon) / 2)
         let span = MKCoordinateSpan(latitudeDelta: (hi.lat - lo.lat) * 1.3 + 0.004, longitudeDelta: (hi.lon - lo.lon) * 1.3 + 0.004)
         return MKCoordinateRegion(center: center, span: span)
+    }
+
+    /// Solo le zone vicine al centro della mappa mostrano i varchi (non serve disegnare quelli di altre città)
+    private func isNear(_ z: Zone) -> Bool {
+        let c = center ?? store.city.center.cl
+        let p = z.labelPoint
+        return abs(p.latitude - c.latitude) < 0.08 && abs(p.longitude - c.longitude) < 0.11
     }
 
     private func select(_ z: Zone) {
