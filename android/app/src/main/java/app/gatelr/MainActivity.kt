@@ -69,6 +69,11 @@ class MainActivity : ComponentActivity() {
         }
         setContent { GateTheme { Root() } }
     }
+
+    override fun onStop() {
+        super.onStop()
+        ZoneWidget.refresh(this)          // il widget segue la zona scelta nell'app
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GateLR</string>
+    <string name="widget_description">The ZTL you chose: can you drive in now?</string>
 </resources>

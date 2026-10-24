@@ -62,6 +62,8 @@ object AppState {
         recent = prefs.getString("recent", null)?.let { runCatching { json.decodeFromString(ListSerializer(Place.serializer()), it) }.getOrNull() } ?: emptyList()
         preferredNavigator = prefs.getString("navigator", "") ?: ""
         overlayOn = prefs.getBoolean("overlay", true)
+        cityId = prefs.getString("city", cityId) ?: cityId
+        zoneId = prefs.getString("zone", zoneId) ?: zoneId
     }
 
     fun save() {
@@ -72,6 +74,8 @@ object AppState {
             .putString("recent", json.encodeToString(ListSerializer(Place.serializer()), recent))
             .putString("navigator", preferredNavigator)
             .putBoolean("overlay", overlayOn)
+            .putString("city", cityId)
+            .putString("zone", zoneId)
             .apply()
     }
 
@@ -85,6 +89,7 @@ object AppState {
     fun selectCity(id: String) {
         cityId = id
         if (city.zones.none { it.id == zoneId }) zoneId = city.zones.first().id
+        save()
     }
 
     /** Sceglie il posto: la pagina passa alla sua città e alla zona che lo contiene */

@@ -8,5 +8,6 @@ class GateLRApp : Application() {
         super.onCreate()
         MapLibre.getInstance(this)
         AppState.init(this)
+        AppStateReady.ok = true
     }
 }
