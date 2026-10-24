@@ -55,7 +55,7 @@ struct SignReaderView: View {
         .navigationTitle("Read the sign")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $scanning) {
-            LiveTextScanner { found in text = found; scanning = false }
+            LiveTextScanner { found in if !found.isEmpty { text = found }; scanning = false }
                 .ignoresSafeArea()
         }
         .onChange(of: photo) {
@@ -115,16 +115,20 @@ struct SignReaderView: View {
 
     /// Il testo di una foto, con il riconoscimento di Apple (sul telefono, senza internet)
     static func recognize(_ data: Data) async -> String? {
-        guard let image = UIImage(data: data)?.cgImage else { return nil }
+        guard let ui = UIImage(data: data), let image = ui.cgImage else { return nil }
+        let orientation = CGImagePropertyOrientation(ui.imageOrientation)
         return await withCheckedContinuation { cont in
-            let request = VNRecognizeTextRequest { req, _ in
-                let lines = (req.results as? [VNRecognizedTextObservation])?.compactMap { $0.topCandidates(1).first?.string } ?? []
-                cont.resume(returning: lines.isEmpty ? nil : lines.joined(separator: "\n"))
-            }
-            request.recognitionLevel = .accurate
-            request.recognitionLanguages = ["it-IT", "en-US"]
             DispatchQueue.global(qos: .userInitiated).async {
-                do { try VNImageRequestHandler(cgImage: image).perform([request]) } catch { cont.resume(returning: nil) }
+                let request = VNRecognizeTextRequest()
+                request.recognitionLevel = .accurate
+                request.recognitionLanguages = ["it-IT", "en-US"]
+                do {
+                    try VNImageRequestHandler(cgImage: image, orientation: orientation).perform([request])
+                    let lines = request.results?.compactMap { $0.topCandidates(1).first?.string } ?? []
+                    cont.resume(returning: lines.isEmpty ? nil : lines.joined(separator: "\n"))
+                } catch {
+                    cont.resume(returning: nil)
+                }
             }
         }
     }
@@ -136,17 +140,21 @@ struct LiveTextScanner: UIViewControllerRepresentable {
 
     func makeUIViewController(context: Context) -> UINavigationController {
         let scanner = DataScannerViewController(recognizedDataTypes: [.text(languages: ["it", "en"])],
-                                                qualityLevel: .accurate, isHighlightingEnabled: true)
+                                                qualityLevel: .accurate, recognizesMultipleItems: true, isHighlightingEnabled: true)
         scanner.delegate = context.coordinator
         context.coordinator.scanner = scanner
         scanner.navigationItem.rightBarButtonItem = UIBarButtonItem(title: L("Use this text"), style: .done,
                                                                     target: context.coordinator, action: #selector(Coordinator.finish))
         scanner.navigationItem.leftBarButtonItem = UIBarButtonItem(systemItem: .cancel, primaryAction: UIAction { _ in context.coordinator.cancel() })
-        try? scanner.startScanning()
         return UINavigationController(rootViewController: scanner)
     }
 
-    func updateUIViewController(_ controller: UINavigationController, context: Context) {}
+    /// La fotocamera parte quando la schermata è davvero visibile
+    func updateUIViewController(_ controller: UINavigationController, context: Context) {
+        if let scanner = context.coordinator.scanner, !scanner.isScanning {
+            DispatchQueue.main.async { try? scanner.startScanning() }
+        }
+    }
     func makeCoordinator() -> Coordinator { Coordinator(done: done) }
 
     final class Coordinator: NSObject, DataScannerViewControllerDelegate {
@@ -167,5 +175,22 @@ struct LiveTextScanner: UIViewControllerRepresentable {
             done(text)
         }
         func cancel() { scanner?.stopScanning(); done("") }
+    }
+}
+
+extension CGImagePropertyOrientation {
+    /// L'orientamento della foto, perché Vision legga il testo dritto
+    init(_ o: UIImage.Orientation) {
+        switch o {
+        case .up: self = .up
+        case .down: self = .down
+        case .left: self = .left
+        case .right: self = .right
+        case .upMirrored: self = .upMirrored
+        case .downMirrored: self = .downMirrored
+        case .leftMirrored: self = .leftMirrored
+        case .rightMirrored: self = .rightMirrored
+        @unknown default: self = .up
+        }
     }
 }

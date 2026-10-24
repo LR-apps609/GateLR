@@ -9,7 +9,7 @@ import UIKit
 /// in sottofondo. Segue la posizione, mostra la distanza dalla prossima ZTL che a quell'ora non ti fa entrare
 /// (Dynamic Island e schermata di blocco) e avvisa con notifica e voce. Si ferma all'arrivo o da fermo.
 @MainActor
-final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVSpeechSynthesizerDelegate {
     static let shared = Guardian()
 
     struct Threat: Equatable {
@@ -32,6 +32,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate {
     private var alerted = Set<String>()
     private var lastMove = Date()
     private var startedAt = Date()
+    private var watchdog: Task<Void, Never>?
 
     override init() {
         super.init()
@@ -40,6 +41,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = 15
         manager.pausesLocationUpdatesAutomatically = false
+        voice.delegate = self
     }
 
     /// Parte il guardiano e si apre il navigatore scelto verso la meta
@@ -58,6 +60,15 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate {
         try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .voicePrompt, options: [.duckOthers, .interruptSpokenAudioAndMixWithOthers])
         active = true
         startActivity()
+        // Controllo ogni minuto anche senza movimento: con l'auto parcheggiata non arrivano posizioni nuove
+        watchdog?.cancel()
+        watchdog = Task { [weak self] in
+            while !Task.isCancelled {
+                try? await Task.sleep(for: .seconds(60))
+                guard let self, self.active else { return }
+                if Date().timeIntervalSince(self.lastMove) > 15 * 60 || Date().timeIntervalSince(self.startedAt) > 4 * 3600 { self.stop() }
+            }
+        }
         if let p = manager.location { update(Coordinate(lat: p.coordinate.latitude, lon: p.coordinate.longitude), course: p.course) }
         navigator.open(to: place)
     }
@@ -68,6 +79,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate {
         if let activity { Task { await activity.end(nil, dismissalPolicy: .immediate) } }
         activity = nil; lastShown = nil
         try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        watchdog?.cancel(); watchdog = nil
         active = false; threat = nil; destination = nil
     }
 
@@ -170,6 +182,12 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate {
         c.title = title; c.body = body; c.sound = .default
         c.interruptionLevel = .timeSensitive
         UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "guardian|\(id)", content: c, trigger: nil))
+    }
+
+    /// Finito di parlare: la musica e il navigatore tornano al volume normale
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        guard !synthesizer.isSpeaking else { return }
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

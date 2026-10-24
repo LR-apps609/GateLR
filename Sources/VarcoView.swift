@@ -96,7 +96,8 @@ struct VarcoView: View {
             let c = Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)
             let inside = store.zones(at: c).first
             let near = store.nearestZone(to: c)
-            if let zone = inside?.zone ?? (near.map { $0.meters < 30_000 } == true ? near?.zone : nil) {
+            let nearby: Zone? = (near?.meters ?? .infinity) < 30_000 ? near?.zone : nil
+            if let zone = inside?.zone ?? nearby {
                 let a = store.answer(at: date, zone: zone, hotelInside: false)
                 Button { select(zone); showZone = true } label: {
                     HStack(spacing: 14) {

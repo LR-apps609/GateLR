@@ -359,8 +359,7 @@ struct MapScreen: View {
                 Image(systemName: "mappin.circle.fill").font(.system(size: 30)).foregroundStyle(placeTint(place))
                 VStack(alignment: .leading, spacing: 2) {
                     Text(place.name).font(Theme.display(21)).lineLimit(2).foregroundStyle(Theme.ink)
-                    Text(pedestrian.map { String(format: L("Pedestrian area · %@"), $0.name) }
-                         ?? hit.map { "\($0.zone.type.title) · \($0.zone.shortName)" } ?? L("Outside the ZTL"))
+                    Text(Self.placeSubtitle(pedestrian: pedestrian, zone: hit?.zone))
                         .font(.system(size: 14)).foregroundStyle(Theme.muted)
                 }
                 Spacer()
@@ -371,6 +370,9 @@ struct MapScreen: View {
                 } else {
                     Pill(text: L("You can enter"), fill: Theme.greenSoft, ink: Theme.greenInk)
                 }
+            }
+            if let parkingMessage {
+                Text(parkingMessage).font(.system(size: 13)).foregroundStyle(Theme.muted)
             }
             if let answer, pedestrian == nil {
                 Text(Self.detail(answer.verdict)).font(.system(size: 14)).foregroundStyle(Theme.ink).lineLimit(3)
@@ -389,6 +391,12 @@ struct MapScreen: View {
         .background(Theme.card, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
         .shadow(color: .black.opacity(0.12), radius: 12, y: -2)
         .padding(.horizontal, 8).padding(.bottom, 8)
+    }
+
+    private static func placeSubtitle(pedestrian: PedestrianArea?, zone: Zone?) -> String {
+        if let pedestrian { return String(format: L("Pedestrian area · %@"), pedestrian.name) }
+        if let zone { return zone.type.title + " · " + zone.shortName }
+        return L("Outside the ZTL")
     }
 
     private static func detail(_ v: Verdict) -> String {

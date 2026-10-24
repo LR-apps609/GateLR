@@ -141,7 +141,7 @@ struct LogEntry: Codable, Hashable, Identifiable {
 extension Store {
     /// Aggiunge al diario, senza doppioni nella stessa mezz'ora per la stessa zona
     func record(_ kind: LogEntry.Kind, zone: Zone, gate: Gate? = nil, verdict: Verdict) {
-        if let last = log.first(where: { $0.zoneId == zone.id }), Date().timeIntervalSince(last.date) < 30 * 60 { return }
+        if let last = log.first(where: { $0.zoneId == zone.id && $0.kind == kind }), Date().timeIntervalSince(last.date) < 30 * 60 { return }
         log.insert(LogEntry(date: Date(), kind: kind, zoneId: zone.id, zoneName: zone.localizedName, gateName: gate?.name,
                             verdict: verdict.short, plate: vehicle.plate), at: 0)
         if log.count > 500 { log.removeLast(log.count - 500) }

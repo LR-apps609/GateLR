@@ -54,7 +54,7 @@ enum PathMath {
 /// La navigazione dentro l'app: istruzioni svolta per svolta con la voce, ricalcolo se esci dal percorso,
 /// e avvisi a voce prima di entrare in una ZTL attiva.
 @MainActor
-final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate, AVSpeechSynthesizerDelegate {
     static let shared = DriveSession()
 
     struct Step: Equatable {
@@ -110,6 +110,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
         manager.activityType = .automotiveNavigation
         manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         manager.distanceFilter = 5
+        voice.delegate = self
     }
 
     // MARK: Inizio e fine
@@ -309,6 +310,12 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
     }
 
     // MARK: Posizione
+
+    /// Finito di parlare: la musica e il navigatore tornano al volume normale
+    nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        guard !synthesizer.isSpeaking else { return }
+        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+    }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let l = locations.last, l.horizontalAccuracy >= 0, l.horizontalAccuracy < 65 else { return }

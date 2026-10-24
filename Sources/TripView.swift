@@ -16,7 +16,8 @@ struct TripView: View {
     @State private var arrival = TripView.upcoming(hour: 18)
     @State private var resolving = false
     @State private var driving = false
-    @AppStorage("hotelName") private var hotelName = ""
+    @State private var hotelName = ""
+    @ObservedObject private var drive = DriveSession.shared
     @State private var language: MessageLanguage = .en
     @State private var copied = false
     @State private var saved = false
@@ -53,7 +54,7 @@ struct TripView: View {
         }
         .onAppear { search.focus(on: store.city) }
         .onChange(of: store.cityId) { search.focus(on: store.city) }
-        .onChange(of: store.place) { planner.clear() }
+        .onChange(of: store.place) { planner.clear(); hotelName = "" }
         .fullScreenCover(isPresented: $driving) { DriveView() }
         .onChange(of: atArrival) { planner.clear() }
         .onChange(of: arrival) { planner.clear() }
@@ -229,12 +230,12 @@ struct TripView: View {
             RouteCard(plan: plan, onMap: { tab = .map }, onStart: { target in
                 Task {
                     await DriveSession.shared.start(to: target, store: store)
-                    driving = DriveSession.shared.active
+                    driving = drive.active
                 }
             }, onGuardian: { target, navigator in
                 Guardian.shared.start(to: target, with: navigator, store: store)
             })
-            if let e = DriveSession.shared.error { Text(e).font(.system(size: 13)).foregroundStyle(Theme.red) }
+            if let e = drive.error { Text(e).font(.system(size: 13)).foregroundStyle(Theme.red) }
         } else {
             VStack(alignment: .leading, spacing: 8) {
                 WideButton(title: planner.working ? "Planning…" : "Check the drive", systemImage: "car.fill") {
@@ -425,7 +426,8 @@ struct TripView: View {
 
     private var hotelMessage: some View {
         let name = hotelName.isEmpty ? store.place?.name : hotelName
-        let text = language.message(arrival: atArrival ? arrival : Date(),
+        let stay = store.place.flatMap { store.stays[$0.key] }
+        let text = language.message(arrival: stay?.arrival ?? (atArrival ? arrival : Date()),
                                     plate: store.vehicle.plate.isEmpty ? "[PLATE]" : store.vehicle.plate,
                                     hotel: name, departure: store.place.flatMap { store.stays[$0.key]?.departure })
         return VStack(alignment: .leading, spacing: 10) {

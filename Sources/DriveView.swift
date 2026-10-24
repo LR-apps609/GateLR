@@ -88,10 +88,8 @@ struct DriveView: View {
         }
         .mapStyle(.standard(elevation: .realistic, pointsOfInterest: .excludingAll, showsTraffic: true))
         .mapControls { MapCompass(); MapScaleView() }
-        .onMapCameraChange(frequency: .onEnd) { _ in
-            // Se la mappa si è mossa senza di noi, l'ha spostata il dito: si smette di seguire
-            if Date().timeIntervalSince(movedByUs) > 1.5 { following = false }
-        }
+        // Il dito sposta la mappa: si smette di seguire finché non tocchi «Ricentra»
+        .simultaneousGesture(DragGesture(minimumDistance: 10).onChanged { _ in following = false })
         .ignoresSafeArea()
     }
 
@@ -190,7 +188,7 @@ struct DriveView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(drive.eta.map { $0.formatted(date: .omitted, time: .shortened) } ?? "–")
                     .font(Theme.display(28)).monospacedDigit()
-                Text("\(VerdictCard.duration(drive.eta.map { max(0, $0.timeIntervalSinceNow) } ?? 0)) · \(Measurement(value: drive.remaining, unit: UnitLength.meters).formatted(.measurement(width: .abbreviated, usage: .road)))")
+                Text(remainingText)
                     .font(.system(size: 14)).foregroundStyle(Theme.muted)
             }
             Spacer()
@@ -217,6 +215,12 @@ struct DriveView: View {
         .shadow(color: .black.opacity(0.15), radius: 10, y: -2)
     }
 
+    private var remainingText: String {
+        let left: TimeInterval = drive.eta.map { max(0, $0.timeIntervalSinceNow) } ?? 0
+        let km: String = Measurement(value: drive.remaining, unit: UnitLength.meters).formatted(.measurement(width: .abbreviated, usage: .road))
+        return VerdictCard.duration(left) + " · " + km
+    }
+
     private func roundButton(_ symbol: String, _ label: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: symbol).font(.system(size: 17, weight: .semibold))
@@ -226,7 +230,7 @@ struct DriveView: View {
     }
 
     /// Il simbolo della manovra, dalle parole dell'istruzione (in inglese, italiano e tedesco)
-    static func symbol(for instruction: String) -> String {
+    nonisolated static func symbol(for instruction: String) -> String {
         let s = instruction.lowercased()
         func has(_ words: String...) -> Bool { words.contains { s.contains($0) } }
         if s.isEmpty { return "flag.checkered" }

@@ -41,10 +41,10 @@ enum SignReader {
 
     /// «7.30-20», «7:30 - 20:00», «0-24», «dalle 23 alle 3»
     static func timeRanges(in line: String) -> [(Int, Int)] {
-        let pattern = #"(?:dalle\s+)?(\d{1,2})(?:[.:,h](\d{2}))?\s*(?:-|alle|a|/)\s*(\d{1,2})(?:[.:,h](\d{2}))?"#
+        let pattern = #"(?:dalle\s+)?(\d{1,2})(?:[.:,h](\d{2}))?\s*(?:-|alle|a)\s*(\d{1,2})(?:[.:,h](\d{2}))?"#
         guard let re = try? NSRegularExpression(pattern: pattern) else { return [] }
         let ns = line as NSString
-        return re.matches(in: line, range: NSRange(location: 0, length: ns.length)).compactMap { m in
+        return re.matches(in: line, range: NSRange(location: 0, length: ns.length)).compactMap { m -> (Int, Int)? in
             func n(_ i: Int) -> Int? { m.range(at: i).location == NSNotFound ? nil : Int(ns.substring(with: m.range(at: i))) }
             guard let h1 = n(1), let h2 = n(3), h1 <= 24, h2 <= 24 else { return nil }
             let m1 = n(2) ?? 0, m2 = n(4) ?? 0

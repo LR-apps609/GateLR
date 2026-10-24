@@ -6,6 +6,14 @@ struct DriveLogView: View {
     @EnvironmentObject var store: Store
     @State private var confirmClear = false
 
+    private var shareText: String {
+        store.log.map { e -> String in
+            let when: String = e.date.formatted(date: .abbreviated, time: .shortened)
+            let parts: [String?] = [when, e.zoneName, e.gateName, e.verdict, e.plate.isEmpty ? nil : e.plate]
+            return parts.compactMap { $0 }.joined(separator: " · ")
+        }.joined(separator: "\n")
+    }
+
     var body: some View {
         List {
             Section {
@@ -37,7 +45,7 @@ struct DriveLogView: View {
                     Text("A row here doesn't mean you'll be fined: maybe you didn't cross the gate, or your plate was registered. It's a reminder, and a note of when and where.")
                 }
                 Section {
-                    ShareLink(item: store.log.map { "\($0.date.formatted(date: .abbreviated, time: .shortened)) · \($0.zoneName)\($0.gateName.map { " · " + $0 } ?? "") · \($0.verdict)" }.joined(separator: "\n")) {
+                    ShareLink(item: shareText) {
                         Label("Share the log", systemImage: "square.and.arrow.up")
                     }
                     Button(role: .destructive) { confirmClear = true } label: { Label("Delete the log", systemImage: "trash") }

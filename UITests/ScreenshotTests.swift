@@ -25,7 +25,7 @@ final class ScreenshotTests: XCTestCase {
         let sign = app.buttons["varco.sign"]
         if sign.waitForExistence(timeout: 3) {
             sign.tap()
-            let t = app.textFields["sign.text"]
+            let t = app.descendants(matching: .any)["sign.text"]
             if t.waitForExistence(timeout: 3) {
                 t.tap(); t.typeText("ZONA TRAFFICO LIMITATO\n7.30-20.00\nFERIALI")
                 sleep(1)
