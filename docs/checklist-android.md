@@ -26,10 +26,12 @@ Telefoni da provare se li hai: uno Samsung, uno Xiaomi/Redmi, uno Huawei o Honor
 
 ## 3. Viaggio
 - [ ] Cerca «Palazzo Vecchio» → risposta Settore A; chip «Adesso / Tra 1 ora / Stasera / Domani mattina» cambiano la risposta
-- [ ] «Duomo di Milano» → riquadro Ticket con prezzo e «Paga il ticket»
+- [ ] «Castello Sforzesco» (Milano) → riquadro Ticket con prezzo, «Paga il ticket» e «Ricordamelo» (notifica alle 20 del giorno d'ingresso)
 - [ ] «Piazza Maggiore Bologna» → riquadro rosso Area pedonale
 - [ ] Hotel dentro la ZTL di Firenze: interruttore «Registrazione dell'hotel» → notti, messaggio IT/EN/DE, «Manda all'hotel» apre WhatsApp/Mail…
+- [ ] «Chiesta» con arrivo domani → notifica il giorno prima alle 18; «Confermato» la annulla
 - [ ] «Confermato» → nel Garage compare il permesso e la risposta diventa «Sì»
+- [ ] Con il permesso confermato a Firenze, a Milano la risposta **non** diventa «Sì»
 - [ ] «Controlla il tragitto» → tempo, km, ora d'arrivo e ZTL attraversate con l'ora e la risposta
 - [ ] Widget: tieni premuto sulla schermata Home → Widget → GateLR; mostra la zona e la risposta, il colore cambia
 - [ ] Recenti con gli ultimi posti
@@ -52,5 +54,6 @@ Telefoni da provare se li hai: uno Samsung, uno Xiaomi/Redmi, uno Huawei o Honor
 - [ ] Account → Impara → «Ho preso una multa?»: 7 passi
 
 ## 6. Lingue e tema
+- [ ] Android 13+: Impostazioni → App → GateLR → Lingua: italiano / English / Deutsch
 - [ ] Telefono in italiano: nessuna parola inglese; in tedesco idem
 - [ ] Tema scuro leggibile
