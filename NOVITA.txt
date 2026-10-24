@@ -1,3 +1,15 @@
+Novità della 1.8.0 «Per davvero»:
+• Prima pagina nuova (1.2): cos'è GateLR in tre righe, la ZTL vicino a te con la risposta adesso, «Dove vai?», le città con quante zone sono attive, il prossimo viaggio, «Prima volta con le ZTL?» e «Leggi il cartello»
+• Viaggio è l'unico posto dove si cerca: destinazione o hotel, risposta adesso o all'arrivo, percorso, ticket, registrazione dell'hotel, messaggio, viaggi salvati
+• Mappa: zone verdi molto più visibili, al posto delle scritte grandi un segno piccolo per zona e la legenda a richiesta (i), ricerca dentro la mappa con lo spillo colorato (verde entri, rosso no) e la scheda del posto
+• Guardiano (1.3): «Avvia» → Apple Maps, Google Maps o Waze; GateLR in sottofondo mostra la ZTL più vicina nella Dynamic Island e sulla schermata di blocco, avvisa con notifica e voce, si ferma all'arrivo
+• Navigatore di GateLR rifinito: la mappa segue l'auto nella direzione di marcia, freccia dell'auto, percorso fatto e da fare, prossima ZTL sempre in vista, «poi…», velocità, ricentra, panoramica, traffico
+• Hotel sicuro (1.4): arrivo e partenza, giorni da registrare compreso quello di partenza, stato della richiesta, consigli contro gli errori comuni, messaggio con conferma scritta, promemoria, permesso automatico
+• Diario e multe (1.5): diario dei passaggi vicino ai varchi attivi; guida «Ho preso una multa?» (tempi, commissione del noleggio, importi, pagamento dall'estero, ricorso)
+• Ticket (1.6): Area C e Bologna con scadenza, link per pagare e promemoria
+• Leggi il cartello (1.7): fotocamera o foto del pannello, giorni e orari spiegati nella tua lingua, «attiva adesso» secondo il cartello
+• Rifiniture (1.8): mappa più leggera per VoiceOver e i test, versione 1.8.0
+
 Novità della 1.1.0 «Guida»:
 • Navigazione dentro l'app: «Avvia» dal percorso, istruzioni svolta per svolta con la voce, ricalcolo se esci dal percorso
 • Avviso a voce prima di entrare in una ZTL attiva («Attenzione: tra 500 metri entri in Settore A. Non entrare.») e vicino alle telecamere delle corsie bus

@@ -92,6 +92,7 @@ struct MapScreen: View {
                                     .frame(width: 20, height: 20)
                                     .background(cam.kind == .bus ? Theme.blueFill : Theme.red, in: RoundedRectangle(cornerRadius: 5, style: .continuous))
                                     .overlay(RoundedRectangle(cornerRadius: 5, style: .continuous).stroke(.white, lineWidth: 1.5))
+                                    .accessibilityHidden(true)
                             }
                             .annotationTitles(.hidden)
                         }
@@ -108,6 +109,7 @@ struct MapScreen: View {
                                 .frame(width: 20, height: 20)
                                 .background(on ? Theme.red : Theme.green, in: Circle())
                                 .overlay(Circle().stroke(.white, lineWidth: 2))
+                                .accessibilityHidden(true)     // centinaia di varchi: VoiceOver (e i test) restano veloci
                         }
                         .annotationTitles(.hidden)
                     }
