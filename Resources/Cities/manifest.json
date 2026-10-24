@@ -1,6 +1,6 @@
 {
- "version": "202610241959",
- "digest": "e452051bae22",
+ "version": "202610242234",
+ "digest": "97513dd0e7f4",
  "schema": 1,
  "cities": [
   {
@@ -21,7 +21,7 @@
   {
    "id": "roma",
    "file": "roma.json",
-   "sha256": "bd893969fd943d7c8d02a7f96098a144b5f5116ae1d881169af058d29dcb1ffa"
+   "sha256": "3c2a4c3370c32aae366697f6a4599c203c0315892a6393aa105fd9bf1d5dd611"
   },
   {
    "id": "siena",

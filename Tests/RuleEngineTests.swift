@@ -170,6 +170,38 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertNotNil(mi.ticket)
     }
 
+    /// Fasce notturne e festivi: dopo mezzanotte conta il giorno in cui è iniziata la fascia.
+    /// Feste del patrono: il 29 giugno a Roma è festivo, a Firenze no.
+    func testNightHolidaysAndPatronDays() throws {
+        let cities = try bundledCities()
+        let centro = try XCTUnwrap(cities["roma"]?.zones.first { $0.id == "roma-centro" })
+        // Sabato 1° maggio 2027 è festivo: la notte sabato 23 → domenica 3 è libera
+        XCTAssertFalse(engine.isActive(centro, at: date(2027, 5, 1, 23, 30)))
+        XCTAssertFalse(engine.isActive(centro, at: date(2027, 5, 2, 1, 0)))
+        // La notte di venerdì 30 aprile (feriale) che sfocia nel sabato festivo resta attiva
+        XCTAssertTrue(engine.isActive(centro, at: date(2027, 4, 30, 23, 30)))
+        XCTAssertTrue(engine.isActive(centro, at: date(2027, 5, 1, 1, 0)))
+        // Una notte qualsiasi resta attiva, prima e dopo mezzanotte
+        XCTAssertTrue(engine.isActive(centro, at: date(2026, 10, 24, 1, 0)))
+        // Lunedì 29 giugno 2026, Santi Pietro e Paolo: a Roma è festa, ZTL diurna spenta
+        XCTAssertEqual(centro.localHolidays, ["06-29"])
+        XCTAssertFalse(engine.isActive(centro, at: date(2026, 6, 29, 10)))
+        XCTAssertTrue(engine.isActive(centro, at: date(2026, 6, 30, 10)))
+        // Stesso giorno a Firenze (nessuna festa locale): attiva secondo i suoi orari
+        let fiA = try XCTUnwrap(cities["firenze"]?.zones.first { $0.id == "firenze-a" })
+        XCTAssertNil(fiA.localHolidays)
+        XCTAssertTrue(engine.isActive(fiA, at: date(2026, 6, 29, 10)))
+        let a = engine.answer(zone: fiA, vehicle: car, permits: [], hotelInside: false, at: date(2026, 6, 29, 10))
+        XCTAssertTrue(a.gatesOn)
+        if case .unsure = a.verdict { XCTFail("Firenze 29 giugno: non è festivo, atteso attiva") }
+        // Festivo sconosciuto (freeOnHolidays nil): anche qui conta il giorno d'inizio della notte
+        var fi = fiA; fi.freeOnHolidays = nil
+        let fri = engine.answer(zone: fi, vehicle: car, permits: [], hotelInside: false, at: date(2027, 5, 1, 1, 0))
+        if case .unsure = fri.verdict { XCTFail("notte di venerdì feriale: non è un festivo") }
+        let sat = engine.answer(zone: fi, vehicle: car, permits: [], hotelInside: false, at: date(2027, 5, 2, 1, 0))
+        guard case .unsure = sat.verdict else { return XCTFail("notte del sabato festivo: atteso non sicuro, ottenuto \(sat.verdict)") }
+    }
+
     private func bundledCities() throws -> [String: City] {
         let dir = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Resources/Cities")
         let files = try FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" && $0.lastPathComponent != "manifest.json" }

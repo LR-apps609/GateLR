@@ -198,7 +198,12 @@ enum CityLoader {
     static func decode(_ data: Data) throws -> City {
         let d = JSONDecoder()
         d.dateDecodingStrategy = .iso8601
-        return try d.decode(City.self, from: data)
+        var city = try d.decode(City.self, from: data)
+        // Il motore riceve solo la zona: le feste del patrono della città le porta lei
+        if let local = city.localHolidays {
+            for i in city.zones.indices { city.zones[i].localHolidays = local }
+        }
+        return city
     }
 
     /// Letti una volta sola (il widget li chiede a ogni voce della sua cronologia).

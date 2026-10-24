@@ -43,7 +43,7 @@ struct RuleEngine {
             return Answer(verdict: .unsure(reason: String(format: L("This zone hasn't been checked for %lld days. Look at the city's page before driving in."), age)),
                           gatesOn: on, nextChange: next)
         }
-        if zone.freeOnHolidays == nil && ItalianHolidays.isHoliday(date, calendar: calendar) && isActive(zone, at: date, ignoringHolidays: true) {
+        if zone.freeOnHolidays == nil && activeStartDays(zone, at: date).contains(where: { isHoliday(zone, $0) }) {
             return Answer(verdict: .unsure(reason: L("It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate.")),
                           gatesOn: true, nextChange: next)
         }
@@ -92,19 +92,35 @@ struct RuleEngine {
     // MARK: Orari
 
     func isActive(_ zone: Zone, at date: Date, ignoringHolidays: Bool = false) -> Bool {
-        if !ignoringHolidays && zone.freeOnHolidays == true && ItalianHolidays.isHoliday(date, calendar: calendar) { return false }
+        let starts = activeStartDays(zone, at: date)
+        if ignoringHolidays || zone.freeOnHolidays != true { return !starts.isEmpty }
+        return starts.contains { !isHoliday(zone, $0) }
+    }
+
+    /// I giorni in cui sono iniziate le fasce accese in questo momento (festivi a parte).
+    /// Per la parte dopo mezzanotte di una fascia notturna il giorno è quello prima: la notte
+    /// tra sabato festivo e domenica è libera, quella tra venerdì e un sabato festivo no.
+    private func activeStartDays(_ zone: Zone, at date: Date) -> [Date] {
         let weekday = calendar.component(.weekday, from: date)
         let minute = calendar.component(.hour, from: date) * 60 + calendar.component(.minute, from: date)
         let yesterday = weekday == 1 ? 7 : weekday - 1
         let dayBefore = calendar.date(byAdding: .day, value: -1, to: date)!
-        return zone.windows.contains { w in
+        var out: [Date] = []
+        for w in zone.windows {
             if w.end > w.start {
-                return w.weekdays.contains(weekday) && inSeason(w, date) && minute >= w.start && minute < w.end
+                if w.weekdays.contains(weekday) && inSeason(w, date) && minute >= w.start && minute < w.end { out.append(date) }
+                continue
             }
             // Fascia che passa la mezzanotte: la sera del giorno indicato o la notte dopo
-            return (w.weekdays.contains(weekday) && inSeason(w, date) && minute >= w.start)
-                || (w.weekdays.contains(yesterday) && inSeason(w, dayBefore) && minute < w.end)
+            if w.weekdays.contains(weekday) && inSeason(w, date) && minute >= w.start { out.append(date) }
+            if w.weekdays.contains(yesterday) && inSeason(w, dayBefore) && minute < w.end { out.append(dayBefore) }
         }
+        return out
+    }
+
+    /// Festivo nazionale o festa del patrono della città della zona
+    func isHoliday(_ zone: Zone, _ date: Date) -> Bool {
+        ItalianHolidays.isHoliday(date, calendar: calendar, local: zone.localHolidays)
     }
 
     /// Il prossimo momento in cui lo stato cambia, cercato a passi di 5 minuti per 8 giorni.
@@ -160,12 +176,14 @@ struct RuleEngine {
 }
 
 enum ItalianHolidays {
-    static func isHoliday(_ date: Date, calendar: Calendar) -> Bool {
+    /// «local»: le feste del patrono della città, come "MM-DD" (es. "06-29" a Roma)
+    static func isHoliday(_ date: Date, calendar: Calendar, local: [String]? = nil) -> Bool {
         let y = calendar.component(.year, from: date)
         let m = calendar.component(.month, from: date), d = calendar.component(.day, from: date)
         if calendar.component(.weekday, from: date) == 1 { return false }   // la domenica la decide l'orario
         let fixed: Set<Int> = [101, 106, 425, 501, 602, 815, 1101, 1208, 1225, 1226]
         if fixed.contains(m * 100 + d) { return true }
+        if let local, local.contains(String(format: "%02d-%02d", m, d)) { return true }
         let easter = easterSunday(y)
         let monday = calendar.date(byAdding: .day, value: 1, to: calendar.date(from: easter)!)!
         return calendar.isDate(date, inSameDayAs: monday)

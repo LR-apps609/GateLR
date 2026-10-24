@@ -157,4 +157,31 @@ class CoreTest {
         assertEquals(6, CarCatalog.euroForYear(2019)); assertEquals(5, CarCatalog.euroForYear(2012)); assertEquals(3, CarCatalog.euroForYear(2004))
         if (verdict(zone("firenze", "firenze-a"), at = date(2026, 10, 26, 22)) !is Verdict.Yes) fail("di notte si entra")
     }
+
+    /** Fasce notturne e festivi: dopo mezzanotte conta il giorno d'inizio. Feste del patrono: 29 giugno a Roma sì, a Firenze no. */
+    @Test fun nightHolidaysAndPatronDays() {
+        val centro = zone("roma", "roma-centro")
+        // Sabato 1° maggio 2027 è festivo: la notte sabato 23 → domenica 3 è libera
+        assertFalse(engine.isActive(centro, date(2027, 5, 1, 23, 30)))
+        assertFalse(engine.isActive(centro, date(2027, 5, 2, 1, 0)))
+        // La notte di venerdì 30 aprile (feriale) che sfocia nel sabato festivo resta attiva
+        assertTrue(engine.isActive(centro, date(2027, 4, 30, 23, 30)))
+        assertTrue(engine.isActive(centro, date(2027, 5, 1, 1, 0)))
+        assertTrue(engine.isActive(centro, date(2026, 10, 24, 1, 0)))
+        // Lunedì 29 giugno 2026, Santi Pietro e Paolo: a Roma è festa, ZTL diurna spenta
+        assertEquals(listOf("06-29"), centro.localHolidays)
+        assertFalse(engine.isActive(centro, date(2026, 6, 29, 10)))
+        assertTrue(engine.isActive(centro, date(2026, 6, 30, 10)))
+        // Stesso giorno a Firenze (nessuna festa locale): attiva secondo i suoi orari
+        val fiA = zone("firenze", "firenze-a")
+        assertNull(fiA.localHolidays)
+        assertTrue(engine.isActive(fiA, date(2026, 6, 29, 10)))
+        val a = engine.answer(fiA, car, emptyList(), false, date(2026, 6, 29, 10))
+        assertTrue(a.gatesOn)
+        assertFalse(a.verdict is Verdict.Unsure)
+        // Festivo sconosciuto (freeOnHolidays null): anche qui conta il giorno d'inizio della notte
+        val fi = fiA.copy(freeOnHolidays = null)
+        assertFalse(verdict(fi, at = date(2027, 5, 1, 1, 0)) is Verdict.Unsure)
+        assertTrue(verdict(fi, at = date(2027, 5, 2, 1, 0)) is Verdict.Unsure)
+    }
 }

@@ -22,6 +22,8 @@ data class City(
     val license: String? = null,
     val pedestrian: List<PedestrianArea>? = null,
     val cameras: List<Camera>? = null,
+    /** Feste del patrono che valgono come festivi, "MM-DD" (es. Roma "06-29") */
+    val localHolidays: List<String>? = null,
 ) {
     @Serializable
     enum class Status { @SerialName("sample") SAMPLE, @SerialName("draft") DRAFT, @SerialName("verified") VERIFIED }
@@ -59,6 +61,8 @@ data class Zone(
     val ticket: Ticket? = null,
     val bans: List<EuroBan>? = null,
     val source: Source,
+    /** Le feste del patrono della città ("MM-DD"): copiate dalla città quando si legge il file (CityLoader) */
+    val localHolidays: List<String>? = null,
 ) {
     val localizedName: String get() = pick(name, nameIt, nameDe)
     val localizedSummary: String get() = pick(summary, summaryIt, summaryDe)
@@ -230,7 +234,12 @@ data class Place(val name: String, val address: String = "", val location: Coord
 /** Le città: dai file JSON (nell'app Android stanno negli «assets») */
 object CityLoader {
     val json = Json { ignoreUnknownKeys = true; coerceInputValues = true }
-    fun decode(text: String): City = json.decodeFromString(City.serializer(), text)
+    fun decode(text: String): City {
+        val city = json.decodeFromString(City.serializer(), text)
+        // Il motore riceve solo la zona: le feste del patrono della città le porta lei
+        val local = city.localHolidays ?: return city
+        return city.copy(zones = city.zones.map { it.copy(localHolidays = local) })
+    }
 }
 
 /** Il testo nella lingua del telefono, se c'è; altrimenti l'inglese */

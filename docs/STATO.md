@@ -77,6 +77,14 @@
 - **Ricerca sul sito**: Photon (gratis); più avanti Apple MapKit JS.
 - **Caratteri**: Titillium Web per titoli (app e sito, carattere di tutta la famiglia LR), Atkinson Hyperlegible Next per i testi del sito, SF Pro nei testi delle app.
 - **Lingua**: inglese principale, italiano e tedesco.
+- **Festivi di notte**: per la parte dopo mezzanotte di una fascia notturna il festivo si guarda sul giorno in cui la fascia è iniziata (sabato festivo 23 → domenica 3 libera; venerdì feriale → sabato festivo attiva). Vale anche per il «non sicuro» dei festivi sconosciuti.
+- **Feste del patrono**: campo facoltativo `localHolidays` (`"MM-DD"`) sulla città, copiato sulle zone quando si legge il file. Per ora solo Roma, 29 giugno (Santi Pietro e Paolo).
+
+### Da verificare: feste del patrono
+- **Firenze**, 24 giugno (San Giovanni): festa cittadina; capire se per la ZTL vale come festivo (oggi `freeOnHolidays` è sconosciuto).
+- **Bologna**, 4 ottobre (San Petronio): festa cittadina; capire se la ZTL si spegne.
+- **Milano**, 7 dicembre (Sant'Ambrogio): l'Area C dice «festivi esclusi», non è chiaro se Sant'Ambrogio conta.
+- **Siena**: non serve (ZTL attiva 0–24).
 
 ## Prossimi passi
 

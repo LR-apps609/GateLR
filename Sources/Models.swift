@@ -22,6 +22,7 @@ struct City: Codable, Identifiable, Hashable {
     var license: String?
     var pedestrian: [PedestrianArea]? = nil   // aree pedonali: chiuse alle auto sempre
     var cameras: [Camera]? = nil              // telecamere delle corsie bus e delle aree pedonali
+    var localHolidays: [String]? = nil        // feste del patrono che valgono come festivi, "MM-DD" (es. Roma "06-29")
 
     /// sample = dati inventati; draft = presi dalle fonti ufficiali ma non ancora rivisti da una persona
     enum Status: String, Codable { case sample, draft, verified }
@@ -50,6 +51,8 @@ struct Zone: Codable, Identifiable, Hashable {
     var ticket: Ticket? = nil   // ZTL a pagamento (es. Area C di Milano): si entra pagando
     var bans: [EuroBan]? = nil  // divieti ambientali per carburante e classe Euro (Area B e C di Milano)
     var source: Source
+    /// Le feste del patrono della città ("MM-DD"): copiate dalla città quando si legge il file (CityLoader)
+    var localHolidays: [String]? = nil
 }
 
 /// Un'area pedonale: le auto non entrano mai (salvo i mezzi autorizzati)

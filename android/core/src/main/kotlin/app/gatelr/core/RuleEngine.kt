@@ -46,7 +46,7 @@ class RuleEngine(
         if (age > staleAfterDays) {
             return Answer(Verdict.Unsure(F("This zone hasn't been checked for %lld days. Look at the city's page before driving in.", age)), on, next)
         }
-        if (zone.freeOnHolidays == null && ItalianHolidays.isHoliday(at) && isActive(zone, at, ignoringHolidays = true)) {
+        if (zone.freeOnHolidays == null && activeStartDays(zone, at).any { isHoliday(zone, it) }) {
             return Answer(Verdict.Unsure(L("It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate.")), true, next)
         }
         if (!on) {
@@ -91,17 +91,35 @@ class RuleEngine(
     private fun weekday(d: ZonedDateTime): Int = d.dayOfWeek.value % 7 + 1
 
     fun isActive(zone: Zone, at: Instant, ignoringHolidays: Boolean = false): Boolean {
-        if (!ignoringHolidays && zone.freeOnHolidays == true && ItalianHolidays.isHoliday(at)) return false
+        val starts = activeStartDays(zone, at)
+        if (ignoringHolidays || zone.freeOnHolidays != true) return starts.isNotEmpty()
+        return starts.any { !isHoliday(zone, it) }
+    }
+
+    /** I giorni in cui sono iniziate le fasce accese in questo momento (festivi a parte).
+     *  Per la parte dopo mezzanotte di una fascia notturna il giorno è quello prima: la notte
+     *  tra sabato festivo e domenica è libera, quella tra venerdì e un sabato festivo no. */
+    private fun activeStartDays(zone: Zone, at: Instant): List<LocalDate> {
         val d = at.atZone(ROME)
         val wd = weekday(d)
         val minute = d.hour * 60 + d.minute
         val yesterday = if (wd == 1) 7 else wd - 1
         val dayBefore = d.minusDays(1)
-        return zone.windows.any { w ->
-            if (w.end > w.start) wd in w.weekdays && inSeason(w, d) && minute >= w.start && minute < w.end
-            else (wd in w.weekdays && inSeason(w, d) && minute >= w.start) || (yesterday in w.weekdays && inSeason(w, dayBefore) && minute < w.end)
+        val out = mutableListOf<LocalDate>()
+        for (w in zone.windows) {
+            if (w.end > w.start) {
+                if (wd in w.weekdays && inSeason(w, d) && minute >= w.start && minute < w.end) out += d.toLocalDate()
+                continue
+            }
+            // Fascia che passa la mezzanotte: la sera del giorno indicato o la notte dopo
+            if (wd in w.weekdays && inSeason(w, d) && minute >= w.start) out += d.toLocalDate()
+            if (yesterday in w.weekdays && inSeason(w, dayBefore) && minute < w.end) out += dayBefore.toLocalDate()
         }
+        return out
     }
+
+    /** Festivo nazionale o festa del patrono della città della zona */
+    fun isHoliday(zone: Zone, day: LocalDate): Boolean = ItalianHolidays.isHoliday(day, zone.localHolidays)
 
     private fun inSeason(w: TimeWindow, d: ZonedDateTime): Boolean {
         val s = w.season ?: return true
@@ -147,11 +165,14 @@ class RuleEngine(
 }
 
 object ItalianHolidays {
-    fun isHoliday(at: Instant): Boolean {
-        val d = at.atZone(RuleEngine.ROME).toLocalDate()
+    fun isHoliday(at: Instant): Boolean = isHoliday(at.atZone(RuleEngine.ROME).toLocalDate())
+
+    /** «local»: le feste del patrono della città, come "MM-DD" (es. "06-29" a Roma) */
+    fun isHoliday(d: LocalDate, local: List<String>? = null): Boolean {
         if (d.dayOfWeek == DayOfWeek.SUNDAY) return false      // la domenica la decide l'orario
         val fixed = setOf(101, 106, 425, 501, 602, 815, 1101, 1208, 1225, 1226)
         if (d.monthValue * 100 + d.dayOfMonth in fixed) return true
+        if (local != null && String.format(java.util.Locale.ROOT, "%02d-%02d", d.monthValue, d.dayOfMonth) in local) return true
         return d == easterSunday(d.year).plusDays(1)
     }
 

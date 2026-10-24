@@ -91,12 +91,12 @@ P_EVENTS = ("The city can change the hours for events, strikes or New Year's Eve
 P_ELECTRIC = ("Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
               "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
               "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.")
-P_HOLIDAY_NIGHT = ("Holidays: GateLR checks the holiday on the current calendar day; for the part after midnight the city may count the evening's date.",
-                   "Festivi: GateLR guarda il festivo del giorno di calendario attuale; per la parte dopo mezzanotte il Comune potrebbe contare la data della sera.",
-                   "Feiertage: GateLR prüft den aktuellen Kalendertag; für die Zeit nach Mitternacht könnte die Stadt das Datum des Abends zählen.")
-P_PATRON = ("29 June (Saints Peter and Paul, Rome's patron saints): not known whether it counts as a holiday for the ZTL.",
-            "29 giugno (Santi Pietro e Paolo, patroni di Roma): non sappiamo se vale come festivo per la ZTL.",
-            "29. Juni (Peter und Paul, Roms Schutzpatrone): unklar, ob er für die ZTL als Feiertag gilt.")
+P_HOLIDAY_NIGHT = ("Holidays at night: after midnight GateLR counts the day the night started (Saturday 11 pm–3 am is free if Saturday is a holiday, Friday night into a holiday is not); the city's text doesn't say it in so many words.",
+                   "Festivi di notte: dopo mezzanotte GateLR conta il giorno in cui è iniziata la notte (sabato 23–3 è libero se il sabato è festivo, la notte del venerdì che sfocia in un festivo no); il testo del Comune non lo dice in modo esplicito.",
+                   "Feiertage nachts: Nach Mitternacht zählt GateLR den Tag, an dem die Nacht begann (Samstag 23–3 Uhr ist frei, wenn Samstag ein Feiertag ist, die Nacht von Freitag in einen Feiertag nicht); der Text der Stadt sagt das nicht ausdrücklich.")
+P_PATRON = ("29 June (Saints Peter and Paul, Rome's patron saints): GateLR counts it as a holiday, as it is a municipal holiday in Rome. Check the sign at the gate.",
+            "29 giugno (Santi Pietro e Paolo, patroni di Roma): GateLR lo conta come festivo, perché a Roma è festa cittadina. Controlla il cartello al varco.",
+            "29. Juni (Peter und Paul, Roms Schutzpatrone): GateLR zählt ihn als Feiertag, da er in Rom städtischer Feiertag ist. Schild am Zugang prüfen.")
 P_WEDTHU = ("Wednesday and Thursday: the detail page says May to October only, the city's short guide says Wednesday to Saturday without a season. GateLR follows the detail page.",
             "Mercoledì e giovedì: la pagina di dettaglio dice solo da maggio a ottobre, la mini guida del Comune dice dal mercoledì al sabato senza stagione. GateLR segue la pagina di dettaglio.",
             "Mittwoch und Donnerstag: Die Detailseite sagt nur Mai bis Oktober, der Kurzführer der Stadt Mittwoch bis Samstag ohne Saison. GateLR folgt der Detailseite.")
@@ -290,6 +290,7 @@ def zones():
 
 
 city = {"id": "roma", "name": "Rome", "name_it": "Roma", "name_de": "Rom", "center": {"lat": 41.8960, "lon": 12.4823},
+        "localHolidays": ["06-29"],   # Santi Pietro e Paolo, festa cittadina: i festivi sono esclusi dalla ZTL
         "zones": zones(), "status": "draft",
         "license": "Hours and rules: Roma Servizi per la Mobilità (romamobilita.it). Perimeters and gates: " + osm_geo.ODBL
                    + " (approximate, not official; the official RSM open data, CC BY 3.0 IT, are still to be downloaded)"}

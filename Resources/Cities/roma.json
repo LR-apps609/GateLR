@@ -7,6 +7,9 @@
   "lat": 41.896,
   "lon": 12.4823
  },
+ "localHolidays": [
+  "06-29"
+ ],
  "zones": [
   {
    "id": "roma-centro",
@@ -586,24 +589,24 @@
      "Perimeter from OpenStreetMap, to be checked against the official map.",
      "At night (Friday and Saturday 11 pm–3 am) the ZTL covers a smaller area than by day; GateLR uses the larger daytime outline at night too.",
      "Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
-     "Holidays: GateLR checks the holiday on the current calendar day; for the part after midnight the city may count the evening's date.",
-     "29 June (Saints Peter and Paul, Rome's patron saints): not known whether it counts as a holiday for the ZTL.",
+     "Holidays at night: after midnight GateLR counts the day the night started (Saturday 11 pm–3 am is free if Saturday is a holiday, Friday night into a holiday is not); the city's text doesn't say it in so many words.",
+     "29 June (Saints Peter and Paul, Rome's patron saints): GateLR counts it as a holiday, as it is a municipal holiday in Rome. Check the sign at the gate.",
      "The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it."
     ],
     "pending_it": [
      "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale.",
      "Di notte (venerdì e sabato 23–3) la ZTL copre un'area più piccola che di giorno; GateLR usa anche di notte il perimetro diurno, più ampio.",
      "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
-     "Festivi: GateLR guarda il festivo del giorno di calendario attuale; per la parte dopo mezzanotte il Comune potrebbe contare la data della sera.",
-     "29 giugno (Santi Pietro e Paolo, patroni di Roma): non sappiamo se vale come festivo per la ZTL.",
+     "Festivi di notte: dopo mezzanotte GateLR conta il giorno in cui è iniziata la notte (sabato 23–3 è libero se il sabato è festivo, la notte del venerdì che sfocia in un festivo no); il testo del Comune non lo dice in modo esplicito.",
+     "29 giugno (Santi Pietro e Paolo, patroni di Roma): GateLR lo conta come festivo, perché a Roma è festa cittadina. Controlla il cartello al varco.",
      "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it."
     ],
     "pending_de": [
      "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen.",
      "Nachts (Freitag und Samstag 23–3 Uhr) ist die ZTL kleiner als tagsüber; GateLR nutzt auch nachts die größere Tagesgrenze.",
      "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.",
-     "Feiertage: GateLR prüft den aktuellen Kalendertag; für die Zeit nach Mitternacht könnte die Stadt das Datum des Abends zählen.",
-     "29. Juni (Peter und Paul, Roms Schutzpatrone): unklar, ob er für die ZTL als Feiertag gilt.",
+     "Feiertage nachts: Nach Mitternacht zählt GateLR den Tag, an dem die Nacht begann (Samstag 23–3 Uhr ist frei, wenn Samstag ein Feiertag ist, die Nacht von Freitag in einen Feiertag nicht); der Text der Stadt sagt das nicht ausdrücklich.",
+     "29. Juni (Peter und Paul, Roms Schutzpatrone): GateLR zählt ihn als Feiertag, da er in Rom städtischer Feiertag ist. Schild am Zugang prüfen.",
      "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen."
     ],
     "links": [
@@ -887,7 +890,7 @@
      "Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
      "Hotel guests: the hotel permit (X) is valid in the Historic Centre except the Tridente; whether a hotel inside the Tridente can register guests is not stated.",
      "Night hours: the page gives no night hours for the Tridente; not known whether the Historic Centre night ZTL applies here.",
-     "29 June (Saints Peter and Paul, Rome's patron saints): not known whether it counts as a holiday for the ZTL.",
+     "29 June (Saints Peter and Paul, Rome's patron saints): GateLR counts it as a holiday, as it is a municipal holiday in Rome. Check the sign at the gate.",
      "The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it."
     ],
     "pending_it": [
@@ -895,7 +898,7 @@
      "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
      "Ospiti degli hotel: il permesso X degli alberghi vale nel Centro Storico tranne il Tridente; non è scritto se un hotel dentro il Tridente possa registrare i clienti.",
      "Orari notturni: la pagina non dà orari notturni per il Tridente; non sappiamo se qui vale la ZTL notturna del Centro Storico.",
-     "29 giugno (Santi Pietro e Paolo, patroni di Roma): non sappiamo se vale come festivo per la ZTL.",
+     "29 giugno (Santi Pietro e Paolo, patroni di Roma): GateLR lo conta come festivo, perché a Roma è festa cittadina. Controlla il cartello al varco.",
      "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it."
     ],
     "pending_de": [
@@ -903,7 +906,7 @@
      "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.",
      "Hotelgäste: Die Hotelgenehmigung (X) gilt in der Altstadt außer im Tridente; ob ein Hotel im Tridente Gäste melden kann, steht nicht da.",
      "Nachtzeiten: Die Seite nennt keine Nachtzeiten für den Tridente; unklar, ob hier die Nacht-ZTL der Altstadt gilt.",
-     "29. Juni (Peter und Paul, Roms Schutzpatrone): unklar, ob er für die ZTL als Feiertag gilt.",
+     "29. Juni (Peter und Paul, Roms Schutzpatrone): GateLR zählt ihn als Feiertag, da er in Rom städtischer Feiertag ist. Schild am Zugang prüfen.",
      "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen."
     ],
     "links": [
@@ -1267,19 +1270,19 @@
     "pending": [
      "Perimeter from OpenStreetMap, to be checked against the official map.",
      "Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
-     "29 June (Saints Peter and Paul, Rome's patron saints): not known whether it counts as a holiday for the ZTL.",
+     "29 June (Saints Peter and Paul, Rome's patron saints): GateLR counts it as a holiday, as it is a municipal holiday in Rome. Check the sign at the gate.",
      "The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it."
     ],
     "pending_it": [
      "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale.",
      "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
-     "29 giugno (Santi Pietro e Paolo, patroni di Roma): non sappiamo se vale come festivo per la ZTL.",
+     "29 giugno (Santi Pietro e Paolo, patroni di Roma): GateLR lo conta come festivo, perché a Roma è festa cittadina. Controlla il cartello al varco.",
      "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it."
     ],
     "pending_de": [
      "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen.",
      "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.",
-     "29. Juni (Peter und Paul, Roms Schutzpatrone): unklar, ob er für die ZTL als Feiertag gilt.",
+     "29. Juni (Peter und Paul, Roms Schutzpatrone): GateLR zählt ihn als Feiertag, da er in Rom städtischer Feiertag ist. Schild am Zugang prüfen.",
      "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen."
     ],
     "links": [
@@ -2205,25 +2208,25 @@
     "pending": [
      "Perimeter from OpenStreetMap, to be checked against the official map.",
      "Since 1 July 2026 electric and hydrogen cars also need a permit; for visitors it costs €1,000 a year and needs Italian SPID/CIE login.",
-     "Holidays: GateLR checks the holiday on the current calendar day; for the part after midnight the city may count the evening's date.",
+     "Holidays at night: after midnight GateLR counts the day the night started (Saturday 11 pm–3 am is free if Saturday is a holiday, Friday night into a holiday is not); the city's text doesn't say it in so many words.",
      "Hotel guests: the hotel plate service only lists a night slot from 11 pm to 3 am on Friday and Saturday; not known whether it covers this zone.",
-     "29 June (Saints Peter and Paul, Rome's patron saints): not known whether it counts as a holiday for the ZTL.",
+     "29 June (Saints Peter and Paul, Rome's patron saints): GateLR counts it as a holiday, as it is a municipal holiday in Rome. Check the sign at the gate.",
      "The city can change the hours for events, strikes or New Year's Eve: check the news on romamobilita.it."
     ],
     "pending_it": [
      "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale.",
      "Dal 1° luglio 2026 anche le auto elettriche e a idrogeno hanno bisogno del permesso; per chi non ne ha diritto costa 1.000 € all'anno e si chiede con SPID/CIE.",
-     "Festivi: GateLR guarda il festivo del giorno di calendario attuale; per la parte dopo mezzanotte il Comune potrebbe contare la data della sera.",
+     "Festivi di notte: dopo mezzanotte GateLR conta il giorno in cui è iniziata la notte (sabato 23–3 è libero se il sabato è festivo, la notte del venerdì che sfocia in un festivo no); il testo del Comune non lo dice in modo esplicito.",
      "Ospiti degli hotel: il servizio targhe per gli alberghi prevede solo una fascia notturna dalle 23 alle 3 di venerdì e sabato; non sappiamo se vale per questa zona.",
-     "29 giugno (Santi Pietro e Paolo, patroni di Roma): non sappiamo se vale come festivo per la ZTL.",
+     "29 giugno (Santi Pietro e Paolo, patroni di Roma): GateLR lo conta come festivo, perché a Roma è festa cittadina. Controlla il cartello al varco.",
      "Il Comune può cambiare gli orari per eventi, scioperi o Capodanno: controlla le notizie su romamobilita.it."
     ],
     "pending_de": [
      "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen.",
      "Seit 1. Juli 2026 brauchen auch Elektro- und Wasserstoffautos eine Genehmigung; für Besucher 1.000 € im Jahr, Antrag nur mit italienischem SPID/CIE.",
-     "Feiertage: GateLR prüft den aktuellen Kalendertag; für die Zeit nach Mitternacht könnte die Stadt das Datum des Abends zählen.",
+     "Feiertage nachts: Nach Mitternacht zählt GateLR den Tag, an dem die Nacht begann (Samstag 23–3 Uhr ist frei, wenn Samstag ein Feiertag ist, die Nacht von Freitag in einen Feiertag nicht); der Text der Stadt sagt das nicht ausdrücklich.",
      "Hotelgäste: Der Kennzeichendienst für Hotels kennt nur ein Nachtfenster von 23 bis 3 Uhr am Freitag und Samstag; unklar, ob er für diese Zone gilt.",
-     "29. Juni (Peter und Paul, Roms Schutzpatrone): unklar, ob er für die ZTL als Feiertag gilt.",
+     "29. Juni (Peter und Paul, Roms Schutzpatrone): GateLR zählt ihn als Feiertag, da er in Rom städtischer Feiertag ist. Schild am Zugang prüfen.",
      "Die Stadt kann die Zeiten für Veranstaltungen, Streiks oder Silvester ändern: Meldungen auf romamobilita.it prüfen."
     ],
     "links": [
