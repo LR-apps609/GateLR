@@ -41,10 +41,11 @@ struct DriveView: View {
     var body: some View {
         ZStack(alignment: .top) {
             map
-            if style == .guide { guideOverlay }
             VStack(spacing: 8) {
                 maneuver
                 ztlBar
+                // Guida 3D: velocità e prossimo semaforo a sinistra, barra del viaggio a destra, sotto i pannelli
+                if style == .guide { guideOverlay }
                 Spacer()
                 if !following {
                     HStack {
@@ -219,15 +220,14 @@ struct DriveView: View {
             Spacer()
             routeProgressBar
         }
-        .padding(.horizontal, 12)
-        .padding(.top, 190)
+        .padding(.top, 4)
         .allowsHitTesting(false)
     }
 
     /// La barra verticale del viaggio: verde la strada libera, rossa/gialla dove passi in una ZTL attiva, l'auto dove sei
     private var routeProgressBar: some View {
         let total = max(drive.routeLength, 1)
-        let height: CGFloat = 300
+        let height: CGFloat = 240
         let segments: [(from: Double, to: Double, color: Color)] = drive.crossings.compactMap { c in
             guard let e = c.entry else { return nil }
             let start = max(0, total - PathMath.remaining(from: e, along: drive.path))
@@ -329,7 +329,7 @@ struct DriveView: View {
     }
 
     private var bottomBar: some View {
-        HStack(spacing: 10) {
+        HStack(spacing: 8) {
             VStack(alignment: .leading, spacing: 2) {
                 Text(drive.eta.map { $0.formatted(date: .omitted, time: .shortened) } ?? "–")
                     .font(Theme.display(28)).monospacedDigit()
@@ -340,12 +340,14 @@ struct DriveView: View {
             }
             .layoutPriority(1)
             Spacer()
-            VStack(spacing: 0) {
-                Text("\(Int(drive.speed.rounded()))").font(Theme.display(20)).monospacedDigit()
-                Text("km/h").font(.app(size: 10, weight: .semibold)).foregroundStyle(Theme.muted)
+            if style != .guide {
+                VStack(spacing: 0) {
+                    Text("\(Int(drive.speed.rounded()))").font(Theme.display(20)).monospacedDigit()
+                    Text("km/h").font(.app(size: 10, weight: .semibold)).foregroundStyle(Theme.muted)
+                }
+                .frame(width: 52, height: 52).background(Theme.raised, in: Circle())
+                .accessibilityElement(children: .combine)
             }
-            .frame(width: 52, height: 52).background(Theme.raised, in: Circle())
-            .accessibilityElement(children: .combine)
             roundButton(drive.muted ? "speaker.slash.fill" : "speaker.wave.2.fill", L(drive.muted ? "Voice off" : "Voice on")) { drive.muted.toggle() }
             roundButton("point.topleft.down.to.point.bottomright.curvepath", L("Overview")) { overview() }
             Menu {
@@ -354,7 +356,7 @@ struct DriveView: View {
                 }
             } label: {
                 Image(systemName: style.symbol).font(.app(size: 17, weight: .semibold))
-                    .frame(width: 48, height: 48).background(Theme.raised, in: Circle()).foregroundStyle(Theme.ink)
+                    .frame(width: 44, height: 44).background(Theme.raised, in: Circle()).foregroundStyle(Theme.ink)
             }
             .accessibilityLabel(L("View"))
             .onChange(of: view) { if following { follow(animated: true) } }
@@ -363,7 +365,8 @@ struct DriveView: View {
                 dismiss()
             } label: {
                 Text("End").font(.app(size: 17, weight: .bold))
-                    .padding(.horizontal, 18).frame(height: 52)
+                    .lineLimit(1).fixedSize()
+                    .padding(.horizontal, 16).frame(height: 52)
                     .background(Theme.red, in: Capsule()).foregroundStyle(.white)
             }
             .accessibilityIdentifier("drive.end")
@@ -382,7 +385,7 @@ struct DriveView: View {
     private func roundButton(_ symbol: String, _ label: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: symbol).font(.app(size: 17, weight: .semibold))
-                .frame(width: 48, height: 48).background(Theme.raised, in: Circle()).foregroundStyle(Theme.ink)
+                .frame(width: 44, height: 44).background(Theme.raised, in: Circle()).foregroundStyle(Theme.ink)
         }
         .accessibilityLabel(label)
     }
