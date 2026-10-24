@@ -6,6 +6,12 @@ options:
   createIntermediateGroups: true
   developmentLanguage: en
 
+# Versione unica per app e widget (si legge in Account → Versione)
+settings:
+  base:
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "11"
+
 targets:
   GateLR:
     type: application
@@ -43,8 +49,8 @@ targets:
         CFBundleURLTypes:
           - CFBundleURLName: it.ledion.GateLR
             CFBundleURLSchemes: [gatelr]
-        CFBundleShortVersionString: "0.3.0"
-        CFBundleVersion: "3"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         LSRequiresIPhoneOS: true
         UIAppFonts: [TitilliumWeb-Bold.ttf, TitilliumWeb-Black.ttf, TitilliumWeb-SemiBold.ttf]
         UILaunchScreen: {}
@@ -64,8 +70,6 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: it.ledion.GateLR
         PRODUCT_NAME: GateLR
-        MARKETING_VERSION: "1.0.0"
-        CURRENT_PROJECT_VERSION: "10"
         TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
@@ -96,8 +100,8 @@ targets:
       path: Widget/Info.plist
       properties:
         CFBundleDisplayName: GateLR
-        CFBundleShortVersionString: "0.3.0"
-        CFBundleVersion: "3"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         NSExtension:
           NSExtensionPointIdentifier: com.apple.widgetkit-extension
     settings:
