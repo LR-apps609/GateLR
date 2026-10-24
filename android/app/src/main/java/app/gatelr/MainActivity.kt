@@ -63,13 +63,29 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         Here.allowed = GuardianService.canStart(this)
+        val prefs = getSharedPreferences("gatelr", MODE_PRIVATE)
+        if (prefs.getBoolean("welcomed", false)) askPermissions()
+        else welcome = true
+        setContent {
+            GateTheme {
+                if (welcome) Onboarding {
+                    prefs.edit().putBoolean("welcomed", true).apply()
+                    welcome = false
+                    askPermissions()
+                } else Root()
+            }
+        }
+    }
+
+    private var welcome by mutableStateOf(false)
+
+    /** Posizione (se manca) e notifiche (Android 13+), dopo la spiegazione del benvenuto */
+    private fun askPermissions() {
         val list = mutableListOf<String>()
         if (!Here.allowed) list += listOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
-        // Le notifiche servono al guardiano anche se la posizione era già concessa
         if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED)
             list += Manifest.permission.POST_NOTIFICATIONS
         if (list.isNotEmpty()) ask.launch(list.toTypedArray())
-        setContent { GateTheme { Root() } }
     }
 
     override fun onStop() {

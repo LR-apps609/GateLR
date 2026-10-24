@@ -29,6 +29,8 @@ tap() {
   set -- $b; adb shell input tap $(( ($1 + $3) / 2 )) $(( ($2 + $4) / 2 )); sleep 4
 }
 
+shot 00-benvenuto
+tap "Continue"; sleep 4
 shot 01-varco
 tap "Map" && sleep 8 && shot 02-mappa
 tap "Trip" && shot 03-viaggio

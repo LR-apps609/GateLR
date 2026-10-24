@@ -485,5 +485,9 @@
 "Ends %@": "Endet %@",
 "Starts %@": "Beginnt %@",
 "Other maps app": "Andere Karten-App",
+"Drive with Google Maps, Waze or Petal Maps: GateLR warns you before every active ZTL with a notification, a voice and a small bubble.": "Fahr mit Google Maps, Waze oder Petal Maps: GateLR warnt dich vor jeder aktiven ZTL mit Mitteilung, Stimme und einer kleinen Blase.",
+"Continue": "Weiter",
+"Your location stays on your phone": "Dein Standort bleibt auf dem Handy",
+"GateLR uses your location to show the ZTL near you and, only while the guardian is on (with its notification), to warn you before the gates. It is never sent or stored anywhere.": "GateLR nutzt deinen Standort, um die ZTL in deiner Nähe zu zeigen und dich – nur solange der Wächter mit seiner Mitteilung aktiv ist – vor den Toren zu warnen. Er wird nie gesendet oder anderswo gespeichert.",
 "I can't find days and hours in this text. Type them as on the panel, e.g. 7.30-20.00 feriali.": "Ich finde keine Tage und Uhrzeiten in diesem Text. Schreib sie wie auf der Tafel, z. B. 7.30-20.00 feriali."
 }
