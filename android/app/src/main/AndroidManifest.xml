@@ -34,7 +34,8 @@
         android:icon="@drawable/ic_launcher"
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GateLR">
+        android:theme="@style/Theme.GateLR"
+        android:localeConfig="@xml/locales_config">
 
         <activity
             android:name=".MainActivity"

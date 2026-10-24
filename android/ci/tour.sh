@@ -52,6 +52,14 @@ tap "Map" && sleep 6 && adb shell input tap 540 1200 && sleep 3 && shot 02b-mapp
 adb shell input keyevent 4; sleep 2
 tap "Gate" && adb shell input swipe 500 1800 500 600 && sleep 2 && shot 07-varco-zone
 
+# In italiano e al buio: lingua dell'app (Android 13+) e tema scuro
+adb shell cmd uimode night yes; adb shell cmd locale set-app-locales app.gatelr --locales it-IT; sleep 3
+adb shell am force-stop app.gatelr; adb shell am start -W -n app.gatelr/.MainActivity; sleep 8
+shot 08-it-scuro-varco
+tap "Viaggio" && shot 09-it-scuro-viaggio
+tap "Mappa" && sleep 6 && shot 10-it-scuro-mappa
+tap "Account" && shot 11-it-scuro-account
+
 adb logcat -d > "$OUT/logcat.txt"
 if grep -q "FATAL EXCEPTION" "$OUT/logcat.txt"; then
   echo "::error::L'app si è chiusa"; grep -A30 "FATAL EXCEPTION" "$OUT/logcat.txt" | head -60; exit 1
