@@ -27,8 +27,10 @@ jobs:
         run: python3 Tools/build_site.py
       - name: Prepara i file
         run: |
+          # tutta la cartella web/ (home in 3 lingue, pagine delle città, sitemap, robots), tranne il modello e il README
           mkdir -p _site
-          cp -r web/index.html web/_page.css web/app web/privacy web/support _site/
+          cp -r web/. _site/
+          rm -f _site/template.html _site/README.md
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

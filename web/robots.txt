@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lr-apps609.github.io/GateLR/sitemap.xml
