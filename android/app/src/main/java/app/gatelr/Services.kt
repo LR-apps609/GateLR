@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import app.gatelr.core.Coordinate
+import app.gatelr.core.L
 import app.gatelr.core.Place
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -23,11 +24,13 @@ import java.time.format.FormatStyle
 import java.util.Locale
 
 /** I navigatori del telefono. Senza servizi Google (Huawei, Honor) restano Petal Maps e le altre app «geo:». */
-enum class Navigator(val id: String, val label: String, val pkg: String?) {
+enum class Navigator(val id: String, private val title: String, val pkg: String?) {
+    val label: String get() = if (pkg == null) L(title) else title
+
     GOOGLE("google", "Google Maps", "com.google.android.apps.maps"),
     WAZE("waze", "Waze", "com.waze"),
     PETAL("petal", "Petal Maps", "com.huawei.maps.app"),
-    OTHER("other", "Altra app di mappe", null);
+    OTHER("other", "Other maps app", null);
 
     fun installed(ctx: Context): Boolean = pkg == null || ctx.packageManager.getLaunchIntentForPackage(pkg) != null
 

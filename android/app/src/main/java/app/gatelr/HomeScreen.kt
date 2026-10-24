@@ -163,10 +163,7 @@ fun NearYou(now: Instant) {
         Text(if (d == 0.0) F("You're inside %@", z.shortName) else F("%@ is %@ away", z.shortName, Geometry.distanceText(d)),
             color = v.onFill(), fontWeight = FontWeight.SemiBold)
         Text(v.title, color = v.onFill(), fontSize = 24.sp, fontWeight = FontWeight.Bold)
-        a.nextChange?.let {
-            Text((if (a.gatesOn) F("Ends at %@", AppState.engine.describe(it, now)) else F("Starts at %@", AppState.engine.describe(it, now))),
-                color = v.onFill().copy(alpha = 0.85f), fontSize = 13.sp)
-        }
+        changeText(a, now)?.let { Text(it, color = v.onFill().copy(alpha = 0.85f), fontSize = 13.sp) }
     }
 }
 

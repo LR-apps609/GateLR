@@ -383,6 +383,9 @@ ANDROID = {
 "Your cars": ("Le tue auto", "Deine Autos"),
 "ZTL alerts": ("Avvisi ZTL", "ZTL-Hinweise"),
 "Camera": ("Fotocamera", "Kamera"),
+"Ends %@": ("Finisce %@", "Endet %@"),
+"Starts %@": ("Inizia %@", "Beginnt %@"),
+"Other maps app": ("Altra app di mappe", "Andere Karten-App"),
 "I can't find days and hours in this text. Type them as on the panel, e.g. 7.30-20.00 feriali.": ("Non trovo giorni e orari in questo testo. Scrivili come sul pannello, es. 7.30-20.00 feriali.", "Ich finde keine Tage und Uhrzeiten in diesem Text. Schreib sie wie auf der Tafel, z. B. 7.30-20.00 feriali."),
 }
 

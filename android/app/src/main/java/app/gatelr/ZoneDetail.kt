@@ -62,9 +62,7 @@ fun ZoneDetail(z: Zone) {
             AppState.cityOf(z)?.let { Pill(it.localizedName, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface) }
         }
         VerdictCard(a, AppState.vehicle.name)
-        a.nextChange?.let {
-            Text(if (a.gatesOn) F("Ends at %@", AppState.engine.describe(it, now)) else F("Starts at %@", AppState.engine.describe(it, now)), color = muted)
-        }
+        changeText(a, now)?.let { Text(it, color = muted) }
         Text(z.localizedSummary, fontSize = 15.sp)
 
         SectionLabel(if (z.type == ZoneKind.GREEN) "Bans" else "Hours")

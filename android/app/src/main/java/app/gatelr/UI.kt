@@ -130,3 +130,15 @@ fun VerdictCard(answer: Answer, heading: String, onWhy: (() -> Unit)? = null) {
 @Composable
 fun Modifier.clickableNoRipple(onClick: () -> Unit): Modifier =
     clickable(interactionSource = remember { MutableInteractionSource() }, indication = null, onClick = onClick)
+
+/** «Finisce alle 16:00» oggi, «Finisce domani alle 7:30» negli altri giorni */
+fun changeText(a: Answer, now: java.time.Instant): String? {
+    val n = a.nextChange ?: return null
+    val d = n.atZone(app.gatelr.core.RuleEngine.ROME); val r = now.atZone(app.gatelr.core.RuleEngine.ROME)
+    if (d.toLocalDate() == r.toLocalDate()) {
+        val t = String.format("%d:%02d", d.hour, d.minute)
+        return if (a.gatesOn) app.gatelr.core.F("Ends at %@", t) else app.gatelr.core.F("Starts at %@", t)
+    }
+    val w = AppState.engine.describe(n, now)
+    return if (a.gatesOn) app.gatelr.core.F("Ends %@", w) else app.gatelr.core.F("Starts %@", w)
+}
