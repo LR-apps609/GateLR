@@ -187,7 +187,10 @@ struct VarcoView: View {
             .background(Theme.red, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
         if let hit = hits.first {
-            VerdictCard(answer: store.answer(at: date, zone: hit.zone, hotelInside: false),
+            VerdictCard(answer: store.pedestrianArea(at: place.location) != nil
+                            ? Answer(verdict: .no(reason: L("It's a pedestrian area: cars can't drive in at any time, whatever the ZTL hours.")),
+                                     gatesOn: true, nextChange: nil)
+                            : store.answer(at: date, zone: hit.zone, hotelInside: false),
                         heading: heading(hit.zone, date),
                         source: hit.zone.source,
                         since: atArrival ? nil : store.engine.previousChange(hit.zone, before: date),
