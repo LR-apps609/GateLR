@@ -6,6 +6,7 @@ import CoreLocation
 struct VarcoView: View {
     @EnvironmentObject var store: Store
     @ObservedObject private var monitor = GateMonitor.shared
+    @ObservedObject private var guardian = Guardian.shared
     @Binding var showZone: Bool
     @Binding var tab: Tab
     @State private var learning = false
@@ -15,6 +16,7 @@ struct VarcoView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     header
+                    if guardian.active { guardianBanner }
                     hero
                     aroundYou(at: ctx.date)
                     planButton
@@ -123,6 +125,27 @@ struct VarcoView: View {
         } else {
             infoRow("location.slash", L("Allow location access to see the ZTL near you."))
         }
+    }
+
+    /// Il guardiano è attivo: cosa vede adesso e il pulsante per fermarlo
+    private var guardianBanner: some View {
+        HStack(spacing: 12) {
+            Image(systemName: "shield.lefthalf.filled").font(.system(size: 22, weight: .bold))
+            VStack(alignment: .leading, spacing: 2) {
+                Text(String(format: L("Guardian on · to %@"), guardian.destination?.name ?? "")).font(.system(size: 15, weight: .bold)).lineLimit(1)
+                Text(guardian.threat.map { "\($0.zone.shortName) · \(DriveSession.distanceText($0.meters)) · \($0.answer.verdict.short)" }
+                     ?? L("No active ZTL ahead"))
+                    .font(.system(size: 13)).opacity(0.9)
+            }
+            Spacer()
+            Button(L("Stop")) { guardian.stop() }
+                .font(.system(size: 14, weight: .bold))
+                .padding(.horizontal, 12).frame(height: 34)
+                .background(.white.opacity(0.2), in: Capsule())
+        }
+        .foregroundStyle(.white)
+        .padding(14)
+        .background(guardian.threat == nil ? Theme.green : Theme.red, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 
     private func infoRow(_ symbol: String, _ text: String) -> some View {

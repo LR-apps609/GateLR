@@ -86,6 +86,10 @@ final class ScreenshotTests: XCTestCase {
             let start = app.buttons["route.start"]
             if start.waitForExistence(timeout: 3) {
                 start.tap()
+                sleep(1)
+                snap("13b-start-menu-dark")
+                let own = app.buttons["GateLR navigation"].firstMatch
+                if own.waitForExistence(timeout: 3) { own.tap() }
                 sleep(8)
                 snap("14-drive-milan-dark")
                 let end = app.buttons["drive.end"]

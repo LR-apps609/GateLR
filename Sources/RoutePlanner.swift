@@ -151,6 +151,7 @@ struct RouteCard: View {
     var plan: RoutePlan
     var onMap: () -> Void
     var onStart: (Place) -> Void = { _ in }
+    var onGuardian: (Place, Navigator) -> Void = { _, _ in }
 
     private var target: Place { plan.destinationBlocked ? (plan.parking ?? plan.destination) : plan.destination }
 
@@ -213,7 +214,16 @@ struct RouteCard: View {
                 }
             }
             HStack(spacing: 10) {
-                Button { onStart(target) } label: {
+                Menu {
+                    Section(L("Your navigator + GateLR alerts")) {
+                        ForEach(Navigator.allCases) { n in
+                            Button { onGuardian(target, n) } label: { Label(n.title, systemImage: "shield.lefthalf.filled") }
+                        }
+                    }
+                    Section {
+                        Button { onStart(target) } label: { Label(L("GateLR navigation"), systemImage: "location.north.fill") }
+                    }
+                } label: {
                     Label(plan.destinationBlocked && plan.parking != nil ? L("Drive to the car park") : L("Start"),
                           systemImage: "location.north.fill")
                         .font(.system(size: 16, weight: .bold))
@@ -221,19 +231,7 @@ struct RouteCard: View {
                         .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                         .foregroundStyle(.white)
                 }
-                .buttonStyle(.plain)
                 .accessibilityIdentifier("route.start")
-                Menu {
-                    Section(L("Open in")) {
-                        ForEach(Navigator.allCases) { n in Button(n.title) { n.open(to: target) } }
-                    }
-                } label: {
-                    Image(systemName: "arrow.triangle.turn.up.right.diamond").font(.system(size: 18, weight: .semibold))
-                        .frame(width: 52, height: 50)
-                        .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-                        .foregroundStyle(Theme.blue)
-                }
-                .accessibilityLabel(L("Open in another navigator"))
                 Button(action: onMap) {
                     Image(systemName: "map").font(.system(size: 17, weight: .semibold))
                         .frame(width: 52, height: 50)
@@ -242,7 +240,7 @@ struct RouteCard: View {
                 }
                 .accessibilityLabel(L("Show on the map"))
             }
-            Text("GateLR guides you with the voice and warns you before every active ZTL. It doesn't avoid them by itself: watch the gate signs.")
+            Text("Start with your navigator: GateLR stays in the background and warns you before every active ZTL, also in the Dynamic Island. It doesn't avoid them by itself: watch the gate signs.")
                 .font(.system(size: 12)).foregroundStyle(Theme.muted)
         }
         .padding(16).card(20)

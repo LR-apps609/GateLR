@@ -248,6 +248,14 @@ T = {
 "The signs, the panels and what to do if you drove in by mistake. 1 minute.": ("I cartelli, i pannelli e cosa fare se entri per sbaglio. 1 minuto.", "Die Schilder, die Anzeigen und was tun, wenn du aus Versehen hineinfährst. 1 Minute."),
 "Destination or hotel in %@": ("Destinazione o hotel a %@", "Ziel oder Hotel in %@"),
 "Search your hotel or destination: GateLR tells you if you can drive there at that time, checks the ZTLs on the way and prepares the message for the hotel.": ("Cerca il tuo hotel o la destinazione: GateLR ti dice se puoi arrivarci in auto a quell'ora, controlla le ZTL lungo la strada e prepara il messaggio per l'hotel.", "Such dein Hotel oder Ziel: GateLR sagt dir, ob du zu dieser Zeit hinfahren darfst, prüft die ZTL auf dem Weg und bereitet die Nachricht ans Hotel vor."),
+# 1.3 Guardiano
+"Your navigator + GateLR alerts": ("Il tuo navigatore + avvisi GateLR", "Dein Navi + GateLR-Warnungen"),
+"GateLR navigation": ("Navigatore di GateLR", "GateLR-Navigation"),
+"Start with your navigator: GateLR stays in the background and warns you before every active ZTL, also in the Dynamic Island. It doesn't avoid them by itself: watch the gate signs.": ("Parti con il tuo navigatore: GateLR resta in sottofondo e ti avvisa prima di ogni ZTL attiva, anche nella Dynamic Island. Non le evita da solo: guarda i cartelli dei varchi.", "Starte mit deinem Navi: GateLR bleibt im Hintergrund und warnt dich vor jeder aktiven ZTL, auch in der Dynamic Island. Es umfährt sie nicht von selbst: Achte auf die Schilder."),
+"GateLR has stopped watching the gates.": ("GateLR ha smesso di controllare i varchi.", "GateLR überwacht die Einfahrten nicht mehr."),
+"%@ in %@": ("%@ tra %@", "%@ in %@"), "Gate ahead: %@.": ("Varco davanti: %@.", "Einfahrt voraus: %@."), "Gate ahead: %@": ("Varco davanti: %@", "Einfahrt voraus: %@"),
+"No active ZTL ahead": ("Nessuna ZTL attiva davanti", "Keine aktive ZTL voraus"),
+"Guardian on · to %@": ("Guardiano attivo · verso %@", "Wächter aktiv · nach %@"), "Stop": ("Ferma", "Stopp"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

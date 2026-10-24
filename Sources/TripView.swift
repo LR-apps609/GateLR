@@ -225,6 +225,8 @@ struct TripView: View {
                     await DriveSession.shared.start(to: target, store: store)
                     driving = DriveSession.shared.active
                 }
+            }, onGuardian: { target, navigator in
+                Guardian.shared.start(to: target, with: navigator, store: store)
             })
             if let e = DriveSession.shared.error { Text(e).font(.system(size: 13)).foregroundStyle(Theme.red) }
         } else {
