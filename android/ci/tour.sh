@@ -5,6 +5,7 @@ OUT=${1:-shots}; mkdir -p "$OUT"
 APK=$(ls android/app/build/outputs/apk/release/*.apk 2>/dev/null | head -1)
 [ -n "$APK" ] || APK=$(ls android/app/build/outputs/apk/debug/*.apk | head -1)
 echo "::notice::Provo $APK"
+adb wait-for-device; until [ "$(adb shell getprop sys.boot_completed | tr -d '\r')" = 1 ]; do sleep 2; done; sleep 20
 adb install -r -g "$APK"
 adb shell pm grant app.gatelr android.permission.ACCESS_FINE_LOCATION || true
 adb shell pm grant app.gatelr android.permission.POST_NOTIFICATIONS || true
@@ -13,11 +14,17 @@ adb logcat -c
 adb shell am start -W -n app.gatelr/.MainActivity
 sleep 8
 
-shot() { adb exec-out screencap -p > "$OUT/$1.png"; echo "::notice::foto $1"; }
+shot() { dismiss; adb exec-out screencap -p > "$OUT/$1.png"; echo "::notice::foto $1"; }
 # Tocca il centro dell'elemento con quel testo (dal dump di uiautomator)
-tap() {
+find() {
   adb shell uiautomator dump /sdcard/ui.xml >/dev/null 2>&1
-  local b; b=$(adb shell cat /sdcard/ui.xml | tr '>' '\n' | grep -F "text=\"$1\"" | sed -n "${2:-1}p" | grep -oE 'bounds="\[[0-9]+,[0-9]+\]\[[0-9]+,[0-9]+\]"' | grep -oE '[0-9]+' | tr '\n' ' ')
+  adb shell cat /sdcard/ui.xml | tr '>' '\n' | grep -F "text=\"$1\"" | sed -n "${2:-1}p" | grep -oE 'bounds="\[[0-9]+,[0-9]+\]\[[0-9]+,[0-9]+\]"' | grep -oE '[0-9]+' | tr '\n' ' '
+}
+# Gli avvisi «… isn't responding» dell'emulatore (launcher, sistema): si chiudono con «Wait»
+dismiss() { local w; [ -n "$(find "GateLR isn't responding")" ] && echo "::error::GateLR non risponde (ANR)"; w=$(find "Wait"); [ -n "$w" ] && { set -- $w; adb shell input tap $(( ($1 + $3) / 2 )) $(( ($2 + $4) / 2 )); sleep 2; }; }
+tap() {
+  local b; b=$(find "$1" "${2:-1}")
+  if [ -z "$b" ]; then dismiss; b=$(find "$1" "${2:-1}"); fi
   if [ -z "$b" ]; then echo "::warning::non trovo «$1»"; return 1; fi
   set -- $b; adb shell input tap $(( ($1 + $3) / 2 )) $(( ($2 + $4) / 2 )); sleep 4
 }
