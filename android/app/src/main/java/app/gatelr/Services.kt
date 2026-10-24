@@ -25,12 +25,12 @@ import java.util.Locale
 
 /** I navigatori del telefono. Senza servizi Google (Huawei, Honor) restano Petal Maps e le altre app «geo:». */
 enum class Navigator(val id: String, private val title: String, val pkg: String?) {
-    val label: String get() = if (pkg == null) L(title) else title
-
     GOOGLE("google", "Google Maps", "com.google.android.apps.maps"),
     WAZE("waze", "Waze", "com.waze"),
     PETAL("petal", "Petal Maps", "com.huawei.maps.app"),
     OTHER("other", "Other maps app", null);
+
+    val label: String get() = if (pkg == null) L(title) else title
 
     fun installed(ctx: Context): Boolean = pkg == null || ctx.packageManager.getLaunchIntentForPackage(pkg) != null
 
