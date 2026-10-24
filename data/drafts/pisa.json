@@ -1,0 +1,119 @@
+{
+ "id": "pisa",
+ "name": "Pisa",
+ "name_it": "Pisa",
+ "name_de": "Pisa",
+ "center": {
+  "lat": 43.7167,
+  "lon": 10.4017
+ },
+ "zones": [
+  {
+   "id": "pisa-ztl",
+   "name": "ZTL · Historic Centre",
+   "name_it": "ZTL · Centro storico",
+   "name_de": "ZTL · Altstadt",
+   "kind": "restricted",
+   "summary": "Pisa's historic centre is a camera-controlled ZTL. We haven't confirmed the hours from an official source, so GateLR treats it as always active. If you sleep in a hotel or B&B, it can register your plate.",
+   "summary_it": "Il centro storico di Pisa è una ZTL controllata da telecamere. Non abbiamo confermato gli orari da una fonte ufficiale, quindi GateLR la considera sempre attiva. Se dormi in un hotel o B&B, la struttura può registrare la tua targa.",
+   "summary_de": "Pisas Altstadt ist eine kameraüberwachte ZTL. Die Zeiten sind nicht amtlich bestätigt, daher behandelt GateLR sie als immer aktiv. Wenn du im Hotel oder B&B übernachtest, kann die Unterkunft dein Kennzeichen registrieren.",
+   "perimeter": [],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Pisa",
+    "pageURL": "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "Solo alle strutture ricettive professionali: Alberghi, B&B e similari",
+    "quoteTranslation": "Only for professional accommodation: hotels, B&Bs and similar",
+    "quoteTranslation_de": "Nur für gewerbliche Unterkünfte: Hotels, B&Bs und Ähnliches",
+    "checkedOn": "2026-10-24T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: no official page with the current hours could be opened (the Pisamo sites were unreachable). GateLR treats the ZTL as always active, to be safe; travel guides say 24 hours a day, every day.",
+     "Perimeter: no official or OpenStreetMap geometry available yet, so the zone is not drawn on the map.",
+     "Public holidays: no official rule found.",
+     "Hotel guests: in 2023 the city announced €12 for 24 hours (ZTL access and blue-line parking), with the plate uploaded by the accommodation within 10 hours of entry and permits limited to the number of rooms. Current price and deadline to be confirmed with Pisamo.",
+     "Only professional accommodation (hotels, B&Bs and similar) can register plates; holiday flats are not mentioned.",
+     "No day ticket for tourists found.",
+     "Gates: list and positions not published in the sources we could open.",
+     "Electric cars: a 2010 ordinance let them in for 2011 only; the current rule is unknown, so GateLR does not exempt them.",
+     "Not shown yet: the ZTL Stadio at Porta a Lucca (home matches of Pisa SC, from 2 hours before kick-off to the end of the first half), the summer night ZTL on the Lungarni and the pedestrian area of via Corsica and piazza Buonamici."
+    ],
+    "pending_it": [
+     "Orari: nessuna pagina ufficiale con gli orari attuali è stata raggiungibile (siti Pisamo irraggiungibili). GateLR considera la ZTL sempre attiva, per prudenza; le guide non ufficiali indicano 24 ore su 24, tutti i giorni.",
+     "Perimetro: nessuna geometria ufficiale o OpenStreetMap disponibile, quindi la zona non è disegnata sulla mappa.",
+     "Festivi: nessuna regola ufficiale trovata.",
+     "Ospiti delle strutture ricettive: nel 2023 il Comune ha annunciato 12 € per 24 ore (accesso ZTL e sosta sulle strisce blu), targa caricata dalla struttura entro 10 ore dall'ingresso, permessi non oltre il numero di camere. Prezzo e scadenza attuali da confermare con Pisamo.",
+     "Solo le strutture ricettive professionali (alberghi, B&B e similari) possono registrare le targhe; gli affitti brevi non sono citati.",
+     "Nessun permesso giornaliero per turisti trovato.",
+     "Varchi: elenco e posizioni non pubblicati nelle fonti raggiungibili.",
+     "Auto elettriche: un'ordinanza del 2010 le ammetteva solo per il 2011; la regola attuale non è nota, quindi GateLR non le esenta.",
+     "Non ancora mostrate: la ZTL Stadio a Porta a Lucca (partite casalinghe del Pisa SC, da due ore prima del fischio d'inizio al termine del primo tempo), la ZTL notturna estiva dei Lungarni e l'area pedonale di via Corsica e piazza Buonamici."
+    ],
+    "pending_de": [
+     "Zeiten: Keine offizielle Seite mit den aktuellen Zeiten war erreichbar (Pisamo-Seiten nicht erreichbar). GateLR behandelt die ZTL vorsichtshalber als immer aktiv; Reiseführer nennen rund um die Uhr, täglich.",
+     "Grenze: noch keine amtliche oder OpenStreetMap-Geometrie, daher wird die Zone nicht auf der Karte gezeigt.",
+     "Feiertage: keine offizielle Regel gefunden.",
+     "Hotelgäste: 2023 kündigte die Stadt 12 € für 24 Stunden an (ZTL-Zufahrt und Parken auf blauen Linien), Kennzeichen von der Unterkunft binnen 10 Stunden nach der Einfahrt eingetragen, höchstens so viele Genehmigungen wie Zimmer. Aktueller Preis und Frist bei Pisamo zu bestätigen.",
+     "Nur gewerbliche Unterkünfte (Hotels, B&Bs u. ä.) können Kennzeichen registrieren; Ferienwohnungen werden nicht erwähnt.",
+     "Kein Tagesticket für Touristen gefunden.",
+     "Kameras: Liste und Standorte in den erreichbaren Quellen nicht veröffentlicht.",
+     "Elektroautos: Eine Verordnung von 2010 ließ sie nur für 2011 zu; die aktuelle Regel ist unbekannt, daher keine Ausnahme.",
+     "Noch nicht angezeigt: die ZTL Stadio in Porta a Lucca (Heimspiele von Pisa SC, ab 2 Stunden vor Anpfiff bis Ende der ersten Halbzeit), die sommerliche Nacht-ZTL an den Lungarni und die Fußgängerzone Via Corsica / Piazza Buonamici."
+    ],
+    "links": [
+     {
+      "title": "City of Pisa: hotels register guests' plates",
+      "title_it": "Comune di Pisa: registrazione targhe per le strutture ricettive",
+      "title_de": "Stadt Pisa: Kennzeichen-Registrierung durch Unterkünfte",
+      "url": "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL"
+     },
+     {
+      "title": "City of Pisa: hotel guests, €12 for 24 hours (news, Feb 2023)",
+      "title_it": "Comune di Pisa: clienti delle strutture ricettive, 12 € per 24 ore (comunicato, feb. 2023)",
+      "title_de": "Stadt Pisa: Hotelgäste, 12 € für 24 Stunden (Mitteilung, Feb. 2023)",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Turismo-e-mobilita-in-centro-cambia-la-sosta-per-i-clienti-delle-strutture-ricettive"
+     },
+     {
+      "title": "City of Pisa: 10 hours to register the plate (news, Feb 2023)",
+      "title_it": "Comune di Pisa: 10 ore per caricare la targa (comunicato, feb. 2023)",
+      "title_de": "Stadt Pisa: 10 Stunden für die Registrierung (Mitteilung, Feb. 2023)",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Rinviate-al-6-marzo-le-nuove-modalita-di-sosta-e-accesso-alla-Ztl-per-le-strutture-ricettive"
+     },
+     {
+      "title": "City of Pisa: ZTL Stadio on home match days",
+      "title_it": "Comune di Pisa: ZTL Stadio nelle partite casalinghe",
+      "title_de": "Stadt Pisa: ZTL Stadio an Heimspieltagen",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Calcio-con-l-avvio-della-nuova-stagione-torna-attiva-la-ZTL-Stadio-in-occasione-delle-partite-casalinghe-del-Pisa-SC"
+     },
+     {
+      "title": "Pisamo: ZTL permits",
+      "title_it": "Pisamo: permessi ZTL",
+      "title_de": "Pisamo: ZTL-Genehmigungen",
+      "url": "https://mobilita.pisamo.net/"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft"
+}
