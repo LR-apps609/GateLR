@@ -8,6 +8,11 @@
 - Testi che seguono «Testo più grande»
 - Checklist: `docs/checklist-prova.md`
 
+## Dove lavorare
+- **Mac (principale)**: `git pull` + `zsh "Installa su iPhone.command"` → Xcode ▶︎. Android: APK da Actions.
+- **Windows (quando serve)**: iPhone con Sideloadly e l'.ipa da Actions, Android con l'APK da Actions → `docs/windows.md`.
+- Con l'Apple Developer Program: TestFlight, e il computer non conta più.
+
 ## Android 0.1 (nuovo, 24 ottobre)
 - Stesse regole dell'iPhone (motore in Kotlin, 12 test verdi), stesse città
 - Cinque schede: Varco, Mappa (MapLibre + OpenFreeMap, va anche su Huawei/Honor senza Google), Viaggio, Garage, Account
