@@ -1,6 +1,7 @@
 package app.gatelr
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -20,11 +21,13 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.CardTravel
 import androidx.compose.material.icons.filled.MyLocation
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.SmallFloatingActionButton
@@ -41,6 +44,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -80,8 +84,12 @@ private const val STYLE_DARK = "https://tiles.openfreemap.org/styles/dark"
 
 private fun hex(c: Color) = String.format("#%06X", 0xFFFFFF and c.toArgb())
 
-/** Le zone in GeoJSON: colore per tipo (verde ben visibile), aree pedonali più piccole sopra */
-private fun zonesGeoJson(cities: List<City>): String {
+/**
+ * Le zone in GeoJSON: colore per tipo (verde ben visibile), aree pedonali più piccole sopra.
+ * Con un posto cercato ([lit] non nullo) le zone che lo contengono si accendono del colore della risposta
+ * ([neon]) con un bagliore, le altre restano appena accennate: si vede subito se è dentro o fuori.
+ */
+private fun zonesGeoJson(cities: List<City>, lit: Set<String>? = null, neon: Color = Palette.green): String {
     val sb = StringBuilder("{\"type\":\"FeatureCollection\",\"features\":[")
     var first = true
     fun ring(points: List<Coordinate>) = (points + points.first()).joinToString(",") { "[${it.lon},${it.lat}]" }
@@ -89,24 +97,74 @@ private fun zonesGeoJson(cities: List<City>): String {
     for (c in cities) for (z in c.zones.sortedByDescending { it.roughArea }) {
         if (!first) sb.append(','); first = false
         val green = z.type == ZoneKind.GREEN
-        sb.append("{\"type\":\"Feature\",\"properties\":{\"id\":\"${z.id}\",\"color\":\"${hex(Palette.kind(z.type))}\",")
-            .append("\"opacity\":${if (green) 0.30 else 0.22},\"width\":${if (green) 4.0 else 2.5}},")
+        sb.append("{\"type\":\"Feature\",\"properties\":{\"id\":\"${z.id}\",")
+            .append(look(Palette.kind(z.type), if (green) 0.30 else 0.22, if (green) 4.0 else 2.5, lit, z.id, neon)).append("},")
             .append("\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[${ring(z.perimeter)}]]}}")
     }
     for (c in cities) for (p in c.pedestrian.orEmpty()) {
         if (!first) sb.append(','); first = false
-        sb.append("{\"type\":\"Feature\",\"properties\":{\"id\":\"${p.id}\",\"color\":\"#7A1F5C\",\"opacity\":0.28,\"width\":1.5},")
+        sb.append("{\"type\":\"Feature\",\"properties\":{\"id\":\"${p.id}\",")
+            .append(look(Color(0xFF7A1F5C), 0.28, 1.5, lit, p.id, neon)).append("},")
             .append("\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[${ring(p.perimeter)}]]}}")
     }
     return sb.append("]}").toString()
+}
+
+/** Colore, riempimento, linea e bagliore di una zona, normale o con un posto cercato */
+private fun look(color: Color, opacity: Double, width: Double, lit: Set<String>?, id: String, neon: Color): String = when {
+    lit == null -> "\"color\":\"${hex(color)}\",\"opacity\":$opacity,\"width\":$width,\"line\":1.0,\"glow\":0"
+    id in lit -> "\"color\":\"${hex(neon)}\",\"opacity\":0.32,\"width\":3.0,\"line\":1.0,\"glow\":12"
+    else -> "\"color\":\"${hex(color)}\",\"opacity\":0.05,\"width\":1.0,\"line\":0.35,\"glow\":0"
 }
 
 private fun pinGeoJson(p: Place?, color: Color): String =
     if (p == null) "{\"type\":\"FeatureCollection\",\"features\":[]}"
     else "{\"type\":\"Feature\",\"properties\":{\"color\":\"${hex(color)}\"},\"geometry\":{\"type\":\"Point\",\"coordinates\":[${p.location.lon},${p.location.lat}]}}"
 
-private fun verdictColor(v: Verdict?): Color = when (v) {
-    is Verdict.Yes, null -> Palette.green; is Verdict.No -> Palette.red; else -> Color(0xFFD99A00)
+/** Il posto cercato come sull'iPhone (PlaceCheck): fuori, area pedonale o la risposta della zona */
+private enum class PlaceKind { OUTSIDE, OPEN, CLOSED, CONDITIONAL, UNSURE, PEDESTRIAN }
+
+private fun placeKind(pedestrian: Boolean, v: Verdict?): PlaceKind = when {
+    pedestrian -> PlaceKind.PEDESTRIAN
+    v == null -> PlaceKind.OUTSIDE
+    v is Verdict.Yes -> PlaceKind.OPEN; v is Verdict.No -> PlaceKind.CLOSED
+    v is Verdict.Conditional -> PlaceKind.CONDITIONAL; else -> PlaceKind.UNSURE
+}
+
+/** Verde si entra, rosso no, ambra con una condizione: colori accesi per la mappa scura */
+private fun PlaceKind.neon(): Color = when (this) {
+    PlaceKind.OUTSIDE, PlaceKind.OPEN -> Color(0xFF3DDC74)
+    PlaceKind.CLOSED, PlaceKind.PEDESTRIAN -> Color(0xFFFF4D4D)
+    else -> Color(0xFFF2C14E)
+}
+
+/** La scritta del riquadro: «ZTL ATTIVA · NON ENTRARE», «FUORI DALLA ZTL»… */
+private fun PlaceKind.callout(gatesOn: Boolean): String = when (this) {
+    PlaceKind.OUTSIDE -> L("Outside the ZTL")
+    PlaceKind.PEDESTRIAN -> L("Pedestrian area · don't enter")
+    PlaceKind.CLOSED -> L("ZTL active · don't enter")
+    PlaceKind.OPEN -> if (gatesOn) L("You can enter") else L("ZTL off · you can enter")
+    PlaceKind.CONDITIONAL -> L("On one condition")
+    PlaceKind.UNSURE -> L("Not sure")
+}
+
+/** Aggiunge sorgenti e strati delle zone e dello spillo a uno stile appena caricato */
+private fun addLayers(style: Style, zones: String, pin: String) {
+    style.addSource(GeoJsonSource("zones", zones))
+    style.addLayer(LineLayer("zones-glow", "zones").withProperties(
+        PropertyFactory.lineColor(Expression.get("color")), PropertyFactory.lineWidth(Expression.get("glow")),
+        PropertyFactory.lineOpacity(0.35f), PropertyFactory.lineBlur(6f)))
+    style.addLayer(FillLayer("zones-fill", "zones").withProperties(
+        PropertyFactory.fillColor(Expression.get("color")), PropertyFactory.fillOpacity(Expression.get("opacity"))))
+    style.addLayer(LineLayer("zones-line", "zones").withProperties(
+        PropertyFactory.lineColor(Expression.get("color")), PropertyFactory.lineWidth(Expression.get("width")),
+        PropertyFactory.lineOpacity(Expression.get("line"))))
+    style.addSource(GeoJsonSource("pin", pin))
+    style.addLayer(CircleLayer("pin-halo", "pin").withProperties(
+        PropertyFactory.circleColor(Expression.get("color")), PropertyFactory.circleRadius(20f), PropertyFactory.circleOpacity(0.3f)))
+    style.addLayer(CircleLayer("pin-dot", "pin").withProperties(
+        PropertyFactory.circleColor(Expression.get("color")), PropertyFactory.circleRadius(11f),
+        PropertyFactory.circleStrokeColor("#FFFFFF"), PropertyFactory.circleStrokeWidth(3.5f)))
 }
 
 @Composable
@@ -119,6 +177,8 @@ fun MapScreen(modifier: Modifier) {
     var results by remember { mutableStateOf(listOf<Place>()) }
     var pin by remember { mutableStateOf<Place?>(null) }
     var legend by remember { mutableStateOf(false) }
+    var styleUri by remember { mutableStateOf("") }
+    val focus = LocalFocusManager.current
     val now = rememberNow()
     val dark = androidx.compose.foundation.isSystemInDarkTheme()
 
@@ -130,18 +190,6 @@ fun MapScreen(modifier: Modifier) {
                 m.uiSettings.isRotateGesturesEnabled = true
                 val c = AppState.city.center
                 m.cameraPosition = CameraPosition.Builder().target(LatLng(c.lat, c.lon)).zoom(13.0).build()
-                m.setStyle(Style.Builder().fromUri(if (dark) STYLE_DARK else STYLE)) { style ->
-                    style.addSource(GeoJsonSource("zones", zonesGeoJson(AppState.cities)))
-                    style.addLayer(FillLayer("zones-fill", "zones").withProperties(
-                        PropertyFactory.fillColor(Expression.get("color")), PropertyFactory.fillOpacity(Expression.get("opacity"))))
-                    style.addLayer(LineLayer("zones-line", "zones").withProperties(
-                        PropertyFactory.lineColor(Expression.get("color")), PropertyFactory.lineWidth(Expression.get("width"))))
-                    style.addSource(GeoJsonSource("pin", pinGeoJson(null, Palette.green)))
-                    style.addLayer(CircleLayer("pin-dot", "pin").withProperties(
-                        PropertyFactory.circleColor(Expression.get("color")), PropertyFactory.circleRadius(11f),
-                        PropertyFactory.circleStrokeColor("#FFFFFF"), PropertyFactory.circleStrokeWidth(3.5f)))
-                    styleReady = true
-                }
                 // Tocco sulla mappa: la zona sotto il dito
                 m.addOnMapClickListener { ll ->
                     val hit = zonesAt(AppState.cities, Coordinate(ll.latitude, ll.longitude)).minByOrNull { it.second.roughArea }
@@ -182,11 +230,29 @@ fun MapScreen(modifier: Modifier) {
     val pinZone = pin?.let { p -> zonesAt(AppState.cities, p.location).minByOrNull { it.second.roughArea }?.second }
     val pinAnswer = pinZone?.let { AppState.answer(it, now) }
     val pinPedestrian = pin?.let { pedestrianAreaAt(AppState.cities, it.location) }
-    val pinColor = if (pinPedestrian != null) Palette.red else verdictColor(pinAnswer?.verdict)
+    val pinKind = pin?.let { placeKind(pinPedestrian != null, pinAnswer?.verdict) }
+    val pinColor = pinKind?.neon() ?: Palette.green
 
-    LaunchedEffect(pin, pinColor, styleReady) {
+    // Con un posto cercato la mappa passa allo stile scuro (le zone accese si vedono meglio), poi torna com'era
+    val wantStyle = if (dark || pin != null) STYLE_DARK else STYLE
+    LaunchedEffect(map, wantStyle) {
+        val m = map ?: return@LaunchedEffect
+        if (styleUri == wantStyle) return@LaunchedEffect
+        styleUri = wantStyle; styleReady = false
+        m.setStyle(Style.Builder().fromUri(wantStyle)) { style ->
+            addLayers(style, zonesGeoJson(AppState.cities), pinGeoJson(null, Palette.green))
+            styleReady = true
+        }
+    }
+    // Le sorgenti si aggiornano solo quando cambia il posto o la sua risposta, non a ogni minuto
+    LaunchedEffect(pin?.key, pinKind, styleReady) {
         if (!styleReady) return@LaunchedEffect
-        map?.style?.getSourceAs<GeoJsonSource>("pin")?.setGeoJson(pinGeoJson(pin, pinColor))
+        val style = map?.style ?: return@LaunchedEffect
+        val lit = pin?.let { p -> (zonesAt(AppState.cities, p.location).map { it.second.id } + listOfNotNull(pinPedestrian?.id)).toSet() }
+        style.getSourceAs<GeoJsonSource>("zones")?.setGeoJson(zonesGeoJson(AppState.cities, lit, pinColor))
+        style.getSourceAs<GeoJsonSource>("pin")?.setGeoJson(pinGeoJson(pin, pinColor))
+    }
+    LaunchedEffect(pin?.key, map) {
         pin?.let { map?.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(it.location.lat, it.location.lon), 15.0)) }
     }
     // Cambio città dalla prima pagina: la mappa va lì
@@ -216,7 +282,7 @@ fun MapScreen(modifier: Modifier) {
                 LazyColumn(Modifier.fillMaxWidth().heightIn(max = 280.dp).padding(top = 4.dp)
                     .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(14.dp))) {
                     items(results) { p ->
-                        Column(Modifier.fillMaxWidth().clickable { pin = p; query = p.name; results = emptyList() }.padding(12.dp)) {
+                        Column(Modifier.fillMaxWidth().clickable { pin = p; query = p.name; results = emptyList(); focus.clearFocus() }.padding(12.dp)) {
                             Text(p.name, fontWeight = FontWeight.SemiBold)
                             if (p.address.isNotEmpty()) Text(p.address, fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
                         }
@@ -246,6 +312,7 @@ fun MapScreen(modifier: Modifier) {
             Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().padding(12.dp)
                 .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(20.dp)).padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                pinKind?.let { k -> Callout(k.callout(pinAnswer?.gatesOn == true), k.neon()) }
                 Text(p.name, fontWeight = FontWeight.Bold, fontSize = 18.sp, maxLines = 1)
                 when {
                     pinPedestrian != null -> {
@@ -265,11 +332,22 @@ fun MapScreen(modifier: Modifier) {
                         near?.let { Text(F("%@ is %@ away", it.second.shortName, Geometry.distanceText(it.third)), fontSize = 14.sp) }
                     }
                 }
-                Text(L("Plan this trip") + " ›", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.SemiBold,
-                    modifier = Modifier.clickable { AppState.select(p); Nav.tab = 2 })
+                // «Avvia» direttamente da qui: il navigatore preferito con il guardiano
+                StartControls(p, Modifier.padding(top = 4.dp))
+                OutlinedButton(onClick = { AppState.select(p); Nav.tab = 2 }, modifier = Modifier.fillMaxWidth()) {
+                    Icon(Icons.Filled.CardTravel, null); Spacer(Modifier.width(8.dp)); Text(L("Trip details"))
+                }
             }
         }
     }
+}
+
+/** Il riquadro scuro con la scritta accesa, come il cartello sulla mappa dell'iPhone */
+@Composable
+private fun Callout(text: String, neon: Color) {
+    Text(text.uppercase(), color = neon, fontSize = 13.sp, fontWeight = FontWeight.Bold, letterSpacing = 1.1.sp, maxLines = 1,
+        modifier = Modifier.background(Color.Black.copy(alpha = 0.85f), RoundedCornerShape(4.dp))
+            .border(1.dp, neon, RoundedCornerShape(4.dp)).padding(horizontal = 10.dp, vertical = 5.dp))
 }
 
 @Composable

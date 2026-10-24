@@ -90,7 +90,7 @@ fun GarageScreen(modifier: Modifier) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Pill(if (a.ok) "✓" else "✕", if (a.ok) Palette.greenSoft else Palette.redSoft, if (a.ok) Palette.greenInk else Palette.redInk)
                     Spacer(Modifier.width(8.dp))
-                    Text("${a.city} · ${a.zone}: ${a.text}", fontSize = 14.sp)
+                    Text("${a.city} · ${a.zone}: ${readableDates(a.text)}", fontSize = 14.sp)
                 }
             }
         }
@@ -174,4 +174,9 @@ private fun VehicleDialog(v: Vehicle?, close: () -> Unit) {
                 TextButton(onClick = close) { Text(L("Cancel")) }
             }
         })
+}
+
+/** «Può entrare fino al 2026-12-01» → «Può entrare fino al 30 nov 2026»: il divieto vale dal giorno indicato, l'ultimo giorno buono è quello prima */
+private fun readableDates(text: String): String = Regex("""\d{4}-\d{2}-\d{2}""").replace(text) { m ->
+    runCatching { shortDate(java.time.LocalDate.parse(m.value).minusDays(1).toString()) }.getOrDefault(m.value)
 }

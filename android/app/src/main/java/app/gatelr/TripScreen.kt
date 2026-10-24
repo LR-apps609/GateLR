@@ -30,6 +30,7 @@ import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material.icons.filled.Navigation
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -377,25 +378,8 @@ private fun savePermit(ctx: android.content.Context, place: Place, existing: Per
 @Composable
 fun StartButtons(p: Place) {
     val ctx = LocalContext.current
-    var menu by remember { mutableStateOf(false) }
-    val preferred = Navigator.preferred(ctx)
-    fun go(n: Navigator) {
-        if (!GuardianService.canStart(ctx)) { Toast.makeText(ctx, L("Allow location access to see the ZTL near you."), Toast.LENGTH_LONG).show(); return }
-        GuardianService.start(ctx, p)
-        n.open(ctx, p)
-    }
     Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Button(onClick = { go(preferred) }, modifier = Modifier.weight(1f)) {
-                Icon(Icons.Filled.Navigation, null); Spacer(Modifier.width(8.dp)); Text(F("Start · %@", preferred.label), fontWeight = FontWeight.SemiBold)
-            }
-            Box {
-                IconButton(onClick = { menu = true }) { Icon(Icons.Filled.MoreHoriz, L("More")) }
-                DropdownMenu(expanded = menu, onDismissRequest = { menu = false }) {
-                    Navigator.available(ctx).forEach { n -> DropdownMenuItem(text = { Text(n.label) }, onClick = { menu = false; go(n) }) }
-                }
-            }
-        }
+        StartControls(p)
         Text(L("GateLR stays on with a notification and warns you before every gate."), fontSize = 12.sp,
             color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f))
         if (AppState.overlayOn && Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(ctx)) {
@@ -403,6 +387,46 @@ fun StartButtons(p: Place) {
                 ctx.startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:${ctx.packageName}")))
             }) { Text(L("Show the bubble over the navigator")) }
         }
+    }
+}
+
+/**
+ * Il pulsante «Avvia» con il menu degli altri navigatori, usato in Viaggio e sulla mappa.
+ * Con un navigatore preferito parte subito; senza, «Avvia» apre il menu e alla prima scelta
+ * GateLR chiede se usarlo sempre (si cambia in Account → Navigatore preferito).
+ */
+@Composable
+fun StartControls(p: Place, modifier: Modifier = Modifier) {
+    val ctx = LocalContext.current
+    var menu by remember { mutableStateOf(false) }
+    var ask by remember { mutableStateOf<Navigator?>(null) }
+    val preferred = Navigator.entries.firstOrNull { it.id == AppState.preferredNavigator && it.installed(ctx) }
+    fun go(n: Navigator) {
+        if (!GuardianService.canStart(ctx)) { Toast.makeText(ctx, L("Allow location access to see the ZTL near you."), Toast.LENGTH_LONG).show(); return }
+        GuardianService.start(ctx, p)
+        n.open(ctx, p)
+    }
+    fun choose(n: Navigator) { if (AppState.preferredNavigator.isEmpty()) ask = n else go(n) }
+    Row(modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        Button(onClick = { if (preferred != null) go(preferred) else menu = true }, modifier = Modifier.weight(1f)) {
+            Icon(Icons.Filled.Navigation, null); Spacer(Modifier.width(8.dp))
+            Text(preferred?.let { F("Start · %@", it.label) } ?: L("Start"), fontWeight = FontWeight.SemiBold, maxLines = 1)
+        }
+        Box {
+            IconButton(onClick = { menu = true }) { Icon(Icons.Filled.MoreHoriz, L("Other navigators")) }
+            DropdownMenu(expanded = menu, onDismissRequest = { menu = false }) {
+                Navigator.available(ctx).forEach { n -> DropdownMenuItem(text = { Text(n.label) }, onClick = { menu = false; choose(n) }) }
+            }
+        }
+    }
+    ask?.let { n ->
+        AlertDialog(
+            onDismissRequest = { ask = null },
+            title = { Text(F("Always use %@?", n.label)) },
+            text = { Text(L("You can change it in Account → Preferred navigator.")) },
+            confirmButton = { TextButton(onClick = { AppState.preferredNavigator = n.id; AppState.save(); ask = null; go(n) }) { Text(F("Always %@", n.label)) } },
+            dismissButton = { TextButton(onClick = { ask = null; go(n) }) { Text(L("Just this time")) } }
+        )
     }
 }
 

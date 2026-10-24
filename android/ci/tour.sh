@@ -39,6 +39,11 @@ shot 00-benvenuto
 tap "Continue"; sleep 4
 shot 01-varco
 tap "Map" && sleep 8 && shot 02-mappa
+# Un posto cercato sulla mappa: zona accesa, riquadro «ZTL ATTIVA · NON ENTRARE» e «Avvia» nella scheda
+if tap "Search hotel or address"; then
+  adb shell input text "Palazzo%sVecchio"; sleep 8
+  tap "Palazzo Vecchio" 2 && sleep 6 && shot 02c-mappa-posto || { adb shell input keyevent 4; sleep 2; }
+fi
 tap "Trip" && shot 03-viaggio
 adb shell input text "Palazzo%sVecchio"; sleep 8; shot 04-ricerca
 adb shell input keyevent 4; sleep 2

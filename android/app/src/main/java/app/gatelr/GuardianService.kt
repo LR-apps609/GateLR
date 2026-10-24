@@ -131,9 +131,21 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            // La voce nella lingua dei testi (italiano, tedesco o inglese), non quella del telefono
-            val r = tts?.setLanguage(Locale.forLanguageTag(app.gatelr.core.Strings.language)) ?: TextToSpeech.LANG_NOT_SUPPORTED
-            ttsReady = r != TextToSpeech.LANG_MISSING_DATA && r != TextToSpeech.LANG_NOT_SUPPORTED
+            // La voce nella lingua dei testi (italiano, tedesco o inglese), non quella del telefono:
+            // la migliore installata che va senza rete; se non c'è, quella predefinita per la lingua
+            val t = tts ?: return
+            val lang = app.gatelr.core.Strings.language
+            val best = runCatching {
+                t.voices.orEmpty()
+                    .filter { it.locale.language == lang && !it.isNetworkConnectionRequired &&
+                        TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED !in it.features.orEmpty() }
+                    .maxWithOrNull(compareBy<android.speech.tts.Voice>({ !it.name.contains("legacy", true) && !it.name.contains("embedded", true) },
+                        { it.quality }, { it.locale.country == "" || it.locale.country.equals(lang, true) || (lang == "en" && it.locale.country == "US") }, { -it.latency }))
+            }.getOrNull()
+            ttsReady = if (best != null && t.setVoice(best) == TextToSpeech.SUCCESS) true else {
+                val r = t.setLanguage(Locale.forLanguageTag(lang))
+                r != TextToSpeech.LANG_MISSING_DATA && r != TextToSpeech.LANG_NOT_SUPPORTED
+            }
         }
     }
 
