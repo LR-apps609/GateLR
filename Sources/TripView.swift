@@ -426,10 +426,13 @@ struct TripView: View {
 
     private var hotelMessage: some View {
         let name = hotelName.isEmpty ? store.place?.name : hotelName
+        // Le stesse date del riquadro «Registrazione della targa» (di serie: due notti)
         let stay = store.place.flatMap { store.stays[$0.key] }
-        let text = language.message(arrival: stay?.arrival ?? (atArrival ? arrival : Date()),
+        let start: Date = stay?.arrival ?? (atArrival ? arrival : Date())
+        let end: Date = stay?.departure ?? (Calendar.current.date(byAdding: .day, value: 2, to: start) ?? start)
+        let text = language.message(arrival: start,
                                     plate: store.vehicle.plate.isEmpty ? "[PLATE]" : store.vehicle.plate,
-                                    hotel: name, departure: store.place.flatMap { store.stays[$0.key]?.departure })
+                                    hotel: name, departure: end)
         return VStack(alignment: .leading, spacing: 10) {
             HStack {
                 SectionLabel("Message for the hotel")
