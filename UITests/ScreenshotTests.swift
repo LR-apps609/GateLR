@@ -35,9 +35,11 @@ final class ScreenshotTests: XCTestCase {
             sleep(1)
         }
 
-        // Viaggio: l'unica ricerca dell'app
+        // Viaggio: l'unica ricerca dell'app. Il primo gesto può solo chiudere la tastiera: si richiude il foglio finché serve
         let plan = app.buttons["varco.plan"]
-        if plan.waitForExistence(timeout: 3) { plan.tap() } else { app.tabBars.buttons.element(boundBy: 2).tap() }
+        var tries = 0
+        while plan.exists && !plan.isHittable && tries < 3 { app.swipeDown(velocity: .fast); sleep(1); tries += 1 }
+        if plan.waitForExistence(timeout: 3) && plan.isHittable { plan.tap() } else { app.tabBars.buttons.element(boundBy: 2).tap() }
         sleep(1)
         snap("02-trip-empty")
         let field = app.textFields["trip.search"]
