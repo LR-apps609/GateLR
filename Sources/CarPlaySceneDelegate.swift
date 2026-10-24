@@ -1,19 +1,30 @@
 import CarPlay
+import Combine
 
 // CarPlay: un solo schermo con la risposta e i parcheggi fuori zona.
 // Funziona solo dopo che Apple concede l'autorizzazione CarPlay «Driving Task» all'app.
 final class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     private var interfaceController: CPInterfaceController?
+    private var watch: AnyCancellable?
 
     func templateApplicationScene(_ scene: CPTemplateApplicationScene, didConnect interfaceController: CPInterfaceController) {
         self.interfaceController = interfaceController
         Task { @MainActor in
             interfaceController.setRootTemplate(self.template(), animated: false, completion: nil)
+            // La ZTL davanti cambia mentre guidi: lo schermo si aggiorna da solo (al più ogni 3 secondi)
+            self.watch = Guardian.shared.$threat.map { _ in () }
+                .merge(with: Guardian.shared.$active.map { _ in () })
+                .throttle(for: .seconds(3), scheduler: RunLoop.main, latest: true)
+                .sink { [weak self] in
+                    guard let self, let controller = self.interfaceController else { return }
+                    MainActor.assumeIsolated { controller.setRootTemplate(self.template(), animated: false, completion: nil) }
+                }
         }
     }
 
     func templateApplicationScene(_ scene: CPTemplateApplicationScene, didDisconnectInterfaceController interfaceController: CPInterfaceController) {
         self.interfaceController = nil
+        watch = nil
     }
 
     @MainActor

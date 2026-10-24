@@ -114,9 +114,11 @@ struct GateWidgetView: View {
                 }
                 if let z = entry.zone {
                     // Il tipo di zona con il suo colore (vietato, pass, verde)
-                    Label(z.type.title, systemImage: z.type.symbol)
-                        .font(.system(size: 11, weight: .semibold)).lineLimit(1)
-                        .foregroundStyle(z.type.color)
+                    HStack(spacing: 4) {
+                        Image(systemName: z.type.symbol).foregroundStyle(z.type.color)
+                        Text(z.type.title).foregroundStyle(.secondary)
+                    }
+                    .font(.system(size: 11, weight: .semibold)).lineLimit(1)
                 }
                 Spacer(minLength: 0)
                 Image(systemName: entry.on ? "video.fill" : "checkmark.circle.fill")

@@ -110,7 +110,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
                         if case .yes = a.verdict {} else {
                             store.record(.entered, zone: z, verdict: a.verdict)
                             // Il consiglio che evita le multe a catena: non girare dentro cercando l'uscita
-                            if !alerted.contains("in|\(z.id)") {
+                            if case .no = a.verdict, !alerted.contains("in|\(z.id)") {
                                 alerted.insert("in|\(z.id)")
                                 say(String(format: L("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine."), z.shortName))
                                 notify(title: String(format: L("You're inside %@"), z.shortName),

@@ -82,7 +82,6 @@ final class Store: ObservableObject {
         cities.min { hypot($0.center.lat - c.lat, $0.center.lon - c.lon) < hypot($1.center.lat - c.lat, $1.center.lon - c.lon) }
     }
 
-    /// Sceglie il posto: la pagina passa alla sua città e alla zona che lo contiene
     /// Gli ultimi posti cercati (scorciatoie in Viaggio)
     @Published var recent: [Place] = {
         guard let d = UserDefaults.standard.data(forKey: "recent.places") else { return [] }
@@ -91,6 +90,7 @@ final class Store: ObservableObject {
         didSet { if let d = try? JSONEncoder().encode(recent) { UserDefaults.standard.set(d, forKey: "recent.places") } }
     }
 
+    /// Sceglie il posto: la pagina passa alla sua città e alla zona che lo contiene
     func select(_ place: Place?) {
         self.place = place
         guard let place else { return }
