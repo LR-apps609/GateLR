@@ -312,6 +312,7 @@ T = {
 "Drive with Google Maps, Apple Maps or Waze: GateLR warns you before every active ZTL, also in the Dynamic Island. Every rule links to the city's official page.": ("Guida con Google Maps, Apple Maps o Waze: GateLR ti avvisa prima di ogni ZTL attiva, anche nella Dynamic Island. Ogni regola porta alla pagina ufficiale del Comune.", "Fahr mit Google Maps, Apple Maps oder Waze: GateLR warnt dich vor jeder aktiven ZTL, auch in der Dynamic Island. Jede Regel verlinkt die offizielle Seite der Stadt."),
 "You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine.": ("Sei dentro %@. Esci dal punto più vicino e non girare dentro: ogni varco può voler dire un'altra multa.", "Du bist in %@. Fahr am nächsten Punkt hinaus und nicht herum: Jede Einfahrt kann ein weiteres Bußgeld bedeuten."),
 "Leave by the nearest exit and don't drive around: every gate can mean another fine.": ("Esci dal punto più vicino e non girare dentro: ogni varco può voler dire un'altra multa.", "Fahr am nächsten Punkt hinaus und nicht herum: Jede Einfahrt kann ein weiteres Bußgeld bedeuten."),
+"Recent": ("Recenti", "Zuletzt"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

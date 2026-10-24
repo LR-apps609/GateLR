@@ -318,6 +318,25 @@ struct TripView: View {
         }
         .padding(16).frame(maxWidth: .infinity, alignment: .leading).card()
         hint("Search your destination for a precise answer.", symbol: "magnifyingglass", action: { typing = true })
+        if !store.recent.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                SectionLabel("Recent")
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(store.recent) { p in
+                            Button { store.select(p) } label: {
+                                Label(p.name, systemImage: "clock.arrow.circlepath")
+                                    .font(.app(size: 14, weight: .semibold)).lineLimit(1)
+                                    .padding(.horizontal, 12).frame(height: 36)
+                                    .background(Theme.card, in: Capsule())
+                                    .foregroundStyle(Theme.ink)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+            }
+        }
         if !store.trips.isEmpty { savedTrips }
     }
 

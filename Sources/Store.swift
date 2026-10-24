@@ -83,9 +83,20 @@ final class Store: ObservableObject {
     }
 
     /// Sceglie il posto: la pagina passa alla sua città e alla zona che lo contiene
+    /// Gli ultimi posti cercati (scorciatoie in Viaggio)
+    @Published var recent: [Place] = {
+        guard let d = UserDefaults.standard.data(forKey: "recent.places") else { return [] }
+        return (try? JSONDecoder().decode([Place].self, from: d)) ?? []
+    }() {
+        didSet { if let d = try? JSONEncoder().encode(recent) { UserDefaults.standard.set(d, forKey: "recent.places") } }
+    }
+
     func select(_ place: Place?) {
         self.place = place
         guard let place else { return }
+        if place.address != "" || place.name != L("My position") {
+            recent = [place] + recent.filter { $0.key != place.key }.prefix(5)
+        }
         if let hit = zones(at: place.location).first {
             cityId = hit.city.id; zoneId = hit.zone.id
         } else if let city = nearestCity(to: place.location), city.id != cityId {
