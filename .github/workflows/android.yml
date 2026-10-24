@@ -45,6 +45,28 @@ jobs:
           path: android/app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
 
+      # Versione per gli store (APK e AAB firmati), solo se i segreti della firma ci sono
+      - name: Versione per gli store
+        env:
+          KEYSTORE_B64: ${{ secrets.GATELR_KEYSTORE_B64 }}
+          GATELR_KEYSTORE_PASSWORD: ${{ secrets.GATELR_KEYSTORE_PASSWORD }}
+          GATELR_KEY_PASSWORD: ${{ secrets.GATELR_KEY_PASSWORD }}
+        run: |
+          if [ -z "$KEYSTORE_B64" ]; then
+            echo "::notice::Firma non configurata: versione store compilata senza firma, solo per prova (vedi docs/android-store.md)"
+            gradle -p android :app:assembleRelease --no-daemon; exit 0
+          fi
+          echo "$KEYSTORE_B64" | base64 -d > "$RUNNER_TEMP/gatelr.jks"
+          export GATELR_KEYSTORE="$RUNNER_TEMP/gatelr.jks"
+          gradle -p android :app:assembleRelease :app:bundleRelease --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: GateLR-android-release
+          path: |
+            android/app/build/outputs/apk/release/*.apk
+            android/app/build/outputs/bundle/release/*.aab
+          if-no-files-found: ignore
+
       # Giro sull'emulatore (Android 14): apre le schede, fa le foto, controlla che non si chiuda
       - name: Abilita KVM
         run: |

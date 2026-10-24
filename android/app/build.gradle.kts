@@ -17,8 +17,20 @@ android {
         versionName = "0.1.0"
     }
 
+    // Firma per gli store: il file .jks e le password arrivano dai segreti di GitHub (vedi docs/android-store.md)
+    val keystore = System.getenv("GATELR_KEYSTORE")?.let { file(it) }?.takeIf { it.exists() }
+    signingConfigs {
+        if (keystore != null) create("store") {
+            storeFile = keystore
+            storePassword = System.getenv("GATELR_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("GATELR_KEY_ALIAS") ?: "gatelr"
+            keyPassword = System.getenv("GATELR_KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
         release {
+            if (keystore != null) signingConfig = signingConfigs.getByName("store")
             isMinifyEnabled = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
