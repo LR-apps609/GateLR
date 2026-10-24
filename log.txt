@@ -1,0 +1,10 @@
+desktop home mappa vera: true
+desktop siena mappa vera: true
+desktop roma mappa vera: true
+desktop milano mappa vera: true
+desktop firenze mappa vera: true
+phone home mappa vera: true
+phone siena mappa vera: true
+phone roma mappa vera: true
+phone milano mappa vera: true
+phone firenze mappa vera: true
