@@ -51,6 +51,7 @@
             android:name=".GuardianService"
             android:exported="false"
             android:foregroundServiceType="location" />
+        <receiver android:name=".ReminderReceiver" android:exported="false" />
         <receiver android:name=".ZoneWidget" android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

@@ -59,7 +59,7 @@ final class Store: ObservableObject {
         let z = zone ?? self.zone
         // Un permesso vale solo nella sua città: la registrazione dell'hotel a Firenze non apre l'Area C di Milano
         let city = cities.first { $0.zones.contains { $0.id == z.id } }?.id
-        engine.answer(zone: z, vehicle: vehicle, permits: permits.filter { $0.cityId == city }, hotelInside: hotelInside ?? self.hotelInside, at: date)
+        return engine.answer(zone: z, vehicle: vehicle, permits: permits.filter { $0.cityId == city }, hotelInside: hotelInside ?? self.hotelInside, at: date)
     }
 
     /// Le zone che contengono il punto, dalla più piccola (es. Area C dentro Area B)

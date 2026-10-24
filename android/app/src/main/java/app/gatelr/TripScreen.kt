@@ -186,7 +186,7 @@ private fun TripAnswer(p: Place) {
             }
         }
 
-        zone?.ticket?.let { TicketBox(it) }
+        zone?.ticket?.let { TicketBox(it, zone, at) }
         if (zone != null && zone.hotelCanRegister && pedestrian == null) {
             HotelBox(p, zone, at, hotelInside) { hotelInside = it }
         }
@@ -261,8 +261,9 @@ private fun RouteBox(p: Place, arrival: ZonedDateTime?) {
 }
 
 @Composable
-private fun TicketBox(t: Ticket) {
+private fun TicketBox(t: Ticket, zone: Zone, entry: ZonedDateTime) {
     val ctx = LocalContext.current
+    var reminded by remember(zone.id, entry.toEpochSecond() / 3600) { mutableStateOf(false) }
     CardBox {
         Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
             Text(L("Ticket").uppercase(), fontSize = 13.sp, fontWeight = FontWeight.SemiBold, color = Palette.amber)
@@ -272,7 +273,19 @@ private fun TicketBox(t: Ticket) {
                 "nextDayMidnight" -> Text(L("Activate it by midnight of the next day."), fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
                 "beforeEntry" -> Text(L("Activate it before you drive in."), fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
             }
-            t.url?.let { u -> Button(onClick = { runCatching { ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(u))) } }) { Text(L("Pay the ticket")) } }
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                t.url?.let { u -> Button(onClick = { runCatching { ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(u))) } }) { Text(L("Pay the ticket")) } }
+                // Area C: la sera dell'ingresso alle 20. Bologna: un'ora prima di entrare
+                OutlinedButton(onClick = {
+                    val next = t.deadline == "nextDayMidnight"
+                    val at = if (next) entry.with(LocalTime.of(20, 0)) else entry.minusHours(1)
+                    val deadline = entry.plusDays(1).with(LocalTime.of(23, 59))
+                    Reminders.schedule(ctx, "ticket|${zone.id}", at.toInstant().toEpochMilli(), F("%@: ticket", zone.shortName),
+                        if (next) F("Have you activated the ticket? Deadline: %@.", deadline.format(DateTimeFormatter.ofPattern("EEEE HH:mm", Locale.forLanguageTag(Strings.language))))
+                        else L("Buy and activate the ticket before you drive in."))
+                    reminded = true
+                }, enabled = !reminded) { Text(if (reminded) L("Reminder set") else L("Remind me")) }
+            }
         }
     }
 }
@@ -320,15 +333,22 @@ private fun HotelBox(p: Place, zone: Zone, arrival: ZonedDateTime, inside: Boole
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 val state = existing?.status
                 FilterChip(selected = existing == null, onClick = { existing?.let { e -> AppState.permits = AppState.permits - e; AppState.save() } }, label = { Text(L("To ask"), fontSize = 12.sp) })
-                FilterChip(selected = state == Permit.Status.WAITING, onClick = { savePermit(existing, zone, arrival, departure, Permit.Status.WAITING) }, label = { Text(L("Asked"), fontSize = 12.sp) })
-                FilterChip(selected = state == Permit.Status.CONFIRMED, onClick = { savePermit(existing, zone, arrival, departure, Permit.Status.CONFIRMED) }, label = { Text(L("Confirmed"), fontSize = 12.sp) })
+                FilterChip(selected = state == Permit.Status.WAITING, onClick = { savePermit(ctx, p, existing, zone, arrival, departure, Permit.Status.WAITING) }, label = { Text(L("Asked"), fontSize = 12.sp) })
+                FilterChip(selected = state == Permit.Status.CONFIRMED, onClick = { savePermit(ctx, p, existing, zone, arrival, departure, Permit.Status.CONFIRMED) }, label = { Text(L("Confirmed"), fontSize = 12.sp) })
             }
         }
     }
 }
 
-private fun savePermit(existing: Permit?, zone: Zone, arrival: ZonedDateTime, departure: ZonedDateTime, status: Permit.Status) {
+private fun savePermit(ctx: android.content.Context, place: Place, existing: Permit?, zone: Zone, arrival: ZonedDateTime, departure: ZonedDateTime, status: Permit.Status) {
     val city = AppState.cityOf(zone) ?: return
+    // Il giorno prima dell'arrivo alle 18, se la conferma non c'è ancora
+    val key = "stay|${place.key}"
+    if (status == Permit.Status.CONFIRMED) Reminders.cancel(ctx, key)
+    else arrival.minusDays(1).with(LocalTime.of(18, 0)).takeIf { it.isAfter(ZonedDateTime.now(ROME)) }?.let {
+        Reminders.schedule(ctx, key, it.toInstant().toEpochMilli(), F("Tomorrow: %@", place.name),
+            L("Has the hotel confirmed in writing that your plate is registered for every day? Without it, the gates fine you."))
+    }
     val from = arrival.truncatedTo(ChronoUnit.DAYS).toInstant().toEpochMilli()
     val to = departure.truncatedTo(ChronoUnit.DAYS).plusDays(1).minusSeconds(1).toInstant().toEpochMilli()
     val p = Permit(id = existing?.id ?: java.util.UUID.randomUUID().toString(), kind = Permit.Kind.HOTEL, cityId = city.id, zoneId = null,
