@@ -9,3 +9,7 @@ build-test/
 test.log
 Widget/Info.plist
 __pycache__/
+android/**/build/
+android/.gradle/
+android/**/.gradle/
+android/local.properties
