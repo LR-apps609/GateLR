@@ -55,6 +55,11 @@ struct HotelStayCard: View {
                 Text("Confirmed").tag(HotelStay.Status.confirmed)
             }
             .pickerStyle(.segmented)
+            if store.vehicle.isRental && store.vehicle.plate.isEmpty {
+                Label("Rental car: you'll know the plate only at pick-up. Add it in Garage then, and send the message to the hotel straight away.",
+                      systemImage: "key.fill")
+                    .font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.blue)
+            }
             VStack(alignment: .leading, spacing: 6) {
                 tip("A parking permit on the dashboard is not a ZTL registration.")
                 tip("Ask for a written confirmation with your plate and every date.")

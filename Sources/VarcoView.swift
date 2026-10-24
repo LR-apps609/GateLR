@@ -239,6 +239,26 @@ struct VarcoView: View {
     }
 
     private func nextTrip(_ t: Trip) -> some View {
+        VStack(spacing: 8) {
+            tripRow(t)
+            // Il viaggio è oggi: si parte con il guardiano verso l'hotel, con un tocco
+            if Calendar.current.isDateInToday(t.arrival), let hotel = t.hotel, !guardian.active {
+                Menu {
+                    ForEach(Navigator.allCases) { n in
+                        Button { guardian.start(to: hotel, with: n, store: store) } label: { Label(n.title, systemImage: "shield.lefthalf.filled") }
+                    }
+                } label: {
+                    Label(String(format: L("Leave now for %@"), t.hotelName.isEmpty ? hotel.name : t.hotelName), systemImage: "location.north.fill")
+                        .font(.app(size: 15, weight: .bold)).lineLimit(1)
+                        .frame(maxWidth: .infinity, minHeight: 46)
+                        .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        .foregroundStyle(.white)
+                }
+            }
+        }
+    }
+
+    private func tripRow(_ t: Trip) -> some View {
         Button { if let h = t.hotel { store.select(h) }; tab = .trip } label: {
             HStack(spacing: 12) {
                 Image(systemName: "suitcase.rolling.fill").foregroundStyle(Theme.blue)

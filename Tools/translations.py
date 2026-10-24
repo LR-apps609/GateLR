@@ -315,6 +315,8 @@ T = {
 "Recent": ("Recenti", "Zuletzt"),
 "Start · %@": ("Avvia · %@", "Starten · %@"), "Other navigators": ("Altri navigatori", "Andere Navis"),
 "Preferred navigator": ("Navigatore preferito", "Bevorzugtes Navi"), "Ask every time": ("Chiedi ogni volta", "Jedes Mal fragen"),
+"Rental car: you'll know the plate only at pick-up. Add it in Garage then, and send the message to the hotel straight away.": ("Auto a noleggio: la targa la sai solo al ritiro. Aggiungila nel Garage in quel momento e manda subito il messaggio all'hotel.", "Mietwagen: Das Kennzeichen kennst du erst bei der Abholung. Trag es dann in der Garage ein und schick sofort die Nachricht ans Hotel."),
+"Leave now for %@": ("Parti ora per %@", "Jetzt losfahren nach %@"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
