@@ -73,6 +73,8 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
     private var ttsReady = false
     private val handler = Handler(Looper.getMainLooper())
     private var here: Coordinate? = null
+    private var anchor: Coordinate? = null              // ultimo punto in cui ti sei spostato di 50 m
+    private var inside: Pair<app.gatelr.core.Zone, app.gatelr.core.Answer>? = null   // zona «No» in cui sei dentro
     private var lastDistances = mapOf<String, Double>()
     private val alerted = mutableSetOf<String>()
     private var lastMove = System.currentTimeMillis()
@@ -103,7 +105,10 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
             for (p in listOf(LocationManager.GPS_PROVIDER, LocationManager.NETWORK_PROVIDER)) {
                 if (locations.allProviders.contains(p)) runCatching { locations.requestLocationUpdates(p, 2000L, 15f, this, Looper.getMainLooper()) }
             }
-            runCatching { locations.getLastKnownLocation(LocationManager.GPS_PROVIDER) }.getOrNull()?.let { onLocationChanged(it) }
+            // Solo una posizione recente: una vecchia (es. di ieri all'hotel) fermerebbe subito il guardiano
+            runCatching { locations.getLastKnownLocation(LocationManager.GPS_PROVIDER) }.getOrNull()
+                ?.takeIf { android.os.SystemClock.elapsedRealtimeNanos() - it.elapsedRealtimeNanos < 120_000_000_000L }
+                ?.let { onLocationChanged(it) }
         }
         tts = TextToSpeech(this, this)
         handler.postDelayed(watchdog, 60_000)
@@ -126,8 +131,9 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            tts?.language = Locale.getDefault()
-            ttsReady = true
+            // La voce nella lingua dei testi (italiano, tedesco o inglese), non quella del telefono
+            val r = tts?.setLanguage(Locale.forLanguageTag(app.gatelr.core.Strings.language)) ?: TextToSpeech.LANG_NOT_SUPPORTED
+            ttsReady = r != TextToSpeech.LANG_MISSING_DATA && r != TextToSpeech.LANG_NOT_SUPPORTED
         }
     }
 
@@ -136,7 +142,8 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
     override fun onLocationChanged(l: Location) {
         if (l.hasAccuracy() && l.accuracy > 80) return
         val p = Coordinate(l.latitude, l.longitude)
-        here?.let { if (Geometry.meters(it, p) > 20) lastMove = System.currentTimeMillis() }
+        // In città si va piano: si misura da un punto fisso, non dalla posizione precedente
+        if (anchor.let { it == null || Geometry.meters(it, p) > 50 }) { anchor = p; lastMove = System.currentTimeMillis() }
         here = p
 
         destination?.let { d ->
@@ -156,6 +163,8 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
                 alert(F("You're inside %@", z.shortName), body, "in|${z.id}")
             }
         }
+        inside = zones.filter { it.contains(p.lat, p.lon) }.minByOrNull { it.roughArea }
+            ?.let { z -> AppState.answer(z).takeIf { it.verdict is Verdict.No }?.let { z to it } }
         val t = scan.threat
         threat = t
         if (t != null) {
@@ -182,7 +191,7 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
 
     // ---- Notifica fissa e bolla
 
-    private fun line(): String = threat?.let { "${it.zone.shortName} · ${Geometry.distanceText(it.meters)} · ${it.answer.verdict.short}" }
+    private fun line(): String = inside?.let { F("You're inside %@", it.first.shortName) + " · " + it.second.verdict.short } ?: threat?.let { "${it.zone.shortName} · ${Geometry.distanceText(it.meters)} · ${it.answer.verdict.short}" }
         ?: L("No active ZTL ahead")
 
     private fun refresh() {
@@ -192,7 +201,7 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
         getSystemService(NotificationManager::class.java).notify(ID, ongoing(text, destination?.name ?: ""))
         bubble?.let { b ->
             b.text = text
-            (b.background as? GradientDrawable)?.setColor(color(threat))
+            (b.background as? GradientDrawable)?.setColor(if (inside != null) 0xEEC1272D.toInt() else color(threat))
         }
     }
 

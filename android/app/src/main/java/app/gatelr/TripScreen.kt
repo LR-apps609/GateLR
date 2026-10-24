@@ -96,8 +96,7 @@ fun TripScreen(modifier: Modifier) {
         if (query.length < 3) { results = emptyList(); return@LaunchedEffect }
         delay(350)
         searching = true
-        results = Geocoder.search(query, Here.coordinate ?: AppState.city.center)
-        searching = false
+        try { results = Geocoder.search(query, Here.coordinate ?: AppState.city.center) } finally { searching = false }
     }
 
     LazyColumn(modifier.fillMaxSize().background(MaterialTheme.colorScheme.background), contentPadding = PaddingValues(16.dp),
@@ -224,8 +223,13 @@ private fun RouteBox(p: Place, arrival: ZonedDateTime?) {
     }
     // Partenza: adesso, oppure all'ora giusta per arrivare quando hai scelto
     val departure = arrival?.toInstant()?.minusSeconds(r.seconds.toLong()) ?: Instant.now()
-    val crossings = remember(r, departure.epochSecond / 60) {
-        RouteCheck.crossings(RouteCheck.densify(r.path), AppState.cities.flatMap { it.zones }, departure, r.seconds) { z, t -> AppState.answer(z, t) }
+    // Il calcolo sui punti del percorso fuori dal filo principale: niente scatti con i tragitti lunghi
+    val dense = remember(r) { RouteCheck.densify(r.path) }
+    var crossings by remember(r) { mutableStateOf(listOf<app.gatelr.core.RouteCrossing>()) }
+    LaunchedEffect(r, departure.epochSecond / 60) {
+        crossings = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.Default) {
+            RouteCheck.crossings(dense, AppState.cities.flatMap { it.zones }, departure, r.seconds) { z, t -> AppState.answer(z, t) }
+        }
     }
     val tf = DateTimeFormatter.ofPattern("HH:mm")
     fun hm(i: Instant) = i.atZone(ROME).format(tf)

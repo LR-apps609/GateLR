@@ -164,7 +164,9 @@ fun MapScreen(modifier: Modifier) {
         if (lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) mapView.onResume()
         onDispose {
             lifecycle.removeObserver(obs)
-            mapView.onPause(); mapView.onStop(); mapView.onDestroy()
+            if (lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) mapView.onPause()
+            if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) mapView.onStop()
+            mapView.onDestroy()
         }
     }
 

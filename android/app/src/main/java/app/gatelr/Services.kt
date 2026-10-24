@@ -43,7 +43,7 @@ enum class Navigator(val id: String, private val title: String, val pkg: String?
             OTHER -> Intent(Intent.ACTION_VIEW, Uri.parse("geo:${c.lat},${c.lon}?q=${c.lat},${c.lon}(${Uri.encode(p.name)})"))
         }.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         try { ctx.startActivity(intent) } catch (_: ActivityNotFoundException) {
-            ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=17/${c.lat}/${c.lon}")).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+            runCatching { ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=17/${c.lat}/${c.lon}")).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }
         }
     }
 

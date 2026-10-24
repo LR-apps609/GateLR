@@ -83,8 +83,11 @@ object AppState {
     val zone: Zone get() = city.zones.firstOrNull { it.id == zoneId } ?: city.zones.first()
     val vehicle: Vehicle get() = vehicles.firstOrNull { it.id == activeVehicleId } ?: vehicles.first()
 
-    fun answer(zone: Zone, at: Instant = Instant.now(), hotelInside: Boolean = false): Answer =
-        engine.answer(zone, vehicle, permits, hotelInside, at)
+    /** Un permesso vale solo nella sua città: la registrazione dell'hotel a Firenze non apre l'Area C di Milano */
+    fun answer(zone: Zone, at: Instant = Instant.now(), hotelInside: Boolean = false): Answer {
+        val city = cityOf(zone)?.id
+        return engine.answer(zone, vehicle, permits.filter { it.cityId == city }, hotelInside, at)
+    }
 
     fun selectCity(id: String) {
         cityId = id
@@ -97,11 +100,11 @@ object AppState {
         place = p
         if (p == null) return
         recent = (listOf(p) + recent.filter { it.key != p.key }).take(6)
-        save()
         val hit = zonesAt(cities, p.location).firstOrNull()
         if (hit != null) { cityId = hit.first.id; zoneId = hit.second.id }
         else cities.minByOrNull { (it.center.lat - p.location.lat).let { a -> a * a } + (it.center.lon - p.location.lon).let { b -> b * b } }
             ?.let { selectCity(it.id) }
+        save()
     }
 
     fun cityOf(zone: Zone): City? = cities.firstOrNull { c -> c.zones.any { it.id == zone.id } }

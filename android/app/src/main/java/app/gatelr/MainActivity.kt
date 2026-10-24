@@ -43,6 +43,7 @@ import app.gatelr.core.Zone
 /** La posizione mentre l'app è aperta (per la prima pagina e la mappa) */
 object Here {
     var coordinate by mutableStateOf<Coordinate?>(null)
+    var at = 0L                       // quando è arrivata la posizione
     var allowed by mutableStateOf(false)
 }
 
@@ -62,11 +63,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         Here.allowed = GuardianService.canStart(this)
-        if (!Here.allowed) {
-            val list = mutableListOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
-            if (Build.VERSION.SDK_INT >= 33) list += Manifest.permission.POST_NOTIFICATIONS
-            ask.launch(list.toTypedArray())
-        }
+        val list = mutableListOf<String>()
+        if (!Here.allowed) list += listOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+        // Le notifiche servono al guardiano anche se la posizione era già concessa
+        if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED)
+            list += Manifest.permission.POST_NOTIFICATIONS
+        if (list.isNotEmpty()) ask.launch(list.toTypedArray())
         setContent { GateTheme { Root() } }
     }
 
@@ -121,10 +123,12 @@ fun Root() {
 fun LocationWhileOpen() {
     val ctx = LocalContext.current
     val allowed = Here.allowed
-    DisposableEffect(allowed) {
+    val lifecycle = androidx.compose.ui.platform.LocalLifecycleOwner.current.lifecycle
+    DisposableEffect(allowed, lifecycle) {
         val lm = ctx.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        val listener = LocationListener { l -> Here.coordinate = Coordinate(l.latitude, l.longitude) }
-        if (allowed) {
+        val listener = LocationListener { l -> Here.coordinate = Coordinate(l.latitude, l.longitude); Here.at = System.currentTimeMillis() }
+        fun on() {
+            if (!allowed) return
             for (p in listOf(LocationManager.NETWORK_PROVIDER, LocationManager.GPS_PROVIDER)) {
                 if (lm.allProviders.contains(p)) {
                     runCatching { lm.getLastKnownLocation(p) }.getOrNull()?.let { if (Here.coordinate == null) Here.coordinate = Coordinate(it.latitude, it.longitude) }
@@ -132,6 +136,12 @@ fun LocationWhileOpen() {
                 }
             }
         }
-        onDispose { runCatching { lm.removeUpdates(listener) } }
+        // Solo con l'app aperta: in sottofondo la posizione la segue il guardiano, se l'hai avviato
+        val obs = androidx.lifecycle.LifecycleEventObserver { _, e ->
+            if (e == androidx.lifecycle.Lifecycle.Event.ON_START) on()
+            if (e == androidx.lifecycle.Lifecycle.Event.ON_STOP) runCatching { lm.removeUpdates(listener) }
+        }
+        lifecycle.addObserver(obs)
+        onDispose { lifecycle.removeObserver(obs); runCatching { lm.removeUpdates(listener) } }
     }
 }
