@@ -83,7 +83,7 @@ struct VarcoView: View {
                     .accessibilityAddTraits(.isHeader)
                 }
                 Spacer(minLength: 8)
-                ZTLSign().scaleEffect(0.45).frame(width: 30, height: 50).accessibilityHidden(true)
+                MiniSign(size: 46).accessibilityHidden(true)
             }
             Text("Search a hotel, address or square: GateLR tells you at once if your car can get there.")
                 .font(.app(size: 15)).foregroundStyle(Theme.muted)
@@ -355,7 +355,7 @@ struct VarcoView: View {
     private var learnCard: some View {
         Button { learning = true } label: {
             tile(title: "New to ZTLs?", text: "Signs, panels and what to do after a mistake. 1 minute.") {
-                ZTLSign().scaleEffect(0.36).frame(width: 24, height: 38)
+                MiniSign(size: 38)
             }
         }
         .buttonStyle(.plain)
@@ -388,5 +388,17 @@ struct VarcoView: View {
     private func select(_ z: Zone) {
         if let city = store.cities.first(where: { $0.zones.contains(z) }) { store.cityId = city.id }
         store.zoneId = z.id
+    }
+}
+
+/// Il cartello del divieto in piccolo, con «ZTL» al centro
+private struct MiniSign: View {
+    var size: CGFloat
+    var body: some View {
+        Circle().fill(.white)
+            .overlay(Circle().strokeBorder(Color(hex: 0xC1272D), lineWidth: size * 0.15))
+            .overlay(Text(verbatim: "ZTL").font(Theme.display(size * 0.27, .black)).foregroundStyle(Color(hex: 0x1B2128)))
+            .frame(width: size, height: size)
+            .shadow(color: .black.opacity(0.12), radius: 3, y: 1)
     }
 }

@@ -58,6 +58,8 @@ struct TripView: View {
             search.focus(on: store.city)
             if Self.focusSearch {
                 Self.focusSearch = false
+                // Nel giro automatico delle foto la tastiera si apre solo con il tocco sul campo, come sempre
+                guard !ProcessInfo.processInfo.arguments.contains("-uitest") else { return }
                 Task { try? await Task.sleep(for: .milliseconds(350)); typing = true }
             }
         }

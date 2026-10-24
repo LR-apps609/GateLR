@@ -85,7 +85,7 @@ struct MapScreen: View {
                                 .stroke(tint.opacity(0.3), lineWidth: 12)
                         }
                         MapPolygon(coordinates: shape.coords)
-                            .foregroundStyle(on ? tint.opacity(0.3) : tint.opacity(0.05))
+                            .foregroundStyle(on ? tint.opacity(0.18) : tint.opacity(0.05))
                             .stroke(on ? tint : Color.white.opacity(0.22), lineWidth: on ? 2.5 : 1)
                     } else {
                         // Il verde (zone a basse emissioni) pieno e ben visibile; rosso e giallo tratteggiati
@@ -251,7 +251,12 @@ struct MapScreen: View {
             if let plan = planner.plan, plan.destination == store.place, let r = Self.region(plan.path) {
                 camera = .region(r)
             } else if let place = store.place {
-                camera = .camera(MapCamera(centerCoordinate: place.location.cl, distance: 1_500, heading: 0, pitch: 0))
+                // Si vede tutta la zona che contiene il posto (il confine acceso), se non è enorme
+                if let z = store.zones(at: place.location).first?.zone, z.widthMeters < 6_000 {
+                    camera = .region(z.region(padding: 1.25))
+                } else {
+                    camera = .camera(MapCamera(centerCoordinate: place.location.cl, distance: 1_500, heading: 0, pitch: 0))
+                }
             } else {
                 camera = .region(store.zone.region(padding: 1.4))
             }
