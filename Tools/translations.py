@@ -345,6 +345,22 @@ T = {
 "SUV": ("SUV", "SUV"),
 "City car": ("Utilitaria", "Kleinwagen"),
 "Motorbike": ("Moto", "Motorrad"),
+"What's new in GateLR %@": ("Novità di GateLR %@", "Neu in GateLR %@"),
+"Start from the map": ("Parti dalla mappa", "Start direkt von der Karte"),
+"Search a place on the map and tap Start: no need to go through Trip.": ("Cerca un posto sulla mappa e tocca Avvia: non serve passare da Viaggio.", "Such einen Ort auf der Karte und tippe auf Start – ohne Umweg über Reise."),
+"A close-up 3D view, traffic lights along the road and a bar with the ZTLs on your route.": ("Vista 3D da vicino, i semafori lungo la strada e una barra con le ZTL del percorso.", "Nahe 3D-Ansicht, Ampeln entlang der Straße und eine Leiste mit den ZTL auf deiner Route."),
+"Your vehicle on the map": ("Il tuo veicolo sulla mappa", "Dein Fahrzeug auf der Karte"),
+"Sedan, SUV, city car or motorbike, in 7 colours, instead of the arrow.": ("Berlina, SUV, utilitaria o moto, in 7 colori, al posto della freccia.", "Limousine, SUV, Kleinwagen oder Motorrad in 7 Farben statt des Pfeils."),
+"A better voice": ("Una voce migliore", "Eine bessere Stimme"),
+"GateLR speaks with the best voice installed in your language.": ("GateLR parla con la voce migliore installata nella tua lingua.", "GateLR spricht mit der besten installierten Stimme in deiner Sprache."),
+"Shield in the Dynamic Island": ("Scudo nella Dynamic Island", "Schild in der Dynamic Island"),
+"Green, yellow or red with the distance: easy to spot next to Apple Maps.": ("Verde, giallo o rosso con la distanza: si riconosce anche accanto ad Apple Maps.", "Grün, gelb oder rot mit der Entfernung – gut erkennbar neben Apple Karten."),
+"Ask Siri": ("Chiedi a Siri", "Frag Siri"),
+"\"Hey Siri, ZTL near me with GateLR\": the nearest ZTL, how far it is and whether you can enter.": ("«Ehi Siri, ZTL vicine con GateLR»: la ZTL più vicina, a che distanza è e se puoi entrare.", "„Hey Siri, ZTL in der Nähe mit GateLR“: die nächste ZTL, wie weit sie ist und ob du einfahren darfst."),
+"Rome and Siena": ("Roma e Siena", "Rom und Siena"),
+"Two new cities, and Florence's Scudo Verde low-emission zone.": ("Due città nuove e lo Scudo Verde di Firenze, la zona a basse emissioni.", "Zwei neue Städte und Florenz' Umweltzone Scudo Verde."),
+"The camera isn't available right now. Choose a photo of the panel instead.": ("La fotocamera ora non è disponibile. Scegli invece una foto del pannello.", "Die Kamera ist gerade nicht verfügbar. Wähle stattdessen ein Foto der Tafel."),
+"GateLR can't use the camera. Allow it in Settings → GateLR → Camera, or choose a photo.": ("GateLR non può usare la fotocamera. Consentila in Impostazioni → GateLR → Fotocamera, oppure scegli una foto.", "GateLR darf die Kamera nicht nutzen. Erlaube sie unter Einstellungen → GateLR → Kamera oder wähle ein Foto."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

@@ -11,6 +11,8 @@ struct AccountView: View {
     @AppStorage("vehicleMarker") private var vehicleMarker = VehicleMarker.arrow.rawValue
     @AppStorage("vehicleColor") private var vehicleColor = VehicleColor.blue.rawValue
     @ObservedObject private var updater = CityUpdater.shared
+    /// Calcolato in sottofondo: speechVoices() è lento e prima si chiamava a ogni disegno della pagina
+    @State private var basicVoice = false
 
     var body: some View {
         NavigationStack {
@@ -111,7 +113,7 @@ struct AccountView: View {
                             }
                         }
                     }
-                    if SpeechVoice.onlyBasicVoice {
+                    if basicVoice {
                         Button {
                             if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
                         } label: {
@@ -169,6 +171,7 @@ struct AccountView: View {
             .navigationTitle("Account")
             .tint(Theme.blue)
             .sheet(isPresented: $reporting) { BugReportView() }
+            .task { basicVoice = await SpeechVoice.onlyBasicVoiceAsync() }
             .onChange(of: store.alertsOn) { GateMonitor.shared.settingsChanged() }
             .onChange(of: store.alertDistance) { GateMonitor.shared.settingsChanged() }
         }

@@ -21,10 +21,16 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     @Published private(set) var active = false
     @Published private(set) var destination: Place?
     @Published private(set) var threat: Threat?          // la ZTL più vicina verso cui stai andando, se a quell'ora non entri
-    @Published private(set) var here: Coordinate?
+    /// Non pubblicata: cambia a ogni posizione e ridisegnerebbe la pagina Varco per niente (la legge solo Siri)
+    private(set) var here: Coordinate?
 
     private let manager = CLLocationManager()
-    private let voice = AVSpeechSynthesizer()
+    // La voce si crea solo quando serve: niente lavoro audio all'avvio dell'app
+    private lazy var voice: AVSpeechSynthesizer = {
+        let v = AVSpeechSynthesizer()
+        v.delegate = self
+        return v
+    }()
     private weak var store: Store?
     private var activity: Activity<DriveAttributes>?
     private var lastShown: DriveAttributes.ContentState?
@@ -41,7 +47,6 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = 15
         manager.pausesLocationUpdatesAutomatically = false
-        voice.delegate = self
     }
 
     /// Parte il guardiano e si apre il navigatore scelto verso la meta
@@ -57,7 +62,8 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         }
         manager.startUpdatingLocation()
         Task { _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) }
-        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .voicePrompt, options: [.duckOthers, .interruptSpokenAudioAndMixWithOthers])
+        VoiceSession.configure()
+        SpeechVoice.prepare()
         active = true
         startActivity()
         // Controllo ogni minuto anche senza movimento: con l'auto parcheggiata non arrivano posizioni nuove
@@ -78,7 +84,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         if manager.allowsBackgroundLocationUpdates { manager.allowsBackgroundLocationUpdates = false }
         if let activity { Task { await activity.end(nil, dismissalPolicy: .immediate) } }
         activity = nil; lastShown = nil
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        VoiceSession.deactivate()
         watchdog?.cancel(); watchdog = nil
         active = false; threat = nil; destination = nil
     }
@@ -113,7 +119,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
             }
         }
         let best = scan.threat
-        threat = best
+        if best != threat { threat = best }      // si pubblica solo se cambia davvero
 
         if let t = best {
             if t.meters < 550 && !alerted.contains("far|\(t.zone.id)") {
@@ -194,7 +200,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     // MARK: Voce e notifiche
 
     private func say(_ text: String) {
-        try? AVAudioSession.sharedInstance().setActive(true)
+        VoiceSession.activate()
         voice.speak(SpeechVoice.utterance(text))
     }
 
@@ -208,7 +214,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     /// Finito di parlare: la musica e il navigatore tornano al volume normale
     nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         guard !synthesizer.isSpeaking else { return }
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        VoiceSession.deactivate()
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

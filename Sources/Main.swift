@@ -11,11 +11,15 @@ struct GateLRApp: App {
                 .environmentObject(store)
                 // Solo per il giro automatico delle foto: forza il tema scuro
                 .preferredColorScheme(ProcessInfo.processInfo.arguments.contains("-uiDark") ? .dark : nil)
+                // Tutto dopo che le città sono pronte (si leggono in sottofondo, vedi Store.load)
                 .task {
+                    await store.whenLoaded()
                     Self.uiTestPlace(store)
+                    SpeechVoice.prepare()
                     await GateMonitor.shared.startIfReady(store: store)
                 }
                 .task {
+                    await store.whenLoaded()
                     await CityUpdater.shared.checkIfDue(store: store)
                 }
         }

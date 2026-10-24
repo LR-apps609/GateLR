@@ -18,7 +18,8 @@ struct MapScreen: View {
     @State private var style: Style = .standard
     @State private var tilted = false
     @State private var driving = false
-    @ObservedObject private var drive = DriveSession.shared
+    // DriveSession non si osserva qui: pubblica a ogni posizione e ridisegnava tutta la mappa (centinaia di varchi)
+    // anche sotto la schermata di guida
     @State private var parkings: [Parking] = []
     @State private var searchingParking = false
     @State private var parkingMessage: String?
@@ -58,20 +59,23 @@ struct MapScreen: View {
     var body: some View {
         let zone = store.zone
         let answer = store.answer()
-        let zones = store.cities.flatMap(\.zones).sorted { $0.roughArea > $1.roughArea }   // le grandi sotto
+        // Le forme pronte (ordinate, grandi sotto) si calcolano una volta per ogni versione dei dati, non a ogni disegno
+        let shapes = MapShapes.zones(store)
+        let zones = shapes.map(\.zone)
         MapReader { proxy in
             Map(position: $camera) {
-                ForEach(zones) { z in
+                ForEach(shapes) { shape in
+                    let z = shape.zone
                     let selected = z.id == zone.id
                     let tint = z.type.color
                     // Il verde (zone a basse emissioni) pieno e ben visibile; rosso e giallo tratteggiati
-                    MapPolygon(coordinates: z.perimeter.map(\.cl))
+                    MapPolygon(coordinates: shape.coords)
                         .foregroundStyle(tint.opacity(z.type == .green ? (selected ? 0.30 : 0.20) : (selected ? 0.24 : 0.13)))
                         .stroke(tint.opacity(selected || z.type == .green ? 1 : 0.7),
                                 style: StrokeStyle(lineWidth: z.type == .green ? 4 : (selected ? 3 : 2), dash: z.type == .green ? [] : [8, 5]))
                     // Un solo segno piccolo per zona: lettera e colore (la legenda spiega i colori)
-                    if z.widthMeters > distance * 0.06 {
-                        Annotation("", coordinate: z.labelPoint, anchor: .center) {
+                    if shape.width > distance * 0.06 {
+                        Annotation("", coordinate: shape.label, anchor: .center) {
                             letterBadge(z, selected: selected)
                                 .onTapGesture { withAnimation(.snappy) { select(z) } }
                                 .accessibilityLabel("\(z.localizedName), \(z.type.title)")
@@ -82,8 +86,8 @@ struct MapScreen: View {
                 // Da vicino: aree pedonali e telecamere delle corsie bus
                 if distance < 4_000 {
                     ForEach(store.cities.filter { isNear($0.center.cl) }) { city in
-                        ForEach(city.pedestrian ?? []) { a in
-                            MapPolygon(coordinates: a.perimeter.map(\.cl))
+                        ForEach(MapShapes.pedestrian(city, store)) { a in
+                            MapPolygon(coordinates: a.coords)
                                 .foregroundStyle(Theme.red.opacity(0.22))
                                 .stroke(Theme.red.opacity(0.7), lineWidth: 1)
                         }
@@ -101,7 +105,7 @@ struct MapScreen: View {
                     }
                 }
                 // Ogni varco con lo stato della sua zona
-                ForEach(zones.filter { $0.id == zone.id || (distance < 6_000 && isNear($0)) }) { z in
+                ForEach(shapes.filter { $0.zone.id == zone.id || (distance < 6_000 && isNear($0.label)) }.map(\.zone)) { z in
                     let on = store.engine.isActive(z, at: Date())
                     ForEach(z.gates) { g in
                         Annotation(g.name, coordinate: g.location.cl) {
@@ -157,7 +161,8 @@ struct MapScreen: View {
             }
             .onTapGesture { point in
                 guard let c = proxy.convert(point, from: .local) else { return }
-                if let z = zones.filter({ $0.contains(c) }).min(by: { $0.roughArea < $1.roughArea }), z.id != zone.id {
+                // Le forme sono già ordinate dalla più grande: l'ultima che contiene il punto è la più piccola
+                if let z = zones.last(where: { $0.contains(c) }), z.id != zone.id {
                     withAnimation(.snappy) { select(z) }
                 }
             }
@@ -192,8 +197,6 @@ struct MapScreen: View {
     }
 
     /// Solo le zone vicine al centro della mappa mostrano i varchi (non serve disegnare quelli di altre città)
-    private func isNear(_ z: Zone) -> Bool { isNear(z.labelPoint) }
-
     private func isNear(_ p: CLLocationCoordinate2D) -> Bool {
         let c = center ?? store.city.center.cl
         return abs(p.latitude - c.latitude) < 0.08 && abs(p.longitude - c.longitude) < 0.11
@@ -385,7 +388,7 @@ struct MapScreen: View {
                 StartControls(target: place, label: L("Start"), onStart: { target in
                     Task {
                         await DriveSession.shared.start(to: target, store: store)
-                        driving = drive.active
+                        driving = DriveSession.shared.active
                     }
                 }, onGuardian: { target, navigator in
                     Guardian.shared.start(to: target, with: navigator, store: store)
@@ -497,6 +500,56 @@ struct MapScreen: View {
         } catch {
             parkingMessage = L("Couldn't search car parks right now. Check your connection.")
         }
+    }
+}
+
+/// Le forme delle zone pronte per la mappa: coordinate già convertite, punto della lettera, larghezza,
+/// ordine dalla più grande. Prima si ricalcolava tutto a ogni disegno (perimetri da 800 punti, ordinamento
+/// che ricalcolava l'area a ogni confronto), anche più volte al secondo.
+@MainActor
+enum MapShapes {
+    struct Shape: Identifiable {
+        let zone: Zone
+        let coords: [CLLocationCoordinate2D]
+        let label: CLLocationCoordinate2D
+        let width: Double
+        var id: String { zone.id }
+    }
+    struct Area: Identifiable {
+        let id: String
+        let coords: [CLLocationCoordinate2D]
+    }
+
+    private static var version = -1
+    private static var shapes: [Shape] = []
+    private static var areas: [String: [Area]] = [:]
+
+    private static func refresh(_ store: Store) {
+        guard version != store.citiesVersion else { return }
+        version = store.citiesVersion
+        let ranked: [(zone: Zone, area: Double)] = store.cities.flatMap(\.zones).map { (zone: $0, area: $0.roughArea) }
+        shapes = ranked.sorted { $0.area > $1.area }                   // le grandi sotto
+            .map { Shape(zone: $0.zone, coords: $0.zone.perimeter.map(\.cl), label: $0.zone.labelPoint, width: $0.zone.widthMeters) }
+        areas = [:]
+    }
+
+    static func zones(_ store: Store) -> [Shape] {
+        refresh(store)
+        return shapes
+    }
+
+    /// Le aree pedonali di una città
+    static func pedestrian(_ city: City, _ store: Store) -> [Area] {
+        refresh(store)
+        if let hit = areas[city.id] { return hit }
+        let list = (city.pedestrian ?? []).map { Area(id: $0.id, coords: $0.perimeter.map(\.cl)) }
+        areas[city.id] = list
+        return list
+    }
+
+    /// Il perimetro di una zona già convertito (per la schermata di guida)
+    static func coords(_ zone: Zone, _ store: Store) -> [CLLocationCoordinate2D] {
+        zones(store).first { $0.zone.id == zone.id }?.coords ?? zone.perimeter.map(\.cl)
     }
 }
 

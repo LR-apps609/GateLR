@@ -100,7 +100,12 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     private(set) var signals: [(point: Coordinate, along: Double)] = []
 
     private let manager = CLLocationManager()
-    private let voice = AVSpeechSynthesizer()
+    // La voce si crea solo quando serve: niente lavoro audio all'avvio dell'app
+    private lazy var voice: AVSpeechSynthesizer = {
+        let v = AVSpeechSynthesizer()
+        v.delegate = self
+        return v
+    }()
     private weak var store: Store?
     private var secondsPerMeter = 0.08
     private var announced = Set<String>()
@@ -133,7 +138,6 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         manager.activityType = .automotiveNavigation
         manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
         manager.distanceFilter = 5
-        voice.delegate = self
     }
 
     // MARK: Inizio e fine
@@ -147,7 +151,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         guard await route(from: origin, to: place) else { return }
         active = true
         UIApplication.shared.isIdleTimerDisabled = true
-        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .voicePrompt, options: [.duckOthers, .interruptSpokenAudioAndMixWithOthers])
+        VoiceSession.configure()
+        SpeechVoice.prepare()
         if Bundle.main.object(forInfoDictionaryKey: "UIBackgroundModes") != nil {
             manager.allowsBackgroundLocationUpdates = true
             manager.showsBackgroundLocationIndicator = true
@@ -162,7 +167,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         manager.stopUpdatingLocation()
         if manager.allowsBackgroundLocationUpdates { manager.allowsBackgroundLocationUpdates = false }
         voice.stopSpeaking(at: .immediate)
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        VoiceSession.deactivate()
         UIApplication.shared.isIdleTimerDisabled = false
         if let activity {
             Task { await activity.end(nil, dismissalPolicy: .immediate) }
@@ -257,9 +262,11 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
 
         // ZTL davanti: avviso a voce verso i 500 metri, se a quell'ora non si entra liberamente
         // La prossima ZTL sul percorso, sempre visibile (anche se è lontana o non attiva)
+        // «remaining» calcolato una volta sola, non due per ogni ZTL del percorso
+        let left = remaining
         nextZTL = crossings.compactMap { c -> (RouteCrossing, Double, Answer)? in
             guard let entry = c.entry, let store, !c.zone.contains(lat: p.lat, lon: p.lon) else { return nil }
-            let ahead = PathMath.remaining(from: p, along: path) - PathMath.remaining(from: entry, along: path)
+            let ahead = left - PathMath.remaining(from: entry, along: path)
             guard ahead > 0 else { return nil }
             return (c, ahead, store.answer(at: Date().addingTimeInterval(ahead * secondsPerMeter), zone: c.zone, hotelInside: false))
         }.min { $0.1 < $1.1 }.map { (crossing: $0.0, meters: $0.1, answer: $0.2) }
@@ -327,7 +334,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
 
     private func say(_ text: String) {
         guard !muted, !text.isEmpty else { return }
-        try? AVAudioSession.sharedInstance().setActive(true)
+        VoiceSession.activate()
         voice.speak(SpeechVoice.utterance(text, rate: 1.02))
     }
 
@@ -336,7 +343,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     /// Finito di parlare: la musica e il navigatore tornano al volume normale
     nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         guard !synthesizer.isSpeaking else { return }
-        try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        VoiceSession.deactivate()
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

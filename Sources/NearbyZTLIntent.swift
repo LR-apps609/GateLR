@@ -13,6 +13,7 @@ struct NearbyZTLIntent: AppIntent {
         guard let here = await Self.location() else {
             return .result(dialog: IntentDialog(stringLiteral: L("I can't find your position. Open GateLR and allow location access.")))
         }
+        await Store.shared.whenLoaded()          // con l'app appena aperta da Siri le città si stanno ancora leggendo
         return .result(dialog: IntentDialog(stringLiteral: Self.answer(at: here, store: Store.shared)))
     }
 

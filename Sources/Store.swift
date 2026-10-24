@@ -6,7 +6,14 @@ import SwiftUI
 final class Store: ObservableObject {
     static let shared = Store()
 
-    @Published var cities: [City] = CityLoader.shared
+    /// Le città si leggono in sottofondo (Store.load): fino ad allora c'è la città di esempio e RootView mostra
+    /// la schermata d'avvio. Così il primo fotogramma arriva subito, invece di uno schermo nero di qualche secondo.
+    @Published var cities: [City] = [SampleData.florence] { didSet { citiesVersion &+= 1 } }
+    /// Vero quando le città vere sono pronte
+    @Published private(set) var loaded = false
+    /// Cambia a ogni nuovo elenco di città: le forme pronte per la mappa si ricalcolano solo allora
+    private(set) var citiesVersion = 0
+    private var loading: Task<Void, Never>?
     @Published var cityId: String = "firenze" {
         didSet { if !city.zones.contains(where: { $0.id == zoneId }) { zoneId = city.zones[0].id } }
     }
@@ -43,6 +50,20 @@ final class Store: ObservableObject {
         } else {
             vehicles = [SampleData.rental]; activeVehicleId = SampleData.rental.id; permits = []; trips = []
         }
+        loading = Task { await self.load() }
+    }
+
+    /// Lettura e decodifica dei JSON delle città fuori dal thread principale (milano e firenze sono grandi)
+    private func load() async {
+        let fresh = await Task.detached(priority: .userInitiated) { CityLoader.shared }.value
+        cities = fresh
+        if !city.zones.contains(where: { $0.id == zoneId }) { zoneId = city.zones[0].id }
+        loaded = true
+    }
+
+    /// Aspetta che le città vere siano pronte (avvisi, Siri, CarPlay, giro delle foto)
+    func whenLoaded() async {
+        await loading?.value
     }
 
     private func save() {
@@ -185,18 +206,20 @@ enum CityLoader {
     static let shared: [City] = best()
 
     static func best() -> [City] {
-        let mine = bundled()
-        guard let newer = downloaded(), (downloadedVersion ?? "") > (bundledVersion ?? "") else { return mine }
+        guard (downloadedVersion ?? "") > (bundledVersion ?? ""), let newer = downloaded() else { return bundled() }
         // Le città scaricate sostituiscono quelle dell'app con lo stesso id; le altre restano
+        // (e quelle sostituite non si decodificano nemmeno: si risparmia metà del lavoro all'avvio)
         let ids = Set(newer.map(\.id))
+        let mine = bundled(skipping: ids)
         return (newer + mine.filter { !ids.contains($0.id) }).sorted { $0.name < $1.name }
     }
 
-    static func bundled() -> [City] {
+    /// I file sono «<id>.json»: quelli in «skipping» non si leggono
+    static func bundled(skipping ids: Set<String> = []) -> [City] {
         let urls = (Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: "Cities") ?? [])
-            .filter { $0.lastPathComponent != "manifest.json" }
+            .filter { $0.lastPathComponent != "manifest.json" && !ids.contains($0.deletingPathExtension().lastPathComponent) }
         let cities = urls.compactMap { try? decode(Data(contentsOf: $0)) }.sorted { $0.name < $1.name }
-        return cities.isEmpty ? [SampleData.florence] : cities
+        return cities.isEmpty && ids.isEmpty ? [SampleData.florence] : cities
     }
 
     struct Manifest: Codable {
@@ -206,11 +229,12 @@ enum CityLoader {
         var cities: [Entry]
     }
 
-    static var bundledVersion: String? {
+    /// Letta una volta sola (Account la mostra a ogni aggiornamento della pagina)
+    static let bundledVersion: String? = {
         guard let url = Bundle.main.url(forResource: "manifest", withExtension: "json", subdirectory: "Cities"),
               let data = try? Data(contentsOf: url) else { return nil }
         return (try? JSONDecoder().decode(Manifest.self, from: data))?.version
-    }
+    }()
 
     /// Dove si salvano le città scaricate (Application Support/Cities)
     static var downloadDir: URL? {

@@ -35,19 +35,28 @@ final class CityUpdater: ObservableObject {
             let (data, _) = try await URLSession.shared.data(from: Self.base.appendingPathComponent("manifest.json"))
             let manifest = try JSONDecoder().decode(CityLoader.Manifest.self, from: data)
             guard manifest.schema == 1, manifest.version > currentVersion else { state = .upToDate; return }
-            var files: [(String, Data)] = []
+            var files: [(String, Data, String)] = []
             for entry in manifest.cities {
                 let (d, _) = try await URLSession.shared.data(from: Self.base.appendingPathComponent(entry.file))
-                let hash = SHA256.hash(data: d).map { String(format: "%02x", $0) }.joined()
-                guard hash == entry.sha256, (try? CityLoader.decode(d))?.zones.isEmpty == false else { state = .failed; return }
-                files.append((entry.file, d))
+                files.append((entry.file, d, entry.sha256))
             }
-            guard let dir = CityLoader.downloadDir else { state = .failed; return }
-            try? FileManager.default.removeItem(at: dir)
-            try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
-            for (name, d) in files { try d.write(to: dir.appendingPathComponent(name), options: .atomic) }
-            UserDefaults.standard.set(manifest.version, forKey: "cities.version")
-            store.cities = CityLoader.best()
+            // Impronta, prova di lettura, salvataggio e nuova lettura delle città: tutto fuori dal thread principale
+            // (prima si faceva qui, sul principale, e al ritorno dell'app la bloccava per qualche istante)
+            let version = manifest.version, all = files
+            let fresh: [City]? = try await Task.detached(priority: .utility) { () throws -> [City]? in
+                for (_, d, sha) in all {
+                    let hash = SHA256.hash(data: d).map { String(format: "%02x", $0) }.joined()
+                    guard hash == sha, (try? CityLoader.decode(d))?.zones.isEmpty == false else { return nil }
+                }
+                guard let dir = CityLoader.downloadDir else { return nil }
+                try? FileManager.default.removeItem(at: dir)
+                try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
+                for (name, d, _) in all { try d.write(to: dir.appendingPathComponent(name), options: .atomic) }
+                UserDefaults.standard.set(version, forKey: "cities.version")
+                return CityLoader.best()
+            }.value
+            guard let fresh else { state = .failed; return }
+            store.cities = fresh
             state = .updated(manifest.version)
         } catch {
             state = .failed

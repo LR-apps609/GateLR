@@ -8,7 +8,25 @@ struct RootView: View {
     @State private var tab: Tab = .varco
     @State private var showZone = false
 
+    @State private var whatsNew = false
+
     var body: some View {
+        // Finché le città non sono pronte (si leggono in sottofondo) si vede la stessa schermata d'avvio di iOS
+        Group {
+            if store.loaded { tabs } else { LaunchSplash() }
+        }
+        .onOpenURL { url in
+            switch url.host {
+            case "map": tab = .map
+            case "trip": tab = .trip
+            case "garage": tab = .garage
+            case "account": tab = .account
+            default: tab = .varco
+            }
+        }
+    }
+
+    private var tabs: some View {
         TabView(selection: $tab) {
             VarcoView(showZone: $showZone, tab: $tab)
                 .tabItem { Label("Gate", systemImage: "smallcircle.filled.circle") }.tag(Tab.varco)
@@ -23,17 +41,18 @@ struct RootView: View {
         }
         .tint(Theme.red)
         .sensoryFeedback(.selection, trigger: tab)
-        .onOpenURL { url in
-            switch url.host {
-            case "map": tab = .map
-            case "trip": tab = .trip
-            case "garage": tab = .garage
-            case "account": tab = .account
-            default: tab = .varco
-            }
-        }
         .sheet(isPresented: $showZone) {
             NavigationStack { ZoneDetailView(zone: store.zone, city: store.city) }
+        }
+        // «Novità»: una volta sola dopo ogni aggiornamento, mai al primo avvio (c'è la presentazione)
+        .sheet(isPresented: $whatsNew) {
+            WhatsNewView { whatsNew = false }
+        }
+        .task {
+            if WhatsNewView.shouldShow(onboarded: onboarded) {
+                try? await Task.sleep(for: .milliseconds(500))      // dopo che la pagina è comparsa
+                whatsNew = true
+            }
         }
         .fullScreenCover(isPresented: Binding(get: { RootView.showOnboarding(onboarded) },
                                               set: { if !$0 { onboarded = true } })) {
@@ -48,5 +67,16 @@ struct RootView: View {
         let args = ProcessInfo.processInfo.arguments
         if args.contains("-showOnboarding") { return !onboarded }
         return !onboarded && !args.contains("-uitest")
+    }
+}
+
+/// La stessa schermata d'avvio di iOS (UILaunchScreen in project.yml): fondo blu e logo al centro
+struct LaunchSplash: View {
+    var body: some View {
+        ZStack {
+            Color("LaunchBackground").ignoresSafeArea()
+            Image("LaunchLogo").accessibilityHidden(true)
+        }
+        .accessibilityLabel("GateLR")
     }
 }

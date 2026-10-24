@@ -16,7 +16,6 @@ targets:
   GateLR:
     type: application
     platform: iOS
-    scheme: {}
     dependencies:
       - target: GateLRWidget          # widget per Home e schermata di blocco, incluso nell'app
     sources:
@@ -57,7 +56,12 @@ targets:
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         LSRequiresIPhoneOS: true
         UIAppFonts: [TitilliumWeb-Bold.ttf, TitilliumWeb-Black.ttf, TitilliumWeb-SemiBold.ttf]
-        UILaunchScreen: {}
+        # Schermata d'avvio con il marchio (prima era vuota: nera in modalità scura per tutto il caricamento).
+        # La stessa la ridisegna LaunchSplash finché le città non sono lette, così il passaggio non si vede.
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+          UIImageName: LaunchLogo
+          UIImageRespectsSafeAreaInsets: true
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         NSHumanReadableCopyright: "Uso personale di Ledion"
         NSCameraUsageDescription: "GateLR reads the hours on the ZTL panel you point the camera at."
@@ -158,6 +162,19 @@ targets:
         TEST_TARGET_NAME: GateLR
 
 schemes:
+  # ▶︎ in Xcode installa la versione ottimizzata (Release): quella di debug è molte volte più lenta sul telefono
+  # (lettura delle città, mappe, calcoli a ogni posizione) e allungava l'avvio. La compilazione su GitHub sceglie
+  # la configurazione da sé (-configuration Debug), quindi non cambia.
+  GateLR:
+    build:
+      targets:
+        GateLR: all
+    run:
+      config: Release
+    profile:
+      config: Release
+    archive:
+      config: Release
   GateLRUITests:
     build:
       targets:

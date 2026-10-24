@@ -75,7 +75,7 @@ struct DriveView: View {
     private var map: some View {
         Map(position: $camera) {
             ForEach(drive.crossings) { c in
-                MapPolygon(coordinates: c.zone.perimeter.map(\.cl))
+                MapPolygon(coordinates: MapShapes.coords(c.zone, store))   // già convertito, non a ogni posizione
                     .foregroundStyle(c.zone.type.color.opacity(c.zone.type == .green ? 0.18 : 0.14))
                     .stroke(c.zone.type.color, style: StrokeStyle(lineWidth: c.zone.type == .green ? 4 : 2.5, dash: c.zone.type == .green ? [] : [8, 5]))
             }

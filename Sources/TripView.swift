@@ -17,7 +17,7 @@ struct TripView: View {
     @State private var resolving = false
     @State private var driving = false
     @State private var hotelName = ""
-    @ObservedObject private var drive = DriveSession.shared
+    // DriveSession non si osserva qui (pubblica a ogni posizione): l'errore lo mostra DriveErrorText
     @State private var language: MessageLanguage = .en
     @State private var copied = false
     @State private var saved = false
@@ -162,7 +162,9 @@ struct TripView: View {
             .frame(maxWidth: 220)
             Spacer(minLength: 0)
             if atArrival {
-                DatePicker(L("Arrival"), selection: $arrival, in: Date()...)
+                // Il minimo arrotondato al minuto: con «Date()» il limite cambiava a ogni disegno e, con l'arrivo
+                // già passato (app ripresa dopo ore), il selettore correggeva la data → nuovo disegno → di nuovo
+                DatePicker(L("Arrival"), selection: $arrival, in: Self.minuteFloor(Date())...)
                     .labelsHidden()
                     .transition(.opacity)
             }
@@ -230,12 +232,12 @@ struct TripView: View {
             RouteCard(plan: plan, onMap: { tab = .map }, onStart: { target in
                 Task {
                     await DriveSession.shared.start(to: target, store: store)
-                    driving = drive.active
+                    driving = DriveSession.shared.active
                 }
             }, onGuardian: { target, navigator in
                 Guardian.shared.start(to: target, with: navigator, store: store)
             })
-            if let e = drive.error { Text(e).font(.app(size: 13)).foregroundStyle(Theme.red) }
+            DriveErrorText()
         } else {
             VStack(alignment: .leading, spacing: 8) {
                 WideButton(title: planner.working ? "Planning…" : "Check the drive", systemImage: "car.fill") {
@@ -491,6 +493,10 @@ struct TripView: View {
         .padding(14).card()
     }
 
+    static func minuteFloor(_ d: Date) -> Date {
+        Date(timeIntervalSinceReferenceDate: (d.timeIntervalSinceReferenceDate / 60).rounded(.down) * 60)
+    }
+
     /// La prossima volta che sono le «hour» (oggi o domani), più «days» giorni
     static func upcoming(hour: Int, days: Int = 0) -> Date {
         let next = Calendar.current.nextDate(after: Date(), matching: DateComponents(hour: hour, minute: 0, second: 0), matchingPolicy: .nextTime) ?? Date()
@@ -507,6 +513,14 @@ struct TripView: View {
         let c = Calendar.current
         let comps = DateComponents(hour: hour, minute: 0, second: 0, weekday: weekday)
         return c.nextDate(after: Date(), matching: comps, matchingPolicy: .nextTime) ?? Date()
+    }
+}
+
+/// L'errore dell'ultima guida avviata: solo questa piccola vista osserva DriveSession
+private struct DriveErrorText: View {
+    @ObservedObject private var drive = DriveSession.shared
+    var body: some View {
+        if let e = drive.error { Text(e).font(.app(size: 13)).foregroundStyle(Theme.red) }
     }
 }
 

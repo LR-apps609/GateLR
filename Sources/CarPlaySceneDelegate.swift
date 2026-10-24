@@ -10,6 +10,7 @@ final class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegat
     func templateApplicationScene(_ scene: CPTemplateApplicationScene, didConnect interfaceController: CPInterfaceController) {
         self.interfaceController = interfaceController
         Task { @MainActor in
+            await Store.shared.whenLoaded()      // prima le città vere, poi lo schermo
             interfaceController.setRootTemplate(self.template(), animated: false, completion: nil)
             // La ZTL davanti cambia mentre guidi: lo schermo si aggiorna da solo (al più ogni 3 secondi)
             self.watch = Guardian.shared.$threat.map { _ in () }
