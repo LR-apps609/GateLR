@@ -6,7 +6,10 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 ## ★ Novità 1.9 «Navigatore» (prima queste)
 - [ ] Mappa → cerca un hotel → nella scheda **«Avvia»** parte subito (navigatore preferito + guardiano), senza passare da Viaggio; «Dettagli del viaggio» porta a Viaggio
 - [ ] Senza navigatore preferito: scegli Google Maps dal menu → domanda **«Usare sempre Google Maps?»** → «Sempre» lo salva (Account → Navigatore preferito)
-- [ ] Navigatore di GateLR 🚗: pulsante **Vista** in basso → Guida 3D (camera bassa, strada che arriva ben visibile), Classica, Satellite, Notte
+- [ ] Navigatore di GateLR 🚗: pulsante **Vista** in basso → Guida 3D, Classica, Satellite, Notte
+- [ ] **Guida 3D** (stile nuovo): percorso verde smeraldo luminoso, camera bassa dietro l'auto, pannello manovra scuro, velocità nel cerchio bianco in alto a sinistra
+- [ ] **Semafori** disegnati lungo la strada davanti (Firenze, Bologna, Milano) e il cartellino «semaforo tra … m»
+- [ ] **Barra del viaggio** a destra: verde la strada, rossa/gialla dove entri in una ZTL attiva, l'auto che sale
 - [ ] Percorso: fascia blu larga con bordo scuro; la **freccia della prossima svolta** disegnata sulla strada; nelle rotonde il blu non diventa grigio prima del tempo
 - [ ] Zoom con due dita o inclinazione → compare **«Ricentra»**
 - [ ] Account → **Veicolo sulla mappa**: Berlina / SUV / Utilitaria / Moto, scegli il colore → in guida il modellino gira con l'auto
