@@ -61,7 +61,7 @@ targets:
         # Navigazione: posizione e voce anche con lo schermo spento o un'altra app davanti
         UIBackgroundModes: [location, audio]
         NSSupportsLiveActivities: true
-        NSLocationAlwaysAndWhenInUseUsageDescription: "GateLR warns you before a ZTL gate even when the app is closed."
+        NSLocationAlwaysAndWhenInUseUsageDescription: "GateLR warns you before a ZTL gate while you drive with another navigator, and when the app is closed."
         # CarPlay: la scena si attiva solo quando Apple concede l'autorizzazione «Driving Task»
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: true

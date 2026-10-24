@@ -323,6 +323,15 @@ for i, code in enumerate(["it", "de"]):
     d = root / f"{code}.lproj"; d.mkdir(parents=True, exist_ok=True)
     lines = [f'"{esc(k)}" = "{esc(v[i])}";' for k, v in T.items()]
     (d / "Localizable.strings").write_text("/* Generato da Tools/translations.py */\n" + "\n".join(lines) + "\n", encoding="utf-8")
+# Le frasi delle richieste di permesso di iOS (InfoPlist.strings)
+INFO = {
+    "NSLocationWhenInUseUsageDescription": ("GateLR usa la tua posizione per dirti quali varchi ZTL hai vicino.", "GateLR nutzt deinen Standort, um dir die ZTL-Einfahrten in deiner Nähe zu zeigen."),
+    "NSLocationAlwaysAndWhenInUseUsageDescription": ("GateLR ti avvisa prima di un varco ZTL mentre guidi con un altro navigatore e quando l'app è chiusa.", "GateLR warnt dich vor einer ZTL-Einfahrt, während du mit einem anderen Navi fährst, und wenn die App geschlossen ist."),
+    "NSCameraUsageDescription": ("GateLR legge gli orari sul pannello ZTL che inquadri.", "GateLR liest die Zeiten auf der ZTL-Tafel, auf die du die Kamera richtest."),
+}
+for i, code in enumerate(["it", "de"]):
+    lines = [f'"{k}" = "{esc(v[i])}";' for k, v in INFO.items()]
+    (root / f"{code}.lproj" / "InfoPlist.strings").write_text("/* Generato da Tools/translations.py */\n" + "\n".join(lines) + "\n", encoding="utf-8")
 en = root / "en.lproj"; en.mkdir(parents=True, exist_ok=True)
 (en / "Localizable.strings").write_text("/* Inglese: le chiavi sono già il testo */\n", encoding="utf-8")
 print(len(T), "testi")

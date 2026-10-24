@@ -1,0 +1,4 @@
+/* Generato da Tools/translations.py */
+"NSLocationWhenInUseUsageDescription" = "GateLR nutzt deinen Standort, um dir die ZTL-Einfahrten in deiner Nähe zu zeigen.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "GateLR warnt dich vor einer ZTL-Einfahrt, während du mit einem anderen Navi fährst, und wenn die App geschlossen ist.";
+"NSCameraUsageDescription" = "GateLR liest die Zeiten auf der ZTL-Tafel, auf die du die Kamera richtest.";
