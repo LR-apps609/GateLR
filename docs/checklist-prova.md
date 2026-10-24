@@ -15,6 +15,12 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 - [ ] Account → **Veicolo sulla mappa**: Berlina / SUV / Utilitaria / Moto, scegli il colore → in guida il modellino gira con l'auto
 - [ ] Voce: le vie si capiscono (es. «Via Gramsci»). Se no: Account → «Voce migliore» → scarica Alice Premium → riprova
 - [ ] Guardiano con **Apple Maps**: nell'isola resta un **pallino con lo scudo** verde (nessuna ZTL attiva davanti) / giallo / rosso; con Google Maps: scudo + distanza
+- [ ] **Nuove città (bozza, perimetri da OpenStreetMap)**: in Varco compaiono **Roma** e **Siena**
+  - [ ] Viaggio → «Pantheon» → Roma Centro: lun–ven 6:30–18 «Non entrare», sabato dalle 14; di notte ven/sab 23–3
+  - [ ] «Piazza di Spagna» → Tridente; «Santa Maria in Trastevere» → Trastevere
+  - [ ] «Stazione Termini» → fuori dalla ZTL
+  - [ ] «Piazza del Campo» → Siena: sempre «Non entrare» (ZTL 24 ore su 24)
+  - [ ] Mappa: i confini di Roma e Siena sono credibili (controlla con i cartelli quando sei lì)
 - [ ] **Siri**: «Ehi Siri, ZTL vicine con GateLR» (anche a telefono bloccato) → «Settore A è a 400 metri: Non entrare. I varchi si spengono oggi alle 20:00»
 
 ## 0. Installazione (Windows con Sideloadly, oppure Mac: vedi `docs/windows.md`)
