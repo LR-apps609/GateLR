@@ -3,8 +3,9 @@
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
 
-## 0. Installazione (Mac)
-- [ ] Terminale: `osascript -e 'quit app "Xcode"'` poi `cd ~/Developer/GateLR && git pull && zsh "Installa su iPhone.command"`
+## 0. Installazione (Windows con Sideloadly, oppure Mac: vedi `docs/windows.md`)
+- [ ] **Windows**: Actions → «Compila GateLR» → Artifacts → GateLR-iPhone-ipa → Sideloadly → Start
+- [ ] **Mac**: Terminale: `osascript -e 'quit app "Xcode"'` poi `cd ~/Developer/GateLR && git pull && zsh "Installa su iPhone.command"`
 - [ ] Lo script scrive «Versione: 1.8.1»
 - [ ] Xcode: Team su **GateLR** e **GateLRWidget**, iPhone scelto in alto, ▶︎
 - [ ] Account → in fondo **Versione 1.8.1**

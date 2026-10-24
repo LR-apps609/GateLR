@@ -72,6 +72,26 @@ jobs:
           grep -E "error:" test.log | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
           exit $status
 
+      # Per installare dall'iPhone collegato a Windows con Sideloadly (vedi docs/windows.md): app per iPhone vero, senza firma
+      - name: App per iPhone (.ipa per Sideloadly)
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        run: |
+          V=$(grep -m1 "MARKETING_VERSION" project.yml | grep -oE "[0-9]+\.[0-9]+\.[0-9]+")
+          xcodebuild -project GateLR.xcodeproj -scheme GateLR -configuration Release \
+            -destination 'generic/platform=iOS' -derivedDataPath build-device \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build > device.log 2>&1 \
+            || { grep -E "error:" device.log | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::${l:0:300}"; done; exit 1; }
+          mkdir -p ipa/Payload && cp -R build-device/Build/Products/Release-iphoneos/GateLR.app ipa/Payload/
+          (cd ipa && zip -qry "../GateLR-$V.ipa" Payload)
+          echo "::notice::App per iPhone pronta: GateLR-$V.ipa ($(du -h "GateLR-$V.ipa" | cut -f1))"
+      - uses: actions/upload-artifact@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          name: GateLR-iPhone-ipa
+          path: GateLR-*.ipa
+          if-no-files-found: warn
+
       - name: Foto dell'app (giro nel simulatore)
         run: |
           SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
