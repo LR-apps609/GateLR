@@ -31,14 +31,14 @@ struct TicketCard: View {
             Label {
                 Text(ticket.deadline == "nextDayMidnight"
                      ? String(format: L("Activate it by %@."), deadline.formatted(.dateTime.weekday(.wide).day().month().hour().minute()))
-                     : L("Buy and activate it before you drive in.")).font(.system(size: 15, weight: .semibold))
+                     : L("Buy and activate it before you drive in.")).font(.app(size: 15, weight: .semibold))
             } icon: { Image(systemName: "clock.badge.exclamationmark").foregroundStyle(Theme.amber) }
-            Text(ticket.localizedHowTo).font(.system(size: 14)).foregroundStyle(Theme.muted)
+            Text(ticket.localizedHowTo).font(.app(size: 14)).foregroundStyle(Theme.muted)
             HStack(spacing: 10) {
                 if let url = ticket.url {
                     Link(destination: url) {
                         Label("Pay the ticket", systemImage: "creditcard")
-                            .font(.system(size: 15, weight: .semibold))
+                            .font(.app(size: 15, weight: .semibold))
                             .frame(maxWidth: .infinity, minHeight: 46)
                             .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                             .foregroundStyle(.white)
@@ -46,7 +46,7 @@ struct TicketCard: View {
                 }
                 Button { remind() } label: {
                     Label(reminded ? L("Reminder set") : L("Remind me"), systemImage: reminded ? "checkmark" : "bell")
-                        .font(.system(size: 15, weight: .semibold))
+                        .font(.app(size: 15, weight: .semibold))
                         .frame(maxWidth: .infinity, minHeight: 46)
                         .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                         .foregroundStyle(Theme.blue)

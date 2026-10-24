@@ -15,11 +15,11 @@ struct AccountView: View {
                 Section {
                     HStack(spacing: 14) {
                         Image(systemName: "person.crop.circle.fill")
-                            .font(.system(size: 46)).foregroundStyle(Theme.muted.opacity(0.6))
+                            .font(.app(size: 46)).foregroundStyle(Theme.muted.opacity(0.6))
                         VStack(alignment: .leading, spacing: 3) {
                             Text("Your GateLR").font(Theme.display(22)).foregroundStyle(Theme.ink)
                             Text("No account needed: your cars, permits and trips stay on this iPhone.")
-                                .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                                .font(.app(size: 13)).foregroundStyle(Theme.muted)
                         }
                     }
                     .padding(.vertical, 4)
@@ -49,11 +49,11 @@ struct AccountView: View {
 
                 Section {
                     HStack(spacing: 12) {
-                        Image(systemName: "star.circle.fill").font(.system(size: 28)).foregroundStyle(Theme.brass)
+                        Image(systemName: "star.circle.fill").font(.app(size: 28)).foregroundStyle(Theme.brass)
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("GateLR Plus").font(.system(size: 16, weight: .semibold))
+                            Text("GateLR Plus").font(.app(size: 16, weight: .semibold))
                             Text("Coming soon: more cities, trip alerts and sync between devices.")
-                                .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                                .font(.app(size: 13)).foregroundStyle(Theme.muted)
                         }
                         Spacer()
                         Pill(text: L("Soon"), fill: Theme.brass.opacity(0.18), ink: Theme.brass)
@@ -113,7 +113,7 @@ struct AccountView: View {
                             Spacer()
                             Text(c.status == .verified ? L("verified") : c.status == .sample ? L("sample data")
                                  : String(format: L("draft · %lld zones"), c.zones.count))
-                                .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                                .font(.app(size: 13)).foregroundStyle(Theme.muted)
                         }
                     }
                 }
@@ -160,10 +160,10 @@ struct LearnZTLView: View {
                     BusLane().frame(width: 150, height: 96)
                 }
                 lesson("Low-emission zones", "In zones like Milan's Area B the question isn't the time but your car: the most polluting Euro classes can't enter on weekdays. Set your car in Garage and GateLR checks it for you.") {
-                    Image(systemName: "leaf.circle.fill").font(.system(size: 64)).foregroundStyle(ZoneKind.green.color)
+                    Image(systemName: "leaf.circle.fill").font(.app(size: 64)).foregroundStyle(ZoneKind.green.color)
                 }
                 lesson("Drove in by mistake?", "Don't drive around inside looking for a way out: every gate you pass can mean another fine. Exit at the nearest point and, if you're staying at a hotel inside, call it straight away: often it can still register your plate.") {
-                    Image(systemName: "phone.arrow.up.right").font(.system(size: 34, weight: .semibold)).foregroundStyle(Theme.blue)
+                    Image(systemName: "phone.arrow.up.right").font(.app(size: 34, weight: .semibold)).foregroundStyle(Theme.blue)
                         .frame(width: 70, height: 70).background(Theme.blueSoft, in: Circle())
                 }
                 if let fine = FineInfo.bundled {
@@ -184,7 +184,7 @@ struct LearnZTLView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack { Spacer(); art(); Spacer() }.padding(.vertical, 6)
             Text(L(title)).font(Theme.display(24)).foregroundStyle(Theme.ink)
-            Text(L(text)).font(.system(size: 15)).foregroundStyle(Theme.muted).fixedSize(horizontal: false, vertical: true)
+            Text(L(text)).font(.app(size: 15)).foregroundStyle(Theme.muted).fixedSize(horizontal: false, vertical: true)
         }
         .padding(18).frame(maxWidth: .infinity, alignment: .leading).card(20)
     }
@@ -196,9 +196,9 @@ struct ZTLSign: View {
         VStack(spacing: 4) {
             Circle().fill(.white).overlay(Circle().stroke(Color(hex: 0xC1272D), lineWidth: 9)).frame(width: 64, height: 64)
             VStack(spacing: 0) {
-                Text("ZONA").font(.system(size: 9, weight: .heavy))
-                Text("TRAFFICO").font(.system(size: 9, weight: .heavy))
-                Text("LIMITATO").font(.system(size: 9, weight: .heavy))
+                Text("ZONA").font(.app(size: 9, weight: .heavy))
+                Text("TRAFFICO").font(.app(size: 9, weight: .heavy))
+                Text("LIMITATO").font(.app(size: 9, weight: .heavy))
             }
             .foregroundStyle(Color(hex: 0x1B2128))
             .padding(.horizontal, 6).padding(.vertical, 3)
@@ -214,8 +214,8 @@ struct GatePanel: View {
     var on: Bool
     var body: some View {
         VStack(spacing: 2) {
-            Text(verbatim: "ZTL").font(.system(size: 15, weight: .heavy, design: .monospaced))
-            Text(verbatim: on ? "ATTIVA" : "NON ATTIVA").font(.system(size: 15, weight: .heavy, design: .monospaced))
+            Text(verbatim: "ZTL").font(.app(size: 15, weight: .heavy, design: .monospaced))
+            Text(verbatim: on ? "ATTIVA" : "NON ATTIVA").font(.app(size: 15, weight: .heavy, design: .monospaced))
         }
         .foregroundStyle(on ? Color(hex: 0xFF4B3E) : Color(hex: 0x4BE37A))
         .frame(maxWidth: .infinity).padding(.vertical, 12)
@@ -229,10 +229,10 @@ struct GatePanel: View {
 struct HoursPanel: View {
     var body: some View {
         VStack(spacing: 2) {
-            Text(verbatim: "7.30 – 20.00").font(.system(size: 17, weight: .heavy, design: .rounded))
-            Text(verbatim: "FERIALI").font(.system(size: 11, weight: .heavy))
+            Text(verbatim: "7.30 – 20.00").font(.app(size: 17, weight: .heavy, design: .rounded))
+            Text(verbatim: "FERIALI").font(.app(size: 11, weight: .heavy))
             Rectangle().frame(height: 1).padding(.vertical, 3)
-            Text(verbatim: "CONTROLLO ELETTRONICO").font(.system(size: 9, weight: .heavy))
+            Text(verbatim: "CONTROLLO ELETTRONICO").font(.app(size: 9, weight: .heavy))
         }
         .foregroundStyle(Color(hex: 0x1B2128))
         .padding(10).frame(maxWidth: .infinity)
@@ -248,8 +248,8 @@ struct PedestrianSign: View {
         RoundedRectangle(cornerRadius: 8).fill(Color(hex: 0x1F4E9E))
             .overlay(RoundedRectangle(cornerRadius: 6).stroke(.white, lineWidth: 3).padding(4))
             .overlay(HStack(spacing: -4) {
-                Image(systemName: "figure.walk").font(.system(size: 34, weight: .bold))
-                Image(systemName: "figure.and.child.holdinghands").font(.system(size: 28, weight: .bold))
+                Image(systemName: "figure.walk").font(.app(size: 34, weight: .bold))
+                Image(systemName: "figure.and.child.holdinghands").font(.app(size: 28, weight: .bold))
             }.foregroundStyle(.white))
             .accessibilityHidden(true)
     }
@@ -268,7 +268,7 @@ struct BusLane: View {
                 Rectangle().fill(.white).frame(width: 4)
             }
             .padding(.horizontal, 12)
-            Text(verbatim: "BUS").font(.system(size: 26, weight: .black)).foregroundStyle(Color(hex: 0xF2C14E))
+            Text(verbatim: "BUS").font(.app(size: 26, weight: .black)).foregroundStyle(Color(hex: 0xF2C14E))
                 .offset(x: 34)
         }
         .accessibilityHidden(true)

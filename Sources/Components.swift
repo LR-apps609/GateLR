@@ -69,7 +69,7 @@ struct Pill: View {
     var ink: Color
     var body: some View {
         Text(text)
-            .font(.system(size: 12, weight: .semibold))
+            .font(.app(size: 12, weight: .semibold))
             .padding(.horizontal, 9).padding(.vertical, 4)
             .background(fill, in: Capsule())
             .foregroundStyle(ink)
@@ -100,7 +100,7 @@ struct VerdictCard: View {
             }
             HStack(spacing: 14) {
                 Image(systemName: v.symbol)
-                    .font(.system(size: 26, weight: .heavy))
+                    .font(.app(size: 26, weight: .heavy))
                     .foregroundStyle(v.badgeInk)
                     .frame(width: 56, height: 56)
                     .background(v.badgeFill, in: Circle())
@@ -114,20 +114,20 @@ struct VerdictCard: View {
                 .accessibilityLabel(v.title)
                 .accessibilityAddTraits(.isHeader)
             }
-            Text(detail).font(.system(size: 16)).fixedSize(horizontal: false, vertical: true)
+            Text(detail).font(.app(size: 16)).fixedSize(horizontal: false, vertical: true)
             if let next = answer.nextChange { countdown(to: next) }
             Rectangle().fill(v.onFill.opacity(0.22)).frame(height: 1)
             HStack {
                 Label(String(format: L(source.reviewedByHuman ? "Checked %@" : "Read %@"), source.checkedOn.formatted(.dateTime.day().month())),
                       systemImage: source.reviewedByHuman ? "checkmark.seal" : "doc.text.magnifyingglass")
-                    .font(.system(size: 13)).opacity(0.92)
-                Text("· \(source.localizedAuthority)").font(.system(size: 13)).opacity(0.92).lineLimit(1)
+                    .font(.app(size: 13)).opacity(0.92)
+                Text("· \(source.localizedAuthority)").font(.app(size: 13)).opacity(0.92).lineLimit(1)
                 Spacer()
                 if let onWhy {
                     Button(action: onWhy) {
-                        HStack(spacing: 3) { Text("Why?"); Image(systemName: "chevron.right").font(.system(size: 11, weight: .bold)) }
+                        HStack(spacing: 3) { Text("Why?"); Image(systemName: "chevron.right").font(.app(size: 11, weight: .bold)) }
                     }
-                    .font(.system(size: 14, weight: .semibold)).foregroundStyle(v.onFill)
+                    .font(.app(size: 14, weight: .semibold)).foregroundStyle(v.onFill)
                     .accessibilityLabel("Why?")
                     .accessibilityHint("Shows the official source")
                 }
@@ -162,7 +162,7 @@ struct VerdictCard: View {
                 Spacer()
                 Text(String(format: L(answer.gatesOn ? "Ends in %@" : "Starts in %@"), Self.duration(left)))
             }
-            .font(.system(size: 12.5, weight: .medium)).opacity(0.9).monospacedDigit()
+            .font(.app(size: 12.5, weight: .medium)).opacity(0.9).monospacedDigit()
         }
     }
 
@@ -187,7 +187,7 @@ struct StatusBanner: View {
         if status != .verified {
             Label(L(status == .sample ? "Sample data, not real" : "Draft: from official sources, not yet reviewed by a person"),
                   systemImage: "exclamationmark.triangle.fill")
-                .font(.system(size: 13, weight: .semibold))
+                .font(.app(size: 13, weight: .semibold))
                 .foregroundStyle(Theme.amberInk)
                 .padding(.horizontal, 12).padding(.vertical, 8)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -208,7 +208,7 @@ struct WideButton: View {
                 if let systemImage { Image(systemName: systemImage) }
                 Text(L(title))
             }
-            .font(.system(size: 15, weight: .semibold))
+            .font(.app(size: 15, weight: .semibold))
             .frame(maxWidth: .infinity, minHeight: 48)
             .background(prominent ? Theme.blueFill : Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
             .foregroundStyle(prominent ? Color.white : Theme.blue)

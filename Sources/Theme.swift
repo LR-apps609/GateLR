@@ -34,6 +34,13 @@ enum Theme {
     static func label(_ size: CGFloat = 13) -> Font { .custom("TitilliumWeb-SemiBold", size: size) }
 }
 
+extension Font {
+    /// Testo dell'app che segue «Testo più grande» dell'iPhone, fino a +30% per non rompere l'impaginazione
+    static func app(size: CGFloat, weight: Font.Weight = .regular, design: Font.Design = .default) -> Font {
+        .system(size: min(size * 1.3, UIFontMetrics.default.scaledValue(for: size)), weight: weight, design: design)
+    }
+}
+
 extension Color {
     init(hex: UInt32) {
         self.init(red: Double((hex >> 16) & 0xFF) / 255, green: Double((hex >> 8) & 0xFF) / 255, blue: Double(hex & 0xFF) / 255)

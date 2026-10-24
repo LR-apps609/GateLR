@@ -18,7 +18,7 @@ struct DriveLogView: View {
         List {
             Section {
                 Text("GateLR writes here when you pass close to an active gate or drive into a zone you can't enter. Only on this iPhone.")
-                    .font(.system(size: 14)).foregroundStyle(Theme.muted)
+                    .font(.app(size: 14)).foregroundStyle(Theme.muted)
             }
             if store.log.isEmpty {
                 Section { Label("Nothing yet: no active gate on your way.", systemImage: "checkmark.circle").foregroundStyle(Theme.greenInk) }
@@ -30,12 +30,12 @@ struct DriveLogView: View {
                                 .foregroundStyle(e.kind == .entered ? Theme.red : Theme.amber)
                                 .frame(width: 24)
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(e.zoneName).font(.system(size: 15, weight: .semibold))
+                                Text(e.zoneName).font(.app(size: 15, weight: .semibold))
                                 Text([e.date.formatted(.dateTime.weekday(.abbreviated).day().month().hour().minute()),
                                       e.gateName, e.plate.isEmpty ? nil : e.plate].compactMap { $0 }.joined(separator: " · "))
-                                    .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                                    .font(.app(size: 13)).foregroundStyle(Theme.muted)
                                 Text(e.kind == .entered ? L("Drove into the zone") + " · " + e.verdict : L("Near an active gate") + " · " + e.verdict)
-                                    .font(.system(size: 13, weight: .medium))
+                                    .font(.app(size: 13, weight: .medium))
                                     .foregroundStyle(e.kind == .entered ? Theme.red : Theme.amberInk)
                             }
                         }
@@ -73,7 +73,7 @@ struct FineGuideView: View {
                 step("6", "What to keep", "The hotel's written confirmation, photos of the signs and panels, your rental contract, and GateLR's drive log with dates and places.")
                 step("7", "Don't ignore it", "Unpaid fines grow after 60 days and can be sent to a collection agency, also abroad.")
                 Text("General information, not legal advice. The notice you receive always wins: read its deadlines and amounts.")
-                    .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                    .font(.app(size: 12)).foregroundStyle(Theme.muted)
             }
             .padding(20)
         }
@@ -93,7 +93,7 @@ struct FineGuideView: View {
                 .frame(width: 36, height: 36).background(Theme.red, in: Circle())
             VStack(alignment: .leading, spacing: 4) {
                 Text(L(title)).font(Theme.display(21)).foregroundStyle(Theme.ink)
-                Text(L(text)).font(.system(size: 15)).foregroundStyle(Theme.muted).fixedSize(horizontal: false, vertical: true)
+                Text(L(text)).font(.app(size: 15)).foregroundStyle(Theme.muted).fixedSize(horizontal: false, vertical: true)
             }
         }
         .padding(16).frame(maxWidth: .infinity, alignment: .leading).card(18)

@@ -160,26 +160,26 @@ struct RouteCard: View {
             HStack(alignment: .firstTextBaseline) {
                 Text(VerdictCard.duration(plan.travelTime)).font(Theme.display(28)).foregroundStyle(Theme.ink)
                 Text(Measurement(value: plan.distance, unit: UnitLength.meters).formatted(.measurement(width: .abbreviated, usage: .road)))
-                    .font(.system(size: 15)).foregroundStyle(Theme.muted)
+                    .font(.app(size: 15)).foregroundStyle(Theme.muted)
                 Spacer()
                 Text(String(format: L("Arrive %@"), plan.arrival.formatted(date: .omitted, time: .shortened)))
-                    .font(.system(size: 14, weight: .semibold)).foregroundStyle(Theme.muted)
+                    .font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.muted)
             }
             if plan.crossings.isEmpty {
                 Label("No ZTL on the way.", systemImage: "checkmark.circle.fill")
-                    .font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.greenInk)
+                    .font(.app(size: 15, weight: .semibold)).foregroundStyle(Theme.greenInk)
             } else {
                 VStack(spacing: 0) {
                     ForEach(plan.crossings) { c in
                         HStack(spacing: 10) {
-                            Image(systemName: c.zone.type.symbol).font(.system(size: 12, weight: .bold))
+                            Image(systemName: c.zone.type.symbol).font(.app(size: 12, weight: .bold))
                                 .frame(width: 28, height: 28)
                                 .background(c.zone.type.color.opacity(0.16), in: Circle()).foregroundStyle(c.zone.type.color)
                             VStack(alignment: .leading, spacing: 1) {
-                                Text(c.zone.shortName).font(.system(size: 15, weight: .semibold)).lineLimit(1)
+                                Text(c.zone.shortName).font(.app(size: 15, weight: .semibold)).lineLimit(1)
                                 Text(String(format: L(c.isDestination ? "Destination · at %@" : "On the way · at %@"),
                                             c.at.formatted(date: .omitted, time: .shortened)))
-                                    .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                                    .font(.app(size: 12)).foregroundStyle(Theme.muted)
                             }
                             Spacer()
                             VerdictPill(verdict: c.answer.verdict)
@@ -191,18 +191,18 @@ struct RouteCard: View {
             }
             if plan.blocked && !plan.destinationBlocked {
                 Label("A zone on the way is active: your navigator may route you through it. Watch the signs and avoid the gates.", systemImage: "exclamationmark.triangle.fill")
-                    .font(.system(size: 14, weight: .semibold)).foregroundStyle(Theme.amberInk)
+                    .font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.amberInk)
             }
             if plan.destinationBlocked {
                 if let parking = plan.parking {
                     HStack(alignment: .top, spacing: 10) {
-                        Text("P").font(.system(size: 15, weight: .heavy)).foregroundStyle(.white)
+                        Text("P").font(.app(size: 15, weight: .heavy)).foregroundStyle(.white)
                             .frame(width: 28, height: 28).background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
                         VStack(alignment: .leading, spacing: 2) {
-                            Text(String(format: L("Park at %@"), parking.name)).font(.system(size: 15, weight: .semibold))
+                            Text(String(format: L("Park at %@"), parking.name)).font(.app(size: 15, weight: .semibold))
                             if let m = plan.walkMeters {
                                 Text(String(format: L("Outside the ZTL · about %lld min on foot to your destination"), max(1, Int(m * 1.3 / 80))))
-                                    .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                                    .font(.app(size: 13)).foregroundStyle(Theme.muted)
                             }
                         }
                     }
@@ -210,7 +210,7 @@ struct RouteCard: View {
                     .background(Theme.blueSoft.opacity(0.6), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                 } else {
                     Label("You can't drive into the destination's zone at that time. Look for a car park outside on the map.", systemImage: "exclamationmark.triangle.fill")
-                        .font(.system(size: 14, weight: .semibold)).foregroundStyle(Theme.red)
+                        .font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.red)
                 }
             }
             HStack(spacing: 10) {
@@ -226,14 +226,14 @@ struct RouteCard: View {
                 } label: {
                     Label(plan.destinationBlocked && plan.parking != nil ? L("Drive to the car park") : L("Start"),
                           systemImage: "location.north.fill")
-                        .font(.system(size: 16, weight: .bold))
+                        .font(.app(size: 16, weight: .bold))
                         .frame(maxWidth: .infinity, minHeight: 50)
                         .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                         .foregroundStyle(.white)
                 }
                 .accessibilityIdentifier("route.start")
                 Button(action: onMap) {
-                    Image(systemName: "map").font(.system(size: 17, weight: .semibold))
+                    Image(systemName: "map").font(.app(size: 17, weight: .semibold))
                         .frame(width: 52, height: 50)
                         .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                         .foregroundStyle(Theme.blue)
@@ -241,7 +241,7 @@ struct RouteCard: View {
                 .accessibilityLabel(L("Show on the map"))
             }
             Text("Start with your navigator: GateLR stays in the background and warns you before every active ZTL, also in the Dynamic Island. It doesn't avoid them by itself: watch the gate signs.")
-                .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                .font(.app(size: 12)).foregroundStyle(Theme.muted)
         }
         .padding(16).card(20)
     }

@@ -28,7 +28,7 @@ struct VarcoView: View {
                     signCard
                     StatusBanner(status: store.city.status)
                     Text("Road signs on site always win over the app.")
-                        .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                        .font(.app(size: 12)).foregroundStyle(Theme.muted)
                         .frame(maxWidth: .infinity)
                 }
                 .padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 24)
@@ -44,7 +44,7 @@ struct VarcoView: View {
             Wordmark()
             Spacer()
             Button { tab = .account } label: {
-                Image(systemName: "person.crop.circle").font(.system(size: 26)).foregroundStyle(Theme.muted)
+                Image(systemName: "person.crop.circle").font(.app(size: 26)).foregroundStyle(Theme.muted)
             }
             .accessibilityLabel(L("Account"))
         }
@@ -59,7 +59,7 @@ struct VarcoView: View {
                 }
             }
             Text("Italy's old towns are closed to cars at set hours, with cameras at every gate. GateLR tells you if you can drive in, now or when you arrive, and warns you before a gate.")
-                .font(.system(size: 15)).foregroundStyle(.white.opacity(0.92))
+                .font(.app(size: 15)).foregroundStyle(.white.opacity(0.92))
                 .fixedSize(horizontal: false, vertical: true)
             HStack(spacing: 8) {
                 heroChip("checkmark.circle.fill", "Clear answer")
@@ -82,7 +82,7 @@ struct VarcoView: View {
 
     private func heroChip(_ symbol: String, _ text: String) -> some View {
         Label(L(text), systemImage: symbol)
-            .font(.system(size: 12, weight: .semibold))
+            .font(.app(size: 12, weight: .semibold))
             .lineLimit(1).minimumScaleFactor(0.8)
             .padding(.horizontal, 10).frame(height: 30)
             .background(.white.opacity(0.16), in: Capsule())
@@ -101,22 +101,22 @@ struct VarcoView: View {
                 let a = store.answer(at: date, zone: zone, hotelInside: false)
                 Button { select(zone); showZone = true } label: {
                     HStack(spacing: 14) {
-                        Image(systemName: a.verdict.symbol).font(.system(size: 20, weight: .heavy))
+                        Image(systemName: a.verdict.symbol).font(.app(size: 20, weight: .heavy))
                             .foregroundStyle(a.verdict.badgeInk)
                             .frame(width: 46, height: 46).background(a.verdict.badgeFill, in: Circle())
                         VStack(alignment: .leading, spacing: 2) {
                             Text(inside != nil ? String(format: L("You're inside %@"), zone.shortName)
                                  : String(format: L("%@ is %@ away"), zone.shortName,
                                           DriveSession.distanceText(near?.meters ?? 0)))
-                                .font(.system(size: 13, weight: .semibold)).opacity(0.9)
+                                .font(.app(size: 13, weight: .semibold)).opacity(0.9)
                             Text(a.verdict.short).font(Theme.display(24))
                             if let next = a.nextChange {
                                 Text(String(format: L(a.gatesOn ? "Ends at %@" : "Starts at %@"), next.formatted(date: .omitted, time: .shortened)))
-                                    .font(.system(size: 13)).opacity(0.9)
+                                    .font(.app(size: 13)).opacity(0.9)
                             }
                         }
                         Spacer()
-                        Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold)).opacity(0.7)
+                        Image(systemName: "chevron.right").font(.app(size: 13, weight: .bold)).opacity(0.7)
                     }
                     .foregroundStyle(a.verdict.onFill)
                     .padding(16)
@@ -134,16 +134,16 @@ struct VarcoView: View {
     /// Il guardiano è attivo: cosa vede adesso e il pulsante per fermarlo
     private var guardianBanner: some View {
         HStack(spacing: 12) {
-            Image(systemName: "shield.lefthalf.filled").font(.system(size: 22, weight: .bold))
+            Image(systemName: "shield.lefthalf.filled").font(.app(size: 22, weight: .bold))
             VStack(alignment: .leading, spacing: 2) {
-                Text(String(format: L("Guardian on · to %@"), guardian.destination?.name ?? "")).font(.system(size: 15, weight: .bold)).lineLimit(1)
+                Text(String(format: L("Guardian on · to %@"), guardian.destination?.name ?? "")).font(.app(size: 15, weight: .bold)).lineLimit(1)
                 Text(guardian.threat.map { "\($0.zone.shortName) · \(DriveSession.distanceText($0.meters)) · \($0.answer.verdict.short)" }
                      ?? L("No active ZTL ahead"))
-                    .font(.system(size: 13)).opacity(0.9)
+                    .font(.app(size: 13)).opacity(0.9)
             }
             Spacer()
             Button(L("Stop")) { guardian.stop() }
-                .font(.system(size: 14, weight: .bold))
+                .font(.app(size: 14, weight: .bold))
                 .padding(.horizontal, 12).frame(height: 34)
                 .background(.white.opacity(0.2), in: Capsule())
         }
@@ -155,7 +155,7 @@ struct VarcoView: View {
     private func infoRow(_ symbol: String, _ text: String) -> some View {
         HStack(spacing: 12) {
             Image(systemName: symbol).foregroundStyle(Theme.blue).frame(width: 28)
-            Text(text).font(.system(size: 14)).foregroundStyle(Theme.ink)
+            Text(text).font(.app(size: 14)).foregroundStyle(Theme.ink)
             Spacer()
         }
         .padding(14).card()
@@ -164,13 +164,13 @@ struct VarcoView: View {
     private var planButton: some View {
         Button { tab = .trip } label: {
             HStack(spacing: 12) {
-                Image(systemName: "magnifyingglass").font(.system(size: 18, weight: .semibold))
+                Image(systemName: "magnifyingglass").font(.app(size: 18, weight: .semibold))
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("Where are you going?").font(.system(size: 17, weight: .bold))
-                    Text("Hotel, address or square: answer, route and hotel message").font(.system(size: 13)).opacity(0.85)
+                    Text("Where are you going?").font(.app(size: 17, weight: .bold))
+                    Text("Hotel, address or square: answer, route and hotel message").font(.app(size: 13)).opacity(0.85)
                 }
                 Spacer()
-                Image(systemName: "arrow.right").font(.system(size: 16, weight: .bold))
+                Image(systemName: "arrow.right").font(.app(size: 16, weight: .bold))
             }
             .foregroundStyle(.white)
             .padding(16)
@@ -195,7 +195,7 @@ struct VarcoView: View {
                                 HStack(spacing: 5) {
                                     Circle().fill(on > 0 ? Theme.red : Theme.green).frame(width: 8, height: 8)
                                     Text(on == 0 ? L("All open") : String(format: L("%lld active"), on))
-                                        .font(.system(size: 12, weight: .semibold))
+                                        .font(.app(size: 12, weight: .semibold))
                                 }
                             }
                             .foregroundStyle(selected ? .white : Theme.ink)
@@ -218,14 +218,14 @@ struct VarcoView: View {
                 let a = store.answer(at: date, zone: z, hotelInside: false)
                 Button { select(z); showZone = true } label: {
                     HStack(spacing: 12) {
-                        Image(systemName: z.type.symbol).font(.system(size: 14, weight: .bold))
+                        Image(systemName: z.type.symbol).font(.app(size: 14, weight: .bold))
                             .frame(width: 32, height: 32)
                             .background(z.type.color.opacity(0.16), in: Circle())
                             .foregroundStyle(z.type.color)
                         VStack(alignment: .leading, spacing: 1) {
-                            Text(z.localizedName).font(.system(size: 15)).foregroundStyle(Theme.ink).lineLimit(2)
+                            Text(z.localizedName).font(.app(size: 15)).foregroundStyle(Theme.ink).lineLimit(2)
                             Text("\(z.type.title) · \(a.gatesOn ? L("ZTL active") : L("ZTL not active"))")
-                                .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                                .font(.app(size: 12)).foregroundStyle(Theme.muted)
                         }
                         Spacer()
                         VerdictPill(verdict: a.verdict)
@@ -246,14 +246,14 @@ struct VarcoView: View {
                 Image(systemName: "suitcase.rolling.fill").foregroundStyle(Theme.blue)
                     .frame(width: 40, height: 40).background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("Your next trip").font(.system(size: 12, weight: .semibold)).foregroundStyle(Theme.muted)
+                    Text("Your next trip").font(.app(size: 12, weight: .semibold)).foregroundStyle(Theme.muted)
                     Text(t.hotelName.isEmpty ? (t.hotel?.name ?? L("Trip")) : t.hotelName)
-                        .font(.system(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
+                        .font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
                     Text(t.arrival.formatted(.dateTime.weekday(.wide).day().month().hour().minute()))
-                        .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                        .font(.app(size: 13)).foregroundStyle(Theme.muted)
                 }
                 Spacer()
-                Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
+                Image(systemName: "chevron.right").font(.app(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
             }
             .padding(14).card()
         }
@@ -265,12 +265,12 @@ struct VarcoView: View {
             HStack(spacing: 14) {
                 ZTLSign().frame(width: 44, height: 56)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("New to ZTLs?").font(.system(size: 16, weight: .bold)).foregroundStyle(Theme.ink)
+                    Text("New to ZTLs?").font(.app(size: 16, weight: .bold)).foregroundStyle(Theme.ink)
                     Text("The signs, the panels and what to do if you drove in by mistake. 1 minute.")
-                        .font(.system(size: 13)).foregroundStyle(Theme.muted).multilineTextAlignment(.leading)
+                        .font(.app(size: 13)).foregroundStyle(Theme.muted).multilineTextAlignment(.leading)
                 }
                 Spacer()
-                Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
+                Image(systemName: "chevron.right").font(.app(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
             }
             .padding(14).card()
         }
@@ -280,15 +280,15 @@ struct VarcoView: View {
     private var signCard: some View {
         Button { readingSign = true } label: {
             HStack(spacing: 14) {
-                Image(systemName: "camera.viewfinder").font(.system(size: 26, weight: .semibold)).foregroundStyle(Theme.blue)
+                Image(systemName: "camera.viewfinder").font(.app(size: 26, weight: .semibold)).foregroundStyle(Theme.blue)
                     .frame(width: 44, height: 44)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Read the sign").font(.system(size: 16, weight: .bold)).foregroundStyle(Theme.ink)
+                    Text("Read the sign").font(.app(size: 16, weight: .bold)).foregroundStyle(Theme.ink)
                     Text("Point the camera at the hours panel: GateLR explains it in your language.")
-                        .font(.system(size: 13)).foregroundStyle(Theme.muted).multilineTextAlignment(.leading)
+                        .font(.app(size: 13)).foregroundStyle(Theme.muted).multilineTextAlignment(.leading)
                 }
                 Spacer()
-                Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
+                Image(systemName: "chevron.right").font(.app(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
             }
             .padding(14).card()
         }

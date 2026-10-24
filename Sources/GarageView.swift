@@ -17,9 +17,9 @@ struct GarageView: View {
                                 .frame(width: 44, height: 44)
                                 .background(v.id == store.vehicle.id ? Theme.blueSoft : Theme.ground, in: RoundedRectangle(cornerRadius: 12))
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(v.name).font(.system(size: 16, weight: .semibold))
+                                Text(v.name).font(.app(size: 16, weight: .semibold))
                                 Text(Self.subtitle(v))
-                                    .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                                    .font(.app(size: 13)).foregroundStyle(Theme.muted)
                             }
                             Spacer()
                             if v.id == store.vehicle.id {
@@ -47,7 +47,7 @@ struct GarageView: View {
                             VStack(alignment: .leading) {
                                 Text(p.kind.label)
                                 Text("\(p.from.formatted(.dateTime.day().month())) – \(p.to.formatted(.dateTime.day().month()))")
-                                    .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                                    .font(.app(size: 13)).foregroundStyle(Theme.muted)
                             }
                             Spacer()
                             Button {
@@ -188,15 +188,15 @@ struct CarAdvice: View {
         let lines = Self.lines(for: store.vehicle, cities: store.cities)
         Section {
             if lines.isEmpty {
-                Text("No emission rules for your car in the saved cities.").font(.system(size: 14)).foregroundStyle(Theme.muted)
+                Text("No emission rules for your car in the saved cities.").font(.app(size: 14)).foregroundStyle(Theme.muted)
             }
             ForEach(lines, id: \.self) { l in
                 HStack(spacing: 12) {
                     Image(systemName: l.ok ? "checkmark.circle.fill" : "xmark.octagon.fill")
                         .foregroundStyle(l.ok ? Theme.green : Theme.red)
                     VStack(alignment: .leading, spacing: 1) {
-                        Text("\(l.city) · \(l.zone)").font(.system(size: 15, weight: .semibold))
-                        Text(l.text).font(.system(size: 13)).foregroundStyle(Theme.muted)
+                        Text("\(l.city) · \(l.zone)").font(.app(size: 15, weight: .semibold))
+                        Text(l.text).font(.app(size: 13)).foregroundStyle(Theme.muted)
                     }
                 }
             }

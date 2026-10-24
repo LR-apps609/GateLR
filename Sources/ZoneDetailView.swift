@@ -18,14 +18,14 @@ struct ZoneDetailView: View {
                         Pill(text: answer.gatesOn ? L("ZTL active") : L("ZTL not active · you can enter"),
                              fill: answer.gatesOn ? Theme.amberSoft : Theme.greenSoft,
                              ink: answer.gatesOn ? Theme.amberInk : Theme.greenInk)
-                        Text(city.localizedName).font(.system(size: 13)).foregroundStyle(Theme.muted)
+                        Text(city.localizedName).font(.app(size: 13)).foregroundStyle(Theme.muted)
                     }
                     StatusBanner(status: city.status)
                 }
 
                 VStack(alignment: .leading, spacing: 6) {
                     SectionLabel("In short")
-                    Text(zone.localizedSummary).font(.system(size: 15))
+                    Text(zone.localizedSummary).font(.app(size: 15))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading).padding(14).card()
 
@@ -38,7 +38,7 @@ struct ZoneDetailView: View {
                             Text(row.hours).fontWeight(.semibold).monospacedDigit()
                                 .foregroundStyle(row.free ? Theme.greenInk : Theme.ink)
                         }
-                        .font(.system(size: 15)).padding(.horizontal, 14).padding(.vertical, 9)
+                        .font(.app(size: 15)).padding(.horizontal, 14).padding(.vertical, 9)
                         if i < scheduleRows.count - 1 { Divider().padding(.leading, 14) }
                     }
                 }
@@ -47,14 +47,14 @@ struct ZoneDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     SectionLabel("The city's own words")
                     if let q = zone.source.quote {
-                        Text("«\(q)»").italic().font(.system(size: 14)).foregroundStyle(Color(hex: 0x3D454E))
+                        Text("«\(q)»").italic().font(.app(size: 14)).foregroundStyle(Color(hex: 0x3D454E))
                             .environment(\.locale, Locale(identifier: "it"))
                     }
                     if let t = zone.source.localizedTranslation {
-                        Text("Translation: \(t)").font(.system(size: 13)).foregroundStyle(Theme.muted)
+                        Text("Translation: \(t)").font(.app(size: 13)).foregroundStyle(Theme.muted)
                     }
                     if let act = zone.source.ordinance, zone.source.ordinanceURL == nil {
-                        Text(act).font(.system(size: 13)).foregroundStyle(Theme.muted)
+                        Text(act).font(.app(size: 13)).foregroundStyle(Theme.muted)
                     }
                     Link(destination: zone.source.ordinanceURL ?? zone.source.pageURL) {
                         HStack {
@@ -63,7 +63,7 @@ struct ZoneDetailView: View {
                             Spacer()
                             Image(systemName: "arrow.up.right")
                         }
-                        .font(.system(size: 14)).padding(12)
+                        .font(.app(size: 14)).padding(12)
                         .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 12))
                         .foregroundStyle(Theme.blue)
                     }
@@ -74,9 +74,9 @@ struct ZoneDetailView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         SectionLabel("Day ticket")
                         Text(ticket.priceText).font(Theme.display(34)).foregroundStyle(Theme.blue).monospacedDigit()
-                        Text(ticket.localizedHowTo).font(.system(size: 14))
+                        Text(ticket.localizedHowTo).font(.app(size: 14))
                         if let url = ticket.url {
-                            Link(destination: url) { Label("How to pay", systemImage: "arrow.up.right") }.font(.system(size: 14, weight: .semibold))
+                            Link(destination: url) { Label("How to pay", systemImage: "arrow.up.right") }.font(.app(size: 14, weight: .semibold))
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -88,12 +88,12 @@ struct ZoneDetailView: View {
                         SectionLabel("If you drive in by mistake")
                         HStack(alignment: .firstTextBaseline, spacing: 6) {
                             Text(String(format: L("€%lld–%lld"), fine.min, fine.max)).font(Theme.display(34)).foregroundStyle(Theme.red).monospacedDigit()
-                            Text("per day").font(.system(size: 15)).foregroundStyle(Theme.muted)
+                            Text("per day").font(.app(size: 15)).foregroundStyle(Theme.muted)
                         }
                         ForEach(fine.localizedNotes, id: \.self) { n in
-                            Label(n, systemImage: "circle.fill").labelStyle(BulletLabel()).font(.system(size: 14))
+                            Label(n, systemImage: "circle.fill").labelStyle(BulletLabel()).font(.app(size: 14))
                         }
-                        Text("Amounts still being checked against the official text.").font(.system(size: 12)).foregroundStyle(Theme.muted)
+                        Text("Amounts still being checked against the official text.").font(.app(size: 12)).foregroundStyle(Theme.muted)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(14).card()
@@ -103,7 +103,7 @@ struct ZoneDetailView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         SectionLabel("Still to check")
                         ForEach(zone.source.localizedPending, id: \.self) { item in
-                            Label(item, systemImage: "questionmark.circle").font(.system(size: 14))
+                            Label(item, systemImage: "questionmark.circle").font(.app(size: 14))
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -117,7 +117,7 @@ struct ZoneDetailView: View {
                         ForEach(zone.source.links, id: \.self) { l in
                             Link(destination: l.url) {
                                 HStack { Text(l.localizedTitle).multilineTextAlignment(.leading); Spacer(); Image(systemName: "arrow.up.right") }
-                                    .font(.system(size: 14)).padding(.horizontal, 14).padding(.vertical, 10)
+                                    .font(.app(size: 14)).padding(.horizontal, 14).padding(.vertical, 10)
                             }
                         }
                     }
@@ -132,9 +132,9 @@ struct ZoneDetailView: View {
                 } icon: {
                     Image(systemName: zone.source.reviewedByHuman ? "checkmark.circle" : "clock").foregroundStyle(zone.source.reviewedByHuman ? Theme.green : Theme.amber)
                 }
-                .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                .font(.app(size: 13)).foregroundStyle(Theme.muted)
                 if let license = city.license {
-                    Text(L(license)).font(.system(size: 12)).foregroundStyle(Theme.muted)
+                    Text(L(license)).font(.app(size: 12)).foregroundStyle(Theme.muted)
                 }
             }
             .padding(20)

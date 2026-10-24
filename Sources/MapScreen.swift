@@ -88,7 +88,7 @@ struct MapScreen: View {
                         ForEach(city.cameras ?? []) { cam in
                             Annotation(cam.name, coordinate: cam.location.cl) {
                                 Image(systemName: cam.kind == .bus ? "bus.fill" : "figure.walk")
-                                    .font(.system(size: 9, weight: .bold)).foregroundStyle(.white)
+                                    .font(.app(size: 9, weight: .bold)).foregroundStyle(.white)
                                     .frame(width: 20, height: 20)
                                     .background(cam.kind == .bus ? Theme.blueFill : Theme.red, in: RoundedRectangle(cornerRadius: 5, style: .continuous))
                                     .overlay(RoundedRectangle(cornerRadius: 5, style: .continuous).stroke(.white, lineWidth: 1.5))
@@ -104,7 +104,7 @@ struct MapScreen: View {
                     ForEach(z.gates) { g in
                         Annotation(g.name, coordinate: g.location.cl) {
                             Image(systemName: "video.fill")
-                                .font(.system(size: 9, weight: .bold))
+                                .font(.app(size: 9, weight: .bold))
                                 .foregroundStyle(.white)
                                 .frame(width: 20, height: 20)
                                 .background(on ? Theme.red : Theme.green, in: Circle())
@@ -119,7 +119,7 @@ struct MapScreen: View {
                         .stroke(Theme.blue, style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
                     if let p = plan.parking {
                         Annotation(p.name, coordinate: p.location.cl) {
-                            Text("P").font(.system(size: 15, weight: .heavy)).foregroundStyle(.white)
+                            Text("P").font(.app(size: 15, weight: .heavy)).foregroundStyle(.white)
                                 .frame(width: 30, height: 30)
                                 .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
                                 .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous).stroke(.white, lineWidth: 2))
@@ -132,7 +132,7 @@ struct MapScreen: View {
                 ForEach(parkings) { p in
                     Annotation(p.name, coordinate: p.coordinate) {
                         Text("P")
-                            .font(.system(size: 15, weight: .heavy))
+                            .font(.app(size: 15, weight: .heavy))
                             .foregroundStyle(.white)
                             .frame(width: 28, height: 28)
                             .background(Color(hex: 0x1F4E9E), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
@@ -243,11 +243,11 @@ struct MapScreen: View {
                         .accessibilityLabel(L("Clear"))
                     }
                 }
-                .font(.system(size: 16))
+                .font(.app(size: 16))
                 .padding(.horizontal, 12).frame(height: 44)
                 .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                 Button { withAnimation(.snappy) { showLegend.toggle() } } label: {
-                    Image(systemName: "info").font(.system(size: 16, weight: .bold))
+                    Image(systemName: "info").font(.app(size: 16, weight: .bold))
                         .frame(width: 44, height: 44).background(.regularMaterial, in: Circle()).foregroundStyle(Theme.ink)
                 }
                 .accessibilityLabel(L("Legend"))
@@ -259,7 +259,7 @@ struct MapScreen: View {
                     Button { Task { await openLookAround() } } label: { Label("Street view", systemImage: "binoculars") }
                 } label: {
                     Image(systemName: "square.3.layers.3d")
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(.app(size: 16, weight: .semibold))
                         .frame(width: 44, height: 44)
                         .background(.regularMaterial, in: Circle())
                         .foregroundStyle(Theme.ink)
@@ -297,7 +297,7 @@ struct MapScreen: View {
     }
 
     private func legendRow(_ text: String, _ mark: some View) -> some View {
-        HStack(spacing: 10) { mark.frame(width: 14, height: 14); Text(text).font(.system(size: 14, weight: .medium)) }
+        HStack(spacing: 10) { mark.frame(width: 14, height: 14); Text(text).font(.app(size: 14, weight: .medium)) }
             .foregroundStyle(Theme.ink)
     }
 
@@ -305,7 +305,7 @@ struct MapScreen: View {
         VStack(alignment: .leading, spacing: 0) {
             if search.results.isEmpty {
                 Text(search.failed ? L("Search isn't working right now. Check your connection.") : L("Keep typing…"))
-                    .font(.system(size: 14)).foregroundStyle(Theme.muted).padding(14)
+                    .font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
             }
             ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
                 Button {
@@ -320,10 +320,10 @@ struct MapScreen: View {
                     }
                 } label: {
                     HStack(spacing: 12) {
-                        Image(systemName: "mappin.circle.fill").font(.system(size: 22)).foregroundStyle(Theme.red)
+                        Image(systemName: "mappin.circle.fill").font(.app(size: 22)).foregroundStyle(Theme.red)
                         VStack(alignment: .leading, spacing: 1) {
-                            Text(r.title).font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
-                            if !r.subtitle.isEmpty { Text(r.subtitle).font(.system(size: 13)).foregroundStyle(Theme.muted).lineLimit(1) }
+                            Text(r.title).font(.app(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
+                            if !r.subtitle.isEmpty { Text(r.subtitle).font(.app(size: 13)).foregroundStyle(Theme.muted).lineLimit(1) }
                         }
                         Spacer()
                     }
@@ -356,11 +356,11 @@ struct MapScreen: View {
         let answer = hit.map { store.answer(zone: $0.zone, hotelInside: false) }
         return VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .top, spacing: 12) {
-                Image(systemName: "mappin.circle.fill").font(.system(size: 30)).foregroundStyle(placeTint(place))
+                Image(systemName: "mappin.circle.fill").font(.app(size: 30)).foregroundStyle(placeTint(place))
                 VStack(alignment: .leading, spacing: 2) {
                     Text(place.name).font(Theme.display(21)).lineLimit(2).foregroundStyle(Theme.ink)
                     Text(Self.placeSubtitle(pedestrian: pedestrian, zone: hit?.zone))
-                        .font(.system(size: 14)).foregroundStyle(Theme.muted)
+                        .font(.app(size: 14)).foregroundStyle(Theme.muted)
                 }
                 Spacer()
                 if pedestrian != nil {
@@ -372,10 +372,10 @@ struct MapScreen: View {
                 }
             }
             if let parkingMessage {
-                Text(parkingMessage).font(.system(size: 13)).foregroundStyle(Theme.muted)
+                Text(parkingMessage).font(.app(size: 13)).foregroundStyle(Theme.muted)
             }
             if let answer, pedestrian == nil {
-                Text(Self.detail(answer.verdict)).font(.system(size: 14)).foregroundStyle(Theme.ink).lineLimit(3)
+                Text(Self.detail(answer.verdict)).font(.app(size: 14)).foregroundStyle(Theme.ink).lineLimit(3)
             }
             HStack(spacing: 10) {
                 if hit != nil {
@@ -422,21 +422,21 @@ struct MapScreen: View {
                     } label: {
                         HStack(spacing: 4) {
                             Text(zone.localizedName).font(Theme.display(21)).lineLimit(1).minimumScaleFactor(0.7)
-                            Image(systemName: "chevron.down").font(.system(size: 13, weight: .bold))
+                            Image(systemName: "chevron.down").font(.app(size: 13, weight: .bold))
                         }
                         .foregroundStyle(Theme.ink)
                     }
                     HStack(spacing: 6) {
                         Circle().fill(zone.type.color).frame(width: 8, height: 8)
                         Text("\(zone.type.title) · " + String(format: L(answer.gatesOn ? "%lld gates · on now" : "%lld gates · off now"), zone.gates.count))
-                            .font(.system(size: 14)).foregroundStyle(Theme.muted)
+                            .font(.app(size: 14)).foregroundStyle(Theme.muted)
                     }
                 }
                 Spacer()
                 VerdictPill(verdict: answer.verdict)
             }
             if let parkingMessage {
-                Text(parkingMessage).font(.system(size: 13)).foregroundStyle(Theme.muted)
+                Text(parkingMessage).font(.app(size: 13)).foregroundStyle(Theme.muted)
             }
             HStack(spacing: 10) {
                 WideButton(title: "Zone details", systemImage: "doc.text") { showZone = true }
@@ -495,15 +495,15 @@ struct ParkingSheet: View {
     var parking: Parking
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Label("Outside the ZTL", systemImage: "checkmark.circle.fill").font(.system(size: 13, weight: .semibold)).foregroundStyle(Theme.greenInk)
+            Label("Outside the ZTL", systemImage: "checkmark.circle.fill").font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.greenInk)
             Text(parking.name).font(Theme.display(26))
             if let address = parking.item.placemark.title {
-                Text(address).font(.system(size: 14)).foregroundStyle(Theme.muted)
+                Text(address).font(.app(size: 14)).foregroundStyle(Theme.muted)
             }
             WideButton(title: "Directions in Maps", systemImage: "arrow.triangle.turn.up.right.diamond.fill") {
                 parking.item.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
             }
-            Text("Prices and opening hours: check the car park before you go.").font(.system(size: 12)).foregroundStyle(Theme.muted)
+            Text("Prices and opening hours: check the car park before you go.").font(.app(size: 12)).foregroundStyle(Theme.muted)
         }
         .padding(20)
     }

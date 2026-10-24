@@ -21,7 +21,7 @@ struct SignReaderView: View {
                 VStack(alignment: .leading, spacing: 6) {
                     HoursPanel().frame(width: 180).frame(maxWidth: .infinity)
                     Text("Point the camera at the white panel under the ZTL sign, or pick a photo of it.")
-                        .font(.system(size: 15)).foregroundStyle(Theme.muted)
+                        .font(.app(size: 15)).foregroundStyle(Theme.muted)
                 }
                 HStack(spacing: 10) {
                     if scannerAvailable {
@@ -29,7 +29,7 @@ struct SignReaderView: View {
                     }
                     PhotosPicker(selection: $photo, matching: .images) {
                         Label(L("Choose a photo"), systemImage: "photo")
-                            .font(.system(size: 15, weight: .semibold))
+                            .font(.app(size: 15, weight: .semibold))
                             .frame(maxWidth: .infinity, minHeight: 48)
                             .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                             .foregroundStyle(Theme.blue)
@@ -47,7 +47,7 @@ struct SignReaderView: View {
                 .padding(14).card()
                 if !text.trimmingCharacters(in: .whitespaces).isEmpty { explanation }
                 Text("GateLR reads the panel for you, but it can misread a photo: if in doubt, the sign wins.")
-                    .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                    .font(.app(size: 12)).foregroundStyle(Theme.muted)
             }
             .padding(20)
         }
@@ -76,26 +76,26 @@ struct SignReaderView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Label(now ? L("Active now, according to the sign: don't drive in") : L("Not active now, according to the sign: you may drive in"),
                       systemImage: now ? "xmark.octagon.fill" : "checkmark.circle.fill")
-                    .font(.system(size: 17, weight: .bold))
+                    .font(.app(size: 17, weight: .bold))
                     .foregroundStyle(.white)
                     .padding(14).frame(maxWidth: .infinity, alignment: .leading)
                     .background(now ? Theme.red : Theme.green, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                 SectionLabel("What it means")
                 ForEach(Array(r.rules.enumerated()), id: \.offset) { _, rule in
                     HStack {
-                        Text(Self.daysText(rule.days)).font(.system(size: 15))
+                        Text(Self.daysText(rule.days)).font(.app(size: 15))
                         Spacer()
                         Text(rule.start == 0 && rule.end >= 1440 ? L("all day") : "\(Self.time(rule.start)) – \(Self.time(rule.end))")
-                            .font(.system(size: 15, weight: .semibold)).monospacedDigit()
+                            .font(.app(size: 15, weight: .semibold)).monospacedDigit()
                     }
                 }
-                if r.holidaysExcluded { Text("Public holidays: not active.").font(.system(size: 14)).foregroundStyle(Theme.muted) }
-                if r.holidaysIncluded { Text("Also on public holidays.").font(.system(size: 14)).foregroundStyle(Theme.muted) }
+                if r.holidaysExcluded { Text("Public holidays: not active.").font(.app(size: 14)).foregroundStyle(Theme.muted) }
+                if r.holidaysIncluded { Text("Also on public holidays.").font(.app(size: 14)).foregroundStyle(Theme.muted) }
             }
             .padding(14).card()
         } else {
             Label("I can't find days and hours in this text. Try again closer to the panel, or type them.", systemImage: "questionmark.circle")
-                .font(.system(size: 14)).foregroundStyle(Theme.amberInk)
+                .font(.app(size: 14)).foregroundStyle(Theme.amberInk)
                 .padding(14).frame(maxWidth: .infinity, alignment: .leading)
                 .background(Theme.amberSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
         }

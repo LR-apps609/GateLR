@@ -41,7 +41,7 @@ struct TripView: View {
                         }
                         StatusBanner(status: store.city.status)
                         Text("Road signs on site always win over the app.")
-                            .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                            .font(.app(size: 12)).foregroundStyle(Theme.muted)
                             .frame(maxWidth: .infinity)
                     }
                 }
@@ -72,7 +72,7 @@ struct TripView: View {
                 }
             } label: {
                 Label(store.city.localizedName, systemImage: "mappin.and.ellipse")
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.app(size: 14, weight: .semibold))
                     .padding(.horizontal, 14).frame(height: 36)
                     .background(Theme.card, in: Capsule())
                     .foregroundStyle(Theme.ink)
@@ -100,7 +100,7 @@ struct TripView: View {
                     .accessibilityLabel(L("Use my location"))
             }
         }
-        .font(.system(size: 16))
+        .font(.app(size: 16))
         .padding(.horizontal, 14).frame(height: 50)
         .card(14)
     }
@@ -109,7 +109,7 @@ struct TripView: View {
         VStack(alignment: .leading, spacing: 0) {
             if search.results.isEmpty {
                 Text(search.failed ? L("Search isn't working right now. Check your connection.") : L("Keep typing…"))
-                    .font(.system(size: 14)).foregroundStyle(Theme.muted).padding(14)
+                    .font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
             }
             ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
                 Button {
@@ -124,11 +124,11 @@ struct TripView: View {
                     }
                 } label: {
                     HStack(spacing: 12) {
-                        Image(systemName: "mappin.circle.fill").font(.system(size: 22)).foregroundStyle(Theme.red)
+                        Image(systemName: "mappin.circle.fill").font(.app(size: 22)).foregroundStyle(Theme.red)
                         VStack(alignment: .leading, spacing: 1) {
-                            Text(r.title).font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
+                            Text(r.title).font(.app(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
                             if !r.subtitle.isEmpty {
-                                Text(r.subtitle).font(.system(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
+                                Text(r.subtitle).font(.app(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
                             }
                         }
                         Spacer()
@@ -184,11 +184,11 @@ struct TripView: View {
         if let area = store.pedestrianArea(at: place.location) {
             Label {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(String(format: L("Pedestrian area · %@"), area.name)).font(.system(size: 15, weight: .bold))
+                    Text(String(format: L("Pedestrian area · %@"), area.name)).font(.app(size: 15, weight: .bold))
                     Text("Cars can't drive in here at any time, except authorised vehicles. Park outside and walk.")
-                        .font(.system(size: 14))
+                        .font(.app(size: 14))
                 }
-            } icon: { Image(systemName: "figure.walk.circle.fill").font(.system(size: 24)) }
+            } icon: { Image(systemName: "figure.walk.circle.fill").font(.app(size: 24)) }
             .foregroundStyle(.white)
             .padding(14).frame(maxWidth: .infinity, alignment: .leading)
             .background(Theme.red, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
@@ -235,7 +235,7 @@ struct TripView: View {
             }, onGuardian: { target, navigator in
                 Guardian.shared.start(to: target, with: navigator, store: store)
             })
-            if let e = drive.error { Text(e).font(.system(size: 13)).foregroundStyle(Theme.red) }
+            if let e = drive.error { Text(e).font(.app(size: 13)).foregroundStyle(Theme.red) }
         } else {
             VStack(alignment: .leading, spacing: 8) {
                 WideButton(title: planner.working ? "Planning…" : "Check the drive", systemImage: "car.fill") {
@@ -247,10 +247,10 @@ struct TripView: View {
                 .disabled(planner.working)
                 .accessibilityIdentifier("trip.route")
                 if let error = planner.error {
-                    Text(error).font(.system(size: 13)).foregroundStyle(Theme.muted)
+                    Text(error).font(.app(size: 13)).foregroundStyle(Theme.muted)
                 } else {
                     Text("GateLR checks every ZTL on the way at the time you pass it.")
-                        .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                        .font(.app(size: 12)).foregroundStyle(Theme.muted)
                 }
             }
         }
@@ -259,18 +259,18 @@ struct TripView: View {
     private func placeCard(_ place: Place, inside zone: Zone?) -> some View {
         HStack(spacing: 12) {
             Image(systemName: zone?.type.symbol ?? "checkmark")
-                .font(.system(size: 17, weight: .bold))
+                .font(.app(size: 17, weight: .bold))
                 .foregroundStyle(.white)
                 .frame(width: 40, height: 40)
                 .background(zone?.type.color ?? Theme.green, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
             VStack(alignment: .leading, spacing: 1) {
-                Text(place.name).font(.system(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
+                Text(place.name).font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
                 Text(zone.map { "\($0.type.title) · \($0.shortName)" } ?? L("Outside the ZTL"))
-                    .font(.system(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
+                    .font(.app(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
             }
             Spacer()
             Button { tab = .map } label: {
-                Image(systemName: "map").font(.system(size: 15, weight: .semibold))
+                Image(systemName: "map").font(.app(size: 15, weight: .semibold))
                     .frame(width: 36, height: 36).background(Theme.blueSoft, in: Circle()).foregroundStyle(Theme.blue)
             }
             .accessibilityLabel(L("Show on the map"))
@@ -282,20 +282,20 @@ struct TripView: View {
         let near = store.nearestZone(to: place.location)
         return VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 12) {
-                Image(systemName: "checkmark").font(.system(size: 24, weight: .heavy)).foregroundStyle(Theme.green)
+                Image(systemName: "checkmark").font(.app(size: 24, weight: .heavy)).foregroundStyle(Theme.green)
                     .frame(width: 52, height: 52).background(.white, in: Circle())
                 VStack(alignment: .leading, spacing: -12) {
                     ForEach(L("Outside|the ZTL").components(separatedBy: "|"), id: \.self) { Text($0).font(Theme.display(34)) }
                 }
             }
-            Text("This address isn't inside any ZTL we know. You can drive there.").font(.system(size: 16))
+            Text("This address isn't inside any ZTL we know. You can drive there.").font(.app(size: 16))
             if let near, near.meters < 3_000 {
                 let m = Measurement(value: near.meters, unit: UnitLength.meters).formatted(.measurement(width: .abbreviated, usage: .road))
                 Text(String(format: L("The nearest zone, %@, is %@ away."), near.zone.shortName, m))
-                    .font(.system(size: 14)).opacity(0.92)
+                    .font(.app(size: 14)).opacity(0.92)
                 if near.meters < 150 {
                     Label("Very close to the border: follow the signs and don't cross a gate.", systemImage: "exclamationmark.triangle.fill")
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.app(size: 14, weight: .semibold))
                 }
             }
         }
@@ -314,7 +314,7 @@ struct TripView: View {
             Label("Where are you going?", systemImage: "mappin.and.ellipse")
                 .font(Theme.display(24)).foregroundStyle(Theme.ink)
             Text("Search your hotel or destination: GateLR tells you if you can drive there at that time, checks the ZTLs on the way and prepares the message for the hotel.")
-                .font(.system(size: 15)).foregroundStyle(Theme.muted)
+                .font(.app(size: 15)).foregroundStyle(Theme.muted)
         }
         .padding(16).frame(maxWidth: .infinity, alignment: .leading).card()
         hint("Search your destination for a precise answer.", symbol: "magnifyingglass", action: { typing = true })
@@ -332,14 +332,14 @@ struct TripView: View {
                 } label: {
                     HStack(spacing: 12) {
                         Image(systemName: z.type.symbol)
-                            .font(.system(size: 14, weight: .bold))
+                            .font(.app(size: 14, weight: .bold))
                             .frame(width: 32, height: 32)
                             .background(z.type.color.opacity(0.16), in: Circle())
                             .foregroundStyle(z.type.color)
                         VStack(alignment: .leading, spacing: 1) {
-                            Text(z.localizedName).font(.system(size: 15)).foregroundStyle(Theme.ink).lineLimit(2)
+                            Text(z.localizedName).font(.app(size: 15)).foregroundStyle(Theme.ink).lineLimit(2)
                             Text("\(z.type.title) · \(a.gatesOn ? L("ZTL active") : L("ZTL not active"))")
-                                .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                                .font(.app(size: 12)).foregroundStyle(Theme.muted)
                         }
                         Spacer()
                         VerdictPill(verdict: a.verdict)
@@ -358,9 +358,9 @@ struct TripView: View {
         Button(action: action) {
             HStack(spacing: 10) {
                 Image(systemName: symbol).foregroundStyle(Theme.blue)
-                Text(L(text)).font(.system(size: 14)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
+                Text(L(text)).font(.app(size: 14)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
                 Spacer()
-                Image(systemName: "chevron.right").font(.system(size: 12, weight: .bold)).foregroundStyle(Theme.muted)
+                Image(systemName: "chevron.right").font(.app(size: 12, weight: .bold)).foregroundStyle(Theme.muted)
             }
             .padding(14)
             .background(Theme.blueSoft.opacity(0.6), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
@@ -396,9 +396,9 @@ struct TripView: View {
                                 .frame(width: 36, height: 36).background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                             VStack(alignment: .leading, spacing: 1) {
                                 Text(t.hotelName.isEmpty ? (t.hotel?.name ?? L("Trip")) : t.hotelName)
-                                    .font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
+                                    .font(.app(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
                                 Text(tripSubtitle(t, zone: zone))
-                                    .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                                    .font(.app(size: 13)).foregroundStyle(Theme.muted)
                             }
                             Spacer()
                             if t.arrival < Date() { Pill(text: L("Past"), fill: Theme.raised, ink: Theme.muted) }
@@ -414,7 +414,7 @@ struct TripView: View {
                 }
             }
             .card()
-            Text("Touch and hold a trip to delete it.").font(.system(size: 12)).foregroundStyle(Theme.muted)
+            Text("Touch and hold a trip to delete it.").font(.app(size: 12)).foregroundStyle(Theme.muted)
         }
     }
 
@@ -439,13 +439,13 @@ struct TripView: View {
                 }
                 .pickerStyle(.segmented).frame(width: 140)
             }
-            Text(text).font(.system(size: 14)).padding(12)
+            Text(text).font(.app(size: 14)).padding(12)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Theme.raised, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                 .textSelection(.enabled)
             if store.vehicle.plate.isEmpty {
                 Label("Add your plate in Garage to fill it in.", systemImage: "info.circle")
-                    .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                    .font(.app(size: 12)).foregroundStyle(Theme.muted)
             }
             HStack(spacing: 10) {
                 ShareLink(item: text) {
@@ -464,7 +464,7 @@ struct TripView: View {
                 }
                 .sensoryFeedback(.success, trigger: copied) { _, new in new }
             }
-            .font(.system(size: 15, weight: .semibold))
+            .font(.app(size: 15, weight: .semibold))
         }
         .padding(14).card()
     }

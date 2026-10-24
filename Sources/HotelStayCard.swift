@@ -38,7 +38,7 @@ struct HotelStayCard: View {
                 HStack(spacing: 6) {
                     ForEach(s.days, id: \.self) { d in
                         VStack(spacing: 1) {
-                            Text(d.formatted(.dateTime.weekday(.abbreviated))).font(.system(size: 11, weight: .semibold))
+                            Text(d.formatted(.dateTime.weekday(.abbreviated))).font(.app(size: 11, weight: .semibold))
                             Text(d.formatted(.dateTime.day())).font(Theme.display(18))
                         }
                         .frame(width: 44, height: 50)
@@ -48,7 +48,7 @@ struct HotelStayCard: View {
                 }
             }
             Text(String(format: L("%lld days to register, including the day you leave."), s.days.count))
-                .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                .font(.app(size: 13)).foregroundStyle(Theme.muted)
             Picker(L("Status"), selection: Binding(get: { s.status }, set: { v in edit { $0.status = v } })) {
                 Text("Not asked").tag(HotelStay.Status.notAsked)
                 Text("Asked").tag(HotelStay.Status.asked)
@@ -63,14 +63,14 @@ struct HotelStayCard: View {
             }
             if s.status == .confirmed {
                 Label("Saved as a permit in Garage: GateLR now answers \"yes\" for these days.", systemImage: "checkmark.seal.fill")
-                    .font(.system(size: 13, weight: .semibold)).foregroundStyle(Theme.greenInk)
+                    .font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.greenInk)
             }
         }
         .padding(14).card()
     }
 
     private func tip(_ text: String) -> some View {
-        Label { Text(L(text)).font(.system(size: 13)) } icon: { Image(systemName: "exclamationmark.circle").foregroundStyle(Theme.amber) }
+        Label { Text(L(text)).font(.app(size: 13)) } icon: { Image(systemName: "exclamationmark.circle").foregroundStyle(Theme.amber) }
             .foregroundStyle(Theme.ink)
     }
 

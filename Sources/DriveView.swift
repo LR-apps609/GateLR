@@ -23,7 +23,7 @@ struct DriveView: View {
                         Spacer()
                         Button { following = true; follow(animated: true) } label: {
                             Label("Recenter", systemImage: "location.north.line.fill")
-                                .font(.system(size: 15, weight: .semibold))
+                                .font(.app(size: 15, weight: .semibold))
                                 .padding(.horizontal, 16).frame(height: 44)
                                 .background(.regularMaterial, in: Capsule())
                                 .foregroundStyle(Theme.ink)
@@ -65,7 +65,7 @@ struct DriveView: View {
             ForEach(drive.crossings) { c in
                 if let e = c.entry {
                     Annotation("", coordinate: e.cl) {
-                        Image(systemName: c.zone.type.symbol).font(.system(size: 11, weight: .bold)).foregroundStyle(.white)
+                        Image(systemName: c.zone.type.symbol).font(.app(size: 11, weight: .bold)).foregroundStyle(.white)
                             .frame(width: 26, height: 26).background(c.zone.type.color, in: Circle())
                             .overlay(Circle().stroke(.white, lineWidth: 2))
                     }
@@ -78,7 +78,7 @@ struct DriveView: View {
                 // La freccia dell'auto, girata nella direzione di marcia
                 Annotation("", coordinate: h.cl, anchor: .center) {
                     Image(systemName: "location.north.fill")
-                        .font(.system(size: 22, weight: .bold)).foregroundStyle(Color(hex: 0x2F6FE4))
+                        .font(.app(size: 22, weight: .bold)).foregroundStyle(Color(hex: 0x2F6FE4))
                         .rotationEffect(.degrees(drive.course - currentHeading))
                         .frame(width: 44, height: 44)
                         .background(.white, in: Circle())
@@ -119,7 +119,7 @@ struct DriveView: View {
         VStack(spacing: 0) {
             HStack(spacing: 14) {
                 Image(systemName: Self.symbol(for: drive.arrived ? "" : (drive.nextInstruction ?? "")))
-                    .font(.system(size: 36, weight: .bold))
+                    .font(.app(size: 36, weight: .bold))
                     .frame(width: 58)
                 VStack(alignment: .leading, spacing: 2) {
                     if drive.arrived {
@@ -129,7 +129,7 @@ struct DriveView: View {
                     } else {
                         Text(DriveSession.distanceText(drive.toNext)).font(Theme.display(32)).monospacedDigit()
                         Text(drive.nextInstruction ?? drive.destination?.name ?? "")
-                            .font(.system(size: 18, weight: .semibold)).lineLimit(2)
+                            .font(.app(size: 18, weight: .semibold)).lineLimit(2)
                     }
                 }
                 Spacer(minLength: 0)
@@ -137,9 +137,9 @@ struct DriveView: View {
             .padding(16)
             if let then = drive.thenInstruction, !drive.arrived {
                 HStack(spacing: 8) {
-                    Text("Then").font(.system(size: 14, weight: .semibold)).opacity(0.8)
-                    Image(systemName: Self.symbol(for: then)).font(.system(size: 15, weight: .bold))
-                    Text(then).font(.system(size: 14, weight: .semibold)).lineLimit(1)
+                    Text("Then").font(.app(size: 14, weight: .semibold)).opacity(0.8)
+                    Image(systemName: Self.symbol(for: then)).font(.app(size: 15, weight: .bold))
+                    Text(then).font(.app(size: 14, weight: .semibold)).lineLimit(1)
                     Spacer()
                 }
                 .padding(.horizontal, 16).padding(.vertical, 9)
@@ -160,12 +160,12 @@ struct DriveView: View {
         if let n = drive.nextZTL {
             let v = n.answer.verdict
             HStack(spacing: 10) {
-                Image(systemName: n.crossing.zone.type.symbol).font(.system(size: 15, weight: .bold))
+                Image(systemName: n.crossing.zone.type.symbol).font(.app(size: 15, weight: .bold))
                     .frame(width: 30, height: 30).background(.white.opacity(0.25), in: Circle())
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("\(n.crossing.zone.shortName) · \(DriveSession.distanceText(n.meters))").font(.system(size: 16, weight: .bold))
+                    Text("\(n.crossing.zone.shortName) · \(DriveSession.distanceText(n.meters))").font(.app(size: 16, weight: .bold))
                     Text(v.short + (n.answer.gatesOn ? " · " + L("ZTL active") : " · " + L("ZTL not active")))
-                        .font(.system(size: 13, weight: .medium)).opacity(0.92)
+                        .font(.app(size: 13, weight: .medium)).opacity(0.92)
                 }
                 Spacer()
             }
@@ -176,7 +176,7 @@ struct DriveView: View {
             .animation(.snappy, value: n.meters)
         } else if !drive.path.isEmpty {
             Label("No ZTL on the way.", systemImage: "checkmark.circle.fill")
-                .font(.system(size: 15, weight: .semibold)).foregroundStyle(.white)
+                .font(.app(size: 15, weight: .semibold)).foregroundStyle(.white)
                 .padding(.horizontal, 14).padding(.vertical, 10)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Theme.green, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
@@ -189,12 +189,12 @@ struct DriveView: View {
                 Text(drive.eta.map { $0.formatted(date: .omitted, time: .shortened) } ?? "–")
                     .font(Theme.display(28)).monospacedDigit()
                 Text(remainingText)
-                    .font(.system(size: 14)).foregroundStyle(Theme.muted)
+                    .font(.app(size: 14)).foregroundStyle(Theme.muted)
             }
             Spacer()
             VStack(spacing: 0) {
                 Text("\(Int(drive.speed.rounded()))").font(Theme.display(20)).monospacedDigit()
-                Text("km/h").font(.system(size: 10, weight: .semibold)).foregroundStyle(Theme.muted)
+                Text("km/h").font(.app(size: 10, weight: .semibold)).foregroundStyle(Theme.muted)
             }
             .frame(width: 52, height: 52).background(Theme.raised, in: Circle())
             .accessibilityElement(children: .combine)
@@ -204,7 +204,7 @@ struct DriveView: View {
                 drive.stop()
                 dismiss()
             } label: {
-                Text("End").font(.system(size: 17, weight: .bold))
+                Text("End").font(.app(size: 17, weight: .bold))
                     .padding(.horizontal, 18).frame(height: 52)
                     .background(Theme.red, in: Capsule()).foregroundStyle(.white)
             }
@@ -223,7 +223,7 @@ struct DriveView: View {
 
     private func roundButton(_ symbol: String, _ label: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
-            Image(systemName: symbol).font(.system(size: 17, weight: .semibold))
+            Image(systemName: symbol).font(.app(size: 17, weight: .semibold))
                 .frame(width: 48, height: 48).background(Theme.raised, in: Circle()).foregroundStyle(Theme.ink)
         }
         .accessibilityLabel(label)

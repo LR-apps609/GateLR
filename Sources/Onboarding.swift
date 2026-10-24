@@ -24,13 +24,13 @@ struct Onboarding: View {
                     VStack(alignment: .leading, spacing: 18) {
                         Spacer()
                         Image(systemName: p.symbol)
-                            .font(.system(size: 40, weight: .semibold))
+                            .font(.app(size: 40, weight: .semibold))
                             .foregroundStyle(.white)
                             .frame(width: 88, height: 88)
                             .background(p.tint, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
                             .accessibilityHidden(true)
-                        Text(L(p.title)).font(.system(size: 36, weight: .bold)).foregroundStyle(Theme.ink)
-                        Text(L(p.text)).font(.system(size: 18)).foregroundStyle(Theme.muted)
+                        Text(L(p.title)).font(.app(size: 36, weight: .bold)).foregroundStyle(Theme.ink)
+                        Text(L(p.text)).font(.app(size: 18)).foregroundStyle(Theme.muted)
                         Spacer(); Spacer()
                     }
                     .padding(.horizontal, 28)
@@ -45,7 +45,7 @@ struct Onboarding: View {
             }
             .padding(.horizontal, 24).padding(.bottom, 12)
             Button("Skip", action: done)
-                .font(.system(size: 15)).foregroundStyle(Theme.muted)
+                .font(.app(size: 15)).foregroundStyle(Theme.muted)
                 .padding(.bottom, 16)
                 .opacity(page < pages.count - 1 ? 1 : 0)
         }

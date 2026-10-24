@@ -11,7 +11,7 @@ struct AboutView: View {
                     Wordmark(size: 22)
                     Text("Know before the gate.").font(Theme.display(20)).foregroundStyle(Theme.ink)
                     Text("GateLR explains Italy's limited traffic zones in plain words and links every rule to the city's official source.")
-                        .font(.system(size: 14)).foregroundStyle(Theme.muted)
+                        .font(.app(size: 14)).foregroundStyle(Theme.muted)
                 }
                 .padding(.vertical, 6)
             }
@@ -20,24 +20,24 @@ struct AboutView: View {
                 Label("Cities marked Draft come from official sources but haven't been reviewed by a person yet.", systemImage: "clock")
                 Label("GateLR is not affiliated with any city or with the police.", systemImage: "building.columns")
             }
-            .font(.system(size: 14))
+            .font(.app(size: 14))
             ForEach(store.cities) { city in
                 Section(city.localizedName) {
-                    if let license = city.license { Text(L(license)).font(.system(size: 13)) }
+                    if let license = city.license { Text(L(license)).font(.app(size: 13)) }
                     ForEach(Array(Set(city.zones.flatMap(\.source.links))).sorted { $0.localizedTitle < $1.localizedTitle }, id: \.self) { l in
                         Link(destination: l.url) {
-                            HStack { Text(l.localizedTitle).font(.system(size: 14)).multilineTextAlignment(.leading); Spacer(); Image(systemName: "arrow.up.right").font(.system(size: 12)) }
+                            HStack { Text(l.localizedTitle).font(.app(size: 14)).multilineTextAlignment(.leading); Spacer(); Image(systemName: "arrow.up.right").font(.app(size: 12)) }
                         }
                     }
                 }
             }
             Section("Typeface and maps") {
-                Text("Titillium Web, SIL Open Font License 1.1 (Accademia di Belle Arti di Urbino).").font(.system(size: 13))
-                Text("Maps and car parks: Apple Maps.").font(.system(size: 13))
+                Text("Titillium Web, SIL Open Font License 1.1 (Accademia di Belle Arti di Urbino).").font(.app(size: 13))
+                Text("Maps and car parks: Apple Maps.").font(.app(size: 13))
             }
             Section {
                 Text("Part of the LR family: AudioLR, OrbitLR, WebcamLR, GateLR.")
-                    .font(.system(size: 13)).foregroundStyle(Theme.brass)
+                    .font(.app(size: 13)).foregroundStyle(Theme.brass)
             }
         }
         .tint(Theme.blue)
