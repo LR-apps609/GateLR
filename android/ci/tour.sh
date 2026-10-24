@@ -29,6 +29,9 @@ adb shell input text "Palazzo%sVecchio"; sleep 8; shot 04-ricerca
 adb shell input keyevent 4; sleep 2
 tap "Palazzo Vecchio" 2 && sleep 3 && shot 04b-risposta
 adb shell input swipe 500 1800 500 500 && sleep 2 && shot 04c-risposta-sotto
+adb emu geo fix 11.2486 43.7765 || true          # Stazione di Santa Maria Novella, fuori dal Settore A
+sleep 12
+tap "Check the drive" && sleep 8 && shot 04d-tragitto
 tap "Garage" && shot 05-garage
 tap "Account" && shot 06-account
 adb shell input swipe 500 1800 500 900; sleep 2
