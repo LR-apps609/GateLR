@@ -320,3 +320,11 @@
 "Pedestrian area" = "Fußgängerzone";
 "Bus lane camera" = "Busspur-Kamera";
 "Bus lane camera ahead: stay out of the bus lane." = "Busspur-Kamera voraus: Fahr nicht auf die Busspur.";
+"Read the hours under the sign" = "Lies die Zeiten unter dem Schild";
+"Under the ZTL sign a white panel lists the days and hours when the ban applies, for example \"7.30-20.00 feriali\" (weekdays). Outside those hours you may drive in. \"Festivi\" means public holidays." = "Unter dem ZTL-Schild nennt eine weiße Tafel Tage und Zeiten des Verbots, zum Beispiel „7.30-20.00 feriali“ (werktags). Außerhalb dieser Zeiten darfst du hinein. „Festivi“ heißt Sonn- und Feiertage.";
+"Pedestrian areas" = "Fußgängerzonen";
+"The blue square sign with people walking means a pedestrian area: no cars at any time, except authorised vehicles. Often there's a camera here too." = "Das blaue quadratische Schild mit Fußgängern zeigt eine Fußgängerzone: nie Autos, außer berechtigte Fahrzeuge. Oft gibt es auch hier eine Kamera.";
+"Bus lanes" = "Busspuren";
+"Lanes marked \"BUS\" or \"Riservata\" are only for buses and taxis, and many have cameras: driving in one is a separate fine, even outside the ZTL." = "Spuren mit „BUS“ oder „Riservata“ sind nur für Busse und Taxis, viele haben Kameras: Wer sie befährt, bekommt ein eigenes Bußgeld, auch außerhalb der ZTL.";
+"Low-emission zones" = "Umweltzonen";
+"In zones like Milan's Area B the question isn't the time but your car: the most polluting Euro classes can't enter on weekdays. Set your car in Garage and GateLR checks it for you." = "In Zonen wie der Area B in Mailand zählt nicht die Uhrzeit, sondern dein Auto: Die umweltschädlichsten Euro-Klassen dürfen werktags nicht hinein. Trag dein Auto in der Garage ein und GateLR prüft es für dich.";

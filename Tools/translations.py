@@ -222,6 +222,15 @@ T = {
 "Cars can't drive in here at any time, except authorised vehicles. Park outside and walk.": ("Qui le auto non possono entrare mai, salvo i veicoli autorizzati. Parcheggia fuori e prosegui a piedi.", "Hier dürfen Autos nie hinein, außer berechtigte Fahrzeuge. Parke außerhalb und geh zu Fuß."),
 "Pedestrian area": ("Area pedonale", "Fußgängerzone"), "Bus lane camera": ("Telecamera corsia bus", "Busspur-Kamera"),
 "Bus lane camera ahead: stay out of the bus lane.": ("Telecamera della corsia bus più avanti: non entrare nella corsia riservata.", "Busspur-Kamera voraus: Fahr nicht auf die Busspur."),
+# Impara la ZTL
+"Read the hours under the sign": ("Leggi gli orari sotto il cartello", "Lies die Zeiten unter dem Schild"),
+"Under the ZTL sign a white panel lists the days and hours when the ban applies, for example \"7.30-20.00 feriali\" (weekdays). Outside those hours you may drive in. \"Festivi\" means public holidays.": ("Sotto il cartello ZTL un pannello bianco indica giorni e orari del divieto, per esempio «7.30-20.00 feriali». Fuori da quegli orari puoi entrare. «Festivi» vuol dire domeniche e feste.", "Unter dem ZTL-Schild nennt eine weiße Tafel Tage und Zeiten des Verbots, zum Beispiel „7.30-20.00 feriali“ (werktags). Außerhalb dieser Zeiten darfst du hinein. „Festivi“ heißt Sonn- und Feiertage."),
+"Pedestrian areas": ("Aree pedonali", "Fußgängerzonen"),
+"The blue square sign with people walking means a pedestrian area: no cars at any time, except authorised vehicles. Often there's a camera here too.": ("Il cartello quadrato blu con i pedoni indica un'area pedonale: niente auto a nessuna ora, salvo i veicoli autorizzati. Spesso c'è anche una telecamera.", "Das blaue quadratische Schild mit Fußgängern zeigt eine Fußgängerzone: nie Autos, außer berechtigte Fahrzeuge. Oft gibt es auch hier eine Kamera."),
+"Bus lanes": ("Corsie bus", "Busspuren"),
+"Lanes marked \"BUS\" or \"Riservata\" are only for buses and taxis, and many have cameras: driving in one is a separate fine, even outside the ZTL.": ("Le corsie con la scritta «BUS» o «Riservata» sono solo per bus e taxi, e molte hanno telecamere: percorrerle è una multa a parte, anche fuori dalla ZTL.", "Spuren mit „BUS“ oder „Riservata“ sind nur für Busse und Taxis, viele haben Kameras: Wer sie befährt, bekommt ein eigenes Bußgeld, auch außerhalb der ZTL."),
+"Low-emission zones": ("Zone a basse emissioni", "Umweltzonen"),
+"In zones like Milan's Area B the question isn't the time but your car: the most polluting Euro classes can't enter on weekdays. Set your car in Garage and GateLR checks it for you.": ("In zone come l'Area B di Milano non conta l'ora ma la tua auto: le classi Euro più inquinanti non entrano nei feriali. Imposta l'auto nel Garage e GateLR la controlla per te.", "In Zonen wie der Area B in Mailand zählt nicht die Uhrzeit, sondern dein Auto: Die umweltschädlichsten Euro-Klassen dürfen werktags nicht hinein. Trag dein Auto in der Garage ein und GateLR prüft es für dich."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

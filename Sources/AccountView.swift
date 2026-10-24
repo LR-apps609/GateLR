@@ -136,6 +136,18 @@ struct LearnZTLView: View {
                 lesson("\"ZTL attiva\" or \"non attiva\"", "\"ZTL attiva\" (red) means the ban is on and the camera records: don't drive in. \"ZTL non attiva\" (green) means you may pass. Older panels still say \"Varco attivo\" with the same meaning. The panel always wins over the app.") {
                     GatePanel(on: false).frame(width: 150)
                 }
+                lesson("Read the hours under the sign", "Under the ZTL sign a white panel lists the days and hours when the ban applies, for example \"7.30-20.00 feriali\" (weekdays). Outside those hours you may drive in. \"Festivi\" means public holidays.") {
+                    HoursPanel().frame(width: 170)
+                }
+                lesson("Pedestrian areas", "The blue square sign with people walking means a pedestrian area: no cars at any time, except authorised vehicles. Often there's a camera here too.") {
+                    PedestrianSign().frame(width: 90, height: 90)
+                }
+                lesson("Bus lanes", "Lanes marked \"BUS\" or \"Riservata\" are only for buses and taxis, and many have cameras: driving in one is a separate fine, even outside the ZTL.") {
+                    BusLane().frame(width: 150, height: 96)
+                }
+                lesson("Low-emission zones", "In zones like Milan's Area B the question isn't the time but your car: the most polluting Euro classes can't enter on weekdays. Set your car in Garage and GateLR checks it for you.") {
+                    Image(systemName: "leaf.circle.fill").font(.system(size: 64)).foregroundStyle(ZoneKind.green.color)
+                }
                 lesson("Drove in by mistake?", "Don't drive around inside looking for a way out: every gate you pass can mean another fine. Exit at the nearest point and, if you're staying at a hotel inside, call it straight away: often it can still register your plate.") {
                     Image(systemName: "phone.arrow.up.right").font(.system(size: 34, weight: .semibold)).foregroundStyle(Theme.blue)
                         .frame(width: 70, height: 70).background(Theme.blueSoft, in: Circle())
@@ -196,5 +208,55 @@ struct GatePanel: View {
         .background(Color(hex: 0x111111), in: RoundedRectangle(cornerRadius: 8))
         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(hex: 0x555555), lineWidth: 3))
         .accessibilityLabel(Text(verbatim: on ? "ZTL attiva" : "ZTL non attiva"))
+    }
+}
+
+/// Il pannello integrativo con gli orari, sotto il cartello
+struct HoursPanel: View {
+    var body: some View {
+        VStack(spacing: 2) {
+            Text(verbatim: "7.30 – 20.00").font(.system(size: 17, weight: .heavy, design: .rounded))
+            Text(verbatim: "FERIALI").font(.system(size: 11, weight: .heavy))
+            Rectangle().frame(height: 1).padding(.vertical, 3)
+            Text(verbatim: "CONTROLLO ELETTRONICO").font(.system(size: 9, weight: .heavy))
+        }
+        .foregroundStyle(Color(hex: 0x1B2128))
+        .padding(10).frame(maxWidth: .infinity)
+        .background(.white, in: RoundedRectangle(cornerRadius: 4))
+        .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color(hex: 0x1B2128), lineWidth: 2))
+        .accessibilityHidden(true)
+    }
+}
+
+/// Il cartello blu di area pedonale
+struct PedestrianSign: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 8).fill(Color(hex: 0x1F4E9E))
+            .overlay(RoundedRectangle(cornerRadius: 6).stroke(.white, lineWidth: 3).padding(4))
+            .overlay(HStack(spacing: -4) {
+                Image(systemName: "figure.walk").font(.system(size: 34, weight: .bold))
+                Image(systemName: "figure.and.child.holdinghands").font(.system(size: 28, weight: .bold))
+            }.foregroundStyle(.white))
+            .accessibilityHidden(true)
+    }
+}
+
+/// La corsia riservata con la scritta BUS
+struct BusLane: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10).fill(Color(hex: 0x3A3F45))
+            HStack(spacing: 0) {
+                Rectangle().fill(.white).frame(width: 4)
+                Spacer()
+                VStack(spacing: 6) { ForEach(0..<4, id: \.self) { _ in Rectangle().fill(.white).frame(width: 4, height: 12) } }
+                Spacer()
+                Rectangle().fill(.white).frame(width: 4)
+            }
+            .padding(.horizontal, 12)
+            Text(verbatim: "BUS").font(.system(size: 26, weight: .black)).foregroundStyle(Color(hex: 0xF2C14E))
+                .offset(x: 34)
+        }
+        .accessibilityHidden(true)
     }
 }

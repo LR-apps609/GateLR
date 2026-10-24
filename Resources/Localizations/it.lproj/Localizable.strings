@@ -320,3 +320,11 @@
 "Pedestrian area" = "Area pedonale";
 "Bus lane camera" = "Telecamera corsia bus";
 "Bus lane camera ahead: stay out of the bus lane." = "Telecamera della corsia bus più avanti: non entrare nella corsia riservata.";
+"Read the hours under the sign" = "Leggi gli orari sotto il cartello";
+"Under the ZTL sign a white panel lists the days and hours when the ban applies, for example \"7.30-20.00 feriali\" (weekdays). Outside those hours you may drive in. \"Festivi\" means public holidays." = "Sotto il cartello ZTL un pannello bianco indica giorni e orari del divieto, per esempio «7.30-20.00 feriali». Fuori da quegli orari puoi entrare. «Festivi» vuol dire domeniche e feste.";
+"Pedestrian areas" = "Aree pedonali";
+"The blue square sign with people walking means a pedestrian area: no cars at any time, except authorised vehicles. Often there's a camera here too." = "Il cartello quadrato blu con i pedoni indica un'area pedonale: niente auto a nessuna ora, salvo i veicoli autorizzati. Spesso c'è anche una telecamera.";
+"Bus lanes" = "Corsie bus";
+"Lanes marked \"BUS\" or \"Riservata\" are only for buses and taxis, and many have cameras: driving in one is a separate fine, even outside the ZTL." = "Le corsie con la scritta «BUS» o «Riservata» sono solo per bus e taxi, e molte hanno telecamere: percorrerle è una multa a parte, anche fuori dalla ZTL.";
+"Low-emission zones" = "Zone a basse emissioni";
+"In zones like Milan's Area B the question isn't the time but your car: the most polluting Euro classes can't enter on weekdays. Set your car in Garage and GateLR checks it for you." = "In zone come l'Area B di Milano non conta l'ora ma la tua auto: le classi Euro più inquinanti non entrano nei feriali. Imposta l'auto nel Garage e GateLR la controlla per te.";
