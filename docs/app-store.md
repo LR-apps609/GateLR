@@ -32,11 +32,14 @@ GateLR gives you one clear answer:
 • Not sure — and then we show you the official source
 
 WHAT YOU GET
-• Now: the answer for your car, right now, with a countdown to when the gates switch on or off
-• Trip: the answer for the day and time you arrive, and a ready-made message asking your hotel to register your plate, in English, Italian or German
-• Map: every ZTL sector and camera gate, and car parks just outside the zone with directions
-• Alerts before a gate that's on, even with the app closed
-• Garage: your cars and permits in one place
+• Gate: the ZTL near you and the answer right now, the cities with their active zones
+• Trip: search your hotel or destination for the answer when you arrive, the ZTLs on your route, the day ticket with a reminder (Milan Area C, Bologna), and a ready-made message asking your hotel to register your plate for every day, in English, Italian or German
+• Guardian: start Google Maps, Apple Maps or Waze from GateLR and get warned before every active ZTL, also in the Dynamic Island and on the lock screen
+• GateLR navigation: turn-by-turn voice directions with the next ZTL always in view
+• Map: every ZTL coloured by type (no entry, pass needed, green zone), pedestrian areas, bus-lane cameras, search your hotel and see if you can drive there
+• Read the sign: point the camera at the hours panel and GateLR explains it in your language
+• Garage: make, model and Euro class, with advice for low-emission zones like Milan's Area B
+• Got a fine? What to expect, how to pay from abroad, how to appeal, and a drive log of the active gates you passed
 
 EVERY RULE HAS ITS SOURCE
 Each answer links to the city's official page or ordinance, with the date we read it. Cities still being reviewed are clearly marked as Draft. Road signs on site always win over the app.
