@@ -1,5 +1,6 @@
 import XCTest
 import CoreLocation
+import CryptoKit
 
 final class RuleEngineTests: XCTestCase {
     /// «Oggi» fisso al 26 ottobre 2026: le schede delle città non diventano «vecchie» col passare dei mesi
@@ -144,7 +145,7 @@ final class RuleEngineTests: XCTestCase {
     /// Tutte le città incluse nell'app si leggono, e Bologna e Milano rispondono come dicono i Comuni
     func testAllCityFiles() throws {
         let dir = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Resources/Cities")
-        let files = try FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
+        let files = try FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" && $0.lastPathComponent != "manifest.json" }
         XCTAssertGreaterThanOrEqual(files.count, 3)
         var cities: [String: City] = [:]
         for f in files { let c = try CityLoader.decode(Data(contentsOf: f)); cities[c.id] = c }
@@ -162,7 +163,7 @@ final class RuleEngineTests: XCTestCase {
 
     private func bundledCities() throws -> [String: City] {
         let dir = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Resources/Cities")
-        let files = try FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" }
+        let files = try FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil).filter { $0.pathExtension == "json" && $0.lastPathComponent != "manifest.json" }
         var cities: [String: City] = [:]
         for f in files { let c = try CityLoader.decode(Data(contentsOf: f)); cities[c.id] = c }
         return cities
@@ -299,6 +300,18 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertEqual(DriveView.symbol(for: "Svolta a sinistra in Via Roma"), "arrow.turn.up.left")
         XCTAssertEqual(DriveView.symbol(for: "Turn right onto Via Roma"), "arrow.turn.up.right")
         XCTAssertEqual(DriveView.symbol(for: "Im Kreisverkehr die zweite Ausfahrt nehmen"), "arrow.triangle.turn.up.right.circle")
+    }
+
+    /// L'elenco scaricato dall'app deve corrispondere ai file (altrimenti l'aggiornamento li scarterebbe)
+    func testManifestMatchesFiles() throws {
+        let dir = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Resources/Cities")
+        let m = try JSONDecoder().decode(CityLoader.Manifest.self, from: Data(contentsOf: dir.appendingPathComponent("manifest.json")))
+        XCTAssertEqual(m.schema, 1)
+        for e in m.cities {
+            let data = try Data(contentsOf: dir.appendingPathComponent(e.file))
+            let hash = SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined()
+            XCTAssertEqual(hash, e.sha256, "Rilancia Tools/build_manifest.py dopo aver cambiato \(e.file)")
+        }
     }
 
     func testEaster() {

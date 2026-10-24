@@ -308,3 +308,10 @@
 "Open in" = "Apri in";
 "Open in another navigator" = "Apri in un altro navigatore";
 "GateLR guides you with the voice and warns you before every active ZTL. It doesn't avoid them by itself: watch the gate signs." = "GateLR ti guida con la voce e ti avvisa prima di ogni ZTL attiva. Non le evita da solo: guarda i cartelli dei varchi.";
+"City data" = "Dati delle città";
+"Check for updates" = "Controlla aggiornamenti";
+"Up to date" = "Aggiornati";
+"Updated" = "Aggiornati ora";
+"Not available now" = "Non disponibile ora";
+"Rules and maps" = "Regole e mappe";
+"Hours, perimeters and gates are updated from GitHub, without a new app version. GateLR checks by itself twice a day." = "Orari, perimetri e varchi si aggiornano da GitHub, senza una nuova versione dell'app. GateLR controlla da solo due volte al giorno.";

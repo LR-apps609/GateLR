@@ -7,6 +7,7 @@ struct AccountView: View {
     @EnvironmentObject var store: Store
     @State private var testSent = false
     @State private var reporting = false
+    @ObservedObject private var updater = CityUpdater.shared
 
     var body: some View {
         NavigationStack {
@@ -66,6 +67,28 @@ struct AccountView: View {
                     .foregroundStyle(Theme.ink)
                 } header: { Text("Settings") } footer: {
                     Text("GateLR speaks English, Italian and German. The language is chosen in the iPhone Settings.")
+                }
+
+                Section {
+                    LabeledContent(L("City data"), value: CityUpdater.label(updater.currentVersion))
+                    Button {
+                        Task { await updater.check(store: store) }
+                    } label: {
+                        HStack {
+                            Label(L("Check for updates"), systemImage: "arrow.triangle.2.circlepath")
+                            Spacer()
+                            switch updater.state {
+                            case .checking: ProgressView()
+                            case .upToDate: Text("Up to date").foregroundStyle(Theme.greenInk)
+                            case .updated: Text("Updated").foregroundStyle(Theme.greenInk)
+                            case .failed: Text("Not available now").foregroundStyle(Theme.muted)
+                            case .idle: EmptyView()
+                            }
+                        }
+                    }
+                    .disabled(updater.state == .checking)
+                } header: { Text("Rules and maps") } footer: {
+                    Text("Hours, perimeters and gates are updated from GitHub, without a new app version. GateLR checks by itself twice a day.")
                 }
 
                 Section("Offline cities") {

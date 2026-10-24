@@ -108,12 +108,48 @@ enum CityLoader {
         return try d.decode(City.self, from: data)
     }
 
-    /// Letti una volta sola (il widget li chiede a ogni voce della sua cronologia)
-    static let shared: [City] = bundled()
+    /// Letti una volta sola (il widget li chiede a ogni voce della sua cronologia).
+    /// Se dal sito sono arrivati dati più nuovi di quelli dentro l'app, si usano quelli.
+    static let shared: [City] = best()
+
+    static func best() -> [City] {
+        let mine = bundled()
+        guard let newer = downloaded(), (downloadedVersion ?? "") > (bundledVersion ?? "") else { return mine }
+        // Le città scaricate sostituiscono quelle dell'app con lo stesso id; le altre restano
+        let ids = Set(newer.map(\.id))
+        return (newer + mine.filter { !ids.contains($0.id) }).sorted { $0.name < $1.name }
+    }
 
     static func bundled() -> [City] {
-        let urls = Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: "Cities") ?? []
+        let urls = (Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: "Cities") ?? [])
+            .filter { $0.lastPathComponent != "manifest.json" }
         let cities = urls.compactMap { try? decode(Data(contentsOf: $0)) }.sorted { $0.name < $1.name }
         return cities.isEmpty ? [SampleData.florence] : cities
+    }
+
+    struct Manifest: Codable {
+        struct Entry: Codable { var id: String; var file: String; var sha256: String }
+        var version: String
+        var schema: Int
+        var cities: [Entry]
+    }
+
+    static var bundledVersion: String? {
+        guard let url = Bundle.main.url(forResource: "manifest", withExtension: "json", subdirectory: "Cities"),
+              let data = try? Data(contentsOf: url) else { return nil }
+        return (try? JSONDecoder().decode(Manifest.self, from: data))?.version
+    }
+
+    /// Dove si salvano le città scaricate (Application Support/Cities)
+    static var downloadDir: URL? {
+        FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first?.appendingPathComponent("Cities", isDirectory: true)
+    }
+    static var downloadedVersion: String? { UserDefaults.standard.string(forKey: "cities.version") }
+
+    static func downloaded() -> [City]? {
+        guard let dir = downloadDir,
+              let files = try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil) else { return nil }
+        let cities = files.filter { $0.pathExtension == "json" }.compactMap { try? decode(Data(contentsOf: $0)) }
+        return cities.isEmpty ? nil : cities
     }
 }

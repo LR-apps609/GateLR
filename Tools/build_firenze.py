@@ -195,3 +195,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+    import runpy   # l'elenco per gli aggiornamenti dell'app
+    runpy.run_path(str(Path(__file__).resolve().parent / "build_manifest.py"))

@@ -212,6 +212,11 @@ T = {
 "Voice off": ("Voce spenta", "Sprache aus"), "Voice on": ("Voce accesa", "Sprache an"), "End": ("Fine", "Beenden"),
 "Start": ("Avvia", "Starten"), "Open in": ("Apri in", "Öffnen in"), "Open in another navigator": ("Apri in un altro navigatore", "In einer anderen Navi-App öffnen"),
 "GateLR guides you with the voice and warns you before every active ZTL. It doesn't avoid them by itself: watch the gate signs.": ("GateLR ti guida con la voce e ti avvisa prima di ogni ZTL attiva. Non le evita da solo: guarda i cartelli dei varchi.", "GateLR führt dich mit Sprachansagen und warnt dich vor jeder aktiven ZTL. Es umfährt sie nicht von selbst: Achte auf die Schilder an den Einfahrten."),
+# Aggiornamento dati
+"City data": ("Dati delle città", "Städtedaten"), "Check for updates": ("Controlla aggiornamenti", "Nach Updates suchen"),
+"Up to date": ("Aggiornati", "Aktuell"), "Updated": ("Aggiornati ora", "Aktualisiert"), "Not available now": ("Non disponibile ora", "Gerade nicht verfügbar"),
+"Rules and maps": ("Regole e mappe", "Regeln und Karten"),
+"Hours, perimeters and gates are updated from GitHub, without a new app version. GateLR checks by itself twice a day.": ("Orari, perimetri e varchi si aggiornano da GitHub, senza una nuova versione dell'app. GateLR controlla da solo due volte al giorno.", "Zeiten, Grenzen und Einfahrten werden über GitHub aktualisiert, ohne neue App-Version. GateLR prüft selbst zweimal am Tag."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

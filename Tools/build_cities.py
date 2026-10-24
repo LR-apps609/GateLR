@@ -185,3 +185,7 @@ for city in (bologna(), milano()):
     out = ROOT / f"Resources/Cities/{city['id']}.json"
     out.write_text(json.dumps(city, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(out.name, [(z["id"], len(z["perimeter"]), len(z["gates"])) for z in city["zones"]])
+
+# L'elenco per gli aggiornamenti dell'app (Resources/Cities/manifest.json)
+import runpy
+runpy.run_path(str(ROOT / "Tools/build_manifest.py"))

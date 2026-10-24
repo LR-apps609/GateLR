@@ -15,6 +15,9 @@ struct GateLRApp: App {
                     Self.uiTestPlace(store)
                     await GateMonitor.shared.startIfReady(store: store)
                 }
+                .task {
+                    await CityUpdater.shared.checkIfDue(store: store)
+                }
         }
     }
 
