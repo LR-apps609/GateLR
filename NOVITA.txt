@@ -1,3 +1,7 @@
+Novità della 1.8.1:
+• Un permesso vale solo nella sua città: la registrazione dell'hotel a Firenze non fa più dire «Sì» all'Area C di Milano
+• Giro di prova automatico più affidabile
+
 Novità della 1.8.0 «Per davvero»:
 • Prima pagina nuova (1.2): cos'è GateLR in tre righe, la ZTL vicino a te con la risposta adesso, «Dove vai?», le città con quante zone sono attive, il prossimo viaggio, «Prima volta con le ZTL?» e «Leggi il cartello»
 • Viaggio è l'unico posto dove si cerca: destinazione o hotel, risposta adesso o all'arrivo, percorso, ticket, registrazione dell'hotel, messaggio, viaggi salvati

@@ -1,13 +1,13 @@
-# GateLR 1.8 – Checklist delle prove a mano
+# GateLR 1.8.1 – Checklist delle prove a mano
 
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
 
 ## 0. Installazione (Mac)
 - [ ] Terminale: `osascript -e 'quit app "Xcode"'` poi `cd ~/Developer/GateLR && git pull && zsh "Installa su iPhone.command"`
-- [ ] Lo script scrive «Versione: 1.8.0»
+- [ ] Lo script scrive «Versione: 1.8.1»
 - [ ] Xcode: Team su **GateLR** e **GateLRWidget**, iPhone scelto in alto, ▶︎
-- [ ] Account → in fondo **Versione 1.8.0**
+- [ ] Account → in fondo **Versione 1.8.1**
 - [ ] Le auto, i permessi e i viaggi di prima ci sono ancora
 
 ## 1. Prima pagina (Varco)
