@@ -56,6 +56,7 @@ targets:
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         NSHumanReadableCopyright: "Uso personale di Ledion"
+        NSCameraUsageDescription: "GateLR reads the hours on the ZTL panel you point the camera at."
         NSLocationWhenInUseUsageDescription: "GateLR uses your location to tell you which ZTL gates are near you."
         # Navigazione: posizione e voce anche con lo schermo spento o un'altra app davanti
         UIBackgroundModes: [location, audio]

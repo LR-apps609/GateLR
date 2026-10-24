@@ -29,6 +29,9 @@ struct AccountView: View {
                     NavigationLink { LearnZTLView() } label: {
                         Label("What is a ZTL?", systemImage: "graduationcap")
                     }
+                    NavigationLink { SignReaderView() } label: {
+                        Label("Read the sign", systemImage: "camera.viewfinder")
+                    }
                 } header: { Text("Learn") } footer: {
                     Text("The signs, the gate panels, and what to do if you drove in by mistake.")
                 }

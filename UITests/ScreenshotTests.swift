@@ -21,6 +21,20 @@ final class ScreenshotTests: XCTestCase {
         sleep(1)
         snap("01b-home-cities")
 
+        // Leggi il cartello: testo scritto a mano (nel simulatore non c'è la fotocamera)
+        let sign = app.buttons["varco.sign"]
+        if sign.waitForExistence(timeout: 3) {
+            sign.tap()
+            let t = app.textFields["sign.text"]
+            if t.waitForExistence(timeout: 3) {
+                t.tap(); t.typeText("ZONA TRAFFICO LIMITATO\n7.30-20.00\nFERIALI")
+                sleep(1)
+                snap("01c-sign-reader")
+            }
+            app.swipeDown(velocity: .fast)
+            sleep(1)
+        }
+
         // Viaggio: l'unica ricerca dell'app
         let plan = app.buttons["varco.plan"]
         if plan.waitForExistence(timeout: 3) { plan.tap() } else { app.tabBars.buttons.element(boundBy: 2).tap() }

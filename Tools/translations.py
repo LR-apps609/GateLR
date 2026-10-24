@@ -295,6 +295,18 @@ T = {
 "%@: ticket": ("%@: ticket", "%@: Ticket"),
 "Have you activated the ticket? Deadline: %@.": ("Hai attivato il ticket? Scadenza: %@.", "Hast du das Ticket aktiviert? Frist: %@."),
 "Buy and activate the ticket before you drive in.": ("Compra e attiva il ticket prima di entrare.", "Kauf und aktiviere das Ticket vor der Einfahrt."),
+# 1.7 Leggi il cartello
+"Read the sign": ("Leggi il cartello", "Schild lesen"),
+"Point the camera at the white panel under the ZTL sign, or pick a photo of it.": ("Inquadra il pannello bianco sotto il cartello ZTL, oppure scegli una sua foto.", "Richte die Kamera auf die weiße Tafel unter dem ZTL-Schild oder wähle ein Foto davon."),
+"Use the camera": ("Usa la fotocamera", "Kamera verwenden"), "Choose a photo": ("Scegli una foto", "Foto auswählen"),
+"Text on the sign": ("Testo del cartello", "Text auf dem Schild"), "e.g. 7.30-20.00 feriali": ("es. 7.30-20.00 feriali", "z. B. 7.30-20.00 feriali"), "Reading…": ("Leggo…", "Lese…"),
+"GateLR reads the panel for you, but it can misread a photo: if in doubt, the sign wins.": ("GateLR legge il pannello per te, ma può sbagliare una foto: nel dubbio vale il cartello.", "GateLR liest die Tafel für dich, kann ein Foto aber falsch lesen: Im Zweifel gilt das Schild."),
+"Active now, according to the sign: don't drive in": ("Attiva adesso, secondo il cartello: non entrare", "Laut Schild jetzt aktiv: nicht hineinfahren"),
+"Not active now, according to the sign: you may drive in": ("Non attiva adesso, secondo il cartello: puoi entrare", "Laut Schild jetzt nicht aktiv: du darfst hinein"),
+"What it means": ("Cosa vuol dire", "Was es bedeutet"), "Public holidays: not active.": ("Festivi: non attiva.", "Feiertage: nicht aktiv."), "Also on public holidays.": ("Anche nei festivi.", "Auch an Feiertagen."),
+"I can't find days and hours in this text. Try again closer to the panel, or type them.": ("Non trovo giorni e orari in questo testo. Riprova più vicino al pannello, oppure scrivili.", "Ich finde keine Tage und Zeiten in diesem Text. Versuch es näher an der Tafel oder tippe sie ein."),
+"Every day": ("Tutti i giorni", "Jeden Tag"), "Use this text": ("Usa questo testo", "Diesen Text verwenden"),
+"Point the camera at the hours panel: GateLR explains it in your language.": ("Inquadra il pannello degli orari: GateLR te lo spiega nella tua lingua.", "Richte die Kamera auf die Zeittafel: GateLR erklärt sie dir in deiner Sprache."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

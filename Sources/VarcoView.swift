@@ -10,6 +10,7 @@ struct VarcoView: View {
     @Binding var showZone: Bool
     @Binding var tab: Tab
     @State private var learning = false
+    @State private var readingSign = false
 
     var body: some View {
         TimelineView(.everyMinute) { ctx in
@@ -24,6 +25,7 @@ struct VarcoView: View {
                     zones(at: ctx.date)
                     if let next = store.trips.filter({ $0.arrival > ctx.date }).min(by: { $0.arrival < $1.arrival }) { nextTrip(next) }
                     learnCard
+                    signCard
                     StatusBanner(status: store.city.status)
                     Text("Road signs on site always win over the app.")
                         .font(.system(size: 12)).foregroundStyle(Theme.muted)
@@ -34,6 +36,7 @@ struct VarcoView: View {
             .background(Theme.ground)
         }
         .sheet(isPresented: $learning) { NavigationStack { LearnZTLView() } }
+        .sheet(isPresented: $readingSign) { NavigationStack { SignReaderView() } }
     }
 
     private var header: some View {
@@ -271,6 +274,25 @@ struct VarcoView: View {
             .padding(14).card()
         }
         .buttonStyle(.plain)
+    }
+
+    private var signCard: some View {
+        Button { readingSign = true } label: {
+            HStack(spacing: 14) {
+                Image(systemName: "camera.viewfinder").font(.system(size: 26, weight: .semibold)).foregroundStyle(Theme.blue)
+                    .frame(width: 44, height: 44)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Read the sign").font(.system(size: 16, weight: .bold)).foregroundStyle(Theme.ink)
+                    Text("Point the camera at the hours panel: GateLR explains it in your language.")
+                        .font(.system(size: 13)).foregroundStyle(Theme.muted).multilineTextAlignment(.leading)
+                }
+                Spacer()
+                Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
+            }
+            .padding(14).card()
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("varco.sign")
     }
 
     private func select(_ z: Zone) {

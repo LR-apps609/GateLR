@@ -333,6 +333,26 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertEqual(p.key, Place(name: "Hotel Test", address: "x", location: Coordinate(lat: 43.770001, lon: 11.250001)).key)
     }
 
+    func testSignReader() {
+        let a = SignReader.parse("ZONA TRAFFICO LIMITATO\n7.30-20.00\nFERIALI\nCONTROLLO ELETTRONICO")
+        XCTAssertEqual(a.rules, [SignReader.Rule(days: [2, 3, 4, 5, 6, 7], start: 450, end: 1200)])
+        XCTAssertTrue(a.holidaysExcluded)
+        XCTAssertTrue(SignReader.isActive(a, at: date(2026, 10, 26, 10), calendar: cal))       // lunedì
+        XCTAssertFalse(SignReader.isActive(a, at: date(2026, 10, 25, 10), calendar: cal))      // domenica
+        XCTAssertFalse(SignReader.isActive(a, at: date(2026, 10, 26, 21), calendar: cal))
+
+        let b = SignReader.parse("LUN-VEN 7:30 - 19:30\nfestivi esclusi")
+        XCTAssertEqual(b.rules.first?.days, [2, 3, 4, 5, 6])
+        XCTAssertEqual(b.rules.first?.start, 450)
+        XCTAssertFalse(SignReader.isActive(b, at: date(2026, 12, 8, 10), calendar: cal))        // Immacolata
+
+        let c = SignReader.parse("GIO VEN SAB dalle 23 alle 3")
+        XCTAssertEqual(c.rules.first?.days, [5, 6, 7])
+        XCTAssertTrue(SignReader.isActive(c, at: date(2026, 7, 3, 1), calendar: cal))           // venerdì all'una
+        XCTAssertFalse(SignReader.parse("Benvenuti a Firenze").understood)
+        XCTAssertEqual(SignReader.parse("TUTTI I GIORNI 0-24").rules.first?.days.count, 7)
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)
