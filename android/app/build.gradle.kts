@@ -61,5 +61,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
     // Mappe senza servizi Google (vanno anche sui Huawei): MapLibre + OpenFreeMap
     implementation("org.maplibre.gl:android-sdk:11.5.2")
+    // Lettura del cartello: modello incluso nell'app, funziona anche senza servizi Google
+    implementation("com.google.mlkit:text-recognition:16.0.1")
     debugImplementation("androidx.compose.ui:ui-tooling")
 }

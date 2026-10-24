@@ -382,6 +382,8 @@ ANDROID = {
 "You can drive here freely.": ("Qui puoi guidare liberamente.", "Hier darfst du frei fahren."),
 "Your cars": ("Le tue auto", "Deine Autos"),
 "ZTL alerts": ("Avvisi ZTL", "ZTL-Hinweise"),
+"Camera": ("Fotocamera", "Kamera"),
+"I can't find days and hours in this text. Type them as on the panel, e.g. 7.30-20.00 feriali.": ("Non trovo giorni e orari in questo testo. Scrivili come sul pannello, es. 7.30-20.00 feriali.", "Ich finde keine Tage und Uhrzeiten in diesem Text. Schreib sie wie auf der Tafel, z. B. 7.30-20.00 feriali."),
 }
 
 # Gli stessi testi per l'app Android (assets/i18n/strings_it.json, strings_de.json)

@@ -124,6 +124,14 @@ fun HomeScreen(modifier: Modifier) {
             }
         }
         item {
+            CardBox(Modifier.clickable { Nav.tool = "sign" }) {
+                Column {
+                    Text(L("Read the sign"), fontWeight = FontWeight.SemiBold)
+                    Text(L("Point the camera at the hours panel: GateLR explains it in your language."), fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f))
+                }
+            }
+        }
+        item {
             Text(L("Road signs on site always win over the app."), fontSize = 12.sp, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.55f),
                 modifier = Modifier.padding(top = 4.dp, bottom = 12.dp))
         }

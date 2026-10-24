@@ -74,6 +74,16 @@ fun AccountScreen(modifier: Modifier) {
             }
         }
 
+        item { SectionLabel("Learn") }
+        item {
+            CardBox {
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Text(L("Read the sign") + " ›", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.SemiBold, modifier = Modifier.clickable { Nav.tool = "sign" })
+                    Text(L("Got a fine?") + " ›", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.SemiBold, modifier = Modifier.clickable { Nav.tool = "fines" })
+                }
+            }
+        }
+
         item { SectionLabel("Rules and maps") }
         item {
             CardBox {

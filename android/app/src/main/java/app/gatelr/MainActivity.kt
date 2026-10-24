@@ -50,6 +50,7 @@ object Here {
 object Nav {
     var tab by mutableIntStateOf(0)
     var zone by mutableStateOf<Zone?>(null)
+    var tool by mutableStateOf<String?>(null)      // "sign" | "fines"
 }
 
 class MainActivity : ComponentActivity() {
@@ -101,6 +102,11 @@ fun Root() {
     Nav.zone?.let { z ->
         ModalBottomSheet(onDismissRequest = { Nav.zone = null }, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
             ZoneDetail(z)
+        }
+    }
+    Nav.tool?.let { t ->
+        ModalBottomSheet(onDismissRequest = { Nav.tool = null }, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
+            if (t == "sign") SignReaderScreen() else FineGuide()
         }
     }
 }
