@@ -18,6 +18,8 @@ final class Store: ObservableObject {
     @Published var alertsOn = true { didSet { save() } }
     @Published var alertDistance: Double = 500 { didSet { save() } }
     @Published var trips: [Trip] { didSet { save() } }
+    /// I soggiorni in hotel dentro la ZTL: date e stato della registrazione della targa (chiave: Place.key)
+    @Published var stays: [String: HotelStay] = [:] { didSet { save() } }
     /// Il posto scelto nella pagina Varco (indirizzo, hotel, piazza); nil = solo la città
     @Published var place: Place?
 
@@ -28,11 +30,12 @@ final class Store: ObservableObject {
         var vehicles: [Vehicle], activeVehicleId: UUID?, permits: [Permit]
         var hotelInside: Bool, alertsOn: Bool, alertDistance: Double
         var trips: [Trip]?
+        var stays: [String: HotelStay]?
     }
 
     init() {
         if let data = UserDefaults.standard.data(forKey: key), let s = try? JSONDecoder().decode(Saved.self, from: data) {
-            vehicles = s.vehicles; activeVehicleId = s.activeVehicleId; permits = s.permits; trips = s.trips ?? []
+            vehicles = s.vehicles; activeVehicleId = s.activeVehicleId; permits = s.permits; trips = s.trips ?? []; stays = s.stays ?? [:]
             hotelInside = s.hotelInside; alertsOn = s.alertsOn; alertDistance = s.alertDistance
         } else {
             vehicles = [SampleData.rental]; activeVehicleId = SampleData.rental.id; permits = []; trips = []
@@ -41,7 +44,7 @@ final class Store: ObservableObject {
 
     private func save() {
         let s = Saved(vehicles: vehicles, activeVehicleId: activeVehicleId, permits: permits,
-                      hotelInside: hotelInside, alertsOn: alertsOn, alertDistance: alertDistance, trips: trips)
+                      hotelInside: hotelInside, alertsOn: alertsOn, alertDistance: alertDistance, trips: trips, stays: stays)
         if let data = try? JSONEncoder().encode(s) { UserDefaults.standard.set(data, forKey: key) }
     }
 
@@ -94,6 +97,29 @@ struct Place: Codable, Hashable, Identifiable {
     var name: String
     var address: String
     var location: Coordinate
+}
+
+extension Place {
+    /// Identifica lo stesso posto anche se cercato due volte
+    var key: String { "\(name)|\((location.lat * 10_000).rounded())|\((location.lon * 10_000).rounded())" }
+}
+
+/// Il soggiorno in un hotel dentro la ZTL: la targa va registrata per ogni giorno, compreso quello di partenza
+struct HotelStay: Codable, Hashable {
+    enum Status: String, Codable { case notAsked, asked, confirmed }
+    var arrival: Date
+    var departure: Date
+    var status: Status = .notAsked
+    var permitId: UUID? = nil
+
+    /// I giorni da coprire, dal giorno di arrivo a quello di partenza compresi
+    var days: [Date] {
+        let c = Calendar.current
+        var d = c.startOfDay(for: arrival), out: [Date] = []
+        let last = c.startOfDay(for: max(departure, arrival))
+        while d <= last && out.count < 31 { out.append(d); d = c.date(byAdding: .day, value: 1, to: d) ?? last.addingTimeInterval(1) }
+        return out
+    }
 }
 
 /// Un viaggio salvato: hotel, arrivo, partenza, auto

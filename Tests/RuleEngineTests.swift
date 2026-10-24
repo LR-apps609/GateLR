@@ -324,6 +324,15 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertGreaterThan(cities["firenze"]?.cameras?.count ?? 0, 3)
     }
 
+    func testHotelStayDaysAndMessage() {
+        let stay = HotelStay(arrival: date(2026, 11, 2, 18), departure: date(2026, 11, 5, 10))
+        XCTAssertEqual(stay.days.count, 4)                                           // 2, 3, 4 e 5 (partenza)
+        let m = MessageLanguage.it.message(arrival: date(2026, 11, 2, 18), plate: "AB123CD", hotel: "Hotel Test", departure: date(2026, 11, 5, 10))
+        XCTAssertTrue(m.contains("AB123CD") && m.contains("per iscritto") && m.contains("partenza"))
+        let p = Place(name: "Hotel Test", address: "", location: Coordinate(lat: 43.77, lon: 11.25))
+        XCTAssertEqual(p.key, Place(name: "Hotel Test", address: "x", location: Coordinate(lat: 43.770001, lon: 11.250001)).key)
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)

@@ -256,6 +256,17 @@ T = {
 "%@ in %@": ("%@ tra %@", "%@ in %@"), "Gate ahead: %@.": ("Varco davanti: %@.", "Einfahrt voraus: %@."), "Gate ahead: %@": ("Varco davanti: %@", "Einfahrt voraus: %@"),
 "No active ZTL ahead": ("Nessuna ZTL attiva davanti", "Keine aktive ZTL voraus"),
 "Guardian on · to %@": ("Guardiano attivo · verso %@", "Wächter aktiv · nach %@"), "Stop": ("Ferma", "Stopp"),
+# 1.4 Hotel sicuro
+"Plate registration": ("Registrazione della targa", "Kennzeichen-Anmeldung"), "Departure": ("Partenza", "Abreise"), "Status": ("Stato", "Status"),
+"%lld days to register, including the day you leave.": ("%lld giorni da registrare, compreso quello di partenza.", "%lld Tage anzumelden, inklusive Abreisetag."),
+"Not asked": ("Da chiedere", "Nicht angefragt"), "Asked": ("Chiesta", "Angefragt"),
+"A parking permit on the dashboard is not a ZTL registration.": ("Un permesso di parcheggio sul cruscotto non è una registrazione ZTL.", "Ein Parkschein im Auto ist keine ZTL-Anmeldung."),
+"Ask for a written confirmation with your plate and every date.": ("Chiedi una conferma scritta con la tua targa e tutte le date.", "Verlange eine schriftliche Bestätigung mit Kennzeichen und allen Daten."),
+"Usually one way in and one way out: don't drive in and out of the ZTL.": ("Di solito vale un ingresso e un'uscita: non entrare e uscire più volte.", "Meist gilt eine Einfahrt und eine Ausfahrt: nicht mehrmals rein und raus."),
+"Rental car? Use the plate of the car you actually get.": ("Auto a noleggio? Usa la targa dell'auto che ti consegnano davvero.", "Mietwagen? Nimm das Kennzeichen des Autos, das du wirklich bekommst."),
+"Saved as a permit in Garage: GateLR now answers \"yes\" for these days.": ("Salvato come permesso nel Garage: per questi giorni GateLR risponde «sì».", "Als Genehmigung in der Garage gespeichert: Für diese Tage antwortet GateLR „ja“."),
+"Tomorrow: %@": ("Domani: %@", "Morgen: %@"),
+"Has the hotel confirmed in writing that your plate is registered for every day? Without it, the gates fine you.": ("L'hotel ti ha confermato per iscritto che la targa è registrata per tutti i giorni? Senza, i varchi ti multano.", "Hat das Hotel schriftlich bestätigt, dass dein Kennzeichen für jeden Tag angemeldet ist? Sonst gibt es Bußgelder."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

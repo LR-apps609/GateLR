@@ -208,7 +208,10 @@ struct TripView: View {
                 }
             }
             routeCard(place)
-            if hit.zone.hotelCanRegister { hotelMessage }
+            if hit.zone.hotelCanRegister {
+                HotelStayCard(place: place, zone: hit.zone, arrival: atArrival ? arrival : Date())
+                hotelMessage
+            }
         } else {
             outsideCard(place)
             routeCard(place)
@@ -421,7 +424,7 @@ struct TripView: View {
         let name = hotelName.isEmpty ? store.place?.name : hotelName
         let text = language.message(arrival: atArrival ? arrival : Date(),
                                     plate: store.vehicle.plate.isEmpty ? "[PLATE]" : store.vehicle.plate,
-                                    hotel: name)
+                                    hotel: name, departure: store.place.flatMap { store.stays[$0.key]?.departure })
         return VStack(alignment: .leading, spacing: 10) {
             HStack {
                 SectionLabel("Message for the hotel")
@@ -484,20 +487,24 @@ enum MessageLanguage: String, CaseIterable, Identifiable {
     case it, en, de
     var id: String { rawValue }
 
-    func message(arrival: Date, plate: String, hotel: String? = nil) -> String {
+    func message(arrival: Date, plate: String, hotel: String? = nil, departure: Date? = nil) -> String {
         let locale = Locale(identifier: rawValue)
         let day = arrival.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(locale))
         let time = arrival.formatted(.dateTime.hour().minute().locale(locale))
+        let until = departure.map { $0.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(locale)) }
         switch self {
         case .en:
             let to = hotel.map { "Dear \($0) team,\n\n" } ?? "Hello,\n\n"
-            return "\(to)I'm arriving by car on \(day) at about \(time). Could you please register my plate \(plate) for the ZTL, so I can reach the hotel without a fine?\n\nThank you!"
+            let span = until.map { " I'll leave on \($0). Please register it for every day, including the day I leave, and confirm in writing that it's done." } ?? " Please confirm in writing that it's done."
+            return "\(to)I'm arriving by car on \(day) at about \(time). Could you please register my plate \(plate) for the ZTL, so I can reach the hotel without a fine?\(span)\n\nThank you!"
         case .it:
             let to = hotel.map { "Gentile staff di \($0),\n\n" } ?? "Buongiorno,\n\n"
-            return "\(to)arrivo in auto \(day) verso le \(time). Potete registrare la mia targa \(plate) per la ZTL, così raggiungo l'hotel senza multa?\n\nGrazie!"
+            let span = until.map { " Riparto \($0): vi chiedo di registrarla per tutti i giorni, compreso quello di partenza, e di confermarmelo per iscritto." } ?? " Vi chiedo di confermarmelo per iscritto."
+            return "\(to)arrivo in auto \(day) verso le \(time). Potete registrare la mia targa \(plate) per la ZTL, così raggiungo l'hotel senza multa?\(span)\n\nGrazie!"
         case .de:
             let to = hotel.map { "Liebes Team von \($0),\n\n" } ?? "Guten Tag,\n\n"
-            return "\(to)ich komme am \(day) gegen \(time) mit dem Auto an. Könnten Sie bitte mein Kennzeichen \(plate) für die ZTL anmelden, damit ich das Hotel ohne Bußgeld erreiche?\n\nVielen Dank!"
+            let span = until.map { " Ich reise am \($0) ab. Bitte melden Sie es für jeden Tag an, auch für den Abreisetag, und bestätigen Sie es mir schriftlich." } ?? " Bitte bestätigen Sie es mir schriftlich."
+            return "\(to)ich komme am \(day) gegen \(time) mit dem Auto an. Könnten Sie bitte mein Kennzeichen \(plate) für die ZTL anmelden, damit ich das Hotel ohne Bußgeld erreiche?\(span)\n\nVielen Dank!"
         }
     }
 }

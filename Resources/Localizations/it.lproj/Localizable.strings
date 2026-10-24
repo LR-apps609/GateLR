@@ -361,3 +361,16 @@
 "No active ZTL ahead" = "Nessuna ZTL attiva davanti";
 "Guardian on · to %@" = "Guardiano attivo · verso %@";
 "Stop" = "Ferma";
+"Plate registration" = "Registrazione della targa";
+"Departure" = "Partenza";
+"Status" = "Stato";
+"%lld days to register, including the day you leave." = "%lld giorni da registrare, compreso quello di partenza.";
+"Not asked" = "Da chiedere";
+"Asked" = "Chiesta";
+"A parking permit on the dashboard is not a ZTL registration." = "Un permesso di parcheggio sul cruscotto non è una registrazione ZTL.";
+"Ask for a written confirmation with your plate and every date." = "Chiedi una conferma scritta con la tua targa e tutte le date.";
+"Usually one way in and one way out: don't drive in and out of the ZTL." = "Di solito vale un ingresso e un'uscita: non entrare e uscire più volte.";
+"Rental car? Use the plate of the car you actually get." = "Auto a noleggio? Usa la targa dell'auto che ti consegnano davvero.";
+"Saved as a permit in Garage: GateLR now answers \"yes\" for these days." = "Salvato come permesso nel Garage: per questi giorni GateLR risponde «sì».";
+"Tomorrow: %@" = "Domani: %@";
+"Has the hotel confirmed in writing that your plate is registered for every day? Without it, the gates fine you." = "L'hotel ti ha confermato per iscritto che la targa è registrata per tutti i giorni? Senza, i varchi ti multano.";
