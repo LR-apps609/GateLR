@@ -61,7 +61,7 @@ struct VarcoView: View {
             Text("Italy's old towns are closed to cars at set hours, with cameras at every gate. GateLR tells you if you can drive in, now or when you arrive, and warns you before a gate.")
                 .font(.app(size: 15)).foregroundStyle(.white.opacity(0.92))
                 .fixedSize(horizontal: false, vertical: true)
-            HStack(spacing: 8) {
+            HStack(alignment: .top, spacing: 8) {
                 heroChip("checkmark.circle.fill", "Clear answer")
                 heroChip("bell.badge.fill", "Gate alerts")
                 heroChip("doc.text.magnifyingglass", "Official sources")
@@ -72,21 +72,19 @@ struct VarcoView: View {
         .background(
             LinearGradient(colors: [Color(hex: 0x1D4FA8), Color(hex: 0x14326E)], startPoint: .topLeading, endPoint: .bottomTrailing),
             in: RoundedRectangle(cornerRadius: 26, style: .continuous))
-        .overlay(alignment: .topTrailing) {
-            Circle().stroke(Theme.red, lineWidth: 10).frame(width: 64, height: 64).opacity(0.85)
-                .overlay(Circle().fill(.white.opacity(0.08)))
-                .padding(18).accessibilityHidden(true)
-        }
         .shadow(color: .black.opacity(0.12), radius: 14, y: 6)
     }
 
     private func heroChip(_ symbol: String, _ text: String) -> some View {
-        Label(L(text), systemImage: symbol)
-            .font(.app(size: 12, weight: .semibold))
-            .lineLimit(1).minimumScaleFactor(0.8)
-            .padding(.horizontal, 10).frame(height: 30)
-            .background(.white.opacity(0.16), in: Capsule())
-            .foregroundStyle(.white)
+        VStack(spacing: 6) {
+            Image(systemName: symbol).font(.app(size: 17, weight: .semibold))
+            Text(L(text)).font(.app(size: 12, weight: .semibold))
+                .multilineTextAlignment(.center).lineLimit(2).fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, minHeight: 64)
+        .padding(.horizontal, 6).padding(.vertical, 8)
+        .background(.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .foregroundStyle(.white)
     }
 
     /// La ZTL più vicina a te (o quella in cui sei), con la risposta adesso

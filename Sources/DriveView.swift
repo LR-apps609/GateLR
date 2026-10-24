@@ -188,9 +188,12 @@ struct DriveView: View {
             VStack(alignment: .leading, spacing: 2) {
                 Text(drive.eta.map { $0.formatted(date: .omitted, time: .shortened) } ?? "–")
                     .font(Theme.display(28)).monospacedDigit()
+                    .lineLimit(1).minimumScaleFactor(0.6)
                 Text(remainingText)
                     .font(.app(size: 14)).foregroundStyle(Theme.muted)
+                    .lineLimit(1).minimumScaleFactor(0.7)
             }
+            .layoutPriority(1)
             Spacer()
             VStack(spacing: 0) {
                 Text("\(Int(drive.speed.rounded()))").font(Theme.display(20)).monospacedDigit()
