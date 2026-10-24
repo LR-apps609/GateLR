@@ -173,6 +173,19 @@ T = {
 "Describe the problem": ("Descrivi il problema", "Beschreibe das Problem"), "Add technical info": ("Aggiungi info tecniche", "Technische Infos anhängen"),
 "Technical info: app version, iOS, iPhone model, language and the chosen zone. No location, no plate.": ("Info tecniche: versione dell'app, iOS, modello di iPhone, lingua e zona scelta. Niente posizione, niente targa.", "Technische Infos: App-Version, iOS, iPhone-Modell, Sprache und gewählte Zone. Kein Standort, kein Kennzeichen."),
 "Send by email": ("Invia per email", "Per E-Mail senden"), "Send": ("Invia", "Senden"),
+# 0.6 Percorso
+"Planning…": ("Calcolo…", "Berechne…"), "Check the drive": ("Controlla il percorso", "Route prüfen"),
+"GateLR checks every ZTL on the way at the time you pass it.": ("GateLR controlla ogni ZTL lungo la strada, all'ora in cui ci passi.", "GateLR prüft jede ZTL auf dem Weg zu der Uhrzeit, zu der du vorbeikommst."),
+"No route found.": ("Nessun percorso trovato.", "Keine Route gefunden."),
+"Couldn't find your position. Allow location access to plan the drive.": ("Non trovo la tua posizione. Consenti l'accesso alla posizione per calcolare il percorso.", "Dein Standort wurde nicht gefunden. Erlaube den Standortzugriff, um die Route zu planen."),
+"Couldn't plan the drive right now. Check your connection.": ("Non riesco a calcolare il percorso adesso. Controlla la connessione.", "Die Route kann gerade nicht geplant werden. Prüfe deine Verbindung."),
+"Arrive %@": ("Arrivo %@", "Ankunft %@"), "No ZTL on the way.": ("Nessuna ZTL lungo la strada.", "Keine ZTL auf dem Weg."),
+"Destination · at %@": ("Destinazione · alle %@", "Ziel · um %@"), "On the way · at %@": ("Lungo la strada · alle %@", "Unterwegs · um %@"),
+"Park at %@": ("Parcheggia a %@", "Parke bei %@"),
+"Outside the ZTL · about %lld min on foot to your destination": ("Fuori dalla ZTL · circa %lld min a piedi fino alla destinazione", "Außerhalb der ZTL · etwa %lld Min. zu Fuß zum Ziel"),
+"You can't drive into the destination's zone at that time. Look for a car park outside on the map.": ("A quell'ora non puoi entrare nella zona della destinazione. Cerca un parcheggio fuori sulla mappa.", "Zu dieser Zeit darfst du nicht in die Zone des Ziels fahren. Such auf der Karte einen Parkplatz außerhalb."),
+"Drive to the car park": ("Vai al parcheggio", "Zum Parkplatz fahren"), "Navigate": ("Naviga", "Navigieren"),
+"GateLR doesn't steer you around the ZTL: your navigator picks the road. Watch the gate signs.": ("GateLR non ti fa girare intorno alla ZTL: la strada la sceglie il navigatore. Guarda i cartelli dei varchi.", "GateLR leitet dich nicht um die ZTL herum: Die Straße wählt dein Navi. Achte auf die Schilder an den Einfahrten."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

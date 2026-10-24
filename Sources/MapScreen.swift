@@ -5,6 +5,7 @@ import MapKit
 /// i parcheggi fuori zona, stili satellite e 3D, e la vista a livello strada dove c'è.
 struct MapScreen: View {
     @EnvironmentObject var store: Store
+    @ObservedObject private var planner = RoutePlanner.shared
     @Binding var showZone: Bool
     @Binding var tab: Tab
     @State private var camera: MapCameraPosition = .automatic
@@ -87,6 +88,18 @@ struct MapScreen: View {
                     }
                     .annotationTitles(.hidden)
                 }
+                if let plan = planner.plan {
+                    MapPolyline(coordinates: plan.path.map(\.cl))
+                        .stroke(Theme.blue, style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
+                    if let p = plan.parking {
+                        Annotation(p.name, coordinate: p.location.cl) {
+                            Text("P").font(.system(size: 15, weight: .heavy)).foregroundStyle(.white)
+                                .frame(width: 30, height: 30)
+                                .background(Theme.blue, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
+                                .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous).stroke(.white, lineWidth: 2))
+                        }
+                    }
+                }
                 if let place = store.place {
                     Marker(place.name, systemImage: "mappin", coordinate: place.location.cl).tint(Theme.blue)
                 }
@@ -121,12 +134,22 @@ struct MapScreen: View {
         .onAppear { focus() }
         .onChange(of: store.cityId) { parkings = []; focus() }
         .onChange(of: store.place) { focus() }
+        .onChange(of: planner.plan) { focus() }
         .sheet(item: $selectedParking) { p in ParkingSheet(parking: p).presentationDetents([.height(260)]) }
         .sheet(isPresented: $showLookAround) {
             LookAroundPreview(initialScene: lookAround)
                 .ignoresSafeArea()
                 .presentationDetents([.medium, .large])
         }
+    }
+
+    static func region(_ path: [Coordinate]) -> MKCoordinateRegion? {
+        guard let first = path.first else { return nil }
+        var lo = first, hi = first
+        for p in path { lo.lat = min(lo.lat, p.lat); lo.lon = min(lo.lon, p.lon); hi.lat = max(hi.lat, p.lat); hi.lon = max(hi.lon, p.lon) }
+        let center = CLLocationCoordinate2D(latitude: (lo.lat + hi.lat) / 2, longitude: (lo.lon + hi.lon) / 2)
+        let span = MKCoordinateSpan(latitudeDelta: (hi.lat - lo.lat) * 1.3 + 0.004, longitudeDelta: (hi.lon - lo.lon) * 1.3 + 0.004)
+        return MKCoordinateRegion(center: center, span: span)
     }
 
     private func select(_ z: Zone) {
@@ -137,7 +160,9 @@ struct MapScreen: View {
     /// La camera va sul posto scelto in Varco, se c'è, altrimenti sulla zona della città
     private func focus() {
         withAnimation {
-            if let place = store.place {
+            if let plan = planner.plan, plan.destination == store.place, let r = Self.region(plan.path) {
+                camera = .region(r)
+            } else if let place = store.place {
                 camera = .region(MKCoordinateRegion(center: place.location.cl, latitudinalMeters: 1_600, longitudinalMeters: 1_600))
             } else {
                 camera = .region(store.zone.region(padding: 1.4))

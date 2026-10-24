@@ -200,6 +200,31 @@ final class RuleEngineTests: XCTestCase {
         }
     }
 
+    /// Il controllo del percorso: entrando a Firenze di giorno il centro dice «no»; la zona di partenza non conta
+    func testRouteCrossings() throws {
+        let florence = try XCTUnwrap(try bundledCities()["firenze"])
+        let path = RouteCheck.densify([Coordinate(lat: 43.7900, lon: 11.2400), Coordinate(lat: 43.7696, lon: 11.2558)])
+        XCTAssertGreaterThan(path.count, 20)
+        let monday10 = date(2026, 10, 26, 10)
+        let crossings = RouteCheck.crossings(path: path, zones: florence.zones, departure: monday10, travelTime: 600) {
+            self.engine.answer(zone: $0, vehicle: self.car, permits: [], hotelInside: false, at: $1)
+        }
+        XCTAssertFalse(crossings.isEmpty)
+        XCTAssertTrue(crossings.contains { $0.isDestination })
+        guard case .no = RouteCheck.worst(crossings)?.answer.verdict else { return XCTFail("atteso no") }
+        XCTAssertTrue(crossings.allSatisfy { $0.at >= monday10 && $0.at <= monday10.addingTimeInterval(600) })
+        // Di notte (lunedì 22:00, fuori stagione estiva) tutto libero
+        let night = RouteCheck.crossings(path: path, zones: florence.zones, departure: date(2026, 10, 26, 22), travelTime: 600) {
+            self.engine.answer(zone: $0, vehicle: self.car, permits: [], hotelInside: false, at: $1)
+        }
+        XCTAssertTrue(night.allSatisfy { if case .yes = $0.answer.verdict { true } else { false } })
+        // Partendo da dentro, la zona di partenza non è un «ingresso»
+        let fromInside = RouteCheck.crossings(path: Array(path.reversed()), zones: florence.zones, departure: monday10, travelTime: 600) {
+            self.engine.answer(zone: $0, vehicle: self.car, permits: [], hotelInside: false, at: $1)
+        }
+        XCTAssertFalse(fromInside.contains { $0.zone.contains(lat: 43.7696, lon: 11.2558) })
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)

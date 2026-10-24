@@ -7,6 +7,7 @@ struct VarcoView: View {
     @EnvironmentObject var store: Store
     @ObservedObject private var monitor = GateMonitor.shared
     @StateObject private var search = AddressSearch()
+    @ObservedObject private var planner = RoutePlanner.shared
     @Binding var showZone: Bool
     @Binding var tab: Tab
     @FocusState private var typing: Bool
@@ -45,6 +46,8 @@ struct VarcoView: View {
         }
         .onAppear { search.focus(on: store.city) }
         .onChange(of: store.cityId) { search.focus(on: store.city) }
+        .onChange(of: store.place) { planner.clear() }
+        .onChange(of: atArrival) { planner.clear() }
     }
 
     // MARK: Testata e ricerca
@@ -180,11 +183,39 @@ struct VarcoView: View {
                     zoneList(hits.dropFirst().map { $0.zone }, at: date)
                 }
             }
+            routeCard(place)
             if hit.zone.hotelCanRegister {
                 hint("Staying at a hotel here? It can register your plate: see Trip.", symbol: "building.2", action: { tab = .trip })
             }
         } else {
             outsideCard(place)
+            routeCard(place)
+        }
+    }
+
+    // MARK: Il percorso
+
+    @ViewBuilder
+    private func routeCard(_ place: Place) -> some View {
+        if let plan = planner.plan, plan.destination == place {
+            RouteCard(plan: plan, onMap: { tab = .map })
+        } else {
+            VStack(alignment: .leading, spacing: 8) {
+                WideButton(title: planner.working ? "Planning…" : "Check the drive", systemImage: "car.fill") {
+                    Task {
+                        await planner.plan(to: place, from: monitor.location?.coordinate ?? RoutePlanner.testOrigin,
+                                           arrival: atArrival ? arrival : nil, store: store)
+                    }
+                }
+                .disabled(planner.working)
+                .accessibilityIdentifier("varco.route")
+                if let error = planner.error {
+                    Text(error).font(.system(size: 13)).foregroundStyle(Theme.muted)
+                } else {
+                    Text("GateLR checks every ZTL on the way at the time you pass it.")
+                        .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                }
+            }
         }
     }
 

@@ -92,11 +92,19 @@ final class ScreenshotTests: XCTestCase {
 
     /// Milano: il Duomo è in Area C, dentro l'Area B verde. Mappa da lontano con le scritte grandi.
     func test3MilanDark() {
-        app.launchArguments = ["-uitest", "-uiDark", "-uiPlace", "Duomo di Milano", "45.4641", "9.1919"]
+        app.launchArguments = ["-uitest", "-uiDark", "-uiPlace", "Duomo di Milano", "45.4641", "9.1919", "-uiOrigin", "45.4850", "9.2040"]
         app.launch()
         XCTAssertTrue(app.tabBars.buttons["Gate"].waitForExistence(timeout: 10))
         sleep(2)
         snap("14-varco-milan-dark")
+        let route = app.buttons["varco.route"]
+        if route.waitForExistence(timeout: 3) {
+            route.tap()
+            sleep(10)                  // percorso e parcheggio dalla rete
+            app.swipeUp()
+            sleep(1)
+            snap("14b-route-milan-dark")
+        }
         app.tabBars.buttons["Map"].tap()
         sleep(5)
         app.pinch(withScale: 0.25, velocity: -1)
