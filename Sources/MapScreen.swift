@@ -118,7 +118,12 @@ struct MapScreen: View {
             }
             .mapStyle(mapStyle)
             .mapControls { MapUserLocationButton(); MapCompass(); MapPitchToggle(); MapScaleView() }
+            // Si aggiorna solo quando lo zoom cambia davvero (più dell'8%): la mappa resta fluida
             .onMapCameraChange(frequency: .continuous) { ctx in
+                let d = ctx.camera.distance
+                if abs(d - distance) / max(distance, 1) > 0.08 { distance = d }
+            }
+            .onMapCameraChange(frequency: .onEnd) { ctx in
                 distance = ctx.camera.distance
                 center = ctx.camera.centerCoordinate
             }

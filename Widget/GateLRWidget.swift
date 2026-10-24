@@ -23,7 +23,7 @@ struct ZoneEntity: AppEntity {
     var displayRepresentation: DisplayRepresentation { DisplayRepresentation(title: "\(name)", subtitle: "\(city)") }
 
     static func all() -> [ZoneEntity] {
-        CityLoader.bundled().flatMap { c in c.zones.map { ZoneEntity(id: $0.id, name: $0.localizedName, city: c.localizedName) } }
+        CityLoader.shared.flatMap { c in c.zones.map { ZoneEntity(id: $0.id, name: $0.localizedName, city: c.localizedName) } }
     }
 }
 
@@ -43,7 +43,7 @@ struct GateProvider: AppIntentTimelineProvider {
     private let engine = RuleEngine()
 
     private func zone(_ wanted: String?) -> (City, Zone)? {
-        let cities = CityLoader.bundled()
+        let cities = CityLoader.shared
         let id = wanted ?? "firenze-b"
         if let city = cities.first(where: { $0.zones.contains { $0.id == id } }), let z = city.zones.first(where: { $0.id == id }) {
             return (city, z)

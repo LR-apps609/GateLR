@@ -6,7 +6,7 @@ import SwiftUI
 final class Store: ObservableObject {
     static let shared = Store()
 
-    @Published var cities: [City] = CityLoader.bundled()
+    @Published var cities: [City] = CityLoader.shared
     @Published var cityId: String = "firenze" {
         didSet { if !city.zones.contains(where: { $0.id == zoneId }) { zoneId = city.zones[0].id } }
     }
@@ -108,6 +108,9 @@ enum CityLoader {
         d.dateDecodingStrategy = .iso8601
         return try d.decode(City.self, from: data)
     }
+
+    /// Letti una volta sola (il widget li chiede a ogni voce della sua cronologia)
+    static let shared: [City] = bundled()
 
     static func bundled() -> [City] {
         let urls = Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: "Cities") ?? []
