@@ -105,10 +105,10 @@ struct LearnZTLView: View {
                 lesson("What is a ZTL?", "ZTL means Zona a Traffico Limitato, limited traffic zone. Most Italian old towns have one: only residents and authorised vehicles may drive in while it's active.") {
                     ZTLSign().frame(width: 90, height: 110)
                 }
-                lesson("How to recognise the gate", "At every entrance there's a round no-entry sign with \"Zona Traffico Limitato\" and a camera. An electronic panel says if the gate is on.") {
+                lesson("How to recognise the gate", "At every entrance there's a round no-entry sign with \"Zona Traffico Limitato\" and a camera. An electronic panel says if the ZTL is active.") {
                     GatePanel(on: true).frame(width: 150)
                 }
-                lesson("\"Varco attivo\" or \"non attivo\"", "\"Varco attivo\" (red) means the camera is on: don't drive in. \"Varco non attivo\" (green) means you may pass. The panel always wins over the app.") {
+                lesson("\"ZTL attiva\" or \"non attiva\"", "\"ZTL attiva\" (red) means the ban is on and the camera records: don't drive in. \"ZTL non attiva\" (green) means you may pass. Older panels still say \"Varco attivo\" with the same meaning. The panel always wins over the app.") {
                     GatePanel(on: false).frame(width: 150)
                 }
                 lesson("Drove in by mistake?", "Don't drive around inside looking for a way out: every gate you pass can mean another fine. Exit at the nearest point and, if you're staying at a hotel inside, call it straight away: often it can still register your plate.") {
@@ -163,13 +163,13 @@ struct GatePanel: View {
     var on: Bool
     var body: some View {
         VStack(spacing: 2) {
-            Text("VARCO").font(.system(size: 15, weight: .heavy, design: .monospaced))
-            Text(on ? "ATTIVO" : "NON ATTIVO").font(.system(size: 15, weight: .heavy, design: .monospaced))
+            Text(verbatim: "ZTL").font(.system(size: 15, weight: .heavy, design: .monospaced))
+            Text(verbatim: on ? "ATTIVA" : "NON ATTIVA").font(.system(size: 15, weight: .heavy, design: .monospaced))
         }
         .foregroundStyle(on ? Color(hex: 0xFF4B3E) : Color(hex: 0x4BE37A))
         .frame(maxWidth: .infinity).padding(.vertical, 12)
         .background(Color(hex: 0x111111), in: RoundedRectangle(cornerRadius: 8))
         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(hex: 0x555555), lineWidth: 3))
-        .accessibilityLabel(on ? "Varco attivo" : "Varco non attivo")
+        .accessibilityLabel(Text(verbatim: on ? "ZTL attiva" : "ZTL non attiva"))
     }
 }

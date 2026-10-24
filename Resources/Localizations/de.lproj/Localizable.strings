@@ -207,9 +207,9 @@
 "draft · %lld zones" = "Entwurf · %lld Zonen";
 "ZTL means Zona a Traffico Limitato, limited traffic zone. Most Italian old towns have one: only residents and authorised vehicles may drive in while it's active." = "ZTL heißt Zona a Traffico Limitato, verkehrsberuhigte Zone. Fast jede italienische Altstadt hat eine: Solange sie aktiv ist, dürfen nur Anwohner und berechtigte Fahrzeuge hinein.";
 "How to recognise the gate" = "So erkennst du die Einfahrt";
-"At every entrance there's a round no-entry sign with \"Zona Traffico Limitato\" and a camera. An electronic panel says if the gate is on." = "An jeder Einfahrt steht ein rundes Verbotsschild mit „Zona Traffico Limitato“ und eine Kamera. Eine Leuchtanzeige zeigt, ob die Einfahrt aktiv ist.";
-"\"Varco attivo\" or \"non attivo\"" = "„Varco attivo“ oder „non attivo“";
-"\"Varco attivo\" (red) means the camera is on: don't drive in. \"Varco non attivo\" (green) means you may pass. The panel always wins over the app." = "„Varco attivo“ (rot) heißt, die Kamera ist an: nicht hineinfahren. „Varco non attivo“ (grün) heißt, du darfst durch. Die Anzeige gilt immer vor der App.";
+"At every entrance there's a round no-entry sign with \"Zona Traffico Limitato\" and a camera. An electronic panel says if the ZTL is active." = "An jeder Einfahrt steht ein rundes Verbotsschild mit „Zona Traffico Limitato“ und eine Kamera. Eine Leuchtanzeige zeigt, ob die ZTL aktiv ist.";
+"\"ZTL attiva\" or \"non attiva\"" = "„ZTL attiva“ oder „non attiva“";
+"\"ZTL attiva\" (red) means the ban is on and the camera records: don't drive in. \"ZTL non attiva\" (green) means you may pass. Older panels still say \"Varco attivo\" with the same meaning. The panel always wins over the app." = "„ZTL attiva“ (rot) heißt, das Verbot gilt und die Kamera zeichnet auf: nicht hineinfahren. „ZTL non attiva“ (grün) heißt, du darfst durch. Ältere Anzeigen zeigen noch „Varco attivo“, mit derselben Bedeutung. Die Anzeige gilt immer vor der App.";
 "Drove in by mistake?" = "Aus Versehen hineingefahren?";
 "Don't drive around inside looking for a way out: every gate you pass can mean another fine. Exit at the nearest point and, if you're staying at a hotel inside, call it straight away: often it can still register your plate." = "Fahr drinnen nicht herum, um einen Ausweg zu suchen: Jede weitere Einfahrt kann ein weiteres Bußgeld bedeuten. Fahr am nächsten Punkt hinaus und ruf sofort dein Hotel an, falls es drinnen liegt: Oft kann es dein Kennzeichen noch anmelden.";
 "How much is the fine?" = "Wie hoch ist das Bußgeld?";
