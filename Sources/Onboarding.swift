@@ -9,9 +9,9 @@ struct Onboarding: View {
         ("video.fill", Theme.red, "Italy's old towns have camera gates",
          "ZTL means limited traffic zone. Cameras read every plate, and driving in at the wrong time means a fine that reaches you months later, even at home."),
         ("checkmark.circle.fill", Theme.green, "One clear answer",
-         "GateLR tells you if you can enter right now, or when you arrive: yes, no, on one condition, or not sure. Never a guess."),
-        ("doc.text.magnifyingglass", Color(hex: 0x1F4E9E), "Every rule has its source",
-         "Each answer links to the city's official page, with the date we read it. Road signs on site always win over the app."),
+         "Search your hotel or destination: GateLR tells you if you can drive there, now or when you arrive, and prepares the message for the hotel."),
+        ("shield.lefthalf.filled", Color(hex: 0x1F4E9E), "A guardian next to your navigator",
+         "Drive with Google Maps, Apple Maps or Waze: GateLR warns you before every active ZTL, also in the Dynamic Island. Every rule links to the city's official page."),
     ]
 
     var body: some View {

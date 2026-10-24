@@ -307,6 +307,9 @@ T = {
 "I can't find days and hours in this text. Try again closer to the panel, or type them.": ("Non trovo giorni e orari in questo testo. Riprova più vicino al pannello, oppure scrivili.", "Ich finde keine Tage und Zeiten in diesem Text. Versuch es näher an der Tafel oder tippe sie ein."),
 "Every day": ("Tutti i giorni", "Jeden Tag"), "Use this text": ("Usa questo testo", "Diesen Text verwenden"),
 "Point the camera at the hours panel: GateLR explains it in your language.": ("Inquadra il pannello degli orari: GateLR te lo spiega nella tua lingua.", "Richte die Kamera auf die Zeittafel: GateLR erklärt sie dir in deiner Sprache."),
+"Search your hotel or destination: GateLR tells you if you can drive there, now or when you arrive, and prepares the message for the hotel.": ("Cerca il tuo hotel o la destinazione: GateLR ti dice se puoi arrivarci in auto, adesso o quando arrivi, e prepara il messaggio per l'hotel.", "Such dein Hotel oder Ziel: GateLR sagt dir, ob du hinfahren darfst, jetzt oder bei deiner Ankunft, und bereitet die Nachricht ans Hotel vor."),
+"A guardian next to your navigator": ("Un guardiano accanto al tuo navigatore", "Ein Wächter neben deinem Navi"),
+"Drive with Google Maps, Apple Maps or Waze: GateLR warns you before every active ZTL, also in the Dynamic Island. Every rule links to the city's official page.": ("Guida con Google Maps, Apple Maps o Waze: GateLR ti avvisa prima di ogni ZTL attiva, anche nella Dynamic Island. Ogni regola porta alla pagina ufficiale del Comune.", "Fahr mit Google Maps, Apple Maps oder Waze: GateLR warnt dich vor jeder aktiven ZTL, auch in der Dynamic Island. Jede Regel verlinkt die offizielle Seite der Stadt."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
