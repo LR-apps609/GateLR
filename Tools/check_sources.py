@@ -12,7 +12,7 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 (KHTML, 
 
 def pages():
     urls = set()
-    for f in sorted((ROOT / "Resources/Cities").glob("*.json")):
+    for f in sorted(p for p in (ROOT / "Resources/Cities").glob("*.json") if p.name != "manifest.json"):
         for z in json.loads(f.read_text())["zones"]:
             s = z["source"]
             urls.add(s["pageURL"])
