@@ -123,6 +123,13 @@ struct GateWidgetView: View {
 }
 
 @main
+struct GateLRWidgets: WidgetBundle {
+    var body: some Widget {
+        GateLRWidget()
+        DriveLiveActivity()
+    }
+}
+
 struct GateLRWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: "GateLRWidget", intent: SelectZoneIntent.self, provider: GateProvider()) { entry in

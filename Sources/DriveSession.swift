@@ -2,6 +2,7 @@ import Foundation
 import MapKit
 import AVFoundation
 import UIKit
+import ActivityKit
 
 /// Conti sul percorso, senza mappe (testabili): distanza da una linea e strada che manca
 enum PathMath {
@@ -75,6 +76,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
     private var secondsPerMeter = 0.08
     private var announced = Set<String>()
     private var offRouteCount = 0
+    private var activity: Activity<DriveAttributes>?
+    private var lastShown: DriveAttributes.ContentState?
 
     /// La prossima manovra (l'istruzione del tratto successivo)
     var nextInstruction: String? { index + 1 < steps.count ? steps[index + 1].instruction : nil }
@@ -105,6 +108,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
         }
         manager.startUpdatingLocation()
         if let first = steps.first?.instruction, !first.isEmpty { say(first) }
+        startActivity(to: place)
         if let origin { update(Coordinate(lat: origin.latitude, lon: origin.longitude)) }
     }
 
@@ -114,6 +118,10 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
         voice.stopSpeaking(at: .immediate)
         try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
         UIApplication.shared.isIdleTimerDisabled = false
+        if let activity {
+            Task { await activity.end(nil, dismissalPolicy: .immediate) }
+        }
+        activity = nil; lastShown = nil
         active = false
         steps = []; path = []; crossings = []; warning = nil; destination = nil
     }
@@ -153,6 +161,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
         // Arrivo
         if PathMath.meters(p, destination.location) < 35 {
             if !arrived { arrived = true; say(L("You have arrived.")) }
+            refreshActivity()
             return
         }
 
@@ -208,6 +217,34 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
                 break
             }
         }
+        refreshActivity()
+    }
+
+    // MARK: Live Activity
+
+    private var state: DriveAttributes.ContentState {
+        DriveAttributes.ContentState(
+            symbol: DriveView.symbol(for: arrived ? "" : (nextInstruction ?? "")),
+            distance: arrived ? "" : DriveSession.distanceText(toNext),
+            instruction: arrived ? L("You have arrived") : (nextInstruction ?? destination?.name ?? ""),
+            warning: warning, eta: eta)
+    }
+
+    private func startActivity(to place: Place) {
+        guard ActivityAuthorizationInfo().areActivitiesEnabled, activity == nil else { return }
+        let content = ActivityContent(state: state, staleDate: nil)
+        activity = try? Activity.request(attributes: DriveAttributes(destination: place.name), content: content, pushType: nil)
+        lastShown = state
+    }
+
+    /// Si aggiorna solo quando cambia qualcosa che si vede (non a ogni metro)
+    private func refreshActivity() {
+        guard let activity else { return }
+        let s = state
+        guard s.symbol != lastShown?.symbol || s.distance != lastShown?.distance || s.warning != lastShown?.warning
+                || s.instruction != lastShown?.instruction else { return }
+        lastShown = s
+        Task { await activity.update(ActivityContent(state: s, staleDate: nil)) }
     }
 
     static func distanceText(_ m: Double) -> String {

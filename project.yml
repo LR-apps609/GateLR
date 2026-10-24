@@ -59,6 +59,7 @@ targets:
         NSLocationWhenInUseUsageDescription: "GateLR uses your location to tell you which ZTL gates are near you."
         # Navigazione: posizione e voce anche con lo schermo spento o un'altra app davanti
         UIBackgroundModes: [location, audio]
+        NSSupportsLiveActivities: true
         NSLocationAlwaysAndWhenInUseUsageDescription: "GateLR warns you before a ZTL gate even when the app is closed."
         # CarPlay: la scena si attiva solo quando Apple concede l'autorizzazione «Driving Task»
         UIApplicationSceneManifest:
@@ -93,6 +94,7 @@ targets:
       - path: Sources/Store.swift
       - path: Sources/Theme.swift
       - path: Sources/Components.swift
+      - path: Sources/DriveActivity.swift
       - path: Resources/Cities
         type: folder
         buildPhase: resources
