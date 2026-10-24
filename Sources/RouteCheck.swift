@@ -17,11 +17,16 @@ enum RouteCheck {
     static func crossings(path: [Coordinate], zones: [Zone], departure: Date, travelTime: TimeInterval,
                           answer: (Zone, Date) -> Answer) -> [RouteCrossing] {
         guard let first = path.first, let last = path.last else { return [] }
-        let candidates = zones.filter { !$0.contains(lat: first.lat, lon: first.lon) }
+        // Il rettangolo di ogni zona: si fa il conto preciso solo per i punti che ci cadono dentro
+        let candidates = zones.filter { !$0.contains(lat: first.lat, lon: first.lon) }.map { z -> (Zone, ClosedRange<Double>, ClosedRange<Double>) in
+            let lats = z.perimeter.map(\.lat), lons = z.perimeter.map(\.lon)
+            return (z, (lats.min() ?? 0)...(lats.max() ?? 0), (lons.min() ?? 0)...(lons.max() ?? 0))
+        }
         var result: [RouteCrossing] = []
         let total = Double(max(path.count - 1, 1))
         for (i, p) in path.enumerated() {
-            for z in candidates where !result.contains(where: { $0.zone.id == z.id }) && z.contains(lat: p.lat, lon: p.lon) {
+            for (z, lat, lon) in candidates where lat.contains(p.lat) && lon.contains(p.lon)
+                && !result.contains(where: { $0.zone.id == z.id }) && z.contains(lat: p.lat, lon: p.lon) {
                 let when = departure.addingTimeInterval(travelTime * Double(i) / total)
                 result.append(RouteCrossing(zone: z, answer: answer(z, when), at: when,
                                             isDestination: z.contains(lat: last.lat, lon: last.lon)))
