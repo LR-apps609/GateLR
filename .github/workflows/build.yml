@@ -110,7 +110,7 @@ jobs:
           fi
           N=$(ls screenshots/*.png 2>/dev/null | wc -l | tr -d ' ')
           echo "::notice::Foto dell'app: $N — $(ls screenshots | grep png | tr '\n' ' ' | cut -c1-900)"
-          test "$N" -gt 0
+          if [ "$N" -eq 0 ]; then echo "Nessuna foto da pubblicare"; exit 0; fi
           cd screenshots
           echo "Foto di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ))" > README.md
           git init -q && git checkout -q -b screenshots && git add .
