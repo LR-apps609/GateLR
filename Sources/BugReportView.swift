@@ -12,8 +12,8 @@ struct BugReportView: View {
     @State private var copied = false
 
     /// L'indirizzo a cui arrivano le segnalazioni: da decidere prima della pubblicazione.
-    /// Finché è nil, la segnalazione si condivide (Mail, Messaggi, WhatsApp…) o si copia.
-    static let supportEmail: String? = nil
+    /// Si può anche condividere (Mail, Messaggi, WhatsApp…) o copiare.
+    static let supportEmail: String? = "support@example.com"   // segnaposto: da sostituire prima della pubblicazione
 
     enum Screen: String, CaseIterable, Identifiable {
         case varco, map, trip, garage, account, widget, alerts, other
