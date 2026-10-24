@@ -11,12 +11,12 @@ adb logcat -c
 adb shell am start -W -n app.gatelr/.MainActivity
 sleep 8
 
-shot() { adb exec-out screencap -p > "$OUT/$1.png"; echo "foto $1"; }
+shot() { adb exec-out screencap -p > "$OUT/$1.png"; echo "::notice::foto $1"; }
 # Tocca il centro dell'elemento con quel testo (dal dump di uiautomator)
 tap() {
   adb shell uiautomator dump /sdcard/ui.xml >/dev/null 2>&1
   local b; b=$(adb shell cat /sdcard/ui.xml | tr '>' '\n' | grep -F "text=\"$1\"" | head -1 | grep -oE 'bounds="\[[0-9]+,[0-9]+\]\[[0-9]+,[0-9]+\]"' | grep -oE '[0-9]+' | tr '\n' ' ')
-  if [ -z "$b" ]; then echo "non trovo «$1»"; return 1; fi
+  if [ -z "$b" ]; then echo "::warning::non trovo «$1»"; return 1; fi
   set -- $b; adb shell input tap $(( ($1 + $3) / 2 )) $(( ($2 + $4) / 2 )); sleep 4
 }
 

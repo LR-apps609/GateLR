@@ -8,6 +8,9 @@ on:
     paths: ["android/**"]
   workflow_dispatch:
 
+permissions:
+  contents: write        # foto nel ramo «screenshots-android»
+
 concurrency:
   group: android-${{ github.ref }}
   cancel-in-progress: true
@@ -61,3 +64,12 @@ jobs:
         with:
           name: android-shots
           path: android-shots
+      - name: Pubblica le foto nel ramo «screenshots-android»
+        if: always() && github.ref == 'refs/heads/main'
+        run: |
+          ls android-shots/*.png >/dev/null 2>&1 || { echo "Nessuna foto"; exit 0; }
+          cd android-shots && rm -f logcat.txt
+          echo "Foto di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ))" > README.md
+          git init -q && git checkout -q -b screenshots-android && git add .
+          git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Foto Android per $GITHUB_SHA"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" screenshots-android 2>&1 | tail -n 3
