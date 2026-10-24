@@ -24,9 +24,17 @@ shot 01-varco
 tap "Map" && sleep 8 && shot 02-mappa
 tap "Trip" && shot 03-viaggio
 adb shell input text "Palazzo%sVecchio"; sleep 8; shot 04-ricerca
-adb shell input keyevent 111
+adb shell input keyevent 111; sleep 1
+tap "Palazzo Vecchio" && sleep 3 && shot 04b-risposta
+adb shell input swipe 500 1800 500 500 && sleep 2 && shot 04c-risposta-sotto
 tap "Garage" && shot 05-garage
 tap "Account" && shot 06-account
+tap "Read the sign ›" && sleep 2 && adb shell input text "7.30-20.00%sferiali" && sleep 2 && adb shell input keyevent 111 && sleep 1 && shot 06b-cartello
+adb shell input keyevent 4; sleep 2
+tap "Got a fine? ›" && sleep 2 && shot 06c-multa
+adb shell input keyevent 4; sleep 2
+tap "Map" && sleep 6 && adb shell input tap 540 1200 && sleep 3 && shot 02b-mappa-zona
+adb shell input keyevent 4; sleep 2
 tap "Gate" && adb shell input swipe 500 1800 500 600 && sleep 2 && shot 07-varco-zone
 
 adb logcat -d > "$OUT/logcat.txt"
