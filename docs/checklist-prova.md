@@ -38,6 +38,13 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 - [ ] «Controlla il percorso» → tempo, km, ZTL attraversate con l'ora e la risposta
 - [ ] «Avvia» apre un menu: Apple Maps / Google Maps / Waze (con avvisi GateLR) e «Navigatore di GateLR»
 
+## 3b. Comodità
+- [ ] Account → Impostazioni → **Navigatore preferito** (es. Google Maps) → in Viaggio il pulsante diventa «Avvia · Google Maps» e parte con un tocco; «…» accanto per gli altri
+- [ ] Viaggio senza destinazione: **Recenti** con gli ultimi posti cercati
+- [ ] Auto «a noleggio» senza targa: nella registrazione dell'hotel compare il promemoria per la targa al ritiro
+- [ ] Viaggio salvato per oggi: nella prima pagina «Parti ora per …» avvia il guardiano
+- [ ] Richieste di permesso di iOS (posizione, fotocamera) in italiano
+
 ## 4. Guardiano 🚗
 - [ ] «Avvia» → Google Maps (o Apple Maps / Waze) si apre con la meta giusta
 - [ ] Dynamic Island (iPhone 14 Pro e successivi) e schermata di blocco: ZTL più vicina con la distanza, o «Nessuna ZTL attiva davanti»
@@ -46,6 +53,7 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 - [ ] Riaprendo GateLR: banner «Guardiano attivo» nella prima pagina con «Ferma»
 - [ ] Arrivati a destinazione si ferma da solo (notifica «Sei arrivato»)
 - [ ] Da fermo per 15 minuti si ferma da solo
+- [ ] Entrando in una ZTL dove non potevi: «Sei dentro … Esci dal punto più vicino e non girare dentro» (solo dove la risposta è «No», non nelle zone verdi o a pagamento)
 
 ## 5. Navigatore di GateLR 🚗
 - [ ] La mappa segue l'auto, girata nella direzione di marcia, inclinata
