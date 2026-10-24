@@ -68,6 +68,13 @@ final class ScreenshotTests: XCTestCase {
         app.tabBars.buttons.element(boundBy: 4).tap()
         sleep(1)
         snap("08-account")
+        let fine = app.buttons["Got a fine?"].firstMatch
+        if fine.waitForExistence(timeout: 3) {
+            fine.tap(); sleep(1); snap("08b-fine-guide")
+            app.navigationBars.buttons.element(boundBy: 0).tap(); sleep(1)
+        }
+        let log = app.buttons["Drive log"].firstMatch
+        if log.waitForExistence(timeout: 3) { log.tap(); sleep(1); snap("08c-drive-log") }
     }
 
     func test2Onboarding() {
