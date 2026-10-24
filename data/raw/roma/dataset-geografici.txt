@@ -1,0 +1,21 @@
+# Fonte: https://romamobilita.it/sistemi-e-tecnologie/dataset-geografici/
+# Letto il 2026-10-24 (testo estratto dalla pagina, menu e moduli tolti)
+
+Pubblicato il: 17/06/2016 - Aggiornato il: 27/11/2023
+Condividi
+Chiudi Condividi
+Apri Condividi
+Facebook
+Twitter
+Linkedin
+Whatsapp
+Vedi azioni
+Chiudi Vedi azioni
+Apri Vedi azioni
+Stampa
+Invia
+In questa pagina trovate i dataset messi a disposizione da Roma Servizi per la Mobilità in formato
+GeoServices REST
+. Per utilizzarli non è necessaria alcuna registrazione, ma si deve accettare la
+licenza d’uso
+.

@@ -1,0 +1,58 @@
+# Fonte: https://romamobilita.it/sistemi-e-tecnologie/open-data/
+# Letto il 2026-10-24 (testo estratto dalla pagina, menu e moduli tolti)
+
+Pubblicato il: 01/07/2024 - Aggiornato il: 19/01/2026
+dal 04 Agosto 2023 al 06 Agosto 2023
+Condividi
+Chiudi Condividi
+Apri Condividi
+Facebook
+Twitter
+Linkedin
+Whatsapp
+Vedi azioni
+Chiudi Vedi azioni
+Apri Vedi azioni
+Stampa
+Ascolta
+Invia
+INDICE DELLA PAGINA
+Il sistema AVM rappresenta uno strumento fondamentale per la gestione integrata della mobilità urbana: l’AVM permette l’acquisizione automatica dei principali dati d’esercizio del TPL (Trasporto Pubblico Locale) e quindi la gestione dei flussi informativi necessari alla modulazione del servizio. I principali servizi che il sistema è in grado di erogare sono:
+il telecontrollo e il monitoraggio dei veicoli
+la raccolta dei dati consuntivi del servizio
+l’erogazione di informazioni ai passeggeri
+il supporto alla pianificazione, alla programmazione, alla manutenzione e all’esercizio
+Il progetto ha permesso di monitorare l’intera flotta dei mezzi dei gestori del trasporto pubblico e di fornire informazioni al pubblico attraverso circa 300 paline elettroniche, siti e app: questo servizio informativo è una delle applicazioni del sistema di controllo satellitare della flotta che permette di monitorare la posizione di ciascun mezzo.
+Ogni vettura della linea servita comunica i dati sulla sua posizione alla Centrale della Mobilità, che calcola il tempo di arrivo del mezzo pubblico alla fermata e lo trasmette alla palina che lo visualizza in “tempo reale”.
+La filosofia di fondo è stata quella di realizzare un sistema che permettesse sia l’erogazione di una corretta informazione al cittadino/utente (paline elettroniche) sia il costante monitoraggio della flotta, in ottemperanza al contratto di servizio esistente con
+Roma Capitale
+, riguardo alle modalità di esercizio del trasporto pubblico locale affidato alle società Atac e Roma TPL.
+Open Data
+Si precisa che i dati messi a disposizione sono finalizzati a fornire l’informazione all’utenza in tempo reale sulla base della strumentazione automatica e non sono da considerarsi esaustivi del servizio erogato, in quanto possono risentire della variabilità delle condizioni di esercizio su strada e di eventuali malfunzionamenti del sistema di controllo satellitare (AVM).
+In particolare i dati sullo stato di occupazione dei mezzi vengono forniti in via sperimentale
+, sulla base dei conteggi automatici effettuati dai sistemi tecnologici presenti a bordo mezzo, per cui si declina qualsiasi responsabilità in merito alla loro accuratezza, completezza, tempestività ed attendibilità. La possibilità di salire a bordo di una vettura va sempre verificata al suo passaggio alla fermata e, se non sono presenti condizioni di sicurezza, occorre attendere la vettura successiva. I dati possono essere utilizzati, quindi, esclusivamente a titolo di supporto al viaggio.
+La rappresentazione dei dati in forma aggregata e rielaborata potrebbe risultare fuorviante e non rappresentare la condizione reale del servizio.
+Atac e Roma Servizi per la Mobilità si riservano di intraprendere qualsiasi azione a tutela delle aziende e del personale in caso di utilizzo improprio dei dati.
+GTFS (General Transit Feed Specification)
+Tramite il formato GTFS rendiamo disponibili i dati relativi al funzionamento del sistema del trasporto pubblico di Roma. Per una completa descrizione delle specifiche del suddetto formato, si rimanda al seguente indirizzo
+https://developers.google.com/transit
+Il
+servizio programmato
+è contenuto in un file zip che racchiude informazioni relative agli operatori Atac, Troiani, SAP, BIS e TUSCIA. Il dataset viene aggiornato con cadenza quasi quotidiana per tenere conto di tutte le variazioni che possono verificarsi per vari motivi (cambio della programmazione di una linea, lavori in corso di lunga durata etc.). Per facilitare il controllo automatico della presenza di una nuova versione del file, ad ogni aggiornamento viene contestualmente pubblicato il corrispondente file md5:
+rome_static_gtfs.zip
+rome_static_gtfs.zip.md5
+I
+dati in tempo reale
+prodotti dai sistemi di monitoraggio AVM sono invece contenuti nei seguenti due file (file binari con estensione .pb) e sono relativi solo alle flotte degli operatori Atac e Roma TPL. I file vengono aggiornati ogni 60 secondi circa.
+rome_rtgtfs_trip_updates_feed.pb
+rome_rtgtfs_vehicle_positions_feed.pb
+Nel seguente file sono contenuti invece gli
+avvisi di servizio
+(deviazioni, lavori in corso, interruzioni di servizio etc.) del trasporto pubblico:
+rome_rtgtfs_service_alerts_feed.pb
+Dataset
+In questa sezione trovi i
+dati statici
+e quelli che variano lentamente nel tempo, come i confini e i varchi delle ZTL, gli impianti semaforici, ecc., pronti ad essere importati un database geografico (GIS). Gli stessi dati sono disponibili anche sul
+sito di Roma Capitale
+.

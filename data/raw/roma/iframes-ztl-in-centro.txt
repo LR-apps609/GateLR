@@ -1,0 +1,8 @@
+# Fonte: https://romamobilita.it/muoversi-a-roma/ztl-in-centro/ (attributi src degli iframe della pagina)
+# Letto il 2026-10-24 (testo estratto dalla pagina, menu e moduli tolti)
+
+src="https://rsm.maps.arcgis.com/apps/instant/sidebar/index.html?appid=72c114415d1f49128e62930e2be55b63"
+src="https://rsm.maps.arcgis.com/apps/instant/sidebar/index.html?appid=0cbf623c1ed247fcaf7ffa2b818b0747&amp;locale=it-IT"
+src="https://rsm.maps.arcgis.com/apps/instant/sidebar/index.html?appid=1394918957014555b48c6a721d590c7c&amp;locale=it-IT"
+src="https://rsm.maps.arcgis.com/apps/instant/sidebar/index.html?appid=ef29aaa027d5432cae2388e5b863ae36&amp;locale=it-IT"
+src="https://rsm.maps.arcgis.com/apps/instant/sidebar/index.html?appid=a23d86e53291453fb5e45ad4681e1304&amp;locale=it-IT"
