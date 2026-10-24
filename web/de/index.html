@@ -847,7 +847,7 @@ const ml = {map:null, ready:false, marker:null, asked:false};
 function loadRealMap(){
   if (ml.asked) return; ml.asked = true;
   const css = document.createElement("link"); css.rel = "stylesheet"; css.href = ML + ".css"; document.head.append(css);
-  const js = document.createElement("script"); js.src = ML + ".js"; js.async = true; js.onload = startRealMap; document.head.append(js);
+  const js = document.createElement("script"); js.src = ML + ".js"; js.async = true; js.onload = () => startRealMap(); document.head.append(js);
 }
 const poly = (per, props) => ({type:"Feature", properties:props, geometry:{type:"Polygon", coordinates:[per.map(p => [p.lon, p.lat]).concat([[per[0].lon, per[0].lat]])]}});
 function geo(){
@@ -864,15 +864,18 @@ function paintSel(){
   ml.map.setPaintProperty("zones-fill", "fill-opacity", ["case", ["==", ["get","id"], ml.selected || ""], ["get","op1"], ["get","op0"]]);
   ml.map.setPaintProperty("ped-fill", "fill-opacity", ["case", ["==", ["get","id"], ml.ped || ""], 0.95, 0.6]);
 }
-function startRealMap(){
+// Mappa di riserva (CARTO, raster) se OpenFreeMap non risponde: la mappa con le strade c'è sempre
+const RASTER = {version:8, sources:{c:{type:"raster", tileSize:256, attribution:"© OpenStreetMap contributors © CARTO",
+  tiles:["a","b","c"].map(s => "https://" + s + ".basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png")}}, layers:[{id:"c", type:"raster", source:"c"}]};
+function startRealMap(style){
   if (!window.maplibregl || ml.map) return;
   const cont = $("mlmap");
   let map;
   try {
-    map = new maplibregl.Map({container: cont, style: "https://tiles.openfreemap.org/styles/positron", bounds: bounds(), attributionControl: {compact: true}});
+    map = new maplibregl.Map({container: cont, style: style || "https://tiles.openfreemap.org/styles/liberty", bounds: bounds(), attributionControl: {compact: true}, cooperativeGestures: true});
   } catch { return; }
   ml.map = map;
-  const fail = setTimeout(() => { if (!ml.ready){ try { map.remove(); } catch {} ml.map = null; } }, 6000);
+  const fail = setTimeout(() => { if (!ml.ready){ try { map.remove(); } catch {} ml.map = null; if (!style) startRealMap(RASTER); } }, 7000);
   map.on("error", () => {});
   map.on("load", () => {
     clearTimeout(fail); ml.ready = true; ml.city = city.id;

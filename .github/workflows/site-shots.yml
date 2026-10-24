@@ -1,0 +1,28 @@
+# Foto del sito (con le mappe vere) nel ramo «site-shots»: per controllare la grafica senza aprire il browser
+name: Foto del sito
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - name: Playwright
+        run: npm i playwright@1.48.2 && npx playwright install --with-deps chromium
+      - name: Foto
+        run: |
+          python3 Tools/build_site.py
+          mkdir -p shots
+          (cd web && python3 -m http.server 8000 >/dev/null 2>&1 &)
+          sleep 2
+          node Tools/site_shots.mjs http://localhost:8000/ 2>&1 | tee shots/log.txt
+      - name: Pubblica
+        run: |
+          cd shots && git init -q && git checkout -q -b site-shots && git add .
+          git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Foto del sito"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" site-shots 2>&1 | tail -n 2

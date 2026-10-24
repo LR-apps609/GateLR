@@ -260,6 +260,59 @@ def join_and(parts, lang):
     return parts[0] if len(parts) == 1 else ", ".join(parts[:-1]) + f" {a} " + parts[-1]
 
 
+MAP_COLORS = {"restricted": "#E0312F", "pass": "#E5A100", "green": "#12A150"}
+
+def map_script(c, lang):
+    """La mappa vera (strade, nomi, zone colorate) sopra quella disegnata: MapLibre + OpenFreeMap,
+    con una mappa di riserva (CARTO) se la prima non risponde. Si carica quando arriva sullo schermo."""
+    feats = []
+    for z in c["zones"]:
+        k = kind_of(z)
+        ring = [[q["lon"], q["lat"]] for q in z["perimeter"]] + [[z["perimeter"][0]["lon"], z["perimeter"][0]["lat"]]]
+        feats.append({"type": "Feature", "properties": {"name": zone_label(z, lang), "kind": k, "color": MAP_COLORS.get(k, "#E0312F")},
+                      "geometry": {"type": "Polygon", "coordinates": [ring]}})
+    for a in c.get("pedestrian") or []:
+        ring = [[q["lon"], q["lat"]] for q in a["perimeter"]] + [[a["perimeter"][0]["lon"], a["perimeter"][0]["lat"]]]
+        feats.append({"type": "Feature", "properties": {"name": "", "kind": "ped", "color": "#8E2A6E"}, "geometry": {"type": "Polygon", "coordinates": [ring]}})
+    gates = [{"type": "Feature", "properties": {"name": g.get("name", "")}, "geometry": {"type": "Point", "coordinates": [g["location"]["lon"], g["location"]["lat"]]}}
+             for z in c["zones"] for g in z["gates"]]
+    pts = [q for z in c["zones"] for q in z["perimeter"]]
+    bounds = [[min(q["lon"] for q in pts), min(q["lat"] for q in pts)], [max(q["lon"] for q in pts), max(q["lat"] for q in pts)]]
+    data = json.dumps({"zones": {"type": "FeatureCollection", "features": feats}, "gates": {"type": "FeatureCollection", "features": gates}, "bounds": bounds},
+                      ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    return """<script>
+(function(){
+const D=%s, wrap=document.getElementById("mapwrap"), V="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl";
+const RASTER={version:8,sources:{c:{type:"raster",tileSize:256,attribution:"© OpenStreetMap contributors © CARTO",
+  tiles:["a","b","c"].map(s=>"https://"+s+".basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png")}},layers:[{id:"c",type:"raster",source:"c"}]};
+function layers(m){
+  m.addSource("z",{type:"geojson",data:D.zones});
+  m.addLayer({id:"zf",type:"fill",source:"z",paint:{"fill-color":["get","color"],"fill-opacity":["case",["==",["get","kind"],"green"],0.22,["==",["get","kind"],"ped"],0.45,0.18]}});
+  m.addLayer({id:"zl",type:"line",source:"z",paint:{"line-color":["get","color"],"line-width":["case",["==",["get","kind"],"ped"],1,3.5]}});
+  m.addSource("g",{type:"geojson",data:D.gates});
+  m.addLayer({id:"gc",type:"circle",source:"g",paint:{"circle-radius":5,"circle-color":"#1B2128","circle-stroke-color":"#fff","circle-stroke-width":2}});
+  try{ m.addLayer({id:"zt",type:"symbol",source:"z",filter:["!=",["get","kind"],"ped"],layout:{"text-field":["get","name"],"text-size":14,"text-font":["Noto Sans Bold"],"symbol-placement":"point"},
+    paint:{"text-color":["get","color"],"text-halo-color":"#fff","text-halo-width":2}}); }catch(e){}
+  const pop=new maplibregl.Popup({closeButton:false});
+  m.on("mousemove","gc",e=>{const n=e.features[0].properties.name; if(n){pop.setLngLat(e.lngLat).setText(n).addTo(m);}});
+  m.on("mouseleave","gc",()=>pop.remove());
+}
+function start(style,fallback){
+  const m=new maplibregl.Map({container:"realmap",style:style,bounds:D.bounds,fitBoundsOptions:{padding:30},attributionControl:{compact:true},cooperativeGestures:true});
+  m.addControl(new maplibregl.NavigationControl({showCompass:false}),"top-right");
+  let ok=false;
+  const t=setTimeout(()=>{ if(!ok&&fallback){ m.remove(); start(RASTER,false);} },7000);
+  m.on("load",()=>{ ok=true; clearTimeout(t); layers(m); wrap.classList.add("on"); });
+  m.on("error",e=>{ if(!ok&&fallback&&String(e&&e.error&&e.error.message||"").match(/style|fetch|load/i)){ clearTimeout(t); try{m.remove();}catch(_){} start(RASTER,false);} });
+}
+function load(){
+  const l=document.createElement("link"); l.rel="stylesheet"; l.href=V+".css"; document.head.appendChild(l);
+  const s=document.createElement("script"); s.src=V+".js"; s.onload=()=>start("https://tiles.openfreemap.org/styles/liberty",true); document.head.appendChild(s);
+}
+if("IntersectionObserver" in window){ const io=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ io.disconnect(); load(); } },{rootMargin:"300px"}); io.observe(wrap); } else load();
+})();
+</script>""" % data
+
 def svg_map(c, lang):
     """Mappa disegnata dai perimetri ufficiali, come quella della home (colori per tipo di zona)"""
     pts = [p for z in c["zones"] for p in z["perimeter"]]
@@ -336,6 +389,11 @@ blockquote{margin:0;border-left:3px solid var(--brass);padding:2px 0 2px 12px;fo
 blockquote p+p{color:var(--muted)}
 .map{padding:12px}
 .map svg{width:100%;height:auto;display:block;border-radius:14px;background:var(--map-land)}
+.mapwrap{position:relative;min-height:340px}
+.mapwrap .real{position:absolute;inset:0;border-radius:14px;overflow:hidden;opacity:0;transition:opacity .3s}
+.mapwrap.on .real{opacity:1}.mapwrap.on svg{visibility:hidden}
+.mapwrap svg{min-height:340px;object-fit:cover}
+.maplibregl-ctrl-attrib{font-size:11px}
 .z{stroke-linejoin:round}.z.restricted{fill:var(--red);fill-opacity:.1;stroke:var(--red);stroke-width:2;stroke-dasharray:9 6}
 .z.pass{fill:var(--pass);fill-opacity:.12;stroke:var(--pass);stroke-width:2.5;stroke-dasharray:9 6}.z.green{fill:var(--lez);fill-opacity:.16;stroke:var(--lez);stroke-width:5}
 .ped{fill:var(--ped);fill-opacity:.65;stroke:var(--ped);stroke-width:1}.gate{fill:var(--ink);stroke:var(--sheet);stroke-width:2}.river{fill:none;stroke:var(--map-water);stroke-width:22;stroke-linecap:round}
@@ -404,7 +462,8 @@ def build_city(c, lang):
     leg = "".join(f'<span><i class="sw {k}"></i>{esc(t[{"restricted": "lsector", "pass": "lpass", "green": "lgreen"}[k]])}</span>' for k in kinds)
     if peds: leg += f'<span><i class="sw ped"></i>{esc(t["lped"])}</span>'
     leg += f'<span><i class="dot"></i>{esc(t["lgate"])}</span>'
-    B.append(f'<section class="card map">{svg_map(c, lang)}<div class="legend">{leg}</div></section>')
+    B.append(f'<section class="card map"><div class="mapwrap" id="mapwrap"><div class="real" id="realmap"></div>{svg_map(c, lang)}</div><div class="legend">{leg}</div></section>')
+    B.append(map_script(c, lang))
     for z in zones:
         k, s = kind_of(z), z["source"]
         rows = "".join(f'<tr><td>{esc(a)}</td><td class="{cl}">{esc(b)}</td></tr>' for a, b, cl in hour_rows(z, lang))
