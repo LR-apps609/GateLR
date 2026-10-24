@@ -30,6 +30,7 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 - [ ] Cerca un hotel dentro la ZTL di Firenze → riquadro **Registrazione della targa**:
   - [ ] arrivo e partenza; i giorni elencati comprendono quello di partenza
   - [ ] «Da chiedere / Chiesta / Confermato»; con «Confermato» compare nel Garage un permesso e la risposta diventa «Sì»
+  - [ ] Con il permesso confermato a Firenze, cerca «Duomo di Milano» o «Castello Sforzesco»: la risposta **non** diventa «Sì» (il permesso vale solo nella sua città)
   - [ ] messaggio per l'hotel con la data di partenza e la richiesta di conferma scritta (IT/EN/DE)
 - [ ] «Salva questo viaggio» → compare nei viaggi salvati; tocco lo riapre; tieni premuto → Elimina
 - [ ] Fuori ZTL (es. «Stazione Campo di Marte Firenze») → «Fuori dalla ZTL» con la distanza
