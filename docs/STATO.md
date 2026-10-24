@@ -8,6 +8,19 @@
 - Testi che seguono «Testo più grande»
 - Checklist: `docs/checklist-prova.md`
 
+## Android 0.1 (nuovo, 24 ottobre)
+- Stesse regole dell'iPhone (motore in Kotlin, 12 test verdi), stesse città
+- Cinque schede: Varco, Mappa (MapLibre + OpenFreeMap, va anche su Huawei/Honor senza Google), Viaggio, Garage, Account
+- Guardiano: notifica fissa, voce, bolla sopra Google Maps / Waze / Petal Maps; si ferma all'arrivo
+- Compilato su GitHub (Actions → Android) con giro di prova sull'emulatore Android 14: nessun crash
+- Checklist: `docs/checklist-android.md`
+
+## Sito (W1–W2)
+- Stesse regole dell'app: zone verdi con i divieti Euro, aree pedonali, ticket con scadenza
+- Pagine per città in 3 lingue (`/firenze/`, `/it/milano/`, `/de/bologna/`), sitemap, dati strutturati
+- Mappa vera caricata solo quando serve; pulsanti App Store / Google Play «In arrivo»
+- Si pubblica a mano: Actions → «Pubblica il sito» → Run workflow
+
 ## App iPhone (fino alla 1.1)
 
 | Cosa | Stato |

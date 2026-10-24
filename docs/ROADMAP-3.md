@@ -80,11 +80,11 @@ Legenda: **F** = funzioni nuove, **R** = rifinitura (velocità, interfaccia UI, 
 
 | Ver. | Tipo | Cosa | Diff. | Tempo |
 |---|---|---|---|---|
-| A0.1 | F | **Motore e dati** in Kotlin con test (stessi casi dell'iPhone) | 🟡 | 1 |
-| A0.2 | F | **App base**: 5 schede, prima pagina, città e zone con risposta, scheda zona con fonti | 🟡 | 1–2 |
-| A0.3 | F | **Mappa** MapLibre con zone colorate, ricerca indirizzi, spillo con risposta | 🟡 | 1 |
-| A0.4 | F | **Viaggio**: risposta all'arrivo, hotel sicuro, messaggio, ticket, viaggi salvati | 🟡 | 1 |
-| A0.5 | F | **Guardiano**: servizio in primo piano, notifica fissa, voce, **bolla sopra Google Maps**, Google Maps / Waze / Petal Maps | 🔴 | 2 |
+| A0.1 | F | ✅ *fatto 24/10* · **Motore e dati** in Kotlin con test (stessi casi dell'iPhone) | 🟡 | 1 |
+| A0.2 | F | ✅ *fatto 24/10* · **App base**: 5 schede, prima pagina, città e zone con risposta, scheda zona con fonti | 🟡 | 1–2 |
+| A0.3 | F | ✅ *fatto 24/10* · **Mappa** MapLibre con zone colorate, ricerca indirizzi, spillo con risposta | 🟡 | 1 |
+| A0.4 | F | ✅ *fatto 24/10* · **Viaggio**: risposta all'arrivo, hotel sicuro, messaggio, ticket, viaggi salvati | 🟡 | 1 |
+| A0.5 | F | ✅ *fatto 24/10* · **Guardiano**: servizio in primo piano, notifica fissa, voce, **bolla sopra Google Maps**, Google Maps / Waze / Petal Maps | 🔴 | 2 |
 | A0.6 | F | Garage, Account, diario, guida multe, «Leggi il cartello» (ML Kit su telefoni Google, testo manuale sugli altri) | 🟡 | 1–2 |
 | A0.7 | R | Prove su tanti telefoni (Firebase Test Lab o telefoni reali), risparmio batteria dei produttori (Xiaomi, Huawei, Samsung chiudono le app in sottofondo: guida passo-passo) | 🔴 | 1–2 |
 | A1.0 | F | Pubblicazione su Google Play, AppGallery, Galaxy Store, GetApps, Honor, Amazon | 🟡 | 1 + attese |
@@ -93,8 +93,8 @@ Legenda: **F** = funzioni nuove, **R** = rifinitura (velocità, interfaccia UI, 
 
 | Ver. | Tipo | Cosa | Diff. | Tempo |
 |---|---|---|---|---|
-| W1 | R | Stessi colori e tipi di zona dell'app, aree pedonali, ticket, hotel sicuro, guida multe, pulsanti App Store / Google Play | 🟢 | 1 |
-| W2 | R | **SEO**: una pagina per città e per lingua (`/en/florence-ztl`), dati strutturati, velocità (Lighthouse 95+), condivisione | 🟡 | 1 |
+| W1 | R | ✅ *fatto 24/10* · Stessi colori e tipi di zona dell'app, aree pedonali, ticket, hotel sicuro, guida multe, pulsanti App Store / Google Play | 🟢 | 1 |
+| W2 | R | ✅ *fatto 24/10* · **SEO**: una pagina per città e per lingua (`/en/florence-ztl`), dati strutturati, velocità (Lighthouse 95+), condivisione | 🟡 | 1 |
 | W3 | F | Dominio (es. `gatelr.app`), privacy, cookie zero, pubblicazione | 🟢 | ½ |
 | W4 | F | Pagina per hotel e noleggi: link da mandare ai clienti con la risposta già pronta per il loro indirizzo | 🟡 | 1 |
 
