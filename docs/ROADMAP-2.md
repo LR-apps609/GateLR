@@ -1,4 +1,7 @@
-# GateLR – Roadmap 2 (dal 24 ottobre 2026, versione attuale 1.1.0)
+# GateLR – Roadmap 2 (dal 24 ottobre 2026)
+
+> **Stato al 24 ottobre, sera:** 1.2–1.8 fatte nel codice (versione 1.8.0), in prova su GitHub.
+> 1.9 (più città) ferma: la rete di questo ambiente non raggiunge i siti dei Comuni di Lucca, Pisa, Siena.
 
 Difficoltà: 🟢 facile · 🟡 media · 🔴 difficile. Tempi in **sessioni di lavoro** (una sessione ≈ quella di stanotte, qualche ora).
 Ogni aggiornamento è piccolo, si compila e si prova da solo, con la sua checklist (in fondo).
