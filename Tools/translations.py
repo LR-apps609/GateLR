@@ -234,6 +234,20 @@ T = {
 "It's a pedestrian area: cars can't drive in at any time, whatever the ZTL hours.": ("È un'area pedonale: le auto non possono entrare a nessuna ora, qualunque sia l'orario della ZTL.", "Es ist eine Fußgängerzone: Autos dürfen nie hinein, egal zu welchen ZTL-Zeiten."),
 "Legend": ("Legenda", "Legende"),
 "Recenter": ("Ricentra", "Zentrieren"), "Then": ("Poi", "Dann"), "Overview": ("Panoramica", "Übersicht"),
+# 1.2 Prima pagina
+"Know before|the gate.": ("Sappilo prima|del varco.", "Wissen vor|der Einfahrt."),
+"Italy's old towns are closed to cars at set hours, with cameras at every gate. GateLR tells you if you can drive in, now or when you arrive, and warns you before a gate.": ("I centri storici italiani sono chiusi alle auto in certi orari, con una telecamera a ogni varco. GateLR ti dice se puoi entrare, adesso o quando arrivi, e ti avvisa prima del varco.", "Italiens Altstädte sind zu bestimmten Zeiten für Autos gesperrt, mit Kameras an jeder Einfahrt. GateLR sagt dir, ob du hineindarfst, jetzt oder bei deiner Ankunft, und warnt dich vor der Einfahrt."),
+"Clear answer": ("Risposta chiara", "Klare Antwort"), "Gate alerts": ("Avvisi ai varchi", "Warnungen an Einfahrten"), "Official sources": ("Fonti ufficiali", "Offizielle Quellen"),
+"You're inside %@": ("Sei dentro %@", "Du bist in %@"), "%@ is %@ away": ("%@ è a %@", "%@ ist %@ entfernt"),
+"No ZTL near you. GateLR covers Florence, Bologna and Milan for now.": ("Nessuna ZTL vicino a te. Per ora GateLR copre Firenze, Bologna e Milano.", "Keine ZTL in deiner Nähe. GateLR deckt bisher Florenz, Bologna und Mailand ab."),
+"Allow location access to see the ZTL near you.": ("Consenti l'accesso alla posizione per vedere la ZTL vicino a te.", "Erlaube den Standortzugriff, um die ZTL in deiner Nähe zu sehen."),
+"Where are you going?": ("Dove vai?", "Wohin fährst du?"),
+"Hotel, address or square: answer, route and hotel message": ("Hotel, indirizzo o piazza: risposta, percorso e messaggio all'hotel", "Hotel, Adresse oder Platz: Antwort, Route und Nachricht ans Hotel"),
+"Cities": ("Città", "Städte"), "All open": ("Tutto libero", "Alles frei"), "%lld active": ("%lld attive", "%lld aktiv"),
+"Your next trip": ("Il tuo prossimo viaggio", "Deine nächste Reise"), "New to ZTLs?": ("Prima volta con le ZTL?", "Neu bei ZTL?"),
+"The signs, the panels and what to do if you drove in by mistake. 1 minute.": ("I cartelli, i pannelli e cosa fare se entri per sbaglio. 1 minuto.", "Die Schilder, die Anzeigen und was tun, wenn du aus Versehen hineinfährst. 1 Minute."),
+"Destination or hotel in %@": ("Destinazione o hotel a %@", "Ziel oder Hotel in %@"),
+"Search your hotel or destination: GateLR tells you if you can drive there at that time, checks the ZTLs on the way and prepares the message for the hotel.": ("Cerca il tuo hotel o la destinazione: GateLR ti dice se puoi arrivarci in auto a quell'ora, controlla le ZTL lungo la strada e prepara il messaggio per l'hotel.", "Such dein Hotel oder Ziel: GateLR sagt dir, ob du zu dieser Zeit hinfahren darfst, prüft die ZTL auf dem Weg und bereitet die Nachricht ans Hotel vor."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

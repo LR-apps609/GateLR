@@ -1,108 +1,107 @@
 import SwiftUI
+import MapKit
 import UIKit
 
-/// «Viaggio»: l'indirizzo dell'hotel (l'app capisce da sola se è in ZTL), la risposta per l'ora di arrivo,
-/// il messaggio pronto per l'hotel e i viaggi salvati.
+/// «Viaggio»: l'unico posto dove si cerca la destinazione o l'hotel. Risposta adesso o all'arrivo,
+/// percorso con il controllo delle ZTL, messaggio per l'hotel e viaggi salvati.
 struct TripView: View {
     @EnvironmentObject var store: Store
-    @Binding var showZone: Bool
+    @ObservedObject private var monitor = GateMonitor.shared
     @StateObject private var search = AddressSearch()
+    @ObservedObject private var planner = RoutePlanner.shared
+    @Binding var showZone: Bool
+    @Binding var tab: Tab
     @FocusState private var typing: Bool
-    @State private var arrival = TripView.upcoming(hour: 18, days: 3)
-    @State private var hotel: Place?
+    @State private var atArrival = false
+    @State private var arrival = TripView.upcoming(hour: 18)
+    @State private var resolving = false
+    @State private var driving = false
     @AppStorage("hotelName") private var hotelName = ""
     @State private var language: MessageLanguage = .en
     @State private var copied = false
     @State private var saved = false
 
-    /// La zona dell'hotel: dall'indirizzo se c'è, altrimenti dalla scelta a mano
-    private var hotelZone: Zone? {
-        if let hotel { return store.zones(at: hotel.location).first?.zone }
-        return store.hotelInside ? store.zone : nil
-    }
-
     var body: some View {
-        NavigationStack {
+        TimelineView(.everyMinute) { ctx in
+            let date = atArrival ? arrival : ctx.date
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
-                    hotelCard
+                    header
+                    searchField
                     if typing && !search.query.isEmpty {
                         suggestions
                     } else {
-                        arrivalCard
-                        if let zone = hotelZone {
-                            VerdictCard(answer: store.answer(at: arrival, zone: zone, hotelInside: true),
-                                        heading: "\(zone.shortName) · \(arrival.formatted(.dateTime.weekday(.wide).day().month().hour().minute()))",
-                                        source: zone.source,
-                                        onWhy: { selectZone(zone); showZone = true })
-                            if zone.hotelCanRegister { hotelMessage }
-                        } else if hotel != nil {
-                            outsideCard
+                        whenRow
+                        if let place = store.place {
+                            placeAnswer(place, at: date)
+                            saveButton
+                        } else {
+                            emptyState
                         }
-                        saveButton
-                        if !store.trips.isEmpty { savedTrips }
+                        StatusBanner(status: store.city.status)
+                        Text("Road signs on site always win over the app.")
+                            .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                            .frame(maxWidth: .infinity)
                     }
                 }
-                .padding(.horizontal, 20).padding(.vertical, 12)
-                .animation(.snappy, value: hotel)
+                .padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 24)
+                .animation(.snappy, value: store.place)
+                .animation(.snappy, value: atArrival)
             }
             .scrollDismissesKeyboard(.immediately)
             .background(Theme.ground)
-            .navigationTitle("Your trip")
-            .onAppear { search.focus(on: store.city) }
+        }
+        .onAppear { search.focus(on: store.city) }
+        .onChange(of: store.cityId) { search.focus(on: store.city) }
+        .onChange(of: store.place) { planner.clear() }
+        .fullScreenCover(isPresented: $driving) { DriveView() }
+        .onChange(of: atArrival) { planner.clear() }
+        .onChange(of: arrival) { planner.clear() }
+    }
+
+    // MARK: Testata e ricerca
+
+    private var header: some View {
+        HStack {
+            Text("Your trip").font(Theme.display(34)).foregroundStyle(Theme.ink)
+            Spacer()
+            Menu {
+                ForEach(store.cities) { c in
+                    Button(c.localizedName) { store.place = nil; store.cityId = c.id }
+                }
+            } label: {
+                Label(store.city.localizedName, systemImage: "mappin.and.ellipse")
+                    .font(.system(size: 14, weight: .semibold))
+                    .padding(.horizontal, 14).frame(height: 36)
+                    .background(Theme.card, in: Capsule())
+                    .foregroundStyle(Theme.ink)
+            }
+            .accessibilityLabel(String(format: L("City: %@"), store.city.localizedName))
         }
     }
 
-    // MARK: Hotel
-
-    private var hotelCard: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack(spacing: 10) {
-                Image(systemName: "building.2").foregroundStyle(Theme.blue)
-                TextField(L("Hotel address or name"), text: $search.query)
-                    .focused($typing).autocorrectionDisabled()
-                    .accessibilityIdentifier("trip.search")
-                if !search.query.isEmpty || hotel != nil {
-                    Button { search.clear(); hotel = nil } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(Theme.muted) }
-                        .accessibilityLabel(L("Clear"))
-                }
-            }
-            .padding(14)
-            if let hotel, !(typing && !search.query.isEmpty) {
-                Divider().padding(.leading, 14)
-                let zone = store.zones(at: hotel.location).first?.zone
-                HStack(spacing: 12) {
-                    Image(systemName: zone?.type.symbol ?? "checkmark")
-                        .font(.system(size: 14, weight: .bold)).foregroundStyle(.white)
-                        .frame(width: 32, height: 32)
-                        .background(zone?.type.color ?? Theme.green, in: RoundedRectangle(cornerRadius: 9, style: .continuous))
-                    VStack(alignment: .leading, spacing: 1) {
-                        Text(hotel.name).font(.system(size: 15, weight: .semibold)).lineLimit(1)
-                        Text(zone.map { String(format: L("Inside the ZTL · %@"), $0.shortName) } ?? L("Outside the ZTL"))
-                            .font(.system(size: 13)).foregroundStyle(zone == nil ? Theme.greenInk : Theme.muted)
-                    }
-                    Spacer()
-                }
-                .padding(.horizontal, 14).padding(.vertical, 10)
-                Divider().padding(.leading, 14)
-                HStack {
-                    Text("Name in the message").font(.system(size: 14)).foregroundStyle(Theme.muted)
-                    TextField(L("Hotel name"), text: $hotelName).multilineTextAlignment(.trailing).textInputAutocapitalization(.words)
-                }
-                .padding(.horizontal, 14).padding(.vertical, 10)
-            } else if hotel == nil && !(typing && !search.query.isEmpty) {
-                Divider().padding(.leading, 14)
-                Toggle(L("Hotel is inside the ZTL"), isOn: $store.hotelInside).padding(.horizontal, 14).padding(.vertical, 8)
-                if store.hotelInside {
-                    Divider().padding(.leading, 14)
-                    Picker(L("Sector"), selection: $store.zoneId) {
-                        ForEach(store.city.zones) { Text($0.localizedName).tag($0.id) }
-                    }
-                    .padding(.horizontal, 14).padding(.vertical, 4)
-                }
+    private var searchField: some View {
+        HStack(spacing: 10) {
+            Image(systemName: "magnifyingglass").foregroundStyle(Theme.muted)
+            TextField(String(format: L("Destination or hotel in %@"), store.city.localizedName), text: $search.query)
+                .focused($typing)
+                .submitLabel(.search)
+                .autocorrectionDisabled()
+                .accessibilityIdentifier("trip.search")
+            if resolving { ProgressView() }
+            if !search.query.isEmpty || store.place != nil {
+                Button {
+                    search.clear(); store.place = nil; typing = false
+                } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(Theme.muted) }
+                .accessibilityLabel(L("Clear"))
+            } else if monitor.location != nil {
+                Button { useMyLocation() } label: { Image(systemName: "location.fill").foregroundStyle(Theme.blue) }
+                    .accessibilityLabel(L("Use my location"))
             }
         }
-        .card()
+        .font(.system(size: 16))
+        .padding(.horizontal, 14).frame(height: 50)
+        .card(14)
     }
 
     private var suggestions: some View {
@@ -114,79 +113,257 @@ struct TripView: View {
             ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
                 Button {
                     Task {
-                        if let place = await search.resolve(r) { choose(place) }
+                        resolving = true
+                        if let place = await search.resolve(r) {
+                            store.select(place)
+                            search.query = ""
+                            typing = false
+                        }
+                        resolving = false
                     }
                 } label: {
-                    VStack(alignment: .leading, spacing: 1) {
-                        Text(r.title).font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
-                        if !r.subtitle.isEmpty { Text(r.subtitle).font(.system(size: 13)).foregroundStyle(Theme.muted).lineLimit(1) }
+                    HStack(spacing: 12) {
+                        Image(systemName: "mappin.circle.fill").font(.system(size: 22)).foregroundStyle(Theme.red)
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(r.title).font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
+                            if !r.subtitle.isEmpty {
+                                Text(r.subtitle).font(.system(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
+                            }
+                        }
+                        Spacer()
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 14).padding(.vertical, 10)
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
                 .accessibilityIdentifier("trip.result.\(i)")
-                if i < search.results.count - 1 { Divider().padding(.leading, 14) }
+                if i < search.results.count - 1 { Divider().padding(.leading, 48) }
             }
         }
         .card()
     }
 
-    private func choose(_ place: Place) {
-        hotel = place
-        hotelName = place.name
-        search.query = ""
-        typing = false
-        if let hit = store.zones(at: place.location).first { selectZone(hit.zone) }
+    private func useMyLocation() {
+        guard let here = monitor.location else { return }
+        store.select(Place(name: L("My position"), address: "",
+                           location: Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)))
     }
 
-    private func selectZone(_ zone: Zone) {
-        if let city = store.cities.first(where: { $0.zones.contains(zone) }) { store.cityId = city.id }
-        store.zoneId = zone.id
-    }
+    // MARK: Adesso / all'arrivo
 
-    private var outsideCard: some View {
-        Label {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Your hotel is outside the ZTL").font(Theme.display(24))
-                Text("You can drive there at any time. Inside the old town, check before you go further.").font(.system(size: 15))
+    private var whenRow: some View {
+        HStack(spacing: 10) {
+            Picker(L("When"), selection: $atArrival) {
+                Text("Now").tag(false)
+                Text("At arrival").tag(true)
             }
-        } icon: {
-            Image(systemName: "checkmark.circle.fill").font(.system(size: 28))
+            .pickerStyle(.segmented)
+            .frame(maxWidth: 220)
+            Spacer(minLength: 0)
+            if atArrival {
+                DatePicker(L("Arrival"), selection: $arrival, in: Date()...)
+                    .labelsHidden()
+                    .transition(.opacity)
+            }
         }
-        .padding(18).frame(maxWidth: .infinity, alignment: .leading)
-        .foregroundStyle(.white)
-        .background(Theme.green, in: RoundedRectangle(cornerRadius: 22, style: .continuous))
     }
 
-    // MARK: Arrivo
+    private func heading(_ zone: Zone, _ date: Date) -> String {
+        atArrival
+            ? "\(zone.shortName) · \(date.formatted(.dateTime.weekday(.abbreviated).hour().minute()))"
+            : String(format: L("%@ · now %@"), zone.shortName, date.formatted(date: .omitted, time: .shortened))
+    }
 
-    private var arrivalCard: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            DatePicker(selection: $arrival, in: Date()...) {
-                Label("Arrival", systemImage: "calendar").foregroundStyle(Theme.blue)
-            }
-            .padding(.horizontal, 14).padding(.vertical, 8)
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 8) {
-                    chip(Calendar.current.component(.hour, from: Date()) < 21 ? "Tonight 9 pm" : "Tomorrow 9 pm", TripView.upcoming(hour: 21))
-                    chip("Tomorrow 10 am", TripView.at(dayOffset: 1, hour: 10))
-                    chip("Saturday 6 pm", TripView.next(weekday: 7, hour: 18))
-                    chip("Sunday noon", TripView.next(weekday: 1, hour: 12))
+    // MARK: Risposta per l'indirizzo
+
+    @ViewBuilder
+    private func placeAnswer(_ place: Place, at date: Date) -> some View {
+        let hits = store.zones(at: place.location)
+        placeCard(place, inside: hits.first?.zone)
+        if let area = store.pedestrianArea(at: place.location) {
+            Label {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(String(format: L("Pedestrian area · %@"), area.name)).font(.system(size: 15, weight: .bold))
+                    Text("Cars can't drive in here at any time, except authorised vehicles. Park outside and walk.")
+                        .font(.system(size: 14))
                 }
-                .padding(.horizontal, 14).padding(.bottom, 10)
+            } icon: { Image(systemName: "figure.walk.circle.fill").font(.system(size: 24)) }
+            .foregroundStyle(.white)
+            .padding(14).frame(maxWidth: .infinity, alignment: .leading)
+            .background(Theme.red, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        }
+        if let hit = hits.first {
+            VerdictCard(answer: store.pedestrianArea(at: place.location) != nil
+                            ? Answer(verdict: .no(reason: L("It's a pedestrian area: cars can't drive in at any time, whatever the ZTL hours.")),
+                                     gatesOn: true, nextChange: nil)
+                            : store.answer(at: date, zone: hit.zone, hotelInside: false),
+                        heading: heading(hit.zone, date),
+                        source: hit.zone.source,
+                        since: atArrival ? nil : store.engine.previousChange(hit.zone, before: date),
+                        onWhy: { store.cityId = hit.city.id; store.zoneId = hit.zone.id; showZone = true })
+            if hits.count > 1 {
+                VStack(alignment: .leading, spacing: 8) {
+                    SectionLabel("Also inside")
+                    zoneList(hits.dropFirst().map { $0.zone }, at: date)
+                }
+            }
+            routeCard(place)
+            if hit.zone.hotelCanRegister { hotelMessage }
+        } else {
+            outsideCard(place)
+            routeCard(place)
+        }
+    }
+
+    // MARK: Il percorso
+
+    @ViewBuilder
+    private func routeCard(_ place: Place) -> some View {
+        if let plan = planner.plan, plan.destination == place {
+            RouteCard(plan: plan, onMap: { tab = .map }, onStart: { target in
+                Task {
+                    await DriveSession.shared.start(to: target, store: store)
+                    driving = DriveSession.shared.active
+                }
+            })
+            if let e = DriveSession.shared.error { Text(e).font(.system(size: 13)).foregroundStyle(Theme.red) }
+        } else {
+            VStack(alignment: .leading, spacing: 8) {
+                WideButton(title: planner.working ? "Planning…" : "Check the drive", systemImage: "car.fill") {
+                    Task {
+                        await planner.plan(to: place, from: monitor.location?.coordinate ?? RoutePlanner.testOrigin,
+                                           arrival: atArrival ? arrival : nil, store: store)
+                    }
+                }
+                .disabled(planner.working)
+                .accessibilityIdentifier("trip.route")
+                if let error = planner.error {
+                    Text(error).font(.system(size: 13)).foregroundStyle(Theme.muted)
+                } else {
+                    Text("GateLR checks every ZTL on the way at the time you pass it.")
+                        .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                }
+            }
+        }
+    }
+
+    private func placeCard(_ place: Place, inside zone: Zone?) -> some View {
+        HStack(spacing: 12) {
+            Image(systemName: zone?.type.symbol ?? "checkmark")
+                .font(.system(size: 17, weight: .bold))
+                .foregroundStyle(.white)
+                .frame(width: 40, height: 40)
+                .background(zone?.type.color ?? Theme.green, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+            VStack(alignment: .leading, spacing: 1) {
+                Text(place.name).font(.system(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
+                Text(zone.map { "\($0.type.title) · \($0.shortName)" } ?? L("Outside the ZTL"))
+                    .font(.system(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
+            }
+            Spacer()
+            Button { tab = .map } label: {
+                Image(systemName: "map").font(.system(size: 15, weight: .semibold))
+                    .frame(width: 36, height: 36).background(Theme.blueSoft, in: Circle()).foregroundStyle(Theme.blue)
+            }
+            .accessibilityLabel(L("Show on the map"))
+        }
+        .padding(12).card()
+    }
+
+    private func outsideCard(_ place: Place) -> some View {
+        let near = store.nearestZone(to: place.location)
+        return VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 12) {
+                Image(systemName: "checkmark").font(.system(size: 24, weight: .heavy)).foregroundStyle(Theme.green)
+                    .frame(width: 52, height: 52).background(.white, in: Circle())
+                VStack(alignment: .leading, spacing: -12) {
+                    ForEach(L("Outside|the ZTL").components(separatedBy: "|"), id: \.self) { Text($0).font(Theme.display(34)) }
+                }
+            }
+            Text("This address isn't inside any ZTL we know. You can drive there.").font(.system(size: 16))
+            if let near, near.meters < 3_000 {
+                let m = Measurement(value: near.meters, unit: UnitLength.meters).formatted(.measurement(width: .abbreviated, usage: .road))
+                Text(String(format: L("The nearest zone, %@, is %@ away."), near.zone.shortName, m))
+                    .font(.system(size: 14)).opacity(0.92)
+                if near.meters < 150 {
+                    Label("Very close to the border: follow the signs and don't cross a gate.", systemImage: "exclamationmark.triangle.fill")
+                        .font(.system(size: 14, weight: .semibold))
+                }
+            }
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .foregroundStyle(.white)
+        .background(Theme.green, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+        .shadow(color: .black.opacity(0.08), radius: 14, y: 6)
+    }
+
+    // MARK: Senza destinazione
+
+    @ViewBuilder
+    private var emptyState: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Label("Where are you going?", systemImage: "mappin.and.ellipse")
+                .font(Theme.display(24)).foregroundStyle(Theme.ink)
+            Text("Search your hotel or destination: GateLR tells you if you can drive there at that time, checks the ZTLs on the way and prepares the message for the hotel.")
+                .font(.system(size: 15)).foregroundStyle(Theme.muted)
+        }
+        .padding(16).frame(maxWidth: .infinity, alignment: .leading).card()
+        hint("Search your destination for a precise answer.", symbol: "magnifyingglass", action: { typing = true })
+        if !store.trips.isEmpty { savedTrips }
+    }
+
+    private func zoneList(_ zones: [Zone], at date: Date) -> some View {
+        VStack(spacing: 0) {
+            ForEach(zones) { z in
+                let a = store.answer(at: date, zone: z, hotelInside: false)
+                Button {
+                    if let city = store.cities.first(where: { $0.zones.contains(z) }) { store.cityId = city.id }
+                    store.zoneId = z.id
+                    showZone = true
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: z.type.symbol)
+                            .font(.system(size: 14, weight: .bold))
+                            .frame(width: 32, height: 32)
+                            .background(z.type.color.opacity(0.16), in: Circle())
+                            .foregroundStyle(z.type.color)
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(z.localizedName).font(.system(size: 15)).foregroundStyle(Theme.ink).lineLimit(2)
+                            Text("\(z.type.title) · \(a.gatesOn ? L("ZTL active") : L("ZTL not active"))")
+                                .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                        }
+                        Spacer()
+                        VerdictPill(verdict: a.verdict)
+                    }
+                    .padding(.horizontal, 14).padding(.vertical, 10)
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                if z.id != zones.last?.id { Divider().padding(.leading, 58) }
             }
         }
         .card()
     }
 
-    // MARK: Viaggi salvati
+    private func hint(_ text: String, symbol: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 10) {
+                Image(systemName: symbol).foregroundStyle(Theme.blue)
+                Text(L(text)).font(.system(size: 14)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
+                Spacer()
+                Image(systemName: "chevron.right").font(.system(size: 12, weight: .bold)).foregroundStyle(Theme.muted)
+            }
+            .padding(14)
+            .background(Theme.blueSoft.opacity(0.6), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        }
+        .buttonStyle(.plain)
+    }
 
     private var saveButton: some View {
         WideButton(title: saved ? "Trip saved" : "Save this trip", systemImage: saved ? "checkmark" : "bookmark", prominent: false) {
-            store.trips.insert(Trip(hotel: hotel, hotelName: hotelName, arrival: arrival,
-                                    departure: arrival.addingTimeInterval(86_400 * 2), vehicleId: store.vehicle.id), at: 0)
+            let when = atArrival ? arrival : Date()
+            store.trips.insert(Trip(hotel: store.place, hotelName: hotelName.isEmpty ? (store.place?.name ?? "") : hotelName, arrival: when,
+                                    departure: when.addingTimeInterval(86_400 * 2), vehicleId: store.vehicle.id), at: 0)
             saved = true
             Task { try? await Task.sleep(for: .seconds(1.5)); saved = false }
         }
@@ -200,8 +377,9 @@ struct TripView: View {
                 ForEach(store.trips) { t in
                     let zone = t.hotel.flatMap { store.zones(at: $0.location).first?.zone }
                     Button {
+                        if let h = t.hotel { store.select(h) }
                         arrival = max(t.arrival, Date())
-                        if let h = t.hotel { choose(h) } else { hotel = nil }
+                        atArrival = true
                         hotelName = t.hotelName
                     } label: {
                         HStack(spacing: 12) {
@@ -237,21 +415,11 @@ struct TripView: View {
         return [when, where_].compactMap { $0 }.joined(separator: " · ")
     }
 
-    private func chip(_ title: String, _ date: Date) -> some View {
-        let on = abs(arrival.timeIntervalSince(date)) < 60
-        return Button { withAnimation(.snappy) { arrival = date } } label: {
-            Text(L(title)).font(.system(size: 13, weight: .semibold))
-                .padding(.horizontal, 12).frame(height: 32)
-                .background(on ? Color(hex: 0x1F4E9E) : Theme.blueSoft, in: Capsule())
-                .foregroundStyle(on ? .white : Theme.blue)
-        }
-        .buttonStyle(.plain)
-    }
-
     private var hotelMessage: some View {
-        let text = language.message(arrival: arrival,
+        let name = hotelName.isEmpty ? store.place?.name : hotelName
+        let text = language.message(arrival: atArrival ? arrival : Date(),
                                     plate: store.vehicle.plate.isEmpty ? "[PLATE]" : store.vehicle.plate,
-                                    hotel: hotelName.isEmpty ? nil : hotelName)
+                                    hotel: name)
         return VStack(alignment: .leading, spacing: 10) {
             HStack {
                 SectionLabel("Message for the hotel")

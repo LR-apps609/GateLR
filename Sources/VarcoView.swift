@@ -1,326 +1,197 @@
 import SwiftUI
-import MapKit
+import CoreLocation
 
-/// «Varco»: scegli la città e, se vuoi, un indirizzo. Solo città = panoramica delle zone;
-/// indirizzo = la risposta per quel punto, adesso o all'ora di arrivo.
+/// «Varco»: la prima pagina. In un colpo d'occhio cosa fa GateLR, la situazione intorno a te adesso,
+/// le città con il loro stato e il pulsante per pianificare. La ricerca vera è nella scheda Viaggio.
 struct VarcoView: View {
     @EnvironmentObject var store: Store
     @ObservedObject private var monitor = GateMonitor.shared
-    @StateObject private var search = AddressSearch()
-    @ObservedObject private var planner = RoutePlanner.shared
     @Binding var showZone: Bool
     @Binding var tab: Tab
-    @FocusState private var typing: Bool
-    @State private var atArrival = false
-    @State private var arrival = TripView.upcoming(hour: 18)
-    @State private var resolving = false
-    @State private var driving = false
+    @State private var learning = false
 
     var body: some View {
         TimelineView(.everyMinute) { ctx in
-            let date = atArrival ? arrival : ctx.date
             ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
+                VStack(alignment: .leading, spacing: 18) {
                     header
-                    searchField
-                    if typing && !search.query.isEmpty {
-                        suggestions
-                    } else {
-                        whenRow
-                        if let place = store.place {
-                            placeAnswer(place, at: date)
-                        } else {
-                            overview(at: date)
-                        }
-                        StatusBanner(status: store.city.status)
-                        Text("Road signs on site always win over the app.")
-                            .font(.system(size: 12)).foregroundStyle(Theme.muted)
-                            .frame(maxWidth: .infinity)
-                    }
+                    hero
+                    aroundYou(at: ctx.date)
+                    planButton
+                    cities(at: ctx.date)
+                    zones(at: ctx.date)
+                    if let next = store.trips.filter({ $0.arrival > ctx.date }).min(by: { $0.arrival < $1.arrival }) { nextTrip(next) }
+                    learnCard
+                    StatusBanner(status: store.city.status)
+                    Text("Road signs on site always win over the app.")
+                        .font(.system(size: 12)).foregroundStyle(Theme.muted)
+                        .frame(maxWidth: .infinity)
                 }
                 .padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 24)
-                .animation(.snappy, value: store.place)
-                .animation(.snappy, value: atArrival)
             }
-            .scrollDismissesKeyboard(.immediately)
             .background(Theme.ground)
         }
-        .onAppear { search.focus(on: store.city) }
-        .onChange(of: store.cityId) { search.focus(on: store.city) }
-        .onChange(of: store.place) { planner.clear() }
-        .fullScreenCover(isPresented: $driving) { DriveView() }
-        .onChange(of: atArrival) { planner.clear() }
-        .onChange(of: arrival) { planner.clear() }
+        .sheet(isPresented: $learning) { NavigationStack { LearnZTLView() } }
     }
-
-    // MARK: Testata e ricerca
 
     private var header: some View {
         HStack {
             Wordmark()
             Spacer()
-            Menu {
-                ForEach(store.cities) { c in
-                    Button(c.localizedName) { store.place = nil; store.cityId = c.id }
-                }
-            } label: {
-                Label(store.city.localizedName, systemImage: "mappin.and.ellipse")
-                    .font(.system(size: 14, weight: .semibold))
-                    .padding(.horizontal, 14).frame(height: 36)
-                    .background(Theme.card, in: Capsule())
-                    .foregroundStyle(Theme.ink)
+            Button { tab = .account } label: {
+                Image(systemName: "person.crop.circle").font(.system(size: 26)).foregroundStyle(Theme.muted)
             }
-            .accessibilityLabel(String(format: L("City: %@"), store.city.localizedName))
+            .accessibilityLabel(L("Account"))
         }
     }
 
-    private var searchField: some View {
-        HStack(spacing: 10) {
-            Image(systemName: "magnifyingglass").foregroundStyle(Theme.muted)
-            TextField(String(format: L("Address or hotel in %@"), store.city.localizedName), text: $search.query)
-                .focused($typing)
-                .submitLabel(.search)
-                .autocorrectionDisabled()
-                .accessibilityIdentifier("varco.search")
-            if resolving { ProgressView() }
-            if !search.query.isEmpty || store.place != nil {
-                Button {
-                    search.clear(); store.place = nil; typing = false
-                } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(Theme.muted) }
-                .accessibilityLabel(L("Clear"))
-            } else if monitor.location != nil {
-                Button { useMyLocation() } label: { Image(systemName: "location.fill").foregroundStyle(Theme.blue) }
-                    .accessibilityLabel(L("Use my location"))
-            }
-        }
-        .font(.system(size: 16))
-        .padding(.horizontal, 14).frame(height: 50)
-        .card(14)
-    }
-
-    private var suggestions: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            if search.results.isEmpty {
-                Text(search.failed ? L("Search isn't working right now. Check your connection.") : L("Keep typing…"))
-                    .font(.system(size: 14)).foregroundStyle(Theme.muted).padding(14)
-            }
-            ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
-                Button {
-                    Task {
-                        resolving = true
-                        if let place = await search.resolve(r) {
-                            store.select(place)
-                            search.query = ""
-                            typing = false
-                        }
-                        resolving = false
-                    }
-                } label: {
-                    HStack(spacing: 12) {
-                        Image(systemName: "mappin.circle.fill").font(.system(size: 22)).foregroundStyle(Theme.red)
-                        VStack(alignment: .leading, spacing: 1) {
-                            Text(r.title).font(.system(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
-                            if !r.subtitle.isEmpty {
-                                Text(r.subtitle).font(.system(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
-                            }
-                        }
-                        Spacer()
-                    }
-                    .padding(.horizontal, 14).padding(.vertical, 10)
-                    .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("varco.result.\(i)")
-                if i < search.results.count - 1 { Divider().padding(.leading, 48) }
-            }
-        }
-        .card()
-    }
-
-    private func useMyLocation() {
-        guard let here = monitor.location else { return }
-        store.select(Place(name: L("My position"), address: "",
-                           location: Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)))
-    }
-
-    // MARK: Adesso / all'arrivo
-
-    private var whenRow: some View {
-        HStack(spacing: 10) {
-            Picker(L("When"), selection: $atArrival) {
-                Text("Now").tag(false)
-                Text("At arrival").tag(true)
-            }
-            .pickerStyle(.segmented)
-            .frame(maxWidth: 220)
-            Spacer(minLength: 0)
-            if atArrival {
-                DatePicker(L("Arrival"), selection: $arrival, in: Date()...)
-                    .labelsHidden()
-                    .transition(.opacity)
-            }
-        }
-    }
-
-    private func heading(_ zone: Zone, _ date: Date) -> String {
-        atArrival
-            ? "\(zone.shortName) · \(date.formatted(.dateTime.weekday(.abbreviated).hour().minute()))"
-            : String(format: L("%@ · now %@"), zone.shortName, date.formatted(date: .omitted, time: .shortened))
-    }
-
-    // MARK: Risposta per l'indirizzo
-
-    @ViewBuilder
-    private func placeAnswer(_ place: Place, at date: Date) -> some View {
-        let hits = store.zones(at: place.location)
-        placeCard(place, inside: hits.first?.zone)
-        if let area = store.pedestrianArea(at: place.location) {
-            Label {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(String(format: L("Pedestrian area · %@"), area.name)).font(.system(size: 15, weight: .bold))
-                    Text("Cars can't drive in here at any time, except authorised vehicles. Park outside and walk.")
-                        .font(.system(size: 14))
-                }
-            } icon: { Image(systemName: "figure.walk.circle.fill").font(.system(size: 24)) }
-            .foregroundStyle(.white)
-            .padding(14).frame(maxWidth: .infinity, alignment: .leading)
-            .background(Theme.red, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-        }
-        if let hit = hits.first {
-            VerdictCard(answer: store.pedestrianArea(at: place.location) != nil
-                            ? Answer(verdict: .no(reason: L("It's a pedestrian area: cars can't drive in at any time, whatever the ZTL hours.")),
-                                     gatesOn: true, nextChange: nil)
-                            : store.answer(at: date, zone: hit.zone, hotelInside: false),
-                        heading: heading(hit.zone, date),
-                        source: hit.zone.source,
-                        since: atArrival ? nil : store.engine.previousChange(hit.zone, before: date),
-                        onWhy: { store.cityId = hit.city.id; store.zoneId = hit.zone.id; showZone = true })
-            if hits.count > 1 {
-                VStack(alignment: .leading, spacing: 8) {
-                    SectionLabel("Also inside")
-                    zoneList(hits.dropFirst().map { $0.zone }, at: date)
+    /// Cos'è GateLR, in tre righe
+    private var hero: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            VStack(alignment: .leading, spacing: -8) {
+                ForEach(L("Know before|the gate.").components(separatedBy: "|"), id: \.self) {
+                    Text($0).font(Theme.display(38)).foregroundStyle(.white)
                 }
             }
-            routeCard(place)
-            if hit.zone.hotelCanRegister {
-                hint("Staying at a hotel here? It can register your plate: see Trip.", symbol: "building.2", action: { tab = .trip })
-            }
-        } else {
-            outsideCard(place)
-            routeCard(place)
-        }
-    }
-
-    // MARK: Il percorso
-
-    @ViewBuilder
-    private func routeCard(_ place: Place) -> some View {
-        if let plan = planner.plan, plan.destination == place {
-            RouteCard(plan: plan, onMap: { tab = .map }, onStart: { target in
-                Task {
-                    await DriveSession.shared.start(to: target, store: store)
-                    driving = DriveSession.shared.active
-                }
-            })
-            if let e = DriveSession.shared.error { Text(e).font(.system(size: 13)).foregroundStyle(Theme.red) }
-        } else {
-            VStack(alignment: .leading, spacing: 8) {
-                WideButton(title: planner.working ? "Planning…" : "Check the drive", systemImage: "car.fill") {
-                    Task {
-                        await planner.plan(to: place, from: monitor.location?.coordinate ?? RoutePlanner.testOrigin,
-                                           arrival: atArrival ? arrival : nil, store: store)
-                    }
-                }
-                .disabled(planner.working)
-                .accessibilityIdentifier("varco.route")
-                if let error = planner.error {
-                    Text(error).font(.system(size: 13)).foregroundStyle(Theme.muted)
-                } else {
-                    Text("GateLR checks every ZTL on the way at the time you pass it.")
-                        .font(.system(size: 12)).foregroundStyle(Theme.muted)
-                }
-            }
-        }
-    }
-
-    private func placeCard(_ place: Place, inside zone: Zone?) -> some View {
-        HStack(spacing: 12) {
-            Image(systemName: zone?.type.symbol ?? "checkmark")
-                .font(.system(size: 17, weight: .bold))
-                .foregroundStyle(.white)
-                .frame(width: 40, height: 40)
-                .background(zone?.type.color ?? Theme.green, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
-            VStack(alignment: .leading, spacing: 1) {
-                Text(place.name).font(.system(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
-                Text(zone.map { "\($0.type.title) · \($0.shortName)" } ?? L("Outside the ZTL"))
-                    .font(.system(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
-            }
-            Spacer()
-            Button { tab = .map } label: {
-                Image(systemName: "map").font(.system(size: 15, weight: .semibold))
-                    .frame(width: 36, height: 36).background(Theme.blueSoft, in: Circle()).foregroundStyle(Theme.blue)
-            }
-            .accessibilityLabel(L("Show on the map"))
-        }
-        .padding(12).card()
-    }
-
-    private func outsideCard(_ place: Place) -> some View {
-        let near = store.nearestZone(to: place.location)
-        return VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 12) {
-                Image(systemName: "checkmark").font(.system(size: 24, weight: .heavy)).foregroundStyle(Theme.green)
-                    .frame(width: 52, height: 52).background(.white, in: Circle())
-                VStack(alignment: .leading, spacing: -12) {
-                    ForEach(L("Outside|the ZTL").components(separatedBy: "|"), id: \.self) { Text($0).font(Theme.display(34)) }
-                }
-            }
-            Text("This address isn't inside any ZTL we know. You can drive there.").font(.system(size: 16))
-            if let near, near.meters < 3_000 {
-                let m = Measurement(value: near.meters, unit: UnitLength.meters).formatted(.measurement(width: .abbreviated, usage: .road))
-                Text(String(format: L("The nearest zone, %@, is %@ away."), near.zone.shortName, m))
-                    .font(.system(size: 14)).opacity(0.92)
-                if near.meters < 150 {
-                    Label("Very close to the border: follow the signs and don't cross a gate.", systemImage: "exclamationmark.triangle.fill")
-                        .font(.system(size: 14, weight: .semibold))
-                }
+            Text("Italy's old towns are closed to cars at set hours, with cameras at every gate. GateLR tells you if you can drive in, now or when you arrive, and warns you before a gate.")
+                .font(.system(size: 15)).foregroundStyle(.white.opacity(0.92))
+                .fixedSize(horizontal: false, vertical: true)
+            HStack(spacing: 8) {
+                heroChip("checkmark.circle.fill", "Clear answer")
+                heroChip("bell.badge.fill", "Gate alerts")
+                heroChip("doc.text.magnifyingglass", "Official sources")
             }
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .foregroundStyle(.white)
-        .background(Theme.green, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
-        .shadow(color: .black.opacity(0.08), radius: 14, y: 6)
-    }
-
-    // MARK: Panoramica della città
-
-    @ViewBuilder
-    private func overview(at date: Date) -> some View {
-        let zones = store.city.zones
-        let on = zones.filter { store.answer(at: date, zone: $0).gatesOn }.count
-        VStack(alignment: .leading, spacing: 4) {
-            Text(store.city.localizedName).font(Theme.display(34)).foregroundStyle(Theme.ink)
-            Text(on == 0 ? L("No ZTL is active right now.") : String(format: L("%lld of %lld zones are active now."), on, zones.count))
-                .font(.system(size: 15)).foregroundStyle(Theme.muted)
+        .background(
+            LinearGradient(colors: [Color(hex: 0x1D4FA8), Color(hex: 0x14326E)], startPoint: .topLeading, endPoint: .bottomTrailing),
+            in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+        .overlay(alignment: .topTrailing) {
+            Circle().stroke(Theme.red, lineWidth: 10).frame(width: 64, height: 64).opacity(0.85)
+                .overlay(Circle().fill(.white.opacity(0.08)))
+                .padding(18).accessibilityHidden(true)
         }
-        zoneList(zones, at: date)
-        hint("Search your destination for a precise answer.", symbol: "magnifyingglass", action: { typing = true })
-        vehicleRow
+        .shadow(color: .black.opacity(0.12), radius: 14, y: 6)
     }
 
-    private func zoneList(_ zones: [Zone], at date: Date) -> some View {
+    private func heroChip(_ symbol: String, _ text: String) -> some View {
+        Label(L(text), systemImage: symbol)
+            .font(.system(size: 12, weight: .semibold))
+            .lineLimit(1).minimumScaleFactor(0.8)
+            .padding(.horizontal, 10).frame(height: 30)
+            .background(.white.opacity(0.16), in: Capsule())
+            .foregroundStyle(.white)
+    }
+
+    /// La ZTL più vicina a te (o quella in cui sei), con la risposta adesso
+    @ViewBuilder
+    private func aroundYou(at date: Date) -> some View {
+        if let here = monitor.location {
+            let c = Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)
+            let inside = store.zones(at: c).first
+            let near = store.nearestZone(to: c)
+            if let zone = inside?.zone ?? (near.map { $0.meters < 30_000 } == true ? near?.zone : nil) {
+                let a = store.answer(at: date, zone: zone, hotelInside: false)
+                Button { select(zone); showZone = true } label: {
+                    HStack(spacing: 14) {
+                        Image(systemName: a.verdict.symbol).font(.system(size: 20, weight: .heavy))
+                            .foregroundStyle(a.verdict.badgeInk)
+                            .frame(width: 46, height: 46).background(a.verdict.badgeFill, in: Circle())
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(inside != nil ? String(format: L("You're inside %@"), zone.shortName)
+                                 : String(format: L("%@ is %@ away"), zone.shortName,
+                                          DriveSession.distanceText(near?.meters ?? 0)))
+                                .font(.system(size: 13, weight: .semibold)).opacity(0.9)
+                            Text(a.verdict.short).font(Theme.display(24))
+                            if let next = a.nextChange {
+                                Text(String(format: L(a.gatesOn ? "Ends at %@" : "Starts at %@"), next.formatted(date: .omitted, time: .shortened)))
+                                    .font(.system(size: 13)).opacity(0.9)
+                            }
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold)).opacity(0.7)
+                    }
+                    .foregroundStyle(a.verdict.onFill)
+                    .padding(16)
+                    .background(a.verdict.fill, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                }
+                .buttonStyle(.plain)
+            } else {
+                infoRow("location.fill", L("No ZTL near you. GateLR covers Florence, Bologna and Milan for now."))
+            }
+        } else {
+            infoRow("location.slash", L("Allow location access to see the ZTL near you."))
+        }
+    }
+
+    private func infoRow(_ symbol: String, _ text: String) -> some View {
+        HStack(spacing: 12) {
+            Image(systemName: symbol).foregroundStyle(Theme.blue).frame(width: 28)
+            Text(text).font(.system(size: 14)).foregroundStyle(Theme.ink)
+            Spacer()
+        }
+        .padding(14).card()
+    }
+
+    private var planButton: some View {
+        Button { tab = .trip } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "magnifyingglass").font(.system(size: 18, weight: .semibold))
+                VStack(alignment: .leading, spacing: 1) {
+                    Text("Where are you going?").font(.system(size: 17, weight: .bold))
+                    Text("Hotel, address or square: answer, route and hotel message").font(.system(size: 13)).opacity(0.85)
+                }
+                Spacer()
+                Image(systemName: "arrow.right").font(.system(size: 16, weight: .bold))
+            }
+            .foregroundStyle(.white)
+            .padding(16)
+            .background(Theme.red, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("varco.plan")
+    }
+
+    /// Le città: quante zone sono attive adesso. Tocco = la città scelta
+    private func cities(at date: Date) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            SectionLabel("Cities")
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(store.cities) { c in
+                        let on = c.zones.filter { store.engine.isActive($0, at: date) }.count
+                        let selected = c.id == store.city.id
+                        Button { withAnimation(.snappy) { store.cityId = c.id } } label: {
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(c.localizedName).font(Theme.display(20))
+                                HStack(spacing: 5) {
+                                    Circle().fill(on > 0 ? Theme.red : Theme.green).frame(width: 8, height: 8)
+                                    Text(on == 0 ? L("All open") : String(format: L("%lld active"), on))
+                                        .font(.system(size: 12, weight: .semibold))
+                                }
+                            }
+                            .foregroundStyle(selected ? .white : Theme.ink)
+                            .padding(.horizontal, 14).padding(.vertical, 12)
+                            .frame(minWidth: 118, alignment: .leading)
+                            .background(selected ? Theme.blueFill : Theme.card, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityAddTraits(selected ? .isSelected : [])
+                    }
+                }
+            }
+        }
+    }
+
+    /// Le zone della città scelta, con la risposta adesso
+    private func zones(at date: Date) -> some View {
         VStack(spacing: 0) {
-            ForEach(zones) { z in
+            ForEach(store.city.zones) { z in
                 let a = store.answer(at: date, zone: z, hotelInside: false)
-                Button {
-                    if let city = store.cities.first(where: { $0.zones.contains(z) }) { store.cityId = city.id }
-                    store.zoneId = z.id
-                    showZone = true
-                } label: {
+                Button { select(z); showZone = true } label: {
                     HStack(spacing: 12) {
-                        Image(systemName: z.type.symbol)
-                            .font(.system(size: 14, weight: .bold))
+                        Image(systemName: z.type.symbol).font(.system(size: 14, weight: .bold))
                             .frame(width: 32, height: 32)
                             .background(z.type.color.opacity(0.16), in: Circle())
                             .foregroundStyle(z.type.color)
@@ -336,37 +207,51 @@ struct VarcoView: View {
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
-                if z.id != zones.last?.id { Divider().padding(.leading, 58) }
+                if z.id != store.city.zones.last?.id { Divider().padding(.leading, 58) }
             }
         }
         .card()
     }
 
-    private func hint(_ text: String, symbol: String, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            HStack(spacing: 10) {
-                Image(systemName: symbol).foregroundStyle(Theme.blue)
-                Text(L(text)).font(.system(size: 14)).foregroundStyle(Theme.ink).multilineTextAlignment(.leading)
+    private func nextTrip(_ t: Trip) -> some View {
+        Button { if let h = t.hotel { store.select(h) }; tab = .trip } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "suitcase.rolling.fill").foregroundStyle(Theme.blue)
+                    .frame(width: 40, height: 40).background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                VStack(alignment: .leading, spacing: 1) {
+                    Text("Your next trip").font(.system(size: 12, weight: .semibold)).foregroundStyle(Theme.muted)
+                    Text(t.hotelName.isEmpty ? (t.hotel?.name ?? L("Trip")) : t.hotelName)
+                        .font(.system(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
+                    Text(t.arrival.formatted(.dateTime.weekday(.wide).day().month().hour().minute()))
+                        .font(.system(size: 13)).foregroundStyle(Theme.muted)
+                }
                 Spacer()
-                Image(systemName: "chevron.right").font(.system(size: 12, weight: .bold)).foregroundStyle(Theme.muted)
+                Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
             }
-            .padding(14)
-            .background(Theme.blueSoft.opacity(0.6), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .padding(14).card()
         }
         .buttonStyle(.plain)
     }
 
-    private var vehicleRow: some View {
-        Button { tab = .garage } label: {
-            HStack(spacing: 10) {
-                Image(systemName: store.vehicle.fuel == .electric ? "bolt.car.fill" : "car.fill").foregroundStyle(Theme.blue)
-                Text("\(store.vehicle.name) · \(store.vehicle.fuel.label) · Euro \(store.vehicle.euro)")
-                    .font(.system(size: 14)).foregroundStyle(Theme.ink).lineLimit(1)
+    private var learnCard: some View {
+        Button { learning = true } label: {
+            HStack(spacing: 14) {
+                ZTLSign().frame(width: 44, height: 56)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("New to ZTLs?").font(.system(size: 16, weight: .bold)).foregroundStyle(Theme.ink)
+                    Text("The signs, the panels and what to do if you drove in by mistake. 1 minute.")
+                        .font(.system(size: 13)).foregroundStyle(Theme.muted).multilineTextAlignment(.leading)
+                }
                 Spacer()
-                Text("Change").font(.system(size: 14, weight: .semibold)).foregroundStyle(Theme.blue)
+                Image(systemName: "chevron.right").font(.system(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
             }
-            .padding(.horizontal, 14).padding(.vertical, 12).card()
+            .padding(14).card()
         }
         .buttonStyle(.plain)
+    }
+
+    private func select(_ z: Zone) {
+        if let city = store.cities.first(where: { $0.zones.contains(z) }) { store.cityId = city.id }
+        store.zoneId = z.id
     }
 }

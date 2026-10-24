@@ -14,110 +14,84 @@ final class ScreenshotTests: XCTestCase {
         XCUIDevice.shared.appearance = .light
         app.launchArguments = ["-uitest"]
         app.launch()
-        XCTAssertTrue(app.tabBars.buttons["Gate"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.tabBars.buttons.element(boundBy: 0).waitForExistence(timeout: 15))
+        sleep(2)
+        snap("01-home")
+        app.swipeUp()
         sleep(1)
-        snap("01-varco-city")
+        snap("01b-home-cities")
 
-        // Ricerca di un indirizzo vero (serve la rete del simulatore)
-        let field = app.textFields["varco.search"]
+        // Viaggio: l'unica ricerca dell'app
+        let plan = app.buttons["varco.plan"]
+        if plan.waitForExistence(timeout: 3) { plan.tap() } else { app.tabBars.buttons.element(boundBy: 2).tap() }
+        sleep(1)
+        snap("02-trip-empty")
+        let field = app.textFields["trip.search"]
         if field.waitForExistence(timeout: 3) {
             field.tap()
             field.typeText("Palazzo Vecchio")
             sleep(4)
-            snap("02-varco-search")
-            let first = app.buttons["varco.result.0"]
+            snap("03-trip-search")
+            let first = app.buttons["trip.result.0"]
             if first.waitForExistence(timeout: 5) {
                 first.tap()
-                sleep(3)
-                snap("03-varco-address")
+                sleep(4)
+                snap("04-trip-answer")
+                app.swipeUp()
+                sleep(1)
+                snap("05-trip-hotel-message")
             }
-        }
-
-        let why = app.buttons["Why?"].firstMatch
-        if why.waitForExistence(timeout: 5) {
-            why.tap()
-            sleep(1)
-            snap("04-zone")
-            app.swipeUp()
-            sleep(1)
-            snap("05-zone-sources")
-            app.buttons["Done"].tap()
         }
 
         app.tabBars.buttons.element(boundBy: 1).tap()
         sleep(6)                       // le mappe si caricano dalla rete
-        snap("06-map")
-        let park = app.buttons["Park outside"].firstMatch
-        if park.waitForExistence(timeout: 3) {
-            park.tap()
-            sleep(6)
-            snap("07-map-parking")
-        }
-
-        app.tabBars.buttons.element(boundBy: 2).tap()
-        sleep(1)
-        let hotel = app.textFields["trip.search"]
-        if hotel.waitForExistence(timeout: 3) {
-            hotel.tap()
-            hotel.typeText("Hotel Brunelleschi Firenze")
-            let first = app.buttons["trip.result.0"]
-            if first.waitForExistence(timeout: 8) { first.tap(); sleep(3) }
-        }
-        snap("08-trip")
-        app.swipeUp()
-        sleep(1)
-        snap("09-trip-message")
+        snap("06-map-place")
 
         app.tabBars.buttons.element(boundBy: 3).tap()
         sleep(1)
-        snap("10-garage")
+        snap("07-garage")
 
         app.tabBars.buttons.element(boundBy: 4).tap()
         sleep(1)
-        snap("11-account")
-        let learn = app.buttons["What is a ZTL?"].firstMatch
-        if learn.waitForExistence(timeout: 3) {
-            learn.tap()
-            sleep(1)
-            snap("12-learn")
-        }
+        snap("08-account")
     }
 
     func test2Onboarding() {
         app.launchArguments = ["-uitest", "-showOnboarding", "-onboarded", "NO"]
         app.launch()
         sleep(2)
-        snap("13-onboarding")
+        snap("09-onboarding")
     }
 
-    /// Milano: il Duomo è in Area C, dentro l'Area B verde. Mappa da lontano con le scritte grandi.
+    /// Milano di sera: il Duomo in Area C dentro l'Area B verde, il percorso e la guida
     func test3MilanDark() {
         app.launchArguments = ["-uitest", "-uiDark", "-uiPlace", "Duomo di Milano", "45.4641", "9.1919", "-uiOrigin", "45.4850", "9.2040"]
         app.launch()
-        XCTAssertTrue(app.tabBars.buttons["Gate"].waitForExistence(timeout: 10))
+        XCTAssertTrue(app.tabBars.buttons.element(boundBy: 0).waitForExistence(timeout: 15))
         sleep(2)
-        snap("14-varco-milan-dark")
-        let route = app.buttons["varco.route"]
+        snap("10-home-dark")
+        app.tabBars.buttons.element(boundBy: 1).tap()
+        sleep(6)
+        snap("11-map-milan-dark")
+        app.tabBars.buttons.element(boundBy: 2).tap()
+        sleep(2)
+        snap("12-trip-milan-dark")
+        let route = app.buttons["trip.route"]
         if route.waitForExistence(timeout: 3) {
             route.tap()
             sleep(10)                  // percorso e parcheggio dalla rete
             app.swipeUp()
             sleep(1)
-            snap("14b-route-milan-dark")
+            snap("13-route-milan-dark")
             let start = app.buttons["route.start"]
             if start.waitForExistence(timeout: 3) {
                 start.tap()
                 sleep(8)
-                snap("14c-drive-milan-dark")
+                snap("14-drive-milan-dark")
                 let end = app.buttons["drive.end"]
                 if end.waitForExistence(timeout: 3) { end.tap(); sleep(1) }
             }
         }
-        app.tabBars.buttons.element(boundBy: 1).tap()
-        sleep(5)
-        app.pinch(withScale: 0.25, velocity: -1)
-        sleep(4)
-        snap("15-map-milan-far-dark")
     }
 
     /// Tutto in italiano: per controllare che non resti inglese in giro
@@ -126,7 +100,10 @@ final class ScreenshotTests: XCTestCase {
                                "-uiPlace", "Piazza Maggiore", "44.4939", "11.3426"]
         app.launch()
         sleep(3)
-        snap("16-it-varco")
+        snap("15-it-home")
+        app.tabBars.buttons.element(boundBy: 2).tap()
+        sleep(2)
+        snap("16-it-trip")
         let why = app.buttons["Perché?"].firstMatch
         if why.waitForExistence(timeout: 5) {
             why.tap(); sleep(1); snap("17-it-zone")
@@ -136,12 +113,9 @@ final class ScreenshotTests: XCTestCase {
         app.tabBars.buttons.element(boundBy: 1).tap()
         sleep(5)
         snap("19-it-map")
-        app.tabBars.buttons.element(boundBy: 2).tap()
-        sleep(1)
-        snap("20-it-trip")
         app.tabBars.buttons.element(boundBy: 4).tap()
         sleep(1)
-        snap("21-it-account")
+        snap("20-it-account")
     }
 
     private func snap(_ name: String) {

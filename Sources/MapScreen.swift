@@ -380,7 +380,7 @@ struct MapScreen: View {
                         showZone = true
                     }
                 }
-                WideButton(title: "Check the drive", systemImage: "car.fill", prominent: hit == nil) { tab = .varco }
+                WideButton(title: "Check the drive", systemImage: "car.fill", prominent: hit == nil) { tab = .trip }
             }
         }
         .padding(18)

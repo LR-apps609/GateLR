@@ -14,7 +14,7 @@ struct RootView: View {
                 .tabItem { Label("Gate", systemImage: "smallcircle.filled.circle") }.tag(Tab.varco)
             MapScreen(showZone: $showZone, tab: $tab)
                 .tabItem { Label("Map", systemImage: "map") }.tag(Tab.map)
-            TripView(showZone: $showZone)
+            TripView(showZone: $showZone, tab: $tab)
                 .tabItem { Label("Trip", systemImage: "calendar") }.tag(Tab.trip)
             GarageView()
                 .tabItem { Label("Garage", systemImage: "car") }.tag(Tab.garage)
