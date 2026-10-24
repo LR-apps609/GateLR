@@ -863,7 +863,7 @@ function startRealMap(style){
     map.addLayer({id:"ped-fill", type:"fill", source:"ped", paint:{"fill-color": PED, "fill-opacity": 0.6}});
     map.addLayer({id:"ped-line", type:"line", source:"ped", paint:{"line-color": PED, "line-width": 1}});
     map.addSource("gates", {type:"geojson", data: gatesGeo()});
-    map.addLayer({id:"gates", type:"circle", source:"gates", paint:{"circle-radius": 5, "circle-color": "#2B2433", "circle-stroke-color": "#fff", "circle-stroke-width": 2}});
+    map.addLayer({id:"gates", type:"circle", source:"gates", paint:{"circle-radius": ["interpolate",["linear"],["zoom"],10,1.5,13,3,15,5,17,7], "circle-color": "#2B2433", "circle-stroke-color": "#fff", "circle-stroke-width": ["interpolate",["linear"],["zoom"],10,0.5,14,1.5,16,2]}});
     map.on("click", e => choose({name: t_("point"), lat: e.lngLat.lat, lon: e.lngLat.lng, map: true}));
     render();
   });

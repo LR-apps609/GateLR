@@ -84,7 +84,14 @@ def perimeter():
     """Da un file di coordinate verificato, se c'è; altrimenti dalle strade della relazione OSM (mai disegnato a mano)"""
     f = RAW / "ztl_perimetro.geojson"
     if not f.exists():
-        return osm_geo.perimeter(osm_geo.street_area(osm_geo.relation(osm_geo.load("siena-ztl"), OSM_ZTL)), tol_m=8), True
+        # Solo le vie ZTL dentro le Mura di Siena (inviluppo delle mura in OSM): via i «tentacoli» delle strade d'accesso
+        walls = [(n["lon"], n["lat"]) for e in osm_geo.load("siena-walls")
+                 for n in (e.get("geometry") or []) if isinstance(n, dict) and "lat" in n]
+        walls += [(n["lon"], n["lat"]) for e in osm_geo.load("siena-walls") if e["type"] == "relation"
+                  for m in e.get("members", []) for n in (m.get("geometry") or [])]
+        hull = osm_geo.convex_hull(walls)
+        keep = (lambda lon, lat: osm_geo.inside_lonlat(hull, lon, lat)) if len(hull) >= 3 else None
+        return osm_geo.perimeter(osm_geo.street_area(osm_geo.relation(osm_geo.load("siena-ztl"), OSM_ZTL), close_m=90, keep=keep), tol_m=8), True
     g = json.loads(f.read_text())
     g = g["features"][0]["geometry"] if "features" in g else g
     polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]
@@ -137,7 +144,7 @@ pending += [
      "Frist für das Hotel: Die Seite der Stadt nennt 2 Werktage nach der Einfahrt, die Regeln von 2026 höchstens 2 Tage danach. Mit der Stadt zu klären."),
 ]
 
-zone = {"id": "siena-ztl", "name": "ZTL · Historic Centre", "name_it": "ZTL · Centro storico", "name_de": "ZTL · Altstadt",
+zone = {"id": "siena-ztl", "name": "Siena · Historic Centre ZTL", "name_it": "Siena · ZTL Centro storico", "name_de": "Siena · ZTL Altstadt",
         "kind": "restricted",
         "summary": "Closed to unauthorised vehicles 24 hours a day, every day, holidays included. There is no tourist day pass: short permits are only for specific needs (heavy items, passengers over 70 or under 6, pets to the vet). If your hotel is inside, it can register your plate for luggage only: max 45 minutes, twice a day.",
         "summary_it": "Chiusa ai veicoli non autorizzati 24 ore su 24, tutti i giorni, festivi compresi. Non c'è un ticket per i turisti: i permessi brevi valgono solo per motivi precisi (oggetti pesanti, passeggeri sopra i 70 o sotto i 6 anni, animali dal veterinario). Se l'hotel è dentro, può registrare la targa solo per i bagagli: massimo 45 minuti, due volte al giorno.",

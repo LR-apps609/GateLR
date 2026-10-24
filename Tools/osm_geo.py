@@ -167,12 +167,14 @@ def _fill_holes(cells):
     return {(x, y) for x in range(x0, x1 + 1) for y in range(y0, y1 + 1) if (x, y) not in outside}
 
 
-def street_area(rel, cell_m=8.0, close_m=70.0):
+def street_area(rel, cell_m=8.0, close_m=70.0, keep=None):
     """Unisce le way «section» su una griglia (celle di cell_m), chiude i vuoti fino a ~2·close_m tra le strade,
     riempie i buchi e restituisce il contorno esterno della parte più grande come anello [lon, lat].
     Le strade più esterne restano dentro (al massimo mezza cella oltre la mezzeria)."""
     lines = [[(n["lon"], n["lat"]) for n in m["geometry"]]
              for m in rel["members"] if m["type"] == "way" and m.get("role") == "section" and m.get("geometry")]
+    if keep:   # solo le strade il cui punto centrale è nell'area indicata (es. dentro le mura)
+        lines = [l for l in lines if keep(*l[len(l) // 2])]
     if not lines:
         raise SystemExit(f"Relazione {rel['id']}: nessuna way section con geometria")
     lat0 = sum(p[1] for l in lines for p in l) / sum(len(l) for l in lines)
@@ -263,3 +265,27 @@ def gates(elements, relation_ids=None, name_prefix="Varco", roles=("device", "fr
 def gate_json(prefix, g):
     osm_id, name, lat, lon = g
     return {"id": f"{prefix}-osm{osm_id}", "name": name.strip(), "location": {"lat": round(lat, 6), "lon": round(lon, 6)}}
+
+
+def convex_hull(points):
+    """Inviluppo convesso (lon, lat) con il metodo della catena monotona"""
+    pts = sorted(set(points))
+    if len(pts) < 3:
+        return pts
+    def cross(o, a, b): return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    lower, upper = [], []
+    for p in pts:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], p) <= 0: lower.pop()
+        lower.append(p)
+    for p in reversed(pts):
+        while len(upper) >= 2 and cross(upper[-2], upper[-1], p) <= 0: upper.pop()
+        upper.append(p)
+    return lower[:-1] + upper[:-1]
+
+
+def inside_lonlat(ring, lon, lat):
+    inside = False
+    for (x1, y1), (x2, y2) in zip(ring, ring[1:] + ring[:1]):
+        if (y1 > lat) != (y2 > lat) and lon < (x2 - x1) * (lat - y1) / (y2 - y1) + x1:
+            inside = not inside
+    return inside
