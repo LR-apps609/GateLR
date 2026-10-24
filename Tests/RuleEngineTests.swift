@@ -353,6 +353,28 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertEqual(SignReader.parse("TUTTI I GIORNI 0-24").rules.first?.days.count, 7)
     }
 
+    /// Il guardiano: avvisa solo se ti avvicini a una zona dove non entri; segnala l'ingresso
+    func testGuardianScan() throws {
+        let florence = try XCTUnwrap(try bundledCities()["firenze"])
+        let monday10 = date(2026, 10, 26, 10)
+        let answer: (Zone, Double) -> Answer = { z, _ in self.engine.answer(zone: z, vehicle: self.car, permits: [], hotelInside: false, at: monday10) }
+        let far = Coordinate(lat: 43.7900, lon: 11.2400), nearer = Coordinate(lat: 43.7850, lon: 11.2450)
+        let first = Guardian.scan(at: far, zones: florence.zones, last: [:], answer: answer)
+        XCTAssertNotNil(first.threat)
+        let second = Guardian.scan(at: nearer, zones: florence.zones, last: first.distances, answer: answer)
+        XCTAssertNotNil(second.threat)
+        XCTAssertLessThan(second.threat!.meters, first.threat!.meters)
+        // Allontanandosi: nessun avviso
+        let away = Guardian.scan(at: far, zones: florence.zones, last: second.distances, answer: answer)
+        XCTAssertNil(away.threat)
+        // Entrando nel settore A (Palazzo Vecchio): segnalato come ingresso
+        let inside = Guardian.scan(at: Coordinate(lat: 43.7696, lon: 11.2558), zones: florence.zones, last: second.distances, answer: answer)
+        XCTAssertTrue(inside.entered.contains { $0.0.id == "firenze-a" })
+        // Di notte (lunedì 22): niente da segnalare
+        let night: (Zone, Double) -> Answer = { z, _ in self.engine.answer(zone: z, vehicle: self.car, permits: [], hotelInside: false, at: self.date(2026, 10, 26, 22)) }
+        XCTAssertNil(Guardian.scan(at: nearer, zones: florence.zones, last: first.distances, answer: night).threat)
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)

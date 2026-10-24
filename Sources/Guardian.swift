@@ -98,35 +98,21 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         if Date().timeIntervalSince(lastMove) > 15 * 60 || Date().timeIntervalSince(startedAt) > 4 * 3600 { stop(); return }
 
         // Le zone vicine che a quell'ora non ti fanno entrare liberamente, e verso cui ti stai avvicinando
-        var best: Threat?
-        for city in store.cities {
-            for z in city.zones {
-                let d = z.distance(lat: p.lat, lon: p.lon)
-                defer { lastDistances[z.id] = d }
-                guard d < 3_000 else { continue }
-                if d == 0 {                                              // ci sei già dentro: niente allarme d'ingresso
-                    if let before = lastDistances[z.id], before > 0 {
-                        let a = store.answer(zone: z, hotelInside: false)
-                        if case .yes = a.verdict {} else {
-                            store.record(.entered, zone: z, verdict: a.verdict)
-                            // Il consiglio che evita le multe a catena: non girare dentro cercando l'uscita
-                            if case .no = a.verdict, !alerted.contains("in|\(z.id)") {
-                                alerted.insert("in|\(z.id)")
-                                say(String(format: L("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine."), z.shortName))
-                                notify(title: String(format: L("You're inside %@"), z.shortName),
-                                       body: L("Leave by the nearest exit and don't drive around: every gate can mean another fine."), id: "in|\(z.id)")
-                            }
-                        }
-                    }
-                    continue
-                }
-                let a = store.answer(at: Date().addingTimeInterval(d / 9), zone: z, hotelInside: false)
-                if case .yes = a.verdict { continue }
-                let approaching = (lastDistances[z.id].map { d < $0 - 3 } ?? true)
-                guard approaching else { continue }
-                if best == nil || d < best!.meters { best = Threat(zone: z, meters: d, answer: a) }
+        let scan = Self.scan(at: p, zones: store.cities.flatMap(\.zones), last: lastDistances) { z, d in
+            store.answer(at: Date().addingTimeInterval(d / 9), zone: z, hotelInside: false)
+        }
+        lastDistances = scan.distances
+        for (z, a) in scan.entered {
+            store.record(.entered, zone: z, verdict: a.verdict)
+            // Il consiglio che evita le multe a catena: non girare dentro cercando l'uscita
+            if case .no = a.verdict, !alerted.contains("in|\(z.id)") {
+                alerted.insert("in|\(z.id)")
+                say(String(format: L("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine."), z.shortName))
+                notify(title: String(format: L("You're inside %@"), z.shortName),
+                       body: L("Leave by the nearest exit and don't drive around: every gate can mean another fine."), id: "in|\(z.id)")
             }
         }
+        let best = scan.threat
         threat = best
 
         if let t = best {
@@ -146,6 +132,33 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
             alerted = alerted.filter { key in lastDistances.contains { key.hasSuffix("|\($0.key)") && $0.value < 900 } }
         }
         refreshActivity()
+    }
+
+    /// Il calcolo puro (testabile): la ZTL più vicina verso cui ti avvicini e dove non entri liberamente,
+    /// e le zone in cui sei appena entrato. «answer» dà la risposta per la zona a quella distanza.
+    nonisolated static func scan(at p: Coordinate, zones: [Zone], last: [String: Double],
+                                 answer: (Zone, Double) -> Answer) -> (threat: Threat?, entered: [(Zone, Answer)], distances: [String: Double]) {
+        var distances = last
+        var best: Threat?
+        var entered: [(Zone, Answer)] = []
+        for z in zones {
+            let d = z.distance(lat: p.lat, lon: p.lon)
+            let before = last[z.id]
+            distances[z.id] = d
+            guard d < 3_000 else { continue }
+            if d == 0 {
+                if let before, before > 0 {
+                    let a = answer(z, 0)
+                    if case .yes = a.verdict {} else { entered.append((z, a)) }
+                }
+                continue
+            }
+            let a = answer(z, d)
+            if case .yes = a.verdict { continue }
+            guard before.map({ d < $0 - 3 }) ?? true else { continue }       // solo se ti stai avvicinando
+            if best == nil || d < best!.meters { best = Threat(zone: z, meters: d, answer: a) }
+        }
+        return (best, entered, distances)
     }
 
     // MARK: Live Activity
