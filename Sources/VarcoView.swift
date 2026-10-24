@@ -174,6 +174,18 @@ struct VarcoView: View {
     private func placeAnswer(_ place: Place, at date: Date) -> some View {
         let hits = store.zones(at: place.location)
         placeCard(place, inside: hits.first?.zone)
+        if let area = store.pedestrianArea(at: place.location) {
+            Label {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(String(format: L("Pedestrian area · %@"), area.name)).font(.system(size: 15, weight: .bold))
+                    Text("Cars can't drive in here at any time, except authorised vehicles. Park outside and walk.")
+                        .font(.system(size: 14))
+                }
+            } icon: { Image(systemName: "figure.walk.circle.fill").font(.system(size: 24)) }
+            .foregroundStyle(.white)
+            .padding(14).frame(maxWidth: .infinity, alignment: .leading)
+            .background(Theme.red, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        }
         if let hit = hits.first {
             VerdictCard(answer: store.answer(at: date, zone: hit.zone, hotelInside: false),
                         heading: heading(hit.zone, date),

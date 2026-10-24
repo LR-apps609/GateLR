@@ -116,8 +116,15 @@ def main():
     day = {f["properties"]["tipologia"]: f for f in fetch(DIURNA)["features"]}
     night = {f["properties"]["tipologia"]: f for f in fetch(NOTTURNA)["features"]}
     gates = {}
+    cameras = []
     for f in fetch(PORTE)["features"]:
         p = f["properties"]
+        title = p["titolo"].strip()
+        if re.search(r"(?i)corsia|TPL|pedonale", title):
+            lon, lat = f["geometry"]["coordinates"]
+            cameras.append({"id": f"ptm-{p['numero ptm']}", "name": re.sub(r"\s*\(.*\)", "", title).strip(),
+                            "location": {"lat": round(lat, 6), "lon": round(lon, 6)},
+                            "kind": "pedestrian" if "edonale" in title else "bus"})
         m = re.search(r"\(Settore ([A-Z])\)", p["titolo"])
         if not m or "Corsia" in p["titolo"]:
             continue          # corsie bus, aree pedonali, altre telecamere: non sono varchi ZTL
@@ -184,7 +191,7 @@ def main():
         })
 
     city = {"id": "firenze", "name": "Florence", "name_it": "Firenze", "name_de": "Florenz", "center": {"lat": 43.7712, "lon": 11.2550},
-            "zones": zones, "status": "draft",
+            "zones": zones, "cameras": sorted(cameras, key=lambda c: c["name"]), "status": "draft",
             "license": "Perimeters and gates: Comune di Firenze open data, CC-BY 4.0"}
     out = Path(__file__).resolve().parent.parent / "Resources/Cities/firenze.json"
     out.parent.mkdir(parents=True, exist_ok=True)

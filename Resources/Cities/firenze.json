@@ -3575,6 +3575,98 @@
    }
   }
  ],
+ "cameras": [
+  {
+   "id": "ptm-35",
+   "name": "Largo Fratelli Alinari",
+   "location": {
+    "lat": 43.77619,
+    "lon": 11.250482
+   },
+   "kind": "bus"
+  },
+  {
+   "id": "ptm-27",
+   "name": "P.za Pitti - P.za S. Felice",
+   "location": {
+    "lat": 43.765214,
+    "lon": 11.248377
+   },
+   "kind": "bus"
+  },
+  {
+   "id": "ptm-21",
+   "name": "Via Marsilio Ficino",
+   "location": {
+    "lat": 43.781389,
+    "lon": 11.267809
+   },
+   "kind": "bus"
+  },
+  {
+   "id": "ptm-24",
+   "name": "Via Senese",
+   "location": {
+    "lat": 43.750567,
+    "lon": 11.236539
+   },
+   "kind": "bus"
+  },
+  {
+   "id": "ptm-38",
+   "name": "Via XXVII Aprile",
+   "location": {
+    "lat": 43.779216,
+    "lon": 11.255528
+   },
+   "kind": "bus"
+  },
+  {
+   "id": "ptm-13",
+   "name": "Via de' Benci",
+   "location": {
+    "lat": 43.767427,
+    "lon": 11.259323
+   },
+   "kind": "bus"
+  },
+  {
+   "id": "ptm-26",
+   "name": "Via dei Bardi",
+   "location": {
+    "lat": 43.767166,
+    "lon": 11.253554
+   },
+   "kind": "pedestrian"
+  },
+  {
+   "id": "ptm-22",
+   "name": "Via del Massaio",
+   "location": {
+    "lat": 43.790781,
+    "lon": 11.238033
+   },
+   "kind": "bus"
+  },
+  {
+   "id": "ptm-23",
+   "name": "Via dell'Olivuzzo",
+   "location": {
+    "lat": 43.768432,
+    "lon": 11.219878
+   },
+   "kind": "bus"
+  },
+  {
+   "id": "ptm-19",
+   "name": "Via della Mattonaia",
+   "location": {
+    "lat": 43.774639,
+    "lon": 11.270129
+   },
+   "kind": "bus"
+  }
+ ],
  "status": "draft",
  "license": "Perimeters and gates: Comune di Firenze open data, CC-BY 4.0"
 }

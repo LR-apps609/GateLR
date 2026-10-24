@@ -1,22 +1,22 @@
 {
- "version": "202610240644",
- "digest": "d379322f3fb7",
+ "version": "202610240647",
+ "digest": "019705d770ca",
  "schema": 1,
  "cities": [
   {
    "id": "bologna",
    "file": "bologna.json",
-   "sha256": "d13c8e9ca88f3597608e37127e99957aa73bbad1afa5dc34312df4d263f3c352"
+   "sha256": "04988e2189d4f05ddda4025b8db88d3d7fe812f4d91d28d684ad8c01df177bd2"
   },
   {
    "id": "firenze",
    "file": "firenze.json",
-   "sha256": "827f3b4eda6087538e7ed1b1dfb33f68f460810afb6cc609ab72d2e77f426414"
+   "sha256": "becbd01896ddfce86e9f01544dc2d1e1bed687ecee73e5aacae1d4380c307f43"
   },
   {
    "id": "milano",
    "file": "milano.json",
-   "sha256": "9785fc4779ea7c92831bcc91cf5bd5c38cfc1abfda42a9913c7a24da35be237b"
+   "sha256": "8bb882a136cc6c5b6141add9bf0bd8cc9b27bc24418fa32a4624a8b7f5c5a863"
   }
  ]
 }

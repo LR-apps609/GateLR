@@ -217,6 +217,11 @@ T = {
 "Up to date": ("Aggiornati", "Aktuell"), "Updated": ("Aggiornati ora", "Aktualisiert"), "Not available now": ("Non disponibile ora", "Gerade nicht verfügbar"),
 "Rules and maps": ("Regole e mappe", "Regeln und Karten"),
 "Hours, perimeters and gates are updated from GitHub, without a new app version. GateLR checks by itself twice a day.": ("Orari, perimetri e varchi si aggiornano da GitHub, senza una nuova versione dell'app. GateLR controlla da solo due volte al giorno.", "Zeiten, Grenzen und Einfahrten werden über GitHub aktualisiert, ohne neue App-Version. GateLR prüft selbst zweimal am Tag."),
+# Aree pedonali e corsie bus
+"Pedestrian area · %@": ("Area pedonale · %@", "Fußgängerzone · %@"),
+"Cars can't drive in here at any time, except authorised vehicles. Park outside and walk.": ("Qui le auto non possono entrare mai, salvo i veicoli autorizzati. Parcheggia fuori e prosegui a piedi.", "Hier dürfen Autos nie hinein, außer berechtigte Fahrzeuge. Parke außerhalb und geh zu Fuß."),
+"Pedestrian area": ("Area pedonale", "Fußgängerzone"), "Bus lane camera": ("Telecamera corsia bus", "Busspur-Kamera"),
+"Bus lane camera ahead: stay out of the bus lane.": ("Telecamera della corsia bus più avanti: non entrare nella corsia riservata.", "Busspur-Kamera voraus: Fahr nicht auf die Busspur."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

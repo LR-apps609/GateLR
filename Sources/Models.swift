@@ -20,6 +20,8 @@ struct City: Codable, Identifiable, Hashable {
     var zones: [Zone]
     var status: Status
     var license: String?
+    var pedestrian: [PedestrianArea]? = nil   // aree pedonali: chiuse alle auto sempre
+    var cameras: [Camera]? = nil              // telecamere delle corsie bus e delle aree pedonali
 
     /// sample = dati inventati; draft = presi dalle fonti ufficiali ma non ancora rivisti da una persona
     enum Status: String, Codable { case sample, draft, verified }
@@ -48,6 +50,26 @@ struct Zone: Codable, Identifiable, Hashable {
     var ticket: Ticket? = nil   // ZTL a pagamento (es. Area C di Milano): si entra pagando
     var bans: [EuroBan]? = nil  // divieti ambientali per carburante e classe Euro (Area B e C di Milano)
     var source: Source
+}
+
+/// Un'area pedonale: le auto non entrano mai (salvo i mezzi autorizzati)
+struct PedestrianArea: Codable, Hashable, Identifiable {
+    var id: String
+    var name: String
+    var perimeter: [Coordinate]
+
+    func contains(lat: Double, lon: Double) -> Bool {
+        Zone.inside(perimeter, lat: lat, lon: lon)
+    }
+}
+
+/// Una telecamera fuori dalle ZTL: corsia riservata a bus e taxi, o ingresso di un'area pedonale
+struct Camera: Codable, Hashable, Identifiable {
+    enum Kind: String, Codable { case bus, pedestrian }
+    var id: String
+    var name: String
+    var location: Coordinate
+    var kind: Kind
 }
 
 /// Rosso: accesso vietato senza permesso · giallo: si entra con il pass · verde: zona a basse emissioni
@@ -307,7 +329,9 @@ extension Zone {
     }
 
     /// Il punto è dentro il perimetro? (ray casting sulle coordinate)
-    func contains(lat: Double, lon: Double) -> Bool {
+    func contains(lat: Double, lon: Double) -> Bool { Zone.inside(perimeter, lat: lat, lon: lon) }
+
+    static func inside(_ perimeter: [Coordinate], lat: Double, lon: Double) -> Bool {
         var inside = false
         var j = perimeter.count - 1
         for i in perimeter.indices {

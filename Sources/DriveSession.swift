@@ -217,6 +217,17 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate 
                 break
             }
         }
+        // Telecamere delle corsie bus vicine: avviso a voce una volta sola
+        if let store {
+            for city in store.cities {
+                for cam in city.cameras ?? [] where cam.kind == .bus && !announced.contains("cam|\(cam.id)") {
+                    if PathMath.meters(p, cam.location) < 150 && PathMath.distance(from: cam.location, to: path) < 25 {
+                        announced.insert("cam|\(cam.id)")
+                        say(L("Bus lane camera ahead: stay out of the bus lane."))
+                    }
+                }
+            }
+        }
         refreshActivity()
     }
 

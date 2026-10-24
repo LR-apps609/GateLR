@@ -98,7 +98,15 @@ def bologna():
     ]
     for z in zones:
         z["source"]["authority"] = "City of Bologna"
-    return {"id": "bologna", "name": "Bologna", "name_it": "Bologna", "name_de": "Bologna", "center": {"lat": 44.4938, "lon": 11.3430}, "zones": zones, "status": "draft",
+    ped = json.loads((RAW / "bologna/zona-pedonale-centro-storico.geojson").read_text())["features"]
+    pedestrian = [{"id": f"bo-ap-{f['properties']['codice']}",
+                   "name": (f["properties"].get("nomevia1") or "").strip().title() or "Area pedonale",
+                   "perimeter": ring(f["geometry"], 0.000005)} for f in ped if f["geometry"]]
+    buses = [{"id": f"bo-c-{v['properties']['identificativo_varco']}", "name": v["properties"]["nome_varco"].strip(),
+              "location": {"lat": round(v["geometry"]["coordinates"][1], 6), "lon": round(v["geometry"]["coordinates"][0], 6)},
+              "kind": "bus"}
+             for v in varchi if v["properties"].get("tipologia_varco") == "corsie" and v["geometry"]]
+    return {"id": "bologna", "name": "Bologna", "pedestrian": pedestrian, "cameras": buses, "name_it": "Bologna", "name_de": "Bologna", "center": {"lat": 44.4938, "lon": 11.3430}, "zones": zones, "status": "draft",
             "license": "Perimeters and gates: Comune di Bologna open data, CC BY 4.0"}
 
 
@@ -176,7 +184,10 @@ def milano():
                                  "Ausländische Autos: Registrierungsregeln für nicht-italienische Kennzeichen noch zu prüfen.")])}
     for z in (zone_c, zone_b):
         z["source"]["authority"] = "City of Milan"
-    return {"id": "milano", "name": "Milan", "name_it": "Milano", "name_de": "Mailand", "center": {"lat": 45.4642, "lon": 9.1900},
+    pedestrian = [{"id": f"mi-ap-{f['properties']['id_amat']}", "name": (f["properties"].get("nome") or "Area pedonale").strip(),
+                   "perimeter": ring(f["geometry"], 0.000005)}
+                  for f in areas if f["properties"]["tipo"] == "AP" and f["geometry"]]
+    return {"id": "milano", "name": "Milan", "pedestrian": pedestrian, "name_it": "Milano", "name_de": "Mailand", "center": {"lat": 45.4642, "lon": 9.1900},
             "zones": [zone_c, zone_b], "status": "draft",
             "license": "Perimeters and gates: Comune di Milano open data, CC BY"}
 

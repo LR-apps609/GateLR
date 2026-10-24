@@ -314,6 +314,16 @@ final class RuleEngineTests: XCTestCase {
         }
     }
 
+    func testPedestrianAreasAndCameras() throws {
+        let cities = try bundledCities()
+        let bo = try XCTUnwrap(cities["bologna"])
+        XCTAssertGreaterThan(bo.pedestrian?.count ?? 0, 30)
+        XCTAssertTrue(bo.pedestrian?.contains { $0.contains(lat: 44.4939, lon: 11.3426) } ?? false)   // Piazza Maggiore
+        XCTAssertGreaterThan(cities["milano"]?.pedestrian?.count ?? 0, 50)
+        XCTAssertGreaterThan(bo.cameras?.filter { $0.kind == .bus }.count ?? 0, 10)
+        XCTAssertGreaterThan(cities["firenze"]?.cameras?.count ?? 0, 3)
+    }
+
     func testEaster() {
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).month, 4)
         XCTAssertEqual(ItalianHolidays.easterSunday(2026).day, 5)

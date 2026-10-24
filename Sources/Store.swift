@@ -59,6 +59,12 @@ final class Store: ObservableObject {
             .sorted { $0.zone.roughArea < $1.zone.roughArea }
     }
 
+    /// L'area pedonale che contiene il punto, se c'è
+    func pedestrianArea(at c: Coordinate) -> PedestrianArea? {
+        for city in cities { if let a = city.pedestrian?.first(where: { $0.contains(lat: c.lat, lon: c.lon) }) { return a } }
+        return nil
+    }
+
     /// La zona più vicina (se il punto è fuori da tutte), con la distanza in metri
     func nearestZone(to c: Coordinate) -> (city: City, zone: Zone, meters: Double)? {
         cities.flatMap { city in city.zones.map { (city: city, zone: $0, meters: $0.distance(lat: c.lat, lon: c.lon)) } }

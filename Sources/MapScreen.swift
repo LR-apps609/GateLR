@@ -77,6 +77,26 @@ struct MapScreen: View {
                         .accessibilityAddTraits(.isButton)
                     }
                 }
+                // Da vicino: aree pedonali e telecamere delle corsie bus
+                if distance < 4_000 {
+                    ForEach(store.cities.filter { isNear($0.center.cl) }) { city in
+                        ForEach(city.pedestrian ?? []) { a in
+                            MapPolygon(coordinates: a.perimeter.map(\.cl))
+                                .foregroundStyle(Theme.red.opacity(0.22))
+                                .stroke(Theme.red.opacity(0.7), lineWidth: 1)
+                        }
+                        ForEach(city.cameras ?? []) { cam in
+                            Annotation(cam.name, coordinate: cam.location.cl) {
+                                Image(systemName: cam.kind == .bus ? "bus.fill" : "figure.walk")
+                                    .font(.system(size: 9, weight: .bold)).foregroundStyle(.white)
+                                    .frame(width: 20, height: 20)
+                                    .background(cam.kind == .bus ? Theme.blueFill : Theme.red, in: RoundedRectangle(cornerRadius: 5, style: .continuous))
+                                    .overlay(RoundedRectangle(cornerRadius: 5, style: .continuous).stroke(.white, lineWidth: 1.5))
+                            }
+                            .annotationTitles(.hidden)
+                        }
+                    }
+                }
                 // Ogni varco con lo stato della sua zona
                 ForEach(zones.filter { $0.id == zone.id || (distance < 6_000 && isNear($0)) }) { z in
                     let on = store.engine.isActive(z, at: Date())
@@ -162,9 +182,10 @@ struct MapScreen: View {
     }
 
     /// Solo le zone vicine al centro della mappa mostrano i varchi (non serve disegnare quelli di altre città)
-    private func isNear(_ z: Zone) -> Bool {
+    private func isNear(_ z: Zone) -> Bool { isNear(z.labelPoint) }
+
+    private func isNear(_ p: CLLocationCoordinate2D) -> Bool {
         let c = center ?? store.city.center.cl
-        let p = z.labelPoint
         return abs(p.latitude - c.latitude) < 0.08 && abs(p.longitude - c.longitude) < 0.11
     }
 
@@ -219,6 +240,8 @@ struct MapScreen: View {
                     }
                     legendItem(L("Camera on"), Circle().fill(Theme.red))
                     legendItem(L("Camera off"), Circle().fill(Theme.green))
+                    legendItem(L("Pedestrian area"), RoundedRectangle(cornerRadius: 3).fill(Theme.red.opacity(0.4)))
+                    legendItem(L("Bus lane camera"), RoundedRectangle(cornerRadius: 3).fill(Theme.blueFill))
                 }
             }
             Menu {

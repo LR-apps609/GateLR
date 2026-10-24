@@ -315,3 +315,8 @@
 "Not available now" = "Non disponibile ora";
 "Rules and maps" = "Regole e mappe";
 "Hours, perimeters and gates are updated from GitHub, without a new app version. GateLR checks by itself twice a day." = "Orari, perimetri e varchi si aggiornano da GitHub, senza una nuova versione dell'app. GateLR controlla da solo due volte al giorno.";
+"Pedestrian area · %@" = "Area pedonale · %@";
+"Cars can't drive in here at any time, except authorised vehicles. Park outside and walk." = "Qui le auto non possono entrare mai, salvo i veicoli autorizzati. Parcheggia fuori e prosegui a piedi.";
+"Pedestrian area" = "Area pedonale";
+"Bus lane camera" = "Telecamera corsia bus";
+"Bus lane camera ahead: stay out of the bus lane." = "Telecamera della corsia bus più avanti: non entrare nella corsia riservata.";
