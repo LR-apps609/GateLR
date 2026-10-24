@@ -62,6 +62,15 @@ struct RuleEngine {
             return Answer(verdict: .conditional(reason: L("The gates are on."), condition: L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")),
                           gatesOn: true, nextChange: next)
         }
+        if zone.ban(for: vehicle, at: date) != nil {
+            return Answer(verdict: .no(reason: String(format: L("%@ Euro %lld cars can't enter this zone while it's active, not even with a ticket. A few free days a year may apply: see the city's page."),
+                                                     vehicle.fuel.label, vehicle.euro)), gatesOn: true, nextChange: next)
+        }
+        if zone.bans != nil && zone.type == .green {
+            let until = zone.nextBan(for: vehicle, after: date).map { " " + String(format: L("Until %@."), $0.date.formatted(date: .long, time: .omitted)) } ?? ""
+            return Answer(verdict: .yes(reason: String(format: L("Your car (%@ Euro %lld) is allowed in this low-emission zone."), vehicle.fuel.label, vehicle.euro) + until),
+                          gatesOn: true, nextChange: next)
+        }
         if zone.type == .green {
             return Answer(verdict: .conditional(reason: L("The low-emission zone is active."),
                                                 condition: L("Most cars can enter; the most polluting can't. Check your car on the city's page.")),

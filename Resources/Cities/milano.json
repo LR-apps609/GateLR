@@ -961,6 +961,33 @@
    "freeOnHolidays": true,
    "exemptFuels": [],
    "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 3,
+     "since": "2024-10-01"
+    },
+    {
+     "fuel": "petrol",
+     "maxEuro": 4,
+     "since": "2027-10-01"
+    },
+    {
+     "fuel": "petrol",
+     "maxEuro": 5,
+     "since": "2030-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 5,
+     "since": "2019-02-25"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 6,
+     "since": "2028-10-01"
+    }
+   ],
    "ticket": {
     "price": 7.5,
     "howTo": "Pay and activate it by midnight of the next day (online, at newsagents or by phone). Later, up to the 7th day, it costs €22.50. Parked in a partner garage: €4.50.",
@@ -1008,6 +1035,12 @@
       "title_it": "Comune di Milano: attiva il ticket",
       "title_de": "Stadt Mailand: Ticket aktivieren",
       "url": "https://www.comune.milano.it/servizi/mobilita/area-c-attiva-il-ticket"
+     },
+     {
+      "title": "City of Milan: Area C ban calendar",
+      "title_it": "Comune di Milano: calendario dei divieti di Area C",
+      "title_de": "Stadt Mailand: Verbotskalender Area C",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-c-calendario-dei-divieti"
      },
      {
       "title": "Open data: Area C gates (CC BY)",
@@ -5865,6 +5898,28 @@
     "electric"
    ],
    "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 3,
+     "since": "2025-10-01"
+    },
+    {
+     "fuel": "petrol",
+     "maxEuro": 4,
+     "since": "2028-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 5,
+     "since": "2019-02-25"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 6,
+     "since": "2028-10-01"
+    }
+   ],
    "source": {
     "authority": "City of Milan",
     "pageURL": "https://www.comune.milano.it/argomenti/mobilita/area-b",
@@ -5876,15 +5931,21 @@
     "checkedOn": "2026-10-23T12:00:00Z",
     "reviewedByHuman": false,
     "pending": [
-     "Which Euro classes are banned changes over the years (calendar on the city's page): GateLR doesn't check your car yet.",
+     "Euro 6 diesel: classes A-B-C are banned from 1 Oct 2028, D-TEMP and D from 1 Oct 2030. GateLR uses the earlier date.",
+     "Free days: from 1 Oct 2026 every vehicle gets 5 days a year without registration, from the second year of its ban.",
+     "LPG and methane cars are treated like petrol cars of the same class: to be confirmed.",
      "Foreign cars: registration rules for non-Italian plates to be checked."
     ],
     "pending_it": [
-     "Le classi Euro vietate cambiano negli anni (calendario sulla pagina del Comune): GateLR non controlla ancora la tua auto.",
+     "Diesel Euro 6: le classi A-B-C sono vietate dal 1° ottobre 2028, D-TEMP e D dal 1° ottobre 2030. GateLR usa la data più vicina.",
+     "Giornate libere: dal 1° ottobre 2026 ogni veicolo ha 5 giornate all'anno senza registrazione, dal secondo anno di divieto.",
+     "Le auto a GPL e metano sono trattate come le benzina della stessa classe: da confermare.",
      "Auto straniere: regole di registrazione per targhe non italiane da verificare."
     ],
     "pending_de": [
-     "Welche Euro-Klassen gesperrt sind, ändert sich mit den Jahren (Kalender auf der Seite der Stadt): GateLR prüft dein Auto noch nicht.",
+     "Diesel Euro 6: Klassen A-B-C sind ab 1. Okt. 2028 gesperrt, D-TEMP und D ab 1. Okt. 2030. GateLR nimmt das frühere Datum.",
+     "Freie Tage: Ab 1. Okt. 2026 hat jedes Fahrzeug 5 Tage im Jahr ohne Registrierung, ab dem zweiten Jahr des Verbots.",
+     "Autogas- und Erdgasautos werden wie Benziner derselben Klasse behandelt: noch zu bestätigen.",
      "Ausländische Autos: Registrierungsregeln für nicht-italienische Kennzeichen noch zu prüfen."
     ],
     "links": [
@@ -5893,6 +5954,12 @@
       "title_it": "Comune di Milano: Area B",
       "title_de": "Stadt Mailand: Area B",
       "url": "https://www.comune.milano.it/argomenti/mobilita/area-b"
+     },
+     {
+      "title": "City of Milan: Area B ban calendar",
+      "title_it": "Comune di Milano: calendario dei divieti di Area B",
+      "title_de": "Stadt Mailand: Verbotskalender Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti"
      },
      {
       "title": "Open data: ZTL and Area B perimeters (CC BY)",

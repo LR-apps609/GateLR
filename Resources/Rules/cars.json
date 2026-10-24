@@ -1,0 +1,365 @@
+{
+ "note": "Marche e modelli più diffusi in Italia e nelle flotte di noleggio (elenco nostro, non di terzi).",
+ "makes": [
+  {
+   "make": "Abarth",
+   "models": [
+    "500e",
+    "595",
+    "695"
+   ]
+  },
+  {
+   "make": "Alfa Romeo",
+   "models": [
+    "Giulia",
+    "Giulietta",
+    "Junior",
+    "MiTo",
+    "Stelvio",
+    "Tonale"
+   ]
+  },
+  {
+   "make": "Audi",
+   "models": [
+    "A1",
+    "A3",
+    "A4",
+    "A6",
+    "Q2",
+    "Q3",
+    "Q4 e-tron",
+    "Q5"
+   ]
+  },
+  {
+   "make": "BMW",
+   "models": [
+    "Serie 1",
+    "Serie 2",
+    "Serie 3",
+    "Serie 5",
+    "X1",
+    "X2",
+    "X3",
+    "i3",
+    "iX1"
+   ]
+  },
+  {
+   "make": "BYD",
+   "models": [
+    "Atto 3",
+    "Dolphin",
+    "Seal"
+   ]
+  },
+  {
+   "make": "Citroën",
+   "models": [
+    "C1",
+    "C3",
+    "C3 Aircross",
+    "C4",
+    "C5 Aircross",
+    "ë-C3",
+    "Berlingo"
+   ]
+  },
+  {
+   "make": "Cupra",
+   "models": [
+    "Born",
+    "Formentor",
+    "Leon"
+   ]
+  },
+  {
+   "make": "DS",
+   "models": [
+    "DS 3",
+    "DS 4",
+    "DS 7"
+   ]
+  },
+  {
+   "make": "Dacia",
+   "models": [
+    "Duster",
+    "Jogger",
+    "Sandero",
+    "Spring"
+   ]
+  },
+  {
+   "make": "Fiat",
+   "models": [
+    "500",
+    "500X",
+    "500L",
+    "500e",
+    "600",
+    "Grande Panda",
+    "Panda",
+    "Punto",
+    "Tipo",
+    "Doblò"
+   ]
+  },
+  {
+   "make": "Ford",
+   "models": [
+    "Fiesta",
+    "Focus",
+    "Kuga",
+    "Puma",
+    "EcoSport",
+    "Transit Custom"
+   ]
+  },
+  {
+   "make": "Honda",
+   "models": [
+    "Civic",
+    "HR-V",
+    "Jazz",
+    "CR-V"
+   ]
+  },
+  {
+   "make": "Hyundai",
+   "models": [
+    "i10",
+    "i20",
+    "i30",
+    "Bayon",
+    "Kona",
+    "Tucson",
+    "Ioniq 5"
+   ]
+  },
+  {
+   "make": "Jeep",
+   "models": [
+    "Avenger",
+    "Compass",
+    "Renegade"
+   ]
+  },
+  {
+   "make": "Kia",
+   "models": [
+    "Picanto",
+    "Rio",
+    "Ceed",
+    "Stonic",
+    "Niro",
+    "Sportage",
+    "EV3"
+   ]
+  },
+  {
+   "make": "Lancia",
+   "models": [
+    "Ypsilon"
+   ]
+  },
+  {
+   "make": "Land Rover",
+   "models": [
+    "Defender",
+    "Discovery Sport",
+    "Range Rover Evoque"
+   ]
+  },
+  {
+   "make": "MG",
+   "models": [
+    "MG3",
+    "MG4",
+    "HS",
+    "ZS"
+   ]
+  },
+  {
+   "make": "Mazda",
+   "models": [
+    "2",
+    "3",
+    "CX-3",
+    "CX-30",
+    "CX-5",
+    "MX-5"
+   ]
+  },
+  {
+   "make": "Mercedes-Benz",
+   "models": [
+    "Classe A",
+    "Classe B",
+    "Classe C",
+    "Classe E",
+    "CLA",
+    "GLA",
+    "GLC",
+    "EQA",
+    "Vito"
+   ]
+  },
+  {
+   "make": "Mini",
+   "models": [
+    "Mini",
+    "Countryman",
+    "Clubman"
+   ]
+  },
+  {
+   "make": "Mitsubishi",
+   "models": [
+    "Space Star",
+    "ASX",
+    "Eclipse Cross"
+   ]
+  },
+  {
+   "make": "Nissan",
+   "models": [
+    "Micra",
+    "Juke",
+    "Qashqai",
+    "X-Trail",
+    "Leaf"
+   ]
+  },
+  {
+   "make": "Opel",
+   "models": [
+    "Corsa",
+    "Astra",
+    "Mokka",
+    "Crossland",
+    "Grandland"
+   ]
+  },
+  {
+   "make": "Peugeot",
+   "models": [
+    "108",
+    "208",
+    "308",
+    "2008",
+    "3008",
+    "5008",
+    "e-208",
+    "Rifter"
+   ]
+  },
+  {
+   "make": "Polestar",
+   "models": [
+    "2",
+    "4"
+   ]
+  },
+  {
+   "make": "Renault",
+   "models": [
+    "Twingo",
+    "Clio",
+    "Captur",
+    "Mégane",
+    "Austral",
+    "Arkana",
+    "Zoe",
+    "Kangoo",
+    "R5"
+   ]
+  },
+  {
+   "make": "Seat",
+   "models": [
+    "Ibiza",
+    "Arona",
+    "Leon",
+    "Ateca",
+    "Tarraco"
+   ]
+  },
+  {
+   "make": "Skoda",
+   "models": [
+    "Fabia",
+    "Scala",
+    "Octavia",
+    "Kamiq",
+    "Karoq",
+    "Kodiaq",
+    "Enyaq"
+   ]
+  },
+  {
+   "make": "Smart",
+   "models": [
+    "fortwo",
+    "forfour",
+    "#1"
+   ]
+  },
+  {
+   "make": "Suzuki",
+   "models": [
+    "Ignis",
+    "Swift",
+    "Vitara",
+    "S-Cross"
+   ]
+  },
+  {
+   "make": "Tesla",
+   "models": [
+    "Model 3",
+    "Model Y",
+    "Model S",
+    "Model X"
+   ]
+  },
+  {
+   "make": "Toyota",
+   "models": [
+    "Aygo X",
+    "Yaris",
+    "Yaris Cross",
+    "Corolla",
+    "C-HR",
+    "RAV4",
+    "Proace"
+   ]
+  },
+  {
+   "make": "Volkswagen",
+   "models": [
+    "up!",
+    "Polo",
+    "Golf",
+    "T-Cross",
+    "T-Roc",
+    "Tiguan",
+    "Passat",
+    "ID.3",
+    "ID.4",
+    "Caddy"
+   ]
+  },
+  {
+   "make": "Volvo",
+   "models": [
+    "XC40",
+    "XC60",
+    "EX30",
+    "V60"
+   ]
+  }
+ ]
+}

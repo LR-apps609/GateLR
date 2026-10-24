@@ -160,15 +160,26 @@ final class RuleEngineTests: XCTestCase {
         return cities
     }
 
-    /// Area B di Milano: zona verde, con condizioni per le auto normali, sì per le elettriche
+    /// Area B di Milano: zona verde con i divieti per classe Euro; elettriche sempre sì
     func testGreenZone() throws {
-        let b = try XCTUnwrap(try bundledCities()["milano"]?.zones.first { $0.id == "milano-b" })
+        let milan = try XCTUnwrap(try bundledCities()["milano"])
+        let b = try XCTUnwrap(milan.zones.first { $0.id == "milano-b" })
+        let c = try XCTUnwrap(milan.zones.first { $0.id == "milano-c" })
         XCTAssertEqual(b.type, .green)
-        let a = engine.answer(zone: b, vehicle: car, permits: [], hotelInside: false, at: date(2026, 10, 26, 10))
-        guard case .conditional = a.verdict else { return XCTFail("Area B: atteso con condizioni, ottenuto \(a.verdict)") }
-        var ev = car; ev.fuel = .electric
-        guard case .yes = engine.answer(zone: b, vehicle: ev, permits: [], hotelInside: false, at: date(2026, 10, 26, 10)).verdict
-        else { return XCTFail("Area B: elettrica attesa sì") }
+        let monday = date(2026, 10, 26, 10)
+        func verdict(_ z: Zone, _ fuel: Fuel, _ euro: Int, _ d: Date) -> Verdict {
+            var v = car; v.fuel = fuel; v.euro = euro
+            return engine.answer(zone: z, vehicle: v, permits: [], hotelInside: false, at: d).verdict
+        }
+        guard case .yes = verdict(b, .petrol, 6, monday) else { return XCTFail("benzina Euro 6: atteso sì") }
+        guard case .yes = verdict(b, .electric, 0, monday) else { return XCTFail("elettrica: atteso sì") }
+        guard case .no = verdict(b, .diesel, 5, monday) else { return XCTFail("diesel Euro 5: atteso no") }
+        guard case .no = verdict(b, .petrol, 3, monday) else { return XCTFail("benzina Euro 3: atteso no") }
+        guard case .yes(let r) = verdict(b, .petrol, 4, monday) else { return XCTFail("benzina Euro 4 nel 2026: atteso sì") }
+        XCTAssertTrue(r.contains("2028"), r)
+        guard case .no = verdict(b, .petrol, 4, date(2028, 10, 2, 10)) else { return XCTFail("benzina Euro 4 nel 2028: atteso no") }
+        guard case .no = verdict(c, .diesel, 5, monday) else { return XCTFail("Area C diesel Euro 5: atteso no anche col ticket") }
+        guard case .conditional = verdict(c, .petrol, 6, monday) else { return XCTFail("Area C benzina Euro 6: atteso ticket") }
         XCTAssertFalse(engine.isActive(b, at: date(2026, 10, 25, 10)))     // domenica
     }
 
@@ -223,6 +234,21 @@ final class RuleEngineTests: XCTestCase {
             self.engine.answer(zone: $0, vehicle: self.car, permits: [], hotelInside: false, at: $1)
         }
         XCTAssertFalse(fromInside.contains { $0.zone.contains(lat: 43.7696, lon: 11.2558) })
+    }
+
+    func testCarAdvice() throws {
+        XCTAssertEqual(CarCatalog.euro(forYear: 2019), 6)
+        XCTAssertEqual(CarCatalog.euro(forYear: 2012), 5)
+        XCTAssertEqual(CarCatalog.euro(forYear: 2004), 3)
+        let cities = Array(try bundledCities().values)
+        var v = car; v.fuel = .diesel; v.euro = 5
+        let lines = CarAdvice.lines(for: v, cities: cities, at: date(2026, 10, 26, 10))
+        XCTAssertEqual(lines.filter { !$0.ok }.count, 2)                       // Area B e Area C
+        v.fuel = .electric
+        XCTAssertTrue(CarAdvice.lines(for: v, cities: cities, at: date(2026, 10, 26, 10)).allSatisfy(\.ok))
+        let catalog = try JSONSerialization.jsonObject(with: Data(contentsOf: URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("Resources/Rules/cars.json"))) as? [String: Any]
+        XCTAssertGreaterThan((catalog?["makes"] as? [Any])?.count ?? 0, 20)
     }
 
     func testEaster() {

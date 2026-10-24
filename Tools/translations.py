@@ -186,6 +186,21 @@ T = {
 "You can't drive into the destination's zone at that time. Look for a car park outside on the map.": ("A quell'ora non puoi entrare nella zona della destinazione. Cerca un parcheggio fuori sulla mappa.", "Zu dieser Zeit darfst du nicht in die Zone des Ziels fahren. Such auf der Karte einen Parkplatz außerhalb."),
 "Drive to the car park": ("Vai al parcheggio", "Zum Parkplatz fahren"), "Navigate": ("Naviga", "Navigieren"),
 "GateLR doesn't steer you around the ZTL: your navigator picks the road. Watch the gate signs.": ("GateLR non ti fa girare intorno alla ZTL: la strada la sceglie il navigatore. Guarda i cartelli dei varchi.", "GateLR leitet dich nicht um die ZTL herum: Die Straße wählt dein Navi. Achte auf die Schilder an den Einfahrten."),
+# Divieti per classe Euro
+"%@ Euro %lld cars can't enter this zone while it's active, not even with a ticket. A few free days a year may apply: see the city's page.": ("Le auto %@ Euro %lld non possono entrare in questa zona quando è attiva, nemmeno con il ticket. Possono valere alcune giornate libere all'anno: vedi la pagina del Comune.", "Autos %@ Euro %lld dürfen nicht in diese Zone, solange sie aktiv ist, auch nicht mit Ticket. Es kann ein paar freie Tage im Jahr geben: siehe die Seite der Stadt."),
+"Until %@.": ("Fino al %@.", "Bis %@."),
+"Your car (%@ Euro %lld) is allowed in this low-emission zone.": ("La tua auto (%@ Euro %lld) può entrare in questa zona a basse emissioni.", "Dein Auto (%@ Euro %lld) darf in diese Umweltzone."),
+# 0.7 Garage
+"Make": ("Marca", "Marke"), "Year": ("Anno", "Baujahr"), "Car": ("Auto", "Auto"), "Emissions": ("Emissioni", "Emissionen"),
+"Euro %lld": ("Euro %lld", "Euro %lld"),
+"The Euro class is on the registration document, field V.9.": ("La classe Euro è sul libretto di circolazione, campo V.9.", "Die Euro-Klasse steht im Fahrzeugschein, Feld V.9."),
+"Euro class suggested from the year. Check it on the registration document, field V.9.": ("Classe Euro proposta dall'anno. Controllala sul libretto, campo V.9.", "Euro-Klasse aus dem Baujahr vorgeschlagen. Prüfe sie im Fahrzeugschein, Feld V.9."),
+"%@ cars may enter": ("Le auto %@ possono entrare", "%@-Autos dürfen hinein"),
+"Your car can't enter while it's active": ("La tua auto non può entrare quando è attiva", "Dein Auto darf nicht hinein, solange sie aktiv ist"),
+"Allowed until %@": ("Può entrare fino al %@", "Erlaubt bis %@"), "Your car's class is allowed": ("La classe della tua auto è ammessa", "Die Klasse deines Autos ist erlaubt"),
+"No emission rules for your car in the saved cities.": ("Nessuna regola sulle emissioni per la tua auto nelle città salvate.", "Keine Emissionsregeln für dein Auto in den gespeicherten Städten."),
+"Advice for %@": ("Consigli per %@", "Tipps für %@"),
+"From the cities' emission calendars. Old towns with a ZTL stay closed to all cars without a permit, whatever the class.": ("Dai calendari delle emissioni dei Comuni. I centri storici con ZTL restano chiusi a tutte le auto senza permesso, di qualunque classe.", "Aus den Emissionskalendern der Städte. Altstädte mit ZTL bleiben für alle Autos ohne Genehmigung gesperrt, egal welche Klasse."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

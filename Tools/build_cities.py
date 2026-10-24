@@ -29,6 +29,19 @@ def source(page, quote, translation, links, pending, ordinance=None):
             "links": links}
 
 
+def ban(fuel, max_euro, since):
+    """Divieto ambientale: le auto con questo carburante e classe Euro fino a max_euro non entrano da «since»"""
+    return {"fuel": fuel, "maxEuro": max_euro, "since": since}
+
+
+# Milano, auto per trasporto persone (calendari ufficiali di Area B e Area C, aggiornati al 15/10/2026).
+# Le classi Euro 6 diesel si dividono in A-B-C e D-TEMP/D: qui si usa la data più vicina (A-B-C) e si avvisa.
+BANS_B = [ban("petrol", 3, "2025-10-01"), ban("petrol", 4, "2028-10-01"),
+          ban("diesel", 5, "2019-02-25"), ban("diesel", 6, "2028-10-01")]
+BANS_C = [ban("petrol", 3, "2024-10-01"), ban("petrol", 4, "2027-10-01"), ban("petrol", 5, "2030-10-01"),
+          ban("diesel", 5, "2019-02-25"), ban("diesel", 6, "2028-10-01")]
+
+
 def link(en, it, de, url):
     return {"title": en, "title_it": it, "title_de": de, "url": url}
 
@@ -109,9 +122,13 @@ def milano():
              link("City of Milan: buy the Area C ticket", "Comune di Milano: acquista il ticket Area C", "Stadt Mailand: Area-C-Ticket kaufen", buy),
              link("City of Milan: activate the ticket", "Comune di Milano: attiva il ticket", "Stadt Mailand: Ticket aktivieren",
                   "https://www.comune.milano.it/servizi/mobilita/area-c-attiva-il-ticket"),
+             link("City of Milan: Area C ban calendar", "Comune di Milano: calendario dei divieti di Area C", "Stadt Mailand: Verbotskalender Area C",
+                  "https://www.comune.milano.it/argomenti/mobilita/area-c-calendario-dei-divieti"),
              link("Open data: Area C gates (CC BY)", "Dati aperti: varchi Area C (CC BY)", "Offene Daten: Area-C-Kameras (CC BY)",
                   "https://dati.comune.milano.it/dataset/ds82_infogeo_varchi_elettronici_localizzazione_")]
     links_b = [link("City of Milan: Area B", "Comune di Milano: Area B", "Stadt Mailand: Area B", page_b),
+               link("City of Milan: Area B ban calendar", "Comune di Milano: calendario dei divieti di Area B", "Stadt Mailand: Verbotskalender Area B",
+                    "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti"),
                link("Open data: ZTL and Area B perimeters (CC BY)", "Dati aperti: perimetri ZTL e Area B (CC BY)",
                     "Offene Daten: Grenzen von ZTL und Area B (CC BY)", "https://dati.comune.milano.it/dataset/ds51_infogeo_aree_pedonali_ztl_localizzazione_")]
     zone_c = {"id": "milano-c", "name": "Area C · City Centre", "name_it": "Area C · Centro", "name_de": "Area C · Innenstadt", "kind": "pass",
@@ -120,7 +137,7 @@ def milano():
             "summary_de": "Gebührenpflichtige Zone: Montag bis Freitag, 7:30 bis 19:30 Uhr, Einfahrt mit dem 7,50-€-Ticket, das bis Mitternacht des Folgetags aktiviert werden muss. Feiertage frei.",
             "perimeter": ring(area_c["geometry"], 0.00002), "gates": sorted(gates, key=lambda g: g["name"]),
             "windows": [{"weekdays": MON_FRI, "start": 7 * 60 + 30, "end": 19 * 60 + 30}],
-            "freeOnHolidays": True, "exemptFuels": [], "hotelCanRegister": False,
+            "freeOnHolidays": True, "exemptFuels": [], "hotelCanRegister": False, "bans": BANS_C,
             "ticket": {"price": 7.5, "howTo": "Pay and activate it by midnight of the next day (online, at newsagents or by phone). Later, up to the 7th day, it costs €22.50. Parked in a partner garage: €4.50.",
                        "howTo_it": "Paga e attivalo entro la mezzanotte del giorno dopo (online, in edicola o per telefono). Più tardi, fino al 7° giorno, costa 22,50 €. Con sosta in un garage convenzionato: 4,50 €.",
                        "howTo_de": "Bis Mitternacht des Folgetags bezahlen und aktivieren (online, am Kiosk oder per Telefon). Später, bis zum 7. Tag, kostet es 22,50 €. Mit Parken in einer Partnergarage: 4,50 €.",
@@ -141,13 +158,19 @@ def milano():
               "summary_de": "Fast die ganze Stadt. Montag bis Freitag, 7:30 bis 19:30 Uhr (außer Feiertage), dürfen die umweltschädlichsten Fahrzeuge nicht hinein. Sauberere Autos fahren kostenlos ein, ohne Ticket.",
               "perimeter": ring(area_b["geometry"], 0.00008), "gates": sorted(gates_b, key=lambda g: g["name"]),
               "windows": [{"weekdays": MON_FRI, "start": 7 * 60 + 30, "end": 19 * 60 + 30}],
-              "freeOnHolidays": True, "exemptFuels": ["electric"], "hotelCanRegister": False,
+              "freeOnHolidays": True, "exemptFuels": ["electric"], "hotelCanRegister": False, "bans": BANS_B,
               "source": source(page_b, "Area B è attiva dal lunedì al venerdì dalle 7:30 alle 19:30, festivi esclusi",
                                ("Area B is active from Monday to Friday, 7:30 am to 7:30 pm, public holidays excluded",
                                 "Area B ist Montag bis Freitag von 7:30 bis 19:30 Uhr aktiv, Feiertage ausgenommen"), links_b,
-                               [("Which Euro classes are banned changes over the years (calendar on the city's page): GateLR doesn't check your car yet.",
-                                 "Le classi Euro vietate cambiano negli anni (calendario sulla pagina del Comune): GateLR non controlla ancora la tua auto.",
-                                 "Welche Euro-Klassen gesperrt sind, ändert sich mit den Jahren (Kalender auf der Seite der Stadt): GateLR prüft dein Auto noch nicht."),
+                               [("Euro 6 diesel: classes A-B-C are banned from 1 Oct 2028, D-TEMP and D from 1 Oct 2030. GateLR uses the earlier date.",
+                                 "Diesel Euro 6: le classi A-B-C sono vietate dal 1° ottobre 2028, D-TEMP e D dal 1° ottobre 2030. GateLR usa la data più vicina.",
+                                 "Diesel Euro 6: Klassen A-B-C sind ab 1. Okt. 2028 gesperrt, D-TEMP und D ab 1. Okt. 2030. GateLR nimmt das frühere Datum."),
+                                ("Free days: from 1 Oct 2026 every vehicle gets 5 days a year without registration, from the second year of its ban.",
+                                 "Giornate libere: dal 1° ottobre 2026 ogni veicolo ha 5 giornate all'anno senza registrazione, dal secondo anno di divieto.",
+                                 "Freie Tage: Ab 1. Okt. 2026 hat jedes Fahrzeug 5 Tage im Jahr ohne Registrierung, ab dem zweiten Jahr des Verbots."),
+                                ("LPG and methane cars are treated like petrol cars of the same class: to be confirmed.",
+                                 "Le auto a GPL e metano sono trattate come le benzina della stessa classe: da confermare.",
+                                 "Autogas- und Erdgasautos werden wie Benziner derselben Klasse behandelt: noch zu bestätigen."),
                                 ("Foreign cars: registration rules for non-Italian plates to be checked.",
                                  "Auto straniere: regole di registrazione per targhe non italiane da verificare.",
                                  "Ausländische Autos: Registrierungsregeln für nicht-italienische Kennzeichen noch zu prüfen.")])}

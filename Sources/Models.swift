@@ -46,6 +46,7 @@ struct Zone: Codable, Identifiable, Hashable {
     var exemptFuels: Set<Fuel>  // es. elettriche ammesse
     var hotelCanRegister: Bool  // l'hotel dentro la zona può comunicare la targa
     var ticket: Ticket? = nil   // ZTL a pagamento (es. Area C di Milano): si entra pagando
+    var bans: [EuroBan]? = nil  // divieti ambientali per carburante e classe Euro (Area B e C di Milano)
     var source: Source
 }
 
@@ -67,6 +68,44 @@ func pick(_ en: String, it: String?, de: String?) -> String {
     case "it": it ?? en
     case "de": de ?? en
     default: en
+    }
+}
+
+/// Le auto con questo carburante e classe Euro fino a maxEuro non entrano dalla data «since» (AAAA-MM-GG)
+struct EuroBan: Codable, Hashable {
+    var fuel: Fuel
+    var maxEuro: Int
+    var since: String
+
+    var date: Date {
+        var c = Calendar(identifier: .gregorian)
+        c.timeZone = TimeZone(identifier: "Europe/Rome")!
+        let p = since.split(separator: "-").compactMap { Int($0) }
+        return c.date(from: DateComponents(year: p.first, month: p.count > 1 ? p[1] : 1, day: p.count > 2 ? p[2] : 1)) ?? .distantPast
+    }
+}
+
+extension Fuel {
+    /// Per i divieti ambientali ibride, GPL e metano contano come benzina (da confermare città per città)
+    var banGroup: Fuel? {
+        switch self {
+        case .petrol, .hybrid, .lpg: .petrol
+        case .diesel: .diesel
+        case .electric: nil
+        }
+    }
+}
+
+extension Zone {
+    /// Il divieto che ferma questa auto a quella data, se c'è
+    func ban(for vehicle: Vehicle, at date: Date) -> EuroBan? {
+        guard let group = vehicle.fuel.banGroup else { return nil }
+        return (bans ?? []).filter { $0.fuel == group && vehicle.euro <= $0.maxEuro && $0.date <= date }.max { $0.date < $1.date }
+    }
+    /// Il prossimo divieto che toccherà questa auto, se c'è
+    func nextBan(for vehicle: Vehicle, after date: Date) -> EuroBan? {
+        guard let group = vehicle.fuel.banGroup else { return nil }
+        return (bans ?? []).filter { $0.fuel == group && vehicle.euro <= $0.maxEuro && $0.date > date }.min { $0.date < $1.date }
     }
 }
 
@@ -170,6 +209,33 @@ struct Vehicle: Codable, Identifiable, Hashable {
     var euro: Int
     var plate: String = ""
     var isRental = false
+    var make: String? = nil
+    var year: Int? = nil
+}
+
+/// Marche e modelli più diffusi (Resources/Rules/cars.json) e la classe Euro probabile dall'anno
+enum CarCatalog {
+    struct Make: Codable, Hashable { var make: String; var models: [String] }
+    private struct File: Codable { var makes: [Make] }
+
+    static let makes: [Make] = {
+        guard let url = Bundle.main.url(forResource: "cars", withExtension: "json", subdirectory: "Rules"),
+              let data = try? Data(contentsOf: url) else { return [] }
+        return (try? JSONDecoder().decode(File.self, from: data))?.makes ?? []
+    }()
+
+    /// Dall'anno di prima immatricolazione alla classe Euro (auto, valori tipici: va controllata sul libretto, campo V.9)
+    static func euro(forYear y: Int) -> Int {
+        switch y {
+        case 2016...: 6
+        case 2011...2015: 5
+        case 2006...2010: 4
+        case 2001...2005: 3
+        case 1997...2000: 2
+        case 1993...1996: 1
+        default: 0
+        }
+    }
 }
 
 struct Permit: Codable, Identifiable, Hashable {
