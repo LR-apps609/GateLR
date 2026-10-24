@@ -76,6 +76,7 @@ import org.maplibre.android.style.sources.GeoJsonSource
 import java.time.Instant
 
 private const val STYLE = "https://tiles.openfreemap.org/styles/liberty"
+private const val STYLE_DARK = "https://tiles.openfreemap.org/styles/dark"
 
 private fun hex(c: Color) = String.format("#%06X", 0xFFFFFF and c.toArgb())
 
@@ -119,6 +120,7 @@ fun MapScreen(modifier: Modifier) {
     var pin by remember { mutableStateOf<Place?>(null) }
     var legend by remember { mutableStateOf(false) }
     val now = rememberNow()
+    val dark = androidx.compose.foundation.isSystemInDarkTheme()
 
     val mapView = remember {
         MapView(ctx).apply {
@@ -128,7 +130,7 @@ fun MapScreen(modifier: Modifier) {
                 m.uiSettings.isRotateGesturesEnabled = true
                 val c = AppState.city.center
                 m.cameraPosition = CameraPosition.Builder().target(LatLng(c.lat, c.lon)).zoom(13.0).build()
-                m.setStyle(Style.Builder().fromUri(STYLE)) { style ->
+                m.setStyle(Style.Builder().fromUri(if (dark) STYLE_DARK else STYLE)) { style ->
                     style.addSource(GeoJsonSource("zones", zonesGeoJson(AppState.cities)))
                     style.addLayer(FillLayer("zones-fill", "zones").withProperties(
                         PropertyFactory.fillColor(Expression.get("color")), PropertyFactory.fillOpacity(Expression.get("opacity"))))
