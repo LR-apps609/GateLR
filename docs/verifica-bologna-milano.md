@@ -29,3 +29,23 @@ Nell'app oggi: **lun–ven 7:30–19:30, festivi esclusi**; **ticket 7,50 €** 
 - [ ] **Varchi**: 42 varchi di Area C (aggiornati il 14/10/2026).
 - [ ] **Area B**: non è in GateLR (dipende dalla classe Euro del veicolo). Decidere se aggiungerla.
 - [ ] **Veicoli lunghi e merci**: divieti dalle 8 alle 10 per veicoli > 7,50 m (DD 1856/2026). Non riguarda le auto dei turisti, ma va scritto nella scheda.
+
+## Aggiunte dopo la 1.0 (da verificare anche queste)
+
+### Milano – divieti per classe Euro (auto per trasporto persone)
+- [ ] Area B: benzina Euro 0–3 vietate (Euro 3 dal 1/10/2025), Euro 4 dal 1/10/2028; diesel Euro 0–5 vietate, Euro 6 A-B-C dal 1/10/2028, D-TEMP/D dal 1/10/2030 — [calendario Area B](https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti)
+- [ ] Area C: benzina Euro 0–3 vietate (Euro 3 dal 1/10/2024), Euro 4 dal 1/10/2027, Euro 5 dal 1/10/2030; diesel come sopra — [calendario Area C](https://www.comune.milano.it/argomenti/mobilita/area-c-calendario-dei-divieti)
+- [ ] GPL e metano: GateLR li tratta come benzina della stessa classe (da confermare)
+- [ ] Ibride: trattate come benzina (da confermare)
+- [ ] Giornate libere in Area B: 5 all'anno senza registrazione dal 1/10/2026, dal secondo anno di divieto
+- [ ] Area B: elettriche sempre ammesse
+
+### Aree pedonali e corsie bus
+- [ ] Bologna: 62 aree pedonali dai dati aperti (zona pedonale centro storico), 33 telecamere «corsie»
+- [ ] Milano: 110 aree pedonali (tipo «AP» nei dati DS51)
+- [ ] Firenze: telecamere di corsie bus e area pedonale prese dalle porte telematiche con «Corsia», «TPL», «Pedonale» nel nome
+- [ ] Nelle aree pedonali GateLR risponde sempre «No»: controllare che nessuna area pedonale abbia orari in cui le auto entrano
+
+### Ticket
+- [ ] Bologna: ticket da attivare prima di entrare (Sosty)
+- [ ] Milano Area C: entro la mezzanotte del giorno dopo; dopo, fino al 7° giorno, 22,50 €
