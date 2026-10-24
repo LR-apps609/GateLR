@@ -885,7 +885,7 @@ for (const ev of ["pointerdown", "keydown"]) addEventListener(ev, loadRealMap, {
 
 applyLang(lang);
 // Link diretti a una città: …/#firenze, #bologna, #milano
-const START = {firenze:["Duomo (Cathedral)", 43.7731, 11.2560], bologna:["Piazza Maggiore, Bologna", 44.4938, 11.3430], milano:["Duomo di Milano", 45.4642, 9.1900]};
+const START = {firenze:["Duomo (Cathedral)", 43.7731, 11.2560], bologna:["Piazza Maggiore, Bologna", 44.4938, 11.3430], milano:["Castello Sforzesco, Milan", 45.4705, 9.1795]};
 function startFromHash(){ const s = START[(location.hash || "").slice(1).toLowerCase()] || START.firenze; choose({name:s[0], lat:s[1], lon:s[2]}); }
 window.addEventListener("hashchange", startFromHash);
 startFromHash();
