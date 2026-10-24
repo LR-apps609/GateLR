@@ -21,6 +21,8 @@ struct TripView: View {
     @State private var language: MessageLanguage = .en
     @State private var copied = false
     @State private var saved = false
+    /// La prima pagina chiede il campo di ricerca già attivo quando si arriva da lì
+    static var focusSearch = false
 
     var body: some View {
         TimelineView(.everyMinute) { ctx in
@@ -52,7 +54,13 @@ struct TripView: View {
             .scrollDismissesKeyboard(.immediately)
             .background(Theme.ground)
         }
-        .onAppear { search.focus(on: store.city) }
+        .onAppear {
+            search.focus(on: store.city)
+            if Self.focusSearch {
+                Self.focusSearch = false
+                Task { try? await Task.sleep(for: .milliseconds(350)); typing = true }
+            }
+        }
         .onChange(of: store.cityId) { search.focus(on: store.city) }
         .onChange(of: store.place) { planner.clear(); hotelName = "" }
         .fullScreenCover(isPresented: $driving) { DriveView() }

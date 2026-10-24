@@ -361,6 +361,26 @@ T = {
 "Two new cities, and Florence's Scudo Verde low-emission zone.": ("Due città nuove e lo Scudo Verde di Firenze, la zona a basse emissioni.", "Zwei neue Städte und Florenz' Umweltzone Scudo Verde."),
 "The camera isn't available right now. Choose a photo of the panel instead.": ("La fotocamera ora non è disponibile. Scegli invece una foto del pannello.", "Die Kamera ist gerade nicht verfügbar. Wähle stattdessen ein Foto der Tafel."),
 "GateLR can't use the camera. Allow it in Settings → GateLR → Camera, or choose a photo.": ("GateLR non può usare la fotocamera. Consentila in Impostazioni → GateLR → Fotocamera, oppure scegli una foto.", "GateLR darf die Kamera nicht nutzen. Erlaube sie unter Einstellungen → GateLR → Kamera oder wähle ein Foto."),
+# 1.10 Prima pagina
+"Can I drive in?": ("Posso entrare?", "Darf ich einfahren?"),
+"Find out if you|can drive in": ("Scopri se|puoi entrare", "Finde heraus,|ob du einfahren darfst"),
+"Search a hotel, address or square: GateLR tells you at once if your car can get there.": ("Cerca un hotel, un indirizzo o una piazza: GateLR ti dice subito se la tua auto può arrivarci.", "Such ein Hotel, eine Adresse oder einen Platz: GateLR sagt dir sofort, ob dein Auto dorthin darf."),
+"Details": ("Dettagli", "Details"),
+"Near you": ("Vicino a te", "In deiner Nähe"),
+"you're inside": ("ci sei dentro", "du bist drin"),
+"active now": ("attiva adesso", "jetzt aktiv"),
+"not active now": ("non attiva adesso", "jetzt nicht aktiv"),
+"No ZTL near you": ("Nessuna ZTL vicino a te", "Keine ZTL in deiner Nähe"),
+"Signs, panels and what to do after a mistake. 1 minute.": ("Cartelli, pannelli e cosa fare se sbagli. 1 minuto.", "Schilder, Tafeln und was nach einem Fehler zu tun ist. 1 Minute."),
+"Point the camera at the hours panel.": ("Inquadra il pannello con gli orari.", "Richte die Kamera auf die Zeitentafel."),
+"Pedestrian area · don't enter": ("Area pedonale · non entrare", "Fußgängerzone · nicht einfahren"),
+"ZTL active · don't enter": ("ZTL attiva · non entrare", "ZTL aktiv · nicht einfahren"),
+"ZTL off · you can enter": ("ZTL spenta · puoi entrare", "ZTL aus · du darfst einfahren"),
+"At any time": ("Sempre, a ogni ora", "Jederzeit"),
+"Active until %@": ("Attiva fino alle %@", "Aktiv bis %@"),
+"Off until %@": ("Spenta fino alle %@", "Aus bis %@"),
+"ZTL hours": ("Orari ZTL", "ZTL-Zeiten"),
+"From you": ("Da te", "Von dir"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

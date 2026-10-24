@@ -1,8 +1,9 @@
 import SwiftUI
 import CoreLocation
 
-/// «Varco»: la prima pagina. In un colpo d'occhio cosa fa GateLR, la situazione intorno a te adesso,
-/// le città con il loro stato e il pulsante per pianificare. La ricerca vera è nella scheda Viaggio.
+/// «Varco»: la prima pagina, una sola domanda: «Posso entrare?». Il riquadro resta grigio finché non cerchi
+/// un posto (la ricerca è quella di Viaggio), poi diventa verde, rosso o ambra per quel posto adesso.
+/// Sotto, piccola, la ZTL vicino a te; poi il prossimo viaggio, le città e le due guide.
 struct VarcoView: View {
     @EnvironmentObject var store: Store
     @ObservedObject private var monitor = GateMonitor.shared
@@ -18,20 +19,22 @@ struct VarcoView: View {
                 VStack(alignment: .leading, spacing: 18) {
                     header
                     if guardian.active { guardianBanner }
-                    hero
-                    aroundYou(at: ctx.date)
-                    planButton
+                    askCard(at: ctx.date)
+                    nearYou(at: ctx.date)
+                    if let next = store.trips.filter({ $0.arrival > ctx.date }).min(by: { $0.arrival < $1.arrival }) { nextTrip(next) }
                     cities(at: ctx.date)
                     zones(at: ctx.date)
-                    if let next = store.trips.filter({ $0.arrival > ctx.date }).min(by: { $0.arrival < $1.arrival }) { nextTrip(next) }
-                    learnCard
-                    signCard
+                    HStack(alignment: .top, spacing: 12) {
+                        learnCard
+                        signCard
+                    }
                     StatusBanner(status: store.city.status)
                     Text("Road signs on site always win over the app.")
                         .font(.app(size: 12)).foregroundStyle(Theme.muted)
                         .frame(maxWidth: .infinity)
                 }
                 .padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 24)
+                .animation(.snappy, value: store.place)
             }
             .background(Theme.ground)
         }
@@ -50,79 +53,169 @@ struct VarcoView: View {
         }
     }
 
-    /// Cos'è GateLR, in tre righe
-    private var hero: some View {
+    // MARK: La domanda: «Posso entrare?»
+
+    /// Grigio finché non cerchi niente; verde, rosso o ambra per il posto cercato (in Viaggio o in Mappa)
+    @ViewBuilder
+    private func askCard(at date: Date) -> some View {
+        if let place = store.place {
+            answerCard(PlaceCheck(place, store: store, at: date))
+        } else {
+            emptyAsk
+        }
+    }
+
+    private static let neutral = Color(light: 0xE4E7EA, dark: 0x1F262E)
+
+    private var emptyAsk: some View {
         VStack(alignment: .leading, spacing: 14) {
-            VStack(alignment: .leading, spacing: -8) {
-                ForEach(L("Know before|the gate.").components(separatedBy: "|"), id: \.self) {
-                    Text($0).font(Theme.display(38)).foregroundStyle(.white)
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(L("Can I drive in?").uppercased())
+                        .font(Theme.label(13)).tracking(1.2).foregroundStyle(Theme.muted)
+                    VStack(alignment: .leading, spacing: -8) {
+                        ForEach(L("Find out if you|can drive in").components(separatedBy: "|"), id: \.self) {
+                            Text($0).font(Theme.display(34)).foregroundStyle(Theme.ink)
+                        }
+                    }
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(L("Find out if you|can drive in").replacingOccurrences(of: "|", with: " "))
+                    .accessibilityAddTraits(.isHeader)
                 }
+                Spacer(minLength: 8)
+                ZTLSign().scaleEffect(0.45).frame(width: 30, height: 50).accessibilityHidden(true)
             }
-            Text("Italy's old towns are closed to cars at set hours, with cameras at every gate. GateLR tells you if you can drive in, now or when you arrive, and warns you before a gate.")
-                .font(.app(size: 15)).foregroundStyle(.white.opacity(0.92))
+            Text("Search a hotel, address or square: GateLR tells you at once if your car can get there.")
+                .font(.app(size: 15)).foregroundStyle(Theme.muted)
                 .fixedSize(horizontal: false, vertical: true)
-            HStack(alignment: .top, spacing: 8) {
-                heroChip("checkmark.circle.fill", "Clear answer")
-                heroChip("bell.badge.fill", "Gate alerts")
-                heroChip("doc.text.magnifyingglass", "Official sources")
+            Button { openSearch() } label: {
+                HStack(spacing: 10) {
+                    Image(systemName: "magnifyingglass").font(.app(size: 17, weight: .semibold)).foregroundStyle(Theme.red)
+                    Text("Hotel, address or square").font(.app(size: 16)).foregroundStyle(Theme.muted).lineLimit(1)
+                    Spacer()
+                    Image(systemName: "arrow.right").font(.app(size: 14, weight: .bold)).foregroundStyle(.white)
+                        .frame(width: 36, height: 36).background(Theme.red, in: Circle())
+                }
+                .padding(.leading, 14).padding(.trailing, 8).frame(height: 54)
+                .background(Theme.card, in: RoundedRectangle(cornerRadius: 17, style: .continuous))
+                .shadow(color: .black.opacity(0.07), radius: 8, y: 3)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(L("Hotel, address or square"))
+            .accessibilityIdentifier("varco.plan")
+            if !store.recent.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(store.recent.prefix(4)) { p in
+                            Button { store.select(p) } label: {
+                                Label(p.name, systemImage: "clock.arrow.circlepath")
+                                    .font(.app(size: 13, weight: .semibold)).lineLimit(1)
+                                    .padding(.horizontal, 12).frame(height: 32)
+                                    .background(Theme.card.opacity(0.7), in: Capsule())
+                                    .foregroundStyle(Theme.ink)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
             }
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            LinearGradient(colors: [Color(hex: 0x1D4FA8), Color(hex: 0x14326E)], startPoint: .topLeading, endPoint: .bottomTrailing),
-            in: RoundedRectangle(cornerRadius: 26, style: .continuous))
-        .shadow(color: .black.opacity(0.12), radius: 14, y: 6)
+        .background(Self.neutral, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
     }
 
-    private func heroChip(_ symbol: String, _ text: String) -> some View {
-        VStack(spacing: 6) {
-            Image(systemName: symbol).font(.app(size: 17, weight: .semibold))
-            Text(L(text)).font(.app(size: 12, weight: .semibold))
-                .multilineTextAlignment(.center).lineLimit(2).fixedSize(horizontal: false, vertical: true)
+    private func answerCard(_ check: PlaceCheck) -> some View {
+        let v = check.verdict
+        let amber = check.kind == .conditional || check.kind == .unsure
+        let fill: Color = amber ? Theme.amberSoft : v.fill
+        let ink: Color = amber ? Theme.amberInk : .white
+        return VStack(alignment: .leading, spacing: 14) {
+            HStack {
+                Text(L("Can I drive in?").uppercased()).font(Theme.label(13)).tracking(1.2).opacity(0.85)
+                Spacer()
+                Button { withAnimation(.snappy) { store.place = nil } } label: {
+                    Image(systemName: "xmark").font(.app(size: 13, weight: .bold))
+                        .frame(width: 32, height: 32).background(ink.opacity(0.16), in: Circle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(L("Clear"))
+                .accessibilityIdentifier("varco.clear")
+            }
+            Label { Text(verbatim: check.place.name).lineLimit(1) } icon: { Image(systemName: "mappin.and.ellipse") }
+                .font(.app(size: 15, weight: .semibold))
+            HStack(spacing: 14) {
+                Image(systemName: check.symbol).font(.app(size: 26, weight: .heavy))
+                    .foregroundStyle(amber ? Color.white : v.fill)
+                    .frame(width: 56, height: 56)
+                    .background(amber ? Theme.amber : Color.white, in: Circle())
+                    .accessibilityHidden(true)
+                Text(v.short).font(Theme.display(36)).lineLimit(2).minimumScaleFactor(0.6)
+                    .accessibilityAddTraits(.isHeader)
+            }
+            VStack(alignment: .leading, spacing: 3) {
+                Text(verbatim: check.zoneLine).font(.app(size: 15, weight: .semibold))
+                if let until = check.until { Text(verbatim: until).font(.app(size: 14)).opacity(0.9) }
+            }
+            HStack(spacing: 10) {
+                Button { tab = .trip } label: {
+                    HStack(spacing: 6) { Text("Details"); Image(systemName: "arrow.right") }
+                        .font(.app(size: 15, weight: .bold))
+                        .frame(maxWidth: .infinity, minHeight: 46)
+                        .background(amber ? Theme.amber : Color.white, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        .foregroundStyle(amber ? Color.white : v.fill)
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("varco.details")
+                Button { tab = .map } label: {
+                    Image(systemName: "map").font(.app(size: 17, weight: .semibold))
+                        .frame(width: 46, height: 46)
+                        .background(ink.opacity(0.16), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(L("Show on the map"))
+            }
         }
-        .frame(maxWidth: .infinity, minHeight: 64)
-        .padding(.horizontal, 6).padding(.vertical, 8)
-        .background(.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-        .foregroundStyle(.white)
+        .padding(20)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .foregroundStyle(ink)
+        .background(fill, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+        .shadow(color: .black.opacity(0.1), radius: 14, y: 6)
     }
 
-    /// La ZTL più vicina a te (o quella in cui sei), con la risposta adesso
+    /// Viaggio con il campo di ricerca già pronto (la ricerca è una sola, quella di Viaggio)
+    private func openSearch() {
+        TripView.focusSearch = true
+        tab = .trip
+    }
+
+    /// Solo una riga: la ZTL vicino a te (o quella in cui sei), se adesso è attiva
     @ViewBuilder
-    private func aroundYou(at date: Date) -> some View {
+    private func nearYou(at date: Date) -> some View {
         if let here = monitor.location {
             let c = Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)
             let inside = store.zones(at: c).first
             let near = store.nearestZone(to: c)
             let nearby: Zone? = (near?.meters ?? .infinity) < 30_000 ? near?.zone : nil
             if let zone = inside?.zone ?? nearby {
-                let a = store.answer(at: date, zone: zone, hotelInside: false)
+                let on = store.answer(at: date, zone: zone, hotelInside: false).gatesOn
+                let distance = inside != nil ? L("you're inside") : DriveSession.distanceText(near?.meters ?? 0)
                 Button { select(zone); showZone = true } label: {
-                    HStack(spacing: 14) {
-                        Image(systemName: a.verdict.symbol).font(.app(size: 20, weight: .heavy))
-                            .foregroundStyle(a.verdict.badgeInk)
-                            .frame(width: 46, height: 46).background(a.verdict.badgeFill, in: Circle())
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(inside != nil ? String(format: L("You're inside %@"), zone.shortName)
-                                 : String(format: L("%@ is %@ away"), zone.shortName,
-                                          DriveSession.distanceText(near?.meters ?? 0)))
-                                .font(.app(size: 13, weight: .semibold)).opacity(0.9)
-                            Text(a.verdict.short).font(Theme.display(24))
-                            if let next = a.nextChange {
-                                Text(String(format: L(a.gatesOn ? "Ends at %@" : "Starts at %@"), next.formatted(date: .omitted, time: .shortened)))
-                                    .font(.app(size: 13)).opacity(0.9)
-                            }
-                        }
-                        Spacer()
-                        Image(systemName: "chevron.right").font(.app(size: 13, weight: .bold)).opacity(0.7)
+                    HStack(spacing: 10) {
+                        Image(systemName: "location.fill").font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.blue)
+                        (Text(verbatim: L("Near you") + ": ").foregroundStyle(Theme.muted)
+                         + Text(verbatim: "\(zone.shortName) · \(distance) · ").foregroundStyle(Theme.ink)
+                         + Text(verbatim: on ? L("active now") : L("not active now")).foregroundStyle(on ? Theme.red : Theme.greenInk))
+                            .font(.app(size: 14, weight: .medium)).lineLimit(1).minimumScaleFactor(0.8)
+                        Spacer(minLength: 4)
+                        Image(systemName: "chevron.right").font(.app(size: 12, weight: .bold)).foregroundStyle(Theme.muted)
                     }
-                    .foregroundStyle(a.verdict.onFill)
-                    .padding(16)
-                    .background(a.verdict.fill, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .padding(.horizontal, 14).padding(.vertical, 12)
+                    .card(14)
                 }
                 .buttonStyle(.plain)
             } else {
-                infoRow("location.fill", L("No ZTL near you. GateLR covers Florence, Bologna and Milan for now."))
+                infoRow("location.fill", L("No ZTL near you"))
             }
         } else {
             infoRow("location.slash", L("Allow location access to see the ZTL near you."))
@@ -152,30 +245,11 @@ struct VarcoView: View {
 
     private func infoRow(_ symbol: String, _ text: String) -> some View {
         HStack(spacing: 12) {
-            Image(systemName: symbol).foregroundStyle(Theme.blue).frame(width: 28)
-            Text(text).font(.app(size: 14)).foregroundStyle(Theme.ink)
+            Image(systemName: symbol).font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.blue)
+            Text(text).font(.app(size: 14)).foregroundStyle(Theme.muted)
             Spacer()
         }
-        .padding(14).card()
-    }
-
-    private var planButton: some View {
-        Button { tab = .trip } label: {
-            HStack(spacing: 12) {
-                Image(systemName: "magnifyingglass").font(.app(size: 18, weight: .semibold))
-                VStack(alignment: .leading, spacing: 1) {
-                    Text("Where are you going?").font(.app(size: 17, weight: .bold))
-                    Text("Hotel, address or square: answer, route and hotel message").font(.app(size: 13)).opacity(0.85)
-                }
-                Spacer()
-                Image(systemName: "arrow.right").font(.app(size: 16, weight: .bold))
-            }
-            .foregroundStyle(.white)
-            .padding(16)
-            .background(Theme.red, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-        }
-        .buttonStyle(.plain)
-        .accessibilityIdentifier("varco.plan")
+        .padding(.horizontal, 14).padding(.vertical, 12).card(14)
     }
 
     /// Le città: quante zone sono attive adesso. Tocco = la città scelta
@@ -280,38 +354,35 @@ struct VarcoView: View {
 
     private var learnCard: some View {
         Button { learning = true } label: {
-            HStack(spacing: 14) {
-                ZTLSign().frame(width: 44, height: 56)
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("New to ZTLs?").font(.app(size: 16, weight: .bold)).foregroundStyle(Theme.ink)
-                    Text("The signs, the panels and what to do if you drove in by mistake. 1 minute.")
-                        .font(.app(size: 13)).foregroundStyle(Theme.muted).multilineTextAlignment(.leading)
-                }
-                Spacer()
-                Image(systemName: "chevron.right").font(.app(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
+            tile(title: "New to ZTLs?", text: "Signs, panels and what to do after a mistake. 1 minute.") {
+                ZTLSign().scaleEffect(0.36).frame(width: 24, height: 38)
             }
-            .padding(14).card()
         }
         .buttonStyle(.plain)
     }
 
     private var signCard: some View {
         Button { readingSign = true } label: {
-            HStack(spacing: 14) {
-                Image(systemName: "camera.viewfinder").font(.app(size: 26, weight: .semibold)).foregroundStyle(Theme.blue)
-                    .frame(width: 44, height: 44)
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Read the sign").font(.app(size: 16, weight: .bold)).foregroundStyle(Theme.ink)
-                    Text("Point the camera at the hours panel: GateLR explains it in your language.")
-                        .font(.app(size: 13)).foregroundStyle(Theme.muted).multilineTextAlignment(.leading)
-                }
-                Spacer()
-                Image(systemName: "chevron.right").font(.app(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
+            tile(title: "Read the sign", text: "Point the camera at the hours panel.") {
+                Image(systemName: "camera.viewfinder").font(.app(size: 28, weight: .semibold)).foregroundStyle(Theme.blue)
+                    .frame(height: 38)
             }
-            .padding(14).card()
         }
         .buttonStyle(.plain)
         .accessibilityIdentifier("varco.sign")
+    }
+
+    private func tile<Icon: View>(title: LocalizedStringKey, text: LocalizedStringKey, @ViewBuilder icon: () -> Icon) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            icon()
+            Text(title).font(.app(size: 16, weight: .bold)).foregroundStyle(Theme.ink)
+            Text(text).font(.app(size: 13)).foregroundStyle(Theme.muted)
+                .multilineTextAlignment(.leading).fixedSize(horizontal: false, vertical: true)
+            Spacer(minLength: 0)
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, minHeight: 140, alignment: .topLeading)
+        .card()
     }
 
     private func select(_ z: Zone) {

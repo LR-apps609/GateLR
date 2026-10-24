@@ -26,6 +26,7 @@ struct MapScreen: View {
     @State private var selectedParking: Parking?
     @State private var lookAround: MKLookAroundScene?
     @State private var showLookAround = false
+    @Environment(\.colorScheme) private var scheme
 
     enum Style: String, CaseIterable, Identifiable {
         case standard, hybrid, imagery
@@ -47,8 +48,10 @@ struct MapScreen: View {
     }
 
 
-    private var mapStyle: MapStyle {
+    /// «night»: il posto cercato su una mappa scura e smorzata, così la zona accesa e la risposta saltano all'occhio
+    private func mapStyle(night: Bool) -> MapStyle {
         let elevation: MapStyle.Elevation = tilted ? .realistic : .automatic
+        if night { return .standard(elevation: tilted ? .realistic : .flat, emphasis: .muted, pointsOfInterest: .excludingAll) }
         switch style {
         case .standard: return .standard(elevation: elevation, pointsOfInterest: .excludingAll)
         case .hybrid: return .hybrid(elevation: elevation, pointsOfInterest: .excludingAll)
@@ -62,19 +65,37 @@ struct MapScreen: View {
         // Le forme pronte (ordinate, grandi sotto) si calcolano una volta per ogni versione dei dati, non a ogni disegno
         let shapes = MapShapes.zones(store)
         let zones = shapes.map(\.zone)
+        // Il posto cercato: la risposta si calcola una volta per disegno e vale per zone, spillo e scheda
+        let check = store.place.map { PlaceCheck($0, store: store) }
+        let lit = check?.zoneIds ?? []
+        let night = check != nil && style == .standard
         MapReader { proxy in
             Map(position: $camera) {
                 ForEach(shapes) { shape in
                     let z = shape.zone
                     let selected = z.id == zone.id
-                    let tint = z.type.color
-                    // Il verde (zone a basse emissioni) pieno e ben visibile; rosso e giallo tratteggiati
-                    MapPolygon(coordinates: shape.coords)
-                        .foregroundStyle(tint.opacity(z.type == .green ? (selected ? 0.30 : 0.20) : (selected ? 0.24 : 0.13)))
-                        .stroke(tint.opacity(selected || z.type == .green ? 1 : 0.7),
-                                style: StrokeStyle(lineWidth: z.type == .green ? 4 : (selected ? 3 : 2), dash: z.type == .green ? [] : [8, 5]))
+                    let on = lit.contains(z.id)
+                    let tint = on ? (check?.neon ?? z.type.color) : z.type.color
+                    if check != nil {
+                        // Con un posto cercato: accese (rosso o verde, con un bagliore) le zone che lo contengono,
+                        // appena accennate le altre
+                        if on {
+                            MapPolygon(coordinates: shape.coords)
+                                .foregroundStyle(.clear)
+                                .stroke(tint.opacity(0.3), lineWidth: 12)
+                        }
+                        MapPolygon(coordinates: shape.coords)
+                            .foregroundStyle(on ? tint.opacity(0.3) : tint.opacity(0.05))
+                            .stroke(on ? tint : Color.white.opacity(0.22), lineWidth: on ? 2.5 : 1)
+                    } else {
+                        // Il verde (zone a basse emissioni) pieno e ben visibile; rosso e giallo tratteggiati
+                        MapPolygon(coordinates: shape.coords)
+                            .foregroundStyle(tint.opacity(z.type == .green ? (selected ? 0.30 : 0.20) : (selected ? 0.24 : 0.13)))
+                            .stroke(tint.opacity(selected || z.type == .green ? 1 : 0.7),
+                                    style: StrokeStyle(lineWidth: z.type == .green ? 4 : (selected ? 3 : 2), dash: z.type == .green ? [] : [8, 5]))
+                    }
                     // Un solo segno piccolo per zona: lettera e colore (la legenda spiega i colori)
-                    if shape.width > distance * 0.06 {
+                    if shape.width > distance * 0.06 && (check == nil || on) {
                         Annotation("", coordinate: shape.label, anchor: .center) {
                             letterBadge(z, selected: selected)
                                 .onTapGesture { withAnimation(.snappy) { select(z) } }
@@ -121,8 +142,12 @@ struct MapScreen: View {
                     }
                 }
                 if let plan = planner.plan {
+                    if night {
+                        MapPolyline(coordinates: plan.path.map(\.cl))
+                            .stroke(Color.white.opacity(0.25), style: StrokeStyle(lineWidth: 11, lineCap: .round, lineJoin: .round))
+                    }
                     MapPolyline(coordinates: plan.path.map(\.cl))
-                        .stroke(Theme.blue, style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round))
+                        .stroke(night ? Color.white : Theme.blue, style: StrokeStyle(lineWidth: night ? 4 : 5, lineCap: .round, lineJoin: .round))
                     if let p = plan.parking {
                         Annotation(p.name, coordinate: p.location.cl) {
                             Text("P").font(.app(size: 15, weight: .heavy)).foregroundStyle(.white)
@@ -132,8 +157,20 @@ struct MapScreen: View {
                         }
                     }
                 }
-                if let place = store.place {
-                    Marker(place.name, systemImage: "mappin", coordinate: place.location.cl).tint(placeTint(place))
+                if let check {
+                    // Il riquadro con la risposta, sopra il posto, legato da una linea sottile
+                    Annotation("", coordinate: check.place.location.cl, anchor: .bottom) {
+                        PlaceCallout(check: check)
+                    }
+                    .annotationTitles(.hidden)
+                    Annotation(check.place.name, coordinate: check.place.location.cl, anchor: .center) {
+                        Circle().fill(check.neon).frame(width: 16, height: 16)
+                            .overlay(Circle().stroke(.white, lineWidth: 3))
+                            .background(Circle().fill(check.neon.opacity(0.3)).frame(width: 36, height: 36))
+                            .shadow(color: check.neon.opacity(0.8), radius: 6)
+                            .accessibilityHidden(true)
+                    }
+                    .annotationTitles(.hidden)
                 }
                 ForEach(parkings) { p in
                     Annotation(p.name, coordinate: p.coordinate) {
@@ -148,7 +185,8 @@ struct MapScreen: View {
                 }
                 UserAnnotation()
             }
-            .mapStyle(mapStyle)
+            .mapStyle(mapStyle(night: night))
+            .environment(\.colorScheme, night ? .dark : scheme)
             .mapControls { MapUserLocationButton(); MapCompass(); MapPitchToggle(); MapScaleView() }
             // Si aggiorna solo quando lo zoom cambia davvero (più dell'8%): la mappa resta fluida
             .onMapCameraChange(frequency: .continuous) { ctx in
@@ -170,7 +208,7 @@ struct MapScreen: View {
         .safeAreaInset(edge: .top) { topBar }
         .safeAreaInset(edge: .bottom) {
             if !typing {
-                if let place = store.place { placeSheet(place) } else { sheet(zone: zone, answer: answer) }
+                if let check { placeSheet(check) } else { sheet(zone: zone, answer: answer) }
             }
         }
         .onAppear { search.focus(on: store.city) }
@@ -343,29 +381,20 @@ struct MapScreen: View {
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
-    /// Il colore dello spillo: verde se si entra, rosso se no, giallo con condizioni
-    private func placeTint(_ place: Place) -> Color {
-        guard let z = store.zones(at: place.location).first?.zone else { return Theme.green }
-        if store.pedestrianArea(at: place.location) != nil { return Theme.red }
-        switch store.answer(zone: z, hotelInside: false).verdict {
-        case .yes: return Theme.green
-        case .no: return Theme.red
-        case .conditional: return Color(hex: 0xD99A00)
-        case .unsure: return Theme.muted
-        }
-    }
-
     /// La scheda del posto cercato: dov'è, in che zona, se adesso si entra
-    private func placeSheet(_ place: Place) -> some View {
-        let hit = store.zones(at: place.location).first
-        let pedestrian = store.pedestrianArea(at: place.location)
-        let answer = hit.map { store.answer(zone: $0.zone, hotelInside: false) }
+    private func placeSheet(_ check: PlaceCheck) -> some View {
+        let place = check.place
+        let hit = check.hits.first
+        let pedestrian = check.pedestrian
+        let answer = check.answer
+        let here = GateMonitor.shared.location     // letta, non osservata: la mappa non si ridisegna a ogni passo
+        let meters = here.map { CLLocation(latitude: place.location.lat, longitude: place.location.lon).distance(from: $0) }
         return VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .top, spacing: 12) {
-                Image(systemName: "mappin.circle.fill").font(.app(size: 30)).foregroundStyle(placeTint(place))
+                Image(systemName: "mappin.circle.fill").font(.app(size: 30)).foregroundStyle(check.tint)
                 VStack(alignment: .leading, spacing: 2) {
                     Text(place.name).font(Theme.display(21)).lineLimit(2).foregroundStyle(Theme.ink)
-                    Text(Self.placeSubtitle(pedestrian: pedestrian, zone: hit?.zone))
+                    Text(check.zoneLine)
                         .font(.app(size: 14)).foregroundStyle(Theme.muted)
                 }
                 Spacer()
@@ -375,6 +404,13 @@ struct MapScreen: View {
                     VerdictPill(verdict: answer.verdict)
                 } else {
                     Pill(text: L("You can enter"), fill: Theme.greenSoft, ink: Theme.greenInk)
+                }
+            }
+            // Riquadri sottili: fino a quando vale la risposta, quanto sei lontano
+            if check.until != nil || meters != nil {
+                HStack(spacing: 8) {
+                    if let until = check.until { infoBox(L("ZTL hours"), until) }
+                    if let meters, meters < 200_000 { infoBox(L("From you"), DriveSession.distanceText(meters)) }
                 }
             }
             if let parkingMessage {
@@ -412,10 +448,15 @@ struct MapScreen: View {
         .padding(.horizontal, 8).padding(.bottom, 8)
     }
 
-    private static func placeSubtitle(pedestrian: PedestrianArea?, zone: Zone?) -> String {
-        if let pedestrian { return String(format: L("Pedestrian area · %@"), pedestrian.name) }
-        if let zone { return zone.type.title + " · " + zone.shortName }
-        return L("Outside the ZTL")
+    private func infoBox(_ title: String, _ value: String) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(title.uppercased()).font(Theme.label(11)).tracking(1).foregroundStyle(Theme.muted)
+            Text(value).font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1).minimumScaleFactor(0.8)
+        }
+        .padding(.horizontal, 10).padding(.vertical, 8)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(Theme.line, lineWidth: 1))
+        .accessibilityElement(children: .combine)
     }
 
     private static func detail(_ v: Verdict) -> String {
@@ -608,5 +649,33 @@ extension Zone {
         let span = MKCoordinateSpan(latitudeDelta: ((lats.max() ?? 0) - (lats.min() ?? 0)) * padding + 0.004,
                                     longitudeDelta: ((lons.max() ?? 0) - (lons.min() ?? 0)) * padding + 0.004)
         return MKCoordinateRegion(center: center, span: span)
+    }
+}
+
+/// Il riquadro sulla mappa scura: «ZTL ATTIVA · NON ENTRARE» o «FUORI DALLA ZTL», con la linea fino al posto
+private struct PlaceCallout: View {
+    let check: PlaceCheck
+    var body: some View {
+        VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 3) {
+                HStack(spacing: 6) {
+                    Image(systemName: check.symbol).font(.system(size: 11, weight: .heavy))
+                    Text(check.callout.uppercased()).font(Theme.label(13)).tracking(1.1).lineLimit(1)
+                }
+                .foregroundStyle(check.neon)
+                .fixedSize()
+                Text(check.place.name).font(.app(size: 12, weight: .medium)).foregroundStyle(.white.opacity(0.85)).lineLimit(1)
+                if let until = check.until {
+                    Text(until).font(.app(size: 11)).foregroundStyle(.white.opacity(0.6)).lineLimit(1)
+                }
+            }
+            .padding(.horizontal, 12).padding(.vertical, 8)
+            .frame(maxWidth: 260, alignment: .leading)
+            .background(Color.black.opacity(0.8), in: RoundedRectangle(cornerRadius: 4, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 4, style: .continuous).stroke(check.neon, lineWidth: 1))
+            .shadow(color: check.neon.opacity(0.45), radius: 8)
+            Rectangle().fill(check.neon).frame(width: 1, height: 44)
+        }
+        .accessibilityElement(children: .combine)
     }
 }

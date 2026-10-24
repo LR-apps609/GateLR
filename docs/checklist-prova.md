@@ -3,6 +3,17 @@
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
 
+## ★ Prima pagina «Posso entrare?» e mappa scura del posto cercato
+- [ ] Apri l'app senza aver cercato niente: in alto il riquadro **grigio** «Scopri se puoi entrare» con il campo «Hotel, indirizzo o piazza» (nessun «Sì, puoi entrare» a caso)
+- [ ] Tocca il campo → si apre Viaggio con la tastiera già pronta; cerca «Palazzo Vecchio» → torna su Varco: riquadro **rosso** «Non entrare» (o **verde** «Puoi entrare» a ZTL spenta), zona, «Attiva fino alle …», pulsante **Dettagli** → Viaggio
+- [ ] Un indirizzo fuori dalle ZTL (es. «Stazione Termini» a Roma) → verde, «Fuori dalla ZTL»; con una condizione o dubbio → ambra
+- [ ] La **✕** del riquadro lo riporta grigio; le ricerche recenti compaiono come scorciatoie sotto il campo
+- [ ] Con la posizione attiva: solo una riga piccola **«Vicino a te: Settore A · 400 m · non attiva adesso»**, tocco → scheda della zona
+- [ ] Restano: guardiano attivo, prossimo viaggio con «Parti ora», città e zone, «Nuovo alle ZTL?» e «Leggi il cartello» (ora due riquadri affiancati)
+- [ ] Mappa con un posto cercato (stile «Mappa»): **mappa scura e smorzata**, la zona che contiene il posto accesa in **rosso** (o verde se si entra) con bagliore, le altre appena accennate; sopra il posto il riquadro **«ZTL ATTIVA · NON ENTRARE»** / «FUORI DALLA ZTL» / «ZTL SPENTA · PUOI ENTRARE» con la linea sottile fino al punto
+- [ ] Con un percorso calcolato la linea è **bianca**; nella scheda in basso i riquadri sottili «Orari ZTL» e «Da te»
+- [ ] ✕ nella ricerca della mappa → torna la mappa normale (chiara in modalità chiara); Ibrida e Satellite non cambiano
+
 ## ★ Novità 1.9 «Navigatore» (prima queste)
 - [ ] Mappa → cerca un hotel → nella scheda **«Avvia»** parte subito (navigatore preferito + guardiano), senza passare da Viaggio; «Dettagli del viaggio» porta a Viaggio
 - [ ] Senza navigatore preferito: scegli Google Maps dal menu → domanda **«Usare sempre Google Maps?»** → «Sempre» lo salva (Account → Navigatore preferito)
