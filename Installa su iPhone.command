@@ -23,6 +23,15 @@ fi
 xcodebuild -checkFirstLaunchStatus >/dev/null 2>&1 || sudo xcodebuild -runFirstLaunch >/dev/null 2>&1
 print "       ✅"
 
+# 1b. Il codice più recente da GitHub, e Xcode chiuso (con il progetto vecchio aperto non vedrebbe i file nuovi)
+print "  Scarico gli aggiornamenti…"
+git pull --ff-only || fail "Non riesco ad aggiornare da GitHub (git pull). Mandami uno screenshot."
+if pgrep -x Xcode >/dev/null; then
+  print "       Chiudo Xcode per ricaricare il progetto…"
+  osascript -e 'quit app "Xcode"' >/dev/null 2>&1; sleep 3
+fi
+print "       Versione: $(grep -m1 MARKETING_VERSION project.yml | grep -oE '[0-9.]+' | head -1)"
+
 # 2. XcodeGen (crea il progetto dal file project.yml)
 print "  2/3  Controllo XcodeGen…"
 if ! command -v xcodegen >/dev/null 2>&1; then
