@@ -1,14 +1,25 @@
-# GateLR 1.8.1 – Checklist delle prove a mano
+# GateLR 1.9.0 – Checklist delle prove a mano
 
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
 
+## ★ Novità 1.9 «Navigatore» (prima queste)
+- [ ] Mappa → cerca un hotel → nella scheda **«Avvia»** parte subito (navigatore preferito + guardiano), senza passare da Viaggio; «Dettagli del viaggio» porta a Viaggio
+- [ ] Senza navigatore preferito: scegli Google Maps dal menu → domanda **«Usare sempre Google Maps?»** → «Sempre» lo salva (Account → Navigatore preferito)
+- [ ] Navigatore di GateLR 🚗: pulsante **Vista** in basso → Guida 3D (camera bassa, strada che arriva ben visibile), Classica, Satellite, Notte
+- [ ] Percorso: fascia blu larga con bordo scuro; la **freccia della prossima svolta** disegnata sulla strada; nelle rotonde il blu non diventa grigio prima del tempo
+- [ ] Zoom con due dita o inclinazione → compare **«Ricentra»**
+- [ ] Account → **Veicolo sulla mappa**: Berlina / SUV / Utilitaria / Moto, scegli il colore → in guida il modellino gira con l'auto
+- [ ] Voce: le vie si capiscono (es. «Via Gramsci»). Se no: Account → «Voce migliore» → scarica Alice Premium → riprova
+- [ ] Guardiano con **Apple Maps**: nell'isola resta un **pallino con lo scudo** verde (nessuna ZTL attiva davanti) / giallo / rosso; con Google Maps: scudo + distanza
+- [ ] **Siri**: «Ehi Siri, ZTL vicine con GateLR» (anche a telefono bloccato) → «Settore A è a 400 metri: Non entrare. I varchi si spengono oggi alle 20:00»
+
 ## 0. Installazione (Windows con Sideloadly, oppure Mac: vedi `docs/windows.md`)
 - [ ] **Windows**: Actions → «Compila GateLR» → Artifacts → GateLR-iPhone-ipa → Sideloadly → Start
 - [ ] **Mac**: Terminale: `osascript -e 'quit app "Xcode"'` poi `cd ~/Developer/GateLR && git pull && zsh "Installa su iPhone.command"`
-- [ ] Lo script scrive «Versione: 1.8.1»
+- [ ] Lo script scrive «Versione: 1.9.0»
 - [ ] Xcode: Team su **GateLR** e **GateLRWidget**, iPhone scelto in alto, ▶︎
-- [ ] Account → in fondo **Versione 1.8.1**
+- [ ] Account → in fondo **Versione 1.9.0**
 - [ ] Le auto, i permessi e i viaggi di prima ci sono ancora
 
 ## 1. Prima pagina (Varco)
