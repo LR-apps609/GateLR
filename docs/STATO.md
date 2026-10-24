@@ -1,19 +1,22 @@
-# GateLR: a che punto siamo (24 ottobre 2026, notte)
-## App iPhone (versione 0.5)
+# GateLR: a che punto siamo (24 ottobre 2026, mattina## App iPhone (versione 1.0)
 
 | Cosa | Stato |
 |---|---|
 | Cinque schede: Varco, Mappa, Viaggio, Garage, Account | ✅ |
-| Varco: città → indirizzo o hotel (ricerca Apple), risposta per quel punto adesso o all'arrivo; «Fuori dalla ZTL» con distanza | ✅ |
-| Viaggio: indirizzo dell'hotel → zona trovata da sola; viaggi salvati; messaggio per l'hotel EN/IT/DE | ✅ |
-| Account: avvisi (con prova), lingua, città offline, abbonamento (grafica), «Cos'è una ZTL?» | ✅ prima versione |
-| Mappa: colori per tipo (vietato / pass / verde), scritte grandi che svaniscono, stili satellite e 3D, Look Around | ✅ |
-| Firenze (A, B, O, F, G), Bologna (ZTL + T), Milano (Area C + Area B verde) | ✅ bozza, da verificare |
-| Lingua coerente IT/DE anche nei dati delle città (controllo automatico: `Tools/check_strings.py`) | ✅ |
-| Motore delle regole con zona verde; test automatici su indirizzi e città | ✅ |
+| Varco: città → indirizzo o hotel, risposta adesso o all'arrivo; «Fuori dalla ZTL» con distanza | ✅ |
+| Percorso: tempo, km, ZTL attraversate all'ora del passaggio, parcheggio fuori zona, Apple Maps / Google Maps / Waze | ✅ (guida passo-passo dentro l'app: non ancora) |
+| Viaggio: hotel cercato → zona trovata da sola; viaggi salvati; messaggio per l'hotel EN/IT/DE | ✅ |
+| Garage: marca, modello, anno → classe Euro; consigli per l'auto; permessi | ✅ |
+| Milano: Area C (pass) e Area B (verde) con i divieti per classe Euro | ✅ dai calendari ufficiali del 15/10/2026 |
+| Mappa: colori per tipo, scritte grandi che svaniscono, satellite, 3D, Look Around, percorso | ✅ |
+| Account: avvisi (con prova), lingua, città offline, abbonamento (grafica), «Cos'è una ZTL?», «Segnala un bug» | ✅ (email di supporto: segnaposto) |
+| Avvisi ai varchi più vicini mentre ti sposti, senza doppioni | ✅ da provare per strada |
 | Widget configurabile per zona | ✅ da provare sull'iPhone |
-| Avvisi ai varchi più vicini (limite iOS di 20) | ✅ da provare sull'iPhone |
+| Italiano e tedesco completi, parole dei pannelli ufficiali («ZTL attiva») | ✅ controllo automatico `Tools/check_strings.py` |
+| Controllo giornaliero delle pagine dei Comuni (segnalazione se cambiano) | ✅ `.github/workflows/sources.yml` |
+| Test automatici: motore, città, indirizzi, percorso, divieti Euro, velocità | ✅ |
 | CarPlay | codice pronto, serve l'autorizzazione Apple |
+
 
 
 ## Sito (`web/`)
@@ -46,8 +49,7 @@
 
 ## Prossimi passi
 
-1. Il tuo test della 0.5 sull'iPhone (`git pull` + `Installa su iPhone.command` + ▶︎).
-2. 0.6 Navigazione (percorso, controllo ZTL del percorso, «apri nel navigatore»), poi Garage 4.1–4.2.
-2. Roma (orari pronti, servono le geometrie dall'hub RSM) e Siena (perimetro da digitalizzare dal PDF).
-3. Pubblicare il sito su GitHub Pages.
-4. Verifiche di Firenze (ultime, come deciso).
+1. Le tue prove a mano: `docs/checklist-prova.md`.
+2. Verifiche delle città (ultime, come deciso): `docs/verifica-firenze.md`, `docs/verifica-bologna-milano.md`.
+3. Dopo l'Apple Developer Program: account vero, abbonamento, CarPlay, pubblicazione; poi il sito.
+4. Più avanti: guida passo-passo con voce nell'app, percorsi che evitano la ZTL, Roma e Siena.
