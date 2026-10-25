@@ -168,7 +168,7 @@ struct DriveMapView: UIViewRepresentable {
             if parent.following && !wasFollowing {
                 // «Ricentra»: dalla camera di adesso a quella dietro l'auto in poco più di mezzo secondo
                 let c = map.camera
-                blendFrom = (c.centerCoordinate, c.centerCoordinateDistance, c.heading, c.pitch)
+                blendFrom = (c.centerCoordinate, Double(c.centerCoordinateDistance), Double(c.heading), Double(c.pitch))
                 blendStart = CACurrentMediaTime()
             }
             wasFollowing = parent.following
@@ -275,7 +275,7 @@ struct DriveMapView: UIViewRepresentable {
             let size = map.bounds.size
             let w = r.span.longitudeDelta * 111_000 * cos(r.center.latitude * .pi / 180)
             let h = r.span.latitudeDelta * 111_000
-            let aspect = size.height > 0 ? size.width / size.height : 0.5
+            let aspect: Double = size.height > 0 ? Double(size.width / size.height) : 0.5
             // La distanza della camera è circa tre volte la larghezza visibile (vedi MapDetail)
             let distance = max(w, h * aspect) * 3 * 1.25
             let cam = MKMapCamera(lookingAtCenter: r.center, fromDistance: distance, pitch: 0, heading: 0)
@@ -325,8 +325,8 @@ struct DriveMapView: UIViewRepresentable {
                 map.setCamera(camera, animated: false)
             }
             // L'auto girata nella direzione di marcia rispetto alla mappa
-            let angle = Heading.delta(map.camera.heading, pose.heading) * .pi / 180
-            vehicleView?.inner.transform = CGAffineTransform(rotationAngle: angle)
+            let angle = Heading.delta(Double(map.camera.heading), pose.heading) * .pi / 180
+            vehicleView?.inner.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
 
             updateTravelled(along: pose.along ?? drive.done)
             if abs(drive.done - shownSignalsAt) > 25 { updateSignals(map, done: drive.done) }
