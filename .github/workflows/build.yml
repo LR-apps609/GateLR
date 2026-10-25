@@ -154,11 +154,16 @@ jobs:
           APP=build-ui/Build/Products/Debug-iphonesimulator/GateLR.app
           [ -d "$APP" ] || APP=build/Build/Products/Debug-iphonesimulator/GateLR.app
           xcrun simctl install "$UDID" "$APP"
+          echo "::notice::App installata ($(date -u +%T)) da $APP"
           xcrun simctl status_bar "$UDID" override --time 9:41 --batteryState charged --batteryLevel 100 --cellularBars 4 || true
           xcrun simctl terminate "$UDID" it.ledion.GateLR 2>/dev/null || true
           mkdir -p intro-video
+          # Con il controllo dei processi (set -m) il registratore in sottofondo riceve davvero SIGINT
+          # (senza, bash non interattivo gli fa ignorare SIGINT e il video non si chiude mai)
+          set -m
           xcrun simctl io "$UDID" recordVideo --codec=h264 --force intro-video/intro2.mp4 > rec.log 2>&1 &
           REC=$!
+          echo "::notice::Registrazione avviata ($(date -u +%T))"
           sleep 2
           ARGS="-uitest -intro2 -intro2Autoplay -AppleLanguages (it) -AppleLocale it_IT"
           shot() { xcrun simctl io "$UDID" screenshot "intro-video/$1.png" > /dev/null 2>&1 || true; }
@@ -179,7 +184,9 @@ jobs:
           at 16; shot intro-8-riserva-arrivato
           at 18
           kill -INT $REC 2>/dev/null || true
-          wait $REC || true
+          for i in $(seq 1 40); do kill -0 $REC 2>/dev/null || break; sleep 0.5; done
+          if kill -0 $REC 2>/dev/null; then echo "::warning::Il registratore non si è fermato con SIGINT"; kill -9 $REC || true; fi
+          wait $REC 2>/dev/null || true
           tail -n 3 rec.log || true
           ls -la intro-video
           if [ ! -s intro-video/intro2.mp4 ]; then echo "::warning::Video della presentazione non registrato"; exit 1; fi
