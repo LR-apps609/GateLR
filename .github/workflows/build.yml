@@ -4,7 +4,7 @@ name: Compila GateLR
 
 on:
   push:
-    paths-ignore: ["web/**", "docs/**", "**.md", ".github/workflows/site.yml", ".github/workflows/sources.yml", "data/source-hashes.json", "Tools/check_sources.py", "android/**", "Tools/build_site.py", "Tools/translations.py", ".github/workflows/android.yml", ".github/workflows/geo.yml", "Tools/fetch_geo.py", "data/**", ".github/workflows/site-shots.yml", "Tools/site_shots.mjs"]   # il sito e i documenti non toccano l'app
+    paths-ignore: ["web/**", "docs/**", "**.md", ".github/workflows/site.yml", ".github/workflows/sources.yml", "data/source-hashes.json", "Tools/check_sources.py", "android/**", "Tools/build_site.py", "Tools/translations.py", ".github/workflows/android.yml", ".github/workflows/geo.yml", "Tools/fetch_geo.py", "data/**", ".github/workflows/site-shots.yml", "Tools/site_shots.mjs", ".github/workflows/intro-routes.yml", "Tools/intro_routes.py"]   # il sito e i documenti non toccano l'app
   pull_request:
   workflow_dispatch:
 

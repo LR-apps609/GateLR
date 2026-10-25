@@ -1,0 +1,17 @@
+# Solo a mano: percorsi stradali veri per il prototipo della nuova presentazione (Tools/intro_routes.py) nel ramo «intro-routes»
+name: Percorsi della presentazione
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  routes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Percorsi e parcheggi
+        run: |
+          mkdir -p out && python3 Tools/intro_routes.py out/intro-routes.json | while read -r l; do echo "::notice::$l"; done
+          cd out && git init -q && git checkout -q -b intro-routes && git add . && git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Percorsi per $GITHUB_SHA"
+          git push -f -q "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" intro-routes
