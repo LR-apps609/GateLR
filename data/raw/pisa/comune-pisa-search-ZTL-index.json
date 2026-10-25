@@ -1,0 +1,1596 @@
+{
+"query": "q = 'ZTL' (5 pagine da 50, lette il 2026-10-25)",
+"source": "https://www.comune.pisa.it/api/opendata/v2/content/search/",
+"hits": [
+{
+"id": 200,
+"class": "topic",
+"published": "2023-07-11",
+"name": "ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/200"
+},
+{
+"id": 20263,
+"class": "image",
+"published": "2024-10-23",
+"name": "telecamere ztl",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/20263"
+},
+{
+"id": 31290,
+"class": "image",
+"published": "2026-10-22",
+"name": "Cartelli ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/31290"
+},
+{
+"id": 10680,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Regolamento ZTL - MODIFICHE.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10680"
+},
+{
+"id": 27780,
+"class": "article",
+"published": "2026-02-09",
+"name": "Nuova ZTL a Porta a Lucca: domande frequenti",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27780"
+},
+{
+"id": 14109,
+"class": "image",
+"published": "2024-04-18",
+"name": "Zona 30 ztl",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14109"
+},
+{
+"id": 3270,
+"class": "output",
+"published": "2024-02-20",
+"name": "ZTL - Accesso Al Portale",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/3270"
+},
+{
+"id": 4702,
+"class": "image",
+"published": "2024-02-20",
+"name": "Immagine Telecamera ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/4702"
+},
+{
+"id": 20501,
+"class": "image",
+"published": "2024-11-07",
+"name": "parcheggio e ztl",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/20501"
+},
+{
+"id": 3266,
+"class": "output",
+"published": "2024-02-20",
+"name": "Autorizzazione giornaliera accesso ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/3266"
+},
+{
+"id": 27496,
+"class": "image",
+"published": "2026-01-20",
+"name": "ZTL Porta a Lucca Conti",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27496"
+},
+{
+"id": 27495,
+"class": "image",
+"published": "2026-01-20",
+"name": "ZTL porta a Lucca",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27495"
+},
+{
+"id": 27635,
+"class": "image",
+"published": "2026-01-28",
+"name": "ZTL porta a Lucca",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27635"
+},
+{
+"id": 27629,
+"class": "image",
+"published": "2026-01-28",
+"name": "ZTL porta a Lucca",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27629"
+},
+{
+"id": 31289,
+"class": "image",
+"published": "2026-10-22",
+"name": "Uno dei varchi ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/31289"
+},
+{
+"id": 28269,
+"class": "article",
+"published": "2026-03-16",
+"name": "In scadenza il rinnovo dei permessi per ZTL e ZSC:  c’è tempo fino al 31 marzo",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28269"
+},
+{
+"id": 20262,
+"class": "article",
+"published": "2024-10-23",
+"name": "Nuove modalità di accesso per disabili non residenti a Pisa alla ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/20262"
+},
+{
+"id": 3414,
+"class": "public_service",
+"published": "2024-02-20",
+"name": "ZTL - Richieste Accesso e Archiviazione Sanzioni",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/3414"
+},
+{
+"id": 3404,
+"class": "public_service",
+"published": "2024-02-20",
+"name": "Registrazione Targhe per accesso veicoli in ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/3404"
+},
+{
+"id": 14125,
+"class": "image",
+"published": "2024-04-18",
+"name": "Parcheggi residenti Ztl SAn Francesco",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14125"
+},
+{
+"id": 10377,
+"class": "document",
+"published": "2024-02-29",
+"name": "Nuova normativa Z.T.L.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10377"
+},
+{
+"id": 11810,
+"class": "document",
+"published": "2024-02-29",
+"name": "Z.T.L. - Nuova Normativa",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11810"
+},
+{
+"id": 13536,
+"class": "channel",
+"published": "2024-04-08",
+"name": "Registrazione Targhe per accesso veicoli in ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/13536"
+},
+{
+"id": 14333,
+"class": "article",
+"published": "2024-03-12",
+"name": "Ztl quartiere San Francesco, aumentano gli stalli riservati ai residenti",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14333"
+},
+{
+"id": 5527,
+"class": "article",
+"published": "2022-07-05",
+"name": "Permessi ZTL e ZSC: scadenza prorogata al 29 luglio",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5527"
+},
+{
+"id": 27924,
+"class": "article",
+"published": "2026-02-17",
+"name": "ZTL Stadio, telecamere attive da Pisa-Cagliari in programma a metà marzo",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27924"
+},
+{
+"id": 5445,
+"class": "article",
+"published": "2022-04-26",
+"name": "Mobilità: prolungata fino ad ottobre la Ztl sui Lungarni",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5445"
+},
+{
+"id": 5498,
+"class": "article",
+"published": "2022-10-07",
+"name": "Ordinanze antimovida e Ztl sui Lungarni prorogate fino gennaio",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5498"
+},
+{
+"id": 6044,
+"class": "article",
+"published": "2022-03-23",
+"name": "Ztl, rinnovo dei permessi prorogato al 29 giugno",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/6044"
+},
+{
+"id": 13525,
+"class": "online_contact_point",
+"published": "2024-04-08",
+"name": "Contatti P.M. Ufficio ZTL Varchi Elettronici",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/13525"
+},
+{
+"id": 3392,
+"class": "public_service",
+"published": "2024-02-20",
+"name": "Violazioni e ricorsi/opposizioni",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/3392"
+},
+{
+"id": 14801,
+"class": "online_contact_point",
+"published": "2024-05-07",
+"name": "Contatti P.M. Varchi Elettronici",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14801"
+},
+{
+"id": 31288,
+"class": "article",
+"published": "2026-10-22",
+"name": "ZTL Stadio, primo bilancio positivo: migliorano viabilità e sosta a Porta a Lucca",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/31288"
+},
+{
+"id": 20500,
+"class": "article",
+"published": "2024-11-07",
+"name": "Ztl e Zsc, in vigore dal 1° gennaio 2025 il nuovo regolamento per il transito e per il parcheggio ",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/20500"
+},
+{
+"id": 21706,
+"class": "article",
+"published": "2025-01-24",
+"name": "Ztl e Zsc, proroga dei termini di scadenza per il rinnovo dei permessi per l'anno 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/21706"
+},
+{
+"id": 27493,
+"class": "article",
+"published": "2026-01-20",
+"name": "ZTL attiva da Pisa-Milan nel quartiere di Porta a Lucca durante le gare casalinghe del Pisa Sporting Club: si entra nell’ultima fase dei lavori",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27493"
+},
+{
+"id": 6037,
+"class": "article",
+"published": "2023-02-02",
+"name": "Ztl e Zsc, Pisamo fissa la data di scadenza del rinnovo dei permessi al 31 marzo",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/6037"
+},
+{
+"id": 11815,
+"class": "document",
+"published": "2024-02-29",
+"name": "- ZTL Santa Maria - modifiche alla circolazione - INTEGRAZIONE.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11815"
+},
+{
+"id": 11811,
+"class": "document",
+"published": "2024-02-29",
+"name": "- ztl San francesco validità 24 ore.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11811"
+},
+{
+"id": 11812,
+"class": "document",
+"published": "2024-02-29",
+"name": "- ZTL - San Martino - validità 24 ore.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11812"
+},
+{
+"id": 10398,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Ord. Del 04/06/ - ZTL mecati ambulanti.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10398"
+},
+{
+"id": 14327,
+"class": "article",
+"published": "2024-02-05",
+"name": "Viabilità, a Riglione e Oratoio istituite nuove “zone 30 residenziali”. Tutte le strade interessate",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14327"
+},
+{
+"id": 8931,
+"class": "document",
+"published": "2024-02-26",
+"name": "- Autorizzazione al transito in ZTL dei veicoli elettrici.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/8931"
+},
+{
+"id": 3258,
+"class": "output",
+"published": "2024-02-20",
+"name": "Registrazione Targhe per accesso veicoli in ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/3258"
+},
+{
+"id": 27112,
+"class": "output",
+"published": "2025-12-23",
+"name": "Archiviazione sanzione al CDS per transito in ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27112"
+},
+{
+"id": 30592,
+"class": "image",
+"published": "2026-09-08",
+"name": "Telecamera ZTL nel quartiere di Porta a Lucca",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/30592"
+},
+{
+"id": 30591,
+"class": "article",
+"published": "2026-09-08",
+"name": "ZTL Stadio, invito a verificare e registrare le targhe dei veicoli autorizzati",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/30591"
+},
+{
+"id": 5893,
+"class": "article",
+"published": "2022-08-19",
+"name": "Viabilità, accesso a ZTL: permessi temporanei solo per clienti di alberghi e pensioni",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5893"
+},
+{
+"id": 14179,
+"class": "article",
+"published": "2024-03-09",
+"name": "Disabilità, Pisa aderisce alla piattaforma per il contrassegno unico di accesso alle Ztl",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14179"
+},
+{
+"id": 26998,
+"class": "article",
+"published": "2025-12-16",
+"name": "ZTL e ZSC, rinnovo dei permessi di accesso e sosta: scadenza fissata al 31 marzo 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/26998"
+},
+{
+"id": 28224,
+"class": "article",
+"published": "2026-03-11",
+"name": "ZTL Stadio, domenica 15 marzo telecamere attive dalle ore 13.00 per Pisa-Cagliari",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28224"
+},
+{
+"id": 27776,
+"class": "article",
+"published": "2026-02-09",
+"name": "Porta a Lucca, incontro pubblico lunedì 9 febbraio per illustrare la nuova ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27776"
+},
+{
+"id": 28529,
+"class": "article",
+"published": "2026-03-30",
+"name": "Contrassegno unificato disabili europeo (CUDE), installata la nuova cartellonistica ai varchi della ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28529"
+},
+{
+"id": 5440,
+"class": "article",
+"published": "2022-10-06",
+"name": "Mobilità: nuova proroga, al 15 novembre, per il rinnovo dei permessi della ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5440"
+},
+{
+"id": 30326,
+"class": "article",
+"published": "2026-08-10",
+"name": "Calcio, con l’avvio della nuova stagione torna attiva la ZTL “Stadio” in occasione delle partite casalinghe del Pisa SC",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/30326"
+},
+{
+"id": 26416,
+"class": "article",
+"published": "2025-11-10",
+"name": "Quartiere San Martino, arrivano gli stalli gialli riservati ai residenti",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/26416"
+},
+{
+"id": 11194,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Via di Vittorio - transito in ZTL in occasione del mercato bisettimanale.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11194"
+},
+{
+"id": 11828,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Modifiche alla disciplina della ZTL e del PCU.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11828"
+},
+{
+"id": 4493,
+"class": "image",
+"published": "2024-02-20",
+"name": "Ztl.jpg?itok=UdXRL5cQ",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/4493"
+},
+{
+"id": 4109,
+"class": "image",
+"published": "2024-02-20",
+"name": "Ztl.jpeg?itok=eNCT3xHH",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/4109"
+},
+{
+"id": 9016,
+"class": "document",
+"published": "2024-02-26",
+"name": "Attuazione della Z.T.L. nel centro storico -Normativa",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/9016"
+},
+{
+"id": 11691,
+"class": "document",
+"published": "2024-02-29",
+"name": "VIA SAN RANIERINO, VIA CARDINAL MAFFI INSERIMENTO IN ZTL NORD.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11691"
+},
+{
+"id": 11813,
+"class": "document",
+"published": "2024-02-29",
+"name": "- ZTL San Martino: validità ore 7.00 - 23.00.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11813"
+},
+{
+"id": 10305,
+"class": "document",
+"published": "2024-02-29",
+"name": "Modifica accesso alla ZTL del quartiere S.Francesco .",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10305"
+},
+{
+"id": 10354,
+"class": "document",
+"published": "2024-02-29",
+"name": "NUOVA CIRCOLAZIONE IN ZTL NORD IN VIGORE A PARTIRE DAL 19 LUGLIO 2014.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10354"
+},
+{
+"id": 30327,
+"class": "image",
+"published": "2026-08-10",
+"name": "Uno dei varchi ZTL nell'area dello stadio",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/30327"
+},
+{
+"id": 27630,
+"class": "article",
+"published": "2026-01-28",
+"name": "ZTL Porta a Lucca, le informazioni per residenti e domiciliati: registrazione sul portale di Pisamo per ottenere l’autorizzazione gratuita",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27630"
+},
+{
+"id": 19913,
+"class": "article",
+"published": "2024-10-03",
+"name": "ZTL e centro storico, controlli sui contrassegni. Individuati quindici casi di irregolarità nei permessi riservati a persone con disabilità",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/19913"
+},
+{
+"id": 5674,
+"class": "article",
+"published": "2023-02-28",
+"name": "Rinviate al 6 marzo le nuove modalità di sosta e accesso alla Ztl per le strutture ricettive",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5674"
+},
+{
+"id": 23451,
+"class": "article",
+"published": "2025-05-15",
+"name": "Modifiche alla viabilità domenica 18 maggio per la manifestazione “Campionato Regionale Cronometro Coppie UISP Toscana 2025 – Coppa Cemes”",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/23451"
+},
+{
+"id": 23102,
+"class": "article",
+"published": "2025-04-18",
+"name": "Modifiche alla viabilità e alla sosta lunedì 21 aprile per lo svolgimento della “Duathlon Sprint Silver Rank delle Città Medievali”. Martedì 22 e mercoledì 23 disposizioni necessarie in via Crispi",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/23102"
+},
+{
+"id": 28250,
+"class": "article",
+"published": "2026-03-13",
+"name": "Riqualificazione dell’asse turistico verso piazza dei Miracoli: pedonalizzazione in piazza Buonamici e via Corsica",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28250"
+},
+{
+"id": 30068,
+"class": "article",
+"published": "2026-07-21",
+"name": "Via San Biagio, attivato il controllo elettronico della corsia preferenziale.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/30068"
+},
+{
+"id": 11814,
+"class": "document",
+"published": "2024-02-29",
+"name": "- ZTL Santa Maria - ampliamento e vie dei mille, via della faggiola: modifiche alla circolazione.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11814"
+},
+{
+"id": 9018,
+"class": "document",
+"published": "2024-02-26",
+"name": "Attuazione zona Z.T.L. nel centro storico  - Modifica dell'orario",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/9018"
+},
+{
+"id": 10215,
+"class": "document",
+"published": "2024-02-29",
+"name": "NUOVA CIRCOLAZIONE IN ZTL NORD IN VIGORE A PARTIRE DAL 19 LUGLIO 2014. 3° MODIFICA ED INTEGRAZIONE.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10215"
+},
+{
+"id": 10200,
+"class": "document",
+"published": "2024-02-29",
+"name": "Istituzione Z.T.L. su via Serafini , via della Sapienza e via dell'Ulivo",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10200"
+},
+{
+"id": 10337,
+"class": "document",
+"published": "2024-02-29",
+"name": "NUOVA CIRCOLAZIONE IN ZTL NORD IN VIGORE A PARTIRE DAL 19 LUGLIO 2014. ULTERIORI MODIFICHE ED INTEGRAZIONI.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10337"
+},
+{
+"id": 10317,
+"class": "document",
+"published": "2024-02-29",
+"name": "Modifica della circolazione veicolare nel quartiere di S,Francesco Per ampliamento e consolidamento ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10317"
+},
+{
+"id": 10300,
+"class": "document",
+"published": "2024-02-29",
+"name": "MERCATI AMBULANTI IN ZTL MODIFICA ORDINANZA N°486 DIREZ. 22 DEL 22 DICEMBRE 2010.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10300"
+},
+{
+"id": 10865,
+"class": "document",
+"published": "2024-02-29",
+"name": "Termine di scadenza dei contrassegni di autorizzazione per il transito e la sosta dei veicoli in ZTL",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10865"
+},
+{
+"id": 10370,
+"class": "document",
+"published": "2024-02-29",
+"name": "NUOVA CIRCOLAZIONE IN ZTL SANTA MARIA - INTEGRAZIONE E MODIFICA ORDINANZA N. 531 DEL 15/10/2015.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10370"
+},
+{
+"id": 10718,
+"class": "document",
+"published": "2024-02-29",
+"name": "Revoca del provvedimento Z.T-L la seconda Domenica di ogni mese .",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10718"
+},
+{
+"id": 10266,
+"class": "document",
+"published": "2024-02-29",
+"name": "NUOVA CIRCOLAZIONE IN ZTL NORD IN VIGORE A PARTIRE DAL 19 LUGLIO 2014. MODIFICHE ED INTEGRAZIONI.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10266"
+},
+{
+"id": 10719,
+"class": "document",
+"published": "2024-02-29",
+"name": "Revoca del provvedimento Z.T.L. su via Queirolo e su parte di via B. Croce",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10719"
+},
+{
+"id": 20304,
+"class": "article",
+"published": "2024-10-24",
+"name": "Santa Maria, una trentina di parcheggi per residenti in via Dalmazia, via Martiri e via Capponi",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/20304"
+},
+{
+"id": 30247,
+"class": "article",
+"published": "2026-08-03",
+"name": "Mobilità, modifiche alla viabilità nel quartiere di San Martino dal 6 agosto",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/30247"
+},
+{
+"id": 25281,
+"class": "article",
+"published": "2025-09-09",
+"name": "Viabilità, in via Benedetto Croce si sperimenta l’area pedonale urbana nelle fasce orarie di entrata e uscita delle scuole",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/25281"
+},
+{
+"id": 10327,
+"class": "document",
+"published": "2024-02-29",
+"name": "- MODIFICA, INTEGRAZIONE E RIEPILOGO DEI PROVVEDIMENTI VIGENTI PER L’ACCESSO, IL TRANSITO E LA SOSTA DEI VEICOLI NEL CENTRO URBANO: AREA PEDONALE, ZTL TIPO “A” E ZTL A REGIME RISTRETTO TIPO “B” E DELL...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10327"
+},
+{
+"id": 10328,
+"class": "document",
+"published": "2024-02-29",
+"name": "- MODIFICA, INTEGRAZIONE E RIEPILOGO DEI PROVVEDIMENTI VIGENTI PER L’ACCESSO, IL TRANSITO E LA SOSTA DEI VEICOLI NEL CENTRO URBANO: AREA PEDONALE, ZTL TIPO “A” E ZTL A REGIME RISTRETTO TIPO “B” E DELL...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10328"
+},
+{
+"id": 8886,
+"class": "document",
+"published": "2024-02-26",
+"name": "Ampliamento ZTL nel quartiere S.Francesco e modifica circolazione su via S.Marta e via De Amicis .",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/8886"
+},
+{
+"id": 10369,
+"class": "document",
+"published": "2024-02-29",
+"name": "NUOVA CIRCOLAZIONE IN ZTL SANTA MARIA DOPO IL COMPLETAMENTO DEI LAVORI NELLA VIA SANTA MARIA ED IN PIAZZA FELICE CAVALLOTTI.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10369"
+},
+{
+"id": 10476,
+"class": "document",
+"published": "2024-02-29",
+"name": "-  Piazza Toniolo. Riorganizzazione della sosta e della circolazione in funzione dell’attivazione della porta telematica di accesso alla ZTL.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10476"
+},
+{
+"id": 11707,
+"class": "document",
+"published": "2024-02-29",
+"name": "VIA SANTA MARIA NUOVA CIRCOLAZIONE IN ZTL NORD IN VIGORE A PARTIRE DAL 19 LUGLIO 2014. 4° MODIFICA ED INTEGRAZIONE.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11707"
+},
+{
+"id": 27109,
+"class": "document",
+"published": "2025-12-23",
+"name": "Richiesta di ritiro in autotutela per violazioni al transito in ZTL di veicoli adibito al servizio di disabile intestatario di relativo contrassegno",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27109"
+},
+{
+"id": 21248,
+"class": "article",
+"published": "2024-12-20",
+"name": "Mercati settimanali di via Paparelli e via San Martino anticipati al 24 e 31 dicembre per concomitanza con le festività",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/21248"
+},
+{
+"id": 14679,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di Sant'Andrea Forisportam",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14679"
+},
+{
+"id": 14639,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di San Paolo all'Orto",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14639"
+},
+{
+"id": 14684,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di San Pietro in Vinculis",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14684"
+},
+{
+"id": 14681,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di Santa Cecilia",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14681"
+},
+{
+"id": 14678,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di Sant'Anna",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14678"
+},
+{
+"id": 14687,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di San Michele in Borgo",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14687"
+},
+{
+"id": 14676,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di Santo Stefano dei Cavalieri",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14676"
+},
+{
+"id": 14691,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di San Giorgio dei Tedeschi",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14691"
+},
+{
+"id": 14683,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di San Sisto",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14683"
+},
+{
+"id": 14686,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di San Nicola",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14686"
+},
+{
+"id": 14663,
+"class": "place",
+"published": "2024-04-30",
+"name": "Piazza dei Cavalieri",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14663"
+},
+{
+"id": 14690,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di San Martino",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14690"
+},
+{
+"id": 14692,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di San Frediano",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14692"
+},
+{
+"id": 14693,
+"class": "place",
+"published": "2024-04-30",
+"name": "Chiesa di San Francesco",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14693"
+},
+{
+"id": 11527,
+"class": "document",
+"published": "2024-02-29",
+"name": "- viale delle piagge - pedonalizzazione del tratto prospicente il comando dei vigili del fuoco ed istituzione della ZTL nei giorni festivi e prefestivi.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11527"
+},
+{
+"id": 10704,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Regolamento per l'accesso, il transito e la sosta dei veicoli all'interno del centro urbano; ZTL e zone con sosta limitata a pagamento.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10704"
+},
+{
+"id": 10303,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Modalità del rilascio delle autorizzazioni per solo transito per trasporto minori presso nidi, materne, elementari e relative palestre ubicate nella ZTL.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10303"
+},
+{
+"id": 9420,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Estensione a tutta Via Oberdan della zona ZTL a regime ristretto (tipo B)  e modifiche dell’orario di accesso per carico e scarico.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/9420"
+},
+{
+"id": 9514,
+"class": "document",
+"published": "2024-02-29",
+"name": "Integrazione dell'ordinanza n° 554 del 14/10/89 relativa alla modifica nella circolazione veicolare nel quartiere S.Francesco per ampliamento e conolidamento della Z.T.L.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/9514"
+},
+{
+"id": 10329,
+"class": "document",
+"published": "2024-02-29",
+"name": "- MODIFICA, INTEGRAZIONE E RIEPILOGO DEI PROVVEDIMENTI VIGENTI PER L’ACCESSO, IL TRANSITO E LA SOSTA DEI VEICOLI NEL CENTRO URBANO: AREA PEDONALE, ZTL TIPO “A” E ZTL A REGIME RISTRETTO TIPO “B” E DELL...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10329"
+},
+{
+"id": 10667,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Quarta Integrazione alla propria ordinanza n.303/2002 avente ad oggetto “MODIFICA, INTEGRAZIONE E RIEPILOGO DEI PROVVEDIMENTI VIGENTI PER L’ACCESSO, IL TRANSITO E LA SOSTA DEI VEICOLI NEL CENTRO URB...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10667"
+},
+{
+"id": 9507,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Integrazione alla propria ordinanza n.303/2002 avente ad oggetto “MODIFICA, INTEGRAZIONE E RIEPILOGO DEI PROVVEDIMENTI VIGENTI PER L’ACCESSO, IL TRANSITO E LA SOSTA DEI VEICOLI NEL CENTRO URBANO: AR...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/9507"
+},
+{
+"id": 10867,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Terza Integrazione alla propria ordinanza n.303/2002 avente ad oggetto “MODIFICA, INTEGRAZIONE E RIEPILOGO DEI PROVVEDIMENTI VIGENTI PER L’ACCESSO, IL TRANSITO E LA SOSTA DEI VEICOLI NEL CENTRO URBA...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10867"
+},
+{
+"id": 10790,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Seconda Integrazione alla propria ordinanza n.303/2002 avente ad oggetto “MODIFICA, INTEGRAZIONE E RIEPILOGO DEI PROVVEDIMENTI VIGENTI PER L’ACCESSO, IL TRANSITO E LA SOSTA DEI VEICOLI NEL CENTRO UR...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10790"
+},
+{
+"id": 14657,
+"class": "place",
+"published": "2024-04-30",
+"name": "Pisa",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14657"
+},
+{
+"id": 9060,
+"class": "document",
+"published": "2024-02-26",
+"name": "Autorizzazioni ,di solo transito per l'anno scolastico 1991/1992 per accompagnamento scolari negli istituti (asili materne elementari ) ubicati all'interno delle ZTL e ,nelle loro palastre date in ges...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/9060"
+},
+{
+"id": 10866,
+"class": "document",
+"published": "2024-02-29",
+"name": "Termine di scadenza  e modalità di rinnovo autorizzazioni in deroga ai divieti transito e sosta nel centro urbano e in ZTL ,per le sole operazioni di carico e scarico ,per i veicoli adibiti a trasport...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10866"
+},
+{
+"id": 10304,
+"class": "document",
+"published": "2024-02-29",
+"name": "Modalità di rilascio di autorizzazioni provvisorie  per l'anno scolastico 1990/1991 ,per l'accompagnamento degli scolari ,negli istituti (asili -materne .-elementari ) con sede all'interno della Z.T.L. .",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10304"
+},
+{
+"id": 10197,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Istituzione zona ZTL a regime ristretto (tipo B) nelle vie e piazze: Via dei Mille, Via Corsica, piazza Buonamici, piazza dei Cavalieri, via U.Dini, piazza San Felice, piazza Donati, via Consoli del...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10197"
+},
+{
+"id": 10196,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Istituzione zona ZTL  a regime ristretto (tipo B) nelle vie e piazze: via dei Mille, via Corsica, piazza Buonamici, piazza dei Cavalieri, via U.Dini, piazza San Felice, Piazza Donati, via Consoli de...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10196"
+},
+{
+"id": 10198,
+"class": "document",
+"published": "2024-02-29",
+"name": "- Istituzione Zona ZTL a regime ristretto (tipo B) nelle vie e piazze: Via dei Mille, Via Corsica, Piazza Buonamici, Piazza dei Cavalieri, Via Ulisse Dini, Piazza San Felice, Piazza Donati, Via Consol...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10198"
+},
+{
+"id": 9512,
+"class": "document",
+"published": "2024-02-29",
+"name": "-  Integrazione dell’ordinanza direz.17 n° 161 del 12 aprile 2006, ad oggetto “Piazza Toniolo - Riorganizzazione della sosta e della circolazione in funzione dell’attivazione della porta telematica di...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/9512"
+},
+{
+"id": 2839,
+"class": "private_organization",
+"published": "2024-02-20",
+"name": "Pisamo S.r.l.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/2839"
+},
+{
+"id": 27107,
+"class": "document",
+"published": "2025-12-23",
+"name": "Richiesta accesso giornaliero per disabili ",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27107"
+},
+{
+"id": 27108,
+"class": "document",
+"published": "2025-12-23",
+"name": "Richiesta accesso per TAXI/NCC",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27108"
+},
+{
+"id": 10199,
+"class": "document",
+"published": "2024-02-29",
+"name": "-Istituzione zona ZTL a regime ristretto (tipo B) nelle vie e piazze: via dei Mille, via Corsica, p.zza Buonamici, p.zza dei Cavalieri, via U. Dini, p.zza San Felice, p.zza Donati, via Consoli del  Ma...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/10199"
+},
+{
+"id": 11690,
+"class": "document",
+"published": "2024-02-29",
+"name": "-  Via San Paolo, Piazza San Paolo, Via del Galloro, -inversione del senso unico di marcia in relazione alla istituzione del controllo telematico degli accessi alla ZTL e istituzione di obbligo di arr...",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11690"
+},
+{
+"id": 23989,
+"class": "place",
+"published": "2025-06-09",
+"name": "Sede Principale (Sesta Porta)",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/23989"
+},
+{
+"id": 1383,
+"class": "organization",
+"published": "2023-10-23",
+"name": "Mobilità",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/1383"
+},
+{
+"id": 18166,
+"class": "document",
+"published": "2024-07-19",
+"name": "Piano del traffico",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/18166"
+},
+{
+"id": 3389,
+"class": "public_service",
+"published": "2024-02-20",
+"name": "Traslochi - Movimentazione Materiali - Carico e Scarico Temporanei",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/3389"
+},
+{
+"id": 5972,
+"class": "article",
+"published": "2023-02-20",
+"name": "Turismo e mobilità in centro: cambia la sosta per i clienti delle strutture ricettive",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5972"
+},
+{
+"id": 5459,
+"class": "article",
+"published": "2023-09-14",
+"name": "Modifiche al traffico sabato 16 e domenica 17 settembre sui Lungarni e Ponte di mezzo",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5459"
+},
+{
+"id": 27905,
+"class": "document",
+"published": "2026-02-16",
+"name": "Seduta consiliare del 12 febbraio 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27905"
+},
+{
+"id": 30940,
+"class": "article",
+"published": "2026-09-30",
+"name": "Rally-Amo 2026, domenica 4 ottobre modifiche alla viabilità sui Lungarni e sul Ponte di Mezzo",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/30940"
+},
+{
+"id": 23662,
+"class": "article",
+"published": "2025-05-26",
+"name": "Lavori da parte di Acque, chiuso l’ultimo tratto di via Benedetto Croce il 28 e 29 maggio",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/23662"
+},
+{
+"id": 11861,
+"class": "pagina_sito",
+"published": "2024-03-01",
+"name": "Informativa estesa Videosorveglianza",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/11861"
+},
+{
+"id": 16900,
+"class": "organization",
+"published": "2024-07-03",
+"name": "Convocazioni commissioni consiliari",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/16900"
+},
+{
+"id": 5479,
+"class": "article",
+"published": "2023-09-22",
+"name": "Notte bianca dello sport a Pisa, le modifiche al traffico sabato",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5479"
+},
+{
+"id": 20834,
+"class": "article",
+"published": "2024-11-28",
+"name": "Mobilità, nuovo parcheggio aperto 24 ore realizzato in via Buonarroti",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/20834"
+},
+{
+"id": 29247,
+"class": "article",
+"published": "2026-05-20",
+"name": "Politiche giovanili, venerdì alle 21 in piazza XX Settembre la prima serata di “Fuori di Maggio”",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/29247"
+},
+{
+"id": 30039,
+"class": "article",
+"published": "2026-07-17",
+"name": "Porta del Parlascio: modifiche temporanee alla viabilità dal 22 al 28 luglio ",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/30039"
+},
+{
+"id": 5245,
+"class": "article",
+"published": "2022-01-03",
+"name": "Il 2021 di Pisamo: sharing, marciapiedi, videosorveglianza e molto altro",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5245"
+},
+{
+"id": 5118,
+"class": "article",
+"published": "2022-09-16",
+"name": "Domenica Lungarni e Ponte di Mezzo chiusi al traffico per il World Car Free Day",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5118"
+},
+{
+"id": 5897,
+"class": "article",
+"published": "2023-06-01",
+"name": "Viabilità: domenica Lungarni chiusi al traffico per “Bimbimbici”",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5897"
+},
+{
+"id": 5933,
+"class": "article",
+"published": "2023-04-23",
+"name": "Torna la Giornata della Solidarietà: appuntamento per il 27 aprile",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5933"
+},
+{
+"id": 14329,
+"class": "article",
+"published": "2024-02-02",
+"name": "Viabilità, modifiche al traffico per lavori in zona Stazione e viale Gramsci",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14329"
+},
+{
+"id": 12083,
+"class": "article",
+"published": "2023-10-06",
+"name": "Lavori in zona Stazione, da lunedì nuove modifiche al traffico",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/12083"
+},
+{
+"id": 27148,
+"class": "article",
+"published": "2025-12-29",
+"name": "Notte di Capodanno: le modifiche alla viabilità e alla sosta. Lungarni chiusi dalle 17.30, dalle 18.30 il Ponte di Mezzo anche al passaggio pedonale",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27148"
+},
+{
+"id": 14232,
+"class": "article",
+"published": "2024-01-12",
+"name": "Modifiche al traffico in zona Duomo martedì 16 e mercoledì 17 gennaio",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14232"
+},
+{
+"id": 5116,
+"class": "article",
+"published": "2022-10-12",
+"name": "Domenica di sport sui Lungarni: le modifiche al traffico",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5116"
+},
+{
+"id": 5297,
+"class": "article",
+"published": "2023-01-19",
+"name": "La Polizia Municipale di Pisa festeggia San Sebastiano, il bilancio delle attività 2022",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5297"
+},
+{
+"id": 15347,
+"class": "article",
+"published": "2024-04-19",
+"name": "Sport e inclusione: domenica “Rally-Amo”",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/15347"
+},
+{
+"id": 23473,
+"class": "article",
+"published": "2025-05-16",
+"name": "Aspettando il Giro, lunedì 19 maggio grande evento sul Ponte di Mezzo con il deejay internazionale Federico Scavo",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/23473"
+},
+{
+"id": 25550,
+"class": "article",
+"published": "2025-09-19",
+"name": "Settimana della Mobilità: durante il “Bike to Work Day” trecento persone pedalano in centro storico per la sostenibilità",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/25550"
+},
+{
+"id": 29484,
+"class": "article",
+"published": "2026-05-29",
+"name": "Festa della Repubblica, il programma delle celebrazioni per gli 80 anni della Repubblica",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/29484"
+},
+{
+"id": 29461,
+"class": "article",
+"published": "2026-05-29",
+"name": "Regata delle Antiche Repubbliche Marinare: le modifiche alla viabilità e alla sosta per il 2 giugno.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/29461"
+},
+{
+"id": 4932,
+"class": "article",
+"published": "2022-12-30",
+"name": "Capodanno, tutte le modifiche al traffico. Ponte di Mezzo chiuso ai pedoni dalle 18.30",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/4932"
+},
+{
+"id": 14284,
+"class": "article",
+"published": "2024-03-15",
+"name": "Stazione di Pisa, cantiere verso la conclusione. Le modifiche al traffico",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14284"
+},
+{
+"id": 5648,
+"class": "article",
+"published": "2023-09-22",
+"name": "Raduno nazionale dei Marinai d’Italia, le modifiche al traffico nel weekend",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5648"
+},
+{
+"id": 18556,
+"class": "article",
+"published": "2024-08-07",
+"name": "Viabilità: un’area pedonale tra via Corsica e piazza Buonamici",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/18556"
+},
+{
+"id": 28317,
+"class": "article",
+"published": "2026-03-19",
+"name": "Mobilità sostenibile, Dringoli e Scarpa: “Già avviato il confronto con l’Università che ringraziamo per la disponibilità”",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28317"
+},
+{
+"id": 5151,
+"class": "article",
+"published": "2023-05-10",
+"name": "Elezioni amministrative: oltre 72mila elettori alle urne per eleggere Sindaco e Consiglio Comunale",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5151"
+},
+{
+"id": 21313,
+"class": "article",
+"published": "2024-12-30",
+"name": "Capodanno, misure per la sicurezza e per la viabilità. Niente vetro e botti in centro storico. Spettacoli in piazza dei Cavalieri e fuochi d’artificio sul Ponte di Mezzo",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/21313"
+},
+{
+"id": 15922,
+"class": "document",
+"published": "2024-06-14",
+"name": "Seduta consiliare del 20 giugno 2024",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/15922"
+},
+{
+"id": 16979,
+"class": "document",
+"published": "2024-07-04",
+"name": "Seduta consiliare dell'8 luglio 2024",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/16979"
+},
+{
+"id": 20195,
+"class": "document",
+"published": "2024-10-18",
+"name": "Seduta consiliare del 21 ottobre 2024",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/20195"
+},
+{
+"id": 22062,
+"class": "document",
+"published": "2025-02-20",
+"name": "Seduta consiliare del 24 febbraio 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/22062"
+},
+{
+"id": 29060,
+"class": "article",
+"published": "2026-05-07",
+"name": "Partecipazione, alla scuola Mazzini l’assemblea dei quartieri di Porta a Lucca, Gagno e I Passi",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/29060"
+},
+{
+"id": 15519,
+"class": "article",
+"published": "2023-12-28",
+"name": "Capodanno: le misure per la sicurezza e per la viabilità",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/15519"
+},
+{
+"id": 5759,
+"class": "article",
+"published": "2023-09-25",
+"name": "Seduta consiliare del 25 settembre 2023",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5759"
+},
+{
+"id": 5194,
+"class": "article",
+"published": "2023-06-22",
+"name": "Gioco del Ponte: misure di sicurezza e modifiche al traffico",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5194"
+},
+{
+"id": 5115,
+"class": "article",
+"published": "2022-03-18",
+"name": "Domenica chiusi al traffico Ponte di Mezzo, Ponte della Fortezza e Lungarno Fibonacci",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5115"
+},
+{
+"id": 23476,
+"class": "article",
+"published": "2025-05-16",
+"name": "Disabilità, presentata la relazione del Garante Di Ciolo per l’anno 2024",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/23476"
+},
+{
+"id": 28068,
+"class": "article",
+"published": "2026-02-26",
+"name": "Ex Caserma Artale, demoliti i primi fabbricati dove verrà realizzato il parcheggio multipiano",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28068"
+},
+{
+"id": 28484,
+"class": "article",
+"published": "2026-03-26",
+"name": "Eventi del Capodanno pisano, sabato 28 marzo alle ore 23.00 spettacolo di droni sui lungarni. Domenica il corteo storico",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28484"
+},
+{
+"id": 30629,
+"class": "article",
+"published": "2026-09-10",
+"name": "Mobilità sostenibile, al Comune di Pisa finanziamento da 8,8 milioni di euro. Risorse per trasporto pubblico, ciclopedonalità, sicurezza degli spostamenti, gestione del traffico e nuove tecnologie.",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/30629"
+},
+{
+"id": 19559,
+"class": "document",
+"published": "2024-09-20",
+"name": "Seduta consiliare del 23 settembre 2024",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/19559"
+},
+{
+"id": 20021,
+"class": "document",
+"published": "2024-10-10",
+"name": "Seduta consiliare del 14 ottobre 2024",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/20021"
+},
+{
+"id": 20404,
+"class": "document",
+"published": "2024-10-31",
+"name": "Seduta consiliare del 7 novembre 2024",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/20404"
+},
+{
+"id": 21724,
+"class": "document",
+"published": "2025-01-27",
+"name": "Seduta consiliare del 30 gennaio 2025 ",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/21724"
+},
+{
+"id": 22006,
+"class": "document",
+"published": "2025-02-13",
+"name": "Seduta consiliare del 17 febbraio 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/22006"
+},
+{
+"id": 14272,
+"class": "article",
+"published": "2024-02-26",
+"name": "Seduta Consiliare del 26 febbraio 2024",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14272"
+},
+{
+"id": 14283,
+"class": "article",
+"published": "2024-03-04",
+"name": "Seduta Consiliare del 4 marzo 2024",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/14283"
+},
+{
+"id": 5452,
+"class": "article",
+"published": "2022-09-09",
+"name": "Modifiche al traffico da lunedì 12 settembre per lavori e riprese cinematografiche",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5452"
+},
+{
+"id": 23272,
+"class": "article",
+"published": "2025-05-06",
+"name": "“Pisa fa il Giro”: sabato 10 maggio si accedono le piazze del centro con “La Notte Rosa della Musica”",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/23272"
+},
+{
+"id": 13353,
+"class": "article",
+"published": "2022-09-09",
+"name": "Repubbliche Marinare: per esigenze televisive anticipato alle 17.30 il via alla Regata",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/13353"
+},
+{
+"id": 4894,
+"class": "article",
+"published": "2023-11-21",
+"name": "Bilancio 2024, sindaco Conti «Attenzione a fasce più deboli e famiglie. Continuano investimenti di sviluppo per la città»",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/4894"
+},
+{
+"id": 13244,
+"class": "article",
+"published": "2022-01-20",
+"name": "Municipale, nel 2021 39 arresti per spaccio e +40% operazioni antidroga",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/13244"
+},
+{
+"id": 5335,
+"class": "article",
+"published": "2023-03-25",
+"name": "Lungarni chiusi al traffico domenica 26 marzo per manifestazione sportiva",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5335"
+},
+{
+"id": 5788,
+"class": "article",
+"published": "2023-09-11",
+"name": "Seduta consiliare dell'11 settembre 2023",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5788"
+},
+{
+"id": 24155,
+"class": "article",
+"published": "2025-06-18",
+"name": "Pisa celebra la Festa Europea della Musica: il 21 giugno la città si trasforma in un grande palcoscenico all'aperto",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/24155"
+},
+{
+"id": 23423,
+"class": "article",
+"published": "2025-05-14",
+"name": "Giro d’Italia, tutte le modifiche al traffico a Pisa per martedì 20 maggio e giorni precedenti",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/23423"
+},
+{
+"id": 22351,
+"class": "document",
+"published": "2025-03-06",
+"name": "Seduta consiliare del 10 marzo 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/22351"
+},
+{
+"id": 22956,
+"class": "document",
+"published": "2025-04-10",
+"name": "Seduta consiliare del 14 aprile 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/22956"
+},
+{
+"id": 23619,
+"class": "document",
+"published": "2025-05-22",
+"name": "Seduta consiliare del 26 maggio 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/23619"
+},
+{
+"id": 23713,
+"class": "document",
+"published": "2025-05-29",
+"name": "Seduta consiliare del 5 giugno 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/23713"
+},
+{
+"id": 24382,
+"class": "document",
+"published": "2025-07-03",
+"name": "Seduta consiliare del 7 luglio 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/24382"
+},
+{
+"id": 25459,
+"class": "document",
+"published": "2025-09-16",
+"name": "Seduta consiliare del 18 settembre 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/25459"
+},
+{
+"id": 26122,
+"class": "document",
+"published": "2025-10-20",
+"name": "Seduta consiliare del 23 ottobre 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/26122"
+},
+{
+"id": 26189,
+"class": "document",
+"published": "2025-10-27",
+"name": "Seduta consiliare del 30 ottobre 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/26189"
+},
+{
+"id": 26425,
+"class": "document",
+"published": "2025-11-10",
+"name": "Seduta consiliare del 13 novembre 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/26425"
+},
+{
+"id": 26767,
+"class": "document",
+"published": "2025-12-04",
+"name": "Seduta consiliare del 4 dicembre 2025",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/26767"
+},
+{
+"id": 27474,
+"class": "document",
+"published": "2026-01-19",
+"name": "Seduta consiliare del 15 gennaio 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27474"
+},
+{
+"id": 27559,
+"class": "document",
+"published": "2026-01-26",
+"name": "Seduta consiliare del 22 gennaio 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/27559"
+},
+{
+"id": 28546,
+"class": "document",
+"published": "2026-03-31",
+"name": "Seduta consiliare del 19 marzo 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28546"
+},
+{
+"id": 29949,
+"class": "document",
+"published": "2026-07-10",
+"name": "Seduta Consiliare del 09 Luglio 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/29949"
+},
+{
+"id": 30746,
+"class": "document",
+"published": "2026-09-18",
+"name": "Seduta Consiliare del 17 Settembre 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/30746"
+},
+{
+"id": 31188,
+"class": "document",
+"published": "2026-10-16",
+"name": "Seduta Consiliare del 15 Ottobre 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/31188"
+},
+{
+"id": 5749,
+"class": "article",
+"published": "2022-06-21",
+"name": "Seduta consiliare del 21 giugno 2022",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5749"
+},
+{
+"id": 5937,
+"class": "article",
+"published": "2022-07-06",
+"name": "Tradizioni, la rievocazione della “Fine dell’assedio del 10 luglio 1500”",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5937"
+},
+{
+"id": 5722,
+"class": "article",
+"published": "2022-06-14",
+"name": "Seduta consiliare del 14 giugno 2022",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5722"
+},
+{
+"id": 5731,
+"class": "article",
+"published": "2022-05-17",
+"name": "Seduta consiliare del 17 maggio 2022",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/5731"
+},
+{
+"id": 221,
+"class": "article",
+"published": "2022-07-25",
+"name": "Con il nuovo sito web, il Comune di Pisa è sempre più digitale",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/221"
+},
+{
+"id": 28769,
+"class": "article",
+"published": "2026-04-15",
+"name": "Partecipazione, all’Hotel Continental l’assemblea del Litorale. Quarta tappa della campagna di ascolto di Sindaco e Giunta nei quartieri",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28769"
+},
+{
+"id": 28451,
+"class": "document",
+"published": "2026-03-25",
+"name": "Seduta consiliare del 19 febbraio 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28451"
+},
+{
+"id": 28791,
+"class": "document",
+"published": "2026-04-17",
+"name": "Seduta consiliare del 16 aprile 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/28791"
+},
+{
+"id": 29174,
+"class": "document",
+"published": "2026-05-18",
+"name": "Seduta consiliare del 12 maggio 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/29174"
+},
+{
+"id": 29634,
+"class": "document",
+"published": "2026-06-12",
+"name": "Seduta Consiliare del 11 Giugno 2026",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/29634"
+},
+{
+"id": 16276,
+"class": "article",
+"published": "2024-06-14",
+"name": "Luminara di San Ranieri: tutti gli orari, le informazioni e le misure per la sicurezza",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/16276"
+},
+{
+"id": 24098,
+"class": "article",
+"published": "2025-06-13",
+"name": "Luminara di San Ranieri: orari, informazioni e misure di sicurezza",
+"link": "http://www.comune.pisa.it/api/opendata/v2/content/read/24098"
+}
+],
+"totalCount": 227
+}
