@@ -1,3 +1,8 @@
+Novità della 1.14.1 (navigatore):
+• L'auto scorre liscia sulla mappa, agganciata alla strada, e la mappa la segue senza scatti
+• Navigatore più leggero: la mappa non ridisegna più tutto il percorso a ogni posizione
+• Ricalcolo dopo una svolta sbagliata (anche in una via parallela vicina) o un'inversione, e nuovo tentativo se la rete non risponde
+
 Novità della 1.13.0 «UX»:
 • Prima pagina: un tocco su «Il tuo hotel» (dai viaggi salvati) o su un posto recente e la risposta compare subito nel riquadro, senza cambiare pagina
 • Primo avvio: alla fine «Dove vai?» con le città (Firenze, Bologna, Milano, Roma, Siena) e una pagina che spiega perché serve la posizione («per avvisarti prima dei varchi») prima della richiesta di iOS

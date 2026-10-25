@@ -65,8 +65,10 @@ enum PathMath {
     }
 }
 
-/// La navigazione dentro l'app: istruzioni svolta per svolta con la voce, ricalcolo se esci dal percorso,
-/// e avvisi a voce prima di entrare in una ZTL attiva.
+/// La navigazione dentro l'app: istruzioni svolta per svolta con la voce, ricalcolo se esci dal percorso
+/// o vai contromano, e avvisi a voce prima di entrare in una ZTL attiva.
+/// A ogni posizione si fa poco lavoro: la strada si cerca vicino al punto raggiunto, i metri che mancano
+/// sono già sommati, le risposte delle ZTL e le telecamere lungo il percorso si calcolano una volta.
 @MainActor
 final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate, AVSpeechSynthesizerDelegate {
     static let shared = DriveSession()
@@ -93,11 +95,17 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     @Published private(set) var here: Coordinate?
     @Published private(set) var course: Double = 0             // direzione di marcia in gradi
     @Published private(set) var speed: Double = 0              // km/h
-    @Published private(set) var progress = 0                   // punto del percorso già raggiunto
+    @Published private(set) var progress = 0                   // tratto del percorso già raggiunto
     @Published private(set) var nextZTL: (crossing: RouteCrossing, meters: Double, answer: Answer)?
     @Published var muted = false
     @Published private(set) var routeLength: Double = 0          // metri totali del percorso
+    /// Cambia a ogni percorso nuovo (anche dopo un ricalcolo): la mappa ridisegna linee e simboli solo allora
+    @Published private(set) var routeVersion = 0
     private(set) var signals: [(point: Coordinate, along: Double)] = []
+    /// Il percorso con le distanze già sommate
+    private(set) var track = RouteTrack([])
+    /// A quanti metri dall'inizio del percorso si entra in ogni ZTL (per id della zona)
+    private(set) var entryAlong: [String: Double] = [:]
 
     private let manager = CLLocationManager()
     // La voce si crea solo quando serve: niente lavoro audio all'avvio dell'app
@@ -109,16 +117,36 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     private weak var store: Store?
     private var secondsPerMeter = 0.08
     private var announced = Set<String>()
-    private var offRouteCount = 0
     private var activity: Activity<DriveAttributes>?
     private var lastShown: DriveAttributes.ContentState?
+
+    // Percorso: fine di ogni tratto (metri dall'inizio) e lunghezza di ogni tratto
+    private var stepEnds: [Double] = []
+    private var stepLengths: [Double] = []
+    private var along: Double = 0
+    // Le telecamere delle corsie bus a meno di 25 m dal percorso, trovate una volta per percorso
+    private var busCameras: [Camera] = []
+    // Le risposte delle ZTL: si ricalcolano ogni 30 s o se l'ora d'ingresso stimata cambia di due minuti
+    private var answerCache: [String: (time: Date, bucket: Int, answer: Answer)] = [:]
+
+    // Ricalcolo
+    private var detector = OffRouteDetector()
+    private var needsReroute = false
+    private var routing = false
+    private var lastRerouteAt = Date.distantPast
+    private var lastRecalcSpoken = Date.distantPast
+    private var backOnRoute = 0
+    /// Non più di un ricalcolo ogni tanti secondi (anche per riprovare se la rete non risponde)
+    static let rerouteInterval: TimeInterval = 8
+
+    // Movimento fluido
+    private var interpolator = PoseInterpolator()
 
     /// La prossima manovra (l'istruzione del tratto successivo)
     var nextInstruction: String? { index + 1 < steps.count ? steps[index + 1].instruction : nil }
     /// La manovra dopo quella successiva («Poi …»), se è vicina
     var thenInstruction: String? {
-        guard index + 2 < steps.count, PathMath.remaining(from: steps[index + 1].path.first ?? Coordinate(lat: 0, lon: 0),
-                                                           along: steps[index + 1].path) < 250 else { return nil }
+        guard index + 2 < steps.count, index + 1 < stepLengths.count, stepLengths[index + 1] < 250 else { return nil }
         return steps[index + 2].instruction
     }
     /// Metri già percorsi lungo il percorso
@@ -131,6 +159,9 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     /// Percorso già fatto e da fare (per disegnarli in modo diverso)
     var travelled: [Coordinate] { Array(path.prefix(progress + 1)) }
     var ahead: [Coordinate] { Array(path.dropFirst(progress)) }
+
+    /// Dove disegnare l'auto adesso (tra una posizione GPS e l'altra), «time» = CACurrentMediaTime()
+    func displayPose(at time: Double) -> Pose? { interpolator.pose(at: time, track: track) }
 
     override init() {
         super.init()
@@ -145,10 +176,18 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     func start(to place: Place, store: Store) async {
         self.store = store
         destination = place
-        error = nil; arrived = false; warning = nil; announced = []; offRouteCount = 0
+        error = nil; arrived = false; warning = nil; announced = []
+        detector.reset(); needsReroute = false; routing = false; backOnRoute = 0
+        lastRerouteAt = .distantPast; lastRecalcSpoken = .distantPast
+        interpolator.reset(); here = nil
         manager.requestWhenInUseAuthorization()
         let origin = manager.location?.coordinate ?? RoutePlanner.testOrigin
-        guard await route(from: origin, to: place) else { return }
+        guard let r = await calculate(from: origin, to: place, course: nil) else {
+            error = origin == nil ? L("Couldn't find your position. Allow location access to plan the drive.")
+                                  : L("Couldn't plan the drive right now. Check your connection.")
+            return
+        }
+        apply(r)
         active = true
         UIApplication.shared.isIdleTimerDisabled = true
         VoiceSession.configure()
@@ -157,6 +196,9 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
             manager.allowsBackgroundLocationUpdates = true
             manager.showsBackgroundLocationIndicator = true
         }
+        // Durante la guida: ogni posizione (il filtro lo fa il codice), mai in pausa da sola
+        manager.distanceFilter = kCLDistanceFilterNone
+        manager.pausesLocationUpdatesAutomatically = false
         manager.startUpdatingLocation()
         if let first = steps.first?.instruction, !first.isEmpty { say(first) }
         startActivity(to: place)
@@ -165,6 +207,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
 
     func stop() {
         manager.stopUpdatingLocation()
+        manager.distanceFilter = 5
         if manager.allowsBackgroundLocationUpdates { manager.allowsBackgroundLocationUpdates = false }
         voice.stopSpeaking(at: .immediate)
         VoiceSession.deactivate()
@@ -175,49 +218,127 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         activity = nil; lastShown = nil
         active = false
         steps = []; path = []; crossings = []; warning = nil; destination = nil; nextZTL = nil; progress = 0
+        track = RouteTrack([]); entryAlong = [:]; signals = []; busCameras = []; answerCache = [:]
+        stepEnds = []; stepLengths = []; along = 0
+        interpolator.reset()
+        routeVersion += 1
         // Anche lo stato del ricalcolo e dell'arrivo: alla guida dopo non deve restare «Ricalcolo…»
-        rerouting = false; offRouteCount = 0; arrived = false; eta = nil
+        rerouting = false; needsReroute = false; routing = false; detector.reset(); arrived = false; eta = nil
     }
 
-    /// Il percorso Apple, diviso in tratti con le istruzioni, e il controllo delle ZTL lungo la strada
-    private func route(from origin: CLLocationCoordinate2D?, to place: Place) async -> Bool {
+    /// Il percorso Apple. Con la direzione di marcia (ricalcolo) si chiedono anche le alternative e si
+    /// preferisce quella che parte nel verso in cui stai andando, invece di farti fare inversione.
+    private func calculate(from origin: CLLocationCoordinate2D?, to place: Place, course: Double?) async -> MKRoute? {
         let request = MKDirections.Request()
         request.source = origin.map { MKMapItem(placemark: MKPlacemark(coordinate: $0)) } ?? .forCurrentLocation()
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: place.location.cl))
         request.transportType = .automobile
-        guard let r = try? await MKDirections(request: request).calculate().routes.first else {
-            error = origin == nil ? L("Couldn't find your position. Allow location access to plan the drive.")
-                                  : L("Couldn't plan the drive right now. Check your connection.")
-            return false
+        request.requestsAlternateRoutes = course != nil
+        guard let routes = try? await MKDirections(request: request).calculate().routes, let first = routes.first else { return nil }
+        guard let course else { return first }
+        let fastest = first.expectedTravelTime
+        return routes.first { r in
+            r.expectedTravelTime < fastest * 1.4 && Self.initialBearing(r.polyline.coordinates).map {
+                abs(Heading.delta(course, $0)) < 90
+            } ?? true
+        } ?? first
+    }
+
+    /// La direzione dei primi metri del percorso
+    private static func initialBearing(_ coords: [CLLocationCoordinate2D]) -> Double? {
+        guard let a = coords.first else { return nil }
+        let start = Coordinate(lat: a.latitude, lon: a.longitude)
+        for c in coords.dropFirst() {
+            let p = Coordinate(lat: c.latitude, lon: c.longitude)
+            if PathMath.meters(start, p) > 15 { return Heading.bearing(start, p) }
         }
+        return nil
+    }
+
+    /// Il percorso nuovo: tratti con le istruzioni, distanze già sommate, ZTL, semafori e telecamere lungo la strada
+    private func apply(_ r: MKRoute) {
         steps = r.steps.map { s in
             Step(instruction: s.instructions, path: s.polyline.coordinates.map { Coordinate(lat: $0.latitude, lon: $0.longitude) })
         }.filter { !$0.path.isEmpty }
         index = 0
         progress = 0
+        along = 0
         path = r.polyline.coordinates.map { Coordinate(lat: $0.latitude, lon: $0.longitude) }
-        routeLength = r.distance
+        track = RouteTrack(path)
+        routeLength = track.length > 0 ? track.length : r.distance
+        // La fine di ogni tratto in metri dall'inizio: le lunghezze dei tratti, riportate alla lunghezza del percorso
+        stepLengths = steps.map { RouteTrack($0.path).length }
+        let sum = stepLengths.reduce(0, +)
+        let scale = sum > 0 ? routeLength / sum : 1
+        var acc = 0.0
+        stepEnds = stepLengths.map { acc += $0 * scale; return acc }
         signals = TrafficSignals.along(path)
         secondsPerMeter = r.distance > 0 ? r.expectedTravelTime / r.distance : 0.08
+        answerCache = [:]
         if let store {
             crossings = RouteCheck.crossings(path: RouteCheck.densify(path), zones: store.cities.flatMap(\.zones),
                                              departure: Date(), travelTime: r.expectedTravelTime) {
                 store.answer(at: $1, zone: $0, hotelInside: false)
             }
+            busCameras = Self.camerasNear(path, cameras: store.cities.flatMap { $0.cameras ?? [] }.filter { $0.kind == .bus })
+        } else {
+            crossings = []; busCameras = []
         }
-        return true
+        entryAlong = Dictionary(crossings.compactMap { c in
+            c.entry.flatMap { track.locateAnywhere($0) }.map { (c.id, $0.along) }
+        }, uniquingKeysWith: { a, _ in a })
+        detector.reset()
+        interpolator.dropAlong()
+        routeVersion += 1
+    }
+
+    /// Le telecamere a meno di 25 m dal percorso (prima un rettangolo attorno alla strada, poi la distanza vera)
+    static func camerasNear(_ path: [Coordinate], cameras: [Camera]) -> [Camera] {
+        guard path.count > 1, !cameras.isEmpty else { return [] }
+        let lats = path.map(\.lat), lons = path.map(\.lon)
+        let (s, n, w, e) = (lats.min()! - 0.001, lats.max()! + 0.001, lons.min()! - 0.0015, lons.max()! + 0.0015)
+        return cameras.filter { c in
+            c.location.lat > s && c.location.lat < n && c.location.lon > w && c.location.lon < e
+                && PathMath.distance(from: c.location, to: path) < 25
+        }
     }
 
     // MARK: A ogni nuova posizione
 
-    func update(_ p: Coordinate, course c: Double? = nil, speed v: Double? = nil) {
-        if let c, c >= 0 { course = c } else if let here, PathMath.meters(here, p) > 8 {
-            course = atan2((p.lon - here.lon) * cos(p.lat * .pi / 180), p.lat - here.lat) * 180 / .pi
+    func update(_ p: Coordinate, course c: Double? = nil, speed v: Double? = nil, accuracy acc: Double = 10) {
+        let previous = here
+        var validCourse: Double?
+        if let c, c >= 0 { validCourse = c; course = c } else if let previous, PathMath.meters(previous, p) > 8 {
+            course = Heading.bearing(previous, p)
         }
         if let v, v >= 0 { speed = v * 3.6 }
         here = p
-        progress = PathMath.nearestIndex(of: p, in: path, from: progress)
-        guard active, let destination, !steps.isEmpty else { return }
+        let now = CACurrentMediaTime()
+        guard active, let destination, !steps.isEmpty, !track.isEmpty else {
+            interpolator.push(Pose(coordinate: p, heading: course, along: nil), speed: max(0, v ?? 0), at: now, track: nil)
+            return
+        }
+
+        // Dove sei sul percorso: si cerca vicino al tratto raggiunto; se lì non c'è strada (dopo una galleria,
+        // o il GPS tornato dopo un po') si guarda tutto il percorso, solo più avanti
+        var fix = track.locate(p, near: progress, course: speed > OffRouteDetector.minSpeedKmh ? validCourse : nil)
+        if let f = fix, f.distance > OffRouteDetector.threshold(accuracy: acc),
+           let g = track.locateAnywhere(p), g.distance <= OffRouteDetector.threshold(accuracy: acc),
+           g.along > along - 50, g.along < along + 2_000 {
+            fix = g
+        }
+        guard let fix else { return }
+        let onRoad = fix.distance <= OffRouteDetector.threshold(accuracy: acc)
+        if onRoad {
+            along = fix.along
+            if fix.segment != progress { progress = fix.segment }
+        }
+
+        // L'auto disegnata: agganciata alla strada se sei sul percorso con un GPS buono, altrimenti dove sei
+        let snapped = !needsReroute && fix.distance < 20 && acc <= 30
+        let target = snapped ? Pose(coordinate: fix.point, heading: fix.bearing, along: fix.along)
+                             : Pose(coordinate: p, heading: course, along: nil)
+        interpolator.push(target, speed: max(0, v ?? speed / 3.6), at: now, track: track)
 
         // Arrivo
         if PathMath.meters(p, destination.location) < 35 {
@@ -226,39 +347,37 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
             return
         }
 
-        // Fuori percorso per tre posizioni di fila → ricalcolo
-        if PathMath.distance(from: p, to: path) > 70 {
-            offRouteCount += 1
-            if offRouteCount >= 3 && !rerouting {
+        // Fuori percorso o contromano → ricalcolo (detto una volta, al massimo uno ogni 8 secondi, riprova se fallisce)
+        let verdict = detector.feed(distance: fix.distance, accuracy: acc, course: validCourse, speedKmh: speed, routeBearing: fix.bearing)
+        if verdict == .offRoute || verdict == .wrongWay {
+            backOnRoute = 0
+            if !needsReroute {
+                needsReroute = true
                 rerouting = true
-                say(L("Recalculating."))
-                Task {
-                    _ = await route(from: p.cl, to: destination)
-                    // Guida finita mentre si ricalcolava: il percorso nuovo non deve tornare sulla mappa
-                    guard active, self.destination == destination else {
-                        if !active { steps = []; path = []; crossings = [] }
-                        rerouting = false
-                        return
-                    }
-                    announced = announced.filter { $0.hasPrefix("ztl|") }
-                    offRouteCount = 0
-                    rerouting = false
+                if Date().timeIntervalSince(lastRecalcSpoken) > 15 {
+                    lastRecalcSpoken = Date()
+                    say(L("Recalculating."))
                 }
             }
-        } else {
-            offRouteCount = 0
+        } else if verdict == .onRoute && needsReroute && !routing {
+            // Tornato sulla strada prima del ricalcolo (o mentre si riprovava): si continua col percorso di prima
+            backOnRoute += 1
+            if backOnRoute >= 3 { needsReroute = false; rerouting = false; backOnRoute = 0 }
+        }
+        if needsReroute && !routing && Date().timeIntervalSince(lastRerouteAt) >= Self.rerouteInterval {
+            reroute(from: p, course: validCourse, speed: speed / 3.6, to: destination)
         }
 
         // Tratto attuale: si passa al successivo quando la sua fine è vicina
-        while index + 1 < steps.count && PathMath.remaining(from: p, along: steps[index].path) < 15 {
+        while index + 1 < steps.count && index < stepEnds.count && stepEnds[index] - along < 15 {
             index += 1
         }
-        toNext = PathMath.remaining(from: p, along: steps[index].path)
-        remaining = PathMath.remaining(from: p, along: path)
+        toNext = max(0, (index < stepEnds.count ? stepEnds[index] : routeLength) - along)
+        remaining = track.remaining(fromAlong: along)
         eta = Date().addingTimeInterval(remaining * secondsPerMeter)
 
         // La prossima manovra a voce: una volta da lontano e una appena prima
-        if let next = nextInstruction, !next.isEmpty {
+        if !needsReroute, let next = nextInstruction, !next.isEmpty {
             if toNext < 500 && toNext > 120 && !announced.contains("far|\(index)") {
                 announced.insert("far|\(index)")
                 say(String(format: L("In %@, %@"), Self.distanceText(toNext), next))
@@ -268,44 +387,68 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
             }
         }
 
-        // ZTL davanti: avviso a voce verso i 500 metri, se a quell'ora non si entra liberamente
-        // La prossima ZTL sul percorso, sempre visibile (anche se è lontana o non attiva)
-        // «remaining» calcolato una volta sola, non due per ogni ZTL del percorso
-        let left = remaining
-        nextZTL = crossings.compactMap { c -> (RouteCrossing, Double, Answer)? in
-            guard let entry = c.entry, let store, !c.zone.contains(lat: p.lat, lon: p.lon) else { return nil }
-            let ahead = left - PathMath.remaining(from: entry, along: path)
-            guard ahead > 0 else { return nil }
-            return (c, ahead, store.answer(at: Date().addingTimeInterval(ahead * secondsPerMeter), zone: c.zone, hotelInside: false))
-        }.min { $0.1 < $1.1 }.map { (crossing: $0.0, meters: $0.1, answer: $0.2) }
-
-        warning = nil
+        // ZTL davanti: la prossima sempre visibile (anche lontana o non attiva), avviso a voce verso i 500 metri
+        // se a quell'ora non si entra liberamente. Metri lungo la strada, risposta tenuta per 30 s.
+        var ahead: [(crossing: RouteCrossing, meters: Double, answer: Answer)] = []
         for c in crossings {
-            guard let entry = c.entry, let store else { continue }
-            let d = PathMath.meters(p, entry)
-            let answer = store.answer(at: Date().addingTimeInterval(d * secondsPerMeter), zone: c.zone, hotelInside: false)
-            if case .yes = answer.verdict { continue }
-            if d < 800 && !c.zone.contains(lat: p.lat, lon: p.lon) {
-                warning = String(format: L("%@ in %@: %@"), c.zone.shortName, Self.distanceText(d), answer.verdict.short)
-                if d < 550 && !announced.contains("ztl|\(c.zone.id)") {
-                    announced.insert("ztl|\(c.zone.id)")
-                    say(String(format: L("Attention: in %@ you enter %@. %@."), Self.distanceText(d), c.zone.shortName, answer.verdict.short))
-                }
-                break
-            }
+            guard let entryAt = entryAlong[c.id], !c.zone.contains(lat: p.lat, lon: p.lon) else { continue }
+            let m = entryAt - along
+            guard m > 0 else { continue }
+            ahead.append((c, m, cachedAnswer(c, inSeconds: m * secondsPerMeter)))
         }
-        // Telecamere delle corsie bus vicine: avviso a voce una volta sola
-        if let store {
-            for city in store.cities {
-                for cam in city.cameras ?? [] where cam.kind == .bus && !announced.contains("cam|\(cam.id)") {
-                    if PathMath.meters(p, cam.location) < 150 && PathMath.distance(from: cam.location, to: path) < 25 {
-                        announced.insert("cam|\(cam.id)")
-                        say(L("Bus lane camera ahead: stay out of the bus lane."))
-                    }
-                }
+        ahead.sort { $0.meters < $1.meters }
+        nextZTL = ahead.first
+
+        var newWarning: String?
+        for a in ahead where a.meters < 800 {
+            if case .yes = a.answer.verdict { continue }
+            let zone = a.crossing.zone
+            newWarning = String(format: L("%@ in %@: %@"), zone.shortName, Self.distanceText(a.meters), a.answer.verdict.short)
+            if a.meters < 550 && !announced.contains("ztl|\(zone.id)") {
+                announced.insert("ztl|\(zone.id)")
+                say(String(format: L("Attention: in %@ you enter %@. %@."), Self.distanceText(a.meters), zone.shortName, a.answer.verdict.short))
             }
+            break
+        }
+        if newWarning != warning { warning = newWarning }
+
+        // Telecamere delle corsie bus vicine (solo quelle lungo il percorso): avviso a voce una volta sola
+        for cam in busCameras where !announced.contains("cam|\(cam.id)") && PathMath.meters(p, cam.location) < 150 {
+            announced.insert("cam|\(cam.id)")
+            say(L("Bus lane camera ahead: stay out of the bus lane."))
         }
         refreshActivity()
+    }
+
+    /// La risposta per una ZTL, ricalcolata solo ogni 30 s o se l'ora d'ingresso stimata cambia di due minuti
+    private func cachedAnswer(_ c: RouteCrossing, inSeconds s: Double) -> Answer {
+        let bucket = Int(s / 120)
+        if let e = answerCache[c.id], e.bucket == bucket, Date().timeIntervalSince(e.time) < 30 { return e.answer }
+        guard let store else { return c.answer }
+        let a = store.answer(at: Date().addingTimeInterval(s), zone: c.zone, hotelInside: false)
+        answerCache[c.id] = (Date(), bucket, a)
+        return a
+    }
+
+    /// Il ricalcolo da dove sei, nel verso in cui vai. Se la rete non risponde si riprova alla posizione dopo
+    /// (non prima di 8 secondi), mostrando sempre «Ricalcolo…».
+    private func reroute(from p: Coordinate, course: Double?, speed: Double, to destination: Place) {
+        routing = true
+        lastRerouteAt = Date()
+        // In movimento si parte un po' più avanti (dove sarai quando arriva la risposta), nel verso di marcia
+        let origin = course.map { c in speed > 2.2 ? PathMath.offset(p, meters: min(25, speed * 1.5), bearing: c) : p } ?? p
+        Task {
+            let r = await calculate(from: origin.cl, to: destination, course: course)
+            routing = false
+            // Guida finita (o un'altra destinazione) mentre si ricalcolava: il percorso nuovo non deve tornare sulla mappa
+            guard active, self.destination == destination else { return }
+            guard needsReroute, let r else { return }        // tornato sulla strada, oppure errore: si riprova
+            apply(r)
+            announced = announced.filter { $0.hasPrefix("ztl|") || $0.hasPrefix("cam|") }
+            needsReroute = false
+            rerouting = false
+            backOnRoute = 0
+        }
     }
 
     // MARK: Live Activity
@@ -358,9 +501,13 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let l = locations.last, l.horizontalAccuracy >= 0, l.horizontalAccuracy < 65 else { return }
+        // Le posizioni vecchie (arrivate in ritardo tutte insieme) o troppo imprecise non si usano
+        guard let l = locations.last, l.horizontalAccuracy >= 0, l.horizontalAccuracy < 65,
+              abs(l.timestamp.timeIntervalSinceNow) < 5 else { return }
         let c = Coordinate(lat: l.coordinate.latitude, lon: l.coordinate.longitude)
-        let course = l.course, speed = l.speed
-        Task { @MainActor in self.update(c, course: course, speed: speed) }
+        // La direzione conta solo se il GPS la dà abbastanza precisa
+        let courseOK = l.course >= 0 && (l.courseAccuracy < 0 || l.courseAccuracy <= 45)
+        let course = courseOK ? l.course : -1, speed = l.speed, accuracy = l.horizontalAccuracy
+        Task { @MainActor in self.update(c, course: course, speed: speed, accuracy: accuracy) }
     }
 }

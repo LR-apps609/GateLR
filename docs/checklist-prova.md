@@ -142,6 +142,19 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 - [ ] Uscendo dal percorso: «Ricalcolo il percorso»
 - [ ] Live Activity con la manovra; «Fine» chiude tutto
 
+### 5b. Navigatore in macchina (1.14.1): fluido e ricalcolo
+Da provare guidando davvero (con qualcuno che guarda il telefono, o col telefono sul supporto):
+- [ ] L'auto scorre **liscia** sulla mappa come in Apple/Google Maps, senza salti una volta al secondo; la mappa gira morbida nelle curve
+- [ ] Sulla strada l'auto è **sulla linea del percorso** (non a lato); nelle curve segue la curva
+- [ ] Nessun rallentamento dopo 10–15 minuti di guida (pulsanti e mappa rispondono subito)
+- [ ] Il percorso già fatto diventa grigio dietro l'auto, quello davanti resta colorato
+- [ ] **Svolta sbagliata** apposta (anche in una via parallela vicina, in centro): entro 3–5 secondi la voce dice «Ricalcolo il percorso», in alto «Ricalcolo…», poi le istruzioni nuove da dove sei
+- [ ] **Inversione a U** (o strada fatta al contrario): dopo pochi secondi ricalcola, e se possibile ti fa proseguire nel verso in cui vai
+- [ ] Fermo al semaforo o in coda con il GPS che «balla»: **non** ricalcola
+- [ ] Senza rete durante il ricalcolo: resta «Ricalcolo…» e riprova da solo (ogni ~8 secondi); tornando sul percorso di prima riprende quello
+- [ ] Dopo il ricalcolo: barra della ZTL e avvisi a voce giusti per il percorso nuovo
+- [ ] Ricentra, Panoramica e le quattro viste (Guida 3D, Classica, Satellite, Notte) come prima
+
 ## 6. Mappa
 - [ ] Zone verdi (Area B) ben visibili, piene e con il bordo spesso
 - [ ] Niente scritte grandi: un cerchio piccolo colorato con la lettera per zona
