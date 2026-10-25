@@ -1,0 +1,16 @@
+1 200 53 https://www.dati.lombardia.it/api/geospatial/jhcz-yki3?method=export&format=GeoJSON -> 1-jhcz-yki3_
+2 200 271891 https://www.dati.lombardia.it/api/geospatial/tkwz-spd9?method=export&format=GeoJSON -> 2-tkwz-spd9_
+3 200 5533 https://www.dati.lombardia.it/api/views/jhcz-yki3.json -> 3-jhcz-yki3.json_
+4 200 10615 https://www.dati.lombardia.it/api/views/tkwz-spd9.json -> 4-tkwz-spd9.json_
+5 200 262047 https://www.dati.lombardia.it/api/views/tkwz-spd9/rows.csv?accessType=DOWNLOAD -> 5-rows.csv_
+6 200 275804 https://www.atb.bergamo.it/ztl/ztl-di-bergamo -> 6-ztl-di-bergamo_
+7 200 293303 https://www.atb.bergamo.it/ztl/permessi-temporanei -> 7-permessi-temporanei_
+8 200 298347 https://www.atb.bergamo.it/ztl/permessi-continuativi -> 8-permessi-continuativi_
+9 200 273388 https://www.atb.bergamo.it/ztl/sportello-ztl -> 9-sportello-ztl_
+10 200 278551 https://www.atb.bergamo.it/public/atb/ZTL/faq_ztlcolli.pdf -> 10-faq_ztlcolli.pdf_
+11 200 286901 https://atb.bergamo.it/news/permessi-di-transito-in-citta-alta -> 11-permessi-di-transito-in-citta-alta_
+12 200 271933 https://www.atb.bergamo.it/avvisi/ztl-attivazione-varchi-in-uscita-dal-12-dicembre-2025 -> 12-ztl-attivazione-varchi-in-uscita-dal-12-dicembre-2025_
+13 200 325330 https://www.bergamonews.it/2026/10/12/ztl-citta-alta-nuove-regole-per-la-sosta-dei-lavoratori-serali-cosa-cambia-dal-19-ottobre/928451 -> 13-928451_
+14 200 377756 https://www.bergamonews.it/2025/02/11/rincari-per-clienti-di-alberghi-e-ristoranti-nelle-ztl-di-bergamo/777457/ -> 14-777457_
+15 200 136136 https://primabergamo.it/attualita/entra-nella-ztl-con-mezzo-elettrico-e-pass-disabili-e-prende-sei-multe-il-cartello-non-e-chiaro/ -> 15-entra-nella-ztl-con-mezzo-elettrico-e-pass-disabili-e-prende-sei-multe-il-cartel
+16 200 252214 https://www.autovia.it/ztl-bergamo-guida-completa/ -> 16-ztl-bergamo-guida-completa_
