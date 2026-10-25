@@ -1,0 +1,47 @@
+# Scarica pagine, PDF o richieste Overpass che dall'ambiente di lavoro non si raggiungono.
+# Input: un nome (il ramo sarà «pagine-<nome>») e gli indirizzi separati da spazi o a capo.
+# Un indirizzo che inizia con «overpass:» è una richiesta Overpass QL (il resto della riga, con %20 al posto degli spazi).
+name: Scarica pagine
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Nome (ramo pagine-<nome>)"
+        required: true
+      urls:
+        description: "Indirizzi separati da spazi"
+        required: true
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Scarica
+        env:
+          URLS: ${{ github.event.inputs.urls }}
+        run: |
+          mkdir out && cd out
+          i=0
+          for u in $URLS; do
+            i=$((i+1))
+            if [[ "$u" == overpass:* ]]; then
+              q=$(python3 -c "import sys,urllib.parse;print(urllib.parse.unquote(sys.argv[1][9:]))" "$u")
+              for host in overpass-api.de overpass.kumi.systems; do
+                curl -sS -m 300 --data-urlencode "data=$q" "https://$host/api/interpreter" -o "$i-overpass.json" && break
+              done
+              echo "$i overpass $(wc -c < "$i-overpass.json" 2>/dev/null)" >> log.txt
+            else
+              f="$i-$(basename "${u%%\?*}" | tr -c 'A-Za-z0-9._-' '_' | cut -c1-80)"
+              code=$(curl -sSL -m 120 -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Safari/605.1.15" -o "$f" -w "%{http_code}" "$u" || echo ERR)
+              echo "$i $code $(wc -c < "$f" 2>/dev/null) $u -> $f" >> log.txt
+            fi
+          done
+          cat log.txt
+      - name: Pubblica nel ramo «pagine-<nome>»
+        run: |
+          cd out
+          git init -q && git checkout -q -b "pagine-${{ github.event.inputs.name }}" && git add .
+          git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Pagine ${{ github.event.inputs.name }} $(date -u +%F)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" "pagine-${{ github.event.inputs.name }}" 2>&1 | tail -n 2
