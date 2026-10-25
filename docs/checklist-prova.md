@@ -1,7 +1,15 @@
-# GateLR 1.11.0 – Checklist delle prove a mano
+# GateLR 1.12.0 – Checklist delle prove a mano
 
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
+
+## ★ Velocità e iPad (1.12.0)
+- [ ] Mappa su **Milano**: allarga fino a vedere tutta l'Area B e stringi fino al Duomo, più volte e in fretta → niente scatti; da lontano i 188 varchi spariscono e tornano sotto i ~12 km di distanza
+- [ ] Mappa su **Firenze** (Scudo Verde) e **Roma**: stesso zoom avanti e indietro, fluido; da vicino confini e lettere identici a prima (nessun angolo «tagliato»)
+- [ ] Spostando la mappa da una città all'altra le zone compaiono appena ti fermi; tocco dentro una zona → la sceglie come prima
+- [ ] Varco e Viaggio: la risposta per un indirizzo arriva subito; avvio dell'app senza schermo nero
+- [ ] **iPad**: l'app si installa, gira in verticale e in orizzontale (anche Split View); Varco, Viaggio, Garage e Account con il contenuto al centro, non stirato; Mappa e navigatore a tutto schermo con barra e scheda centrate
+- [ ] iPad: «Dettagli zona», «Novità», «Leggi il cartello», menu «Avvia» e «Usare sempre…?» si aprono e si chiudono senza problemi
 
 ## ★ Siri (1.11.0)
 - [ ] «Ehi Siri, posso entrare a Firenze Settore A con GateLR» → «Firenze Settore A: Non entrare. I varchi si spengono oggi alle 20:00.» (o «Puoi entrare… si accendono…»)

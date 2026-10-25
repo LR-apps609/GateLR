@@ -20,12 +20,12 @@ struct WhatsNewView: View {
     }
 
     private let items: [(symbol: String, tint: Color, title: String, text: String)] = [
-        ("waveform", Color(hex: 0x7A4BD1), "Ask Siri about a zone",
-         "\"Hey Siri, can I drive into Florence Sector A with GateLR?\": the answer for now or for the time you arrive."),
-        ("shield.slash", Theme.red, "Stop the guardian by voice",
-         "\"Hey Siri, stop the GateLR guardian\", also from Shortcuts and the Action button."),
-        ("shield.lefthalf.filled", Color(hex: 0x1F4E9E), "Guardian widget",
-         "On the Home and Lock Screen: your zone right now and one tap to start the guardian."),
+        ("map", Theme.green, "Smoother maps",
+         "Milan, Florence and Rome move smoothly when you zoom in and out: from far away the borders are lighter and the gates appear as you get closer."),
+        ("bolt.fill", Color(hex: 0x1F4E9E), "Quicker answers",
+         "Finding the zone of an address or of where you are takes less time, also while you drive."),
+        ("ipad.landscape", Color(hex: 0x7A4BD1), "GateLR on iPad",
+         "Every orientation, the map full screen and pages that stay easy to read on the big screen."),
     ]
 
     var body: some View {

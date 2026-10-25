@@ -10,6 +10,51 @@ struct Coordinate: Codable, Hashable {
     var cl: CLLocationCoordinate2D { .init(latitude: lat, longitude: lon) }
 }
 
+/// Il rettangolo (in gradi) che contiene un perimetro: si calcola una volta quando si legge la città e
+/// scarta subito i punti lontani, prima del calcolo sul poligono (centinaia di lati a Milano e Firenze)
+struct BBox: Codable, Hashable {
+    var minLat: Double, minLon: Double, maxLat: Double, maxLon: Double
+
+    init(minLat: Double, minLon: Double, maxLat: Double, maxLon: Double) {
+        self.minLat = minLat; self.minLon = minLon; self.maxLat = maxLat; self.maxLon = maxLon
+    }
+
+    /// nil se il perimetro è vuoto
+    init?(_ points: [Coordinate]) {
+        guard let first = points.first else { return nil }
+        var lo = first, hi = first
+        for p in points {
+            if p.lat < lo.lat { lo.lat = p.lat }
+            if p.lon < lo.lon { lo.lon = p.lon }
+            if p.lat > hi.lat { hi.lat = p.lat }
+            if p.lon > hi.lon { hi.lon = p.lon }
+        }
+        self.init(minLat: lo.lat, minLon: lo.lon, maxLat: hi.lat, maxLon: hi.lon)
+    }
+
+    func contains(lat: Double, lon: Double) -> Bool {
+        lat >= minLat && lat <= maxLat && lon >= minLon && lon <= maxLon
+    }
+
+    func intersects(_ o: BBox) -> Bool {
+        minLat <= o.maxLat && maxLat >= o.minLat && minLon <= o.maxLon && maxLon >= o.minLon
+    }
+
+    /// Più largo di «fraction» della sua misura per lato (0.5 = metà in più a sinistra, a destra, sopra e sotto)
+    func expanded(by fraction: Double) -> BBox {
+        let dLat = (maxLat - minLat) * fraction, dLon = (maxLon - minLon) * fraction
+        return BBox(minLat: minLat - dLat, minLon: minLon - dLon, maxLat: maxLat + dLat, maxLon: maxLon + dLon)
+    }
+
+    /// Distanza approssimata in metri dal rettangolo (0 se dentro): mai più grande della distanza
+    /// dai punti del perimetro, quindi va bene per scartare le zone lontane
+    func distance(lat: Double, lon: Double) -> Double {
+        let dLat = lat < minLat ? minLat - lat : (lat > maxLat ? lat - maxLat : 0)
+        let dLon = lon < minLon ? minLon - lon : (lon > maxLon ? lon - maxLon : 0)
+        return hypot(dLat * 111_000, dLon * 111_000 * cos(lat * .pi / 180))
+    }
+}
+
 struct City: Codable, Identifiable, Hashable {
     var id: String              // "firenze"
     var name: String            // "Florence"
@@ -53,6 +98,15 @@ struct Zone: Codable, Identifiable, Hashable {
     var source: Source
     /// Le feste del patrono della città ("MM-DD"): copiate dalla città quando si legge il file (CityLoader)
     var localHolidays: [String]? = nil
+    /// Calcolati una volta quando si legge la città (prepare()): rettangolo e area del perimetro
+    var bounds: BBox? = nil
+    var area: Double? = nil
+
+    /// Rettangolo e area pronti: zones(at:) e la zona più vicina non rifanno i conti a ogni posizione
+    mutating func prepare() {
+        bounds = BBox(perimeter)
+        area = Zone.polygonArea(perimeter)
+    }
 }
 
 /// Un'area pedonale: le auto non entrano mai (salvo i mezzi autorizzati)
@@ -60,9 +114,11 @@ struct PedestrianArea: Codable, Hashable, Identifiable {
     var id: String
     var name: String
     var perimeter: [Coordinate]
+    var bounds: BBox? = nil
 
     func contains(lat: Double, lon: Double) -> Bool {
-        Zone.inside(perimeter, lat: lat, lon: lon)
+        if let bounds, !bounds.contains(lat: lat, lon: lon) { return false }
+        return Zone.inside(perimeter, lat: lat, lon: lon)
     }
 }
 
@@ -334,7 +390,10 @@ extension Zone {
     }
 
     /// Il punto è dentro il perimetro? (ray casting sulle coordinate)
-    func contains(lat: Double, lon: Double) -> Bool { Zone.inside(perimeter, lat: lat, lon: lon) }
+    func contains(lat: Double, lon: Double) -> Bool {
+        if let bounds, !bounds.contains(lat: lat, lon: lon) { return false }      // fuori dal rettangolo: niente poligono
+        return Zone.inside(perimeter, lat: lat, lon: lon)
+    }
 
     static func inside(_ perimeter: [Coordinate], lat: Double, lon: Double) -> Bool {
         var inside = false
@@ -350,7 +409,9 @@ extension Zone {
     }
 
     /// Area approssimata (gradi²): serve a scegliere il settore più piccolo quando sono uno dentro l'altro
-    var roughArea: Double {
+    var roughArea: Double { area ?? Zone.polygonArea(perimeter) }
+
+    static func polygonArea(_ perimeter: [Coordinate]) -> Double {
         var s = 0.0
         var j = perimeter.count - 1
         for i in perimeter.indices { s += (perimeter[j].lon + perimeter[i].lon) * (perimeter[j].lat - perimeter[i].lat); j = i }
@@ -360,6 +421,7 @@ extension Zone {
     /// Distanza approssimata in metri dal perimetro (0 se dentro)
     func distance(lat: Double, lon: Double) -> Double {
         if contains(lat: lat, lon: lon) { return 0 }
+        guard !perimeter.isEmpty else { return .infinity }
         let k = cos(lat * .pi / 180)
         return perimeter.map { p in hypot((p.lat - lat) * 111_000, (p.lon - lon) * 111_000 * k) }.min() ?? .infinity
     }

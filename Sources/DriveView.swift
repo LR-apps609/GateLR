@@ -11,6 +11,8 @@ struct DriveView: View {
     @State private var following = true
     @State private var movedByUs = Date.distantPast
     @State private var setDistance: Double = 0            // la distanza della camera decisa da noi
+    /// Gradino di zoom (MapDetail): allontanando la mappa con le dita, i perimetri si semplificano
+    @State private var bucket = 0
     @AppStorage("driveView") private var view = DriveViewStyle.guide.rawValue
     @AppStorage("vehicleMarker") private var marker = VehicleMarker.arrow.rawValue
     @AppStorage("vehicleColor") private var markerColor = VehicleColor.blue.rawValue
@@ -75,7 +77,7 @@ struct DriveView: View {
     private var map: some View {
         Map(position: $camera) {
             ForEach(drive.crossings) { c in
-                MapPolygon(coordinates: MapShapes.coords(c.zone, store))   // già convertito, non a ogni posizione
+                MapPolygon(coordinates: MapShapes.coords(c.zone, store, bucket: bucket))   // già convertito, non a ogni posizione
                     .foregroundStyle(c.zone.type.color.opacity(c.zone.type == .green ? 0.18 : 0.14))
                     .stroke(c.zone.type.color, style: StrokeStyle(lineWidth: c.zone.type == .green ? 4 : 2.5, dash: c.zone.type == .green ? [] : [8, 5]))
             }
@@ -136,6 +138,8 @@ struct DriveView: View {
         .simultaneousGesture(DragGesture(minimumDistance: 10).onChanged { _ in following = false })
         // Anche zoom e inclinazione fatti con le dita: se la camera non è più quella decisa da noi, compare «Ricentra»
         .onMapCameraChange(frequency: .onEnd) { ctx in
+            let b = MapDetail.bucket(for: ctx.camera.distance)
+            if b != bucket { bucket = b }
             guard following, setDistance > 0, Date().timeIntervalSince(movedByUs) > 0.3 else { return }
             if abs(ctx.camera.distance - setDistance) / setDistance > 0.25 { following = false }
         }

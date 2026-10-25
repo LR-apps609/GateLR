@@ -9,8 +9,8 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.11.0"
-    CURRENT_PROJECT_VERSION: "22"
+    MARKETING_VERSION: "1.12.0"
+    CURRENT_PROJECT_VERSION: "23"
 
 targets:
   GateLR:
@@ -63,6 +63,8 @@ targets:
           UIImageName: LaunchLogo
           UIImageRespectsSafeAreaInsets: true
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        # iPad: tutte le orientazioni (anche Split View e Slide Over); l'iPhone resta in verticale
+        UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
         NSHumanReadableCopyright: "Uso personale di Ledion"
         NSCameraUsageDescription: "GateLR reads the hours on the ZTL panel you point the camera at."
         NSLocationWhenInUseUsageDescription: "GateLR uses your location to tell you which ZTL gates are near you."
@@ -82,7 +84,7 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: it.ledion.GateLR
         PRODUCT_NAME: GateLR
-        TARGETED_DEVICE_FAMILY: "1"
+        TARGETED_DEVICE_FAMILY: "1,2"          # iPhone e iPad
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         GENERATE_INFOPLIST_FILE: NO
@@ -125,7 +127,7 @@ targets:
         SWIFT_STRICT_CONCURRENCY: minimal
         CODE_SIGN_STYLE: Automatic
         DEVELOPMENT_TEAM: ""
-        TARGETED_DEVICE_FAMILY: "1"
+        TARGETED_DEVICE_FAMILY: "1,2"          # iPhone e iPad
         APPLICATION_EXTENSION_API_ONLY: YES
 
   # Test automatici del motore delle regole: girano sul Mac di GitHub a ogni modifica.

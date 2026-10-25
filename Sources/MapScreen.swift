@@ -15,6 +15,9 @@ struct MapScreen: View {
     @State private var camera: MapCameraPosition = .automatic
     @State private var distance: Double = 8_000         // distanza della camera, per le scritte
     @State private var center: CLLocationCoordinate2D?
+    /// Livello di dettaglio (MapDetail.bucket) e parte visibile con margine: si aggiornano alla fine dei gesti
+    @State private var bucket = MapDetail.bucket(for: 8_000)
+    @State private var visibleBox: BBox?
     @State private var style: Style = .standard
     @State private var tilted = false
     @State private var driving = false
@@ -65,8 +68,12 @@ struct MapScreen: View {
         let zone = store.zone
         let answer = store.answer()
         // Le forme pronte (ordinate, grandi sotto) si calcolano una volta per ogni versione dei dati, non a ogni disegno
-        let shapes = MapShapes.zones(store)
-        let zones = shapes.map(\.zone)
+        // Da lontano perimetri semplificati e solo le zone nella parte visibile (MapShapes, ricalcolati solo
+        // quando cambia il gradino di zoom o la parte visibile alla fine di un gesto)
+        let shapes = MapShapes.visible(store, bucket: bucket, in: visibleBox, selected: zone.id)
+        // Da lontano niente varchi (pallini sovrapposti a centinaia); da vicino quelli nella parte visibile
+        let gateGroups = distance < MapDetail.gateDistance
+            ? MapShapes.gates(store, in: visibleBox, selected: zone.id, near: distance < 6_000) : []
         // Il posto cercato: la risposta si calcola una volta per disegno e vale per zone, spillo e scheda
         let check = store.place.map { PlaceCheck($0, store: store) }
         let lit = check?.zoneIds ?? []
@@ -128,9 +135,9 @@ struct MapScreen: View {
                     }
                 }
                 // Ogni varco con lo stato della sua zona
-                ForEach(shapes.filter { $0.zone.id == zone.id || (distance < 6_000 && isNear($0.label)) }.map(\.zone)) { z in
-                    let on = store.engine.isActive(z, at: Date())
-                    ForEach(z.gates) { g in
+                ForEach(gateGroups) { group in
+                    let on = store.engine.isActive(group.zone, at: Date())
+                    ForEach(group.gates) { g in
                         Annotation(g.name, coordinate: g.location.cl) {
                             Image(systemName: "video.fill")
                                 .font(.app(size: 9, weight: .bold))
@@ -198,19 +205,28 @@ struct MapScreen: View {
             .onMapCameraChange(frequency: .onEnd) { ctx in
                 distance = ctx.camera.distance
                 center = ctx.camera.centerCoordinate
+                // Gradino di zoom e parte visibile: cambiano solo alla fine del gesto
+                let b = MapDetail.bucket(for: ctx.camera.distance)
+                if b != bucket { bucket = b }
+                let box = MapShapes.box(ctx.region)
+                if box != visibleBox { visibleBox = box }
             }
             .onTapGesture { point in
                 guard let c = proxy.convert(point, from: .local) else { return }
                 // Le forme sono già ordinate dalla più grande: l'ultima che contiene il punto è la più piccola
-                if let z = zones.last(where: { $0.contains(c) }), z.id != zone.id {
+                if let z = MapShapes.zones(store).last(where: { $0.zone.contains(c) })?.zone, z.id != zone.id {
                     withAnimation(.snappy) { select(z) }
                 }
             }
         }
-        .safeAreaInset(edge: .top) { topBar }
+        // iPad: la mappa a tutto schermo, barra e scheda larghe al massimo 700 punti, al centro
+        .safeAreaInset(edge: .top) { topBar.readableFrame() }
         .safeAreaInset(edge: .bottom) {
             if !typing {
-                if let check { placeSheet(check) } else { sheet(zone: zone, answer: answer) }
+                Group {
+                    if let check { placeSheet(check) } else { sheet(zone: zone, answer: answer) }
+                }
+                .readableFrame()
             }
         }
         .onAppear { search.focus(on: store.city) }
@@ -555,6 +571,8 @@ struct MapScreen: View {
 /// Le forme delle zone pronte per la mappa: coordinate già convertite, punto della lettera, larghezza,
 /// ordine dalla più grande. Prima si ricalcolava tutto a ogni disegno (perimetri da 800 punti, ordinamento
 /// che ricalcolava l'area a ogni confronto), anche più volte al secondo.
+/// Livello di dettaglio: per ogni gradino di zoom (MapDetail) i perimetri semplificati si calcolano una volta
+/// e restano in memoria; si disegnano solo le zone e i varchi dentro la parte di mappa visibile (con margine).
 @MainActor
 enum MapShapes {
     struct Shape: Identifiable {
@@ -562,29 +580,100 @@ enum MapShapes {
         let coords: [CLLocationCoordinate2D]
         let label: CLLocationCoordinate2D
         let width: Double
+        let bounds: BBox
         var id: String { zone.id }
     }
     struct Area: Identifiable {
         let id: String
         let coords: [CLLocationCoordinate2D]
     }
+    /// I varchi di una zona da disegnare
+    struct GateGroup: Identifiable {
+        let zone: Zone
+        let gates: [Gate]
+        var id: String { zone.id }
+    }
+
+    private struct VisibleKey: Equatable {
+        var bucket: Int, box: BBox?, selected: String
+    }
+    private struct GateKey: Equatable {
+        var box: BBox?, selected: String, near: Bool
+    }
 
     private static var version = -1
     private static var shapes: [Shape] = []
+    private static var byId: [String: Int] = [:]
     private static var areas: [String: [Area]] = [:]
+    private static var detail: [Int: [Shape]] = [:]
+    private static var visibleKey: VisibleKey?
+    private static var visibleShapes: [Shape] = []
+    private static var gateKey: GateKey?
+    private static var gateGroups: [GateGroup] = []
 
     private static func refresh(_ store: Store) {
         guard version != store.citiesVersion else { return }
         version = store.citiesVersion
         let ranked: [(zone: Zone, area: Double)] = store.cities.flatMap(\.zones).map { (zone: $0, area: $0.roughArea) }
         shapes = ranked.sorted { $0.area > $1.area }                   // le grandi sotto
-            .map { Shape(zone: $0.zone, coords: $0.zone.perimeter.map(\.cl), label: $0.zone.labelPoint, width: $0.zone.widthMeters) }
+            .map { r -> Shape in
+                let z = r.zone
+                let box = z.bounds ?? BBox(z.perimeter) ?? BBox(minLat: 0, minLon: 0, maxLat: 0, maxLon: 0)
+                return Shape(zone: z, coords: z.perimeter.map(\.cl), label: z.labelPoint, width: z.widthMeters, bounds: box)
+            }
+        byId = [:]
+        for (i, s) in shapes.enumerated() { byId[s.zone.id] = i }
         areas = [:]
+        detail = [:]
+        visibleKey = nil
+        gateKey = nil
     }
 
+    /// Tutte le zone con il perimetro intero (tocchi sulla mappa, ricerche)
     static func zones(_ store: Store) -> [Shape] {
         refresh(store)
         return shapes
+    }
+
+    /// Tutte le zone con il perimetro semplificato per quel gradino di zoom (0 = intero)
+    static func zones(_ store: Store, bucket: Int) -> [Shape] {
+        refresh(store)
+        guard bucket > 0 else { return shapes }
+        if let hit = detail[bucket] { return hit }
+        let tolerance = MapDetail.tolerance(for: bucket)
+        let list = shapes.map { s in
+            Shape(zone: s.zone, coords: Simplifier.simplifyPolygon(s.zone.perimeter, tolerance: tolerance).map(\.cl),
+                  label: s.label, width: s.width, bounds: s.bounds)
+        }
+        detail[bucket] = list
+        return list
+    }
+
+    /// Le zone da disegnare: quelle che toccano la parte visibile (box, già allargato del margine),
+    /// più quella scelta. Senza box (prima che la mappa dica dove guarda) tutte.
+    static func visible(_ store: Store, bucket: Int, in box: BBox?, selected: String) -> [Shape] {
+        let all = zones(store, bucket: bucket)
+        let key = VisibleKey(bucket: bucket, box: box, selected: selected)
+        if key == visibleKey { return visibleShapes }
+        visibleKey = key
+        visibleShapes = box.map { b in all.filter { $0.zone.id == selected || $0.bounds.intersects(b) } } ?? all
+        return visibleShapes
+    }
+
+    /// I varchi da disegnare: quelli della zona scelta e, da vicino («near»), delle zone visibili;
+    /// sempre solo quelli dentro la parte visibile della mappa
+    static func gates(_ store: Store, in box: BBox?, selected: String, near: Bool) -> [GateGroup] {
+        refresh(store)
+        let key = GateKey(box: box, selected: selected, near: near)
+        if key == gateKey { return gateGroups }
+        gateKey = key
+        gateGroups = shapes.compactMap { s -> GateGroup? in
+            guard s.zone.id == selected || near else { return nil }
+            if let box, !s.bounds.expanded(by: 0.05).intersects(box) { return nil }
+            let list = box.map { b in s.zone.gates.filter { b.contains(lat: $0.location.lat, lon: $0.location.lon) } } ?? s.zone.gates
+            return list.isEmpty ? nil : GateGroup(zone: s.zone, gates: list)
+        }
+        return gateGroups
     }
 
     /// Le aree pedonali di una città
@@ -596,9 +685,19 @@ enum MapShapes {
         return list
     }
 
-    /// Il perimetro di una zona già convertito (per la schermata di guida)
-    static func coords(_ zone: Zone, _ store: Store) -> [CLLocationCoordinate2D] {
-        zones(store).first { $0.zone.id == zone.id }?.coords ?? zone.perimeter.map(\.cl)
+    /// Il perimetro di una zona già convertito (per la schermata di guida), semplificato per il gradino di zoom
+    static func coords(_ zone: Zone, _ store: Store, bucket: Int = 0) -> [CLLocationCoordinate2D] {
+        let list = zones(store, bucket: bucket)
+        if let i = byId[zone.id], i < list.count { return list[i].coords }
+        return zone.perimeter.map(\.cl)
+    }
+
+    /// La parte visibile della mappa, allargata di metà per lato: le forme non spariscono spostando la mappa un poco
+    nonisolated static func box(_ region: MKCoordinateRegion) -> BBox {
+        let c = region.center, s = region.span
+        let b = BBox(minLat: c.latitude - s.latitudeDelta / 2, minLon: c.longitude - s.longitudeDelta / 2,
+                     maxLat: c.latitude + s.latitudeDelta / 2, maxLon: c.longitude + s.longitudeDelta / 2)
+        return b.expanded(by: 0.5)
     }
 }
 
@@ -633,29 +732,28 @@ extension Zone {
     /// Dove mettere la lettera del settore: il centro del rettangolo che contiene il perimetro.
     /// Le zone verdi (che contengono le altre, come l'Area B) hanno la scritta più in alto, per non coprirle.
     var labelPoint: CLLocationCoordinate2D {
-        let lats = perimeter.map(\.lat), lons = perimeter.map(\.lon)
-        let lo = lats.min() ?? 0, hi = lats.max() ?? 0
-        let lat = type == .green ? hi - (hi - lo) * 0.18 : (lo + hi) / 2
-        return .init(latitude: lat, longitude: ((lons.min() ?? 0) + (lons.max() ?? 0)) / 2)
+        let b = box
+        let lat = type == .green ? b.maxLat - (b.maxLat - b.minLat) * 0.18 : (b.minLat + b.maxLat) / 2
+        return .init(latitude: lat, longitude: (b.minLon + b.maxLon) / 2)
     }
+
+    /// Il rettangolo del perimetro: quello calcolato alla lettura, se c'è
+    private var box: BBox { bounds ?? BBox(perimeter) ?? BBox(minLat: 0, minLon: 0, maxLat: 0, maxLon: 0) }
 
     /// Larghezza approssimata in metri: le scritte delle zone piccole compaiono solo da vicino
     var widthMeters: Double {
-        let lats = perimeter.map(\.lat), lons = perimeter.map(\.lon)
-        let latLo: Double = lats.min() ?? 0, latHi: Double = lats.max() ?? 0
-        let lonLo: Double = lons.min() ?? 0, lonHi: Double = lons.max() ?? 0
-        let k: Double = cos((latLo + latHi) / 2 * Double.pi / 180)
-        let tall: Double = (latHi - latLo) * 111_000
-        let wide: Double = (lonHi - lonLo) * 111_000 * k
+        let b = box
+        let k: Double = cos((b.minLat + b.maxLat) / 2 * Double.pi / 180)
+        let tall: Double = (b.maxLat - b.minLat) * 111_000
+        let wide: Double = (b.maxLon - b.minLon) * 111_000 * k
         return max(tall, wide)
     }
 
     func region(padding: Double) -> MKCoordinateRegion {
-        let lats = perimeter.map(\.lat), lons = perimeter.map(\.lon)
-        let center = CLLocationCoordinate2D(latitude: ((lats.min() ?? 0) + (lats.max() ?? 0)) / 2,
-                                            longitude: ((lons.min() ?? 0) + (lons.max() ?? 0)) / 2)
-        let span = MKCoordinateSpan(latitudeDelta: ((lats.max() ?? 0) - (lats.min() ?? 0)) * padding + 0.004,
-                                    longitudeDelta: ((lons.max() ?? 0) - (lons.min() ?? 0)) * padding + 0.004)
+        let b = box
+        let center = CLLocationCoordinate2D(latitude: (b.minLat + b.maxLat) / 2, longitude: (b.minLon + b.maxLon) / 2)
+        let span = MKCoordinateSpan(latitudeDelta: (b.maxLat - b.minLat) * padding + 0.004,
+                                    longitudeDelta: (b.maxLon - b.minLon) * padding + 0.004)
         return MKCoordinateRegion(center: center, span: span)
     }
 }

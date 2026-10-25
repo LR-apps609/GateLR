@@ -418,6 +418,13 @@ T = {
 '"Hey Siri, stop the GateLR guardian", also from Shortcuts and the Action button.': ('«Ehi Siri, ferma il guardiano di GateLR», anche da Comandi rapidi e dal tasto Azione.', '„Hey Siri, stoppe den GateLR-Wächter“ – auch aus Kurzbefehle und mit der Aktionstaste.'),
 'Guardian widget': ('Widget del guardiano', 'Wächter-Widget'),
 'On the Home and Lock Screen: your zone right now and one tap to start the guardian.': ('Nella schermata Home e di blocco: la tua zona adesso e un tocco per avviare il guardiano.', 'Auf dem Home- und Sperrbildschirm: deine Zone jetzt und ein Tipp, um den Wächter zu starten.'),
+# 1.12.0 Velocità e iPad
+'Smoother maps': ('Mappe più fluide', 'Flüssigere Karten'),
+'Milan, Florence and Rome move smoothly when you zoom in and out: from far away the borders are lighter and the gates appear as you get closer.': ('Milano, Firenze e Roma scorrono fluide quando allarghi e stringi: da lontano i confini sono più leggeri e i varchi compaiono avvicinandoti.', 'Mailand, Florenz und Rom bewegen sich flüssig beim Hinein- und Herauszoomen: von weitem sind die Grenzen leichter und die Kameras erscheinen, wenn du näher kommst.'),
+'Quicker answers': ('Risposte più rapide', 'Schnellere Antworten'),
+'Finding the zone of an address or of where you are takes less time, also while you drive.': ('Trovare la zona di un indirizzo o del punto in cui sei richiede meno tempo, anche mentre guidi.', 'Die Zone einer Adresse oder deines Standorts ist schneller gefunden, auch während der Fahrt.'),
+'GateLR on iPad': ('GateLR su iPad', 'GateLR auf dem iPad'),
+'Every orientation, the map full screen and pages that stay easy to read on the big screen.': ('Tutte le orientazioni, la mappa a tutto schermo e pagine che restano comode da leggere sullo schermo grande.', 'Jede Ausrichtung, die Karte im Vollbild und Seiten, die auf dem großen Bildschirm gut lesbar bleiben.'),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

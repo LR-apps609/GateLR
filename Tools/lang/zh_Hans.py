@@ -532,6 +532,12 @@ T = {
 '"Hey Siri, stop the GateLR guardian", also from Shortcuts and the Action button.': '“嘿 Siri，停止 GateLR 守护”，也可以在“快捷指令”和操作按钮中使用。',
 'Guardian widget': '守护小组件',
 'On the Home and Lock Screen: your zone right now and one tap to start the guardian.': '在主屏幕和锁定屏幕上：你所选区域的当前状态，轻点一下即可开启守护。',
+'Smoother maps': '更流畅的地图',
+'Milan, Florence and Rome move smoothly when you zoom in and out: from far away the borders are lighter and the gates appear as you get closer.': '米兰、佛罗伦萨和罗马的地图缩放更流畅：远看时边界更简洁，靠近时才显示摄像头。',
+'Quicker answers': '更快的回答',
+'Finding the zone of an address or of where you are takes less time, also while you drive.': '查找地址或你所在位置的区域更快了，开车时也一样。',
+'GateLR on iPad': 'iPad 版 GateLR',
+'Every orientation, the map full screen and pages that stay easy to read on the big screen.': '支持所有方向，地图全屏显示，大屏幕上的页面依然易于阅读。',
 }
 
 INFO = {

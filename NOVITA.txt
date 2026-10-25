@@ -1,3 +1,8 @@
+Novità della 1.12.0 «Velocità e iPad»:
+• Mappa più fluida a Milano (Area B con 188 varchi), Firenze (Scudo Verde) e Roma: da lontano i confini sono semplificati e i varchi nascosti, si disegna solo la parte visibile; da vicino tutto come prima
+• Ricerca della zona di un indirizzo o della posizione più rapida (rettangoli e aree delle zone calcolati una volta alla lettura delle città)
+• iPad: l'app gira anche su iPad, in tutte le orientazioni, con le pagine centrate e la mappa a tutto schermo
+
 Novità della 1.11.0 «Siri e Comandi rapidi»:
 • Siri: «Ehi Siri, posso entrare a Firenze Settore A con GateLR?» → «Firenze Settore A: Non entrare. I varchi si spengono oggi alle 20:00.»; in Comandi rapidi anche con l'ora di arrivo
 • Siri: «Ehi Siri, ferma il guardiano di GateLR» (anche da Comandi rapidi e dal tasto Azione), senza aprire l'app

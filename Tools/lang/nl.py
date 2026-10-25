@@ -532,6 +532,12 @@ T = {
 '"Hey Siri, stop the GateLR guardian", also from Shortcuts and the Action button.': '‘Hé Siri, stop de GateLR-bewaker’, ook vanuit Opdrachten en met de actieknop.',
 'Guardian widget': 'Bewaker-widget',
 'On the Home and Lock Screen: your zone right now and one tap to start the guardian.': 'Op het beginscherm en toegangsscherm: je zone op dit moment en één tik om de bewaker te starten.',
+'Smoother maps': 'Vloeiendere kaarten',
+'Milan, Florence and Rome move smoothly when you zoom in and out: from far away the borders are lighter and the gates appear as you get closer.': "Milaan, Florence en Rome bewegen vloeiend als je in- en uitzoomt: van ver zijn de grenzen lichter en de camera's verschijnen als je dichterbij komt.",
+'Quicker answers': 'Snellere antwoorden',
+'Finding the zone of an address or of where you are takes less time, also while you drive.': 'De zone van een adres of van waar je bent is sneller gevonden, ook tijdens het rijden.',
+'GateLR on iPad': 'GateLR op iPad',
+'Every orientation, the map full screen and pages that stay easy to read on the big screen.': "Elke oriëntatie, de kaart schermvullend en pagina's die prettig leesbaar blijven op het grote scherm.",
 }
 
 INFO = {

@@ -28,25 +28,33 @@ struct RootView: View {
 
     private var tabs: some View {
         TabView(selection: $tab) {
+            // iPad: le pagine che scorrono restano larghe al massimo 700 punti, al centro; mappa a tutto schermo
             VarcoView(showZone: $showZone, tab: $tab)
+                .readableScrollWidth()
                 .tabItem { Label("Gate", systemImage: "smallcircle.filled.circle") }.tag(Tab.varco)
             MapScreen(showZone: $showZone, tab: $tab)
                 .tabItem { Label("Map", systemImage: "map") }.tag(Tab.map)
             TripView(showZone: $showZone, tab: $tab)
+                .readableScrollWidth()
                 .tabItem { Label("Trip", systemImage: "calendar") }.tag(Tab.trip)
             GarageView()
+                .readableScrollWidth()
                 .tabItem { Label("Garage", systemImage: "car") }.tag(Tab.garage)
             AccountView()
+                .readableScrollWidth()
                 .tabItem { Label("Account", systemImage: "person.crop.circle") }.tag(Tab.account)
         }
         .tint(Theme.red)
         .sensoryFeedback(.selection, trigger: tab)
         .sheet(isPresented: $showZone) {
             NavigationStack { ZoneDetailView(zone: store.zone, city: store.city) }
+                .readableScrollWidth()
         }
         // «Novità»: una volta sola dopo ogni aggiornamento, mai al primo avvio (c'è la presentazione)
         .sheet(isPresented: $whatsNew) {
             WhatsNewView { whatsNew = false }
+                .readableFrame(640)
+                .background(Theme.ground.ignoresSafeArea())
         }
         .task {
             if WhatsNewView.shouldShow(onboarded: onboarded) {
@@ -60,6 +68,8 @@ struct RootView: View {
                 onboarded = true
                 Task { await GateMonitor.shared.startIfReady(store: store) }
             }
+            .readableFrame(640)
+            .background(Theme.ground.ignoresSafeArea())
         }
     }
 

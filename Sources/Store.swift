@@ -85,8 +85,16 @@ final class Store: ObservableObject {
 
     /// Le zone che contengono il punto, dalla più piccola (es. Area C dentro Area B)
     func zones(at c: Coordinate) -> [(city: City, zone: Zone)] {
-        cities.flatMap { city in city.zones.filter { $0.contains(lat: c.lat, lon: c.lon) }.map { (city, $0) } }
-            .sorted { $0.zone.roughArea < $1.zone.roughArea }
+        Store.zones(at: c, in: cities)
+    }
+
+    /// Prima il rettangolo della zona (calcolato alla lettura), poi il poligono; l'area è già pronta
+    nonisolated static func zones(at c: Coordinate, in cities: [City]) -> [(city: City, zone: Zone)] {
+        var hits: [(city: City, zone: Zone)] = []
+        for city in cities {
+            for z in city.zones where z.contains(lat: c.lat, lon: c.lon) { hits.append((city: city, zone: z)) }
+        }
+        return hits.count < 2 ? hits : hits.sorted { $0.zone.roughArea < $1.zone.roughArea }
     }
 
     /// L'area pedonale che contiene il punto, se c'è
@@ -97,8 +105,29 @@ final class Store: ObservableObject {
 
     /// La zona più vicina (se il punto è fuori da tutte), con la distanza in metri
     func nearestZone(to c: Coordinate) -> (city: City, zone: Zone, meters: Double)? {
-        cities.flatMap { city in city.zones.map { (city: city, zone: $0, meters: $0.distance(lat: c.lat, lon: c.lon)) } }
-            .min { $0.meters < $1.meters }
+        Store.nearestZone(to: c, in: cities)
+    }
+
+    /// Le zone in ordine di distanza dal loro rettangolo: appena il rettangolo è più lontano della zona
+    /// migliore trovata, le altre non possono essere più vicine e i loro perimetri non si guardano
+    nonisolated static func nearestZone(to c: Coordinate, in cities: [City]) -> (city: City, zone: Zone, meters: Double)? {
+        typealias Candidate = (city: City, zone: Zone, low: Double)
+        var ranked: [Candidate] = []
+        for city in cities {
+            for z in city.zones {
+                let low: Double = z.bounds?.distance(lat: c.lat, lon: c.lon) ?? 0
+                ranked.append((city: city, zone: z, low: low))
+            }
+        }
+        ranked.sort { $0.low < $1.low }
+        var best: (city: City, zone: Zone, meters: Double)? = nil
+        for r in ranked {
+            if let b = best, r.low > b.meters { break }
+            let m: Double = r.zone.distance(lat: c.lat, lon: c.lon)
+            if let b = best, b.meters <= m { continue }
+            best = (city: r.city, zone: r.zone, meters: m)
+        }
+        return best
     }
 
     /// La città più vicina al punto (per spostare la pagina sulla città giusta)
@@ -203,7 +232,18 @@ enum CityLoader {
         if let local = city.localHolidays {
             for i in city.zones.indices { city.zones[i].localHolidays = local }
         }
+        prepare(&city)
         return city
+    }
+
+    /// Rettangoli e aree calcolati una volta qui, in sottofondo: le ricerche a ogni posizione scartano
+    /// subito le zone lontane senza scorrere i loro perimetri
+    static func prepare(_ city: inout City) {
+        for i in city.zones.indices { city.zones[i].prepare() }
+        if var areas = city.pedestrian {
+            for i in areas.indices { areas[i].bounds = BBox(areas[i].perimeter) }
+            city.pedestrian = areas
+        }
     }
 
     /// Letti una volta sola (il widget li chiede a ogni voce della sua cronologia).
