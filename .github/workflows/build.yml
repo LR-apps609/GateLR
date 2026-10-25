@@ -169,6 +169,7 @@ jobs:
           set -m
           xcrun simctl io "$UDID" recordVideo --codec=h264 --force intro-video/intro2.mp4 > rec.log 2>&1 &
           REC=$!
+          set +m
           echo "::notice::Registrazione avviata ($(date -u +%T))"
           sleep 2
           ARGS="-uitest -intro2 -intro2Autoplay -AppleLanguages (it) -AppleLocale it_IT"
@@ -201,8 +202,8 @@ jobs:
           echo "Prototipo -intro2 di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ)), $SIM" > README.md
           git init -q && git checkout -q -b intro-video && git add .
           git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Video della nuova presentazione per $GITHUB_SHA"
-          set -o pipefail
-          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" intro-video 2>&1 | sed 's/x-access-token:[^@]*@/***@/' | tail -n 5 || { echo "::warning::Push del video non riuscito"; exit 1; }
+          out=$(git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" intro-video 2>&1) && echo "::notice::Video pubblicato nel ramo intro-video" \
+            || { echo "::warning::Push del video non riuscito: $(echo "$out" | sed 's/x-access-token:[^@]*@/***@/' | tail -n 3 | tr '\n' ' ' | cut -c1-400)"; exit 1; }
 
       - name: Registri
         if: failure()
