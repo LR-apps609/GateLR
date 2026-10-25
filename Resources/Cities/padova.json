@@ -1,0 +1,2692 @@
+{
+ "id": "padova",
+ "name": "Padua",
+ "name_it": "Padova",
+ "name_de": "Padua",
+ "center": {
+  "lat": 45.4077,
+  "lon": 11.8735
+ },
+ "zones": [
+  {
+   "id": "padova-b",
+   "name": "Zona B · Squares and Riverside",
+   "name_it": "Zona B · Piazze e Riviere",
+   "name_de": "Zona B · Plätze und Uferstraßen",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised cars 24 hours a day, every day, holidays included (€80 fine). Motorbikes and mopeds may enter. There is no day ticket for tourists. If your hotel is inside, it can register your plate within 48 hours, for loading and unloading only. Many streets here are also pedestrian areas, closed even with a ZTL permit.",
+   "summary_it": "Chiusa alle auto non autorizzate 24 ore su 24, tutti i giorni, festivi compresi (multa 80 €). Moto e ciclomotori entrano. Non c'è un ticket per i turisti. Se l'hotel è dentro, può registrare la targa entro 48 ore, solo per carico e scarico. Molte vie sono anche aree pedonali, chiuse pure a chi ha il permesso ZTL.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Autos gesperrt (80 € Bußgeld). Motorräder und Mofas dürfen hinein. Ein Tagesticket für Touristen gibt es nicht. Liegt dein Hotel innen, kann es dein Kennzeichen binnen 48 Stunden melden, nur zum Be- und Entladen. Viele Straßen sind zudem Fußgängerzonen, gesperrt auch mit ZTL-Genehmigung.",
+   "perimeter": [
+    {
+     "lat": 45.403766,
+     "lon": 11.878708
+    },
+    {
+     "lat": 45.403983,
+     "lon": 11.878785
+    },
+    {
+     "lat": 45.404037,
+     "lon": 11.879015
+    },
+    {
+     "lat": 45.404091,
+     "lon": 11.879015
+    },
+    {
+     "lat": 45.404091,
+     "lon": 11.879245
+    },
+    {
+     "lat": 45.404146,
+     "lon": 11.879245
+    },
+    {
+     "lat": 45.4042,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.404254,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.404254,
+     "lon": 11.878324
+    },
+    {
+     "lat": 45.404308,
+     "lon": 11.878324
+    },
+    {
+     "lat": 45.404417,
+     "lon": 11.877403
+    },
+    {
+     "lat": 45.404471,
+     "lon": 11.877403
+    },
+    {
+     "lat": 45.404525,
+     "lon": 11.877172
+    },
+    {
+     "lat": 45.404797,
+     "lon": 11.877096
+    },
+    {
+     "lat": 45.404797,
+     "lon": 11.877019
+    },
+    {
+     "lat": 45.404851,
+     "lon": 11.877019
+    },
+    {
+     "lat": 45.404851,
+     "lon": 11.877096
+    },
+    {
+     "lat": 45.405014,
+     "lon": 11.877096
+    },
+    {
+     "lat": 45.405014,
+     "lon": 11.877172
+    },
+    {
+     "lat": 45.405122,
+     "lon": 11.877172
+    },
+    {
+     "lat": 45.405122,
+     "lon": 11.877249
+    },
+    {
+     "lat": 45.405285,
+     "lon": 11.877249
+    },
+    {
+     "lat": 45.405285,
+     "lon": 11.877326
+    },
+    {
+     "lat": 45.405394,
+     "lon": 11.877326
+    },
+    {
+     "lat": 45.405448,
+     "lon": 11.87748
+    },
+    {
+     "lat": 45.405665,
+     "lon": 11.877556
+    },
+    {
+     "lat": 45.405719,
+     "lon": 11.877787
+    },
+    {
+     "lat": 45.405774,
+     "lon": 11.877787
+    },
+    {
+     "lat": 45.405774,
+     "lon": 11.878017
+    },
+    {
+     "lat": 45.405828,
+     "lon": 11.878017
+    },
+    {
+     "lat": 45.405828,
+     "lon": 11.87817
+    },
+    {
+     "lat": 45.405774,
+     "lon": 11.87817
+    },
+    {
+     "lat": 45.405774,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.406045,
+     "lon": 11.878631
+    },
+    {
+     "lat": 45.406045,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.406316,
+     "lon": 11.878478
+    },
+    {
+     "lat": 45.406316,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.406587,
+     "lon": 11.878631
+    },
+    {
+     "lat": 45.406642,
+     "lon": 11.878861
+    },
+    {
+     "lat": 45.406696,
+     "lon": 11.878861
+    },
+    {
+     "lat": 45.406696,
+     "lon": 11.879015
+    },
+    {
+     "lat": 45.40675,
+     "lon": 11.879015
+    },
+    {
+     "lat": 45.40675,
+     "lon": 11.879245
+    },
+    {
+     "lat": 45.406804,
+     "lon": 11.879245
+    },
+    {
+     "lat": 45.406804,
+     "lon": 11.879015
+    },
+    {
+     "lat": 45.406859,
+     "lon": 11.879015
+    },
+    {
+     "lat": 45.406859,
+     "lon": 11.878861
+    },
+    {
+     "lat": 45.406913,
+     "lon": 11.878861
+    },
+    {
+     "lat": 45.406913,
+     "lon": 11.878708
+    },
+    {
+     "lat": 45.407076,
+     "lon": 11.878631
+    },
+    {
+     "lat": 45.407076,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.407239,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.407239,
+     "lon": 11.878478
+    },
+    {
+     "lat": 45.40751,
+     "lon": 11.878478
+    },
+    {
+     "lat": 45.40751,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.408921,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.408921,
+     "lon": 11.878631
+    },
+    {
+     "lat": 45.408975,
+     "lon": 11.878631
+    },
+    {
+     "lat": 45.408975,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.410114,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.410114,
+     "lon": 11.878478
+    },
+    {
+     "lat": 45.410386,
+     "lon": 11.878401
+    },
+    {
+     "lat": 45.41044,
+     "lon": 11.878247
+    },
+    {
+     "lat": 45.410223,
+     "lon": 11.878324
+    },
+    {
+     "lat": 45.410223,
+     "lon": 11.878401
+    },
+    {
+     "lat": 45.41006,
+     "lon": 11.878401
+    },
+    {
+     "lat": 45.41006,
+     "lon": 11.878478
+    },
+    {
+     "lat": 45.409355,
+     "lon": 11.878478
+    },
+    {
+     "lat": 45.409355,
+     "lon": 11.878401
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.878401
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.878324
+    },
+    {
+     "lat": 45.409029,
+     "lon": 11.878247
+    },
+    {
+     "lat": 45.408975,
+     "lon": 11.877863
+    },
+    {
+     "lat": 45.408921,
+     "lon": 11.877863
+    },
+    {
+     "lat": 45.408921,
+     "lon": 11.87771
+    },
+    {
+     "lat": 45.408975,
+     "lon": 11.87771
+    },
+    {
+     "lat": 45.408975,
+     "lon": 11.877633
+    },
+    {
+     "lat": 45.408921,
+     "lon": 11.877633
+    },
+    {
+     "lat": 45.408921,
+     "lon": 11.877172
+    },
+    {
+     "lat": 45.408975,
+     "lon": 11.877172
+    },
+    {
+     "lat": 45.409029,
+     "lon": 11.876789
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.876712
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.876635
+    },
+    {
+     "lat": 45.409355,
+     "lon": 11.876635
+    },
+    {
+     "lat": 45.409355,
+     "lon": 11.876558
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.876481
+    },
+    {
+     "lat": 45.409138,
+     "lon": 11.876098
+    },
+    {
+     "lat": 45.409084,
+     "lon": 11.876098
+    },
+    {
+     "lat": 45.409084,
+     "lon": 11.876021
+    },
+    {
+     "lat": 45.409138,
+     "lon": 11.876021
+    },
+    {
+     "lat": 45.409138,
+     "lon": 11.875791
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.875791
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.875637
+    },
+    {
+     "lat": 45.409246,
+     "lon": 11.875637
+    },
+    {
+     "lat": 45.409246,
+     "lon": 11.87556
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.87556
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.87533
+    },
+    {
+     "lat": 45.409138,
+     "lon": 11.87533
+    },
+    {
+     "lat": 45.409138,
+     "lon": 11.875253
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.875253
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.875023
+    },
+    {
+     "lat": 45.409246,
+     "lon": 11.875023
+    },
+    {
+     "lat": 45.409246,
+     "lon": 11.874946
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.874946
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.874716
+    },
+    {
+     "lat": 45.409246,
+     "lon": 11.874716
+    },
+    {
+     "lat": 45.409246,
+     "lon": 11.874639
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.874639
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.874332
+    },
+    {
+     "lat": 45.409246,
+     "lon": 11.874332
+    },
+    {
+     "lat": 45.409246,
+     "lon": 11.874255
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.874255
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.874102
+    },
+    {
+     "lat": 45.409138,
+     "lon": 11.874102
+    },
+    {
+     "lat": 45.409138,
+     "lon": 11.873871
+    },
+    {
+     "lat": 45.409084,
+     "lon": 11.873871
+    },
+    {
+     "lat": 45.409084,
+     "lon": 11.873795
+    },
+    {
+     "lat": 45.409138,
+     "lon": 11.873795
+    },
+    {
+     "lat": 45.409138,
+     "lon": 11.873564
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.873564
+    },
+    {
+     "lat": 45.409192,
+     "lon": 11.873411
+    },
+    {
+     "lat": 45.409301,
+     "lon": 11.873334
+    },
+    {
+     "lat": 45.409301,
+     "lon": 11.873257
+    },
+    {
+     "lat": 45.409029,
+     "lon": 11.87318
+    },
+    {
+     "lat": 45.408975,
+     "lon": 11.87295
+    },
+    {
+     "lat": 45.408921,
+     "lon": 11.87295
+    },
+    {
+     "lat": 45.408921,
+     "lon": 11.87272
+    },
+    {
+     "lat": 45.408866,
+     "lon": 11.87272
+    },
+    {
+     "lat": 45.408921,
+     "lon": 11.871952
+    },
+    {
+     "lat": 45.408975,
+     "lon": 11.871952
+    },
+    {
+     "lat": 45.408975,
+     "lon": 11.871568
+    },
+    {
+     "lat": 45.409029,
+     "lon": 11.871568
+    },
+    {
+     "lat": 45.409029,
+     "lon": 11.871415
+    },
+    {
+     "lat": 45.408649,
+     "lon": 11.871645
+    },
+    {
+     "lat": 45.408649,
+     "lon": 11.871568
+    },
+    {
+     "lat": 45.408487,
+     "lon": 11.871568
+    },
+    {
+     "lat": 45.408487,
+     "lon": 11.871491
+    },
+    {
+     "lat": 45.408324,
+     "lon": 11.871415
+    },
+    {
+     "lat": 45.40827,
+     "lon": 11.871108
+    },
+    {
+     "lat": 45.408053,
+     "lon": 11.871031
+    },
+    {
+     "lat": 45.407998,
+     "lon": 11.871568
+    },
+    {
+     "lat": 45.407944,
+     "lon": 11.871568
+    },
+    {
+     "lat": 45.407944,
+     "lon": 11.871722
+    },
+    {
+     "lat": 45.40789,
+     "lon": 11.871722
+    },
+    {
+     "lat": 45.407835,
+     "lon": 11.871875
+    },
+    {
+     "lat": 45.407727,
+     "lon": 11.871875
+    },
+    {
+     "lat": 45.407727,
+     "lon": 11.872182
+    },
+    {
+     "lat": 45.407673,
+     "lon": 11.872182
+    },
+    {
+     "lat": 45.407618,
+     "lon": 11.872566
+    },
+    {
+     "lat": 45.407456,
+     "lon": 11.872643
+    },
+    {
+     "lat": 45.407456,
+     "lon": 11.87272
+    },
+    {
+     "lat": 45.407293,
+     "lon": 11.87272
+    },
+    {
+     "lat": 45.407293,
+     "lon": 11.872796
+    },
+    {
+     "lat": 45.406913,
+     "lon": 11.87272
+    },
+    {
+     "lat": 45.406967,
+     "lon": 11.87295
+    },
+    {
+     "lat": 45.407022,
+     "lon": 11.87295
+    },
+    {
+     "lat": 45.407022,
+     "lon": 11.87318
+    },
+    {
+     "lat": 45.407076,
+     "lon": 11.87318
+    },
+    {
+     "lat": 45.407076,
+     "lon": 11.873411
+    },
+    {
+     "lat": 45.407022,
+     "lon": 11.873411
+    },
+    {
+     "lat": 45.407022,
+     "lon": 11.873641
+    },
+    {
+     "lat": 45.406967,
+     "lon": 11.873641
+    },
+    {
+     "lat": 45.406967,
+     "lon": 11.873795
+    },
+    {
+     "lat": 45.406913,
+     "lon": 11.873795
+    },
+    {
+     "lat": 45.406913,
+     "lon": 11.873948
+    },
+    {
+     "lat": 45.40675,
+     "lon": 11.874025
+    },
+    {
+     "lat": 45.40675,
+     "lon": 11.874102
+    },
+    {
+     "lat": 45.406587,
+     "lon": 11.874102
+    },
+    {
+     "lat": 45.406587,
+     "lon": 11.874178
+    },
+    {
+     "lat": 45.406316,
+     "lon": 11.874178
+    },
+    {
+     "lat": 45.406316,
+     "lon": 11.874332
+    },
+    {
+     "lat": 45.406262,
+     "lon": 11.874332
+    },
+    {
+     "lat": 45.406208,
+     "lon": 11.874485
+    },
+    {
+     "lat": 45.406045,
+     "lon": 11.874562
+    },
+    {
+     "lat": 45.406099,
+     "lon": 11.874793
+    },
+    {
+     "lat": 45.406045,
+     "lon": 11.874793
+    },
+    {
+     "lat": 45.406045,
+     "lon": 11.875023
+    },
+    {
+     "lat": 45.405991,
+     "lon": 11.875023
+    },
+    {
+     "lat": 45.405936,
+     "lon": 11.875253
+    },
+    {
+     "lat": 45.405665,
+     "lon": 11.87533
+    },
+    {
+     "lat": 45.405665,
+     "lon": 11.875407
+    },
+    {
+     "lat": 45.405339,
+     "lon": 11.87533
+    },
+    {
+     "lat": 45.405339,
+     "lon": 11.875253
+    },
+    {
+     "lat": 45.405231,
+     "lon": 11.875253
+    },
+    {
+     "lat": 45.405231,
+     "lon": 11.875176
+    },
+    {
+     "lat": 45.405122,
+     "lon": 11.8751
+    },
+    {
+     "lat": 45.405068,
+     "lon": 11.874716
+    },
+    {
+     "lat": 45.405014,
+     "lon": 11.874716
+    },
+    {
+     "lat": 45.405014,
+     "lon": 11.875023
+    },
+    {
+     "lat": 45.405068,
+     "lon": 11.875023
+    },
+    {
+     "lat": 45.405068,
+     "lon": 11.876098
+    },
+    {
+     "lat": 45.405014,
+     "lon": 11.876098
+    },
+    {
+     "lat": 45.405014,
+     "lon": 11.876328
+    },
+    {
+     "lat": 45.40496,
+     "lon": 11.876328
+    },
+    {
+     "lat": 45.40496,
+     "lon": 11.876481
+    },
+    {
+     "lat": 45.404905,
+     "lon": 11.876481
+    },
+    {
+     "lat": 45.404851,
+     "lon": 11.876635
+    },
+    {
+     "lat": 45.40458,
+     "lon": 11.876712
+    },
+    {
+     "lat": 45.40458,
+     "lon": 11.876789
+    },
+    {
+     "lat": 45.404308,
+     "lon": 11.876712
+    },
+    {
+     "lat": 45.404308,
+     "lon": 11.876635
+    },
+    {
+     "lat": 45.404146,
+     "lon": 11.876635
+    },
+    {
+     "lat": 45.404146,
+     "lon": 11.876558
+    },
+    {
+     "lat": 45.40382,
+     "lon": 11.876405
+    },
+    {
+     "lat": 45.40382,
+     "lon": 11.876328
+    },
+    {
+     "lat": 45.403712,
+     "lon": 11.876328
+    },
+    {
+     "lat": 45.403712,
+     "lon": 11.876251
+    },
+    {
+     "lat": 45.403386,
+     "lon": 11.876098
+    },
+    {
+     "lat": 45.403332,
+     "lon": 11.875944
+    },
+    {
+     "lat": 45.403277,
+     "lon": 11.875944
+    },
+    {
+     "lat": 45.403223,
+     "lon": 11.875637
+    },
+    {
+     "lat": 45.403169,
+     "lon": 11.875637
+    },
+    {
+     "lat": 45.403115,
+     "lon": 11.876021
+    },
+    {
+     "lat": 45.403006,
+     "lon": 11.876098
+    },
+    {
+     "lat": 45.403006,
+     "lon": 11.876174
+    },
+    {
+     "lat": 45.402898,
+     "lon": 11.876174
+    },
+    {
+     "lat": 45.402898,
+     "lon": 11.876251
+    },
+    {
+     "lat": 45.402572,
+     "lon": 11.876328
+    },
+    {
+     "lat": 45.402572,
+     "lon": 11.876251
+    },
+    {
+     "lat": 45.402138,
+     "lon": 11.876174
+    },
+    {
+     "lat": 45.402138,
+     "lon": 11.876251
+    },
+    {
+     "lat": 45.401867,
+     "lon": 11.876251
+    },
+    {
+     "lat": 45.401867,
+     "lon": 11.876328
+    },
+    {
+     "lat": 45.401704,
+     "lon": 11.876328
+    },
+    {
+     "lat": 45.401704,
+     "lon": 11.876405
+    },
+    {
+     "lat": 45.401541,
+     "lon": 11.876405
+    },
+    {
+     "lat": 45.401541,
+     "lon": 11.876481
+    },
+    {
+     "lat": 45.401215,
+     "lon": 11.876328
+    },
+    {
+     "lat": 45.401161,
+     "lon": 11.876098
+    },
+    {
+     "lat": 45.401107,
+     "lon": 11.876098
+    },
+    {
+     "lat": 45.401107,
+     "lon": 11.875944
+    },
+    {
+     "lat": 45.400998,
+     "lon": 11.875867
+    },
+    {
+     "lat": 45.401053,
+     "lon": 11.876251
+    },
+    {
+     "lat": 45.401107,
+     "lon": 11.876251
+    },
+    {
+     "lat": 45.401107,
+     "lon": 11.876481
+    },
+    {
+     "lat": 45.401161,
+     "lon": 11.876481
+    },
+    {
+     "lat": 45.401107,
+     "lon": 11.876942
+    },
+    {
+     "lat": 45.401053,
+     "lon": 11.876942
+    },
+    {
+     "lat": 45.400998,
+     "lon": 11.877172
+    },
+    {
+     "lat": 45.400836,
+     "lon": 11.877326
+    },
+    {
+     "lat": 45.400836,
+     "lon": 11.87748
+    },
+    {
+     "lat": 45.400564,
+     "lon": 11.877787
+    },
+    {
+     "lat": 45.400456,
+     "lon": 11.878247
+    },
+    {
+     "lat": 45.400293,
+     "lon": 11.878324
+    },
+    {
+     "lat": 45.400293,
+     "lon": 11.878401
+    },
+    {
+     "lat": 45.400184,
+     "lon": 11.878401
+    },
+    {
+     "lat": 45.400239,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.400402,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.400402,
+     "lon": 11.878631
+    },
+    {
+     "lat": 45.40051,
+     "lon": 11.878631
+    },
+    {
+     "lat": 45.40051,
+     "lon": 11.878708
+    },
+    {
+     "lat": 45.400619,
+     "lon": 11.878785
+    },
+    {
+     "lat": 45.400619,
+     "lon": 11.878938
+    },
+    {
+     "lat": 45.400673,
+     "lon": 11.878938
+    },
+    {
+     "lat": 45.400673,
+     "lon": 11.879092
+    },
+    {
+     "lat": 45.400727,
+     "lon": 11.879092
+    },
+    {
+     "lat": 45.400727,
+     "lon": 11.879322
+    },
+    {
+     "lat": 45.400781,
+     "lon": 11.879322
+    },
+    {
+     "lat": 45.400781,
+     "lon": 11.879245
+    },
+    {
+     "lat": 45.400944,
+     "lon": 11.879245
+    },
+    {
+     "lat": 45.400944,
+     "lon": 11.879168
+    },
+    {
+     "lat": 45.400998,
+     "lon": 11.879168
+    },
+    {
+     "lat": 45.400998,
+     "lon": 11.879245
+    },
+    {
+     "lat": 45.401161,
+     "lon": 11.879245
+    },
+    {
+     "lat": 45.401161,
+     "lon": 11.879322
+    },
+    {
+     "lat": 45.401324,
+     "lon": 11.879399
+    },
+    {
+     "lat": 45.401378,
+     "lon": 11.879706
+    },
+    {
+     "lat": 45.401433,
+     "lon": 11.879706
+    },
+    {
+     "lat": 45.401487,
+     "lon": 11.879245
+    },
+    {
+     "lat": 45.401541,
+     "lon": 11.879245
+    },
+    {
+     "lat": 45.401595,
+     "lon": 11.879015
+    },
+    {
+     "lat": 45.401812,
+     "lon": 11.878938
+    },
+    {
+     "lat": 45.401812,
+     "lon": 11.878861
+    },
+    {
+     "lat": 45.401975,
+     "lon": 11.878861
+    },
+    {
+     "lat": 45.401975,
+     "lon": 11.878785
+    },
+    {
+     "lat": 45.402246,
+     "lon": 11.878785
+    },
+    {
+     "lat": 45.402246,
+     "lon": 11.878708
+    },
+    {
+     "lat": 45.402355,
+     "lon": 11.878708
+    },
+    {
+     "lat": 45.402355,
+     "lon": 11.878631
+    },
+    {
+     "lat": 45.402518,
+     "lon": 11.878631
+    },
+    {
+     "lat": 45.402518,
+     "lon": 11.878554
+    },
+    {
+     "lat": 45.402843,
+     "lon": 11.878708
+    },
+    {
+     "lat": 45.402952,
+     "lon": 11.878938
+    },
+    {
+     "lat": 45.403115,
+     "lon": 11.879015
+    },
+    {
+     "lat": 45.403169,
+     "lon": 11.879168
+    },
+    {
+     "lat": 45.403277,
+     "lon": 11.879168
+    },
+    {
+     "lat": 45.403277,
+     "lon": 11.879015
+    },
+    {
+     "lat": 45.403332,
+     "lon": 11.879015
+    },
+    {
+     "lat": 45.403386,
+     "lon": 11.878785
+    },
+    {
+     "lat": 45.403657,
+     "lon": 11.878708
+    },
+    {
+     "lat": 45.403657,
+     "lon": 11.878631
+    },
+    {
+     "lat": 45.403766,
+     "lon": 11.878708
+    }
+   ],
+   "gates": [
+    {
+     "id": "pd-b-osm897227594",
+     "name": "Largo Europa",
+     "location": {
+      "lat": 45.410626,
+      "lon": 11.877959
+     }
+    },
+    {
+     "id": "pd-b-osm897227588",
+     "name": "Via Busonera",
+     "location": {
+      "lat": 45.409097,
+      "lon": 11.875635
+     }
+    },
+    {
+     "id": "pd-b-osm897222391",
+     "name": "Riviera Businello (bus lane)",
+     "location": {
+      "lat": 45.400478,
+      "lon": 11.878324
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Padua",
+    "pageURL": "https://www.comune.padova.it/zona-traffico-limitato-ztl-centro-storico",
+    "ordinance": "Ordinanza n. 2023/62/0437 del 23/05/2023 (Disciplina della ZTL del centro storico)",
+    "ordinanceURL": "https://www.comune.padova.it/sites/default/files/attachment/ZTL.pdf",
+    "quote": "ZONA “B”: giorni feriali e festivi 00:00 – 24:00",
+    "quoteTranslation": "ZONE B: working days and holidays 00:00–24:00",
+    "quoteTranslation_de": "ZONE B: Werktage und Feiertage 00:00–24:00",
+    "checkedOn": "2026-10-25T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Zona B outline computed from the official street list (Annex 1 of ordinance 437/2023) on OpenStreetMap streets: approximate, to be checked against the official map.",
+     "Perimeter from OpenStreetMap, to be checked against the official map (31/08/2023).",
+     "The hotel registers your plate for each day you drive in, at the latest 48 hours afterwards; it only covers loading and unloading (max 30 minutes' parking). Pedestrian areas need a separate temporary permit.",
+     "Electric cars may enter only once their plate is registered with the city (email to zonablu@comune.padova.it, also up to 48 hours after entering): GateLR treats them like any other car."
+    ],
+    "pending_it": [
+     "Contorno della Zona B ricavato dall'elenco ufficiale delle vie (Allegato 1 dell'ordinanza 437/2023) sulle strade di OpenStreetMap: approssimato, da verificare con la mappa ufficiale.",
+     "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale (31/08/2023).",
+     "L'hotel registra la targa per ogni giorno di transito, al più tardi entro 48 ore; vale solo per carico e scarico (sosta massima 30 minuti). Per le aree pedonali serve un titolo temporaneo a parte.",
+     "Le auto elettriche entrano solo con la targa registrata dal Comune (email a zonablu@comune.padova.it, anche entro 48 ore dal transito): GateLR le tratta come le altre auto."
+    ],
+    "pending_de": [
+     "Umriss der Zona B aus der offiziellen Straßenliste (Anlage 1 der Verordnung 437/2023) auf OpenStreetMap-Straßen berechnet: ungefähr, mit der offiziellen Karte abzugleichen.",
+     "Grenze aus OpenStreetMap, mit der offiziellen Karte (31.08.2023) abzugleichen.",
+     "Das Hotel meldet dein Kennzeichen für jeden Tag der Einfahrt, spätestens 48 Stunden danach; das gilt nur zum Be- und Entladen (höchstens 30 Minuten Parken). Für Fußgängerzonen braucht es eine eigene befristete Genehmigung.",
+     "Elektroautos dürfen nur mit beim Amt gemeldetem Kennzeichen einfahren (E-Mail an zonablu@comune.padova.it, auch bis 48 Stunden danach): GateLR behandelt sie wie andere Autos."
+    ],
+    "links": [
+     {
+      "title": "City of Padua: ZTL in the historic centre (map, hours, gates)",
+      "title_it": "Comune di Padova: Ztl in centro storico (mappa, orari, varchi)",
+      "title_de": "Stadt Padua: ZTL in der Altstadt (Karte, Zeiten, Kameras)",
+      "url": "https://www.comune.padova.it/zona-traffico-limitato-ztl-centro-storico"
+     },
+     {
+      "title": "City of Padua: ZTL ordinance 2023/62/0437 (PDF)",
+      "title_it": "Comune di Padova: ordinanza Ztl 2023/62/0437 (PDF)",
+      "title_de": "Stadt Padua: ZTL-Verordnung 2023/62/0437 (PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/attachment/ZTL.pdf"
+     },
+     {
+      "title": "City of Padua: map of Zona A and Zona B with gates (PDF)",
+      "title_it": "Comune di Padova: mappa Zona A e Zona B con varchi (PDF)",
+      "title_de": "Stadt Padua: Karte von Zona A und Zona B mit Kameras (PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/attachment/2023-08-31_ZTL_PadovaNet_Volantino%20A3.pdf"
+     },
+     {
+      "title": "City of Padua: temporary ZTL permits and hotel registration",
+      "title_it": "Comune di Padova: titoli temporanei Ztl e regolarizzazione hotel",
+      "title_de": "Stadt Padua: befristete ZTL-Genehmigungen und Hotel-Meldung",
+      "url": "https://www.comune.padova.it/titolo-autorizzatorio-temporaneo-ztl-ex-contrassegno"
+     },
+     {
+      "title": "City of Padua: ZTL permit rules (Annex A, Council decision 239/2023, PDF)",
+      "title_it": "Comune di Padova: disciplinare titoli Ztl (Allegato A, DGC 239/2023, PDF)",
+      "title_de": "Stadt Padua: Regeln für ZTL-Genehmigungen (Anlage A, Beschluss 239/2023, PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/attachment/Allegato%20A%20Disciplinare%20.pdf"
+     },
+     {
+      "title": "City of Padua: ZTL fees (Annex B, PDF)",
+      "title_it": "Comune di Padova: tariffe Ztl (Allegato B, PDF)",
+      "title_de": "Stadt Padua: ZTL-Gebühren (Anlage B, PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/attachment/Allegato%20B_3.pdf"
+     },
+     {
+      "title": "City of Padua: ZTL fines and appeals",
+      "title_it": "Comune di Padova: multe e ricorsi Ztl",
+      "title_de": "Stadt Padua: ZTL-Bußgelder und Einsprüche",
+      "url": "https://www.comune.padova.it/multe-e-ricorsi-transiti-abusivi-nella-ztl"
+     },
+     {
+      "title": "City of Padua: pedestrian areas ordinance 2023/62/0464 (PDF)",
+      "title_it": "Comune di Padova: ordinanza aree pedonali 2023/62/0464 (PDF)",
+      "title_de": "Stadt Padua: Verordnung Fußgängerzonen 2023/62/0464 (PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/attachment/AreePedonali_0.pdf"
+     },
+     {
+      "title": "OpenStreetMap: relation 19152919 «ZTL Zona A e B» (ODbL)",
+      "title_it": "OpenStreetMap: relazione 19152919 «ZTL Zona A e B» (ODbL)",
+      "title_de": "OpenStreetMap: Relation 19152919 «ZTL Zona A e B» (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/19152919"
+     }
+    ]
+   }
+  },
+  {
+   "id": "padova-a",
+   "name": "Zona A · Historic Centre",
+   "name_it": "Zona A · Centro storico",
+   "name_de": "Zona A · Altstadt",
+   "kind": "restricted",
+   "summary": "Monday to Saturday 8 am–11:30 pm, Sundays and holidays 2 pm–11:30 pm: no entry without a permit (cameras also on the way out; €80 fine). Motorbikes and mopeds may enter. There is no day ticket for tourists. If your hotel is inside, it can register your plate within 48 hours, for loading and unloading only. Zona B, the squares around Palazzo della Ragione and the riverside streets, is closed around the clock.",
+   "summary_it": "Dal lunedì al sabato 8:00–23:30, domenica e festivi 14:00–23:30: vietato entrare senza permesso (telecamere anche in uscita; multa 80 €). Moto e ciclomotori entrano. Non c'è un ticket per i turisti. Se l'hotel è dentro, può registrare la targa entro 48 ore, solo per carico e scarico. La Zona B, le piazze attorno al Palazzo della Ragione e le riviere, è chiusa 24 ore su 24.",
+   "summary_de": "Montag bis Samstag 8–23:30 Uhr, sonntags und feiertags 14–23:30 Uhr: keine Einfahrt ohne Genehmigung (Kameras auch an der Ausfahrt; 80 € Bußgeld). Motorräder und Mofas dürfen hinein. Ein Tagesticket für Touristen gibt es nicht. Liegt dein Hotel innen, kann es dein Kennzeichen binnen 48 Stunden melden, nur zum Be- und Entladen. Die Zona B, die Plätze um den Palazzo della Ragione und die Uferstraßen, ist rund um die Uhr gesperrt.",
+   "perimeter": [
+    {
+     "lat": 45.401833,
+     "lon": 11.880037
+    },
+    {
+     "lat": 45.401857,
+     "lon": 11.879857
+    },
+    {
+     "lat": 45.401404,
+     "lon": 11.879571
+    },
+    {
+     "lat": 45.400731,
+     "lon": 11.879287
+    },
+    {
+     "lat": 45.400236,
+     "lon": 11.878476
+    },
+    {
+     "lat": 45.40057,
+     "lon": 11.877495
+    },
+    {
+     "lat": 45.401149,
+     "lon": 11.876682
+    },
+    {
+     "lat": 45.400885,
+     "lon": 11.875994
+    },
+    {
+     "lat": 45.400479,
+     "lon": 11.875889
+    },
+    {
+     "lat": 45.40049,
+     "lon": 11.875699
+    },
+    {
+     "lat": 45.400805,
+     "lon": 11.875804
+    },
+    {
+     "lat": 45.402515,
+     "lon": 11.875319
+    },
+    {
+     "lat": 45.40254,
+     "lon": 11.874611
+    },
+    {
+     "lat": 45.402441,
+     "lon": 11.873487
+    },
+    {
+     "lat": 45.40229,
+     "lon": 11.872707
+    },
+    {
+     "lat": 45.402427,
+     "lon": 11.870361
+    },
+    {
+     "lat": 45.403224,
+     "lon": 11.869674
+    },
+    {
+     "lat": 45.403163,
+     "lon": 11.868666
+    },
+    {
+     "lat": 45.403971,
+     "lon": 11.868517
+    },
+    {
+     "lat": 45.404925,
+     "lon": 11.868497
+    },
+    {
+     "lat": 45.405538,
+     "lon": 11.868566
+    },
+    {
+     "lat": 45.405596,
+     "lon": 11.868836
+    },
+    {
+     "lat": 45.406156,
+     "lon": 11.868807
+    },
+    {
+     "lat": 45.406766,
+     "lon": 11.868616
+    },
+    {
+     "lat": 45.406911,
+     "lon": 11.868255
+    },
+    {
+     "lat": 45.408342,
+     "lon": 11.868188
+    },
+    {
+     "lat": 45.409153,
+     "lon": 11.868182
+    },
+    {
+     "lat": 45.410124,
+     "lon": 11.86842
+    },
+    {
+     "lat": 45.410208,
+     "lon": 11.868554
+    },
+    {
+     "lat": 45.409364,
+     "lon": 11.868861
+    },
+    {
+     "lat": 45.408972,
+     "lon": 11.869742
+    },
+    {
+     "lat": 45.408964,
+     "lon": 11.870672
+    },
+    {
+     "lat": 45.40904,
+     "lon": 11.870836
+    },
+    {
+     "lat": 45.409128,
+     "lon": 11.873107
+    },
+    {
+     "lat": 45.409237,
+     "lon": 11.873282
+    },
+    {
+     "lat": 45.409151,
+     "lon": 11.874292
+    },
+    {
+     "lat": 45.40923,
+     "lon": 11.874648
+    },
+    {
+     "lat": 45.409246,
+     "lon": 11.876564
+    },
+    {
+     "lat": 45.410454,
+     "lon": 11.87802
+    },
+    {
+     "lat": 45.410922,
+     "lon": 11.877213
+    },
+    {
+     "lat": 45.410609,
+     "lon": 11.878153
+    },
+    {
+     "lat": 45.410499,
+     "lon": 11.878181
+    },
+    {
+     "lat": 45.410237,
+     "lon": 11.878552
+    },
+    {
+     "lat": 45.407148,
+     "lon": 11.880179
+    },
+    {
+     "lat": 45.406729,
+     "lon": 11.881076
+    },
+    {
+     "lat": 45.406323,
+     "lon": 11.880773
+    },
+    {
+     "lat": 45.405609,
+     "lon": 11.88209
+    },
+    {
+     "lat": 45.404952,
+     "lon": 11.882733
+    },
+    {
+     "lat": 45.404257,
+     "lon": 11.883736
+    },
+    {
+     "lat": 45.404117,
+     "lon": 11.883534
+    },
+    {
+     "lat": 45.403975,
+     "lon": 11.883045
+    },
+    {
+     "lat": 45.403911,
+     "lon": 11.882308
+    },
+    {
+     "lat": 45.403465,
+     "lon": 11.882746
+    },
+    {
+     "lat": 45.402682,
+     "lon": 11.883215
+    },
+    {
+     "lat": 45.402644,
+     "lon": 11.883169
+    },
+    {
+     "lat": 45.40215,
+     "lon": 11.881728
+    },
+    {
+     "lat": 45.401833,
+     "lon": 11.880037
+    }
+   ],
+   "gates": [
+    {
+     "id": "pd-a-osm897223392",
+     "name": "Ponte S. Gregorio Barbarigo",
+     "location": {
+      "lat": 45.402437,
+      "lon": 11.87249
+     }
+    },
+    {
+     "id": "pd-a-osm897222500",
+     "name": "Via Vescovado",
+     "location": {
+      "lat": 45.405551,
+      "lon": 11.868663
+     }
+    },
+    {
+     "id": "pd-a-osm790501211",
+     "name": "Riviera Mussato",
+     "location": {
+      "lat": 45.406975,
+      "lon": 11.868406
+     }
+    },
+    {
+     "id": "pd-a-osm298468358",
+     "name": "Via del Santo",
+     "location": {
+      "lat": 45.402226,
+      "lon": 11.879741
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 480,
+     "end": 1410
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 840,
+     "end": 1410
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Padua",
+    "pageURL": "https://www.comune.padova.it/zona-traffico-limitato-ztl-centro-storico",
+    "ordinance": "Ordinanza n. 2023/62/0437 del 23/05/2023 (Disciplina della ZTL del centro storico)",
+    "ordinanceURL": "https://www.comune.padova.it/sites/default/files/attachment/ZTL.pdf",
+    "quote": "ZONA “A”: giorni feriali 8:00 – 23:30; festivi: 14:00 – 23:30",
+    "quoteTranslation": "ZONE A: working days 8:00–23:30; holidays: 14:00–23:30",
+    "quoteTranslation_de": "ZONE A: Werktage 8:00–23:30; Feiertage: 14:00–23:30",
+    "checkedOn": "2026-10-25T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter from OpenStreetMap, to be checked against the official map (31/08/2023).",
+     "The hotel registers your plate for each day you drive in, at the latest 48 hours afterwards; it only covers loading and unloading (max 30 minutes' parking). Pedestrian areas need a separate temporary permit.",
+     "Electric cars may enter only once their plate is registered with the city (email to zonablu@comune.padova.it, also up to 48 hours after entering): GateLR treats them like any other car.",
+     "On public holidays that fall on a weekday, Zona A is active only 2 pm–11:30 pm; GateLR shows it active from 8 am (on the safe side)."
+    ],
+    "pending_it": [
+     "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale (31/08/2023).",
+     "L'hotel registra la targa per ogni giorno di transito, al più tardi entro 48 ore; vale solo per carico e scarico (sosta massima 30 minuti). Per le aree pedonali serve un titolo temporaneo a parte.",
+     "Le auto elettriche entrano solo con la targa registrata dal Comune (email a zonablu@comune.padova.it, anche entro 48 ore dal transito): GateLR le tratta come le altre auto.",
+     "Nei festivi infrasettimanali la Zona A è attiva solo dalle 14:00 alle 23:30; GateLR la mostra attiva già dalle 8:00 (per prudenza)."
+    ],
+    "pending_de": [
+     "Grenze aus OpenStreetMap, mit der offiziellen Karte (31.08.2023) abzugleichen.",
+     "Das Hotel meldet dein Kennzeichen für jeden Tag der Einfahrt, spätestens 48 Stunden danach; das gilt nur zum Be- und Entladen (höchstens 30 Minuten Parken). Für Fußgängerzonen braucht es eine eigene befristete Genehmigung.",
+     "Elektroautos dürfen nur mit beim Amt gemeldetem Kennzeichen einfahren (E-Mail an zonablu@comune.padova.it, auch bis 48 Stunden danach): GateLR behandelt sie wie andere Autos.",
+     "An Feiertagen unter der Woche ist die Zona A nur von 14 bis 23:30 Uhr aktiv; GateLR zeigt sie vorsichtshalber schon ab 8 Uhr als aktiv."
+    ],
+    "links": [
+     {
+      "title": "City of Padua: ZTL in the historic centre (map, hours, gates)",
+      "title_it": "Comune di Padova: Ztl in centro storico (mappa, orari, varchi)",
+      "title_de": "Stadt Padua: ZTL in der Altstadt (Karte, Zeiten, Kameras)",
+      "url": "https://www.comune.padova.it/zona-traffico-limitato-ztl-centro-storico"
+     },
+     {
+      "title": "City of Padua: ZTL ordinance 2023/62/0437 (PDF)",
+      "title_it": "Comune di Padova: ordinanza Ztl 2023/62/0437 (PDF)",
+      "title_de": "Stadt Padua: ZTL-Verordnung 2023/62/0437 (PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/attachment/ZTL.pdf"
+     },
+     {
+      "title": "City of Padua: map of Zona A and Zona B with gates (PDF)",
+      "title_it": "Comune di Padova: mappa Zona A e Zona B con varchi (PDF)",
+      "title_de": "Stadt Padua: Karte von Zona A und Zona B mit Kameras (PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/attachment/2023-08-31_ZTL_PadovaNet_Volantino%20A3.pdf"
+     },
+     {
+      "title": "City of Padua: temporary ZTL permits and hotel registration",
+      "title_it": "Comune di Padova: titoli temporanei Ztl e regolarizzazione hotel",
+      "title_de": "Stadt Padua: befristete ZTL-Genehmigungen und Hotel-Meldung",
+      "url": "https://www.comune.padova.it/titolo-autorizzatorio-temporaneo-ztl-ex-contrassegno"
+     },
+     {
+      "title": "City of Padua: ZTL permit rules (Annex A, Council decision 239/2023, PDF)",
+      "title_it": "Comune di Padova: disciplinare titoli Ztl (Allegato A, DGC 239/2023, PDF)",
+      "title_de": "Stadt Padua: Regeln für ZTL-Genehmigungen (Anlage A, Beschluss 239/2023, PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/attachment/Allegato%20A%20Disciplinare%20.pdf"
+     },
+     {
+      "title": "City of Padua: ZTL fees (Annex B, PDF)",
+      "title_it": "Comune di Padova: tariffe Ztl (Allegato B, PDF)",
+      "title_de": "Stadt Padua: ZTL-Gebühren (Anlage B, PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/attachment/Allegato%20B_3.pdf"
+     },
+     {
+      "title": "City of Padua: ZTL fines and appeals",
+      "title_it": "Comune di Padova: multe e ricorsi Ztl",
+      "title_de": "Stadt Padua: ZTL-Bußgelder und Einsprüche",
+      "url": "https://www.comune.padova.it/multe-e-ricorsi-transiti-abusivi-nella-ztl"
+     },
+     {
+      "title": "City of Padua: pedestrian areas ordinance 2023/62/0464 (PDF)",
+      "title_it": "Comune di Padova: ordinanza aree pedonali 2023/62/0464 (PDF)",
+      "title_de": "Stadt Padua: Verordnung Fußgängerzonen 2023/62/0464 (PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/attachment/AreePedonali_0.pdf"
+     },
+     {
+      "title": "OpenStreetMap: relation 19152919 «ZTL Zona A e B» (ODbL)",
+      "title_it": "OpenStreetMap: relazione 19152919 «ZTL Zona A e B» (ODbL)",
+      "title_de": "OpenStreetMap: Relation 19152919 «ZTL Zona A e B» (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/19152919"
+     }
+    ]
+   }
+  },
+  {
+   "id": "padova-domeniche-ecologiche",
+   "name": "Car-free Sundays · Inside the walls",
+   "name_it": "Domeniche ecologiche · Dentro le mura",
+   "name_de": "Autofreie Sonntage · Innerhalb der Mauern",
+   "kind": "restricted",
+   "summary": "Car-free Sundays inside the 16th-century walls: 8 November and 6 December 2026, 24 January, 28 February, 14 March and 18 April 2027, 8:30 am–6:30 pm. Only fully electric cars may drive; petrol, diesel and hybrid cars may not. Hotel guests inside may drive to and from the hotel on the day they arrive or leave, carrying a copy of the booking. €87 fine.",
+   "summary_it": "Domeniche ecologiche dentro le mura del Cinquecento: 8 novembre e 6 dicembre 2026, 24 gennaio, 28 febbraio, 14 marzo e 18 aprile 2027, 8:30–18:30. Circolano solo le auto totalmente elettriche; benzina, diesel e ibride no. Gli ospiti degli hotel dentro l'area possono andare e tornare dall'hotel il giorno dell'arrivo e della partenza, con la copia della prenotazione. Multa 87 €.",
+   "summary_de": "Autofreie Sonntage innerhalb der Stadtmauern aus dem 16. Jahrhundert: 8. November und 6. Dezember 2026, 24. Januar, 28. Februar, 14. März und 18. April 2027, 8:30–18:30 Uhr. Nur reine Elektroautos dürfen fahren, Benziner, Diesel und Hybride nicht. Hotelgäste innerhalb dürfen am An- und Abreisetag zum Hotel und zurück fahren, mit einer Kopie der Buchung. 87 € Bußgeld.",
+   "perimeter": [
+    {
+     "lat": 45.404648,
+     "lon": 11.864152
+    },
+    {
+     "lat": 45.403726,
+     "lon": 11.86375
+    },
+    {
+     "lat": 45.402747,
+     "lon": 11.864149
+    },
+    {
+     "lat": 45.399458,
+     "lon": 11.864028
+    },
+    {
+     "lat": 45.399113,
+     "lon": 11.865538
+    },
+    {
+     "lat": 45.396131,
+     "lon": 11.86562
+    },
+    {
+     "lat": 45.392023,
+     "lon": 11.867355
+    },
+    {
+     "lat": 45.390312,
+     "lon": 11.86768
+    },
+    {
+     "lat": 45.390324,
+     "lon": 11.868196
+    },
+    {
+     "lat": 45.391245,
+     "lon": 11.870305
+    },
+    {
+     "lat": 45.392401,
+     "lon": 11.874042
+    },
+    {
+     "lat": 45.392122,
+     "lon": 11.874529
+    },
+    {
+     "lat": 45.393341,
+     "lon": 11.877261
+    },
+    {
+     "lat": 45.394002,
+     "lon": 11.880761
+    },
+    {
+     "lat": 45.396193,
+     "lon": 11.881918
+    },
+    {
+     "lat": 45.398141,
+     "lon": 11.883354
+    },
+    {
+     "lat": 45.398227,
+     "lon": 11.884318
+    },
+    {
+     "lat": 45.400116,
+     "lon": 11.88479
+    },
+    {
+     "lat": 45.402391,
+     "lon": 11.88647
+    },
+    {
+     "lat": 45.403095,
+     "lon": 11.889701
+    },
+    {
+     "lat": 45.402831,
+     "lon": 11.891729
+    },
+    {
+     "lat": 45.403241,
+     "lon": 11.892216
+    },
+    {
+     "lat": 45.403593,
+     "lon": 11.892049
+    },
+    {
+     "lat": 45.40444,
+     "lon": 11.89699
+    },
+    {
+     "lat": 45.406868,
+     "lon": 11.898109
+    },
+    {
+     "lat": 45.408055,
+     "lon": 11.898063
+    },
+    {
+     "lat": 45.409037,
+     "lon": 11.898623
+    },
+    {
+     "lat": 45.411191,
+     "lon": 11.881777
+    },
+    {
+     "lat": 45.413152,
+     "lon": 11.879817
+    },
+    {
+     "lat": 45.413252,
+     "lon": 11.878686
+    },
+    {
+     "lat": 45.41292,
+     "lon": 11.87794
+    },
+    {
+     "lat": 45.416642,
+     "lon": 11.875886
+    },
+    {
+     "lat": 45.416818,
+     "lon": 11.875317
+    },
+    {
+     "lat": 45.418821,
+     "lon": 11.873017
+    },
+    {
+     "lat": 45.417955,
+     "lon": 11.870143
+    },
+    {
+     "lat": 45.418622,
+     "lon": 11.867942
+    },
+    {
+     "lat": 45.417129,
+     "lon": 11.866121
+    },
+    {
+     "lat": 45.416428,
+     "lon": 11.863827
+    },
+    {
+     "lat": 45.413209,
+     "lon": 11.864755
+    },
+    {
+     "lat": 45.412333,
+     "lon": 11.86467
+    },
+    {
+     "lat": 45.411528,
+     "lon": 11.864182
+    },
+    {
+     "lat": 45.409005,
+     "lon": 11.864285
+    },
+    {
+     "lat": 45.407744,
+     "lon": 11.863718
+    },
+    {
+     "lat": 45.406917,
+     "lon": 11.864153
+    },
+    {
+     "lat": 45.404648,
+     "lon": 11.864152
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 11,
+      "fromDay": 8,
+      "toMonth": 11,
+      "toDay": 8
+     }
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 12,
+      "fromDay": 6,
+      "toMonth": 12,
+      "toDay": 6
+     }
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 1,
+      "fromDay": 24,
+      "toMonth": 1,
+      "toDay": 24
+     }
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 2,
+      "fromDay": 28,
+      "toMonth": 2,
+      "toDay": 28
+     }
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 3,
+      "fromDay": 14,
+      "toMonth": 3,
+      "toDay": 14
+     }
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 4,
+      "fromDay": 18,
+      "toMonth": 4,
+      "toDay": 18
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [
+    "electric"
+   ],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Padua",
+    "pageURL": "https://www.comune.padova.it/novita/notizie/domenica-ecologica-del-4-ottobre-2026",
+    "ordinance": "Ordinanza del Sindaco n. 47/2026 (domeniche ecologiche 2026/2027)",
+    "ordinanceURL": "https://www.comune.padova.it/sites/default/files/2026-09/ordinanza_2026_47_firm_dig.pdf",
+    "quote": "nella fascia oraria 8.30 - 18.30, nelle domeniche: 04/10/2026, 08/11/2026, 06/12/2026, 24/01/2027, 28/02/2027, 14/03/2027, 18/04/2027",
+    "quoteTranslation": "from 8:30 am to 6:30 pm on the Sundays 04/10/2026, 08/11/2026, 06/12/2026, 24/01/2027, 28/02/2027, 14/03/2027, 18/04/2027",
+    "quoteTranslation_de": "von 8:30 bis 18:30 Uhr an den Sonntagen 04.10.2026, 08.11.2026, 06.12.2026, 24.01.2027, 28.02.2027, 14.03.2027, 18.04.2027",
+    "checkedOn": "2026-10-25T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Outline from the 16th-century walls in OpenStreetMap: the official boundary is the ring of streets just outside the walls (excluded from the ban), as are the roads through Prato della Valle and to the Rabin car park.",
+     "Residents and hotel guests (arrival and departure day, with the booking) may drive with a self-declaration; GateLR doesn't check this. Dates valid for 2026/2027 only."
+    ],
+    "pending_it": [
+     "Contorno dalle mura del Cinquecento in OpenStreetMap: il confine ufficiale è l'anello di vie appena fuori dalle mura (escluse dal divieto), come le vie che attraversano Prato della Valle e quella per il parcheggio Rabin.",
+     "Residenti e ospiti degli hotel (giorno di arrivo e di partenza, con la prenotazione) circolano con un'autodichiarazione; GateLR non lo verifica. Date valide solo per il 2026/2027."
+    ],
+    "pending_de": [
+     "Umriss aus der Stadtmauer des 16. Jahrhunderts in OpenStreetMap: die offizielle Grenze ist der Straßenring direkt außerhalb der Mauern (vom Verbot ausgenommen), ebenso die Straßen durch Prato della Valle und zum Parkplatz Rabin.",
+     "Anwohner und Hotelgäste (An- und Abreisetag, mit Buchung) dürfen mit einer Eigenerklärung fahren; GateLR prüft das nicht. Daten nur für 2026/2027."
+    ],
+    "links": [
+     {
+      "title": "City of Padua: car-free Sunday, 4 October 2026 (area and exemptions)",
+      "title_it": "Comune di Padova: domenica ecologica del 4 ottobre 2026 (area e deroghe)",
+      "title_de": "Stadt Padua: autofreier Sonntag, 4. Oktober 2026 (Gebiet und Ausnahmen)",
+      "url": "https://www.comune.padova.it/novita/notizie/domenica-ecologica-del-4-ottobre-2026"
+     },
+     {
+      "title": "City of Padua: Mayor's ordinance 47/2026, car-free Sundays (PDF)",
+      "title_it": "Comune di Padova: ordinanza del Sindaco 47/2026, domeniche ecologiche (PDF)",
+      "title_de": "Stadt Padua: Verordnung 47/2026, autofreie Sonntage (PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/2026-09/ordinanza_2026_47_firm_dig.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "padova-antismog",
+   "name": "Padua · Winter smog limits",
+   "name_it": "Padova · Limitazioni antismog invernali",
+   "name_de": "Padua · Winter-Fahrverbote gegen Smog",
+   "kind": "green",
+   "summary": "From 1 October to 11 December 2026 and from 7 January to 30 April 2027, Monday to Friday 8:30 am–7:30 pm (not on public holidays), the oldest cars can't drive anywhere in Padua: diesel up to Euro 4, petrol, LPG and methane up to Euro 1. Electric and hybrid cars are exempt. The ring roads and motorways are excluded. On PM10 alert days (orange or red) the ban is stricter and also applies at weekends. €168 fine.",
+   "summary_it": "Dal 1° ottobre all'11 dicembre 2026 e dal 7 gennaio al 30 aprile 2027, dal lunedì al venerdì 8:30–19:30 (festivi esclusi), le auto più vecchie non possono circolare in tutto il comune: diesel fino a Euro 4, benzina, GPL e metano fino a Euro 1. Elettriche e ibride sono esenti. Tangenziali e autostrade sono escluse. Nei giorni di allerta PM10 (arancio o rosso) il divieto è più ampio e vale anche nel fine settimana. Multa 168 €.",
+   "summary_de": "Vom 1. Oktober bis 11. Dezember 2026 und vom 7. Januar bis 30. April 2027, montags bis freitags 8:30–19:30 Uhr (nicht an Feiertagen), dürfen die ältesten Autos im ganzen Stadtgebiet nicht fahren: Diesel bis Euro 4, Benzin, Autogas und Erdgas bis Euro 1. Elektro- und Hybridautos sind ausgenommen. Ringstraßen und Autobahnen sind ausgenommen. An PM10-Alarmtagen (orange oder rot) ist das Verbot strenger und gilt auch am Wochenende. 168 € Bußgeld.",
+   "perimeter": [
+    {
+     "lat": 45.403431,
+     "lon": 11.975998
+    },
+    {
+     "lat": 45.401453,
+     "lon": 11.975062
+    },
+    {
+     "lat": 45.398525,
+     "lon": 11.972928
+    },
+    {
+     "lat": 45.397564,
+     "lon": 11.966888
+    },
+    {
+     "lat": 45.398069,
+     "lon": 11.962596
+    },
+    {
+     "lat": 45.397681,
+     "lon": 11.962328
+    },
+    {
+     "lat": 45.390643,
+     "lon": 11.959074
+    },
+    {
+     "lat": 45.380735,
+     "lon": 11.956248
+    },
+    {
+     "lat": 45.374656,
+     "lon": 11.959827
+    },
+    {
+     "lat": 45.372032,
+     "lon": 11.958604
+    },
+    {
+     "lat": 45.369337,
+     "lon": 11.948682
+    },
+    {
+     "lat": 45.370013,
+     "lon": 11.945793
+    },
+    {
+     "lat": 45.371005,
+     "lon": 11.943328
+    },
+    {
+     "lat": 45.373022,
+     "lon": 11.944365
+    },
+    {
+     "lat": 45.373779,
+     "lon": 11.941863
+    },
+    {
+     "lat": 45.373622,
+     "lon": 11.934703
+    },
+    {
+     "lat": 45.37277,
+     "lon": 11.93213
+    },
+    {
+     "lat": 45.376571,
+     "lon": 11.926703
+    },
+    {
+     "lat": 45.380179,
+     "lon": 11.922627
+    },
+    {
+     "lat": 45.381211,
+     "lon": 11.922029
+    },
+    {
+     "lat": 45.38188,
+     "lon": 11.92085
+    },
+    {
+     "lat": 45.382938,
+     "lon": 11.918089
+    },
+    {
+     "lat": 45.383242,
+     "lon": 11.911853
+    },
+    {
+     "lat": 45.379461,
+     "lon": 11.907878
+    },
+    {
+     "lat": 45.377108,
+     "lon": 11.906465
+    },
+    {
+     "lat": 45.376001,
+     "lon": 11.907571
+    },
+    {
+     "lat": 45.374026,
+     "lon": 11.912077
+    },
+    {
+     "lat": 45.372724,
+     "lon": 11.913878
+    },
+    {
+     "lat": 45.367075,
+     "lon": 11.914124
+    },
+    {
+     "lat": 45.365758,
+     "lon": 11.913734
+    },
+    {
+     "lat": 45.367074,
+     "lon": 11.907768
+    },
+    {
+     "lat": 45.368569,
+     "lon": 11.906846
+    },
+    {
+     "lat": 45.368578,
+     "lon": 11.894961
+    },
+    {
+     "lat": 45.365272,
+     "lon": 11.894009
+    },
+    {
+     "lat": 45.362444,
+     "lon": 11.896916
+    },
+    {
+     "lat": 45.361756,
+     "lon": 11.89886
+    },
+    {
+     "lat": 45.359017,
+     "lon": 11.904132
+    },
+    {
+     "lat": 45.356621,
+     "lon": 11.907988
+    },
+    {
+     "lat": 45.3523,
+     "lon": 11.912126
+    },
+    {
+     "lat": 45.343232,
+     "lon": 11.919664
+    },
+    {
+     "lat": 45.340012,
+     "lon": 11.919894
+    },
+    {
+     "lat": 45.341814,
+     "lon": 11.909253
+    },
+    {
+     "lat": 45.345522,
+     "lon": 11.895133
+    },
+    {
+     "lat": 45.351639,
+     "lon": 11.896413
+    },
+    {
+     "lat": 45.352713,
+     "lon": 11.895893
+    },
+    {
+     "lat": 45.353198,
+     "lon": 11.893444
+    },
+    {
+     "lat": 45.353018,
+     "lon": 11.89129
+    },
+    {
+     "lat": 45.351515,
+     "lon": 11.889885
+    },
+    {
+     "lat": 45.351014,
+     "lon": 11.886541
+    },
+    {
+     "lat": 45.35113,
+     "lon": 11.884823
+    },
+    {
+     "lat": 45.354227,
+     "lon": 11.878362
+    },
+    {
+     "lat": 45.362455,
+     "lon": 11.863265
+    },
+    {
+     "lat": 45.368439,
+     "lon": 11.861619
+    },
+    {
+     "lat": 45.373367,
+     "lon": 11.861804
+    },
+    {
+     "lat": 45.376762,
+     "lon": 11.863534
+    },
+    {
+     "lat": 45.379193,
+     "lon": 11.863861
+    },
+    {
+     "lat": 45.38384,
+     "lon": 11.861247
+    },
+    {
+     "lat": 45.382522,
+     "lon": 11.858179
+    },
+    {
+     "lat": 45.380682,
+     "lon": 11.854991
+    },
+    {
+     "lat": 45.378504,
+     "lon": 11.851833
+    },
+    {
+     "lat": 45.376207,
+     "lon": 11.849393
+    },
+    {
+     "lat": 45.367057,
+     "lon": 11.842702
+    },
+    {
+     "lat": 45.363782,
+     "lon": 11.840945
+    },
+    {
+     "lat": 45.357052,
+     "lon": 11.836391
+    },
+    {
+     "lat": 45.365653,
+     "lon": 11.820036
+    },
+    {
+     "lat": 45.373416,
+     "lon": 11.809534
+    },
+    {
+     "lat": 45.374878,
+     "lon": 11.810054
+    },
+    {
+     "lat": 45.375352,
+     "lon": 11.809784
+    },
+    {
+     "lat": 45.377417,
+     "lon": 11.805438
+    },
+    {
+     "lat": 45.384873,
+     "lon": 11.810219
+    },
+    {
+     "lat": 45.389763,
+     "lon": 11.816219
+    },
+    {
+     "lat": 45.393026,
+     "lon": 11.819108
+    },
+    {
+     "lat": 45.402935,
+     "lon": 11.821285
+    },
+    {
+     "lat": 45.403509,
+     "lon": 11.823359
+    },
+    {
+     "lat": 45.40444,
+     "lon": 11.824239
+    },
+    {
+     "lat": 45.410243,
+     "lon": 11.825508
+    },
+    {
+     "lat": 45.426393,
+     "lon": 11.826394
+    },
+    {
+     "lat": 45.433331,
+     "lon": 11.828336
+    },
+    {
+     "lat": 45.44647,
+     "lon": 11.82921
+    },
+    {
+     "lat": 45.455219,
+     "lon": 11.832462
+    },
+    {
+     "lat": 45.455568,
+     "lon": 11.836918
+    },
+    {
+     "lat": 45.454695,
+     "lon": 11.838332
+    },
+    {
+     "lat": 45.453056,
+     "lon": 11.839094
+    },
+    {
+     "lat": 45.450869,
+     "lon": 11.841188
+    },
+    {
+     "lat": 45.449628,
+     "lon": 11.843899
+    },
+    {
+     "lat": 45.449299,
+     "lon": 11.846808
+    },
+    {
+     "lat": 45.450874,
+     "lon": 11.849755
+    },
+    {
+     "lat": 45.452812,
+     "lon": 11.851794
+    },
+    {
+     "lat": 45.454866,
+     "lon": 11.852435
+    },
+    {
+     "lat": 45.455766,
+     "lon": 11.853145
+    },
+    {
+     "lat": 45.457333,
+     "lon": 11.855769
+    },
+    {
+     "lat": 45.455549,
+     "lon": 11.859311
+    },
+    {
+     "lat": 45.453951,
+     "lon": 11.859857
+    },
+    {
+     "lat": 45.453163,
+     "lon": 11.861838
+    },
+    {
+     "lat": 45.453088,
+     "lon": 11.863024
+    },
+    {
+     "lat": 45.4544,
+     "lon": 11.8685
+    },
+    {
+     "lat": 45.454247,
+     "lon": 11.877087
+    },
+    {
+     "lat": 45.454078,
+     "lon": 11.878805
+    },
+    {
+     "lat": 45.45315,
+     "lon": 11.881341
+    },
+    {
+     "lat": 45.450433,
+     "lon": 11.884119
+    },
+    {
+     "lat": 45.450219,
+     "lon": 11.892829
+    },
+    {
+     "lat": 45.451074,
+     "lon": 11.8961
+    },
+    {
+     "lat": 45.446418,
+     "lon": 11.895167
+    },
+    {
+     "lat": 45.445476,
+     "lon": 11.897881
+    },
+    {
+     "lat": 45.447151,
+     "lon": 11.90032
+    },
+    {
+     "lat": 45.44784,
+     "lon": 11.902593
+    },
+    {
+     "lat": 45.44756,
+     "lon": 11.909482
+    },
+    {
+     "lat": 45.446644,
+     "lon": 11.910351
+    },
+    {
+     "lat": 45.445642,
+     "lon": 11.910274
+    },
+    {
+     "lat": 45.444306,
+     "lon": 11.909371
+    },
+    {
+     "lat": 45.43987,
+     "lon": 11.910162
+    },
+    {
+     "lat": 45.43683,
+     "lon": 11.925507
+    },
+    {
+     "lat": 45.436618,
+     "lon": 11.929991
+    },
+    {
+     "lat": 45.437288,
+     "lon": 11.93367
+    },
+    {
+     "lat": 45.436696,
+     "lon": 11.937462
+    },
+    {
+     "lat": 45.434252,
+     "lon": 11.942181
+    },
+    {
+     "lat": 45.428691,
+     "lon": 11.950112
+    },
+    {
+     "lat": 45.425947,
+     "lon": 11.953093
+    },
+    {
+     "lat": 45.422889,
+     "lon": 11.95413
+    },
+    {
+     "lat": 45.423134,
+     "lon": 11.945348
+    },
+    {
+     "lat": 45.419292,
+     "lon": 11.938355
+    },
+    {
+     "lat": 45.416999,
+     "lon": 11.935097
+    },
+    {
+     "lat": 45.415585,
+     "lon": 11.934079
+    },
+    {
+     "lat": 45.406866,
+     "lon": 11.935031
+    },
+    {
+     "lat": 45.403659,
+     "lon": 11.938905
+    },
+    {
+     "lat": 45.405518,
+     "lon": 11.96726
+    },
+    {
+     "lat": 45.405177,
+     "lon": 11.972665
+    },
+    {
+     "lat": 45.403431,
+     "lon": 11.975998
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 510,
+     "end": 1170,
+     "season": {
+      "fromMonth": 10,
+      "fromDay": 1,
+      "toMonth": 12,
+      "toDay": 11
+     }
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 510,
+     "end": 1170,
+     "season": {
+      "fromMonth": 1,
+      "fromDay": 7,
+      "toMonth": 4,
+      "toDay": 30
+     }
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [
+    "electric",
+    "hybrid"
+   ],
+   "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 1,
+     "since": "2026-10-01"
+    },
+    {
+     "fuel": "lpg",
+     "maxEuro": 1,
+     "since": "2026-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 4,
+     "since": "2026-10-01"
+    }
+   ],
+   "source": {
+    "authority": "City of Padua",
+    "pageURL": "https://www.comune.padova.it/limitazioni-del-traffico-stagione-invernale-20262027",
+    "ordinance": "Ordinanza del Sindaco n. 46 del 29/09/2026",
+    "ordinanceURL": "https://www.comune.padova.it/sites/default/files/2026-09/ordinanza_2026_46_firm_dig.pdf",
+    "quote": "livello nessuna allerta – colore verde: dal lunedì al venerdì, esclusi i giorni festivi infrasettimanali, dalle ore 8.30 alle ore 19.30",
+    "quoteTranslation": "no alert level – green: Monday to Friday, excluding public holidays on weekdays, from 8:30 am to 7:30 pm",
+    "quoteTranslation_de": "keine Warnstufe – grün: Montag bis Freitag, ausgenommen Feiertage unter der Woche, von 8:30 bis 19:30 Uhr",
+    "checkedOn": "2026-10-25T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "On PM10 alert days (orange or red, announced by ARPAV on Monday, Wednesday and Friday) the ban also covers diesel Euro 5 and petrol/LPG/methane Euro 2, every day including holidays and also 12 December–6 January: GateLR doesn't know the alert level, check the city's page.",
+     "The ring roads, motorways, industrial area and some park-and-ride access roads are excluded, but the map shows the whole municipality (ISTAT boundary).",
+     "Dates are for the 2026/2027 season only; diesel Euro 5 is postponed to 1 October 2027."
+    ],
+    "pending_it": [
+     "Nei giorni di allerta PM10 (arancio o rosso, comunicati da ARPAV lunedì, mercoledì e venerdì) il divieto vale anche per diesel Euro 5 e benzina/GPL/metano Euro 2, tutti i giorni festivi compresi e anche dal 12 dicembre al 6 gennaio: GateLR non conosce il livello di allerta, guarda la pagina del Comune.",
+     "Tangenziali, autostrade, zona industriale e alcune vie d'accesso ai parcheggi scambiatori sono escluse, ma la mappa mostra tutto il territorio comunale (confine ISTAT).",
+     "Le date valgono solo per la stagione 2026/2027; il divieto per i diesel Euro 5 è rinviato al 1° ottobre 2027."
+    ],
+    "pending_de": [
+     "An PM10-Alarmtagen (orange oder rot, von ARPAV montags, mittwochs und freitags angekündigt) gilt das Verbot auch für Diesel Euro 5 und Benzin/Autogas/Erdgas Euro 2, täglich auch an Feiertagen und auch vom 12. Dezember bis 6. Januar: GateLR kennt die Warnstufe nicht, siehe Seite der Stadt.",
+     "Ringstraßen, Autobahnen, Industriegebiet und einige Zufahrten zu Park-and-Ride-Plätzen sind ausgenommen, die Karte zeigt aber das ganze Gemeindegebiet (ISTAT-Grenze).",
+     "Die Daten gelten nur für die Saison 2026/2027; Diesel Euro 5 ist auf den 1. Oktober 2027 verschoben."
+    ],
+    "links": [
+     {
+      "title": "City of Padua: winter traffic limits 2026/2027",
+      "title_it": "Comune di Padova: limitazioni del traffico 2026/2027",
+      "title_de": "Stadt Padua: Winter-Fahrverbote 2026/2027",
+      "url": "https://www.comune.padova.it/limitazioni-del-traffico-stagione-invernale-20262027"
+     },
+     {
+      "title": "City of Padua: Mayor's ordinance 46/2026 (PDF)",
+      "title_it": "Comune di Padova: ordinanza del Sindaco 46/2026 (PDF)",
+      "title_de": "Stadt Padua: Verordnung des Bürgermeisters 46/2026 (PDF)",
+      "url": "https://www.comune.padova.it/sites/default/files/2026-09/ordinanza_2026_46_firm_dig.pdf"
+     },
+     {
+      "title": "ARPAV: PM10 alert levels in Veneto",
+      "title_it": "ARPAV: livelli di allerta PM10 in Veneto",
+      "title_de": "ARPAV: PM10-Warnstufen in Venetien",
+      "url": "https://www.arpa.veneto.it/dati-ambientali/bollettini/aria/bollettino-livelli-di-allerta-pm10"
+     },
+     {
+      "title": "Italian Motorist Portal: check your car's Euro class",
+      "title_it": "Portale dell'Automobilista: verifica la classe Euro",
+      "title_de": "Italienisches Fahrerportal: Euro-Klasse prüfen",
+      "url": "https://www.ilportaledellautomobilista.it/web/portale-automobilista/ext/verifica-classe-ambientale-veicolo"
+     },
+     {
+      "title": "ISTAT municipal boundary (via openpolis/geojson-italy, CC BY)",
+      "title_it": "Confine comunale ISTAT (da openpolis/geojson-italy, CC BY)",
+      "title_de": "ISTAT-Gemeindegrenze (über openpolis/geojson-italy, CC BY)",
+      "url": "https://raw.githubusercontent.com/openpolis/geojson-italy/master/geojson/limits_P_28_municipalities.geojson"
+     }
+    ]
+   }
+  }
+ ],
+ "cameras": [
+  {
+   "id": "pd-bus-osm1451949434",
+   "name": "Via Dante",
+   "location": {
+    "lat": 45.409151,
+    "lon": 11.87323
+   },
+   "kind": "bus"
+  },
+  {
+   "id": "pd-bus-osm1452342450",
+   "name": "Via Emanuele Filiberto",
+   "location": {
+    "lat": 45.409196,
+    "lon": 11.876452
+   },
+   "kind": "bus"
+  },
+  {
+   "id": "pd-bus-osm1452144210",
+   "name": "Riviera dei Ponti Romani",
+   "location": {
+    "lat": 45.406206,
+    "lon": 11.87786
+   },
+   "kind": "bus"
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Padova official pages and documents. ZTL perimeters, gates, cameras and walls: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official). Municipal boundary: ISTAT 2026 via openpolis/geojson-italy (CC BY)."
+}
