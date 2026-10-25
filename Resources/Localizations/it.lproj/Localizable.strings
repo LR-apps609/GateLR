@@ -498,3 +498,17 @@
 "Off until %@" = "Spenta fino alle %@";
 "ZTL hours" = "Orari ZTL";
 "From you" = "Da te";
+"Hotel, address or square" = "Hotel, indirizzo o piazza";
+"Continue" = "Continua";
+"The home page asks one question: search a hotel, address or square and get a green, red or amber answer at once." = "La prima pagina fa una domanda sola: cerca un hotel, un indirizzo o una piazza e hai subito la risposta verde, rossa o ambra.";
+"Your place on a dark map" = "Il tuo posto sulla mappa scura";
+"Search a place and the map turns dark with its zone lit up: red if you can't enter, green if you can." = "Cerca un posto e la mappa diventa scura con la sua zona accesa: rossa se non puoi entrare, verde se puoi.";
+"A new logo" = "Un logo nuovo";
+"A new icon, a launch screen with the logo and this page after every update." = "Icona nuova, schermata d'avvio con il marchio e questa pagina dopo ogni aggiornamento.";
+"Smoother and steadier" = "Più fluida e stabile";
+"No more black screen at launch or freezes when you come back to the app, and the camera works every time." = "Niente più schermo nero all'avvio né blocchi quando torni nell'app, e la fotocamera funziona sempre.";
+"Holidays done right" = "Festivi giusti";
+"Night hours follow the holiday of the evening they start, and Rome's patron saints' day (29 June) counts as a holiday." = "Le fasce di notte seguono il festivo della sera in cui iniziano, e a Roma la festa dei patroni (29 giugno) conta come festivo.";
+"New languages" = "Lingue nuove";
+"GateLR now also speaks French, Spanish, Dutch, Polish and Chinese." = "GateLR ora parla anche francese, spagnolo, olandese, polacco e cinese.";
+"GateLR speaks English, Italian, German, French, Spanish, Dutch, Polish and Chinese. The language is chosen in the iPhone Settings." = "GateLR parla inglese, italiano, tedesco, francese, spagnolo, olandese, polacco e cinese. La lingua si sceglie nelle Impostazioni dell'iPhone.";

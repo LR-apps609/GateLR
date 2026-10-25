@@ -9,8 +9,8 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.9.0"
-    CURRENT_PROJECT_VERSION: "20"
+    MARKETING_VERSION: "1.10.0"
+    CURRENT_PROJECT_VERSION: "21"
 
 targets:
   GateLR:
@@ -35,7 +35,7 @@ targets:
       - path: Resources/Rules
         type: folder
         buildPhase: resources
-      # Traduzioni (italiano, tedesco): generate da Tools/translations.py
+      # Traduzioni (italiano, tedesco, francese, spagnolo, olandese, polacco, cinese): generate da Tools/translations.py
       - path: Resources/Localizations
         buildPhase: resources
       # Titillium Web (SIL Open Font License)
@@ -47,7 +47,7 @@ targets:
         CFBundleDisplayName: GateLR
         CFBundleName: GateLR
         CFBundleDevelopmentRegion: en
-        CFBundleLocalizations: [en, it, de]
+        CFBundleLocalizations: [en, it, de, fr, es, nl, pl, zh-Hans]
         # gatelr://now, gatelr://map, gatelr://trip: aperture dal widget e dal sito
         CFBundleURLTypes:
           - CFBundleURLName: it.ledion.GateLR

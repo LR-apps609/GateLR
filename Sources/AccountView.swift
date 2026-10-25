@@ -90,7 +90,7 @@ struct AccountView: View {
                     }
                     .foregroundStyle(Theme.ink)
                 } header: { Text("Settings") } footer: {
-                    Text("GateLR speaks English, Italian and German. The language is chosen in the iPhone Settings.")
+                    Text("GateLR speaks English, Italian, German, French, Spanish, Dutch, Polish and Chinese. The language is chosen in the iPhone Settings.")
                 }
 
                 // Navigatore di GateLR: il segno dell'auto e la voce

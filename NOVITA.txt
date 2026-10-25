@@ -1,3 +1,11 @@
+Novità della 1.10.0 «Lingue»:
+• Prima pagina «Posso entrare?»: riquadro grigio con la ricerca, risposta verde/rossa/ambra per il posto cercato, ZTL vicina in una riga
+• Mappa scura del posto cercato: la zona accesa in rosso o verde con il riquadro «ZTL ATTIVA · NON ENTRARE», il resto smorzato
+• Nuovo logo: icona, schermata d'avvio con il marchio e «Novità» dopo ogni aggiornamento
+• Corretti: schermo nero all'avvio, blocchi al ritorno nell'app, fotocamera che non partiva in «Leggi il cartello»
+• Festivi: le fasce di notte contano il festivo del giorno in cui iniziano; a Roma la festa dei patroni (29 giugno) è festivo
+• Nuove lingue: francese, spagnolo, olandese, polacco e cinese semplificato (testi, richieste di permesso, frasi di Siri, voce del navigatore)
+
 Novità della 1.9.0 «Navigatore»:
 • Mappa: «Avvia» direttamente dalla scheda del posto cercato (niente più passaggio da Viaggio)
 • La prima volta che scegli un navigatore, GateLR chiede se usarlo sempre

@@ -1,7 +1,16 @@
-# GateLR 1.9.0 – Checklist delle prove a mano
+# GateLR 1.10.0 – Checklist delle prove a mano
 
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
+
+## ★ Lingue (1.10.0)
+- [ ] Impostazioni → GateLR → Lingua → **Français**: schede «Maintenant / Carte / Voyage / Garage», prima pagina «Puis-je entrer ?», nessun testo inglese rimasto
+- [ ] Prova anche **Español**, **Nederlands**, **Polski** e **中文（简体）**: le date, «%» e i numeri nelle frasi sono giusti (es. «Fin dans 2 h 10 min»), niente «%@» o «%lld» a vista
+- [ ] I cartelli restano in italiano tra virgolette («Varco attivo», «ZTL attiva»), «ZTL» non tradotto
+- [ ] Il permesso della posizione e della fotocamera è chiesto nella lingua scelta; in Account la riga «Lingua» dice la lingua giusta
+- [ ] Navigatore di GateLR in francese 🚗: la voce parla francese (non inglese)
+- [ ] Siri in francese: «Dis Siri, ZTL près de moi avec GateLR»
+- [ ] Novità 1.10.0 (dopo l'aggiornamento): sei righe tradotte, «Continuer» in fondo
 
 ## ★ Prima pagina «Posso entrare?» e mappa scura del posto cercato
 - [ ] Apri l'app senza aver cercato niente: in alto il riquadro **grigio** «Scopri se puoi entrare» con il campo «Hotel, indirizzo o piazza» (nessun «Sì, puoi entrare» a caso)
@@ -38,9 +47,9 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 ## 0. Installazione (Windows con Sideloadly, oppure Mac: vedi `docs/windows.md`)
 - [ ] **Windows**: Actions → «Compila GateLR» → Artifacts → GateLR-iPhone-ipa → Sideloadly → Start
 - [ ] **Mac**: Terminale: `osascript -e 'quit app "Xcode"'` poi `cd ~/Developer/GateLR && git pull && zsh "Installa su iPhone.command"`
-- [ ] Lo script scrive «Versione: 1.9.0»
+- [ ] Lo script scrive «Versione: 1.10.0»
 - [ ] Xcode: Team su **GateLR** e **GateLRWidget**, iPhone scelto in alto, ▶︎
-- [ ] Account → in fondo **Versione 1.9.0**
+- [ ] Account → in fondo **Versione 1.10.0** (build 21)
 - [ ] Le auto, i permessi e i viaggi di prima ci sono ancora
 
 ## 1. Prima pagina (Varco)

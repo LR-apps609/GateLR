@@ -15,11 +15,16 @@ enum SpeechVoice {
             SpeechVoice.prepare()
         }
 
-    /// La lingua dei testi che GateLR sta mostrando (it, de, en) con il paese più naturale
+    /// La lingua dei testi che GateLR sta mostrando (it, de, fr, es, nl, pl, zh-Hans, en) con il paese più naturale
     static var language: String {
         switch Bundle.main.preferredLocalizations.first ?? "en" {
         case "it": "it-IT"
         case "de": "de-DE"
+        case "fr": "fr-FR"
+        case "es": "es-ES"
+        case "nl": "nl-NL"
+        case "pl": "pl-PL"
+        case "zh-Hans": "zh-CN"
         default: Locale.preferredLanguages.first(where: { $0.hasPrefix("en") }) ?? "en-GB"
         }
     }

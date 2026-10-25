@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-# Scrive Resources/Localizations/{it,de}.lproj/Localizable.strings dalle tabelle qui sotto.
+# Scrive Resources/Localizations/<lingua>.lproj/Localizable.strings, InfoPlist.strings (e AppShortcuts.strings per le
+# lingue in Tools/lang/) dalle tabelle qui sotto: italiano e tedesco nelle coppie di T, francese, spagnolo, olandese,
+# polacco e cinese semplificato in Tools/lang/<codice>.py. Controllo: python3 Tools/check_translations.py
 # Chiave = testo inglese dell'app. Uso: python3 Tools/translations.py
 from pathlib import Path
 
@@ -381,6 +383,21 @@ T = {
 "Off until %@": ("Spenta fino alle %@", "Aus bis %@"),
 "ZTL hours": ("Orari ZTL", "ZTL-Zeiten"),
 "From you": ("Da te", "Von dir"),
+# Novità della 1.10.0 e lingue nuove
+"Hotel, address or square": ("Hotel, indirizzo o piazza", "Hotel, Adresse oder Platz"),
+"Continue": ("Continua", "Weiter"),
+"The home page asks one question: search a hotel, address or square and get a green, red or amber answer at once.": ("La prima pagina fa una domanda sola: cerca un hotel, un indirizzo o una piazza e hai subito la risposta verde, rossa o ambra.", "Die Startseite stellt eine einzige Frage: Such ein Hotel, eine Adresse oder einen Platz und du bekommst sofort eine grüne, rote oder gelbe Antwort."),
+"Your place on a dark map": ("Il tuo posto sulla mappa scura", "Dein Ort auf der dunklen Karte"),
+"Search a place and the map turns dark with its zone lit up: red if you can't enter, green if you can.": ("Cerca un posto e la mappa diventa scura con la sua zona accesa: rossa se non puoi entrare, verde se puoi.", "Such einen Ort und die Karte wird dunkel, seine Zone leuchtet: rot, wenn du nicht einfahren darfst, grün, wenn doch."),
+"A new logo": ("Un logo nuovo", "Ein neues Logo"),
+"A new icon, a launch screen with the logo and this page after every update.": ("Icona nuova, schermata d'avvio con il marchio e questa pagina dopo ogni aggiornamento.", "Ein neues Symbol, ein Startbildschirm mit dem Logo und diese Seite nach jedem Update."),
+"Smoother and steadier": ("Più fluida e stabile", "Flüssiger und stabiler"),
+"No more black screen at launch or freezes when you come back to the app, and the camera works every time.": ("Niente più schermo nero all'avvio né blocchi quando torni nell'app, e la fotocamera funziona sempre.", "Kein schwarzer Bildschirm mehr beim Start, kein Hängen bei der Rückkehr in die App, und die Kamera funktioniert jedes Mal."),
+"Holidays done right": ("Festivi giusti", "Feiertage richtig"),
+"Night hours follow the holiday of the evening they start, and Rome's patron saints' day (29 June) counts as a holiday.": ("Le fasce di notte seguono il festivo della sera in cui iniziano, e a Roma la festa dei patroni (29 giugno) conta come festivo.", "Nachtzeiten richten sich nach dem Feiertag des Abends, an dem sie beginnen, und in Rom zählt das Patronatsfest (29. Juni) als Feiertag."),
+"New languages": ("Lingue nuove", "Neue Sprachen"),
+"GateLR now also speaks French, Spanish, Dutch, Polish and Chinese.": ("GateLR ora parla anche francese, spagnolo, olandese, polacco e cinese.", "GateLR spricht jetzt auch Französisch, Spanisch, Niederländisch, Polnisch und Chinesisch."),
+"GateLR speaks English, Italian, German, French, Spanish, Dutch, Polish and Chinese. The language is chosen in the iPhone Settings.": ("GateLR parla inglese, italiano, tedesco, francese, spagnolo, olandese, polacco e cinese. La lingua si sceglie nelle Impostazioni dell'iPhone.", "GateLR spricht Englisch, Italienisch, Deutsch, Französisch, Spanisch, Niederländisch, Polnisch und Chinesisch. Die Sprache wählst du in den iPhone-Einstellungen."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
@@ -420,7 +437,6 @@ ANDROID = {
 "Guardian": ("Guardiano", "Wächter"),
 "Guardian on": ("Guardiano attivo", "Wächter aktiv"),
 "Help": ("Aiuto", "Hilfe"),
-"Hotel, address or square": ("Hotel, indirizzo o piazza", "Hotel, Adresse oder Platz"),
 "Is this your hotel? It can register your plate.": ("È il tuo hotel? Può registrare la tua targa.", "Ist das dein Hotel? Es kann dein Kennzeichen anmelden."),
 "Map data © OpenStreetMap contributors, OpenFreeMap": ("Dati mappa © contributori OpenStreetMap, OpenFreeMap", "Kartendaten © OpenStreetMap-Mitwirkende, OpenFreeMap"),
 "More": ("Altro", "Mehr"),
@@ -451,7 +467,6 @@ ANDROID = {
 "Starts %@": ("Inizia %@", "Beginnt %@"),
 "Other maps app": ("Altra app di mappe", "Andere Karten-App"),
 "Drive with Google Maps, Waze or Petal Maps: GateLR warns you before every active ZTL with a notification, a voice and a small bubble.": ("Guida con Google Maps, Waze o Petal Maps: GateLR ti avvisa prima di ogni ZTL attiva con una notifica, la voce e una piccola bolla.", "Fahr mit Google Maps, Waze oder Petal Maps: GateLR warnt dich vor jeder aktiven ZTL mit Mitteilung, Stimme und einer kleinen Blase."),
-"Continue": ("Continua", "Weiter"),
 "Reminders": ("Promemoria", "Erinnerungen"),
 "GateLR writes here when you pass close to an active gate or drive into a zone you can't enter. Only on this phone.": ("GateLR scrive qui quando passi vicino a un varco attivo o entri in una zona dove non potevi. Solo su questo telefono.", "GateLR notiert hier, wenn du nah an einem aktiven Tor vorbeifährst oder in eine Zone einfährst, in die du nicht darfst. Nur auf diesem Handy."),
 "Your location stays on your phone": ("La tua posizione resta sul telefono", "Dein Standort bleibt auf dem Handy"),
@@ -465,6 +480,32 @@ adir = Path(__file__).resolve().parent.parent / "android/app/src/main/assets/i18
 adir.mkdir(parents=True, exist_ok=True)
 for i, code in enumerate(["it", "de"]):
     (adir / f"strings_{code}.json").write_text(_json.dumps({k: v[i] for k, v in {**T, **ANDROID}.items()}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
+# Le altre lingue (solo iPhone): Tools/lang/<codice>.py con T, INFO e SHORTCUTS, chiave = testo inglese
+import importlib.util, re as _re
+MORE = {"fr": "fr", "es": "es", "nl": "nl", "pl": "pl", "zh-Hans": "zh_Hans"}
+
+def load_lang(mod):
+    spec = importlib.util.spec_from_file_location(mod, Path(__file__).resolve().parent / "lang" / f"{mod}.py")
+    m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+    return m
+
+def french(s):
+    # Spazio non separabile prima di : ; ? ! » e dopo «, come vuole il francese
+    return _re.sub(r" ([:;?!»])", "\u00a0\\1", s).replace("« ", "«\u00a0")
+
+for code, mod in MORE.items():
+    lang = load_lang(mod)
+    missing = [k for k in T if k not in lang.T]
+    extra = [k for k in lang.T if k not in T]
+    if missing or extra:
+        raise SystemExit(f"{code}: mancano {missing[:5]} ({len(missing)}), in più {extra[:5]} ({len(extra)})")
+    fix = french if code == "fr" else (lambda s: s)
+    d = root / f"{code}.lproj"; d.mkdir(parents=True, exist_ok=True)
+    head = "/* Generato da Tools/translations.py */\n"
+    (d / "Localizable.strings").write_text(head + "\n".join(f'"{esc(k)}" = "{esc(fix(lang.T[k]))}";' for k in T) + "\n", encoding="utf-8")
+    (d / "InfoPlist.strings").write_text(head + "\n".join(f'"{k}" = "{esc(fix(lang.INFO[k]))}";' for k in INFO) + "\n", encoding="utf-8")
+    (d / "AppShortcuts.strings").write_text("\n".join(f'"{esc(k)}" = "{esc(v)}";' for k, v in lang.SHORTCUTS.items()) + "\n", encoding="utf-8")
+
 en = root / "en.lproj"; en.mkdir(parents=True, exist_ok=True)
 (en / "Localizable.strings").write_text("/* Inglese: le chiavi sono già il testo */\n", encoding="utf-8")
-print(len(T), "testi")
+print(len(T), "testi,", 2 + len(MORE), "lingue")

@@ -20,20 +20,18 @@ struct WhatsNewView: View {
     }
 
     private let items: [(symbol: String, tint: Color, title: String, text: String)] = [
-        ("map.fill", Color(hex: 0x1F4E9E), "Start from the map",
-         "Search a place on the map and tap Start: no need to go through Trip."),
-        ("view.3d", Color(hex: 0x0A7A44), "3D guide",
-         "A close-up 3D view, traffic lights along the road and a bar with the ZTLs on your route."),
-        ("car.side.fill", Color(hex: 0x5D6670), "Your vehicle on the map",
-         "Sedan, SUV, city car or motorbike, in 7 colours, instead of the arrow."),
-        ("waveform", Color(hex: 0x7A4BD1), "A better voice",
-         "GateLR speaks with the best voice installed in your language."),
-        ("shield.lefthalf.filled", Theme.red, "Shield in the Dynamic Island",
-         "Green, yellow or red with the distance: easy to spot next to Apple Maps."),
-        ("mic.fill", Color(hex: 0xD99A00), "Ask Siri",
-         "\"Hey Siri, ZTL near me with GateLR\": the nearest ZTL, how far it is and whether you can enter."),
-        ("building.columns.fill", Color(hex: 0x2B7A47), "Rome and Siena",
-         "Two new cities, and Florence's Scudo Verde low-emission zone."),
+        ("questionmark.circle.fill", Theme.red, "Can I drive in?",
+         "The home page asks one question: search a hotel, address or square and get a green, red or amber answer at once."),
+        ("map.fill", Color(hex: 0x1F2A44), "Your place on a dark map",
+         "Search a place and the map turns dark with its zone lit up: red if you can't enter, green if you can."),
+        ("mappin.circle.fill", Color(hex: 0x1F4E9E), "A new logo",
+         "A new icon, a launch screen with the logo and this page after every update."),
+        ("bolt.fill", Color(hex: 0x0A7A44), "Smoother and steadier",
+         "No more black screen at launch or freezes when you come back to the app, and the camera works every time."),
+        ("calendar", Color(hex: 0xD99A00), "Holidays done right",
+         "Night hours follow the holiday of the evening they start, and Rome's patron saints' day (29 June) counts as a holiday."),
+        ("globe", Color(hex: 0x7A4BD1), "New languages",
+         "GateLR now also speaks French, Spanish, Dutch, Polish and Chinese."),
     ]
 
     var body: some View {

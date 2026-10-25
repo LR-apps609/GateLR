@@ -1,0 +1,4 @@
+/* Generato da Tools/translations.py */
+"NSLocationWhenInUseUsageDescription" = "GateLR używa twojej lokalizacji, aby pokazać, które bramki ZTL są w pobliżu.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "GateLR ostrzega cię przed bramką ZTL, gdy jedziesz z inną nawigacją i gdy aplikacja jest zamknięta.";
+"NSCameraUsageDescription" = "GateLR odczytuje godziny z tabliczki ZTL, na którą kierujesz aparat.";
