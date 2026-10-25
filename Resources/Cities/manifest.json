@@ -1,6 +1,6 @@
 {
- "version": "202610250747",
- "digest": "1c37b33bfca8",
+ "version": "202610250813",
+ "digest": "dd1a98c62297",
  "schema": 1,
  "cities": [
   {
@@ -37,6 +37,11 @@
    "id": "roma",
    "file": "roma.json",
    "sha256": "3c2a4c3370c32aae366697f6a4599c203c0315892a6393aa105fd9bf1d5dd611"
+  },
+  {
+   "id": "san-giovanni-valdarno",
+   "file": "san-giovanni-valdarno.json",
+   "sha256": "92e7636cd271952fcec8cdecbb9043882d6b34ede04e59fc05bd24e6e6ccfa7a"
   },
   {
    "id": "siena",
