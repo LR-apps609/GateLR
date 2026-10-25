@@ -215,7 +215,7 @@ private struct IntroLiveMap: View {
     @ObservedObject var drive: IntroDrive
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var position: MapCameraPosition = .camera(
-        MapCamera(centerCoordinate: IntroScene.center, distance: 3400, heading: 335, pitch: 60))
+        MapCamera(centerCoordinate: IntroScene.center, distance: 2300, heading: 335, pitch: 60))
     @State private var orbit = false
 
     var body: some View {
@@ -259,7 +259,7 @@ private struct IntroLiveMap: View {
         .mapControlVisibility(.hidden)
         .mapCameraKeyframeAnimator(trigger: orbit) { camera in
             KeyframeTrack(\MapCamera.heading) { LinearKeyframe(camera.heading + 35, duration: 26) }
-            KeyframeTrack(\MapCamera.distance) { LinearKeyframe(2800, duration: 26) }
+            KeyframeTrack(\MapCamera.distance) { LinearKeyframe(2000, duration: 26) }
         }
         .ignoresSafeArea()
         .task {

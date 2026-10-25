@@ -188,8 +188,8 @@ jobs:
           sleep 1
           T0=$(date +%s); lim 60 xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS -intro2Fallback
           at 9; shot intro-7-riserva-verbale
-          at 16; shot intro-8-riserva-arrivato
-          at 18
+          at 19; shot intro-8-riserva-arrivato
+          at 24
           kill -INT $REC 2>/dev/null || true
           for i in $(seq 1 40); do kill -0 $REC 2>/dev/null || break; sleep 0.5; done
           if kill -0 $REC 2>/dev/null; then echo "::warning::Il registratore non si è fermato con SIGINT"; kill -9 $REC || true; fi

@@ -33,7 +33,7 @@ struct IntroScene {
     static let gateIndex = 2
 
     /// Il centro della ripresa: tra il Duomo e piazza della Signoria, spostato verso il varco
-    static let center = CLLocationCoordinate2D(latitude: 43.7748, longitude: 11.2565)
+    static let center = CLLocationCoordinate2D(latitude: 43.7760, longitude: 11.2562)
 
     @MainActor static func load(_ store: Store) -> IntroScene {
         let city = store.cities.first { $0.id == "firenze" }
