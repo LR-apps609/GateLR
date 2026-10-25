@@ -56,10 +56,13 @@ enum Simplifier {
 /// Livello di dettaglio della mappa: la distanza della camera si arrotonda a pochi gradini,
 /// e le forme si ricalcolano solo quando si cambia gradino (alla fine del gesto, non durante)
 enum MapDetail {
-    /// Fino a questa distanza (metri) il perimetro è quello intero: da vicino la mappa è uguale a prima
-    static let fullDetailDistance: Double = 3_000
-    /// Oltre questa distanza (metri) i varchi non si disegnano: sarebbero pallini sovrapposti
-    static let gateDistance: Double = 12_000
+    /// Fino a questa distanza della camera (metri) il perimetro è quello intero: da vicino la mappa è uguale a prima.
+    /// La distanza della camera di MapKit è circa tre volte la larghezza visibile: a 8 km si vede un centro storico intero.
+    static let fullDetailDistance: Double = 8_000
+    /// Oltre questa distanza (metri) i varchi non si disegnano: si vede una città intera e sarebbero pallini sovrapposti
+    static let gateDistance: Double = 40_000
+    /// Metri di strada per punto dello schermo, circa, a una certa distanza della camera
+    static func metersPerPoint(_ distance: Double) -> Double { distance / 1_300 }
 
     /// 0 = da vicino (perimetro intero), poi un gradino ogni volta che la distanza raddoppia
     static func bucket(for distance: Double) -> Int {
@@ -67,12 +70,11 @@ enum MapDetail {
         return min(8, 1 + Int(log2(distance / fullDetailDistance)))
     }
 
-    /// La tolleranza della semplificazione (gradi di latitudine): circa mezzo punto dello schermo
-    /// alla distanza più vicina del gradino (lo schermo largo ~400 punti mostra circa «distanza» metri)
+    /// La tolleranza della semplificazione (gradi di latitudine): mezzo punto dello schermo
+    /// alla distanza più vicina del gradino, quindi la differenza non si vede
     static func tolerance(for bucket: Int) -> Double {
         guard bucket > 0 else { return 0 }
         let near = fullDetailDistance * pow(2, Double(bucket - 1))
-        let metersPerPoint = near / 400
-        return metersPerPoint * 0.5 / 111_000
+        return metersPerPoint(near) * 0.5 / 111_000
     }
 }

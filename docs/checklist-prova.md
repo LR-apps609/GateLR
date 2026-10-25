@@ -4,7 +4,7 @@ Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, 
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
 
 ## ★ Velocità e iPad (1.12.0)
-- [ ] Mappa su **Milano**: allarga fino a vedere tutta l'Area B e stringi fino al Duomo, più volte e in fretta → niente scatti; da lontano i 188 varchi spariscono e tornano sotto i ~12 km di distanza
+- [ ] Mappa su **Milano**: allarga fino a vedere tutta l’Area B e stringi fino al Duomo, più volte e in fretta → niente scatti; con tutta l’Area B sullo schermo i 188 varchi spariscono, avvicinandoti tornano
 - [ ] Mappa su **Firenze** (Scudo Verde) e **Roma**: stesso zoom avanti e indietro, fluido; da vicino confini e lettere identici a prima (nessun angolo «tagliato»)
 - [ ] Spostando la mappa da una città all'altra le zone compaiono appena ti fermi; tocco dentro una zona → la sceglie come prima
 - [ ] Varco e Viaggio: la risposta per un indirizzo arriva subito; avvio dell'app senza schermo nero
