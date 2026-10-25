@@ -160,56 +160,71 @@
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Pisa",
-    "pageURL": "https://www.comune.pisa.it/content/view/full/9958",
-    "ordinance": "Ordinanza n. 486 Dir. 22 del 22/12/2010 (disciplina ZTL dal 01/01/2011)",
-    "ordinanceURL": "https://www.comune.pisa.it/content/download/9436/249453/1/486_2010.pdf",
+    "pageURL": "https://mobilita.pisamo.it/download-category/ztl/",
+    "ordinance": "Ordinanza Dir. 12 n. 2386 del 24/10/2024 (disciplina ZTL dal 01/01/2025)",
+    "ordinanceURL": "https://mobilita.pisamo.it/download/ordinanza-n-2386-del-24-ottobre-2024-disciplina-per-laccesso-e-la-sosta-nelle-zone-a-traffico-limitato-a-partire-dal-1-gennaio-2025/",
     "quote": "Nelle zone come definite nella prima parte è istituito il divieto di accesso, transito e sosta di tutti i veicoli, nell’orario 0-24 di tutti i giorni, fatte salve le deroghe espresse ai punti successivi.",
     "quoteTranslation": "In the zones defined in part one, access, transit and parking are forbidden to all vehicles, 0–24 every day, except for the exemptions in the following points.",
     "quoteTranslation_de": "In den im ersten Teil festgelegten Zonen sind Zufahrt, Durchfahrt und Parken für alle Fahrzeuge verboten, 0–24 Uhr an allen Tagen, vorbehaltlich der folgenden Ausnahmen.",
     "checkedOn": "2026-10-25T08:00:00Z",
     "reviewedByHuman": false,
     "pending": [
-     "Hours: ordinance 486/2010 says 0–24 every day. Since 1 January 2025 the rules are in ordinance 2386/2024, published only on the Pisamo site, which we could not open; 0–24 every day is confirmed only by recent unofficial guides (viviamopisa.it, 2026).",
-     "Perimeter: not drawn yet. OpenStreetMap has the ZTL cameras but no outline; the outline will be built from the official street list of ordinance 486/2010.",
-     "Hotel guests: if the hotel is inside the ZTL, access to reach it is free; the hotel enters plate and arrival time on the portal within 10 hours (2023 rules), and you may stop 30 minutes to unload. To also park on blue lines and in the ZTL, accommodation in Pisa can sell a €12, 24-hour permit (one per room). Figures from 2023; Pisamo's site (seen only in search results) still shows €12 for 24 hours under ordinance 2386/2024.",
-     "Only professional accommodation (hotels, B&Bs and similar) can register plates; holiday flats are not mentioned.",
-     "No day ticket for tourists. Mopeds and two-wheel motorcycles may enter freely (ordinance 486/2010). Disabled badge holders registered on the national CUDE platform may enter without notice.",
-     "Electric cars: no general exemption; a 2010 ordinance let them in for 2011 only, after registration.",
-     "Gates: camera positions from OpenStreetMap (15, like the 15 gates listed in 2010), to be checked against the official list; two gates were moved in 2014 (via Camozzo → via San Ranierino, via Carducci → via San Lorenzo).",
-     "Not shown: the ZTL Stadio at Porta a Lucca (home matches of Pisa SC, from 2 hours before kick-off to the end of the first half), the weekend night ZTL on the Lungarni (Fri–Sun 10 pm–5 am, last extended by the city to January 2023; current status unknown) and the pedestrian areas inside the ZTL (via Corsica and piazza Buonamici, via Santa Maria)."
+     "Perimeter: not drawn yet. OpenStreetMap has the ZTL cameras but no outline; the outline will be built from the official street list of ordinance 2386/2024.",
+     "Hotel guests: if the hotel is inside the ZTL, it enters your plate and arrival time on the portal within 10 hours of your entry (ordinance 2386/2024, 5.1), for up to 3 days at a time, renewable; you may stop up to 30 minutes in the hotel's luggage bays. The city's 2023 notice says access to reach the hotel is free. To also park in the ZTL (not in residents' bays) and on blue lines, the hotel can sell a €12, 24-hour permit (2025 fees, one per room).",
+     "Only professional accommodation (hotels, guesthouses, B&Bs and similar) can register plates; holiday flats are not mentioned.",
+     "No day ticket for tourists: the temporary permits of ordinance 2386/2024 are only for specific cases (weddings, removals, works, taxis…). Mopeds, light quadricycles and motorcycles may enter freely. Disabled badge holders registered on the national CUDE platform are added to the white list automatically.",
+     "Electric cars: no exemption in the rules of ordinance 2386/2024 (its preamble only cites a 2013 council resolution on electric vehicles in the ZTL, which we have not read).",
+     "Gates: camera positions from OpenStreetMap (15). Ordinance 2386/2024 lists 10 gates per sector, and ordinance 406/2025 added two in piazza Santo Sepolcro and piazza Cairoli: some cameras may be missing from the map.",
+     "Not shown: the ZTL Stadio at Porta a Lucca (home matches of Pisa SC, from 2 hours before kick-off to the end of the first half) and the pedestrian areas inside the ZTL (via Corsica and piazza Buonamici, via Santa Maria). The weekend night ZTL on the Lungarni (Fri–Sun 10 pm–5 am, ordinance 2845/2024) is not on the map yet."
     ],
     "pending_it": [
-     "Orari: l'ordinanza 486/2010 dice 0–24 tutti i giorni. Dal 1° gennaio 2025 la disciplina è nell'ordinanza 2386/2024, pubblicata solo sul sito Pisamo, che non siamo riusciti ad aprire; lo 0–24 tutti i giorni è confermato solo da guide recenti non ufficiali (viviamopisa.it, 2026).",
-     "Perimetro: non ancora disegnato. OpenStreetMap ha le telecamere della ZTL ma non il contorno; il contorno sarà ricavato dall'elenco ufficiale delle strade dell'ordinanza 486/2010.",
-     "Ospiti delle strutture ricettive: se la struttura è dentro la ZTL, l'accesso per raggiungerla è gratuito; la struttura inserisce targa e ora di arrivo sul portale entro 10 ore (regole 2023), e si può sostare 30 minuti per scaricare. Per sostare anche sulle strisce blu e in ZTL, le strutture di Pisa possono rilasciare un permesso da 12 € per 24 ore (uno per camera). Dati del 2023; il sito Pisamo (visto solo nei risultati di ricerca) indica ancora 12 € per 24 ore con l'ordinanza 2386/2024.",
-     "Solo le strutture ricettive professionali (alberghi, B&B e similari) possono registrare le targhe; gli affitti brevi non sono citati.",
-     "Nessun permesso giornaliero per turisti. Ciclomotori e moto a due ruote entrano liberamente (ordinanza 486/2010). I titolari di contrassegno disabili iscritti alla piattaforma nazionale CUDE entrano senza comunicazione.",
-     "Auto elettriche: nessuna esenzione generale; un'ordinanza del 2010 le ammetteva solo per il 2011, previa iscrizione.",
-     "Varchi: posizioni delle telecamere da OpenStreetMap (15, come i 15 varchi elencati nel 2010), da verificare con l'elenco ufficiale; due varchi sono stati spostati nel 2014 (via Camozzo → via San Ranierino, via Carducci → via San Lorenzo).",
-     "Non mostrate: la ZTL Stadio a Porta a Lucca (partite casalinghe del Pisa SC, da due ore prima del fischio d'inizio al termine del primo tempo), la ZTL notturna dei Lungarni nel fine settimana (ven–dom 22–5, prorogata dal Comune fino a gennaio 2023; stato attuale ignoto) e le aree pedonali dentro la ZTL (via Corsica e piazza Buonamici, via Santa Maria)."
+     "Perimetro: non ancora disegnato. OpenStreetMap ha le telecamere della ZTL ma non il contorno; il contorno sarà ricavato dall'elenco ufficiale delle strade dell'ordinanza 2386/2024.",
+     "Ospiti delle strutture ricettive: se la struttura è dentro la ZTL, inserisce sul portale targa e ora di arrivo entro 10 ore dal tuo ingresso (ordinanza 2386/2024, punto 5.1), per al massimo 3 giorni rinnovabili; puoi sostare fino a 30 minuti negli stalli per il carico/scarico bagagli. Il comunicato del Comune del 2023 dice che l'accesso per raggiungere la struttura è gratuito. Per sostare anche in ZTL (non negli stalli dei residenti) e sulle strisce blu, la struttura può rilasciare un permesso da 12 € per 24 ore (tariffe 2025, uno per camera).",
+     "Solo le strutture ricettive professionali (alberghi, pensioni, B&B e similari) possono registrare le targhe; gli affitti brevi non sono citati.",
+     "Nessun permesso giornaliero per turisti: i permessi temporanei dell'ordinanza 2386/2024 valgono solo per casi precisi (matrimoni, traslochi, cantieri, taxi…). Ciclomotori, quadricicli leggeri e moto entrano liberamente. I titolari di contrassegno disabili iscritti alla piattaforma nazionale CUDE entrano in lista bianca automaticamente.",
+     "Auto elettriche: nessuna esenzione nelle regole dell'ordinanza 2386/2024 (le premesse citano solo una delibera di Giunta del 2013 sui veicoli elettrici in ZTL, che non abbiamo letto).",
+     "Varchi: posizioni delle telecamere da OpenStreetMap (15). L'ordinanza 2386/2024 elenca 10 varchi per settore e l'ordinanza 406/2025 ne ha aggiunti due in piazza Santo Sepolcro e piazza Cairoli: alcune telecamere possono mancare sulla mappa.",
+     "Non mostrate: la ZTL Stadio a Porta a Lucca (partite casalinghe del Pisa SC, da due ore prima del fischio d'inizio al termine del primo tempo) e le aree pedonali dentro la ZTL (via Corsica e piazza Buonamici, via Santa Maria). La ZTL notturna dei Lungarni (ven–dom 22–5, ordinanza 2845/2024) non è ancora sulla mappa."
     ],
     "pending_de": [
-     "Zeiten: Die Verordnung 486/2010 nennt 0–24 Uhr, täglich. Seit 1. Januar 2025 gilt die Verordnung 2386/2024, nur auf der Pisamo-Website veröffentlicht, die wir nicht öffnen konnten; 0–24 Uhr täglich bestätigen nur neuere inoffizielle Reiseführer (viviamopisa.it, 2026).",
-     "Grenze: noch nicht gezeichnet. OpenStreetMap hat die ZTL-Kameras, aber keinen Umriss; er wird aus der amtlichen Straßenliste der Verordnung 486/2010 erstellt.",
-     "Hotelgäste: Liegt die Unterkunft in der ZTL, ist die Zufahrt dorthin frei; die Unterkunft trägt Kennzeichen und Ankunftszeit binnen 10 Stunden im Portal ein (Regeln von 2023), Halten zum Ausladen 30 Minuten. Zum Parken auch auf blauen Linien und in der ZTL können Unterkünfte in Pisa eine Genehmigung für 12 € / 24 Stunden ausstellen (eine pro Zimmer). Angaben von 2023; die Pisamo-Website (nur in Suchergebnissen gesehen) nennt weiter 12 € für 24 Stunden nach Verordnung 2386/2024.",
-     "Nur gewerbliche Unterkünfte (Hotels, B&Bs u. ä.) können Kennzeichen registrieren; Ferienwohnungen werden nicht erwähnt.",
-     "Kein Tagesticket für Touristen. Mopeds und zweirädrige Motorräder dürfen frei einfahren (Verordnung 486/2010). Inhaber eines Behindertenausweises, die in der nationalen CUDE-Plattform eingetragen sind, fahren ohne Meldung ein.",
-     "Elektroautos: keine allgemeine Ausnahme; eine Verordnung von 2010 ließ sie nur 2011 nach Registrierung zu.",
-     "Kameras: Standorte aus OpenStreetMap (15, wie die 15 im Jahr 2010 aufgeführten), mit der offiziellen Liste abzugleichen; zwei wurden 2014 verlegt (Via Camozzo → Via San Ranierino, Via Carducci → Via San Lorenzo).",
-     "Nicht angezeigt: die ZTL Stadio in Porta a Lucca (Heimspiele von Pisa SC, ab 2 Stunden vor Anpfiff bis Ende der ersten Halbzeit), die Wochenend-Nacht-ZTL an den Lungarni (Fr–So 22–5 Uhr, zuletzt bis Januar 2023 verlängert; aktueller Stand unbekannt) und die Fußgängerzonen in der ZTL (Via Corsica / Piazza Buonamici, Via Santa Maria)."
+     "Grenze: noch nicht gezeichnet. OpenStreetMap hat die ZTL-Kameras, aber keinen Umriss; er wird aus der amtlichen Straßenliste der Verordnung 2386/2024 erstellt.",
+     "Hotelgäste: Liegt die Unterkunft in der ZTL, trägt sie Kennzeichen und Ankunftszeit binnen 10 Stunden nach deiner Einfahrt im Portal ein (Verordnung 2386/2024, Punkt 5.1), jeweils bis zu 3 Tage, verlängerbar; Halten bis 30 Minuten auf den Gepäck-Ladeplätzen. Laut Mitteilung der Stadt von 2023 ist die Zufahrt zur Unterkunft frei. Zum Parken auch in der ZTL (nicht auf Anwohnerplätzen) und auf blauen Linien kann die Unterkunft eine Genehmigung für 12 € / 24 Stunden ausstellen (Tarife 2025, eine pro Zimmer).",
+     "Nur gewerbliche Unterkünfte (Hotels, Pensionen, B&Bs u. ä.) können Kennzeichen registrieren; Ferienwohnungen werden nicht erwähnt.",
+     "Kein Tagesticket für Touristen: Die befristeten Genehmigungen der Verordnung 2386/2024 gelten nur für bestimmte Fälle (Hochzeiten, Umzüge, Baustellen, Taxis…). Mopeds, Leichtkraftfahrzeuge und Motorräder dürfen frei einfahren. Inhaber eines Behindertenausweises, die in der nationalen CUDE-Plattform eingetragen sind, kommen automatisch auf die weiße Liste.",
+     "Elektroautos: keine Ausnahme in den Regeln der Verordnung 2386/2024 (die Präambel nennt nur einen Stadtratsbeschluss von 2013 zu Elektrofahrzeugen in der ZTL, den wir nicht gelesen haben).",
+     "Kameras: Standorte aus OpenStreetMap (15). Die Verordnung 2386/2024 nennt 10 Kameras je Sektor, die Verordnung 406/2025 hat zwei an Piazza Santo Sepolcro und Piazza Cairoli ergänzt: einige Kameras können auf der Karte fehlen.",
+     "Nicht angezeigt: die ZTL Stadio in Porta a Lucca (Heimspiele von Pisa SC, ab 2 Stunden vor Anpfiff bis Ende der ersten Halbzeit) und die Fußgängerzonen in der ZTL (Via Corsica / Piazza Buonamici, Via Santa Maria). Die Nacht-ZTL an den Lungarni (Fr–So 22–5 Uhr, Verordnung 2845/2024) ist noch nicht auf der Karte."
     ],
     "links": [
      {
-      "title": "City of Pisa: ordinance 486/2010, ZTL rules and street list (PDF)",
-      "title_it": "Comune di Pisa: ordinanza 486/2010, disciplina ZTL ed elenco delle strade (PDF)",
-      "title_de": "Stadt Pisa: Verordnung 486/2010, ZTL-Regeln und Straßenliste (PDF)",
-      "url": "https://www.comune.pisa.it/content/download/9436/249453/1/486_2010.pdf"
+      "title": "Pisamo: ordinance 2386/2024, ZTL rules and street list from 1 January 2025 (PDF)",
+      "title_it": "Pisamo: ordinanza 2386/2024, disciplina ZTL ed elenco delle strade dal 1° gennaio 2025 (PDF)",
+      "title_de": "Pisamo: Verordnung 2386/2024, ZTL-Regeln und Straßenliste ab 1. Januar 2025 (PDF)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-2386-del-24-ottobre-2024-disciplina-per-laccesso-e-la-sosta-nelle-zone-a-traffico-limitato-a-partire-dal-1-gennaio-2025/"
      },
      {
-      "title": "City of Pisa: ordinance 215/2014, via San Ranierino and via Cardinal Maffi added to ZTL Nord (PDF)",
-      "title_it": "Comune di Pisa: ordinanza 215/2014, via San Ranierino e via Cardinal Maffi nella ZTL Nord (PDF)",
-      "title_de": "Stadt Pisa: Verordnung 215/2014, Via San Ranierino und Via Cardinal Maffi in der ZTL Nord (PDF)",
-      "url": "https://www.comune.pisa.it/content/download/11691/344163/1/2014_06_11_12_13_08.pdf"
+      "title": "Pisamo: ordinance 2719/2024, changes (piazza San Giorgio added to ZTL Nord)",
+      "title_it": "Pisamo: ordinanza 2719/2024, modifiche (piazza San Giorgio nella ZTL Nord)",
+      "title_de": "Pisamo: Verordnung 2719/2024, Änderungen (Piazza San Giorgio in der ZTL Nord)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-02719-del-5-dicembre-2024/"
+     },
+     {
+      "title": "Pisamo: ordinance 406/2025, new gates in piazza Santo Sepolcro and piazza Cairoli",
+      "title_it": "Pisamo: ordinanza 406/2025, nuovi varchi in piazza Santo Sepolcro e piazza Cairoli",
+      "title_de": "Pisamo: Verordnung 406/2025, neue Kameras an Piazza Santo Sepolcro und Piazza Cairoli",
+      "url": "https://mobilita.pisamo.it/download/ztl-istituzione-di-due-nuovi-varchi-elettronici-per-la-ztl-in-piazza-santo-sepolcro-e-in-piazza-cairoli/"
+     },
+     {
+      "title": "Pisamo: ordinance 2845/2024, night ZTL on the Lungarni (Fri–Sun 10 pm–5 am)",
+      "title_it": "Pisamo: ordinanza 2845/2024, ZTL notturna dei Lungarni (ven–dom 22–5)",
+      "title_de": "Pisamo: Verordnung 2845/2024, Nacht-ZTL an den Lungarni (Fr–So 22–5 Uhr)",
+      "url": "https://mobilita.pisamo.it/download/ztl-lungarni-regolamentazione-della-zona-a-traffico-limitato-dei-lungarni-dal-01-gennaio-2025/"
+     },
+     {
+      "title": "Pisamo: 2025 fees, hotel guests' parking permit €12 for 24 hours (annex B)",
+      "title_it": "Pisamo: tariffe 2025, permesso di sosta per i clienti delle strutture ricettive 12 € per 24 ore (allegato B)",
+      "title_de": "Pisamo: Tarife 2025, Parkgenehmigung für Hotelgäste 12 € für 24 Stunden (Anlage B)",
+      "url": "https://mobilita.pisamo.it/download/tariffe-diritti-ed-altre-entrate-extra-tributarie-allegato-b-parcheggi-accesso-z-t-l-mobilita/"
      },
      {
       "title": "City of Pisa: hotels register guests' plates",
@@ -218,16 +233,10 @@
       "url": "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL"
      },
      {
-      "title": "City of Pisa: hotel guests, free access to the hotel, €12 for 24 hours with parking (news, Feb 2023)",
-      "title_it": "Comune di Pisa: clienti delle strutture ricettive, accesso gratuito alla struttura, 12 € per 24 ore con la sosta (comunicato, feb. 2023)",
-      "title_de": "Stadt Pisa: Hotelgäste, freie Zufahrt zur Unterkunft, 12 € für 24 Stunden mit Parken (Mitteilung, Feb. 2023)",
+      "title": "City of Pisa: hotel guests, free access to the hotel (news, Feb 2023)",
+      "title_it": "Comune di Pisa: clienti delle strutture ricettive, accesso gratuito alla struttura (comunicato, feb. 2023)",
+      "title_de": "Stadt Pisa: Hotelgäste, freie Zufahrt zur Unterkunft (Mitteilung, Feb. 2023)",
       "url": "https://www.comune.pisa.it/Novita/Comunicati/Turismo-e-mobilita-in-centro-cambia-la-sosta-per-i-clienti-delle-strutture-ricettive"
-     },
-     {
-      "title": "City of Pisa: 10 hours to register the plate (news, Feb 2023)",
-      "title_it": "Comune di Pisa: 10 ore per caricare la targa (comunicato, feb. 2023)",
-      "title_de": "Stadt Pisa: 10 Stunden für die Registrierung (Mitteilung, Feb. 2023)",
-      "url": "https://www.comune.pisa.it/Novita/Comunicati/Rinviate-al-6-marzo-le-nuove-modalita-di-sosta-e-accesso-alla-Ztl-per-le-strutture-ricettive"
      },
      {
       "title": "City of Pisa: CUDE disabled badges accepted at the ZTL gates (news, Mar 2026)",
@@ -240,12 +249,6 @@
       "title_it": "Comune di Pisa: ZTL Stadio nelle partite casalinghe",
       "title_de": "Stadt Pisa: ZTL Stadio an Heimspieltagen",
       "url": "https://www.comune.pisa.it/Novita/Comunicati/Calcio-con-l-avvio-della-nuova-stagione-torna-attiva-la-ZTL-Stadio-in-occasione-delle-partite-casalinghe-del-Pisa-SC"
-     },
-     {
-      "title": "Pisamo: ZTL permits and ordinance 2386/2024",
-      "title_it": "Pisamo: permessi ZTL e ordinanza 2386/2024",
-      "title_de": "Pisamo: ZTL-Genehmigungen und Verordnung 2386/2024",
-      "url": "https://mobilita.pisamo.it/download-category/ztl/"
      },
      {
       "title": "OpenStreetMap: relation 9342809 (ZTL cameras, ODbL)",
@@ -287,56 +290,71 @@
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Pisa",
-    "pageURL": "https://www.comune.pisa.it/content/view/full/9958",
-    "ordinance": "Ordinanza n. 486 Dir. 22 del 22/12/2010 (disciplina ZTL dal 01/01/2011)",
-    "ordinanceURL": "https://www.comune.pisa.it/content/download/9436/249453/1/486_2010.pdf",
+    "pageURL": "https://mobilita.pisamo.it/download-category/ztl/",
+    "ordinance": "Ordinanza Dir. 12 n. 2386 del 24/10/2024 (disciplina ZTL dal 01/01/2025)",
+    "ordinanceURL": "https://mobilita.pisamo.it/download/ordinanza-n-2386-del-24-ottobre-2024-disciplina-per-laccesso-e-la-sosta-nelle-zone-a-traffico-limitato-a-partire-dal-1-gennaio-2025/",
     "quote": "Nelle zone come definite nella prima parte è istituito il divieto di accesso, transito e sosta di tutti i veicoli, nell’orario 0-24 di tutti i giorni, fatte salve le deroghe espresse ai punti successivi.",
     "quoteTranslation": "In the zones defined in part one, access, transit and parking are forbidden to all vehicles, 0–24 every day, except for the exemptions in the following points.",
     "quoteTranslation_de": "In den im ersten Teil festgelegten Zonen sind Zufahrt, Durchfahrt und Parken für alle Fahrzeuge verboten, 0–24 Uhr an allen Tagen, vorbehaltlich der folgenden Ausnahmen.",
     "checkedOn": "2026-10-25T08:00:00Z",
     "reviewedByHuman": false,
     "pending": [
-     "Hours: ordinance 486/2010 says 0–24 every day. Since 1 January 2025 the rules are in ordinance 2386/2024, published only on the Pisamo site, which we could not open; 0–24 every day is confirmed only by recent unofficial guides (viviamopisa.it, 2026).",
-     "Perimeter: not drawn yet. OpenStreetMap has the ZTL cameras but no outline; the outline will be built from the official street list of ordinance 486/2010.",
-     "Hotel guests: if the hotel is inside the ZTL, access to reach it is free; the hotel enters plate and arrival time on the portal within 10 hours (2023 rules), and you may stop 30 minutes to unload. To also park on blue lines and in the ZTL, accommodation in Pisa can sell a €12, 24-hour permit (one per room). Figures from 2023; Pisamo's site (seen only in search results) still shows €12 for 24 hours under ordinance 2386/2024.",
-     "Only professional accommodation (hotels, B&Bs and similar) can register plates; holiday flats are not mentioned.",
-     "No day ticket for tourists. Mopeds and two-wheel motorcycles may enter freely (ordinance 486/2010). Disabled badge holders registered on the national CUDE platform may enter without notice.",
-     "Electric cars: no general exemption; a 2010 ordinance let them in for 2011 only, after registration.",
-     "Gates: camera positions from OpenStreetMap (15, like the 15 gates listed in 2010), to be checked against the official list; two gates were moved in 2014 (via Camozzo → via San Ranierino, via Carducci → via San Lorenzo).",
-     "Not shown: the ZTL Stadio at Porta a Lucca (home matches of Pisa SC, from 2 hours before kick-off to the end of the first half), the weekend night ZTL on the Lungarni (Fri–Sun 10 pm–5 am, last extended by the city to January 2023; current status unknown) and the pedestrian areas inside the ZTL (via Corsica and piazza Buonamici, via Santa Maria)."
+     "Perimeter: not drawn yet. OpenStreetMap has the ZTL cameras but no outline; the outline will be built from the official street list of ordinance 2386/2024.",
+     "Hotel guests: if the hotel is inside the ZTL, it enters your plate and arrival time on the portal within 10 hours of your entry (ordinance 2386/2024, 5.1), for up to 3 days at a time, renewable; you may stop up to 30 minutes in the hotel's luggage bays. The city's 2023 notice says access to reach the hotel is free. To also park in the ZTL (not in residents' bays) and on blue lines, the hotel can sell a €12, 24-hour permit (2025 fees, one per room).",
+     "Only professional accommodation (hotels, guesthouses, B&Bs and similar) can register plates; holiday flats are not mentioned.",
+     "No day ticket for tourists: the temporary permits of ordinance 2386/2024 are only for specific cases (weddings, removals, works, taxis…). Mopeds, light quadricycles and motorcycles may enter freely. Disabled badge holders registered on the national CUDE platform are added to the white list automatically.",
+     "Electric cars: no exemption in the rules of ordinance 2386/2024 (its preamble only cites a 2013 council resolution on electric vehicles in the ZTL, which we have not read).",
+     "Gates: camera positions from OpenStreetMap (15). Ordinance 2386/2024 lists 10 gates per sector, and ordinance 406/2025 added two in piazza Santo Sepolcro and piazza Cairoli: some cameras may be missing from the map.",
+     "Not shown: the ZTL Stadio at Porta a Lucca (home matches of Pisa SC, from 2 hours before kick-off to the end of the first half) and the pedestrian areas inside the ZTL (via Corsica and piazza Buonamici, via Santa Maria). The weekend night ZTL on the Lungarni (Fri–Sun 10 pm–5 am, ordinance 2845/2024) is not on the map yet."
     ],
     "pending_it": [
-     "Orari: l'ordinanza 486/2010 dice 0–24 tutti i giorni. Dal 1° gennaio 2025 la disciplina è nell'ordinanza 2386/2024, pubblicata solo sul sito Pisamo, che non siamo riusciti ad aprire; lo 0–24 tutti i giorni è confermato solo da guide recenti non ufficiali (viviamopisa.it, 2026).",
-     "Perimetro: non ancora disegnato. OpenStreetMap ha le telecamere della ZTL ma non il contorno; il contorno sarà ricavato dall'elenco ufficiale delle strade dell'ordinanza 486/2010.",
-     "Ospiti delle strutture ricettive: se la struttura è dentro la ZTL, l'accesso per raggiungerla è gratuito; la struttura inserisce targa e ora di arrivo sul portale entro 10 ore (regole 2023), e si può sostare 30 minuti per scaricare. Per sostare anche sulle strisce blu e in ZTL, le strutture di Pisa possono rilasciare un permesso da 12 € per 24 ore (uno per camera). Dati del 2023; il sito Pisamo (visto solo nei risultati di ricerca) indica ancora 12 € per 24 ore con l'ordinanza 2386/2024.",
-     "Solo le strutture ricettive professionali (alberghi, B&B e similari) possono registrare le targhe; gli affitti brevi non sono citati.",
-     "Nessun permesso giornaliero per turisti. Ciclomotori e moto a due ruote entrano liberamente (ordinanza 486/2010). I titolari di contrassegno disabili iscritti alla piattaforma nazionale CUDE entrano senza comunicazione.",
-     "Auto elettriche: nessuna esenzione generale; un'ordinanza del 2010 le ammetteva solo per il 2011, previa iscrizione.",
-     "Varchi: posizioni delle telecamere da OpenStreetMap (15, come i 15 varchi elencati nel 2010), da verificare con l'elenco ufficiale; due varchi sono stati spostati nel 2014 (via Camozzo → via San Ranierino, via Carducci → via San Lorenzo).",
-     "Non mostrate: la ZTL Stadio a Porta a Lucca (partite casalinghe del Pisa SC, da due ore prima del fischio d'inizio al termine del primo tempo), la ZTL notturna dei Lungarni nel fine settimana (ven–dom 22–5, prorogata dal Comune fino a gennaio 2023; stato attuale ignoto) e le aree pedonali dentro la ZTL (via Corsica e piazza Buonamici, via Santa Maria)."
+     "Perimetro: non ancora disegnato. OpenStreetMap ha le telecamere della ZTL ma non il contorno; il contorno sarà ricavato dall'elenco ufficiale delle strade dell'ordinanza 2386/2024.",
+     "Ospiti delle strutture ricettive: se la struttura è dentro la ZTL, inserisce sul portale targa e ora di arrivo entro 10 ore dal tuo ingresso (ordinanza 2386/2024, punto 5.1), per al massimo 3 giorni rinnovabili; puoi sostare fino a 30 minuti negli stalli per il carico/scarico bagagli. Il comunicato del Comune del 2023 dice che l'accesso per raggiungere la struttura è gratuito. Per sostare anche in ZTL (non negli stalli dei residenti) e sulle strisce blu, la struttura può rilasciare un permesso da 12 € per 24 ore (tariffe 2025, uno per camera).",
+     "Solo le strutture ricettive professionali (alberghi, pensioni, B&B e similari) possono registrare le targhe; gli affitti brevi non sono citati.",
+     "Nessun permesso giornaliero per turisti: i permessi temporanei dell'ordinanza 2386/2024 valgono solo per casi precisi (matrimoni, traslochi, cantieri, taxi…). Ciclomotori, quadricicli leggeri e moto entrano liberamente. I titolari di contrassegno disabili iscritti alla piattaforma nazionale CUDE entrano in lista bianca automaticamente.",
+     "Auto elettriche: nessuna esenzione nelle regole dell'ordinanza 2386/2024 (le premesse citano solo una delibera di Giunta del 2013 sui veicoli elettrici in ZTL, che non abbiamo letto).",
+     "Varchi: posizioni delle telecamere da OpenStreetMap (15). L'ordinanza 2386/2024 elenca 10 varchi per settore e l'ordinanza 406/2025 ne ha aggiunti due in piazza Santo Sepolcro e piazza Cairoli: alcune telecamere possono mancare sulla mappa.",
+     "Non mostrate: la ZTL Stadio a Porta a Lucca (partite casalinghe del Pisa SC, da due ore prima del fischio d'inizio al termine del primo tempo) e le aree pedonali dentro la ZTL (via Corsica e piazza Buonamici, via Santa Maria). La ZTL notturna dei Lungarni (ven–dom 22–5, ordinanza 2845/2024) non è ancora sulla mappa."
     ],
     "pending_de": [
-     "Zeiten: Die Verordnung 486/2010 nennt 0–24 Uhr, täglich. Seit 1. Januar 2025 gilt die Verordnung 2386/2024, nur auf der Pisamo-Website veröffentlicht, die wir nicht öffnen konnten; 0–24 Uhr täglich bestätigen nur neuere inoffizielle Reiseführer (viviamopisa.it, 2026).",
-     "Grenze: noch nicht gezeichnet. OpenStreetMap hat die ZTL-Kameras, aber keinen Umriss; er wird aus der amtlichen Straßenliste der Verordnung 486/2010 erstellt.",
-     "Hotelgäste: Liegt die Unterkunft in der ZTL, ist die Zufahrt dorthin frei; die Unterkunft trägt Kennzeichen und Ankunftszeit binnen 10 Stunden im Portal ein (Regeln von 2023), Halten zum Ausladen 30 Minuten. Zum Parken auch auf blauen Linien und in der ZTL können Unterkünfte in Pisa eine Genehmigung für 12 € / 24 Stunden ausstellen (eine pro Zimmer). Angaben von 2023; die Pisamo-Website (nur in Suchergebnissen gesehen) nennt weiter 12 € für 24 Stunden nach Verordnung 2386/2024.",
-     "Nur gewerbliche Unterkünfte (Hotels, B&Bs u. ä.) können Kennzeichen registrieren; Ferienwohnungen werden nicht erwähnt.",
-     "Kein Tagesticket für Touristen. Mopeds und zweirädrige Motorräder dürfen frei einfahren (Verordnung 486/2010). Inhaber eines Behindertenausweises, die in der nationalen CUDE-Plattform eingetragen sind, fahren ohne Meldung ein.",
-     "Elektroautos: keine allgemeine Ausnahme; eine Verordnung von 2010 ließ sie nur 2011 nach Registrierung zu.",
-     "Kameras: Standorte aus OpenStreetMap (15, wie die 15 im Jahr 2010 aufgeführten), mit der offiziellen Liste abzugleichen; zwei wurden 2014 verlegt (Via Camozzo → Via San Ranierino, Via Carducci → Via San Lorenzo).",
-     "Nicht angezeigt: die ZTL Stadio in Porta a Lucca (Heimspiele von Pisa SC, ab 2 Stunden vor Anpfiff bis Ende der ersten Halbzeit), die Wochenend-Nacht-ZTL an den Lungarni (Fr–So 22–5 Uhr, zuletzt bis Januar 2023 verlängert; aktueller Stand unbekannt) und die Fußgängerzonen in der ZTL (Via Corsica / Piazza Buonamici, Via Santa Maria)."
+     "Grenze: noch nicht gezeichnet. OpenStreetMap hat die ZTL-Kameras, aber keinen Umriss; er wird aus der amtlichen Straßenliste der Verordnung 2386/2024 erstellt.",
+     "Hotelgäste: Liegt die Unterkunft in der ZTL, trägt sie Kennzeichen und Ankunftszeit binnen 10 Stunden nach deiner Einfahrt im Portal ein (Verordnung 2386/2024, Punkt 5.1), jeweils bis zu 3 Tage, verlängerbar; Halten bis 30 Minuten auf den Gepäck-Ladeplätzen. Laut Mitteilung der Stadt von 2023 ist die Zufahrt zur Unterkunft frei. Zum Parken auch in der ZTL (nicht auf Anwohnerplätzen) und auf blauen Linien kann die Unterkunft eine Genehmigung für 12 € / 24 Stunden ausstellen (Tarife 2025, eine pro Zimmer).",
+     "Nur gewerbliche Unterkünfte (Hotels, Pensionen, B&Bs u. ä.) können Kennzeichen registrieren; Ferienwohnungen werden nicht erwähnt.",
+     "Kein Tagesticket für Touristen: Die befristeten Genehmigungen der Verordnung 2386/2024 gelten nur für bestimmte Fälle (Hochzeiten, Umzüge, Baustellen, Taxis…). Mopeds, Leichtkraftfahrzeuge und Motorräder dürfen frei einfahren. Inhaber eines Behindertenausweises, die in der nationalen CUDE-Plattform eingetragen sind, kommen automatisch auf die weiße Liste.",
+     "Elektroautos: keine Ausnahme in den Regeln der Verordnung 2386/2024 (die Präambel nennt nur einen Stadtratsbeschluss von 2013 zu Elektrofahrzeugen in der ZTL, den wir nicht gelesen haben).",
+     "Kameras: Standorte aus OpenStreetMap (15). Die Verordnung 2386/2024 nennt 10 Kameras je Sektor, die Verordnung 406/2025 hat zwei an Piazza Santo Sepolcro und Piazza Cairoli ergänzt: einige Kameras können auf der Karte fehlen.",
+     "Nicht angezeigt: die ZTL Stadio in Porta a Lucca (Heimspiele von Pisa SC, ab 2 Stunden vor Anpfiff bis Ende der ersten Halbzeit) und die Fußgängerzonen in der ZTL (Via Corsica / Piazza Buonamici, Via Santa Maria). Die Nacht-ZTL an den Lungarni (Fr–So 22–5 Uhr, Verordnung 2845/2024) ist noch nicht auf der Karte."
     ],
     "links": [
      {
-      "title": "City of Pisa: ordinance 486/2010, ZTL rules and street list (PDF)",
-      "title_it": "Comune di Pisa: ordinanza 486/2010, disciplina ZTL ed elenco delle strade (PDF)",
-      "title_de": "Stadt Pisa: Verordnung 486/2010, ZTL-Regeln und Straßenliste (PDF)",
-      "url": "https://www.comune.pisa.it/content/download/9436/249453/1/486_2010.pdf"
+      "title": "Pisamo: ordinance 2386/2024, ZTL rules and street list from 1 January 2025 (PDF)",
+      "title_it": "Pisamo: ordinanza 2386/2024, disciplina ZTL ed elenco delle strade dal 1° gennaio 2025 (PDF)",
+      "title_de": "Pisamo: Verordnung 2386/2024, ZTL-Regeln und Straßenliste ab 1. Januar 2025 (PDF)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-2386-del-24-ottobre-2024-disciplina-per-laccesso-e-la-sosta-nelle-zone-a-traffico-limitato-a-partire-dal-1-gennaio-2025/"
      },
      {
-      "title": "City of Pisa: ordinance 215/2014, via San Ranierino and via Cardinal Maffi added to ZTL Nord (PDF)",
-      "title_it": "Comune di Pisa: ordinanza 215/2014, via San Ranierino e via Cardinal Maffi nella ZTL Nord (PDF)",
-      "title_de": "Stadt Pisa: Verordnung 215/2014, Via San Ranierino und Via Cardinal Maffi in der ZTL Nord (PDF)",
-      "url": "https://www.comune.pisa.it/content/download/11691/344163/1/2014_06_11_12_13_08.pdf"
+      "title": "Pisamo: ordinance 2719/2024, changes (piazza San Giorgio added to ZTL Nord)",
+      "title_it": "Pisamo: ordinanza 2719/2024, modifiche (piazza San Giorgio nella ZTL Nord)",
+      "title_de": "Pisamo: Verordnung 2719/2024, Änderungen (Piazza San Giorgio in der ZTL Nord)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-02719-del-5-dicembre-2024/"
+     },
+     {
+      "title": "Pisamo: ordinance 406/2025, new gates in piazza Santo Sepolcro and piazza Cairoli",
+      "title_it": "Pisamo: ordinanza 406/2025, nuovi varchi in piazza Santo Sepolcro e piazza Cairoli",
+      "title_de": "Pisamo: Verordnung 406/2025, neue Kameras an Piazza Santo Sepolcro und Piazza Cairoli",
+      "url": "https://mobilita.pisamo.it/download/ztl-istituzione-di-due-nuovi-varchi-elettronici-per-la-ztl-in-piazza-santo-sepolcro-e-in-piazza-cairoli/"
+     },
+     {
+      "title": "Pisamo: ordinance 2845/2024, night ZTL on the Lungarni (Fri–Sun 10 pm–5 am)",
+      "title_it": "Pisamo: ordinanza 2845/2024, ZTL notturna dei Lungarni (ven–dom 22–5)",
+      "title_de": "Pisamo: Verordnung 2845/2024, Nacht-ZTL an den Lungarni (Fr–So 22–5 Uhr)",
+      "url": "https://mobilita.pisamo.it/download/ztl-lungarni-regolamentazione-della-zona-a-traffico-limitato-dei-lungarni-dal-01-gennaio-2025/"
+     },
+     {
+      "title": "Pisamo: 2025 fees, hotel guests' parking permit €12 for 24 hours (annex B)",
+      "title_it": "Pisamo: tariffe 2025, permesso di sosta per i clienti delle strutture ricettive 12 € per 24 ore (allegato B)",
+      "title_de": "Pisamo: Tarife 2025, Parkgenehmigung für Hotelgäste 12 € für 24 Stunden (Anlage B)",
+      "url": "https://mobilita.pisamo.it/download/tariffe-diritti-ed-altre-entrate-extra-tributarie-allegato-b-parcheggi-accesso-z-t-l-mobilita/"
      },
      {
       "title": "City of Pisa: hotels register guests' plates",
@@ -345,16 +363,10 @@
       "url": "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL"
      },
      {
-      "title": "City of Pisa: hotel guests, free access to the hotel, €12 for 24 hours with parking (news, Feb 2023)",
-      "title_it": "Comune di Pisa: clienti delle strutture ricettive, accesso gratuito alla struttura, 12 € per 24 ore con la sosta (comunicato, feb. 2023)",
-      "title_de": "Stadt Pisa: Hotelgäste, freie Zufahrt zur Unterkunft, 12 € für 24 Stunden mit Parken (Mitteilung, Feb. 2023)",
+      "title": "City of Pisa: hotel guests, free access to the hotel (news, Feb 2023)",
+      "title_it": "Comune di Pisa: clienti delle strutture ricettive, accesso gratuito alla struttura (comunicato, feb. 2023)",
+      "title_de": "Stadt Pisa: Hotelgäste, freie Zufahrt zur Unterkunft (Mitteilung, Feb. 2023)",
       "url": "https://www.comune.pisa.it/Novita/Comunicati/Turismo-e-mobilita-in-centro-cambia-la-sosta-per-i-clienti-delle-strutture-ricettive"
-     },
-     {
-      "title": "City of Pisa: 10 hours to register the plate (news, Feb 2023)",
-      "title_it": "Comune di Pisa: 10 ore per caricare la targa (comunicato, feb. 2023)",
-      "title_de": "Stadt Pisa: 10 Stunden für die Registrierung (Mitteilung, Feb. 2023)",
-      "url": "https://www.comune.pisa.it/Novita/Comunicati/Rinviate-al-6-marzo-le-nuove-modalita-di-sosta-e-accesso-alla-Ztl-per-le-strutture-ricettive"
      },
      {
       "title": "City of Pisa: CUDE disabled badges accepted at the ZTL gates (news, Mar 2026)",
@@ -369,10 +381,118 @@
       "url": "https://www.comune.pisa.it/Novita/Comunicati/Calcio-con-l-avvio-della-nuova-stagione-torna-attiva-la-ZTL-Stadio-in-occasione-delle-partite-casalinghe-del-Pisa-SC"
      },
      {
-      "title": "Pisamo: ZTL permits and ordinance 2386/2024",
-      "title_it": "Pisamo: permessi ZTL e ordinanza 2386/2024",
-      "title_de": "Pisamo: ZTL-Genehmigungen und Verordnung 2386/2024",
-      "url": "https://mobilita.pisamo.it/download-category/ztl/"
+      "title": "OpenStreetMap: relation 9342809 (ZTL cameras, ODbL)",
+      "title_it": "OpenStreetMap: relazione 9342809 (varchi ZTL, ODbL)",
+      "title_de": "OpenStreetMap: Relation 9342809 (ZTL-Kameras, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/9342809"
+     }
+    ]
+   }
+  },
+  {
+   "id": "pisa-ztl-lungarni",
+   "name": "Lungarni · Weekend night ZTL",
+   "name_it": "Lungarni · ZTL notturna del fine settimana",
+   "name_de": "Lungarni · Nacht-ZTL am Wochenende",
+   "kind": "restricted",
+   "summary": "The riverside Lungarni (Pacinotti, Mediceo, Galilei, Gambacorti), Ponte di Mezzo, piazza Mazzini, piazza Carrara and via San Nicola: closed to unauthorised cars on Friday, Saturday and Sunday nights from 10 pm to 5 am. ZTL Nord and Sud permits are valid here.",
+   "summary_it": "I Lungarni (Pacinotti, Mediceo, Galilei, Gambacorti), il Ponte di Mezzo, piazza Mazzini, piazza Carrara e via San Nicola: chiusi alle auto non autorizzate il venerdì, il sabato e la domenica notte dalle 22 alle 5. I permessi delle ZTL Nord e Sud valgono anche qui.",
+   "summary_de": "Die Lungarni am Arno (Pacinotti, Mediceo, Galilei, Gambacorti), Ponte di Mezzo, Piazza Mazzini, Piazza Carrara und Via San Nicola: freitags, samstags und sonntags nachts von 22 bis 5 Uhr für nicht berechtigte Autos gesperrt. Genehmigungen der ZTL Nord und Sud gelten auch hier.",
+   "perimeter": [],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      6,
+      7,
+      1
+     ],
+     "start": 1320,
+     "end": 300
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Pisa",
+    "pageURL": "https://mobilita.pisamo.it/download-category/ztl/",
+    "ordinance": "Ordinanza Dir. 12 n. 2845 del 23/12/2024 (ZTL dei Lungarni dal 01/01/2025)",
+    "ordinanceURL": "https://mobilita.pisamo.it/download/ztl-lungarni-regolamentazione-della-zona-a-traffico-limitato-dei-lungarni-dal-01-gennaio-2025/",
+    "quote": "A far data dal 01 Gennaio 2025 nei giorni di Venerdì, Sabato e Domenica, è istituita, dalle ore 22.00 alle ore 5.00 del giorno successivo, la Zona a Traffico Limitato nelle seguenti strade:",
+    "quoteTranslation": "From 1 January 2025, on Fridays, Saturdays and Sundays, from 10 pm to 5 am the following day, the Limited Traffic Zone is established in the following streets:",
+    "quoteTranslation_de": "Ab 1. Januar 2025 gilt freitags, samstags und sonntags von 22 Uhr bis 5 Uhr des Folgetags die Zone mit beschränktem Verkehr in folgenden Straßen:",
+    "checkedOn": "2026-10-25T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter: not drawn yet; it will be built from the street list of ordinance 2845/2024 with OpenStreetMap street geometry.",
+     "Permits for ZTL Nord and Sud, temporary ones included, are also valid here; the ordinance does not say whether hotels on the Lungarni can register guests, so GateLR does not assume it.",
+     "Cars already parked here at 10 pm may stay and drive out before 5 am. Mopeds and motorcycles may enter. Holidays are not mentioned: the ZTL applies every Friday, Saturday and Sunday night."
+    ],
+    "pending_it": [
+     "Perimetro: non ancora disegnato; sarà ricavato dall'elenco delle strade dell'ordinanza 2845/2024 con la geometria delle strade di OpenStreetMap.",
+     "I permessi per le ZTL Nord e Sud, compresi quelli temporanei, valgono anche qui; l'ordinanza non dice se le strutture sui Lungarni possano registrare gli ospiti, quindi GateLR non lo dà per scontato.",
+     "Le auto già in sosta qui alle 22 possono restare e uscire anche prima delle 5. Ciclomotori e moto possono entrare. I festivi non sono citati: la ZTL vale ogni venerdì, sabato e domenica notte."
+    ],
+    "pending_de": [
+     "Grenze: noch nicht gezeichnet; sie wird aus der Straßenliste der Verordnung 2845/2024 mit der Straßengeometrie aus OpenStreetMap erstellt.",
+     "Genehmigungen für die ZTL Nord und Sud, auch befristete, gelten auch hier; ob Unterkünfte an den Lungarni Gäste registrieren können, sagt die Verordnung nicht, daher nimmt GateLR es nicht an.",
+     "Autos, die um 22 Uhr hier schon parken, dürfen bleiben und auch vor 5 Uhr ausfahren. Mopeds und Motorräder dürfen einfahren. Feiertage werden nicht erwähnt: Die ZTL gilt jede Freitag-, Samstag- und Sonntagnacht."
+    ],
+    "links": [
+     {
+      "title": "Pisamo: ordinance 2386/2024, ZTL rules and street list from 1 January 2025 (PDF)",
+      "title_it": "Pisamo: ordinanza 2386/2024, disciplina ZTL ed elenco delle strade dal 1° gennaio 2025 (PDF)",
+      "title_de": "Pisamo: Verordnung 2386/2024, ZTL-Regeln und Straßenliste ab 1. Januar 2025 (PDF)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-2386-del-24-ottobre-2024-disciplina-per-laccesso-e-la-sosta-nelle-zone-a-traffico-limitato-a-partire-dal-1-gennaio-2025/"
+     },
+     {
+      "title": "Pisamo: ordinance 2719/2024, changes (piazza San Giorgio added to ZTL Nord)",
+      "title_it": "Pisamo: ordinanza 2719/2024, modifiche (piazza San Giorgio nella ZTL Nord)",
+      "title_de": "Pisamo: Verordnung 2719/2024, Änderungen (Piazza San Giorgio in der ZTL Nord)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-02719-del-5-dicembre-2024/"
+     },
+     {
+      "title": "Pisamo: ordinance 406/2025, new gates in piazza Santo Sepolcro and piazza Cairoli",
+      "title_it": "Pisamo: ordinanza 406/2025, nuovi varchi in piazza Santo Sepolcro e piazza Cairoli",
+      "title_de": "Pisamo: Verordnung 406/2025, neue Kameras an Piazza Santo Sepolcro und Piazza Cairoli",
+      "url": "https://mobilita.pisamo.it/download/ztl-istituzione-di-due-nuovi-varchi-elettronici-per-la-ztl-in-piazza-santo-sepolcro-e-in-piazza-cairoli/"
+     },
+     {
+      "title": "Pisamo: ordinance 2845/2024, night ZTL on the Lungarni (Fri–Sun 10 pm–5 am)",
+      "title_it": "Pisamo: ordinanza 2845/2024, ZTL notturna dei Lungarni (ven–dom 22–5)",
+      "title_de": "Pisamo: Verordnung 2845/2024, Nacht-ZTL an den Lungarni (Fr–So 22–5 Uhr)",
+      "url": "https://mobilita.pisamo.it/download/ztl-lungarni-regolamentazione-della-zona-a-traffico-limitato-dei-lungarni-dal-01-gennaio-2025/"
+     },
+     {
+      "title": "Pisamo: 2025 fees, hotel guests' parking permit €12 for 24 hours (annex B)",
+      "title_it": "Pisamo: tariffe 2025, permesso di sosta per i clienti delle strutture ricettive 12 € per 24 ore (allegato B)",
+      "title_de": "Pisamo: Tarife 2025, Parkgenehmigung für Hotelgäste 12 € für 24 Stunden (Anlage B)",
+      "url": "https://mobilita.pisamo.it/download/tariffe-diritti-ed-altre-entrate-extra-tributarie-allegato-b-parcheggi-accesso-z-t-l-mobilita/"
+     },
+     {
+      "title": "City of Pisa: hotels register guests' plates",
+      "title_it": "Comune di Pisa: registrazione targhe per le strutture ricettive",
+      "title_de": "Stadt Pisa: Kennzeichen-Registrierung durch Unterkünfte",
+      "url": "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL"
+     },
+     {
+      "title": "City of Pisa: hotel guests, free access to the hotel (news, Feb 2023)",
+      "title_it": "Comune di Pisa: clienti delle strutture ricettive, accesso gratuito alla struttura (comunicato, feb. 2023)",
+      "title_de": "Stadt Pisa: Hotelgäste, freie Zufahrt zur Unterkunft (Mitteilung, Feb. 2023)",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Turismo-e-mobilita-in-centro-cambia-la-sosta-per-i-clienti-delle-strutture-ricettive"
+     },
+     {
+      "title": "City of Pisa: CUDE disabled badges accepted at the ZTL gates (news, Mar 2026)",
+      "title_it": "Comune di Pisa: contrassegno CUDE ai varchi della ZTL (comunicato, mar. 2026)",
+      "title_de": "Stadt Pisa: CUDE-Behindertenausweis an den ZTL-Kameras (Mitteilung, März 2026)",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Contrassegno-unificato-disabili-europeo-CUDE-installata-la-nuova-cartellonistica-ai-varchi-della-ZTL"
+     },
+     {
+      "title": "City of Pisa: ZTL Stadio on home match days",
+      "title_it": "Comune di Pisa: ZTL Stadio nelle partite casalinghe",
+      "title_de": "Stadt Pisa: ZTL Stadio an Heimspieltagen",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Calcio-con-l-avvio-della-nuova-stagione-torna-attiva-la-ZTL-Stadio-in-occasione-delle-partite-casalinghe-del-Pisa-SC"
      },
      {
       "title": "OpenStreetMap: relation 9342809 (ZTL cameras, ODbL)",
