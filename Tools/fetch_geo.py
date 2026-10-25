@@ -106,3 +106,25 @@ for ds in ["jhcz-yki3", "tkwz-spd9"]:
     csv = get(f"https://www.dati.lombardia.it/api/views/{ds}/rows.csv?accessType=DOWNLOAD", tries=2)
     if csv: (OUT / f"bergamo-od-{ds}.csv").write_bytes(csv); print("ok bergamo csv", ds, len(csv))
 # --- fine Bergamo ---
+
+# --- Torino (sessione Torino, vedi docs/fonti-torino.md) ---
+# Dati aperti ufficiali (CC BY 4.0) che dall'ambiente di lavoro non si raggiungono: perimetro, varchi e orari ZTL di 5T
+# (dataset aperTO «perimetro-varchi-e-orari-ztl») e lo shapefile/CSV «Zone Traffico Limitato» del geoportale del Comune
+for name, url in [("torino-od-5t-access-control.xml", "http://opendata.5t.torino.it/get_access_control"),
+                  ("torino-od-ztl_geo.zip", "http://geoportale.comune.torino.it/geodati/zip/ztl_geo.zip"),
+                  ("torino-od-ztl_csv.zip", "http://geoportale.comune.torino.it/geodati/zip/ztl_csv.zip"),
+                  ("torino-scheda-ztl-centrale.html", "https://www.comune.torino.it/schede-informative/ztl-centrale"),
+                  ("torino-scheda-elettrici.html", "https://www.comune.torino.it/schede-informative/permessi-circolazione-ztl-per-veicoli-elettrici-puri"),
+                  ("torino-gtt-alberghi.html", "https://www.gtt.to.it/cms/ztl/3681-utenti-che-pernottano-in-strutture-alberghiere"),
+                  ("torino-gtt-esenzioni.html", "https://gtt.to.it/cms/ztl/3702-categorie-e-attivita-che-hanno-diritto-all-esenzione-a-posteriori")]:
+    raw = get(url, tries=3)
+    if raw: (OUT / name).write_bytes(raw); print("ok torino", name, len(raw))
+    else: print("FAILED torino", name)
+# OSM: la Salita al CAI (ZTL notturna del Monte dei Cappuccini), il parco del Valentino e le aree pedonali del centro
+overpass("torino-extra", """[out:json][timeout:120];
+( way["name"~"Salita al C\\\\.?A\\\\.?I|Monte dei Cappuccini",i](45.055,7.69,45.065,7.705);
+  way["leisure"="park"]["name"~"Valentino",i](45.04,7.67,45.07,7.70); relation["leisure"="park"]["name"~"Valentino",i](45.04,7.67,45.07,7.70);
+  way["highway"="pedestrian"](45.06,7.67,45.08,7.70); relation["highway"="pedestrian"](45.06,7.67,45.08,7.70);
+  way["place"~"quarter|neighbourhood"]["name"~"Quadrilatero",i](45.06,7.67,45.08,7.69); relation["place"~"quarter|neighbourhood"]["name"~"Quadrilatero",i](45.06,7.67,45.08,7.69); );
+out geom;""")
+# --- fine Torino ---
