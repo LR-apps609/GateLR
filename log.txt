@@ -1,0 +1,13 @@
+1 200 447482 https://mycity.s3.sbg.io.cloud.ovh.net/4260930/ztl.jpg -> 1-ztl.jpg_
+2 200 522312 https://www.comune.san-giovanni-valdarno.ar.it/servizi/servizio-dettaglio/2562040 -> 2-2562040_
+3 200 292867 https://www.comune.san-giovanni-valdarno.ar.it/servizi/servizio-dettaglio/3128251 -> 3-3128251_
+4 200 117825 https://www.comune.san-giovanni-valdarno.ar.it/argomenti/argomento-dettaglio/3486289 -> 4-3486289_
+5 200 70449 https://www.comune.san-giovanni-valdarno.ar.it/argomenti/argomento-dettaglio/3486292 -> 5-3486292_
+6 200 81284 https://www.comune.san-giovanni-valdarno.ar.it/argomenti/argomento-dettaglio/3547575 -> 6-3547575_
+7 200 75037 https://www.comune.san-giovanni-valdarno.ar.it/argomenti/argomento-dettaglio/2488100 -> 7-2488100_
+8 404 2216 https://www.comune.san-giovanni-valdarno.ar.it/ricerca?q=ZTL -> 8-ricerca_
+9 200 63224 https://www.comune.san-giovanni-valdarno.ar.it/search?q=ZTL -> 9-search_
+10 200 123032 https://www.comune.san-giovanni-valdarno.ar.it/documenti-e-dati -> 10-documenti-e-dati_
+11 200 159022 https://www.comunesgv.it/ -> 11-www.comunesgv.it_
+12 overpass 156
+13 overpass 156

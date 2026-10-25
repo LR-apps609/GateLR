@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <!-- SEO -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+                        Documenti e dati
+ | Comune di San Giovanni Valdarno
+            </title>
+
+    <link rel="icon" type="image/png"
+        href="https://mycity.s3.sbg.io.cloud.ovh.net/3740019/Logo_Comune_SGV1-removebg-preview.png">
+
+        
+    <meta name="theme-color"
+        content="#004AAB">
+    <link rel="manifest" href="/manifest.json">
+            <link rel="apple-touch-icon" href="">
+        
+    <script nonce="iaAKSl2LRMbgqYilpxT83hj94CfxMuGt">
+        if ("serviceWorker" in navigator) navigator.serviceWorker.register("/service-worker.js");
+    </script>
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="Gepnks9ljN2IgCq1mmY9NqB00809eo58Nwt9mWy9">
+
+    <!-- IE -->
+    <script src="//cdnjs.cloudflare.com/polyfill/v2/polyfill.min.js" defer integrity="sha384-1VSQy5k+QwdaUkm5HnEi7c51pl417Wh8qB0FK/9YT1nYBm9yJtOGe271k0a1Oi2C" crossorigin="anonymous"></script>
+
+    <!-- Layout Scripts -->
+    <script src="/js/manifest.js?id=5f57a76db7bef139dd5f68a2f43efbca" defer></script>
+    <script src="/js/vendor.js?id=51393c43603619bb4dc3428991cdd7b4" async></script>
+    <script src="/js/frontend/agid4/layout.js?id=6ddc92e828e117c7d7aa14d51da7f413" async></script>
+
+    <!-- Fonts Preload -->
+    <link rel="preload" as="font" type="font/ttf" crossorigin href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/lora/Lora-Bold.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/lora/Lora-Italic.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/lora/Lora-Regular.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/roboto_mono/RobotoMono-Bold.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/roboto_mono/RobotoMono-Regular.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/roboto_mono/RobotoMono-Thin.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/titillium_web/TitilliumWeb-Bold.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/titillium_web/TitilliumWeb-Light.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/titillium_web/TitilliumWeb-Regular.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/titillium_web/TitilliumWeb-SemiBold.ttf">
+
+    <!-- Bootstrap Italia -->
+    <!--<script src="/js/frontend/agid4/bootstrap-italia.bundle.js?id=2c640d3aff624839d6081a339bc89d57" async></script>-->
+    <script src="https://www.comune.san-giovanni-valdarno.ar.it/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js" async nonce="iaAKSl2LRMbgqYilpxT83hj94CfxMuGt"></script>
+
+    <link rel="preload" href="/css/frontend-agid4/bootstrap-italia/bluoltremare/bootstrap-italia.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/frontend-agid4/bootstrap-italia/bluoltremare/bootstrap-italia.min.css"></noscript>
+
+    <link rel="preload" href="/css/frontend-agid4/themes/bluoltremare.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/frontend-agid4/themes/bluoltremare.css"></noscript>
+
+    <!-- Fonts & Icons -->
+    <link rel="preload" href="https://www.comune.san-giovanni-valdarno.ar.it/fontastic/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://www.comune.san-giovanni-valdarno.ar.it/fontastic/styles.css"></noscript>
+
+    <link rel="preload" href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/fabicon/fabicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/fabicon/fabicon.css"></noscript>
+
+    <link rel="preload" href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/fabicon/lightgallery.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/fabicon/lightgallery.css"></noscript>
+
+    <link rel="preload" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" as="style" 
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" 
+        crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" 
+            integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" 
+            crossorigin="anonymous">
+    </noscript>
+    <!-- SPID -->
+    <link type="text/css" rel="stylesheet" href="https://www.comune.san-giovanni-valdarno.ar.it/vendor/spid-auth/css/agid-spid-enter.min.1.0.0.css">
+
+    <!-- Smart App Banners -->
+    <!-- Smart App Banner Universale per iOS & Android (Cache-friendly) -->
+
+<!-- Il banner viene sempre incluso nell'HTML ma nascosto via CSS -->
+<div class="smartbanner-container-android" id="smartbanner" style="display: none;">
+    <button onclick="closeSmartBanner()" class="smartbanner-close" aria-label="Chiudi">&times;</button>
+    <img class="smartbanner-icon" src="https://mycity.s3.sbg.io.cloud.ovh.net/4470127/icona-facebook-(26)-(1).png" alt="Comune di San Giovanni Valdarno">
+    <div class="smartbanner-info">
+        <div class="smartbanner-title">MySanGiovanniValdarno</div>
+        <span>Home</span>
+    </div>
+    <a href="mysangiovannivaldarno://" 
+       id="smartbanner-btn"
+       onclick="openApp(event)" 
+       class="smartbanner-button">
+        <span class="smartbanner-button-text">Apri</span>
+    </a>
+</div>
+
+<script nonce="iaAKSl2LRMbgqYilpxT83hj94CfxMuGt">
+    // Configurazione passata da PHP/Blade al JS
+    var smartBannerConfig = {
+        androidApp: "https:\/\/play.google.com\/store\/apps\/details?id=it.gasparilab.mysangiovannivaldarno",
+        iosApp: "https:\/\/apps.apple.com\/app\/mysangiovannivaldarno\/id6743793022",
+        androidMarketUrl: "market:\/\/details?id=it.gasparilab.mysangiovannivaldarno",
+        iosStoreUrl: "https:\/\/apps.apple.com\/app\/mysangiovannivaldarno\/id6743793022",
+        deepLink: "mysangiovannivaldarno:\/\/"    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        
+        // Controlla Android
+        var isAndroid = /Android/i.test(ua);
+        
+        // Controlla iOS (inclusi iPad con Safari Desktop mode tramite maxTouchPoints)
+        var isiOS = /iPhone|iPod/i.test(ua) || 
+                    (/iPad/i.test(ua)) || 
+                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+        // Verifica se l'utente ha già chiuso il banner
+        if (localStorage.getItem("smartbanner_closed")) {
+            return;
+        }
+
+        var storeWebUrl = '';
+        var marketUrl = '';
+        var platform = '';
+        var showBanner = false;
+
+        if (isAndroid && smartBannerConfig.androidApp) {
+            showBanner = true;
+            platform = 'android';
+            storeWebUrl = smartBannerConfig.androidApp;
+            marketUrl = smartBannerConfig.androidMarketUrl;
+        } else if (isiOS && smartBannerConfig.iosApp) {
+            showBanner = true;
+            platform = 'ios';
+            storeWebUrl = smartBannerConfig.iosStoreUrl;
+            marketUrl = smartBannerConfig.iosStoreUrl;
+        }
+
+        // Se è un dispositivo mobile supportato, imposta i link e mostra il banner
+        if (showBanner) {
+            var banner = document.getElementById("smartbanner");
+            var btn = document.getElementById("smartbanner-btn");
+
+            if (btn) {
+                btn.setAttribute('data-market-url', marketUrl);
+                btn.setAttribute('data-store-url', storeWebUrl);
+                btn.setAttribute('data-platform', platform);
+            }
+
+            if (banner) {
+                banner.style.display = "block";
+            }
+        }
+    });
+
+    function closeSmartBanner() {
+        var element = document.getElementById("smartbanner");
+        if (element) {
+            element.style.display = "none";
+            localStorage.setItem("smartbanner_closed", "true");
+        }
+    }
+
+    function openApp(event) {
+        event.preventDefault();
+        
+        var btn = event.currentTarget;
+        var deeplink = smartBannerConfig.deepLink;
+        var marketUrl = btn.getAttribute('data-market-url');
+        var webStoreUrl = btn.getAttribute('data-store-url');
+
+        // iOS: niente deeplink (Safari mostra il popup "Aprire in «App»?" o l'errore
+        // "indirizzo non valido" se l'app manca): si apre direttamente la pagina App Store,
+        // che mostra "Apri" se l'app è già installata o "Ottieni" per scaricarla.
+        if (btn.getAttribute('data-platform') === 'ios') {
+            window.location.href = webStoreUrl;
+            return;
+        }
+
+        var start = Date.now();
+        var timerStore = null;
+        var timerFallback = null;
+
+        function onVisibilityChange() {
+            if (document.hidden) {
+                clearAppTimers();
+            }
+        }
+
+        function clearAppTimers() {
+            if (timerStore) clearTimeout(timerStore);
+            if (timerFallback) clearTimeout(timerFallback);
+
+            window.removeEventListener('pagehide', clearAppTimers);
+            window.removeEventListener('blur', clearAppTimers);
+            document.removeEventListener('visibilitychange', onVisibilityChange);
+        }
+
+        window.addEventListener('pagehide', clearAppTimers);
+        window.addEventListener('blur', clearAppTimers);
+        document.addEventListener('visibilitychange', onVisibilityChange);
+
+        // 1. Tenta l'apertura dell'App tramite Deeplink
+        window.location.href = deeplink;
+
+        // 2. Se l'app NON si apre ed entro 1.2s l'utente è ancora sulla pagina web -> Apri lo Store
+        timerStore = setTimeout(function() {
+            if (!document.hidden && (Date.now() - start < 2000)) {
+                window.location.href = marketUrl;
+
+                // 3. Fallback web
+                timerFallback = setTimeout(function() {
+                    if (!document.hidden && (Date.now() - start < 3500)) {
+                        window.location.href = webStoreUrl;
+                    }
+                }, 1000);
+            }
+        }, 1200);
+    }
+</script>
+
+<style nonce="iaAKSl2LRMbgqYilpxT83hj94CfxMuGt">
+    .smartbanner-container-android {
+        margin: 0 auto;
+        padding: 10px;
+        white-space: nowrap;
+        background: #F3F3F3;
+        color: #191919;
+        position: relative;
+    }
+
+    .smartbanner-close {
+        border: 0;
+        background-color: transparent;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: 'Verdana', Arial, sans-serif;
+        font-size: 20px;
+        text-align: center;
+        color: #666666;
+        cursor: pointer;
+    }
+
+    .smartbanner-close:hover {
+        color: #aaa;
+    }
+
+    .smartbanner-icon {
+        display: inline-block;
+        vertical-align: middle;
+        width: 57px;
+        height: 57px;
+        margin: 0 12px 0 5px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .smartbanner-info {
+        display: inline-block;
+        vertical-align: middle;
+        width: calc(100% - 170px);
+    }
+
+    .smartbanner-title {
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .smartbanner-info span {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 400;
+        color: #6B6B6B;
+    }
+
+    .smartbanner-button {
+        font-family: 'Verdana', Arial, sans-serif;
+        position: absolute;
+        right: 20px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 10px;
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: none;
+        color: #0462E7;
+        z-index: 9999;
+        pointer-events: auto;
+        touch-action: manipulation;
+    }
+</style>
+    <!-- Cookiebar & Web Analytics -->
+        <!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://ingestion.webanalytics.italia.it/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '38680']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    <!-- Translation Plugin -->
+    
+    <!-- Stacks -->
+            
+        
+
+</head>
+
+<body
+    class="titillium san-giovanni-valdarno">
+        <div id="app">
+        <!-- Cookie Banner -->
+                    <div id="cookie-bar" class="cookiealert bg-primary d-none pt-2 px-0" style="display: block;">
+                <div class="d-flex justify-content-end">
+                    <span class="declinecookies2 icon icon-cross clickable text-white"></span>
+                </div>
+                <div class="text-center px-3">
+                    <p class="mb-3">
+                        Questo sito utilizza cookie tecnici e statistici pseudonimizzati. La chiusura del banner mediante
+                        selezione dell'apposito comando contraddistinto dalla X o tramite il pulsante "Continua la
+                        navigazione" comporta la continuazione della navigazione in assenza di cookie o altri strumenti
+                        di tracciamento diversi da quelli sopracitati.
+                        <br><a class="cookiebar-btn" href="https://www.comune.san-giovanni-valdarno.ar.it/informativa-cookie">COOKIE POLICY</a>
+                    </p>
+                    <button class="btn btn-sm btn-outline-secondary acceptcookies" aria-label="Close">
+                        Continua la navigazione
+                    </button>
+                </div>
+            </div>
+                <header class="it-header-wrapper it-header-sticky">
+            <div class="it-header-slim-wrapper d-print-none">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="it-header-slim-wrapper-content">
+                                <a class="navbar-brand" href="http://www.regione.toscana.it" target="_blank"
+                                    aria-label="Vai al portale Toscana - link esterno - apertura nuova scheda"
+                                    title="Vai al portale Toscana">Regione
+                                    Toscana</a>
+                                
+                                <div class="it-header-slim-right-zone">
+                                    
+                                                                        
+                                                                                                                        <a class="btn btn-primary btn-icon btn-full"
+                                                href="/login"
+                                                data-element="personal-area-login" title="Accedi">
+                                                <span class="rounded-icon" aria-hidden="true">
+                                                    <svg class="icon icon-primary">
+                                                        <use
+                                                            xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-user">
+                                                        </use>
+                                                    </svg>
+                                                </span>
+                                                <span class="d-none d-lg-block">Accedi all'area personale</span>
+                                            </a>
+                                                                                                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="it-nav-wrapper">
+                <div class="it-header-center-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="it-header-center-content-wrapper">
+                                    <div class="it-brand-wrapper">
+                                                                                        <a href="https://www.comune.san-giovanni-valdarno.ar.it/home" tabindex="-1"
+                                                    title="Vai alla Homepage">
+                                                                                <img loading="lazy" src="https://mycity.s3.sbg.io.cloud.ovh.net/3740017/Logo_Comune_SGV1-removebg-preview.png"
+                                            alt="Comune di San Giovanni Valdarno" class="img-fluid stemma">
+                                        <div class="it-brand-text">
+                                            <div class="no_toc it-brand-title">Comune di San Giovanni Valdarno</div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="it-right-zone d-print-none">
+                                                                                    <div class="it-socials d-none d-lg-flex">
+                                                <span>Seguici su</span>
+                                                <ul>
+                                                                                                                                                                <li>
+                                                            <div>
+            <a class="" href="https://www.facebook.com/comunesangiovannivaldarno" title="Facebook" aria-label="Facebook" target="_blank">
+            <svg class="icon icon-sm icon-white align-top">
+                <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-facebook">
+                </use>
+            </svg>
+            <span class="visually-hidden">Facebook</span>
+        </a>
+    </div>
+                                                        </li>
+                                                                                                        
+                                                                                                            <li>
+                                                            <div>
+            <a class="" href="https://www.instagram.com/comunesgv" title="Instagram" target="_blank">
+            <svg class="icon icon-sm icon-white align-top">
+                <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-instagram">
+                </use>
+            </svg>
+            <span class="visually-hidden">Instagram</span>
+        </a>
+    </div>
+                                                        </li>
+                                                                                                                                                                                                            </ul>
+                                            </div>
+                                        
+                                        <search-widget modules="[]" scenario-id="1764"
+                                            search-url="https://www.comune.san-giovanni-valdarno.ar.it/api/v1/scenarios/1764/search"
+                                            advanced-search-url="https://www.comune.san-giovanni-valdarno.ar.it/ricerca-avanzata" theme="agid4">
+                                        </search-widget>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="it-header-navbar-wrapper d-print-none" id="header-nav-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <nav class="navbar navbar-expand-lg has-megamenu" aria-label="Navigazione principale">
+                                    <button class="custom-navbar-toggler" type="button" aria-controls="nav10"
+                                        aria-expanded="false" aria-label="Mostra/Nascondi la navigazione"
+                                        data-bs-target="#nav10" data-bs-toggle="navbarcollapsible" >
+                                        <svg class="icon">
+                                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
+                                        </svg>
+                                    </button>
+                                    <div class="navbar-collapsable" id="nav10">
+                                        <div class="overlay" style="display: none;"></div>
+                                        <div class="close-div">
+                                            <button class="btn close-menu" type="button">
+                                                <span class="visually-hidden text-white">Nascondi la navigazione</span>
+                                                <svg class="icon">
+                                                    <use href="/bootstrap-italia/dist/svg/sprites.svg#it-close-big">
+                                                    </use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="menu-wrapper d-flex flex-column">
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/home" aria-label="homepage"
+                                                class="logo-hamburger border-bottom">
+                                                <img loading="lazy" src="https://mycity.s3.sbg.io.cloud.ovh.net/3740017/Logo_Comune_SGV1-removebg-preview.png"
+                                                    alt="Comune di San Giovanni Valdarno" class="img-fluid stemma">
+                                                <div class="it-brand-text">
+                                                    <div class="it-brand-title">Comune di San Giovanni Valdarno</div>
+                                                </div>
+                                            </a>
+                                            <div class="menu-wrapper-nav">
+                                                <ul class="navbar-nav main_menu" data-element="main-navigation">
+                                                                                                                                                                    <li class="nav-item">
+                                                            <a                                                                 data-element="management"
+                                                                class="nav-link "
+                                                                href="https://www.comune.san-giovanni-valdarno.ar.it/amministrazione" role="button"
+                                                                aria-haspopup="true" aria-expanded="false"
+                                                                title="Vai alla pagina: Amministrazione">
+                                                                <span>Amministrazione</span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="nav-item">
+                                                            <a                                                                 data-element="news"
+                                                                class="nav-link "
+                                                                href="https://www.comune.san-giovanni-valdarno.ar.it/novita" role="button"
+                                                                aria-haspopup="true" aria-expanded="false"
+                                                                title="Vai alla pagina: Novità">
+                                                                <span>Novità</span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="nav-item">
+                                                            <a                                                                 data-element="all-services"
+                                                                class="nav-link "
+                                                                href="https://www.comune.san-giovanni-valdarno.ar.it/servizi" role="button"
+                                                                aria-haspopup="true" aria-expanded="false"
+                                                                title="Vai alla pagina: Servizi">
+                                                                <span>Servizi</span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="nav-item">
+                                                            <a                                                                 data-element="live"
+                                                                class="nav-link "
+                                                                href="https://www.comune.san-giovanni-valdarno.ar.it/vivere-il-comune" role="button"
+                                                                aria-haspopup="true" aria-expanded="false"
+                                                                title="Vai alla pagina: Vivere il comune">
+                                                                <span>Vivere il comune</span>
+                                                            </a>
+                                                        </li>
+                                                    
+                                                                                                    </ul>
+
+                                                
+                                                <ul class="navbar-nav navbar-secondary ">
+                                                                                                            <li class="nav-item">
+                                                            <a class="nav-link" href="https://www.comune.san-giovanni-valdarno.ar.it/argomenti/argomento-dettaglio/3486289"
+                                                                title="Vai alla pagina: Sanità">Sanità</a>
+                                                        </li>
+                                                                                                            <li class="nav-item">
+                                                            <a class="nav-link" href="https://www.comune.san-giovanni-valdarno.ar.it/argomenti/argomento-dettaglio/3486292"
+                                                                title="Vai alla pagina: Graduatorie">Graduatorie</a>
+                                                        </li>
+                                                                                                            <li class="nav-item">
+                                                            <a class="nav-link" href="https://www.comune.san-giovanni-valdarno.ar.it/argomenti/argomento-dettaglio/3547575"
+                                                                title="Vai alla pagina: Scioperi">Scioperi</a>
+                                                        </li>
+                                                                                                                                                                <li class="nav-item">
+                                                            <a class="nav-link" href="/argomenti"
+                                                                title="Vai alla pagina: Tutti gli argomenti"
+                                                                data-element="all-topics"><span class="fw-bold">Tutti gli
+                                                                    argomenti...</span></a>
+                                                        </li>
+                                                                                                    </ul>
+                                                                                                <div class="it-socials">
+                                                    <span>Seguici su</span>
+                                                    <ul>
+                                                                                                                    <li>
+                                                                <a class="nav-link" href="https://www.facebook.com/comunesangiovannivaldarno" title="Facebook" target="_blank">
+                                                                    <span class="icon icon-sm icon-white align-top icon-fb ciaone"></span>
+                                                                </a>
+                                                            </li>
+                                                                                                                                                                                                                                                                                            <li>
+                                                                <a class="nav-link" href="https://www.instagram.com/comunesgv" title="Instagram" target="_blank">
+                                                                    <span class="icon icon-sm icon-white align-top icon-ig"></span>
+                                                                </a>
+                                                            </li>
+                                                                                                                                                                                                                            </ul>
+                                                </div>
+                                                  
+                                                <ul class="navbar-nav main_menu d-lg-none">
+                                                                                                    </ul> 
+                                                
+                                            </div> 
+                                            <div class="mobile-login nav-item d-lg-none px-4 py-2 border-top">
+                                                                                                    <a href="/login"
+                                                        title="login" class="btn btn-success">Accedi </a>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        
+        
+        
+            <!-- Top -->
+            <div class="container" id="breadcrumbs-container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="cmp-breadcrumbs" role="navigation">
+    <nav class="breadcrumb-container">
+        <ol class="breadcrumb p-0" data-element="breadcrumb">
+                                  
+                                    <li class="breadcrumb-item">
+                        <a href="/home" title="Vai alla pagina: Home Page">Home Page</a><span class="separator">/</span>
+                    </li>
+                                
+                                  
+                                    <li class="breadcrumb-item">
+                        <a href="https://www.comune.san-giovanni-valdarno.ar.it/amministrazione" title="Vai alla pagina: Amministrazione">Amministrazione</a><span class="separator">/</span>
+                    </li>
+                                
+                                  
+                                    <li class="breadcrumb-item">
+                        <span>Documenti e dati</span>
+                    </li>
+                                
+                    </ol>
+    </nav>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+
+<div class="container" id="main-container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <div class="cmp-heading pb-3 pb-lg-4">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="categoryicon-top d-flex" style="">
+                            
+                                                            <h1 class="title-xxxlarge d-flex" data-element="page-name">Documenti e dati</h1>
+                                                        
+                        </div>
+
+                        
+                        
+                        <!-- Nome alternativo luogo -->
+                        
+                                                                                    <p class="subtitle-small mb-2">La documentazione prodotta e pubblicata dal Comune come atti, accordi, statistiche, progetti e modulistica.</p>
+                                                    
+                        
+                                                                    </div>
+
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Highlights -->
+            <!-- Highlights -->
+
+    <!-- 2 Varianti: 1) sfondo bianco con ombra superiore (es: pagina Novità); 2) sfondo grigio (es: pagina amministrazione) -->
+    <section class="pb-5">
+
+                    <div class="container mb-4"
+                style="box-shadow: rgb(0, 0, 0, 0.4) 0px 16px 23px -20px; height: 45px; margin-top: -25px;"></div>
+        
+        <div class="container pt-5">
+            <h2 class="title-xxlarge mb-4">In evidenza</h2>
+            <div class="row g-4">
+                                    <div class="col-md-6 col-xl-4">
+
+    <div class="card-wrapper border border-light rounded shadow-sm cmp-list-card-img cmp-list-card-img-hr">
+        <div class="card no-after rounded">
+                            <div class="img-responsive-wrapper cmp-list-card-img__wrapper">
+                    <div class="img-responsive img-responsive-panoramic h-100">
+                        <figure class="img-wrapper">
+                            <img loading="lazy"
+                                 src="https://mycity.s3.sbg.io.cloud.ovh.net/5150160/conversions/istat-thumb.jpg"
+                                 alt="Indagine sul reddito e le condizioni di vita delle famiglie (EU-SILC) – proroga dei termini di rilevazione" 
+                                 class="rounded-top img-fluid">
+                        </figure>
+                    </div>
+                </div>
+            
+            <div class="card-body">
+                
+                                    <div class="category-top cmp-list-card-img__body">
+                        <svg class="icon icon-sm" aria-hidden="true">
+                            <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-file"></use>
+                        </svg>
+                        <span class="text-primary title-xsmall-semi-bold fw-semibold">
+                            Indagini ISTAT
+                        </span>
+                        <span class="data">
+                            17 giu 2026
+                        </span>
+                    </div>
+                
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/documenti/3600739/indagine-reddito-condizioni-vita-famiglie-eu-silc" 
+                       class="text-decoration-none" 
+                       title="Leggi di più: Indagine sul reddito e le condizioni di vita delle famiglie (EU-SILC) – proroga dei termini di rilevazione">
+                        <div class="d-flex align-items-center">
+                            <h3 class="text-break">Indagine sul reddito e le condizioni di vita delle famiglie (EU-SILC) – proroga dei termini di rilevazione</h3> 
+                        </div>
+                    </a>
+                
+                                    <p class="cmp-list-card-img__body-description text-secondary mb-0">
+                        ISTAT ha prorogato fino al 12 luglio 2026 l’attività di rilevazione dell’Indagine sul reddito e le condizioni di vita delle famiglie (EU-SILC) – anno 2026
+                    </p>
+                                
+            </div>
+        </div>
+    </div>
+
+</div>                            </div>
+        </div>
+    </section>
+        
+    <!-- Sezione "Esplora Info" -->
+            <section>
+        <div class="bg-grey-card">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                                                    <h2 class="title-xxlarge text-secondary mb-4 mt-5 mb-lg-10">Esplora Documenti e dati</h2>
+                                            </div>
+
+                    <div class="col-12 pt-3 pb-lg-50">
+                                                    <explore-info :contents="[{&quot;id&quot;:3046245,&quot;scenario_id&quot;:1764,&quot;infoable_type&quot;:&quot;App\\Models\\Cms2\\DocumentInfoable&quot;,&quot;infoable_id&quot;:43432,&quot;title&quot;:&quot;Allegato A - graduatoria provvisoria per l\u2019assegnazione di alloggi di edilizia residenziale pubblica&quot;,&quot;permalink&quot;:&quot;allegato-graduatoria-provvisoria-assegnazione&quot;,&quot;version_number&quot;:&quot;&quot;,&quot;app_visibility&quot;:false,&quot;site_visibility&quot;:true,&quot;turist_visibility&quot;:false,&quot;drafting_status&quot;:null,&quot;publish_date&quot;:&quot;2024-10-01T10:21:00.000000Z&quot;,&quot;unpublish_date&quot;:null,&quot;cloned_from&quot;:null,&quot;abstract&quot;:&quot;Bando ERP 2023&quot;,&quot;body&quot;:null,&quot;created_by&quot;:170708,&quot;updated_by&quot;:170710,&quot;deleted_by&quot;:null,&quot;created_at&quot;:&quot;2024-10-01T10:22:18.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T10:29:01.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;parent_id&quot;:3079105,&quot;order&quot;:216,&quot;icon&quot;:null,&quot;highlighed_app&quot;:null,&quot;unhighlighed_app&quot;:null,&quot;highlighed_site&quot;:null,&quot;unhighlighed_site&quot;:null,&quot;highlighed_turist&quot;:null,&quot;unhighlighed_turist&quot;:null,&quot;evidence_site&quot;:0,&quot;uncompleted&quot;:0,&quot;imported_by&quot;:null,&quot;order_highlighed_site&quot;:0,&quot;order_highlighed_app&quot;:0,&quot;order_highlighed_turist&quot;:0,&quot;pinned&quot;:0,&quot;scenario&quot;:null,&quot;image_thumb_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;documents&quot;,&quot;info_alias_translation&quot;:&quot;Documenti&quot;,&quot;info_icon_class&quot;:&quot;cms-documenti&quot;,&quot;share_url&quot;:&quot;https:\/\/www.comune.san-giovanni-valdarno.ar.it\/documenti\/3046245\/allegato-graduatoria-provvisoria-assegnazione&quot;,&quot;abstract_ellipsized&quot;:&quot;Bando ERP 2023&quot;,&quot;formatted_date&quot;:&quot;01\/10\/2024&quot;,&quot;document_formats&quot;:&quot;PDF&quot;,&quot;parent&quot;:{&quot;id&quot;:3079105,&quot;title&quot;:&quot;Documentazione ERP 2024&quot;,&quot;image_thumb_url&quot;:null,&quot;image_thumb_only_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;infos&quot;,&quot;info_alias_translation&quot;:&quot;infos.infos&quot;,&quot;info_icon_class&quot;:&quot;cms-info&quot;,&quot;share_url&quot;:null,&quot;scenario&quot;:null},&quot;infoable&quot;:{&quot;more_infos&quot;:null,&quot;document_identifier&quot;:null,&quot;protocol&quot;:null,&quot;protocol_date&quot;:null,&quot;license&quot;:&quot;Pubblico dominio&quot;,&quot;start_date&quot;:null,&quot;end_date&quot;:null,&quot;organizational_unit_id&quot;:2488186,&quot;authors&quot;:null,&quot;references&quot;:&quot;[]&quot;,&quot;life_events&quot;:null,&quot;business_events&quot;:null},&quot;attachments&quot;:[{&quot;id&quot;:4186409,&quot;model_id&quot;:3046245,&quot;model_type&quot;:&quot;App\\Models\\Cms2\\Document&quot;,&quot;collection_name&quot;:&quot;attachments&quot;,&quot;name&quot;:&quot;5365_ALL_A&quot;,&quot;file_name&quot;:&quot;5365_ALL_A.pdf&quot;,&quot;mime_type&quot;:&quot;application\/pdf&quot;,&quot;disk&quot;:&quot;media_ovh&quot;,&quot;size&quot;:241611,&quot;manipulations&quot;:[],&quot;custom_properties&quot;:[],&quot;order_column&quot;:2565095,&quot;created_at&quot;:&quot;2024-10-01T10:23:05.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-10-01T10:23:05.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;tags&quot;:null,&quot;responsive_images&quot;:[],&quot;conversions_disk&quot;:&quot;media_ovh&quot;,&quot;uuid&quot;:&quot;30c473f7-ac62-4683-a948-19dfa76dc7d1&quot;,&quot;attachment_group_id&quot;:null,&quot;visibility&quot;:1,&quot;expiration_date&quot;:null,&quot;url&quot;:&quot;https:\/\/mycity.s3.sbg.io.cloud.ovh.net\/4186409\/5365_ALL_A.pdf&quot;,&quot;thumb_url&quot;:null,&quot;human_readable_mime_type&quot;:&quot;PDF&quot;}],&quot;gallery&quot;:[]},{&quot;id&quot;:3046247,&quot;scenario_id&quot;:1764,&quot;infoable_type&quot;:&quot;App\\Models\\Cms2\\DocumentInfoable&quot;,&quot;infoable_id&quot;:43433,&quot;title&quot;:&quot;Allegato B - elenco esclusi dalla graduatoria provvisoria per l\u2019assegnazione di alloggi di edilizia residenziale pubblica&quot;,&quot;permalink&quot;:&quot;allegato-b-elenco-esclusi-graduatoria-provvisoria&quot;,&quot;version_number&quot;:&quot;&quot;,&quot;app_visibility&quot;:false,&quot;site_visibility&quot;:true,&quot;turist_visibility&quot;:false,&quot;drafting_status&quot;:null,&quot;publish_date&quot;:&quot;2024-10-01T10:21:00.000000Z&quot;,&quot;unpublish_date&quot;:null,&quot;cloned_from&quot;:null,&quot;abstract&quot;:&quot;Bando ERP 2023&quot;,&quot;body&quot;:null,&quot;created_by&quot;:170708,&quot;updated_by&quot;:170710,&quot;deleted_by&quot;:null,&quot;created_at&quot;:&quot;2024-10-01T10:23:12.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T10:29:01.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;parent_id&quot;:3079105,&quot;order&quot;:217,&quot;icon&quot;:null,&quot;highlighed_app&quot;:null,&quot;unhighlighed_app&quot;:null,&quot;highlighed_site&quot;:null,&quot;unhighlighed_site&quot;:null,&quot;highlighed_turist&quot;:null,&quot;unhighlighed_turist&quot;:null,&quot;evidence_site&quot;:0,&quot;uncompleted&quot;:0,&quot;imported_by&quot;:null,&quot;order_highlighed_site&quot;:0,&quot;order_highlighed_app&quot;:0,&quot;order_highlighed_turist&quot;:0,&quot;pinned&quot;:0,&quot;scenario&quot;:null,&quot;image_thumb_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;documents&quot;,&quot;info_alias_translation&quot;:&quot;Documenti&quot;,&quot;info_icon_class&quot;:&quot;cms-documenti&quot;,&quot;share_url&quot;:&quot;https:\/\/www.comune.san-giovanni-valdarno.ar.it\/documenti\/3046247\/allegato-b-elenco-esclusi-graduatoria-provvisoria&quot;,&quot;abstract_ellipsized&quot;:&quot;Bando ERP 2023&quot;,&quot;formatted_date&quot;:&quot;01\/10\/2024&quot;,&quot;document_formats&quot;:&quot;PDF&quot;,&quot;parent&quot;:{&quot;id&quot;:3079105,&quot;title&quot;:&quot;Documentazione ERP 2024&quot;,&quot;image_thumb_url&quot;:null,&quot;image_thumb_only_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;infos&quot;,&quot;info_alias_translation&quot;:&quot;infos.infos&quot;,&quot;info_icon_class&quot;:&quot;cms-info&quot;,&quot;share_url&quot;:null,&quot;scenario&quot;:null},&quot;infoable&quot;:{&quot;more_infos&quot;:null,&quot;document_identifier&quot;:null,&quot;protocol&quot;:null,&quot;protocol_date&quot;:null,&quot;license&quot;:&quot;Pubblico dominio&quot;,&quot;start_date&quot;:null,&quot;end_date&quot;:null,&quot;organizational_unit_id&quot;:2488186,&quot;authors&quot;:null,&quot;references&quot;:&quot;[]&quot;,&quot;life_events&quot;:null,&quot;business_events&quot;:null},&quot;attachments&quot;:[{&quot;id&quot;:4186421,&quot;model_id&quot;:3046247,&quot;model_type&quot;:&quot;App\\Models\\Cms2\\Document&quot;,&quot;collection_name&quot;:&quot;attachments&quot;,&quot;name&quot;:&quot;5365_ALL_B&quot;,&quot;file_name&quot;:&quot;5365_ALL_B.pdf&quot;,&quot;mime_type&quot;:&quot;application\/pdf&quot;,&quot;disk&quot;:&quot;media_ovh&quot;,&quot;size&quot;:475537,&quot;manipulations&quot;:[],&quot;custom_properties&quot;:[],&quot;order_column&quot;:2565102,&quot;created_at&quot;:&quot;2024-10-01T10:23:47.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-10-01T10:23:47.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;tags&quot;:null,&quot;responsive_images&quot;:[],&quot;conversions_disk&quot;:&quot;media_ovh&quot;,&quot;uuid&quot;:&quot;6766d587-657a-4f72-9581-e08fc7e477bd&quot;,&quot;attachment_group_id&quot;:null,&quot;visibility&quot;:1,&quot;expiration_date&quot;:null,&quot;url&quot;:&quot;https:\/\/mycity.s3.sbg.io.cloud.ovh.net\/4186421\/5365_ALL_B.pdf&quot;,&quot;thumb_url&quot;:null,&quot;human_readable_mime_type&quot;:&quot;PDF&quot;}],&quot;gallery&quot;:[]},{&quot;id&quot;:2757198,&quot;scenario_id&quot;:1764,&quot;infoable_type&quot;:&quot;App\\Models\\Cms2\\DocumentInfoable&quot;,&quot;infoable_id&quot;:33286,&quot;title&quot;:&quot;Attestazione agibilit\u00e0 impianti&quot;,&quot;permalink&quot;:&quot;attestazione-agibilita-impianti&quot;,&quot;version_number&quot;:&quot;&quot;,&quot;app_visibility&quot;:false,&quot;site_visibility&quot;:true,&quot;turist_visibility&quot;:false,&quot;drafting_status&quot;:null,&quot;publish_date&quot;:&quot;2024-05-30T06:43:00.000000Z&quot;,&quot;unpublish_date&quot;:null,&quot;cloned_from&quot;:null,&quot;abstract&quot;:&quot;Interventi al termine dei quali \u00e8 necessario attestare l\u2019agibilit\u00e0\/abitabilit\u00e0&quot;,&quot;body&quot;:null,&quot;created_by&quot;:168122,&quot;updated_by&quot;:170710,&quot;deleted_by&quot;:null,&quot;created_at&quot;:&quot;2024-05-30T08:43:32.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T10:29:01.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;parent_id&quot;:2751428,&quot;order&quot;:195,&quot;icon&quot;:null,&quot;highlighed_app&quot;:null,&quot;unhighlighed_app&quot;:null,&quot;highlighed_site&quot;:null,&quot;unhighlighed_site&quot;:null,&quot;highlighed_turist&quot;:null,&quot;unhighlighed_turist&quot;:null,&quot;evidence_site&quot;:0,&quot;uncompleted&quot;:0,&quot;imported_by&quot;:null,&quot;order_highlighed_site&quot;:0,&quot;order_highlighed_app&quot;:0,&quot;order_highlighed_turist&quot;:0,&quot;pinned&quot;:0,&quot;scenario&quot;:null,&quot;image_thumb_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;documents&quot;,&quot;info_alias_translation&quot;:&quot;Documenti&quot;,&quot;info_icon_class&quot;:&quot;cms-documenti&quot;,&quot;share_url&quot;:&quot;https:\/\/www.comune.san-giovanni-valdarno.ar.it\/documenti\/2757198\/attestazione-agibilita-impianti&quot;,&quot;abstract_ellipsized&quot;:&quot;Interventi al termine dei quali \u00e8 necessario attestare l\u2019agibilit\u00e0\/abitabilit\u00e0&quot;,&quot;formatted_date&quot;:&quot;30\/05\/2024&quot;,&quot;document_formats&quot;:&quot;PDF&quot;,&quot;parent&quot;:{&quot;id&quot;:2751428,&quot;title&quot;:&quot;Documenti Ufficio Edilizia e Urbanistica&quot;,&quot;image_thumb_url&quot;:null,&quot;image_thumb_only_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;infos&quot;,&quot;info_alias_translation&quot;:&quot;infos.infos&quot;,&quot;info_icon_class&quot;:&quot;cms-info&quot;,&quot;share_url&quot;:null,&quot;scenario&quot;:null},&quot;infoable&quot;:{&quot;more_infos&quot;:null,&quot;document_identifier&quot;:null,&quot;protocol&quot;:null,&quot;protocol_date&quot;:null,&quot;license&quot;:&quot;Pubblico dominio&quot;,&quot;start_date&quot;:null,&quot;end_date&quot;:null,&quot;organizational_unit_id&quot;:2488501,&quot;authors&quot;:null,&quot;references&quot;:&quot;[]&quot;,&quot;life_events&quot;:null,&quot;business_events&quot;:null},&quot;attachments&quot;:[{&quot;id&quot;:3929011,&quot;model_id&quot;:2757198,&quot;model_type&quot;:&quot;App\\Models\\Cms2\\Document&quot;,&quot;collection_name&quot;:&quot;attachments&quot;,&quot;name&quot;:&quot;link05&quot;,&quot;file_name&quot;:&quot;link05.pdf&quot;,&quot;mime_type&quot;:&quot;application\/pdf&quot;,&quot;disk&quot;:&quot;media_ovh&quot;,&quot;size&quot;:128555,&quot;manipulations&quot;:[],&quot;custom_properties&quot;:[],&quot;order_column&quot;:2377626,&quot;created_at&quot;:&quot;2024-05-30T08:44:06.000000Z&quot;,&quot;updated_at&quot;:&quot;2024-05-30T08:44:06.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;tags&quot;:null,&quot;responsive_images&quot;:[],&quot;conversions_disk&quot;:&quot;media_ovh&quot;,&quot;uuid&quot;:&quot;757da5b2-00a7-4bbd-b517-4265752d06ec&quot;,&quot;attachment_group_id&quot;:null,&quot;visibility&quot;:1,&quot;expiration_date&quot;:null,&quot;url&quot;:&quot;https:\/\/mycity.s3.sbg.io.cloud.ovh.net\/3929011\/link05.pdf&quot;,&quot;thumb_url&quot;:null,&quot;human_readable_mime_type&quot;:&quot;PDF&quot;}],&quot;gallery&quot;:[]},{&quot;id&quot;:2758519,&quot;scenario_id&quot;:1764,&quot;infoable_type&quot;:&quot;App\\Models\\Cms2\\DocumentInfoable&quot;,&quot;infoable_id&quot;:33398,&quot;title&quot;:&quot;Autocalcolo del contributo di costruzione&quot;,&quot;permalink&quot;:&quot;autocalcolo-contributo-costruzione&quot;,&quot;version_number&quot;:&quot;&quot;,&quot;app_visibility&quot;:false,&quot;site_visibility&quot;:true,&quot;turist_visibility&quot;:false,&quot;drafting_status&quot;:null,&quot;publish_date&quot;:&quot;2024-05-30T15:28:00.000000Z&quot;,&quot;unpublish_date&quot;:null,&quot;cloned_from&quot;:null,&quot;abstract&quot;:&quot;Tabella per autocalcolo del contributo di costruzione&quot;,&quot;body&quot;:null,&quot;created_by&quot;:168122,&quot;updated_by&quot;:170710,&quot;deleted_by&quot;:null,&quot;created_at&quot;:&quot;2024-05-30T17:28:26.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T10:29:01.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;parent_id&quot;:2751428,&quot;order&quot;:199,&quot;icon&quot;:null,&quot;highlighed_app&quot;:null,&quot;unhighlighed_app&quot;:null,&quot;highlighed_site&quot;:null,&quot;unhighlighed_site&quot;:null,&quot;highlighed_turist&quot;:null,&quot;unhighlighed_turist&quot;:null,&quot;evidence_site&quot;:0,&quot;uncompleted&quot;:0,&quot;imported_by&quot;:null,&quot;order_highlighed_site&quot;:0,&quot;order_highlighed_app&quot;:0,&quot;order_highlighed_turist&quot;:0,&quot;pinned&quot;:0,&quot;scenario&quot;:null,&quot;image_thumb_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;documents&quot;,&quot;info_alias_translation&quot;:&quot;Documenti&quot;,&quot;info_icon_class&quot;:&quot;cms-documenti&quot;,&quot;share_url&quot;:&quot;https:\/\/www.comune.san-giovanni-valdarno.ar.it\/documenti\/2758519\/autocalcolo-contributo-costruzione&quot;,&quot;abstract_ellipsized&quot;:&quot;Tabella per autocalcolo del contributo di costruzione&quot;,&quot;formatted_date&quot;:&quot;30\/05\/2024&quot;,&quot;document_formats&quot;:&quot;XLSX&quot;,&quot;parent&quot;:{&quot;id&quot;:2751428,&quot;title&quot;:&quot;Documenti Ufficio Edilizia e Urbanistica&quot;,&quot;image_thumb_url&quot;:null,&quot;image_thumb_only_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;infos&quot;,&quot;info_alias_translation&quot;:&quot;infos.infos&quot;,&quot;info_icon_class&quot;:&quot;cms-info&quot;,&quot;share_url&quot;:null,&quot;scenario&quot;:null},&quot;infoable&quot;:{&quot;more_infos&quot;:null,&quot;document_identifier&quot;:null,&quot;protocol&quot;:null,&quot;protocol_date&quot;:null,&quot;license&quot;:&quot;Pubblico dominio&quot;,&quot;start_date&quot;:null,&quot;end_date&quot;:null,&quot;organizational_unit_id&quot;:2488501,&quot;authors&quot;:null,&quot;references&quot;:&quot;[]&quot;,&quot;life_events&quot;:null,&quot;business_events&quot;:null},&quot;attachments&quot;:[{&quot;id&quot;:4344954,&quot;model_id&quot;:2758519,&quot;model_type&quot;:&quot;App\\Models\\Cms2\\Document&quot;,&quot;collection_name&quot;:&quot;attachments&quot;,&quot;name&quot;:&quot;Contributo_art183_2025&quot;,&quot;file_name&quot;:&quot;Contributo_art183_2025.xlsx&quot;,&quot;mime_type&quot;:&quot;application\/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;,&quot;disk&quot;:&quot;media_ovh&quot;,&quot;size&quot;:1299129,&quot;manipulations&quot;:[],&quot;custom_properties&quot;:[],&quot;order_column&quot;:2680280,&quot;created_at&quot;:&quot;2025-01-07T18:01:20.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-01-07T18:01:20.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;tags&quot;:null,&quot;responsive_images&quot;:[],&quot;conversions_disk&quot;:&quot;media_ovh&quot;,&quot;uuid&quot;:&quot;00080ab2-0eb5-4bb8-8d5f-908baf8e1f2e&quot;,&quot;attachment_group_id&quot;:null,&quot;visibility&quot;:1,&quot;expiration_date&quot;:null,&quot;url&quot;:&quot;https:\/\/mycity.s3.sbg.io.cloud.ovh.net\/4344954\/Contributo_art183_2025.xlsx&quot;,&quot;thumb_url&quot;:null,&quot;human_readable_mime_type&quot;:&quot;XLSX&quot;}],&quot;gallery&quot;:[]},{&quot;id&quot;:3659012,&quot;scenario_id&quot;:1764,&quot;infoable_type&quot;:&quot;App\\Models\\Cms2\\DocumentInfoable&quot;,&quot;infoable_id&quot;:64640,&quot;title&quot;:&quot;AVVISO - Avvio digitalizzazione archivio Urbanistica ed Edilizia \u2013 Possibili rallentamenti nella consultazione delle pratiche&quot;,&quot;permalink&quot;:&quot;avviso-avvio-digitalizzazione-archivio&quot;,&quot;version_number&quot;:&quot;&quot;,&quot;app_visibility&quot;:false,&quot;site_visibility&quot;:true,&quot;turist_visibility&quot;:false,&quot;drafting_status&quot;:null,&quot;publish_date&quot;:&quot;2026-10-06T10:59:37.000000Z&quot;,&quot;unpublish_date&quot;:null,&quot;cloned_from&quot;:null,&quot;abstract&quot;:&quot;Dal 9 luglio 2026 potrebbero verificarsi temporanei rallentamenti nella consegna e nella consultazione delle pratiche edilizie per consentire le operazioni di digitalizzazione dell\u2019archivio&quot;,&quot;body&quot;:null,&quot;created_by&quot;:198847,&quot;updated_by&quot;:198847,&quot;deleted_by&quot;:null,&quot;created_at&quot;:&quot;2026-10-06T10:59:37.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-10-06T10:59:49.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;parent_id&quot;:2751428,&quot;order&quot;:0,&quot;icon&quot;:null,&quot;highlighed_app&quot;:null,&quot;unhighlighed_app&quot;:null,&quot;highlighed_site&quot;:null,&quot;unhighlighed_site&quot;:null,&quot;highlighed_turist&quot;:null,&quot;unhighlighed_turist&quot;:null,&quot;evidence_site&quot;:0,&quot;uncompleted&quot;:0,&quot;imported_by&quot;:null,&quot;order_highlighed_site&quot;:0,&quot;order_highlighed_app&quot;:0,&quot;order_highlighed_turist&quot;:0,&quot;pinned&quot;:0,&quot;scenario&quot;:null,&quot;image_thumb_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;documents&quot;,&quot;info_alias_translation&quot;:&quot;Documenti&quot;,&quot;info_icon_class&quot;:&quot;cms-documenti&quot;,&quot;share_url&quot;:&quot;https:\/\/www.comune.san-giovanni-valdarno.ar.it\/documenti\/3659012\/avviso-avvio-digitalizzazione-archivio&quot;,&quot;abstract_ellipsized&quot;:&quot;Dal 9 luglio 2026 potrebbero verificarsi temporanei rallentamenti nella consegna e nella consultazione delle pratiche edilizie per consentire le operazioni di digitalizzazione dell\u2019archivio&quot;,&quot;formatted_date&quot;:&quot;06\/10\/2026&quot;,&quot;document_formats&quot;:&quot;&quot;,&quot;parent&quot;:{&quot;id&quot;:2751428,&quot;title&quot;:&quot;Documenti Ufficio Edilizia e Urbanistica&quot;,&quot;image_thumb_url&quot;:null,&quot;image_thumb_only_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;infos&quot;,&quot;info_alias_translation&quot;:&quot;infos.infos&quot;,&quot;info_icon_class&quot;:&quot;cms-info&quot;,&quot;share_url&quot;:null,&quot;scenario&quot;:null},&quot;infoable&quot;:{&quot;more_infos&quot;:null,&quot;document_identifier&quot;:null,&quot;protocol&quot;:null,&quot;protocol_date&quot;:null,&quot;license&quot;:&quot;Pubblico dominio&quot;,&quot;start_date&quot;:null,&quot;end_date&quot;:null,&quot;organizational_unit_id&quot;:2488501,&quot;authors&quot;:null,&quot;references&quot;:&quot;[]&quot;,&quot;life_events&quot;:null,&quot;business_events&quot;:null},&quot;attachments&quot;:[],&quot;gallery&quot;:[]},{&quot;id&quot;:3662012,&quot;scenario_id&quot;:1764,&quot;infoable_type&quot;:&quot;App\\Models\\Cms2\\DocumentInfoable&quot;,&quot;infoable_id&quot;:64815,&quot;title&quot;:&quot;AVVISO - Sospensione dei servizi di rilascio dati e certificati a carattere \&quot;urgente\&quot; per pratiche edilizie e urbanistiche&quot;,&quot;permalink&quot;:&quot;avviso-sospensione-servizi-rilascio-dati&quot;,&quot;version_number&quot;:&quot;&quot;,&quot;app_visibility&quot;:false,&quot;site_visibility&quot;:true,&quot;turist_visibility&quot;:false,&quot;drafting_status&quot;:null,&quot;publish_date&quot;:&quot;2026-10-13T06:55:15.000000Z&quot;,&quot;unpublish_date&quot;:null,&quot;cloned_from&quot;:null,&quot;abstract&quot;:&quot;A partire dal 12 ottobre 2026, per motivi organizzativi, \u00e8 sospeso il servizio urgente di accesso agli atti relativi a pratiche edilizie e urbanistiche, idoneit\u00e0 alloggiative e per il rilascio di certificazioni di destinazione urbanistica&quot;,&quot;body&quot;:null,&quot;created_by&quot;:198847,&quot;updated_by&quot;:198847,&quot;deleted_by&quot;:null,&quot;created_at&quot;:&quot;2026-10-13T06:55:15.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-10-13T06:57:01.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;parent_id&quot;:3116510,&quot;order&quot;:0,&quot;icon&quot;:null,&quot;highlighed_app&quot;:null,&quot;unhighlighed_app&quot;:null,&quot;highlighed_site&quot;:null,&quot;unhighlighed_site&quot;:null,&quot;highlighed_turist&quot;:null,&quot;unhighlighed_turist&quot;:null,&quot;evidence_site&quot;:0,&quot;uncompleted&quot;:0,&quot;imported_by&quot;:null,&quot;order_highlighed_site&quot;:0,&quot;order_highlighed_app&quot;:0,&quot;order_highlighed_turist&quot;:0,&quot;pinned&quot;:0,&quot;scenario&quot;:null,&quot;image_thumb_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;documents&quot;,&quot;info_alias_translation&quot;:&quot;Documenti&quot;,&quot;info_icon_class&quot;:&quot;cms-documenti&quot;,&quot;share_url&quot;:&quot;https:\/\/www.comune.san-giovanni-valdarno.ar.it\/documenti\/3662012\/avviso-sospensione-servizi-rilascio-dati&quot;,&quot;abstract_ellipsized&quot;:&quot;A partire dal 12 ottobre 2026, per motivi organizzativi, \u00e8 sospeso il servizio urgente di accesso agli atti relativi a pratiche edilizie e urbanistiche, idoneit\u00e0 alloggiative e per il rilascio di (...)&quot;,&quot;formatted_date&quot;:&quot;13\/10\/2026&quot;,&quot;document_formats&quot;:&quot;PDF&quot;,&quot;parent&quot;:{&quot;id&quot;:3116510,&quot;title&quot;:&quot;Idoneit\u00e0 alloggativa&quot;,&quot;image_thumb_url&quot;:null,&quot;image_thumb_only_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;infos&quot;,&quot;info_alias_translation&quot;:&quot;infos.infos&quot;,&quot;info_icon_class&quot;:&quot;cms-info&quot;,&quot;share_url&quot;:null,&quot;scenario&quot;:null},&quot;infoable&quot;:{&quot;more_infos&quot;:null,&quot;document_identifier&quot;:null,&quot;protocol&quot;:null,&quot;protocol_date&quot;:null,&quot;license&quot;:&quot;Pubblico dominio&quot;,&quot;start_date&quot;:null,&quot;end_date&quot;:null,&quot;organizational_unit_id&quot;:2488191,&quot;authors&quot;:null,&quot;references&quot;:&quot;[]&quot;,&quot;life_events&quot;:null,&quot;business_events&quot;:null},&quot;attachments&quot;:[{&quot;id&quot;:5370036,&quot;model_id&quot;:3662012,&quot;model_type&quot;:&quot;App\\Models\\Cms2\\Document&quot;,&quot;collection_name&quot;:&quot;attachments&quot;,&quot;name&quot;:&quot;AVVISO sospensione rich urgenti&quot;,&quot;file_name&quot;:&quot;AVVISO-sospensione-rich-urgenti.pdf&quot;,&quot;mime_type&quot;:&quot;application\/pdf&quot;,&quot;disk&quot;:&quot;media_ovh&quot;,&quot;size&quot;:71389,&quot;manipulations&quot;:[],&quot;custom_properties&quot;:[],&quot;order_column&quot;:3456608,&quot;created_at&quot;:&quot;2026-10-13T07:06:19.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-10-13T07:06:19.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;tags&quot;:null,&quot;responsive_images&quot;:[],&quot;conversions_disk&quot;:&quot;media_ovh&quot;,&quot;uuid&quot;:&quot;445b9bbc-d2bc-4494-95a5-dd79ff8afd37&quot;,&quot;attachment_group_id&quot;:null,&quot;visibility&quot;:1,&quot;expiration_date&quot;:null,&quot;url&quot;:&quot;https:\/\/mycity.s3.sbg.io.cloud.ovh.net\/5370036\/AVVISO-sospensione-rich-urgenti.pdf&quot;,&quot;thumb_url&quot;:null,&quot;human_readable_mime_type&quot;:&quot;PDF&quot;}],&quot;gallery&quot;:[]}]" load-url="https://www.comune.san-giovanni-valdarno.ar.it/menu/2488010/carica" total="163" menu-name="documenti e dati" sort-name="alfabetico" menu-type="0" ></explore-info>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <!-- Sezione "Esplora per Categoria" -->  
+    <!-- Chiamo drettamente contents perchè voglio i menu e non altri tipi di info -->
+    <div class="py-5">
+        <div class="container">
+            <h2 class="title-xxlarge mb-4 text-secondary">Esplora per Categoria</h2>
+            <div class="row g-4">
+                                                            <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="/modulistica" title="Modulistica" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Modulistica
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Tutti i moduli cartacei predisposti per presentazione delle istanze
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/2502876/regolamenti" title="Statuto e Regolamenti comunali" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Statuto e Regolamenti comunali
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Sezione di raccolta dello Statuto e dei Regolamenti comunali in vigore
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-70-turismo-monumenti"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/accordi-tra-enti" title="Accordi tra enti" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Accordi tra enti
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Gli accordi del Comune con altre istituzioni, fondazioni ed enti.
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-30-moduli-bandi"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/normative" title="Atti normativi" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Atti normativi
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Statuo, regolamenti dell&#039;Ente e altre norme ufficiali.
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/2583408/attuazione-misure-pnrr" title="Attuazione Misure PNRR" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Attuazione Misure PNRR
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        programma di riforme e investimenti con cui l&#039;Italia prevede di gestire i fondi europei del Next generation Eu, per la ripresa economica e sociale dei paesi europei
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/2547513/documenti-polizia-locale" title="Documenti Polizia Locale" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Polizia Locale
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa alla Polizia Locale
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-20-generica-history"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/attivita-politica" title="Documenti Attività Politica" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Attività Politica
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Sedute, ordini del giorno e interrogazioni degli organi di governo comunali
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3066360/documenti-conferenza-zonale-sindaci-valdarno" title="Documenti Conferenza Zonale dei Sindaci del Valdarno" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Conferenza Zonale dei Sindaci del Valdarno
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione relativa alla Conferenza Zonale dei Sindaci del Valdarno Aretino
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3084556/documenti-consulta-giovani" title="Documenti Consulta Giovani" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Consulta Giovani
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documenti, iniziative e novità ed i progetti in elaborazione della Consulta Giovani
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3016475/segnalazioni" title="Documenti Segnalazioni" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Segnalazioni
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa ai portali o metodologiche per effettuare segnalazioni
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3016287/documenti-servizi" title="Documenti Servizi Online" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Servizi Online
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa ai servizi disponibili online del Comune
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/2510704/tariffari" title="Tariffari" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Tariffari
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione relativa ai tariffari
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3004719/documenti-servizi-scolastici" title="Documenti Servizi Scolastici" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Servizi Scolastici
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa all&#039;ufficio istruzione e scuola
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/2583359/documenti-consulta-pari-opportunita" title="Documenti Consulta Pari Opportunità" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Consulta Pari Opportunità
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documenti, iniziative e importanti novità ed i progetti in elaborazione della Consulta Pari Opportunità
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/2547415/documenti-area-ambiente" title="Documenti Ufficio Ambiente" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Ufficio Ambiente
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa all&#039;ufficio Ambiente ed efficientamento energetico
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3168514/documenti-ufficio-cultura" title="Documenti Ufficio Cultura" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Ufficio Cultura
+                        </h3>
+                    </a>
+                                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/2547529/documenti-area-demografici" title="Documenti Ufficio Demografico" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Ufficio Demografico
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa all&#039;ufficio demografico ed elettorale
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/2751428/documenti-edilizia" title="Documenti Ufficio Edilizia e Urbanistica" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Ufficio Edilizia e Urbanistica
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa all&#039;ufficio edilizia e urbanistica
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3049616/documenti-servizi-educativi-prima-infanzia" title="Documenti Ufficio Servizi Educativi alla Prima Infanzia" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Ufficio Servizi Educativi alla Prima Infanzia
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa all&#039;ufficio servizi educativi alla prima infanzia
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3046216/documenti-servizi-sociali" title="Documenti Ufficio Servizi Sociali" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Ufficio Servizi Sociali
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa all&#039;ufficio servizi sociali
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3093755/documenti-ufficio-tributi" title="Documenti Ufficio Tributi" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Ufficio Tributi
+                        </h3>
+                    </a>
+                                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/2677309/documenti-suap" title="Documenti sportello SUAP" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti sportello SUAP
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa allo Sportello Unico per le Attività Produttive
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-30-moduli-statistiche"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/rapporti" title="Documenti tecnici di supporto" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti tecnici di supporto
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        I rapporti tecnici e la documentazione di progetto.
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3019637/documenti-trasparenza-amministrativa" title="Documenti Trasparenza Amministrativa" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Documenti Trasparenza Amministrativa
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Documentazione integrativa relativa alla Trasparenza Amministrativa
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                                                <div class="col-md-6 col-xl-4">
+    <div class="cmp-card-simple card-wrapper pb-0 rounded border border-light">
+        <div class="card shadow-sm rounded">
+            <div class="card-body">
+                <!-- <div class="scheda-icona lightgrey-bg-b1">
+                    <span alt="" class="fabicon fabicon-00-standard"></span>
+                </div> -->
+                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/3049957/indagini-istat" title="Indagini ISTAT" class="text-decoration-none">
+                        <h3 class="card-title t-primary title-xlarge">
+                            Indagini ISTAT
+                        </h3>
+                    </a>
+                                                    <p class="titillium text-paragraph mb-0 description">
+                        Sezione dedicata alle indagini dell&#039;ISTA - Istituto Nazionale di Statistica
+                    </p>
+                                
+                
+            </div>
+        </div>
+    </div>
+</div>
+                                                </div>
+        </div>
+    </div>
+    <!-- Review -->
+            <div class="bg-primary pt-3 pb-3">
+    <div class="container mt-4 d-md-flex align-items-center">
+        
+        <div class="d-md-flex align-items-center mb-3 mb-md-0">
+            <div class="d-flex align-items-center mb-3 mb-md-0">
+                
+                
+            
+                
+                
+                                    <div class="rating-star me-1">
+                        <svg class="icon icon-sm" style="fill: lightgray;">
+                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-star-full"></use>
+                        </svg>
+                    </div>
+                                    <div class="rating-star me-1">
+                        <svg class="icon icon-sm" style="fill: lightgray;">
+                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-star-full"></use>
+                        </svg>
+                    </div>
+                                    <div class="rating-star me-1">
+                        <svg class="icon icon-sm" style="fill: lightgray;">
+                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-star-full"></use>
+                        </svg>
+                    </div>
+                                    <div class="rating-star me-1">
+                        <svg class="icon icon-sm" style="fill: lightgray;">
+                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-star-full"></use>
+                        </svg>
+                    </div>
+                                    <div class="rating-star me-1">
+                        <svg class="icon icon-sm" style="fill: lightgray;">
+                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-star-full"></use>
+                        </svg>
+                    </div>
+                            </div>
+
+            
+            <span class="ms-md-3 text-white fw-bold" style="font-size: 1.25rem;">0.0</span>
+
+            
+                
+                <span class="ms-3 text-white" style="font-size: 1.25rem;">0 utenti hanno valutato questa pagina</span>
+                    </div>
+
+        
+        <a href="https://www.comune.san-giovanni-valdarno.ar.it/valutazioni" class="ms-auto text-white fw-bold">Vedi tutte le valutazioni</a>
+    </div>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center bg-primary">
+            <div class="col-12 col-lg-6">
+                <div class="cmp-rating pt-5 pb-lg-80" id="rating-card">
+                    <review-section post-url="https://www.comune.san-giovanni-valdarno.ar.it/api/internals/frontend/scenarios/1764/review/store"
+                        model-id="2488010" model-type="App\Models\Menu" review-type="page">
+                    </review-section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Bottom -->
+    <div class="d-flex justify-content-center p-contacts bg-grey-card">
+    <div class="col-12 col-lg-6">
+        <div class="cmp-contacts">
+            <div class="card w-100">
+                <div class="card-body">
+                    <h2 class="title-medium-2-semi-bold">Contatta il comune</h2>
+
+                    <ul class="contact-list p-0">
+                        <li>   
+                            <a data-element="faq" class="list-item" href="/faq" title="Leggi le domande frequenti">                                                
+                                <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                    <use href="/bootstrap-italia/dist/svg/sprites.svg#it-help-circle"></use>
+                                </svg><span>Leggi le domande frequenti</span>
+                            </a>
+                        </li>
+
+                        <li>   
+                            <a data-element="contacts" class="list-item" href="/richiesta-assistenza" title="Richiedi assistenza">                                                
+                                <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                    <use href="/bootstrap-italia/dist/svg/sprites.svg#it-mail"></use>
+                                </svg><span>Richiedi assistenza</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="list-item" href="tel:05591261">
+                                <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                    <use href="/bootstrap-italia/dist/svg/sprites.svg#it-hearing"></use>
+                                </svg><span>Chiama il numero 05591261</span>
+                            </a>
+                        </li>
+
+                        <li>   
+                            <a data-element="appointment-booking" href="/agenda-smart" title="Prenota appuntamento">                                                
+                                <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                    <use href="/bootstrap-italia/dist/svg/sprites.svg#it-calendar"></use>
+                                </svg><span>Prenota appuntamento</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <h2 class="title-medium-2-semi-bold mt-4">Problemi in città</h2>
+                    <ul class="contact-list p-0">
+                        <li>   
+                            <a data-element="report-inefficiency" href="https://segnalazioni.comunesgv.it" title="Segnala un disservizio">                                                
+                                <svg class="icon icon-primary icon-sm" aria-hidden="true">
+                                    <use href="/bootstrap-italia/dist/svg/sprites.svg#it-map-marker-circle"></use>
+                                </svg><span>Segnala disservizio </span>
+                            </a>
+                        </li>                
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <a href="#" aria-hidden="true" data-attribute="back-to-top" title="Vai al inizio"
+            class="back-to-top shadow" id="example">
+            <span class="icon icon-arrow-up-light"></span>
+        </a>
+        
+        <footer class="it-footer" id="footer">
+            <div class="it-footer-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 footer-items-wrapper logo-wrapper">
+                                                               
+                                    <a class="ue-logo inactiveLink"
+                                    >
+                                        <img loading="lazy"
+                                        src="https://italia.github.io/design-comuni-pagine-statiche/assets/images/logo-eu-inverted.svg"
+                                        alt="logo Unione Europea" width="178" height="56">
+                                    </a>
+                                    
+                                
+                            <div class="it-brand-wrapper">
+                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/home" title="Vai alla Homepage">
+                                    <img loading="lazy" class="icon" src="https://mycity.s3.sbg.io.cloud.ovh.net/3740017/Logo_Comune_SGV1-removebg-preview.png"
+                                        alt="Stemma">
+                                    <div class="it-brand-text">
+                                        <h2 class="no_toc">
+                                            Comune di San Giovanni Valdarno
+                                        </h2>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                                                    <div class="col-md-3 footer-items-wrapper">
+                                <h3 class="footer-heading-title">Amministrazione</h3>
+                                <ul class="footer-list">
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/aree-amministrative"
+                                                title="Vai a: Aree amministrative">Aree amministrative</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/personale-amministrativo"
+                                                title="Vai a: Personale amministrativo">Personale amministrativo</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/documenti-e-dati"
+                                                title="Vai a: Documenti e dati">Documenti e dati</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/organi-di-governo"
+                                                title="Vai a: Organi di governo">Organi di governo</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/uffici"
+                                                title="Vai a: Uffici">Uffici</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/enti-e-fondazioni"
+                                                title="Vai a: Enti e fondazioni">Enti e fondazioni</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/politici"
+                                                title="Vai a: Politici">Politici</a>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                                                                            <div class="col-md-6 footer-items-wrapper">
+                                <h3 class="footer-heading-title">Servizi</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="footer-list">
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488032"
+                                                        title="Vai a: Ambiente">Ambiente</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488035"
+                                                        title="Vai a: Agricoltura e pesca">Agricoltura e pesca</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488021"
+                                                        title="Vai a: Anagrafe e stato civile">Anagrafe e stato civile</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488025"
+                                                        title="Vai a: Appalti pubblici">Appalti pubblici</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488034"
+                                                        title="Vai a: Autorizzazioni">Autorizzazioni</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488022"
+                                                        title="Vai a: Cultura e tempo libero">Cultura e tempo libero</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488024"
+                                                        title="Vai a: Imprese e commercio">Imprese e commercio</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488026"
+                                                        title="Vai a: Catasto e urbanistica">Catasto e urbanistica</a>
+                                                </li>
+                                                                                    </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="footer-list">
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488029"
+                                                        title="Vai a: Educazione e formazione">Educazione e formazione</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488030"
+                                                        title="Vai a: Giustizia e sicurezza pubblica">Giustizia e sicurezza pubblica</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488028"
+                                                        title="Vai a: Mobilità e trasporti">Mobilità e trasporti</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488033"
+                                                        title="Vai a: Salute, benessere e assistenza">Salute, benessere e assistenza</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488031"
+                                                        title="Vai a: Tributi, finanze e contravvenzioni">Tributi, finanze e contravvenzioni</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488027"
+                                                        title="Vai a: Turismo">Turismo</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488023"
+                                                        title="Vai a: Vita lavorativa">Vita lavorativa</a>
+                                                </li>
+                                                                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                                                <div class="col-md-3 footer-items-wrapper">
+                                                            <h3 class="footer-heading-title">Novità</h3>
+                                <ul class="footer-list">
+                                                                                                                        <li>
+                                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/novita/1-news"
+                                                    title="Vai a: Notizie">
+                                                    Notizie
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/novita/2-comunicato-stampa"
+                                                    title="Vai a: Comunicati">
+                                                    Comunicati
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/novita/3-avviso"
+                                                    title="Vai a: Avvisi">
+                                                    Avvisi
+                                                </a>
+                                            </li>
+                                                                                
+                                </ul>
+                                                                                        <h3 class="footer-heading-title">Vivere il comune</h3>
+                                <ul class="footer-list">
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/luoghi"
+                                                title="Vai a: Luoghi">Luoghi</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/eventi"
+                                                title="Vai a: Eventi">Eventi</a>
+                                        </li>
+                                                                    </ul>
+                                                    </div>
+                        <div class="col-md-9 mt-md-4 footer-items-wrapper">
+                            <h3 class="footer-heading-title">Contatti</h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="footer-info">
+                                        <address>
+                                                                                            Comune di San Giovanni Valdarno<br /><p>Via Garibaldi, 43 San Giovanni V.no &ndash; 52027 &ndash; (AR)</p>
+
+<p>&nbsp;</p>
+                                                                                                                                        Codice fiscale: 00160360517<br>
+                                                                                                                                        P.IVA: 00160360517<br>
+                                                                                    </address>
+                                                                                    Tel: 05591261<br>
+                                                                                                                            Fax: 0559123376<br>
+                                                                                                                            Email: <a href="mailto:protocollo@comunesgv.it"
+                                                title="Scrivi a: protocollo@comunesgv.it">protocollo@comunesgv.it</a><br>
+                                                                                                                                                                            PEC: <a href="mailto:protocollo@pec.comunesgv.it"
+                                                    title="Scrivi a: protocollo@pec.comunesgv.it">protocollo@pec.comunesgv.it</a><br>
+                                                                                                                        </div>
+                                </div>
+
+                                
+                                                                    <div class="col-md-4">
+                                        <ul class="footer-list">
+                                                                                            <li>
+                                                    <a href="/faq"
+                                                        
+                                                        data-element="faq" title="Leggi le FAQ">Leggi le FAQ</a>
+                                                </li>
+                                            
+                                                                                            <li>
+                                                    <a href="/agenda-smart"
+                                                        
+                                                        title="Prenotazione appuntamento">Prenotazione appuntamento</a>
+                                                </li>
+                                            
+                                                                                            <li>
+                                                    <a href="https://segnalazioni.comunesgv.it"
+                                                        target=&quot;_blank&quot;
+                                                        data-element="report-inefficiency"
+                                                        title="Segnalazione disservizio">Segnalazione disservizio</a>
+                                                </li>
+                                            
+                                                                                            <li>
+                                                    <a href="/richiesta-assistenza"
+                                                        
+                                                        title="Richiesta d'assistenza">Richiesta d'assistenza</a>
+                                                </li>
+                                                                                                
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="footer-list">
+                                                                                            <li>
+                                                    <a href="https://sangiovannivaldarno.mycity.it/documenti/2583340/amministrazione-trasparente"
+                                                        target=&quot;_blank&quot;
+                                                        title="Amministrazione trasparente">Amministrazione
+                                                        trasparente</a>
+                                                </li>
+                                            
+                                            <!---->
+
+                                                                                            <li>
+                                                    <a href="/privacy"
+                                                        
+                                                        data-element="privacy-policy-link"
+                                                        title="Informativa privacy">Informativa privacy</a>
+                                                </li>
+                                            
+                                            <li>
+                                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/note-legali" data-element="legal-notes"
+                                                    title="Note legali">Note legali</a>
+                                            </li>
+
+                                                                                            <li>
+                                                    <a href="https://form.agid.gov.it/view/b005e700-9922-11f0-8b82-59f7bb923b32"
+                                                        target=&quot;_blank&quot;
+                                                        data-element="accessibility-link"
+                                                        title="Dichiarazione di accessibilità">Dichiarazione di
+                                                        accessibilità</a>
+                                                </li>
+                                            
+                                            <li>
+                                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/piano-miglioramento"
+                                                    title="Piano di miglioramento del sito">Piano di miglioramento del sito e dei servizi
+                                                </a>
+                                            </li>
+                                                
+                                        </ul>
+                                    </div>
+                                                            </div>
+                        </div>
+                        <div class="col-md-3 mt-md-4 footer-items-wrapper">
+                                                            <h3 class="footer-heading-title">Seguici su</h3>
+                                <ul class="list-inline text-start social">
+                                                                                                                <li class="list-inline-item">
+                                            <div>
+            <a class="p-2 text-white" href="https://www.facebook.com/comunesangiovannivaldarno" title="Facebook" aria-label="Facebook" target="_blank">
+            <svg class="icon icon-sm icon-white align-top">
+                <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-facebook">
+                </use>
+            </svg>
+            <span class="visually-hidden">Facebook</span>
+        </a>
+    </div>
+                                        </li>
+                                                                                                                                                    <li class="list-inline-item">
+                                            <div>
+            <a class="p-2 text-white" href="https://www.instagram.com/comunesgv" title="Instagram" target="_blank">
+            <svg class="icon icon-sm icon-white align-top">
+                <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-instagram">
+                </use>
+            </svg>
+            <span class="visually-hidden">Instagram</span>
+        </a>
+    </div>
+                                        </li>
+                                                                                                                                            </ul>
+                                                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 footer-items-wrapper">
+                            <div class="footer-bottom d-flex justify-content-between">
+                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/mappa-del-sito" title="Mappa del sito">Mappa del sito</a>
+                                                                    <p><span class="fs-5 align-middle">&#169;</span> <a href="https://www.mycity.it/"
+                                            target="_parent" title="Sito MyCity">MyCity</a></p>
+                                                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script nonce="iaAKSl2LRMbgqYilpxT83hj94CfxMuGt">
+        function showS() {
+            var a = document.querySelector("#search-display");
+            a.dispatchEvent(new Event('change'));
+        }
+    </script>
+            
+
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCMQe6lO-x3pMPVNe9OqOsZxbytUfKO1JA&loading=async"></script>    
+
+</body>
+
+</html>
