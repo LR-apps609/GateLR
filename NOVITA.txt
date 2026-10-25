@@ -1,3 +1,9 @@
+Novità della 1.11.0 «Siri e Comandi rapidi»:
+• Siri: «Ehi Siri, posso entrare a Firenze Settore A con GateLR?» → «Firenze Settore A: Non entrare. I varchi si spengono oggi alle 20:00.»; in Comandi rapidi anche con l'ora di arrivo
+• Siri: «Ehi Siri, ferma il guardiano di GateLR» (anche da Comandi rapidi e dal tasto Azione), senza aprire l'app
+• Nuovo widget «Guardiano» per Home e schermata di blocco: la zona scelta adesso e un tocco per avviare il guardiano da Viaggio
+• Frasi di Siri tradotte in tutte le 7 lingue
+
 Novità della 1.10.0 «Lingue»:
 • Prima pagina «Posso entrare?»: riquadro grigio con la ricerca, risposta verde/rossa/ambra per il posto cercato, ZTL vicina in una riga
 • Mappa scura del posto cercato: la zona accesa in rosso o verde con il riquadro «ZTL ATTIVA · NON ENTRARE», il resto smorzato

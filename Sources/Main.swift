@@ -15,6 +15,8 @@ struct GateLRApp: App {
                 .task {
                     await store.whenLoaded()
                     Self.uiTestPlace(store)
+                    // Siri impara i nomi delle zone («posso entrare a Firenze Settore A…») dalle città appena lette
+                    GateLRShortcuts.updateAppShortcutParameters()
                     SpeechVoice.prepare()
                     await GateMonitor.shared.startIfReady(store: store)
                 }

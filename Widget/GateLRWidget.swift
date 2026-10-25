@@ -134,6 +134,7 @@ struct GateWidgetView: View {
 struct GateLRWidgets: WidgetBundle {
     var body: some Widget {
         GateLRWidget()
+        GuardianWidget()
         DriveLiveActivity()
     }
 }
@@ -148,5 +149,73 @@ struct GateLRWidget: Widget {
         .configurationDisplayName("ZTL gates")
         .description("Whether the gates of your sector are on, and when that changes.")
         .supportedFamilies([.systemSmall, .accessoryCircular, .accessoryRectangular, .accessoryInline])
+    }
+}
+
+// Widget «Guardiano»: la zona scelta adesso e un tocco per partire con il guardiano dalla scheda Viaggio.
+// Il widget non sa se il guardiano è già acceso (servirebbe un App Group, che con un account gratuito
+// può bloccare la firma): mostra lo stato dei varchi e apre l'app con gatelr://trip.
+struct GuardianWidgetView: View {
+    @Environment(\.widgetFamily) private var family
+    let entry: GateEntry
+
+    private var letter: String { entry.zone?.letter ?? "–" }
+    private var state: String { entry.on ? L("ZTL active") : L("ZTL not active") }
+    private var tint: Color { entry.on ? Color(hex: 0xC1272D) : Color(hex: 0x0FA34A) }
+    private var change: String {
+        guard let next = entry.next else { return "" }
+        return String(format: L(entry.on ? "Ends at %@" : "Starts at %@"), next.formatted(date: .omitted, time: .shortened))
+    }
+
+    var body: some View {
+        switch family {
+        case .accessoryCircular:
+            ZStack {
+                AccessoryWidgetBackground()
+                VStack(spacing: 1) {
+                    Image(systemName: "shield.lefthalf.filled").font(.system(size: 18, weight: .bold))
+                    Text(letter).font(.system(size: 11, weight: .bold))
+                }
+            }
+            .accessibilityLabel(Text(L("Start the guardian")))
+        case .accessoryRectangular:
+            VStack(alignment: .leading, spacing: 1) {
+                Label(L("Guardian"), systemImage: "shield.lefthalf.filled").font(.system(size: 13, weight: .semibold))
+                Text("\(entry.city) · \(letter): \(state)").font(.system(size: 14, weight: .bold)).lineLimit(1)
+                Text(L("Start the guardian")).font(.system(size: 12)).lineLimit(1)
+            }
+        default:
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(spacing: 6) {
+                    Image(systemName: "shield.lefthalf.filled").font(.system(size: 18, weight: .bold)).foregroundStyle(tint)
+                    Text(L("Guardian")).font(.system(size: 14, weight: .bold))
+                    Spacer(minLength: 0)
+                }
+                Text("\(entry.city) · \(letter)").font(.system(size: 12, weight: .semibold)).foregroundStyle(.secondary).lineLimit(1)
+                Spacer(minLength: 0)
+                Text(state).font(.system(size: 18, weight: .bold)).foregroundStyle(tint).minimumScaleFactor(0.7).lineLimit(1)
+                if !change.isEmpty {
+                    Text(change).font(.system(size: 12, weight: .medium)).foregroundStyle(.secondary).lineLimit(1)
+                }
+                Label(L("Start the guardian"), systemImage: "play.fill")
+                    .font(.system(size: 12, weight: .bold)).foregroundStyle(.white)
+                    .lineLimit(1).minimumScaleFactor(0.7)
+                    .padding(.horizontal, 10).padding(.vertical, 6)
+                    .background(Color(hex: 0x1F4E9E), in: Capsule())
+            }
+        }
+    }
+}
+
+struct GuardianWidget: Widget {
+    var body: some WidgetConfiguration {
+        AppIntentConfiguration(kind: "GuardianWidget", intent: SelectZoneIntent.self, provider: GateProvider()) { entry in
+            GuardianWidgetView(entry: entry)
+                .containerBackground(.fill.tertiary, for: .widget)
+                .widgetURL(URL(string: "gatelr://trip"))
+        }
+        .configurationDisplayName("Guardian")
+        .description("Your zone right now, and one tap to start the guardian from Trip.")
+        .supportedFamilies([.systemSmall, .accessoryCircular, .accessoryRectangular])
     }
 }

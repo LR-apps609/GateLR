@@ -2,3 +2,10 @@
 "Any ZTL nearby in ${applicationName}" = "Ci sono ZTL vicine in ${applicationName}";
 "${applicationName} ZTL" = "${applicationName} ZTL";
 "Ask ${applicationName} about ZTL" = "Chiedi a ${applicationName} delle ZTL";
+"Can I drive into ${zone} with ${applicationName}" = "Posso entrare a ${zone} con ${applicationName}";
+"Can I enter ${zone} with ${applicationName}" = "Posso entrare in ${zone} con ${applicationName}";
+"${applicationName} ${zone}" = "${applicationName} ${zone}";
+"Can I drive in with ${applicationName}" = "Posso entrare con ${applicationName}";
+"Stop the guardian in ${applicationName}" = "Ferma il guardiano di ${applicationName}";
+"Stop the ${applicationName} guardian" = "Ferma il guardiano ${applicationName}";
+"${applicationName} stop the guardian" = "${applicationName} ferma il guardiano";

@@ -11,8 +11,11 @@ ns = {}
 exec(src.split("def esc")[0], {}, ns)
 KEYS = list(ns["T"])
 INFO_KEYS = ["NSLocationWhenInUseUsageDescription", "NSLocationAlwaysAndWhenInUseUsageDescription", "NSCameraUsageDescription"]
-SHORTCUT_KEYS = [m.group(1).replace("\\(.applicationName)", "${applicationName}")
-                 for m in re.finditer(r'"((?:[^"\\]|\\.)*)"', re.search(r"phrases:\s*\[(.*?)\]", (ROOT / "Sources/NearbyZTLIntent.swift").read_text(), re.S).group(1))]
+# Le frasi di tutte le AppShortcut: «\(.applicationName)» → ${applicationName}, «\(\.$zone)» → ${zone}
+SHORTCUT_KEYS = [re.sub(r"\\\(\\\.\$(\w+)\)", r"${\1}", m.group(1).replace("\\(.applicationName)", "${applicationName}"))
+                 for block in re.finditer(r"phrases:\s*\[(.*?)\]", (ROOT / "Sources/NearbyZTLIntent.swift").read_text(), re.S)
+                 for m in re.finditer(r'"((?:[^"\\]|\\.)*)"', block.group(1))]
+PARAM = re.compile(r"\$\{(\w+)\}")
 LANGS = ["it", "de", "fr", "es", "nl", "pl", "zh-Hans"]
 LINE = re.compile(r'^"((?:[^"\\]|\\.)*)" = "((?:[^"\\]|\\.)*)";$')
 SPEC = re.compile(r"%(?:(\d+)\$)?(lld|ld|d|@|%)")
@@ -79,6 +82,11 @@ for code in LANGS:
             errors.append(f"{code}: AppShortcuts senza «{k}»")
         elif v.count("${applicationName}") != 1:
             errors.append(f"{code}: AppShortcuts «{k}» senza ${{applicationName}}")
+        elif sorted(PARAM.findall(v)) != sorted(PARAM.findall(k)):
+            errors.append(f"{code}: AppShortcuts «{k}» con parametri diversi → «{v}»")
+    for k in sc:
+        if k not in SHORTCUT_KEYS:
+            errors.append(f"{code}: AppShortcuts in più «{k}»")
 
 for e in errors:
     print(e)

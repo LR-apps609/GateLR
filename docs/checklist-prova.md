@@ -1,7 +1,16 @@
-# GateLR 1.10.0 – Checklist delle prove a mano
+# GateLR 1.11.0 – Checklist delle prove a mano
 
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
+
+## ★ Siri (1.11.0)
+- [ ] «Ehi Siri, posso entrare a Firenze Settore A con GateLR» → «Firenze Settore A: Non entrare. I varchi si spengono oggi alle 20:00.» (o «Puoi entrare… si accendono…»)
+- [ ] «Ehi Siri, posso entrare in Milano Area C con GateLR» e «Ehi Siri, GateLR Firenze»: se la città ha più zone Siri chiede quale
+- [ ] «Ehi Siri, posso entrare con GateLR» → Siri chiede «Quale zona ZTL?», rispondi «Firenze Settore B»
+- [ ] Subito dopo aver chiuso l'app dal multitasking: la risposta arriva lo stesso (le città si leggono in sottofondo)
+- [ ] Comandi rapidi → GateLR → «Posso entrare?»: scegli zona e «Arrivo alle» domani alle 9 → la risposta è per domani
+- [ ] Con il guardiano acceso: «Ehi Siri, ferma il guardiano di GateLR» → «Guardiano fermato.», sparisce dalla Dynamic Island; a guardiano spento → «Il guardiano non è attivo.»
+- [ ] Widget «Guardiano» (Home, piccolo, e schermata di blocco): zona scelta, «ZTL attiva / non attiva», tocco → si apre Viaggio
 
 ## ★ Lingue (1.10.0)
 - [ ] Impostazioni → GateLR → Lingua → **Français**: schede «Maintenant / Carte / Voyage / Garage», prima pagina «Puis-je entrer ?», nessun testo inglese rimasto

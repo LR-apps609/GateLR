@@ -67,5 +67,19 @@ struct GateLRShortcuts: AppShortcutsProvider {
                               "Ask \(.applicationName) about ZTL"],
                     shortTitle: "ZTL near me",
                     systemImageName: "shield.lefthalf.filled")
+        // «Posso entrare a Firenze Settore A con GateLR?»: le zone sono quelle dello Store (CityZoneQuery)
+        AppShortcut(intent: CanIDriveIntoIntent(),
+                    phrases: ["Can I drive into \(\.$zone) with \(.applicationName)",
+                              "Can I enter \(\.$zone) with \(.applicationName)",
+                              "\(.applicationName) \(\.$zone)",
+                              "Can I drive in with \(.applicationName)"],
+                    shortTitle: "Can I drive in?",
+                    systemImageName: "questionmark.circle")
+        AppShortcut(intent: StopGuardianIntent(),
+                    phrases: ["Stop the guardian in \(.applicationName)",
+                              "Stop the \(.applicationName) guardian",
+                              "\(.applicationName) stop the guardian"],
+                    shortTitle: "Stop the guardian",
+                    systemImageName: "shield.slash")
     }
 }

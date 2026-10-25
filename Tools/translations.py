@@ -398,6 +398,26 @@ T = {
 "New languages": ("Lingue nuove", "Neue Sprachen"),
 "GateLR now also speaks French, Spanish, Dutch, Polish and Chinese.": ("GateLR ora parla anche francese, spagnolo, olandese, polacco e cinese.", "GateLR spricht jetzt auch Französisch, Spanisch, Niederländisch, Polnisch und Chinesisch."),
 "GateLR speaks English, Italian, German, French, Spanish, Dutch, Polish and Chinese. The language is chosen in the iPhone Settings.": ("GateLR parla inglese, italiano, tedesco, francese, spagnolo, olandese, polacco e cinese. La lingua si sceglie nelle Impostazioni dell'iPhone.", "GateLR spricht Englisch, Italienisch, Deutsch, Französisch, Spanisch, Niederländisch, Polnisch und Chinesisch. Die Sprache wählst du in den iPhone-Einstellungen."),
+# 1.11.0 Siri e Comandi rapidi, widget del guardiano
+'Tells you whether your car can drive into a ZTL zone now or at the time you arrive.': ("Ti dice se la tua auto può entrare in una zona ZTL adesso o all'ora in cui arrivi.", 'Sagt dir, ob dein Auto jetzt oder zu deiner Ankunftszeit in eine ZTL-Zone einfahren darf.'),
+'Which ZTL zone?': ('Quale zona ZTL?', 'Welche ZTL-Zone?'),
+'Arriving at': ('Arrivo alle', 'Ankunft um'),
+'Can I drive into ${zone}?': ('Posso entrare a ${zone}?', 'Darf ich in ${zone} einfahren?'),
+"I can't find this zone in GateLR.": ('Non trovo questa zona in GateLR.', 'Ich finde diese Zone in GateLR nicht.'),
+'%@, %@: %@.': ('%@, %@: %@.', '%@, %@: %@.'),
+'%@: %@.': ('%@: %@.', '%@: %@.'),
+'Stop the guardian': ('Ferma il guardiano', 'Wächter stoppen'),
+"Stops GateLR's guardian and its ZTL alerts.": ('Ferma il guardiano di GateLR e i suoi avvisi ZTL.', 'Stoppt den Wächter von GateLR und seine ZTL-Hinweise.'),
+"The guardian isn't on.": ('Il guardiano non è attivo.', 'Der Wächter ist nicht aktiv.'),
+'Guardian stopped.': ('Guardiano fermato.', 'Wächter gestoppt.'),
+'Start the guardian': ('Avvia il guardiano', 'Wächter starten'),
+'Your zone right now, and one tap to start the guardian from Trip.': ('La tua zona adesso e un tocco per avviare il guardiano da Viaggio.', 'Deine Zone jetzt und ein Tipp, um den Wächter in Reise zu starten.'),
+'Ask Siri about a zone': ('Chiedi a Siri di una zona', 'Frag Siri nach einer Zone'),
+'"Hey Siri, can I drive into Florence Sector A with GateLR?": the answer for now or for the time you arrive.': ("«Ehi Siri, posso entrare a Firenze Settore A con GateLR?»: la risposta per adesso o per l'ora del tuo arrivo.", '„Hey Siri, darf ich mit GateLR in Florenz Sektor A einfahren?“: die Antwort für jetzt oder für deine Ankunftszeit.'),
+'Stop the guardian by voice': ('Ferma il guardiano con la voce', 'Wächter per Sprache stoppen'),
+'"Hey Siri, stop the GateLR guardian", also from Shortcuts and the Action button.': ('«Ehi Siri, ferma il guardiano di GateLR», anche da Comandi rapidi e dal tasto Azione.', '„Hey Siri, stoppe den GateLR-Wächter“ – auch aus Kurzbefehle und mit der Aktionstaste.'),
+'Guardian widget': ('Widget del guardiano', 'Wächter-Widget'),
+'On the Home and Lock Screen: your zone right now and one tap to start the guardian.': ('Nella schermata Home e di blocco: la tua zona adesso e un tocco per avviare il guardiano.', 'Auf dem Home- und Sperrbildschirm: deine Zone jetzt und ein Tipp, um den Wächter zu starten.'),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

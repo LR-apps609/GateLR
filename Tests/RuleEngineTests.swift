@@ -428,4 +428,18 @@ final class RuleEngineTests: XCTestCase {
         let m = MessageLanguage.de.message(arrival: date(2026, 10, 26, 18), plate: "AB123CD")
         XCTAssertTrue(m.contains("AB123CD"))
     }
+
+    /// Siri: «Florence Sector B» sceglie solo quella zona, «Firenze» tutte le zone della città
+    func testSiriZoneMatching() {
+        var city = SampleData.florence
+        city.name_it = "Firenze"
+        var b = SampleData.sectorA
+        b.id = "firenze-b"; b.name = "Sector B · Outer ring"
+        city.zones = [SampleData.sectorA, b]
+        let all = city.zones.map { CityZoneEntity(city: city, zone: $0) }
+        XCTAssertEqual(CityZoneEntity.matching("Florence Sector B", in: all).map(\.id), ["firenze-b"])
+        XCTAssertEqual(CityZoneEntity.matching("firenze", in: all).count, 2)
+        XCTAssertEqual(CityZoneEntity.matching("Flor", in: all).count, 2)
+        XCTAssertTrue(CityZoneEntity.matching("Milano", in: all).isEmpty)
+    }
 }

@@ -20,18 +20,12 @@ struct WhatsNewView: View {
     }
 
     private let items: [(symbol: String, tint: Color, title: String, text: String)] = [
-        ("questionmark.circle.fill", Theme.red, "Can I drive in?",
-         "The home page asks one question: search a hotel, address or square and get a green, red or amber answer at once."),
-        ("map.fill", Color(hex: 0x1F2A44), "Your place on a dark map",
-         "Search a place and the map turns dark with its zone lit up: red if you can't enter, green if you can."),
-        ("mappin.circle.fill", Color(hex: 0x1F4E9E), "A new logo",
-         "A new icon, a launch screen with the logo and this page after every update."),
-        ("bolt.fill", Color(hex: 0x0A7A44), "Smoother and steadier",
-         "No more black screen at launch or freezes when you come back to the app, and the camera works every time."),
-        ("calendar", Color(hex: 0xD99A00), "Holidays done right",
-         "Night hours follow the holiday of the evening they start, and Rome's patron saints' day (29 June) counts as a holiday."),
-        ("globe", Color(hex: 0x7A4BD1), "New languages",
-         "GateLR now also speaks French, Spanish, Dutch, Polish and Chinese."),
+        ("waveform", Color(hex: 0x7A4BD1), "Ask Siri about a zone",
+         "\"Hey Siri, can I drive into Florence Sector A with GateLR?\": the answer for now or for the time you arrive."),
+        ("shield.slash", Theme.red, "Stop the guardian by voice",
+         "\"Hey Siri, stop the GateLR guardian\", also from Shortcuts and the Action button."),
+        ("shield.lefthalf.filled", Color(hex: 0x1F4E9E), "Guardian widget",
+         "On the Home and Lock Screen: your zone right now and one tap to start the guardian."),
     ]
 
     var body: some View {
