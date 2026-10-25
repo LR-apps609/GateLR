@@ -105,6 +105,8 @@ for ds in ["jhcz-yki3", "tkwz-spd9"]:
     else: print("FAILED bergamo od", ds)
     csv = get(f"https://www.dati.lombardia.it/api/views/{ds}/rows.csv?accessType=DOWNLOAD", tries=2)
     if csv: (OUT / f"bergamo-od-{ds}.csv").write_bytes(csv); print("ok bergamo csv", ds, len(csv))
+# Confine comunale di Bergamo (per le limitazioni regionali antismog, che valgono in tutta la città)
+overpass("bergamo-confine", '[out:json][timeout:120];relation["boundary"="administrative"]["admin_level"="8"]["name"="Bergamo"];out geom;')
 # --- fine Bergamo ---
 
 # --- Torino (sessione Torino, vedi docs/fonti-torino.md) ---
