@@ -598,6 +598,7 @@ T = {
 'Pedestrian area: no cars at all.': 'Strefa pieszych: żadnych samochodów.',
 "End of the zone: you're out.": 'Koniec strefy: jesteś poza nią.',
 'Where are you going, and in what car?': 'Dokąd jedziesz i jakim autem?',
+'Get started': 'Zaczynamy',
 }
 
 INFO = {

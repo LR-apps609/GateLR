@@ -215,7 +215,7 @@ private struct IntroLiveMap: View {
     @ObservedObject var drive: IntroDrive
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var position: MapCameraPosition = .camera(
-        MapCamera(centerCoordinate: IntroScene.center, distance: 1900, heading: 20, pitch: 60))
+        MapCamera(centerCoordinate: IntroScene.center, distance: 3400, heading: 335, pitch: 60))
     @State private var orbit = false
 
     var body: some View {
@@ -258,8 +258,8 @@ private struct IntroLiveMap: View {
         .environment(\.colorScheme, .dark)
         .mapControlVisibility(.hidden)
         .mapCameraKeyframeAnimator(trigger: orbit) { camera in
-            KeyframeTrack(\MapCamera.heading) { LinearKeyframe(camera.heading + 55, duration: 26) }
-            KeyframeTrack(\MapCamera.distance) { LinearKeyframe(1500, duration: 26) }
+            KeyframeTrack(\MapCamera.heading) { LinearKeyframe(camera.heading + 35, duration: 26) }
+            KeyframeTrack(\MapCamera.distance) { LinearKeyframe(2800, duration: 26) }
         }
         .ignoresSafeArea()
         .task {
@@ -293,8 +293,8 @@ private struct IntroFallbackMap: View {
             let t = tl.date.timeIntervalSince(start)
             GeometryReader { g in
                 let pr = IntroProjector(center: IntroScene.center,
-                                        heading: reduceMotion ? 20 : 20 + min(t, 26) * 55 / 26,
-                                        pitch: 58, distance: reduceMotion ? 1700 : 1900 - min(t, 26) * 400 / 26,
+                                        heading: reduceMotion ? -15 : -25 + min(t, 26) * 35 / 26,
+                                        pitch: 58, distance: reduceMotion ? 2600 : 2900 - min(t, 26) * 500 / 26,
                                         size: g.size)
                 ZStack {
                     Canvas { ctx, _ in draw(ctx, pr) }

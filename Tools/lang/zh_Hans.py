@@ -598,6 +598,7 @@ T = {
 'Pedestrian area: no cars at all.': '步行区：任何汽车都不能进。',
 "End of the zone: you're out.": '区域结束：你已离开。',
 'Where are you going, and in what car?': '你去哪里，开什么车？',
+'Get started': '开始',
 }
 
 INFO = {

@@ -598,6 +598,7 @@ T = {
 'Pedestrian area: no cars at all.': "Voetgangersgebied: helemaal geen auto's.",
 "End of the zone: you're out.": 'Einde van de zone: je bent eruit.',
 'Where are you going, and in what car?': 'Waar ga je heen, en met welke auto?',
+'Get started': 'Beginnen',
 }
 
 INFO = {

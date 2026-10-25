@@ -487,6 +487,7 @@ T = {
 'Pedestrian area: no cars at all.': ('Area pedonale: niente auto, mai.', 'Fußgängerzone: gar keine Autos.'),
 "End of the zone: you're out.": ('Fine della zona: sei fuori.', 'Ende der Zone: du bist draußen.'),
 'Where are you going, and in what car?': ('Dove vai e con che auto?', 'Wohin fährst du, und mit welchem Auto?'),
+'Get started': ('Inizia', "Los geht's"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

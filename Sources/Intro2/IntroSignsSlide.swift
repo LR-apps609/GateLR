@@ -38,7 +38,7 @@ struct IntroSignsSlide: View {
 
     private let lines: [(sign: String, meaning: String)] = [
         ("ZONA TRAFFICO LIMITATO", "Cars can't drive in"),
-        ("7.30 – 20.00 FERIALI", "Mon–Fri, 7:30 am to 8 pm"),
+        ("7.30 – 20.00 FERIALI", "Mon–Sat, 7:30 am to 8 pm"),
         ("ECCETTO AUTORIZZATI", "Only with a permit"),
     ]
 

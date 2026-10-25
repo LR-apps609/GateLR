@@ -107,7 +107,7 @@ struct IntroSetupPage: View {
                 .padding(.top, 64)
             }
             .scrollIndicators(.hidden)
-            IntroButton(title: L("Start"), identifier: "intro2.start") { finish() }
+            IntroButton(title: L("Get started"), identifier: "intro2.start") { finish() }
                 .padding(.top, 12)
         }
         .padding(.horizontal, 20).padding(.bottom, 12)

@@ -598,6 +598,7 @@ T = {
 'Pedestrian area: no cars at all.': 'Zona peatonal: ningún coche.',
 "End of the zone: you're out.": 'Fin de la zona: ya estás fuera.',
 'Where are you going, and in what car?': '¿Adónde vas y con qué coche?',
+'Get started': 'Empezar',
 }
 
 INFO = {
