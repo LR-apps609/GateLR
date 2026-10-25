@@ -157,3 +157,27 @@ overpass("lucca-streets", """[out:json][timeout:180];
   way["barrier"="city_gate"](43.834,10.488,43.851,10.520); way["historic"="city_gate"](43.834,10.488,43.851,10.520); );
 out geom;""")
 # --- fine Lucca ---
+
+# --- Napoli (sessione Napoli, vedi docs/fonti-napoli.md) ---
+# I PDF ufficiali del Comune stanno su static-www.comune.napoli.it, che dall'ambiente di lavoro non si raggiunge:
+# disciplinare ZTL (alberghi, scadenze), O.S. 604/2012 sui veicoli elettrici, delibera 867/2014 (orari Centro Antico), mappe
+for name, url in [("napoli-disciplinare.pdf", "https://static-www.comune.napoli.it/wp-content/uploads/2025/05/Disciplinare_rilascio_contrassegni.pdf"),
+                  ("napoli-os-604-2012-elettrici.pdf", "https://static-www.comune.napoli.it/wp-content/uploads/2025/05/os_120612_0604.pdf"),
+                  ("napoli-dgc-867-2014.pdf", "https://static-www.comune.napoli.it/wp-content/uploads/2025/05/dgc_041214_0867.pdf"),
+                  ("napoli-modulo-alberghi.pdf", "https://static-www.comune.napoli.it/wp-content/uploads/2026/03/006-ZTL-ALBERGHI-AUTORIMESSE-AUTOFFICINE-V_03.pdf"),
+                  ("napoli-od-1219-2026-russo.pdf", "https://static-www.comune.napoli.it/wp-content/uploads/2026/04/OD_1219_030726_ZTL-Ferdinando-Russo.pdf"),
+                  ("napoli-mappa-ztl-colori.pdf", "https://static-www.comune.napoli.it/wp-content/uploads/2025/05/ZTL_nuovi_colori.pdf"),
+                  ("napoli-mappa-tarsia-2022.pdf", "https://static-www.comune.napoli.it/wp-content/uploads/2025/05/L1075_2022_005_signed.pdf"),
+                  ("napoli-mappa-mezzocannone.pdf", "https://static-www.comune.napoli.it/wp-content/uploads/2025/05/ZTL_Mezzocannone.pdf"),
+                  ("napoli-mappa-belledonne-morelli.pdf", "https://static-www.comune.napoli.it/wp-content/uploads/2025/05/Pag_2_Avviso_ZTL_Morelli___Filangieri___Mille_e_Belledonne___Martiri___Poerio__12_06_2012_.pdf")]:
+    raw = get(url, tries=3)
+    if raw: (OUT / name).write_bytes(raw); print("ok napoli", name, len(raw))
+    else: print("FAILED napoli", name)
+# OSM: strade delle ZTL senza contorno (via Ferdinando Russo, via Padre Gaetano Errico, via Marechiaro, via Mezzocannone)
+# e aree pedonali del centro (piazza del Gesù, via dei Tribunali, Borgo Marinari...)
+overpass("napoli-extra", """[out:json][timeout:120];
+( way["highway"]["name"~"^Via (Ferdinando Russo|Padre Gaetano Errico|Marechiaro|Mezzocannone)$",i](40.79,14.17,40.92,14.30);
+  way["highway"="pedestrian"](40.825,14.235,40.858,14.27); relation["highway"="pedestrian"](40.825,14.235,40.858,14.27);
+  way["area:highway"="pedestrian"](40.825,14.235,40.858,14.27); );
+out geom;""")
+# --- fine Napoli ---

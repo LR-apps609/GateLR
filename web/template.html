@@ -330,7 +330,7 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
 (() => {
 "use strict";
 const CITIES = JSON.parse(document.getElementById("cities").textContent);
-const CITY_NAMES = {firenze:{en:"Florence", it:"Firenze", de:"Florenz"}, bologna:{en:"Bologna", it:"Bologna", de:"Bologna"}, milano:{en:"Milan", it:"Milano", de:"Mailand"}, roma:{en:"Rome", it:"Roma", de:"Rom"}, siena:{en:"Siena", it:"Siena", de:"Siena"}, lucca:{en:"Lucca", it:"Lucca", de:"Lucca"}, pisa:{en:"Pisa", it:"Pisa", de:"Pisa"}, verona:{en:"Verona", it:"Verona", de:"Verona"}};
+const CITY_NAMES = {firenze:{en:"Florence", it:"Firenze", de:"Florenz"}, bologna:{en:"Bologna", it:"Bologna", de:"Bologna"}, milano:{en:"Milan", it:"Milano", de:"Mailand"}, roma:{en:"Rome", it:"Roma", de:"Rom"}, siena:{en:"Siena", it:"Siena", de:"Siena"}, lucca:{en:"Lucca", it:"Lucca", de:"Lucca"}, pisa:{en:"Pisa", it:"Pisa", de:"Pisa"}, verona:{en:"Verona", it:"Verona", de:"Verona"}, napoli:{en:"Naples", it:"Napoli", de:"Neapel"}};
 // Multa per l'ingresso in ZTL senza permesso (art. 7 c. 9 e 14 Codice della Strada). Valori da docs/multe-mappe-caratteri.md
 const FINE = /*FINE*/null;
 const APP_STORE_URL = null, PLAY_URL = null;   // quando l'app sarà pubblicata
@@ -888,7 +888,7 @@ for (const ev of ["pointerdown", "keydown"]) addEventListener(ev, loadRealMap, {
 
 applyLang(lang);
 // Link diretti a una città: …/#firenze, #bologna, #milano
-const START = {firenze:["Duomo (Cathedral)", 43.7731, 11.2560], bologna:["Piazza Maggiore, Bologna", 44.4938, 11.3430], milano:["Castello Sforzesco, Milan", 45.4705, 9.1795], roma:["Pantheon, Rome", 41.8986, 12.4769], siena:["Piazza del Campo, Siena", 43.3184, 11.3316], lucca:["Piazza dell'Anfiteatro, Lucca", 43.8457, 10.5065], pisa:["Piazza dei Cavalieri, Pisa", 43.7193, 10.4006], verona:["Arena, Verona", 45.4390, 10.9944]};
+const START = {firenze:["Duomo (Cathedral)", 43.7731, 11.2560], bologna:["Piazza Maggiore, Bologna", 44.4938, 11.3430], milano:["Castello Sforzesco, Milan", 45.4705, 9.1795], roma:["Pantheon, Rome", 41.8986, 12.4769], siena:["Piazza del Campo, Siena", 43.3184, 11.3316], lucca:["Piazza dell'Anfiteatro, Lucca", 43.8457, 10.5065], pisa:["Piazza dei Cavalieri, Pisa", 43.7193, 10.4006], verona:["Arena, Verona", 45.4390, 10.9944], napoli:["San Gregorio Armeno, Naples", 40.8508, 14.2575]};
 function startFromHash(){ const s = START[(location.hash || "").slice(1).toLowerCase()] || START.firenze; choose({name:s[0], lat:s[1], lon:s[2]}); }
 window.addEventListener("hashchange", startFromHash);
 startFromHash();
