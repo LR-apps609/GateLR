@@ -115,6 +115,15 @@ struct IntroSetupPage: View {
             if city.isEmpty { city = store.cityId }
             if let v = store.vehicles.first(where: { $0.id == store.activeVehicleId }) { fuel = v.fuel; euro = v.euro }
         }
+        .task {
+            // Nel video: si sceglie come farebbe una persona, senza toccare «Inizia»
+            guard IntroAutoplay.on else { return }
+            let picks: [() -> Void] = [{ city = "firenze" }, { fuel = .diesel }, { euro = 6 }]
+            for pick in picks {
+                try? await Task.sleep(for: .milliseconds(900))
+                withAnimation(.easeInOut(duration: 0.2)) { pick() }
+            }
+        }
     }
 
     private func chips(_ items: [(String, String)], selected: String, id: String, minWidth: CGFloat = 104,

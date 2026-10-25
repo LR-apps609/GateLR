@@ -4,6 +4,11 @@ import SwiftUI
 // la barretta rossa e il pannello «VARCO» a matrice di punti che gira come un tabellone a palette.
 // Si vede solo avviando l'app con -intro2 (vedi RootView); la presentazione attuale resta quella di Onboarding.swift.
 
+/// -intro2Autoplay: la presentazione va avanti da sola con i tempi di una persona (per il video registrato su GitHub)
+enum IntroAutoplay {
+    static let on = ProcessInfo.processInfo.arguments.contains("-intro2Autoplay")
+}
+
 enum Notte {
     static let navy = Color(hex: 0x0B1530)
     static let surface = Color(hex: 0x142049)

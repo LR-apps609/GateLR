@@ -101,7 +101,6 @@ jobs:
           status=0
           xcodebuild test -project GateLR.xcodeproj -scheme GateLRUITests \
             -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
-            -skip-testing:GateLRUITests/Intro2VideoTests \
             CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" > ui.log 2>&1 || status=$?
           grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true
           grep -E "error:|Test Case .*failed" ui.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
@@ -139,44 +138,54 @@ jobs:
           set -o pipefail
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" screenshots 2>&1 | sed 's/x-access-token:[^@]*@/***@/' | tail -n 5 || { echo "::error::Push delle foto non riuscito"; exit 1; }
 
-      # Prototipo della nuova presentazione (-intro2): il giro di UITests/Intro2VideoTests registrato dal simulatore
-      # e pubblicato con le foto dei momenti chiave nel ramo «intro-video» (git fetch origin intro-video).
-      # Non blocca mai la compilazione.
+      # Prototipo della nuova presentazione: l'app avviata con -intro2 -intro2Autoplay va avanti da sola con i tempi di
+      # una persona, mentre il simulatore registra lo schermo; poi la prima pagina ancora una volta con il disegno di
+      # riserva (-intro2Fallback). Video e foto nel ramo «intro-video» (git fetch origin intro-video). Non blocca mai.
       - name: Video della nuova presentazione (prototipo)
         if: always() && github.ref == 'refs/heads/main'
         continue-on-error: true
-        timeout-minutes: 15
+        timeout-minutes: 10
         run: |
           SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
           UDID=$(xcrun simctl list devices available | grep -F "    $SIM (" | head -n 1 | grep -oE "[0-9A-F]{8}-[0-9A-F-]{27}")
           echo "Simulatore: $SIM $UDID"
           xcrun simctl boot "$UDID" 2>/dev/null || true
           xcrun simctl bootstatus "$UDID" -b > /dev/null 2>&1 || true
-          xcrun simctl ui "$UDID" appearance dark || true
+          APP=build-ui/Build/Products/Debug-iphonesimulator/GateLR.app
+          [ -d "$APP" ] || APP=build/Build/Products/Debug-iphonesimulator/GateLR.app
+          xcrun simctl install "$UDID" "$APP"
+          xcrun simctl status_bar "$UDID" override --time 9:41 --batteryState charged --batteryLevel 100 --cellularBars 4 || true
+          xcrun simctl terminate "$UDID" it.ledion.GateLR 2>/dev/null || true
           mkdir -p intro-video
-          # Prima si compila, poi si registra solo il giro
-          xcodebuild build-for-testing -project GateLR.xcodeproj -scheme GateLRUITests \
-            -destination "platform=iOS Simulator,id=$UDID" -derivedDataPath build-ui CODE_SIGNING_ALLOWED=NO > intro-build.log 2>&1 \
-            || { grep -E "error:" intro-build.log | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::${l:0:400}"; done; exit 1; }
           xcrun simctl io "$UDID" recordVideo --codec=h264 --force intro-video/intro2.mp4 > rec.log 2>&1 &
           REC=$!
-          sleep 3
-          status=0
-          xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
-            -destination "platform=iOS Simulator,id=$UDID" -derivedDataPath build-ui \
-            -only-testing:GateLRUITests/Intro2VideoTests \
-            CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/intro-video" > intro.log 2>&1 || status=$?
+          sleep 2
+          ARGS="-uitest -intro2 -intro2Autoplay -AppleLanguages (it) -AppleLocale it_IT"
+          shot() { xcrun simctl io "$UDID" screenshot "intro-video/$1.png" > /dev/null 2>&1 || true; }
+          # Aspetta fino a «secondi» dall'avvio dell'app
+          at() { while [ $(( $(date +%s) - T0 )) -lt "$1" ]; do sleep 0.5; done; }
+          T0=$(date +%s); xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS
+          at 9; shot intro-1-verbale
+          at 16; shot intro-2-arrivato
+          at 22; shot intro-3-avvisi
+          at 30; shot intro-4-cartello
+          at 34; shot intro-5-cartelli
+          at 41; shot intro-6-dove-vai
+          at 43
+          xcrun simctl terminate "$UDID" it.ledion.GateLR || true
           sleep 1
+          T0=$(date +%s); xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS -intro2Fallback
+          at 9; shot intro-7-riserva-verbale
+          at 16; shot intro-8-riserva-arrivato
+          at 18
           kill -INT $REC 2>/dev/null || true
           wait $REC || true
-          cat rec.log | tail -n 5 || true
-          grep -E "error:|Test Case .*(passed|failed)|TEST (EXECUTE )?(SUCCEEDED|FAILED)" intro.log | sort -u | head -n 20 || true
-          grep -E "error:|Test Case .*failed" intro.log | sort -u | head -n 6 | while IFS= read -r l; do echo "::warning::Video: ${l:0:400}"; done
+          tail -n 3 rec.log || true
           ls -la intro-video
           if [ ! -s intro-video/intro2.mp4 ]; then echo "::warning::Video della presentazione non registrato"; exit 1; fi
-          echo "::notice::Video della presentazione: $(du -h intro-video/intro2.mp4 | cut -f1), $(ls intro-video | grep -c png) foto (test: $status)"
+          echo "::notice::Video della presentazione: $(du -h intro-video/intro2.mp4 | cut -f1), $(ls intro-video | grep -c png) foto"
           cd intro-video
-          echo "Prototipo -intro2 di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ)), test: $status" > README.md
+          echo "Prototipo -intro2 di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ)), $SIM" > README.md
           git init -q && git checkout -q -b intro-video && git add .
           git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Video della nuova presentazione per $GITHUB_SHA"
           set -o pipefail

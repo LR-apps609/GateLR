@@ -60,6 +60,11 @@ struct IntroStatusSlide: View {
         }
         .padding(.horizontal, 20).padding(.bottom, 12)
         .task { await cycle() }
+        .task {
+            guard IntroAutoplay.on else { return }
+            try? await Task.sleep(for: .milliseconds(7600))
+            next()
+        }
     }
 
     /// L'avviso nello stile dell'Isola dinamica: una pillola nera che scende e si allarga

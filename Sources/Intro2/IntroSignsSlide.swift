@@ -27,6 +27,11 @@ struct IntroSignsSlide: View {
         }
         .padding(.horizontal, 20).padding(.bottom, 12)
         .task { await play() }
+        .task {
+            guard IntroAutoplay.on else { return }
+            try? await Task.sleep(for: .milliseconds(9200))
+            next()
+        }
     }
 
     // MARK: Il cartello ZTL

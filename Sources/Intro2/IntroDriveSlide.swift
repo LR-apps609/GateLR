@@ -41,6 +41,10 @@ import SwiftUI
             phase = .fined
             showFine = true
         }
+        if IntroAutoplay.on {
+            try? await Task.sleep(for: .milliseconds(3200))
+            avoid()
+        }
     }
 
     private func hitGate() {
@@ -128,6 +132,10 @@ struct IntroDriveSlide: View {
             drive.reduceMotion = reduceMotion
             if !offline { offline = await IntroNetwork.isOffline() }
             drive.start()
+        }
+        .onChange(of: drive.phase) { _, phase in
+            guard IntroAutoplay.on, phase == .arrived else { return }
+            Task { try? await Task.sleep(for: .milliseconds(2200)); next() }
         }
         .onDisappear { drive.stop() }
     }
