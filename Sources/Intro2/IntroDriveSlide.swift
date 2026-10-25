@@ -16,8 +16,8 @@ import SwiftUI
     let bad = IntroPath(IntroScene.badRoute)
     let good = IntroPath(IntroScene.goodRoute)
     /// Durate dei due viaggi: l'auto passa il varco entro circa 4 secondi dall'apertura della pagina
-    static let badSeconds = 5.0
-    static let goodSeconds = 6.0
+    static let badSeconds = 4.5
+    static let goodSeconds = 5.0
     /// Il volo della camera dal punto d'arrivo rosso alla partenza del percorso bianco
     static let flyBack = 1.0
     var reduceMotion = false
@@ -72,7 +72,7 @@ import SwiftUI
             showFine = true
         }
         if IntroAutoplay.on {
-            try? await Task.sleep(for: .milliseconds(3200))
+            try? await Task.sleep(for: .milliseconds(2600))
             avoid()
         }
     }
@@ -149,7 +149,7 @@ struct IntroDriveSlide: View {
         }
         .onChange(of: drive.phase) { _, phase in
             guard IntroAutoplay.on, phase == .arrived else { return }
-            Task { try? await Task.sleep(for: .milliseconds(2200)); next() }
+            Task { try? await Task.sleep(for: .milliseconds(1600)); next() }
         }
         .onDisappear { drive.stop() }
     }
@@ -320,12 +320,12 @@ private struct IntroLiveMap: View {
     }
 }
 
-/// Le inquadrature della prima pagina: inclinata (60°), a circa 900 m, rivolta dove va l'auto
+/// Le inquadrature della prima pagina: inclinata (58°), a circa 1,4 km (con Flyover sembra molto più vicina), rivolta dove va l'auto
 enum IntroCamera {
-    static let pitch = 60.0
-    static let distance = 900.0
+    static let pitch = 58.0
+    static let distance = 1400.0
     /// Quanto la camera resta indietro rispetto all'auto: così l'auto sta sopra il centro, visibile sopra il verbale
-    static let lag = 120.0
+    static let lag = 150.0
 
     static func start(reduceMotion: Bool) -> MapCamera {
         if reduceMotion {

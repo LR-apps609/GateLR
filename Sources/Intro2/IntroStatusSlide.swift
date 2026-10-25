@@ -62,7 +62,7 @@ struct IntroStatusSlide: View {
         .task { await cycle() }
         .task {
             guard IntroAutoplay.on else { return }
-            try? await Task.sleep(for: .milliseconds(7600))
+            try? await Task.sleep(for: .milliseconds(6600))
             next()
         }
     }

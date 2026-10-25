@@ -29,7 +29,7 @@ struct IntroSignsSlide: View {
         .task { await play() }
         .task {
             guard IntroAutoplay.on else { return }
-            try? await Task.sleep(for: .milliseconds(9200))
+            try? await Task.sleep(for: .milliseconds(8600))
             next()
         }
     }
