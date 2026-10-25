@@ -1,6 +1,6 @@
 {
- "version": "202610242234",
- "digest": "97513dd0e7f4",
+ "version": "202610250742",
+ "digest": "9f270630e68a",
  "schema": 1,
  "cities": [
   {
@@ -14,9 +14,19 @@
    "sha256": "d473f6ad3c43fab05b4254b2be0a543801a804f7447cf6ba9f560d4dd1e9a554"
   },
   {
+   "id": "lucca",
+   "file": "lucca.json",
+   "sha256": "8e3d4fe78d75be4735ce2bbd22ef4941477dbc0acd14704a493b3fb228da2055"
+  },
+  {
    "id": "milano",
    "file": "milano.json",
    "sha256": "164d1e1146f69acdeb48cb835f77eec5f8aa8b3502efa51b541c1803ec73c1c4"
+  },
+  {
+   "id": "napoli",
+   "file": "napoli.json",
+   "sha256": "68ae871bb8de5221e0ba95503c6992af6fffe1e02ac9df2682c5d6fde0145783"
   },
   {
    "id": "roma",
@@ -27,6 +37,11 @@
    "id": "siena",
    "file": "siena.json",
    "sha256": "2f3d1ca7aaab2462292fac953b8f30cd68c06557bb8962ce50b2de86c2b2baa3"
+  },
+  {
+   "id": "verona",
+   "file": "verona.json",
+   "sha256": "68462f42c40b910394a350550e4639fb21a1fa0d1b949602deedf14418555a20"
   }
  ]
 }

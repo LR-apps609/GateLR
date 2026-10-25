@@ -118,7 +118,14 @@ for name, url in [("torino-od-5t-access-control.xml", "http://opendata.5t.torino
                   ("torino-scheda-ztl-centrale.html", "https://www.comune.torino.it/schede-informative/ztl-centrale"),
                   ("torino-scheda-elettrici.html", "https://www.comune.torino.it/schede-informative/permessi-circolazione-ztl-per-veicoli-elettrici-puri"),
                   ("torino-gtt-alberghi.html", "https://www.gtt.to.it/cms/ztl/3681-utenti-che-pernottano-in-strutture-alberghiere"),
-                  ("torino-gtt-esenzioni.html", "https://gtt.to.it/cms/ztl/3702-categorie-e-attivita-che-hanno-diritto-all-esenzione-a-posteriori")]:
+                  ("torino-gtt-esenzioni.html", "https://gtt.to.it/cms/ztl/3702-categorie-e-attivita-che-hanno-diritto-all-esenzione-a-posteriori"),
+                  ("torino-gtt-esentati.html", "https://www.gtt.to.it/cms/ztl/3090-elenco-veicoli-esentati"),
+                  ("torino-gtt-parcheggi-struttura.html", "https://www.gtt.to.it/cms/ztl/3680-utenti-parcheggio-struttura"),
+                  ("torino-argomento-ztl.html", "https://www.comune.torino.it/argomenti/mobilita-urbana/ztl"),
+                  ("torino-com-valentino-2026.html", "https://www.comune.torino.it/novita/comunicati/ztl-valentino-citta-amplia-larea-traffico-limitato-per-valorizzare-parco"),
+                  ("torino-com-cappuccini-2025.html", "https://www.comune.torino.it/novita/comunicati/zona-traffico-limitato-notturna-salita-cai-monte-dei-cappuccini-lunedi-13"),
+                  ("torino-com-campidoglio-2025.html", "https://www.comune.torino.it/novita/comunicati/borgo-campidoglio-dall1-dicembre-via-alla-pedonalizzazione-ce-tempo-fino-al-2"),
+                  ("torino-com-agosto-2026.html", "https://www.comune.torino.it/novita/comunicati/sospensione-estiva-della-ztl-della-sosta-pagamento-0")]:
     raw = get(url, tries=3)
     if raw: (OUT / name).write_bytes(raw); print("ok torino", name, len(raw))
     else: print("FAILED torino", name)
@@ -127,7 +134,8 @@ overpass("torino-extra", """[out:json][timeout:120];
 ( way["name"~"Salita al C\\\\.?A\\\\.?I|Monte dei Cappuccini",i](45.055,7.69,45.065,7.705);
   way["leisure"="park"]["name"~"Valentino",i](45.04,7.67,45.07,7.70); relation["leisure"="park"]["name"~"Valentino",i](45.04,7.67,45.07,7.70);
   way["highway"="pedestrian"](45.06,7.67,45.08,7.70); relation["highway"="pedestrian"](45.06,7.67,45.08,7.70);
-  way["place"~"quarter|neighbourhood"]["name"~"Quadrilatero",i](45.06,7.67,45.08,7.69); relation["place"~"quarter|neighbourhood"]["name"~"Quadrilatero",i](45.06,7.67,45.08,7.69); );
+  way["place"~"quarter|neighbourhood"]["name"~"Quadrilatero",i](45.06,7.67,45.08,7.69); relation["place"~"quarter|neighbourhood"]["name"~"Quadrilatero",i](45.06,7.67,45.08,7.69);
+  way["highway"]["name"~"^Via (Cibrario|San Rocchetto|Balme|Ceres|Corio|Rocciamelone|Locana|Fabro|Groscavallo|Bossoli|Netro|Musinè)",i](45.077,7.648,45.085,7.658); );
 out geom;""")
 # --- fine Torino ---
 
@@ -139,3 +147,13 @@ overpass("pisa-streets", """[out:json][timeout:180];
 ( way["highway"]["name"](43.705,10.383,43.729,10.418); );
 out geom;""")
 # --- fine Pisa ---
+
+# --- Lucca (Tools/build_lucca.py, docs/fonti-lucca.md) ---
+# Il Comune elenca i varchi ZTL per nome di strada o di porta (notizia del 19/01/2026, presentazione del 2025) ma
+# senza coordinate: per piazzarli servono le strade con nome dentro le Mura e le porte (city_gate), «out geom».
+overpass("lucca-streets", """[out:json][timeout:180];
+( way["highway"]["name"](43.836,10.490,43.849,10.518);
+  node["barrier"="city_gate"](43.834,10.488,43.851,10.520); node["historic"="city_gate"](43.834,10.488,43.851,10.520);
+  way["barrier"="city_gate"](43.834,10.488,43.851,10.520); way["historic"="city_gate"](43.834,10.488,43.851,10.520); );
+out geom;""")
+# --- fine Lucca ---
