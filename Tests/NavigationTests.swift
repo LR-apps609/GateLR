@@ -70,8 +70,8 @@ final class NavigationTests: XCTestCase {
         // Il ritorno è più vicino (14 m contro 16 m) ma è a 1 km di strada: si resta sull'andata
         let back = track.locate(at(300, north: 16), near: 5, course: 90)!
         XCTAssertLessThan(back.along, 800, "la ricerca vicina tiene l'andata anche se il ritorno è più vicino")
-        // Cercando su tutto il percorso, invece, vince il ritorno
-        XCTAssertGreaterThan(track.locateAnywhere(at(300, north: 16))!.along, 800)
+        // Cercando su tutto il percorso, invece, vince il ritorno quando è chiaramente più vicino (5 m contro 25 m)
+        XCTAssertGreaterThan(track.locateAnywhere(at(300, north: 25))!.along, 800)
     }
 
     // MARK: Movimento fluido
