@@ -236,15 +236,17 @@ private struct IntroLiveMap: View {
             Annotation("", coordinate: IntroScene.goodRoute.last!, anchor: .center) {
                 ParkingPin(lit: drive.phase == .arrived)
             }
+            .annotationTitles(.hidden)
             Annotation("", coordinate: scene.gate, anchor: .bottom) {
                 GateSign(state: drive.panel)
             }
+            .annotationTitles(.hidden)
             Annotation("", coordinate: drive.car, anchor: .center) {
                 CarPuck(good: drive.phase == .avoiding || drive.phase == .arrived)
             }
+            .annotationTitles(.hidden)
         }
         .mapStyle(.standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll))
-        .annotationTitles(.hidden)
         .environment(\.colorScheme, .dark)
         .mapControlVisibility(.hidden)
         .mapCameraKeyframeAnimator(trigger: orbit) { camera in
