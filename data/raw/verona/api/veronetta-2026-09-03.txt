@@ -1,0 +1,83 @@
+# Riqualificazione di Veronetta, riapertura di via XX Settembre entro l’inizio dell’anno scolastico 
+object 24058, published 2026-09-03T00:00:00+02:00, modified 2026-09-04T08:01:46+02:00
+URL: https://www.comune.verona.it/content/view/full/23392
+
+[title] Riqualificazione di Veronetta, riapertura di via XX Settembre entro l’inizio dell’anno scolastico
+[content_type] Comunicato stampa
+[abstract] Dal 21 settembre, attivati i varchi in corrispondenza delle corsie preferenziali del trasporto pubblico locale e, tra gli altri, Ponte Aleardi, piazza Bra, Ponte Navi e via San Paolo.
+[published] 2026-09-03T00:00:00+02:00
+[remoteId] topic_36
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Mobilität
+[ita-IT] Trasporto pubblico
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/121
+[mainNodeId] 123
+[remoteId] topic_37
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Straßen und Verkehr
+[ita-IT] Rete stradale
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/198
+[mainNodeId] 200
+[remoteId] topic_35
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Stadtverkehr
+[ita-IT] Traffico urbano
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/199
+[mainNodeId] 201
+[remoteId] abc9ab5b22d6f4a06ba477b75dafd075
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] ZTL
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/200
+[mainNodeId] 202
+[body] Dal 21 settembre sarà riattivato nella via il servizio di trasporto pubblico urbano, l’extraurbano continuerà a transitare su via Torbido. Sempre dal 21 settembre saranno attivati i varchi in corrispondenza delle corsie preferenziali del trasporto pubblico locale e, tra gli altri, Ponte Aleardi, piazza Bra, Ponte Navi e via San Paolo . 
+ Si avvicina la conclusione dei lavori nelle strade interessate dai cantieri in Veronetta. Le asfaltature e il rifacimento della segnaletica rappresentano infatti gli ultimi interventi prima della conclusione dei cantieri. È stata completata l’asfaltatura e la nuova segnaletica in via dell’Artigliere , dove sono stati realizzati anche gli stalli giallo-blu per favorire la rotazione della sosta e garantire posti ai residenti. E' ora in fase di completamento l'asfaltatura di Lungadige Porta Vittoria e sono inoltre già iniziate le operazioni di fresatura in via San Francesco, dove il completamento delle lavorazioni è previsto entro venerdì. La riapertura della strada è prevista al massimo per lunedì sera.
+ Il cantiere più articolato riguarda via XX Settembre . La fresatura è stata completata nella giornata di ieri, mentre sono in corso le asfaltature del primo tratto, da via dell’Artigliere fino a vicolo Terrà. L’obiettivo resta comunque quello di completare l’asfaltatura dell’intera via in modo da arrivare alla prima campanella dell'inizio dell'anno scolastico con via XX Settembre riaperta. 
+ 
+ “Si avvia alla conclusione il grande cantiere che ha permesso di riqualificare sottoservizi, marciapiedi e asfalti a Veronetta. Un'opera complessache è stata resa possibile da un grande lavoro di squadra in tutti questi mesi che quotidianamente si è concentrato per ridurre il più possibile i disagi e rispettare le tempistiche. Colgo l'occasione - sottolinea l’assessore al Coordinamento dei lavori pubblici e Progetti complessi, Tommaso Ferrari - per ringraziare tutte le persone coinvolte nel progetto per la disponibilità e gli sforzi profusi. Sono stati mesi complessi per residenti e commercianti per le criticità che necessariamente lavorazioni di questa portata comportano. Si è parlato molto in questi mesi della crisi climatica in corso e degli effetti devastanti della stessa sulle nostre città. Ricordiamo tutti le immagini di una via XX Settembre allagata. A questi problemi serve dare risposte, concrete. Cercheremo di proseguire in questo senso, sicuri che una città che vuole crescere e migliorare non deve rimandare le opere, ma al contrario realizzarle, gestendo le complessità e anche le critiche e criticità che ne derivano.” 
+
+
+ 
+ Con la prossima settimana partono invece le asfaltature in via San Paolo con il tratto di strada che resterà chiuso fino al 20 settembre. La chiusura temporanea di via San Paolo implica ai residenti della zona di via Scrimiari l'utilizzo dell'accesso alternativo a nord da vicolo Scrimiari. 
+ 
+ Diego Macchiella direttore generale Acque Veronesi spiega che “Siamo particolarmente soddisfatti perché stiamo terminando i lavori nei tempi previsti, mantenendo la massima qualità e l’alto livello ingegneristico dell’intervento. Un intervento complesso e tecnicamente molto impegnativo, che ha richiesto un coordinamento costante, continuo e proficuo con molti enti e soggetti coinvolti nel cantiere. Una collaborazione fondamentale, in un contesto urbano particolarmente complesso e delicato, che ha permesso di raggiungere quest’importantissimo risultato”. 
+
+
+ 
+ Con il 21 settembre, sarà riattivato il trasporto pubblico locale , come spiega Giuseppe Mazza, presidente di Amt e Amt3: “transiteranno gli autobus urbani delle linee 11, 12 e 13, 72 per le feriali diurne, l’80 e l’81 per le serali, il 90 e 98 per le linee festive. Tutti i mezzi extraurbani continueranno a transitare su via Torbido. Dal 21 saranno anche attivate le telecamere. Per quella di ponte Aleardi, ricordo che tutti i possessori di pass Cittadella possono transitare a qualsiasi ora del giorno. Mentre tutti gli altri cittadini dovranno rispettare il divieto di transito dalle 7 alle 18”. 
+ Con l’inizio dell’anno scolastico entrano nella fase di collaudo e attivazione anche le nuove telecamere , mentre lunedì 21 settembre è indicato come data di riferimento per l’ avvio delle sanzioni nei varchi già installati . “Tra quelli interessati – specifica il comandante della Polizia Locale, Luigi Altamura - ci sono le due telecamere di piazza Bra (piazza Bra Orologio, piazza Bra Municipio), quella di ponte Aleardi, quella di ponte Navi e quella di via San Paolo . Le sanzioni saranno comminate sempre dal 21 settembre anche per i transiti illegali sul tratto sud riservato al trasporto pubblico locale di viale dell'Agricoltura, via Fornari/viale del Commercio e viale delle Nazioni”. 
+ 
+Dalla stessa data tornerà attivo anche il varco di Interrato Acqua Morta . 
+Per il varco ZTL di Santo Stefano è invece previsto un periodo di pre-esercizio di circa 30 giorni prima dell’avvio delle sanzioni che scatteranno da lunedì 19 ottobre .
+[remoteId] PP_Politico_06
+[classIdentifier] public_person
+[class] http://www.comune.verona.it/api/opendata/v2/classes/public_person
+[languages] ita-IT
+[ita-IT] Ferrari Tommaso
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/2706
+[mainNodeId] 2761
+[remoteId] UO75
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Ufficio Stampa
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1662
+[mainNodeId] 1706
+[files] FILE Ord 01249 01 09 2026 https://www.comune.verona.it/ocmultibinary/download/24058/572099/5/82762438aa8338594988a08fe732cee5.pdf/file/ord_01249_01-09-2026.pdf
+[filename] Ord 01249 01 09 2026
+[displayName] Ordinanza n.1249 del 1 settembre 20262026
+[group] Ordinanze
+[files] FILE Ord 01253 01 09 2026 https://www.comune.verona.it/ocmultibinary/download/24058/572099/5/98b77249b97afe66612b5ae340ee747b.pdf/file/ord_01253_01-09-2026.pdf
+[filename] Ord 01253 01 09 2026
+[displayName] Ordinanza n.1253 del 1 settembre 2026
+[group] Ordinanze

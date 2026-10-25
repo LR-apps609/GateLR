@@ -1,0 +1,108 @@
+# Piano della sosta: più stalli per i residenti e convenzioni con i parcheggi per residenti e lavoratori delle zone interessate
+object 19351, published 2026-04-24T00:00:00+02:00, modified 2026-04-27T13:59:03+02:00
+URL: https://www.comune.verona.it/content/view/full/19061
+
+[title] Piano della sosta: più stalli per i residenti e convenzioni con i parcheggi per residenti e lavoratori delle zone interessate
+[content_type] Comunicato stampa
+[abstract] Entro luglio sarà operativo Il Piano Urbano della Sosta (PUS), il provvedimento che rende omogenea e regola la sosta nei quartieri limitrofi alla ZTL
+[published] 2026-04-24T00:00:00+02:00
+[remoteId] topic_1_governo_e_settore_pubblico
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Politik und Verwaltung
+[ita-IT] Politica
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/116
+[mainNodeId] 118
+[remoteId] topic_9
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] Comunicazione istituzionale
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/172
+[mainNodeId] 174
+[remoteId] topic_36
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Mobilität
+[ita-IT] Trasporto pubblico
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/121
+[mainNodeId] 123
+[remoteId] topic_6
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Parken
+[ita-IT] Parcheggi
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/196
+[mainNodeId] 198
+[body] Entro luglio sarà operativo Il Piano Urbano della Sosta (PUS), il provvedimento che rende omogenea e regola la sosta nei quartieri limitrofi alla ZTL. Un provvedimento che si inserisce nel quadro delle politiche di mobilità sostenibile, con l’obiettivo di garantire accessibilità ai quartieri della città da parte di lavoratori e residenti e evitare i fenomeni di sosta selvaggia.
+ Il nuovo sistema tariffario prevede una suddivisione in tre fasce:
+
+ 
+
+ nella ZTL la sosta resta a 2 euro all’ora, tutti i giorni dalle 8 alle 24, senza limite di durata
+
+
+ nella nuova “Zona Blu”, che comprende le aree entro 350-450 metri dal centro, la tariffa è di 1,50 euro all’ora dalle 8 alle 20
+
+
+ nella “Zona Azzurra”, più distante dal centro storico che include le aree più esterne già a pagamento, il costo è di 1 euro all’ora
+
+
+ 
+ E’ abolito il limite delle due ore massime di sosta e introdotto il pagamento anche nei week-end tenuto conto anche delle presenze turistiche. 
+ Il comparto di Borgo Trento, il primo a partire con la nuova segnaletica, seguirà la stessa regolamentazione degli altri quartieri (Veronetta, Cittadella, San Zeno,…) che comporta la realizzazione di stalli blu o giallo/blu in tutto il comparto, nell’ottica di garantire un’adeguata turnazione dei parcheggi per il commercio locale e maggior riserva di posti auto per lavoratori e residenti. 
+ Le nuove norme che aggiornano un piano della sosta che risale al 1999 saranno operative da luglio, quando saranno completate la segnaletica verticale e orizzontale e i sistemi di pagamento. Sono previsti abbonamenti per i residenti e i lavoratori che operano all’interno dei comparti, cosi come convenzioni nei parcheggi in struttura (Arena, Arsenale, Isolo e Bgo Trento). 
+ 
+ “L’intervento si inserisce in una visione più ampia di mobilità, che comprende sosta, trasporto pubblico e infrastrutture, come Filovia, parcheggi scambiatori, strada di gronda e piste ciclabili, all’interno di un disegno organico che stiamo portando avanti”.– ha spiegato l’assessore alla Mobilità, Tommaso Ferrari “. 
+
+
+ 
+ 
+ Giuseppe Mazza, presidente di Amt3 ha ricordato come “È importante che i cittadini veronesi residenti nei e i lavoratori dei comparti coinvolti, inizino ad attivarsi per richiedere, anche online, i permessi necessari e poter usufruire degli abbonamenti dedicati. Aggiungo che i parcheggi di Via Città di Nimes sono tornati a pieno regime e con la possibilità della prima mezz’ora gratis a disposizione degli utenti della stazione Porta Nuova.”. 
+
+
+ 
+ Le agevolazioni proposte da Saba puntano a rendere più accessibili e utilizzati i parcheggi in struttura, con formule flessibili pensate per residenti, lavoratori e commercianti. Sono previsti abbonamenti notturni per i residenti ma anche soluzioni diurne e a fasce orarie per chi lavora, oltre a formule H24. “A queste si affiancano iniziative dedicate al commercio, come lo shopping time, il lunch pass e il dinner pass, pensate per favorire la sosta breve legata alle attività economiche” ha sottolineato Claudio Borghetto di Saba Parcheggi.
+ Nel dettaglio, per il quartiere di Borgo Trento, tra i parcheggi Arsenale e Borgo Trento, sono disponibili complessivamente 290 abbonamenti (220 a Borgo Trento e 70 all’Arsenale disponibili dal 4 maggio). Nei dintorni della Città antica, tra i parcheggi Arena e Isolo, gli abbonamenti disponibili sono invece 350 (280 all’Arena e 70 all’Isolo disponibili dal 1 di giugno).
+ Per abbonarsi è necessario scrivere alla mail parcheggi.verona@saba.eu 
+ 
+ “Per la Seconda Circoscrizione il piano della sosta chiude un percorso condiviso negli anni, - ha chiosato Elisa Dalle Pezze, presidente della Circoscrizione 2^ - nato dalle difficoltà dei residenti e lavoratori nel trovare parcheggio. Il piano risponde a queste esigenze, garantendo maggiore disponibilità di posti per chi vive e lavora nel quartiere. Introduce anche convenzioni per lavoratori e attività, tenendo conto della presenza commerciale e ricettiva della zona. Nel complesso, integra la sosta in una visione più ampia della mobilità e degli spostamenti urbani”. 
+
+
+ 
+ 
+ Il presidente della Circoscrizione 1^, Lorenzo Dalai, ha aggiunto che “l’elemento centrale di questi provvedimenti è l’introduzione delle convenzioni, che permettono di parcheggiare in struttura a costi molto contenuti. Questo rappresenta una valida alternativa alla sosta irregolare, spesso causa di disordine e problemi alla circolazione. “
+[remoteId] PP_Politico_51
+[classIdentifier] public_person
+[class] http://www.comune.verona.it/api/opendata/v2/classes/public_person
+[languages] ita-IT
+[ita-IT] Dalai Lorenzo
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/2695
+[mainNodeId] 2750
+[remoteId] PP_Politico_71
+[classIdentifier] public_person
+[class] http://www.comune.verona.it/api/opendata/v2/classes/public_person
+[languages] ita-IT
+[ita-IT] Dalle Pezze Elisa
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/2694
+[mainNodeId] 2749
+[remoteId] PP_Politico_06
+[classIdentifier] public_person
+[class] http://www.comune.verona.it/api/opendata/v2/classes/public_person
+[languages] ita-IT
+[ita-IT] Ferrari Tommaso
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/2706
+[mainNodeId] 2761
+[remoteId] UO75
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Ufficio Stampa
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1662
+[mainNodeId] 1706

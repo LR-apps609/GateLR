@@ -1,0 +1,334 @@
+# Limitazioni alla circolazione per i veicoli più inquinanti 2026/2027
+object 13300, published 2026-09-29T00:00:00+02:00, modified 2026-09-29T18:13:17+02:00
+URL: https://www.comune.verona.it/content/view/full/13311
+
+[name] Limitazioni alla circolazione per i veicoli più inquinanti 2026/2027
+[document_type] Documenti (tecnici) di supporto
+[remoteId] topic_1_ambiente
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Umwelt
+[ita-IT] Ambiente
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/108
+[mainNodeId] 110
+[remoteId] 17722a57fb20ca1210125d2bdd8323ec
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] Aria
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/128
+[mainNodeId] 130
+[remoteId] topic_21
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Umweltverschmutzung
+[ita-IT] Inquinamento
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/130
+[mainNodeId] 132
+[abstract] Le regole in vigore dal 1° ottobre 2026 al 30 aprile 2027
+[full_description] Bollettino Arpav
+
+ 
+ Attuale livello di allerta 
+
+ 
+ 
+ Con l'Ordinanza sindacale n. 56 del 28 settembre 2026 (modificata con Ordinanza sindacale n. 59 del 29 settembre 2026 ), in vigore dal 1° ottobre 2026 al 30 aprile 2027, sono previste alcune limitazioni alla circolazione stradale per i veicoli più inquinanti con l'obiettivo di prevenire e contenere le criticità legate all'inquinamento atmosferico, in particolare da polveri sottili (PM10).
+ Le limitazioni vengono applicate in base a tre livelli di allerta (verde, arancione e rosso) , che si basano sui dati di superamento del valore limite giornaliero di PM10, stabilito in 50 µg/m3, da non superare per più di 35 giorni l'anno.
+ 
+ Il livello di allerta viene comunicato attraverso il bollettino Arpav emesso ogni lunedì, mercoledì e venerdì , con applicazione delle misure dal giorno successivo a quello del bollettino.
+ Le misure temporanee relative ai livelli di allerta arancione e rosso restano in vigore almeno fino al giorno in cui viene emesso il bollettino successivo. 
+
+
+ 
+ Dettaglio delle limitazioni
+ In caso di nessuna allerta - livello VERDE 
+ Divieto di circolazione , fatti salvi i veicoli aderenti al Move-In , dal lunedì al venerdì, escluse le giornate festive infrasettimanali, dalle ore 8.30 alle ore 19.30, per: 
+
+ 
+
+ Autoveicoli a benzina (categoria M): Euro 0, Euro 1
+
+
+ Autoveicoli a benzina (categoria N): Euro 0, Euro 1
+
+
+ Autoveicoli a gasolio (categoria M): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4
+
+
+ Autoveicoli a gasolio (categoria N): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4
+
+
+ Autoveicoli a GPL/metano – benzina/diesel (categoria M): Euro 0, Euro 1
+
+
+ Autoveicoli a GPL/metano – benzina/diesel (categoria N): Euro 0, Euro 1
+
+
+ Ciclomotori e motocicli (categoria L): Euro 0
+
+
+ 
+ In caso di allerta 1 - livello Arancione 
+ 
+Si attua dopo 4 giorni consecutivi di superamento misurato e/o previsto del valore limite giornaliero di PM10.
+ Divieto di circolazione tutti i giorni, inclusi sabato, domenica e giornate festive infrasettimanali, dalle 8.30 alle 19.30, per : 
+
+ 
+
+ Autoveicoli a benzina (categoria M): Euro 0, Euro 1, Euro 2
+
+
+ Autoveicoli a benzina (categoria N): Euro 0, Euro 1, Euro 2
+
+
+ Autoveicoli a gasolio (categoria M): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4, Euro 5
+
+
+ Autoveicoli a gasolio (categoria N): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4, Euro 5
+
+
+ Autoveicoli a GPL/metano - benzina/diesel (categoria M): Euro 0, Euro 1, Euro 2
+
+
+ Autoveicoli a GPL/metano – benzina/diesel (categoria N): Euro 0, Euro 1, Euro 2
+
+
+ Ciclomotori e motocicli (categoria L): Euro 0, Euro 1
+
+
+ 
+ In caso di allerta 2 - Livello Rosso 
+ 
+Si attua dopo 10 giorni consecutivi di superamento misurato e/o previsto del valore limite giornaliero di PM10.
+ Divieto di circolazione tutti i giorni, inclusi sabato, domenica e giornate festive infrasettimanali, dalle 8.30 alle 19.30, per: 
+
+ 
+
+ Autoveicoli a benzina (categoria M): Euro 0, Euro 1, Euro 2
+
+
+ Autoveicoli a benzina (categoria N): Euro 0, Euro 1, Euro 2
+
+
+ Autoveicoli a gasolio (categoria M): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4, Euro 5
+
+
+ Autoveicoli a gasolio (categoria N): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4, Euro 5
+
+
+ Autoveicoli a GPL/metano – benzina/diesel (categoria M): Euro 0, Euro 1, Euro 2
+
+
+ Autoveicoli a GPL/metano – benzina/diesel (categoria N): Euro 0, Euro 1, Euro 2
+
+
+ Ciclomotori e motocicli (categoria L): Euro 0, Euro 1
+
+
+ mezzi di cui agli artt. 57 e 58 del Codice della Strada con motori non conformi almeno allo Stage III, estese all’intero territorio comunale nel caso di allerta rossa prolungata (a partire dal secondo bollettino PM10 consecutivo di livello di allerta rosso).
+
+
+ 
+ 
+ SI CONSIGLIA: la classe Euro di appartenenza del proprio veicolo può essere verificata consultando la sezione dedicata del Portale dell'Automobilista .
+ Si precisa che per categoria M si intendono M1, M2, M3 - veicoli destinati al trasporto di persone. Per categoria N si intendono N1, N2, N3 - veicoli destinati al trasporto di merci. Per categoria L si intendono da L1e a L7e - ciclomotori e motoveicoli.
+
+
+ 
+ Dove
+ Le misure si applicano a tutto il territorio comunale , fatta eccezione per:
+
+ 
+
+ Tangenziale Est (da Via Valpantena all’altezza dello svincolo di Poiano fino al raccordo verso il casello autostradale di Verona Est e la vicina Tangenziale Sud);
+
+
+ Tangenziale Sud (dal raccordo del Casello autostradale di Verona Est fino a quello del Casello di Verona Nord);
+
+
+ Tratti autostradali ricadenti in territorio comunale
+
+
+ Itinerario di indirizzo alla Fiera di Verona, limitatamente al seguente percorso: uscita dalla Tangenziale sud, Casello Autostradale di Verona Sud, Viale delle Nazioni, Largo del Perlar, Viale del Lavoro fino al Piazzale della Fiera, per il percorso più breve (in andata e ritorno) compreso l’area di parcheggio di Via Scopoli;
+
+
+ Itinerario di indirizzo verso i parcheggi dello Stadio comunale “Marcantonio Bentegodi” e del Palazzetto dello Sport “Città di Verona” limitatamente al seguente percorso: Casello Autostradale di Verona Nord lungo la Mediana di Verona con uscita obbligatoria allo svincolo che conduce ai parcheggi dello Stadio (in andata e ritorno)
+
+
+ Percorso da tangenziali e autostrade, per raggiungere aree camper site a Porta Palio e in Via Belfiore.
+
+
+ 
+ 
+ 
+ Divieto di mantenere acceso il motore
+
+ 
+ In tutto il territorio Comunale dal 01 ottobre 2026 al 30 aprile 2027 , è vietato mantenere acceso il motore:
+
+ 
+
+ degli autobus (compresi quelli di linea) durante la sosta o la fermata, anche ai capolinea, indipendentemente dalla durata o dalla presenza di conducente/passeggeri. L’accensione del motore deve avvenire solo immediatamente prima della partenza ;
+
+
+ degli autoveicoli in sosta o fermata; il divieto è esteso anche ai veicoli merci durante le operazioni di carico e scarico , in particolare nelle aree abitate;
+
+
+ degli autoveicoli per arresto della circolazione, se dura più di un minuto , ad esempio presso semafori o passaggi a livello;
+
+
+ dei mezzi di trasporto su ferro con motrice diesel durante le soste.
+
+
+ 
+
+ 
+ 
+ Veicoli in deroga e MoVe-In
+ Sono escluse dal divieto di circolazione previsto dall’ordinanza alcune specifiche categorie di veicoli, purché muniti di autocertificazione contenente i dati del mezzo, l’indicazione dell’orario, del luogo di partenza e di destinazione, nonché la motivazione dello spostamento.
+ Leggi le pagine di approfondimento: Limitazioni alla circolazione per i veicoli più inquinanti: la deroghe .
+ Move-In 
+ Anche a Verona è attivo il servizio MoVe-In , i cui aderenti possono circolare nel territorio comunale con i veicoli più inquinanti - ad esclusione dei periodi di allerta arancione e rossa - fino al raggiungimento di una determinata soglia chilometrica. 
+ Veicoli di interesse storico e collezionistico 
+ Con Legge regionale n. 13 del 21 luglio 2026 , al fine di valorizzare il segmento turistico collegato al settore dei veicoli di interesse storico e collezionistico nella Regione del Veneto, i motoveicoli e gli autoveicoli di interesse storico e collezionistico muniti di Certificato di rilevanza storica (CRS), con data di costruzione superiore a trenta anni e non utilizzati per l’attività professionale, sono esclusi dai provvedimenti di limitazione della circolazione adottati ai sensi dell’articolo 7, comma 1, lettera b), del decreto legislativo 30 aprile 1992, n. 285 “Nuovo codice della strada”.
+ In particolare si precisa che:
+ Gli autoveicoli e motoveicoli muniti di CRS, con data di costruzione compresa tra venti e trenta anni, sono esclusi dai provvedimenti di limitazione della circolazione per recarsi presso officine e carrozzerie autorizzate per attività di controllo e manutenzione dei veicoli, oltre che per partecipare a raduni e manifestazioni riguardanti veicoli storici.
+ La possibilità di circolazione prevista nei precedenti commi 1 e 2, salva diversa indicazione dei sindaci, non opera in caso di attivazione delle misure temporanee emergenziali di limitazione della circolazione, adottate nei casi di persistente accumulo degli inquinanti. È fatta inoltre salva la possibilità per i sindaci di vietare la circolazione dei veicoli di cui ai commi 1 e 2, con adeguata motivazione, nel caso di particolari esigenze di prevenzione degli inquinamenti.
+ 
+ Informazioni:
+
+ 
+ 
+ 
+ 
+ Contatti Ufficio per le Relazioni con il pubblico 
+
+ 
+ 
+ 
+ Telefono - Supporto specialistico: 
+ 
+
+ (+39) 045 8077500 
+ 
+
+ 
+ E-mail: 
+ 
+
+ urp@comune.verona.it 
+ 
+
+ 
+ PEC: 
+ 
+
+ 
+ 
+
+ 
+ Telefono: 
+ 
+
+ Numero verde 800202525 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+ 
+ Ufficio URP - orari apertura al pubblico 
+ 
+ 
+ Periodo di chiusura 
+ 
+ 
+ Chiuso al pubblico: dal 17 al 21 agosto 2026
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lun 
+ 9 - 13 
+ Mar 
+ 15-17 chiuso nel mese di agosto 
+ Gio 
+ 9 - 13 
+ 
+ 
+ 
+ 
+ Valido dal 
+ 
+ 
+ 01/08/2026 
+ 
+ 
+ Valido al 
+ 
+ 
+ 31/08/2026 
+ 
+ 
+ 
+ Ufficio URP - Orari disponibilità telefonica 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Lun 
+ 9 - 13 
+ Mar 
+ 9 - 13 , 15 - 17 
+ Mer 
+ 9 - 13 
+ Gio 
+ 9 - 13 , 15 - 17 
+ Ven 
+ 9 - 13 
+ 
+ 
+ 
+ 
+ Valido dal 
+ 
+ 
+ 06/04/2025
+[file] FILE Ord 56 2026 traffico https://www.comune.verona.it/content/download/13300/294382/8/ord+56_2026+traffico.pdf
+[filename] Ord 56 2026 traffico
+[attachments] FILE Ord 59 2026 rettifica a ord. n.56 https://www.comune.verona.it/ocmultibinary/download/13300/294383/8/26e82c5f01f8dbaa156a3d7b1a0cbba1.pdf/file/ord%2B59_2026%2Brettifica%2Ba%2Bord.%2Bn.56.pdf
+[filename] Ord 59 2026 rettifica a ord. n.56
+[displayName] Ordinanza di rettifica n. 59 del 2026
+[title] Informazione sui livelli di PM10
+[link] https://www.arpa.veneto.it/temi-ambientali/aria/informazione-al-pubblico-sui-livelli-di-pm10
+[remoteId] UO25
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Direzione Ambiente e Transizione Ecologica
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1622
+[mainNodeId] 1666
+[license] Creative Commons Attribution 4.0 International (CC BY 4.0)
+[format] PDF
+[start_time] 2026-09-29T00:00:00+02:00
+[publication_start_time] 2026-09-29T00:00:00+02:00
+[keyword] PM10
+[keyword] qualità dell'aria
+[keyword] Verona
+[keyword] livelli allerta
+[keyword] bollettino arpav
+[tipo_di_risposta] Orale

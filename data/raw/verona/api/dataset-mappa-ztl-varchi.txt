@@ -1,0 +1,62 @@
+# Mappa della ZTL con varchi
+object 10484, published 2025-06-30T12:57:36+02:00, modified 2025-07-01T09:44:56+02:00
+URL: https://www.comune.verona.it/content/view/full/10750
+
+[title] Mappa della ZTL con varchi
+[abstract] La mappa della Zona a Traffico Limitato con l'elenco dei varchi elettronici d'accesso
+[theme] Trasporti
+[format] Google Drive
+[license] Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)
+[itemName] Varco
+[views] map
+[views] table
+[identifier] Varco
+[label] Varco
+[type] textarea
+[required] false
+[js_label] Varco
+[identifier] numero
+[label] numero
+[type] integer
+[required] false
+[js_label] numero
+[identifier] indirizzo
+[label] Indirizzo
+[type] string
+[required] false
+[js_label] Indirizzo
+[identifier] latitudine_e_longitudine
+[label] Latitudine e longitudine
+[type] geo
+[required] false
+[geo_format] %latitude,%longitude
+[js_label] Latitudine e longitudine
+[facetsSettings] indirizzo
+[show_fields] indirizzo
+[show_fields] Varco
+[show_fields] numero
+[view] default
+[order] asc
+[count_field] false
+[select_stat] count
+[modified] 2025-06-30T00:00:00+02:00
+[remoteId] UO76
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Ufficio Comunicazione
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1696
+[mainNodeId] 1740
+[accrualperiodicity] Costantemente aggiornato
+[code] 023091
+[name] Verona
+[issued] 2024-08-22T00:00:00+02:00
+[language] Italiano
+[remoteId] Contatto_ufficio_82
+[classIdentifier] online_contact_point
+[class] http://www.comune.verona.it/api/opendata/v2/classes/online_contact_point
+[languages] ita-IT
+[ita-IT] Contatti Ufficio Polizia Amministrativa
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1412
+[mainNodeId] 1456
+[keyword] ZTL, Zona a Traffico Limitato, varchi

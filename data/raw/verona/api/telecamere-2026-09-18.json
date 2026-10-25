@@ -1,0 +1,476 @@
+{
+ "metadata": {
+  "id": 24382,
+  "remoteId": "5374b5e09314c1c1cfb5e299004363af",
+  "classIdentifier": "article",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/article",
+  "ownerId": 243,
+  "ownerName": {
+   "ita-IT": "Elena Baldassari"
+  },
+  "mainNodeId": 23692,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2026-09-18T00:00:00+02:00",
+  "modified": "2026-10-22T11:17:06+02:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Modifiche alla viabilità e attivazione telecamere di videosorveglianza"
+  },
+  "parentNodes": [
+   89
+  ],
+  "assignedNodes": [
+   {
+    "id": 23692,
+    "depth": 4,
+    "path_string": "/1/2/72/89/23692/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/24382",
+  "classDefinition": {
+   "identifier": "article",
+   "name": {
+    "eng-GB": "Notice – News – Press release",
+    "ger-DE": "Bekanntmachung - News - Pressemitteilung",
+    "ita-IT": "Avviso - Notizia - Comunicato"
+   },
+   "fields": [
+    {
+     "identifier": "title",
+     "name": {
+      "eng-GB": "Title",
+      "ger-DE": "Titel",
+      "ita-IT": "Titolo"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "content_type",
+     "name": {
+      "eng-GB": "Content type",
+      "ger-DE": "Kategorie",
+      "ita-IT": "Tipologia di contenuto"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Short description",
+      "ger-DE": "Kurze Beschreibung",
+      "ita-IT": "Breve descrizione"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "published",
+     "name": {
+      "eng-GB": "Published on",
+      "ger-DE": "Tag der Veröffentlichung",
+      "ita-IT": "Data di pubblicazione"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "dead_line",
+     "name": {
+      "eng-GB": "Expiry date",
+      "ger-DE": "Letzter Veröffentlichungstag",
+      "ita-IT": "Data di scadenza"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "id_comunicato",
+     "name": {
+      "eng-GB": "Press release number",
+      "ger-DE": "Nummer Pressemitteilung",
+      "ita-IT": "Numero comunicato"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "topics",
+     "name": {
+      "eng-GB": "Topics",
+      "ger-DE": "Themen",
+      "ita-IT": "Argomenti"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "topic"
+     ]
+    },
+    {
+     "identifier": "body",
+     "name": {
+      "eng-GB": "News item body",
+      "ger-DE": "Hauptteil der News",
+      "ita-IT": "Corpo della news"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Images",
+      "ger-DE": "Bilder",
+      "ita-IT": "Galleria immagini"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "image"
+     ]
+    },
+    {
+     "identifier": "people",
+     "name": {
+      "eng-GB": "Administration personnel",
+      "ger-DE": "Personen der Vewaltung",
+      "ita-IT": "Persone dell'amministrazione"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_person"
+     ]
+    },
+    {
+     "identifier": "location",
+     "name": {
+      "eng-GB": "Places of reference",
+      "ger-DE": "Orte, auf die sich der Inhalt bezieht",
+      "ita-IT": "Luoghi di riferimento"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "place"
+     ]
+    },
+    {
+     "identifier": "video",
+     "name": {
+      "eng-GB": "Videos",
+      "ger-DE": "Video",
+      "ita-IT": "Video"
+     },
+     "dataType": "ezurl",
+     "constraint": []
+    },
+    {
+     "identifier": "author",
+     "name": {
+      "eng-GB": "Authored by",
+      "ger-DE": "Bearbeitet von",
+      "ita-IT": "A cura di"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "organization"
+     ]
+    },
+    {
+     "identifier": "audio",
+     "name": {
+      "eng-GB": "Audio",
+      "ger-DE": "Audio",
+      "ita-IT": "Audio"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "audio"
+     ]
+    },
+    {
+     "identifier": "attachment",
+     "name": {
+      "eng-GB": "Attached documents",
+      "ger-DE": "Dokumente im Anhang",
+      "ita-IT": "Documenti allegati"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "document"
+     ]
+    },
+    {
+     "identifier": "files",
+     "name": {
+      "eng-GB": "Attached files",
+      "ger-DE": "Angehängte Dokumente",
+      "ita-IT": "File allegati"
+     },
+     "dataType": "ocmultibinary",
+     "constraint": []
+    },
+    {
+     "identifier": "dataset",
+     "name": {
+      "eng-GB": "Dataset",
+      "ger-DE": "Dataset",
+      "ita-IT": "Dataset"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "dataset"
+     ]
+    },
+    {
+     "identifier": "help",
+     "name": {
+      "eng-GB": "For information",
+      "ger-DE": "Für weitere Informationen",
+      "ita-IT": "Per informazioni"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "online_contact_point"
+     ]
+    },
+    {
+     "identifier": "license",
+     "name": {
+      "eng-GB": "Use licence",
+      "ger-DE": "Benutzerlizenz",
+      "ita-IT": "Licenza d'uso"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "reading_time",
+     "name": {
+      "eng-GB": "Read time",
+      "ger-DE": "Lesezeit",
+      "ita-IT": "Tempo di lettura"
+     },
+     "dataType": "ezinteger",
+     "constraint": []
+    },
+    {
+     "identifier": "related_service",
+     "name": {
+      "eng-GB": "Reference to public service",
+      "ger-DE": "Hinweis auf den öffentlichen Dienst",
+      "ita-IT": "Riferimento al servizio pubblico"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_service"
+     ]
+    },
+    {
+     "identifier": "related_project",
+     "name": {
+      "eng-GB": "Reference to the project",
+      "ger-DE": "Hinweis auf das Projekt",
+      "ita-IT": "Riferimento al progetto"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_project"
+     ]
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "title": "Modifiche alla viabilità e attivazione telecamere di videosorveglianza",
+   "content_type": [
+    "News"
+   ],
+   "abstract": "Dal 21 settembre attive le telecamere in piazza Bra, ponte Aleardi, viale delle Nazioni, via Fornari/Commercio e viale dell'Agricoltura. Dal 28 settembre riattivate quelle di ponte Navi, via San Paolo e Interrato dell'Acqua Morta",
+   "published": "2026-09-18T00:00:00+02:00",
+   "dead_line": null,
+   "id_comunicato": null,
+   "topics": [
+    {
+     "id": 121,
+     "remoteId": "topic_36",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Mobilität",
+      "ita-IT": "Trasporto pubblico"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/121",
+     "mainNodeId": "123"
+    },
+    {
+     "id": 195,
+     "remoteId": "d5ffcb9ed91fa49cfdc42a7ee6fb4d81",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Mobilità sostenibile"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/195",
+     "mainNodeId": "197"
+    },
+    {
+     "id": 198,
+     "remoteId": "topic_37",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Straßen und Verkehr",
+      "ita-IT": "Rete stradale"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/198",
+     "mainNodeId": "200"
+    },
+    {
+     "id": 199,
+     "remoteId": "topic_35",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Stadtverkehr",
+      "ita-IT": "Traffico urbano"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/199",
+     "mainNodeId": "201"
+    },
+    {
+     "id": 200,
+     "remoteId": "abc9ab5b22d6f4a06ba477b75dafd075",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "ZTL"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/200",
+     "mainNodeId": "202"
+    }
+   ],
+   "body": "<p>Nell'ambito dei provvedimenti del<strong> Piano Urbano della Mobilità Sostenibile</strong> di Verona, che prevede la riorganizzazione complessiva della viabilità cittadina, sono da qualche tempo entrate in vigore diverse disposizioni.</p><p>Lo scopo è quello di contenere emissioni inquinanti e agevolare il <strong>trasporto pubblico locale</strong>,<strong> </strong>garantendo una maggiore efficienza e fluidità della circolazione.</p><p>Per il controllo automatizzato degli accessi e il rispetto delle regole, <strong>dal 21 settembre 2026</strong> vengono <strong>attivate telecamere </strong>di videosorveglianza, in:</p>\n<ul class=\"\">\n\n<li>\n<strong>piazza Bra: </strong>tutti i giorni, compresi i festivi,<strong> h24</strong>. <br />\nLa piazza resta riservata al trasporto pubblico locale, ai taxi, ai servizi di trasporto turistico autorizzati, ai veicoli al servizio di persone con disabilità dotati di apposito contrassegno e ai veicoli dei proprietari di garage o posti auto ubicati in piazza Bra, via Roma, via Dietro Listone e via Teatro Filarmonico. <br />Possono transitare in deroga anche i veicoli adibiti al carico-scarico merci, dal lunedì al venerdì dalle 6 alle 10.30, che devono raggiungere piazza Bra o le vie laterali non raggiungibili in altro modo.</li>\n\n<li><strong>Ponte Aleardi: </strong>è vietato, <strong>dalle ore 7 alle 18</strong> tutti i giorni, festivi compresi, mentre possono transitare liberamente biciclette, ciclomotori, motocicli e veicoli in possesso dei permessi di transito e sosta nel comparto Cittadella delle tipologie residenti e dimoranti). </li>\n\n</ul>\n<p>Sanzionati anche i transiti non autorizzati sulle corsie riservate al trasporto pubblico locale in <strong>viale dell’Agricoltura</strong>,<strong> via Fornari/viale del Commercio, viale delle Nazioni</strong>.</p><p><strong>Dal 28 settembre</strong> tornano in funzione anche le telecamere di <strong>Ponte Navi</strong>, <strong>via San Paolo </strong>e <strong>Interrato Acqua Morta.</strong></p><p>Per il <strong>varco ZTL di Santo Stefano</strong> è invece previsto un <strong>periodo di pre-esercizio di circa 30 giorni</strong> a partire dal 28 settembre, prima dell’avvio delle sanzioni che partono <strong>da lunedì 2 novembre</strong>.</p><a id=\"eztoc579653_0_1\"></a><h4 class=\" font-sans-serif title_editor\">Principali Provvedimenti viabilistici</h4><p><strong>Piazza Bra</strong></p><p><a href=\"https://www.comune.verona.it/ocmultibinary/download/24382/579661/1/9070dca26a9a6de5b1fb62ab1a64403a.pdf/file/Ordinanza%2BDirigenziale%2Bn.%2B564%2Bdel%2B20%2Baprile%2B2026.pdf\" title=\"Vai alla pagina Ordinanza n. 564 del 20 apr...\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"word-break: break-word;display:inline\"><strong>Ordinanza n. 564 del 20 aprile 2026</strong><svg class=\"icon icon-primary icon-sm ms-1\" role=\"presentation\" focusable=\"false\"><use xlink:href=\"/extension/openpa_bootstrapitalia/design/bootstrapitalia2/images/svg/sprites.svg#it-external-link\"></use></svg></a></p><p><strong>Divieto di circolazione a tutti i veicoli</strong> in piazza Bra, eccetto i seguenti veicoli in possesso di specifica autorizzazione:</p>\n<ul class=\"\">\n\n<li><strong>biciclette</strong></li>\n\n<li>veicoli adibiti al <strong>servizio pubblico di linea</strong></li>\n\n<li>veicoli adibiti al servizio pubblico non di linea (<strong>Taxi e NCC</strong>)</li>\n\n<li>veicoli a servizio della <strong>persone invalide muniti di contrassegno</strong> di cui al DPR n. 495/92</li>\n\n<li>veicoli adibiti al trasporto merci per le <strong>attività di carico e scarico</strong>, dalle <strong>ore 6 alle ore 10.30</strong>, che devono raggiungere destinazioni ubicate in piazza Bra nonché nelle vie laterali non raggiungibili in altro modo</li>\n\n<li>veicoli dei soggetti <strong>titolari di garage o posti auto</strong> ubicati in <strong>piazza Brà, via Rom</strong>a (tratto da piazza Brà a via Manin), <strong>via Dietro Listone e via Teatro Filarmonico</strong></li>\n\n<li>veicoli delle<strong> Forze dell’Ordine, di pronto intervento e soccorso</strong></li>\n\n<li>bus turistico <strong>“City Sightseeing</strong>”</li>\n\n<li><strong>trenino turistico</strong></li>\n\n</ul>\n<p><a href=\"https://www.comune.verona.it/ocmultibinary/download/24382/579661/1/4c6c8b5570ce92d03b072c95d0acb54e.pdf/file/ord_01249_01-09-2026.pdf\" title=\"Vai alla pagina Ordinanza n. 1249 del 1° se...\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"word-break: break-word;display:inline\"><strong>Ordinanza n. 1249 del 1° settembre 2026 - istituzione corsie riservate</strong><svg class=\"icon icon-primary icon-sm ms-1\" role=\"presentation\" focusable=\"false\"><use xlink:href=\"/extension/openpa_bootstrapitalia/design/bootstrapitalia2/images/svg/sprites.svg#it-external-link\"></use></svg></a></p><p>Con decorrenza immediata e fino a nuova disposizione, viene istituita la <strong>“corsia riservata” </strong>in:</p>\n<ul class=\"\">\n\n<li><strong>corso Porta Nuova - via degli Alpini</strong> nelle strade o tratti di strada indicati nell’<a href=\"https://www.comune.verona.it/ocmultibinary/download/24382/579661/3/c12943b80776fb37e913d6463c5e6fd6.png/file/allegato%2BA%2B-%2Bcorsie%2Briservate%2Bin%2Bpiazza%2BBra%2B%25281%2529.pdf.png\" title=\"Vai alla pagina allegato A\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"word-break: break-word;display:inline\"><strong>allegato A</strong><svg class=\"icon icon-primary icon-sm ms-1\" role=\"presentation\" focusable=\"false\"><use xlink:href=\"/extension/openpa_bootstrapitalia/design/bootstrapitalia2/images/svg/sprites.svg#it-external-link\"></use></svg></a> (via Degli Alpini, piazza Bra, corso Porta Nuova tratto da piazza Bra a via Dei Mutilati)</li>\n\n</ul>\n<p>I transiti dai varchi di accesso sulle corsie riservate potranno essere controllati mediante un sistema di impianti di rilevazione telematica del transito veicolare, autorizzati ai sensi dell’art. 17, comma 133-bis, della legge n. 127/1997 e del D.P.R. 250/1999.</p><p><a href=\"https://www.comune.verona.it/ocmultibinary/download/24382/579661/1/750f066e4235abad1dc00633a77497d3.pdf/file/Ordinanza%2BDirigenziale%2Bn.%2B1284%2Bdel%2B08%2Bsettembre%2B2026.pdf\" title=\"Vai alla pagina Ordinanza n. 1284 dell'8 se...\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"word-break: break-word;display:inline\"><strong>Ordinanza n. 1284 dell'8 settembre  2026 - deroghe al transito</strong><svg class=\"icon icon-primary icon-sm ms-1\" role=\"presentation\" focusable=\"false\"><use xlink:href=\"/extension/openpa_bootstrapitalia/design/bootstrapitalia2/images/svg/sprites.svg#it-external-link\"></use></svg></a></p><p>È consentito il <strong>transito sulle corsia preferenziale</strong> (via Degli Alpini, piazza Bra, Corso Porta nuova tratto da piazza Bra a via Dei Mutilati) a:</p>\n<ul class=\"\">\n\n<li><strong>biciclette</strong></li>\n\n</ul>\n<p>Ai veicoli appartenenti alle categorie di seguito elencate previo rilascio di <strong>apposita autorizzazione</strong>:</p>\n<ul class=\"\">\n\n<li>veicoli adibiti al trasporto delle merci per le <strong>attività di carico e scarico</strong> nei giorni feriali, dal lunedì al venerdì, dalle <strong>ore 6 </strong>alle<strong> ore 10.30</strong>, che devono raggiungere destinazioni ubicate in piazza Bra nonché nelle vie laterali non raggiungibili in altro modo</li>\n\n<li>servizi di trasporto turistico autorizzati (bus turistico “<strong>City Sightseeing</strong>” e <strong>trenino turistico</strong>)</li>\n\n<li>veicoli dei soggetti <strong>titolari di garage o posti auto ubicati in piazza Bra, via Roma</strong> (tratto da piazza Bra a via Manin), <strong>via Dietro Listone e via Teatro Filarmonico</strong></li>\n\n<li>veicoli dei soggetti impegnati per allestimenti, manifestazioni, lavori pubblici e servizi di competenza dell’Amministrazione comunale di Verona</li>\n\n<li><strong>autobus turistici</strong>, in possesso di valido titolo di accesso e transito al di fuori dei percorsi obbligati stabiliti per la circolazione nella cd. ZTL Bus, che devono raggiungere destinazioni ubicate in piazza Bra</li>\n\n</ul>\n<p><strong>Divieto di sosta permanente</strong>, dalle <strong>ore 00.00</strong> alle <strong>ore 24.00</strong>, in:</p>\n<ul class=\"\">\n\n<li><strong>corso Porta Nuova</strong>, sul lato dei civici numeri pari, dal numero 4 al numero 10/a circa, all’interno di spazi all’uopo delimitati, paralleli al marciapiede, eccetto gli autocarri utilizzati per le operazioni di<strong> carico e scarico merci</strong>, dalle <strong>ore 6.00 alle ore 10.30</strong> dei giorni feriali, per una <strong>durata di 30 minuti</strong>, con l’obbligo di esporre il disco orario</li>\n\n<li><strong>corso Porta Nuova</strong>, sul lato dei civici numeri dispari, dal numero 11/c al numero 11/d circa, all’interno di spazio all’uopo delimitato, parallelo al marciapiede, eccetto gli autocarri utilizzati per le operazioni di <strong>carico e scarico merci</strong>, dalle <strong>ore 7.30 </strong>alle<strong> ore 19.30</strong> dei giorni feriali, per una<strong> durata di 30 minuti</strong>, con l’obbligo di esporre il disco orario</li>\n\n<li><strong>corso Porta Nuova</strong>, sul lato dei civici numeri pari, dal numero 10/a al numero 16 circa, all’interno di spazi all’uopo delimitati, paralleli al marciapiede, ad eccezione dei ciclomotori e dei motocicli</li>\n\n<li><strong>corso Porta Nuova</strong>, al centro della carreggiata stradale, da via Dei Mutilati fino ai portoni della Bra,</li>\n\n<li><strong>piazza Bra</strong>, al centro della carreggiata stradale, in prossimità del civico n. 28, tratto prospiciente ai portoni della Bra</li>\n\n</ul>\n<p><strong>Ponte Aleardi</strong></p><p><a href=\"https://www.comune.verona.it/ocmultibinary/download/24382/579661/1/3bffeadb6538ed9a39b969592ae5bd87.pdf/file/ord_01253_01-09-2026.pdf\" title=\"Vai alla pagina Ordinanza n. 1253 del 1° se...\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"word-break: break-word;display:inline\"><strong>Ordinanza n. 1253 del 1° settembre 2026</strong><svg class=\"icon icon-primary icon-sm ms-1\" role=\"presentation\" focusable=\"false\"><use xlink:href=\"/extension/openpa_bootstrapitalia/design/bootstrapitalia2/images/svg/sprites.svg#it-external-link\"></use></svg></a></p><p><strong>Divieto di transito</strong>, dalle<strong> ore 7 </strong>alle<strong> ore 18 di tutti i giorni, festivi compresi</strong>, nella:</p>\n<ul class=\"\">\n\n<li><strong>corsia preferenziale istituita su Ponte Aleardi</strong>, con direzione <strong>da Lungadige Capuleti a Lungadige Galtarossa</strong>,</li>\n\n</ul>\n<p><strong>Eccetto</strong> le seguenti categorie:</p>\n<ul class=\"\">\n\n<li><strong>biciclette</strong></li>\n\n<li><strong> ciclomotori </strong>e<strong> motocicli</strong></li>\n\n<li>veicoli dei possessori di <strong>permessi di transito e/o sosta</strong> di<strong> residenti/dimoranti </strong>nel<strong> comparto “Cittadella”</strong>, rilasciati dal competente Ufficio Permessi di AMT3</li>\n\n</ul>\n<div class=\"card card-teaser shadow p-4 rounded border m-3  col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-none float-sm-none float-md-right float-lg-right float-xl-right\">\n    <div class=\"card-body\">\n\t    \t\t  <h5 class=\"card-title mb-1\">Deroghe per i residenti</h5>\n\t\t\t    <div class=\"card-text\">\n\t        <p>\n<a href=\"https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/af44468ecc9966f2ebc0d6869e8f8e13.pdf/file/Ordinanza%2BDirigenziale%2Bn.%2B1502%2Bdel%2B21%2Bottobre%2B2026.pdf\" title=\"Vai alla pagina Ordinanza n. 1502 del 21 ot...\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"word-break: break-word;display:inline\"><strong>Ordinanza n. 1502 del 21 ottobre 2026</strong><svg class=\"icon icon-primary icon-sm ms-1\" role=\"presentation\" focusable=\"false\"><use xlink:href=\"/extension/openpa_bootstrapitalia/design/bootstrapitalia2/images/svg/sprites.svg#it-external-link\"></use></svg></a><br /><strong>Consentito il transito sulle corsie riservate</strong> (via degli Alpini, piazza Bra, corso Porta Nuova, nel tratto compreso tra piazza Bra e via dei Mutilati), ai veicoli nella disponibilità dei <strong>residenti e </strong><strong>dei dimoranti</strong> in piazza Bra, via Roma, nel tratto compreso tra piazza Bra e via Manin, via Dietro Listone e via Teatro Filarmonico, esclusivamente per le operazioni di salita e discesa dei passeggeri e di carico e scarico delle cose, con esclusione di qualsiasi sosta non funzionale alle predette operazioni</p>\n\t    </div>\n\t</div>\n</div>",
+   "image": [
+    {
+     "id": 24386,
+     "remoteId": "bd56a4e5ff7424773d5940b978f1cde1",
+     "classIdentifier": "image",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/image",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Corsie riservate"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/24386",
+     "mainNodeId": "23693"
+    }
+   ],
+   "people": [],
+   "location": [],
+   "video": null,
+   "author": [
+    {
+     "id": 1696,
+     "remoteId": "UO76",
+     "classIdentifier": "organization",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/organization",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Ufficio Comunicazione "
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/1696",
+     "mainNodeId": "1740"
+    }
+   ],
+   "audio": [],
+   "attachment": [],
+   "files": [
+    {
+     "filename": "Ord 01253 01 09 2026",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/3bffeadb6538ed9a39b969592ae5bd87.pdf/file/ord_01253_01-09-2026.pdf",
+     "displayName": "Ordinanza n. 1253 del 1 settembre 2026",
+     "group": "",
+     "text": ""
+    },
+    {
+     "filename": "Ordinanza Dirigenziale n. 1284 del 08 settembre 2026.pdf",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/750f066e4235abad1dc00633a77497d3.pdf/file/Ordinanza%2BDirigenziale%2Bn.%2B1284%2Bdel%2B08%2Bsettembre%2B2026.pdf",
+     "displayName": "Ordinanza n. 1284 del 8 settembre 2026",
+     "group": "",
+     "text": ""
+    },
+    {
+     "filename": "Ordinanza Dirigenziale n. 564 del 20 aprile 2026.pdf",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/9070dca26a9a6de5b1fb62ab1a64403a.pdf/file/Ordinanza%2BDirigenziale%2Bn.%2B564%2Bdel%2B20%2Baprile%2B2026.pdf",
+     "displayName": "Ordinanza n. 564 del 20 aprile 2026",
+     "group": "",
+     "text": ""
+    },
+    {
+     "filename": "Ord 01249 01 09 2026",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/4c6c8b5570ce92d03b072c95d0acb54e.pdf/file/ord_01249_01-09-2026.pdf",
+     "displayName": "Ordinanza n. 1249 d1 settembre 2026",
+     "group": "",
+     "text": ""
+    },
+    {
+     "filename": "Allegato A   corsie riservate in piazza Bra .pdf",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/c12943b80776fb37e913d6463c5e6fd6.png/file/allegato%2BA%2B-%2Bcorsie%2Briservate%2Bin%2Bpiazza%2BBra%2B%25281%2529.pdf.png",
+     "displayName": "Allegato A corsie riservate in piazza Bra .pdf",
+     "group": "",
+     "text": ""
+    },
+    {
+     "filename": "Ordinanza Dirigenziale n. 1502 del 21 ottobre 2026.pdf",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/af44468ecc9966f2ebc0d6869e8f8e13.pdf/file/Ordinanza%2BDirigenziale%2Bn.%2B1502%2Bdel%2B21%2Bottobre%2B2026.pdf",
+     "displayName": "Ordinanza n. 1502 del 21 ottobre 2026",
+     "group": "",
+     "text": ""
+    }
+   ],
+   "dataset": [],
+   "help": [],
+   "license": [],
+   "reading_time": "0",
+   "related_service": [],
+   "related_project": []
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "urlAlias": "/Novita/Notizie/Modifiche-alla-viabilita-e-attivazione-telecamere-di-videosorveglianza"
+  }
+ }
+}

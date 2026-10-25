@@ -1,0 +1,638 @@
+{
+ "metadata": {
+  "id": 13300,
+  "remoteId": "c8ea0f25b11d75a7401f0145e18d31c2",
+  "classIdentifier": "document",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/document",
+  "ownerId": 8263,
+  "ownerName": {
+   "ita-IT": "FEDERICA GUADAGNINI"
+  },
+  "mainNodeId": 13311,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2026-09-29T00:00:00+02:00",
+  "modified": "2026-09-29T18:13:17+02:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Limitazioni alla circolazione per i veicoli più inquinanti 2026/2027"
+  },
+  "parentNodes": [
+   97
+  ],
+  "assignedNodes": [
+   {
+    "id": 13311,
+    "depth": 5,
+    "path_string": "/1/2/69/78/97/13311/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/13300",
+  "classDefinition": {
+   "identifier": "document",
+   "name": {
+    "eng-GB": "Document",
+    "ger-DE": "Dokument",
+    "ita-IT": "Documento"
+   },
+   "fields": [
+    {
+     "identifier": "name",
+     "name": {
+      "eng-GB": "Title",
+      "ger-DE": "Titel",
+      "ita-IT": "Titolo"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "has_code",
+     "name": {
+      "eng-GB": "Document ID",
+      "ger-DE": "Dokument-ID-Nummer",
+      "ita-IT": "Identificativo del documento"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "protocollo",
+     "name": {
+      "eng-GB": "Protocol number",
+      "ger-DE": "Protokollnummer",
+      "ita-IT": "Numero di protocollo"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "data_protocollazione",
+     "name": {
+      "eng-GB": "Protocol date",
+      "ger-DE": "Protokolldatum",
+      "ita-IT": "Data di protocollazione"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Image",
+      "ger-DE": "Bild",
+      "ita-IT": "Immagine"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "image"
+     ]
+    },
+    {
+     "identifier": "document_type",
+     "name": {
+      "eng-GB": "Document type",
+      "ger-DE": "Art des Dokuments",
+      "ita-IT": "Tipologia di documento"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "topics",
+     "name": {
+      "eng-GB": "Topic",
+      "ger-DE": "Thema",
+      "ita-IT": "Argomento"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "topic"
+     ]
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Short description",
+      "ger-DE": "Beschreibung/Betreff",
+      "ita-IT": "Descrizione breve"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "full_description",
+     "name": {
+      "eng-GB": "Full description",
+      "ger-DE": "Vollständige Beschreibung",
+      "ita-IT": "Descrizione completa"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "file",
+     "name": {
+      "eng-GB": "Link to the actual document",
+      "ger-DE": "Link zum aktuellen Dokument",
+      "ita-IT": "Link al documento vero e proprio"
+     },
+     "dataType": "ezbinaryfile",
+     "constraint": []
+    },
+    {
+     "identifier": "attachments",
+     "name": {
+      "eng-GB": "Attached documents",
+      "ger-DE": "Beigefügte Dokumente",
+      "ita-IT": "Documenti allegati"
+     },
+     "dataType": "ocmultibinary",
+     "constraint": []
+    },
+    {
+     "identifier": "link",
+     "name": {
+      "eng-GB": "External link to the document",
+      "ger-DE": "Externer Link auf das Dokument",
+      "ita-IT": "Link esterno al documento"
+     },
+     "dataType": "ezurl",
+     "constraint": []
+    },
+    {
+     "identifier": "links",
+     "name": {
+      "ita-IT": "Link allegati"
+     },
+     "dataType": "ezmatrix",
+     "constraint": []
+    },
+    {
+     "identifier": "has_organization",
+     "name": {
+      "eng-GB": "Responsible organizational unit",
+      "ger-DE": "Zuständiges Amt",
+      "ita-IT": "Unità organizzativa responsabile"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "organization"
+     ]
+    },
+    {
+     "identifier": "license",
+     "name": {
+      "eng-GB": "Distribution licence",
+      "ger-DE": "Lizenz",
+      "ita-IT": "Licenza di distribuzione"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "format",
+     "name": {
+      "eng-GB": "Available formats",
+      "ger-DE": "Dateiformat",
+      "ita-IT": "Formati disponibili"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "start_time",
+     "name": {
+      "eng-GB": "First validity/effective date",
+      "ger-DE": "Gültig/wirksam ab",
+      "ita-IT": "Data di inizio validità/efficacia"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "end_time",
+     "name": {
+      "eng-GB": "Validity/effective end date",
+      "ger-DE": "Gültig/wirksam bis",
+      "ita-IT": "Data di fine validità/efficacia"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "publication_start_time",
+     "name": {
+      "eng-GB": "Date first published",
+      "ger-DE": "Veröffentlichungsdatum",
+      "ita-IT": "Data di inizio pubblicazione"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "publication_end_time",
+     "name": {
+      "eng-GB": "Publication end date",
+      "ger-DE": "Letzter Veröffentlichungstag",
+      "ita-IT": "Data di fine pubblicazione"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "expiration_time",
+     "name": {
+      "eng-GB": "Removal date",
+      "ger-DE": "Tag der Entfernung von der Website",
+      "ita-IT": "Data di rimozione"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "data_di_firma",
+     "name": {
+      "eng-GB": "Date of signature",
+      "ger-DE": "Datum der Unterzeichnung des Dokuments",
+      "ita-IT": "Data di firma"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "has_dataset",
+     "name": {
+      "eng-GB": "Dataset",
+      "ita-IT": "Dataset"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "dataset"
+     ]
+    },
+    {
+     "identifier": "other_information",
+     "name": {
+      "eng-GB": "Further information",
+      "ger-DE": "Weitere Informationen",
+      "ita-IT": "Ulteriori informazioni"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "legal_notes",
+     "name": {
+      "eng-GB": "Legislative references",
+      "ger-DE": "Verweis auf Gesetzesbestimmungen",
+      "ita-IT": "Riferimenti normativi"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "reference_doc",
+     "name": {
+      "eng-GB": "Reference",
+      "ger-DE": "Bezugsangabe",
+      "ita-IT": "Documenti collegati"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "document"
+     ]
+    },
+    {
+     "identifier": "keyword",
+     "name": {
+      "eng-GB": "Keyword",
+      "ger-DE": "Schlüsselwort",
+      "ita-IT": "Parola chiave"
+     },
+     "dataType": "ezkeyword",
+     "constraint": []
+    },
+    {
+     "identifier": "related_public_services",
+     "name": {
+      "eng-GB": "Connected services",
+      "ger-DE": "Zugeordnete Dienste",
+      "ita-IT": "Servizi collegati"
+     },
+     "dataType": "openpareverserelationlist",
+     "constraint": []
+    },
+    {
+     "identifier": "life_event",
+     "name": {
+      "eng-GB": "It is part of a life event",
+      "ger-DE": "Teil eines Lebensereignisses",
+      "ita-IT": "Fa parte di un evento della vita"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "business_event",
+     "name": {
+      "eng-GB": "Business Events",
+      "ger-DE": "Geschäftliche Ereignisse",
+      "ita-IT": "Business Events"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "author",
+     "name": {
+      "eng-GB": "Author(s)",
+      "ger-DE": "Verfasser/in",
+      "ita-IT": "Autore/i"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "tipo_di_risposta",
+     "name": {
+      "eng-GB": "Response type",
+      "ger-DE": "Art der Beantwortung",
+      "ita-IT": "Tipo di risposta"
+     },
+     "dataType": "ezselection",
+     "constraint": []
+    },
+    {
+     "identifier": "interroganti",
+     "name": {
+      "eng-GB": "Search terms",
+      "ger-DE": "Anfragesteller",
+      "ita-IT": "Interroganti"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_person"
+     ]
+    },
+    {
+     "identifier": "gruppo_politico",
+     "name": {
+      "eng-GB": "Councillor group",
+      "ger-DE": "Ratsfraktion",
+      "ita-IT": "Gruppo consiliare"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "organization"
+     ]
+    },
+    {
+     "identifier": "data_invio_uffici",
+     "name": {
+      "eng-GB": "Date sent to offices",
+      "ger-DE": "Datum Übermittlung an die Ämter",
+      "ita-IT": "Data di invio agli uffici"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "data_giunta",
+     "name": {
+      "eng-GB": "Date sent to Council",
+      "ger-DE": "Datum Einbringung im Stadtrat",
+      "ita-IT": "Data di passaggio in Giunta"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "data_risposta_consigliere",
+     "name": {
+      "eng-GB": "Date of reply to the councillor",
+      "ger-DE": "Datum  Beantwortung der Anfrage an den Gemeinderat",
+      "ita-IT": "Data di risposta al consigliere"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "giorni_interrogazione",
+     "name": {
+      "eng-GB": "Days to reply",
+      "ger-DE": "Tage für die Beantwortung der Anfrage",
+      "ita-IT": "Giorni per la risposta"
+     },
+     "dataType": "ezinteger",
+     "constraint": []
+    },
+    {
+     "identifier": "data_consiglio",
+     "name": {
+      "eng-GB": "Date of discussion/reply by the Executive committee",
+      "ger-DE": "Datum der Bearbeitung/Beantwortung durch den Gemeinderat",
+      "ita-IT": "Data trattazione/risposta in Consiglio"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "giorni_adozione",
+     "name": {
+      "eng-GB": "Days for adoption",
+      "ger-DE": "Tage für die Verabschiedung",
+      "ita-IT": "Giorni per l'adozione"
+     },
+     "dataType": "ezinteger",
+     "constraint": []
+    },
+    {
+     "identifier": "announcement_type",
+     "name": {
+      "eng-GB": "Call announcement type",
+      "ger-DE": "Ausschreibungen",
+      "ita-IT": "Tipologia di bando"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "data_di_scadenza_delle_iscrizioni",
+     "name": {
+      "eng-GB": "Expiry date of entries",
+      "ger-DE": "Anmeldefrist",
+      "ita-IT": "Data di scadenza delle iscrizioni"
+     },
+     "dataType": "ezdatetime",
+     "constraint": []
+    },
+    {
+     "identifier": "data_di_conclusione",
+     "name": {
+      "eng-GB": "Date of conclusion of the call/project",
+      "ger-DE": "Abschlussdatum",
+      "ita-IT": "Data di conclusione del bando/progetto"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "name": "Limitazioni alla circolazione per i veicoli più inquinanti 2026/2027",
+   "has_code": null,
+   "protocollo": null,
+   "data_protocollazione": null,
+   "image": [],
+   "document_type": [
+    "Documenti (tecnici) di supporto"
+   ],
+   "topics": [
+    {
+     "id": 108,
+     "remoteId": "topic_1_ambiente",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Umwelt",
+      "ita-IT": "Ambiente"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/108",
+     "mainNodeId": "110"
+    },
+    {
+     "id": 128,
+     "remoteId": "17722a57fb20ca1210125d2bdd8323ec",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Aria"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/128",
+     "mainNodeId": "130"
+    },
+    {
+     "id": 130,
+     "remoteId": "topic_21",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Umweltverschmutzung",
+      "ita-IT": "Inquinamento"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/130",
+     "mainNodeId": "132"
+    }
+   ],
+   "abstract": "Le regole in vigore dal 1° ottobre 2026 al 30 aprile 2027",
+   "full_description": "<div class=\"card card-teaser shadow p-4 rounded border m-3  col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-none float-sm-none float-md-left float-lg-left float-xl-left\">\n    <div class=\"card-body\">\n\t    \t\t  <h5 class=\"card-title mb-1\">Bollettino Arpav</h5>\n\t\t\t    <div class=\"card-text\">\n\t        <p><strong><a href=\"https://www.arpa.veneto.it/dati-ambientali/bollettini/aria/bollettino-livelli-di-allerta-pm10\" title=\"Vai alla pagina Attuale livello di allerta\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"word-break: break-word;display:inline\">Attuale livello di allerta<svg class=\"icon icon-primary icon-sm ms-1\" role=\"presentation\" focusable=\"false\"><use xlink:href=\"/extension/openpa_bootstrapitalia/design/bootstrapitalia2/images/svg/sprites.svg#it-external-link\"></use></svg></a></strong></p>\n\t    </div>\n\t</div>\n</div><p class=\" text-justify\">Con l'Ordinanza sindacale <a href=\"https://www.comune.verona.it/content/download/24637/585428/file/ord_56_2026_traffico.pdf\" title=\"Vai alla pagina n. 56 del 28 settembre 2026\" style=\"word-break: break-word;display:inline\">n. 56 del 28 settembre 2026</a> (modificata con Ordinanza sindacale <a href=\"https://www.comune.verona.it/content/download/24669/586326/file/ord_59_2026_rettifica_a_ord._n.56.pdf\" title=\"Vai alla pagina n. 59 del 29 settembre 2026\" style=\"word-break: break-word;display:inline\">n. 59 del 29 settembre 2026</a>), in vigore dal 1° ottobre 2026 al 30 aprile 2027, sono previste alcune <strong>limitazioni alla circolazione stradale per i veicoli più inquinanti </strong>con l'obiettivo di prevenire e contenere le criticità legate all'inquinamento atmosferico, in particolare da polveri sottili (PM10).</p><p class=\" text-justify\">Le limitazioni vengono applicate in base a <strong>tre livelli di allerta (verde, arancione e rosso)</strong>, che si basano sui dati di superamento del valore limite giornaliero di PM10, stabilito in 50 µg/m3, da non superare per più di 35 giorni l'anno.</p><blockquote class=\"blockquote text-left\">\n\t<p class=\"mb-0\"><p>Il livello di allerta viene comunicato attraverso il <strong><a href=\"https://www.arpa.veneto.it/dati-ambientali/bollettini/aria/bollettino-livelli-di-allerta-pm10\" title=\"Vai alla pagina bollettino Arpav\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"word-break: break-word;display:inline\">bollettino Arpav<svg class=\"icon icon-primary icon-sm ms-1\" role=\"presentation\" focusable=\"false\"><use xlink:href=\"/extension/openpa_bootstrapitalia/design/bootstrapitalia2/images/svg/sprites.svg#it-external-link\"></use></svg></a> </strong>emesso<strong> </strong>ogni<strong> lunedì, mercoledì e venerdì</strong>, con applicazione delle misure dal giorno successivo a quello del bollettino.</p><p>Le misure temporanee relative ai livelli di allerta arancione e rosso restano in vigore almeno fino al giorno in cui viene emesso il bollettino successivo. </p></p>\n    <footer class=\"blockquote-footer\"></footer></blockquote>\n<a id=\"eztoc294381_0_1\"></a><h4 class=\" font-sans-serif title_editor\">Dettaglio delle limitazioni</h4><a id=\"eztoc294381_0_1_1\"></a><h5 class=\" font-sans-serif title_editor\"><strong>In caso di nessuna allerta - livello VERDE</strong></h5><p><strong>Divieto di circolazione</strong>, fatti salvi i veicoli aderenti al <a href=\"https://www.comune.verona.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Move-In-il-servizio-per-i-veicoli-soggetti-a-limitazioni\" title=\"Vai alla pagina Move-In\" style=\"word-break: break-word;display:inline\">Move-In</a>, dal lunedì al venerdì, escluse le giornate festive infrasettimanali, dalle ore 8.30 alle ore 19.30, per: </p>\n<ul class=\"\">\n\n<li>Autoveicoli a benzina (categoria M): Euro 0, Euro 1</li>\n\n<li>Autoveicoli a benzina (categoria N): Euro 0, Euro 1</li>\n\n<li>Autoveicoli a gasolio (categoria M): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4</li>\n\n<li>Autoveicoli a gasolio (categoria N): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4</li>\n\n<li>Autoveicoli a GPL/metano – benzina/diesel (categoria M): Euro 0, Euro 1</li>\n\n<li>Autoveicoli a GPL/metano – benzina/diesel (categoria N): Euro 0, Euro 1</li>\n\n<li>Ciclomotori e motocicli (categoria L): Euro 0</li>\n\n</ul>\n<a id=\"eztoc294381_0_1_2\"></a><h5 class=\" font-sans-serif title_editor\"><strong>In caso di allerta 1 - livello Arancione</strong></h5><p>\nSi attua <strong>dopo 4 giorni</strong> consecutivi di superamento misurato e/o previsto del valore limite giornaliero di PM10.<br /><strong>Divieto di circolazione</strong> tutti i giorni, inclusi sabato, domenica e giornate festive infrasettimanali, dalle 8.30 alle 19.30, per : </p>\n<ul class=\"\">\n\n<li>Autoveicoli a benzina (categoria M): Euro 0, Euro 1, Euro 2</li>\n\n<li>Autoveicoli a benzina (categoria N): Euro 0, Euro 1, Euro 2</li>\n\n<li>Autoveicoli a gasolio (categoria M): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4, Euro 5</li>\n\n<li>Autoveicoli a gasolio (categoria N): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4, Euro 5</li>\n\n<li>Autoveicoli a GPL/metano - benzina/diesel (categoria M): Euro 0, Euro 1, Euro 2</li>\n\n<li>Autoveicoli a GPL/metano  – benzina/diesel (categoria N): Euro 0, Euro 1, Euro 2</li>\n\n<li>Ciclomotori e motocicli (categoria L): Euro 0, Euro 1</li>\n\n</ul>\n<a id=\"eztoc294381_0_1_3\"></a><h5 class=\" font-sans-serif title_editor\"><strong>In caso di allerta 2 - Livello Rosso</strong></h5><p>\nSi attua <strong>dopo 10 giorni</strong> consecutivi di superamento misurato e/o previsto del valore limite giornaliero di PM10.<br /><strong>Divieto di circolazione</strong> tutti i giorni, inclusi sabato, domenica e giornate festive infrasettimanali, dalle 8.30 alle 19.30, per: </p>\n<ul class=\"\">\n\n<li>Autoveicoli a benzina (categoria M):  Euro 0, Euro 1, Euro 2</li>\n\n<li>Autoveicoli a benzina (categoria N): Euro 0, Euro 1, Euro 2</li>\n\n<li>Autoveicoli a gasolio (categoria M): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4, Euro 5</li>\n\n<li>Autoveicoli a gasolio (categoria N): Euro 0, Euro 1, Euro 2, Euro 3, Euro 4, Euro 5</li>\n\n<li>Autoveicoli a GPL/metano – benzina/diesel (categoria M): Euro 0, Euro 1, Euro 2</li>\n\n<li>Autoveicoli a GPL/metano – benzina/diesel (categoria N): Euro 0, Euro 1, Euro 2</li>\n\n<li>Ciclomotori e motocicli (categoria L): Euro 0, Euro 1</li>\n\n<li>mezzi di cui agli artt. 57 e 58 del Codice della Strada con motori non conformi almeno allo Stage III, estese all’intero territorio comunale nel caso di allerta rossa prolungata (a partire dal secondo bollettino PM10 consecutivo di livello di allerta rosso).</li>\n\n</ul>\n<blockquote class=\"blockquote text-left\">\n\t<p class=\"mb-0\"><p><strong>SI CONSIGLIA:</strong> la classe Euro di appartenenza del proprio veicolo può essere verificata consultando la sezione dedicata del <a href=\"https://www.ilportaledellautomobilista.it/web/portale-automobilista/verifica-classe-ambientale-veicolo\" title=\"Vai alla pagina Portale dell'Automobilista\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"word-break: break-word;display:inline\">Portale dell'Automobilista<svg class=\"icon icon-primary icon-sm ms-1\" role=\"presentation\" focusable=\"false\"><use xlink:href=\"/extension/openpa_bootstrapitalia/design/bootstrapitalia2/images/svg/sprites.svg#it-external-link\"></use></svg></a>.</p><p>Si precisa che per categoria M si intendono M1, M2, M3 - veicoli destinati al trasporto di persone. Per categoria N si intendono N1, N2, N3 - veicoli destinati al trasporto di merci. Per categoria L si intendono da L1e a L7e - ciclomotori e motoveicoli.</p></p>\n    <footer class=\"blockquote-footer\"></footer></blockquote>\n<a id=\"eztoc294381_0_2\"></a><h4 class=\" font-sans-serif title_editor\">Dove</h4><p>Le misure <strong>si applicano a tutto il territorio comunale</strong>, fatta <strong>eccezione </strong>per:</p>\n<ul class=\"\">\n\n<li>Tangenziale Est (da Via Valpantena all’altezza dello svincolo di Poiano fino al raccordo verso il casello autostradale di Verona Est e la vicina Tangenziale Sud);</li>\n\n<li>Tangenziale Sud (dal raccordo del Casello autostradale di Verona Est fino a quello del Casello di Verona Nord);</li>\n\n<li>Tratti autostradali ricadenti in territorio comunale</li>\n\n<li>Itinerario di indirizzo alla Fiera di Verona, limitatamente al seguente percorso: uscita dalla Tangenziale sud, Casello Autostradale di Verona Sud, Viale delle Nazioni, Largo del Perlar, Viale del Lavoro fino al Piazzale della Fiera, per il percorso più breve (in andata e ritorno) compreso l’area di parcheggio di Via Scopoli;</li>\n\n<li>Itinerario di indirizzo verso i parcheggi dello Stadio comunale “Marcantonio Bentegodi” e del Palazzetto dello Sport “Città di Verona” limitatamente al seguente percorso: Casello Autostradale di Verona Nord lungo la Mediana di Verona con uscita obbligatoria allo svincolo che conduce ai parcheggi dello Stadio (in andata e ritorno)</li>\n\n<li>Percorso da tangenziali e autostrade, per raggiungere aree camper site a Porta Palio e in Via Belfiore.</li>\n\n</ul>\n<div class=\"card card-teaser shadow p-4 rounded border m-3  col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 float-none float-sm-none float-md-left float-lg-left float-xl-left\">\n    <div class=\"card-body\">\n\t    \t\t  <h5 class=\"card-title mb-1\">Divieto di mantenere acceso il motore</h5>\n\t\t\t    <div class=\"card-text\">\n\t        <p class=\" text-justify\">In tutto il territorio Comunale dal<strong> 01 ottobre 2026</strong><strong> al 30 aprile 2027</strong>, è vietato mantenere acceso il motore:</p>\n<ul class=\"\">\n\n<li><strong>degli autobus</strong> (compresi quelli di linea) durante la sosta o la fermata, anche ai capolinea, indipendentemente dalla durata o dalla presenza di conducente/passeggeri. L’accensione del motore deve avvenire <strong>solo immediatamente prima della partenza</strong>;</li>\n\n<li><strong>degli autoveicoli in sosta o fermata; </strong>il divieto è esteso anche ai veicoli merci durante le operazioni di <strong>carico e scarico</strong>, in particolare nelle aree abitate;</li>\n\n<li><strong>degli autoveicoli per arresto della circolazione, </strong>se dura <strong>più di un minuto</strong>, ad esempio presso semafori o passaggi a livello;</li>\n\n<li><strong>dei mezzi di trasporto su ferro con motrice diesel</strong> durante le soste.</li>\n\n</ul>\n\n\t    </div>\n\t</div>\n</div><a id=\"eztoc294381_0_3\"></a><h4 class=\" font-sans-serif title_editor\">Veicoli in deroga e MoVe-In</h4><p class=\" text-justify\">Sono escluse dal divieto di circolazione previsto dall’ordinanza alcune specifiche categorie di veicoli, purché muniti di autocertificazione contenente i dati del mezzo, l’indicazione dell’orario, del luogo di partenza e di destinazione, nonché la motivazione dello spostamento.</p><p>Leggi le pagine di approfondimento: <a href=\"https://www.comune.verona.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Limitazioni-alla-circolazione-per-i-veicoli-piu-inquinanti-le-deroghe\" title=\"Vai alla pagina Limitazioni alla circolazio...\" style=\"word-break: break-word;display:inline\">Limitazioni alla circolazione per i veicoli più inquinanti: la deroghe</a>.</p><p><strong>Move-In</strong></p><p class=\" text-justify\">Anche a Verona è attivo il servizio <a href=\"https://www.comune.verona.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Move-In-il-servizio-per-i-veicoli-soggetti-a-limitazioni\" title=\"Vai alla pagina MoVe-In\" style=\"word-break: break-word;display:inline\"><strong>MoVe-In</strong></a>, i cui aderenti possono circolare nel territorio comunale con i veicoli più inquinanti - <strong>ad</strong> <strong>esclusione</strong> <strong>dei periodi di allerta arancione e rossa</strong> - fino al raggiungimento di una determinata soglia chilometrica. </p><p><strong>Veicoli di interesse storico e collezionistico</strong></p><p>Con Legge regionale <a href=\"https://bur.regione.veneto.it/BurvServices/pubblica/DettaglioLegge.aspx?id=587758\" title=\"Vai alla pagina n. 13 del 21 luglio 2026\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"word-break: break-word;display:inline\">n. 13 del 21 luglio 2026<svg class=\"icon icon-primary icon-sm ms-1\" role=\"presentation\" focusable=\"false\"><use xlink:href=\"/extension/openpa_bootstrapitalia/design/bootstrapitalia2/images/svg/sprites.svg#it-external-link\"></use></svg></a>, al fine di valorizzare il segmento turistico collegato al settore dei veicoli di interesse storico e collezionistico nella Regione del Veneto, i motoveicoli e gli autoveicoli di interesse storico e collezionistico muniti di Certificato di rilevanza storica (CRS), con data di costruzione superiore a trenta anni e non utilizzati per l’attività professionale, sono esclusi dai provvedimenti di limitazione della circolazione adottati ai sensi dell’articolo 7, comma 1, lettera b), del decreto legislativo 30 aprile 1992, n. 285 “Nuovo codice della strada”.</p><p>In particolare si precisa che:</p><p class=\" text-justify\">Gli autoveicoli e motoveicoli muniti di CRS, con data di costruzione compresa tra venti e trenta anni, sono esclusi dai provvedimenti di limitazione della circolazione per recarsi presso officine e carrozzerie autorizzate per attività di controllo e manutenzione dei veicoli, oltre che per partecipare a raduni e manifestazioni riguardanti veicoli storici.</p><p class=\" text-justify\">La possibilità di circolazione prevista nei precedenti commi 1 e 2, salva diversa indicazione dei sindaci, non opera in caso di attivazione delle misure temporanee emergenziali di limitazione della circolazione, adottate nei casi di persistente accumulo degli inquinanti. È fatta inoltre salva la possibilità per i sindaci di vietare la circolazione dei veicoli di cui ai commi 1 e 2, con adeguata motivazione, nel caso di particolari esigenze di prevenzione degli inquinamenti.</p><p class=\" text-justify\"><strong> </strong></p><a id=\"eztoc294381_0_4\"></a><h4 class=\" text-justify font-sans-serif title_editor\">Informazioni:</h4>\n<div class=\"embed \">    \n<div data-object_id=\"1401\" class=\"font-sans-serif card card-teaser card-teaser-info rounded shadow-sm p-3 card-teaser-info-width mt-0 mb-3 w-100\" style=\"z-index: 100\">\n    <div class=\"card-body \">\n                <p class=\"card-title text-paragraph-regular-medium-semi mb-3\">\n                            Contatti Ufficio per le Relazioni con il pubblico                     </p>\n                <div class=\"card-text u-main-black\">\n                                    <p class=\"mt-1\">\n                                                            <p class=\"mb-1\">\n                        <strong>Telefono - Supporto specialistico:</strong>\n            <br/>\n                                      <a class=\"d-inline\" href=\"tel:(+39) 045 8077500\">(+39) 045 8077500</a>\n                    </p>\n                            <p class=\"mb-1\">\n                        <strong>E-mail:</strong>\n            <br/>\n                                    \t<a class=\"d-inline\" href=\"mailto:urp@comune.verona.it\">urp@comune.verona.it</a>\n                    </p>\n                            <p class=\"mb-1\">\n                        <strong>PEC:</strong>\n            <br/>\n                                    \t<span></span>\n        \t        </p>\n                            <p class=\"mb-1\">\n                        <strong>Telefono:</strong>\n            <br/>\n                                      <a class=\"d-inline\" href=\"tel:Numero verde 800202525\">Numero verde 800202525</a>\n                    </p>\n            \n                        </p>\n                                            <p class=\"mt-1\">\n                                        <div id=\"phone_availability_time-20554\">\n                                                            <div id=\"opening-hours-title-8327\" class=\"py-1\">\n        <a href=\"#opening-hours-8327-phone_availability_time-20554\"\n          class=\"text-decoration-none opening-hours-accordion\"\n          data-toggle=\"collapse\"\n          data-bs-toggle=\"collapse\"\n          data-target=\"#opening-hours-8327-phone_availability_time-20554\"\n          data-bs-target=\"#opening-hours-8327-phone_availability_time-20554\"\n          aria-controls=\"opening-hours-8327-phone_availability_time-20554\"\n          role=\"button\">\n            <i aria-hidden=\"true\" class=\"fa fa-clock-o\"></i> Ufficio URP - orari apertura al pubblico <i aria-hidden=\"true\" class=\"fa fa-caret-down\"></i>\n        </a>\n    </div>    <div class=\"collapse p-2 lightgrey-bg-c1 mb-1\" id=\"opening-hours-8327-phone_availability_time-20554\" aria-labelledby=\"opening-hours-title-8327\" data-parent=\"#phone_availability_time-20554\">                        <div>\n                            <strong>Periodo di chiusura</strong>\n                          \n                            \n                <ul class=\"list-inline m-0\"><li class=\"list-inline-item\">Chiuso al pubblico: dal 17 al 21 agosto 2026</li></ul>                        </div>\n                \n                    \n                        <div>\n                          \n                            \n                 \t \n<dl class=\"matrix_opening_hours row my-2\">\t\t\t\t\t\t\t\t\t\t\t\t\t<dt class=\"col-2 text-nowrap\">Lun</dt>\n\t\t<dd class=\"col-10\"><span class=\"text-nowrap\">9 - 13</span></dd>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<dt class=\"col-2 text-nowrap\">Mar</dt>\n\t\t<dd class=\"col-10\"><span class=\"text-nowrap\">15-17 chiuso nel mese di agosto</span></dd>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<dt class=\"col-2 text-nowrap\">Gio</dt>\n\t\t<dd class=\"col-10\"><span class=\"text-nowrap\">9 - 13</span></dd>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</dl> \t \n                        </div>\n                \n                        <div>\n                            <strong>Valido dal</strong>\n                          \n                            \n                01/08/2026                        </div>\n                \n                        <div>\n                            <strong>Valido al</strong>\n                          \n                            \n                31/08/2026                        </div>\n                \n        </div>                                                                                <div id=\"opening-hours-title-8329\" class=\"py-1\">\n        <a href=\"#opening-hours-8329-phone_availability_time-20554\"\n          class=\"text-decoration-none opening-hours-accordion\"\n          data-toggle=\"collapse\"\n          data-bs-toggle=\"collapse\"\n          data-target=\"#opening-hours-8329-phone_availability_time-20554\"\n          data-bs-target=\"#opening-hours-8329-phone_availability_time-20554\"\n          aria-controls=\"opening-hours-8329-phone_availability_time-20554\"\n          role=\"button\">\n            <i aria-hidden=\"true\" class=\"fa fa-clock-o\"></i> Ufficio URP - Orari disponibilità telefonica <i aria-hidden=\"true\" class=\"fa fa-caret-down\"></i>\n        </a>\n    </div>    <div class=\"collapse p-2 lightgrey-bg-c1 mb-1\" id=\"opening-hours-8329-phone_availability_time-20554\" aria-labelledby=\"opening-hours-title-8329\" data-parent=\"#phone_availability_time-20554\">                    \n                    \n                        <div>\n                          \n                            \n                 \t \n<dl class=\"matrix_opening_hours row my-2\">\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<dt class=\"col-2 text-nowrap\">Lun</dt>\n\t\t<dd class=\"col-10\"><span class=\"text-nowrap\">9 - 13</span></dd>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<dt class=\"col-2 text-nowrap\">Mar</dt>\n\t\t<dd class=\"col-10\"><span class=\"text-nowrap\">9 - 13</span>, <span class=\"text-nowrap\">15 - 17</span></dd>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<dt class=\"col-2 text-nowrap\">Mer</dt>\n\t\t<dd class=\"col-10\"><span class=\"text-nowrap\">9 - 13</span></dd>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<dt class=\"col-2 text-nowrap\">Gio</dt>\n\t\t<dd class=\"col-10\"><span class=\"text-nowrap\">9 - 13</span>, <span class=\"text-nowrap\">15 - 17</span></dd>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<dt class=\"col-2 text-nowrap\">Ven</dt>\n\t\t<dd class=\"col-10\"><span class=\"text-nowrap\">9 - 13</span></dd>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</dl> \t \n                        </div>\n                \n                        <div>\n                            <strong>Valido dal</strong>\n                          \n                            \n                06/04/2025                        </div>\n                \n                    \n        </div>                                                    </div>\n                        </p>\n                    </div>\n            </div>\n    </div>\n</div>",
+   "file": {
+    "filename": "Ord 56 2026 traffico",
+    "url": "https://www.comune.verona.it/content/download/13300/294382/8/ord+56_2026+traffico.pdf"
+   },
+   "attachments": [
+    {
+     "filename": "Ord 59 2026 rettifica a ord. n.56",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/13300/294383/8/26e82c5f01f8dbaa156a3d7b1a0cbba1.pdf/file/ord%2B59_2026%2Brettifica%2Ba%2Bord.%2Bn.56.pdf",
+     "displayName": "Ordinanza di rettifica n. 59 del 2026",
+     "group": "",
+     "text": ""
+    }
+   ],
+   "link": null,
+   "links": [
+    {
+     "title": "Informazione sui livelli di PM10",
+     "link": "https://www.arpa.veneto.it/temi-ambientali/aria/informazione-al-pubblico-sui-livelli-di-pm10",
+     "description": "",
+     "group": ""
+    }
+   ],
+   "has_organization": [
+    {
+     "id": 1622,
+     "remoteId": "UO25",
+     "classIdentifier": "organization",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/organization",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Direzione Ambiente e Transizione Ecologica"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/1622",
+     "mainNodeId": "1666"
+    }
+   ],
+   "license": [
+    "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+   ],
+   "format": [
+    "PDF"
+   ],
+   "start_time": "2026-09-29T00:00:00+02:00",
+   "end_time": null,
+   "publication_start_time": "2026-09-29T00:00:00+02:00",
+   "publication_end_time": null,
+   "expiration_time": null,
+   "data_di_firma": null,
+   "has_dataset": [],
+   "other_information": "",
+   "legal_notes": "",
+   "reference_doc": [],
+   "keyword": [
+    "PM10",
+    "qualità dell'aria",
+    "Verona",
+    "livelli allerta",
+    "bollettino arpav"
+   ],
+   "related_public_services": null,
+   "life_event": [],
+   "business_event": [],
+   "author": "",
+   "tipo_di_risposta": [
+    "Orale"
+   ],
+   "interroganti": [],
+   "gruppo_politico": [],
+   "data_invio_uffici": null,
+   "data_giunta": null,
+   "data_risposta_consigliere": null,
+   "giorni_interrogazione": "0",
+   "data_consiglio": null,
+   "giorni_adozione": "0",
+   "announcement_type": [],
+   "data_di_scadenza_delle_iscrizioni": null,
+   "data_di_conclusione": null
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "urlAlias": "/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Limitazioni-alla-circolazione-per-i-veicoli-piu-inquinanti-2026-2027"
+  }
+ }
+}

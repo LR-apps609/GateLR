@@ -1,0 +1,6 @@
+# Credenziali di accesso al portale del servizio Citypass per la gestione degli accessi degli ospiti in ZTL
+object 7105, published 2025-04-07T08:20:11+02:00, modified 2025-04-07T08:20:11+02:00
+URL: https://www.comune.verona.it/content/view/full/7285
+
+[name] Credenziali di accesso al portale del servizio Citypass per la gestione degli accessi degli ospiti in ZTL
+[has_service_input_output_type] Codice

@@ -1,0 +1,426 @@
+{
+ "metadata": {
+  "id": 10484,
+  "remoteId": "f9a0f99de0e4fbcc366cea56074d734d",
+  "classIdentifier": "dataset",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/dataset",
+  "ownerId": 243,
+  "ownerName": {
+   "ita-IT": "Elena Baldassari"
+  },
+  "mainNodeId": 10750,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2025-06-30T12:57:36+02:00",
+  "modified": "2025-07-01T09:44:56+02:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Mappa della ZTL con varchi"
+  },
+  "parentNodes": [
+   93
+  ],
+  "assignedNodes": [
+   {
+    "id": 10750,
+    "depth": 5,
+    "path_string": "/1/2/69/78/93/10750/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/10484",
+  "classDefinition": {
+   "identifier": "dataset",
+   "name": {
+    "eng-GB": "Dataset",
+    "ger-DE": "Datensatz",
+    "ita-IT": "Dataset"
+   },
+   "fields": [
+    {
+     "identifier": "title",
+     "name": {
+      "eng-GB": "Title",
+      "ger-DE": "Titel",
+      "ita-IT": "Titolo"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Short description",
+      "ger-DE": "Bezeichnung",
+      "ita-IT": "Descrizione breve"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "theme",
+     "name": {
+      "eng-GB": "Thematic categories",
+      "ger-DE": "Thematische Kategorien",
+      "ita-IT": "Categorie tematiche"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "format",
+     "name": {
+      "eng-GB": "Format",
+      "ger-DE": "Format",
+      "ita-IT": "Formato"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "license",
+     "name": {
+      "eng-GB": "Licence",
+      "ger-DE": "Lizenz",
+      "ita-IT": "Licenza"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "resources",
+     "name": {
+      "eng-GB": "Resources",
+      "ger-DE": "Ressource",
+      "ita-IT": "Risorse"
+     },
+     "dataType": "ezmatrix",
+     "constraint": []
+    },
+    {
+     "identifier": "download_url",
+     "name": {
+      "eng-GB": "Resource",
+      "ger-DE": "Ressource",
+      "ita-IT": "Risorsa"
+     },
+     "dataType": "ezurl",
+     "constraint": []
+    },
+    {
+     "identifier": "download_file",
+     "name": {
+      "eng-GB": "Resource",
+      "ger-DE": "Ressource",
+      "ita-IT": "Risorsa"
+     },
+     "dataType": "ocmultibinary",
+     "constraint": []
+    },
+    {
+     "identifier": "csv_resource",
+     "name": {
+      "eng-GB": "Structured resource",
+      "ita-IT": "Risorsa strutturata"
+     },
+     "dataType": "opendatadataset",
+     "constraint": []
+    },
+    {
+     "identifier": "modified",
+     "name": {
+      "eng-GB": "Date last modified",
+      "ger-DE": "Datum der letzten Änderung",
+      "ita-IT": "Data di ultima modifica"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "rights_holder",
+     "name": {
+      "eng-GB": "Owner",
+      "ger-DE": "Eigentümer",
+      "ita-IT": "Titolare"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "organization"
+     ]
+    },
+    {
+     "identifier": "accrualperiodicity",
+     "name": {
+      "eng-GB": "Update frequency",
+      "ger-DE": "Frequenz der Aktualisierung",
+      "ita-IT": "Frequenza di aggiornamento"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "identifier",
+     "name": {
+      "eng-GB": "Other ID",
+      "ger-DE": "Andere ID-Nummer",
+      "ita-IT": "Altro identificatore"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "spatial",
+     "name": {
+      "eng-GB": "Geographical coverage",
+      "ger-DE": "Geografische Abdeckung",
+      "ita-IT": "Copertura geografica"
+     },
+     "dataType": "openpacomuniitaliani",
+     "constraint": []
+    },
+    {
+     "identifier": "issued",
+     "name": {
+      "eng-GB": "Issue date",
+      "ger-DE": "Datum der Freigabe",
+      "ita-IT": "Data di rilascio"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "temporal",
+     "name": {
+      "eng-GB": "Time extension",
+      "ger-DE": "Zeitliche Ausdehnung",
+      "ita-IT": "Estensione temporale"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "opening_hours_specification"
+     ]
+    },
+    {
+     "identifier": "creator",
+     "name": {
+      "eng-GB": "Dataset author(s)",
+      "ger-DE": "Autor(en) des Datensatzes",
+      "ita-IT": "Autore/i del dataset"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "organization"
+     ]
+    },
+    {
+     "identifier": "publisher",
+     "name": {
+      "eng-GB": "Editor",
+      "ger-DE": "Herausgeber",
+      "ita-IT": "Editore"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_organization"
+     ]
+    },
+    {
+     "identifier": "conforms_to",
+     "name": {
+      "eng-GB": "Compliance standards",
+      "ger-DE": "Konformitätsstandard",
+      "ita-IT": "Standard di conformità"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "language",
+     "name": {
+      "eng-GB": "Language",
+      "ger-DE": "Sprache",
+      "ita-IT": "Lingua"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "version_info",
+     "name": {
+      "eng-GB": "Version",
+      "ger-DE": "Version",
+      "ita-IT": "Versione"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "contact_point",
+     "name": {
+      "eng-GB": "Contacts",
+      "ger-DE": "Kontakt",
+      "ita-IT": "Punti di contatto"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "online_contact_point"
+     ]
+    },
+    {
+     "identifier": "keyword",
+     "name": {
+      "eng-GB": "Keywords",
+      "ger-DE": "Schlüsselwörter",
+      "ita-IT": "Parole chiave"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "title": "Mappa della ZTL con varchi",
+   "abstract": "La mappa della Zona a Traffico Limitato con l'elenco dei varchi elettronici d'accesso",
+   "theme": [
+    "Trasporti"
+   ],
+   "format": [
+    "Google Drive"
+   ],
+   "license": [
+    "Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)"
+   ],
+   "resources": [],
+   "download_url": null,
+   "download_file": null,
+   "csv_resource": {
+    "apiEnabled": true,
+    "extraUsers": null,
+    "itemName": "Varco",
+    "views": [
+     "map",
+     "table"
+    ],
+    "fields": [
+     {
+      "identifier": "Varco",
+      "label": "Varco",
+      "type": "textarea",
+      "required": "false",
+      "js_label": "Varco"
+     },
+     {
+      "identifier": "numero",
+      "label": "numero",
+      "type": "integer",
+      "required": "false",
+      "js_label": "numero"
+     },
+     {
+      "identifier": "indirizzo",
+      "label": "Indirizzo",
+      "type": "string",
+      "required": "false",
+      "js_label": "Indirizzo"
+     },
+     {
+      "identifier": "latitudine_e_longitudine",
+      "label": "Latitudine e longitudine",
+      "type": "geo",
+      "required": "false",
+      "geo_format": "%latitude,%longitude",
+      "js_label": "Latitudine e longitudine"
+     }
+    ],
+    "facetsSettings": [
+     "indirizzo"
+    ],
+    "isEnabledSearchInput": true,
+    "calendarSettings": [],
+    "tableSettings": {
+     "show_fields": [
+      "indirizzo",
+      "Varco",
+      "numero"
+     ],
+     "view": "default",
+     "order": "asc"
+    },
+    "chartSettings": null,
+    "counterSettings": {
+     "count_field": "false",
+     "select_stat": "count"
+    },
+    "openingView": null
+   },
+   "modified": "2025-06-30T00:00:00+02:00",
+   "rights_holder": [
+    {
+     "id": 1696,
+     "remoteId": "UO76",
+     "classIdentifier": "organization",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/organization",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Ufficio Comunicazione "
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/1696",
+     "mainNodeId": "1740"
+    }
+   ],
+   "accrualperiodicity": [
+    "Costantemente aggiornato"
+   ],
+   "identifier": null,
+   "spatial": [
+    {
+     "code": "023091",
+     "name": "Verona"
+    }
+   ],
+   "issued": "2024-08-22T00:00:00+02:00",
+   "temporal": [],
+   "creator": [],
+   "publisher": [],
+   "conforms_to": [],
+   "language": [
+    "Italiano"
+   ],
+   "version_info": null,
+   "contact_point": [
+    {
+     "id": 1412,
+     "remoteId": "Contatto_ufficio_82",
+     "classIdentifier": "online_contact_point",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/online_contact_point",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Contatti Ufficio Polizia Amministrativa"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/1412",
+     "mainNodeId": "1456"
+    }
+   ],
+   "keyword": "ZTL, Zona a Traffico Limitato, varchi"
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "urlAlias": "/Amministrazione/Documenti-e-dati/Dataset/Mappa-della-ZTL-con-varchi"
+  }
+ }
+}

@@ -1,0 +1,187 @@
+{
+ "metadata": {
+  "id": 5184,
+  "remoteId": "Output_552",
+  "classIdentifier": "output",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/output",
+  "ownerId": 14,
+  "ownerName": {
+   "ita-IT": "Administrator User"
+  },
+  "mainNodeId": 5245,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2024-12-20T13:54:50+01:00",
+  "modified": "2024-12-20T13:54:50+01:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Prenotazione accessi straordinari alla Z.T.L di Verona"
+  },
+  "parentNodes": [
+   103
+  ],
+  "assignedNodes": [
+   {
+    "id": 5245,
+    "depth": 4,
+    "path_string": "/1/2/71/103/5245/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/5184",
+  "classDefinition": {
+   "identifier": "output",
+   "name": {
+    "eng-GB": "Service output (what you get)",
+    "ger-DE": "Output der erbrachten Dienstleistung (was Sie erhalten)",
+    "ita-IT": "Output del servizio (cosa si ottiene)"
+   },
+   "fields": [
+    {
+     "identifier": "name",
+     "name": {
+      "eng-GB": "Name",
+      "ger-DE": "Name",
+      "ita-IT": "Nome"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "short_name",
+     "name": {
+      "eng-GB": "Short name",
+      "ger-DE": "Kurzer Name",
+      "ita-IT": "Nome breve"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Abstract (short description)",
+      "ger-DE": "Abstract (Kurze Beschreibung)",
+      "ita-IT": "Abstract (Descrizione breve)"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "description",
+     "name": {
+      "eng-GB": "Description",
+      "ger-DE": "Beschreibung",
+      "ita-IT": "Descrizione"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Images",
+      "ger-DE": "Bilder",
+      "ita-IT": "Immagini"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "image"
+     ]
+    },
+    {
+     "identifier": "has_service_input_output_type",
+     "name": {
+      "eng-GB": "Output/outcome type",
+      "ger-DE": "Art des Outputs/Ergebnisses",
+      "ita-IT": "Tipologia di output/esito"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "topics",
+     "name": {
+      "eng-GB": "Topic",
+      "ger-DE": "Thema",
+      "ita-IT": "Argomento"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "topic"
+     ]
+    },
+    {
+     "identifier": "files",
+     "name": {
+      "eng-GB": "Sample file",
+      "ger-DE": "Beispiel-Dateien",
+      "ita-IT": "File di esempio"
+     },
+     "dataType": "ocmultibinary",
+     "constraint": []
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "name": "Prenotazione accessi straordinari alla Z.T.L di Verona",
+   "short_name": null,
+   "abstract": "",
+   "description": "",
+   "image": [],
+   "has_service_input_output_type": [
+    "Atto autorizzativo"
+   ],
+   "topics": [
+    {
+     "id": 110,
+     "remoteId": "topic_1_giustizia_sistema_giuridico_e_sicurezza_pubblica",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Recht, öffentliche Sicherheit und Ordnung",
+      "ita-IT": "Diritto"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/110",
+     "mainNodeId": "112"
+    },
+    {
+     "id": 143,
+     "remoteId": "topic_3_polizia",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Polizei",
+      "ita-IT": "Polizia"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/143",
+     "mainNodeId": "145"
+    }
+   ],
+   "files": null
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "urlAlias": "/Classificazioni/Cosa-puoi-richiedere/Prenotazione-accessi-straordinari-alla-Z.T.L-di-Verona"
+  }
+ }
+}

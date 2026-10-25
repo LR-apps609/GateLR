@@ -1,0 +1,6 @@
+# Autorizzazione al transito in ZTL
+object 22311, published 2026-06-04T16:00:05+02:00, modified 2026-06-04T16:00:05+02:00
+URL: https://www.comune.verona.it/content/view/full/21834
+
+[name] Autorizzazione al transito in ZTL
+[has_service_input_output_type] Atto autorizzativo

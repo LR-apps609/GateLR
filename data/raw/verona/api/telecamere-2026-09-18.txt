@@ -1,0 +1,227 @@
+# Modifiche alla viabilità e attivazione telecamere di videosorveglianza
+object 24382, published 2026-09-18T00:00:00+02:00, modified 2026-10-22T11:17:06+02:00
+URL: https://www.comune.verona.it/content/view/full/23692
+
+[title] Modifiche alla viabilità e attivazione telecamere di videosorveglianza
+[content_type] News
+[abstract] Dal 21 settembre attive le telecamere in piazza Bra, ponte Aleardi, viale delle Nazioni, via Fornari/Commercio e viale dell'Agricoltura. Dal 28 settembre riattivate quelle di ponte Navi, via San Paolo e Interrato dell'Acqua Morta
+[published] 2026-09-18T00:00:00+02:00
+[remoteId] topic_36
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Mobilität
+[ita-IT] Trasporto pubblico
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/121
+[mainNodeId] 123
+[remoteId] d5ffcb9ed91fa49cfdc42a7ee6fb4d81
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] Mobilità sostenibile
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/195
+[mainNodeId] 197
+[remoteId] topic_37
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Straßen und Verkehr
+[ita-IT] Rete stradale
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/198
+[mainNodeId] 200
+[remoteId] topic_35
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Stadtverkehr
+[ita-IT] Traffico urbano
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/199
+[mainNodeId] 201
+[remoteId] abc9ab5b22d6f4a06ba477b75dafd075
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] ZTL
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/200
+[mainNodeId] 202
+[body] Nell'ambito dei provvedimenti del Piano Urbano della Mobilità Sostenibile di Verona, che prevede la riorganizzazione complessiva della viabilità cittadina, sono da qualche tempo entrate in vigore diverse disposizioni.
+ Lo scopo è quello di contenere emissioni inquinanti e agevolare il trasporto pubblico locale , garantendo una maggiore efficienza e fluidità della circolazione.
+ Per il controllo automatizzato degli accessi e il rispetto delle regole, dal 21 settembre 2026 vengono attivate telecamere di videosorveglianza, in:
+
+ 
+
+ 
+ piazza Bra: tutti i giorni, compresi i festivi, h24 . 
+
+La piazza resta riservata al trasporto pubblico locale, ai taxi, ai servizi di trasporto turistico autorizzati, ai veicoli al servizio di persone con disabilità dotati di apposito contrassegno e ai veicoli dei proprietari di garage o posti auto ubicati in piazza Bra, via Roma, via Dietro Listone e via Teatro Filarmonico. 
+Possono transitare in deroga anche i veicoli adibiti al carico-scarico merci, dal lunedì al venerdì dalle 6 alle 10.30, che devono raggiungere piazza Bra o le vie laterali non raggiungibili in altro modo.
+
+
+ Ponte Aleardi: è vietato, dalle ore 7 alle 18 tutti i giorni, festivi compresi, mentre possono transitare liberamente biciclette, ciclomotori, motocicli e veicoli in possesso dei permessi di transito e sosta nel comparto Cittadella delle tipologie residenti e dimoranti). 
+
+
+ 
+ Sanzionati anche i transiti non autorizzati sulle corsie riservate al trasporto pubblico locale in viale dell’Agricoltura , via Fornari/viale del Commercio, viale delle Nazioni .
+ Dal 28 settembre tornano in funzione anche le telecamere di Ponte Navi , via San Paolo e Interrato Acqua Morta. 
+ Per il varco ZTL di Santo Stefano è invece previsto un periodo di pre-esercizio di circa 30 giorni a partire dal 28 settembre, prima dell’avvio delle sanzioni che partono da lunedì 2 novembre .
+ Principali Provvedimenti viabilistici
+ Piazza Bra 
+ Ordinanza n. 564 del 20 aprile 2026 
+ Divieto di circolazione a tutti i veicoli in piazza Bra, eccetto i seguenti veicoli in possesso di specifica autorizzazione:
+
+ 
+
+ biciclette 
+
+
+ veicoli adibiti al servizio pubblico di linea 
+
+
+ veicoli adibiti al servizio pubblico non di linea ( Taxi e NCC )
+
+
+ veicoli a servizio della persone invalide muniti di contrassegno di cui al DPR n. 495/92
+
+
+ veicoli adibiti al trasporto merci per le attività di carico e scarico , dalle ore 6 alle ore 10.30 , che devono raggiungere destinazioni ubicate in piazza Bra nonché nelle vie laterali non raggiungibili in altro modo
+
+
+ veicoli dei soggetti titolari di garage o posti auto ubicati in piazza Brà, via Rom a (tratto da piazza Brà a via Manin), via Dietro Listone e via Teatro Filarmonico 
+
+
+ veicoli delle Forze dell’Ordine, di pronto intervento e soccorso 
+
+
+ bus turistico “City Sightseeing ”
+
+
+ trenino turistico 
+
+
+ 
+ Ordinanza n. 1249 del 1° settembre 2026 - istituzione corsie riservate 
+ Con decorrenza immediata e fino a nuova disposizione, viene istituita la “corsia riservata” in:
+
+ 
+
+ corso Porta Nuova - via degli Alpini nelle strade o tratti di strada indicati nell’ allegato A (via Degli Alpini, piazza Bra, corso Porta Nuova tratto da piazza Bra a via Dei Mutilati)
+
+
+ 
+ I transiti dai varchi di accesso sulle corsie riservate potranno essere controllati mediante un sistema di impianti di rilevazione telematica del transito veicolare, autorizzati ai sensi dell’art. 17, comma 133-bis, della legge n. 127/1997 e del D.P.R. 250/1999.
+ Ordinanza n. 1284 dell'8 settembre 2026 - deroghe al transito 
+ È consentito il transito sulle corsia preferenziale (via Degli Alpini, piazza Bra, Corso Porta nuova tratto da piazza Bra a via Dei Mutilati) a:
+
+ 
+
+ biciclette 
+
+
+ 
+ Ai veicoli appartenenti alle categorie di seguito elencate previo rilascio di apposita autorizzazione :
+
+ 
+
+ veicoli adibiti al trasporto delle merci per le attività di carico e scarico nei giorni feriali, dal lunedì al venerdì, dalle ore 6 alle ore 10.30 , che devono raggiungere destinazioni ubicate in piazza Bra nonché nelle vie laterali non raggiungibili in altro modo
+
+
+ servizi di trasporto turistico autorizzati (bus turistico “ City Sightseeing ” e trenino turistico )
+
+
+ veicoli dei soggetti titolari di garage o posti auto ubicati in piazza Bra, via Roma (tratto da piazza Bra a via Manin), via Dietro Listone e via Teatro Filarmonico 
+
+
+ veicoli dei soggetti impegnati per allestimenti, manifestazioni, lavori pubblici e servizi di competenza dell’Amministrazione comunale di Verona
+
+
+ autobus turistici , in possesso di valido titolo di accesso e transito al di fuori dei percorsi obbligati stabiliti per la circolazione nella cd. ZTL Bus, che devono raggiungere destinazioni ubicate in piazza Bra
+
+
+ 
+ Divieto di sosta permanente , dalle ore 00.00 alle ore 24.00 , in:
+
+ 
+
+ corso Porta Nuova , sul lato dei civici numeri pari, dal numero 4 al numero 10/a circa, all’interno di spazi all’uopo delimitati, paralleli al marciapiede, eccetto gli autocarri utilizzati per le operazioni di carico e scarico merci , dalle ore 6.00 alle ore 10.30 dei giorni feriali, per una durata di 30 minuti , con l’obbligo di esporre il disco orario
+
+
+ corso Porta Nuova , sul lato dei civici numeri dispari, dal numero 11/c al numero 11/d circa, all’interno di spazio all’uopo delimitato, parallelo al marciapiede, eccetto gli autocarri utilizzati per le operazioni di carico e scarico merci , dalle ore 7.30 alle ore 19.30 dei giorni feriali, per una durata di 30 minuti , con l’obbligo di esporre il disco orario
+
+
+ corso Porta Nuova , sul lato dei civici numeri pari, dal numero 10/a al numero 16 circa, all’interno di spazi all’uopo delimitati, paralleli al marciapiede, ad eccezione dei ciclomotori e dei motocicli
+
+
+ corso Porta Nuova , al centro della carreggiata stradale, da via Dei Mutilati fino ai portoni della Bra,
+
+
+ piazza Bra , al centro della carreggiata stradale, in prossimità del civico n. 28, tratto prospiciente ai portoni della Bra
+
+
+ 
+ Ponte Aleardi 
+ Ordinanza n. 1253 del 1° settembre 2026 
+ Divieto di transito , dalle ore 7 alle ore 18 di tutti i giorni, festivi compresi , nella:
+
+ 
+
+ corsia preferenziale istituita su Ponte Aleardi , con direzione da Lungadige Capuleti a Lungadige Galtarossa ,
+
+
+ 
+ Eccetto le seguenti categorie:
+
+ 
+
+ biciclette 
+
+
+ ciclomotori e motocicli 
+
+
+ veicoli dei possessori di permessi di transito e/o sosta di residenti/dimoranti nel comparto “Cittadella” , rilasciati dal competente Ufficio Permessi di AMT3
+
+
+ 
+ 
+ 
+ Deroghe per i residenti
+
+ 
+ 
+ Ordinanza n. 1502 del 21 ottobre 2026 
+ Consentito il transito sulle corsie riservate (via degli Alpini, piazza Bra, corso Porta Nuova, nel tratto compreso tra piazza Bra e via dei Mutilati), ai veicoli nella disponibilità dei residenti e dei dimoranti in piazza Bra, via Roma, nel tratto compreso tra piazza Bra e via Manin, via Dietro Listone e via Teatro Filarmonico, esclusivamente per le operazioni di salita e discesa dei passeggeri e di carico e scarico delle cose, con esclusione di qualsiasi sosta non funzionale alle predette operazioni
+[remoteId] bd56a4e5ff7424773d5940b978f1cde1
+[classIdentifier] image
+[class] http://www.comune.verona.it/api/opendata/v2/classes/image
+[languages] ita-IT
+[ita-IT] Corsie riservate
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/24386
+[mainNodeId] 23693
+[remoteId] UO76
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Ufficio Comunicazione
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1696
+[mainNodeId] 1740
+[files] FILE Ord 01253 01 09 2026 https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/3bffeadb6538ed9a39b969592ae5bd87.pdf/file/ord_01253_01-09-2026.pdf
+[filename] Ord 01253 01 09 2026
+[displayName] Ordinanza n. 1253 del 1 settembre 2026
+[files] FILE Ordinanza Dirigenziale n. 1284 del 08 settembre 2026.pdf https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/750f066e4235abad1dc00633a77497d3.pdf/file/Ordinanza%2BDirigenziale%2Bn.%2B1284%2Bdel%2B08%2Bsettembre%2B2026.pdf
+[filename] Ordinanza Dirigenziale n. 1284 del 08 settembre 2026.pdf
+[displayName] Ordinanza n. 1284 del 8 settembre 2026
+[files] FILE Ordinanza Dirigenziale n. 564 del 20 aprile 2026.pdf https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/9070dca26a9a6de5b1fb62ab1a64403a.pdf/file/Ordinanza%2BDirigenziale%2Bn.%2B564%2Bdel%2B20%2Baprile%2B2026.pdf
+[filename] Ordinanza Dirigenziale n. 564 del 20 aprile 2026.pdf
+[displayName] Ordinanza n. 564 del 20 aprile 2026
+[files] FILE Ord 01249 01 09 2026 https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/4c6c8b5570ce92d03b072c95d0acb54e.pdf/file/ord_01249_01-09-2026.pdf
+[filename] Ord 01249 01 09 2026
+[displayName] Ordinanza n. 1249 d1 settembre 2026
+[files] FILE Allegato A   corsie riservate in piazza Bra .pdf https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/c12943b80776fb37e913d6463c5e6fd6.png/file/allegato%2BA%2B-%2Bcorsie%2Briservate%2Bin%2Bpiazza%2BBra%2B%25281%2529.pdf.png
+[filename] Allegato A corsie riservate in piazza Bra .pdf
+[displayName] Allegato A corsie riservate in piazza Bra .pdf
+[files] FILE Ordinanza Dirigenziale n. 1502 del 21 ottobre 2026.pdf https://www.comune.verona.it/ocmultibinary/download/24382/579661/7/af44468ecc9966f2ebc0d6869e8f8e13.pdf/file/Ordinanza%2BDirigenziale%2Bn.%2B1502%2Bdel%2B21%2Bottobre%2B2026.pdf
+[filename] Ordinanza Dirigenziale n. 1502 del 21 ottobre 2026.pdf
+[displayName] Ordinanza n. 1502 del 21 ottobre 2026

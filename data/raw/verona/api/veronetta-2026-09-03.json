@@ -1,0 +1,434 @@
+{
+ "metadata": {
+  "id": 24058,
+  "remoteId": "01e168a578417ca20056256984f17eae",
+  "classIdentifier": "article",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/article",
+  "ownerId": 243,
+  "ownerName": {
+   "ita-IT": "Elena Baldassari"
+  },
+  "mainNodeId": 23392,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2026-09-03T00:00:00+02:00",
+  "modified": "2026-09-04T08:01:46+02:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Riqualificazione di Veronetta, riapertura di via XX Settembre entro l’inizio dell’anno scolastico "
+  },
+  "parentNodes": [
+   88
+  ],
+  "assignedNodes": [
+   {
+    "id": 23392,
+    "depth": 4,
+    "path_string": "/1/2/72/88/23392/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/24058",
+  "classDefinition": {
+   "identifier": "article",
+   "name": {
+    "eng-GB": "Notice – News – Press release",
+    "ger-DE": "Bekanntmachung - News - Pressemitteilung",
+    "ita-IT": "Avviso - Notizia - Comunicato"
+   },
+   "fields": [
+    {
+     "identifier": "title",
+     "name": {
+      "eng-GB": "Title",
+      "ger-DE": "Titel",
+      "ita-IT": "Titolo"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "content_type",
+     "name": {
+      "eng-GB": "Content type",
+      "ger-DE": "Kategorie",
+      "ita-IT": "Tipologia di contenuto"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Short description",
+      "ger-DE": "Kurze Beschreibung",
+      "ita-IT": "Breve descrizione"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "published",
+     "name": {
+      "eng-GB": "Published on",
+      "ger-DE": "Tag der Veröffentlichung",
+      "ita-IT": "Data di pubblicazione"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "dead_line",
+     "name": {
+      "eng-GB": "Expiry date",
+      "ger-DE": "Letzter Veröffentlichungstag",
+      "ita-IT": "Data di scadenza"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "id_comunicato",
+     "name": {
+      "eng-GB": "Press release number",
+      "ger-DE": "Nummer Pressemitteilung",
+      "ita-IT": "Numero comunicato"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "topics",
+     "name": {
+      "eng-GB": "Topics",
+      "ger-DE": "Themen",
+      "ita-IT": "Argomenti"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "topic"
+     ]
+    },
+    {
+     "identifier": "body",
+     "name": {
+      "eng-GB": "News item body",
+      "ger-DE": "Hauptteil der News",
+      "ita-IT": "Corpo della news"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Images",
+      "ger-DE": "Bilder",
+      "ita-IT": "Galleria immagini"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "image"
+     ]
+    },
+    {
+     "identifier": "people",
+     "name": {
+      "eng-GB": "Administration personnel",
+      "ger-DE": "Personen der Vewaltung",
+      "ita-IT": "Persone dell'amministrazione"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_person"
+     ]
+    },
+    {
+     "identifier": "location",
+     "name": {
+      "eng-GB": "Places of reference",
+      "ger-DE": "Orte, auf die sich der Inhalt bezieht",
+      "ita-IT": "Luoghi di riferimento"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "place"
+     ]
+    },
+    {
+     "identifier": "video",
+     "name": {
+      "eng-GB": "Videos",
+      "ger-DE": "Video",
+      "ita-IT": "Video"
+     },
+     "dataType": "ezurl",
+     "constraint": []
+    },
+    {
+     "identifier": "author",
+     "name": {
+      "eng-GB": "Authored by",
+      "ger-DE": "Bearbeitet von",
+      "ita-IT": "A cura di"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "organization"
+     ]
+    },
+    {
+     "identifier": "audio",
+     "name": {
+      "eng-GB": "Audio",
+      "ger-DE": "Audio",
+      "ita-IT": "Audio"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "audio"
+     ]
+    },
+    {
+     "identifier": "attachment",
+     "name": {
+      "eng-GB": "Attached documents",
+      "ger-DE": "Dokumente im Anhang",
+      "ita-IT": "Documenti allegati"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "document"
+     ]
+    },
+    {
+     "identifier": "files",
+     "name": {
+      "eng-GB": "Attached files",
+      "ger-DE": "Angehängte Dokumente",
+      "ita-IT": "File allegati"
+     },
+     "dataType": "ocmultibinary",
+     "constraint": []
+    },
+    {
+     "identifier": "dataset",
+     "name": {
+      "eng-GB": "Dataset",
+      "ger-DE": "Dataset",
+      "ita-IT": "Dataset"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "dataset"
+     ]
+    },
+    {
+     "identifier": "help",
+     "name": {
+      "eng-GB": "For information",
+      "ger-DE": "Für weitere Informationen",
+      "ita-IT": "Per informazioni"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "online_contact_point"
+     ]
+    },
+    {
+     "identifier": "license",
+     "name": {
+      "eng-GB": "Use licence",
+      "ger-DE": "Benutzerlizenz",
+      "ita-IT": "Licenza d'uso"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "reading_time",
+     "name": {
+      "eng-GB": "Read time",
+      "ger-DE": "Lesezeit",
+      "ita-IT": "Tempo di lettura"
+     },
+     "dataType": "ezinteger",
+     "constraint": []
+    },
+    {
+     "identifier": "related_service",
+     "name": {
+      "eng-GB": "Reference to public service",
+      "ger-DE": "Hinweis auf den öffentlichen Dienst",
+      "ita-IT": "Riferimento al servizio pubblico"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_service"
+     ]
+    },
+    {
+     "identifier": "related_project",
+     "name": {
+      "eng-GB": "Reference to the project",
+      "ger-DE": "Hinweis auf das Projekt",
+      "ita-IT": "Riferimento al progetto"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_project"
+     ]
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "title": "Riqualificazione di Veronetta, riapertura di via XX Settembre entro l’inizio dell’anno scolastico ",
+   "content_type": [
+    "Comunicato stampa"
+   ],
+   "abstract": "Dal 21 settembre, attivati i varchi in corrispondenza delle corsie preferenziali del trasporto pubblico locale e, tra gli altri, Ponte Aleardi, piazza Bra, Ponte Navi e via San Paolo.",
+   "published": "2026-09-03T00:00:00+02:00",
+   "dead_line": null,
+   "id_comunicato": null,
+   "topics": [
+    {
+     "id": 121,
+     "remoteId": "topic_36",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Mobilität",
+      "ita-IT": "Trasporto pubblico"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/121",
+     "mainNodeId": "123"
+    },
+    {
+     "id": 198,
+     "remoteId": "topic_37",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Straßen und Verkehr",
+      "ita-IT": "Rete stradale"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/198",
+     "mainNodeId": "200"
+    },
+    {
+     "id": 199,
+     "remoteId": "topic_35",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Stadtverkehr",
+      "ita-IT": "Traffico urbano"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/199",
+     "mainNodeId": "201"
+    },
+    {
+     "id": 200,
+     "remoteId": "abc9ab5b22d6f4a06ba477b75dafd075",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "ZTL"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/200",
+     "mainNodeId": "202"
+    }
+   ],
+   "body": "<p><em><strong>Dal 21 settembre sarà riattivato nella via il servizio di trasporto pubblico urbano, l’extraurbano continuerà a transitare su via Torbido. Sempre dal 21 settembre saranno attivati i varchi in corrispondenza delle corsie preferenziali del trasporto pubblico locale e, tra gli altri, Ponte Aleardi, piazza Bra, Ponte Navi e via San Paolo</strong>.</em></p><p> Si avvicina la conclusione dei lavori nelle strade interessate dai cantieri in Veronetta. Le asfaltature e il rifacimento della segnaletica rappresentano infatti gli ultimi interventi prima della conclusione dei cantieri. È stata <strong>completata l’asfaltatura e la nuova segnaletica in via dell’Artigliere</strong>, dove sono stati realizzati anche gli stalli giallo-blu per favorire la rotazione della sosta e garantire posti ai residenti. E' ora <strong>in fase di completamento l'asfaltatura di Lungadige Porta Vittoria</strong> e sono inoltre già iniziate le operazioni di fresatura in via San Francesco, dove il completamento delle lavorazioni è previsto entro venerdì. La riapertura della strada è prevista al massimo per lunedì sera.</p><p>Il cantiere più articolato riguarda <strong>via XX Settembre</strong>. La fresatura è stata completata nella giornata di ieri, mentre sono in corso le asfaltature del primo tratto, da via dell’Artigliere fino a vicolo Terrà. L’obiettivo resta comunque quello di completare l’asfaltatura dell’intera via in modo da arrivare alla prima campanella dell'inizio dell'anno scolastico con via XX Settembre riaperta. </p><blockquote class=\"blockquote text-left\">\n\t<p class=\"mb-0\"><p><em>“Si avvia alla conclusione il grande cantiere che ha permesso di riqualificare sottoservizi, marciapiedi e asfalti a Veronetta. Un'opera complessache è stata resa possibile da un grande lavoro di squadra in tutti questi mesi che quotidianamente si è concentrato per ridurre il più possibile i disagi e rispettare le tempistiche. Colgo l'occasione  -</em> sottolinea l’assessore al Coordinamento dei lavori pubblici e Progetti complessi, Tommaso Ferrari<em> -  per ringraziare tutte le persone coinvolte nel progetto per la disponibilità e gli sforzi profusi. Sono stati mesi complessi per residenti e  commercianti per le criticità che necessariamente lavorazioni di questa portata comportano. Si è parlato molto in questi mesi della crisi climatica in corso e degli effetti devastanti della stessa sulle nostre città. Ricordiamo tutti le immagini di una via XX Settembre allagata. A questi problemi serve dare risposte, concrete. Cercheremo di proseguire in questo senso, sicuri che una città che vuole crescere e migliorare non deve rimandare le opere, ma al contrario realizzarle, gestendo le complessità e anche le critiche e criticità che ne derivano.”</em></p></p>\n    <footer class=\"blockquote-footer\"></footer></blockquote>\n<p>Con la prossima settimana partono invece le asfaltature in via San Paolo con il tratto di strada che resterà chiuso fino al 20 settembre. La chiusura temporanea di via San Paolo implica ai residenti della zona di via Scrimiari l'utilizzo dell'accesso alternativo a nord da vicolo Scrimiari. </p><blockquote class=\"blockquote text-left\">\n\t<p class=\"mb-0\"><p>Diego Macchiella direttore generale Acque Veronesi spiega che <em>“Siamo particolarmente soddisfatti perché stiamo terminando i lavori nei tempi previsti, mantenendo la massima qualità e l’alto livello ingegneristico dell’intervento. Un intervento complesso e tecnicamente molto impegnativo, che ha richiesto un coordinamento costante, continuo e proficuo con molti enti e soggetti coinvolti nel cantiere. Una collaborazione fondamentale, in un contesto urbano particolarmente complesso e delicato, che ha permesso di raggiungere quest’importantissimo risultato”.</em></p></p>\n    <footer class=\"blockquote-footer\"></footer></blockquote>\n<p><strong>Con il 21 settembre, sarà riattivato il trasporto pubblico locale</strong>, come spiega Giuseppe Mazza, presidente di Amt e Amt3: “transiteranno gli autobus urbani delle linee 11, 12 e 13, 72 per le feriali diurne, l’80 e l’81 per le serali, il 90 e 98 per le linee festive. Tutti i mezzi extraurbani continueranno a transitare su via Torbido. Dal 21 saranno anche attivate le telecamere. Per quella di ponte Aleardi, ricordo che tutti i possessori di pass Cittadella possono transitare a qualsiasi ora del giorno. Mentre tutti gli altri cittadini dovranno rispettare il divieto di transito dalle 7 alle 18”. </p><p>Con l’inizio dell’anno scolastico <strong>entrano nella fase di collaudo e attivazione anche le nuove telecamere</strong>, mentre lunedì 21 settembre è indicato come data di riferimento per l’<strong>avvio delle sanzioni nei varchi già installati</strong>. “Tra quelli interessati – specifica il comandante della Polizia Locale, Luigi Altamura - ci sono le <strong>due telecamere di piazza Bra (piazza Bra Orologio, piazza Bra Municipio), quella di ponte Aleardi, quella di ponte Navi e quella di via San Paolo</strong>. Le sanzioni saranno comminate sempre dal 21 settembre anche per i transiti illegali sul tratto sud riservato al trasporto pubblico locale di viale dell'Agricoltura, via Fornari/viale del Commercio e viale delle Nazioni”. </p><p>\nDalla stessa data<strong> tornerà attivo anche il varco di Interrato Acqua Morta</strong>. <br />Per il <strong>varco ZTL di Santo Stefano</strong> è invece previsto un<strong> periodo di pre-esercizio di circa 30 giorni prima dell’avvio delle sanzioni</strong> che scatteranno <strong>da lunedì 19 ottobre</strong>.</p>",
+   "image": [],
+   "people": [
+    {
+     "id": 2706,
+     "remoteId": "PP_Politico_06",
+     "classIdentifier": "public_person",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/public_person",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Ferrari Tommaso"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/2706",
+     "mainNodeId": "2761"
+    }
+   ],
+   "location": [],
+   "video": null,
+   "author": [
+    {
+     "id": 1662,
+     "remoteId": "UO75",
+     "classIdentifier": "organization",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/organization",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Ufficio Stampa"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/1662",
+     "mainNodeId": "1706"
+    }
+   ],
+   "audio": [],
+   "attachment": [],
+   "files": [
+    {
+     "filename": "Ord 01249 01 09 2026",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/24058/572099/5/82762438aa8338594988a08fe732cee5.pdf/file/ord_01249_01-09-2026.pdf",
+     "displayName": "Ordinanza n.1249 del 1 settembre 20262026",
+     "group": "Ordinanze",
+     "text": ""
+    },
+    {
+     "filename": "Ord 01253 01 09 2026",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/24058/572099/5/98b77249b97afe66612b5ae340ee747b.pdf/file/ord_01253_01-09-2026.pdf",
+     "displayName": "Ordinanza n.1253 del 1 settembre 2026",
+     "group": "Ordinanze",
+     "text": ""
+    }
+   ],
+   "dataset": [],
+   "help": [],
+   "license": [],
+   "reading_time": "0",
+   "related_service": [],
+   "related_project": []
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "urlAlias": "/Novita/Comunicati/Riqualificazione-di-Veronetta-riapertura-di-via-XX-Settembre-entro-l-inizio-dell-anno-scolastico"
+  }
+ }
+}

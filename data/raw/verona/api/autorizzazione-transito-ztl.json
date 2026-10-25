@@ -1,0 +1,154 @@
+{
+ "metadata": {
+  "id": 22311,
+  "remoteId": "6a151de8152ec2a913b9cc90d53c385f",
+  "classIdentifier": "output",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/output",
+  "ownerId": 8584,
+  "ownerName": {
+   "ita-IT": "BRUNO PEZZUTO"
+  },
+  "mainNodeId": 21834,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2026-06-04T16:00:05+02:00",
+  "modified": "2026-06-04T16:00:05+02:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Autorizzazione al transito in ZTL"
+  },
+  "parentNodes": [
+   103
+  ],
+  "assignedNodes": [
+   {
+    "id": 21834,
+    "depth": 4,
+    "path_string": "/1/2/71/103/21834/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/22311",
+  "classDefinition": {
+   "identifier": "output",
+   "name": {
+    "eng-GB": "Service output (what you get)",
+    "ger-DE": "Output der erbrachten Dienstleistung (was Sie erhalten)",
+    "ita-IT": "Output del servizio (cosa si ottiene)"
+   },
+   "fields": [
+    {
+     "identifier": "name",
+     "name": {
+      "eng-GB": "Name",
+      "ger-DE": "Name",
+      "ita-IT": "Nome"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "short_name",
+     "name": {
+      "eng-GB": "Short name",
+      "ger-DE": "Kurzer Name",
+      "ita-IT": "Nome breve"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Abstract (short description)",
+      "ger-DE": "Abstract (Kurze Beschreibung)",
+      "ita-IT": "Abstract (Descrizione breve)"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "description",
+     "name": {
+      "eng-GB": "Description",
+      "ger-DE": "Beschreibung",
+      "ita-IT": "Descrizione"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Images",
+      "ger-DE": "Bilder",
+      "ita-IT": "Immagini"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "image"
+     ]
+    },
+    {
+     "identifier": "has_service_input_output_type",
+     "name": {
+      "eng-GB": "Output/outcome type",
+      "ger-DE": "Art des Outputs/Ergebnisses",
+      "ita-IT": "Tipologia di output/esito"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "topics",
+     "name": {
+      "eng-GB": "Topic",
+      "ger-DE": "Thema",
+      "ita-IT": "Argomento"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "topic"
+     ]
+    },
+    {
+     "identifier": "files",
+     "name": {
+      "eng-GB": "Sample file",
+      "ger-DE": "Beispiel-Dateien",
+      "ita-IT": "File di esempio"
+     },
+     "dataType": "ocmultibinary",
+     "constraint": []
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "name": "Autorizzazione al transito in ZTL",
+   "short_name": null,
+   "abstract": "",
+   "description": "",
+   "image": [],
+   "has_service_input_output_type": [
+    "Atto autorizzativo"
+   ],
+   "topics": [],
+   "files": null
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "urlAlias": "/Classificazioni/Cosa-puoi-richiedere/Autorizzazione-al-transito-in-ZTL"
+  }
+ }
+}

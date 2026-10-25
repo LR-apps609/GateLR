@@ -1,0 +1,203 @@
+# Citypass: richiesta di adesione al Protocollo d'Intesa per strutture ricettive situate in ZTL
+object 7251, published 2025-04-07T08:21:58+02:00, modified 2025-11-28T10:28:07+01:00
+URL: https://www.comune.verona.it/content/view/full/7431
+
+[type] Mobilità e trasporti
+[type] Turismo
+[name] Citypass: richiesta di adesione al Protocollo d'Intesa per strutture ricettive situate in ZTL
+[identifier] S_289
+[has_service_status] Servizio attivo
+[abstract] Richiesta di adesione al Protocollo d'Intesa CityPASS-ZTL da parte delle strutture ricettive: veicoli di servizio e veicoli degli ospiti
+[audience] Strutture ricettive alberghiere e complementari situate in Zona a Traffico Limitato (ZTL).
+ 
+ 
+ Esclusione Locazioni turistiche
+
+ 
+ Legge Regionale n. 11 del 14 giugno 2013 e successivi provvedimenti consultabili sul sito della Regione Veneto , ha provveduto a classificare le strutture ricettive come segue:
+ 
+ 
+ 
+ STRUTTURE CON SERVIZI 
+ 
+ STRUTTURE SENZA ALCUN SERVIZIO AGLI OSPITI 
+ 
+
+ 
+
+ 
+ Strutture ricettive alberghiere 
+ 
+ Strutture ricettive all'aperto 
+ 
+ Strutture ricettive complementari 
+ 
+ Locazioni turistiche 
+ 
+
+ 
+
+ 
+ Alberghi o Hotel
+ 
+ Campeggi
+ 
+ Alloggi turistici
+ 
+ Offrono soltanto: 
+
+ 
+
+ fornitura acqua, energia elettrica, gas, climatizzazione
+
+
+ manutenzione alloggio, riparazione e sostituzione arredi e dotazioni
+
+
+ pulizia alloggio e, se richiesto, fornitura biancheria anche del bagno, entrambi esclusivamente ad ogni cambio dell'ospite
+
+
+ 
+
+ 
+
+ 
+
+ 
+ Residenze turistiche alberghiere
+ 
+ Villaggi turistici
+ 
+ Case per vacanze
+ 
+
+ 
+
+ 
+ Villaggio albergo
+ 
+ Marina resort
+ 
+ Unità abitative ammobiliate ad uso turistico
+ 
+
+ 
+
+ 
+ Albergo diffuso
+ 
+ 
+ 
+ Bed & breakfast
+ 
+
+ 
+
+ 
+ 
+ Pertanto le Locazioni Turistiche non rientrando tra le strutture ricettive classificate non possono più usufruire della possibilità prevista dall'Art. 29 dell'attuale Disciplina.
+ Tutte le credenziali rilasciate a soggetti titolari e/o gestori di locazione turistica sono disabilitate.
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Tipologie di strutture ricettive nel Veneto
+[code] 023091
+[name] Verona
+[applicants] Gestori delle strutture ricettive alberghiere e complementari situate in ZTL.
+[description] Con l'adesione al Protocollo d'Intesa CityPASS le strutture ricettive situate in ZTL possono ottenere le credenziali per accedere alla piattaforma gestionale che consente di:
+
+ 
+
+ comunicare all'ufficio competente le targhe delle autovetture a servizio dei clienti diretti a strutture ricettive alberghiere ed extralberghiere site in Z.T.L. e navette utilizzate dalle stesse strutture per il trasporto gratuito dei propri clienti con possibilità di sola fermata;
+
+
+ effettuare l'inserimento delle targhe degli ospiti in white-list.
+[process] Procedimento ad iniziativa privata
+[has_language] Italiano
+[how_to] Compilare e inviare il modulo online per la sottoscrizione dell'accordo.
+In alternativa, compilare e firmare digitalmente il modulo [scaricabile] e inviarlo a: mobilita.traffico@pec.comune.verona.it
+[has_input] Modulo compilato e firmato digitalmente
+[remoteId] Mod_129
+[classIdentifier] document
+[class] http://www.comune.verona.it/api/opendata/v2/classes/document
+[languages] ita-IT
+[ita-IT] Servizio citypass - adesione protocollo d'intesa
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/2537
+[mainNodeId] 2585
+[remoteId] Output_489
+[classIdentifier] output
+[class] http://www.comune.verona.it/api/opendata/v2/classes/output
+[languages] ita-IT
+[ita-IT] Adesione Protocollo d'Intesa da parte delle Strutture Ricettive per l'inserimento delle targhe ospiti in white-list (CityPASS - ZTL).
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/5078
+[mainNodeId] 5139
+[has_processing_time_text] Esistenza cause di sospensione e/o interruzione? Sì Irregolarità contributiva a carico della Struttura Ricettiva richiedente accertata dall'Ufficio Tributi.
+[has_processing_time] 45
+[remoteId] Citypass_Protocollo_Intesa
+[classIdentifier] channel
+[class] http://www.comune.verona.it/api/opendata/v2/classes/channel
+[languages] eng-GB
+[languages] ger-DE
+[languages] ita-IT
+[eng-GB] Citypass: adesione al Protocollo d'intesa per strutture ricettive
+[ger-DE] Citypass: adesione al Protocollo d'intesa per strutture ricettive
+[ita-IT] Citypass: adesione al Protocollo d'intesa per strutture ricettive
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/7044
+[mainNodeId] 7224
+[is_physically_available_at_how_to] Compilare il modulo, firmarlo digitalmente e inviarlo via PEC a: mobilita.traffico@pec.comune.verona.it
+[remoteId] luogo_uffici_17
+[classIdentifier] place
+[class] http://www.comune.verona.it/api/opendata/v2/classes/place
+[languages] ita-IT
+[ita-IT] Sede uffici Lungadige Galtarossa
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/348
+[mainNodeId] 393
+[terms_of_service] FILE Termini e condizioni dei servizi https://www.comune.verona.it/ocmultibinary/download/7251/147859/7/09ead2fa5ad5911c014b057191918464.pdf/file/Termini_e_condizioni_dei_servizi.pdf
+[filename] Termini e condizioni dei servizi
+[displayName] Termini e condizioni dei servizi
+[remoteId] Contatto_57
+[classIdentifier] online_contact_point
+[class] http://www.comune.verona.it/api/opendata/v2/classes/online_contact_point
+[languages] ita-IT
+[ita-IT] Contatti Direzione Infrastrutture viarie e Mobilità
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1493
+[mainNodeId] 1537
+[remoteId] UO126
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Direzione Infrastrutture viarie e Mobilità
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1523
+[mainNodeId] 1567
+[remoteId] topic_36
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Mobilität
+[ita-IT] Trasporto pubblico
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/121
+[mainNodeId] 123
+[remoteId] abc9ab5b22d6f4a06ba477b75dafd075
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] ZTL
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/200
+[mainNodeId] 202

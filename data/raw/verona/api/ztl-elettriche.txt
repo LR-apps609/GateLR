@@ -1,0 +1,124 @@
+# ZTL: registrazione di autovetture elettriche (full electric) per il solo transito
+object 7254, published 2025-04-07T08:22:01+02:00, modified 2026-10-19T10:05:06+02:00
+URL: https://www.comune.verona.it/content/view/full/7434
+
+[type] Mobilità e trasporti
+[name] ZTL: registrazione di autovetture elettriche (full electric) per il solo transito
+[identifier] S_299
+[has_service_status] Servizio attivo
+[alternative_name] Veicoli elettrici in ZTL
+[abstract] Registrazione dell'autovettura alimentata "full electric" per l'accesso (transito) in ZTL
+[audience] Titolari/Utilizzatori di autovetture ad uso trasporto persone e ad esclusiva alimentazione elettrica ("full electric"), con esclusione di autovetture ibride.
+[code] 023091
+[name] Verona
+[applicants] Cittadini italiani e stranieri, residenti anche al di fuori della ZTL di Verona ed in possesso di SPID o CIE.
+[description] Accesso ZTL per veicoli 100% Elettrici (Full Electric).I proprietari o utilizzatori di veicoli a sola alimentazione elettrica possono accedere alla ZTL registrando i dati personali e del veicolo.
+
+ 
+
+ Limitazioni: Resta escluso l'accesso all'Area Pedonale Urbana (APU);
+
+
+ Sosta: Segue le normative generali vigenti per tutti gli altri veicoli.
+
+
+ 
+ Rinnovo dell'autorizzazione: Chi ha già registrato il proprio veicolo con scadenza autorizzazione al 31/10/2026, può:
+
+ 
+
+ Presentare richiesta di rinnovo con questa apposita nuova procedura.
+[process] Procedimento ad iniziativa privata
+[has_language] Italiano
+[has_language] Inglese
+[has_language] Tedesco
+[how_to] L'autorizzazione/rinnovo per il transito in ZTL dell'autoveicolo elettrico può essere richiesta accedendo esclusivamente tramite SPID/CIE nel portale "Permessi" al seguente indirizzo:
+ https://permessi.mobilita.comune.verona.it 
+ * Attenzione: è richiesto di allegare esclusivamente il fronte della carta di circolazione del veicolo; non è richiesto nessun altro documento.
+[has_input] Istruzioni per la compilazione: 
+
+ 
+
+ Accedi al portale con SPID o CIE .
+
+
+ Seleziona "Autorizzazioni ZTL/ZSC" e poi "Richiedi accesso veicoli elettrici" .
+
+
+ Inserisci e allega i dati richiesti:
+ 
+
+ Dati anagrafici del proprietario/utilizzatore;
+
+
+ Targa del veicolo;
+
+
+ Copia della carta di circolazione (solo fronte) da caricare nell'apposita sezione presente nella seconda pagina della richiesta.
+[remoteId] 6a151de8152ec2a913b9cc90d53c385f
+[classIdentifier] output
+[class] http://www.comune.verona.it/api/opendata/v2/classes/output
+[languages] ita-IT
+[ita-IT] Autorizzazione al transito in ZTL
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/22311
+[mainNodeId] 21834
+[has_processing_time_text] Giorni di attesa per l'elaborazione della pratica (9)
+Durata dell'autorizzazione 12 mesi dalla avvenuta registrazione
+[characteristic] Esente
+[output_notes] Iter della richiesta: 
+
+ 
+
+ "Presa in carico/messa in attesa": Inoltrata la richiesta di inserimento della targa nell'elenco dei veicoli autorizzati ( whitelist ), riceverai un'e-mail di conferma dell'avvenuta ricezione.
+
+
+ Esito della pratica: Dopo la verifica delle informazioni, un operatore del backoffice invierà una seconda e-mail con l'esito formale dell'autorizzazione.
+
+
+ 
+ *Si segnala che l'Amministrazione potrà effettuare controlli sulla regolarità della copertura assicurativa e della revisione del veicolo.
+[is_physically_available_at_how_to] Il servizio è disponibile solo attraverso l'accesso al portale digitale con SPID o CIE
+[remoteId] luogo_uffici_17
+[classIdentifier] place
+[class] http://www.comune.verona.it/api/opendata/v2/classes/place
+[languages] ita-IT
+[ita-IT] Sede uffici Lungadige Galtarossa
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/348
+[mainNodeId] 393
+[terms_of_service] FILE Termini e condizioni dei servizi https://www.comune.verona.it/ocmultibinary/download/7254/148009/15/b43360a11b85286feabf7c5aafcfa595.pdf/file/Termini_e_condizioni_dei_servizi.pdf
+[filename] Termini e condizioni dei servizi
+[displayName] Termini e condizioni dei servizi
+[remoteId] Contatto_ufficio_166
+[classIdentifier] online_contact_point
+[class] http://www.comune.verona.it/api/opendata/v2/classes/online_contact_point
+[languages] ita-IT
+[ita-IT] Contatti Ufficio Controllo Flussi di Traffico
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1455
+[mainNodeId] 1499
+[remoteId] UO130
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Servizio Gestione Mobilità
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1541
+[mainNodeId] 1585
+[remoteId] topic_36
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Mobilität
+[ita-IT] Trasporto pubblico
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/121
+[mainNodeId] 123
+[remoteId] abc9ab5b22d6f4a06ba477b75dafd075
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] ZTL
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/200
+[mainNodeId] 202
+[has_authentication_method] Carta d'identità elettronica (CIE)
+[has_authentication_method] SPID Livello 1
+[nome_sito] https://permessi.mobilita.comune.verona.it
+[ife_event] Registrazione o possesso veicolo

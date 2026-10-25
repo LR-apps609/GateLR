@@ -1,0 +1,7 @@
+# La ZTL: per veicoli e bus turistici 
+object 10553, published 2025-07-01T13:19:34+02:00, modified 2025-07-01T13:29:52+02:00
+URL: https://www.comune.verona.it/content/view/full/10805
+
+[name] La ZTL: per veicoli e bus turistici
+[abstract] Nel centro storico di Verona l’accesso e la circolazione dei veicoli sono limitati a ore prestabilite e a particolari categorie di utenti
+[location] https://www.amt3.it/ztl-verona/

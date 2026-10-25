@@ -1,0 +1,447 @@
+{
+ "metadata": {
+  "id": 19351,
+  "remoteId": "891b6b567f2a29e7fcb2652019e9638d",
+  "classIdentifier": "article",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/article",
+  "ownerId": 242,
+  "ownerName": {
+   "ita-IT": "Daniele Turella"
+  },
+  "mainNodeId": 19061,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2026-04-24T00:00:00+02:00",
+  "modified": "2026-04-27T13:59:03+02:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Piano della sosta: più stalli per i residenti e convenzioni con i parcheggi per residenti e lavoratori delle zone interessate"
+  },
+  "parentNodes": [
+   88
+  ],
+  "assignedNodes": [
+   {
+    "id": 19061,
+    "depth": 4,
+    "path_string": "/1/2/72/88/19061/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/19351",
+  "classDefinition": {
+   "identifier": "article",
+   "name": {
+    "eng-GB": "Notice – News – Press release",
+    "ger-DE": "Bekanntmachung - News - Pressemitteilung",
+    "ita-IT": "Avviso - Notizia - Comunicato"
+   },
+   "fields": [
+    {
+     "identifier": "title",
+     "name": {
+      "eng-GB": "Title",
+      "ger-DE": "Titel",
+      "ita-IT": "Titolo"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "content_type",
+     "name": {
+      "eng-GB": "Content type",
+      "ger-DE": "Kategorie",
+      "ita-IT": "Tipologia di contenuto"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Short description",
+      "ger-DE": "Kurze Beschreibung",
+      "ita-IT": "Breve descrizione"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "published",
+     "name": {
+      "eng-GB": "Published on",
+      "ger-DE": "Tag der Veröffentlichung",
+      "ita-IT": "Data di pubblicazione"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "dead_line",
+     "name": {
+      "eng-GB": "Expiry date",
+      "ger-DE": "Letzter Veröffentlichungstag",
+      "ita-IT": "Data di scadenza"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    },
+    {
+     "identifier": "id_comunicato",
+     "name": {
+      "eng-GB": "Press release number",
+      "ger-DE": "Nummer Pressemitteilung",
+      "ita-IT": "Numero comunicato"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "topics",
+     "name": {
+      "eng-GB": "Topics",
+      "ger-DE": "Themen",
+      "ita-IT": "Argomenti"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "topic"
+     ]
+    },
+    {
+     "identifier": "body",
+     "name": {
+      "eng-GB": "News item body",
+      "ger-DE": "Hauptteil der News",
+      "ita-IT": "Corpo della news"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Images",
+      "ger-DE": "Bilder",
+      "ita-IT": "Galleria immagini"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "image"
+     ]
+    },
+    {
+     "identifier": "people",
+     "name": {
+      "eng-GB": "Administration personnel",
+      "ger-DE": "Personen der Vewaltung",
+      "ita-IT": "Persone dell'amministrazione"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_person"
+     ]
+    },
+    {
+     "identifier": "location",
+     "name": {
+      "eng-GB": "Places of reference",
+      "ger-DE": "Orte, auf die sich der Inhalt bezieht",
+      "ita-IT": "Luoghi di riferimento"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "place"
+     ]
+    },
+    {
+     "identifier": "video",
+     "name": {
+      "eng-GB": "Videos",
+      "ger-DE": "Video",
+      "ita-IT": "Video"
+     },
+     "dataType": "ezurl",
+     "constraint": []
+    },
+    {
+     "identifier": "author",
+     "name": {
+      "eng-GB": "Authored by",
+      "ger-DE": "Bearbeitet von",
+      "ita-IT": "A cura di"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "organization"
+     ]
+    },
+    {
+     "identifier": "audio",
+     "name": {
+      "eng-GB": "Audio",
+      "ger-DE": "Audio",
+      "ita-IT": "Audio"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "audio"
+     ]
+    },
+    {
+     "identifier": "attachment",
+     "name": {
+      "eng-GB": "Attached documents",
+      "ger-DE": "Dokumente im Anhang",
+      "ita-IT": "Documenti allegati"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "document"
+     ]
+    },
+    {
+     "identifier": "files",
+     "name": {
+      "eng-GB": "Attached files",
+      "ger-DE": "Angehängte Dokumente",
+      "ita-IT": "File allegati"
+     },
+     "dataType": "ocmultibinary",
+     "constraint": []
+    },
+    {
+     "identifier": "dataset",
+     "name": {
+      "eng-GB": "Dataset",
+      "ger-DE": "Dataset",
+      "ita-IT": "Dataset"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "dataset"
+     ]
+    },
+    {
+     "identifier": "help",
+     "name": {
+      "eng-GB": "For information",
+      "ger-DE": "Für weitere Informationen",
+      "ita-IT": "Per informazioni"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "online_contact_point"
+     ]
+    },
+    {
+     "identifier": "license",
+     "name": {
+      "eng-GB": "Use licence",
+      "ger-DE": "Benutzerlizenz",
+      "ita-IT": "Licenza d'uso"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "reading_time",
+     "name": {
+      "eng-GB": "Read time",
+      "ger-DE": "Lesezeit",
+      "ita-IT": "Tempo di lettura"
+     },
+     "dataType": "ezinteger",
+     "constraint": []
+    },
+    {
+     "identifier": "related_service",
+     "name": {
+      "eng-GB": "Reference to public service",
+      "ger-DE": "Hinweis auf den öffentlichen Dienst",
+      "ita-IT": "Riferimento al servizio pubblico"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_service"
+     ]
+    },
+    {
+     "identifier": "related_project",
+     "name": {
+      "eng-GB": "Reference to the project",
+      "ger-DE": "Hinweis auf das Projekt",
+      "ita-IT": "Riferimento al progetto"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_project"
+     ]
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "title": "Piano della sosta: più stalli per i residenti e convenzioni con i parcheggi per residenti e lavoratori delle zone interessate",
+   "content_type": [
+    "Comunicato stampa"
+   ],
+   "abstract": "Entro luglio sarà operativo Il Piano Urbano della Sosta (PUS), il provvedimento che rende omogenea e regola la sosta nei quartieri limitrofi alla ZTL",
+   "published": "2026-04-24T00:00:00+02:00",
+   "dead_line": null,
+   "id_comunicato": null,
+   "topics": [
+    {
+     "id": 116,
+     "remoteId": "topic_1_governo_e_settore_pubblico",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Politik und Verwaltung",
+      "ita-IT": "Politica"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/116",
+     "mainNodeId": "118"
+    },
+    {
+     "id": 172,
+     "remoteId": "topic_9",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Comunicazione istituzionale"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/172",
+     "mainNodeId": "174"
+    },
+    {
+     "id": 121,
+     "remoteId": "topic_36",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Mobilität",
+      "ita-IT": "Trasporto pubblico"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/121",
+     "mainNodeId": "123"
+    },
+    {
+     "id": 196,
+     "remoteId": "topic_6",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Parken",
+      "ita-IT": "Parcheggi"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/196",
+     "mainNodeId": "198"
+    }
+   ],
+   "body": "<p>Entro luglio sarà operativo Il Piano Urbano della Sosta (PUS), il provvedimento che rende omogenea e regola la sosta nei quartieri limitrofi alla ZTL. Un provvedimento che si inserisce nel quadro delle politiche di mobilità sostenibile, con l’obiettivo di garantire accessibilità ai quartieri della città da parte di lavoratori e residenti e evitare i fenomeni di sosta selvaggia.</p><p>Il nuovo sistema tariffario prevede una suddivisione in tre fasce:</p>\n<ul class=\"\">\n\n<li>nella ZTL la sosta resta a 2 euro all’ora, tutti i giorni dalle 8 alle 24, senza limite di durata</li>\n\n<li>nella nuova “Zona Blu”, che comprende le aree entro 350-450 metri dal centro, la tariffa è di 1,50 euro all’ora dalle 8 alle 20</li>\n\n<li>nella “Zona Azzurra”, più distante dal centro storico che include le aree più esterne già a pagamento, il costo è di 1 euro all’ora</li>\n\n</ul>\n<p>E’ abolito il limite delle due ore massime di sosta e introdotto il pagamento anche nei week-end tenuto conto anche delle presenze turistiche. </p><p>Il comparto di Borgo Trento, il primo a partire con la nuova segnaletica, seguirà la stessa regolamentazione degli altri quartieri (Veronetta, Cittadella, San Zeno,…) che comporta la realizzazione di stalli blu o giallo/blu in tutto il comparto, nell’ottica di garantire un’adeguata turnazione dei parcheggi per il commercio locale e maggior riserva di posti auto per lavoratori e residenti. </p><p>Le nuove norme che aggiornano un piano della sosta che risale al 1999 saranno operative da luglio, quando saranno completate la segnaletica verticale e orizzontale e i sistemi di pagamento. Sono previsti abbonamenti per i residenti e i lavoratori che operano all’interno dei comparti, cosi come convenzioni nei parcheggi in struttura (Arena, Arsenale, Isolo e Bgo Trento). </p><blockquote class=\"blockquote text-left\">\n\t<p class=\"mb-0\"><p>“L’intervento si inserisce in una visione più ampia di mobilità, che comprende sosta, trasporto pubblico e infrastrutture, come Filovia, parcheggi scambiatori, strada di gronda e piste ciclabili, all’interno di un disegno organico che stiamo portando avanti”.– ha spiegato l’assessore alla Mobilità, Tommaso Ferrari “. </p></p>\n    <footer class=\"blockquote-footer\"></footer></blockquote>\n<blockquote class=\"blockquote text-left\">\n\t<p class=\"mb-0\"><p>Giuseppe Mazza, presidente di Amt3 ha ricordato come “È importante che i cittadini veronesi residenti nei e i lavoratori dei comparti coinvolti, inizino ad attivarsi per richiedere, anche online, i permessi necessari e poter usufruire degli abbonamenti dedicati. Aggiungo che i parcheggi di Via Città di Nimes sono tornati a pieno regime e con la possibilità della prima mezz’ora gratis a disposizione degli utenti della stazione Porta Nuova.”. </p></p>\n    <footer class=\"blockquote-footer\"></footer></blockquote>\n<p>Le agevolazioni proposte da Saba puntano a rendere più accessibili e utilizzati i parcheggi in struttura, con formule flessibili pensate per residenti, lavoratori e commercianti. Sono previsti abbonamenti notturni per i residenti ma anche soluzioni diurne e a fasce orarie per chi lavora, oltre a formule H24. “A queste si affiancano iniziative dedicate al commercio, come lo shopping time, il lunch pass e il dinner pass, pensate per favorire la sosta breve legata alle attività economiche” ha sottolineato Claudio Borghetto di Saba Parcheggi.</p><p>Nel dettaglio, per il quartiere di Borgo Trento, tra i parcheggi Arsenale e Borgo Trento, sono disponibili complessivamente 290 abbonamenti (220 a Borgo Trento e 70 all’Arsenale disponibili dal 4 maggio). Nei dintorni della Città antica, tra i parcheggi Arena e Isolo, gli abbonamenti disponibili sono invece 350 (280 all’Arena e 70 all’Isolo disponibili dal 1 di giugno).</p><p>Per abbonarsi è necessario scrivere alla mail <strong><a href=\"mailto:parcheggi.verona@saba.eu\" title=\"Vai alla pagina parcheggi.verona@saba.eu\" style=\"word-break: break-word;display:inline\">parcheggi.verona@saba.eu</a></strong></p><blockquote class=\"blockquote text-left\">\n\t<p class=\"mb-0\"><p>“Per la Seconda Circoscrizione il piano della sosta chiude un percorso condiviso negli anni, - ha chiosato Elisa Dalle Pezze, presidente della Circoscrizione 2^ - nato dalle difficoltà dei residenti e lavoratori nel trovare parcheggio. Il piano risponde a queste esigenze, garantendo maggiore disponibilità di posti per chi vive e lavora nel quartiere. Introduce anche convenzioni per lavoratori e attività, tenendo conto della presenza commerciale e ricettiva della zona. Nel complesso, integra la sosta in una visione più ampia della mobilità e degli spostamenti urbani”. </p></p>\n    <footer class=\"blockquote-footer\"></footer></blockquote>\n<blockquote class=\"blockquote text-left\">\n\t<p class=\"mb-0\"><p>Il presidente della Circoscrizione 1^, Lorenzo Dalai, ha aggiunto che “l’elemento centrale di questi provvedimenti è l’introduzione delle convenzioni, che permettono di parcheggiare in struttura a costi molto contenuti. Questo rappresenta una valida alternativa alla sosta irregolare, spesso causa di disordine e problemi alla circolazione. “ </p></p>\n    <footer class=\"blockquote-footer\"></footer></blockquote>\n",
+   "image": [],
+   "people": [
+    {
+     "id": 2695,
+     "remoteId": "PP_Politico_51",
+     "classIdentifier": "public_person",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/public_person",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Dalai Lorenzo"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/2695",
+     "mainNodeId": "2750"
+    },
+    {
+     "id": 2694,
+     "remoteId": "PP_Politico_71",
+     "classIdentifier": "public_person",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/public_person",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Dalle Pezze Elisa"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/2694",
+     "mainNodeId": "2749"
+    },
+    {
+     "id": 2706,
+     "remoteId": "PP_Politico_06",
+     "classIdentifier": "public_person",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/public_person",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Ferrari Tommaso"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/2706",
+     "mainNodeId": "2761"
+    }
+   ],
+   "location": [],
+   "video": null,
+   "author": [
+    {
+     "id": 1662,
+     "remoteId": "UO75",
+     "classIdentifier": "organization",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/organization",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Ufficio Stampa"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/1662",
+     "mainNodeId": "1706"
+    }
+   ],
+   "audio": [],
+   "attachment": [],
+   "files": null,
+   "dataset": [],
+   "help": [],
+   "license": [],
+   "reading_time": "0",
+   "related_service": [],
+   "related_project": []
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "urlAlias": "/Novita/Comunicati/Piano-della-sosta-piu-stalli-per-i-residenti-e-convenzioni-con-i-parcheggi-per-residenti-e-lavoratori-delle-zone-interessate"
+  }
+ }
+}

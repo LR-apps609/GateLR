@@ -1,0 +1,174 @@
+{
+ "metadata": {
+  "id": 5053,
+  "remoteId": "Prenotazioni_ZTL",
+  "classIdentifier": "channel",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/channel",
+  "ownerId": 14,
+  "ownerName": {
+   "ita-IT": "Administrator User"
+  },
+  "mainNodeId": 5114,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2024-12-20T13:54:31+01:00",
+  "modified": "2024-12-20T13:54:31+01:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Prenotazione accessi alla ZTL"
+  },
+  "parentNodes": [
+   101
+  ],
+  "assignedNodes": [
+   {
+    "id": 5114,
+    "depth": 4,
+    "path_string": "/1/2/71/101/5114/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/5053",
+  "classDefinition": {
+   "identifier": "channel",
+   "name": {
+    "eng-GB": "Service delivery channel",
+    "ger-DE": "Support-Kanal über welchen die Dienstleistung erbracht wird",
+    "ita-IT": "Canale di erogazione del servizio"
+   },
+   "fields": [
+    {
+     "identifier": "object",
+     "name": {
+      "eng-GB": "Channel function",
+      "ger-DE": "Funktion des Support-Kanals über welchen die Dienstleistung erfolgt",
+      "ita-IT": "Funzione del canale"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "has_channel_type",
+     "name": {
+      "eng-GB": "Delivery channel type",
+      "ger-DE": "Support-Kanal für die Erbringung der Dienstleistung",
+      "ita-IT": "Tipo di canale di erogazione"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Short description",
+      "ger-DE": "Kurze Beschreibung",
+      "ita-IT": "Descrizione breve"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "description",
+     "name": {
+      "eng-GB": "Description",
+      "ger-DE": "Beschreibung",
+      "ita-IT": "Descrizione"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "channel_url",
+     "name": {
+      "eng-GB": "Channel URL",
+      "ger-DE": "Eingabe Supportkanal (url)",
+      "ita-IT": "Valore del canale (url)"
+     },
+     "dataType": "ezurl",
+     "constraint": []
+    },
+    {
+     "identifier": "channel",
+     "name": {
+      "eng-GB": "Channel ID",
+      "ger-DE": "Eingabe Supportkanal  (url)",
+      "ita-IT": "Valore del canale"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "has_cost",
+     "name": {
+      "eng-GB": "Cost",
+      "ger-DE": "Kosten",
+      "ita-IT": "Costo"
+     },
+     "dataType": "ezmatrix",
+     "constraint": []
+    },
+    {
+     "identifier": "has_access_condition",
+     "name": {
+      "eng-GB": "Access condition",
+      "ger-DE": "Zugangsvoraussetzungen",
+      "ita-IT": "Condizioni di accesso"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Images",
+      "ger-DE": "Bilder",
+      "ita-IT": "Immagini"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "image"
+     ]
+    },
+    {
+     "identifier": "files",
+     "name": {
+      "eng-GB": "Files",
+      "ger-DE": "Dateien",
+      "ita-IT": "Files"
+     },
+     "dataType": "ocmultibinary",
+     "constraint": []
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "object": "Prenotazione accessi alla ZTL",
+   "has_channel_type": [
+    "Applicazione Web"
+   ],
+   "abstract": "<p>Per accedere alla Zona a Traffico Limitato del Comune di Verona</p>",
+   "description": "<p>Il portale fornisce servizi agli utenti sprovvisti di autorizzazione per prenotare gli accessi temporanei in ZTL. Chi vive nel Comune di Verona o in provincia, può accedere alla ZTL fino a 4 volte al mese</p>",
+   "channel_url": "https://citypass.veronamobile.it/ar/|Prenotazione ingresso in ZTL",
+   "channel": null,
+   "has_cost": [],
+   "has_access_condition": [],
+   "image": [],
+   "files": null
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "urlAlias": "/Classificazioni/Canali-digitali/Prenotazione-accessi-alla-ZTL"
+  }
+ }
+}

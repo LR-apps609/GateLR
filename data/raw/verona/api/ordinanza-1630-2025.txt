@@ -1,0 +1,45 @@
+# Ordinanza n.1630 del 4 dicembre 2025
+object 15948, published 2025-12-05T13:49:40+01:00, modified 2025-12-05T13:49:40+01:00
+URL: https://www.comune.verona.it/content/view/full/15991
+
+[name] Ordinanza n.1630 del 4 dicembre 2025
+[document_type] Ordinanza del Dirigente
+[remoteId] topic_35
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Stadtverkehr
+[ita-IT] Traffico urbano
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/199
+[mainNodeId] 201
+[remoteId] topic_36
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Mobilität
+[ita-IT] Trasporto pubblico
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/121
+[mainNodeId] 123
+[remoteId] abc9ab5b22d6f4a06ba477b75dafd075
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] ZTL
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/200
+[mainNodeId] 202
+[abstract] Ordinanza n.1630 del 4 dicembre 2025 - Provvedimenti Fiera di Santa Lucia
+[file] FILE Ordinanza n.1630 del 4 12 2025.pdf https://www.comune.verona.it/content/download/15948/346520/1/ordinanza+n.1630+del+4-12-2025.pdf
+[filename] Ordinanza n.1630 del 4 12 2025.pdf
+[remoteId] UO128
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Ufficio Mobilità Sostenibile e Servizi per la mobilità
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1749
+[mainNodeId] 1793
+[license] Creative Commons Attribution 4.0 International (CC BY 4.0)
+[format] PDF
+[start_time] 2025-12-05T13:49:40+01:00
+[publication_start_time] 2025-12-05T13:49:40+01:00

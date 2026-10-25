@@ -1,0 +1,377 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-25T07:13:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 1789004636,
+  "lat": 45.4300335,
+  "lon": 10.9900787,
+  "tags": {
+    "highway": "speed_camera",
+    "name": "Autovelox 50 km/h"
+  }
+},
+{
+  "type": "node",
+  "id": 1799077400,
+  "lat": 45.4362142,
+  "lon": 10.9780487,
+  "tags": {
+    "highway": "speed_camera",
+    "name": "Autovelox 50 km/h"
+  }
+},
+{
+  "type": "node",
+  "id": 2141085111,
+  "lat": 45.4480850,
+  "lon": 11.0174351,
+  "tags": {
+    "highway": "speed_camera"
+  }
+},
+{
+  "type": "node",
+  "id": 3067055044,
+  "lat": 45.4390643,
+  "lon": 11.0007529,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "telecamera ztl",
+    "surveillance": "public"
+  }
+},
+{
+  "type": "node",
+  "id": 3067070337,
+  "lat": 45.4396968,
+  "lon": 11.0005007,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "telecamera ZTL",
+    "surveillance": "public"
+  }
+},
+{
+  "type": "node",
+  "id": 3067212934,
+  "lat": 45.4427123,
+  "lon": 11.0008729,
+  "tags": {
+    "direction": "340",
+    "man_made": "surveillance",
+    "name": "telecamera ZTL",
+    "surveillance": "public",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 3246433945,
+  "lat": 45.4300626,
+  "lon": 10.9900928,
+  "tags": {
+    "highway": "speed_camera"
+  }
+},
+{
+  "type": "node",
+  "id": 4480637042,
+  "lat": 45.4289087,
+  "lon": 10.9721329,
+  "tags": {
+    "highway": "speed_camera",
+    "maxspeed": "70"
+  }
+},
+{
+  "type": "relation",
+  "id": 4022484,
+  "bounds": {
+    "minlat": 45.4389752,
+    "minlon": 11.0006742,
+    "maxlat": 45.4393305,
+    "maxlon": 11.0007547
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 80142539,
+      "role": "from",
+      "lat": 45.4393305,
+      "lon": 11.0007547
+    },
+    {
+      "type": "node",
+      "ref": 3067055044,
+      "role": "device",
+      "lat": 45.4390643,
+      "lon": 11.0007529
+    },
+    {
+      "type": "node",
+      "ref": 3067051093,
+      "role": "to",
+      "lat": 45.4389752,
+      "lon": 11.0006742
+    }
+  ],
+  "tags": {
+    "enforcement": "access",
+    "name": "ZTL",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 4022490,
+  "bounds": {
+    "minlat": 45.4396520,
+    "minlon": 11.0004498,
+    "maxlat": 45.4397055,
+    "maxlon": 11.0005173
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 2616174031,
+      "role": "from",
+      "lat": 45.4396520,
+      "lon": 11.0005173
+    },
+    {
+      "type": "node",
+      "ref": 3067070337,
+      "role": "device",
+      "lat": 45.4396968,
+      "lon": 11.0005007
+    },
+    {
+      "type": "node",
+      "ref": 1355642949,
+      "role": "to",
+      "lat": 45.4397055,
+      "lon": 11.0004498
+    }
+  ],
+  "tags": {
+    "enforcement": "access",
+    "name": "ZTL",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 4022627,
+  "bounds": {
+    "minlat": 45.4426263,
+    "minlon": 11.0008254,
+    "maxlat": 45.4433398,
+    "maxlon": 11.0008729
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 264488792,
+      "role": "from",
+      "lat": 45.4426263,
+      "lon": 11.0008514
+    },
+    {
+      "type": "node",
+      "ref": 3067212934,
+      "role": "device",
+      "lat": 45.4427123,
+      "lon": 11.0008729
+    },
+    {
+      "type": "node",
+      "ref": 264331498,
+      "role": "to",
+      "lat": 45.4433398,
+      "lon": 11.0008254
+    }
+  ],
+  "tags": {
+    "enforcement": "access",
+    "name": "ZTL",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 4030180,
+  "bounds": {
+    "minlat": 45.4352901,
+    "minlon": 10.9777395,
+    "maxlat": 45.4363689,
+    "maxlon": 10.9789972
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 262536001,
+      "role": "from",
+      "lat": 45.4352901,
+      "lon": 10.9789972
+    },
+    {
+      "type": "node",
+      "ref": 1799077400,
+      "role": "device",
+      "lat": 45.4362142,
+      "lon": 10.9780487
+    },
+    {
+      "type": "node",
+      "ref": 2546431394,
+      "role": "to",
+      "lat": 45.4363689,
+      "lon": 10.9777395
+    }
+  ],
+  "tags": {
+    "enforcement": "maxspeed",
+    "maxspeed": "50",
+    "name": "Autovelox 50 km/h",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 4030185,
+  "bounds": {
+    "minlat": 45.4299363,
+    "minlon": 10.9883174,
+    "maxlat": 45.4304214,
+    "maxlon": 10.9907218
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1386665391,
+      "role": "to",
+      "lat": 45.4299363,
+      "lon": 10.9907218
+    },
+    {
+      "type": "node",
+      "ref": 1789004636,
+      "role": "device",
+      "lat": 45.4300335,
+      "lon": 10.9900787
+    },
+    {
+      "type": "node",
+      "ref": 262534993,
+      "role": "from",
+      "lat": 45.4304214,
+      "lon": 10.9883174
+    }
+  ],
+  "tags": {
+    "enforcement": "maxspeed",
+    "maxspeed": "50",
+    "name": "autovelox 50 km/h",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20660033,
+  "bounds": {
+    "minlat": 45.4399348,
+    "minlon": 11.0154556,
+    "maxlat": 45.4402002,
+    "maxlon": 11.0155736
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 13808228471,
+      "role": "from",
+      "lat": 45.4399348,
+      "lon": 11.0154556
+    },
+    {
+      "type": "node",
+      "ref": 262366122,
+      "role": "device",
+      "lat": 45.4402002,
+      "lon": 11.0155736
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20660034,
+  "bounds": {
+    "minlat": 45.4483508,
+    "minlon": 10.9776345,
+    "maxlat": 45.4483832,
+    "maxlon": 10.9779005
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 13808228472,
+      "role": "from",
+      "lat": 45.4483832,
+      "lon": 10.9779005
+    },
+    {
+      "type": "node",
+      "ref": 9516622382,
+      "role": "device",
+      "lat": 45.4483508,
+      "lon": 10.9776345
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20660035,
+  "bounds": {
+    "minlat": 45.4297054,
+    "minlon": 10.9934469,
+    "maxlat": 45.4298110,
+    "maxlon": 10.9938998
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1386665383,
+      "role": "from",
+      "lat": 45.4297054,
+      "lon": 10.9934469
+    },
+    {
+      "type": "node",
+      "ref": 13808228473,
+      "role": "device",
+      "lat": 45.4298110,
+      "lon": 10.9938998
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+}
+
+  ]
+}

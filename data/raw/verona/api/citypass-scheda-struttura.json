@@ -1,0 +1,790 @@
+{
+ "metadata": {
+  "id": 7253,
+  "remoteId": "SERVIZI_MOBILITA_TRAFFICO_02",
+  "classIdentifier": "public_service",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/public_service",
+  "ownerId": 14,
+  "ownerName": {
+   "ita-IT": "Administrator User"
+  },
+  "mainNodeId": 7433,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2025-04-07T08:22:00+02:00",
+  "modified": "2025-04-07T08:38:55+02:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Citypass: inserimento scheda anagrafica struttura ricettiva"
+  },
+  "parentNodes": [
+   73
+  ],
+  "assignedNodes": [
+   {
+    "id": 7433,
+    "depth": 3,
+    "path_string": "/1/2/73/7433/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/7253",
+  "classDefinition": {
+   "identifier": "public_service",
+   "name": {
+    "eng-GB": "Public service",
+    "ger-DE": "Öffentlicher Dienst",
+    "ita-IT": "Servizio pubblico"
+   },
+   "fields": [
+    {
+     "identifier": "type",
+     "name": {
+      "eng-GB": "Service type",
+      "ger-DE": "Art des Dienstes",
+      "ita-IT": "Tipologia del servizio"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "name",
+     "name": {
+      "eng-GB": "Service name",
+      "ger-DE": "Benennung des Dienstes",
+      "ita-IT": "Nome del Servizio"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "identifier",
+     "name": {
+      "eng-GB": "Unique ID",
+      "ger-DE": "Einheitlicher Kodex",
+      "ita-IT": "Identificativo unico"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "other_service_code",
+     "name": {
+      "eng-GB": "Other ID code",
+      "ger-DE": "Anderer Identifizierungskodex",
+      "ita-IT": "Altro codice identificativo"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "has_service_status",
+     "name": {
+      "eng-GB": "Service status",
+      "ger-DE": "Status des Dienstes",
+      "ita-IT": "Stato del servizio"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "status_note",
+     "name": {
+      "eng-GB": "Reason for status",
+      "ger-DE": "Grund für den Status",
+      "ita-IT": "Motivo dello stato"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "alternative_name",
+     "name": {
+      "eng-GB": "Alternative heading/subheading",
+      "ger-DE": "Alternativer Titel/Untertitel",
+      "ita-IT": "Titolo alternativo/Sottotitolo"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Image",
+      "ger-DE": "Bild",
+      "ita-IT": "Immagine"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "image"
+     ]
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Short description",
+      "ger-DE": "Kurze Beschreibung",
+      "ita-IT": "Descrizione breve"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "audience",
+     "name": {
+      "eng-GB": "Description of recipients",
+      "ger-DE": "Beschreibung der Personengruppen, die diese Leistung in Anspruch nehmen",
+      "ita-IT": "Descrizione dei destinatari"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "has_spatial_coverage",
+     "name": {
+      "eng-GB": "Geographical coverage",
+      "ger-DE": "Geografische Abdeckung",
+      "ita-IT": "Copertura geografica"
+     },
+     "dataType": "openpacomuniitaliani",
+     "constraint": []
+    },
+    {
+     "identifier": "applicants",
+     "name": {
+      "eng-GB": "Who can request the service?",
+      "ger-DE": "Wer kann das Ansuchen stellen",
+      "ita-IT": "Chi può fare domanda"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "description",
+     "name": {
+      "eng-GB": "Full description",
+      "ger-DE": "Ausführliche Beschreibung",
+      "ita-IT": "Descrizione completa"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "process",
+     "name": {
+      "eng-GB": "Type of procedure",
+      "ger-DE": "Wie das Verfahren eingeleitet wird",
+      "ita-IT": "Tipologia di procedimento"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "service_keyword",
+     "name": {
+      "eng-GB": "Keywords",
+      "ger-DE": "Schlüsselwort",
+      "ita-IT": "Parole chiave"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "service_theme",
+     "name": {
+      "eng-GB": "Service theme",
+      "ger-DE": "Thema des Dienstes",
+      "ita-IT": "Tema del servizio"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "has_language",
+     "name": {
+      "eng-GB": "Language",
+      "ger-DE": "Sprache",
+      "ita-IT": "Lingua"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "how_to",
+     "name": {
+      "eng-GB": "How to do it",
+      "ger-DE": "So geht's",
+      "ita-IT": "Come si fa"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "has_input",
+     "name": {
+      "eng-GB": "Documents to be submitted",
+      "ger-DE": "Dokumente, die bei der Antragsstellung vorzulegen sind",
+      "ita-IT": "Documentazione da presentare"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "has_module_input",
+     "name": {
+      "eng-GB": "Forms",
+      "ger-DE": "Formulare",
+      "ita-IT": "Modulistica"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "document"
+     ]
+    },
+    {
+     "identifier": "produces_output",
+     "name": {
+      "eng-GB": "What you get (output)",
+      "ger-DE": "Was Sie erhalten (output)",
+      "ita-IT": "Cosa si ottiene (output)"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "output"
+     ]
+    },
+    {
+     "identifier": "has_processing_time_text",
+     "name": {
+      "eng-GB": "Timeline and deadlines",
+      "ger-DE": "Fristen und Fälligkeiten",
+      "ita-IT": "Tempi e scadenze"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "has_temporal_coverage",
+     "name": {
+      "eng-GB": "When",
+      "ger-DE": "Wann",
+      "ita-IT": "Quando"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "opening_hours_specification"
+     ]
+    },
+    {
+     "identifier": "has_processing_time",
+     "name": {
+      "eng-GB": "Maximum wait from date of request",
+      "ger-DE": "Maximale Bearbeitungszeit",
+      "ita-IT": "Giorni massimi di attesa, dalla richiesta"
+     },
+     "dataType": "ezinteger",
+     "constraint": []
+    },
+    {
+     "identifier": "average_processing_time",
+     "name": {
+      "eng-GB": "Average number of days from date of request",
+      "ger-DE": "Durchschnittliche Bearbeitungszeit",
+      "ita-IT": "Giorni medi di attesa, dalla richiesta"
+     },
+     "dataType": "ezinteger",
+     "constraint": []
+    },
+    {
+     "identifier": "requires_service",
+     "name": {
+      "eng-GB": "Required services",
+      "ger-DE": "Angeforderte Dienste",
+      "ita-IT": "Servizi richiesti"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_service"
+     ]
+    },
+    {
+     "identifier": "relation_service",
+     "name": {
+      "eng-GB": "Related services/Other services",
+      "ger-DE": "Zugeordnete Dienste/Andere Dienste",
+      "ita-IT": "Servizi correlati"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_service"
+     ]
+    },
+    {
+     "identifier": "has_cost",
+     "name": {
+      "eng-GB": "Costs",
+      "ger-DE": "Kosten und Gebühren",
+      "ita-IT": "Costi"
+     },
+     "dataType": "ezmatrix",
+     "constraint": []
+    },
+    {
+     "identifier": "has_cost_description",
+     "name": {
+      "eng-GB": "Description of costs",
+      "ger-DE": "Beschreibung der Kosten",
+      "ita-IT": "Descrizione dei costi"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "output_notes",
+     "name": {
+      "eng-GB": "Procedures related to the outcome",
+      "ger-DE": "Verfahren und damit verbundenes Ergebnis",
+      "ita-IT": "Procedure collegate all'esito"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "has_channel",
+     "name": {
+      "eng-GB": "Digital channels",
+      "ger-DE": "Digitale Kanäle",
+      "ita-IT": "Canali digitali"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "channel"
+     ]
+    },
+    {
+     "identifier": "is_physically_available_at_how_to",
+     "name": {
+      "eng-GB": "Instructions for accessing the service (physical channel)",
+      "ger-DE": "Anweisungen für den Zugriff auf den Dienst ",
+      "ita-IT": "Istruzioni per accedere al servizio (canale fisico)"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "is_physically_available_at",
+     "name": {
+      "eng-GB": "Where to go",
+      "ger-DE": "So erreichen Sie uns",
+      "ita-IT": "Dove recarsi"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "place"
+     ]
+    },
+    {
+     "identifier": "conditions",
+     "name": {
+      "eng-GB": "Restrictions",
+      "ger-DE": "Bedingungen",
+      "ita-IT": "Vincoli"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "exceptions",
+     "name": {
+      "eng-GB": "Special cases",
+      "ger-DE": "Sonderfälle",
+      "ita-IT": "Casi particolari"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "terms_of_service",
+     "name": {
+      "eng-GB": "Service terms and conditions",
+      "ger-DE": "Bedingungen",
+      "ita-IT": "Condizioni di servizio"
+     },
+     "dataType": "ocmultibinary",
+     "constraint": []
+    },
+    {
+     "identifier": "has_online_contact_point",
+     "name": {
+      "eng-GB": "Contacts",
+      "ger-DE": "Kontakt",
+      "ita-IT": "Punti di contatto"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "online_contact_point"
+     ]
+    },
+    {
+     "identifier": "holds_role_in_time",
+     "name": {
+      "eng-GB": "Responsible unit",
+      "ger-DE": "Verantwortliches Amt",
+      "ita-IT": "Unità organizzativa responsabile"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "organization"
+     ]
+    },
+    {
+     "identifier": "has_document",
+     "name": {
+      "eng-GB": "Documents",
+      "ger-DE": "Dokumente",
+      "ita-IT": "Documenti"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "document"
+     ]
+    },
+    {
+     "identifier": "topics",
+     "name": {
+      "eng-GB": "Topics",
+      "ger-DE": "Themen",
+      "ita-IT": "Argomenti"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "topic"
+     ]
+    },
+    {
+     "identifier": "has_authentication_method",
+     "name": {
+      "eng-GB": "Authentication",
+      "ger-DE": "Verfahren über welche sich die Bürger ausweisen können",
+      "ita-IT": "Autenticazione"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "has_interactivity_level",
+     "name": {
+      "eng-GB": "Level of interactivity",
+      "ger-DE": "Grad der Interaktivität",
+      "ita-IT": "Livello di interattività"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "on_line_booking",
+     "name": {
+      "eng-GB": "Making an appointment",
+      "ger-DE": "Termin vereinbaren",
+      "ita-IT": "Per prenotare"
+     },
+     "dataType": "ezurl",
+     "constraint": []
+    },
+    {
+     "identifier": "is_compliant_with_rule",
+     "name": {
+      "eng-GB": "Rules, guidelines and regulations",
+      "ger-DE": "Verordnungen, Richtlinien, Rechtsgrundlagen",
+      "ita-IT": "Regolamenti, linee guida, normative"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "document"
+     ]
+    },
+    {
+     "identifier": "link",
+     "name": {
+      "eng-GB": "Links to external sites",
+      "ger-DE": "Links zu externen Webseiten",
+      "ita-IT": "Link a siti esterni"
+     },
+     "dataType": "ezmatrix",
+     "constraint": []
+    },
+    {
+     "identifier": "ife_event",
+     "name": {
+      "eng-GB": "Life events",
+      "ger-DE": "Lebensereignis",
+      "ita-IT": "Life events"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "news_and_updates",
+     "name": {
+      "eng-GB": "News and updates",
+      "ger-DE": "Aktuelles",
+      "ita-IT": "Notizie e aggiornamenti"
+     },
+     "dataType": "openpareverserelationlist",
+     "constraint": []
+    },
+    {
+     "identifier": "business_event",
+     "name": {
+      "eng-GB": "Business events",
+      "ger-DE": "Geschäftliche Ereignisse",
+      "ita-IT": "Business events"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "service_sector",
+     "name": {
+      "eng-GB": "NACE",
+      "ger-DE": "NACE",
+      "ita-IT": "NACE"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "help",
+     "name": {
+      "eng-GB": "Help box",
+      "ger-DE": "Hilfebox",
+      "ita-IT": "Box d'aiuto"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "online_contact_point"
+     ]
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "type": [
+    "Mobilità e trasporti"
+   ],
+   "name": "Citypass: inserimento scheda anagrafica struttura ricettiva",
+   "identifier": "S_290",
+   "other_service_code": null,
+   "has_service_status": [
+    "Servizio attivo"
+   ],
+   "status_note": null,
+   "alternative_name": null,
+   "image": [],
+   "abstract": "Inserimento scheda anagrafica della struttura ricettiva per la quale si chiede il Citypass per i veicoli di servizio e/o i veicoli degli ospiti",
+   "audience": "<p>Strutture ricettive alberghiere ed extra alberghiere situate in Zona a Traffico Limitato (ZTL)</p>",
+   "has_spatial_coverage": [
+    {
+     "code": "023091",
+     "name": "Verona"
+    }
+   ],
+   "applicants": "<p>Gestori delle strutture ricettive alberghiere ed extra alberghiere</p>",
+   "description": "<p>Modulo compilabile anche online necessario per la registrazione della struttura ricettiva e la valutazione dei parametri di accettazione previsti dalla deliberazione della Giunta Comunale 41/2020.</p>",
+   "process": [
+    "Procedimento ad iniziativa privata"
+   ],
+   "service_keyword": [],
+   "service_theme": [],
+   "has_language": [
+    "Italiano"
+   ],
+   "how_to": "<p>\nCompilare e inviare il modulo online per la sottoscrizione dell'accordo.<br />In alternativa, compilare e firmare digitalmente il modulo [scaricabile] e inviarlo a: mobilita.traffico@pec.comune.verona.it</p>",
+   "has_input": "<p>Modulo compilato e firmato digitalmente</p>",
+   "has_module_input": [
+    {
+     "id": 2538,
+     "remoteId": "Mod_130",
+     "classIdentifier": "document",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/document",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Servizio citypass - anagrafica struttura ricettiva"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/2538",
+     "mainNodeId": "2586"
+    }
+   ],
+   "produces_output": [
+    {
+     "id": 5078,
+     "remoteId": "Output_489",
+     "classIdentifier": "output",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/output",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Adesione Protocollo d'Intesa da parte delle Strutture Ricettive per l'inserimento delle targhe ospiti in white-list (CityPASS - ZTL)."
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/5078",
+     "mainNodeId": "5139"
+    }
+   ],
+   "has_processing_time_text": "Verificare con uffici",
+   "has_temporal_coverage": [],
+   "has_processing_time": "45",
+   "average_processing_time": "0",
+   "requires_service": [],
+   "relation_service": [],
+   "has_cost": [],
+   "has_cost_description": "",
+   "output_notes": "",
+   "has_channel": [
+    {
+     "id": 7054,
+     "remoteId": "Citypass_Anagrafica_Struttura_Ricettiva",
+     "classIdentifier": "channel",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/channel",
+     "languages": [
+      "eng-GB",
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "eng-GB": "Citypass: inserimento anagrafica struttura ricettiva",
+      "ger-DE": "Citypass: inserimento anagrafica struttura ricettiva",
+      "ita-IT": "Citypass: inserimento anagrafica struttura ricettiva"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/7054",
+     "mainNodeId": "7234"
+    }
+   ],
+   "is_physically_available_at_how_to": "Compilare il modulo, firmarlo digitalmente e inviarlo via PEC a: mobilita.traffico@pec.comune.verona.it ",
+   "is_physically_available_at": [
+    {
+     "id": 348,
+     "remoteId": "luogo_uffici_17",
+     "classIdentifier": "place",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/place",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Sede uffici Lungadige Galtarossa"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/348",
+     "mainNodeId": "393"
+    }
+   ],
+   "conditions": "",
+   "exceptions": "",
+   "terms_of_service": [
+    {
+     "filename": "Termini e condizioni dei servizi",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/7253/147959/2/cf8d73931a9d2ef8cc31a3cbf83333bc.pdf/file/Termini_e_condizioni_dei_servizi.pdf",
+     "displayName": "Termini e condizioni dei servizi",
+     "group": "",
+     "text": ""
+    }
+   ],
+   "has_online_contact_point": [
+    {
+     "id": 1493,
+     "remoteId": "Contatto_57",
+     "classIdentifier": "online_contact_point",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/online_contact_point",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Contatti  Direzione Infrastrutture viarie e Mobilità"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/1493",
+     "mainNodeId": "1537"
+    }
+   ],
+   "holds_role_in_time": [
+    {
+     "id": 1523,
+     "remoteId": "UO126",
+     "classIdentifier": "organization",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/organization",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Direzione Infrastrutture viarie e Mobilità"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/1523",
+     "mainNodeId": "1567"
+    }
+   ],
+   "has_document": [],
+   "topics": [
+    {
+     "id": 121,
+     "remoteId": "topic_36",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Mobilität",
+      "ita-IT": "Trasporto pubblico"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/121",
+     "mainNodeId": "123"
+    },
+    {
+     "id": 200,
+     "remoteId": "abc9ab5b22d6f4a06ba477b75dafd075",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "ZTL"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/200",
+     "mainNodeId": "202"
+    }
+   ],
+   "has_authentication_method": [],
+   "has_interactivity_level": [],
+   "on_line_booking": null,
+   "is_compliant_with_rule": [],
+   "link": [],
+   "ife_event": [],
+   "news_and_updates": null,
+   "business_event": [],
+   "service_sector": [],
+   "help": []
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "geo": [
+    {
+     "longitude": "10.999056",
+     "latitude": "45.430952"
+    }
+   ],
+   "urlAlias": "/Servizi/Citypass-inserimento-scheda-anagrafica-struttura-ricettiva"
+  }
+ }
+}

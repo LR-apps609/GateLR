@@ -1,0 +1,168 @@
+{
+ "metadata": {
+  "id": 18197,
+  "remoteId": "b35ef3d4f74c4f255590f4816c639241",
+  "classIdentifier": "image",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/image",
+  "ownerId": 242,
+  "ownerName": {
+   "ita-IT": "Daniele Turella"
+  },
+  "mainNodeId": 18058,
+  "sectionIdentifier": "media",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2026-03-13T11:35:11+01:00",
+  "modified": "2026-03-13T11:35:11+01:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Referendum: ZTL aperta"
+  },
+  "parentNodes": [
+   6393
+  ],
+  "assignedNodes": [
+   {
+    "id": 18058,
+    "depth": 4,
+    "path_string": "/1/43/51/6393/18058/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/18197",
+  "classDefinition": {
+   "identifier": "image",
+   "name": {
+    "eng-GB": "Image",
+    "ger-DE": "Bild",
+    "ita-IT": "Immagine"
+   },
+   "fields": [
+    {
+     "identifier": "name",
+     "name": {
+      "eng-GB": "Name",
+      "ger-DE": "Name",
+      "ita-IT": "Nome"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "caption",
+     "name": {
+      "eng-GB": "Caption",
+      "ger-DE": "Beschriftung",
+      "ita-IT": "Didascalia"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Image file",
+      "ger-DE": "Bild-Datei",
+      "ita-IT": "File immagine"
+     },
+     "dataType": "ezimage",
+     "constraint": []
+    },
+    {
+     "identifier": "tags",
+     "name": {
+      "eng-GB": "Tags",
+      "ger-DE": "Schlagwörter",
+      "ita-IT": "Tags"
+     },
+     "dataType": "ezkeyword",
+     "constraint": []
+    },
+    {
+     "identifier": "license",
+     "name": {
+      "eng-GB": "Use licence",
+      "ger-DE": "Nutzungslizenz",
+      "ita-IT": "Licenza di utilizzo"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "proprietary_license",
+     "name": {
+      "eng-GB": "Proprietary licence",
+      "ger-DE": "Urheberlizenz (Bildnachweis)",
+      "ita-IT": "Licenza proprietaria"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "proprietary_license_source",
+     "name": {
+      "eng-GB": "Proprietary licence source",
+      "ger-DE": "Urheber- und Lizenzhinweise / Bildquelle",
+      "ita-IT": "Fonte della licenza proprietaria"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "author",
+     "name": {
+      "eng-GB": "Author",
+      "ger-DE": "Autor",
+      "ita-IT": "Autore"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "used_by",
+     "name": {
+      "eng-GB": "Used in",
+      "ger-DE": "Verwendet in",
+      "ita-IT": "Utilizzata in"
+     },
+     "dataType": "openpareverserelationlist",
+     "constraint": []
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "name": "Referendum: ZTL aperta",
+   "caption": "",
+   "image": {
+    "filename": "Referendum 2026-ZTL.png",
+    "url": "https://s3-eu-west-1.amazonaws.com/static.opencity.opencontent.it/var/verona/storage/images/media/images/ufficio-web/referendum-ztl-aperta/408369-1-ita-IT/Referendum-ZTL-aperta.png",
+    "alt": "",
+    "mime_type": "image/png",
+    "width": "1600",
+    "height": "900"
+   },
+   "tags": [],
+   "license": [
+    "Creative Commons Attribution 4.0 International (CC BY 4.0)"
+   ],
+   "proprietary_license": null,
+   "proprietary_license_source": null,
+   "author": "Comune di Verona",
+   "used_by": null
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "urlAlias": "/Media/Images/Ufficio-Web/Referendum-ZTL-aperta"
+  }
+ }
+}

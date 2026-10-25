@@ -1,0 +1,9 @@
+# Prenotazione accessi alla ZTL
+object 5053, published 2024-12-20T13:54:31+01:00, modified 2024-12-20T13:54:31+01:00
+URL: https://www.comune.verona.it/content/view/full/5114
+
+[object] Prenotazione accessi alla ZTL
+[has_channel_type] Applicazione Web
+[abstract] Per accedere alla Zona a Traffico Limitato del Comune di Verona
+[description] Il portale fornisce servizi agli utenti sprovvisti di autorizzazione per prenotare gli accessi temporanei in ZTL. Chi vive nel Comune di Verona o in provincia, può accedere alla ZTL fino a 4 volte al mese
+[channel_url] https://citypass.veronamobile.it/ar/|Prenotazione ingresso in ZTL

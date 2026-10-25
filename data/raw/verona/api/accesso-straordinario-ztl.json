@@ -1,0 +1,817 @@
+{
+ "metadata": {
+  "id": 7283,
+  "remoteId": "SERVIZI POLIZIALOCALE_PROTEZIONECIVILE_24",
+  "classIdentifier": "public_service",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/public_service",
+  "ownerId": 14,
+  "ownerName": {
+   "ita-IT": "Administrator User"
+  },
+  "mainNodeId": 7463,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2025-04-07T08:22:34+02:00",
+  "modified": "2025-11-25T14:19:43+01:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "Richiedere un accesso straordinario alla Zona a Traffico Limitato (ZTL)"
+  },
+  "parentNodes": [
+   73
+  ],
+  "assignedNodes": [
+   {
+    "id": 7463,
+    "depth": 3,
+    "path_string": "/1/2/73/7463/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/7283",
+  "classDefinition": {
+   "identifier": "public_service",
+   "name": {
+    "eng-GB": "Public service",
+    "ger-DE": "Öffentlicher Dienst",
+    "ita-IT": "Servizio pubblico"
+   },
+   "fields": [
+    {
+     "identifier": "type",
+     "name": {
+      "eng-GB": "Service type",
+      "ger-DE": "Art des Dienstes",
+      "ita-IT": "Tipologia del servizio"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "name",
+     "name": {
+      "eng-GB": "Service name",
+      "ger-DE": "Benennung des Dienstes",
+      "ita-IT": "Nome del Servizio"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "identifier",
+     "name": {
+      "eng-GB": "Unique ID",
+      "ger-DE": "Einheitlicher Kodex",
+      "ita-IT": "Identificativo unico"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "other_service_code",
+     "name": {
+      "eng-GB": "Other ID code",
+      "ger-DE": "Anderer Identifizierungskodex",
+      "ita-IT": "Altro codice identificativo"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "has_service_status",
+     "name": {
+      "eng-GB": "Service status",
+      "ger-DE": "Status des Dienstes",
+      "ita-IT": "Stato del servizio"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "status_note",
+     "name": {
+      "eng-GB": "Reason for status",
+      "ger-DE": "Grund für den Status",
+      "ita-IT": "Motivo dello stato"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "alternative_name",
+     "name": {
+      "eng-GB": "Alternative heading/subheading",
+      "ger-DE": "Alternativer Titel/Untertitel",
+      "ita-IT": "Titolo alternativo/Sottotitolo"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Image",
+      "ger-DE": "Bild",
+      "ita-IT": "Immagine"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "image"
+     ]
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Short description",
+      "ger-DE": "Kurze Beschreibung",
+      "ita-IT": "Descrizione breve"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "audience",
+     "name": {
+      "eng-GB": "Description of recipients",
+      "ger-DE": "Beschreibung der Personengruppen, die diese Leistung in Anspruch nehmen",
+      "ita-IT": "Descrizione dei destinatari"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "has_spatial_coverage",
+     "name": {
+      "eng-GB": "Geographical coverage",
+      "ger-DE": "Geografische Abdeckung",
+      "ita-IT": "Copertura geografica"
+     },
+     "dataType": "openpacomuniitaliani",
+     "constraint": []
+    },
+    {
+     "identifier": "applicants",
+     "name": {
+      "eng-GB": "Who can request the service?",
+      "ger-DE": "Wer kann das Ansuchen stellen",
+      "ita-IT": "Chi può fare domanda"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "description",
+     "name": {
+      "eng-GB": "Full description",
+      "ger-DE": "Ausführliche Beschreibung",
+      "ita-IT": "Descrizione completa"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "process",
+     "name": {
+      "eng-GB": "Type of procedure",
+      "ger-DE": "Wie das Verfahren eingeleitet wird",
+      "ita-IT": "Tipologia di procedimento"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "service_keyword",
+     "name": {
+      "eng-GB": "Keywords",
+      "ger-DE": "Schlüsselwort",
+      "ita-IT": "Parole chiave"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "service_theme",
+     "name": {
+      "eng-GB": "Service theme",
+      "ger-DE": "Thema des Dienstes",
+      "ita-IT": "Tema del servizio"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "has_language",
+     "name": {
+      "eng-GB": "Language",
+      "ger-DE": "Sprache",
+      "ita-IT": "Lingua"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "how_to",
+     "name": {
+      "eng-GB": "How to do it",
+      "ger-DE": "So geht's",
+      "ita-IT": "Come si fa"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "has_input",
+     "name": {
+      "eng-GB": "Documents to be submitted",
+      "ger-DE": "Dokumente, die bei der Antragsstellung vorzulegen sind",
+      "ita-IT": "Documentazione da presentare"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "has_module_input",
+     "name": {
+      "eng-GB": "Forms",
+      "ger-DE": "Formulare",
+      "ita-IT": "Modulistica"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "document"
+     ]
+    },
+    {
+     "identifier": "produces_output",
+     "name": {
+      "eng-GB": "What you get (output)",
+      "ger-DE": "Was Sie erhalten (output)",
+      "ita-IT": "Cosa si ottiene (output)"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "output"
+     ]
+    },
+    {
+     "identifier": "has_processing_time_text",
+     "name": {
+      "eng-GB": "Timeline and deadlines",
+      "ger-DE": "Fristen und Fälligkeiten",
+      "ita-IT": "Tempi e scadenze"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "has_temporal_coverage",
+     "name": {
+      "eng-GB": "When",
+      "ger-DE": "Wann",
+      "ita-IT": "Quando"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "opening_hours_specification"
+     ]
+    },
+    {
+     "identifier": "has_processing_time",
+     "name": {
+      "eng-GB": "Maximum wait from date of request",
+      "ger-DE": "Maximale Bearbeitungszeit",
+      "ita-IT": "Giorni massimi di attesa, dalla richiesta"
+     },
+     "dataType": "ezinteger",
+     "constraint": []
+    },
+    {
+     "identifier": "average_processing_time",
+     "name": {
+      "eng-GB": "Average number of days from date of request",
+      "ger-DE": "Durchschnittliche Bearbeitungszeit",
+      "ita-IT": "Giorni medi di attesa, dalla richiesta"
+     },
+     "dataType": "ezinteger",
+     "constraint": []
+    },
+    {
+     "identifier": "requires_service",
+     "name": {
+      "eng-GB": "Required services",
+      "ger-DE": "Angeforderte Dienste",
+      "ita-IT": "Servizi richiesti"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_service"
+     ]
+    },
+    {
+     "identifier": "relation_service",
+     "name": {
+      "eng-GB": "Related services/Other services",
+      "ger-DE": "Zugeordnete Dienste/Andere Dienste",
+      "ita-IT": "Servizi correlati"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "public_service"
+     ]
+    },
+    {
+     "identifier": "has_cost",
+     "name": {
+      "eng-GB": "Costs",
+      "ger-DE": "Kosten und Gebühren",
+      "ita-IT": "Costi"
+     },
+     "dataType": "ezmatrix",
+     "constraint": []
+    },
+    {
+     "identifier": "has_cost_description",
+     "name": {
+      "eng-GB": "Description of costs",
+      "ger-DE": "Beschreibung der Kosten",
+      "ita-IT": "Descrizione dei costi"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "output_notes",
+     "name": {
+      "eng-GB": "Procedures related to the outcome",
+      "ger-DE": "Verfahren und damit verbundenes Ergebnis",
+      "ita-IT": "Procedure collegate all'esito"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "has_channel",
+     "name": {
+      "eng-GB": "Digital channels",
+      "ger-DE": "Digitale Kanäle",
+      "ita-IT": "Canali digitali"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "channel"
+     ]
+    },
+    {
+     "identifier": "is_physically_available_at_how_to",
+     "name": {
+      "eng-GB": "Instructions for accessing the service (physical channel)",
+      "ger-DE": "Anweisungen für den Zugriff auf den Dienst ",
+      "ita-IT": "Istruzioni per accedere al servizio (canale fisico)"
+     },
+     "dataType": "eztext",
+     "constraint": []
+    },
+    {
+     "identifier": "is_physically_available_at",
+     "name": {
+      "eng-GB": "Where to go",
+      "ger-DE": "So erreichen Sie uns",
+      "ita-IT": "Dove recarsi"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "place"
+     ]
+    },
+    {
+     "identifier": "conditions",
+     "name": {
+      "eng-GB": "Restrictions",
+      "ger-DE": "Bedingungen",
+      "ita-IT": "Vincoli"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "exceptions",
+     "name": {
+      "eng-GB": "Special cases",
+      "ger-DE": "Sonderfälle",
+      "ita-IT": "Casi particolari"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "terms_of_service",
+     "name": {
+      "eng-GB": "Service terms and conditions",
+      "ger-DE": "Bedingungen",
+      "ita-IT": "Condizioni di servizio"
+     },
+     "dataType": "ocmultibinary",
+     "constraint": []
+    },
+    {
+     "identifier": "has_online_contact_point",
+     "name": {
+      "eng-GB": "Contacts",
+      "ger-DE": "Kontakt",
+      "ita-IT": "Punti di contatto"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "online_contact_point"
+     ]
+    },
+    {
+     "identifier": "holds_role_in_time",
+     "name": {
+      "eng-GB": "Responsible unit",
+      "ger-DE": "Verantwortliches Amt",
+      "ita-IT": "Unità organizzativa responsabile"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "organization"
+     ]
+    },
+    {
+     "identifier": "has_document",
+     "name": {
+      "eng-GB": "Documents",
+      "ger-DE": "Dokumente",
+      "ita-IT": "Documenti"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "document"
+     ]
+    },
+    {
+     "identifier": "topics",
+     "name": {
+      "eng-GB": "Topics",
+      "ger-DE": "Themen",
+      "ita-IT": "Argomenti"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "topic"
+     ]
+    },
+    {
+     "identifier": "has_authentication_method",
+     "name": {
+      "eng-GB": "Authentication",
+      "ger-DE": "Verfahren über welche sich die Bürger ausweisen können",
+      "ita-IT": "Autenticazione"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "has_interactivity_level",
+     "name": {
+      "eng-GB": "Level of interactivity",
+      "ger-DE": "Grad der Interaktivität",
+      "ita-IT": "Livello di interattività"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "on_line_booking",
+     "name": {
+      "eng-GB": "Making an appointment",
+      "ger-DE": "Termin vereinbaren",
+      "ita-IT": "Per prenotare"
+     },
+     "dataType": "ezurl",
+     "constraint": []
+    },
+    {
+     "identifier": "is_compliant_with_rule",
+     "name": {
+      "eng-GB": "Rules, guidelines and regulations",
+      "ger-DE": "Verordnungen, Richtlinien, Rechtsgrundlagen",
+      "ita-IT": "Regolamenti, linee guida, normative"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "document"
+     ]
+    },
+    {
+     "identifier": "link",
+     "name": {
+      "eng-GB": "Links to external sites",
+      "ger-DE": "Links zu externen Webseiten",
+      "ita-IT": "Link a siti esterni"
+     },
+     "dataType": "ezmatrix",
+     "constraint": []
+    },
+    {
+     "identifier": "ife_event",
+     "name": {
+      "eng-GB": "Life events",
+      "ger-DE": "Lebensereignis",
+      "ita-IT": "Life events"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "news_and_updates",
+     "name": {
+      "eng-GB": "News and updates",
+      "ger-DE": "Aktuelles",
+      "ita-IT": "Notizie e aggiornamenti"
+     },
+     "dataType": "openpareverserelationlist",
+     "constraint": []
+    },
+    {
+     "identifier": "business_event",
+     "name": {
+      "eng-GB": "Business events",
+      "ger-DE": "Geschäftliche Ereignisse",
+      "ita-IT": "Business events"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "service_sector",
+     "name": {
+      "eng-GB": "NACE",
+      "ger-DE": "NACE",
+      "ita-IT": "NACE"
+     },
+     "dataType": "eztags",
+     "constraint": []
+    },
+    {
+     "identifier": "help",
+     "name": {
+      "eng-GB": "Help box",
+      "ger-DE": "Hilfebox",
+      "ita-IT": "Box d'aiuto"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": [
+      "online_contact_point"
+     ]
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "type": [
+    "Mobilità e trasporti"
+   ],
+   "name": "Richiedere un accesso straordinario alla Zona a Traffico Limitato (ZTL)",
+   "identifier": "S_329",
+   "other_service_code": null,
+   "has_service_status": [
+    "Servizio attivo"
+   ],
+   "status_note": null,
+   "alternative_name": null,
+   "image": [],
+   "abstract": "Autorizzazione per accessi straordinari alla ZTL",
+   "audience": "<p>Tutti i cittadini.</p>",
+   "has_spatial_coverage": [
+    {
+     "code": "023091",
+     "name": "Verona"
+    }
+   ],
+   "applicants": "<p>I cittadini che, per motivi emergenziali, devono accedere alla ZTL.</p>",
+   "description": "\n<ul class=\"\">\n\n<li>Il servizio consente di ottenere un’autorizzazione emergenziale per il transito straordinario in ZTL (art. 18 Ord. Dir. n. 1365/2014).</li>\n\n<li><strong>La durata dell’autorizzazione</strong><strong> non può superare i 3 giorni </strong><strong>ed</strong> è rilasciabile <strong>solo </strong><strong>una volta ogni 3 mesi</strong> (art. 17, Ord. Dir. n. 1365/2014).</li>\n\n<li>La richiesta va inoltrata comunicando la targa del veicolo entro <strong>72 ore dal passaggio</strong> tramite la piattaforma: <strong><a href=\"https://accessiztl.comune.verona.it\" title=\"Vai alla pagina https://accessiztl.comune.v...\" style=\"word-break: break-word;display:inline\">https://accessiztl.comune.verona.it</a></strong></li>\n\n</ul>\n<p class=\" text-justify\"><strong>Le circostanze straordinarie e urgenti che consentono l’utilizzo del portale comprendono:</strong></p><p class=\" text-justify\">\n- <strong>Emergenze scolastiche:</strong> il permesso straordinario può essere richiesto dai titolari di “permesso scuole” riferito a istituti situati in ZTL, oppure dai genitori di studenti iscritti a scuole all’interno della ZTL.<br />\nL’autorizzazione è concessa quando, per cause impreviste o urgenti (malore, esigenze immediate, variazioni improvvise dell’orario scolastico), si renda necessario accompagnare o prelevare l’alunno al di fuori delle fasce orarie normalmente consentite.<br />La domanda deve essere accompagnata da una certificazione della scuola, su carta intestata, che confermi l’entrata tardiva, l’uscita anticipata o la natura straordinaria dell’evento.</p><p class=\" text-justify\">\n-<strong> Uso di veicolo sostitutivo: </strong>il permesso straordinario è disponibile per residenti o dimoranti in ZTL già titolari di un permesso attivo, quando non possono utilizzare il proprio veicolo per cause documentate (guasto, incidente, riparazioni).<br />\nÈ autorizzato il transito con un veicolo sostitutivo per un periodo massimo di 3 giorni.<br />\nAlla richiesta deve essere allegato il contratto di comodato o di noleggio del veicolo sostitutivo.<br /><strong>Per periodi superiori ai 3 giorni, l’autorizzazione deve essere richiesta direttamente all’AMT3 – Ufficio Permessi.</strong></p><p class=\" text-justify\">\n<strong>- Emergenze: interventi tecnici (titolari di permesso ZTL): </strong>destinato ai titolari di “permesso manutentori/assistenza tecnica”. L’autorizzazione consente l’accesso in ZTL al di fuori degli orari normalmente consentiti dal permesso, quando occorre intervenire su guasti, malfunzionamenti o situazioni che richiedono un intervento immediato, straordinario o non programmabile.<br />È obbligatorio presentare un rapporto d’intervento che descriva la natura dell’urgenza e, se disponibili, eventuali documenti di supporto (fattura, proforma, bolla di consegna).</p><p class=\" text-justify\">\n<strong>- Emergenze tecniche (senza permesso ZTL): </strong>rivolto a manutentori o ditte non titolari di un permesso ZTL che devono intervenire con urgenza per la messa in sicurezza di impianti idraulici, elettrici, ascensori, pozzi neri o immobili danneggiati da eventi improvvisi (allagamenti, guasti, cedimenti strutturali, ecc.).<br />La richiesta deve includere un rapporto d’intervento che descriva il contesto emergenziale e, quando presenti, documenti che comprovino la necessità dell’intervento urgente (fattura, proforma, bolla o altra documentazione tecnica).</p><p class=\" text-justify\"><strong>- Emergenze sanitarie: </strong> accesso consentito per ragioni di urgenza sanitaria che richiedono il transito immediato nella ZTL con un veicolo ammesso. La motivazione deve essere comprovata da documentazione rilasciata da strutture sanitarie pubbliche o convenzionate con il Servizio Sanitario Nazionale (SSN), che attesti la necessità e l’urgenza dello spostamento.</p><p class=\" text-justify\"><strong>- Motivi istituzionali o di pubblica necessità: </strong>autorizzazione concessa per un periodo massimo di 3 giorni a chi deve transitare in ZTL per esigenze legate a incarichi istituzionali, urgenti necessità operative o attività di pubblico interesse (es. accesso con veicoli di servizio, convocazioni urgenti in Prefettura, attività istituzionali non programmabili).</p><p class=\" text-justify\"><strong>- Transito occasionale per titolari di C.U.D.E.: </strong>consente la comunicazione del transito occasionale di veicoli che trasportano persone munite di Contrassegno Unificato Disabili Europeo, in caso di ingresso in ZTL non preventivamente registrato.</p><p class=\" text-justify\"><strong>- Transito occasionale TAXI/NCC: </strong>permette di comunicare l’ingresso occasionale in ZTL di veicoli autorizzati al servizio TAXI o di noleggio con conducente (NCC), qualora sia necessario effettuare un servizio che preveda l’accesso temporaneo all’area ristretta.</p>",
+   "process": [
+    "Procedimento ad iniziativa privata"
+   ],
+   "service_keyword": [],
+   "service_theme": [],
+   "has_language": [
+    "Italiano"
+   ],
+   "how_to": "<p>Accedere alla piattaforma: <strong><a href=\"https://accessiztl.comune.verona.it/\" title=\"Vai alla pagina https://accessiztl.comune.v...\" style=\"word-break: break-word;display:inline\">https://accessiztl.comune.verona.it</a> </strong>e compilare il modulo online.</p>",
+   "has_input": "\n<ul class=\"\">\n\n<li>Dati del veicolo.</li>\n\n<li>Motivazione dettagliata della richiesta di accesso.</li>\n\n<li>Documenti giustificativi o dichiarazione sostitutiva (Art. 47 D.P.R. n. 445/2000)</li>\n\n</ul>\n<p><strong>Avvertenza:</strong></p><p>Per i <strong>trasloch</strong>i, anche se limitati a una sola giornata, è obbligatorio presentare una <strong>domanda di concessione per l’occupazione temporanea di suolo pubblico</strong> almeno <strong>10 giorni prima</strong> della data prevista. La richiesta deve essere inoltrata a:</p><p><strong>Direzione Infrastrutture Viarie e Mobilità</strong></p><p>Lungadige Galtarossa 20/b – 37133 Verona</p><p>Telefono: 045 807 9270 – 045 807 9361</p><p>E-mail: <strong>traffico@comune.verona.it</strong></p>",
+   "has_module_input": [],
+   "produces_output": [
+    {
+     "id": 5184,
+     "remoteId": "Output_552",
+     "classIdentifier": "output",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/output",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Prenotazione accessi straordinari alla Z.T.L di Verona"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/5184",
+     "mainNodeId": "5245"
+    }
+   ],
+   "has_processing_time_text": null,
+   "has_temporal_coverage": [],
+   "has_processing_time": "3",
+   "average_processing_time": null,
+   "requires_service": [],
+   "relation_service": [],
+   "has_cost": [],
+   "has_cost_description": "",
+   "output_notes": "",
+   "has_channel": [
+    {
+     "id": 5062,
+     "remoteId": "Portale_Accessi_Straordinari_alla_Z.T.L_di_Verona",
+     "classIdentifier": "channel",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/channel",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Prenotare l'accesso straordinario alla ZTL"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/5062",
+     "mainNodeId": "5123"
+    }
+   ],
+   "is_physically_available_at_how_to": null,
+   "is_physically_available_at": [
+    {
+     "id": 626,
+     "remoteId": "luogo_uffici_7",
+     "classIdentifier": "place",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/place",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Sede Polizia Locale"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/626",
+     "mainNodeId": "670"
+    }
+   ],
+   "conditions": "",
+   "exceptions": "",
+   "terms_of_service": [
+    {
+     "filename": "Termini e condizioni dei servizi",
+     "url": "https://www.comune.verona.it/ocmultibinary/download/7283/149459/8/4c671d9704b823d67ebd4864a215c292.pdf/file/Termini_e_condizioni_dei_servizi.pdf",
+     "displayName": "Termini e condizioni dei servizi",
+     "group": "",
+     "text": ""
+    }
+   ],
+   "has_online_contact_point": [
+    {
+     "id": 6494,
+     "remoteId": "Contatto_ufficio_235",
+     "classIdentifier": "online_contact_point",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/online_contact_point",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Contatti Ufficio Front-Office Sanzioni Amministrative Polizia Locale"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/6494",
+     "mainNodeId": "6579"
+    },
+    {
+     "id": 1276,
+     "remoteId": "Contatto_20",
+     "classIdentifier": "online_contact_point",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/online_contact_point",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Contatti Direzione Polizia Locale e Protezione Civile"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/1276",
+     "mainNodeId": "1320"
+    }
+   ],
+   "holds_role_in_time": [
+    {
+     "id": 1537,
+     "remoteId": "UO165",
+     "classIdentifier": "organization",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/organization",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "Direzione Polizia Locale e Protezione Civile"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/1537",
+     "mainNodeId": "1581"
+    }
+   ],
+   "has_document": [],
+   "topics": [
+    {
+     "id": 110,
+     "remoteId": "topic_1_giustizia_sistema_giuridico_e_sicurezza_pubblica",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Recht, öffentliche Sicherheit und Ordnung",
+      "ita-IT": "Diritto"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/110",
+     "mainNodeId": "112"
+    },
+    {
+     "id": 143,
+     "remoteId": "topic_3_polizia",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Polizei",
+      "ita-IT": "Polizia"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/143",
+     "mainNodeId": "145"
+    },
+    {
+     "id": 121,
+     "remoteId": "topic_36",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ger-DE",
+      "ita-IT"
+     ],
+     "name": {
+      "ger-DE": "Mobilität",
+      "ita-IT": "Trasporto pubblico"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/121",
+     "mainNodeId": "123"
+    },
+    {
+     "id": 200,
+     "remoteId": "abc9ab5b22d6f4a06ba477b75dafd075",
+     "classIdentifier": "topic",
+     "class": "http://www.comune.verona.it/api/opendata/v2/classes/topic",
+     "languages": [
+      "ita-IT"
+     ],
+     "name": {
+      "ita-IT": "ZTL"
+     },
+     "link": "http://www.comune.verona.it/api/opendata/v2/content/read/200",
+     "mainNodeId": "202"
+    }
+   ],
+   "has_authentication_method": [],
+   "has_interactivity_level": [],
+   "on_line_booking": null,
+   "is_compliant_with_rule": [],
+   "link": [],
+   "ife_event": [],
+   "news_and_updates": null,
+   "business_event": [],
+   "service_sector": [],
+   "help": []
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "geo": [
+    {
+     "longitude": "10.996264",
+     "latitude": "45.434392"
+    }
+   ],
+   "urlAlias": "/Servizi/Richiedere-un-accesso-straordinario-alla-Zona-a-Traffico-Limitato-ZTL"
+  }
+ }
+}

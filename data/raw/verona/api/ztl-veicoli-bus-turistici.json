@@ -1,0 +1,148 @@
+{
+ "metadata": {
+  "id": 10553,
+  "remoteId": "f59640629a07787d12e80b0b11b076af",
+  "classIdentifier": "link",
+  "class": "http://www.comune.verona.it/api/opendata/v2/classes/link",
+  "ownerId": 243,
+  "ownerName": {
+   "ita-IT": "Elena Baldassari"
+  },
+  "mainNodeId": 10805,
+  "sectionIdentifier": "standard",
+  "stateIdentifiers": [
+   "ez_lock.not_locked",
+   "opencity_lock.not_locked",
+   "moderation.skipped",
+   "privacy.public",
+   "albotelematico.visibile",
+   "concorso.nuovo"
+  ],
+  "published": "2025-07-01T13:19:34+02:00",
+  "modified": "2025-07-01T13:29:52+02:00",
+  "languages": [
+   "ita-IT"
+  ],
+  "name": {
+   "ita-IT": "La ZTL: per veicoli e bus turistici "
+  },
+  "parentNodes": [
+   10695
+  ],
+  "assignedNodes": [
+   {
+    "id": 10805,
+    "depth": 4,
+    "path_string": "/1/43/205/10695/10805/"
+   }
+  ],
+  "link": "http://www.comune.verona.it/api/opendata/v2/content/read/10553",
+  "classDefinition": {
+   "identifier": "link",
+   "name": {
+    "eng-GB": "Link",
+    "ger-DE": "Link",
+    "ita-IT": "Link"
+   },
+   "fields": [
+    {
+     "identifier": "name",
+     "name": {
+      "eng-GB": "Name",
+      "ger-DE": "Name",
+      "ita-IT": "Nome"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "short_name",
+     "name": {
+      "eng-GB": "Short name",
+      "ger-DE": "Kurzer Name",
+      "ita-IT": "Nome breve"
+     },
+     "dataType": "ezstring",
+     "constraint": []
+    },
+    {
+     "identifier": "abstract",
+     "name": {
+      "eng-GB": "Give a brief description of the service",
+      "ger-DE": "Kurze Beschreibung",
+      "ita-IT": "Indicare una sintetica descrizione del servizio"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "location",
+     "name": {
+      "eng-GB": "External link",
+      "ger-DE": "Externer Link",
+      "ita-IT": "Link esterno"
+     },
+     "dataType": "ezurl",
+     "constraint": []
+    },
+    {
+     "identifier": "internal_location",
+     "name": {
+      "eng-GB": "Internal link",
+      "ger-DE": "Interner Link",
+      "ita-IT": "Link interno"
+     },
+     "dataType": "ezobjectrelationlist",
+     "constraint": []
+    },
+    {
+     "identifier": "descrizione",
+     "name": {
+      "eng-GB": "Description",
+      "ger-DE": "Beschreibung",
+      "ita-IT": "Descrizione"
+     },
+     "dataType": "ezxmltext",
+     "constraint": []
+    },
+    {
+     "identifier": "image",
+     "name": {
+      "eng-GB": "Image",
+      "ger-DE": "Bild",
+      "ita-IT": "Immagine"
+     },
+     "dataType": "ezimage",
+     "constraint": []
+    },
+    {
+     "identifier": "data_archiviazione",
+     "name": {
+      "eng-GB": "Archive date",
+      "ger-DE": "Archivierungsdatum",
+      "ita-IT": "Data di archiviazione"
+     },
+     "dataType": "ezdate",
+     "constraint": []
+    }
+   ]
+  }
+ },
+ "data": {
+  "ita-IT": {
+   "name": "La ZTL: per veicoli e bus turistici",
+   "short_name": null,
+   "abstract": "<p>Nel centro storico di Verona l’accesso e la circolazione dei veicoli sono limitati a ore prestabilite e a particolari categorie di utenti</p>",
+   "location": "https://www.amt3.it/ztl-verona/",
+   "internal_location": [],
+   "descrizione": "",
+   "image": null,
+   "data_archiviazione": null
+  }
+ },
+ "extradata": {
+  "ita-IT": {
+   "urlAlias": "/Media/Banner-e-link/AMT3/La-ZTL-per-veicoli-e-bus-turistici"
+  }
+ }
+}

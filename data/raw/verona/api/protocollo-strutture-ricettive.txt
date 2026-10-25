@@ -1,0 +1,6 @@
+# Adesione Protocollo d'Intesa da parte delle Strutture Ricettive per l'inserimento delle targhe ospiti in white-list (CityPASS - ZTL).
+object 5078, published 2024-12-20T13:54:35+01:00, modified 2024-12-20T13:54:35+01:00
+URL: https://www.comune.verona.it/content/view/full/5139
+
+[name] Adesione Protocollo d'Intesa da parte delle Strutture Ricettive per l'inserimento delle targhe ospiti in white-list (CityPASS - ZTL).
+[has_service_input_output_type] Documentazione amministrativa

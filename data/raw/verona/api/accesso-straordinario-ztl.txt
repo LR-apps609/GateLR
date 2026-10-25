@@ -1,0 +1,144 @@
+# Richiedere un accesso straordinario alla Zona a Traffico Limitato (ZTL)
+object 7283, published 2025-04-07T08:22:34+02:00, modified 2025-11-25T14:19:43+01:00
+URL: https://www.comune.verona.it/content/view/full/7463
+
+[type] Mobilità e trasporti
+[name] Richiedere un accesso straordinario alla Zona a Traffico Limitato (ZTL)
+[identifier] S_329
+[has_service_status] Servizio attivo
+[abstract] Autorizzazione per accessi straordinari alla ZTL
+[audience] Tutti i cittadini.
+[code] 023091
+[name] Verona
+[applicants] I cittadini che, per motivi emergenziali, devono accedere alla ZTL.
+[description] Il servizio consente di ottenere un’autorizzazione emergenziale per il transito straordinario in ZTL (art. 18 Ord. Dir. n. 1365/2014).
+
+
+ La durata dell’autorizzazione non può superare i 3 giorni ed è rilasciabile solo una volta ogni 3 mesi (art. 17, Ord. Dir. n. 1365/2014).
+
+
+ La richiesta va inoltrata comunicando la targa del veicolo entro 72 ore dal passaggio tramite la piattaforma: https://accessiztl.comune.verona.it 
+
+
+ 
+ Le circostanze straordinarie e urgenti che consentono l’utilizzo del portale comprendono: 
+ 
+- Emergenze scolastiche: il permesso straordinario può essere richiesto dai titolari di “permesso scuole” riferito a istituti situati in ZTL, oppure dai genitori di studenti iscritti a scuole all’interno della ZTL.
+
+L’autorizzazione è concessa quando, per cause impreviste o urgenti (malore, esigenze immediate, variazioni improvvise dell’orario scolastico), si renda necessario accompagnare o prelevare l’alunno al di fuori delle fasce orarie normalmente consentite.
+La domanda deve essere accompagnata da una certificazione della scuola, su carta intestata, che confermi l’entrata tardiva, l’uscita anticipata o la natura straordinaria dell’evento.
+ 
+- Uso di veicolo sostitutivo: il permesso straordinario è disponibile per residenti o dimoranti in ZTL già titolari di un permesso attivo, quando non possono utilizzare il proprio veicolo per cause documentate (guasto, incidente, riparazioni).
+
+È autorizzato il transito con un veicolo sostitutivo per un periodo massimo di 3 giorni.
+
+Alla richiesta deve essere allegato il contratto di comodato o di noleggio del veicolo sostitutivo.
+ Per periodi superiori ai 3 giorni, l’autorizzazione deve essere richiesta direttamente all’AMT3 – Ufficio Permessi. 
+ 
+ - Emergenze: interventi tecnici (titolari di permesso ZTL): destinato ai titolari di “permesso manutentori/assistenza tecnica”. L’autorizzazione consente l’accesso in ZTL al di fuori degli orari normalmente consentiti dal permesso, quando occorre intervenire su guasti, malfunzionamenti o situazioni che richiedono un intervento immediato, straordinario o non programmabile.
+È obbligatorio presentare un rapporto d’intervento che descriva la natura dell’urgenza e, se disponibili, eventuali documenti di supporto (fattura, proforma, bolla di consegna).
+ 
+ - Emergenze tecniche (senza permesso ZTL): rivolto a manutentori o ditte non titolari di un permesso ZTL che devono intervenire con urgenza per la messa in sicurezza di impianti idraulici, elettrici, ascensori, pozzi neri o immobili danneggiati da eventi improvvisi (allagamenti, guasti, cedimenti strutturali, ecc.).
+La richiesta deve includere un rapporto d’intervento che descriva il contesto emergenziale e, quando presenti, documenti che comprovino la necessità dell’intervento urgente (fattura, proforma, bolla o altra documentazione tecnica).
+ - Emergenze sanitarie: accesso consentito per ragioni di urgenza sanitaria che richiedono il transito immediato nella ZTL con un veicolo ammesso. La motivazione deve essere comprovata da documentazione rilasciata da strutture sanitarie pubbliche o convenzionate con il Servizio Sanitario Nazionale (SSN), che attesti la necessità e l’urgenza dello spostamento.
+ - Motivi istituzionali o di pubblica necessità: autorizzazione concessa per un periodo massimo di 3 giorni a chi deve transitare in ZTL per esigenze legate a incarichi istituzionali, urgenti necessità operative o attività di pubblico interesse (es. accesso con veicoli di servizio, convocazioni urgenti in Prefettura, attività istituzionali non programmabili).
+ - Transito occasionale per titolari di C.U.D.E.: consente la comunicazione del transito occasionale di veicoli che trasportano persone munite di Contrassegno Unificato Disabili Europeo, in caso di ingresso in ZTL non preventivamente registrato.
+ - Transito occasionale TAXI/NCC: permette di comunicare l’ingresso occasionale in ZTL di veicoli autorizzati al servizio TAXI o di noleggio con conducente (NCC), qualora sia necessario effettuare un servizio che preveda l’accesso temporaneo all’area ristretta.
+[process] Procedimento ad iniziativa privata
+[has_language] Italiano
+[how_to] Accedere alla piattaforma: https://accessiztl.comune.verona.it e compilare il modulo online.
+[has_input] Dati del veicolo.
+
+
+ Motivazione dettagliata della richiesta di accesso.
+
+
+ Documenti giustificativi o dichiarazione sostitutiva (Art. 47 D.P.R. n. 445/2000)
+
+
+ 
+ Avvertenza: 
+ Per i trasloch i, anche se limitati a una sola giornata, è obbligatorio presentare una domanda di concessione per l’occupazione temporanea di suolo pubblico almeno 10 giorni prima della data prevista. La richiesta deve essere inoltrata a:
+ Direzione Infrastrutture Viarie e Mobilità 
+ Lungadige Galtarossa 20/b – 37133 Verona
+ Telefono: 045 807 9270 – 045 807 9361
+ E-mail: traffico@comune.verona.it
+[remoteId] Output_552
+[classIdentifier] output
+[class] http://www.comune.verona.it/api/opendata/v2/classes/output
+[languages] ita-IT
+[ita-IT] Prenotazione accessi straordinari alla Z.T.L di Verona
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/5184
+[mainNodeId] 5245
+[remoteId] Portale_Accessi_Straordinari_alla_Z.T.L_di_Verona
+[classIdentifier] channel
+[class] http://www.comune.verona.it/api/opendata/v2/classes/channel
+[languages] ita-IT
+[ita-IT] Prenotare l'accesso straordinario alla ZTL
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/5062
+[mainNodeId] 5123
+[remoteId] luogo_uffici_7
+[classIdentifier] place
+[class] http://www.comune.verona.it/api/opendata/v2/classes/place
+[languages] ita-IT
+[ita-IT] Sede Polizia Locale
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/626
+[mainNodeId] 670
+[terms_of_service] FILE Termini e condizioni dei servizi https://www.comune.verona.it/ocmultibinary/download/7283/149459/8/4c671d9704b823d67ebd4864a215c292.pdf/file/Termini_e_condizioni_dei_servizi.pdf
+[filename] Termini e condizioni dei servizi
+[displayName] Termini e condizioni dei servizi
+[remoteId] Contatto_ufficio_235
+[classIdentifier] online_contact_point
+[class] http://www.comune.verona.it/api/opendata/v2/classes/online_contact_point
+[languages] ita-IT
+[ita-IT] Contatti Ufficio Front-Office Sanzioni Amministrative Polizia Locale
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/6494
+[mainNodeId] 6579
+[remoteId] Contatto_20
+[classIdentifier] online_contact_point
+[class] http://www.comune.verona.it/api/opendata/v2/classes/online_contact_point
+[languages] ita-IT
+[ita-IT] Contatti Direzione Polizia Locale e Protezione Civile
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1276
+[mainNodeId] 1320
+[remoteId] UO165
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Direzione Polizia Locale e Protezione Civile
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1537
+[mainNodeId] 1581
+[remoteId] topic_1_giustizia_sistema_giuridico_e_sicurezza_pubblica
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Recht, öffentliche Sicherheit und Ordnung
+[ita-IT] Diritto
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/110
+[mainNodeId] 112
+[remoteId] topic_3_polizia
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Polizei
+[ita-IT] Polizia
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/143
+[mainNodeId] 145
+[remoteId] topic_36
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Mobilität
+[ita-IT] Trasporto pubblico
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/121
+[mainNodeId] 123
+[remoteId] abc9ab5b22d6f4a06ba477b75dafd075
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] ZTL
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/200
+[mainNodeId] 202

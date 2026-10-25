@@ -1,0 +1,87 @@
+# Citypass: inserimento scheda anagrafica struttura ricettiva
+object 7253, published 2025-04-07T08:22:00+02:00, modified 2025-04-07T08:38:55+02:00
+URL: https://www.comune.verona.it/content/view/full/7433
+
+[type] Mobilità e trasporti
+[name] Citypass: inserimento scheda anagrafica struttura ricettiva
+[identifier] S_290
+[has_service_status] Servizio attivo
+[abstract] Inserimento scheda anagrafica della struttura ricettiva per la quale si chiede il Citypass per i veicoli di servizio e/o i veicoli degli ospiti
+[audience] Strutture ricettive alberghiere ed extra alberghiere situate in Zona a Traffico Limitato (ZTL)
+[code] 023091
+[name] Verona
+[applicants] Gestori delle strutture ricettive alberghiere ed extra alberghiere
+[description] Modulo compilabile anche online necessario per la registrazione della struttura ricettiva e la valutazione dei parametri di accettazione previsti dalla deliberazione della Giunta Comunale 41/2020.
+[process] Procedimento ad iniziativa privata
+[has_language] Italiano
+[how_to] Compilare e inviare il modulo online per la sottoscrizione dell'accordo.
+In alternativa, compilare e firmare digitalmente il modulo [scaricabile] e inviarlo a: mobilita.traffico@pec.comune.verona.it
+[has_input] Modulo compilato e firmato digitalmente
+[remoteId] Mod_130
+[classIdentifier] document
+[class] http://www.comune.verona.it/api/opendata/v2/classes/document
+[languages] ita-IT
+[ita-IT] Servizio citypass - anagrafica struttura ricettiva
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/2538
+[mainNodeId] 2586
+[remoteId] Output_489
+[classIdentifier] output
+[class] http://www.comune.verona.it/api/opendata/v2/classes/output
+[languages] ita-IT
+[ita-IT] Adesione Protocollo d'Intesa da parte delle Strutture Ricettive per l'inserimento delle targhe ospiti in white-list (CityPASS - ZTL).
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/5078
+[mainNodeId] 5139
+[has_processing_time_text] Verificare con uffici
+[has_processing_time] 45
+[remoteId] Citypass_Anagrafica_Struttura_Ricettiva
+[classIdentifier] channel
+[class] http://www.comune.verona.it/api/opendata/v2/classes/channel
+[languages] eng-GB
+[languages] ger-DE
+[languages] ita-IT
+[eng-GB] Citypass: inserimento anagrafica struttura ricettiva
+[ger-DE] Citypass: inserimento anagrafica struttura ricettiva
+[ita-IT] Citypass: inserimento anagrafica struttura ricettiva
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/7054
+[mainNodeId] 7234
+[is_physically_available_at_how_to] Compilare il modulo, firmarlo digitalmente e inviarlo via PEC a: mobilita.traffico@pec.comune.verona.it
+[remoteId] luogo_uffici_17
+[classIdentifier] place
+[class] http://www.comune.verona.it/api/opendata/v2/classes/place
+[languages] ita-IT
+[ita-IT] Sede uffici Lungadige Galtarossa
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/348
+[mainNodeId] 393
+[terms_of_service] FILE Termini e condizioni dei servizi https://www.comune.verona.it/ocmultibinary/download/7253/147959/2/cf8d73931a9d2ef8cc31a3cbf83333bc.pdf/file/Termini_e_condizioni_dei_servizi.pdf
+[filename] Termini e condizioni dei servizi
+[displayName] Termini e condizioni dei servizi
+[remoteId] Contatto_57
+[classIdentifier] online_contact_point
+[class] http://www.comune.verona.it/api/opendata/v2/classes/online_contact_point
+[languages] ita-IT
+[ita-IT] Contatti Direzione Infrastrutture viarie e Mobilità
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1493
+[mainNodeId] 1537
+[remoteId] UO126
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Direzione Infrastrutture viarie e Mobilità
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1523
+[mainNodeId] 1567
+[remoteId] topic_36
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Mobilität
+[ita-IT] Trasporto pubblico
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/121
+[mainNodeId] 123
+[remoteId] abc9ab5b22d6f4a06ba477b75dafd075
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] ZTL
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/200
+[mainNodeId] 202

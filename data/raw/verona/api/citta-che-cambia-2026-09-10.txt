@@ -1,0 +1,68 @@
+# La città che cambia. I cantieri, le criticità e le misure di mitigazione
+object 24217, published 2026-09-10T00:00:00+02:00, modified 2026-09-11T10:31:56+02:00
+URL: https://www.comune.verona.it/content/view/full/23543
+
+[title] La città che cambia. I cantieri, le criticità e le misure di mitigazione
+[content_type] Comunicato stampa
+[abstract] Criticità legate al traffico e le misure adottate per ridurne i disagi
+[published] 2026-09-10T00:00:00+02:00
+[remoteId] topic_1_governo_e_settore_pubblico
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Politik und Verwaltung
+[ita-IT] Politica
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/116
+[mainNodeId] 118
+[remoteId] topic_9
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ita-IT
+[ita-IT] Comunicazione istituzionale
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/172
+[mainNodeId] 174
+[remoteId] topic_36
+[classIdentifier] topic
+[class] http://www.comune.verona.it/api/opendata/v2/classes/topic
+[languages] ger-DE
+[languages] ita-IT
+[ger-DE] Mobilität
+[ita-IT] Trasporto pubblico
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/121
+[mainNodeId] 123
+[body] “Alcune opere sono state fatte e altre sono in fase di ultimazione – sottolinea l’assessore alla Mobilità Tommaso Ferrari –. I cantieri, realizzati e in corso, portano con sé alcuni disagi che ogni giorno cerchiamo di mitigare. E’ sempre da ricordare però che si tratta di opere necessarie e che porteranno a breve, medio e lungo termine beneficio alla città dal punto di vista viario, sia in termini di sicurezza che di servizi offerti”.
+
+
+ 
+ Cosa cambia . L'intervento più rilevante, per dimensione e per impatto sulla mobilità quotidiana, è la realizzazione del sistema filoviario cittadino. Si tratta di un'opera di sistema, non di un singolo cantiere: interessa più direttrici con la creazione di corsie riservate al mezzo pubblico, la riqualificazione degli incroci e la ritaratura degli impianti semaforici. I cantieri attuali sono concentrati nella zona di Veronetta – Porta Vescovo, nella zona sud (viale del Commercio) e in via Cà di Cozzi dove sono in corso lavori sui marciapiedi. La filovia produce l'impatto viabilistico più diffuso e prolungato.
+ Sovrappasso di viale Piave . Proseguono i lavori di adeguamento statico del cavalcavia di viale Piave che proseguiranno per tutto il mese di ottobre.
+ Piste ciclabili . Sono in fase di realizzazione numerose piste ciclabili. Ormai completato l’itinerario 17 di collegamento tra Parona e il centro città, sono in fase di completamento i tratti di via Battisti, via del Fante, Basso Acquar e l’itinerario di collegamento tra via Fincato e via Verdi.
+ Accanto alle grandi opere procede il piano ordinario . Per il 2026 gli uffici hanno predisposto una programmazione dettagliata delle asfaltature, elaborata a partire dalle priorità segnalate dalle Circoscrizioni e in coordinamento con le aziende partecipate del territorio. A questa si aggiungono gli interventi sui sottoservizi — reti idriche, elettriche, gas, telecomunicazioni e fibra — che vedono operare gestori come V-RETI, AGSM AIM, Acque Veronesi e altri operatori privati. I cantieri principali sono in questi giorni in corso Venezia, lung. Attiraglio, ponte Catena, via San Francesco. Sono state completate nei giorni scorsi importanti asfaltature in via Tombetta, via Santa Chiara, via Santa Chiara, via Redentore, via Muro Padri e nella zona di Borgo Nuovo.
+ Le principali criticità che i cantieri generano sono :
+ La riduzione di carreggiate e le deviazioni concentrano il traffico su itinerari alternativi, con code e allungamento dei tempi di percorrenza, specie nelle ore di punta.
+ Le modifiche viabilistiche comportano spostamenti di fermate e variazioni di percorso delle linee, che richiedono un adeguamento continuo del servizio.
+ Chi abita o lavora nelle zone interessate subisce limitazioni di accesso e difficoltà di sosta.
+ Segnaletica in costante aggiornamento 
+ La presenza di aree di lavoro, segnaletica provvisoria e percorsi pedonali modificati richiede prudenza e una segnaletica sempre aggiornata e leggibile.
+ A fronte di queste criticità, l'Amministrazione mette in campo un insieme strutturato di misure di mitigazione e governo .
+ La Direzione Infrastrutture Viarie e Mobilità, in collaborazione con la Polizia Locale e con il supporto dell'Ufficio Manomissioni Stradali, esercita la regia sulle occupazioni di suolo pubblico e sui provvedimenti viabilistici. Ogni cantiere è disciplinato da un'ordinanza dirigenziale che definisce fasi, durata e prescrizioni; il coordinamento tra i diversi soggetti attuatori e i gestori dei sottoservizi serve proprio a evitare sovrapposizioni non necessarie e a scaglionare gli interventi.
+ Le modifiche alla circolazione sono progettate per fasi anche in collaborazione con la Polizia Locale. L'obiettivo è mantenere sempre percorribile la rete, adattandola dinamicamente all'avanzamento dei lavori. AMT3, ATV, AMIA, V-RETI, AGSM AIM, Acque Veronesi e gli altri gestori sono destinatari sistematici dei provvedimenti e parte del tavolo di coordinamento, così da allineare per quanto possibile lavori stradali e interventi sulle reti.
+ Ogni provvedimento viene pubblicato e diffuso attraverso i canali istituzionali: URP, sito del Comune, profili social e le newsletter dedicate, oltre alla segnaletica temporanea sul posto. Ai cittadini si raccomanda costantemente di prestare attenzione alla segnaletica provvisoria, procedere con prudenza in prossimità delle aree di cantiere e privilegiare, dove possibile, il trasporto pubblico e gli spostamenti a piedi.
+ Le soluzioni compensative per gli utenti 
+ Dove i cantieri impediscono l'accesso ai garage o l'utilizzo dei posti auto abituali, sono previste soluzioni compensative — come i permessi per la sosta gratuita su strada rilasciati da AMT3 nelle zone interessate — e, più in generale, prescrizioni che salvaguardano l'accesso dei frontisti, dei mezzi di soccorso e delle operazioni di carico e scarico per le attività economiche. 
+ La programmazione tiene conto dei periodi di maggiore criticità. I lavori vengono, quando possibile, sospesi o ridotti in occasione dei grandi eventi cittadini e nei periodi di massimo afflusso, e concentrati invece nelle fasi in cui l'impatto sulla circolazione è minore.
+[remoteId] PP_Politico_06
+[classIdentifier] public_person
+[class] http://www.comune.verona.it/api/opendata/v2/classes/public_person
+[languages] ita-IT
+[ita-IT] Ferrari Tommaso
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/2706
+[mainNodeId] 2761
+[remoteId] UO75
+[classIdentifier] organization
+[class] http://www.comune.verona.it/api/opendata/v2/classes/organization
+[languages] ita-IT
+[ita-IT] Ufficio Stampa
+[link] http://www.comune.verona.it/api/opendata/v2/content/read/1662
+[mainNodeId] 1706

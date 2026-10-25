@@ -1,0 +1,12 @@
+# Referendum: ZTL aperta
+object 18197, published 2026-03-13T11:35:11+01:00, modified 2026-03-13T11:35:11+01:00
+URL: https://www.comune.verona.it/content/view/full/18058
+
+[name] Referendum: ZTL aperta
+[image] FILE Referendum 2026-ZTL.png https://s3-eu-west-1.amazonaws.com/static.opencity.opencontent.it/var/verona/storage/images/media/images/ufficio-web/referendum-ztl-aperta/408369-1-ita-IT/Referendum-ZTL-aperta.png
+[filename] Referendum 2026-ZTL.png
+[mime_type] image/png
+[width] 1600
+[height] 900
+[license] Creative Commons Attribution 4.0 International (CC BY 4.0)
+[author] Comune di Verona
