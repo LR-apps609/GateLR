@@ -1,4 +1,5 @@
 import CoreLocation
+import MapKit
 import Foundation
 import SwiftUI
 
@@ -37,6 +38,17 @@ struct IntroScene {
 
     static func coords(_ list: [(Double, Double)]) -> [CLLocationCoordinate2D] {
         list.map { CLLocationCoordinate2D(latitude: $0.0, longitude: $0.1) }
+    }
+
+    /// Tutto ciò che è fuori dalla ZTL (Settore B, che contiene il Settore A): un grande rettangolo con il buco della zona
+    static func outside(_ scene: IntroScene) -> MKPolygon {
+        let c = IntroCamera.frame
+        let box = [(0.06, -0.08), (0.06, 0.08), (-0.06, 0.08), (-0.06, -0.08)].map {
+            CLLocationCoordinate2D(latitude: c.latitude + $0.0, longitude: c.longitude + $0.1)
+        }
+        let hole = scene.zones.first ?? []
+        return MKPolygon(coordinates: box, count: box.count,
+                         interiorPolygons: hole.isEmpty ? nil : [MKPolygon(coordinates: hole, count: hole.count)])
     }
 
     /// Il varco di via Cavour (ptm-9 in firenze.json), se la città non fosse ancora letta

@@ -15,9 +15,15 @@ import SwiftUI
     @Published var showFine = false
     let bad = IntroPath(IntroScene.badRoute)
     let good = IntroPath(IntroScene.goodRoute)
-    /// Durate dei due viaggi: l'auto passa il varco entro circa 4 secondi dall'apertura della pagina
-    static let badSeconds = 4.5
-    static let goodSeconds = 5.0
+    /// I tempi del percorso rosso: fino al varco, ferma un secondo sotto il varco, poi dentro fino al Duomo
+    static let toGate = 4.0
+    static let gatePause = 1.0
+    static let afterGate = 4.0
+    static let badSeconds = toGate + gatePause + afterGate
+    /// Il percorso bianco, con calma
+    static let goodSeconds = 8.5
+    /// Dove sta il varco lungo il percorso rosso (frazione)
+    let gateAt = IntroPath(IntroScene.badRoute).fraction(near: IntroScene.gatePoint)
     /// Il volo della camera dal punto d'arrivo rosso alla partenza del percorso bianco
     static let flyBack = 1.0
     var reduceMotion = false
@@ -25,19 +31,26 @@ import SwiftUI
     private(set) var goodStart = Date.distantFuture
     private var task: Task<Void, Never>?
 
-    /// L'andatura dell'auto: parte e si ferma morbida. La stessa funzione dà i punti della camera.
+    /// L'andatura dell'auto: parte e si ferma morbida
     nonisolated static func ease(_ t: Double) -> Double {
         let x = min(max(t, 0), 1)
-        return 0.6 * x + 0.4 * x * x * (3 - 2 * x)
+        return 0.35 * x + 0.65 * x * x * (3 - 2 * x)
     }
 
+    /// La frazione del percorso rosso dopo t secondi: rallenta fino al varco, si ferma, riparte
+    func badFraction(after t: Double) -> Double {
+        if t < Self.toGate { return gateAt * Self.ease(t / Self.toGate) }
+        if t < Self.toGate + Self.gatePause { return gateAt }
+        return gateAt + (1 - gateAt) * Self.ease((t - Self.toGate - Self.gatePause) / Self.afterGate)
+    }
     func badFraction(_ d: Date) -> Double {
         if reduceMotion { return phase == .waiting ? 0 : 1 }
-        return Self.ease(d.timeIntervalSince(badStart) / Self.badSeconds)
+        return badFraction(after: d.timeIntervalSince(badStart))
     }
+    func goodFraction(after t: Double) -> Double { Self.ease(t / Self.goodSeconds) }
     func goodFraction(_ d: Date) -> Double {
         if reduceMotion { return phase == .arrived ? 1 : 0 }
-        return Self.ease(d.timeIntervalSince(goodStart) / Self.goodSeconds)
+        return goodFraction(after: d.timeIntervalSince(goodStart))
     }
     var onGoodRoute: Bool { phase == .avoiding || phase == .arrived }
 
@@ -59,11 +72,8 @@ import SwiftUI
         badStart = Date()
         phase = .driving
         leg = 1
-        // Il momento in cui l'auto passa sotto il varco (l'inverso dell'andatura, per bisezione)
-        let target = bad.fraction(near: IntroScene.gatePoint)
-        var lo = 0.0, hi = 1.0
-        for _ in 0..<30 { let m = (lo + hi) / 2; if Self.ease(m) < target { lo = m } else { hi = m } }
-        let gateTime = reduceMotion ? 1.2 : lo * Self.badSeconds
+        // Il pannello si accende alla fine della sosta sotto il varco, quando l'auto riparte
+        let gateTime = reduceMotion ? 1.2 : Self.toGate + Self.gatePause
         try? await Task.sleep(for: .seconds(gateTime))
         hitGate()
         try? await Task.sleep(for: .seconds((reduceMotion ? 1.5 : Self.badSeconds) - gateTime + 0.35))
@@ -251,9 +261,12 @@ private struct IntroLiveMap: View {
         let badF = drive.badFraction(now), goodF = drive.goodFraction(now)
         return Map(position: $position, interactionModes: []) {
             // Il Settore A: una velatura rossa e un bordo acceso con l'alone
+            // Fuori dalla ZTL: un velo grigio-blu che spegne i colori; dentro resta il rosso
+            MapPolygon(IntroScene.outside(scene))
+                .foregroundStyle(Color(hex: 0x1B2236).opacity(0.5))
             ForEach(scene.zones.indices, id: \.self) { i in
                 MapPolygon(coordinates: scene.zones[i])
-                    .foregroundStyle(Notte.ledRed.opacity(0.12))
+                    .foregroundStyle(Notte.ledRed.opacity(0.2))
                 MapPolyline(coordinates: scene.zones[i] + scene.zones[i].prefix(1))
                     .stroke(Notte.ledRed.opacity(0.3), style: StrokeStyle(lineWidth: 12, lineCap: .round, lineJoin: .round))
                 MapPolyline(coordinates: scene.zones[i] + scene.zones[i].prefix(1))
@@ -262,15 +275,20 @@ private struct IntroLiveMap: View {
 
             if drive.badOpacity > 0.01 && badF > 0 {
                 MapPolyline(coordinates: drive.bad.prefix(step(badF)))
-                    .stroke(Notte.action.opacity(drive.badOpacity * 0.35), style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
+                    .stroke(Notte.action.opacity(drive.badOpacity * 0.4), style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
+                    .mapOverlayLevel(level: .aboveLabels)
                 MapPolyline(coordinates: drive.bad.prefix(step(badF)))
-                    .stroke(Notte.action.opacity(drive.badOpacity), style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
+                    .stroke(Color(hex: 0xFF6A5C).opacity(drive.badOpacity), style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                    .mapOverlayLevel(level: .aboveLabels)
             }
             if drive.onGoodRoute && goodF > 0 {
+                // Sopra gli edifici e le scritte, spessa e con l'alone: si deve vedere anche sul 3D
                 MapPolyline(coordinates: drive.good.prefix(step(goodF)))
-                    .stroke(Notte.chalk.opacity(0.35), style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
+                    .stroke(Notte.chalk.opacity(0.4), style: StrokeStyle(lineWidth: 22, lineCap: .round, lineJoin: .round))
+                    .mapOverlayLevel(level: .aboveLabels)
                 MapPolyline(coordinates: drive.good.prefix(step(goodF)))
-                    .stroke(Notte.chalk, style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
+                    .stroke(Notte.chalk, style: StrokeStyle(lineWidth: 9, lineCap: .round, lineJoin: .round))
+                    .mapOverlayLevel(level: .aboveLabels)
             }
 
             Annotation("", coordinate: IntroScene.goodRoute.last!, anchor: .center) {
@@ -322,17 +340,18 @@ private struct IntroLiveMap: View {
 
 /// Le inquadrature della prima pagina: inclinata (58°), a circa 1,15 km (con Flyover sembra molto più vicina), rivolta dove va l'auto
 enum IntroCamera {
-    static let pitch = 58.0
-    static let distance = 1150.0
-    /// Quanto la camera resta indietro rispetto all'auto: così l'auto sta sopra il centro, visibile sopra il verbale
-    static let lag = 150.0
+    /// Alta e meno inclinata: si vede subito cosa è dentro la ZTL (rosso) e cosa è fuori
+    static let pitch = 48.0
+    static let distance = 2800.0
+    /// Rivolta a sud: Duomo in alto (sotto il titolo, non coperto), viali e Parterre in basso
+    static let heading = 180.0
+    /// Il centro dell'inquadratura: tra il Duomo, il varco di via Cavour e il Parterre
+    static let frame = CLLocationCoordinate2D(latitude: 43.7780, longitude: 11.2595)
+    /// Quanto la camera segue l'auto (0 = ferma, 1 = sempre centrata): poco, con calma
+    static let follow = 0.25
 
     static func start(reduceMotion: Bool) -> MapCamera {
-        if reduceMotion {
-            return MapCamera(centerCoordinate: IntroScene.center, distance: 2600, heading: 0, pitch: 45)
-        }
-        let p = IntroPath(IntroScene.badRoute)
-        return MapCamera(centerCoordinate: p.points[0], distance: distance * 1.15, heading: p.bearing, pitch: pitch)
+        MapCamera(centerCoordinate: frame, distance: distance, heading: heading, pitch: reduceMotion ? 45 : pitch)
     }
 
     struct Keys {
@@ -345,29 +364,28 @@ enum IntroCamera {
         var total: Double { times.reduce(0, +) }
     }
 
-    /// Sette punti per la camera lungo il tratto, con la stessa andatura dell'auto
+    private static func blend(_ c: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: frame.latitude + (c.latitude - frame.latitude) * follow,
+                               longitude: frame.longitude + (c.longitude - frame.longitude) * follow)
+    }
+
+    /// Sette punti per la camera lungo il tratto, con gli stessi tempi dell'auto (sosta al varco compresa)
     @MainActor static func keys(leg: Int, from camera: MapCamera, drive: IntroDrive, still: Bool) -> Keys {
         guard !still, leg > 0 else {
             return Keys(centers: Array(repeating: camera.centerCoordinate, count: 7), times: Array(repeating: 0.01, count: 7),
                         heading: camera.heading, orbit: 0, distance: camera.distance, pitch: camera.pitch)
         }
-        let path = leg == 1 ? drive.bad : drive.good
         let seconds = leg == 1 ? IntroDrive.badSeconds : IntroDrive.goodSeconds
         let first = leg == 1 ? 0.05 : IntroDrive.flyBack
         var centers: [CLLocationCoordinate2D] = []
         for i in 0..<7 {
-            let f = IntroDrive.ease(Double(i) / 6)
-            let back = max(0, f * path.length - lag) / max(path.length, 1)
-            centers.append(path.point(back))
+            let t = seconds * Double(i) / 6
+            let c = leg == 1 ? drive.bad.point(drive.badFraction(after: t)) : drive.good.point(drive.goodFraction(after: t))
+            centers.append(blend(c))
         }
         let times = [first] + Array(repeating: seconds / 6, count: 6)
-        // La direzione: quella del tratto, girata verso il primo e unico movimento lento
-        var heading = path.bearing
-        // Al massimo 70° di rotazione per tratto: niente giri vorticosi della camera
-        let delta = (heading - camera.heading + 540).truncatingRemainder(dividingBy: 360) - 180
-        heading = camera.heading + min(max(delta, -70), 70)
-        return Keys(centers: centers, times: times, heading: heading, orbit: leg == 1 ? 12 : -12,
-                    distance: distance, pitch: pitch)
+        return Keys(centers: centers, times: times, heading: heading + (leg == 1 ? -4 : 4),
+                    orbit: leg == 1 ? 8 : -8, distance: distance, pitch: pitch)
     }
 }
 
@@ -392,10 +410,10 @@ private struct IntroFallbackMap: View {
         TimelineView(.animation(paused: reduceMotion)) { tl in
             let t = tl.date.timeIntervalSince(start)
             GeometryReader { g in
-                // Vista d'insieme verso nord: Duomo in basso, viali e Parterre in alto, con una rotazione lenta
-                let pr = IntroProjector(center: CLLocationCoordinate2D(latitude: 43.7768, longitude: 11.2600),
-                                        heading: reduceMotion ? 0 : -10 + min(t, 26) * 20 / 26,
-                                        pitch: 58, distance: reduceMotion ? 2400 : 2600 - min(t, 26) * 300 / 26,
+                // La stessa inquadratura della mappa: verso sud, Duomo in alto, viali e Parterre in basso
+                let pr = IntroProjector(center: IntroCamera.frame,
+                                        heading: reduceMotion ? 180 : 176 + min(t, 25) * 8 / 25,
+                                        pitch: 50, distance: 2200,
                                         size: g.size)
                 ZStack {
                     Canvas { ctx, _ in draw(ctx, pr, tl.date) }
