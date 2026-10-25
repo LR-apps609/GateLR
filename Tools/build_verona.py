@@ -30,6 +30,7 @@ EV = "https://www.comune.verona.it/content/view/full/7434"
 CAMERAS_2026 = "https://www.comune.verona.it/content/view/full/23692"
 FAQ = "https://polizialocale.comune.verona.it/nqcontent.cfm?a_id=30873"
 ORD_1486 = "https://archive.comune.verona.it/media/_ComVR/Cdr2023/ComunicazioneURP/Allegati/Ordinanze/ord_01486_21-10-2024.pdf"
+ORD_1545 = "https://archive.comune.verona.it/media/_ComVR/Cdr2023/ComunicazioneURP/Allegati/Ordinanze/ord_01545_31-10-2024.pdf"
 OSM_WAYS = {"main": 1346972386, "south": 1346971350, "riva": 1346972708}
 # Telecamere OSM (nodi «device» delle relazioni enforcement) → nome del varco nell'elenco ufficiale (pagina «Mappa e orari»)
 OSM_GATES = {3067212934: ("main", "Varco 1 · Lungadige Rubele"), 3067070337: ("main", "Varco 2 · Via Leoni"),
@@ -63,6 +64,8 @@ faq = page_text("archivio-30873-faq.html")
 ev = flat((RAW / "api/ztl-elettriche.txt").read_text(encoding="utf-8"))
 hotels = flat((RAW / "api/citypass-protocollo-strutture.txt").read_text(encoding="utf-8"))
 cams = flat((RAW / "api/telecamere-2026-09-18.txt").read_text(encoding="utf-8"))
+ord1486 = flat((RAW / "ord_01486_21-10-2024.txt").read_text(encoding="utf-8"))
+ord1545 = flat((RAW / "ord_01545_31-10-2024.txt").read_text(encoding="utf-8"))
 QUOTE = ("Risulta perciò necessario che per entrare in Ztl vi sia un pernottamento presso un albergo sito entro "
          "l'area della ZTL, e non solo disporre genericamente della qualità di turista.")
 for q in [QUOTE, "Sarà l'albergatore a comunicare anticipatamente alla Polizia Locale il numero di targa delle auto dei suoi ospiti"]:
@@ -83,6 +86,21 @@ must_contain(hotels, "Pertanto le Locazioni Turistiche non rientrando tra le str
 for q in ["piazza Bra: tutti i giorni, compresi i festivi, h24", "Ponte Aleardi: è vietato, dalle ore 7 alle 18 tutti i giorni, festivi compresi",
           "Per il varco ZTL di Santo Stefano è invece previsto un periodo di pre-esercizio di circa 30 giorni a partire dal 28 settembre, prima dell’avvio delle sanzioni che partono da lunedì 2 novembre"]:
     must_contain(cams, q, "notizia telecamere 18/09/2026")
+# Ordinanze 1486 e 1545/2024 (PDF dell'archivio del Comune, letti il 25/10/2026)
+for q in ["Ordinanza Dirigenziale n. 1486 del 21/10/2024", "ZTL – ELIMINAZIONE DELLE FASCE ORARIE DI LIBERO ACCESSO",
+          "viene revocato il punto 4 dell’ordinanza del 14 aprile 2005 n. 35",
+          "Autovetture a servizio dei clienti diretti ad Attività ricettive alberghiere e complementari situate in ZTL",
+          "con possibilità di sola fermata nei limiti consentiti dal vigente Codice della Strada",
+          "previa registrazione della targa entro le ventiquattro ore precedenti la data del transito",
+          "con un limite di n. 4 (quattro) registrazioni nell’arco di un mese",
+          "dalle ore 10.00 alle ore 18.00 (con uscita obbligatoria alle ore 18.00)",
+          "dalle ore 20.00 alle ore 23.00 (con uscita obbligatoria alle ore 24.00)",
+          "il sabato, la domenica e festivi:", "dalle ore 10.00 alle ore 13.30 (con uscita obbligatoria alle ore 13.30)"]:
+    must_contain(ord1486, q, "ordinanza 1486/2024")
+for q in ["Ordinanza Dirigenziale n. 1545 del 31/10/2024",
+          "è consentito l’accesso e il transito libero in ZTL ai ciclomotori e motoveicoli a due e tre ruote",
+          "titolari di attività ricettive ubicate in ZTL"]:
+    must_contain(ord1545, q, "ordinanza 1545/2024")
 
 
 def rings():
@@ -135,6 +153,10 @@ links = [link("City of Verona: the ZTL (hours, who may enter, map)", "Comune di 
               "Stadt Verona: Hotels in der ZTL (Citypass)", HOTELS),
          link("City of Verona: full-electric cars in the ZTL", "Comune di Verona: auto elettriche in ZTL",
               "Stadt Verona: reine Elektroautos in der ZTL", EV),
+         link("City of Verona: ordinance 1486/2024, end of free-entry hours (PDF)", "Comune di Verona: ordinanza 1486/2024, fine delle fasce di libero accesso (PDF)",
+              "Stadt Verona: Verordnung 1486/2024, Ende der freien Einfahrtszeiten (PDF)", ORD_1486),
+         link("City of Verona: ordinance 1545/2024, mopeds and motorbikes free, new permits (PDF)", "Comune di Verona: ordinanza 1545/2024, moto e ciclomotori liberi, nuovi permessi (PDF)",
+              "Stadt Verona: Verordnung 1545/2024, Mopeds und Motorräder frei, neue Genehmigungen (PDF)", ORD_1545),
          link("City of Verona: new cameras from 21 September 2026", "Comune di Verona: nuove telecamere dal 21 settembre 2026",
               "Stadt Verona: neue Kameras ab 21. September 2026", CAMERAS_2026)]
 if from_osm:
@@ -148,13 +170,16 @@ P_OSM = ("Perimeter from OpenStreetMap (three outlines tagged as Verona's ZTL), 
 P_GATES = ("Only 3 of the 11 official gates (Lungadige Rubele, Via Leoni, Via Malenza, Ponte Garibaldi, Lungadige Panvinio, Riva San Lorenzo, Via Cantore, Via Dogana, Via Fratta, Via Nizza, Piazzetta Municipio) have a position on the map: the city's gate coordinates are licensed for non-commercial use only.",
            "Solo 3 degli 11 varchi ufficiali (lungadige Rubele, via Leoni, via Malenza, ponte Garibaldi, lungadige Panvinio, riva San Lorenzo, via Cantore, via Dogana, via Fratta, via Nizza, piazzetta Municipio) hanno una posizione sulla mappa: le coordinate del Comune hanno una licenza solo non commerciale.",
            "Nur 3 der 11 offiziellen Kameras (Lungadige Rubele, Via Leoni, Via Malenza, Ponte Garibaldi, Lungadige Panvinio, Riva San Lorenzo, Via Cantore, Via Dogana, Via Fratta, Via Nizza, Piazzetta Municipio) haben eine Position auf der Karte: die Koordinaten der Stadt sind nur für nicht-kommerzielle Nutzung freigegeben.")
-P_ORD = ("Ordinance no. 1486 of 21/10/2024 (no more free-entry hours) could not be reread: the city's archive is unreachable from here. The rule comes from the city's ZTL page (updated 24/10/2025) and the Local Police page for tourists.",
-         "L'Ordinanza n. 1486 del 21/10/2024 (fine delle fasce di libero accesso) non è stata riletta: l'archivio del Comune non è raggiungibile da qui. La regola viene dalla pagina ZTL del Comune (aggiornata il 24/10/2025) e dalla pagina della Polizia Locale per i turisti.",
-         "Die Verordnung Nr. 1486 vom 21.10.2024 (keine freien Einfahrtszeiten mehr) konnte nicht erneut gelesen werden: das Archiv der Stadt ist von hier nicht erreichbar. Die Regel stammt von der ZTL-Seite der Stadt (aktualisiert am 24.10.2025) und der Seite der Stadtpolizei für Touristen.")
+P_ORD = ("Ordinance no. 1486 of 21/10/2024 ended the free-entry hours of 2005. Hotel guests' cars heading to accommodation inside the ZTL may pass freely but may only stop, not park (art. 29 u). "
+         "The ordinance takes effect once the signs are installed (in force since 28/10/2024, city page).",
+         "L'Ordinanza n. 1486 del 21/10/2024 ha eliminato le fasce di libero accesso del 2005. Le auto dei clienti diretti a strutture ricettive in ZTL transitano liberamente ma con «possibilità di sola fermata», non di sosta (art. 29 u). "
+         "L'ordinanza vale dall'installazione dei cartelli (in vigore dal 28/10/2024, pagina del Comune).",
+         "Die Verordnung Nr. 1486 vom 21.10.2024 hat die freien Einfahrtszeiten von 2005 abgeschafft. Autos von Gästen, die zu Unterkünften in der ZTL fahren, dürfen frei durchfahren, aber nur halten, nicht parken (Art. 29 u). "
+         "Die Verordnung gilt ab Aufstellung der Schilder (seit 28.10.2024 in Kraft, Seite der Stadt).")
 P_MORE = [
-    ("Residents of Verona and its province can book up to 4 entries a month (Mon–Fri 10–18 and 20–23, weekends and holidays 10–13:30). This is not open to other visitors.",
-     "Chi vive a Verona o in provincia può prenotare fino a 4 ingressi al mese (lun–ven 10–18 e 20–23, sabato, domenica e festivi 10–13:30). Non vale per gli altri visitatori.",
-     "Wer in Verona oder der Provinz wohnt, kann bis zu 4 Einfahrten im Monat buchen (Mo–Fr 10–18 und 20–23 Uhr, Wochenende und Feiertage 10–13:30). Für andere Besucher gilt das nicht."),
+    ("Residents of Verona and its province can book up to 4 entries a month, at least 24 hours ahead (Mon–Fri 10–18 and 20–23, weekends and holidays 10–13:30; ordinance 1486/2024). This is not open to other visitors.",
+     "Chi vive a Verona o in provincia può prenotare fino a 4 ingressi al mese, entro le 24 ore precedenti (lun–ven 10–18 e 20–23, sabato, domenica e festivi 10–13:30; ordinanza 1486/2024). Non vale per gli altri visitatori.",
+     "Wer in Verona oder der Provinz wohnt, kann bis zu 4 Einfahrten im Monat buchen, spätestens 24 Stunden vorher (Mo–Fr 10–18 und 20–23 Uhr, Wochenende und Feiertage 10–13:30; Verordnung 1486/2024). Für andere Besucher gilt das nicht."),
     ("Hotel guests: only hotels and other classified accommodation inside the ZTL can register your plate, in advance; holiday rentals (locazioni turistiche) cannot. No deadline after entry was found.",
      "Ospiti degli alberghi: solo gli alberghi e le altre strutture ricettive classificate dentro la ZTL possono registrare la targa, in anticipo; le locazioni turistiche no. Non è stato trovato un termine dopo l'ingresso.",
      "Hotelgäste: nur Hotels und andere klassifizierte Unterkünfte in der ZTL können dein Kennzeichen vorab melden; Ferienwohnungen (locazioni turistiche) nicht. Eine Frist nach der Einfahrt wurde nicht gefunden."),
@@ -164,15 +189,15 @@ P_MORE = [
     ("Disabled badge holders: the plate must be registered; for an occasional entry, within 72 hours on accessiztl.comune.verona.it.",
      "Contrassegno disabili: la targa va registrata; per un transito occasionale, entro 72 ore su accessiztl.comune.verona.it.",
      "Behindertenausweis: das Kennzeichen muss gemeldet werden; bei einer einmaligen Einfahrt innerhalb von 72 Stunden auf accessiztl.comune.verona.it."),
-    ("New ZTL Santo Stefano (Veronetta, across the river): fines from Monday 2 November 2026 (city). Hours every day 9–12:30, 14–17:30 and 20–7, confirmed only by local newspapers (Verona Tomorrow, L'Arena). Not on the map yet.",
-     "Nuova ZTL Santo Stefano (Veronetta, oltre l'Adige): sanzioni da lunedì 2 novembre 2026 (Comune). Orari tutti i giorni 9–12:30, 14–17:30 e 20–7, confermati solo da giornali locali (Verona Tomorrow, L'Arena). Non è ancora sulla mappa.",
-     "Neue ZTL Santo Stefano (Veronetta, jenseits der Etsch): Bußgelder ab Montag, 2. November 2026 (Stadt). Zeiten täglich 9–12:30, 14–17:30 und 20–7 Uhr, nur von Lokalzeitungen bestätigt (Verona Tomorrow, L'Arena). Noch nicht auf der Karte."),
+    ("New ZTL Santo Stefano (Veronetta, across the river): fines from Monday 2 November 2026 (city). Hours every day 9–12:30, 14–17:30 and 20–7, confirmed only by local newspapers (Verona Tomorrow, L'Arena): the ordinance that creates it is not among the city's published documents (searched 25/10/2026). Not on the map yet.",
+     "Nuova ZTL Santo Stefano (Veronetta, oltre l'Adige): sanzioni da lunedì 2 novembre 2026 (Comune). Orari tutti i giorni 9–12:30, 14–17:30 e 20–7, confermati solo da giornali locali (Verona Tomorrow, L'Arena): l'ordinanza istitutiva non è tra i documenti pubblicati dal Comune (cercata il 25/10/2026). Non è ancora sulla mappa.",
+     "Neue ZTL Santo Stefano (Veronetta, jenseits der Etsch): Bußgelder ab Montag, 2. November 2026 (Stadt). Zeiten täglich 9–12:30, 14–17:30 und 20–7 Uhr, nur von Lokalzeitungen bestätigt (Verona Tomorrow, L'Arena): die einrichtende Verordnung ist nicht unter den veröffentlichten Dokumenten der Stadt (gesucht am 25.10.2026). Noch nicht auf der Karte."),
     ("Cameras since 21/09/2026: Piazza Bra is closed to cars 24 hours a day, holidays included; the reserved lane on Ponte Aleardi is closed 7–18 every day. Not on the map yet.",
      "Telecamere dal 21/09/2026: piazza Bra è chiusa alle auto 24 ore su 24, festivi compresi; la corsia riservata di ponte Aleardi è vietata dalle 7 alle 18 tutti i giorni. Non sono ancora sulla mappa.",
      "Kameras seit 21.09.2026: die Piazza Bra ist rund um die Uhr, auch an Feiertagen, für Autos gesperrt; die reservierte Spur auf dem Ponte Aleardi täglich 7–18 Uhr. Noch nicht auf der Karte."),
-    ("Fine: €98.50, or €73.60 if paid within 5 days, according to an older Local Police FAQ page (archive); the current amount may be higher.",
-     "Multa: 98,50 €, oppure 73,60 € se pagata entro 5 giorni, secondo una vecchia pagina FAQ della Polizia Locale (archivio); l'importo attuale può essere più alto.",
-     "Bußgeld: 98,50 €, oder 73,60 € bei Zahlung innerhalb von 5 Tagen, laut einer älteren FAQ-Seite der Stadtpolizei (Archiv); der aktuelle Betrag kann höher sein."),
+    ("Fine: €98.50, or €73.60 if paid within 5 days, according to an older Local Police FAQ page (archive, based on the old €82 minimum); the city's current «Pay a fine» page gives no amount, and the current amount may be higher.",
+     "Multa: 98,50 €, oppure 73,60 € se pagata entro 5 giorni, secondo una vecchia pagina FAQ della Polizia Locale (archivio, sul vecchio minimo di 82 €); la pagina attuale «Pagare una sanzione» del Comune non indica importi, e l'importo attuale può essere più alto.",
+     "Bußgeld: 98,50 €, oder 73,60 € bei Zahlung innerhalb von 5 Tagen, laut einer älteren FAQ-Seite der Stadtpolizei (Archiv, auf Basis des alten Mindestbetrags von 82 €); die aktuelle Seite «Pagare una sanzione» der Stadt nennt keinen Betrag, der aktuelle Betrag kann höher sein."),
     ("Not modelled: the pedestrian area of Piazza Erbe (closed even with most permits), the stadium ZTL on match days, and the winter anti-smog bans (1 Oct–30 Apr) for older vehicles across the whole city.",
      "Non inclusi: l'area pedonale di piazza Erbe (chiusa anche con quasi tutti i permessi), la ZTL dello stadio nei giorni delle partite e i divieti antismog invernali (1 ottobre–30 aprile) per i veicoli più vecchi in tutta la città.",
      "Nicht enthalten: die Fußgängerzone Piazza Erbe (auch mit den meisten Genehmigungen gesperrt), die Stadion-ZTL an Spieltagen und die winterlichen Smog-Fahrverbote (1. Okt.–30. Apr.) für ältere Fahrzeuge im ganzen Stadtgebiet."),
@@ -181,7 +206,7 @@ P_MORE = [
 
 def source(pending):
     return {"authority": "City of Verona", "pageURL": TOURISTS,
-            "ordinance": "Ordinanza n. 1486 del 21/10/2024 (ZTL); Ordinanza dirigenziale n. 1365/2014 (disciplina ZTL)",
+            "ordinance": "Ordinanza dirigenziale n. 1486 del 21/10/2024 (ZTL, fine delle fasce di libero accesso) e n. 1545 del 31/10/2024; Ordinanza dirigenziale n. 1365/2014 (disciplina ZTL)",
             "ordinanceURL": ORD_1486, "quote": QUOTE,
             "quoteTranslation": "It is therefore necessary, in order to enter the ZTL, to stay overnight at a hotel located inside the ZTL area; simply being a tourist is not enough.",
             "quoteTranslation_de": "Um in die ZTL einzufahren, ist daher eine Übernachtung in einem Hotel innerhalb der ZTL nötig; nur Tourist zu sein, genügt nicht.",

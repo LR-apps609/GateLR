@@ -1,6 +1,6 @@
 {
- "version": "202610250818",
- "digest": "883686c6295c",
+ "version": "202610250819",
+ "digest": "8637be916e00",
  "schema": 1,
  "cities": [
   {
@@ -56,7 +56,7 @@
   {
    "id": "verona",
    "file": "verona.json",
-   "sha256": "68462f42c40b910394a350550e4639fb21a1fa0d1b949602deedf14418555a20"
+   "sha256": "d477755d16d5f8ae7a60342e06fc4906e50843cd63f1a64abd300d95283deaee"
   }
  ]
 }
