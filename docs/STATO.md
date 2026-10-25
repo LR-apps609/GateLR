@@ -1,4 +1,14 @@
-# GateLR: a che punto siamo (24 ottobre 2026, sera) — versione 1.8.1 (iPhone) e 0.1.0 (Android)
+# GateLR: a che punto siamo (25 ottobre 2026, mattina) — iPhone 1.13.0
+
+## Notte 24→25 ottobre (iPhone)
+- 1.9: Avvia dalla mappa, Guida 3D con semafori, viste, modellini, voce migliore, Siri «ZTL vicine», Roma e Siena, Scudo Verde di Firenze
+- 1.10: prima pagina «Posso entrare?», mappa scura dentro/fuori, nuovo logo, schermata di avvio, «Novità», correzioni avvio nero / blocco / fotocamera, festivi notturni e 29 giugno a Roma, 5 nuove lingue (fr, es, nl, pl, zh)
+- 1.11: Siri «Posso entrare in <zona>?», «Ferma il guardiano», widget Guardiano
+- 1.12: mappa più fluida (zone semplificate da lontano), ricerca zone più rapida, iPad; 1.12.1: 13 bug corretti (orari in ora italiana ovunque, Live Activity bloccata, ecc.)
+- 1.13: benvenuto con scelta della città e spiegazione della posizione, suggerimenti, posti recenti e hotel che rispondono subito in prima pagina, schermate vuote curate
+- Bozze non nell'app: Pisa (orari ufficiali mancanti), Lucca (perimetri da aggiornare alla delibera 2025)
+- Android: fermo alla 0.2.0 (da riprendere)
+
 
 ## Novità dalla 1.2 alla 1.8 (in prova)
 - Prima pagina d'impatto; ricerca solo in Viaggio
