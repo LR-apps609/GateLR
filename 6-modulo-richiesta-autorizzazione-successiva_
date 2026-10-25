@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <!-- SEO -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+                        ZTL - Modulo per la richiesta di autorizzazione successiva all’ingresso (da presentarsi entro 48 ore dal transito) – formato PDF
+ | Comune di San Giovanni Valdarno
+            </title>
+
+    <link rel="icon" type="image/png"
+        href="https://mycity.s3.sbg.io.cloud.ovh.net/3740019/Logo_Comune_SGV1-removebg-preview.png">
+
+        
+    <meta name="theme-color"
+        content="#004AAB">
+    <link rel="manifest" href="/manifest.json">
+            <link rel="apple-touch-icon" href="">
+        
+    <script nonce="omOWw9Tgj2R8Ck70LID69fiQcaSUIi8J">
+        if ("serviceWorker" in navigator) navigator.serviceWorker.register("/service-worker.js");
+    </script>
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="sEWg9cGAO4fuCfLgiPZ2HhJUY72Eos35zpWf2hCK">
+
+    <!-- IE -->
+    <script src="//cdnjs.cloudflare.com/polyfill/v2/polyfill.min.js" defer integrity="sha384-1VSQy5k+QwdaUkm5HnEi7c51pl417Wh8qB0FK/9YT1nYBm9yJtOGe271k0a1Oi2C" crossorigin="anonymous"></script>
+
+    <!-- Layout Scripts -->
+    <script src="/js/manifest.js?id=5f57a76db7bef139dd5f68a2f43efbca" defer></script>
+    <script src="/js/vendor.js?id=51393c43603619bb4dc3428991cdd7b4" async></script>
+    <script src="/js/frontend/agid4/layout.js?id=6ddc92e828e117c7d7aa14d51da7f413" async></script>
+
+    <!-- Fonts Preload -->
+    <link rel="preload" as="font" type="font/ttf" crossorigin href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/lora/Lora-Bold.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/lora/Lora-Italic.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/lora/Lora-Regular.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/roboto_mono/RobotoMono-Bold.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/roboto_mono/RobotoMono-Regular.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/roboto_mono/RobotoMono-Thin.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/titillium_web/TitilliumWeb-Bold.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/titillium_web/TitilliumWeb-Light.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/titillium_web/TitilliumWeb-Regular.ttf">
+    <link rel="preload" as="font" type="font/ttf" crossorigin
+        href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/titillium_web/TitilliumWeb-SemiBold.ttf">
+
+    <!-- Bootstrap Italia -->
+    <!--<script src="/js/frontend/agid4/bootstrap-italia.bundle.js?id=2c640d3aff624839d6081a339bc89d57" async></script>-->
+    <script src="https://www.comune.san-giovanni-valdarno.ar.it/bootstrap-italia/dist/js/bootstrap-italia.bundle.min.js" async nonce="omOWw9Tgj2R8Ck70LID69fiQcaSUIi8J"></script>
+
+    <link rel="preload" href="/css/frontend-agid4/bootstrap-italia/bluoltremare/bootstrap-italia.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/frontend-agid4/bootstrap-italia/bluoltremare/bootstrap-italia.min.css"></noscript>
+
+    <link rel="preload" href="/css/frontend-agid4/themes/bluoltremare.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/css/frontend-agid4/themes/bluoltremare.css"></noscript>
+
+    <!-- Fonts & Icons -->
+    <link rel="preload" href="https://www.comune.san-giovanni-valdarno.ar.it/fontastic/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://www.comune.san-giovanni-valdarno.ar.it/fontastic/styles.css"></noscript>
+
+    <link rel="preload" href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/fabicon/fabicon.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/fabicon/fabicon.css"></noscript>
+
+    <link rel="preload" href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/fabicon/lightgallery.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://www.comune.san-giovanni-valdarno.ar.it/fonts/fabicon/lightgallery.css"></noscript>
+
+    <link rel="preload" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" as="style" 
+        integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" 
+        crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" 
+            integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" 
+            crossorigin="anonymous">
+    </noscript>
+    <!-- SPID -->
+    <link type="text/css" rel="stylesheet" href="https://www.comune.san-giovanni-valdarno.ar.it/vendor/spid-auth/css/agid-spid-enter.min.1.0.0.css">
+
+    <!-- Smart App Banners -->
+    <!-- Smart App Banner Universale per iOS & Android (Cache-friendly) -->
+
+<!-- Il banner viene sempre incluso nell'HTML ma nascosto via CSS -->
+<div class="smartbanner-container-android" id="smartbanner" style="display: none;">
+    <button onclick="closeSmartBanner()" class="smartbanner-close" aria-label="Chiudi">&times;</button>
+    <img class="smartbanner-icon" src="https://mycity.s3.sbg.io.cloud.ovh.net/4470127/icona-facebook-(26)-(1).png" alt="Comune di San Giovanni Valdarno">
+    <div class="smartbanner-info">
+        <div class="smartbanner-title">MySanGiovanniValdarno</div>
+        <span>Home</span>
+    </div>
+    <a href="mysangiovannivaldarno://" 
+       id="smartbanner-btn"
+       onclick="openApp(event)" 
+       class="smartbanner-button">
+        <span class="smartbanner-button-text">Apri</span>
+    </a>
+</div>
+
+<script nonce="omOWw9Tgj2R8Ck70LID69fiQcaSUIi8J">
+    // Configurazione passata da PHP/Blade al JS
+    var smartBannerConfig = {
+        androidApp: "https:\/\/play.google.com\/store\/apps\/details?id=it.gasparilab.mysangiovannivaldarno",
+        iosApp: "https:\/\/apps.apple.com\/app\/mysangiovannivaldarno\/id6743793022",
+        androidMarketUrl: "market:\/\/details?id=it.gasparilab.mysangiovannivaldarno",
+        iosStoreUrl: "https:\/\/apps.apple.com\/app\/mysangiovannivaldarno\/id6743793022",
+        deepLink: "mysangiovannivaldarno:\/\/"    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        
+        // Controlla Android
+        var isAndroid = /Android/i.test(ua);
+        
+        // Controlla iOS (inclusi iPad con Safari Desktop mode tramite maxTouchPoints)
+        var isiOS = /iPhone|iPod/i.test(ua) || 
+                    (/iPad/i.test(ua)) || 
+                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+        // Verifica se l'utente ha già chiuso il banner
+        if (localStorage.getItem("smartbanner_closed")) {
+            return;
+        }
+
+        var storeWebUrl = '';
+        var marketUrl = '';
+        var platform = '';
+        var showBanner = false;
+
+        if (isAndroid && smartBannerConfig.androidApp) {
+            showBanner = true;
+            platform = 'android';
+            storeWebUrl = smartBannerConfig.androidApp;
+            marketUrl = smartBannerConfig.androidMarketUrl;
+        } else if (isiOS && smartBannerConfig.iosApp) {
+            showBanner = true;
+            platform = 'ios';
+            storeWebUrl = smartBannerConfig.iosStoreUrl;
+            marketUrl = smartBannerConfig.iosStoreUrl;
+        }
+
+        // Se è un dispositivo mobile supportato, imposta i link e mostra il banner
+        if (showBanner) {
+            var banner = document.getElementById("smartbanner");
+            var btn = document.getElementById("smartbanner-btn");
+
+            if (btn) {
+                btn.setAttribute('data-market-url', marketUrl);
+                btn.setAttribute('data-store-url', storeWebUrl);
+                btn.setAttribute('data-platform', platform);
+            }
+
+            if (banner) {
+                banner.style.display = "block";
+            }
+        }
+    });
+
+    function closeSmartBanner() {
+        var element = document.getElementById("smartbanner");
+        if (element) {
+            element.style.display = "none";
+            localStorage.setItem("smartbanner_closed", "true");
+        }
+    }
+
+    function openApp(event) {
+        event.preventDefault();
+        
+        var btn = event.currentTarget;
+        var deeplink = smartBannerConfig.deepLink;
+        var marketUrl = btn.getAttribute('data-market-url');
+        var webStoreUrl = btn.getAttribute('data-store-url');
+
+        // iOS: niente deeplink (Safari mostra il popup "Aprire in «App»?" o l'errore
+        // "indirizzo non valido" se l'app manca): si apre direttamente la pagina App Store,
+        // che mostra "Apri" se l'app è già installata o "Ottieni" per scaricarla.
+        if (btn.getAttribute('data-platform') === 'ios') {
+            window.location.href = webStoreUrl;
+            return;
+        }
+
+        var start = Date.now();
+        var timerStore = null;
+        var timerFallback = null;
+
+        function onVisibilityChange() {
+            if (document.hidden) {
+                clearAppTimers();
+            }
+        }
+
+        function clearAppTimers() {
+            if (timerStore) clearTimeout(timerStore);
+            if (timerFallback) clearTimeout(timerFallback);
+
+            window.removeEventListener('pagehide', clearAppTimers);
+            window.removeEventListener('blur', clearAppTimers);
+            document.removeEventListener('visibilitychange', onVisibilityChange);
+        }
+
+        window.addEventListener('pagehide', clearAppTimers);
+        window.addEventListener('blur', clearAppTimers);
+        document.addEventListener('visibilitychange', onVisibilityChange);
+
+        // 1. Tenta l'apertura dell'App tramite Deeplink
+        window.location.href = deeplink;
+
+        // 2. Se l'app NON si apre ed entro 1.2s l'utente è ancora sulla pagina web -> Apri lo Store
+        timerStore = setTimeout(function() {
+            if (!document.hidden && (Date.now() - start < 2000)) {
+                window.location.href = marketUrl;
+
+                // 3. Fallback web
+                timerFallback = setTimeout(function() {
+                    if (!document.hidden && (Date.now() - start < 3500)) {
+                        window.location.href = webStoreUrl;
+                    }
+                }, 1000);
+            }
+        }, 1200);
+    }
+</script>
+
+<style nonce="omOWw9Tgj2R8Ck70LID69fiQcaSUIi8J">
+    .smartbanner-container-android {
+        margin: 0 auto;
+        padding: 10px;
+        white-space: nowrap;
+        background: #F3F3F3;
+        color: #191919;
+        position: relative;
+    }
+
+    .smartbanner-close {
+        border: 0;
+        background-color: transparent;
+        display: inline-block;
+        vertical-align: middle;
+        font-family: 'Verdana', Arial, sans-serif;
+        font-size: 20px;
+        text-align: center;
+        color: #666666;
+        cursor: pointer;
+    }
+
+    .smartbanner-close:hover {
+        color: #aaa;
+    }
+
+    .smartbanner-icon {
+        display: inline-block;
+        vertical-align: middle;
+        width: 57px;
+        height: 57px;
+        margin: 0 12px 0 5px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .smartbanner-info {
+        display: inline-block;
+        vertical-align: middle;
+        width: calc(100% - 170px);
+    }
+
+    .smartbanner-title {
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .smartbanner-info span {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 400;
+        color: #6B6B6B;
+    }
+
+    .smartbanner-button {
+        font-family: 'Verdana', Arial, sans-serif;
+        position: absolute;
+        right: 20px;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 10px;
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: none;
+        color: #0462E7;
+        z-index: 9999;
+        pointer-events: auto;
+        touch-action: manipulation;
+    }
+</style>
+    <!-- Cookiebar & Web Analytics -->
+        <!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://ingestion.webanalytics.italia.it/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '38680']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+
+    <!-- Translation Plugin -->
+    
+    <!-- Stacks -->
+            
+        
+
+</head>
+
+<body
+    class="titillium san-giovanni-valdarno">
+        <div id="app">
+        <!-- Cookie Banner -->
+                    <div id="cookie-bar" class="cookiealert bg-primary d-none pt-2 px-0" style="display: block;">
+                <div class="d-flex justify-content-end">
+                    <span class="declinecookies2 icon icon-cross clickable text-white"></span>
+                </div>
+                <div class="text-center px-3">
+                    <p class="mb-3">
+                        Questo sito utilizza cookie tecnici e statistici pseudonimizzati. La chiusura del banner mediante
+                        selezione dell'apposito comando contraddistinto dalla X o tramite il pulsante "Continua la
+                        navigazione" comporta la continuazione della navigazione in assenza di cookie o altri strumenti
+                        di tracciamento diversi da quelli sopracitati.
+                        <br><a class="cookiebar-btn" href="https://www.comune.san-giovanni-valdarno.ar.it/informativa-cookie">COOKIE POLICY</a>
+                    </p>
+                    <button class="btn btn-sm btn-outline-secondary acceptcookies" aria-label="Close">
+                        Continua la navigazione
+                    </button>
+                </div>
+            </div>
+                <header class="it-header-wrapper it-header-sticky">
+            <div class="it-header-slim-wrapper d-print-none">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="it-header-slim-wrapper-content">
+                                <a class="navbar-brand" href="http://www.regione.toscana.it" target="_blank"
+                                    aria-label="Vai al portale Toscana - link esterno - apertura nuova scheda"
+                                    title="Vai al portale Toscana">Regione
+                                    Toscana</a>
+                                
+                                <div class="it-header-slim-right-zone">
+                                    
+                                                                        
+                                                                                                                        <a class="btn btn-primary btn-icon btn-full"
+                                                href="/login"
+                                                data-element="personal-area-login" title="Accedi">
+                                                <span class="rounded-icon" aria-hidden="true">
+                                                    <svg class="icon icon-primary">
+                                                        <use
+                                                            xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-user">
+                                                        </use>
+                                                    </svg>
+                                                </span>
+                                                <span class="d-none d-lg-block">Accedi all'area personale</span>
+                                            </a>
+                                                                                                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="it-nav-wrapper">
+                <div class="it-header-center-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="it-header-center-content-wrapper">
+                                    <div class="it-brand-wrapper">
+                                                                                        <a href="https://www.comune.san-giovanni-valdarno.ar.it/home" tabindex="-1"
+                                                    title="Vai alla Homepage">
+                                                                                <img loading="lazy" src="https://mycity.s3.sbg.io.cloud.ovh.net/3740017/Logo_Comune_SGV1-removebg-preview.png"
+                                            alt="Comune di San Giovanni Valdarno" class="img-fluid stemma">
+                                        <div class="it-brand-text">
+                                            <div class="no_toc it-brand-title">Comune di San Giovanni Valdarno</div>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="it-right-zone d-print-none">
+                                                                                    <div class="it-socials d-none d-lg-flex">
+                                                <span>Seguici su</span>
+                                                <ul>
+                                                                                                                                                                <li>
+                                                            <div>
+            <a class="" href="https://www.facebook.com/comunesangiovannivaldarno" title="Facebook" aria-label="Facebook" target="_blank">
+            <svg class="icon icon-sm icon-white align-top">
+                <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-facebook">
+                </use>
+            </svg>
+            <span class="visually-hidden">Facebook</span>
+        </a>
+    </div>
+                                                        </li>
+                                                                                                        
+                                                                                                            <li>
+                                                            <div>
+            <a class="" href="https://www.instagram.com/comunesgv" title="Instagram" target="_blank">
+            <svg class="icon icon-sm icon-white align-top">
+                <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-instagram">
+                </use>
+            </svg>
+            <span class="visually-hidden">Instagram</span>
+        </a>
+    </div>
+                                                        </li>
+                                                                                                                                                                                                            </ul>
+                                            </div>
+                                        
+                                        <search-widget modules="[]" scenario-id="1764"
+                                            search-url="https://www.comune.san-giovanni-valdarno.ar.it/api/v1/scenarios/1764/search"
+                                            advanced-search-url="https://www.comune.san-giovanni-valdarno.ar.it/ricerca-avanzata" theme="agid4">
+                                        </search-widget>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="it-header-navbar-wrapper d-print-none" id="header-nav-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <nav class="navbar navbar-expand-lg has-megamenu" aria-label="Navigazione principale">
+                                    <button class="custom-navbar-toggler" type="button" aria-controls="nav10"
+                                        aria-expanded="false" aria-label="Mostra/Nascondi la navigazione"
+                                        data-bs-target="#nav10" data-bs-toggle="navbarcollapsible" >
+                                        <svg class="icon">
+                                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-burger"></use>
+                                        </svg>
+                                    </button>
+                                    <div class="navbar-collapsable" id="nav10">
+                                        <div class="overlay" style="display: none;"></div>
+                                        <div class="close-div">
+                                            <button class="btn close-menu" type="button">
+                                                <span class="visually-hidden text-white">Nascondi la navigazione</span>
+                                                <svg class="icon">
+                                                    <use href="/bootstrap-italia/dist/svg/sprites.svg#it-close-big">
+                                                    </use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="menu-wrapper d-flex flex-column">
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/home" aria-label="homepage"
+                                                class="logo-hamburger border-bottom">
+                                                <img loading="lazy" src="https://mycity.s3.sbg.io.cloud.ovh.net/3740017/Logo_Comune_SGV1-removebg-preview.png"
+                                                    alt="Comune di San Giovanni Valdarno" class="img-fluid stemma">
+                                                <div class="it-brand-text">
+                                                    <div class="it-brand-title">Comune di San Giovanni Valdarno</div>
+                                                </div>
+                                            </a>
+                                            <div class="menu-wrapper-nav">
+                                                <ul class="navbar-nav main_menu" data-element="main-navigation">
+                                                                                                                                                                    <li class="nav-item">
+                                                            <a                                                                 data-element="management"
+                                                                class="nav-link "
+                                                                href="https://www.comune.san-giovanni-valdarno.ar.it/amministrazione" role="button"
+                                                                aria-haspopup="true" aria-expanded="false"
+                                                                title="Vai alla pagina: Amministrazione">
+                                                                <span>Amministrazione</span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="nav-item">
+                                                            <a                                                                 data-element="news"
+                                                                class="nav-link "
+                                                                href="https://www.comune.san-giovanni-valdarno.ar.it/novita" role="button"
+                                                                aria-haspopup="true" aria-expanded="false"
+                                                                title="Vai alla pagina: Novità">
+                                                                <span>Novità</span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="nav-item">
+                                                            <a                                                                 data-element="all-services"
+                                                                class="nav-link "
+                                                                href="https://www.comune.san-giovanni-valdarno.ar.it/servizi" role="button"
+                                                                aria-haspopup="true" aria-expanded="false"
+                                                                title="Vai alla pagina: Servizi">
+                                                                <span>Servizi</span>
+                                                            </a>
+                                                        </li>
+                                                                                                                                                                    <li class="nav-item">
+                                                            <a                                                                 data-element="live"
+                                                                class="nav-link "
+                                                                href="https://www.comune.san-giovanni-valdarno.ar.it/vivere-il-comune" role="button"
+                                                                aria-haspopup="true" aria-expanded="false"
+                                                                title="Vai alla pagina: Vivere il comune">
+                                                                <span>Vivere il comune</span>
+                                                            </a>
+                                                        </li>
+                                                    
+                                                                                                    </ul>
+
+                                                
+                                                <ul class="navbar-nav navbar-secondary ">
+                                                                                                            <li class="nav-item">
+                                                            <a class="nav-link" href="https://www.comune.san-giovanni-valdarno.ar.it/argomenti/argomento-dettaglio/3486289"
+                                                                title="Vai alla pagina: Sanità">Sanità</a>
+                                                        </li>
+                                                                                                            <li class="nav-item">
+                                                            <a class="nav-link" href="https://www.comune.san-giovanni-valdarno.ar.it/argomenti/argomento-dettaglio/3486292"
+                                                                title="Vai alla pagina: Graduatorie">Graduatorie</a>
+                                                        </li>
+                                                                                                            <li class="nav-item">
+                                                            <a class="nav-link" href="https://www.comune.san-giovanni-valdarno.ar.it/argomenti/argomento-dettaglio/3547575"
+                                                                title="Vai alla pagina: Scioperi">Scioperi</a>
+                                                        </li>
+                                                                                                                                                                <li class="nav-item">
+                                                            <a class="nav-link" href="/argomenti"
+                                                                title="Vai alla pagina: Tutti gli argomenti"
+                                                                data-element="all-topics"><span class="fw-bold">Tutti gli
+                                                                    argomenti...</span></a>
+                                                        </li>
+                                                                                                    </ul>
+                                                                                                <div class="it-socials">
+                                                    <span>Seguici su</span>
+                                                    <ul>
+                                                                                                                    <li>
+                                                                <a class="nav-link" href="https://www.facebook.com/comunesangiovannivaldarno" title="Facebook" target="_blank">
+                                                                    <span class="icon icon-sm icon-white align-top icon-fb ciaone"></span>
+                                                                </a>
+                                                            </li>
+                                                                                                                                                                                                                                                                                            <li>
+                                                                <a class="nav-link" href="https://www.instagram.com/comunesgv" title="Instagram" target="_blank">
+                                                                    <span class="icon icon-sm icon-white align-top icon-ig"></span>
+                                                                </a>
+                                                            </li>
+                                                                                                                                                                                                                            </ul>
+                                                </div>
+                                                  
+                                                <ul class="navbar-nav main_menu d-lg-none">
+                                                                                                    </ul> 
+                                                
+                                            </div> 
+                                            <div class="mobile-login nav-item d-lg-none px-4 py-2 border-top">
+                                                                                                    <a href="/login"
+                                                        title="login" class="btn btn-success">Accedi </a>
+                                                                                            </div>
+                                        </div>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        
+        
+        
+        
+    <div class="container" id="breadcrumbs-container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-10">
+                <div class="cmp-breadcrumbs" role="navigation">
+    <nav class="breadcrumb-container">
+        <ol class="breadcrumb p-0" data-element="breadcrumb">
+                                  
+                                    <li class="breadcrumb-item">
+                        <a href="/home" title="Vai alla pagina: Home Page">Home Page</a><span class="separator">/</span>
+                    </li>
+                                
+                                  
+                 
+                    <li class="breadcrumb-item">
+                        <a href="/amministrazione" title="Vai alla pagina: Amministrazione">Amministrazione</a><span class="separator">/</span>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="/documenti-e-dati" title="Vai alla pagina: Documenti e dati">Documenti e dati</a><span class="separator">/</span>
+                    </li>
+                                            <li class="breadcrumb-item">
+                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/modulistica" title="Vai alla pagina: Modulistica">Modulistica</a><span class="separator">/</span>
+                        </li>
+                         
+                                
+                                  
+                                    <li class="breadcrumb-item">
+                        <a href="https://www.comune.san-giovanni-valdarno.ar.it/menu/2502965/modulistica-polizia-municipale" title="Vai alla pagina: Modulistica Polizia Locale">Modulistica Polizia Locale</a><span class="separator">/</span>
+                    </li>
+                                
+                                  
+                                    <li class="breadcrumb-item">
+                        <span>ZTL - Modulo per la richiesta di autorizzazione successiva all’ingresso (da presentarsi entro 48 ore dal transito) – formato PDF</span>
+                    </li>
+                                
+                    </ol>
+    </nav>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+
+<div class="container" id="main-container">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+            <div class="cmp-heading pb-3 pb-lg-4">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="categoryicon-top d-flex" style="">
+                            
+                                                            <h1 class="title-xxxlarge d-flex" data-element="page-name">ZTL - Modulo per la richiesta di autorizzazione successiva all’ingresso (da presentarsi entro 48 ore dal transito) – formato PDF</h1>
+                                                        
+                        </div>
+
+                        
+                        
+                        <!-- Nome alternativo luogo -->
+                        
+                                                                                    <p class="subtitle-small mb-2">Negli allegati tutta la documentazione utile da scaricare o consultare, relativamente a “ZTL - Modulo per la richiesta di autorizzazione successiva all’ingresso (da presentarsi entro 48 ore dal transito) – formato PDF”.</p>
+                                                    
+                        
+                                                                    </div>
+
+
+                                            <div class="col-lg-3 offset-lg-1 mt-5 mt-lg-0">
+                            <!-- SHAREAND ACTIONS ! share: boolean -->
+                                                            <div class="dropdown d-inline">
+    <button aria-label="condividi sui social" class="btn btn-dropdown dropdown-toggle text-decoration-underline d-inline-flex align-items-center fs-0" type="button" id="shareActions" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-focus-mouse="false">
+        <svg class="icon me-1" aria-hidden="true">
+            <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-share"></use>
+        </svg>
+        <small>Condividi</small>
+    </button>
+    <div class="dropdown-menu shadow-lg" aria-labelledby="shareActions">
+        <div class="link-list-wrapper">
+            <ul class="link-list" role="menu">
+                <li role="none">
+                    <a 
+                        class="list-item" 
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://www.comune.san-giovanni-valdarno.ar.it/modulistica/2562345/modulo-richiesta-autorizzazione-successiva" 
+                        role="menuitem"
+                        target="_blank"
+                    >
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-facebook"></use>
+                        </svg>
+                        <span>Facebook</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a 
+                        class="list-item" 
+                        href="https://x.com/intent/tweet?url=https://www.comune.san-giovanni-valdarno.ar.it/modulistica/2562345/modulo-richiesta-autorizzazione-successiva" 
+                        role="menuitem"
+                        target="_blank"
+                    >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 512 462.799" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd">
+                        <path fill-rule="nonzero" d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z"/>
+                      </svg>
+                    <span>X</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a 
+                        class="list-item" 
+                        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.comune.san-giovanni-valdarno.ar.it/modulistica/2562345/modulo-richiesta-autorizzazione-successiva" 
+                        role="menuitem"
+                        target="_blank"
+                    >
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-linkedin"></use>
+                        </svg>
+                        <span>Linkedin</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a 
+                        class="list-item" 
+                        href="https://api.whatsapp.com/send?phone=&amp;text=https://www.comune.san-giovanni-valdarno.ar.it/modulistica/2562345/modulo-richiesta-autorizzazione-successiva" 
+                        role="menuitem"
+                        target="_blank"
+                    >
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-whatsapp"></use>
+                        </svg>
+                        <span>Whatsapp</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <a 
+                        class="list-item" 
+                        href="https://t.me/share/url?url=https://www.comune.san-giovanni-valdarno.ar.it/modulistica/2562345/modulo-richiesta-autorizzazione-successiva" 
+                        role="menuitem"
+                        target="_blank"
+                    >
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-telegram"></use>
+                        </svg>
+                        <span>Telegram</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="dropdown d-inline">
+    <button aria-label="vedi azioni da compiere sulla pagina" class="btn btn-dropdown dropdown-toggle text-decoration-underline d-inline-flex align-items-center fs-0" type="button" id="viewActions" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <svg class="icon" aria-hidden="true">
+            <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-more-items"></use>
+        </svg>
+        <small>Vedi azioni</small>
+    </button>
+    <div class="dropdown-menu shadow-lg" aria-labelledby="viewActions">
+        <div class="link-list-wrapper">
+            <ul class="link-list" role="menu">  
+                <li role="none">
+                    <a class="list-item" onclick="window.print()" role="menuitem">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-print"></use>
+                        </svg>
+                        <span>Stampa</span>
+                    </a>
+                </li>             
+                <li role="none">
+                    <a class="list-item" href="mailto:?subject=ZTL - Modulo per la richiesta di autorizzazione successiva all’ingresso (da presentarsi entro 48 ore dal transito) – formato PDF&amp;body=https://www.comune.san-giovanni-valdarno.ar.it/modulistica/2562345/modulo-richiesta-autorizzazione-successiva" role="menuitem">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-mail"></use>
+                        </svg>
+                        <span>Invia</span>
+                    </a>
+                </li>
+                <li role="none">
+                    <edit-button-front-to-back :contents="{&quot;id&quot;:2562345,&quot;scenario_id&quot;:1764,&quot;infoable_type&quot;:&quot;App\\Models\\Modulistica\\ModelloInfoable&quot;,&quot;infoable_id&quot;:1573126,&quot;title&quot;:&quot;ZTL - Modulo per la richiesta di autorizzazione successiva all\u2019ingresso (da presentarsi entro 48 ore dal transito) \u2013 formato PDF&quot;,&quot;permalink&quot;:&quot;modulo-richiesta-autorizzazione-successiva&quot;,&quot;version_number&quot;:&quot;&quot;,&quot;app_visibility&quot;:false,&quot;site_visibility&quot;:true,&quot;turist_visibility&quot;:false,&quot;drafting_status&quot;:null,&quot;publish_date&quot;:&quot;2024-03-19T12:18:00.000000Z&quot;,&quot;unpublish_date&quot;:null,&quot;cloned_from&quot;:null,&quot;abstract&quot;:&quot;Negli allegati tutta la documentazione utile da scaricare o consultare, relativamente a \u201cZTL - Modulo per la richiesta di autorizzazione successiva all\u2019ingresso (da presentarsi entro 48 ore dal transito) \u2013 formato PDF\u201d.&quot;,&quot;body&quot;:null,&quot;created_by&quot;:144837,&quot;updated_by&quot;:198847,&quot;deleted_by&quot;:null,&quot;created_at&quot;:&quot;2024-03-19T12:18:24.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-07-17T06:33:41.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;parent_id&quot;:2502965,&quot;order&quot;:49,&quot;icon&quot;:null,&quot;highlighed_app&quot;:null,&quot;unhighlighed_app&quot;:null,&quot;highlighed_site&quot;:null,&quot;unhighlighed_site&quot;:null,&quot;highlighed_turist&quot;:null,&quot;unhighlighed_turist&quot;:null,&quot;evidence_site&quot;:0,&quot;uncompleted&quot;:0,&quot;imported_by&quot;:null,&quot;order_highlighed_site&quot;:0,&quot;order_highlighed_app&quot;:0,&quot;order_highlighed_turist&quot;:0,&quot;pinned&quot;:0,&quot;image_thumb_url&quot;:null,&quot;image_url&quot;:null,&quot;info_alias&quot;:&quot;modulistica_modelli&quot;,&quot;info_alias_translation&quot;:&quot;Modelli&quot;,&quot;info_icon_class&quot;:&quot;cms-documenti&quot;,&quot;share_url&quot;:&quot;https:\/\/www.comune.san-giovanni-valdarno.ar.it\/modulistica\/2562345\/modulo-richiesta-autorizzazione-successiva&quot;,&quot;abstract_ellipsized&quot;:&quot;Negli allegati tutta la documentazione utile da scaricare o consultare, relativamente a \u201cZTL - Modulo per la richiesta di autorizzazione successiva all\u2019ingresso (da presentarsi entro 48 ore dal tr (...)&quot;,&quot;formatted_date&quot;:&quot;19\/03\/2024&quot;,&quot;is_customized&quot;:true,&quot;infoable&quot;:{&quot;scenario_id&quot;:1764,&quot;title&quot;:&quot;ZTL - Modulo per la richiesta di autorizzazione successiva all\u2019ingresso (da presentarsi entro 48 ore dal transito) \u2013 formato PDF&quot;,&quot;gaspari_code&quot;:null,&quot;region_id&quot;:null,&quot;national_id&quot;:null,&quot;omnia_id&quot;:null,&quot;omnia_modello_updated_at&quot;:null,&quot;omnia_file_updated_at&quot;:null,&quot;old_version&quot;:0,&quot;modified&quot;:0,&quot;order&quot;:0,&quot;is_customized&quot;:0,&quot;extension&quot;:&quot;pdf&quot;,&quot;media&quot;:[{&quot;id&quot;:5199852,&quot;model_id&quot;:1573126,&quot;model_type&quot;:&quot;App\\Models\\Modulistica\\ModelloInfoable&quot;,&quot;collection_name&quot;:&quot;forms&quot;,&quot;name&quot;:&quot;08.54-P.M.-Z.T.L.-Richiesta-Autorizzazione-successiva-allingresso-ver-4-(2)&quot;,&quot;file_name&quot;:&quot;08.54-P.M.-Z.T.L.-Richiesta-Autorizzazione-successiva-allingresso-ver-4-(2).pdf&quot;,&quot;mime_type&quot;:&quot;application\/pdf&quot;,&quot;disk&quot;:&quot;media_ovh&quot;,&quot;size&quot;:183895,&quot;manipulations&quot;:[],&quot;custom_properties&quot;:[],&quot;order_column&quot;:3324759,&quot;created_at&quot;:&quot;2026-07-17T06:33:43.000000Z&quot;,&quot;updated_at&quot;:&quot;2026-07-17T06:33:43.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;tags&quot;:null,&quot;responsive_images&quot;:[],&quot;conversions_disk&quot;:&quot;media_ovh&quot;,&quot;uuid&quot;:&quot;5555cd94-2cdb-480b-9ffd-c42fec339bb3&quot;,&quot;attachment_group_id&quot;:null,&quot;visibility&quot;:1,&quot;expiration_date&quot;:null,&quot;type&quot;:&quot;pdf&quot;,&quot;url&quot;:&quot;https:\/\/mycity.s3.sbg.io.cloud.ovh.net\/5199852\/08.54-P.M.-Z.T.L.-Richiesta-Autorizzazione-successiva-allingresso-ver-4-(2).pdf&quot;,&quot;thumb_url&quot;:null,&quot;human_readable_mime_type&quot;:&quot;PDF&quot;}]},&quot;parent&quot;:{&quot;id&quot;:2502965,&quot;scenario_id&quot;:1764,&quot;infoable_type&quot;:&quot;App\\Models\\MenuInfoable&quot;,&quot;infoable_id&quot;:163613,&quot;title&quot;:&quot;Modulistica Polizia Locale&quot;,&quot;permalink&quot;:&quot;modulistica-polizia-municipale&quot;,&quot;version_number&quot;:&quot;0&quot;,&quot;app_visibility&quot;:false,&quot;site_visibility&quot;:true,&quot;turist_visibility&quot;:false,&quot;drafting_status&quot;:null,&quot;publish_date&quot;:&quot;2024-02-28T07:09:00.000000Z&quot;,&quot;unpublish_date&quot;:null,&quot;cloned_from&quot;:null,&quot;abstract&quot;:null,&quot;body&quot;:null,&quot;created_by&quot;:144837,&quot;updated_by&quot;:203910,&quot;deleted_by&quot;:null,&quot;created_at&quot;:&quot;2024-02-28T07:09:01.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-11-21T08:09:01.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;parent_id&quot;:2487422,&quot;order&quot;:36,&quot;icon&quot;:&quot;00-standard&quot;,&quot;highlighed_app&quot;:null,&quot;unhighlighed_app&quot;:null,&quot;highlighed_site&quot;:null,&quot;unhighlighed_site&quot;:null,&quot;highlighed_turist&quot;:null,&quot;unhighlighed_turist&quot;:null,&quot;evidence_site&quot;:null,&quot;uncompleted&quot;:0,&quot;imported_by&quot;:null,&quot;order_highlighed_site&quot;:0,&quot;order_highlighed_app&quot;:0,&quot;order_highlighed_turist&quot;:0,&quot;pinned&quot;:0,&quot;share_url&quot;:&quot;https:\/\/www.comune.san-giovanni-valdarno.ar.it\/menu\/2502965\/modulistica-polizia-municipale&quot;,&quot;admin_url&quot;:null,&quot;info_alias&quot;:&quot;menus&quot;,&quot;parent&quot;:{&quot;id&quot;:2487422,&quot;scenario_id&quot;:1764,&quot;infoable_type&quot;:&quot;App\\Models\\MenuInfoable&quot;,&quot;infoable_id&quot;:161710,&quot;title&quot;:&quot;Modulistica&quot;,&quot;permalink&quot;:&quot;modulistica&quot;,&quot;version_number&quot;:&quot;0&quot;,&quot;app_visibility&quot;:true,&quot;site_visibility&quot;:true,&quot;turist_visibility&quot;:true,&quot;drafting_status&quot;:null,&quot;publish_date&quot;:&quot;2024-02-20T16:59:52.000000Z&quot;,&quot;unpublish_date&quot;:null,&quot;cloned_from&quot;:351408,&quot;abstract&quot;:&quot;&quot;,&quot;body&quot;:null,&quot;created_by&quot;:1,&quot;updated_by&quot;:1,&quot;deleted_by&quot;:null,&quot;created_at&quot;:&quot;2021-02-15T13:31:39.000000Z&quot;,&quot;updated_at&quot;:&quot;2025-08-19T10:29:01.000000Z&quot;,&quot;deleted_at&quot;:null,&quot;parent_id&quot;:null,&quot;order&quot;:0,&quot;icon&quot;:&quot;00-standard&quot;,&quot;highlighed_app&quot;:null,&quot;unhighlighed_app&quot;:null,&quot;highlighed_site&quot;:null,&quot;unhighlighed_site&quot;:null,&quot;highlighed_turist&quot;:null,&quot;unhighlighed_turist&quot;:null,&quot;evidence_site&quot;:null,&quot;uncompleted&quot;:0,&quot;imported_by&quot;:null,&quot;order_highlighed_site&quot;:0,&quot;order_highlighed_app&quot;:0,&quot;order_highlighed_turist&quot;:0,&quot;pinned&quot;:0,&quot;share_url&quot;:&quot;https:\/\/www.comune.san-giovanni-valdarno.ar.it\/modulistica&quot;,&quot;admin_url&quot;:null,&quot;info_alias&quot;:&quot;menus&quot;,&quot;parent&quot;:null,&quot;infoable&quot;:{&quot;module_id&quot;:4,&quot;link_id&quot;:null,&quot;external_url&quot;:null,&quot;target_blank&quot;:0,&quot;default_info&quot;:null,&quot;list_in_menu&quot;:true,&quot;rss_source_url&quot;:null,&quot;last_rss_import&quot;:null,&quot;rss_type&quot;:null,&quot;as_map&quot;:0,&quot;has_color&quot;:0,&quot;color&quot;:null,&quot;europee&quot;:0,&quot;amministrative&quot;:0,&quot;regionali&quot;:0,&quot;politiche&quot;:0,&quot;referendum&quot;:0,&quot;editable&quot;:1,&quot;powerless&quot;:0,&quot;logical_id&quot;:null,&quot;normative&quot;:null,&quot;catalogue_visualization&quot;:0,&quot;rss_failures&quot;:0,&quot;at_type&quot;:&quot;&quot;,&quot;module&quot;:{&quot;id&quot;:4,&quot;class_name&quot;:&quot;App\\Models\\Modules\\Modulistica&quot;}},&quot;scenario&quot;:{&quot;id&quot;:1764,&quot;site_name&quot;:&quot;Comune di San Giovanni Valdarno&quot;,&quot;name&quot;:&quot;San Giovanni Valdarno&quot;,&quot;name_prefix&quot;:&quot;Comune di&quot;,&quot;url&quot;:&quot;www.comune.san-giovanni-valdarno.ar.it&quot;,&quot;external_home_link&quot;:null,&quot;description&quot;:null,&quot;address&quot;:&quot;&lt;p&gt;Via Garibaldi, 43 San Giovanni V.no &amp;ndash; 52027 &amp;ndash; (AR)&lt;\/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;\/p&gt;&quot;,&quot;zip_code&quot;:&quot;52027&quot;,&quot;province_id&quot;:89,&quot;latitude&quot;:null,&quot;longitude&quot;:null,&quot;cadastre_code&quot;:&quot;H901&quot;,&quot;phone&quot;:&quot;05591261&quot;,&quot;fax&quot;:&quot;0559123376&quot;,&quot;population&quot;:17000,&quot;email&quot;:&quot;protocollo@comunesgv.it&quot;,&quot;pec&quot;:&quot;protocollo@pec.comunesgv.it&quot;,&quot;iban&quot;:null,&quot;location_address&quot;:&quot;Via Garibaldi, 43 San Giovanni V.no \u2013 52027 \u2013 (AR)&quot;,&quot;is_active&quot;:1,&quot;type&quot;:1,&quot;facebook_url&quot;:&quot;comunesangiovannivaldarno&quot;,&quot;youtube_url&quot;:null,&quot;twitter_url&quot;:null,&quot;requested_ig_permission&quot;:null,&quot;instagram_url&quot;:&quot;comunesgv&quot;,&quot;telegram_url&quot;:null,&quot;whatsapp_url&quot;:null,&quot;fiscal_code&quot;:&quot;00160360517&quot;,&quot;vat_code&quot;:&quot;00160360517&quot;,&quot;deeplink&quot;:&quot;mysangiovannivaldarno:\/\/&quot;,&quot;ios_app&quot;:&quot;https:\/\/apps.apple.com\/app\/mysangiovannivaldarno\/id6743793022&quot;,&quot;android_app&quot;:&quot;https:\/\/play.google.com\/store\/apps\/details?id=it.gasparilab.mysangiovannivaldarno&quot;,&quot;app_enabled&quot;:&quot;1&quot;,&quot;multicomune_enabled&quot;:1,&quot;site_enabled&quot;:&quot;1&quot;,&quot;web_style&quot;:&quot;agid4&quot;,&quot;web_color&quot;:&quot;bluoltremare&quot;,&quot;app_color&quot;:&quot;bluscuro&quot;,&quot;app_name&quot;:&quot;MySanGiovanniValdarno&quot;,&quot;landing_is_enabled&quot;:0,&quot;landing_show_app_banner&quot;:0,&quot;landing_tourist_site_url&quot;:&quot;&quot;,&quot;landing_tourist_site_color&quot;:&quot;&quot;,&quot;privacy_policy_last_update&quot;:&quot;2025-12-01 09:30:15&quot;,&quot;privacy_policy&quot;:&quot;&lt;p&gt;&lt;strong&gt;Informativa Privacy&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p style=\&quot;text-align: center;\&quot;&gt;&lt;strong&gt;Informativa sul trattamento dei dati personali derivanti dall&amp;#39;utilizzo del sito Web e dell&amp;#39;App&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;La presente Informativa &amp;egrave; resa nel rispetto dell&amp;rsquo;art. 13 del Regolamento (UE) 2016\/679 relativo alla protezione delle persone fisiche con riguardo al trattamento dei dati personali, nonch&amp;eacute; alla libera circolazione di tali dati (di seguito &amp;ldquo;Regolamento&amp;rdquo;) a tutti gli utenti che consultano e, pi&amp;ugrave; in generale, interagiscono con i servizi resi attraverso il&amp;nbsp;&lt;strong&gt;Sito Web e l&amp;rsquo;App&amp;nbsp;&lt;\/strong&gt;dell&amp;rsquo;Ente.&lt;\/p&gt;\r\n\r\n&lt;p&gt;In questa informativa verranno illustrate le finalit&amp;agrave; e le modalit&amp;agrave; con cui il Titolare potrebbe raccogliere e trattare i suoi dati personali, quali categorie di dati sono oggetto di trattamento, quali sono i diritti degli interessati al trattamento e come possono essere esercitati.&lt;\/p&gt;\r\n\r\n&lt;p&gt;L&amp;rsquo;informativa &amp;egrave; resa esclusivamente per&amp;nbsp;&lt;strong&gt;il Sito e l&amp;rsquo;App&lt;\/strong&gt;&amp;nbsp;dell&amp;rsquo;Ente, pertanto il Titolare non si assume nessuna responsabilit&amp;agrave; in merito agli altri siti web eventualmente consultati tramite collegamenti ipertestuali presenti. Il trattamento dei dati avverr&amp;agrave; per mezzo di strumenti informatici.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Gli utenti del Sito Web e dell&amp;rsquo;App dell&amp;rsquo;Ente sono invitati a prendere visione della presente informativa prima di fornire informazioni personali di qualsiasi genere.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Titolare del Trattamento dei Dati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Comune di San Giovanni Valdarno&lt;\/p&gt;\r\n\r\n&lt;p&gt;Via Garibaldi, 43 San Giovanni V.no &amp;ndash; 52027 &amp;ndash; (AR)&lt;\/p&gt;\r\n\r\n&lt;p&gt;Email: protocollo@comunesgv.it&lt;\/p&gt;\r\n\r\n&lt;p&gt;PEC: protocollo@pec.comunesgv.it&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Responsabile della Protezione dei Dati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il riferimento e dati contatto del Responsabile della Protezione dei Dati sono consultabili nella sezione Privacy dell&amp;rsquo;area Amministrazione Trasparente:&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;a href=\&quot;https:\/\/servizi.comunesgv.it\/openweb\/trasparenza\/pagina.php?id=93&amp;amp;CSRF=06262a3fc12526d8add3c7b40a4d81eb\&quot;&gt;servizi.comunesgv.it - Portale dei servizi - DPO&lt;\/a&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Tipologie di dati trattati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Dati di navigazione&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;I sistemi informatici e le procedure software preposte al funzionamento&amp;nbsp;&lt;strong&gt;del Sito e dall&amp;rsquo;app&lt;\/strong&gt;, nel corso del loro normale esercizio, alcuni dati personali la cui trasmissione &amp;egrave; implicita nell&amp;rsquo;uso dei protocolli di comunicazione di Internet. Si tratta di informazioni che non sono raccolte per essere associate a interessati identificati, ma che per loro stessa natura potrebbero, attraverso elaborazioni ed associazioni con dati detenuti da terzi, permettere di identificare gli utenti.&lt;\/p&gt;\r\n\r\n&lt;p&gt;In questa categoria di dati rientrano:&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;cookies tecnici&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;Browser utilizzato (solo nel caso dell&amp;rsquo;uso del SITO)&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;sistema operativo utilizzato (solo nel caso dell&amp;rsquo;uso dell&amp;rsquo;app)&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;tipo dispositivo (solo nel caso dell&amp;rsquo;uso dell&amp;rsquo;app)&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;Questi dati vengono utilizzati al solo fine di ricavare informazioni statistiche anonime sull&amp;rsquo;uso e per controllarne il corretto funzionamento e vengono cancellati immediatamente dopo l&amp;rsquo;elaborazione.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Inoltre, l&amp;rsquo;app pu&amp;ograve; richiede l&amp;rsquo;accesso a propriet&amp;agrave; del device, sotto esplicita conferma dell&amp;#39;utente, che servono al funzionamento di determinati servizi: geolocalizzazione, fotocamera, archivio, microfono, notifiche push.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Tuttavia,&amp;nbsp;&lt;strong&gt;non vengono acquisiti dati in seguito all&amp;rsquo;accesso a tali propriet&amp;agrave;&lt;\/strong&gt;, se non quelli forniti volontariamente dall&amp;rsquo;utente per l&amp;rsquo;utilizzo di determinati servizi, come meglio specificato nel paragrafo successivo.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Dati forniti volontariamente dall&amp;#39;utente&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Fatto salvo quanto sopra specificato in relazione ai dati di navigazione, l&amp;rsquo;ente acquisir&amp;agrave; i dati personali eventualmente forniti dall&amp;rsquo;utente per formulare richieste, per l&amp;rsquo;iscrizione a eventuali newsletter, e in generale per usufruire dei servizi offerti.&lt;\/p&gt;\r\n\r\n&lt;p&gt;In questa categoria di dati rientrano:&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;Dati anagrafici: nome, cognome, codice fiscale&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;Dati di recapito (indirizzo di residenza, localizzazione geografica, indirizzo email, numero di telefono)&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;Dati forniti volontariamente dall&amp;rsquo;utente&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;Dati necessari all&amp;rsquo;invio di una istanza online previsti da una norma o da un regolamento dell&amp;rsquo;Ente.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;Il trattamento dei dati forniti dall&amp;rsquo;utente avverr&amp;agrave; nel rispetto delle finalit&amp;agrave; e delle modalit&amp;agrave; indicate nella presente informativa.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Cookies di terze parti&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Questa tipologia contempla funzionalit&amp;agrave; sviluppate da terzi, integrate all&amp;rsquo;interno delle pagine del sito ma non gestite direttamente.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il sito web e l&amp;rsquo;app possono integrare servizi offerti da terzi (servizi di streaming video, condivisione tramite social network). Nessun dato personale viene trasferito a terzi previo utilizzo di tali servizi. Circa i trattamenti di dati personali effettuati dai gestori delle piattaforme di Social Media e streaming video utilizzate si rimanda alle informazioni da questi rese attraverso le rispettive privacy policy.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Modalit&amp;agrave; del trattamento&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il Titolare adotta le opportune misure di sicurezza volte ad impedire l&amp;rsquo;accesso, la divulgazione, la modifica o la distruzione non autorizzate dei Dati Personali, meglio dettagliate al paragrafo &amp;ldquo;Misure di sicurezza tecniche ed organizzative per la protezione di dati&amp;rdquo;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il trattamento viene effettuato mediante strumenti informatici e\/o telematici, con modalit&amp;agrave; organizzative e con logiche strettamente correlate alle finalit&amp;agrave; indicate.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il trattamento dei dati sar&amp;agrave; effettuato da personale alle dirette dipendenze del Titolare e\/o da persone fisiche o giuridiche da questo appositamente individuate quali incaricati, responsabili opportunamente nominati e loro incaricati del trattamento.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Base giuridica e finalit&amp;agrave; del trattamento per l&amp;rsquo;erogazione dei servizi richiesti&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;I dati conferiti di cui al paragrafo &amp;ldquo;Dati forniti volontariamente dall&amp;#39;utente&amp;rdquo;, verranno trattati dal Titolare esclusivamente per rispondere alle richieste e dare seguito ai servizi del quale l&amp;rsquo;utente intende avvalersi.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Ove la leicit&amp;agrave; del trattamento dei Dati Personali si basa sul consenso dell&amp;#39;Utente, il consenso &amp;egrave; richiesto mediante un atto positivo con il quale l&amp;#39;interessato manifesta l&amp;#39;intenzione libera, specifica, informata e inequivocabile di accettare il trattamento dei dati personali che lo riguardano.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Se non diversamente specificato, tutti i Dati richiesti da questa App sono necessari all&amp;rsquo;esecuzione del servizio richiesto.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Nei casi in cui questa Applicazione indichi alcuni dati come facoltativi, gli Utenti sono liberi di astenersi dal comunicare tali dati, senza che ci&amp;ograve; abbia alcuna conseguenza sulla disponibilit&amp;agrave; del Servizio o sulla sua operativit&amp;agrave;.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Gli Utenti che dovessero avere dubbi su quali dati siano obbligatori, sono incoraggiati a contattare il Titolare.&lt;\/p&gt;\r\n\r\n&lt;p&gt;L&amp;rsquo;eventuale utilizzo di strumenti di localizzazione geografica da parte dell&amp;rsquo;Utente, ove non diversamente precisato, ha la finalit&amp;agrave; di fornire il Servizio richiesto dall&amp;#39;Utente, oltre alle ulteriori finalit&amp;agrave; descritte nel presente documento.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;In ogni caso, non &amp;egrave; previsto il tracciamento della posizione dell&amp;rsquo;utente, e le funzionalit&amp;agrave; di geolocalizzazione vengono attivate esclusivamente per compilare il campo &amp;ldquo;indirizzo&amp;rdquo; relativo ai moduli che lo richiedono.&lt;\/p&gt;\r\n\r\n&lt;p&gt;L&amp;#39;Utente si assume la responsabilit&amp;agrave; dei Dati Personali di terzi ottenuti, pubblicati o condivisi mediante questa App e garantisce di avere il diritto di comunicarli o diffonderli, liberando il Titolare da qualsiasi responsabilit&amp;agrave; verso terzi.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Soggetti interessati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;I destinatari del trattamento sono tutti gli utilizzatori del Sito Web e dell&amp;rsquo;app, o dei servizi resi disponibili attraverso gli stessi nei termini delle leggi vigenti e di quanto definito dal Regolamento (UE) 2016\/679.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Periodo di conservazione&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;I Dati sono trattati e conservati per il tempo richiesto dalle finalit&amp;agrave; per le quali sono stati raccolti. Pertanto:&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;I Dati Personali raccolti per scopi collegati all&amp;rsquo;esecuzione di un adempimento previsto da norma di legge o regolamento saranno trattenuti sino a quando sia completata l&amp;rsquo;esecuzione di tale adempimento, nei tempi previsti dalla specifica norma o regolamento.&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;I dati trattati a fronte di un consenso informato da parte dell&amp;rsquo;utente sono trattati per un massimo di due anni, salvo revoca anticipata del consenso. L&amp;#39;interessato ha il diritto di revocare il proprio consenso in qualsiasi momento. La revoca del consenso non pregiudica la liceit&amp;agrave; del trattamento basata sul consenso prima della revoca.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;Al termine del periodo di conservazioni i Dati Personali saranno cancellati. Pertanto, allo spirare di tale termine il diritto di accesso, cancellazione, rettificazione ed il diritto alla portabilit&amp;agrave; dei Dati non potranno pi&amp;ugrave; essere esercitati.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Comunicazione e trasferimento dati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;I dati forniti non saranno divulgati o condivisi con terzi, salvo per i soggetti autorizzati dalla legge o dalle autorit&amp;agrave; competenti, e per i soggetti esterni che il Titolare potrebbe coinvolgere nell&amp;#39;esecuzione di attivit&amp;agrave; strumentali o accessorie ai servizi offerti e ai relativi benefici, quali fornitori di soluzioni software, web application e servizi di archiviazione (responsabili del trattamento).&lt;\/p&gt;\r\n\r\n&lt;p&gt;Non &amp;egrave; previsto alcun trasferimento dei dati fuori dallo spazio economico europeo.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Per maggiori dettagli, l&amp;#39;interessato pu&amp;ograve; richiedere informazioni al Titolare.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Responsabili al trattamento&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il Titolare del Trattamento ha nominato Grafiche E. Gaspari S.r.l., con sede a Via M. Minghetti 18, Granarolo dell&amp;#39;Emilia, 40057 (BO), &amp;ldquo;Responsabile del Trattamento&amp;rdquo;, ai sensi dell&amp;rsquo;articolo 28 del Regolamento EU 679\/2026.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il fornitore, per la propria parte e in qualit&amp;agrave; di responsabile al trattamento, si &amp;egrave; impegnato a rispettare quanto previsto dal citato art. 28 del Regolamento EU 679\/2016 e le istruzioni ad esso impartite da parte del Titolare del Trattamento.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il Responsabile del Trattamento si avvale di partner digitali, sub-responsabili del trattamento, quali produttori del sito web e dell&amp;rsquo;app. A questi sono imposti, mediante la stipula di un contratto o altro atto giuridico sottoscritto dai Responsabili stessi, i medesimi obblighi in materia di protezione dei dati personali contenuti nella nomina a Responsabile del Trattamento, con l&amp;rsquo;espressa presa d&amp;rsquo;atto delle garanzie sufficienti alla messa in atto delle misure tecniche e organizzative adeguate richieste dal Regolamento&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Diritti degli interessati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Si d&amp;agrave; evidenza che, in conformit&amp;agrave; con la normativa europea e nazionale in materia di trattamento dati personali, l&amp;rsquo;interessato ha i seguenti diritti:&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;chiedere e ottenere informazioni circa l&amp;rsquo;esistenza di propri dati nella disponibilit&amp;agrave; del Titolare e accesso a tali dati;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;chiedere la comunicazione dei propri dati e\/o il trasferimento ad altro titolare&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;chiedere e ottenere la modifica e\/o correzione dei suoi dati personali qualora ritenga siano inaccurati o incompleti;&amp;nbsp;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;chiedere e ottenere la cancellazione &amp;ndash; e\/o la limitazione del trattamento &amp;ndash; dei propri dati personali qualora si tratti di dati o informazioni non necessari &amp;ndash; o non pi&amp;ugrave; necessari &amp;ndash; per le finalit&amp;agrave; di cui al paragrafo dedicato, ovvero decorso il periodo di conservazione indicato al paragrafo dedicato.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;In particolare, le sono riconosciuti i seguenti diritti: artt.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;15 &amp;ndash; &amp;ldquo;Diritto di accesso dell&amp;rsquo;interessato&amp;rdquo;,&amp;nbsp;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;16 &amp;ndash; &amp;ldquo;Diritto di rettifica&amp;rdquo;,&amp;nbsp;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;17 &amp;ndash; &amp;ldquo;Diritto alla cancellazione&amp;rdquo;,&amp;nbsp;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;18 &amp;ndash; &amp;ldquo;Diritto di limitazione al trattamento&amp;rdquo;,&amp;nbsp;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;20 &amp;ndash; &amp;ldquo;Diritto alla portabilit&amp;agrave; dei dati&amp;rdquo; del Regolamento UE 2016\/679 nei limiti ed alle condizioni previste dall&amp;rsquo;art. 12 del Regolamento stesso.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;I propri diritti potranno essere esercitanti scrivendo al Titolare, utilizzando i recapiti disponibili al paragrafo &amp;ldquo;Titolare del Trattamento&amp;rdquo;, o contattando il Responsabile della Protezione dei dati.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Si informa inoltre che ai sensi della disciplina vigente &amp;egrave; possibile proporre eventuali reclami riguardanti i trattamenti di suoi dati personali al Garante per la protezione dei dati personali.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Misure di sicurezza tecniche ed organizzative per la protezione di dati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il produttore del sito web e dell&amp;rsquo;app ha adottato adeguate misure di sicurezza tecniche ed organizzative di cui all&amp;rsquo;art. 32 del GDPR in grado di garantire:&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;La capacit&amp;agrave; di assicurare su base permanente la riservatezza, l&amp;rsquo;integrit&amp;agrave;, la disponibilit&amp;agrave; e la resilienza dei sistemi e dei servizi di trattamento;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;La capacit&amp;agrave; di ripristinare tempestivamente la disponibilit&amp;agrave; e l&amp;rsquo;accesso dei dati personali in caso di incidente fisico o tecnico;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;L&amp;rsquo;adozione di procedure in grado di testare, verificare e valutare regolarmente l&amp;rsquo;efficacia delle misure tecniche e organizzative adottate al fine di garantire la sicurezza del trattamento in base anche ad una valutazione dei rischi.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Modifiche alla presente informativa&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;ll Titolare del Trattamento si riserva il diritto di modificare questa informativa in qualsiasi momento, fornendo notifica agli Utenti tramite questa piattaforma.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Nel caso in cui le modifiche riguardino trattamenti basati sul consenso dell&amp;#39;Utente, il Titolare otterr&amp;agrave; nuovamente il consenso dell&amp;#39;Utente, se necessario.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Utilizzo dei Dati Personali per la Difesa Legale o su richiesta delle Autorit&amp;agrave;&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il Titolare pu&amp;ograve; utilizzare i Dati Personali dell&amp;#39;Utente in procedimenti legali o nelle fasi preparatorie alla loro eventuale istituzione per difendersi da abusi nell&amp;#39;uso del sito web e dell&amp;rsquo;app, o dei servizi ad essi collegati da parte dell&amp;#39;Utente.&lt;\/p&gt;\r\n\r\n&lt;p&gt;L&amp;#39;Utente comprende che il Titolare potrebbe essere tenuto a divulgare i Dati su richiesta delle autorit&amp;agrave; pubbliche.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Informative specifiche&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Su richiesta dell&amp;rsquo;Utente, in aggiunta alle informazioni contenute in questa privacy policy, questo Titolare pu&amp;ograve; fornire all&amp;#39;Utente delle informative aggiuntive e contestuali riguardanti i trattamenti dati derivanti da servizi specifici.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Registrazione dei Log di Sistema per Supporto Tecnico e Manutenzione&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Per assicurare il corretto funzionamento e la manutenzione, il sito web e l&amp;rsquo;app, e i servizi terzi ad essi collegati, potrebbero registrare log di sistema, i quali documentano le interazioni e possono includere dati personali come l&amp;#39;indirizzo IP dell&amp;#39;Utente.&lt;\/p&gt;&quot;,&quot;privacy_app&quot;:null,&quot;user_policy_last_update&quot;:&quot;2026-02-27 10:44:04&quot;,&quot;user_policy&quot;:null,&quot;cookies_policy_last_update&quot;:&quot;2026-02-27 10:44:04&quot;,&quot;cookies_policy&quot;:null,&quot;glab_policy_last_update&quot;:null,&quot;glab_policy&quot;:null,&quot;email_nl&quot;:null,&quot;translate&quot;:0,&quot;translation_provider&quot;:&quot;google&quot;,&quot;custom_html_landing&quot;:null,&quot;google_analytics_id&quot;:null,&quot;google_analytics_view&quot;:null,&quot;app_info_id_android&quot;:null,&quot;app_info_id_ios&quot;:null,&quot;fcm_server_key&quot;:&quot;placeholder&quot;,&quot;fcm_sender_id&quot;:&quot;61230663273&quot;,&quot;no_image_active_site&quot;:0,&quot;no_image_active_app&quot;:0,&quot;landing_institutional_description&quot;:null,&quot;landing_turistic_description&quot;:null,&quot;turist_enabled&quot;:0,&quot;turist_url&quot;:null,&quot;turist_style&quot;:&quot;turistico1&quot;,&quot;turist_color&quot;:&quot;azzurro&quot;,&quot;turist_name&quot;:null,&quot;turist_slogan&quot;:null,&quot;turist_background&quot;:&quot;gallery&quot;,&quot;turist_video&quot;:null,&quot;no_image_active_turist&quot;:0,&quot;admin_url&quot;:null,&quot;turist_address&quot;:null,&quot;turist_phone&quot;:null,&quot;turist_email&quot;:null,&quot;turist_facebook_url&quot;:null,&quot;turist_youtube_url&quot;:null,&quot;turist_twitter_url&quot;:null,&quot;turist_instagram_url&quot;:null,&quot;turist_telegram_url&quot;:null,&quot;turist_whatsapp_url&quot;:null,&quot;hide_copyright&quot;:0,&quot;google_analytics_turist_id&quot;:null,&quot;google_analytics_turist_view&quot;:null,&quot;hide_login&quot;:0,&quot;hide_mycity_login&quot;:0,&quot;hide_spid_login&quot;:0,&quot;mobile_slogan&quot;:null,&quot;mobile_background&quot;:&quot;gallery&quot;,&quot;login_background&quot;:&quot;gallery&quot;,&quot;app_style&quot;:&quot;mobile_agid&quot;,&quot;delete_request_date&quot;:null,&quot;delete_request_user&quot;:null,&quot;hide_facebook_login&quot;:0,&quot;facebook_page_id&quot;:null,&quot;instagram_user_id&quot;:null,&quot;facebook_token_valid&quot;:1,&quot;spid&quot;:1,&quot;ebollo&quot;:false,&quot;ipa_code&quot;:&quot;c_h901&quot;,&quot;spid_update&quot;:&quot;2024-10-28 14:27:10&quot;,&quot;pin&quot;:900171,&quot;landing_site_url&quot;:&quot;&quot;,&quot;view_tourist&quot;:1,&quot;view_site&quot;:1,&quot;landing_site_color&quot;:&quot;&quot;,&quot;automatic_share&quot;:0,&quot;spid_sent&quot;:1,&quot;spid_verb&quot;:&quot;PUT&quot;,&quot;hide_ciecns_login&quot;:1,&quot;facebook_pixel_code&quot;:null,&quot;web_analytics&quot;:&quot;&lt;!-- Matomo --&gt;\r\n&lt;script&gt;\r\n  var _paq = window._paq = window._paq || [];\r\n  \/* tracker methods like \&quot;setCustomDimension\&quot; should be called before \&quot;trackPageView\&quot; *\/\r\n  _paq.push([&#039;trackPageView&#039;]);\r\n  _paq.push([&#039;enableLinkTracking&#039;]);\r\n  (function() {\r\n    var u=\&quot;https:\/\/ingestion.webanalytics.italia.it\/\&quot;;\r\n    _paq.push([&#039;setTrackerUrl&#039;, u+&#039;matomo.php&#039;]);\r\n    _paq.push([&#039;setSiteId&#039;, &#039;38680&#039;]);\r\n    var d=document, g=d.createElement(&#039;script&#039;), s=d.getElementsByTagName(&#039;script&#039;)[0];\r\n    g.async=true; g.src=u+&#039;matomo.js&#039;; s.parentNode.insertBefore(g,s);\r\n  })();\r\n&lt;\/script&gt;\r\n&lt;!-- End Matomo Code --&gt;&quot;,&quot;turist_web_analytics&quot;:null,&quot;client_code&quot;:&quot;0BLAR033&quot;,&quot;istat_code&quot;:&quot;051033&quot;,&quot;exception&quot;:0,&quot;show_cookie_banner&quot;:1,&quot;spid_delete&quot;:0,&quot;menu_structure_blocked&quot;:0,&quot;has_migrated_cms&quot;:1,&quot;cie_saml&quot;:1,&quot;is_test&quot;:0,&quot;authorization_text&quot;:null,&quot;spid_oidc&quot;:0,&quot;support_categories&quot;:&quot;{\&quot;2488035\&quot;:[\&quot;protocollo@comunesgv.it\&quot;],\&quot;2488032\&quot;:[\&quot;protocollo@comunesgv.it\&quot;],\&quot;2488021\&quot;:[\&quot;puntoamico@comunesgv.it\&quot;],\&quot;2488025\&quot;:[\&quot;protocollo@comunesgv.it\&quot;],\&quot;2488034\&quot;:[\&quot;protocollo@comunesgv.it\&quot;],\&quot;2488026\&quot;:[\&quot;edilizia@comunesgv.it\&quot;],\&quot;2488022\&quot;:[\&quot;cultura@comunesgv.it\&quot;],\&quot;2488029\&quot;:[\&quot;istruzione@comunesgv.it\&quot;],\&quot;2804809\&quot;:[\&quot;protocollo@comunesgv.it\&quot;],\&quot;2488030\&quot;:[\&quot;polizia.municipale@comunesgv.it\&quot;],\&quot;2488024\&quot;:[\&quot;suap@comunesgv.it\&quot;],\&quot;2488033\&quot;:[\&quot;giovana.mastromauro@comunesgv.it\&quot;],\&quot;2488031\&quot;:[\&quot;tributi@comunesgv.it\&quot;],\&quot;2488027\&quot;:[\&quot;cultura@comunesgv.it\&quot;],\&quot;2488023\&quot;:[\&quot;sociale@comunesgv.it\&quot;],\&quot;2488028\&quot;:[\&quot;polizia.municipale@comunesgv.it\&quot;]}&quot;,&quot;zona_piemonte&quot;:null,&quot;login_link&quot;:null,&quot;personalarea_link&quot;:null,&quot;logout_link&quot;:null,&quot;service_link&quot;:null,&quot;order_arguments&quot;:0,&quot;order_arguments_menu&quot;:0,&quot;app_translate&quot;:0,&quot;ateco_code&quot;:null,&quot;is_private&quot;:0,&quot;sms_name&quot;:null,&quot;legal_notes&quot;:null,&quot;at_type&quot;:&quot;at_art2_bis_c1&quot;}},&quot;infoable&quot;:{&quot;module_id&quot;:4,&quot;link_id&quot;:null,&quot;external_url&quot;:null,&quot;target_blank&quot;:0,&quot;default_info&quot;:null,&quot;list_in_menu&quot;:false,&quot;rss_source_url&quot;:null,&quot;last_rss_import&quot;:null,&quot;rss_type&quot;:null,&quot;as_map&quot;:0,&quot;has_color&quot;:0,&quot;color&quot;:null,&quot;europee&quot;:0,&quot;amministrative&quot;:0,&quot;regionali&quot;:0,&quot;politiche&quot;:0,&quot;referendum&quot;:0,&quot;editable&quot;:1,&quot;powerless&quot;:0,&quot;logical_id&quot;:null,&quot;normative&quot;:null,&quot;catalogue_visualization&quot;:0,&quot;rss_failures&quot;:0,&quot;at_type&quot;:&quot;&quot;,&quot;module&quot;:{&quot;id&quot;:4,&quot;class_name&quot;:&quot;App\\Models\\Modules\\Modulistica&quot;}}},&quot;scenario&quot;:{&quot;id&quot;:1764,&quot;site_name&quot;:&quot;Comune di San Giovanni Valdarno&quot;,&quot;name&quot;:&quot;San Giovanni Valdarno&quot;,&quot;name_prefix&quot;:&quot;Comune di&quot;,&quot;url&quot;:&quot;www.comune.san-giovanni-valdarno.ar.it&quot;,&quot;external_home_link&quot;:null,&quot;description&quot;:null,&quot;address&quot;:&quot;&lt;p&gt;Via Garibaldi, 43 San Giovanni V.no &amp;ndash; 52027 &amp;ndash; (AR)&lt;\/p&gt;\r\n\r\n&lt;p&gt;&amp;nbsp;&lt;\/p&gt;&quot;,&quot;zip_code&quot;:&quot;52027&quot;,&quot;province_id&quot;:89,&quot;latitude&quot;:null,&quot;longitude&quot;:null,&quot;cadastre_code&quot;:&quot;H901&quot;,&quot;phone&quot;:&quot;05591261&quot;,&quot;fax&quot;:&quot;0559123376&quot;,&quot;population&quot;:17000,&quot;email&quot;:&quot;protocollo@comunesgv.it&quot;,&quot;pec&quot;:&quot;protocollo@pec.comunesgv.it&quot;,&quot;iban&quot;:null,&quot;location_address&quot;:&quot;Via Garibaldi, 43 San Giovanni V.no \u2013 52027 \u2013 (AR)&quot;,&quot;is_active&quot;:1,&quot;type&quot;:1,&quot;facebook_url&quot;:&quot;comunesangiovannivaldarno&quot;,&quot;youtube_url&quot;:null,&quot;twitter_url&quot;:null,&quot;requested_ig_permission&quot;:null,&quot;instagram_url&quot;:&quot;comunesgv&quot;,&quot;telegram_url&quot;:null,&quot;whatsapp_url&quot;:null,&quot;fiscal_code&quot;:&quot;00160360517&quot;,&quot;vat_code&quot;:&quot;00160360517&quot;,&quot;deeplink&quot;:&quot;mysangiovannivaldarno:\/\/&quot;,&quot;ios_app&quot;:&quot;https:\/\/apps.apple.com\/app\/mysangiovannivaldarno\/id6743793022&quot;,&quot;android_app&quot;:&quot;https:\/\/play.google.com\/store\/apps\/details?id=it.gasparilab.mysangiovannivaldarno&quot;,&quot;app_enabled&quot;:&quot;1&quot;,&quot;multicomune_enabled&quot;:1,&quot;site_enabled&quot;:&quot;1&quot;,&quot;web_style&quot;:&quot;agid4&quot;,&quot;web_color&quot;:&quot;bluoltremare&quot;,&quot;app_color&quot;:&quot;bluscuro&quot;,&quot;app_name&quot;:&quot;MySanGiovanniValdarno&quot;,&quot;landing_is_enabled&quot;:0,&quot;landing_show_app_banner&quot;:0,&quot;landing_tourist_site_url&quot;:&quot;&quot;,&quot;landing_tourist_site_color&quot;:&quot;&quot;,&quot;privacy_policy_last_update&quot;:&quot;2025-12-01 09:30:15&quot;,&quot;privacy_policy&quot;:&quot;&lt;p&gt;&lt;strong&gt;Informativa Privacy&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p style=\&quot;text-align: center;\&quot;&gt;&lt;strong&gt;Informativa sul trattamento dei dati personali derivanti dall&amp;#39;utilizzo del sito Web e dell&amp;#39;App&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;La presente Informativa &amp;egrave; resa nel rispetto dell&amp;rsquo;art. 13 del Regolamento (UE) 2016\/679 relativo alla protezione delle persone fisiche con riguardo al trattamento dei dati personali, nonch&amp;eacute; alla libera circolazione di tali dati (di seguito &amp;ldquo;Regolamento&amp;rdquo;) a tutti gli utenti che consultano e, pi&amp;ugrave; in generale, interagiscono con i servizi resi attraverso il&amp;nbsp;&lt;strong&gt;Sito Web e l&amp;rsquo;App&amp;nbsp;&lt;\/strong&gt;dell&amp;rsquo;Ente.&lt;\/p&gt;\r\n\r\n&lt;p&gt;In questa informativa verranno illustrate le finalit&amp;agrave; e le modalit&amp;agrave; con cui il Titolare potrebbe raccogliere e trattare i suoi dati personali, quali categorie di dati sono oggetto di trattamento, quali sono i diritti degli interessati al trattamento e come possono essere esercitati.&lt;\/p&gt;\r\n\r\n&lt;p&gt;L&amp;rsquo;informativa &amp;egrave; resa esclusivamente per&amp;nbsp;&lt;strong&gt;il Sito e l&amp;rsquo;App&lt;\/strong&gt;&amp;nbsp;dell&amp;rsquo;Ente, pertanto il Titolare non si assume nessuna responsabilit&amp;agrave; in merito agli altri siti web eventualmente consultati tramite collegamenti ipertestuali presenti. Il trattamento dei dati avverr&amp;agrave; per mezzo di strumenti informatici.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Gli utenti del Sito Web e dell&amp;rsquo;App dell&amp;rsquo;Ente sono invitati a prendere visione della presente informativa prima di fornire informazioni personali di qualsiasi genere.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Titolare del Trattamento dei Dati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Comune di San Giovanni Valdarno&lt;\/p&gt;\r\n\r\n&lt;p&gt;Via Garibaldi, 43 San Giovanni V.no &amp;ndash; 52027 &amp;ndash; (AR)&lt;\/p&gt;\r\n\r\n&lt;p&gt;Email: protocollo@comunesgv.it&lt;\/p&gt;\r\n\r\n&lt;p&gt;PEC: protocollo@pec.comunesgv.it&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Responsabile della Protezione dei Dati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il riferimento e dati contatto del Responsabile della Protezione dei Dati sono consultabili nella sezione Privacy dell&amp;rsquo;area Amministrazione Trasparente:&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;a href=\&quot;https:\/\/servizi.comunesgv.it\/openweb\/trasparenza\/pagina.php?id=93&amp;amp;CSRF=06262a3fc12526d8add3c7b40a4d81eb\&quot;&gt;servizi.comunesgv.it - Portale dei servizi - DPO&lt;\/a&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Tipologie di dati trattati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Dati di navigazione&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;I sistemi informatici e le procedure software preposte al funzionamento&amp;nbsp;&lt;strong&gt;del Sito e dall&amp;rsquo;app&lt;\/strong&gt;, nel corso del loro normale esercizio, alcuni dati personali la cui trasmissione &amp;egrave; implicita nell&amp;rsquo;uso dei protocolli di comunicazione di Internet. Si tratta di informazioni che non sono raccolte per essere associate a interessati identificati, ma che per loro stessa natura potrebbero, attraverso elaborazioni ed associazioni con dati detenuti da terzi, permettere di identificare gli utenti.&lt;\/p&gt;\r\n\r\n&lt;p&gt;In questa categoria di dati rientrano:&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;cookies tecnici&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;Browser utilizzato (solo nel caso dell&amp;rsquo;uso del SITO)&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;sistema operativo utilizzato (solo nel caso dell&amp;rsquo;uso dell&amp;rsquo;app)&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;tipo dispositivo (solo nel caso dell&amp;rsquo;uso dell&amp;rsquo;app)&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;Questi dati vengono utilizzati al solo fine di ricavare informazioni statistiche anonime sull&amp;rsquo;uso e per controllarne il corretto funzionamento e vengono cancellati immediatamente dopo l&amp;rsquo;elaborazione.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Inoltre, l&amp;rsquo;app pu&amp;ograve; richiede l&amp;rsquo;accesso a propriet&amp;agrave; del device, sotto esplicita conferma dell&amp;#39;utente, che servono al funzionamento di determinati servizi: geolocalizzazione, fotocamera, archivio, microfono, notifiche push.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Tuttavia,&amp;nbsp;&lt;strong&gt;non vengono acquisiti dati in seguito all&amp;rsquo;accesso a tali propriet&amp;agrave;&lt;\/strong&gt;, se non quelli forniti volontariamente dall&amp;rsquo;utente per l&amp;rsquo;utilizzo di determinati servizi, come meglio specificato nel paragrafo successivo.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Dati forniti volontariamente dall&amp;#39;utente&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Fatto salvo quanto sopra specificato in relazione ai dati di navigazione, l&amp;rsquo;ente acquisir&amp;agrave; i dati personali eventualmente forniti dall&amp;rsquo;utente per formulare richieste, per l&amp;rsquo;iscrizione a eventuali newsletter, e in generale per usufruire dei servizi offerti.&lt;\/p&gt;\r\n\r\n&lt;p&gt;In questa categoria di dati rientrano:&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;Dati anagrafici: nome, cognome, codice fiscale&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;Dati di recapito (indirizzo di residenza, localizzazione geografica, indirizzo email, numero di telefono)&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;Dati forniti volontariamente dall&amp;rsquo;utente&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;Dati necessari all&amp;rsquo;invio di una istanza online previsti da una norma o da un regolamento dell&amp;rsquo;Ente.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;Il trattamento dei dati forniti dall&amp;rsquo;utente avverr&amp;agrave; nel rispetto delle finalit&amp;agrave; e delle modalit&amp;agrave; indicate nella presente informativa.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Cookies di terze parti&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Questa tipologia contempla funzionalit&amp;agrave; sviluppate da terzi, integrate all&amp;rsquo;interno delle pagine del sito ma non gestite direttamente.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il sito web e l&amp;rsquo;app possono integrare servizi offerti da terzi (servizi di streaming video, condivisione tramite social network). Nessun dato personale viene trasferito a terzi previo utilizzo di tali servizi. Circa i trattamenti di dati personali effettuati dai gestori delle piattaforme di Social Media e streaming video utilizzate si rimanda alle informazioni da questi rese attraverso le rispettive privacy policy.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Modalit&amp;agrave; del trattamento&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il Titolare adotta le opportune misure di sicurezza volte ad impedire l&amp;rsquo;accesso, la divulgazione, la modifica o la distruzione non autorizzate dei Dati Personali, meglio dettagliate al paragrafo &amp;ldquo;Misure di sicurezza tecniche ed organizzative per la protezione di dati&amp;rdquo;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il trattamento viene effettuato mediante strumenti informatici e\/o telematici, con modalit&amp;agrave; organizzative e con logiche strettamente correlate alle finalit&amp;agrave; indicate.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il trattamento dei dati sar&amp;agrave; effettuato da personale alle dirette dipendenze del Titolare e\/o da persone fisiche o giuridiche da questo appositamente individuate quali incaricati, responsabili opportunamente nominati e loro incaricati del trattamento.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Base giuridica e finalit&amp;agrave; del trattamento per l&amp;rsquo;erogazione dei servizi richiesti&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;I dati conferiti di cui al paragrafo &amp;ldquo;Dati forniti volontariamente dall&amp;#39;utente&amp;rdquo;, verranno trattati dal Titolare esclusivamente per rispondere alle richieste e dare seguito ai servizi del quale l&amp;rsquo;utente intende avvalersi.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Ove la leicit&amp;agrave; del trattamento dei Dati Personali si basa sul consenso dell&amp;#39;Utente, il consenso &amp;egrave; richiesto mediante un atto positivo con il quale l&amp;#39;interessato manifesta l&amp;#39;intenzione libera, specifica, informata e inequivocabile di accettare il trattamento dei dati personali che lo riguardano.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Se non diversamente specificato, tutti i Dati richiesti da questa App sono necessari all&amp;rsquo;esecuzione del servizio richiesto.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Nei casi in cui questa Applicazione indichi alcuni dati come facoltativi, gli Utenti sono liberi di astenersi dal comunicare tali dati, senza che ci&amp;ograve; abbia alcuna conseguenza sulla disponibilit&amp;agrave; del Servizio o sulla sua operativit&amp;agrave;.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Gli Utenti che dovessero avere dubbi su quali dati siano obbligatori, sono incoraggiati a contattare il Titolare.&lt;\/p&gt;\r\n\r\n&lt;p&gt;L&amp;rsquo;eventuale utilizzo di strumenti di localizzazione geografica da parte dell&amp;rsquo;Utente, ove non diversamente precisato, ha la finalit&amp;agrave; di fornire il Servizio richiesto dall&amp;#39;Utente, oltre alle ulteriori finalit&amp;agrave; descritte nel presente documento.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;In ogni caso, non &amp;egrave; previsto il tracciamento della posizione dell&amp;rsquo;utente, e le funzionalit&amp;agrave; di geolocalizzazione vengono attivate esclusivamente per compilare il campo &amp;ldquo;indirizzo&amp;rdquo; relativo ai moduli che lo richiedono.&lt;\/p&gt;\r\n\r\n&lt;p&gt;L&amp;#39;Utente si assume la responsabilit&amp;agrave; dei Dati Personali di terzi ottenuti, pubblicati o condivisi mediante questa App e garantisce di avere il diritto di comunicarli o diffonderli, liberando il Titolare da qualsiasi responsabilit&amp;agrave; verso terzi.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Soggetti interessati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;I destinatari del trattamento sono tutti gli utilizzatori del Sito Web e dell&amp;rsquo;app, o dei servizi resi disponibili attraverso gli stessi nei termini delle leggi vigenti e di quanto definito dal Regolamento (UE) 2016\/679.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Periodo di conservazione&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;I Dati sono trattati e conservati per il tempo richiesto dalle finalit&amp;agrave; per le quali sono stati raccolti. Pertanto:&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;I Dati Personali raccolti per scopi collegati all&amp;rsquo;esecuzione di un adempimento previsto da norma di legge o regolamento saranno trattenuti sino a quando sia completata l&amp;rsquo;esecuzione di tale adempimento, nei tempi previsti dalla specifica norma o regolamento.&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;I dati trattati a fronte di un consenso informato da parte dell&amp;rsquo;utente sono trattati per un massimo di due anni, salvo revoca anticipata del consenso. L&amp;#39;interessato ha il diritto di revocare il proprio consenso in qualsiasi momento. La revoca del consenso non pregiudica la liceit&amp;agrave; del trattamento basata sul consenso prima della revoca.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;Al termine del periodo di conservazioni i Dati Personali saranno cancellati. Pertanto, allo spirare di tale termine il diritto di accesso, cancellazione, rettificazione ed il diritto alla portabilit&amp;agrave; dei Dati non potranno pi&amp;ugrave; essere esercitati.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Comunicazione e trasferimento dati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;I dati forniti non saranno divulgati o condivisi con terzi, salvo per i soggetti autorizzati dalla legge o dalle autorit&amp;agrave; competenti, e per i soggetti esterni che il Titolare potrebbe coinvolgere nell&amp;#39;esecuzione di attivit&amp;agrave; strumentali o accessorie ai servizi offerti e ai relativi benefici, quali fornitori di soluzioni software, web application e servizi di archiviazione (responsabili del trattamento).&lt;\/p&gt;\r\n\r\n&lt;p&gt;Non &amp;egrave; previsto alcun trasferimento dei dati fuori dallo spazio economico europeo.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Per maggiori dettagli, l&amp;#39;interessato pu&amp;ograve; richiedere informazioni al Titolare.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Responsabili al trattamento&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il Titolare del Trattamento ha nominato Grafiche E. Gaspari S.r.l., con sede a Via M. Minghetti 18, Granarolo dell&amp;#39;Emilia, 40057 (BO), &amp;ldquo;Responsabile del Trattamento&amp;rdquo;, ai sensi dell&amp;rsquo;articolo 28 del Regolamento EU 679\/2026.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il fornitore, per la propria parte e in qualit&amp;agrave; di responsabile al trattamento, si &amp;egrave; impegnato a rispettare quanto previsto dal citato art. 28 del Regolamento EU 679\/2016 e le istruzioni ad esso impartite da parte del Titolare del Trattamento.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il Responsabile del Trattamento si avvale di partner digitali, sub-responsabili del trattamento, quali produttori del sito web e dell&amp;rsquo;app. A questi sono imposti, mediante la stipula di un contratto o altro atto giuridico sottoscritto dai Responsabili stessi, i medesimi obblighi in materia di protezione dei dati personali contenuti nella nomina a Responsabile del Trattamento, con l&amp;rsquo;espressa presa d&amp;rsquo;atto delle garanzie sufficienti alla messa in atto delle misure tecniche e organizzative adeguate richieste dal Regolamento&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Diritti degli interessati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Si d&amp;agrave; evidenza che, in conformit&amp;agrave; con la normativa europea e nazionale in materia di trattamento dati personali, l&amp;rsquo;interessato ha i seguenti diritti:&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;chiedere e ottenere informazioni circa l&amp;rsquo;esistenza di propri dati nella disponibilit&amp;agrave; del Titolare e accesso a tali dati;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;chiedere la comunicazione dei propri dati e\/o il trasferimento ad altro titolare&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;chiedere e ottenere la modifica e\/o correzione dei suoi dati personali qualora ritenga siano inaccurati o incompleti;&amp;nbsp;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;chiedere e ottenere la cancellazione &amp;ndash; e\/o la limitazione del trattamento &amp;ndash; dei propri dati personali qualora si tratti di dati o informazioni non necessari &amp;ndash; o non pi&amp;ugrave; necessari &amp;ndash; per le finalit&amp;agrave; di cui al paragrafo dedicato, ovvero decorso il periodo di conservazione indicato al paragrafo dedicato.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;In particolare, le sono riconosciuti i seguenti diritti: artt.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;15 &amp;ndash; &amp;ldquo;Diritto di accesso dell&amp;rsquo;interessato&amp;rdquo;,&amp;nbsp;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;16 &amp;ndash; &amp;ldquo;Diritto di rettifica&amp;rdquo;,&amp;nbsp;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;17 &amp;ndash; &amp;ldquo;Diritto alla cancellazione&amp;rdquo;,&amp;nbsp;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;18 &amp;ndash; &amp;ldquo;Diritto di limitazione al trattamento&amp;rdquo;,&amp;nbsp;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;20 &amp;ndash; &amp;ldquo;Diritto alla portabilit&amp;agrave; dei dati&amp;rdquo; del Regolamento UE 2016\/679 nei limiti ed alle condizioni previste dall&amp;rsquo;art. 12 del Regolamento stesso.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;I propri diritti potranno essere esercitanti scrivendo al Titolare, utilizzando i recapiti disponibili al paragrafo &amp;ldquo;Titolare del Trattamento&amp;rdquo;, o contattando il Responsabile della Protezione dei dati.&lt;\/p&gt;\r\n\r\n&lt;p&gt;Si informa inoltre che ai sensi della disciplina vigente &amp;egrave; possibile proporre eventuali reclami riguardanti i trattamenti di suoi dati personali al Garante per la protezione dei dati personali.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Misure di sicurezza tecniche ed organizzative per la protezione di dati&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il produttore del sito web e dell&amp;rsquo;app ha adottato adeguate misure di sicurezza tecniche ed organizzative di cui all&amp;rsquo;art. 32 del GDPR in grado di garantire:&lt;\/p&gt;\r\n\r\n&lt;ul&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;La capacit&amp;agrave; di assicurare su base permanente la riservatezza, l&amp;rsquo;integrit&amp;agrave;, la disponibilit&amp;agrave; e la resilienza dei sistemi e dei servizi di trattamento;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;La capacit&amp;agrave; di ripristinare tempestivamente la disponibilit&amp;agrave; e l&amp;rsquo;accesso dei dati personali in caso di incidente fisico o tecnico;&lt;\/li&gt;\r\n\t&lt;li aria-level=\&quot;1\&quot;&gt;L&amp;rsquo;adozione di procedure in grado di testare, verificare e valutare regolarmente l&amp;rsquo;efficacia delle misure tecniche e organizzative adottate al fine di garantire la sicurezza del trattamento in base anche ad una valutazione dei rischi.&lt;\/li&gt;\r\n&lt;\/ul&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Modifiche alla presente informativa&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;ll Titolare del Trattamento si riserva il diritto di modificare questa informativa in qualsiasi momento, fornendo notifica agli Utenti tramite questa piattaforma.&amp;nbsp;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Nel caso in cui le modifiche riguardino trattamenti basati sul consenso dell&amp;#39;Utente, il Titolare otterr&amp;agrave; nuovamente il consenso dell&amp;#39;Utente, se necessario.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Utilizzo dei Dati Personali per la Difesa Legale o su richiesta delle Autorit&amp;agrave;&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Il Titolare pu&amp;ograve; utilizzare i Dati Personali dell&amp;#39;Utente in procedimenti legali o nelle fasi preparatorie alla loro eventuale istituzione per difendersi da abusi nell&amp;#39;uso del sito web e dell&amp;rsquo;app, o dei servizi ad essi collegati da parte dell&amp;#39;Utente.&lt;\/p&gt;\r\n\r\n&lt;p&gt;L&amp;#39;Utente comprende che il Titolare potrebbe essere tenuto a divulgare i Dati su richiesta delle autorit&amp;agrave; pubbliche.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Informative specifiche&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Su richiesta dell&amp;rsquo;Utente, in aggiunta alle informazioni contenute in questa privacy policy, questo Titolare pu&amp;ograve; fornire all&amp;#39;Utente delle informative aggiuntive e contestuali riguardanti i trattamenti dati derivanti da servizi specifici.&lt;\/p&gt;\r\n\r\n&lt;p&gt;&lt;strong&gt;Registrazione dei Log di Sistema per Supporto Tecnico e Manutenzione&lt;\/strong&gt;&lt;\/p&gt;\r\n\r\n&lt;p&gt;Per assicurare il corretto funzionamento e la manutenzione, il sito web e l&amp;rsquo;app, e i servizi terzi ad essi collegati, potrebbero registrare log di sistema, i quali documentano le interazioni e possono includere dati personali come l&amp;#39;indirizzo IP dell&amp;#39;Utente.&lt;\/p&gt;&quot;,&quot;privacy_app&quot;:null,&quot;user_policy_last_update&quot;:&quot;2026-02-27 10:44:04&quot;,&quot;user_policy&quot;:null,&quot;cookies_policy_last_update&quot;:&quot;2026-02-27 10:44:04&quot;,&quot;cookies_policy&quot;:null,&quot;glab_policy_last_update&quot;:null,&quot;glab_policy&quot;:null,&quot;email_nl&quot;:null,&quot;translate&quot;:0,&quot;translation_provider&quot;:&quot;google&quot;,&quot;custom_html_landing&quot;:null,&quot;google_analytics_id&quot;:null,&quot;google_analytics_view&quot;:null,&quot;app_info_id_android&quot;:null,&quot;app_info_id_ios&quot;:null,&quot;fcm_server_key&quot;:&quot;placeholder&quot;,&quot;fcm_sender_id&quot;:&quot;61230663273&quot;,&quot;no_image_active_site&quot;:0,&quot;no_image_active_app&quot;:0,&quot;landing_institutional_description&quot;:null,&quot;landing_turistic_description&quot;:null,&quot;turist_enabled&quot;:0,&quot;turist_url&quot;:null,&quot;turist_style&quot;:&quot;turistico1&quot;,&quot;turist_color&quot;:&quot;azzurro&quot;,&quot;turist_name&quot;:null,&quot;turist_slogan&quot;:null,&quot;turist_background&quot;:&quot;gallery&quot;,&quot;turist_video&quot;:null,&quot;no_image_active_turist&quot;:0,&quot;admin_url&quot;:null,&quot;turist_address&quot;:null,&quot;turist_phone&quot;:null,&quot;turist_email&quot;:null,&quot;turist_facebook_url&quot;:null,&quot;turist_youtube_url&quot;:null,&quot;turist_twitter_url&quot;:null,&quot;turist_instagram_url&quot;:null,&quot;turist_telegram_url&quot;:null,&quot;turist_whatsapp_url&quot;:null,&quot;hide_copyright&quot;:0,&quot;google_analytics_turist_id&quot;:null,&quot;google_analytics_turist_view&quot;:null,&quot;hide_login&quot;:0,&quot;hide_mycity_login&quot;:0,&quot;hide_spid_login&quot;:0,&quot;mobile_slogan&quot;:null,&quot;mobile_background&quot;:&quot;gallery&quot;,&quot;login_background&quot;:&quot;gallery&quot;,&quot;app_style&quot;:&quot;mobile_agid&quot;,&quot;delete_request_date&quot;:null,&quot;delete_request_user&quot;:null,&quot;hide_facebook_login&quot;:0,&quot;facebook_page_id&quot;:null,&quot;instagram_user_id&quot;:null,&quot;facebook_token_valid&quot;:1,&quot;spid&quot;:1,&quot;ebollo&quot;:false,&quot;ipa_code&quot;:&quot;c_h901&quot;,&quot;spid_update&quot;:&quot;2024-10-28 14:27:10&quot;,&quot;pin&quot;:900171,&quot;landing_site_url&quot;:&quot;&quot;,&quot;view_tourist&quot;:1,&quot;view_site&quot;:1,&quot;landing_site_color&quot;:&quot;&quot;,&quot;automatic_share&quot;:0,&quot;spid_sent&quot;:1,&quot;spid_verb&quot;:&quot;PUT&quot;,&quot;hide_ciecns_login&quot;:1,&quot;facebook_pixel_code&quot;:null,&quot;web_analytics&quot;:&quot;&lt;!-- Matomo --&gt;\r\n&lt;script&gt;\r\n  var _paq = window._paq = window._paq || [];\r\n  \/* tracker methods like \&quot;setCustomDimension\&quot; should be called before \&quot;trackPageView\&quot; *\/\r\n  _paq.push([&#039;trackPageView&#039;]);\r\n  _paq.push([&#039;enableLinkTracking&#039;]);\r\n  (function() {\r\n    var u=\&quot;https:\/\/ingestion.webanalytics.italia.it\/\&quot;;\r\n    _paq.push([&#039;setTrackerUrl&#039;, u+&#039;matomo.php&#039;]);\r\n    _paq.push([&#039;setSiteId&#039;, &#039;38680&#039;]);\r\n    var d=document, g=d.createElement(&#039;script&#039;), s=d.getElementsByTagName(&#039;script&#039;)[0];\r\n    g.async=true; g.src=u+&#039;matomo.js&#039;; s.parentNode.insertBefore(g,s);\r\n  })();\r\n&lt;\/script&gt;\r\n&lt;!-- End Matomo Code --&gt;&quot;,&quot;turist_web_analytics&quot;:null,&quot;client_code&quot;:&quot;0BLAR033&quot;,&quot;istat_code&quot;:&quot;051033&quot;,&quot;exception&quot;:0,&quot;show_cookie_banner&quot;:1,&quot;spid_delete&quot;:0,&quot;menu_structure_blocked&quot;:0,&quot;has_migrated_cms&quot;:1,&quot;cie_saml&quot;:1,&quot;is_test&quot;:0,&quot;authorization_text&quot;:null,&quot;spid_oidc&quot;:0,&quot;support_categories&quot;:&quot;{\&quot;2488035\&quot;:[\&quot;protocollo@comunesgv.it\&quot;],\&quot;2488032\&quot;:[\&quot;protocollo@comunesgv.it\&quot;],\&quot;2488021\&quot;:[\&quot;puntoamico@comunesgv.it\&quot;],\&quot;2488025\&quot;:[\&quot;protocollo@comunesgv.it\&quot;],\&quot;2488034\&quot;:[\&quot;protocollo@comunesgv.it\&quot;],\&quot;2488026\&quot;:[\&quot;edilizia@comunesgv.it\&quot;],\&quot;2488022\&quot;:[\&quot;cultura@comunesgv.it\&quot;],\&quot;2488029\&quot;:[\&quot;istruzione@comunesgv.it\&quot;],\&quot;2804809\&quot;:[\&quot;protocollo@comunesgv.it\&quot;],\&quot;2488030\&quot;:[\&quot;polizia.municipale@comunesgv.it\&quot;],\&quot;2488024\&quot;:[\&quot;suap@comunesgv.it\&quot;],\&quot;2488033\&quot;:[\&quot;giovana.mastromauro@comunesgv.it\&quot;],\&quot;2488031\&quot;:[\&quot;tributi@comunesgv.it\&quot;],\&quot;2488027\&quot;:[\&quot;cultura@comunesgv.it\&quot;],\&quot;2488023\&quot;:[\&quot;sociale@comunesgv.it\&quot;],\&quot;2488028\&quot;:[\&quot;polizia.municipale@comunesgv.it\&quot;]}&quot;,&quot;zona_piemonte&quot;:null,&quot;login_link&quot;:null,&quot;personalarea_link&quot;:null,&quot;logout_link&quot;:null,&quot;service_link&quot;:null,&quot;order_arguments&quot;:0,&quot;order_arguments_menu&quot;:0,&quot;app_translate&quot;:0,&quot;ateco_code&quot;:null,&quot;is_private&quot;:0,&quot;sms_name&quot;:null,&quot;legal_notes&quot;:null,&quot;at_type&quot;:&quot;at_art2_bis_c1&quot;}}" :visible="false"></edit-button-front-to-back>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+                            
+                            <!-- ARGUMENTS arguments: array -->
+                                                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="row border-top border-light row-column-border row-column-menu-left">
+            <aside class="col-lg-4 mb-4 border-col">
+                                    <!-- Page Index -->
+                    <div class="cmp-navscroll sticky-top" aria-labelledby="accordion-title-one">
+    <nav class="navbar it-navscroll-wrapper navbar-expand-lg" data-bs-navscroll>
+        <div class="navbar-custom" id="navbarNavProgress">
+            <div class="menu-wrapper">
+                <div class="link-list-wrapper">
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <span class="accordion-header" id="accordion-title-one">
+                                <button class="accordion-button pb-10 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-one" aria-expanded="true" aria-controls="collapse-one">
+                                    INDICE DELLA PAGINA
+                                    <svg class="icon icon-xs right">
+                                        <use href="/bootstrap-italia/dist/svg/sprites.svg#it-expand"></use>
+                                    </svg>
+                                </button>
+                            </span>
+
+                            <div class="progress">
+                                <div class="progress-bar it-navscroll-progressbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div id="collapse-one" class="accordion-collapse collapse show" role="region" aria-labelledby="accordion-title-one">
+                                <div class="accordion-body">
+                                    <ul class="link-list" data-element="page-index">
+                                                                                <li class="nav-item">
+                                            <a href="#download" class="nav-link" title="Vai alla sezione: Download"><span class="title-medium">Download</span></a>
+                                        </li>
+                                                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>       
+</div>
+                               </aside>
+            <div class="col-lg-8 it-page-sections-container border-light">
+                <div class="it-page-sections-container">
+                    <section  class="mb-30">
+                        <h5 class="title- mb-3"><b>Tipologia Documento</b>: Modulistica</h2>
+                    </section>
+                    
+                                            <section id="download" class="mb-30">
+                            <h2 class="title-xxlarge mb-3">Download</h2>
+                            <div class="richtext-wrapper lora card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
+
+                                                                                                            <div
+                                            class="card card-teaser shadow-sm p-4 mt-3 rounded border border-light flex-nowrap">
+                                            <svg class="icon" aria-hidden="true">
+                                                <use
+                                                    xlink:href="https://www.comune.san-giovanni-valdarno.ar.it/./bootstrap-italia/dist/svg/sprites.svg#it-clip">
+                                                </use>
+                                            </svg>
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <a target="_blank" class="text-decoration-none"
+                                                        href="https://mycity.s3.sbg.io.cloud.ovh.net/5199852/08.54-P.M.-Z.T.L.-Richiesta-Autorizzazione-successiva-allingresso-ver-4-(2).pdf" title="ZTL - Modulo per la richiesta di autorizzazione successiva all’ingresso (da presentarsi entro 48 ore dal transito) – formato PDF"
+                                                        aria-label="08.54-P.M.-Z.T.L.-Richiesta-Autorizzazione-successiva-allingresso-ver-4-(2).pdf">08.54-P.M.-Z.T.L.-Richiesta-Autorizzazione-successiva-allingresso-ver-4-(2).pdf</a>
+                                                </h5>
+                                                <small
+                                                    class="text-muted">(179.58 KB)</small>
+                                            </div>
+                                        </div>
+                                                                                                </div>
+                        </section>
+                    
+                    <p class="text-paragraph-small mb-0">Pagina aggiornata il
+                        17/07/2026</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review -->
+    <div class="bg-primary pt-3 pb-3">
+    <div class="container mt-4 d-md-flex align-items-center">
+        
+        <div class="d-md-flex align-items-center mb-3 mb-md-0">
+            <div class="d-flex align-items-center mb-3 mb-md-0">
+                
+                
+            
+                
+                
+                                    <div class="rating-star me-1">
+                        <svg class="icon icon-sm" style="fill: lightgray;">
+                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-star-full"></use>
+                        </svg>
+                    </div>
+                                    <div class="rating-star me-1">
+                        <svg class="icon icon-sm" style="fill: lightgray;">
+                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-star-full"></use>
+                        </svg>
+                    </div>
+                                    <div class="rating-star me-1">
+                        <svg class="icon icon-sm" style="fill: lightgray;">
+                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-star-full"></use>
+                        </svg>
+                    </div>
+                                    <div class="rating-star me-1">
+                        <svg class="icon icon-sm" style="fill: lightgray;">
+                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-star-full"></use>
+                        </svg>
+                    </div>
+                                    <div class="rating-star me-1">
+                        <svg class="icon icon-sm" style="fill: lightgray;">
+                            <use href="/bootstrap-italia/dist/svg/sprites.svg#it-star-full"></use>
+                        </svg>
+                    </div>
+                            </div>
+
+            
+            <span class="ms-md-3 text-white fw-bold" style="font-size: 1.25rem;">0.0</span>
+
+            
+                
+                <span class="ms-3 text-white" style="font-size: 1.25rem;">0 utenti hanno valutato questa pagina</span>
+                    </div>
+
+        
+        <a href="https://www.comune.san-giovanni-valdarno.ar.it/valutazioni" class="ms-auto text-white fw-bold">Vedi tutte le valutazioni</a>
+    </div>
+
+    <div class="container">
+        <div class="row d-flex justify-content-center bg-primary">
+            <div class="col-12 col-lg-6">
+                <div class="cmp-rating pt-5 pb-lg-80" id="rating-card">
+                    <review-section post-url="https://www.comune.san-giovanni-valdarno.ar.it/api/internals/frontend/scenarios/1764/review/store"
+                        model-id="2562345" model-type="App\Models\Modulistica\Modello" review-type="info">
+                    </review-section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <a href="#" aria-hidden="true" data-attribute="back-to-top" title="Vai al inizio"
+            class="back-to-top shadow" id="example">
+            <span class="icon icon-arrow-up-light"></span>
+        </a>
+        
+        <footer class="it-footer" id="footer">
+            <div class="it-footer-main">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 footer-items-wrapper logo-wrapper">
+                                                               
+                                    <a class="ue-logo inactiveLink"
+                                    >
+                                        <img loading="lazy"
+                                        src="https://italia.github.io/design-comuni-pagine-statiche/assets/images/logo-eu-inverted.svg"
+                                        alt="logo Unione Europea" width="178" height="56">
+                                    </a>
+                                    
+                                
+                            <div class="it-brand-wrapper">
+                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/home" title="Vai alla Homepage">
+                                    <img loading="lazy" class="icon" src="https://mycity.s3.sbg.io.cloud.ovh.net/3740017/Logo_Comune_SGV1-removebg-preview.png"
+                                        alt="Stemma">
+                                    <div class="it-brand-text">
+                                        <h2 class="no_toc">
+                                            Comune di San Giovanni Valdarno
+                                        </h2>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                                                    <div class="col-md-3 footer-items-wrapper">
+                                <h3 class="footer-heading-title">Amministrazione</h3>
+                                <ul class="footer-list">
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/aree-amministrative"
+                                                title="Vai a: Aree amministrative">Aree amministrative</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/personale-amministrativo"
+                                                title="Vai a: Personale amministrativo">Personale amministrativo</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/documenti-e-dati"
+                                                title="Vai a: Documenti e dati">Documenti e dati</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/organi-di-governo"
+                                                title="Vai a: Organi di governo">Organi di governo</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/uffici"
+                                                title="Vai a: Uffici">Uffici</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/enti-e-fondazioni"
+                                                title="Vai a: Enti e fondazioni">Enti e fondazioni</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/politici"
+                                                title="Vai a: Politici">Politici</a>
+                                        </li>
+                                                                    </ul>
+                            </div>
+                                                                            <div class="col-md-6 footer-items-wrapper">
+                                <h3 class="footer-heading-title">Servizi</h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="footer-list">
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488032"
+                                                        title="Vai a: Ambiente">Ambiente</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488035"
+                                                        title="Vai a: Agricoltura e pesca">Agricoltura e pesca</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488021"
+                                                        title="Vai a: Anagrafe e stato civile">Anagrafe e stato civile</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488025"
+                                                        title="Vai a: Appalti pubblici">Appalti pubblici</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488034"
+                                                        title="Vai a: Autorizzazioni">Autorizzazioni</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488022"
+                                                        title="Vai a: Cultura e tempo libero">Cultura e tempo libero</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488024"
+                                                        title="Vai a: Imprese e commercio">Imprese e commercio</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488026"
+                                                        title="Vai a: Catasto e urbanistica">Catasto e urbanistica</a>
+                                                </li>
+                                                                                    </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="footer-list">
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488029"
+                                                        title="Vai a: Educazione e formazione">Educazione e formazione</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488030"
+                                                        title="Vai a: Giustizia e sicurezza pubblica">Giustizia e sicurezza pubblica</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488028"
+                                                        title="Vai a: Mobilità e trasporti">Mobilità e trasporti</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488033"
+                                                        title="Vai a: Salute, benessere e assistenza">Salute, benessere e assistenza</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488031"
+                                                        title="Vai a: Tributi, finanze e contravvenzioni">Tributi, finanze e contravvenzioni</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488027"
+                                                        title="Vai a: Turismo">Turismo</a>
+                                                </li>
+                                                                                            <li>
+                                                    <a href="https://www.comune.san-giovanni-valdarno.ar.it/servizi/categoria-servizi/2488023"
+                                                        title="Vai a: Vita lavorativa">Vita lavorativa</a>
+                                                </li>
+                                                                                    </ul>
+                                    </div>
+                                </div>
+                            </div>
+                                                <div class="col-md-3 footer-items-wrapper">
+                                                            <h3 class="footer-heading-title">Novità</h3>
+                                <ul class="footer-list">
+                                                                                                                        <li>
+                                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/novita/1-news"
+                                                    title="Vai a: Notizie">
+                                                    Notizie
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/novita/2-comunicato-stampa"
+                                                    title="Vai a: Comunicati">
+                                                    Comunicati
+                                                </a>
+                                            </li>
+                                                                                    <li>
+                                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/novita/3-avviso"
+                                                    title="Vai a: Avvisi">
+                                                    Avvisi
+                                                </a>
+                                            </li>
+                                                                                
+                                </ul>
+                                                                                        <h3 class="footer-heading-title">Vivere il comune</h3>
+                                <ul class="footer-list">
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/luoghi"
+                                                title="Vai a: Luoghi">Luoghi</a>
+                                        </li>
+                                                                            <li>
+                                            <a href="https://www.comune.san-giovanni-valdarno.ar.it/eventi"
+                                                title="Vai a: Eventi">Eventi</a>
+                                        </li>
+                                                                    </ul>
+                                                    </div>
+                        <div class="col-md-9 mt-md-4 footer-items-wrapper">
+                            <h3 class="footer-heading-title">Contatti</h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="footer-info">
+                                        <address>
+                                                                                            Comune di San Giovanni Valdarno<br /><p>Via Garibaldi, 43 San Giovanni V.no &ndash; 52027 &ndash; (AR)</p>
+
+<p>&nbsp;</p>
+                                                                                                                                        Codice fiscale: 00160360517<br>
+                                                                                                                                        P.IVA: 00160360517<br>
+                                                                                    </address>
+                                                                                    Tel: 05591261<br>
+                                                                                                                            Fax: 0559123376<br>
+                                                                                                                            Email: <a href="mailto:protocollo@comunesgv.it"
+                                                title="Scrivi a: protocollo@comunesgv.it">protocollo@comunesgv.it</a><br>
+                                                                                                                                                                            PEC: <a href="mailto:protocollo@pec.comunesgv.it"
+                                                    title="Scrivi a: protocollo@pec.comunesgv.it">protocollo@pec.comunesgv.it</a><br>
+                                                                                                                        </div>
+                                </div>
+
+                                
+                                                                    <div class="col-md-4">
+                                        <ul class="footer-list">
+                                                                                            <li>
+                                                    <a href="/faq"
+                                                        
+                                                        data-element="faq" title="Leggi le FAQ">Leggi le FAQ</a>
+                                                </li>
+                                            
+                                                                                            <li>
+                                                    <a href="/agenda-smart"
+                                                        
+                                                        title="Prenotazione appuntamento">Prenotazione appuntamento</a>
+                                                </li>
+                                            
+                                                                                            <li>
+                                                    <a href="https://segnalazioni.comunesgv.it"
+                                                        target=&quot;_blank&quot;
+                                                        data-element="report-inefficiency"
+                                                        title="Segnalazione disservizio">Segnalazione disservizio</a>
+                                                </li>
+                                            
+                                                                                            <li>
+                                                    <a href="/richiesta-assistenza"
+                                                        
+                                                        title="Richiesta d'assistenza">Richiesta d'assistenza</a>
+                                                </li>
+                                                                                                
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="footer-list">
+                                                                                            <li>
+                                                    <a href="https://sangiovannivaldarno.mycity.it/documenti/2583340/amministrazione-trasparente"
+                                                        target=&quot;_blank&quot;
+                                                        title="Amministrazione trasparente">Amministrazione
+                                                        trasparente</a>
+                                                </li>
+                                            
+                                            <!---->
+
+                                                                                            <li>
+                                                    <a href="/privacy"
+                                                        
+                                                        data-element="privacy-policy-link"
+                                                        title="Informativa privacy">Informativa privacy</a>
+                                                </li>
+                                            
+                                            <li>
+                                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/note-legali" data-element="legal-notes"
+                                                    title="Note legali">Note legali</a>
+                                            </li>
+
+                                                                                            <li>
+                                                    <a href="https://form.agid.gov.it/view/b005e700-9922-11f0-8b82-59f7bb923b32"
+                                                        target=&quot;_blank&quot;
+                                                        data-element="accessibility-link"
+                                                        title="Dichiarazione di accessibilità">Dichiarazione di
+                                                        accessibilità</a>
+                                                </li>
+                                            
+                                            <li>
+                                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/piano-miglioramento"
+                                                    title="Piano di miglioramento del sito">Piano di miglioramento del sito e dei servizi
+                                                </a>
+                                            </li>
+                                                
+                                        </ul>
+                                    </div>
+                                                            </div>
+                        </div>
+                        <div class="col-md-3 mt-md-4 footer-items-wrapper">
+                                                            <h3 class="footer-heading-title">Seguici su</h3>
+                                <ul class="list-inline text-start social">
+                                                                                                                <li class="list-inline-item">
+                                            <div>
+            <a class="p-2 text-white" href="https://www.facebook.com/comunesangiovannivaldarno" title="Facebook" aria-label="Facebook" target="_blank">
+            <svg class="icon icon-sm icon-white align-top">
+                <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-facebook">
+                </use>
+            </svg>
+            <span class="visually-hidden">Facebook</span>
+        </a>
+    </div>
+                                        </li>
+                                                                                                                                                    <li class="list-inline-item">
+                                            <div>
+            <a class="p-2 text-white" href="https://www.instagram.com/comunesgv" title="Instagram" target="_blank">
+            <svg class="icon icon-sm icon-white align-top">
+                <use xlink:href="/bootstrap-italia/dist/svg/sprites.svg#it-instagram">
+                </use>
+            </svg>
+            <span class="visually-hidden">Instagram</span>
+        </a>
+    </div>
+                                        </li>
+                                                                                                                                            </ul>
+                                                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 footer-items-wrapper">
+                            <div class="footer-bottom d-flex justify-content-between">
+                                <a href="https://www.comune.san-giovanni-valdarno.ar.it/mappa-del-sito" title="Mappa del sito">Mappa del sito</a>
+                                                                    <p><span class="fs-5 align-middle">&#169;</span> <a href="https://www.mycity.it/"
+                                            target="_parent" title="Sito MyCity">MyCity</a></p>
+                                                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script nonce="omOWw9Tgj2R8Ck70LID69fiQcaSUIi8J">
+        function showS() {
+            var a = document.querySelector("#search-display");
+            a.dispatchEvent(new Event('change'));
+        }
+    </script>
+            
+
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCMQe6lO-x3pMPVNe9OqOsZxbytUfKO1JA&loading=async"></script>    
+
+</body>
+
+</html>
