@@ -22,21 +22,17 @@ def osrm(points):
     except Exception as e:
         return {"error": str(e)}
 
-gates = {"guelfa": (43.777767, 11.254444), "ruote": (43.781448, 11.256587), "scala": (43.774943, 11.24642),
-         "cavour": (43.78305, 11.262289), "agnolo": (43.769769, 11.266759), "tintori": (43.766932, 11.261933)}
-starts = {"lavagnini": (43.7838, 11.2545), "liberta": (43.7853, 11.2588), "indipendenza": (43.7792, 11.2525),
-          "strozzi": (43.7800, 11.2470), "beccaria": (43.7695, 11.2680), "sangallo": (43.7820, 11.2575)}
-dests = {"duomo": (43.7740, 11.2556), "signoria": (43.7697, 11.2563)}
-parks = {"parterre": (43.7866, 11.2603), "fortezza": (43.7808, 11.2462), "beccaria": (43.7690, 11.2693),
-         "stazione": (43.7767, 11.2472)}
+# I percorsi scelti: dal viale Lavagnini (fuori dalla ZTL) dentro dal varco di via Cavour verso il Duomo,
+# oppure lungo i viali fino al parcheggio Parterre (OSM node/559981489, fuori dalla ZTL)
+start = (43.782961, 11.257894)
+cavour = (43.78305, 11.262289)
+parterre = (43.7855947, 11.2643376)
 out = {"red": {}, "white": {}, "parking": []}
-for gname, g in gates.items():
-    for sname, s in starts.items():
-        for dname, d in dests.items():
-            out["red"][f"{sname}>{gname}>{dname}"] = osrm([s, g, d]); time.sleep(1.1)
-for sname, s in starts.items():
-    for pname, p in parks.items():
-        out["white"][f"{sname}>{pname}"] = osrm([s, p]); time.sleep(1.1)
+for name, d in {"duomo": (43.7740, 11.2556), "proconsolo": (43.7718, 11.2575), "servi": (43.7745, 11.2575),
+                "martelli": (43.7738, 11.2549)}.items():
+    out["red"][f"lavagnini>cavour>{name}"] = osrm([start, cavour, d]); time.sleep(1.1)
+out["white"]["lavagnini>parterre"] = osrm([start, parterre]); time.sleep(1.1)
+out["white"]["lavagnini>liberta>parterre"] = osrm([start, (43.7848, 11.2600), parterre])
 q = '[out:json][timeout:60];nwr["amenity"="parking"](43.762,11.238,43.790,11.275);out center tags;'
 try:
     j = get("https://overpass-api.de/api/interpreter", urllib.parse.urlencode({"data": q}).encode())
