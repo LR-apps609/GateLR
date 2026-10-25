@@ -1,7 +1,11 @@
-# GateLR 1.13.0 – Checklist delle prove a mano
+# GateLR 1.13.1 – Checklist delle prove a mano
 
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
+
+## ★ Fotocamera (1.13.1)
+- [ ] «Leggi il cartello» → «Usa la fotocamera»: la prima volta compare la richiesta di iOS dentro l'app
+- [ ] Se la fotocamera era negata: riquadro «Consenti la fotocamera» → «Apri Impostazioni» apre la pagina di GateLR → attiva Fotocamera → torna nell'app: la fotocamera si apre da sola
 
 ## ★ UX (1.13.0)
 - [ ] Prima pagina con un viaggio salvato: pastiglia azzurra «Il tuo hotel · …» → un tocco e il riquadro diventa verde/rosso/ambra, senza cambiare pagina

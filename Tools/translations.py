@@ -363,6 +363,9 @@ T = {
 "Two new cities, and Florence's Scudo Verde low-emission zone.": ("Due città nuove e lo Scudo Verde di Firenze, la zona a basse emissioni.", "Zwei neue Städte und Florenz' Umweltzone Scudo Verde."),
 "The camera isn't available right now. Choose a photo of the panel instead.": ("La fotocamera ora non è disponibile. Scegli invece una foto del pannello.", "Die Kamera ist gerade nicht verfügbar. Wähle stattdessen ein Foto der Tafel."),
 "GateLR can't use the camera. Allow it in Settings → GateLR → Camera, or choose a photo.": ("GateLR non può usare la fotocamera. Consentila in Impostazioni → GateLR → Fotocamera, oppure scegli una foto.", "GateLR darf die Kamera nicht nutzen. Erlaube sie unter Einstellungen → GateLR → Kamera oder wähle ein Foto."),
+'Allow the camera': ('Consenti la fotocamera', 'Kamera erlauben'),
+'iOS asks only once. Tap «Open Settings», turn on Camera and come back: the camera opens by itself. You can also choose a photo.': ('iOS lo chiede una volta sola. Tocca «Apri Impostazioni», attiva Fotocamera e torna qui: la fotocamera si apre da sola. Puoi anche scegliere una foto.', 'iOS fragt nur einmal. Tippe auf «Einstellungen öffnen», schalte Kamera ein und komm zurück: Die Kamera öffnet sich von selbst. Du kannst auch ein Foto wählen.'),
+'Open Settings': ('Apri Impostazioni', 'Einstellungen öffnen'),
 # 1.10 Prima pagina
 "Can I drive in?": ("Posso entrare?", "Darf ich einfahren?"),
 "Find out if you|can drive in": ("Scopri se|puoi entrare", "Finde heraus,|ob du einfahren darfst"),

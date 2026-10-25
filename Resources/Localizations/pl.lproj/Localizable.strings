@@ -479,6 +479,9 @@
 "Two new cities, and Florence's Scudo Verde low-emission zone." = "Dwa nowe miasta i strefa niskiej emisji Scudo Verde we Florencji.";
 "The camera isn't available right now. Choose a photo of the panel instead." = "Aparat jest teraz niedostępny. Wybierz zamiast tego zdjęcie tabliczki.";
 "GateLR can't use the camera. Allow it in Settings → GateLR → Camera, or choose a photo." = "GateLR nie może użyć aparatu. Zezwól na to w Ustawienia → GateLR → Aparat albo wybierz zdjęcie.";
+"Allow the camera" = "Zezwól na aparat";
+"iOS asks only once. Tap «Open Settings», turn on Camera and come back: the camera opens by itself. You can also choose a photo." = "iOS pyta tylko raz. Stuknij „Otwórz Ustawienia”, włącz Aparat i wróć: aparat otworzy się sam. Możesz też wybrać zdjęcie.";
+"Open Settings" = "Otwórz Ustawienia";
 "Can I drive in?" = "Czy mogę wjechać?";
 "Find out if you|can drive in" = "Sprawdź, czy|możesz wjechać";
 "Search a hotel, address or square: GateLR tells you at once if your car can get there." = "Wyszukaj hotel, adres lub plac: GateLR od razu powie, czy twoje auto może tam dojechać.";

@@ -14,6 +14,9 @@ struct SignReaderView: View {
     @State private var reading = false
     @State private var takingPhoto = false
     @State private var cameraMessage: String?
+    /// Fotocamera negata: si mostra il riquadro con «Apri Impostazioni»; tornando con il permesso si apre da sola
+    @State private var cameraDenied = false
+    @Environment(\.scenePhase) private var scenePhase
 
     private var result: SignReader.Result { SignReader.parse(text) }
     private var scannerAvailable: Bool { DataScannerViewController.isSupported && DataScannerViewController.isAvailable }
@@ -48,6 +51,7 @@ struct SignReaderView: View {
                     if reading { ProgressView(L("Reading…")) }
                 }
                 .padding(14).card()
+                if cameraDenied { cameraPermission }
                 if let cameraMessage {
                     Label(cameraMessage, systemImage: "camera.badge.ellipsis")
                         .font(.app(size: 14)).foregroundStyle(Theme.amberInk)
@@ -91,6 +95,12 @@ struct SignReaderView: View {
             }
             .ignoresSafeArea()
         }
+        .onChange(of: scenePhase) {
+            if scenePhase == .active, cameraDenied, AVCaptureDevice.authorizationStatus(for: .video) == .authorized {
+                cameraDenied = false
+                Task { await openCamera() }
+            }
+        }
         .onChange(of: photo) {
             guard let item = photo else { return }
             reading = true
@@ -100,6 +110,22 @@ struct SignReaderView: View {
                 photo = nil          // la stessa foto si può scegliere di nuovo
             }
         }
+    }
+
+    /// iOS chiede il permesso una volta sola: dopo un «Non consentire» si può solo accenderlo nelle Impostazioni
+    private var cameraPermission: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Label("Allow the camera", systemImage: "camera.fill")
+                .font(.app(size: 16, weight: .bold)).foregroundStyle(Theme.amberInk)
+            Text("iOS asks only once. Tap «Open Settings», turn on Camera and come back: the camera opens by itself. You can also choose a photo.")
+                .font(.app(size: 14)).foregroundStyle(Theme.amberInk)
+            WideButton(title: "Open Settings", systemImage: "gearshape") {
+                if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
+            }
+            .accessibilityIdentifier("sign.openSettings")
+        }
+        .padding(14).frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.amberSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 
     @ViewBuilder
@@ -153,14 +179,13 @@ struct SignReaderView: View {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .authorized: break
         case .notDetermined:
-            guard await AVCaptureDevice.requestAccess(for: .video) else {
-                cameraMessage = L("GateLR can't use the camera. Allow it in Settings → GateLR → Camera, or choose a photo.")
-                return
-            }
+            // La richiesta di iOS, dentro l'app
+            guard await AVCaptureDevice.requestAccess(for: .video) else { cameraDenied = true; return }
         default:
-            cameraMessage = L("GateLR can't use the camera. Allow it in Settings → GateLR → Camera, or choose a photo.")
+            cameraDenied = true
             return
         }
+        cameraDenied = false
         if scannerAvailable { scanning = true } else if CameraPicker.isAvailable { takingPhoto = true }
     }
 
