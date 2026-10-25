@@ -1,0 +1,4 @@
+1 200 2750028 https://visitstg.visitbergamo.net/wp-content/uploads/2026/06/Infografica-ZTL-VisitBergamo_12.06.2026_ENG.pdf -> 1-Infografica-ZTL-VisitBergamo_12.06.2026_ENG.pdf_
+2 200 2750028 https://www.visitbergamo.net/wp-content/uploads/2026/06/Infografica-ZTL-VisitBergamo_12.06.2026_ENG.pdf -> 2-Infografica-ZTL-VisitBergamo_12.06.2026_ENG.pdf_
+3 403 5514 https://www.visitbergamo.net/en/?p=410005 -> 3-en_
+4 200 1385210 https://storage.ecodibergamo.it/media/documents/2026/8/21/pdf/d532546c-aad0-11f1-8045-40f5526b45ff.pdf -> 4-d532546c-aad0-11f1-8045-40f5526b45ff.pdf_
