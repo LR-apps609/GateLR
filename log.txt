@@ -1,0 +1,3 @@
+1 200 165871 https://mycity.s3.sbg.io.cloud.ovh.net/3716478/ZTL.pdf -> 1-ZTL.pdf_
+2 200 183895 https://mycity.s3.sbg.io.cloud.ovh.net/5199852/08.54-P.M.-Z.T.L.-Richiesta-Autorizzazione-successiva-allingresso-ver-4-(2).pdf -> 2-08.54-P.M.-Z.T.L.-Richiesta-Autorizzazione-successiva-allingresso-ver-4-_2_.pdf_
+3 000ERR  https://mit.gov.it/nfsmitgov/files/media/normativa/2026-01/elencovarchi_27_01_2026.pdf -> 3-elencovarchi_27_01_2026.pdf_
