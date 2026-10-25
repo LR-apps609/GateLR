@@ -124,7 +124,7 @@ struct LEDState: Equatable {
         }
     }
 
-    static let idle = LEDState(text: "Z T L", light: .red, dim: true)
+    static let idle = LEDState(text: "VARCO", light: .red, dim: true)
     static let active = LEDState(text: "VARCO ATTIVO", light: .red)
     static let soon = LEDState(text: "ATTIVO TRA 15'", light: .amber)
     static let off = LEDState(text: "VARCO NON ATTIVO", light: .green)
@@ -167,7 +167,7 @@ struct LEDPanel: View {
     }
 
     private func face(_ s: LEDState) -> some View {
-        let c = s.color.opacity(s.dim ? 0.35 : 1)
+        let c = s.color.opacity(s.dim ? 0.5 : 1)
         return Text(verbatim: s.text)
             .font(Notte.dots(size))
             .foregroundStyle(c)

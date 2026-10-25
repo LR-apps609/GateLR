@@ -30,7 +30,8 @@ import SwiftUI
     func stop() { task?.cancel() }
 
     private func driveIn() async {
-        try? await Task.sleep(for: .milliseconds(900))
+        // Il tempo per le prime mattonelle della mappa
+        try? await Task.sleep(for: .milliseconds(1500))
         let gateAt = bad.fraction(at: IntroScene.gateIndex)
         await run(seconds: 4.2) { f in
             self.badProgress = f
@@ -83,7 +84,7 @@ import SwiftUI
             let f = min(Date().timeIntervalSince(start) / seconds, 1)
             step(f)
             if f >= 1 { break }
-            try? await Task.sleep(for: .milliseconds(33))
+            try? await Task.sleep(for: .milliseconds(50))
         }
     }
 }
@@ -215,29 +216,31 @@ private struct IntroLiveMap: View {
     @ObservedObject var drive: IntroDrive
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var position: MapCameraPosition = .camera(
-        MapCamera(centerCoordinate: IntroScene.center, distance: 2300, heading: 335, pitch: 60))
+        MapCamera(centerCoordinate: IntroScene.center, distance: 2700, heading: 335, pitch: 60))
     @State private var orbit = false
+
+    /// Le linee si ridisegnano a scatti di 1/25 del percorso: ridisegnarle a ogni fotogramma rallenta la mappa 3D
+    private func step(_ f: Double) -> Double { f >= 1 ? 1 : (f * 25).rounded(.up) / 25 }
 
     var body: some View {
         Map(position: $position, interactionModes: []) {
             // Il perimetro vero del Settore A, rosso con un alone
-            MapPolygon(coordinates: scene.perimeter)
-                .foregroundStyle(Notte.ledRed.opacity(0.16))
-                .stroke(Notte.ledRed.opacity(0.3), lineWidth: 16)
-            MapPolygon(coordinates: scene.perimeter)
-                .foregroundStyle(.clear)
-                .stroke(Notte.ledRed, lineWidth: 3)
+            // Con gli edifici 3D il riempimento del poligono finisce sui tetti (macchie rosse): solo il bordo, con un alone
+            MapPolyline(coordinates: scene.perimeter + scene.perimeter.prefix(1))
+                .stroke(Notte.ledRed.opacity(0.28), style: StrokeStyle(lineWidth: 12, lineCap: .round, lineJoin: .round))
+            MapPolyline(coordinates: scene.perimeter + scene.perimeter.prefix(1))
+                .stroke(Notte.ledRed, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round))
 
             if drive.badOpacity > 0.01 {
-                MapPolyline(coordinates: drive.bad.prefix(drive.badProgress))
+                MapPolyline(coordinates: drive.bad.prefix(step(drive.badProgress)))
                     .stroke(Notte.action.opacity(drive.badOpacity * 0.35), style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
-                MapPolyline(coordinates: drive.bad.prefix(drive.badProgress))
+                MapPolyline(coordinates: drive.bad.prefix(step(drive.badProgress)))
                     .stroke(Notte.action.opacity(drive.badOpacity), style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
             }
             if drive.goodProgress > 0 {
-                MapPolyline(coordinates: drive.good.prefix(drive.goodProgress))
+                MapPolyline(coordinates: drive.good.prefix(step(drive.goodProgress)))
                     .stroke(Notte.chalk.opacity(0.3), style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
-                MapPolyline(coordinates: drive.good.prefix(drive.goodProgress))
+                MapPolyline(coordinates: drive.good.prefix(step(drive.goodProgress)))
                     .stroke(Notte.chalk, style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
             }
 
@@ -259,7 +262,7 @@ private struct IntroLiveMap: View {
         .mapControlVisibility(.hidden)
         .mapCameraKeyframeAnimator(trigger: orbit) { camera in
             KeyframeTrack(\MapCamera.heading) { LinearKeyframe(camera.heading + 35, duration: 26) }
-            KeyframeTrack(\MapCamera.distance) { LinearKeyframe(2000, duration: 26) }
+            KeyframeTrack(\MapCamera.distance) { LinearKeyframe(2250, duration: 26) }
         }
         .ignoresSafeArea()
         .task {
@@ -363,7 +366,7 @@ private struct GateSign: View {
     var state: LEDState
     var body: some View {
         VStack(spacing: 0) {
-            LEDPanel(state: state, size: 13)
+            LEDPanel(state: state, size: 18)
             Rectangle().fill(Color(hex: 0x6A7290)).frame(width: 2, height: 16)
             Circle().fill(state.dim ? Notte.muted : state.color).frame(width: 7, height: 7)
                 .shadow(color: state.dim ? .clear : state.color, radius: 5)
