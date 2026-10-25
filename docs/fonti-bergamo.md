@@ -51,7 +51,7 @@ Elenco completo e colonne (permanente / periodo scolastico / periodica / videoso
 
 Multe: le pagine non indicano l'importo; si applica l'art. 7 del Codice della Strada (non riportato nella scheda).
 
-**Festivi e patrono.** Le ZTL di Bergamo non sono mai «libere nei festivi»: Città Alta e Colli e Valverde, al contrario, nei festivi si **chiudono** (10–24 e 0–24). Tutte le zone hanno quindi `freeOnHolidays: false` e la città non ha `localHolidays` (Sant'Alessandro, 26 agosto, conterebbe solo per regole che escludono i festivi). Limite dell'app: un festivo infrasettimanale (per esempio 8 dicembre, 15 agosto, e forse il 26 agosto) non accende le finestre della domenica, quindi GateLR direbbe «libero» dove la zona è chiusa; è scritto nel riassunto e nei punti in sospeso di Colli e Valverde. Servirebbe nel modello una finestra «solo festivi».
+**Festivi e patrono.** Le ZTL di Bergamo non sono mai «libere nei festivi»: Città Alta e Colli e Valverde, al contrario, nei festivi si **chiudono** (10–24 e 0–24). Tutte le zone hanno quindi `freeOnHolidays: false` e la città non ha `localHolidays` (Sant'Alessandro, 26 agosto, conterebbe solo per regole che escludono i festivi). Per Colli e Valverde la scheda usa `holidaysAsSunday: true` (aggiunto all'app nella 1.13.2): un festivo infrasettimanale (8 dicembre, 15 agosto, …) segue l'orario della domenica. Non è chiaro se la festa del patrono (26 agosto) conti come «festivo» per le ZTL: non è in `localHolidays` ed è nei punti in sospeso.
 
 **Ora legale.** La stagione delle sere di giovedì–sabato cambia ogni anno; l'app ha date fisse, quindi è usato il periodo più largo possibile (29 marzo–30 ottobre).
 
@@ -71,7 +71,7 @@ Elenco con URL in `data/raw/bergamo/nonufficiale-ricerche-web.txt`; testi salvat
 ## Punti in sospeso
 
 - Confini del 2024 da confrontare con le delibere 398 e 560/2025 e con la mappa del Comune (territorio.comune.bergamo.it, mappa «ZoneTL», non raggiungibile da qui).
-- Festivi infrasettimanali non modellabili (Colli, Valverde).
+- Festa del patrono (26 agosto): da chiarire se per Colli e Valverde vale come festivo.
 - Accesso ai parcheggi di Città Alta con la ZTL Colli attiva: regola del 2024 di ATB, i 30 minuti solo da VisitBergamo.
 - Pagine dei servizi online per albergatori (SPID): procedura e scadenza prese dal documento operativo e dagli estratti ATB.
 - Varco allo studio da porta San Lorenzo (L'Eco di Bergamo, marzo 2026): nessuna conferma.

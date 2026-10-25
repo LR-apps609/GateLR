@@ -128,9 +128,11 @@ def zone(zid, name, file, windows, quote, translation, summary, match, holidays=
                 summary=summary, match=match, holidays=holidays, extra_pending=list(extra_pending), extra_links=list(extra_links))
 
 
-HOLIDAY_GAP = ("On public holidays that fall on a weekday this zone is closed like on a Sunday, but GateLR can only follow the weekly hours: on those days check the sign at the gate.",
-               "Nei festivi che cadono in un giorno feriale la zona è chiusa come la domenica, ma GateLR segue solo l'orario della settimana: in quei giorni guarda il cartello al varco.",
-               "An Feiertagen unter der Woche ist die Zone wie sonntags gesperrt, GateLR kennt aber nur die Wochenzeiten: an diesen Tagen das Schild an der Kamera beachten.")
+# Nei festivi infrasettimanali Colli e Valverde seguono l'orario della domenica (holidaysAsSunday). La festa del patrono
+# (Sant'Alessandro, 26 agosto) non è in localHolidays: le pagine non dicono se per le ZTL conta come «festivo».
+HOLIDAY_NOTE = ("Public holidays follow the Sunday hours. Not confirmed whether the patron saint's day (Sant'Alessandro, 26 August) counts as a holiday for the ZTL: GateLR treats it as a normal day.",
+                "I festivi seguono l'orario della domenica. Non è confermato se la festa del patrono (Sant'Alessandro, 26 agosto) conti come festivo per la ZTL: GateLR la tratta come un giorno normale.",
+                "Feiertage folgen den Sonntagszeiten. Ob der Tag des Stadtpatrons (Sant'Alessandro, 26. August) für die ZTL als Feiertag gilt, ist nicht bestätigt: GateLR behandelt ihn als normalen Tag.")
 
 ALL_DAY = window(EVERY_DAY, 0, hm(24))
 NIGHT_23_7 = window(EVERY_DAY, hm(23), hm(7))
@@ -335,7 +337,7 @@ def od_shapes(feats, words, taken):
 
 def source(z):
     check(z["file"], z["quote"])
-    pending = list(COMMON_PENDING) + z["extra_pending"] + ([HOLIDAY_GAP] if z["holidays"] else [])
+    pending = list(COMMON_PENDING) + z["extra_pending"] + ([HOLIDAY_NOTE] if z["holidays"] else [])
     return {"authority": AUTHORITY, "pageURL": url_of(z["file"]),
             "ordinance": "Delibera GC n. 798 del 30/12/2024 e ordinanza n. 3 del 03/01/2025 (contrassegni ZTL)", "ordinanceURL": DOC_OP,
             "quote": z["quote"], "quoteTranslation": z["translation"][0], "quoteTranslation_de": z["translation"][1],
@@ -354,6 +356,8 @@ for z in ZONES:
                "kind": "restricted", "summary": z["summary"][0], "summary_it": z["summary"][1], "summary_de": z["summary"][2],
                "perimeter": shape, "gates": [], "windows": z["windows"],
                "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True, "source": source(z)}
+        if z["holidays"]:
+            out["holidaysAsSunday"] = True
         (zones if shape else skipped).append(out)
         print(f"{out['id']:26s}", f"{len(shape)} punti, {osm_geo.area_km2(shape):.4f} km²" if shape else "nessun perimetro ufficiale",
               (props or {}).get("nome_ztl", ""))
