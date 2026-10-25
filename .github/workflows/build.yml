@@ -197,13 +197,22 @@ jobs:
           tail -n 3 rec.log || true
           ls -la intro-video
           if [ ! -s intro-video/intro2.mp4 ]; then echo "::warning::Video della presentazione non registrato"; exit 1; fi
+          # Più leggero per il push (avconvert è di macOS): 720p H.264
+          if command -v avconvert > /dev/null; then
+            lim 240 avconvert --source intro-video/intro2.mp4 --preset Preset1280x720 --output intro-small.mp4 --replace > /dev/null 2>&1 \
+              && [ -s intro-small.mp4 ] && mv intro-small.mp4 intro-video/intro2.mp4 || echo "::warning::avconvert non riuscito, resta il video originale"
+          fi
           echo "::notice::Video della presentazione: $(du -h intro-video/intro2.mp4 | cut -f1), $(ls intro-video | grep -c png) foto"
           cd intro-video
           echo "Prototipo -intro2 di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ)), $SIM" > README.md
           git init -q && git checkout -q -b intro-video && git add .
           git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Video della nuova presentazione per $GITHUB_SHA"
-          out=$(git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" intro-video 2>&1) && echo "::notice::Video pubblicato nel ramo intro-video" \
-            || { echo "::warning::Push del video non riuscito: $(echo "$out" | sed 's/x-access-token:[^@]*@/***@/' | tail -n 3 | tr '\n' ' ' | cut -c1-400)"; exit 1; }
+          for try in 1 2 3; do
+            out=$(git -c http.postBuffer=157286400 push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" intro-video 2>&1) \
+              && { echo "::notice::Video pubblicato nel ramo intro-video"; exit 0; }
+            sleep 5
+          done
+          echo "::warning::Push del video non riuscito: $(echo "$out" | sed 's/x-access-token:[^@]*@/***@/' | tail -n 3 | tr '\n' ' ' | cut -c1-400)"; exit 1
 
       - name: Registri
         if: failure()
