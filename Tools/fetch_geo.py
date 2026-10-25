@@ -181,3 +181,13 @@ overpass("napoli-extra", """[out:json][timeout:120];
   way["area:highway"="pedestrian"](40.825,14.235,40.858,14.27); );
 out geom;""")
 # --- fine Napoli ---
+
+# --- Lucca (Tools/build_lucca.py, docs/fonti-lucca.md) ---
+# Il Comune elenca i varchi ZTL per nome di strada o di porta (notizia del 19/01/2026, presentazione del 2025) ma
+# senza coordinate: per piazzarli servono le strade con nome dentro le Mura e le porte (city_gate), «out geom».
+overpass("lucca-streets", """[out:json][timeout:180];
+( way["highway"]["name"](43.836,10.490,43.849,10.518);
+  node["barrier"="city_gate"](43.834,10.488,43.851,10.520); node["historic"="city_gate"](43.834,10.488,43.851,10.520);
+  way["barrier"="city_gate"](43.834,10.488,43.851,10.520); way["historic"="city_gate"](43.834,10.488,43.851,10.520); );
+out geom;""")
+# --- fine Lucca ---

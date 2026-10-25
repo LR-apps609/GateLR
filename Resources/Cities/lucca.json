@@ -1,0 +1,3987 @@
+{
+ "id": "lucca",
+ "name": "Lucca",
+ "name_it": "Lucca",
+ "name_de": "Lucca",
+ "center": {
+  "lat": 43.8431,
+  "lon": 10.5041
+ },
+ "zones": [
+  {
+   "id": "lucca-a",
+   "name": "Sector A · Pedestrian centre ZTL",
+   "name_it": "Settore A · ZTL zona pedonale",
+   "name_de": "Sektor A · ZTL Fußgängerzone",
+   "kind": "restricted",
+   "summary": "The pedestrian heart of the old town (Piazza San Michele, Piazza Napoleone, Piazza dell'Anfiteatro, via Fillungo): closed to unauthorised vehicles at all times, every day, holidays included. There is no day permit for visitors, electric cars included. If your hotel or B&B is inside sector A or B, it can register your plate for free (within 72 hours of your passing the camera): during your stay you may drive in by the shortest route and stop for check-in and luggage for up to 30 minutes with a parking disc; then park outside sectors A and B or in the hotel's own parking.",
+   "summary_it": "Il cuore pedonale del centro storico (piazza San Michele, piazza Napoleone, piazza dell'Anfiteatro, via Fillungo): chiusa ai veicoli non autorizzati sempre, tutti i giorni, festivi compresi. Non c'è un permesso giornaliero per i turisti, nemmeno per le auto elettriche. Se il tuo hotel o B&B è nella ZTL A o B, può registrare la tua targa gratis (entro 72 ore dal passaggio sotto il varco): per tutto il soggiorno puoi entrare per la via più breve e fermarti per registrazione e bagagli al massimo 30 minuti con il disco orario; poi devi parcheggiare fuori dalle ZTL A e B o nel parcheggio della struttura.",
+   "summary_de": "Das Fußgängerherz der Altstadt (Piazza San Michele, Piazza Napoleone, Piazza dell'Anfiteatro, Via Fillungo): für nicht berechtigte Fahrzeuge immer gesperrt, täglich, auch an Feiertagen. Es gibt keine Tagesgenehmigung für Besucher, auch nicht für Elektroautos. Liegt dein Hotel oder B&B in Sektor A oder B, kann es dein Kennzeichen kostenlos melden (bis 72 Stunden nach der Kamera): Während des Aufenthalts darfst du auf dem kürzesten Weg hineinfahren und zum Einchecken und für das Gepäck höchstens 30 Minuten mit Parkscheibe halten; danach außerhalb von A und B oder auf dem Parkplatz der Unterkunft parken.",
+   "perimeter": [
+    {
+     "lat": 43.842548,
+     "lon": 10.506563
+    },
+    {
+     "lat": 43.842518,
+     "lon": 10.506658
+    },
+    {
+     "lat": 43.842494,
+     "lon": 10.507396
+    },
+    {
+     "lat": 43.842533,
+     "lon": 10.507423
+    },
+    {
+     "lat": 43.842796,
+     "lon": 10.507424
+    },
+    {
+     "lat": 43.842981,
+     "lon": 10.507493
+    },
+    {
+     "lat": 43.843128,
+     "lon": 10.507467
+    },
+    {
+     "lat": 43.84342,
+     "lon": 10.507522
+    },
+    {
+     "lat": 43.843782,
+     "lon": 10.507455
+    },
+    {
+     "lat": 43.843899,
+     "lon": 10.507469
+    },
+    {
+     "lat": 43.843918,
+     "lon": 10.50751
+    },
+    {
+     "lat": 43.844114,
+     "lon": 10.507484
+    },
+    {
+     "lat": 43.84465,
+     "lon": 10.507568
+    },
+    {
+     "lat": 43.844633,
+     "lon": 10.507185
+    },
+    {
+     "lat": 43.844652,
+     "lon": 10.507171
+    },
+    {
+     "lat": 43.844623,
+     "lon": 10.507158
+    },
+    {
+     "lat": 43.844605,
+     "lon": 10.506994
+    },
+    {
+     "lat": 43.844517,
+     "lon": 10.506952
+    },
+    {
+     "lat": 43.844087,
+     "lon": 10.506978
+    },
+    {
+     "lat": 43.844039,
+     "lon": 10.506937
+    },
+    {
+     "lat": 43.843912,
+     "lon": 10.506964
+    },
+    {
+     "lat": 43.843853,
+     "lon": 10.506936
+    },
+    {
+     "lat": 43.843875,
+     "lon": 10.506581
+    },
+    {
+     "lat": 43.843905,
+     "lon": 10.506554
+    },
+    {
+     "lat": 43.843876,
+     "lon": 10.506417
+    },
+    {
+     "lat": 43.843974,
+     "lon": 10.506335
+    },
+    {
+     "lat": 43.843955,
+     "lon": 10.506308
+    },
+    {
+     "lat": 43.843968,
+     "lon": 10.505734
+    },
+    {
+     "lat": 43.844037,
+     "lon": 10.505721
+    },
+    {
+     "lat": 43.844057,
+     "lon": 10.505639
+    },
+    {
+     "lat": 43.844086,
+     "lon": 10.505694
+    },
+    {
+     "lat": 43.844115,
+     "lon": 10.50568
+    },
+    {
+     "lat": 43.844115,
+     "lon": 10.505625
+    },
+    {
+     "lat": 43.844164,
+     "lon": 10.505598
+    },
+    {
+     "lat": 43.844166,
+     "lon": 10.505339
+    },
+    {
+     "lat": 43.844264,
+     "lon": 10.505325
+    },
+    {
+     "lat": 43.844449,
+     "lon": 10.505367
+    },
+    {
+     "lat": 43.844478,
+     "lon": 10.505408
+    },
+    {
+     "lat": 43.844457,
+     "lon": 10.505681
+    },
+    {
+     "lat": 43.844505,
+     "lon": 10.50575
+    },
+    {
+     "lat": 43.844632,
+     "lon": 10.505736
+    },
+    {
+     "lat": 43.844651,
+     "lon": 10.505764
+    },
+    {
+     "lat": 43.84463,
+     "lon": 10.50601
+    },
+    {
+     "lat": 43.844591,
+     "lon": 10.506037
+    },
+    {
+     "lat": 43.84461,
+     "lon": 10.506092
+    },
+    {
+     "lat": 43.844591,
+     "lon": 10.506119
+    },
+    {
+     "lat": 43.84461,
+     "lon": 10.506119
+    },
+    {
+     "lat": 43.844617,
+     "lon": 10.506584
+    },
+    {
+     "lat": 43.844663,
+     "lon": 10.50698
+    },
+    {
+     "lat": 43.844652,
+     "lon": 10.507171
+    },
+    {
+     "lat": 43.844633,
+     "lon": 10.507185
+    },
+    {
+     "lat": 43.844672,
+     "lon": 10.507185
+    },
+    {
+     "lat": 43.844765,
+     "lon": 10.507978
+    },
+    {
+     "lat": 43.844803,
+     "lon": 10.508101
+    },
+    {
+     "lat": 43.844832,
+     "lon": 10.508115
+    },
+    {
+     "lat": 43.845057,
+     "lon": 10.508061
+    },
+    {
+     "lat": 43.845136,
+     "lon": 10.507925
+    },
+    {
+     "lat": 43.845273,
+     "lon": 10.507857
+    },
+    {
+     "lat": 43.845352,
+     "lon": 10.507748
+    },
+    {
+     "lat": 43.845499,
+     "lon": 10.507666
+    },
+    {
+     "lat": 43.845558,
+     "lon": 10.507571
+    },
+    {
+     "lat": 43.845587,
+     "lon": 10.507571
+    },
+    {
+     "lat": 43.845644,
+     "lon": 10.507803
+    },
+    {
+     "lat": 43.845643,
+     "lon": 10.508049
+    },
+    {
+     "lat": 43.845457,
+     "lon": 10.508049
+    },
+    {
+     "lat": 43.845427,
+     "lon": 10.508131
+    },
+    {
+     "lat": 43.845144,
+     "lon": 10.508143
+    },
+    {
+     "lat": 43.845115,
+     "lon": 10.508184
+    },
+    {
+     "lat": 43.845118,
+     "lon": 10.509195
+    },
+    {
+     "lat": 43.845225,
+     "lon": 10.509196
+    },
+    {
+     "lat": 43.845241,
+     "lon": 10.50977
+    },
+    {
+     "lat": 43.845104,
+     "lon": 10.50981
+    },
+    {
+     "lat": 43.845236,
+     "lon": 10.510685
+    },
+    {
+     "lat": 43.845255,
+     "lon": 10.510726
+    },
+    {
+     "lat": 43.845333,
+     "lon": 10.510699
+    },
+    {
+     "lat": 43.845323,
+     "lon": 10.510836
+    },
+    {
+     "lat": 43.845361,
+     "lon": 10.510904
+    },
+    {
+     "lat": 43.845361,
+     "lon": 10.510973
+    },
+    {
+     "lat": 43.845556,
+     "lon": 10.510891
+    },
+    {
+     "lat": 43.845519,
+     "lon": 10.510577
+    },
+    {
+     "lat": 43.845464,
+     "lon": 10.510098
+    },
+    {
+     "lat": 43.845278,
+     "lon": 10.510084
+    },
+    {
+     "lat": 43.845241,
+     "lon": 10.50977
+    },
+    {
+     "lat": 43.845225,
+     "lon": 10.509196
+    },
+    {
+     "lat": 43.845284,
+     "lon": 10.509155
+    },
+    {
+     "lat": 43.845865,
+     "lon": 10.50846
+    },
+    {
+     "lat": 43.845982,
+     "lon": 10.50842
+    },
+    {
+     "lat": 43.845982,
+     "lon": 10.508379
+    },
+    {
+     "lat": 43.846061,
+     "lon": 10.508283
+    },
+    {
+     "lat": 43.846159,
+     "lon": 10.508202
+    },
+    {
+     "lat": 43.846208,
+     "lon": 10.508215
+    },
+    {
+     "lat": 43.846267,
+     "lon": 10.508106
+    },
+    {
+     "lat": 43.846611,
+     "lon": 10.507793
+    },
+    {
+     "lat": 43.846669,
+     "lon": 10.507793
+    },
+    {
+     "lat": 43.846778,
+     "lon": 10.507575
+    },
+    {
+     "lat": 43.847042,
+     "lon": 10.507453
+    },
+    {
+     "lat": 43.847112,
+     "lon": 10.507276
+    },
+    {
+     "lat": 43.847103,
+     "lon": 10.507153
+    },
+    {
+     "lat": 43.847174,
+     "lon": 10.506688
+    },
+    {
+     "lat": 43.847109,
+     "lon": 10.506183
+    },
+    {
+     "lat": 43.847021,
+     "lon": 10.506141
+    },
+    {
+     "lat": 43.846828,
+     "lon": 10.505785
+    },
+    {
+     "lat": 43.846392,
+     "lon": 10.505346
+    },
+    {
+     "lat": 43.846256,
+     "lon": 10.505168
+    },
+    {
+     "lat": 43.846022,
+     "lon": 10.505072
+    },
+    {
+     "lat": 43.845838,
+     "lon": 10.504921
+    },
+    {
+     "lat": 43.845878,
+     "lon": 10.504702
+    },
+    {
+     "lat": 43.84586,
+     "lon": 10.504511
+    },
+    {
+     "lat": 43.845889,
+     "lon": 10.504484
+    },
+    {
+     "lat": 43.84588,
+     "lon": 10.504388
+    },
+    {
+     "lat": 43.84591,
+     "lon": 10.504388
+    },
+    {
+     "lat": 43.8459,
+     "lon": 10.504306
+    },
+    {
+     "lat": 43.845951,
+     "lon": 10.50406
+    },
+    {
+     "lat": 43.845689,
+     "lon": 10.5038
+    },
+    {
+     "lat": 43.845729,
+     "lon": 10.503677
+    },
+    {
+     "lat": 43.845622,
+     "lon": 10.503567
+    },
+    {
+     "lat": 43.845593,
+     "lon": 10.503485
+    },
+    {
+     "lat": 43.845564,
+     "lon": 10.503499
+    },
+    {
+     "lat": 43.845535,
+     "lon": 10.50343
+    },
+    {
+     "lat": 43.845467,
+     "lon": 10.503416
+    },
+    {
+     "lat": 43.845244,
+     "lon": 10.503156
+    },
+    {
+     "lat": 43.845106,
+     "lon": 10.503292
+    },
+    {
+     "lat": 43.845087,
+     "lon": 10.50321
+    },
+    {
+     "lat": 43.844922,
+     "lon": 10.5031
+    },
+    {
+     "lat": 43.844834,
+     "lon": 10.503086
+    },
+    {
+     "lat": 43.844795,
+     "lon": 10.503141
+    },
+    {
+     "lat": 43.844688,
+     "lon": 10.503113
+    },
+    {
+     "lat": 43.844698,
+     "lon": 10.503045
+    },
+    {
+     "lat": 43.84463,
+     "lon": 10.503031
+    },
+    {
+     "lat": 43.84463,
+     "lon": 10.502963
+    },
+    {
+     "lat": 43.844776,
+     "lon": 10.502963
+    },
+    {
+     "lat": 43.844816,
+     "lon": 10.502909
+    },
+    {
+     "lat": 43.844798,
+     "lon": 10.502662
+    },
+    {
+     "lat": 43.844818,
+     "lon": 10.50254
+    },
+    {
+     "lat": 43.844711,
+     "lon": 10.502498
+    },
+    {
+     "lat": 43.844633,
+     "lon": 10.502416
+    },
+    {
+     "lat": 43.844292,
+     "lon": 10.502387
+    },
+    {
+     "lat": 43.844334,
+     "lon": 10.501827
+    },
+    {
+     "lat": 43.843993,
+     "lon": 10.501744
+    },
+    {
+     "lat": 43.843994,
+     "lon": 10.501621
+    },
+    {
+     "lat": 43.844043,
+     "lon": 10.501567
+    },
+    {
+     "lat": 43.844015,
+     "lon": 10.501457
+    },
+    {
+     "lat": 43.84407,
+     "lon": 10.500433
+    },
+    {
+     "lat": 43.843924,
+     "lon": 10.500391
+    },
+    {
+     "lat": 43.843884,
+     "lon": 10.500446
+    },
+    {
+     "lat": 43.843777,
+     "lon": 10.500445
+    },
+    {
+     "lat": 43.843748,
+     "lon": 10.500404
+    },
+    {
+     "lat": 43.843731,
+     "lon": 10.500035
+    },
+    {
+     "lat": 43.843752,
+     "lon": 10.49983
+    },
+    {
+     "lat": 43.843771,
+     "lon": 10.499803
+    },
+    {
+     "lat": 43.8438,
+     "lon": 10.49983
+    },
+    {
+     "lat": 43.843788,
+     "lon": 10.500268
+    },
+    {
+     "lat": 43.844042,
+     "lon": 10.500268
+    },
+    {
+     "lat": 43.844092,
+     "lon": 10.500009
+    },
+    {
+     "lat": 43.844094,
+     "lon": 10.499626
+    },
+    {
+     "lat": 43.844134,
+     "lon": 10.499476
+    },
+    {
+     "lat": 43.844136,
+     "lon": 10.499203
+    },
+    {
+     "lat": 43.844166,
+     "lon": 10.499176
+    },
+    {
+     "lat": 43.844204,
+     "lon": 10.499217
+    },
+    {
+     "lat": 43.84437,
+     "lon": 10.499204
+    },
+    {
+     "lat": 43.844414,
+     "lon": 10.498493
+    },
+    {
+     "lat": 43.844443,
+     "lon": 10.498466
+    },
+    {
+     "lat": 43.844435,
+     "lon": 10.49822
+    },
+    {
+     "lat": 43.844581,
+     "lon": 10.498248
+    },
+    {
+     "lat": 43.844757,
+     "lon": 10.498235
+    },
+    {
+     "lat": 43.844826,
+     "lon": 10.498194
+    },
+    {
+     "lat": 43.845021,
+     "lon": 10.498209
+    },
+    {
+     "lat": 43.845022,
+     "lon": 10.497963
+    },
+    {
+     "lat": 43.845081,
+     "lon": 10.497949
+    },
+    {
+     "lat": 43.84509,
+     "lon": 10.49814
+    },
+    {
+     "lat": 43.84505,
+     "lon": 10.49825
+    },
+    {
+     "lat": 43.845157,
+     "lon": 10.498264
+    },
+    {
+     "lat": 43.845169,
+     "lon": 10.497949
+    },
+    {
+     "lat": 43.845101,
+     "lon": 10.497867
+    },
+    {
+     "lat": 43.845034,
+     "lon": 10.497648
+    },
+    {
+     "lat": 43.844917,
+     "lon": 10.497675
+    },
+    {
+     "lat": 43.844703,
+     "lon": 10.497497
+    },
+    {
+     "lat": 43.844596,
+     "lon": 10.497455
+    },
+    {
+     "lat": 43.843191,
+     "lon": 10.497314
+    },
+    {
+     "lat": 43.843067,
+     "lon": 10.498407
+    },
+    {
+     "lat": 43.84296,
+     "lon": 10.498447
+    },
+    {
+     "lat": 43.842727,
+     "lon": 10.498269
+    },
+    {
+     "lat": 43.842707,
+     "lon": 10.498214
+    },
+    {
+     "lat": 43.842493,
+     "lon": 10.498186
+    },
+    {
+     "lat": 43.842464,
+     "lon": 10.498117
+    },
+    {
+     "lat": 43.842435,
+     "lon": 10.498131
+    },
+    {
+     "lat": 43.842434,
+     "lon": 10.498213
+    },
+    {
+     "lat": 43.842307,
+     "lon": 10.498281
+    },
+    {
+     "lat": 43.842277,
+     "lon": 10.498335
+    },
+    {
+     "lat": 43.842209,
+     "lon": 10.498349
+    },
+    {
+     "lat": 43.842159,
+     "lon": 10.498526
+    },
+    {
+     "lat": 43.842127,
+     "lon": 10.498977
+    },
+    {
+     "lat": 43.842224,
+     "lon": 10.498991
+    },
+    {
+     "lat": 43.842263,
+     "lon": 10.499073
+    },
+    {
+     "lat": 43.842251,
+     "lon": 10.499456
+    },
+    {
+     "lat": 43.842446,
+     "lon": 10.499443
+    },
+    {
+     "lat": 43.842495,
+     "lon": 10.499388
+    },
+    {
+     "lat": 43.842523,
+     "lon": 10.499621
+    },
+    {
+     "lat": 43.842503,
+     "lon": 10.49973
+    },
+    {
+     "lat": 43.842327,
+     "lon": 10.499716
+    },
+    {
+     "lat": 43.842308,
+     "lon": 10.499634
+    },
+    {
+     "lat": 43.842191,
+     "lon": 10.499647
+    },
+    {
+     "lat": 43.842123,
+     "lon": 10.499606
+    },
+    {
+     "lat": 43.842045,
+     "lon": 10.499633
+    },
+    {
+     "lat": 43.842015,
+     "lon": 10.499728
+    },
+    {
+     "lat": 43.841991,
+     "lon": 10.50037
+    },
+    {
+     "lat": 43.84203,
+     "lon": 10.500439
+    },
+    {
+     "lat": 43.842176,
+     "lon": 10.500412
+    },
+    {
+     "lat": 43.842175,
+     "lon": 10.500549
+    },
+    {
+     "lat": 43.842146,
+     "lon": 10.500576
+    },
+    {
+     "lat": 43.842154,
+     "lon": 10.500795
+    },
+    {
+     "lat": 43.84232,
+     "lon": 10.500864
+    },
+    {
+     "lat": 43.842309,
+     "lon": 10.501123
+    },
+    {
+     "lat": 43.842152,
+     "lon": 10.501136
+    },
+    {
+     "lat": 43.84213,
+     "lon": 10.501587
+    },
+    {
+     "lat": 43.841847,
+     "lon": 10.501545
+    },
+    {
+     "lat": 43.841912,
+     "lon": 10.50048
+    },
+    {
+     "lat": 43.841405,
+     "lon": 10.500396
+    },
+    {
+     "lat": 43.841375,
+     "lon": 10.500491
+    },
+    {
+     "lat": 43.841307,
+     "lon": 10.500505
+    },
+    {
+     "lat": 43.841265,
+     "lon": 10.501024
+    },
+    {
+     "lat": 43.840669,
+     "lon": 10.500994
+    },
+    {
+     "lat": 43.840581,
+     "lon": 10.501144
+    },
+    {
+     "lat": 43.840542,
+     "lon": 10.501144
+    },
+    {
+     "lat": 43.840335,
+     "lon": 10.50143
+    },
+    {
+     "lat": 43.840276,
+     "lon": 10.501444
+    },
+    {
+     "lat": 43.840227,
+     "lon": 10.501526
+    },
+    {
+     "lat": 43.840226,
+     "lon": 10.501594
+    },
+    {
+     "lat": 43.840256,
+     "lon": 10.501621
+    },
+    {
+     "lat": 43.840373,
+     "lon": 10.501622
+    },
+    {
+     "lat": 43.840352,
+     "lon": 10.501745
+    },
+    {
+     "lat": 43.840197,
+     "lon": 10.501635
+    },
+    {
+     "lat": 43.839865,
+     "lon": 10.50162
+    },
+    {
+     "lat": 43.839827,
+     "lon": 10.501483
+    },
+    {
+     "lat": 43.839749,
+     "lon": 10.501374
+    },
+    {
+     "lat": 43.839681,
+     "lon": 10.501373
+    },
+    {
+     "lat": 43.839583,
+     "lon": 10.501482
+    },
+    {
+     "lat": 43.839582,
+     "lon": 10.50166
+    },
+    {
+     "lat": 43.839483,
+     "lon": 10.501783
+    },
+    {
+     "lat": 43.839406,
+     "lon": 10.501741
+    },
+    {
+     "lat": 43.839347,
+     "lon": 10.501755
+    },
+    {
+     "lat": 43.839279,
+     "lon": 10.501645
+    },
+    {
+     "lat": 43.839182,
+     "lon": 10.501659
+    },
+    {
+     "lat": 43.839074,
+     "lon": 10.501699
+    },
+    {
+     "lat": 43.838995,
+     "lon": 10.50189
+    },
+    {
+     "lat": 43.839101,
+     "lon": 10.502041
+    },
+    {
+     "lat": 43.839129,
+     "lon": 10.50226
+    },
+    {
+     "lat": 43.839207,
+     "lon": 10.502315
+    },
+    {
+     "lat": 43.839314,
+     "lon": 10.502329
+    },
+    {
+     "lat": 43.839411,
+     "lon": 10.502452
+    },
+    {
+     "lat": 43.839713,
+     "lon": 10.502467
+    },
+    {
+     "lat": 43.839811,
+     "lon": 10.502522
+    },
+    {
+     "lat": 43.840065,
+     "lon": 10.502454
+    },
+    {
+     "lat": 43.840027,
+     "lon": 10.503848
+    },
+    {
+     "lat": 43.840436,
+     "lon": 10.503945
+    },
+    {
+     "lat": 43.840425,
+     "lon": 10.504109
+    },
+    {
+     "lat": 43.840453,
+     "lon": 10.5043
+    },
+    {
+     "lat": 43.840424,
+     "lon": 10.504328
+    },
+    {
+     "lat": 43.840393,
+     "lon": 10.504669
+    },
+    {
+     "lat": 43.840421,
+     "lon": 10.504874
+    },
+    {
+     "lat": 43.840255,
+     "lon": 10.504833
+    },
+    {
+     "lat": 43.840138,
+     "lon": 10.504832
+    },
+    {
+     "lat": 43.840108,
+     "lon": 10.504887
+    },
+    {
+     "lat": 43.839972,
+     "lon": 10.504859
+    },
+    {
+     "lat": 43.83996,
+     "lon": 10.505105
+    },
+    {
+     "lat": 43.840033,
+     "lon": 10.506007
+    },
+    {
+     "lat": 43.840029,
+     "lon": 10.506677
+    },
+    {
+     "lat": 43.839939,
+     "lon": 10.50695
+    },
+    {
+     "lat": 43.839978,
+     "lon": 10.507032
+    },
+    {
+     "lat": 43.840036,
+     "lon": 10.507032
+    },
+    {
+     "lat": 43.840191,
+     "lon": 10.507169
+    },
+    {
+     "lat": 43.840464,
+     "lon": 10.507238
+    },
+    {
+     "lat": 43.840473,
+     "lon": 10.50743
+    },
+    {
+     "lat": 43.840658,
+     "lon": 10.507444
+    },
+    {
+     "lat": 43.840698,
+     "lon": 10.50739
+    },
+    {
+     "lat": 43.841136,
+     "lon": 10.5075
+    },
+    {
+     "lat": 43.841176,
+     "lon": 10.507405
+    },
+    {
+     "lat": 43.841138,
+     "lon": 10.507254
+    },
+    {
+     "lat": 43.84105,
+     "lon": 10.507186
+    },
+    {
+     "lat": 43.840894,
+     "lon": 10.507172
+    },
+    {
+     "lat": 43.840797,
+     "lon": 10.507117
+    },
+    {
+     "lat": 43.840851,
+     "lon": 10.506365
+    },
+    {
+     "lat": 43.84091,
+     "lon": 10.506283
+    },
+    {
+     "lat": 43.840921,
+     "lon": 10.505969
+    },
+    {
+     "lat": 43.841185,
+     "lon": 10.505997
+    },
+    {
+     "lat": 43.841351,
+     "lon": 10.505943
+    },
+    {
+     "lat": 43.841624,
+     "lon": 10.505944
+    },
+    {
+     "lat": 43.841741,
+     "lon": 10.505986
+    },
+    {
+     "lat": 43.84181,
+     "lon": 10.505972
+    },
+    {
+     "lat": 43.841859,
+     "lon": 10.505877
+    },
+    {
+     "lat": 43.841898,
+     "lon": 10.505877
+    },
+    {
+     "lat": 43.841927,
+     "lon": 10.505932
+    },
+    {
+     "lat": 43.84219,
+     "lon": 10.505974
+    },
+    {
+     "lat": 43.842229,
+     "lon": 10.506015
+    },
+    {
+     "lat": 43.842317,
+     "lon": 10.506001
+    },
+    {
+     "lat": 43.842358,
+     "lon": 10.505633
+    },
+    {
+     "lat": 43.842407,
+     "lon": 10.505633
+    },
+    {
+     "lat": 43.842437,
+     "lon": 10.505578
+    },
+    {
+     "lat": 43.842369,
+     "lon": 10.505496
+    },
+    {
+     "lat": 43.84241,
+     "lon": 10.505196
+    },
+    {
+     "lat": 43.842624,
+     "lon": 10.505251
+    },
+    {
+     "lat": 43.84259,
+     "lon": 10.506016
+    },
+    {
+     "lat": 43.842864,
+     "lon": 10.506003
+    },
+    {
+     "lat": 43.842843,
+     "lon": 10.506236
+    },
+    {
+     "lat": 43.84286,
+     "lon": 10.506591
+    },
+    {
+     "lat": 43.842899,
+     "lon": 10.506591
+    },
+    {
+     "lat": 43.843358,
+     "lon": 10.506606
+    },
+    {
+     "lat": 43.843378,
+     "lon": 10.506538
+    },
+    {
+     "lat": 43.843553,
+     "lon": 10.506539
+    },
+    {
+     "lat": 43.843582,
+     "lon": 10.50658
+    },
+    {
+     "lat": 43.843582,
+     "lon": 10.506703
+    },
+    {
+     "lat": 43.843552,
+     "lon": 10.506744
+    },
+    {
+     "lat": 43.843338,
+     "lon": 10.506688
+    },
+    {
+     "lat": 43.842957,
+     "lon": 10.50666
+    },
+    {
+     "lat": 43.842899,
+     "lon": 10.506591
+    },
+    {
+     "lat": 43.84286,
+     "lon": 10.506591
+    },
+    {
+     "lat": 43.842597,
+     "lon": 10.506563
+    },
+    {
+     "lat": 43.842548,
+     "lon": 10.506563
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Lucca",
+    "pageURL": "https://www.comune.lucca.it/documento_pubblico/planimetria-del-centro-storico-con-varchi-telematici-ztl-e-area-pedonale/",
+    "ordinance": "Disciplinare per il rilascio dei permessi del centro storico (febbraio 2026), allegato 1 alla delibera GC n. 340 del 12/12/2025",
+    "ordinanceURL": "https://www.comune.lucca.it/app/uploads/2026/03/disciplinare_2026_.pdf",
+    "quote": "ZTL tipo “A” l’accesso e la sosta sono sempre vietati fatti salvi i veicoli autorizzati muniti di permesso.",
+    "quoteTranslation": "Sector “A”: entry and parking are always forbidden, except for authorised vehicles with a permit.",
+    "quoteTranslation_de": "Sektor „A“: Einfahrt und Parken sind immer verboten, außer für berechtigte Fahrzeuge mit Genehmigung.",
+    "checkedOn": "2026-10-25T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Map outline derived automatically from the colours of the official city map (25 November 2025, the one in the February 2026 rules), aligned on the city walls: accurate to a few metres, not an official coordinate file. The walls themselves follow sector A rules but are not drawn, so driving through the gates in the walls does not show as sector A.",
+     "Lucca Comics & Games, 28 October – 1 November 2026: no entry inside the walls (sector C included) 8 am–7 pm for vehicles without a permit; Porta Santa Maria and Porta Sant'Anna closed to them all day, Porta San Pietro 7 am–8:30 pm. Hotel guests may drive in only before 10 am or after 7 pm, with the hotel's authorisation. Sector A is closed to all vehicles 9 am–7 pm.",
+     "Even with a permit (hotel guests included), via Fillungo, via Roma, piazza San Michele (east side), piazza Anfiteatro, piazza San Frediano and a few other streets are closed 10:30 am–2 pm and 6–9 pm.",
+     "No day permit for visitors: daily permits exist only for specific categories such as trades, deliveries or people with a temporary disability (€15 a day), and are issued by Lucca Plus.",
+     "Electric cars: no free entry; the rules only list lower permit prices for them.",
+     "Sector C (Piazzale Verdi, Piazza Santa Maria, Corso Garibaldi by Porta San Pietro, the streets to the car parks of Piazza San Ponziano and via dei Bacchettoni, and a few others) has no entry control: any car under 3.5 t may drive in (30 km/h), with paid blue-line parking. It is not drawn as a zone.",
+     "Cameras: the city lists the gate names (14 new ones active since 19 January 2026, which also read plates on the way out) but publishes no coordinates, so they are not on the map."
+    ],
+    "pending_it": [
+     "Perimetro ricavato in automatico dai colori della mappa ufficiale del Comune (25 novembre 2025, la stessa del disciplinare di febbraio 2026), agganciata alle Mura: preciso a pochi metri, non è un file di coordinate ufficiale. Le Mura seguono le regole della ZTL A ma non sono disegnate, così passare dalle porte delle Mura non risulta ZTL A.",
+     "Lucca Comics & Games, 28 ottobre – 1 novembre 2026: vietato entrare dentro le Mura (ZTL C compresa) dalle 8 alle 19 senza permesso; Porta Santa Maria e Porta Sant'Anna chiuse tutto il giorno ai veicoli senza permesso, Porta San Pietro dalle 7 alle 20:30. I clienti degli hotel possono entrare solo prima delle 10 o dopo le 19, con l'autorizzazione della struttura. La ZTL A è chiusa a tutti i veicoli dalle 9 alle 19.",
+     "Anche con il permesso (ospiti degli hotel compresi), via Fillungo, via Roma, piazza San Michele (lato est), piazza Anfiteatro, piazza San Frediano e poche altre vie sono chiuse 10:30–14 e 18–21.",
+     "Nessun permesso giornaliero per i turisti: i permessi giornalieri esistono solo per categorie precise come artigiani, merci o persone con disabilità temporanea (15 € al giorno), e li rilascia Lucca Plus.",
+     "Auto elettriche: nessun accesso libero; il disciplinare prevede per loro solo tariffe più basse dei permessi.",
+     "La ZTL C (piazzale Verdi, piazza Santa Maria, corso Garibaldi verso Porta San Pietro, le strade per i parcheggi di piazza San Ponziano e via dei Bacchettoni e poche altre aree) non ha controllo degli accessi: può entrare qualsiasi auto sotto le 3,5 tonnellate (30 km/h), con sosta a pagamento sulle strisce blu. Non è disegnata come zona.",
+     "Varchi: il Comune elenca i nomi (14 nuovi, attivi dal 19 gennaio 2026, che leggono le targhe anche in uscita) ma non pubblica le coordinate, quindi non sono sulla mappa."
+    ],
+    "pending_de": [
+     "Grenze automatisch aus den Farben der offiziellen Stadtkarte abgeleitet (25. November 2025, dieselbe wie in den Regeln vom Februar 2026) und an der Stadtmauer ausgerichtet: auf wenige Meter genau, keine amtliche Koordinatendatei. Die Mauer selbst folgt den Regeln von Sektor A, ist aber nicht eingezeichnet; die Durchfahrt durch die Stadttore zählt daher nicht als Sektor A.",
+     "Lucca Comics & Games, 28. Oktober – 1. November 2026: Einfahrt innerhalb der Mauern (auch Sektor C) 8–19 Uhr ohne Genehmigung verboten; Porta Santa Maria und Porta Sant'Anna ganztägig für diese Fahrzeuge gesperrt, Porta San Pietro 7–20:30 Uhr. Hotelgäste dürfen nur vor 10 oder nach 19 Uhr mit Genehmigung der Unterkunft hineinfahren. Sektor A ist 9–19 Uhr für alle Fahrzeuge gesperrt.",
+     "Auch mit Genehmigung (Hotelgäste eingeschlossen) sind Via Fillungo, Via Roma, Piazza San Michele (Ostseite), Piazza Anfiteatro, Piazza San Frediano und einige weitere Straßen 10:30–14 und 18–21 Uhr gesperrt.",
+     "Keine Tagesgenehmigung für Besucher: Tagesgenehmigungen gibt es nur für bestimmte Gruppen wie Handwerker, Lieferungen oder Menschen mit vorübergehender Behinderung (15 € pro Tag), ausgestellt von Lucca Plus.",
+     "Elektroautos: keine freie Einfahrt; die Regeln sehen für sie nur günstigere Genehmigungen vor.",
+     "Sektor C (Piazzale Verdi, Piazza Santa Maria, Corso Garibaldi bei der Porta San Pietro, die Straßen zu den Parkplätzen Piazza San Ponziano und Via dei Bacchettoni und einige weitere) hat keine Zufahrtskontrolle: Jedes Auto unter 3,5 t darf hinein (30 km/h), Parken auf blauen Linien gegen Gebühr. Er ist nicht als Zone eingezeichnet.",
+     "Kameras: Die Stadt nennt die Namen (14 neue, aktiv seit 19. Januar 2026, die Kennzeichen auch bei der Ausfahrt lesen), veröffentlicht aber keine Koordinaten; daher fehlen sie auf der Karte."
+    ],
+    "links": [
+     {
+      "title": "City of Lucca: map of the ZTL sectors and gates (page)",
+      "title_it": "Comune di Lucca: planimetria con ZTL, varchi e area pedonale",
+      "title_de": "Stadt Lucca: Karte der ZTL-Sektoren und Kameras",
+      "url": "https://www.comune.lucca.it/documento_pubblico/planimetria-del-centro-storico-con-varchi-telematici-ztl-e-area-pedonale/"
+     },
+     {
+      "title": "City of Lucca: ZTL map, 25 November 2025 (PDF)",
+      "title_it": "Comune di Lucca: mappa ZTL aggiornata al 25.11.2025 (PDF)",
+      "title_de": "Stadt Lucca: ZTL-Karte, Stand 25. November 2025 (PDF)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/03/ZTL-aggiornamento-dicembre-2025.pdf"
+     },
+     {
+      "title": "City of Lucca: permit rules for the historic centre (Feb 2026, PDF)",
+      "title_it": "Comune di Lucca: disciplinare dei permessi del centro storico (feb. 2026, PDF)",
+      "title_de": "Stadt Lucca: Genehmigungsregeln für die Altstadt (Feb. 2026, PDF)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/03/disciplinare_2026_.pdf"
+     },
+     {
+      "title": "City of Lucca: Council decision 340/2025 (rule changes, new perimeter)",
+      "title_it": "Comune di Lucca: delibera GC 340/2025 (modifiche al disciplinare, nuovo perimetro)",
+      "title_de": "Stadt Lucca: Beschluss 340/2025 (Regeländerungen, neue Grenze)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/01/dlg_00340_12-12-2025.pdf"
+     },
+     {
+      "title": "City of Lucca: new ZTL cameras active from 19 January 2026",
+      "title_it": "Comune di Lucca: nuovi varchi ZTL attivi dal 19 gennaio 2026",
+      "title_de": "Stadt Lucca: neue ZTL-Kameras ab 19. Januar 2026",
+      "url": "https://www.comune.lucca.it/notizia/ztl-da-oggi-19-gennaio-sono-attivi-i-nuovi-varchi-elettronici/"
+     },
+     {
+      "title": "City of Lucca: Lucca Comics & Games 2026 access rules (order 2393/2026, PDF)",
+      "title_it": "Comune di Lucca: accessi durante Lucca Comics & Games 2026 (ord. 2393/2026, PDF)",
+      "title_de": "Stadt Lucca: Zufahrtsregeln Lucca Comics & Games 2026 (Anordnung 2393/2026, PDF)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/10/ord_02393_21-10-2026-Accessi-ZTL.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "lucca-b",
+   "name": "Sector B · Historic centre ZTL",
+   "name_it": "Settore B · ZTL centro storico",
+   "name_de": "Sektor B · ZTL Altstadt",
+   "kind": "restricted",
+   "summary": "Most of the old town around sector A: you may enter only with a permit. The rules give no time window for sector B, so it applies 24 hours a day, every day, holidays included. The blue-line car parks inside the walls (sector C) stay reachable for visitors. There is no day permit for visitors, electric cars included. If your hotel or B&B is inside sector A or B, it can register your plate for free (within 72 hours of your passing the camera): during your stay you may drive in by the shortest route and stop for check-in and luggage for up to 30 minutes with a parking disc; then park outside sectors A and B or in the hotel's own parking.",
+   "summary_it": "Gran parte del centro storico attorno alla ZTL A: si entra solo con il permesso. Il disciplinare non prevede fasce orarie per la ZTL B: vale 24 ore su 24, tutti i giorni, festivi compresi. I parcheggi a strisce blu dentro le Mura (ZTL C) restano raggiungibili anche per chi non è residente. Non c'è un permesso giornaliero per i turisti, nemmeno per le auto elettriche. Se il tuo hotel o B&B è nella ZTL A o B, può registrare la tua targa gratis (entro 72 ore dal passaggio sotto il varco): per tutto il soggiorno puoi entrare per la via più breve e fermarti per registrazione e bagagli al massimo 30 minuti con il disco orario; poi devi parcheggiare fuori dalle ZTL A e B o nel parcheggio della struttura.",
+   "summary_de": "Der größte Teil der Altstadt um Sektor A: Einfahrt nur mit Genehmigung. Die Regeln sehen für Sektor B keine Zeitfenster vor: Er gilt rund um die Uhr, täglich, auch an Feiertagen. Die Parkplätze mit blauen Linien innerhalb der Mauern (Sektor C) bleiben für Besucher erreichbar. Es gibt keine Tagesgenehmigung für Besucher, auch nicht für Elektroautos. Liegt dein Hotel oder B&B in Sektor A oder B, kann es dein Kennzeichen kostenlos melden (bis 72 Stunden nach der Kamera): Während des Aufenthalts darfst du auf dem kürzesten Weg hineinfahren und zum Einchecken und für das Gepäck höchstens 30 Minuten mit Parkscheibe halten; danach außerhalb von A und B oder auf dem Parkplatz der Unterkunft parken.",
+   "perimeter": [
+    {
+     "lat": 43.840797,
+     "lon": 10.507117
+    },
+    {
+     "lat": 43.840894,
+     "lon": 10.507172
+    },
+    {
+     "lat": 43.84105,
+     "lon": 10.507186
+    },
+    {
+     "lat": 43.841138,
+     "lon": 10.507254
+    },
+    {
+     "lat": 43.841176,
+     "lon": 10.507364
+    },
+    {
+     "lat": 43.841176,
+     "lon": 10.507432
+    },
+    {
+     "lat": 43.841136,
+     "lon": 10.5075
+    },
+    {
+     "lat": 43.840698,
+     "lon": 10.50739
+    },
+    {
+     "lat": 43.840658,
+     "lon": 10.507444
+    },
+    {
+     "lat": 43.840512,
+     "lon": 10.507444
+    },
+    {
+     "lat": 43.840463,
+     "lon": 10.507416
+    },
+    {
+     "lat": 43.840474,
+     "lon": 10.507252
+    },
+    {
+     "lat": 43.840445,
+     "lon": 10.507225
+    },
+    {
+     "lat": 43.839928,
+     "lon": 10.5071
+    },
+    {
+     "lat": 43.839916,
+     "lon": 10.505993
+    },
+    {
+     "lat": 43.839972,
+     "lon": 10.504873
+    },
+    {
+     "lat": 43.839981,
+     "lon": 10.504859
+    },
+    {
+     "lat": 43.840108,
+     "lon": 10.504887
+    },
+    {
+     "lat": 43.840138,
+     "lon": 10.504832
+    },
+    {
+     "lat": 43.840255,
+     "lon": 10.504833
+    },
+    {
+     "lat": 43.840421,
+     "lon": 10.504874
+    },
+    {
+     "lat": 43.840393,
+     "lon": 10.504669
+    },
+    {
+     "lat": 43.840424,
+     "lon": 10.504328
+    },
+    {
+     "lat": 43.840454,
+     "lon": 10.504273
+    },
+    {
+     "lat": 43.840427,
+     "lon": 10.503931
+    },
+    {
+     "lat": 43.840027,
+     "lon": 10.503862
+    },
+    {
+     "lat": 43.84004,
+     "lon": 10.503288
+    },
+    {
+     "lat": 43.840065,
+     "lon": 10.502454
+    },
+    {
+     "lat": 43.839781,
+     "lon": 10.502522
+    },
+    {
+     "lat": 43.839713,
+     "lon": 10.502467
+    },
+    {
+     "lat": 43.839333,
+     "lon": 10.502438
+    },
+    {
+     "lat": 43.839347,
+     "lon": 10.501755
+    },
+    {
+     "lat": 43.839406,
+     "lon": 10.501741
+    },
+    {
+     "lat": 43.839483,
+     "lon": 10.501783
+    },
+    {
+     "lat": 43.839582,
+     "lon": 10.50166
+    },
+    {
+     "lat": 43.839583,
+     "lon": 10.501482
+    },
+    {
+     "lat": 43.839681,
+     "lon": 10.501373
+    },
+    {
+     "lat": 43.839749,
+     "lon": 10.501374
+    },
+    {
+     "lat": 43.839827,
+     "lon": 10.501483
+    },
+    {
+     "lat": 43.839865,
+     "lon": 10.50162
+    },
+    {
+     "lat": 43.840197,
+     "lon": 10.501635
+    },
+    {
+     "lat": 43.840352,
+     "lon": 10.501745
+    },
+    {
+     "lat": 43.840373,
+     "lon": 10.501622
+    },
+    {
+     "lat": 43.840226,
+     "lon": 10.501594
+    },
+    {
+     "lat": 43.840227,
+     "lon": 10.501526
+    },
+    {
+     "lat": 43.840276,
+     "lon": 10.501444
+    },
+    {
+     "lat": 43.840335,
+     "lon": 10.50143
+    },
+    {
+     "lat": 43.840689,
+     "lon": 10.500981
+    },
+    {
+     "lat": 43.841265,
+     "lon": 10.501024
+    },
+    {
+     "lat": 43.841307,
+     "lon": 10.500505
+    },
+    {
+     "lat": 43.841375,
+     "lon": 10.500491
+    },
+    {
+     "lat": 43.841405,
+     "lon": 10.500396
+    },
+    {
+     "lat": 43.841474,
+     "lon": 10.500396
+    },
+    {
+     "lat": 43.841912,
+     "lon": 10.50048
+    },
+    {
+     "lat": 43.841847,
+     "lon": 10.501545
+    },
+    {
+     "lat": 43.84211,
+     "lon": 10.501601
+    },
+    {
+     "lat": 43.84213,
+     "lon": 10.501587
+    },
+    {
+     "lat": 43.842152,
+     "lon": 10.501136
+    },
+    {
+     "lat": 43.842309,
+     "lon": 10.501123
+    },
+    {
+     "lat": 43.84232,
+     "lon": 10.500864
+    },
+    {
+     "lat": 43.842154,
+     "lon": 10.500795
+    },
+    {
+     "lat": 43.842146,
+     "lon": 10.500576
+    },
+    {
+     "lat": 43.842176,
+     "lon": 10.500494
+    },
+    {
+     "lat": 43.842176,
+     "lon": 10.500412
+    },
+    {
+     "lat": 43.84203,
+     "lon": 10.500439
+    },
+    {
+     "lat": 43.841991,
+     "lon": 10.50037
+    },
+    {
+     "lat": 43.842015,
+     "lon": 10.499728
+    },
+    {
+     "lat": 43.842045,
+     "lon": 10.499633
+    },
+    {
+     "lat": 43.842123,
+     "lon": 10.499606
+    },
+    {
+     "lat": 43.842191,
+     "lon": 10.499647
+    },
+    {
+     "lat": 43.842308,
+     "lon": 10.499634
+    },
+    {
+     "lat": 43.842327,
+     "lon": 10.499716
+    },
+    {
+     "lat": 43.842503,
+     "lon": 10.49973
+    },
+    {
+     "lat": 43.842523,
+     "lon": 10.499621
+    },
+    {
+     "lat": 43.842495,
+     "lon": 10.499388
+    },
+    {
+     "lat": 43.842446,
+     "lon": 10.499443
+    },
+    {
+     "lat": 43.842251,
+     "lon": 10.499456
+    },
+    {
+     "lat": 43.842263,
+     "lon": 10.499073
+    },
+    {
+     "lat": 43.842224,
+     "lon": 10.498991
+    },
+    {
+     "lat": 43.842117,
+     "lon": 10.498991
+    },
+    {
+     "lat": 43.842066,
+     "lon": 10.499346
+    },
+    {
+     "lat": 43.841939,
+     "lon": 10.499345
+    },
+    {
+     "lat": 43.841997,
+     "lon": 10.499441
+    },
+    {
+     "lat": 43.842006,
+     "lon": 10.499537
+    },
+    {
+     "lat": 43.841869,
+     "lon": 10.499632
+    },
+    {
+     "lat": 43.841801,
+     "lon": 10.499509
+    },
+    {
+     "lat": 43.841851,
+     "lon": 10.499372
+    },
+    {
+     "lat": 43.841665,
+     "lon": 10.499385
+    },
+    {
+     "lat": 43.841646,
+     "lon": 10.49944
+    },
+    {
+     "lat": 43.841304,
+     "lon": 10.499398
+    },
+    {
+     "lat": 43.841357,
+     "lon": 10.498783
+    },
+    {
+     "lat": 43.841348,
+     "lon": 10.498605
+    },
+    {
+     "lat": 43.840548,
+     "lon": 10.498548
+    },
+    {
+     "lat": 43.840538,
+     "lon": 10.498616
+    },
+    {
+     "lat": 43.840421,
+     "lon": 10.498643
+    },
+    {
+     "lat": 43.840255,
+     "lon": 10.498588
+    },
+    {
+     "lat": 43.840201,
+     "lon": 10.499339
+    },
+    {
+     "lat": 43.840113,
+     "lon": 10.499366
+    },
+    {
+     "lat": 43.840065,
+     "lon": 10.499325
+    },
+    {
+     "lat": 43.839967,
+     "lon": 10.499393
+    },
+    {
+     "lat": 43.839928,
+     "lon": 10.499338
+    },
+    {
+     "lat": 43.839762,
+     "lon": 10.499351
+    },
+    {
+     "lat": 43.839623,
+     "lon": 10.499692
+    },
+    {
+     "lat": 43.839613,
+     "lon": 10.499829
+    },
+    {
+     "lat": 43.839435,
+     "lon": 10.500225
+    },
+    {
+     "lat": 43.839404,
+     "lon": 10.500402
+    },
+    {
+     "lat": 43.839305,
+     "lon": 10.500607
+    },
+    {
+     "lat": 43.839295,
+     "lon": 10.500702
+    },
+    {
+     "lat": 43.839226,
+     "lon": 10.500743
+    },
+    {
+     "lat": 43.839017,
+     "lon": 10.501371
+    },
+    {
+     "lat": 43.838968,
+     "lon": 10.501385
+    },
+    {
+     "lat": 43.838958,
+     "lon": 10.501439
+    },
+    {
+     "lat": 43.839104,
+     "lon": 10.501563
+    },
+    {
+     "lat": 43.839192,
+     "lon": 10.501577
+    },
+    {
+     "lat": 43.839299,
+     "lon": 10.501659
+    },
+    {
+     "lat": 43.839347,
+     "lon": 10.501755
+    },
+    {
+     "lat": 43.839333,
+     "lon": 10.502438
+    },
+    {
+     "lat": 43.839322,
+     "lon": 10.50267
+    },
+    {
+     "lat": 43.839262,
+     "lon": 10.502779
+    },
+    {
+     "lat": 43.839184,
+     "lon": 10.502834
+    },
+    {
+     "lat": 43.839184,
+     "lon": 10.502875
+    },
+    {
+     "lat": 43.839193,
+     "lon": 10.502943
+    },
+    {
+     "lat": 43.839252,
+     "lon": 10.502902
+    },
+    {
+     "lat": 43.839341,
+     "lon": 10.502725
+    },
+    {
+     "lat": 43.83938,
+     "lon": 10.502725
+    },
+    {
+     "lat": 43.839399,
+     "lon": 10.50278
+    },
+    {
+     "lat": 43.83941,
+     "lon": 10.502589
+    },
+    {
+     "lat": 43.83944,
+     "lon": 10.502548
+    },
+    {
+     "lat": 43.839605,
+     "lon": 10.502548
+    },
+    {
+     "lat": 43.839683,
+     "lon": 10.50259
+    },
+    {
+     "lat": 43.839849,
+     "lon": 10.502563
+    },
+    {
+     "lat": 43.839888,
+     "lon": 10.502604
+    },
+    {
+     "lat": 43.839855,
+     "lon": 10.503273
+    },
+    {
+     "lat": 43.84004,
+     "lon": 10.503288
+    },
+    {
+     "lat": 43.840027,
+     "lon": 10.503862
+    },
+    {
+     "lat": 43.839981,
+     "lon": 10.504859
+    },
+    {
+     "lat": 43.839972,
+     "lon": 10.504873
+    },
+    {
+     "lat": 43.839513,
+     "lon": 10.504844
+    },
+    {
+     "lat": 43.839522,
+     "lon": 10.504967
+    },
+    {
+     "lat": 43.83957,
+     "lon": 10.50509
+    },
+    {
+     "lat": 43.839559,
+     "lon": 10.50524
+    },
+    {
+     "lat": 43.839587,
+     "lon": 10.505418
+    },
+    {
+     "lat": 43.839646,
+     "lon": 10.5055
+    },
+    {
+     "lat": 43.839683,
+     "lon": 10.505705
+    },
+    {
+     "lat": 43.839848,
+     "lon": 10.505952
+    },
+    {
+     "lat": 43.839833,
+     "lon": 10.506731
+    },
+    {
+     "lat": 43.839823,
+     "lon": 10.506826
+    },
+    {
+     "lat": 43.839783,
+     "lon": 10.506853
+    },
+    {
+     "lat": 43.839801,
+     "lon": 10.507127
+    },
+    {
+     "lat": 43.839956,
+     "lon": 10.50736
+    },
+    {
+     "lat": 43.839975,
+     "lon": 10.50751
+    },
+    {
+     "lat": 43.840023,
+     "lon": 10.507578
+    },
+    {
+     "lat": 43.840022,
+     "lon": 10.507688
+    },
+    {
+     "lat": 43.840071,
+     "lon": 10.50777
+    },
+    {
+     "lat": 43.840175,
+     "lon": 10.50818
+    },
+    {
+     "lat": 43.840224,
+     "lon": 10.508221
+    },
+    {
+     "lat": 43.840223,
+     "lon": 10.508344
+    },
+    {
+     "lat": 43.840271,
+     "lon": 10.508495
+    },
+    {
+     "lat": 43.840367,
+     "lon": 10.508714
+    },
+    {
+     "lat": 43.840414,
+     "lon": 10.508987
+    },
+    {
+     "lat": 43.840578,
+     "lon": 10.509411
+    },
+    {
+     "lat": 43.840577,
+     "lon": 10.509521
+    },
+    {
+     "lat": 43.840634,
+     "lon": 10.509699
+    },
+    {
+     "lat": 43.840721,
+     "lon": 10.509877
+    },
+    {
+     "lat": 43.84073,
+     "lon": 10.510027
+    },
+    {
+     "lat": 43.840788,
+     "lon": 10.510109
+    },
+    {
+     "lat": 43.841384,
+     "lon": 10.510029
+    },
+    {
+     "lat": 43.841393,
+     "lon": 10.510139
+    },
+    {
+     "lat": 43.841432,
+     "lon": 10.510193
+    },
+    {
+     "lat": 43.841438,
+     "lon": 10.510781
+    },
+    {
+     "lat": 43.841936,
+     "lon": 10.510714
+    },
+    {
+     "lat": 43.842093,
+     "lon": 10.51066
+    },
+    {
+     "lat": 43.842658,
+     "lon": 10.510785
+    },
+    {
+     "lat": 43.842716,
+     "lon": 10.510827
+    },
+    {
+     "lat": 43.842765,
+     "lon": 10.510827
+    },
+    {
+     "lat": 43.842766,
+     "lon": 10.510731
+    },
+    {
+     "lat": 43.842951,
+     "lon": 10.510773
+    },
+    {
+     "lat": 43.84298,
+     "lon": 10.510814
+    },
+    {
+     "lat": 43.843332,
+     "lon": 10.51076
+    },
+    {
+     "lat": 43.844288,
+     "lon": 10.51075
+    },
+    {
+     "lat": 43.844327,
+     "lon": 10.510791
+    },
+    {
+     "lat": 43.844337,
+     "lon": 10.51075
+    },
+    {
+     "lat": 43.845079,
+     "lon": 10.510726
+    },
+    {
+     "lat": 43.845128,
+     "lon": 10.510767
+    },
+    {
+     "lat": 43.845138,
+     "lon": 10.510726
+    },
+    {
+     "lat": 43.845235,
+     "lon": 10.510726
+    },
+    {
+     "lat": 43.845245,
+     "lon": 10.510685
+    },
+    {
+     "lat": 43.845141,
+     "lon": 10.510166
+    },
+    {
+     "lat": 43.845104,
+     "lon": 10.50981
+    },
+    {
+     "lat": 43.845241,
+     "lon": 10.50977
+    },
+    {
+     "lat": 43.845278,
+     "lon": 10.510084
+    },
+    {
+     "lat": 43.845444,
+     "lon": 10.510085
+    },
+    {
+     "lat": 43.845473,
+     "lon": 10.51014
+    },
+    {
+     "lat": 43.845556,
+     "lon": 10.510891
+    },
+    {
+     "lat": 43.845361,
+     "lon": 10.510973
+    },
+    {
+     "lat": 43.84536,
+     "lon": 10.511082
+    },
+    {
+     "lat": 43.84553,
+     "lon": 10.51208
+    },
+    {
+     "lat": 43.84562,
+     "lon": 10.51316
+    },
+    {
+     "lat": 43.845696,
+     "lon": 10.513556
+    },
+    {
+     "lat": 43.845754,
+     "lon": 10.513707
+    },
+    {
+     "lat": 43.847159,
+     "lon": 10.513726
+    },
+    {
+     "lat": 43.848071,
+     "lon": 10.513155
+    },
+    {
+     "lat": 43.848101,
+     "lon": 10.513005
+    },
+    {
+     "lat": 43.84816,
+     "lon": 10.512896
+    },
+    {
+     "lat": 43.848161,
+     "lon": 10.512732
+    },
+    {
+     "lat": 43.848114,
+     "lon": 10.512417
+    },
+    {
+     "lat": 43.847959,
+     "lon": 10.512198
+    },
+    {
+     "lat": 43.847902,
+     "lon": 10.511938
+    },
+    {
+     "lat": 43.847971,
+     "lon": 10.511857
+    },
+    {
+     "lat": 43.848186,
+     "lon": 10.511939
+    },
+    {
+     "lat": 43.848352,
+     "lon": 10.511913
+    },
+    {
+     "lat": 43.848324,
+     "lon": 10.511598
+    },
+    {
+     "lat": 43.848374,
+     "lon": 10.511503
+    },
+    {
+     "lat": 43.848355,
+     "lon": 10.51138
+    },
+    {
+     "lat": 43.848384,
+     "lon": 10.511352
+    },
+    {
+     "lat": 43.848405,
+     "lon": 10.511216
+    },
+    {
+     "lat": 43.848376,
+     "lon": 10.511188
+    },
+    {
+     "lat": 43.848377,
+     "lon": 10.511038
+    },
+    {
+     "lat": 43.848406,
+     "lon": 10.510997
+    },
+    {
+     "lat": 43.848387,
+     "lon": 10.510901
+    },
+    {
+     "lat": 43.848437,
+     "lon": 10.510779
+    },
+    {
+     "lat": 43.84844,
+     "lon": 10.510341
+    },
+    {
+     "lat": 43.848469,
+     "lon": 10.5103
+    },
+    {
+     "lat": 43.848452,
+     "lon": 10.509904
+    },
+    {
+     "lat": 43.848502,
+     "lon": 10.509713
+    },
+    {
+     "lat": 43.848473,
+     "lon": 10.509672
+    },
+    {
+     "lat": 43.848484,
+     "lon": 10.509481
+    },
+    {
+     "lat": 43.848436,
+     "lon": 10.509371
+    },
+    {
+     "lat": 43.848309,
+     "lon": 10.509357
+    },
+    {
+     "lat": 43.848369,
+     "lon": 10.509098
+    },
+    {
+     "lat": 43.848165,
+     "lon": 10.50896
+    },
+    {
+     "lat": 43.848235,
+     "lon": 10.508769
+    },
+    {
+     "lat": 43.84806,
+     "lon": 10.508632
+    },
+    {
+     "lat": 43.848001,
+     "lon": 10.508645
+    },
+    {
+     "lat": 43.847953,
+     "lon": 10.508604
+    },
+    {
+     "lat": 43.848013,
+     "lon": 10.508317
+    },
+    {
+     "lat": 43.847974,
+     "lon": 10.508317
+    },
+    {
+     "lat": 43.847916,
+     "lon": 10.508208
+    },
+    {
+     "lat": 43.847857,
+     "lon": 10.508208
+    },
+    {
+     "lat": 43.847829,
+     "lon": 10.508153
+    },
+    {
+     "lat": 43.847721,
+     "lon": 10.508111
+    },
+    {
+     "lat": 43.847702,
+     "lon": 10.508057
+    },
+    {
+     "lat": 43.847614,
+     "lon": 10.508043
+    },
+    {
+     "lat": 43.847362,
+     "lon": 10.507878
+    },
+    {
+     "lat": 43.847372,
+     "lon": 10.507728
+    },
+    {
+     "lat": 43.847188,
+     "lon": 10.507604
+    },
+    {
+     "lat": 43.847259,
+     "lon": 10.507153
+    },
+    {
+     "lat": 43.847318,
+     "lon": 10.507099
+    },
+    {
+     "lat": 43.847289,
+     "lon": 10.506962
+    },
+    {
+     "lat": 43.847348,
+     "lon": 10.506921
+    },
+    {
+     "lat": 43.84731,
+     "lon": 10.506853
+    },
+    {
+     "lat": 43.84732,
+     "lon": 10.506798
+    },
+    {
+     "lat": 43.847456,
+     "lon": 10.506771
+    },
+    {
+     "lat": 43.847525,
+     "lon": 10.506813
+    },
+    {
+     "lat": 43.847525,
+     "lon": 10.506731
+    },
+    {
+     "lat": 43.847448,
+     "lon": 10.506539
+    },
+    {
+     "lat": 43.847439,
+     "lon": 10.506389
+    },
+    {
+     "lat": 43.84724,
+     "lon": 10.505513
+    },
+    {
+     "lat": 43.847182,
+     "lon": 10.505349
+    },
+    {
+     "lat": 43.847124,
+     "lon": 10.505281
+    },
+    {
+     "lat": 43.846793,
+     "lon": 10.503612
+    },
+    {
+     "lat": 43.846764,
+     "lon": 10.503558
+    },
+    {
+     "lat": 43.846628,
+     "lon": 10.50353
+    },
+    {
+     "lat": 43.846442,
+     "lon": 10.503543
+    },
+    {
+     "lat": 43.846365,
+     "lon": 10.503392
+    },
+    {
+     "lat": 43.846478,
+     "lon": 10.502518
+    },
+    {
+     "lat": 43.846232,
+     "lon": 10.501192
+    },
+    {
+     "lat": 43.846213,
+     "lon": 10.501151
+    },
+    {
+     "lat": 43.846164,
+     "lon": 10.501151
+    },
+    {
+     "lat": 43.845949,
+     "lon": 10.501259
+    },
+    {
+     "lat": 43.845783,
+     "lon": 10.501272
+    },
+    {
+     "lat": 43.845803,
+     "lon": 10.501136
+    },
+    {
+     "lat": 43.845784,
+     "lon": 10.501054
+    },
+    {
+     "lat": 43.846147,
+     "lon": 10.500754
+    },
+    {
+     "lat": 43.846119,
+     "lon": 10.500535
+    },
+    {
+     "lat": 43.846148,
+     "lon": 10.500536
+    },
+    {
+     "lat": 43.846159,
+     "lon": 10.500454
+    },
+    {
+     "lat": 43.846035,
+     "lon": 10.499866
+    },
+    {
+     "lat": 43.846018,
+     "lon": 10.499565
+    },
+    {
+     "lat": 43.845865,
+     "lon": 10.49899
+    },
+    {
+     "lat": 43.84582,
+     "lon": 10.498444
+    },
+    {
+     "lat": 43.845726,
+     "lon": 10.497801
+    },
+    {
+     "lat": 43.845746,
+     "lon": 10.497706
+    },
+    {
+     "lat": 43.845708,
+     "lon": 10.497651
+    },
+    {
+     "lat": 43.845464,
+     "lon": 10.497582
+    },
+    {
+     "lat": 43.845387,
+     "lon": 10.49739
+    },
+    {
+     "lat": 43.84527,
+     "lon": 10.497444
+    },
+    {
+     "lat": 43.845241,
+     "lon": 10.497389
+    },
+    {
+     "lat": 43.845036,
+     "lon": 10.497279
+    },
+    {
+     "lat": 43.844891,
+     "lon": 10.497142
+    },
+    {
+     "lat": 43.844784,
+     "lon": 10.497128
+    },
+    {
+     "lat": 43.844648,
+     "lon": 10.496964
+    },
+    {
+     "lat": 43.844502,
+     "lon": 10.496868
+    },
+    {
+     "lat": 43.844454,
+     "lon": 10.496744
+    },
+    {
+     "lat": 43.844465,
+     "lon": 10.496608
+    },
+    {
+     "lat": 43.844338,
+     "lon": 10.496512
+    },
+    {
+     "lat": 43.844309,
+     "lon": 10.496539
+    },
+    {
+     "lat": 43.844279,
+     "lon": 10.49673
+    },
+    {
+     "lat": 43.844061,
+     "lon": 10.497221
+    },
+    {
+     "lat": 43.843963,
+     "lon": 10.497303
+    },
+    {
+     "lat": 43.843562,
+     "lon": 10.497288
+    },
+    {
+     "lat": 43.843437,
+     "lon": 10.497014
+    },
+    {
+     "lat": 43.84332,
+     "lon": 10.496973
+    },
+    {
+     "lat": 43.8433,
+     "lon": 10.49715
+    },
+    {
+     "lat": 43.843221,
+     "lon": 10.497205
+    },
+    {
+     "lat": 43.843124,
+     "lon": 10.49715
+    },
+    {
+     "lat": 43.843115,
+     "lon": 10.497027
+    },
+    {
+     "lat": 43.843213,
+     "lon": 10.496918
+    },
+    {
+     "lat": 43.843235,
+     "lon": 10.496644
+    },
+    {
+     "lat": 43.843088,
+     "lon": 10.496603
+    },
+    {
+     "lat": 43.843038,
+     "lon": 10.496808
+    },
+    {
+     "lat": 43.843115,
+     "lon": 10.497027
+    },
+    {
+     "lat": 43.843124,
+     "lon": 10.49715
+    },
+    {
+     "lat": 43.843123,
+     "lon": 10.497314
+    },
+    {
+     "lat": 43.843074,
+     "lon": 10.497354
+    },
+    {
+     "lat": 43.842284,
+     "lon": 10.497283
+    },
+    {
+     "lat": 43.842259,
+     "lon": 10.498089
+    },
+    {
+     "lat": 43.842337,
+     "lon": 10.498158
+    },
+    {
+     "lat": 43.842552,
+     "lon": 10.498022
+    },
+    {
+     "lat": 43.84265,
+     "lon": 10.498022
+    },
+    {
+     "lat": 43.842699,
+     "lon": 10.49805
+    },
+    {
+     "lat": 43.842708,
+     "lon": 10.498118
+    },
+    {
+     "lat": 43.842747,
+     "lon": 10.498146
+    },
+    {
+     "lat": 43.842717,
+     "lon": 10.4982
+    },
+    {
+     "lat": 43.842727,
+     "lon": 10.498269
+    },
+    {
+     "lat": 43.84296,
+     "lon": 10.498447
+    },
+    {
+     "lat": 43.843067,
+     "lon": 10.498407
+    },
+    {
+     "lat": 43.843191,
+     "lon": 10.497314
+    },
+    {
+     "lat": 43.844772,
+     "lon": 10.49747
+    },
+    {
+     "lat": 43.844781,
+     "lon": 10.497552
+    },
+    {
+     "lat": 43.844898,
+     "lon": 10.497621
+    },
+    {
+     "lat": 43.844947,
+     "lon": 10.497593
+    },
+    {
+     "lat": 43.844977,
+     "lon": 10.497443
+    },
+    {
+     "lat": 43.845133,
+     "lon": 10.497512
+    },
+    {
+     "lat": 43.845111,
+     "lon": 10.497867
+    },
+    {
+     "lat": 43.84516,
+     "lon": 10.497895
+    },
+    {
+     "lat": 43.845169,
+     "lon": 10.497949
+    },
+    {
+     "lat": 43.845157,
+     "lon": 10.498264
+    },
+    {
+     "lat": 43.84505,
+     "lon": 10.49825
+    },
+    {
+     "lat": 43.84509,
+     "lon": 10.49814
+    },
+    {
+     "lat": 43.845081,
+     "lon": 10.497949
+    },
+    {
+     "lat": 43.845022,
+     "lon": 10.497963
+    },
+    {
+     "lat": 43.845021,
+     "lon": 10.498209
+    },
+    {
+     "lat": 43.844826,
+     "lon": 10.498194
+    },
+    {
+     "lat": 43.844757,
+     "lon": 10.498235
+    },
+    {
+     "lat": 43.844581,
+     "lon": 10.498248
+    },
+    {
+     "lat": 43.844435,
+     "lon": 10.49822
+    },
+    {
+     "lat": 43.844443,
+     "lon": 10.498466
+    },
+    {
+     "lat": 43.844414,
+     "lon": 10.498493
+    },
+    {
+     "lat": 43.84437,
+     "lon": 10.499204
+    },
+    {
+     "lat": 43.844204,
+     "lon": 10.499217
+    },
+    {
+     "lat": 43.844185,
+     "lon": 10.499176
+    },
+    {
+     "lat": 43.844136,
+     "lon": 10.499203
+    },
+    {
+     "lat": 43.844134,
+     "lon": 10.499476
+    },
+    {
+     "lat": 43.844094,
+     "lon": 10.499626
+    },
+    {
+     "lat": 43.844092,
+     "lon": 10.500009
+    },
+    {
+     "lat": 43.844042,
+     "lon": 10.500268
+    },
+    {
+     "lat": 43.843788,
+     "lon": 10.500268
+    },
+    {
+     "lat": 43.8438,
+     "lon": 10.49983
+    },
+    {
+     "lat": 43.843771,
+     "lon": 10.499803
+    },
+    {
+     "lat": 43.843752,
+     "lon": 10.49983
+    },
+    {
+     "lat": 43.843731,
+     "lon": 10.500035
+    },
+    {
+     "lat": 43.843748,
+     "lon": 10.500404
+    },
+    {
+     "lat": 43.843777,
+     "lon": 10.500445
+    },
+    {
+     "lat": 43.843884,
+     "lon": 10.500446
+    },
+    {
+     "lat": 43.843924,
+     "lon": 10.500391
+    },
+    {
+     "lat": 43.84407,
+     "lon": 10.500433
+    },
+    {
+     "lat": 43.844015,
+     "lon": 10.501457
+    },
+    {
+     "lat": 43.844043,
+     "lon": 10.501567
+    },
+    {
+     "lat": 43.843994,
+     "lon": 10.501621
+    },
+    {
+     "lat": 43.843993,
+     "lon": 10.501744
+    },
+    {
+     "lat": 43.844334,
+     "lon": 10.501827
+    },
+    {
+     "lat": 43.844292,
+     "lon": 10.502387
+    },
+    {
+     "lat": 43.844633,
+     "lon": 10.502416
+    },
+    {
+     "lat": 43.844711,
+     "lon": 10.502498
+    },
+    {
+     "lat": 43.844818,
+     "lon": 10.50254
+    },
+    {
+     "lat": 43.844798,
+     "lon": 10.502662
+    },
+    {
+     "lat": 43.844816,
+     "lon": 10.502909
+    },
+    {
+     "lat": 43.844776,
+     "lon": 10.502963
+    },
+    {
+     "lat": 43.84463,
+     "lon": 10.502963
+    },
+    {
+     "lat": 43.84463,
+     "lon": 10.503031
+    },
+    {
+     "lat": 43.844698,
+     "lon": 10.503045
+    },
+    {
+     "lat": 43.844688,
+     "lon": 10.503113
+    },
+    {
+     "lat": 43.844795,
+     "lon": 10.503141
+    },
+    {
+     "lat": 43.844834,
+     "lon": 10.503086
+    },
+    {
+     "lat": 43.844922,
+     "lon": 10.5031
+    },
+    {
+     "lat": 43.845087,
+     "lon": 10.50321
+    },
+    {
+     "lat": 43.845106,
+     "lon": 10.503292
+    },
+    {
+     "lat": 43.845244,
+     "lon": 10.503156
+    },
+    {
+     "lat": 43.845467,
+     "lon": 10.503416
+    },
+    {
+     "lat": 43.845535,
+     "lon": 10.50343
+    },
+    {
+     "lat": 43.845564,
+     "lon": 10.503499
+    },
+    {
+     "lat": 43.845593,
+     "lon": 10.503485
+    },
+    {
+     "lat": 43.845622,
+     "lon": 10.503567
+    },
+    {
+     "lat": 43.845729,
+     "lon": 10.503677
+    },
+    {
+     "lat": 43.845689,
+     "lon": 10.5038
+    },
+    {
+     "lat": 43.845951,
+     "lon": 10.50406
+    },
+    {
+     "lat": 43.8459,
+     "lon": 10.504306
+    },
+    {
+     "lat": 43.84591,
+     "lon": 10.504388
+    },
+    {
+     "lat": 43.84588,
+     "lon": 10.504388
+    },
+    {
+     "lat": 43.845889,
+     "lon": 10.504484
+    },
+    {
+     "lat": 43.84586,
+     "lon": 10.504511
+    },
+    {
+     "lat": 43.845878,
+     "lon": 10.504702
+    },
+    {
+     "lat": 43.845848,
+     "lon": 10.504935
+    },
+    {
+     "lat": 43.846022,
+     "lon": 10.505072
+    },
+    {
+     "lat": 43.846256,
+     "lon": 10.505168
+    },
+    {
+     "lat": 43.847051,
+     "lon": 10.506046
+    },
+    {
+     "lat": 43.847228,
+     "lon": 10.505923
+    },
+    {
+     "lat": 43.847245,
+     "lon": 10.506169
+    },
+    {
+     "lat": 43.847206,
+     "lon": 10.506279
+    },
+    {
+     "lat": 43.847214,
+     "lon": 10.506456
+    },
+    {
+     "lat": 43.847175,
+     "lon": 10.506579
+    },
+    {
+     "lat": 43.847103,
+     "lon": 10.507153
+    },
+    {
+     "lat": 43.847112,
+     "lon": 10.507276
+    },
+    {
+     "lat": 43.847082,
+     "lon": 10.507303
+    },
+    {
+     "lat": 43.847062,
+     "lon": 10.507426
+    },
+    {
+     "lat": 43.846778,
+     "lon": 10.507575
+    },
+    {
+     "lat": 43.846669,
+     "lon": 10.507793
+    },
+    {
+     "lat": 43.846611,
+     "lon": 10.507793
+    },
+    {
+     "lat": 43.846267,
+     "lon": 10.508106
+    },
+    {
+     "lat": 43.846208,
+     "lon": 10.508215
+    },
+    {
+     "lat": 43.846159,
+     "lon": 10.508202
+    },
+    {
+     "lat": 43.846061,
+     "lon": 10.508283
+    },
+    {
+     "lat": 43.845982,
+     "lon": 10.508379
+    },
+    {
+     "lat": 43.845982,
+     "lon": 10.50842
+    },
+    {
+     "lat": 43.845865,
+     "lon": 10.50846
+    },
+    {
+     "lat": 43.845284,
+     "lon": 10.509155
+    },
+    {
+     "lat": 43.845225,
+     "lon": 10.509196
+    },
+    {
+     "lat": 43.845118,
+     "lon": 10.509195
+    },
+    {
+     "lat": 43.845115,
+     "lon": 10.508184
+    },
+    {
+     "lat": 43.845144,
+     "lon": 10.508143
+    },
+    {
+     "lat": 43.845427,
+     "lon": 10.508131
+    },
+    {
+     "lat": 43.845457,
+     "lon": 10.508049
+    },
+    {
+     "lat": 43.845643,
+     "lon": 10.508049
+    },
+    {
+     "lat": 43.845644,
+     "lon": 10.507803
+    },
+    {
+     "lat": 43.845596,
+     "lon": 10.50768
+    },
+    {
+     "lat": 43.845597,
+     "lon": 10.507585
+    },
+    {
+     "lat": 43.845558,
+     "lon": 10.507571
+    },
+    {
+     "lat": 43.845499,
+     "lon": 10.507666
+    },
+    {
+     "lat": 43.845352,
+     "lon": 10.507748
+    },
+    {
+     "lat": 43.845273,
+     "lon": 10.507857
+    },
+    {
+     "lat": 43.845136,
+     "lon": 10.507925
+    },
+    {
+     "lat": 43.845126,
+     "lon": 10.507979
+    },
+    {
+     "lat": 43.845037,
+     "lon": 10.508075
+    },
+    {
+     "lat": 43.844832,
+     "lon": 10.508115
+    },
+    {
+     "lat": 43.844803,
+     "lon": 10.508101
+    },
+    {
+     "lat": 43.844765,
+     "lon": 10.507978
+    },
+    {
+     "lat": 43.844672,
+     "lon": 10.507185
+    },
+    {
+     "lat": 43.844633,
+     "lon": 10.507185
+    },
+    {
+     "lat": 43.844652,
+     "lon": 10.507171
+    },
+    {
+     "lat": 43.844663,
+     "lon": 10.50698
+    },
+    {
+     "lat": 43.844609,
+     "lon": 10.506297
+    },
+    {
+     "lat": 43.844591,
+     "lon": 10.506037
+    },
+    {
+     "lat": 43.84463,
+     "lon": 10.50601
+    },
+    {
+     "lat": 43.844651,
+     "lon": 10.505764
+    },
+    {
+     "lat": 43.844632,
+     "lon": 10.505736
+    },
+    {
+     "lat": 43.844505,
+     "lon": 10.50575
+    },
+    {
+     "lat": 43.844457,
+     "lon": 10.505681
+    },
+    {
+     "lat": 43.844478,
+     "lon": 10.505408
+    },
+    {
+     "lat": 43.844449,
+     "lon": 10.505367
+    },
+    {
+     "lat": 43.844176,
+     "lon": 10.505325
+    },
+    {
+     "lat": 43.844164,
+     "lon": 10.505598
+    },
+    {
+     "lat": 43.844115,
+     "lon": 10.505625
+    },
+    {
+     "lat": 43.844105,
+     "lon": 10.505694
+    },
+    {
+     "lat": 43.844057,
+     "lon": 10.505639
+    },
+    {
+     "lat": 43.844037,
+     "lon": 10.505721
+    },
+    {
+     "lat": 43.843968,
+     "lon": 10.505734
+    },
+    {
+     "lat": 43.843955,
+     "lon": 10.506308
+    },
+    {
+     "lat": 43.843974,
+     "lon": 10.506335
+    },
+    {
+     "lat": 43.843876,
+     "lon": 10.506417
+    },
+    {
+     "lat": 43.843905,
+     "lon": 10.506554
+    },
+    {
+     "lat": 43.843875,
+     "lon": 10.506581
+    },
+    {
+     "lat": 43.843853,
+     "lon": 10.506936
+    },
+    {
+     "lat": 43.84397,
+     "lon": 10.506964
+    },
+    {
+     "lat": 43.844039,
+     "lon": 10.506937
+    },
+    {
+     "lat": 43.844087,
+     "lon": 10.506978
+    },
+    {
+     "lat": 43.844517,
+     "lon": 10.506952
+    },
+    {
+     "lat": 43.844605,
+     "lon": 10.506994
+    },
+    {
+     "lat": 43.844623,
+     "lon": 10.507158
+    },
+    {
+     "lat": 43.844652,
+     "lon": 10.507171
+    },
+    {
+     "lat": 43.844633,
+     "lon": 10.507185
+    },
+    {
+     "lat": 43.84465,
+     "lon": 10.507568
+    },
+    {
+     "lat": 43.844114,
+     "lon": 10.507484
+    },
+    {
+     "lat": 43.843918,
+     "lon": 10.50751
+    },
+    {
+     "lat": 43.843899,
+     "lon": 10.507469
+    },
+    {
+     "lat": 43.843782,
+     "lon": 10.507455
+    },
+    {
+     "lat": 43.843655,
+     "lon": 10.507455
+    },
+    {
+     "lat": 43.843498,
+     "lon": 10.507522
+    },
+    {
+     "lat": 43.843128,
+     "lon": 10.507467
+    },
+    {
+     "lat": 43.842981,
+     "lon": 10.507493
+    },
+    {
+     "lat": 43.842796,
+     "lon": 10.507424
+    },
+    {
+     "lat": 43.842503,
+     "lon": 10.50741
+    },
+    {
+     "lat": 43.842528,
+     "lon": 10.50659
+    },
+    {
+     "lat": 43.842626,
+     "lon": 10.506549
+    },
+    {
+     "lat": 43.842694,
+     "lon": 10.50659
+    },
+    {
+     "lat": 43.84286,
+     "lon": 10.506591
+    },
+    {
+     "lat": 43.842899,
+     "lon": 10.506591
+    },
+    {
+     "lat": 43.842899,
+     "lon": 10.506618
+    },
+    {
+     "lat": 43.842957,
+     "lon": 10.50666
+    },
+    {
+     "lat": 43.843435,
+     "lon": 10.506689
+    },
+    {
+     "lat": 43.843464,
+     "lon": 10.50673
+    },
+    {
+     "lat": 43.843552,
+     "lon": 10.506744
+    },
+    {
+     "lat": 43.843582,
+     "lon": 10.506703
+    },
+    {
+     "lat": 43.843582,
+     "lon": 10.50658
+    },
+    {
+     "lat": 43.843553,
+     "lon": 10.506539
+    },
+    {
+     "lat": 43.843378,
+     "lon": 10.506538
+    },
+    {
+     "lat": 43.843358,
+     "lon": 10.506606
+    },
+    {
+     "lat": 43.842899,
+     "lon": 10.506591
+    },
+    {
+     "lat": 43.84286,
+     "lon": 10.506591
+    },
+    {
+     "lat": 43.842843,
+     "lon": 10.506236
+    },
+    {
+     "lat": 43.842864,
+     "lon": 10.506003
+    },
+    {
+     "lat": 43.84259,
+     "lon": 10.506016
+    },
+    {
+     "lat": 43.842615,
+     "lon": 10.505237
+    },
+    {
+     "lat": 43.8424,
+     "lon": 10.505209
+    },
+    {
+     "lat": 43.842369,
+     "lon": 10.505496
+    },
+    {
+     "lat": 43.842437,
+     "lon": 10.505578
+    },
+    {
+     "lat": 43.842407,
+     "lon": 10.505633
+    },
+    {
+     "lat": 43.842358,
+     "lon": 10.505633
+    },
+    {
+     "lat": 43.842317,
+     "lon": 10.506001
+    },
+    {
+     "lat": 43.842229,
+     "lon": 10.506015
+    },
+    {
+     "lat": 43.84219,
+     "lon": 10.505974
+    },
+    {
+     "lat": 43.841927,
+     "lon": 10.505932
+    },
+    {
+     "lat": 43.841898,
+     "lon": 10.505877
+    },
+    {
+     "lat": 43.841859,
+     "lon": 10.505877
+    },
+    {
+     "lat": 43.84181,
+     "lon": 10.505972
+    },
+    {
+     "lat": 43.841741,
+     "lon": 10.505986
+    },
+    {
+     "lat": 43.841624,
+     "lon": 10.505944
+    },
+    {
+     "lat": 43.841351,
+     "lon": 10.505943
+    },
+    {
+     "lat": 43.841185,
+     "lon": 10.505997
+    },
+    {
+     "lat": 43.840921,
+     "lon": 10.505969
+    },
+    {
+     "lat": 43.84091,
+     "lon": 10.506283
+    },
+    {
+     "lat": 43.840851,
+     "lon": 10.506365
+    },
+    {
+     "lat": 43.840849,
+     "lon": 10.506543
+    },
+    {
+     "lat": 43.840797,
+     "lon": 10.507117
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Lucca",
+    "pageURL": "https://www.comune.lucca.it/documento_pubblico/planimetria-del-centro-storico-con-varchi-telematici-ztl-e-area-pedonale/",
+    "ordinance": "Disciplinare per il rilascio dei permessi del centro storico (febbraio 2026), allegato 1 alla delibera GC n. 340 del 12/12/2025",
+    "ordinanceURL": "https://www.comune.lucca.it/app/uploads/2026/03/disciplinare_2026_.pdf",
+    "quote": "ZTL tipo “B” oltre alle limitazioni di massa, di dimensione e di velocità di cui al precedente punto a), l’accesso è consentito ai veicoli muniti di permesso e la sosta è consentita negli stalli gialli",
+    "quoteTranslation": "Sector “B”: besides the weight, size and speed limits of point a), entry is allowed to vehicles with a permit and parking is allowed in the yellow bays",
+    "quoteTranslation_de": "Sektor „B“: Neben den Gewichts-, Größen- und Tempolimits von Punkt a) ist die Einfahrt Fahrzeugen mit Genehmigung erlaubt, Parken auf den gelben Plätzen",
+    "checkedOn": "2026-10-25T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Map outline derived automatically from the colours of the official city map (25 November 2025, the one in the February 2026 rules), aligned on the city walls: accurate to a few metres, not an official coordinate file. The walls themselves follow sector A rules but are not drawn, so driving through the gates in the walls does not show as sector A.",
+     "Lucca Comics & Games, 28 October – 1 November 2026: no entry inside the walls (sector C included) 8 am–7 pm for vehicles without a permit; Porta Santa Maria and Porta Sant'Anna closed to them all day, Porta San Pietro 7 am–8:30 pm. Hotel guests may drive in only before 10 am or after 7 pm, with the hotel's authorisation. Sector A is closed to all vehicles 9 am–7 pm.",
+     "No day permit for visitors: daily permits exist only for specific categories such as trades, deliveries or people with a temporary disability (€15 a day), and are issued by Lucca Plus.",
+     "Electric cars: no free entry; the rules only list lower permit prices for them.",
+     "Sector C (Piazzale Verdi, Piazza Santa Maria, Corso Garibaldi by Porta San Pietro, the streets to the car parks of Piazza San Ponziano and via dei Bacchettoni, and a few others) has no entry control: any car under 3.5 t may drive in (30 km/h), with paid blue-line parking. It is not drawn as a zone.",
+     "Cameras: the city lists the gate names (14 new ones active since 19 January 2026, which also read plates on the way out) but publishes no coordinates, so they are not on the map."
+    ],
+    "pending_it": [
+     "Perimetro ricavato in automatico dai colori della mappa ufficiale del Comune (25 novembre 2025, la stessa del disciplinare di febbraio 2026), agganciata alle Mura: preciso a pochi metri, non è un file di coordinate ufficiale. Le Mura seguono le regole della ZTL A ma non sono disegnate, così passare dalle porte delle Mura non risulta ZTL A.",
+     "Lucca Comics & Games, 28 ottobre – 1 novembre 2026: vietato entrare dentro le Mura (ZTL C compresa) dalle 8 alle 19 senza permesso; Porta Santa Maria e Porta Sant'Anna chiuse tutto il giorno ai veicoli senza permesso, Porta San Pietro dalle 7 alle 20:30. I clienti degli hotel possono entrare solo prima delle 10 o dopo le 19, con l'autorizzazione della struttura. La ZTL A è chiusa a tutti i veicoli dalle 9 alle 19.",
+     "Nessun permesso giornaliero per i turisti: i permessi giornalieri esistono solo per categorie precise come artigiani, merci o persone con disabilità temporanea (15 € al giorno), e li rilascia Lucca Plus.",
+     "Auto elettriche: nessun accesso libero; il disciplinare prevede per loro solo tariffe più basse dei permessi.",
+     "La ZTL C (piazzale Verdi, piazza Santa Maria, corso Garibaldi verso Porta San Pietro, le strade per i parcheggi di piazza San Ponziano e via dei Bacchettoni e poche altre aree) non ha controllo degli accessi: può entrare qualsiasi auto sotto le 3,5 tonnellate (30 km/h), con sosta a pagamento sulle strisce blu. Non è disegnata come zona.",
+     "Varchi: il Comune elenca i nomi (14 nuovi, attivi dal 19 gennaio 2026, che leggono le targhe anche in uscita) ma non pubblica le coordinate, quindi non sono sulla mappa."
+    ],
+    "pending_de": [
+     "Grenze automatisch aus den Farben der offiziellen Stadtkarte abgeleitet (25. November 2025, dieselbe wie in den Regeln vom Februar 2026) und an der Stadtmauer ausgerichtet: auf wenige Meter genau, keine amtliche Koordinatendatei. Die Mauer selbst folgt den Regeln von Sektor A, ist aber nicht eingezeichnet; die Durchfahrt durch die Stadttore zählt daher nicht als Sektor A.",
+     "Lucca Comics & Games, 28. Oktober – 1. November 2026: Einfahrt innerhalb der Mauern (auch Sektor C) 8–19 Uhr ohne Genehmigung verboten; Porta Santa Maria und Porta Sant'Anna ganztägig für diese Fahrzeuge gesperrt, Porta San Pietro 7–20:30 Uhr. Hotelgäste dürfen nur vor 10 oder nach 19 Uhr mit Genehmigung der Unterkunft hineinfahren. Sektor A ist 9–19 Uhr für alle Fahrzeuge gesperrt.",
+     "Keine Tagesgenehmigung für Besucher: Tagesgenehmigungen gibt es nur für bestimmte Gruppen wie Handwerker, Lieferungen oder Menschen mit vorübergehender Behinderung (15 € pro Tag), ausgestellt von Lucca Plus.",
+     "Elektroautos: keine freie Einfahrt; die Regeln sehen für sie nur günstigere Genehmigungen vor.",
+     "Sektor C (Piazzale Verdi, Piazza Santa Maria, Corso Garibaldi bei der Porta San Pietro, die Straßen zu den Parkplätzen Piazza San Ponziano und Via dei Bacchettoni und einige weitere) hat keine Zufahrtskontrolle: Jedes Auto unter 3,5 t darf hinein (30 km/h), Parken auf blauen Linien gegen Gebühr. Er ist nicht als Zone eingezeichnet.",
+     "Kameras: Die Stadt nennt die Namen (14 neue, aktiv seit 19. Januar 2026, die Kennzeichen auch bei der Ausfahrt lesen), veröffentlicht aber keine Koordinaten; daher fehlen sie auf der Karte."
+    ],
+    "links": [
+     {
+      "title": "City of Lucca: map of the ZTL sectors and gates (page)",
+      "title_it": "Comune di Lucca: planimetria con ZTL, varchi e area pedonale",
+      "title_de": "Stadt Lucca: Karte der ZTL-Sektoren und Kameras",
+      "url": "https://www.comune.lucca.it/documento_pubblico/planimetria-del-centro-storico-con-varchi-telematici-ztl-e-area-pedonale/"
+     },
+     {
+      "title": "City of Lucca: ZTL map, 25 November 2025 (PDF)",
+      "title_it": "Comune di Lucca: mappa ZTL aggiornata al 25.11.2025 (PDF)",
+      "title_de": "Stadt Lucca: ZTL-Karte, Stand 25. November 2025 (PDF)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/03/ZTL-aggiornamento-dicembre-2025.pdf"
+     },
+     {
+      "title": "City of Lucca: permit rules for the historic centre (Feb 2026, PDF)",
+      "title_it": "Comune di Lucca: disciplinare dei permessi del centro storico (feb. 2026, PDF)",
+      "title_de": "Stadt Lucca: Genehmigungsregeln für die Altstadt (Feb. 2026, PDF)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/03/disciplinare_2026_.pdf"
+     },
+     {
+      "title": "City of Lucca: Council decision 340/2025 (rule changes, new perimeter)",
+      "title_it": "Comune di Lucca: delibera GC 340/2025 (modifiche al disciplinare, nuovo perimetro)",
+      "title_de": "Stadt Lucca: Beschluss 340/2025 (Regeländerungen, neue Grenze)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/01/dlg_00340_12-12-2025.pdf"
+     },
+     {
+      "title": "City of Lucca: new ZTL cameras active from 19 January 2026",
+      "title_it": "Comune di Lucca: nuovi varchi ZTL attivi dal 19 gennaio 2026",
+      "title_de": "Stadt Lucca: neue ZTL-Kameras ab 19. Januar 2026",
+      "url": "https://www.comune.lucca.it/notizia/ztl-da-oggi-19-gennaio-sono-attivi-i-nuovi-varchi-elettronici/"
+     },
+     {
+      "title": "City of Lucca: Lucca Comics & Games 2026 access rules (order 2393/2026, PDF)",
+      "title_it": "Comune di Lucca: accessi durante Lucca Comics & Games 2026 (ord. 2393/2026, PDF)",
+      "title_de": "Stadt Lucca: Zufahrtsregeln Lucca Comics & Games 2026 (Anordnung 2393/2026, PDF)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/10/ord_02393_21-10-2026-Accessi-ZTL.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "lucca-b-est",
+   "name": "Sector B · Villa Bottini block (cameras suspended)",
+   "name_it": "Settore B · quadrilatero Villa Bottini (varchi sospesi)",
+   "name_de": "Sektor B · Block Villa Bottini (Kameras ausgesetzt)",
+   "kind": "restricted",
+   "summary": "The block between via della Quarquonia, via dei Bacchettoni, via Elisa and via Santa Chiara is sector B on the official map: entry only with a permit. Its cameras have been switched off since January 2026 because of the Villa Bottini works, and the city has not said when they come back: GateLR treats it as closed, to be safe. The streets around it lead freely to the Piazza San Ponziano and via dei Bacchettoni car parks. If your hotel or B&B is inside sector A or B, it can register your plate for free (within 72 hours of your passing the camera): during your stay you may drive in by the shortest route and stop for check-in and luggage for up to 30 minutes with a parking disc; then park outside sectors A and B or in the hotel's own parking.",
+   "summary_it": "Il quadrilatero tra via della Quarquonia, via dei Bacchettoni, via Elisa e via Santa Chiara è ZTL B sulla mappa ufficiale: si entra solo con il permesso. I suoi varchi sono spenti da gennaio 2026 per il cantiere di Villa Bottini e il Comune non ha detto quando tornano attivi: GateLR la considera chiusa, per prudenza. Le strade attorno portano liberamente ai parcheggi di piazza San Ponziano e via dei Bacchettoni. Se il tuo hotel o B&B è nella ZTL A o B, può registrare la tua targa gratis (entro 72 ore dal passaggio sotto il varco): per tutto il soggiorno puoi entrare per la via più breve e fermarti per registrazione e bagagli al massimo 30 minuti con il disco orario; poi devi parcheggiare fuori dalle ZTL A e B o nel parcheggio della struttura.",
+   "summary_de": "Der Block zwischen Via della Quarquonia, Via dei Bacchettoni, Via Elisa und Via Santa Chiara ist auf der offiziellen Karte Sektor B: Einfahrt nur mit Genehmigung. Seine Kameras sind seit Januar 2026 wegen der Arbeiten an der Villa Bottini abgeschaltet, und die Stadt hat nicht gesagt, wann sie wieder laufen: GateLR behandelt ihn vorsichtshalber als gesperrt. Die Straßen ringsum führen frei zu den Parkplätzen Piazza San Ponziano und Via dei Bacchettoni. Liegt dein Hotel oder B&B in Sektor A oder B, kann es dein Kennzeichen kostenlos melden (bis 72 Stunden nach der Kamera): Während des Aufenthalts darfst du auf dem kürzesten Weg hineinfahren und zum Einchecken und für das Gepäck höchstens 30 Minuten mit Parkscheibe halten; danach außerhalb von A und B oder auf dem Parkplatz der Unterkunft parken.",
+   "perimeter": [
+    {
+     "lat": 43.84545,
+     "lon": 10.512271
+    },
+    {
+     "lat": 43.845393,
+     "lon": 10.512093
+    },
+    {
+     "lat": 43.845356,
+     "lon": 10.511779
+    },
+    {
+     "lat": 43.845376,
+     "lon": 10.51167
+    },
+    {
+     "lat": 43.845337,
+     "lon": 10.511642
+    },
+    {
+     "lat": 43.845273,
+     "lon": 10.511013
+    },
+    {
+     "lat": 43.845206,
+     "lon": 10.510808
+    },
+    {
+     "lat": 43.845137,
+     "lon": 10.510849
+    },
+    {
+     "lat": 43.844942,
+     "lon": 10.510835
+    },
+    {
+     "lat": 43.844776,
+     "lon": 10.510889
+    },
+    {
+     "lat": 43.844649,
+     "lon": 10.510861
+    },
+    {
+     "lat": 43.844297,
+     "lon": 10.510887
+    },
+    {
+     "lat": 43.844268,
+     "lon": 10.510832
+    },
+    {
+     "lat": 43.84417,
+     "lon": 10.510873
+    },
+    {
+     "lat": 43.843751,
+     "lon": 10.510858
+    },
+    {
+     "lat": 43.843233,
+     "lon": 10.510897
+    },
+    {
+     "lat": 43.843136,
+     "lon": 10.510869
+    },
+    {
+     "lat": 43.843086,
+     "lon": 10.510965
+    },
+    {
+     "lat": 43.843048,
+     "lon": 10.510937
+    },
+    {
+     "lat": 43.843038,
+     "lon": 10.510855
+    },
+    {
+     "lat": 43.842892,
+     "lon": 10.510855
+    },
+    {
+     "lat": 43.842862,
+     "lon": 10.510964
+    },
+    {
+     "lat": 43.842911,
+     "lon": 10.510991
+    },
+    {
+     "lat": 43.843049,
+     "lon": 10.512317
+    },
+    {
+     "lat": 43.843224,
+     "lon": 10.512332
+    },
+    {
+     "lat": 43.843234,
+     "lon": 10.512263
+    },
+    {
+     "lat": 43.84342,
+     "lon": 10.512305
+    },
+    {
+     "lat": 43.843398,
+     "lon": 10.512619
+    },
+    {
+     "lat": 43.843291,
+     "lon": 10.512646
+    },
+    {
+     "lat": 43.843203,
+     "lon": 10.512564
+    },
+    {
+     "lat": 43.843193,
+     "lon": 10.512618
+    },
+    {
+     "lat": 43.843105,
+     "lon": 10.512645
+    },
+    {
+     "lat": 43.843133,
+     "lon": 10.512891
+    },
+    {
+     "lat": 43.843132,
+     "lon": 10.51296
+    },
+    {
+     "lat": 43.843103,
+     "lon": 10.51296
+    },
+    {
+     "lat": 43.843123,
+     "lon": 10.512973
+    },
+    {
+     "lat": 43.84313,
+     "lon": 10.513301
+    },
+    {
+     "lat": 43.843169,
+     "lon": 10.513343
+    },
+    {
+     "lat": 43.843206,
+     "lon": 10.513698
+    },
+    {
+     "lat": 43.843245,
+     "lon": 10.513766
+    },
+    {
+     "lat": 43.843469,
+     "lon": 10.513836
+    },
+    {
+     "lat": 43.843488,
+     "lon": 10.513877
+    },
+    {
+     "lat": 43.843508,
+     "lon": 10.513849
+    },
+    {
+     "lat": 43.844367,
+     "lon": 10.513852
+    },
+    {
+     "lat": 43.844396,
+     "lon": 10.513825
+    },
+    {
+     "lat": 43.844552,
+     "lon": 10.513839
+    },
+    {
+     "lat": 43.844611,
+     "lon": 10.513717
+    },
+    {
+     "lat": 43.84468,
+     "lon": 10.513717
+    },
+    {
+     "lat": 43.844739,
+     "lon": 10.513662
+    },
+    {
+     "lat": 43.844768,
+     "lon": 10.51369
+    },
+    {
+     "lat": 43.844795,
+     "lon": 10.513977
+    },
+    {
+     "lat": 43.844922,
+     "lon": 10.514005
+    },
+    {
+     "lat": 43.845069,
+     "lon": 10.513923
+    },
+    {
+     "lat": 43.845392,
+     "lon": 10.513856
+    },
+    {
+     "lat": 43.845469,
+     "lon": 10.513884
+    },
+    {
+     "lat": 43.845538,
+     "lon": 10.513829
+    },
+    {
+     "lat": 43.845616,
+     "lon": 10.513829
+    },
+    {
+     "lat": 43.845646,
+     "lon": 10.513693
+    },
+    {
+     "lat": 43.845608,
+     "lon": 10.513611
+    },
+    {
+     "lat": 43.845571,
+     "lon": 10.513255
+    },
+    {
+     "lat": 43.84545,
+     "lon": 10.512271
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Lucca",
+    "pageURL": "https://www.comune.lucca.it/documento_pubblico/planimetria-del-centro-storico-con-varchi-telematici-ztl-e-area-pedonale/",
+    "ordinance": "Disciplinare per il rilascio dei permessi del centro storico (febbraio 2026), allegato 1 alla delibera GC n. 340 del 12/12/2025",
+    "ordinanceURL": "https://www.comune.lucca.it/app/uploads/2026/03/disciplinare_2026_.pdf",
+    "quote": "ZTL tipo “B” oltre alle limitazioni di massa, di dimensione e di velocità di cui al precedente punto a), l’accesso è consentito ai veicoli muniti di permesso e la sosta è consentita negli stalli gialli",
+    "quoteTranslation": "Sector “B”: besides the weight, size and speed limits of point a), entry is allowed to vehicles with a permit and parking is allowed in the yellow bays",
+    "quoteTranslation_de": "Sektor „B“: Neben den Gewichts-, Größen- und Tempolimits von Punkt a) ist die Einfahrt Fahrzeugen mit Genehmigung erlaubt, Parken auf den gelben Plätzen",
+    "checkedOn": "2026-10-25T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Map outline derived automatically from the colours of the official city map (25 November 2025, the one in the February 2026 rules), aligned on the city walls: accurate to a few metres, not an official coordinate file. The walls themselves follow sector A rules but are not drawn, so driving through the gates in the walls does not show as sector A.",
+     "Lucca Comics & Games, 28 October – 1 November 2026: no entry inside the walls (sector C included) 8 am–7 pm for vehicles without a permit; Porta Santa Maria and Porta Sant'Anna closed to them all day, Porta San Pietro 7 am–8:30 pm. Hotel guests may drive in only before 10 am or after 7 pm, with the hotel's authorisation. Sector A is closed to all vehicles 9 am–7 pm.",
+     "On 19 January 2026 the city said the cameras of this block stay temporarily switched off because the ZTL here is suspended while traffic is diverted for the Villa Bottini wall works; it will switch them on when the works end. Press reports (October 2026) say the works are still going on. GateLR still treats the block as sector B, to be safe.",
+     "Works still in progress in October 2026: confirmed only by La Nazione (October 2026), which reports a target of June 2027 for the end of all works.",
+     "No day permit for visitors: daily permits exist only for specific categories such as trades, deliveries or people with a temporary disability (€15 a day), and are issued by Lucca Plus.",
+     "Electric cars: no free entry; the rules only list lower permit prices for them.",
+     "Sector C (Piazzale Verdi, Piazza Santa Maria, Corso Garibaldi by Porta San Pietro, the streets to the car parks of Piazza San Ponziano and via dei Bacchettoni, and a few others) has no entry control: any car under 3.5 t may drive in (30 km/h), with paid blue-line parking. It is not drawn as a zone.",
+     "Cameras: the city lists the gate names (14 new ones active since 19 January 2026, which also read plates on the way out) but publishes no coordinates, so they are not on the map."
+    ],
+    "pending_it": [
+     "Perimetro ricavato in automatico dai colori della mappa ufficiale del Comune (25 novembre 2025, la stessa del disciplinare di febbraio 2026), agganciata alle Mura: preciso a pochi metri, non è un file di coordinate ufficiale. Le Mura seguono le regole della ZTL A ma non sono disegnate, così passare dalle porte delle Mura non risulta ZTL A.",
+     "Lucca Comics & Games, 28 ottobre – 1 novembre 2026: vietato entrare dentro le Mura (ZTL C compresa) dalle 8 alle 19 senza permesso; Porta Santa Maria e Porta Sant'Anna chiuse tutto il giorno ai veicoli senza permesso, Porta San Pietro dalle 7 alle 20:30. I clienti degli hotel possono entrare solo prima delle 10 o dopo le 19, con l'autorizzazione della struttura. La ZTL A è chiusa a tutti i veicoli dalle 9 alle 19.",
+     "Il 19 gennaio 2026 il Comune ha comunicato che i varchi di questo quadrilatero restano temporaneamente sospesi, perché qui la ZTL è sospesa per la deviazione del traffico dovuta al cantiere del muro di Villa Bottini; li accenderà a lavori finiti. Secondo la stampa (ottobre 2026) i lavori sono ancora in corso. GateLR la considera comunque ZTL B, per prudenza.",
+     "Lavori ancora in corso a ottobre 2026: confermato solo da La Nazione (ottobre 2026), che indica giugno 2027 come obiettivo per la fine di tutti i lavori.",
+     "Nessun permesso giornaliero per i turisti: i permessi giornalieri esistono solo per categorie precise come artigiani, merci o persone con disabilità temporanea (15 € al giorno), e li rilascia Lucca Plus.",
+     "Auto elettriche: nessun accesso libero; il disciplinare prevede per loro solo tariffe più basse dei permessi.",
+     "La ZTL C (piazzale Verdi, piazza Santa Maria, corso Garibaldi verso Porta San Pietro, le strade per i parcheggi di piazza San Ponziano e via dei Bacchettoni e poche altre aree) non ha controllo degli accessi: può entrare qualsiasi auto sotto le 3,5 tonnellate (30 km/h), con sosta a pagamento sulle strisce blu. Non è disegnata come zona.",
+     "Varchi: il Comune elenca i nomi (14 nuovi, attivi dal 19 gennaio 2026, che leggono le targhe anche in uscita) ma non pubblica le coordinate, quindi non sono sulla mappa."
+    ],
+    "pending_de": [
+     "Grenze automatisch aus den Farben der offiziellen Stadtkarte abgeleitet (25. November 2025, dieselbe wie in den Regeln vom Februar 2026) und an der Stadtmauer ausgerichtet: auf wenige Meter genau, keine amtliche Koordinatendatei. Die Mauer selbst folgt den Regeln von Sektor A, ist aber nicht eingezeichnet; die Durchfahrt durch die Stadttore zählt daher nicht als Sektor A.",
+     "Lucca Comics & Games, 28. Oktober – 1. November 2026: Einfahrt innerhalb der Mauern (auch Sektor C) 8–19 Uhr ohne Genehmigung verboten; Porta Santa Maria und Porta Sant'Anna ganztägig für diese Fahrzeuge gesperrt, Porta San Pietro 7–20:30 Uhr. Hotelgäste dürfen nur vor 10 oder nach 19 Uhr mit Genehmigung der Unterkunft hineinfahren. Sektor A ist 9–19 Uhr für alle Fahrzeuge gesperrt.",
+     "Am 19. Januar 2026 teilte die Stadt mit, dass die Kameras dieses Blocks vorübergehend abgeschaltet bleiben, weil die ZTL hier wegen der Umleitung für die Arbeiten an der Mauer der Villa Bottini ausgesetzt ist; sie werden nach den Arbeiten eingeschaltet. Laut Presse (Oktober 2026) laufen die Arbeiten noch. GateLR behandelt den Block vorsichtshalber trotzdem als Sektor B.",
+     "Arbeiten im Oktober 2026 noch im Gang: nur von La Nazione (Oktober 2026) bestätigt, die Juni 2027 als Ziel für das Ende aller Arbeiten nennt.",
+     "Keine Tagesgenehmigung für Besucher: Tagesgenehmigungen gibt es nur für bestimmte Gruppen wie Handwerker, Lieferungen oder Menschen mit vorübergehender Behinderung (15 € pro Tag), ausgestellt von Lucca Plus.",
+     "Elektroautos: keine freie Einfahrt; die Regeln sehen für sie nur günstigere Genehmigungen vor.",
+     "Sektor C (Piazzale Verdi, Piazza Santa Maria, Corso Garibaldi bei der Porta San Pietro, die Straßen zu den Parkplätzen Piazza San Ponziano und Via dei Bacchettoni und einige weitere) hat keine Zufahrtskontrolle: Jedes Auto unter 3,5 t darf hinein (30 km/h), Parken auf blauen Linien gegen Gebühr. Er ist nicht als Zone eingezeichnet.",
+     "Kameras: Die Stadt nennt die Namen (14 neue, aktiv seit 19. Januar 2026, die Kennzeichen auch bei der Ausfahrt lesen), veröffentlicht aber keine Koordinaten; daher fehlen sie auf der Karte."
+    ],
+    "links": [
+     {
+      "title": "City of Lucca: map of the ZTL sectors and gates (page)",
+      "title_it": "Comune di Lucca: planimetria con ZTL, varchi e area pedonale",
+      "title_de": "Stadt Lucca: Karte der ZTL-Sektoren und Kameras",
+      "url": "https://www.comune.lucca.it/documento_pubblico/planimetria-del-centro-storico-con-varchi-telematici-ztl-e-area-pedonale/"
+     },
+     {
+      "title": "City of Lucca: ZTL map, 25 November 2025 (PDF)",
+      "title_it": "Comune di Lucca: mappa ZTL aggiornata al 25.11.2025 (PDF)",
+      "title_de": "Stadt Lucca: ZTL-Karte, Stand 25. November 2025 (PDF)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/03/ZTL-aggiornamento-dicembre-2025.pdf"
+     },
+     {
+      "title": "City of Lucca: permit rules for the historic centre (Feb 2026, PDF)",
+      "title_it": "Comune di Lucca: disciplinare dei permessi del centro storico (feb. 2026, PDF)",
+      "title_de": "Stadt Lucca: Genehmigungsregeln für die Altstadt (Feb. 2026, PDF)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/03/disciplinare_2026_.pdf"
+     },
+     {
+      "title": "City of Lucca: Council decision 340/2025 (rule changes, new perimeter)",
+      "title_it": "Comune di Lucca: delibera GC 340/2025 (modifiche al disciplinare, nuovo perimetro)",
+      "title_de": "Stadt Lucca: Beschluss 340/2025 (Regeländerungen, neue Grenze)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/01/dlg_00340_12-12-2025.pdf"
+     },
+     {
+      "title": "City of Lucca: new ZTL cameras active from 19 January 2026",
+      "title_it": "Comune di Lucca: nuovi varchi ZTL attivi dal 19 gennaio 2026",
+      "title_de": "Stadt Lucca: neue ZTL-Kameras ab 19. Januar 2026",
+      "url": "https://www.comune.lucca.it/notizia/ztl-da-oggi-19-gennaio-sono-attivi-i-nuovi-varchi-elettronici/"
+     },
+     {
+      "title": "City of Lucca: Lucca Comics & Games 2026 access rules (order 2393/2026, PDF)",
+      "title_it": "Comune di Lucca: accessi durante Lucca Comics & Games 2026 (ord. 2393/2026, PDF)",
+      "title_de": "Stadt Lucca: Zufahrtsregeln Lucca Comics & Games 2026 (Anordnung 2393/2026, PDF)",
+      "url": "https://www.comune.lucca.it/app/uploads/2026/10/ord_02393_21-10-2026-Accessi-ZTL.pdf"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules and zone map: Comune di Lucca official documents. Perimeters derived from the official Comune di Lucca map (25.11.2025), aligned on the city walls from © OpenStreetMap contributors, ODbL 1.0."
+}

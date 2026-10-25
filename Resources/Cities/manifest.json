@@ -1,6 +1,6 @@
 {
- "version": "202610250744",
- "digest": "9b8248dd0a1f",
+ "version": "202610250745",
+ "digest": "e08781901daf",
  "schema": 1,
  "cities": [
   {
@@ -12,6 +12,11 @@
    "id": "firenze",
    "file": "firenze.json",
    "sha256": "d473f6ad3c43fab05b4254b2be0a543801a804f7447cf6ba9f560d4dd1e9a554"
+  },
+  {
+   "id": "lucca",
+   "file": "lucca.json",
+   "sha256": "1c46a5c61e4b26cf131786ffdb95c0153e8a1ffbcd468be6bf6bffb494545252"
   },
   {
    "id": "milano",
