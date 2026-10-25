@@ -1,8 +1,12 @@
 {
+ "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/": "dc25a432a6d6896b",
  "https://www.comune.bologna.it/informazioni/zona-traffico-limitato-ztl": "",
  "https://www.comune.bologna.it/servizi/mobilita-trasporti/accesso-sosta-ztl-clienti-alberghi-autorimesse-autofficine": "",
  "https://www.comune.bologna.it/servizi/mobilita-trasporti/ticket-accesso-ztl": "",
  "https://www.comune.firenze.it/istruzione/novita/area-stampa/comunicati-stampa/ztl-da-martedi-entra-vigore-la-revisione-della-disciplina-di": "c412c50e2cd2f991",
+ "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/domani-lattivazione-dello-scudo-verde-pre-esercizio": "17b4c96488a9bc9e",
+ "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/scudo-verde-da-dicembre-al-la-seconda-fase": "3c2db8459448c573",
+ "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/scudo-verde-rinviata-al-1deg-luglio-lattivazione-del-sistema": "e37b19ef9c0cc2fb",
  "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/ztl-estiva-dal-primo-giovedi-di-aprile-torna-lo-stop-serale-2": "10ade3c4b0e3a47a",
  "https://www.comune.firenze.it/novita/notizie/ztl-dal-1deg-ottobre-torna-lorario-pre-covid-tutte-le-porte-telematiche": "73fbeefe57598fff",
  "https://www.comune.milano.it/argomenti/mobilita/area-b": "a719397361605e12",
@@ -10,5 +14,11 @@
  "https://www.comune.milano.it/argomenti/mobilita/area-c": "c7f8c45a72769550",
  "https://www.comune.milano.it/argomenti/mobilita/area-c-calendario-dei-divieti": "db4fb405eb02b044",
  "https://www.comune.milano.it/servizi/mobilita/area-c-acquista-il-ticket": "b93feca6c87b4cb7",
- "https://www.comune.milano.it/servizi/mobilita/area-c-attiva-il-ticket": "7ce3bbbdfda43f73"
+ "https://www.comune.milano.it/servizi/mobilita/area-c-attiva-il-ticket": "7ce3bbbdfda43f73",
+ "https://www.comune.siena.it/documento-pubblico/disciplinare-il-rilascio-dei-permessi-di-accesso-e-circolazione-zona-traffico": "4ffb27e44bf7f832",
+ "https://www.comune.siena.it/servizi/accesso-ztl-persone-fisiche": "6fc83ac55d2def54",
+ "https://www.comune.siena.it/servizi/accesso-ztl-strutture-ricettive": "7c2418e84c3a29ae",
+ "https://www.comune.siena.it/sites/default/files/2025-03/Planimetria%20Y%20storica%20ampliata%20%281%29.pdf": "8e1537dc2b15f336",
+ "https://www.comune.siena.it/sites/default/files/2025-06/Mappa%20ZTL%20con%20Varchi.pdf": "20f39f7589656948",
+ "https://www.comune.siena.it/sites/default/files/2025-09/Tabella%20Tariffe_%20GC_327_2025.pdf": "8364f275f9ad823a"
 }
