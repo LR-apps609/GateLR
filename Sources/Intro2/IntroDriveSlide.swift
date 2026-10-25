@@ -15,17 +15,17 @@ import SwiftUI
     @Published var showFine = false
     let bad = IntroPath(IntroScene.badRoute)
     let good = IntroPath(IntroScene.goodRoute)
-    /// I tempi del percorso rosso: fino al varco, ferma un secondo sotto il varco, poi dentro fino al Duomo
-    static let toGate = 4.0
-    static let gatePause = 1.0
-    static let afterGate = 4.0
+    /// I tempi del percorso rosso (circa 5 s): fino al varco, una breve sosta sotto il pannello, poi dentro fino al Duomo
+    static let toGate = 2.3
+    static let gatePause = 0.6
+    static let afterGate = 2.0
     static let badSeconds = toGate + gatePause + afterGate
-    /// Il percorso bianco, con calma
-    static let goodSeconds = 8.5
+    /// Il percorso bianco
+    static let goodSeconds = 4.5
     /// Dove sta il varco lungo il percorso rosso (frazione)
     let gateAt = IntroPath(IntroScene.badRoute).fraction(near: IntroScene.gatePoint)
     /// Il volo della camera dal punto d'arrivo rosso alla partenza del percorso bianco
-    static let flyBack = 1.0
+    static let flyBack = 0.4
     var reduceMotion = false
     private(set) var badStart = Date.distantFuture
     private(set) var goodStart = Date.distantFuture
@@ -340,15 +340,15 @@ private struct IntroLiveMap: View {
 
 /// Le inquadrature della prima pagina: inclinata (58°), a circa 1,15 km (con Flyover sembra molto più vicina), rivolta dove va l'auto
 enum IntroCamera {
-    /// Alta e meno inclinata: si vede subito cosa è dentro la ZTL (rosso) e cosa è fuori
+    /// Inquadratura larga e fissa: si vede tanta Firenze e subito cosa è dentro la ZTL (rosso) e cosa è fuori
     static let pitch = 48.0
-    static let distance = 2800.0
+    static let distance = 3600.0
     /// Rivolta a sud: Duomo in alto (sotto il titolo, non coperto), viali e Parterre in basso
     static let heading = 180.0
     /// Il centro dell'inquadratura: tra il Duomo, il varco di via Cavour e il Parterre
     static let frame = CLLocationCoordinate2D(latitude: 43.7780, longitude: 11.2595)
-    /// Quanto la camera segue l'auto (0 = ferma, 1 = sempre centrata): poco, con calma
-    static let follow = 0.25
+    /// Quanto la camera segue l'auto (0 = ferma, 1 = sempre centrata): ferma, per chiarezza; solo una rotazione lenta
+    static let follow = 0.0
 
     static func start(reduceMotion: Bool) -> MapCamera {
         MapCamera(centerCoordinate: frame, distance: distance, heading: heading, pitch: reduceMotion ? 45 : pitch)
@@ -384,8 +384,8 @@ enum IntroCamera {
             centers.append(blend(c))
         }
         let times = [first] + Array(repeating: seconds / 6, count: 6)
-        return Keys(centers: centers, times: times, heading: heading + (leg == 1 ? -4 : 4),
-                    orbit: leg == 1 ? 8 : -8, distance: distance, pitch: pitch)
+        return Keys(centers: centers, times: times, heading: heading + (leg == 1 ? -3 : 1),
+                    orbit: 4, distance: distance, pitch: pitch)
     }
 }
 
