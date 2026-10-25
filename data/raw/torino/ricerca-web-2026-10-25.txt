@@ -1,0 +1,69 @@
+ESTRATTI DA RICERCA WEB (WebSearch), letti il 25/10/2026 — NON sono copie dei documenti.
+Le pagine ufficiali di www.comune.torino.it, aperto.comune.torino.it, geoportale.comune.torino.it, gtt.to.it e
+opendata.5t.torino.it NON si raggiungono dall'ambiente di lavoro (connessione chiusa / proxy 403): le frasi qui sotto
+sono quelle restituite dal motore di ricerca per quelle pagine (citazioni tra «»), più i siti non ufficiali usati per
+controllo incrociato. Vanno riconfrontate con le pagine scaricate (Tools/fetch_geo.py, blocco Torino).
+
+== UFFICIALE (estratti di ricerca) ==
+
+[U1] Comune di Torino, scheda «ZTL Centrale» — https://www.comune.torino.it/schede-informative/ztl-centrale
+«dalle 7.30 alle 10.30 di tutti i giorni feriali (sabato escluso)»
+«è vietata la circolazione e la sosta all'interno dell'area denominata ZTL Centrale» (riassunto: solo veicoli autorizzati, art. 158 CdS)
+«occorre possedere almeno uno di questi requisiti: regolare permesso di circolazione rilasciato dalla Città o dalla soc. GTT spa; autorizzazione alla circolazione senza permesso»
+«Per accedere occasionalmente in ZTL Centrale non occorre un permesso di circolazione ma se si rientra nei casi previsti, è possibile richiedere una esenzione a posteriori.»
+«I giorni utili entro i quali dover inoltrare a GTT spa la comunicazione del passaggio in ZTL - sono tassativamente 10 (dieci) - dal primo giorno di transito compreso» (sabato e festivi inclusi)
+Parcheggi pubblici in struttura dentro la ZTL: fornire al gestore la targa e compilare in parcheggio la richiesta di autorizzazione al transito «entro e non oltre le ore 11.00».
+Albergatori: possono chiedere l'esenzione a posteriori per i clienti ospitati nelle strutture all'interno della ZTL.
+Esentati senza permesso (elenco): taxi e noleggio con conducente, veicoli AMIAT in servizio, veicoli per il trasporto di disabili, ...
+Sottozone (dalla stessa scheda, secondo i risultati):
+  ZTL Area Romana: «chiusa al transito e alla sosta dei veicoli dalle 21:00 alle 7:30 del giorno successivo», tutti i giorni, festivi compresi; in piazza Emanuele Filiberto dalle 19:30 alle 7:30; carico/scarico con autocarri 10:30–16:00 senza permesso.
+  ZTL Trasporto Pubblico: «La ZTL Trasporto Pubblico è chiusa al transito e alla sosta dalle 7.00 alle 20.00 di tutti i giorni, compresi i festivi.» (orario fissato dall'ordinanza n. 2455 del 29/05/2012); carico/scarico 10:30–12:30 con autocarri, segnalando la targa a GTT.
+  ZTL Pedonale: «chiusa al transito e alla sosta dei veicoli tutti i giorni, feriali e festivi, H24».
+  ZTL Valentino: «completamente chiusa al transito e alla sosta dei veicoli per 24 ore tutti i giorni della settimana, compresi i festivi».
+Contatti: infoztl@comune.torino.it, numero verde 800 450 900 (lun–ven 8–18); Ufficio Permessi ZTL piazza San Giovanni 5.
+
+[U2] Comune di Torino, «Richiedere permesso di accesso ad area ZTL» — https://www.comune.torino.it/servizi/richiedere-permesso-accesso-ad-area-ztl
+Permessi ZTL Centrale chiesti solo sulla piattaforma online dal 23/03/2023.
+
+[U3] Comune di Torino, «Permessi di circolazione in ZTL per veicoli Elettrici puri» — https://www.comune.torino.it/schede-informative/permessi-circolazione-ztl-per-veicoli-elettrici-puri
+Elettrici puri: permesso gratuito (prorogato; fino al 31/12/2026 secondo assi-ge-co.com, non ufficiale); senza permesso esenzione a posteriori max 12 all'anno (MOD.ES.20 GTT, entro 10 giorni, solo ZTL Centrale).
+
+[U4] GTT, «Utenti che pernottano in strutture alberghiere» — https://www.gtt.to.it/cms/ztl/3681-utenti-che-pernottano-in-strutture-alberghiere
+«i fruitori di strutture alberghiere (esclusivamente di quelle accreditate e regolarmente registrate in Piattaforma ZTL)»
+«Al momento del check-in presso l'albergo, gli stessi fruitori dovranno compilare la richiesta di autorizzazione al transito per il periodo di permanenza presso la struttura»
+Libero transito nelle vie riservate solo il giorno di arrivo e di partenza; «per le giornate intermedie bisognerà rivolgersi all'Albergo per conoscere a quali varchi si è abilitati».
+Modulo GTT (copia su https://hotelanticadogana.it/pdf/MODULO-RICHIESTA-ESENZIONE.pdf): niente esenzioni per chi non pernotta; veicoli sotto Euro 3 esclusi salvo GPL; esclusi veicoli oltre 8 posti e 5 t.
+
+[U5] GTT, «Elenco veicoli esentati» — https://www.gtt.to.it/cms/ztl/3090-elenco-veicoli-esentati
+Area Centrale: «ciclomotori e quadricicli leggeri se Euro 1, a 4 tempi» e «motoveicoli, se Euro 1, a 4 tempi»; «Veicoli esenti nella ZTL Trasporto Pubblico (escluse le vie P. Micca e Rossini)».
+
+[U6] GTT, «Giornaliero tariffa ZTL centrale» 11,50 € — è un titolo di SOSTA sulle strisce blu, non un permesso di accesso.
+
+[U7] Comune di Torino, comunicato «ZTL Valentino: la Città amplia l'area a traffico limitato per valorizzare il parco» (24/03/2026) —
+https://www.comune.torino.it/novita/comunicati/ztl-valentino-citta-amplia-larea-traffico-limitato-per-valorizzare-parco
+Estesa a viale Medaglie d'Oro e tratto nord di viale Ceppi, divieto tutti i giorni 24 ore su 24 salvo autorizzati; nuovi varchi: rotatoria Tesla, imbocco viali Medaglie d'Oro e Boiardo (perimetro piazza Levi Montalcini), viale Turr; avvio dopo autorizzazione MIT e pre-esercizio (nessuna data trovata).
+
+[U8] Comune di Torino, comunicato ZTL notturna «Salita CAI – Monte dei Cappuccini» (ottobre 2025) —
+https://www.comune.torino.it/novita/comunicati/zona-traffico-limitato-notturna-salita-cai-monte-dei-cappuccini-lunedi-13
+Tutti i giorni 23:00–7:00, dalla Salita al CAI (circa 10 m a est del civico 12) al piazzale Monte dei Cappuccini; pre-esercizio dal 13/10/2025, sanzioni dal 15/11/2025 (Torino Cronaca).
+
+[U9] Comune di Torino, comunicato Borgo Campidoglio (novembre 2025) —
+https://www.comune.torino.it/novita/comunicati/borgo-campidoglio-dall1-dicembre-via-alla-pedonalizzazione-ce-tempo-fino-al-2
+Zona pedonale dal 01/12/2025 (via Cibrario, via San Rocchetto, via Balme, via Ceres), h24 7 giorni su 7, 5 telecamere, pre-esercizio fino al 02/02/2026.
+
+[U10] Comune di Torino, «Sospensione estiva della ZTL e della sosta a pagamento» —
+https://www.comune.torino.it/novita/comunicati/sospensione-estiva-della-ztl-della-sosta-pagamento-0
+2026: ZTL Centrale e strisce blu sospese dal 10 al 23 agosto; «Restano infatti attive le ZTL "Trasporto Pubblico", "Pedonale", "Area Romana" e "Valentino"».
+
+[U11] Open data: dati.gov.it «Perimetro, varchi e orari ZTL» (CC BY 4.0, fonte 5T: http://opendata.5t.torino.it/get_access_control) e
+«Zone Traffico Limitato» (http://geoportale.comune.torino.it/geodati/zip/ztl_geo.zip) — metadati salvati in dati.gov.it_*.json; file non scaricabili da qui.
+
+== NON UFFICIALE (controllo incrociato) ==
+[N1] https://www.autovia.it/ztl-torino-guida-completa/ (ott. 2026): Centrale lun–ven 7:30–10:30; Area Romana 21–7:30 tutti i giorni; corsie 7–20; Pedonale e Valentino h24; sospensione 10–23/08/2026; parcheggio in struttura: targa entro le 11:00.
+[N2] https://www.kivo-app.it/blog/ztl-torino-orari-mappa : stessi orari.
+[N3] https://www.unipolmove.it/blog/ztl-a-torino-mappa-orari-e-multe/ ; https://tolltracker.eu/zones/italy/torino-ztl (TP 7–21, isolata) ; https://www.visitturin.com/it/ztl-parcheggi-torino/
+[N4] https://www.quotidianopiemontese.it/2019/06/23/san-giovanni-a-torino-uffici-pubblici-chiusi-ztl-centrale-non-attiva-e-parcheggi-gratuiti/ : il 24 giugno (San Giovanni) «di consueto la ZTL centrale non sarà attiva».
+[N5] https://www.sicurauto.it/news/traffico-e-viabilita/ztl-torino-nuovo-perimetro-parco-valentino/ ; https://www.ansa.it/piemonte/notizie/comune_di_torino/2026/03/24/torino-riqualificazione-del-parco-del-valentino-si-amplia-larea-in-ztl_956f2e1a-b496-4c90-b833-e9c5ac32e02d.html
+[N6] Multa: art. 7 c. 14 CdS, 83–332 € (autosupermarket.it), ridotta del 30% se pagata entro 5 giorni.
+[N7] Limitazioni antismog (tutto il territorio comunale, non ZTL): diesel Euro 3–4 lun–ven 8–19 dal 15/09/2026 al 15/04/2027; benzina/diesel fino a Euro 2 sempre; Euro 5 diesel: blocco strutturale non introdotto, solo nei giorni di semaforo antismog (citynext.it 16/09/2026, mole24.it 29/03/2026, torinocronaca.it).
+[N8] Elettrici: permesso gratuito prorogato al 31/12/2026 (assi-ge-co.com, giugno 2026); ibride dal 2015 con CO2 ≤ 110 g/km metà tariffa (moveo.telepass.com).
