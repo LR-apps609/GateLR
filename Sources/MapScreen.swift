@@ -26,6 +26,8 @@ struct MapScreen: View {
     @State private var selectedParking: Parking?
     @State private var lookAround: MKLookAroundScene?
     @State private var showLookAround = false
+    /// La mappa scura solo mentre la scheda Mappa è davanti: dietro alle altre schede resta quella normale
+    @State private var visible = false
     @Environment(\.colorScheme) private var scheme
 
     enum Style: String, CaseIterable, Identifiable {
@@ -68,7 +70,7 @@ struct MapScreen: View {
         // Il posto cercato: la risposta si calcola una volta per disegno e vale per zone, spillo e scheda
         let check = store.place.map { PlaceCheck($0, store: store) }
         let lit = check?.zoneIds ?? []
-        let night = check != nil && style == .standard
+        let night = visible && check != nil && style == .standard
         MapReader { proxy in
             Map(position: $camera) {
                 ForEach(shapes) { shape in
@@ -212,7 +214,8 @@ struct MapScreen: View {
             }
         }
         .onAppear { search.focus(on: store.city) }
-        .onAppear { focus() }
+        .onAppear { visible = true; focus() }
+        .onDisappear { visible = false }
         .onChange(of: store.cityId) { parkings = []; focus() }
         .onChange(of: store.place) { focus() }
         .onChange(of: planner.plan) { focus() }
