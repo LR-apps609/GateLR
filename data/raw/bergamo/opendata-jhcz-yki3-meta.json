@@ -1,0 +1,174 @@
+{
+  "id" : "jhcz-yki3",
+  "name" : "Comune Bergamo - Mappa Zone a Traffico Limitato (ZTL)",
+  "assetType" : "map",
+  "attribution" : "Comune di Bergamo",
+  "attributionLink" : "https://territorio.comune.bergamo.it/servizio-mobilita-e-trasporti/zone-a-traffico-limitato-ztl",
+  "averageRating" : 0,
+  "category" : "Mobilità e trasporti",
+  "createdAt" : 1728036979,
+  "description" : "Dataset delle Zone a Traffico Limitato del Comune di Bergamo",
+  "diciBackend" : false,
+  "displayType" : "visualization_canvas_map",
+  "downloadCount" : 6,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "IODL",
+  "locked" : false,
+  "modifyingViewUid" : "tkwz-spd9",
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 2961702,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1728036991,
+  "publicationGroup" : 1980956,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1728036115,
+  "rowsUpdatedBy" : "3sn6-kutt",
+  "tableId" : 1980956,
+  "totalTimesRated" : 0,
+  "viewCount" : 22650,
+  "viewLastModified" : 1728036991,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1728036992,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1465792,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1728036992,
+    "targetAudience" : "public",
+    "workflowId" : 186,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1728036992,
+      "failureCount" : 0,
+      "startedAt" : 1728036992,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "3sn6-kutt",
+      "displayName" : "Comune di Bergamo"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ ],
+  "displayFormat" : {
+    "visualizationCanvasMetadata" : {
+      "vifs" : [ {
+        "configuration" : {
+          "viewSourceDataLink" : true,
+          "mapCenterAndZoom" : {
+            "center" : {
+              "lng" : 9.65697852821836,
+              "lat" : 45.702407591942176
+            },
+            "zoom" : 11.993270688746192
+          },
+          "basemapOptions" : {
+            "searchBoundaryLowerRightLongitude" : 9.690199560517081,
+            "searchBoundaryUpperLeftLongitude" : 9.62541596643784,
+            "searchBoundaryUpperLeftLatitude" : 45.72532762280403,
+            "navigationControl" : true,
+            "basemapStyle" : "mapbox://styles/mapbox/light-v9",
+            "geoCoderControl" : true,
+            "geoLocateControl" : true,
+            "searchBoundaryLowerRightLatitude" : 45.67725500152756
+          },
+          "mapPitchAndBearing" : {
+            "bearing" : 0,
+            "pitch" : 0
+          },
+          "datasetMetadata" : false,
+          "panAndZoom" : true,
+          "showMultiplePointsSymbolInLegend" : true,
+          "locateUser" : false
+        },
+        "series" : [ {
+          "visible" : true,
+          "color" : {
+            "primary" : "#eb6900"
+          },
+          "mapOptions" : {
+            "colorByQuantificationMethod" : "category",
+            "mapFlyoutTitleColumnName" : "nome_ztl",
+            "shapeFillOpacity" : 57,
+            "colorBoundariesBy" : "periodo",
+            "mapType" : "boundaryMap",
+            "additionalFlyoutColumns" : [ "dettagli" ]
+          },
+          "showLegend" : true,
+          "type" : "map",
+          "dataSource" : {
+            "measure" : {
+              "aggregationFunction" : "count"
+            },
+            "name" : "Comune Bergamo - Zone a Traffico Limitato (ZTL)",
+            "type" : "socrata.soql",
+            "datasetUid" : "tkwz-spd9",
+            "dimension" : {
+              "columnName" : "the_geom"
+            }
+          },
+          "primary" : true
+        } ],
+        "format" : {
+          "type" : "visualization_interchange_format",
+          "version" : 8
+        },
+        "description" : "",
+        "id" : "054b06ff-0535-4916-a8ed-98e9644b8d87",
+        "title" : ""
+      } ],
+      "version" : 1
+    }
+  },
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Italian Open Data License 2.0",
+    "logoUrl" : "images/licenses/iodl.png",
+    "termsLink" : "http://www.dati.gov.it/iodl/2.0/"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "Microsite" : {
+        "Microsite" : "Comune di Bergamo"
+      }
+    },
+    "availableDisplayTypes" : [ "visualization" ]
+  },
+  "owner" : {
+    "id" : "3sn6-kutt",
+    "displayName" : "Comune di Bergamo",
+    "profileImageUrlLarge" : "/api/users/3sn6-kutt/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/3sn6-kutt/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/3sn6-kutt/profile_images/TINY",
+    "screenName" : "Comune di Bergamo",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "3sn6-kutt",
+    "displayName" : "Comune di Bergamo",
+    "profileImageUrlLarge" : "/api/users/3sn6-kutt/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/3sn6-kutt/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/3sn6-kutt/profile_images/TINY",
+    "screenName" : "Comune di Bergamo",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula" ]
+  },
+  "flags" : [ "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}

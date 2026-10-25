@@ -1,0 +1,48 @@
+Fonti NON ufficiali e pagine ATB non raggiungibili da questo ambiente (proxy: «CONNECT tunnel failed, 403»).
+Letto il: 2026-10-25, tramite i risultati di ricerca web (titoli, URL ed estratti). Servono solo per trovare e incrociare i fatti:
+ogni regola della scheda è citata da una pagina o da un atto del Comune salvato in questa cartella.
+
+ATB Mobilità (gestore dei permessi ZTL per il Comune, società in house) — pagine non scaricabili da qui:
+- https://www.atb.bergamo.it/ztl/ztl-di-bergamo  (orari ZTL; riporta 10–24 domenica e festivi dal 21/06/2026)
+- https://www.atb.bergamo.it/ztl/permessi-temporanei  (permessi temporanei; ospiti dei residenti Colli e Valverde)
+- https://www.atb.bergamo.it/ztl/permessi-continuativi
+- https://www.atb.bergamo.it/ztl/sportello-ztl  (sportello di via Gleno 13, tel. 035 364211)
+- https://www.atb.bergamo.it/public/atb/ZTL/faq_ztlcolli.pdf  (FAQ ZTL Colli)
+- https://www.atb.bergamo.it/avvisi/ztl-attivazione-varchi-in-uscita-dal-12-dicembre-2025
+- https://www.atb.bergamo.it/news/citta-alta-e-colli-nuove-regole-per-la-domenica-e-festivi-dal-21-giugno-ztl-dalle-ore-10-alle-ore-24-e-dal-21-giugno-al-13-settembre-navette-gratuite-da-celadina-via-carducci-e-stadio
+- https://atb.bergamo.it/news/permessi-di-transito-in-citta-alta
+  Dagli estratti: gli albergatori si iscrivono alla funzione «Permessi Albergatori» del sito ATB; permessi di transito pari
+  al numero delle camere; «La comunicazione del passaggio attraverso i varchi elettronici deve essere fatta entro 72 ore
+  dal transito» (coincide con il Punto 17 G del documento operativo GC 798/2024). Ospiti dei residenti dei Colli: mail a
+  residentiospiti@atb.bergamo.it entro 72 ore (solo nelle fasce 12–14 e 19–24 di domeniche e festivi). Valverde: permesso
+  ospiti dei residenti di massimo 48 ore, in via sperimentale.
+
+Comune di Bergamo, pagine dei servizi online (richiedono SPID/CIE/eIDAS, quindi il testo non è salvabile):
+- https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;permessi.ospiti.attivita.ricettive («Comunicare le targhe degli ospiti di strutture ricettive»)
+- https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;abilitazione.permessi («Chiedere l'abilitazione al servizio di rilascio di permessi ZTL per albergatori»)
+
+Stampa locale e guide (non ufficiali):
+- https://www.ecodibergamo.it/stories/premium/bergamo-citta/citta-alta-e-colli-dal-21-giugno-domenica-e-festivi-entra-in-vigore-la-ztl-da-o_3891871_11/  (conferma 10–24 dal 21/06/2026)
+- https://www.bergamotomorrow.it/2026/06/11/ztl-festiva-a-bergamo-cambia-ecco-le-novita-per-lestate-2026/  (idem)
+- https://primabergamo.it/attualita/cambio-delle-regole-di-accesso-a-citta-alta-da-domenica-ztl-estesa-e-navette-gratuite-per-lestate/  (idem)
+- https://www.bergamonews.it/2026/10/12/ztl-citta-alta-nuove-regole-per-la-sosta-dei-lavoratori-serali-cosa-cambia-dal-19-ottobre/928451
+  (sosta dei lavoratori serali: le nuove regole partono il 19/10/2026; il comunicato del Comune del 13/07/2026 diceva 1° settembre)
+- https://www.bergamonews.it/2025/02/11/rincari-per-clienti-di-alberghi-e-ristoranti-nelle-ztl-di-bergamo/777457/  (dal 2025 gli hotel pagano 1 € al giorno per targa: coincide con la tabella tariffe GC 798/2024)
+- https://www.ecodibergamo.it/stories/premium/bergamo-citta/ztl-di-citta-alta-a-bergamo-il-secondo-varco-servira-a-decongestionare-il-vial-o_3733169_11/
+  (marzo 2026: allo studio un varco/accesso da Porta San Lorenzo per decongestionare viale Vittorio Emanuele; nessuna conferma che sia attivo)
+- https://primabergamo.it/attualita/entra-nella-ztl-con-mezzo-elettrico-e-pass-disabili-e-prende-sei-multe-il-cartello-non-e-chiaro/
+  (ottobre 2026: auto elettrica con contrassegno disabili multata più volte in via San Bernardino perché la targa non era stata comunicata)
+- https://primabergamo.it/attualita/arrivano-le-nuove-telecamere-di-controllo-accessi-e-i-varchi-ztl-saranno-colorati/  (varchi con scritte rosse/verdi)
+- https://www.bergamotomorrow.it/2024/06/13/citta-alta-da-oggi-scattano-le-multe-ai-varchi/  (giugno 2024: multe ai varchi di Città Alta)
+- https://www.autovia.it/ztl-bergamo-guida-completa/ , https://milazzo.life/zone-traffico-limitato/ztl-bergamo-bg/ ,
+  https://www.sicurauto.it/news/attualita-e-curiosita/ztl-bergamo-alta-e-bassa-mappa-e-orari/
+  (guide: riportano ancora il vecchio orario festivo 10–12 e 14–19 / 19–24: SUPERATE dal 21/06/2026)
+- https://cosedibergamo.com/2023/02/10/ztl-a-bergamo-tutto-quello-che-dovete-sapere-per-non-prendere-la-multa/  (2023: moto ammesse nella ZTL Città Alta e Colli; coincide con il Punto 13 j del documento operativo)
+- https://www.green-zones.eu/it/zone-ambientali/italia/bergamo  (limitazioni regionali antismog della Lombardia valide a Bergamo)
+
+Geometria:
+- Il dataset ufficiale «Comune Bergamo - Mappa Zone a Traffico Limitato (ZTL)» (dati.lombardia.it jhcz-yki3) e «Comune Bergamo -
+  Zone a Traffico Limitato (ZTL)» (tkwz-spd9), licenza pubblico dominio, sono elencati su dati.gov.it (CKAN, letto il 2026-10-25)
+  e linkati dalla pagina del Comune https://www.comune.bergamo.it/node/748000 . www.dati.lombardia.it e
+  territorio.comune.bergamo.it (mappa «ZoneTL») non sono raggiungibili da qui: il download è in Tools/fetch_geo.py (blocco Bergamo).
+- OpenStreetMap (data/raw/geo/bergamo-*.json, 25/10/2026): nessuna area ZTL e nessuna relazione enforcement con nome nella zona.

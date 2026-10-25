@@ -1,0 +1,66 @@
+URL: https://www.comune.bergamo.it/node/748000
+Letto il: 2026-10-25 (Comune di Bergamo, fonte ufficiale)
+
+Home /
+Amministrazione /
+Documenti e dati /
+Dataset /
+Zone a Traffico Limitato
+Zone a Traffico Limitato
+Quali sono le ZTL in città
+Condividi Twitter
+Facebook
+Linkedin
+Whatsapp
+Indice della pagina
+Descrizione
+Documento
+Ufficio responsabile
+Formati disponibili
+Licenza di distribuzione
+Descrizione
+ZTL Permanente
+(dalle ore 00:00 alle ore 24:00)
+Valide nel
+periodo scolastico
+Valide
+periodicamente
+Video
+sorvegliate
+Città Alta e Colli ✓ ✓
+centro storico di Città Alta ✓ ✓
+Valverde ✓ ✓
+v ia Raboni ✓
+via Pelabrocco ✓ ✓
+via Pignolo Alta, via San Tomaso ✓ ✓
+via XX Settembre, via Sant'Alessandro, piazza Pontida ✓ ✓
+via San Bernardino, borgo San Leonardo ✓ ✓
+largo Gavazzeni, piazza Matteotti (teatro Donizetti), largo Belotti ✓ ✓
+via San Francesco d'Assisi ✓
+via Tasso, via Pignolo ✓ ✓
+via Cappuccini ✓
+via Borgo Palazzo ✓
+via Don Bepo Vavassori ✓
+via Pradell o ✓
+via Cadorna ✓
+via Fornoni ✓
+via Sylva, via Bixio, via Venanzio, via Arcangeli ✓
+via Orio ✓
+quartiere Finardi ✓
+piazza Matteotti, via Borfuro, via Crispi, passaggio Zeduri ✓ ✓
+Gewiss Stadium ✓
+via Vacha ✓
+via Edison e via Righi ✓
+piazza Dante ✓
+piazzale Marconi ✓ ✓
+Documento
+Mappa delle zone a traffico limitato (OPEN DATA)
+Zone a traffico limitato (OPEN DATA)
+Ufficio responsabile
+Servizio mobilità e trasporti
+Gestisce gli strumenti di pianificazione adottati e ne verifica la corretta attuazione.
+Leggi di più su Servizio mobilità e trasporti
+Formati disponibili
+csv, xlsx, json, shp
+Licenza di distribuzione
+Pubblico dominio

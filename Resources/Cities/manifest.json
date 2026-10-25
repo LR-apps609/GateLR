@@ -1,8 +1,13 @@
 {
- "version": "202610250816",
- "digest": "6f44932a2533",
+ "version": "202610250817",
+ "digest": "2765d8f3edc1",
  "schema": 1,
  "cities": [
+  {
+   "id": "bergamo",
+   "file": "bergamo.json",
+   "sha256": "4deaa163b5fb26348346e1980d712049c6425931d89ba4114db23a58a384020a"
+  },
   {
    "id": "bologna",
    "file": "bologna.json",

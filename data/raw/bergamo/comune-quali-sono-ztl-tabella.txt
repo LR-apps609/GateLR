@@ -1,0 +1,30 @@
+URL: https://www.comune.bergamo.it/page:c_a794:zona.traffico.limitata;quali.sono.ztl
+Letto il: 2026-10-25 (Comune di Bergamo, fonte ufficiale). Tabella estratta colonna per colonna (✓ = sì).
+
+ZTL; | Permanente(dalle ore 00:00 alle ore 24:00) | Valide nelperiodo scolastico | Valideperiodicamente | Videosorvegliate
+Città Alta e Colli |  |  | ✓ | ✓
+centro storico di Città Alta | ✓ |  |  | ✓
+Valverde |  |  | ✓ | ✓
+via Raboni |  |  | ✓ | 
+via Pelabrocco | ✓ |  |  | ✓
+via Pignolo Alta, via San Tomaso |  |  | ✓ | 
+via XX Settembre, via Sant'Alessandro, piazza Pontida | ✓ |  |  | ✓
+via San Bernardino, borgo San Leonardo |  |  | ✓ | ✓
+largo Gavazzeni, piazza Matteotti (teatro Donizetti), largo Belotti | ✓ |  |  | ✓
+via San Francesco d'Assisi |  |  | ✓ | 
+via Tasso, via Pignolo | ✓ |  |  | ✓
+via Cappuccini |  | ✓ |  | 
+via Borgo Palazzo |  |  | ✓ | 
+via Don Bepo Vavassori |  | ✓ |  | 
+via Pradello |  | ✓ |  | 
+via Cadorna |  | ✓ |  | 
+via Fornoni |  | ✓ |  | 
+via Sylva, via Bixio, via Venanzio, via Arcangeli |  | ✓ |  | 
+via Orio |  |  | ✓ | 
+quartiere Finardi |  |  | ✓ | 
+piazza Matteotti, via Borfuro, via Crispi, passaggio Zeduri | ✓ |  |  | 
+Gewiss Stadium |  |  | ✓ | 
+via Vacha |  |  | ✓ | 
+via Edison e via Righi |  | ✓ |  | 
+piazza Dante | ✓ |  |  | 
+piazzale Marconi | ✓ |  |  | ✓

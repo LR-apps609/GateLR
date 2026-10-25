@@ -1,0 +1,303 @@
+{
+  "id" : "tkwz-spd9",
+  "name" : "Comune Bergamo - Zone a Traffico Limitato (ZTL)",
+  "assetType" : "dataset",
+  "attribution" : "Comune di Bergamo",
+  "attributionLink" : "https://territorio.comune.bergamo.it/servizio-mobilita-e-trasporti/zone-a-traffico-limitato-ztl",
+  "averageRating" : 0,
+  "category" : "Mobilità e trasporti",
+  "createdAt" : 1728033135,
+  "description" : "Dataset delle Zone a Traffico Limitato del Comune di Bergamo",
+  "diciBackend" : false,
+  "displayType" : "table",
+  "downloadCount" : 1030,
+  "hideFromCatalog" : false,
+  "hideFromDataJson" : false,
+  "licenseId" : "IODL",
+  "locked" : false,
+  "newBackend" : true,
+  "numberOfComments" : 0,
+  "oid" : 2961613,
+  "provenance" : "official",
+  "publicationAppendEnabled" : false,
+  "publicationDate" : 1728033393,
+  "publicationGroup" : 1980956,
+  "publicationStage" : "published",
+  "rowsUpdatedAt" : 1728036115,
+  "rowsUpdatedBy" : "3sn6-kutt",
+  "tableId" : 1980956,
+  "totalTimesRated" : 0,
+  "viewCount" : 1777,
+  "viewLastModified" : 1728036115,
+  "viewType" : "tabular",
+  "approvals" : [ {
+    "reviewedAt" : 1728035934,
+    "reviewedAutomatically" : true,
+    "state" : "approved",
+    "submissionId" : 1465774,
+    "submissionObject" : "public_audience_request",
+    "submissionOutcome" : "change_audience",
+    "submittedAt" : 1728035934,
+    "targetAudience" : "public",
+    "workflowId" : 186,
+    "submissionDetails" : {
+      "permissionType" : "READ"
+    },
+    "submissionOutcomeApplication" : {
+      "endedAt" : 1728035934,
+      "failureCount" : 0,
+      "startedAt" : 1728035934,
+      "status" : "success"
+    },
+    "submitter" : {
+      "id" : "3sn6-kutt",
+      "displayName" : "Comune di Bergamo"
+    }
+  } ],
+  "clientContext" : {
+    "clientContextVariables" : [ ],
+    "inheritedVariables" : { }
+  },
+  "columns" : [ {
+    "id" : 26434470,
+    "name" : "the_geom",
+    "dataTypeName" : "multipolygon",
+    "description" : "",
+    "fieldName" : "the_geom",
+    "position" : 1,
+    "renderTypeName" : "multipolygon",
+    "tableColumnId" : 15944941,
+    "format" : { }
+  }, {
+    "id" : 26434471,
+    "name" : "PERIODO",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "periodo",
+    "position" : 2,
+    "renderTypeName" : "text",
+    "tableColumnId" : 15944942,
+    "cachedContents" : {
+      "non_null" : "27",
+      "largest" : "Temporale",
+      "null" : "0",
+      "top" : [ {
+        "item" : "Scolastica",
+        "count" : "8"
+      }, {
+        "item" : "Permanente",
+        "count" : "7"
+      }, {
+        "item" : "Temporale",
+        "count" : "4"
+      }, {
+        "item" : "Notturna",
+        "count" : "4"
+      }, {
+        "item" : "Annuale",
+        "count" : "3"
+      }, {
+        "item" : "Pedonale",
+        "count" : "1"
+      } ],
+      "smallest" : "Annuale",
+      "count" : "27",
+      "cardinality" : "6"
+    },
+    "format" : { }
+  }, {
+    "id" : 26434472,
+    "name" : "NOME_ZTL",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "nome_ztl",
+    "position" : 3,
+    "renderTypeName" : "text",
+    "tableColumnId" : 15944943,
+    "cachedContents" : {
+      "non_null" : "27",
+      "largest" : "VIA XX SETTEMBRE - VIA SANT'ALESSANDRO - PIAZZA PONTIDA",
+      "null" : "0",
+      "top" : [ {
+        "item" : "CITTA' ALTA COLLI",
+        "count" : "2"
+      }, {
+        "item" : "PIAZZALE MARCONI",
+        "count" : "1"
+      }, {
+        "item" : "VIA XX SETTEMBRE - VIA SANT'ALESSANDRO - PIAZZA PONTIDA",
+        "count" : "1"
+      }, {
+        "item" : "VIA PRADELLO",
+        "count" : "1"
+      }, {
+        "item" : "PIAZZA MATTEOTTI / PALAZZO FRIZZONI - VIA BORFURO - VIA CRISPI - PASSAGGIO ZEDURI",
+        "count" : "1"
+      }, {
+        "item" : "VIA BORGO PALAZZO",
+        "count" : "1"
+      }, {
+        "item" : "Stadio",
+        "count" : "1"
+      }, {
+        "item" : "VIA FORNONI",
+        "count" : "1"
+      }, {
+        "item" : "Quartiere FINARDI",
+        "count" : "1"
+      }, {
+        "item" : "VIA ORIO",
+        "count" : "1"
+      }, {
+        "item" : "VALVERDE",
+        "count" : "1"
+      }, {
+        "item" : "VIA RABONI",
+        "count" : "1"
+      }, {
+        "item" : "CENTRO STORICO CITTA' ALTA",
+        "count" : "1"
+      }, {
+        "item" : "VIA SAN FRANCESCO D'ASSISI",
+        "count" : "1"
+      }, {
+        "item" : "VIA SAN BERNARDINO - Borgo SAN LEONARDO",
+        "count" : "1"
+      }, {
+        "item" : "VIA CAPPUCCINI",
+        "count" : "1"
+      }, {
+        "item" : "VIA VACHA",
+        "count" : "1"
+      }, {
+        "item" : "VIA CADORNA",
+        "count" : "1"
+      }, {
+        "item" : "PIAZZA MATTEOTTI (FRONTE DONIZETTI)",
+        "count" : "1"
+      }, {
+        "item" : "VIA DON BEPO VAVASSORI",
+        "count" : "1"
+      } ],
+      "smallest" : "CENTRO STORICO CITTA' ALTA",
+      "count" : "27",
+      "cardinality" : "26"
+    },
+    "format" : { }
+  }, {
+    "id" : 26434473,
+    "name" : "DETTAGLI",
+    "dataTypeName" : "text",
+    "description" : "",
+    "fieldName" : "dettagli",
+    "position" : 4,
+    "renderTypeName" : "text",
+    "tableColumnId" : 15944944,
+    "cachedContents" : {
+      "non_null" : "27",
+      "largest" : "Tutto l’anno nei giorni festivi alle 10 alle 12 e dalle 14 alle 19 - Dall'entrata in vigore dell'ora legale fino al ritorno dell'orario solare, il giovedì, venerdì e sabato dalle 21 alle 1 del giorno seguente",
+      "null" : "0",
+      "top" : [ {
+        "item" : "In vigore tutti i giorni dalle 0.00 alle 24.00",
+        "count" : "6"
+      }, {
+        "item" : "In vigore tutti i giorni dalle 23.00 alle 7.00",
+        "count" : "3"
+      }, {
+        "item" : "Tutto l’anno nei giorni festivi alle 10 alle 12 e dalle 14 alle 19 - Dall'entrata in vigore dell'ora legale fino al ritorno dell'orario solare, il giovedì, venerdì e sabato dalle 21 alle 1 del giorno seguente",
+        "count" : "3"
+      }, {
+        "item" : "In vigore nel periodo scolastico negli orari di entrata ed uscita degli alunni: dal lunedì al venerdì dalle ore 08.00 alle ore 08.30, dalle ore 13.00 alle ore 13.30, dalle ore 14.00 alle ore 14.30 e dalle ore 16.00 alle ore 16.30",
+        "count" : "1"
+      }, {
+        "item" : "In vigore nel periodo scolastico negli orari di entrata ed uscita degli alunni:dal lunedì al venerdì dalle ore 08.15 alle ore 08.40",
+        "count" : "1"
+      }, {
+        "item" : "In vigore nel periodo scolastico negli orari di entrata ed uscita degli alunni: dalle 8.15 alle 8.45 e dalle 16.15 alle 16.45 dal lunedì al venerdì",
+        "count" : "1"
+      }, {
+        "item" : "In vigore nel periodo scolastico negli orari di entrata ed uscita degli alunni:dal lunedì al venerdì dalle ore 07.45 alle ore 08.45, dalle ore 10.00 alle ore 10.50, dalle ore 13.50 alle ore 14.15 e dalle ore 16.15 alle ore 16.45",
+        "count" : "1"
+      }, {
+        "item" : "In vigore tutti i giorni dalle 0:00 alle 24:00",
+        "count" : "1"
+      }, {
+        "item" : "In vigore negli orari specificati in ogni singolo provvedimento: dalle 0.00 alle 24.00, eccetto da lunedì a venerdì dalle 7.00 alle 9.30",
+        "count" : "1"
+      }, {
+        "item" : "In vigore tutti i giorni dalle 22.00 alle 7.00",
+        "count" : "1"
+      }, {
+        "item" : "In vigore nel periodo scolastico negli orari di entrata ed uscita degli alunni: dalle 8.15 alle 8.45, dalle 12.15 alle 12.45, dalle 13.45 alle 14.15 e dalle 15.45 alle 16.15 dal lunedì al venerdì",
+        "count" : "1"
+      }, {
+        "item" : "In vigore 2 ore prima dell'inizio delle partite di calcio e fino a partita iniziata",
+        "count" : "1"
+      }, {
+        "item" : "In vigore nel periodo scolastico negli orari di entrata ed uscita degli alunni: dalle 8.15 alle 9.00, dalle 12.15 alle 12.45, dalle 14.15 alle 14.45 e dalle 16.00 alle 16.45 dal lunedì al venerdì",
+        "count" : "1"
+      }, {
+        "item" : "In vigore negli orari specificati in ogni singolo provvedimento: tutti i giorni dalle 17.30 alle 19.30",
+        "count" : "1"
+      }, {
+        "item" : "In vigore negli orari specificati in ogni singolo provvedimento: dalle 0.00 alle 24.00",
+        "count" : "1"
+      }, {
+        "item" : "In vigore per il campionato di calcio di serie A, con efficacia 2 ore prima dall’inizio delle partite, fino a 30 minuti oltre l’orario d’inizio.",
+        "count" : "1"
+      }, {
+        "item" : "In vigore nel periodo scolastico negli orari di entrata ed uscita degli alunni: dalle 8.15 alle 8.45, dalle 12.15 alle 12.45, dalle 13:45 alle 14:15 e dalle 15.45 alle 16.15 dal lunedì al venerdì",
+        "count" : "1"
+      }, {
+        "item" : "In vigore nel periodo scolastico negli orari di entrata ed uscita degli alunni: dal lunedì al venerdì dalle ore 08.00 alle ore 08.30; dalle ore 13.00 alle ore 13.30; dalle ore 14.00 alle ore 14.30 e dalle ore 16.00 alle ore 16.30",
+        "count" : "1"
+      } ],
+      "smallest" : "In vigore 2 ore prima dell'inizio delle partite di calcio e fino a partita iniziata",
+      "count" : "27",
+      "cardinality" : "18"
+    },
+    "format" : { }
+  } ],
+  "grants" : [ {
+    "inherited" : false,
+    "type" : "viewer",
+    "flags" : [ "public" ]
+  } ],
+  "license" : {
+    "name" : "Italian Open Data License 2.0",
+    "logoUrl" : "images/licenses/iodl.png",
+    "termsLink" : "http://www.dati.gov.it/iodl/2.0/"
+  },
+  "metadata" : {
+    "custom_fields" : {
+      "Microsite" : {
+        "Microsite" : "Comune di Bergamo"
+      }
+    },
+    "availableDisplayTypes" : [ "table", "fatrow", "page" ]
+  },
+  "owner" : {
+    "id" : "3sn6-kutt",
+    "displayName" : "Comune di Bergamo",
+    "profileImageUrlLarge" : "/api/users/3sn6-kutt/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/3sn6-kutt/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/3sn6-kutt/profile_images/TINY",
+    "screenName" : "Comune di Bergamo",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula" ]
+  },
+  "query" : { },
+  "rights" : [ "read" ],
+  "tableAuthor" : {
+    "id" : "3sn6-kutt",
+    "displayName" : "Comune di Bergamo",
+    "profileImageUrlLarge" : "/api/users/3sn6-kutt/profile_images/LARGE",
+    "profileImageUrlMedium" : "/api/users/3sn6-kutt/profile_images/THUMB",
+    "profileImageUrlSmall" : "/api/users/3sn6-kutt/profile_images/TINY",
+    "screenName" : "Comune di Bergamo",
+    "type" : "interactive",
+    "flags" : [ "acceptedEula" ]
+  },
+  "tags" : [ "comune bergamo", "ztl", "mobilità", "dati geografici" ],
+  "flags" : [ "default", "ownerMayBeContacted", "restorable", "restorePossibleForType" ]
+}
