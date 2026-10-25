@@ -91,3 +91,18 @@ else:
     print("FAILED pums scudo verde")
 
 print("files:", sorted(p.name for p in OUT.iterdir()))
+
+# --- Bergamo (sessione Bergamo, vedi docs/fonti-bergamo.md) ---
+# Dati aperti ufficiali del Comune di Bergamo su dati.lombardia.it (pubblico dominio), che da qui non si raggiungono:
+# «Mappa Zone a Traffico Limitato» (jhcz-yki3, perimetri) e «Zone a Traffico Limitato» (tkwz-spd9, tabella con geometrie)
+for ds in ["jhcz-yki3", "tkwz-spd9"]:
+    meta = get(f"https://www.dati.lombardia.it/api/views/{ds}.json", tries=3)
+    if meta: (OUT / f"bergamo-od-{ds}-meta.json").write_bytes(meta); print("ok bergamo meta", ds, len(meta))
+    raw = get(f"https://www.dati.lombardia.it/api/geospatial/{ds}?method=export&format=GeoJSON", tries=3)
+    if not raw or not raw.lstrip().startswith(b"{"):
+        raw = get(f"https://www.dati.lombardia.it/resource/{ds}.geojson?$limit=5000", tries=3)
+    if raw and raw.lstrip().startswith(b"{"): (OUT / f"bergamo-od-{ds}.geojson").write_bytes(raw); print("ok bergamo od", ds, len(raw))
+    else: print("FAILED bergamo od", ds)
+    csv = get(f"https://www.dati.lombardia.it/api/views/{ds}/rows.csv?accessType=DOWNLOAD", tries=2)
+    if csv: (OUT / f"bergamo-od-{ds}.csv").write_bytes(csv); print("ok bergamo csv", ds, len(csv))
+# --- fine Bergamo ---
