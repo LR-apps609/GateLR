@@ -3,8 +3,11 @@
 # (www.comune.napoli.it, «ZTL e Aree Pedonali») salvate come testo in data/raw/napoli/ (fonti e date in docs/fonti-napoli.md).
 # Ogni frase citata viene ricontrollata parola per parola sui testi salvati: se il Comune cambia la pagina, lo script si ferma.
 #
-# Geometria: il Comune non pubblica perimetri o varchi in dati aperti (le mappe sono PDF su static-www.comune.napoli.it,
-# che da questa rete non si raggiunge). Se qualcuno salva un perimetro verificato in data/raw/napoli/perimetri.geojson
+# PDF del Comune (static-www.comune.napoli.it, raggiungibile dal 25/10/2026) salvati con il testo in data/raw/napoli/:
+# disciplinare dei contrassegni (D.G.C. 1205/2011), moduli 2026 per alberghi (006) e aree private (010), O.D. 716 e 1219/2026
+# (via Ferdinando Russo), O.S. 604/2012 (veicoli elettrici), D.G.C. 867/2014 (Centro Antico).
+#
+# Geometria: il Comune non pubblica perimetri o varchi in dati aperti (le mappe sono PDF di immagini). Se qualcuno salva un perimetro verificato in data/raw/napoli/perimetri.geojson
 # (un poligono per zona, proprietà "gatelr_id" = id della zona) lo script usa quello.
 # Altrimenti usa OpenStreetMap (data/raw/geo/napoli-ztl.json e napoli-gates.json, scaricati da Tools/fetch_geo.py,
 # © OpenStreetMap contributors, ODbL 1.0): una relazione per zona (OSM_ZONES). Una zona senza perimetro non esce.
@@ -78,9 +81,10 @@ def link(en, it, de, url):
     return {"title": en, "title_it": it, "title_de": de, "url": url}
 
 
-# Festivi nazionali a data fissa e loro vigilie («prefestivi»): il modello di GateLR conosce solo i giorni della settimana
-# e le stagioni, quindi i festivi e prefestivi infrasettimanali si scrivono come date. Pasquetta (data mobile) manca: nota.
-# 19 settembre (San Gennaro, patrono): contato come festivo, con nota.
+# Festivi: le zone con orari «festivi e prefestivi» hanno holidaysAsSunday (un festivo infrasettimanale, Pasquetta e il
+# 19 settembre compresi, prende l'orario della domenica) e la città ha localHolidays ["09-19"] (San Gennaro, patrono).
+# I prefestivi non hanno un campo: le vigilie dei festivi a data fissa si scrivono come date (EVES). Le fasce sulle date
+# dei festivi fissi (FIXED_HOLIDAYS) restano per le versioni dell'app che non conoscono holidaysAsSunday.
 FIXED_HOLIDAYS = ["01-01", "01-06", "04-25", "05-01", "06-02", "08-15", "09-19", "11-01", "12-08", "12-25", "12-26"]
 EVES = ["12-31", "01-05", "04-24", "04-30", "06-01", "08-14", "09-18", "10-31", "12-07", "12-24"]
 
@@ -96,21 +100,24 @@ LINKS = [link("Naples: ZTLs and pedestrian areas (all zones)", "Napoli: ZTL e ar
 P_GEOMETRY = ("Perimeter from OpenStreetMap, to be checked against the official map (a PDF on the city's site).",
               "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale (un PDF sul sito del Comune).",
               "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen (ein PDF auf der Seite der Stadt).")
-P_ELECTRIC = ("Electric and hybrid cars: the city's pages list no exemption; the 2012 ordinance on electric cars (a PDF on the city's site) could not be read. Treat them like any other car.",
-              "Auto elettriche e ibride: le pagine del Comune non indicano esenzioni; l'ordinanza del 2012 sui veicoli elettrici (PDF sul sito del Comune) non si è potuta leggere. Considerale come le altre auto.",
-              "Elektro- und Hybridautos: Die Seiten der Stadt nennen keine Ausnahme; die Verordnung von 2012 zu Elektroautos (PDF auf der Seite der Stadt) war nicht lesbar. Behandle sie wie andere Autos.")
-P_HOTEL = ("Hotel guests: the city lists 'customers of hotels' among those who may enter, but the deadline for the hotel to register your plate is in the rules PDF that could not be read. Ask the hotel before driving in.",
-           "Ospiti degli hotel: il Comune elenca i «clienti degli alberghi» tra chi può entrare, ma la scadenza per registrare la targa è nel disciplinare (PDF) che non si è potuto leggere. Chiedi all'hotel prima di entrare.",
-           "Hotelgäste: Die Stadt nennt „Kunden der Hotels“ unter den Berechtigten, aber die Frist für die Meldung des Kennzeichens steht im Regel-PDF, das nicht lesbar war. Frag das Hotel vor der Einfahrt.")
-P_HOTEL_UNKNOWN = ("Hotel guests: this zone's page doesn't say whether hotels can register guests' plates. GateLR assumes they can't.",
-                   "Ospiti degli hotel: la pagina di questa zona non dice se gli alberghi possono registrare le targhe dei clienti. GateLR presume di no.",
-                   "Hotelgäste: Die Seite dieser Zone sagt nicht, ob Hotels Kennzeichen von Gästen melden können. GateLR geht davon aus, dass nicht.")
-P_EASTER = ("Easter Monday (a public holiday on a moving date) is not in GateLR's calendar for this zone: on that day check the sign at the gate.",
-            "Il lunedì di Pasqua (festivo a data mobile) non è nel calendario di GateLR per questa zona: quel giorno guarda il cartello al varco.",
-            "Ostermontag (Feiertag mit wechselndem Datum) fehlt in GateLRs Kalender für diese Zone: an dem Tag das Schild am Zugang prüfen.")
-P_PATRON = ("19 September (San Gennaro, patron saint of Naples): GateLR counts it as a holiday; the city's page doesn't say so explicitly.",
-            "19 settembre (San Gennaro, patrono di Napoli): GateLR lo conta come festivo; la pagina del Comune non lo dice in modo esplicito.",
-            "19. September (San Gennaro, Schutzpatron Neapels): GateLR zählt ihn als Feiertag; die Seite der Stadt sagt das nicht ausdrücklich.")
+P_ELECTRIC = ("Electric cars: no free entry. Under a 2012 mayor's order, fully electric vehicles may apply for a paid annual permit (at the non-residents' rate); hybrids are not included. Without that permit, treat them like any other car.",
+              "Auto elettriche: niente accesso libero. Con un'ordinanza sindacale del 2012 i veicoli solo elettrici possono chiedere un'autorizzazione annuale a pagamento (con la tariffa dei non residenti); le ibride no. Senza quel permesso, considerale come le altre auto.",
+              "Elektroautos: keine freie Einfahrt. Nach einer Verordnung des Bürgermeisters von 2012 können reine Elektrofahrzeuge eine kostenpflichtige Jahresgenehmigung beantragen (zum Tarif für Nichtansässige); Hybride nicht. Ohne diese Genehmigung wie andere Autos behandeln.")
+P_HOTEL = ("Hotel guests: the hotel registers your plate itself in the city's online system (Smartmobility) for the length of your stay, but it gets only as many permits as it has parking spaces of its own or in an agreed garage. "
+           "Neither the rules (2011) nor the 2026 forms give a deadline after entry: have the plate registered before you drive in.",
+           "Ospiti degli hotel: l'albergo registra la targa da sé nel sistema online del Comune (Smartmobility) per la durata del soggiorno, ma ha tanti permessi quanti sono i suoi posti auto, propri o in convenzione con un'autorimessa. "
+           "Né il disciplinare (2011) né i moduli del 2026 danno un termine dopo l'ingresso: fai registrare la targa prima di entrare.",
+           "Hotelgäste: Das Hotel meldet dein Kennzeichen selbst im Online-System der Stadt (Smartmobility) für die Dauer des Aufenthalts, hat aber nur so viele Genehmigungen wie eigene oder vertraglich gebundene Garagenplätze. "
+           "Weder die Regeln (2011) noch die Formulare von 2026 nennen eine Frist nach der Einfahrt: Lass das Kennzeichen vor der Einfahrt melden.")
+P_HOTEL_FORM = ("This zone's page doesn't mention hotels, but the city's 2026 permit form for hotels lists it among the zones where hotels register guests' plates in Smartmobility.",
+                "La pagina di questa zona non parla di alberghi, ma il modulo 2026 del Comune per gli alberghi la elenca tra le ZTL in cui gli alberghi registrano le targhe dei clienti su Smartmobility.",
+                "Die Seite dieser Zone erwähnt keine Hotels, aber das Formular der Stadt für Hotels (2026) führt sie unter den Zonen, in denen Hotels Kennzeichen der Gäste in Smartmobility melden.")
+P_EASTER = ("Weekday public holidays, Easter Monday included, follow the Sunday hours. The eves of holidays are counted only for holidays on a fixed date (Easter Monday's eve is a Sunday anyway). The city's acts don't define «festivi e prefestivi».",
+            "I festivi infrasettimanali, lunedì di Pasqua compreso, seguono l'orario della domenica. I prefestivi sono contati solo per i festivi a data fissa (la vigilia di Pasquetta è comunque domenica). Gli atti del Comune non definiscono «festivi e prefestivi».",
+            "Feiertage unter der Woche, Ostermontag eingeschlossen, haben die Sonntagszeiten. Vortage zählen nur bei Feiertagen mit festem Datum (der Vortag des Ostermontags ist ohnehin ein Sonntag). Die Akte der Stadt definieren «festivi e prefestivi» nicht.")
+P_PATRON = ("19 September (San Gennaro, patron saint of Naples): GateLR counts it as a holiday (Sunday hours, 18 September as its eve); the city's pages and ordinances don't say so explicitly.",
+            "19 settembre (San Gennaro, patrono di Napoli): GateLR lo conta come festivo (orario della domenica, il 18 come prefestivo); le pagine e le ordinanze del Comune non lo dicono in modo esplicito.",
+            "19. September (San Gennaro, Schutzpatron Neapels): GateLR zählt ihn als Feiertag (Sonntagszeiten, der 18. als Vortag); Seiten und Verordnungen der Stadt sagen das nicht ausdrücklich.")
 P_EVENTS = ("The city changes traffic rules for events and works with short-notice orders: check the news on comune.napoli.it.",
             "Il Comune cambia la viabilità per eventi e lavori con ordinanze a breve preavviso: controlla le notizie su comune.napoli.it.",
             "Die Stadt ändert den Verkehr bei Veranstaltungen und Bauarbeiten kurzfristig: Meldungen auf comune.napoli.it prüfen.")
@@ -121,6 +128,9 @@ P_GATES_SOLE = ("The four gates don't all keep the same hours: from 5 pm only th
 NO_TICKET_EN = " There is no day ticket for visitors: temporary permits are only for documented needs (moving house, works, medical visits for people with walking problems), requested by email."
 NO_TICKET_IT = " Non c'è un biglietto giornaliero per i turisti: i permessi temporanei sono solo per necessità documentate (traslochi, lavori, visite mediche per chi ha problemi a camminare) e si chiedono per email."
 NO_TICKET_DE = " Es gibt kein Tagesticket für Besucher: befristete Genehmigungen nur bei nachgewiesenem Bedarf (Umzug, Arbeiten, Arztbesuche bei Gehbehinderung), per E-Mail zu beantragen."
+HOTEL_EN = " If your hotel is inside and has parking spaces, it can register your plate before you arrive."
+HOTEL_IT = " Se l'hotel è dentro e ha posti auto, può registrare la tua targa prima che arrivi."
+HOTEL_DE = " Liegt dein Hotel innen und hat Parkplätze, kann es dein Kennzeichen vor der Ankunft melden."
 DISABLED_EN = " Disabled badge holders must have the plate registered first (or report the transit within 48 hours)."
 DISABLED_IT = " Chi ha il contrassegno disabili deve far registrare prima la targa (o comunicare il transito entro 48 ore)."
 DISABLED_DE = " Inhaber eines Behindertenausweises müssen das Kennzeichen vorher registrieren lassen (oder die Durchfahrt binnen 48 Stunden melden)."
@@ -162,6 +172,20 @@ def zones():
     check("transito-persone-con-disabilita-nelle-ztl-e-ap", "possono registrare fino a due targhe",
           "possono comunicare l’avvenuto transito entro 48 ore")
     check("ztl-e-aree-pedonali-modulistica", "Dei clienti degli alberghi, delle autorimesse (per abbonamenti mensili/plurimensili) e delle autofficine operanti all’interno della ZTL.")
+    # PDF ufficiali (static-www.comune.napoli.it, 25/10/2026)
+    check("disciplinare-rilascio-contrassegni",
+          "Per consentire l'accesso alle strutture alberghiere della Zona a Traffico Limitato, i gestori delle strutture devono provvedere a comunicare le targhe dei propri clienti.",
+          "Ai gestori degli alberghi potranno essere rilasciati un numero di contrassegni pari al numero di posti auto della struttura e/o convenzionati con autorimesse",
+          "periodo di validità che dovrà necessariamente corrispondere con la durata del soggiorno del cliente")
+    check("006-ZTL-ALBERGHI-AUTORIMESSE-AUTOFFICINE-V_03",
+          "registrazione in autonomia, nel sistema Smartmobility, delle targhe dei veicoli dei propri clienti",
+          "(Il numero dei permessi non può superare il numero dei posti auto e/o moto dichiarati)",
+          "Centro Antico;", "Tarsia - Pignasecca – Dante;", "Belledonne – Cavallerizza;", "Mezzocannone;", "Ferdinando Russo.")
+    check("os_120612_0604", "su cui sia installato esclusivamente un motore elettrico", "le relative autorizzazioni, avranno validità annuale",
+          "saranno soggette a pagamento secondo la tariffa")
+    check("OD_1219_030726_ZTL-Ferdinando-Russo", "dal 1° aprile al 30 giugno, dalle ore 08:00 alle ore 19:00, nei soli giorni festivi e prefestivi;",
+          "dal 1° luglio al 31 agosto, dalle ore 08:00 alle ore 19:00, tutti i giorni;", "B) ATTIVARE in ESERCIZIO il varco telematico di via Ferdinando Russo",
+          "registrare direttamente nel sistema informatico smartmobility.anm.it le targhe dei veicoli autorizzati al transito")
 
     centro_links = LINKS[:1] + [link("Naples: Centro Antico ZTL (gates and hours)", "Napoli: ZTL del Centro Antico (varchi e orari)",
                                      "Neapel: ZTL Centro Antico (Kameras und Zeiten)", CENTRO_AREA)] + LINKS[1:]
@@ -186,7 +210,7 @@ def zones():
          "summary": "Closed without a permit every day from 9 am, public holidays included. Three gates switch off at 5 pm; the via del Sole gate and the Mezzocannone gate stay on until 10 pm Monday to Thursday and until 2 am Friday to Sunday. Motorbikes and scooters may enter (not in via Mezzocannone). Piazza del Gesù inside is a pedestrian area, closed day and night." + NO_TICKET_EN + " If your hotel is inside, it can apply for a permit for its guests' cars: ask it before arriving." + DISABLED_EN,
          "summary_it": "Chiusa senza permesso tutti i giorni dalle 9, festivi compresi. Tre varchi si spengono alle 17; quelli di via del Sole e di Mezzocannone restano accesi fino alle 22 dal lunedì al giovedì e fino alle 2 da venerdì a domenica. Moto e scooter possono entrare (non in via Mezzocannone). Piazza del Gesù, all'interno, è area pedonale chiusa giorno e notte." + NO_TICKET_IT + " Se l'hotel è dentro, può chiedere il permesso per le auto dei clienti: chiedilo prima di arrivare." + DISABLED_IT,
          "summary_de": "Ohne Genehmigung täglich ab 9 Uhr gesperrt, auch an Feiertagen. Drei Kameras schalten um 17 Uhr ab; die in der via del Sole und die am Mezzocannone bleiben Montag bis Donnerstag bis 22 Uhr und Freitag bis Sonntag bis 2 Uhr an. Motorräder und Roller dürfen hinein (nicht in die via Mezzocannone). Die Piazza del Gesù im Inneren ist Fußgängerzone, Tag und Nacht gesperrt." + NO_TICKET_DE + " Liegt dein Hotel innen, kann es eine Genehmigung für die Autos seiner Gäste beantragen: vorher nachfragen." + DISABLED_DE,
-         "windows": late_week + late_holidays, "freeOnHolidays": False, "hotelCanRegister": True,
+         "windows": late_week + late_holidays, "freeOnHolidays": False, "holidaysAsSunday": True, "hotelCanRegister": True,
          "source": source(CENTRO_AREA, Q_CENTRO,
                           ("via del Sole (after the hospital entrance) – on Monday to Thursday from 9 am to 10 pm and Friday, Saturday, Sunday, holidays and the eves of holidays from 9 am to midnight and until 2 am the next day; – via Miroballo – on every day from 9 am to 5 pm; – via Duomo (at piazza Museo Filangieri) – on every day from 9 am to 5 pm; – via Santa Sofia (at via Oronzio Costa) – on every day from 9 am to 5 pm.",
                            "via del Sole (nach der Krankenhauseinfahrt) – an Montag bis Donnerstag von 9 bis 22 Uhr und Freitag, Samstag, Sonntag, Feiertage und deren Vortage von 9 bis 24 Uhr und bis 2 Uhr am Folgetag; – via Miroballo – täglich von 9 bis 17 Uhr; – via Duomo (Höhe piazza Museo Filangieri) – täglich von 9 bis 17 Uhr; – via Santa Sofia (Höhe via Oronzio Costa) – täglich von 9 bis 17 Uhr."),
@@ -199,24 +223,24 @@ def zones():
                           "https://static-www.comune.napoli.it/wp-content/uploads/2025/05/dgc_041214_0867.pdf")},
         {"id": "napoli-tarsia", "name": "Tarsia · Pignasecca–Dante ZTL", "name_it": "Tarsia · ZTL Tarsia-Pignasecca-Dante",
          "name_de": "Tarsia · ZTL Tarsia-Pignasecca-Dante", "kind": "restricted",
-         "summary": "Closed without a permit every day from 9 am to 6 pm, public holidays included. Via Domenico Soriano and via Brombeis inside are pedestrian areas, closed all day. Motorbikes and scooters may enter (not via Brombeis)." + NO_TICKET_EN + DISABLED_EN,
-         "summary_it": "Chiusa senza permesso tutti i giorni dalle 9 alle 18, festivi compresi. Via Domenico Soriano e via Brombeis, all'interno, sono aree pedonali chiuse tutto il giorno. Moto e scooter possono entrare (non in via Brombeis)." + NO_TICKET_IT + DISABLED_IT,
-         "summary_de": "Ohne Genehmigung täglich von 9 bis 18 Uhr gesperrt, auch an Feiertagen. Via Domenico Soriano und via Brombeis im Inneren sind ganztägig Fußgängerzonen. Motorräder und Roller dürfen hinein (nicht in die via Brombeis)." + NO_TICKET_DE + DISABLED_DE,
-         "windows": [window(ALL, hm(9), hm(18))], "freeOnHolidays": False, "hotelCanRegister": False,
+         "summary": "Closed without a permit every day from 9 am to 6 pm, public holidays included. Via Domenico Soriano and via Brombeis inside are pedestrian areas, closed all day. Motorbikes and scooters may enter (not via Brombeis)." + NO_TICKET_EN + HOTEL_EN + DISABLED_EN,
+         "summary_it": "Chiusa senza permesso tutti i giorni dalle 9 alle 18, festivi compresi. Via Domenico Soriano e via Brombeis, all'interno, sono aree pedonali chiuse tutto il giorno. Moto e scooter possono entrare (non in via Brombeis)." + NO_TICKET_IT + HOTEL_IT + DISABLED_IT,
+         "summary_de": "Ohne Genehmigung täglich von 9 bis 18 Uhr gesperrt, auch an Feiertagen. Via Domenico Soriano und via Brombeis im Inneren sind ganztägig Fußgängerzonen. Motorräder und Roller dürfen hinein (nicht in die via Brombeis)." + NO_TICKET_DE + HOTEL_DE + DISABLED_DE,
+         "windows": [window(ALL, hm(9), hm(18))], "freeOnHolidays": False, "hotelCanRegister": True,
          "source": source(TARSIA, Q_TARSIA,
                           ("The 'Tarsia-Pignasecca-Dante' ZTL is in force every day from 9 am to 6 pm, and all authorised vehicles displaying the permit may enter.",
                            "Die ZTL „Tarsia-Pignasecca-Dante“ gilt täglich von 9 bis 18 Uhr; alle berechtigten Fahrzeuge mit Ausweis dürfen hinein."),
-                          [P_GEOMETRY, P_HOTEL_UNKNOWN, P_ELECTRIC, P_EVENTS], LINKS, "Delibera di G.C. n. 472 del 30/11/2022",
+                          [P_GEOMETRY, P_HOTEL_FORM, P_HOTEL, P_ELECTRIC, P_EVENTS], LINKS, "Delibera di G.C. n. 472 del 30/11/2022",
                           "https://static-www.comune.napoli.it/wp-content/uploads/2025/05/dgc_472_301122.pdf")},
         {"id": "napoli-belledonne", "name": "Belledonne · Martiri–Poerio night ZTL", "name_it": "Belledonne · ZTL Belledonne-Martiri-Poerio",
          "name_de": "Belledonne · Nacht-ZTL Martiri-Poerio", "kind": "restricted",
-         "summary": "Closed without a permit every day from 7 pm to 7 am (the nightlife streets around piazza dei Martiri in Chiaia), public holidays included." + NO_TICKET_EN + DISABLED_EN,
-         "summary_it": "Chiusa senza permesso tutti i giorni dalle 19 alle 7 (le strade della movida intorno a piazza dei Martiri, a Chiaia), festivi compresi." + NO_TICKET_IT + DISABLED_IT,
-         "summary_de": "Ohne Genehmigung täglich von 19 bis 7 Uhr gesperrt (die Ausgehstraßen um die piazza dei Martiri in Chiaia), auch an Feiertagen." + NO_TICKET_DE + DISABLED_DE,
-         "windows": [window(ALL, hm(19), hm(7))], "freeOnHolidays": False, "hotelCanRegister": False,
+         "summary": "Closed without a permit every day from 7 pm to 7 am (the nightlife streets around piazza dei Martiri in Chiaia), public holidays included." + NO_TICKET_EN + HOTEL_EN + DISABLED_EN,
+         "summary_it": "Chiusa senza permesso tutti i giorni dalle 19 alle 7 (le strade della movida intorno a piazza dei Martiri, a Chiaia), festivi compresi." + NO_TICKET_IT + HOTEL_IT + DISABLED_IT,
+         "summary_de": "Ohne Genehmigung täglich von 19 bis 7 Uhr gesperrt (die Ausgehstraßen um die piazza dei Martiri in Chiaia), auch an Feiertagen." + NO_TICKET_DE + HOTEL_DE + DISABLED_DE,
+         "windows": [window(ALL, hm(19), hm(7))], "freeOnHolidays": False, "hotelCanRegister": True,
          "source": source(BELLE, Q_BELLE,
                           ("The ZTL is active from 7 pm to 7 am every day of the week", "Die ZTL ist an allen Wochentagen von 19 bis 7 Uhr aktiv"),
-                          [P_GEOMETRY, P_HOTEL_UNKNOWN, P_ELECTRIC,
+                          [P_GEOMETRY, P_HOTEL_FORM, P_HOTEL, P_ELECTRIC,
                            ("A rental-car guide says this ZTL is active 24 hours a day; the city's page (updated 24/08/2026) says 7 pm–7 am. GateLR follows the city.",
                             "Una guida di autonoleggio dice che questa ZTL è attiva 24 ore su 24; la pagina del Comune (aggiornata il 24/08/2026) dice 19–7. GateLR segue il Comune.",
                             "Ein Mietwagen-Ratgeber nennt diese ZTL rund um die Uhr aktiv; die Seite der Stadt (Stand 24.08.2026) sagt 19–7 Uhr. GateLR folgt der Stadt."),
@@ -227,7 +251,7 @@ def zones():
          "summary": "Only in the Christmas season, 8 December to 6 January: closed without a permit on Saturdays, Sundays, public holidays and the eves of holidays from 10 am to 2 pm and 4 to 8 pm. The rest of the year it is open. Motorbikes and scooters may enter." + NO_TICKET_EN + " If your hotel is inside, it can apply for a permit for its guests' cars.",
          "summary_it": "Solo nel periodo natalizio, dall'8 dicembre al 6 gennaio: chiusa senza permesso il sabato, la domenica, nei festivi e prefestivi dalle 10 alle 14 e dalle 16 alle 20. Il resto dell'anno è aperta. Moto e scooter possono entrare." + NO_TICKET_IT + " Se l'hotel è dentro, può chiedere il permesso per le auto dei clienti.",
          "summary_de": "Nur in der Weihnachtszeit, 8. Dezember bis 6. Januar: ohne Genehmigung gesperrt an Samstagen, Sonntagen, Feiertagen und deren Vortagen von 10 bis 14 und 16 bis 20 Uhr. Den Rest des Jahres offen. Motorräder und Roller dürfen hinein." + NO_TICKET_DE + " Liegt dein Hotel innen, kann es eine Genehmigung für die Autos seiner Gäste beantragen.",
-         "windows": morelli, "freeOnHolidays": False, "hotelCanRegister": True,
+         "windows": morelli, "freeOnHolidays": False, "holidaysAsSunday": True, "hotelCanRegister": True,
          "source": source(MORELLI, Q_MORELLI,
                           ("The ZTL is active every year from 8 December to 6 January on all Saturdays, Sundays, holidays and the eves of holidays from 10 am to 2 pm and from 4 pm to 8 pm.",
                            "Die ZTL ist jedes Jahr vom 8. Dezember bis 6. Januar an allen Samstagen, Sonntagen, Feiertagen und deren Vortagen von 10 bis 14 und von 16 bis 20 Uhr aktiv."),
@@ -246,17 +270,14 @@ def zones():
          "summary": "The road down to the sea at Posillipo, from 8 am to 7 pm: every day in July and August; on Saturdays, Sundays, public holidays and the eves of holidays from April to June and in September. Open from October to March. If your hotel is on the street, it registers your plate itself in the city's online system." + NO_TICKET_EN,
          "summary_it": "La strada che scende al mare a Posillipo, dalle 8 alle 19: tutti i giorni a luglio e agosto; il sabato, la domenica, nei festivi e prefestivi da aprile a giugno e a settembre. Aperta da ottobre a marzo. Se l'hotel è sulla strada, registra lui la tua targa nel sistema online del Comune." + NO_TICKET_IT,
          "summary_de": "Die Straße hinunter zum Meer in Posillipo, 8 bis 19 Uhr: täglich im Juli und August; samstags, sonntags, an Feiertagen und deren Vortagen von April bis Juni und im September. Oktober bis März offen. Liegt dein Hotel an der Straße, meldet es dein Kennzeichen selbst im Online-System der Stadt." + NO_TICKET_DE,
-         "windows": russo, "freeOnHolidays": False, "hotelCanRegister": True,
+         "windows": russo, "freeOnHolidays": False, "holidaysAsSunday": True, "hotelCanRegister": True,
          "source": source(RUSSO, Q_RUSSO,
                           ("from 1 April to 30 June, 8 am to 7 pm, on holidays and the eves of holidays only; • from 1 July to 31 August, 8 am to 7 pm, every day; • from 1 to 30 September, 8 am to 7 pm, on holidays and the eves of holidays only.",
                            "vom 1. April bis 30. Juni, 8 bis 19 Uhr, nur an Feiertagen und deren Vortagen; • vom 1. Juli bis 31. August, 8 bis 19 Uhr, täglich; • vom 1. bis 30. September, 8 bis 19 Uhr, nur an Feiertagen und deren Vortagen."),
-                          [P_GEOMETRY,
-                           ("Hotels register guests' plates in the ANM 'Smartmobility' system; the deadline isn't stated on the page.",
-                            "Gli alberghi registrano le targhe dei clienti nel sistema «Smartmobility» di ANM; la scadenza non è scritta nella pagina.",
-                            "Hotels melden Kennzeichen der Gäste im ANM-System „Smartmobility“; eine Frist steht nicht auf der Seite."),
-                           ("Holidays and their eves: GateLR counts Saturdays and Sundays and the fixed holidays in the period (25 April, 1 May, 2 June) with the day before each.",
-                            "Festivi e prefestivi: GateLR conta sabati e domeniche e i festivi fissi del periodo (25 aprile, 1° maggio, 2 giugno) con il giorno prima.",
-                            "Feiertage und Vortage: GateLR zählt Samstage, Sonntage und die festen Feiertage im Zeitraum (25. April, 1. Mai, 2. Juni) mit dem Vortag."),
+                          [P_GEOMETRY, P_HOTEL,
+                           ("Holidays and their eves: GateLR counts Saturdays and Sundays, Easter Monday, the fixed holidays in the period (25 April, 1 May, 2 June, 19 September) and the day before each fixed holiday.",
+                            "Festivi e prefestivi: GateLR conta sabati e domeniche, il lunedì di Pasqua, i festivi fissi del periodo (25 aprile, 1° maggio, 2 giugno, 19 settembre) e il giorno prima di ciascun festivo fisso.",
+                            "Feiertage und Vortage: GateLR zählt Samstage, Sonntage, den Ostermontag, die festen Feiertage im Zeitraum (25. April, 1. Mai, 2. Juni, 19. September) und den Tag vor jedem festen Feiertag."),
                            P_EASTER, P_PATRON, P_ELECTRIC, P_EVENTS], LINKS,
                           "O.D. n. 1219 del 03/07/2026 (attivazione in esercizio ZTL di via Ferdinando Russo)", RUSSO_OD)},
     ]
@@ -329,13 +350,13 @@ def build():
         else:
             print("zona senza perimetro, esclusa:", z["id"])
     order = ["id", "name", "name_it", "name_de", "kind", "summary", "summary_it", "summary_de", "perimeter", "gates",
-             "windows", "freeOnHolidays", "exemptFuels", "hotelCanRegister", "source"]
-    return [{k: z[k] for k in order} for z in kept], len(out)
+             "windows", "freeOnHolidays", "holidaysAsSunday", "exemptFuels", "hotelCanRegister", "source"]
+    return [{k: z[k] for k in order if k in z} for z in kept], len(out)
 
 
 zs, total = build()
 city = {"id": "napoli", "name": "Naples", "name_it": "Napoli", "name_de": "Neapel", "center": {"lat": 40.8484, "lon": 14.2560},
-        "zones": zs, "status": "draft",
+        "localHolidays": ["09-19"], "zones": zs, "status": "draft",
         "license": "Hours and rules: Comune di Napoli (comune.napoli.it). Perimeters and gates: " + osm_geo.ODBL + " (approximate, not official)."}
 # Una città esce nell'app solo se ogni zona ha il suo perimetro; altrimenti resta tra le bozze (data/drafts)
 ready = bool(zs)

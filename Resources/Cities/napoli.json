@@ -7,6 +7,9 @@
   "lat": 40.8484,
   "lon": 14.256
  },
+ "localHolidays": [
+  "09-19"
+ ],
  "zones": [
   {
    "id": "napoli-centro-antico",
@@ -694,6 +697,7 @@
     }
    ],
    "freeOnHolidays": false,
+   "holidaysAsSunday": true,
    "exemptFuels": [],
    "hotelCanRegister": true,
    "source": {
@@ -710,30 +714,30 @@
      "Perimeter from OpenStreetMap, to be checked against the official map (a PDF on the city's site).",
      "The four gates don't all keep the same hours: from 5 pm only the via del Sole gate stays on (until 10 pm Monday to Thursday, until 2 am Friday to Sunday and on holidays and the eves of holidays). GateLR shows the zone closed for as long as any gate is on.",
      "Mezzocannone (its own gate, same hours as via del Sole) and the pedestrian area of piazza del Gesù (closed 24 hours) lie inside this outline, as on the city's single perimeter; GateLR doesn't show them separately.",
-     "Hotel guests: the city lists 'customers of hotels' among those who may enter, but the deadline for the hotel to register your plate is in the rules PDF that could not be read. Ask the hotel before driving in.",
-     "Electric and hybrid cars: the city's pages list no exemption; the 2012 ordinance on electric cars (a PDF on the city's site) could not be read. Treat them like any other car.",
-     "Easter Monday (a public holiday on a moving date) is not in GateLR's calendar for this zone: on that day check the sign at the gate.",
-     "19 September (San Gennaro, patron saint of Naples): GateLR counts it as a holiday; the city's page doesn't say so explicitly.",
+     "Hotel guests: the hotel registers your plate itself in the city's online system (Smartmobility) for the length of your stay, but it gets only as many permits as it has parking spaces of its own or in an agreed garage. Neither the rules (2011) nor the 2026 forms give a deadline after entry: have the plate registered before you drive in.",
+     "Electric cars: no free entry. Under a 2012 mayor's order, fully electric vehicles may apply for a paid annual permit (at the non-residents' rate); hybrids are not included. Without that permit, treat them like any other car.",
+     "Weekday public holidays, Easter Monday included, follow the Sunday hours. The eves of holidays are counted only for holidays on a fixed date (Easter Monday's eve is a Sunday anyway). The city's acts don't define «festivi e prefestivi».",
+     "19 September (San Gennaro, patron saint of Naples): GateLR counts it as a holiday (Sunday hours, 18 September as its eve); the city's pages and ordinances don't say so explicitly.",
      "The city changes traffic rules for events and works with short-notice orders: check the news on comune.napoli.it."
     ],
     "pending_it": [
      "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale (un PDF sul sito del Comune).",
      "I quattro varchi non hanno lo stesso orario: dalle 17 resta acceso solo quello di via del Sole (fino alle 22 dal lunedì al giovedì, fino alle 2 da venerdì a domenica e nei festivi e prefestivi). GateLR mostra la zona chiusa finché è acceso almeno un varco.",
      "Mezzocannone (varco proprio, stesso orario di via del Sole) e l'area pedonale di piazza del Gesù (chiusa 24 ore su 24) stanno dentro questo perimetro, come nel perimetro unico del Comune; GateLR non le mostra a parte.",
-     "Ospiti degli hotel: il Comune elenca i «clienti degli alberghi» tra chi può entrare, ma la scadenza per registrare la targa è nel disciplinare (PDF) che non si è potuto leggere. Chiedi all'hotel prima di entrare.",
-     "Auto elettriche e ibride: le pagine del Comune non indicano esenzioni; l'ordinanza del 2012 sui veicoli elettrici (PDF sul sito del Comune) non si è potuta leggere. Considerale come le altre auto.",
-     "Il lunedì di Pasqua (festivo a data mobile) non è nel calendario di GateLR per questa zona: quel giorno guarda il cartello al varco.",
-     "19 settembre (San Gennaro, patrono di Napoli): GateLR lo conta come festivo; la pagina del Comune non lo dice in modo esplicito.",
+     "Ospiti degli hotel: l'albergo registra la targa da sé nel sistema online del Comune (Smartmobility) per la durata del soggiorno, ma ha tanti permessi quanti sono i suoi posti auto, propri o in convenzione con un'autorimessa. Né il disciplinare (2011) né i moduli del 2026 danno un termine dopo l'ingresso: fai registrare la targa prima di entrare.",
+     "Auto elettriche: niente accesso libero. Con un'ordinanza sindacale del 2012 i veicoli solo elettrici possono chiedere un'autorizzazione annuale a pagamento (con la tariffa dei non residenti); le ibride no. Senza quel permesso, considerale come le altre auto.",
+     "I festivi infrasettimanali, lunedì di Pasqua compreso, seguono l'orario della domenica. I prefestivi sono contati solo per i festivi a data fissa (la vigilia di Pasquetta è comunque domenica). Gli atti del Comune non definiscono «festivi e prefestivi».",
+     "19 settembre (San Gennaro, patrono di Napoli): GateLR lo conta come festivo (orario della domenica, il 18 come prefestivo); le pagine e le ordinanze del Comune non lo dicono in modo esplicito.",
      "Il Comune cambia la viabilità per eventi e lavori con ordinanze a breve preavviso: controlla le notizie su comune.napoli.it."
     ],
     "pending_de": [
      "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen (ein PDF auf der Seite der Stadt).",
      "Die vier Kameras haben nicht dieselben Zeiten: Ab 17 Uhr ist nur die in der via del Sole an (bis 22 Uhr Montag bis Donnerstag, bis 2 Uhr Freitag bis Sonntag sowie an Feiertagen und deren Vortagen). GateLR zeigt die Zone gesperrt, solange irgendeine Kamera an ist.",
      "Mezzocannone (eigene Kamera, gleiche Zeiten wie via del Sole) und die Fußgängerzone Piazza del Gesù (rund um die Uhr gesperrt) liegen in dieser Grenze, wie im einzigen Perimeter der Stadt; GateLR zeigt sie nicht getrennt.",
-     "Hotelgäste: Die Stadt nennt „Kunden der Hotels“ unter den Berechtigten, aber die Frist für die Meldung des Kennzeichens steht im Regel-PDF, das nicht lesbar war. Frag das Hotel vor der Einfahrt.",
-     "Elektro- und Hybridautos: Die Seiten der Stadt nennen keine Ausnahme; die Verordnung von 2012 zu Elektroautos (PDF auf der Seite der Stadt) war nicht lesbar. Behandle sie wie andere Autos.",
-     "Ostermontag (Feiertag mit wechselndem Datum) fehlt in GateLRs Kalender für diese Zone: an dem Tag das Schild am Zugang prüfen.",
-     "19. September (San Gennaro, Schutzpatron Neapels): GateLR zählt ihn als Feiertag; die Seite der Stadt sagt das nicht ausdrücklich.",
+     "Hotelgäste: Das Hotel meldet dein Kennzeichen selbst im Online-System der Stadt (Smartmobility) für die Dauer des Aufenthalts, hat aber nur so viele Genehmigungen wie eigene oder vertraglich gebundene Garagenplätze. Weder die Regeln (2011) noch die Formulare von 2026 nennen eine Frist nach der Einfahrt: Lass das Kennzeichen vor der Einfahrt melden.",
+     "Elektroautos: keine freie Einfahrt. Nach einer Verordnung des Bürgermeisters von 2012 können reine Elektrofahrzeuge eine kostenpflichtige Jahresgenehmigung beantragen (zum Tarif für Nichtansässige); Hybride nicht. Ohne diese Genehmigung wie andere Autos behandeln.",
+     "Feiertage unter der Woche, Ostermontag eingeschlossen, haben die Sonntagszeiten. Vortage zählen nur bei Feiertagen mit festem Datum (der Vortag des Ostermontags ist ohnehin ein Sonntag). Die Akte der Stadt definieren «festivi e prefestivi» nicht.",
+     "19. September (San Gennaro, Schutzpatron Neapels): GateLR zählt ihn als Feiertag (Sonntagszeiten, der 18. als Vortag); Seiten und Verordnungen der Stadt sagen das nicht ausdrücklich.",
      "Die Stadt ändert den Verkehr bei Veranstaltungen und Bauarbeiten kurzfristig: Meldungen auf comune.napoli.it prüfen."
     ],
     "links": [
@@ -782,9 +786,9 @@
    "name_it": "Tarsia · ZTL Tarsia-Pignasecca-Dante",
    "name_de": "Tarsia · ZTL Tarsia-Pignasecca-Dante",
    "kind": "restricted",
-   "summary": "Closed without a permit every day from 9 am to 6 pm, public holidays included. Via Domenico Soriano and via Brombeis inside are pedestrian areas, closed all day. Motorbikes and scooters may enter (not via Brombeis). There is no day ticket for visitors: temporary permits are only for documented needs (moving house, works, medical visits for people with walking problems), requested by email. Disabled badge holders must have the plate registered first (or report the transit within 48 hours).",
-   "summary_it": "Chiusa senza permesso tutti i giorni dalle 9 alle 18, festivi compresi. Via Domenico Soriano e via Brombeis, all'interno, sono aree pedonali chiuse tutto il giorno. Moto e scooter possono entrare (non in via Brombeis). Non c'è un biglietto giornaliero per i turisti: i permessi temporanei sono solo per necessità documentate (traslochi, lavori, visite mediche per chi ha problemi a camminare) e si chiedono per email. Chi ha il contrassegno disabili deve far registrare prima la targa (o comunicare il transito entro 48 ore).",
-   "summary_de": "Ohne Genehmigung täglich von 9 bis 18 Uhr gesperrt, auch an Feiertagen. Via Domenico Soriano und via Brombeis im Inneren sind ganztägig Fußgängerzonen. Motorräder und Roller dürfen hinein (nicht in die via Brombeis). Es gibt kein Tagesticket für Besucher: befristete Genehmigungen nur bei nachgewiesenem Bedarf (Umzug, Arbeiten, Arztbesuche bei Gehbehinderung), per E-Mail zu beantragen. Inhaber eines Behindertenausweises müssen das Kennzeichen vorher registrieren lassen (oder die Durchfahrt binnen 48 Stunden melden).",
+   "summary": "Closed without a permit every day from 9 am to 6 pm, public holidays included. Via Domenico Soriano and via Brombeis inside are pedestrian areas, closed all day. Motorbikes and scooters may enter (not via Brombeis). There is no day ticket for visitors: temporary permits are only for documented needs (moving house, works, medical visits for people with walking problems), requested by email. If your hotel is inside and has parking spaces, it can register your plate before you arrive. Disabled badge holders must have the plate registered first (or report the transit within 48 hours).",
+   "summary_it": "Chiusa senza permesso tutti i giorni dalle 9 alle 18, festivi compresi. Via Domenico Soriano e via Brombeis, all'interno, sono aree pedonali chiuse tutto il giorno. Moto e scooter possono entrare (non in via Brombeis). Non c'è un biglietto giornaliero per i turisti: i permessi temporanei sono solo per necessità documentate (traslochi, lavori, visite mediche per chi ha problemi a camminare) e si chiedono per email. Se l'hotel è dentro e ha posti auto, può registrare la tua targa prima che arrivi. Chi ha il contrassegno disabili deve far registrare prima la targa (o comunicare il transito entro 48 ore).",
+   "summary_de": "Ohne Genehmigung täglich von 9 bis 18 Uhr gesperrt, auch an Feiertagen. Via Domenico Soriano und via Brombeis im Inneren sind ganztägig Fußgängerzonen. Motorräder und Roller dürfen hinein (nicht in die via Brombeis). Es gibt kein Tagesticket für Besucher: befristete Genehmigungen nur bei nachgewiesenem Bedarf (Umzug, Arbeiten, Arztbesuche bei Gehbehinderung), per E-Mail zu beantragen. Liegt dein Hotel innen und hat Parkplätze, kann es dein Kennzeichen vor der Ankunft melden. Inhaber eines Behindertenausweises müssen das Kennzeichen vorher registrieren lassen (oder die Durchfahrt binnen 48 Stunden melden).",
    "perimeter": [
     {
      "lat": 40.851078,
@@ -934,7 +938,7 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
-   "hotelCanRegister": false,
+   "hotelCanRegister": true,
    "source": {
     "authority": "City of Naples",
     "pageURL": "https://www.comune.napoli.it/articolo_tematico/trasporti-mobilita/ztl-e-aree-pedonali/ztl-tarsia-pignasecca-dante/",
@@ -947,20 +951,23 @@
     "reviewedByHuman": false,
     "pending": [
      "Perimeter from OpenStreetMap, to be checked against the official map (a PDF on the city's site).",
-     "Hotel guests: this zone's page doesn't say whether hotels can register guests' plates. GateLR assumes they can't.",
-     "Electric and hybrid cars: the city's pages list no exemption; the 2012 ordinance on electric cars (a PDF on the city's site) could not be read. Treat them like any other car.",
+     "This zone's page doesn't mention hotels, but the city's 2026 permit form for hotels lists it among the zones where hotels register guests' plates in Smartmobility.",
+     "Hotel guests: the hotel registers your plate itself in the city's online system (Smartmobility) for the length of your stay, but it gets only as many permits as it has parking spaces of its own or in an agreed garage. Neither the rules (2011) nor the 2026 forms give a deadline after entry: have the plate registered before you drive in.",
+     "Electric cars: no free entry. Under a 2012 mayor's order, fully electric vehicles may apply for a paid annual permit (at the non-residents' rate); hybrids are not included. Without that permit, treat them like any other car.",
      "The city changes traffic rules for events and works with short-notice orders: check the news on comune.napoli.it."
     ],
     "pending_it": [
      "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale (un PDF sul sito del Comune).",
-     "Ospiti degli hotel: la pagina di questa zona non dice se gli alberghi possono registrare le targhe dei clienti. GateLR presume di no.",
-     "Auto elettriche e ibride: le pagine del Comune non indicano esenzioni; l'ordinanza del 2012 sui veicoli elettrici (PDF sul sito del Comune) non si è potuta leggere. Considerale come le altre auto.",
+     "La pagina di questa zona non parla di alberghi, ma il modulo 2026 del Comune per gli alberghi la elenca tra le ZTL in cui gli alberghi registrano le targhe dei clienti su Smartmobility.",
+     "Ospiti degli hotel: l'albergo registra la targa da sé nel sistema online del Comune (Smartmobility) per la durata del soggiorno, ma ha tanti permessi quanti sono i suoi posti auto, propri o in convenzione con un'autorimessa. Né il disciplinare (2011) né i moduli del 2026 danno un termine dopo l'ingresso: fai registrare la targa prima di entrare.",
+     "Auto elettriche: niente accesso libero. Con un'ordinanza sindacale del 2012 i veicoli solo elettrici possono chiedere un'autorizzazione annuale a pagamento (con la tariffa dei non residenti); le ibride no. Senza quel permesso, considerale come le altre auto.",
      "Il Comune cambia la viabilità per eventi e lavori con ordinanze a breve preavviso: controlla le notizie su comune.napoli.it."
     ],
     "pending_de": [
      "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen (ein PDF auf der Seite der Stadt).",
-     "Hotelgäste: Die Seite dieser Zone sagt nicht, ob Hotels Kennzeichen von Gästen melden können. GateLR geht davon aus, dass nicht.",
-     "Elektro- und Hybridautos: Die Seiten der Stadt nennen keine Ausnahme; die Verordnung von 2012 zu Elektroautos (PDF auf der Seite der Stadt) war nicht lesbar. Behandle sie wie andere Autos.",
+     "Die Seite dieser Zone erwähnt keine Hotels, aber das Formular der Stadt für Hotels (2026) führt sie unter den Zonen, in denen Hotels Kennzeichen der Gäste in Smartmobility melden.",
+     "Hotelgäste: Das Hotel meldet dein Kennzeichen selbst im Online-System der Stadt (Smartmobility) für die Dauer des Aufenthalts, hat aber nur so viele Genehmigungen wie eigene oder vertraglich gebundene Garagenplätze. Weder die Regeln (2011) noch die Formulare von 2026 nennen eine Frist nach der Einfahrt: Lass das Kennzeichen vor der Einfahrt melden.",
+     "Elektroautos: keine freie Einfahrt. Nach einer Verordnung des Bürgermeisters von 2012 können reine Elektrofahrzeuge eine kostenpflichtige Jahresgenehmigung beantragen (zum Tarif für Nichtansässige); Hybride nicht. Ohne diese Genehmigung wie andere Autos behandeln.",
      "Die Stadt ändert den Verkehr bei Veranstaltungen und Bauarbeiten kurzfristig: Meldungen auf comune.napoli.it prüfen."
     ],
     "links": [
@@ -1003,9 +1010,9 @@
    "name_it": "Belledonne · ZTL Belledonne-Martiri-Poerio",
    "name_de": "Belledonne · Nacht-ZTL Martiri-Poerio",
    "kind": "restricted",
-   "summary": "Closed without a permit every day from 7 pm to 7 am (the nightlife streets around piazza dei Martiri in Chiaia), public holidays included. There is no day ticket for visitors: temporary permits are only for documented needs (moving house, works, medical visits for people with walking problems), requested by email. Disabled badge holders must have the plate registered first (or report the transit within 48 hours).",
-   "summary_it": "Chiusa senza permesso tutti i giorni dalle 19 alle 7 (le strade della movida intorno a piazza dei Martiri, a Chiaia), festivi compresi. Non c'è un biglietto giornaliero per i turisti: i permessi temporanei sono solo per necessità documentate (traslochi, lavori, visite mediche per chi ha problemi a camminare) e si chiedono per email. Chi ha il contrassegno disabili deve far registrare prima la targa (o comunicare il transito entro 48 ore).",
-   "summary_de": "Ohne Genehmigung täglich von 19 bis 7 Uhr gesperrt (die Ausgehstraßen um die piazza dei Martiri in Chiaia), auch an Feiertagen. Es gibt kein Tagesticket für Besucher: befristete Genehmigungen nur bei nachgewiesenem Bedarf (Umzug, Arbeiten, Arztbesuche bei Gehbehinderung), per E-Mail zu beantragen. Inhaber eines Behindertenausweises müssen das Kennzeichen vorher registrieren lassen (oder die Durchfahrt binnen 48 Stunden melden).",
+   "summary": "Closed without a permit every day from 7 pm to 7 am (the nightlife streets around piazza dei Martiri in Chiaia), public holidays included. There is no day ticket for visitors: temporary permits are only for documented needs (moving house, works, medical visits for people with walking problems), requested by email. If your hotel is inside and has parking spaces, it can register your plate before you arrive. Disabled badge holders must have the plate registered first (or report the transit within 48 hours).",
+   "summary_it": "Chiusa senza permesso tutti i giorni dalle 19 alle 7 (le strade della movida intorno a piazza dei Martiri, a Chiaia), festivi compresi. Non c'è un biglietto giornaliero per i turisti: i permessi temporanei sono solo per necessità documentate (traslochi, lavori, visite mediche per chi ha problemi a camminare) e si chiedono per email. Se l'hotel è dentro e ha posti auto, può registrare la tua targa prima che arrivi. Chi ha il contrassegno disabili deve far registrare prima la targa (o comunicare il transito entro 48 ore).",
+   "summary_de": "Ohne Genehmigung täglich von 19 bis 7 Uhr gesperrt (die Ausgehstraßen um die piazza dei Martiri in Chiaia), auch an Feiertagen. Es gibt kein Tagesticket für Besucher: befristete Genehmigungen nur bei nachgewiesenem Bedarf (Umzug, Arbeiten, Arztbesuche bei Gehbehinderung), per E-Mail zu beantragen. Liegt dein Hotel innen und hat Parkplätze, kann es dein Kennzeichen vor der Ankunft melden. Inhaber eines Behindertenausweises müssen das Kennzeichen vorher registrieren lassen (oder die Durchfahrt binnen 48 Stunden melden).",
    "perimeter": [
     {
      "lat": 40.836521,
@@ -1126,7 +1133,7 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
-   "hotelCanRegister": false,
+   "hotelCanRegister": true,
    "source": {
     "authority": "City of Naples",
     "pageURL": "https://www.comune.napoli.it/articolo_tematico/trasporti-mobilita/ztl-e-aree-pedonali/ztl-belledonne-martiri-poerio-e-contrassegni-per-laccesso/",
@@ -1139,22 +1146,25 @@
     "reviewedByHuman": false,
     "pending": [
      "Perimeter from OpenStreetMap, to be checked against the official map (a PDF on the city's site).",
-     "Hotel guests: this zone's page doesn't say whether hotels can register guests' plates. GateLR assumes they can't.",
-     "Electric and hybrid cars: the city's pages list no exemption; the 2012 ordinance on electric cars (a PDF on the city's site) could not be read. Treat them like any other car.",
+     "This zone's page doesn't mention hotels, but the city's 2026 permit form for hotels lists it among the zones where hotels register guests' plates in Smartmobility.",
+     "Hotel guests: the hotel registers your plate itself in the city's online system (Smartmobility) for the length of your stay, but it gets only as many permits as it has parking spaces of its own or in an agreed garage. Neither the rules (2011) nor the 2026 forms give a deadline after entry: have the plate registered before you drive in.",
+     "Electric cars: no free entry. Under a 2012 mayor's order, fully electric vehicles may apply for a paid annual permit (at the non-residents' rate); hybrids are not included. Without that permit, treat them like any other car.",
      "A rental-car guide says this ZTL is active 24 hours a day; the city's page (updated 24/08/2026) says 7 pm–7 am. GateLR follows the city.",
      "The city changes traffic rules for events and works with short-notice orders: check the news on comune.napoli.it."
     ],
     "pending_it": [
      "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale (un PDF sul sito del Comune).",
-     "Ospiti degli hotel: la pagina di questa zona non dice se gli alberghi possono registrare le targhe dei clienti. GateLR presume di no.",
-     "Auto elettriche e ibride: le pagine del Comune non indicano esenzioni; l'ordinanza del 2012 sui veicoli elettrici (PDF sul sito del Comune) non si è potuta leggere. Considerale come le altre auto.",
+     "La pagina di questa zona non parla di alberghi, ma il modulo 2026 del Comune per gli alberghi la elenca tra le ZTL in cui gli alberghi registrano le targhe dei clienti su Smartmobility.",
+     "Ospiti degli hotel: l'albergo registra la targa da sé nel sistema online del Comune (Smartmobility) per la durata del soggiorno, ma ha tanti permessi quanti sono i suoi posti auto, propri o in convenzione con un'autorimessa. Né il disciplinare (2011) né i moduli del 2026 danno un termine dopo l'ingresso: fai registrare la targa prima di entrare.",
+     "Auto elettriche: niente accesso libero. Con un'ordinanza sindacale del 2012 i veicoli solo elettrici possono chiedere un'autorizzazione annuale a pagamento (con la tariffa dei non residenti); le ibride no. Senza quel permesso, considerale come le altre auto.",
      "Una guida di autonoleggio dice che questa ZTL è attiva 24 ore su 24; la pagina del Comune (aggiornata il 24/08/2026) dice 19–7. GateLR segue il Comune.",
      "Il Comune cambia la viabilità per eventi e lavori con ordinanze a breve preavviso: controlla le notizie su comune.napoli.it."
     ],
     "pending_de": [
      "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen (ein PDF auf der Seite der Stadt).",
-     "Hotelgäste: Die Seite dieser Zone sagt nicht, ob Hotels Kennzeichen von Gästen melden können. GateLR geht davon aus, dass nicht.",
-     "Elektro- und Hybridautos: Die Seiten der Stadt nennen keine Ausnahme; die Verordnung von 2012 zu Elektroautos (PDF auf der Seite der Stadt) war nicht lesbar. Behandle sie wie andere Autos.",
+     "Die Seite dieser Zone erwähnt keine Hotels, aber das Formular der Stadt für Hotels (2026) führt sie unter den Zonen, in denen Hotels Kennzeichen der Gäste in Smartmobility melden.",
+     "Hotelgäste: Das Hotel meldet dein Kennzeichen selbst im Online-System der Stadt (Smartmobility) für die Dauer des Aufenthalts, hat aber nur so viele Genehmigungen wie eigene oder vertraglich gebundene Garagenplätze. Weder die Regeln (2011) noch die Formulare von 2026 nennen eine Frist nach der Einfahrt: Lass das Kennzeichen vor der Einfahrt melden.",
+     "Elektroautos: keine freie Einfahrt. Nach einer Verordnung des Bürgermeisters von 2012 können reine Elektrofahrzeuge eine kostenpflichtige Jahresgenehmigung beantragen (zum Tarif für Nichtansässige); Hybride nicht. Ohne diese Genehmigung wie andere Autos behandeln.",
      "Ein Mietwagen-Ratgeber nennt diese ZTL rund um die Uhr aktiv; die Seite der Stadt (Stand 24.08.2026) sagt 19–7 Uhr. GateLR folgt der Stadt.",
      "Die Stadt ändert den Verkehr bei Veranstaltungen und Bauarbeiten kurzfristig: Meldungen auf comune.napoli.it prüfen."
     ],
@@ -1717,6 +1727,7 @@
     }
    ],
    "freeOnHolidays": false,
+   "holidaysAsSunday": true,
    "exemptFuels": [],
    "hotelCanRegister": true,
    "source": {
@@ -1732,24 +1743,24 @@
     "pending": [
      "Perimeter from OpenStreetMap, to be checked against the official map (a PDF on the city's site).",
      "In OpenStreetMap this ZTL is a narrow strip along the streets themselves (about 11 m wide): with a weak GPS signal GateLR may place you just outside it.",
-     "Hotel guests: the city lists 'customers of hotels' among those who may enter, but the deadline for the hotel to register your plate is in the rules PDF that could not be read. Ask the hotel before driving in.",
-     "Electric and hybrid cars: the city's pages list no exemption; the 2012 ordinance on electric cars (a PDF on the city's site) could not be read. Treat them like any other car.",
+     "Hotel guests: the hotel registers your plate itself in the city's online system (Smartmobility) for the length of your stay, but it gets only as many permits as it has parking spaces of its own or in an agreed garage. Neither the rules (2011) nor the 2026 forms give a deadline after entry: have the plate registered before you drive in.",
+     "Electric cars: no free entry. Under a 2012 mayor's order, fully electric vehicles may apply for a paid annual permit (at the non-residents' rate); hybrids are not included. Without that permit, treat them like any other car.",
      "Eves of holidays: GateLR counts 24 and 31 December and 5 January (Saturdays already count).",
      "The city changes traffic rules for events and works with short-notice orders: check the news on comune.napoli.it."
     ],
     "pending_it": [
      "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale (un PDF sul sito del Comune).",
      "In OpenStreetMap questa ZTL è una striscia stretta lungo le strade (circa 11 m): con un segnale GPS debole GateLR può collocarti appena fuori.",
-     "Ospiti degli hotel: il Comune elenca i «clienti degli alberghi» tra chi può entrare, ma la scadenza per registrare la targa è nel disciplinare (PDF) che non si è potuto leggere. Chiedi all'hotel prima di entrare.",
-     "Auto elettriche e ibride: le pagine del Comune non indicano esenzioni; l'ordinanza del 2012 sui veicoli elettrici (PDF sul sito del Comune) non si è potuta leggere. Considerale come le altre auto.",
+     "Ospiti degli hotel: l'albergo registra la targa da sé nel sistema online del Comune (Smartmobility) per la durata del soggiorno, ma ha tanti permessi quanti sono i suoi posti auto, propri o in convenzione con un'autorimessa. Né il disciplinare (2011) né i moduli del 2026 danno un termine dopo l'ingresso: fai registrare la targa prima di entrare.",
+     "Auto elettriche: niente accesso libero. Con un'ordinanza sindacale del 2012 i veicoli solo elettrici possono chiedere un'autorizzazione annuale a pagamento (con la tariffa dei non residenti); le ibride no. Senza quel permesso, considerale come le altre auto.",
      "Prefestivi: GateLR conta il 24 e il 31 dicembre e il 5 gennaio (i sabati sono già compresi).",
      "Il Comune cambia la viabilità per eventi e lavori con ordinanze a breve preavviso: controlla le notizie su comune.napoli.it."
     ],
     "pending_de": [
      "Grenze aus OpenStreetMap, mit der offiziellen Karte abzugleichen (ein PDF auf der Seite der Stadt).",
      "In OpenStreetMap ist diese ZTL ein schmaler Streifen entlang der Straßen (etwa 11 m): Bei schwachem GPS kann GateLR dich knapp außerhalb verorten.",
-     "Hotelgäste: Die Stadt nennt „Kunden der Hotels“ unter den Berechtigten, aber die Frist für die Meldung des Kennzeichens steht im Regel-PDF, das nicht lesbar war. Frag das Hotel vor der Einfahrt.",
-     "Elektro- und Hybridautos: Die Seiten der Stadt nennen keine Ausnahme; die Verordnung von 2012 zu Elektroautos (PDF auf der Seite der Stadt) war nicht lesbar. Behandle sie wie andere Autos.",
+     "Hotelgäste: Das Hotel meldet dein Kennzeichen selbst im Online-System der Stadt (Smartmobility) für die Dauer des Aufenthalts, hat aber nur so viele Genehmigungen wie eigene oder vertraglich gebundene Garagenplätze. Weder die Regeln (2011) noch die Formulare von 2026 nennen eine Frist nach der Einfahrt: Lass das Kennzeichen vor der Einfahrt melden.",
+     "Elektroautos: keine freie Einfahrt. Nach einer Verordnung des Bürgermeisters von 2012 können reine Elektrofahrzeuge eine kostenpflichtige Jahresgenehmigung beantragen (zum Tarif für Nichtansässige); Hybride nicht. Ohne diese Genehmigung wie andere Autos behandeln.",
      "Vortage von Feiertagen: GateLR zählt den 24. und 31. Dezember und den 5. Januar (Samstage sind schon dabei).",
      "Die Stadt ändert den Verkehr bei Veranstaltungen und Bauarbeiten kurzfristig: Meldungen auf comune.napoli.it prüfen."
     ],

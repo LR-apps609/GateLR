@@ -1,6 +1,6 @@
 {
- "version": "202610250819",
- "digest": "8637be916e00",
+ "version": "202610250824",
+ "digest": "44a23956f4d5",
  "schema": 1,
  "cities": [
   {
@@ -31,7 +31,7 @@
   {
    "id": "napoli",
    "file": "napoli.json",
-   "sha256": "68ae871bb8de5221e0ba95503c6992af6fffe1e02ac9df2682c5d6fde0145783"
+   "sha256": "d68492becf9bd98b0a2c0c365b8ff13eed40d99e5da25d60ba0ff263d8e59bc4"
   },
   {
    "id": "padova",
