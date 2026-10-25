@@ -128,3 +128,12 @@ overpass("torino-extra", """[out:json][timeout:120];
   way["place"~"quarter|neighbourhood"]["name"~"Quadrilatero",i](45.06,7.67,45.08,7.69); relation["place"~"quarter|neighbourhood"]["name"~"Quadrilatero",i](45.06,7.67,45.08,7.69); );
 out geom;""")
 # --- fine Torino ---
+
+# --- Pisa (sessione Pisa, vedi docs/fonti-pisa.md) ---
+# OSM non ha il contorno della ZTL di Pisa (la relazione 9342809 ha solo le telecamere). Il perimetro dei settori
+# Centro Storico Nord e Sud si ricava dall'elenco ufficiale delle strade dell'ord. 486/2010 (Tools/build_pisa.py):
+# servono le geometrie delle strade con nome del centro storico (dentro le mura), «out geom».
+overpass("pisa-streets", """[out:json][timeout:180];
+( way["highway"]["name"](43.705,10.383,43.729,10.418); );
+out geom;""")
+# --- fine Pisa ---
