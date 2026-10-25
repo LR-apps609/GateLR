@@ -1,0 +1,20 @@
+# Foto e descrizioni delle app concorrenti dall'App Store, nel ramo «concorrenti» (solo per confronto interno).
+name: Concorrenti
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Scarica
+        run: python3 Tools/fetch_competitors.py 2>&1 | tee out.log
+      - name: Pubblica nel ramo «concorrenti»
+        run: |
+          mkdir -p out && mv out.log out/
+          cd out
+          git init -q && git checkout -q -b concorrenti && git add .
+          git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Concorrenti $(date -u +%F)"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" concorrenti 2>&1 | tail -n 2
