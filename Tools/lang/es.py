@@ -597,8 +597,11 @@ T = {
 'Only with a permit': 'Solo con permiso',
 'Pedestrian area: no cars at all.': 'Zona peatonal: ningún coche.',
 "End of the zone: you're out.": 'Fin de la zona: ya estás fuera.',
-'Where are you going, and in what car?': '¿Adónde vas y con qué coche?',
-'Get started': 'Empezar',
+'Where do you want to go?': '¿Adónde quieres ir?',
+"We'll find the route that keeps you out of the ZTL.": 'Encontramos la ruta que evita las ZTL.',
+'Hotel, address or square': 'Hotel, dirección o plaza',
+'Later': 'Más tarde',
+'Intro 2.0 preview': 'Vista previa de la intro 2.0',
 }
 
 INFO = {

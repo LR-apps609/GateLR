@@ -597,8 +597,11 @@ T = {
 'Only with a permit': '仅限持许可证者',
 'Pedestrian area: no cars at all.': '步行区：任何汽车都不能进。',
 "End of the zone: you're out.": '区域结束：你已离开。',
-'Where are you going, and in what car?': '你去哪里，开什么车？',
-'Get started': '开始',
+'Where do you want to go?': '你想去哪里？',
+"We'll find the route that keeps you out of the ZTL.": '我们为你找到避开 ZTL 的路线。',
+'Hotel, address or square': '酒店、地址或广场',
+'Later': '稍后',
+'Intro 2.0 preview': '新版介绍预览 2.0',
 }
 
 INFO = {

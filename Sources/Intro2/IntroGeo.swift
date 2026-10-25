@@ -2,48 +2,59 @@ import CoreLocation
 import Foundation
 import SwiftUI
 
-/// La scena della prima pagina: il perimetro vero del Settore A di Firenze e il varco di via Guelfa
-/// (Resources/Cities/firenze.json), con due percorsi scritti a mano lungo le strade del centro.
+/// La scena della prima pagina: la ZTL del centro storico di Firenze (Settori A e B, perimetri veri di
+/// Resources/Cities/firenze.json; il Settore A non ha varchi propri, si entra da quelli del B) e il varco di via Cavour.
+/// I due percorsi seguono strade vere: calcolati con OSRM sui dati OpenStreetMap da Tools/intro_routes.py
+/// (ramo «intro-routes») e copiati qui.
 struct IntroScene {
-    var perimeter: [CLLocationCoordinate2D]
+    /// I perimetri da disegnare: prima il Settore B (l'anello esterno), poi il Settore A
+    var zones: [[CLLocationCoordinate2D]]
     var gateName: String
     var gate: CLLocationCoordinate2D
     var zoneName: String
     var cityName: String
 
-    /// Da via Guelfa (lato via San Gallo) verso ovest, il varco, giù per via de' Ginori fino a San Lorenzo e al Duomo
+    /// Viale Lavagnini → piazza della Libertà → varco di via Cavour → giù per via Cavour fino al Duomo
+    /// (OSRM, «lavagnini>cavour>duomo», 1,47 km; entra nella ZTL proprio al varco)
     static let badRoute: [CLLocationCoordinate2D] = coords([
-        (43.77845, 11.25715), (43.77810, 11.25580), (43.777767, 11.254444), (43.77690, 11.25462),
-        (43.77580, 11.25468), (43.77500, 11.25495), (43.77440, 11.25540), (43.77380, 11.25590),
+        (43.782961, 11.257894), (43.783682, 11.260928), (43.783706, 11.261121), (43.783682, 11.261259),
+        (43.783563, 11.261600), (43.783501, 11.261677), (43.783192, 11.262404), (43.778315, 11.258512),
+        (43.778216, 11.258478), (43.777930, 11.258230), (43.775801, 11.256577), (43.774789, 11.255849)
     ])
 
-    /// Lo stesso punto di partenza, poi verso sud-est restando fuori dal Settore A (a 45 m dal perimetro)
-    /// fino al parcheggio vicino a Sant'Ambrogio. Disegnato per il prototipo: non è un percorso calcolato.
+    /// Stessa partenza, sempre fuori dalla ZTL lungo i viali fino al parcheggio Parterre (OSM node/559981489)
+    /// (OSRM, «lavagnini>parterre», 1,9 km, nessun punto dentro i Settori A, B, O, F, G)
     static let goodRoute: [CLLocationCoordinate2D] = coords([
-        (43.77845, 11.25715), (43.77770, 11.25700), (43.77610, 11.25750), (43.774467, 11.258100),
-        (43.773408, 11.259897), (43.773087, 11.260453), (43.772396, 11.261681), (43.772080, 11.262116),
-        (43.771887, 11.262536), (43.771334, 11.262956), (43.771050, 11.263700),
+        (43.782961, 11.257894), (43.783701, 11.261029), (43.783682, 11.261259), (43.783430, 11.262060),
+        (43.783425, 11.262217), (43.783481, 11.262421), (43.783595, 11.262573), (43.783820, 11.262737),
+        (43.783959, 11.262806), (43.784084, 11.262771), (43.784174, 11.262657), (43.784517, 11.261784),
+        (43.784499, 11.261410), (43.784416, 11.261178), (43.784330, 11.261073), (43.783833, 11.260624),
+        (43.783744, 11.260489), (43.783688, 11.260322), (43.783357, 11.258901), (43.784175, 11.258531),
+        (43.784816, 11.260981), (43.784825, 11.261076), (43.784805, 11.261211), (43.784358, 11.262463),
+        (43.784074, 11.263169), (43.784068, 11.263230), (43.784770, 11.264684), (43.785455, 11.266207),
+        (43.786267, 11.265419), (43.786397, 11.265212), (43.785551, 11.264404)
     ])
 
     static func coords(_ list: [(Double, Double)]) -> [CLLocationCoordinate2D] {
         list.map { CLLocationCoordinate2D(latitude: $0.0, longitude: $0.1) }
     }
 
-    /// L'indice del varco in badRoute
-    static let gateIndex = 2
+    /// Il varco di via Cavour (ptm-9 in firenze.json), se la città non fosse ancora letta
+    static let gatePoint = CLLocationCoordinate2D(latitude: 43.78305, longitude: 11.262289)
 
-    /// Il centro della ripresa: tra il Duomo e piazza della Signoria, spostato verso il varco
-    static let center = CLLocationCoordinate2D(latitude: 43.7755, longitude: 11.2562)
+    /// Il centro della vista d'insieme (Riduci movimento e disegno di riserva): tra il varco, il Duomo e il Parterre
+    static let center = CLLocationCoordinate2D(latitude: 43.7790, longitude: 11.2600)
 
     @MainActor static func load(_ store: Store) -> IntroScene {
         let city = store.cities.first { $0.id == "firenze" }
-        let zone = city?.zones.first { $0.id == "firenze-a" }
-        let gate = city?.zones.flatMap(\.gates).first { $0.id == "ptm-18" }
+        let zoneA = city?.zones.first { $0.id == "firenze-a" }
+        let zoneB = city?.zones.first { $0.id == "firenze-b" }
+        let gate = city?.zones.flatMap(\.gates).first { $0.id == "ptm-9" }
         return IntroScene(
-            perimeter: (zone?.perimeter ?? []).map(\.cl),
-            gateName: gate?.name ?? "Via Guelfa",
-            gate: gate?.location.cl ?? badRoute[gateIndex],
-            zoneName: zone?.localizedName ?? "Settore A",
+            zones: [zoneB, zoneA].compactMap { $0?.perimeter.map(\.cl) },
+            gateName: gate?.name ?? "Via Cavour",
+            gate: gate?.location.cl ?? gatePoint,
+            zoneName: "ZTL · " + String(format: L("Sector %@"), "A + B"),
             cityName: city?.localizedName ?? "Firenze")
     }
 }
@@ -69,6 +80,20 @@ struct IntroPath {
 
     /// La frazione del percorso a cui si trova il punto i
     func fraction(at i: Int) -> Double { length > 0 ? cumulative[i] / length : 0 }
+
+    /// La frazione del percorso nel punto più vicino a c (per sapere quando l'auto passa sotto il varco)
+    func fraction(near c: CLLocationCoordinate2D) -> Double {
+        guard let i = points.indices.min(by: { IntroPath.meters(points[$0], c) < IntroPath.meters(points[$1], c) }) else { return 0 }
+        return fraction(at: i)
+    }
+
+    /// La direzione generale del percorso, dalla partenza all'arrivo (gradi da nord, come MapCamera.heading)
+    var bearing: Double {
+        guard let a = points.first, let b = points.last else { return 0 }
+        let k = cos(a.latitude * .pi / 180)
+        let deg = atan2((b.longitude - a.longitude) * k, b.latitude - a.latitude) * 180 / .pi
+        return (deg + 360).truncatingRemainder(dividingBy: 360)
+    }
 
     /// Il punto a una frazione del percorso
     func point(_ f: Double) -> CLLocationCoordinate2D {

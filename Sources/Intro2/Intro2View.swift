@@ -72,86 +72,62 @@ struct Intro2View: View {
     }
 }
 
-/// L'ultima pagina: la città (quelle che l'app conosce) e l'auto, con due scelte veloci
+/// L'ultima pagina: un solo invito, «Dove vuoi andare?», con la ricerca. L'auto si imposta poi nell'app (Garage).
 struct IntroSetupPage: View {
     @EnvironmentObject var store: Store
     var done: () -> Void
-    @State private var city = ""
-    @State private var fuel: Fuel = .petrol
-    @State private var euro = 6
-
-    private static let order = ["firenze", "bologna", "milano", "roma", "siena"]
-    private var cities: [City] {
-        store.cities.sorted { (Self.order.firstIndex(of: $0.id) ?? 99, $0.name) < (Self.order.firstIndex(of: $1.id) ?? 99, $1.name) }
-    }
+    @State private var query = ""
+    @FocusState private var focused: Bool
+    @State private var shown = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            ScrollView {
-                VStack(alignment: .leading, spacing: 22) {
-                    IntroTitle(text: L("Where are you going, and in what car?"), size: 32)
-                    chips(cities.map { ($0.id, $0.localizedName) }, selected: city, id: "intro2.city") { city = $0 }
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(L("Fuel")).font(Notte.font(15, .semibold)).foregroundStyle(Notte.muted)
-                        chips(Fuel.allCases.map { ($0.rawValue, $0.label) }, selected: fuel.rawValue, id: "intro2.fuel") {
-                            fuel = Fuel(rawValue: $0) ?? .petrol
-                        }
-                    }
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text(verbatim: "Euro").font(Notte.font(15, .semibold)).foregroundStyle(Notte.muted)
-                        chips((1...6).map { ("\($0)", "\($0)") }, selected: "\(euro)", id: "intro2.euro", minWidth: 44) {
-                            euro = Int($0) ?? 6
-                        }
-                    }
-                }
-                .padding(.top, 64)
+            Spacer()
+            VStack(alignment: .leading, spacing: 14) {
+                IntroTitle(text: L("Where do you want to go?"), size: 40)
+                Text(L("We'll find the route that keeps you out of the ZTL."))
+                    .font(Notte.font(19)).foregroundStyle(Notte.muted)
+                    .fixedSize(horizontal: false, vertical: true)
             }
-            .scrollIndicators(.hidden)
-            IntroButton(title: L("Get started"), identifier: "intro2.start") { finish() }
-                .padding(.top, 12)
+            .opacity(shown ? 1 : 0).offset(y: shown ? 0 : 12)
+            HStack(spacing: 12) {
+                Image(systemName: "magnifyingglass").font(.system(size: 20, weight: .semibold)).foregroundStyle(Notte.action)
+                TextField("", text: $query, prompt: Text(L("Hotel, address or square")).foregroundColor(Notte.muted))
+                    .font(Notte.font(20, .semibold)).foregroundStyle(Notte.text)
+                    .focused($focused)
+                    .submitLabel(.search)
+                    .onSubmit(finish)
+                    .accessibilityIdentifier("intro2.search")
+            }
+            .padding(.horizontal, 18).frame(height: 64)
+            .background(Notte.surface, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .stroke(focused || !query.isEmpty ? Notte.action : Notte.line, lineWidth: focused || !query.isEmpty ? 2 : 1))
+            .shadow(color: Notte.action.opacity(focused || !query.isEmpty ? 0.25 : 0), radius: 18)
+            .padding(.top, 28)
+            .opacity(shown ? 1 : 0).offset(y: shown ? 0 : 18)
+            Spacer()
+            Spacer()
+            Button(action: done) {
+                Text(L("Later")).font(Notte.font(17, .semibold)).foregroundStyle(Notte.muted)
+                    .frame(maxWidth: .infinity, minHeight: 44)
+            }
+            .buttonStyle(.plain)
+            .accessibilityIdentifier("intro2.later")
         }
         .padding(.horizontal, 20).padding(.bottom, 12)
-        .onAppear {
-            if city.isEmpty { city = store.cityId }
-            if let v = store.vehicles.first(where: { $0.id == store.activeVehicleId }) { fuel = v.fuel; euro = v.euro }
-        }
         .task {
-            // Nel video: si sceglie come farebbe una persona, senza toccare «Inizia»
+            withAnimation(.easeOut(duration: 0.6).delay(0.15)) { shown = true }
+            // Nel video: si scrive come farebbe una persona, senza confermare
             guard IntroAutoplay.on else { return }
-            let picks: [() -> Void] = [{ city = "firenze" }, { fuel = .diesel }, { euro = 6 }]
-            for pick in picks {
-                try? await Task.sleep(for: .milliseconds(900))
-                withAnimation(.easeInOut(duration: 0.2)) { pick() }
+            try? await Task.sleep(for: .milliseconds(1200))
+            for ch in "Palazzo Vecchio" {
+                query.append(ch)
+                try? await Task.sleep(for: .milliseconds(90))
             }
         }
     }
 
-    private func chips(_ items: [(String, String)], selected: String, id: String, minWidth: CGFloat = 104,
-                       choose: @escaping (String) -> Void) -> some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: minWidth), spacing: 8)], alignment: .leading, spacing: 8) {
-            ForEach(items, id: \.0) { item in
-                let on = item.0 == selected
-                Button { withAnimation(.easeInOut(duration: 0.2)) { choose(item.0) } } label: {
-                    Text(verbatim: item.1).font(Notte.font(16, .semibold)).lineLimit(1).minimumScaleFactor(0.75)
-                        .frame(maxWidth: .infinity, minHeight: 44)
-                        .foregroundStyle(on ? Color.white : Notte.text)
-                        .background(on ? Notte.action : Notte.surface, in: Capsule())
-                        .overlay(Capsule().stroke(on ? Color.clear : Notte.line, lineWidth: 1))
-                }
-                .buttonStyle(.plain)
-                .accessibilityAddTraits(on ? .isSelected : [])
-                .accessibilityIdentifier("\(id).\(item.0)")
-            }
-        }
-    }
-
-    private func finish() {
-        if !city.isEmpty { store.cityId = city }
-        // Prototipo: si aggiorna solo l'auto di esempio, mai un'auto che hai già inserito tu
-        if store.activeVehicleId == SampleData.rental.id, let i = store.vehicles.firstIndex(where: { $0.id == SampleData.rental.id }) {
-            store.vehicles[i].fuel = fuel
-            store.vehicles[i].euro = euro
-        }
-        done()
-    }
+    /// Prototipo: la ricerca vera è quella di Viaggio (AddressSearch); qui si chiude e si torna all'app.
+    private func finish() { done() }
 }

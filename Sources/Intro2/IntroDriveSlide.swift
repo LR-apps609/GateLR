@@ -2,24 +2,48 @@ import MapKit
 import Network
 import SwiftUI
 
-/// Prima pagina, «il problema e la soluzione»: un'auto entra nel Settore A di Firenze dal varco di via Guelfa,
+/// Prima pagina, «il problema e la soluzione»: un'auto entra nella ZTL di Firenze dal varco di via Cavour,
 /// il pannello si accende, arriva il verbale. «Evita multe con GateLR»: lo stesso viaggio gira intorno alla zona.
 @MainActor final class IntroDrive: ObservableObject {
-    enum Phase { case driving, fined, avoiding, arrived }
-    @Published var phase: Phase = .driving
-    @Published var badProgress = 0.0
-    @Published var goodProgress = 0.0
+    enum Phase { case waiting, driving, fined, avoiding, arrived }
+    @Published var phase: Phase = .waiting
+    /// 1 quando parte il percorso rosso, 2 quando parte quello bianco: fa partire i movimenti della camera
+    @Published var leg = 0
     @Published var badOpacity = 1.0
     @Published var panel: LEDState = .idle
     @Published var flash = 0.0
     @Published var showFine = false
     let bad = IntroPath(IntroScene.badRoute)
     let good = IntroPath(IntroScene.goodRoute)
+    /// Durate dei due viaggi: l'auto passa il varco entro circa 4 secondi dall'apertura della pagina
+    static let badSeconds = 5.0
+    static let goodSeconds = 6.0
+    /// Il volo della camera dal punto d'arrivo rosso alla partenza del percorso bianco
+    static let flyBack = 1.0
     var reduceMotion = false
+    private(set) var badStart = Date.distantFuture
+    private(set) var goodStart = Date.distantFuture
     private var task: Task<Void, Never>?
 
-    var car: CLLocationCoordinate2D {
-        phase == .avoiding || phase == .arrived ? good.point(goodProgress) : bad.point(badProgress)
+    /// L'andatura dell'auto: parte e si ferma morbida. La stessa funzione dà i punti della camera.
+    nonisolated static func ease(_ t: Double) -> Double {
+        let x = min(max(t, 0), 1)
+        return 0.6 * x + 0.4 * x * x * (3 - 2 * x)
+    }
+
+    func badFraction(_ d: Date) -> Double {
+        if reduceMotion { return phase == .waiting ? 0 : 1 }
+        return Self.ease(d.timeIntervalSince(badStart) / Self.badSeconds)
+    }
+    func goodFraction(_ d: Date) -> Double {
+        if reduceMotion { return phase == .arrived ? 1 : 0 }
+        return Self.ease(d.timeIntervalSince(goodStart) / Self.goodSeconds)
+    }
+    var onGoodRoute: Bool { phase == .avoiding || phase == .arrived }
+
+    /// Dove si trova l'auto in quel momento: calcolato a ogni fotogramma dello schermo (TimelineView)
+    func car(at d: Date) -> CLLocationCoordinate2D {
+        onGoodRoute ? good.point(goodFraction(d)) : bad.point(badFraction(d))
     }
 
     func start() {
@@ -31,13 +55,18 @@ import SwiftUI
 
     private func driveIn() async {
         // Il tempo per le prime mattonelle della mappa
-        try? await Task.sleep(for: .milliseconds(1500))
-        let gateAt = bad.fraction(at: IntroScene.gateIndex)
-        await run(seconds: 4.2) { f in
-            self.badProgress = f
-            if f >= gateAt && self.panel != .active { self.hitGate() }
-        }
-        try? await Task.sleep(for: .milliseconds(350))
+        try? await Task.sleep(for: .milliseconds(1200))
+        badStart = Date()
+        phase = .driving
+        leg = 1
+        // Il momento in cui l'auto passa sotto il varco (l'inverso dell'andatura, per bisezione)
+        let target = bad.fraction(near: IntroScene.gatePoint)
+        var lo = 0.0, hi = 1.0
+        for _ in 0..<30 { let m = (lo + hi) / 2; if Self.ease(m) < target { lo = m } else { hi = m } }
+        let gateTime = reduceMotion ? 1.2 : lo * Self.badSeconds
+        try? await Task.sleep(for: .seconds(gateTime))
+        hitGate()
+        try? await Task.sleep(for: .seconds((reduceMotion ? 1.5 : Self.badSeconds) - gateTime + 0.35))
         withAnimation(reduceMotion ? .easeInOut(duration: 0.4) : .spring(response: 0.55, dampingFraction: 0.78)) {
             phase = .fined
             showFine = true
@@ -61,30 +90,14 @@ import SwiftUI
         withAnimation(.easeInOut(duration: 0.35)) { showFine = false }
         withAnimation(.easeInOut(duration: 0.9)) { badOpacity = 0 }
         panel = .idle
+        goodStart = Date().addingTimeInterval(reduceMotion ? 0 : Self.flyBack)
         phase = .avoiding
+        leg = 2
         task = Task { [weak self] in
             guard let self else { return }
-            try? await Task.sleep(for: .milliseconds(500))
-            await self.run(seconds: 5.0) { f in self.goodProgress = f }
+            try? await Task.sleep(for: .seconds(self.reduceMotion ? 1.5 : Self.flyBack + Self.goodSeconds))
             self.panel = .arrived
             withAnimation(.easeInOut(duration: 0.4)) { self.phase = .arrived }
-        }
-    }
-
-    /// Fa avanzare f da 0 a 1 in «seconds» secondi, 30 volte al secondo. Con «Riduci movimento» salta alla fine
-    /// in dissolvenza dopo una breve pausa.
-    private func run(seconds: Double, _ step: @escaping (Double) -> Void) async {
-        if reduceMotion {
-            try? await Task.sleep(for: .seconds(min(seconds, 1.5)))
-            withAnimation(.easeInOut(duration: 0.6)) { step(1) }
-            return
-        }
-        let start = Date()
-        while !Task.isCancelled {
-            let f = min(Date().timeIntervalSince(start) / seconds, 1)
-            step(f)
-            if f >= 1 { break }
-            try? await Task.sleep(for: .milliseconds(50))
         }
     }
 }
@@ -215,32 +228,48 @@ private struct IntroLiveMap: View {
     var scene: IntroScene
     @ObservedObject var drive: IntroDrive
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var position: MapCameraPosition = .camera(
-        MapCamera(centerCoordinate: IntroScene.center, distance: 2700, heading: 335, pitch: 60))
-    @State private var orbit = false
+    @State private var position: MapCameraPosition = .camera(IntroCamera.start(reduceMotion: false))
+    /// -intro2Standard: la mappa normale con gli edifici 3D invece del satellite 3D (Flyover)
+    private let standard = ProcessInfo.processInfo.arguments.contains("-intro2Standard")
 
-    /// Le linee si ridisegnano a scatti di 1/25 del percorso: ridisegnarle a ogni fotogramma rallenta la mappa 3D
-    private func step(_ f: Double) -> Double { f >= 1 ? 1 : (f * 25).rounded(.up) / 25 }
+    /// Le linee si ridisegnano a scatti di 1/30 del percorso; l'auto invece si muove a ogni fotogramma
+    private func step(_ f: Double) -> Double { f >= 1 ? 1 : (f * 30).rounded(.up) / 30 }
+
+    private var paused: Bool {
+        reduceMotion || drive.phase == .waiting || drive.phase == .fined || drive.phase == .arrived
+    }
 
     var body: some View {
-        Map(position: $position, interactionModes: []) {
-            // Il perimetro vero del Settore A, rosso con un alone
-            // Con gli edifici 3D il riempimento del poligono finisce sui tetti (macchie rosse): solo il bordo, con un alone
-            MapPolyline(coordinates: scene.perimeter + scene.perimeter.prefix(1))
-                .stroke(Notte.ledRed.opacity(0.28), style: StrokeStyle(lineWidth: 12, lineCap: .round, lineJoin: .round))
-            MapPolyline(coordinates: scene.perimeter + scene.perimeter.prefix(1))
-                .stroke(Notte.ledRed, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round))
+        TimelineView(.animation(paused: paused)) { tl in
+            map(at: tl.date)
+        }
+        .onAppear { if reduceMotion { position = .camera(IntroCamera.start(reduceMotion: true)) } }
+        .accessibilityHidden(true)
+    }
 
-            if drive.badOpacity > 0.01 {
-                MapPolyline(coordinates: drive.bad.prefix(step(drive.badProgress)))
+    private func map(at now: Date) -> some View {
+        let badF = drive.badFraction(now), goodF = drive.goodFraction(now)
+        return Map(position: $position, interactionModes: []) {
+            // Il Settore A: una velatura rossa e un bordo acceso con l'alone
+            ForEach(scene.zones.indices, id: \.self) { i in
+                MapPolygon(coordinates: scene.zones[i])
+                    .foregroundStyle(Notte.ledRed.opacity(0.12))
+                MapPolyline(coordinates: scene.zones[i] + scene.zones[i].prefix(1))
+                    .stroke(Notte.ledRed.opacity(0.3), style: StrokeStyle(lineWidth: 12, lineCap: .round, lineJoin: .round))
+                MapPolyline(coordinates: scene.zones[i] + scene.zones[i].prefix(1))
+                    .stroke(Notte.ledRed, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round))
+            }
+
+            if drive.badOpacity > 0.01 && badF > 0 {
+                MapPolyline(coordinates: drive.bad.prefix(step(badF)))
                     .stroke(Notte.action.opacity(drive.badOpacity * 0.35), style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
-                MapPolyline(coordinates: drive.bad.prefix(step(drive.badProgress)))
+                MapPolyline(coordinates: drive.bad.prefix(step(badF)))
                     .stroke(Notte.action.opacity(drive.badOpacity), style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
             }
-            if drive.goodProgress > 0 {
-                MapPolyline(coordinates: drive.good.prefix(step(drive.goodProgress)))
-                    .stroke(Notte.chalk.opacity(0.3), style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
-                MapPolyline(coordinates: drive.good.prefix(step(drive.goodProgress)))
+            if drive.onGoodRoute && goodF > 0 {
+                MapPolyline(coordinates: drive.good.prefix(step(goodF)))
+                    .stroke(Notte.chalk.opacity(0.35), style: StrokeStyle(lineWidth: 14, lineCap: .round, lineJoin: .round))
+                MapPolyline(coordinates: drive.good.prefix(step(goodF)))
                     .stroke(Notte.chalk, style: StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round))
             }
 
@@ -252,25 +281,93 @@ private struct IntroLiveMap: View {
                 GateSign(state: drive.panel)
             }
             .annotationTitles(.hidden)
-            Annotation("", coordinate: drive.car, anchor: .center) {
-                CarPuck(good: drive.phase == .avoiding || drive.phase == .arrived)
+            Annotation("", coordinate: drive.car(at: now), anchor: .center) {
+                CarPuck(good: drive.onGoodRoute)
             }
             .annotationTitles(.hidden)
         }
-        .mapStyle(.standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll))
+        .mapStyle(standard ? .standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll)
+                           : .hybrid(elevation: .realistic, pointsOfInterest: .excludingAll))
         .environment(\.colorScheme, .dark)
         .mapControlVisibility(.hidden)
-        .mapCameraKeyframeAnimator(trigger: orbit) { camera in
-            KeyframeTrack(\MapCamera.heading) { LinearKeyframe(camera.heading + 35, duration: 26) }
-            KeyframeTrack(\MapCamera.distance) { LinearKeyframe(2250, duration: 26) }
+        // La camera segue l'auto con le animazioni di MapKit: una sola partenza per tratto, niente aggiornamenti continui
+        .mapCameraKeyframeAnimator(trigger: drive.leg) { camera in
+            let k = IntroCamera.keys(leg: drive.leg, from: camera, drive: drive, still: reduceMotion)
+            KeyframeTrack(\MapCamera.centerCoordinate) {
+                CubicKeyframe(k.centers[0], duration: k.times[0])
+                CubicKeyframe(k.centers[1], duration: k.times[1])
+                CubicKeyframe(k.centers[2], duration: k.times[2])
+                CubicKeyframe(k.centers[3], duration: k.times[3])
+                CubicKeyframe(k.centers[4], duration: k.times[4])
+                CubicKeyframe(k.centers[5], duration: k.times[5])
+                CubicKeyframe(k.centers[6], duration: k.times[6])
+            }
+            KeyframeTrack(\MapCamera.heading) {
+                CubicKeyframe(k.heading, duration: k.times[0])
+                LinearKeyframe(k.heading + k.orbit, duration: k.total - k.times[0])
+            }
+            KeyframeTrack(\MapCamera.distance) {
+                CubicKeyframe(k.distance, duration: k.times[0])
+                LinearKeyframe(k.distance * 0.9, duration: k.total - k.times[0])
+            }
+            KeyframeTrack(\MapCamera.pitch) {
+                CubicKeyframe(k.pitch, duration: k.total)
+            }
         }
+        // Un velo blu notte sopra il satellite, per la palette «Notte»
+        .overlay(Notte.navy.opacity(standard ? 0 : 0.22).allowsHitTesting(false))
         .ignoresSafeArea()
-        .task {
-            guard !reduceMotion else { return }
-            try? await Task.sleep(for: .milliseconds(300))
-            orbit.toggle()
+    }
+}
+
+/// Le inquadrature della prima pagina: inclinata (60°), a circa 900 m, rivolta dove va l'auto
+enum IntroCamera {
+    static let pitch = 60.0
+    static let distance = 900.0
+    /// Quanto la camera resta indietro rispetto all'auto: così l'auto sta sopra il centro, visibile sopra il verbale
+    static let lag = 120.0
+
+    static func start(reduceMotion: Bool) -> MapCamera {
+        if reduceMotion {
+            return MapCamera(centerCoordinate: IntroScene.center, distance: 2600, heading: 0, pitch: 45)
         }
-        .accessibilityHidden(true)
+        let p = IntroPath(IntroScene.badRoute)
+        return MapCamera(centerCoordinate: p.points[0], distance: distance * 1.15, heading: p.bearing, pitch: pitch)
+    }
+
+    struct Keys {
+        var centers: [CLLocationCoordinate2D]
+        var times: [Double]
+        var heading: Double
+        var orbit: Double
+        var distance: Double
+        var pitch: Double
+        var total: Double { times.reduce(0, +) }
+    }
+
+    /// Sette punti per la camera lungo il tratto, con la stessa andatura dell'auto
+    @MainActor static func keys(leg: Int, from camera: MapCamera, drive: IntroDrive, still: Bool) -> Keys {
+        guard !still, leg > 0 else {
+            return Keys(centers: Array(repeating: camera.centerCoordinate, count: 7), times: Array(repeating: 0.01, count: 7),
+                        heading: camera.heading, orbit: 0, distance: camera.distance, pitch: camera.pitch)
+        }
+        let path = leg == 1 ? drive.bad : drive.good
+        let seconds = leg == 1 ? IntroDrive.badSeconds : IntroDrive.goodSeconds
+        let first = leg == 1 ? 0.05 : IntroDrive.flyBack
+        var centers: [CLLocationCoordinate2D] = []
+        for i in 0..<7 {
+            let f = IntroDrive.ease(Double(i) / 6)
+            let back = max(0, f * path.length - lag) / max(path.length, 1)
+            centers.append(path.point(back))
+        }
+        let times = [first] + Array(repeating: seconds / 6, count: 6)
+        // La direzione: quella del tratto, girata verso il primo e unico movimento lento
+        var heading = path.bearing
+        // Al massimo 70° di rotazione per tratto: niente giri vorticosi della camera
+        let delta = (heading - camera.heading + 540).truncatingRemainder(dividingBy: 360) - 180
+        heading = camera.heading + min(max(delta, -70), 70)
+        return Keys(centers: centers, times: times, heading: heading, orbit: leg == 1 ? 12 : -12,
+                    distance: distance, pitch: pitch)
     }
 }
 
@@ -295,18 +392,19 @@ private struct IntroFallbackMap: View {
         TimelineView(.animation(paused: reduceMotion)) { tl in
             let t = tl.date.timeIntervalSince(start)
             GeometryReader { g in
-                let pr = IntroProjector(center: IntroScene.center,
-                                        heading: reduceMotion ? -15 : -25 + min(t, 26) * 35 / 26,
-                                        pitch: 58, distance: reduceMotion ? 2600 : 2900 - min(t, 26) * 500 / 26,
+                // Vista d'insieme verso nord: Duomo in basso, viali e Parterre in alto, con una rotazione lenta
+                let pr = IntroProjector(center: CLLocationCoordinate2D(latitude: 43.7768, longitude: 11.2600),
+                                        heading: reduceMotion ? 0 : -10 + min(t, 26) * 20 / 26,
+                                        pitch: 58, distance: reduceMotion ? 2400 : 2600 - min(t, 26) * 300 / 26,
                                         size: g.size)
                 ZStack {
-                    Canvas { ctx, _ in draw(ctx, pr) }
+                    Canvas { ctx, _ in draw(ctx, pr, tl.date) }
                     landmark("Duomo", pr.point(Self.duomo))
                     landmark("Signoria", pr.point(Self.signoria))
                     ParkingPin(lit: drive.phase == .arrived).position(pr.point(IntroScene.goodRoute.last!))
                     GateSign(state: drive.panel)
-                        .position(pr.point(scene.gate)).offset(y: -24)
-                    CarPuck(good: drive.phase == .avoiding || drive.phase == .arrived).position(pr.point(drive.car))
+                        .position(pr.point(scene.gate)).offset(y: -30)
+                    CarPuck(good: drive.onGoodRoute).position(pr.point(drive.car(at: tl.date)))
                 }
             }
         }
@@ -322,7 +420,7 @@ private struct IntroFallbackMap: View {
         .position(x: p.x, y: p.y + 8)
     }
 
-    private func draw(_ ctx: GraphicsContext, _ pr: IntroProjector) {
+    private func draw(_ ctx: GraphicsContext, _ pr: IntroProjector, _ now: Date) {
         // Una trama di isolati ogni 110 m, che si perde verso l'orizzonte
         var grid = Path()
         let step = 110.0 / 111_320
@@ -338,21 +436,29 @@ private struct IntroFallbackMap: View {
         ctx.stroke(grid, with: .color(Notte.line.opacity(0.7)), lineWidth: 1)
         ctx.stroke(pr.path(Self.arno), with: .color(Color(hex: 0x1C3A6E)), style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round))
 
-        let zone = pr.path(scene.perimeter, closed: true)
+        for perimeter in scene.zones { drawZone(ctx, pr.path(perimeter, closed: true)) }
+        drawRoutes(ctx, pr, now)
+    }
+
+    private func drawZone(_ ctx: GraphicsContext, _ zone: Path) {
         ctx.fill(zone, with: .color(Notte.ledRed.opacity(0.14)))
         var glow = ctx
         glow.addFilter(.blur(radius: 8))
         glow.stroke(zone, with: .color(Notte.ledRed.opacity(0.7)), lineWidth: 8)
         ctx.stroke(zone, with: .color(Notte.ledRed), lineWidth: 2.5)
+    }
 
+    private func drawRoutes(_ ctx: GraphicsContext, _ pr: IntroProjector, _ now: Date) {
+        var glow = ctx
+        glow.addFilter(.blur(radius: 8))
         let round = StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round)
         if drive.badOpacity > 0.01 {
-            let p = pr.path(drive.bad.prefix(drive.badProgress))
+            let p = pr.path(drive.bad.prefix(drive.badFraction(now)))
             glow.stroke(p, with: .color(Notte.action.opacity(drive.badOpacity)), lineWidth: 10)
             ctx.stroke(p, with: .color(Notte.action.opacity(drive.badOpacity)), style: round)
         }
-        if drive.goodProgress > 0 {
-            let p = pr.path(drive.good.prefix(drive.goodProgress))
+        if drive.onGoodRoute && drive.goodFraction(now) > 0 {
+            let p = pr.path(drive.good.prefix(drive.goodFraction(now)))
             glow.stroke(p, with: .color(Notte.chalk.opacity(0.6)), lineWidth: 10)
             ctx.stroke(p, with: .color(Notte.chalk), style: round)
         }

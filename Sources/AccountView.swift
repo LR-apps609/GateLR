@@ -14,6 +14,8 @@ struct AccountView: View {
     @ObservedObject private var updater = CityUpdater.shared
     /// Calcolato in sottofondo: speechVoices() è lento e prima si chiamava a ogni disegno della pagina
     @State private var basicVoice = false
+    /// Prototipo della nuova presentazione (Sources/Intro2), da provare sull'iPhone in questa versione di prova
+    @State private var intro2 = false
 
     var body: some View {
         NavigationStack {
@@ -38,6 +40,10 @@ struct AccountView: View {
                     NavigationLink { SignReaderView() } label: {
                         Label("Read the sign", systemImage: "camera.viewfinder")
                     }
+                    Button { intro2 = true } label: {
+                        Label("Intro 2.0 preview", systemImage: "play.rectangle")
+                    }
+                    .accessibilityIdentifier("account.intro2")
                 } header: { Text("Learn") } footer: {
                     Text("The signs, the gate panels, and what to do if you drove in by mistake.")
                 }
@@ -175,6 +181,12 @@ struct AccountView: View {
             .navigationTitle("Account")
             .tint(Theme.blue)
             .sheet(isPresented: $reporting) { BugReportView() }
+            .fullScreenCover(isPresented: $intro2) {
+                Intro2View { intro2 = false }
+                    .environmentObject(store)
+                    .readableFrame(640)
+                    .background(Notte.navy.ignoresSafeArea())
+            }
             .task { basicVoice = await SpeechVoice.onlyBasicVoiceAsync() }
             .onChange(of: store.alertsOn) { GateMonitor.shared.settingsChanged() }
             .onChange(of: store.alertDistance) { GateMonitor.shared.settingsChanged() }
