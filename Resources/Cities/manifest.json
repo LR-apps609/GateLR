@@ -1,6 +1,6 @@
 {
- "version": "202610250813",
- "digest": "dd1a98c62297",
+ "version": "202610250816",
+ "digest": "6f44932a2533",
  "schema": 1,
  "cities": [
   {
@@ -31,7 +31,7 @@
   {
    "id": "padova",
    "file": "padova.json",
-   "sha256": "ac18c55088ebe2d5e6913eeb69be09284c8e8aa17eb8fef7c646f2f0b2161b11"
+   "sha256": "9bba64913e5af5266ac5acaf44ee6e1ed70fa9fdc7a7654f6c9e7845e76073d5"
   },
   {
    "id": "roma",
@@ -41,7 +41,7 @@
   {
    "id": "san-giovanni-valdarno",
    "file": "san-giovanni-valdarno.json",
-   "sha256": "92e7636cd271952fcec8cdecbb9043882d6b34ede04e59fc05bd24e6e6ccfa7a"
+   "sha256": "39d89974d7c1b78802e359c8a279e90a3d1e4fab5500d286c988c9124232383d"
   },
   {
    "id": "siena",

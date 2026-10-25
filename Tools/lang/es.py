@@ -483,6 +483,7 @@ T = {
 'Allow the camera': 'Permitir la cámara',
 'iOS asks only once. Tap «Open Settings», turn on Camera and come back: the camera opens by itself. You can also choose a photo.': 'iOS lo pregunta solo una vez. Toca «Abrir Ajustes», activa Cámara y vuelve: la cámara se abre sola. También puedes elegir una foto.',
 'Open Settings': 'Abrir Ajustes',
+'as on Sunday': 'como el domingo',
 'Can I drive in?': '¿Puedo entrar?',
 'Find out if you|can drive in': 'Descubre si|puedes entrar',
 'Search a hotel, address or square: GateLR tells you at once if your car can get there.': 'Busca un hotel, una dirección o una plaza: GateLR te dice al momento si tu coche puede llegar.',

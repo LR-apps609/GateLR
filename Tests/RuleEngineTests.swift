@@ -55,6 +55,28 @@ final class RuleEngineTests: XCTestCase {
         guard case .no = a.verdict else { return XCTFail("atteso no, ottenuto \(a.verdict)") }
     }
 
+    func testHolidaysAsSunday() {
+        // Lun–sab 8–23:30, domenica 14–23:30; festivi come la domenica (Padova). 8 dicembre 2026 è martedì.
+        var z = zone
+        z.windows = [TimeWindow(weekdays: [2, 3, 4, 5, 6, 7], start: 8 * 60, end: 23 * 60 + 30),
+                     TimeWindow(weekdays: [1], start: 14 * 60, end: 23 * 60 + 30)]
+        z.freeOnHolidays = false
+        XCTAssertTrue(engine.isActive(z, at: date(2026, 12, 8, 10)))        // senza la regola: orari del martedì
+        z.holidaysAsSunday = true
+        XCTAssertFalse(engine.isActive(z, at: date(2026, 12, 8, 10)))       // come domenica: spenta fino alle 14
+        XCTAssertTrue(engine.isActive(z, at: date(2026, 12, 8, 15)))
+        XCTAssertTrue(engine.isActive(z, at: date(2026, 12, 9, 10)))        // mercoledì normale
+        XCTAssertEqual(engine.nextChange(z, after: date(2026, 12, 8, 10)), date(2026, 12, 8, 14))
+        // Chiusa tutto il giorno nel weekend, aperta lun–ven 6–9 (San Giovanni Valdarno): il festivo resta chiuso
+        var s = zone
+        s.windows = [TimeWindow(weekdays: [2, 3, 4, 5, 6], start: 0, end: 6 * 60),
+                     TimeWindow(weekdays: [2, 3, 4, 5, 6], start: 9 * 60, end: 24 * 60),
+                     TimeWindow(weekdays: [1, 7], start: 0, end: 24 * 60)]
+        s.freeOnHolidays = false; s.holidaysAsSunday = true
+        XCTAssertTrue(engine.isActive(s, at: date(2026, 12, 8, 7)))
+        XCTAssertFalse(engine.isActive(s, at: date(2026, 12, 9, 7)))
+    }
+
     func testSaturdayAfternoonAndSundayAreFree() {
         XCTAssertFalse(engine.isActive(zone, at: date(2026, 10, 24, 17)))
         XCTAssertTrue(engine.isActive(zone, at: date(2026, 10, 24, 10)))

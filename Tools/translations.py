@@ -366,6 +366,7 @@ T = {
 'Allow the camera': ('Consenti la fotocamera', 'Kamera erlauben'),
 'iOS asks only once. Tap «Open Settings», turn on Camera and come back: the camera opens by itself. You can also choose a photo.': ('iOS lo chiede una volta sola. Tocca «Apri Impostazioni», attiva Fotocamera e torna qui: la fotocamera si apre da sola. Puoi anche scegliere una foto.', 'iOS fragt nur einmal. Tippe auf «Einstellungen öffnen», schalte Kamera ein und komm zurück: Die Kamera öffnet sich von selbst. Du kannst auch ein Foto wählen.'),
 'Open Settings': ('Apri Impostazioni', 'Einstellungen öffnen'),
+'as on Sunday': ('come la domenica', 'wie sonntags'),
 # 1.10 Prima pagina
 "Can I drive in?": ("Posso entrare?", "Darf ich einfahren?"),
 "Find out if you|can drive in": ("Scopri se|puoi entrare", "Finde heraus,|ob du einfahren darfst"),

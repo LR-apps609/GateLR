@@ -42,7 +42,7 @@ Lette il 25/10/2026 tramite i riassunti della ricerca web (i siti non si aprono 
 
 ## Festivi e patrono
 
-- Zona A: la regola dà un orario diverso nei festivi (14:00–23:30), non li esclude. L'app non sa usare un orario "da domenica" nei festivi infrasettimanali, quindi la scheda usa lun–sab 8:00–23:30 e domenica 14:00–23:30 con `freeOnHolidays: false`: in un festivo infrasettimanale l'app dice "attiva" già dalle 8:00 (più prudente del vero). Scritto nei punti in sospeso.
+- Zona A: la regola dà un orario diverso nei festivi (14:00–23:30). Dalla 1.13.2 la scheda ha `holidaysAsSunday: true`: nei festivi infrasettimanali l'app usa gli orari della domenica.
 - Zona B e domeniche ecologiche: `freeOnHolidays: false`.
 - Antismog: "esclusi i giorni festivi infrasettimanali" → `freeOnHolidays: true`.
 - Sant'Antonio (13 giugno), festa del patrono a Padova: **non** messo in `localHolidays`. La ZTL non esclude i festivi (cambia solo l'orario della Zona A), e il 13 giugno è fuori dal periodo antismog (ottobre–aprile).
@@ -72,7 +72,6 @@ Nota: `Tools/check_sources.py` confronta l'HTML delle pagine, ma per Padova l'HT
 ## Da verificare
 
 - Perimetri di Zona A e Zona B: da OpenStreetMap, da confrontare con la mappa ufficiale del 31/08/2023.
-- Zona A nei festivi infrasettimanali (vedi sopra).
 - Antismog: livelli arancio e rosso (decisi da ARPAV lunedì, mercoledì e venerdì) non sono nella scheda; vie escluse (tangenziali, zona industriale…) non sono tolte dal perimetro; la stagione 2027/2028 avrà date nuove (e forse il diesel Euro 5).
 - Domeniche ecologiche: le date valgono solo per la stagione 2026/2027; il perimetro è approssimato.
 - Hotel: la registrazione è "per ogni giorno di transito"; non è chiaro se vale anche per la Zona B e le aree pedonali delle Piazze (il disciplinare parla di ZTL o aree pedonali): chiedere a zonablu@comune.padova.it (049 2010066).

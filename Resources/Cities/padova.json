@@ -1612,6 +1612,7 @@
     }
    ],
    "freeOnHolidays": false,
+   "holidaysAsSunday": true,
    "exemptFuels": [],
    "hotelCanRegister": true,
    "source": {
@@ -1627,20 +1628,17 @@
     "pending": [
      "Perimeter from OpenStreetMap, to be checked against the official map (31/08/2023).",
      "The hotel registers your plate for each day you drive in, at the latest 48 hours afterwards; it only covers loading and unloading (max 30 minutes' parking). Pedestrian areas need a separate temporary permit.",
-     "Electric cars may enter only once their plate is registered with the city (email to zonablu@comune.padova.it, also up to 48 hours after entering): GateLR treats them like any other car.",
-     "On public holidays that fall on a weekday, Zona A is active only 2 pm–11:30 pm; GateLR shows it active from 8 am (on the safe side)."
+     "Electric cars may enter only once their plate is registered with the city (email to zonablu@comune.padova.it, also up to 48 hours after entering): GateLR treats them like any other car."
     ],
     "pending_it": [
      "Perimetro da OpenStreetMap, da verificare con la mappa ufficiale (31/08/2023).",
      "L'hotel registra la targa per ogni giorno di transito, al più tardi entro 48 ore; vale solo per carico e scarico (sosta massima 30 minuti). Per le aree pedonali serve un titolo temporaneo a parte.",
-     "Le auto elettriche entrano solo con la targa registrata dal Comune (email a zonablu@comune.padova.it, anche entro 48 ore dal transito): GateLR le tratta come le altre auto.",
-     "Nei festivi infrasettimanali la Zona A è attiva solo dalle 14:00 alle 23:30; GateLR la mostra attiva già dalle 8:00 (per prudenza)."
+     "Le auto elettriche entrano solo con la targa registrata dal Comune (email a zonablu@comune.padova.it, anche entro 48 ore dal transito): GateLR le tratta come le altre auto."
     ],
     "pending_de": [
      "Grenze aus OpenStreetMap, mit der offiziellen Karte (31.08.2023) abzugleichen.",
      "Das Hotel meldet dein Kennzeichen für jeden Tag der Einfahrt, spätestens 48 Stunden danach; das gilt nur zum Be- und Entladen (höchstens 30 Minuten Parken). Für Fußgängerzonen braucht es eine eigene befristete Genehmigung.",
-     "Elektroautos dürfen nur mit beim Amt gemeldetem Kennzeichen einfahren (E-Mail an zonablu@comune.padova.it, auch bis 48 Stunden danach): GateLR behandelt sie wie andere Autos.",
-     "An Feiertagen unter der Woche ist die Zona A nur von 14 bis 23:30 Uhr aktiv; GateLR zeigt sie vorsichtshalber schon ab 8 Uhr als aktiv."
+     "Elektroautos dürfen nur mit beim Amt gemeldetem Kennzeichen einfahren (E-Mail an zonablu@comune.padova.it, auch bis 48 Stunden danach): GateLR behandelt sie wie andere Autos."
     ],
     "links": [
      {

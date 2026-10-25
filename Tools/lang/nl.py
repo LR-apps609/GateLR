@@ -483,6 +483,7 @@ T = {
 'Allow the camera': 'Camera toestaan',
 'iOS asks only once. Tap «Open Settings», turn on Camera and come back: the camera opens by itself. You can also choose a photo.': 'iOS vraagt het maar één keer. Tik op ‘Open Instellingen’, zet Camera aan en kom terug: de camera opent vanzelf. Je kunt ook een foto kiezen.',
 'Open Settings': 'Open Instellingen',
+'as on Sunday': 'zoals op zondag',
 'Can I drive in?': 'Mag ik erin?',
 'Find out if you|can drive in': 'Kijk of je|erin mag',
 'Search a hotel, address or square: GateLR tells you at once if your car can get there.': 'Zoek een hotel, adres of plein: GateLR vertelt je meteen of je auto er kan komen.',

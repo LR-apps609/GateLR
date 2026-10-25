@@ -354,6 +354,7 @@
     }
    ],
    "freeOnHolidays": false,
+   "holidaysAsSunday": true,
    "exemptFuels": [],
    "hotelCanRegister": false,
    "source": {
@@ -367,21 +368,18 @@
     "checkedOn": "2026-10-25T08:00:00Z",
     "reviewedByHuman": false,
     "pending": [
-     "Public holidays: the free 6–9 am window does not apply on holidays, so the ZTL is closed to you all day. GateLR cannot yet show this: on a weekday holiday between 6 and 9 am it may wrongly say the ZTL is off. Don't drive in on holidays.",
      "24 June (St John the Baptist, the town's patron saint) is counted as a holiday; to be confirmed with the city.",
      "Hotel guests: the city's pages say nothing about hotels registering plates. Short permits (a free one-day permit once a month, 1–3 days €6) are issued in person at the Punto Amico, Via Rosai 1.",
      "Perimeter from OpenStreetMap, traced from the city's map image (which has no coordinates); the edge is approximate. The gates are placed where the named street crosses that outline. The exit gate form lists Via Rosai and Largo Ceramica: which of U4 and U5 is which is still to be confirmed.",
      "No ordinance number is published with the hours: the 2011 rules (Council decision 63/2011) leave them to a mayor's ordinance we haven't found."
     ],
     "pending_it": [
-     "Festivi: la fascia libera 6–9 non vale nei festivi, quindi la ZTL ti è chiusa tutto il giorno. GateLR non sa ancora mostrarlo: in un festivo infrasettimanale tra le 6 e le 9 potrebbe dire per errore che la ZTL è spenta. Nei festivi non entrare.",
      "Il 24 giugno (San Giovanni Battista, patrono) è contato come festivo; da confermare con il Comune.",
      "Ospiti degli hotel: le pagine del Comune non parlano di hotel che comunicano la targa. I permessi brevi (uno giornaliero gratuito al mese, 1–3 giorni 6 €) si chiedono di persona al Punto Amico, via Rosai 1.",
      "Perimetro da OpenStreetMap, ricalcato sull'immagine della mappa del Comune (che non ha coordinate); il bordo è approssimato. I varchi sono messi dove la strada indicata taglia quel perimetro. Il modulo elenca tra i varchi di uscita via Rosai e Largo Ceramica: quale sia U4 e quale U5 è da confermare.",
      "Gli orari non riportano il numero di un'ordinanza: il regolamento del 2011 (delibera CC 63/2011) li rimanda a un'ordinanza del Sindaco che non abbiamo trovato."
     ],
     "pending_de": [
-     "Feiertage: Das freie Zeitfenster 6–9 Uhr gilt an Feiertagen nicht, die ZTL ist dann den ganzen Tag gesperrt. GateLR kann das noch nicht abbilden: An einem Feiertag unter der Woche zwischen 6 und 9 Uhr könnte es fälschlich »nicht aktiv« anzeigen. An Feiertagen nicht einfahren.",
      "Der 24. Juni (Johannes der Täufer, Stadtpatron) gilt als Feiertag; mit der Stadt zu bestätigen.",
      "Hotelgäste: Die Seiten der Stadt sagen nichts über eine Kennzeichenmeldung durch Hotels. Kurze Genehmigungen (einmal im Monat ein kostenloser Tag, 1–3 Tage 6 €) gibt es persönlich am Punto Amico, Via Rosai 1.",
      "Grenze aus OpenStreetMap, nach dem Kartenbild der Stadt (ohne Koordinaten) gezeichnet; der Rand ist ungefähr. Die Kameras liegen dort, wo die genannte Straße diese Grenze kreuzt. Das Formular nennt als Ausfahrtskameras Via Rosai und Largo Ceramica: welche U4 und welche U5 ist, ist noch zu klären.",
@@ -527,6 +525,7 @@
     }
    ],
    "freeOnHolidays": false,
+   "holidaysAsSunday": true,
    "exemptFuels": [],
    "hotelCanRegister": false,
    "source": {
@@ -541,7 +540,6 @@
     "reviewedByHuman": false,
     "pending": [
      "Permit holders: Corso Italia only 9–11 am (\"Corso Italia: 9:00–11:00 (dalle 11:00 transito vietato, salvo particolari categorie di utenti autorizzati)\"); residents of the Corso also at night, and on Fridays only until 5 am because of the Saturday market.",
-     "Public holidays: the free 6–9 am window does not apply on holidays, so the ZTL is closed to you all day. GateLR cannot yet show this: on a weekday holiday between 6 and 9 am it may wrongly say the ZTL is off. Don't drive in on holidays.",
      "24 June (St John the Baptist, the town's patron saint) is counted as a holiday; to be confirmed with the city.",
      "Hotel guests: the city's pages say nothing about hotels registering plates. Short permits (a free one-day permit once a month, 1–3 days €6) are issued in person at the Punto Amico, Via Rosai 1.",
      "Perimeter from OpenStreetMap, traced from the city's map image (which has no coordinates); the edge is approximate. The gates are placed where the named street crosses that outline. The exit gate form lists Via Rosai and Largo Ceramica: which of U4 and U5 is which is still to be confirmed.",
@@ -549,7 +547,6 @@
     ],
     "pending_it": [
      "Chi ha il permesso: Corso Italia solo 9–11 («Corso Italia: 9:00–11:00 (dalle 11:00 transito vietato, salvo particolari categorie di utenti autorizzati)»); i residenti del Corso anche di notte, il venerdì solo fino alle 5 per il mercato del sabato.",
-     "Festivi: la fascia libera 6–9 non vale nei festivi, quindi la ZTL ti è chiusa tutto il giorno. GateLR non sa ancora mostrarlo: in un festivo infrasettimanale tra le 6 e le 9 potrebbe dire per errore che la ZTL è spenta. Nei festivi non entrare.",
      "Il 24 giugno (San Giovanni Battista, patrono) è contato come festivo; da confermare con il Comune.",
      "Ospiti degli hotel: le pagine del Comune non parlano di hotel che comunicano la targa. I permessi brevi (uno giornaliero gratuito al mese, 1–3 giorni 6 €) si chiedono di persona al Punto Amico, via Rosai 1.",
      "Perimetro da OpenStreetMap, ricalcato sull'immagine della mappa del Comune (che non ha coordinate); il bordo è approssimato. I varchi sono messi dove la strada indicata taglia quel perimetro. Il modulo elenca tra i varchi di uscita via Rosai e Largo Ceramica: quale sia U4 e quale U5 è da confermare.",
@@ -557,7 +554,6 @@
     ],
     "pending_de": [
      "Mit Genehmigung: Corso Italia nur 9–11 Uhr (»Corso Italia: 9:00–11:00 (dalle 11:00 transito vietato, salvo particolari categorie di utenti autorizzati)«); Anwohner des Corso auch nachts, freitags wegen des Samstagsmarkts nur bis 5 Uhr.",
-     "Feiertage: Das freie Zeitfenster 6–9 Uhr gilt an Feiertagen nicht, die ZTL ist dann den ganzen Tag gesperrt. GateLR kann das noch nicht abbilden: An einem Feiertag unter der Woche zwischen 6 und 9 Uhr könnte es fälschlich »nicht aktiv« anzeigen. An Feiertagen nicht einfahren.",
      "Der 24. Juni (Johannes der Täufer, Stadtpatron) gilt als Feiertag; mit der Stadt zu bestätigen.",
      "Hotelgäste: Die Seiten der Stadt sagen nichts über eine Kennzeichenmeldung durch Hotels. Kurze Genehmigungen (einmal im Monat ein kostenloser Tag, 1–3 Tage 6 €) gibt es persönlich am Punto Amico, Via Rosai 1.",
      "Grenze aus OpenStreetMap, nach dem Kartenbild der Stadt (ohne Koordinaten) gezeichnet; der Rand ist ungefähr. Die Kameras liegen dort, wo die genannte Straße diese Grenze kreuzt. Das Formular nennt als Ausfahrtskameras Via Rosai und Largo Ceramica: welche U4 und welche U5 ist, ist noch zu klären.",

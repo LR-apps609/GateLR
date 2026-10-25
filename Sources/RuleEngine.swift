@@ -103,10 +103,10 @@ struct RuleEngine {
     /// Per la parte dopo mezzanotte di una fascia notturna il giorno è quello prima: la notte
     /// tra sabato festivo e domenica è libera, quella tra venerdì e un sabato festivo no.
     private func activeStartDays(_ zone: Zone, at date: Date) -> [Date] {
-        let weekday = calendar.component(.weekday, from: date)
         let minute = calendar.component(.hour, from: date) * 60 + calendar.component(.minute, from: date)
-        let yesterday = weekday == 1 ? 7 : weekday - 1
         let dayBefore = calendar.date(byAdding: .day, value: -1, to: date)!
+        let weekday = effectiveWeekday(zone, date)
+        let yesterday = effectiveWeekday(zone, dayBefore)
         var out: [Date] = []
         for w in zone.windows {
             if w.end > w.start {
@@ -118,6 +118,12 @@ struct RuleEngine {
             if w.weekdays.contains(yesterday) && inSeason(w, dayBefore) && minute < w.end { out.append(dayBefore) }
         }
         return out
+    }
+
+    /// Il giorno della settimana per gli orari: un festivo conta come domenica se la zona lo dice (holidaysAsSunday)
+    private func effectiveWeekday(_ zone: Zone, _ day: Date) -> Int {
+        if zone.holidaysAsSunday == true && isHoliday(zone, day) { return 1 }
+        return calendar.component(.weekday, from: day)
     }
 
     /// Festivo nazionale o festa del patrono della città della zona

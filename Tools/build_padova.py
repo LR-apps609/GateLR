@@ -210,11 +210,7 @@ ZTL_PENDING = [
      "Le auto elettriche entrano solo con la targa registrata dal Comune (email a zonablu@comune.padova.it, anche entro 48 ore dal transito): GateLR le tratta come le altre auto.",
      "Elektroautos dürfen nur mit beim Amt gemeldetem Kennzeichen einfahren (E-Mail an zonablu@comune.padova.it, auch bis 48 Stunden danach): GateLR behandelt sie wie andere Autos."),
 ]
-A_PENDING = [
-    ("On public holidays that fall on a weekday, Zona A is active only 2 pm–11:30 pm; GateLR shows it active from 8 am (on the safe side).",
-     "Nei festivi infrasettimanali la Zona A è attiva solo dalle 14:00 alle 23:30; GateLR la mostra attiva già dalle 8:00 (per prudenza).",
-     "An Feiertagen unter der Woche ist die Zona A nur von 14 bis 23:30 Uhr aktiv; GateLR zeigt sie vorsichtshalber schon ab 8 Uhr als aktiv."),
-]
+A_PENDING = []   # i festivi infrasettimanali seguono gli orari della domenica (holidaysAsSunday)
 SUMMARY_A = ("Monday to Saturday 8 am–11:30 pm, Sundays and holidays 2 pm–11:30 pm: no entry without a permit (cameras also on the way out; €80 fine). Motorbikes and mopeds may enter. There is no day ticket for tourists. If your hotel is inside, it can register your plate within 48 hours, for loading and unloading only. Zona B, the squares around Palazzo della Ragione and the riverside streets, is closed around the clock.",
              "Dal lunedì al sabato 8:00–23:30, domenica e festivi 14:00–23:30: vietato entrare senza permesso (telecamere anche in uscita; multa 80 €). Moto e ciclomotori entrano. Non c'è un ticket per i turisti. Se l'hotel è dentro, può registrare la targa entro 48 ore, solo per carico e scarico. La Zona B, le piazze attorno al Palazzo della Ragione e le riviere, è chiusa 24 ore su 24.",
              "Montag bis Samstag 8–23:30 Uhr, sonntags und feiertags 14–23:30 Uhr: keine Einfahrt ohne Genehmigung (Kameras auch an der Ausfahrt; 80 € Bußgeld). Motorräder und Mofas dürfen hinein. Ein Tagesticket für Touristen gibt es nicht. Liegt dein Hotel innen, kann es dein Kennzeichen binnen 48 Stunden melden, nur zum Be- und Entladen. Die Zona B, die Plätze um den Palazzo della Ragione und die Uferstraßen, ist rund um die Uhr gesperrt.")
@@ -355,7 +351,7 @@ zone_a = {"id": "padova-a", "name": "Zona A · Historic Centre", "name_it": "Zon
           "kind": "restricted", "summary": SUMMARY_A[0], "summary_it": SUMMARY_A[1], "summary_de": SUMMARY_A[2],
           "perimeter": osm_geo.perimeter(ring_ztl, tol_m=4), "gates": gate_list("pd-a", GATES_A),
           "windows": [window(MON_SAT, 8 * 60, 23 * 60 + 30), window(SUN, 14 * 60, 23 * 60 + 30)],
-          "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True,
+          "freeOnHolidays": False, "holidaysAsSunday": True, "exemptFuels": [], "hotelCanRegister": True,
           "source": source(ZTL_PAGE, QUOTE_A, ("ZONE A: working days 8:00–23:30; holidays: 14:00–23:30",
                                                "ZONE A: Werktage 8:00–23:30; Feiertage: 14:00–23:30"),
                            ZTL_LINKS + [OSM_LINK], ZTL_PENDING + A_PENDING,

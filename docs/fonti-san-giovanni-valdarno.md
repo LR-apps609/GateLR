@@ -42,7 +42,7 @@ Aree pedonali nel JSON (`pedestrian`): piazza Cavour e piazza Masaccio (contorni
 
 ## Limite noto dell'app
 
-La fascia libera (6–9) esclude i festivi, quindi nei festivi la ZTL è chiusa tutto il giorno. Il modello dell'app sa solo «spenta nei festivi» (`freeOnHolidays: true`) o «festivi come gli altri giorni» (`false`): con `false`, in un festivo infrasettimanale tra le 6 e le 9 l'app direbbe per errore che la ZTL è spenta. Il caso è scritto nei punti in sospeso della scheda e nel riassunto; per risolverlo serve una modifica al motore delle regole (fasce attive solo nei festivi), non ai dati. Il 24 giugno (patrono) è in `localHolidays` per quando il motore lo userà.
+La fascia libera (6–9) esclude i festivi, quindi nei festivi la ZTL è chiusa tutto il giorno. Dalla 1.13.2 la scheda ha `holidaysAsSunday: true` (`freeOnHolidays: false`): nei festivi l'app usa gli orari della domenica, chiusa tutto il giorno. Il 24 giugno (patrono) è in `localHolidays`.
 
 ## Fonti non ufficiali (solo controllo incrociato)
 

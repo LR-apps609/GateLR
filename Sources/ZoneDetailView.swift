@@ -179,6 +179,8 @@ struct ZoneDetailView: View {
         }
         if zone.freeOnHolidays == nil {
             rows.append(Row(days: L("Public holidays"), hours: L("not confirmed")))
+        } else if zone.holidaysAsSunday == true {
+            rows.append(Row(days: L("Public holidays"), hours: L("as on Sunday")))
         }
         return rows
     }

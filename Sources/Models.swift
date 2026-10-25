@@ -91,6 +91,8 @@ struct Zone: Codable, Identifiable, Hashable {
     var gates: [Gate]
     var windows: [TimeWindow]   // quando i varchi sono accesi
     var freeOnHolidays: Bool?   // nil = non sappiamo: nei festivi la risposta è «non sicuro»
+    /// true = nei festivi valgono gli orari della domenica (es. Padova 14–23:30, San Giovanni Valdarno chiusa tutto il giorno)
+    var holidaysAsSunday: Bool? = nil
     var exemptFuels: Set<Fuel>  // es. elettriche ammesse
     var hotelCanRegister: Bool  // l'hotel dentro la zona può comunicare la targa
     var ticket: Ticket? = nil   // ZTL a pagamento (es. Area C di Milano): si entra pagando

@@ -147,9 +147,6 @@ LINKS = [
 ]
 
 PENDING_COMMON = [
-    ("Public holidays: the free 6–9 am window does not apply on holidays, so the ZTL is closed to you all day. GateLR cannot yet show this: on a weekday holiday between 6 and 9 am it may wrongly say the ZTL is off. Don't drive in on holidays.",
-     "Festivi: la fascia libera 6–9 non vale nei festivi, quindi la ZTL ti è chiusa tutto il giorno. GateLR non sa ancora mostrarlo: in un festivo infrasettimanale tra le 6 e le 9 potrebbe dire per errore che la ZTL è spenta. Nei festivi non entrare.",
-     "Feiertage: Das freie Zeitfenster 6–9 Uhr gilt an Feiertagen nicht, die ZTL ist dann den ganzen Tag gesperrt. GateLR kann das noch nicht abbilden: An einem Feiertag unter der Woche zwischen 6 und 9 Uhr könnte es fälschlich »nicht aktiv« anzeigen. An Feiertagen nicht einfahren."),
     ("24 June (St John the Baptist, the town's patron saint) is counted as a holiday; to be confirmed with the city.",
      "Il 24 giugno (San Giovanni Battista, patrono) è contato come festivo; da confermare con il Comune.",
      "Der 24. Juni (Johannes der Täufer, Stadtpatron) gilt als Feiertag; mit der Stadt zu bestätigen."),
@@ -200,7 +197,7 @@ zone_main = {
     "id": "sgv-centro", "name": "Centro · Historic Centre ZTL", "name_it": "Centro · ZTL Centro storico", "name_de": "Centro · ZTL Altstadt",
     "kind": "restricted", "summary": SUMMARY, "summary_it": SUMMARY_IT, "summary_de": SUMMARY_DE,
     "perimeter": osm_geo.perimeter(ring_main, tol_m=2), "gates": gates(GATES_MAIN),
-    "windows": WINDOWS, "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": False,
+    "windows": WINDOWS, "freeOnHolidays": False, "holidaysAsSunday": True, "exemptFuels": [], "hotelCanRegister": False,
     "source": source(QUOTE, ("Everyone may drive in from 6:00 to 9:00 – except Saturday, Sunday and public holidays – at other times ONLY authorised vehicles or vehicles with a permit may enter",
                              "Von 6:00 bis 9:00 Uhr dürfen alle hineinfahren – außer samstags, sonntags und an Feiertagen –, zu anderen Zeiten NUR berechtigte Fahrzeuge oder solche mit Genehmigung")),
 }
@@ -214,7 +211,7 @@ zone_corso = {
     "summary_de": "Die Hauptstraße (Bereich B auf der Karte der Stadt), strenger als der Rest der ZTL: Selbst mit Genehmigung darf man hier nur von 9 bis 11 Uhr fahren. "
                   "Für dich gilt dasselbe: offen nur Montag bis Freitag 6–9 Uhr (nicht an Feiertagen), sonst gesperrt. Die Plätze daneben (Piazza Cavour, Piazza Masaccio) sind Fußgängerzone.",
     "perimeter": osm_geo.perimeter(ring_corso, tol_m=2), "gates": gates(GATES_CORSO),
-    "windows": WINDOWS, "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": False,
+    "windows": WINDOWS, "freeOnHolidays": False, "holidaysAsSunday": True, "exemptFuels": [], "hotelCanRegister": False,
     "source": source(QUOTE, ("Everyone may drive in from 6:00 to 9:00 – except Saturday, Sunday and public holidays – at other times ONLY authorised vehicles or vehicles with a permit may enter",
                              "Von 6:00 bis 9:00 Uhr dürfen alle hineinfahren – außer samstags, sonntags und an Feiertagen –, zu anderen Zeiten NUR berechtigte Fahrzeuge oder solche mit Genehmigung"),
                      [("Permit holders: Corso Italia only 9–11 am (\"" + QUOTE_CORSO + "\"); residents of the Corso also at night, and on Fridays only until 5 am because of the Saturday market.",

@@ -484,6 +484,7 @@ T = {
 'Allow the camera': 'Autoriser la caméra',
 'iOS asks only once. Tap «Open Settings», turn on Camera and come back: the camera opens by itself. You can also choose a photo.': "iOS ne le demande qu'une fois. Touchez « Ouvrir Réglages », activez Appareil photo et revenez : la caméra s'ouvre toute seule. Vous pouvez aussi choisir une photo.",
 'Open Settings': 'Ouvrir Réglages',
+'as on Sunday': 'comme le dimanche',
 'Can I drive in?': 'Puis-je entrer ?',
 'Find out if you|can drive in': 'Savoir si vous|pouvez entrer',
 'Search a hotel, address or square: GateLR tells you at once if your car can get there.': "Cherchez un hôtel, une adresse ou une place : GateLR vous dit tout de suite si votre voiture peut y aller.",

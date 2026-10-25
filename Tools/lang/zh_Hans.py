@@ -483,6 +483,7 @@ T = {
 'Allow the camera': '允许使用相机',
 'iOS asks only once. Tap «Open Settings», turn on Camera and come back: the camera opens by itself. You can also choose a photo.': 'iOS 只会询问一次。轻点“打开设置”，打开“相机”后返回：相机会自动打开。你也可以选择一张照片。',
 'Open Settings': '打开设置',
+'as on Sunday': '与周日相同',
 'Can I drive in?': '我能进去吗？',
 'Find out if you|can drive in': '看看你|能否驶入',
 'Search a hotel, address or square: GateLR tells you at once if your car can get there.': '搜索酒店、地址或广场：GateLR 立即告诉你的车能否到达。',
