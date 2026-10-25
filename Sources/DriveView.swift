@@ -335,7 +335,7 @@ struct DriveView: View {
     private var bottomBar: some View {
         HStack(spacing: 8) {
             VStack(alignment: .leading, spacing: 2) {
-                Text(drive.eta.map { $0.formatted(date: .omitted, time: .shortened) } ?? "–")
+                Text(drive.eta.map { RuleEngine.format($0, .init(date: .omitted, time: .shortened)) } ?? "–")
                     .font(Theme.display(28)).monospacedDigit()
                     .lineLimit(1).minimumScaleFactor(0.6)
                 Text(remainingText)

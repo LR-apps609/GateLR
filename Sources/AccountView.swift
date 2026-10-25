@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import TipKit
 
 /// «Account»: impostazioni, avvisi, città offline, abbonamento (presto), la guida alla ZTL e le informazioni.
 /// Prima versione senza login: tutto resta sul telefono.
@@ -108,13 +109,15 @@ struct AccountView: View {
                                             .background(vehicleColor == c.rawValue ? Theme.blueSoft : .clear, in: RoundedRectangle(cornerRadius: 12))
                                     }
                                     .buttonStyle(.plain)
-                                    .accessibilityLabel(c.rawValue)
+                                    .accessibilityLabel(c.title)
                                     .accessibilityAddTraits(vehicleColor == c.rawValue ? .isSelected : [])
                                 }
                             }
                         }
                     }
                     if basicVoice {
+                        // Solo con la voce di base: il consiglio una volta, poi resta il link
+                        TipView(BetterVoiceTip())
                         Button {
                             if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
                         } label: {

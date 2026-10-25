@@ -158,7 +158,7 @@ struct VerdictCard: View {
                 .accessibilityHidden(true)
             }
             HStack {
-                if let since { Text(String(format: L(answer.gatesOn ? "Active since %@" : "Not active since %@"), since.formatted(date: .omitted, time: .shortened))) }
+                if let since { Text(String(format: L(answer.gatesOn ? "Active since %@" : "Not active since %@"), RuleEngine.format(since, .init(date: .omitted, time: .shortened)))) }
                 Spacer()
                 Text(String(format: L(answer.gatesOn ? "Ends in %@" : "Starts in %@"), Self.duration(left)))
             }
@@ -214,5 +214,42 @@ struct WideButton: View {
             .foregroundStyle(prominent ? Color.white : Theme.blue)
         }
         .buttonStyle(.plain)
+    }
+}
+
+/// Una pagina o un elenco ancora vuoti: un disegno fatto di simboli, una riga di spiegazione e un pulsante
+struct EmptyStateView: View {
+    var symbol: String
+    var badge: String
+    var tint: Color = Theme.blue
+    var title: String
+    var text: String
+    var action: String
+    var actionSymbol: String? = nil
+    var perform: () -> Void
+
+    var body: some View {
+        VStack(spacing: 12) {
+            ZStack {
+                Circle().fill(tint.opacity(0.12)).frame(width: 96, height: 96)
+                Circle().strokeBorder(tint.opacity(0.25), style: StrokeStyle(lineWidth: 1.5, dash: [4, 5])).frame(width: 118, height: 118)
+                Image(systemName: symbol).font(.app(size: 38, weight: .semibold)).foregroundStyle(tint)
+                Image(systemName: badge)
+                    .font(.app(size: 15, weight: .bold)).foregroundStyle(.white)
+                    .frame(width: 32, height: 32)
+                    .background(tint, in: Circle())
+                    .overlay(Circle().stroke(Theme.card, lineWidth: 3))
+                    .offset(x: 36, y: 34)
+            }
+            .frame(height: 124)
+            .accessibilityHidden(true)
+            Text(L(title)).font(Theme.display(22)).foregroundStyle(Theme.ink).multilineTextAlignment(.center)
+            Text(L(text)).font(.app(size: 14)).foregroundStyle(Theme.muted)
+                .multilineTextAlignment(.center).fixedSize(horizontal: false, vertical: true)
+            WideButton(title: action, systemImage: actionSymbol, action: perform)
+                .padding(.top, 4)
+        }
+        .padding(.vertical, 12)
+        .frame(maxWidth: .infinity)
     }
 }

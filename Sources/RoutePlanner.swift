@@ -168,7 +168,7 @@ struct RouteCard: View {
                 Text(Measurement(value: plan.distance, unit: UnitLength.meters).formatted(.measurement(width: .abbreviated, usage: .road)))
                     .font(.app(size: 15)).foregroundStyle(Theme.muted)
                 Spacer()
-                Text(String(format: L("Arrive %@"), plan.arrival.formatted(date: .omitted, time: .shortened)))
+                Text(String(format: L("Arrive %@"), RuleEngine.format(plan.arrival, .init(date: .omitted, time: .shortened))))
                     .font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.muted)
             }
             if plan.crossings.isEmpty {
@@ -184,7 +184,7 @@ struct RouteCard: View {
                             VStack(alignment: .leading, spacing: 1) {
                                 Text(c.zone.shortName).font(.app(size: 15, weight: .semibold)).lineLimit(1)
                                 Text(String(format: L(c.isDestination ? "Destination · at %@" : "On the way · at %@"),
-                                            c.at.formatted(date: .omitted, time: .shortened)))
+                                            RuleEngine.format(c.at, .init(date: .omitted, time: .shortened))))
                                     .font(.app(size: 12)).foregroundStyle(Theme.muted)
                             }
                             Spacer()

@@ -179,9 +179,10 @@ struct HotelStay: Codable, Hashable {
     var status: Status = .notAsked
     var permitId: UUID? = nil
 
-    /// I giorni da coprire, dal giorno di arrivo a quello di partenza compresi
+    /// I giorni da coprire, dal giorno di arrivo a quello di partenza compresi, in ora italiana come il motore
+    /// (con il calendario del telefono, da New York un arrivo alle 20 diventava il giorno dopo a Firenze)
     var days: [Date] {
-        let c = Calendar.current
+        let c = RuleEngine.rome
         var d = c.startOfDay(for: arrival), out: [Date] = []
         let last = c.startOfDay(for: max(departure, arrival))
         while d <= last && out.count < 31 { out.append(d); d = c.date(byAdding: .day, value: 1, to: d) ?? last.addingTimeInterval(1) }

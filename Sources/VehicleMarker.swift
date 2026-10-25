@@ -19,6 +19,18 @@ enum VehicleMarker: String, CaseIterable, Identifiable {
 enum VehicleColor: String, CaseIterable, Identifiable {
     case blue, red, white, black, silver, green, yellow
     var id: String { rawValue }
+    /// Il nome nella lingua dell'app (VoiceOver in Account: prima si leggeva «blue» anche in italiano)
+    var title: String {
+        switch self {
+        case .blue: L("Blue")
+        case .red: L("Red")
+        case .white: L("White")
+        case .black: L("Black")
+        case .silver: L("Silver")
+        case .green: L("Green")
+        case .yellow: L("Yellow")
+        }
+    }
     var color: Color {
         switch self {
         case .blue: Color(hex: 0x2F6FE4)

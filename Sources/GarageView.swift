@@ -10,6 +10,14 @@ struct GarageView: View {
         NavigationStack {
             List {
                 Section("Vehicles") {
+                    if store.vehicles.isEmpty {
+                        EmptyStateView(symbol: "car.fill", badge: "plus", title: "No cars yet",
+                                       text: "Add your car or rental: GateLR checks its fuel and Euro class against every zone.",
+                                       action: "Add a vehicle", actionSymbol: "plus") {
+                            editing = Vehicle(name: "", fuel: .petrol, euro: 6)
+                        }
+                        .listRowBackground(Color.clear)
+                    }
                     ForEach(store.vehicles) { v in
                         HStack(spacing: 12) {
                             Image(systemName: "car.fill")
@@ -46,7 +54,7 @@ struct GarageView: View {
                                 .foregroundStyle(p.status == .confirmed ? Theme.greenInk : Theme.amberInk)   // le versioni «Ink» si leggono anche al buio
                             VStack(alignment: .leading) {
                                 Text(p.kind.label)
-                                Text("\(p.from.formatted(.dateTime.day().month())) – \(p.to.formatted(.dateTime.day().month()))")
+                                Text("\(RuleEngine.format(p.from, .dateTime.day().month())) – \(RuleEngine.format(p.to, .dateTime.day().month()))")
                                     .font(.app(size: 13)).foregroundStyle(Theme.muted)
                             }
                             Spacer()

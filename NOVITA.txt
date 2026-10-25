@@ -1,3 +1,11 @@
+Novità della 1.13.0 «UX»:
+• Prima pagina: un tocco su «Il tuo hotel» (dai viaggi salvati) o su un posto recente e la risposta compare subito nel riquadro, senza cambiare pagina
+• Primo avvio: alla fine «Dove vai?» con le città (Firenze, Bologna, Milano, Roma, Siena) e una pagina che spiega perché serve la posizione («per avvisarti prima dei varchi») prima della richiesta di iOS
+• Consigli al momento giusto (TipKit): in Viaggio dopo la prima risposta («Avvia» per gli avvisi con Google Maps), in Mappa («cerca il tuo hotel»), in Account solo con la voce di base
+• Pagine vuote più chiare: Garage senza auto, diario dei passaggi vuoto, nessun viaggio salvato, con un disegno, una riga e un pulsante
+• Ora italiana ovunque: giorni del soggiorno in hotel, permessi, arrivo, orari del percorso e della guida, messaggio per l'hotel
+• Account: i colori del modellino letti nella lingua dell'app
+
 Novità della 1.12.1 (correzioni):
 • Widget e risposte: l'ora del prossimo cambio in ora italiana, con il giorno se non è oggi
 • Siri: un'ora di arrivo già passata vale per la prossima volta; dentro due zone risponde per la più piccola

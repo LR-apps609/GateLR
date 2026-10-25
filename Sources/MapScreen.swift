@@ -1,5 +1,6 @@
 import SwiftUI
 import MapKit
+import TipKit
 
 /// «Mappa»: le zone colorate per tipo (rosso vietato, giallo pass, verde basse emissioni), i varchi,
 /// i parcheggi fuori zona, stili satellite e 3D, e la vista a livello strada dove c'è.
@@ -233,7 +234,10 @@ struct MapScreen: View {
         .onAppear { visible = true; focus() }
         .onDisappear { visible = false }
         .onChange(of: store.cityId) { parkings = []; focus() }
-        .onChange(of: store.place) { focus() }
+        .onChange(of: store.place) {
+            focus()
+            if store.place != nil { MapSearchTip().invalidate(reason: .actionPerformed) }
+        }
         .onChange(of: planner.plan) { focus() }
         .sheet(item: $selectedParking) { p in ParkingSheet(parking: p).presentationDetents([.height(260)]) }
         .fullScreenCover(isPresented: $driving) { DriveView() }
@@ -338,6 +342,9 @@ struct MapScreen: View {
                 suggestions
             } else if showLegend {
                 legend.transition(.opacity.combined(with: .move(edge: .top)))
+            } else if store.place == nil {
+                // Sotto la barra, dentro la pagina: non copre la ricerca né i pulsanti
+                TipView(MapSearchTip()).tipBackground(.regularMaterial)
             }
         }
         .padding(.horizontal, 12).padding(.top, 8)

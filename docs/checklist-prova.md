@@ -1,7 +1,19 @@
-# GateLR 1.12.0 – Checklist delle prove a mano
+# GateLR 1.13.0 – Checklist delle prove a mano
 
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
+
+## ★ UX (1.13.0)
+- [ ] Prima pagina con un viaggio salvato: pastiglia azzurra «Il tuo hotel · …» → un tocco e il riquadro diventa verde/rosso/ambra, senza cambiare pagina
+- [ ] Pastiglie dei posti recenti: stessa cosa, la risposta nel riquadro; la X la toglie
+- [ ] Primo avvio (cancella l'app e reinstalla): tre pagine, poi «Dove vai?» con Firenze, Bologna, Milano, Roma, Siena; toccando una città la prima pagina si apre lì
+- [ ] Poi «Per avvisarti prima dei varchi»: «Consenti la posizione» → solo allora la richiesta di iOS; «Non adesso» → nessuna richiesta
+- [ ] «Salta» nelle prime pagine porta a «Dove vai?»; «Salta» lì porta alla posizione
+- [ ] Consigli: in Viaggio dopo la prima risposta («Tocca Avvia…»), in Mappa sotto la ricerca («Cerca il tuo hotel…»), in Account solo se c'è solo la voce di base; si chiudono con la X e non tornano; non coprono pulsanti
+- [ ] Pagine vuote: Garage senza veicoli («Aggiungi un veicolo»), Account → Diario dei passaggi vuoto («Prova un avviso»), Viaggio senza viaggi salvati («Cerca il tuo hotel»)
+- [ ] iPhone con fuso di New York (Impostazioni → Generali → Data e ora): giorni del soggiorno, arrivo, orari del percorso e messaggio per l'hotel in ora italiana
+- [ ] Account → modellino → VoiceOver legge i colori in italiano («Blu», «Argento»…)
+- [ ] «Novità della 1.13.0» dopo l'aggiornamento, una volta
 
 ## ★ Velocità e iPad (1.12.0)
 - [ ] Mappa su **Milano**: allarga fino a vedere tutta l’Area B e stringi fino al Duomo, più volte e in fretta → niente scatti; con tutta l’Area B sullo schermo i 188 varchi spariscono, avvicinandoti tornano

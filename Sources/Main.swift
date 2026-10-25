@@ -5,6 +5,11 @@ import SwiftUI
 struct GateLRApp: App {
     @StateObject private var store = Store.shared
 
+    init() {
+        // I consigli (TipKit) una volta sola all'avvio; mai nel giro automatico delle foto
+        AppTips.configure()
+    }
+
     var body: some Scene {
         WindowGroup {
             RootView()

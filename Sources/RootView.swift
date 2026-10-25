@@ -64,10 +64,12 @@ struct RootView: View {
         }
         .fullScreenCover(isPresented: Binding(get: { RootView.showOnboarding(onboarded) },
                                               set: { if !$0 { onboarded = true } })) {
-            Onboarding {
+            // La richiesta di iOS per la posizione arriva solo dopo la pagina che spiega perché, e solo se la vuoi adesso
+            Onboarding { askLocation in
                 onboarded = true
-                Task { await GateMonitor.shared.startIfReady(store: store) }
+                if askLocation { Task { await GateMonitor.shared.startIfReady(store: store) } }
             }
+            .environmentObject(store)
             .readableFrame(640)
             .background(Theme.ground.ignoresSafeArea())
         }

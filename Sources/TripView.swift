@@ -1,6 +1,7 @@
 import SwiftUI
 import MapKit
 import UIKit
+import TipKit
 
 /// «Viaggio»: l'unico posto dove si cerca la destinazione o l'hotel. Risposta adesso o all'arrivo,
 /// percorso con il controllo delle ZTL, messaggio per l'hotel e viaggi salvati.
@@ -177,6 +178,7 @@ struct TripView: View {
                 // già passato (app ripresa dopo ore), il selettore correggeva la data → nuovo disegno → di nuovo
                 DatePicker(L("Arrival"), selection: $arrival, in: Self.minuteFloor(Date())...)
                     .labelsHidden()
+                    .environment(\.timeZone, RuleEngine.rome.timeZone)      // l'ora di arrivo in Italia, come la conta il motore
                     .transition(.opacity)
             }
         }
@@ -184,8 +186,8 @@ struct TripView: View {
 
     private func heading(_ zone: Zone, _ date: Date) -> String {
         atArrival
-            ? "\(zone.shortName) · \(date.formatted(.dateTime.weekday(.abbreviated).hour().minute()))"
-            : String(format: L("%@ · now %@"), zone.shortName, date.formatted(date: .omitted, time: .shortened))
+            ? "\(zone.shortName) · \(store.engine.format(date, .dateTime.weekday(.abbreviated).hour().minute()))"
+            : String(format: L("%@ · now %@"), zone.shortName, store.engine.format(date, .dateTime.hour().minute()))
     }
 
     // MARK: Risposta per l'indirizzo
@@ -215,6 +217,8 @@ struct TripView: View {
                         source: hit.zone.source,
                         since: atArrival ? nil : store.engine.previousChange(hit.zone, before: date),
                         onWhy: { store.cityId = hit.city.id; store.zoneId = hit.zone.id; showZone = true })
+            // Dopo la prima risposta: il guardiano accanto a Google Maps (un riquadro nella pagina, non sopra i pulsanti)
+            TipView(StartGuardianTip()).tipBackground(Theme.card)
             if hits.count > 1 {
                 VStack(alignment: .leading, spacing: 8) {
                     SectionLabel("Also inside")
@@ -231,6 +235,7 @@ struct TripView: View {
             }
         } else {
             outsideCard(place)
+            TipView(StartGuardianTip()).tipBackground(Theme.card)
             routeCard(place)
         }
     }
@@ -246,6 +251,7 @@ struct TripView: View {
                     driving = DriveSession.shared.active
                 }
             }, onGuardian: { target, navigator in
+                StartGuardianTip().invalidate(reason: .actionPerformed)
                 Guardian.shared.start(to: target, with: navigator, store: store)
             })
             DriveErrorText()
@@ -350,7 +356,14 @@ struct TripView: View {
                 }
             }
         }
-        if !store.trips.isEmpty { savedTrips }
+        if store.trips.isEmpty {
+            EmptyStateView(symbol: "suitcase.rolling.fill", badge: "bookmark.fill", title: "No saved trips",
+                           text: "Search your hotel and tap «Save this trip»: it stays here and on the first page.",
+                           action: "Search your hotel", actionSymbol: "magnifyingglass") { typing = true }
+                .padding(16).card()
+        } else {
+            savedTrips
+        }
     }
 
     private func zoneList(_ zones: [Zone], at date: Date) -> some View {
@@ -451,7 +464,7 @@ struct TripView: View {
     }
 
     private func tripSubtitle(_ t: Trip, zone: Zone?) -> String {
-        let when: String = t.arrival.formatted(.dateTime.day().month().hour().minute())
+        let when: String = store.engine.format(t.arrival, .dateTime.day().month().hour().minute())
         let where_: String? = zone?.shortName ?? (t.hotel == nil ? nil : L("Outside the ZTL"))
         return [when, where_].compactMap { $0 }.joined(separator: " · ")
     }
@@ -461,7 +474,7 @@ struct TripView: View {
         // Le stesse date del riquadro «Registrazione della targa» (di serie: due notti)
         let stay = store.place.flatMap { store.stays[$0.key] }
         let start: Date = stay?.arrival ?? (atArrival ? arrivalTime : Date())
-        let end: Date = stay?.departure ?? (Calendar.current.date(byAdding: .day, value: 2, to: start) ?? start)
+        let end: Date = stay?.departure ?? (RuleEngine.rome.date(byAdding: .day, value: 2, to: start) ?? start)
         let text = language.message(arrival: start,
                                     plate: store.vehicle.plate.isEmpty ? "[PLATE]" : store.vehicle.plate,
                                     hotel: name, departure: end)
@@ -512,10 +525,11 @@ struct TripView: View {
         Date(timeIntervalSinceReferenceDate: (d.timeIntervalSinceReferenceDate / 60).rounded(.down) * 60)
     }
 
-    /// La prossima volta che sono le «hour» (oggi o domani), più «days» giorni
+    /// La prossima volta che sono le «hour» in Italia (oggi o domani), più «days» giorni
     static func upcoming(hour: Int, days: Int = 0) -> Date {
-        let next = Calendar.current.nextDate(after: Date(), matching: DateComponents(hour: hour, minute: 0, second: 0), matchingPolicy: .nextTime) ?? Date()
-        return Calendar.current.date(byAdding: .day, value: days, to: next) ?? next
+        let c = RuleEngine.rome
+        let next = c.nextDate(after: Date(), matching: DateComponents(hour: hour, minute: 0, second: 0), matchingPolicy: .nextTime) ?? Date()
+        return c.date(byAdding: .day, value: days, to: next) ?? next
     }
 
     static func at(dayOffset: Int, hour: Int) -> Date {
@@ -545,9 +559,10 @@ enum MessageLanguage: String, CaseIterable, Identifiable {
 
     func message(arrival: Date, plate: String, hotel: String? = nil, departure: Date? = nil) -> String {
         let locale = Locale(identifier: rawValue)
-        let day = arrival.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(locale))
-        let time = arrival.formatted(.dateTime.hour().minute().locale(locale))
-        let until = departure.map { $0.formatted(.dateTime.weekday(.wide).day().month(.wide).locale(locale)) }
+        // Giorni e ora in Italia: l'hotel legge l'ora locale, non quella del telefono di chi scrive
+        let day = RuleEngine.format(arrival, .dateTime.weekday(.wide).day().month(.wide).locale(locale))
+        let time = RuleEngine.format(arrival, .dateTime.hour().minute().locale(locale))
+        let until = departure.map { RuleEngine.format($0, .dateTime.weekday(.wide).day().month(.wide).locale(locale)) }
         switch self {
         case .en:
             let to = hotel.map { "Dear \($0) team,\n\n" } ?? "Hello,\n\n"

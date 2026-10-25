@@ -10,7 +10,7 @@ struct HotelStayCard: View {
     var arrival: Date
 
     private var stay: HotelStay {
-        store.stays[place.key] ?? HotelStay(arrival: arrival, departure: Calendar.current.date(byAdding: .day, value: 2, to: arrival) ?? arrival)
+        store.stays[place.key] ?? HotelStay(arrival: arrival, departure: RuleEngine.rome.date(byAdding: .day, value: 2, to: arrival) ?? arrival)
     }
 
     private func edit(_ change: (inout HotelStay) -> Void) {
@@ -31,15 +31,18 @@ struct HotelStayCard: View {
             }
             DatePicker(L("Arrival"), selection: Binding(get: { s.arrival }, set: { v in edit { $0.arrival = v; if $0.departure < v { $0.departure = v } } }),
                        displayedComponents: [.date])
+                .environment(\.timeZone, RuleEngine.rome.timeZone)
             DatePicker(L("Departure"), selection: Binding(get: { s.departure }, set: { v in edit { $0.departure = v } }),
                        in: s.arrival..., displayedComponents: [.date])
+                .environment(\.timeZone, RuleEngine.rome.timeZone)
             // I giorni da coprire, uno per uno
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 6) {
                     ForEach(s.days, id: \.self) { d in
                         VStack(spacing: 1) {
-                            Text(d.formatted(.dateTime.weekday(.abbreviated))).font(.app(size: 11, weight: .semibold))
-                            Text(d.formatted(.dateTime.day())).font(Theme.display(18))
+                            // I giorni sono mezzanotti di Roma: scritti in ora italiana, non nel fuso del telefono
+                            Text(RuleEngine.format(d, .dateTime.weekday(.abbreviated))).font(.app(size: 11, weight: .semibold))
+                            Text(RuleEngine.format(d, .dateTime.day())).font(Theme.display(18))
                         }
                         .frame(width: 44, height: 50)
                         .background(s.status == .confirmed ? Theme.greenSoft : Theme.raised, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
@@ -94,7 +97,7 @@ struct HotelStayCard: View {
             if s.permitId != nil { store.stays[place.key]?.permitId = nil }
             return
         }
-        let c = Calendar.current
+        let c = RuleEngine.rome            // il permesso vale dalla mezzanotte alle 23:59 di Roma, come legge il motore
         let to = c.date(bySettingHour: 23, minute: 59, second: 0, of: s.departure) ?? s.departure
         let permit = Permit(kind: .hotelRegistration, cityId: store.cities.first { $0.zones.contains(zone) }?.id ?? store.city.id,
                             zoneId: zone.id, vehicleId: store.vehicle.id, from: c.startOfDay(for: s.arrival), to: to,

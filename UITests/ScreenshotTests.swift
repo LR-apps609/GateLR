@@ -84,6 +84,17 @@ final class ScreenshotTests: XCTestCase {
         app.launch()
         sleep(2)
         snap("09-onboarding")
+        // «Salta» porta a «Dove vai?» (le città), poi la città scelta porta alla spiegazione della posizione
+        let skip = app.buttons["Skip"].firstMatch
+        if skip.waitForExistence(timeout: 3) {
+            skip.tap(); sleep(1)
+            snap("09b-onboarding-city")
+            let florence = app.buttons["onboarding.city.firenze"]
+            if florence.waitForExistence(timeout: 3) {
+                florence.tap(); sleep(1)
+                snap("09c-onboarding-location")
+            }
+        }
     }
 
     /// Milano di sera: il Duomo in Area C dentro l'Area B verde, il percorso e la guida

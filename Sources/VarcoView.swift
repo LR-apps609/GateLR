@@ -112,18 +112,18 @@ struct VarcoView: View {
             .buttonStyle(.plain)
             .accessibilityLabel(L("Hotel, address or square"))
             .accessibilityIdentifier("varco.plan")
-            if !store.recent.isEmpty {
+            // Un tocco e la risposta compare qui, senza lasciare la pagina: prima l'hotel dei viaggi salvati, poi i posti recenti
+            let hotels = Self.savedHotels(store.trips)
+            let recent = store.recent.filter { p in !hotels.contains { $0.key == p.key } }.prefix(max(0, 4 - hotels.count))
+            if !hotels.isEmpty || !recent.isEmpty {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
-                        ForEach(store.recent.prefix(4)) { p in
-                            Button { store.select(p) } label: {
-                                Label(p.name, systemImage: "clock.arrow.circlepath")
-                                    .font(.app(size: 13, weight: .semibold)).lineLimit(1)
-                                    .padding(.horizontal, 12).frame(height: 32)
-                                    .background(Theme.card.opacity(0.7), in: Capsule())
-                                    .foregroundStyle(Theme.ink)
-                            }
-                            .buttonStyle(.plain)
+                        ForEach(hotels) { p in
+                            chip(String(format: L("Your hotel · %@"), p.name), symbol: "suitcase.rolling.fill", highlighted: true) { store.select(p) }
+                                .accessibilityIdentifier("varco.hotel")
+                        }
+                        ForEach(Array(recent)) { p in
+                            chip(p.name, symbol: "clock.arrow.circlepath", highlighted: false) { store.select(p) }
                         }
                     }
                 }
@@ -132,6 +132,31 @@ struct VarcoView: View {
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Self.neutral, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+    }
+
+    private func chip(_ title: String, symbol: String, highlighted: Bool, action: @escaping () -> Void) -> some View {
+        Button { withAnimation(.snappy) { action() } } label: {
+            Label { Text(verbatim: title) } icon: { Image(systemName: symbol) }
+                .font(.app(size: 13, weight: .semibold)).lineLimit(1)
+                .padding(.horizontal, 12).frame(height: 32)
+                .background(highlighted ? Theme.blueSoft : Theme.card.opacity(0.7), in: Capsule())
+                .foregroundStyle(highlighted ? Theme.blue : Theme.ink)
+        }
+        .buttonStyle(.plain)
+    }
+
+    /// Gli hotel dei viaggi salvati, al massimo due: prima i viaggi non ancora finiti (dal più vicino), poi gli ultimi salvati
+    static func savedHotels(_ trips: [Trip], now: Date = Date()) -> [Place] {
+        let open = trips.filter { $0.departure > now }.sorted { $0.arrival < $1.arrival }
+        let past = trips.filter { $0.departure <= now }
+        var out: [Place] = []
+        for t in open + past {
+            guard var h = t.hotel, !out.contains(where: { $0.key == h.key }) else { continue }
+            if !t.hotelName.isEmpty { h.name = t.hotelName }
+            out.append(h)
+            if out.count == 2 { break }
+        }
+        return out
     }
 
     private func answerCard(_ check: PlaceCheck) -> some View {
@@ -325,7 +350,7 @@ struct VarcoView: View {
         VStack(spacing: 8) {
             tripRow(t)
             // Il viaggio è oggi: si parte con il guardiano verso l'hotel, con un tocco
-            if Calendar.current.isDateInToday(t.arrival), let hotel = t.hotel, !guardian.active {
+            if store.engine.calendar.isDateInToday(t.arrival), let hotel = t.hotel, !guardian.active {
                 Menu {
                     ForEach(Navigator.allCases) { n in
                         Button { guardian.start(to: hotel, with: n, store: store) } label: { Label(n.title, systemImage: "shield.lefthalf.filled") }
@@ -350,7 +375,7 @@ struct VarcoView: View {
                     Text("Your next trip").font(.app(size: 12, weight: .semibold)).foregroundStyle(Theme.muted)
                     Text(t.hotelName.isEmpty ? (t.hotel?.name ?? L("Trip")) : t.hotelName)
                         .font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
-                    Text(t.arrival.formatted(.dateTime.weekday(.wide).day().month().hour().minute()))
+                    Text(store.engine.format(t.arrival, .dateTime.weekday(.wide).day().month().hour().minute()))
                         .font(.app(size: 13)).foregroundStyle(Theme.muted)
                 }
                 Spacer()

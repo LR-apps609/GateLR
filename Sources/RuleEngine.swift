@@ -26,11 +26,13 @@ struct Answer: Equatable {
 }
 
 struct RuleEngine {
-    var calendar: Calendar = {
+    /// Il calendario delle regole: gregoriano, in ora italiana. Lo usano anche le date mostrate (viaggio, soggiorno, arrivo)
+    static let rome: Calendar = {
         var c = Calendar(identifier: .gregorian)
         c.timeZone = TimeZone(identifier: "Europe/Rome")!
         return c
     }()
+    var calendar: Calendar = RuleEngine.rome
     var now: () -> Date = Date.init
     /// Dopo questi giorni senza un controllo umano la scheda non è più «sicura».
     var staleAfterDays = 120
@@ -178,6 +180,17 @@ struct RuleEngine {
     /// scritte nel fuso del telefono (es. New York), diventavano il giorno prima
     func day(_ date: Date, style: Date.FormatStyle.DateStyle = .long) -> String {
         var f = Date.FormatStyle(date: style, time: .omitted)
+        f.timeZone = calendar.timeZone
+        return date.formatted(f)
+    }
+
+    /// Una data in ora italiana con il formato dato («lun 2 nov, 18:00»): le stesse ore che usa il motore
+    func format(_ date: Date, _ style: Date.FormatStyle) -> String {
+        Self.format(date, style, calendar: calendar)
+    }
+
+    static func format(_ date: Date, _ style: Date.FormatStyle, calendar: Calendar = RuleEngine.rome) -> String {
+        var f = style
         f.timeZone = calendar.timeZone
         return date.formatted(f)
     }

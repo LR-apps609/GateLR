@@ -21,7 +21,15 @@ struct DriveLogView: View {
                     .font(.app(size: 14)).foregroundStyle(Theme.muted)
             }
             if store.log.isEmpty {
-                Section { Label("Nothing yet: no active gate on your way.", systemImage: "checkmark.circle").foregroundStyle(Theme.greenInk) }
+                Section {
+                    EmptyStateView(symbol: "list.bullet.rectangle", badge: "checkmark", tint: Theme.greenInk,
+                                   title: "No gates on your way yet",
+                                   text: "When the guardian or an alert sees an active gate, the time and place appear here.",
+                                   action: "Try an alert", actionSymbol: "bell.badge") {
+                        GateMonitor.shared.sendTest(store: store)
+                    }
+                    .listRowBackground(Color.clear)
+                }
             } else {
                 Section {
                     ForEach(store.log) { e in

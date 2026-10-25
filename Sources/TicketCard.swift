@@ -31,7 +31,7 @@ struct TicketCard: View {
             }
             Label {
                 Text(ticket.deadline == "nextDayMidnight"
-                     ? String(format: L("Activate it by %@."), deadline.formatted(.dateTime.weekday(.wide).day().month().hour().minute()))
+                     ? String(format: L("Activate it by %@."), RuleEngine.format(deadline, .dateTime.weekday(.wide).day().month().hour().minute()))
                      : L("Buy and activate it before you drive in.")).font(.app(size: 15, weight: .semibold))
             } icon: { Image(systemName: "clock.badge.exclamationmark").foregroundStyle(Theme.amberInk) }
             Text(ticket.localizedHowTo).font(.app(size: 14)).foregroundStyle(Theme.muted)
@@ -67,7 +67,7 @@ struct TicketCard: View {
         let content = UNMutableNotificationContent()
         content.title = String(format: L("%@: ticket"), zone.shortName)
         content.body = ticket.deadline == "nextDayMidnight"
-            ? String(format: L("Have you activated the ticket? Deadline: %@."), deadline.formatted(.dateTime.weekday(.wide).hour().minute()))
+            ? String(format: L("Have you activated the ticket? Deadline: %@."), RuleEngine.format(deadline, .dateTime.weekday(.wide).hour().minute()))
             : L("Buy and activate the ticket before you drive in.")
         content.sound = .default
         let trigger: UNNotificationTrigger = when > Date().addingTimeInterval(60)

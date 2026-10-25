@@ -27,6 +27,14 @@ struct WhatsNewView: View {
 
     /// Le novità di ogni versione che ne ha (chiave: CFBundleShortVersionString)
     static let notes: [String: [Item]] = [
+        "1.13.0": [
+            ("hand.tap.fill", Theme.green, "Answers in one tap",
+             "On the first page, tap your hotel or a recent place: the answer appears right there, without leaving the page."),
+            ("figure.wave", Color(hex: 0x1F4E9E), "A friendlier start",
+             "The first time, choose where you're going and see why GateLR asks for your location before iOS does."),
+            ("lightbulb.fill", Color(hex: 0x7A4BD1), "Tips when you need them",
+             "A few short tips in Trip, Map and Account, and empty pages that explain what to do with one button."),
+        ],
         "1.12.0": [
             ("map", Theme.green, "Smoother maps",
              "Milan, Florence and Rome move smoothly when you zoom in and out: from far away the borders are lighter and the gates appear as you get closer."),
