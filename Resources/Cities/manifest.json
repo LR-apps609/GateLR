@@ -1,6 +1,6 @@
 {
- "version": "202610250824",
- "digest": "44a23956f4d5",
+ "version": "202610251011",
+ "digest": "bc336fe715b9",
  "schema": 1,
  "cities": [
   {
@@ -52,6 +52,11 @@
    "id": "siena",
    "file": "siena.json",
    "sha256": "2f3d1ca7aaab2462292fac953b8f30cd68c06557bb8962ce50b2de86c2b2baa3"
+  },
+  {
+   "id": "torino",
+   "file": "torino.json",
+   "sha256": "d1fd076da98f9ff987d7afb1c27c0433fa293d43b0bbceb23d929d028d125706"
   },
   {
    "id": "verona",

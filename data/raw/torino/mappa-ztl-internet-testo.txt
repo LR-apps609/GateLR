@@ -1,0 +1,72 @@
+Testo della mappa ufficiale «ZTL - CITTA' DI TORINO» (mappa-ztl-internet.pdf), linkata dalla scheda «ZTL Centrale»
+https://www.comune.torino.it/schede-informative/ztl-centrale («Scarica la mappa della ZTL in formato PDF»).
+PDF inviato dall'utente il 25/10/2026 (sito irraggiungibile da qui). Metadati: titolo «Mappa ZTL», creato 08/02/2019, modificato 15/01/2026, 1 pagina.
+Il PDF non ha un livello di testo (pdftotext restituisce una pagina vuota): il testo qui sotto è trascritto dall'immagine della pagina.
+
+=== Titolo ===
+ZTL - CITTA' DI TORINO
+
+=== Legenda ===
+[pallino rosso] Porte elettroniche Esistenti
+[linea verde] ZTL Centrale
+(chiusura al transito e alla sosta dalle 7:30 alle 10:30 )
+[tratteggio marrone] ZTL Area Romana
+(chiusura al transito e alla sosta: dalle 21:00 alle 7:30 - carico e scarico merci: dalle 10:30 alle 16:00)
+[campitura arancione] ZTL Pedonale
+(chiusura al transito e alla sosta: dalle 0:00 alle 24:00 - carico e scarico merci: dalle 10:30 alle 12:30)
+[campitura viola] Strade riservate al Trasporto Pubblico
+(chiusura al transito e alla sosta: dalle 7:00 alle 20:00 - carico e scarico merci: dalle 10:30 alle 12:30)
+[freccia rossa] Sensi unici veicolari
+
+=== Piè di pagina ===
+Città di Torino - Divisione Infrastrutture e Mobilità
+
+=== Scritte sul bordo della ZTL Centrale (nomi delle strade sulla mappa) ===
+Corso Regina [Margherita], Piazza della Repubblica, Viale Primo Maggio, Corso San Maurizio, Viale Partigiani, Lungo Po Cadorna,
+Piazza Vittorio Veneto, Lungo Po Diaz, Corso Cairoli, Corso Vittorio Emanuele II, Piazza Carlo Felice, Stazione Porta Nuova,
+Corso Matteotti, Via Vittorio Amedeo II, Corso Palestro; fuori: Piazza Statuto, Stazione Porta Susa, Valentino.
+
+=== I 41 pallini «Porte elettroniche Esistenti» ===
+Contati e posizionati da Tools/torino_mappa.py (coordinate in mappa-ztl-ufficiale.json; la mappa non ha nomi per i varchi:
+la strada è quella OSM più vicina al pallino). Conteggio: {'accesso': 27, 'interno': 11, 'esterno': 3} (la scheda del Comune: 27 accessi, 11 interni, 3 esterni = 41).
+ 1. accesso  45.07815, 7.67607  Via Carlo Ignazio Giulio (21 m)
+ 2. interno  45.07641, 7.67992  Via Franco Bonelli (11 m)
+ 3. accesso  45.07533, 7.68264  Via Milano (3 m)
+ 4. accesso  45.07519, 7.68404  Via Pietro Egidi (3 m)
+ 5. interno  45.07566, 7.67940  Via Santa Chiara (14 m)
+ 6. accesso  45.07187, 7.68967  Viale Primo Maggio (6 m)
+ 7. accesso  45.07117, 7.69245  Via Gioachino Rossini (27 m)
+ 8. accesso  45.07659, 7.67497  Via San Domenico (19 m)
+ 9. interno  45.07328, 7.68132  Via Milano (15 m)
+10. accesso  45.06885, 7.69487  Via Gaudenzio Ferrari (17 m)
+11. esterno  45.07707, 7.66954  fuori dalla ZTL Centrale
+12. interno  45.06900, 7.69097  Via Giuseppe Verdi (8 m)
+13. accesso  45.07445, 7.67335  Via Giovanni Bertrandi (22 m)
+14. accesso  45.07379, 7.67290  Via Filippo Juvarra (24 m)
+15. interno  45.07009, 7.68257  Via Venti Settembre (26 m)
+16. accesso  45.06619, 7.69340  Via Po (6 m)
+17. accesso  45.06547, 7.69350  Via Principe Amedeo (3 m)
+18. accesso  45.06499, 7.69409  Via Giovanni Plana (35 m)
+19. accesso  45.07244, 7.67157  Via Cernaia (3 m)
+20. interno  45.07032, 7.67877  Via Pietro Micca (24 m)
+21. accesso  45.07096, 7.67037  Via Beato Sebastiano Valfrè (21 m)
+22. accesso  45.06281, 7.69365  Via Giovanni Giolitti (13 m)
+23. accesso  45.07005, 7.66970  Via Ettore De Sonnaz (16 m)
+24. accesso  45.06867, 7.66909  Via Vitaliano Donati (19 m)
+25. accesso  45.06816, 7.67059  Via Amedeo Avogadro (18 m)
+26. accesso  45.06762, 7.67221  Corso Galileo Ferraris (12 m)
+27. accesso  45.06649, 7.67539  Corso Re Umberto (27 m)
+28. interno  45.06553, 7.67944  Via Venti Settembre (22 m)
+29. interno  45.06498, 7.68061  Via Antonio Gramsci (28 m)
+30. accesso  45.06084, 7.69204  Via dei Mille (13 m)
+31. accesso  45.06592, 7.67574  Corso Giacomo Matteotti (26 m)
+32. interno  45.06227, 7.68646  Via Giuseppe Mazzini (28 m)
+33. interno  45.06437, 7.67701  Via San Quintino (30 m)
+34. interno  45.06193, 7.68575  Via Accademia Albertina (31 m)
+35. accesso  45.06421, 7.67600  Via Melchiorre Gioia (13 m)
+36. accesso  45.06210, 7.68185  Via Carlo Alberto (18 m)
+37. accesso  45.06091, 7.68528  Via Accademia Albertina (22 m)
+38. accesso  45.06043, 7.68668  Via San Massimo (11 m)
+39. accesso  45.05937, 7.68970  Via della Rocca (31 m)
+40. esterno  45.05765, 7.68971  fuori dalla ZTL Centrale
+41. esterno  45.05343, 7.67687  fuori dalla ZTL Centrale

@@ -1,69 +1,89 @@
 # Torino: fonti della scheda ZTL
 
-Scheda generata da `Tools/build_torino.py` → per ora **`data/drafts/torino.json`** (bozza, `status: draft`, `reviewedByHuman: false`), **non nell'app**.
-Ricerca del **25/10/2026**. Materiale salvato in `data/raw/torino/` e geometrie in `data/raw/geo/torino-*.json`.
+Scheda generata da `Tools/build_torino.py` → **`Resources/Cities/torino.json`**, nell'app come bozza (`status: draft`, `reviewedByHuman: false`).
+Ricerca del **25/10/2026**. Il materiale è salvato in `data/raw/torino/` e le geometrie OSM in `data/raw/geo/torino-*.json`.
 
-## Perché è ancora una bozza
+## Testi ufficiali: come sono stati letti
 
-Dall'ambiente di lavoro **nessun sito ufficiale di Torino si raggiunge**:
-- `www.comune.torino.it` e `aperto.comune.torino.it`: la connessione si apre e poi il server la chiude durante l'handshake TLS. Ho riprovato per circa un'ora, sempre con lo stesso risultato.
-- `gtt.to.it`, `opendata.5t.torino.it`, `geoportale.comune.torino.it`, `comunicatistampa.comune.torino.it`, `decentramento.comune.torino.it`: il proxy risponde 403.
-- Anche WebFetch non risolve gli host.
+Dall'ambiente di lavoro e da GitHub Actions **nessun sito ufficiale di Torino si raggiunge**. `www.comune.torino.it` chiude la connessione durante l'handshake TLS; `gtt.to.it`, `opendata.5t.torino.it` e `geoportale.comune.torino.it` ricevono 403 dal proxy.
+Per questo l'utente ha aperto le pagine e ha inviato schermate e PDF. Per tutti i file qui sotto la provenienza è la stessa: **testo della pagina ufficiale copiato dall'utente il 25/10/2026 (sito irraggiungibile da qui)**.
 
-Per questo le frasi citate sono controllate sugli **estratti dei risultati di ricerca** delle pagine ufficiali (`data/raw/torino/ricerca-web-2026-10-25.txt`), e non su copie delle pagine.
-Per sbloccare la scheda ho aggiunto un blocco «Torino» in fondo a `Tools/fetch_geo.py`. Scarica i dati aperti ufficiali (5T e geoportale), le schede del Comune, le pagine GTT e una query OSM in più (`torino-extra`).
-**Bisogna rilanciare il workflow `geo.yml`.** Quando `data/raw/geo/torino-scheda-ztl-centrale.html` esiste, `build_torino.py` controlla le citazioni su quella pagina e scrive `Resources/Cities/torino.json`. Poi bisogna rilanciare `build_manifest.py` e `build_site.py`.
+| File in `data/raw/torino/` | Contenuto |
+|---|---|
+| `comune-scheda-ztl-centrale-utente.txt` + `schermata-comune-ztl-centrale-9/10/11.png` | Scheda del Comune «ZTL Centrale», sezione «Circolare nella Zona a Traffico Limitato»: https://www.comune.torino.it/schede-informative/ztl-centrale |
+| `gtt-alberghi-utente.txt` + `schermata-gtt-alberghi-8.png` | GTT «Utenti che pernottano in strutture alberghiere»: https://www.gtt.to.it/cms/ztl/3681-utenti-che-pernottano-in-strutture-alberghiere |
+| `mappa-ztl-internet.pdf` + `mappa-ztl-internet-testo.txt` | La mappa ufficiale «ZTL - Città di Torino», il link «Scarica la mappa della ZTL in formato PDF» della scheda. Il PDF è stato modificato il 15/01/2026 e non ha un livello di testo: la legenda e le scritte sono trascritte dall'immagine. |
+
+La trascrizione delle schermate è stata ricontrollata carattere per carattere sulle immagini. Ho corretto sei apostrofi, che sulla pagina sono tipografici (’) e non diritti: «L’autorizzazione» (2 volte), «all’Albergo», «dell’Euro 0», «L’accesso», «un’apposita». Le citazioni le confronta `build_torino.py`, che tratta i due apostrofi come uguali.
+Restano controllate solo sugli **estratti di ricerca** (`ricerca-web-2026-10-25.txt`) le regole che non compaiono in queste pagine: i 10 giorni per l'esenzione a posteriori, le ore 11 per i parcheggi in struttura, «tutti i giorni, festivi compresi» per Area Romana e corsie riservate, le moto Euro 1 a 4 tempi e la sospensione d'agosto. Nella scheda questo è detto nei punti in sospeso.
 
 ## Zone nella scheda
 
-| Zona | Orario | Festivi | Geometria |
-|---|---|---|---|
-| **ZTL Centrale** (`torino-centrale`) | lun–ven 7:30–10:30 | spenta (`freeOnHolidays: true`); 24 giugno trattato come festivo (`localHolidays`) | relazione OSM 19152960 |
-| **Strade riservate al trasporto pubblico** (`torino-tp-1…10`) | tutti i giorni 7:00–20:00 | attive (`false`) | way OSM `zone:traffic:name=Strade riservate al Trasporto Pubblico` |
-| **ZTL Pedonale** (`pedestrian`, 8 aree) | h24 | attive | way OSM `zone:traffic:name=ZTL Pedonale` |
+| Zona | Orario | Festivi | Geometria | Varchi |
+|---|---|---|---|---|
+| **ZTL Centrale** (`torino-centrale`) | lun–ven 7:30–10:30 | spenta (`freeOnHolidays: true`) | relazione OSM 19152960, controllata e corretta sulla mappa ufficiale | 27 |
+| **ZTL Area Romana** (`torino-area-romana`) | tutti i giorni 21:00–7:30 | attiva | tratteggio della mappa ufficiale | 2 |
+| **Strade riservate al trasporto pubblico** (`torino-tp-1…10`) | tutti i giorni 7:00–20:00 | attive | way OSM `zone:traffic:name=Strade riservate al Trasporto Pubblico` | 8 (6 interni + gli accessi di via Milano e via Rossini) |
+| **ZTL Pedonale** (`pedestrian`, 8 aree) | h24 | attive | way OSM `zone:traffic:name=ZTL Pedonale` | — |
+
+`localHolidays` è stato tolto: il 24 giugno non è più contato come festivo (vedi sotto).
 
 ## Fatti → fonte (letti il 25/10/2026)
 
 | Fatto | Fonte | Tipo |
 |---|---|---|
-| ZTL Centrale: «dalle 7.30 alle 10.30 di tutti i giorni feriali (sabato escluso)», vietate circolazione e sosta ai non autorizzati | https://www.comune.torino.it/schede-informative/ztl-centrale (estratto di ricerca; la ricerca con la frase esatta trova la pagina) | ufficiale, non scaricata |
-| Serve un permesso della Città o di GTT, oppure un'autorizzazione senza permesso; per un accesso occasionale si può chiedere l'esenzione a posteriori, «tassativamente 10 (dieci)» giorni dal primo transito | idem | ufficiale, non scaricata |
-| Parcheggi pubblici in struttura dentro la ZTL: targa al gestore «entro e non oltre le ore 11.00» | idem; https://www.gtt.to.it/cms/ztl/3680-utenti-parcheggio-struttura | ufficiale, non scaricata |
-| Hotel: solo strutture «accreditate e regolarmente registrate in Piattaforma ZTL»; l'ospite compila la richiesta al check-in per tutto il soggiorno; transito libero in tutte le vie riservate solo il giorno di arrivo e quello di partenza; per i giorni intermedi vale solo per i varchi indicati dall'albergo; nessuna esenzione per chi non pernotta | https://www.gtt.to.it/cms/ztl/3681-utenti-che-pernottano-in-strutture-alberghiere ; modulo GTT nella copia di https://hotelanticadogana.it/pdf/MODULO-RICHIESTA-ESENZIONE.pdf | ufficiale (GTT), non scaricata |
-| Non esiste un ticket di accesso per turisti. Il «Giornaliero tariffa ZTL centrale» GTT (11,50 €) è un titolo di **sosta** | ricerca su gtt.to.it | ufficiale, non scaricata |
-| Moto e ciclomotori esenti nella ZTL Centrale «se Euro 1, a 4 tempi»; esenzioni nella ZTL TP «escluse le vie P. Micca e Rossini» | https://www.gtt.to.it/cms/ztl/3090-elenco-veicoli-esentati | ufficiale, non scaricata |
-| Elettrici puri: permesso gratuito (prorogato al 31/12/2026 secondo assi-ge-co.com); senza permesso, esenzione a posteriori al massimo 12 volte l'anno (MOD.ES.20, entro 10 giorni) | https://www.comune.torino.it/schede-informative/permessi-circolazione-ztl-per-veicoli-elettrici-puri ; https://www.gtt.to.it/cms/risorse/ztl/20_esenzione_veicolo_elettrico_puro.pdf | ufficiale, non scaricata; proroga 2026 solo non ufficiale |
-| ZTL Trasporto Pubblico: «chiusa al transito e alla sosta dalle 7.00 alle 20.00 di tutti i giorni, compresi i festivi» (ord. n. 2455 del 29/05/2012) | scheda ZTL Centrale (estratto); conferme: autovia.it, visitturin.com, revisioneauto.eu. Solo tolltracker.eu dice 7–21 | ufficiale, non scaricata |
-| ZTL Pedonale: «chiusa al transito e alla sosta dei veicoli tutti i giorni, feriali e festivi, H24» | idem | ufficiale, non scaricata |
-| Agosto 2026: ZTL Centrale e strisce blu sospese dal 10 al 23/08; «Restano infatti attive le ZTL "Trasporto Pubblico", "Pedonale", "Area Romana" e "Valentino"» | https://www.comune.torino.it/novita/comunicati/sospensione-estiva-della-ztl-della-sosta-pagamento-0 ; torinotoday.it, ecodallecitta.it | ufficiale, non scaricata |
-| 24 giugno (San Giovanni): «di consueto la ZTL centrale non sarà attiva» | https://www.quotidianopiemontese.it/2019/06/23/san-giovanni-a-torino-uffici-pubblici-chiusi-ztl-centrale-non-attiva-e-parcheggi-gratuiti/ | **solo non ufficiale** (2019) |
-| Multa: 83–332 € (art. 7 c. 14 CdS), −30% entro 5 giorni | autosupermarket.it, kivo-app.it | non ufficiale |
-| Contatti: infoztl@comune.torino.it, numero verde 800 450 900 | scheda ZTL Centrale (estratto) | ufficiale, non scaricata |
+| «dalle 7.30 alle 10.30 di tutti i giorni feriali (sabato escluso), sono vietate la circolazione e la sosta» (art. 158 CdS) nella ZTL Centrale. Durante il divieto circolano solo i veicoli autorizzati. | scheda «ZTL Centrale» | ufficiale, copiata dall'utente |
+| Perimetro: «corso Vittorio Emanuele II, piazza Carlo Felice, corso Re Umberto (tratto …), corso Matteotti (tratto …), via Vittorio Amedeo II, corso Palestro, corso Regina, piazza della Repubblica, viale Primo Maggio, viale Partigiani (tratto …), corso San Maurizio, lungo Po Cadorna, piazza Vittorio Veneto, lungo Po Diaz, corso Cairoli, esclusi». Le strade di confine sono fuori dalla ZTL. | idem | ufficiale, copiata dall'utente |
+| Telecamere: «27 punti» per l'accesso, «11 punti» per la circolazione interna nelle aree con altre limitazioni, «3 punti» fuori (aree Statuto e Valperga, accesso all'area Valentino). In tutto «41 punti di controllo». | idem; i 41 pallini della mappa ufficiale | ufficiale |
+| Si circola con un permesso della Città o di GTT, oppure con un'«autorizzazione alla circolazione senza permesso». Il permesso richiede un veicolo «EURO 3 o superiore», oppure «EURO 2 o superiore alimentati a GPL e/o Metano». | idem | ufficiale, copiata dall'utente |
+| Normativa: DGC mecc. 2010 00659 del 12/02/2010; DGC mecc. 2010 02058 del 27/04/2010; Ordinanza Dirigenziale n. 2547 del 28/05/2010 e s.m.i.; Ordinanza Dirigenziale n. 2455 del 29/05/2012. Il campo `ordinance` della scheda le riporta. | idem | ufficiale, copiata dall'utente |
+| Hotel: l'autorizzazione vale solo per le strutture «accreditate e regolarmente registrate in Piattaforma ZTL». «Al momento del check-in» l'ospite compila la richiesta «per il periodo di permanenza». Le vie e corsie riservate sono aperte all'ospite solo «il giorno di arrivo» e «il giorno di partenza»; per i giorni intermedi si chiede all'albergo quali varchi sono abilitati. Niente autorizzazione per i veicoli sotto fermo amministrativo o senza revisione o assicurazione, né per quelli «inferiore all'Euro 3 se non muniti di impianto GPL», con l'eccezione degli «Euro 0 GPL/Metano non esentabili». | GTT, pagina alberghi | ufficiale (GTT), copiata dall'utente |
+| Legenda della mappa: ZTL Centrale «dalle 7:30 alle 10:30»; Area Romana «dalle 21:00 alle 7:30», carico e scarico 10:30–16:00; ZTL Pedonale «dalle 0:00 alle 24:00»; Strade riservate al Trasporto Pubblico «dalle 7:00 alle 20:00», carico e scarico 10:30–12:30 | mappa ufficiale (PDF) | ufficiale, inviata dall'utente |
+| Area Romana e Trasporto Pubblico attive «tutti i giorni, festivi compresi». In piazza Emanuele Filiberto il divieto inizia alle 19:30. | estratti di ricerca della scheda | ufficiale, solo estratto |
+| Esenzione a posteriori «tassativamente 10 (dieci)» giorni; parcheggi in struttura: targa al gestore «entro e non oltre le ore 11.00» | estratti di ricerca | ufficiale, solo estratto |
+| Moto e ciclomotori esenti «se Euro 1, a 4 tempi» | GTT «Elenco veicoli esentati» (estratto) | ufficiale, solo estratto |
+| Agosto 2026: ZTL Centrale sospesa dal 10 al 23/08 | comunicato del Comune (estratto) | ufficiale, solo estratto |
+| 24 giugno: «di consueto la ZTL centrale non sarà attiva» | quotidianopiemontese.it (2019) | **solo non ufficiale** |
+| Multa: 83–332 € (art. 7 CdS) | guide non ufficiali | non ufficiale |
 
-Dati aperti ufficiali, trovati ma non scaricabili da qui (metadati salvati in `data/raw/torino/dati.gov.it_*.json`, CC BY 4.0):
-- «Perimetro, varchi e orari ZTL» (aperTO, fonte 5T): http://opendata.5t.torino.it/get_access_control
-- «Zone Traffico Limitato» (geoportale): http://geoportale.comune.torino.it/geodati/zip/ztl_geo.zip e `ztl_csv.zip`
+### Festivi e 24 giugno
 
-## Zone trovate ma non ancora sulla mappa (solo nei punti in sospeso)
+La scheda dice «giorni feriali (sabato escluso)», quindi nei festivi infrasettimanali la ZTL Centrale è spenta (`freeOnHolidays: true`).
+San Giovanni, il 24 giugno, è la festa del patrono di Torino. Però nessun testo ufficiale salvato dice che quel giorno la ZTL è spenta: lo dice solo un articolo del 2019. Per questo `localHolidays: ["06-24"]` è stato **tolto** e il caso è tra i punti in sospeso. Quel giorno GateLR mostra la ZTL attiva, che è la scelta prudente.
 
-- **ZTL Area Romana** (Quadrilatero): «chiusa al transito e alla sosta dei veicoli dalle 21:00 alle 7:30 del giorno successivo», tutti i giorni, festivi compresi. In piazza Emanuele Filiberto il divieto parte dalle 19:30. Carico e scarico 10:30–16:00. Manca il perimetro: in OSM non è segnata, e la cosa giusta è prenderlo dal dataset 5T.
-- **ZTL Valentino**: chiusa h24 tutti i giorni, festivi compresi. La Giunta ha approvato l'**ampliamento il 24/03/2026**: viale Medaglie d'Oro e il tratto nord di viale Ceppi, con nuovi varchi alla rotatoria Tesla, all'imbocco dei viali Medaglie d'Oro e Boiardo (piazza Levi Montalcini) e in viale Turr. L'avvio dipende dall'autorizzazione del MIT e da un pre-esercizio. **Non ho trovato una data di attivazione.** Fonte: comunicato https://www.comune.torino.it/novita/comunicati/ztl-valentino-citta-amplia-larea-traffico-limitato-per-valorizzare-parco ; ANSA 24/03/2026, sicurauto.it. Manca il perimetro: la query `torino-extra` scarica il parco da OSM.
-- **ZTL notturna Monte dei Cappuccini** (Salita al CAI → piazzale): tutti i giorni 23:00–7:00. Pre-esercizio dal 13/10/2025, multe dal 15/11/2025 secondo Torino Cronaca. Fonte: https://www.comune.torino.it/novita/comunicati/zona-traffico-limitato-notturna-salita-cai-monte-dei-cappuccini-lunedi-13
-- **Borgo Campidoglio**: area pedonale h24 dal 01/12/2025 (via Cibrario, via San Rocchetto, via Balme, via Ceres), con 5 telecamere. In OSM ci sono 5 nodi ALPR «ZTL Campidoglio». Pre-esercizio fino al 02/02/2026. Fonte: https://www.comune.torino.it/novita/comunicati/borgo-campidoglio-dall1-dicembre-via-alla-pedonalizzazione-ce-tempo-fino-al-2 ; torinoggi.it 27/11/2025.
-- **Limitazioni antismog** (tutto il territorio comunale, non una ZTL): dal 15/09/2026 al 15/04/2027 i diesel Euro 3–4 sono fermi lun–ven 8–19. Benzina e diesel fino a Euro 2 sono fermi sempre. Il blocco strutturale dei diesel Euro 5 non è stato introdotto: si fermano solo nei giorni di semaforo antismog. Fonti solo non ufficiali (citynext.it 16/09/2026, mole24.it, torinocronaca.it). Non è nella scheda perché manca sia il perimetro comunale sia l'ordinanza.
+## Mappa ufficiale → geometria (`Tools/torino_mappa.py`)
+
+Lo script usa numpy, Pillow e pdftoppm, e i suoi strumenti raster sono quelli di `lucca_mappa.py`. Legge `mappa-ztl-internet.pdf` e scrive `data/raw/torino/mappa-ztl-ufficiale.json`. Niente è disegnato a mano:
+1. **Aggancio.** La linea verde «ZTL Centrale» della mappa viene sovrapposta al contorno della relazione OSM 19152960 con una trasformazione affine (ICP), a 1,84 m per pixel. Risultato: il contorno OSM sta dalla linea verde a una distanza mediana di 1,3 m e, per il 90% della lunghezza, entro 11,5 m. Gli scarti più grandi sono sotto i pallini dei varchi, che coprono la linea.
+2. **Pallini «Porte elettroniche Esistenti».** Lo script ne trova 41: 27 sul bordo (meno di 55 m dal contorno), 11 dentro e 3 fuori. Sono esattamente i numeri della scheda del Comune, e `build_torino.py` lo controlla. Ogni varco è messo sul nodo più vicino della strada OSM più vicina; la mappa non dà nomi ai varchi.
+   - **Accessi (27)**: via C. I. Giulio, via Milano, via P. Egidi (piazza della Repubblica), viale Primo Maggio, via Rossini, via San Domenico, via G. Ferrari, via Bertrandi, via Juvarra, via Po, via Principe Amedeo e via Plana (piazza Vittorio Veneto), via Cernaia, via Valfrè, via Giolitti, via De Sonnaz, via Donati, via Avogadro, corso Galileo Ferraris, corso Re Umberto, via dei Mille, corso Matteotti, via Melchiorre Gioia, via Carlo Alberto, via Accademia Albertina, via San Massimo, via della Rocca.
+   - **Interni (11)**: 2 sul bordo dell'Area Romana (via Bonelli e via Santa Chiara, assegnati a quella zona); 6 su strade riservate (via Milano, via XX Settembre ×2, via Pietro Micca / San Francesco d'Assisi, via Accademia Albertina ×2, assegnati alle zone `torino-tp-*`); 3 non assegnati, vicino a via Verdi (via Rossini), via Gramsci e via San Quintino (via dell'Arsenale). Su quei tre punti il viola della mappa continua un po' oltre le way OSM.
+   - **Esterni (3)**: piazza Statuto, Valentino e via Valperga Caluso. Non sono nella scheda.
+3. **Controllo del perimetro.** La ZTL Centrale della mappa (linea verde chiusa) diventa un poligono. In `build_torino.py` i vertici OSM che cadono fuori da quel poligono per più di 20 m vengono sostituiti dal tratto corrispondente della mappa. È successo solo in un punto: **piazza della Repubblica**, dove OSM includeva un angolo della piazza (circa 40 m) che il Comune esclude, perché la piazza è una strada di confine «esclusa». Il resto del perimetro OSM coincide con la mappa. Controlli: piazza Castello e piazza San Carlo sono dentro; Porta Nuova e Porta Susa sono fuori. Superficie 2,72 km².
+4. **Area Romana.** Il tratteggio marrone, chiuso dalla linea verde e dai pallini, diventa un poligono di circa 0,07 km² (il Quadrilatero, a ovest di via Milano). La precisione è di circa ±20 m, e attorno ai due pallini il bordo rientra un po'.
+
+Le **strade riservate** OSM coincidono con le strade viola della mappa. Le **aree pedonali** OSM sono quelle arancioni della mappa dentro la ZTL.
+
+Per rifare: `python3 Tools/torino_mappa.py` (solo se cambia la mappa, ~4 minuti), poi `python3 Tools/build_torino.py`, `python3 Tools/build_manifest.py`, `python3 Tools/build_site.py`.
 
 ## Geometria: provenienza e licenza
 
-**OpenStreetMap, non ufficiale** (© OpenStreetMap contributors, ODbL 1.0, scritto in `license`). File: `data/raw/geo/torino-ztl.json` e `torino-gates.json` (workflow `geo.yml`, run del 25/10/2026).
-- **ZTL Centrale**: contorno «outer» della relazione [19152960](https://www.openstreetmap.org/relation/19152960) «ZTL Centrale» (`boundary=limited_traffic_zone`, `motor_vehicle:conditional=yes @ (Mo-Fr 00:00-07:30,10:30-24:00; Sa-Su,PH 00:00-24:00)`, cioè lo stesso orario della scheda). Semplificato a 5 m: 47 punti, 2,72 km².
-  Controlli: piazza Castello e piazza San Carlo sono dentro; Porta Nuova, Porta Susa, la Gran Madre e il Valentino sono fuori.
-- **Strade riservate al TP**: 23 way con `zone:traffic:name=Strade riservate al Trasporto Pubblico` (via Milano, via San Francesco d'Assisi, via San Tommaso, via XX Settembre, via dell'Arsenale, via Accademia Albertina, via Rossini). Sono raggruppate se distano meno di 45 m. Per ogni gruppo l'area è calcolata con `osm_geo.street_area` (griglia di 6 m, chiusura di 24 m, via ispessita di ±4 m), e ne escono 10 zone. Tutte le way sono coperte e tutte stanno dentro la ZTL Centrale. **Via Pietro Micca**, citata da GTT, in OSM non ha il tag: l'elenco può essere incompleto.
-- **Aree pedonali**: 75 way `ZTL Pedonale` (via Garibaldi, via Carlo Alberto, via Lagrange, via Roma nel tratto pedonale, ecc.), calcolate allo stesso modo (chiusura di 18 m). Ne escono 8 aree, che coprono tutte le way; via Garibaldi è dentro.
-- Varchi: in OSM non c'è nessun varco della ZTL Centrale (`gates: []`). Le coordinate ufficiali sono nel dataset 5T.
+I perimetri e le strade vengono da **OpenStreetMap** (© OpenStreetMap contributors, ODbL 1.0, scritto in `license`). I file sono `data/raw/geo/torino-ztl.json` e `torino-gates.json`, presi dal ramo `geo-data`.
+L'Area Romana e la posizione dei varchi sono ricavate dalla mappa ufficiale del Comune. È un'approssimazione: la mappa non ha coordinate.
+I dati aperti ufficiali (5T «Perimetro, varchi e orari ZTL», geoportale «Zone Traffico Limitato», CC BY 4.0) restano non scaricabili da qui. I metadati sono in `data/raw/torino/dati.gov.it_*.json`.
+
+## Zone trovate ma non ancora sulla mappa (solo nei punti in sospeso)
+
+- **ZTL Valentino**: viali del parco, chiusa h24 (estratto della scheda). Sulla mappa ufficiale c'è il pallino dell'accesso, «VALENTINO». La Giunta ha approvato l'ampliamento il 24/03/2026 (viale Medaglie d'Oro, tratto nord di viale Ceppi), ma non ho trovato una data di attivazione. Manca il perimetro.
+- **Aree Statuto e Valperga**: hanno una telecamera ciascuna fuori dalla ZTL Centrale, secondo la scheda e la mappa. Le regole non sono descritte.
+- **ZTL notturna Monte dei Cappuccini** (tutti i giorni 23:00–7:00, dal 2025) e **Borgo Campidoglio** (pedonale h24 dal 01/12/2025): vengono dai comunicati del Comune (estratti) e non sono sulla mappa ufficiale, che è precedente.
+- **Limitazioni antismog** su tutto il territorio comunale: fonti solo non ufficiali, non sono nella scheda.
 
 ## Da verificare
 
-- Rileggere sulla pagina ufficiale scaricata le frasi citate (orari Centrale, TP, Pedonale, 10 giorni) e la regola per gli hotel.
-- Sostituire perimetri e strade OSM con i dati 5T/geoportale (CC BY 4.0) e aggiungere Area Romana, Valentino (con l'ampliamento 2026, se attivo), Monte dei Cappuccini e Borgo Campidoglio.
-- 24 giugno: confermarlo con un avviso ufficiale recente.
-- Sospensione d'agosto: cambia ogni anno, e GateLR non ne tiene conto.
+- La revisione umana (`reviewedByHuman: false`).
+- Rileggere sulle pagine ufficiali le regole viste solo negli estratti: 10 giorni, ore 11, «tutti i giorni, festivi compresi» per Area Romana e corsie riservate.
+- Il 24 giugno, con un avviso ufficiale.
+- Sostituire perimetri e varchi con i dati 5T/geoportale (CC BY 4.0) quando si potranno scaricare.
+- Aggiungere Valentino, Monte dei Cappuccini e Borgo Campidoglio.
+- `Tools/fetch_geo.py` (blocco «Torino») scarica ancora le pagine del Comune e di GTT, ma `build_torino.py` non le usa più. Se un giorno arrivano, conviene confrontarle con le trascrizioni.
