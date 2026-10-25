@@ -320,10 +320,10 @@ private struct IntroLiveMap: View {
     }
 }
 
-/// Le inquadrature della prima pagina: inclinata (58°), a circa 1,4 km (con Flyover sembra molto più vicina), rivolta dove va l'auto
+/// Le inquadrature della prima pagina: inclinata (58°), a circa 1,15 km (con Flyover sembra molto più vicina), rivolta dove va l'auto
 enum IntroCamera {
     static let pitch = 58.0
-    static let distance = 1400.0
+    static let distance = 1150.0
     /// Quanto la camera resta indietro rispetto all'auto: così l'auto sta sopra il centro, visibile sopra il verbale
     static let lag = 150.0
 

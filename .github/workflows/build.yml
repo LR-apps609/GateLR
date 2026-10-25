@@ -164,6 +164,13 @@ jobs:
           lim 30 xcrun simctl status_bar "$UDID" override --time 9:41 --batteryState charged --batteryLevel 100 --cellularBars 4 || true
           lim 30 xcrun simctl terminate "$UDID" it.ledion.GateLR 2>/dev/null || true
           mkdir -p intro-video
+          # Un primo giro non registrato: il simulatore senza scheda grafica scarica e prepara le mattonelle 3D di Firenze
+          # (restano in cache), così nel video la mappa c'è da subito
+          ARGS="-uitest -intro2 -intro2Autoplay -AppleLanguages (it) -AppleLocale it_IT"
+          lim 60 xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS || true
+          sleep 35
+          lim 30 xcrun simctl terminate "$UDID" it.ledion.GateLR || true
+          sleep 2
           # Con il controllo dei processi (set -m) il registratore in sottofondo riceve davvero SIGINT
           # (senza, bash non interattivo gli fa ignorare SIGINT e il video non si chiude mai)
           set -m
@@ -172,7 +179,6 @@ jobs:
           set +m
           echo "::notice::Registrazione avviata ($(date -u +%T))"
           sleep 2
-          ARGS="-uitest -intro2 -intro2Autoplay -AppleLanguages (it) -AppleLocale it_IT"
           shot() { lim 20 xcrun simctl io "$UDID" screenshot "intro-video/$1.png" > /dev/null 2>&1 || true; }
           # Aspetta fino a «secondi» dall'avvio dell'app
           at() { while [ $(( $(date +%s) - T0 )) -lt "$1" ]; do sleep 0.5; done; }
