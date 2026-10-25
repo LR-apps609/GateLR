@@ -26,7 +26,8 @@ struct TripView: View {
 
     var body: some View {
         TimelineView(.everyMinute) { ctx in
-            let date = atArrival ? arrival : ctx.date
+            // Un arrivo rimasto nel passato (app ripresa dopo ore) vale come «adesso»
+            let date = atArrival ? max(arrival, ctx.date) : ctx.date
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     header
@@ -225,7 +226,7 @@ struct TripView: View {
                 TicketCard(zone: hit.zone, ticket: ticket, entry: date)
             }
             if hit.zone.hotelCanRegister {
-                HotelStayCard(place: place, zone: hit.zone, arrival: atArrival ? arrival : Date())
+                HotelStayCard(place: place, zone: hit.zone, arrival: atArrival ? arrivalTime : Date())
                 hotelMessage
             }
         } else {
@@ -253,7 +254,7 @@ struct TripView: View {
                 WideButton(title: planner.working ? "Planning…" : "Check the drive", systemImage: "car.fill") {
                     Task {
                         await planner.plan(to: place, from: monitor.location?.coordinate ?? RoutePlanner.testOrigin,
-                                           arrival: atArrival ? arrival : nil, store: store)
+                                           arrival: atArrival ? arrivalTime : nil, store: store)
                     }
                 }
                 .disabled(planner.working)
@@ -401,7 +402,7 @@ struct TripView: View {
 
     private var saveButton: some View {
         WideButton(title: saved ? "Trip saved" : "Save this trip", systemImage: saved ? "checkmark" : "bookmark", prominent: false) {
-            let when = atArrival ? arrival : Date()
+            let when = atArrival ? arrivalTime : Date()
             store.trips.insert(Trip(hotel: store.place, hotelName: hotelName.isEmpty ? (store.place?.name ?? "") : hotelName, arrival: when,
                                     departure: when.addingTimeInterval(86_400 * 2), vehicleId: store.vehicle.id), at: 0)
             saved = true
@@ -459,7 +460,7 @@ struct TripView: View {
         let name = hotelName.isEmpty ? store.place?.name : hotelName
         // Le stesse date del riquadro «Registrazione della targa» (di serie: due notti)
         let stay = store.place.flatMap { store.stays[$0.key] }
-        let start: Date = stay?.arrival ?? (atArrival ? arrival : Date())
+        let start: Date = stay?.arrival ?? (atArrival ? arrivalTime : Date())
         let end: Date = stay?.departure ?? (Calendar.current.date(byAdding: .day, value: 2, to: start) ?? start)
         let text = language.message(arrival: start,
                                     plate: store.vehicle.plate.isEmpty ? "[PLATE]" : store.vehicle.plate,
@@ -502,6 +503,10 @@ struct TripView: View {
         }
         .padding(14).card()
     }
+
+    /// L'arrivo scelto, mai nel passato: il selettore lo mostra dal minuto attuale, ma la data salvata
+    /// poteva restare quella di ore prima (viaggio salvato, percorso e messaggio per l'hotel con un giorno passato)
+    private var arrivalTime: Date { max(arrival, Self.minuteFloor(Date())) }
 
     static func minuteFloor(_ d: Date) -> Date {
         Date(timeIntervalSinceReferenceDate: (d.timeIntervalSinceReferenceDate / 60).rounded(.down) * 60)

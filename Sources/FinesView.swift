@@ -27,7 +27,7 @@ struct DriveLogView: View {
                     ForEach(store.log) { e in
                         HStack(alignment: .top, spacing: 12) {
                             Image(systemName: e.kind == .entered ? "exclamationmark.triangle.fill" : "video.fill")
-                                .foregroundStyle(e.kind == .entered ? Theme.red : Theme.amber)
+                                .foregroundStyle(e.kind == .entered ? Theme.red : Theme.amberInk)   // amberInk: leggibile anche in modalità scura
                                 .frame(width: 24)
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(e.zoneName).font(.app(size: 15, weight: .semibold))

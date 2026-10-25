@@ -13,6 +13,8 @@ struct GateLRApp: App {
                 .preferredColorScheme(ProcessInfo.processInfo.arguments.contains("-uiDark") ? .dark : nil)
                 // Tutto dopo che le città sono pronte (si leggono in sottofondo, vedi Store.load)
                 .task {
+                    // Live Activity rimaste da prima (app chiusa con il guardiano o la guida accesi): via subito
+                    await Guardian.endOrphanActivities()
                     await store.whenLoaded()
                     Self.uiTestPlace(store)
                     // Siri impara i nomi delle zone («posso entrare a Firenze Settore A…») dalle città appena lette

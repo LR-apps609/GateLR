@@ -181,6 +181,20 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
                                             instruction: L("No active ZTL ahead"), warning: nil, eta: nil, level: "ok", zone: nil)
     }
 
+    /// L'id della Live Activity di questo guardiano, se è aperta
+    var activityId: String? { activity?.id }
+
+    /// Le Live Activity rimaste da un'esecuzione precedente (app chiusa da iOS o dal multitasking con il guardiano
+    /// o la guida accesi): restavano sulla schermata di blocco fino a 8 ore, con dati vecchi e senza modo di toglierle.
+    /// Si chiudono tutte tranne quelle del guardiano e della guida di adesso. Vero se ne ha chiusa almeno una.
+    @discardableResult
+    static func endOrphanActivities() async -> Bool {
+        let mine = Set([Guardian.shared.activityId, DriveSession.shared.activityId].compactMap { $0 })
+        let orphans = Activity<DriveAttributes>.activities.filter { !mine.contains($0.id) }
+        for a in orphans { await a.end(nil, dismissalPolicy: .immediate) }
+        return !orphans.isEmpty
+    }
+
     private func startActivity() {
         guard ActivityAuthorizationInfo().areActivitiesEnabled, activity == nil else { return }
         activity = try? Activity.request(attributes: DriveAttributes(destination: destination?.name ?? "GateLR"),

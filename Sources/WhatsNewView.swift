@@ -14,19 +14,30 @@ struct WhatsNewView: View {
         guard !args.contains("-uitest"), !version.isEmpty else { return false }
         let seen = UserDefaults.standard.string(forKey: key)
         UserDefaults.standard.set(version, forKey: key)
-        // Primo avvio (presentazione ancora da vedere): niente novità
-        guard onboarded else { return false }
-        return seen != version
+        return shouldShow(version: version, seen: seen, onboarded: onboarded)
     }
 
-    private let items: [(symbol: String, tint: Color, title: String, text: String)] = [
-        ("map", Theme.green, "Smoother maps",
-         "Milan, Florence and Rome move smoothly when you zoom in and out: from far away the borders are lighter and the gates appear as you get closer."),
-        ("bolt.fill", Color(hex: 0x1F4E9E), "Quicker answers",
-         "Finding the zone of an address or of where you are takes less time, also while you drive."),
-        ("ipad.landscape", Color(hex: 0x7A4BD1), "GateLR on iPad",
-         "Every orientation, the map full screen and pages that stay easy to read on the big screen."),
+    /// La decisione, senza UserDefaults (testabile). Primo avvio (presentazione ancora da vedere): niente novità.
+    /// Le versioni di sole correzioni (es. 1.12.1) non hanno novità: niente foglio vuoto o con quelle vecchie.
+    static func shouldShow(version: String, seen: String?, onboarded: Bool) -> Bool {
+        onboarded && seen != version && !(notes[version] ?? []).isEmpty
+    }
+
+    typealias Item = (symbol: String, tint: Color, title: String, text: String)
+
+    /// Le novità di ogni versione che ne ha (chiave: CFBundleShortVersionString)
+    static let notes: [String: [Item]] = [
+        "1.12.0": [
+            ("map", Theme.green, "Smoother maps",
+             "Milan, Florence and Rome move smoothly when you zoom in and out: from far away the borders are lighter and the gates appear as you get closer."),
+            ("bolt.fill", Color(hex: 0x1F4E9E), "Quicker answers",
+             "Finding the zone of an address or of where you are takes less time, also while you drive."),
+            ("ipad.landscape", Color(hex: 0x7A4BD1), "GateLR on iPad",
+             "Every orientation, the map full screen and pages that stay easy to read on the big screen."),
+        ],
     ]
+
+    private var items: [Item] { Self.notes[Self.version] ?? [] }
 
     var body: some View {
         VStack(spacing: 0) {

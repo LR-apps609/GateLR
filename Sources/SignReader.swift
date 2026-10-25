@@ -78,8 +78,9 @@ enum SignReader {
         return found.isEmpty ? nil : found
     }
 
-    /// Secondo il cartello, a quell'ora la ZTL è attiva?
-    static func isActive(_ r: Result, at date: Date, calendar: Calendar = .current) -> Bool {
+    /// Secondo il cartello, a quell'ora la ZTL è attiva? Il cartello è in Italia: giorni, ore e festivi
+    /// si contano in ora italiana anche se il telefono è ancora nel fuso di casa
+    static func isActive(_ r: Result, at date: Date, calendar: Calendar = RuleEngine().calendar) -> Bool {
         let weekday = calendar.component(.weekday, from: date)
         let minute = calendar.component(.hour, from: date) * 60 + calendar.component(.minute, from: date)
         if r.holidaysExcluded && ItalianHolidays.isHoliday(date, calendar: calendar) { return false }

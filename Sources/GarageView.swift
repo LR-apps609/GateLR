@@ -43,7 +43,7 @@ struct GarageView: View {
                     ForEach(store.permits) { p in
                         HStack {
                             Image(systemName: p.kind == .hotelRegistration ? "house" : "checkmark.seal")
-                                .foregroundStyle(p.status == .confirmed ? Theme.green : Theme.amber)
+                                .foregroundStyle(p.status == .confirmed ? Theme.greenInk : Theme.amberInk)   // le versioni «Ink» si leggono anche al buio
                             VStack(alignment: .leading) {
                                 Text(p.kind.label)
                                 Text("\(p.from.formatted(.dateTime.day().month())) – \(p.to.formatted(.dateTime.day().month()))")
@@ -176,8 +176,12 @@ struct CarAdvice: View {
                     return Line(city: city.localizedName, zone: z.shortName, text: L("Your car can't enter while it's active"), ok: false)
                 }
                 if let next = z.nextBan(for: v, after: date) {
+                    // Il giorno prima del divieto, contato e scritto in ora italiana (con -86 400 s e il fuso
+                    // del telefono, fuori dall'Italia o nei giorni del cambio d'ora usciva un giorno sbagliato)
+                    let engine = RuleEngine()
+                    let last = engine.calendar.date(byAdding: .day, value: -1, to: next.date) ?? next.date
                     return Line(city: city.localizedName, zone: z.shortName,
-                                text: String(format: L("Allowed until %@"), next.date.addingTimeInterval(-86_400).formatted(date: .abbreviated, time: .omitted)), ok: true)
+                                text: String(format: L("Allowed until %@"), engine.day(last, style: .abbreviated)), ok: true)
                 }
                 return Line(city: city.localizedName, zone: z.shortName, text: L("Your car's class is allowed"), ok: true)
             }
@@ -193,7 +197,7 @@ struct CarAdvice: View {
             ForEach(lines, id: \.self) { l in
                 HStack(spacing: 12) {
                     Image(systemName: l.ok ? "checkmark.circle.fill" : "xmark.octagon.fill")
-                        .foregroundStyle(l.ok ? Theme.green : Theme.red)
+                        .foregroundStyle(l.ok ? Theme.greenInk : Theme.red)
                     VStack(alignment: .leading, spacing: 1) {
                         Text("\(l.city) · \(l.zone)").font(.app(size: 15, weight: .semibold))
                         Text(l.text).font(.app(size: 13)).foregroundStyle(Theme.muted)

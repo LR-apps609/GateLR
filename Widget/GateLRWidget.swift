@@ -83,7 +83,8 @@ struct GateWidgetView: View {
     private var state: String { entry.on ? L("ZTL active") : L("ZTL not active") }
     private var change: String {
         guard let next = entry.next else { return "" }
-        return String(format: L(entry.on ? "Ends at %@" : "Starts at %@"), next.formatted(date: .omitted, time: .shortened))
+        // Ora italiana e, se non è oggi, anche il giorno (il sabato sera «Inizia alle 07:30» voleva dire lunedì)
+        return String(format: L(entry.on ? "Ends at %@" : "Starts at %@"), RuleEngine().clock(next, from: entry.date))
     }
     private var tint: Color { entry.on ? Color(hex: 0xC1272D) : Color(hex: 0x0FA34A) }
 
@@ -164,7 +165,8 @@ struct GuardianWidgetView: View {
     private var tint: Color { entry.on ? Color(hex: 0xC1272D) : Color(hex: 0x0FA34A) }
     private var change: String {
         guard let next = entry.next else { return "" }
-        return String(format: L(entry.on ? "Ends at %@" : "Starts at %@"), next.formatted(date: .omitted, time: .shortened))
+        // Ora italiana e, se non è oggi, anche il giorno (il sabato sera «Inizia alle 07:30» voleva dire lunedì)
+        return String(format: L(entry.on ? "Ends at %@" : "Starts at %@"), RuleEngine().clock(next, from: entry.date))
     }
 
     var body: some View {

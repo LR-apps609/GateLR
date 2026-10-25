@@ -61,7 +61,7 @@ final class RoutePlanner: ObservableObject {
             }
             let raw = route.polyline.coordinates.map { Coordinate(lat: $0.latitude, lon: $0.longitude) }
             let path = RouteCheck.densify(raw)
-            let departure = wanted.map { $0.addingTimeInterval(-route.expectedTravelTime) } ?? Date()
+            let departure = Self.departure(arriving: wanted, travelTime: route.expectedTravelTime)
             let zones = store.cities.flatMap(\.zones)
             let crossings = RouteCheck.crossings(path: path, zones: zones, departure: departure, travelTime: route.expectedTravelTime) {
                 store.answer(at: $1, zone: $0, hotelInside: false)
@@ -79,6 +79,13 @@ final class RoutePlanner: ObservableObject {
             self.error = origin == nil ? L("Couldn't find your position. Allow location access to plan the drive.")
                                        : L("Couldn't plan the drive right now. Check your connection.")
         }
+    }
+
+    /// Quando si parte: adesso, o in tempo per arrivare all'ora chiesta. Mai nel passato: con un arrivo troppo
+    /// vicino (o già passato) le ZTL lungo la strada si controllavano a orari già trascorsi
+    nonisolated static func departure(arriving wanted: Date?, travelTime: TimeInterval, now: Date = Date()) -> Date {
+        guard let wanted else { return now }
+        return max(now, wanted.addingTimeInterval(-travelTime))
     }
 
     /// Il parcheggio fuori dalle zone vietate o a pagamento più vicino alla destinazione

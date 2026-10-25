@@ -75,7 +75,7 @@ struct HotelStayCard: View {
     }
 
     private func tip(_ text: String) -> some View {
-        Label { Text(L(text)).font(.app(size: 13)) } icon: { Image(systemName: "exclamationmark.circle").foregroundStyle(Theme.amber) }
+        Label { Text(L(text)).font(.app(size: 13)) } icon: { Image(systemName: "exclamationmark.circle").foregroundStyle(Theme.amberInk) }
             .foregroundStyle(Theme.ink)
     }
 

@@ -38,8 +38,17 @@ struct VarcoView: View {
             }
             .background(Theme.ground)
         }
-        .sheet(isPresented: $learning) { NavigationStack { LearnZTLView() } }
-        .sheet(isPresented: $readingSign) { NavigationStack { SignReaderView() } }
+        // «Fine» in alto: i fogli si chiudono anche senza il gesto (VoiceOver, iPad)
+        .sheet(isPresented: $learning) {
+            NavigationStack {
+                LearnZTLView().toolbar { ToolbarItem(placement: .topBarTrailing) { Button("Done") { learning = false } } }
+            }
+        }
+        .sheet(isPresented: $readingSign) {
+            NavigationStack {
+                SignReaderView().toolbar { ToolbarItem(placement: .topBarTrailing) { Button("Done") { readingSign = false } } }
+            }
+        }
     }
 
     private var header: some View {

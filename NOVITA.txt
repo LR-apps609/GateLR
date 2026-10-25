@@ -1,3 +1,10 @@
+Novità della 1.12.1 (correzioni):
+• Widget e risposte: l'ora del prossimo cambio in ora italiana, con il giorno se non è oggi
+• Siri: un'ora di arrivo già passata vale per la prossima volta; dentro due zone risponde per la più piccola
+• Viaggio: arrivo e partenza mai nel passato; ticket dell'Area C e date dei divieti contati in ora italiana
+• Live Activity rimaste dopo la chiusura dell'app: si tolgono all'avvio e con «ferma il guardiano»
+• Modalità scura più leggibile, widget «Guardiano» tradotto, «Novità» solo nelle versioni che ne hanno
+
 Novità della 1.12.0 «Velocità e iPad»:
 • Mappa più fluida a Milano (Area B con 188 varchi), Firenze (Scudo Verde) e Roma: da lontano i confini sono semplificati e i varchi nascosti, si disegna solo la parte visibile; da vicino tutto come prima
 • Ricerca della zona di un indirizzo o della posizione più rapida (rettangoli e aree delle zone calcolati una volta alla lettura delle città)

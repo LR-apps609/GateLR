@@ -530,6 +530,7 @@
 "Stop the guardian by voice" = "用语音停止守护";
 "\"Hey Siri, stop the GateLR guardian\", also from Shortcuts and the Action button." = "“嘿 Siri，停止 GateLR 守护”，也可以在“快捷指令”和操作按钮中使用。";
 "Guardian widget" = "守护小组件";
+"Guardian" = "守护";
 "On the Home and Lock Screen: your zone right now and one tap to start the guardian." = "在主屏幕和锁定屏幕上：你所选区域的当前状态，轻点一下即可开启守护。";
 "Smoother maps" = "更流畅的地图";
 "Milan, Florence and Rome move smoothly when you zoom in and out: from far away the borders are lighter and the gates appear as you get closer." = "米兰、佛罗伦萨和罗马的地图缩放更流畅：远看时边界更简洁，靠近时才显示摄像头。";

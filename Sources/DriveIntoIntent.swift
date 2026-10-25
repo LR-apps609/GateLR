@@ -90,7 +90,8 @@ struct CanIDriveIntoIntent: AppIntent {
 
     /// La frase da dire (testabile, senza Siri): «Firenze Settore A: Non entrare. I varchi si spengono oggi alle 20:00.»
     @MainActor
-    static func answer(city: City, zone z: Zone, at date: Date?, store: Store, now: Date = Date()) -> String {
+    static func answer(city: City, zone z: Zone, at asked: Date?, store: Store, now: Date = Date()) -> String {
+        let date = asked.map { arrival($0, now: now, calendar: store.engine.calendar) }
         let when = date ?? now
         let a = store.answer(at: when, zone: z, hotelInside: false)
         let name = "\(city.localizedName) \(z.shortName)"
@@ -110,6 +111,20 @@ struct CanIDriveIntoIntent: AppIntent {
         }
         return text
     }
+
+    /// L'ora di arrivo già passata («alle 8» detto alle 10, o una data vecchia da Comandi rapidi) vale per la
+    /// prossima volta che sono quelle ore: prima la risposta era per un momento passato («I varchi si spengono
+    /// oggi alle 20:00» quando erano già spenti). Dieci minuti di tolleranza per «adesso».
+    static func arrival(_ date: Date, now: Date, calendar: Calendar) -> Date {
+        guard date < now.addingTimeInterval(-10 * 60) else { return date }
+        let days = calendar.dateComponents([.day], from: date, to: now).day ?? 0
+        var out = calendar.date(byAdding: .day, value: max(0, days), to: date) ?? date
+        while out < now.addingTimeInterval(-10 * 60) {
+            guard let next = calendar.date(byAdding: .day, value: 1, to: out) else { break }
+            out = next
+        }
+        return out
+    }
 }
 
 /// «Ferma il guardiano»: da Siri, da Comandi rapidi o dal tasto Azione, senza aprire l'app
@@ -121,6 +136,11 @@ struct StopGuardianIntent: AppIntent {
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
         guard Guardian.shared.active else {
+            // App chiusa da iOS con il guardiano acceso: la Live Activity resta sulla schermata di blocco
+            // anche se il guardiano non c'è più. Si chiude qui, così «ferma il guardiano» la toglie davvero.
+            if await Guardian.endOrphanActivities() {
+                return .result(dialog: IntentDialog(stringLiteral: L("Guardian stopped.")))
+            }
             return .result(dialog: IntentDialog(stringLiteral: L("The guardian isn't on.")))
         }
         Guardian.shared.stop()

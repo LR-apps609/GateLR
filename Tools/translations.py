@@ -417,6 +417,7 @@ T = {
 'Stop the guardian by voice': ('Ferma il guardiano con la voce', 'Wächter per Sprache stoppen'),
 '"Hey Siri, stop the GateLR guardian", also from Shortcuts and the Action button.': ('«Ehi Siri, ferma il guardiano di GateLR», anche da Comandi rapidi e dal tasto Azione.', '„Hey Siri, stoppe den GateLR-Wächter“ – auch aus Kurzbefehle und mit der Aktionstaste.'),
 'Guardian widget': ('Widget del guardiano', 'Wächter-Widget'),
+'Guardian': ('Guardiano', 'Wächter'),
 'On the Home and Lock Screen: your zone right now and one tap to start the guardian.': ('Nella schermata Home e di blocco: la tua zona adesso e un tocco per avviare il guardiano.', 'Auf dem Home- und Sperrbildschirm: deine Zone jetzt und ein Tipp, um den Wächter zu starten.'),
 # 1.12.0 Velocità e iPad
 'Smoother maps': ('Mappe più fluide', 'Flüssigere Karten'),
@@ -461,7 +462,6 @@ ANDROID = {
 "Edit": ("Modifica", "Bearbeiten"),
 "Free on public holidays": ("Libera nei giorni festivi", "An Feiertagen frei"),
 "GateLR stays on with a notification and warns you before every gate.": ("GateLR resta acceso con una notifica e ti avvisa prima di ogni varco.", "GateLR bleibt mit einer Mitteilung aktiv und warnt dich vor jedem Tor."),
-"Guardian": ("Guardiano", "Wächter"),
 "Guardian on": ("Guardiano attivo", "Wächter aktiv"),
 "Help": ("Aiuto", "Hilfe"),
 "Is this your hotel? It can register your plate.": ("È il tuo hotel? Può registrare la tua targa.", "Ist das dein Hotel? Es kann dein Kennzeichen anmelden."),

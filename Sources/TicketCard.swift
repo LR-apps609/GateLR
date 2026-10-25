@@ -11,7 +11,8 @@ struct TicketCard: View {
 
     /// Entro quando va attivato per un ingresso a quell'ora
     var deadline: Date {
-        let c = Calendar.current
+        // «Entro la mezzanotte del giorno dopo» è la mezzanotte di Milano, non quella del fuso del telefono
+        let c = RuleEngine().calendar
         switch ticket.deadline {
         case "nextDayMidnight":
             let nextDay = c.date(byAdding: .day, value: 1, to: c.startOfDay(for: entry)) ?? entry
@@ -32,7 +33,7 @@ struct TicketCard: View {
                 Text(ticket.deadline == "nextDayMidnight"
                      ? String(format: L("Activate it by %@."), deadline.formatted(.dateTime.weekday(.wide).day().month().hour().minute()))
                      : L("Buy and activate it before you drive in.")).font(.app(size: 15, weight: .semibold))
-            } icon: { Image(systemName: "clock.badge.exclamationmark").foregroundStyle(Theme.amber) }
+            } icon: { Image(systemName: "clock.badge.exclamationmark").foregroundStyle(Theme.amberInk) }
             Text(ticket.localizedHowTo).font(.app(size: 14)).foregroundStyle(Theme.muted)
             HStack(spacing: 10) {
                 if let url = ticket.url {
@@ -61,7 +62,7 @@ struct TicketCard: View {
     /// Area C: la sera dell'ingresso alle 20. Bologna: un'ora prima di entrare.
     private func remind() {
         let when = ticket.deadline == "nextDayMidnight"
-            ? (Calendar.current.date(bySettingHour: 20, minute: 0, second: 0, of: entry) ?? entry)
+            ? (RuleEngine().calendar.date(bySettingHour: 20, minute: 0, second: 0, of: entry) ?? entry)
             : entry.addingTimeInterval(-3600)
         let content = UNMutableNotificationContent()
         content.title = String(format: L("%@: ticket"), zone.shortName)

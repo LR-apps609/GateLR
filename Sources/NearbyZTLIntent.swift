@@ -21,7 +21,8 @@ struct NearbyZTLIntent: AppIntent {
     @MainActor
     static func answer(at p: Coordinate, store: Store, now: Date = Date()) -> String {
         let zones = store.cities.flatMap(\.zones)
-        let near = zones.map { ($0, $0.distance(lat: p.lat, lon: p.lon)) }.min { $0.1 < $1.1 }
+        // Dentro più zone (Area C dentro l'Area B): la più piccola, come nel resto dell'app, non la prima del file
+        let near = Self.nearest(zones, to: p)
         guard let near, near.1 < 5_000 else { return L("No ZTL within 5 km of you.") }
         let (z, d) = near
         let a = store.answer(at: now, zone: z, hotelInside: false)
@@ -32,6 +33,12 @@ struct NearbyZTLIntent: AppIntent {
             text += " " + String(format: L(a.gatesOn ? "The gates switch off %@." : "The gates switch on %@."), when)
         }
         return text
+    }
+
+    /// La zona più vicina con la distanza; a parità (dentro a due zone) la più piccola
+    static func nearest(_ zones: [Zone], to p: Coordinate) -> (Zone, Double)? {
+        zones.map { ($0, $0.distance(lat: p.lat, lon: p.lon)) }
+            .min { $0.1 != $1.1 ? $0.1 < $1.1 : $0.0.roughArea < $1.0.roughArea }
     }
 
     /// La posizione: quella che GateLR sta già seguendo, oppure una nuova lettura veloce

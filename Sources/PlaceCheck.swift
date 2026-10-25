@@ -84,14 +84,8 @@ struct PlaceCheck {
     var until: String? {
         if pedestrian != nil { return L("At any time") }
         guard let answer, let next = answer.nextChange else { return nil }
-        // Ora italiana, come le frasi del motore delle regole
-        var rome = Calendar(identifier: .gregorian)
-        rome.timeZone = TimeZone(identifier: "Europe/Rome") ?? .current
-        var style = Date.FormatStyle(date: .omitted, time: .shortened)
-        style.timeZone = rome.timeZone
-        let time = rome.isDateInToday(next)
-            ? next.formatted(style)
-            : next.formatted(style.weekday(.abbreviated))
+        // Ora italiana, come le frasi del motore delle regole (lo stesso testo del widget)
+        let time = RuleEngine().clock(next, from: Date())
         return String(format: L(answer.gatesOn ? "Active until %@" : "Off until %@"), time)
     }
 

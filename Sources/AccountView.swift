@@ -109,6 +109,7 @@ struct AccountView: View {
                                     }
                                     .buttonStyle(.plain)
                                     .accessibilityLabel(c.rawValue)
+                                    .accessibilityAddTraits(vehicleColor == c.rawValue ? .isSelected : [])
                                 }
                             }
                         }
@@ -149,7 +150,7 @@ struct AccountView: View {
                 Section("Offline cities") {
                     ForEach(store.cities) { c in
                         HStack {
-                            Image(systemName: "checkmark.circle.fill").foregroundStyle(Theme.green)
+                            Image(systemName: "checkmark.circle.fill").foregroundStyle(Theme.greenInk)
                             Text(c.localizedName)
                             Spacer()
                             Text(c.status == .verified ? L("verified") : c.status == .sample ? L("sample data")

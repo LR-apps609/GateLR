@@ -67,7 +67,7 @@ struct RuleEngine {
                                                      vehicle.fuel.label, vehicle.euro)), gatesOn: true, nextChange: next)
         }
         if zone.bans != nil && zone.type == .green {
-            let until = zone.nextBan(for: vehicle, after: date).map { " " + String(format: L("Until %@."), $0.date.formatted(date: .long, time: .omitted)) } ?? ""
+            let until = zone.nextBan(for: vehicle, after: date).map { " " + String(format: L("Until %@."), day($0.date, style: .long)) } ?? ""
             return Answer(verdict: .yes(reason: String(format: L("Your car (%@ Euro %lld) is allowed in this low-emission zone."), vehicle.fuel.label, vehicle.euro) + until),
                           gatesOn: true, nextChange: next)
         }
@@ -172,6 +172,23 @@ struct RuleEngine {
         f.timeStyle = .none
         f.dateFormat = "EEEE"
         return String(format: L("on %@ at %@"), f.string(from: date), time)
+    }
+
+    /// Il giorno in ora italiana («1 dicembre 2026»): le date dei divieti sono mezzanotti di Roma e,
+    /// scritte nel fuso del telefono (es. New York), diventavano il giorno prima
+    func day(_ date: Date, style: Date.FormatStyle.DateStyle = .long) -> String {
+        var f = Date.FormatStyle(date: style, time: .omitted)
+        f.timeZone = calendar.timeZone
+        return date.formatted(f)
+    }
+
+    /// L'ora di un cambio in ora italiana, come le frasi del motore: «20:00» se è lo stesso giorno di «ref»,
+    /// altrimenti con il giorno («lun 07:30»). Prima il widget scriveva solo l'ora, nel fuso del telefono:
+    /// il sabato sera «Inizia alle 07:30» voleva dire lunedì.
+    func clock(_ date: Date, from ref: Date) -> String {
+        var f = Date.FormatStyle(date: .omitted, time: .shortened)
+        f.timeZone = calendar.timeZone
+        return calendar.isDate(date, inSameDayAs: ref) ? date.formatted(f) : date.formatted(f.weekday(.abbreviated))
     }
 }
 

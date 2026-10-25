@@ -47,7 +47,8 @@ struct ZoneDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     SectionLabel("The city's own words")
                     if let q = zone.source.quote {
-                        Text("«\(q)»").italic().font(.app(size: 14)).foregroundStyle(Color(hex: 0x3D454E))
+                        // Theme.ink: il grigio scuro fisso di prima spariva sulla scheda in modalità scura
+                        Text("«\(q)»").italic().font(.app(size: 14)).foregroundStyle(Theme.ink.opacity(0.85))
                             .environment(\.locale, Locale(identifier: "it"))
                     }
                     if let t = zone.source.localizedTranslation {
@@ -130,7 +131,7 @@ struct ZoneDetailView: View {
                          : "Read from official sources on %@, not yet reviewed by a person. Road signs on site always win over the app."),
                          zone.source.checkedOn.formatted(date: .long, time: .omitted)))
                 } icon: {
-                    Image(systemName: zone.source.reviewedByHuman ? "checkmark.circle" : "clock").foregroundStyle(zone.source.reviewedByHuman ? Theme.green : Theme.amber)
+                    Image(systemName: zone.source.reviewedByHuman ? "checkmark.circle" : "clock").foregroundStyle(zone.source.reviewedByHuman ? Theme.greenInk : Theme.amberInk)
                 }
                 .font(.app(size: 13)).foregroundStyle(Theme.muted)
                 if let license = city.license {
@@ -152,7 +153,7 @@ struct ZoneDetailView: View {
         // Orari nel formato del telefono (in Italia e in Germania 24 ore)
         let f = DateFormatter(); f.timeStyle = .short; f.dateStyle = .none
         func time(_ m: Int) -> String {
-            f.string(from: Calendar.current.date(bySettingHour: m / 60 % 24, minute: m % 60, second: 0, of: Date())!).lowercased()
+            f.string(from: Calendar.current.date(bySettingHour: m / 60 % 24, minute: m % 60, second: 0, of: Date()) ?? Date()).lowercased()
         }
         let order = [2, 3, 4, 5, 6, 7, 1]
         var rows: [Row] = zone.windows.map { w in

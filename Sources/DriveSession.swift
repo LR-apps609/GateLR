@@ -175,6 +175,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         activity = nil; lastShown = nil
         active = false
         steps = []; path = []; crossings = []; warning = nil; destination = nil; nextZTL = nil; progress = 0
+        // Anche lo stato del ricalcolo e dell'arrivo: alla guida dopo non deve restare «Ricalcolo…»
+        rerouting = false; offRouteCount = 0; arrived = false; eta = nil
     }
 
     /// Il percorso Apple, diviso in tratti con le istruzioni, e il controllo delle ZTL lungo la strada
@@ -232,6 +234,12 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
                 say(L("Recalculating."))
                 Task {
                     _ = await route(from: p.cl, to: destination)
+                    // Guida finita mentre si ricalcolava: il percorso nuovo non deve tornare sulla mappa
+                    guard active, self.destination == destination else {
+                        if !active { steps = []; path = []; crossings = [] }
+                        rerouting = false
+                        return
+                    }
                     announced = announced.filter { $0.hasPrefix("ztl|") }
                     offRouteCount = 0
                     rerouting = false
@@ -309,6 +317,9 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
             instruction: arrived ? L("You have arrived") : (nextInstruction ?? destination?.name ?? ""),
             warning: warning, eta: eta, level: warning == nil ? nil : "no")
     }
+
+    /// L'id della Live Activity della guida, se è aperta
+    var activityId: String? { activity?.id }
 
     private func startActivity(to place: Place) {
         guard ActivityAuthorizationInfo().areActivitiesEnabled, activity == nil else { return }
