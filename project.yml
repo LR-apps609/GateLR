@@ -9,8 +9,8 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.13.2"
-    CURRENT_PROJECT_VERSION: "27"
+    MARKETING_VERSION: "1.14.0"
+    CURRENT_PROJECT_VERSION: "28"
 
 targets:
   GateLR:
@@ -38,7 +38,7 @@ targets:
       # Traduzioni (italiano, tedesco, francese, spagnolo, olandese, polacco, cinese): generate da Tools/translations.py
       - path: Resources/Localizations
         buildPhase: resources
-      # Titillium Web (SIL Open Font License)
+      # Titillium Web e DotGothic16 (SIL Open Font License, OFL.txt e OFL-DotGothic16.txt)
       - path: Resources/Fonts
         buildPhase: resources
     info:
@@ -55,7 +55,7 @@ targets:
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         LSRequiresIPhoneOS: true
-        UIAppFonts: [TitilliumWeb-Bold.ttf, TitilliumWeb-Black.ttf, TitilliumWeb-SemiBold.ttf]
+        UIAppFonts: [TitilliumWeb-Bold.ttf, TitilliumWeb-Black.ttf, TitilliumWeb-SemiBold.ttf, TitilliumWeb-Regular.ttf, DotGothic16-Regular.ttf]
         # Schermata d'avvio con il marchio (prima era vuota: nera in modalità scura per tutto il caricamento).
         # La stessa la ridisegna LaunchSplash finché le città non sono lette, così il passaggio non si vede.
         UILaunchScreen:

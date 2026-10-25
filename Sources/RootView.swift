@@ -9,6 +9,8 @@ struct RootView: View {
     @State private var showZone = false
 
     @State private var whatsNew = false
+    /// Prototipo della nuova presentazione (GateLR 2.0): solo con l'argomento di avvio -intro2
+    @State private var intro2 = ProcessInfo.processInfo.arguments.contains("-intro2")
 
     var body: some View {
         // Finché le città non sono pronte (si leggono in sottofondo) si vede la stessa schermata d'avvio di iOS
@@ -73,10 +75,20 @@ struct RootView: View {
             .readableFrame(640)
             .background(Theme.ground.ignoresSafeArea())
         }
+        .fullScreenCover(isPresented: $intro2) {
+            Intro2View {
+                onboarded = true
+                intro2 = false
+            }
+            .environmentObject(store)
+            .readableFrame(640)
+            .background(Notte.navy.ignoresSafeArea())
+        }
     }
 
     private static func showOnboarding(_ onboarded: Bool) -> Bool {
         let args = ProcessInfo.processInfo.arguments
+        if args.contains("-intro2") { return false }
         if args.contains("-showOnboarding") { return !onboarded }
         return !onboarded && !args.contains("-uitest")
     }

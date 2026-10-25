@@ -23,7 +23,7 @@ def norm(s):
     return s.replace('\\"', '"')
 
 missing = {}
-for f in sorted((ROOT / "Sources").glob("*.swift")) + sorted((ROOT / "Widget").glob("*.swift")):
+for f in sorted((ROOT / "Sources").rglob("*.swift")) + sorted((ROOT / "Widget").glob("*.swift")):
     if f.name in ("SampleData.swift",):
         continue
     for n, line in enumerate(f.read_text().splitlines(), 1):

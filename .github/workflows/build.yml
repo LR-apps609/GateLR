@@ -20,7 +20,7 @@ jobs:
   build:
     # I Mac Apple Silicon di GitHub sono spesso esauriti: si usa il Mac Intel, come per AudioLR
     runs-on: macos-15-intel
-    timeout-minutes: 45
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v5
 
@@ -101,6 +101,7 @@ jobs:
           status=0
           xcodebuild test -project GateLR.xcodeproj -scheme GateLRUITests \
             -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
+            -skip-testing:GateLRUITests/Intro2VideoTests \
             CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" > ui.log 2>&1 || status=$?
           grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true
           grep -E "error:|Test Case .*failed" ui.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
@@ -137,6 +138,49 @@ jobs:
           git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Foto dell'app per $GITHUB_SHA"
           set -o pipefail
           git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" screenshots 2>&1 | sed 's/x-access-token:[^@]*@/***@/' | tail -n 5 || { echo "::error::Push delle foto non riuscito"; exit 1; }
+
+      # Prototipo della nuova presentazione (-intro2): il giro di UITests/Intro2VideoTests registrato dal simulatore
+      # e pubblicato con le foto dei momenti chiave nel ramo «intro-video» (git fetch origin intro-video).
+      # Non blocca mai la compilazione.
+      - name: Video della nuova presentazione (prototipo)
+        if: always() && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        timeout-minutes: 15
+        run: |
+          SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
+          UDID=$(xcrun simctl list devices available | grep -F "    $SIM (" | head -n 1 | grep -oE "[0-9A-F]{8}-[0-9A-F-]{27}")
+          echo "Simulatore: $SIM $UDID"
+          xcrun simctl boot "$UDID" 2>/dev/null || true
+          xcrun simctl bootstatus "$UDID" -b > /dev/null 2>&1 || true
+          xcrun simctl ui "$UDID" appearance dark || true
+          mkdir -p intro-video
+          # Prima si compila, poi si registra solo il giro
+          xcodebuild build-for-testing -project GateLR.xcodeproj -scheme GateLRUITests \
+            -destination "platform=iOS Simulator,id=$UDID" -derivedDataPath build-ui CODE_SIGNING_ALLOWED=NO > intro-build.log 2>&1 \
+            || { grep -E "error:" intro-build.log | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::${l:0:400}"; done; exit 1; }
+          xcrun simctl io "$UDID" recordVideo --codec=h264 --force intro-video/intro2.mp4 > rec.log 2>&1 &
+          REC=$!
+          sleep 3
+          status=0
+          xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
+            -destination "platform=iOS Simulator,id=$UDID" -derivedDataPath build-ui \
+            -only-testing:GateLRUITests/Intro2VideoTests \
+            CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/intro-video" > intro.log 2>&1 || status=$?
+          sleep 1
+          kill -INT $REC 2>/dev/null || true
+          wait $REC || true
+          cat rec.log | tail -n 5 || true
+          grep -E "error:|Test Case .*(passed|failed)|TEST (EXECUTE )?(SUCCEEDED|FAILED)" intro.log | sort -u | head -n 20 || true
+          grep -E "error:|Test Case .*failed" intro.log | sort -u | head -n 6 | while IFS= read -r l; do echo "::warning::Video: ${l:0:400}"; done
+          ls -la intro-video
+          if [ ! -s intro-video/intro2.mp4 ]; then echo "::warning::Video della presentazione non registrato"; exit 1; fi
+          echo "::notice::Video della presentazione: $(du -h intro-video/intro2.mp4 | cut -f1), $(ls intro-video | grep -c png) foto (test: $status)"
+          cd intro-video
+          echo "Prototipo -intro2 di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ)), test: $status" > README.md
+          git init -q && git checkout -q -b intro-video && git add .
+          git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Video della nuova presentazione per $GITHUB_SHA"
+          set -o pipefail
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" intro-video 2>&1 | sed 's/x-access-token:[^@]*@/***@/' | tail -n 5 || { echo "::warning::Push del video non riuscito"; exit 1; }
 
       - name: Registri
         if: failure()

@@ -20,6 +20,7 @@ Riepilogo completo: [`docs/STATO.md`](docs/STATO.md).
 | `Sources/GarageView.swift` | Scheda **Garage**: veicoli, permessi, città offline |
 | `Sources/GateMonitor.swift` | Avvisi vicino ai varchi anche ad app chiusa (CLMonitor) |
 | `Sources/CarPlaySceneDelegate.swift` | Schermata CarPlay (serve l'autorizzazione Apple «Driving Task») |
+| `Sources/Intro2/` | Prototipo della nuova presentazione animata (solo con l'argomento di avvio `-intro2`); video nel ramo `intro-video` |
 | `Sources/Theme.swift`, `Components.swift` | Colori della segnaletica, logo, riquadro della risposta |
 | `Tests/RuleEngineTests.swift` | Test del motore delle regole |
 | `Tools/make_icon.py` | Ridisegna l'icona (Pillow) |
