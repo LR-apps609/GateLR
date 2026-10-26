@@ -1,28 +1,26 @@
 # Assisi: fonti della scheda ZTL (bozza)
 
-Scheda generata da `Tools/build_assisi.py` → `data/drafts/assisi.json` (**bozza, non nell'app**: manca il perimetro e gli orari sono confermati solo dalla stampa locale).
+Scheda generata da `Tools/build_assisi.py` → `data/drafts/assisi.json` (**bozza, non nell'app**). Regole e citazione **verificate** sulle ordinanze ufficiali lette il **26/10/2026** e salvate in `data/raw/assisi/` (URL e data in testa a ogni file).
 
-## Perché è una bozza
-Il 26/10/2026 dal sandbox www.comune.assisi.pg.it, i server Overpass e api.openstreetmap.org erano rifiutati dal proxy (403, host non consentito per la sessione); WebFetch non li risolveva. Il workflow «Scarica pagine» **non** è stato usato perché aggirerebbe il blocco di rete della sessione (vietato dall'incarico). Su www.dati.gov.it nessun dataset ZTL per Assisi.
+## Perché resta bozza
+1. **Orari non fissi**: ad Assisi la ZTL è regolata da ordinanze della Polizia Locale che durano una o due settimane (elenco: https://www.comune.assisi.pg.it/novita/comunicati_stampa/novita_298.html, aggiornato il 26/10/2026: n. 355 dal 9 al 21 ottobre, n. 368 dal 22 al 30 ottobre, n. 378 per il solo 27 ottobre 2026). Una scheda con orari fissi sarebbe giusta solo fino al 30/10/2026.
+2. **Nessun perimetro**: nessun open data (dati.gov.it: nessun dataset ZTL per Assisi); OpenStreetMap non raggiungibile dal sandbox il 26/10/2026.
 
-Ogni regola viene dai **riassunti della ricerca web** salvati in `data/raw/assisi/websearch-*.txt` (non testo letterale; le frasi tra virgolette sono quelle riportate dal motore di ricerca dagli articoli). `quote` è `null`; lo script controlla che ogni fatto usato sia nei file salvati.
+Per pubblicare: perimetro da OSM (strade raggiungibili solo dai 5 varchi, come `Tools/build_perugia.py`) in `data/raw/assisi/ztl_perimetro.geojson`, e conferma dal Comune che lo schema feriali/prefestivi è stabile (oppure aggiornamento della scheda a ogni ordinanza).
 
-## Fatti usati
+## Orari usati (ordinanza n. 368/2026, 22–30 ottobre 2026, uguali alla n. 355)
+- «GIORNI FESTIVI e PREFESTIVI» — «A) DIVIETO DI CIRCOLAZIONE E SOSTA, all'interno della Z.T.L. per tutti i veicoli dalle ore 11.00 alle ore 20.00», eccetto tra gli altri residenti autorizzati, «turisti con prenotazione alberghiera diretti ad alberghi del centro storico», veicoli elettrici, moto e ciclomotori a due ruote.
+- «GIORNI FERIALI ESCLUSO IL SABATO» — «B) DIVIETO DI CIRCOLAZIONE E SOSTA per tutti i veicoli dalle ore 11.00 alle ore 12.30 e dalle 15.30 alle 17.30» (citazione della scheda).
+- Ordinanza n. 378 del 26/10/2026: il solo 27/10/2026 11–20 (incontro della Comunità di Sant'Egidio). Nei pending.
+- Modello: lun–ven 11–12:30 e 15:30–17:30; sab–dom 11–20; `holidaysAsSunday: true`, `freeOnHolidays: false`; `localHolidays: ["10-04"]` (San Francesco, patrono). Altri prefestivi non modellati.
 
-| Fatto | Pagina indicata dalla ricerca | Tipo | Letto il |
-|---|---|---|---|
-| Varchi elettronici dopo 8 mesi di sperimentazione (dal 15/01/2026, prorogata), in funzione con multe dal 16/09/2026 | https://www.assisinews.it/cronaca/dal-16-settembre-entrano-in-funzione-i-varchi-elettronici-con-multe-in-caso-di-violazioni/ ; https://terrenostre.info/2026/09/ztlassisi-16092026-in-funzione-varchi-elettronici/ ; https://www.vivoumbria.it/zona-a-traffico-limitato-di-assisi-attivi-dal-16-settembre-i-nuovi-varchi-elettronici-con-sanzioni/ | non ufficiale (comunicato del Comune ripreso) | 26/10/2026 |
-| 5 varchi: Porta San Giacomo, Largo Properzio, via Porta Perlici, via Marconi (parcheggio Giovanni Paolo II), via del Turrione | idem, La Nazione | non ufficiale | 26/10/2026 |
-| Chiusura: feriali 11–12:30 e 15:30–17:30; prefestivi e festivi 11–20 | Assisi News | **confermato solo da** Assisi News (una seconda ricerca non lo ha ritrovato) | 26/10/2026 |
-| Turisti diretti agli alberghi: solo carico/scarico bagagli, max 60 minuti; targa e giorni di arrivo/partenza al titolare, comunicazione sul parabrezza | Assisi News; https://www.visit-assisi.it/muoversi-in-citta/ | non ufficiale | 26/10/2026 |
-| Disciplinare per gli accessi in deroga sul sito del Comune; permesso ZTL | https://www.comune.assisi.pg.it/servizi/mobilita_e_trasporti/servizio_23.html | ufficiale (non letto) | 26/10/2026 |
-| Elettriche: possono accedere e sostare (escluse aree riservate) → non esentate in GateLR per prudenza (targhe estere) | Assisi News | non ufficiale | 26/10/2026 |
-| Disabili: max due targhe, prima o entro 72 ore, permessivarchi@comune.assisi.pg.it | ricerca (pagina del Comune / ilportaledellaccessibilita.it) | da verificare | 26/10/2026 |
-| Multa 84 € (58,10 € entro 5 giorni); oltre 300 violazioni dal 18 al 20/09 | ricerca, La Nazione | non ufficiale | 26/10/2026 |
-| Ricorso al TAR annunciato da Altea (locazioni turistiche) | https://www.corrieredellumbria.it/news/attualita/419274/ztl-di-assisi-varchi-elettronici-attivi-da-oggi-altea-prepara-ricorso-al-tar.html | non ufficiale | 26/10/2026 |
-| Corrieri: pacchi solo entro le 10, deroga in preparazione | https://www.corrieredellumbria.it/news/attualita/466407/assisi-la-nuova-ztl-apre-per-i-corrieri.html | non ufficiale | 26/10/2026 |
+## Regole (ordinanza 368/2026, ufficiale)
+| Fatto | Fonte |
+|---|---|
+| DGC n. 231 dell'11/12/2025: cinque varchi elettronici, pre-esercizio dal 15/01 al 15/07/2026; DGC 173 del 01/10/2026 disciplinare deroghe | ordinanza 368 |
+| Turisti diretti ad alberghi/extra-alberghieri: «previa autorizzazione, l'accesso per le sole operazioni di carico scarico bagagli della durata massima di sessanta minuti»; la struttura inserisce targa e giorno sull'interfaccia web, o «entro le 72 ore successive al transito»; contrassegno e disco orario; con parcheggio privato transito per tutto il soggiorno | ordinanza 368 |
+| Elettriche: «hanno titolo ad accedere e sostare», ma vanno inserite nella lista del varco con modulo → `exemptFuels: []` | ordinanza 368 |
+| Disabili non in lista: targa prima dell'accesso o entro 72 ore a permessivarchi@comune.assisi.pg.it | https://www.comune.assisi.pg.it/servizi/mobilita_e_trasporti/servizio_23.html (aggiornata il 14/10/2026) |
+| Varchi: Porta San Giacomo, Largo Properzio, via Porta Perlici, via Marconi, via del Turrione; multe dal 16/09/2026; multa 84 € (58,10 € entro 5 giorni) | Assisi News e altre testate (`websearch-1`, `websearch-3`), **non ufficiale** |
 
-Scelte: lun–ven 11–12:30 e 15:30–17:30, sab–dom 11–20 (`holidaysAsSunday: true`, `freeOnHolidays: false`); sabato trattato come prefestivo; altri prefestivi non modellati (pending). `localHolidays: ["10-04"]` (San Francesco, patrono). Nota: il 4 ottobre non è nell'elenco dei festivi nazionali dell'app (`ItalianHolidays` in Sources/RuleEngine.swift), da valutare a parte (codice dell'app non toccato).
-
-## Geometria
-Nessun perimetro ufficiale trovato. Da fare quando la rete lo consente: strade OSM raggiungibili solo dai 5 varchi (come `Tools/build_perugia.py`) o relazione OSM con il nome ufficiale; salvare in `data/raw/assisi/ztl_perimetro.geojson`, varchi sui nodi OSM, e rilanciare lo script.
+Nota: il 4 ottobre non è nell'elenco dei festivi nazionali dell'app (`ItalianHolidays`), codice non toccato.
