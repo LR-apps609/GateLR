@@ -1,0 +1,3283 @@
+{
+ "id": "matera",
+ "name": "Matera",
+ "name_it": "Matera",
+ "name_de": "Matera",
+ "center": {
+  "lat": 40.666,
+  "lon": 16.609
+ },
+ "zones": [
+  {
+   "id": "matera-sassi",
+   "name": "Sassi · Sasso Barisano and Sasso Caveoso",
+   "name_it": "Sassi · Sasso Barisano e Sasso Caveoso",
+   "name_de": "Sassi · Sasso Barisano und Sasso Caveoso",
+   "kind": "restricted",
+   "summary": "The road through the Sassi (via D'Addozio, via Madonna delle Virtù, via Buozzi) is closed to cars without a permit every day from 10 am: until 8:30 pm from 16 September to 30 June, until midnight from 1 July to 15 September. Early morning and at night it is open. During those hours hotel guests may not drive in to unload, unless the hotel in the Sassi has its own parking: park above (piazza della Visitazione, via Saragat) and walk down.",
+   "summary_it": "La strada dei Sassi (via D'Addozio, via Madonna delle Virtù, via Buozzi) è chiusa alle auto senza permesso tutti i giorni dalle 10: fino alle 20:30 dal 16 settembre al 30 giugno, fino a mezzanotte dal 1° luglio al 15 settembre. Al mattino presto e di notte è aperta. In quegli orari gli ospiti degli hotel non possono entrare a scaricare, salvo che la struttura nei Sassi abbia un parcheggio proprio: parcheggia sopra (piazza della Visitazione, via Saragat) e scendi a piedi.",
+   "summary_de": "Die Straße durch die Sassi (Via D'Addozio, Via Madonna delle Virtù, Via Buozzi) ist für Autos ohne Genehmigung täglich ab 10 Uhr gesperrt: bis 20:30 Uhr vom 16. September bis 30. Juni, bis Mitternacht vom 1. Juli bis 15. September. Frühmorgens und nachts ist sie offen. In dieser Zeit dürfen Hotelgäste nicht zum Ausladen hinein, außer das Hotel in den Sassi hat einen eigenen Parkplatz: oben parken (Piazza della Visitazione, Via Saragat) und zu Fuß hinunter.",
+   "perimeter": [
+    {
+     "lat": 40.664849,
+     "lon": 16.612243
+    },
+    {
+     "lat": 40.664939,
+     "lon": 16.612184
+    },
+    {
+     "lat": 40.664939,
+     "lon": 16.612243
+    },
+    {
+     "lat": 40.665075,
+     "lon": 16.612243
+    },
+    {
+     "lat": 40.665075,
+     "lon": 16.612302
+    },
+    {
+     "lat": 40.665392,
+     "lon": 16.61248
+    },
+    {
+     "lat": 40.665482,
+     "lon": 16.612776
+    },
+    {
+     "lat": 40.665527,
+     "lon": 16.612776
+    },
+    {
+     "lat": 40.665572,
+     "lon": 16.613131
+    },
+    {
+     "lat": 40.665708,
+     "lon": 16.613368
+    },
+    {
+     "lat": 40.66607,
+     "lon": 16.613486
+    },
+    {
+     "lat": 40.66607,
+     "lon": 16.613546
+    },
+    {
+     "lat": 40.666386,
+     "lon": 16.613605
+    },
+    {
+     "lat": 40.666386,
+     "lon": 16.613664
+    },
+    {
+     "lat": 40.666522,
+     "lon": 16.613664
+    },
+    {
+     "lat": 40.666522,
+     "lon": 16.613723
+    },
+    {
+     "lat": 40.666793,
+     "lon": 16.613723
+    },
+    {
+     "lat": 40.667245,
+     "lon": 16.61319
+    },
+    {
+     "lat": 40.667381,
+     "lon": 16.612717
+    },
+    {
+     "lat": 40.667652,
+     "lon": 16.61242
+    },
+    {
+     "lat": 40.667652,
+     "lon": 16.612302
+    },
+    {
+     "lat": 40.668059,
+     "lon": 16.611769
+    },
+    {
+     "lat": 40.66824,
+     "lon": 16.61171
+    },
+    {
+     "lat": 40.66824,
+     "lon": 16.611651
+    },
+    {
+     "lat": 40.668376,
+     "lon": 16.611651
+    },
+    {
+     "lat": 40.668738,
+     "lon": 16.611118
+    },
+    {
+     "lat": 40.668964,
+     "lon": 16.610999
+    },
+    {
+     "lat": 40.669145,
+     "lon": 16.610762
+    },
+    {
+     "lat": 40.669235,
+     "lon": 16.610466
+    },
+    {
+     "lat": 40.669506,
+     "lon": 16.610348
+    },
+    {
+     "lat": 40.669506,
+     "lon": 16.610407
+    },
+    {
+     "lat": 40.669732,
+     "lon": 16.610466
+    },
+    {
+     "lat": 40.669823,
+     "lon": 16.610703
+    },
+    {
+     "lat": 40.669959,
+     "lon": 16.610703
+    },
+    {
+     "lat": 40.670049,
+     "lon": 16.610585
+    },
+    {
+     "lat": 40.670049,
+     "lon": 16.610407
+    },
+    {
+     "lat": 40.670094,
+     "lon": 16.610407
+    },
+    {
+     "lat": 40.670185,
+     "lon": 16.610052
+    },
+    {
+     "lat": 40.67032,
+     "lon": 16.609993
+    },
+    {
+     "lat": 40.67032,
+     "lon": 16.609933
+    },
+    {
+     "lat": 40.670456,
+     "lon": 16.609933
+    },
+    {
+     "lat": 40.670953,
+     "lon": 16.609223
+    },
+    {
+     "lat": 40.670908,
+     "lon": 16.609164
+    },
+    {
+     "lat": 40.670727,
+     "lon": 16.609223
+    },
+    {
+     "lat": 40.670727,
+     "lon": 16.609164
+    },
+    {
+     "lat": 40.670501,
+     "lon": 16.609104
+    },
+    {
+     "lat": 40.670456,
+     "lon": 16.608927
+    },
+    {
+     "lat": 40.67032,
+     "lon": 16.608749
+    },
+    {
+     "lat": 40.67023,
+     "lon": 16.608749
+    },
+    {
+     "lat": 40.670139,
+     "lon": 16.608868
+    },
+    {
+     "lat": 40.670004,
+     "lon": 16.608868
+    },
+    {
+     "lat": 40.669868,
+     "lon": 16.609045
+    },
+    {
+     "lat": 40.669597,
+     "lon": 16.609104
+    },
+    {
+     "lat": 40.669597,
+     "lon": 16.609045
+    },
+    {
+     "lat": 40.669371,
+     "lon": 16.608986
+    },
+    {
+     "lat": 40.669326,
+     "lon": 16.608808
+    },
+    {
+     "lat": 40.668783,
+     "lon": 16.608868
+    },
+    {
+     "lat": 40.668783,
+     "lon": 16.608808
+    },
+    {
+     "lat": 40.668557,
+     "lon": 16.608749
+    },
+    {
+     "lat": 40.668512,
+     "lon": 16.608631
+    },
+    {
+     "lat": 40.668376,
+     "lon": 16.608631
+    },
+    {
+     "lat": 40.668376,
+     "lon": 16.608572
+    },
+    {
+     "lat": 40.66824,
+     "lon": 16.608572
+    },
+    {
+     "lat": 40.66824,
+     "lon": 16.608512
+    },
+    {
+     "lat": 40.668105,
+     "lon": 16.608512
+    },
+    {
+     "lat": 40.668014,
+     "lon": 16.608394
+    },
+    {
+     "lat": 40.667924,
+     "lon": 16.608394
+    },
+    {
+     "lat": 40.667879,
+     "lon": 16.608216
+    },
+    {
+     "lat": 40.667833,
+     "lon": 16.608216
+    },
+    {
+     "lat": 40.667833,
+     "lon": 16.608039
+    },
+    {
+     "lat": 40.667698,
+     "lon": 16.607861
+    },
+    {
+     "lat": 40.667698,
+     "lon": 16.607743
+    },
+    {
+     "lat": 40.667562,
+     "lon": 16.607743
+    },
+    {
+     "lat": 40.667562,
+     "lon": 16.607683
+    },
+    {
+     "lat": 40.667472,
+     "lon": 16.607683
+    },
+    {
+     "lat": 40.667472,
+     "lon": 16.607624
+    },
+    {
+     "lat": 40.667155,
+     "lon": 16.607446
+    },
+    {
+     "lat": 40.667065,
+     "lon": 16.607091
+    },
+    {
+     "lat": 40.667019,
+     "lon": 16.607091
+    },
+    {
+     "lat": 40.667019,
+     "lon": 16.606914
+    },
+    {
+     "lat": 40.666974,
+     "lon": 16.606914
+    },
+    {
+     "lat": 40.666929,
+     "lon": 16.606558
+    },
+    {
+     "lat": 40.666838,
+     "lon": 16.606499
+    },
+    {
+     "lat": 40.666703,
+     "lon": 16.606677
+    },
+    {
+     "lat": 40.666567,
+     "lon": 16.606677
+    },
+    {
+     "lat": 40.666567,
+     "lon": 16.606736
+    },
+    {
+     "lat": 40.666477,
+     "lon": 16.606677
+    },
+    {
+     "lat": 40.666341,
+     "lon": 16.606854
+    },
+    {
+     "lat": 40.666205,
+     "lon": 16.606854
+    },
+    {
+     "lat": 40.666205,
+     "lon": 16.606973
+    },
+    {
+     "lat": 40.666251,
+     "lon": 16.606973
+    },
+    {
+     "lat": 40.666205,
+     "lon": 16.607328
+    },
+    {
+     "lat": 40.66616,
+     "lon": 16.607328
+    },
+    {
+     "lat": 40.666115,
+     "lon": 16.607506
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.607565
+    },
+    {
+     "lat": 40.665889,
+     "lon": 16.60792
+    },
+    {
+     "lat": 40.665753,
+     "lon": 16.608098
+    },
+    {
+     "lat": 40.665889,
+     "lon": 16.608335
+    },
+    {
+     "lat": 40.665889,
+     "lon": 16.608512
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.608512
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.608631
+    },
+    {
+     "lat": 40.665889,
+     "lon": 16.608631
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.60869
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.608986
+    },
+    {
+     "lat": 40.665889,
+     "lon": 16.609045
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.609045
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.609223
+    },
+    {
+     "lat": 40.665979,
+     "lon": 16.609223
+    },
+    {
+     "lat": 40.665979,
+     "lon": 16.60946
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.60946
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.609637
+    },
+    {
+     "lat": 40.665889,
+     "lon": 16.609637
+    },
+    {
+     "lat": 40.665844,
+     "lon": 16.609815
+    },
+    {
+     "lat": 40.665618,
+     "lon": 16.609874
+    },
+    {
+     "lat": 40.665618,
+     "lon": 16.609933
+    },
+    {
+     "lat": 40.665256,
+     "lon": 16.609815
+    },
+    {
+     "lat": 40.665256,
+     "lon": 16.609756
+    },
+    {
+     "lat": 40.66503,
+     "lon": 16.609637
+    },
+    {
+     "lat": 40.664985,
+     "lon": 16.609341
+    },
+    {
+     "lat": 40.664939,
+     "lon": 16.609341
+    },
+    {
+     "lat": 40.664939,
+     "lon": 16.609223
+    },
+    {
+     "lat": 40.664985,
+     "lon": 16.609223
+    },
+    {
+     "lat": 40.664939,
+     "lon": 16.609104
+    },
+    {
+     "lat": 40.664758,
+     "lon": 16.609164
+    },
+    {
+     "lat": 40.664758,
+     "lon": 16.609223
+    },
+    {
+     "lat": 40.664397,
+     "lon": 16.609104
+    },
+    {
+     "lat": 40.664306,
+     "lon": 16.609282
+    },
+    {
+     "lat": 40.664125,
+     "lon": 16.609341
+    },
+    {
+     "lat": 40.66408,
+     "lon": 16.60946
+    },
+    {
+     "lat": 40.663718,
+     "lon": 16.609578
+    },
+    {
+     "lat": 40.663718,
+     "lon": 16.609697
+    },
+    {
+     "lat": 40.663492,
+     "lon": 16.609933
+    },
+    {
+     "lat": 40.663357,
+     "lon": 16.609933
+    },
+    {
+     "lat": 40.663357,
+     "lon": 16.609993
+    },
+    {
+     "lat": 40.66304,
+     "lon": 16.609933
+    },
+    {
+     "lat": 40.662904,
+     "lon": 16.61023
+    },
+    {
+     "lat": 40.662678,
+     "lon": 16.610289
+    },
+    {
+     "lat": 40.662678,
+     "lon": 16.610348
+    },
+    {
+     "lat": 40.662498,
+     "lon": 16.610289
+    },
+    {
+     "lat": 40.662498,
+     "lon": 16.610348
+    },
+    {
+     "lat": 40.662362,
+     "lon": 16.610348
+    },
+    {
+     "lat": 40.662362,
+     "lon": 16.610407
+    },
+    {
+     "lat": 40.662045,
+     "lon": 16.610348
+    },
+    {
+     "lat": 40.662045,
+     "lon": 16.610466
+    },
+    {
+     "lat": 40.66191,
+     "lon": 16.610644
+    },
+    {
+     "lat": 40.661638,
+     "lon": 16.610762
+    },
+    {
+     "lat": 40.661684,
+     "lon": 16.610999
+    },
+    {
+     "lat": 40.661729,
+     "lon": 16.610999
+    },
+    {
+     "lat": 40.661684,
+     "lon": 16.611236
+    },
+    {
+     "lat": 40.661593,
+     "lon": 16.611355
+    },
+    {
+     "lat": 40.661593,
+     "lon": 16.611473
+    },
+    {
+     "lat": 40.661503,
+     "lon": 16.611591
+    },
+    {
+     "lat": 40.661412,
+     "lon": 16.611591
+    },
+    {
+     "lat": 40.661412,
+     "lon": 16.61171
+    },
+    {
+     "lat": 40.661548,
+     "lon": 16.611769
+    },
+    {
+     "lat": 40.661593,
+     "lon": 16.612065
+    },
+    {
+     "lat": 40.661638,
+     "lon": 16.612065
+    },
+    {
+     "lat": 40.661638,
+     "lon": 16.612302
+    },
+    {
+     "lat": 40.661593,
+     "lon": 16.612302
+    },
+    {
+     "lat": 40.661593,
+     "lon": 16.61248
+    },
+    {
+     "lat": 40.661503,
+     "lon": 16.612598
+    },
+    {
+     "lat": 40.661548,
+     "lon": 16.612657
+    },
+    {
+     "lat": 40.661548,
+     "lon": 16.612835
+    },
+    {
+     "lat": 40.661503,
+     "lon": 16.612835
+    },
+    {
+     "lat": 40.661548,
+     "lon": 16.612953
+    },
+    {
+     "lat": 40.661684,
+     "lon": 16.612953
+    },
+    {
+     "lat": 40.661729,
+     "lon": 16.612835
+    },
+    {
+     "lat": 40.661955,
+     "lon": 16.612776
+    },
+    {
+     "lat": 40.661955,
+     "lon": 16.612717
+    },
+    {
+     "lat": 40.662091,
+     "lon": 16.612776
+    },
+    {
+     "lat": 40.662136,
+     "lon": 16.612657
+    },
+    {
+     "lat": 40.662317,
+     "lon": 16.612598
+    },
+    {
+     "lat": 40.662317,
+     "lon": 16.612539
+    },
+    {
+     "lat": 40.662452,
+     "lon": 16.612539
+    },
+    {
+     "lat": 40.662452,
+     "lon": 16.61248
+    },
+    {
+     "lat": 40.662724,
+     "lon": 16.612598
+    },
+    {
+     "lat": 40.662769,
+     "lon": 16.612776
+    },
+    {
+     "lat": 40.66304,
+     "lon": 16.612776
+    },
+    {
+     "lat": 40.66304,
+     "lon": 16.612717
+    },
+    {
+     "lat": 40.663221,
+     "lon": 16.612776
+    },
+    {
+     "lat": 40.663221,
+     "lon": 16.612717
+    },
+    {
+     "lat": 40.663492,
+     "lon": 16.612657
+    },
+    {
+     "lat": 40.663492,
+     "lon": 16.612598
+    },
+    {
+     "lat": 40.663628,
+     "lon": 16.612598
+    },
+    {
+     "lat": 40.663628,
+     "lon": 16.612539
+    },
+    {
+     "lat": 40.663854,
+     "lon": 16.612598
+    },
+    {
+     "lat": 40.663854,
+     "lon": 16.612657
+    },
+    {
+     "lat": 40.66408,
+     "lon": 16.612657
+    },
+    {
+     "lat": 40.66408,
+     "lon": 16.612598
+    },
+    {
+     "lat": 40.664216,
+     "lon": 16.612657
+    },
+    {
+     "lat": 40.664216,
+     "lon": 16.612598
+    },
+    {
+     "lat": 40.664351,
+     "lon": 16.612598
+    },
+    {
+     "lat": 40.664351,
+     "lon": 16.612539
+    },
+    {
+     "lat": 40.664578,
+     "lon": 16.612539
+    },
+    {
+     "lat": 40.664668,
+     "lon": 16.612302
+    },
+    {
+     "lat": 40.664849,
+     "lon": 16.612243
+    }
+   ],
+   "gates": [
+    {
+     "id": "mt-varco-via-bruno-buozzi-via-casalnuovo",
+     "name": "Varco · Via Bruno Buozzi / Via Casalnuovo",
+     "location": {
+      "lat": 40.662095,
+      "lon": 16.610401
+     }
+    },
+    {
+     "id": "mt-varco-via-d-addozio-via-santo-stefano",
+     "name": "Varco · Via D'Addozio / Via Santo Stefano",
+     "location": {
+      "lat": 40.670365,
+      "lon": 16.608902
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 600,
+     "end": 1230,
+     "season": {
+      "fromMonth": 9,
+      "fromDay": 16,
+      "toMonth": 6,
+      "toDay": 30
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 600,
+     "end": 1440,
+     "season": {
+      "fromMonth": 7,
+      "fromDay": 1,
+      "toMonth": 9,
+      "toDay": 15
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Matera",
+    "pageURL": "https://comune.matera.it/ztl-apu/",
+    "ordinance": "Ordinanza dirigenziale n. 147/2025 del 27/05/2025 (ZTL Rioni Sassi)",
+    "ordinanceURL": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf",
+    "quote": "- periodo estivo compreso dal 01 luglio al 15 settembre, di ogni anno, dalle ore 10.00 alle ore 24:00; - periodo invernale compreso dal 16 settembre al 30 giugno, di ogni anno, dalle ore 10.00 alle ore 20:30.",
+    "quoteTranslation": "Summer period from 1 July to 15 September each year, from 10:00 to 24:00; winter period from 16 September to 30 June each year, from 10:00 to 20:30.",
+    "quoteTranslation_de": "Sommerzeit vom 1. Juli bis 15. September jedes Jahres, von 10:00 bis 24:00 Uhr; Winterzeit vom 16. September bis 30. Juni jedes Jahres, von 10:00 bis 20:30 Uhr.",
+    "checkedOn": "2026-10-26T23:50:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotel guests may not drive into the Sassi to unload while the ZTL is on, except guests of Sassi hotels with their own parking or garage (ordinance 2941/2021): GateLR does not let the hotel register you here.",
+     "Map outline: the streets of the Sassi neighbourhoods in OpenStreetMap; it includes the Civita around the Cathedral, which is also in the Centro ZTL (closed 24 hours).",
+     "Map outline: the area of the streets named in the City's ordinances, drawn on OpenStreetMap streets (approximate); camera positions at the junctions the ordinances name.",
+     "Electric cars may enter at any time only with a permit issued beforehand (free), so GateLR does not exempt them. Motorbikes and mopeds may enter without a permit only to reach the parking bays reserved for them. Blue Badge holders not on the permit list must call 800 091 980 before entering."
+    ],
+    "pending_it": [
+     "Gli ospiti degli hotel non possono entrare nei Sassi a scaricare mentre la ZTL è attiva, salvo i clienti delle strutture nei Sassi con parcheggio o rimessa propri (ordinanza 2941/2021): qui GateLR non prevede la registrazione dell'hotel.",
+     "Perimetro: le strade dei rioni Sassi in OpenStreetMap; comprende la Civita attorno al Duomo, che è anche nella ZTL Centro (chiusa 24 ore).",
+     "Perimetro: l'area delle strade elencate nelle ordinanze del Comune, sulle strade OpenStreetMap (approssimativo); varchi agli incroci indicati dalle ordinanze.",
+     "Le auto elettriche entrano a ogni ora solo con un permesso rilasciato prima (gratuito), quindi GateLR non le esenta. Moto e ciclomotori entrano senza permesso solo per raggiungere gli stalli a loro riservati. Con il contrassegno disabili, se non si è nella lista permessi, chiamare prima l'800 091 980."
+    ],
+    "pending_de": [
+     "Hotelgäste dürfen während der ZTL-Zeiten nicht zum Ausladen in die Sassi fahren, außer Gäste von Sassi-Hotels mit eigenem Parkplatz oder Garage (Verordnung 2941/2021): GateLR sieht hier keine Meldung durch das Hotel vor.",
+     "Grenze: die Straßen der Sassi-Viertel in OpenStreetMap; sie umfasst die Civita um den Dom, die auch zur ZTL Centro gehört (24 Stunden gesperrt).",
+     "Grenze: die Fläche der in den Verordnungen genannten Straßen, auf OpenStreetMap-Straßen (ungefähr); Kameras an den in den Verordnungen genannten Kreuzungen.",
+     "Elektroautos dürfen jederzeit einfahren, aber nur mit vorher ausgestellter (kostenloser) Genehmigung, daher befreit GateLR sie nicht. Motorräder und Mopeds dürfen ohne Genehmigung nur zu den für sie reservierten Stellplätzen fahren. Mit Behindertenausweis, wenn nicht auf der Liste: vorher 800 091 980 anrufen."
+    ],
+    "links": [
+     {
+      "title": "City of Matera: ZTL and pedestrian areas",
+      "title_it": "Comune di Matera: ZTL/APU",
+      "title_de": "Stadt Matera: ZTL und Fußgängerzonen",
+      "url": "https://comune.matera.it/ztl-apu/"
+     },
+     {
+      "title": "City of Matera: camera hours of every ZTL (PDF, 2025)",
+      "title_it": "Comune di Matera: orari delle telecamere di tutte le ZTL (PDF, 2025)",
+      "title_de": "Stadt Matera: Kamerazeiten aller ZTL (PDF, 2025)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf"
+     },
+     {
+      "title": "Ordinance 147/2025: Sassi ZTL hours (PDF)",
+      "title_it": "Ordinanza 147/2025: orari ZTL Sassi (PDF)",
+      "title_de": "Verordnung 147/2025: Zeiten der ZTL Sassi (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf"
+     },
+     {
+      "title": "Ordinance 148/2025: Piave ZTL (PDF)",
+      "title_it": "Ordinanza 148/2025: ZTL Piave (PDF)",
+      "title_de": "Verordnung 148/2025: ZTL Piave (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf"
+     },
+     {
+      "title": "Ordinance 2941/2021: Ridola, Casalnuovo, Stigliani and Prefettura ZTLs (PDF)",
+      "title_it": "Ordinanza 2941/2021: ZTL Ridola, Casalnuovo, Stigliani e Prefettura (PDF)",
+      "title_de": "Verordnung 2941/2021: ZTL Ridola, Casalnuovo, Stigliani und Prefettura (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf"
+     },
+     {
+      "title": "Ordinance 270/2022: list of the cameras (PDF)",
+      "title_it": "Ordinanza 270/2022: elenco dei varchi elettronici (PDF)",
+      "title_de": "Verordnung 270/2022: Liste der Kameras (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf"
+     },
+     {
+      "title": "ZTL rules (disciplinare, PDF)",
+      "title_it": "Disciplinare ZTL/APU (PDF)",
+      "title_de": "ZTL-Regeln (Disciplinare, PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf"
+     },
+     {
+      "title": "How hotels register guests' plates (PDF)",
+      "title_it": "Procedura per le strutture ricettive (PDF)",
+      "title_de": "So melden Hotels die Kennzeichen (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf"
+     },
+     {
+      "title": "Official ZTL map (PDF)",
+      "title_it": "Planimetria ZTL (PDF)",
+      "title_de": "Offizielle ZTL-Karte (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets of Matera (ODbL)",
+      "title_it": "OpenStreetMap: strade di Matera (ODbL)",
+      "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
+     }
+    ]
+   }
+  },
+  {
+   "id": "matera-piave",
+   "name": "Piave · via Piave and via F. P. Festa",
+   "name_it": "Piave · via Piave e via F. P. Festa",
+   "name_de": "Piave · Via Piave und Via F. P. Festa",
+   "kind": "restricted",
+   "summary": "Via Piave, via F. P. Festa and via Tataranni (above the Sasso Barisano) follow the Sassi hours: closed to cars without a permit every day from 10 am to 8:30 pm (16 September–30 June) or to midnight (1 July–15 September).",
+   "summary_it": "Via Piave, via F. P. Festa e via Tataranni (sopra il Sasso Barisano) seguono gli orari dei Sassi: chiuse alle auto senza permesso tutti i giorni dalle 10 alle 20:30 (16 settembre–30 giugno) o fino a mezzanotte (1° luglio–15 settembre).",
+   "summary_de": "Via Piave, Via F. P. Festa und Via Tataranni (oberhalb des Sasso Barisano) folgen den Zeiten der Sassi: für Autos ohne Genehmigung täglich von 10 bis 20:30 Uhr (16. September–30. Juni) bzw. bis Mitternacht (1. Juli–15. September) gesperrt.",
+   "perimeter": [
+    {
+     "lat": 40.670275,
+     "lon": 16.608291
+    },
+    {
+     "lat": 40.67023,
+     "lon": 16.608054
+    },
+    {
+     "lat": 40.670185,
+     "lon": 16.608054
+    },
+    {
+     "lat": 40.670185,
+     "lon": 16.607817
+    },
+    {
+     "lat": 40.67023,
+     "lon": 16.607817
+    },
+    {
+     "lat": 40.670185,
+     "lon": 16.607343
+    },
+    {
+     "lat": 40.67023,
+     "lon": 16.607343
+    },
+    {
+     "lat": 40.67023,
+     "lon": 16.607225
+    },
+    {
+     "lat": 40.670139,
+     "lon": 16.607225
+    },
+    {
+     "lat": 40.670049,
+     "lon": 16.607107
+    },
+    {
+     "lat": 40.670049,
+     "lon": 16.606929
+    },
+    {
+     "lat": 40.669959,
+     "lon": 16.607047
+    },
+    {
+     "lat": 40.669868,
+     "lon": 16.607047
+    },
+    {
+     "lat": 40.669868,
+     "lon": 16.607166
+    },
+    {
+     "lat": 40.669732,
+     "lon": 16.607225
+    },
+    {
+     "lat": 40.669597,
+     "lon": 16.607462
+    },
+    {
+     "lat": 40.669461,
+     "lon": 16.607462
+    },
+    {
+     "lat": 40.669461,
+     "lon": 16.607521
+    },
+    {
+     "lat": 40.669235,
+     "lon": 16.607462
+    },
+    {
+     "lat": 40.66919,
+     "lon": 16.607521
+    },
+    {
+     "lat": 40.669235,
+     "lon": 16.60758
+    },
+    {
+     "lat": 40.66919,
+     "lon": 16.607936
+    },
+    {
+     "lat": 40.669009,
+     "lon": 16.608113
+    },
+    {
+     "lat": 40.669099,
+     "lon": 16.608232
+    },
+    {
+     "lat": 40.669235,
+     "lon": 16.607995
+    },
+    {
+     "lat": 40.669371,
+     "lon": 16.607995
+    },
+    {
+     "lat": 40.669371,
+     "lon": 16.607936
+    },
+    {
+     "lat": 40.669552,
+     "lon": 16.607995
+    },
+    {
+     "lat": 40.669642,
+     "lon": 16.608113
+    },
+    {
+     "lat": 40.669642,
+     "lon": 16.608232
+    },
+    {
+     "lat": 40.670004,
+     "lon": 16.608705
+    },
+    {
+     "lat": 40.670094,
+     "lon": 16.608705
+    },
+    {
+     "lat": 40.670185,
+     "lon": 16.608883
+    },
+    {
+     "lat": 40.67032,
+     "lon": 16.608824
+    },
+    {
+     "lat": 40.670275,
+     "lon": 16.608587
+    },
+    {
+     "lat": 40.67032,
+     "lon": 16.608587
+    },
+    {
+     "lat": 40.670366,
+     "lon": 16.608291
+    },
+    {
+     "lat": 40.670275,
+     "lon": 16.608291
+    }
+   ],
+   "gates": [
+    {
+     "id": "mt-varco-via-piave-via-stigliani",
+     "name": "Varco · Via Piave / Via Stigliani",
+     "location": {
+      "lat": 40.669244,
+      "lon": 16.607533
+     }
+    },
+    {
+     "id": "mt-varco-vico-ii-f-p-festa-via-pentasuglia",
+     "name": "Varco · Vico II F. P. Festa / Via Pentasuglia",
+     "location": {
+      "lat": 40.67033,
+      "lon": 16.608351
+     }
+    },
+    {
+     "id": "mt-varco-via-tataranni-via-volpe",
+     "name": "Varco · Via Tataranni / Via Volpe",
+     "location": {
+      "lat": 40.670009,
+      "lon": 16.607015
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 600,
+     "end": 1230,
+     "season": {
+      "fromMonth": 9,
+      "fromDay": 16,
+      "toMonth": 6,
+      "toDay": 30
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 600,
+     "end": 1440,
+     "season": {
+      "fromMonth": 7,
+      "fromDay": 1,
+      "toMonth": 9,
+      "toDay": 15
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Matera",
+    "pageURL": "https://comune.matera.it/ztl-apu/",
+    "ordinance": "Ordinanza dirigenziale n. 148/2025 (ZTL Piave); varchi in esercizio con O.D. n. 257/2025",
+    "ordinanceURL": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf",
+    "quote": "il divieto di transito veicolare tutti i giorni della settimana dalle ore 10:00 alle ore 24:00, nel periodo estivo compreso dal 01 luglio al 15 settembre, di ogni anno",
+    "quoteTranslation": "No vehicles every day of the week from 10:00 to 24:00 in the summer period from 1 July to 15 September each year.",
+    "quoteTranslation_de": "Durchfahrtsverbot an allen Wochentagen von 10:00 bis 24:00 Uhr in der Sommerzeit vom 1. Juli bis 15. September jedes Jahres.",
+    "checkedOn": "2026-10-26T23:50:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotels and B&Bs inside register your plate on the City's portal (matera.sismic.it), at the latest by the end of the day after you drive in; only to unload luggage.",
+     "Map outline: the area of the streets named in the City's ordinances, drawn on OpenStreetMap streets (approximate); camera positions at the junctions the ordinances name.",
+     "Electric cars may enter at any time only with a permit issued beforehand (free), so GateLR does not exempt them. Motorbikes and mopeds may enter without a permit only to reach the parking bays reserved for them. Blue Badge holders not on the permit list must call 800 091 980 before entering."
+    ],
+    "pending_it": [
+     "Hotel e B&B dentro registrano la targa sul portale del Comune (matera.sismic.it), al più tardi entro il giorno dopo il transito; solo per scaricare i bagagli.",
+     "Perimetro: l'area delle strade elencate nelle ordinanze del Comune, sulle strade OpenStreetMap (approssimativo); varchi agli incroci indicati dalle ordinanze.",
+     "Le auto elettriche entrano a ogni ora solo con un permesso rilasciato prima (gratuito), quindi GateLR non le esenta. Moto e ciclomotori entrano senza permesso solo per raggiungere gli stalli a loro riservati. Con il contrassegno disabili, se non si è nella lista permessi, chiamare prima l'800 091 980."
+    ],
+    "pending_de": [
+     "Hotels und B&Bs innen melden dein Kennzeichen im Portal der Stadt (matera.sismic.it), spätestens bis zum Ende des Tages nach der Einfahrt; nur zum Ausladen.",
+     "Grenze: die Fläche der in den Verordnungen genannten Straßen, auf OpenStreetMap-Straßen (ungefähr); Kameras an den in den Verordnungen genannten Kreuzungen.",
+     "Elektroautos dürfen jederzeit einfahren, aber nur mit vorher ausgestellter (kostenloser) Genehmigung, daher befreit GateLR sie nicht. Motorräder und Mopeds dürfen ohne Genehmigung nur zu den für sie reservierten Stellplätzen fahren. Mit Behindertenausweis, wenn nicht auf der Liste: vorher 800 091 980 anrufen."
+    ],
+    "links": [
+     {
+      "title": "City of Matera: ZTL and pedestrian areas",
+      "title_it": "Comune di Matera: ZTL/APU",
+      "title_de": "Stadt Matera: ZTL und Fußgängerzonen",
+      "url": "https://comune.matera.it/ztl-apu/"
+     },
+     {
+      "title": "City of Matera: camera hours of every ZTL (PDF, 2025)",
+      "title_it": "Comune di Matera: orari delle telecamere di tutte le ZTL (PDF, 2025)",
+      "title_de": "Stadt Matera: Kamerazeiten aller ZTL (PDF, 2025)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf"
+     },
+     {
+      "title": "Ordinance 147/2025: Sassi ZTL hours (PDF)",
+      "title_it": "Ordinanza 147/2025: orari ZTL Sassi (PDF)",
+      "title_de": "Verordnung 147/2025: Zeiten der ZTL Sassi (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf"
+     },
+     {
+      "title": "Ordinance 148/2025: Piave ZTL (PDF)",
+      "title_it": "Ordinanza 148/2025: ZTL Piave (PDF)",
+      "title_de": "Verordnung 148/2025: ZTL Piave (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf"
+     },
+     {
+      "title": "Ordinance 2941/2021: Ridola, Casalnuovo, Stigliani and Prefettura ZTLs (PDF)",
+      "title_it": "Ordinanza 2941/2021: ZTL Ridola, Casalnuovo, Stigliani e Prefettura (PDF)",
+      "title_de": "Verordnung 2941/2021: ZTL Ridola, Casalnuovo, Stigliani und Prefettura (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf"
+     },
+     {
+      "title": "Ordinance 270/2022: list of the cameras (PDF)",
+      "title_it": "Ordinanza 270/2022: elenco dei varchi elettronici (PDF)",
+      "title_de": "Verordnung 270/2022: Liste der Kameras (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf"
+     },
+     {
+      "title": "ZTL rules (disciplinare, PDF)",
+      "title_it": "Disciplinare ZTL/APU (PDF)",
+      "title_de": "ZTL-Regeln (Disciplinare, PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf"
+     },
+     {
+      "title": "How hotels register guests' plates (PDF)",
+      "title_it": "Procedura per le strutture ricettive (PDF)",
+      "title_de": "So melden Hotels die Kennzeichen (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf"
+     },
+     {
+      "title": "Official ZTL map (PDF)",
+      "title_it": "Planimetria ZTL (PDF)",
+      "title_de": "Offizielle ZTL-Karte (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets of Matera (ODbL)",
+      "title_it": "OpenStreetMap: strade di Matera (ODbL)",
+      "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
+     }
+    ]
+   }
+  },
+  {
+   "id": "matera-centro",
+   "name": "Centro & Civita · Duomo, Sedile, via del Corso",
+   "name_it": "Centro e Civita · Duomo, Sedile, via del Corso",
+   "name_de": "Zentrum & Civita · Dom, Sedile, Via del Corso",
+   "kind": "restricted",
+   "summary": "The streets around piazza del Sedile, via del Corso, via Scotellaro, piazza San Francesco and up to the Cathedral (Civita) are closed to cars without a permit 24 hours a day, every day. Deliveries only 7–10:30 am and 3–5 pm.",
+   "summary_it": "Le strade attorno a piazza del Sedile, via del Corso, via Scotellaro, piazza San Francesco e fino al Duomo (Civita) sono chiuse alle auto senza permesso 24 ore su 24, tutti i giorni. Carico e scarico solo 7–10:30 e 15–17.",
+   "summary_de": "Die Straßen um Piazza del Sedile, Via del Corso, Via Scotellaro, Piazza San Francesco bis hinauf zum Dom (Civita) sind für Autos ohne Genehmigung rund um die Uhr, täglich gesperrt. Lieferungen nur 7–10:30 und 15–17 Uhr.",
+   "perimeter": [
+    {
+     "lat": 40.664894,
+     "lon": 16.607499
+    },
+    {
+     "lat": 40.664758,
+     "lon": 16.60744
+    },
+    {
+     "lat": 40.664849,
+     "lon": 16.607795
+    },
+    {
+     "lat": 40.664894,
+     "lon": 16.607795
+    },
+    {
+     "lat": 40.664939,
+     "lon": 16.608269
+    },
+    {
+     "lat": 40.664894,
+     "lon": 16.608269
+    },
+    {
+     "lat": 40.664894,
+     "lon": 16.608565
+    },
+    {
+     "lat": 40.664849,
+     "lon": 16.608565
+    },
+    {
+     "lat": 40.664804,
+     "lon": 16.608802
+    },
+    {
+     "lat": 40.664668,
+     "lon": 16.608979
+    },
+    {
+     "lat": 40.66512,
+     "lon": 16.609512
+    },
+    {
+     "lat": 40.665256,
+     "lon": 16.610045
+    },
+    {
+     "lat": 40.665753,
+     "lon": 16.610104
+    },
+    {
+     "lat": 40.666115,
+     "lon": 16.61046
+    },
+    {
+     "lat": 40.666115,
+     "lon": 16.610578
+    },
+    {
+     "lat": 40.666205,
+     "lon": 16.610637
+    },
+    {
+     "lat": 40.666205,
+     "lon": 16.610756
+    },
+    {
+     "lat": 40.666296,
+     "lon": 16.610815
+    },
+    {
+     "lat": 40.666296,
+     "lon": 16.610933
+    },
+    {
+     "lat": 40.666386,
+     "lon": 16.610992
+    },
+    {
+     "lat": 40.666432,
+     "lon": 16.611229
+    },
+    {
+     "lat": 40.666477,
+     "lon": 16.611229
+    },
+    {
+     "lat": 40.666477,
+     "lon": 16.611525
+    },
+    {
+     "lat": 40.666748,
+     "lon": 16.611525
+    },
+    {
+     "lat": 40.666748,
+     "lon": 16.611407
+    },
+    {
+     "lat": 40.666974,
+     "lon": 16.611111
+    },
+    {
+     "lat": 40.667155,
+     "lon": 16.611052
+    },
+    {
+     "lat": 40.667155,
+     "lon": 16.610992
+    },
+    {
+     "lat": 40.667381,
+     "lon": 16.610992
+    },
+    {
+     "lat": 40.667381,
+     "lon": 16.610933
+    },
+    {
+     "lat": 40.667788,
+     "lon": 16.610992
+    },
+    {
+     "lat": 40.667788,
+     "lon": 16.610874
+    },
+    {
+     "lat": 40.667562,
+     "lon": 16.610874
+    },
+    {
+     "lat": 40.667562,
+     "lon": 16.610815
+    },
+    {
+     "lat": 40.666522,
+     "lon": 16.610696
+    },
+    {
+     "lat": 40.666522,
+     "lon": 16.610637
+    },
+    {
+     "lat": 40.666341,
+     "lon": 16.610578
+    },
+    {
+     "lat": 40.666205,
+     "lon": 16.6104
+    },
+    {
+     "lat": 40.66607,
+     "lon": 16.610223
+    },
+    {
+     "lat": 40.666025,
+     "lon": 16.609986
+    },
+    {
+     "lat": 40.665979,
+     "lon": 16.609986
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.609394
+    },
+    {
+     "lat": 40.665979,
+     "lon": 16.609394
+    },
+    {
+     "lat": 40.665979,
+     "lon": 16.609098
+    },
+    {
+     "lat": 40.666025,
+     "lon": 16.609098
+    },
+    {
+     "lat": 40.666025,
+     "lon": 16.608742
+    },
+    {
+     "lat": 40.665979,
+     "lon": 16.608742
+    },
+    {
+     "lat": 40.665889,
+     "lon": 16.608091
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.608091
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.607795
+    },
+    {
+     "lat": 40.665979,
+     "lon": 16.607795
+    },
+    {
+     "lat": 40.666025,
+     "lon": 16.607558
+    },
+    {
+     "lat": 40.66616,
+     "lon": 16.60738
+    },
+    {
+     "lat": 40.666205,
+     "lon": 16.607144
+    },
+    {
+     "lat": 40.666296,
+     "lon": 16.607025
+    },
+    {
+     "lat": 40.666296,
+     "lon": 16.606847
+    },
+    {
+     "lat": 40.666205,
+     "lon": 16.606847
+    },
+    {
+     "lat": 40.66607,
+     "lon": 16.60667
+    },
+    {
+     "lat": 40.665979,
+     "lon": 16.606788
+    },
+    {
+     "lat": 40.665934,
+     "lon": 16.607025
+    },
+    {
+     "lat": 40.665844,
+     "lon": 16.607084
+    },
+    {
+     "lat": 40.665844,
+     "lon": 16.607203
+    },
+    {
+     "lat": 40.665482,
+     "lon": 16.607558
+    },
+    {
+     "lat": 40.665165,
+     "lon": 16.607617
+    },
+    {
+     "lat": 40.665165,
+     "lon": 16.607558
+    },
+    {
+     "lat": 40.664939,
+     "lon": 16.607558
+    },
+    {
+     "lat": 40.664894,
+     "lon": 16.607499
+    }
+   ],
+   "gates": [
+    {
+     "id": "mt-osm9801623094",
+     "name": "Varco · Via Scotellaro",
+     "location": {
+      "lat": 40.665159,
+      "lon": 16.608315
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Matera",
+    "pageURL": "https://comune.matera.it/ztl-apu/",
+    "ordinance": "Ord. Dir. n. 147 e 148/2025, tabella «ZTL - Telecamere» del Comune",
+    "ordinanceURL": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf",
+    "quote": "ZTL CENTRO (Vie Scotellaro, Corso, Beccherie, Duomo, Sedile, S. Francesco) 00:00 - 24:00 00:00 - 24:00",
+    "quoteTranslation": "Centro ZTL (via Scotellaro, via del Corso, via Beccherie, via Duomo, Sedile, San Francesco): weekdays 00:00–24:00, holidays 00:00–24:00.",
+    "quoteTranslation_de": "Centro ZTL (via Scotellaro, via del Corso, via Beccherie, via Duomo, Sedile, San Francesco): werktags 0–24 Uhr, feiertags 0–24 Uhr.",
+    "checkedOn": "2026-10-26T23:50:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotels and B&Bs inside register your plate on the City's portal (matera.sismic.it), at the latest by the end of the day after you drive in; only to unload luggage.",
+     "Map outline: the area of the streets named in the City's ordinances, drawn on OpenStreetMap streets (approximate); camera positions at the junctions the ordinances name.",
+     "Electric cars may enter at any time only with a permit issued beforehand (free), so GateLR does not exempt them. Motorbikes and mopeds may enter without a permit only to reach the parking bays reserved for them. Blue Badge holders not on the permit list must call 800 091 980 before entering."
+    ],
+    "pending_it": [
+     "Hotel e B&B dentro registrano la targa sul portale del Comune (matera.sismic.it), al più tardi entro il giorno dopo il transito; solo per scaricare i bagagli.",
+     "Perimetro: l'area delle strade elencate nelle ordinanze del Comune, sulle strade OpenStreetMap (approssimativo); varchi agli incroci indicati dalle ordinanze.",
+     "Le auto elettriche entrano a ogni ora solo con un permesso rilasciato prima (gratuito), quindi GateLR non le esenta. Moto e ciclomotori entrano senza permesso solo per raggiungere gli stalli a loro riservati. Con il contrassegno disabili, se non si è nella lista permessi, chiamare prima l'800 091 980."
+    ],
+    "pending_de": [
+     "Hotels und B&Bs innen melden dein Kennzeichen im Portal der Stadt (matera.sismic.it), spätestens bis zum Ende des Tages nach der Einfahrt; nur zum Ausladen.",
+     "Grenze: die Fläche der in den Verordnungen genannten Straßen, auf OpenStreetMap-Straßen (ungefähr); Kameras an den in den Verordnungen genannten Kreuzungen.",
+     "Elektroautos dürfen jederzeit einfahren, aber nur mit vorher ausgestellter (kostenloser) Genehmigung, daher befreit GateLR sie nicht. Motorräder und Mopeds dürfen ohne Genehmigung nur zu den für sie reservierten Stellplätzen fahren. Mit Behindertenausweis, wenn nicht auf der Liste: vorher 800 091 980 anrufen."
+    ],
+    "links": [
+     {
+      "title": "City of Matera: ZTL and pedestrian areas",
+      "title_it": "Comune di Matera: ZTL/APU",
+      "title_de": "Stadt Matera: ZTL und Fußgängerzonen",
+      "url": "https://comune.matera.it/ztl-apu/"
+     },
+     {
+      "title": "City of Matera: camera hours of every ZTL (PDF, 2025)",
+      "title_it": "Comune di Matera: orari delle telecamere di tutte le ZTL (PDF, 2025)",
+      "title_de": "Stadt Matera: Kamerazeiten aller ZTL (PDF, 2025)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf"
+     },
+     {
+      "title": "Ordinance 147/2025: Sassi ZTL hours (PDF)",
+      "title_it": "Ordinanza 147/2025: orari ZTL Sassi (PDF)",
+      "title_de": "Verordnung 147/2025: Zeiten der ZTL Sassi (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf"
+     },
+     {
+      "title": "Ordinance 148/2025: Piave ZTL (PDF)",
+      "title_it": "Ordinanza 148/2025: ZTL Piave (PDF)",
+      "title_de": "Verordnung 148/2025: ZTL Piave (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf"
+     },
+     {
+      "title": "Ordinance 2941/2021: Ridola, Casalnuovo, Stigliani and Prefettura ZTLs (PDF)",
+      "title_it": "Ordinanza 2941/2021: ZTL Ridola, Casalnuovo, Stigliani e Prefettura (PDF)",
+      "title_de": "Verordnung 2941/2021: ZTL Ridola, Casalnuovo, Stigliani und Prefettura (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf"
+     },
+     {
+      "title": "Ordinance 270/2022: list of the cameras (PDF)",
+      "title_it": "Ordinanza 270/2022: elenco dei varchi elettronici (PDF)",
+      "title_de": "Verordnung 270/2022: Liste der Kameras (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf"
+     },
+     {
+      "title": "ZTL rules (disciplinare, PDF)",
+      "title_it": "Disciplinare ZTL/APU (PDF)",
+      "title_de": "ZTL-Regeln (Disciplinare, PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf"
+     },
+     {
+      "title": "How hotels register guests' plates (PDF)",
+      "title_it": "Procedura per le strutture ricettive (PDF)",
+      "title_de": "So melden Hotels die Kennzeichen (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf"
+     },
+     {
+      "title": "Official ZTL map (PDF)",
+      "title_it": "Planimetria ZTL (PDF)",
+      "title_de": "Offizielle ZTL-Karte (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets of Matera (ODbL)",
+      "title_it": "OpenStreetMap: strade di Matera (ODbL)",
+      "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
+     }
+    ]
+   }
+  },
+  {
+   "id": "matera-san-biagio",
+   "name": "San Biagio · via San Biagio and via Stigliani",
+   "name_it": "San Biagio · via San Biagio e via Stigliani",
+   "name_de": "San Biagio · Via San Biagio und Via Stigliani",
+   "kind": "restricted",
+   "summary": "Via San Biagio and the end of via Stigliani (San Giovanni/San Biagio ZTL) are closed to cars without a permit 24 hours a day, every day.",
+   "summary_it": "Via San Biagio e l'ultimo tratto di via Stigliani (ZTL San Giovanni/San Biagio) sono chiusi alle auto senza permesso 24 ore su 24, tutti i giorni.",
+   "summary_de": "Via San Biagio und das Ende der Via Stigliani (ZTL San Giovanni/San Biagio) sind für Autos ohne Genehmigung rund um die Uhr, täglich gesperrt.",
+   "perimeter": [
+    {
+     "lat": 40.668466,
+     "lon": 16.608429
+    },
+    {
+     "lat": 40.66815,
+     "lon": 16.608489
+    },
+    {
+     "lat": 40.66815,
+     "lon": 16.608429
+    },
+    {
+     "lat": 40.668014,
+     "lon": 16.608429
+    },
+    {
+     "lat": 40.667879,
+     "lon": 16.608192
+    },
+    {
+     "lat": 40.667788,
+     "lon": 16.608192
+    },
+    {
+     "lat": 40.667788,
+     "lon": 16.608133
+    },
+    {
+     "lat": 40.667698,
+     "lon": 16.608192
+    },
+    {
+     "lat": 40.667969,
+     "lon": 16.608548
+    },
+    {
+     "lat": 40.668105,
+     "lon": 16.608548
+    },
+    {
+     "lat": 40.66815,
+     "lon": 16.608725
+    },
+    {
+     "lat": 40.668195,
+     "lon": 16.608666
+    },
+    {
+     "lat": 40.668376,
+     "lon": 16.608725
+    },
+    {
+     "lat": 40.668738,
+     "lon": 16.608252
+    },
+    {
+     "lat": 40.668647,
+     "lon": 16.608192
+    },
+    {
+     "lat": 40.668466,
+     "lon": 16.608429
+    }
+   ],
+   "gates": [
+    {
+     "id": "mt-varco-via-stigliani-vico-xx-settembre",
+     "name": "Varco · Via Stigliani / Vico XX Settembre",
+     "location": {
+      "lat": 40.668667,
+      "lon": 16.608268
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Matera",
+    "pageURL": "https://comune.matera.it/ztl-apu/",
+    "ordinance": "Ord. Dir. n. 147 e 148/2025, tabella «ZTL - Telecamere» del Comune",
+    "ordinanceURL": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf",
+    "quote": "ZTL SAN GIOVANNI/SAN BIAGIO (Via Stigliani, San Biagio) 00:00 - 24:00 00:00 - 24:00",
+    "quoteTranslation": "San Giovanni/San Biagio ZTL (via Stigliani, San Biagio): weekdays 00:00–24:00, holidays 00:00–24:00.",
+    "quoteTranslation_de": "San Giovanni/San Biagio ZTL (via Stigliani, San Biagio): werktags 0–24 Uhr, feiertags 0–24 Uhr.",
+    "checkedOn": "2026-10-26T23:50:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotels and B&Bs inside register your plate on the City's portal (matera.sismic.it), at the latest by the end of the day after you drive in; only to unload luggage.",
+     "Map outline: the area of the streets named in the City's ordinances, drawn on OpenStreetMap streets (approximate); camera positions at the junctions the ordinances name.",
+     "Electric cars may enter at any time only with a permit issued beforehand (free), so GateLR does not exempt them. Motorbikes and mopeds may enter without a permit only to reach the parking bays reserved for them. Blue Badge holders not on the permit list must call 800 091 980 before entering."
+    ],
+    "pending_it": [
+     "Hotel e B&B dentro registrano la targa sul portale del Comune (matera.sismic.it), al più tardi entro il giorno dopo il transito; solo per scaricare i bagagli.",
+     "Perimetro: l'area delle strade elencate nelle ordinanze del Comune, sulle strade OpenStreetMap (approssimativo); varchi agli incroci indicati dalle ordinanze.",
+     "Le auto elettriche entrano a ogni ora solo con un permesso rilasciato prima (gratuito), quindi GateLR non le esenta. Moto e ciclomotori entrano senza permesso solo per raggiungere gli stalli a loro riservati. Con il contrassegno disabili, se non si è nella lista permessi, chiamare prima l'800 091 980."
+    ],
+    "pending_de": [
+     "Hotels und B&Bs innen melden dein Kennzeichen im Portal der Stadt (matera.sismic.it), spätestens bis zum Ende des Tages nach der Einfahrt; nur zum Ausladen.",
+     "Grenze: die Fläche der in den Verordnungen genannten Straßen, auf OpenStreetMap-Straßen (ungefähr); Kameras an den in den Verordnungen genannten Kreuzungen.",
+     "Elektroautos dürfen jederzeit einfahren, aber nur mit vorher ausgestellter (kostenloser) Genehmigung, daher befreit GateLR sie nicht. Motorräder und Mopeds dürfen ohne Genehmigung nur zu den für sie reservierten Stellplätzen fahren. Mit Behindertenausweis, wenn nicht auf der Liste: vorher 800 091 980 anrufen."
+    ],
+    "links": [
+     {
+      "title": "City of Matera: ZTL and pedestrian areas",
+      "title_it": "Comune di Matera: ZTL/APU",
+      "title_de": "Stadt Matera: ZTL und Fußgängerzonen",
+      "url": "https://comune.matera.it/ztl-apu/"
+     },
+     {
+      "title": "City of Matera: camera hours of every ZTL (PDF, 2025)",
+      "title_it": "Comune di Matera: orari delle telecamere di tutte le ZTL (PDF, 2025)",
+      "title_de": "Stadt Matera: Kamerazeiten aller ZTL (PDF, 2025)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf"
+     },
+     {
+      "title": "Ordinance 147/2025: Sassi ZTL hours (PDF)",
+      "title_it": "Ordinanza 147/2025: orari ZTL Sassi (PDF)",
+      "title_de": "Verordnung 147/2025: Zeiten der ZTL Sassi (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf"
+     },
+     {
+      "title": "Ordinance 148/2025: Piave ZTL (PDF)",
+      "title_it": "Ordinanza 148/2025: ZTL Piave (PDF)",
+      "title_de": "Verordnung 148/2025: ZTL Piave (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf"
+     },
+     {
+      "title": "Ordinance 2941/2021: Ridola, Casalnuovo, Stigliani and Prefettura ZTLs (PDF)",
+      "title_it": "Ordinanza 2941/2021: ZTL Ridola, Casalnuovo, Stigliani e Prefettura (PDF)",
+      "title_de": "Verordnung 2941/2021: ZTL Ridola, Casalnuovo, Stigliani und Prefettura (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf"
+     },
+     {
+      "title": "Ordinance 270/2022: list of the cameras (PDF)",
+      "title_it": "Ordinanza 270/2022: elenco dei varchi elettronici (PDF)",
+      "title_de": "Verordnung 270/2022: Liste der Kameras (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf"
+     },
+     {
+      "title": "ZTL rules (disciplinare, PDF)",
+      "title_it": "Disciplinare ZTL/APU (PDF)",
+      "title_de": "ZTL-Regeln (Disciplinare, PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf"
+     },
+     {
+      "title": "How hotels register guests' plates (PDF)",
+      "title_it": "Procedura per le strutture ricettive (PDF)",
+      "title_de": "So melden Hotels die Kennzeichen (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf"
+     },
+     {
+      "title": "Official ZTL map (PDF)",
+      "title_it": "Planimetria ZTL (PDF)",
+      "title_de": "Offizielle ZTL-Karte (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets of Matera (ODbL)",
+      "title_it": "OpenStreetMap: strade di Matera (ODbL)",
+      "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
+     }
+    ]
+   }
+  },
+  {
+   "id": "matera-santa-cesarea",
+   "name": "Santa Cesarea · via Santa Cesarea and vico Piave",
+   "name_it": "Santa Cesarea · via Santa Cesarea e vico Piave",
+   "name_de": "Santa Cesarea · Via Santa Cesarea und Vico Piave",
+   "kind": "restricted",
+   "summary": "Via Santa Cesarea (from via Piave to vico Piave) and vico Piave are closed to cars without a permit 24 hours a day, every day.",
+   "summary_it": "Via Santa Cesarea (da via Piave a vico Piave) e vico Piave sono chiusi alle auto senza permesso 24 ore su 24, tutti i giorni.",
+   "summary_de": "Via Santa Cesarea (von Via Piave bis Vico Piave) und Vico Piave sind für Autos ohne Genehmigung rund um die Uhr, täglich gesperrt.",
+   "perimeter": [
+    {
+     "lat": 40.669959,
+     "lon": 16.609039
+    },
+    {
+     "lat": 40.670094,
+     "lon": 16.609039
+    },
+    {
+     "lat": 40.670139,
+     "lon": 16.60892
+    },
+    {
+     "lat": 40.670275,
+     "lon": 16.60892
+    },
+    {
+     "lat": 40.67032,
+     "lon": 16.608802
+    },
+    {
+     "lat": 40.670275,
+     "lon": 16.608743
+    },
+    {
+     "lat": 40.670049,
+     "lon": 16.608802
+    },
+    {
+     "lat": 40.670049,
+     "lon": 16.608861
+    },
+    {
+     "lat": 40.669823,
+     "lon": 16.608802
+    },
+    {
+     "lat": 40.669778,
+     "lon": 16.608565
+    },
+    {
+     "lat": 40.669732,
+     "lon": 16.608565
+    },
+    {
+     "lat": 40.669823,
+     "lon": 16.60821
+    },
+    {
+     "lat": 40.669732,
+     "lon": 16.60821
+    },
+    {
+     "lat": 40.669461,
+     "lon": 16.608624
+    },
+    {
+     "lat": 40.669371,
+     "lon": 16.608624
+    },
+    {
+     "lat": 40.669235,
+     "lon": 16.608802
+    },
+    {
+     "lat": 40.66928,
+     "lon": 16.60898
+    },
+    {
+     "lat": 40.669461,
+     "lon": 16.609039
+    },
+    {
+     "lat": 40.669461,
+     "lon": 16.609098
+    },
+    {
+     "lat": 40.669597,
+     "lon": 16.609098
+    },
+    {
+     "lat": 40.669597,
+     "lon": 16.609157
+    },
+    {
+     "lat": 40.669823,
+     "lon": 16.609157
+    },
+    {
+     "lat": 40.669823,
+     "lon": 16.609098
+    },
+    {
+     "lat": 40.669959,
+     "lon": 16.609098
+    },
+    {
+     "lat": 40.669959,
+     "lon": 16.609039
+    }
+   ],
+   "gates": [
+    {
+     "id": "mt-varco-via-santa-cesarea-via-piave",
+     "name": "Varco · Via Santa Cesarea / Via Piave",
+     "location": {
+      "lat": 40.670254,
+      "lon": 16.608819
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Matera",
+    "pageURL": "https://comune.matera.it/ztl-apu/",
+    "ordinance": "Ord. Dir. n. 147 e 148/2025, tabella «ZTL - Telecamere» del Comune",
+    "ordinanceURL": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf",
+    "quote": "ZTL SANTA CESAREA (Via S. Cesarea, Vico Piave) 00:00 - 24:00 00:00 - 24:00",
+    "quoteTranslation": "Santa Cesarea ZTL (via S. Cesarea, vico Piave): weekdays 00:00–24:00, holidays 00:00–24:00.",
+    "quoteTranslation_de": "Santa Cesarea ZTL (via S. Cesarea, vico Piave): werktags 0–24 Uhr, feiertags 0–24 Uhr.",
+    "checkedOn": "2026-10-26T23:50:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotels and B&Bs inside register your plate on the City's portal (matera.sismic.it), at the latest by the end of the day after you drive in; only to unload luggage.",
+     "Map outline: the area of the streets named in the City's ordinances, drawn on OpenStreetMap streets (approximate); camera positions at the junctions the ordinances name.",
+     "Electric cars may enter at any time only with a permit issued beforehand (free), so GateLR does not exempt them. Motorbikes and mopeds may enter without a permit only to reach the parking bays reserved for them. Blue Badge holders not on the permit list must call 800 091 980 before entering."
+    ],
+    "pending_it": [
+     "Hotel e B&B dentro registrano la targa sul portale del Comune (matera.sismic.it), al più tardi entro il giorno dopo il transito; solo per scaricare i bagagli.",
+     "Perimetro: l'area delle strade elencate nelle ordinanze del Comune, sulle strade OpenStreetMap (approssimativo); varchi agli incroci indicati dalle ordinanze.",
+     "Le auto elettriche entrano a ogni ora solo con un permesso rilasciato prima (gratuito), quindi GateLR non le esenta. Moto e ciclomotori entrano senza permesso solo per raggiungere gli stalli a loro riservati. Con il contrassegno disabili, se non si è nella lista permessi, chiamare prima l'800 091 980."
+    ],
+    "pending_de": [
+     "Hotels und B&Bs innen melden dein Kennzeichen im Portal der Stadt (matera.sismic.it), spätestens bis zum Ende des Tages nach der Einfahrt; nur zum Ausladen.",
+     "Grenze: die Fläche der in den Verordnungen genannten Straßen, auf OpenStreetMap-Straßen (ungefähr); Kameras an den in den Verordnungen genannten Kreuzungen.",
+     "Elektroautos dürfen jederzeit einfahren, aber nur mit vorher ausgestellter (kostenloser) Genehmigung, daher befreit GateLR sie nicht. Motorräder und Mopeds dürfen ohne Genehmigung nur zu den für sie reservierten Stellplätzen fahren. Mit Behindertenausweis, wenn nicht auf der Liste: vorher 800 091 980 anrufen."
+    ],
+    "links": [
+     {
+      "title": "City of Matera: ZTL and pedestrian areas",
+      "title_it": "Comune di Matera: ZTL/APU",
+      "title_de": "Stadt Matera: ZTL und Fußgängerzonen",
+      "url": "https://comune.matera.it/ztl-apu/"
+     },
+     {
+      "title": "City of Matera: camera hours of every ZTL (PDF, 2025)",
+      "title_it": "Comune di Matera: orari delle telecamere di tutte le ZTL (PDF, 2025)",
+      "title_de": "Stadt Matera: Kamerazeiten aller ZTL (PDF, 2025)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf"
+     },
+     {
+      "title": "Ordinance 147/2025: Sassi ZTL hours (PDF)",
+      "title_it": "Ordinanza 147/2025: orari ZTL Sassi (PDF)",
+      "title_de": "Verordnung 147/2025: Zeiten der ZTL Sassi (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf"
+     },
+     {
+      "title": "Ordinance 148/2025: Piave ZTL (PDF)",
+      "title_it": "Ordinanza 148/2025: ZTL Piave (PDF)",
+      "title_de": "Verordnung 148/2025: ZTL Piave (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf"
+     },
+     {
+      "title": "Ordinance 2941/2021: Ridola, Casalnuovo, Stigliani and Prefettura ZTLs (PDF)",
+      "title_it": "Ordinanza 2941/2021: ZTL Ridola, Casalnuovo, Stigliani e Prefettura (PDF)",
+      "title_de": "Verordnung 2941/2021: ZTL Ridola, Casalnuovo, Stigliani und Prefettura (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf"
+     },
+     {
+      "title": "Ordinance 270/2022: list of the cameras (PDF)",
+      "title_it": "Ordinanza 270/2022: elenco dei varchi elettronici (PDF)",
+      "title_de": "Verordnung 270/2022: Liste der Kameras (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf"
+     },
+     {
+      "title": "ZTL rules (disciplinare, PDF)",
+      "title_it": "Disciplinare ZTL/APU (PDF)",
+      "title_de": "ZTL-Regeln (Disciplinare, PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf"
+     },
+     {
+      "title": "How hotels register guests' plates (PDF)",
+      "title_it": "Procedura per le strutture ricettive (PDF)",
+      "title_de": "So melden Hotels die Kennzeichen (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf"
+     },
+     {
+      "title": "Official ZTL map (PDF)",
+      "title_it": "Planimetria ZTL (PDF)",
+      "title_de": "Offizielle ZTL-Karte (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets of Matera (ODbL)",
+      "title_it": "OpenStreetMap: strade di Matera (ODbL)",
+      "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
+     }
+    ]
+   }
+  },
+  {
+   "id": "matera-prefettura",
+   "name": "Prefettura · via Roma and via XX Settembre",
+   "name_it": "Prefettura · via Roma e via XX Settembre",
+   "name_de": "Prefettura · Via Roma und Via XX Settembre",
+   "kind": "restricted",
+   "summary": "Via Roma and via XX Settembre (by the Prefecture) are closed to cars without a permit every evening from 8:30 pm to midnight. During the day they are open.",
+   "summary_it": "Via Roma e via XX Settembre (presso la Prefettura) sono chiuse alle auto senza permesso ogni sera dalle 20:30 a mezzanotte. Di giorno sono aperte.",
+   "summary_de": "Via Roma und Via XX Settembre (an der Präfektur) sind für Autos ohne Genehmigung jeden Abend von 20:30 Uhr bis Mitternacht gesperrt. Tagsüber sind sie offen.",
+   "perimeter": [
+    {
+     "lat": 40.6672,
+     "lon": 16.605749
+    },
+    {
+     "lat": 40.667245,
+     "lon": 16.606163
+    },
+    {
+     "lat": 40.668647,
+     "lon": 16.606163
+    },
+    {
+     "lat": 40.668692,
+     "lon": 16.606104
+    },
+    {
+     "lat": 40.668692,
+     "lon": 16.606045
+    },
+    {
+     "lat": 40.667562,
+     "lon": 16.606045
+    },
+    {
+     "lat": 40.667562,
+     "lon": 16.605986
+    },
+    {
+     "lat": 40.667426,
+     "lon": 16.605986
+    },
+    {
+     "lat": 40.667381,
+     "lon": 16.605808
+    },
+    {
+     "lat": 40.667336,
+     "lon": 16.605808
+    },
+    {
+     "lat": 40.667336,
+     "lon": 16.60563
+    },
+    {
+     "lat": 40.667291,
+     "lon": 16.60563
+    },
+    {
+     "lat": 40.667245,
+     "lon": 16.604446
+    },
+    {
+     "lat": 40.667155,
+     "lon": 16.604387
+    },
+    {
+     "lat": 40.6672,
+     "lon": 16.605749
+    }
+   ],
+   "gates": [
+    {
+     "id": "mt-osm2517177295",
+     "name": "Varco · Via Roma Sud",
+     "location": {
+      "lat": 40.667216,
+      "lon": 16.604595
+     }
+    },
+    {
+     "id": "mt-varco-via-xx-settembre-vico-xx-settembre-exit",
+     "name": "Varco · Via XX Settembre / Vico XX Settembre (exit)",
+     "location": {
+      "lat": 40.668257,
+      "lon": 16.6061
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1230,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Matera",
+    "pageURL": "https://comune.matera.it/ztl-apu/",
+    "ordinance": "Ord. Dir. n. 147 e 148/2025, tabella «ZTL - Telecamere» del Comune",
+    "ordinanceURL": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf",
+    "quote": "ZTL PREFETTURA (Via Roma Via XX Settembre) 20:30 - 24:00 20:30 - 24:00",
+    "quoteTranslation": "Prefettura ZTL (via Roma, via XX Settembre): weekdays 20:30–24:00, holidays 20:30–24:00.",
+    "quoteTranslation_de": "Prefettura ZTL (via Roma, via XX Settembre): werktags 20:30–24 Uhr, feiertags 20:30–24 Uhr.",
+    "checkedOn": "2026-10-26T23:50:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours 8:30 pm–midnight from the City's 2025 camera timetable; ordinance 2941/2021 had set 8:30 pm–2 am. GateLR follows the newer timetable.",
+     "Hotels and B&Bs inside register your plate on the City's portal (matera.sismic.it), at the latest by the end of the day after you drive in; only to unload luggage.",
+     "Map outline: the area of the streets named in the City's ordinances, drawn on OpenStreetMap streets (approximate); camera positions at the junctions the ordinances name.",
+     "Electric cars may enter at any time only with a permit issued beforehand (free), so GateLR does not exempt them. Motorbikes and mopeds may enter without a permit only to reach the parking bays reserved for them. Blue Badge holders not on the permit list must call 800 091 980 before entering."
+    ],
+    "pending_it": [
+     "Orario 20:30–24 dalla tabella delle telecamere del Comune (2025); l'ordinanza 2941/2021 indicava 20:30–2. GateLR segue la tabella più recente.",
+     "Hotel e B&B dentro registrano la targa sul portale del Comune (matera.sismic.it), al più tardi entro il giorno dopo il transito; solo per scaricare i bagagli.",
+     "Perimetro: l'area delle strade elencate nelle ordinanze del Comune, sulle strade OpenStreetMap (approssimativo); varchi agli incroci indicati dalle ordinanze.",
+     "Le auto elettriche entrano a ogni ora solo con un permesso rilasciato prima (gratuito), quindi GateLR non le esenta. Moto e ciclomotori entrano senza permesso solo per raggiungere gli stalli a loro riservati. Con il contrassegno disabili, se non si è nella lista permessi, chiamare prima l'800 091 980."
+    ],
+    "pending_de": [
+     "Zeiten 20:30–24 Uhr laut Kameratabelle der Stadt (2025); die Verordnung 2941/2021 nannte 20:30–2 Uhr. GateLR folgt der neueren Tabelle.",
+     "Hotels und B&Bs innen melden dein Kennzeichen im Portal der Stadt (matera.sismic.it), spätestens bis zum Ende des Tages nach der Einfahrt; nur zum Ausladen.",
+     "Grenze: die Fläche der in den Verordnungen genannten Straßen, auf OpenStreetMap-Straßen (ungefähr); Kameras an den in den Verordnungen genannten Kreuzungen.",
+     "Elektroautos dürfen jederzeit einfahren, aber nur mit vorher ausgestellter (kostenloser) Genehmigung, daher befreit GateLR sie nicht. Motorräder und Mopeds dürfen ohne Genehmigung nur zu den für sie reservierten Stellplätzen fahren. Mit Behindertenausweis, wenn nicht auf der Liste: vorher 800 091 980 anrufen."
+    ],
+    "links": [
+     {
+      "title": "City of Matera: ZTL and pedestrian areas",
+      "title_it": "Comune di Matera: ZTL/APU",
+      "title_de": "Stadt Matera: ZTL und Fußgängerzonen",
+      "url": "https://comune.matera.it/ztl-apu/"
+     },
+     {
+      "title": "City of Matera: camera hours of every ZTL (PDF, 2025)",
+      "title_it": "Comune di Matera: orari delle telecamere di tutte le ZTL (PDF, 2025)",
+      "title_de": "Stadt Matera: Kamerazeiten aller ZTL (PDF, 2025)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf"
+     },
+     {
+      "title": "Ordinance 147/2025: Sassi ZTL hours (PDF)",
+      "title_it": "Ordinanza 147/2025: orari ZTL Sassi (PDF)",
+      "title_de": "Verordnung 147/2025: Zeiten der ZTL Sassi (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf"
+     },
+     {
+      "title": "Ordinance 148/2025: Piave ZTL (PDF)",
+      "title_it": "Ordinanza 148/2025: ZTL Piave (PDF)",
+      "title_de": "Verordnung 148/2025: ZTL Piave (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf"
+     },
+     {
+      "title": "Ordinance 2941/2021: Ridola, Casalnuovo, Stigliani and Prefettura ZTLs (PDF)",
+      "title_it": "Ordinanza 2941/2021: ZTL Ridola, Casalnuovo, Stigliani e Prefettura (PDF)",
+      "title_de": "Verordnung 2941/2021: ZTL Ridola, Casalnuovo, Stigliani und Prefettura (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf"
+     },
+     {
+      "title": "Ordinance 270/2022: list of the cameras (PDF)",
+      "title_it": "Ordinanza 270/2022: elenco dei varchi elettronici (PDF)",
+      "title_de": "Verordnung 270/2022: Liste der Kameras (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf"
+     },
+     {
+      "title": "ZTL rules (disciplinare, PDF)",
+      "title_it": "Disciplinare ZTL/APU (PDF)",
+      "title_de": "ZTL-Regeln (Disciplinare, PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf"
+     },
+     {
+      "title": "How hotels register guests' plates (PDF)",
+      "title_it": "Procedura per le strutture ricettive (PDF)",
+      "title_de": "So melden Hotels die Kennzeichen (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf"
+     },
+     {
+      "title": "Official ZTL map (PDF)",
+      "title_it": "Planimetria ZTL (PDF)",
+      "title_de": "Offizielle ZTL-Karte (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets of Matera (ODbL)",
+      "title_it": "OpenStreetMap: strade di Matera (ODbL)",
+      "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
+     }
+    ]
+   }
+  },
+  {
+   "id": "matera-ridola",
+   "name": "Ridola · via Ridola and via Duni",
+   "name_it": "Ridola · via Ridola e via Duni",
+   "name_de": "Ridola · Via Ridola und Via Duni",
+   "kind": "restricted",
+   "summary": "Via Ridola (from via Lucana to via Duni) and via Duni are closed to cars without a permit every evening from 8:30 pm to midnight.",
+   "summary_it": "Via Ridola (da via Lucana a via Duni) e via Duni sono chiuse alle auto senza permesso ogni sera dalle 20:30 a mezzanotte.",
+   "summary_de": "Via Ridola (von Via Lucana bis Via Duni) und Via Duni sind für Autos ohne Genehmigung jeden Abend von 20:30 Uhr bis Mitternacht gesperrt.",
+   "perimeter": [
+    {
+     "lat": 40.661684,
+     "lon": 16.609906
+    },
+    {
+     "lat": 40.661684,
+     "lon": 16.610025
+    },
+    {
+     "lat": 40.661774,
+     "lon": 16.610143
+    },
+    {
+     "lat": 40.663085,
+     "lon": 16.610084
+    },
+    {
+     "lat": 40.663085,
+     "lon": 16.609906
+    },
+    {
+     "lat": 40.66304,
+     "lon": 16.609906
+    },
+    {
+     "lat": 40.663085,
+     "lon": 16.60967
+    },
+    {
+     "lat": 40.663402,
+     "lon": 16.609433
+    },
+    {
+     "lat": 40.663357,
+     "lon": 16.609077
+    },
+    {
+     "lat": 40.663311,
+     "lon": 16.609077
+    },
+    {
+     "lat": 40.663221,
+     "lon": 16.608781
+    },
+    {
+     "lat": 40.663085,
+     "lon": 16.608781
+    },
+    {
+     "lat": 40.66304,
+     "lon": 16.6089
+    },
+    {
+     "lat": 40.662814,
+     "lon": 16.608959
+    },
+    {
+     "lat": 40.662814,
+     "lon": 16.609018
+    },
+    {
+     "lat": 40.662543,
+     "lon": 16.6089
+    },
+    {
+     "lat": 40.662498,
+     "lon": 16.609077
+    },
+    {
+     "lat": 40.662588,
+     "lon": 16.609137
+    },
+    {
+     "lat": 40.662588,
+     "lon": 16.609255
+    },
+    {
+     "lat": 40.662724,
+     "lon": 16.609433
+    },
+    {
+     "lat": 40.662724,
+     "lon": 16.60961
+    },
+    {
+     "lat": 40.662769,
+     "lon": 16.60961
+    },
+    {
+     "lat": 40.662678,
+     "lon": 16.609906
+    },
+    {
+     "lat": 40.662362,
+     "lon": 16.609966
+    },
+    {
+     "lat": 40.662362,
+     "lon": 16.610025
+    },
+    {
+     "lat": 40.66191,
+     "lon": 16.610025
+    },
+    {
+     "lat": 40.66191,
+     "lon": 16.609966
+    },
+    {
+     "lat": 40.661684,
+     "lon": 16.609906
+    }
+   ],
+   "gates": [
+    {
+     "id": "mt-varco-via-duni-via-lucana",
+     "name": "Varco · Via Duni / Via Lucana",
+     "location": {
+      "lat": 40.662543,
+      "lon": 16.608994
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1230,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Matera",
+    "pageURL": "https://comune.matera.it/ztl-apu/",
+    "ordinance": "Ord. Dir. n. 147 e 148/2025, tabella «ZTL - Telecamere» del Comune",
+    "ordinanceURL": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf",
+    "quote": "ZTL RIDOLA (Via e Vico Duni, Via Ridola) 20:30 - 24:00 20:30 - 24:00",
+    "quoteTranslation": "Ridola ZTL (via and vico Duni, via Ridola): weekdays 20:30–24:00, holidays 20:30–24:00.",
+    "quoteTranslation_de": "Ridola ZTL (via and vico Duni, via Ridola): werktags 20:30–24 Uhr, feiertags 20:30–24 Uhr.",
+    "checkedOn": "2026-10-26T23:50:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours 8:30 pm–midnight from the City's 2025 camera timetable; ordinance 2941/2021 had set 8:30 pm–2 am. GateLR follows the newer timetable.",
+     "Hotels and B&Bs inside register your plate on the City's portal (matera.sismic.it), at the latest by the end of the day after you drive in; only to unload luggage.",
+     "Map outline: the area of the streets named in the City's ordinances, drawn on OpenStreetMap streets (approximate); camera positions at the junctions the ordinances name.",
+     "Electric cars may enter at any time only with a permit issued beforehand (free), so GateLR does not exempt them. Motorbikes and mopeds may enter without a permit only to reach the parking bays reserved for them. Blue Badge holders not on the permit list must call 800 091 980 before entering."
+    ],
+    "pending_it": [
+     "Orario 20:30–24 dalla tabella delle telecamere del Comune (2025); l'ordinanza 2941/2021 indicava 20:30–2. GateLR segue la tabella più recente.",
+     "Hotel e B&B dentro registrano la targa sul portale del Comune (matera.sismic.it), al più tardi entro il giorno dopo il transito; solo per scaricare i bagagli.",
+     "Perimetro: l'area delle strade elencate nelle ordinanze del Comune, sulle strade OpenStreetMap (approssimativo); varchi agli incroci indicati dalle ordinanze.",
+     "Le auto elettriche entrano a ogni ora solo con un permesso rilasciato prima (gratuito), quindi GateLR non le esenta. Moto e ciclomotori entrano senza permesso solo per raggiungere gli stalli a loro riservati. Con il contrassegno disabili, se non si è nella lista permessi, chiamare prima l'800 091 980."
+    ],
+    "pending_de": [
+     "Zeiten 20:30–24 Uhr laut Kameratabelle der Stadt (2025); die Verordnung 2941/2021 nannte 20:30–2 Uhr. GateLR folgt der neueren Tabelle.",
+     "Hotels und B&Bs innen melden dein Kennzeichen im Portal der Stadt (matera.sismic.it), spätestens bis zum Ende des Tages nach der Einfahrt; nur zum Ausladen.",
+     "Grenze: die Fläche der in den Verordnungen genannten Straßen, auf OpenStreetMap-Straßen (ungefähr); Kameras an den in den Verordnungen genannten Kreuzungen.",
+     "Elektroautos dürfen jederzeit einfahren, aber nur mit vorher ausgestellter (kostenloser) Genehmigung, daher befreit GateLR sie nicht. Motorräder und Mopeds dürfen ohne Genehmigung nur zu den für sie reservierten Stellplätzen fahren. Mit Behindertenausweis, wenn nicht auf der Liste: vorher 800 091 980 anrufen."
+    ],
+    "links": [
+     {
+      "title": "City of Matera: ZTL and pedestrian areas",
+      "title_it": "Comune di Matera: ZTL/APU",
+      "title_de": "Stadt Matera: ZTL und Fußgängerzonen",
+      "url": "https://comune.matera.it/ztl-apu/"
+     },
+     {
+      "title": "City of Matera: camera hours of every ZTL (PDF, 2025)",
+      "title_it": "Comune di Matera: orari delle telecamere di tutte le ZTL (PDF, 2025)",
+      "title_de": "Stadt Matera: Kamerazeiten aller ZTL (PDF, 2025)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf"
+     },
+     {
+      "title": "Ordinance 147/2025: Sassi ZTL hours (PDF)",
+      "title_it": "Ordinanza 147/2025: orari ZTL Sassi (PDF)",
+      "title_de": "Verordnung 147/2025: Zeiten der ZTL Sassi (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf"
+     },
+     {
+      "title": "Ordinance 148/2025: Piave ZTL (PDF)",
+      "title_it": "Ordinanza 148/2025: ZTL Piave (PDF)",
+      "title_de": "Verordnung 148/2025: ZTL Piave (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf"
+     },
+     {
+      "title": "Ordinance 2941/2021: Ridola, Casalnuovo, Stigliani and Prefettura ZTLs (PDF)",
+      "title_it": "Ordinanza 2941/2021: ZTL Ridola, Casalnuovo, Stigliani e Prefettura (PDF)",
+      "title_de": "Verordnung 2941/2021: ZTL Ridola, Casalnuovo, Stigliani und Prefettura (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf"
+     },
+     {
+      "title": "Ordinance 270/2022: list of the cameras (PDF)",
+      "title_it": "Ordinanza 270/2022: elenco dei varchi elettronici (PDF)",
+      "title_de": "Verordnung 270/2022: Liste der Kameras (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf"
+     },
+     {
+      "title": "ZTL rules (disciplinare, PDF)",
+      "title_it": "Disciplinare ZTL/APU (PDF)",
+      "title_de": "ZTL-Regeln (Disciplinare, PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf"
+     },
+     {
+      "title": "How hotels register guests' plates (PDF)",
+      "title_it": "Procedura per le strutture ricettive (PDF)",
+      "title_de": "So melden Hotels die Kennzeichen (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf"
+     },
+     {
+      "title": "Official ZTL map (PDF)",
+      "title_it": "Planimetria ZTL (PDF)",
+      "title_de": "Offizielle ZTL-Karte (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets of Matera (ODbL)",
+      "title_it": "OpenStreetMap: strade di Matera (ODbL)",
+      "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
+     }
+    ]
+   }
+  },
+  {
+   "id": "matera-casalnuovo",
+   "name": "Casalnuovo · via Casalnuovo",
+   "name_it": "Casalnuovo · via Casalnuovo",
+   "name_de": "Casalnuovo · Via Casalnuovo",
+   "kind": "restricted",
+   "summary": "Via Casalnuovo (below the Sasso Caveoso) is closed to cars without a permit every evening from 8:30 pm to midnight.",
+   "summary_it": "Via Casalnuovo (sotto il Sasso Caveoso) è chiusa alle auto senza permesso ogni sera dalle 20:30 a mezzanotte.",
+   "summary_de": "Die Via Casalnuovo (unterhalb des Sasso Caveoso) ist für Autos ohne Genehmigung jeden Abend von 20:30 Uhr bis Mitternacht gesperrt.",
+   "perimeter": [
+    {
+     "lat": 40.658337,
+     "lon": 16.616021
+    },
+    {
+     "lat": 40.658518,
+     "lon": 16.615961
+    },
+    {
+     "lat": 40.658609,
+     "lon": 16.615843
+    },
+    {
+     "lat": 40.658744,
+     "lon": 16.615843
+    },
+    {
+     "lat": 40.65879,
+     "lon": 16.615724
+    },
+    {
+     "lat": 40.659061,
+     "lon": 16.615606
+    },
+    {
+     "lat": 40.659061,
+     "lon": 16.615488
+    },
+    {
+     "lat": 40.659513,
+     "lon": 16.614955
+    },
+    {
+     "lat": 40.659513,
+     "lon": 16.614836
+    },
+    {
+     "lat": 40.660824,
+     "lon": 16.613178
+    },
+    {
+     "lat": 40.660824,
+     "lon": 16.61306
+    },
+    {
+     "lat": 40.661005,
+     "lon": 16.612882
+    },
+    {
+     "lat": 40.661141,
+     "lon": 16.612409
+    },
+    {
+     "lat": 40.661186,
+     "lon": 16.612409
+    },
+    {
+     "lat": 40.661186,
+     "lon": 16.61229
+    },
+    {
+     "lat": 40.661277,
+     "lon": 16.612172
+    },
+    {
+     "lat": 40.661322,
+     "lon": 16.611876
+    },
+    {
+     "lat": 40.661503,
+     "lon": 16.611698
+    },
+    {
+     "lat": 40.661548,
+     "lon": 16.611461
+    },
+    {
+     "lat": 40.661638,
+     "lon": 16.611343
+    },
+    {
+     "lat": 40.661638,
+     "lon": 16.611165
+    },
+    {
+     "lat": 40.66191,
+     "lon": 16.610869
+    },
+    {
+     "lat": 40.661955,
+     "lon": 16.610632
+    },
+    {
+     "lat": 40.662091,
+     "lon": 16.610455
+    },
+    {
+     "lat": 40.662678,
+     "lon": 16.610396
+    },
+    {
+     "lat": 40.662769,
+     "lon": 16.610277
+    },
+    {
+     "lat": 40.662904,
+     "lon": 16.610277
+    },
+    {
+     "lat": 40.662995,
+     "lon": 16.610159
+    },
+    {
+     "lat": 40.662995,
+     "lon": 16.61004
+    },
+    {
+     "lat": 40.662588,
+     "lon": 16.61004
+    },
+    {
+     "lat": 40.662543,
+     "lon": 16.609981
+    },
+    {
+     "lat": 40.662452,
+     "lon": 16.610218
+    },
+    {
+     "lat": 40.662136,
+     "lon": 16.610277
+    },
+    {
+     "lat": 40.661864,
+     "lon": 16.610573
+    },
+    {
+     "lat": 40.661819,
+     "lon": 16.61081
+    },
+    {
+     "lat": 40.661548,
+     "lon": 16.611106
+    },
+    {
+     "lat": 40.661457,
+     "lon": 16.61158
+    },
+    {
+     "lat": 40.661231,
+     "lon": 16.611817
+    },
+    {
+     "lat": 40.661231,
+     "lon": 16.611935
+    },
+    {
+     "lat": 40.661141,
+     "lon": 16.612053
+    },
+    {
+     "lat": 40.661141,
+     "lon": 16.612231
+    },
+    {
+     "lat": 40.661096,
+     "lon": 16.612231
+    },
+    {
+     "lat": 40.660915,
+     "lon": 16.612823
+    },
+    {
+     "lat": 40.659287,
+     "lon": 16.614955
+    },
+    {
+     "lat": 40.659287,
+     "lon": 16.615073
+    },
+    {
+     "lat": 40.658925,
+     "lon": 16.615547
+    },
+    {
+     "lat": 40.658654,
+     "lon": 16.615665
+    },
+    {
+     "lat": 40.658563,
+     "lon": 16.615784
+    },
+    {
+     "lat": 40.658428,
+     "lon": 16.615784
+    },
+    {
+     "lat": 40.658337,
+     "lon": 16.615902
+    },
+    {
+     "lat": 40.657795,
+     "lon": 16.61608
+    },
+    {
+     "lat": 40.657795,
+     "lon": 16.616139
+    },
+    {
+     "lat": 40.657071,
+     "lon": 16.616139
+    },
+    {
+     "lat": 40.656981,
+     "lon": 16.616257
+    },
+    {
+     "lat": 40.65689,
+     "lon": 16.616257
+    },
+    {
+     "lat": 40.65689,
+     "lon": 16.616317
+    },
+    {
+     "lat": 40.656755,
+     "lon": 16.616317
+    },
+    {
+     "lat": 40.656755,
+     "lon": 16.616376
+    },
+    {
+     "lat": 40.656303,
+     "lon": 16.616613
+    },
+    {
+     "lat": 40.656303,
+     "lon": 16.616672
+    },
+    {
+     "lat": 40.656031,
+     "lon": 16.616731
+    },
+    {
+     "lat": 40.656031,
+     "lon": 16.61679
+    },
+    {
+     "lat": 40.655896,
+     "lon": 16.61679
+    },
+    {
+     "lat": 40.655896,
+     "lon": 16.616849
+    },
+    {
+     "lat": 40.655715,
+     "lon": 16.616849
+    },
+    {
+     "lat": 40.655715,
+     "lon": 16.616909
+    },
+    {
+     "lat": 40.655579,
+     "lon": 16.616909
+    },
+    {
+     "lat": 40.655579,
+     "lon": 16.616968
+    },
+    {
+     "lat": 40.655308,
+     "lon": 16.616849
+    },
+    {
+     "lat": 40.655308,
+     "lon": 16.617027
+    },
+    {
+     "lat": 40.655353,
+     "lon": 16.617086
+    },
+    {
+     "lat": 40.655624,
+     "lon": 16.617086
+    },
+    {
+     "lat": 40.655624,
+     "lon": 16.617027
+    },
+    {
+     "lat": 40.65576,
+     "lon": 16.617027
+    },
+    {
+     "lat": 40.65576,
+     "lon": 16.616968
+    },
+    {
+     "lat": 40.656257,
+     "lon": 16.616849
+    },
+    {
+     "lat": 40.656348,
+     "lon": 16.616731
+    },
+    {
+     "lat": 40.656529,
+     "lon": 16.616672
+    },
+    {
+     "lat": 40.656529,
+     "lon": 16.616613
+    },
+    {
+     "lat": 40.656664,
+     "lon": 16.616613
+    },
+    {
+     "lat": 40.65671,
+     "lon": 16.616494
+    },
+    {
+     "lat": 40.656936,
+     "lon": 16.616435
+    },
+    {
+     "lat": 40.657026,
+     "lon": 16.616317
+    },
+    {
+     "lat": 40.657162,
+     "lon": 16.616317
+    },
+    {
+     "lat": 40.657162,
+     "lon": 16.616257
+    },
+    {
+     "lat": 40.657704,
+     "lon": 16.616317
+    },
+    {
+     "lat": 40.657704,
+     "lon": 16.616257
+    },
+    {
+     "lat": 40.65784,
+     "lon": 16.616257
+    },
+    {
+     "lat": 40.65784,
+     "lon": 16.616198
+    },
+    {
+     "lat": 40.658337,
+     "lon": 16.616021
+    }
+   ],
+   "gates": [
+    {
+     "id": "mt-varco-via-casalnuovo-via-cappuccini",
+     "name": "Varco · Via Casalnuovo / Via Cappuccini",
+     "location": {
+      "lat": 40.655368,
+      "lon": 16.616902
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1230,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Matera",
+    "pageURL": "https://comune.matera.it/ztl-apu/",
+    "ordinance": "Ord. Dir. n. 147 e 148/2025, tabella «ZTL - Telecamere» del Comune",
+    "ordinanceURL": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf",
+    "quote": "ZTL CASALNUOVO (Via Casalnuovo) 20:30 - 24:00 20:30 - 24:00",
+    "quoteTranslation": "Casalnuovo ZTL (via Casalnuovo): weekdays 20:30–24:00, holidays 20:30–24:00.",
+    "quoteTranslation_de": "Casalnuovo ZTL (via Casalnuovo): werktags 20:30–24 Uhr, feiertags 20:30–24 Uhr.",
+    "checkedOn": "2026-10-26T23:50:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours 8:30 pm–midnight from the City's 2025 camera timetable; ordinance 2941/2021 had set 8:30 pm–2 am. GateLR follows the newer timetable.",
+     "Hotels and B&Bs inside register your plate on the City's portal (matera.sismic.it), at the latest by the end of the day after you drive in; only to unload luggage.",
+     "Map outline: the area of the streets named in the City's ordinances, drawn on OpenStreetMap streets (approximate); camera positions at the junctions the ordinances name.",
+     "Electric cars may enter at any time only with a permit issued beforehand (free), so GateLR does not exempt them. Motorbikes and mopeds may enter without a permit only to reach the parking bays reserved for them. Blue Badge holders not on the permit list must call 800 091 980 before entering."
+    ],
+    "pending_it": [
+     "Orario 20:30–24 dalla tabella delle telecamere del Comune (2025); l'ordinanza 2941/2021 indicava 20:30–2. GateLR segue la tabella più recente.",
+     "Hotel e B&B dentro registrano la targa sul portale del Comune (matera.sismic.it), al più tardi entro il giorno dopo il transito; solo per scaricare i bagagli.",
+     "Perimetro: l'area delle strade elencate nelle ordinanze del Comune, sulle strade OpenStreetMap (approssimativo); varchi agli incroci indicati dalle ordinanze.",
+     "Le auto elettriche entrano a ogni ora solo con un permesso rilasciato prima (gratuito), quindi GateLR non le esenta. Moto e ciclomotori entrano senza permesso solo per raggiungere gli stalli a loro riservati. Con il contrassegno disabili, se non si è nella lista permessi, chiamare prima l'800 091 980."
+    ],
+    "pending_de": [
+     "Zeiten 20:30–24 Uhr laut Kameratabelle der Stadt (2025); die Verordnung 2941/2021 nannte 20:30–2 Uhr. GateLR folgt der neueren Tabelle.",
+     "Hotels und B&Bs innen melden dein Kennzeichen im Portal der Stadt (matera.sismic.it), spätestens bis zum Ende des Tages nach der Einfahrt; nur zum Ausladen.",
+     "Grenze: die Fläche der in den Verordnungen genannten Straßen, auf OpenStreetMap-Straßen (ungefähr); Kameras an den in den Verordnungen genannten Kreuzungen.",
+     "Elektroautos dürfen jederzeit einfahren, aber nur mit vorher ausgestellter (kostenloser) Genehmigung, daher befreit GateLR sie nicht. Motorräder und Mopeds dürfen ohne Genehmigung nur zu den für sie reservierten Stellplätzen fahren. Mit Behindertenausweis, wenn nicht auf der Liste: vorher 800 091 980 anrufen."
+    ],
+    "links": [
+     {
+      "title": "City of Matera: ZTL and pedestrian areas",
+      "title_it": "Comune di Matera: ZTL/APU",
+      "title_de": "Stadt Matera: ZTL und Fußgängerzonen",
+      "url": "https://comune.matera.it/ztl-apu/"
+     },
+     {
+      "title": "City of Matera: camera hours of every ZTL (PDF, 2025)",
+      "title_it": "Comune di Matera: orari delle telecamere di tutte le ZTL (PDF, 2025)",
+      "title_de": "Stadt Matera: Kamerazeiten aller ZTL (PDF, 2025)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf"
+     },
+     {
+      "title": "Ordinance 147/2025: Sassi ZTL hours (PDF)",
+      "title_it": "Ordinanza 147/2025: orari ZTL Sassi (PDF)",
+      "title_de": "Verordnung 147/2025: Zeiten der ZTL Sassi (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf"
+     },
+     {
+      "title": "Ordinance 148/2025: Piave ZTL (PDF)",
+      "title_it": "Ordinanza 148/2025: ZTL Piave (PDF)",
+      "title_de": "Verordnung 148/2025: ZTL Piave (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf"
+     },
+     {
+      "title": "Ordinance 2941/2021: Ridola, Casalnuovo, Stigliani and Prefettura ZTLs (PDF)",
+      "title_it": "Ordinanza 2941/2021: ZTL Ridola, Casalnuovo, Stigliani e Prefettura (PDF)",
+      "title_de": "Verordnung 2941/2021: ZTL Ridola, Casalnuovo, Stigliani und Prefettura (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf"
+     },
+     {
+      "title": "Ordinance 270/2022: list of the cameras (PDF)",
+      "title_it": "Ordinanza 270/2022: elenco dei varchi elettronici (PDF)",
+      "title_de": "Verordnung 270/2022: Liste der Kameras (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf"
+     },
+     {
+      "title": "ZTL rules (disciplinare, PDF)",
+      "title_it": "Disciplinare ZTL/APU (PDF)",
+      "title_de": "ZTL-Regeln (Disciplinare, PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf"
+     },
+     {
+      "title": "How hotels register guests' plates (PDF)",
+      "title_it": "Procedura per le strutture ricettive (PDF)",
+      "title_de": "So melden Hotels die Kennzeichen (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf"
+     },
+     {
+      "title": "Official ZTL map (PDF)",
+      "title_it": "Planimetria ZTL (PDF)",
+      "title_de": "Offizielle ZTL-Karte (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets of Matera (ODbL)",
+      "title_it": "OpenStreetMap: strade di Matera (ODbL)",
+      "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
+     }
+    ]
+   }
+  },
+  {
+   "id": "matera-stigliani",
+   "name": "Stigliani · via Stigliani and vico XX Settembre",
+   "name_it": "Stigliani · via Stigliani e vico XX Settembre",
+   "name_de": "Stigliani · Via Stigliani und Vico XX Settembre",
+   "kind": "restricted",
+   "summary": "Via Tommaso Stigliani (from via Amendola to vico XX Settembre) and vico XX Settembre are closed to cars without a permit every evening from 8:30 pm to midnight.",
+   "summary_it": "Via Tommaso Stigliani (da via Amendola a vico XX Settembre) e vico XX Settembre sono chiusi alle auto senza permesso ogni sera dalle 20:30 a mezzanotte.",
+   "summary_de": "Via Tommaso Stigliani (von Via Amendola bis Vico XX Settembre) und Vico XX Settembre sind für Autos ohne Genehmigung jeden Abend von 20:30 Uhr bis Mitternacht gesperrt.",
+   "perimeter": [
+    {
+     "lat": 40.668195,
+     "lon": 16.60642
+    },
+    {
+     "lat": 40.66824,
+     "lon": 16.606716
+    },
+    {
+     "lat": 40.668195,
+     "lon": 16.606716
+    },
+    {
+     "lat": 40.668195,
+     "lon": 16.606894
+    },
+    {
+     "lat": 40.668105,
+     "lon": 16.606953
+    },
+    {
+     "lat": 40.66815,
+     "lon": 16.607901
+    },
+    {
+     "lat": 40.66824,
+     "lon": 16.608019
+    },
+    {
+     "lat": 40.668466,
+     "lon": 16.608078
+    },
+    {
+     "lat": 40.668602,
+     "lon": 16.608315
+    },
+    {
+     "lat": 40.668738,
+     "lon": 16.608315
+    },
+    {
+     "lat": 40.66928,
+     "lon": 16.607605
+    },
+    {
+     "lat": 40.66928,
+     "lon": 16.607486
+    },
+    {
+     "lat": 40.66919,
+     "lon": 16.607486
+    },
+    {
+     "lat": 40.668828,
+     "lon": 16.608019
+    },
+    {
+     "lat": 40.668647,
+     "lon": 16.608078
+    },
+    {
+     "lat": 40.668647,
+     "lon": 16.608019
+    },
+    {
+     "lat": 40.668512,
+     "lon": 16.608019
+    },
+    {
+     "lat": 40.668466,
+     "lon": 16.607901
+    },
+    {
+     "lat": 40.668331,
+     "lon": 16.607901
+    },
+    {
+     "lat": 40.668285,
+     "lon": 16.607664
+    },
+    {
+     "lat": 40.66824,
+     "lon": 16.607664
+    },
+    {
+     "lat": 40.66824,
+     "lon": 16.60719
+    },
+    {
+     "lat": 40.668285,
+     "lon": 16.60719
+    },
+    {
+     "lat": 40.668285,
+     "lon": 16.607012
+    },
+    {
+     "lat": 40.668331,
+     "lon": 16.607012
+    },
+    {
+     "lat": 40.668331,
+     "lon": 16.606124
+    },
+    {
+     "lat": 40.668285,
+     "lon": 16.606124
+    },
+    {
+     "lat": 40.668285,
+     "lon": 16.606006
+    },
+    {
+     "lat": 40.668195,
+     "lon": 16.606065
+    },
+    {
+     "lat": 40.668195,
+     "lon": 16.60642
+    }
+   ],
+   "gates": [
+    {
+     "id": "mt-varco-via-stigliani-via-amendola",
+     "name": "Varco · Via Stigliani / Via Amendola",
+     "location": {
+      "lat": 40.669244,
+      "lon": 16.607533
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1230,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Matera",
+    "pageURL": "https://comune.matera.it/ztl-apu/",
+    "ordinance": "Ord. Dir. n. 147 e 148/2025, tabella «ZTL - Telecamere» del Comune",
+    "ordinanceURL": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf",
+    "quote": "ZTL STIGLIANI (Via Stigliani, Vico XX Settembre) 20:30 - 24:00 20:30 - 24:00",
+    "quoteTranslation": "Stigliani ZTL (via Stigliani, vico XX Settembre): weekdays 20:30–24:00, holidays 20:30–24:00.",
+    "quoteTranslation_de": "Stigliani ZTL (via Stigliani, vico XX Settembre): werktags 20:30–24 Uhr, feiertags 20:30–24 Uhr.",
+    "checkedOn": "2026-10-26T23:50:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours 8:30 pm–midnight from the City's 2025 camera timetable; ordinance 2941/2021 had set 8:30 pm–2 am. GateLR follows the newer timetable.",
+     "Hotels and B&Bs inside register your plate on the City's portal (matera.sismic.it), at the latest by the end of the day after you drive in; only to unload luggage.",
+     "Map outline: the area of the streets named in the City's ordinances, drawn on OpenStreetMap streets (approximate); camera positions at the junctions the ordinances name.",
+     "Electric cars may enter at any time only with a permit issued beforehand (free), so GateLR does not exempt them. Motorbikes and mopeds may enter without a permit only to reach the parking bays reserved for them. Blue Badge holders not on the permit list must call 800 091 980 before entering."
+    ],
+    "pending_it": [
+     "Orario 20:30–24 dalla tabella delle telecamere del Comune (2025); l'ordinanza 2941/2021 indicava 20:30–2. GateLR segue la tabella più recente.",
+     "Hotel e B&B dentro registrano la targa sul portale del Comune (matera.sismic.it), al più tardi entro il giorno dopo il transito; solo per scaricare i bagagli.",
+     "Perimetro: l'area delle strade elencate nelle ordinanze del Comune, sulle strade OpenStreetMap (approssimativo); varchi agli incroci indicati dalle ordinanze.",
+     "Le auto elettriche entrano a ogni ora solo con un permesso rilasciato prima (gratuito), quindi GateLR non le esenta. Moto e ciclomotori entrano senza permesso solo per raggiungere gli stalli a loro riservati. Con il contrassegno disabili, se non si è nella lista permessi, chiamare prima l'800 091 980."
+    ],
+    "pending_de": [
+     "Zeiten 20:30–24 Uhr laut Kameratabelle der Stadt (2025); die Verordnung 2941/2021 nannte 20:30–2 Uhr. GateLR folgt der neueren Tabelle.",
+     "Hotels und B&Bs innen melden dein Kennzeichen im Portal der Stadt (matera.sismic.it), spätestens bis zum Ende des Tages nach der Einfahrt; nur zum Ausladen.",
+     "Grenze: die Fläche der in den Verordnungen genannten Straßen, auf OpenStreetMap-Straßen (ungefähr); Kameras an den in den Verordnungen genannten Kreuzungen.",
+     "Elektroautos dürfen jederzeit einfahren, aber nur mit vorher ausgestellter (kostenloser) Genehmigung, daher befreit GateLR sie nicht. Motorräder und Mopeds dürfen ohne Genehmigung nur zu den für sie reservierten Stellplätzen fahren. Mit Behindertenausweis, wenn nicht auf der Liste: vorher 800 091 980 anrufen."
+    ],
+    "links": [
+     {
+      "title": "City of Matera: ZTL and pedestrian areas",
+      "title_it": "Comune di Matera: ZTL/APU",
+      "title_de": "Stadt Matera: ZTL und Fußgängerzonen",
+      "url": "https://comune.matera.it/ztl-apu/"
+     },
+     {
+      "title": "City of Matera: camera hours of every ZTL (PDF, 2025)",
+      "title_it": "Comune di Matera: orari delle telecamere di tutte le ZTL (PDF, 2025)",
+      "title_de": "Stadt Matera: Kamerazeiten aller ZTL (PDF, 2025)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf"
+     },
+     {
+      "title": "Ordinance 147/2025: Sassi ZTL hours (PDF)",
+      "title_it": "Ordinanza 147/2025: orari ZTL Sassi (PDF)",
+      "title_de": "Verordnung 147/2025: Zeiten der ZTL Sassi (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf"
+     },
+     {
+      "title": "Ordinance 148/2025: Piave ZTL (PDF)",
+      "title_it": "Ordinanza 148/2025: ZTL Piave (PDF)",
+      "title_de": "Verordnung 148/2025: ZTL Piave (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf"
+     },
+     {
+      "title": "Ordinance 2941/2021: Ridola, Casalnuovo, Stigliani and Prefettura ZTLs (PDF)",
+      "title_it": "Ordinanza 2941/2021: ZTL Ridola, Casalnuovo, Stigliani e Prefettura (PDF)",
+      "title_de": "Verordnung 2941/2021: ZTL Ridola, Casalnuovo, Stigliani und Prefettura (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf"
+     },
+     {
+      "title": "Ordinance 270/2022: list of the cameras (PDF)",
+      "title_it": "Ordinanza 270/2022: elenco dei varchi elettronici (PDF)",
+      "title_de": "Verordnung 270/2022: Liste der Kameras (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf"
+     },
+     {
+      "title": "ZTL rules (disciplinare, PDF)",
+      "title_it": "Disciplinare ZTL/APU (PDF)",
+      "title_de": "ZTL-Regeln (Disciplinare, PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf"
+     },
+     {
+      "title": "How hotels register guests' plates (PDF)",
+      "title_it": "Procedura per le strutture ricettive (PDF)",
+      "title_de": "So melden Hotels die Kennzeichen (PDF)",
+      "url": "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf"
+     },
+     {
+      "title": "Official ZTL map (PDF)",
+      "title_it": "Planimetria ZTL (PDF)",
+      "title_de": "Offizielle ZTL-Karte (PDF)",
+      "url": "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets of Matera (ODbL)",
+      "title_it": "OpenStreetMap: strade di Matera (ODbL)",
+      "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Matera ordinances and camera timetable. Perimeters and gates: © OpenStreetMap contributors, ODbL 1.0 (areas of the streets in the City's list, approximate)."
+}

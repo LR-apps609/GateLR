@@ -1,42 +1,46 @@
-# Matera: fonti della scheda ZTL (bozza)
+# Matera: fonti della scheda ZTL
 
-Scheda generata da `Tools/build_matera.py` → `data/drafts/matera.json` (**bozza, non nell'app**: nessuna citazione verificata sul testo ufficiale in vigore; perimetri ricavati dalle strade).
+Scheda generata da `Tools/build_matera.py` → `Resources/Cities/matera.json` (stato **draft**, `reviewedByHuman: false`). Dal 26/10/2026 è **nell'app** (`manifest.json`). Ogni frase usata è ricontrollata dallo script sui testi salvati in `data/raw/matera/` (estratti con pdftotext dai PDF ufficiali, letti il 26/10/2026 da comune.matera.it).
 
-## Perché è una bozza
-Il 26/10/2026 dal sandbox comune.matera.it, www.comune.matera.it, dati.comune.matera.it, materawelcome.it e la stampa locale rispondevano con rifiuto del proxy (403, host non consentito per la sessione); WebFetch non risolveva gli host. Il workflow «Scarica pagine» **non** è stato usato per aggirare il blocco (lanciato una sola volta, `pagine-matera-1`, per Overpass: risposta 406, non usata). Raggiungibili solo www.dati.gov.it, www.openstreetmap.org (API) e la ricerca web.
+## Zone (9) e orari
+Dalla tabella ufficiale «ZTL - TELECAMERE» (Ord. Dir. 147 e 148/2025), https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf → `orari-telecamere-barriere-2025.txt` (citazione di ogni zona tranne Sassi e Piave):
 
-Le regole 2024–2026 vengono dai **riassunti della ricerca web** (`data/raw/matera/websearch-*.txt`, non testo letterale). L'unico testo ufficiale letterale è l'**estratto dell'ordinanza del 2014** nei metadati del dataset «ZTL e APU» su dati.gov.it (`data/raw/matera/dati-gov-ztl-e-apu-estratto-ordinanza-2014.txt`), usato solo per l'elenco delle strade e per le categorie esenti: i suoi orari sono superati. `quote` è `null`.
+| Zona | Strade (atto) | Orario (feriali = festivi) |
+|---|---|---|
+| Sassi | via Buozzi, via Madonna delle Virtù, via D'Addozio e strade interne ai rioni Sassi, escluse via Casalnuovo e via Santo Stefano | 10–24 dal 01/07 al 15/09; 10–20:30 dal 16/09 al 30/06 (O.D. 147/2025, citazione) |
+| Piave | via Piave, vico I e II F. P. Festa, via F. P. Festa, recinto I Piave, via O. Tataranni (tra via F. Volpe e via Piave) | come i Sassi (O.D. 148/2025, citazione) |
+| Centro (con la Civita) | vie Scotellaro, Corso, Beccherie, Duomo, Sedile, San Francesco | 0–24 |
+| San Giovanni/San Biagio | via Stigliani (da vico XX Settembre a via San Biagio), via San Biagio | 0–24 |
+| Santa Cesarea | via S. Cesarea (da via Piave a vico Piave), vico Piave | 0–24 |
+| Prefettura | via Roma (da via Lucana a via XX Settembre), via XX Settembre (da via Roma a via Lucana) | 20:30–24 |
+| Ridola | via Ridola (da via Lucana a via Duni), via Duni, recinto, vico I e II Duni | 20:30–24 |
+| Casalnuovo | via Casalnuovo | 20:30–24 |
+| Stigliani | via T. Stigliani (da via Amendola a vico XX Settembre), vico XX Settembre | 20:30–24 |
 
-## Zone
-- **Sassi** (Sasso Barisano e Caveoso, ZTL Sassi): 10–20:30 dal 16/09 al 30/06, 10–24 dal 01/07 al 15/09, tutti i giorni.
-- **Centro e Civita** (ZTL Centro: vie Scotellaro, Corso, Beccherie, Duomo, Sedile, San Francesco): 0–24 tutti i giorni.
-- **San Biagio** (ZTL San Giovanni/San Biagio: via Stigliani, via San Biagio): 0–24 tutti i giorni.
-- Non modellate: ZTL Prefettura (via Roma, via XX Settembre) e ZTL Ridola (via Ridola, vico Duni), 20:30–24 (la ricerca riporta anche una fascia stagionale per Ridola, in contrasto); ZTL Mercato (orari non trovati); ZTL Piave (O.D. 148/2025, non approfondita); aree pedonali (APU).
+Carico/scarico: 7–10:30 e 15–17 (Centro, San Biagio, Santa Cesarea, Piave, Sassi). Le APU con dissuasori (piazza Vittorio Veneto, via Ridola, via Don Minzoni, piazza Ascanio Persio, Mercato) non sono disegnate.
 
-## Fatti usati
+Festivi: stessi orari → `freeOnHolidays: false`. Patrona Madonna della Bruna (2 luglio): ordinanze proprie, non modellate.
 
-| Fatto | Pagina indicata | Tipo | Letto il |
-|---|---|---|---|
-| ZTL Sassi: «Periodo estivo compreso dal 01 luglio al 15 settembre, di ogni anno, dalle ore 10.00 alle ore 24:00; periodo invernale compreso dal 16 settembre al 30 giugno, di ogni anno, dalle ore 10.00 alle ore 20:30» (O.D. 147/2025) | https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf ; tabella https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf | ufficiale (via riassunto) | 26/10/2026 |
-| Varchi Sassi: via Buozzi, via Madonna delle Virtù, via D'Addozio; carico/scarico 7–10:30 e 15–17 | tabella orari 2025 | ufficiale (via riassunto) | 26/10/2026 |
-| Apertura sperimentale 13–15:30 dal 19/01 al 15/03/2026 (finita); nessuna modifica per l'estate 2026 trovata | oltrefreepress.com (Confesercenti) | non ufficiale | 26/10/2026 |
-| ZTL Centro e San Giovanni/San Biagio 0–24; Prefettura e Ridola 20:30–24 | https://www.comune.matera.it/wp-content/uploads/2025/03/Orari-Telecamere-Barriere-dal-09.09.2024.pdf (O.D. 261/2024) | ufficiale (via riassunto) | 26/10/2026 |
-| Civita e San Biagio 0–24 dal 01/01 al 31/12 | tolltracker.eu; estratto 2014 («Zona AZZURRA … dal 01/01 al 31/12 dalle ore 00.00 dalle ore 24.00») | non ufficiale + ufficiale datato | 26/10/2026 |
-| Strutture ricettive: targhe comunicate sul portale matera.sismic.it («RICHIESTA PASS»), solo per le ZTL dove gli ospiti possono entrare per i bagagli → `hotelCanRegister: true`; scadenza non trovata | https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf | ufficiale (via riassunto) | 26/10/2026 |
-| 2014: esclusi dal divieto autorizzati, forze dell'ordine, soccorso, disabili, «veicoli a completa trazione elettrica», taxi, NCC; moto solo transito | estratto 2014 (dati.gov.it) | ufficiale ma datato → elettriche **non** esentate (`exemptFuels: []`) | 26/10/2026 |
-| Disabili: avviso preventivo al numero verde 800 091 980 o e-mail a ztl@comune.mt.it entro 48 ore | tag `description` dei nodi OSM dei varchi «ZTL Prefettura» e «ZTL San Giovanni/San Biagio» | non ufficiale | 26/10/2026 |
+## Altri fatti
 
-Festivi: stessi orari tutti i giorni → `freeOnHolidays: false`. Patrona Madonna della Bruna (2 luglio): non serve in `localHolidays`; la festa ha ordinanze di viabilità proprie, non modellate.
+| Fatto | Fonte (ufficiale, 26/10/2026) | File |
+|---|---|---|
+| Strade e varchi delle ZTL Ridola, Casalnuovo, Stigliani, Prefettura (2021), orario allora 20:30–2 (la tabella 2025 dice 20:30–24: si usa la tabella, nota in pending) | O.D. 2941/2021 | `od-2941-2021-ztl.txt` |
+| Nei Sassi, durante la ZTL, divieto di transito ai clienti delle strutture ricettive per carico/scarico, salvo strutture nei Sassi con sosta privata → Sassi `hotelCanRegister: false` | O.D. 2941/2021, punto 17 | idem |
+| Varchi: via Scotellaro, via Roma Sud, via Stigliani/vico XX Settembre, via Buozzi/via Casalnuovo, via D'Addozio/via Santo Stefano, via Stigliani/via Amendola, via Casalnuovo/via Cappuccini, via Duni/via Lucana, via XX Settembre/vico XX Settembre (uscita) | O.D. 270/2022 (le due righe Buozzi/D'Addozio sono scambiate dall'estrazione del testo: si usa l'abbinamento dell'ordinanza 2014 nei metadati open data) | `od-270-2022-varchi.txt`, `dati-gov-…-2014.txt` |
+| Varchi Piave (via Piave/via Stigliani, vico II Festa/via Pentasuglia, via Tataranni/via Volpe) e Santa Cesarea (via S. Cesarea/via Piave), in esercizio | O.D. 148/2025, O.D. 257/2025 | `od-148-…`, `od-257-…` |
+| Strutture ricettive: portale https://matera.sismic.it («RICHIESTA PASS», SPID); regolarizzazione «che non potrà avvenire trascorso il giorno solare successivo al transito» → `hotelCanRegister: true` (tranne Sassi) | Procedura per strutture ricettive e autorimesse; disciplinare (clienti senza garage: solo transito e fermata per i bagagli) | `procedura-strutture-ricettive.txt`, `disciplinare-2019.txt` |
+| Elettriche: «potranno accedere alla Z.T.L., senza alcun limite di fascia oraria, purché preventivamente autorizzati» → non esentate (`exemptFuels: []`) | disciplinare | idem |
+| Moto e ciclomotori: senza autorizzazione solo per raggiungere le aree di sosta riservate | disciplinare | idem |
+| Disabili non in lista: numero verde 800 091 980 prima dell'accesso; Ufficio ZTL ztl@comune.mt.it, 0835 241335 | https://comune.matera.it/ztl-apu/ | `comune-ztl-apu.txt` |
 
 ## Geometria: provenienza e licenza
-**Da OpenStreetMap, non ufficiale** (© OpenStreetMap contributors, ODbL 1.0). In OSM Matera non ha aree ZTL, solo nodi dei varchi.
-- Dati: `data/raw/geo/matera-sassi.json`, scaricato il 26/10/2026 con `Tools/fetch_osm_api.py` (bbox 40,658–40,672 / 16,600–16,616), ridotto a strade, scalinate, le due aree `place=neighbourhood` «Sasso Caveoso» (way 326515081) e «Sasso Barisano» (way 326515348) e gli 8 nodi varco con nome.
-- **Sassi**: `osm_geo.street_area` (celle 5 m, chiusura 40 m) sulle strade carrabili nominate dall'ordinanza più ogni strada/scalinata con punto centrale dentro le due aree dei Sassi, escluse via Casalnuovo, via Santo Stefano e le strade delle ZTL Centro e Ridola: 0,265 km². Comprende la Civita (racchiusa dai Sassi), che è anche nella zona Centro.
-- **Centro e Civita**: area delle strade dell'elenco (più i Gradoni Duomo, che uniscono il Sedile alla Civita), chiusura 60 m: 0,035 km².
-- **San Biagio**: area di via Tommaso Stigliani e via San Biagio, chiusura 60 m: 0,002 km² (solo le strade).
-- Varchi: nodi OSM «ZTL Sassi», «ZTL Via D'addozio», «ZTL Centro», «ZTL San Giovanni/San Biagio», «ZTL Via Tommaso Stigliani» (vicini al bordo della rispettiva zona).
-- Controlli: San Pietro Barisano e Casa Grotta nei Sassi dentro i Sassi; piazza del Sedile e piazza Duomo dentro il Centro; via San Biagio dentro San Biagio; piazza Vittorio Veneto e stazione Matera Centrale fuori.
-- Esiste un perimetro **ufficiale** (2014): `ZTL_APU_MATERA_AGO2014.json`/`.kml` su dati.comune.matera.it (catalogato su dati.gov.it). Salvandolo come `data/raw/matera/ztl_sassi.geojson`, `ztl_centro.geojson`, `ztl_san-biagio.geojson` lo script usa quelli.
+Nessun perimetro ufficiale scaricabile: il GeoJSON open data «ZTL_APU_MATERA_AGO2014» su dati.comune.matera.it non risponde (proxy) ed è del 2014; la «Planimetria ZTL» (PDF) è un disegno senza coordinate. Quindi **perimetro dall'elenco ufficiale delle vie con le geometrie OSM** (© OpenStreetMap contributors, ODbL 1.0):
+- Dati: `data/raw/geo/matera-sassi.json`, scaricato il 26/10/2026 con `Tools/fetch_osm_api.py` (bbox 40,654–40,676 / 16,598–16,620), ridotto a strade (con id dei nodi), aree «Sasso Caveoso»/«Sasso Barisano» e telecamere con nome.
+- Tratti «dall'intersezione con … all'intersezione con …»: percorso più breve sulle way OSM tra i nodi d'incrocio. Area = `osm_geo.street_area` (celle 5 m; ogni strada anche spostata di ±3 m per tenere unite le celle), semplificata a 4 m.
+- Sassi: strade carrabili dell'ordinanza + strade/scalinate con punto centrale nelle due aree OSM dei Sassi, escluse Casalnuovo, Santo Stefano e le strade delle altre ZTL (0,27 km², comprende la Civita).
+- Varchi: nodo OSM dell'incrocio indicato dall'atto; per «via Scotellaro» e «via Roma Sud» il nodo OSM della telecamera («ZTL Centro», «ZTL Prefettura»).
+- Controlli: San Pietro Barisano e Casa Grotta dentro i Sassi; piazza del Sedile e piazza Duomo dentro il Centro; stazione Matera Centrale e piazza Vittorio Veneto fuori da tutte; varchi a meno di 40 m dalla zona.
 
 ## Da verificare (`pending`)
-Testo delle ordinanze 147/2025 e 261/2024; orari 2026 dei Sassi; ZTL Prefettura, Ridola, Mercato, Piave non modellate; perimetri approssimativi; scadenza hotel; elettriche e moto; procedura disabili.
+Perimetri approssimativi (aree delle strade); orari serali 20:30–24 (tabella 2025) contro 20:30–2 (ordinanza 2021); regole per gli ospiti negli hotel dei Sassi; elettriche solo con permesso; moto.

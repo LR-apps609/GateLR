@@ -1,6 +1,6 @@
 {
- "version": "202610262345",
- "digest": "26f963684eee",
+ "version": "202610262346",
+ "digest": "32b530600556",
  "schema": 1,
  "cities": [
   {
@@ -42,6 +42,11 @@
    "id": "lucca",
    "file": "lucca.json",
    "sha256": "1c46a5c61e4b26cf131786ffdb95c0153e8a1ffbcd468be6bf6bffb494545252"
+  },
+  {
+   "id": "matera",
+   "file": "matera.json",
+   "sha256": "b9db446266656b704884e3543170ad365be269cc1732c7d7760035c1b3a3a44e"
   },
   {
    "id": "milano",
