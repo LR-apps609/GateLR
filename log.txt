@@ -1,0 +1,26 @@
+1 200 136390 https://www.comune.arezzo.it/accesso-irregolare-ztl-zona-traffico-limitato -> 1-accesso-irregolare-ztl-zona-traffico-limitato_
+2 200 152524 https://www.comune.arezzo.it/documento-pubblico/accesso-temporaneo-nella-ztl-zona-traffico-limitato -> 2-accesso-temporaneo-nella-ztl-zona-traffico-limitato_
+3 200 175932 https://www.comune.arezzo.it/node/21563 -> 3-21563_
+4 200 172200 https://www.comune.arezzo.it/node/21558 -> 4-21558_
+5 200 173567 https://www.comune.arezzo.it/node/21567 -> 5-21567_
+6 200 175407 https://www.comune.arezzo.it/node/21560 -> 6-21560_
+7 200 168646 https://comune.arezzo.it/caricoscarico-carnet-permessi -> 7-caricoscarico-carnet-permessi_
+8 200 138833 https://www.comune.arezzo.it/targhe-veicoli-e-circolazione -> 8-targhe-veicoli-e-circolazione_
+9 403 131337 https://www.comune.arezzo.it/novita/modifiche-temporanee-alla-ztl-apertura-straordinaria-del-varco-di-san-lorentino-il-14-15-e -> 9-modifiche-temporanee-alla-ztl-apertura-straordinaria-del-varco-di-san-lorentino-
+10 200 1947784 https://www.comune.arezzo.it/sites/default/files/2025-07/copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf -> 10-copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf_
+11 200 174173 https://www.comune.arezzo.it/node/21573 -> 11-21573_
+12 200 172489 https://www.comune.arezzo.it/node/21571 -> 12-21571_
+13 200 180013 https://www.comune.arezzo.it/node/21570 -> 13-21570_
+14 200 171402 https://www.comune.arezzo.it/node/21572 -> 14-21572_
+15 200 1242126 https://www.comune.arezzo.it/sites/default/files/statuti_regolamenti/files/pdf/ztl-nuovo-disciplinare_26_marzo-corretto.pdf -> 15-ztl-nuovo-disciplinare_26_marzo-corretto.pdf_
+16 200 218676 https://www.comune.arezzo.it/unita-organizzativa/ufficio-mobilita -> 16-ufficio-mobilita_
+17 404 118960 https://www.comune.arezzo.it/search?search_api_fulltext=ztl -> 17-search_
+18 404 118963 https://www.comune.arezzo.it/search?search_api_fulltext=varchi -> 18-search_
+19 200 31650 https://permessiztl.comune.arezzo.it/ -> 19-permessiztl.comune.arezzo.it_
+20 200 333627 https://www.accessibilitacentristorici.it/ztl/toscana/arezzo.html -> 20-arezzo.html_
+21 200 773746 https://www.arezzonotizie.it/attualita/telecamere-ztl-chiusa-varchi-orari-accesso.html -> 21-telecamere-ztl-chiusa-varchi-orari-accesso.html_
+22 200 767313 https://www.arezzonotizie.it/motori/news/ztl-chiusa-uscita-cosa-cambia-residenti.html -> 22-ztl-chiusa-uscita-cosa-cambia-residenti.html_
+23 200 63948 https://www.aschotel.com/blog/dove-parcheggiare-ad-arezzo/ -> 23-dove-parcheggiare-ad-arezzo_
+24 200 54959 https://www.atamarezzo.it/ -> 24-www.atamarezzo.it_
+25 overpass 156
+26 overpass 156

@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="it-IT">
+<head>
+	<base href="https://www.atamarezzo.it/it/" /><!--[if IE]></base><![endif]--> 
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Exprimo Design" />
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="https://fonts.googleapis.com/css?family=Nunito:200,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
+	<link rel="stylesheet" href="../style.css" type="text/css" />
+	<link rel="stylesheet" href="../css/dark.css" type="text/css" />
+	<link rel="stylesheet" href="../css/font-icons.css" type="text/css" />
+	<link rel="stylesheet" href="../css/fontawesome-all.min.css" type="text/css" />
+	<link rel="stylesheet" href="../css/animate.css" type="text/css" />
+	<link rel="stylesheet" href="../css/magnific-popup.css" type="text/css" />
+	<link rel="stylesheet" href="../js/components/leaflet/leaflet.css">
+
+	<!-- Date & Time Picker CSS -->
+	<link rel="stylesheet" href="../css/components/datepicker.css" type="text/css" />
+		<link rel="stylesheet" href="../css/components/wickedpicker.css" type="text/css" />
+
+	<link rel="stylesheet" href="../css/responsive.css" type="text/css" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lt IE 9]>
+		<script src="https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+
+	<!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
+	<link rel="stylesheet" type="text/css" href="../include/rs-plugin/css/settings.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="../include/rs-plugin/css/layers.css">
+	<link rel="stylesheet" type="text/css" href="../include/rs-plugin/css/navigation.css">
+
+	<!-- Bootstrap Select CSS -->
+	<link rel="stylesheet" href="../css/components/bs-select.css" type="text/css" />
+
+
+	<!-- Custom Css -->
+	<link rel="stylesheet" href="../css/custom.css" type="text/css" />
+	<link rel="icon" href="..//images/favicon.png">
+	<!-- Document Title
+	============================================= -->
+	<title>Atam Arezzo</title>
+	<meta content="Atam Arezzo" name="description">
+</head>
+
+<body class="stretched sticky-responsive-menu no-transition">
+
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+		
+<!-- Header NEW	============================================= -->
+<header id="header" class="full-header">
+
+	<div id="header-wrap">
+
+		<div class="container clearfix bg-secondary d-none d-lg-block">
+			<nav id="secondary-menu">
+				<ul class="separator-slash">
+											<li ><a href="https://www.atamarezzo.it/it/page/l-azienda.html">
+								<div>L'Azienda</div>
+							</a></li>
+																<li ><a href="https://www.atamarezzo.it/it/page/amministrazione-trasparente.html">
+								<div>Amministrazione Trasparente</div>
+							</a></li>
+										<li ><a href="page/whistleblowing.html">
+							<div>Whistleblowing</div>
+						</a></li>
+					<li ><a href="concorsi">
+							<div>Concorsi</div>
+						</a></li>
+					<li ><a href="gare">
+							<div>Gare</div>
+						</a></li>
+					<li ><a href="news">
+							<div>News</div>
+						</a></li>
+					<li ><a href="faq">
+							<div>FAQ</div>
+						</a></li>
+											<li ><a href="https://www.atamarezzo.it/it/page/sistemi-di-gestione.html">
+								<div>Sistemi di Gestione</div>
+							</a></li>
+										<li ><a href="contatti">
+							<div>Contatti</div>
+						</a></li>
+				</ul>
+			</nav>
+			<div class="numero-whatsapp">
+				<a href="https://www.atamarezzo.it/it/page/attivo-il-numero-whatsapp-a-disposizione-di-chiunque.html">
+					<img src="https://www.atamarezzo.it/images/Wapp.svg" style="height:25px;" />
+				</a>
+			</div>
+							<div class="numero-verde">
+					<a href="tel:800-381730">
+						<img src="https://www.atamarezzo.it/images/Telefono.svg" style="height:25px" />
+					</a>
+				</div>
+					</div>
+
+		<div class="container clearfix bg-boubble-light">
+
+			<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+			<!-- Logo
+					============================================= -->
+			<div id="logo">
+				<a href="index.php"><img src="../images/logo.svg" alt="Atam Arezzo"></a>
+			</div><!-- #logo end -->
+
+			<!-- Primary Navigation
+					============================================= -->
+			<nav id="primary-menu">
+
+				<ul class="separator-slash">
+					<li ><a href="parcheggi">
+							<div>Parcheggi</div>
+						</a>
+													<ul>
+																	<li><a href="parcheggi/multipiano/">
+											<div>Multipiano</div>
+										</a></li>
+																	<li><a href="parcheggi/in-superficie-regolato-da-barriere/">
+											<div>In superficie regolato da barriere</div>
+										</a></li>
+																	<li><a href="parcheggi/strisce-blu/">
+											<div>Strisce blu</div>
+										</a></li>
+																	<li><a href="parcheggi/area-camper/">
+											<div>Area Camper</div>
+										</a></li>
+																	<li><a href="parcheggi/bus-turistici/">
+											<div>Bus Turistici</div>
+										</a></li>
+																<li><a href="./page/documenti-e-moduli.html">Documenti e Moduli</a></li>
+							</ul>
+											</li>
+					<li ><a href="abbonamenti">
+							<div>Abbonamenti</div>
+						</a>
+													<ul>
+								
+									<li><a href="https://www.atamarezzo.it/it/abbonamenti/residente-dimorante/">
+											<div>Residente / Dimorante</div>
+										</a></li>
+								
+									<li><a href="https://www.atamarezzo.it/it/abbonamenti/lavoratore/">
+											<div>Lavoratore</div>
+										</a></li>
+								
+									<li><a href="https://www.atamarezzo.it/it/abbonamenti/pendolare/">
+											<div>Pendolare</div>
+										</a></li>
+								
+									<li><a href="https://www.atamarezzo.it/it/abbonamenti/studente/">
+											<div>Studente</div>
+										</a></li>
+								
+									<li><a href="https://www.atamarezzo.it/it/abbonamenti/espositore-fiera/">
+											<div>Espositore Fiera</div>
+										</a></li>
+																								<li><a href="./page/documenti-e-moduli.html">Documenti e Moduli</a></li>
+							</ul>
+											</li>
+					<li ><a href="tariffe">
+							<div>Tariffe</div>
+						</a></li>
+										<li><a href="javscript:;">App</a>
+						<ul>
+							<li ><a href="app-atam-parking">
+									<div>APP Atam Parking</div>
+								</a>
+							</li>
+							<li ><a href="muvmatic">
+									<div>Muvmatic</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+										<li><a href="javscript:;">Sharing</a>
+						<ul>
+															<li ><a href="https://www.atamarezzo.it/it/page/bike-sharing.html">
+										<div>Bike Sharing</div>
+									</a></li>
+																						<li ><a href="https://www.atamarezzo.it/it/page/car-sharing.html">
+										<div>Car Sharing</div>
+									</a></li>
+													</ul>
+					</li>
+					<li><a href="javscript:;">Velostazione</a>
+						<ul>
+															<li ><a href="page/velostazione.html">
+										<div>Informazioni</div>
+									</a></li>
+														<li><a href="https://velostazione.atamarezzo.it" target="_blank">
+									<div>Ingressi residui</div>
+								</a></li>
+						</ul>
+					</li>
+											<li ><a href="https://www.atamarezzo.it/it/page/ricarica-veicoli-elettrici.html">
+								<div>Ricarica veicoli elettrici</div>
+							</a></li>
+																<li ><a href="https://www.atamarezzo.it/it/page/scale-mobili.html">
+								<div>Scale mobili</div>
+							</a></li>
+					          						<li ><a href="https://www.atamarezzo.it/it/page/infopoint.html">
+								<div>Infopoint</div>
+							</a></li>
+									</ul>
+				<ul class="mobile-primary-menu">
+											<li ><a href="https://www.atamarezzo.it/it/page/l-azienda.html">
+								<div>L'Azienda</div>
+							</a></li>
+										<li ><a href="parcheggi">
+							<div>Parcheggi</div>
+						</a>
+													<ul>
+																	<li><a href="parcheggi/multipiano/">
+											<div>Multipiano</div>
+										</a></li>
+																	<li><a href="parcheggi/in-superficie-regolato-da-barriere/">
+											<div>In superficie regolato da barriere</div>
+										</a></li>
+																	<li><a href="parcheggi/strisce-blu/">
+											<div>Strisce blu</div>
+										</a></li>
+																	<li><a href="parcheggi/area-camper/">
+											<div>Area Camper</div>
+										</a></li>
+																	<li><a href="parcheggi/bus-turistici/">
+											<div>Bus Turistici</div>
+										</a></li>
+															</ul>
+											</li>
+										<li ><a href="app-atam-parking">
+							<div>APP Atam Parking</div>
+						</a></li>
+					<li ><a href="abbonamenti">
+							<div>Abbonamenti</div>
+						</a></li>
+					<li ><a href="tariffe">
+							<div>Tariffe</div>
+						</a></li>
+										<li><a href="javscript:;">Sharing</a>
+						<ul>
+															<li ><a href="https://www.atamarezzo.it/it/page/bike-sharing.html">
+										<div>Bike Sharing</div>
+									</a></li>
+																						<li ><a href="https://www.atamarezzo.it/it/page/car-sharing.html">
+										<div>Car Sharing</div>
+									</a></li>
+													</ul>
+					</li>
+					<li><a href="javscript:;">Velostazione</a>
+						<ul>
+															<li ><a href="page/velostazione.html">
+										<div>Informazioni</div>
+									</a></li>
+														<li><a href="https://velostazione.atamarezzo.it" target="_blank">
+									<div>Ingressi residui</div>
+								</a></li>
+						</ul>
+					</li>
+											<li ><a href="https://www.atamarezzo.it/it/page/ricarica-veicoli-elettrici.html">
+								<div>Ricarica veicoli elettrici</div>
+							</a></li>
+																<li ><a href="https://www.atamarezzo.it/it/page/scale-mobili.html">
+								<div>Scale mobili</div>
+							</a></li>
+					          						<li ><a href="https://www.atamarezzo.it/it/page/infopoint.html">
+								<div>Infopoint</div>
+							</a></li>
+																<li ><a href="https://www.atamarezzo.it/it/page/amministrazione-trasparente.html">
+								<div>Amministrazione Trasparente</div>
+							</a></li>
+															<li ><a href="concorsi">
+							<div>Concorsi</div>
+						</a></li>
+					<li ><a href="gare">
+							<div>Gare</div>
+						</a></li>
+					<li ><a href="news">
+							<div>News</div>
+						</a></li>
+					<li ><a href="faq">
+							<div>FAQ</div>
+						</a></li>
+											<li ><a href="https://www.atamarezzo.it/it/page/sistemi-di-gestione.html">
+								<div>Sistemi di Gestione</div>
+							</a></li>
+										<li ><a href="contatti">
+							<div>Contatti</div>
+						</a></li>
+				</ul>
+
+			</nav><!-- #primary-menu end -->
+
+		</div>
+
+	</div>
+
+</header><!-- #header end -->
+ 
+		<section id="slider" class="slider-element slider-parallax revslider-wrap clearfix">
+			<div class="slider-parallax-inner">
+				<!--
+				#################################
+					- THEMEPUNCH BANNER -
+				#################################
+				-->
+				<div id="rev_slider_k_fullwidth_wrapper" class="rev_slider_wrapper fullwidth-container"  style="padding:0px;">
+					<!-- START REVOLUTION SLIDER 5.1.4 fullwidth mode -->
+					<div id="rev_slider_k_fullwidth" class="rev_slider fullwidthbanner" style="display:none;" data-version="5.1.4">
+						<ul>
+
+
+						
+							<li data-transition="fade" data-link="https://atamarezzo.it/it/page/infopoint.html" data-slotamount="7" data-masterspeed="1500" data-title="Nuovo punto vendita">
+								<img src="../media/img_slide/slide/slide-infopoint.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+				
+															<div class="tp-caption tp-resizeme dark sfb fadeout"
+								data-x="left"
+								data-y="middle"
+								data-visibility="['on', 'on', 'on', 'on']"
+								data-hoffset="['250','100','50','15']"
+								data-voffset="['50','10','0','0']"
+								data-speed="400"
+								data-start="800"
+								data-width="['400','400','300','450']"
+								data-fontsize="['32', '24', '22', '18']" 
+								data-lineheight="['32', '24', '22', '18']" 
+								data-easing="Power4.easeOut">
+																		<h2 class="text-right">Nuovo punto vendita</h2>
+																																				<a href="https://atamarezzo.it/it/page/infopoint.html" class="button button-reveal button-large tright fright">
+										<i class="icon-angle-right"></i>
+										<span>Scopri di più</span>
+									</a>
+																	</div>
+														</li>
+						
+							<li data-transition="fade" data-link="https://www.atamarezzo.it/it/news/arezzo-citta-del-natale-2026-aree-di-sosta-turisti_23.html" data-slotamount="7" data-masterspeed="1500" data-title="CITTA' DEL NATALE">
+								<img src="../media/img_slide/slide/attrazioni-villaggiotirolese.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+				
+															<div class="tp-caption tp-resizeme dark sfb fadeout"
+								data-x="left"
+								data-y="middle"
+								data-visibility="['on', 'on', 'on', 'on']"
+								data-hoffset="['250','100','50','15']"
+								data-voffset="['50','10','0','0']"
+								data-speed="400"
+								data-start="800"
+								data-width="['400','400','300','450']"
+								data-fontsize="['32', '24', '22', '18']" 
+								data-lineheight="['32', '24', '22', '18']" 
+								data-easing="Power4.easeOut">
+																		<h2 class="text-right">CITTA' DEL NATALE</h2>
+																											<h3 class="text-right">AREE DI SOSTA TURISTI</h3>
+																											<a href="https://www.atamarezzo.it/it/news/arezzo-citta-del-natale-2026-aree-di-sosta-turisti_23.html" class="button button-reveal button-large tright fright">
+										<i class="icon-angle-right"></i>
+										<span>LEGGI TUTTO</span>
+									</a>
+																	</div>
+														</li>
+						
+							<li data-transition="fade" data-link="https://www.atamarezzo.it/it/news/app-atam-parking-scopri-le-nuove-funzionalita_31.html" data-slotamount="7" data-masterspeed="1500" data-title="ATAM PARKING">
+								<img src="../media/img_slide/slide/atam-app.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+				
+															<div class="tp-caption tp-resizeme dark sfb fadeout"
+								data-x="left"
+								data-y="middle"
+								data-visibility="['on', 'on', 'on', 'on']"
+								data-hoffset="['250','100','50','15']"
+								data-voffset="['50','10','0','0']"
+								data-speed="400"
+								data-start="800"
+								data-width="['400','400','300','450']"
+								data-fontsize="['32', '24', '22', '18']" 
+								data-lineheight="['32', '24', '22', '18']" 
+								data-easing="Power4.easeOut">
+																		<h2 class="text-right">ATAM PARKING</h2>
+																											<h3 class="text-right">Scarica la nuova App e scopri le novità</h3>
+																											<a href="https://www.atamarezzo.it/it/news/app-atam-parking-scopri-le-nuove-funzionalita_31.html" class="button button-reveal button-large tright fright">
+										<i class="icon-angle-right"></i>
+										<span>leggi tutto</span>
+									</a>
+																	</div>
+														</li>
+						
+							<li data-transition="fade" data-link="https://www.atamarezzo.it/it/muvmatic" data-slotamount="7" data-masterspeed="1500" data-title="MUVMATIC">
+								<img src="../media/img_slide/slide/app3-slide.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+				
+															<div class="tp-caption tp-resizeme dark sfb fadeout"
+								data-x="left"
+								data-y="middle"
+								data-visibility="['on', 'on', 'on', 'on']"
+								data-hoffset="['250','100','50','15']"
+								data-voffset="['50','10','0','0']"
+								data-speed="400"
+								data-start="800"
+								data-width="['400','400','300','450']"
+								data-fontsize="['32', '24', '22', '18']" 
+								data-lineheight="['32', '24', '22', '18']" 
+								data-easing="Power4.easeOut">
+																		<h2 class="text-right">MUVMATIC</h2>
+																											<h3 class="text-right">Il servizio di apertura automatica delle barriere nei parcheggi di Atam</h3>
+																											<a href="https://www.atamarezzo.it/it/muvmatic" class="button button-reveal button-large tright fright">
+										<i class="icon-angle-right"></i>
+										<span>Scopri di più</span>
+									</a>
+																	</div>
+														</li>
+				  
+						</ul>
+					</div>
+				</div><!-- END REVOLUTION SLIDER -->
+			</div>
+		</section>
+		<section id="slider-mobile" class="slider-element slider-parallax revslider-wrap clearfix">
+			<div class="slider-parallax-inner">
+				<!--
+				#################################
+					- THEMEPUNCH BANNER -
+				#################################
+				-->
+				<div id="rev_slider_k_fullwidth_wrapper_mobile" class="rev_slider_wrapper fullwidth-container"  style="padding:0px;">
+					<!-- START REVOLUTION SLIDER 5.1.4 fullwidth mode -->
+					<div id="rev_slider_k_fullwidth_mobile" class="rev_slider fullwidthbanner" style="display:none;" data-version="5.1.4">
+						<ul>
+						
+							<li data-transition="fade" data-link="https://atamarezzo.it/it/page/infopoint.html" data-slotamount="7" data-masterspeed="1500" data-title="Nuovo punto vendita">
+								<img src="../media/img_slide/slide/"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+				
+															<div class="tp-caption tp-resizeme dark sfb fadeout"
+								data-x="left"
+								data-y="middle"
+								data-visibility="['on', 'on', 'on', 'on']"
+								data-hoffset="['250','100','50','15']"
+								data-voffset="['50','10','0','0']"
+								data-speed="400"
+								data-start="800"
+								data-width="['400','400','300','450']"
+								data-fontsize="['32', '24', '22', '18']" 
+								data-lineheight="['32', '24', '22', '18']" 
+								data-easing="Power4.easeOut">
+																		<h2 class="text-right">Nuovo punto vendita</h2>
+																																				<a href="https://atamarezzo.it/it/page/infopoint.html" class="button button-rounded button-reveal button-large tright fright">
+										<i class="icon-angle-right"></i>
+										<span>Scopri di più</span>
+									</a>
+																	</div>
+														</li>
+						
+							<li data-transition="fade" data-link="https://www.atamarezzo.it/it/news/arezzo-citta-del-natale-2026-aree-di-sosta-turisti_23.html" data-slotamount="7" data-masterspeed="1500" data-title="CITTA' DEL NATALE">
+								<img src="../media/img_slide/slide/attrazioni-villaggiotirolese.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+				
+															<div class="tp-caption tp-resizeme dark sfb fadeout"
+								data-x="left"
+								data-y="middle"
+								data-visibility="['on', 'on', 'on', 'on']"
+								data-hoffset="['250','100','50','15']"
+								data-voffset="['50','10','0','0']"
+								data-speed="400"
+								data-start="800"
+								data-width="['400','400','300','450']"
+								data-fontsize="['32', '24', '22', '18']" 
+								data-lineheight="['32', '24', '22', '18']" 
+								data-easing="Power4.easeOut">
+																		<h2 class="text-right">CITTA' DEL NATALE</h2>
+																											<h3 class="text-right">AREE DI SOSTA TURISTI</h3>
+																											<a href="https://www.atamarezzo.it/it/news/arezzo-citta-del-natale-2026-aree-di-sosta-turisti_23.html" class="button button-rounded button-reveal button-large tright fright">
+										<i class="icon-angle-right"></i>
+										<span>LEGGI TUTTO</span>
+									</a>
+																	</div>
+														</li>
+						
+							<li data-transition="fade" data-link="https://www.atamarezzo.it/it/news/app-atam-parking-scopri-le-nuove-funzionalita_31.html" data-slotamount="7" data-masterspeed="1500" data-title="ATAM PARKING">
+								<img src="../media/img_slide/slide/atam-app_mobile.png"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+				
+															<div class="tp-caption tp-resizeme dark sfb fadeout"
+								data-x="left"
+								data-y="middle"
+								data-visibility="['on', 'on', 'on', 'on']"
+								data-hoffset="['250','100','50','15']"
+								data-voffset="['50','10','0','0']"
+								data-speed="400"
+								data-start="800"
+								data-width="['400','400','300','450']"
+								data-fontsize="['32', '24', '22', '18']" 
+								data-lineheight="['32', '24', '22', '18']" 
+								data-easing="Power4.easeOut">
+																		<h2 class="text-right">ATAM PARKING</h2>
+																											<h3 class="text-right">Scarica la nuova App e scopri le novità</h3>
+																											<a href="https://www.atamarezzo.it/it/news/app-atam-parking-scopri-le-nuove-funzionalita_31.html" class="button button-rounded button-reveal button-large tright fright">
+										<i class="icon-angle-right"></i>
+										<span>leggi tutto</span>
+									</a>
+																	</div>
+														</li>
+						
+							<li data-transition="fade" data-link="https://www.atamarezzo.it/it/muvmatic" data-slotamount="7" data-masterspeed="1500" data-title="MUVMATIC">
+								<img src="../media/img_slide/slide/app3-slide.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+				
+															<div class="tp-caption tp-resizeme dark sfb fadeout"
+								data-x="left"
+								data-y="middle"
+								data-visibility="['on', 'on', 'on', 'on']"
+								data-hoffset="['250','100','50','15']"
+								data-voffset="['50','10','0','0']"
+								data-speed="400"
+								data-start="800"
+								data-width="['400','400','300','450']"
+								data-fontsize="['32', '24', '22', '18']" 
+								data-lineheight="['32', '24', '22', '18']" 
+								data-easing="Power4.easeOut">
+																		<h2 class="text-right">MUVMATIC</h2>
+																											<h3 class="text-right">Il servizio di apertura automatica delle barriere nei parcheggi di Atam</h3>
+																											<a href="https://www.atamarezzo.it/it/muvmatic" class="button button-rounded button-reveal button-large tright fright">
+										<i class="icon-angle-right"></i>
+										<span>Scopri di più</span>
+									</a>
+																	</div>
+														</li>
+				  
+						</ul>
+					</div>
+				</div><!-- END REVOLUTION SLIDER -->
+			</div>
+		</section> 
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap pt-0 pb-0">
+				
+<div class="container my-5">
+	<div class="row">
+		<div class="col-12 text-center">
+			<div class="promo promo-dark promo-turista">
+				<a href="informazioni-per-il-turista">
+					<h3>Informazioni per il turista</h3>
+					<p>Informazioni utili a chi desidera visitare la città di Arezzo</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+			<div class="container-fluid clearfix utilita-wrap">
+				<div class="row">
+					<div class="col-12 col-lg-4 utilita-box px-0" style="background-image: url('../images/background/bg-utilita-01.jpg');">
+						<div class="utilita-content">
+							<h3>Parcheggi Stradali</h3>
+							<ul>
+								<li><a href="https://www.atamarezzo.it/it/parcheggi/strisce-blu/">Strisce Blu</a></li>
+																		<li><a href="https://www.atamarezzo.it/it/parcheggi/cadorna_3.html">Cadorna</a></li>
+																		<li><a href="https://www.atamarezzo.it/it/parcheggi/eden_2.html">Eden</a></li>
+																<li><a href="https://www.atamarezzo.it/it/parcheggi/area-camper/">Area Camper</a></li>
+								<li><a href="https://www.atamarezzo.it/it/parcheggi/bus-turistici/">Bus Turistici</a></li>
+							</ul>
+							<a href="https://www.atamarezzo.it/it/parcheggi" class="button button-white">Entra</a>
+						</div>
+						<img class="utilita-icon" src="../images/icon/parcheggio-str.svg" />
+					</div>
+					<div class="col-12 col-lg-4 utilita-box px-0" style="background-image: url('../images/background/bg-utilita-02.jpg');">
+						<div class="utilita-content">
+							<h3>Parcheggi Multipiano</h3>
+							<ul>
+																		<li><a href="https://www.atamarezzo.it/it/parcheggi/baldaccio_1.html">Baldaccio</a></li>
+																		<li><a href="https://www.atamarezzo.it/it/parcheggi/mecenate_4.html">Mecenate</a></li>
+																		<li><a href="https://www.atamarezzo.it/it/parcheggi/ospedale-san-donato_5.html">Ospedale San Donato</a></li>
+															</ul>
+							<a href="https://www.atamarezzo.it/it/parcheggi/multipiano/" class="button button-white">Entra</a>
+						</div>
+						<img class="utilita-icon" src="../images/icon/parcheggio.svg" />
+					</div>
+					<div class="col-12 col-lg-4 utilita-box px-0" style="background-image: url('../images/background/bg-utilita-03.jpg');">
+						<div class="utilita-content">
+							<h3>Utilit&agrave;</h3>
+							<ul>
+								<li><a href="https://www.atamarezzo.it/it/abbonamenti">Abbonamenti</a></li>
+								<li><a href="./page/documenti-e-moduli.html">Documenti e Moduli</a></li>
+								<li><a href="https://www.atamarezzo.it/it/tariffe">Tariffe</a></li>
+																<li><a href="https://www.atamarezzo.it/it/page/pagamento-sanzioni.html">Pagamento sanzioni</a></li>
+																																							</ul>
+							<a href="#info" data-scrollto="#info" class="button button-white">Entra</a>
+						</div>
+						<img class="utilita-icon" src="../images/icon/mobile.svg" />
+					</div>
+				</div>
+			</div>
+                <div class="container clearfix pt-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="title-heading text-center">TROVA LA SOLUZIONE DI PARCHEGGIO PIU' ADATTA PER LE TUE ESIGENZE</h1>
+                        </div>
+                    </div>
+                    <div class="row widget-filter">
+                                                <div class="col-6 col-lg text-center">
+                            <a href="https://www.atamarezzo.it/it/abbonamenti/residente-dimorante/">
+                                <img src="../media/img_profilo/resize/residente.svg" />
+                                <p class="d-block">Residente / Dimorante</p>
+                            </a>
+                        </div>
+                                                <div class="col-6 col-lg text-center">
+                            <a href="https://www.atamarezzo.it/it/abbonamenti/lavoratore/">
+                                <img src="../media/img_profilo/resize/lavoratore.svg" />
+                                <p class="d-block">Lavoratore</p>
+                            </a>
+                        </div>
+                                                <div class="col-6 col-lg text-center">
+                            <a href="https://www.atamarezzo.it/it/abbonamenti/pendolare/">
+                                <img src="../media/img_profilo/resize/pendolare.svg" />
+                                <p class="d-block">Pendolare</p>
+                            </a>
+                        </div>
+                                                <div class="col-6 col-lg text-center">
+                            <a href="https://www.atamarezzo.it/it/abbonamenti/studente/">
+                                <img src="../media/img_profilo/resize/studente.svg" />
+                                <p class="d-block">Studente</p>
+                            </a>
+                        </div>
+                                                <div class="col-6 col-lg text-center">
+                            <a href="https://www.atamarezzo.it/it/abbonamenti/espositore-fiera/">
+                                <img src="../media/img_profilo/resize/fiera.svg" />
+                                <p class="d-block">Espositore Fiera</p>
+                            </a>
+                        </div>
+                                                                    </div>
+                </div>
+    
+
+<div class="arezzo-card" style="background-image: url('../images/background/app-parallax.jpg');" data-bottom-top="background-position:0px 100px;" data-top-bottom="background-position:0px -100px;">
+    <div class="container clearfix">
+        <div class="row">
+            <div class="col-12 col-lg-4 text-center text-lg-right">
+                <h3>App ATAM Parking<br></h3>
+                <h4>Finalmente è scaricabile su Play Store e App Store la nuova App ATAM PARKING per smartphone!<br></h4>
+                <h5>Guarda il nuovo Spot!</h5>
+            </div>
+            <div class="col-12 col-lg-7 offset-lg-1 text-center text-lg-right">
+                <a href="app-atam-parking"><img src="../images/thumbnail.jpg"></a>
+                <a style="width: 50%;" class="button topmargin btn-block text-center mx-auto d-block" href="app-atam-parking">Scopri di più</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container clearfix topmargin-lg">
+	<div class="promo promo-light p-5">
+		<div class="row">
+			<div class="col-12 text-center">
+				<span><h3 class="nobottommargin">PUNTO VENDITA</h3>
+<br />
+<h4 class="nobottommargin">UFFICIO TURISTICO (INFOPOINT DISCOVER AREZZO) - STAZIONE</h4>
+<br />
+Piazza della Repubblica, 1 (fronte Stazione Ferroviaria)<br />
+Tel.: 0575/1696369<br />
+Orario di apertura:<br />
+Dal Marted&igrave; alla Domenica dalle 9:00 alle 15:00<br />
+Luned&igrave; chiuso (eccetto i luned&igrave; a ridosso del fine mese per il rinnovo degli abbonamenti)</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+			<div class="container clearfix contatti-home custom-padding">
+                <div class="row">
+                    <div class="col text-center">
+                        <h1 class="title-heading">CONTATTI</h1>
+                    </div>
+                </div>
+                <div class="row contatti-box">
+                    <div class="col-12 col-lg-6">
+                                                <ul>
+                                                        <li>
+                                <div class="custom-icon i-ver"></div>
+                                <div>
+                                    <h3>Numero Verde</h3>
+                                    <p>800-381730</p>
+                                </div>
+                            </li>
+                                                                                    <li>
+                                <div class="custom-icon i-tel"></div>
+                                <div>
+                                    <h3>Telefono</h3>
+                                    <p>0575/984534 – 0575/984520</p>
+                                </div>
+                            </li>
+                                                                                    <li>
+                                <div class="custom-icon i-fax"></div>
+                                <div>
+                                    <h3>Fax</h3>
+                                    <p>0575/381012 </p>
+                                </div>
+                            </li>
+                                                                                    <li>
+                                <div class="custom-icon i-email"></div>
+                                <div>
+                                    <h3>Email</h3>
+                                    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b9d8cdd8d4f9d8cdd8d4d8cbdcc3c3d697d0cd">[email&#160;protected]</a></p>
+                                </div>
+                            </li>
+                                                                                    <li>
+                                <div class="custom-icon i-orari"></div>
+                                <div>
+                                    <h3>Orari</h3>
+                                    <p>Tutti i giorni compreso il sabato <br>dalle ore 8.00 alle ore 14.00<br>Il lunedì anche dalle ore 15.30 - 18.30.</p>
+                                </div>
+                            </li>
+                                                    </ul>
+                                                <div class="assistenza-block">
+                            <div class="assistenza-row">
+								<div class="assistenza-col">
+									<h3><a href="reclami" target="_blank">SEGNALAZIONI RISERVATE <i class="fal fa-angle-right"></i></a></h3>
+									<p>Invia una segnalazione riservata</p>
+								</div>
+								<div class="assistenza-col">
+                                    <img src="https://www.atamarezzo.it/images/icon/segnalazioni.svg" />
+								</div>
+                            </div>
+                            <div class="assistenza-row">
+								<div class="assistenza-col">
+									<h3><a href="reclami">RECLAMI <i class="fal fa-angle-right"></i></a></h3>
+									<p>Invia un reclamo</p>
+								</div>
+								<div class="assistenza-col">
+                                    <img src="https://www.atamarezzo.it/images/icon/reclami.svg" />
+								</div>
+                            </div>
+                            <div class="assistenza-row">
+								<div class="assistenza-col">
+									<h3><a href="https://www.atamarezzo.it/pdf/carta-dei-servizi.pdf" target="_blank">CARTA DEI SERVIZI <i class="fal fa-angle-right"></i></a></h3>
+									<p>Scarica la nostra brochure</p>
+								</div>
+								<div class="assistenza-col">
+                                    <img src="https://www.atamarezzo.it/images/icon/brochure.svg" />
+								</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+						<div class="contact-widget">
+                            
+							<div class="contact-form-result"></div>
+
+							<form class="nobottommargin custom-form" id="template-contactform" name="template-contactform" action="../controller/frontend/contatti/send_email.php" method="post">
+
+								<div class="form-process"></div>
+                                
+                                <div class="row">
+    
+                                    <div class="col-12">
+                                        <label for="name">Nome e Cognome <small>*</small></label>
+                                        <input type="text" id="name" name="name" value="" class="sm-form-control required" />
+                                    </div>
+    
+                                    <div class="col-sm-6 col-12 pr-sm-1">
+                                        <label for="email">Email <small>*</small></label>
+                                        <input type="email" id="email" name="email" value="" class="required email sm-form-control" />
+                                    </div>
+    
+                                    <div class="col-sm-6 col-12 pl-sm-1">
+                                        <label for="phone">Telefono</label>
+                                        <input type="text" id="phone" name="phone" value="" class="sm-form-control" />
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="message">Messaggio <small>*</small></label>
+                                        <textarea class="required sm-form-control" id="message" name="message" rows="6" cols="30"></textarea>
+                                    </div>
+    
+                                    <div class="col-12 hidden">
+                                        <input type="text" id="botcheck" name="botcheck" value="" class="sm-form-control" />
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input required" type="checkbox" value="1" id="privacy" name="privacy">
+                                            <label class="form-check-label" for="privacy">
+                                                Ho preso visione dell'informativa sulla Privacy ed acconsento al trattamento dei miei dati personali <a href="https://www.atamarezzo.it/global_inc/pagina/ajax.php?slug=informativa-privacy" target="_blank" data-lightbox="ajax">Clicca qui</a>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-7 col-12 home-form">
+    
+                                        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                        <div class="g-recaptcha" data-sitekey="6LdiiVwUAAAAAO-0U-CfVd8pG8im_GrzmRjmNUnQ"></div>
+    
+                                    </div>
+    
+                                    <div class="col-sm-5 col-12">
+                                        <button class="button nomargin btn-block" type="submit" id="submit" name="submit" value="submit">Invia</button>
+                                    </div>
+                                </div>
+
+							</form>
+
+						</div>                    </div>
+				</div>
+            </div>
+			<div class="content-wrap notoppadding nobottompadding">
+				<!-- Portfolio Items
+				============================================= -->
+				<div id="portfolio" class="portfolio grid-container portfolio-3 portfolio-nomargin portfolio-full clearfix">
+									<article class="portfolio-item">
+						<div class="portfolio-image custom-hover">
+							<a href="https://atamarezzo.it/it/page/bike-sharing.html" title="">
+								<img src="../media/img_banner/banner/bike-sharing.jpg" alt="" />
+							</a>
+						</div>
+											</article>
+									<article class="portfolio-item">
+						<div class="portfolio-image custom-hover">
+							<a href="https://atamarezzo.it/it/page/car-sharing.html" title="">
+								<img src="../media/img_banner/banner/car-sharing.jpg" alt="" />
+							</a>
+						</div>
+											</article>
+									<article class="portfolio-item">
+						<div class="portfolio-image custom-hover">
+							<a href="https://atamarezzo.it/it/page/elettropoints.html" title="">
+								<img src="../media/img_banner/banner/elettropoint.jpg" alt="" />
+							</a>
+						</div>
+											</article>
+								</div>
+			</div>
+
+ 
+			<div class="container clearfix custom-padding advertising-home">
+                <div class="row">
+				<div class="col-12 col-sm-6">
+                    <h1 class="title-heading text-center">NEWS</h1>
+					<div id="oc-images" class="owl-carousel image-carousel carousel-widget" data-speed="400" data-autoplay="9000" data-loop="true" data-margin="20" data-nav="true" data-pagi="false" data-items-xs="1" data-items-sm="1" data-items-md="1" data-items-lg="1" data-items-xl="1">
+										<div class="oc-item">
+							<h3 class="text-center"><a href="https://www.atamarezzo.it/it/news/arezzo-citta-del-natale-2026-aree-di-sosta-turisti_23.html">AREZZO CITTA' DEL NATALE 2026 - AREE DI SOSTA TURISTI</a></h3>
+							<a class="wrapper-img" href="https://www.atamarezzo.it/it/news/arezzo-citta-del-natale-2026-aree-di-sosta-turisti_23.html">
+								<img src="../media/img_news/resize/arezzo città del natale piazza grande-2.jpg" />
+							</a>
+							<p>In occasione della Citt&agrave; del Natale 2026, dal 14 novembre 2026 al 6 gennaio 2027 compresi, ATAM S.p.A. mette a disposizione dei turisti aree di sosta dedicate:<br /><br />
+<br /><br />
+- aree di sosta camper -&nbsp;per tutte le informazioni visita la pagina area camper;<br /><br />
+- aree di sosta&nbsp;bus&nbsp;-... <a href="https://www.atamarezzo.it/it/news/arezzo-citta-del-natale-2026-aree-di-sosta-turisti_23.html" class="link-more">leggi tutto <i class="fal fa-angle-right"></i></a></p>
+						</div>
+										<div class="oc-item">
+							<h3 class="text-center"><a href="https://www.atamarezzo.it/it/news/area-attrezzata-camper-di-via-duccio-di-buoninsegna-chiusura-invernale_17.html">AREA ATTREZZATA CAMPER DI VIA DUCCIO DI BUONINSEGNA  - CHIUSURA INVERNALE</a></h3>
+							<a class="wrapper-img" href="https://www.atamarezzo.it/it/news/area-attrezzata-camper-di-via-duccio-di-buoninsegna-chiusura-invernale_17.html">
+								<img src="../media/img_news/resize/area camper_duccio buoninsegna.JPG" />
+							</a>
+							<p>Si comunica che&nbsp;dal giorno 13 novembre&nbsp;l&#39;area camper di via Duccio di Buonisegna sar&agrave; CHIUSA ai camper turistici come da Delibera G.C. 517/2019.<br /><br />
+Per tutte le informazioni sulle aree di sosta disponibili visita la pagina dedicata alle&nbsp;aree camper.<br /><br />
+&nbsp; <a href="https://www.atamarezzo.it/it/news/area-attrezzata-camper-di-via-duccio-di-buoninsegna-chiusura-invernale_17.html" class="link-more">leggi tutto <i class="fal fa-angle-right"></i></a></p>
+						</div>
+										<div class="oc-item">
+							<h3 class="text-center"><a href="https://www.atamarezzo.it/it/news/servizio-ricarica-veicoli-elettrici-agg-al-01-08-2026_7.html">SERVIZIO RICARICA VEICOLI ELETTRICI - AGG. AL 01/08/2026</a></h3>
+							<a class="wrapper-img" href="https://www.atamarezzo.it/it/news/servizio-ricarica-veicoli-elettrici-agg-al-01-08-2026_7.html">
+								<img src="../media/img_news/resize/be charge_colonnina 100kw_ridotta.jpg" />
+							</a>
+							<p>E&#39; attivo il&nbsp;nuovo servizio di ricarica dei veicoli elettrici erogato dalla societ&agrave; PLENITUDE ON THE ROAD, aggiudicataria del &quot;servizio di installazione, manutenzione ordinaria e straordinaria, gestione pluriennale della infrastruttura elettrica e servizio di ricarica di veicoli... <a href="https://www.atamarezzo.it/it/news/servizio-ricarica-veicoli-elettrici-agg-al-01-08-2026_7.html" class="link-more">leggi tutto <i class="fal fa-angle-right"></i></a></p>
+						</div>
+									</div>
+				</div>
+									<div class="col-12 col-sm-6">
+                        <h1 class="title-heading text-center">PUBBLICIT&Agrave;TEMPORANEA E AFFISSIONALE</h1>
+						<h3 class="text-center">PROMUOVI LA TUA ATTIVITA CON I NOSTRI SPAZI</h3>
+						<a class="wrapper-img" href="https://www.atamarezzo.it/it/pubblicita/promuovi-la-tua-attivita-con-i-nostri-spazi_1.html">
+							<img src="../media/img_advertising/resize/Senza.jpg" />
+						</a>
+						<p>Se sei interessato a fare pubblicit&agrave; all&rsquo;interno delle nostre strutture di parcheggio contatta gli uffici amministrativi di Atam SpA al numero verde gratuito 800381730 o per mail all&rsquo;indirizzo <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="305144515d705144515d5142554a4a5f1e5944">[email&#160;protected]</a> <a href="https://www.atamarezzo.it/it/pubblicita/promuovi-la-tua-attivita-con-i-nostri-spazi_1.html" class="link-more">leggi tutto <i class="fal fa-angle-right"></i></a></p>
+					</div>
+								</div>
+			</div>
+	<div id="info" class="info-home">
+		<div class="container clearfix py-5">
+			<div class="row d-flex justify-content-around">
+				<div class="col-12 text-center">
+					<h1 class="title-heading text-center">INFO UTILI</h1>
+				</div>
+									<div class="col-6 col-xs-6 col-md-3">
+						<a class="d-block mb-4 custom-hover" href="../it/abbonamenti">
+							<img src="../images/static/info-abbonamenti.png" />
+						</a>
+						<h3 class="text-center"><a href="../it/abbonamenti">ABBONAMENTI</a></h3>
+					</div>
+									<div class="col-6 col-xs-6 col-md-3">
+						<a class="d-block mb-4 custom-hover" href="./page/documenti-e-moduli.html">
+							<img src="../images/static/info-doc&mod.png" />
+						</a>
+						<h3 class="text-center"><a href="./page/documenti-e-moduli.html">DOCUMENTI E MODULI</a></h3>
+					</div>
+									<div class="col-6 col-xs-6 col-md-3">
+						<a class="d-block mb-4 custom-hover" href="../it/tariffe">
+							<img src="../images/static/info-tariffe.png" />
+						</a>
+						<h3 class="text-center"><a href="../it/tariffe">TARIFFE</a></h3>
+					</div>
+									<div class="col-6 col-xs-6 col-md-3">
+						<a class="d-block mb-4 custom-hover" href="../it/page/pagamento-sanzioni.html">
+							<img src="../images/static/info-sanzioni.png" />
+						</a>
+						<h3 class="text-center"><a href="../it/page/pagamento-sanzioni.html">PAGAMENTO SANZIONI</a></h3>
+					</div>
+							</div>
+		</div>
+	</div>
+
+            <div class="brochure-home">
+                <div class="container clearfix pt-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="title-heading text-center text-lg-left">DOWNLOAD</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-8 col-lg-5 d-none d-lg-block">
+                            <img class="brochure-img" src="../images/static/brochure-01.png" style="margin-left: -100px;"/>
+                        </div>
+                        <div class="col-6 col-lg-2 text-center mb-5 mb-lg-0">
+                            <div class="vertical-center-lg">
+                                <a href="https://www.atamarezzo.it/pdf/carta-dei-servizi.pdf" target="_blank">
+                                    <img class="pdf-icon" src="../images/icon/pdf.svg">
+                                </a>
+                                <h2><a href="https://www.atamarezzo.it/pdf/carta-dei-servizi.pdf" target="_blank">SCARICA<br>LA CARTA<br>DEI SERVIZI</a></h2>
+                                                            </div>
+                        </div>
+                        <div class="col-6 col-lg-2 text-center mb-5 mb-lg-0">
+                            <div class="vertical-center-lg">
+                                <a href="https://www.atamarezzo.it/pdf/atam-brochure.pdf" target="_blank">
+                                    <img class="pdf-icon" src="../images/icon/pdf.svg">
+                                </a>
+                                <h2><a href="https://www.atamarezzo.it/pdf/atam-brochure.pdf" target="_blank">SCARICA<br>LA NOSTRA<br>BROCHURE</a></h2>
+                                                            </div>
+                        </div>
+                        <div class="col-12 col-md-3 d-none d-lg-block text-center">
+                            <img class="brochure-img" src="../images/static/brochure-02.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+			</div>
+
+		</section><!-- #content end -->
+		
+		<footer id="footer" class="custom-footer">
+
+			<div class="container">
+
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap clearfix">
+					<div class="row">
+						<div class="col-md-4 col-12 mb-3 mb-md-0 text-center text-md-left">
+							<div class="widget clearfix">
+								<img src="../images/logo-footer.svg" alt="Atam Arezzo" class="footer-logo mb-1 mb-md-0">
+								<p class="text-center">Atam Spa - Societ&agrave; con socio unico</p>
+																<div class="row">
+									<div class="col-xs-12 col-sm-6 text-center">
+										<img class="cert float-none" src="../images/certificazioni/SGS_ISO_9001.jpg"><br>
+										<p class="float-left w-100 mt-2">Certificato IT23/00000484</p>
+									</div>
+									<div class="col-xs-12 col-sm-6 text-center">
+										<img class="cert float-none" src="../images/certificazioni/SGS_ISO_45001.jpg"><br>
+										<p class="float-left w-100 mt-2">Certificato IT23/00000537</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4 col-12 text-center text-md-left">
+							<div class="widget clearfix">
+								<p class="mb-3 mb-md-5">DIREZIONE ED AMMINISTRAZIONE<br />
+Atam Spa<br />
+Azienda Territoriale Arezzo Mobilit&agrave;<br />
+Loc. Case Nuove di Ceciliano, 49/5 - 52100 Arezzo<br />
+Tel.: 0575/984534 &ndash; 0575/984520<br />
+Fax: 0575/381012<br />
+Email: <a href="/cdn-cgi/l/email-protection#412035202c012035202c2033243b3b2e6f2835"><span class="__cf_email__" data-cfemail="1b7a6f7a765b7a6f7a767a697e61617435726f">[email&#160;protected]</span></a> - Pec: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fd9c899c90bd8d989ed39c899c909c8f98878792d39489">[email&#160;protected]</a><br />
+PIVA: IT00368260519 - CF: 92004460512<br />
+REA 106838 - Cap soc. 4.811.714,00 i.v.</p>
+								<p class="mb-3 mb-md-0">Orario di apertura degli uffici:<br>Tutti i giorni compreso il sabato <br>dalle ore 8.00 alle ore 14.00<br>Il lunedì anche dalle ore 15.30 - 18.30.</p>
+																	<p><a href="https://www.atamarezzo.it/it/page/politica-per-il-trattamento-dei-dati-personali-1.html">Privacy Policy</a></p>
+															</div>
+						</div>
+
+						<div class="col-md-4 col-12 text-center text-md-left">
+							<div class="widget clearfix">
+																	<div class=" float-none float-md-left mt-3 mt-md-0 bottommargin-sm">
+										<p>PUNTO VENDITA
+<br />
+UFFICIO TURISTICO (INFOPOINT DISCOVER AREZZO) - STAZIONE
+<br />
+Piazza della Repubblica, 1 (fronte Stazione Ferroviaria)<br />
+Tel.: 0575/1696369<br />
+Orario di apertura:<br />
+Dal Marted&igrave; alla Domenica dalle 9:00 alle 15:00<br />
+Luned&igrave; chiuso (eccetto i luned&igrave; a ridosso del fine mese per il rinnovo degli abbonamenti)</p>
+									</div>
+																<div class="mb-0 mb-4 float-none float-md-left">
+
+									<a href="tel:800-381730">
+										<img src="https://www.atamarezzo.it/images/Wapp_w.svg" style="height: 30px;" />
+									</a>
+								</div>
+																	<div class="mb-0 mb-md-5 float-none float-md-left">
+										<a href="https://www.atamarezzo.it/it/page/attivo-il-numero-whatsapp-a-disposizione-di-chiunque.html">
+											<img src="https://www.atamarezzo.it/images/Telefono_w.svg" style="height: 30px;" />
+										</a>
+									</div>
+															</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights">
+
+				<div class="container clearfix">
+					<div class="row">
+
+						<div class="col-12 text-center">
+							by <a href="http://www.wearequantico.it" title="Realizzazione Siti Web Arezzo">Quantico</a>						</div>
+					</div>
+
+				</div>
+
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+	</div><!-- #wrapper end -->
+
+<!-- Go To Top
+============================================= -->
+<div id="gotoTop" class="icon-angle-up" title="GoToTop"></div>
+ 
+
+	<!-- External JavaScripts
+	============================================= -->
+	<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../js/jquery.js"></script>
+	<script src="../js/plugins.js"></script>
+	
+	<!-- Bootstrap Select Plugin -->
+	<script src="../js/components/bs-select.js"></script>
+	
+	<!-- Date & Time Picker JS -->
+	<script src="../js/components/moment.js"></script>
+	<script src="../js/components/datepicker.js"></script>
+		<script src="../js/components/wickedpicker.js"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="../js/functions.js"></script>
+
+	<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
+	<script src="../include/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+	<script src="../include/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+	<script src="../include/rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
+	<script src="../include/rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
+	<script src="../include/rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
+	<script src="../include/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js"></script>
+	<script src="../include/rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
+	<script src="../include/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
+	<script src="../include/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
+	<script src="../include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
+    
+	<script src="../include/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
+	<script src="../js/components/leaflet/leaflet.js"></script>
+	<script src="../js/components/leaflet/TileLayer.Grayscale.js"></script>
+	
+    <script src="../js/googlemap.js"></script>
+		    	
+    <script>
+    var autocompurl = "..//controller/frontend/prod/ajax_autocomplete.php"; 
+    var baselevel = "../";
+    var baseurl = "https://www.atamarezzo.it/";
+    var baseurlhttps = "https://www.atamarezzo.it/";
+    var lang = "1";
+	var dir_lang = "it";
+    var msg = {
+        "attendere" : "Attendere",
+        "campo-obbligatorio": "Campo Obbligatorio",
+        "mail-obbligatoria": "Mail Obbligatoria",
+        "mail-diversa" : "Mail non Uguali",
+        "pwd-diversa" : "Password non Uguali",
+        "pwd-minimo" : "Inserisci almeno 5 caratteri",
+        "minimo-obbligatorio" : "Quantita minima acquistabile",
+        "numero-errato" : "Numero non corretto",
+        "scegli-spesa" : "Scegli una tipologia di spedizione",
+        "next-prod" : "CARICA DI PI&Ugrave;",
+        "prev-prod" : "CARICA DI PI&Ugrave;",
+		"address" : "<h3>Atam Spa</h3> <p>Loc. Case Nuove di Ceciliano, 49/5 - 52100 Arezzo<br /> Tel.: 0575/984534 &ndash; 0575/984520<br /> <a href=\"mailto:atam@atamarezzo.it\">atam@atamarezzo.it</a><br /> P.IVA IT00368260519 - C.F. 92004460512 - PEC atam@pec.atamarezzo.it - <a href=\"javascript:;\" target=\"_blank\">Privacy</a></p>",
+        "data" : "Inserisci una data dd/mm/yyyy.",
+        "ora" : "Inserisci un'a data'ora hh:mm."
+    };
+    
+    var multipage = false				
+    var currentpageNo = 1;
+    var ias = null;
+    var iasInitialize = null;
+    var freezeList = false; //variabile usata per bloccare temporaneamente il caricamento via ajax e scatenarlo manualmente 
+    </script>
+	
+	    <script src="../js/locale/messages_it.js"></script>
+		
+
+
+<script type="text/javascript">
+var _paq = window._paq = window._paq || [];
+/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+(function() {
+  var u="https://ingestion.webanalytics.italia.it/";
+  _paq.push(['setTrackerUrl', u+'matomo.php']);
+  _paq.push(['setSiteId', 'D53OkBA3Ov']);
+  var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+  g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+})();
+</script>    
+<script src="../js/custom.js"></script>
+
+<script async data-token="#fd6fd30-821d-497e-b4ea-c6c8935b5304" src="https://chat.askme.it/widget/askmechat.widget.js"></script>
+
+
+</body>
+</html>
