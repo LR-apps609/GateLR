@@ -1,6 +1,6 @@
 # Pisa: fonti e stato delle verifiche
 
-Letture del **24–25/10/2026**. Scheda generata da `Tools/build_pisa.py` a partire dai file in `data/raw/pisa/`. Oggi è in `data/drafts/pisa.json` (bozza, **non nell'app**) solo perché manca il perimetro: orari e regole sono pronti. Lo script la sposta da solo in `Resources/Cities/pisa.json` quando c'è `data/raw/geo/pisa-streets.json` e i controlli di plausibilità passano.
+Letture del **24–26/10/2026**. Scheda generata da `Tools/build_pisa.py` a partire dai file in `data/raw/pisa/` e `data/raw/geo/pisa-*.json`. Dal 26/10/2026 è **nell'app** (`Resources/Cities/pisa.json`): ci sono i perimetri ricavati dalle strade OSM (`data/raw/geo/pisa-streets.json`) e i controlli di plausibilità passano. Se un controllo smette di passare, lo script la rimette in `data/drafts/pisa.json`.
 
 **Raggiungibilità:** www.comune.pisa.it funziona (API OpenCity, `/api/opendata/v2/content/read/<id>`, file `comune-pisa-content-<id>.json`; ricerca `q = 'ZTL'` in `comune-pisa-search-ZTL-index.json`). **Dal 25/10/2026 si apre anche mobilita.pisamo.it**: dalla sezione [Download › ZTL](https://mobilita.pisamo.it/download-category/ztl/) sono stati scaricati i PDF dell'ord. 2386/2024 e delle sue modifiche, della ZTL dei Lungarni e delle tariffe 2025. Restano chiusi (CONNECT 403 o reset): www.pisamo.it, albopretorio.comune.pisa.it, overpass-api.de e i mirror, api.openstreetmap.org.
 
@@ -10,7 +10,7 @@ Letture del **24–25/10/2026**. Scheda generata da `Tools/build_pisa.py` a part
 |---|---|---|
 | **ZTL Centro Storico Nord** (a nord dell'Arno: Duomo/Miracoli, Cavalieri, San Francesco, Santa Maria) | **0–24 tutti i giorni**, festivi compresi | Sì (`pisa-ztl-nord`) |
 | **ZTL Centro Storico Sud** (a sud dell'Arno: San Martino, Sant'Antonio) | **0–24 tutti i giorni**, festivi compresi | Sì (`pisa-ztl-sud`) |
-| **ZTL dei Lungarni** (Lungarno Pacinotti, Mediceo, Galilei, Gambacorti, piazza Carrara, piazza Mazzini, via San Nicola, via Santa Maria tra via San Nicola e Lungarno Pacinotti, Ponte di Mezzo) | **ven, sab, dom 22–5** del giorno dopo, permanente dal 1/1/2025 | Sì nella bozza (`pisa-ztl-lungarni`); nell'app solo quando c'è il suo perimetro |
+| **ZTL dei Lungarni** (Lungarno Pacinotti, Mediceo, Galilei, Gambacorti, piazza Carrara, piazza Mazzini, via San Nicola, via Santa Maria tra via San Nicola e Lungarno Pacinotti, Ponte di Mezzo) | **ven, sab, dom 22–5** del giorno dopo, permanente dal 1/1/2025 | Sì (`pisa-ztl-lungarni`), con il perimetro dalle strade dell'ord. 2845/2024 |
 | ZTL Stadio (Porta a Lucca) | partite casalinghe del Pisa SC, da due ore prima del fischio d'inizio a fine primo tempo | No: dipende dal calendario delle partite (pending) |
 | Aree pedonali dentro la ZTL: via Corsica e piazza Buonamici (24 ore su 24, 2026); via Santa Maria (ord. 531/2015) | — | No: sono già dentro la ZTL Nord 0–24 |
 
@@ -40,20 +40,22 @@ Letture del **24–25/10/2026**. Scheda generata da `Tools/build_pisa.py` a part
 
 ## Cosa resta da verificare (pending nella scheda)
 
-- Perimetri dei settori e dei Lungarni: aspettano `data/raw/geo/pisa-streets.json` (il ramo `geo-data` del 25/10/2026 ha `pisa-ztl/walls/gates` ma non ancora le strade).
-- Varchi: le 15 telecamere di OSM contro i 10+10 varchi dell'ord. 2386/2024 più i 2 dell'ord. 406/2025.
+- Perimetri: approssimati, ricavati dalle strade dell'elenco ufficiale (vedi «Geometria»). Nel settore Sud 4 voci su 70 non hanno una strada OSM con lo stesso nome (via del Cottolengo, via Zandonai, piazza S. Martino, vicolo Mossotti): non entrano nel calcolo del contorno.
+- Varchi: le 15 telecamere di OSM più i 2 varchi in uscita dell'ord. 406/2025, contro i 10+10 varchi dell'ord. 2386/2024: alcune telecamere possono mancare.
 - Strutture sui Lungarni: l'ord. 2845/2024 non dice se possono registrare gli ospiti (`hotelCanRegister: false` per prudenza).
 - Delibera di Giunta del 6/2/2013 sui veicoli elettrici: non letta.
 
 ## Geometria
 
-**Perimetri: non ancora presenti. Varchi: 15, da OpenStreetMap** (© OpenStreetMap contributors, ODbL 1.0, scritto nel campo `license`).
+**Perimetri: ZTL Nord, ZTL Sud e Lungarni, dalle strade OSM dell'elenco ufficiale (26/10/2026). Varchi: 15 da OpenStreetMap + 2 dell'ord. 406/2025** (© OpenStreetMap contributors, ODbL 1.0, scritto nel campo `license`).
 
 - OSM non ha il contorno: la relazione [9342809](https://www.openstreetmap.org/relation/9342809) «Zona a Traffico Limitato» contiene **solo le 15 telecamere** (ruolo `device`), come i 15 varchi elencati nel 2010 (l'ord. 2386/2024 ne elenca 20, più 2 dell'ord. 406/2025).
 - Il perimetro di ogni settore si ricava **dall'elenco ufficiale delle strade** dell'ord. 2386/2024 (più piazza San Giorgio, ord. 2719/2024; per i Lungarni l'elenco dell'ord. 2845/2024), con la geometria OSM di quelle strade, unite con `osm_geo.street_area` (chiusura morfologica, come per Siena). I tratti parziali dell'ordinanza (anche via Santa Maria tra via San Nicola e Lungarno Pacinotti per i Lungarni) (via San Francesco da via Oberdan a via Buonarroti, via Santa Maria e via Roma da piazza del Duomo a via San Nicola / via Savi, via Mercanti, via Lalli, via San Bernardo fino a vicolo dell'Oro) sono tagliati tra le due strade indicate. Nessun punto è disegnato a mano.
-- **Serve far girare il workflow «Geometrie città»** (`Tools/fetch_geo.py`): in fondo al file c'è il blocco «Pisa», che scarica `data/raw/geo/pisa-streets.json` (strade con nome del centro storico). Poi si rilancia `python3 Tools/build_pisa.py`.
-- Lo script stampa le strade dell'ordinanza non trovate in OSM e scrive la scheda nell'app solo se: ne mancano al massimo il 10% per settore; piazza dei Miracoli e piazza dei Cavalieri cadono nel settore Nord e piazza San Martino nel Sud; la stazione di Pisa Centrale è fuori; le aree sono plausibili (Nord 0,6–2 km², Sud 0,25–1,2 km²; Lungarni 0,02–0,5 km², controllo a parte che non blocca i settori). Altrimenti la scheda resta in `data/drafts/`.
-- I varchi vanno al settore più vicino una volta che ci sono i perimetri; finché mancano, stanno tutti nella zona Nord.
+- `data/raw/geo/pisa-streets.json`: strade con nome del centro (`way["highway"]["name"](43.705,10.383,43.729,10.418); out geom;`, la stessa richiesta del blocco «Pisa» di `Tools/fetch_geo.py`), scaricate il 26/10/2026 da overpass-api.de (dato OSM del 26/10/2026, © OpenStreetMap contributors, ODbL). Risultato: Nord 124/124 strade trovate, Sud 66/70, Lungarni 9/9; aree Nord 0,59 km², Sud 0,35 km², Lungarni 0,13 km².
+- Nomi: oltre alla corrispondenza normale (abbreviazioni, «S.» = San/Santa, iniziali), se il nome esatto non c'è si accetta la strada OSM con le stesse parole e un tipo vicino (via/vicolo/chiasso, piazza/piazzetta: es. «Vicolo del Torzi» = «Via del Torzi», «Piazza del Crocifisso» = «Piazzetta del Crocifisso», «Vicolo Mozzo» = «Chiasso Mozzo»); le way fuori dalle mura restano escluse.
+- `data/raw/geo/pisa-cameras.json` (26/10/2026, overpass-api.de): telecamere (`man_made=surveillance`), semafori, relazioni `enforcement` e oggetti con nome «Sepolcro»/«Cairoli». Nessuna telecamera OSM nelle due piazze dell'ord. 406/2025, che li indica come varchi **in uscita** («piazza Cairoli (uscita)» nella ZTL Nord, «piazza S. Sepolcro (uscita)» nella ZTL Sud): li mettiamo all'ultimo nodo della way OSM a senso unico della piazza (way [1230657390](https://www.openstreetmap.org/way/1230657390) e [26681125](https://www.openstreetmap.org/way/26681125)), cioè dove le auto lasciano la piazza. Posizione approssimata, scritta nel pending.
+- Lo script stampa le strade dell'ordinanza non trovate in OSM e scrive la scheda nell'app solo se: ne mancano al massimo il 10% per settore; piazza dei Miracoli e piazza dei Cavalieri cadono nel settore Nord e piazza San Martino nel Sud; la stazione di Pisa Centrale è fuori; le aree sono plausibili (Nord 0,5–2 km²: l'elenco lascia fuori il quadrante di piazza Santa Caterina / San Zeno e la parte a ovest di via Roma, Sud 0,25–1,2 km²; Lungarni 0,02–0,5 km², controllo a parte che non blocca i settori). Altrimenti la scheda resta in `data/drafts/`.
+- I varchi vanno al settore più vicino (Nord 8, Sud 9; i due dell'ord. 406/2025 finiscono nel settore indicato dall'ordinanza). Controlli superati il 26/10/2026: piazza dei Miracoli (43.7230, 10.3966) e piazza dei Cavalieri (43.7193, 10.4006) nel Nord, piazza San Martino nel Sud, Pisa Centrale (43.7085, 10.3986) fuori da tutte le zone. La scheda è in `Resources/Cities/pisa.json` (status `draft`, `reviewedByHuman: false`).
 
 ## File in data/raw/pisa/
 

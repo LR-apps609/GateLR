@@ -20,6 +20,8 @@
 # di data/raw/geo/pisa-streets.json (blocco «Pisa» in fondo a Tools/fetch_geo.py, da far girare con il workflow
 # «Geometrie città») e unite con osm_geo.street_area; lo stesso per le strade della ZTL dei Lungarni (ord. 2845/2024).
 # Finché quel file manca, o se i controlli di plausibilità non passano, Pisa resta in data/drafts/pisa.json.
+# pisa-streets.json è stato scaricato il 26/10/2026 da overpass-api.de con la stessa richiesta di fetch_geo.py;
+# pisa-cameras.json (telecamere e piazze Cairoli/Santo Sepolcro) lo stesso giorno, per i varchi dell'ord. 406/2025.
 import html
 import json
 import math
@@ -178,7 +180,11 @@ for s in LUNGARNI:
     must_contain(LUNG, s if isinstance(s, str) else s[0], "ord. 2845/2024 (elenco strade)")
 
 # --- Nomi delle strade: dall'ordinanza (abbreviati) ai nomi completi di OpenStreetMap ---
-TYPES = {"via", "vicolo", "piazza", "piazzetta", "corte", "largo", "lungarno", "borgo", "viale", "ponte"}
+TYPES = {"via", "vicolo", "chiasso", "piazza", "piazzetta", "corte", "largo", "lungarno", "borgo", "viale", "ponte"}
+# L'ordinanza e OSM a volte danno alla stessa strada un tipo diverso («Vicolo del Torzi» / «Via del Torzi»,
+# «Piazza del Crocifisso» / «Piazzetta del Crocifisso»): se il nome esatto non c'è, si accetta lo stesso nome
+# (parole identiche) con un tipo dello stesso gruppo; le way fuori dalle mura restano escluse da «keep»
+KINDS = [{"via", "vicolo", "chiasso"}, {"piazza", "piazzetta"}]
 STOP = {"di", "de", "del", "della", "dei", "delle", "degli", "dello", "d", "da", "dal", "al", "all", "alla", "e",
         "la", "il", "lo", "l", "gia", "corta"}
 SAINT = {"s", "san", "santa", "sant", "santo"}
@@ -213,9 +219,18 @@ def same_street(official, osm_name):
     return bool(names_a) and names_a[-1] == names_b[-1] and set(a) <= set(b) and ("s" in a) == ("s" in b)
 
 
+def same_name_other_kind(official, osm_name):
+    k1, a = tokens(official)
+    k2, b = tokens(osm_name)
+    b = [w for w in b if w != "chiasso"]               # «Via Chiasso Mozzo»
+    return bool(a) and k1 != k2 and any({k1, k2} <= g for g in KINDS) and set(a) == set(b)
+
+
 def street_lines(elements, official):
     """Le linee [(lon, lat)] delle way OSM con lo stesso nome della strada dell'ordinanza"""
-    hits = [e for e in elements if e["type"] == "way" and e.get("geometry") and same_street(official, e["tags"]["name"])]
+    ways = [e for e in elements if e["type"] == "way" and e.get("geometry")]
+    hits = [e for e in ways if same_street(official, e["tags"]["name"])] or \
+           [e for e in ways if same_name_other_kind(official, e["tags"]["name"])]
     return [[(n["lon"], n["lat"]) for n in e["geometry"]] for e in hits], sorted({e["tags"]["name"] for e in hits})
 
 
@@ -334,7 +349,9 @@ def plausible(rings):
     for name, (lat, lon) in OUTSIDE.items():
         if any(osm_geo.contains(r, lat, lon) for r in rings.values()):
             problems.append(f"{name} è dentro la ZTL")
-    for key, (lo, hi) in {"nord": (0.6, 2.0), "sud": (0.25, 1.2)}.items():
+    # Nord: l'elenco ufficiale lascia fuori il quadrante di piazza Santa Caterina / San Zeno e la parte a ovest di
+    # via Roma, quindi il settore è circa metà della città murata a nord dell'Arno (0,59 km² con le strade OSM del 26/10/2026)
+    for key, (lo, hi) in {"nord": (0.5, 2.0), "sud": (0.25, 1.2)}.items():
         a = osm_geo.area_km2(rings[key])
         print(f"area {key}: {a:.2f} km²")
         if not lo <= a <= hi:
@@ -357,7 +374,20 @@ if "lungarni" in rings:
 
 # --- Varchi: le 15 telecamere della relazione OSM, assegnate al settore più vicino ---
 gate_nodes = osm_geo.load("pisa-ztl") + [e for e in osm_geo.load("pisa-gates") if e["type"] == "node"]
-all_gates = sorted((osm_geo.gate_json("pi", g) for g in osm_geo.gates(gate_nodes, {OSM_ZTL}, name_prefix=None)),
+# I due varchi dell'ord. 406/2025 (in uscita: «piazza Cairoli (uscita)» nella ZTL Nord, «piazza S. Sepolcro (uscita)»
+# nella ZTL Sud) non sono ancora in OSM come telecamere (data/raw/geo/pisa-cameras.json, 26/10/2026): li mettiamo
+# all'ultimo nodo della way OSM a senso unico della piazza, cioè dove le auto escono dalla piazza (posizione approssimata).
+ORD_406 = raw("ordinanza-406-2025-varchi-santo-sepolcro-cairoli.txt")
+must_contain(ORD_406, "piazza Cairoli (uscita)", "ord. 406/2025")
+must_contain(ORD_406, "piazza S. Sepolcro (uscita)", "ord. 406/2025")
+NEW_GATES = {26681125: "Varco ZTL · Piazza Santo Sepolcro (uscita)", 1230657390: "Varco ZTL · Piazza Cairoli (uscita)"}
+new_gates = []
+if (osm_geo.GEO / "pisa-streets.json").exists():
+    for e in osm_geo.load("pisa-streets"):
+        if e["type"] == "way" and e["id"] in NEW_GATES and e.get("tags", {}).get("oneway") == "yes":
+            last = e["geometry"][-1]
+            new_gates.append(osm_geo.gate_json("pi", (e["nodes"][-1], NEW_GATES[e["id"]], last["lat"], last["lon"])))
+all_gates = sorted([osm_geo.gate_json("pi", g) for g in osm_geo.gates(gate_nodes, {OSM_ZTL}, name_prefix=None)] + new_gates,
                    key=lambda g: (g["name"], g["id"]))
 
 
@@ -440,9 +470,12 @@ pending = [
     ("Electric cars: no exemption in the rules of ordinance 2386/2024 (its preamble only cites a 2013 council resolution on electric vehicles in the ZTL, which we have not read).",
      "Auto elettriche: nessuna esenzione nelle regole dell'ordinanza 2386/2024 (le premesse citano solo una delibera di Giunta del 2013 sui veicoli elettrici in ZTL, che non abbiamo letto).",
      "Elektroautos: keine Ausnahme in den Regeln der Verordnung 2386/2024 (die Präambel nennt nur einen Stadtratsbeschluss von 2013 zu Elektrofahrzeugen in der ZTL, den wir nicht gelesen haben)."),
-    ("Gates: camera positions from OpenStreetMap (15). Ordinance 2386/2024 lists 10 gates per sector, and ordinance 406/2025 added two in piazza Santo Sepolcro and piazza Cairoli: some cameras may be missing from the map.",
-     "Varchi: posizioni delle telecamere da OpenStreetMap (15). L'ordinanza 2386/2024 elenca 10 varchi per settore e l'ordinanza 406/2025 ne ha aggiunti due in piazza Santo Sepolcro e piazza Cairoli: alcune telecamere possono mancare sulla mappa.",
-     "Kameras: Standorte aus OpenStreetMap (15). Die Verordnung 2386/2024 nennt 10 Kameras je Sektor, die Verordnung 406/2025 hat zwei an Piazza Santo Sepolcro und Piazza Cairoli ergänzt: einige Kameras können auf der Karte fehlen."),
+    ("Gates: 15 camera positions from OpenStreetMap, plus the two exit cameras added by ordinance 406/2025 in piazza Cairoli and piazza Santo Sepolcro, placed where the one-way street leaves the square (approximate). "
+     "Ordinance 2386/2024 lists 10 gates per sector: some cameras may be missing from the map.",
+     "Varchi: 15 telecamere da OpenStreetMap, più i due varchi in uscita aggiunti dall'ordinanza 406/2025 in piazza Cairoli e piazza Santo Sepolcro, messi dove la strada a senso unico esce dalla piazza (posizione approssimata). "
+     "L'ordinanza 2386/2024 elenca 10 varchi per settore: alcune telecamere possono mancare sulla mappa.",
+     "Kameras: 15 Standorte aus OpenStreetMap, dazu die zwei Ausfahrtskameras der Verordnung 406/2025 an Piazza Cairoli und Piazza Santo Sepolcro, dort gesetzt, wo die Einbahnstraße den Platz verlässt (ungefähr). "
+     "Die Verordnung 2386/2024 nennt 10 Kameras je Sektor: einige Kameras können auf der Karte fehlen."),
     ("Not shown: the ZTL Stadio at Porta a Lucca (home matches of Pisa SC, from 2 hours before kick-off to the end of the first half) and the pedestrian areas inside the ZTL (via Corsica and piazza Buonamici, via Santa Maria)."
      + ("" if LUNG_OK else " The weekend night ZTL on the Lungarni (Fri–Sun 10 pm–5 am, ordinance 2845/2024) is not on the map yet."),
      "Non mostrate: la ZTL Stadio a Porta a Lucca (partite casalinghe del Pisa SC, da due ore prima del fischio d'inizio al termine del primo tempo) e le aree pedonali dentro la ZTL (via Corsica e piazza Buonamici, via Santa Maria)."

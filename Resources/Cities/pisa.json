@@ -1,0 +1,2469 @@
+{
+ "id": "pisa",
+ "name": "Pisa",
+ "name_it": "Pisa",
+ "name_de": "Pisa",
+ "center": {
+  "lat": 43.7167,
+  "lon": 10.4017
+ },
+ "zones": [
+  {
+   "id": "pisa-ztl-nord",
+   "name": "ZTL Nord · Historic Centre north of the Arno",
+   "name_it": "ZTL Nord · Centro storico a nord dell'Arno",
+   "name_de": "ZTL Nord · Altstadt nördlich des Arno",
+   "kind": "restricted",
+   "summary": "The north sector of Pisa's ZTL: Piazza dei Miracoli, Piazza dei Cavalieri and the streets around them. Closed to unauthorised cars 24 hours a day, every day, holidays included. There is no day ticket for tourists. Mopeds and motorcycles may enter. If you sleep in a hotel or B&B inside the ZTL, it can register your plate so you can drive there.",
+   "summary_it": "Il settore nord della ZTL di Pisa: piazza dei Miracoli, piazza dei Cavalieri e le strade intorno. Chiusa alle auto non autorizzate 24 ore su 24, tutti i giorni, festivi compresi. Non c'è un ticket giornaliero per i turisti. Ciclomotori e moto possono entrare. Se dormi in un hotel o B&B dentro la ZTL, la struttura può registrare la tua targa per arrivarci.",
+   "summary_de": "Der Nordsektor der ZTL von Pisa: Piazza dei Miracoli, Piazza dei Cavalieri und die Straßen ringsum. Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Autos gesperrt. Es gibt kein Tagesticket für Touristen. Mopeds und Motorräder dürfen einfahren. Übernachtest du in einem Hotel oder B&B in der ZTL, kann es dein Kennzeichen registrieren, damit du hinfahren darfst.",
+   "perimeter": [
+    {
+     "lat": 43.722756,
+     "lon": 10.393522
+    },
+    {
+     "lat": 43.722683,
+     "lon": 10.393622
+    },
+    {
+     "lat": 43.722683,
+     "lon": 10.394218
+    },
+    {
+     "lat": 43.722611,
+     "lon": 10.394218
+    },
+    {
+     "lat": 43.722539,
+     "lon": 10.395113
+    },
+    {
+     "lat": 43.722394,
+     "lon": 10.395312
+    },
+    {
+     "lat": 43.722394,
+     "lon": 10.395511
+    },
+    {
+     "lat": 43.722177,
+     "lon": 10.39561
+    },
+    {
+     "lat": 43.722177,
+     "lon": 10.39571
+    },
+    {
+     "lat": 43.721815,
+     "lon": 10.395809
+    },
+    {
+     "lat": 43.721815,
+     "lon": 10.39571
+    },
+    {
+     "lat": 43.719934,
+     "lon": 10.39561
+    },
+    {
+     "lat": 43.719934,
+     "lon": 10.395511
+    },
+    {
+     "lat": 43.719717,
+     "lon": 10.395511
+    },
+    {
+     "lat": 43.719717,
+     "lon": 10.39571
+    },
+    {
+     "lat": 43.719572,
+     "lon": 10.395909
+    },
+    {
+     "lat": 43.719138,
+     "lon": 10.396107
+    },
+    {
+     "lat": 43.719138,
+     "lon": 10.396008
+    },
+    {
+     "lat": 43.718921,
+     "lon": 10.396008
+    },
+    {
+     "lat": 43.718921,
+     "lon": 10.395909
+    },
+    {
+     "lat": 43.718704,
+     "lon": 10.395809
+    },
+    {
+     "lat": 43.718632,
+     "lon": 10.395312
+    },
+    {
+     "lat": 43.71856,
+     "lon": 10.395312
+    },
+    {
+     "lat": 43.71827,
+     "lon": 10.396306
+    },
+    {
+     "lat": 43.718053,
+     "lon": 10.396406
+    },
+    {
+     "lat": 43.718053,
+     "lon": 10.396505
+    },
+    {
+     "lat": 43.717836,
+     "lon": 10.396505
+    },
+    {
+     "lat": 43.717836,
+     "lon": 10.396605
+    },
+    {
+     "lat": 43.717547,
+     "lon": 10.396505
+    },
+    {
+     "lat": 43.717547,
+     "lon": 10.396406
+    },
+    {
+     "lat": 43.71733,
+     "lon": 10.396406
+    },
+    {
+     "lat": 43.71733,
+     "lon": 10.396306
+    },
+    {
+     "lat": 43.716968,
+     "lon": 10.396107
+    },
+    {
+     "lat": 43.716895,
+     "lon": 10.39561
+    },
+    {
+     "lat": 43.716823,
+     "lon": 10.39561
+    },
+    {
+     "lat": 43.716968,
+     "lon": 10.394914
+    },
+    {
+     "lat": 43.716606,
+     "lon": 10.395113
+    },
+    {
+     "lat": 43.716606,
+     "lon": 10.395014
+    },
+    {
+     "lat": 43.716244,
+     "lon": 10.394914
+    },
+    {
+     "lat": 43.716172,
+     "lon": 10.394616
+    },
+    {
+     "lat": 43.7161,
+     "lon": 10.394616
+    },
+    {
+     "lat": 43.7161,
+     "lon": 10.394914
+    },
+    {
+     "lat": 43.716027,
+     "lon": 10.394914
+    },
+    {
+     "lat": 43.716027,
+     "lon": 10.395113
+    },
+    {
+     "lat": 43.715955,
+     "lon": 10.395113
+    },
+    {
+     "lat": 43.715955,
+     "lon": 10.395312
+    },
+    {
+     "lat": 43.71581,
+     "lon": 10.395511
+    },
+    {
+     "lat": 43.716027,
+     "lon": 10.395511
+    },
+    {
+     "lat": 43.716027,
+     "lon": 10.39561
+    },
+    {
+     "lat": 43.716317,
+     "lon": 10.39571
+    },
+    {
+     "lat": 43.716389,
+     "lon": 10.396008
+    },
+    {
+     "lat": 43.716461,
+     "lon": 10.396008
+    },
+    {
+     "lat": 43.716461,
+     "lon": 10.396306
+    },
+    {
+     "lat": 43.716534,
+     "lon": 10.396306
+    },
+    {
+     "lat": 43.716461,
+     "lon": 10.396505
+    },
+    {
+     "lat": 43.716678,
+     "lon": 10.396505
+    },
+    {
+     "lat": 43.716678,
+     "lon": 10.396605
+    },
+    {
+     "lat": 43.716895,
+     "lon": 10.396704
+    },
+    {
+     "lat": 43.716968,
+     "lon": 10.397201
+    },
+    {
+     "lat": 43.71704,
+     "lon": 10.397201
+    },
+    {
+     "lat": 43.716895,
+     "lon": 10.397997
+    },
+    {
+     "lat": 43.716968,
+     "lon": 10.397997
+    },
+    {
+     "lat": 43.71704,
+     "lon": 10.398494
+    },
+    {
+     "lat": 43.716968,
+     "lon": 10.398494
+    },
+    {
+     "lat": 43.716895,
+     "lon": 10.398991
+    },
+    {
+     "lat": 43.716751,
+     "lon": 10.39919
+    },
+    {
+     "lat": 43.716606,
+     "lon": 10.39919
+    },
+    {
+     "lat": 43.716678,
+     "lon": 10.399289
+    },
+    {
+     "lat": 43.716678,
+     "lon": 10.399886
+    },
+    {
+     "lat": 43.716606,
+     "lon": 10.399886
+    },
+    {
+     "lat": 43.716678,
+     "lon": 10.399985
+    },
+    {
+     "lat": 43.716678,
+     "lon": 10.400184
+    },
+    {
+     "lat": 43.716606,
+     "lon": 10.400184
+    },
+    {
+     "lat": 43.716678,
+     "lon": 10.400582
+    },
+    {
+     "lat": 43.716606,
+     "lon": 10.400582
+    },
+    {
+     "lat": 43.716534,
+     "lon": 10.401079
+    },
+    {
+     "lat": 43.716389,
+     "lon": 10.401179
+    },
+    {
+     "lat": 43.716461,
+     "lon": 10.401278
+    },
+    {
+     "lat": 43.716389,
+     "lon": 10.401676
+    },
+    {
+     "lat": 43.716461,
+     "lon": 10.401676
+    },
+    {
+     "lat": 43.716461,
+     "lon": 10.401974
+    },
+    {
+     "lat": 43.716534,
+     "lon": 10.401974
+    },
+    {
+     "lat": 43.716461,
+     "lon": 10.40267
+    },
+    {
+     "lat": 43.716389,
+     "lon": 10.40267
+    },
+    {
+     "lat": 43.716389,
+     "lon": 10.402869
+    },
+    {
+     "lat": 43.716317,
+     "lon": 10.402869
+    },
+    {
+     "lat": 43.716317,
+     "lon": 10.403068
+    },
+    {
+     "lat": 43.716172,
+     "lon": 10.403267
+    },
+    {
+     "lat": 43.71581,
+     "lon": 10.403466
+    },
+    {
+     "lat": 43.715955,
+     "lon": 10.40436
+    },
+    {
+     "lat": 43.715883,
+     "lon": 10.40436
+    },
+    {
+     "lat": 43.715883,
+     "lon": 10.404659
+    },
+    {
+     "lat": 43.71581,
+     "lon": 10.404659
+    },
+    {
+     "lat": 43.715738,
+     "lon": 10.405056
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.405156
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.405355
+    },
+    {
+     "lat": 43.715376,
+     "lon": 10.405653
+    },
+    {
+     "lat": 43.715014,
+     "lon": 10.405852
+    },
+    {
+     "lat": 43.714942,
+     "lon": 10.40625
+    },
+    {
+     "lat": 43.71487,
+     "lon": 10.40625
+    },
+    {
+     "lat": 43.715087,
+     "lon": 10.406548
+    },
+    {
+     "lat": 43.715159,
+     "lon": 10.407045
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.407244
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.407542
+    },
+    {
+     "lat": 43.715376,
+     "lon": 10.407542
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.408139
+    },
+    {
+     "lat": 43.715159,
+     "lon": 10.408338
+    },
+    {
+     "lat": 43.715159,
+     "lon": 10.408835
+    },
+    {
+     "lat": 43.715376,
+     "lon": 10.408736
+    },
+    {
+     "lat": 43.715376,
+     "lon": 10.408636
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.408636
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.408537
+    },
+    {
+     "lat": 43.715883,
+     "lon": 10.408537
+    },
+    {
+     "lat": 43.715883,
+     "lon": 10.408636
+    },
+    {
+     "lat": 43.716534,
+     "lon": 10.408537
+    },
+    {
+     "lat": 43.716534,
+     "lon": 10.408636
+    },
+    {
+     "lat": 43.716751,
+     "lon": 10.408636
+    },
+    {
+     "lat": 43.716751,
+     "lon": 10.408736
+    },
+    {
+     "lat": 43.71704,
+     "lon": 10.408636
+    },
+    {
+     "lat": 43.71704,
+     "lon": 10.408736
+    },
+    {
+     "lat": 43.717257,
+     "lon": 10.408736
+    },
+    {
+     "lat": 43.717257,
+     "lon": 10.408835
+    },
+    {
+     "lat": 43.717474,
+     "lon": 10.408934
+    },
+    {
+     "lat": 43.717547,
+     "lon": 10.409432
+    },
+    {
+     "lat": 43.717619,
+     "lon": 10.409432
+    },
+    {
+     "lat": 43.717619,
+     "lon": 10.408238
+    },
+    {
+     "lat": 43.717691,
+     "lon": 10.408238
+    },
+    {
+     "lat": 43.717764,
+     "lon": 10.407741
+    },
+    {
+     "lat": 43.717981,
+     "lon": 10.407642
+    },
+    {
+     "lat": 43.717981,
+     "lon": 10.407542
+    },
+    {
+     "lat": 43.718198,
+     "lon": 10.407542
+    },
+    {
+     "lat": 43.718198,
+     "lon": 10.407443
+    },
+    {
+     "lat": 43.718487,
+     "lon": 10.407443
+    },
+    {
+     "lat": 43.71856,
+     "lon": 10.407542
+    },
+    {
+     "lat": 43.71856,
+     "lon": 10.407045
+    },
+    {
+     "lat": 43.718632,
+     "lon": 10.407045
+    },
+    {
+     "lat": 43.718632,
+     "lon": 10.406747
+    },
+    {
+     "lat": 43.718704,
+     "lon": 10.406747
+    },
+    {
+     "lat": 43.718777,
+     "lon": 10.406449
+    },
+    {
+     "lat": 43.719138,
+     "lon": 10.406349
+    },
+    {
+     "lat": 43.719138,
+     "lon": 10.40625
+    },
+    {
+     "lat": 43.719428,
+     "lon": 10.406349
+    },
+    {
+     "lat": 43.719428,
+     "lon": 10.406449
+    },
+    {
+     "lat": 43.719645,
+     "lon": 10.406548
+    },
+    {
+     "lat": 43.719717,
+     "lon": 10.407045
+    },
+    {
+     "lat": 43.719789,
+     "lon": 10.407045
+    },
+    {
+     "lat": 43.719789,
+     "lon": 10.406449
+    },
+    {
+     "lat": 43.719717,
+     "lon": 10.406349
+    },
+    {
+     "lat": 43.719789,
+     "lon": 10.406349
+    },
+    {
+     "lat": 43.719789,
+     "lon": 10.404957
+    },
+    {
+     "lat": 43.719862,
+     "lon": 10.404957
+    },
+    {
+     "lat": 43.719862,
+     "lon": 10.404659
+    },
+    {
+     "lat": 43.719934,
+     "lon": 10.404659
+    },
+    {
+     "lat": 43.720007,
+     "lon": 10.40436
+    },
+    {
+     "lat": 43.720151,
+     "lon": 10.40436
+    },
+    {
+     "lat": 43.720296,
+     "lon": 10.404162
+    },
+    {
+     "lat": 43.720513,
+     "lon": 10.404162
+    },
+    {
+     "lat": 43.720513,
+     "lon": 10.404062
+    },
+    {
+     "lat": 43.720079,
+     "lon": 10.403963
+    },
+    {
+     "lat": 43.720079,
+     "lon": 10.403863
+    },
+    {
+     "lat": 43.719862,
+     "lon": 10.403764
+    },
+    {
+     "lat": 43.719789,
+     "lon": 10.403267
+    },
+    {
+     "lat": 43.719717,
+     "lon": 10.403267
+    },
+    {
+     "lat": 43.719862,
+     "lon": 10.402571
+    },
+    {
+     "lat": 43.720079,
+     "lon": 10.402471
+    },
+    {
+     "lat": 43.720079,
+     "lon": 10.402372
+    },
+    {
+     "lat": 43.720296,
+     "lon": 10.402372
+    },
+    {
+     "lat": 43.720296,
+     "lon": 10.402272
+    },
+    {
+     "lat": 43.721526,
+     "lon": 10.402272
+    },
+    {
+     "lat": 43.721526,
+     "lon": 10.402073
+    },
+    {
+     "lat": 43.721671,
+     "lon": 10.401875
+    },
+    {
+     "lat": 43.721815,
+     "lon": 10.401875
+    },
+    {
+     "lat": 43.721815,
+     "lon": 10.401775
+    },
+    {
+     "lat": 43.722032,
+     "lon": 10.401775
+    },
+    {
+     "lat": 43.722032,
+     "lon": 10.401676
+    },
+    {
+     "lat": 43.722249,
+     "lon": 10.401775
+    },
+    {
+     "lat": 43.722394,
+     "lon": 10.40088
+    },
+    {
+     "lat": 43.722466,
+     "lon": 10.40088
+    },
+    {
+     "lat": 43.722466,
+     "lon": 10.400483
+    },
+    {
+     "lat": 43.722539,
+     "lon": 10.400483
+    },
+    {
+     "lat": 43.722539,
+     "lon": 10.400184
+    },
+    {
+     "lat": 43.722611,
+     "lon": 10.400184
+    },
+    {
+     "lat": 43.722611,
+     "lon": 10.399786
+    },
+    {
+     "lat": 43.722683,
+     "lon": 10.399786
+    },
+    {
+     "lat": 43.722683,
+     "lon": 10.399488
+    },
+    {
+     "lat": 43.722756,
+     "lon": 10.399488
+    },
+    {
+     "lat": 43.722756,
+     "lon": 10.39919
+    },
+    {
+     "lat": 43.722828,
+     "lon": 10.39919
+    },
+    {
+     "lat": 43.722901,
+     "lon": 10.398792
+    },
+    {
+     "lat": 43.723118,
+     "lon": 10.398693
+    },
+    {
+     "lat": 43.723118,
+     "lon": 10.398593
+    },
+    {
+     "lat": 43.723335,
+     "lon": 10.398593
+    },
+    {
+     "lat": 43.723335,
+     "lon": 10.398494
+    },
+    {
+     "lat": 43.723624,
+     "lon": 10.398593
+    },
+    {
+     "lat": 43.723407,
+     "lon": 10.397897
+    },
+    {
+     "lat": 43.723479,
+     "lon": 10.397897
+    },
+    {
+     "lat": 43.723552,
+     "lon": 10.3974
+    },
+    {
+     "lat": 43.723624,
+     "lon": 10.3974
+    },
+    {
+     "lat": 43.723624,
+     "lon": 10.396605
+    },
+    {
+     "lat": 43.723696,
+     "lon": 10.396605
+    },
+    {
+     "lat": 43.723696,
+     "lon": 10.395909
+    },
+    {
+     "lat": 43.723769,
+     "lon": 10.395909
+    },
+    {
+     "lat": 43.723769,
+     "lon": 10.395213
+    },
+    {
+     "lat": 43.723841,
+     "lon": 10.395213
+    },
+    {
+     "lat": 43.723841,
+     "lon": 10.394119
+    },
+    {
+     "lat": 43.723552,
+     "lon": 10.394218
+    },
+    {
+     "lat": 43.723552,
+     "lon": 10.394318
+    },
+    {
+     "lat": 43.723045,
+     "lon": 10.394119
+    },
+    {
+     "lat": 43.722973,
+     "lon": 10.39382
+    },
+    {
+     "lat": 43.722901,
+     "lon": 10.39382
+    },
+    {
+     "lat": 43.722901,
+     "lon": 10.393522
+    },
+    {
+     "lat": 43.722828,
+     "lon": 10.393522
+    },
+    {
+     "lat": 43.722901,
+     "lon": 10.392826
+    },
+    {
+     "lat": 43.722756,
+     "lon": 10.393025
+    },
+    {
+     "lat": 43.722756,
+     "lon": 10.393522
+    }
+   ],
+   "gates": [
+    {
+     "id": "pi-osm11184543009",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.722229,
+      "lon": 10.401505
+     }
+    },
+    {
+     "id": "pi-osm2996195894",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.723346,
+      "lon": 10.398395
+     }
+    },
+    {
+     "id": "pi-osm2996195895",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.719937,
+      "lon": 10.395611
+     }
+    },
+    {
+     "id": "pi-osm3358108593",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.715333,
+      "lon": 10.407027
+     }
+    },
+    {
+     "id": "pi-osm3358118456",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.716756,
+      "lon": 10.407255
+     }
+    },
+    {
+     "id": "pi-osm5105785566",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.719718,
+      "lon": 10.406605
+     }
+    },
+    {
+     "id": "pi-osm6073331857",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.71675,
+      "lon": 10.399893
+     }
+    },
+    {
+     "id": "pi-osm2678697468",
+     "name": "Varco ZTL · Piazza Cairoli (uscita)",
+     "location": {
+      "lat": 43.715908,
+      "lon": 10.403462
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Pisa",
+    "pageURL": "https://mobilita.pisamo.it/download-category/ztl/",
+    "ordinance": "Ordinanza Dir. 12 n. 2386 del 24/10/2024 (disciplina ZTL dal 01/01/2025)",
+    "ordinanceURL": "https://mobilita.pisamo.it/download/ordinanza-n-2386-del-24-ottobre-2024-disciplina-per-laccesso-e-la-sosta-nelle-zone-a-traffico-limitato-a-partire-dal-1-gennaio-2025/",
+    "quote": "Nelle zone come definite nella prima parte è istituito il divieto di accesso, transito e sosta di tutti i veicoli, nell’orario 0-24 di tutti i giorni, fatte salve le deroghe espresse ai punti successivi.",
+    "quoteTranslation": "In the zones defined in part one, access, transit and parking are forbidden to all vehicles, 0–24 every day, except for the exemptions in the following points.",
+    "quoteTranslation_de": "In den im ersten Teil festgelegten Zonen sind Zufahrt, Durchfahrt und Parken für alle Fahrzeuge verboten, 0–24 Uhr an allen Tagen, vorbehaltlich der folgenden Ausnahmen.",
+    "checkedOn": "2026-10-25T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter: drawn around the streets that ordinance 2386/2024 lists for each sector (plus piazza San Giorgio, ordinance 2719/2024), using their OpenStreetMap geometry. The edge is approximate.",
+     "Hotel guests: if the hotel is inside the ZTL, it enters your plate and arrival time on the portal within 10 hours of your entry (ordinance 2386/2024, 5.1), for up to 3 days at a time, renewable; you may stop up to 30 minutes in the hotel's luggage bays. The city's 2023 notice says access to reach the hotel is free. To also park in the ZTL (not in residents' bays) and on blue lines, the hotel can sell a €12, 24-hour permit (2025 fees, one per room).",
+     "Only professional accommodation (hotels, guesthouses, B&Bs and similar) can register plates; holiday flats are not mentioned.",
+     "No day ticket for tourists: the temporary permits of ordinance 2386/2024 are only for specific cases (weddings, removals, works, taxis…). Mopeds, light quadricycles and motorcycles may enter freely. Disabled badge holders registered on the national CUDE platform are added to the white list automatically.",
+     "Electric cars: no exemption in the rules of ordinance 2386/2024 (its preamble only cites a 2013 council resolution on electric vehicles in the ZTL, which we have not read).",
+     "Gates: 15 camera positions from OpenStreetMap, plus the two exit cameras added by ordinance 406/2025 in piazza Cairoli and piazza Santo Sepolcro, placed where the one-way street leaves the square (approximate). Ordinance 2386/2024 lists 10 gates per sector: some cameras may be missing from the map.",
+     "Not shown: the ZTL Stadio at Porta a Lucca (home matches of Pisa SC, from 2 hours before kick-off to the end of the first half) and the pedestrian areas inside the ZTL (via Corsica and piazza Buonamici, via Santa Maria)."
+    ],
+    "pending_it": [
+     "Perimetro: tracciato attorno alle strade che l'ordinanza 2386/2024 elenca per ciascun settore (più piazza San Giorgio, ordinanza 2719/2024), con la geometria di OpenStreetMap. Il bordo è approssimato.",
+     "Ospiti delle strutture ricettive: se la struttura è dentro la ZTL, inserisce sul portale targa e ora di arrivo entro 10 ore dal tuo ingresso (ordinanza 2386/2024, punto 5.1), per al massimo 3 giorni rinnovabili; puoi sostare fino a 30 minuti negli stalli per il carico/scarico bagagli. Il comunicato del Comune del 2023 dice che l'accesso per raggiungere la struttura è gratuito. Per sostare anche in ZTL (non negli stalli dei residenti) e sulle strisce blu, la struttura può rilasciare un permesso da 12 € per 24 ore (tariffe 2025, uno per camera).",
+     "Solo le strutture ricettive professionali (alberghi, pensioni, B&B e similari) possono registrare le targhe; gli affitti brevi non sono citati.",
+     "Nessun permesso giornaliero per turisti: i permessi temporanei dell'ordinanza 2386/2024 valgono solo per casi precisi (matrimoni, traslochi, cantieri, taxi…). Ciclomotori, quadricicli leggeri e moto entrano liberamente. I titolari di contrassegno disabili iscritti alla piattaforma nazionale CUDE entrano in lista bianca automaticamente.",
+     "Auto elettriche: nessuna esenzione nelle regole dell'ordinanza 2386/2024 (le premesse citano solo una delibera di Giunta del 2013 sui veicoli elettrici in ZTL, che non abbiamo letto).",
+     "Varchi: 15 telecamere da OpenStreetMap, più i due varchi in uscita aggiunti dall'ordinanza 406/2025 in piazza Cairoli e piazza Santo Sepolcro, messi dove la strada a senso unico esce dalla piazza (posizione approssimata). L'ordinanza 2386/2024 elenca 10 varchi per settore: alcune telecamere possono mancare sulla mappa.",
+     "Non mostrate: la ZTL Stadio a Porta a Lucca (partite casalinghe del Pisa SC, da due ore prima del fischio d'inizio al termine del primo tempo) e le aree pedonali dentro la ZTL (via Corsica e piazza Buonamici, via Santa Maria)."
+    ],
+    "pending_de": [
+     "Grenze: um die Straßen gezogen, die die Verordnung 2386/2024 je Sektor aufzählt (plus Piazza San Giorgio, Verordnung 2719/2024), mit der Geometrie aus OpenStreetMap. Der Rand ist ungefähr.",
+     "Hotelgäste: Liegt die Unterkunft in der ZTL, trägt sie Kennzeichen und Ankunftszeit binnen 10 Stunden nach deiner Einfahrt im Portal ein (Verordnung 2386/2024, Punkt 5.1), jeweils bis zu 3 Tage, verlängerbar; Halten bis 30 Minuten auf den Gepäck-Ladeplätzen. Laut Mitteilung der Stadt von 2023 ist die Zufahrt zur Unterkunft frei. Zum Parken auch in der ZTL (nicht auf Anwohnerplätzen) und auf blauen Linien kann die Unterkunft eine Genehmigung für 12 € / 24 Stunden ausstellen (Tarife 2025, eine pro Zimmer).",
+     "Nur gewerbliche Unterkünfte (Hotels, Pensionen, B&Bs u. ä.) können Kennzeichen registrieren; Ferienwohnungen werden nicht erwähnt.",
+     "Kein Tagesticket für Touristen: Die befristeten Genehmigungen der Verordnung 2386/2024 gelten nur für bestimmte Fälle (Hochzeiten, Umzüge, Baustellen, Taxis…). Mopeds, Leichtkraftfahrzeuge und Motorräder dürfen frei einfahren. Inhaber eines Behindertenausweises, die in der nationalen CUDE-Plattform eingetragen sind, kommen automatisch auf die weiße Liste.",
+     "Elektroautos: keine Ausnahme in den Regeln der Verordnung 2386/2024 (die Präambel nennt nur einen Stadtratsbeschluss von 2013 zu Elektrofahrzeugen in der ZTL, den wir nicht gelesen haben).",
+     "Kameras: 15 Standorte aus OpenStreetMap, dazu die zwei Ausfahrtskameras der Verordnung 406/2025 an Piazza Cairoli und Piazza Santo Sepolcro, dort gesetzt, wo die Einbahnstraße den Platz verlässt (ungefähr). Die Verordnung 2386/2024 nennt 10 Kameras je Sektor: einige Kameras können auf der Karte fehlen.",
+     "Nicht angezeigt: die ZTL Stadio in Porta a Lucca (Heimspiele von Pisa SC, ab 2 Stunden vor Anpfiff bis Ende der ersten Halbzeit) und die Fußgängerzonen in der ZTL (Via Corsica / Piazza Buonamici, Via Santa Maria)."
+    ],
+    "links": [
+     {
+      "title": "Pisamo: ordinance 2386/2024, ZTL rules and street list from 1 January 2025 (PDF)",
+      "title_it": "Pisamo: ordinanza 2386/2024, disciplina ZTL ed elenco delle strade dal 1° gennaio 2025 (PDF)",
+      "title_de": "Pisamo: Verordnung 2386/2024, ZTL-Regeln und Straßenliste ab 1. Januar 2025 (PDF)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-2386-del-24-ottobre-2024-disciplina-per-laccesso-e-la-sosta-nelle-zone-a-traffico-limitato-a-partire-dal-1-gennaio-2025/"
+     },
+     {
+      "title": "Pisamo: ordinance 2719/2024, changes (piazza San Giorgio added to ZTL Nord)",
+      "title_it": "Pisamo: ordinanza 2719/2024, modifiche (piazza San Giorgio nella ZTL Nord)",
+      "title_de": "Pisamo: Verordnung 2719/2024, Änderungen (Piazza San Giorgio in der ZTL Nord)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-02719-del-5-dicembre-2024/"
+     },
+     {
+      "title": "Pisamo: ordinance 406/2025, new gates in piazza Santo Sepolcro and piazza Cairoli",
+      "title_it": "Pisamo: ordinanza 406/2025, nuovi varchi in piazza Santo Sepolcro e piazza Cairoli",
+      "title_de": "Pisamo: Verordnung 406/2025, neue Kameras an Piazza Santo Sepolcro und Piazza Cairoli",
+      "url": "https://mobilita.pisamo.it/download/ztl-istituzione-di-due-nuovi-varchi-elettronici-per-la-ztl-in-piazza-santo-sepolcro-e-in-piazza-cairoli/"
+     },
+     {
+      "title": "Pisamo: ordinance 2845/2024, night ZTL on the Lungarni (Fri–Sun 10 pm–5 am)",
+      "title_it": "Pisamo: ordinanza 2845/2024, ZTL notturna dei Lungarni (ven–dom 22–5)",
+      "title_de": "Pisamo: Verordnung 2845/2024, Nacht-ZTL an den Lungarni (Fr–So 22–5 Uhr)",
+      "url": "https://mobilita.pisamo.it/download/ztl-lungarni-regolamentazione-della-zona-a-traffico-limitato-dei-lungarni-dal-01-gennaio-2025/"
+     },
+     {
+      "title": "Pisamo: 2025 fees, hotel guests' parking permit €12 for 24 hours (annex B)",
+      "title_it": "Pisamo: tariffe 2025, permesso di sosta per i clienti delle strutture ricettive 12 € per 24 ore (allegato B)",
+      "title_de": "Pisamo: Tarife 2025, Parkgenehmigung für Hotelgäste 12 € für 24 Stunden (Anlage B)",
+      "url": "https://mobilita.pisamo.it/download/tariffe-diritti-ed-altre-entrate-extra-tributarie-allegato-b-parcheggi-accesso-z-t-l-mobilita/"
+     },
+     {
+      "title": "City of Pisa: hotels register guests' plates",
+      "title_it": "Comune di Pisa: registrazione targhe per le strutture ricettive",
+      "title_de": "Stadt Pisa: Kennzeichen-Registrierung durch Unterkünfte",
+      "url": "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL"
+     },
+     {
+      "title": "City of Pisa: hotel guests, free access to the hotel (news, Feb 2023)",
+      "title_it": "Comune di Pisa: clienti delle strutture ricettive, accesso gratuito alla struttura (comunicato, feb. 2023)",
+      "title_de": "Stadt Pisa: Hotelgäste, freie Zufahrt zur Unterkunft (Mitteilung, Feb. 2023)",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Turismo-e-mobilita-in-centro-cambia-la-sosta-per-i-clienti-delle-strutture-ricettive"
+     },
+     {
+      "title": "City of Pisa: CUDE disabled badges accepted at the ZTL gates (news, Mar 2026)",
+      "title_it": "Comune di Pisa: contrassegno CUDE ai varchi della ZTL (comunicato, mar. 2026)",
+      "title_de": "Stadt Pisa: CUDE-Behindertenausweis an den ZTL-Kameras (Mitteilung, März 2026)",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Contrassegno-unificato-disabili-europeo-CUDE-installata-la-nuova-cartellonistica-ai-varchi-della-ZTL"
+     },
+     {
+      "title": "City of Pisa: ZTL Stadio on home match days",
+      "title_it": "Comune di Pisa: ZTL Stadio nelle partite casalinghe",
+      "title_de": "Stadt Pisa: ZTL Stadio an Heimspieltagen",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Calcio-con-l-avvio-della-nuova-stagione-torna-attiva-la-ZTL-Stadio-in-occasione-delle-partite-casalinghe-del-Pisa-SC"
+     },
+     {
+      "title": "OpenStreetMap: relation 9342809 (ZTL cameras, ODbL)",
+      "title_it": "OpenStreetMap: relazione 9342809 (varchi ZTL, ODbL)",
+      "title_de": "OpenStreetMap: Relation 9342809 (ZTL-Kameras, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/9342809"
+     }
+    ]
+   }
+  },
+  {
+   "id": "pisa-ztl-sud",
+   "name": "ZTL Sud · Historic Centre south of the Arno",
+   "name_it": "ZTL Sud · Centro storico a sud dell'Arno",
+   "name_de": "ZTL Sud · Altstadt südlich des Arno",
+   "kind": "restricted",
+   "summary": "The south sector of Pisa's ZTL: the San Martino and Sant'Antonio quarters (the riverside Lungarni are outside). Closed to unauthorised cars 24 hours a day, every day, holidays included. There is no day ticket for tourists. Mopeds and motorcycles may enter. If you sleep in a hotel or B&B inside the ZTL, it can register your plate so you can drive there.",
+   "summary_it": "Il settore sud della ZTL di Pisa: i quartieri di San Martino e Sant'Antonio (i Lungarni sono fuori). Chiusa alle auto non autorizzate 24 ore su 24, tutti i giorni, festivi compresi. Non c'è un ticket giornaliero per i turisti. Ciclomotori e moto possono entrare. Se dormi in un hotel o B&B dentro la ZTL, la struttura può registrare la tua targa per arrivarci.",
+   "summary_de": "Der Südsektor der ZTL von Pisa: die Viertel San Martino und Sant'Antonio (die Lungarni am Fluss liegen außerhalb). Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Autos gesperrt. Es gibt kein Tagesticket für Touristen. Mopeds und Motorräder dürfen einfahren. Übernachtest du in einem Hotel oder B&B in der ZTL, kann es dein Kennzeichen registrieren, damit du hinfahren darfst.",
+   "perimeter": [
+    {
+     "lat": 43.71118,
+     "lon": 10.405283
+    },
+    {
+     "lat": 43.710746,
+     "lon": 10.405183
+    },
+    {
+     "lat": 43.710746,
+     "lon": 10.405084
+    },
+    {
+     "lat": 43.710456,
+     "lon": 10.405084
+    },
+    {
+     "lat": 43.710384,
+     "lon": 10.405482
+    },
+    {
+     "lat": 43.710963,
+     "lon": 10.405482
+    },
+    {
+     "lat": 43.710963,
+     "lon": 10.405581
+    },
+    {
+     "lat": 43.711325,
+     "lon": 10.40568
+    },
+    {
+     "lat": 43.711397,
+     "lon": 10.405979
+    },
+    {
+     "lat": 43.711469,
+     "lon": 10.405979
+    },
+    {
+     "lat": 43.711469,
+     "lon": 10.406277
+    },
+    {
+     "lat": 43.711614,
+     "lon": 10.406078
+    },
+    {
+     "lat": 43.711759,
+     "lon": 10.406078
+    },
+    {
+     "lat": 43.711759,
+     "lon": 10.405979
+    },
+    {
+     "lat": 43.71212,
+     "lon": 10.405879
+    },
+    {
+     "lat": 43.71212,
+     "lon": 10.405979
+    },
+    {
+     "lat": 43.712554,
+     "lon": 10.406078
+    },
+    {
+     "lat": 43.712554,
+     "lon": 10.406178
+    },
+    {
+     "lat": 43.712772,
+     "lon": 10.406178
+    },
+    {
+     "lat": 43.712772,
+     "lon": 10.406277
+    },
+    {
+     "lat": 43.712989,
+     "lon": 10.406277
+    },
+    {
+     "lat": 43.712989,
+     "lon": 10.406376
+    },
+    {
+     "lat": 43.713206,
+     "lon": 10.406376
+    },
+    {
+     "lat": 43.713206,
+     "lon": 10.406476
+    },
+    {
+     "lat": 43.713567,
+     "lon": 10.406476
+    },
+    {
+     "lat": 43.713567,
+     "lon": 10.406277
+    },
+    {
+     "lat": 43.713784,
+     "lon": 10.405979
+    },
+    {
+     "lat": 43.714001,
+     "lon": 10.405183
+    },
+    {
+     "lat": 43.714146,
+     "lon": 10.405084
+    },
+    {
+     "lat": 43.714074,
+     "lon": 10.404587
+    },
+    {
+     "lat": 43.714001,
+     "lon": 10.404587
+    },
+    {
+     "lat": 43.714146,
+     "lon": 10.403891
+    },
+    {
+     "lat": 43.714363,
+     "lon": 10.403791
+    },
+    {
+     "lat": 43.714363,
+     "lon": 10.403692
+    },
+    {
+     "lat": 43.714725,
+     "lon": 10.403592
+    },
+    {
+     "lat": 43.71487,
+     "lon": 10.402897
+    },
+    {
+     "lat": 43.715231,
+     "lon": 10.402698
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.4023
+    },
+    {
+     "lat": 43.715448,
+     "lon": 10.402201
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.402002
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.401803
+    },
+    {
+     "lat": 43.715231,
+     "lon": 10.401803
+    },
+    {
+     "lat": 43.715159,
+     "lon": 10.401405
+    },
+    {
+     "lat": 43.715231,
+     "lon": 10.401405
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.400908
+    },
+    {
+     "lat": 43.715521,
+     "lon": 10.40061
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.400113
+    },
+    {
+     "lat": 43.71581,
+     "lon": 10.400013
+    },
+    {
+     "lat": 43.71581,
+     "lon": 10.399615
+    },
+    {
+     "lat": 43.715883,
+     "lon": 10.399615
+    },
+    {
+     "lat": 43.71581,
+     "lon": 10.399218
+    },
+    {
+     "lat": 43.715738,
+     "lon": 10.399218
+    },
+    {
+     "lat": 43.71581,
+     "lon": 10.39882
+    },
+    {
+     "lat": 43.715738,
+     "lon": 10.39882
+    },
+    {
+     "lat": 43.715666,
+     "lon": 10.398224
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.398224
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.397826
+    },
+    {
+     "lat": 43.715521,
+     "lon": 10.397826
+    },
+    {
+     "lat": 43.715448,
+     "lon": 10.397428
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.397329
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.39713
+    },
+    {
+     "lat": 43.715231,
+     "lon": 10.39713
+    },
+    {
+     "lat": 43.715231,
+     "lon": 10.396832
+    },
+    {
+     "lat": 43.715014,
+     "lon": 10.396633
+    },
+    {
+     "lat": 43.714942,
+     "lon": 10.396136
+    },
+    {
+     "lat": 43.714725,
+     "lon": 10.396136
+    },
+    {
+     "lat": 43.714725,
+     "lon": 10.396036
+    },
+    {
+     "lat": 43.714508,
+     "lon": 10.395937
+    },
+    {
+     "lat": 43.714508,
+     "lon": 10.395738
+    },
+    {
+     "lat": 43.714363,
+     "lon": 10.395539
+    },
+    {
+     "lat": 43.714363,
+     "lon": 10.395241
+    },
+    {
+     "lat": 43.714291,
+     "lon": 10.395241
+    },
+    {
+     "lat": 43.714363,
+     "lon": 10.394843
+    },
+    {
+     "lat": 43.714219,
+     "lon": 10.394644
+    },
+    {
+     "lat": 43.713857,
+     "lon": 10.394744
+    },
+    {
+     "lat": 43.713857,
+     "lon": 10.394843
+    },
+    {
+     "lat": 43.713423,
+     "lon": 10.394644
+    },
+    {
+     "lat": 43.71335,
+     "lon": 10.394346
+    },
+    {
+     "lat": 43.713278,
+     "lon": 10.394346
+    },
+    {
+     "lat": 43.713133,
+     "lon": 10.393551
+    },
+    {
+     "lat": 43.713061,
+     "lon": 10.393551
+    },
+    {
+     "lat": 43.713133,
+     "lon": 10.393849
+    },
+    {
+     "lat": 43.713061,
+     "lon": 10.393849
+    },
+    {
+     "lat": 43.712989,
+     "lon": 10.394346
+    },
+    {
+     "lat": 43.712844,
+     "lon": 10.394545
+    },
+    {
+     "lat": 43.712699,
+     "lon": 10.394545
+    },
+    {
+     "lat": 43.712699,
+     "lon": 10.394644
+    },
+    {
+     "lat": 43.712482,
+     "lon": 10.394644
+    },
+    {
+     "lat": 43.712627,
+     "lon": 10.394843
+    },
+    {
+     "lat": 43.712627,
+     "lon": 10.395042
+    },
+    {
+     "lat": 43.712699,
+     "lon": 10.395042
+    },
+    {
+     "lat": 43.712699,
+     "lon": 10.39534
+    },
+    {
+     "lat": 43.712772,
+     "lon": 10.39534
+    },
+    {
+     "lat": 43.712699,
+     "lon": 10.395738
+    },
+    {
+     "lat": 43.712627,
+     "lon": 10.395738
+    },
+    {
+     "lat": 43.712699,
+     "lon": 10.396136
+    },
+    {
+     "lat": 43.712772,
+     "lon": 10.396136
+    },
+    {
+     "lat": 43.712772,
+     "lon": 10.396633
+    },
+    {
+     "lat": 43.712699,
+     "lon": 10.396633
+    },
+    {
+     "lat": 43.712627,
+     "lon": 10.39713
+    },
+    {
+     "lat": 43.712482,
+     "lon": 10.397329
+    },
+    {
+     "lat": 43.712337,
+     "lon": 10.397329
+    },
+    {
+     "lat": 43.712337,
+     "lon": 10.397428
+    },
+    {
+     "lat": 43.71212,
+     "lon": 10.397428
+    },
+    {
+     "lat": 43.71212,
+     "lon": 10.397528
+    },
+    {
+     "lat": 43.711325,
+     "lon": 10.397528
+    },
+    {
+     "lat": 43.711325,
+     "lon": 10.397726
+    },
+    {
+     "lat": 43.711252,
+     "lon": 10.397726
+    },
+    {
+     "lat": 43.711252,
+     "lon": 10.397925
+    },
+    {
+     "lat": 43.711107,
+     "lon": 10.398124
+    },
+    {
+     "lat": 43.710746,
+     "lon": 10.398224
+    },
+    {
+     "lat": 43.71089,
+     "lon": 10.39882
+    },
+    {
+     "lat": 43.711035,
+     "lon": 10.39882
+    },
+    {
+     "lat": 43.711107,
+     "lon": 10.399118
+    },
+    {
+     "lat": 43.71118,
+     "lon": 10.399118
+    },
+    {
+     "lat": 43.711252,
+     "lon": 10.399615
+    },
+    {
+     "lat": 43.71118,
+     "lon": 10.399615
+    },
+    {
+     "lat": 43.711107,
+     "lon": 10.400113
+    },
+    {
+     "lat": 43.710963,
+     "lon": 10.400311
+    },
+    {
+     "lat": 43.710818,
+     "lon": 10.400311
+    },
+    {
+     "lat": 43.710818,
+     "lon": 10.400411
+    },
+    {
+     "lat": 43.710601,
+     "lon": 10.400411
+    },
+    {
+     "lat": 43.710601,
+     "lon": 10.40051
+    },
+    {
+     "lat": 43.711397,
+     "lon": 10.400809
+    },
+    {
+     "lat": 43.711469,
+     "lon": 10.401107
+    },
+    {
+     "lat": 43.711542,
+     "lon": 10.401107
+    },
+    {
+     "lat": 43.711542,
+     "lon": 10.401405
+    },
+    {
+     "lat": 43.711614,
+     "lon": 10.401405
+    },
+    {
+     "lat": 43.711542,
+     "lon": 10.401902
+    },
+    {
+     "lat": 43.711469,
+     "lon": 10.401902
+    },
+    {
+     "lat": 43.711469,
+     "lon": 10.402101
+    },
+    {
+     "lat": 43.711325,
+     "lon": 10.402201
+    },
+    {
+     "lat": 43.711325,
+     "lon": 10.402399
+    },
+    {
+     "lat": 43.711252,
+     "lon": 10.402399
+    },
+    {
+     "lat": 43.711252,
+     "lon": 10.402598
+    },
+    {
+     "lat": 43.711107,
+     "lon": 10.402797
+    },
+    {
+     "lat": 43.710746,
+     "lon": 10.402897
+    },
+    {
+     "lat": 43.710746,
+     "lon": 10.402996
+    },
+    {
+     "lat": 43.710456,
+     "lon": 10.402996
+    },
+    {
+     "lat": 43.710456,
+     "lon": 10.403095
+    },
+    {
+     "lat": 43.710746,
+     "lon": 10.403095
+    },
+    {
+     "lat": 43.710746,
+     "lon": 10.403195
+    },
+    {
+     "lat": 43.711035,
+     "lon": 10.403195
+    },
+    {
+     "lat": 43.711035,
+     "lon": 10.403294
+    },
+    {
+     "lat": 43.711397,
+     "lon": 10.403394
+    },
+    {
+     "lat": 43.711542,
+     "lon": 10.403891
+    },
+    {
+     "lat": 43.711614,
+     "lon": 10.403891
+    },
+    {
+     "lat": 43.711614,
+     "lon": 10.40409
+    },
+    {
+     "lat": 43.711686,
+     "lon": 10.40409
+    },
+    {
+     "lat": 43.711759,
+     "lon": 10.404487
+    },
+    {
+     "lat": 43.711686,
+     "lon": 10.404487
+    },
+    {
+     "lat": 43.711614,
+     "lon": 10.404984
+    },
+    {
+     "lat": 43.711397,
+     "lon": 10.405084
+    },
+    {
+     "lat": 43.711397,
+     "lon": 10.405183
+    },
+    {
+     "lat": 43.71118,
+     "lon": 10.405183
+    },
+    {
+     "lat": 43.71118,
+     "lon": 10.405283
+    }
+   ],
+   "gates": [
+    {
+     "id": "pi-osm3358120379",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.711581,
+      "lon": 10.405552
+     }
+    },
+    {
+     "id": "pi-osm3483939523",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.710775,
+      "lon": 10.400511
+     }
+    },
+    {
+     "id": "pi-osm5599820736",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.711409,
+      "lon": 10.397624
+     }
+    },
+    {
+     "id": "pi-osm6290979184",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.715646,
+      "lon": 10.400319
+     }
+    },
+    {
+     "id": "pi-osm6290984385",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.715522,
+      "lon": 10.398897
+     }
+    },
+    {
+     "id": "pi-osm6290984390",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.713771,
+      "lon": 10.395941
+     }
+    },
+    {
+     "id": "pi-osm6290984391",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.713347,
+      "lon": 10.406413
+     }
+    },
+    {
+     "id": "pi-osm6290984392",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 43.713587,
+      "lon": 10.404541
+     }
+    },
+    {
+     "id": "pi-osm1947381681",
+     "name": "Varco ZTL · Piazza Santo Sepolcro (uscita)",
+     "location": {
+      "lat": 43.714763,
+      "lon": 10.403632
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Pisa",
+    "pageURL": "https://mobilita.pisamo.it/download-category/ztl/",
+    "ordinance": "Ordinanza Dir. 12 n. 2386 del 24/10/2024 (disciplina ZTL dal 01/01/2025)",
+    "ordinanceURL": "https://mobilita.pisamo.it/download/ordinanza-n-2386-del-24-ottobre-2024-disciplina-per-laccesso-e-la-sosta-nelle-zone-a-traffico-limitato-a-partire-dal-1-gennaio-2025/",
+    "quote": "Nelle zone come definite nella prima parte è istituito il divieto di accesso, transito e sosta di tutti i veicoli, nell’orario 0-24 di tutti i giorni, fatte salve le deroghe espresse ai punti successivi.",
+    "quoteTranslation": "In the zones defined in part one, access, transit and parking are forbidden to all vehicles, 0–24 every day, except for the exemptions in the following points.",
+    "quoteTranslation_de": "In den im ersten Teil festgelegten Zonen sind Zufahrt, Durchfahrt und Parken für alle Fahrzeuge verboten, 0–24 Uhr an allen Tagen, vorbehaltlich der folgenden Ausnahmen.",
+    "checkedOn": "2026-10-25T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter: drawn around the streets that ordinance 2386/2024 lists for each sector (plus piazza San Giorgio, ordinance 2719/2024), using their OpenStreetMap geometry. The edge is approximate.",
+     "Hotel guests: if the hotel is inside the ZTL, it enters your plate and arrival time on the portal within 10 hours of your entry (ordinance 2386/2024, 5.1), for up to 3 days at a time, renewable; you may stop up to 30 minutes in the hotel's luggage bays. The city's 2023 notice says access to reach the hotel is free. To also park in the ZTL (not in residents' bays) and on blue lines, the hotel can sell a €12, 24-hour permit (2025 fees, one per room).",
+     "Only professional accommodation (hotels, guesthouses, B&Bs and similar) can register plates; holiday flats are not mentioned.",
+     "No day ticket for tourists: the temporary permits of ordinance 2386/2024 are only for specific cases (weddings, removals, works, taxis…). Mopeds, light quadricycles and motorcycles may enter freely. Disabled badge holders registered on the national CUDE platform are added to the white list automatically.",
+     "Electric cars: no exemption in the rules of ordinance 2386/2024 (its preamble only cites a 2013 council resolution on electric vehicles in the ZTL, which we have not read).",
+     "Gates: 15 camera positions from OpenStreetMap, plus the two exit cameras added by ordinance 406/2025 in piazza Cairoli and piazza Santo Sepolcro, placed where the one-way street leaves the square (approximate). Ordinance 2386/2024 lists 10 gates per sector: some cameras may be missing from the map.",
+     "Not shown: the ZTL Stadio at Porta a Lucca (home matches of Pisa SC, from 2 hours before kick-off to the end of the first half) and the pedestrian areas inside the ZTL (via Corsica and piazza Buonamici, via Santa Maria)."
+    ],
+    "pending_it": [
+     "Perimetro: tracciato attorno alle strade che l'ordinanza 2386/2024 elenca per ciascun settore (più piazza San Giorgio, ordinanza 2719/2024), con la geometria di OpenStreetMap. Il bordo è approssimato.",
+     "Ospiti delle strutture ricettive: se la struttura è dentro la ZTL, inserisce sul portale targa e ora di arrivo entro 10 ore dal tuo ingresso (ordinanza 2386/2024, punto 5.1), per al massimo 3 giorni rinnovabili; puoi sostare fino a 30 minuti negli stalli per il carico/scarico bagagli. Il comunicato del Comune del 2023 dice che l'accesso per raggiungere la struttura è gratuito. Per sostare anche in ZTL (non negli stalli dei residenti) e sulle strisce blu, la struttura può rilasciare un permesso da 12 € per 24 ore (tariffe 2025, uno per camera).",
+     "Solo le strutture ricettive professionali (alberghi, pensioni, B&B e similari) possono registrare le targhe; gli affitti brevi non sono citati.",
+     "Nessun permesso giornaliero per turisti: i permessi temporanei dell'ordinanza 2386/2024 valgono solo per casi precisi (matrimoni, traslochi, cantieri, taxi…). Ciclomotori, quadricicli leggeri e moto entrano liberamente. I titolari di contrassegno disabili iscritti alla piattaforma nazionale CUDE entrano in lista bianca automaticamente.",
+     "Auto elettriche: nessuna esenzione nelle regole dell'ordinanza 2386/2024 (le premesse citano solo una delibera di Giunta del 2013 sui veicoli elettrici in ZTL, che non abbiamo letto).",
+     "Varchi: 15 telecamere da OpenStreetMap, più i due varchi in uscita aggiunti dall'ordinanza 406/2025 in piazza Cairoli e piazza Santo Sepolcro, messi dove la strada a senso unico esce dalla piazza (posizione approssimata). L'ordinanza 2386/2024 elenca 10 varchi per settore: alcune telecamere possono mancare sulla mappa.",
+     "Non mostrate: la ZTL Stadio a Porta a Lucca (partite casalinghe del Pisa SC, da due ore prima del fischio d'inizio al termine del primo tempo) e le aree pedonali dentro la ZTL (via Corsica e piazza Buonamici, via Santa Maria)."
+    ],
+    "pending_de": [
+     "Grenze: um die Straßen gezogen, die die Verordnung 2386/2024 je Sektor aufzählt (plus Piazza San Giorgio, Verordnung 2719/2024), mit der Geometrie aus OpenStreetMap. Der Rand ist ungefähr.",
+     "Hotelgäste: Liegt die Unterkunft in der ZTL, trägt sie Kennzeichen und Ankunftszeit binnen 10 Stunden nach deiner Einfahrt im Portal ein (Verordnung 2386/2024, Punkt 5.1), jeweils bis zu 3 Tage, verlängerbar; Halten bis 30 Minuten auf den Gepäck-Ladeplätzen. Laut Mitteilung der Stadt von 2023 ist die Zufahrt zur Unterkunft frei. Zum Parken auch in der ZTL (nicht auf Anwohnerplätzen) und auf blauen Linien kann die Unterkunft eine Genehmigung für 12 € / 24 Stunden ausstellen (Tarife 2025, eine pro Zimmer).",
+     "Nur gewerbliche Unterkünfte (Hotels, Pensionen, B&Bs u. ä.) können Kennzeichen registrieren; Ferienwohnungen werden nicht erwähnt.",
+     "Kein Tagesticket für Touristen: Die befristeten Genehmigungen der Verordnung 2386/2024 gelten nur für bestimmte Fälle (Hochzeiten, Umzüge, Baustellen, Taxis…). Mopeds, Leichtkraftfahrzeuge und Motorräder dürfen frei einfahren. Inhaber eines Behindertenausweises, die in der nationalen CUDE-Plattform eingetragen sind, kommen automatisch auf die weiße Liste.",
+     "Elektroautos: keine Ausnahme in den Regeln der Verordnung 2386/2024 (die Präambel nennt nur einen Stadtratsbeschluss von 2013 zu Elektrofahrzeugen in der ZTL, den wir nicht gelesen haben).",
+     "Kameras: 15 Standorte aus OpenStreetMap, dazu die zwei Ausfahrtskameras der Verordnung 406/2025 an Piazza Cairoli und Piazza Santo Sepolcro, dort gesetzt, wo die Einbahnstraße den Platz verlässt (ungefähr). Die Verordnung 2386/2024 nennt 10 Kameras je Sektor: einige Kameras können auf der Karte fehlen.",
+     "Nicht angezeigt: die ZTL Stadio in Porta a Lucca (Heimspiele von Pisa SC, ab 2 Stunden vor Anpfiff bis Ende der ersten Halbzeit) und die Fußgängerzonen in der ZTL (Via Corsica / Piazza Buonamici, Via Santa Maria)."
+    ],
+    "links": [
+     {
+      "title": "Pisamo: ordinance 2386/2024, ZTL rules and street list from 1 January 2025 (PDF)",
+      "title_it": "Pisamo: ordinanza 2386/2024, disciplina ZTL ed elenco delle strade dal 1° gennaio 2025 (PDF)",
+      "title_de": "Pisamo: Verordnung 2386/2024, ZTL-Regeln und Straßenliste ab 1. Januar 2025 (PDF)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-2386-del-24-ottobre-2024-disciplina-per-laccesso-e-la-sosta-nelle-zone-a-traffico-limitato-a-partire-dal-1-gennaio-2025/"
+     },
+     {
+      "title": "Pisamo: ordinance 2719/2024, changes (piazza San Giorgio added to ZTL Nord)",
+      "title_it": "Pisamo: ordinanza 2719/2024, modifiche (piazza San Giorgio nella ZTL Nord)",
+      "title_de": "Pisamo: Verordnung 2719/2024, Änderungen (Piazza San Giorgio in der ZTL Nord)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-02719-del-5-dicembre-2024/"
+     },
+     {
+      "title": "Pisamo: ordinance 406/2025, new gates in piazza Santo Sepolcro and piazza Cairoli",
+      "title_it": "Pisamo: ordinanza 406/2025, nuovi varchi in piazza Santo Sepolcro e piazza Cairoli",
+      "title_de": "Pisamo: Verordnung 406/2025, neue Kameras an Piazza Santo Sepolcro und Piazza Cairoli",
+      "url": "https://mobilita.pisamo.it/download/ztl-istituzione-di-due-nuovi-varchi-elettronici-per-la-ztl-in-piazza-santo-sepolcro-e-in-piazza-cairoli/"
+     },
+     {
+      "title": "Pisamo: ordinance 2845/2024, night ZTL on the Lungarni (Fri–Sun 10 pm–5 am)",
+      "title_it": "Pisamo: ordinanza 2845/2024, ZTL notturna dei Lungarni (ven–dom 22–5)",
+      "title_de": "Pisamo: Verordnung 2845/2024, Nacht-ZTL an den Lungarni (Fr–So 22–5 Uhr)",
+      "url": "https://mobilita.pisamo.it/download/ztl-lungarni-regolamentazione-della-zona-a-traffico-limitato-dei-lungarni-dal-01-gennaio-2025/"
+     },
+     {
+      "title": "Pisamo: 2025 fees, hotel guests' parking permit €12 for 24 hours (annex B)",
+      "title_it": "Pisamo: tariffe 2025, permesso di sosta per i clienti delle strutture ricettive 12 € per 24 ore (allegato B)",
+      "title_de": "Pisamo: Tarife 2025, Parkgenehmigung für Hotelgäste 12 € für 24 Stunden (Anlage B)",
+      "url": "https://mobilita.pisamo.it/download/tariffe-diritti-ed-altre-entrate-extra-tributarie-allegato-b-parcheggi-accesso-z-t-l-mobilita/"
+     },
+     {
+      "title": "City of Pisa: hotels register guests' plates",
+      "title_it": "Comune di Pisa: registrazione targhe per le strutture ricettive",
+      "title_de": "Stadt Pisa: Kennzeichen-Registrierung durch Unterkünfte",
+      "url": "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL"
+     },
+     {
+      "title": "City of Pisa: hotel guests, free access to the hotel (news, Feb 2023)",
+      "title_it": "Comune di Pisa: clienti delle strutture ricettive, accesso gratuito alla struttura (comunicato, feb. 2023)",
+      "title_de": "Stadt Pisa: Hotelgäste, freie Zufahrt zur Unterkunft (Mitteilung, Feb. 2023)",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Turismo-e-mobilita-in-centro-cambia-la-sosta-per-i-clienti-delle-strutture-ricettive"
+     },
+     {
+      "title": "City of Pisa: CUDE disabled badges accepted at the ZTL gates (news, Mar 2026)",
+      "title_it": "Comune di Pisa: contrassegno CUDE ai varchi della ZTL (comunicato, mar. 2026)",
+      "title_de": "Stadt Pisa: CUDE-Behindertenausweis an den ZTL-Kameras (Mitteilung, März 2026)",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Contrassegno-unificato-disabili-europeo-CUDE-installata-la-nuova-cartellonistica-ai-varchi-della-ZTL"
+     },
+     {
+      "title": "City of Pisa: ZTL Stadio on home match days",
+      "title_it": "Comune di Pisa: ZTL Stadio nelle partite casalinghe",
+      "title_de": "Stadt Pisa: ZTL Stadio an Heimspieltagen",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Calcio-con-l-avvio-della-nuova-stagione-torna-attiva-la-ZTL-Stadio-in-occasione-delle-partite-casalinghe-del-Pisa-SC"
+     },
+     {
+      "title": "OpenStreetMap: relation 9342809 (ZTL cameras, ODbL)",
+      "title_it": "OpenStreetMap: relazione 9342809 (varchi ZTL, ODbL)",
+      "title_de": "OpenStreetMap: Relation 9342809 (ZTL-Kameras, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/9342809"
+     }
+    ]
+   }
+  },
+  {
+   "id": "pisa-ztl-lungarni",
+   "name": "Lungarni · Weekend night ZTL",
+   "name_it": "Lungarni · ZTL notturna del fine settimana",
+   "name_de": "Lungarni · Nacht-ZTL am Wochenende",
+   "kind": "restricted",
+   "summary": "The riverside Lungarni (Pacinotti, Mediceo, Galilei, Gambacorti), Ponte di Mezzo, piazza Mazzini, piazza Carrara and via San Nicola: closed to unauthorised cars on Friday, Saturday and Sunday nights from 10 pm to 5 am. ZTL Nord and Sud permits are valid here.",
+   "summary_it": "I Lungarni (Pacinotti, Mediceo, Galilei, Gambacorti), il Ponte di Mezzo, piazza Mazzini, piazza Carrara e via San Nicola: chiusi alle auto non autorizzate il venerdì, il sabato e la domenica notte dalle 22 alle 5. I permessi delle ZTL Nord e Sud valgono anche qui.",
+   "summary_de": "Die Lungarni am Arno (Pacinotti, Mediceo, Galilei, Gambacorti), Ponte di Mezzo, Piazza Mazzini, Piazza Carrara und Via San Nicola: freitags, samstags und sonntags nachts von 22 bis 5 Uhr für nicht berechtigte Autos gesperrt. Genehmigungen der ZTL Nord und Sud gelten auch hier.",
+   "perimeter": [
+    {
+     "lat": 43.716534,
+     "lon": 10.398328
+    },
+    {
+     "lat": 43.716678,
+     "lon": 10.397731
+    },
+    {
+     "lat": 43.716895,
+     "lon": 10.397632
+    },
+    {
+     "lat": 43.716895,
+     "lon": 10.397333
+    },
+    {
+     "lat": 43.716751,
+     "lon": 10.397135
+    },
+    {
+     "lat": 43.716606,
+     "lon": 10.396339
+    },
+    {
+     "lat": 43.716461,
+     "lon": 10.396439
+    },
+    {
+     "lat": 43.716461,
+     "lon": 10.396339
+    },
+    {
+     "lat": 43.716244,
+     "lon": 10.396339
+    },
+    {
+     "lat": 43.716244,
+     "lon": 10.39624
+    },
+    {
+     "lat": 43.716027,
+     "lon": 10.39614
+    },
+    {
+     "lat": 43.715955,
+     "lon": 10.395643
+    },
+    {
+     "lat": 43.71581,
+     "lon": 10.395444
+    },
+    {
+     "lat": 43.715738,
+     "lon": 10.395047
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.394947
+    },
+    {
+     "lat": 43.715521,
+     "lon": 10.395444
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.395544
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.395643
+    },
+    {
+     "lat": 43.715087,
+     "lon": 10.395643
+    },
+    {
+     "lat": 43.715087,
+     "lon": 10.395743
+    },
+    {
+     "lat": 43.714653,
+     "lon": 10.395643
+    },
+    {
+     "lat": 43.714797,
+     "lon": 10.395842
+    },
+    {
+     "lat": 43.71487,
+     "lon": 10.39624
+    },
+    {
+     "lat": 43.715014,
+     "lon": 10.396339
+    },
+    {
+     "lat": 43.715087,
+     "lon": 10.396737
+    },
+    {
+     "lat": 43.715159,
+     "lon": 10.396737
+    },
+    {
+     "lat": 43.715159,
+     "lon": 10.397035
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.397135
+    },
+    {
+     "lat": 43.715304,
+     "lon": 10.397333
+    },
+    {
+     "lat": 43.715448,
+     "lon": 10.397532
+    },
+    {
+     "lat": 43.715448,
+     "lon": 10.397831
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.398029
+    },
+    {
+     "lat": 43.715666,
+     "lon": 10.398725
+    },
+    {
+     "lat": 43.715738,
+     "lon": 10.398725
+    },
+    {
+     "lat": 43.715738,
+     "lon": 10.399421
+    },
+    {
+     "lat": 43.71581,
+     "lon": 10.399421
+    },
+    {
+     "lat": 43.71581,
+     "lon": 10.400217
+    },
+    {
+     "lat": 43.715738,
+     "lon": 10.400217
+    },
+    {
+     "lat": 43.715738,
+     "lon": 10.400813
+    },
+    {
+     "lat": 43.715666,
+     "lon": 10.400813
+    },
+    {
+     "lat": 43.715666,
+     "lon": 10.401211
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.401211
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.401509
+    },
+    {
+     "lat": 43.715521,
+     "lon": 10.401509
+    },
+    {
+     "lat": 43.715521,
+     "lon": 10.401808
+    },
+    {
+     "lat": 43.715448,
+     "lon": 10.401808
+    },
+    {
+     "lat": 43.715376,
+     "lon": 10.402205
+    },
+    {
+     "lat": 43.715231,
+     "lon": 10.402305
+    },
+    {
+     "lat": 43.715087,
+     "lon": 10.402901
+    },
+    {
+     "lat": 43.714942,
+     "lon": 10.403001
+    },
+    {
+     "lat": 43.71487,
+     "lon": 10.403399
+    },
+    {
+     "lat": 43.71458,
+     "lon": 10.403796
+    },
+    {
+     "lat": 43.71458,
+     "lon": 10.403995
+    },
+    {
+     "lat": 43.714363,
+     "lon": 10.404293
+    },
+    {
+     "lat": 43.714363,
+     "lon": 10.404492
+    },
+    {
+     "lat": 43.714074,
+     "lon": 10.40489
+    },
+    {
+     "lat": 43.714001,
+     "lon": 10.405288
+    },
+    {
+     "lat": 43.713857,
+     "lon": 10.405387
+    },
+    {
+     "lat": 43.713712,
+     "lon": 10.405984
+    },
+    {
+     "lat": 43.713567,
+     "lon": 10.406083
+    },
+    {
+     "lat": 43.713567,
+     "lon": 10.406282
+    },
+    {
+     "lat": 43.713495,
+     "lon": 10.406282
+    },
+    {
+     "lat": 43.713495,
+     "lon": 10.406481
+    },
+    {
+     "lat": 43.71335,
+     "lon": 10.40668
+    },
+    {
+     "lat": 43.71335,
+     "lon": 10.406879
+    },
+    {
+     "lat": 43.713278,
+     "lon": 10.406879
+    },
+    {
+     "lat": 43.713278,
+     "lon": 10.407177
+    },
+    {
+     "lat": 43.713206,
+     "lon": 10.407177
+    },
+    {
+     "lat": 43.713133,
+     "lon": 10.407575
+    },
+    {
+     "lat": 43.713061,
+     "lon": 10.407575
+    },
+    {
+     "lat": 43.713061,
+     "lon": 10.407873
+    },
+    {
+     "lat": 43.713133,
+     "lon": 10.407773
+    },
+    {
+     "lat": 43.713423,
+     "lon": 10.407773
+    },
+    {
+     "lat": 43.713423,
+     "lon": 10.407873
+    },
+    {
+     "lat": 43.713784,
+     "lon": 10.407972
+    },
+    {
+     "lat": 43.713857,
+     "lon": 10.408271
+    },
+    {
+     "lat": 43.713929,
+     "lon": 10.408271
+    },
+    {
+     "lat": 43.713929,
+     "lon": 10.408569
+    },
+    {
+     "lat": 43.714001,
+     "lon": 10.408569
+    },
+    {
+     "lat": 43.714146,
+     "lon": 10.407972
+    },
+    {
+     "lat": 43.714291,
+     "lon": 10.407873
+    },
+    {
+     "lat": 43.714436,
+     "lon": 10.407376
+    },
+    {
+     "lat": 43.714797,
+     "lon": 10.407276
+    },
+    {
+     "lat": 43.714797,
+     "lon": 10.407177
+    },
+    {
+     "lat": 43.715087,
+     "lon": 10.407276
+    },
+    {
+     "lat": 43.715087,
+     "lon": 10.407077
+    },
+    {
+     "lat": 43.715231,
+     "lon": 10.406978
+    },
+    {
+     "lat": 43.715159,
+     "lon": 10.40668
+    },
+    {
+     "lat": 43.715087,
+     "lon": 10.40668
+    },
+    {
+     "lat": 43.715014,
+     "lon": 10.406183
+    },
+    {
+     "lat": 43.715087,
+     "lon": 10.406183
+    },
+    {
+     "lat": 43.715159,
+     "lon": 10.405685
+    },
+    {
+     "lat": 43.715376,
+     "lon": 10.405387
+    },
+    {
+     "lat": 43.715376,
+     "lon": 10.405188
+    },
+    {
+     "lat": 43.715521,
+     "lon": 10.405089
+    },
+    {
+     "lat": 43.715521,
+     "lon": 10.404791
+    },
+    {
+     "lat": 43.715593,
+     "lon": 10.404791
+    },
+    {
+     "lat": 43.715666,
+     "lon": 10.404393
+    },
+    {
+     "lat": 43.715738,
+     "lon": 10.404393
+    },
+    {
+     "lat": 43.715738,
+     "lon": 10.404095
+    },
+    {
+     "lat": 43.715883,
+     "lon": 10.403896
+    },
+    {
+     "lat": 43.715955,
+     "lon": 10.403299
+    },
+    {
+     "lat": 43.7161,
+     "lon": 10.4031
+    },
+    {
+     "lat": 43.716172,
+     "lon": 10.402603
+    },
+    {
+     "lat": 43.716244,
+     "lon": 10.402603
+    },
+    {
+     "lat": 43.716317,
+     "lon": 10.402007
+    },
+    {
+     "lat": 43.716461,
+     "lon": 10.401808
+    },
+    {
+     "lat": 43.716534,
+     "lon": 10.401012
+    },
+    {
+     "lat": 43.716606,
+     "lon": 10.401012
+    },
+    {
+     "lat": 43.716678,
+     "lon": 10.399223
+    },
+    {
+     "lat": 43.716606,
+     "lon": 10.399223
+    },
+    {
+     "lat": 43.716606,
+     "lon": 10.398527
+    },
+    {
+     "lat": 43.716534,
+     "lon": 10.398527
+    },
+    {
+     "lat": 43.716534,
+     "lon": 10.398328
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      6,
+      7,
+      1
+     ],
+     "start": 1320,
+     "end": 300
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Pisa",
+    "pageURL": "https://mobilita.pisamo.it/download-category/ztl/",
+    "ordinance": "Ordinanza Dir. 12 n. 2845 del 23/12/2024 (ZTL dei Lungarni dal 01/01/2025)",
+    "ordinanceURL": "https://mobilita.pisamo.it/download/ztl-lungarni-regolamentazione-della-zona-a-traffico-limitato-dei-lungarni-dal-01-gennaio-2025/",
+    "quote": "A far data dal 01 Gennaio 2025 nei giorni di Venerdì, Sabato e Domenica, è istituita, dalle ore 22.00 alle ore 5.00 del giorno successivo, la Zona a Traffico Limitato nelle seguenti strade:",
+    "quoteTranslation": "From 1 January 2025, on Fridays, Saturdays and Sundays, from 10 pm to 5 am the following day, the Limited Traffic Zone is established in the following streets:",
+    "quoteTranslation_de": "Ab 1. Januar 2025 gilt freitags, samstags und sonntags von 22 Uhr bis 5 Uhr des Folgetags die Zone mit beschränktem Verkehr in folgenden Straßen:",
+    "checkedOn": "2026-10-25T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter: drawn around the streets listed in ordinance 2845/2024 (the four Lungarni, piazza Carrara, piazza Mazzini, via San Nicola, the end of via Santa Maria and Ponte di Mezzo), using their OpenStreetMap geometry; approximate.",
+     "Permits for ZTL Nord and Sud, temporary ones included, are also valid here; the ordinance does not say whether hotels on the Lungarni can register guests, so GateLR does not assume it.",
+     "Cars already parked here at 10 pm may stay and drive out before 5 am. Mopeds and motorcycles may enter. Holidays are not mentioned: the ZTL applies every Friday, Saturday and Sunday night."
+    ],
+    "pending_it": [
+     "Perimetro: tracciato attorno alle strade elencate dall'ordinanza 2845/2024 (i quattro Lungarni, piazza Carrara, piazza Mazzini, via San Nicola, l'ultimo tratto di via Santa Maria e il Ponte di Mezzo), con la geometria di OpenStreetMap; approssimato.",
+     "I permessi per le ZTL Nord e Sud, compresi quelli temporanei, valgono anche qui; l'ordinanza non dice se le strutture sui Lungarni possano registrare gli ospiti, quindi GateLR non lo dà per scontato.",
+     "Le auto già in sosta qui alle 22 possono restare e uscire anche prima delle 5. Ciclomotori e moto possono entrare. I festivi non sono citati: la ZTL vale ogni venerdì, sabato e domenica notte."
+    ],
+    "pending_de": [
+     "Grenze: um die in der Verordnung 2845/2024 genannten Straßen gezogen (die vier Lungarni, Piazza Carrara, Piazza Mazzini, Via San Nicola, das letzte Stück der Via Santa Maria und Ponte di Mezzo), mit der Geometrie aus OpenStreetMap; ungefähr.",
+     "Genehmigungen für die ZTL Nord und Sud, auch befristete, gelten auch hier; ob Unterkünfte an den Lungarni Gäste registrieren können, sagt die Verordnung nicht, daher nimmt GateLR es nicht an.",
+     "Autos, die um 22 Uhr hier schon parken, dürfen bleiben und auch vor 5 Uhr ausfahren. Mopeds und Motorräder dürfen einfahren. Feiertage werden nicht erwähnt: Die ZTL gilt jede Freitag-, Samstag- und Sonntagnacht."
+    ],
+    "links": [
+     {
+      "title": "Pisamo: ordinance 2386/2024, ZTL rules and street list from 1 January 2025 (PDF)",
+      "title_it": "Pisamo: ordinanza 2386/2024, disciplina ZTL ed elenco delle strade dal 1° gennaio 2025 (PDF)",
+      "title_de": "Pisamo: Verordnung 2386/2024, ZTL-Regeln und Straßenliste ab 1. Januar 2025 (PDF)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-2386-del-24-ottobre-2024-disciplina-per-laccesso-e-la-sosta-nelle-zone-a-traffico-limitato-a-partire-dal-1-gennaio-2025/"
+     },
+     {
+      "title": "Pisamo: ordinance 2719/2024, changes (piazza San Giorgio added to ZTL Nord)",
+      "title_it": "Pisamo: ordinanza 2719/2024, modifiche (piazza San Giorgio nella ZTL Nord)",
+      "title_de": "Pisamo: Verordnung 2719/2024, Änderungen (Piazza San Giorgio in der ZTL Nord)",
+      "url": "https://mobilita.pisamo.it/download/ordinanza-n-02719-del-5-dicembre-2024/"
+     },
+     {
+      "title": "Pisamo: ordinance 406/2025, new gates in piazza Santo Sepolcro and piazza Cairoli",
+      "title_it": "Pisamo: ordinanza 406/2025, nuovi varchi in piazza Santo Sepolcro e piazza Cairoli",
+      "title_de": "Pisamo: Verordnung 406/2025, neue Kameras an Piazza Santo Sepolcro und Piazza Cairoli",
+      "url": "https://mobilita.pisamo.it/download/ztl-istituzione-di-due-nuovi-varchi-elettronici-per-la-ztl-in-piazza-santo-sepolcro-e-in-piazza-cairoli/"
+     },
+     {
+      "title": "Pisamo: ordinance 2845/2024, night ZTL on the Lungarni (Fri–Sun 10 pm–5 am)",
+      "title_it": "Pisamo: ordinanza 2845/2024, ZTL notturna dei Lungarni (ven–dom 22–5)",
+      "title_de": "Pisamo: Verordnung 2845/2024, Nacht-ZTL an den Lungarni (Fr–So 22–5 Uhr)",
+      "url": "https://mobilita.pisamo.it/download/ztl-lungarni-regolamentazione-della-zona-a-traffico-limitato-dei-lungarni-dal-01-gennaio-2025/"
+     },
+     {
+      "title": "Pisamo: 2025 fees, hotel guests' parking permit €12 for 24 hours (annex B)",
+      "title_it": "Pisamo: tariffe 2025, permesso di sosta per i clienti delle strutture ricettive 12 € per 24 ore (allegato B)",
+      "title_de": "Pisamo: Tarife 2025, Parkgenehmigung für Hotelgäste 12 € für 24 Stunden (Anlage B)",
+      "url": "https://mobilita.pisamo.it/download/tariffe-diritti-ed-altre-entrate-extra-tributarie-allegato-b-parcheggi-accesso-z-t-l-mobilita/"
+     },
+     {
+      "title": "City of Pisa: hotels register guests' plates",
+      "title_it": "Comune di Pisa: registrazione targhe per le strutture ricettive",
+      "title_de": "Stadt Pisa: Kennzeichen-Registrierung durch Unterkünfte",
+      "url": "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL"
+     },
+     {
+      "title": "City of Pisa: hotel guests, free access to the hotel (news, Feb 2023)",
+      "title_it": "Comune di Pisa: clienti delle strutture ricettive, accesso gratuito alla struttura (comunicato, feb. 2023)",
+      "title_de": "Stadt Pisa: Hotelgäste, freie Zufahrt zur Unterkunft (Mitteilung, Feb. 2023)",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Turismo-e-mobilita-in-centro-cambia-la-sosta-per-i-clienti-delle-strutture-ricettive"
+     },
+     {
+      "title": "City of Pisa: CUDE disabled badges accepted at the ZTL gates (news, Mar 2026)",
+      "title_it": "Comune di Pisa: contrassegno CUDE ai varchi della ZTL (comunicato, mar. 2026)",
+      "title_de": "Stadt Pisa: CUDE-Behindertenausweis an den ZTL-Kameras (Mitteilung, März 2026)",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Contrassegno-unificato-disabili-europeo-CUDE-installata-la-nuova-cartellonistica-ai-varchi-della-ZTL"
+     },
+     {
+      "title": "City of Pisa: ZTL Stadio on home match days",
+      "title_it": "Comune di Pisa: ZTL Stadio nelle partite casalinghe",
+      "title_de": "Stadt Pisa: ZTL Stadio an Heimspieltagen",
+      "url": "https://www.comune.pisa.it/Novita/Comunicati/Calcio-con-l-avvio-della-nuova-stagione-torna-attiva-la-ZTL-Stadio-in-occasione-delle-partite-casalinghe-del-Pisa-SC"
+     },
+     {
+      "title": "OpenStreetMap: relation 9342809 (ZTL cameras, ODbL)",
+      "title_it": "OpenStreetMap: relazione 9342809 (varchi ZTL, ODbL)",
+      "title_de": "OpenStreetMap: Relation 9342809 (ZTL-Kameras, ODbL)",
+      "url": "https://www.openstreetmap.org/relation/9342809"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Pisa official pages and ordinances. Perimeters (from the official street list) and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)"
+}
