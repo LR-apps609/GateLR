@@ -84,6 +84,9 @@ class CoreTest {
         assertTrue(verdict(b, car.copy(euro = 4), date(2028, 10, 2, 10)) is Verdict.No)
         assertTrue(verdict(c, car.copy(fuel = Fuel.DIESEL, euro = 5), monday) is Verdict.No)
         assertTrue(verdict(c, at = monday) is Verdict.Conditional)
+        // Area C: elettriche senza ticket (DD 1856/2026, cap. 6); ibride solo con CO2 ≤ 100 g/km, che l'app non conosce: ticket
+        assertTrue(verdict(c, car.copy(fuel = Fuel.ELECTRIC, euro = 0), monday) is Verdict.Yes)
+        assertTrue(verdict(c, car.copy(fuel = Fuel.HYBRID, euro = 6), monday) is Verdict.Conditional)
         val lines = carAdvice(car.copy(fuel = Fuel.DIESEL, euro = 5), cities.values.toList(), monday)
         assertEquals(2, lines.count { !it.ok })
     }

@@ -252,6 +252,9 @@ final class RuleEngineTests: XCTestCase {
         guard case .no = verdict(b, .petrol, 4, date(2028, 10, 2, 10)) else { return XCTFail("benzina Euro 4 nel 2028: atteso no") }
         guard case .no = verdict(c, .diesel, 5, monday) else { return XCTFail("Area C diesel Euro 5: atteso no anche col ticket") }
         guard case .conditional = verdict(c, .petrol, 6, monday) else { return XCTFail("Area C benzina Euro 6: atteso ticket") }
+        // Area C: elettriche esenti dal ticket (DD 1856/2026, cap. 6); ibride solo con CO2 ≤ 100 g/km, che l'app non conosce: ticket
+        guard case .yes = verdict(c, .electric, 0, monday) else { return XCTFail("Area C elettrica: atteso sì senza ticket") }
+        guard case .conditional = verdict(c, .hybrid, 6, monday) else { return XCTFail("Area C ibrida: atteso ticket") }
         XCTAssertFalse(engine.isActive(b, at: date(2026, 10, 25, 10)))     // domenica
     }
 

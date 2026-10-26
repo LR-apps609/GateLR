@@ -1,6 +1,6 @@
 {
- "version": "202610260150",
- "digest": "486ef6950c94",
+ "version": "202610262247",
+ "digest": "6514a6572abe",
  "schema": 1,
  "cities": [
   {
@@ -41,7 +41,7 @@
   {
    "id": "milano",
    "file": "milano.json",
-   "sha256": "164d1e1146f69acdeb48cb835f77eec5f8aa8b3502efa51b541c1803ec73c1c4"
+   "sha256": "92b69c6db84e8e2b0715152b1b7696599039a3cc95abb727fa31e3bb0d2f8a97"
   },
   {
    "id": "napoli",
