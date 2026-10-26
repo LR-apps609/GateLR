@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="it">
+
+	<head profile="https://www.w3.org/2005/10/profile">
+
+			
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
+
+		<meta name="apple-mobile-web-app-title" content="Mentelocale">
+		<link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png">
+		<link rel="icon" href="/images/favicons/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png" />
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-196x196.png" sizes="196x196" />
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-192x192.png" sizes="196x196" />
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="/images/favicons/favicon-128.png" sizes="128x128" />
+		<meta name="application-name" content="Mentelocale"/>
+		<meta name="msapplication-TileColor" content="#FFFFFF" />
+		<meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png" />
+		<meta name="msapplication-square70x70logo" content="/images/favicons/mstile-70x70.png" />
+		<meta name="msapplication-square150x150logo" content="/images/favicons/mstile-150x150.png" />
+		<meta name="msapplication-wide310x150logo" content="/images/favicons/mstile-310x150.png" />
+		<meta name="msapplication-square310x310logo" content="/images/favicons/mstile-310x310.png" />
+
+
+		<meta property="fb:admins" content="654119164">
+		<meta property="fb:pages" content="123478421001662">
+
+		<script type="text/javascript">var ProvinciaCapoluogo = "Genova";</script>
+		<!-- COOKIE BOT -->
+		<!-- <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-framework="TCFv2.2" data-cbid="1e4fa60c-9ac1-462d-955c-3d9701af1cb7" data-blockingmode="auto" type="text/javascript"></script> -->
+		<!-- <script type="text/javascript" src="/cookieconsent/?onload=SetupBanners"></script> -->
+
+		<!-- COOKIE BOT -->
+		<script id="Cookiebot" data-framework="TCFv2.2" src="https://consent.cookiebot.com/uc.js" data-cbid="47bf5db4-7237-45e9-a88d-4fbf050df390" data-blockingmode="auto" type="text/javascript"></script>
+		<!-- Ad Manager: l'oggetto googletag con la coda cmd deve nascere PRIMA di Analytics (gtag.js crea un googletag vuoto senza cmd) - 30/09/2026 -->
+		<script data-cookieconsent="ignore">window.googletag = window.googletag || {cmd: []};</script>
+
+
+ 
+		<!-- Google Analytics -->
+		 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CMKY5GC0ZM"></script>
+		 <script>
+		 	window.dataLayer = window.dataLayer || [];
+		 	function gtag(){dataLayer.push(arguments);}
+		 	gtag('js', new Date());
+		 	gtag('config', 'G-CMKY5GC0ZM');
+		 </script>
+		 <!-- End Google Analytics -->
+		
+		<!-- AD SENSE -->
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4927776483077981" crossorigin="anonymous"></script>
+        
+		<style type="text/css">
+
+			.NotVis {
+				position: absolute;
+				left:-5000px;
+				top:-5000px;
+			}
+
+			.adsbygoogle.adsbygoogle-noablate {
+				z-index: 2147483500 !important;
+			}
+
+
+
+
+		/*	----------------------------------------------------------------------------- */
+		/*	GLOBALE MOBILE
+		/*	----------------------------------------------------------------------------- */
+			@media screen and (max-device-width: 769px) {
+
+				HTML {
+					font-size: 3.6vw;
+					font-family: Roboto,Arial,Helvetica;
+				}
+				BODY {
+					
+				}
+				.Container {
+					display: block;
+					max-width: 92vw;
+					margin-left: auto;
+					margin-right: auto;
+					margin-top: 4.7rem;
+					margin-bottom: 2rem;
+					overflow-x:hidden;
+				}
+
+				#SideBannerA, #SideBannerB { display:none; }
+
+				#SuperBoxA, #SuperBoxB, #SuperBoxC { display:none; }
+
+				#MegaBox {
+					display: block;
+					text-align: center;
+					max-height: 600px !important;
+					height: auto !important;
+					margin-left: auto;
+					margin-right: auto;
+					margin-bottom: 2rem;
+					background-color:transparent; 
+				}
+				#MegaBox > * {
+					height: auto !important;
+					text-align:center !important;
+					display: contents !important;
+				}
+				#Skin { 
+					display: block;
+					width: 500px;
+					height: 100px;
+					position: fixed;
+					left: 0;
+					top: 0;
+					right: 0;
+					text-align: center;
+					background-color: #ffffff;
+					z-index: 9998;
+					overflow: hidden;
+				}
+				.Adv.BannerAgenda {
+				    text-align: center;
+				    height: auto;
+				    background-color:transparent; 
+				    margin-bottom: 0;
+				    min-height: 100px;
+				    max-width: 100%;
+				    padding-bottom:1rem;
+					border-bottom: 1px solid #cccccc;
+				}
+				.Adv.BannerAgenda > * {
+					text-align:center !important;
+					display: contents !important;
+				}
+				.InTextAdv {
+					display: block;
+					text-align: center;
+					width:100%;
+					height: auto;
+					max-height: 250px;
+					border-top: 1px solid #cccccc;
+					border-bottom: 1px solid #cccccc;
+					background-color:transparent; 
+					margin-bottom: 1.5rem;
+					padding-top: 1.5rem;
+					padding-bottom: 1.5rem;
+				}
+				.InTextAdv > * {
+					display: contents !important;
+					max-height: 250px !important;
+					text-align: center !important;
+				}
+				.xInTextAdv > * > * {
+					max-height: 100px;
+					text-align: center;
+				}
+				#MegaLeaderboardA, #MegaLeaderboardB {
+					background-color:transparent;
+					text-align:center;
+					display: block;
+					min-height: 100px;
+				}
+				#MegaLeaderboardA > *, #MegaLeaderboardB > * {
+					text-align:center !important;
+					display: contents !important;
+				}
+				#MegaLeaderboardA {
+				    padding-bottom: 1.6rem;
+				    border-bottom:1px solid #cccccc;
+				}
+
+				#Interstitial {
+					position:absolute;
+					left:-5000px;
+					top:-5000px;
+					width:100vw;
+					height: 100vh;
+					z-index: 2147483646;
+					text-align: center;
+					vertical-align: middle;
+					background-color: #ffffff;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				#Interstitial .fa-times {
+					display: none;
+					position:fixed;
+					right:1rem;
+					top:1rem;
+					font-size:2rem;
+					color:#000000;
+					cursor: pointer;
+					z-index: 2147483647;
+				}
+
+
+
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div.cf1lHZ.cf2L3T { /* PULSANTE OK */
+					flex: 0 0 100%;
+					max-width: 100%;
+				}
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div.cf1lHZ.cf2L3T > button {
+					height:5rem !important;
+					background-color: var(--MainColor) !important;
+					color: #ffffff !important;
+					border-color:var(--MainColor) !important;
+				}
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div.cf1lHZ.cf2L3T > button:HOVER {
+					background-color: var(--MainColor) !important;
+					color: #ffffff !important;
+					border-color:var(--MainColor) !important;
+				}
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div.cf1lHZ.cf2L3T > button > span {
+					font-size: 1.9rem !important;
+				}
+
+
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div:nth-child(2) { /* PULSANTE NO */
+					display: none;
+				}
+
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div:nth-child(3) > button {
+					border-color:transparent !important;
+					color: #999999 !important;
+				}
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div:nth-child(3) > button:HOVER {
+					border-color:transparent !important;
+					color: #999999 !important;
+					background-color: #eeeeee !important;
+				}
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div:nth-child(3) { /* PULSANTE AGGIUSTA */
+				    flex: 0 0 100%;
+				    max-width: 100%;
+				}
+
+			}
+
+		/*	----------------------------------------------------------------------------- */
+		/*	ADV Mobile per banner 300x250
+		/*	----------------------------------------------------------------------------- */
+			@media screen and (min-device-width: 348px) and (max-device-width: 365px) {
+
+				#SuperBoxA, #SuperBoxB, #SuperBoxC {
+					display: block;
+					text-align: center;
+					height: 250px;
+					width:300px;
+					margin-left: auto;
+					margin-right: auto;
+					margin-bottom: 2rem;
+				}
+
+			}
+
+		/*	----------------------------------------------------------------------------- */
+		/*	ADV Mobile per banner 336x250
+		/*	----------------------------------------------------------------------------- */
+			@media screen and (min-device-width: 366px) and (max-device-width: 769px) {
+
+				#SuperBoxA, #SuperBoxB, #SuperBoxC {
+					display: block;
+					text-align: center;
+					height: 280px;
+					width:336px;
+					margin-left: auto;
+					margin-right: auto;
+					margin-bottom: 2rem;
+				}
+
+			}
+
+
+
+
+		/*	----------------------------------------------------------------------------- */
+		/*	GLOBALE DESKTOP
+		/*	----------------------------------------------------------------------------- */
+			@media screen and (min-device-width: 770px) {
+
+				HTML {
+					margin:0px;
+					padding:0px;
+					width:100%;
+					height:100%;
+					font-size: 16px;
+					zoom:1;
+					font-family: Roboto,Arial,Helvetica;
+				}
+				BODY {
+					padding-top: 8rem;
+					
+				}
+
+				#SideBannerA, #SideBannerB { display:none; }
+
+				.Container {
+					display: block;
+					max-width: 1004px;
+					margin: 0;
+					margin-left: auto;
+					margin-right: auto;
+					padding-bottom: 3rem;
+					padding-top: 1.5rem;
+					background-color: #ffffff;
+					box-sizing: border-box;
+					padding-left: 17px;
+					padding-right: 17px;
+				}
+				#Skin {
+					display:block;
+					width:1920px;
+					height: 1080px;
+					position: fixed;
+					z-index: 0;
+					top:0;
+				}
+				#SuperBoxA, #SuperBoxB, #SuperBoxC {
+					display: block;
+					text-align: center;
+					height: 250px;
+					width:300px;
+					margin-bottom: 1rem;
+				}
+				#MegaBox {
+					display: block;
+					text-align: center;
+					max-height: 600px;
+					height: auto;
+					width:300px;
+					margin-bottom: 1rem;
+				}
+				.Adv.BannerAgenda { 
+					width:653px; 
+					max-height:100px; 
+					margin-bottom: 1rem;
+					padding-bottom: 1rem;
+					border-bottom: 1px solid #cccccc;
+				}
+				.Adv.BannerAgendaNonGest {
+					width:950px; 
+					max-height:100px; 
+					margin-bottom: 1rem;
+					padding-bottom: 1rem;
+					text-align: center;
+					border-bottom: 1px solid #cccccc;
+				}
+				.Adv.BannerAgendaNonGestInFeed {
+					width:970px; 
+					max-height:560px; 
+					margin-bottom: 1rem;
+					padding-bottom: 1rem;
+					text-align: center;
+					border-bottom: 1px solid #cccccc;
+				}
+				.InTextAdv {
+					display: block; 
+					margin-bottom: 1.5rem;
+					background-color:transparent; 
+					text-align: center;
+					width:653px;
+					max-height: 200px;
+				}
+				.InTextAdv > * {
+					display: contents !important;
+					height: auto !important;
+					max-height: 200px !important;
+					max-width:653px !important;
+					text-align: center !important;
+				}
+				#MegaLeaderboardA, #MegaLeaderboardB {
+					background-color:transparent !important;
+					text-align:center !important;
+					max-height: 250px !important;
+				}
+				#MegaLeaderboardA > *, #MegaLeaderboardB > * {
+					display: contents !important;
+					text-align:center !important;
+					max-height: 250px !important;
+					height: auto !important;
+				}
+
+				#Interstitial {
+					position:absolute;
+					left:-5000px;
+					top:-5000px;
+					width:100vw;
+					height: 100vh;
+					z-index: 2147483646;
+					text-align: center;
+					vertical-align: middle;
+					background-color: #ffffff;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				#Interstitial .fa-times {
+					display: none;
+					position:fixed;
+					right:1rem;
+					top:1rem;
+					font-size:2rem;
+					color:#000000;
+					cursor: pointer;
+					z-index: 2147483647;
+				}
+
+
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div.cf1lHZ.cf2L3T { /* PULSANTE OK */
+					flex: 0 0 77%;
+					max-width: 77%;
+				}
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div.cf1lHZ.cf2L3T > button {
+					height:3rem !important;
+					background-color: var(--MainColor) !important;
+					color: #ffffff !important;
+					border-color:var(--MainColor) !important;
+				}
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div.cf1lHZ.cf2L3T > button:HOVER {
+					background-color: var(--MainColor) !important;
+					color: #ffffff !important;
+					border-color:var(--MainColor) !important;
+				}
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div.cf1lHZ.cf2L3T > button > span {
+					font-size: 1.3rem !important;
+				}
+
+
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div:nth-child(2) { /* PULSANTE NO */
+					display: none;
+				}
+
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div:nth-child(3) > button {
+					border-color:#999999 !important;
+					color: #999999 !important;
+				}
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div:nth-child(3) > button:HOVER {
+					border-color:#999999 !important;
+					color: #999999 !important;
+					background-color: #eeeeee !important;
+				}
+				body > div.cookiefirst-root.notranslate > div > div > div.cfAdwL.cf7ddU > div.cf2L3T.cfysV4.cf2mE1 > div.cf3Tgk.cf2pAE.cfAdwL.cf1IKf > div:nth-child(3) { /* PULSANTE AGGIUSTA */
+				    flex: 0 0 21%;
+				    max-width: 21%;
+				}
+			}
+
+		/*	----------------------------------------------------------------------------- */
+		/*	ADV Desktop per banner 970x250 (senza banner laterali)
+		/*	----------------------------------------------------------------------------- */
+			@media screen and (min-device-width: 1004px) and (max-device-width: 1295px) {
+
+				#MegaLeaderboardA, #MegaLeaderboardB {
+					display: block;
+					width:970px;
+					max-height: 250px;
+					text-align: center;
+				}
+
+			}
+
+		/*	----------------------------------------------------------------------------- */
+		/*	ADV Desktop per banner 970x250 (con banner laterali 120x600)
+		/*	----------------------------------------------------------------------------- */
+			@media screen and (min-device-width: 1296px) and (max-device-width: 1373px) {
+
+				#SideBannerA, #SideBannerB {
+					display: block;
+					position: fixed;
+					left:100;
+					top:10px;
+					width:120px;
+					height: 600px;
+					overflow: hidden;
+					background-color: transparent;
+				}
+
+				#SideBannerA { left: calc(50% - (512px + 122px)); }
+				#SideBannerB { right: calc(50% - (512px + 122px)); }
+
+				#MegaLeaderboardA, #MegaLeaderboardB {
+					display: block;
+					width:970px;
+					max-height: 250px;
+					text-align: center;
+				}
+
+			}
+
+		/*	----------------------------------------------------------------------------- */
+		/*	ADV Desktop per banner 970x250 (con banner laterali 160x600)
+		/*	----------------------------------------------------------------------------- */
+			@media screen and (min-device-width: 1374px) {
+
+				#SideBannerA, #SideBannerB {
+					display: block;
+					position: fixed;
+					left:100;
+					top:10px;
+					width:160px;
+					height: 600px;
+					overflow: hidden;
+					background-color: transparent;
+				}
+
+				#SideBannerA { left: calc(50% - (512px + 162px)); }
+				#SideBannerB { right: calc(50% - (512px + 162px)); }
+
+				#MegaLeaderboardA, #MegaLeaderboardB {
+					display: block;
+					width:970px;
+					max-height: 250px;
+					text-align: center;
+				}
+			
+			}
+
+		</style> 
+
+		<link rel="canonical" href="https://www.mentelocale.it/genova/64869-saldi-invernali-2025-a-genova-parcheggi-gratuiti-nel-weekend-e-sospensione-della-ztl-di-piazza-fontane-marose.htm">
+
+        <meta property="og:url"             content="https://www.mentelocale.it/genova/64869-saldi-invernali-2025-a-genova-parcheggi-gratuiti-nel-weekend-e-sospensione-della-ztl-di-piazza-fontane-marose.htm">
+        <meta property="og:type"            content="event">
+        <meta property="og:title"           content="Saldi invernali 2025 a Genova: parcheggi gratuiti nel weekend e sospensione della Ztl di piazza Fontane Marose ">
+        <meta property="og:image"           content="https://www.mentelocale.it/repository/contenuti/horizontal/64869.jpg?v=1735919884">
+        <meta property="og:image:width"     content="653">
+        <meta property="og:image:height"    content="357">
+        <meta property="og:description"     content="Nei primi due fine settimana di vendite scontate torna l'iniziativa dei parcheggi gratis. Stop anche alla Ztl di piazza Fontane Marose ">
+        <meta property="og:locale"          content="it_IT">
+        <meta property="og:site_name"       content="mentelocale.it">
+        <meta property="fb:app_id"          content="1416533678655673">
+
+        <meta property="article:published_time"     content="2025-01-03T16:58:37+01:00">
+        <meta property="article:modified_time"      content="2025-01-03T16:58:37+01:00">
+        <meta property="article:section"            content="">
+
+		<meta name="keywords" content="Saldi, Genova, Parcheggi gratis, Genova Parcheggi, Ztl, piazza Fontane Marose "> 
+		<meta name="description" content="Nei primi due fine settimana di vendite scontate torna l&#039;iniziativa dei parcheggi gratis. Stop anche alla Ztl di piazza Fontane Marose ">
+
+        <meta name="tags" content="30,62,65,36">
+        <meta name="provincia" content="142">
+
+		<title>Saldi invernali 2025 a Genova: parcheggi gratuiti nel weekend e sospensione della Ztl di piazza Fontane Marose  - Mentelocale Web Magazine</title>
+
+                
+        <link rel="stylesheet" type="text/css" href="/css/evento.css?V=1.1.8">
+        <link rel="stylesheet" type="text/css" href="/css/vetrina_esperienze.css?V=1.1.8">
+        <link rel="stylesheet" type="text/css" href="/css/box_reg_newsletter.css?V=1.1.8">
+
+        
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Event",
+              "name": "Saldi invernali 2025 a Genova: parcheggi gratuiti nel weekend e sospensione della Ztl di piazza Fontane Marose ",
+              "startDate": "2025-01-04T00:00:00+01:00",
+              "endDate": "2025-01-11T00:00:00+01:00",
+              "location": {
+                "@type": "Place",
+                "name": "",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Genova",
+                  "addressRegion": "GE",
+                  "addressCountry": "IT"
+                }
+              },
+              "image": [
+                "https://www.mentelocale.it/repository/contenuti/horizontal/64869.jpg?v=1735919884"
+               ],
+        
+              "description": "Nei primi due fine settimana di vendite scontate torna l'iniziativa dei parcheggi gratis. Stop anche alla Ztl di piazza Fontane Marose "
+            }
+            </script>
+        
+		        <!-- AD MANAGER -->
+<script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>        <!-- BANNER SQUARE A -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/11511333/005', [[300, 250]], 'div-gpt-ad-1705351995658-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting("Provincia","Genova");        googletag.enableServices();
+  });
+</script>        <!-- BANNER SQUARE B -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/11511333/006', [[300, 250]], 'div-gpt-ad-1705352056745-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting("Provincia","Genova");        googletag.enableServices();
+  });
+</script>        <!-- BANNER SQUARE C -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/11511333/014', [[300, 250]], 'div-gpt-ad-1705352111344-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting("Provincia","Genova");        googletag.enableServices();
+  });
+</script>        <!-- BANNER BILLBOARD TESTATA -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/11511333/001', [[728, 90],[970, 250]], 'div-gpt-ad-1705351717009-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting("Provincia","Genova");        googletag.enableServices();
+  });
+</script>        <!-- BANNER BILLBOARD FOOTER -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/11511333/009', [[728, 90],[970, 250]], 'div-gpt-ad-1705351639120-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting("Provincia","Genova");        googletag.enableServices();
+  });
+</script>        <!-- MEGABOX -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/11511333/002', [300, 600], 'div-gpt-ad-1705351919328-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting("Provincia","Genova");        googletag.enableServices();
+  });
+</script>        <!-- BANNER SKIN -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/11511333/018', [1920, 1080], 'div-gpt-ad-1705352345227-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting("Provincia","Genova");        googletag.enableServices();
+  });
+</script>        <!-- BANNER INFRATESTO 1 -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/11511333/008', [653, 100], 'div-gpt-ad-1705351787193-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting("Provincia","Genova");        googletag.enableServices();
+  });
+</script>        <!-- BANNER INFRATESTO 2 -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/11511333/13', [653, 100], 'div-gpt-ad-1705351854353-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting("Provincia","Genova");        googletag.enableServices();
+  });
+</script>                <!-- BANNER INFRATESTO 2 -->
+<script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/4927776483077981/adsbygoogle-in-article', [fluid], 'div-gpt-ad-adsbygoogle-custom').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    googletag.pubads().setTargeting("Provincia","Genova");        googletag.enableServices();
+  });
+</script>
+
+        <!-- INTERSTITIAL -->
+<script>
+  var interstitialSlot;
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+
+	interstitialSlot = googletag.defineOutOfPageSlot('/11511333/022',googletag.enums.OutOfPageFormat.INTERSTITIAL);
+	if (interstitialSlot) {
+			        interstitialSlot.setTargeting('Formato', 'desktop'); // GAM cercherà creatività per desktop
+	    	    interstitialSlot.setTargeting("Provincia","Genova");	    		interstitialSlot.addService(googletag.pubads());
+	}
+
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+    
+    googletag.pubads().addEventListener('slotRenderEnded',
+        function(event) {
+          var slot = event.slot;
+          var slotId = slot.getSlotId();
+          var isEmpty = event.isEmpty;
+          if (isEmpty) {
+            console.log(slotId+" is empty");
+          } else {
+            console.log(slotId+" is filled");
+          }
+        }
+    );
+    googletag.enableServices();
+  });
+</script>		
+		
+		
+	</head>
+
+    <body>
+        
+        <span id="Skin"><!-- /11511333/018 -->
+<div id='div-gpt-ad-1705352345227-0' style='min-width: 500px; min-height: 100px;'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1705352345227-0'); });
+  </script>
+</div></span>
+
+        <div class="Container">
+
+            <span class="Adv" id="MegaLeaderboardA"><!-- /11511333/001 -->
+<div id='div-gpt-ad-1705351717009-0' style='min-width: 320px; min-height: 90px;'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1705351717009-0'); });
+  </script>
+</div></span>
+
+            <div class="Content">
+
+                <h1 class="Titolo ">Saldi invernali 2025 a Genova: parcheggi gratuiti nel weekend e sospensione della Ztl di piazza Fontane Marose </h1>
+
+                
+                <div class="DueColonne">
+
+                    <div class="ColonnaSinistra">
+
+                        
+                        		                            	                            <span class="ImageWrapper">
+	                                <img width="653" height="357" alt="Pixabay" border="0" class="Immagine" src="/repository/contenuti/horizontal/64869.jpg?v=1735919884">
+	                                <span class="Copyright">Pixabay</span>	                            </span>
+	                                                        
+
+                            
+	                            
+                            
+                                                        <div class="Dates">
+                                <div class="LuogoBox ">
+                                                                                                        </div>
+                                <div class="DateBox"><span class='Weekday'>DA Sabato</span><span class='DayNumber'>04</span><span class='Month'>Gennaio</span><span class='Year'>2025</span></div>                                <div class="DateBox"><span class='Weekday'>A Sabato</span><span class='DayNumber'>11</span><span class='Month'>Gennaio</span><span class='Year'>2025</span></div>                            </div>
+                            
+                        
+	                    	                    <div class="Terminato">Evento terminato</div>
+	                    
+
+                        
+
+	                        <div class="Testo">
+                                	                                                             
+	                            
+	                            
+	                            <p class="MsoNormal"><span>La sosta a pagamento nelle<strong> Blu Area</strong> e nell&rsquo;<strong>Isola Azzurra,</strong> ovvero le aree gestite da Genova Parcheggi, sar&agrave; <strong>temporaneamente sospesa nei giorni di sabato 4 gennaio e sabato 11 gennaio 2025</strong>.&nbsp; Pertanto, i parcheggi in tali aree saranno <strong>gratuiti da sabato 4 a luned&igrave; 6 compreso e sabato 11 e domenica 12 gennaio</strong>.</span></p><span id="InTextAdv0" class="InTextAdv"><!-- /11511333/008 -->
+<div id='div-gpt-ad-1705351787193-0' style='min-width: 300px; min-height: 100px;'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1705351787193-0'); });
+  </script>
+</div></span><p class="MsoNormal"><span>Nei <a href="https://www.mentelocale.it/genova/64735-saldi-invernali-2025-a-genova-e-in-liguria-le-date-di-inizio-e-fine-tra-abbigliamento-calzature-e-accessori.htm" target="_blank" rel="noopener"><strong>due fine settimana di saldi</strong> </a>sar&agrave; anche sospesa, a partire dal venerd&igrave; sera, la zona a traffico limitato di Piazza Fontane Marose.</span></p><span id="InTextAdv1" class="InTextAdv"><!-- /11511333/13 -->
+<div id='div-gpt-ad-1705351854353-0' style='min-width: 300px; min-height: 100px;'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1705351854353-0'); });
+  </script>
+</div></span><p class="MsoNormal"><span>Torna dunque l&rsquo;iniziativa promossa dall&rsquo;assessorato al Commercio e dall&rsquo;assessorato per la Mobilit&agrave; integrata e i Trasporti per promuovere lo shopping su tutto il territorio cittadino.</span></p><span id="InTextAdv2" class="InTextAdv"><!-- /11511333/13 -->
+<div id='div-gpt-ad-adsbygoogle-custom' style='min-width: 300px; min-height: 100px;'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-adsbygoogle-custom'); });
+  </script>
+</div></span><p class="MsoNormal"><span>&laquo;Dopo un primo <em>weekend </em>a dicembre per consentire gli ultimi acquisti natalizi&raquo;, dichiarano <strong>l&rsquo;assessore al Commercio Paola Bordilli</strong>&nbsp;e&nbsp;<strong>l&rsquo;assessore alla Mobilit&agrave; integrata e ai Trasporti Sergio Gambino,</strong> abbiamo voluto dare seguito a questa iniziativa concordata con le associazioni di categoria Confcommercio e Confesercenti, per far s&igrave; che i primi due weekend di saldi si possano svolgere con le massime agevolazioni possibili, non solo per gli esercenti, ma anche per i cittadini e per i numerosi turisti che stanno visitando la nostra citt&agrave;&raquo;.</span></p>
+
+	                            
+	                            	                            
+
+
+
+	                        </div>
+
+
+	                        
+
+	                        
+	                        
+	                        
+                        
+
+
+
+                                                <div class="Argomenti">
+                            <span>Argomenti trattati</span>                            <ul class="ElencoArgomenti">
+                                                            <li class="Prov"><a title="Tutte le notizie e gli eventi a Genova" href="/genova/">Genova</a></li>
+                                                                                                                    <li><a style="background-color:#5758BB;" class="Argomento" href="/genova/eventi/arg/10/">Attualità</a></li>
+                                                            <li><a style="background-color:#5758BB;" class="Argomento" href="/genova/eventi/arg/10/">Viabilità</a></li>
+                                                            <li><a style="background-color:#FFC312;" class="Argomento" href="/genova/eventi/arg/14/">Saldi</a></li>
+                                                            <li><a style="background-color:#FFC312;" class="Argomento" href="/genova/eventi/arg/14/">Shopping</a></li>
+                                                        </ul>
+                        </div>
+                        
+
+                        
+
+                                                                            
+
+                                                <section class="VetrinaEsperienze" id="VetrinaEsperienze" aria-label="Esperienze a Genova">
+	<div class="VetrinaTesta">
+		<h3>Esperienze a Genova</h3>
+		<span class="VetrinaFrecce">
+			<button type="button" class="VetrinaFreccia" data-dir="-1" aria-label="Indietro"><i class="fa-solid fa-chevron-left"></i></button>
+			<button type="button" class="VetrinaFreccia" data-dir="1" aria-label="Avanti"><i class="fa-solid fa-chevron-right"></i></button>
+		</span>
+	</div>
+	<div class="VetrinaScorri">
+				<a class="VetrinaScheda" href="/genova/142162-citta-bambini-ragazzi-museo-interattivo-scoperta-5-sensi.htm">
+			<img src="/repository/contenuti/square/142162_half.jpg?v=1791283553" width="195" height="195" alt="" loading="eager">
+			<span class="VetrinaEtichetta">Esperienza</span>			<span class="VetrinaTitolo">La Città dei Bambini e dei Ragazzi, museo interattivo alla scoperta dei 5 sensi</span>
+			<span class="VetrinaLuogo">La Città dei Bambini e dei Ragazzi</span>		</a>
+				<a class="VetrinaScheda" href="/genova/142161-casa-colombo-chiostro-sant-andrea-visita-guidata-biglietto-fast-track.htm">
+			<img src="/repository/contenuti/square/142161_half.jpg?v=1791283279" width="195" height="195" alt="" loading="eager">
+			<span class="VetrinaEtichetta">Esperienza</span>			<span class="VetrinaTitolo">Casa di Colombo e Chiostro di Sant&#039;Andrea, visita guidata con biglietto Fast Track</span>
+			<span class="VetrinaLuogo">Casa Cristoforo Colombo</span>		</a>
+				<a class="VetrinaScheda" href="/genova/142160-visita-acquario-genova-biglietto-accesso-riservato-accesso-diretto.htm">
+			<img src="/repository/contenuti/square/142160_half.jpg?v=1791282945" width="195" height="195" alt="" loading="eager">
+			<span class="VetrinaEtichetta">Esperienza</span>			<span class="VetrinaTitolo">Visita all&#039;Acquario di Genova (biglietto con accesso riservato con accesso diretto)</span>
+			<span class="VetrinaLuogo">Acquario di Genova</span>		</a>
+				<a class="VetrinaScheda" href="/genova/142159-genoa-food-tour-itinerario-enogastronomico-centro-storico.htm">
+			<img src="/repository/contenuti/square/142159_half.jpg?v=1791282564" width="195" height="195" alt="" loading="eager">
+			<span class="VetrinaEtichetta">Esperienza</span>			<span class="VetrinaTitolo">Genoa Food Tour, itinerario enogastronomico nel centro storico</span>
+			<span class="VetrinaLuogo">Tour in autobus Genova</span>		</a>
+				<a class="VetrinaScheda" href="/genova/142158-abbazia-san-fruttuoso-visita-monastero-medievale.htm">
+			<img src="/repository/contenuti/square/142158_half.jpg?v=1791282462" width="195" height="195" alt="" loading="lazy">
+			<span class="VetrinaEtichetta">Esperienza</span>			<span class="VetrinaTitolo">Abbazia di San Fruttuoso, visita al monastero medievale</span>
+			<span class="VetrinaLuogo">Abbazia di San Fruttuoso, Camogli</span>		</a>
+				<a class="VetrinaScheda" href="/genova/141393-palazzi-rolli-tour-guidato-piedi-centro-storico-genova.htm">
+			<img src="/repository/contenuti/square/141393_half.jpg?v=1790931467" width="195" height="195" alt="" loading="lazy">
+			<span class="VetrinaEtichetta">Esperienza</span>			<span class="VetrinaTitolo">Palazzi dei Rolli, tour guidato a piedi nel centro storico di Genova</span>
+			<span class="VetrinaLuogo">Palazzi dei Rolli</span>		</a>
+			</div>
+	<script type="text/javascript">
+		(function(){
+			var Sec = document.getElementById("VetrinaEsperienze");
+			var S = Sec.querySelector(".VetrinaScorri");
+			var F = Sec.querySelectorAll(".VetrinaFreccia");
+			for(var i=0;i<F.length;i++){ F[i].addEventListener("click", function(){ S.scrollBy({left: parseInt(this.getAttribute("data-dir"))*S.clientWidth*0.8, behavior:"smooth"}); }); }
+		//	Rotella del mouse sopra la striscia: scorre in orizzontale (finche' c'e' da scorrere, poi la pagina riprende)
+			S.addEventListener("wheel", function(e){
+				if(Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+				var aInizio = S.scrollLeft <= 0, aFine = S.scrollLeft + S.clientWidth >= S.scrollWidth - 1;
+				if((e.deltaY < 0 && aInizio) || (e.deltaY > 0 && aFine)) return;
+				e.preventDefault(); S.scrollLeft += e.deltaY;
+			}, {passive:false});
+		})();
+	</script>
+</section>
+
+                    </div>
+
+                    <div class="ColonnaDestra">
+
+                        <!--  -->
+
+                        <span class="Adv" id="MegaBox"><!-- /11511333/002 -->
+<div id='div-gpt-ad-1705351919328-0' style='min-width: 300px; min-height: 600px;'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1705351919328-0'); });
+  </script>
+</div></span>
+
+                        <form name="RegNewsletter" id="RegNewsletter" class="Forms RegNewsletterBox" action="/utente/registrazione-newsletter.htm" method="get">
+    <p class="Message">Newsletter Eventi<span>Resta aggiornato su tutti gli eventi a Genova e dintorni, iscriviti gratis alla newsletter</span></p>        <i class="fa-light fa-shield-check"></i>
+    <!--<label>Tuo indirizzo email<input type="text" id="E" maxlength="250" name="E" value="" placeholder=""></label> -->
+    <button>Registrati</button>
+</form>
+                        <span class="Adv" id="SuperBoxA"><!-- /11511333/005 -->
+<div id='div-gpt-ad-1705351995658-0' style='min-width: 300px; min-height: 250px;'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1705351995658-0'); });
+  </script>
+</div></span>
+                        <span class="Adv" id="SuperBoxB"><!-- /11511333/006 -->
+<div id='div-gpt-ad-1705352056745-0' style='min-width: 300px; min-height: 250px;'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1705352056745-0'); });
+  </script>
+</div></span>
+                        <span class="Adv" id="SuperBoxC"><!-- /11511333/014 -->
+<div id='div-gpt-ad-1705352111344-0' style='min-width: 300px; min-height: 250px;'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1705352111344-0'); });
+  </script>
+</div></span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="taboola-below-article-thumbnails"></div>
+
+            
+            <span class="Adv" id="MegaLeaderboardB"><!-- /11511333/009 -->
+<div id='div-gpt-ad-1705351639120-0' style='min-width: 320px; min-height: 90px;'>
+  <script>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1705351639120-0'); });
+  </script>
+</div></span>
+
+        </div>
+
+        <div style="clear:both;"></div>
+
+        
+	<div id="Header">
+	
+		<div class="Inner">
+
+			<span class="ProvinciaNome">genova</span>
+			<a class="Logo" href="/genova/" title="Mentelocale Web Magazine"><img width="1" height="1" src="/images/logo/website_color.png" border="0" alt=""><span class="NotVis">Mentelocale, cosa fare nel tuo tempo libero</span></a>
+			
+			<form method="get" action="" onsubmit="javascript:return false;" id="SearchBlock" name="SearchBlock">
+				<span class="SrcInner">
+					<span  name="bt" id="bt" onclick="javascript:doSearch();" class="fa fa-search"></span>
+					<input onkeyup="javascript:checkSearch();" type="text" autocomplete="off" id="qq" name="q" class="GsTextBox" maxlength="255" value="" placeholder="Cerca nel sito">
+				</span>
+			</form>
+			
+			<div id="MobileMenu" onclick="javascript:this.focus();MobileMenuToggle();" class="fa-sharp fa-solid fa-bars"></div>
+
+			<div id="SearchMenu" onclick="javascript:this.focus();SearchMenuToggle();" class="fa-sharp fa-solid fa-search"></div>
+
+			<div id="HeaderMenu">
+
+				
+<ul>
+	<li><a href='/'>Home</a></li>
+	<li><a href='/genova/eventi/'>Agenda eventi</a></li>
+	<li><a href='/genova/eventi/oggi/'>Oggi</a></li>
+	<li><a href='/genova/eventi/domani/'>Domani</a></li>
+	<li><a href='/genova/eventi/weekend/'>Weekend</a></li>
+	<li><a href='/cartelle/detti-genovesi-e-curiosit.htm'>Detti genovesi</a></li>
+	<li>
+		    Altre province
+		    <ul class="columns single-column" data-columns="2">
+		<li><a href="/la-spezia/">La Spezia</a></li><li><a href="/savona/">Savona</a></li>
+		    </ul>
+		</li>
+</ul>
+
+
+				<span class="SocialIcons">
+									        <a href="https://www.facebook.com/mentelocale.Genova/" target="_blank" rel="nofollow">
+				    				        <span class="fa-brands fa-facebook"></span>
+				        <span class="NotVis">Vai al sito Facebook</span>
+				    	</a>
+					<a href="https://www.tiktok.com/@mentelocale_genova" target="_blank" rel="nofollow"><span class="fa-brands fa-tiktok"></span><span class="NotVis">Vai al sito TikTok</span></a>
+					
+									        <a href="https://www.instagram.com/mentelocale_genova/" target="_blank" rel="nofollow">
+				    				        <span class="fa-brands fa-instagram"></span>
+				        <span class="NotVis">Vai al sito Instagram</span>
+				    </a>
+					<a href="https://www.youtube.com/@MentelocaleItwebmagazine" target="_blank" rel="nofollow"><span class="fa-brands fa-youtube"></span><span class="NotVis">Vai al canale YouTube</span></a>
+				</span>
+
+			</div>
+
+
+		</div>
+
+		<span class="GradientFade"></span>
+
+	</div>
+
+	<script type="text/javascript">
+
+		function SearchMenuToggle(){
+
+			var QQ = prompt("Parola o frase da cercare");
+			if(QQ.length>0){
+				$("#qq").val(QQ);
+				doSearch();
+			}
+
+		}
+
+		function MobileMenuToggle(){
+
+			var MenuIsOpen = $("#HeaderMenu").css("display")=="block"?true:false;
+			if(MenuIsOpen==true){ 
+				$("#HeaderMenu").css("display","none");
+				if(IsMobile){ $("#Header").removeClass("WithSkin"); }
+			} else {
+				$("#HeaderMenu").css("display","block");
+				if(IsMobile){ $("#Header").addClass("WithSkin"); }
+			}
+		}
+
+		function doSearch(){
+			if($("#qq").val().length>0){
+				var Url = "/cerca/"+ConvertToSeoUrl($("#qq").val())+".htm";
+				document.location.href = Url;
+			}
+		}
+
+		function checkSearch(){
+			if(event.keyCode===13){
+				doSearch();
+			}
+		}
+
+	</script>
+        
+	<div id="Footer">
+		
+		<div class="Message">
+
+			<p>Mentelocale Web Srl - Piazza della Vittoria 6/6 - Genova</p>
+			<p>Testata giornalistica registrata al Tribunale di Genova nr. 16/2005</p>
+			<p>Iscrizione al Registro delle Imprese di Genova n.02437210996 - R.E.A. di Genova: 486190 - Codice Fiscale / P.Iva 02437210996</p>
+			<p>Copyright © 2025 (V3) - Tutti i diritti riservati</p>
+
+			<div class="PrivacyInfo">
+				
+<ul>
+	<li><a href='/informativa-privacy.htm'>Informativa privacy</a></li>
+	<li><a href='/informativa-cookie.htm'>Informativa cookie</a></li>
+	<li><a href='/utilizzo-IA'>Utilizzo IA</a></li>
+	<li><a href='/redazione.htm'>Redazione</a></li>
+	<li><a href='/pubblicita-sul-sito.htm'>Pubblicità sul sito</a></li>
+</ul>
+
+			</div>
+
+			<div class="FinanzInfo">
+				<img width="1" height="1" src="/repository/files/202505151126016825B3296ADA6699364728.png" alt="" border="0">
+				<p>MENTELOCALE WEB, a seguito della domanda di agevolazione presentata in data 03/05/2024 nell’ambito del Bando “Supporto allo sviluppo di progetti di digitalizzazione nelle micro, piccole e medie imprese” - Programma Regionale FESR 2021–2027, ha ricevuto il sostegno finanziario dell’Unione Europea, nell’ambito del progetto COESIONE ITALIA 21–27, per la realizzazione di un programma di investimenti volto al miglioramento della digitalizzazione aziendale.
+				L’intervento ha riguardato l’implementazione di infrastrutture hardware e software, consulenze specialistiche in ambito SEO e Intelligenza Artificiale, sviluppo e-commerce
+				</p>
+			</div>
+
+		</div>
+
+	</div>
+
+        <!-- JQuery -->
+<script type="text/javascript" src="/global/scripts/jquery/jquery.js?V=1.1.8"></script>
+
+<!-- Mobile detect (valorizza la variabile IsMobile) -->
+<script type="text/javascript" src="/scripts/mobile_detect.js?V=1.1.8"></script>
+
+<!-- Javascript di base (valorizza anche la variabile DebugMode) -->
+<script type="text/javascript" src="/scripts/main.js?V=1.1.8"></script>
+
+<!-- CSS e fonts -->
+<script type="text/javascript">
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','/css/global.css?V=1.1.8'));
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','/css/variables.css?V=1.1.8'));
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','/css/common.css?V=1.1.8'));
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','/css/scrollbars.css?V=1.1.8'));
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','/css/header.css?V=1.1.8'));
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','/css/footer.css?V=1.1.8'));
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','/css/forms.css?V=1.1.8'));
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','https://fonts.googleapis.com/css2?V=1.1.8&family=Fira+Sans:wght@300;400;500;700;900&display=swap'));
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','https://fonts.googleapis.com/css2?V=1.1.8&family=Fira+Sans+Condensed:wght@300;400;500;700;900&display=swap'));
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','/global/fonts/Helvetica-Mentelocale/stylesheet.css?V=1.1.8'));
+	$('head').append($('<link rel="stylesheet" type="text/css" />').attr('href','/global/fonts/Fontawesome/fontawesome.css?V=1.1.8'));
+</script>
+
+<!-- ModalPopup e Alertbox -->
+<script type="text/javascript" src="/global/scripts/jquery-modalpopup/modalpopup.js?V=1.1.8"></script>
+<script type="text/javascript" src="/global/scripts/jquery-alertbox/alertbox.js?V=1.1.8"></script>
+
+<!-- LazyLoad delle immagini -->
+<script type="text/javascript" src="/global/scripts/lazyload/jquery.lazy.min.js?V=1.1.8"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function() {
+	    var socialIcons = $('.SocialIcons');
+
+	    console.log(socialIcons.length);
+
+	    if (socialIcons.length > 1) {
+	        // Controlla se i contenuti HTML sono uguali
+	        var firstHtml = $(socialIcons[0]).html();
+	        for (var i = 1; i < socialIcons.length; i++) {
+	            if ($(socialIcons[i]).html() === firstHtml) {
+	                $(socialIcons[i]).remove();
+	                break; // elimina solo il primo doppione trovato
+	            }
+	        }
+	    }
+	});
+
+</script>
+
+<!-- /11511333/022 interstitial: slot fuori pagina definito in adv/scripts/banner_interstitial.htm; nessun div, si visualizza lo slot -->
+<script>
+  googletag.cmd.push(function() { if (typeof interstitialSlot !== 'undefined' && interstitialSlot) { googletag.display(interstitialSlot); } });
+</script>
+
+        
+        <script type="text/javascript" src="/scripts/evento.js?V=1.1.8"></script>
+
+
+        <style type="text/css">
+
+            .Testo .Affiliazione{
+                font-size: 0.8em; /* 5/10: era 0.9em, Chiara la voleva piu' piccola del testo */
+                color: #555;
+                margin-top: 1em;
+                font-style: italic;
+            }
+
+            .AcquistaContainer{
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                align-content: center;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #ccc;
+                border-top: 1px solid #ccc;
+            }
+
+            .LogoHT{
+                width: 6rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                transition: all 0.5s;
+            }
+
+            .Testo .ImageWrapper {
+                position: relative !important;
+                float: left !important;
+                width: 9.1rem !important;
+                margin-right: 1.5rem !important;
+                margin-bottom: 1.4rem !important;
+            }
+
+           @media screen and (max-width: 770px) {
+                .AcquistaContainer{
+                    flex-direction: column;
+                }
+           }
+
+        </style>
+
+                <script type="text/javascript">
+
+(function() {
+	// Inizializza l'array Taboola
+	window._taboola = window._taboola || [];
+	_taboola.push({article:'auto'});
+	
+	var loaded = false;
+	
+	// Funzione per caricare lo script Taboola
+	function loadTaboolaScript() {
+		if (window.taboolaScriptLoaded) return;
+		window.taboolaScriptLoaded = true;
+		
+		var e = document.createElement('script');
+		e.async = 1;
+		e.src = '//cdn.taboola.com/libtrc/mentelocale-publisher/loader.js';
+		e.id = 'tb_loader_script';
+		document.head.appendChild(e);
+		
+		if (window.performance && typeof window.performance.mark == 'function') {
+			window.performance.mark('tbl_ic');
+		}
+	}
+	
+	// Funzione principale di caricamento
+	function load() {
+		if (loaded) return;
+		loaded = true;
+		
+		// Rimuovi tutti i listener
+		cleanup();
+		
+		// Carica lo script
+		loadTaboolaScript();
+		
+		// Configura il widget
+		_taboola.push({
+			mode: 'alternating-thumbnails-a',
+			container: 'taboola-below-article-thumbnails',
+			placement: 'Below Article Thumbnails',
+			target_type: 'mix'
+		});
+		
+		// Flush
+		_taboola.push({ flush: true });
+	}
+	
+	// Pulizia listener
+	function cleanup() {
+		window.removeEventListener('scroll', onInteraction);
+		window.removeEventListener('mousemove', onInteraction);
+		window.removeEventListener('touchstart', onInteraction);
+		if (observer) observer.disconnect();
+	}
+	
+	// Handler interazione
+	function onInteraction() {
+		load();
+	}
+	
+	// Intersection Observer per caricare quando il container è visibile
+	var observer;
+	var container = document.getElementById('taboola-below-article-thumbnails');
+	
+	if (container && 'IntersectionObserver' in window) {
+		observer = new IntersectionObserver(function(entries) {
+			if (entries[0].isIntersecting) {
+				load();
+			}
+		}, { rootMargin: '200px' }); // Carica 200px prima che diventi visibile
+		
+		observer.observe(container);
+	}
+	
+	// Fallback: carica su interazione utente
+	window.addEventListener('scroll', onInteraction, { passive: true });
+	window.addEventListener('mousemove', onInteraction, { passive: true });
+	window.addEventListener('touchstart', onInteraction, { passive: true });
+	
+	// Fallback finale: carica dopo 3 secondi se non è già stato caricato
+	window.addEventListener('load', function() {
+		setTimeout(function() {
+			if (!loaded) load();
+		}, 3000);
+	});
+})();
+
+</script>        
+    </body>
+
+
+
+    
+</html>

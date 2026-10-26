@@ -1,0 +1,14 @@
+1 200 1367780 https://www.comune.genova.it/sites/default/files/2025-08/ORD_256_2025%20-%20File%20primario%20-%20ORD-256-2025%20-%20Definitiva%20-%20.pdf -> 1-ORD_256_2025_20-_20File_20primario_20-_20ORD-256-2025_20-_20Definitiva_20-_20.pd
+2 200 58459 https://smart.comune.genova.it/comunicati-stampa-articoli/ambiente-al-la-nuova-fase-di-contenimento-delle-emissioni-causate-dal -> 2-ambiente-al-la-nuova-fase-di-contenimento-delle-emissioni-causate-dal_
+3 200 52168 https://smart.comune.genova.it/comunicati-stampa-mobilit%C3%A0-articoli/mobilit%C3%A0-da-venerd%C3%AC-attiva-la-ztl-piazza-fontane-marose -> 3-mobilit_C3_A0-da-venerd_C3_AC-attiva-la-ztl-piazza-fontane-marose_
+4 200 177424 https://liguria.bizjournal.it/2025/02/12/genova-ztl-in-piazza-fontane-marose-sospesa/ -> 4-genova-ztl-in-piazza-fontane-marose-sospesa_
+5 200 87973 https://telenord.it/genova-piazza-fontane-marose-la-ztl-diventa-permanente-76842 -> 5-genova-piazza-fontane-marose-la-ztl-diventa-permanente-76842_
+6 000ERR  https://www.genovaparcheggi.com/it/ztl/le-zone/ztl-centro-storico.html -> 6-ztl-centro-storico.html_
+7 000ERR  http://genovaparcheggi.com/it/ztl/le-zone/ztl-centro-storico.html -> 7-ztl-centro-storico.html_
+8 403 5733 https://www.genova24.it/2026/09/ordinanza-antismog-euro-5-ottobre-475416/ -> 8-ordinanza-antismog-euro-5-ottobre-475416_
+9 200 937831 https://www.genovatoday.it/cronaca/ordinanza-antismog-vie-zone-veicoli.html -> 9-ordinanza-antismog-vie-zone-veicoli.html_
+10 200 51730 https://www.mentelocale.it/genova/64869-saldi-invernali-2025-a-genova-parcheggi-gratuiti-nel-weekend-e-sospensione-della-ztl-di-piazza-fontane-marose.htm -> 10-64869-saldi-invernali-2025-a-genova-parcheggi-gratuiti-nel-weekend-e-sospensione
+11 404 144734 https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl-strutture-ricettive -> 11-richiedere-permesso-di-accesso-ad-area-ztl-strutture-ricettive_
+12 404 144722 https://www.comune.genova.it/cerca?search_api_fulltext=ztl -> 12-cerca_
+13 200 29101 https://supportparclick.zendesk.com/hc/it/articles/5622199124114-ITALIA-ZTL-Genova -> 13-5622199124114-ITALIA-ZTL-Genova_
+14 200 446158 https://www.tcs.ch/it/camping-viaggi/informazioni-turistiche/utile-da-sapere/norme-per-i-veicoli/zone-traffico-limitato-italia.php -> 14-zone-traffico-limitato-italia.php_
