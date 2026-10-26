@@ -1,0 +1,125 @@
+{
+ "id": "ravenna",
+ "name": "Ravenna",
+ "name_it": "Ravenna",
+ "name_de": "Ravenna",
+ "center": {
+  "lat": 44.4175,
+  "lon": 12.199
+ },
+ "zones": [
+  {
+   "id": "ravenna-ztl",
+   "name": "Ravenna · Historic centre ZTL",
+   "name_it": "Ravenna · ZTL Centro storico",
+   "name_de": "Ravenna · ZTL Altstadt",
+   "kind": "pass",
+   "summary": "The historic centre (Piazza del Popolo, San Vitale) is watched by SIRIO cameras: most gates are on 24 hours a day, a few only 7:30–20:30. Without a permit you can buy a day permit (15 €, or 8 € for half a day) at the enabled parking meters before entering. If your hotel is inside, it registers your plate.",
+   "summary_it": "Il centro storico (Piazza del Popolo, San Vitale) è controllato dalle telecamere SIRIO: la maggior parte dei varchi è accesa 24 ore su 24, alcuni solo 7:30–20:30. Senza permesso puoi comprare un permesso giornaliero (15 €, o 8 € per mezza giornata) ai parcometri abilitati prima di entrare. Se l'hotel è dentro, registra la tua targa.",
+   "summary_de": "Die Altstadt (Piazza del Popolo, San Vitale) wird von SIRIO-Kameras überwacht: die meisten Kameras sind rund um die Uhr aktiv, einige nur 7:30–20:30. Ohne Genehmigung kannst du vor der Einfahrt an freigeschalteten Parkautomaten eine Tagesgenehmigung kaufen (15 €, halber Tag 8 €). Liegt dein Hotel in der Zone, meldet es dein Kennzeichen.",
+   "perimeter": [],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 15.0,
+    "howTo": "Day permit 15 € (half day 8 €: 0–12 or 12–24), from the enabled parking meters, 24 hours a day, for vehicles up to 5 t. Buy it before you pass the camera.",
+    "howTo_it": "Permesso giornaliero 15 € (mezza giornata 8 €: 0–12 o 12–24), ai parcometri abilitati, 24 ore su 24, per veicoli fino a 5 t. Compralo prima di passare dal varco.",
+    "howTo_de": "Tagesgenehmigung 15 € (halber Tag 8 €: 0–12 oder 12–24), an freigeschalteten Parkautomaten, rund um die Uhr, für Fahrzeuge bis 5 t. Vor der Kamera kaufen.",
+    "url": "https://www.azimut-spa.it/ita/Servizi/Sosta/Permessi-giornalieri-ZTL",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ravenna",
+    "pageURL": "https://comune.ravenna.it/altro-contenuto/sirio-controllo-accessi-in-ztl/",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": null,
+    "quoteTranslation": null,
+    "quoteTranslation_de": null,
+    "checkedOn": "2026-10-26T23:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Draft: the City's websites could not be read from here (connection refused). Every rule below is taken from web-search summaries of the official pages, not from their text: to be checked word for word.",
+     "Gate hours: via di Roma, via Guaccimanni, via Baccarini, via Rondinelli, via Cavour (from piazzetta Gandhi) and via Ponte Marino 24 hours; via Mariani, via Guerrini and via Matteucci only 7:30–20:30 (via Ponte Marino also 7:30–20:30 in an unofficial guide). GateLR uses 24 hours for the whole zone, to be safe.",
+     "Map outline and gate positions missing: no official open data found, OpenStreetMap could not be downloaded from here.",
+     "Hotels: the hotel sends your plate to the City (SIRIO, form for accommodation); an older City page allows sending it within five days after entering. Ask the hotel to confirm.",
+     "Day permit 15 €, half day 8 € (0–12 or 12–24) since 1 March 2026, from enabled parking meters (vehicles up to 5 t). Price and the half-day option come from the City's February 2026 press release as reported by local news.",
+     "Electric and hybrid cars are not exempt (confirmed only by an unofficial guide). Disabled badge holders register the plate with the City's form."
+    ],
+    "pending_it": [
+     "Bozza: i siti del Comune non erano leggibili da qui (connessione rifiutata). Ogni regola viene dai riassunti della ricerca web sulle pagine ufficiali, non dal loro testo: da verificare parola per parola.",
+     "Orari dei varchi: via di Roma, via Guaccimanni, via Baccarini, via Rondinelli, via Cavour (da piazzetta Gandhi) e via Ponte Marino 24 ore su 24; via Mariani, via Guerrini e via Matteucci solo 7:30–20:30 (via Ponte Marino 7:30–20:30 secondo una guida non ufficiale). GateLR usa 0–24 per tutta la zona, per prudenza.",
+     "Mancano perimetro e posizione dei varchi: nessun open data ufficiale trovato, OpenStreetMap non scaricabile da qui.",
+     "Alberghi: l'hotel comunica la targa al Comune (SIRIO, contrassegno per strutture ricettive); una pagina meno recente del Comune consente l'invio entro cinque giorni dall'accesso. Chiedi conferma all'hotel.",
+     "Permesso giornaliero 15 €, mezza giornata 8 € (0–12 o 12–24) dal 1° marzo 2026, ai parcometri abilitati (veicoli fino a 5 t). Prezzo e mezza giornata vengono dal comunicato del Comune di febbraio 2026 ripreso dalla stampa locale.",
+     "Auto elettriche e ibride non esenti (confermato solo da una guida non ufficiale). I titolari di contrassegno disabili comunicano la targa con il modulo del Comune."
+    ],
+    "pending_de": [
+     "Entwurf: Die Websites der Stadt waren von hier aus nicht lesbar (Verbindung abgelehnt). Alle Regeln stammen aus Zusammenfassungen der Websuche zu den offiziellen Seiten, nicht aus deren Text: Wort für Wort zu prüfen.",
+     "Kamerazeiten: Via di Roma, Via Guaccimanni, Via Baccarini, Via Rondinelli, Via Cavour (von der Piazzetta Gandhi) und Via Ponte Marino rund um die Uhr; Via Mariani, Via Guerrini und Via Matteucci nur 7:30–20:30 (Via Ponte Marino laut einem inoffiziellen Ratgeber ebenfalls 7:30–20:30). GateLR verwendet sicherheitshalber 0–24 für die ganze Zone.",
+     "Grenze und Kamerastandorte fehlen: keine offiziellen offenen Daten gefunden, OpenStreetMap von hier nicht ladbar.",
+     "Hotels: Das Hotel meldet dein Kennzeichen der Stadt (SIRIO, Formular für Unterkünfte); eine ältere Seite der Stadt erlaubt die Meldung bis fünf Tage nach der Einfahrt. Lass es dir vom Hotel bestätigen.",
+     "Tagesgenehmigung 15 €, halber Tag 8 € (0–12 oder 12–24) seit 1. März 2026, an freigeschalteten Parkautomaten (Fahrzeuge bis 5 t). Preis und Halbtagesoption stammen aus der Pressemitteilung der Stadt vom Februar 2026, berichtet von Lokalmedien.",
+     "Elektro- und Hybridautos sind nicht befreit (nur von einem inoffiziellen Ratgeber bestätigt). Inhaber eines Behindertenausweises melden das Kennzeichen mit dem Formular der Stadt."
+    ],
+    "links": [
+     {
+      "title": "City of Ravenna: SIRIO, ZTL gates and hours",
+      "title_it": "Comune di Ravenna: SIRIO, varchi e orari della ZTL",
+      "title_de": "Stadt Ravenna: SIRIO, ZTL-Kameras und Zeiten",
+      "url": "https://comune.ravenna.it/altro-contenuto/sirio-controllo-accessi-in-ztl/"
+     },
+     {
+      "title": "City of Ravenna: registering plates allowed in the ZTL (hotels)",
+      "title_it": "Comune di Ravenna: comunicazione targhe abilitate in ZTL (strutture ricettive)",
+      "title_de": "Stadt Ravenna: Meldung berechtigter Kennzeichen in der ZTL (Hotels)",
+      "url": "https://comune.ravenna.it/servizi/autorizzazioni/comunicazione-targhe-di-veicoli-abilitati-a-circolare-in-zona-a-traffico-limitato-di-ravenna-sirio/"
+     },
+     {
+      "title": "City of Ravenna: changes to parking and ZTL rules from 1 March 2026",
+      "title_it": "Comune di Ravenna: modifiche al piano sosta e ZTL dal 1° marzo 2026",
+      "title_de": "Stadt Ravenna: Änderungen bei Parken und ZTL ab 1. März 2026",
+      "url": "https://comune.ravenna.it/novita/comunicato-stampa/in-seguito-agli-incontri-pubblici-approvata-la-modifica-alla-delibera-del-piano-che-disciplina-circolazione-e-sosta-nel-comune-di-ravenna/"
+     },
+     {
+      "title": "Azimut: daily ZTL permits from parking meters",
+      "title_it": "Azimut: permessi giornalieri ZTL ai parcometri",
+      "title_de": "Azimut: ZTL-Tagesgenehmigungen am Parkautomaten",
+      "url": "https://www.azimut-spa.it/ita/Servizi/Sosta/Permessi-giornalieri-ZTL"
+     },
+     {
+      "title": "City of Ravenna: form for disabled badge holders",
+      "title_it": "Comune di Ravenna: modulo targhe per persone invalide",
+      "title_de": "Stadt Ravenna: Formular für Inhaber eines Behindertenausweises",
+      "url": "https://comune.ravenna.it/amministrazione/documenti-e-dati/modulistica/modulo-comunicazione-targhe-persone-invalide-accesso-sirio-ztl/"
+     },
+     {
+      "title": "Ravenna Tourism: limited traffic zone",
+      "title_it": "Ravenna Turismo: zona a traffico limitato",
+      "title_de": "Ravenna Tourismus: verkehrsberuhigte Zone",
+      "url": "https://www.turismo.ra.it/en/getting-around-ravenna/limited-traffic-zone-ltz/"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Ravenna and Azimut official pages (read through web-search summaries). Perimeter: not yet available."
+}
