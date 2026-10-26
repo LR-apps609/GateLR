@@ -1,0 +1,464 @@
+{
+ "id": "siracusa",
+ "name": "Syracuse",
+ "name_it": "Siracusa",
+ "name_de": "Syrakus",
+ "center": {
+  "lat": 37.06,
+  "lon": 15.293
+ },
+ "zones": [
+  {
+   "id": "siracusa-ortigia",
+   "name": "Ortigia · island ZTL",
+   "name_it": "Ortigia · ZTL dell'isola",
+   "name_de": "Ortigia · ZTL der Insel",
+   "kind": "restricted",
+   "summary": "Ortigia (south of piazza Pancali and the Temple of Apollo) is closed to cars without a permit Monday–Saturday 11 am–3:30 pm and 5 pm–2 am, and on Sundays and holidays from 10 am to 2 am. Mornings until 11 and 3:30–5 pm on weekdays you may drive in. Staying in Ortigia? Your hotel or B&B registers your plate within 48 hours, only to unload. Park at Talete (north tip) or Molo Sant'Antonio and walk.",
+   "summary_it": "Ortigia (a sud di piazza Pancali e del Tempio di Apollo) è chiusa alle auto senza permesso dal lunedì al sabato 11–15:30 e 17–2, la domenica e nei festivi dalle 10 alle 2. Nei feriali fino alle 11 e dalle 15:30 alle 17 si entra. Dormi in Ortigia? L'hotel o il B&B registra la targa entro 48 ore, solo per scaricare. Parcheggia al Talete (punta nord) o al Molo Sant'Antonio e cammina.",
+   "summary_de": "Ortigia (südlich der Piazza Pancali und des Apollotempels) ist für Autos ohne Genehmigung Montag–Samstag 11–15:30 und 17–2 Uhr gesperrt, sonn- und feiertags von 10 bis 2 Uhr. Werktags bis 11 Uhr und 15:30–17 Uhr darfst du hinein. Du übernachtest in Ortigia? Hotel oder B&B melden dein Kennzeichen binnen 48 Stunden, nur zum Ausladen. Am Talete (Nordspitze) oder am Molo Sant'Antonio parken und laufen.",
+   "perimeter": [
+    {
+     "lat": 37.064592,
+     "lon": 15.296197
+    },
+    {
+     "lat": 37.0649,
+     "lon": 15.295937
+    },
+    {
+     "lat": 37.065134,
+     "lon": 15.295595
+    },
+    {
+     "lat": 37.064545,
+     "lon": 15.296052
+    },
+    {
+     "lat": 37.064329,
+     "lon": 15.295382
+    },
+    {
+     "lat": 37.063642,
+     "lon": 15.295583
+    },
+    {
+     "lat": 37.063752,
+     "lon": 15.294608
+    },
+    {
+     "lat": 37.063371,
+     "lon": 15.294575
+    },
+    {
+     "lat": 37.06321,
+     "lon": 15.294612
+    },
+    {
+     "lat": 37.063198,
+     "lon": 15.294732
+    },
+    {
+     "lat": 37.062782,
+     "lon": 15.29469
+    },
+    {
+     "lat": 37.062927,
+     "lon": 15.293253
+    },
+    {
+     "lat": 37.062853,
+     "lon": 15.29302
+    },
+    {
+     "lat": 37.063708,
+     "lon": 15.292588
+    },
+    {
+     "lat": 37.063651,
+     "lon": 15.292355
+    },
+    {
+     "lat": 37.063826,
+     "lon": 15.29184
+    },
+    {
+     "lat": 37.064354,
+     "lon": 15.292122
+    },
+    {
+     "lat": 37.064508,
+     "lon": 15.29159
+    },
+    {
+     "lat": 37.06402,
+     "lon": 15.291292
+    },
+    {
+     "lat": 37.064439,
+     "lon": 15.289983
+    },
+    {
+     "lat": 37.064364,
+     "lon": 15.289948
+    },
+    {
+     "lat": 37.064004,
+     "lon": 15.291038
+    },
+    {
+     "lat": 37.063,
+     "lon": 15.289784
+    },
+    {
+     "lat": 37.061994,
+     "lon": 15.291091
+    },
+    {
+     "lat": 37.061962,
+     "lon": 15.291258
+    },
+    {
+     "lat": 37.061459,
+     "lon": 15.291398
+    },
+    {
+     "lat": 37.061497,
+     "lon": 15.291606
+    },
+    {
+     "lat": 37.061803,
+     "lon": 15.291521
+    },
+    {
+     "lat": 37.061848,
+     "lon": 15.291623
+    },
+    {
+     "lat": 37.061293,
+     "lon": 15.291966
+    },
+    {
+     "lat": 37.061236,
+     "lon": 15.291979
+    },
+    {
+     "lat": 37.061219,
+     "lon": 15.291868
+    },
+    {
+     "lat": 37.060719,
+     "lon": 15.29194
+    },
+    {
+     "lat": 37.06066,
+     "lon": 15.292013
+    },
+    {
+     "lat": 37.06049,
+     "lon": 15.291991
+    },
+    {
+     "lat": 37.058957,
+     "lon": 15.292383
+    },
+    {
+     "lat": 37.058232,
+     "lon": 15.292615
+    },
+    {
+     "lat": 37.057842,
+     "lon": 15.292815
+    },
+    {
+     "lat": 37.057579,
+     "lon": 15.292812
+    },
+    {
+     "lat": 37.056923,
+     "lon": 15.293472
+    },
+    {
+     "lat": 37.05635,
+     "lon": 15.293885
+    },
+    {
+     "lat": 37.055129,
+     "lon": 15.294445
+    },
+    {
+     "lat": 37.055162,
+     "lon": 15.294555
+    },
+    {
+     "lat": 37.055473,
+     "lon": 15.294543
+    },
+    {
+     "lat": 37.055504,
+     "lon": 15.295375
+    },
+    {
+     "lat": 37.055629,
+     "lon": 15.295434
+    },
+    {
+     "lat": 37.056401,
+     "lon": 15.295214
+    },
+    {
+     "lat": 37.057047,
+     "lon": 15.294828
+    },
+    {
+     "lat": 37.057361,
+     "lon": 15.29492
+    },
+    {
+     "lat": 37.057579,
+     "lon": 15.295198
+    },
+    {
+     "lat": 37.057716,
+     "lon": 15.29568
+    },
+    {
+     "lat": 37.057769,
+     "lon": 15.296272
+    },
+    {
+     "lat": 37.058089,
+     "lon": 15.296427
+    },
+    {
+     "lat": 37.057998,
+     "lon": 15.297185
+    },
+    {
+     "lat": 37.058158,
+     "lon": 15.297585
+    },
+    {
+     "lat": 37.058256,
+     "lon": 15.297664
+    },
+    {
+     "lat": 37.058491,
+     "lon": 15.297688
+    },
+    {
+     "lat": 37.058763,
+     "lon": 15.29796
+    },
+    {
+     "lat": 37.059268,
+     "lon": 15.297978
+    },
+    {
+     "lat": 37.05944,
+     "lon": 15.298156
+    },
+    {
+     "lat": 37.060022,
+     "lon": 15.298416
+    },
+    {
+     "lat": 37.060354,
+     "lon": 15.29836
+    },
+    {
+     "lat": 37.060534,
+     "lon": 15.298581
+    },
+    {
+     "lat": 37.061062,
+     "lon": 15.298533
+    },
+    {
+     "lat": 37.061576,
+     "lon": 15.298101
+    },
+    {
+     "lat": 37.06188,
+     "lon": 15.297726
+    },
+    {
+     "lat": 37.062323,
+     "lon": 15.296944
+    },
+    {
+     "lat": 37.063034,
+     "lon": 15.296275
+    },
+    {
+     "lat": 37.064219,
+     "lon": 15.29637
+    },
+    {
+     "lat": 37.064592,
+     "lon": 15.296197
+    }
+   ],
+   "gates": [
+    {
+     "id": "sr-osm9939529191",
+     "name": "Varco · Via Malta / Riva della Darsena",
+     "location": {
+      "lat": 37.064398,
+      "lon": 15.289998
+     }
+    },
+    {
+     "id": "sr-osm5072039713",
+     "name": "Varco · Via Vittorio Veneto",
+     "location": {
+      "lat": 37.064323,
+      "lon": 15.295408
+     }
+    },
+    {
+     "id": "sr-osm1839386615",
+     "name": "Varco · Via dei Mille / Corso Umberto I",
+     "location": {
+      "lat": 37.064411,
+      "lon": 15.291574
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 120
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 660,
+     "end": 930
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1020,
+     "end": 1440
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 0,
+     "end": 120
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 600,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Syracuse",
+    "pageURL": "https://www.comune.siracusa.it/area_tematica/ztl-zona-a-traffico-limitato",
+    "ordinance": "Ordinanza n. 189 del 30/03/2026 (in vigore dal 01/04/2026), modificata dalla n. 292 dell'08/05/2026",
+    "ordinanceURL": "https://www.comune.siracusa.it/area_tematica/ztl-zona-a-traffico-limitato",
+    "quote": null,
+    "quoteTranslation": null,
+    "quoteTranslation_de": null,
+    "checkedOn": "2026-10-26T23:55:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Draft: the City's website could not be read from here (connection refused). The hours come from web-search summaries of the City's ZTL page and local press, not from the text of ordinance 189/2026: to be checked word for word.",
+     "Winter hours: last winter a lighter regime ran from 24 December 2025 to 31 March 2026 (Fridays and eves of holidays 8 pm–midnight, Saturdays 5 pm–midnight, Sundays and holidays 11 am–midnight; ordinance 791/2025). The 2026–27 winter ordinance had not been found when checked: GateLR shows the stricter 2026 hours until it is out.",
+     "Hotels, B&Bs and holiday rentals in Ortigia register your plate on the City's Connect Pass platform (since 11 June 2026) within 48 hours of your passage; the pass is for driving in to unload luggage only, not for parking inside.",
+     "Electric cars, motorbikes and Blue Badge holders: Ortigia's rules were not found (motorbikes are stopped like cars at the gates), so GateLR does not exempt them. Fine 84–335 € (Highway Code, unofficial source). Not shown: feast closures (Santa Lucia, 13 December and May; New Year's Eve), set each year by ordinance.",
+     "Perimeter and 3 cameras from OpenStreetMap (its hours match the 2026 ordinance): the north tip of the island (piazza Pancali, Tempio di Apollo, Talete car park) is outside. To be checked against the official map."
+    ],
+    "pending_it": [
+     "Bozza: il sito del Comune non era leggibile da qui (connessione rifiutata). Gli orari vengono dai riassunti della ricerca web sulla pagina ZTL del Comune e sulla stampa locale, non dal testo dell'ordinanza 189/2026: da verificare parola per parola.",
+     "Orario invernale: l'inverno scorso valeva un regime ridotto dal 24 dicembre 2025 al 31 marzo 2026 (venerdì e prefestivi 20–24, sabato 17–24, domenica e festivi 11–24; ordinanza 791/2025). L'ordinanza per l'inverno 2026–27 non era ancora stata trovata alla verifica: GateLR mostra gli orari 2026, più restrittivi, finché non esce.",
+     "Alberghi, B&B e case vacanza di Ortigia registrano la targa sulla piattaforma Connect Pass del Comune (dall'11 giugno 2026) entro 48 ore dal passaggio; il pass vale solo per entrare a scaricare i bagagli, non per sostare dentro.",
+     "Auto elettriche, moto e contrassegno disabili: le regole di Ortigia non sono state trovate (ai varchi le moto vengono fermate come le auto), quindi GateLR non le esenta. Multa 84–335 € (Codice della Strada, fonte non ufficiale). Non mostrate: le variazioni per le feste (Santa Lucia, 13 dicembre e maggio; Capodanno), decise ogni anno con ordinanza.",
+     "Perimetro e 3 varchi da OpenStreetMap (con gli stessi orari dell'ordinanza 2026): la punta nord dell'isola (piazza Pancali, Tempio di Apollo, parcheggio Talete) è fuori. Da confrontare con la mappa ufficiale."
+    ],
+    "pending_de": [
+     "Entwurf: Die Website der Stadt war von hier aus nicht lesbar (Verbindung abgelehnt). Die Zeiten stammen aus Zusammenfassungen der Websuche zur ZTL-Seite der Stadt und der Lokalpresse, nicht aus dem Text der Verordnung 189/2026: Wort für Wort zu prüfen.",
+     "Winterzeiten: Im letzten Winter galt vom 24. Dezember 2025 bis 31. März 2026 eine leichtere Regelung (Freitag und Vorabend von Feiertagen 20–24, Samstag 17–24, Sonn- und Feiertage 11–24 Uhr; Verordnung 791/2025). Die Verordnung für den Winter 2026–27 wurde bei der Prüfung noch nicht gefunden: GateLR zeigt bis dahin die strengeren Zeiten von 2026.",
+     "Hotels, B&Bs und Ferienwohnungen in Ortigia melden dein Kennzeichen auf der Plattform Connect Pass der Stadt (seit 11. Juni 2026) innerhalb von 48 Stunden nach der Durchfahrt; der Pass gilt nur zum Ausladen, nicht zum Parken innen.",
+     "Elektroautos, Motorräder und Behindertenausweis: Die Regeln für Ortigia wurden nicht gefunden (Motorräder werden an den Kameras wie Autos behandelt), daher befreit GateLR sie nicht. Bußgeld 84–335 € (Straßenverkehrsordnung, inoffizielle Quelle). Nicht gezeigt: Änderungen zu Festen (Santa Lucia, 13. Dezember und Mai; Silvester), jährlich per Verordnung.",
+     "Grenze und 3 Kameras aus OpenStreetMap (mit denselben Zeiten wie die Verordnung 2026): Die Nordspitze der Insel (Piazza Pancali, Apollotempel, Parkhaus Talete) liegt außerhalb. Mit der offiziellen Karte abzugleichen."
+    ],
+    "links": [
+     {
+      "title": "City of Syracuse: Ortigia ZTL (hours and ordinances)",
+      "title_it": "Comune di Siracusa: ZTL di Ortigia (orari e ordinanze)",
+      "title_de": "Stadt Syrakus: ZTL Ortigia (Zeiten und Verordnungen)",
+      "url": "https://www.comune.siracusa.it/area_tematica/ztl-zona-a-traffico-limitato"
+     },
+     {
+      "title": "City of Syracuse: new ZTL hours",
+      "title_it": "Comune di Siracusa: Ortigia, cambiano gli orari della ZTL",
+      "title_de": "Stadt Syrakus: neue ZTL-Zeiten",
+      "url": "https://www.comune.siracusa.it/novita/ortigia-da-domani-cambiano-gli-orari-della-zona-a-traffico-limitato"
+     },
+     {
+      "title": "City of Syracuse: temporary ZTL passes for hotels",
+      "title_it": "Comune di Siracusa: pass ZTL temporanei per alberghi",
+      "title_de": "Stadt Syrakus: befristete ZTL-Pässe für Hotels",
+      "url": "https://www.comune.siracusa.it/novita/online-listanza-per-la-richiesta-pass-ztl-temporanei-per-alberghi"
+     },
+     {
+      "title": "City of Syracuse: ZTL permits",
+      "title_it": "Comune di Siracusa: rilascio pass di sosta/transito nella ZTL",
+      "title_de": "Stadt Syrakus: ZTL-Genehmigungen",
+      "url": "https://www.comune.siracusa.it/servizio/rilascio-di-pass-di-sosta-transito-nella-ztl-di-ortigia"
+     },
+     {
+      "title": "SiracusaOggi: new ordinance from April 2026",
+      "title_it": "SiracusaOggi: nuova ordinanza in vigore da aprile 2026",
+      "title_de": "SiracusaOggi: neue Verordnung ab April 2026",
+      "url": "https://www.siracusaoggi.it/ztl-di-ortigia-nuova-ordinanza-e-nuove-regole-in-vigore-da-aprile/"
+     },
+     {
+      "title": "Siracusa Turismo: Connect Pass for hotels",
+      "title_it": "Siracusa Turismo: piattaforma Connect Pass per le strutture",
+      "title_de": "Siracusa Turismo: Connect Pass für Hotels",
+      "url": "https://www.siracusaturismo.it/servizi/ztl-zona-a-traffico-limitato/"
+     },
+     {
+      "title": "OpenStreetMap: relation 14425414 «ZTL Siracusa» (ODbL)",
+      "title_it": "OpenStreetMap: relazione 14425414 «ZTL Siracusa» (ODbL)",
+      "title_de": "OpenStreetMap: Relation 14425414 «ZTL Siracusa» (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/14425414"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Siracusa (read through web-search summaries). Perimeter and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}
