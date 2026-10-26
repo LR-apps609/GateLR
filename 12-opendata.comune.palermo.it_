@@ -1,0 +1,762 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portale Open Data - Comune di Palermo</title>
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link href="css/main.css" rel="stylesheet" type="text/css" media="screen">
+<link href="css/maps.css" rel="stylesheet" type="text/css" media="screen">
+<link rel="stylesheet" media="screen and (min-width: 320px) and (max-width : 667px)" href="css/max-480px.css">
+<link rel="stylesheet" media="screen and (min-width: 668px) and (max-width : 1024px)" href="css/max-1024px.css">
+<link href="js/jquery.cookiebar/jquery.cookiebar.css" rel="stylesheet" type="text/css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LRBVKFFZVH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LRBVKFFZVH');
+</script> 
+</head>
+<body>
+<div id="push-screen"></div>
+<div id="mySidenav" class="sidenav">
+  <a href="#" class="closebtn">&times;</a>
+  
+    <ul>
+        <li><a href="index.php">Home page</a>
+    
+        </li>
+</ul>
+
+    <ul>
+        <li><a href="opendata-news.php">News</a>
+    
+        </li>
+</ul>
+
+    <ul>
+        <li><a href="opendata-archivio-dataset.php">Archivio Dataset</a>
+    
+        </li>
+</ul>
+
+    <ul>
+        <li><a href="opendata-ultimi-dataset.php">Ultimi dataset</a>
+    
+        </li>
+</ul>
+
+    <ul>
+        <li><a href="opendata-report-dataset.php">Report pubblicazioni</a>
+    
+        </li>
+</ul>
+
+    <ul>
+        <li><a href="opendata-documenti.php">Archivio Documenti</a>
+    
+        </li>
+</ul>
+
+    <ul>
+        <li><a href="#">Linee Guida Open Data</a>
+    
+        </li>
+</ul>
+  
+</div>
+	
+<main id="mainpage">
+   
+    <header id="header" class="hdr-main">
+        <div id="header-top"><span><a href="https://www.comune.palermo.it/" target="_blank" style="color:#FFF;">Comune di Palermo</a></span></div>
+        <div class="clear"></div>
+        <div id="header-main">
+        <!--blocco sin hdr-->
+        	
+            <nav id="nav"  onclick="openNav()">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <div style="width:100%;height:1em;color:#FFF;display:block;top:35px;position:absolute;text-align:center;" class="mobile-not">MENU</div>
+            </nav>
+            
+        <div id="logo-box">
+              <img src="img/aqu_79.png"  alt="logo">
+              <span style="margin-top: 0.5em;"><a href="index.php" class="up-logo" style="font-size:2em;color:#FFF;">Comune di Palermo<br />
+                  <span class="sub-logo">Portale Open Data</span></a>
+              </span>
+              <div id="mob-src">
+              <a href="#" class="mobile-only"><img src="img/lente_40.png" alt="cerca"></a>
+              </div>
+            </div>
+
+        
+         <!--//blocco sin hdr--> 
+         
+         <!--blocco dx hdr-->
+        	          
+           <div id="social-box" class="mobile-not">
+            	<!-- <a href="#" class="lang">ITA</a>
+                <a href="#" class="lang disabled">ENG</a>-->
+            	<span>Seguici su</span>
+           	<a href="http://www.facebook.com/ComunediPalermo"><img src="img/facebook.png" class="ico" alt="facebook"></a>
+                <a href="http://twitter.com/ComunePalermo"><img src="img/twitter.png" class="ico" alt="twitter"></a> 
+            </div>
+<!--            <div id="search-box" class="mobile-not">
+            	<input name="gse" id="gse" type="text" placeholder="Cerca">
+           		<a href="#" class="mobile-not"><img src="img/lente_45.png" alt="cerca" id="desk-src"></a>
+            </div>-->
+
+         
+            <div id="search-box" class="mobile-not">
+                <form id="cse-search-box" class="search" title="CSE Search" action="search.php" style="height:100%;">
+                    <input type="text" id="q" name="q" size="" />
+                    <input type="submit" name="sa" id="gse-send" placeholder="Cerca" style="display:none" />
+                    <a href="#" class="mobile-not" ><img src="img/lente_45.png" alt="cerca" id="desk-src"></a>
+                </form>
+            </div>
+         
+        
+         <!--//blocco dx hdr--> 
+
+        </div>
+      		
+        <!--motore di ricerca mobile-->  
+        <div id="m-search-box"><input name="q" id="m-gse" type="text" placeholder="Cerca"></div>
+        <!--//motore di ricerca mobile--> 
+            
+</header>
+<script src="js/jquery-1.12.1.min.js"></script>
+<script>
+
+  (function() {
+    var cx = '015126264844075562419:f92fq-mf1s4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+
+	
+//  (function() {
+//    var cx = '004601980036908349058:bvxn1p20vm4';
+//    var gcse = document.createElement('script');
+//    gcse.type = 'text/javascript';
+//    gcse.async = true;
+//    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+//    var s = document.getElementsByTagName('script')[0];
+//    s.parentNode.insertBefore(gcse, s);
+//  })();
+        
+$(document).on("click","#desk-src", function(event){
+
+    //$("#gse-send").click();
+    var term =encodeURIComponent($("#q").val());
+
+    var phrase = "search.php?q="+term+"&sa=Invia";
+
+       window.location= phrase;
+  
+
+});
+
+$('#m-gse, #q').keyup(function(e){
+    
+    var term =encodeURIComponent($(this).val());
+    
+    var phrase = "search.php?q="+term+"&sa=Invia";
+    
+    
+    if(e.keyCode == 13)
+    {   
+        window.location= phrase;
+        
+   
+    }
+});
+</script>
+ 
+     
+    <div class="div100 mobile-not" style="border-bottom: 4px solid #2E95DD"><img src="img/hdrs/header_3.png" class="responsive-x"></div>
+    <section id="content" class="margin-y-2">
+        <h1>Cosa &egrave; Open Data</h1>
+
+        <div class="div100 padded-2 bg-gray-s">
+
+            <p style="padding: 0em 0em 0.5em 0em;">
+                E' il progetto del Comune di Palermo per la pubblicazione e condivisione degli Open Data in possesso dell'Amministrazione comunale. 
+                In pratica, si rendono i dati delle amministrazioni pubbliche accessibili a tutti sul web, in formato aperto, senza restrizioni di copyright, 
+                brevetti o altre forme di controllo che ne limitino l'utilizzo, l'integrazione e il riuso, seppur nel rispetto delle disposizioni previste dalla normativa 
+                vigente.
+            </p>
+            <p style="padding: 0.5em 0em;">
+                I dati aperti, comunemente chiamati con il termine inglese Open Data anche nel contesto italiano, sono alcune tipologie di dati liberamente accessibili a tutti, 
+                senza restrizioni di copyright, brevetti o altre forme di controllo che ne limitino la riproduzione.
+            </p>
+            <p style="padding: 0.5em 0em;">
+                Le Pubbliche Amministrazioni, in particolare, sono chiamate a pubblicare i dati in formato aperto al fine di dare concreta attuazione al principio 
+                secondo il quale i dati prodotti dalle istituzioni pubbliche nell'espletamento delle loro funzioni appartengono alla collettivit&agrave; e, quindi, 
+                devono essere resi disponibili e riutilizzabili. In questo modo viene incrementata la trasparenza degli organismi pubblici nonch&egrave; la 
+                partecipazione e la collaborazione tra pubblico e privato.
+            </p>
+            <p style="padding: 0.5em 0em;">
+                Gli Open Data della Pubblica Amministrazione sono di grande utilit&agrave; in quanto caratterizzati da affidabilit&agrave;, imparzialit&agrave;, completezza e 
+                raccolta nel lungo periodo: pertanto costituiscono un servizio pubblico per il cittadino che pu&ograve; controllare in dettaglio l'operato dell'Amministrazione e, 
+                per le imprese che intendono riutilizzarli, un'occasione di sviluppo in quanto consentono di sfruttarne il potenziale, contribuendo, cos&igrave;, alla crescita 
+                economica e alla creazione di posti di lavoro.
+            </p>
+            <p style="padding: 0.5em 0em;">
+                La Giunta Municipale con Deliberazione n.252 del 13/12/2013 ha adottato le <a href="https://opendata.comune.palermo.it/opendata-documenti.php?tipo=1" target="_blank">&CloseCurlyDoubleQuote;Linee Guida per le attivit&agrave; sugli Open Data della Citt&agrave; di Palermo&CloseCurlyDoubleQuote;</a> 
+             </p>
+
+        </div>
+
+        <div class="div100 padded-2">
+
+            <a href="opendata-archivio-dataset.php" style="display: block;" target="_blank">
+                <div class="btn-od" style="background-color: #0F8EE0;background-image: url(img/lucchetto.png)">
+                    <span>Archivio Dataset</span>
+                </div>
+            </a>
+        
+            <a href="opendata-ultimi-dataset.php" style="display: block;" target="_blank">
+                <div class="btn-od" style="background-color: #D62161;background-image: url(img/nuvola.png)">
+                    <span>Ultimi dataset</span>
+                </div>
+            </a>
+        
+            <a href="opendata-report-dataset.php" style="display: block;" target="_blank">
+                <div class="btn-od" style="background-color: #09A555;background-image: url(img/downloads.png)">
+                    <span>Report pubblicazioni</span>
+                </div>
+            </a>
+        
+            <a href="opendata-documenti.php" style="display: block;" target="_blank">
+                <div class="btn-od" style="background-color: #F19B2C;background-image: url(img/spunta_documenti.png)">
+                    <span>Archivio Documenti</span>
+                </div>
+            </a>
+        
+            <a href="https://opendata.comune.palermo.it/js/server/uploads/attivita/pdf/_18122017095246.pdf" style="display: block;" target="_blank">
+                <div class="btn-od" style="background-color: #7D7CA1;background-image: url(img/document.png)">
+                    <span>Linee Guida Open Data</span>
+                </div>
+            </a>
+        
+            <a href="opendata-attivita.php" style="display: block;" target="_blank">
+                <div class="btn-od" style="background-color: #05CCCB;background-image: url(img/app.png)">
+                    <span>Attività Team Open Data</span>
+                </div>
+            </a>
+                </div>
+            
+        <div class="div100">
+            <div class="div100 mobile-not" style="position:relative;background-color: #113F60;height: 6rem;margin-bottom: 3rem;margin-top: 2rem;">
+                <img src="img/doubble_open.png" style="position: absolute;top:-2rem;left:3rem;" />
+                <a href="opendata-news.php" class="blulabel mob-no-margin" style="float:right;margin-top: 2em;font-size: 1.1em; margin-right: 2em;" target="_blank">Archivio News</a>
+            </div>
+            <div id="news" class="div100 padded-2 bg-gray-s">
+
+                <article class="new bg-white">
+                    <h3 class="div100"><a href="opendata-new-dettaglio.php?id=33267">Classifica ICityRank 2021, Palermo avanza di una posizione. Orlando: "Palermo protagonista di eccellenza nel percorso di digitalizzazione del sistema Italia"</a></h3>
+                    <span class="div100">24 novembre  2021</span>
+                    
+                    <div class="div100"><p>E&#39; stata pubblicata la classifica delle citt&agrave; digitali ICity Rank 2021</p>
+</div>
+                </article>
+        
+                <article class="new bg-white">
+                    <h3 class="div100"><a href="opendata-new-dettaglio.php?id=19496">Attività del Team open data, seminario sui dati aperti satellitari per il monitoraggio delle infrastrutture nel territorio</a></h3>
+                    <span class="div100">11 settembre 2018</span>
+                    
+                    <div class="div100"><p>Il 12 settembre, alle ore 10.30&nbsp;si terr&agrave; presso la sede del Servizio Innovazione, una riunione didattica sull&#39;uso dei dati satellitari per il monitoraggio delle infrastrutture nel territorio.</p>
+</div>
+                </article>
+        
+                <article class="new bg-white">
+                    <h3 class="div100"><a href="opendata-new-dettaglio.php?id=17766">Portale Open Data - lavori di revisione collaborativo e pubblico</a></h3>
+                    <span class="div100">05 aprile    2018</span>
+                    
+                    <div class="div100"><p>Al fine di ricevere eventuali segnalazioni,&nbsp;proposte su caratteristiche nuove, integrazioni, modifiche, da parte degli utenti del portale &egrave; stato istituito uno spazio nella piattaforma&nbsp;GitHub</p>
+</div>
+                </article>
+        
+                <article class="new bg-white">
+                    <h3 class="div100"><a href="opendata-new-dettaglio.php?id=16711">Team Open Data - Riunione pubblica il 20 dicembre alle 15.00 a Palazzo Galletti</a></h3>
+                    <span class="div100">16 dicembre  2017</span>
+                    <img class="div100" src="https://docs.comune.palermo.it/js/server/uploads/700x380/_18122017103709.jpg"/>
+                    <div class="div100"><p>Il 20 dicembre, alle ore 15:00,&nbsp;presso la sede dell&#39;Area Innovazione Tecnologica, si terr&agrave; una riunione pubblica del Team Open Data.</p>
+</div>
+                </article>
+        
+                <article class="new bg-white">
+                    <h3 class="div100"><a href="opendata-new-dettaglio.php?id=16610">Giornata della trasparenza 2017 del Comune di Palermo - Mercoledì 13 dicembre 2017 ore 9-13</a></h3>
+                    <span class="div100">13 dicembre  2017</span>
+                    <img class="div100" src="https://docs.comune.palermo.it/js/server/uploads/700x380/_07122017110458.jpg"/>
+                    <div class="div100"><p>Il 13 dicembre, dalle ore 09:00 alle ore 13:00, si svolger&agrave; presso l&#39;Aula Consiliare di Palazzo delle Aquile, la Giornata della trasparenza 2017.</p>
+</div>
+                </article>
+        
+                <article class="new bg-white">
+                    <h3 class="div100"><a href="opendata-new-dettaglio.php?id=13523">Open data day, sabato 4 marzo 2017 presso il Consorzio ARCA</a></h3>
+                    <span class="div100">03 marzo     2017</span>
+                    <img class="div100" src="https://docs.comune.palermo.it/js/server/uploads/700x380/_03032017100156.jpg"/>
+                    <div class="div100"><p>Il Comune di Palermo il Consorzio Universitario ARCA e la community Opendatasicilia&nbsp;organizzano l&rsquo;evento palermitano del 4 marzo 2017 dell&rsquo;Open Data Day<strong>,</strong>&nbsp;per aumentare la cultura sui dati e mostrarne i benefici derivanti dal riuso.</p>
+</div>
+                </article>
+        
+                <article class="new bg-white">
+                    <h3 class="div100"><a href="opendata-new-dettaglio.php?id=13143">Aggiornamento delle linee guida comunali open data in maniera partecipata</a></h3>
+                    <span class="div100">25 gennaio   2017</span>
+                    <img class="div100" src="https://docs.comune.palermo.it/js/server/uploads/700x380/_25012017104757.jpg"/>
+                    <div class="div100"><p>L&#39;Amministrazione comunale dal 2013 &egrave; impegnata nella politica di pubblicazione dei dati in formato aperto&nbsp;del proprio patrimonio informativo attraverso il portale Open Data.</p>
+</div>
+                </article>
+        
+                <article class="new bg-white">
+                    <h3 class="div100"><a href="opendata-new-dettaglio.php?id=12540"> 2° giornata Trasparenza e Open Data 2016 del Comune di Palermo</a></h3>
+                    <span class="div100">07 dicembre  2016</span>
+                    <img class="div100" src="https://docs.comune.palermo.it/js/server/uploads/700x380/_12122016135532.jpg"/>
+                    <div class="div100"><p>Il giorno 20 dicembre 2016 alle ore 9.00, a Palazzo delle Aquile (Sala delle Lapidi), si terr&agrave;&nbsp;la &nbsp;2&deg; giornata Trasparenza e Open Data 2016 del Comune di Palermo.&nbsp;</p>
+</div>
+                </article>
+                    </div>
+        </div>
+    </section>
+    <footer id="footer">
+  <div id="footer-wrap">
+  
+    <div id="footer-hdr">
+    
+        <div id="footer-logo"><img src="img/aqu_trasp.png" alt="logo"></div>
+        <span class="mob-adapt">Comune di Palermo</span>
+    
+    </div>
+  
+  
+    <div id="sub-footer">
+    
+      <span class="big">Recapiti e Contatti</span>
+      <span class="medium">Sede: Piazza Pretoria, 1</span>
+      <span class="medium">Posta elettronica certificata (PEC):</span>
+      <span class="medium"><a href="mailto:protocollo@cert.comune.palermo.it">protocollo@cert.comune.palermo.it</a></span>
+      <span class="medium">Telefono: +39  091 7401111</span>
+      
+       <span class="medium" style="text-align: right;"><a href="https://opendata.comune.palermo.it/dcat/dcat.php" style="color:#FFF;font-size:1.4rem;" target="_blank">Catalogo DCAT-AP-IT</a></span>
+      
+    
+    </div>
+  
+    <div id="footer-socials">
+    
+        <span>Seguici su</span>
+        <a href="http://www.facebook.com/ComunediPalermo"><img src="img/facebook.png" width="40" height="40" alt="facebook"></a>
+        <a href="http://twitter.com/ComunePalermo"><img src="img/twitter.png" width="40" height="40" alt="twitter"></a>
+        <a href="https://www.comune.palermo.it/lista_rss.php"><img src="img/rss.png" width="40" height="40" alt="rss"></a>
+       
+      
+    </div>
+      
+      
+      <div id="footer-logos">
+          
+            <a href="https://palermoculture.comune.palermo.it/" target="_blank" rel="noopener">
+                <img src="https://comune.palermo.it/img/s_rosalia_white.png" alt="logo santa rosalia">
+            </a>
+          
+          
+        </div> 
+  
+    <div id="footer-credits">
+    
+    <span><a href="opendata-credits.php">Credits</a></span>
+    <span><a href="opendata-note-legali.php">Note Legali</a></span>
+    <span><a href="opendata-cookie-policy.php">Cookie Policy</a></span>
+    <span>&copy; 2017 Comune di Palermo - Tutti i diritti riservati</span>
+    
+    </div>
+
+  </div>  
+</footer></main>
+<script src="js/jquery-latest.min.js"></script>
+<script src="js/jquery-migrate-latest.min.js"></script>
+<script src="js/dyscrollup.min.js"></script>
+<script src="js/jquery.blockui.js"></script>
+<script src="js/jquery.cookiebar/jquery.cookiebar.js"></script>
+<script src="js/fixto.min.js"></script>
+<!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>--><script src="js/masonry.pkgd.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript">
+jQuery.fn.clickToggle = function(a,b) {
+  var ab=[b,a];
+  function cb(){ ab[this._tog^=1].call(this); }
+  return this.on("click", cb);
+};
+
+var menu_open=false;
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px and add a black background color to body */
+function openNav() {
+		$('body').scrollTop(0);
+		$('body').css('overflow','hidden');
+		$("#mySidenav").css('width','350px');
+		$("#mainpage").css('margin-left','350px');
+		$("#header").css('position','inherit');
+		$("#nav").addClass('open');
+		$('#content').css('margin-top','0em');
+		$('#push-screen').show();
+
+		
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+		$('body').css('overflow','auto');
+    $("#mySidenav").css('width','0px');
+    $("#mainpage").css('margin-left','0px');
+		$("#header").css('position','fixed');
+		$("#nav").removeClass('open');
+		$('#content').css('margin-top','13em');
+		$('#push-screen').hide();
+	
+}
+$(document).ready(function(){ 
+
+    <!-- Matomo -->
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+          var u="https://ingestion.webanalytics.italia.it/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', 'aW3gLaPpDR']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+<!-- End Matomo Code -->
+
+
+  $.cookieBar({
+	message: 'Questo sito utilizza cookie di profilazione di terze parti. Se accedi a un qualunque elemento sottostante questo banner acconsenti all\'uso dei cookie.<br>',
+	acceptButton: true,
+	acceptText: 'Ho capito',
+	declineButton: true,
+	declineText: 'Disabilita Cookies',
+	policyButton: true,
+	policyText: 'Privacy Policy',
+	policyURL: 'https://www.comune.palermo.it/privacy.php',
+	autoEnable: true,
+	acceptOnContinue: false,
+	expireDays: 365,
+	forceShow: false,
+	effect: 'slide',
+	element: 'body',
+	append: true,
+	fixed: true,
+	bottom: false,
+        zindex: '9999',
+	domain: 'opendata.comune.palermo.it',
+	referrer: 'opendata.comune.palermo.it'
+	}); 
+	
+	if(jQuery.cookieBar('cookies')){
+    
+	 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-92920929-1', 'comune.palermo.it');
+	  ga('send', 'pageview');
+      
+       $.ajax({
+          method: "POST",
+          url: "includes/update_cookies.php",
+          data: { ipadd: "132.196.55.116", sid: "tqnkh30gnholn63vrvs9n13a9r", cons: "1" }
+   		});
+    
+	  
+	}     dyscrollup.init({
+
+    // show after 300px
+    showafter : '400',
+
+    // scrolling animation speed
+    scrolldelay : '500',
+
+    // where to place the button
+    position : 'right',
+
+    // scroll to top image
+    image : 'img/48-red.png',
+
+    // circle or square
+    shape : 'circle',
+
+    // width / height
+    width : "48px",
+    height : "48px"
+
+});
+
+$('#src-box').keyup(function(e){
+
+    if(e.keyCode == 13)
+    {
+       $("#src-btn").click();
+    }
+
+});
+
+$(document).on("click",".sidenav ul li span, .sidenav ul li ul li span", function(event){			
+										
+    $("*").removeClass("active-menu");
+    var clicks = $(this).data('clicks');
+
+    if(typeof clicks=="undefined"){
+
+        clicks=false;
+
+    }
+
+    if (clicks==false) {
+        $( event.target ).next().next().slideDown( 200, function() {
+                // Animation complete.
+        });	
+    } else {
+        $( event.target ).next().next().slideUp( 200, function() {
+                // Animation complete.
+        });
+    }
+
+    $(this).closest("li").addClass("active-menu");
+
+    $(this).data("clicks", !clicks);
+    $(this).toggleClass('special');
+
+});
+
+$( "#mySidenav > ul" ).not(":hidden").each(function( ) {
+
+
+    var childul = $(this).find(">li ul");
+    var countul = childul.length;
+
+    var childulul = $(this).find(">li ul li ul");
+    var countulul = childulul.length;
+
+    if (countul>0){
+
+        var el=$(this).find(">li:first-child");
+        el.prepend('<span></span>');
+
+        if(countulul>0){
+
+                var ael=$(this).find(">li ul >li:first-child").not(".last");
+                ael.prepend('<span></span>');
+
+        }
+    }
+
+    console.log(' - li > ul: '+countul+ '- li > ul li ul: '+countulul);
+
+});
+
+
+$( "#mob-src" ).toggle(function() {
+
+    $( "#m-search-box" ).slideDown( 200, function() {
+        // Animation complete.
+    });
+
+}, function() {
+
+    $( "#m-search-box" ).slideUp( 200, function() {
+        // Animation complete.
+    });
+
+});
+
+
+
+$(document).on("click","#nav, .closebtn", function(event){
+
+
+    if (menu_open==false) {
+
+        openNav();	
+
+    } else {
+
+        closeNav();;
+
+    }
+
+    menu_open=!menu_open;
+
+
+});
+
+
+$(function(){
+    $("#header").data('size','big');
+});
+
+
+$(window).scroll(function(){
+    if($(document).scrollTop() > 0)
+    {
+        if($("#header").data('size') == 'big')
+        {
+            $('#header').data('size','small');
+            $('#header').stop().animate({
+                height:'5.5em'
+            },100);
+            $('#header-top').animate({
+                height:'0em'
+            },100);
+            $('#header-top span').hide();
+            $('#social-box').hide();
+            $('#opt-nav').hide()
+            $('#logo-box').css('margin-top','0.6em');
+            $('#logo-box').css('height','4em');
+            $('#header-main').css('height','85%');
+            $('#nav').css('margin-top','1em');
+            $('#search-box').css('top','1em');
+
+
+        }
+
+    }
+    else
+    {
+        if($("#header").data('size') == 'small')
+        {
+            $("#header").data('size','big');
+            $("#header").stop().animate({
+                height:'13em'
+            },100);
+            $('#header-top').animate({
+                height:'3em'
+            },100);
+            $('#header-top span').show();
+            $('#social-box').show();
+            $('#opt-nav').show();
+            $('#logo-box').css('margin-top','2.4em');
+            $('#logo-box').css('height','5em');
+            $('#header-main').css('height','67%');
+            $('#nav').css('margin-top','3.2em');
+            $('#search-box').css('top','5em');
+
+
+        }  
+    }
+});
+
+function sostituisciURL() {
+       
+  const immagini = document.querySelectorAll('img');
+  const link = document.querySelectorAll('a');
+
+  const domini = {
+    'https://www.comune.palermo.it': 'https://docs.comune.palermo.it',
+    'https://comune.palermo.it': 'https://docs.comune.palermo.it'
+  };
+
+  const dominioPHP = '//repository.comune.palermo.it';
+
+    function sostituisci(elemento, attributo) {
+
+        const url = elemento.getAttribute(attributo);
+
+        if (url) {
+
+            for (const vecchioDominio in domini) {
+
+                if (url.startsWith(vecchioDominio)) {
+
+                  const nuovoDominio = domini[vecchioDominio];
+                  const nuovoURL = url.replace(vecchioDominio, nuovoDominio);
+                  elemento.setAttribute(attributo, nuovoURL);
+                  break; // Esci dal ciclo una volta trovata la corrispondenza
+
+                }
+
+            }
+
+            // Gestione specifica per i link pdf
+            if (elemento.tagName === 'A' && url.endsWith('.pdf')) {
+                elemento.setAttribute('href', url.replace(/\/\/[^\/]+/, dominioPHP));
+            }
+
+        }
+
+    }
+
+  immagini.forEach(img => sostituisci(img, 'src'));
+  link.forEach(link => sostituisci(link, 'href'));
+ 
+}
+
+function onAjaxCompleteHook() {
+    
+    $(document).ajaxComplete(function() {
+        
+        sostituisciURL();
+      
+    });
+      
+}
+
+
+function sostituisciDominioImmagini(oldDomain, newDomain) {
+  // Ottieni tutti gli elementi della pagina
+  const elements = document.querySelectorAll('*');
+  
+  // Itera su tutti gli elementi
+  elements.forEach(element => {
+    // Controlla se l'elemento ha la proprietà background-image
+    const backgroundImage = window.getComputedStyle(element).backgroundImage;
+    
+    if (backgroundImage && backgroundImage.includes(oldDomain)) {
+
+        
+      // Sostituisci il vecchio dominio con il nuovo dominio
+      const updatedBackgroundImage = backgroundImage.replace(oldDomain, newDomain);
+      element.style.backgroundImage = updatedBackgroundImage;
+    }
+  });
+}
+
+
+sostituisciURL();
+onAjaxCompleteHook();
+sostituisciDominioImmagini('https://www.comune.palermo.it','https://docs.comune.palermo.it');
+               
+        
+
+			
+            $('.div100').imagesLoaded( function() {
+
+                var $grid = $('#news').masonry({
+                // set itemSelector so .grid-sizer is not used in layout
+                    itemSelector: 'article',
+                    // use element for option
+                    columnWidth:'.new',
+                    percentPosition: true
+                });
+
+                $grid.masonry('layout');
+
+            });
+    
+});
+</script>
+</body>
+</html>

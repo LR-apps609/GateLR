@@ -1,0 +1,15 @@
+1 200 153429 https://www.amat.pa.it/category/ztl/ -> 1-ztl_
+2 200 152332 https://www.amat.pa.it/02-05-2025-nuovi-orari-estivi-per-la-ztl-di-palermo/ -> 2-02-05-2025-nuovi-orari-estivi-per-la-ztl-di-palermo_
+3 200 181618 https://www.comune.palermo.it/novita/ztl-da-venerda-in-vigore-orari-estivi/ -> 3-ztl-da-venerda-in-vigore-orari-estivi_
+4 200 154322 https://www.blogsicilia.it/palermo/torna-ztl-notturna-cambia-orario-estivo-fasce-regole/1129520/ -> 4-1129520_
+5 200 83397 https://www.sicurauto.it/news/attualita-e-curiosita/ztl-palermo-orari-zone-e-mappa/ -> 5-ztl-palermo-orari-zone-e-mappa_
+6 404 122501 https://www.comune.palermo.it/js/server/uploads/_02012024162931.pdf -> 6-_02012024162931.pdf_
+7 200 45150 https://web.comune.palermo.it/polizia-municipale-info.php -> 7-polizia-municipale-info.php_
+8 200 152806 https://www.amat.pa.it/category/ztl/page/2/ -> 8-2_
+9 200 735815 https://www.palermoviva.it/palermo-ztl-le-zone-a-traffico-limitato/ -> 9-palermo-ztl-le-zone-a-traffico-limitato_
+10 200 186667 https://www.automobilista.it/come-funziona-la-ztl-a-palermo-quali-sono-le-zone-interessate-e-quali-regole-bisogna-rispettare-per-entrare/ -> 10-come-funziona-la-ztl-a-palermo-quali-sono-le-zone-interessate-e-quali-regole-bis
+11 200 142570 https://www.unipolmove.it/blog/ztl-a-palermo-tutto-cio-che-devi-sapere-su-orari-zone-e-costi/ -> 11-ztl-a-palermo-tutto-cio-che-devi-sapere-su-orari-zone-e-costi_
+12 200 29106 https://opendata.comune.palermo.it/ -> 12-opendata.comune.palermo.it_
+13 200 224 https://www.dati.gov.it/opendata/api/3/action/package_search?q=palermo%20ztl -> 13-package_search_
+14 404 122416 https://www.comune.palermo.it/amministrazione-trasparente/ -> 14-amministrazione-trasparente_
+15 200 204242 https://tolltracker.eu/zones/italy/palermo-ztl -> 15-palermo-ztl_
