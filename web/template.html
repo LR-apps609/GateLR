@@ -9,7 +9,7 @@
 <!-- MapLibre (stile e script) si carica solo quando la mappa entra nello schermo: vedi loadRealMap -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=DotGothic16&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=DotGothic16&display=swap">
 <style>
 /* Layout: a road-sign search bar on LR-family paper; answer panel beside a drawn map of the sectors, stacked on phones */
 :root{
@@ -50,12 +50,12 @@ p{margin:0}
 .brand b{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:-.01em}
 .brand b span{color:var(--red)}
 .langs{display:flex;background:var(--well);border-radius:10px;padding:3px}
-.langs button{border:0;background:transparent;font:700 13px var(--display);color:var(--muted);padding:5px 9px;border-radius:8px;cursor:pointer}
+.langs button{border:0;background:transparent;font:600 13px var(--display);letter-spacing:.03em;color:var(--muted);padding:5px 9px;border-radius:8px;cursor:pointer}
 .langs button[aria-pressed=true]{background:var(--sheet);color:var(--ink)}
 @media (max-width:480px){.family{display:none}}
 .family{font-family:var(--display);font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--brass);display:flex;align-items:center;gap:8px}
 .family i{font-style:normal;border:1.5px solid var(--brass);border-radius:6px;padding:0 5px;font-weight:700;letter-spacing:.02em}
-.get{font-family:var(--display);font-weight:700;font-size:15px;color:var(--paper);background:var(--ink);border-radius:999px;padding:9px 16px;text-decoration:none;white-space:nowrap}
+.get{font-family:var(--display);font-weight:600;font-size:15px;letter-spacing:.01em;color:var(--paper);background:var(--ink);border-radius:999px;padding:9px 16px;text-decoration:none;white-space:nowrap}
 
 /* vetrina dell'app, compatta: titolo, pulsanti degli store, funzioni in una striscia e due iPhone con schermate vere */
 .show{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,360px);gap:clamp(16px,3vw,40px);align-items:center;padding-block:6px 18px}
@@ -69,7 +69,7 @@ p{margin:0}
 .sbtn:hover{transform:translateY(-1px)}
 .sbtn .logo{width:26px;height:26px;flex:none}
 .sbtn span{display:grid;line-height:1.1;min-width:0}
-.sbtn small{font:600 12px var(--text);letter-spacing:.02em;opacity:.82;white-space:nowrap}
+.sbtn small{font:400 12px var(--text);letter-spacing:.02em;opacity:.82;white-space:nowrap}
 .sbtn b{font:700 19px var(--display);letter-spacing:-.01em;white-space:nowrap}
 .sbtn[aria-disabled=true]{cursor:default}
 .app .sbtn{background:var(--paper);color:var(--ink)}
@@ -79,7 +79,8 @@ p{margin:0}
 /* le funzioni dell'app: una striscia di etichette piccole */
 #kf-t{margin-top:2px}
 .kfl{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.kfl li{display:inline-flex;align-items:center;gap:6px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:4px 11px 4px 5px;font:600 13.5px/1.2 var(--display);white-space:nowrap}
+.kfl li{display:inline-flex;align-items:center;gap:7px;background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:4px 12px 4px 5px;font:400 14px/1.25 var(--text);letter-spacing:.01em;color:var(--ink);white-space:nowrap}
+.kfl b{font-weight:inherit}
 .ki{width:24px;height:24px;border-radius:50%;background:var(--red-soft);color:var(--red);display:grid;place-items:center;flex:none}
 .ki svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .kfl li:nth-child(n+9) .ki{background:var(--blue-soft);color:var(--blue)}
@@ -117,8 +118,8 @@ p{margin:0}
 .tool .lead{font-size:clamp(15.5px,1.4vw,18px);color:var(--muted);max-width:62ch}
 .search{display:grid;grid-template-columns:1fr;background:var(--paper);border:2px solid var(--ink);border-radius:var(--radius);padding:6px 8px;position:relative}
 .search .field{display:flex;align-items:center;gap:10px;min-width:0;padding-inline:8px}
-.search input[type=search]{border:0;background:transparent;font:600 18px var(--text);color:var(--ink);width:100%;min-width:0;padding-block:10px;outline:none}
-.search input::placeholder{color:var(--muted);font-weight:500}
+.search input[type=search]{border:0;background:transparent;font:500 18px var(--text);color:var(--ink);width:100%;min-width:0;padding-block:10px;outline:none}
+.search input::placeholder{color:var(--muted);font-weight:400}
 .suggest{position:absolute;left:10px;right:10px;top:calc(100% + 6px);background:var(--sheet);border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.14);z-index:5;overflow:hidden}
 .suggest button{display:flex;justify-content:space-between;gap:10px;width:100%;text-align:left;border:0;background:transparent;padding:12px 14px;font:16px var(--text);color:var(--ink);cursor:pointer;border-bottom:1px solid var(--line)}
 .suggest button:last-child{border-bottom:0}
@@ -128,15 +129,27 @@ p{margin:0}
 .crow{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;align-items:start;min-width:0}
 .crow > .label{font-size:12px;padding-top:9px}
 .cscroll{display:flex;gap:6px;flex-wrap:wrap;min-width:0}
-.chip{border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:600 14px/1.2 var(--text);padding:7px 12px;border-radius:999px;cursor:pointer;white-space:nowrap;min-height:36px;transition:background .15s,border-color .15s,color .15s}
+.chip{border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:400 14.5px/1.2 var(--text);letter-spacing:.01em;padding:7px 13px;border-radius:999px;cursor:pointer;white-space:nowrap;min-height:36px;transition:background .15s,border-color .15s,color .15s}
 .chip:hover{border-color:var(--ink)}
-.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.chip small{font-weight:500;opacity:.75;margin-left:4px}
+.chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper);font-weight:500}
+.chip small{font-weight:400;opacity:.75;margin-left:4px}
+.chip.more{color:var(--muted);border-style:dashed}
+.chip.more:hover{color:var(--ink)}
+.cscroll.wrapc{flex-wrap:wrap;overflow:visible;margin-inline:0;padding:0}
+/* veicolo e quando: due menu compatti affiancati (come «Adesso ▾» nell'app) */
+.picks{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:10px;margin-left:86px}
+.pick{position:relative;display:grid;gap:1px;background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:7px 40px 7px 14px;cursor:pointer;min-width:0;transition:border-color .15s}
+.pick:hover,.pick:focus-within{border-color:var(--ink)}
+.pick .label{font-size:11px;letter-spacing:.08em}
+.pick::after{content:"";position:absolute;right:16px;top:50%;width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.pick select{-webkit-appearance:none;appearance:none;border:0;background:transparent;color:var(--ink);font:500 16px/1.3 var(--text);letter-spacing:.005em;padding:0;margin:0;width:100%;min-width:0;cursor:pointer;text-overflow:ellipsis;outline:none}
+.pick select option{font-weight:400;background:var(--sheet);color:var(--ink)}
+.pick:has(select:focus-visible){outline:3px solid var(--blue);outline-offset:2px}
 .chip.loc{color:var(--blue);border-color:color-mix(in srgb,var(--blue) 40%,transparent)}
 .chip.try::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:6px;transform:translateY(-1px)}
 .hourbox{display:grid;gap:4px;background:var(--well);border-radius:16px;padding:10px 14px 8px;margin-left:86px}
 .hourtop{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-#hour-out{font:700 22px var(--display)}
+#hour-out{font:600 21px var(--display)}
 .hourtop small{color:var(--muted);font-size:13px}
 #hour{-webkit-appearance:none;appearance:none;width:100%;height:30px;background:transparent;margin:0;cursor:pointer;touch-action:pan-y}
 #hour::-webkit-slider-runnable-track{height:12px;border-radius:6px;background:var(--track,var(--line))}
@@ -148,7 +161,8 @@ p{margin:0}
   .crow{grid-template-columns:minmax(0,1fr);gap:4px}.crow > .label{padding-top:0}
   .cscroll{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-16px;padding:2px 16px 4px;scroll-padding-inline:16px}
   .cscroll::-webkit-scrollbar{display:none}
-  .hourbox{margin-left:0}
+  .hourbox,.picks{margin-left:0}
+  .picks{grid-template-columns:minmax(0,1fr)}
   .tool{border-radius:22px;margin-inline:-6px}
 }
 /* il pannello nero a punti del varco (come nell'app): gira come una paletta quando cambia */
@@ -164,7 +178,7 @@ p{margin:0}
 .led.flip{animation:flip .5s cubic-bezier(.3,1.5,.5,1)}
 @keyframes flip{0%{transform:rotateX(0)}30%{transform:rotateX(90deg)}31%{transform:rotateX(-90deg)}100%{transform:rotateX(0)}}
 .verdict > div{min-width:0}
-.until{font:700 15px var(--display);opacity:.92;margin-top:4px}
+.until{font:500 15px var(--text);opacity:.92;margin-top:4px}
 .answer.pop{animation:pop .45s ease}
 @keyframes pop{0%{transform:scale(.985)}50%{transform:scale(1.01)}100%{transform:scale(1)}}
 @media (max-width:480px){.answer{padding:20px}.verdict{gap:12px}.verdict h2{font-size:30px}.badge{width:46px;height:46px}.badge svg{width:24px;height:24px}}
@@ -180,7 +194,7 @@ p{margin:0}
 .answer[data-v=out]{--v-bg:var(--paper);--v-fg:var(--ink);--v-badge:var(--green);--v-mark:#fff;border:1px solid var(--line)}
 .answer .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .answer .where{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.09em;text-transform:uppercase;opacity:.9}
-.pill{font:700 12.5px var(--text);padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--v-fg) 16%,transparent)}
+.pill{font:500 13px var(--text);letter-spacing:.01em;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--v-fg) 16%,transparent)}
 .verdict{display:flex;align-items:center;gap:16px}
 .badge{width:60px;height:60px;border-radius:50%;background:var(--v-badge);display:grid;place-items:center;flex:none}
 .badge svg{width:30px;height:30px;stroke:var(--v-mark);fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
@@ -191,9 +205,9 @@ p{margin:0}
 .answer .meta{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;opacity:.92;flex-wrap:wrap}
 .answer hr{border:0;border-top:1px solid color-mix(in srgb,var(--v-fg) 25%,transparent);margin:0}
 .answer .src{font-size:14px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-.answer .src a{color:inherit;font-weight:700}
+.answer .src a{color:inherit;font-weight:600}
 .answer[data-v=cond] .draft{background:var(--sheet)}
-.draft{background:var(--amber-soft);color:var(--ink);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:600}
+.draft{background:var(--amber-soft);color:var(--ink);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:400}
 
 .mapcard{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:12px;display:grid;gap:8px}
 .mapcard svg{width:100%;height:auto;display:block;border-radius:18px;background:var(--map-land);cursor:crosshair;touch-action:manipulation}
@@ -203,11 +217,16 @@ p{margin:0}
 .mapbox.real #mlmap{opacity:1;pointer-events:auto}
 .mapbox.real svg{visibility:hidden}
 .maplibregl-ctrl-attrib{font-size:11px}
-.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);padding-inline:6px}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);padding-inline:6px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
-.sw{width:16px;height:11px;border-radius:3px;display:inline-block;border:2px solid var(--c);background:color-mix(in srgb,var(--c) 22%,transparent)}
-.sw.restricted{--c:var(--red);border-style:dashed}.sw.pass{--c:#D99A00;border-style:dashed}.sw.green{--c:#0FA34A;border-width:3px;background:color-mix(in srgb,#0FA34A 30%,transparent)}.sw.ped{--c:#7A1F5C;background:#7A1F5C}
+.sw{width:18px;height:12px;border-radius:3px;display:inline-block;border:2px solid var(--c);background:color-mix(in srgb,var(--c) 30%,transparent)}
+.sw.ped{--c:#7A1F5C;background:color-mix(in srgb,#7A1F5C 55%,transparent)}
+.dot.gate{width:8px;height:8px;background:var(--ink);opacity:.75;box-shadow:0 0 0 1.5px var(--sheet)}
+/* nomi delle zone sulla mappa vera (segnaposti HTML: usano il carattere del sito) */
+.zlab{font:500 12.5px/1.15 var(--text);letter-spacing:.01em;color:var(--ink);background:color-mix(in srgb,var(--sheet) 88%,transparent);border:1.5px solid var(--c,var(--line));border-radius:999px;padding:2px 8px;white-space:nowrap;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.zlab.sel{font-weight:600;background:var(--sheet)}
+.zlab.off{visibility:hidden}
 
 /* details */
 .details{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;padding-block:8px 36px}
@@ -216,24 +235,24 @@ p{margin:0}
 table{border-collapse:collapse;width:100%;font-size:16px}
 td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
 tr:last-child td{border-bottom:0}
-td:last-child{text-align:right;font-weight:700;white-space:nowrap;padding-left:12px}
+td:last-child{text-align:right;font-weight:600;white-space:nowrap;padding-left:12px}
 td.free{color:var(--green)}
 td.wrap{white-space:normal}
 .fine{font-family:var(--display);font-weight:700;font-size:44px;line-height:1;color:var(--red)}
 .fine small{font-size:18px;font-weight:600;color:var(--muted)}
 .list{display:grid;gap:8px;padding-left:20px;margin:0}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pair label{display:grid;gap:4px;font-size:13px;color:var(--muted);font-weight:600}
-.pair input{font:600 16px var(--text);color:var(--ink);background:var(--well);border:1px solid var(--line);border-radius:10px;padding:9px 10px;min-width:0}
+.pair label{display:grid;gap:4px;font-size:13px;color:var(--muted);font-weight:500}
+.pair input{font:400 16px var(--text);color:var(--ink);background:var(--well);border:1px solid var(--line);border-radius:10px;padding:9px 10px;min-width:0}
 .msg{background:var(--well);border-radius:12px;padding:12px;font-size:15px;white-space:pre-line}
-.btn{font:700 15px var(--display);border:0;border-radius:12px;padding:11px 16px;cursor:pointer;background:var(--blue);color:#fff;justify-self:start}
+.btn{font:600 15px var(--display);letter-spacing:.01em;border:0;border-radius:12px;padding:11px 16px;cursor:pointer;background:var(--blue);color:#fff;justify-self:start}
 .btn.quiet{background:var(--blue-soft);color:var(--blue)}
 
 /* faq */
 .faq{display:grid;gap:10px;padding-block:4px 36px;max-width:820px}
 .faq h2{font-size:clamp(28px,3.6vw,38px);font-weight:700;margin-bottom:6px}
 .faq details{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:4px 18px}
-.faq summary{cursor:pointer;font-weight:700;font-size:18px;padding-block:12px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.faq summary{cursor:pointer;font-weight:600;font-size:18px;padding-block:12px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";color:var(--muted);font-weight:400;flex:none}
 .faq details[open] summary::after{content:"–"}
@@ -249,7 +268,7 @@ td.wrap{white-space:normal}
 .feat p{color:var(--muted);font-size:16px}
 .states{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:6px}
 .states li{display:flex;align-items:center;gap:8px;font-size:15px}
-.states b{font-weight:600}
+.states b{font-weight:500}
 .states span{width:22px;height:22px;border-radius:50%;display:inline-grid;place-items:center;font:700 13px var(--display);flex:none}
 .s-yes span{background:var(--green);color:var(--on-strong)}.s-cond span{background:var(--amber-soft);color:var(--amber);border:1.5px dashed var(--amber)}
 .s-no span{background:var(--red);color:var(--on-strong)}.s-unsure span{background:var(--unsure);color:var(--ink);border:1.5px dotted var(--muted)}
@@ -264,11 +283,11 @@ td.wrap{white-space:normal}
 @media (max-width:760px){.app{grid-template-columns:1fr}}
 
 .cities{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding-block:0 30px}
-.cities a{font:700 15px var(--display);color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none}
+.cities a{font:400 15px var(--text);letter-spacing:.01em;color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none}
 .cities a:hover{border-color:var(--ink)}
 footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap:12px;color:var(--muted);font-size:14px}
 .fam{display:flex;gap:10px;flex-wrap:wrap}
-.fam span{font-family:var(--display);font-weight:700;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:4px 10px}
+.fam span{font-family:var(--display);font-weight:600;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:4px 10px}
 .fam span b{color:var(--brass)}
 .fam span.me{border-color:var(--red)}
 /* Pulsanti dello zoom della mappa: più grandi, comodi da toccare */
@@ -320,10 +339,12 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
     </form>
 
     <div class="ctl">
-      <div class="crow"><span class="label" data-i18n="cityL">City</span><div class="cscroll" id="city-chips" role="group" aria-labelledby="check-t"></div></div>
+      <div class="crow"><span class="label" data-i18n="cityL">City</span><div class="cscroll wrapc" id="city-chips" role="group" aria-label="City"></div></div>
       <div class="crow"><span class="label" data-i18n="try">Try</span><div class="cscroll" id="tries"><button type="button" class="chip loc" id="locate" hidden data-i18n="locate">Use my location</button></div></div>
-      <div class="crow"><span class="label" data-i18n="carL">Vehicle</span><div class="cscroll" id="cars" role="group"></div></div>
-      <div class="crow"><span class="label" data-i18n="whenL">When</span><div class="cscroll" id="days" role="group"><button type="button" class="chip now" id="w-now" aria-pressed="true" data-i18n="now">Now</button></div></div>
+      <div class="picks">
+        <label class="pick"><span class="label" data-i18n="carL">Vehicle</span><select id="car"></select></label>
+        <label class="pick"><span class="label" data-i18n="whenL">When</span><select id="day"></select></label>
+      </div>
       <div class="hourbox">
         <div class="hourtop"><output id="hour-out" for="hour" class="tnum">–</output><small data-i18n="slideHint">Drag the hour: the answer changes live</small></div>
         <input type="range" id="hour" min="0" max="1425" step="15" value="720" aria-label="Time">
@@ -458,7 +479,7 @@ const TZ = "Europe/Rome";
 // Testi del sito in inglese, italiano e tedesco
 const T = {
  en:{
-  cityL:"City", carL:"Vehicle", whenL:"When", dToday:"Today", dTomorrow:"Tomorrow", slideHint:"Drag the hour: the answer changes live", ledCap:"The panel at the gate", ledOut:"NO ZTL HERE", vRental:"Rental car", vRentalS:"petrol Euro 6", vP3:"Petrol Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Hybrid", vEl:"Electric",
+  cityL:"City", carL:"Vehicle", whenL:"When", dToday:"Today", dTomorrow:"Tomorrow", slideHint:"Drag the hour: the answer changes live", ledCap:"The panel at the gate", ledOut:"NO ZTL HERE", vRental:"Rental car", vRentalS:"petrol Euro 6", vP3:"Petrol Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Hybrid", vEl:"Electric", moreC:n=>`+ ${n} more`, lessC:"Fewer", lcond:"With a ticket or condition", allC:"All cities",
   untilOn:n=>`On until ${n.replace(/^on /, "")}`, untilOff:n=>`Off until ${n.replace(/^on /, "")}`, carPl:(f,n)=>f==="electric"||f==="hybrid" ? `${T.en.fuel[f]} cars` : `${T.en.fuel[f]} Euro ${n} cars`, whyExempt:c=>`The gates are on, but ${c} may drive in.`, whyBan:c=>`The gates are on and ${c} can't drive in, not even with a ticket. Check the city's page for any free days.`, whyGreenOk:(c,l)=>`The low-emission zone is on, but ${c} may drive in.${l ? " Banned now: " + l + "." : ""}`,
   fL:"In the iPhone app", fT:"Everything you need before the gate", fP:"The app gives the same answers as this page, for {{N}} Italian cities, and helps you on the road.", f1T:"«Can I enter?»", f1P:"One clear answer for where you're going, with the city's official source and the date we read it.", st1:"You can enter", st2:"You can enter if…", st3:"You can't enter", st4:"To be checked", f2T:"Your time, your car", f2P:"Tap «Now ▾» to pick tonight, tomorrow or any day and time, and choose the car you're driving: every answer, the map and your trip change together.", f3T:"The map", f3P:"ZTL zones coloured by the answer, camera gates and pedestrian areas, for the time and car you picked.", f4T:"Park outside and walk", f4P:"Destination in an active ZTL? Car parks outside it, the minutes on foot, prices and opening hours when known. Works offline.", f5T:"Hotel inside the ZTL", f5P:"A ready message asking your hotel to register your plate with the city for every day of your stay.", f6T:"Guardian", f6P:"Drive with Google Maps, Waze or Apple Maps: GateLR stays in the background, warns you before an active ZTL and shows it in the Dynamic Island, a Live Activity and the lock-screen widget.", f7T:"GateLR's own navigator", f7P:"Turn-by-turn voice directions on a smooth map, rerouting after a wrong turn and a warning before every active gate.", f8T:"Siri and Shortcuts", f8P:"«Can I enter Florence Sector A with GateLR?», the ZTL nearest to you, or stop the guardian, without opening the app.", f9T:"Read the sign", f9P:"Point the camera at the ZTL sign: GateLR reads the days and hours and explains them in your language.", f10T:"Garage", f10P:"«Photograph the registration document» reads fuel and Euro class from EU registration certificates; for a rental car, pick the model from a list.", f11T:"«Got a fine?»", f11P:"Photograph the notice: was the gate active according to our data, your deadlines, and a draft appeal to complete. General information, not legal advice.", f12T:"8 languages", f12P:"English, Italiano, Deutsch, Français, Español, Nederlands, Polski and 简体中文.", q5:"Where do the rules come from?", a5:"From each city's official pages, ordinances and open data, with the link and the date we read them. They are drafts: checked against the official sources but not yet reviewed on site by a person. The sign and the light panel at the gate always win.", q6:"Can I download the app?", a6:"Not yet: GateLR for iPhone is in testing and not yet on the App Store. Until then, this page gives you the same answer for every city, for now or for your arrival time.",title:"Can I drive into the ZTL? {{N}} Italian cities · GateLR", desc:"Driving to an Italian old town? Search your hotel and see at once if it's inside a ZTL in one of {{N}} Italian cities, from Florence, Rome and Milan to Siena and San Gimignano: whether you can drive in when you arrive, the hours, the day ticket and the fine. From the cities' official sources.",
   lpass:"ZTL: day ticket", lgreen:"Low-emission zone", lped:"Pedestrian area", ped:"Pedestrian area", guides:"ZTL guides", and:"and",
@@ -491,7 +512,7 @@ const T = {
   perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", far:"We don't cover this place yet. GateLR covers {{N}} Italian cities: see the ZTL guides below.",
   msg:(day,time,h,pl)=>`${h ? "Dear " + h + " team," : "Hello,"}\n\nI'm arriving by car on ${day} at about ${time}. Could you please register my plate ${pl || "[PLATE]"} for the ZTL, so I can reach the hotel without a fine?\n\nThank you!`},
  it:{
-  cityL:"Città", carL:"Veicolo", whenL:"Quando", dToday:"Oggi", dTomorrow:"Domani", slideHint:"Trascina l'ora: la risposta cambia subito", ledCap:"Il pannello al varco", ledOut:"FUORI ZTL", vRental:"Auto a noleggio", vRentalS:"benzina Euro 6", vP3:"Benzina Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Ibrida", vEl:"Elettrica",
+  cityL:"Città", carL:"Veicolo", whenL:"Quando", dToday:"Oggi", dTomorrow:"Domani", slideHint:"Trascina l'ora: la risposta cambia subito", ledCap:"Il pannello al varco", ledOut:"FUORI ZTL", vRental:"Auto a noleggio", vRentalS:"benzina Euro 6", vP3:"Benzina Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Ibrida", vEl:"Elettrica", moreC:n=>`e altre ${n}`, lessC:"Meno", lcond:"Con ticket o condizioni", allC:"Tutte le città",
   untilOn:n=>`Attivo fino a ${n}`, untilOff:n=>`Non attivo fino a ${n}`, carPl:(f,n)=>f==="electric"||f==="hybrid" ? `le auto ${T.it.fuel[f]}` : `le auto ${T.it.fuel[f]} Euro ${n}`, whyExempt:c=>`I varchi sono accesi, ma ${c} possono entrare.`, whyBan:c=>`I varchi sono accesi e ${c} non possono entrare, neanche con il ticket. Eventuali giornate libere sul sito del Comune.`, whyGreenOk:(c,l)=>`La zona a basse emissioni è attiva, ma ${c} possono entrare.${l ? " Ora sono vietate: " + l + "." : ""}`,
   fL:"Nell'app per iPhone", fT:"Tutto quello che serve prima del varco", fP:"L'app dà le stesse risposte di questa pagina, per {{N}} città italiane, e ti aiuta anche per strada.", f1T:"«Posso entrare?»", f1P:"Una risposta chiara per il posto dove vai, con la fonte ufficiale del Comune e la data in cui l'abbiamo letta.", st1:"Puoi entrare", st2:"Puoi entrare se…", st3:"Non puoi entrare", st4:"Da verificare", f2T:"La tua ora, la tua auto", f2P:"Tocca «Adesso ▾» per scegliere stasera, domani o un giorno e un'ora qualsiasi, e scegli l'auto che guidi: le risposte, la mappa e il viaggio cambiano insieme.", f3T:"La mappa", f3P:"Le zone ZTL colorate secondo la risposta, i varchi con le telecamere e le aree pedonali, per l'ora e l'auto che hai scelto.", f4T:"Parcheggia fuori e cammina", f4P:"Destinazione in una ZTL attiva? I parcheggi fuori dalla zona, i minuti a piedi, prezzi e orari quando si conoscono. Funziona anche offline.", f5T:"Hotel dentro la ZTL", f5P:"Un messaggio pronto per chiedere all'hotel di comunicare la tua targa al Comune per ogni giorno del soggiorno.", f6T:"Guardiano", f6P:"Guida con Google Maps, Waze o Apple Maps: GateLR resta in sottofondo, ti avvisa prima di una ZTL attiva e la mostra nella Dynamic Island, in una Live Activity e nel widget della schermata di blocco.", f7T:"Il navigatore di GateLR", f7P:"Indicazioni a voce svolta per svolta su una mappa fluida, ricalcolo dopo una svolta sbagliata e un avviso prima di ogni varco attivo.", f8T:"Siri e Comandi rapidi", f8P:"«Posso entrare a Firenze Settore A con GateLR?», la ZTL più vicina o «ferma il guardiano», senza aprire l'app.", f9T:"Leggi il cartello", f9P:"Inquadra il cartello della ZTL: GateLR legge giorni e orari e te li spiega nella tua lingua.", f10T:"Garage", f10P:"«Fotografa il libretto» legge alimentazione e classe Euro dalle carte di circolazione europee; per un'auto a noleggio scegli il modello da un elenco.", f11T:"«Ho preso una multa?»", f11P:"Fotografa il verbale: il varco era attivo secondo i nostri dati, le tue scadenze e una bozza di ricorso da completare. Informazioni generali, non consulenza legale.", f12T:"8 lingue", f12P:"English, Italiano, Deutsch, Français, Español, Nederlands, Polski e 简体中文.", q5:"Da dove vengono le regole?", a5:"Dalle pagine ufficiali, dalle ordinanze e dagli open data di ogni Comune, con il link e la data in cui le abbiamo lette. Sono bozze: controllate sulle fonti ufficiali ma non ancora verificate sul posto da una persona. Valgono sempre il cartello e il pannello luminoso al varco.", q6:"Posso scaricare l'app?", a6:"Non ancora: GateLR per iPhone è in prova e non è ancora sull'App Store. Nel frattempo questa pagina ti dà la stessa risposta per ogni città, per adesso o per l'ora di arrivo.",title:"Posso entrare in ZTL? {{N}} città italiane · GateLR", desc:"Vai in auto in un centro storico italiano? Cerca il tuo hotel e scopri subito se è in ZTL in una di {{N}} città italiane, da Firenze, Roma e Milano a Siena e San Gimignano: se puoi entrare all'ora di arrivo, gli orari, il ticket e la multa. Dalle fonti ufficiali dei Comuni.",
   lpass:"ZTL: con ticket", lgreen:"Zona a basse emissioni", lped:"Area pedonale", ped:"Area pedonale", guides:"Guide ZTL", and:"e",
@@ -524,7 +545,7 @@ const T = {
   perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", far:"Questo luogo non è ancora coperto. GateLR copre {{N}} città italiane: vedi le guide ZTL qui sotto.",
   msg:(day,time,h,pl)=>`${h ? "Gentile staff di " + h + "," : "Buongiorno,"}\n\narrivo in auto ${day} verso le ${time}. Potete registrare la mia targa ${pl || "[TARGA]"} per la ZTL, così raggiungo l'hotel senza multa?\n\nGrazie!`},
  de:{
-  cityL:"Stadt", carL:"Fahrzeug", whenL:"Wann", dToday:"Heute", dTomorrow:"Morgen", slideHint:"Zieh an der Uhrzeit: die Antwort ändert sich sofort", ledCap:"Die Anzeige an der Einfahrt", ledOut:"KEINE ZTL", vRental:"Mietwagen", vRentalS:"Benzin Euro 6", vP3:"Benzin Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Hybrid", vEl:"Elektro",
+  cityL:"Stadt", carL:"Fahrzeug", whenL:"Wann", dToday:"Heute", dTomorrow:"Morgen", slideHint:"Zieh an der Uhrzeit: die Antwort ändert sich sofort", ledCap:"Die Anzeige an der Einfahrt", ledOut:"KEINE ZTL", vRental:"Mietwagen", vRentalS:"Benzin Euro 6", vP3:"Benzin Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Hybrid", vEl:"Elektro", moreC:n=>`und ${n} weitere`, lessC:"Weniger", lcond:"Mit Ticket oder Bedingung", allC:"Alle Städte",
   untilOn:n=>`Aktiv bis ${n.replace(/^am /, "")}`, untilOff:n=>`Aus bis ${n.replace(/^am /, "")}`, carPl:(f,n)=>f==="electric" ? "Elektroautos" : f==="hybrid" ? "Hybridautos" : `Autos mit ${T.de.fuel[f]} Euro ${n}`, whyExempt:c=>`Die Kameras sind aktiv, aber ${c} dürfen hinein.`, whyBan:c=>`Die Kameras sind aktiv und ${c} dürfen nicht hinein, auch nicht mit Ticket. Eventuelle freie Tage stehen auf der Seite der Stadt.`, whyGreenOk:(c,l)=>`Die Umweltzone ist aktiv, aber ${c} dürfen hinein.${l ? " Derzeit verboten: " + l + "." : ""}`,
   fL:"In der iPhone-App", fT:"Alles, was du vor der Einfahrt brauchst", fP:"Die App gibt dieselben Antworten wie diese Seite, für {{N}} italienische Städte, und hilft dir auch unterwegs.", f1T:"«Darf ich hinein?»", f1P:"Eine klare Antwort für dein Ziel, mit der offiziellen Quelle der Stadt und dem Datum, an dem wir sie gelesen haben.", st1:"Einfahrt erlaubt", st2:"Einfahrt nur wenn…", st3:"Keine Einfahrt", st4:"Noch zu prüfen", f2T:"Deine Uhrzeit, dein Auto", f2P:"Tippe auf «Jetzt ▾» für heute Abend, morgen oder einen beliebigen Tag und eine Uhrzeit, und wähle das Auto, das du fährst: Antworten, Karte und Reise ändern sich zusammen.", f3T:"Die Karte", f3P:"ZTL-Zonen nach Antwort eingefärbt, Kamera-Einfahrten und Fußgängerzonen, für die gewählte Uhrzeit und dein Auto.", f4T:"Draußen parken und laufen", f4P:"Ziel in einer aktiven ZTL? Parkplätze außerhalb, die Minuten zu Fuß, Preise und Öffnungszeiten, wenn bekannt. Funktioniert auch offline.", f5T:"Hotel in der ZTL", f5P:"Eine fertige Nachricht, mit der dein Hotel dein Kennzeichen für jeden Tag deines Aufenthalts bei der Stadt anmeldet.", f6T:"Wächter", f6P:"Fahr mit Google Maps, Waze oder Apple Maps: GateLR bleibt im Hintergrund, warnt dich vor einer aktiven ZTL und zeigt sie in der Dynamic Island, einer Live-Aktivität und im Sperrbildschirm-Widget.", f7T:"GateLRs eigenes Navi", f7P:"Sprachansagen Abbiegung für Abbiegung auf einer flüssigen Karte, Neuberechnung nach einer falschen Abzweigung und eine Warnung vor jeder aktiven Einfahrt.", f8T:"Siri und Kurzbefehle", f8P:"«Darf ich mit GateLR in Florenz Sektor A?», die nächste ZTL oder den Wächter stoppen, ohne die App zu öffnen.", f9T:"Schild lesen", f9P:"Richte die Kamera auf das ZTL-Schild: GateLR liest Tage und Zeiten und erklärt sie dir in deiner Sprache.", f10T:"Garage", f10P:"«Fahrzeugschein fotografieren» liest Kraftstoff und Euro-Klasse aus EU-Zulassungsbescheinigungen; für einen Mietwagen wählst du das Modell aus einer Liste.", f11T:"«Bußgeld bekommen?»", f11P:"Fotografiere den Bescheid: War die Einfahrt laut unseren Daten aktiv, deine Fristen und ein Entwurf für den Einspruch zum Ergänzen. Allgemeine Informationen, keine Rechtsberatung.", f12T:"8 Sprachen", f12P:"English, Italiano, Deutsch, Français, Español, Nederlands, Polski und 简体中文.", q5:"Woher kommen die Regeln?", a5:"Aus den offiziellen Seiten, Verordnungen und Open Data jeder Stadt, mit Link und dem Datum, an dem wir sie gelesen haben. Es sind Entwürfe: an den offiziellen Quellen geprüft, aber noch nicht von einer Person vor Ort. Schild und Leuchttafel an der Einfahrt gelten immer.", q6:"Kann ich die App laden?", a6:"Noch nicht: GateLR für iPhone ist im Test und noch nicht im App Store. Bis dahin gibt dir diese Seite für jede Stadt dieselbe Antwort, für jetzt oder für deine Ankunftszeit.",title:"Darf ich in die ZTL? {{N}} italienische Städte · GateLR", desc:"Mit dem Auto in eine italienische Altstadt? Suche dein Hotel und sieh sofort, ob es in einer ZTL in einer von {{N}} italienischen Städten liegt, von Florenz, Rom und Mailand bis Siena und San Gimignano: ob du bei Ankunft hineinfahren darfst, die Zeiten, das Tagesticket und das Bußgeld. Aus offiziellen Quellen der Städte.",
   lpass:"ZTL: mit Tagesticket", lgreen:"Umweltzone", lped:"Fußgängerzone", ped:"Fußgängerzone", guides:"ZTL-Ratgeber", and:"und",
@@ -682,7 +703,7 @@ const svg = document.getElementById("map"), NS = "http://www.w3.org/2000/svg";
 const el = (n, a, parent = svg) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); parent.appendChild(e); return e; };
 let box, W = 1000, H, gZones, gPed, gGates, gPin, zoneEls = {}, pedEls = {}, drawn = null;
 // Colori per tipo di zona (gli stessi dell'app); opacità del riempimento: normale, scelta
-const COLOR = {restricted:"var(--red)", pass:"#D99A00", green:"#0FA34A"}, PED = "#7A1F5C";
+const COLOR = {restricted:"var(--red)", pass:"#D99A00", green:"#0FA34A"}, PED = "#7A1F5C";   // colori per tipo (solo per il primo disegno: poi vince lo stato)
 const FILL = {restricted:[.08, .22], pass:[.10, .26], green:[.16, .30]};
 const X = lon => (lon - box.minLon) / (box.maxLon - box.minLon) * W, Y = lat => (box.maxLat - lat) / (box.maxLat - box.minLat) * H;
 function drawMap(c){
@@ -701,13 +722,13 @@ function drawMap(c){
   const path = per => per.map((p, i) => (i ? "L" : "M") + X(p.lon).toFixed(1) + " " + Y(p.lat).toFixed(1)).join(" ") + "Z";
   for (const z of [...ZONES_OF[c.id]].reverse()){
     const k = kindOf(z), col = COLOR[k], green = k === "green";
-    zoneEls[z.id] = el("path", {d:path(z.perimeter), fill:col, "fill-opacity":FILL[k][0], stroke:col, "stroke-width":green ? 5 : 2, "stroke-linejoin":"round", ...(green ? {} : {"stroke-dasharray":"9 6"})}, gZones);
+    zoneEls[z.id] = el("path", {d:path(z.perimeter), fill:col, "fill-opacity":FILL[k][0], stroke:col, "stroke-width":2, "stroke-linejoin":"round"}, gZones);
     zoneEls[z.id].dataset.kind = k;
     const lats = z.perimeter.map(p=>p.lat), lons = z.perimeter.map(p=>p.lon);
     // la zona verde contiene le altre: l'etichetta va in alto, non al centro
     const cx = X((Math.min(...lons)+Math.max(...lons))/2), cy = green ? Y(Math.max(...lats)) + 46 : Y((Math.min(...lats)+Math.max(...lats))/2);
-    el("circle", {cx, cy, r:22, fill:"var(--sheet)", stroke:col, "stroke-width":green ? 4 : 2.5}, gZones);
-    const t = el("text", {x:cx, y:cy+8.5, "text-anchor":"middle", "font-family":"Titillium Web, sans-serif", "font-weight":700, "font-size":25, fill:col}, gZones);
+    el("circle", {cx, cy, r:22, fill:"var(--sheet)", stroke:"var(--line)", "stroke-width":2}, gZones);
+    const t = el("text", {x:cx, y:cy+8.5, "text-anchor":"middle", "font-family":"Titillium Web, sans-serif", "font-weight":600, "font-size":24, fill:"var(--ink)"}, gZones);
     t.textContent = z.name.split("·")[0].trim().split(" ").pop();
   }
   for (const a of c.pedestrian || []){
@@ -716,20 +737,34 @@ function drawMap(c){
   }
   const many = c.zones.reduce((n, z) => n + z.gates.length, 0) > 80;   // a Milano i varchi sono centinaia: punti più piccoli
   for (const z of c.zones) for (const g of z.gates){
-    const dot = el("circle", {cx:X(g.location.lon), cy:Y(g.location.lat), r:many ? 5 : 8, fill:"var(--ink)", stroke:"var(--sheet)", "stroke-width":2.5}, gGates);
+    const dot = el("circle", {cx:X(g.location.lon), cy:Y(g.location.lat), r:many ? 3 : 5, fill:"var(--ink)", "fill-opacity":.7, stroke:"var(--sheet)", "stroke-width":1.5}, gGates);
     el("title", {}, dot).textContent = g.name;
   }
-  legend();
 }
-// Legenda: solo i tipi di zona presenti nella città mostrata
-function legend(){
-  const c = CITIES.find(x => x.id === drawn) || city, kinds = new Set(c.zones.map(kindOf)), L = $("legend"); L.innerHTML = "";
-  const item = (sw, key) => { const s = document.createElement("span"); s.innerHTML = sw; const b = document.createElement("b"); b.style.fontWeight = "inherit"; b.textContent = t_(key); s.append(b); L.append(s); };
-  for (const [k, key] of [["restricted", "lsector"], ["pass", "lpass"], ["green", "lgreen"]]) if (kinds.has(k)) item(`<i class="sw ${k}"></i>`, key);
-  if ((c.pedestrian || []).length) item(`<i class="sw ped"></i>`, "lped");
-  item(`<i class="dot" style="background:var(--ink)"></i>`, "lgate");
-  item(`<i class="dot" style="background:var(--blue)"></i>`, "lplace");
-  const tap = document.createElement("span"); tap.textContent = t_("tap"); L.append(tap);
+// Colori per stato, per l'ora e il veicolo scelti: rosso = non entrare, verde = si entra, ambra = ticket o condizione
+const SCOL = () => { const cs = getComputedStyle(document.documentElement), v = n => cs.getPropertyValue(n).trim();
+  return {no: v("--red") || "#C1272D", yes: v("--green") || "#2B7A47", out: v("--green") || "#2B7A47", cond: "#D99A00", unsure: "#8C8696"}; };
+// Lo stato di ogni zona della città mostrata (stesso motore della risposta); la zona scelta usa la risposta vera
+function zoneStates(t, sel){ const out = {}, v = CARS[state.car];
+  for (const z of city.zones) out[z.id] = sel && sel.id === z.id && sel.v ? sel.v : answer(z, t, false, v, true).v;
+  return out; }
+// Disegno di riserva (SVG): la zona scelta piena e marcata, le altre più chiare; la LEZ grande quasi solo il bordo
+function paintSvg(st, selId){ const C = SCOL();
+  for (const id in zoneEls){ const e = zoneEls[id], on = id === selId, big = e.dataset.kind === "green", c = C[st[id]] || C.unsure;
+    e.setAttribute("fill", c); e.setAttribute("stroke", c);
+    e.setAttribute("fill-opacity", on ? .32 : big ? .04 : .13); e.setAttribute("stroke-width", on ? 5 : 2); e.setAttribute("stroke-opacity", on ? 1 : .7);
+  } }
+// Legenda: i colori presenti adesso sulla mappa, più aree pedonali, varchi e il tuo posto
+function legend(st){
+  const c = CITIES.find(x => x.id === drawn) || city, L = $("legend");
+  const have = new Set(Object.values(st || legend.st || {}).map(v => v === "out" ? "yes" : v)); if (st) legend.st = st;
+  const key = [c.id, lang, ...[...have].sort()].join("|"); if (legend.key === key) return; legend.key = key;
+  L.innerHTML = ""; const C = SCOL();
+  const item = (sw, text) => { const s = document.createElement("span"); s.innerHTML = sw; const b = document.createElement("b"); b.style.fontWeight = "inherit"; b.textContent = text; s.append(b); L.append(s); };
+  for (const [v, k] of [["no", "st3"], ["cond", "lcond"], ["yes", "st1"], ["unsure", "st4"]]) if (have.has(v)) item(`<i class="sw" style="--c:${C[v]}"></i>`, t_(k));
+  if ((c.pedestrian || []).length) item(`<i class="sw ped"></i>`, t_("lped"));
+  item(`<i class="dot gate"></i>`, t_("lgate"));
+  item(`<i class="dot" style="background:var(--blue)"></i>`, t_("lplace"));
 }
 svg.addEventListener("click", e => {
   const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
@@ -781,19 +816,18 @@ function track(kind, z, staying){
 function syncTime(){
   const t = arrivalTime(), r = rome(t);
   if (!state.later) $("hour").value = Math.floor(r.min/15)*15;
-  $("w-now").setAttribute("aria-pressed", !state.later);
-  for (const b of $("days").querySelectorAll("[data-day]")) b.setAttribute("aria-pressed", state.later && +b.dataset.day === state.day);
   const day = state.later ? dayChipLabel(state.day) : t_("now");
   $("hour-out").textContent = `${day} · ${hm(t)}`;
 }
 
+// Colora mappa disegnata, mappa vera e legenda con lo stato di ogni zona all'ora scelta
+function paintAll(t, sel){ const st = zoneStates(t, sel); paintSvg(st, sel ? sel.id : ""); legend(st); ml.states = st; ml.selected = sel ? sel.id : ""; if (ml.ready) paintReal(); return st; }
 function render(){
   const t = arrivalTime(), p = state.place, a = $("answer"), v = CARS[state.car];
   syncTime(); chipsState();
   gPin.innerHTML = "";
-  for (const id in zoneEls) zoneEls[id].setAttribute("fill-opacity", FILL[zoneEls[id].dataset.kind][0]);
   for (const id in pedEls){ pedEls[id].setAttribute("fill-opacity", .6); pedEls[id].setAttribute("stroke-width", 1.2); }
-  if (!p){ setVerdict("out"); $("a-title").textContent = t_("pick"); $("a-why").textContent = t_("pickWhy"); $("a-until").textContent = ""; led("VARCO", "red", true); track("none"); return; }
+  if (!p){ paintAll(t); setVerdict("out"); $("a-title").textContent = t_("pick"); $("a-why").textContent = t_("pickWhy"); $("a-until").textContent = ""; led("VARCO", "red", true); track("none"); return; }
   const hit = zoneAt(p.lat, p.lon), near = hit ? null : nearestZone(p.lat, p.lon), ped = pedAt(p.lat, p.lon);
   const c = ped ? ped.city : hit ? hit.city : near.city;
   if (c !== city){ city = c; drawMap(city); chipsState(); }
@@ -806,9 +840,9 @@ function render(){
   if (ped){
     // Area pedonale: risposta «no» a ogni ora, si parcheggia fuori e si va a piedi
     const zz = z || near.zone;
-    if (z) zoneEls[z.id].setAttribute("fill-opacity", FILL[kindOf(z)][1]);
+    const st = paintAll(t, z);
     pedEls[ped.area.id].setAttribute("fill-opacity", .95); pedEls[ped.area.id].setAttribute("stroke-width", 4);
-    updateRealMap(p, z, ped.area);
+    updateRealMap(p, z, ped.area, st);
     setVerdict("no"); led("AREA PEDONALE", "red");
     $("a-where").textContent = `${p.name} · ${t_("ped")} ${ped.area.name} · ${stamp}`;
     $("a-gates").textContent = t_("ped");
@@ -823,7 +857,7 @@ function render(){
   }
   if (!z){
     const n = near;
-    updateRealMap(p, null);
+    updateRealMap(p, null, null, paintAll(t));
     setVerdict("out"); led(t_("ledOut"), "green");
     $("a-where").textContent = `${p.name} · ${t_("outside")}`;
     $("a-gates").textContent = t_("noGates");
@@ -837,10 +871,9 @@ function render(){
     sources(n.zone);
     return;
   }
-  zoneEls[z.id].setAttribute("fill-opacity", FILL[kindOf(z)][1]);
-  updateRealMap(p, z);
   const staying = /hotel|b&b|hostel|albergo|residence/i.test(p.name) || !!p.hotel;
   const r = answer(z, t, staying, v);
+  updateRealMap(p, z, null, paintAll(t, {id: z.id, v: r.v}));
   setVerdict(r.v);
   led(r.on ? "VARCO ATTIVO" : "VARCO NON ATTIVO", r.on ? (r.v === "unsure" ? "amber" : "red") : "green");
   $("a-where").textContent = `${p.name} · ${zoneLabel(z)} · ${stamp}`;
@@ -971,25 +1004,48 @@ function startPlace(c){ const s = START[c.id];
 const chip = (label, onClick, cls = "") => { const b = document.createElement("button"); b.type = "button"; b.className = "chip " + cls; b.textContent = label; b.addEventListener("click", onClick); return b; };
 function dayChipLabel(i){ if (i === 0) return t_("dToday"); if (i === 1) return t_("dTomorrow");
   const r = dayRome(i); return new Intl.DateTimeFormat(LOCALE[lang], {weekday:"short", day:"numeric", timeZone:"UTC"}).format(new Date(Date.UTC(r.y, r.m-1, r.d, 12))); }
+// Le città più cercate stanno sempre in vista; le altre si aprono con «e altre N ▾»
+const TOP_CITIES = ["firenze", "roma", "milano", "bologna", "pisa", "siena"];
+const cityUI = {open: false};
+function buildCities(){
+  const cc = $("city-chips"); cc.innerHTML = "";
+  const byName = (a, b) => cityName(a).localeCompare(cityName(b), LOCALE[lang]);
+  const top = TOP_CITIES.map(id => CITIES.find(c => c.id === id)).filter(Boolean);
+  const rest = CITIES.filter(c => !top.includes(c)).sort(byName);
+  // la città scelta resta visibile anche quando l'elenco è chiuso
+  const extra = !cityUI.open && state.place && rest.includes(city) ? [city] : [];
+  const shown = cityUI.open ? [...top, ...rest] : [...top, ...extra];
+  for (const c of shown){ const b = chip(cityName(c), () => choose(startPlace(c))); b.dataset.city = c.id; b.setAttribute("aria-pressed", "false"); cc.append(b); }
+  const hidden = CITIES.length - shown.length;
+  if (rest.length){
+    const m = chip(cityUI.open ? t_("lessC") + " \u25B4" : T[lang].moreC(hidden) + " \u25BE", () => { cityUI.open = !cityUI.open; buildCities(); chipsState();
+      const f = $("city-chips").querySelector(cityUI.open ? `[data-city="${rest[0].id}"]` : ".more"); if (f) f.focus({preventScroll: true}); }, "more");
+    m.setAttribute("aria-expanded", cityUI.open); m.setAttribute("aria-label", cityUI.open ? t_("lessC") : T[lang].moreC(hidden) + " · " + t_("allC"));
+    cc.append(m);
+  }
+  cityUI.shownFor = city.id;
+}
 function buildControls(){
-  const cc = $("city-chips"); cc.innerHTML = ""; chipsState.city = null;
-  for (const c of [...CITIES].sort((a, b) => cityName(a).localeCompare(cityName(b), LOCALE[lang]))){
-    const b = chip(cityName(c), () => choose(startPlace(c))); b.dataset.city = c.id; b.setAttribute("aria-pressed", "false"); cc.append(b); }
+  buildCities();
   for (const b of $("tries").querySelectorAll(".try")) b.remove();
   for (const [names, lat, lon] of SAMPLES) $("locate").before(chip(names[lang] || names.en, () => choose({name: names[lang] || names.en, lat, lon}), "try"));
-  const cs = $("cars"); cs.innerHTML = "";
-  CARS.forEach((v, i) => { const b = chip(t_(v.k), () => { state.car = i; render(); }); if (v.s){ const s = document.createElement("small"); s.textContent = t_(v.s); b.append(s); } b.dataset.car = i; cs.append(b); });
-  for (const b of $("days").querySelectorAll("[data-day]")) b.remove();
-  for (let i = 0; i < 7; i++){ const b = chip(dayChipLabel(i), () => { if (!state.later) state.min = Math.floor(rome(new Date()).min/15)*15; state.later = true; state.day = i; render(); }); b.dataset.day = i; $("days").append(b); }
+  const cs = $("car"); cs.innerHTML = "";
+  CARS.forEach((v, i) => cs.append(new Option(t_(v.k) + (v.s ? " \u00B7 " + t_(v.s) : ""), i)));
+  const ds = $("day"); ds.innerHTML = ""; ds.append(new Option(t_("now"), "now"));
+  for (let i = 0; i < 7; i++) ds.append(new Option(dayChipLabel(i), i));
 }
 function chipsState(){
-  for (const b of $("city-chips").children) b.setAttribute("aria-pressed", !!state.place && b.dataset.city === city.id);
-  // sul telefono la striscia delle città scorre fino a quella scelta
-  const cc = $("city-chips"), on = cc.querySelector('[aria-pressed="true"]');
-  if (on && cc.scrollWidth > cc.clientWidth && chipsState.city !== city.id){ chipsState.city = city.id; cc.scrollLeft = on.offsetLeft - cc.offsetLeft - 32; }
-  for (const b of $("cars").children) b.setAttribute("aria-pressed", +b.dataset.car === state.car);
+  // una città fuori dalle prime sei appena scelta: l'elenco chiuso la aggiunge
+  if (!cityUI.open && cityUI.shownFor !== city.id) buildCities();
+  for (const b of $("city-chips").querySelectorAll("[data-city]")) b.setAttribute("aria-pressed", !!state.place && b.dataset.city === city.id);
+  $("car").value = String(state.car);
+  $("day").value = state.later ? String(state.day) : "now";
 }
-$("w-now").addEventListener("click", () => { state.later = false; render(); });
+$("car").addEventListener("change", e => { state.car = +e.target.value; render(); });
+$("day").addEventListener("change", e => { const v = e.target.value;
+  if (v === "now") state.later = false;
+  else { if (!state.later) state.min = Math.floor(rome(new Date()).min/15)*15; state.later = true; state.day = +v; }
+  render(); });
 $("hour").addEventListener("input", () => { state.later = true; state.min = +$("hour").value; render(); });
 
 // La mia posizione (sul sito vero; nell'anteprima chiusa il browser la rifiuta)
@@ -1027,47 +1083,114 @@ function loadRealMap(){
   const js = document.createElement("script"); js.src = ML + ".js"; js.async = true; js.onload = () => startRealMap(); document.head.append(js);
 }
 const poly = (per, props) => ({type:"Feature", properties:props, geometry:{type:"Polygon", coordinates:[per.map(p => [p.lon, p.lat]).concat([[per[0].lon, per[0].lat]])]}});
+// Zone colorate per stato; la scelta per ultima (sopra le altre), la LEZ grande quasi trasparente
 function geo(){
-  const red = getComputedStyle(document.documentElement).getPropertyValue("--red").trim() || "#C1272D";
-  return {type:"FeatureCollection", features: [...ZONES_OF[city.id]].reverse().map(z => { const k = kindOf(z);
-    return poly(z.perimeter, {id:z.id, kind:k, color:k === "restricted" ? red : COLOR[k], op0:FILL[k][0], op1:FILL[k][1]}); })};
+  const C = SCOL(), st = ml.states || {};
+  const zs = [...ZONES_OF[city.id]].reverse().sort((a, b) => (a.id === ml.selected) - (b.id === ml.selected));
+  return {type:"FeatureCollection", features: zs.map(z => poly(z.perimeter, {id:z.id, big:kindOf(z) === "green", color:C[st[z.id]] || C.unsure, sel:z.id === ml.selected}))};
 }
-const pedGeo = () => ({type:"FeatureCollection", features:(city.pedestrian || []).map(a => poly(a.perimeter, {id:a.id, name:a.name}))});
+const pedGeo = () => ({type:"FeatureCollection", features:(city.pedestrian || []).map(a => poly(a.perimeter, {id:a.id, name:a.name, sel:a.id === ml.ped}))});
 function gatesGeo(){
   return {type:"FeatureCollection", features: city.zones.flatMap(z => z.gates.map(g => ({type:"Feature", properties:{name:g.name}, geometry:{type:"Point", coordinates:[g.location.lon, g.location.lat]}})))};
 }
 const bounds = () => [[box.minLon, box.minLat], [box.maxLon, box.maxLat]];
-function paintSel(){
-  ml.map.setPaintProperty("zones-fill", "fill-opacity", ["case", ["==", ["get","id"], ml.selected || ""], ["get","op1"], ["get","op0"]]);
-  ml.map.setPaintProperty("ped-fill", "fill-opacity", ["case", ["==", ["get","id"], ml.ped || ""], 0.95, 0.6]);
+const bbox = per => { const la = per.map(q => q.lat), lo = per.map(q => q.lon); return [Math.min(...lo), Math.min(...la), Math.max(...lo), Math.max(...la)]; };
+// Ridipinge zone e nomi con gli stati correnti (all'ora e col veicolo scelti)
+function paintReal(){
+  ml.map.getSource("zones").setData(geo()); ml.map.getSource("ped").setData(pedGeo());
+  const C = SCOL(), st = ml.states || {};
+  for (const L of ml.labels || []){ L.el.style.setProperty("--c", C[st[L.id]] || C.unsure); L.el.classList.toggle("sel", L.id === ml.selected); }
+  placeLabels();
 }
-// Mappa di riserva (CARTO, raster) se OpenFreeMap non risponde: la mappa con le strade c'è sempre
-const RASTER = {version:8, sources:{c:{type:"raster", tileSize:256, attribution:"© OpenStreetMap contributors © CARTO",
-  tiles:["a","b","c"].map(s => "https://" + s + ".basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png")}}, layers:[{id:"c", type:"raster", source:"c"}]};
+// Nomi delle zone: uno per zona, nascosto se la zona è troppo piccola sullo schermo o si sovrappone a un altro
+function makeLabels(){
+  for (const L of ml.labels || []) L.m.remove();
+  ml.labels = [];
+  const seen = {};
+  for (const z of [...ZONES_OF[city.id]].reverse()){
+    const name = zoneLabel(z), b = bbox(z.perimeter), big = kindOf(z) === "green";
+    // la LEZ contiene le altre: il nome va vicino al bordo nord, non al centro
+    let ll = [(b[0] + b[2]) / 2, big ? b[3] - (b[3] - b[1]) * .08 : (b[1] + b[3]) / 2];
+    if (!big){ const c = z.perimeter.reduce((s, q) => [s[0] + q.lon, s[1] + q.lat], [0, 0]).map(v => v / z.perimeter.length);
+      if (!contains(z, ll[1], ll[0]) && contains(z, c[1], c[0])) ll = c; }
+    const k = name + "|" + ll.map(v => v.toFixed(3)).join(","); if (seen[k]) continue; seen[k] = 1;
+    // posti di riserva dentro la zona, se il primo è coperto (es. il settore che ne contiene un altro)
+    const alt = [ll];
+    for (const [fx, fy] of [[.5, .8], [.5, .2], [.25, .5], [.75, .5], [.3, .75], [.7, .75], [.3, .25], [.7, .25]]){
+      const q = [b[0] + (b[2] - b[0]) * fx, b[1] + (b[3] - b[1]) * fy]; if (contains(z, q[1], q[0])) alt.push(q); }
+    const e = document.createElement("div"); e.className = "zlab"; e.textContent = name;
+    ml.labels.push({id:z.id, el:e, b, big, alt, m:new maplibregl.Marker({element:e}).setLngLat(ll).addTo(ml.map)});
+  }
+}
+function placeLabels(){
+  if (!ml.labels) return;
+  const taken = [], order = [...ml.labels].sort((a, b) => (b.id === ml.selected) - (a.id === ml.selected));
+  // il tuo posto resta libero: un nome che gli sta sopra scende un poco o si nasconde
+  const pin = ml.marker && ml.marker._map ? ml.marker.getElement().getBoundingClientRect() : null;
+  const over = (r, o, m = 4) => r.left < o.right + m && r.right > o.left - m && r.top < o.bottom + 2 && r.bottom > o.top - 2;
+  const box0 = ml.map.getContainer().getBoundingClientRect();
+  if (pin) taken.push({left: pin.left - 4, right: pin.right + 4, top: pin.top - 4, bottom: pin.bottom + 4});
+  for (const L of order){
+    L.el.classList.remove("off"); L.m.setOffset([0, 0]);
+    if (pin && L.id === ml.selected && over(L.el.getBoundingClientRect(), taken[0])) L.m.setOffset([0, Math.round(pin.bottom - L.el.getBoundingClientRect().top + 8)]);
+    const p0 = ml.map.project([L.b[0], L.b[1]]), p1 = ml.map.project([L.b[2], L.b[3]]);
+    let r = L.el.getBoundingClientRect(), hit = true;
+    const fits = Math.abs(p1.x - p0.x) > r.width * .9 && Math.abs(p1.y - p0.y) > r.height * 1.6;
+    for (const q of L.alt){ L.m.setLngLat(q); r = L.el.getBoundingClientRect();
+      if (!(hit = taken.some(o => over(r, o)) || r.left < box0.left || r.right > box0.right || r.top < box0.top || r.bottom > box0.bottom)) break; if (L.id === ml.selected) break; }
+    if (L.id !== ml.selected && (!fits || hit)) L.el.classList.add("off"); else taken.push(r);
+  }
+}
+// Mappa di base calma: OpenFreeMap «positron» (chiara, pochi colori); senza punti d'interesse; al buio gli stessi strati in toni scuri
+const DARK = () => matchMedia("(prefers-color-scheme: dark)").matches && document.documentElement.dataset.theme !== "light" || document.documentElement.dataset.theme === "dark";
+function calmStyle(map){
+  const dark = DARK();
+  for (const l of map.getStyle().layers || []){
+    const id = l.id.toLowerCase(), set = (k, v) => { try { map.setPaintProperty(l.id, k, v); } catch {} };
+    if (l.type === "symbol" && /poi|housenum|transit|rail|aeroway|airport|mountain|peak|ferry/.test(id)){ try { map.setLayoutProperty(l.id, "visibility", "none"); } catch {} continue; }
+    if (!dark) continue;
+    if (l.type === "background") set("background-color", "#1C1923");
+    else if (l.type === "fill") set("fill-color", /water/.test(id) ? "#22303D" : /park|wood|grass|landcover|landuse/.test(id) ? "#1F2321" : /building/.test(id) ? "#28242F" : "#211E28");
+    else if (l.type === "line") set("line-color", /water|river/.test(id) ? "#22303D" : /boundary|admin/.test(id) ? "#4A4456" : /motorway|trunk|primary/.test(id) ? "#4A4458" : "#36313F");
+    else if (l.type === "symbol"){ set("text-color", "#A39BB0"); set("text-halo-color", "#17141E"); }
+  }
+}
+// Mappa di riserva (CARTO, raster chiaro o scuro) se OpenFreeMap non risponde: la mappa con le strade c'è sempre
+const RASTER = () => ({version:8, sources:{c:{type:"raster", tileSize:256, attribution:"© OpenStreetMap contributors © CARTO",
+  tiles:["a","b","c"].map(s => "https://" + s + ".basemaps.cartocdn.com/" + (DARK() ? "dark_all" : "light_all") + "/{z}/{x}/{y}@2x.png")}}, layers:[{id:"c", type:"raster", source:"c", paint:{"raster-saturation": -.35}}]});
 function startRealMap(style){
   if (!window.maplibregl || ml.map) return;
   const cont = $("mlmap");
   let map;
   try {
-    map = new maplibregl.Map({container: cont, style: style || "https://tiles.openfreemap.org/styles/liberty", bounds: bounds(), attributionControl: {compact: true}, cooperativeGestures: true});
+    map = new maplibregl.Map({container: cont, style: style || "https://tiles.openfreemap.org/styles/positron", bounds: bounds(), fitBoundsOptions: {padding: 24}, attributionControl: {compact: true}, cooperativeGestures: true});
   } catch { return; }
   ml.map = map;
   // Pulsanti + e − per lo zoom (anche senza due dita o rotellina)
   map.addControl(new maplibregl.NavigationControl({showCompass: false}), "top-right");
-  const fail = setTimeout(() => { if (!ml.ready){ try { map.remove(); } catch {} ml.map = null; if (!style) startRealMap(RASTER); } }, 7000);
+  const fail = setTimeout(() => { if (!ml.ready){ try { map.remove(); } catch {} ml.map = null; if (!style) startRealMap(RASTER()); } }, 7000);
   map.on("error", () => {});
   map.on("load", () => {
     clearTimeout(fail); ml.ready = true; ml.city = city.id;
+    calmStyle(map);
     $("mapbox").classList.add("real");
+    const ink = getComputedStyle(document.documentElement).getPropertyValue("--ink").trim() || "#2B2433";
+    const paper = getComputedStyle(document.documentElement).getPropertyValue("--sheet").trim() || "#fff";
+    const sel = ["get","sel"];
     map.addSource("zones", {type:"geojson", data: geo()});
-    map.addLayer({id:"zones-fill", type:"fill", source:"zones", paint:{"fill-color": ["get","color"], "fill-opacity": ["get","op0"]}});
-    map.addLayer({id:"zones-line", type:"line", source:"zones", filter:["!=", ["get","kind"], "green"], paint:{"line-color": ["get","color"], "line-width": 2, "line-dasharray": [3, 2]}});
-    map.addLayer({id:"zones-green", type:"line", source:"zones", filter:["==", ["get","kind"], "green"], paint:{"line-color": COLOR.green, "line-width": 3.5}});
+    // riempimento pieno: la zona scelta forte, le altre leggere, la LEZ grande appena accennata
+    map.addLayer({id:"zones-fill", type:"fill", source:"zones", paint:{"fill-color": ["get","color"], "fill-opacity": ["case", sel, .34, ["get","big"], .04, .13]}});
+    // bordo chiaro sotto quello colorato della zona scelta: si stacca dalla mappa
+    map.addLayer({id:"zones-casing", type:"line", source:"zones", filter:["==", sel, true], layout:{"line-join":"round"}, paint:{"line-color": paper, "line-width": 7, "line-opacity": .9}});
+    map.addLayer({id:"zones-line", type:"line", source:"zones", layout:{"line-join":"round"}, paint:{"line-color": ["get","color"], "line-width": ["case", sel, 3.5, ["get","big"], 2, 1.75], "line-opacity": ["case", sel, 1, .8]}});
     map.addSource("ped", {type:"geojson", data: pedGeo()});
-    map.addLayer({id:"ped-fill", type:"fill", source:"ped", paint:{"fill-color": PED, "fill-opacity": 0.6}});
-    map.addLayer({id:"ped-line", type:"line", source:"ped", paint:{"line-color": PED, "line-width": 1}});
+    map.addLayer({id:"ped-fill", type:"fill", source:"ped", minzoom: 12.5, paint:{"fill-color": PED, "fill-opacity": ["case", sel, .85, .4]}});
+    map.addLayer({id:"ped-line", type:"line", source:"ped", minzoom: 12.5, paint:{"line-color": PED, "line-width": ["case", sel, 3, .8], "line-opacity": .8}});
     map.addSource("gates", {type:"geojson", data: gatesGeo()});
-    map.addLayer({id:"gates", type:"circle", source:"gates", paint:{"circle-radius": ["interpolate",["linear"],["zoom"],10,1.5,13,3,15,5,17,7], "circle-color": "#2B2433", "circle-stroke-color": "#fff", "circle-stroke-width": ["interpolate",["linear"],["zoom"],10,0.5,14,1.5,16,2]}});
+    // i varchi solo da vicino, piccoli: la vista d'insieme resta pulita
+    map.addLayer({id:"gates", type:"circle", source:"gates", minzoom: 14, paint:{"circle-radius": ["interpolate",["linear"],["zoom"],14,2.5,16,4.5,18,6], "circle-color": ink, "circle-opacity": .8, "circle-stroke-color": paper, "circle-stroke-width": 1.2}});
+    makeLabels();
+    map.on("moveend", placeLabels); map.on("zoomend", placeLabels);
     map.on("click", e => choose({name: t_("point"), lat: e.lngLat.lat, lon: e.lngLat.lng, map: true}));
     // le zone si toccano per sceglierle: il puntatore lo fa capire
     for (const l of ["zones-fill", "ped-fill"]){ map.on("mouseenter", l, () => map.getCanvas().style.cursor = "pointer"); map.on("mouseleave", l, () => map.getCanvas().style.cursor = ""); }
@@ -1075,24 +1198,25 @@ function startRealMap(style){
   });
 }
 // La zona scelta si colora di più e la mappa vola fin lì quando cambia il luogo (non mentre si sposta l'ora)
-function updateRealMap(p, z, ped){
+function updateRealMap(p, z, ped, st){
   if (!ml.ready) return;
-  ml.selected = z ? z.id : ""; ml.ped = ped ? ped.id : "";
+  ml.selected = z ? z.id : ""; ml.ped = ped ? ped.id : ""; if (st) ml.states = st;
   const key = p ? `${p.lat},${p.lon}` : "", moved = key !== ml.flown;
   if (ml.city !== city.id){ ml.city = city.id; ml.map.resize();
-    ml.map.getSource("zones").setData(geo()); ml.map.getSource("ped").setData(pedGeo()); ml.map.getSource("gates").setData(gatesGeo());
-    if (!p || p.map) ml.map.fitBounds(bounds(), {duration: 0}); }
-  paintSel();
+    ml.map.getSource("gates").setData(gatesGeo()); makeLabels();
+    if (!p || p.map) ml.map.fitBounds(bounds(), {padding: 24, duration: 0}); }
+  paintReal();
   if (!p) return;
-  if (!ml.marker){ const dot = document.createElement("div"); dot.style.cssText = "width:22px;height:22px;border-radius:50%;background:#1F4E9E;border:4px solid #fff;box-shadow:0 0 0 8px rgba(31,78,158,.2)"; ml.marker = new maplibregl.Marker({element: dot}); }
-  ml.marker.setLngLat([p.lon, p.lat]).addTo(ml.map);
+  if (!ml.marker){ const dot = document.createElement("div"); dot.style.cssText = "width:20px;height:20px;border-radius:50%;background:#1F4E9E;border:3px solid #fff;box-shadow:0 0 0 7px rgba(31,78,158,.22),0 1px 4px rgba(0,0,0,.3);z-index:3"; ml.marker = new maplibregl.Marker({element: dot}); }
+  ml.marker.setLngLat([p.lon, p.lat]).addTo(ml.map); placeLabels();
   if (!moved || p.map) { ml.flown = key; return; }
   ml.flown = key;
-  const per = (ped || z || {}).perimeter, dur = RM.matches ? 0 : 1600;
-  if (per){ const la = per.map(q => q.lat).concat(p.lat), lo = per.map(q => q.lon).concat(p.lon);
-    const small = Math.max(...la) - Math.min(...la) < .045;
-    if (small){ ml.map.fitBounds([[Math.min(...lo), Math.min(...la)], [Math.max(...lo), Math.max(...la)]], {padding: 36, maxZoom: 16, duration: dur}); return; } }
-  ml.map.flyTo({center: [p.lon, p.lat], zoom: 14.5, duration: dur});
+  const per = (ped || z || {}).perimeter, dur = RM.matches ? 0 : 1400;
+  // inquadra la zona (con il posto) e un po' di intorno, così si vedono i confini con le zone vicine
+  if (per){ const b = bbox(per.concat([{lat: p.lat, lon: p.lon}]));
+    if (b[3] - b[1] < .06){ const f = ml.map.getContainer().clientWidth < 480 ? .25 : .5, mx = Math.max(.004, (b[2] - b[0]) * f), my = Math.max(.003, (b[3] - b[1]) * f);
+      ml.map.fitBounds([[b[0] - mx, b[1] - my], [b[2] + mx, b[3] + my]], {padding: 16, maxZoom: 15, duration: dur}); return; } }
+  ml.map.flyTo({center: [p.lon, p.lat], zoom: 13.5, duration: dur});
 }
 if ("IntersectionObserver" in window){
   const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)){ io.disconnect(); loadRealMap(); } }, {rootMargin: "200px"});

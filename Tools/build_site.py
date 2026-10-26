@@ -396,24 +396,24 @@ p{margin:0}
 .brand b{font-family:var(--display);font-weight:700;font-size:24px}
 .brand b span{color:var(--red)}
 .langs{display:flex;background:var(--well);border-radius:10px;padding:3px}
-.langs a{font:700 13px var(--display);color:var(--muted);padding:5px 9px;border-radius:8px;text-decoration:none}
+.langs a{font:600 13px var(--display);letter-spacing:.03em;color:var(--muted);padding:5px 9px;border-radius:8px;text-decoration:none}
 .langs a[aria-current]{background:var(--sheet);color:var(--ink)}
 .hero{padding-block:18px 22px;display:grid;gap:14px}
 .hero h1{font-size:clamp(42px,8vw,72px);font-weight:700;letter-spacing:-.02em}
 .hero h1 em{font-style:normal;color:var(--red)}
 .lead{font-size:19px;color:var(--muted);max-width:60ch}
 .cta{display:inline-flex;align-items:center;gap:10px;justify-self:start;background:var(--blue);color:var(--sheet);border-radius:14px;padding:13px 20px;font:700 18px var(--display);text-decoration:none}
-.draft{background:var(--amber-soft);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:600}
+.draft{background:var(--amber-soft);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:400}
 .card{background:var(--sheet);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:12px;margin-bottom:18px;min-width:0}
 .card h2{font-size:28px;font-weight:700}
 .card h3{font-size:19px;font-weight:700;margin-top:4px}
-.kind{display:inline-flex;align-items:center;gap:8px;font:700 13px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kind{display:inline-flex;align-items:center;gap:8px;font:600 13px var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .sw{width:18px;height:12px;border-radius:3px;display:inline-block;border:2px dashed var(--c);background:color-mix(in srgb,var(--c) 22%,transparent);flex:none}
 .sw.restricted{--c:var(--red)}.sw.pass{--c:var(--pass)}.sw.green{--c:var(--lez);border:3px solid var(--lez);background:color-mix(in srgb,var(--lez) 30%,transparent)}.sw.ped{--c:var(--ped);border-style:solid;background:var(--ped)}
 table{border-collapse:collapse;width:100%;font-size:16px}
 td{padding:8px 0;border-bottom:1px solid var(--line);vertical-align:top}
 tr:last-child td{border-bottom:0}
-td+td{text-align:right;font-weight:700;padding-left:12px}
+td+td{text-align:right;font-weight:600;padding-left:12px}
 td.free{color:var(--green)}
 .price{font:700 34px/1 var(--display)}
 ul{margin:0;padding-left:20px;display:grid;gap:6px}
@@ -435,16 +435,16 @@ blockquote p+p{color:var(--muted)}
 .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;color:var(--muted);padding-inline:6px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .dot{width:11px;height:11px;border-radius:50%;background:var(--ink)}
-details summary{cursor:pointer;font-weight:700}
+details summary{cursor:pointer;font-weight:600}
 .faq details{border-top:1px solid var(--line);padding-block:10px}
 .faq details:first-of-type{border-top:0}
 .faq details p{margin-top:8px}
 .cities{display:flex;gap:10px;flex-wrap:wrap}
-.cities a{font:700 15px var(--display);color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none}
+.cities a{font:400 15px var(--text);letter-spacing:.01em;color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-radius:999px;padding:7px 14px;text-decoration:none}
 footer{border-top:1px solid var(--line);margin-top:24px;padding-block:22px 40px;display:grid;gap:10px;color:var(--muted);font-size:14px}.maplibregl-ctrl-group button{width:40px;height:40px}
 """
 LOGO = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 4 468 468" aria-hidden="true"><defs> <linearGradient id="lg-bg" gradientUnits="userSpaceOnUse" x1="244" y1="4" x2="244" y2="472"><stop offset="0" stop-color="#1D2948"/><stop offset=".55" stop-color="#101A30"/><stop offset="1" stop-color="#060D1A"/></linearGradient> <radialGradient id="lg-red" cx=".35" cy=".25" r=".9"><stop offset="0" stop-color="#FF5A50"/><stop offset=".6" stop-color="#F0302A"/><stop offset="1" stop-color="#C81E1C"/></radialGradient> <linearGradient id="lg-band" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1A33"/><stop offset=".55" stop-color="#26355A"/><stop offset="1" stop-color="#5B6B8C"/></linearGradient> <linearGradient id="lg-white" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E9ECF2"/></linearGradient> <filter id="lg-sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter></defs><rect x="10" y="4" width="468" height="468" fill="url(#lg-bg)"/><path d="M244 432 L125.2 274.8 A137 137 0 1 1 355.5 267.5 Z" fill="url(#lg-red)" filter="url(#lg-sh)"/><circle cx="240" cy="187" r="80" fill="#FFFFFF"/><rect x="180" y="168" width="118" height="44" rx="10" fill="#F2302B"/><text x="239" y="191" text-anchor="middle" dominant-baseline="central" font-family="Inter Display, Inter, Helvetica Neue, Arial" font-weight="800" font-size="34" fill="#FFFFFF" letter-spacing="1">ZTL</text><path d="M359 250 C300 258 205 280 168 312 C138 338 140 372 168 392 L236 420 L190 472 L478 472 L478 236 Z" fill="url(#lg-bg)"/><path d="M359 250 C300 258 205 280 168 312 C138 338 140 372 168 392 L236 420 L254 408 C226 392 200 366 202 343 C205 314 268 280 352 254 Z" fill="url(#lg-band)"/><path d="M359 250 C300 258 205 280 168 312 C138 338 140 372 168 392 L236 420" fill="none" stroke="url(#lg-white)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><path d="M352 254 C268 280 205 314 202 343 C200 366 226 392 254 408" fill="none" stroke="url(#lg-white)" stroke-width="11" stroke-linecap="round"/></svg>'
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&family=Atkinson+Hyperlegible+Next:wght@400;700&display=swap">'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&display=swap">'
 
 
 CUR = ' aria-current="page"'
