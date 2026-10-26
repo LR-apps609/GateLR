@@ -32,6 +32,22 @@ if pgrep -x Xcode >/dev/null; then
 fi
 print "       Versione: $(grep -m1 MARKETING_VERSION project.yml | grep -oE '[0-9.]+' | head -1)"
 
+# 1c. Il token pubblico di Mapbox (mappa 3D delle anteprime 2.0): resta solo su questo Mac, in Config/Local.xcconfig
+if [[ ! -f Config/Local.xcconfig ]]; then
+  print ""
+  print "  Mapbox: incolla il token pubblico (comincia con pk.) e premi Invio."
+  print "  (Invio senza niente = senza Mapbox, si usa la mappa di Apple. Resta solo su questo Mac.)"
+  read -r "token?  Token: "
+  token=${token//[[:space:]]/}
+  if [[ $token == pk.* ]]; then
+    print "// Token pubblico di Mapbox, solo su questo Mac (ignorato da git)" > Config/Local.xcconfig
+    print "MAPBOX_ACCESS_TOKEN = $token" >> Config/Local.xcconfig
+    print "       ✅ Token salvato in Config/Local.xcconfig"
+  else
+    print "       Niente token: le anteprime 2.0 useranno la mappa di Apple"
+  fi
+fi
+
 # 2. XcodeGen (crea il progetto dal file project.yml)
 print "  2/3  Controllo XcodeGen…"
 if ! command -v xcodegen >/dev/null 2>&1; then

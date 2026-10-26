@@ -23,6 +23,10 @@ targets:
   GateLR:
     type: application
     platform: iOS
+    # MAPBOX_ACCESS_TOKEN: da Config/Local.xcconfig (ignorato da git), se c'è
+    configFiles:
+      Debug: Config/Base.xcconfig
+      Release: Config/Base.xcconfig
     dependencies:
       - target: GateLRWidget          # widget per Home e schermata di blocco, incluso nell'app
       - package: MapboxMaps
@@ -66,9 +70,8 @@ targets:
             CFBundleURLSchemes: [gatelr]
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
-        # Token pubblico (pk.) di Mapbox, dall'impostazione MAPBOX_ACCESS_TOKEN. Il controllo dei segreti di GitHub
-        # rifiuta il push con il token scritto qui finché non viene autorizzato nella pagina del repository; senza token
-        # la mappa Mapbox non parte e l'app usa la mappa di Apple.
+        # Token pubblico (pk.) di Mapbox dall'impostazione MAPBOX_ACCESS_TOKEN (Config/Local.xcconfig, mai nel repository);
+        # vuoto = Mapbox spento, l'app usa la mappa di Apple
         MBXAccessToken: "$(MAPBOX_ACCESS_TOKEN)"
         LSRequiresIPhoneOS: true
         UIAppFonts: [TitilliumWeb-Bold.ttf, TitilliumWeb-Black.ttf, TitilliumWeb-SemiBold.ttf, TitilliumWeb-Regular.ttf, DotGothic16-Regular.ttf]

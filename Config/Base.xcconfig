@@ -1,0 +1,6 @@
+// Impostazioni comuni dell'app GateLR (collegate in project.yml).
+// Il token pubblico di Mapbox NON sta nel repository: si legge, se c'è, da Config/Local.xcconfig (ignorato da git,
+// lo crea «Installa su iPhone.command»; modello in Config/Local.xcconfig.example). Senza, Mapbox resta spento e
+// l'app usa la mappa di Apple. Su GitHub il token arriva dal segreto MAPBOX_ACCESS_TOKEN del repository, se c'è.
+MAPBOX_ACCESS_TOKEN =
+#include? "Local.xcconfig"

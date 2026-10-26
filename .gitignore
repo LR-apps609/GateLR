@@ -13,3 +13,6 @@ android/**/build/
 android/.gradle/
 android/**/.gradle/
 android/local.properties
+
+# Token pubblico di Mapbox, solo su questo Mac (vedi Config/Local.xcconfig.example)
+Config/Local.xcconfig

@@ -33,6 +33,18 @@ jobs:
       - name: XcodeGen
         run: brew install xcodegen
 
+      # Token pubblico di Mapbox dal segreto del repository MAPBOX_ACCESS_TOKEN, se c'è (mai nei file): senza, Mapbox è spento
+      - name: Token Mapbox (facoltativo)
+        env:
+          MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
+        run: |
+          if [ -n "$MAPBOX_ACCESS_TOKEN" ]; then
+            printf 'MAPBOX_ACCESS_TOKEN = %s\n' "$MAPBOX_ACCESS_TOKEN" > Config/Local.xcconfig
+            echo "::notice::Mapbox acceso (segreto MAPBOX_ACCESS_TOKEN)"
+          else
+            echo "::notice::Nessun segreto MAPBOX_ACCESS_TOKEN: Mapbox spento, si usa la mappa di Apple"
+          fi
+
       - name: Progetto
         run: xcodegen generate
 

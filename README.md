@@ -35,6 +35,18 @@ Riepilogo completo: [`docs/STATO.md`](docs/STATO.md).
 | `Resources/Fonts` | Titillium Web (SIL Open Font License) |
 | `docs/ricerca-citta.md` | Ricerca sulle fonti ufficiali delle prime città |
 
+## Mapbox (mappa 3D delle anteprime 2.0)
+
+Il token **pubblico** di Mapbox (comincia con `pk.`) non sta nel repository: GitHub lo blocca come segreto e comunque
+non serve versionarlo.
+
+- **Sul Mac**: la prima volta `Installa su iPhone.command` chiede il token nel Terminale e lo scrive in
+  `Config/Local.xcconfig` (ignorato da git). Si può anche copiare a mano `Config/Local.xcconfig.example` in
+  `Config/Local.xcconfig` e metterci il token. `Config/Base.xcconfig` lo include se c'è.
+- **Su GitHub**: segreto del repository `MAPBOX_ACCESS_TOKEN` (Settings → Secrets and variables → Actions). Se manca,
+  la compilazione va lo stesso e Mapbox è spento.
+- **Senza token** (o senza rete) le anteprime usano la mappa di Apple (MapKit) o il disegno di riserva.
+
 ## Compilazione e prove
 
 - **Ogni modifica** → workflow «Compila GateLR» sul Mac di GitHub: genera il progetto con XcodeGen, compila per il simulatore iPhone ed esegue i test.
