@@ -216,6 +216,8 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
 .fam span{font-family:var(--display);font-weight:700;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:4px 10px}
 .fam span b{color:var(--brass)}
 .fam span.me{border-color:var(--red)}
+/* Pulsanti dello zoom della mappa: più grandi, comodi da toccare */
+.maplibregl-ctrl-group button{width:40px;height:40px}
 </style>
 </head>
 <body>
@@ -908,6 +910,8 @@ function startRealMap(style){
     map = new maplibregl.Map({container: cont, style: style || "https://tiles.openfreemap.org/styles/liberty", bounds: bounds(), attributionControl: {compact: true}, cooperativeGestures: true});
   } catch { return; }
   ml.map = map;
+  // Pulsanti + e − per lo zoom (anche senza due dita o rotellina)
+  map.addControl(new maplibregl.NavigationControl({showCompass: false}), "top-right");
   const fail = setTimeout(() => { if (!ml.ready){ try { map.remove(); } catch {} ml.map = null; if (!style) startRealMap(RASTER); } }, 7000);
   map.on("error", () => {});
   map.on("load", () => {
