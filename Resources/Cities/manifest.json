@@ -1,6 +1,6 @@
 {
  "version": "202610260139",
- "digest": "94a0599b2449",
+ "digest": "a31c942d881d",
  "schema": 1,
  "cities": [
   {
@@ -42,6 +42,11 @@
    "id": "padova",
    "file": "padova.json",
    "sha256": "9bba64913e5af5266ac5acaf44ee6e1ed70fa9fdc7a7654f6c9e7845e76073d5"
+  },
+  {
+   "id": "perugia",
+   "file": "perugia.json",
+   "sha256": "1cd601baf19fede1651a8dca227d5cd1de8232287d2e25ed585a6d05274fdf36"
   },
   {
    "id": "pisa",

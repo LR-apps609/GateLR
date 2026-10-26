@@ -1,0 +1,2107 @@
+{
+ "id": "perugia",
+ "name": "Perugia",
+ "name_it": "Perugia",
+ "name_de": "Perugia",
+ "center": {
+  "lat": 43.1122,
+  "lon": 12.3888
+ },
+ "zones": [
+  {
+   "id": "perugia-centro-storico",
+   "name": "Acropolis · Historic centre",
+   "name_it": "Acropoli · Centro storico",
+   "name_de": "Akropolis · Altstadt",
+   "summary": "The hilltop centre (Corso Vannucci, Piazza IV Novembre) is closed to unauthorised vehicles from midnight to 1 pm Monday to Friday, and from midnight to 7 am on Saturdays, Sundays and holidays. In the afternoon and evening you may drive in. There is no tourist ticket: park below (Piazza Partigiani, escalators) or take the Minimetrò. Hotels inside register your plate.",
+   "summary_it": "Il centro in cima al colle (Corso Vannucci, Piazza IV Novembre) è chiuso ai veicoli non autorizzati da mezzanotte alle 13 dal lunedì al venerdì, e da mezzanotte alle 7 il sabato, la domenica e i festivi. Di pomeriggio e di sera si entra. Non c'è un ticket per turisti: parcheggia sotto (Piazza Partigiani, scale mobili) o prendi il Minimetrò. Gli hotel dentro registrano la tua targa.",
+   "summary_de": "Die Altstadt auf dem Hügel (Corso Vannucci, Piazza IV Novembre) ist für nicht berechtigte Fahrzeuge Montag bis Freitag von Mitternacht bis 13 Uhr gesperrt, samstags, sonntags und an Feiertagen von Mitternacht bis 7 Uhr. Nachmittags und abends darf man hinein. Ein Touristenticket gibt es nicht: unten parken (Piazza Partigiani, Rolltreppen) oder den Minimetrò nehmen. Hotels in der Zone melden dein Kennzeichen.",
+   "kind": "restricted",
+   "perimeter": [
+    {
+     "lat": 43.106698,
+     "lon": 12.388594
+    },
+    {
+     "lat": 43.10706,
+     "lon": 12.389086
+    },
+    {
+     "lat": 43.107132,
+     "lon": 12.388987
+    },
+    {
+     "lat": 43.107421,
+     "lon": 12.388987
+    },
+    {
+     "lat": 43.107421,
+     "lon": 12.389086
+    },
+    {
+     "lat": 43.107855,
+     "lon": 12.388987
+    },
+    {
+     "lat": 43.107855,
+     "lon": 12.389086
+    },
+    {
+     "lat": 43.108217,
+     "lon": 12.389184
+    },
+    {
+     "lat": 43.108289,
+     "lon": 12.38948
+    },
+    {
+     "lat": 43.108362,
+     "lon": 12.38948
+    },
+    {
+     "lat": 43.108362,
+     "lon": 12.389775
+    },
+    {
+     "lat": 43.108434,
+     "lon": 12.389775
+    },
+    {
+     "lat": 43.108362,
+     "lon": 12.390169
+    },
+    {
+     "lat": 43.108289,
+     "lon": 12.390169
+    },
+    {
+     "lat": 43.108217,
+     "lon": 12.390464
+    },
+    {
+     "lat": 43.108072,
+     "lon": 12.390464
+    },
+    {
+     "lat": 43.108072,
+     "lon": 12.390562
+    },
+    {
+     "lat": 43.107928,
+     "lon": 12.390562
+    },
+    {
+     "lat": 43.107783,
+     "lon": 12.390759
+    },
+    {
+     "lat": 43.108,
+     "lon": 12.390759
+    },
+    {
+     "lat": 43.108,
+     "lon": 12.390661
+    },
+    {
+     "lat": 43.108434,
+     "lon": 12.390464
+    },
+    {
+     "lat": 43.108434,
+     "lon": 12.390562
+    },
+    {
+     "lat": 43.108651,
+     "lon": 12.390562
+    },
+    {
+     "lat": 43.108651,
+     "lon": 12.390661
+    },
+    {
+     "lat": 43.108868,
+     "lon": 12.390759
+    },
+    {
+     "lat": 43.108941,
+     "lon": 12.391153
+    },
+    {
+     "lat": 43.109013,
+     "lon": 12.391055
+    },
+    {
+     "lat": 43.109158,
+     "lon": 12.391153
+    },
+    {
+     "lat": 43.109158,
+     "lon": 12.390956
+    },
+    {
+     "lat": 43.109302,
+     "lon": 12.390759
+    },
+    {
+     "lat": 43.109664,
+     "lon": 12.390661
+    },
+    {
+     "lat": 43.109664,
+     "lon": 12.390464
+    },
+    {
+     "lat": 43.109736,
+     "lon": 12.390464
+    },
+    {
+     "lat": 43.109736,
+     "lon": 12.390267
+    },
+    {
+     "lat": 43.109881,
+     "lon": 12.39007
+    },
+    {
+     "lat": 43.110243,
+     "lon": 12.389972
+    },
+    {
+     "lat": 43.110243,
+     "lon": 12.389873
+    },
+    {
+     "lat": 43.110388,
+     "lon": 12.389873
+    },
+    {
+     "lat": 43.110532,
+     "lon": 12.389677
+    },
+    {
+     "lat": 43.110749,
+     "lon": 12.389677
+    },
+    {
+     "lat": 43.110749,
+     "lon": 12.389578
+    },
+    {
+     "lat": 43.111401,
+     "lon": 12.389677
+    },
+    {
+     "lat": 43.111401,
+     "lon": 12.389775
+    },
+    {
+     "lat": 43.111979,
+     "lon": 12.389972
+    },
+    {
+     "lat": 43.112052,
+     "lon": 12.390267
+    },
+    {
+     "lat": 43.112124,
+     "lon": 12.390267
+    },
+    {
+     "lat": 43.112196,
+     "lon": 12.390759
+    },
+    {
+     "lat": 43.112124,
+     "lon": 12.390759
+    },
+    {
+     "lat": 43.112052,
+     "lon": 12.391252
+    },
+    {
+     "lat": 43.11169,
+     "lon": 12.391448
+    },
+    {
+     "lat": 43.111762,
+     "lon": 12.391842
+    },
+    {
+     "lat": 43.111835,
+     "lon": 12.391842
+    },
+    {
+     "lat": 43.111835,
+     "lon": 12.392236
+    },
+    {
+     "lat": 43.112196,
+     "lon": 12.392433
+    },
+    {
+     "lat": 43.112269,
+     "lon": 12.392925
+    },
+    {
+     "lat": 43.112413,
+     "lon": 12.392925
+    },
+    {
+     "lat": 43.112413,
+     "lon": 12.392827
+    },
+    {
+     "lat": 43.112848,
+     "lon": 12.392925
+    },
+    {
+     "lat": 43.11292,
+     "lon": 12.392334
+    },
+    {
+     "lat": 43.113137,
+     "lon": 12.392039
+    },
+    {
+     "lat": 43.113137,
+     "lon": 12.391744
+    },
+    {
+     "lat": 43.113282,
+     "lon": 12.391547
+    },
+    {
+     "lat": 43.113282,
+     "lon": 12.39135
+    },
+    {
+     "lat": 43.113499,
+     "lon": 12.391252
+    },
+    {
+     "lat": 43.113499,
+     "lon": 12.391153
+    },
+    {
+     "lat": 43.113716,
+     "lon": 12.391153
+    },
+    {
+     "lat": 43.11386,
+     "lon": 12.390759
+    },
+    {
+     "lat": 43.11415,
+     "lon": 12.390661
+    },
+    {
+     "lat": 43.11415,
+     "lon": 12.390562
+    },
+    {
+     "lat": 43.114367,
+     "lon": 12.390562
+    },
+    {
+     "lat": 43.114367,
+     "lon": 12.390464
+    },
+    {
+     "lat": 43.114512,
+     "lon": 12.390562
+    },
+    {
+     "lat": 43.114512,
+     "lon": 12.390267
+    },
+    {
+     "lat": 43.114584,
+     "lon": 12.390267
+    },
+    {
+     "lat": 43.114656,
+     "lon": 12.389873
+    },
+    {
+     "lat": 43.114729,
+     "lon": 12.389873
+    },
+    {
+     "lat": 43.114656,
+     "lon": 12.389283
+    },
+    {
+     "lat": 43.114584,
+     "lon": 12.389283
+    },
+    {
+     "lat": 43.114584,
+     "lon": 12.388987
+    },
+    {
+     "lat": 43.114656,
+     "lon": 12.388987
+    },
+    {
+     "lat": 43.114729,
+     "lon": 12.388594
+    },
+    {
+     "lat": 43.114656,
+     "lon": 12.388594
+    },
+    {
+     "lat": 43.114656,
+     "lon": 12.388101
+    },
+    {
+     "lat": 43.114584,
+     "lon": 12.388003
+    },
+    {
+     "lat": 43.114656,
+     "lon": 12.388003
+    },
+    {
+     "lat": 43.114729,
+     "lon": 12.387511
+    },
+    {
+     "lat": 43.114946,
+     "lon": 12.387412
+    },
+    {
+     "lat": 43.114946,
+     "lon": 12.387117
+    },
+    {
+     "lat": 43.115018,
+     "lon": 12.387117
+    },
+    {
+     "lat": 43.114946,
+     "lon": 12.386822
+    },
+    {
+     "lat": 43.114873,
+     "lon": 12.386822
+    },
+    {
+     "lat": 43.114801,
+     "lon": 12.386231
+    },
+    {
+     "lat": 43.114873,
+     "lon": 12.386231
+    },
+    {
+     "lat": 43.114873,
+     "lon": 12.385936
+    },
+    {
+     "lat": 43.114946,
+     "lon": 12.385936
+    },
+    {
+     "lat": 43.114946,
+     "lon": 12.38564
+    },
+    {
+     "lat": 43.115018,
+     "lon": 12.38564
+    },
+    {
+     "lat": 43.115018,
+     "lon": 12.385444
+    },
+    {
+     "lat": 43.115163,
+     "lon": 12.385247
+    },
+    {
+     "lat": 43.115018,
+     "lon": 12.38505
+    },
+    {
+     "lat": 43.114946,
+     "lon": 12.384459
+    },
+    {
+     "lat": 43.114656,
+     "lon": 12.384361
+    },
+    {
+     "lat": 43.114584,
+     "lon": 12.384065
+    },
+    {
+     "lat": 43.114512,
+     "lon": 12.384065
+    },
+    {
+     "lat": 43.114439,
+     "lon": 12.383376
+    },
+    {
+     "lat": 43.114367,
+     "lon": 12.383376
+    },
+    {
+     "lat": 43.114294,
+     "lon": 12.382687
+    },
+    {
+     "lat": 43.114222,
+     "lon": 12.382687
+    },
+    {
+     "lat": 43.114222,
+     "lon": 12.3819
+    },
+    {
+     "lat": 43.114077,
+     "lon": 12.381801
+    },
+    {
+     "lat": 43.114077,
+     "lon": 12.382096
+    },
+    {
+     "lat": 43.113933,
+     "lon": 12.382293
+    },
+    {
+     "lat": 43.113933,
+     "lon": 12.38249
+    },
+    {
+     "lat": 43.113716,
+     "lon": 12.382589
+    },
+    {
+     "lat": 43.113716,
+     "lon": 12.382687
+    },
+    {
+     "lat": 43.113499,
+     "lon": 12.382687
+    },
+    {
+     "lat": 43.113499,
+     "lon": 12.382786
+    },
+    {
+     "lat": 43.113209,
+     "lon": 12.382687
+    },
+    {
+     "lat": 43.113065,
+     "lon": 12.38249
+    },
+    {
+     "lat": 43.11292,
+     "lon": 12.382687
+    },
+    {
+     "lat": 43.112775,
+     "lon": 12.382687
+    },
+    {
+     "lat": 43.112775,
+     "lon": 12.382786
+    },
+    {
+     "lat": 43.112558,
+     "lon": 12.382786
+    },
+    {
+     "lat": 43.112558,
+     "lon": 12.382884
+    },
+    {
+     "lat": 43.112269,
+     "lon": 12.382884
+    },
+    {
+     "lat": 43.112269,
+     "lon": 12.382786
+    },
+    {
+     "lat": 43.111979,
+     "lon": 12.382884
+    },
+    {
+     "lat": 43.111979,
+     "lon": 12.382786
+    },
+    {
+     "lat": 43.11169,
+     "lon": 12.382687
+    },
+    {
+     "lat": 43.11169,
+     "lon": 12.382982
+    },
+    {
+     "lat": 43.111618,
+     "lon": 12.382982
+    },
+    {
+     "lat": 43.111618,
+     "lon": 12.383179
+    },
+    {
+     "lat": 43.111545,
+     "lon": 12.383179
+    },
+    {
+     "lat": 43.111545,
+     "lon": 12.383376
+    },
+    {
+     "lat": 43.111401,
+     "lon": 12.383573
+    },
+    {
+     "lat": 43.111256,
+     "lon": 12.383573
+    },
+    {
+     "lat": 43.111111,
+     "lon": 12.38377
+    },
+    {
+     "lat": 43.110894,
+     "lon": 12.38377
+    },
+    {
+     "lat": 43.110677,
+     "lon": 12.384164
+    },
+    {
+     "lat": 43.110532,
+     "lon": 12.384164
+    },
+    {
+     "lat": 43.110532,
+     "lon": 12.384361
+    },
+    {
+     "lat": 43.110677,
+     "lon": 12.384558
+    },
+    {
+     "lat": 43.110822,
+     "lon": 12.384361
+    },
+    {
+     "lat": 43.110966,
+     "lon": 12.384361
+    },
+    {
+     "lat": 43.110966,
+     "lon": 12.384262
+    },
+    {
+     "lat": 43.111183,
+     "lon": 12.384262
+    },
+    {
+     "lat": 43.111183,
+     "lon": 12.384164
+    },
+    {
+     "lat": 43.111545,
+     "lon": 12.384262
+    },
+    {
+     "lat": 43.111545,
+     "lon": 12.384361
+    },
+    {
+     "lat": 43.111762,
+     "lon": 12.384459
+    },
+    {
+     "lat": 43.111835,
+     "lon": 12.384951
+    },
+    {
+     "lat": 43.111907,
+     "lon": 12.384951
+    },
+    {
+     "lat": 43.111762,
+     "lon": 12.385542
+    },
+    {
+     "lat": 43.111401,
+     "lon": 12.386034
+    },
+    {
+     "lat": 43.111256,
+     "lon": 12.386034
+    },
+    {
+     "lat": 43.111111,
+     "lon": 12.386329
+    },
+    {
+     "lat": 43.110966,
+     "lon": 12.386329
+    },
+    {
+     "lat": 43.110966,
+     "lon": 12.386428
+    },
+    {
+     "lat": 43.110605,
+     "lon": 12.386526
+    },
+    {
+     "lat": 43.110605,
+     "lon": 12.386428
+    },
+    {
+     "lat": 43.110243,
+     "lon": 12.386329
+    },
+    {
+     "lat": 43.109736,
+     "lon": 12.385542
+    },
+    {
+     "lat": 43.109592,
+     "lon": 12.385542
+    },
+    {
+     "lat": 43.10923,
+     "lon": 12.38505
+    },
+    {
+     "lat": 43.108941,
+     "lon": 12.38505
+    },
+    {
+     "lat": 43.108868,
+     "lon": 12.385247
+    },
+    {
+     "lat": 43.108507,
+     "lon": 12.385345
+    },
+    {
+     "lat": 43.108507,
+     "lon": 12.385444
+    },
+    {
+     "lat": 43.108362,
+     "lon": 12.385444
+    },
+    {
+     "lat": 43.108362,
+     "lon": 12.385345
+    },
+    {
+     "lat": 43.108217,
+     "lon": 12.385444
+    },
+    {
+     "lat": 43.108217,
+     "lon": 12.385345
+    },
+    {
+     "lat": 43.108,
+     "lon": 12.385345
+    },
+    {
+     "lat": 43.108,
+     "lon": 12.385247
+    },
+    {
+     "lat": 43.107783,
+     "lon": 12.385148
+    },
+    {
+     "lat": 43.107566,
+     "lon": 12.385739
+    },
+    {
+     "lat": 43.107277,
+     "lon": 12.385837
+    },
+    {
+     "lat": 43.107277,
+     "lon": 12.385936
+    },
+    {
+     "lat": 43.10706,
+     "lon": 12.385936
+    },
+    {
+     "lat": 43.10677,
+     "lon": 12.387511
+    },
+    {
+     "lat": 43.106553,
+     "lon": 12.387806
+    },
+    {
+     "lat": 43.106553,
+     "lon": 12.388003
+    },
+    {
+     "lat": 43.106408,
+     "lon": 12.388101
+    },
+    {
+     "lat": 43.106481,
+     "lon": 12.388495
+    },
+    {
+     "lat": 43.106698,
+     "lon": 12.388594
+    }
+   ],
+   "gates": [
+    {
+     "id": "pg-osm1365008994",
+     "name": "Via Fanti",
+     "location": {
+      "lat": 43.106644,
+      "lon": 12.387768
+     }
+    },
+    {
+     "id": "pg-osm475961177",
+     "name": "Via del Parione",
+     "location": {
+      "lat": 43.106766,
+      "lon": 12.387826
+     }
+    },
+    {
+     "id": "pg-osm334836537",
+     "name": "Via Bonazzi",
+     "location": {
+      "lat": 43.108346,
+      "lon": 12.387032
+     }
+    },
+    {
+     "id": "pg-osm1227270587",
+     "name": "Via Baglioni",
+     "location": {
+      "lat": 43.109001,
+      "lon": 12.388902
+     }
+    },
+    {
+     "id": "pg-osm248764507",
+     "name": "Via della Sposa",
+     "location": {
+      "lat": 43.111733,
+      "lon": 12.38273
+     }
+    },
+    {
+     "id": "pg-osm1428024067",
+     "name": "Via Battisti",
+     "location": {
+      "lat": 43.114671,
+      "lon": 12.389729
+     }
+    },
+    {
+     "id": "pg-osm249101079",
+     "name": "Via San Sebastiano",
+     "location": {
+      "lat": 43.114902,
+      "lon": 12.387402
+     }
+    },
+    {
+     "id": "pg-osm249101071",
+     "name": "Via Appia",
+     "location": {
+      "lat": 43.114719,
+      "lon": 12.388627
+     }
+    },
+    {
+     "id": "pg-osm1731469312",
+     "name": "Via Solitaria",
+     "location": {
+      "lat": 43.109122,
+      "lon": 12.391055
+     }
+    },
+    {
+     "id": "pg-osm725674121",
+     "name": "Via Campo Battaglia",
+     "location": {
+      "lat": 43.10963,
+      "lon": 12.390556
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 0,
+     "end": 780
+    },
+    {
+     "weekdays": [
+      7,
+      1
+     ],
+     "start": 0,
+     "end": 420
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Perugia",
+    "pageURL": "https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/",
+    "ordinance": "Regolamento permessi ZTL e settori esterni (DCC 82/2012, modificato con DCC 133 del 20/07/2026)",
+    "ordinanceURL": "https://www.comune.perugia.it/wp-content/uploads/2024/11/07.01-Regolamento-permessi-ZTL.pdf",
+    "quote": "Dal lunedì al venerdì – accesso consentito dalle 13.00 alle 24.00 – accesso vietato dalle 00.00 alle 13.00 Sabato e festivi – accesso consentito dalle 7.00 alle 24.00 – accesso vietato dalle 00.00 alle 7.00",
+    "quoteTranslation": "Monday to Friday – entry allowed 13:00–24:00 – entry forbidden 00:00–13:00. Saturday and holidays – entry allowed 7:00–24:00 – entry forbidden 00:00–7:00",
+    "quoteTranslation_de": "Montag bis Freitag – Einfahrt erlaubt 13–24 Uhr – verboten 0–13 Uhr. Samstag und Feiertage – Einfahrt erlaubt 7–24 Uhr – verboten 0–7 Uhr",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Inside this zone some streets are closed 24 hours a day even in the afternoon: Via dei Priori between Via della Stella and Piazzetta Santo Stefano (pedestrian area, camera) and Via Bontempi. Viale Indipendenza (Via Masi–Corso Cavour) and Corso Cavour up to Via XIV Settembre are also closed 24 hours. Only Via Bontempi is drawn on the map.",
+     "Piazza Italia is drawn inside the zone, but an older guide says the way from Via Masi to Piazza Italia is free 24 hours. To be checked.",
+     "Map outline not official: the City publishes only the list of entry gates. GateLR draws each zone from the streets you can't reach without passing one of those gates (OpenStreetMap streets), so the edge is approximate.",
+     "Hotels: cars going to a hotel inside the ZTL may enter without a permit, but the hotel must send the plate to the City every day (Regulation art. 25). Ask the hotel to confirm it has registered yours. Parking only to unload luggage, max 60 minutes.",
+     "Electric cars are not exempt automatically: they need a permit valid 24 hours (art. 31). A disabled badge holder on board must register the plate before entering or within 72 hours.",
+     "No tourist ticket: daily permits (2–12 €, foreign vehicles 10 €, bought online) are only for the categories listed by the City (e.g. disabled badge, taxis from other towns, weddings). Not confirmed whether the patron saint's day (San Costanzo, 29 January) counts as a holiday for the ZTL: GateLR treats it as a normal day."
+    ],
+    "pending_it": [
+     "Dentro questa zona alcune vie sono chiuse 24 ore su 24 anche di pomeriggio: via dei Priori tra via della Stella e Piazzetta Santo Stefano (area pedonale, telecamera) e via Bontempi. Sono chiusi h24 anche viale Indipendenza (via Masi–Corso Cavour) e Corso Cavour fino a via XIV Settembre. Sulla mappa è disegnata solo via Bontempi.",
+     "Piazza Italia è disegnata dentro la zona, ma una guida meno recente dice che il percorso da via Masi a Piazza Italia è libero h24. Da verificare.",
+     "Perimetro non ufficiale: il Comune pubblica solo l'elenco degli accessi. GateLR disegna ogni zona dalle strade che non si raggiungono senza passare da uno di quegli accessi (strade di OpenStreetMap), quindi il bordo è approssimato.",
+     "Alberghi: le auto dirette a un albergo dentro la ZTL possono entrare senza permesso, ma l'albergo deve trasmettere ogni giorno la targa al Comune (Regolamento, art. 25). Chiedi all'hotel conferma che abbia registrato la tua. Sosta solo per scaricare i bagagli, massimo 60 minuti.",
+     "Le auto elettriche non sono esenti in automatico: serve un permesso valido 24 ore su 24 (art. 31). Con a bordo il titolare di un contrassegno disabili, la targa va comunicata prima di entrare o entro 72 ore.",
+     "Nessun ticket per turisti: i permessi giornalieri (2–12 €, veicoli stranieri 10 €, online) valgono solo per le categorie indicate dal Comune (es. contrassegno disabili, taxi di altri comuni, matrimoni). Non è confermato se la festa del patrono (San Costanzo, 29 gennaio) conti come festivo per la ZTL: GateLR la tratta come un giorno normale."
+    ],
+    "pending_de": [
+     "Innerhalb dieser Zone sind manche Straßen auch nachmittags rund um die Uhr gesperrt: Via dei Priori zwischen Via della Stella und Piazzetta Santo Stefano (Fußgängerzone, Kamera) und Via Bontempi. Auch Viale Indipendenza (Via Masi–Corso Cavour) und Corso Cavour bis Via XIV Settembre sind rund um die Uhr gesperrt. Nur Via Bontempi ist auf der Karte eingezeichnet.",
+     "Die Piazza Italia ist innerhalb der Zone eingezeichnet, ein älterer Ratgeber sagt aber, dass der Weg von Via Masi zur Piazza Italia rund um die Uhr frei ist. Zu prüfen.",
+     "Grenze nicht offiziell: Die Stadt veröffentlicht nur die Liste der Zufahrten. GateLR zeichnet jede Zone aus den Straßen, die man nur über eine dieser Zufahrten erreicht (Straßen aus OpenStreetMap), der Rand ist daher ungefähr.",
+     "Hotels: Autos zu einem Hotel in der ZTL dürfen ohne Genehmigung einfahren, das Hotel muss das Kennzeichen aber täglich an die Stadt melden (Regelung, Art. 25). Lass dir vom Hotel bestätigen, dass es deines gemeldet hat. Parken nur zum Ausladen, höchstens 60 Minuten.",
+     "Elektroautos sind nicht automatisch befreit: Sie brauchen eine Genehmigung, gültig rund um die Uhr (Art. 31). Mit einem Inhaber eines Behindertenausweises an Bord muss das Kennzeichen vor der Einfahrt oder innerhalb von 72 Stunden gemeldet werden.",
+     "Kein Touristenticket: Tagesgenehmigungen (2–12 €, ausländische Fahrzeuge 10 €, online) gibt es nur für die von der Stadt genannten Gruppen (z. B. Behindertenausweis, Taxis aus anderen Orten, Hochzeiten). Ob der Tag des Stadtpatrons (San Costanzo, 29. Januar) für die ZTL als Feiertag gilt, ist nicht bestätigt: GateLR behandelt ihn als normalen Tag."
+    ],
+    "links": [
+     {
+      "title": "City of Perugia: ZTL zones and hours",
+      "title_it": "Comune di Perugia: ZTL, zone e orari",
+      "title_de": "Stadt Perugia: ZTL-Zonen und Zeiten",
+      "url": "https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/"
+     },
+     {
+      "title": "City of Perugia: ZTL permit rules (amended July 2026, PDF)",
+      "title_it": "Comune di Perugia: Regolamento permessi ZTL (modificato a luglio 2026, PDF)",
+      "title_de": "Stadt Perugia: Regeln für ZTL-Genehmigungen (geändert im Juli 2026, PDF)",
+      "url": "https://www.comune.perugia.it/wp-content/uploads/2024/11/07.01-Regolamento-permessi-ZTL.pdf"
+     },
+     {
+      "title": "City of Perugia: daily or temporary permits (who may apply, online)",
+      "title_it": "Comune di Perugia: permessi giornalieri o temporanei (chi può chiederli, online)",
+      "title_de": "Stadt Perugia: Tages- oder befristete Genehmigungen (wer sie beantragen kann, online)",
+      "url": "https://www.comune.perugia.it/pagine/ztl-zona-a-traffico-limitato"
+     },
+     {
+      "title": "Minimetrò: free car park at Pian di Massiano and timetable",
+      "title_it": "Minimetrò: parcheggio gratuito a Pian di Massiano e orari",
+      "title_de": "Minimetrò: kostenloser Parkplatz Pian di Massiano und Fahrplan",
+      "url": "https://www.minimetrospa.it/"
+     },
+     {
+      "title": "City of Perugia: hotels, form to request access for guests",
+      "title_it": "Comune di Perugia: modulo 34, permessi per alberghi",
+      "title_de": "Stadt Perugia: Hotels, Antrag auf Zufahrt für Gäste",
+      "url": "https://www.comune.perugia.it/documento_pubblico/34-domanda-permessi-per-alberghi/"
+     },
+     {
+      "title": "City of Perugia: disabled badge holders, register the entry (72 hours)",
+      "title_it": "Comune di Perugia: titolari di contrassegno disabili, comunicazione dell'accesso (72 ore)",
+      "title_de": "Stadt Perugia: Behindertenausweis, Einfahrt melden (72 Stunden)",
+      "url": "https://www.comune.perugia.it/servizio/permessi-ztl-comunicazione-accesso-giornaliero-alla-ztl-del-titolare-di-contrassegno-disabili/"
+     },
+     {
+      "title": "City of Perugia: daily permit prices (Council decision 283/2025, PDF)",
+      "title_it": "Comune di Perugia: tariffe dei permessi giornalieri (delibera GC 283/2025, PDF)",
+      "title_de": "Stadt Perugia: Preise der Tagesgenehmigungen (Beschluss 283/2025, PDF)",
+      "url": "https://www.comune.perugia.it/wp-content/uploads/2025/10/DG-283-2025-PagamentoPermessi.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets used to draw the zones (ODbL)",
+      "title_it": "OpenStreetMap: strade usate per disegnare le zone (ODbL)",
+      "title_de": "OpenStreetMap: für die Zonen verwendete Straßen (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=16/43.1115/12.3890"
+     }
+    ]
+   }
+  },
+  {
+   "id": "perugia-corso-garibaldi",
+   "name": "Corso Garibaldi · Borgo Sant'Angelo",
+   "name_it": "Corso Garibaldi · Borgo Sant'Angelo",
+   "name_de": "Corso Garibaldi · Borgo Sant'Angelo",
+   "summary": "Corso Garibaldi and the streets around it are closed to unauthorised vehicles from midnight to 1 pm on weekdays and from midnight to 7 am on Sundays and holidays. In the afternoon and evening you may drive in.",
+   "summary_it": "Corso Garibaldi e le vie intorno sono chiusi ai veicoli non autorizzati da mezzanotte alle 13 nei giorni feriali e da mezzanotte alle 7 la domenica e i festivi. Di pomeriggio e di sera si entra.",
+   "summary_de": "Corso Garibaldi und die Straßen ringsum sind für nicht berechtigte Fahrzeuge werktags von Mitternacht bis 13 Uhr gesperrt, sonntags und an Feiertagen von Mitternacht bis 7 Uhr. Nachmittags und abends darf man hinein.",
+   "kind": "restricted",
+   "perimeter": [
+    {
+     "lat": 43.11878,
+     "lon": 12.385849
+    },
+    {
+     "lat": 43.11878,
+     "lon": 12.386046
+    },
+    {
+     "lat": 43.118635,
+     "lon": 12.386243
+    },
+    {
+     "lat": 43.118274,
+     "lon": 12.386341
+    },
+    {
+     "lat": 43.118274,
+     "lon": 12.38644
+    },
+    {
+     "lat": 43.117984,
+     "lon": 12.386341
+    },
+    {
+     "lat": 43.117478,
+     "lon": 12.387129
+    },
+    {
+     "lat": 43.117261,
+     "lon": 12.387227
+    },
+    {
+     "lat": 43.117261,
+     "lon": 12.387523
+    },
+    {
+     "lat": 43.117116,
+     "lon": 12.387621
+    },
+    {
+     "lat": 43.117188,
+     "lon": 12.38772
+    },
+    {
+     "lat": 43.117116,
+     "lon": 12.388212
+    },
+    {
+     "lat": 43.116899,
+     "lon": 12.388507
+    },
+    {
+     "lat": 43.116754,
+     "lon": 12.388507
+    },
+    {
+     "lat": 43.116682,
+     "lon": 12.388704
+    },
+    {
+     "lat": 43.116465,
+     "lon": 12.388704
+    },
+    {
+     "lat": 43.116465,
+     "lon": 12.388803
+    },
+    {
+     "lat": 43.116393,
+     "lon": 12.388704
+    },
+    {
+     "lat": 43.115886,
+     "lon": 12.388704
+    },
+    {
+     "lat": 43.115886,
+     "lon": 12.388803
+    },
+    {
+     "lat": 43.11538,
+     "lon": 12.388901
+    },
+    {
+     "lat": 43.115307,
+     "lon": 12.389
+    },
+    {
+     "lat": 43.11538,
+     "lon": 12.389098
+    },
+    {
+     "lat": 43.115307,
+     "lon": 12.389492
+    },
+    {
+     "lat": 43.115018,
+     "lon": 12.38959
+    },
+    {
+     "lat": 43.115018,
+     "lon": 12.389689
+    },
+    {
+     "lat": 43.115669,
+     "lon": 12.389787
+    },
+    {
+     "lat": 43.115814,
+     "lon": 12.390279
+    },
+    {
+     "lat": 43.115959,
+     "lon": 12.390378
+    },
+    {
+     "lat": 43.115886,
+     "lon": 12.389886
+    },
+    {
+     "lat": 43.115959,
+     "lon": 12.389886
+    },
+    {
+     "lat": 43.116031,
+     "lon": 12.389492
+    },
+    {
+     "lat": 43.11661,
+     "lon": 12.389393
+    },
+    {
+     "lat": 43.116754,
+     "lon": 12.389196
+    },
+    {
+     "lat": 43.116971,
+     "lon": 12.389196
+    },
+    {
+     "lat": 43.116971,
+     "lon": 12.389098
+    },
+    {
+     "lat": 43.117116,
+     "lon": 12.389098
+    },
+    {
+     "lat": 43.117188,
+     "lon": 12.388803
+    },
+    {
+     "lat": 43.117406,
+     "lon": 12.388803
+    },
+    {
+     "lat": 43.117406,
+     "lon": 12.388704
+    },
+    {
+     "lat": 43.11755,
+     "lon": 12.388803
+    },
+    {
+     "lat": 43.117695,
+     "lon": 12.388507
+    },
+    {
+     "lat": 43.11784,
+     "lon": 12.388507
+    },
+    {
+     "lat": 43.11784,
+     "lon": 12.38831
+    },
+    {
+     "lat": 43.117984,
+     "lon": 12.388212
+    },
+    {
+     "lat": 43.117912,
+     "lon": 12.387818
+    },
+    {
+     "lat": 43.11784,
+     "lon": 12.387818
+    },
+    {
+     "lat": 43.11784,
+     "lon": 12.387523
+    },
+    {
+     "lat": 43.117912,
+     "lon": 12.387523
+    },
+    {
+     "lat": 43.117984,
+     "lon": 12.387129
+    },
+    {
+     "lat": 43.118201,
+     "lon": 12.387129
+    },
+    {
+     "lat": 43.118274,
+     "lon": 12.386932
+    },
+    {
+     "lat": 43.118491,
+     "lon": 12.386932
+    },
+    {
+     "lat": 43.118491,
+     "lon": 12.386834
+    },
+    {
+     "lat": 43.118635,
+     "lon": 12.386834
+    },
+    {
+     "lat": 43.118635,
+     "lon": 12.386932
+    },
+    {
+     "lat": 43.11878,
+     "lon": 12.386834
+    },
+    {
+     "lat": 43.11878,
+     "lon": 12.386932
+    },
+    {
+     "lat": 43.118997,
+     "lon": 12.386932
+    },
+    {
+     "lat": 43.118997,
+     "lon": 12.387031
+    },
+    {
+     "lat": 43.119214,
+     "lon": 12.386834
+    },
+    {
+     "lat": 43.119287,
+     "lon": 12.386144
+    },
+    {
+     "lat": 43.119504,
+     "lon": 12.386046
+    },
+    {
+     "lat": 43.119504,
+     "lon": 12.385948
+    },
+    {
+     "lat": 43.119287,
+     "lon": 12.385849
+    },
+    {
+     "lat": 43.119287,
+     "lon": 12.385554
+    },
+    {
+     "lat": 43.119214,
+     "lon": 12.385554
+    },
+    {
+     "lat": 43.119287,
+     "lon": 12.38516
+    },
+    {
+     "lat": 43.119504,
+     "lon": 12.384865
+    },
+    {
+     "lat": 43.119504,
+     "lon": 12.384668
+    },
+    {
+     "lat": 43.119359,
+     "lon": 12.384766
+    },
+    {
+     "lat": 43.119359,
+     "lon": 12.384963
+    },
+    {
+     "lat": 43.119142,
+     "lon": 12.385258
+    },
+    {
+     "lat": 43.118925,
+     "lon": 12.385258
+    },
+    {
+     "lat": 43.118925,
+     "lon": 12.385357
+    },
+    {
+     "lat": 43.11878,
+     "lon": 12.385258
+    },
+    {
+     "lat": 43.11878,
+     "lon": 12.385455
+    },
+    {
+     "lat": 43.118853,
+     "lon": 12.385455
+    },
+    {
+     "lat": 43.11878,
+     "lon": 12.385849
+    }
+   ],
+   "gates": [
+    {
+     "id": "pg-osm249101058",
+     "name": "Corso Garibaldi",
+     "location": {
+      "lat": 43.115052,
+      "lon": 12.389622
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 780
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 0,
+     "end": 420
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Perugia",
+    "pageURL": "https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/",
+    "ordinance": "Regolamento permessi ZTL e settori esterni (DCC 82/2012, modificato con DCC 133 del 20/07/2026)",
+    "ordinanceURL": "https://www.comune.perugia.it/wp-content/uploads/2024/11/07.01-Regolamento-permessi-ZTL.pdf",
+    "quote": "Corso Garibaldi: Giorni Ferial i – accesso consentito dalle 13.00 alle 24.00 – accesso vietato dalle 00.00 alle 13.00 Giorni Festivi – accesso consentito dalle 7.00 alle 24.00 – accesso vietato dalle 00.00 alle 7.00",
+    "quoteTranslation": "Corso Garibaldi: weekdays – entry allowed 13:00–24:00 – entry forbidden 00:00–13:00. Holidays – entry allowed 7:00–24:00 – entry forbidden 00:00–7:00",
+    "quoteTranslation_de": "Corso Garibaldi: werktags – Einfahrt erlaubt 13–24 Uhr – verboten 0–13 Uhr. Feiertage – Einfahrt erlaubt 7–24 Uhr – verboten 0–7 Uhr",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The City's page splits this zone's hours into weekdays («feriali») and holidays («festivi»); GateLR treats Saturday as a weekday, as usual in Italy. To be confirmed with the City.",
+     "Map outline not official: the City publishes only the list of entry gates. GateLR draws each zone from the streets you can't reach without passing one of those gates (OpenStreetMap streets), so the edge is approximate.",
+     "Hotels: cars going to a hotel inside the ZTL may enter without a permit, but the hotel must send the plate to the City every day (Regulation art. 25). Ask the hotel to confirm it has registered yours. Parking only to unload luggage, max 60 minutes.",
+     "Electric cars are not exempt automatically: they need a permit valid 24 hours (art. 31). A disabled badge holder on board must register the plate before entering or within 72 hours.",
+     "No tourist ticket: daily permits (2–12 €, foreign vehicles 10 €, bought online) are only for the categories listed by the City (e.g. disabled badge, taxis from other towns, weddings). Not confirmed whether the patron saint's day (San Costanzo, 29 January) counts as a holiday for the ZTL: GateLR treats it as a normal day."
+    ],
+    "pending_it": [
+     "La pagina del Comune divide gli orari di questa zona in «giorni feriali» e «festivi»; GateLR tratta il sabato come feriale, come d'uso. Da confermare con il Comune.",
+     "Perimetro non ufficiale: il Comune pubblica solo l'elenco degli accessi. GateLR disegna ogni zona dalle strade che non si raggiungono senza passare da uno di quegli accessi (strade di OpenStreetMap), quindi il bordo è approssimato.",
+     "Alberghi: le auto dirette a un albergo dentro la ZTL possono entrare senza permesso, ma l'albergo deve trasmettere ogni giorno la targa al Comune (Regolamento, art. 25). Chiedi all'hotel conferma che abbia registrato la tua. Sosta solo per scaricare i bagagli, massimo 60 minuti.",
+     "Le auto elettriche non sono esenti in automatico: serve un permesso valido 24 ore su 24 (art. 31). Con a bordo il titolare di un contrassegno disabili, la targa va comunicata prima di entrare o entro 72 ore.",
+     "Nessun ticket per turisti: i permessi giornalieri (2–12 €, veicoli stranieri 10 €, online) valgono solo per le categorie indicate dal Comune (es. contrassegno disabili, taxi di altri comuni, matrimoni). Non è confermato se la festa del patrono (San Costanzo, 29 gennaio) conti come festivo per la ZTL: GateLR la tratta come un giorno normale."
+    ],
+    "pending_de": [
+     "Die Seite der Stadt teilt die Zeiten dieser Zone in Werktage («feriali») und Feiertage («festivi»); GateLR behandelt den Samstag wie üblich als Werktag. Mit der Stadt zu klären.",
+     "Grenze nicht offiziell: Die Stadt veröffentlicht nur die Liste der Zufahrten. GateLR zeichnet jede Zone aus den Straßen, die man nur über eine dieser Zufahrten erreicht (Straßen aus OpenStreetMap), der Rand ist daher ungefähr.",
+     "Hotels: Autos zu einem Hotel in der ZTL dürfen ohne Genehmigung einfahren, das Hotel muss das Kennzeichen aber täglich an die Stadt melden (Regelung, Art. 25). Lass dir vom Hotel bestätigen, dass es deines gemeldet hat. Parken nur zum Ausladen, höchstens 60 Minuten.",
+     "Elektroautos sind nicht automatisch befreit: Sie brauchen eine Genehmigung, gültig rund um die Uhr (Art. 31). Mit einem Inhaber eines Behindertenausweises an Bord muss das Kennzeichen vor der Einfahrt oder innerhalb von 72 Stunden gemeldet werden.",
+     "Kein Touristenticket: Tagesgenehmigungen (2–12 €, ausländische Fahrzeuge 10 €, online) gibt es nur für die von der Stadt genannten Gruppen (z. B. Behindertenausweis, Taxis aus anderen Orten, Hochzeiten). Ob der Tag des Stadtpatrons (San Costanzo, 29. Januar) für die ZTL als Feiertag gilt, ist nicht bestätigt: GateLR behandelt ihn als normalen Tag."
+    ],
+    "links": [
+     {
+      "title": "City of Perugia: ZTL zones and hours",
+      "title_it": "Comune di Perugia: ZTL, zone e orari",
+      "title_de": "Stadt Perugia: ZTL-Zonen und Zeiten",
+      "url": "https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/"
+     },
+     {
+      "title": "City of Perugia: ZTL permit rules (amended July 2026, PDF)",
+      "title_it": "Comune di Perugia: Regolamento permessi ZTL (modificato a luglio 2026, PDF)",
+      "title_de": "Stadt Perugia: Regeln für ZTL-Genehmigungen (geändert im Juli 2026, PDF)",
+      "url": "https://www.comune.perugia.it/wp-content/uploads/2024/11/07.01-Regolamento-permessi-ZTL.pdf"
+     },
+     {
+      "title": "City of Perugia: daily or temporary permits (who may apply, online)",
+      "title_it": "Comune di Perugia: permessi giornalieri o temporanei (chi può chiederli, online)",
+      "title_de": "Stadt Perugia: Tages- oder befristete Genehmigungen (wer sie beantragen kann, online)",
+      "url": "https://www.comune.perugia.it/pagine/ztl-zona-a-traffico-limitato"
+     },
+     {
+      "title": "Minimetrò: free car park at Pian di Massiano and timetable",
+      "title_it": "Minimetrò: parcheggio gratuito a Pian di Massiano e orari",
+      "title_de": "Minimetrò: kostenloser Parkplatz Pian di Massiano und Fahrplan",
+      "url": "https://www.minimetrospa.it/"
+     },
+     {
+      "title": "City of Perugia: hotels, form to request access for guests",
+      "title_it": "Comune di Perugia: modulo 34, permessi per alberghi",
+      "title_de": "Stadt Perugia: Hotels, Antrag auf Zufahrt für Gäste",
+      "url": "https://www.comune.perugia.it/documento_pubblico/34-domanda-permessi-per-alberghi/"
+     },
+     {
+      "title": "City of Perugia: disabled badge holders, register the entry (72 hours)",
+      "title_it": "Comune di Perugia: titolari di contrassegno disabili, comunicazione dell'accesso (72 ore)",
+      "title_de": "Stadt Perugia: Behindertenausweis, Einfahrt melden (72 Stunden)",
+      "url": "https://www.comune.perugia.it/servizio/permessi-ztl-comunicazione-accesso-giornaliero-alla-ztl-del-titolare-di-contrassegno-disabili/"
+     },
+     {
+      "title": "City of Perugia: daily permit prices (Council decision 283/2025, PDF)",
+      "title_it": "Comune di Perugia: tariffe dei permessi giornalieri (delibera GC 283/2025, PDF)",
+      "title_de": "Stadt Perugia: Preise der Tagesgenehmigungen (Beschluss 283/2025, PDF)",
+      "url": "https://www.comune.perugia.it/wp-content/uploads/2025/10/DG-283-2025-PagamentoPermessi.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets used to draw the zones (ODbL)",
+      "title_it": "OpenStreetMap: strade usate per disegnare le zone (ODbL)",
+      "title_de": "OpenStreetMap: für die Zonen verwendete Straßen (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=16/43.1115/12.3890"
+     }
+    ]
+   }
+  },
+  {
+   "id": "perugia-via-del-roscetto",
+   "name": "Via del Roscetto · evening access only",
+   "name_it": "Via del Roscetto · accesso solo 16–20",
+   "name_de": "Via del Roscetto · Zufahrt nur 16–20 Uhr",
+   "summary": "Via del Roscetto is open to traffic only from 4 pm to 8 pm, every day. From 8 pm to 4 pm the next day it is closed to unauthorised vehicles.",
+   "summary_it": "Via del Roscetto è aperta al traffico solo dalle 16 alle 20, tutti i giorni. Dalle 20 alle 16 del giorno dopo è chiusa ai veicoli non autorizzati.",
+   "summary_de": "Die Via del Roscetto ist nur von 16 bis 20 Uhr befahrbar, jeden Tag. Von 20 Uhr bis 16 Uhr am nächsten Tag ist sie für nicht berechtigte Fahrzeuge gesperrt.",
+   "kind": "restricted",
+   "perimeter": [
+    {
+     "lat": 43.113643,
+     "lon": 12.39291
+    },
+    {
+     "lat": 43.113643,
+     "lon": 12.392812
+    },
+    {
+     "lat": 43.113209,
+     "lon": 12.392812
+    },
+    {
+     "lat": 43.113209,
+     "lon": 12.39291
+    },
+    {
+     "lat": 43.112848,
+     "lon": 12.39291
+    },
+    {
+     "lat": 43.112848,
+     "lon": 12.393009
+    },
+    {
+     "lat": 43.113282,
+     "lon": 12.393009
+    },
+    {
+     "lat": 43.113282,
+     "lon": 12.39291
+    },
+    {
+     "lat": 43.113571,
+     "lon": 12.39291
+    },
+    {
+     "lat": 43.113571,
+     "lon": 12.393009
+    },
+    {
+     "lat": 43.113716,
+     "lon": 12.393009
+    },
+    {
+     "lat": 43.113716,
+     "lon": 12.39291
+    },
+    {
+     "lat": 43.113643,
+     "lon": 12.39291
+    }
+   ],
+   "gates": [
+    {
+     "id": "pg-osm983368549",
+     "name": "Via del Roscetto",
+     "location": {
+      "lat": 43.113924,
+      "lon": 12.393279
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1200,
+     "end": 960
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Perugia",
+    "pageURL": "https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/",
+    "ordinance": "Regolamento permessi ZTL e settori esterni (DCC 82/2012, modificato con DCC 133 del 20/07/2026)",
+    "ordinanceURL": "https://www.comune.perugia.it/wp-content/uploads/2024/11/07.01-Regolamento-permessi-ZTL.pdf",
+    "quote": "Via del Roscetto: tutti i giorni – accesso consentito dalle 16.00 alle 20.00 – accesso vietato dalle 20.00 alle 16.00 del giorno successivo",
+    "quoteTranslation": "Via del Roscetto: every day – entry allowed 16:00–20:00 – entry forbidden from 20:00 to 16:00 the next day",
+    "quoteTranslation_de": "Via del Roscetto: täglich – Einfahrt erlaubt 16–20 Uhr – verboten von 20 Uhr bis 16 Uhr am Folgetag",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Map outline not official: the City publishes only the list of entry gates. GateLR draws each zone from the streets you can't reach without passing one of those gates (OpenStreetMap streets), so the edge is approximate.",
+     "Hotels: cars going to a hotel inside the ZTL may enter without a permit, but the hotel must send the plate to the City every day (Regulation art. 25). Ask the hotel to confirm it has registered yours. Parking only to unload luggage, max 60 minutes.",
+     "Electric cars are not exempt automatically: they need a permit valid 24 hours (art. 31). A disabled badge holder on board must register the plate before entering or within 72 hours.",
+     "No tourist ticket: daily permits (2–12 €, foreign vehicles 10 €, bought online) are only for the categories listed by the City (e.g. disabled badge, taxis from other towns, weddings). Not confirmed whether the patron saint's day (San Costanzo, 29 January) counts as a holiday for the ZTL: GateLR treats it as a normal day."
+    ],
+    "pending_it": [
+     "Perimetro non ufficiale: il Comune pubblica solo l'elenco degli accessi. GateLR disegna ogni zona dalle strade che non si raggiungono senza passare da uno di quegli accessi (strade di OpenStreetMap), quindi il bordo è approssimato.",
+     "Alberghi: le auto dirette a un albergo dentro la ZTL possono entrare senza permesso, ma l'albergo deve trasmettere ogni giorno la targa al Comune (Regolamento, art. 25). Chiedi all'hotel conferma che abbia registrato la tua. Sosta solo per scaricare i bagagli, massimo 60 minuti.",
+     "Le auto elettriche non sono esenti in automatico: serve un permesso valido 24 ore su 24 (art. 31). Con a bordo il titolare di un contrassegno disabili, la targa va comunicata prima di entrare o entro 72 ore.",
+     "Nessun ticket per turisti: i permessi giornalieri (2–12 €, veicoli stranieri 10 €, online) valgono solo per le categorie indicate dal Comune (es. contrassegno disabili, taxi di altri comuni, matrimoni). Non è confermato se la festa del patrono (San Costanzo, 29 gennaio) conti come festivo per la ZTL: GateLR la tratta come un giorno normale."
+    ],
+    "pending_de": [
+     "Grenze nicht offiziell: Die Stadt veröffentlicht nur die Liste der Zufahrten. GateLR zeichnet jede Zone aus den Straßen, die man nur über eine dieser Zufahrten erreicht (Straßen aus OpenStreetMap), der Rand ist daher ungefähr.",
+     "Hotels: Autos zu einem Hotel in der ZTL dürfen ohne Genehmigung einfahren, das Hotel muss das Kennzeichen aber täglich an die Stadt melden (Regelung, Art. 25). Lass dir vom Hotel bestätigen, dass es deines gemeldet hat. Parken nur zum Ausladen, höchstens 60 Minuten.",
+     "Elektroautos sind nicht automatisch befreit: Sie brauchen eine Genehmigung, gültig rund um die Uhr (Art. 31). Mit einem Inhaber eines Behindertenausweises an Bord muss das Kennzeichen vor der Einfahrt oder innerhalb von 72 Stunden gemeldet werden.",
+     "Kein Touristenticket: Tagesgenehmigungen (2–12 €, ausländische Fahrzeuge 10 €, online) gibt es nur für die von der Stadt genannten Gruppen (z. B. Behindertenausweis, Taxis aus anderen Orten, Hochzeiten). Ob der Tag des Stadtpatrons (San Costanzo, 29. Januar) für die ZTL als Feiertag gilt, ist nicht bestätigt: GateLR behandelt ihn als normalen Tag."
+    ],
+    "links": [
+     {
+      "title": "City of Perugia: ZTL zones and hours",
+      "title_it": "Comune di Perugia: ZTL, zone e orari",
+      "title_de": "Stadt Perugia: ZTL-Zonen und Zeiten",
+      "url": "https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/"
+     },
+     {
+      "title": "City of Perugia: ZTL permit rules (amended July 2026, PDF)",
+      "title_it": "Comune di Perugia: Regolamento permessi ZTL (modificato a luglio 2026, PDF)",
+      "title_de": "Stadt Perugia: Regeln für ZTL-Genehmigungen (geändert im Juli 2026, PDF)",
+      "url": "https://www.comune.perugia.it/wp-content/uploads/2024/11/07.01-Regolamento-permessi-ZTL.pdf"
+     },
+     {
+      "title": "City of Perugia: daily or temporary permits (who may apply, online)",
+      "title_it": "Comune di Perugia: permessi giornalieri o temporanei (chi può chiederli, online)",
+      "title_de": "Stadt Perugia: Tages- oder befristete Genehmigungen (wer sie beantragen kann, online)",
+      "url": "https://www.comune.perugia.it/pagine/ztl-zona-a-traffico-limitato"
+     },
+     {
+      "title": "Minimetrò: free car park at Pian di Massiano and timetable",
+      "title_it": "Minimetrò: parcheggio gratuito a Pian di Massiano e orari",
+      "title_de": "Minimetrò: kostenloser Parkplatz Pian di Massiano und Fahrplan",
+      "url": "https://www.minimetrospa.it/"
+     },
+     {
+      "title": "City of Perugia: hotels, form to request access for guests",
+      "title_it": "Comune di Perugia: modulo 34, permessi per alberghi",
+      "title_de": "Stadt Perugia: Hotels, Antrag auf Zufahrt für Gäste",
+      "url": "https://www.comune.perugia.it/documento_pubblico/34-domanda-permessi-per-alberghi/"
+     },
+     {
+      "title": "City of Perugia: disabled badge holders, register the entry (72 hours)",
+      "title_it": "Comune di Perugia: titolari di contrassegno disabili, comunicazione dell'accesso (72 ore)",
+      "title_de": "Stadt Perugia: Behindertenausweis, Einfahrt melden (72 Stunden)",
+      "url": "https://www.comune.perugia.it/servizio/permessi-ztl-comunicazione-accesso-giornaliero-alla-ztl-del-titolare-di-contrassegno-disabili/"
+     },
+     {
+      "title": "City of Perugia: daily permit prices (Council decision 283/2025, PDF)",
+      "title_it": "Comune di Perugia: tariffe dei permessi giornalieri (delibera GC 283/2025, PDF)",
+      "title_de": "Stadt Perugia: Preise der Tagesgenehmigungen (Beschluss 283/2025, PDF)",
+      "url": "https://www.comune.perugia.it/wp-content/uploads/2025/10/DG-283-2025-PagamentoPermessi.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets used to draw the zones (ODbL)",
+      "title_it": "OpenStreetMap: strade usate per disegnare le zone (ODbL)",
+      "title_de": "OpenStreetMap: für die Zonen verwendete Straßen (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=16/43.1115/12.3890"
+     }
+    ]
+   }
+  },
+  {
+   "id": "perugia-corso-bersaglieri",
+   "name": "Corso Bersaglieri · Borgo Sant'Antonio",
+   "name_it": "Corso Bersaglieri · Borgo Sant'Antonio",
+   "name_de": "Corso Bersaglieri · Borgo Sant'Antonio",
+   "summary": "Corso Bersaglieri is closed to unauthorised vehicles from 2 pm to 9 pm on weekdays and all day on Sundays and holidays.",
+   "summary_it": "Corso Bersaglieri è chiuso ai veicoli non autorizzati dalle 14 alle 21 nei giorni feriali e tutto il giorno la domenica e i festivi.",
+   "summary_de": "Der Corso Bersaglieri ist für nicht berechtigte Fahrzeuge werktags von 14 bis 21 Uhr gesperrt, sonntags und an Feiertagen den ganzen Tag.",
+   "kind": "restricted",
+   "perimeter": [
+    {
+     "lat": 43.114294,
+     "lon": 12.39409
+    },
+    {
+     "lat": 43.114294,
+     "lon": 12.393991
+    },
+    {
+     "lat": 43.114222,
+     "lon": 12.393991
+    },
+    {
+     "lat": 43.114222,
+     "lon": 12.393893
+    },
+    {
+     "lat": 43.11415,
+     "lon": 12.393893
+    },
+    {
+     "lat": 43.11415,
+     "lon": 12.393794
+    },
+    {
+     "lat": 43.114077,
+     "lon": 12.393794
+    },
+    {
+     "lat": 43.114077,
+     "lon": 12.393597
+    },
+    {
+     "lat": 43.114005,
+     "lon": 12.393597
+    },
+    {
+     "lat": 43.114005,
+     "lon": 12.3934
+    },
+    {
+     "lat": 43.11386,
+     "lon": 12.3934
+    },
+    {
+     "lat": 43.11386,
+     "lon": 12.393499
+    },
+    {
+     "lat": 43.113933,
+     "lon": 12.393499
+    },
+    {
+     "lat": 43.113933,
+     "lon": 12.393696
+    },
+    {
+     "lat": 43.114005,
+     "lon": 12.393696
+    },
+    {
+     "lat": 43.114005,
+     "lon": 12.393893
+    },
+    {
+     "lat": 43.114077,
+     "lon": 12.393893
+    },
+    {
+     "lat": 43.114077,
+     "lon": 12.393991
+    },
+    {
+     "lat": 43.11415,
+     "lon": 12.393991
+    },
+    {
+     "lat": 43.11415,
+     "lon": 12.39409
+    },
+    {
+     "lat": 43.114222,
+     "lon": 12.39409
+    },
+    {
+     "lat": 43.114222,
+     "lon": 12.394188
+    },
+    {
+     "lat": 43.114294,
+     "lon": 12.394188
+    },
+    {
+     "lat": 43.114294,
+     "lon": 12.394286
+    },
+    {
+     "lat": 43.114367,
+     "lon": 12.394286
+    },
+    {
+     "lat": 43.114367,
+     "lon": 12.394385
+    },
+    {
+     "lat": 43.114439,
+     "lon": 12.394385
+    },
+    {
+     "lat": 43.114439,
+     "lon": 12.394483
+    },
+    {
+     "lat": 43.114512,
+     "lon": 12.394483
+    },
+    {
+     "lat": 43.114512,
+     "lon": 12.394582
+    },
+    {
+     "lat": 43.114584,
+     "lon": 12.394582
+    },
+    {
+     "lat": 43.114584,
+     "lon": 12.394385
+    },
+    {
+     "lat": 43.114512,
+     "lon": 12.394385
+    },
+    {
+     "lat": 43.114512,
+     "lon": 12.394286
+    },
+    {
+     "lat": 43.114439,
+     "lon": 12.394286
+    },
+    {
+     "lat": 43.114439,
+     "lon": 12.394188
+    },
+    {
+     "lat": 43.114367,
+     "lon": 12.394188
+    },
+    {
+     "lat": 43.114367,
+     "lon": 12.39409
+    },
+    {
+     "lat": 43.114294,
+     "lon": 12.39409
+    }
+   ],
+   "gates": [
+    {
+     "id": "pg-osm943097050",
+     "name": "Corso Bersaglieri",
+     "location": {
+      "lat": 43.113922,
+      "lon": 12.393474
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 840,
+     "end": 1260
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Perugia",
+    "pageURL": "https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/",
+    "ordinance": "Regolamento permessi ZTL e settori esterni (DCC 82/2012, modificato con DCC 133 del 20/07/2026)",
+    "ordinanceURL": "https://www.comune.perugia.it/wp-content/uploads/2024/11/07.01-Regolamento-permessi-ZTL.pdf",
+    "quote": "Corso Bersaglieri Giorni Feriali – accesso consentito dalle 21.00 alle 14.00 del giorno successivo – accesso vietato dalle 14.00 alle 21.00 Giorni Festivi – accesso vietato dalle 00.00 alle 24.00",
+    "quoteTranslation": "Corso Bersaglieri. Weekdays – entry allowed from 21:00 to 14:00 the next day – entry forbidden 14:00–21:00. Holidays – entry forbidden 00:00–24:00",
+    "quoteTranslation_de": "Corso Bersaglieri. Werktags – Einfahrt erlaubt von 21 bis 14 Uhr am Folgetag – verboten 14–21 Uhr. Feiertage – verboten 0–24 Uhr",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The City's page splits this zone's hours into weekdays («feriali») and holidays («festivi»); GateLR treats Saturday as a weekday, as usual in Italy. To be confirmed with the City.",
+     "Map outline not official: the City publishes only the list of entry gates. GateLR draws each zone from the streets you can't reach without passing one of those gates (OpenStreetMap streets), so the edge is approximate.",
+     "Hotels: cars going to a hotel inside the ZTL may enter without a permit, but the hotel must send the plate to the City every day (Regulation art. 25). Ask the hotel to confirm it has registered yours. Parking only to unload luggage, max 60 minutes.",
+     "Electric cars are not exempt automatically: they need a permit valid 24 hours (art. 31). A disabled badge holder on board must register the plate before entering or within 72 hours.",
+     "No tourist ticket: daily permits (2–12 €, foreign vehicles 10 €, bought online) are only for the categories listed by the City (e.g. disabled badge, taxis from other towns, weddings). Not confirmed whether the patron saint's day (San Costanzo, 29 January) counts as a holiday for the ZTL: GateLR treats it as a normal day."
+    ],
+    "pending_it": [
+     "La pagina del Comune divide gli orari di questa zona in «giorni feriali» e «festivi»; GateLR tratta il sabato come feriale, come d'uso. Da confermare con il Comune.",
+     "Perimetro non ufficiale: il Comune pubblica solo l'elenco degli accessi. GateLR disegna ogni zona dalle strade che non si raggiungono senza passare da uno di quegli accessi (strade di OpenStreetMap), quindi il bordo è approssimato.",
+     "Alberghi: le auto dirette a un albergo dentro la ZTL possono entrare senza permesso, ma l'albergo deve trasmettere ogni giorno la targa al Comune (Regolamento, art. 25). Chiedi all'hotel conferma che abbia registrato la tua. Sosta solo per scaricare i bagagli, massimo 60 minuti.",
+     "Le auto elettriche non sono esenti in automatico: serve un permesso valido 24 ore su 24 (art. 31). Con a bordo il titolare di un contrassegno disabili, la targa va comunicata prima di entrare o entro 72 ore.",
+     "Nessun ticket per turisti: i permessi giornalieri (2–12 €, veicoli stranieri 10 €, online) valgono solo per le categorie indicate dal Comune (es. contrassegno disabili, taxi di altri comuni, matrimoni). Non è confermato se la festa del patrono (San Costanzo, 29 gennaio) conti come festivo per la ZTL: GateLR la tratta come un giorno normale."
+    ],
+    "pending_de": [
+     "Die Seite der Stadt teilt die Zeiten dieser Zone in Werktage («feriali») und Feiertage («festivi»); GateLR behandelt den Samstag wie üblich als Werktag. Mit der Stadt zu klären.",
+     "Grenze nicht offiziell: Die Stadt veröffentlicht nur die Liste der Zufahrten. GateLR zeichnet jede Zone aus den Straßen, die man nur über eine dieser Zufahrten erreicht (Straßen aus OpenStreetMap), der Rand ist daher ungefähr.",
+     "Hotels: Autos zu einem Hotel in der ZTL dürfen ohne Genehmigung einfahren, das Hotel muss das Kennzeichen aber täglich an die Stadt melden (Regelung, Art. 25). Lass dir vom Hotel bestätigen, dass es deines gemeldet hat. Parken nur zum Ausladen, höchstens 60 Minuten.",
+     "Elektroautos sind nicht automatisch befreit: Sie brauchen eine Genehmigung, gültig rund um die Uhr (Art. 31). Mit einem Inhaber eines Behindertenausweises an Bord muss das Kennzeichen vor der Einfahrt oder innerhalb von 72 Stunden gemeldet werden.",
+     "Kein Touristenticket: Tagesgenehmigungen (2–12 €, ausländische Fahrzeuge 10 €, online) gibt es nur für die von der Stadt genannten Gruppen (z. B. Behindertenausweis, Taxis aus anderen Orten, Hochzeiten). Ob der Tag des Stadtpatrons (San Costanzo, 29. Januar) für die ZTL als Feiertag gilt, ist nicht bestätigt: GateLR behandelt ihn als normalen Tag."
+    ],
+    "links": [
+     {
+      "title": "City of Perugia: ZTL zones and hours",
+      "title_it": "Comune di Perugia: ZTL, zone e orari",
+      "title_de": "Stadt Perugia: ZTL-Zonen und Zeiten",
+      "url": "https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/"
+     },
+     {
+      "title": "City of Perugia: ZTL permit rules (amended July 2026, PDF)",
+      "title_it": "Comune di Perugia: Regolamento permessi ZTL (modificato a luglio 2026, PDF)",
+      "title_de": "Stadt Perugia: Regeln für ZTL-Genehmigungen (geändert im Juli 2026, PDF)",
+      "url": "https://www.comune.perugia.it/wp-content/uploads/2024/11/07.01-Regolamento-permessi-ZTL.pdf"
+     },
+     {
+      "title": "City of Perugia: daily or temporary permits (who may apply, online)",
+      "title_it": "Comune di Perugia: permessi giornalieri o temporanei (chi può chiederli, online)",
+      "title_de": "Stadt Perugia: Tages- oder befristete Genehmigungen (wer sie beantragen kann, online)",
+      "url": "https://www.comune.perugia.it/pagine/ztl-zona-a-traffico-limitato"
+     },
+     {
+      "title": "Minimetrò: free car park at Pian di Massiano and timetable",
+      "title_it": "Minimetrò: parcheggio gratuito a Pian di Massiano e orari",
+      "title_de": "Minimetrò: kostenloser Parkplatz Pian di Massiano und Fahrplan",
+      "url": "https://www.minimetrospa.it/"
+     },
+     {
+      "title": "City of Perugia: hotels, form to request access for guests",
+      "title_it": "Comune di Perugia: modulo 34, permessi per alberghi",
+      "title_de": "Stadt Perugia: Hotels, Antrag auf Zufahrt für Gäste",
+      "url": "https://www.comune.perugia.it/documento_pubblico/34-domanda-permessi-per-alberghi/"
+     },
+     {
+      "title": "City of Perugia: disabled badge holders, register the entry (72 hours)",
+      "title_it": "Comune di Perugia: titolari di contrassegno disabili, comunicazione dell'accesso (72 ore)",
+      "title_de": "Stadt Perugia: Behindertenausweis, Einfahrt melden (72 Stunden)",
+      "url": "https://www.comune.perugia.it/servizio/permessi-ztl-comunicazione-accesso-giornaliero-alla-ztl-del-titolare-di-contrassegno-disabili/"
+     },
+     {
+      "title": "City of Perugia: daily permit prices (Council decision 283/2025, PDF)",
+      "title_it": "Comune di Perugia: tariffe dei permessi giornalieri (delibera GC 283/2025, PDF)",
+      "title_de": "Stadt Perugia: Preise der Tagesgenehmigungen (Beschluss 283/2025, PDF)",
+      "url": "https://www.comune.perugia.it/wp-content/uploads/2025/10/DG-283-2025-PagamentoPermessi.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets used to draw the zones (ODbL)",
+      "title_it": "OpenStreetMap: strade usate per disegnare le zone (ODbL)",
+      "title_de": "OpenStreetMap: für die Zonen verwendete Straßen (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=16/43.1115/12.3890"
+     }
+    ]
+   }
+  },
+  {
+   "id": "perugia-via-bontempi",
+   "name": "Via Bontempi · residents only, 24 h",
+   "name_it": "Via Bontempi · solo residenti, h24",
+   "name_de": "Via Bontempi · nur Anwohner, 24 h",
+   "summary": "Via Bontempi and the streets off it are closed to traffic and parking 24 hours a day, every day (camera at Piazza Piccinino). Only residents with their permit, loading vehicles with authorisation (weekdays 7–10 am) and emergency or disabled-badge vehicles may enter.",
+   "summary_it": "Via Bontempi e le vie interne sono chiuse a transito e sosta 24 ore su 24, tutti i giorni (telecamera in Piazza Piccinino). Entrano solo i residenti con il loro permesso, il carico e scarico autorizzato (feriali 7–10) e i mezzi di soccorso o con contrassegno disabili.",
+   "summary_de": "Via Bontempi und die Nebenstraßen sind rund um die Uhr, jeden Tag für Verkehr und Parken gesperrt (Kamera an der Piazza Piccinino). Nur Anwohner mit Genehmigung, Lieferverkehr mit Erlaubnis (werktags 7–10 Uhr) sowie Rettungs- und Fahrzeuge mit Behindertenausweis.",
+   "kind": "restricted",
+   "perimeter": [
+    {
+     "lat": 43.112558,
+     "lon": 12.391054
+    },
+    {
+     "lat": 43.112558,
+     "lon": 12.39135
+    },
+    {
+     "lat": 43.112486,
+     "lon": 12.39135
+    },
+    {
+     "lat": 43.112486,
+     "lon": 12.391645
+    },
+    {
+     "lat": 43.112413,
+     "lon": 12.391645
+    },
+    {
+     "lat": 43.112413,
+     "lon": 12.39194
+    },
+    {
+     "lat": 43.112341,
+     "lon": 12.39194
+    },
+    {
+     "lat": 43.112341,
+     "lon": 12.392433
+    },
+    {
+     "lat": 43.112413,
+     "lon": 12.392433
+    },
+    {
+     "lat": 43.112413,
+     "lon": 12.39263
+    },
+    {
+     "lat": 43.112486,
+     "lon": 12.39263
+    },
+    {
+     "lat": 43.112486,
+     "lon": 12.392826
+    },
+    {
+     "lat": 43.112703,
+     "lon": 12.392826
+    },
+    {
+     "lat": 43.112703,
+     "lon": 12.392728
+    },
+    {
+     "lat": 43.11263,
+     "lon": 12.392728
+    },
+    {
+     "lat": 43.11263,
+     "lon": 12.39263
+    },
+    {
+     "lat": 43.112558,
+     "lon": 12.39263
+    },
+    {
+     "lat": 43.112558,
+     "lon": 12.392531
+    },
+    {
+     "lat": 43.112486,
+     "lon": 12.392531
+    },
+    {
+     "lat": 43.112486,
+     "lon": 12.392236
+    },
+    {
+     "lat": 43.112413,
+     "lon": 12.392236
+    },
+    {
+     "lat": 43.112413,
+     "lon": 12.392039
+    },
+    {
+     "lat": 43.112486,
+     "lon": 12.392039
+    },
+    {
+     "lat": 43.112486,
+     "lon": 12.391744
+    },
+    {
+     "lat": 43.112558,
+     "lon": 12.391744
+    },
+    {
+     "lat": 43.112558,
+     "lon": 12.391448
+    },
+    {
+     "lat": 43.11263,
+     "lon": 12.391448
+    },
+    {
+     "lat": 43.11263,
+     "lon": 12.390956
+    },
+    {
+     "lat": 43.112558,
+     "lon": 12.390956
+    },
+    {
+     "lat": 43.112558,
+     "lon": 12.391054
+    }
+   ],
+   "gates": [
+    {
+     "id": "pg-osm249113982",
+     "name": "Via Bontempi / Piazza Piccinino",
+     "location": {
+      "lat": 43.112707,
+      "lon": 12.39062
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": true,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Perugia",
+    "pageURL": "https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/",
+    "ordinance": "Ordinanza S.O. Sicurezza n. 297 del 02/03/2024 (mini ZTL, varchi elettronici dall'11/04/2024)",
+    "ordinanceURL": "https://www.comune.perugia.it/wp-content/uploads/2024/11/07.01-Regolamento-permessi-ZTL.pdf",
+    "quote": "Via Bontempi e vie interne ad essa tutti i giorni divieto di transito e sosta dalle 00,00 alle 24,00",
+    "quoteTranslation": "Via Bontempi and the streets off it: every day, no driving or parking from 00:00 to 24:00",
+    "quoteTranslation_de": "Via Bontempi und die Nebenstraßen: täglich Fahr- und Parkverbot von 0 bis 24 Uhr",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Exemptions (residents of Via Bontempi, loading weekdays 7–10 am with authorisation, emergency services, disabled badge) are from the City's March 2024 press release on order no. 297/2024, read in a local newspaper. The side streets are not listed: only Via Bontempi is drawn.",
+     "Map outline not official: the City publishes only the list of entry gates. GateLR draws each zone from the streets you can't reach without passing one of those gates (OpenStreetMap streets), so the edge is approximate.",
+     "Hotels: cars going to a hotel inside the ZTL may enter without a permit, but the hotel must send the plate to the City every day (Regulation art. 25). Ask the hotel to confirm it has registered yours. Parking only to unload luggage, max 60 minutes.",
+     "Electric cars are not exempt automatically: they need a permit valid 24 hours (art. 31). A disabled badge holder on board must register the plate before entering or within 72 hours.",
+     "No tourist ticket: daily permits (2–12 €, foreign vehicles 10 €, bought online) are only for the categories listed by the City (e.g. disabled badge, taxis from other towns, weddings). Not confirmed whether the patron saint's day (San Costanzo, 29 January) counts as a holiday for the ZTL: GateLR treats it as a normal day."
+    ],
+    "pending_it": [
+     "Le deroghe (residenti di via Bontempi, carico e scarico feriali 7–10 con autorizzazione, soccorso, contrassegno disabili) vengono dal comunicato del Comune di marzo 2024 sull'ordinanza n. 297/2024, letto su un giornale locale. Le vie interne non sono elencate: è disegnata solo via Bontempi.",
+     "Perimetro non ufficiale: il Comune pubblica solo l'elenco degli accessi. GateLR disegna ogni zona dalle strade che non si raggiungono senza passare da uno di quegli accessi (strade di OpenStreetMap), quindi il bordo è approssimato.",
+     "Alberghi: le auto dirette a un albergo dentro la ZTL possono entrare senza permesso, ma l'albergo deve trasmettere ogni giorno la targa al Comune (Regolamento, art. 25). Chiedi all'hotel conferma che abbia registrato la tua. Sosta solo per scaricare i bagagli, massimo 60 minuti.",
+     "Le auto elettriche non sono esenti in automatico: serve un permesso valido 24 ore su 24 (art. 31). Con a bordo il titolare di un contrassegno disabili, la targa va comunicata prima di entrare o entro 72 ore.",
+     "Nessun ticket per turisti: i permessi giornalieri (2–12 €, veicoli stranieri 10 €, online) valgono solo per le categorie indicate dal Comune (es. contrassegno disabili, taxi di altri comuni, matrimoni). Non è confermato se la festa del patrono (San Costanzo, 29 gennaio) conti come festivo per la ZTL: GateLR la tratta come un giorno normale."
+    ],
+    "pending_de": [
+     "Die Ausnahmen (Anwohner der Via Bontempi, Lieferverkehr werktags 7–10 Uhr mit Erlaubnis, Rettungsdienste, Behindertenausweis) stammen aus der Pressemitteilung der Stadt vom März 2024 zur Anordnung Nr. 297/2024, gelesen in einer Lokalzeitung. Die Nebenstraßen sind nicht aufgelistet: nur die Via Bontempi ist eingezeichnet.",
+     "Grenze nicht offiziell: Die Stadt veröffentlicht nur die Liste der Zufahrten. GateLR zeichnet jede Zone aus den Straßen, die man nur über eine dieser Zufahrten erreicht (Straßen aus OpenStreetMap), der Rand ist daher ungefähr.",
+     "Hotels: Autos zu einem Hotel in der ZTL dürfen ohne Genehmigung einfahren, das Hotel muss das Kennzeichen aber täglich an die Stadt melden (Regelung, Art. 25). Lass dir vom Hotel bestätigen, dass es deines gemeldet hat. Parken nur zum Ausladen, höchstens 60 Minuten.",
+     "Elektroautos sind nicht automatisch befreit: Sie brauchen eine Genehmigung, gültig rund um die Uhr (Art. 31). Mit einem Inhaber eines Behindertenausweises an Bord muss das Kennzeichen vor der Einfahrt oder innerhalb von 72 Stunden gemeldet werden.",
+     "Kein Touristenticket: Tagesgenehmigungen (2–12 €, ausländische Fahrzeuge 10 €, online) gibt es nur für die von der Stadt genannten Gruppen (z. B. Behindertenausweis, Taxis aus anderen Orten, Hochzeiten). Ob der Tag des Stadtpatrons (San Costanzo, 29. Januar) für die ZTL als Feiertag gilt, ist nicht bestätigt: GateLR behandelt ihn als normalen Tag."
+    ],
+    "links": [
+     {
+      "title": "City of Perugia: ZTL zones and hours",
+      "title_it": "Comune di Perugia: ZTL, zone e orari",
+      "title_de": "Stadt Perugia: ZTL-Zonen und Zeiten",
+      "url": "https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/"
+     },
+     {
+      "title": "City of Perugia: ZTL permit rules (amended July 2026, PDF)",
+      "title_it": "Comune di Perugia: Regolamento permessi ZTL (modificato a luglio 2026, PDF)",
+      "title_de": "Stadt Perugia: Regeln für ZTL-Genehmigungen (geändert im Juli 2026, PDF)",
+      "url": "https://www.comune.perugia.it/wp-content/uploads/2024/11/07.01-Regolamento-permessi-ZTL.pdf"
+     },
+     {
+      "title": "City of Perugia: daily or temporary permits (who may apply, online)",
+      "title_it": "Comune di Perugia: permessi giornalieri o temporanei (chi può chiederli, online)",
+      "title_de": "Stadt Perugia: Tages- oder befristete Genehmigungen (wer sie beantragen kann, online)",
+      "url": "https://www.comune.perugia.it/pagine/ztl-zona-a-traffico-limitato"
+     },
+     {
+      "title": "Minimetrò: free car park at Pian di Massiano and timetable",
+      "title_it": "Minimetrò: parcheggio gratuito a Pian di Massiano e orari",
+      "title_de": "Minimetrò: kostenloser Parkplatz Pian di Massiano und Fahrplan",
+      "url": "https://www.minimetrospa.it/"
+     },
+     {
+      "title": "City of Perugia: hotels, form to request access for guests",
+      "title_it": "Comune di Perugia: modulo 34, permessi per alberghi",
+      "title_de": "Stadt Perugia: Hotels, Antrag auf Zufahrt für Gäste",
+      "url": "https://www.comune.perugia.it/documento_pubblico/34-domanda-permessi-per-alberghi/"
+     },
+     {
+      "title": "City of Perugia: disabled badge holders, register the entry (72 hours)",
+      "title_it": "Comune di Perugia: titolari di contrassegno disabili, comunicazione dell'accesso (72 ore)",
+      "title_de": "Stadt Perugia: Behindertenausweis, Einfahrt melden (72 Stunden)",
+      "url": "https://www.comune.perugia.it/servizio/permessi-ztl-comunicazione-accesso-giornaliero-alla-ztl-del-titolare-di-contrassegno-disabili/"
+     },
+     {
+      "title": "City of Perugia: daily permit prices (Council decision 283/2025, PDF)",
+      "title_it": "Comune di Perugia: tariffe dei permessi giornalieri (delibera GC 283/2025, PDF)",
+      "title_de": "Stadt Perugia: Preise der Tagesgenehmigungen (Beschluss 283/2025, PDF)",
+      "url": "https://www.comune.perugia.it/wp-content/uploads/2025/10/DG-283-2025-PagamentoPermessi.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets used to draw the zones (ODbL)",
+      "title_it": "OpenStreetMap: strade usate per disegnare le zone (ODbL)",
+      "title_de": "OpenStreetMap: für die Zonen verwendete Straßen (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=16/43.1115/12.3890"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Perugia official pages and documents. Perimeters and gates: derived from the official list of entry gates with street data © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}
