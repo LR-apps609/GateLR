@@ -88,7 +88,9 @@ class CoreTest {
         assertTrue(verdict(c, car.copy(fuel = Fuel.ELECTRIC, euro = 0), monday) is Verdict.Yes)
         assertTrue(verdict(c, car.copy(fuel = Fuel.HYBRID, euro = 6), monday) is Verdict.Conditional)
         val lines = carAdvice(car.copy(fuel = Fuel.DIESEL, euro = 5), cities.values.toList(), monday)
-        assertEquals(2, lines.count { !it.ok })
+        // Area B e Area C di Milano (altre città possono aggiungere divieti, es. le domeniche ecologiche di Parma), come nel test iOS
+        val milan = cities.getValue("milano").localizedName
+        assertEquals(2, lines.count { !it.ok && it.city == milan })
     }
 
     @Test fun holidaysAndEaster() {
