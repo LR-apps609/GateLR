@@ -31,6 +31,9 @@ final class Store: ObservableObject {
     @Published var log: [LogEntry] = [] { didSet { save() } }
     /// Il posto scelto nella pagina Varco (indirizzo, hotel, piazza); nil = solo la città
     @Published var place: Place?
+    /// L'ora scelta nel chip «Adesso ▾» (ContextChips): nil = adesso. Non si salva: a ogni avvio si riparte da «Adesso».
+    /// Il veicolo scelto nel chip è activeVehicleId, che invece resta salvato.
+    @Published var when: Date?
 
     let engine = RuleEngine()
     private let key = "garage.v1"

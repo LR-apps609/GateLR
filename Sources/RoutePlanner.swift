@@ -69,7 +69,7 @@ final class RoutePlanner: ObservableObject {
             var plan = RoutePlan(destination: place, path: raw, distance: route.distance, travelTime: route.expectedTravelTime,
                                  departure: departure, crossings: crossings)
             if plan.destinationBlocked,
-               let parking = await Self.parkingOutside(near: place, zones: zones, vehicle: store.vehicle, at: plan.arrival) {
+               let parking = await Self.parkingOutside(near: place, store: store, at: plan.arrival) {
                 plan.parking = parking
                 plan.walkMeters = Self.meters(parking.location, place.location)
             }
@@ -88,7 +88,22 @@ final class RoutePlanner: ObservableObject {
         return max(now, wanted.addingTimeInterval(-travelTime))
     }
 
-    /// Il parcheggio fuori dalle zone vietate o a pagamento più vicino alla destinazione
+    /// Il parcheggio più vicino alla destinazione fuori da ogni ZTL attiva all'arrivo: prima i dati di OpenStreetMap
+    /// (ParkingData, con gli orari), poi la ricerca di Apple
+    static func parkingOutside(near place: Place, store: Store, at date: Date) async -> Place? {
+        let zones = store.cities.flatMap(\.zones)
+        if let city = store.zones(at: place.location).first?.city ?? store.nearestCity(to: place.location) {
+            let spots = await ParkingData.spots(for: city)
+            let pedestrian = store.cities.flatMap { $0.pedestrian ?? [] }
+            let answer: (Zone, Date) -> Answer = { store.answer(at: $1, zone: $0, hotelInside: false) }
+            let ok = spots.filter { s in ParkOutside.isOutside(s.location, zones: zones, pedestrian: pedestrian, at: date, answer: answer) }
+            let holiday = ItalianHolidays.isHoliday(date, calendar: RuleEngine.rome, local: city.localHolidays)
+            if let best = ParkOutside.rank(ok, to: place.location, at: date, holiday: holiday).first { return best.spot.place }
+        }
+        return await parkingOutside(near: place, zones: zones, vehicle: store.vehicle, at: date)
+    }
+
+    /// Il parcheggio fuori dalle zone vietate o a pagamento più vicino alla destinazione (ricerca di Apple)
     static func parkingOutside(near place: Place, zones: [Zone], vehicle: Vehicle, at date: Date) async -> Place? {
         let region = MKCoordinateRegion(center: place.location.cl, latitudinalMeters: 3_000, longitudinalMeters: 3_000)
         let poi = MKLocalPointsOfInterestRequest(coordinateRegion: region)

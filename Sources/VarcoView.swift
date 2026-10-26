@@ -18,12 +18,14 @@ struct VarcoView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     header
+                    // L'ora e il veicolo per cui rispondono il riquadro, le città e le zone (anche mappa e Viaggio)
+                    ContextChips()
                     if guardian.active { guardianBanner }
-                    askCard(at: ctx.date)
+                    askCard(at: store.moment(ctx.date))
                     nearYou(at: ctx.date)
                     if let next = store.trips.filter({ $0.arrival > ctx.date }).min(by: { $0.arrival < $1.arrival }) { nextTrip(next) }
-                    cities(at: ctx.date)
-                    zones(at: ctx.date)
+                    cities(at: store.moment(ctx.date))
+                    zones(at: store.moment(ctx.date))
                     HStack(alignment: .top, spacing: 12) {
                         learnCard
                         signCard
@@ -178,6 +180,10 @@ struct VarcoView: View {
             }
             Label { Text(verbatim: check.place.name).lineLimit(1) } icon: { Image(systemName: "mappin.and.ellipse") }
                 .font(.app(size: 15, weight: .semibold))
+            if store.when != nil {
+                Label { Text(verbatim: String(format: L("For %@"), TimeChoice.label(store.when))) } icon: { Image(systemName: "clock") }
+                    .font(.app(size: 13, weight: .semibold)).opacity(0.9)
+            }
             HStack(spacing: 14) {
                 Image(systemName: check.symbol).font(.app(size: 26, weight: .heavy))
                     .foregroundStyle(amber ? Color.white : v.fill)
@@ -208,6 +214,22 @@ struct VarcoView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel(L("Show on the map"))
+            }
+            // Rosso o ambra: i parcheggi fuori dalla ZTL, con minuti a piedi, prezzi e orari, sono in Viaggio
+            if check.suggestsParking {
+                Button { tab = .trip } label: {
+                    HStack(spacing: 6) {
+                        Image(systemName: "parkingsign.circle.fill")
+                        Text("Park outside and walk")
+                        Spacer(minLength: 0)
+                        Image(systemName: "chevron.right").font(.app(size: 12, weight: .bold))
+                    }
+                    .font(.app(size: 14, weight: .semibold))
+                    .padding(.horizontal, 12).frame(minHeight: 40)
+                    .background(ink.opacity(0.12), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("varco.park")
             }
         }
         .padding(20)

@@ -3,6 +3,21 @@
 Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
 
+## ★ Ora, veicolo, legenda e parcheggi fuori dalla ZTL
+- [ ] Prima pagina, Mappa e Viaggio: sotto il titolo i due chip «Adesso ▾» e «<auto> · benzina Euro 6 ▾»; cambiando uno dei due in una pagina cambia anche nelle altre
+- [ ] «Adesso ▾» → «Stasera 20:00» (solo prima delle 20), «Domani 09:00», «Scegli giorno e ora…» (calendario in ora italiana, «Adesso» lo azzera); il chip diventa blu con l'ora scelta
+- [ ] Con un'ora scelta: riquadro della prima pagina («Per stasera 20:00»), colori delle zone in Mappa, scheda del posto e risposta in Viaggio cambiano insieme (es. Firenze settore A: 18:00 rosso, 21:00 verde)
+- [ ] Chiudi l'app dal multitasking e riaprila: l'ora torna «Adesso», il veicolo scelto resta
+- [ ] Chip del veicolo → un altro veicolo del Garage: la risposta cambia (es. Milano Area B con un diesel Euro 5); «Aggiungi un veicolo» → salva → diventa quello in uso
+- [ ] Mappa senza posto cercato: zone rosse «Non puoi entrare» (bordo pieno, ✕), ambra «Puoi entrare se…» (tratteggio, !), grigio-blu «Da verificare» (puntini, ?), verdi «Puoi entrare» (✓); il simbolo è anche sulla lettera della zona
+- [ ] Pulsante «i» della Mappa: la legenda spiega le quattro risposte e dice per quale ora e veicolo valgono
+- [ ] Un giorno festivo non confermato (es. 8 dicembre con l'ora scelta) → zone «Da verificare»
+- [ ] Posto rosso o ambra (es. Duomo di Firenze alle 18 di un giorno feriale, Duomo di Milano in Area C): in Viaggio il riquadro «Parcheggia fuori e cammina» con 3 parcheggi, minuti a piedi, prezzo, «Aperto adesso» / orari, posti; in Mappa il pulsante «Parcheggia fuori e cammina» apre lo stesso elenco e mette le P sulla mappa; nella prima pagina il pulsante porta a Viaggio
+- [ ] I parcheggi proposti sono FUORI dalla ZTL attiva all'ora scelta (controlla sulla mappa); con la posizione attiva compare «Strada fin lì senza ZTL attive»
+- [ ] Tocca un parcheggio → «Avvia» porta lì (navigatore preferito o GateLR) e sotto c'è «Poi N min a piedi fino a …»
+- [ ] 🚗 Arrivato al parcheggio: prezzo e orari corrispondono al cartello (se no, segnalalo: i dati sono di OpenStreetMap)
+- [ ] Modalità aereo con una città mai aperta prima: i parcheggi arrivano dai dati dentro l'app (nessuna attesa)
+
 ## ★ Fotocamera (1.13.1)
 - [ ] «Leggi il cartello» → «Usa la fotocamera»: la prima volta compare la richiesta di iOS dentro l'app
 - [ ] Se la fotocamera era negata: riquadro «Consenti la fotocamera» → «Apri Impostazioni» apre la pagina di GateLR → attiva Fotocamera → torna nell'app: la fotocamera si apre da sola

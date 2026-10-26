@@ -31,6 +31,10 @@ targets:
       - path: Resources/Signals
         type: folder
         buildPhase: resources
+      # Parcheggi fuori dalle ZTL (OpenStreetMap, ODbL): Tools/fetch_parking.py + Tools/build_parking.py
+      - path: Resources/Parking
+        type: folder
+        buildPhase: resources
       # Regole valide in tutta Italia (multe), le stesse del sito
       - path: Resources/Rules
         type: folder

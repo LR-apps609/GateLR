@@ -1,0 +1,5 @@
+Parcheggi fuori dalle ZTL, uno per città (<id>.json): amenity=parking di OpenStreetMap con nome, tariffa (fee, charge),
+orari (opening_hours), posti (capacity) e tipo (parking=multi-storey, underground, surface).
+Dati © OpenStreetMap contributors, Open Database License (ODbL) 1.0 – https://www.openstreetmap.org/copyright
+Si aggiornano così: GitHub → Actions → «Geometrie città» con script Tools/fetch_parking.py (ramo geo-data),
+poi python3 Tools/build_parking.py <cartella con i file *-parking.json>.

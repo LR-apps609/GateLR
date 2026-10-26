@@ -77,9 +77,20 @@ struct Pill: View {
     }
 }
 
+/// La risposta in breve, con il simbolo (✓ ✕ ! ?) oltre al colore: si legge anche senza distinguere i colori
 struct VerdictPill: View {
     var verdict: Verdict
-    var body: some View { Pill(text: verdict.short, fill: verdict.pillFill, ink: verdict.pillInk) }
+    var body: some View {
+        HStack(spacing: 4) {
+            Image(systemName: verdict.symbol).font(.system(size: 9, weight: .heavy)).accessibilityHidden(true)
+            Text(verdict.short)
+        }
+        .font(.app(size: 12, weight: .semibold))
+        .padding(.horizontal, 9).padding(.vertical, 4)
+        .background(verdict.pillFill, in: Capsule())
+        .foregroundStyle(verdict.pillInk)
+        .fixedSize()
+    }
 }
 
 /// Il riquadro grande con la risposta

@@ -30,6 +30,9 @@ struct MapScreen: View {
     @State private var selectedParking: Parking?
     @State private var lookAround: MKLookAroundScene?
     @State private var showLookAround = false
+    /// «Parcheggia fuori e cammina» per il posto cercato: il foglio e i parcheggi proposti (P sulla mappa)
+    @State private var parkSheet = false
+    @State private var outsideSpots: [ParkingOption] = []
     /// La mappa scura solo mentre la scheda Mappa è davanti: dietro alle altre schede resta quella normale
     @State private var visible = false
     @Environment(\.colorScheme) private var scheme
@@ -67,7 +70,9 @@ struct MapScreen: View {
 
     var body: some View {
         let zone = store.zone
-        let answer = store.answer()
+        // L'ora e il veicolo dei chip: colori delle zone, varchi, scheda della zona e del posto
+        let moment = store.moment()
+        let answer = store.answer(at: moment)
         // Le forme pronte (ordinate, grandi sotto) si calcolano una volta per ogni versione dei dati, non a ogni disegno
         // Da lontano perimetri semplificati e solo le zone nella parte visibile (MapShapes, ricalcolati solo
         // quando cambia il gradino di zoom o la parte visibile alla fine di un gesto)
@@ -76,7 +81,7 @@ struct MapScreen: View {
         let gateGroups = distance < MapDetail.gateDistance
             ? MapShapes.gates(store, in: visibleBox, selected: zone.id, near: distance < 6_000) : []
         // Il posto cercato: la risposta si calcola una volta per disegno e vale per zone, spillo e scheda
-        let check = store.place.map { PlaceCheck($0, store: store) }
+        let check = store.place.map { PlaceCheck($0, store: store, at: moment) }
         let lit = check?.zoneIds ?? []
         let night = visible && check != nil && style == .standard
         MapReader { proxy in
@@ -85,7 +90,9 @@ struct MapScreen: View {
                     let z = shape.zone
                     let selected = z.id == zone.id
                     let on = lit.contains(z.id)
-                    let tint = on ? (check?.neon ?? z.type.color) : z.type.color
+                    // Il colore è la risposta per quell'ora e quel veicolo (no, se…, da verificare, sì), con il suo tratto
+                    let access = AccessCache.access(z, store: store, at: moment)
+                    let tint = on ? (check?.neon ?? access.color) : access.color
                     if check != nil {
                         // Con un posto cercato: accese (rosso o verde, con un bagliore) le zone che lo contengono,
                         // appena accennate le altre
@@ -98,18 +105,18 @@ struct MapScreen: View {
                             .foregroundStyle(on ? tint.opacity(0.18) : tint.opacity(0.05))
                             .stroke(on ? tint : Color.white.opacity(0.22), lineWidth: on ? 2.5 : 1)
                     } else {
-                        // Il verde (zone a basse emissioni) pieno e ben visibile; rosso e giallo tratteggiati
+                        // Bordo pieno per «no» e «sì», tratteggiato per «se…», a puntini per «da verificare» (AccessLegend)
                         MapPolygon(coordinates: shape.coords)
-                            .foregroundStyle(tint.opacity(z.type == .green ? (selected ? 0.30 : 0.20) : (selected ? 0.24 : 0.13)))
-                            .stroke(tint.opacity(selected || z.type == .green ? 1 : 0.7),
-                                    style: StrokeStyle(lineWidth: z.type == .green ? 4 : (selected ? 3 : 2), dash: z.type == .green ? [] : [8, 5]))
+                            .foregroundStyle(tint.opacity(selected ? access.fillOpacity + 0.08 : access.fillOpacity))
+                            .stroke(tint.opacity(selected ? 1 : 0.8),
+                                    style: StrokeStyle(lineWidth: selected ? 3.5 : (access == .closed ? 2.5 : 2), dash: access.dash))
                     }
                     // Un solo segno piccolo per zona: lettera e colore (la legenda spiega i colori)
                     if shape.width > distance * 0.06 && (check == nil || on) {
                         Annotation("", coordinate: shape.label, anchor: .center) {
-                            letterBadge(z, selected: selected)
+                            letterBadge(z, selected: selected, access: access)
                                 .onTapGesture { withAnimation(.snappy) { select(z) } }
-                                .accessibilityLabel("\(z.localizedName), \(z.type.title)")
+                                .accessibilityLabel("\(z.localizedName), \(z.type.title), \(access.title)")
                                 .accessibilityAddTraits(.isButton)
                         }
                     }
@@ -137,7 +144,7 @@ struct MapScreen: View {
                 }
                 // Ogni varco con lo stato della sua zona
                 ForEach(gateGroups) { group in
-                    let on = store.engine.isActive(group.zone, at: Date())
+                    let on = store.engine.isActive(group.zone, at: moment)
                     ForEach(group.gates) { g in
                         Annotation(g.name, coordinate: g.location.cl) {
                             Image(systemName: "video.fill")
@@ -181,6 +188,20 @@ struct MapScreen: View {
                             .accessibilityHidden(true)
                     }
                     .annotationTitles(.hidden)
+                }
+                // I parcheggi di «Parcheggia fuori e cammina» per il posto cercato
+                ForEach(outsideSpots) { o in
+                    Annotation(o.spot.displayName, coordinate: o.spot.location.cl) {
+                        Text("P").font(.app(size: 15, weight: .heavy)).foregroundStyle(.white)
+                            .frame(width: 30, height: 30)
+                            .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
+                            .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous).stroke(.white, lineWidth: 2))
+                            .overlay(alignment: .bottomTrailing) {
+                                Image(systemName: "figure.walk").font(.system(size: 8, weight: .bold)).foregroundStyle(Theme.blueFill)
+                                    .frame(width: 14, height: 14).background(.white, in: Circle()).offset(x: 5, y: 5)
+                            }
+                            .onTapGesture { parkSheet = true }
+                    }
                 }
                 ForEach(parkings) { p in
                     Annotation(p.name, coordinate: p.coordinate) {
@@ -235,11 +256,13 @@ struct MapScreen: View {
         .onDisappear { visible = false }
         .onChange(of: store.cityId) { parkings = []; focus() }
         .onChange(of: store.place) {
+            outsideSpots = []
             focus()
             if store.place != nil { MapSearchTip().invalidate(reason: .actionPerformed) }
         }
         .onChange(of: planner.plan) { focus() }
         .sheet(item: $selectedParking) { p in ParkingSheet(parking: p).presentationDetents([.height(260)]) }
+        .sheet(isPresented: $parkSheet) { parkOutsideSheet }
         .fullScreenCover(isPresented: $driving) { DriveView() }
         .sheet(isPresented: $showLookAround) {
             LookAroundPreview(initialScene: lookAround)
@@ -286,8 +309,33 @@ struct MapScreen: View {
         }
     }
 
-    private func letterBadge(_ z: Zone, selected: Bool) -> some View {
-        let tint = z.type.color
+    /// Il foglio «Parcheggia fuori e cammina»: «Avvia» chiude il foglio e parte verso il parcheggio
+    @ViewBuilder
+    private var parkOutsideSheet: some View {
+        if let place = store.place {
+            ScrollView {
+                ParkOutsideCard(destination: place, arrival: store.moment(), onStart: { target in
+                    parkSheet = false
+                    Task {
+                        try? await Task.sleep(for: .milliseconds(450))
+                        await DriveSession.shared.start(to: target, store: store)
+                        driving = DriveSession.shared.active
+                    }
+                }, onGuardian: { target, navigator in
+                    parkSheet = false
+                    Guardian.shared.start(to: target, with: navigator, store: store)
+                }, onOptions: { outsideSpots = $0 })
+                .padding(16)
+            }
+            .background(Theme.ground)
+            .presentationDetents([.medium, .large])
+            .environmentObject(store)
+        }
+    }
+
+    /// La lettera del settore nel colore della risposta, con il simbolo (✕ ! ? ✓) per chi non distingue i colori
+    private func letterBadge(_ z: Zone, selected: Bool, access: Access) -> some View {
+        let tint = access.color
         let size: CGFloat = selected ? 32 : 26
         return Text(z.letter.count > 2 ? String(z.letter.prefix(1)) : z.letter)
             .font(Theme.display(selected ? 17 : 14))
@@ -296,6 +344,12 @@ struct MapScreen: View {
             .frame(width: size, height: size)
             .background(tint, in: Circle())
             .overlay(Circle().stroke(.white, lineWidth: selected ? 3 : 2))
+            .overlay(alignment: .bottomTrailing) {
+                Image(systemName: access.symbol).font(.system(size: selected ? 8 : 7, weight: .black)).foregroundStyle(tint)
+                    .frame(width: selected ? 15 : 13, height: selected ? 15 : 13)
+                    .background(.white, in: Circle())
+                    .offset(x: 4, y: 4)
+            }
             .shadow(color: .black.opacity(0.25), radius: 3, y: 1)
     }
 
@@ -338,6 +392,8 @@ struct MapScreen: View {
                 }
                 .accessibilityLabel(L("Map style"))
             }
+            // L'ora e il veicolo per cui sono colorate le zone (gli stessi della prima pagina)
+            if !typing { ContextChips(material: true) }
             if typing && !search.query.isEmpty {
                 suggestions
             } else if showLegend {
@@ -358,9 +414,10 @@ struct MapScreen: View {
 
     private var legend: some View {
         VStack(alignment: .leading, spacing: 8) {
-            ForEach(ZoneKind.allCases, id: \.self) { k in
-                legendRow(k.title, RoundedRectangle(cornerRadius: 3).fill(k.color))
-            }
+            Text(String(format: L("Colours for %@ · %@"), TimeChoice.label(store.when), store.vehicle.chipLabel))
+                .font(Theme.label(12)).foregroundStyle(Theme.muted).lineLimit(2)
+            AccessLegend()
+            Divider()
             legendRow(L("Pedestrian area"), RoundedRectangle(cornerRadius: 3).fill(Theme.red.opacity(0.4)))
             legendRow(L("Camera on"), Circle().fill(Theme.red))
             legendRow(L("Camera off"), Circle().fill(Theme.green))
@@ -472,6 +529,10 @@ struct MapScreen: View {
                     store.select(place); tab = .trip
                 }
             }
+            if check.suggestsParking {
+                WideButton(title: "Park outside and walk", systemImage: "figure.walk", prominent: false) { parkSheet = true }
+                    .accessibilityIdentifier("map.park")
+            }
         }
         .padding(18)
         .background(Theme.card, in: RoundedRectangle(cornerRadius: 24, style: .continuous))
@@ -561,7 +622,7 @@ struct MapScreen: View {
             }
             // Fuori dalle zone vietate o a pagamento (dentro l'Area B verde si può parcheggiare)
             let outside = items.filter { item in
-                !store.city.zones.contains { $0.contains(item.placemark.coordinate) && $0.closes(to: store.vehicle, at: Date()) }
+                !store.city.zones.contains { $0.contains(item.placemark.coordinate) && $0.closes(to: store.vehicle, at: store.moment()) }
             }
             parkings = outside.prefix(12).map { Parking(item: $0) }
             parkingMessage = parkings.isEmpty ? L("No car parks found just outside the zone.")

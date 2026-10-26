@@ -13,8 +13,6 @@ struct TripView: View {
     @Binding var showZone: Bool
     @Binding var tab: Tab
     @FocusState private var typing: Bool
-    @State private var atArrival = false
-    @State private var arrival = TripView.upcoming(hour: 18)
     @State private var resolving = false
     @State private var driving = false
     @State private var hotelName = ""
@@ -27,8 +25,8 @@ struct TripView: View {
 
     var body: some View {
         TimelineView(.everyMinute) { ctx in
-            // Un arrivo rimasto nel passato (app ripresa dopo ore) vale come «adesso»
-            let date = atArrival ? max(arrival, ctx.date) : ctx.date
+            // L'ora scelta nei chip (la stessa della prima pagina e della mappa); rimasta nel passato vale «adesso»
+            let date = store.moment(ctx.date)
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     header
@@ -51,7 +49,7 @@ struct TripView: View {
                 }
                 .padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 24)
                 .animation(.snappy, value: store.place)
-                .animation(.snappy, value: atArrival)
+                .animation(.snappy, value: store.when)
             }
             .scrollDismissesKeyboard(.immediately)
             .background(Theme.ground)
@@ -68,8 +66,8 @@ struct TripView: View {
         .onChange(of: store.cityId) { search.focus(on: store.city) }
         .onChange(of: store.place) { planner.clear(); hotelName = "" }
         .fullScreenCover(isPresented: $driving) { DriveView() }
-        .onChange(of: atArrival) { planner.clear() }
-        .onChange(of: arrival) { planner.clear() }
+        .onChange(of: store.when) { planner.clear() }
+        .onChange(of: store.activeVehicleId) { planner.clear() }
     }
 
     // MARK: Testata e ricerca
@@ -164,25 +162,13 @@ struct TripView: View {
 
     // MARK: Adesso / all'arrivo
 
+    /// «Adesso ▾» e il veicolo: la stessa scelta della prima pagina e della mappa (Store.when, Store.activeVehicleId)
     private var whenRow: some View {
-        HStack(spacing: 10) {
-            Picker(L("When"), selection: $atArrival) {
-                Text("Now").tag(false)
-                Text("At arrival").tag(true)
-            }
-            .pickerStyle(.segmented)
-            .frame(maxWidth: 220)
-            Spacer(minLength: 0)
-            if atArrival {
-                // Il minimo arrotondato al minuto: con «Date()» il limite cambiava a ogni disegno e, con l'arrivo
-                // già passato (app ripresa dopo ore), il selettore correggeva la data → nuovo disegno → di nuovo
-                DatePicker(L("Arrival"), selection: $arrival, in: Self.minuteFloor(Date())...)
-                    .labelsHidden()
-                    .environment(\.timeZone, RuleEngine.rome.timeZone)      // l'ora di arrivo in Italia, come la conta il motore
-                    .transition(.opacity)
-            }
-        }
+        ContextChips()
     }
+
+    /// Vero se si guarda un'ora scelta (l'arrivo), non adesso
+    private var atArrival: Bool { store.when.map { $0 > Date() } ?? false }
 
     private func heading(_ zone: Zone, _ date: Date) -> String {
         atArrival
@@ -226,6 +212,17 @@ struct TripView: View {
                 }
             }
             routeCard(place)
+            // Rosso o ambra all'ora scelta: i parcheggi fuori da ogni ZTL attiva, poi a piedi
+            if PlaceCheck(place, store: store, at: date).suggestsParking {
+                ParkOutsideCard(destination: place, arrival: date, onStart: { target in
+                    Task {
+                        await DriveSession.shared.start(to: target, store: store)
+                        driving = DriveSession.shared.active
+                    }
+                }, onGuardian: { target, navigator in
+                    Guardian.shared.start(to: target, with: navigator, store: store)
+                })
+            }
             if let ticket = hit.zone.ticket, store.engine.isActive(hit.zone, at: date), store.pedestrianArea(at: place.location) == nil {
                 TicketCard(zone: hit.zone, ticket: ticket, entry: date)
             }
@@ -432,8 +429,9 @@ struct TripView: View {
                     let zone = t.hotel.flatMap { store.zones(at: $0.location).first?.zone }
                     Button {
                         if let h = t.hotel { store.select(h) }
-                        arrival = max(t.arrival, Date())
-                        atArrival = true
+                        // L'arrivo del viaggio e la sua auto diventano la scelta di tutta l'app
+                        store.when = t.arrival > Date() ? t.arrival : nil
+                        if let v = t.vehicleId, store.vehicles.contains(where: { $0.id == v }) { store.activeVehicleId = v }
                         hotelName = t.hotelName
                     } label: {
                         HStack(spacing: 12) {
@@ -519,7 +517,7 @@ struct TripView: View {
 
     /// L'arrivo scelto, mai nel passato: il selettore lo mostra dal minuto attuale, ma la data salvata
     /// poteva restare quella di ore prima (viaggio salvato, percorso e messaggio per l'hotel con un giorno passato)
-    private var arrivalTime: Date { max(arrival, Self.minuteFloor(Date())) }
+    private var arrivalTime: Date { max(store.moment(), Self.minuteFloor(Date())) }
 
     static func minuteFloor(_ d: Date) -> Date {
         Date(timeIntervalSinceReferenceDate: (d.timeIntervalSinceReferenceDate / 60).rounded(.down) * 60)
