@@ -1,0 +1,30 @@
+1 200 3515250 https://s93719c543e6e84f7.jimcontent.com/download/version/1423133575/module/11109032222/name/O.D.%20-%20ZTL.pdf -> 1-O.D._20-_20ZTL.pdf_
+2 000ERR  http://www.poliziamunicipalebari.it/home-page/cosa-fare-in-caso-di/rilascio-permessi-ztl/ -> 2-rilascio-permessi-ztl_
+3 200 111174 https://web.archive.org/web/2026id_/https://www.poliziamunicipalebari.it/home-page/cosa-fare-in-caso-di/rilascio-permessi-ztl/ -> 3-rilascio-permessi-ztl_
+4 200 336 https://archive.org/wayback/available?url=poliziamunicipalebari.it/home-page/cosa-fare-in-caso-di/rilascio-permessi-ztl/ -> 4-available_
+5 200 197 https://archive.org/wayback/available?url=comune.bari.it/-/zona-a-traffico-limitato-di-bari-vecchia-giunta-approva-l-aggiornamento-degli-elaborati-tecnici-con-novita-su-varchi-aree-sosta-e-strade-verdi- -> 5-available_
+6 404 4745 https://web.archive.org/web/2026id_/https://www.comune.bari.it/-/zona-a-traffico-limitato-di-bari-vecchia-giunta-approva-l-aggiornamento-degli-elaborati-tecnici-con-novita-su-varchi-aree-sosta-e-strade-verdi- -> 6-zona-a-traffico-limitato-di-bari-vecchia-giunta-approva-l-aggiornamento-degli-el
+7 404 4681 https://web.archive.org/web/2026id_/https://www.comune.bari.it/-/giunta-approva-disciplinare-tecnico-per-le-nuove-regole-ztl-della-citta-vecchia -> 7-giunta-approva-disciplinare-tecnico-per-le-nuove-regole-ztl-della-citta-vecchia_
+8 000ERR  http://www.comune.bari.it/-/restyling-via-sparano-installate-e-funzionati-42-telecamere -> 8-restyling-via-sparano-installate-e-funzionati-42-telecamere_
+9 200 33321 https://www.amtab.it/it/zona-a-traffico-limitato/la-zona-ztl -> 9-la-zona-ztl_
+10 200 38021 https://www.amtab.it/it/zona-a-traffico-limitato/rilascio-permessi -> 10-rilascio-permessi_
+11 200 38890 https://www.amtab.it/it/zona-a-traffico-limitato/modalita-di-rilascio -> 11-modalita-di-rilascio_
+12 200 35355 https://www.amtab.it/it/zona-a-traffico-limitato/rinnovo-documentazione-ztl -> 12-rinnovo-documentazione-ztl_
+13 200 61939 https://www.amtab.it/it/122-prova/ztl-citta-vecchia -> 13-ztl-citta-vecchia_
+14 200 35030 https://www.amtab.it/it/zona-a-sosta-regolamentata -> 14-zona-a-sosta-regolamentata_
+15 200 35920 https://opendata.comune.bari.it/api/3/action/package_search?q=quartieri&rows=50 -> 15-package_search_
+16 200 223 https://opendata.comune.bari.it/api/3/action/package_search?q=pedonal&rows=50 -> 16-package_search_
+17 200 118684 https://opendata.comune.bari.it/api/3/action/package_search?q=municipi&rows=50 -> 17-package_search_
+18 200 34976 https://opendata.comune.bari.it/api/3/action/package_search?q=mobilita&rows=50 -> 18-package_search_
+19 200 6642 https://opendata.comune.bari.it/api/3/action/package_list -> 19-package_list_
+20 200 60800 https://passaggioelettrico.it/blog/ztl-bari-sud-auto-elettriche/ -> 20-ztl-bari-sud-auto-elettriche_
+21 403 1932 https://www.sixt.it/magazine/guide/ztl-bari-tutte-le-informazioni/ -> 21-ztl-bari-tutte-le-informazioni_
+22 200 247129 https://www.autovia.it/ztl-puglia-guida-citta/ -> 22-ztl-puglia-guida-citta_
+23 200 111497 https://tyremap.com/emission-zones/bari/ -> 23-bari_
+24 200 185237 https://www.borderline24.com/2023/01/31/a-bari-vecchia-la-nuova-ztl-parte-in-ritardo-ieri-mattina-varchi-ancora-spenti-nel-pomeriggio-attivate-le-telecamere/ -> 24-a-bari-vecchia-la-nuova-ztl-parte-in-ritardo-ieri-mattina-varchi-ancora-spenti-n
+25 200 91834 https://www.bariviva.it/notizie/ztl-a-bari-vecchia-ecco-le-nuove-regole-da-fine-mese-la-sperimentazione/ -> 25-ztl-a-bari-vecchia-ecco-le-nuove-regole-da-fine-mese-la-sperimentazione_
+26 200 932590 https://www.baritoday.it/guida/viabilita/permesso-auto-zona-ztl-bari.html -> 26-permesso-auto-zona-ztl-bari.html_
+27 000ERR  https://overpass.kumi.systems/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A240%5D%3Barea%5B%22name%22%3D%22Bari%22%5D%5B%22admin_level%22%3D%228%22%5D-%3E.a%3B%28rel%28area.a%29%5B%22name%22~%22ZTL%7CZ%5C%5C.T%5C%5C.L%7Ctraffico%20limitato%7CBari%20Vecchia%7CMurat%7CMadonnella%7CSan%20Nicola%22%2Ci%5D%3Bway%28area.a%29%5B%22name%22~%22ZTL%7Ctraffico%20limitato%7CBari%20Vecchia%22%2Ci%5D%3Brel%28area.a%29%5B%22type%22%3D%22enforcement%22%5D%3Bnode%28area.a%29%5B%22enforcement%22%5D%3Bnode%28area.a%29%5B%22name%22~%22varco%22%2Ci%5D%3Bnode%28area.a%29%5B%22surveillance%3Atype%22%3D%22ALPR%22%5D%3Brel%28area.a%29%5B%22boundary%22%3D%22administrative%22%5D%5B%22admin_level%22~%229%7C10%7C11%22%5D%3Brel%28area.a%29%5B%22place%22%5D%3Bway%28area.a%29%5B%22place%22%5D%3B%29%3Bout%20geom%3B -> 27-interpreter_
+28 406 156 https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A240%5D%3Barea%5B%22name%22%3D%22Bari%22%5D%5B%22admin_level%22%3D%228%22%5D-%3E.a%3B%28rel%28area.a%29%5B%22name%22~%22ZTL%7CZ%5C%5C.T%5C%5C.L%7Ctraffico%20limitato%7CBari%20Vecchia%7CMurat%7CMadonnella%7CSan%20Nicola%22%2Ci%5D%3Bway%28area.a%29%5B%22name%22~%22ZTL%7Ctraffico%20limitato%7CBari%20Vecchia%22%2Ci%5D%3Brel%28area.a%29%5B%22type%22%3D%22enforcement%22%5D%3Bnode%28area.a%29%5B%22enforcement%22%5D%3Bnode%28area.a%29%5B%22name%22~%22varco%22%2Ci%5D%3Bnode%28area.a%29%5B%22surveillance%3Atype%22%3D%22ALPR%22%5D%3Brel%28area.a%29%5B%22boundary%22%3D%22administrative%22%5D%5B%22admin_level%22~%229%7C10%7C11%22%5D%3Brel%28area.a%29%5B%22place%22%5D%3Bway%28area.a%29%5B%22place%22%5D%3B%29%3Bout%20geom%3B -> 28-interpreter_
+29 000ERR  https://overpass.kumi.systems/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A240%5D%3B%28way%2841.115%2C16.855%2C41.135%2C16.885%29%5B%22highway%22%5D%3B%29%3Bout%20geom%3B -> 29-interpreter_
+30 406 156 https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A240%5D%3B%28way%2841.115%2C16.855%2C41.135%2C16.885%29%5B%22highway%22%5D%3B%29%3Bout%20geom%3B -> 30-interpreter_

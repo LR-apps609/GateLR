@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
+    <title>Access Blocked</title>
+    <style>* { margin: 0; padding: 0; }
+html, code { font: 14px/24px system-ui, sans-serif; }
+html { background: #fafafa; color: #1a1a1a; padding: 20px; }
+body { margin: 8% auto 0; max-width: 420px; min-height: 160px; padding: 24px 0 20px; }
+p { margin: 10px 0 18px; }
+ins { color: #777; text-decoration: none; }
+img { display: block; margin-bottom: 20px; }
+@media screen and (max-width: 600px) { body { margin-top: 0; max-width: none; } }
+</style>
+</head>
+<body>
+    <a href="https://www.sixt.com/"><img src="https://www.sixt.com/shared/email/logos/SIXT_Logo_Primary_Black_Orange_96x39.png" alt="SIXT" height="39"></a>
+    <p><b>Access denied.</b> <ins>Oops! You've hit a speed bump on our digital highway.</ins></p>
+    <p>Your request has been blocked. &#127950;&#65039;&#128168;</p>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a505b631bc721d3d',t:'MTc5Mjk3ODM5Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

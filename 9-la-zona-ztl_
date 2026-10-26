@@ -1,0 +1,521 @@
+<!doctype html>
+<!--[if lt IE 7]> <html prefix="og: http://ogp.me/ns#" class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html prefix="og: http://ogp.me/ns#" class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html prefix="og: http://ogp.me/ns#" class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html prefix="og: http://ogp.me/ns#" class="no-js" lang="en"><!--<![endif]-->
+<head><!--echo--><!--4.5.3--><!--16 CSS sources localized-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<base href="https://www.amtab.it/it/zona-a-traffico-limitato/la-zona-ztl" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="cleartype" content="on" />
+	<meta name="author" content="Super User" />
+	<title>Amtab - La zona ZTL</title>
+	<link href="/templates/echo/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="https://www.amtab.it/it/component/search/?Itemid=901&amp;format=opensearch" rel="search" title="Vai Amtab" type="application/opensearchdescription+xml" />
+	<link href="/media/jui/css/bootstrap.min.css?93976df462aa00aeebb0fcdcffadead5" rel="stylesheet" type="text/css" />
+	<link href="/media/jui/css/bootstrap-responsive.min.css?93976df462aa00aeebb0fcdcffadead5" rel="stylesheet" type="text/css" />
+	<link href="/media/jui/css/bootstrap-extended.css?93976df462aa00aeebb0fcdcffadead5" rel="stylesheet" type="text/css" />
+	<script type="application/json" class="joomla-script-options new">{"csrf.token":"7dfe65cd6cb2469ded15a5da611ad8a7","system.paths":{"root":"","base":""}}</script>
+	<script src="/media/jui/js/jquery.min.js?93976df462aa00aeebb0fcdcffadead5" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery-noconflict.js?93976df462aa00aeebb0fcdcffadead5" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery-migrate.min.js?93976df462aa00aeebb0fcdcffadead5" type="text/javascript"></script>
+	<script src="/media/k2/assets/js/k2.frontend.js?v=2.28&sitepath=/" type="text/javascript"></script>
+	<script src="/media/system/js/caption.js?93976df462aa00aeebb0fcdcffadead5" type="text/javascript"></script>
+	<script src="/media/system/js/mootools-core.js?93976df462aa00aeebb0fcdcffadead5" type="text/javascript"></script>
+	<script src="/media/system/js/core.js?93976df462aa00aeebb0fcdcffadead5" type="text/javascript"></script>
+	<script src="/media/system/js/mootools-more.js?93976df462aa00aeebb0fcdcffadead5" type="text/javascript"></script>
+	<script src="/media/jui/js/bootstrap.min.js?93976df462aa00aeebb0fcdcffadead5" type="text/javascript"></script>
+	<script type="text/javascript">
+jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});</script><ok-accedo data-key="ASD579"></ok-accedo>
+<script value="nosniff" content="application/javascript; charset=UTF-8; X-Content-Type-Options=nosniff" src="//widget.okaccedo.com/last_version/it/okaccedo.js" charset="utf-8"></script>
+<script src=https://platform.maia.chat/storage/bots/1a5b2414f1fc2cd7182af796b442dd1cff26b0d7/widget.js>
+
+	</script>
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="/templates/echo/js/selectivizr-min.js"></script>
+<script src="/templates/echo/js/modernizr.js"></script>
+<![endif]-->
+
+	<link rel="stylesheet" type="text/css" href="/templates/echo/css/ie9-10.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/templates/echo/css/text.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/templates/echo/css/layout.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/templates/echo/css/nav.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/templates/echo/css/typography.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/templates/echo/css/template.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/templates/echo/css/responsive-template.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/templates/echo/css/print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="/templates/echo/css/vm-echo.css" media="screen" />
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Ubuntu:300,400,700,300italic,400italic,700italic:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://removed_google_font.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+	<script src="/templates/echo/js/selectnav.min.js"></script>
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" href="/templates/echo/css/ie6.css" media="screen" /> <![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" href="/templates/echo/css/ie.css" media="screen" /> <![endif]-->
+    	 
+	<script type="text/javascript" src="/templates/echo/js/superfish.js"></script>
+	<script type="text/javascript" src="/templates/echo/js/supersubs.js"></script>
+	<script type="text/javascript">
+    jQuery(document).ready(function(){ 
+        jQuery("ul.menu-nav").supersubs({ 
+			minWidth: 18,
+            extraWidth:  1
+        }).superfish({ 
+            delay:500,
+            animation:{opacity:'show',height:'show',width:'show'},
+            speed:'normal',
+            autoArrows:true,
+            dropShadows:false 
+        });
+    }); 
+	</script>
+			<link rel="stylesheet" href="/templates/echo/css/override.css">			
+		<!-- Built-in Slideshow -->
+			<link rel="stylesheet" id="camera-css" href="/templates/echo/css/camera.css" type="text/css" media="all" /> 
+		<script type="text/javascript" src="/templates/echo/js/jquery.mobile.customized.min.js"></script>
+		<script type="text/javascript" src="/templates/echo/js/jquery.easing.1.3.js"></script> 
+		<script type="text/javascript" src="/templates/echo/js/camera.min.js"></script> 
+		<script>
+			jQuery(function(){		
+				jQuery('#ph-camera-slideshow').camera({
+					alignment: 'topCenter',
+					autoAdvance: true,
+					mobileAutoAdvance: true, 
+					slideOn: 'random',	
+					thumbnails: true,
+					time: 5000,
+					transPeriod: 1500,
+					cols: 10,
+					rows: 10,
+					slicedCols: 10,	
+					slicedRows: 10,
+					fx: 'random',
+					gridDifference: 250,
+					height: '350px',
+					minHeight: '300px',
+					imagePath: '/templates/echo/images/',	
+					hover: true,
+					loader: 'bar',
+					barDirection: 'leftToRight',
+					barPosition: 'bottom',	
+					pieDiameter: 38,
+					piePosition: 'rightTop',
+					loaderColor: '#eeeeee', 
+					loaderBgColor: '#222222', 
+					loaderOpacity: 0.6,
+					loaderPadding: 1,
+					loaderStroke: 5,
+					navigation: false,
+					playPause: true,
+					navigationHover: true,
+					mobileNavHover: true,
+					opacityOnGrid: false,
+					pagination: true,
+					pauseOnClick: true,
+					portrait: true				});
+			});
+		</script>
+		<!-- End of Built-in Slideshow -->
+		
+    <style type="text/css">
+	body {font-size: 14px;}
+	#site-name-handler{height:100px; }
+	#sn-position h1{left:0px;top:0px;color:#a5a5a5;font-size:36px;}
+	#sn-position h1 a {color:#a5a5a5;}
+	#sn-position h2 {left:70px;top:100px;color:#ffffff;font-size:24px;}
+	ul.columns-2 {width: 360px !important;}
+	ul.columns-3 {width: 500px !important;}
+	ul.columns-4 {width: 660px !important;}
+	ul.columns-5 {width: 860px !important;}
+		.camera_caption { top: 50%; }
+	.camera_caption div.container div { width: 48%; }
+	.camera_pie {
+		width: 38px;
+		height: 38px;
+	}
+	#slideshow-handler { min-height: 300px; }
+		
+ 
+body{background-color:#f2f2f2;color:#393939;}
+a,a:hover, .moduletable_menu ul.menu li ul li a:hover, .PricesalesPrice {color:#23397c;}
+.custom-color1{color:#343434;}
+.custom-color2{color:#a5a5a5;}
+.custom-color3{color:#f58220;}
+header#top-handler{background:#23397c;}
+section#tab-modules{background:#f58220;}
+section#bottom-long{background:#f58220;}
+#search-position .search .inputbox{color:#555555;}
+#search-position .search{border: 1px solid #b8b8b8;}
+#search-position .search .button, #search-position .search .advanced-search-button:hover {background-color:#555555 !important;color: #ffffff !important;}
+#search-position .search .advanced-search-button{background-color: #f2f2f2;color: #949494;}
+#search-position .search .button:hover{color: #ffffff !important;background-color: #f58220 !important;}
+.pr-add, .pr-add-bottom,.featured-view .spacer h3, .latest-view .spacer h3, .topten-view .spacer h3, .recent-view .spacer h3, .related-products-view .spacer h3, .browse-view .product .spacer h2,.featured-view .spacer .product_s_desc, .latest-view .spacer .product_s_desc, .topten-view .spacer .product_s_desc, .recent-view .spacer .product_s_desc, .related-products-view .spacer .product_s_desc, .browse-view .product .spacer .product_s_desc {color: #393939;}
+.pr-add a, .pr-add-bottom a,.featured-view .spacer h3 a, .latest-view .spacer h3 a, .topten-view .spacer h3 a, .recent-view .spacer h3 a, .related-products-view .spacer h3 a, .browse-view .product .spacer h2 a, .h-pr-title a{color: #353535;}
+.category-view .row-fluid .category .spacer h2 a .cat-title {background: rgba(255,255,255,0.7);color: #393939;}
+.category-view .row-fluid:hover .category:hover .spacer h2 a .cat-title {background: rgba(255,255,255,0.89);}
+.button, button, a.button, dt.tabs.closed:hover, dt.tabs.closed:hover h3 a, .closemenu, .vmproduct.productdetails .spacer:hover .pr-add, .vmproduct.productdetails .spacer:hover .pr-add-bottom, a.product-details:hover, input.addtocart-button, a.ask-a-question, .highlight-button, .vm-button-correct,span.quantity-controls input.quantity-plus, span.quantity-controls input.quantity-minus, .cartpanel span.closecart, .vm-pagination ul li a, #LoginForm .btn-group > .dropdown-menu, #LoginForm .btn-group > .dropdown-menu a, .popout-price, .popout-price .PricesalesPrice {color: #ffffff !important;background-color: #f58220 !important;}
+.button:hover, button:hover, a.button:hover, .closemenu:hover, a.product-details, input.addtocart-button:hover, a.ask-a-question:hover, .highlight-button:hover, .vm-button-correct:hover, span.quantity-controls input.quantity-plus:hover, span.quantity-controls input.quantity-minus:hover, .cartpanel span.closecart:hover, .vm-pagination ul li a:hover{color: #ffffff !important;background-color: #555555 !important;}
+#LoginForm .btn-group > .dropdown-menu a:hover{background: #555555 !important;}
+#LoginForm .caret {border-top-color: #ffffff !important;}
+.cart-button, a#menupanel {background-color: #f58220;border: 1px solid #f58220 !important;}
+.cart-button:hover, a#menupanel:hover{background-color: #555555 !important;border: 1px solid #444444 !important;}
+.cart-button .popover-content{color:#afafaf;}
+.cart-button .popover{background:#ffffff;border:1px solid #d9d9d9;}
+.cart-button .popover.bottom .arrow{border-bottom-color:#ffffff;}
+.cart-button .popover.bottom .arrow:after{border-bottom-color:#d9d9d9;}
+#slideshow-handler, .moduletable, .moduletable_menu, div.spacer, li.spacer, div.panel2, .category_description, .productdetails-view, fieldset.phrases, fieldset.word, fieldset.only, .search .form-limit, .cart-view, .item-page,.categories-list,.blog,.blog-featured,.category-list,.archive{background:#ffffff;border:1px solid #d9d9d9;color: #393939;}
+dt.tabs.open, .category-view .spacer, .latest-view .spacer, .topten-view .spacer, .recent-view .spacer, .featured-view .spacer, .browse-view .spacer {background-color: #ffffff;}
+.moduletable a, div.panel2 a, .category_description a, .productdetails-view a{color: #f58220;}
+#social-links li a{background-color: #555555;}
+#social-links li a:hover{background-color: #f58220 !important;}
+#top-nav-handler a, .dk_label, .dk_toggle, .dk_toggle:hover{color: #393939;}
+.camera_wrap .camera_pag .camera_pag_ul li {background: #ffffff;}
+.camera_prev, .camera_next {background-color: rgba(255,255,255,0.39) !important;}
+.camera_prev > span,.camera_next > span,.camera_commands > .camera_play,.camera_commands > .camera_stop,.camera_prevThumbs div,.camera_nextThumbs div {background-color: #ffffff !important;}
+.camera_wrap .camera_pag .camera_pag_ul li.cameracurrent > span, .camera_wrap .camera_pag .camera_pag_ul li:hover > span,.product-sl-handler ol li:hover, .product-sl-handler ol li.current{background-color: #f58220;}
+.camera_thumbs_cont ul li > img {border: 1px solid #ffffff !important;}
+.camera_caption{color: #ffffff;}
+#menu .menu-nav li a, #menu .menu-nav ul a, #menu .menu-nav ul ul a, ul.menu-nav li a small, .panel1, .panel1 a {color: #ffffff;}
+#menu .menu-nav a:hover, .menu-nav li.sfHover > a, .menu-nav li a:hover, .menu-nav li.active > a, .menupanel ul.selectnav li a:hover, .dk_options a:hover, .dk_option_current a, a#menupanel:hover {background-color: #f58220;color: #393939 !important;}
+#menu .menu-nav > li > a .sf-sub-indicator{border-top-color: #f58220 !important;}
+.dk_options a,.cartpanel a{color: #f58220;}
+#menu .menu-nav > li > a:hover .sf-sub-indicator, #menu .menu-nav > li.sfHover > a .sf-sub-indicator{border-top-color: #393939 !important;}
+#menu .menu-nav ul li a:hover .sf-sub-indicator,#menu .menu-nav ul li.sfHover > a .sf-sub-indicator{border-left-color: #393939!important;}
+#menu .menu-nav ul li a .sf-sub-indicator{border-left-color: #f58220 !important;}
+#menu .menu-nav li ul, #menu .menu-nav li ul li ul, #nav ol, #nav ul, #nav ol ol, #nav ul ul,.dk_options, .panel1 {background-color: #23397c !important;border:1px solid #d9d9d9;}
+.rm-line{background-color:#23397c;}
+@media (max-width: 767px) { 
+	#quick-menu li a:hover, #log-panel li a:hover	{color: #ffffff !important;background-color: #f58220;}
+}
+thead th, table th, tbody th, tbody td {border-top: 1px solid #e1e1e1;}
+tbody th, tbody td, h2 .contact-name, .search-results dt.result-title{	border-bottom: 1px solid #e1e1e1;}
+.h-pr-title {border-top: 2px solid #e1e1e1;}
+ul.vmmanufacturer {border-top: 1px solid #eaeaea;}
+ul.vmmanufacturer li{border-right: 1px solid #eaeaea;}
+.product-price{color: #7d7d7d;}
+.moduletable_menu ul.menu li, .VMmenu li, #bot-modules{border-bottom: 2px solid #e1e1e1;}
+.moduletable_menu ul.menu li a, .latestnews_menu li a, .VMmenu li div a{color: #7d7d7d;}
+.moduletable_menu ul.menu li a:hover, ul.latestnews_menu li a:hover, .VMmenu li div a:hover{background-color:#f58220;color:#ffffff;}
+.VMmenu ul li div a:hover{color: #f58220 !important;}
+.moduletable_style1{background-color: #003f88;border: 1px solid #2b80c1;color: #ffffff;}
+.moduletable_style1 a{color: #ffffff !important;}
+.moduletable_style1:hover{background-color: #f58220;border: 1px solid #2b80c1;color: #ffffff;}
+.moduletable_style1:hover a {color: #ffffff !important;}
+#bottom-bg{background-color: #ffffff;color: #393939;}
+#bot-modules a {color: #f58220;}
+#bot-modules-2 a{color: #7f7f7f;}
+#footer{background-color: #282828;color: #9d9d9d;}
+#footer a{color: #d9d9d9;}
+#footer a:hover{color: #d9d9d9;}
+</style>
+
+
+</head>
+<body>
+<header id="top-handler">
+	<div class="container">
+		
+		<div id="top" class="span12">
+			<div class="row-fluid">
+					<div id="site-name-handler" class="span5">
+						<div id="sn-position">
+																		<h1> <a href="/"><img alt="" src="/images/amtab_sito.png" /></a></h1>
+																								<h2> la città in movimento </h2>
+												</div>
+					</div>
+					<div id="top-nav-handler" class="span7">
+
+
+												<div id="top-quick-nav">
+																				</div>
+						
+					</div>
+					
+
+			</div>
+		</div>
+		<div class="clear"> </div>
+				<nav id="menu">
+			<div id="menu-handler">
+				<div class="row-fluid">
+					<div class="span8"></div>											<div id="search-position" class="span4">
+							
+<ul class="menu-nav" id="nav">
+<li class="item-435"><a href="/it/" ><span class="link-no-image">Home</span></a></li><li class="item-715 deeper parent"><a href="#" ><span class="link-no-image">Servizi</span></a><ul ><li class="item-716"><a href="/it/2015-09-30-13-29-08/servizi-di-trasportoo" ><span class="link-no-image">Servizi di Trasporto (TPL)</span></a></li><li class="item-721"><a href="/it/2015-09-30-13-29-08/sosta" ><span class="link-no-image">Sosta</span></a></li><li class="clear"> </li></ul></li><li class="item-742 deeper parent"><a href="#" ><span class="link-no-image">Muoversi con noi</span></a><ul ><li class="item-672"><a href="https://www.mycicero.it/muvt/TPWebPortal/" target="_blank" ><span class="link-no-image">Pianifica il tuo percorso</span></a></li><li class="item-744"><a href="http://ro.autobus.it/TP/amtab/lines.aspx" target="_blank" ><span class="link-no-image">Linee e orari</span></a></li><li class="item-746 deeper parent"><a href="/it/2015-09-30-17-04-00/aree-di-sosta" ><span class="link-no-image">Aree di sosta</span></a><ul ><li class="item-903"><a href="/it/2015-09-30-17-04-00/aree-di-sosta/vittorio-veneto-lato-terra" ><span class="link-no-image">Vittorio Veneto-Lato Terra</span></a></li><li class="item-904"><a href="/it/2015-09-30-17-04-00/aree-di-sosta/vittorio-veneto-lato-mare" ><span class="link-no-image">Vittorio Veneto-Lato Mare</span></a></li><li class="item-905"><a href="/it/2015-09-30-17-04-00/aree-di-sosta/pane-e-pomodoro" ><span class="link-no-image">Pane e Pomodoro</span></a></li><li class="item-906"><a href="/it/2015-09-30-17-04-00/aree-di-sosta/largo-2-giugno" ><span class="link-no-image">Largo 2 Giugno</span></a></li><li class="item-907"><a href="/it/2015-09-30-17-04-00/aree-di-sosta/rossani" ><span class="link-no-image">Rossani</span></a></li><li class="item-908"><a href="/it/2015-09-30-17-04-00/aree-di-sosta/necropoli" ><span class="link-no-image">Necropoli</span></a></li><li class="item-909"><a href="/it/2015-09-30-17-04-00/aree-di-sosta/executive-center" ><span class="link-no-image">Executive Center</span></a></li><li class="clear"> </li></ul></li><li class="item-745"><a href="/it/2015-09-30-17-04-00/park-ride" ><span class="link-no-image">Park &amp; Ride</span></a></li><li class="clear"> </li></ul></li></ul>
+
+<script>selectnav('nav', {
+  nested: true,
+  indent: '-'
+}); </script>
+							
+						</div>
+									</div>
+			</div>
+		</nav>
+			</div>
+</header>
+
+
+<div class="container main-bg" id="main-handler">
+
+
+
+					<div id="nav-line">
+				<div class="row-fluid">
+					<div class="span8"><div id="brcr">
+<div class="breadcrumbs">
+<span class="showHere">Sei qui: </span><a href="/it/" class="pathway">Home</a> &raquo; <a href="/it/zona-a-traffico-limitato" class="pathway">Zona a Traffico Limitato</a> &raquo; <span>La zona ZTL</span></div>
+</div></div>
+					<div class="span4">
+
+											</div>
+				</div>
+			</div>
+		
+		<div class="row-fluid" id="slideshow-header">
+		
+		
+				
+						<div id="slideshow-handler-bg" class="span12">
+				<div id="slideshow-handler"> 
+										<div class="camera_wrap" id="ph-camera-slideshow">					<div data-thumb="/images/slideshow/muvt.JPG" data-src="/images/slideshow/muvt.JPG">
+						<div class="camera_caption fadeFromLeft" style="">
+							<div><h1>&nbsp;</h1>
+<h1>&nbsp;</h1>
+<h1><a href="https://apps.apple.com/it/app/muvt/id1456106022" target="_blank" rel="noopener"><img style="float: right;" src="/images/apple.png" alt="apple" width="187" height="50" /></a><a href="https://play.google.com/store/apps/details?id=net.pluservice.muvt" target="_blank" rel="noopener"><img style="float: right;" src="/images/google-1.png" alt="google 1" width="190" height="52" /></a></h1>
+<h1>&nbsp;</h1>
+<h1 style="text-align: right;">&nbsp;</h1>
+<p style="text-align: right;">&nbsp;</p></div>
+						</div>
+					</div>
+										<div data-thumb="/images/slideshow/sms.JPG" data-src="/images/slideshow/sms.JPG">
+						<div class="camera_caption fadeFromLeft" style="">
+							<div><h1>&nbsp;</h1>
+<h1 style="text-align: right;">&nbsp;</h1>
+<p style="text-align: right;"><a class="button" href="/it/trasporto-pubblico-locale-sub/mobile-pay" target="_blank" rel="noopener">INFO</a></p></div>
+						</div>
+					</div>
+										<div data-thumb="/images/slideshow/travel_planner_new.JPG" data-src="/images/slideshow/travel_planner_new.JPG">
+						<div class="camera_caption fadeFromLeft" style="">
+							<div><h1>&nbsp;</h1>
+<h1 style="text-align: right;">&nbsp;</h1>
+<p style="text-align: right;"><a class="button" href="https://www.mycicero.it/muvt/TPWebPortal/" target="_blank" rel="noopener">Accedi</a></p></div>
+						</div>
+					</div>
+					</div> 
+									</div>
+			</div>
+						
+					
+		
+		</div>
+
+		<div id="content-handler">
+					
+
+						
+						
+						<div id="top-modules">
+				<div class="row-fluid">
+					<div class="span3" style="">		<div class="moduletable padding-5">
+								<div class="module-content">
+
+<div class="custom padding-5"  style="background-image: url(/images/icone21/sfondo_blu.JPG)" >
+	<p style="text-align: center;"><a href="https://www.mycicero.it/muvt/TPWebPortal/"><img src="/images/icone21/TRAVEL_MUVT.PNG" alt="TRAVEL MUVT" width="570" height="380" /></a></p></div>
+</div>
+		</div>
+	</div>					<div class="span3" style="">		<div class="moduletable padding-5">
+								<div class="module-content">
+
+<div class="custom padding-5"  style="background-image: url(/images/icone21/sfondo_blu.JPG)" >
+	<p style="text-align: center;"><a href="/2015-09-30-13-29-08/servizi-di-trasportoo"><img src="/images/icone21/TRASPORTO.PNG" alt="TRASPORTO" /></a></p></div>
+</div>
+		</div>
+	</div>					<div class="span3" style="">		<div class="moduletable padding-5">
+								<div class="module-content">
+
+<div class="custom padding-5"  style="background-image: url(/images/icone21/sfondo_blu.JPG)" >
+	<p style="text-align: center;"><a href="/it/sosta"><img src="/images/icone21/SOSTA.PNG" alt="SOSTA" /></a></p></div>
+</div>
+		</div>
+	</div>					<div class="span3" style="">		<div class="moduletable padding-5">
+								<div class="module-content">
+
+<div class="custom padding-5"  style="background-image: url(/images/icone21/sfondo_blu.JPG)" >
+	<p style="text-align: center;"><a href="https://amtab.contrasparenza.it/trasparenza/" target="_blank" rel="noopener"><img src="/images/icone21/amministrazione.PNG" alt="amministrazione" /></a></p></div>
+</div>
+		</div>
+	</div>														</div>
+			</div>
+									
+			<div id="tmp-container">
+					
+										<div id="main-content-handler">
+						<div class="row-fluid">
+														<div class="span3">
+										<div class="moduletable">
+								<div class="module-content"><form action="/it/zona-a-traffico-limitato/la-zona-ztl" method="post">
+	<div class="search">
+		<input name="searchword" id="mod-search-searchword" maxlength="200"  class="inputbox" type="text" size="0" value="Cerca..."  onblur="if (this.value=='') this.value='Cerca...';" onfocus="if (this.value=='Cerca...') this.value='';" />	<input type="hidden" name="task" value="search" />
+	<input type="hidden" name="option" value="com_search" />
+	<input type="hidden" name="Itemid" value="901" />
+	</div>
+</form>
+</div>
+		</div>
+	
+										<div class="moduletable_menu">
+									<h3>AMTAB S.p.A. - BARI</h3>
+								<div class="module-content">
+<ul class="menu">
+<li class="item-755"><a href="https://amtab.contrasparenza.it/trasparenza/" target="_blank" ><span class="link-no-image">Società Trasparente</span></a></li><li class="item-845"><a href="/it/contact" ><span class="link-no-image">Contatti</span></a></li><li class="item-1001"><a class="http://amtab.it/images/stories/trasparenza/Carta_della_Mobilit%C3%A0_2017.pdf" href="https://amtab.contrasparenza.it/trasparenza/generale/83/carta-dei-servizi-e-standard-di-qualita" target="_blank" title="http://amtab.it/images/stories/trasparenza/Carta_della_Mobilit%C3%A0_2017.pdf" ><span class="link-no-image">Carta dei Servizi</span></a></li><li class="item-1202"><a href="/it/openmobilitydata" ><span class="link-no-image">OpenMobilityData</span></a></li><li class="item-1273"><a href="https://www.muvt.app/" target="_blank" ><span class="link-no-image">MUVT.APP</span></a></li><li class="item-1294"><a href="https://www.muvt.app/regolamento/" target="_blank" ><span class="link-no-image">REGOLAMENTO AZIENDALE DI VETTURA</span></a></li><li class="item-936"><a href="/it/altri-contenuti-privacy" ><span class="link-no-image">Privacy</span></a></li></ul>
+
+<script>selectnav('', {
+  nested: true,
+  indent: '-'
+}); </script></div>
+		</div>
+			<div class="moduletable_menu">
+									<h3>SOCIETÀ  TRASPARENTE</h3>
+								<div class="module-content">
+<ul class="menu">
+<li class="item-1296"><a href="https://amtab.contrasparenza.it/trasparenza/specifico/1110/selezione-del-personale" target="_blank" ><span class="link-no-image">BANDI DI CONCORSO</span></a></li></ul>
+
+<script>selectnav('', {
+  nested: true,
+  indent: '-'
+}); </script></div>
+		</div>
+			<div class="moduletable_menu">
+									<h3>Sosta</h3>
+								<div class="module-content">
+<ul class="menu">
+<li class="item-817 parent"><a href="/it/aree-di-sosta" ><span class="link-no-image">Aree di Sosta</span></a></li><li class="item-818"><a href="/it/per2" ><span class="link-no-image">Park &amp; Ride</span></a></li><li class="item-819 parent"><a href="/it/zona-a-sosta-regolamentata" ><span class="link-no-image">Zona a sosta regolamentata</span></a></li><li class="item-820 active deeper parent"><a href="/it/zona-a-traffico-limitato" ><span class="link-no-image">Zona a Traffico Limitato</span></a><ul ><li class="item-898"><a href="/it/zona-a-traffico-limitato/regolamento-ztl" ><span class="link-no-image">Regolamento ZTL</span></a></li><li class="item-899"><a href="/it/zona-a-traffico-limitato/rilascio-permessi" ><span class="link-no-image">Rilascio permessi</span></a></li><li class="item-900"><a href="/it/zona-a-traffico-limitato/modalita-di-rilascio" ><span class="link-no-image">Modalità di rilascio</span></a></li><li class="item-901 current active"><a href="/it/zona-a-traffico-limitato/la-zona-ztl" ><span class="link-no-image">La zona ZTL</span></a></li><li class="item-1293"><a href="/it/zona-a-traffico-limitato/rinnovo-documentazione-ztl" ><span class="link-no-image">RINNOVO DOCUMENTAZIONE ZTL</span></a></li><li class="clear"> </li></ul></li><li class="item-1172"><a href="/it/rinnovo-ztl-zsr" ><span class="link-no-image">RINNOVO ZTL/ZSR</span></a></li><li class="item-1174"><a href="/it/pagamenti-in-app" ><span class="link-no-image">Pagamenti in APP</span></a></li></ul>
+
+<script>selectnav('', {
+  nested: true,
+  indent: '-'
+}); </script></div>
+		</div>
+			<div class="moduletable">
+								<div class="module-content">
+
+<div class="custom"  >
+	<p style="text-align: center;"> <img src="/images/POC_Logo_Colori.png" width="234" height="92" /></p>
+<p style="text-align: center;"><img src="/images/DIP.jpg" width="211" height="36" /></p>
+<p style="text-align: center;"><a href="https://www.muvt.app/abbonamenti-muvt-in-bus365/" target="_blank" rel="noopener noreferrer"><img src="/images/logo_365_but.png" alt="logo 365 but" /></a>  </p>
+<p style="text-align: center;"> </p>
+<p style="text-align: center;"> </p>
+<p><a class="wf_file" href="https://www.muvt.app/" target="_blank" rel="noopener noreferrer"><img style="display: block; margin-left: auto; margin-right: auto;" src="/images/MUVT.APP.png" alt="MUVT.APP" /></a></p>
+<p style="text-align: center;"><a class="wf_file" href="http://servizi.amtab.it/Zsr" target="_blank" rel="noopener noreferrer"><img src="/images/appzsr.png" alt="appzsr" /></a>    <a class="wf_file" href="https://www.autobus.it/muvt/TPLWebPortal/it/showcase" target="_blank" rel="noopener noreferrer"><img src="/images/app_muvtccard.png" alt="app muvtccard" /></a></p>
+<p style="text-align: right;">realizzato grazie al programma<a href="http://www.ponmetro.it/" target="_blank" rel="noopener noreferrer"><br />PON METRO</a></p>
+<p> </p>
+<p> </p></div>
+</div>
+		</div>
+	
+								
+								
+								
+							</div>
+														<div class="span6">
+								
+																								<div class="tmp-content-area">
+								<article class="item-page">
+		<h2>
+			La ZTL		</h2>
+
+
+
+
+	
+	
+	
+
+	
+
+			<p align="justify">La Zona a Traffico Limitato comprende l'intero territorio della Città Vecchia di Bari ed è perimetrata dalle seguenti vie:<br /> <strong>Corso Vittorio Emanuele - Piazza Massari - Piazza Isabella d'Aragona - Corso Senatore Antonio De Tullio - Lungomare Imperatore Augusto - Piazza IV Novembre </strong><br /><img src="/images/ztl.jpg" alt="La ZTL" /></p> 
+		</article>
+
+								</div>
+															</div>
+														<div class="span3">
+										<div class="moduletable">
+								<div class="module-content">
+
+<div class="custom"  >
+	<p style="text-align: center;"><a href="https://www.facebook.com/amtab.muvt" target="_blank" rel="noopener"><img src="/images/facebook.png" alt="facebook" width="62" height="62" /></a><a href="https://it.linkedin.com/company/amtabspa" target="_blank" rel="noopener"><img src="/images/linkedin.PNG" alt="linkedin" width="62" height="62" /></a><a href="http://t.me/AMTABspa"><img src="/images/telegram.PNG" alt="telegram" width="62" height="62" /></a></p>
+<p><a href="https://wa.me/393492461927"><img style="display: block; margin-left: auto; margin-right: auto;" src="/images/whatsapp.png" alt="whatsapp" /></a></p></div>
+</div>
+		</div>
+	
+										<div class="moduletable">
+								<div class="module-content">
+
+<div class="custom"  >
+	<p style="text-align: center;">&nbsp;<a href="https://moovitapp.com/?customerId=GrZ7XV41x98Jgrax-BxIGQ&amp;lang=it" target="_blank" rel="noopener"><img src="/images/icone21/TRAVEL.png" alt="TRAVEL" /></a></p>
+<p style="text-align: center;"><a class="wf_file" href="https://amtab-spa2.reservio.com/" target="_blank" rel="noopener"><img src="/images/icone21/PRENOTA.png" alt="PRENOTA" /></a></p>
+<p style="text-align: center;"><a class="wf_file" href="https://amtab.tuttogare.it" target="_blank" rel="noopener"><img src="/images/icone21/GARE.jpg" alt="Gare Telematiche" /></a></p>
+<p style="text-align: center;"><a class="wf_file" href="/trasporto-pubblico-locale-sub/mobile-pay"><img src="/images/icone21/SMS.PNG" alt="SMS" /></a></p>
+<p style="text-align: center;"><a class="wf_file" href="http://servizi.amtab.it/VerificatoriWeb" target="_blank" rel="noopener"><img src="/images/icone21/PAGA.png" alt="Paga Sanzione" /></a></p>
+<p style="text-align: center;"><a class="wf_file" href="https://amtab.whistleblowing.it/#/" target="_blank" rel="noopener"><img src="/images/icone21/WHISTLE.png" alt="Whistleblowing" /></a>&nbsp;</p></div>
+</div>
+		</div>
+			<div class="moduletable">
+								<div class="module-content">
+
+<div class="custom"  >
+	<p style="text-align: center;"><a href="https://moovit.com/" target="_blank" rel="noopener"><img src="/images/icone21/moovit.PNG" alt="moovit" /></a></p>
+<p style="text-align: center;"><a href="https://shop.dropticket.it/AMTAB_SostaTrasporto" target="_blank" rel="noopener"><img src="/images/dropticket_button.jpg" alt="dropticket button" /></a></p>
+<p style="text-align: center;"><a href="https://barismart.mylittlesuite.com/" target="_blank" rel="noopener"><img src="/images/icone21/barismart.png" alt="barismart" /></a>&nbsp;</p>
+<p style="text-align: center;"><a href="http://www.ponmetro.it/" target="_blank" rel="noopener"><img src="/images/icone21/pon.JPG" alt="pon" /></a></p></div>
+</div>
+		</div>
+	
+								
+								
+								
+							</div>
+													</div>
+					</div>
+			</div>
+		</div>
+</div>
+<section id="bottom-bg">
+	<div class="container">
+				
+			</div>
+</section>
+
+<footer id="footer">
+	<div class="container">
+		<div id="footer-line" class="row-fluid">
+									<div id="foo-left-right">
+				<div class="span12">
+
+<div class="custom"  >
+	<p> </p>
+<p style="text-align: center;"><span style="font-size: 10.6667px; text-align: center;">Amtab S.p.A. - C.F./P.IVA 06010490727 -  Codice Destinatario T04ZHR3 - viale Jacobini, Z.I. - 70132 Bari - </span><a style="font-size: 10.6667px; text-align: center;" href="mailto:urp@amtab.it">E-Mail</a><span style="font-size: 10.6667px; text-align: center;"> - </span><a style="font-size: 10.6667px; text-align: center;" href="mailto:info@pec.amtabservizio.it">PEC</a> - <a href="/it/statistiche-web">Statistiche Web</a> - <a href="/it/test/132-societa-trasparente/1052-informativa-sulla-privacy">Informativa sulla privacy</a> - <a href="https://form.agid.gov.it/amtbs/amtab_it/dichiarazione" target="_blank" rel="noopener noreferrer">Dichiarazione di Accessibilità</a> <a href="/it/test/132-societa-trasparente/1052-informativa-sulla-privacy"><br /></a><span style="font-size: 8pt;">Copyright © 2017 AMTAB S.p.A. Tutti i diritti riservati.</span> - <span style="font-size: 8pt;"><a href="http://www.joomla.org">Joomla!</a> è un software libero rilasciato sotto <a href="http://www.gnu.org/licenses/gpl-2.0.html">licenza GNU/GPL</a>.<br /></span> <span style="font-size: 8pt;">Motore del calcolo percorsi a cura di <a href="http://www.pluservice.net" target="_blank" rel="noopener noreferrer">PluService Srl<br /></a></span></p></div>
+</div>								<div class="clear"> </div>
+			</div>
+					</div>
+	</div>
+</footer>
+
+
+
+</body>
+</html>
