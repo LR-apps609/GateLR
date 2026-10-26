@@ -4,11 +4,12 @@
 # Sources/Intro2/IntroGeo.swift e si prepara Resources/Intro/firenze-edifici.geojson (Tools/intro_buildings.py).
 # Gira su GitHub (workflow intro-routes.yml), il risultato va nel ramo «intro-routes».
 #
-# La scena (1.15.2): un ristorante DENTRO la ZTL (via Verdi, vicino a Santa Croce) e il Parcheggio Beccaria FUORI.
-#  1. «La strada più diretta»: dalla partenza dritto al ristorante, dentro dal varco → verbale
-#  2. «Con GateLR»: fino al Parcheggio Beccaria (OSM way/231098032), sempre fuori dalla ZTL
+# La scena (1.15.3): un ristorante DENTRO la ZTL (Settore A, vicino al Mercato Centrale) e il parcheggio che sceglierebbe
+# l'app («Parcheggia fuori e cammina», Sources/ParkOutside.swift): il più vicino fuori da ogni ZTL attiva alle 8:47,
+# Largo Vincenzo Giudice (OSM way/1452850178, alla Fortezza). La partenza è dall'altra parte, verso piazza Beccaria.
+#  1. «La strada più diretta»: dritto al ristorante attraverso il centro, dentro da un varco → verbale
+#  2. «Con GateLR»: intorno lungo i viali fino al parcheggio, sempre fuori dalla ZTL
 #  3. a piedi dal parcheggio al ristorante
-# Si provano più partenze dall'altra parte del centro, per scegliere quella in cui la strada dritta è davvero la più corta.
 import json, math, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
@@ -80,22 +81,21 @@ def check(r):
     r["gates"] = sorted({g[0] for g in gates for p in pts if meters(p, (g[1], g[2])) < 25})
 
 
-starts = {"lavagnini": (43.782961, 11.257894), "strozzi": (43.78345, 11.24960), "prato": (43.77720, 11.23900),
-          "belfiore": (43.78100, 11.24200)}
-gates_w = {"cavour": (43.78305, 11.262289), "guelfa": (43.777767, 11.254444), "scala": (43.774943, 11.24642),
-           "ruote": (43.781448, 11.256587)}
-beccaria = (43.769894, 11.270761)    # Parcheggio Beccaria, sotterraneo (OSM way/231098032)
-dest = {"verdi": (43.7700, 11.2610), "albizi": (43.7708, 11.2580), "sanpier": (43.7710, 11.2595)}
+starts = {"gramsci": (43.77450, 11.27160), "beccaria": (43.76990, 11.27120), "alfieri": (43.77700, 11.27050)}
+gates_e = {"niccolini": (43.773061, 11.268371), "alfieri": (43.776338, 11.268385), "agnolo": (43.769769, 11.266759)}
+parking = (43.779753, 11.247866)     # Largo Vincenzo Giudice (OSM way/1452850178)
+dest = {"mercato1": (43.77697, 11.25190), "mercato2": (43.77670, 11.25153), "mercato3": (43.77724, 11.25228)}
 
 out = {"direct": {}, "parking": {}, "walk": {}}
 for sn, s0 in starts.items():
     for dn, d in dest.items():
         out["direct"][f"{sn}>{dn}"] = route([s0, d]); time.sleep(1.1)
-        for gn, g in gates_w.items():
+        for gn, g in gates_e.items():
             out["direct"][f"{sn}>{gn}>{dn}"] = route([s0, g, d]); time.sleep(1.1)
-    out["parking"][sn] = route([s0, beccaria]); time.sleep(1.1)
+    out["parking"][sn] = route([s0, parking]); time.sleep(1.1)
+    out["parking"][sn + ">matteotti"] = route([s0, (43.7806, 11.2665), parking]); time.sleep(1.1)
 for dn, d in dest.items():
-    out["walk"][dn] = route([beccaria, d], "foot"); time.sleep(1.1)
+    out["walk"][dn] = route([parking, d], "foot"); time.sleep(1.1)
 for group in out.values():
     for r in group.values():
         check(r)
