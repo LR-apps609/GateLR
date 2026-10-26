@@ -468,7 +468,9 @@ private struct IntroLiveMap: View {
 
 /// L'inquadratura della mappa di Apple e del disegno di riserva: la stessa di Mapbox (ferma, rivolta a 152°, inclinata di 45°)
 enum IntroCamera {
-    static let frame = IntroMapboxMap.center
+    /// Un centinaio di metri più avanti del centro di Mapbox: le etichette alte del ristorante e del parcheggio restano
+    /// sotto il titolo (con MapKit e con il disegno la scena sta un po' più in alto)
+    static let frame = CLLocationCoordinate2D(latitude: 43.7749, longitude: 11.2669)
     static let heading = IntroMapboxMap.bearing
     static let pitch = IntroMapboxMap.pitch
     /// MapKit misura la distanza della camera, non lo zoom: circa la stessa porzione di città dello zoom 14 di Mapbox
@@ -499,7 +501,7 @@ private struct IntroFallbackMap: View {
         TimelineView(.animation(paused: reduceMotion || drive.phase == .waiting || drive.phase == .done)) { tl in
             GeometryReader { g in
                 let pr = IntroProjector(center: IntroCamera.frame, heading: IntroCamera.heading, pitch: IntroCamera.pitch,
-                                        distance: 2600, size: g.size)
+                                        distance: 3100, size: g.size)
                 ZStack {
                     Canvas { ctx, _ in draw(ctx, pr, tl.date) }
                     landmark("Duomo", pr.point(Self.duomo))

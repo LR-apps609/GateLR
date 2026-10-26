@@ -200,9 +200,9 @@ jobs:
           # Aspetta fino a «secondi» dall'avvio dell'app
           at() { while [ $(( $(date +%s) - T0 )) -lt "$1" ]; do sleep 0.5; done; }
           T0=$(date +%s); lim 60 xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS
-          at 9; shot intro-1-verbale
-          at 15; shot intro-2-con-gatelr
-          at 22; shot intro-3-parcheggio
+          at 7; shot intro-1-verbale
+          at 14; shot intro-2-con-gatelr
+          at 21; shot intro-3-parcheggio
           at 30; shot intro-4-avvisi
           at 36; shot intro-5-cartello
           at 40; shot intro-6-cartelli
@@ -211,9 +211,9 @@ jobs:
           lim 30 xcrun simctl terminate "$UDID" it.ledion.GateLR || true
           sleep 1
           T0=$(date +%s); lim 60 xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS -intro2Fallback
-          at 9; shot intro-8-riserva-verbale
-          at 15; shot intro-9-riserva-con-gatelr
-          at 22; shot intro-10-riserva-parcheggio
+          at 7; shot intro-8-riserva-verbale
+          at 14; shot intro-9-riserva-con-gatelr
+          at 21; shot intro-10-riserva-parcheggio
           at 24
           kill -INT $REC 2>/dev/null || true
           for i in $(seq 1 40); do kill -0 $REC 2>/dev/null || break; sleep 0.5; done
