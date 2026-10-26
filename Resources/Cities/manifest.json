@@ -1,8 +1,13 @@
 {
- "version": "202610260139",
- "digest": "a31c942d881d",
+ "version": "202610260140",
+ "digest": "8d6572cfb803",
  "schema": 1,
  "cities": [
+  {
+   "id": "arezzo",
+   "file": "arezzo.json",
+   "sha256": "79f1e5e281d7e20e95f76174d75d6539a2bc2f45542f56768b6a18ee64dc8fe0"
+  },
   {
    "id": "bergamo",
    "file": "bergamo.json",

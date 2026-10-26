@@ -1,0 +1,3160 @@
+{
+ "id": "arezzo",
+ "name": "Arezzo",
+ "name_it": "Arezzo",
+ "name_de": "Arezzo",
+ "center": {
+  "lat": 43.4647,
+  "lon": 11.8842
+ },
+ "zones": [
+  {
+   "id": "arezzo-ztl-b",
+   "name": "Corso Italia · ZTL B and Piazza Grande",
+   "name_it": "Corso Italia · ZTL B e piazza Grande",
+   "name_de": "Corso Italia · ZTL B und Piazza Grande",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised vehicles every day, holidays included, from 8 am to midnight; open from midnight to 8 am. Motorbikes need a permit too. Hotel guests with a booking may drive to the hotel only to unload luggage: you or the hotel must enter the plate on the city's ZTL portal. There is no tourist ticket: the paid day pass (only for real needs such as loading) allows 8–11 am and 2–4 pm, stopping 20 minutes at most. Piazza Grande and the other pedestrian squares are closed to cars at all times.",
+   "summary_it": "Chiusa ai veicoli non autorizzati tutti i giorni, festivi compresi, dalle 8 alle 24; aperta da mezzanotte alle 8. Anche le moto devono avere il permesso. Gli ospiti degli hotel con prenotazione possono arrivare all'hotel solo per scaricare i bagagli: tu o l'hotel dovete inserire la targa nel portale ZTL del Comune. Non c'è un ticket per i turisti: l'accesso giornaliero a pagamento (solo per necessità effettive come il carico e scarico) vale 8–11 e 14–16, con sosta di 20 minuti al massimo. Piazza Grande e le altre piazze pedonali sono sempre chiuse alle auto.",
+   "summary_de": "Täglich, auch an Feiertagen, von 8 bis 24 Uhr für nicht berechtigte Fahrzeuge gesperrt; von Mitternacht bis 8 Uhr offen. Auch Motorräder brauchen eine Genehmigung. Hotelgäste mit Buchung dürfen nur zum Ausladen des Gepäcks zum Hotel fahren: du oder das Hotel müsst das Kennzeichen im ZTL-Portal der Stadt eintragen. Ein Touristenticket gibt es nicht: Der kostenpflichtige Tagespass (nur bei echtem Bedarf wie Be- und Entladen) gilt 8–11 und 14–16 Uhr, Halten höchstens 20 Minuten. Die Piazza Grande und die anderen Fußgängerplätze sind immer für Autos gesperrt.",
+   "perimeter": [
+    {
+     "lat": 43.462658,
+     "lon": 11.882975
+    },
+    {
+     "lat": 43.462666,
+     "lon": 11.882535
+    },
+    {
+     "lat": 43.462663,
+     "lon": 11.882467
+    },
+    {
+     "lat": 43.462631,
+     "lon": 11.88247
+    },
+    {
+     "lat": 43.462627,
+     "lon": 11.882166
+    },
+    {
+     "lat": 43.462682,
+     "lon": 11.882083
+    },
+    {
+     "lat": 43.462758,
+     "lon": 11.881514
+    },
+    {
+     "lat": 43.46264,
+     "lon": 11.881433
+    },
+    {
+     "lat": 43.462645,
+     "lon": 11.880903
+    },
+    {
+     "lat": 43.462613,
+     "lon": 11.880928
+    },
+    {
+     "lat": 43.462481,
+     "lon": 11.881343
+    },
+    {
+     "lat": 43.462384,
+     "lon": 11.881373
+    },
+    {
+     "lat": 43.462273,
+     "lon": 11.881257
+    },
+    {
+     "lat": 43.462288,
+     "lon": 11.881211
+    },
+    {
+     "lat": 43.461748,
+     "lon": 11.880586
+    },
+    {
+     "lat": 43.461746,
+     "lon": 11.880541
+    },
+    {
+     "lat": 43.462241,
+     "lon": 11.879761
+    },
+    {
+     "lat": 43.462265,
+     "lon": 11.879748
+    },
+    {
+     "lat": 43.462402,
+     "lon": 11.879896
+    },
+    {
+     "lat": 43.462435,
+     "lon": 11.879893
+    },
+    {
+     "lat": 43.462527,
+     "lon": 11.879751
+    },
+    {
+     "lat": 43.462526,
+     "lon": 11.879706
+    },
+    {
+     "lat": 43.462396,
+     "lon": 11.879525
+    },
+    {
+     "lat": 43.462915,
+     "lon": 11.878732
+    },
+    {
+     "lat": 43.463148,
+     "lon": 11.878827
+    },
+    {
+     "lat": 43.463254,
+     "lon": 11.878809
+    },
+    {
+     "lat": 43.463438,
+     "lon": 11.878694
+    },
+    {
+     "lat": 43.464168,
+     "lon": 11.879598
+    },
+    {
+     "lat": 43.464212,
+     "lon": 11.879674
+    },
+    {
+     "lat": 43.464191,
+     "lon": 11.879776
+    },
+    {
+     "lat": 43.464295,
+     "lon": 11.879904
+    },
+    {
+     "lat": 43.464384,
+     "lon": 11.879886
+    },
+    {
+     "lat": 43.464935,
+     "lon": 11.880589
+    },
+    {
+     "lat": 43.464929,
+     "lon": 11.880646
+    },
+    {
+     "lat": 43.464972,
+     "lon": 11.880699
+    },
+    {
+     "lat": 43.465013,
+     "lon": 11.880685
+    },
+    {
+     "lat": 43.465104,
+     "lon": 11.880498
+    },
+    {
+     "lat": 43.465129,
+     "lon": 11.880508
+    },
+    {
+     "lat": 43.465717,
+     "lon": 11.881107
+    },
+    {
+     "lat": 43.465586,
+     "lon": 11.881331
+    },
+    {
+     "lat": 43.46566,
+     "lon": 11.88155
+    },
+    {
+     "lat": 43.465584,
+     "lon": 11.881714
+    },
+    {
+     "lat": 43.465595,
+     "lon": 11.881769
+    },
+    {
+     "lat": 43.465755,
+     "lon": 11.881904
+    },
+    {
+     "lat": 43.465812,
+     "lon": 11.881889
+    },
+    {
+     "lat": 43.466031,
+     "lon": 11.88203
+    },
+    {
+     "lat": 43.466126,
+     "lon": 11.881956
+    },
+    {
+     "lat": 43.466178,
+     "lon": 11.881828
+    },
+    {
+     "lat": 43.466205,
+     "lon": 11.881882
+    },
+    {
+     "lat": 43.466153,
+     "lon": 11.88201
+    },
+    {
+     "lat": 43.466155,
+     "lon": 11.882077
+    },
+    {
+     "lat": 43.466196,
+     "lon": 11.882086
+    },
+    {
+     "lat": 43.466267,
+     "lon": 11.882002
+    },
+    {
+     "lat": 43.466273,
+     "lon": 11.882159
+    },
+    {
+     "lat": 43.46655,
+     "lon": 11.88233
+    },
+    {
+     "lat": 43.4665,
+     "lon": 11.882525
+    },
+    {
+     "lat": 43.466466,
+     "lon": 11.882505
+    },
+    {
+     "lat": 43.466443,
+     "lon": 11.882541
+    },
+    {
+     "lat": 43.466415,
+     "lon": 11.882656
+    },
+    {
+     "lat": 43.466353,
+     "lon": 11.88275
+    },
+    {
+     "lat": 43.466364,
+     "lon": 11.882828
+    },
+    {
+     "lat": 43.466289,
+     "lon": 11.883014
+    },
+    {
+     "lat": 43.4663,
+     "lon": 11.883092
+    },
+    {
+     "lat": 43.466255,
+     "lon": 11.883185
+    },
+    {
+     "lat": 43.466259,
+     "lon": 11.883298
+    },
+    {
+     "lat": 43.466173,
+     "lon": 11.883619
+    },
+    {
+     "lat": 43.466142,
+     "lon": 11.883667
+    },
+    {
+     "lat": 43.466067,
+     "lon": 11.883638
+    },
+    {
+     "lat": 43.465947,
+     "lon": 11.88394
+    },
+    {
+     "lat": 43.465801,
+     "lon": 11.883759
+    },
+    {
+     "lat": 43.465769,
+     "lon": 11.883762
+    },
+    {
+     "lat": 43.465629,
+     "lon": 11.883975
+    },
+    {
+     "lat": 43.465631,
+     "lon": 11.884019
+    },
+    {
+     "lat": 43.465777,
+     "lon": 11.8842
+    },
+    {
+     "lat": 43.465897,
+     "lon": 11.884113
+    },
+    {
+     "lat": 43.465982,
+     "lon": 11.884196
+    },
+    {
+     "lat": 43.46588,
+     "lon": 11.884328
+    },
+    {
+     "lat": 43.465652,
+     "lon": 11.884367
+    },
+    {
+     "lat": 43.465517,
+     "lon": 11.884478
+    },
+    {
+     "lat": 43.465214,
+     "lon": 11.884917
+    },
+    {
+     "lat": 43.465104,
+     "lon": 11.885466
+    },
+    {
+     "lat": 43.465065,
+     "lon": 11.885525
+    },
+    {
+     "lat": 43.465009,
+     "lon": 11.88554
+    },
+    {
+     "lat": 43.464917,
+     "lon": 11.885513
+    },
+    {
+     "lat": 43.464979,
+     "lon": 11.885419
+    },
+    {
+     "lat": 43.464978,
+     "lon": 11.885374
+    },
+    {
+     "lat": 43.464882,
+     "lon": 11.885234
+    },
+    {
+     "lat": 43.464826,
+     "lon": 11.88525
+    },
+    {
+     "lat": 43.464749,
+     "lon": 11.88539
+    },
+    {
+     "lat": 43.464811,
+     "lon": 11.88551
+    },
+    {
+     "lat": 43.464788,
+     "lon": 11.885545
+    },
+    {
+     "lat": 43.464248,
+     "lon": 11.885585
+    },
+    {
+     "lat": 43.464056,
+     "lon": 11.884833
+    },
+    {
+     "lat": 43.463887,
+     "lon": 11.884687
+    },
+    {
+     "lat": 43.463739,
+     "lon": 11.884676
+    },
+    {
+     "lat": 43.463713,
+     "lon": 11.884644
+    },
+    {
+     "lat": 43.463726,
+     "lon": 11.884553
+    },
+    {
+     "lat": 43.463634,
+     "lon": 11.884503
+    },
+    {
+     "lat": 43.463673,
+     "lon": 11.88423
+    },
+    {
+     "lat": 43.463773,
+     "lon": 11.88429
+    },
+    {
+     "lat": 43.463874,
+     "lon": 11.884136
+    },
+    {
+     "lat": 43.463872,
+     "lon": 11.884091
+    },
+    {
+     "lat": 43.46377,
+     "lon": 11.883986
+    },
+    {
+     "lat": 43.463704,
+     "lon": 11.883968
+    },
+    {
+     "lat": 43.463799,
+     "lon": 11.88368
+    },
+    {
+     "lat": 43.463871,
+     "lon": 11.883641
+    },
+    {
+     "lat": 43.463835,
+     "lon": 11.883553
+    },
+    {
+     "lat": 43.463643,
+     "lon": 11.883444
+    },
+    {
+     "lat": 43.463625,
+     "lon": 11.8834
+    },
+    {
+     "lat": 43.463706,
+     "lon": 11.883157
+    },
+    {
+     "lat": 43.463844,
+     "lon": 11.882922
+    },
+    {
+     "lat": 43.463914,
+     "lon": 11.882815
+    },
+    {
+     "lat": 43.46398,
+     "lon": 11.882833
+    },
+    {
+     "lat": 43.464081,
+     "lon": 11.882679
+    },
+    {
+     "lat": 43.464079,
+     "lon": 11.882634
+    },
+    {
+     "lat": 43.463976,
+     "lon": 11.882507
+    },
+    {
+     "lat": 43.463849,
+     "lon": 11.882629
+    },
+    {
+     "lat": 43.463597,
+     "lon": 11.88223
+    },
+    {
+     "lat": 43.463437,
+     "lon": 11.882118
+    },
+    {
+     "lat": 43.463343,
+     "lon": 11.882238
+    },
+    {
+     "lat": 43.463153,
+     "lon": 11.882623
+    },
+    {
+     "lat": 43.462905,
+     "lon": 11.883216
+    },
+    {
+     "lat": 43.462881,
+     "lon": 11.883229
+    },
+    {
+     "lat": 43.462704,
+     "lon": 11.883095
+    },
+    {
+     "lat": 43.462652,
+     "lon": 11.883031
+    },
+    {
+     "lat": 43.462658,
+     "lon": 11.882975
+    }
+   ],
+   "gates": [
+    {
+     "id": "ar-1",
+     "name": "1 · Corso Italia, north of Via Roma (entry)",
+     "location": {
+      "lat": 43.462227,
+      "lon": 11.879661
+     }
+    },
+    {
+     "id": "ar-3-4",
+     "name": "3–4 · Via Madonna del Prato at Via Roma (entry)",
+     "location": {
+      "lat": 43.462744,
+      "lon": 11.878851
+     }
+    },
+    {
+     "id": "ar-6",
+     "name": "6 · Via Mazzini after Via dell'Agania (entry)",
+     "location": {
+      "lat": 43.463917,
+      "lon": 11.882743
+     }
+    },
+    {
+     "id": "ar-7",
+     "name": "7 · Via Borgunto after Piaggia San Bartolomeo (entry)",
+     "location": {
+      "lat": 43.463656,
+      "lon": 11.884098
+     }
+    },
+    {
+     "id": "ar-8",
+     "name": "8 · Piaggia San Martino, from Via Pellicceria (entry)",
+     "location": {
+      "lat": 43.464873,
+      "lon": 11.885568
+     }
+    },
+    {
+     "id": "ar-20",
+     "name": "20 · Via della Fioraia, from Via Carducci (entry)",
+     "location": {
+      "lat": 43.46584,
+      "lon": 11.881151
+     }
+    },
+    {
+     "id": "ar-21",
+     "name": "21 · Via de' Montetini, from Piazza di Murello (entry)",
+     "location": {
+      "lat": 43.466872,
+      "lon": 11.881031
+     }
+    },
+    {
+     "id": "ar-22",
+     "name": "22 · Via dei Pileati into Piazza Madonna del Conforto (exit)",
+     "location": {
+      "lat": 43.465951,
+      "lon": 11.884042
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 480,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Arezzo",
+    "pageURL": "https://www.comune.arezzo.it/documento-pubblico/accesso-temporaneo-nella-ztl-zona-traffico-limitato",
+    "ordinance": "Disciplinare ZTL (Delibera G.C. n. 124 del 30/03/2023), testo rev. 1.4 «in fase di aggiornamento»",
+    "ordinanceURL": "https://www.comune.arezzo.it/sites/default/files/2025-07/copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf",
+    "quote": "Nella ZTL B vige il divieto di circolazione e sosta per i veicoli a motore (sprovvisti di regolare autorizzazione) tutti i giorni dalle ore 8,00 alle ore 24,00.",
+    "quoteTranslation": "In ZTL B, driving and parking are forbidden to motor vehicles (without a valid authorisation) every day from 8:00 to 24:00.",
+    "quoteTranslation_de": "In der ZTL B sind Fahren und Parken für Kraftfahrzeuge (ohne gültige Genehmigung) täglich von 8:00 bis 24:00 Uhr verboten.",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Inside ZTL B, Piazza Grande, Via Vasari, Via Beccheria and other squares are pedestrian at all times; Via Seteria is pedestrian 11 am–1 am (map legend).",
+     "Electric cars registered with the city may drive in ZTL B only 8–11 am, 1–4 pm and 8 pm–midnight: GateLR treats them like any other car.",
+     "The city's rules text (Disciplinare 2023) is published as \"being updated\": hours or permits may change in 2026–2027.",
+     "Outlines taken from the city's official map (25/09/2025), which has no coordinates: it was placed on OpenStreetMap automatically (average gap between the map's streets and OSM about 5 m), so edges are approximate. Gates are placed at the junction named in the rules (art. 9); the city now counts 24 gates, the rules list 25.",
+     "Hotel guests: the rules say you or the hotel must enter the plate on the city's ZTL portal, but give no deadline (before or after entering). Ask your hotel; information: permessiztl@comune.arezzo.it.",
+     "Daily pass price: the city's page says €15 a day (€10 for electric cars), the 2023 rules text says €10. Up to 20 a year per vehicle, only for real needs such as loading.",
+     "Events: on Fiera Antiquaria weekends (first Sunday of the month and the Saturday before) and on Giostra del Saracino days (June and the first Sunday of September) extra bans and closures apply, set each time by ordinance.",
+     "Summer: from 15 May to 12 September 2026, Fridays and Saturdays 7 pm–midnight, a larger pedestrian area (ordinance 245/2026) closes several streets of ZTL A and B and Via Roma even to permit holders. Not drawn on the map; the 2027 dates are not out yet."
+    ],
+    "pending_it": [
+     "Dentro la ZTL B, piazza Grande, via Vasari, via Beccheria e altre piazze sono pedonali sempre; via Seteria è pedonale dalle 11 all'1 (legenda della mappa).",
+     "Le auto elettriche registrate presso il Comune possono circolare nella ZTL B solo 8–11, 13–16 e 20–24: GateLR le tratta come le altre auto.",
+     "Il disciplinare 2023 è pubblicato con la scritta «in fase di aggiornamento»: orari o permessi potrebbero cambiare nel 2026–2027.",
+     "Perimetri presi dalla mappa ufficiale del Comune (25/09/2025), che non ha coordinate: è stata agganciata a OpenStreetMap in automatico (scarto medio tra le strade della mappa e quelle di OSM circa 5 m), quindi i bordi sono approssimati. I varchi sono messi all'incrocio indicato dal disciplinare (art. 9); il Comune oggi conta 24 varchi, il disciplinare ne elenca 25.",
+     "Ospiti degli hotel: il disciplinare dice che il cliente o l'albergatore devono inserire la targa nel portale ZTL, ma non indica un termine (prima o dopo l'ingresso). Chiedi all'hotel; informazioni: permessiztl@comune.arezzo.it.",
+     "Prezzo dell'accesso giornaliero: la pagina del Comune dice 15 € al giorno (10 € per le auto elettriche), il disciplinare 2023 dice 10 €. Al massimo 20 l'anno per veicolo, solo per necessità effettive come il carico e scarico.",
+     "Eventi: nei fine settimana della Fiera Antiquaria (prima domenica del mese e sabato precedente) e nei giorni della Giostra del Saracino (giugno e prima domenica di settembre) valgono divieti e chiusure in più, fissati ogni volta con un'ordinanza.",
+     "Estate: dal 15 maggio al 12 settembre 2026, venerdì e sabato dalle 19 alle 24, un'area pedonale più ampia (ordinanza 245/2026) chiude varie strade della ZTL A e B e via Roma anche a chi ha il permesso. Non è disegnata sulla mappa; le date del 2027 non sono ancora uscite."
+    ],
+    "pending_de": [
+     "In der ZTL B sind die Piazza Grande, Via Vasari, Via Beccheria und weitere Plätze immer Fußgängerzone; die Via Seteria von 11 bis 1 Uhr (Kartenlegende).",
+     "Bei der Stadt registrierte Elektroautos dürfen in der ZTL B nur 8–11, 13–16 und 20–24 Uhr fahren: GateLR behandelt sie wie andere Autos.",
+     "Die Regeln von 2023 sind als »in Überarbeitung« veröffentlicht: Zeiten oder Genehmigungen können sich 2026–2027 ändern.",
+     "Grenzen aus der offiziellen Karte der Stadt (25.09.2025) ohne Koordinaten: Sie wurde automatisch auf OpenStreetMap gelegt (mittlere Abweichung der Straßen etwa 5 m), die Ränder sind daher ungefähr. Die Kameras liegen an der in den Regeln (Art. 9) genannten Kreuzung; die Stadt zählt heute 24 Kameras, die Regeln nennen 25.",
+     "Hotelgäste: Laut den Regeln müssen du oder das Hotel das Kennzeichen im ZTL-Portal der Stadt eintragen, eine Frist (vor oder nach der Einfahrt) wird nicht genannt. Frag dein Hotel; Auskunft: permessiztl@comune.arezzo.it.",
+     "Preis des Tagespasses: Die Seite der Stadt nennt 15 € pro Tag (10 € für Elektroautos), die Regeln von 2023 nennen 10 €. Höchstens 20 pro Jahr und Fahrzeug, nur bei echtem Bedarf wie Be- und Entladen.",
+     "Veranstaltungen: An Wochenenden der Fiera Antiquaria (erster Sonntag im Monat und Samstag davor) und an Tagen der Giostra del Saracino (Juni und erster Sonntag im September) gelten zusätzliche Verbote und Sperrungen, jeweils per Anordnung.",
+     "Sommer: Vom 15. Mai bis 12. September 2026, freitags und samstags 19–24 Uhr, sperrt eine größere Fußgängerzone (Anordnung 245/2026) mehrere Straßen der ZTL A und B sowie die Via Roma auch für Genehmigungsinhaber. Nicht auf der Karte eingezeichnet; die Termine für 2027 stehen noch nicht fest."
+    ],
+    "links": [
+     {
+      "title": "City of Arezzo: temporary access to the ZTL (hours, prices, hotel guests)",
+      "title_it": "Comune di Arezzo: accesso temporaneo nella ZTL (orari, contributi, ospiti degli hotel)",
+      "title_de": "Stadt Arezzo: befristete Zufahrt in die ZTL (Zeiten, Preise, Hotelgäste)",
+      "url": "https://www.comune.arezzo.it/documento-pubblico/accesso-temporaneo-nella-ztl-zona-traffico-limitato"
+     },
+     {
+      "title": "City of Arezzo: ZTL rules (Disciplinare, Council decision 124/2023, text being updated)",
+      "title_it": "Comune di Arezzo: disciplinare ZTL (delibera GC 124/2023, testo in aggiornamento)",
+      "title_de": "Stadt Arezzo: ZTL-Regeln (Beschluss 124/2023, Text wird überarbeitet)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2025-07/copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf"
+     },
+     {
+      "title": "City of Arezzo: official ZTL map with gates (PDF, 25/09/2025)",
+      "title_it": "Comune di Arezzo: planimetria ufficiale della ZTL con i varchi (PDF, 25/09/2025)",
+      "title_de": "Stadt Arezzo: offizielle ZTL-Karte mit Kameras (PDF, 25.09.2025)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2025-09/planimetria%20ztl_aggiornata%20al%2025_09_2025_.pdf"
+     },
+     {
+      "title": "City of Arezzo: ZTL permit portal (SPID/CIE)",
+      "title_it": "Comune di Arezzo: portale permessi ZTL (SPID/CIE)",
+      "title_de": "Stadt Arezzo: Portal für ZTL-Genehmigungen (SPID/CIE)",
+      "url": "https://permessiztl.comune.arezzo.it/"
+     },
+     {
+      "title": "City of Arezzo: unauthorised entry into the ZTL (fines, Polizia Locale)",
+      "title_it": "Comune di Arezzo: accesso irregolare in ZTL (verbali, Polizia Locale)",
+      "title_de": "Stadt Arezzo: unerlaubte Einfahrt in die ZTL (Bußgelder, Polizia Locale)",
+      "url": "https://www.comune.arezzo.it/accesso-irregolare-ztl-zona-traffico-limitato"
+     },
+     {
+      "title": "City of Arezzo: ZTL camera system (24 gates since 1/1/2025)",
+      "title_it": "Comune di Arezzo: videocontrollo ZTL (24 varchi dal 1/1/2025)",
+      "title_de": "Stadt Arezzo: ZTL-Kameras (24 Kameras seit 1.1.2025)",
+      "url": "https://www.comune.arezzo.it/documento-pubblico/videocontrollo-ztl-e-corsie-preferenziali"
+     },
+     {
+      "title": "City of Arezzo: summer pedestrian area, Fri and Sat 7 pm–midnight (ordinance 245/2026)",
+      "title_it": "Comune di Arezzo: area pedonale estiva, venerdì e sabato 19–24 (ordinanza 245/2026)",
+      "title_de": "Stadt Arezzo: Sommer-Fußgängerzone, Fr und Sa 19–24 Uhr (Anordnung 245/2026)",
+      "url": "https://www.comune.arezzo.it/novita/pedonalizzazione-temporanea-di-alcune-strade-del-centro-storico-2"
+     },
+     {
+      "title": "City of Arezzo: traffic rules for the Fiera Antiquaria, September 2026 (ordinance 1026/2026)",
+      "title_it": "Comune di Arezzo: viabilità per la Fiera Antiquaria di settembre 2026 (ordinanza 1026/2026)",
+      "title_de": "Stadt Arezzo: Verkehrsregeln zur Fiera Antiquaria, September 2026 (Anordnung 1026/2026)",
+      "url": "https://comune.arezzo.it/sites/default/files/2026-08/ORD%201026%20Fiera%20Antiquaria%20edizione%20Settembre%202026.pdf"
+     },
+     {
+      "title": "City of Arezzo: traffic rules for the Giostra del Saracino, 6 September 2026 (ordinance 1047/2026)",
+      "title_it": "Comune di Arezzo: viabilità per la Giostra del Saracino del 6 settembre 2026 (ordinanza 1047/2026)",
+      "title_de": "Stadt Arezzo: Verkehrsregeln zur Giostra del Saracino am 6. September 2026 (Anordnung 1047/2026)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2026-09/ORD%201047%20Giostra%20del%20Saracino%20edizione%20settembre%202026.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets and squares used to place the map and the gates (ODbL)",
+      "title_it": "OpenStreetMap: strade e piazze usate per agganciare la mappa e i varchi (ODbL)",
+      "title_de": "OpenStreetMap: Straßen und Plätze zum Verorten der Karte und der Kameras (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=16/43.4640/11.8810"
+     }
+    ]
+   }
+  },
+  {
+   "id": "arezzo-ztl-b-sud",
+   "name": "Lower Corso Italia · ZTL B south of Via Roma",
+   "name_it": "Basso Corso Italia · ZTL B a sud di via Roma",
+   "name_de": "Unterer Corso Italia · ZTL B südlich der Via Roma",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised vehicles every day, holidays included, from 8 am to midnight; open from midnight to 8 am. Motorbikes need a permit too. Hotel guests with a booking may drive to the hotel only to unload luggage: you or the hotel must enter the plate on the city's ZTL portal. There is no tourist ticket: the paid day pass (only for real needs such as loading) allows 8–11 am and 2–4 pm, stopping 20 minutes at most. Piazza Grande and the other pedestrian squares are closed to cars at all times.",
+   "summary_it": "Chiusa ai veicoli non autorizzati tutti i giorni, festivi compresi, dalle 8 alle 24; aperta da mezzanotte alle 8. Anche le moto devono avere il permesso. Gli ospiti degli hotel con prenotazione possono arrivare all'hotel solo per scaricare i bagagli: tu o l'hotel dovete inserire la targa nel portale ZTL del Comune. Non c'è un ticket per i turisti: l'accesso giornaliero a pagamento (solo per necessità effettive come il carico e scarico) vale 8–11 e 14–16, con sosta di 20 minuti al massimo. Piazza Grande e le altre piazze pedonali sono sempre chiuse alle auto.",
+   "summary_de": "Täglich, auch an Feiertagen, von 8 bis 24 Uhr für nicht berechtigte Fahrzeuge gesperrt; von Mitternacht bis 8 Uhr offen. Auch Motorräder brauchen eine Genehmigung. Hotelgäste mit Buchung dürfen nur zum Ausladen des Gepäcks zum Hotel fahren: du oder das Hotel müsst das Kennzeichen im ZTL-Portal der Stadt eintragen. Ein Touristenticket gibt es nicht: Der kostenpflichtige Tagespass (nur bei echtem Bedarf wie Be- und Entladen) gilt 8–11 und 14–16 Uhr, Halten höchstens 20 Minuten. Die Piazza Grande und die anderen Fußgängerplätze sind immer für Autos gesperrt.",
+   "perimeter": [
+    {
+     "lat": 43.460985,
+     "lon": 11.879706
+    },
+    {
+     "lat": 43.460821,
+     "lon": 11.879482
+    },
+    {
+     "lat": 43.46086,
+     "lon": 11.879423
+    },
+    {
+     "lat": 43.461116,
+     "lon": 11.879269
+    },
+    {
+     "lat": 43.461122,
+     "lon": 11.879212
+    },
+    {
+     "lat": 43.460915,
+     "lon": 11.878934
+    },
+    {
+     "lat": 43.460696,
+     "lon": 11.878556
+    },
+    {
+     "lat": 43.460667,
+     "lon": 11.878434
+    },
+    {
+     "lat": 43.460915,
+     "lon": 11.878078
+    },
+    {
+     "lat": 43.461069,
+     "lon": 11.878247
+    },
+    {
+     "lat": 43.461102,
+     "lon": 11.878245
+    },
+    {
+     "lat": 43.461195,
+     "lon": 11.878103
+    },
+    {
+     "lat": 43.461193,
+     "lon": 11.878058
+    },
+    {
+     "lat": 43.461063,
+     "lon": 11.877876
+    },
+    {
+     "lat": 43.461203,
+     "lon": 11.877663
+    },
+    {
+     "lat": 43.461228,
+     "lon": 11.877672
+    },
+    {
+     "lat": 43.46121,
+     "lon": 11.877651
+    },
+    {
+     "lat": 43.461349,
+     "lon": 11.877416
+    },
+    {
+     "lat": 43.46132,
+     "lon": 11.877294
+    },
+    {
+     "lat": 43.461475,
+     "lon": 11.877057
+    },
+    {
+     "lat": 43.461586,
+     "lon": 11.877195
+    },
+    {
+     "lat": 43.461619,
+     "lon": 11.877193
+    },
+    {
+     "lat": 43.461712,
+     "lon": 11.877051
+    },
+    {
+     "lat": 43.46171,
+     "lon": 11.877006
+    },
+    {
+     "lat": 43.461599,
+     "lon": 11.876868
+    },
+    {
+     "lat": 43.461611,
+     "lon": 11.876777
+    },
+    {
+     "lat": 43.46172,
+     "lon": 11.876611
+    },
+    {
+     "lat": 43.461861,
+     "lon": 11.876657
+    },
+    {
+     "lat": 43.4628,
+     "lon": 11.877862
+    },
+    {
+     "lat": 43.462803,
+     "lon": 11.877951
+    },
+    {
+     "lat": 43.462737,
+     "lon": 11.878148
+    },
+    {
+     "lat": 43.462735,
+     "lon": 11.878317
+    },
+    {
+     "lat": 43.462831,
+     "lon": 11.878671
+    },
+    {
+     "lat": 43.462782,
+     "lon": 11.878697
+    },
+    {
+     "lat": 43.462671,
+     "lon": 11.878558
+    },
+    {
+     "lat": 43.462615,
+     "lon": 11.878596
+    },
+    {
+     "lat": 43.462597,
+     "lon": 11.878575
+    },
+    {
+     "lat": 43.462528,
+     "lon": 11.878681
+    },
+    {
+     "lat": 43.462521,
+     "lon": 11.878716
+    },
+    {
+     "lat": 43.462668,
+     "lon": 11.878919
+    },
+    {
+     "lat": 43.46167,
+     "lon": 11.880467
+    },
+    {
+     "lat": 43.460985,
+     "lon": 11.879706
+    }
+   ],
+   "gates": [
+    {
+     "id": "ar-2",
+     "name": "2 · Corso Italia, from Via Spinello (entry)",
+     "location": {
+      "lat": 43.46097,
+      "lon": 11.878002
+     }
+    },
+    {
+     "id": "ar-5",
+     "name": "5 · Via Madonna del Prato, from Via Spinello (entry)",
+     "location": {
+      "lat": 43.46148,
+      "lon": 11.876919
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 480,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Arezzo",
+    "pageURL": "https://www.comune.arezzo.it/documento-pubblico/accesso-temporaneo-nella-ztl-zona-traffico-limitato",
+    "ordinance": "Disciplinare ZTL (Delibera G.C. n. 124 del 30/03/2023), testo rev. 1.4 «in fase di aggiornamento»",
+    "ordinanceURL": "https://www.comune.arezzo.it/sites/default/files/2025-07/copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf",
+    "quote": "Nella ZTL B vige il divieto di circolazione e sosta per i veicoli a motore (sprovvisti di regolare autorizzazione) tutti i giorni dalle ore 8,00 alle ore 24,00.",
+    "quoteTranslation": "In ZTL B, driving and parking are forbidden to motor vehicles (without a valid authorisation) every day from 8:00 to 24:00.",
+    "quoteTranslation_de": "In der ZTL B sind Fahren und Parken für Kraftfahrzeuge (ohne gültige Genehmigung) täglich von 8:00 bis 24:00 Uhr verboten.",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Inside ZTL B, Piazza Grande, Via Vasari, Via Beccheria and other squares are pedestrian at all times; Via Seteria is pedestrian 11 am–1 am (map legend).",
+     "Electric cars registered with the city may drive in ZTL B only 8–11 am, 1–4 pm and 8 pm–midnight: GateLR treats them like any other car.",
+     "The city's rules text (Disciplinare 2023) is published as \"being updated\": hours or permits may change in 2026–2027.",
+     "Outlines taken from the city's official map (25/09/2025), which has no coordinates: it was placed on OpenStreetMap automatically (average gap between the map's streets and OSM about 5 m), so edges are approximate. Gates are placed at the junction named in the rules (art. 9); the city now counts 24 gates, the rules list 25.",
+     "Hotel guests: the rules say you or the hotel must enter the plate on the city's ZTL portal, but give no deadline (before or after entering). Ask your hotel; information: permessiztl@comune.arezzo.it.",
+     "Daily pass price: the city's page says €15 a day (€10 for electric cars), the 2023 rules text says €10. Up to 20 a year per vehicle, only for real needs such as loading.",
+     "Events: on Fiera Antiquaria weekends (first Sunday of the month and the Saturday before) and on Giostra del Saracino days (June and the first Sunday of September) extra bans and closures apply, set each time by ordinance.",
+     "Summer: from 15 May to 12 September 2026, Fridays and Saturdays 7 pm–midnight, a larger pedestrian area (ordinance 245/2026) closes several streets of ZTL A and B and Via Roma even to permit holders. Not drawn on the map; the 2027 dates are not out yet."
+    ],
+    "pending_it": [
+     "Dentro la ZTL B, piazza Grande, via Vasari, via Beccheria e altre piazze sono pedonali sempre; via Seteria è pedonale dalle 11 all'1 (legenda della mappa).",
+     "Le auto elettriche registrate presso il Comune possono circolare nella ZTL B solo 8–11, 13–16 e 20–24: GateLR le tratta come le altre auto.",
+     "Il disciplinare 2023 è pubblicato con la scritta «in fase di aggiornamento»: orari o permessi potrebbero cambiare nel 2026–2027.",
+     "Perimetri presi dalla mappa ufficiale del Comune (25/09/2025), che non ha coordinate: è stata agganciata a OpenStreetMap in automatico (scarto medio tra le strade della mappa e quelle di OSM circa 5 m), quindi i bordi sono approssimati. I varchi sono messi all'incrocio indicato dal disciplinare (art. 9); il Comune oggi conta 24 varchi, il disciplinare ne elenca 25.",
+     "Ospiti degli hotel: il disciplinare dice che il cliente o l'albergatore devono inserire la targa nel portale ZTL, ma non indica un termine (prima o dopo l'ingresso). Chiedi all'hotel; informazioni: permessiztl@comune.arezzo.it.",
+     "Prezzo dell'accesso giornaliero: la pagina del Comune dice 15 € al giorno (10 € per le auto elettriche), il disciplinare 2023 dice 10 €. Al massimo 20 l'anno per veicolo, solo per necessità effettive come il carico e scarico.",
+     "Eventi: nei fine settimana della Fiera Antiquaria (prima domenica del mese e sabato precedente) e nei giorni della Giostra del Saracino (giugno e prima domenica di settembre) valgono divieti e chiusure in più, fissati ogni volta con un'ordinanza.",
+     "Estate: dal 15 maggio al 12 settembre 2026, venerdì e sabato dalle 19 alle 24, un'area pedonale più ampia (ordinanza 245/2026) chiude varie strade della ZTL A e B e via Roma anche a chi ha il permesso. Non è disegnata sulla mappa; le date del 2027 non sono ancora uscite."
+    ],
+    "pending_de": [
+     "In der ZTL B sind die Piazza Grande, Via Vasari, Via Beccheria und weitere Plätze immer Fußgängerzone; die Via Seteria von 11 bis 1 Uhr (Kartenlegende).",
+     "Bei der Stadt registrierte Elektroautos dürfen in der ZTL B nur 8–11, 13–16 und 20–24 Uhr fahren: GateLR behandelt sie wie andere Autos.",
+     "Die Regeln von 2023 sind als »in Überarbeitung« veröffentlicht: Zeiten oder Genehmigungen können sich 2026–2027 ändern.",
+     "Grenzen aus der offiziellen Karte der Stadt (25.09.2025) ohne Koordinaten: Sie wurde automatisch auf OpenStreetMap gelegt (mittlere Abweichung der Straßen etwa 5 m), die Ränder sind daher ungefähr. Die Kameras liegen an der in den Regeln (Art. 9) genannten Kreuzung; die Stadt zählt heute 24 Kameras, die Regeln nennen 25.",
+     "Hotelgäste: Laut den Regeln müssen du oder das Hotel das Kennzeichen im ZTL-Portal der Stadt eintragen, eine Frist (vor oder nach der Einfahrt) wird nicht genannt. Frag dein Hotel; Auskunft: permessiztl@comune.arezzo.it.",
+     "Preis des Tagespasses: Die Seite der Stadt nennt 15 € pro Tag (10 € für Elektroautos), die Regeln von 2023 nennen 10 €. Höchstens 20 pro Jahr und Fahrzeug, nur bei echtem Bedarf wie Be- und Entladen.",
+     "Veranstaltungen: An Wochenenden der Fiera Antiquaria (erster Sonntag im Monat und Samstag davor) und an Tagen der Giostra del Saracino (Juni und erster Sonntag im September) gelten zusätzliche Verbote und Sperrungen, jeweils per Anordnung.",
+     "Sommer: Vom 15. Mai bis 12. September 2026, freitags und samstags 19–24 Uhr, sperrt eine größere Fußgängerzone (Anordnung 245/2026) mehrere Straßen der ZTL A und B sowie die Via Roma auch für Genehmigungsinhaber. Nicht auf der Karte eingezeichnet; die Termine für 2027 stehen noch nicht fest."
+    ],
+    "links": [
+     {
+      "title": "City of Arezzo: temporary access to the ZTL (hours, prices, hotel guests)",
+      "title_it": "Comune di Arezzo: accesso temporaneo nella ZTL (orari, contributi, ospiti degli hotel)",
+      "title_de": "Stadt Arezzo: befristete Zufahrt in die ZTL (Zeiten, Preise, Hotelgäste)",
+      "url": "https://www.comune.arezzo.it/documento-pubblico/accesso-temporaneo-nella-ztl-zona-traffico-limitato"
+     },
+     {
+      "title": "City of Arezzo: ZTL rules (Disciplinare, Council decision 124/2023, text being updated)",
+      "title_it": "Comune di Arezzo: disciplinare ZTL (delibera GC 124/2023, testo in aggiornamento)",
+      "title_de": "Stadt Arezzo: ZTL-Regeln (Beschluss 124/2023, Text wird überarbeitet)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2025-07/copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf"
+     },
+     {
+      "title": "City of Arezzo: official ZTL map with gates (PDF, 25/09/2025)",
+      "title_it": "Comune di Arezzo: planimetria ufficiale della ZTL con i varchi (PDF, 25/09/2025)",
+      "title_de": "Stadt Arezzo: offizielle ZTL-Karte mit Kameras (PDF, 25.09.2025)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2025-09/planimetria%20ztl_aggiornata%20al%2025_09_2025_.pdf"
+     },
+     {
+      "title": "City of Arezzo: ZTL permit portal (SPID/CIE)",
+      "title_it": "Comune di Arezzo: portale permessi ZTL (SPID/CIE)",
+      "title_de": "Stadt Arezzo: Portal für ZTL-Genehmigungen (SPID/CIE)",
+      "url": "https://permessiztl.comune.arezzo.it/"
+     },
+     {
+      "title": "City of Arezzo: unauthorised entry into the ZTL (fines, Polizia Locale)",
+      "title_it": "Comune di Arezzo: accesso irregolare in ZTL (verbali, Polizia Locale)",
+      "title_de": "Stadt Arezzo: unerlaubte Einfahrt in die ZTL (Bußgelder, Polizia Locale)",
+      "url": "https://www.comune.arezzo.it/accesso-irregolare-ztl-zona-traffico-limitato"
+     },
+     {
+      "title": "City of Arezzo: ZTL camera system (24 gates since 1/1/2025)",
+      "title_it": "Comune di Arezzo: videocontrollo ZTL (24 varchi dal 1/1/2025)",
+      "title_de": "Stadt Arezzo: ZTL-Kameras (24 Kameras seit 1.1.2025)",
+      "url": "https://www.comune.arezzo.it/documento-pubblico/videocontrollo-ztl-e-corsie-preferenziali"
+     },
+     {
+      "title": "City of Arezzo: summer pedestrian area, Fri and Sat 7 pm–midnight (ordinance 245/2026)",
+      "title_it": "Comune di Arezzo: area pedonale estiva, venerdì e sabato 19–24 (ordinanza 245/2026)",
+      "title_de": "Stadt Arezzo: Sommer-Fußgängerzone, Fr und Sa 19–24 Uhr (Anordnung 245/2026)",
+      "url": "https://www.comune.arezzo.it/novita/pedonalizzazione-temporanea-di-alcune-strade-del-centro-storico-2"
+     },
+     {
+      "title": "City of Arezzo: traffic rules for the Fiera Antiquaria, September 2026 (ordinance 1026/2026)",
+      "title_it": "Comune di Arezzo: viabilità per la Fiera Antiquaria di settembre 2026 (ordinanza 1026/2026)",
+      "title_de": "Stadt Arezzo: Verkehrsregeln zur Fiera Antiquaria, September 2026 (Anordnung 1026/2026)",
+      "url": "https://comune.arezzo.it/sites/default/files/2026-08/ORD%201026%20Fiera%20Antiquaria%20edizione%20Settembre%202026.pdf"
+     },
+     {
+      "title": "City of Arezzo: traffic rules for the Giostra del Saracino, 6 September 2026 (ordinance 1047/2026)",
+      "title_it": "Comune di Arezzo: viabilità per la Giostra del Saracino del 6 settembre 2026 (ordinanza 1047/2026)",
+      "title_de": "Stadt Arezzo: Verkehrsregeln zur Giostra del Saracino am 6. September 2026 (Anordnung 1047/2026)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2026-09/ORD%201047%20Giostra%20del%20Saracino%20edizione%20settembre%202026.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets and squares used to place the map and the gates (ODbL)",
+      "title_it": "OpenStreetMap: strade e piazze usate per agganciare la mappa e i varchi (ODbL)",
+      "title_de": "OpenStreetMap: Straßen und Plätze zum Verorten der Karte und der Kameras (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=16/43.4640/11.8810"
+     }
+    ]
+   }
+  },
+  {
+   "id": "arezzo-ztl-a",
+   "name": "Centro · Historic Centre ZTL A",
+   "name_it": "Centro · ZTL A Centro storico",
+   "name_de": "Centro · ZTL A Altstadt",
+   "kind": "restricted",
+   "summary": "Monday to Saturday (not on public holidays), 8:30 am–12 noon and 5–8 pm: no entry without a permit, and cameras also check the way out, so leave outside those hours too. Open at all other times and all day on Sundays and holidays. Motorbikes and mopeds may enter. Hotel guests with a booking may drive to the hotel only to unload luggage: you or the hotel must enter the plate on the city's ZTL portal. There is no tourist ticket: the paid day pass is for real needs such as loading (8:30 am–12 noon). The core around Corso Italia and Piazza Grande is ZTL B, closed 8 am–midnight every day.",
+   "summary_it": "Dal lunedì al sabato (festivi esclusi), 8:30–12 e 17–20: vietato entrare senza permesso, e le telecamere controllano anche l'uscita, quindi esci fuori da quegli orari. Aperta negli altri orari e tutto il giorno la domenica e nei festivi. Moto e ciclomotori entrano. Gli ospiti degli hotel con prenotazione possono arrivare all'hotel solo per scaricare i bagagli: tu o l'hotel dovete inserire la targa nel portale ZTL del Comune. Non c'è un ticket per i turisti: l'accesso giornaliero a pagamento è per necessità effettive come il carico e scarico (8:30–12). Il cuore attorno a corso Italia e piazza Grande è ZTL B, chiusa 8–24 tutti i giorni.",
+   "summary_de": "Montag bis Samstag (nicht an Feiertagen) 8:30–12 und 17–20 Uhr: keine Einfahrt ohne Genehmigung, und Kameras prüfen auch die Ausfahrt, also auch außerhalb dieser Zeiten hinausfahren. Sonst offen, sonntags und feiertags ganztägig. Motorräder und Mofas dürfen hinein. Hotelgäste mit Buchung dürfen nur zum Ausladen des Gepäcks zum Hotel fahren: du oder das Hotel müsst das Kennzeichen im ZTL-Portal der Stadt eintragen. Ein Touristenticket gibt es nicht: Der kostenpflichtige Tagespass ist für echten Bedarf wie Be- und Entladen (8:30–12 Uhr). Der Kern um Corso Italia und Piazza Grande ist ZTL B, täglich 8–24 Uhr gesperrt.",
+   "perimeter": [
+    {
+     "lat": 43.4651,
+     "lon": 11.878888
+    },
+    {
+     "lat": 43.465162,
+     "lon": 11.878793
+    },
+    {
+     "lat": 43.465195,
+     "lon": 11.878791
+    },
+    {
+     "lat": 43.465323,
+     "lon": 11.87895
+    },
+    {
+     "lat": 43.465373,
+     "lon": 11.878947
+    },
+    {
+     "lat": 43.465497,
+     "lon": 11.87878
+    },
+    {
+     "lat": 43.46553,
+     "lon": 11.878778
+    },
+    {
+     "lat": 43.465582,
+     "lon": 11.878864
+    },
+    {
+     "lat": 43.465648,
+     "lon": 11.878859
+    },
+    {
+     "lat": 43.465798,
+     "lon": 11.878702
+    },
+    {
+     "lat": 43.465765,
+     "lon": 11.87849
+    },
+    {
+     "lat": 43.465796,
+     "lon": 11.878443
+    },
+    {
+     "lat": 43.465976,
+     "lon": 11.878452
+    },
+    {
+     "lat": 43.465983,
+     "lon": 11.878418
+    },
+    {
+     "lat": 43.46604,
+     "lon": 11.878402
+    },
+    {
+     "lat": 43.466847,
+     "lon": 11.878287
+    },
+    {
+     "lat": 43.467026,
+     "lon": 11.878252
+    },
+    {
+     "lat": 43.467049,
+     "lon": 11.878216
+    },
+    {
+     "lat": 43.467107,
+     "lon": 11.878246
+    },
+    {
+     "lat": 43.467076,
+     "lon": 11.878293
+    },
+    {
+     "lat": 43.467079,
+     "lon": 11.87836
+    },
+    {
+     "lat": 43.467098,
+     "lon": 11.878641
+    },
+    {
+     "lat": 43.467131,
+     "lon": 11.878661
+    },
+    {
+     "lat": 43.467112,
+     "lon": 11.878381
+    },
+    {
+     "lat": 43.467131,
+     "lon": 11.87821
+    },
+    {
+     "lat": 43.46718,
+     "lon": 11.878229
+    },
+    {
+     "lat": 43.46722,
+     "lon": 11.878192
+    },
+    {
+     "lat": 43.467547,
+     "lon": 11.878169
+    },
+    {
+     "lat": 43.467611,
+     "lon": 11.878119
+    },
+    {
+     "lat": 43.467986,
+     "lon": 11.878091
+    },
+    {
+     "lat": 43.468072,
+     "lon": 11.878175
+    },
+    {
+     "lat": 43.46812,
+     "lon": 11.878172
+    },
+    {
+     "lat": 43.468348,
+     "lon": 11.878324
+    },
+    {
+     "lat": 43.468581,
+     "lon": 11.87842
+    },
+    {
+     "lat": 43.468608,
+     "lon": 11.878497
+    },
+    {
+     "lat": 43.468506,
+     "lon": 11.878628
+    },
+    {
+     "lat": 43.468509,
+     "lon": 11.878695
+    },
+    {
+     "lat": 43.468579,
+     "lon": 11.878803
+    },
+    {
+     "lat": 43.468693,
+     "lon": 11.878795
+    },
+    {
+     "lat": 43.468767,
+     "lon": 11.878586
+    },
+    {
+     "lat": 43.469246,
+     "lon": 11.878901
+    },
+    {
+     "lat": 43.46927,
+     "lon": 11.878888
+    },
+    {
+     "lat": 43.469465,
+     "lon": 11.879042
+    },
+    {
+     "lat": 43.469546,
+     "lon": 11.879036
+    },
+    {
+     "lat": 43.469544,
+     "lon": 11.878969
+    },
+    {
+     "lat": 43.469459,
+     "lon": 11.878885
+    },
+    {
+     "lat": 43.469434,
+     "lon": 11.878898
+    },
+    {
+     "lat": 43.46923,
+     "lon": 11.878688
+    },
+    {
+     "lat": 43.469156,
+     "lon": 11.878682
+    },
+    {
+     "lat": 43.468801,
+     "lon": 11.878393
+    },
+    {
+     "lat": 43.468301,
+     "lon": 11.878181
+    },
+    {
+     "lat": 43.468066,
+     "lon": 11.878041
+    },
+    {
+     "lat": 43.468001,
+     "lon": 11.878045
+    },
+    {
+     "lat": 43.467991,
+     "lon": 11.87799
+    },
+    {
+     "lat": 43.468068,
+     "lon": 11.877871
+    },
+    {
+     "lat": 43.468066,
+     "lon": 11.877804
+    },
+    {
+     "lat": 43.46798,
+     "lon": 11.877698
+    },
+    {
+     "lat": 43.467931,
+     "lon": 11.877701
+    },
+    {
+     "lat": 43.467845,
+     "lon": 11.877831
+    },
+    {
+     "lat": 43.467884,
+     "lon": 11.877986
+    },
+    {
+     "lat": 43.467852,
+     "lon": 11.878011
+    },
+    {
+     "lat": 43.467248,
+     "lon": 11.878055
+    },
+    {
+     "lat": 43.467175,
+     "lon": 11.878094
+    },
+    {
+     "lat": 43.466539,
+     "lon": 11.878163
+    },
+    {
+     "lat": 43.465799,
+     "lon": 11.878319
+    },
+    {
+     "lat": 43.465731,
+     "lon": 11.87802
+    },
+    {
+     "lat": 43.465718,
+     "lon": 11.877469
+    },
+    {
+     "lat": 43.465666,
+     "lon": 11.877168
+    },
+    {
+     "lat": 43.465657,
+     "lon": 11.876729
+    },
+    {
+     "lat": 43.465561,
+     "lon": 11.876354
+    },
+    {
+     "lat": 43.465553,
+     "lon": 11.875937
+    },
+    {
+     "lat": 43.465506,
+     "lon": 11.875772
+    },
+    {
+     "lat": 43.465497,
+     "lon": 11.875525
+    },
+    {
+     "lat": 43.465557,
+     "lon": 11.875385
+    },
+    {
+     "lat": 43.465688,
+     "lon": 11.875376
+    },
+    {
+     "lat": 43.466775,
+     "lon": 11.875544
+    },
+    {
+     "lat": 43.466843,
+     "lon": 11.875607
+    },
+    {
+     "lat": 43.466854,
+     "lon": 11.875685
+    },
+    {
+     "lat": 43.466896,
+     "lon": 11.875693
+    },
+    {
+     "lat": 43.467118,
+     "lon": 11.875711
+    },
+    {
+     "lat": 43.467212,
+     "lon": 11.875614
+    },
+    {
+     "lat": 43.468433,
+     "lon": 11.87584
+    },
+    {
+     "lat": 43.468569,
+     "lon": 11.875965
+    },
+    {
+     "lat": 43.468751,
+     "lon": 11.875997
+    },
+    {
+     "lat": 43.46881,
+     "lon": 11.876049
+    },
+    {
+     "lat": 43.468837,
+     "lon": 11.876531
+    },
+    {
+     "lat": 43.468799,
+     "lon": 11.876613
+    },
+    {
+     "lat": 43.468828,
+     "lon": 11.876735
+    },
+    {
+     "lat": 43.468962,
+     "lon": 11.876815
+    },
+    {
+     "lat": 43.469027,
+     "lon": 11.87681
+    },
+    {
+     "lat": 43.469057,
+     "lon": 11.876718
+    },
+    {
+     "lat": 43.469113,
+     "lon": 11.876703
+    },
+    {
+     "lat": 43.4699,
+     "lon": 11.877355
+    },
+    {
+     "lat": 43.470972,
+     "lon": 11.877975
+    },
+    {
+     "lat": 43.471437,
+     "lon": 11.878121
+    },
+    {
+     "lat": 43.471482,
+     "lon": 11.878028
+    },
+    {
+     "lat": 43.471472,
+     "lon": 11.877972
+    },
+    {
+     "lat": 43.471527,
+     "lon": 11.877912
+    },
+    {
+     "lat": 43.472011,
+     "lon": 11.878147
+    },
+    {
+     "lat": 43.471721,
+     "lon": 11.878709
+    },
+    {
+     "lat": 43.471621,
+     "lon": 11.878649
+    },
+    {
+     "lat": 43.471556,
+     "lon": 11.878676
+    },
+    {
+     "lat": 43.471176,
+     "lon": 11.879661
+    },
+    {
+     "lat": 43.471126,
+     "lon": 11.879642
+    },
+    {
+     "lat": 43.471194,
+     "lon": 11.879491
+    },
+    {
+     "lat": 43.471198,
+     "lon": 11.879389
+    },
+    {
+     "lat": 43.471116,
+     "lon": 11.879373
+    },
+    {
+     "lat": 43.47089,
+     "lon": 11.879479
+    },
+    {
+     "lat": 43.470542,
+     "lon": 11.879797
+    },
+    {
+     "lat": 43.470466,
+     "lon": 11.879747
+    },
+    {
+     "lat": 43.470409,
+     "lon": 11.879762
+    },
+    {
+     "lat": 43.470412,
+     "lon": 11.879829
+    },
+    {
+     "lat": 43.470482,
+     "lon": 11.879937
+    },
+    {
+     "lat": 43.470458,
+     "lon": 11.879972
+    },
+    {
+     "lat": 43.470384,
+     "lon": 11.879944
+    },
+    {
+     "lat": 43.47029,
+     "lon": 11.880064
+    },
+    {
+     "lat": 43.47031,
+     "lon": 11.880175
+    },
+    {
+     "lat": 43.470396,
+     "lon": 11.880259
+    },
+    {
+     "lat": 43.470444,
+     "lon": 11.880255
+    },
+    {
+     "lat": 43.470561,
+     "lon": 11.880078
+    },
+    {
+     "lat": 43.470755,
+     "lon": 11.880018
+    },
+    {
+     "lat": 43.470899,
+     "lon": 11.879918
+    },
+    {
+     "lat": 43.470997,
+     "lon": 11.879911
+    },
+    {
+     "lat": 43.471067,
+     "lon": 11.879827
+    },
+    {
+     "lat": 43.471093,
+     "lon": 11.879858
+    },
+    {
+     "lat": 43.471074,
+     "lon": 11.880006
+    },
+    {
+     "lat": 43.470966,
+     "lon": 11.879958
+    },
+    {
+     "lat": 43.47085,
+     "lon": 11.880135
+    },
+    {
+     "lat": 43.470862,
+     "lon": 11.880236
+    },
+    {
+     "lat": 43.470912,
+     "lon": 11.880277
+    },
+    {
+     "lat": 43.470923,
+     "lon": 11.880333
+    },
+    {
+     "lat": 43.470854,
+     "lon": 11.880462
+    },
+    {
+     "lat": 43.47085,
+     "lon": 11.880586
+    },
+    {
+     "lat": 43.470944,
+     "lon": 11.88068
+    },
+    {
+     "lat": 43.470877,
+     "lon": 11.880854
+    },
+    {
+     "lat": 43.470887,
+     "lon": 11.88091
+    },
+    {
+     "lat": 43.47083,
+     "lon": 11.881117
+    },
+    {
+     "lat": 43.470512,
+     "lon": 11.881388
+    },
+    {
+     "lat": 43.47039,
+     "lon": 11.881194
+    },
+    {
+     "lat": 43.470341,
+     "lon": 11.881198
+    },
+    {
+     "lat": 43.470327,
+     "lon": 11.881266
+    },
+    {
+     "lat": 43.470302,
+     "lon": 11.881257
+    },
+    {
+     "lat": 43.470241,
+     "lon": 11.881374
+    },
+    {
+     "lat": 43.4697,
+     "lon": 11.88201
+    },
+    {
+     "lat": 43.469662,
+     "lon": 11.882092
+    },
+    {
+     "lat": 43.469637,
+     "lon": 11.882082
+    },
+    {
+     "lat": 43.469272,
+     "lon": 11.882594
+    },
+    {
+     "lat": 43.468614,
+     "lon": 11.883385
+    },
+    {
+     "lat": 43.468559,
+     "lon": 11.883468
+    },
+    {
+     "lat": 43.468572,
+     "lon": 11.883591
+    },
+    {
+     "lat": 43.468533,
+     "lon": 11.88365
+    },
+    {
+     "lat": 43.468067,
+     "lon": 11.883436
+    },
+    {
+     "lat": 43.46794,
+     "lon": 11.883344
+    },
+    {
+     "lat": 43.467723,
+     "lon": 11.883247
+    },
+    {
+     "lat": 43.467658,
+     "lon": 11.883252
+    },
+    {
+     "lat": 43.467415,
+     "lon": 11.883529
+    },
+    {
+     "lat": 43.467385,
+     "lon": 11.883598
+    },
+    {
+     "lat": 43.467416,
+     "lon": 11.883788
+    },
+    {
+     "lat": 43.467271,
+     "lon": 11.884057
+    },
+    {
+     "lat": 43.466609,
+     "lon": 11.88388
+    },
+    {
+     "lat": 43.466543,
+     "lon": 11.883885
+    },
+    {
+     "lat": 43.466513,
+     "lon": 11.883955
+    },
+    {
+     "lat": 43.466207,
+     "lon": 11.88409
+    },
+    {
+     "lat": 43.465885,
+     "lon": 11.88444
+    },
+    {
+     "lat": 43.465748,
+     "lon": 11.884529
+    },
+    {
+     "lat": 43.465578,
+     "lon": 11.884789
+    },
+    {
+     "lat": 43.465439,
+     "lon": 11.885216
+    },
+    {
+     "lat": 43.465451,
+     "lon": 11.885317
+    },
+    {
+     "lat": 43.465414,
+     "lon": 11.885421
+    },
+    {
+     "lat": 43.465455,
+     "lon": 11.885643
+    },
+    {
+     "lat": 43.465378,
+     "lon": 11.885784
+    },
+    {
+     "lat": 43.465007,
+     "lon": 11.886138
+    },
+    {
+     "lat": 43.464812,
+     "lon": 11.886197
+    },
+    {
+     "lat": 43.464518,
+     "lon": 11.886218
+    },
+    {
+     "lat": 43.46439,
+     "lon": 11.886295
+    },
+    {
+     "lat": 43.464258,
+     "lon": 11.886474
+    },
+    {
+     "lat": 43.464133,
+     "lon": 11.886855
+    },
+    {
+     "lat": 43.464164,
+     "lon": 11.887021
+    },
+    {
+     "lat": 43.46419,
+     "lon": 11.887718
+    },
+    {
+     "lat": 43.464143,
+     "lon": 11.887766
+    },
+    {
+     "lat": 43.46419,
+     "lon": 11.888788
+    },
+    {
+     "lat": 43.464316,
+     "lon": 11.889094
+    },
+    {
+     "lat": 43.464702,
+     "lon": 11.88955
+    },
+    {
+     "lat": 43.464706,
+     "lon": 11.88964
+    },
+    {
+     "lat": 43.46474,
+     "lon": 11.889683
+    },
+    {
+     "lat": 43.464731,
+     "lon": 11.889864
+    },
+    {
+     "lat": 43.464652,
+     "lon": 11.889959
+    },
+    {
+     "lat": 43.464562,
+     "lon": 11.889955
+    },
+    {
+     "lat": 43.463465,
+     "lon": 11.889325
+    },
+    {
+     "lat": 43.463475,
+     "lon": 11.889167
+    },
+    {
+     "lat": 43.463338,
+     "lon": 11.888997
+    },
+    {
+     "lat": 43.463273,
+     "lon": 11.889024
+    },
+    {
+     "lat": 43.463239,
+     "lon": 11.888981
+    },
+    {
+     "lat": 43.463257,
+     "lon": 11.889048
+    },
+    {
+     "lat": 43.463147,
+     "lon": 11.889168
+    },
+    {
+     "lat": 43.463176,
+     "lon": 11.889268
+    },
+    {
+     "lat": 43.463252,
+     "lon": 11.889341
+    },
+    {
+     "lat": 43.463271,
+     "lon": 11.889407
+    },
+    {
+     "lat": 43.463159,
+     "lon": 11.889483
+    },
+    {
+     "lat": 43.46302,
+     "lon": 11.889482
+    },
+    {
+     "lat": 43.462744,
+     "lon": 11.889333
+    },
+    {
+     "lat": 43.462466,
+     "lon": 11.888925
+    },
+    {
+     "lat": 43.462522,
+     "lon": 11.888887
+    },
+    {
+     "lat": 43.462574,
+     "lon": 11.888951
+    },
+    {
+     "lat": 43.462662,
+     "lon": 11.888911
+    },
+    {
+     "lat": 43.462786,
+     "lon": 11.888935
+    },
+    {
+     "lat": 43.462998,
+     "lon": 11.888898
+    },
+    {
+     "lat": 43.463147,
+     "lon": 11.888932
+    },
+    {
+     "lat": 43.463211,
+     "lon": 11.888904
+    },
+    {
+     "lat": 43.463208,
+     "lon": 11.888815
+    },
+    {
+     "lat": 43.463246,
+     "lon": 11.888733
+    },
+    {
+     "lat": 43.463244,
+     "lon": 11.888474
+    },
+    {
+     "lat": 43.463266,
+     "lon": 11.888416
+    },
+    {
+     "lat": 43.463242,
+     "lon": 11.888215
+    },
+    {
+     "lat": 43.463279,
+     "lon": 11.887897
+    },
+    {
+     "lat": 43.463202,
+     "lon": 11.887159
+    },
+    {
+     "lat": 43.463071,
+     "lon": 11.887169
+    },
+    {
+     "lat": 43.463021,
+     "lon": 11.887127
+    },
+    {
+     "lat": 43.462848,
+     "lon": 11.887106
+    },
+    {
+     "lat": 43.462758,
+     "lon": 11.887124
+    },
+    {
+     "lat": 43.462691,
+     "lon": 11.887084
+    },
+    {
+     "lat": 43.46252,
+     "lon": 11.887108
+    },
+    {
+     "lat": 43.462338,
+     "lon": 11.887053
+    },
+    {
+     "lat": 43.462249,
+     "lon": 11.887094
+    },
+    {
+     "lat": 43.462069,
+     "lon": 11.887084
+    },
+    {
+     "lat": 43.46201,
+     "lon": 11.887055
+    },
+    {
+     "lat": 43.461983,
+     "lon": 11.886978
+    },
+    {
+     "lat": 43.461997,
+     "lon": 11.886718
+    },
+    {
+     "lat": 43.461882,
+     "lon": 11.886703
+    },
+    {
+     "lat": 43.461802,
+     "lon": 11.88654
+    },
+    {
+     "lat": 43.461743,
+     "lon": 11.886488
+    },
+    {
+     "lat": 43.461694,
+     "lon": 11.886492
+    },
+    {
+     "lat": 43.461571,
+     "lon": 11.886704
+    },
+    {
+     "lat": 43.461291,
+     "lon": 11.886679
+    },
+    {
+     "lat": 43.461284,
+     "lon": 11.886905
+    },
+    {
+     "lat": 43.461236,
+     "lon": 11.886953
+    },
+    {
+     "lat": 43.46077,
+     "lon": 11.886976
+    },
+    {
+     "lat": 43.460736,
+     "lon": 11.886934
+    },
+    {
+     "lat": 43.46074,
+     "lon": 11.886832
+    },
+    {
+     "lat": 43.460685,
+     "lon": 11.886678
+    },
+    {
+     "lat": 43.460687,
+     "lon": 11.886509
+    },
+    {
+     "lat": 43.46064,
+     "lon": 11.886366
+    },
+    {
+     "lat": 43.46064,
+     "lon": 11.886152
+    },
+    {
+     "lat": 43.460596,
+     "lon": 11.886054
+    },
+    {
+     "lat": 43.460586,
+     "lon": 11.885807
+    },
+    {
+     "lat": 43.460795,
+     "lon": 11.885679
+    },
+    {
+     "lat": 43.460797,
+     "lon": 11.885532
+    },
+    {
+     "lat": 43.460746,
+     "lon": 11.885491
+    },
+    {
+     "lat": 43.460749,
+     "lon": 11.885344
+    },
+    {
+     "lat": 43.460715,
+     "lon": 11.885302
+    },
+    {
+     "lat": 43.460703,
+     "lon": 11.885201
+    },
+    {
+     "lat": 43.460811,
+     "lon": 11.885036
+    },
+    {
+     "lat": 43.460808,
+     "lon": 11.884968
+    },
+    {
+     "lat": 43.46073,
+     "lon": 11.88485
+    },
+    {
+     "lat": 43.460882,
+     "lon": 11.88476
+    },
+    {
+     "lat": 43.461118,
+     "lon": 11.884709
+    },
+    {
+     "lat": 43.461181,
+     "lon": 11.884637
+    },
+    {
+     "lat": 43.461319,
+     "lon": 11.884593
+    },
+    {
+     "lat": 43.461316,
+     "lon": 11.884526
+    },
+    {
+     "lat": 43.461282,
+     "lon": 11.884483
+    },
+    {
+     "lat": 43.461276,
+     "lon": 11.884326
+    },
+    {
+     "lat": 43.46124,
+     "lon": 11.884261
+    },
+    {
+     "lat": 43.461244,
+     "lon": 11.884137
+    },
+    {
+     "lat": 43.461199,
+     "lon": 11.884039
+    },
+    {
+     "lat": 43.461204,
+     "lon": 11.883937
+    },
+    {
+     "lat": 43.461158,
+     "lon": 11.883816
+    },
+    {
+     "lat": 43.461162,
+     "lon": 11.883692
+    },
+    {
+     "lat": 43.461109,
+     "lon": 11.883606
+    },
+    {
+     "lat": 43.461105,
+     "lon": 11.88328
+    },
+    {
+     "lat": 43.461128,
+     "lon": 11.883244
+    },
+    {
+     "lat": 43.461231,
+     "lon": 11.883372
+    },
+    {
+     "lat": 43.46128,
+     "lon": 11.883368
+    },
+    {
+     "lat": 43.461327,
+     "lon": 11.883297
+    },
+    {
+     "lat": 43.461383,
+     "lon": 11.883282
+    },
+    {
+     "lat": 43.46138,
+     "lon": 11.883192
+    },
+    {
+     "lat": 43.461276,
+     "lon": 11.883042
+    },
+    {
+     "lat": 43.461211,
+     "lon": 11.883069
+    },
+    {
+     "lat": 43.461185,
+     "lon": 11.883015
+    },
+    {
+     "lat": 43.462065,
+     "lon": 11.881385
+    },
+    {
+     "lat": 43.462143,
+     "lon": 11.881266
+    },
+    {
+     "lat": 43.462192,
+     "lon": 11.881263
+    },
+    {
+     "lat": 43.462226,
+     "lon": 11.881305
+    },
+    {
+     "lat": 43.462281,
+     "lon": 11.881245
+    },
+    {
+     "lat": 43.462288,
+     "lon": 11.881211
+    },
+    {
+     "lat": 43.461782,
+     "lon": 11.880628
+    },
+    {
+     "lat": 43.461746,
+     "lon": 11.880541
+    },
+    {
+     "lat": 43.462241,
+     "lon": 11.879761
+    },
+    {
+     "lat": 43.462265,
+     "lon": 11.879748
+    },
+    {
+     "lat": 43.462402,
+     "lon": 11.879896
+    },
+    {
+     "lat": 43.462435,
+     "lon": 11.879893
+    },
+    {
+     "lat": 43.462527,
+     "lon": 11.879751
+    },
+    {
+     "lat": 43.462526,
+     "lon": 11.879706
+    },
+    {
+     "lat": 43.462397,
+     "lon": 11.879547
+    },
+    {
+     "lat": 43.462488,
+     "lon": 11.87936
+    },
+    {
+     "lat": 43.462915,
+     "lon": 11.878732
+    },
+    {
+     "lat": 43.463148,
+     "lon": 11.878827
+    },
+    {
+     "lat": 43.463254,
+     "lon": 11.878809
+    },
+    {
+     "lat": 43.463438,
+     "lon": 11.878694
+    },
+    {
+     "lat": 43.464168,
+     "lon": 11.879598
+    },
+    {
+     "lat": 43.464212,
+     "lon": 11.879674
+    },
+    {
+     "lat": 43.464191,
+     "lon": 11.879776
+    },
+    {
+     "lat": 43.464295,
+     "lon": 11.879904
+    },
+    {
+     "lat": 43.464376,
+     "lon": 11.879898
+    },
+    {
+     "lat": 43.464397,
+     "lon": 11.879795
+    },
+    {
+     "lat": 43.464479,
+     "lon": 11.879789
+    },
+    {
+     "lat": 43.4651,
+     "lon": 11.878888
+    }
+   ],
+   "gates": [
+    {
+     "id": "ar-9-10",
+     "name": "9–10 · Viale Buozzi at Vicolo delle Terme (entry and exit)",
+     "location": {
+      "lat": 43.464173,
+      "lon": 11.887735
+     }
+    },
+    {
+     "id": "ar-11",
+     "name": "11 · Via Garibaldi, from Porta Trento e Trieste (entry)",
+     "location": {
+      "lat": 43.461876,
+      "lon": 11.885667
+     }
+    },
+    {
+     "id": "ar-12",
+     "name": "12 · Via Nencetti, from Via Rodi (entry)",
+     "location": {
+      "lat": 43.461062,
+      "lon": 11.88309
+     }
+    },
+    {
+     "id": "ar-13",
+     "name": "13 · Via Guadagnoli after Via Macallè (entry)",
+     "location": {
+      "lat": 43.460647,
+      "lon": 11.884779
+     }
+    },
+    {
+     "id": "ar-14",
+     "name": "14 · Via Guido Monaco near the main post office (entry)",
+     "location": {
+      "lat": 43.463873,
+      "lon": 11.879198
+     }
+    },
+    {
+     "id": "ar-15-16",
+     "name": "15–16 · Via Isidoro del Lungo at Via Garibaldi (entry and exit)",
+     "location": {
+      "lat": 43.465733,
+      "lon": 11.8784
+     }
+    },
+    {
+     "id": "ar-17-25",
+     "name": "17–25 · Via San Lorentino at Via Garibaldi (exit)",
+     "location": {
+      "lat": 43.4679,
+      "lon": 11.878058
+     }
+    },
+    {
+     "id": "ar-18",
+     "name": "18 · Vicolo del Fanale, from Via Garibaldi (entry)",
+     "location": {
+      "lat": 43.468692,
+      "lon": 11.878438
+     }
+    },
+    {
+     "id": "ar-19",
+     "name": "19 · Via San Domenico, from Via San Clemente (entry)",
+     "location": {
+      "lat": 43.469905,
+      "lon": 11.880415
+     }
+    },
+    {
+     "id": "ar-23",
+     "name": "23 · Borgo Santa Croce at the traffic lights (exit)",
+     "location": {
+      "lat": 43.46339,
+      "lon": 11.889397
+     }
+    },
+    {
+     "id": "ar-24",
+     "name": "24 · Via Padre Caprara into Via San Clemente (exit)",
+     "location": {
+      "lat": 43.471088,
+      "lon": 11.879751
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 510,
+     "end": 720
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1020,
+     "end": 1200
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Arezzo",
+    "pageURL": "https://www.comune.arezzo.it/documento-pubblico/accesso-temporaneo-nella-ztl-zona-traffico-limitato",
+    "ordinance": "Disciplinare ZTL (Delibera G.C. n. 124 del 30/03/2023), testo rev. 1.4 «in fase di aggiornamento»",
+    "ordinanceURL": "https://www.comune.arezzo.it/sites/default/files/2025-07/copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf",
+    "quote": "Nella ZTL A vige il divieto di circolazione e sosta per i veicoli a motore (sprovvisti di regolare autorizzazione) dalle ore 8,30 alle ore 12,00 e dalle ore 17,00 alle ore 20,00 dei giorni feriali.",
+    "quoteTranslation": "In ZTL A, driving and parking are forbidden to motor vehicles (without a valid authorisation) from 8:30 to 12:00 and from 17:00 to 20:00 on working days.",
+    "quoteTranslation_de": "In der ZTL A sind Fahren und Parken für Kraftfahrzeuge (ohne gültige Genehmigung) an Werktagen von 8:30 bis 12:00 und von 17:00 bis 20:00 Uhr verboten.",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "\"Giorni feriali\" (working days) is read as Monday to Saturday, as usual in Italy; whether Saturday counts is to be confirmed with the city. 7 August (San Donato, patron saint) is counted as a holiday: to be confirmed.",
+     "Exit cameras also check the way out during the banned hours; the press (ArezzoNotizie) reports a 20-minute tolerance for cars that entered just before 8:30 am: confirmed only by ArezzoNotizie.",
+     "Electric cars may enter ZTL A at any time only once their plate is on the city's list (portal, €5 for 3 years): GateLR treats them like any other car. Motorbikes and mopeds may enter ZTL A freely.",
+     "The city's rules text (Disciplinare 2023) is published as \"being updated\": hours or permits may change in 2026–2027.",
+     "Outlines taken from the city's official map (25/09/2025), which has no coordinates: it was placed on OpenStreetMap automatically (average gap between the map's streets and OSM about 5 m), so edges are approximate. Gates are placed at the junction named in the rules (art. 9); the city now counts 24 gates, the rules list 25.",
+     "Hotel guests: the rules say you or the hotel must enter the plate on the city's ZTL portal, but give no deadline (before or after entering). Ask your hotel; information: permessiztl@comune.arezzo.it.",
+     "Daily pass price: the city's page says €15 a day (€10 for electric cars), the 2023 rules text says €10. Up to 20 a year per vehicle, only for real needs such as loading.",
+     "Events: on Fiera Antiquaria weekends (first Sunday of the month and the Saturday before) and on Giostra del Saracino days (June and the first Sunday of September) extra bans and closures apply, set each time by ordinance.",
+     "Summer: from 15 May to 12 September 2026, Fridays and Saturdays 7 pm–midnight, a larger pedestrian area (ordinance 245/2026) closes several streets of ZTL A and B and Via Roma even to permit holders. Not drawn on the map; the 2027 dates are not out yet."
+    ],
+    "pending_it": [
+     "«Giorni feriali» è letto come dal lunedì al sabato, come d'uso; se il sabato conti è da confermare con il Comune. Il 7 agosto (San Donato, patrono) è contato come festivo: da confermare.",
+     "Le telecamere in uscita controllano anche chi esce negli orari vietati; la stampa (ArezzoNotizie) riporta una tolleranza di 20 minuti per chi è entrato poco prima delle 8:30: confermato solo da ArezzoNotizie.",
+     "Le auto elettriche entrano nella ZTL A a ogni ora solo dopo l'inserimento della targa nella lista del Comune (portale, 5 € per 3 anni): GateLR le tratta come le altre auto. Moto e ciclomotori entrano liberamente nella ZTL A.",
+     "Il disciplinare 2023 è pubblicato con la scritta «in fase di aggiornamento»: orari o permessi potrebbero cambiare nel 2026–2027.",
+     "Perimetri presi dalla mappa ufficiale del Comune (25/09/2025), che non ha coordinate: è stata agganciata a OpenStreetMap in automatico (scarto medio tra le strade della mappa e quelle di OSM circa 5 m), quindi i bordi sono approssimati. I varchi sono messi all'incrocio indicato dal disciplinare (art. 9); il Comune oggi conta 24 varchi, il disciplinare ne elenca 25.",
+     "Ospiti degli hotel: il disciplinare dice che il cliente o l'albergatore devono inserire la targa nel portale ZTL, ma non indica un termine (prima o dopo l'ingresso). Chiedi all'hotel; informazioni: permessiztl@comune.arezzo.it.",
+     "Prezzo dell'accesso giornaliero: la pagina del Comune dice 15 € al giorno (10 € per le auto elettriche), il disciplinare 2023 dice 10 €. Al massimo 20 l'anno per veicolo, solo per necessità effettive come il carico e scarico.",
+     "Eventi: nei fine settimana della Fiera Antiquaria (prima domenica del mese e sabato precedente) e nei giorni della Giostra del Saracino (giugno e prima domenica di settembre) valgono divieti e chiusure in più, fissati ogni volta con un'ordinanza.",
+     "Estate: dal 15 maggio al 12 settembre 2026, venerdì e sabato dalle 19 alle 24, un'area pedonale più ampia (ordinanza 245/2026) chiude varie strade della ZTL A e B e via Roma anche a chi ha il permesso. Non è disegnata sulla mappa; le date del 2027 non sono ancora uscite."
+    ],
+    "pending_de": [
+     "»Giorni feriali« (Werktage) wird wie in Italien üblich als Montag bis Samstag gelesen; ob der Samstag zählt, ist mit der Stadt zu klären. Der 7. August (San Donato, Stadtpatron) gilt als Feiertag: zu bestätigen.",
+     "Ausfahrtskameras prüfen auch das Hinausfahren in den Sperrzeiten; die Presse (ArezzoNotizie) berichtet von 20 Minuten Toleranz für Autos, die kurz vor 8:30 Uhr hineingefahren sind: nur von ArezzoNotizie bestätigt.",
+     "Elektroautos dürfen jederzeit in die ZTL A, aber erst nach Eintrag des Kennzeichens in die Liste der Stadt (Portal, 5 € für 3 Jahre): GateLR behandelt sie wie andere Autos. Motorräder und Mofas dürfen frei in die ZTL A.",
+     "Die Regeln von 2023 sind als »in Überarbeitung« veröffentlicht: Zeiten oder Genehmigungen können sich 2026–2027 ändern.",
+     "Grenzen aus der offiziellen Karte der Stadt (25.09.2025) ohne Koordinaten: Sie wurde automatisch auf OpenStreetMap gelegt (mittlere Abweichung der Straßen etwa 5 m), die Ränder sind daher ungefähr. Die Kameras liegen an der in den Regeln (Art. 9) genannten Kreuzung; die Stadt zählt heute 24 Kameras, die Regeln nennen 25.",
+     "Hotelgäste: Laut den Regeln müssen du oder das Hotel das Kennzeichen im ZTL-Portal der Stadt eintragen, eine Frist (vor oder nach der Einfahrt) wird nicht genannt. Frag dein Hotel; Auskunft: permessiztl@comune.arezzo.it.",
+     "Preis des Tagespasses: Die Seite der Stadt nennt 15 € pro Tag (10 € für Elektroautos), die Regeln von 2023 nennen 10 €. Höchstens 20 pro Jahr und Fahrzeug, nur bei echtem Bedarf wie Be- und Entladen.",
+     "Veranstaltungen: An Wochenenden der Fiera Antiquaria (erster Sonntag im Monat und Samstag davor) und an Tagen der Giostra del Saracino (Juni und erster Sonntag im September) gelten zusätzliche Verbote und Sperrungen, jeweils per Anordnung.",
+     "Sommer: Vom 15. Mai bis 12. September 2026, freitags und samstags 19–24 Uhr, sperrt eine größere Fußgängerzone (Anordnung 245/2026) mehrere Straßen der ZTL A und B sowie die Via Roma auch für Genehmigungsinhaber. Nicht auf der Karte eingezeichnet; die Termine für 2027 stehen noch nicht fest."
+    ],
+    "links": [
+     {
+      "title": "City of Arezzo: temporary access to the ZTL (hours, prices, hotel guests)",
+      "title_it": "Comune di Arezzo: accesso temporaneo nella ZTL (orari, contributi, ospiti degli hotel)",
+      "title_de": "Stadt Arezzo: befristete Zufahrt in die ZTL (Zeiten, Preise, Hotelgäste)",
+      "url": "https://www.comune.arezzo.it/documento-pubblico/accesso-temporaneo-nella-ztl-zona-traffico-limitato"
+     },
+     {
+      "title": "City of Arezzo: ZTL rules (Disciplinare, Council decision 124/2023, text being updated)",
+      "title_it": "Comune di Arezzo: disciplinare ZTL (delibera GC 124/2023, testo in aggiornamento)",
+      "title_de": "Stadt Arezzo: ZTL-Regeln (Beschluss 124/2023, Text wird überarbeitet)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2025-07/copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf"
+     },
+     {
+      "title": "City of Arezzo: official ZTL map with gates (PDF, 25/09/2025)",
+      "title_it": "Comune di Arezzo: planimetria ufficiale della ZTL con i varchi (PDF, 25/09/2025)",
+      "title_de": "Stadt Arezzo: offizielle ZTL-Karte mit Kameras (PDF, 25.09.2025)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2025-09/planimetria%20ztl_aggiornata%20al%2025_09_2025_.pdf"
+     },
+     {
+      "title": "City of Arezzo: ZTL permit portal (SPID/CIE)",
+      "title_it": "Comune di Arezzo: portale permessi ZTL (SPID/CIE)",
+      "title_de": "Stadt Arezzo: Portal für ZTL-Genehmigungen (SPID/CIE)",
+      "url": "https://permessiztl.comune.arezzo.it/"
+     },
+     {
+      "title": "City of Arezzo: unauthorised entry into the ZTL (fines, Polizia Locale)",
+      "title_it": "Comune di Arezzo: accesso irregolare in ZTL (verbali, Polizia Locale)",
+      "title_de": "Stadt Arezzo: unerlaubte Einfahrt in die ZTL (Bußgelder, Polizia Locale)",
+      "url": "https://www.comune.arezzo.it/accesso-irregolare-ztl-zona-traffico-limitato"
+     },
+     {
+      "title": "City of Arezzo: ZTL camera system (24 gates since 1/1/2025)",
+      "title_it": "Comune di Arezzo: videocontrollo ZTL (24 varchi dal 1/1/2025)",
+      "title_de": "Stadt Arezzo: ZTL-Kameras (24 Kameras seit 1.1.2025)",
+      "url": "https://www.comune.arezzo.it/documento-pubblico/videocontrollo-ztl-e-corsie-preferenziali"
+     },
+     {
+      "title": "City of Arezzo: summer pedestrian area, Fri and Sat 7 pm–midnight (ordinance 245/2026)",
+      "title_it": "Comune di Arezzo: area pedonale estiva, venerdì e sabato 19–24 (ordinanza 245/2026)",
+      "title_de": "Stadt Arezzo: Sommer-Fußgängerzone, Fr und Sa 19–24 Uhr (Anordnung 245/2026)",
+      "url": "https://www.comune.arezzo.it/novita/pedonalizzazione-temporanea-di-alcune-strade-del-centro-storico-2"
+     },
+     {
+      "title": "City of Arezzo: traffic rules for the Fiera Antiquaria, September 2026 (ordinance 1026/2026)",
+      "title_it": "Comune di Arezzo: viabilità per la Fiera Antiquaria di settembre 2026 (ordinanza 1026/2026)",
+      "title_de": "Stadt Arezzo: Verkehrsregeln zur Fiera Antiquaria, September 2026 (Anordnung 1026/2026)",
+      "url": "https://comune.arezzo.it/sites/default/files/2026-08/ORD%201026%20Fiera%20Antiquaria%20edizione%20Settembre%202026.pdf"
+     },
+     {
+      "title": "City of Arezzo: traffic rules for the Giostra del Saracino, 6 September 2026 (ordinance 1047/2026)",
+      "title_it": "Comune di Arezzo: viabilità per la Giostra del Saracino del 6 settembre 2026 (ordinanza 1047/2026)",
+      "title_de": "Stadt Arezzo: Verkehrsregeln zur Giostra del Saracino am 6. September 2026 (Anordnung 1047/2026)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2026-09/ORD%201047%20Giostra%20del%20Saracino%20edizione%20settembre%202026.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets and squares used to place the map and the gates (ODbL)",
+      "title_it": "OpenStreetMap: strade e piazze usate per agganciare la mappa e i varchi (ODbL)",
+      "title_de": "OpenStreetMap: Straßen und Plätze zum Verorten der Karte und der Kameras (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=16/43.4640/11.8810"
+     }
+    ]
+   }
+  },
+  {
+   "id": "arezzo-ztl-a-marconi",
+   "name": "Via Marconi · ZTL A",
+   "name_it": "Via Marconi · ZTL A",
+   "name_de": "Via Marconi · ZTL A",
+   "kind": "restricted",
+   "summary": "Monday to Saturday (not on public holidays), 8:30 am–12 noon and 5–8 pm: no entry without a permit, and cameras also check the way out, so leave outside those hours too. Open at all other times and all day on Sundays and holidays. Motorbikes and mopeds may enter. Hotel guests with a booking may drive to the hotel only to unload luggage: you or the hotel must enter the plate on the city's ZTL portal. There is no tourist ticket: the paid day pass is for real needs such as loading (8:30 am–12 noon). The core around Corso Italia and Piazza Grande is ZTL B, closed 8 am–midnight every day.",
+   "summary_it": "Dal lunedì al sabato (festivi esclusi), 8:30–12 e 17–20: vietato entrare senza permesso, e le telecamere controllano anche l'uscita, quindi esci fuori da quegli orari. Aperta negli altri orari e tutto il giorno la domenica e nei festivi. Moto e ciclomotori entrano. Gli ospiti degli hotel con prenotazione possono arrivare all'hotel solo per scaricare i bagagli: tu o l'hotel dovete inserire la targa nel portale ZTL del Comune. Non c'è un ticket per i turisti: l'accesso giornaliero a pagamento è per necessità effettive come il carico e scarico (8:30–12). Il cuore attorno a corso Italia e piazza Grande è ZTL B, chiusa 8–24 tutti i giorni.",
+   "summary_de": "Montag bis Samstag (nicht an Feiertagen) 8:30–12 und 17–20 Uhr: keine Einfahrt ohne Genehmigung, und Kameras prüfen auch die Ausfahrt, also auch außerhalb dieser Zeiten hinausfahren. Sonst offen, sonntags und feiertags ganztägig. Motorräder und Mofas dürfen hinein. Hotelgäste mit Buchung dürfen nur zum Ausladen des Gepäcks zum Hotel fahren: du oder das Hotel müsst das Kennzeichen im ZTL-Portal der Stadt eintragen. Ein Touristenticket gibt es nicht: Der kostenpflichtige Tagespass ist für echten Bedarf wie Be- und Entladen (8:30–12 Uhr). Der Kern um Corso Italia und Piazza Grande ist ZTL B, täglich 8–24 Uhr gesperrt.",
+   "perimeter": [
+    {
+     "lat": 43.464144,
+     "lon": 11.876592
+    },
+    {
+     "lat": 43.463674,
+     "lon": 11.877359
+    },
+    {
+     "lat": 43.463609,
+     "lon": 11.877386
+    },
+    {
+     "lat": 43.46337,
+     "lon": 11.877133
+    },
+    {
+     "lat": 43.463135,
+     "lon": 11.876778
+    },
+    {
+     "lat": 43.463111,
+     "lon": 11.876791
+    },
+    {
+     "lat": 43.4629,
+     "lon": 11.876615
+    },
+    {
+     "lat": 43.462856,
+     "lon": 11.87654
+    },
+    {
+     "lat": 43.462791,
+     "lon": 11.876544
+    },
+    {
+     "lat": 43.462668,
+     "lon": 11.876779
+    },
+    {
+     "lat": 43.462411,
+     "lon": 11.877124
+    },
+    {
+     "lat": 43.462371,
+     "lon": 11.877138
+    },
+    {
+     "lat": 43.46195,
+     "lon": 11.876617
+    },
+    {
+     "lat": 43.461886,
+     "lon": 11.876453
+    },
+    {
+     "lat": 43.461882,
+     "lon": 11.87634
+    },
+    {
+     "lat": 43.462073,
+     "lon": 11.875977
+    },
+    {
+     "lat": 43.462353,
+     "lon": 11.875596
+    },
+    {
+     "lat": 43.462969,
+     "lon": 11.87563
+    },
+    {
+     "lat": 43.462962,
+     "lon": 11.875236
+    },
+    {
+     "lat": 43.462854,
+     "lon": 11.874974
+    },
+    {
+     "lat": 43.462995,
+     "lon": 11.874806
+    },
+    {
+     "lat": 43.463164,
+     "lon": 11.874715
+    },
+    {
+     "lat": 43.46331,
+     "lon": 11.874682
+    },
+    {
+     "lat": 43.463491,
+     "lon": 11.874714
+    },
+    {
+     "lat": 43.463563,
+     "lon": 11.874674
+    },
+    {
+     "lat": 43.46416,
+     "lon": 11.874856
+    },
+    {
+     "lat": 43.464687,
+     "lon": 11.87493
+    },
+    {
+     "lat": 43.464927,
+     "lon": 11.875206
+    },
+    {
+     "lat": 43.464976,
+     "lon": 11.875202
+    },
+    {
+     "lat": 43.465069,
+     "lon": 11.87506
+    },
+    {
+     "lat": 43.465095,
+     "lon": 11.875092
+    },
+    {
+     "lat": 43.464981,
+     "lon": 11.875314
+    },
+    {
+     "lat": 43.464144,
+     "lon": 11.876592
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 510,
+     "end": 720
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1020,
+     "end": 1200
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Arezzo",
+    "pageURL": "https://www.comune.arezzo.it/documento-pubblico/accesso-temporaneo-nella-ztl-zona-traffico-limitato",
+    "ordinance": "Disciplinare ZTL (Delibera G.C. n. 124 del 30/03/2023), testo rev. 1.4 «in fase di aggiornamento»",
+    "ordinanceURL": "https://www.comune.arezzo.it/sites/default/files/2025-07/copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf",
+    "quote": "Nella ZTL A vige il divieto di circolazione e sosta per i veicoli a motore (sprovvisti di regolare autorizzazione) dalle ore 8,30 alle ore 12,00 e dalle ore 17,00 alle ore 20,00 dei giorni feriali.",
+    "quoteTranslation": "In ZTL A, driving and parking are forbidden to motor vehicles (without a valid authorisation) from 8:30 to 12:00 and from 17:00 to 20:00 on working days.",
+    "quoteTranslation_de": "In der ZTL A sind Fahren und Parken für Kraftfahrzeuge (ohne gültige Genehmigung) an Werktagen von 8:30 bis 12:00 und von 17:00 bis 20:00 Uhr verboten.",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "\"Giorni feriali\" (working days) is read as Monday to Saturday, as usual in Italy; whether Saturday counts is to be confirmed with the city. 7 August (San Donato, patron saint) is counted as a holiday: to be confirmed.",
+     "Exit cameras also check the way out during the banned hours; the press (ArezzoNotizie) reports a 20-minute tolerance for cars that entered just before 8:30 am: confirmed only by ArezzoNotizie.",
+     "Electric cars may enter ZTL A at any time only once their plate is on the city's list (portal, €5 for 3 years): GateLR treats them like any other car. Motorbikes and mopeds may enter ZTL A freely.",
+     "The city's rules text (Disciplinare 2023) is published as \"being updated\": hours or permits may change in 2026–2027.",
+     "Outlines taken from the city's official map (25/09/2025), which has no coordinates: it was placed on OpenStreetMap automatically (average gap between the map's streets and OSM about 5 m), so edges are approximate. Gates are placed at the junction named in the rules (art. 9); the city now counts 24 gates, the rules list 25.",
+     "Hotel guests: the rules say you or the hotel must enter the plate on the city's ZTL portal, but give no deadline (before or after entering). Ask your hotel; information: permessiztl@comune.arezzo.it.",
+     "Daily pass price: the city's page says €15 a day (€10 for electric cars), the 2023 rules text says €10. Up to 20 a year per vehicle, only for real needs such as loading.",
+     "Events: on Fiera Antiquaria weekends (first Sunday of the month and the Saturday before) and on Giostra del Saracino days (June and the first Sunday of September) extra bans and closures apply, set each time by ordinance.",
+     "Summer: from 15 May to 12 September 2026, Fridays and Saturdays 7 pm–midnight, a larger pedestrian area (ordinance 245/2026) closes several streets of ZTL A and B and Via Roma even to permit holders. Not drawn on the map; the 2027 dates are not out yet."
+    ],
+    "pending_it": [
+     "«Giorni feriali» è letto come dal lunedì al sabato, come d'uso; se il sabato conti è da confermare con il Comune. Il 7 agosto (San Donato, patrono) è contato come festivo: da confermare.",
+     "Le telecamere in uscita controllano anche chi esce negli orari vietati; la stampa (ArezzoNotizie) riporta una tolleranza di 20 minuti per chi è entrato poco prima delle 8:30: confermato solo da ArezzoNotizie.",
+     "Le auto elettriche entrano nella ZTL A a ogni ora solo dopo l'inserimento della targa nella lista del Comune (portale, 5 € per 3 anni): GateLR le tratta come le altre auto. Moto e ciclomotori entrano liberamente nella ZTL A.",
+     "Il disciplinare 2023 è pubblicato con la scritta «in fase di aggiornamento»: orari o permessi potrebbero cambiare nel 2026–2027.",
+     "Perimetri presi dalla mappa ufficiale del Comune (25/09/2025), che non ha coordinate: è stata agganciata a OpenStreetMap in automatico (scarto medio tra le strade della mappa e quelle di OSM circa 5 m), quindi i bordi sono approssimati. I varchi sono messi all'incrocio indicato dal disciplinare (art. 9); il Comune oggi conta 24 varchi, il disciplinare ne elenca 25.",
+     "Ospiti degli hotel: il disciplinare dice che il cliente o l'albergatore devono inserire la targa nel portale ZTL, ma non indica un termine (prima o dopo l'ingresso). Chiedi all'hotel; informazioni: permessiztl@comune.arezzo.it.",
+     "Prezzo dell'accesso giornaliero: la pagina del Comune dice 15 € al giorno (10 € per le auto elettriche), il disciplinare 2023 dice 10 €. Al massimo 20 l'anno per veicolo, solo per necessità effettive come il carico e scarico.",
+     "Eventi: nei fine settimana della Fiera Antiquaria (prima domenica del mese e sabato precedente) e nei giorni della Giostra del Saracino (giugno e prima domenica di settembre) valgono divieti e chiusure in più, fissati ogni volta con un'ordinanza.",
+     "Estate: dal 15 maggio al 12 settembre 2026, venerdì e sabato dalle 19 alle 24, un'area pedonale più ampia (ordinanza 245/2026) chiude varie strade della ZTL A e B e via Roma anche a chi ha il permesso. Non è disegnata sulla mappa; le date del 2027 non sono ancora uscite."
+    ],
+    "pending_de": [
+     "»Giorni feriali« (Werktage) wird wie in Italien üblich als Montag bis Samstag gelesen; ob der Samstag zählt, ist mit der Stadt zu klären. Der 7. August (San Donato, Stadtpatron) gilt als Feiertag: zu bestätigen.",
+     "Ausfahrtskameras prüfen auch das Hinausfahren in den Sperrzeiten; die Presse (ArezzoNotizie) berichtet von 20 Minuten Toleranz für Autos, die kurz vor 8:30 Uhr hineingefahren sind: nur von ArezzoNotizie bestätigt.",
+     "Elektroautos dürfen jederzeit in die ZTL A, aber erst nach Eintrag des Kennzeichens in die Liste der Stadt (Portal, 5 € für 3 Jahre): GateLR behandelt sie wie andere Autos. Motorräder und Mofas dürfen frei in die ZTL A.",
+     "Die Regeln von 2023 sind als »in Überarbeitung« veröffentlicht: Zeiten oder Genehmigungen können sich 2026–2027 ändern.",
+     "Grenzen aus der offiziellen Karte der Stadt (25.09.2025) ohne Koordinaten: Sie wurde automatisch auf OpenStreetMap gelegt (mittlere Abweichung der Straßen etwa 5 m), die Ränder sind daher ungefähr. Die Kameras liegen an der in den Regeln (Art. 9) genannten Kreuzung; die Stadt zählt heute 24 Kameras, die Regeln nennen 25.",
+     "Hotelgäste: Laut den Regeln müssen du oder das Hotel das Kennzeichen im ZTL-Portal der Stadt eintragen, eine Frist (vor oder nach der Einfahrt) wird nicht genannt. Frag dein Hotel; Auskunft: permessiztl@comune.arezzo.it.",
+     "Preis des Tagespasses: Die Seite der Stadt nennt 15 € pro Tag (10 € für Elektroautos), die Regeln von 2023 nennen 10 €. Höchstens 20 pro Jahr und Fahrzeug, nur bei echtem Bedarf wie Be- und Entladen.",
+     "Veranstaltungen: An Wochenenden der Fiera Antiquaria (erster Sonntag im Monat und Samstag davor) und an Tagen der Giostra del Saracino (Juni und erster Sonntag im September) gelten zusätzliche Verbote und Sperrungen, jeweils per Anordnung.",
+     "Sommer: Vom 15. Mai bis 12. September 2026, freitags und samstags 19–24 Uhr, sperrt eine größere Fußgängerzone (Anordnung 245/2026) mehrere Straßen der ZTL A und B sowie die Via Roma auch für Genehmigungsinhaber. Nicht auf der Karte eingezeichnet; die Termine für 2027 stehen noch nicht fest."
+    ],
+    "links": [
+     {
+      "title": "City of Arezzo: temporary access to the ZTL (hours, prices, hotel guests)",
+      "title_it": "Comune di Arezzo: accesso temporaneo nella ZTL (orari, contributi, ospiti degli hotel)",
+      "title_de": "Stadt Arezzo: befristete Zufahrt in die ZTL (Zeiten, Preise, Hotelgäste)",
+      "url": "https://www.comune.arezzo.it/documento-pubblico/accesso-temporaneo-nella-ztl-zona-traffico-limitato"
+     },
+     {
+      "title": "City of Arezzo: ZTL rules (Disciplinare, Council decision 124/2023, text being updated)",
+      "title_it": "Comune di Arezzo: disciplinare ZTL (delibera GC 124/2023, testo in aggiornamento)",
+      "title_de": "Stadt Arezzo: ZTL-Regeln (Beschluss 124/2023, Text wird überarbeitet)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2025-07/copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf"
+     },
+     {
+      "title": "City of Arezzo: official ZTL map with gates (PDF, 25/09/2025)",
+      "title_it": "Comune di Arezzo: planimetria ufficiale della ZTL con i varchi (PDF, 25/09/2025)",
+      "title_de": "Stadt Arezzo: offizielle ZTL-Karte mit Kameras (PDF, 25.09.2025)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2025-09/planimetria%20ztl_aggiornata%20al%2025_09_2025_.pdf"
+     },
+     {
+      "title": "City of Arezzo: ZTL permit portal (SPID/CIE)",
+      "title_it": "Comune di Arezzo: portale permessi ZTL (SPID/CIE)",
+      "title_de": "Stadt Arezzo: Portal für ZTL-Genehmigungen (SPID/CIE)",
+      "url": "https://permessiztl.comune.arezzo.it/"
+     },
+     {
+      "title": "City of Arezzo: unauthorised entry into the ZTL (fines, Polizia Locale)",
+      "title_it": "Comune di Arezzo: accesso irregolare in ZTL (verbali, Polizia Locale)",
+      "title_de": "Stadt Arezzo: unerlaubte Einfahrt in die ZTL (Bußgelder, Polizia Locale)",
+      "url": "https://www.comune.arezzo.it/accesso-irregolare-ztl-zona-traffico-limitato"
+     },
+     {
+      "title": "City of Arezzo: ZTL camera system (24 gates since 1/1/2025)",
+      "title_it": "Comune di Arezzo: videocontrollo ZTL (24 varchi dal 1/1/2025)",
+      "title_de": "Stadt Arezzo: ZTL-Kameras (24 Kameras seit 1.1.2025)",
+      "url": "https://www.comune.arezzo.it/documento-pubblico/videocontrollo-ztl-e-corsie-preferenziali"
+     },
+     {
+      "title": "City of Arezzo: summer pedestrian area, Fri and Sat 7 pm–midnight (ordinance 245/2026)",
+      "title_it": "Comune di Arezzo: area pedonale estiva, venerdì e sabato 19–24 (ordinanza 245/2026)",
+      "title_de": "Stadt Arezzo: Sommer-Fußgängerzone, Fr und Sa 19–24 Uhr (Anordnung 245/2026)",
+      "url": "https://www.comune.arezzo.it/novita/pedonalizzazione-temporanea-di-alcune-strade-del-centro-storico-2"
+     },
+     {
+      "title": "City of Arezzo: traffic rules for the Fiera Antiquaria, September 2026 (ordinance 1026/2026)",
+      "title_it": "Comune di Arezzo: viabilità per la Fiera Antiquaria di settembre 2026 (ordinanza 1026/2026)",
+      "title_de": "Stadt Arezzo: Verkehrsregeln zur Fiera Antiquaria, September 2026 (Anordnung 1026/2026)",
+      "url": "https://comune.arezzo.it/sites/default/files/2026-08/ORD%201026%20Fiera%20Antiquaria%20edizione%20Settembre%202026.pdf"
+     },
+     {
+      "title": "City of Arezzo: traffic rules for the Giostra del Saracino, 6 September 2026 (ordinance 1047/2026)",
+      "title_it": "Comune di Arezzo: viabilità per la Giostra del Saracino del 6 settembre 2026 (ordinanza 1047/2026)",
+      "title_de": "Stadt Arezzo: Verkehrsregeln zur Giostra del Saracino am 6. September 2026 (Anordnung 1047/2026)",
+      "url": "https://www.comune.arezzo.it/sites/default/files/2026-09/ORD%201047%20Giostra%20del%20Saracino%20edizione%20settembre%202026.pdf"
+     },
+     {
+      "title": "OpenStreetMap: streets and squares used to place the map and the gates (ODbL)",
+      "title_it": "OpenStreetMap: strade e piazze usate per agganciare la mappa e i varchi (ODbL)",
+      "title_de": "OpenStreetMap: Straßen und Plätze zum Verorten der Karte und der Kameras (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=16/43.4640/11.8810"
+     }
+    ]
+   }
+  }
+ ],
+ "pedestrian": [
+  {
+   "id": "ar-ap-22720357",
+   "name": "Piazza Grande",
+   "perimeter": [
+    {
+     "lat": 43.464648,
+     "lon": 11.884826
+    },
+    {
+     "lat": 43.464378,
+     "lon": 11.884302
+    },
+    {
+     "lat": 43.464604,
+     "lon": 11.883749
+    },
+    {
+     "lat": 43.465092,
+     "lon": 11.884179
+    },
+    {
+     "lat": 43.464648,
+     "lon": 11.884826
+    }
+   ]
+  },
+  {
+   "id": "ar-ap-184077925",
+   "name": "Piazza del Duomo",
+   "perimeter": [
+    {
+     "lat": 43.466859,
+     "lon": 11.882513
+    },
+    {
+     "lat": 43.466872,
+     "lon": 11.882452
+    },
+    {
+     "lat": 43.467327,
+     "lon": 11.882632
+    },
+    {
+     "lat": 43.467194,
+     "lon": 11.883023
+    },
+    {
+     "lat": 43.466992,
+     "lon": 11.882891
+    },
+    {
+     "lat": 43.46675,
+     "lon": 11.883638
+    },
+    {
+     "lat": 43.466797,
+     "lon": 11.883669
+    },
+    {
+     "lat": 43.466807,
+     "lon": 11.883764
+    },
+    {
+     "lat": 43.466859,
+     "lon": 11.883798
+    },
+    {
+     "lat": 43.466798,
+     "lon": 11.88391
+    },
+    {
+     "lat": 43.466538,
+     "lon": 11.883771
+    },
+    {
+     "lat": 43.466559,
+     "lon": 11.883616
+    },
+    {
+     "lat": 43.466888,
+     "lon": 11.882596
+    },
+    {
+     "lat": 43.466844,
+     "lon": 11.882573
+    },
+    {
+     "lat": 43.466859,
+     "lon": 11.882513
+    }
+   ]
+  },
+  {
+   "id": "ar-ap-22719358",
+   "name": "Piazza della Badia",
+   "perimeter": [
+    {
+     "lat": 43.465573,
+     "lon": 11.879366
+    },
+    {
+     "lat": 43.465773,
+     "lon": 11.878998
+    },
+    {
+     "lat": 43.465761,
+     "lon": 11.878941
+    },
+    {
+     "lat": 43.46574,
+     "lon": 11.87893
+    },
+    {
+     "lat": 43.465758,
+     "lon": 11.878882
+    },
+    {
+     "lat": 43.465728,
+     "lon": 11.878788
+    },
+    {
+     "lat": 43.465429,
+     "lon": 11.879215
+    },
+    {
+     "lat": 43.465573,
+     "lon": 11.879366
+    }
+   ]
+  },
+  {
+   "id": "ar-ap-1346063342",
+   "name": "Piazza della Libertà",
+   "perimeter": [
+    {
+     "lat": 43.466484,
+     "lon": 11.882283
+    },
+    {
+     "lat": 43.46656,
+     "lon": 11.882328
+    },
+    {
+     "lat": 43.466571,
+     "lon": 11.882297
+    },
+    {
+     "lat": 43.466831,
+     "lon": 11.882412
+    },
+    {
+     "lat": 43.466752,
+     "lon": 11.882727
+    },
+    {
+     "lat": 43.466437,
+     "lon": 11.882456
+    },
+    {
+     "lat": 43.466484,
+     "lon": 11.882283
+    }
+   ]
+  },
+  {
+   "id": "ar-ap-617671811",
+   "name": "Piazza San Domenico",
+   "perimeter": [
+    {
+     "lat": 43.468815,
+     "lon": 11.881877
+    },
+    {
+     "lat": 43.46891,
+     "lon": 11.881688
+    },
+    {
+     "lat": 43.468562,
+     "lon": 11.881368
+    },
+    {
+     "lat": 43.468378,
+     "lon": 11.88158
+    },
+    {
+     "lat": 43.468789,
+     "lon": 11.88193
+    },
+    {
+     "lat": 43.468815,
+     "lon": 11.881877
+    }
+   ]
+  },
+  {
+   "id": "ar-ap-22719184",
+   "name": "Piazza San Francesco",
+   "perimeter": [
+    {
+     "lat": 43.464757,
+     "lon": 11.881253
+    },
+    {
+     "lat": 43.464567,
+     "lon": 11.881092
+    },
+    {
+     "lat": 43.464857,
+     "lon": 11.880559
+    },
+    {
+     "lat": 43.465013,
+     "lon": 11.880694
+    },
+    {
+     "lat": 43.464757,
+     "lon": 11.881253
+    }
+   ]
+  },
+  {
+   "id": "ar-ap-22718505",
+   "name": "Piazza San Jacopo",
+   "perimeter": [
+    {
+     "lat": 43.461509,
+     "lon": 11.878964
+    },
+    {
+     "lat": 43.461469,
+     "lon": 11.878842
+    },
+    {
+     "lat": 43.4615,
+     "lon": 11.87882
+    },
+    {
+     "lat": 43.461468,
+     "lon": 11.878719
+    },
+    {
+     "lat": 43.461449,
+     "lon": 11.878729
+    },
+    {
+     "lat": 43.461427,
+     "lon": 11.878666
+    },
+    {
+     "lat": 43.46141,
+     "lon": 11.878675
+    },
+    {
+     "lat": 43.461389,
+     "lon": 11.878612
+    },
+    {
+     "lat": 43.461371,
+     "lon": 11.878622
+    },
+    {
+     "lat": 43.461338,
+     "lon": 11.878562
+    },
+    {
+     "lat": 43.461627,
+     "lon": 11.878398
+    },
+    {
+     "lat": 43.46172,
+     "lon": 11.878709
+    },
+    {
+     "lat": 43.461673,
+     "lon": 11.878741
+    },
+    {
+     "lat": 43.461718,
+     "lon": 11.878892
+    },
+    {
+     "lat": 43.461527,
+     "lon": 11.879017
+    },
+    {
+     "lat": 43.461509,
+     "lon": 11.878964
+    }
+   ]
+  },
+  {
+   "id": "ar-ap-342536769",
+   "name": "Piazza Sant'Agostino",
+   "perimeter": [
+    {
+     "lat": 43.462658,
+     "lon": 11.880964
+    },
+    {
+     "lat": 43.462595,
+     "lon": 11.880944
+    },
+    {
+     "lat": 43.462573,
+     "lon": 11.881043
+    },
+    {
+     "lat": 43.462432,
+     "lon": 11.881357
+    },
+    {
+     "lat": 43.462366,
+     "lon": 11.881284
+    },
+    {
+     "lat": 43.46225,
+     "lon": 11.88152
+    },
+    {
+     "lat": 43.462303,
+     "lon": 11.881576
+    },
+    {
+     "lat": 43.46228,
+     "lon": 11.881624
+    },
+    {
+     "lat": 43.462433,
+     "lon": 11.881746
+    },
+    {
+     "lat": 43.462611,
+     "lon": 11.881857
+    },
+    {
+     "lat": 43.462608,
+     "lon": 11.882312
+    },
+    {
+     "lat": 43.46266,
+     "lon": 11.882313
+    },
+    {
+     "lat": 43.462674,
+     "lon": 11.882205
+    },
+    {
+     "lat": 43.462658,
+     "lon": 11.880964
+    }
+   ]
+  },
+  {
+   "id": "ar-ap-617669632",
+   "name": "Piazza della Santissima Annunziata",
+   "perimeter": [
+    {
+     "lat": 43.467223,
+     "lon": 11.878659
+    },
+    {
+     "lat": 43.46711,
+     "lon": 11.878649
+    },
+    {
+     "lat": 43.467104,
+     "lon": 11.878236
+    },
+    {
+     "lat": 43.467209,
+     "lon": 11.878207
+    },
+    {
+     "lat": 43.467223,
+     "lon": 11.878659
+    }
+   ]
+  }
+ ],
+ "localHolidays": [
+  "08-07"
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Arezzo official pages and documents. Perimeters: Comune di Arezzo official ZTL map (25/09/2025), georeferenced on OpenStreetMap streets; gates and pedestrian squares: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

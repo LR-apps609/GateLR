@@ -1,0 +1,345 @@
+                       GIUNTA COMUNALE DI AREZZO
+
+
+                                        G.C. n. 577
+                         Riferimenti Archivistici: M 02 - 20230000040
+
+
+                     VERBALE DELL’ADUNANZA DEL 28/11/2023
+
+
+OGGETTO:     SOSTITUZIONE   DEI    VARCHI   CONTROLLATI
+ELETTRONICAMENTE PER IL TRANSITO NELLE ZONE A TRAFFICO
+LIMITATO, SOSTITUZIONE DELLA PIATTAFORMA INFORMATICA DI
+GESTIONE E SERVIZIO DI ASSISTENZA E MANUTENZIONE DELLA
+DURATA DI UN ANNO.
+
+
+
+                Presidente:             Ing. Alessandro Ghinelli
+                Segretario Generale: Dott. Alfonso Pisacane
+
+Prospetto delle presenze dei membri della Giunta alla trattazione dell’argomento
+ Cognome e nome                                       Carica                Presente
+ Alessandro Ghinelli                                  Sindaco               1
+ Lucia Tanti                                          Vicesindaco           2
+ Simone Chierici                                      Assessore             3
+ Alessandro Casi                                      Assessore             4
+ Monica Manneschi                                     Assessore             5
+ Giovanna Carlettini                                  Assessore             -
+ Francesca Lucherini                                  Assessore             6
+ Federico Scapecchi                                   Assessore             7
+ Marco Sacchetti                                      Assessore             -
+ Alberto Merelli                                      Assessore             8
+
+
+                               LA GIUNTA COMUNALE
+
+Premesso che:
+Nel 2003 l’amministrazione Comunale si dotò di un sistema di controllo elettronico degli
+accessi alle ZTL e successivamente, nel corso degli anni, il numero dei varchi fu incrementato
+in ragione di interventi di ampliamento della ZTL, provvedendo anche all'adeguamento di
+alcuni varchi preesistenti alle nuove tecnologie che negli anni sono state immesse sul
+mercato;
+
+G.C. n. 577 del 28/11/2023                                                        Pag. 1
+                       GIUNTA COMUNALE DI AREZZO
+
+Richiamata la delibera n. 134/2019 del 04/04/2019 la quale si stabiliva di procedere
+all’attivazione dei nuovi varchi, dei quali alcuni "in uscita" controllati elettronicamente e si
+modificava, di conseguenza, il disciplinare per il rilascio dei permessi;
+
+Richiamata la recente delibera G.C. n. 124/2023 con la quale si approvava la versione
+aggiornata e rivista del “Disciplinare per il rilascio dei permessi di transito e sosta in deroga
+ai divieti vigenti nelle Zone a Traffico Limitato”, funzionale all'attivazione del nuovo portale
+per il rilascio dei permessi On-line in seguito allo sviluppo di un nuovo sistema gestionale per
+il rilascio e rinnovo dei permessi interamente digitalizzato;
+
+Dato atto che:
+allo stato attuale il numero dei varchi è pari a 25 come di seguito specificato:
+
+  N.     via                         ZTL      direzione       tecnologia
+  1      Corso Italia -              B        ingresso        Kapsch City Solution VT
+         intersezione via Roma                                (omologazione 2013)
+  2      S. Domenico                 A        ingresso        Sirio VES 1.0 (omologazione
+                                                              2001)
+  3      Vicolo del Fanale           A        ingresso        Kapsch City Solution
+                                                              VT(omologazione 2013)
+  4      S. Lorentino                A        ingresso        Sirio VES 1.0 (omologazione
+                                                              2001)
+  5      Guido Monaco (poste)        A        ingresso        Sirio VES 1.0 (omologazione
+                                                              2001)
+  6      Madonna del Prato –         B        ingresso        Kapsch City Solution VT
+         intersezione via Roma                                (omologazione 2013)
+         in sinistra
+  7      Madonna del Prato -         B        ingresso        Sirio VES 1.0 (omologazione
+         intersezione via Roma                                2001) - disattivato
+         in destra
+  8      Garibaldi – porta           A        ingresso        Kapsch City Solution VT
+         Trento Trieste                                       (omologazione 2013)
+  9      Guadagnoli -                A        ingresso        Kapsch City Solution VT
+         intersezione via                                     (omologazione 2013)
+         Macallè
+  10     Buozzi                      A        ingresso        Kapsch City Solution VT
+                                                              (omologazione 2013)
+  11     Buozzi                      A        uscita          Kapsch City Solution VT
+                                                              (omologazione 2013)
+  12     Corso Italia -              B        ingresso        Kapsch City Solution VT
+         intersezione via                                     (omologazione 2013)
+         Spinello
+  13     Mazzini                     B        ingresso        Kapsch City Solution VT
+                                                              (omologazione 2013)
+  14     Nencetti                    A        ingresso        Sirio VES 1.0 (omologazione
+                                                              2001)
+  15     Piaggia s. Martino          B        ingresso        Kapsch City Solution VT
+                                                              (omologazione 2008)
+G.C. n. 577 del 28/11/2023                                                          Pag. 2
+                       GIUNTA COMUNALE DI AREZZO
+
+   16    Borgunto                     B        ingresso        Kapsch City Solution VT
+                                                               (omologazione 2008
+   17    Madonna del Prato -          B        ingresso        Kapsch City Solution VT
+         intersezione via                                      (omologazione 2008
+         Spinello
+   18    Isidoro del Lungo            A        ingresso        Kapsch City Solution VT
+                                                               (omologazione 2008)
+   19    Isidoro del Lungo            A        uscita          Kapsch City Solution VT
+                                                               (omologazione 2013)
+   20    Via dei Pileati              B        uscita          Kapsch City Solution VT
+                                                               (omologazione 2013)
+   21    Borgo S. Croce               A        uscita          Kapsch City Solution VT
+                                                               (omologazione 2013)
+   22    Padre Caprara                A        uscita          Kapsch City Solution VT
+                                                               (omologazione 2013)
+   23    Piaggia di Murello – S.      A        uscita          Kapsch City Solution VT
+         Lorentino                                             (omologazione 2013)
+   24    Fioraja                      B        ingresso        Kapsch City Solution VT
+                                                               (omologazione 2013)
+   25    Montetini                    B        ingresso        Kapsch City Solution VT
+                                                               (omologazione 2013)
+
+Dato atto che:
+con il trascorrere del tempo diviene sempre maggiore l’obsolescenza degli apparati installati
+in strada, infatti il rapido invecchiamento delle componenti, sia hardware che software è una
+costante per gli apparati I.C.T. (Iformation and Communicatione Technology) e I.T.S
+(Iformation and Technology Services) considerato le innovative soluzioni elettroniche per
+incrementarne efficienza e precisione offerte dal mercato sempre in evoluzione;
+
+Considerato:
+che l'obsolescenza degli impianti richiede più frequentemente la necessità di interventi di
+manutenzione anche di carattere straordinario tali da comportare ripetuti “fermi impianti” e
+ciò, unitamente alla difficoltà di reperire i pezzi di ricambio per gli imnpianti particolarmente
+datati, usciti di produzione, comporta alti costi di manutenzione.
+
+Dato atto
+che da un rilevamento statistico del corretto funzionamento dei varchi è emerso che il 60%
+dei varchi elettronici ha avuto un funzionamento regolare nel corso dell'ultimo anno, ma il 40
+% invece ha avuto un funzionamento irregolare e sono rimasti inattivi per un periodo (n. di
+giorni / anno) oscillante, per ogni singolo varco, da un minimo di 36 giorni (9,86%) ad un
+massimo di 365 giorni (100%) con una media di 161 giorni a varco (44,2%) pregiudicando in
+parte le prestazioni e l'operatività del sistema complessivo
+
+Considerata inoltre:
+che nel 2016 è entrata in vigore la norma UNI 10772/2016 “sistemi di Trasporto Intelligenti
+– sistemi per l’elaborazione delle immagini video atti al riconoscimento delle targhe” che
+deve, da tale data, essere applicata a tutti i sistemi di identificazione basati sul riconoscimento
+automatico delle targhe dei veicoli, ai fini dell’accertamento delle violazioni al Codice della
+
+
+G.C. n. 577 del 28/11/2023                                                            Pag. 3
+                       GIUNTA COMUNALE DI AREZZO
+
+strada. Tale norma prevede che gli impianti rilevino anche le targhe dei ciclomotori e dei
+motocicli.
+
+Dato atto:
+che nessuno dei varchi oggi operanti è conforme a tale normativa.
+
+Considerata inoltre opportuno:
+l'adeguamento del software di gestione, anche in seguito allo sviluppo del nuovo sistema
+gestionale per il rilascio e rinnovo dei permessi interamente digitalizzato e dell'attivazione del
+nuovo portale per il rilascio dei permessi On-line, che quindi dovrà essere perfettamente
+integrato con quest'ultimo, passando ad un sistema in "cloud" che permetta di dismettere il
+server fisico oggi situato presso la sede della polizia Municipale;
+
+Valutato:
+In relazione alle esigenze e alle criticità riscontrate la necessità di provvedere alla sostituzione
+e conseguente aggiornamento della totalità dei varchi elettronici di controllo degli accessi alla
+Z.T.L. Unitamente al sistema software gestionale;
+
+Visto :
+il progetto redatto dai tecnici dell'Ufficio Mobilità e conservato agli atti dell'ufficio,
+relativo alla fornitura e posa in opera di varchi elettronici controllati elettronicamente
+per il transito nelle Zone a Traffico Limitato e per la fornitura e servizio di sostituzione
+della piattaforma software gestionale, compreso il servizio di manutenzione e
+assistenza della durata di un anno dell'importo complessivo di € 305.000,00 di cui €
+235.000,00 per la fornitura posa in opera e servizi, € 4.200,00 per gli oneri dell'attuazione
+dei piani di sicurezza relativi alla posa in opera degli apparati tecnologici, 65.800,00 per
+somme a disposizione dell’Amministrazione Comunale, come dettagliato nel seguente
+Quadro Economico:
+
+SOSTITUZIONE DEI VARCHI CONTROLLATI ELETTRONICAMENTE PER
+IL TRANSITO NELLE ZONE A TRAFFICO LIMITATO, SOSTITUZIONE
+DELLA PIATTAFORMA INFORMATICA DI GESTIONE E SERVIZIO DI
+ASSISTENZA E MANUTENZIONE DELLA DURATA DI UN ANNO.
+
+
+A) IMPORTO DELL'APPALTO
+
+      TOTALE FORNITURA E POSA IN
+a.1                                                                          €        210.000,00
+      OPERA - A CORPO
+     servizi (sostituzione piattaforma
+a.2. software gestionale, e servizio di                                                 25.000,00
+     assistenza e manutenzione annuale)
+
+      TOTALE soggetto a ribasso                                              €        235.000,00
+     Oneri per l'attuazione dei piani di
+     sicurezza per la posa in opera degli
+a.3.                                                                         €           4.200,00
+     apparati stradali (non soggetto a
+     ribasso)
+G.C. n. 577 del 28/11/2023                                                             Pag. 4
+                       GIUNTA COMUNALE DI AREZZO
+
+     TOTALE DELL'APPALTO                                                €       239.200,00
+
+B) SOMME A DISPOSIZIONE DELL' AMM.NE :
+
+B 1 Spese tecniche :
+B
+    Incentivi art. 45 D.lgs 36/2023           2,00%     di (a.1 + a.3) €           4.284,00
+1.1
+B 2 Contributo ANAC                                                     €            250,00
+
+B 3 I.V.A ed eventuali altre imposte :
+
+B                                                       di (a.1 + a.2 +
+    I.V.A. su fornitura in opera e servizi    22,00%                    €        52.624,00
+3.1                                                     a.3)
+
+B 4 Imprevisti e arrotondamenti                                         €          5.642,00
+
+B 5 spese di pubblicazione                                              €          3.000,00
+
+     TOTALE SOMME A
+                                                                        €        65.800,00
+     DISPOSIZIONE
+
+     TOTALEPROGETTO                                                     €       305.000,00
+
+
+Rilevato inoltre che:
+il progetto in discorso è inserito nel programma biennale di acquisti e forniture 2023/2024
+e che è finanziabile con le risorse disponibili al Cap. 62242/10 finanziato con i proventi di
+cui all'art. 208 del Codice della Strada;
+
+Dato atto:
+che l'importo dell'appalto è superiore alle soglie di cui all'art. 14 comma 1, lett. c) del
+D.lgs n.36 del 2023 e che pertanto per l'affidamento si procederà mediante procedura di
+gara europea utilizzando quale criterio di aggiudicazione quello dell'Offerta
+Economicamente più Vantaggiosa individuata sulla base del miglior rapporto
+qualità/prezzo;
+
+Visto l’allegato parere favorevole del Dirigente del Servizio in ordine alla regolarità
+tecnica, ai sensi dell'art. 49, comma 1, del D.Lgs 18.8.2000, n. 267;
+
+Visto l'allegato parere favorevole del Dirigente del Servizio Finanziario, in merito alla
+regolarità contabile della presente deliberazione di cui all’art. 49, comma 1 del D. Lgs
+267/2000;
+
+Con votazione unanime e palese,
+
+
+
+G.C. n. 577 del 28/11/2023                                                       Pag. 5
+                       GIUNTA COMUNALE DI AREZZO
+
+                                      DELIBERA
+
+di approvare il progetto redatto dai tecnici dell'Ufficio Mobilità e conservato agli atti
+dell'ufficio, relativo alla fornitura e posa in opera di varchi elettronici controllati
+elettronicamente per il transito nelle Zone a Traffico Limitato e per la fornitura e
+servizio di sostituzione della piattaforma software gestionale, compreso il servizio di
+manutenzione e assistenza della durata di un'anno dell'importo complessivo di €
+305.000,00 di cui € 235.000,00 per la fornitura posa in opera e servizi, € 4.200,00 per gli
+oneri dell'attuazione dei piani di sicurezza relativi alla posa in opera, 65.800,00 per
+somme a disposizione dell’Amministrazione Comunale, come di seguito dettagliato :
+
+SOSTITUZIONE DEI VARCHI CONTROLLATI ELETTRONICAMENTE PER
+IL TRANSITO NELLE ZONE A TRAFFICO LIMITATO, SOSTITUZIONE
+DELLA PIATTAFORMA INFORMATICA DI GESTIONE E SERVIZIO DI
+ASSISTENZA E MANUTENZIONE DELLA DURATA DI UN ANNO.
+
+
+A)    IMPORTO DELL'APPALTO
+
+      TOTALE FORNITURA E POSA IN
+a.1                                                                   €       210.000,00
+      OPERA - A CORPO
+     servizi (sostituzione piattaforma
+a.2. software gestionale, e servizio di                                         25.000,00
+     assistenza e manutenzione annuale)
+
+      TOTALE soggetto a ribasso                                       €       235.000,00
+     Oneri per l'attuazione dei piani di
+     sicurezza per la posa in opera degli
+a.3.                                                                  €          4.200,00
+     apparati stradali (non soggetto a
+     ribasso)
+
+      TOTALE DELL'APPALTO                                             €       239.200,00
+
+B)    SOMME A DISPOSIZIONE DELL' AMM.NE :
+
+B 1 Spese tecniche :
+B
+    Incentivi art. 45 D.lgs 36/2023          2,00%     di (a.1 + a.3) €          4.284,00
+1.1
+B 2 Contributo ANAC                                                   €            250,00
+
+B 3 I.V.A ed eventuali altre imposte :
+
+B                                                      di (a.1 + a.2 +
+    I.V.A. su fornitura in opera e servizi   22,00%                    €        52.624,00
+3.1                                                    a.3)
+
+B 4 Imprevisti e arrotondamenti                                       €          5.642,00
+
+G.C. n. 577 del 28/11/2023                                                     Pag. 6
+                        GIUNTA COMUNALE DI AREZZO
+
+B 5 spese di pubblicazione                                                          €             3.000,00
+
+          TOTALE SOMME A
+                                                                                    €            65.800,00
+          DISPOSIZIONE
+
+          TOTALE PROGETTO                                                           €           305.000,00
+
+
+di nominare Responsabile Unico del Procedimento l'ing. Roberto Bernardini, Direttore
+dell'Ufficio Mobilità del Comune di Arezzo.
+
+di finanziare il progetto assumendo prenotazione di spesa per € 305.000,00 al Cap.
+62242/10 finanziato con i proventi di cui all'art. 208 del Codice della Strada, come da
+autorizzazione rilasciata dal Comandante della Polizia Municipale in data 27/10/2023 e
+acquisita agli atti.
+
+La Giunta comunale delibera, con separata ed unanime votazione, di rendere il presente
+atto immediatamente eseguibile, ai sensi dell’art. 134 comma 4 del DLgs 267/2000.
+ca.v/df
+
+
+Documento informatico firmato digitalmente ai sensi e con gli effetti di cui agli artt. 20 e 21 del D. Lgs n.
+82/2005; sostituisce il documento cartaceo e la firma autografa.
+
+
+               Il Segretario Generale                                      Il Presidente
+               Dott. Alfonso Pisacane                                Ing. Alessandro Ghinelli
+
+
+
+
+G.C. n. 577 del 28/11/2023                                                                      Pag. 7
+
