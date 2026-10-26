@@ -1,0 +1,20 @@
+1 200 1161506 https://www.infomobility.pr.it/en/electronic-gates-and-ltz/ -> 1-electronic-gates-and-ltz_
+2 404 893020 https://www.infomobility.pr.it/varchi-elettronici-e-ztl/ -> 2-varchi-elettronici-e-ztl_
+3 200 1018794 https://www.infomobility.pr.it/transito-e-sosta/ -> 3-transito-e-sosta_
+4 200 998097 https://www.infomobility.pr.it/permessi-commerciali/ -> 4-permessi-commerciali_
+5 200 959329 https://www.infomobility.pr.it/en/tap-park/ -> 5-tap-park_
+6 200 963724 https://www.infomobility.pr.it/tap-park/ -> 6-tap-park_
+7 200 906472 https://www.infomobility.pr.it/pair-2030-dal-1-ottobre-2026-in-vigore-le-misure-per-la-qualita-dellaria-previste-dal-piano-aria-integrato-regionale/ -> 7-pair-2030-dal-1-ottobre-2026-in-vigore-le-misure-per-la-qualita-dellaria-previst
+8 000ERR  https://www.comune.parma.it/it/novita/notizie/pair-2030-dal-1deg-ottobre-in-vigore-le-misure-per-la-qualita-dellaria-previste-dal-piano-aria-integrato-regionale -> 8-pair-2030-dal-1deg-ottobre-in-vigore-le-misure-per-la-qualita-dellaria-previste-
+9 200 673003 https://www.comune.parma.it/it/novita/avvisi/misure-emergenziali-per-la-qualita-dellaria -> 9-misure-emergenziali-per-la-qualita-dellaria_
+10 200 28167 https://aggiornati.arpae.it/it/temi-ambientali/aria/liberiamo-laria/limitazioni-per-comune/parma-ordinanze-pair -> 10-parma-ordinanze-pair_
+11 200 755325 https://www.comune.parma.it/it/servizi/mobilita-e-trasporti/permessi-residenti-ztl -> 11-permessi-residenti-ztl_
+12 200 679257 https://www.comune.parma.it/it/servizi/mobilita-e-trasporti -> 12-mobilita-e-trasporti_
+13 200 920139 https://www.infomobility.pr.it/wp-content/uploads/2021/10/2021_pd_0002055_all.1_strade_comprese_signed.pdf -> 13-2021_pd_0002055_all.1_strade_comprese_signed.pdf_
+14 200 811388 https://www.infomobility.pr.it/wp-content/uploads/2023/02/All.5_Sistema-tariffario.pdf -> 14-All.5_Sistema-tariffario.pdf_
+15 000ERR  https://infomobility.pr.it/index.php?id=5218&lang=it&page=default&sezione=elenco_azzurro_.. -> 15-index.php_
+16 200 944716 https://www.infomobility.pr.it/ -> 16-www.infomobility.pr.it_
+17 200 270221 https://raw.githubusercontent.com/openpolis/geojson-italy/master/geojson/limits_P_34_municipalities.geojson -> 17-limits_P_34_municipalities.geojson_
+18 overpass 156
+19 overpass 156
+20 overpass 156
