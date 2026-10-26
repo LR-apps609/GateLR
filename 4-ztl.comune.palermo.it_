@@ -1,0 +1,653 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+ <head>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="SISPI S.p.A. - www.sispi.it" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+  
+  <title>Comune di Palermo - Portale Mobilità Servizi online&nbsp;v.&nbsp;3.14.16 by SISPI S.p.A.</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/hp_main.css" />
+  <link rel="stylesheet" id="csscarattere" type="text/css" media="screen" href="../css/fontmedium.css" />
+  <link rel="stylesheet" id="cssskin" type="text/css" media="screen" href="../css/skindefault.css" />
+  <link rel="stylesheet" id="cssstampa" type="text/css" media="print" href="../css/stampa.css" />
+  <link rel="stylesheet" id="cssstampa_screen" type="text/css" media="screen"  href="../css/ui-lightness/jquery-ui.custom.css" />
+  <script type="text/javascript" src="../JScript/LIBGeneric.js"></script>
+  <script type="text/javascript" src="../JScript/LIBSpecific.js?ver=20161026"></script>
+  <script type="text/javascript" src="../JScript/LIBCalendar.js"></script>
+
+  <link rel="stylesheet" href="../css/nivo-slider.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="../css/themes/default/default.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="../JScript/jquery.js"></script>
+  <script type="text/javascript" src="../JScript/jquery-ui.custom.min.js"></script>
+
+  
+ </head>
+
+ <body id="home" onload='windowOnLoad();'>
+
+  <!-- begin page -->
+  <div id="page">
+
+   <!-- begin header -->
+   <div id="header" onclick="window.location.href = 'http://www.comune.palermo.it'">
+    <div id="logo">
+     <h1 class="alt">
+      
+	<!--LDC 24/03/2025 - Misura 1.4.2  --> 
+	
+      <span id='titoloHP_logo'><br/>Comune di Palermo</span><br/>
+      <span id='sottoTitoloHP_logo'></span>
+      
+     </h1>
+     <a href='http://www.comune.palermo.it' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;" title=" Comune di Palermo " rel='esterno'><img src='../images/servizio/aquila.gif' class='img-logo' alt='logo Comune'/></a>
+    </div>
+    <div id="titoloApplicazione"><span id='titoloHP'><br/>Comune di Palermo</span><br/>
+<span id='sottoTitoloHP'></span>
+</div>
+    <hr class="hide"/>
+    <div id="bglogo"></div>
+    <div id="menuSistema">
+     <div id="data"></div>
+     <script type="text/javascript">writeData()</script>
+    </div>
+    <hr class="hide"/>
+   </div>
+   <!-- end header -->
+
+   <noscript>
+    <div id="avvisoJavascript">
+     <h2 class="alt">Avviso</h2>
+     <p><strong>ATTENZIONE - Il browser in uso non supporta le applicazioni Javascript.</strong><br/>Per usufruire in maniera completa dei servizi presenti in quest'area, &egrave; necessario utilizzare un browser che supporti le funzioni Javascript.</p>
+    </div>
+   </noscript>
+
+  <!-- begin colonna1 -->
+   <div id="colonna1">
+	<h2 class="hide">Servizi online</h2>
+	
+        <h3> Servizi online </h3>
+    <div>
+     <ul>
+      <li>
+       <a href="/ztl/jsp/home.jsp?S=20" accesskey="0" id="menu_20" title=" Home Page " >Home</a>
+      </li>
+      <li>
+       <a href="/ztl/jsp/home.jsp?modo=info&info=servizi.jsp&ARECOD=10&S=30" accesskey="0" id="menu_30" title=" ZTL " >ZTL</a>
+      </li>
+     </ul>
+    </div>
+    <hr class='hide'/>
+
+
+   </div>
+
+   <hr class="hide"/>
+   <!-- end colonna1 -->
+
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+     
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- begin colonna2 -->
+        <div id="colonna2">
+         <!-- sol:InfoAvvisoHP sportello='it.sispi.sol.general.bean.Sportello@2b112c0d' / -->
+         <!-- sol:InfoComuneHP sportello='it.sispi.sol.general.bean.Sportello@2b112c0d' titoloApplicazione='Comune di Palermo - Portale Mobilità Servizi online' / -->
+         <div id='notizie'>
+ <h3>Avvisi e Notizie</h3>
+ <div id='news-container'>
+  <div id='news'>
+   <ul>
+    <li>CALL CENTER ZTL 3289871083
+ATTIVO DAL LUNEDI' AL VENERDI' DALLE ORE 8:00 ALLE ORE 13:00</li>
+    <li><hr class="hide"/></li>
+    <li><a href='/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&amp;NEW_COD=12046115' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;">- RIAPERTUTA AL PUBBLICO - PUNTO VENDITA DI VIA A. BORRELLI, 16
+ - CHIUSURA TEMPORANEA - PUNTO VENDITA DI VIA GIUSTI, 7 PER RISTRUTTURAZIONE LOCALI</a></li>
+    <li><hr class="hide"/></li>
+    <li>
+     <img src='../images/servizio/clip.gif' alt='Allegato' height='11' width='6' />
+     <a href='#no' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;" onclick="openDirectDocument('..//docs/news/82053/A2025/M10/G20/ord._1508-2025.pdf');" title='Visualizza documento'>Ordinanza n. 1508 del 16/10/25 - Revoca della Ordinanza Dirigenziale n. 1236 del 29/08/25 relativa alla sospensione temporanea della Ztl DIURNA in entrambi i sensi di marcia della Via Roma, a decorrere dal 20/10/25     </a>
+    </li>
+    <li><hr class="hide"/></li>
+    <li><a href='/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&amp;NEW_COD=9190852' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;">ACCESSO IN ZTL  - TITOLARI CUDE - Contrassegno Unificato Disabili Europeo contrassegno disabili per i non residenti nel Comune di Palermo (clicca qui)</a></li>
+    <li><hr class="hide"/></li>
+    <li>
+     <img src='../images/servizio/clip.gif' alt='Allegato' height='11' width='6' />
+     <a href='#no' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;" onclick="openDirectDocument('..//docs/news/82053/A2024/M08/G07/disciplinare_tecnico_ztl_maggio_2024.pdf');" title='Visualizza documento'>Modifica del “Disciplinare Tecnico della ZTL Centrale” di cui alla deliberazione di G.C. n. 169 del 26/08/2022
+Maggio 2024     </a>
+    </li>
+    <li><hr class="hide"/></li>
+    <li><a href='/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&amp;NEW_COD=5073815' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;">RIATTIVAZIONE DELLA ZTL SULL'ASSE DI VIA ROMA DAL 05/07/2023</a></li>
+    <li><hr class="hide"/></li>
+    <li><a href='/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&amp;NEW_COD=4623450' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;">Accessi multipli</a></li>
+    <li><hr class="hide"/></li>
+    <li>
+     <img src='../images/servizio/clip.gif' alt='Allegato' height='11' width='6' />
+     <a href='#no' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;" onclick="openDirectDocument('..//docs/news/82053/A2022/M09/G17/all_01_disciplinare_ztl_agosto_2022.pdf');" title='Visualizza documento'>Disciplinare Tecnico della Zona a Traffico Limitato Centrale - Testo approvato con deliberazione di G.C. n. 169 del 26/08/2022     </a>
+    </li>
+    <li><hr class="hide"/></li>
+    <li><a href='/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&amp;NEW_COD=4208211' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;">MODALITA' ATTIVAZIONE PASS GIORNALIERI</a></li>
+    <li><hr class="hide"/></li>
+    <li><a href='/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&amp;NEW_COD=3551541' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;">ATTIVAZIONE PASS GIORNALIERO TRAMITE  NUMERO DI CELLULARE ESTERO(clicca qui)</a></li>
+    <li><hr class="hide"/></li>
+    <li>LINEA 101N - Si avvisa che a seguito della riattivazione della ZTL NOTTURNA, a far data dal 05/11/2021 la linea 101 riprende l'esercizio notturno, prolungando il servizio tutti i giorni di venerdì e sabato dalle ore 22:05 alle ore 05:45</li>
+    <li><hr class="hide"/></li>
+    <li>ZTL NOTTURNA - ORDINANZA N°1272 DEL 04/11/2021
+Riattivazione della ZTL NOTTURNA dal 05/11/2021</li>
+    <li><hr class="hide"/></li>
+    <li>UTILIZZO APP - Da Lunedi 11 Gennaio 2021 l'app ZTL è stata dismessa e, pertanto, deve essere disinstallata.
+Il servizio pass ZTL è stato aggiunto alle funzionalità dell'app PalerMobilità.</li>
+    <li><hr class="hide"/></li>
+    <li><a href='/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&amp;NEW_COD=2871074' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;">ORARI ZTL</a></li>
+    <li><hr class="hide"/></li>
+    <li>CALL CENTER ZTL
+Si comunica che da lunedì 10 giugno 2019 il n. 091/350350 per informazioni sulle zone a traffico linìmitato (ZTL) non sarà più attivo.</li>
+    <li><hr class="hide"/></li>
+    <li>Spedizione pass Ztl
+Si avvisa l'utenza che il servizio di recapito pass a domicilio non è attivo.</li>
+    <li><hr class="hide"/></li>
+    <li><a href='/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&amp;NEW_COD=1784990' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;">MODALITA' ATTIVAZIONE PASS GIORNALIERO PER ACQUISTO ONLINE</a></li>
+    <li><hr class="hide"/></li>
+   </ul>
+  </div>
+ </div>
+</div>
+<br/>
+
+<hr class="hide"/><script type="text/javascript">document.getElementById('notizie').style.display = 'block';</script>
+
+<div id='primo-piano'>
+ <h3>Primo piano</h3>
+ <div class='primoPiano'>
+  <dl>
+   <dt>CALL CENTER ZTL 3289871083
+ATTIVO DAL LUNEDI' AL VENERDI' DALLE ORE 8:00 ALLE ORE 13:00<br/></dt>
+   <dd></dd>
+  </dl>
+ </div>
+ <div class='primoPiano'>
+  <dl>
+   <dt><a href='/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOUNRZTL_NEWS&amp;NEW_COD=12046115'>- RIAPERTUTA AL PUBBLICO - PUNTO VENDITA DI VIA A. BORRELLI, 16
+ - CHIUSURA TEMPORANEA - PUNTO VENDITA DI VIA GIUSTI, 7 PER RISTRUTTURAZIONE LOCALI<br/></a></dt>
+   <dd>Si informa la Spettabile clientela che da mercoledì 24/06/2026 il punto vendita di via A. Borrelli, 16 riaprirà al pubblico. Orario pubblico - da lunedì al venerdì dalle ore 08:00 alle ore 13:00 - lunedì e mercoledì dalle ore 14:45 alle ore 17:00.</dd>
+  </dl>
+ </div>
+ <div class='primoPiano'>
+  <dl>
+   <dt><a href='#no' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;" onclick="parent.openDirectDocument('..//docs/news/82053/A2025/M10/G20/ord._1508-2025.pdf');" title=' Visualizza documento '>Ordinanza n. 1508 del 16/10/25 - Revoca della Ordinanza Dirigenziale n. 1236 del 29/08/25 relativa alla sospensione temporanea della Ztl DIURNA in entrambi i sensi di marcia della Via Roma, a decorrere dal 20/10/25</a></dt>
+   <dd></dd>
+  </dl>
+ </div>
+ <div class='primoPiano'>
+  <dl>
+   <dt><a href='/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOUNRZTL_NEWS&amp;NEW_COD=9190852'>ACCESSO IN ZTL  - TITOLARI CUDE - Contrassegno Unificato Disabili Europeo contrassegno disabili per i non residenti nel Comune di Palermo (clicca qui)<br/></a></dt>
+   <dd>Il titolare del contrassegno, preventivamente od entro 15 giorni dal momento in cui è stato effettuato il transito dal varco di accesso, potrà inviare comunicazione all'AMAT indirizzo email ztlcentrale@amat.pa.it , allegando copia della Carta di Circolazione del veicolo con cui è stato effettuato il transito e copia fronte retro del Contrassegno CUDE.
+E' possibile effettuare la registrazione anche sul portale web dedicato ztl.comune.palermo.it , accedendo con lo SPID o CIE .
+Per periodi di permanenza prolungata, le richieste devono avvenire per comunicazioni ingressi a blocchi non superiori a giorni 15 consecutivi , indicando il suddetto periodo di permanenza, all'indirizzo email ztlcentrale@amat.pa.it ed allegando la documentazione di cui sopra."</dd>
+  </dl>
+ </div>
+ <div class='primoPiano'>
+  <dl>
+   <dt><a href='#no' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;" onclick="parent.openDirectDocument('..//docs/news/82053/A2024/M08/G07/disciplinare_tecnico_ztl_maggio_2024.pdf');" title=' Visualizza documento '>Modifica del “Disciplinare Tecnico della ZTL Centrale” di cui alla deliberazione di G.C. n. 169 del 26/08/2022
+Maggio 2024</a></dt>
+   <dd></dd>
+  </dl>
+ </div>
+</div>
+<br/>
+<hr class="hide"/>
+<script type="text/javascript">document.getElementById('primo-piano').style.display = 'none';</script>
+
+         <div id="archivionews">
+          <a title=" Archivio Avvisi e Notizie " href="../pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS">Archivio</a>
+         </div>
+         
+<!--
+ <div style='margin-top: 4px; width: 45%;'>
+  <p style="color: #000; font-weight: bold; margin-bottom: 4px">Mappa ZTL</p>
+  <img style='border:1px solid #000000' src="../images/servizio/mappa_ztl.png" width="100%" height="100%">
+ </div>
+-->
+
+<!--
+ <div class='avviso3'>
+  <span style="color: #FF0000;">AVVISO</span>:
+  DAL 31 MARZO AL 6 APRILE 2016 E' SOSPESO IL RILASCIO DEI PASS ZTL, E' POSSIBILE COMUNQUE  REGISTRARSI E PRENOTARE IL PASS TRAMITE QUESTO PORTALE.</br>
+  E' ESCLUSA OGNI FORMA DI PAGAMENTO; IL BOLLETTINO POSTALE, CHE E' POSSIBILE STAMPARE, NON DEVE ESSERE PAGATO FINO A NUOVO AVVISO.
+ </div>
+ <br />
+-->
+
+<!-- 	
+ <div class='avviso3'>
+  <span style="color: #FF0000; font-weight: bold;">AVVISO - Emergenza COVID-19</span><br /><br />
+  <span style="font-weight: bold;">La ZTL/CENTRALE è sospesa fino al 01 Marzo 2021.</span><br />
+  <span style="font-weight: normal;">A far data dal 26 Febbraio vengono riattivati i canali online per richiesta pass.</span><br />
+ </div>
+ <br />
+-->
+
+<!-- 	
+ <div class='avviso3'>
+ 	<br />
+  <span style="font-weight: normal;">La ZTL Centrale sarà riattivata a far data dal prossimo 2 marzo 2021.</span><br /><br />
+  <span style="font-weight: normal;">E' già attivo, sul portale, il servizio di acquisto/rinnovo dei pass on line, la cui  data di validità sarà a decorrere, naturalmente, dal 2 marzo 2021.</span><br /><br />
+  <span style="font-weight: normal;">Tutti i possessori di pass validi alla data del 23 dicembre 2020 (data in cui la ZTL è stata sospesa), recupereranno il periodo di non utilizzo attraverso una proroga automatica.</span><br /><br />
+ </div>
+ <br />
+-->
+
+<!--
+ <div class='avviso3'>
+ 	<br />
+  <span style="font-weight: normal;">ZTL Centrale, sospesa fino a tutto il 26/04/2021.</span><br /><br />
+  <span style="font-weight: normal;">Si comunica che, a seguito decisione da parte del Sindaco e della Giunta Comunale, a far data da martedì 06/04/2021 la ZTL 
+  	diurna sarà sospesa fino a lunedì 26/04/2021 compreso, salvo ulteriori proroghe.</span><br /><br />
+  <span style="font-weight: normal;">Resta analogamente sospesa la ZTL notturna.</span><br /><br />
+ </div>
+ <br />
+-->
+  
+<!--  
+ <div class='avviso3'>
+ 	<br />
+  <span style="font-weight: normal;">ZTL Centrale, sospesa fino a tutto il 24/05/2021.</span><br /><br />
+  <span style="font-weight: normal;">
+   La ZTL Centrale, a seguito disposizioni da parte dell'Amministrazione Comunale, continuerà ad essere sospesa fino a tutto il 24 maggio 2021.<br />
+   Contestualmente continueranno ad essere disattivati i canali on-line di accesso al portale.<br />
+   Tutti i possessori di pass validi nel periodo di sospensione della ZTL, recupereranno il periodo di non utilizzo attraverso una proroga automatica.<br /> 
+  </span><br />
+  <span style="font-weight: normal;">Resta analogamente sospesa la ZTL notturna.</span><br /><br />
+ </div>
+ <br />
+-->
+
+<!-- 	
+ <div class='avviso3'>
+ 	<br />
+  <span style="font-weight: normal;">La ZTL Centrale è stata riattivata dal 02/03/2021.</span><br /><br />
+  <span style="font-weight: normal;">Tutti i Pass in scadenza nel periodo 22/12/2020 - 01/03/2021 sono stati prorogati, automaticamente, in ragione del periodo di 
+  	mancato utilizzo in regime di sospensione della ZTL.</span><br /><br />
+  <span style="font-weight: normal;">I nuovi Pass attivati successivamente, dagli utenti che hanno usufruito della proroga di cui sopra, ovvero con una data di 
+  	"inizio validità" che ricade nel periodo di proroga del Pass precedente, vengono a loro volta prorogati per evitare la sovrapposizione dei periodi di validità 
+  	e garantire la piena utilizzabilità dei nuovi Pass in rapporto alla durata prevista (mensile, semestrale, annuale).</span><br /><br />
+ </div>
+ <br />
+-->
+
+ <div class='avviso3'>
+  <p style='color: #000; font-weight: normal; text-align: justify;'>
+   <font color=red>ATTENZIONE</font><br/>
+   In ottemperanza al Decreto Legge n. 76/2020 convertito in Legge n. 120/2020, da ottobre 2021,
+   l'accesso al portale dei servizi online, per i cittadini, potr&agrave; essere effettuato ESCLUSIVAMENTE attraverso l'utilizzo dello SPID o CIE.
+   Non cambia nulla invece per le imprese e i professionisti che potranno continuare ad utilizzare le credenziali di accesso in loro possesso.<br/>
+   <br/>
+   <a href="../jsp/home.jsp?modo=info&amp;info=com_stampa.jsp">Maggiori informazioni</a>
+  </p>                 
+ </div>
+ <br />
+
+<!-- 
+ <div class='avviso3'>
+ 	<br />
+  <span style="font-weight: normal;">ZTL Centrale, sospesa fino a tutto il 31/05/2021.</span><br /><br />
+  <span style="font-weight: normal;">
+   La ZTL Centrale, a seguito disposizioni da parte dell'Amministrazione Comunale, continuerà ad essere sospesa fino a tutto il 31 maggio 2021.<br />
+   Tutti i Pass validi nel periodo di sospensione della ZTL sono stati prorogati per recuperare il periodo di mancato utilizzo.<br /> 
+  </span><br />
+  <span style="font-weight: normal;">Resta sospesa la ZTL notturna.</span><br /><br />
+ </div>
+ <br />
+ -->
+ 
+ <div style="display: block; float: right; height: 310px; width: 320px;">
+  <h4>&nbsp;</h4>
+  <p style='border:1px dashed; color: #000; font-size: 125%; font-weight: normal; height: 226px; padding: 6px; text-align: justify;'>
+   L'istituzione della Zona a Traffico Limitato (ZTL) è una misura ambientale che contribuirà a migliorare la vivibilità
+   della nostra città e a tutelare la salute dei palermitani, abbattendo i tassi d'inquinamento e limitando la pressione
+   veicolare privata nella zona centrale.
+   <br/>
+   <br/>
+   Tale misura renderà più efficiente il servizio di trasporto pubblico e faciliterà gli spostamenti in ambito urbano.
+   <br/>
+  </p>
+ </div>
+
+ <!-- Inizio mappa -->
+
+ <div style="display: block; float: left; height: 300px; width: 250px;">
+  <div style='width: 240px;'>
+   <h4 style="width: 240px;">Mappa ZTL</h4>
+   <img src="../images/servizio/mappa_ztl_1.png" style="height: 100%; width: 100%;">
+  </div>
+  <a class="popup-trigger">Mostra la mappa</a>
+ </div>
+
+ <!-- Fine mappa -->
+
+ <!-- Inizio App -->
+
+ <div style="float: right; height: 50px; width: 437px;">
+  <div style="float: left; width: 47px;">
+   <img alt=" App ZTL Palermo per Android e Apple " src="../images/servizio/logo_app_ztlpalermo.png" width="47px" height="47px" />
+  </div>
+  <div style="float: left; width: 383px; margin-left: 2px;">
+   <span style="color: #AE1335;">Da Lunedi 11 Gennaio 2021 l'app ZTL è stata dismessa.<br/>Il servizio pass ZTL è stato aggiunto alle funzionalità dell'app PalerMobilità</span>
+  </div>
+ </div>
+
+ <div style="float: right; height: 50px; margin-top: 30px; width: 437px;">
+  <div style="float: left; width: 47px;">
+   <img alt=" App PalerMobilità per Android e Apple " src="../images/servizio/logo_app_palermoculture.png" width="47px" height="47px" />
+  </div>
+  <div style="float: left; margin-left: 2px; width: 80px;">
+   <span style="color: #AE1335;">Scarica l'app<br />PalerMobilità</span>
+  </div>
+  <div style="float: left; margin-left: 4px; width: 150px;">
+   <a href="https://play.google.com/store/apps/details?id=com.cittadigitale&hl=it" target="_blank" title=" Scarica l'app PalerMobilità per dispositivi Android "><img alt=" Scarica l'app per dispositivi Android " src="../images/servizio/android-app_1.jpg" width="150px" height="47px" /></a>
+  </div>
+  <div style="float: left; margin-left: 4px; width: 150px;">
+   <a href="https://apps.apple.com/it/app/palermobilit%C3%A0/id1483908799" target="_blank" title=" Scarica l'app PalerMobilità per dispositivi Apple "><img alt=" Scarica l'app per dispositivi Apple " src="../images/servizio/ios-app_1.jpg" width="150px" height="47px" /></a>
+  </div>
+ </div>
+
+ <!-- Fine App   -->
+
+ <style>
+
+  /*
+  *, *:before, *:after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+  }
+   */
+
+  /* Style Popup Window */
+  .popup {
+   background: #fff;
+   border: 1px solid #AE1335;
+   color: #333;
+   display: none;
+   font-size: 19px;
+   height: 840px;
+   left: 50%;
+   line-height: 30px;
+   margin-left: -475px;
+   padding-top: 40px;
+   padding-left: 4px;
+   padding-right: 4px;
+   position: absolute;
+   top: 40px;
+   width: 950px;
+   z-index: 9999;
+  }
+
+  .popup-btn-close {
+   color: #AE1335;
+   cursor: pointer;
+   font-size: 10px;
+   font-weight: bold;
+   top: 8px;
+   position: absolute;
+   right: 6px;
+   text-transform: uppercase;
+  }
+
+  .popup-title {
+   color: #000;
+   font-size: 14px;
+   font-weight: bold;
+   top: 8px;
+   position: absolute;
+   left: 4px;
+  }
+
+  .popup-mobile {
+   left: 0;
+   margin: 30px 0 0;
+   position: relative;
+   top: 0;
+   width: 100%;
+  }
+ </style>
+
+ <script>
+  // Popup Window
+  var scrollTop = '';
+  var newHeight = '100';
+
+  $(window).bind('scroll', function() {
+    scrollTop = $( window ).scrollTop();
+    newHeight = scrollTop + 100;
+  });
+
+  $('.popup-trigger').click(function(e) {
+    e.stopPropagation();
+    if (jQuery(window).width() < 767) {
+      $(this).after($(".popup"));
+      $('.popup').show().addClass('popup-mobile').css('top', 0);
+      $('html, body').animate({
+        scrollTop: $('.popup').offset().top
+      }, 500);
+    } else {
+      $('.popup').removeClass('popup-mobile').css('top', newHeight).toggle();
+    };
+  });
+
+  $('html').click(function() {
+    $('.popup').hide();
+  });
+
+  $('.popup-btn-close').click(function(e){
+    $('.popup').hide();
+  });
+
+  $('.popup').click(function(e) {
+    e.stopPropagation();
+  });
+ </script>
+
+ <div class="popup">
+  <iframe frameborder="0" width="100%" height="99%" src="https://sispi.cartodb.com/u/sispi-admin/viz/add1545a-8235-11e6-be65-42010a288006/embed_map?zoom=15" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+  <span class="popup-title">ZTL Palermo</span>
+  <span class="popup-btn-close">chiudi</span>
+ </div>
+
+ <div style="clear:both;"></div>
+
+        </div>
+        <!-- end colonna2 -->
+
+        <!-- begin colonna3 -->
+        <div id="colonna3">
+         <ul>
+          <li><a href="/ztl/jsp/home.jsp?modo=info&info=portale.jsp" title=" Informazioni ... " class="link">Informazioni</a></li>
+          <li><a href="/ztl/jsp/home.jsp?modo=info&info=contatti.jsp" title=" Contatti ... " class="link">Contatti</a></li>
+         </ul>
+         <!--
+         <h3><hr /></h3>
+          <ul>
+           <li><a href="/ztl/jsp/home.jsp?modo=info&info=modulistica.jsp" title=" Modulistica ... " class="link">Modulistica</a></li>
+          </ul>
+         -->
+         <h3><hr /></h3>
+         
+          <ul>
+          
+          
+           <li><a href="/ztl/pr/switch-forward-ztl.do;jsessionid=4E16ADA1A37C8DF5A5C71C481D366C2C?undo_button_url=https%3A%2F%2Fztl.comune.palermo.it%3A443%2F%2Fztl%2Fjsp%2Fhome.do&stato=login&scope=spid" class="link" title=' Entra nell'area riservata '>Entra</a></li>
+          </ul>
+          <h3><hr class="hide"/></h3>
+          <ul>
+           <li><a href="/ztl/jsp/home.jsp?modo=info&amp;info=registrazione_online.jsp" class="link">Registrazione</a></li>
+          </ul>
+          <h3><hr class="hide"/></h3>
+          <ul>
+           
+            
+            
+              <li><a href="/ztl/jsp/home.jsp?modo=info&info=credenziali_smarrite.jsp" class="link">Credenziali smarrite</a></li>
+            
+           
+          </ul>
+          <h3><hr class="hide"/></h3>
+         
+         
+
+
+        </div>
+        <!-- end colonna3 -->
+
+     
+    
+   
+
+   <!-- begin footer -->
+   <div id="footer">
+    <div id="box-link">
+     &nbsp;
+     <a href="../jsp/home.jsp" class="linkinfo" accesskey="h" title=" Home page ">home</a>
+<!-- <a href="../jsp/home.jsp?modo=info&amp;info=faq.jsp" class="linkinfo" accesskey="f" title=' Area FAQ '>faq</a> -->
+     <a href="../jsp/home.jsp?modo=info&amp;info=contatti.jsp" class="linkinfo" accesskey="c" title=' Contatti '>contatti</a>
+<!-- <a href="../jsp/home.jsp?modo=info&amp;info=modulistica.jsp" class="linkinfo" accesskey="m" title=' Modulistica '>modulistica</a> -->
+<!-- <a href="../jsp/home.jsp?modo=info&amp;info=accessibilita.jsp" class="linkinfo" accesskey="a" title=' Dichiarazione di accessibilità '>accessibilità</a> -->
+     <a href="../jsp/home.jsp?modo=info&amp;info=privacy.jsp" class="linkinfo" accesskey="p" title=' Informativa sulla Privacy '>privacy</a>
+     <a href="../jsp/home.jsp?modo=info&amp;info=notelegali.jsp" class="linkinfo" title=' Note legali '>note legali</a>
+     <a href="../jsp/home.jsp?modo=info&amp;info=utilita.jsp" class="linkinfo" title=' Utilità '>utilità</a>
+     <a href="../jsp/home.jsp?modo=info&amp;info=datiZTL.jsp" class="linkinfo" title=' statistiche '>statistiche</a>
+     <a href="../jsp/home.jsp?modo=info&amp;info=crediti.jsp" class="linkinfo" title=' Crediti '>crediti</a>
+    </div>
+    <hr class="hide"/>
+<!--
+    <div id="box-accessibilita">
+     <div class="box">
+     <h1 class="alt">Imposta modalità di visualizzazione</h1>
+      <dl id="personalizzazione">
+       <dt>Dimensione Caratteri</dt>
+       <dd id="personalizzazione-caratteri-grandi">
+        <a href="#" title=' Imposta carattere grande ' onclick="createCookie('fontSize', 'fontbig.css', 30); document.getElementById('csscarattere').href='../css/fontbig.css';"><span class="alt">Carattere grande</span></a>
+       </dd>
+       <dd id="personalizzazione-caratteri-medi">
+        <a href="#" title=' Imposta carattere medio ' onclick="createCookie('fontSize', 'fontmedium.css', 30); document.getElementById('csscarattere').href='../css/fontmedium.css';"><span class="alt">Carattere medio (visualizzazione standard)</span></a>
+       </dd>
+       <dd id="personalizzazione-caratteri-piccoli">
+        <a title=' Imposta carattere piccolo ' onclick="createCookie('fontSize', 'fontsmall.css', 30); document.getElementById('csscarattere').href='../css/fontsmall.css';"><span class="alt">Carattere piccolo</span></a>
+       </dd>
+       <dt>Temi</dt>
+       <dd id="personalizzazione-skin-default">
+        <a href="#" title=' Imposta default ' onclick="createCookie('cssskin', 'skindefault.css', 30); document.getElementById('cssskin').href='../css/skindefault.css';"><span class="alt">Default (visualizzazione standard)</span></a>
+       </dd>
+       <dd id="personalizzazione-skin-due">
+        <a href="#" title=' Imposta skin verde ' onclick="createCookie('cssskin', 'skingreen.css', 30); document.getElementById('cssskin').href='../css/skingreen.css';"><span class="alt">Verde</span></a>
+       </dd>
+       <dd id="personalizzazione-skin-tre">
+        <a href="#" title=' Imposta skin blu ' onclick="createCookie('cssskin', 'skinblue.css', 30); document.getElementById('cssskin').href='../css/skinblue.css';"><span class="alt">Blu</span></a>
+       </dd>
+       <dd id="personalizzazione-accessibile">
+        <a href="#" title=' Imposta modalità alta visibilità ' onclick="createCookie('cssskin', 'skinaltocontrasto.css', 30); document.getElementById('cssskin').href='../css/skinaltocontrasto.css';"><span class="alt">Alta Visibilità</span></a>
+       </dd>
+       <dd id="personalizzazione-solotesto">
+        <a href="#" title=' Imposta modalità solo testo ' onclick="createCookie('cssskin', 'skinsolotesto.css', 30); document.getElementById('cssskin').href='../css/skinsolotesto.css';"><span class="alt">Solo testo</span></a>
+       </dd>
+      </dl>
+     </div>
+    </div>
+-->
+    <hr class="hide"/>
+   </div>
+   <!-- end footer -->
+
+   <!-- begin validatori -->
+   <!--
+   <div id="validatori">
+    <a href="http://validator.w3.org/check?uri=referer" title=' Valida il codice di marcatura della pagina - collegamento al sito, in lingua inglese, del W3C '><img src="../images/servizio/logo_xhtml.png" alt=' Valida il codice di marcatura della pagina - collegamento al sito, in lingua inglese, del W3C ' height="15" width="80" /></a>
+    <a href="http://jigsaw.w3.org/css-validator/" title=' Valida i fogli di stile di questo sito - collegamento al sito, in lingua inglese, del W3C '><img src="../images/servizio/logo_css.png" alt=' Valida i fogli di stile di questo sito - collegamento al sito, in lingua inglese, del W3C ' height="15" width="80" /></a>
+    <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=2&amp;url1=http://www.sispi.it/index.htm" title=' Collegamento al validatore automatico di accessibilità '><img src="../images/servizio/logo_wcag.png" alt=' Collegamento al validatore automatico di accessibilità ' height="15" width="80" /></a>
+   </div>
+   -->
+   <hr class="hide"/>
+   <!-- end validatori -->
+
+   <!-- begin copyright -->
+   <div id="copyright" >
+    <a href='http://www.sispi.it' title=' SISPI S.p.A. - Sistema Palermo Innovazione ' rel='esterno'><img src='../images/servizio/logosispismall.gif' height='27' width='63' alt='logo SISPI'/></a>
+    &copy; SISPI S.p.A. Tutti i diritti riservati.
+   </div>
+   <hr class="hide"/>
+   <!-- end copyright -->
+
+  </div>
+  <!-- end page -->
+ </body>
+
+</html>

@@ -1,0 +1,16 @@
+1 200 171862 https://www.amat.pa.it/la-ztl-tempi-e-perimetro-2/ -> 1-la-ztl-tempi-e-perimetro-2_
+2 302ERR  https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30 -> 2-maps.php_
+3 200 45178 https://repository.comune.palermo.it/polizia-municipale-info.php -> 3-polizia-municipale-info.php_
+4 200 29576 https://ztl.comune.palermo.it/ -> 4-ztl.comune.palermo.it_
+5 200 494571 https://ztl.comune.palermo.it/ztl//docs/news/82053/A2024/M08/G07/disciplinare_tecnico_ztl_maggio_2024.pdf -> 5-disciplinare_tecnico_ztl_maggio_2024.pdf_
+6 200 176818 https://www.comune.palermo.it/novita/ztl-dal-2-maggio-orario-estivo/ -> 6-ztl-dal-2-maggio-orario-estivo_
+7 200 208577 https://www.comune.palermo.it/servizio/richiedere-permesso-di-accesso-ad-area-ztl-31/ -> 7-richiedere-permesso-di-accesso-ad-area-ztl-31_
+8 200 185335 https://www.comune.palermo.it/novita/polizia-municipale-orari-di-sospensione-ztl/ -> 8-polizia-municipale-orari-di-sospensione-ztl_
+9 200 189318 https://www.comune.palermo.it/servizio/consumo-pass-giornaliero-elettronico/ -> 9-consumo-pass-giornaliero-elettronico_
+10 200 154603 https://www.amat.pa.it/ztl-variazione-giorni-di-apertura-uffici-amat-per-acquisto-schede/ -> 10-ztl-variazione-giorni-di-apertura-uffici-amat-per-acquisto-schede_
+11 200 228159 https://www.autovia.it/guida-ztl-palermo/ -> 11-guida-ztl-palermo_
+12 200 26057 https://ztlitaly.com/ztl/palermo/ -> 12-palermo_
+13 200 197541 https://www.amat.pa.it/ -> 13-www.amat.pa.it_
+14 200 142558 https://www.amat.pa.it/?s=ztl -> 14-www.amat.pa.it_
+15 200 560535 https://www.comune.palermo.it/?s=ZTL -> 15-www.comune.palermo.it_
+16 overpass 156
