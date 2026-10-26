@@ -1,10 +1,18 @@
 # Pubblica il sito (cartella web/) su GitHub Pages.
-# Si avvia a mano: Actions → «Pubblica il sito» → Run workflow.
+# Parte da solo a ogni aggiornamento del ramo main che tocca il sito, le città o i testi; si può anche avviare a mano.
 # Prima volta: Settings → Pages → Source: «GitHub Actions».
 name: Pubblica il sito
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'web/**'
+      - 'Resources/Cities/**'
+      - 'Resources/Parking/**'
+      - 'Tools/build_site.py'
+      - '.github/workflows/site.yml'
 
 permissions:
   contents: read
