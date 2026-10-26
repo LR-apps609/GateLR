@@ -2,10 +2,12 @@ import SwiftUI
 import MapKit
 import TipKit
 
-/// «Mappa»: le zone colorate per tipo (rosso vietato, giallo pass, verde basse emissioni), i varchi,
-/// i parcheggi fuori zona, stili satellite e 3D, e la vista a livello strada dove c'è.
+/// «Mappa», la scheda al centro: la mappa a tutto schermo con le zone colorate per la risposta (le quattro della legenda,
+/// sempre visibile sotto i chip «Adesso ▾» e veicolo), la ricerca, i varchi, i parcheggi fuori zona, «Naviga» e
+/// «Parcheggia fuori e cammina», stili satellite e 3D, e la vista a livello strada dove c'è.
 struct MapScreen: View {
     @EnvironmentObject var store: Store
+    @EnvironmentObject var router: AppRouter
     @ObservedObject private var planner = RoutePlanner.shared
     @StateObject private var search = AddressSearch()
     @FocusState private var typing: Bool
@@ -398,9 +400,13 @@ struct MapScreen: View {
                 suggestions
             } else if showLegend {
                 legend.transition(.opacity.combined(with: .move(edge: .top)))
-            } else if store.place == nil {
-                // Sotto la barra, dentro la pagina: non copre la ricerca né i pulsanti
-                TipView(MapSearchTip()).tipBackground(.regularMaterial)
+            } else {
+                // Le quattro risposte, sempre in vista: un tocco apre la legenda intera
+                legendStrip
+                if store.place == nil {
+                    // Sotto la barra, dentro la pagina: non copre la ricerca né i pulsanti
+                    TipView(MapSearchTip()).tipBackground(.regularMaterial)
+                }
             }
         }
         .padding(.horizontal, 12).padding(.top, 8)
@@ -426,6 +432,37 @@ struct MapScreen: View {
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    }
+
+    /// La legenda corta: i quattro colori con il loro tratto e simbolo, in una riga
+    private var legendStrip: some View {
+        Button { withAnimation(.snappy) { showLegend = true } } label: {
+            ViewThatFits(in: .horizontal) {
+                legendItems(short: false)
+                legendItems(short: true)
+            }
+            .padding(.horizontal, 10).frame(minHeight: 30)
+            .background(.regularMaterial, in: Capsule())
+        }
+        .buttonStyle(.plain)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(L("Legend") + ": " + Access.allCases.map(\.title).joined(separator: ", "))
+        .accessibilityIdentifier("map.legend")
+    }
+
+    private func legendItems(short: Bool) -> some View {
+        HStack(spacing: 10) {
+            ForEach(Access.allCases, id: \.self) { a in
+                HStack(spacing: 4) {
+                    AccessSwatch(access: a).frame(width: 18, height: 14)
+                    if !short { Text(verbatim: a.title).font(.app(size: 12, weight: .semibold)).lineLimit(1) }
+                }
+            }
+            if short { Text(L("Legend")).font(.app(size: 12, weight: .semibold)).lineLimit(1) }
+        }
+        .foregroundStyle(Theme.ink)
+        .fixedSize()
     }
 
     private func legendRow(_ text: String, _ mark: some View) -> some View {
@@ -509,7 +546,7 @@ struct MapScreen: View {
             }
             // «Avvia» direttamente da qui: il navigatore preferito con gli avvisi di GateLR
             HStack(spacing: 10) {
-                StartControls(target: place, label: L("Start"), onStart: { target in
+                StartControls(target: place, label: L("Navigate"), onStart: { target in
                     Task {
                         await DriveSession.shared.start(to: target, store: store)
                         driving = DriveSession.shared.active
@@ -526,7 +563,7 @@ struct MapScreen: View {
                     }
                 }
                 WideButton(title: "Trip details", systemImage: "suitcase.rolling", prominent: false) {
-                    store.select(place); tab = .trip
+                    store.select(place); router.open(.trip)
                 }
             }
             if check.suggestsParking {

@@ -1,93 +1,91 @@
 import SwiftUI
 
-/// «Garage»: veicoli e permessi.
+/// «Garage»: veicoli e permessi. Si apre da «Tu» (dentro la sua NavigationStack).
 struct GarageView: View {
     @EnvironmentObject var store: Store
     @State private var editing: Vehicle?
     @State private var addingPermit = false
 
     var body: some View {
-        NavigationStack {
-            List {
-                Section("Vehicles") {
-                    if store.vehicles.isEmpty {
-                        EmptyStateView(symbol: "car.fill", badge: "plus", title: "No cars yet",
-                                       text: "Add your car or rental: GateLR checks its fuel and Euro class against every zone.",
-                                       action: "Add a vehicle", actionSymbol: "plus") {
-                            editing = Vehicle(name: "", fuel: .petrol, euro: 6)
-                        }
-                        .listRowBackground(Color.clear)
+        List {
+            Section("Vehicles") {
+                if store.vehicles.isEmpty {
+                    EmptyStateView(symbol: "car.fill", badge: "plus", title: "No cars yet",
+                                   text: "Add your car or rental: GateLR checks its fuel and Euro class against every zone.",
+                                   action: "Add a vehicle", actionSymbol: "plus") {
+                        editing = Vehicle(name: "", fuel: .petrol, euro: 6)
                     }
-                    ForEach(store.vehicles) { v in
-                        HStack(spacing: 12) {
-                            Image(systemName: "car.fill")
-                                .foregroundStyle(v.id == store.vehicle.id ? Theme.blue : Theme.muted)
-                                .frame(width: 44, height: 44)
-                                .background(v.id == store.vehicle.id ? Theme.blueSoft : Theme.ground, in: RoundedRectangle(cornerRadius: 12))
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(v.name).font(.app(size: 16, weight: .semibold))
-                                Text(Self.subtitle(v))
-                                    .font(.app(size: 13)).foregroundStyle(Theme.muted)
-                            }
-                            Spacer()
-                            if v.id == store.vehicle.id {
-                                Pill(text: L("In use"), fill: Theme.blueSoft, ink: Theme.blue)
-                            } else {
-                                Button("Use") { store.activeVehicleId = v.id }.fontWeight(.semibold).buttonStyle(.borderless)
-                            }
-                        }
-                        .contentShape(Rectangle())
-                        .onTapGesture { editing = v }
-                    }
-                    .onDelete { offsets in
-                        let gone = Set(offsets.map { store.vehicles[$0].id })
-                        store.vehicles.remove(atOffsets: offsets)
-                        store.permits.removeAll { gone.contains($0.vehicleId) }
-                        if let id = store.activeVehicleId, gone.contains(id) { store.activeVehicleId = store.vehicles.first?.id }
-                    }
+                    .listRowBackground(Color.clear)
                 }
-
-                Section("Permits") {
-                    ForEach(store.permits) { p in
-                        HStack {
-                            Image(systemName: p.kind == .hotelRegistration ? "house" : "checkmark.seal")
-                                .foregroundStyle(p.status == .confirmed ? Theme.greenInk : Theme.amberInk)   // le versioni «Ink» si leggono anche al buio
-                            VStack(alignment: .leading) {
-                                Text(p.kind.label)
-                                Text("\(RuleEngine.format(p.from, .dateTime.day().month())) – \(RuleEngine.format(p.to, .dateTime.day().month()))")
-                                    .font(.app(size: 13)).foregroundStyle(Theme.muted)
-                            }
-                            Spacer()
-                            Button {
-                                if let i = store.permits.firstIndex(of: p) {
-                                    store.permits[i].status = p.status == .confirmed ? .waiting : .confirmed
-                                }
-                            } label: {
-                                Pill(text: L(p.status == .confirmed ? "Confirmed" : "Waiting"),
-                                     fill: p.status == .confirmed ? Theme.greenSoft : Theme.amberSoft,
-                                     ink: p.status == .confirmed ? Theme.greenInk : Theme.amberInk)
-                            }
-                            .buttonStyle(.plain)
+                ForEach(store.vehicles) { v in
+                    HStack(spacing: 12) {
+                        Image(systemName: "car.fill")
+                            .foregroundStyle(v.id == store.vehicle.id ? Theme.blue : Theme.muted)
+                            .frame(width: 44, height: 44)
+                            .background(v.id == store.vehicle.id ? Theme.blueSoft : Theme.ground, in: RoundedRectangle(cornerRadius: 12))
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(v.name).font(.app(size: 16, weight: .semibold))
+                            Text(Self.subtitle(v))
+                                .font(.app(size: 13)).foregroundStyle(Theme.muted)
+                        }
+                        Spacer()
+                        if v.id == store.vehicle.id {
+                            Pill(text: L("In use"), fill: Theme.blueSoft, ink: Theme.blue)
+                        } else {
+                            Button("Use") { store.activeVehicleId = v.id }.fontWeight(.semibold).buttonStyle(.borderless)
                         }
                     }
-                    .onDelete { store.permits.remove(atOffsets: $0) }
-                    Button { addingPermit = true } label: { Label("Add a permit", systemImage: "plus.circle") }
+                    .contentShape(Rectangle())
+                    .onTapGesture { editing = v }
                 }
-
-                CarAdvice()
-            }
-            .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 4) }
-            .navigationTitle("Garage")
-            .tint(Theme.blue)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button { editing = Vehicle(name: "", fuel: .petrol, euro: 6) } label: { Image(systemName: "plus") }
-                        .accessibilityLabel("Add a vehicle")
+                .onDelete { offsets in
+                    let gone = Set(offsets.map { store.vehicles[$0].id })
+                    store.vehicles.remove(atOffsets: offsets)
+                    store.permits.removeAll { gone.contains($0.vehicleId) }
+                    if let id = store.activeVehicleId, gone.contains(id) { store.activeVehicleId = store.vehicles.first?.id }
                 }
             }
-            .sheet(item: $editing) { v in VehicleForm(vehicle: v) }
-            .sheet(isPresented: $addingPermit) { PermitForm() }
+
+            Section("Permits") {
+                ForEach(store.permits) { p in
+                    HStack {
+                        Image(systemName: p.kind == .hotelRegistration ? "house" : "checkmark.seal")
+                            .foregroundStyle(p.status == .confirmed ? Theme.greenInk : Theme.amberInk)   // le versioni «Ink» si leggono anche al buio
+                        VStack(alignment: .leading) {
+                            Text(p.kind.label)
+                            Text("\(RuleEngine.format(p.from, .dateTime.day().month())) – \(RuleEngine.format(p.to, .dateTime.day().month()))")
+                                .font(.app(size: 13)).foregroundStyle(Theme.muted)
+                        }
+                        Spacer()
+                        Button {
+                            if let i = store.permits.firstIndex(of: p) {
+                                store.permits[i].status = p.status == .confirmed ? .waiting : .confirmed
+                            }
+                        } label: {
+                            Pill(text: L(p.status == .confirmed ? "Confirmed" : "Waiting"),
+                                 fill: p.status == .confirmed ? Theme.greenSoft : Theme.amberSoft,
+                                 ink: p.status == .confirmed ? Theme.greenInk : Theme.amberInk)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+                .onDelete { store.permits.remove(atOffsets: $0) }
+                Button { addingPermit = true } label: { Label("Add a permit", systemImage: "plus.circle") }
+            }
+
+            CarAdvice()
         }
+        .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 4) }
+        .navigationTitle("Garage")
+        .tint(Theme.blue)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button { editing = Vehicle(name: "", fuel: .petrol, euro: 6) } label: { Image(systemName: "plus") }
+                    .accessibilityLabel("Add a vehicle")
+            }
+        }
+        .sheet(item: $editing) { v in VehicleForm(vehicle: v) }
+        .sheet(isPresented: $addingPermit) { PermitForm() }
     }
 }
 
@@ -129,7 +127,10 @@ struct VehicleForm: View {
                 }
                 Section {
                     TextField(L("Name (e.g. Rental car)"), text: $vehicle.name)
-                    TextField(L("Plate"), text: $vehicle.plate).textInputAutocapitalization(.characters).autocorrectionDisabled()
+                    HStack(spacing: 10) {
+                        TextField(L("Plate"), text: $vehicle.plate).textInputAutocapitalization(.characters).autocorrectionDisabled()
+                        PlateLookupButton()
+                    }
                     Toggle(L("Rental car"), isOn: $vehicle.isRental)
                 }
                 Section {
@@ -198,6 +199,35 @@ struct VehicleForm: View {
         vehicle.fuel = v.fuel
         vehicle.euro = v.euro
         if v.isRental { vehicle.isRental = true }
+    }
+}
+
+/// «Cerca dalla targa»: chiuso con il lucchetto finché il servizio non c'è (PlateLookupService.current è il sostituto
+/// spento, vedi PlateLookup.swift). Nessuna richiesta in rete.
+struct PlateLookupButton: View {
+    var service: any PlateLookup = PlateLookupService.current
+
+    var body: some View {
+        let on = service.isAvailable
+        VStack(alignment: .trailing, spacing: 1) {
+            Button {} label: {
+                Label(L("Look up by plate"), systemImage: Symbols.pick(on, "magnifyingglass", else: "lock.fill"))
+                    .font(.app(size: 13, weight: .semibold)).lineLimit(1)
+                    .padding(.horizontal, 10).frame(minHeight: 30)
+                    .background(Theme.raised, in: Capsule())
+                    .foregroundStyle(Theme.muted)
+            }
+            .buttonStyle(.plain)
+            .disabled(!on)
+            // VoiceOver: «Cerca dalla targa, in arrivo, non disponibile»
+            .accessibilityLabel(on ? L("Look up by plate") : L("Look up by plate") + ", " + L("Coming soon"))
+            .accessibilityIdentifier("vehicle.plateLookup")
+            if !on {
+                Text("Coming soon").font(.app(size: 11, weight: .semibold)).foregroundStyle(Theme.muted)
+                    .accessibilityHidden(true)
+            }
+        }
+        .fixedSize()
     }
 }
 

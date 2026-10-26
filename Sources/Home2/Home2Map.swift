@@ -3,10 +3,11 @@ import MapboxMaps
 import SwiftUI
 import UIKit
 
-/// Il fondo della prima pagina 2.0: Firenze (o la città del posto) in 3D al crepuscolo, vista da vicino e inclinata,
+/// La striscia di mappa in cima a «Varco»: la città del posto in 3D al crepuscolo (Mapbox), vista da vicino e inclinata,
 /// con la camera che gira piano avanti e indietro intorno al posto. Le zone sono velate del colore della risposta
-/// (rosso se il varco è attivo, verde se si entra). «Guarda la mappa» abbassa la stessa camera sulla mappa intera
-/// (vista dall'alto, più lontana) e la mappa si può muovere con le dita; tornando, la camera risale.
+/// (rosso se il varco è attivo, verde se si entra). Con «mapMode» la stessa camera scende sulla mappa intera
+/// (vista dall'alto, più lontana) e la mappa si può muovere con le dita. Senza token o se Mapbox non si carica,
+/// VarcoView mostra la mappa di Apple (onFail).
 struct Home2Map: UIViewRepresentable {
     var place: Place
     var zones: [[CLLocationCoordinate2D]]
@@ -15,13 +16,15 @@ struct Home2Map: UIViewRepresentable {
     var reduceMotion: Bool
     /// Quanto alzare logo e attribuzione di Mapbox dal fondo sicuro (sopra il vetro con la risposta)
     var ornamentBottom: CGFloat
+    /// Lo spazio sotto il posto nella ripresa vicina: 360 punti sotto il vetro a tutta pagina, 0 nella striscia della prima pagina
+    var focusBottom: CGFloat = 360
     var onFail: () -> Void
 
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 
     func makeUIView(context: Context) -> MapView {
         let mapView = MapView(frame: .zero, mapInitOptions: MapInitOptions(mapStyle: NotteMap.style(),
-                                                                           cameraOptions: Coordinator.scenic(place.location.cl, bearing: Coordinator.bearing0)))
+                                                                           cameraOptions: Coordinator.scenic(place.location.cl, bearing: Coordinator.bearing0, bottom: focusBottom)))
         NotteMap.configure(mapView, ornamentBottom: ornamentBottom)
         context.coordinator.attach(mapView)
         return mapView
@@ -57,8 +60,8 @@ struct Home2Map: UIViewRepresentable {
         }
 
         /// La ripresa vicina: il posto un po' sopra il centro (sotto c'è il vetro con la risposta), inclinata di 60°
-        static func scenic(_ c: CLLocationCoordinate2D, bearing: Double) -> CameraOptions {
-            CameraOptions(center: c, padding: UIEdgeInsets(top: 0, left: 0, bottom: 360, right: 0),
+        static func scenic(_ c: CLLocationCoordinate2D, bearing: Double, bottom: CGFloat = 360) -> CameraOptions {
+            CameraOptions(center: c, padding: UIEdgeInsets(top: 0, left: 0, bottom: bottom, right: 0),
                           zoom: 15.7, bearing: bearing, pitch: 60)
         }
 
@@ -123,7 +126,7 @@ struct Home2Map: UIViewRepresentable {
                 pin?.annotatedFeature = .geometry(Point(c))
                 if !parent.mapMode {
                     drift?.cancel()
-                    mapView.camera.fly(to: Self.scenic(c, bearing: map.cameraState.bearing), duration: 2.2) { [weak self] _ in
+                    mapView.camera.fly(to: Self.scenic(c, bearing: map.cameraState.bearing, bottom: parent.focusBottom), duration: 2.2) { [weak self] _ in
                         self?.startDrift(forward: true)
                     }
                 } else {
@@ -138,7 +141,7 @@ struct Home2Map: UIViewRepresentable {
                     // La stessa camera scende e si raddrizza: dall'inclinata vicina alla mappa dall'alto
                     mapView.camera.ease(to: Self.overview(c), duration: parent.reduceMotion ? 0.4 : 1.8, curve: .easeInOut)
                 } else {
-                    mapView.camera.ease(to: Self.scenic(c, bearing: Self.bearing0), duration: parent.reduceMotion ? 0.4 : 1.8,
+                    mapView.camera.ease(to: Self.scenic(c, bearing: Self.bearing0, bottom: parent.focusBottom), duration: parent.reduceMotion ? 0.4 : 1.8,
                                         curve: .easeInOut) { [weak self] _ in self?.startDrift(forward: true) }
                 }
             }

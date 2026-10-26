@@ -494,9 +494,7 @@ T = {
 "We'll find the route that keeps you out of the ZTL.": ('Troviamo il percorso che evita le ZTL.', 'Wir finden die Route, die die ZTL meidet.'),
 'Hotel, address or square': ('Hotel, indirizzo o piazza', 'Hotel, Adresse oder Platz'),
 'Later': ('Più tardi', 'Später'),
-'Intro 2.0 preview': ('Anteprima intro 2.0', 'Vorschau Intro 2.0'),
-# Anteprima della prima pagina 2.0 (Sources/Home2)
-"First page 2.0 preview": ("Anteprima prima pagina 2.0", "Vorschau Startseite 2.0"),
+# La prima pagina 2.0 (Varco, Sources/Home2)
 "Don't enter.": ("Non entrare.", "Nicht einfahren."),
 "Drive in.": ("Entra pure.", "Fahr ruhig rein."),
 "Outside the ZTL.": ("Fuori dalla ZTL.", "Außerhalb der ZTL."),
@@ -506,7 +504,6 @@ T = {
 "Gates off at": ("Si spegne alle", "Kameras aus um"),
 "Gates on at": ("Si accende alle", "Kameras an um"),
 "See the map": ("Guarda la mappa", "Karte ansehen"),
-"Back to the answer": ("Torna alla risposta", "Zurück zur Antwort"),
 # Ora e veicolo scelti, legenda, parcheggi fuori dalla ZTL
 'Tonight %@': ('Stasera %@', 'Heute Abend %@'),
 'Today %@': ('Oggi %@', 'Heute %@'),
@@ -605,6 +602,28 @@ T = {
 'Euro class': ('Classe Euro', 'Euro-Klasse'),
 'Text read from the photo': ('Testo letto dalla foto', 'Vom Foto gelesener Text'),
 'Use these details': ('Usa questi dati', 'Diese Angaben übernehmen'),
+# GateLR 2.0: tre schede (Varco, Mappa, Tu), «Cerca dalla targa» chiuso
+"You": ("Tu", "Du"),
+"Trip and hotel": ("Viaggio e hotel", "Reise und Hotel"),
+"Fines and passages": ("Multe e passaggi", "Bußgelder und Durchfahrten"),
+"What are ZTLs": ("Cosa sono le ZTL", "Was sind ZTL"),
+"Replay the intro": ("Rivedi la presentazione", "Einführung noch einmal ansehen"),
+"Look up by plate": ("Cerca dalla targa", "Per Kennzeichen suchen"),
+"Coming soon": ("In arrivo", "Demnächst"),
+"Easy arrival.": ("Arrivo sereno.", "Entspannt ankommen."),
+"Your cars and permits": ("Le tue auto e i permessi", "Deine Autos und Genehmigungen"),
+"Destination, route and message for the hotel": ("Destinazione, percorso e messaggio per l'hotel", "Ziel, Route und Nachricht ans Hotel"),
+"Drive log, got a fine, photograph the notice": ("Diario dei passaggi, multe, foto del verbale", "Fahrtenprotokoll, Bußgeld, Bescheid fotografieren"),
+"Signs, gate panels and the intro": ("Cartelli, pannelli dei varchi e la presentazione", "Schilder, Anzeigetafeln und die Einführung"),
+"Alerts, navigator, language and city data": ("Avvisi, navigatore, lingua e dati delle città", "Hinweise, Navi, Sprache und Stadtdaten"),
+"GateLR Plus: coming soon": ("GateLR Plus: in arrivo", "GateLR Plus: demnächst"),
+# Novità della 1.16.0
+"Three tabs: Gate, Map, You": ("Tre schede: Varco, Mappa, Tu", "Drei Tabs: Einfahrt, Karte, Du"),
+"The answer comes first, the map is in the middle and everything else is in You: Garage, Trip and hotel, Fines and passages, Settings.": ("Prima la risposta, al centro la mappa e tutto il resto in Tu: Garage, Viaggio e hotel, Multe e passaggi, Impostazioni.", "Zuerst die Antwort, in der Mitte die Karte und alles andere unter Du: Garage, Reise und Hotel, Bußgelder und Durchfahrten, Einstellungen."),
+"The map up front": ("La mappa in primo piano", "Die Karte im Vordergrund"),
+"Tap the live map at the top of Gate or See the map: the Map tab opens on the zone of the answer, with the four colours always in view.": ("Tocca la mappa dal vivo in cima a Varco o Guarda la mappa: la scheda Mappa si apre sulla zona della risposta, con i quattro colori sempre in vista.", "Tippe auf die Live-Karte oben in Einfahrt oder auf Karte ansehen: Der Tab Karte öffnet sich in der Zone der Antwort, die vier Farben immer im Blick."),
+"The new intro": ("La nuova presentazione", "Die neue Einführung"),
+"Watch it again whenever you like: You → What are ZTLs → Replay the intro.": ("Rivedila quando vuoi: Tu → Cosa sono le ZTL → Rivedi la presentazione.", "Sieh sie dir jederzeit wieder an: Du → Was sind ZTL → Einführung noch einmal ansehen."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
