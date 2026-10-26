@@ -1,0 +1,14 @@
+1 200 149221 https://www.comune.arezzo.it/documento-pubblico/i-varchi-elettronici-ztl -> 1-i-varchi-elettronici-ztl_
+2 200 148399 https://www.comune.arezzo.it/documento-pubblico/la-planimetria-ztl -> 2-la-planimetria-ztl_
+3 200 154654 https://www.comune.arezzo.it/documento-pubblico/videocontrollo-ztl-e-corsie-preferenziali -> 3-videocontrollo-ztl-e-corsie-preferenziali_
+4 200 185200 https://www.comune.arezzo.it/documento-pubblico/ztl-vigore-dal-3-aprile-2023 -> 4-ztl-vigore-dal-3-aprile-2023_
+5 200 174814 https://www.comune.arezzo.it/node/21514 -> 5-21514_
+6 200 171853 https://www.comune.arezzo.it/node/21542 -> 6-21542_
+7 200 146669 https://www.comune.arezzo.it/novita/varchi-ztl-e-b-lattivazione-delle-nuove-telecamere-lettore-ottico -> 7-varchi-ztl-e-b-lattivazione-delle-nuove-telecamere-lettore-ottico_
+8 200 134673 https://www.comune.arezzo.it/comunicazione-line-accesso-provvisorio-nella-ztl -> 8-comunicazione-line-accesso-provvisorio-nella-ztl_
+9 200 170563 https://www.comune.arezzo.it/caricoscarico-bed-breakfast -> 9-caricoscarico-bed-breakfast_
+10 200 49930 https://permessiztl.comune.arezzo.it/?c=site&a=index&p=_documentazione -> 10-permessiztl.comune.arezzo.it_
+11 200 271942 https://www.omceoar.it/media/com_acym/upload/prot__970_circolare_nuovo_disciplinare_accesso_ztl_arezzo_signed.pdf -> 11-prot__970_circolare_nuovo_disciplinare_accesso_ztl_arezzo_signed.pdf_
+12 200 149449 https://www.comune.arezzo.it/novita/viabilita-le-prossime-modifiche-0 -> 12-viabilita-le-prossime-modifiche-0_
+13 404 15922 https://www.tuttitalia.it/toscana/76-arezzo/ -> 13-76-arezzo_
+14 202 192 https://www.discoverarezzo.com/parcheggi-e-mobilita/ -> 14-parcheggi-e-mobilita_
