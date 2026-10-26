@@ -4,7 +4,7 @@ import SwiftUI
 import UIKit
 
 /// La prima pagina su Mapbox: Firenze al crepuscolo vista da lontano, ferma per tutti e tre i passi (così si confrontano),
-/// rivolta a sud-est: il viale Strozzi in basso a destra, piazza Beccaria in alto. Il centro storico (Settori A e B) velato di
+/// rivolta a ovest: il viale Gramsci in basso, la Fortezza e il Mercato Centrale in alto. Il centro storico (Settori A e B) velato di
 /// rosso con il bordo acceso; tutti gli edifici in 3D, uguali e trasparenti (Tools/intro_buildings.py), i monumenti
 /// di Mapbox restano. Sopra, più evidenti di tutto, il ristorante e il parcheggio; la freccia di navigazione corre sui
 /// percorsi veri. Tempi e stati sono quelli di IntroDrive, gli stessi della mappa di Apple e del disegno di riserva.
@@ -20,13 +20,13 @@ struct IntroMapboxMap: UIViewRepresentable {
     /// Lo stile non è arrivato: si torna alla mappa di Apple
     var onFail: () -> Void
 
-    /// L'inquadratura: zoom 13,8, inclinata di 42°, rivolta a 145° (sud-est): la partenza in basso a destra, il centro
-    /// della ZTL in mezzo tra la freccia e il ristorante (la strada dritta si legge come la più corta), i viali a
-    /// sinistra, in alto il ristorante e il parcheggio ben separati
-    static let center = CLLocationCoordinate2D(latitude: 43.7768, longitude: 11.2579)
-    static let zoom = 13.8
-    static let pitch = 42.0
-    static let bearing = 145.0
+    /// L'inquadratura: zoom 13,95, inclinata di 45°, rivolta a 275° (ovest): la partenza in basso sul viale Gramsci, il
+    /// centro della ZTL in mezzo tra la freccia e il ristorante (la strada dritta si legge come la più corta), i viali a
+    /// destra, in alto il ristorante (dentro) e il parcheggio alla Fortezza (fuori), vicini
+    static let center = CLLocationCoordinate2D(latitude: 43.7784, longitude: 11.2590)
+    static let zoom = 13.95
+    static let pitch = 45.0
+    static let bearing = 275.0
 
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 

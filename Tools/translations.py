@@ -469,7 +469,7 @@ T = {
 'The most direct route': ('La strada più diretta', 'Der direkteste Weg'),
 'With GateLR': ('Con GateLR', 'Mit GateLR'),
 'Restaurant': ('Ristorante', 'Restaurant'),
-'Then walk to the restaurant': ('Poi a piedi fino al ristorante', 'Dann zu Fuß zum Restaurant'),
+'Then a short walk': ('Poi due passi a piedi', 'Dann ein paar Schritte zu Fuß'),
 'GateLR: park outside the ZTL': ('GateLR: parcheggia fuori dalla ZTL', 'GateLR: außerhalb der ZTL parken'),
 '%lld min on foot, no fine': ('%lld min a piedi, nessuna multa', '%lld Min. zu Fuß, kein Bußgeld'),
 'Avoid fines with GateLR': ('Evita multe con GateLR', 'Bußgelder vermeiden mit GateLR'),

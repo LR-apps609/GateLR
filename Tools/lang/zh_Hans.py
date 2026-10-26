@@ -580,7 +580,7 @@ T = {
 'The most direct route': '最直接的路线',
 'With GateLR': '使用 GateLR',
 'Restaurant': '餐厅',
-'Then walk to the restaurant': '然后步行到餐厅',
+'Then a short walk': '然后走几步',
 'GateLR: park outside the ZTL': 'GateLR：在 ZTL 外停车',
 '%lld min on foot, no fine': '步行 %lld 分钟，没有罚单',
 'Avoid fines with GateLR': '用 GateLR 避免罚单',

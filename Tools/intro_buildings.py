@@ -13,8 +13,8 @@ from shapely.ops import unary_union
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "Resources/Intro/firenze-edifici.geojson"
-# Quel che si vede dalla camera della pagina (IntroMapboxMap: zoom 13,8, inclinata di 42°, rivolta a 145°), con 150 m di margine
-VIEW = Polygon([(11.2847, 43.7650), (11.2641, 43.7545), (11.2395, 43.7865), (11.2516, 43.7926)]).buffer(0.0018)
+# Quel che si vede dalla camera della pagina (IntroMapboxMap: zoom 13,95, inclinata di 45°, rivolta a 275°), con 150 m di margine
+VIEW = Polygon([(11.2298, 43.7717), (11.2319, 43.7886), (11.2794, 43.7818), (11.2782, 43.7725)]).buffer(0.0018)
 # I monumenti con il modello 3D di Mapbox: non si doppiano
 LANDMARKS = re.compile(r"Santa Maria del Fiore|Campanile di Giotto|Battistero|Palazzo Vecchio|Santa Croce|"
                        r"Santa Maria Novella|San Lorenzo|Palazzo Pitti|Uffizi|Orsanmichele|Bargello|Ponte Vecchio|"

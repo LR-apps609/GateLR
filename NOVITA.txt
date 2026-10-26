@@ -1,3 +1,8 @@
+Novità della 1.15.3 (anteprima intro 2.0):
+• Il parcheggio della prima pagina è quello che sceglierebbe l'app con «Parcheggia fuori e cammina»: il più vicino al ristorante fuori da ogni ZTL, Largo Vincenzo Giudice alla Fortezza, a 9 minuti a piedi dal ristorante (via Faenza, Settore A)
+• La strada dritta entra dal varco di via Alfieri e attraversa il centro (2,6 km); con GateLR si gira lungo i viali fino al parcheggio (3,9 km), poi due passi a piedi
+• Inquadratura rivolta a ovest: il parcheggio si legge chiaramente fuori dalla zona rossa; nella mappa di Apple e nel disegno di riserva le etichette non coprono più il titolo
+
 Novità della 1.15.2 (anteprima intro 2.0):
 • Prima pagina con una storia nuova: il ristorante è dentro la ZTL. «La strada più diretta» ci va dritta attraverso il centro (la più corta) e prende la multa al varco di via Guelfa; «Con GateLR» si va al Parcheggio Beccaria, fuori dalla ZTL, e poi a piedi fino al ristorante, con le impronte che compaiono una dopo l'altra (15 minuti)
 • La strada della freccia in azzurro acceso (il rosso resta solo per la ZTL); inquadratura girata, con il centro tra la freccia e il ristorante, e ristorante e parcheggio ben separati

@@ -3,10 +3,11 @@ import Network
 import SwiftUI
 
 /// Prima pagina, «il problema e la soluzione», in tre passi con la stessa inquadratura di Firenze:
-/// 1. «La strada più diretta»: la freccia va dritta al ristorante, che è dentro la ZTL: entra dal varco di via Guelfa,
+/// 1. «La strada più diretta»: la freccia va dritta al ristorante, che è dentro la ZTL: entra dal varco di via Alfieri,
 ///    il pannello si accende, arriva il verbale. «Evita multe con GateLR»
-/// 2. «Con GateLR»: la stessa partenza, lungo i viali fino al Parcheggio Beccaria, fuori dalla ZTL; NESSUNA MULTA
-/// 3. «Poi a piedi»: dal parcheggio al ristorante, le impronte compaiono una dopo l'altra
+/// 2. «Con GateLR»: la stessa partenza, intorno lungo i viali fino al parcheggio che sceglierebbe l'app, fuori dalla ZTL;
+///    NESSUNA MULTA
+/// 3. «Poi due passi a piedi»: dal parcheggio al ristorante, le impronte compaiono una dopo l'altra
 @MainActor final class IntroDrive: ObservableObject {
     enum Step: Int { case direct = 1, park, walk }
     enum Phase { case waiting, moving, done }
@@ -18,8 +19,8 @@ import SwiftUI
     let direct = IntroPath(IntroScene.direct)
     let toParking = IntroPath(IntroScene.toParking)
     let walk = IntroPath(IntroScene.walk)
-    /// Le impronte del tratto a piedi: una ogni 95 m, alternate di 9 m a sinistra e a destra (si vedono anche da lontano)
-    let footprints = IntroPath(IntroScene.walk).footprints(every: 95, side: 9)
+    /// Le impronte del tratto a piedi: una ogni 55 m, alternate di 6 m a sinistra e a destra (si vedono anche da lontano)
+    let footprints = IntroPath(IntroScene.walk).footprints(every: 55, side: 6)
     /// Il passo 1 (circa 5 s): fino al varco, una breve sosta sotto il pannello, poi dentro fino al ristorante
     static let toGate = 1.7
     static let gatePause = 0.6
@@ -257,7 +258,7 @@ struct IntroDriveSlide: View {
         switch drive.step {
         case .direct: L("The most direct route")
         case .park: L("With GateLR")
-        case .walk: L("Then walk to the restaurant")
+        case .walk: L("Then a short walk")
         }
     }
 
@@ -458,15 +459,15 @@ private struct IntroLiveMap: View {
     }
 }
 
-/// L'inquadratura della mappa di Apple e del disegno di riserva: la stessa di Mapbox (ferma, rivolta a 152°, inclinata di 45°)
+/// L'inquadratura della mappa di Apple e del disegno di riserva: la stessa di Mapbox (ferma, stessa direzione e inclinazione)
 enum IntroCamera {
-    /// Un centinaio di metri più avanti del centro di Mapbox: le etichette alte del ristorante e del parcheggio restano
+    /// 150 m più avanti del centro di Mapbox: le etichette alte del ristorante e del parcheggio restano
     /// sotto il titolo (con MapKit e con il disegno la scena sta un po' più in alto)
-    static let frame = CLLocationCoordinate2D(latitude: 43.7761, longitude: 11.2586)
+    static let frame = CLLocationCoordinate2D(latitude: 43.7785, longitude: 11.2571)
     static let heading = IntroMapboxMap.bearing
     static let pitch = IntroMapboxMap.pitch
-    /// MapKit misura la distanza della camera, non lo zoom: circa la stessa porzione di città dello zoom 13,8 di Mapbox
-    static let distance = 6000.0
+    /// MapKit misura la distanza della camera, non lo zoom: circa la stessa porzione di città dello zoom 13,95 di Mapbox
+    static let distance = 5400.0
 
     static var camera: MapCamera {
         MapCamera(centerCoordinate: frame, distance: distance, heading: heading, pitch: pitch)
@@ -487,7 +488,7 @@ private struct IntroFallbackMap: View {
         (43.7672, 11.2566), (43.7660, 11.2612), (43.7641, 11.2662), (43.7622, 11.2722), (43.7605, 11.2790),
     ])
     /// La proiezione a mano è più larga di quella vera: un centro e una distanza propri, per avere tutta la scena
-    private static let center = CLLocationCoordinate2D(latitude: 43.7769, longitude: 11.2596)
+    private static let center = CLLocationCoordinate2D(latitude: 43.7786, longitude: 11.2575)
     private static let duomo = CLLocationCoordinate2D(latitude: 43.77310, longitude: 11.25600)
     private static let santaCroce = CLLocationCoordinate2D(latitude: 43.76858, longitude: 11.26225)
 
@@ -495,7 +496,7 @@ private struct IntroFallbackMap: View {
         TimelineView(.animation(paused: reduceMotion || drive.phase == .waiting || drive.phase == .done)) { tl in
             GeometryReader { g in
                 let pr = IntroProjector(center: Self.center, heading: IntroCamera.heading, pitch: IntroCamera.pitch,
-                                        distance: 4200, size: g.size)
+                                        distance: 3800, size: g.size)
                 ZStack {
                     Canvas { ctx, _ in draw(ctx, pr, tl.date) }
                     landmark("Duomo", pr.point(Self.duomo))
@@ -634,7 +635,7 @@ struct IntroFootprintMark: View {
 }
 
 /// I due posti della scena, più evidenti di tutto il resto: il ristorante (generico, nessun locale vero) e il parcheggio.
-/// L'etichetta sta di lato (il ristorante a sinistra, il parcheggio a destra, così non si coprono) e il punto esatto è
+/// L'etichetta sta a destra del punto (il parcheggio è più in alto, così non si coprono) e il punto esatto è
 /// in fondo al gambo, al centro della vista: si ancora in basso al centro.
 struct IntroPlacePin: View {
     enum Kind { case restaurant, parking }
@@ -651,15 +652,11 @@ struct IntroPlacePin: View {
     }
 
     var body: some View {
+        // Tutte e due le etichette a destra del punto: nell'inquadratura il ristorante sta a sinistra, vicino al bordo
         HStack(spacing: 0) {
             Color.clear.frame(width: Self.size.width / 2)
-                .overlay(alignment: .bottomTrailing) {
-                    if kind == .restaurant { label.padding(.trailing, -30).padding(.bottom, 30) }
-                }
             Color.clear.frame(width: Self.size.width / 2)
-                .overlay(alignment: .bottomLeading) {
-                    if kind == .parking { label.padding(.leading, -30).padding(.bottom, 30) }
-                }
+                .overlay(alignment: .bottomLeading) { label.padding(.leading, -30).padding(.bottom, 30) }
         }
         .overlay(alignment: .bottom) {
             VStack(spacing: 0) {
