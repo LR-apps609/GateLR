@@ -1,0 +1,18 @@
+Ricerca WebSearch: Lecce ZTL agosto 2025 nuovi orari 13 16.30 20 10 domenica festivi h24 ordinanza
+Letta il: 2026-10-26 (riassunto restituito dal motore di ricerca WebSearch, NON testo letterale delle pagine; i siti del Comune di Lecce non erano raggiungibili dal sandbox: proxy 403, WebFetch non risolve l'host)
+
+Links: https://www.comune.lecce.it/news/dettaglio/2025/07/17/modifiche-ztl-nuove-ordinanze ("Modifiche ZTL, nuove ordinanze") ; https://comune.lecce.it/docs/default-source/altri-documenti/ztl_carico_scarico_ord_01689_17-07-2025.pdf?sfvrsn=cf14c427_6 ("CITTÀ DI LECCE Ordinanza N. 1689 Data di registrazione: 17/07/2025") ; https://www.ecodallecitta.it/lecce-ztl-1-agosto-2025/ ; https://www.autovia.it/ztl-lecce-guida-completa/ ; https://www.leccesette.it/news/7003868678/comune-di-lecce-aggiornamento-orari-ztl-nel-centro-storico ; https://moveo.telepass.com/photored-e-ztl-lecce-2025/ ; https://www.quotidianodipuglia.it/lecce/lecce_ztl_nuovi_orari_furgoni_regole_cosa_cambia-8921060.html
+
+- Effective date and legal basis: The changes took effect on 1 August 2025, under Giunta resolution n. 280 of 10 July 2025 and dirigential ordinances n. 1679 and n. 1689 (comune.lecce.it).
+- Weekday access: Electronic gates are off during 10:00–13:00 and 16:30–20:00 (ecodallecitta). Outside those windows, only authorized vehicles can enter (autovia.it).
+- Sundays and holidays: Sources differ on wording. One says access is barred for the whole day (ecodallecitta), and another describes the ZTL as active 24 hours a day (autovia.it).
+- Porta Napoli: Transit through this gate is prohibited at all times, with the ZTL described as active 24 hours there (leccesette.it).
+- Loading and unloading: Weekdays allow 5:30–9:30 and 15:00–16:00. Sundays and holidays allow 6:00–9:30 (comune.lecce.it PDF, Ordinanza 1689).
+- Old permits: Existing C/S and LOG permits stayed valid until 31 December 2025 (telepass moveo).
+- Conflicting pre-decision report: A Quotidiano di Puglia article described different proposed hours (gates open 10:30–13:30 and 16:30–20:30). That was a pre-decision proposal, not the final rule.
+
+Ricerca collegata (comune.lecce.it ZTL orari varchi ordinanza 2026 h24 Porta Napoli via Cairoli Bernardini):
+- A Comune di Lecce notice says the electronic gates in the historic centre are switched off on weekdays from 10:00 to 13:00 and from 16:30 to 20:00, and the area is closed on Sundays and holidays. It also bars passage through the Porta Napoli gate at all hours, every day of the week. The notice is dated 17 July 2025.
+- Autovia's guide says the ZTL is active 13:00–16:30 and 20:00–10:00 on weekdays, with free access in between, and active 24 hours on Sundays and holidays.
+- Autovia's Puglia guide says the ZTL perimeter was redefined by a Giunta resolution of 3 April 2025.
+- The Comune's older regulation PDF refers to different hour bands (10–13 and 16–19), so it is out of date.
