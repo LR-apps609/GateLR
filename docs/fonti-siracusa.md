@@ -1,9 +1,12 @@
-# Siracusa (Ortigia): fonti della scheda ZTL (bozza)
+# Siracusa (Ortigia): fonti della scheda ZTL
 
-Scheda generata da `Tools/build_siracusa.py` → `data/drafts/siracusa.json` (**bozza, non nell'app**: nessuna citazione verificata sul testo ufficiale). Perimetro e varchi ci sono (OpenStreetMap).
+Scheda generata da `Tools/build_siracusa.py` → `Resources/Cities/siracusa.json` (stato **draft**, `reviewedByHuman: false`). Dal 26/10/2026 è **nell'app** (`manifest.json`), con perimetro e varchi da OpenStreetMap.
 
-## Perché è una bozza
-Il 26/10/2026 dal sandbox www.comune.siracusa.it, siracusaoggi.it, siracusapress.it, siracusaturismo.it e le guide rispondevano con rifiuto del proxy (403, host non consentito per la sessione); WebFetch non risolveva gli host. Il workflow «Scarica pagine» **non** è stato usato per aggirare il blocco (lanciato una sola volta, `pagine-siracusa-1`, per Overpass: risposta 406, non usata). Raggiungibili solo www.dati.gov.it (nessun dataset: `q=ztl siracusa` e `q=ortigia` → 0), www.openstreetmap.org (API) e la ricerca web. Le regole vengono dai **riassunti della ricerca web** (`data/raw/siracusa/websearch-*.txt`, non testo letterale). `quote` è `null`.
+## Fonti ufficiali lette (26/10/2026)
+- Pagina «ZTL – Zona a Traffico Limitato» del Comune, https://www.comune.siracusa.it/area_tematica/ztl-zona-a-traffico-limitato (ultimo aggiornamento 20/07/2026) → `data/raw/siracusa/comune-ztl-zona-a-traffico-limitato.txt`. Da qui la **citazione** (orari), le regole per le strutture ricettive (Connect Pass dall'11/06/2026, solo transito, 48 ore, limite camere), le fasce di carico/scarico e l'elenco delle ordinanze (O.D.C.S. 499/16, 638/16, 322/2019, 493/2023, 304/2025, 417/2025, **189/2026**, **292/2026**).
+- Scheda «Rilascio Pass di sosta/transito nella ZTL di Ortigia», https://www.comune.siracusa.it/servizio/rilascio-di-pass-di-sosta-transito-nella-ztl-di-ortigia → `data/raw/siracusa/comune-rilascio-pass-ztl-ortigia.txt`: categorie e costi dei pass (temporaneo 5 €, per «necessità episodiche e di breve durata motivate»), orari invernali 2025–26 (O.D. 791 del 23/12/2025: venerdì e prefestivi 20–24, sabato 17–24, domenica e festivi 11–24, fino al 31/03/2026).
+- I PDF delle ordinanze su static-www.comune.siracusa.it **non** erano scaricabili (proxy 403): il testo dell'ordinanza 189/2026 non è stato letto; gli orari citati sono quelli della pagina ufficiale.
+- I riassunti della ricerca web (`websearch-*.txt`) restano per i fatti di contorno (stampa, moto, multe), segnati come non ufficiali.
 
 ## Zone
 - **ZTL di Ortigia**: unica zona, `restricted`, a orari (vedi sotto). La punta nord (piazza Pancali, Tempio di Apollo, largo XXV Luglio, parcheggio Talete) è fuori.

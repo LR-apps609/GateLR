@@ -2,10 +2,10 @@
 # Costruisce la scheda di Siracusa (bozza) da quanto salvato in data/raw/siracusa/ e data/raw/geo/siracusa-ztl.json
 # (fonti e date in docs/fonti-siracusa.md).
 #
-# Il 26/10/2026 dal sandbox www.comune.siracusa.it e la stampa locale non erano raggiungibili (il proxy rifiuta la
-# connessione, 403; WebFetch non risolve gli host). Il workflow «Scarica pagine» non è stato usato per aggirare il blocco.
-# Le regole vengono dai riassunti della ricerca web (data/raw/siracusa/websearch-*.txt), NON testo letterale:
-#   - nessuna citazione («quote»: null); la scheda resta in data/drafts/siracusa.json.
+# Regole e citazione dalla pagina ufficiale «ZTL – Zona a Traffico Limitato» del Comune (aggiornata il 20/07/2026) e dalla
+# scheda «Rilascio Pass di sosta/transito nella ZTL di Ortigia», salvate in data/raw/siracusa/comune-*.txt e ricontrollate
+# parola per parola. I PDF delle ordinanze (static-www.comune.siracusa.it) non erano scaricabili dal sandbox (proxy 403):
+# restano i riassunti della ricerca web (data/raw/siracusa/websearch-*.txt) per i fatti di contorno.
 # Zona: ZTL di Ortigia, ordinanza n. 189 del 30/03/2026 (in vigore dal 01/04/2026; modificata dalla n. 292 dell'08/05/2026
 # per le merci): lun–sab 11–15:30 e 17–2 del giorno dopo, domenica e festivi 10–2 del giorno dopo. Il regime invernale
 # ridotto (2025–26: O.D. 791 del 23/12/2025, dal 24/12 al 31/03) viene riemesso ogni anno: per l'inverno 2026–27 non è
@@ -22,7 +22,7 @@ import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/siracusa"
-CHECKED = "2026-10-26T23:55:00Z"
+CHECKED = "2026-10-26T23:40:00Z"
 MON_SAT, SUN = [2, 3, 4, 5, 6, 7], [1]
 OSM_ZTL = 14425414
 
@@ -48,6 +48,20 @@ def check(file, *phrases):
             raise SystemExit(f"{file}: frase non trovata: {q!r}")
 
 
+QUOTE = ("Giorni Feriali dal lunedì al sabato dalle 11:00 alle 15:30 dalle 17:00 alle 02:00 (del giorno successivo) "
+         "Domeniche e Festivi dalle 10:00 alle 02:00 (del giorno successivo) (Orario Continuato)")
+check("comune-ztl-zona-a-traffico-limitato", QUOTE,
+      "A partire da giovedì 11 giugno 2026, è ufficialmente attiva in via sperimentale la nuova piattaforma Connect Pass.",
+      "Le strutture ricettive possono autorizzare i veicoli degli ospiti solo per il transito ; la sosta all’interno della ZTL è vietata",
+      "resta l’obbligo di trasmettere al Comando di Polizia Municipale la targa del veicolo e la durata del soggiorno entro e non oltre le 48 ore dall’avvenuto transito degli ospiti",
+      "O.D.C.S. n. 189 del 30/03/2026", "O.D.C.S. n. 292 del 08/05/2026",
+      "Domenica e Festivi : fino alle ore 10:00", "20/07/2026, 12:28")
+check("comune-rilascio-pass-ztl-ortigia",
+      "Con la nuova ordinanza Dirigenziale n. 791 del 23/12/2025",
+      "Venerdì e prefestivi: - dalle ore 20:00 alle ore 24:00; 1 Sabato: - dalle ore 17:00 alle ore 24:00; 1 Domenica e Festivi - dalle ore 11:00 alle ore 24:00.",
+      "per non residenti in ZTL per necessità episodiche e di breve durata motivate",
+      "Per il rilascio del PASS temporaneo di transito e sosta : € 5,00.",
+      "Di norma, entro 15 giorni dalla data di presentazione dell’istanza.")
 check("websearch-1-orari-2026",
       "a new Mobility and Transport ordinance took effect on 1 April 2026",
       "Monday to Saturday, access to the island is banned from 11:00 to 15:30 and from 17:00 to 02:00 the next day. On Sundays and holidays, the ban starts at 10:00 and runs without a break until 02:00 the next day.",
@@ -105,15 +119,15 @@ LINKS = [link("City of Syracuse: Ortigia ZTL (hours and ordinances)", "Comune di
               f"OpenStreetMap: Relation {OSM_ZTL} «ZTL Siracusa» (ODbL)", osm_geo.osm_url("relation", OSM_ZTL))]
 
 PENDING = [
-    ("Draft: the City's website could not be read from here (connection refused). The hours come from web-search summaries of the City's ZTL page and local press, not from the text of ordinance 189/2026: to be checked word for word.",
-     "Bozza: il sito del Comune non era leggibile da qui (connessione rifiutata). Gli orari vengono dai riassunti della ricerca web sulla pagina ZTL del Comune e sulla stampa locale, non dal testo dell'ordinanza 189/2026: da verificare parola per parola.",
-     "Entwurf: Die Website der Stadt war von hier aus nicht lesbar (Verbindung abgelehnt). Die Zeiten stammen aus Zusammenfassungen der Websuche zur ZTL-Seite der Stadt und der Lokalpresse, nicht aus dem Text der Verordnung 189/2026: Wort für Wort zu prüfen."),
-    ("Winter hours: last winter a lighter regime ran from 24 December 2025 to 31 March 2026 (Fridays and eves of holidays 8 pm–midnight, Saturdays 5 pm–midnight, Sundays and holidays 11 am–midnight; ordinance 791/2025). The 2026–27 winter ordinance had not been found when checked: GateLR shows the stricter 2026 hours until it is out.",
-     "Orario invernale: l'inverno scorso valeva un regime ridotto dal 24 dicembre 2025 al 31 marzo 2026 (venerdì e prefestivi 20–24, sabato 17–24, domenica e festivi 11–24; ordinanza 791/2025). L'ordinanza per l'inverno 2026–27 non era ancora stata trovata alla verifica: GateLR mostra gli orari 2026, più restrittivi, finché non esce.",
-     "Winterzeiten: Im letzten Winter galt vom 24. Dezember 2025 bis 31. März 2026 eine leichtere Regelung (Freitag und Vorabend von Feiertagen 20–24, Samstag 17–24, Sonn- und Feiertage 11–24 Uhr; Verordnung 791/2025). Die Verordnung für den Winter 2026–27 wurde bei der Prüfung noch nicht gefunden: GateLR zeigt bis dahin die strengeren Zeiten von 2026."),
+    ("Winter hours: last winter a lighter regime ran from 24 December 2025 to 31 March 2026 (Fridays and eves of holidays 8 pm–midnight, Saturdays 5 pm–midnight, Sundays and holidays 11 am–midnight; ordinance 791/2025). The 2026–27 winter ordinance had not been found when checked: GateLR shows the stricter 2026 hours until it is out. (Ordinance PDFs could not be downloaded here; hours read on the City's ZTL page.)",
+     "Orario invernale: l'inverno scorso valeva un regime ridotto dal 24 dicembre 2025 al 31 marzo 2026 (venerdì e prefestivi 20–24, sabato 17–24, domenica e festivi 11–24; ordinanza 791/2025). L'ordinanza per l'inverno 2026–27 non era ancora stata trovata alla verifica: GateLR mostra gli orari 2026, più restrittivi, finché non esce. (I PDF delle ordinanze non erano scaricabili da qui; orari letti sulla pagina ZTL del Comune.)",
+     "Winterzeiten: Im letzten Winter galt vom 24. Dezember 2025 bis 31. März 2026 eine leichtere Regelung (Freitag und Vorabend von Feiertagen 20–24, Samstag 17–24, Sonn- und Feiertage 11–24 Uhr; Verordnung 791/2025). Die Verordnung für den Winter 2026–27 wurde bei der Prüfung noch nicht gefunden: GateLR zeigt bis dahin die strengeren Zeiten von 2026. (Die PDFs der Verordnungen ließen sich hier nicht laden; Zeiten von der ZTL-Seite der Stadt.)"),
     ("Hotels, B&Bs and holiday rentals in Ortigia register your plate on the City's Connect Pass platform (since 11 June 2026) within 48 hours of your passage; the pass is for driving in to unload luggage only, not for parking inside.",
      "Alberghi, B&B e case vacanza di Ortigia registrano la targa sulla piattaforma Connect Pass del Comune (dall'11 giugno 2026) entro 48 ore dal passaggio; il pass vale solo per entrare a scaricare i bagagli, non per sostare dentro.",
      "Hotels, B&Bs und Ferienwohnungen in Ortigia melden dein Kennzeichen auf der Plattform Connect Pass der Stadt (seit 11. Juni 2026) innerhalb von 48 Stunden nach der Durchfahrt; der Pass gilt nur zum Ausladen, nicht zum Parken innen."),
+    ("No tourist pass: a temporary transit-and-parking permit (5 €) exists for non-residents with occasional, short, justified needs, applied for online with SPID/CIE (usually within 15 days).",
+     "Nessun pass per turisti: esiste un permesso temporaneo di transito e sosta (5 €) per non residenti con necessità episodiche, brevi e motivate, da chiedere online con SPID/CIE (di norma entro 15 giorni).",
+     "Kein Touristenpass: Eine befristete Durchfahrts- und Parkgenehmigung (5 €) gibt es für Nichtansässige mit gelegentlichem, kurzem, begründetem Bedarf, online mit SPID/CIE zu beantragen (meist binnen 15 Tagen)."),
     ("Electric cars, motorbikes and Blue Badge holders: Ortigia's rules were not found (motorbikes are stopped like cars at the gates), so GateLR does not exempt them. Fine 84–335 € (Highway Code, unofficial source). Not shown: feast closures (Santa Lucia, 13 December and May; New Year's Eve), set each year by ordinance.",
      "Auto elettriche, moto e contrassegno disabili: le regole di Ortigia non sono state trovate (ai varchi le moto vengono fermate come le auto), quindi GateLR non le esenta. Multa 84–335 € (Codice della Strada, fonte non ufficiale). Non mostrate: le variazioni per le feste (Santa Lucia, 13 dicembre e maggio; Capodanno), decise ogni anno con ordinanza.",
      "Elektroautos, Motorräder und Behindertenausweis: Die Regeln für Ortigia wurden nicht gefunden (Motorräder werden an den Kameras wie Autos behandelt), daher befreit GateLR sie nicht. Bußgeld 84–335 € (Straßenverkehrsordnung, inoffizielle Quelle). Nicht gezeigt: Änderungen zu Festen (Santa Lucia, 13. Dezember und Mai; Silvester), jährlich per Verordnung."),
@@ -136,14 +150,16 @@ zone = {"id": "siracusa-ortigia", "name": "Ortigia · island ZTL", "name_it": "O
         "freeOnHolidays": False, "holidaysAsSunday": True, "exemptFuels": [], "hotelCanRegister": True,
         "source": {"authority": "City of Syracuse", "pageURL": ZTL_PAGE,
                    "ordinance": "Ordinanza n. 189 del 30/03/2026 (in vigore dal 01/04/2026), modificata dalla n. 292 dell'08/05/2026",
-                   "ordinanceURL": ZTL_PAGE, "quote": None, "quoteTranslation": None, "quoteTranslation_de": None,
+                   "ordinanceURL": "https://static-www.comune.siracusa.it/wp-content/uploads/2026/06/nuovi_orari_189-2026.pdf", "quote": QUOTE,
+                   "quoteTranslation": "Weekdays, Monday to Saturday: 11:00 to 15:30 and 17:00 to 02:00 (the next day). Sundays and holidays: 10:00 to 02:00 (the next day), without a break.",
+                   "quoteTranslation_de": "Werktage, Montag bis Samstag: 11:00 bis 15:30 und 17:00 bis 02:00 Uhr (des Folgetags). Sonn- und Feiertage: 10:00 bis 02:00 Uhr (des Folgetags), durchgehend.",
                    "checkedOn": CHECKED, "reviewedByHuman": False,
                    "pending": [p[0] for p in PENDING], "pending_it": [p[1] for p in PENDING], "pending_de": [p[2] for p in PENDING],
                    "links": LINKS}}
 
 city = {"id": "siracusa", "name": "Syracuse", "name_it": "Siracusa", "name_de": "Syrakus",
         "center": {"lat": 37.0600, "lon": 15.2930}, "zones": [zone], "status": "draft",
-        "license": "Rules: Comune di Siracusa (read through web-search summaries). Perimeter and gates: " + osm_geo.ODBL + " (approximate, not official)."}
+        "license": "Rules: Comune di Siracusa (official ZTL page). Perimeter and gates: " + osm_geo.ODBL + " (approximate, not official)."}
 
 # Pubblicabile solo con una citazione verificata sul testo ufficiale; altrimenti bozza
 ready = all(len(z["perimeter"]) >= 5 and z["source"]["quote"] for z in city["zones"])
