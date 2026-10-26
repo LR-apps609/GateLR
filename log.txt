@@ -1,0 +1,20 @@
+1 200 136459 https://www.comune.perugia.it/luogo/ztl-zone-a-traffico-limitato/ -> 1-ztl-zone-a-traffico-limitato_
+2 000ERR  https://comune.perugia.it/pagine/ztl-zona-a-traffico-limitato -> 2-ztl-zona-a-traffico-limitato_
+3 200 131865 https://www.comune.perugia.it/argomento/ztl/ -> 3-ztl_
+4 200 201484 https://www.comune.perugia.it/servizio/ztl-permesso-permanente/ -> 4-ztl-permesso-permanente_
+5 200 167415 https://www.comune.perugia.it/servizio/permessi-ztl-comunicazione-accesso-giornaliero-alla-ztl-del-titolare-di-contrassegno-disabili/ -> 5-permessi-ztl-comunicazione-accesso-giornaliero-alla-ztl-del-titolare-di-contrass
+6 200 134010 https://www.comune.perugia.it/novita/permessi-ztl-richiesta-e-gestione-online-estesa-ad-altre-5-tipologie-di-permessi/ -> 6-permessi-ztl-richiesta-e-gestione-online-estesa-ad-altre-5-tipologie-di-permessi
+7 404 101119 https://www.comune.perugia.it/resources/PUMS/37_Restrizioni_alla_circolazione_a_Perugia.pdf -> 7-37_Restrizioni_alla_circolazione_a_Perugia.pdf_
+8 200 934148 https://www.perugiatoday.it/attualita/ztl-centro-storico-varchi-orari.html -> 8-ztl-centro-storico-varchi-orari.html_
+9 200 933370 https://www.perugiatoday.it/attualita/ztl-telecamere-perugia-varchi-orari-ingresso-uscita.html -> 9-ztl-telecamere-perugia-varchi-orari-ingresso-uscita.html_
+10 200 924390 https://www.perugiatoday.it/guida/viabilita/ztl-nuovi-orari-incentivi-elettrico.html -> 10-ztl-nuovi-orari-incentivi-elettrico.html_
+11 200 931963 https://www.perugiatoday.it/attualita/perugia-mini-ztl-e-ztl-normale-in-centro-storico-tutte-le-novita.html -> 11-perugia-mini-ztl-e-ztl-normale-in-centro-storico-tutte-le-novita.html_
+12 200 275942 https://www.umbriajournal.com/inevidenza/nuova-mini-zona-ztl-nel-centro-storico-di-perugia-ora-telecamere-542117/ -> 12-nuova-mini-zona-ztl-nel-centro-storico-di-perugia-ora-telecamere-542117_
+13 200 71802 https://www.umbriadomani.it/in-rilievo/perugia-provvedimenti-sulla-circolazione-in-centro-storico-312320/ -> 13-perugia-provvedimenti-sulla-circolazione-in-centro-storico-312320_
+14 403 4549 https://www.fleetmagazine.com/ztl-perugia-zone-permessi-orari/ -> 14-ztl-perugia-zone-permessi-orari_
+15 200 70292 https://www.sicurauto.it/news/attualita-e-curiosita/ztl-perugia-orari-mappa-ed-esenzioni/ -> 15-ztl-perugia-orari-mappa-ed-esenzioni_
+16 200 99230 https://perugiacomunica.comune.perugia.it/digitalizzazione-servizi-ztl-le-novita-emerse-durante-il-question-time -> 16-digitalizzazione-servizi-ztl-le-novita-emerse-durante-il-question-time_
+17 200 197424 https://www.comune.perugia.it/servizio/attivita-ricettive-alberghiere/ -> 17-attivita-ricettive-alberghiere_
+18 200 21741 https://ztlitaly.com/ztl/perugia/ -> 18-perugia_
+19 overpass 156
+20 overpass 156

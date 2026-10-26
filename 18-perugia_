@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-5853859515128741" />
+  <title>Perugia ZTL map &amp; hours 2026 — where you can’t drive</title>
+  <meta name="description" content="Perugia ZTL hours: Mon–Fri 00:00–13:00 · Sat–Sun &amp; holidays 00:00–07:00 · some gates differ. See the limited traffic zone on a map and where to park." />
+  <link rel="canonical" href="https://ztlitaly.com/ztl/perugia/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Perugia ZTL map &amp; hours 2026 — where you can’t drive" />
+  <meta property="og:description" content="Perugia ZTL hours: Mon–Fri 00:00–13:00 · Sat–Sun &amp; holidays 00:00–07:00 · some gates differ. See the limited traffic zone on a map and where to park." />
+  <meta property="og:url" content="https://ztlitaly.com/ztl/perugia/" />
+  <meta property="og:site_name" content="ZTL Italia" />
+  <meta property="og:image" content="https://ztlitaly.com/og-card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ZTL Italia — know the ZTL before you drive. Italy's camera-enforced historic centres, mapped across 350 cities." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Perugia ZTL map &amp; hours 2026 — where you can’t drive" />
+  <meta name="twitter:description" content="Perugia ZTL hours: Mon–Fri 00:00–13:00 · Sat–Sun &amp; holidays 00:00–07:00 · some gates differ. See the limited traffic zone on a map and where to park." />
+  <meta name="twitter:image" content="https://ztlitaly.com/og-card.jpg" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <meta name="theme-color" content="#EBE3D4" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../../city.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ztlitaly.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Umbria",
+      "item": "https://ztlitaly.com/ztl/umbria/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ZTL Perugia",
+      "item": "https://ztlitaly.com/ztl/perugia/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Place",
+  "name": "Limited Traffic Zones (ZTL) in Perugia",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Perugia",
+    "addressRegion": "Umbria",
+    "addressCountry": "IT"
+  },
+  "url": "https://ztlitaly.com/ztl/perugia/"
+}
+  </script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="../../basemap.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <a class="brand" href="/">
+        <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/></svg></span>
+        <div>
+          <p class="bt">ZTL <em>Italia</em></p>
+          <p>Limited traffic zones · Italy</p>
+        </div>
+      </a>
+      <div class="spacer"></div>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="pagelinks">
+        <svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <nav class="pagelinks" id="pagelinks" aria-label="Pages">
+        <a href="/">Home</a>
+        <a href="/map/">ZTL map</a>
+        <a href="/ztl/" aria-current="page">Cities</a>
+        <a href="/guides/">Guides</a>
+        <a href="/driving-tools/">Tools</a>
+        <a href="/about">About</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <!-- City search. Markup is static so the header never shifts; the panel and
+           the city list are created by nav.js only when the button is used. -->
+      <button class="search-toggle" id="searchToggle" type="button" aria-label="Search cities" aria-expanded="false" aria-controls="siteSearch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+    </header>
+
+    <main class="legal-scroll">
+      <article class="legal city">
+        <nav class="bc" aria-label="Breadcrumb">
+          <a href="/">Home</a> <span class="sep">›</span>
+          <a href="../umbria/">Umbria</a> <span class="sep">›</span>
+          <span class="cur">ZTL Perugia</span>
+        </nav>
+
+        <h1>Perugia <em>ZTL</em> map, hours and where to park</h1>
+        <p class="lede">Perugia's restricted hours run the opposite way to most people's expectations. The zone over the walled centre is active from midnight until one in the afternoon on weekdays — the whole morning — and reopens for the afternoon and evening. At weekends and on public holidays it lifts at seven. Visitors who assume Italian centres close in the evening and are open by day have it precisely backwards here, and arrive mid-morning into a live camera gate. Not every gate keeps to that timetable, so the afternoon opening is the main zone's, not the whole city's.</p>
+        <p class="byline">
+          By <a href="/about">ZTL Italia</a>
+          <span class="by-sep">·</span>
+          <span>Zone data and guidance last reviewed <time datetime="2026-08-23">23 August 2026</time></span>
+        </p>
+
+        <div id="map" class="city-map" role="img" aria-label="Map of ZTL zones in Perugia"></div>
+        <p class="map-cta">
+          <a href="../../map/?city=Perugia&amp;region=Umbria">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/></svg> Open Perugia on the full interactive map
+          </a>
+          <a href="/ztl-active-now/?city=Perugia&amp;region=Umbria">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Is the Perugia ZTL active right now?
+          </a>
+        </p>
+
+                <aside class="aff-box" aria-label="Car hire">
+          <p class="aff-h">Hiring a car for Perugia?</p>
+          <p>Book a small car — garages and lanes near the centre are tight — and book it before you travel. The plate on your booking is what a hotel inside the zone needs to register you for access.</p>
+          <a class="aff-btn" href="/go/discovercars?from=city-perugia" target="_blank" rel="sponsored noopener">
+            Compare hire cars in Italy
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <span class="aff-disc">Affiliate link — we may earn a commission if you book, at no extra cost to you.</span>
+        </aside>
+
+        <section>
+          <h2 class="zones-title">Limited Traffic Zones in Perugia</h2>
+          <ul class="zone-list">
+        <li class="zone-block">
+          <h2>ZTL Perugia</h2>
+          <p class="zb-hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Mon–Fri 00:00–13:00 · Sat–Sun &amp; holidays 00:00–07:00 · some gates differ</span></p>
+          <p class="zb-info">Two areas — the walled historic centre and the Corso Garibaldi–Tempio district.</p>
+        </li>
+          </ul>
+        </section>
+
+        <section class="city-guide">
+          <h2>What is restricted, and when</h2>
+          <p>There are two areas: the historic centre inside the Etruscan and medieval walls, and the Corso Garibaldi and Tempio district running north from it. On Monday to Friday the restriction covers midnight to 13:00. On Saturdays, Sundays and public holidays it covers midnight to 07:00 only.</p>
+          <p>Read that carefully if you are arriving on a weekday. A drive up to the centre at ten in the morning to drop off luggage is inside the restricted window, and the early afternoon is when the main zone lifts. Treat that gap as belonging to the main zone rather than to the whole city, though. Perugia controls a number of separate gates and they do not all share the one timetable — at least one on the northern side is recorded as running in the afternoon and evening instead, which is exactly when you would assume you were clear.</p>
+          <p>Hours are set by the Comune and can change. Check the gate you actually intend to use rather than relying on the city-wide gap: the shape of the rule, closed in the morning and open later, is the thing to remember about Perugia, but it is not a guarantee that holds at every entrance.</p>
+        </section>
+        <section class="city-guide">
+          <h2>Piazza Partigiani and the escalators</h2>
+          <p>Perugia sits on a ridge, and the city has solved the problem of getting people up it more thoroughly than anywhere else in Italy. The standard approach is the car park at Piazza Partigiani, at the foot of the hill on the southern side. From it, a series of escalators climbs up inside the hill and emerges in Piazza Italia at the top of Corso Vannucci, in the middle of everything.</p>
+          <p>It takes a few minutes, it costs nothing beyond the parking, and it removes the ZTL from the question entirely. If you are visiting Perugia for a day, or arriving before your hotel will let you in, this is the answer and there is no real alternative worth considering.</p>
+        </section>
+        <section class="city-guide">
+          <h2>The minimetrò from Pian di Massiano</h2>
+          <p>The other option is the minimetrò, a small automated line of single carriages that runs from the large car park at Pian di Massiano, out by the stadium on the edge of the city, up to Pincetto at the eastern end of the centre. Parking out there is cheap and plentiful, the ride takes about ten minutes, and the carriages come every minute or two without a timetable to consult.</p>
+          <p>This is the better choice if you are staying several days, or arriving at a busy time when the central car parks fill. It is also the more entertaining arrival: the line climbs on a viaduct with the hill town rising ahead of you.</p>
+        </section>
+        <section class="city-guide">
+          <h2>What the escalators run through</h2>
+          <p>The escalators from Piazza Partigiani do not pass through a modern tunnel. They run through the Rocca Paolina — a fortress built in the 1540s by Pope Paul III after Perugia rebelled over a salt tax, deliberately constructed on top of the district belonging to the family who had led the city, with their houses, streets and towers buried inside the foundations rather than demolished.</p>
+          <p>The fortress above was pulled down after unification, but the buried quarter survived, and you now ride up through medieval streets that have been underground for nearly five centuries. It is free, it is on the way in, and it is one of the strangest things in any Italian city. Perugia is worth the trip for the escalators alone, which is not a sentence that applies anywhere else.</p>
+        </section>
+
+
+
+        <section class="accept">
+          <p>See Perugia in context — search nearby towns, or use your live location on the map.</p>
+          <a class="back" href="../../map/?city=Perugia&amp;region=Umbria" style="flex-direction:row-reverse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            Show Perugia on the interactive map
+          </a>
+        </section>
+
+        <section class="nearby">
+          <h2>Other ZTL cities in Umbria</h2>
+          <ul class="nearby-list">
+            <li><a href="../foligno/">ZTL Foligno</a></li>
+            <li><a href="../gubbio/">ZTL Gubbio</a></li>
+            <li><a href="../orvieto/">ZTL Orvieto</a></li>
+          </ul>
+        </section>
+
+        <p class="src-note">
+          Zone outlines are traced from published outlines on <a href="https://www.accessibilitacentristorici.it/ztl" target="_blank" rel="noopener">accessibilitacentristorici.it</a>.
+          Base map by <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, © <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a>, data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors.
+          Boundaries are simplified and hours are indicative — a guide, not an official source.
+        </p>
+      </article>
+
+        <p class="ztl-foot">
+          <a href="/">Home</a> · <a href="/map/">ZTL map</a> · <a href="/ztl/">All cities</a> ·
+          <a href="/guides/">Guides</a> · <a href="/driving-tools/">Driving tools</a> ·
+          <a href="/about">About</a> · <a href="/methodology/">Methodology</a> ·
+          <a href="/faq">FAQ</a> · <a href="/contact">Contact</a> ·
+          <a href="/terms">Terms</a> ·
+          <a href="/privacy">Privacy</a> ·
+          <a href="#" data-consent-open>Cookie settings</a><br>
+          Information only — hours are indicative and change by season, day and gate.
+          Always confirm with the local <em>Comune</em> before driving.
+        </p>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var ZONES = [{"name":"ZTL Perugia","rings":[[[12.38563,43.11911],[12.38456,43.1185],[12.38486,43.1181],[12.38585,43.11785],[12.3866,43.11757],[12.38736,43.11717],[12.38776,43.11679],[12.38807,43.116],[12.38823,43.11573],[12.38859,43.11547],[12.38886,43.11532],[12.3894,43.11515],[12.38974,43.11517],[12.38998,43.11557],[12.39025,43.11578],[12.39054,43.11623],[12.38994,43.11701],[12.38972,43.11742],[12.38873,43.11791],[12.38774,43.11861],[12.38714,43.11899],[12.38661,43.11891],[12.38616,43.1188],[12.38584,43.11917],[12.3855,43.12029],[12.38521,43.12032],[12.38468,43.11954],[12.38563,43.11911]],[[12.39344,43.11405],[12.39377,43.11382],[12.39544,43.11469],[12.39589,43.11519],[12.39572,43.11573],[12.39344,43.11405]],[[12.38801,43.10769],[12.38787,43.10782],[12.38712,43.10808],[12.38638,43.10851],[12.38686,43.10857],[12.3875,43.10829],[12.38794,43.1093],[12.38891,43.10907],[12.38841,43.10779],[12.38892,43.10761],[12.38902,43.10742],[12.38891,43.10731],[12.38849,43.10729],[12.38806,43.10705],[12.38786,43.10669],[12.38786,43.1065],[12.38801,43.10626],[12.38877,43.1062],[12.38886,43.10661],[12.38931,43.10739],[12.38976,43.10759],[12.39035,43.10776],[12.39076,43.10801],[12.39093,43.10909],[12.39058,43.10975],[12.39081,43.1105],[12.39082,43.11105],[12.39103,43.11109],[12.39212,43.1108],[12.39289,43.11121],[12.39412,43.11227],[12.39411,43.113],[12.39407,43.11328],[12.39329,43.11387],[12.39248,43.11406],[12.39158,43.11414],[12.39094,43.11429],[12.38969,43.11466],[12.3892,43.11471],[12.38885,43.11466],[12.387,43.11494],[12.38569,43.11503],[12.38399,43.11488],[12.38245,43.11461],[12.3809,43.11427],[12.38087,43.11391],[12.38126,43.11364],[12.38235,43.11321],[12.38229,43.11319],[12.3825,43.11286],[12.38255,43.11212],[12.38281,43.1118],[12.38362,43.11148],[12.38524,43.11118],[12.38588,43.11088],[12.38599,43.11068],[12.38588,43.11046],[12.38551,43.11019],[12.38415,43.10952],[12.38387,43.10918],[12.38459,43.10812],[12.38499,43.10786],[12.38517,43.10721],[12.38691,43.10669],[12.38756,43.10633],[12.38801,43.10769]]],"kind":"ztl","popup":"<div class=\"pc\">Umbria · ZTL</div><h3>ZTL Perugia</h3><div class=\"ph\">Mon–Fri 00:00–13:00 · Sat–Sun &amp; holidays 00:00–07:00 · some gates differ</div>"}];
+      var KIND_STYLE = {"ztl":{"color":"#A85440","fillColor":"#C06C50"},"apu":{"color":"#8B2F3F","fillColor":"#A83E50"},"charge":{"color":"#B07A28","fillColor":"#D69B3C"},"lez":{"color":"#5B6472","fillColor":"#7C8796"}};
+      function init() {
+        if (typeof L === 'undefined') { return setTimeout(init, 60); }
+        var m = L.map('map', { zoomControl: true, scrollWheelZoom: false, preferCanvas: true });
+        /* Ground tiles load only when the map nears the viewport — basemap.js. */
+        if (window.ztlBasemap) ztlBasemap(m, { lazy: true });
+        var polys = [], hits = [];
+        /* Mean width of a ring in metres (2·area/perimeter). A pedestrianised
+           street is a real zone but ~30 m across, which is a few pixels at city
+           zoom — visible, but far under a 44 px touch target. Mirrors
+           ringWidthM/THIN_RING_M in common.js. */
+        function ringWidth(r) {
+          var cy = 0, i, j, a = 0, p = 0;
+          for (i = 0; i < r.length; i++) cy += r[i][1];
+          cy /= r.length;
+          var kx = Math.cos(cy * Math.PI / 180) * 111320;
+          for (i = 0; i < r.length; i++) {
+            j = (i + 1) % r.length;
+            a += (r[i][0] * kx) * (r[j][1] * 111320) - (r[j][0] * kx) * (r[i][1] * 111320);
+            p += Math.hypot((r[i][0] - r[j][0]) * kx, (r[i][1] - r[j][1]) * 111320);
+          }
+          return p ? 2 * (Math.abs(a) / 2) / p : 0;
+        }
+        ZONES.forEach(function (z) {
+          /* Every ring is wound the same way before drawing. nonzero alone is not
+             enough: five zones (Rome's Centro Storico, Matera, Piacenza, Mantova,
+             Mazara del Vallo) were traced with rings running in both directions,
+             and where a clockwise ring overlaps an anticlockwise one the winding
+             numbers cancel and the overlap still renders as a hole. None of those
+             rings is a real hole (checked 2026-09-23: no reversed ring lies wholly
+             inside another), so normalising the winding is safe. */
+          var ll = z.rings.map(function (r) {
+            var a = 0, k;
+            for (k = 0; k < r.length - 1; k++) a += r[k][0] * r[k + 1][1] - r[k + 1][0] * r[k][1];
+            var rr = a < 0 ? r.slice().reverse() : r;
+            return [rr.map(function (p) { return [p[1], p[0]]; })];
+          });
+          /* fillRule MUST be nonzero. Leaflet defaults to 'evenodd', and 46 of the
+             zones in data.js have overlapping rings — under even-odd every overlap
+             renders as a HOLE, i.e. the map shows a restricted area as unrestricted.
+             On Rome that put the Pantheon, Colosseum, Trevi, Navona, Campo de' Fiori,
+             Monti and Trastevere all inside holes. Do not remove this. */
+          var ks = KIND_STYLE[z.kind] || KIND_STYLE.ztl;
+          var poly = L.polygon(ll, { color: ks.color, weight: 1.4, fillColor: ks.fillColor, fillOpacity: .34, fillRule: 'nonzero' }).addTo(m);
+          if (z.popup) poly.bindPopup(z.popup);
+          poly._kind = z.kind || 'ztl';
+          polys.push(poly);
+          /* Invisible fat polyline over street-width rings so they can be
+             tapped. Stroke weight is in screen pixels, so the target stays
+             finger-sized at every zoom and nothing about the drawing changes. */
+          z.rings.forEach(function (r) {
+            if (ringWidth(r) >= 60) return;
+            var hit = L.polyline(r.map(function (p) { return [p[1], p[0]]; }),
+              { color: ks.color, weight: 32, opacity: 0, className: 'ztl-hit', interactive: true }).addTo(m);
+            if (z.popup) hit.bindPopup(z.popup);
+            hits.push(hit);
+          });
+        });
+        /* Stack smallest-scope on top. A city-wide emissions zone contains every
+           ZTL inside it, so drawn last it covers them and swallows their clicks
+           — on Milan the grey Area B made the centre and the Navigli
+           unclickable. Mirrors Z_STACK in common.js. */
+        ['lez', 'charge', 'ztl', 'apu'].forEach(function (k) {
+          polys.forEach(function (p) { if (p._kind === k) p.bringToFront(); });
+        });
+        /* Hit areas last — the stacking above would otherwise bury them. */
+        hits.forEach(function (h) { h.bringToFront(); });
+        m.fitBounds(L.featureGroup(polys).getBounds().pad(0.3));
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+      else init();
+    })();
+  </script>
+  <script src="../../nav.js"></script>
+  <script src="../../consent.js"></script>
+  <script src="../../adsense.js"></script>
+</body>
+</html>
