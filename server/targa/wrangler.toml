@@ -1,0 +1,45 @@
+# Cloudflare Worker «gatelr-targa». SPENTO di default: vedi LEGGIMI.md.
+# Niente account_id qui: wrangler lo chiede al login (o usa CLOUDFLARE_ACCOUNT_ID dall'ambiente del proprietario).
+# Nessuna chiave in questo file: la chiave InfoTarga si salva con `npx wrangler secret put INFOTARGA_KEY`.
+name = "gatelr-targa"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+# Nessun log delle richieste (le targhe non devono finire nei log)
+[observability]
+enabled = false
+
+[vars]
+# Interruttore principale. Mettere "true" SOLO dopo il sì scritto di InfoTarga.
+LOOKUP_ENABLED = "false"
+# Interruttore d'emergenza della spesa: "true" blocca tutto anche se LOOKUP_ENABLED è "true".
+SPEND_STOP = "false"
+# Fornitore: "infotarga" (in futuro "openapi" o "regcheck")
+PROVIDER = "infotarga"
+# Tetti globali (sotto i 150 al giorno del piano Flex di InfoTarga)
+DAILY_CAP = "120"
+MONTHLY_CAP = "1000"
+# Tetto di spesa mensile in euro (IVA esclusa) e costo stimato di una ricerca
+MONTHLY_BUDGET_EUR = "50"
+COST_PER_LOOKUP_EUR = "0.29"
+# Limiti per dispositivo e per indirizzo IP
+DEVICE_DAILY_CAP = "5"
+DEVICE_MONTHLY_CAP = "20"
+IP_DAILY_CAP = "10"
+# InfoTarga: massimo 1 richiesta ogni 5 secondi
+PROVIDER_MIN_INTERVAL_MS = "5000"
+PROVIDER_TIMEOUT_MS = "8000"
+# App Attest non è ancora implementato: con "true" il server rifiuta tutto (fail closed)
+REQUIRE_APP_ATTEST = "false"
+# TODO(proprietario): indirizzo dell'API InfoTarga da verificare sulla documentazione ufficiale
+INFOTARGA_BASE_URL = "https://REPLACE-ME.infotarga.example/v3"
+
+# Contatori (tetti e limiti). Contengono solo numeri e identificativi cifrati (hash), MAI targhe.
+[[durable_objects.bindings]]
+name = "COUNTERS"
+class_name = "Counters"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Counters"]

@@ -1,0 +1,10 @@
+{
+  "name": "gatelr-targa",
+  "private": true,
+  "type": "module",
+  "description": "Piccolo server (Cloudflare Worker) per la targa automatica di GateLR. SPENTO di default.",
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": { "node": ">=20" }
+}
