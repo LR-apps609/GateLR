@@ -316,7 +316,9 @@ final class RuleEngineTests: XCTestCase {
         let cities = Array(try bundledCities().values)
         var v = car; v.fuel = .diesel; v.euro = 5
         let lines = CarAdvice.lines(for: v, cities: cities, at: date(2026, 10, 26, 10))
-        XCTAssertEqual(lines.filter { !$0.ok }.count, 2)                       // Area B e Area C
+        // Area B e Area C di Milano (altre città possono aggiungere divieti, es. le domeniche ecologiche di Parma)
+        let milan = Set(lines.filter { !$0.ok && $0.city == cities.first { $0.id == "milano" }?.localizedName }.map(\.zone))
+        XCTAssertEqual(milan.count, 2)
         v.fuel = .electric
         XCTAssertTrue(CarAdvice.lines(for: v, cities: cities, at: date(2026, 10, 26, 10)).allSatisfy(\.ok))
         let catalog = try JSONSerialization.jsonObject(with: Data(contentsOf: URL(fileURLWithPath: #filePath)
