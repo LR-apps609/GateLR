@@ -9,11 +9,11 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.15.3"
-    CURRENT_PROJECT_VERSION: "34"
+    MARKETING_VERSION: "1.16.0"
+    CURRENT_PROJECT_VERSION: "35"
 
 # Mapbox Maps (v11, Swift Package Manager, nessun token segreto per scaricarlo): la mappa 3D della nuova
-# presentazione e dell'anteprima della prima pagina 2.0. Se non si carica, resta la mappa di Apple (MapKit).
+# presentazione e della striscia di mappa della prima pagina (Varco). Se non si carica, resta la mappa di Apple (MapKit).
 packages:
   MapboxMaps:
     url: https://github.com/mapbox/mapbox-maps-ios

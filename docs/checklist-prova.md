@@ -1,7 +1,27 @@
 # GateLR 1.13.1 – Checklist delle prove a mano
 
-Spunta ogni riga. Se qualcosa non va: Account → «Segnala un bug» → Copia, e incollalo in chat.
+Spunta ogni riga. Se qualcosa non va: Tu → Impostazioni → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
+
+
+## ★ GateLR 2.0: tre schede (1.16.0)
+- [ ] In basso solo tre schede: «Varco», «Mappa» al centro con il simbolo più grande, «Tu»; VoiceOver legge i tre nomi
+- [ ] Varco su fondo blu notte anche con l'iPhone in modalità chiara; la barra delle schede resta quella di iOS
+- [ ] In cima a Varco la striscia di mappa dal vivo (con Mapbox: città 3D che gira piano; senza rete o token: mappa di Apple scura) con logo e «i» di Mapbox visibili e toccabili
+- [ ] Un tocco sulla striscia o su «Guarda la mappa» → scheda Mappa sulla zona della risposta (es. Palazzo Vecchio → Settore A di Firenze)
+- [ ] Cerca «Palazzo Vecchio» dalla ricerca di Varco: compare il pannello del varco, la frase grande («Non entrare.» di giorno feriale, «Entra pure.» di notte), l'ora del cambio, la zona
+- [ ] Un posto fuori dalle ZTL (es. Parcheggio Parterre) → «Arrivo sereno.» e pannello «FUORI ZTL» verde
+- [ ] Cambia «Adesso ▾» (es. Stasera 21:00) e il veicolo: la risposta e il pannello cambiano (il pannello gira con un colpo di vibrazione)
+- [ ] Rosso o ambra: «Parcheggia fuori e cammina» apre i parcheggi; «Perché?» apre la scheda della zona; «Dettagli del viaggio» apre Tu → Viaggio e hotel
+- [ ] Senza posto cercato ma dentro una ZTL con la posizione attiva: la risposta è per «La mia posizione»
+- [ ] Mappa a tutto schermo: sotto i chip la legenda corta con i quattro colori (un tocco apre quella intera), ricerca, «Naviga» e «Parcheggia fuori e cammina» sulla scheda del posto; la guida con GateLR funziona come prima
+- [ ] Tu: Garage, Viaggio e hotel, Multe e passaggi (Diario dei passaggi, Ho preso una multa?, Fotografa il verbale), Cosa sono le ZTL (Impara, Leggi il cartello, Rivedi la presentazione), Impostazioni, Abbonamento (solo «Presto», nessun acquisto)
+- [ ] Garage → «+»: accanto alla targa «Cerca dalla targa» con il lucchetto, grigio, sotto «In arrivo»; toccandolo non succede niente; «Fotografa il libretto» e «Auto a noleggio» come prima
+- [ ] Primo avvio (cancella e reinstalla): parte la presentazione 2.0, una volta; alla fine (o «Più tardi») la richiesta della posizione di iOS; riaprendo l'app non ricompare
+- [ ] Tu → Cosa sono le ZTL → «Rivedi la presentazione»: la presentazione riparte e si chiude tornando a Tu
+- [ ] Widget: un tocco apre Varco (o Tu → Viaggio e hotel per il widget del viaggio); gatelr://map dal sito apre la Mappa
+- [ ] Aggiornando da una versione precedente: «Novità della 1.16.0» una volta, con le tre schede
+- [ ] Testo più grande (Impostazioni → Accessibilità → Testo più grande, quasi al massimo): in Varco e Tu le scritte crescono e niente si sovrappone
 
 ## ★ Ora, veicolo, legenda e parcheggi fuori dalla ZTL
 - [ ] Prima pagina, Mappa e Viaggio: sotto il titolo i due chip «Adesso ▾» e «<auto> · benzina Euro 6 ▾»; cambiando uno dei due in una pagina cambia anche nelle altre

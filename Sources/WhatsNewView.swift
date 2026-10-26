@@ -27,6 +27,14 @@ struct WhatsNewView: View {
 
     /// Le novità di ogni versione che ne ha (chiave: CFBundleShortVersionString)
     static let notes: [String: [Item]] = [
+        "1.16.0": [
+            ("smallcircle.filled.circle", Theme.red, "Three tabs: Gate, Map, You",
+             "The answer comes first, the map is in the middle and everything else is in You: Garage, Trip and hotel, Fines and passages, Settings."),
+            ("map.fill", Color(hex: 0x1F4E9E), "The map up front",
+             "Tap the live map at the top of Gate or See the map: the Map tab opens on the zone of the answer, with the four colours always in view."),
+            ("play.rectangle.fill", Theme.green, "The new intro",
+             "Watch it again whenever you like: You → What are ZTLs → Replay the intro."),
+        ],
         "1.13.0": [
             ("hand.tap.fill", Theme.green, "Answers in one tap",
              "On the first page, tap your hotel or a recent place: the answer appears right there, without leaving the page."),

@@ -10,89 +10,130 @@ final class ScreenshotTests: XCTestCase {
         continueAfterFailure = true
     }
 
+    // Le tre schede di GateLR 2.0: 0 «Varco», 1 «Mappa» (al centro), 2 «Tu»
+    private var varcoTab: XCUIElement { app.tabBars.buttons.element(boundBy: 0) }
+    private var mapTab: XCUIElement { app.tabBars.buttons.element(boundBy: 1) }
+    private var youTab: XCUIElement { app.tabBars.buttons.element(boundBy: 2) }
+
+    /// Una pagina di «Tu» (identificatore «you.<pagina>»)
+    @discardableResult
+    private func openYou(_ page: String) -> Bool {
+        let row = app.buttons["you.\(page)"].firstMatch
+        guard row.waitForExistence(timeout: 4) else { return false }
+        row.tap()
+        sleep(1)
+        return true
+    }
+
+    private func back() {
+        let b = app.navigationBars.buttons.element(boundBy: 0)
+        if b.waitForExistence(timeout: 2) { b.tap(); sleep(1) }
+    }
+
     func test1Tour() {
         XCUIDevice.shared.appearance = .light
         app.launchArguments = ["-uitest"]
         app.launch()
-        XCTAssertTrue(app.tabBars.buttons.element(boundBy: 0).waitForExistence(timeout: 15))
-        sleep(2)
-        snap("01-home")
-        app.swipeUp()
-        sleep(1)
-        snap("01b-home-cities")
+        XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
+        sleep(4)                       // la striscia di mappa si carica dalla rete
+        snap("01-varco")
 
-        // Leggi il cartello: testo scritto a mano (nel simulatore non c'è la fotocamera)
-        let sign = app.buttons["varco.sign"]
-        if sign.waitForExistence(timeout: 3) {
-            sign.tap()
-            let t = app.descendants(matching: .any)["sign.text"]
-            if t.waitForExistence(timeout: 3) {
-                t.tap(); t.typeText("ZONA TRAFFICO LIMITATO\n7.30-20.00\nFERIALI")
-                sleep(1)
-                snap("01c-sign-reader")
-            }
-            app.swipeDown(velocity: .fast)
-            sleep(1)
-        }
-
-        // Viaggio: l'unica ricerca dell'app. Il primo gesto può solo chiudere la tastiera: si richiude il foglio finché serve
-        let plan = app.buttons["varco.plan"]
-        var tries = 0
-        while plan.exists && !plan.isHittable && tries < 3 { app.swipeDown(velocity: .fast); sleep(1); tries += 1 }
-        if plan.waitForExistence(timeout: 3) && plan.isHittable { plan.tap() } else { app.tabBars.buttons.element(boundBy: 2).tap() }
-        sleep(1)
-        snap("02-trip-empty")
-        let field = app.textFields["trip.search"]
+        // Varco: la ricerca, poi la risposta con il pannello
+        let field = app.textFields["varco.search"]
         if field.waitForExistence(timeout: 3) {
             field.tap()
             field.typeText("Palazzo Vecchio")
             sleep(4)
-            snap("03-trip-search")
-            let first = app.buttons["trip.result.0"]
+            snap("02-varco-search")
+            let first = app.buttons["varco.result.0"]
             if first.waitForExistence(timeout: 5) {
                 first.tap()
                 sleep(4)
-                snap("04-trip-answer")
+                snap("03-varco-answer")
                 app.swipeUp()
                 sleep(1)
-                snap("05-trip-hotel-message")
+                snap("03b-varco-answer-more")
             }
         }
 
-        app.tabBars.buttons.element(boundBy: 1).tap()
+        // «Guarda la mappa»: la scheda Mappa sulla zona della risposta
+        let seeMap = app.buttons["varco.map"]
+        if seeMap.waitForExistence(timeout: 3) && seeMap.isHittable { seeMap.tap() } else { mapTab.tap() }
         sleep(6)                       // le mappe si caricano dalla rete
-        snap("06-map-place")
+        snap("04-map-place")
 
-        app.tabBars.buttons.element(boundBy: 3).tap()
+        youTab.tap()
         sleep(1)
-        snap("07-garage")
+        snap("05-you")
 
-        app.tabBars.buttons.element(boundBy: 4).tap()
-        sleep(1)
-        snap("08-account")
-        let fine = app.buttons["Got a fine?"].firstMatch
-        if fine.waitForExistence(timeout: 3) {
-            fine.tap(); sleep(1); snap("08b-fine-guide")
-            app.navigationBars.buttons.element(boundBy: 0).tap(); sleep(1)
+        // Viaggio e hotel: il posto scelto in Varco, il messaggio per l'hotel
+        if openYou("trip") {
+            sleep(2)
+            snap("06-trip-answer")
+            app.swipeUp()
+            sleep(1)
+            snap("06b-trip-hotel-message")
+            back()
         }
-        let log = app.buttons["Drive log"].firstMatch
-        if log.waitForExistence(timeout: 3) { log.tap(); sleep(1); snap("08c-drive-log") }
+
+        // Garage e il modulo del veicolo con «Cerca dalla targa» chiuso
+        if openYou("garage") {
+            snap("07-garage")
+            let add = app.navigationBars.buttons["Add a vehicle"].firstMatch
+            if add.waitForExistence(timeout: 3) {
+                add.tap(); sleep(1)
+                snap("07b-vehicle-form")
+                let cancel = app.buttons["Cancel"].firstMatch
+                if cancel.waitForExistence(timeout: 3) { cancel.tap() } else { app.swipeDown(velocity: .fast) }
+                sleep(1)
+            }
+            back()
+        }
+
+        if openYou("fines") {
+            snap("08-fines")
+            let fine = app.buttons["Got a fine?"].firstMatch
+            if fine.waitForExistence(timeout: 3) { fine.tap(); sleep(1); snap("08b-fine-guide"); back() }
+            let log = app.buttons["Drive log"].firstMatch
+            if log.waitForExistence(timeout: 3) { log.tap(); sleep(1); snap("08c-drive-log"); back() }
+            back()
+        }
+
+        // Cosa sono le ZTL → Leggi il cartello: testo scritto a mano (nel simulatore non c'è la fotocamera)
+        if openYou("learn") {
+            snap("08d-learn")
+            let sign = app.buttons["learn.sign"].firstMatch
+            if sign.waitForExistence(timeout: 3) {
+                sign.tap()
+                let t = app.descendants(matching: .any)["sign.text"]
+                if t.waitForExistence(timeout: 3) {
+                    t.tap(); t.typeText("ZONA TRAFFICO LIMITATO\n7.30-20.00\nFERIALI")
+                    sleep(1)
+                    snap("08e-sign-reader")
+                }
+                back()
+            }
+            back()
+        }
+
+        if openYou("settings") { snap("08f-settings"); back() }
+        if openYou("subscription") { snap("08g-subscription"); back() }
     }
 
+    /// Il primo avvio: la presentazione 2.0, «Salta» porta all'ultima pagina, «Più tardi» all'app
     func test2Onboarding() {
         app.launchArguments = ["-uitest", "-showOnboarding", "-onboarded", "NO"]
         app.launch()
-        sleep(2)
-        snap("09-onboarding")
-        // «Salta» porta a «Dove vai?» (le città), poi la città scelta porta alla spiegazione della posizione
-        let skip = app.buttons["Skip"].firstMatch
-        if skip.waitForExistence(timeout: 3) {
-            skip.tap(); sleep(1)
-            snap("09b-onboarding-city")
-            let florence = app.buttons["onboarding.city.firenze"]
-            if florence.waitForExistence(timeout: 3) {
-                florence.tap(); sleep(1)
-                snap("09c-onboarding-location")
+        sleep(4)
+        snap("09-intro")
+        let skip = app.buttons["intro2.skip"].firstMatch
+        if skip.waitForExistence(timeout: 5) {
+            skip.tap(); sleep(2)
+            snap("09b-intro-where")
+            let later = app.buttons["intro2.later"].firstMatch
+            if later.waitForExistence(timeout: 3) {
+                later.tap(); sleep(3)
+                snap("09c-after-intro")
             }
         }
     }
@@ -101,14 +142,17 @@ final class ScreenshotTests: XCTestCase {
     func test3MilanDark() {
         app.launchArguments = ["-uitest", "-uiDark", "-uiPlace", "Duomo di Milano", "45.4641", "9.1919", "-uiOrigin", "45.4850", "9.2040"]
         app.launch()
-        XCTAssertTrue(app.tabBars.buttons.element(boundBy: 0).waitForExistence(timeout: 15))
-        sleep(2)
-        snap("10-home-dark")
-        app.tabBars.buttons.element(boundBy: 1).tap()
+        XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
+        sleep(4)
+        snap("10-varco-dark")
+        mapTab.tap()
         sleep(6)
         snap("11-map-milan-dark")
-        app.tabBars.buttons.element(boundBy: 2).tap()
-        sleep(2)
+        youTab.tap()
+        sleep(1)
+        snap("11b-you-dark")
+        guard openYou("trip") else { return }
+        sleep(1)
         snap("12-trip-milan-dark")
         let route = app.buttons["trip.route"]
         if route.waitForExistence(timeout: 3) {
@@ -137,23 +181,25 @@ final class ScreenshotTests: XCTestCase {
         app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT",
                                "-uiPlace", "Piazza Maggiore", "44.4939", "11.3426"]
         app.launch()
-        sleep(3)
-        snap("15-it-home")
-        app.tabBars.buttons.element(boundBy: 2).tap()
-        sleep(2)
-        snap("16-it-trip")
-        let why = app.buttons["Perché?"].firstMatch
+        sleep(4)
+        snap("15-it-varco")
+        let why = app.buttons["varco.why"].firstMatch
         if why.waitForExistence(timeout: 5) {
+            if !why.isHittable { app.swipeUp(); sleep(1) }
             why.tap(); sleep(1); snap("17-it-zone")
             app.swipeUp(); sleep(1); snap("18-it-zone-sources")
             app.buttons["Fine"].tap()
+            sleep(1)
         }
-        app.tabBars.buttons.element(boundBy: 1).tap()
+        mapTab.tap()
         sleep(5)
         snap("19-it-map")
-        app.tabBars.buttons.element(boundBy: 4).tap()
+        youTab.tap()
         sleep(1)
-        snap("20-it-account")
+        snap("20-it-tu")
+        if openYou("trip") { sleep(1); snap("16-it-trip"); back() }
+        if openYou("learn") { snap("21-it-learn"); back() }
+        if openYou("settings") { snap("22-it-settings") }
     }
 
     private func snap(_ name: String) {
