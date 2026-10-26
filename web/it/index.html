@@ -108,6 +108,68 @@ p{margin:0}
 .locate{border:0;background:var(--blue);color:#fff;font:700 15px var(--display);padding:0 16px;border-radius:12px;cursor:pointer;min-height:44px}
 @media (max-width:640px){.search{grid-template-columns:1fr}.when{justify-content:space-between}}
 
+/* vetrina dell'app: titolo, pulsanti degli store e iPhone con schermate vere */
+.show{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;padding-block:18px 28px}
+.show-text{display:grid;gap:16px;align-content:center;min-width:0}
+.kick{color:var(--brass)}
+.show h1{font-size:clamp(40px,6vw,70px);font-weight:700;letter-spacing:-.02em;max-width:16ch}
+.show h1 em,.hero h2.tool em{font-style:normal;color:var(--red)}
+.show .lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:52ch}
+.stores-hero,.app .stores{display:flex;gap:12px;flex-wrap:wrap}
+.sbtn{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--paper);border-radius:16px;padding:10px 20px 10px 16px;min-height:64px;text-decoration:none;flex:1 1 200px;max-width:270px;box-shadow:0 8px 20px -10px rgba(20,10,30,.55);transition:transform .15s}
+.sbtn:hover{transform:translateY(-1px)}
+.sbtn .logo{width:30px;height:30px;flex:none}
+.sbtn span{display:grid;line-height:1.1;min-width:0}
+.sbtn small{font:600 12.5px var(--text);letter-spacing:.02em;opacity:.82}
+.sbtn b{font:700 22px var(--display);letter-spacing:-.01em;white-space:nowrap}
+.sbtn[aria-disabled=true]{cursor:default}
+.app .sbtn{background:var(--paper);color:var(--ink)}
+.app .sbtn small{color:var(--muted);opacity:1}
+.note{font-size:13.5px;color:var(--muted);display:flex;gap:8px;align-items:baseline;max-width:58ch}
+.note::before{content:"";width:8px;height:8px;border-radius:50%;background:#D99A00;flex:none;transform:translateY(-1px)}
+.more{display:flex;gap:10px;flex-wrap:wrap}
+.more a{font:700 16px var(--display);text-decoration:none;border-radius:12px;padding:11px 16px;min-height:44px;display:inline-flex;align-items:center;gap:6px}
+.trybtn{background:var(--blue);color:#fff}
+.seebtn{color:var(--ink);border:1.5px solid var(--line)}
+.devices{position:relative;height:clamp(460px,57vw,670px);min-width:0}
+.phone{position:absolute;width:clamp(200px,22vw,286px);aspect-ratio:1206/2622;box-sizing:content-box;padding:8px;border-radius:clamp(34px,4vw,48px);background:#0E0D12;
+  box-shadow:0 0 0 2px #55535C,0 0 0 3.5px #A7A4AE,0 40px 70px -28px rgba(25,15,40,.55),0 18px 30px -18px rgba(25,15,40,.35)}
+.phone img{display:block;width:100%;height:100%;border-radius:clamp(27px,3.3vw,40px);object-fit:cover;background:#1B1823}
+.phone::after{content:"";position:absolute;top:calc(8px + 1.3%);left:50%;width:31%;height:3.6%;transform:translateX(-50%);background:#000;border-radius:99px}
+.phone.front{right:6%;top:0;z-index:2}
+.phone.back{left:2%;top:6%;transform:rotate(-6deg);filter:saturate(.95)}
+@media (max-width:860px){
+  .show{grid-template-columns:1fr;padding-top:8px}
+  .devices{height:clamp(420px,118vw,560px)}
+  .phone{width:clamp(180px,47vw,250px)}
+  .phone.front{right:max(2%,calc(50% - 250px))}
+  .phone.back{left:max(0%,calc(50% - 250px))}
+}
+@media (max-width:480px){.family{display:none}.top .get{display:none}.show{gap:16px}.show-text{gap:14px}.show h1{font-size:clamp(34px,10vw,44px)}.show .lead{font-size:16.5px}
+  .sbtn{padding:9px 10px;gap:8px;min-height:60px;flex-basis:140px}.sbtn b{font-size:18px}.sbtn small{font-size:11px;white-space:nowrap}.sbtn .logo{width:24px;height:24px}
+  .more a{font-size:15px;padding:10px 12px}.more{gap:8px}}
+/* elenco compatto delle funzioni */
+.kf{padding-block:6px 30px;display:grid;gap:12px}
+.kfl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.kfl li{background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;gap:12px;align-items:flex-start;min-width:0}
+.kfl b{display:block;font:700 16.5px/1.15 var(--display)}
+.kfl small{display:block;font-size:13.5px;line-height:1.35;color:var(--muted);margin-top:3px}
+.ki{width:38px;height:38px;border-radius:11px;background:var(--red-soft);color:var(--red);display:grid;place-items:center;flex:none}
+.ki svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.kfl li:nth-child(n+9) .ki{background:var(--blue-soft);color:var(--blue)}
+@media (max-width:1000px){.kfl{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}}
+@media (max-width:480px){.kfl{grid-template-columns:1fr 1fr;gap:8px}.kfl li{flex-direction:column;gap:8px;padding:12px}.kfl b{font-size:15.5px}.kfl small{font-size:13px}}
+/* striscia di schermate */
+.shots{padding-block:4px 34px;display:grid;gap:8px;min-width:0}
+.shots h2{font-size:clamp(28px,3.6vw,38px);font-weight:700}
+.strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 4px 14px;margin-inline:-4px;scrollbar-width:thin}
+.strip figure{margin:0;flex:0 0 clamp(138px,calc((100% - 96px)/7),190px);scroll-snap-align:start;display:grid;gap:10px;justify-items:center;text-align:center}
+.mini{width:100%;aspect-ratio:1206/2622;box-sizing:border-box;padding:5px;border-radius:26px;background:#0E0D12;box-shadow:0 0 0 1.5px #77757D,0 16px 28px -16px rgba(25,15,40,.5)}
+.mini img{display:block;width:100%;height:100%;border-radius:21px;object-fit:cover}
+.strip figcaption{font:700 15px/1.2 var(--display);max-width:16ch}
+.hero h2.tool{font-size:clamp(40px,6.5vw,72px);font-weight:700;letter-spacing:-.02em;max-width:15ch}
+.hero{border-top:1px solid var(--line)}
+
 /* answer + map */
 .result{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:18px;align-items:start;padding-block:8px 32px}
 @media (max-width:860px){.result{grid-template-columns:1fr}}
@@ -198,12 +260,6 @@ td.wrap{white-space:normal}
 .app p{color:color-mix(in srgb,var(--paper) 78%,transparent);margin-top:10px;max-width:46ch}
 .app ul{margin:14px 0 0;padding-left:20px;display:grid;gap:6px}
 .app .cta{display:grid;gap:10px;justify-items:start}
-.app .stores{display:flex;gap:10px;flex-wrap:wrap}
-.app .store{display:inline-flex;align-items:center;gap:10px;background:var(--paper);color:var(--ink);border-radius:14px;padding:10px 16px;text-decoration:none;min-width:190px}
-.app .store svg{width:26px;height:26px;flex:none}
-.app .store span{display:grid;line-height:1.15;font:700 18px var(--display)}
-.app .store small{font:600 12px var(--text);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.app .store[aria-disabled=true]{cursor:default}
 .app .phones{font-size:15px}
 .app small{color:color-mix(in srgb,var(--paper) 70%,transparent)}
 @media (max-width:760px){.app{grid-template-columns:1fr}}
@@ -232,8 +288,35 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
     <a class="get" href="#app" data-i18n="get">Scarica l&#x27;app</a>
   </header>
 
-  <section class="hero" id="top">
-    <h1 data-i18n-html="h1">Posso <em>entrare?</em></h1>
+  <section class="show" id="top" aria-labelledby="show-t">
+    <div class="show-text">
+      <span class="label kick" data-i18n="heroL">L&#x27;app delle ZTL per iPhone e Android</span>
+      <h1 id="show-t" data-i18n-html="heroT">Entra nei centri storici <em>senza multe ZTL.</em></h1>
+      <p class="lead" data-i18n="heroP">GateLR ti mostra ZTL e varchi di 20 città italiane, ti dice se la tua auto può entrare adesso o all&#x27;ora in cui arrivi e ti avvisa mentre guidi.</p>
+      <div class="stores-hero"><a class="sbtn" data-store="ios" href="#app" aria-disabled="true"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.2-.1 1.6-.8 3-.8s1.8.8 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6-.1 0-2.5-.9-2.5-3.6zM14.2 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg><span><small data-i18n="sbIos">In arrivo su</small><b>App Store</b></span></a><a class="sbtn" data-store="play" href="#app" aria-disabled="true"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><g stroke-linejoin="round" stroke-width=".6"><path d="M4 2.6 13.2 12 4 21.4c-.4-.2-.6-.6-.6-1.1V3.7c0-.5.2-.9.6-1.1z" fill="#4285F4" stroke="#4285F4"/><path d="M4 2.6c.4-.2.9-.2 1.3 0l11.1 6.2-3.2 3.2z" fill="#34A853" stroke="#34A853"/><path d="M16.4 8.8l3.4 1.9c1 .6 1 2 0 2.6l-3.4 1.9-3.2-3.2z" fill="#FBBC04" stroke="#FBBC04"/><path d="M13.2 12l3.2 3.2-11.1 6.2c-.4.2-.9.2-1.3 0z" fill="#EA4335" stroke="#EA4335"/></g></svg><span><small data-i18n="sbPlay">In arrivo su</small><b>Google Play</b></span></a></div>
+      <p class="note" data-i18n="heroNote">In prova, non ancora sugli store. I dati delle città sono bozze dalle fonti ufficiali: vale sempre la segnaletica.</p>
+      <p class="more"><a class="trybtn" href="#check"><span data-i18n="tryWeb">Prova subito sul sito</span> <span aria-hidden="true">↓</span></a><a class="seebtn" href="#shots"><span data-i18n="seeApp">Guarda l&#x27;app</span> <span aria-hidden="true">→</span></a></p>
+    </div>
+    <div class="devices">
+      <div class="phone back"><img src="../app/it-zone.webp" width="600" height="1304" alt="Scheda della ZTL Centro storico di Bologna: orari, parole del Comune e ticket giornaliero" decoding="async" loading="lazy"></div>
+      <div class="phone front"><img src="../app/it-home.webp" width="600" height="1304" alt="Schermata iniziale di GateLR: Piazza Maggiore a Bologna, «Non entrare», area pedonale" decoding="async" fetchpriority="high"></div>
+    </div>
+  </section>
+
+  <section class="kf" aria-labelledby="kf-t">
+    <h2 class="label" id="kf-t" data-i18n="kfL">Cosa c&#x27;è nell&#x27;app</h2>
+    <ul class="kfl"><li><span class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></svg></span><span><b data-i18n="k1T">Mappa delle ZTL</b><small data-i18n="k1P">Zone, varchi con telecamera, aree pedonali</small></span></li><li><span class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16.5h16M5.5 16.5l1.6-5.2c.2-.8 1-1.3 1.8-1.3h6.2c.8 0 1.6.5 1.8 1.3l1.6 5.2M4 16.5V19h3v-2.5M17 16.5V19h3v-2.5"/><circle cx="8" cy="14" r=".6"/><circle cx="16" cy="14" r=".6"/></svg></span><span><b data-i18n="k2T">Garage</b><small data-i18n="k2P">Le tue auto, «Fotografa il libretto», auto a noleggio</small></span></li><li><span class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 17-7-4-7 4z"/></svg></span><span><b data-i18n="k3T">Navigatore</b><small data-i18n="k3P">Svolta per svolta, con avvisi ZTL</small></span></li><li><span class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b data-i18n="k4T">Guardiano</b><small data-i18n="k4P">Ti avvisa mentre guidi con Google Maps o Waze</small></span></li><li><span class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="10" height="10" rx="2"/><path d="M6.5 10.5V5.5H9a1.6 1.6 0 010 3.2H6.5"/><circle cx="17" cy="11" r="1.4"/><path d="M17 13.5l-1 4 2 3M16 15l-2 1.5M17.5 14.5l1.5 2M16 17.5l-1.5 3"/></svg></span><span><b data-i18n="k5T">Parcheggia fuori e cammina</b><small data-i18n="k5P">Parcheggi fuori zona, minuti a piedi</small></span></li><li><span class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19V7M3 15h18v4M21 15v-2.5a3 3 0 00-3-3h-7V15"/><circle cx="7" cy="12" r="1.8"/></svg></span><span><b data-i18n="k6T">Messaggio all&#x27;hotel</b><small data-i18n="k6P">Per far registrare la tua targa</small></span></li><li><span class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span><b data-i18n="k7T">«Ho preso una multa?»</b><small data-i18n="k7P">Il varco era attivo? Le tue scadenze</small></span></li><li><span class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="10" r="6.5"/><path d="M8.5 10h7M12 16.5V21"/></svg></span><span><b data-i18n="k8T">Leggi il cartello</b><small data-i18n="k8P">Inquadralo: giorni e orari spiegati</small></span></li><li><span class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6-7-11a7 7 0 0114 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><b data-i18n="k9T">20 città</b><small data-i18n="k9P">Firenze, Roma, Milano, Siena e altre</small></span></li><li><span class="ki"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z"/></svg></span><span><b data-i18n="k10T">8 lingue</b><small data-i18n="k10P">Italiano, English, Deutsch, Français…</small></span></li></ul>
+  </section>
+
+  <section class="shots" id="shots" aria-labelledby="shots-t">
+    <span class="label kick" data-i18n="shotsL">Dentro l&#x27;app</span>
+    <h2 id="shots-t" data-i18n="shotsT">Ecco cosa ti mostra GateLR</h2>
+    <div class="strip" tabindex="0" role="region" aria-labelledby="shots-t"><figure><div class="mini"><img src="../app/it-map.webp" width="420" height="913" alt="Mappa di GateLR a Bologna con la ZTL, i varchi e l&#x27;area pedonale di Piazza Maggiore" decoding="async" loading="lazy"></div><figcaption data-i18n="c1">Mappa delle ZTL</figcaption></figure><figure><div class="mini"><img src="../app/garage.webp" width="420" height="913" alt="Garage: l&#x27;auto a noleggio con alimentazione e classe Euro, permessi e consigli per città" decoding="async" loading="lazy"></div><figcaption data-i18n="c2">Garage</figcaption></figure><figure><div class="mini"><img src="../app/navigator.webp" width="420" height="913" alt="Navigatore di GateLR: svolta a destra, Area C più avanti" decoding="async" loading="lazy"></div><figcaption data-i18n="c3">Navigatore</figcaption></figure><figure><div class="mini"><img src="../app/guardian.webp" width="420" height="913" alt="Menu Avvia: naviga con Apple Maps, Google Maps o Waze con gli avvisi di GateLR" decoding="async" loading="lazy"></div><figcaption data-i18n="c4">Guardiano · Google Maps, Waze</figcaption></figure><figure><div class="mini"><img src="../app/park.webp" width="420" height="913" alt="Parcheggia fuori e cammina: parcheggi fuori dalla ZTL con i minuti a piedi" decoding="async" loading="lazy"></div><figcaption data-i18n="c5">Parcheggia fuori e cammina</figcaption></figure><figure><div class="mini"><img src="../app/fine.webp" width="420" height="913" alt="«Ho preso una multa?»: fotografa il verbale, quando arriva, la commissione del noleggio, quanto costa" decoding="async" loading="lazy"></div><figcaption data-i18n="c6">«Ho preso una multa?»</figcaption></figure><figure><div class="mini"><img src="../app/sign.webp" width="420" height="913" alt="Leggi il cartello: la fotocamera legge «Zona traffico limitato 7.30–20.00» dal cartello" decoding="async" loading="lazy"></div><figcaption data-i18n="c7">Leggi il cartello</figcaption></figure></div>
+  </section>
+
+  <section class="hero" id="check">
+    <span class="label kick" data-i18n="webL">Gratis sul sito · senza scaricare nulla</span>
+    <h2 class="tool" data-i18n-html="h1">Posso <em>entrare?</em></h2>
     <p class="lead" data-i18n="lead">Cerca il tuo hotel o la destinazione in 20 città italiane. GateLR ti dice subito se è in ZTL, se puoi arrivarci in auto all&#x27;ora in cui arrivi e quanto costa sbagliare strada.</p>
 
     <form class="search" id="search" role="search" autocomplete="off">
@@ -353,16 +436,7 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
       <p data-i18n="appP">L&#x27;app per iPhone è in prova e non è ancora sull&#x27;App Store. I dati delle città sono bozze prese dalle fonti ufficiali, non ancora verificate sul posto da una persona: vale sempre la segnaletica.</p>
     </div>
     <div class="cta">
-      <div class="stores">
-        <a class="store" id="store" href="#app" aria-disabled="true">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.2-.1 1.6-.8 3-.8s1.8.8 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6-.1 0-2.5-.9-2.5-3.6zM14.2 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg>
-          <span><small data-i18n="soon">In arrivo</small>App Store</span>
-        </a>
-        <a class="store" id="play" href="#app" aria-disabled="true">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.6c0-.8.9-1.3 1.6-.9l12.3 8.4c.6.4.6 1.4 0 1.8L7.6 21.3c-.7.4-1.6-.1-1.6-.9z"/></svg>
-          <span><small data-i18n="soon">In arrivo</small>Google Play</span>
-        </a>
-      </div>
+      <div class="stores"><a class="sbtn" data-store="ios" href="#app" aria-disabled="true"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.2.8 1.1 1.7 2.3 2.9 2.3 1.2-.1 1.6-.8 3-.8s1.8.8 3 .7c1.3 0 2.1-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6-.1 0-2.5-.9-2.5-3.6zM14.2 5.6c.6-.8 1.1-1.8 1-2.9-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.7-1.3z"/></svg><span><small data-i18n="sbIos">In arrivo su</small><b>App Store</b></span></a><a class="sbtn" data-store="play" href="#app" aria-disabled="true"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><g stroke-linejoin="round" stroke-width=".6"><path d="M4 2.6 13.2 12 4 21.4c-.4-.2-.6-.6-.6-1.1V3.7c0-.5.2-.9.6-1.1z" fill="#4285F4" stroke="#4285F4"/><path d="M4 2.6c.4-.2.9-.2 1.3 0l11.1 6.2-3.2 3.2z" fill="#34A853" stroke="#34A853"/><path d="M16.4 8.8l3.4 1.9c1 .6 1 2 0 2.6l-3.4 1.9-3.2-3.2z" fill="#FBBC04" stroke="#FBBC04"/><path d="M13.2 12l3.2 3.2-11.1 6.2c-.4.2-.9.2-1.3 0z" fill="#EA4335" stroke="#EA4335"/></g></svg><span><small data-i18n="sbPlay">In arrivo su</small><b>Google Play</b></span></a></div>
       <small class="phones" data-i18n="phones">Una versione per Android è in lavorazione, anche per i telefoni Huawei e Honor senza servizi Google.</small>
       <small data-i18n="soonN">Questi pulsanti apriranno gli store appena GateLR sarà pubblicata.</small>
     </div>
@@ -415,6 +489,7 @@ const T = {
   hotelL:"Staying inside the ZTL?", hotelT:"Ask your hotel first", hotelP:"Hotels inside the zone can register your plate with the city. Send this before you arrive.",
   copy:"Copy message", copied:"Copied", selected:"Text selected: copy it", hotelN:"The current online procedure in Florence is still being checked.",
   appL:"GateLR for iPhone · in testing", appT:"The same answer, while you drive.", appP:"The iPhone app is being tested and isn't on the App Store yet. City data are drafts taken from the official sources, not yet checked on site by a person: road signs always win.",
+  heroL:"The ZTL app for iPhone and Android", heroT:"Drive into Italy's old towns <em>without ZTL fines.</em>", heroP:"GateLR shows the limited traffic zones and camera gates of 20 Italian cities, tells you if your car can drive in now or when you arrive, and warns you on the road.", sbIos:"Coming soon on the", sbPlay:"Coming soon on", heroNote:"In testing, not yet on the stores. City data are drafts from official sources: road signs always win.", tryWeb:"Try it now on the website", seeApp:"See the app", kfL:"What's in the app", k1T:"ZTL map", k1P:"Zones, camera gates, pedestrian areas", k2T:"Garage", k2P:"Your cars, «Photograph the registration», rental cars", k3T:"Navigator", k3P:"Turn by turn, with ZTL warnings", k4T:"Guardian", k4P:"Alerts while you drive with Google Maps or Waze", k5T:"Park outside and walk", k5P:"Car parks outside the zone, minutes on foot", k6T:"Hotel message", k6P:"Ask your hotel to register your plate", k7T:"«Got a fine?»", k7P:"Was the gate on? Your deadlines", k8T:"Read the sign", k8P:"Point the camera, get the hours explained", k9T:"20 cities", k9P:"Florence, Rome, Milan, Siena and more", k10T:"8 languages", k10P:"English, Italiano, Deutsch, Français…", shotsL:"Inside the app", shotsT:"See what GateLR shows you", webL:"Free on the website · nothing to download", c1:"ZTL map", c2:"Garage", c3:"Navigator", c4:"Guardian · Google Maps, Waze", c5:"Park outside and walk", c6:"«Got a fine?»", c7:"Read the sign",
   soon:"Coming soon", soonN:"These buttons will open the stores as soon as GateLR is published.",
   foot:"Data: the cities' official pages and documents, their open data and OpenStreetMap (sources and licences on each city page). GateLR is not affiliated with any city or with the police. Road signs on site always win.",
   pick:"Pick a place", pickWhy:"Search above, tap a suggestion, or tap the map.",
@@ -446,6 +521,7 @@ const T = {
   hotelL:"Dormi dentro la ZTL?", hotelT:"Prima scrivi all'hotel", hotelP:"Gli hotel dentro la zona possono comunicare la tua targa al Comune. Mandalo prima di arrivare.",
   copy:"Copia il messaggio", copied:"Copiato", selected:"Testo selezionato: copialo", hotelN:"La procedura online attuale di Firenze è ancora in verifica.",
   appL:"GateLR per iPhone · in prova", appT:"La stessa risposta, mentre guidi.", appP:"L'app per iPhone è in prova e non è ancora sull'App Store. I dati delle città sono bozze prese dalle fonti ufficiali, non ancora verificate sul posto da una persona: vale sempre la segnaletica.",
+  heroL:"L'app delle ZTL per iPhone e Android", heroT:"Entra nei centri storici <em>senza multe ZTL.</em>", heroP:"GateLR ti mostra ZTL e varchi di 20 città italiane, ti dice se la tua auto può entrare adesso o all'ora in cui arrivi e ti avvisa mentre guidi.", sbIos:"In arrivo su", sbPlay:"In arrivo su", heroNote:"In prova, non ancora sugli store. I dati delle città sono bozze dalle fonti ufficiali: vale sempre la segnaletica.", tryWeb:"Prova subito sul sito", seeApp:"Guarda l'app", kfL:"Cosa c'è nell'app", k1T:"Mappa delle ZTL", k1P:"Zone, varchi con telecamera, aree pedonali", k2T:"Garage", k2P:"Le tue auto, «Fotografa il libretto», auto a noleggio", k3T:"Navigatore", k3P:"Svolta per svolta, con avvisi ZTL", k4T:"Guardiano", k4P:"Ti avvisa mentre guidi con Google Maps o Waze", k5T:"Parcheggia fuori e cammina", k5P:"Parcheggi fuori zona, minuti a piedi", k6T:"Messaggio all'hotel", k6P:"Per far registrare la tua targa", k7T:"«Ho preso una multa?»", k7P:"Il varco era attivo? Le tue scadenze", k8T:"Leggi il cartello", k8P:"Inquadralo: giorni e orari spiegati", k9T:"20 città", k9P:"Firenze, Roma, Milano, Siena e altre", k10T:"8 lingue", k10P:"Italiano, English, Deutsch, Français…", shotsL:"Dentro l'app", shotsT:"Ecco cosa ti mostra GateLR", webL:"Gratis sul sito · senza scaricare nulla", c1:"Mappa delle ZTL", c2:"Garage", c3:"Navigatore", c4:"Guardiano · Google Maps, Waze", c5:"Parcheggia fuori e cammina", c6:"«Ho preso una multa?»", c7:"Leggi il cartello",
   soon:"In arrivo", soonN:"Questi pulsanti apriranno gli store appena GateLR sarà pubblicata.",
   foot:"Dati: pagine e documenti ufficiali dei Comuni, i loro open data e OpenStreetMap (fonti e licenze nella pagina di ogni città). GateLR non è collegata ad alcun Comune né alla polizia. Vale sempre la segnaletica sul posto.",
   pick:"Scegli un luogo", pickWhy:"Cerca qui sopra, tocca un suggerimento o tocca la mappa.",
@@ -477,6 +553,7 @@ const T = {
   hotelL:"Hotel in der ZTL?", hotelT:"Schreib zuerst dem Hotel", hotelP:"Hotels in der Zone können dein Kennzeichen bei der Stadt anmelden. Schick das vor deiner Ankunft.",
   copy:"Nachricht kopieren", copied:"Kopiert", selected:"Text markiert: kopieren", hotelN:"Das aktuelle Online-Verfahren in Florenz wird noch geprüft.",
   appL:"GateLR für iPhone · im Test", appT:"Die gleiche Antwort, während du fährst.", appP:"Die iPhone-App wird getestet und ist noch nicht im App Store. Die Daten der Städte sind Entwürfe aus den offiziellen Quellen, noch nicht von einer Person vor Ort geprüft: Es gelten immer die Schilder.",
+  heroL:"Die ZTL-App für iPhone und Android", heroT:"In Italiens Altstädte, <em>ohne ZTL-Bußgeld.</em>", heroP:"GateLR zeigt dir ZTL-Zonen und Kamera-Einfahrten in 20 italienischen Städten, sagt dir, ob dein Auto jetzt oder bei Ankunft hinein darf, und warnt dich unterwegs.", sbIos:"Bald im", sbPlay:"Bald bei", heroNote:"Im Test, noch nicht in den Stores. Die Städtedaten sind Entwürfe aus offiziellen Quellen: Es gelten immer die Schilder.", tryWeb:"Gleich auf der Website testen", seeApp:"Die App ansehen", kfL:"Was die App kann", k1T:"ZTL-Karte", k1P:"Zonen, Kamera-Einfahrten, Fußgängerzonen", k2T:"Garage", k2P:"Deine Autos, «Fahrzeugschein fotografieren», Mietwagen", k3T:"Navi", k3P:"Abbiegehinweise mit ZTL-Warnungen", k4T:"Wächter", k4P:"Warnt dich beim Fahren mit Google Maps oder Waze", k5T:"Draußen parken und laufen", k5P:"Parkplätze außerhalb, Minuten zu Fuß", k6T:"Nachricht ans Hotel", k6P:"Damit es dein Kennzeichen anmeldet", k7T:"«Bußgeld bekommen?»", k7P:"War die Einfahrt aktiv? Deine Fristen", k8T:"Schild lesen", k8P:"Kamera drauf, Zeiten erklärt", k9T:"20 Städte", k9P:"Florenz, Rom, Mailand, Siena und mehr", k10T:"8 Sprachen", k10P:"Deutsch, English, Italiano, Français…", shotsL:"In der App", shotsT:"So sieht GateLR aus", webL:"Kostenlos auf der Website · ohne Download", c1:"ZTL-Karte", c2:"Garage", c3:"Navi", c4:"Wächter · Google Maps, Waze", c5:"Draußen parken und laufen", c6:"«Bußgeld bekommen?»", c7:"Schild lesen",
   soon:"Demnächst", soonN:"Diese Knöpfe öffnen die Stores, sobald GateLR veröffentlicht ist.",
   foot:"Daten: offizielle Seiten und Dokumente der Städte, ihre Open Data und OpenStreetMap (Quellen und Lizenzen auf der Seite jeder Stadt). GateLR ist mit keiner Stadt und nicht mit der Polizei verbunden. Es gelten immer die Schilder vor Ort.",
   pick:"Wähle einen Ort", pickWhy:"Suche oben, tippe auf einen Vorschlag oder auf die Karte.",
@@ -860,7 +937,7 @@ $("w-later").addEventListener("click", () => setLater(true));
 $("arrival").addEventListener("change", render);
 
 // L'app: su iPhone porta all'App Store quando sarà pubblicata
-for (const [id, url] of [["store", APP_STORE_URL], ["play", PLAY_URL]]) if (url){ $(id).href = url; $(id).removeAttribute("aria-disabled"); $(id).querySelector("small").remove(); }
+for (const e of document.querySelectorAll("[data-store]")){ const url = e.dataset.store === "ios" ? APP_STORE_URL : PLAY_URL; if (url){ e.href = url; e.removeAttribute("aria-disabled"); e.querySelector("small").remove(); } }
 
 function applyLang(l){
   lang = T[l] ? l : "en"; try { localStorage.setItem("gatelr.lang", lang); } catch {}

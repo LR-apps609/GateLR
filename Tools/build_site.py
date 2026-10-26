@@ -97,6 +97,38 @@ FINE_JSON = json.dumps(fine, ensure_ascii=False) if fine else "null"
 HOME_ALT = {l: SITE + prefix(l) for l in LANGS}
 
 
+# Schermate vere dell'app (ramo screenshots, ridotte in WebP in web/app/): iPhone della vetrina e striscia sotto.
+# Chiave → (file, testo alternativo per lingua). L'italiano usa le schermate in italiano dove ci sono.
+SHOT_ALT = {
+ "home-dark": {"en": "GateLR home screen: Duomo di Milano, «Don't enter», pedestrian area at any time", "de": "GateLR-Startbildschirm: Duomo di Milano, «Nicht einfahren», Fußgängerzone zu jeder Zeit"},
+ "map-dark": {"en": "GateLR map of Milan by night with the ZTL zone, camera gates and the pedestrian area", "de": "GateLR-Karte von Mailand bei Nacht mit ZTL-Zone, Kamera-Einfahrten und Fußgängerzone"},
+ "it-home": {"it": "Schermata iniziale di GateLR: Piazza Maggiore a Bologna, «Non entrare», area pedonale"},
+ "it-zone": {"it": "Scheda della ZTL Centro storico di Bologna: orari, parole del Comune e ticket giornaliero"},
+ "it-map": {"it": "Mappa di GateLR a Bologna con la ZTL, i varchi e l'area pedonale di Piazza Maggiore"},
+ "map": {"en": "GateLR map of Florence: Palazzo Vecchio inside the active ZTL, «Don't enter»", "de": "GateLR-Karte von Florenz: Palazzo Vecchio in der aktiven ZTL, «Nicht einfahren»"},
+ "garage": {"en": "Garage: your rental car with fuel and Euro class, permits and advice per city", "it": "Garage: l'auto a noleggio con alimentazione e classe Euro, permessi e consigli per città", "de": "Garage: dein Mietwagen mit Kraftstoff und Euro-Klasse, Genehmigungen und Hinweise pro Stadt"},
+ "navigator": {"en": "GateLR navigator: turn right in 250 feet, Area C on one condition ahead", "it": "Navigatore di GateLR: svolta a destra, Area C più avanti", "de": "GateLR-Navi: rechts abbiegen, Area C voraus"},
+ "guardian": {"en": "Start menu: navigate with Apple Maps, Google Maps or Waze with GateLR alerts", "it": "Menu Avvia: naviga con Apple Maps, Google Maps o Waze con gli avvisi di GateLR", "de": "Startmenü: mit Apple Maps, Google Maps oder Waze fahren, mit GateLR-Warnungen"},
+ "park": {"en": "Park outside and walk: car parks outside the ZTL with minutes on foot to Palazzo Vecchio", "it": "Parcheggia fuori e cammina: parcheggi fuori dalla ZTL con i minuti a piedi", "de": "Draußen parken und laufen: Parkplätze außerhalb der ZTL mit Minuten zu Fuß"},
+ "fine": {"en": "«Got a fine?»: photograph the notice, when it arrives, the rental company's charge, how much", "it": "«Ho preso una multa?»: fotografa il verbale, quando arriva, la commissione del noleggio, quanto costa", "de": "«Bußgeld bekommen?»: Bescheid fotografieren, wann er kommt, Gebühr der Mietwagenfirma, wie viel"},
+ "sign": {"en": "Read the sign: the camera reads «Zona traffico limitato 7.30–20.00» from the ZTL sign", "it": "Leggi il cartello: la fotocamera legge «Zona traffico limitato 7.30–20.00» dal cartello", "de": "Schild lesen: die Kamera liest «Zona traffico limitato 7.30–20.00» vom ZTL-Schild"},
+}
+SHOTS = {"en": {"front": "home-dark", "back": "map-dark", "s1": "map", "s2": "garage", "s3": "navigator", "s4": "guardian", "s5": "park", "s6": "fine", "s7": "sign"},
+         "it": {"front": "it-home", "back": "it-zone", "s1": "it-map", "s2": "garage", "s3": "navigator", "s4": "guardian", "s5": "park", "s6": "fine", "s7": "sign"}}
+SHOTS["de"] = SHOTS["en"]
+
+
+def shot_img(m, lang, root):
+    slot = m.group(1)
+    f = SHOTS[lang][slot]
+    alt = SHOT_ALT[f].get(lang) or SHOT_ALT[f].get("en") or SHOT_ALT[f]["it"]
+    hero = slot in ("front", "back")
+    w, h = (600, 1304) if hero else (420, 913)
+    lazy = "" if slot == "front" else ' loading="lazy"'
+    pri = ' fetchpriority="high"' if slot == "front" else ""
+    return f'<img src="{root}app/{f}.webp" width="{w}" height="{h}" alt="{esc(alt)}" decoding="async"{lazy}{pri}>'
+
+
 def build_home(lang):
     t, root = T[lang], ("" if lang == "en" else "../")
     graph = [
@@ -109,6 +141,7 @@ def build_home(lang):
     page = template.replace("<!--HEAD-->", head(lang, t["title"], t["desc"], HOME_ALT[lang], HOME_ALT, root, graph))
     page = (page.replace("{{LANG}}", lang).replace("{{ROOT}}", root).replace("{{LP}}", prefix(lang))
                 .replace("{{PAGELANG}}", "" if lang == "en" else lang))
+    page = re.sub(r"\{\{SHOT:(\w+)\}\}", lambda m: shot_img(m, lang, root), page)
     page = page.replace("/*CITIES*/", CITIES_JSON).replace("/*FINE*/null", FINE_JSON)
     links = sorted(cities, key=lambda c: city_name(c, lang))
     page = page.replace("<!--CITYLINKS-->", "".join(f'<a data-city="{c["id"]}" href="{root}{prefix(lang)}{c["id"]}/">{esc(city_name(c, lang))}</a>' for c in links))
