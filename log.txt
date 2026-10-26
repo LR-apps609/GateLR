@@ -1,0 +1,13 @@
+1 200 5074969 https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf -> 1-Disciplinare_20ZTL_20aggiornato_20da_20DGC_2074-2025.pdf_
+2 200 199162 https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl -> 2-richiedere-permesso-di-accesso-ad-area-ztl_
+3 000ERR  https://genovaparcheggi.com/it/ztl.html -> 3-ztl.html_
+4 200 1303540 https://smart.comune.genova.it/sites/default/files/NOTTURNO%20GALLERIA%20GARIBALDI.OrdinanzeDiMobilita_ORM-877-2023.pdf -> 4-NOTTURNO_20GALLERIA_20GARIBALDI.OrdinanzeDiMobilita_ORM-877-2023.pdf_
+5 200 4196725 https://www.comune.genova.it/sites/default/files/2024-06/Disciplinare_ZTL_ComGE.pdf -> 5-Disciplinare_ZTL_ComGE.pdf_
+6 200 30596 https://mappe.comune.genova.it/geonetwork/srv/api/records/c_d969:d7e99280-3fa0-4636-a326-9ccf199eecf1/formatters/xml -> 6-xml_
+7 404 144677 https://www.comune.genova.it/argomenti/ztl -> 7-ztl_
+8 200 183995 https://www.comune.genova.it/servizi/mobilita-e-trasporti -> 8-mobilita-e-trasporti_
+9 000ERR  https://genovaparcheggi.com/it/ -> 9-it_
+10 200 944922 https://www.genovatoday.it/cronaca/ztl-varchi-intelligenti.html -> 10-ztl-varchi-intelligenti.html_
+11 200 94079 https://www.sbircialanotizia.it/articoli/2026/04/30/ztl-genova-varchi-nzmey/ -> 11-ztl-genova-varchi-nzmey_
+12 200 84749 https://www.sicurauto.it/news/ztl-genova-mappa-orari-e-parcheggi/ -> 12-ztl-genova-mappa-orari-e-parcheggi_
+13 200 180019 https://www.automobilista.it/come-funziona-la-ztl-di-genova-tra-centro-storico-varchi-e-permessi/ -> 13-come-funziona-la-ztl-di-genova-tra-centro-storico-varchi-e-permessi_
