@@ -9,8 +9,15 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.14.2"
-    CURRENT_PROJECT_VERSION: "30"
+    MARKETING_VERSION: "1.15.0"
+    CURRENT_PROJECT_VERSION: "31"
+
+# Mapbox Maps (v11, Swift Package Manager, nessun token segreto per scaricarlo): la mappa 3D della nuova
+# presentazione e dell'anteprima della prima pagina 2.0. Se non si carica, resta la mappa di Apple (MapKit).
+packages:
+  MapboxMaps:
+    url: https://github.com/mapbox/mapbox-maps-ios
+    exactVersion: 11.25.3
 
 targets:
   GateLR:
@@ -18,6 +25,7 @@ targets:
     platform: iOS
     dependencies:
       - target: GateLRWidget          # widget per Home e schermata di blocco, incluso nell'app
+      - package: MapboxMaps
     sources:
       - path: Sources
       - path: Resources/Assets.xcassets
@@ -58,6 +66,10 @@ targets:
             CFBundleURLSchemes: [gatelr]
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        # Token pubblico (pk.) di Mapbox, dall'impostazione MAPBOX_ACCESS_TOKEN. Il controllo dei segreti di GitHub
+        # rifiuta il push con il token scritto qui finché non viene autorizzato nella pagina del repository; senza token
+        # la mappa Mapbox non parte e l'app usa la mappa di Apple.
+        MBXAccessToken: "$(MAPBOX_ACCESS_TOKEN)"
         LSRequiresIPhoneOS: true
         UIAppFonts: [TitilliumWeb-Bold.ttf, TitilliumWeb-Black.ttf, TitilliumWeb-SemiBold.ttf, TitilliumWeb-Regular.ttf, DotGothic16-Regular.ttf]
         # Schermata d'avvio con il marchio (prima era vuota: nera in modalità scura per tutto il caricamento).
@@ -138,6 +150,8 @@ targets:
   GateLRTests:
     type: bundle.unit-test
     platform: iOS
+    dependencies:
+      - package: MapboxMaps
     # Il codice dell'app compilato direttamente nei test (tranne il punto d'ingresso)
     sources:
       - path: Tests

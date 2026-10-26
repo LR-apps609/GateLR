@@ -600,6 +600,17 @@
 "We'll find the route that keeps you out of the ZTL." = "我们为你找到避开 ZTL 的路线。";
 "Later" = "稍后";
 "Intro 2.0 preview" = "新版介绍预览 2.0";
+"First page 2.0 preview" = "首页 2.0 预览";
+"Don't enter." = "不要进入。";
+"Drive in." = "可以进入。";
+"Outside the ZTL." = "在 ZTL 外。";
+"On one condition." = "有一个条件。";
+"Check the sign." = "请看路牌。";
+"Pedestrian area." = "步行区。";
+"Gates off at" = "摄像头关闭时间";
+"Gates on at" = "摄像头开启时间";
+"See the map" = "查看地图";
+"Back to the answer" = "返回答案";
 "Tonight %@" = "今晚 %@";
 "Today %@" = "今天 %@";
 "Tomorrow %@" = "明天 %@";

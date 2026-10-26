@@ -118,17 +118,27 @@ struct IntroDriveSlide: View {
     @StateObject private var drive = IntroDrive()
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var scene: IntroScene?
-    /// Senza rete (o con -intro2Fallback) la mappa diventa un disegno sullo stesso fondo blu notte
-    @State private var offline = ProcessInfo.processInfo.arguments.contains("-intro2Fallback")
+    /// Quale mappa: Mapbox 3D (la nuova), la mappa di Apple se Mapbox non si carica (-intro2MapKit per provarla),
+    /// il disegno sullo stesso fondo blu notte senza rete (o con -intro2Fallback)
+    enum Engine { case mapbox, mapkit, drawing }
+    @State private var engine: Engine = {
+        let args = ProcessInfo.processInfo.arguments
+        return args.contains("-intro2Fallback") ? .drawing : args.contains("-intro2MapKit") || !NotteMap.hasToken ? .mapkit : .mapbox
+    }()
 
     var body: some View {
         ZStack {
             Notte.navy.ignoresSafeArea()
             if let scene {
-                if offline {
-                    IntroFallbackMap(scene: scene, drive: drive)
-                } else {
-                    IntroLiveMap(scene: scene, drive: drive)
+                switch engine {
+                case .drawing: IntroFallbackMap(scene: scene, drive: drive)
+                case .mapkit: IntroLiveMap(scene: scene, drive: drive)
+                case .mapbox:
+                    IntroMapboxMap(scene: scene, drive: drive, reduceMotion: reduceMotion,
+                                   onReady: { drive.start() },
+                                   onFail: { engine = .mapkit; drive.start() })
+                        .ignoresSafeArea()
+                        .accessibilityHidden(true)
                 }
             }
             // Il blu notte sopra e sotto, perché il testo resti leggibile sulla mappa
@@ -154,8 +164,9 @@ struct IntroDriveSlide: View {
         .task {
             if scene == nil { scene = IntroScene.load(store) }
             drive.reduceMotion = reduceMotion
-            if !offline { offline = await IntroNetwork.isOffline() }
-            drive.start()
+            if engine != .drawing, await IntroNetwork.isOffline() { engine = .drawing }
+            // Mapbox fa partire l'auto quando lo stile è pronto (o passa alla mappa di Apple se non arriva)
+            if engine != .mapbox { drive.start() }
         }
         .onChange(of: drive.phase) { _, phase in
             guard IntroAutoplay.on, phase == .arrived else { return }
@@ -486,11 +497,12 @@ private struct IntroFallbackMap: View {
 // MARK: Segni sulla mappa
 
 /// Il pannello del varco su un palo sottile
-private struct GateSign: View {
+struct GateSign: View {
     var state: LEDState
+    var size: CGFloat = 18
     var body: some View {
         VStack(spacing: 0) {
-            LEDPanel(state: state, size: 18)
+            LEDPanel(state: state, size: size)
             Rectangle().fill(Color(hex: 0x6A7290)).frame(width: 2, height: 16)
             Circle().fill(state.dim ? Notte.muted : state.color).frame(width: 7, height: 7)
                 .shadow(color: state.dim ? .clear : state.color, radius: 5)
@@ -512,7 +524,7 @@ private struct CarPuck: View {
     }
 }
 
-private struct ParkingPin: View {
+struct ParkingPin: View {
     var lit: Bool
     var body: some View {
         Text(verbatim: "P")

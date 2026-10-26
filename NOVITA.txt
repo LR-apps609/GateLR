@@ -1,3 +1,7 @@
+Novità della 1.15.0 (anteprime 2.0 con Mapbox):
+• Account → «Anteprima intro 2.0»: la prima pagina ora è Firenze in 3D al crepuscolo (Mapbox) vista da lontano, con il Duomo, il centro storico velato di rosso e l'auto che entra davvero dal varco di via Cavour; «Evita multe con GateLR» disegna il percorso bianco intorno alla ZTL fino al Parterre
+• Account → «Anteprima prima pagina 2.0»: «Posso entrare?» con la città 3D che si muove piano dietro il vetro, il pannello del varco come un oggetto vero che gira quando cambia la risposta, e «Guarda la mappa» che porta giù la stessa camera
+
 Novità della 1.14.2 (navigatore):
 • Veicolo sulla mappa ridisegnato: berlina, SUV, city car e moto visti dall'alto, con luci, ombre, vetri e fari, ben distinguibili su mappa chiara, scura e satellite
 

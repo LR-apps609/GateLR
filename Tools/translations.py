@@ -491,6 +491,18 @@ T = {
 'Hotel, address or square': ('Hotel, indirizzo o piazza', 'Hotel, Adresse oder Platz'),
 'Later': ('Più tardi', 'Später'),
 'Intro 2.0 preview': ('Anteprima intro 2.0', 'Vorschau Intro 2.0'),
+# Anteprima della prima pagina 2.0 (Sources/Home2)
+"First page 2.0 preview": ("Anteprima prima pagina 2.0", "Vorschau Startseite 2.0"),
+"Don't enter.": ("Non entrare.", "Nicht einfahren."),
+"Drive in.": ("Entra pure.", "Fahr ruhig rein."),
+"Outside the ZTL.": ("Fuori dalla ZTL.", "Außerhalb der ZTL."),
+"On one condition.": ("A una condizione.", "Unter einer Bedingung."),
+"Check the sign.": ("Guarda il cartello.", "Schau aufs Schild."),
+"Pedestrian area.": ("Area pedonale.", "Fußgängerzone."),
+"Gates off at": ("Si spegne alle", "Kameras aus um"),
+"Gates on at": ("Si accende alle", "Kameras an um"),
+"See the map": ("Guarda la mappa", "Karte ansehen"),
+"Back to the answer": ("Torna alla risposta", "Zurück zur Antwort"),
 # Ora e veicolo scelti, legenda, parcheggi fuori dalla ZTL
 'Tonight %@': ('Stasera %@', 'Heute Abend %@'),
 'Today %@': ('Oggi %@', 'Heute %@'),

@@ -600,6 +600,17 @@
 "We'll find the route that keeps you out of the ZTL." = "Nous trouvons l'itinéraire qui évite les ZTL.";
 "Later" = "Plus tard";
 "Intro 2.0 preview" = "Aperçu de l'intro 2.0";
+"First page 2.0 preview" = "Aperçu de la page d'accueil 2.0";
+"Don't enter." = "N'entrez pas.";
+"Drive in." = "Vous pouvez entrer.";
+"Outside the ZTL." = "Hors de la ZTL.";
+"On one condition." = "À une condition.";
+"Check the sign." = "Regardez le panneau.";
+"Pedestrian area." = "Zone piétonne.";
+"Gates off at" = "Caméras éteintes à";
+"Gates on at" = "Caméras allumées à";
+"See the map" = "Voir la carte";
+"Back to the answer" = "Retour à la réponse";
 "Tonight %@" = "Ce soir %@";
 "Today %@" = "Aujourd'hui %@";
 "Tomorrow %@" = "Demain %@";

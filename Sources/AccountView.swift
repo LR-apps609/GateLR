@@ -16,6 +16,8 @@ struct AccountView: View {
     @State private var basicVoice = false
     /// Prototipo della nuova presentazione (Sources/Intro2), da provare sull'iPhone in questa versione di prova
     @State private var intro2 = false
+    /// Prototipo della prima pagina 2.0 (Sources/Home2): Firenze 3D di Mapbox dietro la risposta
+    @State private var home2 = false
 
     var body: some View {
         NavigationStack {
@@ -44,6 +46,10 @@ struct AccountView: View {
                         Label("Intro 2.0 preview", systemImage: "play.rectangle")
                     }
                     .accessibilityIdentifier("account.intro2")
+                    Button { home2 = true } label: {
+                        Label("First page 2.0 preview", systemImage: "square.stack.3d.up")
+                    }
+                    .accessibilityIdentifier("account.home2")
                 } header: { Text("Learn") } footer: {
                     Text("The signs, the gate panels, and what to do if you drove in by mistake.")
                 }
@@ -185,6 +191,11 @@ struct AccountView: View {
                 Intro2View { intro2 = false }
                     .environmentObject(store)
                     .readableFrame(640)
+                    .background(Notte.navy.ignoresSafeArea())
+            }
+            .fullScreenCover(isPresented: $home2) {
+                Home2View { home2 = false }
+                    .environmentObject(store)
                     .background(Notte.navy.ignoresSafeArea())
             }
             .task { basicVoice = await SpeechVoice.onlyBasicVoiceAsync() }

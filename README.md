@@ -20,7 +20,9 @@ Riepilogo completo: [`docs/STATO.md`](docs/STATO.md).
 | `Sources/GarageView.swift` | Scheda **Garage**: veicoli, permessi, città offline |
 | `Sources/GateMonitor.swift` | Avvisi vicino ai varchi anche ad app chiusa (CLMonitor) |
 | `Sources/CarPlaySceneDelegate.swift` | Schermata CarPlay (serve l'autorizzazione Apple «Driving Task») |
-| `Sources/Intro2/` | Prototipo della nuova presentazione animata (solo con l'argomento di avvio `-intro2`); video nel ramo `intro-video` |
+| `Sources/Intro2/` | Prototipo della nuova presentazione animata (Account → «Anteprima intro 2.0», o l'argomento di avvio `-intro2`); prima pagina su Mapbox 3D, con la mappa di Apple se Mapbox non si carica; video nel ramo `intro-video` |
+| `Sources/Home2/` | Prototipo della prima pagina 2.0 (Account → «Anteprima prima pagina 2.0»): Firenze 3D di Mapbox dietro la risposta su vetro, pannello del varco come oggetto, parallasse |
+| `Sources/Mapbox/` | Stile Mapbox Standard al crepuscolo nei colori «Notte» (tabella dei colori da `Tools/notte_lut.py`), zone e percorsi luminosi |
 | `Sources/Theme.swift`, `Components.swift` | Colori della segnaletica, logo, riquadro della risposta |
 | `Tests/RuleEngineTests.swift` | Test del motore delle regole |
 | `Tools/make_icon.py` | Ridisegna l'icona (Pillow) |
