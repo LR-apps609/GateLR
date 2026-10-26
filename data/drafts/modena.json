@@ -1,0 +1,114 @@
+{
+ "id": "modena",
+ "name": "Modena",
+ "name_it": "Modena",
+ "name_de": "Modena",
+ "center": {
+  "lat": 44.6464,
+  "lon": 10.9255
+ },
+ "zones": [
+  {
+   "id": "modena-ztl",
+   "name": "Modena · Historic centre ZTL",
+   "name_it": "Modena · ZTL Centro storico",
+   "name_de": "Modena · ZTL Altstadt",
+   "kind": "restricted",
+   "summary": "The historic centre inside the ring boulevards (Duomo, Piazza Grande) is watched by cameras around the clock: without an authorisation you may not drive in. If your hotel is inside, it registers your plate (before you arrive or within 48 hours) and gives you a badge for the windscreen. Otherwise park outside and walk.",
+   "summary_it": "Il centro storico dentro i viali (Duomo, Piazza Grande) è controllato dalle telecamere 24 ore su 24: senza autorizzazione non si entra. Se l'hotel è dentro, registra la tua targa (prima dell'arrivo o entro 48 ore) e ti dà un contrassegno per il parabrezza. Altrimenti parcheggia fuori e vai a piedi.",
+   "summary_de": "Die Altstadt innerhalb der Ringstraßen (Dom, Piazza Grande) wird rund um die Uhr von Kameras überwacht: ohne Genehmigung darfst du nicht hineinfahren. Liegt dein Hotel innen, meldet es dein Kennzeichen (vorher oder innerhalb von 48 Stunden) und gibt dir einen Ausweis für die Windschutzscheibe. Sonst draußen parken und zu Fuß gehen.",
+   "perimeter": [],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Modena",
+    "pageURL": "https://www.comune.modena.it/amministrazione/documenti-e-dati/atti-normativi/ordinanze/ordinanze-a-carattere-generale/testo-coordinato-ordinanza-ztl",
+    "ordinance": "Testo coordinato Ordinanza ZTL (prot. 85253 del 01/04/2020; DGC 115 del 10/03/2020)",
+    "ordinanceURL": "https://www.comune.modena.it/amministrazione/documenti-e-dati/atti-normativi/ordinanze/ordinanze-a-carattere-generale/testo-coordinato-ordinanza-ztl/testo-coordinato-ordinanza-ztl/@@download/file_principale",
+    "quote": null,
+    "quoteTranslation": null,
+    "quoteTranslation_de": null,
+    "checkedOn": "2026-10-26T23:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Draft: the City's websites could not be read from here (connection refused). Every rule below is taken from web-search summaries of the official pages, not from their text: to be checked word for word.",
+     "Hours not confirmed: the 2020 consolidated order (Council decision 115/2020 removed the free time band) has its timetable in section B6, not read. Unofficial guides say 24 hours every day, others 7:30–20:30; Via Emilia Centro and Corso Duomo have their own bands. GateLR uses 24 hours, to be safe.",
+     "Map outline missing: the City publishes an official perimeter as open data (WFS «Ztl_preview»), which could not be downloaded from here. Gate positions unknown.",
+     "Hotels: guests of hotels, B&Bs and guest houses inside the ZTL may enter and park nearby with the hotel's badge on the windscreen; the hotel sends your plate to the municipal police before you enter or within 48 hours. Rental cars have no permit of their own.",
+     "No tourist ticket found: temporary permits (one guide says 4 €) are for listed categories, online with SPID/CIE/CNS. Fully electric cars can be registered to drive at any hour, but the City's form found is for Modena residents."
+    ],
+    "pending_it": [
+     "Bozza: i siti del Comune non erano leggibili da qui (connessione rifiutata). Ogni regola viene dai riassunti della ricerca web sulle pagine ufficiali, non dal loro testo: da verificare parola per parola.",
+     "Orari non confermati: il testo coordinato del 2020 (la delibera GC 115/2020 ha eliminato la franchigia oraria) ha le fasce nella sezione B6, non letta. Guide non ufficiali dicono 0–24 tutti i giorni, altre 7:30–20:30; via Emilia Centro e Corso Duomo hanno fasce proprie. GateLR usa 0–24, per prudenza.",
+     "Manca il perimetro: il Comune pubblica un perimetro ufficiale in open data (WFS «Ztl_preview»), non scaricabile da qui. Posizione dei varchi sconosciuta.",
+     "Alberghi: gli ospiti di alberghi, B&B e affittacamere dentro la ZTL entrano e sostano vicino con il contrassegno della struttura sul parabrezza; la struttura invia la targa alla Polizia municipale prima dell'ingresso o entro 48 ore. Le auto a noleggio non hanno un permesso proprio.",
+     "Nessun ticket per turisti trovato: i permessi temporanei (4 € secondo una guida) sono per categorie previste, online con SPID/CIE/CNS. Le auto solo elettriche possono essere registrate per circolare senza limiti di orario, ma il modulo trovato è per i residenti a Modena."
+    ],
+    "pending_de": [
+     "Entwurf: Die Websites der Stadt waren von hier aus nicht lesbar (Verbindung abgelehnt). Alle Regeln stammen aus Zusammenfassungen der Websuche zu den offiziellen Seiten, nicht aus deren Text: Wort für Wort zu prüfen.",
+     "Zeiten nicht bestätigt: Die konsolidierte Anordnung von 2020 (Beschluss 115/2020 hob das zeitliche Freifenster auf) hat die Zeiten in Abschnitt B6, nicht gelesen. Inoffizielle Ratgeber nennen rund um die Uhr, andere 7:30–20:30; Via Emilia Centro und Corso Duomo haben eigene Zeiten. GateLR verwendet sicherheitshalber 0–24.",
+     "Grenze fehlt: Die Stadt veröffentlicht eine offizielle Grenze als offene Daten (WFS «Ztl_preview»), die von hier nicht geladen werden konnte. Kamerastandorte unbekannt.",
+     "Hotels: Gäste von Hotels, B&Bs und Pensionen in der ZTL dürfen mit dem Ausweis der Unterkunft hinter der Windschutzscheibe einfahren und in der Nähe parken; die Unterkunft meldet dein Kennzeichen vor der Einfahrt oder innerhalb von 48 Stunden der Stadtpolizei. Mietwagen haben keine eigene Genehmigung.",
+     "Kein Touristenticket gefunden: befristete Genehmigungen (laut einem Ratgeber 4 €) gibt es für bestimmte Gruppen, online mit SPID/CIE/CNS. Reine Elektroautos können für die Zufahrt zu jeder Zeit gemeldet werden, das gefundene Formular gilt aber für Einwohner von Modena."
+    ],
+    "links": [
+     {
+      "title": "City of Modena: consolidated ZTL order",
+      "title_it": "Comune di Modena: testo coordinato ordinanza ZTL",
+      "title_de": "Stadt Modena: konsolidierte ZTL-Anordnung",
+      "url": "https://www.comune.modena.it/amministrazione/documenti-e-dati/atti-normativi/ordinanze/ordinanze-a-carattere-generale/testo-coordinato-ordinanza-ztl"
+     },
+     {
+      "title": "VisitModena: limited traffic area (hotel guests)",
+      "title_it": "VisitModena: zona a traffico limitato (ospiti degli hotel)",
+      "title_de": "VisitModena: verkehrsberuhigte Zone (Hotelgäste)",
+      "url": "https://www.visitmodena.it/en/plan-the-trip/lta-limited-traffic-area"
+     },
+     {
+      "title": "VisitModena: car parks",
+      "title_it": "VisitModena: parcheggi",
+      "title_de": "VisitModena: Parkplätze",
+      "url": "https://www.visitmodena.it/en/plan-the-trip/tourist-services/parking-lots"
+     },
+     {
+      "title": "City of Modena: electric vehicles, plate registration",
+      "title_it": "Comune di Modena: veicoli elettrici, comunicazione targhe",
+      "title_de": "Stadt Modena: Elektrofahrzeuge, Kennzeichenmeldung",
+      "url": "https://www.comune.modena.it/amministrazione/documenti-e-dati/modulistica/mobilita-e-trasporti/ztl-e-sosta-a-pagamento-1/veicoli-elettrici/comunicazione-targhe-veicoli-elettrici-per-residenti-a-modena-senza-contrassegno/"
+     },
+     {
+      "title": "City of Modena: disabled badge from another town, plate registration",
+      "title_it": "Comune di Modena: contrassegno disabili di altro comune, comunicazione targhe",
+      "title_de": "Stadt Modena: Behindertenausweis aus einer anderen Gemeinde, Kennzeichenmeldung",
+      "url": "https://www.comune.modena.it/amministrazione/documenti-e-dati/modulistica/mobilita-e-trasporti/ztl-e-sosta-a-pagamento-1/invalidi-e-persone-con-disabilita/comunicazione-targhe-veicoli-al-servizio-di-persone-con-disabilita-di-altro-comune/"
+     },
+     {
+      "title": "City of Modena: official ZTL perimeter, open data (WFS)",
+      "title_it": "Comune di Modena: perimetro ufficiale ZTL, open data (WFS)",
+      "title_de": "Stadt Modena: offizielle ZTL-Grenze, offene Daten (WFS)",
+      "url": "https://geonext.comune.modena.it/geoservernext//Modena/Ztl_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Modena official pages (read through web-search summaries). Perimeter: not yet available."
+}
