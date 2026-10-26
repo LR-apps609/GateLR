@@ -1,0 +1,5 @@
+1 200 112294 https://comune.sangimignano.si.it/it/news/lavori-di-restauro-della-porta-san-giovanni-modifiche-alla-viabilita -> 1-lavori-di-restauro-della-porta-san-giovanni-modifiche-alla-viabilita_
+2 200 115810 https://comune.sangimignano.si.it/it/news/ferie-delle-messi-2026-ordinanza-in-materia-di-circolazione-veicolare-e-pedonale -> 2-ferie-delle-messi-2026-ordinanza-in-materia-di-circolazione-veicolare-e-pedonale
+3 200 104968 https://www.comune.sangimignano.si.it/it/page/parcheggi-auto-abbonamenti-soggetti-non-residenti -> 3-parcheggi-auto-abbonamenti-soggetti-non-residenti_
+4 200 316092 https://san-gimignano-api.cloud.municipiumapp.it/s3/6203/allegati/ufficio-stampa/comunicato-stampa-con-info-utili-per-arrivo-tappa-tirreno-adriatico_10-marzo-2026.pdf -> 4-comunicato-stampa-con-info-utili-per-arrivo-tappa-tirreno-adriatico_10-marzo-202
+5 200 2322 https://ztl.comune.sangimignano.si.it/assets_extra/style_extra.css -> 5-style_extra.css_

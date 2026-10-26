@@ -1,0 +1,142 @@
+
+	h3.footer-heading-title {
+		font-size: 16px
+	}
+
+
+.footer-items-wrapper.logo-wrapper {
+  display: flex;
+  align-items: center;   /* allinea verticalmente */
+  gap: 1rem;             /* spazio tra i loghi e il testo */
+}
+
+.footer-items-wrapper.logo-wrapper a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.ue-logo {
+  height: 60px;
+  width: auto;
+}
+
+.it-brand-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.it-brand-text h2 {
+  margin: 0 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: white; /* cambia colore se necessario */
+}
+
+
+.it-brand-logo {
+	  height :48px;
+  width: auto;
+  object-fit: contain;
+	margin-left: 20px;
+}
+
+
+@media (min-width: 992px) {
+.it-brand-logo {
+	  height :82px;
+  width: auto;
+  object-fit: contain;
+}
+
+}
+
+.nav-link {
+	  font-weight: bold!important;
+
+}
+
+
+.it-header-slim-wrapper {
+  background-color: #202a2e!important;
+}
+
+.it-header-center-wrapper {
+  background-color: #095c9c!important
+}
+
+#header-nav-wrapper {
+  background-color:#095c9c!important
+
+}
+@media (min-width: 992px) {
+.link_portale {
+  color: white !important;
+}
+}
+.login_portale {
+  background-color:  #202a2e!important;
+}
+
+
+.icon_login_portale  {
+  fill:  #202a2e!important;
+}
+.it-footer-main {
+	  background-color: #202a2e!important;
+}
+.it-footer-small-prints {
+	 background-color: #202a2e!important
+}
+.back-to-top{
+	  background-color: #095c9c!important
+}
+
+
+.link-primary {
+ /* color: #00ff00 !important; */
+}
+@media (min-width: 992px) {
+.link-primary:hover,
+.link-primary:focus {
+  color: white !important;
+}
+}
+
+.btn-primary {
+	  background-color: #202a2e!important;
+}
+
+
+.btn-outline-primary {
+	box-shadow: inset 0 0 0 2px #095c9c!important
+	color: #810c03 !important;
+	
+}
+
+svg.icon > image {
+    width: inherit;
+    height: inherit;
+}
+
+/* ── Card ZTL: effetto sporgenza al hover ── */
+.card-ztl {
+  transition: transform 0.22s ease, box-shadow 0.22s ease !important;
+  cursor: pointer;
+}
+
+.card-ztl:hover {
+  transform: translateY(-7px) !important;
+  box-shadow: 0 14px 28px rgba(0, 102, 204, 0.18) !important;
+}
+
+.card-ztl:active {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 12px rgba(0, 102, 204, 0.15) !important;
+}
+
+/* Accessibilità: focus da tastiera */
+.card-ztl:focus-visible {
+  outline: 3px solid #0066cc !important;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
