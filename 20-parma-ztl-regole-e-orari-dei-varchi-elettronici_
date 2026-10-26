@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Discover Parma, the city of taste and art</title>
+<meta name="description" content="The complete travel guide to Parma and its province: hand-picked attractions, experiences, restaurants and hotels."/>
+<link rel="canonical" href="https://parma.info/en/"/>
+<meta property="og:title" content="Discover Parma, the city of taste and art"/>
+<meta property="og:description" content="The complete travel guide to Parma and its province: hand-picked attractions, experiences, restaurants and hotels."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://parma.info/en/"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:image" content="https://parma.info/wp-content/uploads/2026/02/Piazza-Duomo_05.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/site.css?v=88d49963"/>
+<link rel="icon" type="image/webp" href="/favicon.webp"/>
+<link rel="alternate icon" type="image/x-icon" href="/favicon.ico"/>
+<script type="text/javascript">
+var _iub = _iub || [];
+_iub.csConfiguration = {"siteId":4395401,"cookiePolicyId":52298420,"lang":"en","floatingPreferencesButtonDisplay":"bottom-right","banner":{"acceptButtonDisplay":true,"closeButtonDisplay":false,"customizeButtonDisplay":true,"explicitWithdrawal":true,"position":"float-bottom-center","rejectButtonDisplay":true}};
+</script>
+<script type="text/javascript" src="//cdn.iubenda.com/cs/iubenda_cs.js" charset="UTF-8" async></script>
+<script type="text/plain" class="_iub_cs_activate" async src="https://www.googletagmanager.com/gtag/js?id=G-9906YHX32L"></script>
+<script type="text/plain" class="_iub_cs_activate">
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-9906YHX32L');
+</script>
+
+<link rel="alternate" hreflang="en-US" href="https://parma.info/en/"/>
+<link rel="alternate" hreflang="de-DE" href="https://parma.info/de/"/>
+<link rel="alternate" hreflang="it-IT" href="https://parma.info/"/>
+<link rel="alternate" hreflang="x-default" href="https://parma.info/"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Parma.info", "url": "https://parma.info/en/", "inLanguage": "en", "publisher": {"@type": "Organization", "name": "The Tourist Network S.r.L.", "url": "https://parma.info/"}}</script>
+<link rel="preload" as="image" href="https://parma.info/wp-content/uploads/2026/02/Piazza-Duomo_05.jpg" type="image/jpeg" fetchpriority="high"></head>
+<body>
+
+<!-- PARMA.info -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-logo" href="/en/" aria-label="PARMA.info"><span class="verona-up">PARMA</span><span class="info-tld">.info</span></a>
+    <nav class="main-nav">
+      <a href="/en/attractions/">Attractions</a>
+      <a href="/en/interests/">Interests</a>
+      <a href="/en/experiences/">Experiences</a>
+      <div class="nav-item-with-dropdown"><a href="/en/where-to-eat/">Where to Eat <span class="material-symbols-outlined nav-caret">expand_more</span></a><div class="nav-dropdown"><a href="/en/where-to-eat/ristoranti/"><span class="material-symbols-outlined">restaurant</span> Restaurants</a><a href="/en/where-to-eat/pizzeria/"><span class="material-symbols-outlined">local_pizza</span> Pizzerias</a><a href="/en/where-to-eat/enoteca/"><span class="material-symbols-outlined">wine_bar</span> Wine Bars</a><a href="/en/where-to-eat/pub/"><span class="material-symbols-outlined">sports_bar</span> Pubs</a><a href="/en/where-to-eat/fast-food/"><span class="material-symbols-outlined">fastfood</span> Fast Food</a><a href="/en/where-to-eat/ristorante-pizzeria/"><span class="material-symbols-outlined">local_pizza</span> Restaurant Pizzerias</a><a href="/en/where-to-eat/trattoria-pizzeria/"><span class="material-symbols-outlined">local_pizza</span> Trattoria Pizzerias</a><div class="nav-dropdown-sep"></div><a class="nav-dropdown-all" href="/en/where-to-eat/">View all restaurants <span class="material-symbols-outlined">arrow_forward</span></a></div></div>
+      <div class="nav-item-with-dropdown"><a href="/en/where-to-stay/">Where to Stay <span class="material-symbols-outlined nav-caret">expand_more</span></a><div class="nav-dropdown"><a href="/en/where-to-stay/hotel/"><span class="material-symbols-outlined">hotel</span> Hotels</a><a href="/en/where-to-stay/bb/"><span class="material-symbols-outlined">cottage</span> B&amp;B</a><a href="/en/where-to-stay/agriturismo/"><span class="material-symbols-outlined">agriculture</span> Farm Stays</a><a href="/en/where-to-stay/appartamento-vacanza/"><span class="material-symbols-outlined">apartment</span> Apartments</a><a href="/en/where-to-stay/affittacamere/"><span class="material-symbols-outlined">meeting_room</span> Guesthouses</a><div class="nav-dropdown-sep"></div><a class="nav-dropdown-all" href="/en/where-to-stay/">View all properties <span class="material-symbols-outlined">arrow_forward</span></a></div></div>
+      <div class="nav-item-with-dropdown"><a href="/en/services/">Services <span class="material-symbols-outlined nav-caret">expand_more</span></a><div class="nav-dropdown"><a href="/en/services/parcheggi/"><span class="material-symbols-outlined">local_parking</span> Parking</a><a href="/en/services/trasporti/"><span class="material-symbols-outlined">directions_bus</span> Transport</a><a href="/en/services/animali/"><span class="material-symbols-outlined">pets</span> Pet</a><a href="/en/services/educativi/"><span class="material-symbols-outlined">school</span> Education</a><div class="nav-dropdown-sep"></div><a class="nav-dropdown-all" href="/en/services/">View all services <span class="material-symbols-outlined">arrow_forward</span></a></div></div>
+      <a href="/en/plan-your-trip/">Plan</a>
+      <span class="lang-switch">
+        <a class="lang-link" data-lang="it" href="https://parma.info/">IT</a>
+        <a class="lang-link active" data-lang="en" href="https://parma.info/en/">EN</a>
+        <a class="lang-link" data-lang="de" href="https://parma.info/de/">DE</a>
+      </span>
+    </nav>
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileDrawer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+<div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+<aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="mobile-drawer-header">
+    <a class="mobile-drawer-logo" href="/en/" aria-label="PARMA.info"><span class="verona-up">PARMA</span><span class="info-tld">.info</span></a>
+    <button type="button" class="mobile-drawer-close" id="drawerClose" aria-label="Close">×</button>
+  </div>
+  <nav class="mobile-drawer-nav">
+    <a href="/en/attractions/">Attractions</a>
+      <a href="/en/interests/">Interests</a>
+      <a href="/en/experiences/">Experiences</a>
+      <div class="nav-item-with-dropdown"><a href="/en/where-to-eat/">Where to Eat <span class="material-symbols-outlined nav-caret">expand_more</span></a><div class="nav-dropdown"><a href="/en/where-to-eat/ristoranti/"><span class="material-symbols-outlined">restaurant</span> Restaurants</a><a href="/en/where-to-eat/pizzeria/"><span class="material-symbols-outlined">local_pizza</span> Pizzerias</a><a href="/en/where-to-eat/enoteca/"><span class="material-symbols-outlined">wine_bar</span> Wine Bars</a><a href="/en/where-to-eat/pub/"><span class="material-symbols-outlined">sports_bar</span> Pubs</a><a href="/en/where-to-eat/fast-food/"><span class="material-symbols-outlined">fastfood</span> Fast Food</a><a href="/en/where-to-eat/ristorante-pizzeria/"><span class="material-symbols-outlined">local_pizza</span> Restaurant Pizzerias</a><a href="/en/where-to-eat/trattoria-pizzeria/"><span class="material-symbols-outlined">local_pizza</span> Trattoria Pizzerias</a><div class="nav-dropdown-sep"></div><a class="nav-dropdown-all" href="/en/where-to-eat/">View all restaurants <span class="material-symbols-outlined">arrow_forward</span></a></div></div>
+      <div class="nav-item-with-dropdown"><a href="/en/where-to-stay/">Where to Stay <span class="material-symbols-outlined nav-caret">expand_more</span></a><div class="nav-dropdown"><a href="/en/where-to-stay/hotel/"><span class="material-symbols-outlined">hotel</span> Hotels</a><a href="/en/where-to-stay/bb/"><span class="material-symbols-outlined">cottage</span> B&amp;B</a><a href="/en/where-to-stay/agriturismo/"><span class="material-symbols-outlined">agriculture</span> Farm Stays</a><a href="/en/where-to-stay/appartamento-vacanza/"><span class="material-symbols-outlined">apartment</span> Apartments</a><a href="/en/where-to-stay/affittacamere/"><span class="material-symbols-outlined">meeting_room</span> Guesthouses</a><div class="nav-dropdown-sep"></div><a class="nav-dropdown-all" href="/en/where-to-stay/">View all properties <span class="material-symbols-outlined">arrow_forward</span></a></div></div>
+      <div class="nav-item-with-dropdown"><a href="/en/services/">Services <span class="material-symbols-outlined nav-caret">expand_more</span></a><div class="nav-dropdown"><a href="/en/services/parcheggi/"><span class="material-symbols-outlined">local_parking</span> Parking</a><a href="/en/services/trasporti/"><span class="material-symbols-outlined">directions_bus</span> Transport</a><a href="/en/services/animali/"><span class="material-symbols-outlined">pets</span> Pet</a><a href="/en/services/educativi/"><span class="material-symbols-outlined">school</span> Education</a><div class="nav-dropdown-sep"></div><a class="nav-dropdown-all" href="/en/services/">View all services <span class="material-symbols-outlined">arrow_forward</span></a></div></div>
+      <a href="/en/plan-your-trip/">Plan</a>
+  </nav>
+  <div class="mobile-drawer-lang">
+    <a class="lang-link" data-lang="it" href="https://parma.info/">IT</a>
+        <a class="lang-link active" data-lang="en" href="https://parma.info/en/">EN</a>
+        <a class="lang-link" data-lang="de" href="https://parma.info/de/">DE</a>
+  </div>
+</aside>
+<script>
+(function(){
+  var t=document.getElementById('menuToggle'),d=document.getElementById('mobileDrawer'),o=document.getElementById('drawerOverlay'),c=document.getElementById('drawerClose');
+  if(!t||!d||!o)return;
+  function open(){d.classList.add('is-open');o.classList.add('is-open');t.setAttribute('aria-expanded','true');d.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+  function close(){d.classList.remove('is-open');o.classList.remove('is-open');t.setAttribute('aria-expanded','false');d.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+  t.addEventListener('click',function(){d.classList.contains('is-open')?close():open();});
+  o.addEventListener('click',close);
+  if(c)c.addEventListener('click',close);
+  // Mobile drawer dropdown: click sull'item-with-dropdown caret toggla apertura sub-list
+  d.querySelectorAll('.mobile-drawer-nav .nav-item-with-dropdown > a').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      // Solo su mobile drawer aperto (verifica nuovo browser layout)
+      if (window.matchMedia('(max-width:1023px)').matches) {
+        ev.preventDefault();
+        var item = a.parentElement;
+        var wasOpen = item.classList.contains('is-open');
+        // Chiudi tutti gli altri
+        d.querySelectorAll('.mobile-drawer-nav .nav-item-with-dropdown.is-open').forEach(function(o){ if(o!==item) o.classList.remove('is-open'); });
+        item.classList.toggle('is-open', !wasOpen);
+      }
+    });
+  });
+  // Click su sub-link interni → chiude drawer
+
+
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
+<section class="hero-fullwidth hero-giant" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Piazza-Duomo_05.jpg');">
+        <div class="hero-content">
+            <h1>Discover Parma</h1>
+            <p class="hero-subtitle">The complete travel guide to Parma and its province: hand-picked attractions, experiences, restaurants and hotels.</p>
+            <div class="hero-giant-cta">
+                <a href="/en/attractions/" class="primary">Explore attractions</a>
+                <a href="/en/experiences/" class="ghost">Discover experiences</a>
+            </div>
+        </div>
+    </section><section class="section-band">
+            <span class="section-band-eyebrow">Explore by category</span>
+            <h2>Interests</h2>
+            <p class="section-band-sub">Museums, castles, churches, parks and more: find what you are looking for quickly.</p>
+            <div class="exp-slider-wrap">
+      <button type="button" class="exp-slider-arrow prev" data-slider="home_int_211" aria-label="Previous">‹</button>
+      <div class="exp-slider tile-slider" id="home_int_211"><a class="card-tile" href="/en/interests/teatro/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Teatro-Regio_03.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Interest</span>
+            <h3>Theatres in Parma</h3>
+            <p>Teatro Regio, Teatro Farnese — the historic stages of the city.</p>
+        </div>
+    </a><a class="card-tile" href="/en/interests/parco/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Labirinto-della-Masone_01.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Interest</span>
+            <h3>Parks in Parma</h3>
+            <p>Parco Ducale, Labirinto della Masone — green spaces and historic gardens.</p>
+        </div>
+    </a><a class="card-tile" href="/en/interests/palazzo/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Palazzo-Ducale-del-Giardino_05.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Interest</span>
+            <h3>Palaces in Parma</h3>
+            <p>Pilotta, Royal Palace of Colorno, Palazzo Ducale del Giardino and Farnese residences.</p>
+        </div>
+    </a><a class="card-tile" href="/en/interests/localita/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Castello-di-Torrechiara_01.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Interest</span>
+            <h3>Localities near Parma</h3>
+            <p>Salsomaggiore, Fontanellato, Fidenza — towns and localities to visit in the province.</p>
+        </div>
+    </a><a class="card-tile" href="/en/interests/chiesa/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Basilica-di-Santa-Maria-della-Steccata_05.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Interest</span>
+            <h3>Churches in Parma</h3>
+            <p>Cathedral, Baptistery, Steccata, San Giovanni Evangelista — Romanesque and Renaissance masterpieces.</p>
+        </div>
+    </a><a class="card-tile" href="/en/interests/castello/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Castello-di-Torrechiara_01.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Interest</span>
+            <h3>Castles in Parma</h3>
+            <p>Castles of the Duchy of Parma — Torrechiara, Compiano, Tabiano and more.</p>
+        </div>
+    </a><a class="card-tile" href="/en/interests/monumento/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Piazza-Garibaldi_06.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Interest</span>
+            <h3>Monuments in Parma</h3>
+            <p>Squares, statues and landmark places of Verdi&#x27;s hometown.</p>
+        </div>
+    </a><a class="card-tile" href="/en/interests/museo/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Piazza-Duomo_05.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Interest</span>
+            <h3>Museums in Parma</h3>
+            <p>Pilotta, Galleria Nazionale, Museo Diocesano — the artistic treasures of Parma.</p>
+        </div>
+    </a></div>
+      <button type="button" class="exp-slider-arrow next" data-slider="home_int_211" aria-label="Next">›</button>
+    </div>
+    <script>
+    (function() {
+      var s = document.getElementById('home_int_211');
+      if (!s) return;
+      function step(d) {
+        var w = s.querySelector('.card-tile');
+        if (!w) return;
+        s.scrollBy({ left: d * (w.offsetWidth + 16), behavior: 'smooth' });
+      }
+      document.querySelectorAll('.exp-slider-arrow[data-slider="home_int_211"]').forEach(function(b) {
+        b.addEventListener('click', function() { step(b.classList.contains('prev') ? -1 : 1); });
+      });
+    })();
+    </script>
+        </section><section class="section-band">
+            <span class="section-band-eyebrow">What to see</span>
+            <h2>Top attractions</h2>
+            <p class="section-band-sub">The iconic places that shaped the history of the city.</p>
+            <div class="card-grid cols-3"><a class="card-tile" href="/en/attractions/reggia-di-colorno/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Reggia-di-Colorno_01.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Palace</span>
+            <h3>Royal Palace of Colorno</h3>
+            <p>The Versailles of the Dukes of Parma with French-style gardens and Baroque halls</p>
+        </div>
+    </a><a class="card-tile" href="/en/attractions/rocca-sanvitale-di-fontanellato/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Rocca-Sanvitale-di-Fontanellato_01.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Castle</span>
+            <h3>Rocca Sanvitale of Fontanellato</h3>
+            <p>Castle of 1124 with water moat, the Camera del Parmigianino and the Camera Ottica</p>
+        </div>
+    </a><a class="card-tile" href="/en/attractions/parco-ducale/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Parco-Ducale_01.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Park</span>
+            <h3>Parco Ducale</h3>
+            <p>Parma&#x27;s historic green lung with 208,700 m² of Italian-style gardens</p>
+        </div>
+    </a><a class="card-tile" href="/en/attractions/piazzale-della-pace/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Piazzale-della-Pace_01.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Monument</span>
+            <h3>Piazzale della Pace</h3>
+            <p>Parma&#x27;s green heart with the Verdi Altar and the Palazzo della Pilotta</p>
+        </div>
+    </a><a class="card-tile" href="/en/attractions/castello-di-roccabianca/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Castello-di-Roccabianca_01.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Castle</span>
+            <h3>Castle of Roccabianca</h3>
+            <p>Fifteenth-century stronghold of the de&#x27; Rossi with the celebrated cycle of Griselda</p>
+        </div>
+    </a><a class="card-tile" href="/en/attractions/castello-pallavicino-di-varano-de-melegari/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/01/Castello-Pallavicino.webp')"></div>
+        <div class="card-body">
+            <span class="card-cat">Castle</span>
+            <h3>Pallavicino Castle of Varano de&#x27; Melegari</h3>
+            <p>Medieval jewel on a sandstone outcrop dominating the Ceno valley</p>
+        </div>
+    </a></div>
+            <div class="section-cta"><a href="/en/attractions/">See all attractions</a></div>
+        </section><section class="section-band" style="background:var(--grigio-50); max-width:none; padding-left:1.5rem; padding-right:1.5rem;">
+            <div style="max-width:1280px; margin:0 auto;">
+                <span class="section-band-eyebrow">Tours & activities</span>
+                <h2>Experiences to book</h2>
+                <p class="section-band-sub">Guided tours, tastings and activities online in Parma.</p>
+                <div class="card-grid cols-3"><a class="card-tile" href="/en/experiences/tour-guidato-al-teatro-regio-di-parma-capolavoro-neoclassico-e-patrimonio-lirico/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Teatro-Regio_05.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Experience</span>
+            <h3>Guided Tour of Parma&#x27;s Teatro Regio: Neoclassical Masterpiece and Operatic Heritage</h3>
+            <p>An exceptional immersion in the Teatro Regio, a symbol of architectural beauty and Italian musical tradition</p>
+        </div>
+    </a><a class="card-tile" href="/en/experiences/parma-un-affascinante-viaggio-tra-storia-e-prosciutto-di-parma/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Piazza-Garibaldi_06.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Experience</span>
+            <h3>Parma: A Captivating Journey through History and Prosciutto di Parma</h3>
+            <p>An unforgettable experience between historic architecture and culinary tradition</p>
+        </div>
+    </a><a class="card-tile" href="/en/experiences/labirinto-della-masone-biglietto-dingresso-al-piu-grande-labirinto-di-bambu-del-mondo/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/02/Rocca-Sanvitale-di-Fontanellato_06.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Experience</span>
+            <h3>Labirinto della Masone: Entry Ticket to the World&#x27;s Largest Bamboo Maze</h3>
+            <p>A unique adventure between nature, art and history at Fontanellato</p>
+        </div>
+    </a><a class="card-tile" href="/en/experiences/tour-gastronomico-guidato-del-parmigiano-reggiano-e-prosciutto-di-parma-con-degustazione/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/03/FORMAGGIO_03.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Experience</span>
+            <h3>Guided Food Tour of Parmigiano Reggiano and Prosciutto di Parma with Tasting</h3>
+            <p>A sensory journey through tradition, passion and the authentic flavours of Emilia-Romagna</p>
+        </div>
+    </a><a class="card-tile" href="/en/experiences/parma-scopri-la-campagna-con-degustazione-di-cibo-e-vino/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/03/VINO_012.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Experience</span>
+            <h3>Parma: Discover the Countryside with Food and Wine Tasting</h3>
+            <p>An authentic journey through vineyards, cellars and genuine flavours</p>
+        </div>
+    </a><a class="card-tile" href="/en/experiences/parma-tour-guidato-tra-storia-monumenti-e-degustazioni-di-cibo-tipico/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/03/VINO_012.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Experience</span>
+            <h3>Parma: Guided Tour through History, Monuments and Local Food Tastings</h3>
+            <p>Ancient history and authentic flavours in a single tour</p>
+        </div>
+    </a></div>
+                <div class="section-cta"><a href="/en/experiences/">See all experiences</a></div>
+            </div>
+        </section><section class="section-band">
+                <span class="section-band-eyebrow">From the blog</span>
+                <h2>Stories & traditions of Parma</h2>
+                <p class="section-band-sub">Articles, recipes, events: discover the city through its most authentic stories.</p>
+                <div class="card-grid cols-4"><a class="card-tile" href="/en/blog/cosa-vedere-a-fontanellato-gioielli-nascosti-di-questo-incantevole-borgo-parmense/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2024/11/labmasone1.webp')"></div>
+        <div class="card-body">
+            <span class="card-cat">Blog</span>
+            <h3>What to See in Fontanellato: Hidden Gems of this Charming Parma Village</h3>
+            <p>What to see in Fontanellato (Parma): Sanvitale Castle, Parmigianino frescoes, Labirinto della Masone and the Bassa Parme</p>
+        </div>
+    </a><a class="card-tile" href="/en/blog/aeroporto-di-parma-giuseppe-verdi-la-guida-completa-per-i-tuoi-voli-pmf/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2025/02/ross-parmly-rf6ywHVkrlY-unsplash-1024x680.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Blog</span>
+            <h3>Parma &quot;Giuseppe Verdi&quot; Airport: the complete guide to your PMF flights</h3>
+            <p>All you need to know about Parma&#x27;s Giuseppe Verdi Airport (PMF): flights, airlines, services, transfers and parking for </p>
+        </div>
+    </a><a class="card-tile" href="/en/blog/i-migliori-8-hotel-di-parma-dove-soggiornare-per-unesperienza-indimenticabile/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2024/11/torinosfondo.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Blog</span>
+            <h3>The 8 Best Hotels in Parma: Where to Stay for an Unforgettable Experience</h3>
+            <p>Discover Parma&#x27;s top 8 hotels, from luxury 4-star stays in the historic centre to welcoming 3-star superior options with</p>
+        </div>
+    </a><a class="card-tile" href="/en/blog/giuseppe-verdi-il-maestro-dellopera-italiana-che-incanta-ancora/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2024/09/cropped-GiuseppeVerdi.jpg')"></div>
+        <div class="card-body">
+            <span class="card-cat">Blog</span>
+            <h3>Giuseppe Verdi: The Master of Italian Opera Who Still Enchants</h3>
+            <p>Giuseppe Verdi (1813-1901), born near Parma, remains one of the most extraordinary figures in musical history, a living </p>
+        </div>
+    </a></div>
+                <div class="section-cta"><a href="/en/blog/">Visit the blog</a></div>
+            </section><section class="section-band">
+        <span class="section-band-eyebrow">Plan the trip</span>
+        <h2>Plan your trip to Parma</h2>
+        <p class="section-band-sub">Luggage, transport, consulates, rentals: everything you need to arrive and get around Parma with ease.</p>
+        <div class="card-grid cols-3"><a class="card-tile" href="/en/ingresso-e-arrivo-a-parma/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2025/07/Ingresso-e-arrivo-a-Napoli.webp')"></div>
+        <div class="card-body">
+            <span class="card-cat">Plan</span>
+            <h3>Arriving in Parma</h3>
+            <p>Giuseppe Verdi airport, train station, motorways — how to reach Parma.</p>
+        </div>
+    </a><a class="card-tile" href="/en/come-spostarti-a-parma/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/01/Come-spostarti-a-Parma.webp')"></div>
+        <div class="card-body">
+            <span class="card-cat">Plan</span>
+            <h3>Getting around Parma</h3>
+            <p>TEP buses, taxis, sustainable mobility for getting around the city and province.</p>
+        </div>
+    </a><a class="card-tile" href="/en/quando-viaggiare-a-parma/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2025/07/Quando-viaggiare-a-Napoli.webp')"></div>
+        <div class="card-body">
+            <span class="card-cat">Plan</span>
+            <h3>When to travel to Parma</h3>
+            <p>Seasons, events and festivals to choose the best time for your visit.</p>
+        </div>
+    </a><a class="card-tile" href="/en/noleggio-auto-e-mezzi-a-parma/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2026/01/Noleggio-auto-e-mezzi-a-Parma.webp')"></div>
+        <div class="card-body">
+            <span class="card-cat">Plan</span>
+            <h3>Car &amp; vehicle rentals</h3>
+            <p>Car rentals, scooter sharing and bike sharing to explore the territory independently.</p>
+        </div>
+    </a><a class="card-tile" href="/en/bagagli-a-parma/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2025/07/Bagagli-a-Napoli.webp')"></div>
+        <div class="card-body">
+            <span class="card-cat">Plan</span>
+            <h3>Luggage in Parma</h3>
+            <p>Luggage storage and services for those arriving or leaving the city.</p>
+        </div>
+    </a><a class="card-tile" href="/en/consolati-a-parma/">
+        <div class="card-img" style="background-image:url('https://parma.info/wp-content/uploads/2025/07/Consolati-a-Napoli.webp')"></div>
+        <div class="card-body">
+            <span class="card-cat">Plan</span>
+            <h3>Consulates in Parma</h3>
+            <p>Addresses and contacts for the foreign consulates operating in the city.</p>
+        </div>
+    </a></div>
+        <div class="section-cta"><a href="/en/plan-your-trip/">Go to guide</a></div>
+    </section>
+
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="site-footer-grid">
+      <div class="site-footer-col">
+        <h4>Parma.info</h4>
+        <p style="font-size:.9rem; opacity:.85;">The complete guide to discover Parma. Attractions, experiences, restaurants, hotels and everything you need to live the city of Parmigiano and Prosciutto at its best.</p>
+      </div>
+      <div class="site-footer-col">
+        <h4>Explore</h4>
+        <ul><li><a href="/en/attractions/">Attractions</a></li><li><a href="/en/experiences/">Experiences</a></li><li><a href="/en/where-to-eat/">Restaurants</a></li><li><a href="/en/where-to-stay/">Hotels</a></li><li><a href="/en/services/">Services</a></li><li><a href="/en/blog/">Blog</a></li></ul>
+      </div>
+      <div class="site-footer-col">
+        <h4>Information</h4>
+        <ul><li><a href="/en/plan-your-trip/">Plan your trip</a></li><li><a href="/en/quando-viaggiare-a-parma/">When to travel</a></li><li><a href="/en/contact/">Contact</a></li><li><a href="/en/chi-siamo/">About us</a></li></ul>
+      </div>
+      <div class="site-footer-col">
+        <h4>Legal</h4>
+        <ul><li><a href="https://www.iubenda.com/privacy-policy/52298420" class="iubenda-nostyle no-brand iubenda-noiframe iubenda-embed" target="_blank" rel="noopener" title="Privacy Policy">Privacy Policy</a></li><li><a href="https://www.iubenda.com/privacy-policy/52298420/cookie-policy" class="iubenda-nostyle no-brand iubenda-noiframe iubenda-embed" target="_blank" rel="noopener" title="Cookie Policy">Cookie Policy</a></li><li><a href="javascript:void(0)" onclick="if(window._iub&&_iub.cs){_iub.cs.api.openPreferences();}return false;">Cookie preferences</a></li></ul>
+      </div>
+      <div class="site-footer-col">
+        <h4>The Tourist Network</h4>
+        <ul><li><a href="https://torino.info" target="_blank" rel="noopener">Torino.info</a></li><li><a href="https://napoli.info" target="_blank" rel="noopener">Napoli.info</a></li><li><a href="https://verona.info" target="_blank" rel="noopener">Verona.info</a></li></ul>
+      </div>
+    </div>
+    <div class="site-footer-bottom">
+      <p>&copy; 2026 Parma.info — All rights reserved. A project by <strong>The Tourist Network S.r.L.</strong> — Piazza San Giovanni Decollato 1, Terni (TR) — VAT: 01750110551</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js?v=hqseo1" defer></script>
+</body>
+</html>

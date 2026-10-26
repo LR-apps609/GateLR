@@ -1,0 +1,27 @@
+1 200 1149849 https://www.infomobility.pr.it/varchi-e-ztl/ -> 1-varchi-e-ztl_
+2 200 900708 https://www.infomobility.pr.it/mappe/ -> 2-mappe_
+3 200 906172 https://www.infomobility.pr.it/en/map/mappe-pdf/ -> 3-mappe-pdf_
+4 200 1045354 https://www.infomobility.pr.it/area-verde/ -> 4-area-verde_
+5 200 161209 https://www.infomobility.pr.it/wp-content/uploads/2026/06/VieZTL.pdf -> 5-VieZTL.pdf_
+6 200 217632 https://www.infomobility.pr.it/wp-content/uploads/2026/08/Cartolina_ZTL_Turisti_2026.pdf -> 6-Cartolina_ZTL_Turisti_2026.pdf_
+7 200 523753 https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf -> 7-ordinanza_2024_65_18.06.2024.pdf_
+8 200 437411 https://www.infomobility.pr.it/wp-content/uploads/2024/05/Ordinanza-Varchi-49_2024.pdf -> 8-Ordinanza-Varchi-49_2024.pdf_
+9 200 436192 https://www.infomobility.pr.it/wp-content/uploads/2024/06/SU_DET_OVD_60_2024.pdf -> 9-SU_DET_OVD_60_2024.pdf_
+10 200 485317 https://www.infomobility.pr.it/wp-content/uploads/2024/06/SU_DET_OVTE_864_2024.pdf -> 10-SU_DET_OVTE_864_2024.pdf_
+11 200 101173 https://www.infomobility.pr.it/wp-content/uploads/2021/11/Ordinanza-Varco-Sauro-Tommasini.pdf -> 11-Ordinanza-Varco-Sauro-Tommasini.pdf_
+12 200 1079711 https://www.infomobility.pr.it/wp-content/uploads/2021/11/Ordinanza-aggiornamento-accesso-e-sosta-ZTL.pdf -> 12-Ordinanza-aggiornamento-accesso-e-sosta-ZTL.pdf_
+13 200 158471 https://www.infomobility.pr.it/wp-content/uploads/2021/11/Ordinaza-Varco-P.le-DAcquisto.pdf -> 13-Ordinaza-Varco-P.le-DAcquisto.pdf_
+14 200 108831 https://www.infomobility.pr.it/wp-content/uploads/2021/10/Ordinanza-Varchi_2011_02_22_09_53_04.pdf -> 14-Ordinanza-Varchi_2011_02_22_09_53_04.pdf_
+15 200 616311 https://www.infomobility.pr.it/wp-content/uploads/2025/06/ROZ-Ticket-Purchase-Procedure.pdf -> 15-ROZ-Ticket-Purchase-Procedure.pdf_
+16 200 6242701 https://www.infomobility.pr.it/wp-content/uploads/2026/10/SU_DET_OS_102_2026.pdf -> 16-SU_DET_OS_102_2026.pdf_
+17 200 4593442 https://www.infomobility.pr.it/wp-content/uploads/2026/10/area-soggetta-limitazioni-pair2030.pdf -> 17-area-soggetta-limitazioni-pair2030.pdf_
+18 000ERR  https://www.comune.parma.it/it/novita/notizie/pair-2030-dal-1deg-ottobre-in-vigore-le-misure-per-la-qualita-dellaria-previste-dal-piano-aria-integrato-regionale -> 18-pair-2030-dal-1deg-ottobre-in-vigore-le-misure-per-la-qualita-dellaria-previste-
+19 200 225470 https://www.autovia.it/ztl-parma-guida-completa/ -> 19-ztl-parma-guida-completa_
+20 200 33136 https://parma.info/en/info-utili/parma-ztl-regole-e-orari-dei-varchi-elettronici/ -> 20-parma-ztl-regole-e-orari-dei-varchi-elettronici_
+21 200 139382 https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/ -> 21-ztl-a-parma-mappa-orari-e-multe_
+22 200 95366 https://explore.parma.it/it/area/centro-storico/ -> 22-centro-storico_
+23 200 930478 https://www.parmatoday.it/attualita/misure-qualita-aria-1-ottobre-2026.html -> 23-misure-qualita-aria-1-ottobre-2026.html_
+24 200 328830 https://www.accessibilitacentristorici.it/ztl/emilia-romagna/parma.html -> 24-parma.html_
+25 406 156 https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A200%5D%3Barea%5B%22name%22%3D%22Parma%22%5D%5B%22admin_level%22%3D%228%22%5D-%3E.a%3B%28relation%5B%22boundary%22%3D%22limited_traffic_zone%22%5D%28area.a%29%3Brelation%5B%22type%22%3D%22enforcement%22%5D%28area.a%29%3Bway%5B%22boundary%22%3D%22limited_traffic_zone%22%5D%28area.a%29%3Bnode%5B%22man_made%22%3D%22surveillance%22%5D%28area.a%29%3Bnode%5B%22enforcement%22%5D%28area.a%29%3B%29%3Bout%20geom%3B -> 25-interpreter_
+26 406 156 https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A200%5D%3B%28way%5B%22highway%22%5D%2844.785%2C10.300%2C44.820%2C10.355%29%3Bway%5B%22area%3Ahighway%22%5D%2844.785%2C10.300%2C44.820%2C10.355%29%3B%29%3Bout%20geom%3B -> 26-interpreter_
+27 406 156 https://overpass-api.de/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A200%5D%3Barea%5B%22name%22%3D%22Parma%22%5D%5B%22admin_level%22%3D%228%22%5D-%3E.a%3B%28way%5B%22name%22~%22Tangenziale%22%5D%28area.a%29%3Bway%5B%22highway%22~%22motorway%7Ctrunk%22%5D%28area.a%29%3B%29%3Bout%20geom%3B -> 27-interpreter_

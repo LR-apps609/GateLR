@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="it" class="h-100" data-bs-theme="dark">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/favicon-16x16.png">
+        <link rel="manifest" href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icons/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/img/icons/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+    
+        <!--
+        /**
+        * @license
+        * MyFonts Webfont Build ID 566443
+        *
+        * The fonts listed in this notice are subject to the End User License
+        * Agreement(s) entered into by the website owner. All other parties are
+        * explicitly restricted from using the Licensed Webfonts(s).
+        *
+        * You may obtain a valid license from one of MyFonts official sites.
+        * http://www.fonts.com
+        * http://www.myfonts.com
+        * http://www.linotype.com
+        *
+        */-->  
+        
+        <!-- Critical CSS -->
+        <script type="text/javascript" src="/ruxitagentjs_ICA7NVfgqrux_10345260810170330.js" data-dtconfig="rid=RID_-2043617110|rpid=-205336642|domain=unipolmove.it|reportUrl=/rb_42fa3696-bbf0-49d8-aeb8-276de7a91dfa|app=d14c90ade6c6e0a6|cuc=dcpk7pmw|owasp=1|mel=100000|featureHash=ICA7NVfgqrux|dpvc=1|lastModification=1792650826724|tp=500,50,0|rdnt=1|uxrgce=1|srbbv=2|agentUri=/ruxitagentjs_ICA7NVfgqrux_10345260810170330.js"></script><style>body{font-family:HelveticaNeueLTPro-Roman!important}h1{overflow-wrap:break-word}ol,ul{overflow-wrap:break-word}p{overflow-wrap:break-word}:root{--wp--preset--font-size--normal:16px;--wp--preset--font-size--huge:42px}body{--wp--preset--color--black:#000000;--wp--preset--color--cyan-bluish-gray:#abb8c3;--wp--preset--color--white:#ffffff;--wp--preset--color--pale-pink:#f78da7;--wp--preset--color--vivid-red:#cf2e2e;--wp--preset--color--luminous-vivid-orange:#ff6900;--wp--preset--color--luminous-vivid-amber:#fcb900;--wp--preset--color--light-green-cyan:#7bdcb5;--wp--preset--color--vivid-green-cyan:#00d084;--wp--preset--color--pale-cyan-blue:#8ed1fc;--wp--preset--color--vivid-cyan-blue:#0693e3;--wp--preset--color--vivid-purple:#9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum:linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple:linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux:linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk:linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean:linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass:linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight:linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale:url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale:url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow:url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red:url('#wp-duotone-blue-red');--wp--preset--duotone--midnight:url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow:url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green:url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange:url('#wp-duotone-blue-orange');--wp--preset--font-size--small:13px;--wp--preset--font-size--medium:20px;--wp--preset--font-size--large:36px;--wp--preset--font-size--x-large:42px}:root{--blog-body-dark:#002D4D;--blog-divider:#CEDAE4;--blog-primary-400:#0096FF}body.single-post{background:#fff}.blog-article-list .blog-article-list-item{position:relative;padding-bottom:1.5rem}.blog-article-list .blog-article-list-item:after{content:"";position:absolute;z-index:1;bottom:0;left:0;width:100%;height:2px;background-color:#cedae4}.blog-article-list .blog-article-list-item:last-of-type:after{display:none}.blog-article-list-title a{font-family:HelveticaNeueLTPro-Bd;color:#000f1a;text-decoration:none}.blog-article-category{color:#527694;margin-bottom:.875rem}@media (min-width:768px){.blog-article-list .blog-article-list-item{padding-bottom:0}.blog-article-category{margin-bottom:1.25rem}}.blog-article-category a{text-decoration:none;color:#527694}.blog-article-date-share{color:#004a80;margin:.5rem 0 1.5rem}.blog-article-date-share .blog-article-date{padding:.875rem 0}@media (min-width:768px){.blog-article-date-share{margin:.5rem 0 1.5rem}.blog-article-date-share .blog-article-date{padding:1.25rem 0}}.blog-article-share{margin:0}.blog-article-share a{text-decoration:none}.blog-article-share .dropdown-toggle{padding:.875rem 0}@media (min-width:768px){.blog-article-share .dropdown-toggle{padding:1.25rem 0}}.blog-article-share .dropdown-toggle:after{display:none!important}.blog-article-share .dropdown-menu{background-color:#fff;box-shadow:0 2px 15px rgba(0,0,0,.15);border:0;min-width:16.625rem;border-radius:.5rem;margin-top:.625rem!important;padding:1rem}.blog-article-share .dropdown-menu:before{content:"";position:absolute;top:-13px;border-top:0;border-right:14px solid transparent;border-bottom:14px solid transparent;border-left:14px solid transparent;border-bottom-color:#fff;filter:drop-shadow(0 2px 15px rgba(0,0,0,.15));left:20px}@media (min-width:576px){.blog-article-share .dropdown-menu:before{left:auto;right:20px}.container{max-width:540px}}.blog-article-share .dropdown-menu li:last-child{border-bottom:0}.blog-article-share .dropdown-menu .dropdown-item{display:flex;gap:.75rem;padding:.875rem .75rem .625rem;color:#000f1a;font-size:.875rem}.blog-article-share .dropdown-menu .dropdown-item svg{width:1rem;height:1rem}.blog-article-image .blog-article-image-caption{font-family:HelveticaNeueLTPro-Roman;font-style:italic;margin-top:.75rem;font-size:.875rem!important;color:#002d4d}.blog-search-form{margin-bottom:2rem}.blog-search-form .input-group{background-color:#f2f2f2}.blog-search-form .input-group .icon{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);background-color:transparent;display:flex;align-content:center;align-items:center;justify-content:center;z-index:6;border:0;padding:0;width:1.5rem;height:1.5rem}.blog-search-form .input-group .icon.icon-search{left:1.0625rem}.blog-search-form .input-group .icon.icon-search svg{fill:#595959}.blog-search-form .input-group .form-control{background-color:#f2f2f2;border:2px solid #cedae4;color:#595959;font-weight:500;font-size:1rem;padding:.8125rem 2.875rem .5rem 3.125rem}@media (min-width:992px){.blog-search-form .input-group .icon.icon-search{left:1.375rem}.blog-search-form .input-group .form-control{font-size:1.25rem;padding:1.125rem 3.5rem .8125rem 3.125rem}}.blog-search-form .input-group .form-control:-ms-input-placeholder{color:#595959}.blog-search-form .input-group .form-control::-ms-input-placeholder{color:#595959}.blog-search-form .input-group .form-control::-webkit-search-cancel-button{background-color:#595959;display:none}.blog-search-form .input-group .btn{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);z-index:6;border-radius:0;width:1.5rem;height:1.5rem;padding:0;right:.875rem}.blog-search-form .input-group .btn svg{fill:#0096ff;width:1rem;height:1rem}.widget-area-blog .blog-article-list .blog-article-list-item{padding:1.5rem 0 2.5rem}.widget-area-blog .blog-article-list .blog-article-list-item:not(:last-child){border-bottom:2px solid #cedae4}.widget-area-blog .blog-article-list .blog-article-list-item:after{display:none}.um-breadcrumb .breadcrumb .breadcrumb-item{letter-spacing:.8px}@media (min-width:768px){.blog-article-image .blog-article-image-caption{margin-top:.75rem;font-size:1rem!important}.blog-search-form{margin-bottom:3.75rem}.widget-area-blog{padding-left:1.125rem}.um-breadcrumb .breadcrumb .breadcrumb-item{letter-spacing:2px}}.um-breadcrumb .breadcrumb .breadcrumb-item a{text-decoration:none}:root{--bs-gutter-x-mobile-custom:2.5rem}[data-bs-theme=dark]{--header-banner-app-bg:#F7F7F7;--header-banner-app-color:#0F3250;--header-navbar-border-color:rgba(213, 218, 223, 0.24);--header-navbar-bg:rgba(255, 255, 255, 0.01);--header-link:#ffffff;--header-active-link:#ffffff;--header-desktop-active-link:#ffffff;--header-mobile-active-link:#0F3250;--header-menu-item-description-bg:rgba(213, 218, 223, 0.24);--header-menu-card-bg:#162F3E;--header-menu-card-color:#ffffff;--navbar-dark-header-link:#0F3250;--navbar-dark-header-active-link:#0F3250;--navbar-toggler-bg:#ffffff;--submenu-link-color:#ffffff;--submenu-mobile-title-main-color:#ffffff;--submenu-desktop-title-main-color:#A1ACB6;--offcanvas-bg:#0096FF;--offcanvas-footer-bg:#ffffff;--offcanvas-footer-link:#0F3250;--offcanvas-brd:#68C1FF;--header-language-desktop-dropdown-toggle-color:#ffffff;--header-language-desktop-dropdown-item-active-color:#0096FF;--header-language-desktop-dropdown-item-hover-bg:#374F63;--header-language-desktop-dropdown-menu-bg:#142938;--header-language-desktop-dropdown-menu-li-border-color:#374F63;--hero-banner-bottom-bg:rgba(213, 218, 223, 0.1);--hero-banner-bottom-logo:#ffffff;--hero-banner-bottom-cta:#ffffff;--section-talk-about-us-bg:#ffffff;--tabs-offer-gradient-start:#0096FF;--tabs-offer-gradient-end:#08233A;--tabs-offer-private-navlink:#01090E;--tabs-offer-private-navlink-active-bg:#D5DADF;--tabs-offer-business-nav-pills-bg:#162F3E;--tabs-offer-business-navlink:#ffffff;--tabs-offer-business-navlink-active-bg:#D5DADF;--tabs-offer-business-navlink-active:#01090E;--tabs-offer-private-card-bg:#ffffff;--tabs-offer-private-card-color:#374F63;--tabs-offer-private-card-promo-badge-base-bg:#FFCD41;--tabs-offer-private-card-promo-badge-base-corner:#FFBC00;--tabs-offer-private-card-promo-badge-base-color:#01090E;--tabs-offer-private-card-promo-badge-payperuse-bg:#D8EFFF;--tabs-offer-private-card-promo-badge-payperuse-corner:#8ACFFF;--tabs-offer-private-card-promo-badge-payperuse-color:#374F63;--tabs-offer-private-card-title-color:#0F3250;--tabs-offer-private-card-price-color:#0F3250;--tabs-offer-private-card-text-emphasis-color:#0096FF;--tabs-offer-private-card-text-evidence-color:#0F3250;--tabs-offer-private-card-hr-border-color:#D5DADF;--tabs-offer-private-card-icon-color:#0096FF;--tabs-offer-business-card-bg:#162F3E;--tabs-offer-business-card-color:#D5DADF;--tabs-offer-business-card-title-color:#ffffff;--tabs-offer-business-card-title-color:#ffffff;--tabs-offer-business-card-price-color:#ffffff;--tabs-offer-business-card-text-emphasis-color:#0096FF;--tabs-offer-business-card-text-evidence-color:#ffffff;--tabs-offer-business-card-hr-border-color:#687B8B;--tabs-offer-business-card-icon-color:#0096FF;--tile-hover-content-bg:#162F3E;--card-bg:#162F3E;--swiper-advavtage-thumb-item-color:#EBF1F4;--swiper-advavtage-thumb-icon:#0096FF;--swiper-advavtage-pagination-progressbar-bg:#374F63;--swiper-advavtage-pagination-progressbar-fill:#0096FF;--tile-bg-dark:#04131C;--tile-bg-light:#162F3E;--plans-summary-private-bg:#162F3E;--plans-summary-business-bg:#04131C;--plans-summary-border:rgba(213, 218, 223, 0.24);--plans-summary-icon-fill:#ffffff;--modal-bg:#142938;--footer-wrapper-bg:#ffffff;--footer-wrapper-link-hover:#0F3250;--footer-text-color:#04131C;--footer-social-icon-border-color:#04131C;--footer-social-icon-text-color:#04131C;--footer-social-icon-text-color-hover:#ffffff;--footer-credits-icon:#0096FF;--footer-blog-wrapper-bg:#04131C;--footer-blog-wrapper-link-hover:#ffffff;--footer-blog-text-color:#ffffff;--footer-blog-social-icon-border-color:#ffffff;--footer-blog-social-icon-text-color:#ffffff;--footer-blog-social-icon-text-color-hover:#04131C;--card-article-bg:#142938}:root,[data-bs-theme=light]{--bs-blue:#0d6efd;--bs-indigo:#6610f2;--bs-purple:#6f42c1;--bs-pink:#d63384;--bs-red:#dc3545;--bs-orange:#fd7e14;--bs-yellow:#ffc107;--bs-green:#198754;--bs-teal:#20c997;--bs-cyan:#0dcaf0;--bs-black:#01090E;--bs-white:#ffffff;--bs-gray:#6c757d;--bs-gray-dark:#343a40;--bs-gray-100:#f8f9fa;--bs-gray-200:#e9ecef;--bs-gray-300:#dee2e6;--bs-gray-400:#ced4da;--bs-gray-500:#adb5bd;--bs-gray-600:#6c757d;--bs-gray-700:#495057;--bs-gray-800:#343a40;--bs-gray-900:#212529;--bs-primary:#0096FF;--bs-secondary:#6c757d;--bs-success:#198754;--bs-info:#0dcaf0;--bs-warning:#ffc107;--bs-danger:#dc3545;--bs-light:#f8f9fa;--bs-dark:#212529;--bs-primary-rgb:0,150,255;--bs-secondary-rgb:108,117,125;--bs-success-rgb:25,135,84;--bs-info-rgb:13,202,240;--bs-warning-rgb:255,193,7;--bs-danger-rgb:220,53,69;--bs-light-rgb:248,249,250;--bs-dark-rgb:33,37,41;--bs-primary-text-emphasis:#003c66;--bs-secondary-text-emphasis:#2b2f32;--bs-success-text-emphasis:#0a3622;--bs-info-text-emphasis:#055160;--bs-warning-text-emphasis:#664d03;--bs-danger-text-emphasis:#58151c;--bs-light-text-emphasis:#495057;--bs-dark-text-emphasis:#495057;--bs-primary-bg-subtle:#cceaff;--bs-secondary-bg-subtle:#e2e3e5;--bs-success-bg-subtle:#d1e7dd;--bs-info-bg-subtle:#cff4fc;--bs-warning-bg-subtle:#fff3cd;--bs-danger-bg-subtle:#f8d7da;--bs-light-bg-subtle:#fcfcfd;--bs-dark-bg-subtle:#ced4da;--bs-primary-border-subtle:#99d5ff;--bs-secondary-border-subtle:#c4c8cb;--bs-success-border-subtle:#a3cfbb;--bs-info-border-subtle:#9eeaf9;--bs-warning-border-subtle:#ffe69c;--bs-danger-border-subtle:#f1aeb5;--bs-light-border-subtle:#e9ecef;--bs-dark-border-subtle:#adb5bd;--bs-white-rgb:255,255,255;--bs-black-rgb:1,9,14;--bs-font-sans-serif:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--bs-font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--bs-gradient:linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));--bs-body-font-family:var(--bs-font-sans-serif);--bs-body-font-size:1rem;--bs-body-font-weight:400;--bs-body-line-height:1.5;--bs-body-color:#212529;--bs-body-color-rgb:33,37,41;--bs-body-bg:#ffffff;--bs-body-bg-rgb:255,255,255;--bs-emphasis-color:#01090E;--bs-emphasis-color-rgb:1,9,14;--bs-secondary-color:rgba(33, 37, 41, 0.75);--bs-secondary-color-rgb:33,37,41;--bs-secondary-bg:#e9ecef;--bs-secondary-bg-rgb:233,236,239;--bs-tertiary-color:rgba(33, 37, 41, 0.5);--bs-tertiary-color-rgb:33,37,41;--bs-tertiary-bg:#f8f9fa;--bs-tertiary-bg-rgb:248,249,250;--bs-heading-color:inherit;--bs-link-color:#0096FF;--bs-link-color-rgb:0,150,255;--bs-link-decoration:underline;--bs-link-hover-color:#0078cc;--bs-link-hover-color-rgb:0,120,204;--bs-code-color:#d63384;--bs-highlight-color:#212529;--bs-highlight-bg:#fff3cd;--bs-border-width:1px;--bs-border-style:solid;--bs-border-color:#dee2e6;--bs-border-color-translucent:rgba(1, 9, 14, 0.175);--bs-border-radius:0.375rem;--bs-border-radius-sm:0.25rem;--bs-border-radius-lg:0.5rem;--bs-border-radius-xl:1rem;--bs-border-radius-xxl:2rem;--bs-border-radius-2xl:var(--bs-border-radius-xxl);--bs-border-radius-pill:50rem;--bs-box-shadow:0 0.5rem 1rem rgba(1, 9, 14, 0.15);--bs-box-shadow-sm:0 0.125rem 0.25rem rgba(1, 9, 14, 0.075);--bs-box-shadow-lg:0 1rem 3rem rgba(1, 9, 14, 0.175);--bs-box-shadow-inset:inset 0 1px 2px rgba(1, 9, 14, 0.075);--bs-focus-ring-width:0.25rem;--bs-focus-ring-opacity:0.25;--bs-focus-ring-color:rgba(0, 150, 255, 0.25);--bs-form-valid-color:#198754;--bs-form-valid-border-color:#198754;--bs-form-invalid-color:#dc3545;--bs-form-invalid-border-color:#dc3545}[data-bs-theme=dark]{color-scheme:dark;--bs-body-color:#ffffff;--bs-body-color-rgb:255,255,255;--bs-body-bg:#01090E;--bs-body-bg-rgb:1,9,14;--bs-emphasis-color:#ffffff;--bs-emphasis-color-rgb:255,255,255;--bs-secondary-color:rgba(255, 255, 255, 0.75);--bs-secondary-color-rgb:255,255,255;--bs-secondary-bg:#343a40;--bs-secondary-bg-rgb:52,58,64;--bs-tertiary-color:rgba(255, 255, 255, 0.5);--bs-tertiary-color-rgb:255,255,255;--bs-tertiary-bg:#2b3035;--bs-tertiary-bg-rgb:43,48,53;--bs-primary-text-emphasis:#66c0ff;--bs-secondary-text-emphasis:#a7acb1;--bs-success-text-emphasis:#75b798;--bs-info-text-emphasis:#6edff6;--bs-warning-text-emphasis:#ffda6a;--bs-danger-text-emphasis:#ea868f;--bs-light-text-emphasis:#f8f9fa;--bs-dark-text-emphasis:#dee2e6;--bs-primary-bg-subtle:#001e33;--bs-secondary-bg-subtle:#161719;--bs-success-bg-subtle:#051b11;--bs-info-bg-subtle:#032830;--bs-warning-bg-subtle:#332701;--bs-danger-bg-subtle:#2c0b0e;--bs-light-bg-subtle:#343a40;--bs-dark-bg-subtle:#1b2227;--bs-primary-border-subtle:#005a99;--bs-secondary-border-subtle:#41464b;--bs-success-border-subtle:#0f5132;--bs-info-border-subtle:#087990;--bs-warning-border-subtle:#997404;--bs-danger-border-subtle:#842029;--bs-light-border-subtle:#495057;--bs-dark-border-subtle:#343a40;--bs-heading-color:inherit;--bs-link-color:#0096FF;--bs-link-hover-color:#33abff;--bs-link-color-rgb:0,150,255;--bs-link-hover-color-rgb:51,171,255;--bs-code-color:#e685b5;--bs-highlight-color:#ffffff;--bs-highlight-bg:#664d03;--bs-border-color:#495057;--bs-border-color-translucent:rgba(255, 255, 255, 0.15);--bs-form-valid-color:#75b798;--bs-form-valid-border-color:#75b798;--bs-form-invalid-color:#ea868f;--bs-form-invalid-border-color:#ea868f}*,::after,::before{box-sizing:border-box}@media (prefers-reduced-motion:no-preference){:root{scroll-behavior:smooth}}body{margin:0;font-family:var(--bs-body-font-family);font-size:var(--bs-body-font-size);font-weight:var(--bs-body-font-weight);line-height:var(--bs-body-line-height);color:var(--bs-body-color);text-align:var(--bs-body-text-align);background-color:var(--bs-body-bg);-webkit-text-size-adjust:100%}h1{margin-top:0;margin-bottom:.5rem;font-family:HelveticaNeueLTPro-Bd;font-weight:500;line-height:1.2;color:var(--bs-heading-color)}h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){h1{font-size:2.5rem}}p{margin-top:0;margin-bottom:1rem}ol,ul{padding-left:2rem}ol,ul{margin-top:0;margin-bottom:1rem}ul ul{margin-bottom:0}strong{font-weight:bolder}a{color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));text-decoration:underline}img,svg{vertical-align:middle}label{display:inline-block}button{border-radius:0}button,input{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button{text-transform:none}[type=button],[type=submit],button{-webkit-appearance:button}::-moz-focus-inner{padding:0;border-style:none}::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-fields-wrapper,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-text,::-webkit-datetime-edit-year-field{padding:0}::-webkit-inner-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-color-swatch-wrapper{padding:0}::file-selector-button{font:inherit;-webkit-appearance:button}.list-unstyled{padding-left:0;list-style:none}.container{--bs-gutter-x:1.25rem;--bs-gutter-y:0;width:100%;padding-right:calc(var(--bs-gutter-x)*.5);padding-left:calc(var(--bs-gutter-x)*.5);margin-right:auto;margin-left:auto}@media (min-width:768px){.container{max-width:760px}}@media (min-width:992px){.blog-search-form .input-group .btn{right:1.375rem}.container{max-width:960px}}@media (min-width:1200px){.container{max-width:1140px}}:root{--bs-breakpoint-xs:0;--bs-breakpoint-sm:576px;--bs-breakpoint-md:768px;--bs-breakpoint-lg:992px;--bs-breakpoint-xl:1200px;--bs-breakpoint-xxl:1440px;--bs-breakpoint-2k:1920px;--bs-breakpoint-4k:2560px}.row{--bs-gutter-x:1.25rem;--bs-gutter-y:0;display:flex;flex-wrap:wrap;margin-top:calc(-1*var(--bs-gutter-y));margin-right:calc(-.5*var(--bs-gutter-x));margin-left:calc(-.5*var(--bs-gutter-x))}.row>*{flex-shrink:0;width:100%;max-width:100%;padding-right:calc(var(--bs-gutter-x)*.5);padding-left:calc(var(--bs-gutter-x)*.5);margin-top:var(--bs-gutter-y)}.col-6{flex:0 0 auto;width:50%}.g-2{--bs-gutter-x:0.5rem}.g-2{--bs-gutter-y:0.5rem}@media (min-width:768px){.col-md-1{flex:0 0 auto;width:8.33333333%}.col-md-4{flex:0 0 auto;width:33.33333333%}.col-md-7{flex:0 0 auto;width:58.33333333%}.col-md-8{flex:0 0 auto;width:66.66666667%}.offset-md-2{margin-left:16.66666667%}}.form-control{display:block;width:100%;padding:.375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:var(--bs-body-color);appearance:none;background-color:var(--bs-body-bg);background-clip:padding-box;border:var(--bs-border-width) solid #a1acb6;border-radius:.75rem}.form-control::-webkit-date-and-time-value{min-width:85px;height:1.5em;margin:0}.form-control::-webkit-datetime-edit{display:block;padding:0}.input-group{position:relative;display:flex;flex-wrap:wrap;align-items:stretch;width:100%}.input-group>.form-control{position:relative;flex:1 1 auto;width:1%;min-width:0}.input-group .btn{position:relative;z-index:2}.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating){border-top-right-radius:0;border-bottom-right-radius:0}.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){margin-left:calc(var(--bs-border-width) * -1);border-top-left-radius:0;border-bottom-left-radius:0}.btn{--bs-btn-padding-x:0.75rem;--bs-btn-padding-y:0.375rem;--bs-btn-font-family: ;--bs-btn-font-size:1rem;--bs-btn-font-weight:400;--bs-btn-line-height:1.5;--bs-btn-color:var(--bs-body-color);--bs-btn-bg:transparent;--bs-btn-border-width:var(--bs-border-width);--bs-btn-border-color:transparent;--bs-btn-border-radius:var(--bs-border-radius);--bs-btn-hover-border-color:transparent;--bs-btn-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(1, 9, 14, 0.075);--bs-btn-disabled-opacity:0.65;--bs-btn-focus-box-shadow:0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);display:inline-block;padding:var(--bs-btn-padding-y) var(--bs-btn-padding-x);font-family:var(--bs-btn-font-family);font-size:var(--bs-btn-font-size);font-weight:var(--bs-btn-font-weight);line-height:var(--bs-btn-line-height);color:var(--bs-btn-color);text-align:center;text-decoration:none;vertical-align:middle;border:var(--bs-btn-border-width) solid var(--bs-btn-border-color);border-radius:var(--bs-btn-border-radius);background-color:var(--bs-btn-bg)}.btn-primary{--bs-btn-color:#01090E;--bs-btn-bg:#0096FF;--bs-btn-border-color:#0096FF;--bs-btn-hover-color:#01090E;--bs-btn-hover-bg:#26a6ff;--bs-btn-hover-border-color:#1aa1ff;--bs-btn-focus-shadow-rgb:0,129,219;--bs-btn-active-color:#01090E;--bs-btn-active-bg:#33abff;--bs-btn-active-border-color:#1aa1ff;--bs-btn-active-shadow:inset 0 3px 5px rgba(1, 9, 14, 0.125);--bs-btn-disabled-color:#01090E;--bs-btn-disabled-bg:#0096FF;--bs-btn-disabled-border-color:#0096FF}.btn-link{--bs-btn-font-weight:400;--bs-btn-color:var(--bs-link-color);--bs-btn-bg:transparent;--bs-btn-border-color:transparent;--bs-btn-hover-color:var(--bs-link-hover-color);--bs-btn-hover-border-color:transparent;--bs-btn-active-color:var(--bs-link-hover-color);--bs-btn-active-border-color:transparent;--bs-btn-disabled-color:#6c757d;--bs-btn-disabled-border-color:transparent;--bs-btn-box-shadow:0 0 0 #000;--bs-btn-focus-shadow-rgb:0,129,219;text-decoration:underline}.fade:not(.show){opacity:0}.dropdown{position:relative}.dropdown-toggle{white-space:nowrap}.dropdown-toggle::after{display:inline-block;margin-left:.255em;vertical-align:.255em;content:"";border-top:.3em solid;border-right:.3em solid transparent;border-bottom:0;border-left:.3em solid transparent}.dropdown-menu{--bs-dropdown-zindex:1000;--bs-dropdown-min-width:10rem;--bs-dropdown-padding-x:0;--bs-dropdown-padding-y:0.5rem;--bs-dropdown-spacer:0.125rem;--bs-dropdown-font-size:1rem;--bs-dropdown-color:var(--bs-body-color);--bs-dropdown-bg:var(--bs-body-bg);--bs-dropdown-border-color:var(--bs-border-color-translucent);--bs-dropdown-border-radius:var(--bs-border-radius);--bs-dropdown-border-width:var(--bs-border-width);--bs-dropdown-inner-border-radius:calc(var(--bs-border-radius) - var(--bs-border-width));--bs-dropdown-divider-bg:var(--bs-border-color-translucent);--bs-dropdown-divider-margin-y:0.5rem;--bs-dropdown-box-shadow:var(--bs-box-shadow);--bs-dropdown-link-color:var(--bs-body-color);--bs-dropdown-link-hover-color:var(--bs-body-color);--bs-dropdown-link-hover-bg:var(--bs-tertiary-bg);--bs-dropdown-link-active-color:#ffffff;--bs-dropdown-link-active-bg:#0096FF;--bs-dropdown-link-disabled-color:var(--bs-tertiary-color);--bs-dropdown-item-padding-x:1rem;--bs-dropdown-item-padding-y:0.25rem;--bs-dropdown-header-color:#6c757d;--bs-dropdown-header-padding-x:1rem;--bs-dropdown-header-padding-y:0.5rem;position:absolute;z-index:var(--bs-dropdown-zindex);display:none;min-width:var(--bs-dropdown-min-width);padding:var(--bs-dropdown-padding-y) var(--bs-dropdown-padding-x);margin:0;font-size:var(--bs-dropdown-font-size);color:var(--bs-dropdown-color);text-align:left;list-style:none;background-color:var(--bs-dropdown-bg);background-clip:padding-box;border:var(--bs-dropdown-border-width) solid var(--bs-dropdown-border-color);border-radius:var(--bs-dropdown-border-radius)}.dropdown-menu[data-bs-popper]{top:100%;left:0;margin-top:var(--bs-dropdown-spacer)}.dropdown-menu-end{--bs-position:end}.dropdown-menu-end[data-bs-popper]{right:0;left:auto}.dropdown-item{display:block;width:100%;padding:var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);clear:both;font-weight:400;color:var(--bs-dropdown-link-color);text-align:inherit;text-decoration:none;white-space:nowrap;background-color:rgba(0,0,0,0);border:0;border-radius:var(--bs-dropdown-item-border-radius,0)}.dropdown-item.active{color:var(--bs-dropdown-link-active-color);text-decoration:none;background-color:var(--bs-dropdown-link-active-bg)}.navbar{--bs-navbar-padding-x:0;--bs-navbar-padding-y:0.5rem;--bs-navbar-color:rgba(var(--bs-emphasis-color-rgb), 0.65);--bs-navbar-hover-color:rgba(var(--bs-emphasis-color-rgb), 0.8);--bs-navbar-disabled-color:rgba(var(--bs-emphasis-color-rgb), 0.3);--bs-navbar-active-color:rgba(var(--bs-emphasis-color-rgb), 1);--bs-navbar-brand-padding-y:0.3125rem;--bs-navbar-brand-margin-end:1rem;--bs-navbar-brand-font-size:1.25rem;--bs-navbar-brand-color:rgba(var(--bs-emphasis-color-rgb), 1);--bs-navbar-brand-hover-color:rgba(var(--bs-emphasis-color-rgb), 1);--bs-navbar-nav-link-padding-x:0.5rem;--bs-navbar-toggler-padding-y:0.25rem;--bs-navbar-toggler-padding-x:0.75rem;--bs-navbar-toggler-font-size:1.25rem;--bs-navbar-toggler-icon-bg:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");--bs-navbar-toggler-border-color:rgba(var(--bs-emphasis-color-rgb), 0.15);--bs-navbar-toggler-border-radius:var(--bs-border-radius);--bs-navbar-toggler-focus-width:0.25rem;position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:var(--bs-navbar-padding-y) var(--bs-navbar-padding-x)}.navbar>.container{display:flex;flex-wrap:inherit;align-items:center;justify-content:space-between}.navbar-brand{padding-top:var(--bs-navbar-brand-padding-y);padding-bottom:var(--bs-navbar-brand-padding-y);margin-right:var(--bs-navbar-brand-margin-end);font-size:var(--bs-navbar-brand-font-size);color:var(--bs-navbar-brand-color);text-decoration:none;white-space:nowrap}.navbar-nav{--bs-nav-link-padding-x:0;--bs-nav-link-padding-y:0.5rem;--bs-nav-link-font-weight: ;--bs-nav-link-color:var(--bs-navbar-color);--bs-nav-link-hover-color:var(--bs-navbar-hover-color);--bs-nav-link-disabled-color:var(--bs-navbar-disabled-color);display:flex;flex-direction:column;padding-left:0;margin-bottom:0;list-style:none}.navbar-toggler{padding:var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);font-size:var(--bs-navbar-toggler-font-size);line-height:1;color:var(--bs-navbar-color);background-color:rgba(0,0,0,0);border:var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);border-radius:var(--bs-navbar-toggler-border-radius)}@media (min-width:1200px){.navbar-expand-xl{flex-wrap:nowrap;justify-content:flex-start}.navbar-expand-xl .navbar-nav{flex-direction:row}.navbar-expand-xl .navbar-toggler{display:none}.navbar-expand-xl .offcanvas{position:static;z-index:auto;flex-grow:1;width:auto!important;height:auto!important;visibility:visible!important;background-color:rgba(0,0,0,0)!important;border:0!important;transform:none!important}.navbar-expand-xl .offcanvas .offcanvas-header{display:none}}.breadcrumb{--bs-breadcrumb-padding-x:0;--bs-breadcrumb-padding-y:0;--bs-breadcrumb-margin-bottom:1rem;--bs-breadcrumb-bg: ;--bs-breadcrumb-border-radius: ;--bs-breadcrumb-divider-color:var(--bs-secondary-color);--bs-breadcrumb-item-padding-x:0.5rem;--bs-breadcrumb-item-active-color:var(--bs-secondary-color);display:flex;flex-wrap:wrap;padding:var(--bs-breadcrumb-padding-y) var(--bs-breadcrumb-padding-x);margin-bottom:var(--bs-breadcrumb-margin-bottom);font-size:var(--bs-breadcrumb-font-size);list-style:none;background-color:var(--bs-breadcrumb-bg);border-radius:var(--bs-breadcrumb-border-radius)}.breadcrumb-item+.breadcrumb-item{padding-left:var(--bs-breadcrumb-item-padding-x)}.breadcrumb-item+.breadcrumb-item::before{float:left;padding-right:var(--bs-breadcrumb-item-padding-x);color:var(--bs-breadcrumb-divider-color);content:var(--bs-breadcrumb-divider, "/")}.breadcrumb-item.active{color:var(--bs-breadcrumb-item-active-color)}.btn-close{--bs-btn-close-color:#01090E;--bs-btn-close-bg:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2301090E'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");--bs-btn-close-opacity:0.5;--bs-btn-close-hover-opacity:0.75;--bs-btn-close-focus-shadow:0 0 0 0.25rem rgba(0, 150, 255, 0.25);--bs-btn-close-focus-opacity:1;--bs-btn-close-disabled-opacity:0.25;--bs-btn-close-white-filter:invert(1) grayscale(100%) brightness(200%);box-sizing:content-box;width:1em;height:1em;padding:.25em;color:var(--bs-btn-close-color);background:rgba(0,0,0,0) var(--bs-btn-close-bg) center/1em auto no-repeat;border:0;border-radius:.375rem;opacity:var(--bs-btn-close-opacity)}[data-bs-theme=dark] .btn-close{filter:var(--bs-btn-close-white-filter)}.modal{--bs-modal-zindex:1055;--bs-modal-width:600px;--bs-modal-padding:1rem;--bs-modal-margin:0.5rem;--bs-modal-color: ;--bs-modal-bg:var(--bs-body-bg);--bs-modal-border-color:var(--bs-border-color-translucent);--bs-modal-border-width:var(--bs-border-width);--bs-modal-border-radius:var(--bs-border-radius-lg);--bs-modal-box-shadow:var(--bs-box-shadow-sm);--bs-modal-inner-border-radius:calc(var(--bs-border-radius-lg) - (var(--bs-border-width)));--bs-modal-header-padding-x:1rem;--bs-modal-header-padding-y:1rem;--bs-modal-header-padding:1rem 1rem;--bs-modal-header-border-color:var(--bs-border-color);--bs-modal-header-border-width:var(--bs-border-width);--bs-modal-title-line-height:1.5;--bs-modal-footer-gap:0.5rem;--bs-modal-footer-bg: ;--bs-modal-footer-border-color:var(--bs-border-color);--bs-modal-footer-border-width:var(--bs-border-width);position:fixed;top:0;left:0;z-index:var(--bs-modal-zindex);display:none;width:100%;height:100%;overflow-x:hidden;overflow-y:auto;outline:0}.modal-dialog{position:relative;width:auto;margin:var(--bs-modal-margin)}.modal.fade .modal-dialog{transform:translate(0,-50px)}.modal-dialog-centered{display:flex;align-items:center;min-height:calc(100% - var(--bs-modal-margin)*2)}.modal-content{position:relative;display:flex;flex-direction:column;width:100%;color:var(--bs-modal-color);background-color:var(--bs-modal-bg);background-clip:padding-box;border:var(--bs-modal-border-width) solid var(--bs-modal-border-color);border-radius:var(--bs-modal-border-radius);outline:0}.modal-header{display:flex;flex-shrink:0;align-items:center;justify-content:space-between;padding:var(--bs-modal-header-padding);border-bottom:var(--bs-modal-header-border-width) solid var(--bs-modal-header-border-color);border-top-left-radius:var(--bs-modal-inner-border-radius);border-top-right-radius:var(--bs-modal-inner-border-radius)}.modal-header .btn-close{padding:calc(var(--bs-modal-header-padding-y)*.5) calc(var(--bs-modal-header-padding-x)*.5);margin:calc(-.5*var(--bs-modal-header-padding-y)) calc(-.5*var(--bs-modal-header-padding-x)) calc(-.5*var(--bs-modal-header-padding-y)) auto}.modal-title{margin-bottom:0;line-height:var(--bs-modal-title-line-height)}.modal-body{position:relative;flex:1 1 auto;padding:var(--bs-modal-padding)}@media (min-width:576px){.modal{--bs-modal-margin:1.75rem;--bs-modal-box-shadow:var(--bs-box-shadow)}.modal-dialog{max-width:var(--bs-modal-width);margin-right:auto;margin-left:auto}}.offcanvas{--bs-offcanvas-zindex:1045;--bs-offcanvas-width:400px;--bs-offcanvas-height:30vh;--bs-offcanvas-padding-x:1rem;--bs-offcanvas-padding-y:1rem;--bs-offcanvas-color:var(--bs-body-color);--bs-offcanvas-bg:var(--bs-body-bg);--bs-offcanvas-border-width:var(--bs-border-width);--bs-offcanvas-border-color:var(--bs-border-color-translucent);--bs-offcanvas-box-shadow:var(--bs-box-shadow-sm);--bs-offcanvas-title-line-height:1.5}.offcanvas{position:fixed;bottom:0;z-index:var(--bs-offcanvas-zindex);display:flex;flex-direction:column;max-width:100%;color:var(--bs-offcanvas-color);visibility:hidden;background-color:var(--bs-offcanvas-bg);background-clip:padding-box;outline:0}.offcanvas.offcanvas-start{top:0;left:0;width:var(--bs-offcanvas-width);border-right:var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);transform:translateX(-100%)}.offcanvas-header{display:flex;align-items:center;justify-content:space-between;padding:var(--bs-offcanvas-padding-y) var(--bs-offcanvas-padding-x)}.fixed-top{position:fixed;top:0;right:0;left:0;z-index:1030}.visually-hidden{width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}.visually-hidden:not(caption){position:absolute!important}.text-truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.d-block{display:block!important}.d-grid{display:grid!important}.d-flex{display:flex!important}.d-none{display:none!important}.position-relative{position:relative!important}.border-0{border:0!important}.border-end{border-right:var(--bs-border-width) var(--bs-border-style) var(--bs-border-color)!important}.border-2{border-width:2px!important}.h-100{height:100%!important}.flex-column{flex-direction:column!important}.flex-grow-1{flex-grow:1!important}.flex-shrink-0{flex-shrink:0!important}.flex-nowrap{flex-wrap:nowrap!important}.justify-content-end{justify-content:flex-end!important}.justify-content-center{justify-content:center!important}.justify-content-between{justify-content:space-between!important}.align-items-center{align-items:center!important}.m-0{margin:0!important}.mx-auto{margin-right:auto!important;margin-left:auto!important}.my-4{margin-top:1.5rem!important;margin-bottom:1.5rem!important}.mt-0{margin-top:0!important}.mt-2{margin-top:.5rem!important}.mt-3{margin-top:1rem!important}.mb-0{margin-bottom:0!important}.mb-1{margin-bottom:.25rem!important}.mb-3{margin-bottom:1rem!important}.mb-4{margin-bottom:1.5rem!important}.ms-3{margin-left:1rem!important}.p-0{padding:0!important}.p-1{padding:.25rem!important}.py-0{padding-top:0!important;padding-bottom:0!important}.pe-2{padding-right:.5rem!important}.pb-4{padding-bottom:1.5rem!important}.gap-2{gap:.5rem!important}.fs-3{font-size:calc(1.3rem + .6vw)!important}.fs-4{font-size:calc(1.275rem + .3vw)!important}.fw-bold{font-weight:700!important}.lh-sm{line-height:1.25!important}.text-center{text-align:center!important}.text-decoration-none{text-decoration:none!important}.text-uppercase{text-transform:uppercase!important}.text-nowrap{white-space:nowrap!important}.text-black{--bs-text-opacity:1;color:rgba(var(--bs-black-rgb),var(--bs-text-opacity))!important}.link-underline-primary{--bs-link-underline-opacity:1;text-decoration-color:rgba(var(--bs-primary-rgb),var(--bs-link-underline-opacity))!important}.z-2{z-index:2!important}@media (min-width:576px){.flex-sm-row{flex-direction:row!important}.align-items-sm-center{align-items:center!important}}@media (min-width:768px){.d-md-inline{display:inline!important}.d-md-block{display:block!important}.d-md-flex{display:flex!important}.d-md-none{display:none!important}.mt-md-2{margin-top:.5rem!important}.mt-md-4{margin-top:1.5rem!important}.mb-md-5{margin-bottom:3rem!important}}@media (min-width:992px){.modal-lg{--bs-modal-width:800px}.d-lg-block{display:block!important}.mb-lg-5{margin-bottom:3rem!important}}.text-blob-body-dark{color:#002d4d!important}.header-banner-app{background-color:var(--header-banner-app-bg);color:var(--header-banner-app-color);height:5.5rem;margin-top:-5.5rem}.header-banner-app .body-app-txt{gap:1rem}.header-banner-app .body-app-txt img{max-width:unset}.navbar{position:relative;min-height:4.5rem;background:var(--header-navbar-bg);border-bottom:1px solid var(--header-navbar-border-color)}.navbar:after{content:"";position:absolute;z-index:1;left:0;top:0;width:100%;height:100%;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.navbar .navbar-brand{background-image:url(../../wp-content/themes/unipolmove-theme-vaas/assets/img/logos/unipolmove-wh-bl.svg);display:block;position:relative;z-index:1046;padding:0;margin:0 0 0 1.75rem!important;width:7.5rem;height:1.5rem;background-size:7.5rem 1.5rem}@media (min-width:374px){.navbar .navbar-brand{margin:0 0 0 2.25rem!important}}@media (min-width:768px){.header-banner-app{height:4.5rem;margin-top:-4.5rem}.header-banner-app .body-app-txt{gap:1.5rem}.navbar .navbar-brand{margin:0 0 0 2.875rem!important;width:9.75rem;height:2rem;background-size:9.75rem 2rem}}@media (max-width:767.98px){.header-banner-app .body-app-txt img{width:40px!important}.navbar .navbar-brand{padding-top:4px}}.navbar .offcanvas{height:100%!important}@media (max-width:1439.98px){.navbar .btn-mobile-header{padding:.625rem 1.25rem .4375rem;font-size:.875rem}}.navbar.navbar-move-dark .navbar-brand{background-image:url(../../wp-content/themes/unipolmove-theme-vaas/assets/img/logos/unipolmove-dark.svg)}.navbar.navbar-move-dark .navbar-toggler span{background-color:#0f3250}@media (min-width:1200px){.d-xl-block{display:block!important}.d-xl-flex{display:flex!important}.d-xl-none{display:none!important}.fs-3{font-size:1.75rem!important}.fs-4{font-size:1.5rem!important}.navbar{height:5rem}.navbar .nav-tools-dx a:not(.btn):not(.dropdown-item){color:var(--header-link)}.navbar .nav-tools-dx a:not(.btn):not(.dropdown-item) svg{fill:var(--header-link)}.navbar .navbar-brand{margin:0 2rem 0 0!important}.navbar.navbar-move-dark .menu-header-container .menu-header>li>a{color:var(--navbar-dark-header-link)}.menu-header-container .menu-header{gap:1.1875rem}}.navbar.navbar-move-dark .nav-tools-dx a:not(.btn):not(.dropdown-item){color:var(--navbar-dark-header-link)}.navbar.navbar-move-dark .nav-tools-dx a:not(.btn):not(.dropdown-item) svg{fill:var(--navbar-dark-header-link)}.menu-header-container{display:flex;height:100%}.menu-header-container .menu-header{display:flex;width:100%}@media (max-width:1199.98px){header .container{max-width:none}.menu-header-container{overflow:auto}.menu-header-container .menu-header{padding:1.5rem 0}}@media (min-width:1200px){.menu-header-container .menu-header>li{position:relative;display:inline-flex;height:100%;align-items:center}}.menu-header-container .menu-header>li>a{display:flex;align-items:center;text-decoration:none;color:var(--header-link);position:relative;font-size:1.5rem;line-height:1.1;font-family:HelveticaNeueLTPro-Bd;padding:.75rem 1.25rem}.nav-tools-dx{gap:1.5rem}.navbar-toggler{position:absolute;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);z-index:1046;border-radius:0;height:1.5rem;width:1.5rem;left:0}.navbar-toggler span{display:block;position:absolute;height:2px;width:16px;background:#fff;border-radius:2px;opacity:1;left:4px;-webkit-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0)}.navbar-toggler span:first-child{top:6px}.navbar-toggler span:nth-child(2),.navbar-toggler span:nth-child(3){top:11px}.navbar-toggler span:nth-child(4){top:16px}.header-language-switch{margin:0}.header-language-switch .dropdown-menu{min-width:10.5rem;border-radius:.75rem;padding:.75rem 0}.header-language-switch .dropdown-menu .dropdown-item{padding:1.375rem 1.5rem 1.125rem}.header-language-switch a{text-decoration:none;text-transform:uppercase;line-height:1}.header-language-switch .dropdown-toggle{display:block;padding:.9375rem 0;font-size:1rem;line-height:1;color:var(--header-language-desktop-dropdown-toggle-color)}.header-language-switch .dropdown-toggle:after{display:none!important}.header-language-switch .dropdown-toggle svg{margin-left:.625rem}.header-language-switch .dropdown-menu{border:0}.header-language-switch .dropdown-menu:before{content:"";position:absolute;top:-8px;right:20px;border-top:0;border-right:8px solid transparent;border-bottom:8px solid transparent;border-left:8px solid transparent}.header-language-switch .dropdown-menu .dropdown-item.active{position:relative;background-color:rgba(0,0,0,0);color:var(--header-language-desktop-dropdown-item-active-color);text-shadow:0 0 10px #40b0ff}@media (max-width:1199.98px){.header-language-switch .dropdown-menu{background-color:#fff}.header-language-switch .dropdown-menu:before{border-bottom-color:#fff}.header-language-switch .dropdown-menu li:nth-child(2n) .dropdown-item{background-color:#f7f7f7}.header-language-switch .dropdown-menu .dropdown-item{display:flex;align-items:center;justify-content:space-between;color:#162f3e}.header-language-switch .dropdown-menu .dropdown-item .dropdown-item-icon{opacity:0}.header-language-switch .dropdown-menu .dropdown-item.active .dropdown-item-icon{fill:var(--header-language-desktop-dropdown-item-active-color);filter:drop-shadow(0 0 3px #40B0FF);opacity:1}}@media (min-width:1200px){.menu-header-container .menu-header>li>a{height:100%;padding:.5rem 0 0;font-size:1rem;font-family:HelveticaNeueLTPro-Roman}.menu-header-container .menu-header>li>a:before{content:"";position:absolute;bottom:0;left:0;display:block;height:.125rem;width:100%;background-color:rgba(0,0,0,0)}.header-language-switch{margin:auto 0}.header-language-switch .dropdown-toggle{display:block;padding:.9375rem 0;font-size:1rem;line-height:1;color:var(--header-language-desktop-dropdown-toggle-color);position:relative;top:.09375rem}.header-language-switch .dropdown-menu{background-color:var(--header-language-desktop-dropdown-menu-bg)}.header-language-switch .dropdown-menu:before{border-bottom-color:var(--header-language-desktop-dropdown-menu-bg)}.header-language-switch .dropdown-menu li{border-bottom:1px solid var(--header-language-desktop-dropdown-menu-li-border-color)}.header-language-switch .dropdown-menu li:last-child{border-bottom:0}.header-language-switch .dropdown-menu .dropdown-item{color:var(--header-language-desktop-dropdown-toggle-color);display:flex;justify-content:space-between}.header-language-switch .dropdown-menu .dropdown-item .dropdown-item-icon{opacity:0}.header-language-switch .dropdown-menu .dropdown-item.active .dropdown-item-icon{fill:var(--header-language-desktop-dropdown-item-active-color);filter:drop-shadow(0 0 3px #40B0FF);opacity:1}.offcanvas-menu .offcanvas-header{height:5rem}}.offcanvas-menu{height:100%!important;background:var(--offcanvas-bg)}.offcanvas-menu .offcanvas-header{min-height:4.5rem;border-bottom:1px solid var(--offcanvas-brd)}.offcanvas-menu .offcanvas-menu-footer{background:var(--offcanvas-footer-bg);padding:1.5rem 1.25rem 2.5rem;border-radius:40px 40px 0 0;gap:1.5rem;margin-top:auto}.offcanvas-menu .offcanvas-menu-footer .btn-login{color:var(--offcanvas-footer-link)}.offcanvas-menu .offcanvas-menu-footer .btn-login span{display:inline-block;padding-top:.1875rem}.offcanvas-menu .offcanvas-menu-footer .btn-login svg{fill:var(--offcanvas-footer-link)}.header-unipol-gruppo{position:absolute;right:0;top:100%;width:3.5625rem;height:2.5rem}@media (max-width:991.98px){.um-breadcrumb .breadcrumb .breadcrumb-item a{font-size:.875rem}.row:not(.g-0){margin-right:calc(-.5*var(--bs-gutter-x-mobile-custom));margin-left:calc(-.5*var(--bs-gutter-x-mobile-custom))}.row:not(.g-0)>*{padding-right:calc(var(--bs-gutter-x-mobile-custom)*.5);padding-left:calc(var(--bs-gutter-x-mobile-custom)*.5)}.container{padding-right:calc(var(--bs-gutter-x-mobile-custom)*.5);padding-left:calc(var(--bs-gutter-x-mobile-custom)*.5)}}body{display:flex;flex-direction:column;height:100%}strong{font-family:HelveticaNeueLTPro-Bd}.fs-12{font-size:.75rem!important}.fs-14{font-size:.875rem!important}.fs-16{font-size:1rem!important}.fs-18{font-size:1.125rem!important}.fs-28{font-size:1.75rem!important}.fs-xs12-md18{font-size:.75rem!important}@media (min-width:768px){.fs-xs12-md18{font-size:1rem!important}}.fs-xs14-md16{font-size:.875rem!important}@media (min-width:768px){.fs-xs14-md16{font-size:1rem!important}}.fs-xs18-md24{font-size:1.125rem!important}@media (min-width:768px){.fs-xs18-md24{font-size:1.5rem!important}}.fs-xs16-md20{font-size:1rem!important;line-height:1.5rem!important}@media (min-width:768px){.fs-xs16-md20{font-size:1.25rem!important;line-height:2rem!important}}.fs-xs28-md40{font-size:1.75rem!important;line-height:2.25rem!important}.img-full{width:100%;max-width:100%;height:auto!important}.img-responsive-auto{max-width:100%!important;height:auto!important;margin:auto}img[data-src]{opacity:0;will-change:opacity}.space-py-xs32-md60{padding-top:2rem;padding-bottom:2rem}.space-mb-xs40-md60{margin-bottom:2.5rem}@media (min-width:768px){.fs-xs28-md40{font-size:2.5rem!important;line-height:3rem!important}.space-py-xs32-md60{padding-top:3.75rem;padding-bottom:3.75rem}.space-mb-xs40-md60{margin-bottom:3.75rem}}.link-underline-primary{position:relative;text-decoration:none}.link-underline-primary:after{position:absolute;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);content:"";position:absolute;width:1.25rem;height:.0625rem;margin:0 auto;background:#0096ff;bottom:-.3125rem}.f-helvetica-Bd{font-family:HelveticaNeueLTPro-Bd}.f-lora-444{font-family:Lora444}.ls-1perc{letter-spacing:.01em}.ls-2px{letter-spacing:2px}.ls-08px{letter-spacing:.8px}.icon{width:1rem;height:1rem}.radius-12{border-radius:.75rem!important}.radius-16{border-radius:1rem!important}.modal-content{border-radius:1rem;border:0;background:var(--modal-bg)}.modal-header{padding:1.25rem;border:0}@media (min-width:1200px){.modal-header{padding:2.5rem}}.modal-body{padding:0 1.25rem 1.25rem}@media (min-width:1200px){.modal-body{padding:0 2.5rem 2.5rem}.navbar-move-dark .has-mega-menu a:not(.link-underline-white):after{background-image:url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNC4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDQzMzYzKSAgLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMaXZlbGxvXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNTBweCIgaGVpZ2h0PSI1MHB4IiB2aWV3Qm94PSIwIDAgNTAgNTAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUwIDUwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiMwRjMyNTAiIGQ9Ik00OC41MzQsMTguNTM2bC0xOS45OTksMjBDMjcuNTYsMzkuNTEsMjYuMjgsNDAsMjUsNDBjLTEuMjc5LDAtMi41Ni0wLjQ5LTMuNTM0LTEuNDY1bC0xOS45OTktMjANCgljLTEuOTU1LTEuOTU1LTEuOTU1LTUuMTE1LDAtNy4wNjljMS45NTQtMS45NTUsNS4xMTQtMS45NTUsNy4wNjksMEwyNSwyNy45MzFsMTYuNDY1LTE2LjQ2NGMxLjk1NC0xLjk1NSw1LjExNC0xLjk1NSw3LjA2OSwwDQoJQzUwLjQ4OSwxMy40MjEsNTAuNDg5LDE2LjU4MSw0OC41MzQsMTguNTM2eiIvPg0KPC9zdmc+DQo=")}}.modal-store-download{display:block;background-color:#01090e;border:1px solid #a6a6a6;border-radius:.5rem;padding:.625rem;text-align:center}#main-content{margin-top:5rem}.has-mega-menu{position:static!important}.has-mega-menu a:not(.link-underline-white):after{content:"";background-image:url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00OC41MzM4IDE4LjUzNThMMjguNTM0OCAzOC41MzQ4QzI3LjU1OTkgMzkuNTA5OCAyNi4yNzk5IDM5Ljk5OTggMjUgMzkuOTk5OEMyMy43MjAxIDM5Ljk5OTggMjIuNDQwMSAzOS41MDk4IDIxLjQ2NTIgMzguNTM0OEwxLjQ2NjE4IDE4LjUzNThDLTAuNDg4NzI2IDE2LjU4MDkgLTAuNDg4NzI2IDEzLjQyMTEgMS40NjYxOCAxMS40NjYyQzMuNDIxMDggOS41MTEyNyA2LjU4MDkyIDkuNTExMjcgOC41MzU4MiAxMS40NjYyTDI1IDI3LjkzMDRMNDEuNDY0MiAxMS40NjYyQzQzLjQxOTEgOS41MTEyNyA0Ni41Nzg5IDkuNTExMjcgNDguNTMzOCAxMS40NjYyQzUwLjQ4ODcgMTMuNDIxMSA1MC40ODg3IDE2LjU4MDkgNDguNTMzOCAxOC41MzU4WiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==");height:10px;width:10px;background-repeat:no-repeat;background-size:10px 10px;margin-left:.625rem;margin-top:-.375rem}.has-mega-menu .sub-menu{list-style:none;padding:0;margin:0}.has-mega-menu .sub-menu a{display:inline-block;text-decoration:none;color:var(--submenu-link-color);font-size:1.125rem;padding:.5rem 0;font-family:HelveticaNeueLTPro-Bd}@media (min-width:1200px){.has-mega-menu .sub-menu a{font-size:.875rem;padding:.25rem 0;font-family:HelveticaNeueLTPro-Roman}.navbar-move-dark .has-mega-menu .sub-menu a{color:var(--navbar-dark-header-link)}}.has-mega-menu>.sub-menu{overflow:hidden;width:100%;height:0}.has-mega-menu>.sub-menu>.mega-menu-title>a{display:block;color:var(--submenu-mobile-title-main-color);font-family:HelveticaNeueLTPro-Roman;margin-bottom:.625rem}@media (max-width:1199.98px){.has-mega-menu a{display:flex;justify-content:space-between}.has-mega-menu>.sub-menu{overflow:hidden;width:100%;height:0;background-color:var(--header-navbar-border-color)}.has-mega-menu>.sub-menu>li{margin-left:2.5rem;margin-right:2.5rem}.has-mega-menu>.sub-menu>li a{font-size:1.125rem}.has-mega-menu.column-multiple>.sub-menu>li{margin-top:1.25rem;margin-bottom:1.25rem}.has-mega-menu.column-multiple>.sub-menu>li:not(:last-child){border-bottom:1px solid #fff}.has-mega-menu.column-multiple>.sub-menu>li .sub-menu li:last-child{margin-top:.9375rem;margin-bottom:1.875rem}.has-mega-menu.column-multiple>.sub-menu>li .sub-menu li:last-child a{position:relative;text-decoration:none;color:#fff;font-family:HelveticaNeueLTPro-Roman;display:inline-block;font-size:1rem}.has-mega-menu.column-multiple>.sub-menu>li .sub-menu li:last-child a:after{position:absolute;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);content:"";position:absolute;width:1.25rem;height:.0625rem;margin:0 auto;background:#fff;bottom:-.3125rem}.has-mega-menu.column-multiple>.sub-menu>li .sub-menu li:last-child a:after{background:#fff}.has-mega-menu.column-single .sub-menu li:first-child{margin-top:.625rem}.has-mega-menu.column-single .sub-menu li:last-child{margin-bottom:.625rem}}@media (min-width:1200px){.has-mega-menu>.sub-menu>.mega-menu-title>a{color:var(--submenu-desktop-title-main-color)}.has-mega-menu>.sub-menu{visibility:hidden;opacity:0;position:fixed;z-index:-1;left:0;right:0;top:5rem;background-color:rgba(0,0,0,0);border-bottom:1px solid var(--header-navbar-border-color);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:.9375rem 0}.has-mega-menu>.sub-menu>li .sub-menu{height:100%;display:flex;flex-direction:column}.has-mega-menu.column-multiple>.sub-menu{display:grid;grid-template-columns:18.125rem 18.125rem 18.125rem 18.125rem}.has-mega-menu.column-multiple>.sub-menu>li{display:flex;flex-direction:column}.has-mega-menu.column-multiple>.sub-menu>li:not(:first-child){padding-left:2rem}.has-mega-menu.column-multiple>.sub-menu>li:not(:last-child){border-right:1px solid var(--header-navbar-border-color);padding-right:2rem}.has-mega-menu.column-multiple>.sub-menu>li .sub-menu li:last-child{margin-top:auto;padding-top:1.875rem}.has-mega-menu.column-multiple>.sub-menu>li .sub-menu li:last-child a{position:relative;text-decoration:none;color:#fff;display:inline-block;font-size:1rem}.has-mega-menu.column-multiple>.sub-menu>li .sub-menu li:last-child a:after{position:absolute;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);content:"";position:absolute;width:1.25rem;height:.0625rem;margin:0 auto;background:#fff;bottom:-.3125rem}.navbar-move-dark .has-mega-menu.column-multiple>.sub-menu .sub-menu li:last-child a{color:var(--navbar-dark-header-link)}.navbar-move-dark .has-mega-menu.column-multiple>.sub-menu .sub-menu li:last-child a:after{background:var(--navbar-dark-header-link)}.navbar-move-dark .has-mega-menu.column-single .sub-menu li:last-child a{color:var(--navbar-dark-header-link)}.navbar-move-dark .has-mega-menu.column-single .sub-menu li:last-child a:after{background:var(--navbar-dark-header-link)}.has-mega-menu.column-single .sub-menu{display:flex;flex-direction:column}.has-mega-menu.column-single .sub-menu li:last-child{margin-top:auto;padding-top:1.875rem}.has-mega-menu.column-single .sub-menu li:last-child a{position:relative;text-decoration:none;color:#fff;display:inline-block;font-size:1rem}.has-mega-menu.column-single .sub-menu li:last-child a:after{position:absolute;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);content:"";position:absolute;width:1.25rem;height:.0625rem;margin:0 auto;background:#fff;bottom:-.3125rem}}.btn{border-radius:3.125rem;padding:1.0625rem 2rem .8125rem;font-family:HelveticaNeueLTPro-Bd;font-size:1rem}.btn.btn-primary{color:#fff;box-shadow:0 0 10px #40b0ff}</style>        
+        <!--Font family inline-->
+        <style>
+          @font-face {
+                font-family: "HelveticaNeueLTPro-Roman";
+                font-weight: 400;
+                font-display: swap;
+                src: url("https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/helvetica/HelveticaNeueLTProRoman/font.woff2") format("woff2");
+          }
+          @font-face {
+                font-family: "HelveticaNeueLTPro-Bd";
+                font-weight: 700;
+                font-display: swap;
+                src: url("https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/helvetica/HelveticaNeueLTProBd/font.woff2") format("woff2");
+          }
+          body { font-family: "HelveticaNeueLTPro-Roman" !important; }
+          
+                                        @font-face {
+                      font-family: 'Lora400';
+                      font-style: normal;
+                      font-weight: 400;
+                      font-display: swap;
+                      src: url('https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/lora/lora-v35-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+                    }
+                    @font-face {
+                      font-family: 'Lora444';
+                      font-style: normal;
+                      font-weight: 444;
+                      font-display: swap;
+                      src: url('https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/lora/lora-v35-latin-444.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+                    }
+                    @font-face {
+                      font-family: 'Lora500';
+                      font-style: normal;
+                      font-weight: 500;
+                      font-display: swap;
+                      src: url('https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/lora/lora-v35-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+                    }
+                    @font-face {
+                      font-family: 'Lora700';
+                      font-style: normal;
+                      font-weight: 700;
+                      font-display: swap;
+                      src: url('https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/lora/lora-v35-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+                    }                    
+                
+
+          
+
+        </style>
+
+        <!-- TrustBox script -->
+        <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+        <!-- End TrustBox script -->        
+        
+            
+        <script src="//tags.tiqcdn.com/utag/unipolsai/unipolmove.it/prod/utag.sync.js"></script>            
+        <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	
+	<!-- This site is optimized with the Yoast SEO plugin v25.1 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>ZTL a Parma: mappa, orari e multe | UnipolMove</title>
+	<meta name="description" content="Scopri tutti i dettagli sulla ZTL di Parma: mappa aggiornata, orari di accesso e sanzioni previste. Informati con UnipolMove." />
+	<link rel="canonical" href="https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/" />
+	<meta property="og:locale" content="it_IT" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="ZTL a Parma: mappa, orari e multe | UnipolMove" />
+	<meta property="og:description" content="Scopri tutti i dettagli sulla ZTL di Parma: mappa aggiornata, orari di accesso e sanzioni previste. Informati con UnipolMove." />
+	<meta property="og:url" content="https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/" />
+	<meta property="og:site_name" content="UnipolMove" />
+	<meta property="article:published_time" content="2025-07-08T10:15:22+00:00" />
+	<meta property="article:modified_time" content="2025-07-08T10:15:32+00:00" />
+	<meta property="og:image" content="https://www.unipolmove.it/wp-content/uploads/2025/07/UnipolMove_Parma.jpg" />
+	<meta property="og:image:width" content="1215" />
+	<meta property="og:image:height" content="810" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="author" content="Adriano" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:label1" content="Written by" />
+	<meta name="twitter:data1" content="Adriano" />
+	<meta name="twitter:label2" content="Est. reading time" />
+	<meta name="twitter:data2" content="6 minuti" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/","url":"https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/","name":"ZTL a Parma: mappa, orari e multe | UnipolMove","isPartOf":{"@id":"https://www.unipolmove.it/#website"},"primaryImageOfPage":{"@id":"https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/#primaryimage"},"image":{"@id":"https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/#primaryimage"},"thumbnailUrl":"https://www.unipolmove.it/wp-content/uploads/2025/07/UnipolMove_Parma.jpg","datePublished":"2025-07-08T10:15:22+00:00","dateModified":"2025-07-08T10:15:32+00:00","author":{"@id":"https://www.unipolmove.it/#/schema/person/45c630a388ebaf88dabe187f87e0c0b9"},"description":"Scopri tutti i dettagli sulla ZTL di Parma: mappa aggiornata, orari di accesso e sanzioni previste. Informati con UnipolMove.","breadcrumb":{"@id":"https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/#breadcrumb"},"inLanguage":"it-IT","potentialAction":[{"@type":"ReadAction","target":["https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/"]}]},{"@type":"ImageObject","inLanguage":"it-IT","@id":"https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/#primaryimage","url":"https://www.unipolmove.it/wp-content/uploads/2025/07/UnipolMove_Parma.jpg","contentUrl":"https://www.unipolmove.it/wp-content/uploads/2025/07/UnipolMove_Parma.jpg","width":1215,"height":810,"caption":"Main square of Parma, Emilia-Romagna, Italy"},{"@type":"BreadcrumbList","@id":"https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.unipolmove.it/"},{"@type":"ListItem","position":2,"name":"ZTL a Parma: mappa, orari e multe"}]},{"@type":"WebSite","@id":"https://www.unipolmove.it/#website","url":"https://www.unipolmove.it/","name":"UnipolMove","description":"Il sito di UnipolMove","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.unipolmove.it/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"it-IT"},{"@type":"Person","@id":"https://www.unipolmove.it/#/schema/person/45c630a388ebaf88dabe187f87e0c0b9","name":"Adriano","image":{"@type":"ImageObject","inLanguage":"it-IT","@id":"https://www.unipolmove.it/#/schema/person/image/","url":"https://secure.gravatar.com/avatar/6f970de7e9cc0927cf66f743b2a57b67?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/6f970de7e9cc0927cf66f743b2a57b67?s=96&d=mm&r=g","caption":"Adriano"},"url":"https://www.unipolmove.it/blog/author/adriano-gervasiunipoltech-it/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel='dns-prefetch' href='//cdn.jsdelivr.net' />
+<link rel="alternate" type="application/rss+xml" title="UnipolMove &raquo; Feed" href="https://www.unipolmove.it/feed/" />
+<link rel="alternate" type="application/rss+xml" title="UnipolMove &raquo; Feed dei commenti" href="https://www.unipolmove.it/comments/feed/" />
+<link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" id='wp-block-library' href='https://www.unipolmove.it/wp-includes/css/dist/block-library/style.min.css?ver=6.7.1' type='text/css' media='all' />
+<noscript><link rel='stylesheet' href='https://www.unipolmove.it/wp-includes/css/dist/block-library/style.min.css?ver=6.7.1'></noscript><style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<script type="text/javascript" defer src="https://www.unipolmove.it/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" defer src="https://www.unipolmove.it/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://www.unipolmove.it/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.unipolmove.it/wp-json/wp/v2/posts/3063" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.unipolmove.it/xmlrpc.php?rsd" />
+
+<link rel='shortlink' href='https://www.unipolmove.it/?p=3063' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.unipolmove.it/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.unipolmove.it%2Fblog%2Fztl-a-parma-mappa-orari-e-multe%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.unipolmove.it/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.unipolmove.it%2Fblog%2Fztl-a-parma-mappa-orari-e-multe%2F&#038;format=xml" />
+		<style type="text/css" id="wp-custom-css">
+			@media (min-width: 1200px) {
+    .wp-block-file a {
+        padding-right: 3.5rem !important;
+    }
+}
+
+
+.navbar.navbar-move-logowhite_toolsdx_primary .nav-tools-dx a:not(.btn):not(.dropdown-item) {
+    color: #ffffff !important;
+}
+
+.navbar.navbar-move-logowhite_toolsdx_primary .nav-tools-dx a:not(.btn):not(.dropdown-item) svg {
+    fill: #ffffff !important;
+}
+
+
+.services-features-item .services-features-item-img .photo {
+    max-width:434px;
+}
+
+/*
+.trustpilot-widget {
+    display: none !important;
+}
+*/
+
+.hero-banner-new .hero-banner-bottom {
+    z-index: 3;
+}
+
+.accordion-faq .accordion-item .accordion-button .icon-arrow {
+    min-width: 16px;
+}		</style>
+		    
+    </head>   
+    
+    <body class="post-template-default single single-post postid-3063 single-format-standard locale-it-it">
+        
+    <script> 
+        var $embox_queue = [function(){ new $embox(1318).hit(); }]; (function(){ var s = document.createElement('script'), t = document.getElementsByTagName('script')[0]; s.src = ('https:' == document.location.protocol ? 'https://tracking' : 'http://tools') + '.sembox.it/js/sembox-tracking.js'; t.parentNode.insertBefore(s, t); }()); 
+    </script>        
+        
+            <script type="text/JavaScript">
+        //Data Layer
+        var utag_data = {
+        	page_load: "1"
+        }
+        </script>
+        <script type="text/javascript">
+            (function(a,b,c,d){
+            a='https://tags.tiqcdn.com/utag/unipolsai/unipolmove.it/prod/utag.js';
+            b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+            a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+            })();
+        </script>
+            <script type="text/JavaScript">
+    var UNIPOLMOVE_FASE1_SCENARIO = "A";
+    var UNIPOLMOVE_SERVICES_BLOCK = {
+        'title': "NON SOLO AUTOSTRADA",
+        'body': "C’è un nuovo mondo di servizi per i tuoi spostamenti. <strong>Parcheggi, Carburante, Area C</strong> e tanto altro.",
+        'imgpath': 'https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/header/card/services.webp',
+        'imgalt': 'Servizi',
+        'url': 'https://www.unipolmove.it/servizi/altri-servizi/',
+        'cta': 'Scoprili tutti',
+    };
+    </script>
+    
+ 
+    <header class="fixed-top" id="header-menu">
+        <div id="banner-app" class="header-banner-app d-none">
+            <div class="container h-100">
+                <div class="d-flex align-items-center h-100 justify-content-between">
+                    <div class="header-banner-app-txt">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <button class="btn btn-link p-0" type="button" id="header-banner-app-close" title="chiudi">
+                                    <svg class="icon"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#close"></use></svg>
+                                </button>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <div class="body-app-txt pe-2 d-flex align-items-center">
+                                    <div>
+                                        <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icon-app/app-unipolmove.svg" width="48" height="48" alt="App UnipolMove">
+                                    </div>
+                                    <div class="fs-12 lh-sm">
+                                        <strong class="fs-xs14-md16">App UnipolMove</strong><br>
+                                        Spostamenti senza stress? Scopri l’App UnipolMove                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-banner-app-cta">
+                        <a href="https://www.unipolmove.it/app-mobile/unipol-move/" class="link-underline-primary">Scopri <span class="d-none d-md-inline">l’App</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <nav class="navbar navbar-expand-xl p-0 navbar-move-dark" id="navbar-menu">
+            <div class="container h-100 position-relative z-2">
+                <div class="d-flex align-items-center h-100 position-relative">
+                    <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>                    
+                    <a class="navbar-brand m-0" href="https://www.unipolmove.it" title="vai alla homepage">
+                        <span class="visually-hidden">UnipolMove</span>
+                    </a>
+                    
+                    <div class="offcanvas offcanvas-menu offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header d-xl-none d-flex justify-content-end">
+                            <ul class="header-language-switch list-unstyled"><li class="dropdown"><a class="dropdown-toggle" href="#" id="desktopLanguageSwitch" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ita<svg width="10" height="10" fill="var(--header-link)"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#arrow-down"></use></svg></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="desktopLanguageSwitch"><li><a class="dropdown-item active" href="https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/">Ita<svg class="dropdown-item-icon" width="12" height="12" fill="var(--header-link)"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#check"></use></svg></a></li><li><a class="dropdown-item " href="https://www.unipolmove.it/en/">Eng<svg class="dropdown-item-icon" width="12" height="12" fill="var(--header-link)"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#check"></use></svg></a></li></ul></li></ul>                        </div>    
+                        
+                        <div class="menu-header-container"><ul class="navbar-nav menu-header mb-0 h-100"><li id="menu-item-1071" class="has-mega-menu column-multiple offers menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1071"><a href="#piani">Piani</a>
+<ul class="sub-menu">
+	<li id="menu-item-1072" class="mega-menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1072"><a>PRIVATI</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1077" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1077"><a href="https://www.unipolmove.it/piani/privati/base/">Base</a></li>
+		<li id="menu-item-4405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4405"><a href="https://www.unipolmove.it/piani/privati/europeo/">Europeo</a></li>
+		<li id="menu-item-1078" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1078"><a href="https://www.unipolmove.it/piani/privati/pay-per-use/">Pay per Use</a></li>
+		<li id="menu-item-1079" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1079"><a href="https://www.unipolmove.it/piani/privati/">Vedi tutti i piani Privati</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1075" class="mega-menu-title menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1075"><a>BUSINESS</a>
+	<ul class="sub-menu">
+		<li id="menu-item-1080" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1080"><a href="https://www.unipolmove.it/piani/business/">Corporate</a></li>
+		<li id="menu-item-1081" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1081"><a href="https://www.unipolmove.it/piani/business/">Small Business</a></li>
+		<li id="menu-item-1082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1082"><a href="https://www.unipolmove.it/piani/business/">Vedi tutti i piani Business</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-1133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1133"><a href="https://www.unipolmove.it/app-mobile/">App</a></li>
+<li id="menu-item-1076" class="has-mega-menu column-single services menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1076"><a href="#servizi">Servizi</a>
+<ul class="sub-menu">
+	<li id="menu-item-1091" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1091"><a href="https://www.unipolmove.it/servizi/telepedaggio/">Telepedaggio</a></li>
+	<li id="menu-item-1786" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1786"><a href="https://www.unipolmove.it/strisce-blu/">Strisce blu</a></li>
+	<li id="menu-item-1785" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1785"><a href="https://www.unipolmove.it/parcheggi-convenzionati/">Parcheggi convenzionati</a></li>
+	<li id="menu-item-4358" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4358"><a href="https://www.unipolmove.it/servizi/parcheggi-con-prenotazione/">Parcheggi con prenotazione</a></li>
+	<li id="menu-item-1092" class="d-xl-none menu-item menu-item-type-post_type menu-item-object-page menu-item-1092"><a href="https://www.unipolmove.it/servizi/altri-servizi/">Altri servizi</a></li>
+	<li id="menu-item-1087" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1087"><a href="https://www.unipolmove.it/servizi/">Vedi tutti</a></li>
+</ul>
+</li>
+<li id="menu-item-1084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1084"><a href="https://www.unipolmove.it/dove-trovarci/">Dove trovarci</a></li>
+<li id="menu-item-1435" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1435"><a href="https://www.unipolmove.it/faq/">Ti serve supporto?</a></li>
+<li id="menu-item-2141" class="menu-item menu-item-type-post_type menu-item-object-page current_page_parent menu-item-2141"><a href="https://www.unipolmove.it/blog/">Blog</a></li>
+</ul></div>  
+                        <div class="offcanvas-menu-footer d-xl-none d-flex flex-column">
+                            <a href="/app/onboarding" class="btn btn-primary text-nowrap tealium-buy-now" data-tealium-position="header">
+                                Acquista ora                            </a>
+                            <a href="/app/login" class="btn-login text-decoration-none d-flex justify-content-center">
+                                <svg width="24" height="24"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#user"></use></svg>
+                                <span>Accedi</span>
+                            </a>                            
+                        </div>                         
+                    </div>
+                </div>
+                <div class="nav-tools-dx d-flex align-items-center">
+                    <a href="/app/onboarding" class="btn btn-primary btn-mobile-header text-nowrap tealium-buy-now" data-tealium-position="header">
+                        Acquista ora                    </a>                                    
+                    <div class="d-none d-xl-flex">
+                        <a href="/app/privateArea" class="text-decoration-none">
+                            <svg width="24" height="24" fill="var(--header-link)"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#user"></use></svg>
+                            Accedi                        </a>
+                    </div>
+                    <div class="d-none d-xl-flex">    
+                        <ul class="header-language-switch list-unstyled"><li class="dropdown"><a class="dropdown-toggle" href="#" id="desktopLanguageSwitch" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ita<svg width="10" height="10" fill="var(--header-link)"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#arrow-down"></use></svg></a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="desktopLanguageSwitch"><li><a class="dropdown-item active" href="https://www.unipolmove.it/blog/ztl-a-parma-mappa-orari-e-multe/">Ita<svg class="dropdown-item-icon" width="12" height="12" fill="var(--header-link)"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#check"></use></svg></a></li><li><a class="dropdown-item " href="https://www.unipolmove.it/en/">Eng<svg class="dropdown-item-icon" width="12" height="12" fill="var(--header-link)"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#check"></use></svg></a></li></ul></li></ul>                    </div>                     
+                </div>
+                            </div>
+        </nav>
+    </header><script type="text/JavaScript">
+    var tealiumViewPayload = {
+        page_environment: "prod",
+        page_id: "blog-3063",
+        page_name: "blog:ztl-a-parma-mappa-orari-e-multe",
+        page_breadcrumbs: "area pubblica->homepage->blog->ZTL a Parma: mappa, orari e multe",
+        referring_url: "",
+        issue_date: "2024-12-11",
+        primary_category: "area pubblica",
+        subject_category: "blog",
+        page_language: "it",
+        navigation_mode: "website",
+        network_source: "external",
+        page_path: "/blog/ztl-a-parma-mappa-orari-e-multe"
+    };
+</script>
+
+
+<main role="main" id="main-content">
+    <section class="blog-article space-py-xs32-md60 text-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-2k-10 mx-2k-auto">                
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="mb-4 mb-lg-5">  
+                                <nav class="um-breadcrumb" style="--bs-breadcrumb-divider: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDYgMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNS43MDcyNSA1LjcwNzAxTDEuNzA3MjUgOS43MDcwMUMxLjUxMjI1IDkuOTAyMDEgMS4yNTYyNSAxMCAxLjAwMDI1IDEwQzAuNzQ0MjUgMTAgMC40ODgyNSA5LjkwMjAxIDAuMjkzMjUgOS43MDcwMUMtMC4wOTc3NSA5LjMxNjAxIC0wLjA5Nzc1IDguNjg0MDEgMC4yOTMyNSA4LjI5MzAxTDMuNTg2MjUgNS4wMDAwMUwwLjI5MzI1IDEuNzA3MDFDLTAuMDk3NzUgMS4zMTYwMSAtMC4wOTc3NSAwLjY4NDAwNiAwLjI5MzI1IDAuMjkzMDA2QzAuNjg0MjUgLTAuMDk3OTk0MSAxLjMxNjI1IC0wLjA5Nzk5NDEgMS43MDcyNSAwLjI5MzAwNkw1LjcwNzI1IDQuMjkzMDFDNi4wOTgyNSA0LjY4NDAxIDYuMDk4MjUgNS4zMTYwMSA1LjcwNzI1IDUuNzA3MDFaIiBmaWxsPSIjNzM3MzczIi8+Cjwvc3ZnPgo=)" aria-label="breadcrumb" data-bs-theme="light">
+                                  <ol class="breadcrumb flex-nowrap">
+                                    <li class="breadcrumb-item"><a href="https://www.unipolmove.it/blog/">Blog</a></li>
+                                    <li class="breadcrumb-item d-none d-lg-block text-truncate"><a href="https://www.unipolmove.it/blog/categoria/citta/" rel="category tag">Città</a></li>
+                                    <li class="breadcrumb-item active text-truncate" aria-current="page">ZTL a Parma: mappa, orari e multe</li>
+                                  </ol>
+                                </nav> 
+                            </div>
+                                                                    <article class="blog-article-section" id="post-3063" class="post-3063 post type-post status-publish format-standard has-post-thumbnail hentry category-citta tag-ztl">
+
+                                            <div class="blog-article-category f-helvetica-Bd fs-xs14-md16 ls-2px text-uppercase"><a href="https://www.unipolmove.it/blog/categoria/citta/" rel="category tag">Città</a></div>
+
+                                            <h1 class="fs-xs28-md40">ZTL a Parma: mappa, orari e multe</h1>
+
+                                            <div class="blog-article-abstract f-lora-444 ls-1perc fs-xs16-md20 text-blob-body-dark">
+                                                <p>Scopri tutti i dettagli sulla ZTL di Parma: mappa aggiornata, orari di accesso e sanzioni previste. Informati con UnipolMove.</p>
+                                            </div>
+
+                                            <!-- Meta informazioni: Autore, Data, Categorie, Tag -->
+                                            <div class="blog-article-date-share mb-4 mb-lg-5 fs-xs12-md18 d-flex flex-column flex-sm-row justify-content-between align-items-sm-center">
+                                                <div class="blog-article-date">
+                                                    <svg width="20" height="20" fill="var(--blog-body-dark)"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#calendar"></use></svg>
+                                                    martedì 08 Luglio, 2025                                                </div>
+                                                <div class="blog-article-share dropdown">
+                                                    <a class="dropdown-toggle" href="#" id="blogArticleSocialShare" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                                                        <svg width="20" height="20" fill="var(--blog-primary-400)"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#share"></use></svg>
+                                                        Share
+                                                    </a>
+                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="blogArticleSocialShare" data-bs-popper="static">
+                                                        <li>
+                                                            <a href="#null" id="share-whatsapp" class="dropdown-item" target="_blank" rel="nofollow" title="Condividi su WhatsApp">
+                                                                <svg width="16" height="16"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#whatsapp"></use></svg>
+                                                                Whatsapp
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#null" id="share-x" class="dropdown-item" target="_blank" rel="nofollow" title="Condividi su X">
+                                                                <svg width="16" height="16"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#x"></use></svg>
+                                                                X
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#null" id="share-facebook" class="dropdown-item" target="_blank" rel="nofollow" title="Condividi su Facebook">
+                                                                <svg width="16" height="16"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#facebook-fill"></use></svg>
+                                                                Facebook
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#null" id="share-linkedin" class="dropdown-item" target="_blank" rel="nofollow" title="Condividi su LinkedIn">
+                                                                <svg width="16" height="16"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#linkedin"></use></svg>
+                                                                LinkedIn
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                
+                                            </div>
+
+                                            <div class="blog-article-image text-center mb-4 mb-md-5">
+                                                <img width="726" height="484" class="img-full wp-post-image" alt="" decoding="async" fetchpriority="high" sizes="(max-width: 726px) 100vw, 726px" data-src="https://www.unipolmove.it/wp-content/uploads/2025/07/UnipolMove_Parma-726x484.jpg" data-srcset="https://www.unipolmove.it/wp-content/uploads/2025/07/UnipolMove_Parma-726x484.jpg 726w, https://www.unipolmove.it/wp-content/uploads/2025/07/UnipolMove_Parma-300x200.jpg 300w, https://www.unipolmove.it/wp-content/uploads/2025/07/UnipolMove_Parma-1024x683.jpg 1024w, https://www.unipolmove.it/wp-content/uploads/2025/07/UnipolMove_Parma-768x512.jpg 768w, https://www.unipolmove.it/wp-content/uploads/2025/07/UnipolMove_Parma.jpg 1215w" />                                                <div class="blog-article-image-caption">Main square of Parma, Emilia-Romagna, Italy</div>
+                                            </div>                                        
+
+                                            <!-- Contenuto dell'articolo -->
+                                            <div class="f-lora-444 ls-1perc fs-xs16-md20 text-blob-body-dark">
+                                                
+<p><strong>La ZTL di Parma</strong> è caratterizzata da un vasto territorio del centro storico e include un&#8217;isola ambientale interna soggetta a ulteriori restrizioni. L&#8217;accesso a tale area è controllato e regolato da cinque varchi elettronici, dotati di telecamere, opportunamente indicati da segnaletica verticale e da pannelli a messaggio variabile. Entrare o circolare in questa zona senza autorizzazione comporta sanzioni amministrative, spesso onerose.<br>Questa misura, infatti, ha l’obiettivo di tutelare il patrimonio artistico e culturale della città, migliorando al tempo stesso la qualità della mobilità urbana verso un’ottica più sostenibile.<br>Tuttavia, tali limitazioni non sempre sono attive e vi sono particolari eccezioni per alcune categorie specifiche, come residenti e veicoli per il carico e scarico merci.</p>
+
+
+
+<p>In questo articolo ti spiegheremo nel dettaglio <strong>come funziona la ZTL di Parma</strong>: dagli orari ai permessi necessari, passando per le soluzioni alternative che ti consentiranno di accedere al centro storico senza essere sanzionato.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Quando è attiva la ZTL a Parma?</strong></h2>
+
+
+
+<p>A <strong>Parma la ZTL</strong> attiva viene comunicata in tempo reale tramite segnaletica verticale e la relativa dicitura nei pannelli digitali posti immediatamente all’entrata di tale area.</p>
+
+
+
+<p>In linea di massima, la maggior parte dei varchi elettronici sono attivi quotidianamente dalle <strong>7:30 alle 19:30</strong>. Ne sono un esempio <strong>Viale Toscanini e la corsia nord-sud di Viale Mariotti.</strong></p>
+
+
+
+<p>Vi sono, però, alcune eccezioni.<br>Una di queste è rappresentata dalla <strong>duplice fascia oraria di Piazzale Salvo D’Acquisto e di Via XXII Luglio.</strong> In tali settori, infatti, la ZTL è attiva la mattina dalle 7:30 alle 11:30 e il pomeriggio dalle 16:00 alle 19:00.<br>Una situazione diversa riguarda <strong>l’isola ambientale</strong> situata nel cuore del centro storico, ove il funzionamento è continuo h24 ogni giorno.</p>
+
+
+
+<p>Naturalmente, durante gli orari di attivazione, l&#8217;accesso alla zona a traffico limitato è consentito solo ai veicoli autorizzati, mentre l’uscita è sempre libera. Al di fuori di tale arco temporale, l’entrata è libera e non prevede ammende. Tuttavia, è importante ricordare che la sosta all’interno dell’area è sempre vietata dopo le 19:30.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Dove parcheggiare a Parma per evitare ZTL?</strong></h2>
+
+
+
+<p>Al fine di evitare di entrare <strong>nella ZTL di Parma</strong> e incorrere in sanzioni, la soluzione migliore è quella di parcheggiare nelle aree di sosta pubbliche situate all’esterno di tale area, proseguendo poi a piedi o con i mezzi pubblici verso il centro storico.</p>
+
+
+
+<p>I parcheggi disponibili possono essere sia nelle immediate vicinanze della zona a traffico limitato, sia in zone periferiche, ma ben collegati dai mezzi pubblici. Quest’ultimo, in particolare, è il caso degli <strong>scambiatori comunali, quali Crocetta, Traversetolo, San Leonardo e Campus</strong>, tutti gratuiti e aperti h24, siti alle porte della città.&nbsp;</p>
+
+
+
+<p>In alternativa, nelle zone limitrofe del centro storico, vi sono <strong>garage sotterranei e multipiano</strong>. Ne sono un esempio il parcheggio <strong>Ghiaia</strong> e quello in <strong>Viale Mentana 99/a,</strong> sempre aperto e con ben 144 posti auto.</p>
+
+
+
+<p>Infine, <strong>le soste a bordo strada</strong>. Come in tutte le città, anche a Parma sono presenti sia strisce blu, sia bianche, indicanti rispettivamente i posteggi a pagamento e gratuiti. A ridosso dell’area a traffico limitato le tariffe sono solitamente di circa 1,10 €/h per la prima ora e 1,60 €/h per le successive, con una durata massima di 2 ore. Va tenuto presente, però, che in queste zone la disponibilità di posti auto può essere limitata, soprattutto durante le ore di punta o nei pressi di scuole e uffici.</p>
+
+
+
+<p>Per facilitare la ricerca del parcheggio, <strong>UnipolMove</strong> mette a disposizione dei propri clienti, due servizi pratici ed efficienti. Il primo di questi riguarda le aree di sosta lungo la carreggiata e prende il nome di        <a href="https://www.unipolmove.it/strisce-blu/">StrisceBlu</a>. Disponibile tramite app per smartphone e dispositivi compatibili, permette di gestire la sosta in modo completamente digitale. Una volta impostato il metodo di pagamento, infatti, ogni utente può selezionare sulla mappa il luogo ove intende posteggiare, inserire la durata prevista e i dati del veicolo, evitando così il passaggio al parchimetro e l’uso del biglietto cartaceo. Allo scadere dell’orario impostato, inoltre, sarà possibile aggiungere ulteriori minuti, consentendo di prolungare la sosta in modo semplice, senza dover tornare alla macchina.</p>
+
+
+
+<p>Il secondo servizio di UnipolMove, invece, riguarda <a href="https://www.unipolmove.it/parcheggi-convenzionati/">i parcheggi convenzionati</a>. Queste strutture sono caratterizzate da autorimesse multipiano, sopraelevate o interrate, che consentono soste di lunga durata, evitando di entrare accidentalmente in ZTL. Tra i più famosi di Parma vi è il <strong>Goito</strong>, gestito da Apcoa e con ben 775 posti auto. Vi sono, poi, il <strong>Kennedy</strong>, sito dietro al Parco Ducale, nonché <strong>Abbeveratoia, Toschi e Central Parking Repubblica</strong>. In ognuno di essi i clienti possono accedere comodamente tramite il dispositivo digitale associato al veicolo. Usando le piste dedicate, infatti, le sbarre si apriranno autonomamente attraverso il riconoscimento della targa o dello stesso apparecchio. Anche in questo caso il pagamento della sosta è automatico e viene addebitato mensilmente, senza necessità di biglietti od operazioni manuali.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Quanto costa la multa per chi entra in una ZTL a Parma?</strong>t</h2>
+
+
+
+<p>L’accesso alla ZTL di Parma è consentito <strong>solo previa autorizzazione</strong>. Tuttavia, alcune categorie di utenti hanno diritto a permessi permanenti o temporanei che consentono loro di entrare e circolare liberamente all’interno dell’area. Tra questi vi sono i residenti, le persone con disabilità, le attività commerciali del centro storico, nonché ciclomotori e motocicli, che generalmente non sono soggetti a restrizioni.</p>
+
+
+
+<p>L’ingresso accidentale nella zona a traffico limitato comporta <strong>una sanzione amministrativa che parte da 80 euro e può arrivare fino a 355 euro,</strong> a seconda delle circostanze. Per ridurre l’importo della multa, il Comune di Parma ha previsto un meccanismo di <strong>ravvedimento operoso</strong>: se l’infrazione viene regolarizzata entro le 23:59 del giorno successivo, è possibile acquistare un titolo di accesso tramite i canali ufficiali, evitando così la sanzione completa.</p>
+
+
+
+<p>Qualora, al contrario, la multa non venga pagata, trascorsi 60 giorni dall’accertamento, l’importo sarà soggetto a interessi di mora, oltre a eventuali spese aggiuntive per la notifica e la riscossione coattiva.</p>
+
+
+
+<h2 class="wp-block-heading"><strong>Come entrare in zona ZTL a Parma?</strong></h2>
+
+
+
+<p>Nella città di <strong>Parma la mappa ZTL</strong> è ben delimitata dai varchi elettronici.<br>Oltre ai permessi permanenti o specifici per alcune categorie, l’accesso può avvenire anche per brevi periodi attraverso l’acquisto di<strong> titoli di sosta temporanei.</strong> Tali titoli sono di due tipologie: <strong>giornalieri e bi-orari</strong>. Mentre nel primo caso la tariffa è di 10 euro per l’intera giornata, nel secondo il costo è di € 5 per 2 ore.</p>
+
+
+
+<p>I ticket possono essere acquistati presso le edicole e le tabaccherie convenzionate, ai parcometri abilitati in prossimità degli accessi e allo sportello <strong>Infomobility</strong> in via Mentana 29/A. Inoltre, sono disponibili anche digitalmente presso la sezione dedicata nell’applicazione <strong>Tap&amp;Park</strong> e nel sito web ufficiale.</p>
+                                            </div>
+
+                                            <div class="wp-block-tag-cloud"><a href="https://www.unipolmove.it/blog/tag/ztl/" class="tag-cloud-link">ZTL</a></div>
+                                        </article>
+                                                       
+                        </div>
+                        <div class="col-md-1 border-end border-2 d-none d-md-block" style="border-color:var(--blog-divider) !important"></div>
+                        <div class="col-md-4">
+
+                            <aside class="widget-area-blog">
+                                <form role="search" method="get" class="blog-search-form" action="https://www.unipolmove.it/">
+    <input type="hidden" name="post_type" value="post" />
+    <label class="fs-xs12-md18 fw-bold" for="blogSearch">
+        Ricerca:    </label>
+    <div class="input-group radius-16 mt-0 mt-md-2">
+        <div class="icon icon-search">
+            <svg height="20" width="20"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#search"></use></svg>
+        </div>
+        <input type="search" class="form-control radius-16" placeholder="Cerca articoli..." value="" name="s" aria-label="Cerca nel blog" id="blogSearch" aria-describedby="blog-search-button" />
+        <button class="btn btn-link" type="submit" id="blog-search-button">
+            <span class="visually-hidden">Cerca</span>
+            <svg width="22" height="22"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#arrow-full-right"></use></svg>
+        </button>
+    </div>    
+</form>
+
+                                                                
+                                <div class="blog-article-list mt-3 space-mb-xs40-md60">
+                                    <div class="fw-bold fs-28">Articoli correlati</div>                                    
+                                                                            
+                                        <div class="blog-article-list-item toclick py-0 pb-4 mb-4">
+                                            <div class="mb-3">
+                                                <img width="430" height="184" class="radius-12 img-full wp-post-image" alt="ZTL a Parma: mappa, orari e multe" decoding="async" loading="lazy" data-src="https://www.unipolmove.it/wp-content/uploads/2025/05/UnipolMove_Revisione_auto-430x184.jpg" />                                            </div>
+
+                                            <div class="blog-article-category f-helvetica-Bd fs-14 ls-08px mb-1 text-uppercase">Servizio auto</div>                            
+                                            <div class="blog-article-list-title fs-18">
+                                                <a href="https://www.unipolmove.it/blog/revisione-auto-che-cose-e-ogni-quanto-farla/">
+                                                    Revisione auto: che cos&#8217;è e ogni quanto farla                                                </a>
+                                            </div>
+                                            <div class="f-lora-444 fs-16 text-blob-body-dark">
+                                                Scopri cos'è la revisione auto, ogni quanto va fatta e cosa prevede la normativa. Guida completa a cura di UnipolMove.                                            </div>
+                                        </div>
+                                                                            
+                                        <div class="blog-article-list-item toclick py-0 pb-4 mb-4">
+                                            <div class="mb-3">
+                                                <img width="430" height="184" class="radius-12 img-full wp-post-image" alt="ZTL a Parma: mappa, orari e multe" decoding="async" loading="lazy" data-src="https://www.unipolmove.it/wp-content/uploads/2025/05/UnipolMove_Colpo_di_sonno_alla_guida-430x184.jpg" />                                            </div>
+
+                                            <div class="blog-article-category f-helvetica-Bd fs-14 ls-08px mb-1 text-uppercase">News</div>                            
+                                            <div class="blog-article-list-title fs-18">
+                                                <a href="https://www.unipolmove.it/blog/colpo-di-sonno-alla-guida-come-prevenirlo-e-quali-sono-i-campanelli-dallarme/">
+                                                    Colpo di sonno alla guida: come prevenirlo e quali sono i campanelli d’allarme                                                </a>
+                                            </div>
+                                            <div class="f-lora-444 fs-16 text-blob-body-dark">
+                                                Prevenire il colpo di sonno alla guida è possibile. Scopri cause, sintomi e come Unipol Move può aiutarti a viaggiare in sicurezza.                                            </div>
+                                        </div>
+                                                                            
+                                        <div class="blog-article-list-item toclick py-0 pb-4 mb-4">
+                                            <div class="mb-3">
+                                                <img width="430" height="184" class="radius-12 img-full wp-post-image" alt="ZTL a Parma: mappa, orari e multe" decoding="async" loading="lazy" data-src="https://www.unipolmove.it/wp-content/uploads/2025/04/ZTL-a-Bologna-430x184.jpg" />                                            </div>
+
+                                            <div class="blog-article-category f-helvetica-Bd fs-14 ls-08px mb-1 text-uppercase">Città</div>                            
+                                            <div class="blog-article-list-title fs-18">
+                                                <a href="https://www.unipolmove.it/blog/ztl-a-bologna-mappa-orari-e-multe/">
+                                                    ZTL a Bologna: mappa, orari e multe                                                </a>
+                                            </div>
+                                            <div class="f-lora-444 fs-16 text-blob-body-dark">
+                                                Scopri la mappa, gli orari e le sanzioni della ZTL di Bologna. Tutto quello che devi sapere per evitare multe e circolare senza problemi.                                            </div>
+                                        </div>
+                                                                    </div>  
+
+                                                                    <div class="fw-bold fs-28">Categorie</div>
+                                    <ul class="wp-block-categories-list wp-block-categories">
+                                    <li class="cat-item"><a href="https://www.unipolmove.it/blog/categoria/citta/">Città</a></li><li class="cat-item"><a href="https://www.unipolmove.it/blog/categoria/mobilita/">Mobilità</a></li><li class="cat-item"><a href="https://www.unipolmove.it/blog/categoria/news/">News</a></li><li class="cat-item"><a href="https://www.unipolmove.it/blog/categoria/servizio-auto/">Servizio auto</a></li>                                    <ul>
+
+                            </aside>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<footer>
+    <div class="footer-wrapper">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-lg-4 col-xl col-xxl-2 text-center text-lg-start">
+                    <a href="https://www.unipolmove.it">
+                                                    <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/logos/unipolmove-wh-bl.svg" alt="UnipolMove" width="157" height="32">
+                                                </a>
+                    <div class="mt-3 mb-4 mb-lg-0">
+                                                <a href="https://www.unipol.com/" class="d-inline-flex flex-column gap-1 fs-12 lh-sm text-decoration-none text-white" target="_blank" title="sito esterno [apre una nuova finestra del browser]">
+                            Società parte<br>del Gruppo
+                            <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/unipol-gruppo-logo-wh.svg" class="img-responsive-auto footer-group-logo" alt="Unipol" width="80" height="32">
+                        </a>
+                                                </div> 
+                </div>
+                <div class="col-lg-4 col-xl col-2k-3 text-center text-lg-start">
+                                            <!-- TrustBox widget - Mini -->
+                        <div class="trustpilot-widget trustpilot-widget-footer m-auto" data-theme="dark" data-locale="it-IT" data-template-id="53aa8807dec7e10d38f59f32" data-businessunit-id="6299eb69490f8de3adcda953" data-style-height="150px" data-style-width="100%">
+                        <a href="https://it.trustpilot.com/review/www.unipolmove.it" target="_blank" rel="noopener">Trustpilot</a>
+                        </div>
+                        <!-- End TrustBox widget -->   
+                                                                   
+                </div>
+                <div class="col-lg-4 col-xl text-center text-lg-start">
+                    <div class="menu-it-footer-link-sx-container"><ul class="list-unstyled mb-0 menu-footer-link"><li id="menu-item-1094" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1094"><a href="https://www.unipolmove.it/il-nostro-percorso/">Il nostro percorso</a></li>
+<li id="menu-item-1096" class="tealium-feedback menu-item menu-item-type-custom menu-item-object-custom menu-item-1096"><a href="#null">Ci interessa la tua opinione</a></li>
+<li id="menu-item-1095" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1095"><a href="https://www.unipolmove.it/parlano-di-noi/">Parlano di noi</a></li>
+<li id="menu-item-1097" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1097"><a target="_blank" href="https://www.unipolmove.it/wp-content/uploads/documenti/UnipolMove_Mezzi-Leggeri_Tratte-in-attivazione.pdf">Verifica tutte le tratte attive</a></li>
+<li id="menu-item-1312" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1312"><a href="/calcola-pedaggio/">Calcola pedaggio</a></li>
+<li id="menu-item-3012" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3012"><a href="https://www.unipolmove.it/accessibilita/">Accessibilità</a></li>
+</ul></div>                          
+                </div>
+                <div class="col-lg-12 col-xl text-center text-lg-start">
+                    <div class="d-flex flex-column pt-lg-4 pt-xl-0">
+                        <div class="footer-help order-md-1 d-grid d-md-flex justify-content-md-center justify-content-xl-start">
+                            <a href="https://www.unipolmove.it/faq/" class="btn btn-outline-primary me-md-4">Ti serve supporto?</a>
+                            <a href="https://www.unipolmove.it/dove-trovarci/" class="btn btn-outline-primary">Vieni a trovarci</a>
+                        </div>
+                        <div class="footer-social-app-wrapper pb-3 pb-md-0 d-lg-flex justify-content-center justify-content-xl-end align-items-center">
+                                                        <div class="footer-download-app d-lg-flex justify-content-lg-end align-items-center">
+                                <div class="me-lg-3">
+                                    Scarica la <br class="d-none d-lg-block"><span class="text-nowrap">nostra App</span>                                </div>
+                                <div class="mt-2 mt-lg-0">
+                                    <a role="button" class="footer-app tealium-download-appmove download-app-btn" data-tealium-position="footerapplinkunipolmoveapp" data-bs-toggle="modal" data-bs-target="#appQrcodeModal"><img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icon-app/app-unipolmove.svg" class="" height="56" width="56" alt="App UnipolMove"></a>
+                                                                    </div>                            
+                            </div>
+                            <span class="d-block d-lg-inline me-0 me-lg-3 mb-2 mb-lg-0">Seguici <br class="d-none d-lg-block"><span class="text-nowrap">sui social</span></span>
+                            <a href="https://www.instagram.com/unipolmove/" class="footer-social-icon mr-social tealium-social"          data-tealium-position="footer" data-tealium-socialname="instagram" title="segui la nostra pagina su instagram, sito esterno [apre una nuova finestra del browser]" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#instagram"></use></svg></a>
+                            <a href="https://www.facebook.com/UnipolMove" class="footer-social-icon mr-social tealium-social"            data-tealium-position="footer" data-tealium-socialname="facebook" title="segui la nostra pagina su facebook, sito esterno [apre una nuova finestra del browser]" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#facebook"></use></svg></a>
+                            <a href="https://www.youtube.com/channel/UCJwxm3aPa4P7Qx--HJOFhgA" class="footer-social-icon tealium-social" data-tealium-position="footer" data-tealium-socialname="youtube" title="segui il nostro canale su youtube, sito esterno [apre una nuova finestra del browser]" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#youtube"></use></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+                    
+                        <div class="row d-none">
+                <div class="col-lg-2 text-center text-lg-start">
+                    <a href="https://www.unipolmove.it">
+                                                    <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/logos/unipolmove-wh-bl.svg" alt="UnipolMove" width="157" height="32">
+                                                </a>
+                    <div class="mt-lg-5 my-4 mb-lg-0">
+                                                <a href="https://www.unipol.com/" class="d-inline-flex flex-column gap-1 fs-14 lh-sm text-decoration-none text-center text-white" target="_blank" title="sito esterno [apre una nuova finestra del browser]">
+                            Società parte<br>del Gruppo
+                            <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/unipol-gruppo-logo-wh.svg" class="img-responsive-auto" alt="Unipol" width="120" height="48">
+                        </a>
+                                                </div> 
+
+                </div>
+
+                <div class="col-lg-2 text-center text-lg-start">
+                    <div class="">
+                        <div class="menu-it-footer-link-sx-container"><ul class="list-unstyled mb-0 menu-footer-link"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1094"><a href="https://www.unipolmove.it/il-nostro-percorso/">Il nostro percorso</a></li>
+<li class="tealium-feedback menu-item menu-item-type-custom menu-item-object-custom menu-item-1096"><a href="#null">Ci interessa la tua opinione</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1095"><a href="https://www.unipolmove.it/parlano-di-noi/">Parlano di noi</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1097"><a target="_blank" href="https://www.unipolmove.it/wp-content/uploads/documenti/UnipolMove_Mezzi-Leggeri_Tratte-in-attivazione.pdf">Verifica tutte le tratte attive</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1312"><a href="/calcola-pedaggio/">Calcola pedaggio</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3012"><a href="https://www.unipolmove.it/accessibilita/">Accessibilità</a></li>
+</ul></div>                          
+                    </div>
+                </div>
+
+                <div class="col-lg-8 text-center text-lg-end">                 
+                    
+                    <div class="d-flex flex-column">                    
+
+                        <div class="footer-help order-md-1 d-grid d-md-flex justify-content-md-center justify-content-lg-end">                                                
+                            <a href="https://www.unipolmove.it/faq/" class="btn btn-outline-primary">Ti serve supporto?</a>
+                            <a href="https://www.unipolmove.it/dove-trovarci/" class="btn btn-outline-primary">Vieni a trovarci</a>
+                        </div>
+
+                                                    <!-- TrustBox widget - Mini -->
+                            <div class="trustpilot-widget trustpilot-widget-footer d-flex justify-content-lg-end justify-content-center" data-theme="dark" data-locale="it-IT" data-template-id="53aa8807dec7e10d38f59f32" data-businessunit-id="6299eb69490f8de3adcda953" data-style-height="150px" data-style-width="100%">
+                            <a href="https://it.trustpilot.com/review/www.unipolmove.it" target="_blank" rel="noopener">Trustpilot</a>
+                            </div>
+                            <!-- End TrustBox widget -->   
+                                                                       
+
+                        <div class="footer-social-app-wrapper d-lg-flex justify-content-lg-end align-items-center">
+                            <div class="footer-download-app d-lg-flex justify-content-lg-end align-items-center">
+                                <div class="me-0 me-lg-3">
+                                    Scarica l'App                                </div>
+                                <div class="mt-3 mt-lg-0">
+                                    <a role="button" class="footer-app tealium-download-appmove download-app-btn" data-tealium-position="footerapplinkunipolmoveapp" data-bs-toggle="modal" data-bs-target="#appQrcodeModal"><img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/icon-app/app-unipolmove.svg" class="" height="56" width="56" alt="App UnipolMove"></a>
+                                                                    </div>                            
+                            </div>
+
+                            
+                            <span class="d-block d-lg-inline me-0 me-md-3 mb-3 mb-lg-0">Seguici sui social</span>
+                            <a href="https://www.instagram.com/unipolmove/" class="footer-social-icon mr-social tealium-social"          data-tealium-position="footer" data-tealium-socialname="instagram" title="segui la nostra pagina su instagram, sito esterno [apre una nuova finestra del browser]" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#instagram"></use></svg></a>
+                            <a href="https://www.facebook.com/UnipolMove" class="footer-social-icon mr-social tealium-social"            data-tealium-position="footer" data-tealium-socialname="facebook" title="segui la nostra pagina su facebook, sito esterno [apre una nuova finestra del browser]" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#facebook"></use></svg></a>
+                            <a href="https://www.youtube.com/channel/UCJwxm3aPa4P7Qx--HJOFhgA" class="footer-social-icon tealium-social" data-tealium-position="footer" data-tealium-socialname="youtube" title="segui il nostro canale su youtube, sito esterno [apre una nuova finestra del browser]" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#youtube"></use></svg></a>
+                        </div>
+
+
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        <hr class="hr-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="row g-0 align-items-center">
+                    <div class="col-12 col-xl-auto text-center text-xl-start mb-3 mb-xl-0">
+                        Servizio offerto da 
+                        <a href="https://www.unipoltech.com/it" class="fs-16 text-nowrap text-decoration-none" title="Visita il sito UnipolTech, sito esterno [apre una nuova finestra del browser]" target="_blank" rel="noopener noreferrer">
+                            UnipolTech S.p.A. <svg class="icon" fill="var(--footer-credits-icon)"><use href="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/fonts/sprite.svg#link"></use></svg>
+                        </a>
+                        <div>I prezzi si intendono compresi di IVA</div>
+                    </div>
+                    <div class="col-12 col-xl text-center society">
+                        Via Stalingrado 37 - 40128 Bologna<br class="d-md-none"> Tel 051 5077111 - Fax 051 375349<br>
+                        <a class="text-decoration-none" href="mailto:unipolmove@pec.unipol.it">unipolmove@pec.unipol.it</a><br class="d-md-none">
+                        C.F. 03506831209 e P. IVA 03740811207 R.E.A. 524585
+                    </div>                        
+                        <div class="col-12 col-xl-auto text-center text-xl-end"><ul class="list-inline mb-0 mx-5 mt-3 mx-xl-0 mt-xl-0 footer-bottom-list"><li id="menu-item-1098" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1098"><a href="https://www.unipolmove.it/cookie-policy/">Cookie Policy</a></li>
+<li id="menu-item-1101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1101"><a href="https://www.unipolmove.it/termini-e-condizioni/">Termini e condizioni</a></li>
+<li id="menu-item-1100" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1100"><a href="https://www.unipolmove.it/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-1099" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1099"><a href="https://www.unipolmove.it/documenti-legali/">Documenti contrattuali</a></li>
+</ul></div>                                                  
+                </div>
+            </div>
+        </div>
+    </div>
+        
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="appBuy" tabindex="-1" aria-labelledby="appBuy" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-grid gap-2 d-md-flex justify-content-end mt-2 mt-md-4">
+                    <button type="button" class="btn btn-link text-decoration-none p-1" data-bs-dismiss="modal" aria-label="Close"><i class="unipolmove-icon-close"></i></button>
+                </div>                
+                <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/logos/unipolmove-white.svg" class="mx-auto d-block" alt="UnipolMove" width="177" height="52">
+                <p class="modal-qrcode-text text-center mt-3 fs-3">Per acquistare il dispositivo UnipolMove e gestire tutti i servizi associati, scarica l’app UnipolMove</p>
+                <p class="modal-qrcode-text text-center fs-4 mb-0"><strong>Scarica ora</strong></p>
+                <div class="modal-qrcode-image text-center d-none d-lg-block">
+                    <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/qrcode/qr-code.png" class="img-responsive-auto" width="220" height="220" alt="qrcode app unipolMove">
+                </div>
+                <p class="modal-qrcode-text text-center">Oppure scarica l'App dal tuo store</p>
+                
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <a href="https://apps.apple.com/it/app/unipolmove/id1609074315" class="modal-store-download" title="scarica da app store"><img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/stores/download-App-Store.svg" class="img-responsive-auto" width="146" height="38" alt="App Store"></a>
+                            </div>
+                            <div class="col-6">
+                                <a href="https://play.google.com/store/apps/details?id=it.unipolsai.move" class="modal-store-download" title="scarica da google play"><img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/stores/download-Google-Play.svg" class="img-responsive-auto" width="155" height="38" alt="Google Play"></a>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>                               
+                <p class="text-center mt-3 mb-0">Prima della sottoscrizione e per le condizioni economiche e contrattuali, leggere  Termini e Condizioni sul sito www.unipolmove.com</p>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="comingSoon" tabindex="-1" aria-labelledby="comingSoon" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-grid gap-2 d-md-flex justify-content-end mt-2 mt-md-4">
+                    <button type="button" class="btn btn-link text-decoration-none p-1" data-bs-dismiss="modal" aria-label="Close"><i class="unipolmove-icon-close"></i></button>
+                </div>                
+                <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/logos/unipolmove-white.svg" class="mx-auto d-block" alt="UnipolMove" width="177" height="52">
+                <p class="modal-qrcode-text text-center mt-3 fs-3">
+                    Pronti, partenza... Move! <br>
+                    Acquistalo ora in tutte le Agenzie UnipolSai e a breve anche su App e sito UnipolMove.<br>
+                    Offerta valida anche se non hai una polizza UnipolSai
+                </p>
+            </div>
+        </div>
+    </div>
+</div><!-- Modal -->
+<div class="modal fade" id="appQrcodeModal" tabindex="-1" aria-labelledby="appQrcodeModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title fs-xs18-md24">
+                    <strong>Inquadra qui con il tuo cellulare e scarica subito l'App di UnipolMove</strong>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="mb-0 fs-18">Disponibile su Google Play Store e su App Store</p>
+                <div class="text-center my-4">
+                    <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/qrcode/qr-code.png" class="img-responsive-auto" width="300" height="300" alt="qrcode app unipolMove">
+                </div>
+                <p class="fs-18">Oppure scarica l'App dagli store</p>
+                <div class="row g-2">
+                    <div class="col-6">
+                        <a href="https://apps.apple.com/it/app/unipolmove/id1609074315" class="modal-store-download tealium-download-appmove-ios" data-tealium-position="modalappmove" title="scarica da app store">
+                            <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/stores/download-App-Store.svg" class="img-responsive-auto" width="146" height="38" alt="App Store">
+                        </a>
+                    </div>
+                    <div class="col-6">
+                        <a href="https://play.google.com/store/apps/details?id=it.unipolsai.move" class="modal-store-download tealium-download-appmove-android" data-tealium-position="modalappmove" title="scarica da google play">
+                            <img src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/img/stores/download-Google-Play.svg" class="img-responsive-auto" width="155" height="38" alt="Google Play">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" id='blog' href='https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/css/blog.css?ver=20261026_1' type='text/css' media='all' />
+<noscript><link rel='stylesheet' href='https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/css/blog.css?ver=20261026_1'></noscript><link rel='preload' as='style' onload="this.onload=null;this.rel='stylesheet'" id='unipolmove' href='https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/css/core.css?20261026_1&#038;ver=6.7.1' type='text/css' media='all' />
+<noscript><link rel='stylesheet' href='https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/css/core.css?20261026_1&#038;ver=6.7.1'></noscript><script type="text/javascript" id="pll_cookie_script-js-after">
+/* <![CDATA[ */
+(function() {
+				var expirationDate = new Date();
+				expirationDate.setTime( expirationDate.getTime() + 31536000 * 1000 );
+				document.cookie = "pll_language=it; expires=" + expirationDate.toUTCString() + "; path=/; secure; SameSite=Lax";
+			}());
+/* ]]> */
+</script>
+<script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" id="bootstrap-bundle-js"></script>
+<script type="text/javascript" defer src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/js/scroll-manager.js" id="scroll-manager-js"></script>
+<script type="text/javascript" defer src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/js/commons.js" id="commons-js"></script>
+<script type="text/javascript" defer src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/js/main.js" id="main-js-js"></script>
+<script type="text/javascript" defer src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/js/tealium.js" id="tealium-js"></script>
+<script type="text/javascript" defer src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/js/lazyload.js" id="lazyload-js-js"></script>
+<script type="text/javascript" defer src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/js/blog.js" id="blog-js-js"></script>
+<script type="text/javascript" defer src="https://www.unipolmove.it/wp-content/themes/unipolmove-theme-vaas/assets/js/app-banner-cookie.js" id="app-banner-cookie-js"></script>
+
+</body>
+</html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/?utm_source=w3tc&utm_medium=footer_comment&utm_campaign=free_plugin
+
+Page Caching using Disk: Enhanced 
+
+Served from: www.unipolmove.it @ 2026-10-26 02:21:59 by W3 Total Cache
+-->
