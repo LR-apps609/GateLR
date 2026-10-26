@@ -237,58 +237,66 @@
    ],
    "gates": [
     {
-     "id": "le-osm3248620179",
+     "id": "le-od5",
      "name": "Varco · Piazza Vittorio Aymone / Via Adua (Porta Napoli)",
      "location": {
-      "lat": 40.356307,
-      "lon": 18.168355
+      "lat": 40.356303,
+      "lon": 18.168345
      }
     },
     {
-     "id": "le-osm3248620174",
+     "id": "le-od6",
+     "name": "Varco · Via Casale Fornello / Viale De Pietro",
+     "location": {
+      "lat": 40.359663,
+      "lon": 18.172106
+     }
+    },
+    {
+     "id": "le-od3",
      "name": "Varco · Via Giuseppe Cino",
      "location": {
-      "lat": 40.349386,
-      "lon": 18.166691
+      "lat": 40.349414,
+      "lon": 18.166752
      }
     },
     {
-     "id": "le-osm3248620178",
+     "id": "le-od7",
      "name": "Varco · Via Marco Aurelio / Vico dei Fieschi",
      "location": {
-      "lat": 40.356105,
-      "lon": 18.173906
+      "lat": 40.356143,
+      "lon": 18.173908
      }
     },
     {
-     "id": "le-osm3248620177",
+     "id": "le-od4",
      "name": "Varco · Via Pietro Palumbo / Via Adua (Porta Rudiae)",
      "location": {
-      "lat": 40.353259,
-      "lon": 18.166097
+      "lat": 40.353245,
+      "lon": 18.166132
      }
     },
     {
-     "id": "le-osm3248620176",
+     "id": "le-od8",
      "name": "Varco · Via Vito Fazzi / Viale XXV Luglio",
      "location": {
-      "lat": 40.352039,
-      "lon": 18.173817
+      "lat": 40.352014,
+      "lon": 18.173913
      }
     },
     {
-     "id": "le-osm3248620175",
+     "id": "le-od1",
      "name": "Varco · Via dei Verardi",
      "location": {
-      "lat": 40.350304,
-      "lon": 18.173724
+      "lat": 40.350281,
+      "lon": 18.173779
      }
     },
     {
-     "id": "le-osm3248620173",
+     "id": "le-od2",
      "name": "Varco · Viale Oronzo Quarta / Via Duca degli Abruzzi",
      "location": {
-      "lat": 40.34864,
+      "lat": 40.348632,
       "lon": 18.168337
      }
     }
@@ -356,7 +364,7 @@
      "Draft: the City's websites could not be read from here (connection refused). Every rule below comes from web-search summaries of the official pages and local press, not from their text: to be checked word for word.",
      "Some entrances are closed 24 hours a day even when the others are off: Porta Napoli (since August 2025), via Trinchese and via dei Mocenigo on viale XXV Luglio (ordinance 2069/2025), via delle Bombarde. GateLR shows the hours of the whole zone: in the free hours, enter only through the other gates.",
      "Coming changes, not yet in force when checked: the council decided on 11 March 2026 to make via Mario Bernardini, via Benedetto Cairoli (entry), the Porta Rudiae–via Adua exit and via Marino Brancaccio 24-hour gates and to take via Marco Aurelio out of the ZTL (its gate moves to vico Mondo Nuovo); in July 2026 also via Pietro Palumbo. They need a Polizia Locale ordinance first.",
-     "Map outline and 7 of about 17 cameras from OpenStreetMap, to be checked against the City's official open-data map (CC BY 4.0), which could not be downloaded from here.",
+     "Map outline from OpenStreetMap (relation «ZTL Lecce», 2026): the City's open-data map dates from 2014, before the perimeter was redefined in April 2025. Camera positions: the 8 in the City's open data (2014), 7 of which match OpenStreetMap; the press counts about 17 cameras today.",
      "Hotels: the hotel or B&B inside the ZTL sends your plate (HTL permit, only to check in and out, 20 minutes' stop for luggage), best before arrival and at the latest 48 hours after you drive in. Confirmed only by web-search summaries (City permit page, Gazzetta del Mezzogiorno, autovia.it).",
      "No pass for tourists: an occasional permit (OCC, about 5 €) exists but must be requested from the ZTL permit office (viale Rossini 110, online with SPID or by PEC), with about 7 working days' processing. Electric and hybrid cars: no exemption found, so GateLR does not exempt them. Motorbikes: not covered by the sources.",
      "Fine: 83–332 € (article 7 of the Highway Code), confirmed only by an unofficial guide. Feast of Sant'Oronzo (24–26 August): whether 26 August counts as a holiday for the ZTL is not confirmed, so it is not treated as one."
@@ -365,7 +373,7 @@
      "Bozza: i siti del Comune non erano leggibili da qui (connessione rifiutata). Ogni regola viene dai riassunti della ricerca web sulle pagine ufficiali e sulla stampa locale, non dal loro testo: da verificare parola per parola.",
      "Alcuni ingressi sono chiusi 24 ore su 24 anche quando gli altri sono spenti: Porta Napoli (da agosto 2025), via Trinchese e via dei Mocenigo su viale XXV Luglio (ordinanza 2069/2025), via delle Bombarde. GateLR mostra gli orari di tutta la zona: nelle ore libere entra solo dagli altri varchi.",
      "Modifiche in arrivo, non ancora in vigore alla verifica: la giunta l'11/03/2026 ha deciso varchi h24 in via Mario Bernardini, via Benedetto Cairoli (in entrata), Porta Rudiae–via Adua in uscita e via Marino Brancaccio, e l'uscita di via Marco Aurelio dalla ZTL (varco spostato su vico Mondo Nuovo); a luglio 2026 anche via Pietro Palumbo h24. Serve prima un'ordinanza della Polizia Locale.",
-     "Perimetro e 7 dei circa 17 varchi da OpenStreetMap, da confrontare con la mappa ufficiale in open data del Comune (CC BY 4.0), non scaricabile da qui.",
+     "Perimetro da OpenStreetMap (relazione «ZTL Lecce», 2026): la mappa open data del Comune è del 2014, prima della ridefinizione del perimetro di aprile 2025. Varchi: gli 8 dell'open data del Comune (2014), 7 dei quali coincidono con OpenStreetMap; secondo la stampa oggi i varchi sono circa 17.",
      "Alberghi: l'hotel o il B&B dentro la ZTL comunica la targa (permesso HTL, solo per arrivo e partenza, sosta di 20 minuti per i bagagli), meglio prima dell'arrivo e al massimo entro 48 ore dall'ingresso. Confermato solo dai riassunti della ricerca (pagina permessi del Comune, Gazzetta del Mezzogiorno, autovia.it).",
      "Nessun pass per turisti: esiste un permesso occasionale (OCC, circa 5 €) da chiedere all'Ufficio Permessi ZTL (viale Rossini 110, online con SPID o via PEC), con circa 7 giorni lavorativi. Auto elettriche e ibride: nessuna esenzione trovata, quindi GateLR non le esenta. Moto: le fonti non ne parlano.",
      "Multa: 83–332 € (art. 7 del Codice della Strada), confermato solo da una guida non ufficiale. Festa di Sant'Oronzo (24–26 agosto): non è confermato che il 26 agosto valga come festivo per la ZTL, quindi non è trattato come tale."
@@ -374,7 +382,7 @@
      "Entwurf: Die Websites der Stadt waren von hier aus nicht lesbar (Verbindung abgelehnt). Alle Regeln stammen aus Zusammenfassungen der Websuche zu den offiziellen Seiten und der Lokalpresse, nicht aus deren Text: Wort für Wort zu prüfen.",
      "Einige Zufahrten sind rund um die Uhr gesperrt, auch wenn die anderen aus sind: Porta Napoli (seit August 2025), Via Trinchese und Via dei Mocenigo am Viale XXV Luglio (Verordnung 2069/2025), Via delle Bombarde. GateLR zeigt die Zeiten der ganzen Zone: in den freien Stunden nur über die anderen Zufahrten einfahren.",
      "Geplante Änderungen, bei der Prüfung noch nicht in Kraft: Der Stadtrat beschloss am 11.03.2026 24-Stunden-Kameras in Via Mario Bernardini, Via Benedetto Cairoli (Einfahrt), an der Ausfahrt Porta Rudiae–Via Adua und in Via Marino Brancaccio sowie die Herausnahme der Via Marco Aurelio aus der ZTL (Kamera zieht nach Vico Mondo Nuovo); im Juli 2026 auch Via Pietro Palumbo. Zuerst ist eine Verordnung der Polizia Locale nötig.",
-     "Grenze und 7 von etwa 17 Kameras aus OpenStreetMap, mit der offiziellen offenen Karte der Stadt (CC BY 4.0) abzugleichen, die von hier nicht geladen werden konnte.",
+     "Grenze aus OpenStreetMap (Relation «ZTL Lecce», 2026): Die offene Karte der Stadt stammt von 2014, vor der Neufestlegung der Grenze im April 2025. Kameras: die 8 aus den offenen Daten der Stadt (2014), davon 7 deckungsgleich mit OpenStreetMap; laut Presse gibt es heute etwa 17.",
      "Hotels: Das Hotel oder B&B in der ZTL meldet dein Kennzeichen (HTL-Genehmigung, nur für An- und Abreise, 20 Minuten Halt fürs Gepäck), am besten vor der Ankunft und spätestens 48 Stunden nach der Einfahrt. Nur von Zusammenfassungen der Websuche bestätigt (Genehmigungsseite der Stadt, Gazzetta del Mezzogiorno, autovia.it).",
      "Kein Touristenpass: Eine Gelegenheitsgenehmigung (OCC, etwa 5 €) gibt es, sie muss beim ZTL-Genehmigungsbüro beantragt werden (Viale Rossini 110, online mit SPID oder per PEC), Bearbeitung etwa 7 Werktage. Elektro- und Hybridautos: keine Ausnahme gefunden, daher befreit GateLR sie nicht. Motorräder: in den Quellen nicht behandelt.",
      "Bußgeld: 83–332 € (Art. 7 der Straßenverkehrsordnung), nur von einem inoffiziellen Ratgeber bestätigt. Fest des hl. Oronzo (24.–26. August): Ob der 26. August für die ZTL als Feiertag gilt, ist nicht bestätigt, daher wird er nicht so behandelt."
@@ -433,5 +441,5 @@
   }
  ],
  "status": "draft",
- "license": "Rules: Comune di Lecce official pages (read through web-search summaries). Perimeter and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+ "license": "Rules: Comune di Lecce official pages (read through web-search summaries). Perimeter: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official). Gates: Comune di Lecce open data (CC BY 4.0)."
 }

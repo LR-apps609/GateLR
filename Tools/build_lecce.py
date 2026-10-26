@@ -17,9 +17,11 @@
 # (boundary=limited_traffic_zone, source «Città di Lecce», orari conditional uguali a quelli del Comune), scaricata
 # dall'API principale di OSM con Tools/fetch_osm_api.py (Overpass non rispondeva). Varchi: i 7 nodi «Varco ZTL»
 # (man_made=surveillance) presenti in OSM, su 17 varchi indicati dalla stampa; nomi dalla strada OSM più vicina.
-# Esiste un perimetro UFFICIALE in open data (dataset «ZTL APU CENTRO STORICO LECCE», CC BY 4.0, GeoJSON su
-# dati.comune.lecce.it, catalogato su dati.gov.it): se viene salvato come data/raw/lecce/ztl_perimetro.geojson
-# (Polygon/MultiPolygon WGS84) lo script usa quello.
+# Open data ufficiale (dataset «ZTL APU CENTRO STORICO LECCE», CC BY 4.0, dati.comune.lecce.it, scaricato il 26/10/2026 in
+# data/raw/lecce/ztlapucomunedilecce-2014.geojson): risale al 2014 (strade ZTL «H24 domenica e festivi, 21–6 nei feriali»,
+# perimetro poi ridefinito con la delibera del 03/04/2025), quindi NON si usa come perimetro; i suoi 8 punti «Varchi» danno
+# le posizioni ufficiali dei varchi: 7 coincidono (≤ 9 m) con i nodi OSM «Varco ZTL», l'ottavo è in via Casale Fornello.
+# Se arriva un perimetro ufficiale aggiornato, basta salvarlo come data/raw/lecce/ztl_perimetro.geojson.
 # Uso: python3 Tools/build_lecce.py   (non tocca le altre città né manifest.json)
 import json, re
 from pathlib import Path
@@ -104,10 +106,22 @@ def perimeter():
 
 
 def gates():
-    out = [osm_geo.gate_json("le", (e["id"], GATES[e["id"]], e["lat"], e["lon"]))
-           for e in osm_geo.load("lecce-ztl") if e["type"] == "node" and e["id"] in GATES]
-    if len(out) != len(GATES):
-        raise SystemExit(f"Attesi {len(GATES)} varchi OSM, trovati {len(out)}")
+    """Posizioni ufficiali (punti «Varchi» dell'open data del Comune); nome dalla strada del nodo OSM coincidente"""
+    osm = {e["id"]: e for e in osm_geo.load("lecce-ztl") if e["type"] == "node" and e["id"] in GATES}
+    off = json.loads((RAW / "ztlapucomunedilecce-2014.geojson").read_text())
+    pts = [f["geometry"]["coordinates"] for f in off["features"] if f["geometry"]["type"] == "Point"]
+    if len(pts) != 8:
+        raise SystemExit(f"Attesi 8 varchi nell'open data, trovati {len(pts)}")
+    out = []
+    for i, (lon, lat) in enumerate(pts):
+        near = min(osm.values(), key=lambda e: osm_geo.distance_m([(e["lon"], e["lat"]), (e["lon"], e["lat"])], lat, lon))
+        if osm_geo.distance_m([(near["lon"], near["lat"]), (near["lon"], near["lat"])], lat, lon) < 15:
+            name = GATES[near["id"]]
+        else:
+            name = "Varco · Via Casale Fornello / Viale De Pietro"
+        out.append({"id": f"le-od{i + 1}", "name": name, "location": {"lat": round(lat, 6), "lon": round(lon, 6)}})
+    if len({g["name"] for g in out}) != 8:
+        raise SystemExit("Varchi ufficiali e nodi OSM non si abbinano uno a uno")
     return sorted(out, key=lambda g: g["name"])
 
 
@@ -155,9 +169,9 @@ PENDING = [
     ("Coming changes, not yet in force when checked: the council decided on 11 March 2026 to make via Mario Bernardini, via Benedetto Cairoli (entry), the Porta Rudiae–via Adua exit and via Marino Brancaccio 24-hour gates and to take via Marco Aurelio out of the ZTL (its gate moves to vico Mondo Nuovo); in July 2026 also via Pietro Palumbo. They need a Polizia Locale ordinance first.",
      "Modifiche in arrivo, non ancora in vigore alla verifica: la giunta l'11/03/2026 ha deciso varchi h24 in via Mario Bernardini, via Benedetto Cairoli (in entrata), Porta Rudiae–via Adua in uscita e via Marino Brancaccio, e l'uscita di via Marco Aurelio dalla ZTL (varco spostato su vico Mondo Nuovo); a luglio 2026 anche via Pietro Palumbo h24. Serve prima un'ordinanza della Polizia Locale.",
      "Geplante Änderungen, bei der Prüfung noch nicht in Kraft: Der Stadtrat beschloss am 11.03.2026 24-Stunden-Kameras in Via Mario Bernardini, Via Benedetto Cairoli (Einfahrt), an der Ausfahrt Porta Rudiae–Via Adua und in Via Marino Brancaccio sowie die Herausnahme der Via Marco Aurelio aus der ZTL (Kamera zieht nach Vico Mondo Nuovo); im Juli 2026 auch Via Pietro Palumbo. Zuerst ist eine Verordnung der Polizia Locale nötig."),
-    ("Map outline and 7 of about 17 cameras from OpenStreetMap, to be checked against the City's official open-data map (CC BY 4.0), which could not be downloaded from here.",
-     "Perimetro e 7 dei circa 17 varchi da OpenStreetMap, da confrontare con la mappa ufficiale in open data del Comune (CC BY 4.0), non scaricabile da qui.",
-     "Grenze und 7 von etwa 17 Kameras aus OpenStreetMap, mit der offiziellen offenen Karte der Stadt (CC BY 4.0) abzugleichen, die von hier nicht geladen werden konnte."),
+    ("Map outline from OpenStreetMap (relation «ZTL Lecce», 2026): the City's open-data map dates from 2014, before the perimeter was redefined in April 2025. Camera positions: the 8 in the City's open data (2014), 7 of which match OpenStreetMap; the press counts about 17 cameras today.",
+     "Perimetro da OpenStreetMap (relazione «ZTL Lecce», 2026): la mappa open data del Comune è del 2014, prima della ridefinizione del perimetro di aprile 2025. Varchi: gli 8 dell'open data del Comune (2014), 7 dei quali coincidono con OpenStreetMap; secondo la stampa oggi i varchi sono circa 17.",
+     "Grenze aus OpenStreetMap (Relation «ZTL Lecce», 2026): Die offene Karte der Stadt stammt von 2014, vor der Neufestlegung der Grenze im April 2025. Kameras: die 8 aus den offenen Daten der Stadt (2014), davon 7 deckungsgleich mit OpenStreetMap; laut Presse gibt es heute etwa 17."),
     ("Hotels: the hotel or B&B inside the ZTL sends your plate (HTL permit, only to check in and out, 20 minutes' stop for luggage), best before arrival and at the latest 48 hours after you drive in. Confirmed only by web-search summaries (City permit page, Gazzetta del Mezzogiorno, autovia.it).",
      "Alberghi: l'hotel o il B&B dentro la ZTL comunica la targa (permesso HTL, solo per arrivo e partenza, sosta di 20 minuti per i bagagli), meglio prima dell'arrivo e al massimo entro 48 ore dall'ingresso. Confermato solo dai riassunti della ricerca (pagina permessi del Comune, Gazzetta del Mezzogiorno, autovia.it).",
      "Hotels: Das Hotel oder B&B in der ZTL meldet dein Kennzeichen (HTL-Genehmigung, nur für An- und Abreise, 20 Minuten Halt fürs Gepäck), am besten vor der Ankunft und spätestens 48 Stunden nach der Einfahrt. Nur von Zusammenfassungen der Websuche bestätigt (Genehmigungsseite der Stadt, Gazzetta del Mezzogiorno, autovia.it)."),
@@ -195,7 +209,7 @@ zone = {"id": "lecce-centro-storico", "name": "Lecce old town · ZTL inside the 
 city = {"id": "lecce", "name": "Lecce", "name_it": "Lecce", "name_de": "Lecce",
         "center": {"lat": 40.3524, "lon": 18.1705}, "zones": [zone], "status": "draft",
         "license": "Rules: Comune di Lecce official pages (read through web-search summaries). "
-                   + ("Perimeter and gates: " + osm_geo.ODBL + " (approximate, not official)." if from_osm else "Perimeter: Comune di Lecce open data (CC BY 4.0).")}
+                   + ("Perimeter: " + osm_geo.ODBL + " (approximate, not official). Gates: Comune di Lecce open data (CC BY 4.0)." if from_osm else "Perimeter and gates: Comune di Lecce open data (CC BY 4.0).")}
 
 # Pubblicabile solo con una citazione verificata sul testo ufficiale; altrimenti bozza
 ready = all(len(z["perimeter"]) >= 5 and z["source"]["quote"] for z in city["zones"])

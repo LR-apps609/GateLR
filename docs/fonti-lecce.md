@@ -2,10 +2,12 @@
 
 Scheda generata da `Tools/build_lecce.py` → `data/drafts/lecce.json` (**bozza, non nell'app**: nessuna citazione è verificata sul testo ufficiale). Il perimetro c'è (OpenStreetMap).
 
-## Perché è una bozza
-Il 26/10/2026 dal sandbox i siti utili rispondevano con rifiuto del proxy (403 al CONNECT, host non consentito per la sessione): www.comune.lecce.it, comune.lecce.it, dati.comune.lecce.it, www.sgmlecce.it, citynext.it, lecceprima.it, quotidianodipuglia.it, autovia.it, web.archive.org, overpass.kumi.systems, overpass.private.coffee; overpass-api.de chiudeva la connessione. WebFetch non risolveva questi host. Il workflow «Scarica pagine» **non** è stato usato per le pagine del Comune: servirebbe ad aggirare il blocco della rete della sessione, e l'incarico vietava di aggirare i controlli di sicurezza (è stato lanciato una sola volta, `pagine-lecce-1`, per una richiesta Overpass a overpass-api.de, che ha risposto 406: dati non usati). Raggiungibili solo www.dati.gov.it (catalogo CKAN), www.openstreetmap.org (API principale) e la ricerca web.
+## Perché è ancora una bozza
+Ricontrollato il 26/10/2026 dopo l'apertura della rete: **www.comune.lecce.it e comune.lecce.it rispondono ancora con rifiuto del proxy (403)**, come sgmlecce.it, albo e servizi online del Comune, regione.puglia.it. Quindi né le ordinanze (1679, 1689, 2069/2025), né i comunicati del 2026, né il regolamento ZTL sono leggibili: nessuna citazione verificabile (`quote: null`), e non si può risolvere il dubbio sui varchi h24 (Porta Napoli, Trinchese, Mocenigo, via delle Bombarde, e le delibere 2026). Per pubblicare serve il testo di almeno l'ordinanza 1679/2025 o del comunicato del 17/07/2025.
 
-Quindi ogni regola viene dai **riassunti della ricerca web** (salvati in `data/raw/lecce/websearch-*.txt`, non testo letterale), che indicano le pagine da cui provengono. `quote` è `null`. Lo script controlla comunque che ogni fatto usato sia scritto nei file salvati.
+Raggiungibile invece **dati.comune.lecce.it**: scaricato il dataset ufficiale «ZTL APU CENTRO STORICO LECCE» (CC BY 4.0) → `data/raw/lecce/ztlapucomunedilecce-2014.geojson` (metadati in `dati-comune-lecce-package.json`). È del **2014** (risorsa creata il 22/12/2014): strade «Zona a Traffico Limitato H24», «H24 Domenica e Festivi, ore 21 - 6 nei giorni feriali», «Aree pedonali» e 8 punti «Varchi». Il perimetro è superato (ridefinito con la delibera del 03/04/2025) e **non** si usa; gli 8 varchi sì: 7 coincidono entro 9 m con i nodi OSM «Varco ZTL», l'ottavo è in via Casale Fornello / viale De Pietro.
+
+Il workflow «Scarica pagine» non è stato usato per aggirare il blocco.
 
 ## Zone
 - **ZTL centro storico (dentro le mura)**: una zona `restricted` a orario variabile. Non modellati a parte: i varchi h24 (Porta Napoli, Trinchese, Mocenigo, via delle Bombarde) e le aree pedonali (piazza Sant'Oronzo, via Vittorio Emanuele II, ecc.), che stanno dentro il perimetro.
@@ -35,7 +37,7 @@ Festivi: domenica e festivi la ZTL è attiva tutto il giorno → `freeOnHolidays
 **Da OpenStreetMap, non ufficiale** (© OpenStreetMap contributors, ODbL 1.0).
 - Dati: `data/raw/geo/lecce-ztl.json`, estratto il 26/10/2026 con `Tools/fetch_osm_api.py` dall'API principale di OSM (www.openstreetmap.org/api/0.6, tasselli bbox 40,346–40,358 / 18,161–18,178, più `relation/20670025/full`), ridotto agli elementi usati.
 - **Perimetro**: relazione [20670025](https://www.openstreetmap.org/relation/20670025) «ZTL Lecce» (`boundary=limited_traffic_zone`, creata il 10/05/2026, `source=Città di Lecce`, `website` = comunicato del 17/07/2025), un solo membro outer (way 1511705702, 92 nodi), semplificato a 4 m: 54 punti, 0,74 km².
-- **Varchi**: 7 nodi `man_made=surveillance` «Varco ZTL» (su ~17 reali), nomi dalla strada OSM più vicina; i loro tag orari (`Mo-Fr 6:00-21:00`) sono vecchi e non sono usati. Tutti a meno di 8 m dal bordo.
+- **Varchi**: gli 8 punti ufficiali dell'open data del Comune (CC BY 4.0, 2014); nomi dalla strada OSM del nodo «Varco ZTL» coincidente (≤ 9 m) o, per l'ottavo, dalla strada OSM più vicina (via Casale Fornello). I tag orari dei nodi OSM (`Mo-Fr 6:00-21:00`) sono vecchi e non sono usati. La stampa parla di circa 17 varchi oggi.
 - Controlli nello script: Duomo, colonna di Sant'Oronzo, basilica di Santa Croce, Teatro Romano dentro; stazione, Castello Carlo V, mercato di Porta Rudiae fuori; area tra 0,4 e 1,1 km²; varchi a meno di 40 m dal bordo.
 - Se si scarica il GeoJSON ufficiale (dati.comune.lecce.it, CC BY 4.0) come `data/raw/lecce/ztl_perimetro.geojson`, lo script usa quello.
 
