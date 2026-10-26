@@ -14,6 +14,16 @@ enum VehicleMarker: String, CaseIterable, Identifiable {
         case .motorbike: L("Motorbike")
         }
     }
+    /// I livelli del disegno (vedi VehicleArt)
+    fileprivate var layers: [VehicleLayer] {
+        switch self {
+        case .arrow: VehicleArt.arrow
+        case .sedan: VehicleArt.sedan
+        case .suv: VehicleArt.suv
+        case .city: VehicleArt.city
+        case .motorbike: VehicleArt.motorbike
+        }
+    }
 }
 
 enum VehicleColor: String, CaseIterable, Identifiable {
@@ -31,120 +41,303 @@ enum VehicleColor: String, CaseIterable, Identifiable {
         case .yellow: L("Yellow")
         }
     }
-    var color: Color {
+    var color: Color { Color(hex: hex) }
+    var hex: UInt32 {
         switch self {
-        case .blue: Color(hex: 0x2F6FE4)
-        case .red: Color(hex: 0xD3262E)
-        case .white: Color(hex: 0xF4F5F7)
-        case .black: Color(hex: 0x23272E)
-        case .silver: Color(hex: 0xA9B0B9)
-        case .green: Color(hex: 0x2B8A4E)
-        case .yellow: Color(hex: 0xF2C230)
+        case .blue: 0x2F6FE4
+        case .red: 0xD3262E
+        case .white: 0xF4F5F7
+        case .black: 0x23272E
+        case .silver: 0xA9B0B9
+        case .green: 0x2B8A4E
+        case .yellow: 0xF2C230
         }
     }
 }
 
-/// Il disegno, già girato: «heading» è la direzione di marcia rispetto alla mappa
+/// Il disegno, già girato: «heading» è la direzione di marcia rispetto alla mappa.
+/// Modellino visto dall'alto in 60×60 punti, muso in alto. La carrozzeria prende il colore scelto;
+/// sopra, luci e ombre in bianco e nero trasparenti (vanno bene per ogni tinta, anche bianco e nero),
+/// poi vetri, fari e dettagli che non cambiano colore.
 struct VehicleMarkerView: View {
     var marker: VehicleMarker
     var tint: VehicleColor
     var heading: Double
 
     var body: some View {
-        Group {
-            switch marker {
-            case .arrow:
-                Image(systemName: "location.north.fill")
-                    .font(.system(size: 22, weight: .bold)).foregroundStyle(tint.color == VehicleColor.white.color ? Color(hex: 0x2F6FE4) : tint.color)
-                    .frame(width: 44, height: 44)
-                    .background(.white, in: Circle())
-                    .shadow(color: .black.opacity(0.3), radius: 4, y: 2)
-            case .sedan: CarTopView(body: tint.color, length: 50, width: 24, cabin: 0.42)
-            case .suv: CarTopView(body: tint.color, length: 52, width: 27, cabin: 0.52)
-            case .city: CarTopView(body: tint.color, length: 40, width: 23, cabin: 0.5)
-            case .motorbike: MotorbikeTopView(body: tint.color)
-            }
+        // la freccia bianca su disco bianco non si vedrebbe: resta blu
+        let paint = marker == .arrow && tint == .white ? VehicleColor.blue.color : tint.color
+        let layers = marker.layers
+        Canvas { ctx, size in
+            let s = min(size.width, size.height) / 60
+            ctx.translateBy(x: (size.width - 60 * s) / 2, y: (size.height - 60 * s) / 2)
+            ctx.scaleBy(x: s, y: s)
+            for l in layers { l.draw(in: ctx, tint: paint, scale: s) }
         }
+        .frame(width: 60, height: 60)
         .rotationEffect(.degrees(heading))
         .accessibilityHidden(true)
     }
 }
 
-/// Un'auto vista dall'alto: carrozzeria, parabrezza, lunotto, tetto, specchietti e fari
-private struct CarTopView: View {
-    var body_: Color
-    var length: CGFloat
-    var width: CGFloat
-    var cabin: CGFloat          // quanta parte della lunghezza è abitacolo
+/// Un livello del disegno: una forma (dati di percorso SVG) con il suo riempimento
+fileprivate struct VehicleLayer {
+    struct Stop {
+        let hex: UInt32, alpha: Double, at: CGFloat
+        init(_ hex: UInt32, _ alpha: Double, _ at: CGFloat) { self.hex = hex; self.alpha = alpha; self.at = at }
+    }
+    struct Stroke {
+        let hex: UInt32, alpha: Double, width: CGFloat, round: Bool
+        init(_ hex: UInt32, _ alpha: Double, _ width: CGFloat, round: Bool = false) {
+            self.hex = hex; self.alpha = alpha; self.width = width; self.round = round
+        }
+    }
+    enum Paint {
+        case tint
+        case solid(UInt32, Double)
+        case linear([Stop], CGFloat, CGFloat, CGFloat, CGFloat)
+        case radial([Stop], CGFloat, CGFloat, CGFloat)
+    }
+    let path: Path
+    let paint: Paint
+    let stroke: Stroke?
+    let blur: CGFloat
+    let dy: CGFloat
+    let clip: Path?
 
-    init(body: Color, length: CGFloat, width: CGFloat, cabin: CGFloat) {
-        self.body_ = body; self.length = length; self.width = width; self.cabin = cabin
+    init(_ d: String, _ paint: Paint, stroke: Stroke? = nil, blur: CGFloat = 0, dy: CGFloat = 0, clip: String? = nil) {
+        path = VehicleLayer.parse(d)
+        self.paint = paint; self.stroke = stroke; self.blur = blur; self.dy = dy
+        self.clip = clip.map(VehicleLayer.parse)
     }
 
-    var body: some View {
-        let glass = Color(hex: 0x1B2A3A).opacity(0.85)
-        ZStack {
-            // ombra a terra
-            RoundedRectangle(cornerRadius: width * 0.42).fill(.black.opacity(0.28))
-                .frame(width: width + 4, height: length + 4).blur(radius: 3).offset(y: 2)
-            // specchietti
-            HStack(spacing: width) {
-                Capsule().fill(body_).frame(width: 5, height: 4)
-                Capsule().fill(body_).frame(width: 5, height: 4)
-            }
-            .offset(y: -length * 0.12)
-            // carrozzeria con un po' di luce
-            RoundedRectangle(cornerRadius: width * 0.42)
-                .fill(LinearGradient(colors: [body_.opacity(0.95), body_], startPoint: .leading, endPoint: .trailing))
-                .overlay(RoundedRectangle(cornerRadius: width * 0.42).stroke(.black.opacity(0.35), lineWidth: 1))
-                .frame(width: width, height: length)
-            // parabrezza (davanti = in alto)
-            RoundedRectangle(cornerRadius: 4).fill(glass)
-                .frame(width: width * 0.78, height: length * 0.16)
-                .offset(y: -length * (cabin / 2) + length * 0.02)
-            // tetto
-            RoundedRectangle(cornerRadius: 4).fill(body_.opacity(0.9))
-                .overlay(RoundedRectangle(cornerRadius: 4).stroke(.white.opacity(0.25), lineWidth: 1))
-                .frame(width: width * 0.7, height: length * cabin * 0.62)
-                .offset(y: length * 0.03)
-            // lunotto
-            RoundedRectangle(cornerRadius: 3).fill(glass)
-                .frame(width: width * 0.7, height: length * 0.1)
-                .offset(y: length * (cabin / 2) + length * 0.04)
-            // fari
-            HStack(spacing: width * 0.42) {
-                Capsule().fill(Color(hex: 0xFFF6C8)).frame(width: 5, height: 3)
-                Capsule().fill(Color(hex: 0xFFF6C8)).frame(width: 5, height: 3)
-            }
-            .offset(y: -length / 2 + 3)
-            // luci posteriori
-            HStack(spacing: width * 0.46) {
-                Capsule().fill(Color(hex: 0xE0262E)).frame(width: 5, height: 2.5)
-                Capsule().fill(Color(hex: 0xE0262E)).frame(width: 5, height: 2.5)
-            }
-            .offset(y: length / 2 - 2.5)
+    func draw(in context: GraphicsContext, tint: Color, scale: CGFloat) {
+        var c = context
+        if dy != 0 { c.translateBy(x: 0, y: dy) }
+        if let clip { c.clip(to: clip) }
+        if blur > 0 { c.addFilter(.blur(radius: blur * scale)) }
+        switch paint {
+        case .tint: c.fill(path, with: .color(tint))
+        case let .solid(hex, a): if a > 0 { c.fill(path, with: .color(Color(hex: hex).opacity(a))) }
+        case let .linear(stops, x1, y1, x2, y2):
+            c.fill(path, with: .linearGradient(g(stops), startPoint: CGPoint(x: x1, y: y1), endPoint: CGPoint(x: x2, y: y2)))
+        case let .radial(stops, x, y, r):
+            c.fill(path, with: .radialGradient(g(stops), center: CGPoint(x: x, y: y), startRadius: 0, endRadius: r))
         }
-        .frame(width: max(width, length) + 8, height: max(width, length) + 8)
+        if let stroke {
+            c.stroke(path, with: .color(Color(hex: stroke.hex).opacity(stroke.alpha)),
+                     style: StrokeStyle(lineWidth: stroke.width, lineCap: stroke.round ? .round : .butt, lineJoin: .round))
+        }
+    }
+
+    private func g(_ stops: [Stop]) -> Gradient {
+        Gradient(stops: stops.map { Gradient.Stop(color: Color(hex: $0.hex).opacity($0.alpha), location: $0.at) })
+    }
+
+    /// Dati di percorso SVG con soli comandi assoluti M, L, C, Z (quelli che usa VehicleArt)
+    static func parse(_ d: String) -> Path {
+        var p = Path()
+        var nums: [CGFloat] = []
+        var cmd: Character = "M"
+        func flush() {
+            switch cmd {
+            case "M", "L":
+                var i = 0
+                while i + 1 < nums.count {
+                    let pt = CGPoint(x: nums[i], y: nums[i + 1])
+                    if cmd == "M" && i == 0 { p.move(to: pt) } else { p.addLine(to: pt) }
+                    i += 2
+                }
+            case "C":
+                var i = 0
+                while i + 5 < nums.count {
+                    p.addCurve(to: CGPoint(x: nums[i + 4], y: nums[i + 5]),
+                               control1: CGPoint(x: nums[i], y: nums[i + 1]),
+                               control2: CGPoint(x: nums[i + 2], y: nums[i + 3]))
+                    i += 6
+                }
+            case "Z": p.closeSubpath()
+            default: break
+            }
+            nums = []
+        }
+        var token = ""
+        func endNumber() { if let v = Double(token) { nums.append(CGFloat(v)) }; token = "" }
+        for ch in d {
+            if ch.isLetter {
+                endNumber(); flush(); cmd = ch
+            } else if ch == "," || ch == " " {
+                endNumber()
+            } else if ch == "-" && !token.isEmpty {
+                endNumber(); token = "-"
+            } else {
+                token.append(ch)
+            }
+        }
+        endNumber(); flush()
+        return p
     }
 }
 
-/// Una moto vista dall'alto: ruote, serbatoio, sella, manubrio, casco del pilota
-private struct MotorbikeTopView: View {
-    var body_: Color
-    init(body: Color) { body_ = body }
-
-    var body: some View {
-        ZStack {
-            Capsule().fill(.black.opacity(0.28)).frame(width: 14, height: 46).blur(radius: 3).offset(y: 2)
-            Capsule().fill(Color(hex: 0x2A2D33)).frame(width: 6, height: 44)                       // ruote e telaio
-            Capsule().fill(Color(hex: 0x3A3E45)).frame(width: 28, height: 4).offset(y: -12)          // manubrio
-            Capsule().fill(body_).overlay(Capsule().stroke(.black.opacity(0.35), lineWidth: 1))
-                .frame(width: 13, height: 18).offset(y: -2)                                           // serbatoio
-            Capsule().fill(Color(hex: 0x1E2126)).frame(width: 11, height: 14).offset(y: 12)          // sella
-            Circle().fill(body_.opacity(0.9)).overlay(Circle().stroke(.white.opacity(0.6), lineWidth: 1.5))
-                .frame(width: 13, height: 13).offset(y: 5)                                            // casco
-            Capsule().fill(Color(hex: 0xFFF6C8)).frame(width: 5, height: 3).offset(y: -22)            // faro
-        }
-        .frame(width: 54, height: 54)
-    }
+/// I disegni (generati dallo stesso modello delle anteprime SVG; coordinate 60×60, muso in alto)
+fileprivate enum VehicleArt {
+    static let sedan: [VehicleLayer] = [
+        .init("M30,4.4 C35.8,4.4 39.8,5.2 41.1,7.5 C42.1,9.3 42.5,12.4 42.6,15.5 C42.8,21 42.3,26 42.3,30 C42.3,34 42.8,40 42.6,45.5 C42.5,49.2 42.1,52 41,53.7 C39.6,55.4 35.5,55.9 30,55.9 C24.5,55.9 20.4,55.4 19,53.7 C17.9,52 17.5,49.2 17.4,45.5 C17.2,40 17.7,34 17.7,30 C17.7,26 17.2,21 17.4,15.5 C17.5,12.4 17.9,9.3 18.9,7.5 C20.2,5.2 24.2,4.4 30,4.4 Z", .solid(0x000000, 0.5), blur: 1.6, dy: 1.2),
+        .init("M30,4.4 C35.8,4.4 39.8,5.2 41.1,7.5 C42.1,9.3 42.5,12.4 42.6,15.5 C42.8,21 42.3,26 42.3,30 C42.3,34 42.8,40 42.6,45.5 C42.5,49.2 42.1,52 41,53.7 C39.6,55.4 35.5,55.9 30,55.9 C24.5,55.9 20.4,55.4 19,53.7 C17.9,52 17.5,49.2 17.4,45.5 C17.2,40 17.7,34 17.7,30 C17.7,26 17.2,21 17.4,15.5 C17.5,12.4 17.9,9.3 18.9,7.5 C20.2,5.2 24.2,4.4 30,4.4 Z", .solid(0x000000, 0), stroke: .init(0xffffff, 0.45, 2)),
+        .init("M17.5,10.6 L17.9,10.6 C18.62,10.6 19.2,11.18 19.2,11.9 L19.2,17.5 C19.2,18.22 18.62,18.8 17.9,18.8 L17.5,18.8 C16.78,18.8 16.2,18.22 16.2,17.5 L16.2,11.9 C16.2,11.18 16.78,10.6 17.5,10.6 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 0, 0, 0, 60)),
+        .init("M42.5,10.6 L42.1,10.6 C41.38,10.6 40.8,11.18 40.8,11.9 L40.8,17.5 C40.8,18.22 41.38,18.8 42.1,18.8 L42.5,18.8 C43.22,18.8 43.8,18.22 43.8,17.5 L43.8,11.9 C43.8,11.18 43.22,10.6 42.5,10.6 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 60, 0, 60, 60)),
+        .init("M17.5,42.2 L17.9,42.2 C18.62,42.2 19.2,42.78 19.2,43.5 L19.2,49.3 C19.2,50.02 18.62,50.6 17.9,50.6 L17.5,50.6 C16.78,50.6 16.2,50.02 16.2,49.3 L16.2,43.5 C16.2,42.78 16.78,42.2 17.5,42.2 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 0, 0, 0, 60)),
+        .init("M42.5,42.2 L42.1,42.2 C41.38,42.2 40.8,42.78 40.8,43.5 L40.8,49.3 C40.8,50.02 41.38,50.6 42.1,50.6 L42.5,50.6 C43.22,50.6 43.8,50.02 43.8,49.3 L43.8,43.5 C43.8,42.78 43.22,42.2 42.5,42.2 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 60, 0, 60, 60)),
+        .init("M18.2,19.6 C16.6,19.2 14.4,19.6 14,20.9 C13.8,21.8 14.8,22.2 16,22.1 L18.1,21.8 Z", .tint, stroke: .init(0x000000, 0.55, 0.5)),
+        .init("M41.8,19.6 C43.4,19.2 45.6,19.6 46,20.9 C46.2,21.8 45.2,22.2 44,22.1 L41.9,21.8 Z", .tint, stroke: .init(0x000000, 0.55, 0.5)),
+        .init("M18.2,19.6 C16.6,19.2 14.4,19.6 14,20.9 C13.8,21.8 14.8,22.2 16,22.1 L18.1,21.8 Z", .solid(0x000000, 0.25)),
+        .init("M41.8,19.6 C43.4,19.2 45.6,19.6 46,20.9 C46.2,21.8 45.2,22.2 44,22.1 L41.9,21.8 Z", .solid(0x000000, 0.25)),
+        .init("M30,4.4 C35.8,4.4 39.8,5.2 41.1,7.5 C42.1,9.3 42.5,12.4 42.6,15.5 C42.8,21 42.3,26 42.3,30 C42.3,34 42.8,40 42.6,45.5 C42.5,49.2 42.1,52 41,53.7 C39.6,55.4 35.5,55.9 30,55.9 C24.5,55.9 20.4,55.4 19,53.7 C17.9,52 17.5,49.2 17.4,45.5 C17.2,40 17.7,34 17.7,30 C17.7,26 17.2,21 17.4,15.5 C17.5,12.4 17.9,9.3 18.9,7.5 C20.2,5.2 24.2,4.4 30,4.4 Z", .tint),
+        .init("M30,4.4 C35.8,4.4 39.8,5.2 41.1,7.5 C42.1,9.3 42.5,12.4 42.6,15.5 C42.8,21 42.3,26 42.3,30 C42.3,34 42.8,40 42.6,45.5 C42.5,49.2 42.1,52 41,53.7 C39.6,55.4 35.5,55.9 30,55.9 C24.5,55.9 20.4,55.4 19,53.7 C17.9,52 17.5,49.2 17.4,45.5 C17.2,40 17.7,34 17.7,30 C17.7,26 17.2,21 17.4,15.5 C17.5,12.4 17.9,9.3 18.9,7.5 C20.2,5.2 24.2,4.4 30,4.4 Z", .linear([.init(0x000000, 0.5, 0), .init(0x000000, 0.18, 0.13), .init(0x000000, 0, 0.3), .init(0x000000, 0, 0.7), .init(0x000000, 0.18, 0.87), .init(0x000000, 0.5, 1)], 17.4, 0, 42.6, 0)),
+        .init("M30,4.4 C35.8,4.4 39.8,5.2 41.1,7.5 C42.1,9.3 42.5,12.4 42.6,15.5 C42.8,21 42.3,26 42.3,30 C42.3,34 42.8,40 42.6,45.5 C42.5,49.2 42.1,52 41,53.7 C39.6,55.4 35.5,55.9 30,55.9 C24.5,55.9 20.4,55.4 19,53.7 C17.9,52 17.5,49.2 17.4,45.5 C17.2,40 17.7,34 17.7,30 C17.7,26 17.2,21 17.4,15.5 C17.5,12.4 17.9,9.3 18.9,7.5 C20.2,5.2 24.2,4.4 30,4.4 Z", .linear([.init(0x000000, 0.28, 0), .init(0x000000, 0, 0.05), .init(0x000000, 0, 0.93), .init(0x000000, 0.35, 1)], 0, 4.4, 0, 55.9)),
+        .init("M30,4.4 C35.8,4.4 39.8,5.2 41.1,7.5 C42.1,9.3 42.5,12.4 42.6,15.5 C42.8,21 42.3,26 42.3,30 C42.3,34 42.8,40 42.6,45.5 C42.5,49.2 42.1,52 41,53.7 C39.6,55.4 35.5,55.9 30,55.9 C24.5,55.9 20.4,55.4 19,53.7 C17.9,52 17.5,49.2 17.4,45.5 C17.2,40 17.7,34 17.7,30 C17.7,26 17.2,21 17.4,15.5 C17.5,12.4 17.9,9.3 18.9,7.5 C20.2,5.2 24.2,4.4 30,4.4 Z", .linear([.init(0xffffff, 0, 0.3), .init(0xffffff, 0.22, 0.43), .init(0xffffff, 0.3, 0.5), .init(0xffffff, 0.22, 0.57), .init(0xffffff, 0, 0.7)], 17.4, 0, 42.6, 0)),
+        .init("M30,4.4 C35.8,4.4 39.8,5.2 41.1,7.5 C42.1,9.3 42.5,12.4 42.6,15.5 C42.8,21 42.3,26 42.3,30 C42.3,34 42.8,40 42.6,45.5 C42.5,49.2 42.1,52 41,53.7 C39.6,55.4 35.5,55.9 30,55.9 C24.5,55.9 20.4,55.4 19,53.7 C17.9,52 17.5,49.2 17.4,45.5 C17.2,40 17.7,34 17.7,30 C17.7,26 17.2,21 17.4,15.5 C17.5,12.4 17.9,9.3 18.9,7.5 C20.2,5.2 24.2,4.4 30,4.4 Z", .radial([.init(0xffffff, 0.35, 0), .init(0xffffff, 0, 1)], 30, 11, 11)),
+        .init("M30,4.4 C35.8,4.4 39.8,5.2 41.1,7.5 C42.1,9.3 42.5,12.4 42.6,15.5 C42.8,21 42.3,26 42.3,30 C42.3,34 42.8,40 42.6,45.5 C42.5,49.2 42.1,52 41,53.7 C39.6,55.4 35.5,55.9 30,55.9 C24.5,55.9 20.4,55.4 19,53.7 C17.9,52 17.5,49.2 17.4,45.5 C17.2,40 17.7,34 17.7,30 C17.7,26 17.2,21 17.4,15.5 C17.5,12.4 17.9,9.3 18.9,7.5 C20.2,5.2 24.2,4.4 30,4.4 Z", .radial([.init(0xffffff, 0.22, 0), .init(0xffffff, 0, 1)], 30, 50, 7)),
+        .init("M24,6.4 C23.2,9.5 23,13 23.4,16.9", .solid(0x000000, 0), stroke: .init(0x000000, 0.18, 0.5)),
+        .init("M36,6.4 C36.8,9.5 37,13 36.6,16.9", .solid(0x000000, 0), stroke: .init(0x000000, 0.18, 0.5)),
+        .init("M22.4,25.6 C26,25 34,25 37.6,25.6 C38.2,30 38.2,35 37.7,39.3 C34,39.8 26,39.8 22.3,39.3 C21.8,35 21.8,30 22.4,25.6 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.3, 0.55)),
+        .init("M22.4,25.6 C26,25 34,25 37.6,25.6 C38.2,30 38.2,35 37.7,39.3 C34,39.8 26,39.8 22.3,39.3 C21.8,35 21.8,30 22.4,25.6 Z", .radial([.init(0xffffff, 0.38, 0), .init(0xffffff, 0, 1)], 28, 29.5, 9)),
+        .init("M20.2,18.8 L22,25.9 C21.4,30 21.4,35 21.9,39.2 L20.6,43.8 C19.6,38 19.5,25 20.2,18.8 Z", .linear([.init(0x0d141d, 1, 0), .init(0x2c3d50, 1, 1)], 0, 0, 60, 0), stroke: .init(0x000000, 0.4, 0.35)),
+        .init("M39.8,18.8 L38,25.9 C38.6,30 38.6,35 38.1,39.2 L39.4,43.8 C40.4,38 40.5,25 39.8,18.8 Z", .linear([.init(0x0d141d, 1, 0), .init(0x2c3d50, 1, 1)], 60, 0, 0, 0), stroke: .init(0x000000, 0.4, 0.35)),
+        .init("M20.3,17.7 C24,16.2 36,16.2 39.7,17.7 L37.6,25.6 C34,25 26,25 22.4,25.6 Z", .linear([.init(0x4a6580, 1, 0), .init(0x1a2736, 1, 0.55), .init(0x0b121b, 1, 1)], 30, 16.4, 30, 25.6), stroke: .init(0x000000, 0.45, 0.45)),
+        .init("M24.5,15 L28.5,15 L25,27 L21,27 Z", .solid(0xffffff, 0.2), clip: "M20.3,17.7 C24,16.2 36,16.2 39.7,17.7 L37.6,25.6 C34,25 26,25 22.4,25.6 Z"),
+        .init("M30,15 L31.4,15 L27.9,27 L26.5,27 Z", .solid(0xffffff, 0.2), clip: "M20.3,17.7 C24,16.2 36,16.2 39.7,17.7 L37.6,25.6 C34,25 26,25 22.4,25.6 Z"),
+        .init("M22.3,39.3 C26,39.8 34,39.8 37.7,39.3 L39.3,44.7 C35.5,45.7 24.5,45.7 20.7,44.7 Z", .linear([.init(0x4a6580, 1, 0), .init(0x1a2736, 1, 0.55), .init(0x0b121b, 1, 1)], 30, 45.4, 30, 39.4), stroke: .init(0x000000, 0.45, 0.45)),
+        .init("M25,38 L28.5,38 L26.5,47 L23,47 Z", .solid(0xffffff, 0.2), clip: "M22.3,39.3 C26,39.8 34,39.8 37.7,39.3 L39.3,44.7 C35.5,45.7 24.5,45.7 20.7,44.7 Z"),
+        .init("M19.3,7.4 C20.6,6 23.4,5.5 25.2,5.6 L24.8,7.2 C22.7,7.4 20.9,8.1 19.5,9.3 Z", .linear([.init(0xffffff, 1, 0), .init(0xffe7a0, 1, 1)], 0, 4.4, 0, 9.4), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M40.7,7.4 C39.4,6 36.6,5.5 34.8,5.6 L35.2,7.2 C37.3,7.4 39.1,8.1 40.5,9.3 Z", .linear([.init(0xffffff, 1, 0), .init(0xffe7a0, 1, 1)], 60, 4.4, 60, 9.4), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M18.9,52.6 C19.9,54 22.5,54.8 25,55 L25,55.8 C22.3,55.6 19.6,54.9 18.7,53.6 Z", .linear([.init(0xff4b4b, 1, 0), .init(0xb5121b, 1, 1)], 0, 50.9, 0, 55.9), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M41.1,52.6 C40.1,54 37.5,54.8 35,55 L35,55.8 C37.7,55.6 40.4,54.9 41.3,53.6 Z", .linear([.init(0xff4b4b, 1, 0), .init(0xb5121b, 1, 1)], 60, 50.9, 60, 55.9), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M30,4.4 C35.8,4.4 39.8,5.2 41.1,7.5 C42.1,9.3 42.5,12.4 42.6,15.5 C42.8,21 42.3,26 42.3,30 C42.3,34 42.8,40 42.6,45.5 C42.5,49.2 42.1,52 41,53.7 C39.6,55.4 35.5,55.9 30,55.9 C24.5,55.9 20.4,55.4 19,53.7 C17.9,52 17.5,49.2 17.4,45.5 C17.2,40 17.7,34 17.7,30 C17.7,26 17.2,21 17.4,15.5 C17.5,12.4 17.9,9.3 18.9,7.5 C20.2,5.2 24.2,4.4 30,4.4 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.6, 0.6)),
+    ]
+    static let suv: [VehicleLayer] = [
+        .init("M30,4 C37,4 41.7,4.4 43,6.4 C43.9,8 44.2,11 44.3,14 C44.5,22 44.5,40 44.3,49 C44.2,52.5 43.9,54.6 42.8,55.6 C41.2,56.6 36.5,56.8 30,56.8 C23.5,56.8 18.8,56.6 17.2,55.6 C16.1,54.6 15.8,52.5 15.7,49 C15.5,40 15.5,22 15.7,14 C15.8,11 16.1,8 17,6.4 C18.3,4.4 23,4 30,4 Z", .solid(0x000000, 0.5), blur: 1.6, dy: 1.2),
+        .init("M30,4 C37,4 41.7,4.4 43,6.4 C43.9,8 44.2,11 44.3,14 C44.5,22 44.5,40 44.3,49 C44.2,52.5 43.9,54.6 42.8,55.6 C41.2,56.6 36.5,56.8 30,56.8 C23.5,56.8 18.8,56.6 17.2,55.6 C16.1,54.6 15.8,52.5 15.7,49 C15.5,40 15.5,22 15.7,14 C15.8,11 16.1,8 17,6.4 C18.3,4.4 23,4 30,4 Z", .solid(0x000000, 0), stroke: .init(0xffffff, 0.45, 2)),
+        .init("M15.9,9.4 L16.5,9.4 C17.33,9.4 18,10.07 18,10.9 L18,17.3 C18,18.13 17.33,18.8 16.5,18.8 L15.9,18.8 C15.07,18.8 14.4,18.13 14.4,17.3 L14.4,10.9 C14.4,10.07 15.07,9.4 15.9,9.4 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 0, 0, 0, 60)),
+        .init("M44.1,9.4 L43.5,9.4 C42.67,9.4 42,10.07 42,10.9 L42,17.3 C42,18.13 42.67,18.8 43.5,18.8 L44.1,18.8 C44.93,18.8 45.6,18.13 45.6,17.3 L45.6,10.9 C45.6,10.07 44.93,9.4 44.1,9.4 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 60, 0, 60, 60)),
+        .init("M15.9,42.4 L16.5,42.4 C17.33,42.4 18,43.07 18,43.9 L18,50.3 C18,51.13 17.33,51.8 16.5,51.8 L15.9,51.8 C15.07,51.8 14.4,51.13 14.4,50.3 L14.4,43.9 C14.4,43.07 15.07,42.4 15.9,42.4 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 0, 0, 0, 60)),
+        .init("M44.1,42.4 L43.5,42.4 C42.67,42.4 42,43.07 42,43.9 L42,50.3 C42,51.13 42.67,51.8 43.5,51.8 L44.1,51.8 C44.93,51.8 45.6,51.13 45.6,50.3 L45.6,43.9 C45.6,43.07 44.93,42.4 44.1,42.4 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 60, 0, 60, 60)),
+        .init("M16.4,17.4 C14.6,16.8 12.1,17.2 11.7,18.7 C11.5,19.8 12.6,20.3 14,20.2 L16.4,19.9 Z", .tint, stroke: .init(0x000000, 0.55, 0.5)),
+        .init("M43.6,17.4 C45.4,16.8 47.9,17.2 48.3,18.7 C48.5,19.8 47.4,20.3 46,20.2 L43.6,19.9 Z", .tint, stroke: .init(0x000000, 0.55, 0.5)),
+        .init("M16.4,17.4 C14.6,16.8 12.1,17.2 11.7,18.7 C11.5,19.8 12.6,20.3 14,20.2 L16.4,19.9 Z", .solid(0x000000, 0.25)),
+        .init("M43.6,17.4 C45.4,16.8 47.9,17.2 48.3,18.7 C48.5,19.8 47.4,20.3 46,20.2 L43.6,19.9 Z", .solid(0x000000, 0.25)),
+        .init("M30,4 C37,4 41.7,4.4 43,6.4 C43.9,8 44.2,11 44.3,14 C44.5,22 44.5,40 44.3,49 C44.2,52.5 43.9,54.6 42.8,55.6 C41.2,56.6 36.5,56.8 30,56.8 C23.5,56.8 18.8,56.6 17.2,55.6 C16.1,54.6 15.8,52.5 15.7,49 C15.5,40 15.5,22 15.7,14 C15.8,11 16.1,8 17,6.4 C18.3,4.4 23,4 30,4 Z", .tint),
+        .init("M30,4 C37,4 41.7,4.4 43,6.4 C43.9,8 44.2,11 44.3,14 C44.5,22 44.5,40 44.3,49 C44.2,52.5 43.9,54.6 42.8,55.6 C41.2,56.6 36.5,56.8 30,56.8 C23.5,56.8 18.8,56.6 17.2,55.6 C16.1,54.6 15.8,52.5 15.7,49 C15.5,40 15.5,22 15.7,14 C15.8,11 16.1,8 17,6.4 C18.3,4.4 23,4 30,4 Z", .linear([.init(0x000000, 0.5, 0), .init(0x000000, 0.18, 0.13), .init(0x000000, 0, 0.3), .init(0x000000, 0, 0.7), .init(0x000000, 0.18, 0.87), .init(0x000000, 0.5, 1)], 15.6, 0, 44.4, 0)),
+        .init("M30,4 C37,4 41.7,4.4 43,6.4 C43.9,8 44.2,11 44.3,14 C44.5,22 44.5,40 44.3,49 C44.2,52.5 43.9,54.6 42.8,55.6 C41.2,56.6 36.5,56.8 30,56.8 C23.5,56.8 18.8,56.6 17.2,55.6 C16.1,54.6 15.8,52.5 15.7,49 C15.5,40 15.5,22 15.7,14 C15.8,11 16.1,8 17,6.4 C18.3,4.4 23,4 30,4 Z", .linear([.init(0x000000, 0.28, 0), .init(0x000000, 0, 0.05), .init(0x000000, 0, 0.93), .init(0x000000, 0.35, 1)], 0, 4, 0, 56.8)),
+        .init("M30,4 C37,4 41.7,4.4 43,6.4 C43.9,8 44.2,11 44.3,14 C44.5,22 44.5,40 44.3,49 C44.2,52.5 43.9,54.6 42.8,55.6 C41.2,56.6 36.5,56.8 30,56.8 C23.5,56.8 18.8,56.6 17.2,55.6 C16.1,54.6 15.8,52.5 15.7,49 C15.5,40 15.5,22 15.7,14 C15.8,11 16.1,8 17,6.4 C18.3,4.4 23,4 30,4 Z", .linear([.init(0xffffff, 0, 0.3), .init(0xffffff, 0.22, 0.43), .init(0xffffff, 0.3, 0.5), .init(0xffffff, 0.22, 0.57), .init(0xffffff, 0, 0.7)], 15.6, 0, 44.4, 0)),
+        .init("M30,4 C37,4 41.7,4.4 43,6.4 C43.9,8 44.2,11 44.3,14 C44.5,22 44.5,40 44.3,49 C44.2,52.5 43.9,54.6 42.8,55.6 C41.2,56.6 36.5,56.8 30,56.8 C23.5,56.8 18.8,56.6 17.2,55.6 C16.1,54.6 15.8,52.5 15.7,49 C15.5,40 15.5,22 15.7,14 C15.8,11 16.1,8 17,6.4 C18.3,4.4 23,4 30,4 Z", .radial([.init(0xffffff, 0.3, 0), .init(0xffffff, 0, 1)], 30, 9.5, 9)),
+        .init("M30,4 C37,4 41.7,4.4 43,6.4 C43.9,8 44.2,11 44.3,14 C44.5,22 44.5,40 44.3,49 C44.2,52.5 43.9,54.6 42.8,55.6 C41.2,56.6 36.5,56.8 30,56.8 C23.5,56.8 18.8,56.6 17.2,55.6 C16.1,54.6 15.8,52.5 15.7,49 C15.5,40 15.5,22 15.7,14 C15.8,11 16.1,8 17,6.4 C18.3,4.4 23,4 30,4 Z", .radial([.init(0xffffff, 0.15, 0), .init(0xffffff, 0, 1)], 30, 54, 5)),
+        .init("M22.5,5.6 C22,8.5 22,11.5 22.4,14.4", .solid(0x000000, 0), stroke: .init(0x000000, 0.18, 0.5)),
+        .init("M37.5,5.6 C38,8.5 38,11.5 37.6,14.4", .solid(0x000000, 0), stroke: .init(0x000000, 0.18, 0.5)),
+        .init("M17.2,8 C21,7.5 39,7.5 42.8,8", .solid(0x000000, 0), stroke: .init(0x000000, 0.18, 0.5)),
+        .init("M20.6,22.4 C25,21.9 35,21.9 39.4,22.4 C39.9,30 39.9,44 39.5,51.2 C35,51.6 25,51.6 20.5,51.2 C20.1,44 20.1,30 20.6,22.4 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.3, 0.55)),
+        .init("M20.6,22.4 C25,21.9 35,21.9 39.4,22.4 C39.9,30 39.9,44 39.5,51.2 C35,51.6 25,51.6 20.5,51.2 C20.1,44 20.1,30 20.6,22.4 Z", .radial([.init(0xffffff, 0.38, 0), .init(0xffffff, 0, 1)], 28, 30, 13)),
+        .init("M22.15,24.2 L22.15,24.2 C22.62,24.2 23,24.58 23,25.05 L23,49.35 C23,49.82 22.62,50.2 22.15,50.2 L22.15,50.2 C21.68,50.2 21.3,49.82 21.3,49.35 L21.3,25.05 C21.3,24.58 21.68,24.2 22.15,24.2 Z", .linear([.init(0x1d2026, 1, 0), .init(0x3b4049, 1, 1)], 21.3, 0, 23, 0), stroke: .init(0x000000, 0.55, 0.35)),
+        .init("M37.85,24.2 L37.85,24.2 C37.38,24.2 37,24.58 37,25.05 L37,49.35 C37,49.82 37.38,50.2 37.85,50.2 L37.85,50.2 C38.32,50.2 38.7,49.82 38.7,49.35 L38.7,25.05 C38.7,24.58 38.32,24.2 37.85,24.2 Z", .linear([.init(0x1d2026, 1, 0), .init(0x3b4049, 1, 1)], 38.7, 0, 37, 0), stroke: .init(0x000000, 0.55, 0.35)),
+        .init("M21.95,24.8 L21.95,24.8 C22.09,24.8 22.2,24.91 22.2,25.05 L22.2,49.35 C22.2,49.49 22.09,49.6 21.95,49.6 L21.95,49.6 C21.81,49.6 21.7,49.49 21.7,49.35 L21.7,25.05 C21.7,24.91 21.81,24.8 21.95,24.8 Z", .solid(0xffffff, 0.35)),
+        .init("M38.05,24.8 L38.05,24.8 C37.91,24.8 37.8,24.91 37.8,25.05 L37.8,49.35 C37.8,49.49 37.91,49.6 38.05,49.6 L38.05,49.6 C38.19,49.6 38.3,49.49 38.3,49.35 L38.3,25.05 C38.3,24.91 38.19,24.8 38.05,24.8 Z", .solid(0xffffff, 0.35)),
+        .init("M18.5,16.3 L20.4,22.6 C20,30 20,44 20.3,51 L18.9,53.2 C18.2,44 18.1,25 18.5,16.3 Z", .linear([.init(0x0d141d, 1, 0), .init(0x2c3d50, 1, 1)], 0, 0, 60, 0), stroke: .init(0x000000, 0.4, 0.35)),
+        .init("M41.5,16.3 L39.6,22.6 C40,30 40,44 39.7,51 L41.1,53.2 C41.8,44 41.9,25 41.5,16.3 Z", .linear([.init(0x0d141d, 1, 0), .init(0x2c3d50, 1, 1)], 60, 0, 0, 0), stroke: .init(0x000000, 0.4, 0.35)),
+        .init("M18.7,15.3 C23,13.9 37,13.9 41.3,15.3 L39.4,22.4 C35,21.9 25,21.9 20.6,22.4 Z", .linear([.init(0x4a6580, 1, 0), .init(0x1a2736, 1, 0.55), .init(0x0b121b, 1, 1)], 30, 14, 30, 22.4), stroke: .init(0x000000, 0.45, 0.45)),
+        .init("M23.5,12.5 L27.5,12.5 L24.2,24 L20.2,24 Z", .solid(0xffffff, 0.2), clip: "M18.7,15.3 C23,13.9 37,13.9 41.3,15.3 L39.4,22.4 C35,21.9 25,21.9 20.6,22.4 Z"),
+        .init("M29,12.5 L30.4,12.5 L27.1,24 L25.7,24 Z", .solid(0xffffff, 0.2), clip: "M18.7,15.3 C23,13.9 37,13.9 41.3,15.3 L39.4,22.4 C35,21.9 25,21.9 20.6,22.4 Z"),
+        .init("M20.5,51.2 C25,51.6 35,51.6 39.5,51.2 L40,54.2 C35,55 25,55 20,54.2 Z", .linear([.init(0x4a6580, 1, 0), .init(0x1a2736, 1, 0.55), .init(0x0b121b, 1, 1)], 30, 54.8, 30, 51.3), stroke: .init(0x000000, 0.45, 0.45)),
+        .init("M25,50 L28.5,50 L27.5,56 L24,56 Z", .solid(0xffffff, 0.2), clip: "M20.5,51.2 C25,51.6 35,51.6 39.5,51.2 L40,54.2 C35,55 25,55 20,54.2 Z"),
+        .init("M17.4,6.6 C18.8,5.3 22,4.8 25,4.8 L24.8,6.1 C22.2,6.3 19.6,7 17.9,7.9 Z", .linear([.init(0xffffff, 1, 0), .init(0xffe7a0, 1, 1)], 0, 4, 0, 9), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M42.6,6.6 C41.2,5.3 38,4.8 35,4.8 L35.2,6.1 C37.8,6.3 40.4,7 42.1,7.9 Z", .linear([.init(0xffffff, 1, 0), .init(0xffe7a0, 1, 1)], 60, 4, 60, 9), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M16.3,51.6 C16.6,54.4 18.3,55.8 22.4,56.2 L22.4,56.7 C18,56.6 16.3,55.2 15.9,51.6 Z", .linear([.init(0xff4b4b, 1, 0), .init(0xb5121b, 1, 1)], 0, 51.8, 0, 56.8), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M43.7,51.6 C43.4,54.4 41.7,55.8 37.6,56.2 L37.6,56.7 C42,56.6 43.7,55.2 44.1,51.6 Z", .linear([.init(0xff4b4b, 1, 0), .init(0xb5121b, 1, 1)], 60, 51.8, 60, 56.8), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M30,4 C37,4 41.7,4.4 43,6.4 C43.9,8 44.2,11 44.3,14 C44.5,22 44.5,40 44.3,49 C44.2,52.5 43.9,54.6 42.8,55.6 C41.2,56.6 36.5,56.8 30,56.8 C23.5,56.8 18.8,56.6 17.2,55.6 C16.1,54.6 15.8,52.5 15.7,49 C15.5,40 15.5,22 15.7,14 C15.8,11 16.1,8 17,6.4 C18.3,4.4 23,4 30,4 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.6, 0.6)),
+    ]
+    static let city: [VehicleLayer] = [
+        .init("M30,9 C36.6,9 40.3,10 41.4,12.6 C42.2,14.6 42.5,17.6 42.5,21 C42.6,28 42.6,36 42.4,42 C42.3,46 41.9,48.6 40.7,49.9 C39.1,51.1 35.5,51.4 30,51.4 C24.5,51.4 20.9,51.1 19.3,49.9 C18.1,48.6 17.7,46 17.6,42 C17.4,36 17.4,28 17.5,21 C17.5,17.6 17.8,14.6 18.6,12.6 C19.7,10 23.4,9 30,9 Z", .solid(0x000000, 0.5), blur: 1.6, dy: 1.2),
+        .init("M30,9 C36.6,9 40.3,10 41.4,12.6 C42.2,14.6 42.5,17.6 42.5,21 C42.6,28 42.6,36 42.4,42 C42.3,46 41.9,48.6 40.7,49.9 C39.1,51.1 35.5,51.4 30,51.4 C24.5,51.4 20.9,51.1 19.3,49.9 C18.1,48.6 17.7,46 17.6,42 C17.4,36 17.4,28 17.5,21 C17.5,17.6 17.8,14.6 18.6,12.6 C19.7,10 23.4,9 30,9 Z", .solid(0x000000, 0), stroke: .init(0xffffff, 0.45, 2)),
+        .init("M17.6,12.8 L17.9,12.8 C18.62,12.8 19.2,13.38 19.2,14.1 L19.2,18.9 C19.2,19.62 18.62,20.2 17.9,20.2 L17.6,20.2 C16.88,20.2 16.3,19.62 16.3,18.9 L16.3,14.1 C16.3,13.38 16.88,12.8 17.6,12.8 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 0, 0, 0, 60)),
+        .init("M42.4,12.8 L42.1,12.8 C41.38,12.8 40.8,13.38 40.8,14.1 L40.8,18.9 C40.8,19.62 41.38,20.2 42.1,20.2 L42.4,20.2 C43.12,20.2 43.7,19.62 43.7,18.9 L43.7,14.1 C43.7,13.38 43.12,12.8 42.4,12.8 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 60, 0, 60, 60)),
+        .init("M17.6,40.4 L17.9,40.4 C18.62,40.4 19.2,40.98 19.2,41.7 L19.2,46.5 C19.2,47.22 18.62,47.8 17.9,47.8 L17.6,47.8 C16.88,47.8 16.3,47.22 16.3,46.5 L16.3,41.7 C16.3,40.98 16.88,40.4 17.6,40.4 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 0, 0, 0, 60)),
+        .init("M42.4,40.4 L42.1,40.4 C41.38,40.4 40.8,40.98 40.8,41.7 L40.8,46.5 C40.8,47.22 41.38,47.8 42.1,47.8 L42.4,47.8 C43.12,47.8 43.7,47.22 43.7,46.5 L43.7,41.7 C43.7,40.98 43.12,40.4 42.4,40.4 Z", .linear([.init(0x2a2d33, 1, 0), .init(0x15171a, 1, 1)], 60, 0, 60, 60)),
+        .init("M18.2,20.4 C16.7,20 14.6,20.4 14.2,21.6 C14,22.5 15,22.9 16.1,22.8 L18.1,22.5 Z", .tint, stroke: .init(0x000000, 0.55, 0.5)),
+        .init("M41.8,20.4 C43.3,20 45.4,20.4 45.8,21.6 C46,22.5 45,22.9 43.9,22.8 L41.9,22.5 Z", .tint, stroke: .init(0x000000, 0.55, 0.5)),
+        .init("M18.2,20.4 C16.7,20 14.6,20.4 14.2,21.6 C14,22.5 15,22.9 16.1,22.8 L18.1,22.5 Z", .solid(0x000000, 0.25)),
+        .init("M41.8,20.4 C43.3,20 45.4,20.4 45.8,21.6 C46,22.5 45,22.9 43.9,22.8 L41.9,22.5 Z", .solid(0x000000, 0.25)),
+        .init("M30,9 C36.6,9 40.3,10 41.4,12.6 C42.2,14.6 42.5,17.6 42.5,21 C42.6,28 42.6,36 42.4,42 C42.3,46 41.9,48.6 40.7,49.9 C39.1,51.1 35.5,51.4 30,51.4 C24.5,51.4 20.9,51.1 19.3,49.9 C18.1,48.6 17.7,46 17.6,42 C17.4,36 17.4,28 17.5,21 C17.5,17.6 17.8,14.6 18.6,12.6 C19.7,10 23.4,9 30,9 Z", .tint),
+        .init("M30,9 C36.6,9 40.3,10 41.4,12.6 C42.2,14.6 42.5,17.6 42.5,21 C42.6,28 42.6,36 42.4,42 C42.3,46 41.9,48.6 40.7,49.9 C39.1,51.1 35.5,51.4 30,51.4 C24.5,51.4 20.9,51.1 19.3,49.9 C18.1,48.6 17.7,46 17.6,42 C17.4,36 17.4,28 17.5,21 C17.5,17.6 17.8,14.6 18.6,12.6 C19.7,10 23.4,9 30,9 Z", .linear([.init(0x000000, 0.5, 0), .init(0x000000, 0.18, 0.13), .init(0x000000, 0, 0.3), .init(0x000000, 0, 0.7), .init(0x000000, 0.18, 0.87), .init(0x000000, 0.5, 1)], 17.4, 0, 42.6, 0)),
+        .init("M30,9 C36.6,9 40.3,10 41.4,12.6 C42.2,14.6 42.5,17.6 42.5,21 C42.6,28 42.6,36 42.4,42 C42.3,46 41.9,48.6 40.7,49.9 C39.1,51.1 35.5,51.4 30,51.4 C24.5,51.4 20.9,51.1 19.3,49.9 C18.1,48.6 17.7,46 17.6,42 C17.4,36 17.4,28 17.5,21 C17.5,17.6 17.8,14.6 18.6,12.6 C19.7,10 23.4,9 30,9 Z", .linear([.init(0x000000, 0.28, 0), .init(0x000000, 0, 0.05), .init(0x000000, 0, 0.93), .init(0x000000, 0.35, 1)], 0, 9, 0, 51.4)),
+        .init("M30,9 C36.6,9 40.3,10 41.4,12.6 C42.2,14.6 42.5,17.6 42.5,21 C42.6,28 42.6,36 42.4,42 C42.3,46 41.9,48.6 40.7,49.9 C39.1,51.1 35.5,51.4 30,51.4 C24.5,51.4 20.9,51.1 19.3,49.9 C18.1,48.6 17.7,46 17.6,42 C17.4,36 17.4,28 17.5,21 C17.5,17.6 17.8,14.6 18.6,12.6 C19.7,10 23.4,9 30,9 Z", .linear([.init(0xffffff, 0, 0.3), .init(0xffffff, 0.22, 0.43), .init(0xffffff, 0.3, 0.5), .init(0xffffff, 0.22, 0.57), .init(0xffffff, 0, 0.7)], 17.4, 0, 42.6, 0)),
+        .init("M30,9 C36.6,9 40.3,10 41.4,12.6 C42.2,14.6 42.5,17.6 42.5,21 C42.6,28 42.6,36 42.4,42 C42.3,46 41.9,48.6 40.7,49.9 C39.1,51.1 35.5,51.4 30,51.4 C24.5,51.4 20.9,51.1 19.3,49.9 C18.1,48.6 17.7,46 17.6,42 C17.4,36 17.4,28 17.5,21 C17.5,17.6 17.8,14.6 18.6,12.6 C19.7,10 23.4,9 30,9 Z", .radial([.init(0xffffff, 0.35, 0), .init(0xffffff, 0, 1)], 30, 13, 7)),
+        .init("M30,9 C36.6,9 40.3,10 41.4,12.6 C42.2,14.6 42.5,17.6 42.5,21 C42.6,28 42.6,36 42.4,42 C42.3,46 41.9,48.6 40.7,49.9 C39.1,51.1 35.5,51.4 30,51.4 C24.5,51.4 20.9,51.1 19.3,49.9 C18.1,48.6 17.7,46 17.6,42 C17.4,36 17.4,28 17.5,21 C17.5,17.6 17.8,14.6 18.6,12.6 C19.7,10 23.4,9 30,9 Z", .radial([.init(0xffffff, 0.15, 0), .init(0xffffff, 0, 1)], 30, 49, 5)),
+        .init("M22.2,25 C26,24.4 34,24.4 37.8,25 C38.4,30 38.4,37 37.9,41.8 C34,42.3 26,42.3 22.1,41.8 C21.6,37 21.6,30 22.2,25 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.3, 0.55)),
+        .init("M22.2,25 C26,24.4 34,24.4 37.8,25 C38.4,30 38.4,37 37.9,41.8 C34,42.3 26,42.3 22.1,41.8 C21.6,37 21.6,30 22.2,25 Z", .radial([.init(0xffffff, 0.38, 0), .init(0xffffff, 0, 1)], 28, 29, 9)),
+        .init("M27,27.5 L33,27.5 C34.44,27.5 35.6,28.66 35.6,30.1 L35.6,36.4 C35.6,37.84 34.44,39 33,39 L27,39 C25.56,39 24.4,37.84 24.4,36.4 L24.4,30.1 C24.4,28.66 25.56,27.5 27,27.5 Z", .linear([.init(0x3d566f, 1, 0), .init(0x0e1620, 1, 1)], 30, 27.5, 30, 39), stroke: .init(0x000000, 0.5, 0.45)),
+        .init("M26,26 L29.5,26 L27.2,40 L23.7,40 Z", .solid(0xffffff, 0.18), clip: "M27,27.5 L33,27.5 C34.44,27.5 35.6,28.66 35.6,30.1 L35.6,36.4 C35.6,37.84 34.44,39 33,39 L27,39 C25.56,39 24.4,37.84 24.4,36.4 L24.4,30.1 C24.4,28.66 25.56,27.5 27,27.5 Z"),
+        .init("M20.2,18.6 L22,25.2 C21.5,30 21.5,37 22,41.6 L20.6,46.2 C19.7,38 19.6,26 20.2,18.6 Z", .linear([.init(0x0d141d, 1, 0), .init(0x2c3d50, 1, 1)], 0, 0, 60, 0), stroke: .init(0x000000, 0.4, 0.35)),
+        .init("M39.8,18.6 L38,25.2 C38.5,30 38.5,37 38,41.6 L39.4,46.2 C40.3,38 40.4,26 39.8,18.6 Z", .linear([.init(0x0d141d, 1, 0), .init(0x2c3d50, 1, 1)], 60, 0, 0, 0), stroke: .init(0x000000, 0.4, 0.35)),
+        .init("M20.3,17.4 C24,15.8 36,15.8 39.7,17.4 L37.8,25 C34,24.4 26,24.4 22.2,25 Z", .linear([.init(0x4a6580, 1, 0), .init(0x1a2736, 1, 0.55), .init(0x0b121b, 1, 1)], 30, 16, 30, 25), stroke: .init(0x000000, 0.45, 0.45)),
+        .init("M24.5,14.5 L28.5,14.5 L25.2,26.5 L21.2,26.5 Z", .solid(0xffffff, 0.2), clip: "M20.3,17.4 C24,15.8 36,15.8 39.7,17.4 L37.8,25 C34,24.4 26,24.4 22.2,25 Z"),
+        .init("M30,14.5 L31.4,14.5 L28.1,26.5 L26.7,26.5 Z", .solid(0xffffff, 0.2), clip: "M20.3,17.4 C24,15.8 36,15.8 39.7,17.4 L37.8,25 C34,24.4 26,24.4 22.2,25 Z"),
+        .init("M22.1,41.8 C26,42.3 34,42.3 37.9,41.8 L39.3,46.8 C35,47.8 25,47.8 20.7,46.8 Z", .linear([.init(0x4a6580, 1, 0), .init(0x1a2736, 1, 0.55), .init(0x0b121b, 1, 1)], 30, 47.6, 30, 41.9), stroke: .init(0x000000, 0.45, 0.45)),
+        .init("M25,40.5 L28.5,40.5 L26.8,49 L23.3,49 Z", .solid(0xffffff, 0.2), clip: "M22.1,41.8 C26,42.3 34,42.3 37.9,41.8 L39.3,46.8 C35,47.8 25,47.8 20.7,46.8 Z"),
+        .init("M19.4,12.6 C19.8,11 22.4,10.3 24.5,10.4 C24.8,11.5 24.1,12.7 22.6,13.1 C21.3,13.4 20,13.3 19.4,12.6 Z", .linear([.init(0xffffff, 1, 0), .init(0xffe7a0, 1, 1)], 0, 9, 0, 14), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M40.6,12.6 C40.2,11 37.6,10.3 35.5,10.4 C35.2,11.5 35.9,12.7 37.4,13.1 C38.7,13.4 40,13.3 40.6,12.6 Z", .linear([.init(0xffffff, 1, 0), .init(0xffe7a0, 1, 1)], 60, 9, 60, 14), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M18.8,47.4 C19.2,49.3 20.7,50.4 22.6,50.7 L22.5,49.1 C21,48.7 19.8,48.1 18.8,47.4 Z", .linear([.init(0xff4b4b, 1, 0), .init(0xb5121b, 1, 1)], 0, 46.4, 0, 51.4), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M41.2,47.4 C40.8,49.3 39.3,50.4 37.4,50.7 L37.5,49.1 C39,48.7 40.2,48.1 41.2,47.4 Z", .linear([.init(0xff4b4b, 1, 0), .init(0xb5121b, 1, 1)], 60, 46.4, 60, 51.4), stroke: .init(0x000000, 0.45, 0.4)),
+        .init("M30,9 C36.6,9 40.3,10 41.4,12.6 C42.2,14.6 42.5,17.6 42.5,21 C42.6,28 42.6,36 42.4,42 C42.3,46 41.9,48.6 40.7,49.9 C39.1,51.1 35.5,51.4 30,51.4 C24.5,51.4 20.9,51.1 19.3,49.9 C18.1,48.6 17.7,46 17.6,42 C17.4,36 17.4,28 17.5,21 C17.5,17.6 17.8,14.6 18.6,12.6 C19.7,10 23.4,9 30,9 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.6, 0.6)),
+    ]
+    static let motorbike: [VehicleLayer] = [
+        .init("M30,7.5 C35.8,7.5 40.5,17.8 40.5,30.5 C40.5,43.2 35.8,53.5 30,53.5 C24.2,53.5 19.5,43.2 19.5,30.5 C19.5,17.8 24.2,7.5 30,7.5 Z", .solid(0x000000, 0.45), blur: 2.2, dy: 1),
+        .init("M30,40.4 L30,40.4 C31.38,40.4 32.5,41.52 32.5,42.9 L32.5,51.5 C32.5,52.88 31.38,54 30,54 L30,54 C28.62,54 27.5,52.88 27.5,51.5 L27.5,42.9 C27.5,41.52 28.62,40.4 30,40.4 Z", .linear([.init(0x0f1012, 1, 0), .init(0x34373d, 1, 0.5), .init(0x0f1012, 1, 1)], 27.5, 0, 32.5, 0), stroke: .init(0xffffff, 0.35, 0.5)),
+        .init("M30,5.2 L30,5.2 C30.99,5.2 31.8,6.01 31.8,7 L31.8,15 C31.8,15.99 30.99,16.8 30,16.8 L30,16.8 C29.01,16.8 28.2,15.99 28.2,15 L28.2,7 C28.2,6.01 29.01,5.2 30,5.2 Z", .linear([.init(0x0f1012, 1, 0), .init(0x34373d, 1, 0.5), .init(0x0f1012, 1, 1)], 28.2, 0, 31.8, 0), stroke: .init(0xffffff, 0.35, 0.5)),
+        .init("M34.5,42 L34.5,42 C35.11,42 35.6,42.49 35.6,43.1 L35.6,49.4 C35.6,50.01 35.11,50.5 34.5,50.5 L34.5,50.5 C33.89,50.5 33.4,50.01 33.4,49.4 L33.4,43.1 C33.4,42.49 33.89,42 34.5,42 Z", .linear([.init(0xc9ced6, 1, 0), .init(0x5d636c, 1, 1)], 33.4, 0, 35.6, 0), stroke: .init(0x000000, 0.5, 0.35)),
+        .init("M26.6,43.5 C26.8,48.6 28.2,51.4 30,51.4 C31.8,51.4 33.2,48.6 33.4,43.5 Z", .tint),
+        .init("M26.6,43.5 C26.8,48.6 28.2,51.4 30,51.4 C31.8,51.4 33.2,48.6 33.4,43.5 Z", .linear([.init(0x000000, 0.45, 0), .init(0x000000, 0, 0.3), .init(0xffffff, 0.25, 0.5), .init(0x000000, 0, 0.7), .init(0x000000, 0.45, 1)], 24, 0, 36, 0)),
+        .init("M26.6,43.5 C26.8,48.6 28.2,51.4 30,51.4 C31.8,51.4 33.2,48.6 33.4,43.5 Z", .radial([.init(0xffffff, 0.45, 0), .init(0xffffff, 0, 1)], 30, 45.5, 4)),
+        .init("M26.6,43.5 C26.8,48.6 28.2,51.4 30,51.4 C31.8,51.4 33.2,48.6 33.4,43.5 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.6, 0.5)),
+        .init("M30,49.65 C30.94,49.65 31.7,49.99 31.7,50.4 C31.7,50.81 30.94,51.15 30,51.15 C29.06,51.15 28.3,50.81 28.3,50.4 C28.3,49.99 29.06,49.65 30,49.65 Z", .solid(0xff3b3b, 1), stroke: .init(0x000000, 0.5, 0.3)),
+        .init("M29.8,38 L30.2,38 C32.08,38 33.6,39.52 33.6,41.4 L33.6,43 C33.6,44.88 32.08,46.4 30.2,46.4 L29.8,46.4 C27.92,46.4 26.4,44.88 26.4,43 L26.4,41.4 C26.4,39.52 27.92,38 29.8,38 Z", .linear([.init(0x2c2f35, 1, 0), .init(0x15171a, 1, 1)], 0, 38, 0, 46.4), stroke: .init(0x000000, 0.5, 0.4)),
+        .init("M28.1,7.6 C28.1,6.2 31.9,6.2 31.9,7.6 L31.9,13.4 L28.1,13.4 Z", .tint),
+        .init("M28.1,7.6 C28.1,6.2 31.9,6.2 31.9,7.6 L31.9,13.4 L28.1,13.4 Z", .linear([.init(0x000000, 0.45, 0), .init(0x000000, 0, 0.3), .init(0xffffff, 0.25, 0.5), .init(0x000000, 0, 0.7), .init(0x000000, 0.45, 1)], 24, 0, 36, 0)),
+        .init("M28.1,7.6 C28.1,6.2 31.9,6.2 31.9,7.6 L31.9,13.4 L28.1,13.4 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.6, 0.5)),
+        .init("M24.6,29.8 C25.82,29.8 26.8,31.41 26.8,33.4 C26.8,35.39 25.82,37 24.6,37 C23.38,37 22.4,35.39 22.4,33.4 C22.4,31.41 23.38,29.8 24.6,29.8 Z", .linear([.init(0x1c2a44, 1, 0), .init(0x33496e, 1, 1)], 22, 0, 27, 0), stroke: .init(0x000000, 0.5, 0.4)),
+        .init("M35.4,29.8 C34.18,29.8 33.2,31.41 33.2,33.4 C33.2,35.39 34.18,37 35.4,37 C36.62,37 37.6,35.39 37.6,33.4 C37.6,31.41 36.62,29.8 35.4,29.8 Z", .linear([.init(0x1c2a44, 1, 0), .init(0x33496e, 1, 1)], 38, 0, 33, 0), stroke: .init(0x000000, 0.5, 0.4)),
+        .init("M24.2,17.4 C24.6,13.4 27.3,11.4 30,11.4 C32.7,11.4 35.4,13.4 35.8,17.4 L35.2,19.2 L24.8,19.2 Z", .tint),
+        .init("M24.2,17.4 C24.6,13.4 27.3,11.4 30,11.4 C32.7,11.4 35.4,13.4 35.8,17.4 L35.2,19.2 L24.8,19.2 Z", .linear([.init(0x000000, 0.45, 0), .init(0x000000, 0, 0.3), .init(0xffffff, 0.25, 0.5), .init(0x000000, 0, 0.7), .init(0x000000, 0.45, 1)], 24, 0, 36, 0)),
+        .init("M24.2,17.4 C24.6,13.4 27.3,11.4 30,11.4 C32.7,11.4 35.4,13.4 35.8,17.4 L35.2,19.2 L24.8,19.2 Z", .radial([.init(0xffffff, 0.45, 0), .init(0xffffff, 0, 1)], 30, 14.5, 4)),
+        .init("M24.2,17.4 C24.6,13.4 27.3,11.4 30,11.4 C32.7,11.4 35.4,13.4 35.8,17.4 L35.2,19.2 L24.8,19.2 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.6, 0.5)),
+        .init("M30,11.3 C31.16,11.3 32.1,11.7 32.1,12.2 C32.1,12.7 31.16,13.1 30,13.1 C28.84,13.1 27.9,12.7 27.9,12.2 C27.9,11.7 28.84,11.3 30,11.3 Z", .solid(0xfff6d0, 1), stroke: .init(0x000000, 0.45, 0.3)),
+        .init("M19.4,17.8 L40.6,17.8 C41.04,17.8 41.4,18.16 41.4,18.6 L41.4,18.6 C41.4,19.04 41.04,19.4 40.6,19.4 L19.4,19.4 C18.96,19.4 18.6,19.04 18.6,18.6 L18.6,18.6 C18.6,18.16 18.96,17.8 19.4,17.8 Z", .solid(0x2a2d33, 1), stroke: .init(0x000000, 0.5, 0.3)),
+        .init("M18.7,17.3 L19.7,17.3 C20.42,17.3 21,17.88 21,18.6 L21,18.6 C21,19.32 20.42,19.9 19.7,19.9 L18.7,19.9 C17.98,19.9 17.4,19.32 17.4,18.6 L17.4,18.6 C17.4,17.88 17.98,17.3 18.7,17.3 Z", .solid(0x111214, 1)),
+        .init("M41.3,17.3 L40.3,17.3 C39.58,17.3 39,17.88 39,18.6 L39,18.6 C39,19.32 39.58,19.9 40.3,19.9 L41.3,19.9 C42.02,19.9 42.6,19.32 42.6,18.6 L42.6,18.6 C42.6,17.88 42.02,17.3 41.3,17.3 Z", .solid(0x111214, 1)),
+        .init("M20.5,17.6 L20.2,14.8", .solid(0x000000, 0), stroke: .init(0x2a2d33, 1, 0.7)),
+        .init("M39.5,17.6 L39.8,14.8", .solid(0x000000, 0), stroke: .init(0x2a2d33, 1, 0.7)),
+        .init("M20,13.2 C21.1,13.2 22,13.69 22,14.3 C22,14.91 21.1,15.4 20,15.4 C18.9,15.4 18,14.91 18,14.3 C18,13.69 18.9,13.2 20,13.2 Z", .solid(0x20232a, 1), stroke: .init(0xffffff, 0.35, 0.4)),
+        .init("M40,13.2 C38.9,13.2 38,13.69 38,14.3 C38,14.91 38.9,15.4 40,15.4 C41.1,15.4 42,14.91 42,14.3 C42,13.69 41.1,13.2 40,13.2 Z", .solid(0x20232a, 1), stroke: .init(0xffffff, 0.35, 0.4)),
+        .init("M30,18.2 C34.4,18.2 36.2,20.2 35.8,23.6 C35.4,27.2 33,30 30,30 C27,30 24.6,27.2 24.2,23.6 C23.8,20.2 25.6,18.2 30,18.2 Z", .tint),
+        .init("M30,18.2 C34.4,18.2 36.2,20.2 35.8,23.6 C35.4,27.2 33,30 30,30 C27,30 24.6,27.2 24.2,23.6 C23.8,20.2 25.6,18.2 30,18.2 Z", .linear([.init(0x000000, 0.45, 0), .init(0x000000, 0, 0.3), .init(0xffffff, 0.25, 0.5), .init(0x000000, 0, 0.7), .init(0x000000, 0.45, 1)], 24, 0, 36, 0)),
+        .init("M30,18.2 C34.4,18.2 36.2,20.2 35.8,23.6 C35.4,27.2 33,30 30,30 C27,30 24.6,27.2 24.2,23.6 C23.8,20.2 25.6,18.2 30,18.2 Z", .radial([.init(0xffffff, 0.45, 0), .init(0xffffff, 0, 1)], 28.8, 21.8, 5)),
+        .init("M30,18.2 C34.4,18.2 36.2,20.2 35.8,23.6 C35.4,27.2 33,30 30,30 C27,30 24.6,27.2 24.2,23.6 C23.8,20.2 25.6,18.2 30,18.2 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.6, 0.5)),
+        .init("M24.6,30.8 C22.6,27.4 20.8,22.6 20.1,19.2", .solid(0x000000, 0), stroke: .init(0x16181c, 1, 3.1, round: true)),
+        .init("M24.6,30.8 C22.6,27.4 20.8,22.6 20.1,19.2", .solid(0x000000, 0), stroke: .init(0x3a3f48, 1, 1.9, round: true)),
+        .init("M35.4,30.8 C37.4,27.4 39.2,22.6 39.9,19.2", .solid(0x000000, 0), stroke: .init(0x16181c, 1, 3.1, round: true)),
+        .init("M35.4,30.8 C37.4,27.4 39.2,22.6 39.9,19.2", .solid(0x000000, 0), stroke: .init(0x3a3f48, 1, 1.9, round: true)),
+        .init("M23.4,32.4 C23.7,29.9 26.4,28.8 30,28.8 C33.6,28.8 36.3,29.9 36.6,32.4 C36.9,35.6 35.7,39.2 33.4,40.7 C31.4,41.6 28.6,41.6 26.6,40.7 C24.3,39.2 23.1,35.6 23.4,32.4 Z", .linear([.init(0x15171b, 1, 0), .init(0x3a3f48, 1, 0.5), .init(0x15171b, 1, 1)], 23.3, 0, 36.7, 0), stroke: .init(0x000000, 0.55, 0.45)),
+        .init("M27.4,39.2 L32.6,39.2", .solid(0x000000, 0), stroke: .init(0x000000, 0.35, 0.5)),
+        .init("M20,17.2 C20.77,17.2 21.4,17.83 21.4,18.6 C21.4,19.37 20.77,20 20,20 C19.23,20 18.6,19.37 18.6,18.6 C18.6,17.83 19.23,17.2 20,17.2 Z", .solid(0x16181c, 1)),
+        .init("M40,17.2 C39.23,17.2 38.6,17.83 38.6,18.6 C38.6,19.37 39.23,20 40,20 C40.77,20 41.4,19.37 41.4,18.6 C41.4,17.83 40.77,17.2 40,17.2 Z", .solid(0x16181c, 1)),
+        .init("M30,25.3 C32.71,25.3 34.9,27.67 34.9,30.6 C34.9,33.53 32.71,35.9 30,35.9 C27.29,35.9 25.1,33.53 25.1,30.6 C25.1,27.67 27.29,25.3 30,25.3 Z", .tint),
+        .init("M30,25.3 C32.71,25.3 34.9,27.67 34.9,30.6 C34.9,33.53 32.71,35.9 30,35.9 C27.29,35.9 25.1,33.53 25.1,30.6 C25.1,27.67 27.29,25.3 30,25.3 Z", .radial([.init(0xffffff, 0.55, 0), .init(0xffffff, 0.1, 0.45), .init(0x000000, 0.35, 1)], 28.7, 29, 5.6)),
+        .init("M25.6,28.5 C26.5,26.3 28.1,25.4 30,25.4 C31.9,25.4 33.5,26.3 34.4,28.5 C33.1,27.8 31.6,27.5 30,27.5 C28.4,27.5 26.9,27.8 25.6,28.5 Z", .linear([.init(0x3a4a5c, 1, 0), .init(0x0b1018, 1, 1)], 0, 25.4, 0, 28.5)),
+        .init("M30,25.3 C32.71,25.3 34.9,27.67 34.9,30.6 C34.9,33.53 32.71,35.9 30,35.9 C27.29,35.9 25.1,33.53 25.1,30.6 C25.1,27.67 27.29,25.3 30,25.3 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.65, 0.5)),
+    ]
+    static let arrow: [VehicleLayer] = [
+        .init("M30,9 C42.15,9 52,18.85 52,31 C52,43.15 42.15,53 30,53 C17.85,53 8,43.15 8,31 C8,18.85 17.85,9 30,9 Z", .solid(0x000000, 0.35), blur: 2.2, dy: 1.5),
+        .init("M30,8 C42.15,8 52,17.85 52,30 C52,42.15 42.15,52 30,52 C17.85,52 8,42.15 8,30 C8,17.85 17.85,8 30,8 Z", .solid(0xffffff, 1)),
+        .init("M30,8 C42.15,8 52,17.85 52,30 C52,42.15 42.15,52 30,52 C17.85,52 8,42.15 8,30 C8,17.85 17.85,8 30,8 Z", .solid(0x000000, 0), stroke: .init(0x000000, 0.12, 0.5)),
+        .init("M30,16 L39.5,42 C39.7,42.6 39.1,43.1 38.5,42.8 L30,38 L21.5,42.8 C20.9,43.1 20.3,42.6 20.5,42 Z", .tint, stroke: .init(0x000000, 0.2, 0.5)),
+        .init("M30,16 L39.5,42 C39.7,42.6 39.1,43.1 38.5,42.8 L30,38 L21.5,42.8 C20.9,43.1 20.3,42.6 20.5,42 Z", .linear([.init(0xffffff, 0.18, 0), .init(0xffffff, 0.18, 0.5), .init(0x000000, 0.12, 0.5001), .init(0x000000, 0.12, 1)], 20, 0, 40, 0)),
+    ]
 }

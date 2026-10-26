@@ -111,7 +111,7 @@ struct AccountView: View {
                                 ForEach(VehicleColor.allCases) { c in
                                     Button { vehicleColor = c.rawValue } label: {
                                         VehicleMarkerView(marker: VehicleMarker(rawValue: vehicleMarker) ?? .sedan, tint: c, heading: 0)
-                                            .frame(width: 58, height: 58)
+                                            .frame(width: 60, height: 60)
                                             .background(vehicleColor == c.rawValue ? Theme.blueSoft : .clear, in: RoundedRectangle(cornerRadius: 12))
                                     }
                                     .buttonStyle(.plain)

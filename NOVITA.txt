@@ -1,3 +1,6 @@
+Novità della 1.14.2 (navigatore):
+• Veicolo sulla mappa ridisegnato: berlina, SUV, city car e moto visti dall'alto, con luci, ombre, vetri e fari, ben distinguibili su mappa chiara, scura e satellite
+
 Novità della 1.14.1 (navigatore):
 • L'auto scorre liscia sulla mappa, agganciata alla strada, e la mappa la segue senza scatti
 • Navigatore più leggero: la mappa non ridisegna più tutto il percorso a ogni posizione
