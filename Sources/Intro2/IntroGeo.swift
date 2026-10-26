@@ -4,9 +4,10 @@ import Foundation
 import SwiftUI
 
 /// La scena della prima pagina: la ZTL del centro storico di Firenze (Settori A e B, perimetri veri di
-/// Resources/Cities/firenze.json; il Settore A non ha varchi propri, si entra da quelli del B) e il varco di via Cavour.
-/// I due percorsi seguono strade vere: calcolati con OSRM sui dati OpenStreetMap da Tools/intro_routes.py
-/// (ramo «intro-routes») e copiati qui.
+/// Resources/Cities/firenze.json; il Settore A non ha varchi propri, si entra da quelli del B), il varco di via Cavour,
+/// un ristorante appena fuori dalla ZTL dall'altra parte (via Gioberti, vicino a piazza Beccaria; generico, non un locale
+/// vero) e il Parcheggio Beccaria. I percorsi seguono strade vere: calcolati con OSRM sui dati OpenStreetMap da
+/// Tools/intro_routes.py (ramo «intro-routes»), semplificati a ~1 m e copiati qui.
 struct IntroScene {
     /// I perimetri da disegnare: prima il Settore B (l'anello esterno), poi il Settore A
     var zones: [[CLLocationCoordinate2D]]
@@ -15,26 +16,65 @@ struct IntroScene {
     var zoneName: String
     var cityName: String
 
-    /// Viale Lavagnini → piazza della Libertà → varco di via Cavour → giù per via Cavour fino al Duomo
-    /// (OSRM, «lavagnini>cavour>duomo», 1,47 km; entra nella ZTL proprio al varco)
-    static let badRoute: [CLLocationCoordinate2D] = coords([
+    /// 1. «La strada più diretta»: viale Lavagnini → piazza della Libertà → dentro dal varco di via Cavour → via degli Alfani,
+    /// via dei Pilastri, via dei Pepi, via Ghibellina → fuori a piazza Beccaria → via Gioberti (OSRM, 3,5 km, 9,7 min; 2,5 km nella ZTL)
+    static let direct: [CLLocationCoordinate2D] = coords([
         (43.782961, 11.257894), (43.783682, 11.260928), (43.783706, 11.261121), (43.783682, 11.261259),
-        (43.783563, 11.261600), (43.783501, 11.261677), (43.783192, 11.262404), (43.778315, 11.258512),
-        (43.778216, 11.258478), (43.777930, 11.258230), (43.775801, 11.256577), (43.774789, 11.255849)
+        (43.783563, 11.261600), (43.783501, 11.261677), (43.783192, 11.262404), (43.782339, 11.261742),
+        (43.778315, 11.258512), (43.778216, 11.258478), (43.778024, 11.258330), (43.777930, 11.258230),
+        (43.776729, 11.257305), (43.775702, 11.259719), (43.773866, 11.263594), (43.773128, 11.264515),
+        (43.772175, 11.263914), (43.771400, 11.263488), (43.769979, 11.262754), (43.768574, 11.269661),
+        (43.768319, 11.269513), (43.768249, 11.269758), (43.768104, 11.270143), (43.768072, 11.270513),
+        (43.768082, 11.271201), (43.769286, 11.271130), (43.768981, 11.273724), (43.769502, 11.274132),
+        (43.769585, 11.273885)
     ])
 
-    /// Stessa partenza, sempre fuori dalla ZTL lungo i viali fino al parcheggio Parterre (OSM node/559981489)
-    /// (OSRM, «lavagnini>parterre», 1,9 km, nessun punto dentro i Settori A, B, O, F, G)
-    static let goodRoute: [CLLocationCoordinate2D] = coords([
-        (43.782961, 11.257894), (43.783701, 11.261029), (43.783682, 11.261259), (43.783430, 11.262060),
-        (43.783425, 11.262217), (43.783481, 11.262421), (43.783595, 11.262573), (43.783820, 11.262737),
-        (43.783959, 11.262806), (43.784084, 11.262771), (43.784174, 11.262657), (43.784517, 11.261784),
-        (43.784499, 11.261410), (43.784416, 11.261178), (43.784330, 11.261073), (43.783833, 11.260624),
-        (43.783744, 11.260489), (43.783688, 11.260322), (43.783357, 11.258901), (43.784175, 11.258531),
-        (43.784816, 11.260981), (43.784825, 11.261076), (43.784805, 11.261211), (43.784358, 11.262463),
-        (43.784074, 11.263169), (43.784068, 11.263230), (43.784770, 11.264684), (43.785455, 11.266207),
-        (43.786267, 11.265419), (43.786397, 11.265212), (43.785551, 11.264404)
+    /// 2. «Con GateLR»: stessa partenza, sempre fuori da ogni ZTL lungo i viali Matteotti, Gramsci e della Giovine Italia
+    /// (OSRM, 2,9 km, 5,4 min, nessun metro nei Settori A, B, O, F, G): 4 minuti in meno della strada dentro la ZTL
+    static let around: [CLLocationCoordinate2D] = coords([
+        (43.782961, 11.257894), (43.783682, 11.260928), (43.783706, 11.261121), (43.783682, 11.261259),
+        (43.783563, 11.261600), (43.783501, 11.261677), (43.783101, 11.262588), (43.783050, 11.262663),
+        (43.782693, 11.263021), (43.781337, 11.264309), (43.778321, 11.267124), (43.778126, 11.267238),
+        (43.777818, 11.267373), (43.777481, 11.267563), (43.777238, 11.267753), (43.776921, 11.268109),
+        (43.776518, 11.268728), (43.776377, 11.268903), (43.774957, 11.270248), (43.774429, 11.270710),
+        (43.774210, 11.270835), (43.773969, 11.270936), (43.773847, 11.270976), (43.773616, 11.271013),
+        (43.771343, 11.270910), (43.771193, 11.270884), (43.771078, 11.270850), (43.770889, 11.270719),
+        (43.770769, 11.270666), (43.770675, 11.270648), (43.770433, 11.270656), (43.770291, 11.270615),
+        (43.769649, 11.270276), (43.768319, 11.269513), (43.768249, 11.269758), (43.768104, 11.270143),
+        (43.768072, 11.270513), (43.768082, 11.271201), (43.769286, 11.271130), (43.768981, 11.273724),
+        (43.769502, 11.274132), (43.769585, 11.273885)
     ])
+
+    /// 3. «Oppure parcheggia vicino»: lungo gli stessi viali fino al Parcheggio Beccaria, sotterraneo (OSM way/231098032,
+    /// in Resources/Parking/firenze.json) (OSRM, 2,6 km, 4,6 min, sempre fuori dalla ZTL)
+    static let toParking: [CLLocationCoordinate2D] = coords([
+        (43.782961, 11.257894), (43.783682, 11.260928), (43.783706, 11.261121), (43.783682, 11.261259),
+        (43.783563, 11.261600), (43.783501, 11.261677), (43.783146, 11.262506), (43.783050, 11.262663),
+        (43.782779, 11.262937), (43.781337, 11.264309), (43.778321, 11.267124), (43.778126, 11.267238),
+        (43.777818, 11.267373), (43.777481, 11.267563), (43.777238, 11.267753), (43.776921, 11.268109),
+        (43.776518, 11.268728), (43.776377, 11.268903), (43.774712, 11.270475), (43.774429, 11.270710),
+        (43.774092, 11.270890), (43.773740, 11.270999), (43.773485, 11.271015), (43.771343, 11.270910),
+        (43.771193, 11.270884), (43.771078, 11.270850), (43.770889, 11.270719), (43.770769, 11.270666),
+        (43.770675, 11.270648), (43.770433, 11.270656), (43.770291, 11.270615), (43.769649, 11.270276),
+        (43.768319, 11.269513), (43.768249, 11.269758), (43.768104, 11.270143), (43.768072, 11.270513),
+        (43.768082, 11.271201), (43.769906, 11.271083)
+    ])
+
+    /// A piedi dal Parcheggio Beccaria al ristorante, per piazza Beccaria e via Gioberti (OSRM a piedi, 462 m, 6 min)
+    static let walk: [CLLocationCoordinate2D] = coords([
+        (43.769903, 11.270726), (43.770164, 11.270856), (43.770316, 11.270884), (43.770406, 11.270830),
+        (43.770536, 11.270836), (43.770609, 11.270901), (43.770713, 11.270944), (43.770628, 11.271366),
+        (43.770585, 11.271443), (43.770624, 11.271468), (43.770572, 11.271688), (43.770634, 11.271710),
+        (43.770503, 11.273250), (43.770524, 11.273265), (43.770489, 11.273421), (43.770422, 11.273415),
+        (43.770334, 11.274149), (43.769585, 11.273885)
+    ])
+
+    /// Il ristorante (la fine dei percorsi 1 e 2) e l'ingresso del Parcheggio Beccaria
+    static var restaurant: CLLocationCoordinate2D { direct[direct.count - 1] }
+    static let parking = CLLocationCoordinate2D(latitude: 43.769894, longitude: 11.270761)
+    /// Minuti risparmiati girando intorno (OSRM: 583 s dentro la ZTL, 324 s intorno) e minuti a piedi (370 s)
+    static let minutesSaved = 4
+    static let walkMinutes = 6
 
     /// Il contorno dei Settori A e B uniti (senza il confine interno), per la mappa Mapbox: unione dei perimetri di
     /// firenze.json calcolata con shapely e semplificata a ~4 m (72 punti)
@@ -77,8 +117,8 @@ struct IntroScene {
     /// Il varco di via Cavour (ptm-9 in firenze.json), se la città non fosse ancora letta
     static let gatePoint = CLLocationCoordinate2D(latitude: 43.78305, longitude: 11.262289)
 
-    /// Il centro della vista d'insieme (Riduci movimento e disegno di riserva): tra il varco, il Duomo e il Parterre
-    static let center = CLLocationCoordinate2D(latitude: 43.7790, longitude: 11.2600)
+    /// Il centro della scena (lo stesso dell'inquadratura di Mapbox)
+    static let center = CLLocationCoordinate2D(latitude: 43.7758, longitude: 11.2662)
 
     @MainActor static func load(_ store: Store) -> IntroScene {
         let city = store.cities.first { $0.id == "firenze" }

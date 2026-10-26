@@ -575,9 +575,13 @@
 "The first time, choose where you're going and see why GateLR asks for your location before iOS does." = "La primera vez, elige adónde vas y descubre por qué GateLR pide tu ubicación antes que iOS.";
 "Tips when you need them" = "Consejos cuando los necesitas";
 "A few short tips in Trip, Map and Account, and empty pages that explain what to do with one button." = "Algunos consejos breves en Viaje, Mapa y Cuenta, y páginas vacías que explican qué hacer con un botón.";
-"ARRIVED · NO FINE" = "LLEGADO · SIN MULTA";
-"Same trip, no fine." = "Mismo viaje, sin multa.";
-"One wrong turn." = "Un giro equivocado.";
+"NO FINE" = "SIN MULTA";
+"The most direct route" = "El camino más directo";
+"With GateLR" = "Con GateLR";
+"Or park nearby" = "O aparca cerca";
+"GateLR: around the ZTL, %lld min faster" = "GateLR: rodea la ZTL, %lld min menos";
+"Car park outside the ZTL, then %lld min on foot" = "Aparcamiento fuera de la ZTL y %lld min a pie";
+"Restaurant" = "Restaurante";
 "Avoid fines with GateLR" = "Evita multas con GateLR";
 "FINE NOTICE" = "MULTA";
 "Entering a ZTL without a permit" = "Entrada en la ZTL sin permiso";

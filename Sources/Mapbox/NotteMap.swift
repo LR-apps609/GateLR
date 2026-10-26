@@ -15,8 +15,10 @@ enum NotteMap {
         (Bundle.main.object(forInfoDictionaryKey: "MBXAccessToken") as? String)?.hasPrefix("pk.") == true
     }
 
-    /// Lo stile: crepuscolo (ombre lunghe, finestre accese) o notte; strade scure come canali, solo i nomi dei quartieri
-    static func style(light: StandardLightPreset = .dusk) -> MapStyle {
+    /// Lo stile: crepuscolo (ombre lunghe, finestre accese) o notte; strade scure come canali, solo i nomi dei quartieri.
+    /// «standardBuildings» false: niente edifici né alberi 3D di Standard (restano i monumenti), per mettere sopra i propri
+    /// edifici trasparenti (addBuildings)
+    static func style(light: StandardLightPreset = .dusk, standardBuildings: Bool = true) -> MapStyle {
         .standard(
             theme: .custom,
             lightPreset: light,
@@ -28,8 +30,9 @@ enum NotteMap {
             colorMotorways: StyleColor(UIColor(red: 0x4A / 255, green: 0x50 / 255, blue: 0x70 / 255, alpha: 1)),
             colorRoads: StyleColor(UIColor(red: 0x3A / 255, green: 0x3F / 255, blue: 0x55 / 255, alpha: 1)),
             colorTrunks: StyleColor(UIColor(red: 0x40 / 255, green: 0x46 / 255, blue: 0x5E / 255, alpha: 1)),
-            show3dBuildings: true,
+            show3dBuildings: standardBuildings,
             show3dLandmarks: true,
+            show3dTrees: standardBuildings ? nil : false,
             showAdminBoundaries: false,
             showLandmarkIcons: false,
             themeData: NotteLUT.base64)
@@ -42,12 +45,23 @@ enum NotteMap {
 
     static func color(_ hex: UInt32) -> StyleColor { StyleColor(uiColor(hex)) }
 
-    /// La mappa senza gesti (si guarda soltanto) e senza bussola né scala; il logo e l'attribuzione di Mapbox restano
-    static func configure(_ mapView: MapView, interactive: Bool = false) {
+    /// La mappa senza gesti (si guarda soltanto) e senza bussola né scala. Il logo e l'attribuzione di Mapbox devono restare
+    /// visibili (condizioni di Mapbox): «ornamentBottom» li alza sopra ciò che la pagina mette in basso sulla mappa
+    static func configure(_ mapView: MapView, interactive: Bool = false, ornamentBottom: CGFloat = 8) {
         mapView.ornaments.options.scaleBar.visibility = .hidden
         mapView.ornaments.options.compass.visibility = .hidden
+        setOrnamentBottom(mapView, ornamentBottom)
         setGestures(mapView, on: interactive)
         mapView.backgroundColor = UIColor(red: 0x0B / 255, green: 0x15 / 255, blue: 0x30 / 255, alpha: 1)
+    }
+
+    /// Il logo (in basso a sinistra) e il pulsante dell'attribuzione (in basso a destra) a «bottom» punti dal fondo sicuro
+    static func setOrnamentBottom(_ mapView: MapView, _ bottom: CGFloat) {
+        guard mapView.ornaments.options.logo.margins.y != bottom else { return }
+        mapView.ornaments.options.logo.position = .bottomLeading
+        mapView.ornaments.options.logo.margins = CGPoint(x: 10, y: bottom)
+        mapView.ornaments.options.attributionButton.position = .bottomTrailing
+        mapView.ornaments.options.attributionButton.margins = CGPoint(x: 10, y: bottom)
     }
 
     static func setGestures(_ mapView: MapView, on: Bool) {
@@ -90,6 +104,57 @@ enum NotteMap {
         try? map.addLayer(fillLayer)
         try? map.addLayer(glow)
         try? map.addLayer(edge)
+    }
+
+    /// Gli edifici 3D trasparenti (Tools/intro_buildings.py, edifici OpenStreetMap uniti in blocchi della stessa altezza):
+    /// tutti uguali, grigio-blu che schiarisce verso l'alto, al 40%, così l'auto, i percorsi e la zona si vedono anche
+    /// dietro e attraverso. Senza luci e ombre dello stile (emissive 1), con appena un'ombra nei punti di contatto.
+    /// Stessi valori del prototipo con Mapbox GL JS.
+    static func addBuildings(_ map: MapboxMap, id: String = "buildings", geojson: String) {
+        var source = GeoJSONSource(id: id)
+        source.data = .string(geojson)
+        var layer = FillExtrusionLayer(id: id + "-3d", source: id)
+        layer.slot = .middle
+        let h = Exp(.get) { "h" }
+        layer.fillExtrusionColor = .expression(Exp(.interpolate) {
+            Exp(.linear)
+            h
+            0
+            uiColor(0x4F5B80)
+            40
+            uiColor(0xC3CBE6)
+        })
+        layer.fillExtrusionHeight = .expression(h)
+        layer.fillExtrusionBase = .constant(0)
+        layer.fillExtrusionOpacity = .constant(0.4)
+        layer.fillExtrusionVerticalGradient = .constant(true)
+        layer.fillExtrusionAmbientOcclusionIntensity = .constant(0.3)
+        layer.fillExtrusionAmbientOcclusionRadius = .constant(3)
+        layer.fillExtrusionEmissiveStrength = .constant(1)
+        layer.fillExtrusionCastShadows = .constant(false)
+        layer.fillExtrusionCutoffFadeRange = .constant(0)
+        try? map.addSource(source)
+        try? map.addLayer(layer)
+    }
+
+    /// Una linea a puntini (il tratto a piedi), che si allunga con setWalk
+    static func addWalk(_ map: MapboxMap, id: String, hex: UInt32 = 0xFFFFFF) {
+        var source = GeoJSONSource(id: id)
+        source.data = .geometry(.lineString(LineString([])))
+        var layer = LineLayer(id: id + "-dots", source: id)
+        layer.slot = .top
+        layer.lineCap = .constant(.round)
+        layer.lineJoin = .constant(.round)
+        layer.lineColor = .constant(color(hex))
+        layer.lineWidth = .constant(5)
+        layer.lineDasharray = .constant([0, 2])
+        layer.lineEmissiveStrength = .constant(1)
+        try? map.addSource(source)
+        try? map.addLayer(layer)
+    }
+
+    static func setWalk(_ map: MapboxMap, id: String, coordinates: [CLLocationCoordinate2D]) {
+        map.updateGeoJSONSource(withId: id, geoJSON: .geometry(.lineString(LineString(coordinates.count > 1 ? coordinates : []))))
     }
 
     /// Un percorso che si disegna da sé: alone sfocato e linea piena, accorciati con line-trim-offset (serve lineMetrics)

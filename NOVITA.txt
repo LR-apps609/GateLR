@@ -1,3 +1,8 @@
+Novità della 1.15.1 (anteprima intro 2.0):
+• Prima pagina in tre passi con la stessa inquadratura di Firenze: «La strada più diretta» (la freccia entra dal varco di via Cavour, attraversa la ZTL e arriva il verbale), «Con GateLR» (intorno lungo i viali, 4 minuti prima e nessuna multa) e «Oppure parcheggia vicino» (Parcheggio Beccaria e 6 minuti a piedi fino al ristorante)
+• Tutti gli edifici in 3D, uguali e trasparenti, così la freccia e i percorsi si vedono anche dietro; il ristorante e il parcheggio in evidenza; la freccia di navigazione al posto dell'auto
+• Logo e attribuzione di Mapbox sempre visibili, sopra il pannello in basso (anche nella prima pagina 2.0)
+
 Novità della 1.15.0 (anteprime 2.0 con Mapbox):
 • Account → «Anteprima intro 2.0»: la prima pagina ora è Firenze in 3D al crepuscolo (Mapbox) vista da lontano, con il Duomo, il centro storico velato di rosso e l'auto che entra davvero dal varco di via Cavour; «Evita multe con GateLR» disegna il percorso bianco intorno alla ZTL fino al Parterre
 • Account → «Anteprima prima pagina 2.0»: «Posso entrare?» con la città 3D che si muove piano dietro il vetro, il pannello del varco come un oggetto vero che gira quando cambia la risposta, e «Guarda la mappa» che porta giù la stessa camera

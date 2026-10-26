@@ -128,7 +128,7 @@ struct LEDState: Equatable {
     static let active = LEDState(text: "VARCO ATTIVO", light: .red)
     static let soon = LEDState(text: "ATTIVO TRA 15'", light: .amber)
     static let off = LEDState(text: "VARCO NON ATTIVO", light: .green)
-    static var arrived: LEDState { LEDState(text: L("ARRIVED · NO FINE"), light: .green) }
+    static var noFine: LEDState { LEDState(text: L("NO FINE"), light: .green) }
 }
 
 /// Il pannello nero a punti. Quando lo stato cambia gira sull'asse orizzontale come una paletta;

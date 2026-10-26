@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// Il prototipo della nuova presentazione: tre pagine animate (≤ 30 s in tutto) e la pagina «Dove vai e con che auto?».
+/// Il prototipo della nuova presentazione: tre pagine animate (circa 40 s in tutto) e la pagina «Dove vai e con che auto?».
 /// «Salta» è sempre in alto a destra e porta all'ultima pagina. Con «Riduci movimento» le pagine si scambiano in
 /// dissolvenza, la camera sta ferma e l'auto non corre.
 struct Intro2View: View {
@@ -11,7 +11,7 @@ struct Intro2View: View {
     @State private var fill = 0.0
 
     /// Quanto dura ogni pagina, per riempire la sua barretta
-    private static let durations: [Double] = [16, 7, 9]
+    private static let durations: [Double] = [23, 7, 9]
 
     var body: some View {
         ZStack(alignment: .top) {

@@ -13,6 +13,8 @@ struct Home2Map: UIViewRepresentable {
     var mood: Home2Answer.Mood
     var mapMode: Bool
     var reduceMotion: Bool
+    /// Quanto alzare logo e attribuzione di Mapbox dal fondo sicuro (sopra il vetro con la risposta)
+    var ornamentBottom: CGFloat
     var onFail: () -> Void
 
     func makeCoordinator() -> Coordinator { Coordinator(self) }
@@ -20,7 +22,7 @@ struct Home2Map: UIViewRepresentable {
     func makeUIView(context: Context) -> MapView {
         let mapView = MapView(frame: .zero, mapInitOptions: MapInitOptions(mapStyle: NotteMap.style(),
                                                                            cameraOptions: Coordinator.scenic(place.location.cl, bearing: Coordinator.bearing0)))
-        NotteMap.configure(mapView)
+        NotteMap.configure(mapView, ornamentBottom: ornamentBottom)
         context.coordinator.attach(mapView)
         return mapView
     }
@@ -29,6 +31,7 @@ struct Home2Map: UIViewRepresentable {
         let old = context.coordinator.parent
         context.coordinator.parent = self
         context.coordinator.update(from: old)
+        NotteMap.setOrnamentBottom(mapView, ornamentBottom)
     }
 
     static func dismantleUIView(_ mapView: MapView, coordinator: Coordinator) {

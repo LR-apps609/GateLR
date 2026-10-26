@@ -18,6 +18,8 @@ struct Home2View: View {
     @State private var place: Place = Home2View.signoria
     @State private var mapMode = false
     @State private var mapFailed = !NotteMap.hasToken
+    /// L'altezza del vetro con la risposta: logo e attribuzione di Mapbox stanno subito sopra (devono restare visibili)
+    @State private var cardHeight: CGFloat = 0
 
     static let signoria = Place(name: "Piazza della Signoria", address: "Firenze",
                                 location: Coordinate(lat: 43.76965, lon: 11.25560))
@@ -48,8 +50,10 @@ struct Home2View: View {
                 if mapFailed {
                     Home2Backdrop(mood: a.mood)
                 } else {
+                    // Sopra il vetro (+10 di margine sotto, +20 per l'ingrandimento di 1,06 della mappa); sulla mappa intera in basso
                     Home2Map(place: place, zones: zones(for: a), mood: a.mood, mapMode: mapMode,
-                             reduceMotion: reduceMotion, onFail: { mapFailed = true })
+                             reduceMotion: reduceMotion, ornamentBottom: mapMode ? 8 : cardHeight + 10 + 20,
+                             onFail: { mapFailed = true })
                 }
             }
             .scaleEffect(mapMode ? 1 : 1.06)
@@ -74,6 +78,7 @@ struct Home2View: View {
                 Spacer(minLength: 0)
                 if !mapMode {
                     answerCard(a)
+                        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { cardHeight = $0 }
                         .offset(x: depth.width * 14, y: depth.height * 14)
                         .transition(.move(edge: .bottom).combined(with: .opacity))
                 }

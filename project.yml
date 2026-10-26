@@ -9,8 +9,8 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.15.0"
-    CURRENT_PROJECT_VERSION: "31"
+    MARKETING_VERSION: "1.15.1"
+    CURRENT_PROJECT_VERSION: "32"
 
 # Mapbox Maps (v11, Swift Package Manager, nessun token segreto per scaricarlo): la mappa 3D della nuova
 # presentazione e dell'anteprima della prima pagina 2.0. Se non si carica, resta la mappa di Apple (MapKit).
@@ -45,6 +45,10 @@ targets:
         buildPhase: resources
       # Parcheggi fuori dalle ZTL (OpenStreetMap, ODbL): Tools/fetch_parking.py + Tools/build_parking.py
       - path: Resources/Parking
+        type: folder
+        buildPhase: resources
+      # Gli edifici 3D trasparenti della prima pagina della presentazione (OpenStreetMap, ODbL): Tools/intro_buildings.py
+      - path: Resources/Intro
         type: folder
         buildPhase: resources
       # Regole valide in tutta Italia (multe), le stesse del sito
