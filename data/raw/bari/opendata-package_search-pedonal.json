@@ -1,0 +1,1 @@
+{"help": "https://opendata.comune.bari.it/api/3/action/help_show?name=package_search", "success": true, "result": {"count": 0, "sort": "score desc, metadata_modified desc", "facets": {}, "results": [], "search_facets": {}}}

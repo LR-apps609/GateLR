@@ -1,0 +1,318 @@
+{
+ "id": "bari",
+ "name": "Bari",
+ "name_it": "Bari",
+ "name_de": "Bari",
+ "center": {
+  "lat": 41.1285,
+  "lon": 16.8695
+ },
+ "zones": [
+  {
+   "id": "bari-vecchia",
+   "name": "Bari Vecchia · Old Town ZTL",
+   "name_it": "Bari Vecchia · ZTL Città Vecchia",
+   "name_de": "Bari Vecchia · ZTL Altstadt",
+   "kind": "restricted",
+   "summary": "Closed to cars without a permit 24 hours a day, every day, holidays included; seven cameras watch the entrances. Permits are only for old-town residents and a few trades, and electric and hybrid cars need one too. There is no tourist pass and hotels inside can't register your plate: park outside (blue bays on the seafront and corso De Tullio) and walk in. Blue Badge holders: call the Polizia Locale on 800 060 780 before entering, giving the gate, plate and badge number.",
+   "summary_it": "Chiusa alle auto senza permesso 24 ore su 24, tutti i giorni, festivi compresi; sette varchi con telecamera. Il permesso è solo per i residenti della città vecchia e poche categorie, e serve anche alle auto elettriche e ibride. Non c'è un pass per turisti e gli hotel dentro non possono registrare la targa: parcheggia fuori (strisce blu sul lungomare e su corso De Tullio) e entra a piedi. Con il contrassegno disabili: chiama la Polizia Locale al numero verde 800 060 780 prima di entrare, indicando varco, targa e numero del contrassegno.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für Autos ohne Genehmigung gesperrt; sieben Kameras überwachen die Zufahrten. Genehmigungen gibt es nur für Anwohner der Altstadt und wenige Gruppen, auch Elektro- und Hybridautos brauchen eine. Es gibt keinen Touristenpass, und Hotels innen können dein Kennzeichen nicht melden: draußen parken (blaue Plätze an der Uferstraße und am Corso De Tullio) und zu Fuß hinein. Mit Behindertenausweis: vor der Einfahrt die Polizia Locale unter 800 060 780 anrufen und Zufahrt, Kennzeichen und Ausweisnummer angeben.",
+   "perimeter": [
+    {
+     "lat": 41.126244,
+     "lon": 16.872426
+    },
+    {
+     "lat": 41.125885,
+     "lon": 16.8669
+    },
+    {
+     "lat": 41.126148,
+     "lon": 16.86687
+    },
+    {
+     "lat": 41.126418,
+     "lon": 16.866701
+    },
+    {
+     "lat": 41.12735,
+     "lon": 16.866025
+    },
+    {
+     "lat": 41.127243,
+     "lon": 16.865734
+    },
+    {
+     "lat": 41.128776,
+     "lon": 16.86481
+    },
+    {
+     "lat": 41.129159,
+     "lon": 16.8666
+    },
+    {
+     "lat": 41.129478,
+     "lon": 16.867221
+    },
+    {
+     "lat": 41.13004,
+     "lon": 16.86761
+    },
+    {
+     "lat": 41.131414,
+     "lon": 16.867768
+    },
+    {
+     "lat": 41.131666,
+     "lon": 16.867888
+    },
+    {
+     "lat": 41.133177,
+     "lon": 16.869807
+    },
+    {
+     "lat": 41.133335,
+     "lon": 16.870196
+    },
+    {
+     "lat": 41.133319,
+     "lon": 16.870812
+    },
+    {
+     "lat": 41.133232,
+     "lon": 16.871193
+    },
+    {
+     "lat": 41.133081,
+     "lon": 16.871431
+    },
+    {
+     "lat": 41.132831,
+     "lon": 16.871608
+    },
+    {
+     "lat": 41.131981,
+     "lon": 16.871576
+    },
+    {
+     "lat": 41.131161,
+     "lon": 16.87127
+    },
+    {
+     "lat": 41.130812,
+     "lon": 16.871229
+    },
+    {
+     "lat": 41.130365,
+     "lon": 16.871296
+    },
+    {
+     "lat": 41.129904,
+     "lon": 16.871554
+    },
+    {
+     "lat": 41.129454,
+     "lon": 16.872061
+    },
+    {
+     "lat": 41.128584,
+     "lon": 16.873863
+    },
+    {
+     "lat": 41.128282,
+     "lon": 16.874143
+    },
+    {
+     "lat": 41.128125,
+     "lon": 16.874043
+    },
+    {
+     "lat": 41.127661,
+     "lon": 16.872932
+    },
+    {
+     "lat": 41.127459,
+     "lon": 16.872656
+    },
+    {
+     "lat": 41.127084,
+     "lon": 16.872463
+    },
+    {
+     "lat": 41.126381,
+     "lon": 16.87251
+    },
+    {
+     "lat": 41.126244,
+     "lon": 16.872426
+    }
+   ],
+   "gates": [
+    {
+     "id": "ba-osm1428135931",
+     "name": "V1 · Strada Porto Nuovo / Corso De Tullio",
+     "location": {
+      "lat": 41.133094,
+      "lon": 16.869969
+     }
+    },
+    {
+     "id": "ba-osm13975082174",
+     "name": "V2 · Via Ruggiero il Normanno / Corso De Tullio",
+     "location": {
+      "lat": 41.130301,
+      "lon": 16.867807
+     }
+    },
+    {
+     "id": "ba-osm13975082175",
+     "name": "V3 · Piazza Federico II di Svevia / Piazza Massari (Castle)",
+     "location": {
+      "lat": 41.127379,
+      "lon": 16.866098
+     }
+    },
+    {
+     "id": "ba-osm13975082176",
+     "name": "V4 · Via Benedetto Petrone / Corso Vittorio Emanuele II",
+     "location": {
+      "lat": 41.126106,
+      "lon": 16.869301
+     }
+    },
+    {
+     "id": "ba-osm13975082177",
+     "name": "V5 · Strada San Benedetto / Corso Vittorio Emanuele II",
+     "location": {
+      "lat": 41.126246,
+      "lon": 16.871024
+     }
+    },
+    {
+     "id": "ba-osm13975082178",
+     "name": "V6 · Via Michele Genovese / Lungomare Imperatore Augusto",
+     "location": {
+      "lat": 41.126928,
+      "lon": 16.872281
+     }
+    },
+    {
+     "id": "ba-osm13975082179",
+     "name": "V7 · Arco Largo Urbano II / Lungomare Imperatore Augusto",
+     "location": {
+      "lat": 41.130519,
+      "lon": 16.871081
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Bari",
+    "pageURL": "https://www.poliziamunicipalebari.it/home-page/cosa-fare-in-caso-di/rilascio-permessi-ztl/",
+    "ordinance": "Ordinanza dirigenziale n. 2023/00181 (2023/185/00102) del 18/01/2023 (delibera GC n. 886 del 29/11/2022)",
+    "ordinanceURL": "https://s93719c543e6e84f7.jimcontent.com/download/version/1423133575/module/11109032222/name/O.D.%20-%20ZTL.pdf",
+    "quote": "Sulle “STRADE AZZURRE” il transito è consentito tutti i giorni dalle ore 0,00 alle ore 24,00 : - ai veicoli al servizio di persone con capacità di deambulazione sensibilmente ridotta dotati dell’apposito tagliando per disabili; - ai veicoli dei residenti, domiciliati o dimoranti nella Città Vecchia, dotati di apposito permesso.",
+    "quoteTranslation": "On the 'blue streets' driving is allowed every day from 0:00 to 24:00 only to vehicles serving people with seriously reduced mobility that show the disabled badge, and to vehicles of residents of the Old Town with a permit.",
+    "quoteTranslation_de": "Auf den 'blauen Straßen' ist die Durchfahrt täglich von 0 bis 24 Uhr nur Fahrzeugen von Menschen mit stark eingeschränkter Gehfähigkeit mit Behindertenausweis und Fahrzeugen von Anwohnern der Altstadt mit Genehmigung erlaubt.",
+    "checkedOn": "2026-10-26T02:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Perimeter and camera positions from OpenStreetMap, to be checked against the official map. The outline runs along the boundary roads (corso Vittorio Emanuele II, corso De Tullio, the seafront), which are outside the ZTL.",
+     "The 2023 ordinance still let all cars use two short routes by the Castle on working days 6 am–9 pm. The city abolished them (council decision, November 2025) and switched on the Castle camera on 1 July 2026: confirmed only by the local press quoting the city (BariToday, Telebari); the new decision itself was not found, and AMTAB's page still describes the old routes.",
+     "Piazzale Mincuzzi by the Castle: the city says the Santa Chiara entrance stays open to everyone to drive round the square (paid bays on its outer edge, working days 8:30 am–8:30 pm). GateLR shows the whole old town as closed. Confirmed only by Telebari (11 June 2026).",
+     "Temporary entry for visitors: the 2022 rules allow one-day permits only in 'particular and justifiable circumstances' (€3 a day); the city told hotels (Gazzetta del Mezzogiorno, 2 Sep 2026) that a paid temporary entry must be requested and granted before driving in. How to apply and today's price are not published: ask the Polizia Locale.",
+     "Motorbikes and mopeds may use the old town's 'green streets'; the ordinance doesn't say clearly whether they need a permit at the cameras. GateLR answers as for cars.",
+     "Fine: the ordinance applies article 7(14) of the Highway Code (nationally about €83–332 plus costs); Bari's sources don't state the amount.",
+     "Not shown: extra closures in the old town for the feast of St Nicholas (7–9 May and 6 December, set by yearly ordinances), and the pedestrian streets of the Murattiano (via Sparano, via Argiro), closed to cars. No ZTL was found in the Murattiano or the Madonnella."
+    ],
+    "pending_it": [
+     "Perimetro e posizione dei varchi da OpenStreetMap, da verificare con la planimetria ufficiale. Il contorno passa sulle strade di confine (corso Vittorio Emanuele II, corso De Tullio, lungomare), che sono fuori dalla ZTL.",
+     "L'ordinanza del 2023 consentiva ancora a tutti i veicoli due «ganci» vicino al Castello nei giorni lavorativi 6–21. Il Comune li ha aboliti (delibera di giunta, novembre 2025) e ha acceso il varco del Castello il 1° luglio 2026: confermato solo da stampa locale che riporta il Comune (BariToday, Telebari); il testo della nuova delibera non è stato trovato e la pagina AMTAB descrive ancora i ganci.",
+     "Piazzale Mincuzzi, vicino al Castello: secondo il Comune l'ingresso dal varco di Santa Chiara resta aperto a tutti per girare attorno al piazzale (strisce blu sul perimetro esterno, giorni lavorativi 8:30–20:30). GateLR mostra chiusa tutta la città vecchia. Confermato solo da Telebari (11/06/2026).",
+     "Accesso temporaneo per chi non ha il permesso: il disciplinare 2022 prevede permessi giornalieri solo per «circostanze particolari e giustificabili» (3 € al giorno); il Comune ha risposto agli albergatori (Gazzetta del Mezzogiorno, 02/09/2026) che l'ingresso temporaneo a pagamento va chiesto e ottenuto prima del transito. Modalità e prezzo attuale non sono pubblicati: chiedere alla Polizia Locale.",
+     "Moto e ciclomotori possono percorrere le «strade verdi» della città vecchia; l'ordinanza non dice chiaramente se ai varchi serve il permesso. GateLR risponde come per le auto.",
+     "Multa: l'ordinanza applica l'art. 7, comma 14 del Codice della Strada (a livello nazionale circa 83–332 € più spese); le fonti del Comune non indicano l'importo.",
+     "Non mostrati: le chiusure in più nella città vecchia per la festa di San Nicola (7–9 maggio e 6 dicembre, decise ogni anno con ordinanza) e le strade pedonali del Murattiano (via Sparano, via Argiro), chiuse alle auto. Nel Murattiano e nella Madonnella non risultano ZTL."
+    ],
+    "pending_de": [
+     "Grenze und Kamerapositionen aus OpenStreetMap, mit der offiziellen Karte abzugleichen. Die Linie folgt den Grenzstraßen (Corso Vittorio Emanuele II, Corso De Tullio, Uferstraße), die außerhalb der ZTL liegen.",
+     "Die Verordnung von 2023 erlaubte allen Autos noch zwei kurze Strecken am Kastell an Werktagen 6–21 Uhr. Die Stadt hat sie abgeschafft (Ratsbeschluss November 2025) und die Kamera am Kastell am 1. Juli 2026 eingeschaltet: nur von der Lokalpresse mit Zitaten der Stadt bestätigt (BariToday, Telebari); der neue Beschluss selbst wurde nicht gefunden, die AMTAB-Seite beschreibt noch die alten Strecken.",
+     "Piazzale Mincuzzi am Kastell: Laut Stadt bleibt die Zufahrt Santa Chiara für alle offen, um den Platz zu umfahren (gebührenpflichtige Plätze am Außenrand, Werktage 8:30–20:30 Uhr). GateLR zeigt die ganze Altstadt als gesperrt. Nur von Telebari (11.06.2026) bestätigt.",
+     "Befristete Zufahrt für Besucher: Die Regeln von 2022 erlauben Tagesgenehmigungen nur in 'besonderen, begründeten Fällen' (3 € pro Tag); die Stadt sagte den Hotels (Gazzetta del Mezzogiorno, 2.9.2026), dass eine kostenpflichtige Zufahrt vor der Einfahrt beantragt und genehmigt sein muss. Antragsweg und aktueller Preis sind nicht veröffentlicht: bei der Polizia Locale fragen.",
+     "Motorräder und Mopeds dürfen die 'grünen Straßen' der Altstadt befahren; die Verordnung sagt nicht klar, ob sie an den Kameras eine Genehmigung brauchen. GateLR antwortet wie für Autos.",
+     "Bußgeld: Die Verordnung wendet Art. 7 Abs. 14 der Straßenverkehrsordnung an (landesweit etwa 83–332 € plus Kosten); die Quellen der Stadt nennen den Betrag nicht.",
+     "Nicht gezeigt: zusätzliche Sperrungen in der Altstadt zum Fest des hl. Nikolaus (7.–9. Mai und 6. Dezember, jährlich per Verordnung) und die Fußgängerstraßen des Murattiano (Via Sparano, Via Argiro), für Autos gesperrt. Im Murattiano und in der Madonnella wurde keine ZTL gefunden."
+    ],
+    "links": [
+     {
+      "title": "Bari Local Police: the old town ZTL rules, permits and temporary access",
+      "title_it": "Polizia Locale di Bari: regole della ZTL della Città Vecchia, permessi e accessi temporanei",
+      "title_de": "Lokalpolizei Bari: Regeln der ZTL der Altstadt, Genehmigungen und befristete Zufahrt",
+      "url": "https://www.poliziamunicipalebari.it/home-page/cosa-fare-in-caso-di/rilascio-permessi-ztl/"
+     },
+     {
+      "title": "City of Bari: ZTL ordinance 2023/00181 with the rules (PDF)",
+      "title_it": "Comune di Bari: ordinanza ZTL 2023/00181 con il disciplinare (PDF)",
+      "title_de": "Stadt Bari: ZTL-Verordnung 2023/00181 mit den Regeln (PDF)",
+      "url": "https://s93719c543e6e84f7.jimcontent.com/download/version/1423133575/module/11109032222/name/O.D.%20-%20ZTL.pdf"
+     },
+     {
+      "title": "AMTAB (city mobility company): ZTL rules",
+      "title_it": "AMTAB: regolamento ZTL",
+      "title_de": "AMTAB (städtische Mobilitätsgesellschaft): ZTL-Regeln",
+      "url": "https://www.amtab.it/it/zona-a-traffico-limitato/regolamento-ztl"
+     },
+     {
+      "title": "AMTAB: permits for residents",
+      "title_it": "AMTAB: rilascio permessi per i residenti",
+      "title_de": "AMTAB: Genehmigungen für Anwohner",
+      "url": "https://www.amtab.it/it/zona-a-traffico-limitato/rilascio-permessi"
+     },
+     {
+      "title": "BariToday (25 Nov 2025): the city abolishes the free-access routes",
+      "title_it": "BariToday (25/11/2025): il Comune abolisce i «ganci»",
+      "title_de": "BariToday (25.11.2025): Die Stadt schafft die freien Durchfahrten ab",
+      "url": "https://www.baritoday.it/cronaca/zrl-bari-vecchia-nuove-regole-parcheggi-transito-strade.html"
+     },
+     {
+      "title": "Telebari (11 Jun 2026): Castle gate on from 1 July 2026",
+      "title_it": "Telebari (11/06/2026): varco del Castello attivo dal 1° luglio 2026",
+      "title_de": "Telebari (11.06.2026): Kamera am Kastell ab 1. Juli 2026 aktiv",
+      "url": "https://www.telebari.it/attualita/255902-ztl-attivo-dal-1-luglio-il-varco-del-castello-scaramuzzi-soluzione-presa-con-residenti-e-commercianti.html"
+     },
+     {
+      "title": "Gazzetta del Mezzogiorno (2 Sep 2026): no hotel exemption",
+      "title_it": "Gazzetta del Mezzogiorno (02/09/2026): nessuna deroga per gli alberghi",
+      "title_de": "Gazzetta del Mezzogiorno (02.09.2026): keine Ausnahme für Hotels",
+      "url": "https://www.lagazzettadelmezzogiorno.it/news/bari/2115194/ztl-a-bari-vecchia-i-turisti-multati-nel-centro-storico-gli-albergatori-scrivono-al-comune-serve-piu-elasticita.amp"
+     },
+     {
+      "title": "OpenStreetMap: relation 21044253 «ZTL della Città Vecchia» (ODbL)",
+      "title_it": "OpenStreetMap: relazione 21044253 «ZTL della Città Vecchia» (ODbL)",
+      "title_de": "OpenStreetMap: Relation 21044253 «ZTL della Città Vecchia» (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/21044253"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Bari (ordinance 2023/00181), Polizia Locale di Bari and AMTAB. Perimeter and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

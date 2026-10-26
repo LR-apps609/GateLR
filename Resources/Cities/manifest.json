@@ -1,12 +1,17 @@
 {
- "version": "202610260148",
- "digest": "67b0062a40f4",
+ "version": "202610260150",
+ "digest": "486ef6950c94",
  "schema": 1,
  "cities": [
   {
    "id": "arezzo",
    "file": "arezzo.json",
    "sha256": "79f1e5e281d7e20e95f76174d75d6539a2bc2f45542f56768b6a18ee64dc8fe0"
+  },
+  {
+   "id": "bari",
+   "file": "bari.json",
+   "sha256": "91f2a8920ab5bc92b62c02bfa31e290ad7bfca6eba1a9f3dc4b955b32be4491d"
   },
   {
    "id": "bergamo",

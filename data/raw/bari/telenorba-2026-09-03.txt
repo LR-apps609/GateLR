@@ -1,0 +1,194 @@
+# Fonte: https://telenorba.it/2026/09/03/ztl-bari-vecchia-gli-albergatori-si-permetta-lo-scarico-dei-bagagli/
+# Letto il 2026-10-26 (Telenorba, 03/09/2026, non ufficiale)
+
+ Ztl Bari vecchia, gli albergatori: "Si permetta lo scarico dei bagagli" 
+ Menu 
+ Cerca 
+ Live 
+ TGNORBA 24 
+ ON DEMAND 
+ LIVE 
+ Sezioni 
+ Cronaca 
+ Politica 
+ Attualità 
+ Economia 
+ Cultura 
+ Spettacoli 
+ Primo Piano 
+ Le altre notizie 
+ Monitor 
+ Eventi e incontri 
+ Sport 
+ Gli speciali 
+ Sezioni 
+ Cronaca 
+ Politica 
+ Attualità 
+ Economia 
+ Cultura 
+ Spettacoli 
+ Primo Piano 
+ Le altre notizie 
+ Monitor 
+ Eventi e incontri 
+ Sport 
+ Gli speciali 
+ TGNORBA 24
+ LIVE
+ ON DEMAND
+ Tgnorba
+ Telenorba
+ Ztl Bari vecchia, gli albergatori: “Si permetta lo scarico dei bagagli”
+ Serena Manieri 
+ Settembre 3, 2026 
+ Facebook 
+ Instagram 
+ Tiktok 
+ Dal Comune: “Le regole valgono per tutti”
+ Consentire ai turisti di accedere ai varchi della città vecchia a Bari anche quando la Ztl è attiva per permettere il carico/scarico dei bagagli nei pressi delle strutture ricettive. La proposta arriva da alcuni albergatori baresi, ma il Comune ha le idee molto chiare in merito. 
+ Intervista a Pietro Petruzzelli, Assessore al Turismo Comune di Bari
+ Tag: bari vecchia scarico bagagli 
+ Potrebbe interessarti anche:
+ Lecce, polemiche sui parcheggi. Il Codacons: “Strisce blu? Solo vessazioni” 
+ Matteo Bottazzo 
+ Lecce, due giorni di screening per la prevenzione delle maculopatie 
+ Katia Perrone 
+ Vernole, dopo 24 anni via libera all’assegnazione dei lotti nella zona industriale 
+ Matteo Bottazzo 
+ Tuglie, da un anno e mezzo senza ufficio postale 
+ Claudio Maraglino 
+ Carlo Calenda a Matera con il libro “Difendere la libertà. L’ora dell’Europa” 
+ Alessandro Boccia 
+ Lecce, si chiude la rassegna “Illuminiamo l’arte” della Bpp 
+ Katia Perrone 
+ Ex Ilva, area a caldo ancora in funzione: attesa per il vertice a Palazzo Chigi del 27 ottobre 
+ Maglie, la protesta degli operatori del settore agroalimentare 
+ Stefania Congedo 
+ TGNORBA
+ Telenorba
+ Telenorba SPA
+ Telenorba SPA 
+ Via Pantaleo 20/a – C.a.p. 70014 
+ Conversano (BA) – Italy 
+ Tel:       080 4092111 
+ Fax:      080 4955412 
+ P.IVA:   00825610728 
+ TGNORBA
+ Telenorba
+ Direttore responsabile:  
+ Domenico Castellaneta 
+ Caporedattore:  Grazia Rongo 
+ Web Designer: Carmela Del Core 
+ 2021 – All rights reserved
+ Concessionaria Pubblicità
+ Contatti: 
+   [email protected] 
+ Made with by Xdevel 
+ Contatti 
+ Storia 
+ Decreto Legislativo n. 231/2001 
+ Whistleblowing 
+ Certificazione per la Parità di Genere 
+ Politica per la parità di genere 
+ Contatti 
+ Storia 
+ Decreto Legislativo n. 231/2001 
+ Whistleblowing 
+ Certificazione per la Parità di Genere 
+ Politica per la parità di genere 
+ Home 
+ TG24 
+ Live 
+ On Demand 
+ Meteo 
+ Lavora con noi 
+ Home 
+ TG24 
+ Live 
+ On Demand 
+ Meteo 
+ Lavora con noi 
+ Cronaca 
+ Politica 
+ Attualità 
+ Economia 
+ Cultura 
+ Spettacoli 
+ Sport 
+ Cronaca 
+ Politica 
+ Attualità 
+ Economia 
+ Cultura 
+ Spettacoli 
+ Sport 
+ Privacy Policy | 
+ Cookie Policy 
+ Le tue preferenze relative alla privacy 
+ Made with by Xdevel
+ Cerca 
+ Telenorba
+ Live 
+ On Demand 
+ Palinsesto 
+ La cucina di mattino norba 
+ Canali live
+ Telenorba 
+ TGNorba24 
+ Home
+ Primo Piano 
+ Le altre notizie 
+ Il dossier 
+ Monitor 
+ Eventi e incontri 
+ Sport 
+ I vostri eventi 
+ Messaggi in bottiglia 
+ News
+ Cronaca 
+ Politica 
+ Attualità 
+ Economia 
+ Cultura 
+ Spettacoli 
+ Speciali
+ Tg Norba LIS 
+ Gli speciali Fono VI.PI. 
+ Seguci su:
+ Tgnorba
+ Facebook 
+ Instagram 
+ Tiktok 
+ Telenorba
+ Facebook 
+ Instagram 
+ Tiktok 
+ Youtube-square 
+ Cerca 
+ .skin-banner {
+ position: fixed;
+ left: 0;
+ top: 0;
+ height: 1080px;
+ width: 100%;
+ z-index: 0;
+ .skin-banner > ins > a > img {
+ border-radius: 0;
+ display: block;
+ width: 100%;
+ height: auto;
+ #main,
+ .elementor-location-header {
+ max-width: 1260px;
+ margin: auto;
+ .elementor-location-header {
+ margin-top: 120px;
+ .elementor-section.elementor-section-boxed > .elementor-container {
+ background: white;
+ @media (max-width: 767px) {
+ .skin-banner {
+ display: none;
+ .elementor-location-header {
+ margin-top: 0;
+ -->
