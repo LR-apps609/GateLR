@@ -1,0 +1,41 @@
+HOW TO REGULARIZE UNAUTHORIZED LIMITED TRAFFIC ZONE (LTZ) ACCESS PURCHASING A “ROZ” TICKET FROM THE RESERVED AREA OF THE WEBSITE
+ • Click on “Registrati” at the top right and enter your personal information to complete the registration. If you don’t have an Italian “Codice Fiscale” (tax
+ code), please enter your first and last name without space in the corresponding fields.
+ • If you already have a permit associated with your vehicle (e.g. a resident permit) issued by Infomobility Comune di Parma, it means you are already
+ registered and should log in (if you do not remember your username or password, use the “Recupera Username” or “Recupera Password” options) and
+ continue to page 5.
+ 1
+ 2
+Select “Privato” (if you are a person) or
+“Azienda” (if you are a company).
+ 3
+If you don’t have an Italian “Codice
+Fiscale” (tax code), please enter your
+first and last name without space.
+ 4
+The email address you provide will
+be used as your username.
+ The password must be: at least 8
+ characters long, and include at least one
+ letter, one number, and one special
+ character (e.g. !, @, #, $).
+Once logged into the reserved area, go to the “Permessi ZTL” section, open the drop-down menu, and click on “Prenota/Acquista”.
+ 5
+ In the “Tipologia” section, a drop-down menu labeled
+ “Seleziona una tipologia” choose “ROZ - Ravvedimento
+ Operoso ZTL entro le 24 – 24 ore con inizio 00”, which
+ can be activated by 23:59 on the day after the
+ unauthorized access.
+ 6
+Please check the box about your vehicle weighs less
+than 3.5 tons (“Dichiaro di richiedere il permesso per un
+veicolo di massa inferiore a 3,5 T”). Only the vehicles
+under this limit can be authorized through this
+procedure.
+ 7
+In the “Valido da” field, enter the date on which the transit to be
+authorized took place (for example, if you make the purchase on 09/05 but
+the transit occurred on 08/05, you must enter 08/05).
+ Digit the license plate number of the vehicle that
+ accessed the restricted area without authorization and
+ proceed with the payment.

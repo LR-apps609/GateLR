@@ -1,0 +1,4068 @@
+{
+ "id": "parma",
+ "name": "Parma",
+ "name_it": "Parma",
+ "name_de": "Parma",
+ "center": {
+  "lat": 44.8015,
+  "lon": 10.328
+ },
+ "zones": [
+  {
+   "id": "parma-ztl-1",
+   "name": "ZTL 1 · Duomo, Pilotta and Via Garibaldi",
+   "name_it": "ZTL 1 · Duomo, Pilotta e strada Garibaldi",
+   "name_de": "ZTL 1 · Dom, Pilotta und Via Garibaldi",
+   "kind": "pass",
+   "summary": "Every day from 7:30 am to 7:30 pm, holidays included, you can't drive in without a permit or a ticket: GZ day ticket €10 or BZ €5 for 2 hours, bought and activated before the camera (parking included). Forgot? Buy a €15 ROZ by 23:59 the next day. Motorbikes may enter; electric cars may not. If your hotel is inside, it registers your plate by the day you arrive, for luggage only. The Isole Ambientali inside are closed around the clock.",
+   "summary_it": "Tutti i giorni dalle 7:30 alle 19:30, festivi compresi, non si entra senza permesso o ticket: giornaliero GZ 10 € o BZ 5 € per 2 ore, comprato e attivato prima del varco (sosta inclusa). Dimenticato? Compra il ROZ da 15 € entro le 23:59 del giorno dopo. Le moto entrano, le auto elettriche no. Se l'hotel è dentro, registra la targa entro il giorno dell'arrivo, solo per i bagagli. Le Isole Ambientali all'interno sono chiuse 24 ore su 24.",
+   "summary_de": "Täglich von 7:30 bis 19:30 Uhr, auch an Feiertagen, keine Einfahrt ohne Genehmigung oder Ticket: Tagesticket GZ 10 € oder BZ 5 € für 2 Stunden, vor der Kamera gekauft und aktiviert (Parken inklusive). Vergessen? Kauf bis 23:59 Uhr am Folgetag ein ROZ für 15 €. Motorräder dürfen hinein, Elektroautos nicht. Liegt dein Hotel innen, meldet es dein Kennzeichen bis zum Anreisetag, nur fürs Gepäck. Die Isole Ambientali im Inneren sind rund um die Uhr gesperrt.",
+   "perimeter": [
+    {
+     "lat": 44.807585,
+     "lon": 10.329587
+    },
+    {
+     "lat": 44.807619,
+     "lon": 10.329875
+    },
+    {
+     "lat": 44.80702,
+     "lon": 10.332356
+    },
+    {
+     "lat": 44.80572,
+     "lon": 10.335515
+    },
+    {
+     "lat": 44.804563,
+     "lon": 10.33412
+    },
+    {
+     "lat": 44.804195,
+     "lon": 10.333585
+    },
+    {
+     "lat": 44.804128,
+     "lon": 10.333622
+    },
+    {
+     "lat": 44.803827,
+     "lon": 10.333162
+    },
+    {
+     "lat": 44.802813,
+     "lon": 10.334351
+    },
+    {
+     "lat": 44.802349,
+     "lon": 10.334811
+    },
+    {
+     "lat": 44.801983,
+     "lon": 10.334495
+    },
+    {
+     "lat": 44.802276,
+     "lon": 10.333123
+    },
+    {
+     "lat": 44.802205,
+     "lon": 10.333048
+    },
+    {
+     "lat": 44.801071,
+     "lon": 10.332543
+    },
+    {
+     "lat": 44.800575,
+     "lon": 10.332415
+    },
+    {
+     "lat": 44.801043,
+     "lon": 10.329723
+    },
+    {
+     "lat": 44.801527,
+     "lon": 10.327552
+    },
+    {
+     "lat": 44.802199,
+     "lon": 10.324099
+    },
+    {
+     "lat": 44.80517,
+     "lon": 10.325026
+    },
+    {
+     "lat": 44.80505,
+     "lon": 10.325322
+    },
+    {
+     "lat": 44.804591,
+     "lon": 10.325022
+    },
+    {
+     "lat": 44.804345,
+     "lon": 10.324933
+    },
+    {
+     "lat": 44.804119,
+     "lon": 10.325557
+    },
+    {
+     "lat": 44.804332,
+     "lon": 10.325726
+    },
+    {
+     "lat": 44.804262,
+     "lon": 10.32592
+    },
+    {
+     "lat": 44.804071,
+     "lon": 10.32578
+    },
+    {
+     "lat": 44.803948,
+     "lon": 10.326149
+    },
+    {
+     "lat": 44.804326,
+     "lon": 10.326414
+    },
+    {
+     "lat": 44.804211,
+     "lon": 10.326733
+    },
+    {
+     "lat": 44.804585,
+     "lon": 10.327008
+    },
+    {
+     "lat": 44.804628,
+     "lon": 10.326892
+    },
+    {
+     "lat": 44.804342,
+     "lon": 10.326684
+    },
+    {
+     "lat": 44.804587,
+     "lon": 10.326031
+    },
+    {
+     "lat": 44.805053,
+     "lon": 10.326377
+    },
+    {
+     "lat": 44.804913,
+     "lon": 10.326744
+    },
+    {
+     "lat": 44.805224,
+     "lon": 10.327019
+    },
+    {
+     "lat": 44.805184,
+     "lon": 10.327101
+    },
+    {
+     "lat": 44.805543,
+     "lon": 10.327436
+    },
+    {
+     "lat": 44.80551,
+     "lon": 10.327506
+    },
+    {
+     "lat": 44.805633,
+     "lon": 10.327604
+    },
+    {
+     "lat": 44.805725,
+     "lon": 10.327421
+    },
+    {
+     "lat": 44.805829,
+     "lon": 10.327525
+    },
+    {
+     "lat": 44.806262,
+     "lon": 10.326675
+    },
+    {
+     "lat": 44.806501,
+     "lon": 10.326428
+    },
+    {
+     "lat": 44.806598,
+     "lon": 10.326239
+    },
+    {
+     "lat": 44.806896,
+     "lon": 10.326405
+    },
+    {
+     "lat": 44.806673,
+     "lon": 10.328059
+    },
+    {
+     "lat": 44.807728,
+     "lon": 10.328368
+    },
+    {
+     "lat": 44.807585,
+     "lon": 10.329587
+    }
+   ],
+   "gates": [
+    {
+     "id": "pr-1-mariotti",
+     "name": "Viale Mariotti (north–south lane)",
+     "location": {
+      "lat": 44.804671,
+      "lon": 10.324909
+     }
+    },
+    {
+     "id": "pr-1-dacquisto",
+     "name": "Piazzale Salvo D'Acquisto",
+     "location": {
+      "lat": 44.804178,
+      "lon": 10.333634
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 450,
+     "end": 1170
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 10.0,
+    "howTo": "GZ day ticket €10, or BZ €5 for 2 hours; parking in the ZTL's paid spaces included. Buy and activate it before you pass the camera: Tap&Park app, the Infomobility website, the parking meters next to the gates, Infomobility's desk (Viale Mentana 29/A) or partner tobacconists. Forgot? A €15 ROZ ticket bought by 23:59 the next day regularises the entry (parking not included). It does not open the Isole Ambientali.",
+    "howTo_it": "Ticket giornaliero GZ 10 €, oppure BZ 5 € per 2 ore; sosta inclusa negli stalli a pagamento della ZTL. Compralo e attivalo prima di passare dal varco: app Tap&Park, sito di Infomobility, parcometri vicino ai varchi, sportello Infomobility (viale Mentana 29/A) o tabaccherie convenzionate. Dimenticato? Il ROZ da 15 € comprato entro le 23:59 del giorno dopo regolarizza l'ingresso (sosta esclusa). Non vale per le Isole Ambientali.",
+    "howTo_de": "Tagesticket GZ 10 € oder BZ 5 € für 2 Stunden; Parken auf den gebührenpflichtigen Plätzen der ZTL inklusive. Vor der Kamera kaufen und aktivieren: App Tap&Park, Website von Infomobility, Parkautomaten neben den Kameras, Infomobility-Schalter (Viale Mentana 29/A) oder Partner-Tabakläden. Vergessen? Ein ROZ-Ticket für 15 €, gekauft bis 23:59 Uhr am Folgetag, legalisiert die Einfahrt (ohne Parken). Gilt nicht für die Isole Ambientali.",
+    "url": "https://ines.infomobility.pr.it/ar/abb_ar_abbonamenti_acquisto.php?ztl=1",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Parma",
+    "pageURL": "https://www.infomobility.pr.it/varchi-e-ztl/",
+    "ordinance": "Ordinanza dirigenziale OD-2024-65 del 18/06/2024 (Aggiornamento delle modalità di accesso e sosta in ZTL)",
+    "ordinanceURL": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf",
+    "quote": "Il divieto di accesso alle ZTL per i veicoli non autorizzati è vigente nella fascia oraria 7:30-19:30 dei giorni feriali e festivi",
+    "quoteTranslation": "The ban on unauthorised vehicles entering the ZTLs applies from 7:30 to 19:30 on working days and holidays",
+    "quoteTranslation_de": "Das Einfahrverbot für nicht berechtigte Fahrzeuge in die ZTL gilt von 7:30 bis 19:30 Uhr an Werk- und Feiertagen",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Outline from OpenStreetMap (relation tagged source=Comune di Parma), to be checked against the official street list of ordinance OD-2024-65 and the Infomobility map.",
+     "If your hotel is inside, it gives Infomobility's gate office your plate and your arrival and departure dates, at the latest on the day you arrive: you may then drive to the hotel to load and unload luggage only. Ask the hotel before you come.",
+     "Electric and hybrid cars have no exemption: they need a ticket or a permit like any other car.",
+     "The fine for driving in without a ticket is not stated on the city's pages; if you forgot the ticket, the €15 ROZ (by 23:59 the next day) regularises the entry.",
+     "Camera positions: OpenStreetMap ALPR cameras on the streets named by Infomobility, matched by GateLR (approximate). Streets without a camera are still part of the ZTL and are checked by the local police.",
+     "Via Corsi, Via Dalmazia (Stradello S. Girolamo–Viale Mentana), Vicolo Mauroner and Borgo Valorio are closed 24 hours a day; GateLR shows the whole ZTL 1 with 7:30–19:30."
+    ],
+    "pending_it": [
+     "Contorno da OpenStreetMap (relazione con source=Comune di Parma), da verificare con l'elenco ufficiale delle vie dell'ordinanza OD-2024-65 e con la mappa di Infomobility.",
+     "Se l'hotel è dentro, comunica all'Ufficio Varchi di Infomobility la targa e le date di arrivo e partenza, al più tardi il giorno dell'arrivo: puoi allora arrivare all'hotel solo per caricare e scaricare i bagagli. Chiedi all'hotel prima di partire.",
+     "Le auto elettriche e ibride non sono esenti: serve il ticket o un permesso come per le altre auto.",
+     "L'importo della multa per l'ingresso senza titolo non è indicato nelle pagine del Comune; se hai dimenticato il ticket, il ROZ da 15 € (entro le 23:59 del giorno dopo) regolarizza l'ingresso.",
+     "Posizione dei varchi: telecamere ALPR di OpenStreetMap sulle vie indicate da Infomobility, abbinate da GateLR (approssimate). Le vie senza telecamera fanno comunque parte della ZTL e sono controllate dalla Polizia Locale.",
+     "Via Corsi, via Dalmazia (da stradello S. Girolamo a viale Mentana), vicolo Mauroner e borgo Valorio sono chiusi 24 ore su 24; GateLR mostra tutta la ZTL 1 con 7:30–19:30."
+    ],
+    "pending_de": [
+     "Umriss aus OpenStreetMap (Relation mit source=Comune di Parma), mit der offiziellen Straßenliste der Verordnung OD-2024-65 und der Infomobility-Karte abzugleichen.",
+     "Liegt dein Hotel innen, meldet es dem Kamerabüro von Infomobility dein Kennzeichen sowie An- und Abreisedatum, spätestens am Anreisetag: dann darfst du nur zum Be- und Entladen des Gepäcks zum Hotel fahren. Frag vorher im Hotel nach.",
+     "Elektro- und Hybridautos sind nicht ausgenommen: sie brauchen ein Ticket oder eine Genehmigung wie jedes andere Auto.",
+     "Die Höhe des Bußgelds für die Einfahrt ohne Ticket steht nicht auf den Seiten der Stadt; hast du das Ticket vergessen, legalisiert das ROZ für 15 € (bis 23:59 Uhr am Folgetag) die Einfahrt.",
+     "Kamerastandorte: ALPR-Kameras aus OpenStreetMap an den von Infomobility genannten Straßen, von GateLR zugeordnet (ungefähr). Straßen ohne Kamera gehören trotzdem zur ZTL und werden von der Stadtpolizei kontrolliert.",
+     "Via Corsi, Via Dalmazia (Stradello S. Girolamo–Viale Mentana), Vicolo Mauroner und Borgo Valorio sind rund um die Uhr gesperrt; GateLR zeigt die ganze ZTL 1 mit 7:30–19:30 Uhr."
+    ],
+    "links": [
+     {
+      "title": "Infomobility (City of Parma): gates and ZTL, hours and tickets",
+      "title_it": "Infomobility (Comune di Parma): varchi e ZTL, orari e titoli",
+      "title_de": "Infomobility (Stadt Parma): Kameras und ZTL, Zeiten und Tickets",
+      "url": "https://www.infomobility.pr.it/varchi-e-ztl/"
+     },
+     {
+      "title": "Infomobility: ZTL guide for tourists 2026 (PDF)",
+      "title_it": "Infomobility: guida ZTL per turisti 2026 (PDF)",
+      "title_de": "Infomobility: ZTL-Leitfaden für Touristen 2026 (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/08/Cartolina_ZTL_Turisti_2026.pdf"
+     },
+     {
+      "title": "City of Parma: ZTL access ordinance OD-2024-65 (street lists, PDF)",
+      "title_it": "Comune di Parma: ordinanza OD-2024-65 accesso e sosta ZTL (elenchi delle vie, PDF)",
+      "title_de": "Stadt Parma: ZTL-Verordnung OD-2024-65 (Straßenlisten, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf"
+     },
+     {
+      "title": "Infomobility: ZTL streets list (June 2026, PDF)",
+      "title_it": "Infomobility: elenco vie ZTL (giugno 2026, PDF)",
+      "title_de": "Infomobility: ZTL-Straßenliste (Juni 2026, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/06/VieZTL.pdf"
+     },
+     {
+      "title": "Infomobility: hotels and B&Bs (guest plates)",
+      "title_it": "Infomobility: alberghi e B&B (targhe dei clienti)",
+      "title_de": "Infomobility: Hotels und B&Bs (Kennzeichen der Gäste)",
+      "url": "https://www.infomobility.pr.it/permessi-commerciali/"
+     },
+     {
+      "title": "Infomobility: how to buy the ROZ ticket online (PDF)",
+      "title_it": "Infomobility: come acquistare online il titolo ROZ (PDF)",
+      "title_de": "Infomobility: ROZ-Ticket online kaufen (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2025/06/ROZ-Ticket-Purchase-Procedure.pdf"
+     },
+     {
+      "title": "OpenStreetMap: relation 19457676 (ODbL)",
+      "title_it": "OpenStreetMap: relazione 19457676 (ODbL)",
+      "title_de": "OpenStreetMap: Relation 19457676 (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/19457676"
+     }
+    ]
+   }
+  },
+  {
+   "id": "parma-ztl-2",
+   "name": "ZTL 2 · Strada Farini and Via XXII Luglio",
+   "name_it": "ZTL 2 · Strada Farini e via XXII Luglio",
+   "name_de": "ZTL 2 · Strada Farini und Via XXII Luglio",
+   "kind": "pass",
+   "summary": "Every day from 7:30 am to 7:30 pm, holidays included, you can't drive in without a permit or a ticket: GZ day ticket €10 or BZ €5 for 2 hours, bought and activated before the camera (parking included). Forgot? Buy a €15 ROZ by 23:59 the next day. Motorbikes may enter; electric cars may not. If your hotel is inside, it registers your plate by the day you arrive, for luggage only. The Isole Ambientali inside are closed around the clock.",
+   "summary_it": "Tutti i giorni dalle 7:30 alle 19:30, festivi compresi, non si entra senza permesso o ticket: giornaliero GZ 10 € o BZ 5 € per 2 ore, comprato e attivato prima del varco (sosta inclusa). Dimenticato? Compra il ROZ da 15 € entro le 23:59 del giorno dopo. Le moto entrano, le auto elettriche no. Se l'hotel è dentro, registra la targa entro il giorno dell'arrivo, solo per i bagagli. Le Isole Ambientali all'interno sono chiuse 24 ore su 24.",
+   "summary_de": "Täglich von 7:30 bis 19:30 Uhr, auch an Feiertagen, keine Einfahrt ohne Genehmigung oder Ticket: Tagesticket GZ 10 € oder BZ 5 € für 2 Stunden, vor der Kamera gekauft und aktiviert (Parken inklusive). Vergessen? Kauf bis 23:59 Uhr am Folgetag ein ROZ für 15 €. Motorräder dürfen hinein, Elektroautos nicht. Liegt dein Hotel innen, meldet es dein Kennzeichen bis zum Anreisetag, nur fürs Gepäck. Die Isole Ambientali im Inneren sind rund um die Uhr gesperrt.",
+   "perimeter": [
+    {
+     "lat": 44.794869,
+     "lon": 10.32448
+    },
+    {
+     "lat": 44.795116,
+     "lon": 10.32713
+    },
+    {
+     "lat": 44.795962,
+     "lon": 10.334871
+    },
+    {
+     "lat": 44.796068,
+     "lon": 10.335291
+    },
+    {
+     "lat": 44.796212,
+     "lon": 10.335537
+    },
+    {
+     "lat": 44.79638,
+     "lon": 10.335695
+    },
+    {
+     "lat": 44.799016,
+     "lon": 10.337937
+    },
+    {
+     "lat": 44.79938,
+     "lon": 10.338089
+    },
+    {
+     "lat": 44.799712,
+     "lon": 10.33683
+    },
+    {
+     "lat": 44.800563,
+     "lon": 10.332922
+    },
+    {
+     "lat": 44.80113,
+     "lon": 10.329725
+    },
+    {
+     "lat": 44.801515,
+     "lon": 10.328212
+    },
+    {
+     "lat": 44.801638,
+     "lon": 10.327577
+    },
+    {
+     "lat": 44.801609,
+     "lon": 10.327554
+    },
+    {
+     "lat": 44.802293,
+     "lon": 10.324131
+    },
+    {
+     "lat": 44.802143,
+     "lon": 10.324063
+    },
+    {
+     "lat": 44.80052,
+     "lon": 10.323813
+    },
+    {
+     "lat": 44.799949,
+     "lon": 10.323866
+    },
+    {
+     "lat": 44.798466,
+     "lon": 10.32433
+    },
+    {
+     "lat": 44.794869,
+     "lon": 10.32448
+    }
+   ],
+   "gates": [
+    {
+     "id": "pr-2-toscanini",
+     "name": "Viale Toscanini",
+     "location": {
+      "lat": 44.79871,
+      "lon": 10.32438
+     }
+    },
+    {
+     "id": "pr-2-xxii-luglio",
+     "name": "Via XXII Luglio (7:30–11:30, 16:00–19:00)",
+     "location": {
+      "lat": 44.795721,
+      "lon": 10.331116
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 450,
+     "end": 1170
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 10.0,
+    "howTo": "GZ day ticket €10, or BZ €5 for 2 hours; parking in the ZTL's paid spaces included. Buy and activate it before you pass the camera: Tap&Park app, the Infomobility website, the parking meters next to the gates, Infomobility's desk (Viale Mentana 29/A) or partner tobacconists. Forgot? A €15 ROZ ticket bought by 23:59 the next day regularises the entry (parking not included). It does not open the Isole Ambientali.",
+    "howTo_it": "Ticket giornaliero GZ 10 €, oppure BZ 5 € per 2 ore; sosta inclusa negli stalli a pagamento della ZTL. Compralo e attivalo prima di passare dal varco: app Tap&Park, sito di Infomobility, parcometri vicino ai varchi, sportello Infomobility (viale Mentana 29/A) o tabaccherie convenzionate. Dimenticato? Il ROZ da 15 € comprato entro le 23:59 del giorno dopo regolarizza l'ingresso (sosta esclusa). Non vale per le Isole Ambientali.",
+    "howTo_de": "Tagesticket GZ 10 € oder BZ 5 € für 2 Stunden; Parken auf den gebührenpflichtigen Plätzen der ZTL inklusive. Vor der Kamera kaufen und aktivieren: App Tap&Park, Website von Infomobility, Parkautomaten neben den Kameras, Infomobility-Schalter (Viale Mentana 29/A) oder Partner-Tabakläden. Vergessen? Ein ROZ-Ticket für 15 €, gekauft bis 23:59 Uhr am Folgetag, legalisiert die Einfahrt (ohne Parken). Gilt nicht für die Isole Ambientali.",
+    "url": "https://ines.infomobility.pr.it/ar/abb_ar_abbonamenti_acquisto.php?ztl=1",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Parma",
+    "pageURL": "https://www.infomobility.pr.it/varchi-e-ztl/",
+    "ordinance": "Ordinanza dirigenziale OD-2024-65 del 18/06/2024 (Aggiornamento delle modalità di accesso e sosta in ZTL)",
+    "ordinanceURL": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf",
+    "quote": "Il divieto di accesso alle ZTL per i veicoli non autorizzati è vigente nella fascia oraria 7:30-19:30 dei giorni feriali e festivi",
+    "quoteTranslation": "The ban on unauthorised vehicles entering the ZTLs applies from 7:30 to 19:30 on working days and holidays",
+    "quoteTranslation_de": "Das Einfahrverbot für nicht berechtigte Fahrzeuge in die ZTL gilt von 7:30 bis 19:30 Uhr an Werk- und Feiertagen",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Outline from OpenStreetMap (relation tagged source=Comune di Parma), to be checked against the official street list of ordinance OD-2024-65 and the Infomobility map.",
+     "If your hotel is inside, it gives Infomobility's gate office your plate and your arrival and departure dates, at the latest on the day you arrive: you may then drive to the hotel to load and unload luggage only. Ask the hotel before you come.",
+     "Electric and hybrid cars have no exemption: they need a ticket or a permit like any other car.",
+     "The fine for driving in without a ticket is not stated on the city's pages; if you forgot the ticket, the €15 ROZ (by 23:59 the next day) regularises the entry.",
+     "Camera positions: OpenStreetMap ALPR cameras on the streets named by Infomobility, matched by GateLR (approximate). Streets without a camera are still part of the ZTL and are checked by the local police.",
+     "On Via XXII Luglio, Borgo Felino, Strada Nuova and a few nearby streets the ZTL applies only 7:30–11:30 and 16:00–19:00; GateLR shows the whole ZTL 2 with 7:30–19:30."
+    ],
+    "pending_it": [
+     "Contorno da OpenStreetMap (relazione con source=Comune di Parma), da verificare con l'elenco ufficiale delle vie dell'ordinanza OD-2024-65 e con la mappa di Infomobility.",
+     "Se l'hotel è dentro, comunica all'Ufficio Varchi di Infomobility la targa e le date di arrivo e partenza, al più tardi il giorno dell'arrivo: puoi allora arrivare all'hotel solo per caricare e scaricare i bagagli. Chiedi all'hotel prima di partire.",
+     "Le auto elettriche e ibride non sono esenti: serve il ticket o un permesso come per le altre auto.",
+     "L'importo della multa per l'ingresso senza titolo non è indicato nelle pagine del Comune; se hai dimenticato il ticket, il ROZ da 15 € (entro le 23:59 del giorno dopo) regolarizza l'ingresso.",
+     "Posizione dei varchi: telecamere ALPR di OpenStreetMap sulle vie indicate da Infomobility, abbinate da GateLR (approssimate). Le vie senza telecamera fanno comunque parte della ZTL e sono controllate dalla Polizia Locale.",
+     "In via XXII Luglio, borgo Felino, strada Nuova e poche vie vicine la ZTL vale solo 7:30–11:30 e 16:00–19:00; GateLR mostra tutta la ZTL 2 con 7:30–19:30."
+    ],
+    "pending_de": [
+     "Umriss aus OpenStreetMap (Relation mit source=Comune di Parma), mit der offiziellen Straßenliste der Verordnung OD-2024-65 und der Infomobility-Karte abzugleichen.",
+     "Liegt dein Hotel innen, meldet es dem Kamerabüro von Infomobility dein Kennzeichen sowie An- und Abreisedatum, spätestens am Anreisetag: dann darfst du nur zum Be- und Entladen des Gepäcks zum Hotel fahren. Frag vorher im Hotel nach.",
+     "Elektro- und Hybridautos sind nicht ausgenommen: sie brauchen ein Ticket oder eine Genehmigung wie jedes andere Auto.",
+     "Die Höhe des Bußgelds für die Einfahrt ohne Ticket steht nicht auf den Seiten der Stadt; hast du das Ticket vergessen, legalisiert das ROZ für 15 € (bis 23:59 Uhr am Folgetag) die Einfahrt.",
+     "Kamerastandorte: ALPR-Kameras aus OpenStreetMap an den von Infomobility genannten Straßen, von GateLR zugeordnet (ungefähr). Straßen ohne Kamera gehören trotzdem zur ZTL und werden von der Stadtpolizei kontrolliert.",
+     "In der Via XXII Luglio, im Borgo Felino, in der Strada Nuova und einigen Nachbarstraßen gilt die ZTL nur 7:30–11:30 und 16:00–19:00 Uhr; GateLR zeigt die ganze ZTL 2 mit 7:30–19:30 Uhr."
+    ],
+    "links": [
+     {
+      "title": "Infomobility (City of Parma): gates and ZTL, hours and tickets",
+      "title_it": "Infomobility (Comune di Parma): varchi e ZTL, orari e titoli",
+      "title_de": "Infomobility (Stadt Parma): Kameras und ZTL, Zeiten und Tickets",
+      "url": "https://www.infomobility.pr.it/varchi-e-ztl/"
+     },
+     {
+      "title": "Infomobility: ZTL guide for tourists 2026 (PDF)",
+      "title_it": "Infomobility: guida ZTL per turisti 2026 (PDF)",
+      "title_de": "Infomobility: ZTL-Leitfaden für Touristen 2026 (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/08/Cartolina_ZTL_Turisti_2026.pdf"
+     },
+     {
+      "title": "City of Parma: ZTL access ordinance OD-2024-65 (street lists, PDF)",
+      "title_it": "Comune di Parma: ordinanza OD-2024-65 accesso e sosta ZTL (elenchi delle vie, PDF)",
+      "title_de": "Stadt Parma: ZTL-Verordnung OD-2024-65 (Straßenlisten, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf"
+     },
+     {
+      "title": "Infomobility: ZTL streets list (June 2026, PDF)",
+      "title_it": "Infomobility: elenco vie ZTL (giugno 2026, PDF)",
+      "title_de": "Infomobility: ZTL-Straßenliste (Juni 2026, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/06/VieZTL.pdf"
+     },
+     {
+      "title": "Infomobility: hotels and B&Bs (guest plates)",
+      "title_it": "Infomobility: alberghi e B&B (targhe dei clienti)",
+      "title_de": "Infomobility: Hotels und B&Bs (Kennzeichen der Gäste)",
+      "url": "https://www.infomobility.pr.it/permessi-commerciali/"
+     },
+     {
+      "title": "Infomobility: how to buy the ROZ ticket online (PDF)",
+      "title_it": "Infomobility: come acquistare online il titolo ROZ (PDF)",
+      "title_de": "Infomobility: ROZ-Ticket online kaufen (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2025/06/ROZ-Ticket-Purchase-Procedure.pdf"
+     },
+     {
+      "title": "OpenStreetMap: relation 19457325 (ODbL)",
+      "title_it": "OpenStreetMap: relazione 19457325 (ODbL)",
+      "title_de": "OpenStreetMap: Relation 19457325 (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/19457325"
+     }
+    ]
+   }
+  },
+  {
+   "id": "parma-ztl-3",
+   "name": "ZTL 3 · Oltretorrente (Piazzale Corridoni)",
+   "name_it": "ZTL 3 · Oltretorrente (piazzale Corridoni)",
+   "name_de": "ZTL 3 · Oltretorrente (Piazzale Corridoni)",
+   "kind": "pass",
+   "summary": "Every day from 7:30 am to 7:30 pm, holidays included, you can't drive in without a permit or a ticket: GZ day ticket €10 or BZ €5 for 2 hours, bought and activated before the camera (parking included). Forgot? Buy a €15 ROZ by 23:59 the next day. Motorbikes may enter; electric cars may not. If your hotel is inside, it registers your plate by the day you arrive, for luggage only. The Isole Ambientali inside are closed around the clock.",
+   "summary_it": "Tutti i giorni dalle 7:30 alle 19:30, festivi compresi, non si entra senza permesso o ticket: giornaliero GZ 10 € o BZ 5 € per 2 ore, comprato e attivato prima del varco (sosta inclusa). Dimenticato? Compra il ROZ da 15 € entro le 23:59 del giorno dopo. Le moto entrano, le auto elettriche no. Se l'hotel è dentro, registra la targa entro il giorno dell'arrivo, solo per i bagagli. Le Isole Ambientali all'interno sono chiuse 24 ore su 24.",
+   "summary_de": "Täglich von 7:30 bis 19:30 Uhr, auch an Feiertagen, keine Einfahrt ohne Genehmigung oder Ticket: Tagesticket GZ 10 € oder BZ 5 € für 2 Stunden, vor der Kamera gekauft und aktiviert (Parken inklusive). Vergessen? Kauf bis 23:59 Uhr am Folgetag ein ROZ für 15 €. Motorräder dürfen hinein, Elektroautos nicht. Liegt dein Hotel innen, meldet es dein Kennzeichen bis zum Anreisetag, nur fürs Gepäck. Die Isole Ambientali im Inneren sind rund um die Uhr gesperrt.",
+   "perimeter": [
+    {
+     "lat": 44.804104,
+     "lon": 10.3223
+    },
+    {
+     "lat": 44.803876,
+     "lon": 10.32086
+    },
+    {
+     "lat": 44.803857,
+     "lon": 10.319796
+    },
+    {
+     "lat": 44.803617,
+     "lon": 10.31978
+    },
+    {
+     "lat": 44.803557,
+     "lon": 10.319689
+    },
+    {
+     "lat": 44.803237,
+     "lon": 10.319584
+    },
+    {
+     "lat": 44.803557,
+     "lon": 10.317996
+    },
+    {
+     "lat": 44.801698,
+     "lon": 10.317261
+    },
+    {
+     "lat": 44.801818,
+     "lon": 10.319326
+    },
+    {
+     "lat": 44.801733,
+     "lon": 10.319426
+    },
+    {
+     "lat": 44.801791,
+     "lon": 10.319632
+    },
+    {
+     "lat": 44.801719,
+     "lon": 10.320149
+    },
+    {
+     "lat": 44.801301,
+     "lon": 10.320945
+    },
+    {
+     "lat": 44.801036,
+     "lon": 10.322135
+    },
+    {
+     "lat": 44.801007,
+     "lon": 10.322121
+    },
+    {
+     "lat": 44.800983,
+     "lon": 10.322227
+    },
+    {
+     "lat": 44.800838,
+     "lon": 10.322159
+    },
+    {
+     "lat": 44.800465,
+     "lon": 10.321768
+    },
+    {
+     "lat": 44.800291,
+     "lon": 10.32225
+    },
+    {
+     "lat": 44.800332,
+     "lon": 10.322278
+    },
+    {
+     "lat": 44.800323,
+     "lon": 10.322344
+    },
+    {
+     "lat": 44.800582,
+     "lon": 10.322355
+    },
+    {
+     "lat": 44.801514,
+     "lon": 10.322613
+    },
+    {
+     "lat": 44.802504,
+     "lon": 10.323087
+    },
+    {
+     "lat": 44.802959,
+     "lon": 10.323188
+    },
+    {
+     "lat": 44.803151,
+     "lon": 10.323341
+    },
+    {
+     "lat": 44.805147,
+     "lon": 10.323735
+    },
+    {
+     "lat": 44.805578,
+     "lon": 10.324009
+    },
+    {
+     "lat": 44.805628,
+     "lon": 10.323902
+    },
+    {
+     "lat": 44.805571,
+     "lon": 10.323883
+    },
+    {
+     "lat": 44.80531,
+     "lon": 10.323477
+    },
+    {
+     "lat": 44.804708,
+     "lon": 10.323294
+    },
+    {
+     "lat": 44.804689,
+     "lon": 10.323171
+    },
+    {
+     "lat": 44.804739,
+     "lon": 10.323154
+    },
+    {
+     "lat": 44.804758,
+     "lon": 10.322568
+    },
+    {
+     "lat": 44.804696,
+     "lon": 10.322572
+    },
+    {
+     "lat": 44.804706,
+     "lon": 10.322192
+    },
+    {
+     "lat": 44.804748,
+     "lon": 10.322176
+    },
+    {
+     "lat": 44.804752,
+     "lon": 10.322061
+    },
+    {
+     "lat": 44.804104,
+     "lon": 10.3223
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 450,
+     "end": 1170
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 10.0,
+    "howTo": "GZ day ticket €10, or BZ €5 for 2 hours; parking in the ZTL's paid spaces included. Buy and activate it before you pass the camera: Tap&Park app, the Infomobility website, the parking meters next to the gates, Infomobility's desk (Viale Mentana 29/A) or partner tobacconists. Forgot? A €15 ROZ ticket bought by 23:59 the next day regularises the entry (parking not included). It does not open the Isole Ambientali.",
+    "howTo_it": "Ticket giornaliero GZ 10 €, oppure BZ 5 € per 2 ore; sosta inclusa negli stalli a pagamento della ZTL. Compralo e attivalo prima di passare dal varco: app Tap&Park, sito di Infomobility, parcometri vicino ai varchi, sportello Infomobility (viale Mentana 29/A) o tabaccherie convenzionate. Dimenticato? Il ROZ da 15 € comprato entro le 23:59 del giorno dopo regolarizza l'ingresso (sosta esclusa). Non vale per le Isole Ambientali.",
+    "howTo_de": "Tagesticket GZ 10 € oder BZ 5 € für 2 Stunden; Parken auf den gebührenpflichtigen Plätzen der ZTL inklusive. Vor der Kamera kaufen und aktivieren: App Tap&Park, Website von Infomobility, Parkautomaten neben den Kameras, Infomobility-Schalter (Viale Mentana 29/A) oder Partner-Tabakläden. Vergessen? Ein ROZ-Ticket für 15 €, gekauft bis 23:59 Uhr am Folgetag, legalisiert die Einfahrt (ohne Parken). Gilt nicht für die Isole Ambientali.",
+    "url": "https://ines.infomobility.pr.it/ar/abb_ar_abbonamenti_acquisto.php?ztl=1",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Parma",
+    "pageURL": "https://www.infomobility.pr.it/varchi-e-ztl/",
+    "ordinance": "Ordinanza dirigenziale OD-2024-65 del 18/06/2024 (Aggiornamento delle modalità di accesso e sosta in ZTL)",
+    "ordinanceURL": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf",
+    "quote": "Il divieto di accesso alle ZTL per i veicoli non autorizzati è vigente nella fascia oraria 7:30-19:30 dei giorni feriali e festivi",
+    "quoteTranslation": "The ban on unauthorised vehicles entering the ZTLs applies from 7:30 to 19:30 on working days and holidays",
+    "quoteTranslation_de": "Das Einfahrverbot für nicht berechtigte Fahrzeuge in die ZTL gilt von 7:30 bis 19:30 Uhr an Werk- und Feiertagen",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Outline from OpenStreetMap (relation tagged source=Comune di Parma), to be checked against the official street list of ordinance OD-2024-65 and the Infomobility map.",
+     "If your hotel is inside, it gives Infomobility's gate office your plate and your arrival and departure dates, at the latest on the day you arrive: you may then drive to the hotel to load and unload luggage only. Ask the hotel before you come.",
+     "Electric and hybrid cars have no exemption: they need a ticket or a permit like any other car.",
+     "The fine for driving in without a ticket is not stated on the city's pages; if you forgot the ticket, the €15 ROZ (by 23:59 the next day) regularises the entry.",
+     "ZTL 3 has no camera: the rules apply all the same and are enforced by the local police."
+    ],
+    "pending_it": [
+     "Contorno da OpenStreetMap (relazione con source=Comune di Parma), da verificare con l'elenco ufficiale delle vie dell'ordinanza OD-2024-65 e con la mappa di Infomobility.",
+     "Se l'hotel è dentro, comunica all'Ufficio Varchi di Infomobility la targa e le date di arrivo e partenza, al più tardi il giorno dell'arrivo: puoi allora arrivare all'hotel solo per caricare e scaricare i bagagli. Chiedi all'hotel prima di partire.",
+     "Le auto elettriche e ibride non sono esenti: serve il ticket o un permesso come per le altre auto.",
+     "L'importo della multa per l'ingresso senza titolo non è indicato nelle pagine del Comune; se hai dimenticato il ticket, il ROZ da 15 € (entro le 23:59 del giorno dopo) regolarizza l'ingresso.",
+     "La ZTL 3 non ha varchi elettronici: le regole valgono lo stesso e le controlla la Polizia Locale."
+    ],
+    "pending_de": [
+     "Umriss aus OpenStreetMap (Relation mit source=Comune di Parma), mit der offiziellen Straßenliste der Verordnung OD-2024-65 und der Infomobility-Karte abzugleichen.",
+     "Liegt dein Hotel innen, meldet es dem Kamerabüro von Infomobility dein Kennzeichen sowie An- und Abreisedatum, spätestens am Anreisetag: dann darfst du nur zum Be- und Entladen des Gepäcks zum Hotel fahren. Frag vorher im Hotel nach.",
+     "Elektro- und Hybridautos sind nicht ausgenommen: sie brauchen ein Ticket oder eine Genehmigung wie jedes andere Auto.",
+     "Die Höhe des Bußgelds für die Einfahrt ohne Ticket steht nicht auf den Seiten der Stadt; hast du das Ticket vergessen, legalisiert das ROZ für 15 € (bis 23:59 Uhr am Folgetag) die Einfahrt.",
+     "Die ZTL 3 hat keine Kamera: die Regeln gelten trotzdem und werden von der Stadtpolizei kontrolliert."
+    ],
+    "links": [
+     {
+      "title": "Infomobility (City of Parma): gates and ZTL, hours and tickets",
+      "title_it": "Infomobility (Comune di Parma): varchi e ZTL, orari e titoli",
+      "title_de": "Infomobility (Stadt Parma): Kameras und ZTL, Zeiten und Tickets",
+      "url": "https://www.infomobility.pr.it/varchi-e-ztl/"
+     },
+     {
+      "title": "Infomobility: ZTL guide for tourists 2026 (PDF)",
+      "title_it": "Infomobility: guida ZTL per turisti 2026 (PDF)",
+      "title_de": "Infomobility: ZTL-Leitfaden für Touristen 2026 (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/08/Cartolina_ZTL_Turisti_2026.pdf"
+     },
+     {
+      "title": "City of Parma: ZTL access ordinance OD-2024-65 (street lists, PDF)",
+      "title_it": "Comune di Parma: ordinanza OD-2024-65 accesso e sosta ZTL (elenchi delle vie, PDF)",
+      "title_de": "Stadt Parma: ZTL-Verordnung OD-2024-65 (Straßenlisten, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf"
+     },
+     {
+      "title": "Infomobility: ZTL streets list (June 2026, PDF)",
+      "title_it": "Infomobility: elenco vie ZTL (giugno 2026, PDF)",
+      "title_de": "Infomobility: ZTL-Straßenliste (Juni 2026, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/06/VieZTL.pdf"
+     },
+     {
+      "title": "Infomobility: hotels and B&Bs (guest plates)",
+      "title_it": "Infomobility: alberghi e B&B (targhe dei clienti)",
+      "title_de": "Infomobility: Hotels und B&Bs (Kennzeichen der Gäste)",
+      "url": "https://www.infomobility.pr.it/permessi-commerciali/"
+     },
+     {
+      "title": "Infomobility: how to buy the ROZ ticket online (PDF)",
+      "title_it": "Infomobility: come acquistare online il titolo ROZ (PDF)",
+      "title_de": "Infomobility: ROZ-Ticket online kaufen (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2025/06/ROZ-Ticket-Purchase-Procedure.pdf"
+     },
+     {
+      "title": "OpenStreetMap: relation 19457327 (ODbL)",
+      "title_it": "OpenStreetMap: relazione 19457327 (ODbL)",
+      "title_de": "OpenStreetMap: Relation 19457327 (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/19457327"
+     }
+    ]
+   }
+  },
+  {
+   "id": "parma-isola-1",
+   "name": "Isola Ambientale · Duomo and Steccata",
+   "name_it": "Isola Ambientale · Duomo e Steccata",
+   "name_de": "Isola Ambientale · Dom und Steccata",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised cars 24 hours a day, every day, holidays included; the ZTL ticket is not enough. Hotel guests may drive in only to load and unload luggage, once the hotel has registered the plate. With a ZTL ticket you can ask Infomobility's desk for access 9–10:30 am or 3–3:30 pm. Park outside and walk.",
+   "summary_it": "Chiusa alle auto non autorizzate 24 ore su 24, tutti i giorni, festivi compresi; il ticket ZTL non basta. Gli ospiti degli hotel entrano solo per caricare e scaricare i bagagli, dopo che l'hotel ha registrato la targa. Con il ticket ZTL si può chiedere allo sportello Infomobility l'accesso 9–10:30 o 15–15:30. Parcheggia fuori e prosegui a piedi.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Autos gesperrt; das ZTL-Ticket reicht nicht. Hotelgäste dürfen nur zum Be- und Entladen des Gepäcks hinein, nachdem das Hotel das Kennzeichen gemeldet hat. Mit ZTL-Ticket kann man am Infomobility-Schalter Zufahrt 9–10:30 oder 15–15:30 Uhr beantragen. Draußen parken und zu Fuß gehen.",
+   "perimeter": [
+    {
+     "lat": 44.801264,
+     "lon": 10.330927
+    },
+    {
+     "lat": 44.801264,
+     "lon": 10.33099
+    },
+    {
+     "lat": 44.801355,
+     "lon": 10.33099
+    },
+    {
+     "lat": 44.8014,
+     "lon": 10.330864
+    },
+    {
+     "lat": 44.80149,
+     "lon": 10.330864
+    },
+    {
+     "lat": 44.80149,
+     "lon": 10.3308
+    },
+    {
+     "lat": 44.801762,
+     "lon": 10.330737
+    },
+    {
+     "lat": 44.801762,
+     "lon": 10.3308
+    },
+    {
+     "lat": 44.801897,
+     "lon": 10.3308
+    },
+    {
+     "lat": 44.801897,
+     "lon": 10.330864
+    },
+    {
+     "lat": 44.802033,
+     "lon": 10.330864
+    },
+    {
+     "lat": 44.802033,
+     "lon": 10.330927
+    },
+    {
+     "lat": 44.802214,
+     "lon": 10.330927
+    },
+    {
+     "lat": 44.802214,
+     "lon": 10.33099
+    },
+    {
+     "lat": 44.80235,
+     "lon": 10.33099
+    },
+    {
+     "lat": 44.80235,
+     "lon": 10.331054
+    },
+    {
+     "lat": 44.802576,
+     "lon": 10.331117
+    },
+    {
+     "lat": 44.802576,
+     "lon": 10.33118
+    },
+    {
+     "lat": 44.802666,
+     "lon": 10.331243
+    },
+    {
+     "lat": 44.802666,
+     "lon": 10.33137
+    },
+    {
+     "lat": 44.802711,
+     "lon": 10.33137
+    },
+    {
+     "lat": 44.802711,
+     "lon": 10.33156
+    },
+    {
+     "lat": 44.802757,
+     "lon": 10.33156
+    },
+    {
+     "lat": 44.802711,
+     "lon": 10.331877
+    },
+    {
+     "lat": 44.802666,
+     "lon": 10.331877
+    },
+    {
+     "lat": 44.802666,
+     "lon": 10.332066
+    },
+    {
+     "lat": 44.802621,
+     "lon": 10.332066
+    },
+    {
+     "lat": 44.802621,
+     "lon": 10.33213
+    },
+    {
+     "lat": 44.802711,
+     "lon": 10.33213
+    },
+    {
+     "lat": 44.802711,
+     "lon": 10.332193
+    },
+    {
+     "lat": 44.803028,
+     "lon": 10.332193
+    },
+    {
+     "lat": 44.803028,
+     "lon": 10.33213
+    },
+    {
+     "lat": 44.803118,
+     "lon": 10.33213
+    },
+    {
+     "lat": 44.803118,
+     "lon": 10.332066
+    },
+    {
+     "lat": 44.80339,
+     "lon": 10.332003
+    },
+    {
+     "lat": 44.803344,
+     "lon": 10.331877
+    },
+    {
+     "lat": 44.80339,
+     "lon": 10.331877
+    },
+    {
+     "lat": 44.80339,
+     "lon": 10.331687
+    },
+    {
+     "lat": 44.803435,
+     "lon": 10.331687
+    },
+    {
+     "lat": 44.803435,
+     "lon": 10.33156
+    },
+    {
+     "lat": 44.80348,
+     "lon": 10.33156
+    },
+    {
+     "lat": 44.803525,
+     "lon": 10.331307
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.331307
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.331117
+    },
+    {
+     "lat": 44.803616,
+     "lon": 10.331117
+    },
+    {
+     "lat": 44.803616,
+     "lon": 10.33099
+    },
+    {
+     "lat": 44.803661,
+     "lon": 10.33099
+    },
+    {
+     "lat": 44.803661,
+     "lon": 10.3308
+    },
+    {
+     "lat": 44.803616,
+     "lon": 10.3308
+    },
+    {
+     "lat": 44.803616,
+     "lon": 10.330737
+    },
+    {
+     "lat": 44.803661,
+     "lon": 10.330737
+    },
+    {
+     "lat": 44.803706,
+     "lon": 10.330421
+    },
+    {
+     "lat": 44.803751,
+     "lon": 10.330421
+    },
+    {
+     "lat": 44.803842,
+     "lon": 10.330231
+    },
+    {
+     "lat": 44.803932,
+     "lon": 10.330231
+    },
+    {
+     "lat": 44.803932,
+     "lon": 10.330167
+    },
+    {
+     "lat": 44.804204,
+     "lon": 10.330104
+    },
+    {
+     "lat": 44.804204,
+     "lon": 10.330041
+    },
+    {
+     "lat": 44.804113,
+     "lon": 10.330041
+    },
+    {
+     "lat": 44.804113,
+     "lon": 10.329977
+    },
+    {
+     "lat": 44.804023,
+     "lon": 10.329977
+    },
+    {
+     "lat": 44.804023,
+     "lon": 10.329914
+    },
+    {
+     "lat": 44.803977,
+     "lon": 10.329914
+    },
+    {
+     "lat": 44.803932,
+     "lon": 10.329598
+    },
+    {
+     "lat": 44.803887,
+     "lon": 10.329598
+    },
+    {
+     "lat": 44.803932,
+     "lon": 10.329281
+    },
+    {
+     "lat": 44.803977,
+     "lon": 10.329281
+    },
+    {
+     "lat": 44.803977,
+     "lon": 10.329154
+    },
+    {
+     "lat": 44.804023,
+     "lon": 10.329154
+    },
+    {
+     "lat": 44.804023,
+     "lon": 10.329091
+    },
+    {
+     "lat": 44.803842,
+     "lon": 10.329091
+    },
+    {
+     "lat": 44.803842,
+     "lon": 10.329028
+    },
+    {
+     "lat": 44.803616,
+     "lon": 10.328965
+    },
+    {
+     "lat": 44.803616,
+     "lon": 10.328901
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.328901
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.328775
+    },
+    {
+     "lat": 44.803525,
+     "lon": 10.328775
+    },
+    {
+     "lat": 44.80348,
+     "lon": 10.328458
+    },
+    {
+     "lat": 44.803525,
+     "lon": 10.328458
+    },
+    {
+     "lat": 44.803525,
+     "lon": 10.328268
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.328268
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.328142
+    },
+    {
+     "lat": 44.803616,
+     "lon": 10.328142
+    },
+    {
+     "lat": 44.803616,
+     "lon": 10.328078
+    },
+    {
+     "lat": 44.803842,
+     "lon": 10.328015
+    },
+    {
+     "lat": 44.803842,
+     "lon": 10.327952
+    },
+    {
+     "lat": 44.804068,
+     "lon": 10.328015
+    },
+    {
+     "lat": 44.804068,
+     "lon": 10.328078
+    },
+    {
+     "lat": 44.804204,
+     "lon": 10.328078
+    },
+    {
+     "lat": 44.804204,
+     "lon": 10.328142
+    },
+    {
+     "lat": 44.804384,
+     "lon": 10.328142
+    },
+    {
+     "lat": 44.804384,
+     "lon": 10.328078
+    },
+    {
+     "lat": 44.804249,
+     "lon": 10.328078
+    },
+    {
+     "lat": 44.804249,
+     "lon": 10.328015
+    },
+    {
+     "lat": 44.804113,
+     "lon": 10.328015
+    },
+    {
+     "lat": 44.804113,
+     "lon": 10.327952
+    },
+    {
+     "lat": 44.803977,
+     "lon": 10.327952
+    },
+    {
+     "lat": 44.803977,
+     "lon": 10.327888
+    },
+    {
+     "lat": 44.803842,
+     "lon": 10.327888
+    },
+    {
+     "lat": 44.803842,
+     "lon": 10.327825
+    },
+    {
+     "lat": 44.803751,
+     "lon": 10.327825
+    },
+    {
+     "lat": 44.803751,
+     "lon": 10.327762
+    },
+    {
+     "lat": 44.803661,
+     "lon": 10.327762
+    },
+    {
+     "lat": 44.803661,
+     "lon": 10.327699
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.327699
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.327635
+    },
+    {
+     "lat": 44.803525,
+     "lon": 10.327635
+    },
+    {
+     "lat": 44.80348,
+     "lon": 10.327319
+    },
+    {
+     "lat": 44.803435,
+     "lon": 10.327319
+    },
+    {
+     "lat": 44.803435,
+     "lon": 10.327129
+    },
+    {
+     "lat": 44.80348,
+     "lon": 10.327129
+    },
+    {
+     "lat": 44.80348,
+     "lon": 10.326939
+    },
+    {
+     "lat": 44.803525,
+     "lon": 10.326939
+    },
+    {
+     "lat": 44.803525,
+     "lon": 10.326749
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.326749
+    },
+    {
+     "lat": 44.803616,
+     "lon": 10.326306
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.326306
+    },
+    {
+     "lat": 44.80357,
+     "lon": 10.326369
+    },
+    {
+     "lat": 44.803435,
+     "lon": 10.326369
+    },
+    {
+     "lat": 44.803435,
+     "lon": 10.326306
+    },
+    {
+     "lat": 44.803299,
+     "lon": 10.326306
+    },
+    {
+     "lat": 44.803299,
+     "lon": 10.326243
+    },
+    {
+     "lat": 44.803209,
+     "lon": 10.326243
+    },
+    {
+     "lat": 44.803163,
+     "lon": 10.326116
+    },
+    {
+     "lat": 44.803073,
+     "lon": 10.326116
+    },
+    {
+     "lat": 44.803073,
+     "lon": 10.326053
+    },
+    {
+     "lat": 44.802983,
+     "lon": 10.326053
+    },
+    {
+     "lat": 44.802983,
+     "lon": 10.325989
+    },
+    {
+     "lat": 44.802937,
+     "lon": 10.325989
+    },
+    {
+     "lat": 44.802847,
+     "lon": 10.325546
+    },
+    {
+     "lat": 44.802892,
+     "lon": 10.325546
+    },
+    {
+     "lat": 44.802892,
+     "lon": 10.325356
+    },
+    {
+     "lat": 44.802937,
+     "lon": 10.325356
+    },
+    {
+     "lat": 44.802937,
+     "lon": 10.32523
+    },
+    {
+     "lat": 44.802983,
+     "lon": 10.32523
+    },
+    {
+     "lat": 44.803028,
+     "lon": 10.324976
+    },
+    {
+     "lat": 44.802983,
+     "lon": 10.324976
+    },
+    {
+     "lat": 44.802983,
+     "lon": 10.32504
+    },
+    {
+     "lat": 44.802847,
+     "lon": 10.32504
+    },
+    {
+     "lat": 44.802847,
+     "lon": 10.325103
+    },
+    {
+     "lat": 44.802621,
+     "lon": 10.32504
+    },
+    {
+     "lat": 44.802621,
+     "lon": 10.324976
+    },
+    {
+     "lat": 44.80253,
+     "lon": 10.324976
+    },
+    {
+     "lat": 44.80253,
+     "lon": 10.324913
+    },
+    {
+     "lat": 44.802485,
+     "lon": 10.324913
+    },
+    {
+     "lat": 44.80244,
+     "lon": 10.324597
+    },
+    {
+     "lat": 44.80235,
+     "lon": 10.32466
+    },
+    {
+     "lat": 44.802304,
+     "lon": 10.325103
+    },
+    {
+     "lat": 44.802395,
+     "lon": 10.325103
+    },
+    {
+     "lat": 44.802395,
+     "lon": 10.325166
+    },
+    {
+     "lat": 44.802485,
+     "lon": 10.325166
+    },
+    {
+     "lat": 44.802485,
+     "lon": 10.32523
+    },
+    {
+     "lat": 44.80253,
+     "lon": 10.32523
+    },
+    {
+     "lat": 44.802576,
+     "lon": 10.325546
+    },
+    {
+     "lat": 44.802621,
+     "lon": 10.325546
+    },
+    {
+     "lat": 44.802621,
+     "lon": 10.32561
+    },
+    {
+     "lat": 44.802576,
+     "lon": 10.32561
+    },
+    {
+     "lat": 44.802576,
+     "lon": 10.325799
+    },
+    {
+     "lat": 44.80253,
+     "lon": 10.325799
+    },
+    {
+     "lat": 44.80253,
+     "lon": 10.325926
+    },
+    {
+     "lat": 44.802485,
+     "lon": 10.325926
+    },
+    {
+     "lat": 44.802485,
+     "lon": 10.325989
+    },
+    {
+     "lat": 44.802259,
+     "lon": 10.326053
+    },
+    {
+     "lat": 44.802259,
+     "lon": 10.326116
+    },
+    {
+     "lat": 44.802123,
+     "lon": 10.326116
+    },
+    {
+     "lat": 44.802123,
+     "lon": 10.326053
+    },
+    {
+     "lat": 44.801943,
+     "lon": 10.326053
+    },
+    {
+     "lat": 44.801943,
+     "lon": 10.325989
+    },
+    {
+     "lat": 44.801852,
+     "lon": 10.325989
+    },
+    {
+     "lat": 44.801852,
+     "lon": 10.326179
+    },
+    {
+     "lat": 44.801807,
+     "lon": 10.326179
+    },
+    {
+     "lat": 44.801807,
+     "lon": 10.326306
+    },
+    {
+     "lat": 44.801762,
+     "lon": 10.326306
+    },
+    {
+     "lat": 44.801762,
+     "lon": 10.326369
+    },
+    {
+     "lat": 44.801807,
+     "lon": 10.326369
+    },
+    {
+     "lat": 44.801807,
+     "lon": 10.326559
+    },
+    {
+     "lat": 44.801762,
+     "lon": 10.326559
+    },
+    {
+     "lat": 44.801716,
+     "lon": 10.326876
+    },
+    {
+     "lat": 44.801671,
+     "lon": 10.326876
+    },
+    {
+     "lat": 44.801671,
+     "lon": 10.327002
+    },
+    {
+     "lat": 44.801897,
+     "lon": 10.327065
+    },
+    {
+     "lat": 44.801897,
+     "lon": 10.327129
+    },
+    {
+     "lat": 44.801943,
+     "lon": 10.327129
+    },
+    {
+     "lat": 44.801943,
+     "lon": 10.327255
+    },
+    {
+     "lat": 44.801988,
+     "lon": 10.327255
+    },
+    {
+     "lat": 44.802033,
+     "lon": 10.327699
+    },
+    {
+     "lat": 44.802078,
+     "lon": 10.327699
+    },
+    {
+     "lat": 44.802078,
+     "lon": 10.327888
+    },
+    {
+     "lat": 44.802123,
+     "lon": 10.327888
+    },
+    {
+     "lat": 44.802123,
+     "lon": 10.327952
+    },
+    {
+     "lat": 44.802078,
+     "lon": 10.327952
+    },
+    {
+     "lat": 44.802078,
+     "lon": 10.328142
+    },
+    {
+     "lat": 44.802033,
+     "lon": 10.328142
+    },
+    {
+     "lat": 44.802033,
+     "lon": 10.328268
+    },
+    {
+     "lat": 44.801988,
+     "lon": 10.328268
+    },
+    {
+     "lat": 44.801988,
+     "lon": 10.328332
+    },
+    {
+     "lat": 44.801762,
+     "lon": 10.328395
+    },
+    {
+     "lat": 44.801762,
+     "lon": 10.328458
+    },
+    {
+     "lat": 44.8014,
+     "lon": 10.328332
+    },
+    {
+     "lat": 44.8014,
+     "lon": 10.328395
+    },
+    {
+     "lat": 44.801445,
+     "lon": 10.328395
+    },
+    {
+     "lat": 44.8014,
+     "lon": 10.328775
+    },
+    {
+     "lat": 44.801355,
+     "lon": 10.328775
+    },
+    {
+     "lat": 44.801355,
+     "lon": 10.328901
+    },
+    {
+     "lat": 44.80131,
+     "lon": 10.328901
+    },
+    {
+     "lat": 44.80131,
+     "lon": 10.328965
+    },
+    {
+     "lat": 44.801219,
+     "lon": 10.328965
+    },
+    {
+     "lat": 44.801219,
+     "lon": 10.329028
+    },
+    {
+     "lat": 44.801264,
+     "lon": 10.329028
+    },
+    {
+     "lat": 44.801264,
+     "lon": 10.329218
+    },
+    {
+     "lat": 44.80131,
+     "lon": 10.329218
+    },
+    {
+     "lat": 44.80131,
+     "lon": 10.329408
+    },
+    {
+     "lat": 44.801264,
+     "lon": 10.329408
+    },
+    {
+     "lat": 44.801219,
+     "lon": 10.329724
+    },
+    {
+     "lat": 44.801174,
+     "lon": 10.329724
+    },
+    {
+     "lat": 44.801174,
+     "lon": 10.329788
+    },
+    {
+     "lat": 44.801083,
+     "lon": 10.329788
+    },
+    {
+     "lat": 44.801083,
+     "lon": 10.329851
+    },
+    {
+     "lat": 44.801129,
+     "lon": 10.329851
+    },
+    {
+     "lat": 44.801129,
+     "lon": 10.329977
+    },
+    {
+     "lat": 44.801083,
+     "lon": 10.329977
+    },
+    {
+     "lat": 44.801038,
+     "lon": 10.330294
+    },
+    {
+     "lat": 44.800948,
+     "lon": 10.330357
+    },
+    {
+     "lat": 44.801038,
+     "lon": 10.330547
+    },
+    {
+     "lat": 44.801083,
+     "lon": 10.330547
+    },
+    {
+     "lat": 44.801129,
+     "lon": 10.330864
+    },
+    {
+     "lat": 44.801219,
+     "lon": 10.330864
+    },
+    {
+     "lat": 44.801219,
+     "lon": 10.330927
+    },
+    {
+     "lat": 44.801264,
+     "lon": 10.330927
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Parma",
+    "pageURL": "https://www.infomobility.pr.it/varchi-e-ztl/",
+    "ordinance": "Ordinanza dirigenziale OD-2024-65 del 18/06/2024, tabella 2.1",
+    "ordinanceURL": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf",
+    "quote": "Il divieto di accesso in Isola Ambientale per i veicoli non autorizzati è vigente nella fascia oraria 0-24 dei giorni feriali e festivi",
+    "quoteTranslation": "The ban on unauthorised vehicles entering an Isola Ambientale applies 0–24 on working days and holidays",
+    "quoteTranslation_de": "Das Einfahrverbot für nicht berechtigte Fahrzeuge in eine Isola Ambientale gilt 0–24 Uhr an Werk- und Feiertagen",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Outline computed from the official street list (table 2.1 of ordinance OD-2024-65) on OpenStreetMap streets: approximate, to be checked against the Infomobility map.",
+     "If your hotel is inside, it gives Infomobility's gate office your plate and your arrival and departure dates, at the latest on the day you arrive: you may then drive to the hotel to load and unload luggage only. Ask the hotel before you come.",
+     "No camera here: the ban applies all the same and is enforced by the local police."
+    ],
+    "pending_it": [
+     "Contorno ricavato dall'elenco ufficiale delle vie (tabella 2.1 dell'ordinanza OD-2024-65) sulle strade di OpenStreetMap: approssimato, da verificare con la mappa di Infomobility.",
+     "Se l'hotel è dentro, comunica all'Ufficio Varchi di Infomobility la targa e le date di arrivo e partenza, al più tardi il giorno dell'arrivo: puoi allora arrivare all'hotel solo per caricare e scaricare i bagagli. Chiedi all'hotel prima di partire.",
+     "Qui non ci sono varchi elettronici: il divieto vale lo stesso e lo controlla la Polizia Locale."
+    ],
+    "pending_de": [
+     "Umriss aus der offiziellen Straßenliste (Tabelle 2.1 der Verordnung OD-2024-65) auf OpenStreetMap-Straßen berechnet: ungefähr, mit der Infomobility-Karte abzugleichen.",
+     "Liegt dein Hotel innen, meldet es dem Kamerabüro von Infomobility dein Kennzeichen sowie An- und Abreisedatum, spätestens am Anreisetag: dann darfst du nur zum Be- und Entladen des Gepäcks zum Hotel fahren. Frag vorher im Hotel nach.",
+     "Hier gibt es keine Kamera: das Verbot gilt trotzdem und wird von der Stadtpolizei kontrolliert."
+    ],
+    "links": [
+     {
+      "title": "Infomobility (City of Parma): gates and ZTL, hours and tickets",
+      "title_it": "Infomobility (Comune di Parma): varchi e ZTL, orari e titoli",
+      "title_de": "Infomobility (Stadt Parma): Kameras und ZTL, Zeiten und Tickets",
+      "url": "https://www.infomobility.pr.it/varchi-e-ztl/"
+     },
+     {
+      "title": "Infomobility: ZTL guide for tourists 2026 (PDF)",
+      "title_it": "Infomobility: guida ZTL per turisti 2026 (PDF)",
+      "title_de": "Infomobility: ZTL-Leitfaden für Touristen 2026 (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/08/Cartolina_ZTL_Turisti_2026.pdf"
+     },
+     {
+      "title": "City of Parma: ZTL access ordinance OD-2024-65 (street lists, PDF)",
+      "title_it": "Comune di Parma: ordinanza OD-2024-65 accesso e sosta ZTL (elenchi delle vie, PDF)",
+      "title_de": "Stadt Parma: ZTL-Verordnung OD-2024-65 (Straßenlisten, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf"
+     },
+     {
+      "title": "Infomobility: ZTL streets list (June 2026, PDF)",
+      "title_it": "Infomobility: elenco vie ZTL (giugno 2026, PDF)",
+      "title_de": "Infomobility: ZTL-Straßenliste (Juni 2026, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/06/VieZTL.pdf"
+     },
+     {
+      "title": "Infomobility: hotels and B&Bs (guest plates)",
+      "title_it": "Infomobility: alberghi e B&B (targhe dei clienti)",
+      "title_de": "Infomobility: Hotels und B&Bs (Kennzeichen der Gäste)",
+      "url": "https://www.infomobility.pr.it/permessi-commerciali/"
+     },
+     {
+      "title": "Infomobility: how to buy the ROZ ticket online (PDF)",
+      "title_it": "Infomobility: come acquistare online il titolo ROZ (PDF)",
+      "title_de": "Infomobility: ROZ-Ticket online kaufen (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2025/06/ROZ-Ticket-Purchase-Procedure.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "parma-isola-2",
+   "name": "Isola Ambientale · Strada Farini and Via Sauro",
+   "name_it": "Isola Ambientale · strada Farini e via Sauro",
+   "name_de": "Isola Ambientale · Strada Farini und Via Sauro",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised cars 24 hours a day, every day, holidays included; the ZTL ticket is not enough. Hotel guests may drive in only to load and unload luggage, once the hotel has registered the plate. With a ZTL ticket you can ask Infomobility's desk for access 9–10:30 am or 3–3:30 pm. Park outside and walk.",
+   "summary_it": "Chiusa alle auto non autorizzate 24 ore su 24, tutti i giorni, festivi compresi; il ticket ZTL non basta. Gli ospiti degli hotel entrano solo per caricare e scaricare i bagagli, dopo che l'hotel ha registrato la targa. Con il ticket ZTL si può chiedere allo sportello Infomobility l'accesso 9–10:30 o 15–15:30. Parcheggia fuori e prosegui a piedi.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Autos gesperrt; das ZTL-Ticket reicht nicht. Hotelgäste dürfen nur zum Be- und Entladen des Gepäcks hinein, nachdem das Hotel das Kennzeichen gemeldet hat. Mit ZTL-Ticket kann man am Infomobility-Schalter Zufahrt 9–10:30 oder 15–15:30 Uhr beantragen. Draußen parken und zu Fuß gehen.",
+   "perimeter": [
+    {
+     "lat": 44.799229,
+     "lon": 10.330335
+    },
+    {
+     "lat": 44.799275,
+     "lon": 10.330335
+    },
+    {
+     "lat": 44.79932,
+     "lon": 10.330461
+    },
+    {
+     "lat": 44.79941,
+     "lon": 10.330461
+    },
+    {
+     "lat": 44.79941,
+     "lon": 10.330525
+    },
+    {
+     "lat": 44.799501,
+     "lon": 10.330525
+    },
+    {
+     "lat": 44.799501,
+     "lon": 10.330588
+    },
+    {
+     "lat": 44.799546,
+     "lon": 10.330588
+    },
+    {
+     "lat": 44.799591,
+     "lon": 10.330904
+    },
+    {
+     "lat": 44.799636,
+     "lon": 10.330904
+    },
+    {
+     "lat": 44.799636,
+     "lon": 10.330968
+    },
+    {
+     "lat": 44.799591,
+     "lon": 10.330968
+    },
+    {
+     "lat": 44.799591,
+     "lon": 10.331158
+    },
+    {
+     "lat": 44.799636,
+     "lon": 10.331158
+    },
+    {
+     "lat": 44.799636,
+     "lon": 10.331031
+    },
+    {
+     "lat": 44.799682,
+     "lon": 10.331031
+    },
+    {
+     "lat": 44.799682,
+     "lon": 10.330968
+    },
+    {
+     "lat": 44.799772,
+     "lon": 10.330968
+    },
+    {
+     "lat": 44.799772,
+     "lon": 10.330904
+    },
+    {
+     "lat": 44.799908,
+     "lon": 10.330904
+    },
+    {
+     "lat": 44.799908,
+     "lon": 10.330841
+    },
+    {
+     "lat": 44.799953,
+     "lon": 10.330841
+    },
+    {
+     "lat": 44.799953,
+     "lon": 10.330904
+    },
+    {
+     "lat": 44.800179,
+     "lon": 10.330968
+    },
+    {
+     "lat": 44.800179,
+     "lon": 10.331031
+    },
+    {
+     "lat": 44.80027,
+     "lon": 10.331094
+    },
+    {
+     "lat": 44.80027,
+     "lon": 10.331221
+    },
+    {
+     "lat": 44.800315,
+     "lon": 10.331221
+    },
+    {
+     "lat": 44.800315,
+     "lon": 10.330904
+    },
+    {
+     "lat": 44.80036,
+     "lon": 10.330904
+    },
+    {
+     "lat": 44.800405,
+     "lon": 10.330588
+    },
+    {
+     "lat": 44.80045,
+     "lon": 10.330588
+    },
+    {
+     "lat": 44.800496,
+     "lon": 10.330461
+    },
+    {
+     "lat": 44.800676,
+     "lon": 10.330398
+    },
+    {
+     "lat": 44.800676,
+     "lon": 10.330335
+    },
+    {
+     "lat": 44.800767,
+     "lon": 10.330271
+    },
+    {
+     "lat": 44.800767,
+     "lon": 10.330145
+    },
+    {
+     "lat": 44.800812,
+     "lon": 10.330145
+    },
+    {
+     "lat": 44.800812,
+     "lon": 10.330018
+    },
+    {
+     "lat": 44.800857,
+     "lon": 10.330018
+    },
+    {
+     "lat": 44.800903,
+     "lon": 10.329892
+    },
+    {
+     "lat": 44.801129,
+     "lon": 10.329828
+    },
+    {
+     "lat": 44.801083,
+     "lon": 10.329702
+    },
+    {
+     "lat": 44.800948,
+     "lon": 10.329702
+    },
+    {
+     "lat": 44.800948,
+     "lon": 10.329638
+    },
+    {
+     "lat": 44.800767,
+     "lon": 10.329575
+    },
+    {
+     "lat": 44.800722,
+     "lon": 10.329448
+    },
+    {
+     "lat": 44.800676,
+     "lon": 10.329448
+    },
+    {
+     "lat": 44.800676,
+     "lon": 10.329322
+    },
+    {
+     "lat": 44.800631,
+     "lon": 10.329322
+    },
+    {
+     "lat": 44.800631,
+     "lon": 10.329132
+    },
+    {
+     "lat": 44.800586,
+     "lon": 10.329132
+    },
+    {
+     "lat": 44.800586,
+     "lon": 10.329069
+    },
+    {
+     "lat": 44.800631,
+     "lon": 10.329069
+    },
+    {
+     "lat": 44.800676,
+     "lon": 10.328752
+    },
+    {
+     "lat": 44.800722,
+     "lon": 10.328752
+    },
+    {
+     "lat": 44.800722,
+     "lon": 10.328499
+    },
+    {
+     "lat": 44.800767,
+     "lon": 10.328499
+    },
+    {
+     "lat": 44.800767,
+     "lon": 10.328309
+    },
+    {
+     "lat": 44.800812,
+     "lon": 10.328309
+    },
+    {
+     "lat": 44.800857,
+     "lon": 10.328056
+    },
+    {
+     "lat": 44.800903,
+     "lon": 10.328056
+    },
+    {
+     "lat": 44.800903,
+     "lon": 10.327993
+    },
+    {
+     "lat": 44.800993,
+     "lon": 10.327993
+    },
+    {
+     "lat": 44.800993,
+     "lon": 10.327929
+    },
+    {
+     "lat": 44.801083,
+     "lon": 10.327929
+    },
+    {
+     "lat": 44.801083,
+     "lon": 10.327866
+    },
+    {
+     "lat": 44.801038,
+     "lon": 10.327866
+    },
+    {
+     "lat": 44.801038,
+     "lon": 10.327613
+    },
+    {
+     "lat": 44.801083,
+     "lon": 10.327613
+    },
+    {
+     "lat": 44.801083,
+     "lon": 10.327423
+    },
+    {
+     "lat": 44.801129,
+     "lon": 10.327423
+    },
+    {
+     "lat": 44.801129,
+     "lon": 10.32736
+    },
+    {
+     "lat": 44.801083,
+     "lon": 10.32736
+    },
+    {
+     "lat": 44.801038,
+     "lon": 10.327043
+    },
+    {
+     "lat": 44.800993,
+     "lon": 10.327043
+    },
+    {
+     "lat": 44.801038,
+     "lon": 10.326727
+    },
+    {
+     "lat": 44.800722,
+     "lon": 10.3266
+    },
+    {
+     "lat": 44.800676,
+     "lon": 10.326473
+    },
+    {
+     "lat": 44.800586,
+     "lon": 10.326537
+    },
+    {
+     "lat": 44.800586,
+     "lon": 10.326663
+    },
+    {
+     "lat": 44.800541,
+     "lon": 10.326663
+    },
+    {
+     "lat": 44.800541,
+     "lon": 10.326727
+    },
+    {
+     "lat": 44.800315,
+     "lon": 10.32679
+    },
+    {
+     "lat": 44.800315,
+     "lon": 10.326853
+    },
+    {
+     "lat": 44.799953,
+     "lon": 10.326853
+    },
+    {
+     "lat": 44.799953,
+     "lon": 10.32679
+    },
+    {
+     "lat": 44.799727,
+     "lon": 10.32679
+    },
+    {
+     "lat": 44.799727,
+     "lon": 10.326727
+    },
+    {
+     "lat": 44.799591,
+     "lon": 10.326727
+    },
+    {
+     "lat": 44.799501,
+     "lon": 10.32717
+    },
+    {
+     "lat": 44.799456,
+     "lon": 10.32717
+    },
+    {
+     "lat": 44.79941,
+     "lon": 10.327296
+    },
+    {
+     "lat": 44.79932,
+     "lon": 10.327296
+    },
+    {
+     "lat": 44.79932,
+     "lon": 10.32736
+    },
+    {
+     "lat": 44.799184,
+     "lon": 10.32736
+    },
+    {
+     "lat": 44.799184,
+     "lon": 10.327423
+    },
+    {
+     "lat": 44.799139,
+     "lon": 10.327423
+    },
+    {
+     "lat": 44.799139,
+     "lon": 10.327486
+    },
+    {
+     "lat": 44.799229,
+     "lon": 10.327486
+    },
+    {
+     "lat": 44.799229,
+     "lon": 10.327549
+    },
+    {
+     "lat": 44.79932,
+     "lon": 10.327549
+    },
+    {
+     "lat": 44.79932,
+     "lon": 10.327613
+    },
+    {
+     "lat": 44.799365,
+     "lon": 10.327613
+    },
+    {
+     "lat": 44.79941,
+     "lon": 10.327929
+    },
+    {
+     "lat": 44.799456,
+     "lon": 10.327929
+    },
+    {
+     "lat": 44.799456,
+     "lon": 10.327993
+    },
+    {
+     "lat": 44.79941,
+     "lon": 10.327993
+    },
+    {
+     "lat": 44.79941,
+     "lon": 10.328182
+    },
+    {
+     "lat": 44.799365,
+     "lon": 10.328182
+    },
+    {
+     "lat": 44.799365,
+     "lon": 10.328309
+    },
+    {
+     "lat": 44.79932,
+     "lon": 10.328309
+    },
+    {
+     "lat": 44.79932,
+     "lon": 10.328372
+    },
+    {
+     "lat": 44.799229,
+     "lon": 10.328372
+    },
+    {
+     "lat": 44.799229,
+     "lon": 10.328436
+    },
+    {
+     "lat": 44.799094,
+     "lon": 10.328436
+    },
+    {
+     "lat": 44.799094,
+     "lon": 10.328499
+    },
+    {
+     "lat": 44.798868,
+     "lon": 10.328499
+    },
+    {
+     "lat": 44.798868,
+     "lon": 10.328436
+    },
+    {
+     "lat": 44.798823,
+     "lon": 10.328436
+    },
+    {
+     "lat": 44.798823,
+     "lon": 10.328562
+    },
+    {
+     "lat": 44.799184,
+     "lon": 10.328562
+    },
+    {
+     "lat": 44.799184,
+     "lon": 10.328626
+    },
+    {
+     "lat": 44.79941,
+     "lon": 10.328689
+    },
+    {
+     "lat": 44.79941,
+     "lon": 10.328752
+    },
+    {
+     "lat": 44.799501,
+     "lon": 10.328815
+    },
+    {
+     "lat": 44.799501,
+     "lon": 10.328942
+    },
+    {
+     "lat": 44.799546,
+     "lon": 10.328942
+    },
+    {
+     "lat": 44.799546,
+     "lon": 10.329132
+    },
+    {
+     "lat": 44.799591,
+     "lon": 10.329132
+    },
+    {
+     "lat": 44.799546,
+     "lon": 10.329512
+    },
+    {
+     "lat": 44.799501,
+     "lon": 10.329512
+    },
+    {
+     "lat": 44.799501,
+     "lon": 10.329765
+    },
+    {
+     "lat": 44.799456,
+     "lon": 10.329765
+    },
+    {
+     "lat": 44.799456,
+     "lon": 10.329955
+    },
+    {
+     "lat": 44.79941,
+     "lon": 10.329955
+    },
+    {
+     "lat": 44.79941,
+     "lon": 10.330081
+    },
+    {
+     "lat": 44.79932,
+     "lon": 10.330145
+    },
+    {
+     "lat": 44.799275,
+     "lon": 10.330271
+    },
+    {
+     "lat": 44.799184,
+     "lon": 10.330271
+    },
+    {
+     "lat": 44.799184,
+     "lon": 10.330335
+    },
+    {
+     "lat": 44.799229,
+     "lon": 10.330335
+    }
+   ],
+   "gates": [
+    {
+     "id": "pr-ia-tommasini-sauro",
+     "name": "Borgo Tommasini / Via Sauro",
+     "location": {
+      "lat": 44.80006,
+      "lon": 10.329335
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Parma",
+    "pageURL": "https://www.infomobility.pr.it/varchi-e-ztl/",
+    "ordinance": "Ordinanza dirigenziale OD-2024-65 del 18/06/2024, tabella 2.1",
+    "ordinanceURL": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf",
+    "quote": "Il divieto di accesso in Isola Ambientale per i veicoli non autorizzati è vigente nella fascia oraria 0-24 dei giorni feriali e festivi",
+    "quoteTranslation": "The ban on unauthorised vehicles entering an Isola Ambientale applies 0–24 on working days and holidays",
+    "quoteTranslation_de": "Das Einfahrverbot für nicht berechtigte Fahrzeuge in eine Isola Ambientale gilt 0–24 Uhr an Werk- und Feiertagen",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Outline computed from the official street list (table 2.1 of ordinance OD-2024-65) on OpenStreetMap streets: approximate, to be checked against the Infomobility map.",
+     "If your hotel is inside, it gives Infomobility's gate office your plate and your arrival and departure dates, at the latest on the day you arrive: you may then drive to the hotel to load and unload luggage only. Ask the hotel before you come.",
+     "Camera positions: OpenStreetMap ALPR cameras on the streets named by Infomobility, matched by GateLR (approximate). Streets without a camera are still part of the ZTL and are checked by the local police."
+    ],
+    "pending_it": [
+     "Contorno ricavato dall'elenco ufficiale delle vie (tabella 2.1 dell'ordinanza OD-2024-65) sulle strade di OpenStreetMap: approssimato, da verificare con la mappa di Infomobility.",
+     "Se l'hotel è dentro, comunica all'Ufficio Varchi di Infomobility la targa e le date di arrivo e partenza, al più tardi il giorno dell'arrivo: puoi allora arrivare all'hotel solo per caricare e scaricare i bagagli. Chiedi all'hotel prima di partire.",
+     "Posizione dei varchi: telecamere ALPR di OpenStreetMap sulle vie indicate da Infomobility, abbinate da GateLR (approssimate). Le vie senza telecamera fanno comunque parte della ZTL e sono controllate dalla Polizia Locale."
+    ],
+    "pending_de": [
+     "Umriss aus der offiziellen Straßenliste (Tabelle 2.1 der Verordnung OD-2024-65) auf OpenStreetMap-Straßen berechnet: ungefähr, mit der Infomobility-Karte abzugleichen.",
+     "Liegt dein Hotel innen, meldet es dem Kamerabüro von Infomobility dein Kennzeichen sowie An- und Abreisedatum, spätestens am Anreisetag: dann darfst du nur zum Be- und Entladen des Gepäcks zum Hotel fahren. Frag vorher im Hotel nach.",
+     "Kamerastandorte: ALPR-Kameras aus OpenStreetMap an den von Infomobility genannten Straßen, von GateLR zugeordnet (ungefähr). Straßen ohne Kamera gehören trotzdem zur ZTL und werden von der Stadtpolizei kontrolliert."
+    ],
+    "links": [
+     {
+      "title": "Infomobility (City of Parma): gates and ZTL, hours and tickets",
+      "title_it": "Infomobility (Comune di Parma): varchi e ZTL, orari e titoli",
+      "title_de": "Infomobility (Stadt Parma): Kameras und ZTL, Zeiten und Tickets",
+      "url": "https://www.infomobility.pr.it/varchi-e-ztl/"
+     },
+     {
+      "title": "Infomobility: ZTL guide for tourists 2026 (PDF)",
+      "title_it": "Infomobility: guida ZTL per turisti 2026 (PDF)",
+      "title_de": "Infomobility: ZTL-Leitfaden für Touristen 2026 (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/08/Cartolina_ZTL_Turisti_2026.pdf"
+     },
+     {
+      "title": "City of Parma: ZTL access ordinance OD-2024-65 (street lists, PDF)",
+      "title_it": "Comune di Parma: ordinanza OD-2024-65 accesso e sosta ZTL (elenchi delle vie, PDF)",
+      "title_de": "Stadt Parma: ZTL-Verordnung OD-2024-65 (Straßenlisten, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf"
+     },
+     {
+      "title": "Infomobility: ZTL streets list (June 2026, PDF)",
+      "title_it": "Infomobility: elenco vie ZTL (giugno 2026, PDF)",
+      "title_de": "Infomobility: ZTL-Straßenliste (Juni 2026, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/06/VieZTL.pdf"
+     },
+     {
+      "title": "Infomobility: hotels and B&Bs (guest plates)",
+      "title_it": "Infomobility: alberghi e B&B (targhe dei clienti)",
+      "title_de": "Infomobility: Hotels und B&Bs (Kennzeichen der Gäste)",
+      "url": "https://www.infomobility.pr.it/permessi-commerciali/"
+     },
+     {
+      "title": "Infomobility: how to buy the ROZ ticket online (PDF)",
+      "title_it": "Infomobility: come acquistare online il titolo ROZ (PDF)",
+      "title_de": "Infomobility: ROZ-Ticket online kaufen (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2025/06/ROZ-Ticket-Purchase-Procedure.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "parma-isola-3",
+   "name": "Isola Ambientale · Piazza delle Barricate",
+   "name_it": "Isola Ambientale · piazza delle Barricate",
+   "name_de": "Isola Ambientale · Piazza delle Barricate",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised cars 24 hours a day, every day, holidays included; the ZTL ticket is not enough. Hotel guests may drive in only to load and unload luggage, once the hotel has registered the plate. With a ZTL ticket you can ask Infomobility's desk for access 9–10:30 am or 3–3:30 pm. Park outside and walk.",
+   "summary_it": "Chiusa alle auto non autorizzate 24 ore su 24, tutti i giorni, festivi compresi; il ticket ZTL non basta. Gli ospiti degli hotel entrano solo per caricare e scaricare i bagagli, dopo che l'hotel ha registrato la targa. Con il ticket ZTL si può chiedere allo sportello Infomobility l'accesso 9–10:30 o 15–15:30. Parcheggia fuori e prosegui a piedi.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Autos gesperrt; das ZTL-Ticket reicht nicht. Hotelgäste dürfen nur zum Be- und Entladen des Gepäcks hinein, nachdem das Hotel das Kennzeichen gemeldet hat. Mit ZTL-Ticket kann man am Infomobility-Schalter Zufahrt 9–10:30 oder 15–15:30 Uhr beantragen. Draußen parken und zu Fuß gehen.",
+   "perimeter": [
+    {
+     "lat": 44.801985,
+     "lon": 10.320001
+    },
+    {
+     "lat": 44.801913,
+     "lon": 10.320102
+    },
+    {
+     "lat": 44.802124,
+     "lon": 10.321369
+    },
+    {
+     "lat": 44.802369,
+     "lon": 10.321964
+    },
+    {
+     "lat": 44.802421,
+     "lon": 10.321994
+    },
+    {
+     "lat": 44.80269,
+     "lon": 10.32187
+    },
+    {
+     "lat": 44.802825,
+     "lon": 10.32137
+    },
+    {
+     "lat": 44.8028,
+     "lon": 10.321271
+    },
+    {
+     "lat": 44.802641,
+     "lon": 10.320952
+    },
+    {
+     "lat": 44.801985,
+     "lon": 10.320001
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Parma",
+    "pageURL": "https://www.infomobility.pr.it/varchi-e-ztl/",
+    "ordinance": "Ordinanza dirigenziale OD-2024-65 del 18/06/2024, tabella 2.1",
+    "ordinanceURL": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf",
+    "quote": "Il divieto di accesso in Isola Ambientale per i veicoli non autorizzati è vigente nella fascia oraria 0-24 dei giorni feriali e festivi",
+    "quoteTranslation": "The ban on unauthorised vehicles entering an Isola Ambientale applies 0–24 on working days and holidays",
+    "quoteTranslation_de": "Das Einfahrverbot für nicht berechtigte Fahrzeuge in eine Isola Ambientale gilt 0–24 Uhr an Werk- und Feiertagen",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Outline computed from the official street list (table 2.1 of ordinance OD-2024-65) on OpenStreetMap streets: approximate, to be checked against the Infomobility map.",
+     "If your hotel is inside, it gives Infomobility's gate office your plate and your arrival and departure dates, at the latest on the day you arrive: you may then drive to the hotel to load and unload luggage only. Ask the hotel before you come.",
+     "No camera here: the ban applies all the same and is enforced by the local police."
+    ],
+    "pending_it": [
+     "Contorno ricavato dall'elenco ufficiale delle vie (tabella 2.1 dell'ordinanza OD-2024-65) sulle strade di OpenStreetMap: approssimato, da verificare con la mappa di Infomobility.",
+     "Se l'hotel è dentro, comunica all'Ufficio Varchi di Infomobility la targa e le date di arrivo e partenza, al più tardi il giorno dell'arrivo: puoi allora arrivare all'hotel solo per caricare e scaricare i bagagli. Chiedi all'hotel prima di partire.",
+     "Qui non ci sono varchi elettronici: il divieto vale lo stesso e lo controlla la Polizia Locale."
+    ],
+    "pending_de": [
+     "Umriss aus der offiziellen Straßenliste (Tabelle 2.1 der Verordnung OD-2024-65) auf OpenStreetMap-Straßen berechnet: ungefähr, mit der Infomobility-Karte abzugleichen.",
+     "Liegt dein Hotel innen, meldet es dem Kamerabüro von Infomobility dein Kennzeichen sowie An- und Abreisedatum, spätestens am Anreisetag: dann darfst du nur zum Be- und Entladen des Gepäcks zum Hotel fahren. Frag vorher im Hotel nach.",
+     "Hier gibt es keine Kamera: das Verbot gilt trotzdem und wird von der Stadtpolizei kontrolliert."
+    ],
+    "links": [
+     {
+      "title": "Infomobility (City of Parma): gates and ZTL, hours and tickets",
+      "title_it": "Infomobility (Comune di Parma): varchi e ZTL, orari e titoli",
+      "title_de": "Infomobility (Stadt Parma): Kameras und ZTL, Zeiten und Tickets",
+      "url": "https://www.infomobility.pr.it/varchi-e-ztl/"
+     },
+     {
+      "title": "Infomobility: ZTL guide for tourists 2026 (PDF)",
+      "title_it": "Infomobility: guida ZTL per turisti 2026 (PDF)",
+      "title_de": "Infomobility: ZTL-Leitfaden für Touristen 2026 (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/08/Cartolina_ZTL_Turisti_2026.pdf"
+     },
+     {
+      "title": "City of Parma: ZTL access ordinance OD-2024-65 (street lists, PDF)",
+      "title_it": "Comune di Parma: ordinanza OD-2024-65 accesso e sosta ZTL (elenchi delle vie, PDF)",
+      "title_de": "Stadt Parma: ZTL-Verordnung OD-2024-65 (Straßenlisten, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf"
+     },
+     {
+      "title": "Infomobility: ZTL streets list (June 2026, PDF)",
+      "title_it": "Infomobility: elenco vie ZTL (giugno 2026, PDF)",
+      "title_de": "Infomobility: ZTL-Straßenliste (Juni 2026, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/06/VieZTL.pdf"
+     },
+     {
+      "title": "Infomobility: hotels and B&Bs (guest plates)",
+      "title_it": "Infomobility: alberghi e B&B (targhe dei clienti)",
+      "title_de": "Infomobility: Hotels und B&Bs (Kennzeichen der Gäste)",
+      "url": "https://www.infomobility.pr.it/permessi-commerciali/"
+     },
+     {
+      "title": "Infomobility: how to buy the ROZ ticket online (PDF)",
+      "title_it": "Infomobility: come acquistare online il titolo ROZ (PDF)",
+      "title_de": "Infomobility: ROZ-Ticket online kaufen (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2025/06/ROZ-Ticket-Purchase-Procedure.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "parma-isola-3i",
+   "name": "Isola Ambientale · Strada Inzani",
+   "name_it": "Isola Ambientale · strada Inzani",
+   "name_de": "Isola Ambientale · Strada Inzani",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised cars 24 hours a day, every day, holidays included; the ZTL ticket is not enough. Hotel guests may drive in only to load and unload luggage, once the hotel has registered the plate. With a ZTL ticket you can ask Infomobility's desk for access 9–10:30 am or 3–3:30 pm. Park outside and walk.",
+   "summary_it": "Chiusa alle auto non autorizzate 24 ore su 24, tutti i giorni, festivi compresi; il ticket ZTL non basta. Gli ospiti degli hotel entrano solo per caricare e scaricare i bagagli, dopo che l'hotel ha registrato la targa. Con il ticket ZTL si può chiedere allo sportello Infomobility l'accesso 9–10:30 o 15–15:30. Parcheggia fuori e prosegui a piedi.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Autos gesperrt; das ZTL-Ticket reicht nicht. Hotelgäste dürfen nur zum Be- und Entladen des Gepäcks hinein, nachdem das Hotel das Kennzeichen gemeldet hat. Mit ZTL-Ticket kann man am Infomobility-Schalter Zufahrt 9–10:30 oder 15–15:30 Uhr beantragen. Draußen parken und zu Fuß gehen.",
+   "perimeter": [
+    {
+     "lat": 44.802445,
+     "lon": 10.318657
+    },
+    {
+     "lat": 44.802373,
+     "lon": 10.318758
+    },
+    {
+     "lat": 44.802365,
+     "lon": 10.319177
+    },
+    {
+     "lat": 44.802488,
+     "lon": 10.32004
+    },
+    {
+     "lat": 44.802561,
+     "lon": 10.320141
+    },
+    {
+     "lat": 44.803416,
+     "lon": 10.318774
+    },
+    {
+     "lat": 44.803343,
+     "lon": 10.318673
+    },
+    {
+     "lat": 44.802445,
+     "lon": 10.318657
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Parma",
+    "pageURL": "https://www.infomobility.pr.it/varchi-e-ztl/",
+    "ordinance": "Ordinanza dirigenziale OD-2024-65 del 18/06/2024, tabella 2.1",
+    "ordinanceURL": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf",
+    "quote": "Il divieto di accesso in Isola Ambientale per i veicoli non autorizzati è vigente nella fascia oraria 0-24 dei giorni feriali e festivi",
+    "quoteTranslation": "The ban on unauthorised vehicles entering an Isola Ambientale applies 0–24 on working days and holidays",
+    "quoteTranslation_de": "Das Einfahrverbot für nicht berechtigte Fahrzeuge in eine Isola Ambientale gilt 0–24 Uhr an Werk- und Feiertagen",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Outline computed from the official street list (table 2.1 of ordinance OD-2024-65) on OpenStreetMap streets: approximate, to be checked against the Infomobility map.",
+     "If your hotel is inside, it gives Infomobility's gate office your plate and your arrival and departure dates, at the latest on the day you arrive: you may then drive to the hotel to load and unload luggage only. Ask the hotel before you come.",
+     "No camera here: the ban applies all the same and is enforced by the local police."
+    ],
+    "pending_it": [
+     "Contorno ricavato dall'elenco ufficiale delle vie (tabella 2.1 dell'ordinanza OD-2024-65) sulle strade di OpenStreetMap: approssimato, da verificare con la mappa di Infomobility.",
+     "Se l'hotel è dentro, comunica all'Ufficio Varchi di Infomobility la targa e le date di arrivo e partenza, al più tardi il giorno dell'arrivo: puoi allora arrivare all'hotel solo per caricare e scaricare i bagagli. Chiedi all'hotel prima di partire.",
+     "Qui non ci sono varchi elettronici: il divieto vale lo stesso e lo controlla la Polizia Locale."
+    ],
+    "pending_de": [
+     "Umriss aus der offiziellen Straßenliste (Tabelle 2.1 der Verordnung OD-2024-65) auf OpenStreetMap-Straßen berechnet: ungefähr, mit der Infomobility-Karte abzugleichen.",
+     "Liegt dein Hotel innen, meldet es dem Kamerabüro von Infomobility dein Kennzeichen sowie An- und Abreisedatum, spätestens am Anreisetag: dann darfst du nur zum Be- und Entladen des Gepäcks zum Hotel fahren. Frag vorher im Hotel nach.",
+     "Hier gibt es keine Kamera: das Verbot gilt trotzdem und wird von der Stadtpolizei kontrolliert."
+    ],
+    "links": [
+     {
+      "title": "Infomobility (City of Parma): gates and ZTL, hours and tickets",
+      "title_it": "Infomobility (Comune di Parma): varchi e ZTL, orari e titoli",
+      "title_de": "Infomobility (Stadt Parma): Kameras und ZTL, Zeiten und Tickets",
+      "url": "https://www.infomobility.pr.it/varchi-e-ztl/"
+     },
+     {
+      "title": "Infomobility: ZTL guide for tourists 2026 (PDF)",
+      "title_it": "Infomobility: guida ZTL per turisti 2026 (PDF)",
+      "title_de": "Infomobility: ZTL-Leitfaden für Touristen 2026 (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/08/Cartolina_ZTL_Turisti_2026.pdf"
+     },
+     {
+      "title": "City of Parma: ZTL access ordinance OD-2024-65 (street lists, PDF)",
+      "title_it": "Comune di Parma: ordinanza OD-2024-65 accesso e sosta ZTL (elenchi delle vie, PDF)",
+      "title_de": "Stadt Parma: ZTL-Verordnung OD-2024-65 (Straßenlisten, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf"
+     },
+     {
+      "title": "Infomobility: ZTL streets list (June 2026, PDF)",
+      "title_it": "Infomobility: elenco vie ZTL (giugno 2026, PDF)",
+      "title_de": "Infomobility: ZTL-Straßenliste (Juni 2026, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/06/VieZTL.pdf"
+     },
+     {
+      "title": "Infomobility: hotels and B&Bs (guest plates)",
+      "title_it": "Infomobility: alberghi e B&B (targhe dei clienti)",
+      "title_de": "Infomobility: Hotels und B&Bs (Kennzeichen der Gäste)",
+      "url": "https://www.infomobility.pr.it/permessi-commerciali/"
+     },
+     {
+      "title": "Infomobility: how to buy the ROZ ticket online (PDF)",
+      "title_it": "Infomobility: come acquistare online il titolo ROZ (PDF)",
+      "title_de": "Infomobility: ROZ-Ticket online kaufen (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2025/06/ROZ-Ticket-Purchase-Procedure.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "parma-ztl-stazione",
+   "name": "ZTL Stazione · Station square",
+   "name_it": "ZTL Stazione · Piazzale della stazione",
+   "name_de": "ZTL Stazione · Bahnhofsplatz",
+   "kind": "restricted",
+   "summary": "The small ZTL in the station square (Via Cecchi and Piazzale Dalla Chiesa, except the south side) is closed to unauthorised cars 24 hours a day, every day. Use the station car parks instead.",
+   "summary_it": "La piccola ZTL della piazza della stazione (via Cecchi e piazzale Dalla Chiesa, escluso il lato sud) è chiusa alle auto non autorizzate 24 ore su 24, tutti i giorni. Usa i parcheggi della stazione.",
+   "summary_de": "Die kleine ZTL am Bahnhofsplatz (Via Cecchi und Piazzale Dalla Chiesa, außer der Südseite) ist rund um die Uhr, täglich für nicht berechtigte Autos gesperrt. Nutze die Bahnhofsparkplätze.",
+   "perimeter": [
+    {
+     "lat": 44.809726,
+     "lon": 10.326257
+    },
+    {
+     "lat": 44.809765,
+     "lon": 10.326267
+    },
+    {
+     "lat": 44.809487,
+     "lon": 10.327513
+    },
+    {
+     "lat": 44.809874,
+     "lon": 10.327684
+    },
+    {
+     "lat": 44.809593,
+     "lon": 10.328971
+    },
+    {
+     "lat": 44.809428,
+     "lon": 10.32896
+    },
+    {
+     "lat": 44.809435,
+     "lon": 10.328903
+    },
+    {
+     "lat": 44.808813,
+     "lon": 10.328738
+    },
+    {
+     "lat": 44.808872,
+     "lon": 10.328384
+    },
+    {
+     "lat": 44.808911,
+     "lon": 10.328332
+    },
+    {
+     "lat": 44.80941,
+     "lon": 10.328528
+    },
+    {
+     "lat": 44.809392,
+     "lon": 10.32861
+    },
+    {
+     "lat": 44.809546,
+     "lon": 10.328678
+    },
+    {
+     "lat": 44.809699,
+     "lon": 10.327987
+    },
+    {
+     "lat": 44.809546,
+     "lon": 10.327917
+    },
+    {
+     "lat": 44.809529,
+     "lon": 10.327996
+    },
+    {
+     "lat": 44.80901,
+     "lon": 10.327775
+    },
+    {
+     "lat": 44.808967,
+     "lon": 10.327686
+    },
+    {
+     "lat": 44.808993,
+     "lon": 10.327442
+    },
+    {
+     "lat": 44.808952,
+     "lon": 10.327308
+    },
+    {
+     "lat": 44.809063,
+     "lon": 10.327312
+    },
+    {
+     "lat": 44.809135,
+     "lon": 10.327384
+    },
+    {
+     "lat": 44.80943,
+     "lon": 10.327494
+    },
+    {
+     "lat": 44.809572,
+     "lon": 10.326799
+    },
+    {
+     "lat": 44.809611,
+     "lon": 10.326802
+    },
+    {
+     "lat": 44.809726,
+     "lon": 10.326257
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Parma",
+    "pageURL": "https://www.infomobility.pr.it/varchi-e-ztl/",
+    "ordinance": "Ordinanza dirigenziale OD-2024-65 del 18/06/2024, tabella 2.5",
+    "ordinanceURL": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf",
+    "quote": "PLE DALLA CHIESA (escluso lato sud) – dalle 00:00 alle 24:00",
+    "quoteTranslation": "Piazzale Dalla Chiesa (except the south side): from 00:00 to 24:00",
+    "quoteTranslation_de": "Piazzale Dalla Chiesa (außer Südseite): von 00:00 bis 24:00 Uhr",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Outline from OpenStreetMap (relation tagged source=Comune di Parma), to be checked against the official street list of ordinance OD-2024-65 and the Infomobility map.",
+     "Whether the GZ/BZ ticket also opens this ZTL is not stated: GateLR treats it as closed."
+    ],
+    "pending_it": [
+     "Contorno da OpenStreetMap (relazione con source=Comune di Parma), da verificare con l'elenco ufficiale delle vie dell'ordinanza OD-2024-65 e con la mappa di Infomobility.",
+     "Non è indicato se il ticket GZ/BZ valga anche per questa ZTL: GateLR la considera chiusa."
+    ],
+    "pending_de": [
+     "Umriss aus OpenStreetMap (Relation mit source=Comune di Parma), mit der offiziellen Straßenliste der Verordnung OD-2024-65 und der Infomobility-Karte abzugleichen.",
+     "Ob das GZ/BZ-Ticket auch für diese ZTL gilt, ist nicht angegeben: GateLR behandelt sie als gesperrt."
+    ],
+    "links": [
+     {
+      "title": "Infomobility (City of Parma): gates and ZTL, hours and tickets",
+      "title_it": "Infomobility (Comune di Parma): varchi e ZTL, orari e titoli",
+      "title_de": "Infomobility (Stadt Parma): Kameras und ZTL, Zeiten und Tickets",
+      "url": "https://www.infomobility.pr.it/varchi-e-ztl/"
+     },
+     {
+      "title": "Infomobility: ZTL guide for tourists 2026 (PDF)",
+      "title_it": "Infomobility: guida ZTL per turisti 2026 (PDF)",
+      "title_de": "Infomobility: ZTL-Leitfaden für Touristen 2026 (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/08/Cartolina_ZTL_Turisti_2026.pdf"
+     },
+     {
+      "title": "City of Parma: ZTL access ordinance OD-2024-65 (street lists, PDF)",
+      "title_it": "Comune di Parma: ordinanza OD-2024-65 accesso e sosta ZTL (elenchi delle vie, PDF)",
+      "title_de": "Stadt Parma: ZTL-Verordnung OD-2024-65 (Straßenlisten, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2024/06/ordinanza_2024_65_18.06.2024.pdf"
+     },
+     {
+      "title": "Infomobility: ZTL streets list (June 2026, PDF)",
+      "title_it": "Infomobility: elenco vie ZTL (giugno 2026, PDF)",
+      "title_de": "Infomobility: ZTL-Straßenliste (Juni 2026, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/06/VieZTL.pdf"
+     },
+     {
+      "title": "Infomobility: hotels and B&Bs (guest plates)",
+      "title_it": "Infomobility: alberghi e B&B (targhe dei clienti)",
+      "title_de": "Infomobility: Hotels und B&Bs (Kennzeichen der Gäste)",
+      "url": "https://www.infomobility.pr.it/permessi-commerciali/"
+     },
+     {
+      "title": "Infomobility: how to buy the ROZ ticket online (PDF)",
+      "title_it": "Infomobility: come acquistare online il titolo ROZ (PDF)",
+      "title_de": "Infomobility: ROZ-Ticket online kaufen (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2025/06/ROZ-Ticket-Purchase-Procedure.pdf"
+     },
+     {
+      "title": "OpenStreetMap: relation 19457326 (ODbL)",
+      "title_it": "OpenStreetMap: relazione 19457326 (ODbL)",
+      "title_de": "OpenStreetMap: Relation 19457326 (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/19457326"
+     }
+    ]
+   }
+  },
+  {
+   "id": "parma-pair",
+   "name": "Smog limits · Inside the ring roads",
+   "name_it": "Limitazioni antismog · Dentro le tangenziali",
+   "name_de": "Smog-Fahrverbot · Innerhalb der Ringstraßen",
+   "kind": "green",
+   "summary": "From 1 October 2026 to 31 March 2027, Monday to Friday 8:30 am–6:30 pm, the oldest cars can't drive inside the ring roads: petrol, LPG and methane up to Euro 2, diesel up to Euro 4. Electric and hybrid cars are exempt. Not on 8 and 25 December, 1 and 6 January. On emergency days it runs 8 am–7 pm and includes diesel Euro 5. Fine €168–679.",
+   "summary_it": "Dal 1° ottobre 2026 al 31 marzo 2027, dal lunedì al venerdì 8:30–18:30, le auto più vecchie non possono circolare dentro le tangenziali: benzina, GPL e metano fino a Euro 2, diesel fino a Euro 4. Elettriche e ibride sono esenti. Non l'8 e il 25 dicembre, l'1 e il 6 gennaio. Nei giorni di misure emergenziali vale 8–19 e anche per i diesel Euro 5. Multa 168–679 €.",
+   "summary_de": "Vom 1. Oktober 2026 bis 31. März 2027, montags bis freitags 8:30–18:30 Uhr, dürfen die ältesten Autos innerhalb der Ringstraßen nicht fahren: Benzin, Autogas und Erdgas bis Euro 2, Diesel bis Euro 4. Elektro- und Hybridautos sind ausgenommen. Nicht am 8. und 25. Dezember, 1. und 6. Januar. An Notfalltagen gilt es 8–19 Uhr und auch für Diesel Euro 5. Bußgeld 168–679 €.",
+   "perimeter": [
+    {
+     "lat": 44.808002,
+     "lon": 10.351843
+    },
+    {
+     "lat": 44.810941,
+     "lon": 10.351526
+    },
+    {
+     "lat": 44.811845,
+     "lon": 10.350893
+    },
+    {
+     "lat": 44.81275,
+     "lon": 10.349311
+    },
+    {
+     "lat": 44.813202,
+     "lon": 10.349311
+    },
+    {
+     "lat": 44.813654,
+     "lon": 10.348361
+    },
+    {
+     "lat": 44.814106,
+     "lon": 10.348361
+    },
+    {
+     "lat": 44.814785,
+     "lon": 10.347096
+    },
+    {
+     "lat": 44.815237,
+     "lon": 10.347096
+    },
+    {
+     "lat": 44.816141,
+     "lon": 10.34583
+    },
+    {
+     "lat": 44.817046,
+     "lon": 10.342981
+    },
+    {
+     "lat": 44.81908,
+     "lon": 10.340766
+    },
+    {
+     "lat": 44.819533,
+     "lon": 10.340766
+    },
+    {
+     "lat": 44.820889,
+     "lon": 10.338867
+    },
+    {
+     "lat": 44.821567,
+     "lon": 10.336335
+    },
+    {
+     "lat": 44.821567,
+     "lon": 10.324942
+    },
+    {
+     "lat": 44.82202,
+     "lon": 10.315765
+    },
+    {
+     "lat": 44.821341,
+     "lon": 10.30722
+    },
+    {
+     "lat": 44.820663,
+     "lon": 10.305005
+    },
+    {
+     "lat": 44.819985,
+     "lon": 10.304055
+    },
+    {
+     "lat": 44.81682,
+     "lon": 10.302789
+    },
+    {
+     "lat": 44.815237,
+     "lon": 10.30089
+    },
+    {
+     "lat": 44.814785,
+     "lon": 10.299625
+    },
+    {
+     "lat": 44.814559,
+     "lon": 10.29646
+    },
+    {
+     "lat": 44.815237,
+     "lon": 10.288231
+    },
+    {
+     "lat": 44.815915,
+     "lon": 10.286333
+    },
+    {
+     "lat": 44.815915,
+     "lon": 10.28475
+    },
+    {
+     "lat": 44.815011,
+     "lon": 10.28475
+    },
+    {
+     "lat": 44.814332,
+     "lon": 10.285383
+    },
+    {
+     "lat": 44.812072,
+     "lon": 10.285383
+    },
+    {
+     "lat": 44.80868,
+     "lon": 10.283801
+    },
+    {
+     "lat": 44.80348,
+     "lon": 10.284117
+    },
+    {
+     "lat": 44.799636,
+     "lon": 10.282218
+    },
+    {
+     "lat": 44.796697,
+     "lon": 10.282218
+    },
+    {
+     "lat": 44.794436,
+     "lon": 10.282851
+    },
+    {
+     "lat": 44.791497,
+     "lon": 10.282851
+    },
+    {
+     "lat": 44.789236,
+     "lon": 10.281902
+    },
+    {
+     "lat": 44.786749,
+     "lon": 10.282218
+    },
+    {
+     "lat": 44.785393,
+     "lon": 10.283801
+    },
+    {
+     "lat": 44.784262,
+     "lon": 10.288231
+    },
+    {
+     "lat": 44.783584,
+     "lon": 10.289181
+    },
+    {
+     "lat": 44.783132,
+     "lon": 10.289181
+    },
+    {
+     "lat": 44.782453,
+     "lon": 10.290447
+    },
+    {
+     "lat": 44.782001,
+     "lon": 10.290447
+    },
+    {
+     "lat": 44.780645,
+     "lon": 10.292979
+    },
+    {
+     "lat": 44.77974,
+     "lon": 10.30184
+    },
+    {
+     "lat": 44.778158,
+     "lon": 10.304055
+    },
+    {
+     "lat": 44.775671,
+     "lon": 10.305954
+    },
+    {
+     "lat": 44.774766,
+     "lon": 10.30722
+    },
+    {
+     "lat": 44.774314,
+     "lon": 10.30722
+    },
+    {
+     "lat": 44.773184,
+     "lon": 10.308802
+    },
+    {
+     "lat": 44.771375,
+     "lon": 10.316714
+    },
+    {
+     "lat": 44.768888,
+     "lon": 10.320512
+    },
+    {
+     "lat": 44.767983,
+     "lon": 10.321145
+    },
+    {
+     "lat": 44.767531,
+     "lon": 10.322411
+    },
+    {
+     "lat": 44.767531,
+     "lon": 10.325259
+    },
+    {
+     "lat": 44.768436,
+     "lon": 10.327158
+    },
+    {
+     "lat": 44.769792,
+     "lon": 10.328107
+    },
+    {
+     "lat": 44.774314,
+     "lon": 10.328424
+    },
+    {
+     "lat": 44.775671,
+     "lon": 10.330006
+    },
+    {
+     "lat": 44.776123,
+     "lon": 10.331588
+    },
+    {
+     "lat": 44.776123,
+     "lon": 10.339817
+    },
+    {
+     "lat": 44.774992,
+     "lon": 10.343614
+    },
+    {
+     "lat": 44.77454,
+     "lon": 10.347096
+    },
+    {
+     "lat": 44.77454,
+     "lon": 10.350893
+    },
+    {
+     "lat": 44.775218,
+     "lon": 10.353109
+    },
+    {
+     "lat": 44.775218,
+     "lon": 10.357856
+    },
+    {
+     "lat": 44.774314,
+     "lon": 10.364185
+    },
+    {
+     "lat": 44.774766,
+     "lon": 10.368616
+    },
+    {
+     "lat": 44.776123,
+     "lon": 10.372413
+    },
+    {
+     "lat": 44.777479,
+     "lon": 10.374629
+    },
+    {
+     "lat": 44.780645,
+     "lon": 10.376528
+    },
+    {
+     "lat": 44.781549,
+     "lon": 10.37811
+    },
+    {
+     "lat": 44.782453,
+     "lon": 10.378743
+    },
+    {
+     "lat": 44.784714,
+     "lon": 10.379059
+    },
+    {
+     "lat": 44.785619,
+     "lon": 10.37811
+    },
+    {
+     "lat": 44.786975,
+     "lon": 10.374312
+    },
+    {
+     "lat": 44.787427,
+     "lon": 10.37178
+    },
+    {
+     "lat": 44.788106,
+     "lon": 10.371147
+    },
+    {
+     "lat": 44.788332,
+     "lon": 10.370198
+    },
+    {
+     "lat": 44.789236,
+     "lon": 10.370198
+    },
+    {
+     "lat": 44.789688,
+     "lon": 10.369565
+    },
+    {
+     "lat": 44.790819,
+     "lon": 10.369249
+    },
+    {
+     "lat": 44.795793,
+     "lon": 10.368616
+    },
+    {
+     "lat": 44.796923,
+     "lon": 10.367983
+    },
+    {
+     "lat": 44.799636,
+     "lon": 10.363869
+    },
+    {
+     "lat": 44.799636,
+     "lon": 10.363236
+    },
+    {
+     "lat": 44.801445,
+     "lon": 10.36102
+    },
+    {
+     "lat": 44.801445,
+     "lon": 10.360387
+    },
+    {
+     "lat": 44.802576,
+     "lon": 10.359122
+    },
+    {
+     "lat": 44.802576,
+     "lon": 10.358489
+    },
+    {
+     "lat": 44.804158,
+     "lon": 10.35659
+    },
+    {
+     "lat": 44.804158,
+     "lon": 10.355957
+    },
+    {
+     "lat": 44.805741,
+     "lon": 10.354058
+    },
+    {
+     "lat": 44.805741,
+     "lon": 10.353425
+    },
+    {
+     "lat": 44.808002,
+     "lon": 10.351843
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 10,
+      "fromDay": 1,
+      "toMonth": 12,
+      "toDay": 7
+     }
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 12,
+      "fromDay": 9,
+      "toMonth": 12,
+      "toDay": 24
+     }
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 12,
+      "fromDay": 26,
+      "toMonth": 12,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 1,
+      "fromDay": 2,
+      "toMonth": 1,
+      "toDay": 5
+     }
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 1,
+      "fromDay": 7,
+      "toMonth": 3,
+      "toDay": 31
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [
+    "electric",
+    "hybrid"
+   ],
+   "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 2,
+     "since": "2026-10-01"
+    },
+    {
+     "fuel": "lpg",
+     "maxEuro": 2,
+     "since": "2026-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 4,
+     "since": "2026-10-01"
+    }
+   ],
+   "source": {
+    "authority": "City of Parma",
+    "pageURL": "https://www.infomobility.pr.it/pair-2030-dal-1-ottobre-2026-in-vigore-le-misure-per-la-qualita-dellaria-previste-dal-piano-aria-integrato-regionale/",
+    "ordinance": "Ordinanza sindacale OS-2026-102 del 28/09/2026 (PAIR 2030)",
+    "ordinanceURL": "https://www.infomobility.pr.it/wp-content/uploads/2026/10/SU_DET_OS_102_2026.pdf",
+    "quote": "Dal 01/10/2026 al 31/03/2027, dal lunedì al venerdì, dalle 08.30 alle 18.30, eccetto che nelle giornate festive del 08/12/2026, 25/12/2026, 01/01/2027, 06/01/2027",
+    "quoteTranslation": "From 01/10/2026 to 31/03/2027, Monday to Friday, from 8:30 to 18:30, except on the holidays of 08/12/2026, 25/12/2026, 01/01/2027, 06/01/2027",
+    "quoteTranslation_de": "Vom 01.10.2026 bis 31.03.2027, Montag bis Freitag, von 8:30 bis 18:30 Uhr, außer an den Feiertagen 08.12.2026, 25.12.2026, 01.01.2027, 06.01.2027",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "On emergency days (Arpae bulletin on Monday, Wednesday and Friday, valid from the next day) the ban runs 8 am–7 pm and also covers diesel Euro 5: GateLR doesn't know when they are on, check Arpae's bulletin.",
+     "Some access roads to the park-and-ride car parks, hospitals and station stay open (list in the ordinance); the Area delle Scienze campus south of the ring road is also included. GateLR shows only the area inside the ring roads, outline from OpenStreetMap.",
+     "Hotel guests inside the area may drive to and from the hotel with the booking (or send the hotel's stamped statement to the local police within 10 days); cars with at least three people aboard are also exempt. GateLR doesn't check this.",
+     "Dates valid for the 2026/2027 season only. No ban on days of local public transport strikes."
+    ],
+    "pending_it": [
+     "Nei giorni di misure emergenziali (bollettino Arpae di lunedì, mercoledì e venerdì, valido dal giorno dopo) il divieto vale 8–19 e anche per i diesel Euro 5: GateLR non sa quando sono attive, guarda il bollettino Arpae.",
+     "Alcune vie d'accesso a parcheggi scambiatori, ospedali e stazione restano percorribili (elenco nell'ordinanza); è compreso anche il Campus dell'Area delle Scienze a sud della tangenziale. GateLR mostra solo l'area interna alle tangenziali, contorno da OpenStreetMap.",
+     "Gli ospiti degli hotel nell'area possono arrivare e partire dall'hotel con la prenotazione (o inviando alla Polizia Locale entro 10 giorni l'attestazione vistata dall'hotel); esenti anche le auto con almeno tre persone a bordo. GateLR non lo verifica.",
+     "Date valide solo per la stagione 2026/2027. Nessun divieto nei giorni di sciopero del trasporto pubblico locale."
+    ],
+    "pending_de": [
+     "An Tagen mit Notfallmaßnahmen (Arpae-Bulletin montags, mittwochs und freitags, gültig ab dem Folgetag) gilt das Verbot 8–19 Uhr und auch für Diesel Euro 5: GateLR weiß nicht, wann sie gelten, siehe Arpae-Bulletin.",
+     "Einige Zufahrten zu Park-and-Ride-Plätzen, Krankenhäusern und Bahnhof bleiben offen (Liste in der Verordnung); auch der Campus Area delle Scienze südlich der Ringstraße gehört dazu. GateLR zeigt nur das Gebiet innerhalb der Ringstraßen, Umriss aus OpenStreetMap.",
+     "Hotelgäste im Gebiet dürfen mit der Buchung zum Hotel und zurück fahren (oder binnen 10 Tagen die abgestempelte Bestätigung des Hotels an die Stadtpolizei schicken); ausgenommen sind auch Autos mit mindestens drei Personen. GateLR prüft das nicht.",
+     "Daten nur für die Saison 2026/2027. Kein Verbot an Streiktagen im öffentlichen Nahverkehr."
+    ],
+    "links": [
+     {
+      "title": "Infomobility: PAIR 2030 air-quality measures from 1 October 2026",
+      "title_it": "Infomobility: misure PAIR 2030 per la qualità dell'aria dal 1° ottobre 2026",
+      "title_de": "Infomobility: Luftreinhaltemaßnahmen PAIR 2030 ab 1. Oktober 2026",
+      "url": "https://www.infomobility.pr.it/pair-2030-dal-1-ottobre-2026-in-vigore-le-misure-per-la-qualita-dellaria-previste-dal-piano-aria-integrato-regionale/"
+     },
+     {
+      "title": "City of Parma: Mayor's ordinance OS-2026-102 (PDF)",
+      "title_it": "Comune di Parma: ordinanza sindacale OS-2026-102 (PDF)",
+      "title_de": "Stadt Parma: Verordnung des Bürgermeisters OS-2026-102 (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/10/SU_DET_OS_102_2026.pdf"
+     },
+     {
+      "title": "City of Parma: map of the area inside the ring roads (Annex 1, PDF)",
+      "title_it": "Comune di Parma: mappa dell'area interna alle tangenziali (allegato 1, PDF)",
+      "title_de": "Stadt Parma: Karte des Gebiets innerhalb der Ringstraßen (Anlage 1, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/10/area-soggetta-limitazioni-pair2030.pdf"
+     },
+     {
+      "title": "Arpae Emilia-Romagna: emergency measures bulletin",
+      "title_it": "Arpae Emilia-Romagna: bollettino misure emergenziali",
+      "title_de": "Arpae Emilia-Romagna: Bulletin der Notfallmaßnahmen",
+      "url": "https://www.arpae.it/it/temi-ambientali/aria/liberiamo-laria/bollettino-misure-emergenziali/bollettino-misure-emergenziali"
+     },
+     {
+      "title": "Arpae Emilia-Romagna: Parma PAIR ordinances",
+      "title_it": "Arpae Emilia-Romagna: ordinanze PAIR di Parma",
+      "title_de": "Arpae Emilia-Romagna: PAIR-Verordnungen Parma",
+      "url": "https://aggiornati.arpae.it/it/temi-ambientali/aria/liberiamo-laria/limitazioni-per-comune/parma-ordinanze-pair"
+     },
+     {
+      "title": "Italian Motorist Portal: check your car's Euro class",
+      "title_it": "Portale dell'Automobilista: verifica la classe Euro",
+      "title_de": "Italienisches Fahrerportal: Euro-Klasse prüfen",
+      "url": "https://www.ilportaledellautomobilista.it/web/portale-automobilista/ext/verifica-classe-ambientale-veicolo"
+     }
+    ]
+   }
+  },
+  {
+   "id": "parma-domeniche-ecologiche",
+   "name": "Eco Sundays · Inside the ring roads",
+   "name_it": "Domeniche ecologiche · Dentro le tangenziali",
+   "name_de": "Öko-Sonntage · Innerhalb der Ringstraßen",
+   "kind": "green",
+   "summary": "Every Sunday from 4 October 2026 to 28 March 2027 (except 1 November), 8:30 am–6:30 pm, inside the ring roads: no petrol, LPG or methane cars up to Euro 2 and no diesel up to Euro 5. Electric and hybrid cars are exempt. Fine €168–679.",
+   "summary_it": "Ogni domenica dal 4 ottobre 2026 al 28 marzo 2027 (tranne il 1° novembre), 8:30–18:30, dentro le tangenziali: vietate le auto a benzina, GPL e metano fino a Euro 2 e i diesel fino a Euro 5. Elettriche e ibride sono esenti. Multa 168–679 €.",
+   "summary_de": "Jeden Sonntag vom 4. Oktober 2026 bis 28. März 2027 (außer 1. November), 8:30–18:30 Uhr, innerhalb der Ringstraßen: keine Benzin-, Autogas- und Erdgasautos bis Euro 2 und keine Diesel bis Euro 5. Elektro- und Hybridautos sind ausgenommen. Bußgeld 168–679 €.",
+   "perimeter": [
+    {
+     "lat": 44.808002,
+     "lon": 10.351843
+    },
+    {
+     "lat": 44.810941,
+     "lon": 10.351526
+    },
+    {
+     "lat": 44.811845,
+     "lon": 10.350893
+    },
+    {
+     "lat": 44.81275,
+     "lon": 10.349311
+    },
+    {
+     "lat": 44.813202,
+     "lon": 10.349311
+    },
+    {
+     "lat": 44.813654,
+     "lon": 10.348361
+    },
+    {
+     "lat": 44.814106,
+     "lon": 10.348361
+    },
+    {
+     "lat": 44.814785,
+     "lon": 10.347096
+    },
+    {
+     "lat": 44.815237,
+     "lon": 10.347096
+    },
+    {
+     "lat": 44.816141,
+     "lon": 10.34583
+    },
+    {
+     "lat": 44.817046,
+     "lon": 10.342981
+    },
+    {
+     "lat": 44.81908,
+     "lon": 10.340766
+    },
+    {
+     "lat": 44.819533,
+     "lon": 10.340766
+    },
+    {
+     "lat": 44.820889,
+     "lon": 10.338867
+    },
+    {
+     "lat": 44.821567,
+     "lon": 10.336335
+    },
+    {
+     "lat": 44.821567,
+     "lon": 10.324942
+    },
+    {
+     "lat": 44.82202,
+     "lon": 10.315765
+    },
+    {
+     "lat": 44.821341,
+     "lon": 10.30722
+    },
+    {
+     "lat": 44.820663,
+     "lon": 10.305005
+    },
+    {
+     "lat": 44.819985,
+     "lon": 10.304055
+    },
+    {
+     "lat": 44.81682,
+     "lon": 10.302789
+    },
+    {
+     "lat": 44.815237,
+     "lon": 10.30089
+    },
+    {
+     "lat": 44.814785,
+     "lon": 10.299625
+    },
+    {
+     "lat": 44.814559,
+     "lon": 10.29646
+    },
+    {
+     "lat": 44.815237,
+     "lon": 10.288231
+    },
+    {
+     "lat": 44.815915,
+     "lon": 10.286333
+    },
+    {
+     "lat": 44.815915,
+     "lon": 10.28475
+    },
+    {
+     "lat": 44.815011,
+     "lon": 10.28475
+    },
+    {
+     "lat": 44.814332,
+     "lon": 10.285383
+    },
+    {
+     "lat": 44.812072,
+     "lon": 10.285383
+    },
+    {
+     "lat": 44.80868,
+     "lon": 10.283801
+    },
+    {
+     "lat": 44.80348,
+     "lon": 10.284117
+    },
+    {
+     "lat": 44.799636,
+     "lon": 10.282218
+    },
+    {
+     "lat": 44.796697,
+     "lon": 10.282218
+    },
+    {
+     "lat": 44.794436,
+     "lon": 10.282851
+    },
+    {
+     "lat": 44.791497,
+     "lon": 10.282851
+    },
+    {
+     "lat": 44.789236,
+     "lon": 10.281902
+    },
+    {
+     "lat": 44.786749,
+     "lon": 10.282218
+    },
+    {
+     "lat": 44.785393,
+     "lon": 10.283801
+    },
+    {
+     "lat": 44.784262,
+     "lon": 10.288231
+    },
+    {
+     "lat": 44.783584,
+     "lon": 10.289181
+    },
+    {
+     "lat": 44.783132,
+     "lon": 10.289181
+    },
+    {
+     "lat": 44.782453,
+     "lon": 10.290447
+    },
+    {
+     "lat": 44.782001,
+     "lon": 10.290447
+    },
+    {
+     "lat": 44.780645,
+     "lon": 10.292979
+    },
+    {
+     "lat": 44.77974,
+     "lon": 10.30184
+    },
+    {
+     "lat": 44.778158,
+     "lon": 10.304055
+    },
+    {
+     "lat": 44.775671,
+     "lon": 10.305954
+    },
+    {
+     "lat": 44.774766,
+     "lon": 10.30722
+    },
+    {
+     "lat": 44.774314,
+     "lon": 10.30722
+    },
+    {
+     "lat": 44.773184,
+     "lon": 10.308802
+    },
+    {
+     "lat": 44.771375,
+     "lon": 10.316714
+    },
+    {
+     "lat": 44.768888,
+     "lon": 10.320512
+    },
+    {
+     "lat": 44.767983,
+     "lon": 10.321145
+    },
+    {
+     "lat": 44.767531,
+     "lon": 10.322411
+    },
+    {
+     "lat": 44.767531,
+     "lon": 10.325259
+    },
+    {
+     "lat": 44.768436,
+     "lon": 10.327158
+    },
+    {
+     "lat": 44.769792,
+     "lon": 10.328107
+    },
+    {
+     "lat": 44.774314,
+     "lon": 10.328424
+    },
+    {
+     "lat": 44.775671,
+     "lon": 10.330006
+    },
+    {
+     "lat": 44.776123,
+     "lon": 10.331588
+    },
+    {
+     "lat": 44.776123,
+     "lon": 10.339817
+    },
+    {
+     "lat": 44.774992,
+     "lon": 10.343614
+    },
+    {
+     "lat": 44.77454,
+     "lon": 10.347096
+    },
+    {
+     "lat": 44.77454,
+     "lon": 10.350893
+    },
+    {
+     "lat": 44.775218,
+     "lon": 10.353109
+    },
+    {
+     "lat": 44.775218,
+     "lon": 10.357856
+    },
+    {
+     "lat": 44.774314,
+     "lon": 10.364185
+    },
+    {
+     "lat": 44.774766,
+     "lon": 10.368616
+    },
+    {
+     "lat": 44.776123,
+     "lon": 10.372413
+    },
+    {
+     "lat": 44.777479,
+     "lon": 10.374629
+    },
+    {
+     "lat": 44.780645,
+     "lon": 10.376528
+    },
+    {
+     "lat": 44.781549,
+     "lon": 10.37811
+    },
+    {
+     "lat": 44.782453,
+     "lon": 10.378743
+    },
+    {
+     "lat": 44.784714,
+     "lon": 10.379059
+    },
+    {
+     "lat": 44.785619,
+     "lon": 10.37811
+    },
+    {
+     "lat": 44.786975,
+     "lon": 10.374312
+    },
+    {
+     "lat": 44.787427,
+     "lon": 10.37178
+    },
+    {
+     "lat": 44.788106,
+     "lon": 10.371147
+    },
+    {
+     "lat": 44.788332,
+     "lon": 10.370198
+    },
+    {
+     "lat": 44.789236,
+     "lon": 10.370198
+    },
+    {
+     "lat": 44.789688,
+     "lon": 10.369565
+    },
+    {
+     "lat": 44.790819,
+     "lon": 10.369249
+    },
+    {
+     "lat": 44.795793,
+     "lon": 10.368616
+    },
+    {
+     "lat": 44.796923,
+     "lon": 10.367983
+    },
+    {
+     "lat": 44.799636,
+     "lon": 10.363869
+    },
+    {
+     "lat": 44.799636,
+     "lon": 10.363236
+    },
+    {
+     "lat": 44.801445,
+     "lon": 10.36102
+    },
+    {
+     "lat": 44.801445,
+     "lon": 10.360387
+    },
+    {
+     "lat": 44.802576,
+     "lon": 10.359122
+    },
+    {
+     "lat": 44.802576,
+     "lon": 10.358489
+    },
+    {
+     "lat": 44.804158,
+     "lon": 10.35659
+    },
+    {
+     "lat": 44.804158,
+     "lon": 10.355957
+    },
+    {
+     "lat": 44.805741,
+     "lon": 10.354058
+    },
+    {
+     "lat": 44.805741,
+     "lon": 10.353425
+    },
+    {
+     "lat": 44.808002,
+     "lon": 10.351843
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 10,
+      "fromDay": 1,
+      "toMonth": 10,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 510,
+     "end": 1110,
+     "season": {
+      "fromMonth": 11,
+      "fromDay": 2,
+      "toMonth": 3,
+      "toDay": 31
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [
+    "electric",
+    "hybrid"
+   ],
+   "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 2,
+     "since": "2026-10-01"
+    },
+    {
+     "fuel": "lpg",
+     "maxEuro": 2,
+     "since": "2026-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 5,
+     "since": "2026-10-01"
+    }
+   ],
+   "source": {
+    "authority": "City of Parma",
+    "pageURL": "https://www.infomobility.pr.it/pair-2030-dal-1-ottobre-2026-in-vigore-le-misure-per-la-qualita-dellaria-previste-dal-piano-aria-integrato-regionale/",
+    "ordinance": "Ordinanza sindacale OS-2026-102 del 28/09/2026 (PAIR 2030)",
+    "ordinanceURL": "https://www.infomobility.pr.it/wp-content/uploads/2026/10/SU_DET_OS_102_2026.pdf",
+    "quote": "Nelle domeniche ecologiche previste ogni domenica dal 01/10/2026 al 31/03/2027, dalle 08.30 alle 18.30, ad eccezione del 01/11/2026",
+    "quoteTranslation": "On the eco Sundays, every Sunday from 01/10/2026 to 31/03/2027, from 8:30 to 18:30, except 01/11/2026",
+    "quoteTranslation_de": "An den Öko-Sonntagen, jeden Sonntag vom 01.10.2026 bis 31.03.2027, von 8:30 bis 18:30 Uhr, außer am 01.11.2026",
+    "checkedOn": "2026-10-26T08:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Some access roads to the park-and-ride car parks, hospitals and station stay open (list in the ordinance); the Area delle Scienze campus south of the ring road is also included. GateLR shows only the area inside the ring roads, outline from OpenStreetMap.",
+     "Hotel guests inside the area may drive to and from the hotel with the booking (or send the hotel's stamped statement to the local police within 10 days); cars with at least three people aboard are also exempt. GateLR doesn't check this.",
+     "Dates valid for the 2026/2027 season only. No ban on days of local public transport strikes."
+    ],
+    "pending_it": [
+     "Alcune vie d'accesso a parcheggi scambiatori, ospedali e stazione restano percorribili (elenco nell'ordinanza); è compreso anche il Campus dell'Area delle Scienze a sud della tangenziale. GateLR mostra solo l'area interna alle tangenziali, contorno da OpenStreetMap.",
+     "Gli ospiti degli hotel nell'area possono arrivare e partire dall'hotel con la prenotazione (o inviando alla Polizia Locale entro 10 giorni l'attestazione vistata dall'hotel); esenti anche le auto con almeno tre persone a bordo. GateLR non lo verifica.",
+     "Date valide solo per la stagione 2026/2027. Nessun divieto nei giorni di sciopero del trasporto pubblico locale."
+    ],
+    "pending_de": [
+     "Einige Zufahrten zu Park-and-Ride-Plätzen, Krankenhäusern und Bahnhof bleiben offen (Liste in der Verordnung); auch der Campus Area delle Scienze südlich der Ringstraße gehört dazu. GateLR zeigt nur das Gebiet innerhalb der Ringstraßen, Umriss aus OpenStreetMap.",
+     "Hotelgäste im Gebiet dürfen mit der Buchung zum Hotel und zurück fahren (oder binnen 10 Tagen die abgestempelte Bestätigung des Hotels an die Stadtpolizei schicken); ausgenommen sind auch Autos mit mindestens drei Personen. GateLR prüft das nicht.",
+     "Daten nur für die Saison 2026/2027. Kein Verbot an Streiktagen im öffentlichen Nahverkehr."
+    ],
+    "links": [
+     {
+      "title": "Infomobility: PAIR 2030 air-quality measures from 1 October 2026",
+      "title_it": "Infomobility: misure PAIR 2030 per la qualità dell'aria dal 1° ottobre 2026",
+      "title_de": "Infomobility: Luftreinhaltemaßnahmen PAIR 2030 ab 1. Oktober 2026",
+      "url": "https://www.infomobility.pr.it/pair-2030-dal-1-ottobre-2026-in-vigore-le-misure-per-la-qualita-dellaria-previste-dal-piano-aria-integrato-regionale/"
+     },
+     {
+      "title": "City of Parma: Mayor's ordinance OS-2026-102 (PDF)",
+      "title_it": "Comune di Parma: ordinanza sindacale OS-2026-102 (PDF)",
+      "title_de": "Stadt Parma: Verordnung des Bürgermeisters OS-2026-102 (PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/10/SU_DET_OS_102_2026.pdf"
+     },
+     {
+      "title": "City of Parma: map of the area inside the ring roads (Annex 1, PDF)",
+      "title_it": "Comune di Parma: mappa dell'area interna alle tangenziali (allegato 1, PDF)",
+      "title_de": "Stadt Parma: Karte des Gebiets innerhalb der Ringstraßen (Anlage 1, PDF)",
+      "url": "https://www.infomobility.pr.it/wp-content/uploads/2026/10/area-soggetta-limitazioni-pair2030.pdf"
+     },
+     {
+      "title": "Arpae Emilia-Romagna: emergency measures bulletin",
+      "title_it": "Arpae Emilia-Romagna: bollettino misure emergenziali",
+      "title_de": "Arpae Emilia-Romagna: Bulletin der Notfallmaßnahmen",
+      "url": "https://www.arpae.it/it/temi-ambientali/aria/liberiamo-laria/bollettino-misure-emergenziali/bollettino-misure-emergenziali"
+     },
+     {
+      "title": "Arpae Emilia-Romagna: Parma PAIR ordinances",
+      "title_it": "Arpae Emilia-Romagna: ordinanze PAIR di Parma",
+      "title_de": "Arpae Emilia-Romagna: PAIR-Verordnungen Parma",
+      "url": "https://aggiornati.arpae.it/it/temi-ambientali/aria/liberiamo-laria/limitazioni-per-comune/parma-ordinanze-pair"
+     },
+     {
+      "title": "Italian Motorist Portal: check your car's Euro class",
+      "title_it": "Portale dell'Automobilista: verifica la classe Euro",
+      "title_de": "Italienisches Fahrerportal: Euro-Klasse prüfen",
+      "url": "https://www.ilportaledellautomobilista.it/web/portale-automobilista/ext/verifica-classe-ambientale-veicolo"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Parma and Infomobility S.p.A. official pages and documents. ZTL perimeters, streets, cameras and ring roads: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}
