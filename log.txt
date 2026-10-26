@@ -1,0 +1,13 @@
+1 200 120757 https://comune.sangimignano.si.it/it/news/ztl-centro-storico-di-san-gimignano -> 1-ztl-centro-storico-di-san-gimignano_
+2 200 106118 https://www.comune.sangimignano.si.it/it/topics/zone-pedonali -> 2-zone-pedonali_
+3 200 4275 https://ztl.comune.sangimignano.si.it/ -> 3-ztl.comune.sangimignano.si.it_
+4 200 0 https://san-gimignano-api.municipiumapp.it/s3/6203/allegati/polizia-municipale/nuova-ztl/brochure-ztl-comune-di-san-gimignano.pdf -> 4-brochure-ztl-comune-di-san-gimignano.pdf_
+5 200 94393 https://citynext.it/2026/04/28/ztl-san-gimignano-ora-ci-siamo-il-1-maggio-scattano-le-sanzioni-tutto-quello-che-ce-da-sapere/ -> 5-ztl-san-gimignano-ora-ci-siamo-il-1-maggio-scattano-le-sanzioni-tutto-quello-che
+6 200 132217 https://www.valdelsa.net/news/san-gimignano-da-venerdi-primo-maggio-entra-in-vigore-la-nuova-ztl-118662 -> 6-san-gimignano-da-venerdi-primo-maggio-entra-in-vigore-la-nuova-ztl-118662_
+7 403 5822 https://milazzo.life/zone-traffico-limitato/ztl-san-gimignano-si/ -> 7-ztl-san-gimignano-si_
+8 200 252040 https://www.radiosienatv.it/san-gimignano-al-via-la-nuova-ztl-con-varchi-video-controllati/ -> 8-san-gimignano-al-via-la-nuova-ztl-con-varchi-video-controllati_
+9 200 234033 https://sienafree.it/180442-san-gimignano-da-venerdi-1-maggio-entra-in-vigore-la-nuova-ztl -> 9-180442-san-gimignano-da-venerdi-1-maggio-entra-in-vigore-la-nuova-ztl_
+10 200 89666 https://citynext.it/2025/06/25/toscana-san-gimignano-potenzia-la-ztl-ecco-cosa-cambia/ -> 10-toscana-san-gimignano-potenzia-la-ztl-ecco-cosa-cambia_
+11 404 80693 https://www.comune.sangimignano.si.it/it/page/parcheggi -> 11-parcheggi_
+12 404 236 https://www.sangimignano.com/it/info-utili/parcheggi -> 12-parcheggi_
+13 overpass 156
