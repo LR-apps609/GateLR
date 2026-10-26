@@ -1,0 +1,13 @@
+1 200 19420 https://ztl.comune.palermo.it/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&NEW_COD=4208211 -> 1-push-tabella-notizie-hp.do_
+2 200 19257 https://ztl.comune.palermo.it/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&NEW_COD=3551541 -> 2-push-tabella-notizie-hp.do_
+3 200 19409 https://ztl.comune.palermo.it/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&NEW_COD=2871074 -> 3-push-tabella-notizie-hp.do_
+4 200 19483 https://ztl.comune.palermo.it/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS&NEW_COD=1784990 -> 4-push-tabella-notizie-hp.do_
+5 200 3996945 https://www.amat.pa.it/documenti/Moduli/2025_03_20/2025_03_20-DISCIPLINARE_TECNICO_ZTL_MAGGIO_2024.pdf -> 5-2025_03_20-DISCIPLINARE_TECNICO_ZTL_MAGGIO_2024.pdf_
+6 200 405488 https://www.comune.palermo.it/wp-content/uploads/2026/06/8d2fb306-2382-426c-a0aa-f5194e56be39.pdf -> 6-8d2fb306-2382-426c-a0aa-f5194e56be39.pdf_
+7 200 332340 https://www.comune.palermo.it/wp-content/uploads/2025/10/4042019d-f231-47b1-9054-8b77593c58e9.pdf -> 7-4042019d-f231-47b1-9054-8b77593c58e9.pdf_
+8 200 85275 https://www.comune.palermo.it/wp-content/uploads/2025/01/0752585e-9f9f-4361-a247-18d2ebfa42aa.pdf -> 8-0752585e-9f9f-4361-a247-18d2ebfa42aa.pdf_
+9 200 85275 https://www.comune.palermo.it/wp-content/uploads/2025/02/2d90c972-2e01-4c8b-b3ae-39a9b46e9177.pdf -> 9-2d90c972-2e01-4c8b-b3ae-39a9b46e9177.pdf_
+10 200 771308 https://citynews-palermotoday.stgy.ovh/~media/62449433717325/pedonalizzazione-mondello_2026-1.pdf -> 10-pedonalizzazione-mondello_2026-1.pdf_
+11 200 131635 https://www.amat.pa.it/modalita-attivazione-pass-giornaliero/ -> 11-modalita-attivazione-pass-giornaliero_
+12 404 55646 https://www.amat.pa.it/disciplinare-tecnico-ztl/ -> 12-disciplinare-tecnico-ztl_
+13 404 122501 https://www.comune.palermo.it/js/server/uploads/_15092016190422.pdf -> 13-_15092016190422.pdf_

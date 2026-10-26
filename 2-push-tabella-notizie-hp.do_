@@ -1,0 +1,481 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" >
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
+
+ <head>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="author" content="SISPI S.p.A. - www.sispi.it" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+  
+  <title>Comune di Palermo - Portale Mobilità Servizi online&nbsp;v.&nbsp;3.14.16 by SISPI S.p.A.</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="../css/hp_main.css" />
+  <link rel="stylesheet" id="csscarattere" type="text/css" media="screen" href="../css/fontmedium.css" />
+  <link rel="stylesheet" id="cssskin" type="text/css" media="screen" href="../css/skindefault.css" />
+  <link rel="stylesheet" id="cssstampa" type="text/css" media="print" href="../css/stampa.css" />
+  <link rel="stylesheet" id="cssstampa_screen" type="text/css" media="screen"  href="../css/ui-lightness/jquery-ui.custom.css" />
+  <script type="text/javascript" src="../JScript/LIBGeneric.js"></script>
+  <script type="text/javascript" src="../JScript/LIBSpecific.js?ver=20161026"></script>
+  <script type="text/javascript" src="../JScript/LIBCalendar.js"></script>
+
+  <link rel="stylesheet" href="../css/nivo-slider.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="../css/themes/default/default.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="../JScript/jquery.js"></script>
+  <script type="text/javascript" src="../JScript/jquery-ui.custom.min.js"></script>
+
+  
+ </head>
+
+ <body id="home" onload='windowOnLoad();'>
+
+  <!-- begin page -->
+  <div id="page">
+
+   <!-- begin header -->
+   <div id="header" onclick="window.location.href = 'http://www.comune.palermo.it'">
+    <div id="logo">
+     <h1 class="alt">
+      
+	<!--LDC 24/03/2025 - Misura 1.4.2  --> 
+	
+      <span id='titoloHP_logo'><br/>Comune di Palermo</span><br/>
+      <span id='sottoTitoloHP_logo'></span>
+      
+     </h1>
+     <a href='http://www.comune.palermo.it' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;" title=" Comune di Palermo " rel='esterno'><img src='../images/servizio/aquila.gif' class='img-logo' alt='logo Comune'/></a>
+    </div>
+    <div id="titoloApplicazione"><span id='titoloHP'><br/>Comune di Palermo</span><br/>
+<span id='sottoTitoloHP'></span>
+</div>
+    <hr class="hide"/>
+    <div id="bglogo"></div>
+    <div id="menuSistema">
+     <div id="data"></div>
+     <script type="text/javascript">writeData()</script>
+    </div>
+    <hr class="hide"/>
+   </div>
+   <!-- end header -->
+
+   <noscript>
+    <div id="avvisoJavascript">
+     <h2 class="alt">Avviso</h2>
+     <p><strong>ATTENZIONE - Il browser in uso non supporta le applicazioni Javascript.</strong><br/>Per usufruire in maniera completa dei servizi presenti in quest'area, &egrave; necessario utilizzare un browser che supporti le funzioni Javascript.</p>
+    </div>
+   </noscript>
+
+  <!-- begin colonna1 -->
+   <div id="colonna1">
+	<h2 class="hide">Servizi online</h2>
+	
+        <h3> Servizi online </h3>
+    <div>
+     <ul>
+      <li>
+       <a href="/ztl/jsp/home.jsp?S=20" accesskey="0" id="menu_20" title=" Home Page " >Home</a>
+      </li>
+      <li>
+       <a href="/ztl/jsp/home.jsp?modo=info&info=servizi.jsp&ARECOD=10&S=30" accesskey="0" id="menu_30" title=" ZTL " >ZTL</a>
+      </li>
+     </ul>
+    </div>
+    <hr class='hide'/>
+
+
+   </div>
+
+   <hr class="hide"/>
+   <!-- end colonna1 -->
+
+   
+    
+    
+    
+    
+    
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+<!-- begin colonna2   -->
+<div id="colonna2">
+
+  
+    
+      <!-- begin form-title -->
+      <div class="form-title">
+        Avvisi e Notizie
+        
+      </div>
+      <!-- end form-title   -->
+
+      <!-- begin form-guide -->
+      <div class="form-guide">
+        
+        <img src="../images/servizio/helpicon.gif" alt='Guida on-line' />
+        <a href="#" onclick="javascript:openGuide('../pu/azione-guida.do?transazione=FOZTL_NEWS');" title=' Guida on-line '>Guida
+          <script type="text/javascript">
+          <!--
+            /* Just for a few time ! (hope so). */
+            if (isIE6()) {
+              document.write('&nbsp;');
+            }
+          -->
+          </script>
+        </a>
+      </div>
+      <!-- end form-guide   -->
+
+      <!-- Form             -->
+      <form action='' method='post' id='passaggio' onsubmit='return controlloUsoInvio()'>
+
+        <!-- Mini Tab
+          
+                <div class='minitabscontainer'>
+
+     </div>
+
+
+          
+          -->
+
+        <!-- begin container-form -->
+        <div id="form-container" class="container-form">
+
+          <!-- begin scrolling div -->
+          <div id="scrolling">
+            <!-- Mini Tab -->
+            
+              
+                     <div class='minitabscontainer'>
+
+     </div>
+
+
+              
+              
+            
+
+            <!-- begin button-row-group -->
+            <div id="buttonRowGroup" class="button-row-group">
+              <div class='button-row'>
+        <a class='button' onclick='if(controllaSeDatiModificati(document.getElementById("passaggio")))  if (continuaEsecuzioneClick()) { document.getElementById("passaggio").action ="/ztl/dbmanager/tabella-filtro.do"; document.getElementById("passaggio").submit();}' ><span title='Imposta la modalità filtro'>Filtro</span></a>
+        <a class='button' onclick='if(controllaSeDatiModificati(document.getElementById("passaggio")))  if (continuaEsecuzioneClick()) { document.getElementById("passaggio").action ="/ztl/dbmanager/tabella-lista-selezione.do"; document.getElementById("passaggio").submit();}' ><span title='Imposta la modalità lista sulla base dei criteri di filtro'>Lista</span></a>
+       </div>
+
+
+              <div style="clear: both;"></div>
+              <div class='button-row'>
+        <a class='button' onclick='if(controllaSeDatiModificati(document.getElementById("passaggio")))  if (continuaEsecuzioneClick()) { document.getElementById("passaggio").action ="/ztl/dbmanager/tabella-modifica-inizio.do"; document.getElementById("passaggio").submit();}' ><span title='Primo record'>Primo</span></a>
+        <a class='button' onclick='if(controllaSeDatiModificati(document.getElementById("passaggio")))  if (continuaEsecuzioneClick()) { document.getElementById("passaggio").action ="/ztl/dbmanager/tabella-modifica-meno.do"; document.getElementById("passaggio").submit();}' ><span title='Record precedente'>Precedente</span></a>
+        <a class='button' onclick='if(controllaSeDatiModificati(document.getElementById("passaggio")))  if (continuaEsecuzioneClick()) { document.getElementById("passaggio").action ="/ztl/dbmanager/tabella-modifica-piu.do"; document.getElementById("passaggio").submit();}' ><span title='Record successivo'>Successivo</span></a>
+        <a class='button' onclick='if(controllaSeDatiModificati(document.getElementById("passaggio")))  if (continuaEsecuzioneClick()) { document.getElementById("passaggio").action ="/ztl/dbmanager/tabella-modifica-fine.do"; document.getElementById("passaggio").submit();}' ><span title='Ultimo record'>Ultimo</span></a>
+       </div>
+
+
+            </div>
+
+            <div class="button-custom-row">
+              <div class='button-row'>
+        <a class='button' href='javascript:visualizzaFile("NEW_DESNOMEFILE");'><span title='Visualizza documento'>Visualizza</span></a>
+       </div>
+
+
+            </div>
+            <!-- end button-row-group -->
+          </div>
+          <!-- end scrolling div -->
+
+          <!-- Barra di stato   -->
+          
+            <div id='row-stato'>
+       <div class='inform-ini'>
+        <div class='testo'>&nbsp;</div>
+       </div>
+       <div class='inform-cen'>
+        <div class='testo'>record 29 di 41</div>
+       </div>
+       <div class='inform-fin'>
+        <div class='testo'>Consultazione</div>
+       </div>
+      </div>
+
+          
+
+          <!-- Messaggi javascript e di ritorno -->
+          
+            
+
+            
+
+            
+            
+
+          
+
+          <!-- Tabella -->
+          <p id="form-handler" style="float: right; margin-right: 4px;">(*) obbligatorio&nbsp;</p>
+       <div class="table-row" id="TR_NEW_DATNEWS">
+        <div class="container-field">
+        <label for="NEW_DATNEWS">Data</label>
+        <input id="NEW_DATNEWS" class="readonlyL" type="text" name="NEW_DATNEWS" size="10" value='01/12/2021' readonly="readonly" />
+        </div>
+       </div>
+       <div class="table-row" id="TR_NEW_DESTITOLO">
+        <div class="container-field">
+        <label for="NEW_DESTITOLO">Titolo</label>
+        <div id="NEW_DESTITOLO" class="teaL">ATTIVAZIONE PASS GIORNALIERO TRAMITE  NUMERO DI CELLULARE ESTERO(clicca qui)</div>
+        </div>
+       </div>
+       <div class="table-row" id="TR_NEW_DESTESTO">
+        <div class="container-field">
+        <label for="NEW_DESTESTO">Testo</label>
+        <div id="NEW_DESTESTO" class="teaLexp">E' consigliabile per l'attivazione di un pass giornaliero tramite un numero di cellulare estero, utilizzare l'APP palermobilita o il canale WEB - portale ztl.comune.palermo.it -> ZTL -> Comunicazione utilizzo pass giornaliero cartaceo.</div>
+          <a style='cursor: pointer;' onmouseover="window.status=''; return true;" onmouseout="window.status=''; return true;"><img id='AZIONE_EXP_NEW_DESTESTO' src='../images/servizio/expand_textarea.gif' alt=' Espandi/Riduci ' onclick="expandCompressTEA('NEW_DESTESTO')" /></a>
+        </div>
+       </div>
+       <div class="table-row" id="TR_INFOFILEDOCUMENTI">
+        <div class='separatore'>Informazioni Documento</div>
+        <div class='container_16'>
+         <div class='container_riga_16'>
+          <div class='grid_row'><p class='label'>Nessun documento caricato!</p></div>
+          <input type='hidden' id='chkExist_NEW_DESNOMEFILE' name='chkExist_NEW_DESNOMEFILE' value='N'/>
+          <input type='hidden' id='INFOFILEDOCUMENTI.nomeFile' name='INFOFILEDOCUMENTI.nomeFile' value=''/>
+         </div>
+        </div>
+       </div>
+       <input type="hidden" id="NEW_COD" name="NEW_COD" value='3551541'/>
+       <input type="hidden" id="NEW_DESSUBTITOLO" name="NEW_DESSUBTITOLO" value=''/>
+       <input type="hidden" id="NEW_DATSCADENZA" name="NEW_DATSCADENZA" value=''/>
+       <input type="hidden" id="NEW_DESNOMEFILE" name="NEW_DESNOMEFILE" value=''/>
+       <input type="hidden" id="siglaStato" name="siglaStato" value='M'/>
+       <input type="hidden" id="row" name="row" value='8'/>
+       <input type="hidden" id="chiave" name="chiave" value=''/>
+       <input type="hidden" id="provieneDa" name="provieneDa" value=''/>
+       <input type="hidden" id="SCONOSCIUTO" name="SCONOSCIUTO" value=''/>
+       <input type="hidden" id="CHECK" name="CHECK" value=''/>
+       <script type="text/javascript">
+        var propColonne = new Array();
+        var O0 = {
+         nomeCampo     :"NEW_COD",
+         etichetta     :"Codice notizia",
+         tipoDati      :"NUM",
+         maxLenInt     :12,
+         minLenInt     :0,
+         obbligatorio  :true,
+         valoreIniziale:"3551541",
+         modificabile  :true,
+         chiave        :true
+        }
+        propColonne[0]=O0;
+        var O1 = {
+         nomeCampo     :"NEW_DESSUBTITOLO",
+         etichetta     :"Sottotitolo",
+         tipoDati      :"STR",
+         maxLenInt     :40,
+         minLenInt     :0,
+         obbligatorio  :false,
+         valoreIniziale:"",
+         modificabile  :true,
+         chiave        :false
+        }
+        propColonne[1]=O1;
+        var O2 = {
+         nomeCampo     :"NEW_DATSCADENZA",
+         etichetta     :"Data scadenza",
+         tipoDati      :"DAT",
+         maxLenInt     :10,
+         minLenInt     :0,
+         obbligatorio  :false,
+         valoreIniziale:"",
+         modificabile  :true,
+         chiave        :false
+        }
+        propColonne[2]=O2;
+        var O3 = {
+         nomeCampo     :"NEW_DESNOMEFILE",
+         etichetta     :"Documento",
+         tipoDati      :"STR",
+         maxLenInt     :255,
+         minLenInt     :0,
+         obbligatorio  :false,
+         valoreIniziale:"",
+         modificabile  :true,
+         chiave        :false
+        }
+        propColonne[3]=O3;
+       </script>
+
+       <script type="text/javascript">
+        focusSulPrimoCampo();
+       </script>
+
+
+        </div>
+        <!-- end container-form -->
+
+        <!-- add the scroll functionality to the minitab anb button rows  -->
+        <script type="text/javascript" src="../JScript/FollowScroll.js"></script>
+
+      </form>
+
+    
+    
+  
+</div>
+<!-- end colonna2     -->
+
+<!-- begin colonna3   -->
+<div id="colonna3">
+  <ul>
+    <li><a href="/ztl/jsp/home.jsp?modo=info&info=portale.jsp" title=" Informazioni ... " class="link">Informazioni</a></li>
+    <li><a href="/ztl/jsp/home.jsp?modo=info&info=contatti.jsp" title=" Contatti ... " class="link">Contatti</a></li>
+  </ul>
+  <h3><hr /></h3>
+  
+    <ul>
+      <li><a href="/ztl/pr/switch-forward-ztl.do?&amp;stato=login" class="link" title=" Entra nell'area riservata ">Entra</a></li>
+    </ul>
+    <h3><hr class="hide" /></h3>
+    <ul>
+      <li><a href="/ztl/jsp/home.jsp?modo=info&amp;info=registrazione_online.jsp" class="link">Registrazione</a></li>
+    </ul>
+    <h3><hr class="hide" /></h3>
+    <ul>
+     
+      
+      
+        <li><a href="/ztl/jsp/home.jsp?modo=info&info=credenziali_smarrite.jsp" class="link">Credenziali smarrite</a></li>
+      
+     
+    </ul>
+    <h3><hr class="hide" /></h3>
+  
+  <dynamic:language />
+</div>
+<!-- end colonna3     -->
+
+    
+    
+    
+    
+   
+
+   <!-- begin footer -->
+   <div id="footer">
+    <div id="box-link">
+     &nbsp;
+     <a href="../jsp/home.jsp" class="linkinfo" accesskey="h" title=" Home page ">home</a>
+<!-- <a href="../jsp/home.jsp?modo=info&amp;info=faq.jsp" class="linkinfo" accesskey="f" title=' Area FAQ '>faq</a> -->
+     <a href="../jsp/home.jsp?modo=info&amp;info=contatti.jsp" class="linkinfo" accesskey="c" title=' Contatti '>contatti</a>
+<!-- <a href="../jsp/home.jsp?modo=info&amp;info=modulistica.jsp" class="linkinfo" accesskey="m" title=' Modulistica '>modulistica</a> -->
+<!-- <a href="../jsp/home.jsp?modo=info&amp;info=accessibilita.jsp" class="linkinfo" accesskey="a" title=' Dichiarazione di accessibilità '>accessibilità</a> -->
+     <a href="../jsp/home.jsp?modo=info&amp;info=privacy.jsp" class="linkinfo" accesskey="p" title=' Informativa sulla Privacy '>privacy</a>
+     <a href="../jsp/home.jsp?modo=info&amp;info=notelegali.jsp" class="linkinfo" title=' Note legali '>note legali</a>
+     <a href="../jsp/home.jsp?modo=info&amp;info=utilita.jsp" class="linkinfo" title=' Utilità '>utilità</a>
+     <a href="../jsp/home.jsp?modo=info&amp;info=datiZTL.jsp" class="linkinfo" title=' statistiche '>statistiche</a>
+     <a href="../jsp/home.jsp?modo=info&amp;info=crediti.jsp" class="linkinfo" title=' Crediti '>crediti</a>
+    </div>
+    <hr class="hide"/>
+<!--
+    <div id="box-accessibilita">
+     <div class="box">
+     <h1 class="alt">Imposta modalità di visualizzazione</h1>
+      <dl id="personalizzazione">
+       <dt>Dimensione Caratteri</dt>
+       <dd id="personalizzazione-caratteri-grandi">
+        <a href="#" title=' Imposta carattere grande ' onclick="createCookie('fontSize', 'fontbig.css', 30); document.getElementById('csscarattere').href='../css/fontbig.css';"><span class="alt">Carattere grande</span></a>
+       </dd>
+       <dd id="personalizzazione-caratteri-medi">
+        <a href="#" title=' Imposta carattere medio ' onclick="createCookie('fontSize', 'fontmedium.css', 30); document.getElementById('csscarattere').href='../css/fontmedium.css';"><span class="alt">Carattere medio (visualizzazione standard)</span></a>
+       </dd>
+       <dd id="personalizzazione-caratteri-piccoli">
+        <a title=' Imposta carattere piccolo ' onclick="createCookie('fontSize', 'fontsmall.css', 30); document.getElementById('csscarattere').href='../css/fontsmall.css';"><span class="alt">Carattere piccolo</span></a>
+       </dd>
+       <dt>Temi</dt>
+       <dd id="personalizzazione-skin-default">
+        <a href="#" title=' Imposta default ' onclick="createCookie('cssskin', 'skindefault.css', 30); document.getElementById('cssskin').href='../css/skindefault.css';"><span class="alt">Default (visualizzazione standard)</span></a>
+       </dd>
+       <dd id="personalizzazione-skin-due">
+        <a href="#" title=' Imposta skin verde ' onclick="createCookie('cssskin', 'skingreen.css', 30); document.getElementById('cssskin').href='../css/skingreen.css';"><span class="alt">Verde</span></a>
+       </dd>
+       <dd id="personalizzazione-skin-tre">
+        <a href="#" title=' Imposta skin blu ' onclick="createCookie('cssskin', 'skinblue.css', 30); document.getElementById('cssskin').href='../css/skinblue.css';"><span class="alt">Blu</span></a>
+       </dd>
+       <dd id="personalizzazione-accessibile">
+        <a href="#" title=' Imposta modalità alta visibilità ' onclick="createCookie('cssskin', 'skinaltocontrasto.css', 30); document.getElementById('cssskin').href='../css/skinaltocontrasto.css';"><span class="alt">Alta Visibilità</span></a>
+       </dd>
+       <dd id="personalizzazione-solotesto">
+        <a href="#" title=' Imposta modalità solo testo ' onclick="createCookie('cssskin', 'skinsolotesto.css', 30); document.getElementById('cssskin').href='../css/skinsolotesto.css';"><span class="alt">Solo testo</span></a>
+       </dd>
+      </dl>
+     </div>
+    </div>
+-->
+    <hr class="hide"/>
+   </div>
+   <!-- end footer -->
+
+   <!-- begin validatori -->
+   <!--
+   <div id="validatori">
+    <a href="http://validator.w3.org/check?uri=referer" title=' Valida il codice di marcatura della pagina - collegamento al sito, in lingua inglese, del W3C '><img src="../images/servizio/logo_xhtml.png" alt=' Valida il codice di marcatura della pagina - collegamento al sito, in lingua inglese, del W3C ' height="15" width="80" /></a>
+    <a href="http://jigsaw.w3.org/css-validator/" title=' Valida i fogli di stile di questo sito - collegamento al sito, in lingua inglese, del W3C '><img src="../images/servizio/logo_css.png" alt=' Valida i fogli di stile di questo sito - collegamento al sito, in lingua inglese, del W3C ' height="15" width="80" /></a>
+    <a href="http://www.contentquality.com/mynewtester/cynthia.exe?rptmode=2&amp;url1=http://www.sispi.it/index.htm" title=' Collegamento al validatore automatico di accessibilità '><img src="../images/servizio/logo_wcag.png" alt=' Collegamento al validatore automatico di accessibilità ' height="15" width="80" /></a>
+   </div>
+   -->
+   <hr class="hide"/>
+   <!-- end validatori -->
+
+   <!-- begin copyright -->
+   <div id="copyright" >
+    <a href='http://www.sispi.it' title=' SISPI S.p.A. - Sistema Palermo Innovazione ' rel='esterno'><img src='../images/servizio/logosispismall.gif' height='27' width='63' alt='logo SISPI'/></a>
+    &copy; SISPI S.p.A. Tutti i diritti riservati.
+   </div>
+   <hr class="hide"/>
+   <!-- end copyright -->
+
+  </div>
+  <!-- end page -->
+ </body>
+
+</html>
