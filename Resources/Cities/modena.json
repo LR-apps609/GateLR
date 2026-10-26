@@ -1,0 +1,280 @@
+{
+ "id": "modena",
+ "name": "Modena",
+ "name_it": "Modena",
+ "name_de": "Modena",
+ "center": {
+  "lat": 44.6464,
+  "lon": 10.9255
+ },
+ "zones": [
+  {
+   "id": "modena-ztl",
+   "name": "Modena · Historic centre ZTL",
+   "name_it": "Modena · ZTL Centro storico",
+   "name_de": "Modena · ZTL Altstadt",
+   "kind": "restricted",
+   "summary": "The historic centre inside the ring boulevards (Duomo, Piazza Grande) is closed to unauthorised cars 24 hours a day, every day; cameras check every entry. There is no tourist ticket. If your hotel is inside, it gives you a windscreen badge and registers your plate within 48 hours. Motorcycles and mopeds may enter.",
+   "summary_it": "Il centro storico dentro i viali (Duomo, Piazza Grande) è chiuso alle auto non autorizzate 24 ore su 24, tutti i giorni; le telecamere controllano ogni accesso. Non c'è un ticket per turisti. Se l'hotel è dentro, ti dà un contrassegno per il parabrezza e registra la targa entro 48 ore. Moto e ciclomotori possono entrare.",
+   "summary_de": "Die Altstadt innerhalb der Ringstraßen (Dom, Piazza Grande) ist für nicht berechtigte Autos rund um die Uhr, jeden Tag gesperrt; Kameras prüfen jede Zufahrt. Ein Touristenticket gibt es nicht. Liegt dein Hotel innen, gibt es dir einen Ausweis für die Windschutzscheibe und meldet dein Kennzeichen innerhalb von 48 Stunden. Motorräder und Mopeds dürfen hinein.",
+   "perimeter": [
+    {
+     "lat": 44.6492,
+     "lon": 10.9297
+    },
+    {
+     "lat": 44.6493,
+     "lon": 10.9298
+    },
+    {
+     "lat": 44.6492,
+     "lon": 10.9302
+    },
+    {
+     "lat": 44.6485,
+     "lon": 10.9321
+    },
+    {
+     "lat": 44.6472,
+     "lon": 10.9308
+    },
+    {
+     "lat": 44.6472,
+     "lon": 10.931
+    },
+    {
+     "lat": 44.647,
+     "lon": 10.9312
+    },
+    {
+     "lat": 44.647,
+     "lon": 10.9314
+    },
+    {
+     "lat": 44.6471,
+     "lon": 10.9317
+    },
+    {
+     "lat": 44.6467,
+     "lon": 10.9327
+    },
+    {
+     "lat": 44.6455,
+     "lon": 10.9318
+    },
+    {
+     "lat": 44.6438,
+     "lon": 10.9304
+    },
+    {
+     "lat": 44.6413,
+     "lon": 10.9285
+    },
+    {
+     "lat": 44.6411,
+     "lon": 10.9276
+    },
+    {
+     "lat": 44.6411,
+     "lon": 10.9272
+    },
+    {
+     "lat": 44.6414,
+     "lon": 10.9265
+    },
+    {
+     "lat": 44.6417,
+     "lon": 10.9256
+    },
+    {
+     "lat": 44.6418,
+     "lon": 10.9248
+    },
+    {
+     "lat": 44.642,
+     "lon": 10.9239
+    },
+    {
+     "lat": 44.6422,
+     "lon": 10.9233
+    },
+    {
+     "lat": 44.6425,
+     "lon": 10.9226
+    },
+    {
+     "lat": 44.6427,
+     "lon": 10.9218
+    },
+    {
+     "lat": 44.6429,
+     "lon": 10.9213
+    },
+    {
+     "lat": 44.6431,
+     "lon": 10.9206
+    },
+    {
+     "lat": 44.6432,
+     "lon": 10.9204
+    },
+    {
+     "lat": 44.6435,
+     "lon": 10.9201
+    },
+    {
+     "lat": 44.6459,
+     "lon": 10.9201
+    },
+    {
+     "lat": 44.6487,
+     "lon": 10.9202
+    },
+    {
+     "lat": 44.6486,
+     "lon": 10.9206
+    },
+    {
+     "lat": 44.6484,
+     "lon": 10.9212
+    },
+    {
+     "lat": 44.6486,
+     "lon": 10.9213
+    },
+    {
+     "lat": 44.6489,
+     "lon": 10.9204
+    },
+    {
+     "lat": 44.6489,
+     "lon": 10.9205
+    },
+    {
+     "lat": 44.649,
+     "lon": 10.9207
+    },
+    {
+     "lat": 44.649,
+     "lon": 10.9208
+    },
+    {
+     "lat": 44.6495,
+     "lon": 10.9215
+    },
+    {
+     "lat": 44.6495,
+     "lon": 10.9217
+    },
+    {
+     "lat": 44.6497,
+     "lon": 10.9223
+    },
+    {
+     "lat": 44.6501,
+     "lon": 10.9248
+    },
+    {
+     "lat": 44.6502,
+     "lon": 10.925
+    },
+    {
+     "lat": 44.6509,
+     "lon": 10.9253
+    },
+    {
+     "lat": 44.6502,
+     "lon": 10.9274
+    },
+    {
+     "lat": 44.6494,
+     "lon": 10.9296
+    },
+    {
+     "lat": 44.6493,
+     "lon": 10.9295
+    },
+    {
+     "lat": 44.6492,
+     "lon": 10.9297
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Modena",
+    "pageURL": "https://www.comune.modena.it/amministrazione/documenti-e-dati/atti-normativi/ordinanze/ordinanze-a-carattere-generale/testo-coordinato-ordinanza-ztl",
+    "ordinance": "Testo coordinato Ordinanza ZTL (prot. P.G. 85253 del 01/04/2020)",
+    "ordinanceURL": "https://www.comune.modena.it/amministrazione/documenti-e-dati/atti-normativi/ordinanze/ordinanze-a-carattere-generale/testo-coordinato-ordinanza-ztl/testo-coordinato-ordinanza-ztl/@@download/file_principale",
+    "quote": "All’interno del perimetro come sopra individuato è permanentemente vietato il transito e la sosta ai veicoli non autorizzati",
+    "quoteTranslation": "Inside the perimeter defined above, driving and parking are permanently forbidden to unauthorised vehicles",
+    "quoteTranslation_de": "Innerhalb der oben festgelegten Grenze sind Fahren und Parken für nicht berechtigte Fahrzeuge dauerhaft verboten",
+    "checkedOn": "2026-10-26T23:55:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotels inside the ZTL: you may drive in and park nearby with the hotel's badge on the windscreen; the hotel sends your plate to the municipal police within 48 hours of your entry. Rental cars have no permit of their own.",
+     "Motorcycles and mopeds may enter without a permit (order, point B2). Fully electric cars need an authorisation first: they are not exempt automatically.",
+     "No ticket for tourists: daily passes are issued only on the same conditions as permanent permits. Some streets inside (Via Emilia Centro between Vicolo Squallore and Via Torre, Corso Duomo, north side of Piazza Roma) are reserved lanes closed even with a ZTL permit, and the pedestrian areas (Piazza Grande …) are not drawn separately.",
+     "Gate positions are not on the map yet (no open data with coordinates): every entry and exit of the perimeter is camera-controlled."
+    ],
+    "pending_it": [
+     "Alberghi dentro la ZTL: entri e sosti vicino con il contrassegno della struttura sul parabrezza; la struttura comunica la targa alla Polizia municipale entro 48 ore dall'accesso. Le auto a noleggio non hanno un permesso proprio.",
+     "Moto e ciclomotori entrano senza autorizzazione (ordinanza, punto B2). Le auto solo elettriche hanno bisogno prima di un'autorizzazione: non sono esenti in automatico.",
+     "Nessun ticket per turisti: i pass giornalieri si rilasciano solo alle condizioni delle autorizzazioni permanenti. Alcune vie interne (via Emilia Centro tra vicolo Squallore e via Torre, Corso Duomo, lato nord di Piazza Roma) sono corsie riservate vietate anche con permesso ZTL, e le aree pedonali (Piazza Grande …) non sono disegnate a parte.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate): tutti gli accessi e le uscite del perimetro sono controllati da telecamere."
+    ],
+    "pending_de": [
+     "Hotels in der ZTL: Du darfst mit dem Ausweis der Unterkunft hinter der Windschutzscheibe einfahren und in der Nähe parken; die Unterkunft meldet dein Kennzeichen innerhalb von 48 Stunden der Stadtpolizei. Mietwagen haben keine eigene Genehmigung.",
+     "Motorräder und Mopeds dürfen ohne Genehmigung einfahren (Anordnung, Punkt B2). Reine Elektroautos brauchen vorher eine Genehmigung: sie sind nicht automatisch befreit.",
+     "Kein Touristenticket: Tagespässe gibt es nur zu den Bedingungen der Dauergenehmigungen. Einige Straßen innen (Via Emilia Centro zwischen Vicolo Squallore und Via Torre, Corso Duomo, Nordseite der Piazza Roma) sind Sonderspuren, die auch mit ZTL-Genehmigung gesperrt sind; die Fußgängerzonen (Piazza Grande …) sind nicht eigens eingezeichnet.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten): alle Ein- und Ausfahrten der Zone werden per Kamera überwacht."
+    ],
+    "links": [
+     {
+      "title": "City of Modena: consolidated ZTL order (2020, PDF)",
+      "title_it": "Comune di Modena: testo coordinato ordinanza ZTL (2020, PDF)",
+      "title_de": "Stadt Modena: konsolidierte ZTL-Anordnung (2020, PDF)",
+      "url": "https://www.comune.modena.it/amministrazione/documenti-e-dati/atti-normativi/ordinanze/ordinanze-a-carattere-generale/testo-coordinato-ordinanza-ztl/testo-coordinato-ordinanza-ztl/@@download/file_principale"
+     },
+     {
+      "title": "VisitModena: limited traffic area (hotel guests)",
+      "title_it": "VisitModena: zona a traffico limitato (ospiti degli hotel)",
+      "title_de": "VisitModena: verkehrsberuhigte Zone (Hotelgäste)",
+      "url": "https://www.visitmodena.it/it/pianifica-il-viaggio/informazioniztl"
+     },
+     {
+      "title": "VisitModena: car parks",
+      "title_it": "VisitModena: parcheggi",
+      "title_de": "VisitModena: Parkplätze",
+      "url": "https://www.visitmodena.it/en/plan-the-trip/tourist-services/parking-lots"
+     },
+     {
+      "title": "City of Modena: official ZTL perimeter, open data (WFS)",
+      "title_it": "Comune di Modena: perimetro ufficiale ZTL, open data (WFS)",
+      "title_de": "Stadt Modena: offizielle ZTL-Grenze, offene Daten (WFS)",
+      "url": "https://geonext.comune.modena.it/geoservernext//Modena/Ztl_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules and perimeter: Comune di Modena official order and open data (WFS Ztl_preview)."
+}

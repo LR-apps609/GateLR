@@ -1,29 +1,32 @@
-# Modena: fonti della scheda ZTL (bozza)
+# Modena: fonti della scheda ZTL
 
-Scheda generata da `Tools/build_modena.py` → `data/drafts/modena.json` (**bozza, non nell'app**: manca il perimetro, gli orari non sono confermati dal testo ufficiale e nessuna citazione è verificata).
+Scheda generata da `Tools/build_modena.py` → `Resources/Cities/modena.json` (stato **draft**, `reviewedByHuman: false`), nell'app tramite `manifest.json` dal 26/10/2026.
+Fonti lette il **26/10/2026** e salvate in `data/raw/modena/` (testo estratto, con URL e data in testa a ogni file). Lo script si ferma se una frase citata o riassunta non c'è più parola per parola nel testo salvato.
 
-## Perché è una bozza
-Il 26/10/2026 dal sandbox www.comune.modena.it, geonext.comune.modena.it, opendata.comune.modena.it, visitmodena.it, i server Overpass, api.openstreetmap.org e i portali regionali erano rifiutati dal proxy (403, host non consentito per la sessione); WebFetch non li risolveva. Il workflow «Scarica pagine» **non** è stato usato perché aggirerebbe il blocco di rete della sessione (vietato dall'incarico). Raggiungibili solo www.dati.gov.it (CKAN) e la ricerca web.
+## Zona nell'app
 
-Ogni regola viene dai **riassunti della ricerca web** salvati in `data/raw/modena/websearch-*.txt` (non testo letterale). `quote` è `null`; lo script controlla che ogni fatto usato sia nei file salvati.
+**Modena · ZTL Centro storico** (`modena-ztl`, `restricted`): 0–24 tutti i giorni, festivi compresi (`freeOnHolidays: false`), nessun ticket.
 
-## Fatti usati
+Citazione (Testo coordinato Ordinanza ZTL, prot. P.G. 85253 del 01/04/2020, https://www.comune.modena.it/amministrazione/documenti-e-dati/atti-normativi/ordinanze/ordinanze-a-carattere-generale/testo-coordinato-ordinanza-ztl/testo-coordinato-ordinanza-ztl/@@download/file_principale, ufficiale → `ordinanza-ztl-testo-coordinato-pg-85253-2020.txt`): punto «B) ZONA A TRAFFICO LIMITATO (ZTL) Divieto permanente di circolazione (movimento, fermata e sosta)»; «All'interno del perimetro come sopra individuato è permanentemente vietato il transito e la sosta ai veicoli non autorizzati». La DGC 115 del 10/03/2020 ha abrogato la franchigia oraria. Le fasce della sezione B6 valgono solo per carico/scarico e manutenzione autorizzati.
 
-| Fatto | Pagina indicata dalla ricerca | Tipo | Letto il |
-|---|---|---|---|
-| Testo coordinato Ordinanza ZTL, prot. 85253 del 01/04/2020; DGC 115 del 10/03/2020 «ha eliminato la franchigia oraria»; fasce nella sezione «B6) Fasce orarie per la circolazione all'interno della ZTL» (non letta) | https://www.comune.modena.it/amministrazione/documenti-e-dati/atti-normativi/ordinanze/ordinanze-a-carattere-generale/testo-coordinato-ordinanza-ztl | ufficiale (via riassunto, incompleto) | 26/10/2026 |
-| Via Emilia Centro e Corso Duomo con fasce proprie | idem | ufficiale (via riassunto) | 26/10/2026 |
-| ZTL attiva tutti i giorni 24 ore su 24, nessuna franchigia; in alternativa «7:30–20:30» | sicurauto.it, modenamoments.it, locautorent.com, autovia.it | **non ufficiale, in contrasto** | 26/10/2026 |
-| Telecamere attive 24 ore su 24 ai varchi | idem | non ufficiale | 26/10/2026 |
-| Ospiti di strutture ricettive in ZTL: transito e sosta con contrassegno della struttura sul parabrezza; comunicazione alla Polizia municipale prima o entro 48 ore; le auto a noleggio non hanno permesso | https://www.visitmodena.it/en/plan-the-trip/lta-limited-traffic-area (sito turistico del Comune); autovia.it | ufficiale/turistico (via riassunto) | 26/10/2026 |
-| Accessi 20–6: comunicazione prima o entro 48 ore (ordinanza) | testo coordinato | ufficiale (via riassunto) | 26/10/2026 |
-| Elettriche: modulo per far riconoscere un'auto esclusivamente elettrica «senza limiti di orario», per residenti senza contrassegno (infoztl@modenaparcheggi.it) → `exemptFuels: []` | https://www.comune.modena.it/amministrazione/documenti-e-dati/modulistica/mobilita-e-trasporti/ztl-e-sosta-a-pagamento-1/veicoli-elettrici/comunicazione-targhe-veicoli-elettrici-per-residenti-a-modena-senza-contrassegno/ | ufficiale (via riassunto) | 26/10/2026 |
-| Disabili di altro comune: modulo comunicazione targhe (ztlpermanente@comune.modena.it) | https://www.comune.modena.it/amministrazione/documenti-e-dati/modulistica/mobilita-e-trasporti/ztl-e-sosta-a-pagamento-1/invalidi-e-persone-con-disabilita/comunicazione-targhe-veicoli-al-servizio-di-persone-con-disabilita-di-altro-comune/ | ufficiale (via riassunto) | 26/10/2026 |
-| Permessi temporanei solo online (SPID/CIE/CNS), 4 € (guida di circa 867 giorni fa); Polizia municipale 059 20314, ztltemporaneo@comune.modena.it | mo.cna.it, modenamoments.it, sito di un hotel | non ufficiale | 26/10/2026 |
-| Multe art. 7 CdS 83–332 € | sicurauto.it | non ufficiale | 26/10/2026 |
-| Nessuna novità 2026–2027 trovata | ricerca | — | 26/10/2026 |
+## Regole
 
-Scelte: `kind: restricted`, 0–24 tutti i giorni (prudenziale), `freeOnHolidays: false`. Patrono San Geminiano (31 gennaio): non serve in `localHolidays` con la regola 0–24.
+| Fatto | Fonte | Tipo |
+|---|---|---|
+| Perimetro descritto dai viali (Martiri della Libertà, Rimembranze, Vittorio Veneto, Berengario, Fontanelli, Corso Cavour, Corso Canalgrande, Caduti in Guerra, Largo Garibaldi), esclusi; telecontrollo di tutti i varchi di accesso e uscita | ordinanza, punto B | ufficiale |
+| Moto e ciclomotori senza autorizzazione (B2.1) | ordinanza | ufficiale |
+| Clienti di strutture ricettive in ZTL: transito e sosta con contrassegno dell'albergatore (B2.3); dati comunicati alla Polizia Municipale entro 48 ore dall'accesso dal gestore | ordinanza; https://www.visitmodena.it/it/pianifica-il-viaggio/informazioniztl → `visitmodena-informazioni-ztl.txt` (sito turistico del Comune) | ufficiale |
+| Telecamere attive 24 ore su 24 a tutti i varchi | VisitModena | ufficiale |
+| Elettriche: solo «PREVIA AUTORIZZAZIONE» (B10) → `exemptFuels: []` | ordinanza | ufficiale |
+| Disabili con contrassegno: senza autorizzazione, con comunicazione entro 48 ore (B2.9) | ordinanza | ufficiale |
+| Pass giornalieri solo «alle stesse condizioni delle autorizzazioni permanenti» (D.1): nessun ticket per turisti | ordinanza | ufficiale |
+| Corsie riservate vietate anche con permesso: via Emilia Centro (vicolo Squallore–via Torre), Corso Duomo, Piazza Roma lato nord; aree pedonali (Piazza Grande …) | ordinanza, punti A e Ater | ufficiale |
+| Polizia municipale 059 20314, ztltemporaneo@comune.modena.it; modulo targhe elettriche per residenti | `websearch-2-hotel-elettriche-disabili.txt` | riassunto di ricerca |
+
+Patrono San Geminiano (31 gennaio): con 0–24 non serve in `localHolidays`. Nessuna modifica 2026–2027 trovata.
 
 ## Geometria
-Perimetro **ufficiale** in open data: dataset «Zone a traffico limitato» (Comune di Modena, catalogo Regione Emilia-Romagna su dati.gov.it, modificato il 24/10/2026), WFS `Modena:Ztl_preview` su https://geonext.comune.modena.it/geoservernext//Modena/Ztl_preview/wfs. Non scaricabile da qui. Per pubblicare: salvarlo in WGS84 come `data/raw/modena/ztl_perimetro.geojson`, salvare il testo coordinato (sezione B6) in `data/raw/modena/`, aggiornare le finestre orarie, mettere una citazione verificata e rilanciare lo script.
+Perimetro **ufficiale**: open data del Comune di Modena, dataset «Zone a traffico limitato» (catalogo Regione Emilia-Romagna su dati.gov.it, modificato il 24/10/2026), WFS `Modena:Ztl_preview` (https://geonext.comune.modena.it/geoservernext//Modena/Ztl_preview/wfs), un poligono «Centro x 2000», scaricato in GeoJSON WGS84 → `ztl_perimetro.geojson`; semplificazione 2 m, 0,75 km². Controlli: Piazza Grande e Palazzo Ducale dentro, stazione e Parco Novi Sad fuori.
+
+## Pending
+Varchi senza coordinate (nessun open data; OpenStreetMap non raggiungibile dal sandbox il 26/10/2026). Corsie riservate e aree pedonali non disegnate a parte. App: nessun tipo «moto», l'esenzione delle due ruote è solo nel testo.
