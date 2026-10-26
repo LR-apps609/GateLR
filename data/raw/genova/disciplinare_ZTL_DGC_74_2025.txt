@@ -1,0 +1,1932 @@
+# Fonte: https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf (testo estratto con pdftotext -layout)
+# Letto il 2026-10-26
+
+      COMUNE DI GENOVA
+   DIREZIONE MOBILITÀ E TRASPORTI
+
+
+
+
+       DISCIPLINA
+  DELL’ACCESSO ALLE
+ZONE A TRAFFICO LIMITATO
+
+
+
+
+                                    Rev 16/04/2025
+            Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+SOMMARIO
+
+
+0     MODIFICHE RISPETTO ALLA VERSIONE PRECEDENTE ................................................. 6
+1     PREMESSE........................................................................................................................... 7
+      1.1     AMBITO DI APPLICAZIONE ........................................................................................................................ 7
+      1.2     DISCIPLINA DELLA CIRCOLAZIONE .......................................................................................................... 7
+2     LIMITAZIONI DI ACCESSO ALLE ZONE ............................................................................. 8
+      2.1     PRINCIPI GENERALI ................................................................................................................................... 8
+              2.1.1  SOSTITUZIONE E DUPLICAZIONE DI CONTRASSEGNI ............................................................ 8
+              2.1.2  TIPOLOGIE DI DISPONIBILITA’ DEI VEICOLI .............................................................................. 9
+              2.1.3  AREA DI VALIDITA’ DEI PERMESSI ............................................................................................. 9
+      2.2     CATEGORIE VEICOLARI ESCLUSE DALLE LIMITAZIONI ...................................................................... 10
+              2.2.1  ACCESSO SENZA NECESSITÀ DI CONTRASSEGNO .............................................................. 10
+                           2.2.1.1      ESE_01 / Forze di Polizia, Soccorso ed emergenza ....................................................................... 10
+                           2.2.1.2      ESE_02 / Servizi di trasporto pubblico ............................................................................................ 10
+                           2.2.1.3      ESE_03 / Veicoli al servizio di persone invalide .............................................................................. 10
+                           2.2.1.4      ESE_04a / Aziende, enti e servizi pubblici (veicoli con livrea) ......................................................... 10
+                           2.2.1.5      ESE_05 / Consolati ........................................................................................................................ 10
+                           2.2.1.6      ESE_07/ Autoemoteche ................................................................................................................. 10
+              2.2.2        ACCESSO CON OBBLIGO DI CONTRASSEGNO ...................................................................... 11
+                           2.2.2.1      ESE_04b / Aziende, enti e servizi pubblici (veicoli senza livrea) ..................................................... 11
+                           2.2.2.2      ESE_04c / Assistenza alla persona ................................................................................................ 11
+                           2.2.2.3      ESE_06 / Veicoli elettrici................................................................................................................. 11
+              2.2.3 SCHEMA RIASSUNTIVO ............................................................................................................. 12
+      2.3     CATEGORIE AUTORIZZATE / RESIDENTI ............................................................................................... 13
+              2.3.1 AUT_01 / VEICOLI IN DISPONIBILITÀ DI RESIDENTI E ASSIMILATI ....................................... 13
+                           2.3.1.1      Soggetti aventi titolo ....................................................................................................................... 13
+                           2.3.1.2      Tipologie di veicoli autorizzabili....................................................................................................... 14
+                           2.3.1.3      Corrispettivi .................................................................................................................................... 14
+              2.3.2  AUT_02 / VEICOLI IN DISPONIBILITÀ DI UTILIZZATORI DI AREE O IMMOBILI ...................... 15
+              2.3.3  SCHEMA RIASSUNTIVO ............................................................................................................. 16
+      2.4     CATEGORIE AUTORIZZATE / ALTRE PERSONE FISICHE ED OPERATORI ECONOMICI ................... 17
+              2.4.1  AUT_03 / VEICOLI IN DISPONIBILITÀ DI ESERCENTI LE PROFESSIONI SANITARIE............ 17
+              2.4.2  AUT_04 / VEICOLI IN DISPONIBILITÀ DI MEDICI ...................................................................... 17
+              2.4.3  AUT_05 / VEICOLI PER SPOSTAMENTI DI TIPO COMMERCIALE / ECONOMICO.................. 18
+              2.4.4  AUT_06 / VEICOLI PER SERVIZI DI PUBBLICA UTILITÀ’ .......................................................... 20
+              2.4.5  AUT_07 / VEICOLI IN DISPONIBILITÀ DI GIORNALISTI E TROUPE TELEVISIVE ................... 20
+              2.4.6  AUT_08 / VEICOLI IN DISPONIBILITÀ DI PERSONE CHE PRESTANO ASSISTENZA ............. 21
+              2.4.7  AUT_09 / VEICOLI IN DISPONIBILITÀ DI CLIENTI DI PARTICOLARI CATEGORIE
+                     ECONOMICHE ............................................................................................................................. 22
+              2.4.8  AUT_10 / VEICOLI IN DISPONIBILITÀ DI MINISTRI DI CULTO ................................................. 24
+              2.4.9  AUT 11 / VEICOLI IN DISPONIBILITA’ DI ISTITUTI DI INVESTIGAZIONE ................................. 25
+      2.5     LOGISTICA DELLE MERCI NELLE Z.T.L. TELECONTROLLATE ............................................................. 26
+              2.5.1  CATEGORIE ................................................................................................................................ 26
+                           2.5.1.1      Operatori economici con sede all’interno della zona ....................................................................... 26
+                           2.5.1.2      Operatori economici esterni alla zona ............................................................................................. 27
+              2.5.2  ORARI DI ACCESSO E PERMANENZA IN ZTL .......................................................................... 28
+      2.6     ULTERIORI DISPOSIZIONI........................................................................................................................ 28
+      2.7     DEROGHE.................................................................................................................................................. 29
+
+Pagina 2 di 51
+            Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+3     DISCIPLINA DELLE ZONE A TRAFFICO LIMITATO ......................................................... 30
+      3.1     ZONA A TRAFFICO LIMITATO TELECONTROLLATA “CENTRO STORICO” .......................................... 31
+              3.1.1  DELIMITAZIONE DELL’AREA ...................................................................................................... 31
+                         3.1.1.1     Perimetrazione generale................................................................................................................. 31
+                         3.1.1.2     Settori............................................................................................................................................. 31
+              3.1.2      GIORNI E ORARI DI VALIDITÀ .................................................................................................... 32
+              3.1.3      DISCIPLINA DI ACCESSO........................................................................................................... 32
+                         3.1.3.1     Varchi di accesso ........................................................................................................................... 32
+      3.2     ZONA A TRAFFICO LIMITATO TELECONTROLLATA “MOLO” ................................................................ 35
+              3.2.1  DELIMITAZIONE DELL’AREA ...................................................................................................... 35
+              3.2.2  GIORNI E ORARI DI VALIDITÀ .................................................................................................... 35
+              3.2.3  DISCIPLINA DI ACCESSO........................................................................................................... 35
+      3.3     ZONA A TRAFFICO LIMITATO “VERNAZZOLA” ....................................................................................... 37
+              3.3.1  DELIMITAZIONE DELL’AREA ...................................................................................................... 37
+                         3.3.1.1     Elenco delle strade ricomprese nella Z.T.L. .................................................................................... 37
+                         3.3.1.2     Ulteriori aree aventi diritto ............................................................................................................... 37
+              3.3.2  GIORNI E ORARI DI VALIDITÀ .................................................................................................... 37
+              3.3.3  DISCIPLINA DI ACCESSO........................................................................................................... 37
+      3.4     ZONA A TRAFFICO LIMITATO TELECONTROLLATA “NERVI” ............................................................... 39
+              3.4.1  DELIMITAZIONE DELL’AREA ...................................................................................................... 39
+                         3.4.1.1     Elenco delle strade ricomprese nella Z.T.L. .................................................................................... 39
+                         3.4.1.2     Ulteriori aree aventi diritto ............................................................................................................... 39
+              3.4.2  GIORNI E ORARI DI VALIDITÀ .................................................................................................... 39
+              3.4.3  DISCIPLINA DI ACCESSO........................................................................................................... 39
+      3.5     ZONA A TRAFFICO LIMITATO TELECONTROLLATA “BOCCADASSE” ................................................. 41
+              3.5.1  DELIMITAZIONE DELL’AREA ...................................................................................................... 41
+                         3.5.1.1     Elenco delle strade ricomprese nella Z.T.L. .................................................................................... 41
+                         3.5.1.2     Ulteriori aree aventi diritto ............................................................................................................... 41
+              3.5.2  GIORNI E ORARI DI VALIDITÀ .................................................................................................... 41
+              3.5.3  DISCIPLINA DI ACCESSO........................................................................................................... 41
+      3.6     ZONA A TRAFFICO LIMITATO “RIVAROLO” ............................................................................................ 43
+              3.6.1  DELIMITAZIONE DELL’AREA ...................................................................................................... 43
+              3.6.2  GIORNI E ORARI DI VALIDITÀ. ................................................................................................... 43
+              3.6.3  DISCIPLINA DI ACCESSO........................................................................................................... 43
+              3.6.4  LOGISTICA DELLE MERCI .......................................................................................................... 43
+      3.7     ZONA A TRAFFICO LIMITATO “BOLZANETO” ......................................................................................... 45
+              3.7.1  DELIMITAZIONE DELL’AREA ...................................................................................................... 45
+              3.7.2  GIORNI E ORARI DI VALIDITÀ .................................................................................................... 45
+              3.7.3  DISCIPLINA DI ACCESSO........................................................................................................... 45
+              3.7.4  LOGISTICA DELLE MERCI .......................................................................................................... 45
+      3.8     ZONA A TRAFFICO LIMITATO “CARACCIOLO” ....................................................................................... 47
+              3.8.1  DELIMITAZIONE DELL’AREA ...................................................................................................... 47
+                         3.8.1.1     Elenco delle strade ricomprese nella Z.T.L. .................................................................................... 47
+                         3.8.1.2     Elenco delle strade esterne aventi diritto al tagliando Z.T.L. ........................................................... 47
+              3.8.2  GIORNI E ORARI DI VALIDITÀ .................................................................................................... 47
+              3.8.3  DISCIPLINA DI ACCESSO........................................................................................................... 47
+              3.8.4  LOGISTICA DELLE MERCI .......................................................................................................... 47
+      3.9     ZONA A TRAFFICO LIMITATO “NERVI CENTRO” .................................................................................... 49
+              3.9.1  DELIMITAZIONE DELL’AREA ...................................................................................................... 49
+              3.9.2  GIORNI E ORARI DI VALIDITÀ .................................................................................................... 49
+              3.9.3  DISCIPLINA DI ACCESSO........................................................................................................... 49
+
+
+
+Pagina 3 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+                                                      §§§
+
+
+
+
+Pagina 4 di 51
+                Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+INDICE DELLE TABELLE
+
+Tabella 1: Schema riassuntivo categorie escluse dalle limitazioni .................................................................................... 12
+Tabella 2: Corrispettivi categoria AUT_01 (Residenti e assimilati) per veicoli N1 e M1 .................................................... 14
+Tabella 3: Corrispettivi categoria AUT_01 (Residenti e assimilati) per motocicli o ciclomotori .......................................... 15
+Tabella 4: Corrispettivi categoria AUT_02 ......................................................................................................................... 15
+Tabella 5: Schema riassuntivo categoria residenti ............................................................................................................ 16
+Tabella 6: Categoria AUT_03 ............................................................................................................................................ 17
+Tabella 7: Categoria AUT_04 ............................................................................................................................................ 18
+Tabella 8: Categoria AUT_05 ............................................................................................................................................ 19
+Tabella 9: Categoria AUT_06 ............................................................................................................................................ 20
+Tabella 10: Categoria AUT_07 .......................................................................................................................................... 21
+Tabella 11: Categoria AUT_08 .......................................................................................................................................... 21
+Tabella 12: Categoria AUT_09a ........................................................................................................................................ 22
+Tabella 13: Categoria AUT_09b ........................................................................................................................................ 23
+Tabella 14: Categoria AUT_09c ........................................................................................................................................ 23
+Tabella 15 - Categoria AUT_09d ....................................................................................................................................... 24
+Tabella 16: Categoria AUT_10 .......................................................................................................................................... 25
+Tabella 17: categoria AUT_11........................................................................................................................................... 25
+Tabella 18: Corrispettivi Operatori economici interni alla Z.T.L. ........................................................................................ 26
+Tabella 19: Corrispettivi Operatori economici esterni alla Z.T.L. ....................................................................................... 27
+Tabella 20: Corrispettivi flotte aziendali Operatori economici esterni alla Z.T.L. ............................................................... 27
+Tabella 21: Orari di accesso per categoria merceologica.................................................................................................. 28
+Tabella 22: Autorizzati Z.T.L. Vernazzola.......................................................................................................................... 37
+Tabella 23: Autorizzati Z.T.L. Nervi ................................................................................................................................... 39
+Tabella 24: Autorizzati Z.T.L. Boccadasse ........................................................................................................................ 41
+
+
+                                                                                  §§§
+
+
+
+
+ Pagina 5 di 51
+             Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+0        MODIFICHE RISPETTO ALLA VERSIONE PRECEDENTE
+
+
+Versione precedente: revisione approvata con DGC 97/2023 del 15/06/2023. Versione attuale:
+modifiche disposte con Deliberazione di Giunta Comunale n. 74/2025 del 10/04/2025 avente ad
+oggetto “Istituzione dell'area pedonale di via Cesare Crosa di Vergagni e approvazione di
+modifiche alla disciplina dell'accesso alle Zone a Traffico Limitato” che ha approvato il quadro
+sinottico delle modifiche n. 1/2025.
+
+PARAGRAFO          MODIFICA
+
+     2.4.7         Introdotta autorizzazione per clienti attività economiche con parcheggio
+      3.3          Modificata Regolamentazione ZTL Vernazzola
+      3.6          Eliminato paragrafo ZTL Castelletto
+
+
+                                                           §§§
+
+
+
+
+Pagina 6 di 51
+          Comune di Genova – Direzione Mobilità Trasporti
+
+
+
+1        PREMESSE
+
+L’art. 3 del D. Lgs. 285/92 “Nuovo Codice della strada” e s.m.i. definisce la Zona a Traffico Limitato
+(nel seguito Z.T.L.) come “un’area in cui l’accesso e la circolazione veicolare sono limitati ad ore
+prestabilite e/o a particolari categorie di utenti e di veicoli”.
+Il presente documento delinea le regole generali per l’accesso alle Z.T.L. presenti sul territorio
+genovese definendo le politiche di accesso e le diverse categorie autorizzate, partendo dai criteri
+stabiliti con D.G.C. 00342/2001, “Autorizzazione al transito e alla sosta in zone soggette a
+limitazioni. Sostituzione della deliberazione di giunta comunale n. 1228 del 28 settembre 2000” e
+successive integrazioni.
+Il presente documento si articola in due parti concettualmente distinte:
+•      la prima definisce le regole valide per l’accesso a tutte le Z.T.L. qui descritte, in particolare
+       individua le categorie di veicoli che possono accedere alle Z.T.L. e le condizioni cui tale
+       accesso è soggetto.
+       Quanto disposto in questa parte del disciplinare è da considerarsi valido sia per le Z.T.L.
+       attualmente in vigore sul territorio comunale che per quelle di futura istituzione;
+•      la seconda definisce invece le caratteristiche peculiari di ciascuna Z.T.L., con particolare
+       riferimento alla delimitazione dell’area, alla validità temporale e alla disciplina di accesso.
+
+                                                      §§§
+
+
+1.1 AMBITO DI APPLICAZIONE
+
+Quanto disposto dal presente disciplinare si applica a tutte le Z.T.L. del territorio del Comune di
+Genova ad esclusione di quelle individuate dalle aree in cui vigono limiti alla circolazione veicolare
+per i veicoli più inquinanti, di cui alla ODS 59/2023 e s.m.i, essendo essa volta al perseguimento di
+un fine particolare, ossia il contenimento delle emissioni di inquinanti da traffico veicolare
+attraverso la disposizione del divieto di circolazione per talune categorie veicolari all’interno di una
+determinata area.
+Tale provvedimento agisce pertanto in maniera autonoma ed in affiancamento al presente
+disciplinare.
+
+                                                      §§§
+
+
+1.2 DISCIPLINA DELLA CIRCOLAZIONE
+
+La circolazione dei veicoli all’interno della Z.T.L. è comunque subordinata agli obblighi, divieti e
+limitazioni stabiliti per le singole strade o per tratti di esse con provvedimento ai sensi dell’art. 5,
+comma 3, del codice della strada.
+I veicoli autorizzati a circolare all’interno della Z.T.L. sono tenuti a rispettare le eventuali
+prescrizioni relative all’utilizzo di varchi di ingresso e uscita dall’area ad essi assegnati. L’accesso
+alla Z.T.L. attraverso un varco diverso da quelli assegnati, ovvero al di fuori dei giorni o degli orari
+stabiliti nell’autorizzazione, costituisce violazione all’art. 7 comma 14 del Codice della Strada.
+
+                                                      §§§
+
+
+
+Pagina 7 di 51
+           Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2          LIMITAZIONI DI ACCESSO ALLE ZONE
+
+Il presente capitolo descrive le categorie di veicoli che possono accedere alle Z.T.L. e le limitazioni
+cui tale accesso è soggetto.
+
+
+2.1 PRINCIPI GENERALI
+
+a)      L’accesso ed il transito nelle Z.T.L., ai sensi e per gli effetti dell’art. 7, comma 9, del codice
+        della strada possono essere subordinati al pagamento di un corrispettivo in Euro. Ottenuta
+        l'autorizzazione, il pagamento del corrispettivo dà titolo all’accesso per il veicolo indicato, per
+        il periodo di validità dell’autorizzazione stessa, nelle fasce orarie stabilite ed eventualmente
+        unicamente attraverso varchi predeterminati.
+        I veicoli autorizzati cui è stato rilasciato un contrassegno devono averlo esposto in modo ben
+        visibile sulla parte anteriore del veicolo durante la circolazione nella Z.T.L.
+b)      Alla scadenza delle autorizzazioni annuali elencate nel presente Disciplinare, l’utente potrà
+        richiedere un nuovo contrassegno di autorizzazione entro i dieci giorni successivi.
+c)      Nel caso di accesso o transito nelle Z.T.L. a controllo elettronico di veicoli appartenenti alle
+        categorie autorizzate ma non ancora registrati, la regolarizzazione dell’accesso è consentita
+        anche nelle quarantotto ore successive, ottenendo il relativo permesso previo pagamento del
+        corrispettivo dovuto al soggetto gestore del servizio.
+d)      I velocipedi hanno la possibilità di accedere liberamente in tutte le Z.T.L. presenti sul
+        territorio.
+e)      Il richiedente ha la facoltà di richiedere una sola tipologia di contrassegno per ciascun
+        veicolo, fatta eccezione per i seguenti casi:
+        -       per i soggetti residenti in Z.T.L., titolari di attività economica all’interno o all’esterno
+                della Z.T.L.;
+        -       per i soggetti già possessori di un tagliando residenti per la Z.T.L., che necessitano di
+                un ulteriore permesso per ricoverare il proprio veicolo, il cui posto auto o box privato,
+                con regolare passo carrabile, ricada in una Z.T.L., o in settore di Z.T.L. ove così
+                regolamentata, differente da quella di residenza.
+f)      I titolari di contrassegno disabili, ai sensi del DPR 30/07/2012, n. 152, potranno provvedere
+        alla registrazione di tre targhe di veicoli per l’accesso alle Z.T.L. dotate di controllo accessi
+        elettronico.
+        E’ fatta salva la possibilità di utilizzare veicoli diversi, in tal caso la comunicazione al soggetto
+        erogatore del servizio degli estremi identificativi del veicolo, deve essere effettuata entro i
+        sette giorni consecutivi successivi al transito;
+g)      Tutti le tipologie di permesso contenute nel presente disciplinare sono in caso rilasciabili
+        unicamente a veicoli la cui massa a pieno carico non ecceda le 3,5 tonnellate;
+h)      Tutte le tariffe riportate nel presente Disciplinare sono da intendersi IVA inclusa.
+
+2.1.1      SOSTITUZIONE E DUPLICAZIONE DI CONTRASSEGNI
+
+Nel caso di emissione a seguito di smarrimento del contrassegno o sua duplicazione l’eventuale
+rilascio è:
+•       Gratuito, in caso di prima riemissione o sostituzione;
+•       A pagamento per un costo pari a Euro 15,00, per successive riemissioni o sostituzioni. Tale
+        importo è da intendersi per qualsiasi tipo di tagliando indicato nel presente Disciplinare;
+
+ Pagina 8 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+2.1.2    TIPOLOGIE DI DISPONIBILITA’ DEI VEICOLI
+
+Con riferimento a quanto contenuto nei paragrafi seguenti, a seconda del soggetto richiedente
+(persona fisica o giuridica) il veicolo potrà risultare in disponibilità allo stesso secondo diverse
+forme come meglio dettagliato nel seguito:
+•     TIPOLOGIA “A” – Persone fisiche:
+      Al fine della regolamentazione dell’accesso dei veicoli alle Z.T.L., un veicolo si intende in
+      disponibilità di una persona fisica qualora lo stesso lo utilizzi a titolo di:
+      ▪     proprietà;
+      ▪     usufrutto o comodato d’uso al richiedente regolarmente trascritto sulla carta di
+            circolazione (trascrizione obbligatoria in caso di comodato successivo al 3 novembre
+            2014, ex art.94 comma 4-bis del Codice della strada). In caso di appartenenza al
+            medesimo nucleo familiare, purché conviventi, non è richiesta la trascrizione sulla carta
+            di circolazione;
+      ▪     acquisto con patto di riservato dominio;
+      ▪     locazione finanziaria (leasing) o noleggio;
+      ▪     uso, dimostrato con dichiarazione del proprietario del veicolo resa ai sensi dell'art. 47
+            del DPR n. 445 del 28/12/2000, in concessione da parte di società di cui è dipendente,
+            collaboratore con regolare contratto e per la durata dello stesso, socio o titolare.
+•     TIPOLOGIA “B” – Persone giuridiche:
+      Al fine della regolamentazione dell’accesso dei veicoli alle Z.T.L., un veicolo si intende in
+      disponibilità di una persona giuridica qualora la stessa lo utilizzi a titolo di:
+      ▪     proprietà;
+      ▪     usufrutto o comodato d’uso all’impresa o al suo titolare regolarmente trascritto sul carta
+            di circolazione (trascrizione obbligatoria in caso di comodato successivo al 3 novembre
+            2014, ex art.94 comma 4-bis del Codice della strada). In caso di appartenenza al
+            medesimo nucleo familiare non è richiesta la trascrizione sul carta di circolazione;
+      ▪     acquisto da parte dell’impresa o del suo titolare con patto di riservato dominio;
+      ▪     utilizzo all’impresa o al suo titolare a titolo di locazione finanziaria.
+
+2.1.3    AREA DI VALIDITA’ DEI PERMESSI
+
+Nel presente Disciplinare sono distinte tre opzioni di permesso in funzione dell’area di validità:
+i.    Permessi validi su tutte le Z.T.L. del territorio cittadino (indicati, nelle tabelle seguenti, con la
+      dicitura “Tutte le Z.T.L.”);
+ii.   Permessi validi per la Z.T.L. di riferimento (indicati, nelle tabelle seguenti, con la dicitura
+      “Z.T.L. di riferimento”);
+iii.  Permessi validi per la Z.T.L. di riferimento o, nel caso della Z.T.L. centro Storico, validi
+      limitatamente al Settore di riferimento (indicati, nelle tabelle seguenti, con la dicitura “Z.T.L. o
+      Settore di riferimento”);
+
+                                                      §§§
+
+
+
+
+Pagina 9 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2.2 CATEGORIE VEICOLARI ESCLUSE DALLE LIMITAZIONI
+
+Il presente paragrafo indica le categorie di veicoli che possono accedere liberamente alle Z.T.L.,
+fatta eccezione per quanto previsto per la ZTL Nervi Centro, distinguendo tra le seguenti tipologie
+di accesso:
+•      senza necessità di contrassegno, ma con obbligo di registrazione al sistema nel caso di
+       Z.T.L. controllata elettronicamente;
+•      con obbligo di contrassegno.
+
+2.2.1    ACCESSO SENZA NECESSITÀ DI CONTRASSEGNO
+
+Hanno libero accesso alle Z.T.L., senza necessità di contrassegno, ma con obbligo di registrazione
+nel caso di Z.T.L. a controllo elettronico, le seguenti categorie di veicoli:
+
+2.2.1.1 ESE_01 / Forze di Polizia, Soccorso ed emergenza
+•     Veicoli appartenenti a:
+      ▪    Polizia Nazionale (Polizia di Stato, Polizia Locale, Arma dei Carabinieri, Guardia di
+           Finanza, Polizia Penitenziaria e Corpo Forestale dello Stato);
+      ▪    Forze Armate;
+•     Veicoli di soccorso in stato di emergenza;
+•     Veicoli dei servizi di Protezione Civile o addetti alla pubblica incolumità del Comune.
+
+2.2.1.2 ESE_02 / Servizi di trasporto pubblico
+•     Veicoli dei servizi di trasporto pubblico di linea urbana e non di linea;
+•     Autopubbliche (taxi) e autovetture da noleggio con conducente, come da art. 85 del nuovo
+      Codice della Strada;
+•     Veicoli appartenenti alla flotta car-sharing.
+
+2.2.1.3 ESE_03 / Veicoli al servizio di persone invalide
+•     Veicoli muniti di apposito contrassegno disabile (C.U.D.E.) rilasciato ai sensi del DPR
+      30/07/2012, n. 152.
+
+2.2.1.4 ESE_04a / Aziende, enti e servizi pubblici (veicoli con livrea)
+•     Veicoli con livrea in disponibilità delle aziende affidatarie dei servizi pubblici per:
+      manutenzione e pulizia stradale, igiene urbana, arredo delle strade, manutenzione e
+      gestione della pubblica illuminazione e della segnaletica stradale, manutenzione degli stabili
+      comunali; carri attrezzi per il soccorso stradale.
+
+2.2.1.5 ESE_05 / Consolati
+•     Veicoli di Consolati con targa speciale.
+
+2.2.1.6 ESE_07/ Autoemoteche
+•     Autoemoteche e relativi mezzi di supporto appartenenti alle flotte delle associazioni prestanti
+      servizio per la raccolta ed il trasporto del sangue.
+
+
+Pagina 10 di 51
+           Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2.2.2      ACCESSO CON OBBLIGO DI CONTRASSEGNO
+
+Il libero accesso alle Z.T.L. con obbligo di contrassegno è previsto, per le seguenti categorie di
+veicoli, solo per il tempo strettamente necessario ad effettuare servizi di interesse collettivo:
+
+2.2.2.1 ESE_04b / Aziende, enti e servizi pubblici (veicoli senza livrea)
+
+•       Veicoli senza livrea in disponibilità delle aziende affidatarie dei servizi pubblici per:
+        manutenzione e pulizia stradale, igiene urbana, arredo delle strade, manutenzione e
+        gestione della pubblica illuminazione e della segnaletica stradale, manutenzione degli stabili
+        comunali; carri attrezzi per il soccorso stradale;
+•       Veicoli in disponibilità dello Stato, della Regione, della Provincia, del Comune e delle
+        Aziende sanitarie locali e altre strutture sanitarie pubbliche, dell’Autorità Portuale, che per
+        ragioni di servizio devono frequentare l’area della Z.T.L.
+
+2.2.2.2 ESE_04c / Assistenza alla persona
+
+•       Veicoli in disponibilità di soggetti che espletano attività di assistenza alla persona svolgendo
+        servizi di interesse pubblico, appaltati o affidati dalle Aziende Sanitarie Locali o dai servizi
+        sociali del Comune di Genova;
+•       Veicoli in disponibilità di associazioni no profit, iscritte al registro di cui alla legge regionale
+        28 maggio 1992 n. 15, che espletano attività di assistenza alla persona, quali ad esempio
+        assistenza domiciliare a disabili o anziani.
+
+2.2.2.3 ESE_06 / Veicoli elettrici
+
+Per i veicoli elettrici è previsto il libero accesso alle Z.T.L., con obbligo di contrassegno e per il
+tempo strettamente necessario, secondo le seguenti disposizioni:
+•     autovetture per trasporto di persone, motocicli e ciclomotori, accesso permesso tutti i giorni
+      nella fascia oraria 00:00 – 24:00;
+•     veicoli destinati al trasporto merci, accesso permesso tutti i giorni nella fascia oraria 00:00 –
+      24:00;
+•     viene rilasciato un unico contrassegno, a titolo gratuito e con validità annuale, valido per
+      l’accesso in tutte le Z.T.L. del territorio cittadino.
+•     nei casi in cui siano previste modulazioni delle tariffe sulla base del numero di veicoli
+      dichiarati, i veicoli elettrici non rientrano nei relativi conteggi.
+
+
+
+
+Pagina 11 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2.2.3     SCHEMA RIASSUNTIVO
+
+                                                                                                                            AREA DI
+                                                                                           TIPO DI         PERIODO DI
+ CODICE                CATEGORIA               CONTRASSEGNO        REGISTRAZIONE                                           VALIDITA’         ORARI DI ACCESSO
+                                                                                         PERMESSO           VALIDITA’
+                                                                                                                        (RIF. PAR. 2.1.3)
+
+            Forze di Polizia, Soccorso ed
+ESE_01                                                No                Si                Gratuito           Annuale                        Tutti i giorni 00.00-24.00
+            emergenza
+ESE_02      Servizi di trasporto pubblico             No                Si                Gratuito           Annuale                        Tutti i giorni 00.00-24.00
+                                                      No
+            Veicoli al servizio di persone
+ESE_03                                          (è necessario il        Si                Gratuito           Annuale                        Tutti i giorni 00.00-24.00
+            invalide
+                                                    CUDE)
+            Aziende, enti e servizi pubblici                                                                                                Limitatamente alla durata
+ESE_04a                                               No                Si                Gratuito           Annuale
+            (veicoli con livrea)                                                                                         Tutte le Z.T.L.*         dell’intervento
+            Aziende, enti e servizi pubblici                                                                                                Limitatamente alla durata
+ESE_04b                                               Si                Si                Gratuito           Annuale
+            (veicoli senza livrea)                                                                                                                dell’’intervento
+                                                                                                                                            Limitatamente alla durata
+ESE_04c     Assistenza alla persona                   Si                Si                Gratuito           Annuale
+                                                                                                                                                  dell’’intervento
+ESE_05      Consolati                                 No                Si                Gratuito           Annuale                        Tutti i giorni 00.00-24.00
+ESE_06      Veicoli elettrici                         SI                SI                Gratuito           Annuale                        Tutti i giorni 00.00-24.00
+                                                                                                                                            Limitatamente alla durata
+ESE_07      Autoemoteche                              SI                SI                Gratuito           Annuale
+                                                                                                                                                  dell’’intervento
+*Fatta eccezione per quanto previsto per la ZTL Nervi Centro
+                                                    Tabella 1: Schema riassuntivo categorie escluse dalle limitazioni
+
+
+                                                                                   §§§
+
+
+
+
+Pagina 12 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2.3 CATEGORIE AUTORIZZATE / RESIDENTI
+
+Il presente paragrafo definisce le categorie di veicoli che possono accedere alle Z.T.L., previa
+richiesta di autorizzazione e a seguito del pagamento di un corrispettivo.
+
+2.3.1    AUT_01 / VEICOLI IN DISPONIBILITÀ DI RESIDENTI E ASSIMILATI
+
+2.3.1.1 Soggetti aventi titolo
+
+Ai fini del presente Disciplinare, hanno facoltà di richiedere un permesso AUT_01 (residenti e
+assimilati) per l’accesso ad una delle Z.T.L. cittadine, i seguenti soggetti:
+a)     Persone fisiche residenti in regolari abitazioni all’interno di una delle Z.T.L. cittadine.
+b)     Persone fisiche che utilizzano un immobile sito in una delle Z.T.L. cittadine in usufrutto o con
+       valido contratto di locazione ad uso abitativo;
+c)     Persone fisiche, residenti al di fuori del Comune di Genova, alloggiate o ospitate in regolari
+       abitazioni in una delle Z.T.L. cittadine, con dichiarazione del responsabile del Nucleo
+       Familiare presso cui la persona viene ospitata, resa ai sensi dell’art. 47 del D.P.R. 28
+       dicembre 2000, n. 445 ed attestante le motivazioni della richiesta. In tale casistica il rilascio
+       del permesso è vincolato a ragioni di:
+       ▪      studio: persone iscritte a corsi di laurea o di specializzazione post-laurea o studenti con
+              più di 14 anni frequentanti Istituti Scolastici con sede nel Comune di Genova;
+       ▪      lavoro: persone con sede lavorativa nel Comune di Genova, con regolare contratto di
+              lavoro a tempo indeterminato o determinato oppure titolari di attività con sede operativa
+              nel Comune di Genova;
+       ▪      salute: persone fisiche sottoposte a terapie di lunga durata presso strutture sanitarie
+              pubbliche, che implichino un ricovero o visite assidue e periodiche presso strutture
+              sanitarie pubbliche o soggetti accreditati istituzionalmente per l’esercizio di attività
+              sanitarie per conto del Servizio Sanitario Nazionale. In tale caso il permesso può
+              essere rilasciato, alternativamente alla persona sottoposta a terapia, anche ad un solo
+              accompagnatore.
+       Il richiedente, ricadente nelle tre precedenti casistiche, dovrà inoltre produrre
+       documentazione inerente lo Stato di Famiglia relativo al Nucleo Familiare presso cui risulta
+       domiciliato.
+d)     Persone fisiche residenti o meno nel Comune di Genova, in quanto prestano assistenza
+       continuativa con abitazione presso soggetti invalidi residenti in Z.T.L., titolari di indennità di
+       accompagnamento o di frequenza di cui alle vigenti norme, limitatamente a soggetti con
+       regolare contratto di lavoro o parenti e affini fino al 3° grado.
+e)     Persone fisiche iscritte allo schedario della popolazione temporanea di cui all’art. 32 del
+       D.P.R. 30/5/1989, n. 223.
+f)     Persone fisiche regolarmente iscritte all'anagrafe della popolazione italiana residente
+       all'estero (AIRE), già pensionati nei rispettivi paesi di residenza e in possesso (proprietà o
+       usufrutto) di un’unità immobiliare ad uso abitativo nel Comune di Genova, a condizione che
+       la stessa non risulti locata o data in comodato d’uso.
+Ciascun soggetto richiedente dovrà essere ricondotto ad uno specifico Stato di Famiglia. Per le
+finalità del presente Disciplinare, partecipano alla determinazione del numero di componenti il
+Nucleo Familiare esclusivamente le persone con età maggiore o uguale a 14 anni.
+Ai fini della presente disciplina con Nucleo Familiare si intende quello risultante dallo Stato di
+Famiglia. Ciascun individuo eventualmente domiciliato presso un Nucleo Familiare (come descritto
+
+
+Pagina 13 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+al punto 2 del presente paragrafo) concorrerà alla determinazione del numero di componenti dello
+stesso.
+
+2.3.1.2 Tipologie di veicoli autorizzabili
+
+Possono essere autorizzati ad accedere alle Z.T.L. i veicoli in disponibilità di residenti o di soggetti
+“assimilati”, limitatamente alle seguenti categorie:
+•     Veicoli destinati al trasporto di persone appartenenti alla categoria M1 (art. 47 comma 2,
+      lettera “b” del D. Lgs. 30 aprile 1992 n. 285 e s.m.i.);
+•     Veicoli destinati al trasporto merci appartenenti alla categoria N1 (art. 47 comma 2, lettera “c”
+      del D. Lgs. 30 aprile 1992 n. 285 e s.m.i.);
+•     Ciclomotori (art. 52 del D. Lgs. 30 aprile 1992 n. 285 e s.m.i.);
+•     Motoveicoli (art. 53 comma 1, lettera a,b,c,h del D. Lgs. 30 aprile 1992 n. 285 e s.m.i.).
+
+2.3.1.3 Corrispettivi
+
+Ai veicoli in disponibilità di persone fisiche residenti in Z.T.L., o di soggetti ad essi “assimilati”,
+possono essere rilasciate, previa richiesta, autorizzazioni ad accedere di validità annuale (365
+giorni dalla data di rilascio), dalle ore 00.00 alle ore 23.59 di tutti i giorni.
+Tali autorizzazioni vengono rilasciate dietro un corrispettivo di importo variabile e dipendente da:
+•     il numero di componenti del nucleo familiare residente o assimilato, risultante dallo stato di
+      famiglia;
+•     il tipo di veicolo per il quale si richiede l’autorizzazione;
+•     il numero di veicoli complessivo autorizzati per il nucleo familiare, per il quale i veicoli di cui
+      alla Tabella 2 precedono nell’ordine di conteggio i veicoli di cui alla Tabella 3
+      (motoveicoli/ciclomotori).
+Qualora la Z.T.L. sia divisa in settori per i quali vengono indicati precisi varchi di ingresso e uscita, i
+permessi per i veicoli in disponibilità di residenti e assimilati danno la possibilità di accedere alla
+Z.T.L. unicamente attraverso i varchi validi per l’accesso al settore di residenza. Il titolare del
+permesso, qualora l’accesso attraverso i varchi del settore spettante sia estremamente disagevole
+per le condizioni di circolazione nella Z.T.L., può chiedere l’assegnazione di un settore sostitutivo.
+
+                                               VEICOLI N1 E M1
+
+                                                    CORRISPETTIVO SECONDO IL NUMERO DI VEICOLI
+                                                                                            4° O
+                                                   1°            2°            3°
+                                                                                        SUCCESSIVI
+                                 1             Euro 27,00    Euro 300,00  Euro 300,00    Euro 300,00
+ NUMERO COMPONENTI
+                                 2             Euro 27,00    Euro 27,00   Euro 300,00    Euro 300,00
+ IL NUCLEO FAMILIARE
+                              3 O PIU’         Euro 27,00    Euro 27,00    Euro 50,00    Euro 300,00
+             Tabella 2: Corrispettivi categoria AUT_01 (Residenti e assimilati) per veicoli N1 e M1
+
+
+
+
+Pagina 14 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+                                          MOTOCICLI E CICLOMOTORI
+
+        NUMERO DI VEICOLI GIÀ’ AUTORIZZATI
+        ALL'INTERNO DEL NUCLEO FAMILIARE                                         CORRISPETTIVO
+           (ALTRI MOTOCICLI COMPRESI)
+                     nessuno                                                           Euro 27,00
+                         1                                                             Euro 27,00
+                         2                                                             Euro 27,00
+                      3 o più                                                          Euro 300,00
+          Tabella 3: Corrispettivi categoria AUT_01 (Residenti e assimilati) per motocicli o ciclomotori
+
+
+2.3.2    AUT_02 / VEICOLI IN DISPONIBILITÀ DI UTILIZZATORI DI AREE O IMMOBILI
+
+Possono essere autorizzati ad accedere alla Z.T.L.:
+•      i veicoli in disponibilità di residenti o non che, ai soli fini del ricovero, dispongono di aree di
+       sosta private con regolare passo carrabile;
+•      i veicoli in disponibilità di persone fisiche proprietarie (o locatarie con regolare contratto
+       registrato) di immobili, all’interno della Z.T.L, o comunque che necessitano l’attraversamento
+       delle Z.T.L. per il loro raggiungimento, che non rientrano in nessun altra categoria del
+       presente Disciplinare.
+Per coloro, residenti o non, che dispongono di aree di sosta private, all’interno della zona il numero
+di autorizzazioni rilasciate non può essere superiore al doppio dei posti disponibili: tale numero è
+calcolato considerando che siano necessari 12,5 mq per ricoverare una autovettura; una
+autovettura si considera equivalente a 3 motocicli/ciclomotori.
+Le autorizzazioni hanno durata annuale e prevedono un corrispettivo di Euro 27,00. I permessi si
+intendono revocati nel caso in cui venga a mancare la disponibilità o l’utilizzabilità del posto
+nell’area privata interessata.
+Qualora il Passo Carrabile sia a servizio di un’area pubblica oggetto di concessione o convenzione
+implicante un canone in favore della Civica Amministrazione, si applica l’esenzione dal pagamento
+del COSAP ai sensi del vigente Regolamento Comunale e la conseguente gratuità delle
+autorizzazioni ZTL. Il numero dei veicoli autorizzabili dovrà, comunque, rispondere a quanto
+stabilito nel precedente capoverso.
+
+Qualora la Z.T.L. sia divisa in settori per i quali vengono indicati precisi varchi di ingresso e uscita, i
+permessi per i veicoli in disponibilità di utilizzatori di aree di sosta danno la possibilità di accedere
+alla Z.T.L. unicamente attraverso i varchi validi per l’accesso al settore dove si trova l’area di sosta.
+Il titolare del permesso, qualora l’accesso attraverso i varchi del settore spettante sia
+estremamente disagevole per le condizioni di circolazione nella Z.T.L., può chiedere
+l’assegnazione di un settore sostitutivo.
+
+         CODICE                                     TIPOLOGIA                                        Corrispettivo
+
+                           Passi carrabili a servizio di un’area pubblica oggetto di
+                                                                                                       Gratuito
+         AUT_02            concessione o convenzione a titolo oneroso
+                           Qualsiasi altra casistica                                                  Euro 27,00
+                                    Tabella 4: Corrispettivi categoria AUT_02
+
+
+                                                        §§§
+
+
+
+
+Pagina 15 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2.3.3     SCHEMA RIASSUNTIVO
+
+                                                 DISPONIBILITA’                                                                  AREA DI
+                                                                     TIPOLOGIA DI                              PERIODO DI
+ CODICE                 CATEGORIA                 DEL VEICOLO                            CORRISPETTIVO                          VALIDITA’           ORARI DI ACCESSO
+                                                                       VEICOLO                                  VALIDITA’
+                                                 (RIF. PAR. 2.1.2)                                                           (RIF. PAR. 2.1.3)
+
+                                                                                          Vedi Tabella 2 e                   Z.T.L. o Settore di
+ AUT_01             Residenti e assimilati              A            Vedi par 2.3.1.2                              Annuale                         Tutti i giorni 00.00-24.00
+                                                                                             Tabella 3                           riferimento
+                                                                                                                             Z.T.L. o Settore di
+ AUT_02           Utilizzatori aree o immobili          A            Vedi par 2.3.1.2         Vedi Tabella 4       Annuale                         Tutti i giorni 00.00-24.00
+                                                                                                                                 riferimento
+                                                               Tabella 5: Schema riassuntivo categoria residenti
+
+
+                                                                                        §§§
+
+
+
+
+Pagina 16 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2.4 CATEGORIE AUTORIZZATE / ALTRE PERSONE FISICHE ED OPERATORI ECONOMICI
+
+2.4.1     AUT_03 / VEICOLI IN DISPONIBILITÀ DI ESERCENTI LE PROFESSIONI SANITARIE
+
+Possono essere autorizzati ad accedere alla Z.T.L. i veicoli in disponibilità di esercenti le professioni sanitarie che devono effettuare interventi e
+trattamenti inerenti alla loro professione.
+I veicoli in disponibilità degli appartenenti alla categoria AUT_03 possono essere autorizzati ad accedere tutti i giorni in orario 00.00 – 24.00, previa
+richiesta di autorizzazione annuale e del versamento del corrispettivo di Euro 27,00.
+Nei casi di comprovata necessità, a richiesta del professionista interessato, ovvero del soggetto assistito o del suo familiare, possono essere rilasciati
+permessi di accesso, giornalieri, del corrispettivo di Euro 11,00.
+
+                                                DISPONIBILITA’                                                         AREA DI
+                                                                    TIPOLOGIA DI                     PERIODO DI
+ CODICE              CATEGORIA                   DEL VEICOLO                        CORRISPETTIVO                     VALIDITA’           ORARI DI ACCESSO
+                                                                      VEICOLO                         VALIDITA’
+                                                (RIF. PAR. 2.1.2)                                                  (RIF. PAR. 2.1.3)
+
+                                                A o B a seconda                         Euro 27,00    Annuale        Tutte le Z.T.L.
+ AUT_03    Esercenti le professioni sanitarie     del soggetto        Qualsiasi                                    Z.T.L. o Settore di   Tutti i giorni 00.00-24.00
+                                                   richiedente                          Euro 11,00   Giornaliero
+                                                                                                                       riferimento
+                                                                       Tabella 6: Categoria AUT_03
+
+
+2.4.2     AUT_04 / VEICOLI IN DISPONIBILITÀ DI MEDICI
+
+Possono essere autorizzati ad accedere alla Z.T.L. i veicoli in disponibilità di medici che devono accedere alla Z.T.L. per visite domiciliari.
+I veicoli in disponibilità degli appartenenti alla categoria AUT_04 possono essere autorizzati ad accedere tutti i giorni in orario 00.00 – 24.00, previa
+richiesta di autorizzazione annuale e del versamento del corrispettivo di Euro 27,00.
+Nei casi di comprovata necessità, a richiesta del medico interessato, ovvero del soggetto assistito o suo familiare, possono essere rilasciati permessi
+di accesso, giornalieri, gratuiti. Il veicolo deve sempre essere provvisto di regolare contrassegno dell’Ordine dei Medici.
+
+
+
+
+Pagina 17 di 51
+             Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+                                                 DISPONIBILITA’                                                            AREA DI
+                                                                     TIPOLOGIA DI                     PERIODO DI
+    CODICE              CATEGORIA                 DEL VEICOLO                        CORRISPETTIVO                        VALIDITA’           ORARI DI ACCESSO
+                                                                       VEICOLO                         VALIDITA’
+                                                 (RIF. PAR. 2.1.2)                                                     (RIF. PAR. 2.1.3)
+
+                                                 A o B a seconda                         Euro 27,00     Annuale          Tutte le Z.T.L.     Tutti i giorni 00.00-24.00
+    AUT_04    Medici                               del soggetto        Qualsiasi                                       Z.T.L. o Settore di
+                                                    richiedente                           Gratuito     Giornaliero                           Tutti i giorni 00.00-24.00
+                                                                                                                           riferimento
+                                                                        Tabella 7: Categoria AUT_04
+
+
+2.4.3        AUT_05 / VEICOLI PER SPOSTAMENTI DI TIPO COMMERCIALE / ECONOMICO
+
+Possono essere autorizzati ad accedere alla Z.T.L. i veicoli in disponibilità di operatori economici che svolgono le seguenti attività:
+•    pronto intervento (ad esempio: su impianti elettrotecnici, termici, idraulici, a gas, di condizionamento o refrigerazione, di sollevamento,
+     manutenzione porte, meccanismi di chiusura infissi, fabbri, disinfestatori, officine mobili, istituti di vigilanza ed espletamento di servizi diversi
+     dalla scorta valori, ecc.);
+•    servizi a favore di privati o attività economiche nella zona (ad esempio: imprese edili o di ristrutturazione, imprese artigiane, imprese di
+     traslochi);
+•     servizi di tipo commerciale, svolti da agenti di commercio regolarmente iscritti al Ruolo presso le Camere di Commercio;
+•     servizi di pulizia;
+•     “consegna a domicilio di cibi pronti” (ad esempio: pizza, pasta, ecc.) per conto di attività regolarmente autorizzate a tale tipo di servizio, previa
+      dichiarazione del titolare dell’attività che certifichi l’uso di tale veicolo a tale scopo, con possibilità di utilizzo di mezzi intestati all’operatore del
+      servizio di consegna a domicilio e non all’azienda. Il titolare è inoltre tenuto a presentare visura camerale attestante l’attività stessa;
+•     veicoli adibiti al trasporto di farina per l’approvvigionamento dei forni per la produzione di pane e affini;
+•     veicoli adibiti al trasporto merci (categoria N1 ex art.47 del CdS) utilizzati dai panificatori con sede operativa all’interno della Z.T.L.;
+•     veicoli adibiti al trasporto merci (categoria N1 ex art.47 del CdS) utilizzati da imprese che svolgono servizi di catering.
+E’ facoltà del gestore del servizio richiedere, in qualsiasi momento, copia del regolare contratto stipulato per le attività per le quali si richiede l’accesso
+in Z.T.L.
+I veicoli in disponibilità degli appartenenti alla categoria AUT_05 possono essere autorizzati ad accedere per spostamenti operativi secondo le
+modalità sotto riportate:
+
+
+
+
+Pagina 18 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+                                              DISPONIBILITA’                                                          AREA DI
+                                                                  TIPOLOGIA DI                     PERIODO DI
+ CODICE              CATEGORIA                 DEL VEICOLO                        CORRISPETTIVO                      VALIDITA’            ORARI DI ACCESSO
+                                                                    VEICOLO                         VALIDITA’
+                                              (RIF. PAR. 2.1.2)                                                   (RIF. PAR. 2.1.3)
+
+                                                                                      Euro 5,00    Giornaliero
+           Pronto intervento                         B              Qualsiasi         Euro 11,00    Mensile      Z.T.L. di riferimento   Tutti i giorni 00.00-24.00
+                                                                                      Euro 27,00    Annuale
+                                                                                      Euro 5,00    Giornaliero                           06.00–20.00 (giorni feriali
+           Servizi                                   B              Qualsiasi         Euro 11,00    Mensile      Z.T.L. di riferimento     solo per la durata del
+                                                                                      Euro 27,00    Annuale                                 contratto in essere)
+                                                                                      Euro 5,00    Giornaliero
+           Imprese di pulizia                        B              Qualsiasi         Euro 11,00    Mensile      Z.T.L. di riferimento 00.00–24.00 (giorni feriali)
+                                                                                      Euro 27,00    Annuale
+                                              A o B a seconda                         Euro 5,00    Giornaliero
+           Consegna a domicilio cibi pronti     del soggetto        Qualsiasi         Euro 11,00    Mensile      Z.T.L. di riferimento   Tutti i giorni 00.00-24.00
+                                                 richiedente                          Euro 27,00    Annuale
+ AUT_05
+                                                                                      Euro 5,00    Giornaliero
+           Agenti di commercio                       B              Qualsiasi         Euro 11,00    Mensile      Z.T.L. di riferimento 08.00–20.00 (giorni feriali)
+                                                                                      Euro 27,00    Annuale
+                                                                                      Euro 5,00    Giornaliero
+           Trasporto farina                          B              Veicoli N1        Euro 11,00    Mensile      Z.T.L. di riferimento 00.00–24.00 (giorni feriali)
+                                                                                      Euro 27,00    Annuale
+                                                                                      Euro 5,00    Giornaliero
+           Trasporto pane                            B              Veicoli N1        Euro 11,00    Mensile      Z.T.L. di riferimento 00.00–24.00 (giorni feriali)
+                                                                                      Euro 27,00    Annuale
+                                                                                      Euro 5,00    Giornaliero
+           Servizi di Catering                       B              Veicoli N1        Euro 11,00    Mensile      Z.T.L. di riferimento   Tutti i giorni 00.00-24.00
+                                                                                      Euro 27,00    Annuale
+                                                                     Tabella 8: Categoria AUT_05
+
+
+Per la categoria AUT_05 è inoltre possibile rilasciare un permesso della durata annuale valido per tutte le Z.T.L. presenti sul territorio genovese, al
+costo di Euro 54,00.
+
+
+
+Pagina 19 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2.4.4     AUT_06 / VEICOLI PER SERVIZI DI PUBBLICA UTILITÀ’
+
+Possono essere autorizzati ad accedere alla Z.T.L.:
+•     veicoli per lo svolgimento in subappalto o sub-affidamento dei servizi pubblici per manutenzione e pulizia stradale, igiene urbana, arredo delle
+      strade, manutenzione e gestione della pubblica illuminazione e della segnaletica stradale, manutenzione degli stabili comunali; carri attrezzi per
+      il soccorso stradale.
+•     veicoli per la gestione delle reti: radio e televisione, telefonia di rete fissa e mobile, rete elettrica, idrica e del gas e di tutti i sottoservizi; veicoli di
+      proprietà delle emittenti radio-televisive e testate giornalistiche per servizi giornalistici, limitatamente agli interventi nell’ambito del territorio della
+      zona;
+•     veicoli in disponibilità di aziende preposte al servizio postale universale che per ragioni di servizio devono frequentare l’area;
+•     veicoli per servizi di trasporto e onoranze funebri;
+•     veicoli adibiti ai servizi di vigilanza privata per scorta valori, regolarmente autorizzati, contraddistinti con il logo dell’istituto di appartenenza;
+I veicoli in disponibilità degli appartenenti alla categoria AUT_06 possono essere autorizzati ad accedere tutti i giorni in orario 00.00 – 24.00, previa
+richiesta di autorizzazione annuale e del versamento del corrispettivo di Euro 27,00.
+Per la categoria AUT_06 è inoltre possibile rilasciare un permesso di validità annuale valido per tutte le Z.T.L. presenti sul territorio genovese, al
+costo di Euro 54,00.
+
+                                              DISPONIBILITA’                                                                   AREA DI
+                                                                  TIPOLOGIA DI                           PERIODO DI
+ CODICE               CATEGORIA                DEL VEICOLO                         CORRISPETTIVO                              VALIDITA’            ORARI DI ACCESSO
+                                                                    VEICOLO                               VALIDITA’
+                                              (RIF. PAR. 2.1.2)                                                            (RIF. PAR. 2.1.3)
+
+ AUT_06    Servizi di pubblica utilità               B              Qualsiasi          Euro 27,00          Annuale        Z.T.L. di riferimento   Tutti i giorni 00.00-24.00
+                                                                     Tabella 9: Categoria AUT_06
+
+
+2.4.5     AUT_07 / VEICOLI IN DISPONIBILITÀ DI GIORNALISTI E TROUPE TELEVISIVE
+
+Possono essere autorizzati ad accedere alla Z.T.L. veicoli in disponibilità di giornalisti e troupe televisive per motivi di servizio, con dichiarazione del
+datore di lavoro o iscrizione all’ordine dei giornalisti.
+I veicoli in disponibilità degli appartenenti alla categoria AUT_07 possono essere autorizzati ad accedere tutti i giorni in orario 00.00 – 24.00, previa
+richiesta di autorizzazione annuale e del versamento del corrispettivo di Euro 54,00.
+
+
+Pagina 20 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+                                              DISPONIBILITA’                                                             AREA DI
+                                                                  TIPOLOGIA DI                      PERIODO DI
+ CODICE              CATEGORIA                 DEL VEICOLO                        CORRISPETTIVO                         VALIDITA’           ORARI DI ACCESSO
+                                                                    VEICOLO                          VALIDITA’
+                                              (RIF. PAR. 2.1.2)                                                      (RIF. PAR. 2.1.3)
+
+                                                A (giornalisti)
+ AUT_07    Giornalisti e troupe televisive        B (troupe         Qualsiasi        Euro 54,00       Annuale          Tutte le Z.T.L.     Tutti i giorni 00.00-24.00
+                                                 televisive)
+                                                                    Tabella 10: Categoria AUT_07
+
+
+2.4.6     AUT_08 / VEICOLI IN DISPONIBILITÀ DI PERSONE CHE PRESTANO ASSISTENZA
+
+Possono essere autorizzate ad accedere alla Z.T.L.:
+•     le persone fisiche che prestano assistenza ad un familiare (legame di parentela nei limiti del 2° grado) residente in “Z.T.L.”, previa
+      presentazione di idonea certificazione medica; nel caso in cui si certifichi che non siano in vita, o comunque nella possibilità fisica, parenti di
+      secondo grado, il permesso in oggetto potrà essere rilasciato anche ad un parente dell'assistito di grado superiore. Il numero di abbonamenti
+      rilasciabili è pari a 2 per soggetto assistito.
+•     I veicoli che trasportano persone non in grado di spostarsi temporaneamente in autonomia e che devono essere per questo accompagnate
+      presso abitazioni, uffici, laboratori, studi medici, plessi scolastici/universitari e simili strutture dove le stesse hanno necessità di accedere, previa
+      presentazione di idonea certificazione medica. Il permesso potrà essere rilasciato con validità mensile, valido per un veicolo e non ripetibile. In
+      alternativa o comunque alla scadenza del mese di validità del suddetto permesso, sarà possibile avvalersi di permessi giornalieri.
+I veicoli in disponibilità degli appartenenti alla categoria AUT_08 possono essere autorizzati ad accedere secondo le modalità sotto riportate:
+
+                                              DISPONIBILITA’                                                             AREA DI
+                                                                  TIPOLOGIA DI                      PERIODO DI
+ CODICE              CATEGORIA                 DEL VEICOLO                        CORRISPETTIVO                         VALIDITA’           ORARI DI ACCESSO
+                                                                    VEICOLO                          VALIDITA’
+                                              (RIF. PAR. 2.1.2)                                                      (RIF. PAR. 2.1.3)
+
+           Persone che prestano assistenza            A             Qualsiasi        Euro 27,00       Annuale
+                                                                                     Euro 5,00      Giornaliero      Z.T.L. o Settore di
+ AUT_08                                                                                                                                    Tutti i giorni 00.00-24.00
+           Assistenza temporanea                      A             Qualsiasi                       Mensile (non         riferimento
+                                                                                     Euro 11,00
+                                                                                                     ripetibile)
+                                                                    Tabella 11: Categoria AUT_08
+
+
+
+
+Pagina 21 di 51
+           Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2.4.7     AUT_09 / VEICOLI IN DISPONIBILITÀ DI CLIENTI DI PARTICOLARI CATEGORIE ECONOMICHE
+
+Possono essere autorizzati all’accesso alla zona i veicoli in disponibilità di:
+•      Clienti delle autorimesse pubbliche, per ingresso e uscita dall’autorimessa stessa: tutti i giorni in orario 00.00 – 24.00;
+•      Clienti delle autofficine, per consegna o ritiro veicolo: dalle 08.00 alle 19.00 dei giorni feriali.
+La richiesta di autorizzazione all’accesso dei clienti deve essere effettuata dal titolare dell’attività stessa mediante l’inserimento delle targhe dei veicoli
+dei clienti nell’apposita interfaccia, previa registrazione utente dell’attività economica, entro e non oltre le quarantotto ore dall’accesso stesso
+Per queste categorie l’autorizzazione può essere giornaliera, per il singolo cliente, con un corrispettivo di Euro 2,50, o annuale, fino ad un massimo
+del totale dei posti auto delle autorimesse pubbliche o autofficine, con un corrispettivo di Euro 27,00.
+
+                                               DISPONIBILITA’                                                                   AREA DI
+                                                                   TIPOLOGIA DI                        PERIODO DI
+ CODICE                CATEGORIA                DEL VEICOLO                        CORRISPETTIVO                               VALIDITA’            ORARI DI ACCESSO
+                                                                     VEICOLO                            VALIDITA’
+                                               (RIF. PAR. 2.1.2)                                                            (RIF. PAR. 2.1.3)
+                                                                                                     Giornaliero (valida
+                                                                                       Euro 2,50
+                                                                                                     per singolo cliente)
+                                                                                                      Annuale (fino ad
+                                                                                                      un massimo del        Z.T.L. o Settore di
+            Clienti autorimesse                                                                                                                   Tutti i giorni 00.00-24.00
+                                                                                                       totale dei posti         riferimento
+                                                                                       Euro 27,00
+                                                                                                          auto delle
+                                                                                                        autorimesse
+ AUT_09a                                             n.a.            Qualsiasi                           pubbliche)
+                                                                                                     Giornaliero (valida
+                                                                                       Euro 2,50
+                                                                                                     per singolo cliente)
+                                                                                                      Annuale (fino ad      Z.T.L. o Settore di
+            Clienti autofficine                                                                       un massimo del                              08.00–19.00 (giorni feriali)
+                                                                                                                                riferimento
+                                                                                       Euro 27,00      totale dei posti
+                                                                                                          auto delle
+                                                                                                         autofficine)
+                                                                     Tabella 12: Categoria AUT_09a
+
+
+Possono inoltre essere autorizzati all’accesso alla zona i veicoli in disponibilità di:
+•    Clienti delle attività economiche di commercio all’ingrosso o assimilati (ovvero per carico e scarico di merci pesanti, ingombranti o voluminose o
+     comunque cessione di beni voluminosi, quali mobili, elettrodomestici, macchinari o simili): dalle 08.00 alle 19.00 dei giorni feriali.
+
+Pagina 22 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+La richiesta di autorizzazione all’accesso dei clienti deve essere effettuata dal titolare dell’attività stessa mediante l’inserimento delle targhe dei veicoli
+dei clienti nell’apposita interfaccia, previa registrazione utente dell’attività economica, entro e non oltre le quarantotto ore dall’accesso stesso
+Per questa categoria è previsto il rilascio delle tipologie di autorizzazione all’accesso di seguito riportate:
+                                              DISPONIBILITA’                                                                     AREA DI
+                                                                  TIPOLOGIA DI                            PERIODO DI
+ CODICE              CATEGORIA                 DEL VEICOLO                        CORRISPETTIVO                                 VALIDITA’            ORARI DI ACCESSO
+                                                                    VEICOLO                                VALIDITA’
+                                              (RIF. PAR. 2.1.2)                                                              (RIF. PAR. 2.1.3)
+                                                                                                         Biennale (carnet
+                                                                                      Euro 50,00
+                                                                                                        per n. 50 accessi)
+                                                                                                         Giornaliero (per
+         Clienti di attività economiche di
+                                                                                                           ogni singolo      Z.T.L. o Settore di
+ AUT_09b commercio all’ingrosso o                   n.a.            Qualsiasi                                                                      08.00–19.00 (giorni feriali)
+                                                                                                          accesso per le         riferimento
+         assimilati                                                                   Euro 11,00
+                                                                                                         attività che non
+                                                                                                           richiedono il
+                                                                                                              carnet)
+                                                                    Tabella 13: Categoria AUT_09b
+Possono inoltre essere autorizzati all’accesso alla zona i veicoli in disponibilità di:
+•      Clienti delle strutture ricettive alberghiere ed extra – alberghiere, per carico e scarico di bagagli ingombranti: tutti i giorni in orario 00.00 – 24.00.
+La richiesta di autorizzazione all’accesso dei clienti deve essere effettuata dal titolare dell’attività stessa mediante l’inserimento delle targhe dei veicoli
+dei clienti nell’apposita interfaccia, previa registrazione utente dell’attività economica, entro e non oltre le quarantotto ore dall’accesso stesso.
+Per i clienti delle strutture ricettive è prevista la seguente tipologia di autorizzazioni cumulative; con tali tipologie di autorizzazioni, la struttura può
+ottenere un numero di tagliandi fino al numero massimo di camere, quindi può essere scelto anche, eventualmente, uno scaglione minore. Il numero
+di tagliandi acquistati (ad esempio X) dà diritto alla comunicazione (via e-mail o fax) di X numero di targhe giornaliere al gestore del servizio, entro le
+48 ore dall’ingresso.
+                                              DISPONIBILITA’                                                                     AREA DI
+                                                                  TIPOLOGIA DI                            PERIODO DI
+ CODICE              CATEGORIA                 DEL VEICOLO                        CORRISPETTIVO                                 VALIDITA’            ORARI DI ACCESSO
+                                                                    VEICOLO                                VALIDITA’
+                                              (RIF. PAR. 2.1.2)                                                              (RIF. PAR. 2.1.3)
+
+         Clienti strutture ricettive (con                                          Euro 27,00 (per
+         capienza da n° 1 a 10 camere)                                             tutti gli accessi)
+         Clienti strutture ricettive (con                                          Euro 54,00 (per                           Z.T.L. o Settore di
+ AUT_09c                                            n.a.            Qualsiasi                               Annuale                                Tutti i giorni 00.00-24.00
+         capienza da n° 11 a 20 camere)                                            tutti gli accessi)                            riferimento
+         Clienti strutture ricettive (con                                          Euro 100,00 (per
+         capienza oltre le 20 camere)                                              tutti gli accessi)
+                                                                    Tabella 14: Categoria AUT_09c
+
+
+
+Pagina 23 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+Possono inoltre essere autorizzati all’accesso alla zona i veicoli in disponibilità di:
+•      Clienti di attività economiche con disponibilità di parcheggio clienti con passo carrabile: dalle 08.00 alle 24.00 dei giorni feriali.
+La richiesta di autorizzazione all’accesso dei clienti deve essere effettuata dal titolare dell’attività stessa mediante l’inserimento delle targhe dei veicoli
+dei clienti nell’apposita interfaccia, previa registrazione utente dell’attività economica, entro e non oltre le quarantotto ore dall’accesso stesso.
+Per queste categorie l’autorizzazione è annuale, con possibilità di inserimento giornaliero di targhe veicoli fino ad un massimo del triplo dei posti auto
+o moto del parcheggio, con un corrispettivo di Euro 27,00.
+
+                                               DISPONIBILITA’                                                                  AREA DI
+                                                                   TIPOLOGIA DI                        PERIODO DI
+ CODICE               CATEGORIA                 DEL VEICOLO                        CORRISPETTIVO                              VALIDITA’            ORARI DI ACCESSO
+                                                                     VEICOLO                            VALIDITA’
+                                               (RIF. PAR. 2.1.2)                                                           (RIF. PAR. 2.1.3)
+
+                                                                                                          Annuale
+                                                                                                       (registrazione
+                                                                                                     accessi giornalieri
+         Clienti di attività economiche con                                                              in numero
+                                                                                                                           Z.T.L. o Settore di
+ AUT_09d disponibilità di parcheggio clienti         n.a.            Qualsiasi        Euro 27,00     massimo del triplo                          Tutti i giorni 00.00–24.00
+                                                                                                                               riferimento
+         con passo carrabile                                                                          dei posti auto o
+                                                                                                      moto, dove ogni
+                                                                                                     posto auto vale tre
+                                                                                                         posti moto)
+                                                                    Tabella 15 - Categoria AUT_09d
+
+
+2.4.8     AUT_10 / VEICOLI IN DISPONIBILITÀ DI MINISTRI DI CULTO
+
+Possono essere rilasciate autorizzazioni di accesso alla Z.T.L., subordinate a speciali condizioni e cautele, per veicoli adibiti al trasporto di persone o
+cose per le esigenze dei Ministri dei Culti ammessi dallo Stato.
+Ai veicoli in disponibilità degli appartenenti alla categoria AUT_10 possono essere rilasciate autorizzazioni giornaliere e gratuite per l’accesso in
+Z.T.L. qualora sussistano specifiche esigenze. In tali casi, la comunicazione degli estremi identificativi del veicolo, per il loro inserimento nelle liste
+degli autorizzati, deve essere effettuata a cura e responsabilità dei Ministri di Culto o loro incaricati.
+Qualora l’esigenza ricorra sistematicamente con frequenza periodica, l’autorizzazione può essere ottenuta per la durata di 365 giorni, previo il
+pagamento di un corrispettivo di Euro 54,00.
+
+
+Pagina 24 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+                                              DISPONIBILITA’                                                             AREA DI
+                                                                  TIPOLOGIA DI                      PERIODO DI
+ CODICE               CATEGORIA                DEL VEICOLO                        CORRISPETTIVO                         VALIDITA’            ORARI DI ACCESSO
+                                                                    VEICOLO                          VALIDITA’
+                                              (RIF. PAR. 2.1.2)                                                      (RIF. PAR. 2.1.3)
+
+                                                                                        Gratuito     Giornaliero
+ AUT_10    Ministri di culto                        AeB             Qualsiasi                                       Z.T.L. di riferimento   Tutti i giorni 00.00-24.00
+                                                                                       Euro 54,00     Annuale
+                                                                    Tabella 16: Categoria AUT_10
+
+
+2.4.9     AUT 11 / VEICOLI IN DISPONIBILITA’ DI ISTITUTI DI INVESTIGAZIONE
+
+Possono essere rilasciate autorizzazioni di accesso alle Z.T.L. per gli Istituti di investigazione privata, a cui è stata rilasciata licenza prefettizia per le
+attività di indagine.
+I veicoli in disponibilità degli appartenenti alla categoria AUT_11 possono essere autorizzati ad accedere dalle 00.00 alle 23.59 di tutti i giorni, previa
+richiesta di autorizzazione annuale e del versamento del corrispettivo di Euro 54,00.
+
+                                              DISPONIBILITA’                                                             AREA DI
+                                                                  TIPOLOGIA DI                      PERIODO DI
+ CODICE               CATEGORIA                DEL VEICOLO                        CORRISPETTIVO                         VALIDITA’            ORARI DI ACCESSO
+                                                                    VEICOLO                          VALIDITA’
+                                              (RIF. PAR. 2.1.2)                                                      (RIF. PAR. 2.1.3)
+
+ AUT_11    Istituti di investigazione                B              Qualsiasi          Euro 54,00     Annuale         Tutte le Z.T.L.       Tutti i giorni 00.00-24.00
+
+                                                                    Tabella 17: categoria AUT_11
+
+
+                                                                                 §§§
+
+
+
+
+Pagina 25 di 51
+           Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2.5 LOGISTICA DELLE MERCI NELLE Z.T.L. TELECONTROLLATE
+
+2.5.1    CATEGORIE
+
+Per quanto riguarda la distribuzione delle merci si distinguono due macro categorie:
+•    Operatori economici con sede all’interno della zona;
+•    Operatori economici esterni alla zona;
+
+2.5.1.1 Operatori economici con sede all’interno della zona
+
+I veicoli in disponibilità degli operatori economici (attività commerciali, artigianali, di pubblico
+esercizio o di altre aziende aventi necessità di trasporto e movimentazione merci, attrezzature o
+materiali in genere) aventi sede all’interno della zona, ed intestati alla ditta, al suo titolare, socio o
+legale rappresentante, possono essere autorizzati ad accedere per approvvigionamento, consegna
+o distribuzione merci previo ottenimento di uno dei seguenti tipi di autorizzazione annuale, in
+funzione del numero, tipologia e motorizzazione del veicolo:
+
+              DISPONIBILITA’
+                                  NUMERO
+               DEL VEICOLO                          TIPOLOGIA DI                                VALIDITA’
+  CODICE                             DI                                    CORRISPETTIVO
+                 (RIF. PAR.                           VEICOLO                                 CONTRASSEGNO
+                                  VEICOLI
+                   2.1.2)
+
+                                                Veicolo alimentato a
+                                                metano o GPL e veicolo        Euro 15,00
+                                      1°        ibrido / elettrico
+
+                                                Qualsiasi altro               Euro 27,00
+                                                Veicolo alimentato a
+                                                                              Euro 15,00
+                                                metano o GPL
+                                                Veicolo “Euro 3” o
+                                     2° per                                   Euro 27,00
+  MER_01              B                         superiore                                        Annuale
+                                   trasporto
+                                      cose      Veicolo “Euro2” o “Euro
+                                                                              Euro 60,00
+                                                1”
+                                                Veicolo “pre Euro”            Euro 300,00
+                                     2° per
+                                   trasporto    Qualsiasi                     Euro 300,00
+                                    persone
+                                      3°        Qualsiasi                     Euro 300,00
+
+                          Tabella 18: Corrispettivi Operatori economici interni alla Z.T.L.
+
+
+Per quanto riguarda gli orari di accesso consentiti si fa riferimento alla Tabella 21.
+Per tutti gli appartenenti alla categoria MER_01, l’area di validità del permesso è la Z.T.L. di
+riferimento o, nel caso della Z.T.L. centro Storico, il Settore di riferimento (cfr. punto iii par. 2.1.3).
+
+Nel caso di categorie di soggetti residenti titolari di attività con sede all’interno, che non esprimono
+esplicitamente, all’atto di richiesta di emissione del tagliando, per quale categoria desiderano lo
+stesso, prevarrà la modalità relativa alla funzione esercitata rispetto allo stato di soggetto residente
+in Z.T.L.
+
+
+
+Pagina 26 di 51
+           Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+2.5.1.2 Operatori economici esterni alla zona
+
+I veicoli destinati alla consegna o distribuzione merci appartenenti ad aziende aventi sede
+all’esterno della Z.T.L., ottengono un’autorizzazione di accesso di durata annuale, il cui
+corrispettivo varia in funzione della tipologia e motorizzazione del veicolo, come riportato in Tabella
+19.
+
+              DISPONIBILITA’ DEL       NUMERO
+                                                       TIPOLOGIA DI                                VALIDITA’
+ CODICE            VEICOLO                DI                                CORRISPETTIVO
+                                                         VEICOLO                                 CONTRASSEGNO
+                (RIF. PAR. 2.1.2)      VEICOLI
+
+                                                    Veicolo alimentato a
+                                                    metano o GPL e
+                                                                               Euro 15,00
+                                                    veicolo ibrido
+                                                    /elettrico
+                                                    Veicolo “Euro 3” o
+ MER_02a                  B             Qualsiasi                              Euro 27,00              Annuale
+                                                    superiore
+                                                    Veicolo “Euro2” o
+                                                                               Euro 60,00
+                                                    “Euro 1”
+                                                    Veicolo “pre Euro”         Euro 300,00
+
+                          Tabella 19: Corrispettivi Operatori economici esterni alla Z.T.L.
+
+
+E’ inoltre possibile ottenere un’autorizzazione giornaliera, per un corrispettivo di Euro 11,00, a
+prescindere dalla tipologia di veicolo.
+Per quanto riguarda gli orari di accesso consentiti si fa riferimento alla Tabella 21.
+Per tutti gli appartenenti alla categoria MER_02, i permessi rilasciati sono validi su tutte le Z.T.L.
+presenti sul territorio cittadino (cfr. punto i par. 2.1.3).
+
+Al fine di agevolare le cosiddette “flotte aziendali”, per le sole categorie con autorizzazione al
+trasporto ad uso di terzi di cui al decreto legislativo 21/11/2005 n. 286 è invece prevista, in
+sostituzione del disposto di cui alla Tabella 18, la sola possibilità di accesso a tutte le Z.T.L. con
+autorizzazione annuale, nella fascia oraria dalle 06.00 alle 11.30 dei giorni feriali, per un
+corrispettivo dipendente dal numero di veicoli componenti la flotta aziendale come descritto in
+tabella:
+
+              DISPONIBILITA’
+                                  NUMERO
+               DEL VEICOLO                          TIPOLOGIA DI                                   VALIDITA’
+  CODICE                             DI                                    CORRISPETTIVO
+                 (RIF. PAR.                           VEICOLO                                    CONTRASSEGNO
+                                  VEICOLI
+                   2.1.2)
+
+                                     2–4                                      Euro 54,00
+                                    5 – 20                                    Euro 75,00
+ MER_02b              B            21 – 50             Qualsiasi              Euro 150,00              Annuale
+                                   Maggiore                                Euro 2,00 per ogni
+                                     di 50                                 veicolo aggiuntivo
+                  Tabella 20: Corrispettivi flotte aziendali Operatori economici esterni alla Z.T.L.
+
+
+Possono essere inclusi nelle cosiddette “flotte aziendali” sia i veicoli di proprietà del vettore sia
+eventuali veicoli di soggetti terzi operanti attraverso un contratto di subvezione attraverso
+presentazione di dichiarazione scritta e richiesta da parte del vettore titolare del contratto. Tutte le
+autorizzazioni cumulative possono essere rilasciate solo contemporaneamente, fatta salva la
+possibilità di variazioni nella composizione della flotta.
+
+Pagina 27 di 51
+           Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+2.5.2     ORARI DI ACCESSO E PERMANENZA IN ZTL
+
+Gli orari di accesso e permanenza nelle Z.T.L. previsti per gli operatori economici, con sede
+all’interno o all’esterno della Z.T.L., per le diverse categorie merceologiche, sono riportati nella
+seguente tabella:
+
+                                                                                                ORARI DI ACCESSO E
+        CODICE                             VEICOLI ADIBITI A
+                                                                                                PERMANENZA IN ZTL
+
+                     Servizio di distribuzione stampe e giornali                               Tutti i giorni 05.00-11.30
+                     Trasporto medicinali (se intestati ad aziende regolarmente
+                                                                                               Tutti i giorni 06.00-20.00
+                     autorizzate)
+                                                                                              Tutti i giorni 05.30–14.00 e
+                     Trasporto alimenti
+                                                                                                       17.30–23.00
+                     Servizio di consegna garantita nell’orario concordato ed
+        MER_01                                                                              Solo giorni feriali 06.00–11.30 e
+                     entro la data stabilita / express courier, intestati a vettori
+                                                                                                      15.00–17.00
+                     specializzati e nella misura di un veicolo per azienda
+        MER_02       Veicoli in proprietà o in disponibilità, in esclusiva di titolari di
+                     attività artigianali con sede operativa all’interno della Z.T.L.,
+                     con esigenze operative di movimentazione di materiali,
+                                                                                             Solo giorni feriali 06.00–20.00
+                     manufatti pesanti e ingombranti, nonché di eventuali attività a
+                     carattere non artigianale che effettuano attività similari e
+                     hanno medesime esigenze operative
+                     Non ricompresi nelle precedenti categorie                               Solo giorni feriali 06.00 11.30
+                             Tabella 21: Orari di accesso per categoria merceologica
+
+
+Inoltre, per particolari esigenze sporadiche, non determinabili a priori, legate alla conduzione
+dell’attività, gli operatori economici aventi sede all’interno delle Z.T.L. possono richiedere
+un’autorizzazione all’accesso fuori dagli orari consentiti, gratuitamente con una frequenza non
+superiore a 10 volte all’anno. L’autorizzazione potrà essere richiesta, in caso di urgenza, anche
+successivamente all’accesso, e comunque entro le 48 ore successive al primo transito, con
+attestazione comprovante la particolare esigenza sporadica ed esclusivamente per i veicoli per i
+quali si è già in possesso del permesso Z.T.L.
+
+                                                            §§§
+
+
+2.6 ULTERIORI DISPOSIZIONI
+
+In caso di domanda di accesso e transito nella Z.T.L. da parte di utenti non rientranti nelle
+categorie considerate in precedenza, qualora ricorrano particolari e accertate necessità possono
+essere rilasciate autorizzazioni di accesso in deroga, subordinate a particolari condizioni e cautele
+per veicoli adibiti a trasporto di persone o cose.
+La richiesta delle autorizzazioni in deroga è ammessa anche entro e non oltre le 48 ore successive
+all’accesso, se ricorrono comprovati motivi di urgenza. La domanda deve essere presentata al
+soggetto assegnatario del servizio e deve essere corredata dalla documentazione attestante la
+necessità esposta, anche tramite autocertificazione ai sensi del DPR n. 445/2000 ove previsto.
+L’autorizzazione ha validità giornaliera e può essere ottenuta previo il pagamento del corrispettivo
+pari a Euro 11,00.
+Tali autorizzazioni sono rilasciate esclusivamente nei casi di:
+•      Veicoli per l’allestimento di esposizioni artistiche, mercatini, mostre, fiere e altre
+
+
+Pagina 28 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+      manifestazioni regolarmente autorizzate, per il tempo necessario al trasporto di attrezzature
+      e materiali (sia per coloro che hanno sede all’interno della Z.T.L. sia per coloro che
+      accedono alla Z.T.L. per il solo allestimento), fermo restando quanto disposto per il centro
+      storico dalla Deliberazione della Giunta Comunale n. 00521 del 30/12/2009 e ss.mm.ii.
+•     Veicoli per il trasporto di materiali audio, video, illuminazione, scenografie e altri materiali ed
+      attrezzature per convegni e altri eventi all’interno della Z.T.L.
+•     Veicoli adibiti a consegne a domicilio di fiori e piante, qualora non sia possibile utilizzare
+      esclusivamente le fasce orarie destinate al trasporto di cose.
+
+E’ inoltre previsto:
+•     Per gli accessi relativi agli allestimenti di spettacoli teatrali, ed esclusivamente per veicoli
+      adibiti al trasporto merci, è previsto un carnet di 50 ingressi per un corrispettivo di Euro
+      50,00.
+      La richiesta di autorizzazioni all’accesso deve presentata al soggetto assegnatario del
+      servizio dal titolare dell’attività mediante comunicazione degli estremi identificativi del veicolo
+      e della documentazione comprovante il motivo della richiesta via fax o via e-mail entro e non
+      oltre le 48 ore dall’accesso stesso.
+•     Per le celebrazioni di matrimoni all’interno della Z.T.L. possono essere rilasciate
+      autorizzazioni temporanee gratuite di accesso per un massimo di due veicoli per ogni
+      cerimonia.
+
+                                                      §§§
+
+
+2.7 DEROGHE
+
+In caso di domanda di accesso e transito nella Z.T.L. da parte di utenti non rientranti nelle
+categorie già considerate negli articoli precedenti è prevista, in casi eccezionali, la possibilità di
+rilascio di autorizzazioni in deroga. La domanda di accesso e transito nella Z.T.L. da parte di utenti
+non rientranti nelle categorie autorizzate, sarà valutata da parte della Sezione di Polizia Municipale
+competente, che potrà eventualmente rilasciare un permesso, in accordo alle tariffe relative agli
+atti di competenza della Polizia Municipale.
+
+                                                      §§§
+
+
+
+
+Pagina 29 di 51
+            Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+3          DISCIPLINA DELLE ZONE A TRAFFICO LIMITATO
+
+
+Nel presente capitolo sono descritte le caratteristiche di ciascuna Zona a Traffico Limitato,
+definendone per ciascuna:
+▪     La delimitazione dell’area regolamentata attraverso perimetrazione od elenco delle vie
+      incluse1.
+▪     I giorni e gli orari di validità.
+▪     L’utilizzo di eventuali varchi di accesso controllato elettronicamente.
+▪     La regolamentazione relativa alla logistica delle merci nelle ZTL non telecontrollate.
+▪     Le eventuali deroghe.
+
+                                                             §§§
+
+
+
+
+1 Nel caso di perimetrazione, i confini di una Z.T.L. sono definiti attraverso una sequenza ordinata di vie.
+
+Le strade interne alla perimetrazione, con i relativi numeri civici, sono da considerarsi appartenenti alla Z.T.L.
+
+Ove non diversamente specificato attraverso la dicitura “esclusa”, ogni strada o tratto di strada di confine della Zona è da
+ritenersi incluso nella Zona stessa. Pertanto, tutti i numeri civici appartenenti alle strade o ai tratti di strada citati nella
+perimetrazione sono da ritenersi inclusi od esclusi nella Z.T.L a seconda dell’inclusione od esclusione della relativa
+strada o suo tratto.
+
+
+Pagina 30 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+3.1 ZONA A TRAFFICO LIMITATO TELECONTROLLATA “CENTRO
+    STORICO”
+
+3.1.1    DELIMITAZIONE DELL’AREA
+
+3.1.1.1 Perimetrazione generale
+
+Piazza Caricamento (tratto compreso tra Via della Mercanzia e la proiezione verso mare di Piazza
+Jacopo da Varagine), esclusa – Piazza Jacopo da Varagine, esclusa – Via Gramsci (tratto da
+Piazza Jacopo da Varagine a Piazza della Darsena), esclusa – Piazza della Darsena, esclusa –
+Via delle Fontane, esclusa – Piazza Santa Sabina, esclusa – Piazza della Annunziata, esclusa –
+Via Bensa, esclusa – Largo della Zecca, esclusa – Salita dei Molini – Salita della Rondinella – Via
+Cairoli – Piazza della Meridiana – Salita di San Francesco – Via Garibaldi (tratto compreso tra
+Salita di San Francesco e Via Rocco Lurago) – Via Rocco Lurago – Piazza Portello, esclusa – Via
+Interiano – Piazza delle Fontane Marose, Salita Santa Caterina, Largo Eros Lanfranco, Via Roma,
+Piazza De Ferrari, esclusa - Via Petrarca, esclusa – Via Porta Soprana (tratto tra Via Petrarca e
+Via Meucci), esclusa - Via Porta Soprana (tratto tra Via Petrarca e Porta S. Andrea, comprendente
+anche la diramazione tra Via Meucci e Piano di S. Andrea posta a quota topografica superiore
+rispetto al piano stradale), ad esclusione del tratto lato nord fra Via Petrarca e Via Meucci con il
+relativo civico 10 – Via del Colle – Via Ravasco (tratto da Via del Colle fino all’altezza di Via della
+Madre di Dio, posta a quota topografica inferiore) – Via della Madre di Dio (tratto tra Via Ravasco,
+posta a quota topografica superiore e Via della Marina), esclusa – Via della Marina, esclusa –
+Corso Quadrio, esclusa ad eccezione della rampa ascendente verso Piazza San Giacomo della
+Marina - Piazza Cavour, esclusa ad eccezione della rampa ascendente verso Vico delle Camelie –
+Piazza della Raibetta – Via della Mercanzia (tratto compreso tra Piazza Caricamento e la
+proiezione verso mare di Via San Lorenzo).
+
+3.1.1.2 Settori
+
+Al fine di razionalizzare gli ingressi alla Z.T.L. Centro Storico, la zona è stata suddivisa nei cinque
+settori di seguito descritti. Per il settore 1 ed il settore 2 si riporta la perimetrazione dell’area,
+mentre per gli altri tre si elencano le strade che ne fanno parte.
+•      Settore 1: Piazza della Darsena (esclusa) - Via delle Fontane ed adiacente Piazza S. Sabina
+       (escluse) - Piazza della Nunziata (esclusa) - Via P.E. Bensa - tratto da Piazza della Nunziata
+       a Via Lomellini (esclusa) - Via Lomellini ed adiacente Piazzetta di S. Filippo (escluse) -
+       Piazza Fossatello - Salita S. Siro (esclusa) - Via di S. Siro (esclusa) - Archivolto N.S. della
+       Guardia - Vico delle Fasciule - Vico dei Droghieri - Vico di Porta Nuova (compreso il tratto di
+       Vico del Tempo Buono tra Via della Maddalena e Vico di Porta Nuova con i relativi numeri
+       civici) - Vico di Porta Vecchia (compreso il tratto di Via ai Quattro Canti di S. Francesco tra
+       Via della Maddalena e Vico di Porta Vecchia con i relativi numeri civici) - Vico Boccanegra -
+       Vico al Trogoletto (escluso), sono invece inclusi i tratti di Vico Angeli, Vico del Duca e Vico
+       Salvaghi compresi tra Via della Maddalena e Vico al Trogoletto ed i relativi numeri civici –
+       Vico dietro il Coro della Maddalena (escluso) - Via della Maddalena, tratto da Vico dietro il
+       Coro della Maddalena a Vico Inferiore del Ferro – Vico Inferiore del Ferro - Piazza del Ferro
+       (esclusa) Vico del Portello (escluso) - Piazza delle Fontane Marose (esclusa) - Via XXV
+       Aprile (esclusa) – Piazza De Ferrari (esclusa) – Via Petrarca (esclusa) - Via di Porta Soprana
+       (così come descritta nel paragrafo “perimetrazione”) - Piazza Matteotti - Via San Lorenzo
+       (numeri civici dispari esclusi) - Piazza della Raibetta - Via della Mercanzia - Piazza
+       Caricamento - Piazzetta J. Da Varagine (esclusa) - Via Gramsci (esclusa).
+•      Settore 2: Via di Porta Soprana (esclusa) - Piazza Matteotti (esclusa) – Via San Lorenzo
+
+Pagina 31 di 51
+           Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+        (numeri civici pari esclusi) – Via Turati (esclusa) – Piazza Cavour (esclusa) – Corso Quadrio
+        (così come descritto nel paragrafo “perimetrazione”) – Via della Marina (esclusa), Via della
+        Madre di Dio (esclusa) – Via Ravasco (così come descritto nel paragrafo “perimetrazione”) –
+        Via del Colle.
+•       Settore 3: Via Lomellini, Vico Chiuso dei Gatti, Piazzetta di S. Filippo;
+•       Settore 4: Via Cairoli, Salita della Rondinella, Vico del Piombo, Salita dei Molini, Vico
+        dell’Argento, Salita dell’Oro, Vico alla Casa di Mazzini, Via di San Siro, Vico Chiuso della
+        Rana, Vico dell’Orto, Salita San Siro, Vico Chiuso del Leone, Piazza della Meridiana, Salita
+        di San Francesco , Piazza Grimaldi, Salita Santa Maria degli Angeli, Piazza di Santa Maria
+        degli Angeli, Vico di Santa Maria degli Angeli, Vico del Tempo Buono civico 1, Via ai Quattro
+        Canti di San Francesco esclusi civici 1-2-3, Vico San Pasquale, Vico Brignole;
+•       Settore 5: Via Garibaldi, Vico Angeli civico 19, Vico al Trogoletto, Vico del Duca civici 18-20-
+        22, Vico Salvaghi civici 20-22, Vico dietro il Coro della Maddalena, Vico della Chiesa della
+        Maddalena, Piazza della Maddalena, Vico Libarna, Vico del Ferro, Piazza del Ferro, Vico
+        Inferiore del Portello, Via Lurago, Via Brignole Sale, Via del Portello..
+
+3.1.2      GIORNI E ORARI DI VALIDITÀ
+
+La Z.T.L. “Centro Storico” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.
+
+3.1.3      DISCIPLINA DI ACCESSO
+
+L’accesso alla Z.T.L. “Centro Storico” è regolamentato da quanto previsto nel cap. 2 dal presente
+Disciplinare e prevede le ulteriori seguenti disposizioni.
+Inoltre, possono accedere alla Z.T.L. i soggetti che necessitano di raggiungere il Commissariato
+della Polizia di Stato “Centro” in Piazza Matteotti, esclusivamente per le pratiche di denuncia di
+tentato furto del veicolo, per cui risulta necessario far visionare lo stesso da parte degli Organi di
+Polizia. La regolarizzazione dell’accesso dovrà essere presentata al soggetto gestore entro e non
+oltre le quarantotto ore successive dall’ingresso in ZTL, inoltrando la documentazione del veicolo e
+il verbale di denuncia di tentato furto al seguente indirizzo e-mail servizioclienti@gepark.com.
+
+3.1.3.1 Varchi di accesso
+
+Sul perimetro della Z.T.L. sono predisposti i seguenti varchi di accesso controllato
+elettronicamente:
+•      Via di Porta Soprana (valido per l’accesso al Settore 1),
+•      Via del Campo (valido per l’accesso al Settore 1),
+•      Vico Giannini (valido per l’accesso al Settore 1),
+•      Piazza della Raibetta (valido per l’accesso al Settore 1),
+•      Via San Giorgio (valido per l’accesso al Settore 2),
+•      Vico delle Camelie (valido per l’accesso al Settore 2),
+•      Mura delle Grazie (valido per l’accesso al Settore 2),
+•      Via Ravasco (valido per l’accesso al Settore 2),
+•      Via Lomellini (valido per l’accesso al Settore 3),
+•      Via Cairoli (valido per l’accesso al Settore 4),
+•      Via Garibaldi (valido per l’accesso al Settore 5).
+
+
+Pagina 32 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+Le autorizzazioni all’accesso nella Z.T.L. possono essere rilasciate con la prescrizione di utilizzare
+determinati varchi assegnati in relazione al settore di destinazione del transito.
+Nel caso in cui però sia evidenziato successivamente al rilascio che l'accesso attraverso i varchi
+del settore spettante sia estremamente disagevole per le condizioni di circolazione nella Z.T.L. e
+ciò li costringa a lunghe percorrenze all'interno dell’area con conseguente aumento della
+congestione e dell'emissione di inquinanti, gli stessi possono essere autorizzati all’accesso tramite
+un settore diverso. Il settore può essere indicato dal soggetto interessato in base alla destinazione
+del transito ed in sostituzione dell'accesso attraverso i varchi di quello inizialmente indicato.
+I varchi di accesso alla Z.T.L. sono disciplinati con ordinanze rese note al pubblico con la prescritta
+segnaletica stradale, e controllati mediante apparecchiature di controllo elettronico omologate dal
+competente Ministero.
+Le targhe dei veicoli in transito sono registrate automaticamente dal sistema, che funziona in
+modalità remota e senza la presenza sul posto dell’organo di Polizia Stradale, per cui l’eventuale
+violazione dei divieti esistenti sarà accertata in tempi successivi e senza contestazione immediata.
+Pertanto, se la targa del veicolo non è stata inserita nella lista dei veicoli autorizzati, l’accesso alla
+Z.T.L., se non regolarizzato, sarà segnalato per l’applicazione delle sanzioni previste. Le liste dei
+veicoli ammessi sono gestite dagli uffici competenti. Con motivato provvedimento, per particolari
+esigenze dell’Amministrazione, può essere disposta la temporanea disattivazione dei dispositivi di
+controllo degli accessi.
+
+                                                      §§§
+
+
+
+
+Pagina 33 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+Pagina 34 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+3.2 ZONA A TRAFFICO LIMITATO TELECONTROLLATA “MOLO”
+
+3.2.1    DELIMITAZIONE DELL’AREA
+
+La Z.T.L. “Molo” presenta la seguente perimetrazione:
+•    Via del Molo ed adiacente Piazza San Marco, Piazzetta Porta del Molo, Mura del Molo, Mura
+     della Malapaga, tratto ideale congiungente Mura della Malapaga e Piazza Cavour, esclusa.
+
+3.2.2    GIORNI E ORARI DI VALIDITÀ
+
+La Z.T.L. “Molo” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.
+
+3.2.3    DISCIPLINA DI ACCESSO
+
+L’accesso alla Z.T.L. “Molo” è regolamentato da quanto previsto nel cap. 2 del presente
+Disciplinare.
+
+                                                      §§§
+
+
+
+
+Pagina 35 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+Pagina 36 di 51
+              Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+3.3 ZONA A TRAFFICO LIMITATO “VERNAZZOLA”
+
+3.3.1        DELIMITAZIONE DELL’AREA
+
+3.3.1.1 Elenco delle strade ricomprese nella Z.T.L.
+•     Via Argonauti;
+•     Piazza Vernazzola;
+•     Via Chighizola (nel tratto compreso tra via Argonauti e piazza Vernazzola);
+
+3.3.1.2 Ulteriori aree aventi diritto
+Hanno inoltre diritto di richiedere permesso di accesso alla Z.T.L. i residenti delle seguenti vie:
+•     Via Icaro;
+•     Via Urania;
+•     Vico chiuso Vernazzola;
+•     Via Vernazzola;
+•     Via Flavia;
+
+3.3.2        GIORNI E ORARI DI VALIDITÀ
+
+La Z.T.L. “Vernazzola” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.
+
+3.3.3        DISCIPLINA DI ACCESSO2
+
+L’accesso alla Z.T.L. “Vernazzola” è regolamentato da quanto previsto nel cap. 2 del presente
+Disciplinare.
+Possono richiedere un permesso giornaliero per accedere alla Z.T.L. i soggetti che necessitano di
+effettuare attività di:
+•      manutenzione e rimessaggio delle imbarcazioni ivi collocate;
+•      trasporto di materiali ingombranti riconducibili alle attività nautiche;
+Inoltre possono richiedere un permesso annuale per accedere alla Z.T.L., con validità tutti i giorni
+in orario 00.00 – 24.00: Le Associazioni con sede nella ZTL e concessionarie di Area demaniale
+marittima, per trasporto natanti per partecipazione a competizioni sportive, con limitazione ad un
+solo veicolo di proprietà per soggetto per brevi operazioni di carico e scarico.
+
+                                      DISPONIBILITA’
+                                                            TIPOLOGIA DI                           PERIODO DI
+    CODICE            CATEGORIA        DEL VEICOLO                            CORRISPETTIVO
+                                                              VEICOLO                               VALIDITA’
+                                      (RIF. PAR. 2.1.2)
+
+                 Autorizzati Z.T.L.
+    VER_01                                  AeB                   Qualsiasi         Euro 11,00      Giornaliero
+                   Vernazzola
+                 Autorizzati Z.T.L.
+    VER_02                                    B                   M1 e N1           Euro 54,00       Annuale
+                   Vernazzola
+                                        Tabella 22: Autorizzati Z.T.L. Vernazzola
+
+
+
+2 La disciplina di accesso del presente paragrafo entrerà in vigore successivamente all’installazione del sistema di
+telecontrollo. Sino a tale data resterà in vigore quanto deliberato con DGC-2021-29
+
+
+    Pagina 37 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+                                                              §§§
+
+Pagina 38 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+3.4 ZONA A TRAFFICO LIMITATO TELECONTROLLATA “NERVI”
+
+3.4.1     DELIMITAZIONE DELL’AREA
+
+3.4.1.1 Elenco delle strade ricomprese nella Z.T.L.
+•     Via Gazzolo, tratto dal civico 14 rosso all’incrocio con via Caboto;
+•     Via Caboto e Via Ganduccio, esclusa l’area del porticciolo in cui vige il divieto di transito;
+
+3.4.1.2 Ulteriori aree aventi diritto
+•     Via Provana di Leyni, tratto compreso tra Via Caboto e Via Lega Navale. Nello specifico
+      sono ricompresi nel tratto di strada di cui sopra i seguenti civici:
+      ▪    pari neri, dal 4 a fine numerazione;
+      ▪    pari rossi, dal 4 a fine numerazione;
+      ▪    dispari neri, dal 17 a fine numerazione;
+      ▪    dispari rossi, dal 7C a fine numerazione.
+
+3.4.2     GIORNI E ORARI DI VALIDITÀ
+
+La Z.T.L. “Nervi” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.
+
+3.4.3     DISCIPLINA DI ACCESSO
+
+L’accesso alla Z.T.L. “Nervi” è regolamentato da quanto previsto nei cap. 2 del presente
+Disciplinare.
+Inoltre possono accedere alla Z.T.L., tutti i giorni in orario 00.00 – 24.00:
+•      Affiliati a soggetti con sede nella Z.T.L. (associazioni, cooperative, club, scuole) legati
+       all’attività canoistica alfine del trasporto dei natanti. L’autorizzazione sarà rilasciata a fronte di
+       documentazione comprovante l’appartenenza o la partecipazione a tali soggetti;
+•      Soggetti affidatari dell’area demaniale marittima, in concessione al Comune di Genova. Le
+       richieste di rilascio di autorizzazione devono essere presentate dall’affidatario per conto dei
+       propri iscritti. Possono essere richiesti un numero massimo di permessi annuali e stagionali
+       pari al numero di posti barca affidati. Per quanto riguarda i permessi giornalieri e mensili non
+       è posto alcun limite numerico.
+•      Soggetti con necessità di accesso allo scalo pubblico per il trasporto della propria
+       imbarcazione/natante. L’autorizzazione viene rilasciata a fronte di documentazione che ne
+       attesti la proprietà.
+
+                                  DISPONIBILITA’
+                                                        TIPOLOGIA DI                            PERIODO DI
+ CODICE           CATEGORIA        DEL VEICOLO                                CORRISPETTIVO
+                                                          VEICOLO                                VALIDITA’
+                                  (RIF. PAR. 2.1.2)
+
+                                                                                Euro 11,00        Giornaliero
+             Autorizzati Z.T.L.                                                 Euro 20,00          Mensile
+ NER_01                                 AeB                   Qualsiasi
+                   Nervi                                                        Euro 30,00    Stagionale (6 mesi)
+                                                                                Euro 54,00         Annuale
+                                       Tabella 23: Autorizzati Z.T.L. Nervi
+                                                      §§§
+
+Pagina 39 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+Pagina 40 di 51
+             Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+3.5 ZONA   A    TRAFFICO                                   LIMITATO                TELECONTROLLATA
+    “BOCCADASSE”
+
+3.5.1        DELIMITAZIONE DELL’AREA
+
+3.5.1.1 Elenco delle strade ricomprese nella Z.T.L.
+
+•       Via Boccadasse (tratto da via N. Dodero a Piazza Nettuno);
+•       Piazza Nettuno;
+•       Via Aurora (tratto congiungente Piazza Nettuno con Piazza E. Bassano;
+•       Piazza E. Bassano;
+•       Via della Casa;
+•       Via della Scalinata;
+
+3.5.1.2 Ulteriori aree aventi diritto
+
+Hanno inoltre diritto di richiedere permesso di accesso alla Z.T.L. i residenti delle seguenti vie:
+•   Via Boccadasse (tratto da Via Beretta a Via N. Dodero);
+•   Via al Capo di Santa Chiara (civici pari dal 18 a fine numerazione e civici dispari dal 5A a fine
+    numerazione);
+•   Via Aurora (tratto congiungente Piazza Nettuno con Belvedere Firpo
+
+3.5.2        GIORNI E ORARI DI VALIDITÀ
+
+La Z.T.L. “Boccadasse” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.
+
+3.5.3        DISCIPLINA DI ACCESSO
+
+L’accesso alla Z.T.L. “Boccadasse” è regolamentato da quanto previsto nei cap. 2 del presente
+Disciplinare.
+Inoltre, possono richiedere un permesso giornaliero per accedere alla Z.T.L. i soggetti che
+necessitano di effettuare attività di:
+•      manutenzione e rimessaggio delle imbarcazioni presso Piazza Bassano;
+•      trasporto di materiali ingombranti riconducibili alle attività nautiche;
+
+                                     DISPONIBILITA’
+                                                           TIPOLOGIA DI                        PERIODO DI
+    CODICE        CATEGORIA           DEL VEICOLO                            CORRISPETTIVO
+                                                             VEICOLO                            VALIDITA’
+                                     (RIF. PAR. 2.1.2)
+
+                Autorizzati Z.T.L.
+    BOC_01                                 AeB                   Qualsiasi        Euro 11,00   Giornaliero
+                  Boccadasse
+                                      Tabella 24: Autorizzati Z.T.L. Boccadasse
+
+
+                                                         §§§
+
+
+
+Pagina 41 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+Pagina 42 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+3.6 ZONA A TRAFFICO LIMITATO “RIVAROLO”
+
+3.6.1    DELIMITAZIONE DELL’AREA
+
+3.6.1.1 Elenco delle strade ricomprese nella Z.T.L.
+
+    •   Via A. Aleardi;
+    •   Via T. Tasso, sino all’intersezione con Via T.M. Canepari;
+    •   Via A. Cadamosto;
+    •   Via A. Piccone sino all’intersezione con Via A. Aleardi
+    •   Via S. Michele del Carso.
+
+3.6.2    GIORNI E ORARI DI VALIDITÀ.
+
+La Z.T.L. “Rivarolo” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.
+
+3.6.3    DISCIPLINA DI ACCESSO
+
+L’accesso alla Z.T.L. “Rivarolo” è regolamentato da quanto previsto nei par. 2.1, 2.2, 2.3 e 2.4 del
+presente Disciplinare.
+
+3.6.4    LOGISTICA DELLE MERCI
+
+Possono accedere alla Z.T.L. “Rivarolo” i veicoli merci dalle 07.30 alle 11.30, per il tempo
+necessario a svolgere operazioni di carico e scarico merci.
+
+                                                      §§§
+
+
+
+
+Pagina 43 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+Pagina 44 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+3.7 ZONA A TRAFFICO LIMITATO “BOLZANETO”
+
+3.7.1    DELIMITAZIONE DELL’AREA
+
+La Z.T.L. “Bolzaneto” ricomprende il seguente elenco di strade
+•    Via A. Oldoini
+•    Via R. Bonghi (tratto da Via O. Doria a Via N.S. Della Neve)
+•    Via N.S. Della Neve (tratto da Via R. Bonghi a Via Bolzaneto)
+•    Via C. Stuparich (tratto da Via T. Ponsella a Via C. Reta)
+•    Via F. Bettini (tratto da Via N.S. Della Neve a P.za R. Rissotto)
+•    Via A. Gianuè
+•    Via G.A. Canzio
+
+3.7.2    GIORNI E ORARI DI VALIDITÀ
+
+La Z.T.L. “Bolzaneto” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.
+
+3.7.3    DISCIPLINA DI ACCESSO
+
+L’accesso alla Z.T.L. “Bolzaneto” è regolamentato da quanto previsto nei par. 2.1, 2.2, 2.3 e 2.4
+del presente Disciplinare.
+
+3.7.4    LOGISTICA DELLE MERCI
+
+Possono accedere alla Z.T.L. “Bolzaneto” i veicoli merci dalle 06.30 alle 11.00, per il tempo
+necessario a svolgere operazioni di carico e scarico merci.
+
+
+
+
+Pagina 45 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+Pagina 46 di 51
+           Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+                                                       §§§
+3.8 ZONA A TRAFFICO LIMITATO “CARACCIOLO”
+
+3.8.1     DELIMITAZIONE DELL’AREA
+
+3.8.1.1 Elenco delle strade ricomprese nella Z.T.L.
+
+•   Via Caracciolo
+
+3.8.1.2 Elenco delle strade esterne aventi diritto al tagliando Z.T.L.
+
+•       Via Mulinetti di Pegli;
+•       Via Opisso limitatamente civ.6.
+
+3.8.2     GIORNI E ORARI DI VALIDITÀ
+
+La Z.T.L. “Caracciolo” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.
+
+3.8.3     DISCIPLINA DI ACCESSO
+
+L’accesso alla Z.T.L. “Caracciolo” è regolamentato da quanto previsto nei par. 2.1, 2.2, 2.3 e 2.4
+del presente Disciplinare.
+
+3.8.4     LOGISTICA DELLE MERCI
+
+Possono accedere alla Z.T.L. “Caracciolo” i veicoli merci dalle 06.30 alle 11.00, per il tempo
+necessario a svolgere operazioni di carico e scarico merci.
+
+
+
+
+Pagina 47 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+Pagina 48 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+3.9      ZONA A TRAFFICO LIMITATO “NERVI CENTRO”
+
+3.9.1    DELIMITAZIONE DELL’AREA
+
+La Z.T.L. “Nervi Centro” interessa:
+   • Via Guglielmo Oberdan nel tratto compreso tra: Piazza Antonio Pittaluga e Viale Goffredo
+       Franchini.
+
+3.9.2    GIORNI E ORARI DI VALIDITÀ
+
+La Z.T.L. “Nervi Centro” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.
+
+3.9.3    DISCIPLINA DI ACCESSO
+
+L’accesso alla Z.T.L. “Nervi Centro” è regolamentato da quanto previsto nei seguenti par. del
+presente disciplinare:
+     • 2.1 ,2.6, 2.7;
+     • 2.2 ed in particolare:
+             ▪ 2.2.1 con accesso consentito alle seguenti categorie:
+               - ESE 01 (par. 2.2.1.1);
+               - ESE 02 (par. 2.2.1.2);
+               - ESE 03 (par. 2.2.1.3);
+               - ESE 04/a (par. 2.2.1.4), esclusivamente per l’effettuazione delle attività
+                operative/di manutenzione;
+             ▪ 2.2.2 con accesso consentito alle seguenti categorie:
+               - ESE 04/b (par. 2.2.2.1), limitatamente:
+                   ai veicoli senza livrea in disponibilità delle aziende affidatarie dei servizi pubblici,
+                   esclusivamente per l’effettuazione delle attività operative/di manutenzione, per:
+                   manutenzione e pulizia stradale, igiene urbana, arredo delle strade,
+                   manutenzione e gestione della pubblica illuminazione e della segnaletica
+                   stradale, manutenzione del patrimonio comunale, carri attrezzi per il soccorso
+                   stradale;
+             ▪ 2.2.2.3 categoria ESE_06
+     • 2.3 con accesso consentito alle seguenti categorie:
+             ▪ AUT_01 (par. 2.3.1);
+             ▪ AUT_02 (par. 2.3.2) limitatamente ai veicoli in disponibilità di residenti e no, che
+                dispongono di aree di sosta private con regolare passo carrabile;
+     • par. 2.4.4 (AUT_06) esclusivamente per il tempo necessari all’effettuazione delle attività
+        operative/di manutenzione.
+Possono accedere alla Z.T.L. “Nervi Centro” i veicoli merci, per consegna o distribuzione, dalle
+08.00 alle 13.00. Pertanto, quanto disposto al paragrafo 2.5 per le categorie MER_01 e MER_02 è
+limitato ai suddetti orari.
+
+
+
+
+Pagina 49 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+Pagina 50 di 51
+          Comune di Genova – Direzione Mobilità e Trasporti
+
+
+
+
+Pagina 51 di 51
+

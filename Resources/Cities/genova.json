@@ -1,0 +1,2895 @@
+{
+ "id": "genova",
+ "name": "Genoa",
+ "name_it": "Genova",
+ "name_de": "Genua",
+ "center": {
+  "lat": 44.4072,
+  "lon": 8.9339
+ },
+ "zones": [
+  {
+   "id": "genova-centro",
+   "name": "Historic Centre · Caruggi ZTL",
+   "name_it": "Centro Storico · ZTL dei caruggi",
+   "name_de": "Altstadt · ZTL der Caruggi",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised vehicles 24 hours a day, every day, holidays included. There is no day ticket for visitors. If your hotel or a public garage is inside, it can register your plate online up to 48 hours after you drive in (hotels: to load and unload luggage; garages: €2.50 a day). Electric vehicles need a free yearly permit. Piazza De Ferrari and Via Gramsci are outside.",
+   "summary_it": "Chiusa ai veicoli non autorizzati 24 ore su 24, tutti i giorni, festivi compresi. Non c'è un biglietto giornaliero per i turisti. Se l'hotel o un'autorimessa pubblica è dentro, può registrare la tua targa online entro 48 ore dall'ingresso (hotel: per carico e scarico bagagli; garage: 2,50 € al giorno). Le elettriche hanno bisogno di un contrassegno annuale gratuito. Piazza De Ferrari e Via Gramsci sono fuori.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Fahrzeuge gesperrt. Es gibt kein Tagesticket für Besucher. Liegt dein Hotel oder ein öffentliches Parkhaus innen, kann es dein Kennzeichen bis 48 Stunden nach der Einfahrt online melden (Hotels: zum Be- und Entladen des Gepäcks; Parkhäuser: 2,50 € pro Tag). Elektroautos brauchen eine kostenlose Jahresgenehmigung. Piazza De Ferrari und Via Gramsci liegen außerhalb.",
+   "perimeter": [
+    {
+     "lat": 44.406316,
+     "lon": 8.933398
+    },
+    {
+     "lat": 44.406533,
+     "lon": 8.9337
+    },
+    {
+     "lat": 44.406533,
+     "lon": 8.933751
+    },
+    {
+     "lat": 44.406587,
+     "lon": 8.933826
+    },
+    {
+     "lat": 44.406678,
+     "lon": 8.933952
+    },
+    {
+     "lat": 44.406714,
+     "lon": 8.933952
+    },
+    {
+     "lat": 44.406786,
+     "lon": 8.933851
+    },
+    {
+     "lat": 44.406786,
+     "lon": 8.933801
+    },
+    {
+     "lat": 44.406877,
+     "lon": 8.9337
+    },
+    {
+     "lat": 44.406877,
+     "lon": 8.93365
+    },
+    {
+     "lat": 44.406967,
+     "lon": 8.933549
+    },
+    {
+     "lat": 44.406967,
+     "lon": 8.933499
+    },
+    {
+     "lat": 44.407076,
+     "lon": 8.933348
+    },
+    {
+     "lat": 44.407112,
+     "lon": 8.933348
+    },
+    {
+     "lat": 44.407709,
+     "lon": 8.933952
+    },
+    {
+     "lat": 44.40798,
+     "lon": 8.934027
+    },
+    {
+     "lat": 44.408215,
+     "lon": 8.934228
+    },
+    {
+     "lat": 44.40827,
+     "lon": 8.934228
+    },
+    {
+     "lat": 44.408667,
+     "lon": 8.93448
+    },
+    {
+     "lat": 44.408776,
+     "lon": 8.934505
+    },
+    {
+     "lat": 44.408812,
+     "lon": 8.934555
+    },
+    {
+     "lat": 44.409011,
+     "lon": 8.934631
+    },
+    {
+     "lat": 44.409047,
+     "lon": 8.934681
+    },
+    {
+     "lat": 44.409246,
+     "lon": 8.934757
+    },
+    {
+     "lat": 44.409282,
+     "lon": 8.934807
+    },
+    {
+     "lat": 44.409481,
+     "lon": 8.934882
+    },
+    {
+     "lat": 44.409518,
+     "lon": 8.934933
+    },
+    {
+     "lat": 44.409572,
+     "lon": 8.934933
+    },
+    {
+     "lat": 44.409608,
+     "lon": 8.934983
+    },
+    {
+     "lat": 44.409717,
+     "lon": 8.935008
+    },
+    {
+     "lat": 44.409952,
+     "lon": 8.935159
+    },
+    {
+     "lat": 44.410042,
+     "lon": 8.935159
+    },
+    {
+     "lat": 44.410151,
+     "lon": 8.934958
+    },
+    {
+     "lat": 44.410313,
+     "lon": 8.934882
+    },
+    {
+     "lat": 44.410567,
+     "lon": 8.934681
+    },
+    {
+     "lat": 44.410621,
+     "lon": 8.934681
+    },
+    {
+     "lat": 44.410657,
+     "lon": 8.934606
+    },
+    {
+     "lat": 44.41082,
+     "lon": 8.934656
+    },
+    {
+     "lat": 44.41091,
+     "lon": 8.934731
+    },
+    {
+     "lat": 44.410983,
+     "lon": 8.934731
+    },
+    {
+     "lat": 44.411055,
+     "lon": 8.934631
+    },
+    {
+     "lat": 44.411127,
+     "lon": 8.934606
+    },
+    {
+     "lat": 44.4112,
+     "lon": 8.93448
+    },
+    {
+     "lat": 44.411254,
+     "lon": 8.93448
+    },
+    {
+     "lat": 44.411308,
+     "lon": 8.934178
+    },
+    {
+     "lat": 44.411344,
+     "lon": 8.934128
+    },
+    {
+     "lat": 44.411435,
+     "lon": 8.934153
+    },
+    {
+     "lat": 44.411489,
+     "lon": 8.933851
+    },
+    {
+     "lat": 44.411616,
+     "lon": 8.9337
+    },
+    {
+     "lat": 44.411869,
+     "lon": 8.932644
+    },
+    {
+     "lat": 44.411869,
+     "lon": 8.932569
+    },
+    {
+     "lat": 44.41176,
+     "lon": 8.932543
+    },
+    {
+     "lat": 44.411688,
+     "lon": 8.932468
+    },
+    {
+     "lat": 44.411706,
+     "lon": 8.932342
+    },
+    {
+     "lat": 44.411742,
+     "lon": 8.932317
+    },
+    {
+     "lat": 44.41167,
+     "lon": 8.932242
+    },
+    {
+     "lat": 44.411706,
+     "lon": 8.93204
+    },
+    {
+     "lat": 44.411471,
+     "lon": 8.93194
+    },
+    {
+     "lat": 44.411435,
+     "lon": 8.931889
+    },
+    {
+     "lat": 44.411453,
+     "lon": 8.931713
+    },
+    {
+     "lat": 44.411507,
+     "lon": 8.931638
+    },
+    {
+     "lat": 44.411543,
+     "lon": 8.931638
+    },
+    {
+     "lat": 44.412086,
+     "lon": 8.931915
+    },
+    {
+     "lat": 44.412086,
+     "lon": 8.931814
+    },
+    {
+     "lat": 44.41205,
+     "lon": 8.931764
+    },
+    {
+     "lat": 44.411706,
+     "lon": 8.931638
+    },
+    {
+     "lat": 44.411652,
+     "lon": 8.931563
+    },
+    {
+     "lat": 44.411688,
+     "lon": 8.931437
+    },
+    {
+     "lat": 44.41167,
+     "lon": 8.931311
+    },
+    {
+     "lat": 44.411724,
+     "lon": 8.931261
+    },
+    {
+     "lat": 44.411742,
+     "lon": 8.93111
+    },
+    {
+     "lat": 44.411797,
+     "lon": 8.931034
+    },
+    {
+     "lat": 44.411869,
+     "lon": 8.931009
+    },
+    {
+     "lat": 44.411923,
+     "lon": 8.930934
+    },
+    {
+     "lat": 44.411923,
+     "lon": 8.930883
+    },
+    {
+     "lat": 44.412267,
+     "lon": 8.930406
+    },
+    {
+     "lat": 44.41243,
+     "lon": 8.93028
+    },
+    {
+     "lat": 44.412466,
+     "lon": 8.93028
+    },
+    {
+     "lat": 44.412538,
+     "lon": 8.93038
+    },
+    {
+     "lat": 44.412538,
+     "lon": 8.930431
+    },
+    {
+     "lat": 44.412737,
+     "lon": 8.930682
+    },
+    {
+     "lat": 44.412665,
+     "lon": 8.930959
+    },
+    {
+     "lat": 44.412828,
+     "lon": 8.930934
+    },
+    {
+     "lat": 44.41281,
+     "lon": 8.930833
+    },
+    {
+     "lat": 44.412882,
+     "lon": 8.930733
+    },
+    {
+     "lat": 44.412882,
+     "lon": 8.930682
+    },
+    {
+     "lat": 44.412918,
+     "lon": 8.930632
+    },
+    {
+     "lat": 44.412972,
+     "lon": 8.930632
+    },
+    {
+     "lat": 44.41299,
+     "lon": 8.930582
+    },
+    {
+     "lat": 44.413063,
+     "lon": 8.930607
+    },
+    {
+     "lat": 44.413171,
+     "lon": 8.930305
+    },
+    {
+     "lat": 44.413171,
+     "lon": 8.930204
+    },
+    {
+     "lat": 44.413207,
+     "lon": 8.930154
+    },
+    {
+     "lat": 44.413226,
+     "lon": 8.930003
+    },
+    {
+     "lat": 44.413298,
+     "lon": 8.929802
+    },
+    {
+     "lat": 44.41337,
+     "lon": 8.929374
+    },
+    {
+     "lat": 44.413479,
+     "lon": 8.928997
+    },
+    {
+     "lat": 44.413551,
+     "lon": 8.928519
+    },
+    {
+     "lat": 44.41366,
+     "lon": 8.928067
+    },
+    {
+     "lat": 44.413696,
+     "lon": 8.928016
+    },
+    {
+     "lat": 44.413696,
+     "lon": 8.927916
+    },
+    {
+     "lat": 44.41366,
+     "lon": 8.927916
+    },
+    {
+     "lat": 44.413605,
+     "lon": 8.92784
+    },
+    {
+     "lat": 44.413569,
+     "lon": 8.92784
+    },
+    {
+     "lat": 44.413551,
+     "lon": 8.927891
+    },
+    {
+     "lat": 44.413497,
+     "lon": 8.927891
+    },
+    {
+     "lat": 44.413461,
+     "lon": 8.92784
+    },
+    {
+     "lat": 44.413352,
+     "lon": 8.927865
+    },
+    {
+     "lat": 44.413316,
+     "lon": 8.92779
+    },
+    {
+     "lat": 44.41337,
+     "lon": 8.927639
+    },
+    {
+     "lat": 44.413135,
+     "lon": 8.927312
+    },
+    {
+     "lat": 44.413063,
+     "lon": 8.927262
+    },
+    {
+     "lat": 44.413063,
+     "lon": 8.927211
+    },
+    {
+     "lat": 44.41299,
+     "lon": 8.927161
+    },
+    {
+     "lat": 44.41299,
+     "lon": 8.927111
+    },
+    {
+     "lat": 44.412972,
+     "lon": 8.927086
+    },
+    {
+     "lat": 44.41281,
+     "lon": 8.927111
+    },
+    {
+     "lat": 44.412683,
+     "lon": 8.927211
+    },
+    {
+     "lat": 44.412665,
+     "lon": 8.927262
+    },
+    {
+     "lat": 44.412629,
+     "lon": 8.927262
+    },
+    {
+     "lat": 44.412611,
+     "lon": 8.927312
+    },
+    {
+     "lat": 44.412484,
+     "lon": 8.927388
+    },
+    {
+     "lat": 44.412466,
+     "lon": 8.927438
+    },
+    {
+     "lat": 44.41243,
+     "lon": 8.927438
+    },
+    {
+     "lat": 44.412412,
+     "lon": 8.927488
+    },
+    {
+     "lat": 44.412249,
+     "lon": 8.927589
+    },
+    {
+     "lat": 44.412176,
+     "lon": 8.927689
+    },
+    {
+     "lat": 44.412014,
+     "lon": 8.92779
+    },
+    {
+     "lat": 44.411941,
+     "lon": 8.927891
+    },
+    {
+     "lat": 44.411779,
+     "lon": 8.927991
+    },
+    {
+     "lat": 44.411308,
+     "lon": 8.928494
+    },
+    {
+     "lat": 44.411164,
+     "lon": 8.92857
+    },
+    {
+     "lat": 44.411109,
+     "lon": 8.928645
+    },
+    {
+     "lat": 44.411055,
+     "lon": 8.928645
+    },
+    {
+     "lat": 44.411037,
+     "lon": 8.928695
+    },
+    {
+     "lat": 44.410856,
+     "lon": 8.928821
+    },
+    {
+     "lat": 44.410512,
+     "lon": 8.928947
+    },
+    {
+     "lat": 44.410476,
+     "lon": 8.928997
+    },
+    {
+     "lat": 44.410422,
+     "lon": 8.928947
+    },
+    {
+     "lat": 44.41035,
+     "lon": 8.928293
+    },
+    {
+     "lat": 44.409409,
+     "lon": 8.928268
+    },
+    {
+     "lat": 44.408505,
+     "lon": 8.928041
+    },
+    {
+     "lat": 44.408505,
+     "lon": 8.928394
+    },
+    {
+     "lat": 44.408432,
+     "lon": 8.928544
+    },
+    {
+     "lat": 44.408378,
+     "lon": 8.928897
+    },
+    {
+     "lat": 44.408306,
+     "lon": 8.928997
+    },
+    {
+     "lat": 44.408233,
+     "lon": 8.928922
+    },
+    {
+     "lat": 44.408089,
+     "lon": 8.928871
+    },
+    {
+     "lat": 44.407673,
+     "lon": 8.928595
+    },
+    {
+     "lat": 44.407655,
+     "lon": 8.928544
+    },
+    {
+     "lat": 44.407311,
+     "lon": 8.928318
+    },
+    {
+     "lat": 44.407293,
+     "lon": 8.928268
+    },
+    {
+     "lat": 44.407184,
+     "lon": 8.928218
+    },
+    {
+     "lat": 44.407058,
+     "lon": 8.928067
+    },
+    {
+     "lat": 44.406877,
+     "lon": 8.927966
+    },
+    {
+     "lat": 44.406859,
+     "lon": 8.927916
+    },
+    {
+     "lat": 44.406461,
+     "lon": 8.927689
+    },
+    {
+     "lat": 44.406117,
+     "lon": 8.927664
+    },
+    {
+     "lat": 44.405954,
+     "lon": 8.92774
+    },
+    {
+     "lat": 44.405882,
+     "lon": 8.927815
+    },
+    {
+     "lat": 44.405828,
+     "lon": 8.927815
+    },
+    {
+     "lat": 44.405755,
+     "lon": 8.927891
+    },
+    {
+     "lat": 44.405701,
+     "lon": 8.927891
+    },
+    {
+     "lat": 44.405629,
+     "lon": 8.927966
+    },
+    {
+     "lat": 44.405575,
+     "lon": 8.927966
+    },
+    {
+     "lat": 44.405376,
+     "lon": 8.928218
+    },
+    {
+     "lat": 44.405267,
+     "lon": 8.928293
+    },
+    {
+     "lat": 44.405213,
+     "lon": 8.928394
+    },
+    {
+     "lat": 44.405177,
+     "lon": 8.928394
+    },
+    {
+     "lat": 44.405122,
+     "lon": 8.928494
+    },
+    {
+     "lat": 44.405086,
+     "lon": 8.928494
+    },
+    {
+     "lat": 44.405032,
+     "lon": 8.928595
+    },
+    {
+     "lat": 44.404996,
+     "lon": 8.928595
+    },
+    {
+     "lat": 44.404869,
+     "lon": 8.928771
+    },
+    {
+     "lat": 44.404833,
+     "lon": 8.928771
+    },
+    {
+     "lat": 44.404779,
+     "lon": 8.928871
+    },
+    {
+     "lat": 44.404743,
+     "lon": 8.928871
+    },
+    {
+     "lat": 44.40467,
+     "lon": 8.928997
+    },
+    {
+     "lat": 44.404634,
+     "lon": 8.928997
+    },
+    {
+     "lat": 44.404634,
+     "lon": 8.929098
+    },
+    {
+     "lat": 44.404598,
+     "lon": 8.929123
+    },
+    {
+     "lat": 44.404598,
+     "lon": 8.929173
+    },
+    {
+     "lat": 44.404562,
+     "lon": 8.929198
+    },
+    {
+     "lat": 44.404562,
+     "lon": 8.929249
+    },
+    {
+     "lat": 44.404525,
+     "lon": 8.929274
+    },
+    {
+     "lat": 44.404525,
+     "lon": 8.929324
+    },
+    {
+     "lat": 44.404399,
+     "lon": 8.92955
+    },
+    {
+     "lat": 44.404363,
+     "lon": 8.92955
+    },
+    {
+     "lat": 44.404327,
+     "lon": 8.929626
+    },
+    {
+     "lat": 44.404182,
+     "lon": 8.929727
+    },
+    {
+     "lat": 44.404146,
+     "lon": 8.929802
+    },
+    {
+     "lat": 44.404073,
+     "lon": 8.929802
+    },
+    {
+     "lat": 44.403965,
+     "lon": 8.929953
+    },
+    {
+     "lat": 44.403947,
+     "lon": 8.930079
+    },
+    {
+     "lat": 44.40382,
+     "lon": 8.93038
+    },
+    {
+     "lat": 44.403784,
+     "lon": 8.930556
+    },
+    {
+     "lat": 44.403712,
+     "lon": 8.930657
+    },
+    {
+     "lat": 44.403693,
+     "lon": 8.93111
+    },
+    {
+     "lat": 44.403657,
+     "lon": 8.931261
+    },
+    {
+     "lat": 44.403585,
+     "lon": 8.931361
+    },
+    {
+     "lat": 44.40344,
+     "lon": 8.931713
+    },
+    {
+     "lat": 44.403296,
+     "lon": 8.931889
+    },
+    {
+     "lat": 44.403277,
+     "lon": 8.932066
+    },
+    {
+     "lat": 44.403205,
+     "lon": 8.932166
+    },
+    {
+     "lat": 44.403006,
+     "lon": 8.932216
+    },
+    {
+     "lat": 44.403006,
+     "lon": 8.932392
+    },
+    {
+     "lat": 44.403115,
+     "lon": 8.93277
+    },
+    {
+     "lat": 44.403296,
+     "lon": 8.933097
+    },
+    {
+     "lat": 44.403404,
+     "lon": 8.933046
+    },
+    {
+     "lat": 44.403422,
+     "lon": 8.932996
+    },
+    {
+     "lat": 44.403531,
+     "lon": 8.932946
+    },
+    {
+     "lat": 44.403549,
+     "lon": 8.932895
+    },
+    {
+     "lat": 44.403657,
+     "lon": 8.93282
+    },
+    {
+     "lat": 44.403712,
+     "lon": 8.93282
+    },
+    {
+     "lat": 44.403748,
+     "lon": 8.93287
+    },
+    {
+     "lat": 44.40382,
+     "lon": 8.933122
+    },
+    {
+     "lat": 44.403856,
+     "lon": 8.933147
+    },
+    {
+     "lat": 44.403911,
+     "lon": 8.933348
+    },
+    {
+     "lat": 44.403947,
+     "lon": 8.933373
+    },
+    {
+     "lat": 44.404109,
+     "lon": 8.933851
+    },
+    {
+     "lat": 44.4042,
+     "lon": 8.933977
+    },
+    {
+     "lat": 44.4042,
+     "lon": 8.934078
+    },
+    {
+     "lat": 44.404236,
+     "lon": 8.934103
+    },
+    {
+     "lat": 44.40429,
+     "lon": 8.934078
+    },
+    {
+     "lat": 44.404489,
+     "lon": 8.934228
+    },
+    {
+     "lat": 44.404525,
+     "lon": 8.934178
+    },
+    {
+     "lat": 44.404598,
+     "lon": 8.934203
+    },
+    {
+     "lat": 44.404652,
+     "lon": 8.934304
+    },
+    {
+     "lat": 44.404797,
+     "lon": 8.934405
+    },
+    {
+     "lat": 44.404905,
+     "lon": 8.934405
+    },
+    {
+     "lat": 44.404941,
+     "lon": 8.934455
+    },
+    {
+     "lat": 44.404996,
+     "lon": 8.934405
+    },
+    {
+     "lat": 44.405086,
+     "lon": 8.93448
+    },
+    {
+     "lat": 44.405502,
+     "lon": 8.934606
+    },
+    {
+     "lat": 44.405538,
+     "lon": 8.934706
+    },
+    {
+     "lat": 44.405629,
+     "lon": 8.934706
+    },
+    {
+     "lat": 44.405701,
+     "lon": 8.934631
+    },
+    {
+     "lat": 44.405719,
+     "lon": 8.934354
+    },
+    {
+     "lat": 44.405918,
+     "lon": 8.934103
+    },
+    {
+     "lat": 44.405882,
+     "lon": 8.933977
+    },
+    {
+     "lat": 44.40628,
+     "lon": 8.933373
+    },
+    {
+     "lat": 44.406316,
+     "lon": 8.933398
+    }
+   ],
+   "gates": [
+    {
+     "id": "ge-osm5594220118",
+     "name": "Via di Porta Soprana (settore 1)",
+     "location": {
+      "lat": 44.406322,
+      "lon": 8.933448
+     }
+    },
+    {
+     "id": "ge-osm5592753730",
+     "name": "Via del Campo (settore 1)",
+     "location": {
+      "lat": 44.412911,
+      "lon": 8.927247
+     }
+    },
+    {
+     "id": "ge-osm5592753728",
+     "name": "Vico Giannini (settore 1)",
+     "location": {
+      "lat": 44.411103,
+      "lon": 8.928672
+     }
+    },
+    {
+     "id": "ge-osm5592753726",
+     "name": "Piazza della Raibetta (settore 1)",
+     "location": {
+      "lat": 44.408334,
+      "lon": 8.928915
+     }
+    },
+    {
+     "id": "ge-osm5592753732",
+     "name": "Via San Giorgio (settore 2)",
+     "location": {
+      "lat": 44.407449,
+      "lon": 8.928532
+     }
+    },
+    {
+     "id": "ge-osm5594220117",
+     "name": "Vico delle Camelie (settore 2)",
+     "location": {
+      "lat": 44.406596,
+      "lon": 8.92783
+     }
+    },
+    {
+     "id": "ge-osm5592753731",
+     "name": "Mura delle Grazie (settore 2)",
+     "location": {
+      "lat": 44.405099,
+      "lon": 8.928565
+     }
+    },
+    {
+     "id": "ge-osm2829907843",
+     "name": "Via Ravasco (settore 2)",
+     "location": {
+      "lat": 44.403712,
+      "lon": 8.93271
+     }
+    },
+    {
+     "id": "ge-osm8116477688",
+     "name": "Via Lomellini (settore 3)",
+     "location": {
+      "lat": 44.413326,
+      "lon": 8.929479
+     }
+    },
+    {
+     "id": "ge-osm2579946021",
+     "name": "Via Cairoli (settore 4)",
+     "location": {
+      "lat": 44.413189,
+      "lon": 8.930018
+     }
+    },
+    {
+     "id": "ge-osm5592753727",
+     "name": "Via Garibaldi (settore 5)",
+     "location": {
+      "lat": 44.410742,
+      "lon": 8.934597
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Genoa",
+    "pageURL": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl",
+    "ordinance": "Disciplinare ZTL Rev. 16/04/2025 (Deliberazione GC n. 74 del 10/04/2025)",
+    "ordinanceURL": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf",
+    "quote": "La Z.T.L. “Centro Storico” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.",
+    "quoteTranslation": "The “Centro Storico” ZTL is in force every day of the year, 24 hours a day.",
+    "quoteTranslation_de": "Die ZTL „Centro Storico“ gilt an allen Tagen des Jahres rund um die Uhr.",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Boundary from the City's open data, surveyed in 2018 (before the 2025 rules): check the signs at the entrance.",
+     "Gate names are official; their positions are the traffic cameras mapped in OpenStreetMap, not an official list.",
+     "The Historic Centre is split into five sectors: a hotel or garage permit is valid only for its own sector, so use the gate of that sector.",
+     "Electric vehicles may enter all ZTLs but need a free yearly permit from Genova Parcheggi first; whether a foreign-registered car can get one is not stated.",
+     "In April 2026 the city approved about 180 new plate-reading points, also checking exits and time spent inside; no switch-on date yet (confirmed only by GenovaToday and other press).",
+     "The weekend ZTL in Piazza Fontane Marose (Friday 8 pm–Sunday midnight, from 2023) was suspended in February 2025 and is not in the 2025 rules (suspension confirmed only by Liguria Business Journal).",
+     "Separate anti-smog rules (order 256/2025): Monday to Friday 7 am–7 pm, older cars may not drive in the central Area 1 (diesel up to Euro 4, petrol up to Euro 1) or anywhere in the city (diesel up to Euro 2, petrol up to Euro 1). Cars from outside Liguria or abroad with a hotel booking in Genoa are exempt on the way to and from it. Area 1 is not drawn in GateLR."
+    ],
+    "pending_it": [
+     "Perimetro dagli open data del Comune, rilevato nel 2018 (prima del disciplinare 2025): controlla i cartelli all'ingresso.",
+     "I nomi dei varchi sono ufficiali; le posizioni sono le telecamere del traffico mappate in OpenStreetMap, non un elenco ufficiale.",
+     "Il Centro Storico è diviso in cinque settori: il permesso dell'hotel o del garage vale solo per il suo settore, quindi entra dal varco di quel settore.",
+     "I veicoli elettrici possono entrare in tutte le ZTL ma serve prima un contrassegno annuale gratuito di Genova Parcheggi; non è detto se lo possa avere un'auto con targa estera.",
+     "Ad aprile 2026 il Comune ha approvato circa 180 nuovi punti di lettura targhe, che controllano anche le uscite e il tempo di permanenza; non c'è ancora una data di accensione (confermato solo da GenovaToday e altra stampa).",
+     "La ZTL del fine settimana in piazza Fontane Marose (dalle 20 del venerdì alla mezzanotte della domenica, dal 2023) è stata sospesa a febbraio 2025 e non è nel disciplinare 2025 (sospensione confermata solo da Liguria Business Journal).",
+     "Regole antismog a parte (ordinanza 256/2025): dal lunedì al venerdì 7–19 le auto più vecchie non possono circolare nell'Area 1 centrale (diesel fino a Euro 4, benzina fino a Euro 1) né nel resto della città (diesel fino a Euro 2, benzina fino a Euro 1). Chi arriva da fuori Liguria o dall'estero con una prenotazione alberghiera a Genova è esentato nel tragitto di arrivo e partenza. L'Area 1 non è disegnata in GateLR."
+    ],
+    "pending_de": [
+     "Grenze aus den offenen Daten der Stadt, erfasst 2018 (vor den Regeln von 2025): Schilder an der Einfahrt beachten.",
+     "Die Namen der Kameras sind offiziell; ihre Standorte sind die in OpenStreetMap erfassten Verkehrskameras, keine offizielle Liste.",
+     "Die Altstadt ist in fünf Sektoren geteilt: Die Genehmigung von Hotel oder Garage gilt nur für deren Sektor, also durch die Kamera dieses Sektors einfahren.",
+     "Elektrofahrzeuge dürfen in alle ZTL, brauchen aber vorher eine kostenlose Jahresgenehmigung von Genova Parcheggi; ob ein Auto mit ausländischem Kennzeichen sie bekommt, steht nicht da.",
+     "Im April 2026 hat die Stadt rund 180 neue Kennzeichenleser beschlossen, die auch Ausfahrten und Aufenthaltsdauer prüfen; noch kein Starttermin (bestätigt nur von GenovaToday und anderer Presse).",
+     "Die Wochenend-ZTL an der Piazza Fontane Marose (Freitag 20 Uhr bis Sonntag Mitternacht, seit 2023) wurde im Februar 2025 ausgesetzt und steht nicht in den Regeln von 2025 (Aussetzung nur von Liguria Business Journal bestätigt).",
+     "Eigene Anti-Smog-Regeln (Verordnung 256/2025): Montag bis Freitag 7–19 Uhr dürfen ältere Autos nicht in die zentrale Area 1 (Diesel bis Euro 4, Benzin bis Euro 1) und nirgends in der Stadt fahren (Diesel bis Euro 2, Benzin bis Euro 1). Wer von außerhalb Liguriens oder aus dem Ausland mit Hotelbuchung in Genua kommt, ist auf der An- und Abreise ausgenommen. Area 1 ist in GateLR nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "City of Genoa: ZTL access rules 2025 (PDF)",
+      "title_it": "Comune di Genova: disciplinare di accesso alle ZTL 2025 (PDF)",
+      "title_de": "Stadt Genua: Zufahrtsregeln der ZTL 2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf"
+     },
+     {
+      "title": "City of Genoa: applying for a ZTL permit (Genova Parcheggi)",
+      "title_it": "Comune di Genova: richiedere il permesso ZTL (Genova Parcheggi)",
+      "title_de": "Stadt Genua: ZTL-Genehmigung beantragen (Genova Parcheggi)",
+      "url": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl"
+     },
+     {
+      "title": "City of Genoa open data: ZTL boundaries (CC BY 4.0)",
+      "title_it": "Open data del Comune di Genova: perimetri ZTL (CC BY 4.0)",
+      "title_de": "Offene Daten der Stadt Genua: ZTL-Grenzen (CC BY 4.0)",
+      "url": "https://dati.comune.genova.it/dataset/zone-traffico-limitato"
+     },
+     {
+      "title": "City of Genoa: anti-smog order 256/2025 (PDF)",
+      "title_it": "Comune di Genova: ordinanza antismog 256/2025 (PDF)",
+      "title_de": "Stadt Genua: Anti-Smog-Verordnung 256/2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-08/ORD_256_2025%20-%20File%20primario%20-%20ORD-256-2025%20-%20Definitiva%20-%20.pdf"
+     },
+     {
+      "title": "OpenStreetMap: traffic cameras used as gate positions (ODbL)",
+      "title_it": "OpenStreetMap: telecamere usate come posizione dei varchi (ODbL)",
+      "title_de": "OpenStreetMap: Verkehrskameras als Kamerastandorte (ODbL)",
+      "url": "https://www.openstreetmap.org/node/2579946021"
+     }
+    ]
+   }
+  },
+  {
+   "id": "genova-molo",
+   "name": "Molo · Old Port ZTL",
+   "name_it": "Molo · ZTL del Porto Antico",
+   "name_de": "Molo · ZTL am Alten Hafen",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised vehicles 24 hours a day, every day, holidays included. There is no day ticket for visitors. If your hotel or a public garage is inside, it can register your plate online up to 48 hours after you drive in (hotels: to load and unload luggage; garages: €2.50 a day). Electric vehicles need a free yearly permit.",
+   "summary_it": "Chiusa ai veicoli non autorizzati 24 ore su 24, tutti i giorni, festivi compresi. Non c'è un biglietto giornaliero per i turisti. Se l'hotel o un'autorimessa pubblica è dentro, può registrare la tua targa online entro 48 ore dall'ingresso (hotel: per carico e scarico bagagli; garage: 2,50 € al giorno). Le elettriche hanno bisogno di un contrassegno annuale gratuito.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Fahrzeuge gesperrt. Es gibt kein Tagesticket für Besucher. Liegt dein Hotel oder ein öffentliches Parkhaus innen, kann es dein Kennzeichen bis 48 Stunden nach der Einfahrt online melden (Hotels: zum Be- und Entladen des Gepäcks; Parkhäuser: 2,50 € pro Tag). Elektroautos brauchen eine kostenlose Jahresgenehmigung.",
+   "perimeter": [
+    {
+     "lat": 44.406175,
+     "lon": 8.926377
+    },
+    {
+     "lat": 44.40638,
+     "lon": 8.926531
+    },
+    {
+     "lat": 44.406407,
+     "lon": 8.926471
+    },
+    {
+     "lat": 44.406472,
+     "lon": 8.926542
+    },
+    {
+     "lat": 44.40636,
+     "lon": 8.926819
+    },
+    {
+     "lat": 44.406324,
+     "lon": 8.926799
+    },
+    {
+     "lat": 44.406201,
+     "lon": 8.927185
+    },
+    {
+     "lat": 44.406475,
+     "lon": 8.927387
+    },
+    {
+     "lat": 44.406502,
+     "lon": 8.927375
+    },
+    {
+     "lat": 44.406572,
+     "lon": 8.927232
+    },
+    {
+     "lat": 44.406641,
+     "lon": 8.927305
+    },
+    {
+     "lat": 44.40716,
+     "lon": 8.926479
+    },
+    {
+     "lat": 44.4072,
+     "lon": 8.926525
+    },
+    {
+     "lat": 44.407241,
+     "lon": 8.926466
+    },
+    {
+     "lat": 44.407193,
+     "lon": 8.926397
+    },
+    {
+     "lat": 44.407438,
+     "lon": 8.926043
+    },
+    {
+     "lat": 44.407451,
+     "lon": 8.926002
+    },
+    {
+     "lat": 44.407409,
+     "lon": 8.925958
+    },
+    {
+     "lat": 44.407898,
+     "lon": 8.925137
+    },
+    {
+     "lat": 44.407962,
+     "lon": 8.925165
+    },
+    {
+     "lat": 44.408032,
+     "lon": 8.925148
+    },
+    {
+     "lat": 44.408011,
+     "lon": 8.924944
+    },
+    {
+     "lat": 44.407766,
+     "lon": 8.924798
+    },
+    {
+     "lat": 44.407775,
+     "lon": 8.924768
+    },
+    {
+     "lat": 44.407506,
+     "lon": 8.924906
+    },
+    {
+     "lat": 44.407486,
+     "lon": 8.924889
+    },
+    {
+     "lat": 44.407461,
+     "lon": 8.92478
+    },
+    {
+     "lat": 44.407143,
+     "lon": 8.924948
+    },
+    {
+     "lat": 44.406703,
+     "lon": 8.925371
+    },
+    {
+     "lat": 44.406235,
+     "lon": 8.926225
+    },
+    {
+     "lat": 44.406175,
+     "lon": 8.926377
+    }
+   ],
+   "gates": [
+    {
+     "id": "ge-osm5592753729",
+     "name": "Via del Molo",
+     "location": {
+      "lat": 44.40663,
+      "lon": 8.927313
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Genoa",
+    "pageURL": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl",
+    "ordinance": "Disciplinare ZTL Rev. 16/04/2025 (Deliberazione GC n. 74 del 10/04/2025)",
+    "ordinanceURL": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf",
+    "quote": "La Z.T.L. “Molo” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.",
+    "quoteTranslation": "The “Molo” ZTL is in force every day of the year, 24 hours a day.",
+    "quoteTranslation_de": "Die ZTL „Molo“ gilt an allen Tagen des Jahres rund um die Uhr.",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Boundary from the City's open data, surveyed in 2018 (before the 2025 rules): check the signs at the entrance.",
+     "Gate names are official; their positions are the traffic cameras mapped in OpenStreetMap, not an official list.",
+     "Electric vehicles may enter all ZTLs but need a free yearly permit from Genova Parcheggi first; whether a foreign-registered car can get one is not stated.",
+     "In April 2026 the city approved about 180 new plate-reading points, also checking exits and time spent inside; no switch-on date yet (confirmed only by GenovaToday and other press).",
+     "Separate anti-smog rules (order 256/2025): Monday to Friday 7 am–7 pm, older cars may not drive in the central Area 1 (diesel up to Euro 4, petrol up to Euro 1) or anywhere in the city (diesel up to Euro 2, petrol up to Euro 1). Cars from outside Liguria or abroad with a hotel booking in Genoa are exempt on the way to and from it. Area 1 is not drawn in GateLR."
+    ],
+    "pending_it": [
+     "Perimetro dagli open data del Comune, rilevato nel 2018 (prima del disciplinare 2025): controlla i cartelli all'ingresso.",
+     "I nomi dei varchi sono ufficiali; le posizioni sono le telecamere del traffico mappate in OpenStreetMap, non un elenco ufficiale.",
+     "I veicoli elettrici possono entrare in tutte le ZTL ma serve prima un contrassegno annuale gratuito di Genova Parcheggi; non è detto se lo possa avere un'auto con targa estera.",
+     "Ad aprile 2026 il Comune ha approvato circa 180 nuovi punti di lettura targhe, che controllano anche le uscite e il tempo di permanenza; non c'è ancora una data di accensione (confermato solo da GenovaToday e altra stampa).",
+     "Regole antismog a parte (ordinanza 256/2025): dal lunedì al venerdì 7–19 le auto più vecchie non possono circolare nell'Area 1 centrale (diesel fino a Euro 4, benzina fino a Euro 1) né nel resto della città (diesel fino a Euro 2, benzina fino a Euro 1). Chi arriva da fuori Liguria o dall'estero con una prenotazione alberghiera a Genova è esentato nel tragitto di arrivo e partenza. L'Area 1 non è disegnata in GateLR."
+    ],
+    "pending_de": [
+     "Grenze aus den offenen Daten der Stadt, erfasst 2018 (vor den Regeln von 2025): Schilder an der Einfahrt beachten.",
+     "Die Namen der Kameras sind offiziell; ihre Standorte sind die in OpenStreetMap erfassten Verkehrskameras, keine offizielle Liste.",
+     "Elektrofahrzeuge dürfen in alle ZTL, brauchen aber vorher eine kostenlose Jahresgenehmigung von Genova Parcheggi; ob ein Auto mit ausländischem Kennzeichen sie bekommt, steht nicht da.",
+     "Im April 2026 hat die Stadt rund 180 neue Kennzeichenleser beschlossen, die auch Ausfahrten und Aufenthaltsdauer prüfen; noch kein Starttermin (bestätigt nur von GenovaToday und anderer Presse).",
+     "Eigene Anti-Smog-Regeln (Verordnung 256/2025): Montag bis Freitag 7–19 Uhr dürfen ältere Autos nicht in die zentrale Area 1 (Diesel bis Euro 4, Benzin bis Euro 1) und nirgends in der Stadt fahren (Diesel bis Euro 2, Benzin bis Euro 1). Wer von außerhalb Liguriens oder aus dem Ausland mit Hotelbuchung in Genua kommt, ist auf der An- und Abreise ausgenommen. Area 1 ist in GateLR nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "City of Genoa: ZTL access rules 2025 (PDF)",
+      "title_it": "Comune di Genova: disciplinare di accesso alle ZTL 2025 (PDF)",
+      "title_de": "Stadt Genua: Zufahrtsregeln der ZTL 2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf"
+     },
+     {
+      "title": "City of Genoa: applying for a ZTL permit (Genova Parcheggi)",
+      "title_it": "Comune di Genova: richiedere il permesso ZTL (Genova Parcheggi)",
+      "title_de": "Stadt Genua: ZTL-Genehmigung beantragen (Genova Parcheggi)",
+      "url": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl"
+     },
+     {
+      "title": "City of Genoa open data: ZTL boundaries (CC BY 4.0)",
+      "title_it": "Open data del Comune di Genova: perimetri ZTL (CC BY 4.0)",
+      "title_de": "Offene Daten der Stadt Genua: ZTL-Grenzen (CC BY 4.0)",
+      "url": "https://dati.comune.genova.it/dataset/zone-traffico-limitato"
+     },
+     {
+      "title": "City of Genoa: anti-smog order 256/2025 (PDF)",
+      "title_it": "Comune di Genova: ordinanza antismog 256/2025 (PDF)",
+      "title_de": "Stadt Genua: Anti-Smog-Verordnung 256/2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-08/ORD_256_2025%20-%20File%20primario%20-%20ORD-256-2025%20-%20Definitiva%20-%20.pdf"
+     },
+     {
+      "title": "OpenStreetMap: traffic cameras used as gate positions (ODbL)",
+      "title_it": "OpenStreetMap: telecamere usate come posizione dei varchi (ODbL)",
+      "title_de": "OpenStreetMap: Verkehrskameras als Kamerastandorte (ODbL)",
+      "url": "https://www.openstreetmap.org/node/2579946021"
+     }
+    ]
+   }
+  },
+  {
+   "id": "genova-boccadasse",
+   "name": "Boccadasse · fishing village ZTL",
+   "name_it": "Boccadasse · ZTL del borgo",
+   "name_de": "Boccadasse · ZTL im Fischerdorf",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised vehicles 24 hours a day, every day, holidays included. There is no day ticket for visitors. If your hotel or a public garage is inside, it can register your plate online up to 48 hours after you drive in (hotels: to load and unload luggage; garages: €2.50 a day). Electric vehicles need a free yearly permit.",
+   "summary_it": "Chiusa ai veicoli non autorizzati 24 ore su 24, tutti i giorni, festivi compresi. Non c'è un biglietto giornaliero per i turisti. Se l'hotel o un'autorimessa pubblica è dentro, può registrare la tua targa online entro 48 ore dall'ingresso (hotel: per carico e scarico bagagli; garage: 2,50 € al giorno). Le elettriche hanno bisogno di un contrassegno annuale gratuito.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Fahrzeuge gesperrt. Es gibt kein Tagesticket für Besucher. Liegt dein Hotel oder ein öffentliches Parkhaus innen, kann es dein Kennzeichen bis 48 Stunden nach der Einfahrt online melden (Hotels: zum Be- und Entladen des Gepäcks; Parkhäuser: 2,50 € pro Tag). Elektroautos brauchen eine kostenlose Jahresgenehmigung.",
+   "perimeter": [
+    {
+     "lat": 44.389743,
+     "lon": 8.974068
+    },
+    {
+     "lat": 44.390057,
+     "lon": 8.974453
+    },
+    {
+     "lat": 44.390176,
+     "lon": 8.974513
+    },
+    {
+     "lat": 44.390197,
+     "lon": 8.974548
+    },
+    {
+     "lat": 44.39022,
+     "lon": 8.97465
+    },
+    {
+     "lat": 44.390176,
+     "lon": 8.974842
+    },
+    {
+     "lat": 44.390183,
+     "lon": 8.97491
+    },
+    {
+     "lat": 44.390194,
+     "lon": 8.974941
+    },
+    {
+     "lat": 44.390287,
+     "lon": 8.974957
+    },
+    {
+     "lat": 44.390282,
+     "lon": 8.975005
+    },
+    {
+     "lat": 44.39048,
+     "lon": 8.975064
+    },
+    {
+     "lat": 44.390527,
+     "lon": 8.974804
+    },
+    {
+     "lat": 44.390718,
+     "lon": 8.974877
+    },
+    {
+     "lat": 44.390704,
+     "lon": 8.974938
+    },
+    {
+     "lat": 44.390982,
+     "lon": 8.975053
+    },
+    {
+     "lat": 44.390977,
+     "lon": 8.975077
+    },
+    {
+     "lat": 44.391092,
+     "lon": 8.975111
+    },
+    {
+     "lat": 44.391124,
+     "lon": 8.97512
+    },
+    {
+     "lat": 44.391144,
+     "lon": 8.974977
+    },
+    {
+     "lat": 44.390988,
+     "lon": 8.974919
+    },
+    {
+     "lat": 44.390971,
+     "lon": 8.975012
+    },
+    {
+     "lat": 44.390837,
+     "lon": 8.974956
+    },
+    {
+     "lat": 44.390834,
+     "lon": 8.974908
+    },
+    {
+     "lat": 44.390725,
+     "lon": 8.974847
+    },
+    {
+     "lat": 44.390502,
+     "lon": 8.974769
+    },
+    {
+     "lat": 44.390486,
+     "lon": 8.974917
+    },
+    {
+     "lat": 44.390294,
+     "lon": 8.97489
+    },
+    {
+     "lat": 44.390292,
+     "lon": 8.974928
+    },
+    {
+     "lat": 44.390201,
+     "lon": 8.974917
+    },
+    {
+     "lat": 44.390209,
+     "lon": 8.974827
+    },
+    {
+     "lat": 44.390246,
+     "lon": 8.974685
+    },
+    {
+     "lat": 44.390305,
+     "lon": 8.974705
+    },
+    {
+     "lat": 44.390314,
+     "lon": 8.97463
+    },
+    {
+     "lat": 44.390302,
+     "lon": 8.974625
+    },
+    {
+     "lat": 44.390307,
+     "lon": 8.974595
+    },
+    {
+     "lat": 44.390286,
+     "lon": 8.974587
+    },
+    {
+     "lat": 44.390291,
+     "lon": 8.974556
+    },
+    {
+     "lat": 44.390313,
+     "lon": 8.974564
+    },
+    {
+     "lat": 44.390318,
+     "lon": 8.974533
+    },
+    {
+     "lat": 44.391361,
+     "lon": 8.974841
+    },
+    {
+     "lat": 44.391331,
+     "lon": 8.974979
+    },
+    {
+     "lat": 44.391306,
+     "lon": 8.974976
+    },
+    {
+     "lat": 44.391262,
+     "lon": 8.975175
+    },
+    {
+     "lat": 44.391247,
+     "lon": 8.975171
+    },
+    {
+     "lat": 44.391228,
+     "lon": 8.975299
+    },
+    {
+     "lat": 44.391153,
+     "lon": 8.975324
+    },
+    {
+     "lat": 44.391068,
+     "lon": 8.975405
+    },
+    {
+     "lat": 44.390954,
+     "lon": 8.975653
+    },
+    {
+     "lat": 44.390897,
+     "lon": 8.975735
+    },
+    {
+     "lat": 44.390847,
+     "lon": 8.975742
+    },
+    {
+     "lat": 44.390768,
+     "lon": 8.975693
+    },
+    {
+     "lat": 44.39056,
+     "lon": 8.975553
+    },
+    {
+     "lat": 44.390431,
+     "lon": 8.975422
+    },
+    {
+     "lat": 44.390294,
+     "lon": 8.975356
+    },
+    {
+     "lat": 44.390196,
+     "lon": 8.97535
+    },
+    {
+     "lat": 44.390165,
+     "lon": 8.97556
+    },
+    {
+     "lat": 44.390219,
+     "lon": 8.975537
+    },
+    {
+     "lat": 44.390258,
+     "lon": 8.975434
+    },
+    {
+     "lat": 44.390292,
+     "lon": 8.975438
+    },
+    {
+     "lat": 44.390368,
+     "lon": 8.975476
+    },
+    {
+     "lat": 44.390376,
+     "lon": 8.975503
+    },
+    {
+     "lat": 44.390356,
+     "lon": 8.975556
+    },
+    {
+     "lat": 44.390503,
+     "lon": 8.975677
+    },
+    {
+     "lat": 44.390525,
+     "lon": 8.975613
+    },
+    {
+     "lat": 44.390835,
+     "lon": 8.975815
+    },
+    {
+     "lat": 44.390899,
+     "lon": 8.97584
+    },
+    {
+     "lat": 44.390992,
+     "lon": 8.975698
+    },
+    {
+     "lat": 44.391108,
+     "lon": 8.975436
+    },
+    {
+     "lat": 44.391195,
+     "lon": 8.975365
+    },
+    {
+     "lat": 44.391343,
+     "lon": 8.975324
+    },
+    {
+     "lat": 44.391391,
+     "lon": 8.975137
+    },
+    {
+     "lat": 44.391389,
+     "lon": 8.975054
+    },
+    {
+     "lat": 44.391413,
+     "lon": 8.975026
+    },
+    {
+     "lat": 44.391429,
+     "lon": 8.974942
+    },
+    {
+     "lat": 44.391431,
+     "lon": 8.97491
+    },
+    {
+     "lat": 44.391399,
+     "lon": 8.974907
+    },
+    {
+     "lat": 44.391434,
+     "lon": 8.974767
+    },
+    {
+     "lat": 44.390408,
+     "lon": 8.974459
+    },
+    {
+     "lat": 44.390405,
+     "lon": 8.974476
+    },
+    {
+     "lat": 44.390358,
+     "lon": 8.974473
+    },
+    {
+     "lat": 44.390225,
+     "lon": 8.974423
+    },
+    {
+     "lat": 44.390219,
+     "lon": 8.974452
+    },
+    {
+     "lat": 44.390126,
+     "lon": 8.974422
+    },
+    {
+     "lat": 44.390107,
+     "lon": 8.974376
+    },
+    {
+     "lat": 44.390094,
+     "lon": 8.974165
+    },
+    {
+     "lat": 44.390079,
+     "lon": 8.974167
+    },
+    {
+     "lat": 44.390061,
+     "lon": 8.974044
+    },
+    {
+     "lat": 44.389995,
+     "lon": 8.973962
+    },
+    {
+     "lat": 44.390014,
+     "lon": 8.973933
+    },
+    {
+     "lat": 44.389928,
+     "lon": 8.97385
+    },
+    {
+     "lat": 44.389907,
+     "lon": 8.973742
+    },
+    {
+     "lat": 44.389855,
+     "lon": 8.973795
+    },
+    {
+     "lat": 44.389896,
+     "lon": 8.973893
+    },
+    {
+     "lat": 44.389994,
+     "lon": 8.974011
+    },
+    {
+     "lat": 44.39004,
+     "lon": 8.974109
+    },
+    {
+     "lat": 44.390049,
+     "lon": 8.974151
+    },
+    {
+     "lat": 44.390023,
+     "lon": 8.974162
+    },
+    {
+     "lat": 44.390062,
+     "lon": 8.974252
+    },
+    {
+     "lat": 44.390081,
+     "lon": 8.974387
+    },
+    {
+     "lat": 44.39001,
+     "lon": 8.974295
+    },
+    {
+     "lat": 44.389913,
+     "lon": 8.974079
+    },
+    {
+     "lat": 44.389841,
+     "lon": 8.973975
+    },
+    {
+     "lat": 44.389743,
+     "lon": 8.974068
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Genoa",
+    "pageURL": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl",
+    "ordinance": "Disciplinare ZTL Rev. 16/04/2025 (Deliberazione GC n. 74 del 10/04/2025)",
+    "ordinanceURL": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf",
+    "quote": "La Z.T.L. “Boccadasse” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.",
+    "quoteTranslation": "The “Boccadasse” ZTL is in force every day of the year, 24 hours a day.",
+    "quoteTranslation_de": "Die ZTL „Boccadasse“ gilt an allen Tagen des Jahres rund um die Uhr.",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Boundary from the City's open data, surveyed in 2018 (before the 2025 rules): check the signs at the entrance.",
+     "The 2018 map may also include nearby streets whose residents can only apply for a permit (e.g. Via al Capo di Santa Chiara); no gate positions are known.",
+     "Electric vehicles may enter all ZTLs but need a free yearly permit from Genova Parcheggi first; whether a foreign-registered car can get one is not stated.",
+     "In April 2026 the city approved about 180 new plate-reading points, also checking exits and time spent inside; no switch-on date yet (confirmed only by GenovaToday and other press)."
+    ],
+    "pending_it": [
+     "Perimetro dagli open data del Comune, rilevato nel 2018 (prima del disciplinare 2025): controlla i cartelli all'ingresso.",
+     "La mappa del 2018 può includere anche strade vicine i cui residenti possono solo chiedere il permesso (es. Via al Capo di Santa Chiara); non conosciamo la posizione dei varchi.",
+     "I veicoli elettrici possono entrare in tutte le ZTL ma serve prima un contrassegno annuale gratuito di Genova Parcheggi; non è detto se lo possa avere un'auto con targa estera.",
+     "Ad aprile 2026 il Comune ha approvato circa 180 nuovi punti di lettura targhe, che controllano anche le uscite e il tempo di permanenza; non c'è ancora una data di accensione (confermato solo da GenovaToday e altra stampa)."
+    ],
+    "pending_de": [
+     "Grenze aus den offenen Daten der Stadt, erfasst 2018 (vor den Regeln von 2025): Schilder an der Einfahrt beachten.",
+     "Die Karte von 2018 kann auch Nachbarstraßen enthalten, deren Anwohner nur eine Genehmigung beantragen dürfen (z. B. Via al Capo di Santa Chiara); Kamerastandorte sind unbekannt.",
+     "Elektrofahrzeuge dürfen in alle ZTL, brauchen aber vorher eine kostenlose Jahresgenehmigung von Genova Parcheggi; ob ein Auto mit ausländischem Kennzeichen sie bekommt, steht nicht da.",
+     "Im April 2026 hat die Stadt rund 180 neue Kennzeichenleser beschlossen, die auch Ausfahrten und Aufenthaltsdauer prüfen; noch kein Starttermin (bestätigt nur von GenovaToday und anderer Presse)."
+    ],
+    "links": [
+     {
+      "title": "City of Genoa: ZTL access rules 2025 (PDF)",
+      "title_it": "Comune di Genova: disciplinare di accesso alle ZTL 2025 (PDF)",
+      "title_de": "Stadt Genua: Zufahrtsregeln der ZTL 2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf"
+     },
+     {
+      "title": "City of Genoa: applying for a ZTL permit (Genova Parcheggi)",
+      "title_it": "Comune di Genova: richiedere il permesso ZTL (Genova Parcheggi)",
+      "title_de": "Stadt Genua: ZTL-Genehmigung beantragen (Genova Parcheggi)",
+      "url": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl"
+     },
+     {
+      "title": "City of Genoa open data: ZTL boundaries (CC BY 4.0)",
+      "title_it": "Open data del Comune di Genova: perimetri ZTL (CC BY 4.0)",
+      "title_de": "Offene Daten der Stadt Genua: ZTL-Grenzen (CC BY 4.0)",
+      "url": "https://dati.comune.genova.it/dataset/zone-traffico-limitato"
+     },
+     {
+      "title": "City of Genoa: anti-smog order 256/2025 (PDF)",
+      "title_it": "Comune di Genova: ordinanza antismog 256/2025 (PDF)",
+      "title_de": "Stadt Genua: Anti-Smog-Verordnung 256/2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-08/ORD_256_2025%20-%20File%20primario%20-%20ORD-256-2025%20-%20Definitiva%20-%20.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "genova-vernazzola",
+   "name": "Vernazzola · fishing village ZTL",
+   "name_it": "Vernazzola · ZTL del borgo marinaro",
+   "name_de": "Vernazzola · ZTL im Fischerdorf",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised vehicles 24 hours a day, every day, holidays included. There is no day ticket for visitors. If your hotel or a public garage is inside, it can register your plate online up to 48 hours after you drive in (hotels: to load and unload luggage; garages: €2.50 a day). Electric vehicles need a free yearly permit.",
+   "summary_it": "Chiusa ai veicoli non autorizzati 24 ore su 24, tutti i giorni, festivi compresi. Non c'è un biglietto giornaliero per i turisti. Se l'hotel o un'autorimessa pubblica è dentro, può registrare la tua targa online entro 48 ore dall'ingresso (hotel: per carico e scarico bagagli; garage: 2,50 € al giorno). Le elettriche hanno bisogno di un contrassegno annuale gratuito.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Fahrzeuge gesperrt. Es gibt kein Tagesticket für Besucher. Liegt dein Hotel oder ein öffentliches Parkhaus innen, kann es dein Kennzeichen bis 48 Stunden nach der Einfahrt online melden (Hotels: zum Be- und Entladen des Gepäcks; Parkhäuser: 2,50 € pro Tag). Elektroautos brauchen eine kostenlose Jahresgenehmigung.",
+   "perimeter": [
+    {
+     "lat": 44.390544,
+     "lon": 8.978917
+    },
+    {
+     "lat": 44.39073,
+     "lon": 8.979101
+    },
+    {
+     "lat": 44.391212,
+     "lon": 8.979239
+    },
+    {
+     "lat": 44.391332,
+     "lon": 8.979299
+    },
+    {
+     "lat": 44.391392,
+     "lon": 8.979308
+    },
+    {
+     "lat": 44.391405,
+     "lon": 8.979454
+    },
+    {
+     "lat": 44.39145,
+     "lon": 8.979607
+    },
+    {
+     "lat": 44.391438,
+     "lon": 8.979626
+    },
+    {
+     "lat": 44.391339,
+     "lon": 8.979642
+    },
+    {
+     "lat": 44.391396,
+     "lon": 8.980153
+    },
+    {
+     "lat": 44.391417,
+     "lon": 8.98015
+    },
+    {
+     "lat": 44.391449,
+     "lon": 8.980373
+    },
+    {
+     "lat": 44.391533,
+     "lon": 8.980349
+    },
+    {
+     "lat": 44.391574,
+     "lon": 8.980462
+    },
+    {
+     "lat": 44.391641,
+     "lon": 8.980737
+    },
+    {
+     "lat": 44.391688,
+     "lon": 8.981091
+    },
+    {
+     "lat": 44.391709,
+     "lon": 8.981139
+    },
+    {
+     "lat": 44.391715,
+     "lon": 8.981076
+    },
+    {
+     "lat": 44.391672,
+     "lon": 8.980771
+    },
+    {
+     "lat": 44.391599,
+     "lon": 8.980485
+    },
+    {
+     "lat": 44.391543,
+     "lon": 8.980317
+    },
+    {
+     "lat": 44.391489,
+     "lon": 8.980333
+    },
+    {
+     "lat": 44.391444,
+     "lon": 8.980222
+    },
+    {
+     "lat": 44.391372,
+     "lon": 8.979664
+    },
+    {
+     "lat": 44.391701,
+     "lon": 8.979581
+    },
+    {
+     "lat": 44.391796,
+     "lon": 8.979577
+    },
+    {
+     "lat": 44.3918,
+     "lon": 8.979591
+    },
+    {
+     "lat": 44.391493,
+     "lon": 8.979731
+    },
+    {
+     "lat": 44.391503,
+     "lon": 8.979788
+    },
+    {
+     "lat": 44.391519,
+     "lon": 8.979801
+    },
+    {
+     "lat": 44.391563,
+     "lon": 8.979739
+    },
+    {
+     "lat": 44.391727,
+     "lon": 8.979666
+    },
+    {
+     "lat": 44.391756,
+     "lon": 8.979672
+    },
+    {
+     "lat": 44.391779,
+     "lon": 8.979659
+    },
+    {
+     "lat": 44.39177,
+     "lon": 8.979624
+    },
+    {
+     "lat": 44.391866,
+     "lon": 8.979578
+    },
+    {
+     "lat": 44.392089,
+     "lon": 8.979619
+    },
+    {
+     "lat": 44.392469,
+     "lon": 8.979579
+    },
+    {
+     "lat": 44.392547,
+     "lon": 8.979596
+    },
+    {
+     "lat": 44.392658,
+     "lon": 8.979652
+    },
+    {
+     "lat": 44.392639,
+     "lon": 8.979552
+    },
+    {
+     "lat": 44.392518,
+     "lon": 8.979491
+    },
+    {
+     "lat": 44.3921,
+     "lon": 8.979535
+    },
+    {
+     "lat": 44.392042,
+     "lon": 8.979532
+    },
+    {
+     "lat": 44.392016,
+     "lon": 8.979511
+    },
+    {
+     "lat": 44.391726,
+     "lon": 8.979494
+    },
+    {
+     "lat": 44.391481,
+     "lon": 8.979558
+    },
+    {
+     "lat": 44.391459,
+     "lon": 8.979372
+    },
+    {
+     "lat": 44.39177,
+     "lon": 8.979203
+    },
+    {
+     "lat": 44.392131,
+     "lon": 8.97908
+    },
+    {
+     "lat": 44.392173,
+     "lon": 8.979099
+    },
+    {
+     "lat": 44.392646,
+     "lon": 8.97953
+    },
+    {
+     "lat": 44.392741,
+     "lon": 8.979495
+    },
+    {
+     "lat": 44.392294,
+     "lon": 8.979066
+    },
+    {
+     "lat": 44.392067,
+     "lon": 8.978921
+    },
+    {
+     "lat": 44.391957,
+     "lon": 8.978939
+    },
+    {
+     "lat": 44.391888,
+     "lon": 8.978991
+    },
+    {
+     "lat": 44.391864,
+     "lon": 8.979032
+    },
+    {
+     "lat": 44.391625,
+     "lon": 8.979153
+    },
+    {
+     "lat": 44.391623,
+     "lon": 8.979105
+    },
+    {
+     "lat": 44.391606,
+     "lon": 8.979106
+    },
+    {
+     "lat": 44.391584,
+     "lon": 8.978797
+    },
+    {
+     "lat": 44.392092,
+     "lon": 8.978716
+    },
+    {
+     "lat": 44.392131,
+     "lon": 8.978408
+    },
+    {
+     "lat": 44.392103,
+     "lon": 8.978406
+    },
+    {
+     "lat": 44.392075,
+     "lon": 8.978654
+    },
+    {
+     "lat": 44.391549,
+     "lon": 8.978753
+    },
+    {
+     "lat": 44.391552,
+     "lon": 8.978819
+    },
+    {
+     "lat": 44.391578,
+     "lon": 8.978906
+    },
+    {
+     "lat": 44.391592,
+     "lon": 8.979163
+    },
+    {
+     "lat": 44.391398,
+     "lon": 8.979198
+    },
+    {
+     "lat": 44.391409,
+     "lon": 8.979029
+    },
+    {
+     "lat": 44.3914,
+     "lon": 8.978855
+    },
+    {
+     "lat": 44.391152,
+     "lon": 8.978807
+    },
+    {
+     "lat": 44.390896,
+     "lon": 8.9787
+    },
+    {
+     "lat": 44.390841,
+     "lon": 8.978624
+    },
+    {
+     "lat": 44.39087,
+     "lon": 8.978235
+    },
+    {
+     "lat": 44.390857,
+     "lon": 8.978232
+    },
+    {
+     "lat": 44.390863,
+     "lon": 8.97817
+    },
+    {
+     "lat": 44.390926,
+     "lon": 8.977578
+    },
+    {
+     "lat": 44.390949,
+     "lon": 8.977503
+    },
+    {
+     "lat": 44.390926,
+     "lon": 8.977492
+    },
+    {
+     "lat": 44.390821,
+     "lon": 8.978568
+    },
+    {
+     "lat": 44.390829,
+     "lon": 8.978698
+    },
+    {
+     "lat": 44.390842,
+     "lon": 8.978722
+    },
+    {
+     "lat": 44.390986,
+     "lon": 8.978766
+    },
+    {
+     "lat": 44.391132,
+     "lon": 8.978838
+    },
+    {
+     "lat": 44.391378,
+     "lon": 8.9789
+    },
+    {
+     "lat": 44.391388,
+     "lon": 8.978957
+    },
+    {
+     "lat": 44.391366,
+     "lon": 8.979201
+    },
+    {
+     "lat": 44.391342,
+     "lon": 8.979193
+    },
+    {
+     "lat": 44.391334,
+     "lon": 8.979236
+    },
+    {
+     "lat": 44.391164,
+     "lon": 8.979154
+    },
+    {
+     "lat": 44.390861,
+     "lon": 8.979071
+    },
+    {
+     "lat": 44.390856,
+     "lon": 8.979026
+    },
+    {
+     "lat": 44.390723,
+     "lon": 8.978997
+    },
+    {
+     "lat": 44.390576,
+     "lon": 8.978848
+    },
+    {
+     "lat": 44.390544,
+     "lon": 8.978917
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Genoa",
+    "pageURL": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl",
+    "ordinance": "Disciplinare ZTL Rev. 16/04/2025 (Deliberazione GC n. 74 del 10/04/2025)",
+    "ordinanceURL": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf",
+    "quote": "La Z.T.L. “Vernazzola” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.",
+    "quoteTranslation": "The “Vernazzola” ZTL is in force every day of the year, 24 hours a day.",
+    "quoteTranslation_de": "Die ZTL „Vernazzola“ gilt an allen Tagen des Jahres rund um die Uhr.",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Boundary from the City's open data, surveyed in 2018 (before the 2025 rules): check the signs at the entrance.",
+     "The 2025 rules shrink this ZTL to Via Argonauti, Piazza Vernazzola and part of Via Chighizola once cameras are installed; until then the 2021 rules apply. The map shows the older, larger area.",
+     "Electric vehicles may enter all ZTLs but need a free yearly permit from Genova Parcheggi first; whether a foreign-registered car can get one is not stated."
+    ],
+    "pending_it": [
+     "Perimetro dagli open data del Comune, rilevato nel 2018 (prima del disciplinare 2025): controlla i cartelli all'ingresso.",
+     "Il disciplinare 2025 riduce questa ZTL a Via Argonauti, Piazza Vernazzola e un tratto di Via Chighizola dopo l'installazione delle telecamere; fino ad allora valgono le regole del 2021. La mappa mostra l'area più ampia di prima.",
+     "I veicoli elettrici possono entrare in tutte le ZTL ma serve prima un contrassegno annuale gratuito di Genova Parcheggi; non è detto se lo possa avere un'auto con targa estera."
+    ],
+    "pending_de": [
+     "Grenze aus den offenen Daten der Stadt, erfasst 2018 (vor den Regeln von 2025): Schilder an der Einfahrt beachten.",
+     "Die Regeln von 2025 verkleinern diese ZTL auf Via Argonauti, Piazza Vernazzola und einen Teil der Via Chighizola, sobald Kameras stehen; bis dahin gelten die Regeln von 2021. Die Karte zeigt die ältere, größere Fläche.",
+     "Elektrofahrzeuge dürfen in alle ZTL, brauchen aber vorher eine kostenlose Jahresgenehmigung von Genova Parcheggi; ob ein Auto mit ausländischem Kennzeichen sie bekommt, steht nicht da."
+    ],
+    "links": [
+     {
+      "title": "City of Genoa: ZTL access rules 2025 (PDF)",
+      "title_it": "Comune di Genova: disciplinare di accesso alle ZTL 2025 (PDF)",
+      "title_de": "Stadt Genua: Zufahrtsregeln der ZTL 2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf"
+     },
+     {
+      "title": "City of Genoa: applying for a ZTL permit (Genova Parcheggi)",
+      "title_it": "Comune di Genova: richiedere il permesso ZTL (Genova Parcheggi)",
+      "title_de": "Stadt Genua: ZTL-Genehmigung beantragen (Genova Parcheggi)",
+      "url": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl"
+     },
+     {
+      "title": "City of Genoa open data: ZTL boundaries (CC BY 4.0)",
+      "title_it": "Open data del Comune di Genova: perimetri ZTL (CC BY 4.0)",
+      "title_de": "Offene Daten der Stadt Genua: ZTL-Grenzen (CC BY 4.0)",
+      "url": "https://dati.comune.genova.it/dataset/zone-traffico-limitato"
+     },
+     {
+      "title": "City of Genoa: anti-smog order 256/2025 (PDF)",
+      "title_it": "Comune di Genova: ordinanza antismog 256/2025 (PDF)",
+      "title_de": "Stadt Genua: Anti-Smog-Verordnung 256/2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-08/ORD_256_2025%20-%20File%20primario%20-%20ORD-256-2025%20-%20Definitiva%20-%20.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "genova-nervi",
+   "name": "Nervi harbour · Via Gazzolo ZTL",
+   "name_it": "Porticciolo di Nervi · ZTL Via Gazzolo",
+   "name_de": "Hafen Nervi · ZTL Via Gazzolo",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised vehicles 24 hours a day, every day, holidays included. There is no day ticket for visitors. If your hotel or a public garage is inside, it can register your plate online up to 48 hours after you drive in (hotels: to load and unload luggage; garages: €2.50 a day). Electric vehicles need a free yearly permit.",
+   "summary_it": "Chiusa ai veicoli non autorizzati 24 ore su 24, tutti i giorni, festivi compresi. Non c'è un biglietto giornaliero per i turisti. Se l'hotel o un'autorimessa pubblica è dentro, può registrare la tua targa online entro 48 ore dall'ingresso (hotel: per carico e scarico bagagli; garage: 2,50 € al giorno). Le elettriche hanno bisogno di un contrassegno annuale gratuito.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Fahrzeuge gesperrt. Es gibt kein Tagesticket für Besucher. Liegt dein Hotel oder ein öffentliches Parkhaus innen, kann es dein Kennzeichen bis 48 Stunden nach der Einfahrt online melden (Hotels: zum Be- und Entladen des Gepäcks; Parkhäuser: 2,50 € pro Tag). Elektroautos brauchen eine kostenlose Jahresgenehmigung.",
+   "perimeter": [
+    {
+     "lat": 44.382651,
+     "lon": 9.03093
+    },
+    {
+     "lat": 44.382963,
+     "lon": 9.03097
+    },
+    {
+     "lat": 44.382961,
+     "lon": 9.030986
+    },
+    {
+     "lat": 44.382987,
+     "lon": 9.030991
+    },
+    {
+     "lat": 44.383012,
+     "lon": 9.031034
+    },
+    {
+     "lat": 44.383009,
+     "lon": 9.03106
+    },
+    {
+     "lat": 44.383109,
+     "lon": 9.031079
+    },
+    {
+     "lat": 44.383257,
+     "lon": 9.031062
+    },
+    {
+     "lat": 44.383286,
+     "lon": 9.031079
+    },
+    {
+     "lat": 44.383388,
+     "lon": 9.03135
+    },
+    {
+     "lat": 44.38343,
+     "lon": 9.031728
+    },
+    {
+     "lat": 44.383469,
+     "lon": 9.031815
+    },
+    {
+     "lat": 44.383441,
+     "lon": 9.032004
+    },
+    {
+     "lat": 44.383414,
+     "lon": 9.032021
+    },
+    {
+     "lat": 44.383379,
+     "lon": 9.03225
+    },
+    {
+     "lat": 44.3834,
+     "lon": 9.032273
+    },
+    {
+     "lat": 44.383377,
+     "lon": 9.032422
+    },
+    {
+     "lat": 44.38338,
+     "lon": 9.032498
+    },
+    {
+     "lat": 44.383382,
+     "lon": 9.032478
+    },
+    {
+     "lat": 44.383415,
+     "lon": 9.032596
+    },
+    {
+     "lat": 44.38345,
+     "lon": 9.03252
+    },
+    {
+     "lat": 44.383895,
+     "lon": 9.032953
+    },
+    {
+     "lat": 44.38437,
+     "lon": 9.033476
+    },
+    {
+     "lat": 44.384391,
+     "lon": 9.033421
+    },
+    {
+     "lat": 44.384386,
+     "lon": 9.033393
+    },
+    {
+     "lat": 44.384362,
+     "lon": 9.033369
+    },
+    {
+     "lat": 44.384354,
+     "lon": 9.033382
+    },
+    {
+     "lat": 44.384126,
+     "lon": 9.033167
+    },
+    {
+     "lat": 44.384133,
+     "lon": 9.033151
+    },
+    {
+     "lat": 44.383724,
+     "lon": 9.032726
+    },
+    {
+     "lat": 44.383421,
+     "lon": 9.032451
+    },
+    {
+     "lat": 44.38347,
+     "lon": 9.032187
+    },
+    {
+     "lat": 44.383744,
+     "lon": 9.032284
+    },
+    {
+     "lat": 44.383822,
+     "lon": 9.032334
+    },
+    {
+     "lat": 44.384232,
+     "lon": 9.032682
+    },
+    {
+     "lat": 44.384248,
+     "lon": 9.032648
+    },
+    {
+     "lat": 44.384361,
+     "lon": 9.03274
+    },
+    {
+     "lat": 44.384407,
+     "lon": 9.032635
+    },
+    {
+     "lat": 44.384245,
+     "lon": 9.03251
+    },
+    {
+     "lat": 44.384187,
+     "lon": 9.032534
+    },
+    {
+     "lat": 44.383839,
+     "lon": 9.032236
+    },
+    {
+     "lat": 44.383482,
+     "lon": 9.032121
+    },
+    {
+     "lat": 44.383543,
+     "lon": 9.03168
+    },
+    {
+     "lat": 44.383543,
+     "lon": 9.031614
+    },
+    {
+     "lat": 44.383499,
+     "lon": 9.031619
+    },
+    {
+     "lat": 44.383496,
+     "lon": 9.031435
+    },
+    {
+     "lat": 44.383534,
+     "lon": 9.031439
+    },
+    {
+     "lat": 44.383553,
+     "lon": 9.031289
+    },
+    {
+     "lat": 44.383514,
+     "lon": 9.031273
+    },
+    {
+     "lat": 44.38352,
+     "lon": 9.031291
+    },
+    {
+     "lat": 44.383464,
+     "lon": 9.031324
+    },
+    {
+     "lat": 44.383413,
+     "lon": 9.031309
+    },
+    {
+     "lat": 44.383251,
+     "lon": 9.030951
+    },
+    {
+     "lat": 44.383194,
+     "lon": 9.03097
+    },
+    {
+     "lat": 44.383195,
+     "lon": 9.03102
+    },
+    {
+     "lat": 44.383089,
+     "lon": 9.031034
+    },
+    {
+     "lat": 44.383074,
+     "lon": 9.030987
+    },
+    {
+     "lat": 44.383009,
+     "lon": 9.030943
+    },
+    {
+     "lat": 44.383003,
+     "lon": 9.030849
+    },
+    {
+     "lat": 44.382911,
+     "lon": 9.030834
+    },
+    {
+     "lat": 44.382906,
+     "lon": 9.030888
+    },
+    {
+     "lat": 44.382759,
+     "lon": 9.030862
+    },
+    {
+     "lat": 44.382762,
+     "lon": 9.030809
+    },
+    {
+     "lat": 44.382708,
+     "lon": 9.030804
+    },
+    {
+     "lat": 44.382698,
+     "lon": 9.030829
+    },
+    {
+     "lat": 44.382685,
+     "lon": 9.03082
+    },
+    {
+     "lat": 44.382651,
+     "lon": 9.03093
+    }
+   ],
+   "gates": [
+    {
+     "id": "ge-osm5592753725",
+     "name": "Via Gazzolo",
+     "location": {
+      "lat": 44.38418,
+      "lon": 9.032541
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Genoa",
+    "pageURL": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl",
+    "ordinance": "Disciplinare ZTL Rev. 16/04/2025 (Deliberazione GC n. 74 del 10/04/2025)",
+    "ordinanceURL": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf",
+    "quote": "La Z.T.L. “Nervi” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.",
+    "quoteTranslation": "The “Nervi” ZTL is in force every day of the year, 24 hours a day.",
+    "quoteTranslation_de": "Die ZTL „Nervi“ gilt an allen Tagen des Jahres rund um die Uhr.",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Boundary from the City's open data, surveyed in 2018 (before the 2025 rules): check the signs at the entrance.",
+     "Since 2025 Via Provana di Leyni is no longer in this ZTL (its residents can still get a permit); the 2018 map may still include its last stretch.",
+     "Gate names are official; their positions are the traffic cameras mapped in OpenStreetMap, not an official list.",
+     "Electric vehicles may enter all ZTLs but need a free yearly permit from Genova Parcheggi first; whether a foreign-registered car can get one is not stated.",
+     "In April 2026 the city approved about 180 new plate-reading points, also checking exits and time spent inside; no switch-on date yet (confirmed only by GenovaToday and other press)."
+    ],
+    "pending_it": [
+     "Perimetro dagli open data del Comune, rilevato nel 2018 (prima del disciplinare 2025): controlla i cartelli all'ingresso.",
+     "Dal 2025 Via Provana di Leyni non è più nella ZTL (i residenti possono comunque avere il permesso); la mappa del 2018 può comprenderne ancora l'ultimo tratto.",
+     "I nomi dei varchi sono ufficiali; le posizioni sono le telecamere del traffico mappate in OpenStreetMap, non un elenco ufficiale.",
+     "I veicoli elettrici possono entrare in tutte le ZTL ma serve prima un contrassegno annuale gratuito di Genova Parcheggi; non è detto se lo possa avere un'auto con targa estera.",
+     "Ad aprile 2026 il Comune ha approvato circa 180 nuovi punti di lettura targhe, che controllano anche le uscite e il tempo di permanenza; non c'è ancora una data di accensione (confermato solo da GenovaToday e altra stampa)."
+    ],
+    "pending_de": [
+     "Grenze aus den offenen Daten der Stadt, erfasst 2018 (vor den Regeln von 2025): Schilder an der Einfahrt beachten.",
+     "Seit 2025 gehört Via Provana di Leyni nicht mehr zur ZTL (Anwohner bekommen weiterhin eine Genehmigung); die Karte von 2018 kann ihr letztes Stück noch enthalten.",
+     "Die Namen der Kameras sind offiziell; ihre Standorte sind die in OpenStreetMap erfassten Verkehrskameras, keine offizielle Liste.",
+     "Elektrofahrzeuge dürfen in alle ZTL, brauchen aber vorher eine kostenlose Jahresgenehmigung von Genova Parcheggi; ob ein Auto mit ausländischem Kennzeichen sie bekommt, steht nicht da.",
+     "Im April 2026 hat die Stadt rund 180 neue Kennzeichenleser beschlossen, die auch Ausfahrten und Aufenthaltsdauer prüfen; noch kein Starttermin (bestätigt nur von GenovaToday und anderer Presse)."
+    ],
+    "links": [
+     {
+      "title": "City of Genoa: ZTL access rules 2025 (PDF)",
+      "title_it": "Comune di Genova: disciplinare di accesso alle ZTL 2025 (PDF)",
+      "title_de": "Stadt Genua: Zufahrtsregeln der ZTL 2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf"
+     },
+     {
+      "title": "City of Genoa: applying for a ZTL permit (Genova Parcheggi)",
+      "title_it": "Comune di Genova: richiedere il permesso ZTL (Genova Parcheggi)",
+      "title_de": "Stadt Genua: ZTL-Genehmigung beantragen (Genova Parcheggi)",
+      "url": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl"
+     },
+     {
+      "title": "City of Genoa open data: ZTL boundaries (CC BY 4.0)",
+      "title_it": "Open data del Comune di Genova: perimetri ZTL (CC BY 4.0)",
+      "title_de": "Offene Daten der Stadt Genua: ZTL-Grenzen (CC BY 4.0)",
+      "url": "https://dati.comune.genova.it/dataset/zone-traffico-limitato"
+     },
+     {
+      "title": "City of Genoa: anti-smog order 256/2025 (PDF)",
+      "title_it": "Comune di Genova: ordinanza antismog 256/2025 (PDF)",
+      "title_de": "Stadt Genua: Anti-Smog-Verordnung 256/2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-08/ORD_256_2025%20-%20File%20primario%20-%20ORD-256-2025%20-%20Definitiva%20-%20.pdf"
+     },
+     {
+      "title": "OpenStreetMap: traffic cameras used as gate positions (ODbL)",
+      "title_it": "OpenStreetMap: telecamere usate come posizione dei varchi (ODbL)",
+      "title_de": "OpenStreetMap: Verkehrskameras als Kamerastandorte (ODbL)",
+      "url": "https://www.openstreetmap.org/node/2579946021"
+     }
+    ]
+   }
+  },
+  {
+   "id": "genova-nervi-centro",
+   "name": "Nervi Centro · Via Oberdan ZTL",
+   "name_it": "Nervi Centro · ZTL Via Oberdan",
+   "name_de": "Nervi Centro · ZTL Via Oberdan",
+   "kind": "restricted",
+   "summary": "Closed to unauthorised vehicles 24 hours a day, every day, holidays included. Stricter than the other ZTLs: only residents, people with a private parking space, disabled badge holders, taxis and electric vehicles with the free yearly permit. Hotel and garage guests can't be registered. Deliveries 8 am–1 pm.",
+   "summary_it": "Chiusa ai veicoli non autorizzati 24 ore su 24, tutti i giorni, festivi compresi. Più severa delle altre ZTL: entrano solo residenti, chi ha un posto auto privato, disabili con contrassegno, taxi ed elettriche con il contrassegno annuale gratuito. Gli ospiti di hotel e garage non possono essere registrati. Consegne 8–13.",
+   "summary_de": "Rund um die Uhr, täglich und auch an Feiertagen für nicht berechtigte Fahrzeuge gesperrt. Strenger als die anderen ZTL: nur Anwohner, Inhaber eines privaten Stellplatzes, Behindertenausweis, Taxis und Elektroautos mit der kostenlosen Jahresgenehmigung. Hotel- und Parkhausgäste können nicht gemeldet werden. Lieferungen 8–13 Uhr.",
+   "perimeter": [
+    {
+     "lat": 44.383765,
+     "lon": 9.040027
+    },
+    {
+     "lat": 44.383715,
+     "lon": 9.03947
+    },
+    {
+     "lat": 44.383724,
+     "lon": 9.038829
+    },
+    {
+     "lat": 44.383691,
+     "lon": 9.038499
+    },
+    {
+     "lat": 44.383673,
+     "lon": 9.038054
+    },
+    {
+     "lat": 44.383698,
+     "lon": 9.037598
+    },
+    {
+     "lat": 44.383855,
+     "lon": 9.036873
+    },
+    {
+     "lat": 44.383933,
+     "lon": 9.036619
+    },
+    {
+     "lat": 44.384033,
+     "lon": 9.036678
+    },
+    {
+     "lat": 44.383956,
+     "lon": 9.036927
+    },
+    {
+     "lat": 44.383803,
+     "lon": 9.037631
+    },
+    {
+     "lat": 44.38378,
+     "lon": 9.038123
+    },
+    {
+     "lat": 44.383832,
+     "lon": 9.038816
+    },
+    {
+     "lat": 44.383823,
+     "lon": 9.039458
+    },
+    {
+     "lat": 44.383873,
+     "lon": 9.040019
+    },
+    {
+     "lat": 44.383765,
+     "lon": 9.040027
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Genoa",
+    "pageURL": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl",
+    "ordinance": "Disciplinare ZTL Rev. 16/04/2025 (Deliberazione GC n. 74 del 10/04/2025)",
+    "ordinanceURL": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf",
+    "quote": "La Z.T.L. “Nervi Centro” ha validità in tutti i giorni dell’anno e nell’intero arco delle 24 ore.",
+    "quoteTranslation": "The “Nervi Centro” ZTL is in force every day of the year, 24 hours a day.",
+    "quoteTranslation_de": "Die ZTL „Nervi Centro“ gilt an allen Tagen des Jahres rund um die Uhr.",
+    "checkedOn": "2026-10-26T09:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Not in the City's open data: the boundary is a 12 m strip along Via Oberdan from OpenStreetMap, between Piazza Pittaluga and Viale Franchini as the rules say. No gate positions are known.",
+     "Electric vehicles may enter all ZTLs but need a free yearly permit from Genova Parcheggi first; whether a foreign-registered car can get one is not stated."
+    ],
+    "pending_it": [
+     "Non è negli open data del Comune: il perimetro è una striscia di 12 m lungo Via Oberdan da OpenStreetMap, tra Piazza Pittaluga e Viale Franchini come dice il disciplinare. Non conosciamo la posizione dei varchi.",
+     "I veicoli elettrici possono entrare in tutte le ZTL ma serve prima un contrassegno annuale gratuito di Genova Parcheggi; non è detto se lo possa avere un'auto con targa estera."
+    ],
+    "pending_de": [
+     "Nicht in den offenen Daten der Stadt: Die Grenze ist ein 12 m breiter Streifen entlang der Via Oberdan aus OpenStreetMap, zwischen Piazza Pittaluga und Viale Franchini wie in den Regeln. Kamerastandorte sind unbekannt.",
+     "Elektrofahrzeuge dürfen in alle ZTL, brauchen aber vorher eine kostenlose Jahresgenehmigung von Genova Parcheggi; ob ein Auto mit ausländischem Kennzeichen sie bekommt, steht nicht da."
+    ],
+    "links": [
+     {
+      "title": "City of Genoa: ZTL access rules 2025 (PDF)",
+      "title_it": "Comune di Genova: disciplinare di accesso alle ZTL 2025 (PDF)",
+      "title_de": "Stadt Genua: Zufahrtsregeln der ZTL 2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-06/Disciplinare%20ZTL%20aggiornato%20da%20DGC%2074-2025.pdf"
+     },
+     {
+      "title": "City of Genoa: applying for a ZTL permit (Genova Parcheggi)",
+      "title_it": "Comune di Genova: richiedere il permesso ZTL (Genova Parcheggi)",
+      "title_de": "Stadt Genua: ZTL-Genehmigung beantragen (Genova Parcheggi)",
+      "url": "https://www.comune.genova.it/servizi/mobilita-e-trasporti/richiedere-permesso-di-accesso-ad-area-ztl"
+     },
+     {
+      "title": "City of Genoa open data: ZTL boundaries (CC BY 4.0)",
+      "title_it": "Open data del Comune di Genova: perimetri ZTL (CC BY 4.0)",
+      "title_de": "Offene Daten der Stadt Genua: ZTL-Grenzen (CC BY 4.0)",
+      "url": "https://dati.comune.genova.it/dataset/zone-traffico-limitato"
+     },
+     {
+      "title": "City of Genoa: anti-smog order 256/2025 (PDF)",
+      "title_it": "Comune di Genova: ordinanza antismog 256/2025 (PDF)",
+      "title_de": "Stadt Genua: Anti-Smog-Verordnung 256/2025 (PDF)",
+      "url": "https://www.comune.genova.it/sites/default/files/2025-08/ORD_256_2025%20-%20File%20primario%20-%20ORD-256-2025%20-%20Definitiva%20-%20.pdf"
+     },
+     {
+      "title": "OpenStreetMap: way 23100847 (Via Oberdan, ODbL)",
+      "title_it": "OpenStreetMap: way 23100847 (Via Oberdan, ODbL)",
+      "title_de": "OpenStreetMap: Weg 23100847 (Via Oberdan, ODbL)",
+      "url": "https://www.openstreetmap.org/way/23100847"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Genova (Disciplinare ZTL 2025). Perimeters: Comune di Genova open data «Zone a traffico limitato» (CC BY 4.0, 2018). Gate positions and the Nervi Centro perimeter: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

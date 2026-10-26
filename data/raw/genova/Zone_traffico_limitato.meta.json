@@ -1,0 +1,10 @@
+{
+ "fonte": "https://www.dati.gov.it/opendata/api/3/action/package_search?q=zone%20traffico%20limitato&fq=organization:comune-di-genova",
+ "letto": "2026-10-26",
+ "dataset": "https://dati.comune.genova.it/dataset/zone-traffico-limitato",
+ "download": "https://opendatacomunegenova.s3.eu-south-1.amazonaws.com/risorse/Zone_traffico_limitato.geojson",
+ "licenza": "CC BY 4.0",
+ "titolare": "Comune di Genova - Direzione Mobilità e Trasporti",
+ "issued": "2018-03-01",
+ "modified": "2018-03-01"
+}

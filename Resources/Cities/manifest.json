@@ -1,6 +1,6 @@
 {
- "version": "202610260122",
- "digest": "6c6ba329b703",
+ "version": "202610260139",
+ "digest": "94a0599b2449",
  "schema": 1,
  "cities": [
   {
@@ -17,6 +17,11 @@
    "id": "firenze",
    "file": "firenze.json",
    "sha256": "d473f6ad3c43fab05b4254b2be0a543801a804f7447cf6ba9f560d4dd1e9a554"
+  },
+  {
+   "id": "genova",
+   "file": "genova.json",
+   "sha256": "3f6b946dc00f6b86c15d09b6940f826f24e480e5a91f5cd54ed6e7b7478a44bd"
   },
   {
    "id": "lucca",
