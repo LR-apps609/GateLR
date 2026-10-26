@@ -1,0 +1,11 @@
+1 200 449720 https://www.comune.arezzo.it/sites/default/files/2025-09/planimetria%20ztl_aggiornata%20al%2025_09_2025_.pdf -> 1-planimetria_20ztl_aggiornata_20al_2025_09_2025_.pdf_
+2 200 325604 https://www.comune.arezzo.it/sites/default/files/2026-09/7%29%20Planimetria%20Varchi%20ZTL%20agg.%2004.04.2019.pdf -> 2-7_29_20Planimetria_20Varchi_20ZTL_20agg._2004.04.2019.pdf_
+3 200 2385037 https://www.comune.arezzo.it/sites/default/files/planimetria_ztl_aggiornata_post_via_seteria_0.pdf -> 3-planimetria_ztl_aggiornata_post_via_seteria_0.pdf_
+4 200 26783 https://www.comune.arezzo.it/sites/default/files/ordinanza_317_2019.pdf -> 4-ordinanza_317_2019.pdf_
+5 200 7405198 https://www.comune.arezzo.it/sites/default/files/2026-10/IN%20FASE%20DI%20AGGIORNAMENTO-%20copia_per_revisione_2023_senza_eliminati_rev1.4_definitiva_con_assessore.pdf%20%281%29.pdf -> 5-IN_20FASE_20DI_20AGGIORNAMENTO-_20copia_per_revisione_2023_senza_eliminati_rev1.
+6 200 1569534 https://www.comune.arezzo.it/sites/default/files/2026-09/3%29%20Fac-Simile%20segnaletica%20all%27ingresso%20ZTL%20A.pdf -> 6-3_29_20Fac-Simile_20segnaletica_20all_27ingresso_20ZTL_20A.pdf_
+7 200 1545541 https://www.comune.arezzo.it/sites/default/files/2026-09/4%29%20Fac-Simile%20segnaletica%20all%27ingresso%20ZTL%20B.pdf -> 7-4_29_20Fac-Simile_20segnaletica_20all_27ingresso_20ZTL_20B.pdf_
+8 200 133059 https://www.comune.arezzo.it/sites/default/files/2026-09/5%29%20Delibera%20di%20G.C.%20autorizzazione%20sostituzione%20varchi%20ZTL.pdf -> 8-5_29_20Delibera_20di_20G.C._20autorizzazione_20sostituzione_20varchi_20ZTL.pdf_
+9 200 1947784 https://www.comune.arezzo.it/sites/default/files/2026-09/1%29%20Disciplinare%20ZTL%20dal%2003.04.2023.pdf -> 9-1_29_20Disciplinare_20ZTL_20dal_2003.04.2023.pdf_
+10 200 153679 https://www.comune.arezzo.it/novita/pedonalizzazione-temporanea-di-alcune-strade-del-centro-storico-2 -> 10-pedonalizzazione-temporanea-di-alcune-strade-del-centro-storico-2_
+11 200 138006 https://www.comune.arezzo.it/procedure-sanzionatorie -> 11-procedure-sanzionatorie_
