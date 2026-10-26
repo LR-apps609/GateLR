@@ -1,14 +1,19 @@
-# Catania: fonti della scheda ZTL (bozza)
+# Catania: fonti della scheda ZTL
 
-Scheda generata da `Tools/build_catania.py` → `data/drafts/catania.json` (**bozza, non nell'app**: nessuna citazione verificata sul testo ufficiale). Perimetro, varchi e area pedonale ci sono (OpenStreetMap).
+Scheda generata da `Tools/build_catania.py` → `Resources/Cities/catania.json` (stato **draft**, `reviewedByHuman: false`). Dal 26/10/2026 è **nell'app** (`manifest.json`), con perimetro, varchi e aree pedonali da OpenStreetMap.
 
-## Perché è una bozza
-Il 26/10/2026 dal sandbox www.comune.catania.it, www.amts.ct.it, cataniatoday.it, newsicilia.it e le guide rispondevano con rifiuto del proxy (403, host non consentito per la sessione); WebFetch non risolveva gli host. Il workflow «Scarica pagine» **non** è stato usato per aggirare il blocco (lanciato una sola volta, `pagine-catania-1`, per Overpass: risposta 406, non usata). Raggiungibili solo www.dati.gov.it (nessun dataset ZTL di Catania: `q=ztl catania` → 0), www.openstreetmap.org (API) e la ricerca web. Le regole vengono dai **riassunti della ricerca web** (`data/raw/catania/websearch-*.txt`, non testo letterale). `quote` è `null`.
+## Fonte ufficiale letta (26/10/2026)
+«Disposizioni operative per la gestione degli accessi alle Zone a Traffico Limitato ed Aree Pedonali» (Comune di Catania / AMTS Catania), https://www.amts.ct.it/wp-content/uploads/Sostare/Disposizioni_%20operative_%20accesso_alle_ZTL_e_%20AP.pdf → `data/raw/catania/amts-disposizioni-operative-ztl-ap.txt` (pdftotext). Da qui:
+- **citazione**: «La zona a traffico limitato e le aree pedonali di cui all’articolo 1 sono in vigore h 24 tutti i giorni dell’anno.» (art. 3) → il dubbio sull'orario (un sito indicava lun–ven 8–20) è risolto: 0–24;
+- perimetro (via di Sangiuliano, via Mancini, via Euplio Reina, via della Loggetta, via S. Maria del Rosario, via Sant'Agata, via Vittorio Emanuele, via Leonardi, via Valle, via Landolina; le vie perimetrali sono fuori) e vie interne (Euplio Reina, piazza Ogninella, via Sant'Orsola, via Perrotta, piazza Scammacca, via Pulvirenti, via Sant'Agata, via Mazza, via Leonardi, via Birreria);
+- aree pedonali: San Giovanni Li Cuti (non disegnata), piazza Duomo e via Etnea da via Dusmet a piazza Stesicoro, via Rapisarda e piazza Bellini;
+- strutture ricettive (art. 8): permesso sulla piattaforma AMTS per scarico bagagli nei giorni di arrivo e partenza, al massimo 12 ore, non più permessi delle camere → `hotelCanRegister: true`;
+- elettriche (art. 17): permesso di transito su domanda → non esentate; disabili (art. 15): registrazione online di targa e contrassegno; transiti non registrati giustificabili entro 48 ore (art. 4); carico/scarico 6–8 e 14–16; permessi gratuiti.
+www.comune.catania.it non rispondeva: il comunicato del 2022 (avvio delle sanzioni dal 28/07/2022) resta letto tramite ricerca web.
 
 ## Zone
 - **ZTL Centro Storico** attorno al Teatro Massimo Bellini: unica ZTL trovata. `restricted`, 0–24 tutti i giorni.
-- **Area pedonale di piazza Vincenzo Bellini**: nel campo `pedestrian` della città.
-- Non modellate: le altre aree pedonali con telecamera (via Etnea, via Crociferi, via Sciuti, via Mazzini, lungomare di San Giovanni li Cuti). Nessuna ZTL notturna o stagionale trovata.
+- **Aree pedonali** (campo `pedestrian`): piazza Vincenzo Bellini (relazione OSM 20064601) e via Etnea da via Dusmet a piazza Stesicoro con piazza Duomo (way OSM `highway=pedestrian` fino a lat 37,5078, area con `osm_geo.street_area`). Non disegnata: San Giovanni Li Cuti.
 
 ## Fatti usati
 

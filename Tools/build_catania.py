@@ -2,13 +2,13 @@
 # Costruisce la scheda di Catania (bozza) da quanto salvato in data/raw/catania/ e data/raw/geo/catania-ztl.json
 # (fonti e date in docs/fonti-catania.md).
 #
-# Il 26/10/2026 dal sandbox www.comune.catania.it, www.amts.ct.it e la stampa locale non erano raggiungibili (il proxy
-# rifiuta la connessione, 403; WebFetch non risolve gli host). Il workflow «Scarica pagine» non è stato usato per aggirare
-# il blocco. Le regole vengono dai riassunti della ricerca web (data/raw/catania/websearch-*.txt), NON testo letterale:
-#   - nessuna citazione («quote»: null); la scheda resta in data/drafts/catania.json.
+# Regole e citazione dalle «Disposizioni operative per la gestione degli accessi alle Zone a Traffico Limitato ed Aree
+# Pedonali» (Comune di Catania / AMTS, PDF su amts.ct.it), salvate in data/raw/catania/amts-disposizioni-operative-ztl-ap.txt
+# e ricontrollate parola per parola. www.comune.catania.it non rispondeva (il comunicato del 2022 è letto solo tramite la
+# ricerca web, data/raw/catania/websearch-*.txt).
 # Zona: ZTL Centro Storico attorno al Teatro Massimo Bellini (piazza Scammacca, via Pulvirenti, via Mazza, piazza Ogninella,
-# via Sant'Orsola, via Euplio Reina, via Maria Callas), attiva dal 28/07/2022, 24 ore su 24 tutti i giorni; varchi in via
-# Sant'Agata e via Landolina. Area pedonale di piazza Vincenzo Bellini come «pedestrian».
+# via Sant'Orsola, via Euplio Reina, via Maria Callas), attiva dal 28/07/2022, «h 24 tutti i giorni dell'anno»; varchi in
+# via Sant'Agata e via Landolina. Aree pedonali di piazza Vincenzo Bellini e di via Etnea/piazza Duomo come «pedestrian».
 #
 # Geometria: OpenStreetMap (© OpenStreetMap contributors, ODbL 1.0), relazione 14421298 «ZTL Centro Storico»
 # (boundary=limited_traffic_zone) e relazione 20064601 «Area Pedonale Piazza Vincenzo Bellini»; varchi dalle relazioni
@@ -21,7 +21,7 @@ import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/catania"
-CHECKED = "2026-10-26T23:45:00Z"
+CHECKED = "2026-10-26T23:55:00Z"
 EVERY_DAY = [1, 2, 3, 4, 5, 6, 7]
 OSM_ZTL, OSM_AP = 14421298, 20064601
 
@@ -45,6 +45,22 @@ def check(file, *phrases):
             raise SystemExit(f"{file}: frase non trovata: {q!r}")
 
 
+D = "amts-disposizioni-operative-ztl-ap"
+QUOTE = "La zona a traffico limitato e le aree pedonali di cui all’articolo 1 sono in vigore h 24 tutti i giorni dell’anno."
+check(D, QUOTE,
+      "via Antonino di Sangiuliano, via Antonino Mancini, via Euplio Reina, via della Loggetta, via Santa Maria del Rosario, via Sant’Agata, via Vittorio Emanuele, via Leonardi, via Valle, via Landolina",
+      "via Euplio Reina, dopo l’incrocio con via della Loggetta, piazza Ogninella, via Sant’Orsola, via Giuseppe Perrotta, piazza Scammacca, via Pulvirenti, via Sant’Agata, dopo l’incrocio con via Santa Maria del Rosario, via Mazza, via Leonardi, dopo l’incrocio con via Valle, via Birreria",
+      "Le vie perimetrali suddette individuano esclusivamente i confini della zona a traffico limitato e/o delle aree pedonali, ma non sono ricomprese all’interno delle stesse.",
+      "l’area pedonale di piazza Duomo, via Etnea (da via Cardinale Giuseppe Benedetto Dusmet a piazza Stesicoro",
+      "l’area pedonale in via Michele Rapisarda e piazza Vincenzo Bellini",
+      "allo scopo di agevolare le operazioni di scarico dei bagagli dei clienti nei giorni di arrivo e di partenza, possono richiedere sull’apposita piattaforma web gestita da AMTS Catania s.p.a. il permesso per le targhe dei veicoli dei clienti interessati",
+      "Il permesso avrà durata temporanea e comunque non superiore a 12 h dall’emissione.",
+      "Ogni struttura ricettiva può richiedere un numero di permessi non superiore al numero di camere in esercizio.",
+      "presentano, entro le 48 ore successive al passaggio, all’indirizzo mail ztl@amts.ct.it",
+      "I possessori di veicoli a trazione esclusivamente elettrica possono ottenere il permesso di transito nella sola zona a traffico limitato presentando apposita domanda",
+      "I titolari dei contrassegni invalidi che hanno necessità di accesso frequente alla zona a traffico limitato devono richiedere on line apposito permesso",
+      "Il carico/scarico merci è consentito esclusivamente dalle ore 06,00 alle 08,00 e dalle ore 14,00 alle 16,00.",
+      "Il rilascio dei permessi è gratuito.")
 check("websearch-1-orari-varchi",
       "La ZTL di Catania non prevede fasce orarie. È attiva ventiquattro ore su ventiquattro, tutti i giorni dell'anno.",
       "Le telecamere a protezione della ZTL di Catania sono in funzione tutti i giorni 24 ore su 24.",
@@ -84,6 +100,16 @@ area = osm_geo.area_km2(shape)
 if not 0.01 < area < 0.1:
     raise SystemExit(f"Area della ZTL non plausibile: {area:.3f} km²")
 ap = osm_geo.perimeter(osm_geo.outer_ring(osm_geo.relation(GEO, OSM_AP), roles=("", "outer")), tol_m=2)
+# Via Etnea pedonale da via Dusmet a piazza Stesicoro (way OSM highway=pedestrian fino a lat 37,5078) e piazza Duomo
+ETNEA = [e for e in GEO if e["type"] == "way" and e.get("tags", {}).get("name") in ("Via Etnea", "Piazza Duomo")
+         and max(p["lat"] for p in e["geometry"]) < 37.5078]
+_dlat, _dlon = 3 / 110574.0, 3 / (111320.0 * 0.7934)
+etnea = osm_geo.perimeter(osm_geo.street_area({"id": 0, "members": [
+    {"type": "way", "role": "section", "geometry": [{"lat": q["lat"] + a, "lon": q["lon"] + b} for q in w["geometry"]]}
+    for w in ETNEA for a, b in ((0, 0), (_dlat, 0), (-_dlat, 0), (0, _dlon), (0, -_dlon))]}, cell_m=5, close_m=25), tol_m=3)
+for name, lat, lon in [("Via Etnea", 37.50354, 15.08718), ("Piazza Duomo", 37.50222, 15.08708)]:
+    if not osm_geo.contains(etnea, lat, lon):
+        raise SystemExit(f"Area pedonale via Etnea: {name} dovrebbe essere dentro")
 
 LINKS = [link("City of Catania (2022): historic-centre ZTL cameras on", "Comune di Catania (2022): ZTL Centro Storico, telecamere attive",
               "Stadt Catania (2022): Kameras der ZTL Centro Storico aktiv", PRESS_2022),
@@ -96,21 +122,15 @@ LINKS = [link("City of Catania (2022): historic-centre ZTL cameras on", "Comune 
               f"OpenStreetMap: Relation {OSM_ZTL} «ZTL Centro Storico» (ODbL)", osm_geo.osm_url("relation", OSM_ZTL))]
 
 PENDING = [
-    ("Draft: the City's and AMTS websites could not be read from here (connection refused). Every rule comes from web-search summaries of the official pages and press, not from their text: to be checked word for word.",
-     "Bozza: i siti del Comune e di AMTS non erano leggibili da qui (connessione rifiutata). Ogni regola viene dai riassunti della ricerca web sulle pagine ufficiali e sulla stampa, non dal loro testo: da verificare parola per parola.",
-     "Entwurf: Die Websites der Stadt und der AMTS waren von hier aus nicht lesbar (Verbindung abgelehnt). Alle Regeln stammen aus Zusammenfassungen der Websuche zu offiziellen Seiten und Presse, nicht aus deren Text: Wort für Wort zu prüfen."),
-    ("Hours 24 hours a day, every day: confirmed only by unofficial guides (autovia.it, sicurauto.it); one site says Monday–Friday 8 am–8 pm. GateLR uses 24 hours as the safer answer. The ordinance number was not found.",
-     "Orario 0–24 tutti i giorni: confermato solo da guide non ufficiali (autovia.it, sicurauto.it); un sito indica lun–ven 8–20. GateLR usa 0–24, la risposta più prudente. Il numero dell'ordinanza non è stato trovato.",
-     "Zeiten rund um die Uhr, täglich: nur von inoffiziellen Ratgebern bestätigt (autovia.it, sicurauto.it); eine Seite nennt Mo–Fr 8–20 Uhr. GateLR nimmt 24 Stunden als sicherere Antwort. Die Nummer der Verordnung wurde nicht gefunden."),
-    ("Hotels and B&Bs inside: they request a free temporary permit for your car on the AMTS website (for unloading luggage on arrival and departure, at most 12 hours, no more permits than rooms). Deadline for the request not found.",
-     "Alberghi e B&B dentro: chiedono per la tua auto un permesso temporaneo gratuito sul sito AMTS (per scaricare i bagagli all'arrivo e alla partenza, al massimo 12 ore, non più permessi delle camere). Scadenza della richiesta non trovata.",
-     "Hotels und B&Bs innen: Sie beantragen für dein Auto eine kostenlose befristete Genehmigung auf der AMTS-Website (zum Ausladen bei An- und Abreise, höchstens 12 Stunden, nicht mehr Genehmigungen als Zimmer). Frist für den Antrag nicht gefunden."),
-    ("Electric cars: not automatically exempt, so GateLR does not exempt them. Motorbikes: not covered by the sources. Blue Badge: allowed with the person on board; how to register the plate not found. Fine 84–335 € (Highway Code). Info: ztl@amts.ct.it, 095 7519367.",
-     "Auto elettriche: non esenti in automatico, quindi GateLR non le esenta. Moto: le fonti non ne parlano. Contrassegno disabili: ammessi con la persona a bordo; non trovato come registrare la targa. Multa 84–335 € (Codice della Strada). Info: ztl@amts.ct.it, 095 7519367.",
-     "Elektroautos: nicht automatisch befreit, daher befreit GateLR sie nicht. Motorräder: in den Quellen nicht behandelt. Behindertenausweis: erlaubt mit der Person an Bord; wie das Kennzeichen gemeldet wird, nicht gefunden. Bußgeld 84–335 € (Straßenverkehrsordnung). Info: ztl@amts.ct.it, 095 7519367."),
-    ("Perimeter and the two cameras from OpenStreetMap: the streets inside match the City's 2022 list (piazza Scammacca, via Pulvirenti, via Mazza, piazza Ogninella, via Sant'Orsola, via Euplio Reina, via Maria Callas). Not shown: the camera-watched pedestrian streets (via Etnea, via Crociferi, via Sciuti, via Mazzini, San Giovanni li Cuti seafront); only piazza Bellini is drawn as a pedestrian area.",
-     "Perimetro e i due varchi da OpenStreetMap: le strade dentro coincidono con l'elenco del Comune del 2022 (piazza Scammacca, via Pulvirenti, via Mazza, piazza Ogninella, via Sant'Orsola, via Euplio Reina, via Maria Callas). Non mostrate: le aree pedonali con telecamera (via Etnea, via Crociferi, via Sciuti, via Mazzini, lungomare di San Giovanni li Cuti); solo piazza Bellini è disegnata come area pedonale.",
-     "Grenze und die zwei Kameras aus OpenStreetMap: Die Straßen innen entsprechen der Liste der Stadt von 2022 (Piazza Scammacca, Via Pulvirenti, Via Mazza, Piazza Ogninella, Via Sant'Orsola, Via Euplio Reina, Via Maria Callas). Nicht gezeigt: die kameraüberwachten Fußgängerstraßen (Via Etnea, Via Crociferi, Via Sciuti, Via Mazzini, Uferstraße San Giovanni li Cuti); nur die Piazza Bellini ist als Fußgängerzone eingezeichnet."),
+    ("Hotels and B&Bs inside: they request a free temporary permit for your car on the AMTS website (for unloading luggage on arrival and departure, at most 12 hours, no more permits than rooms). No deadline set for the request; other entitled drivers who were not registered can justify a passage within 48 hours (ztl@amts.ct.it).",
+     "Alberghi e B&B dentro: chiedono per la tua auto un permesso temporaneo gratuito sul sito AMTS (per scaricare i bagagli all'arrivo e alla partenza, al massimo 12 ore, non più permessi delle camere). Nessuna scadenza indicata per la richiesta; gli altri aventi diritto non registrati possono giustificare il passaggio entro 48 ore (ztl@amts.ct.it).",
+     "Hotels und B&Bs innen: Sie beantragen für dein Auto eine kostenlose befristete Genehmigung auf der AMTS-Website (zum Ausladen bei An- und Abreise, höchstens 12 Stunden, nicht mehr Genehmigungen als Zimmer). Keine Frist für den Antrag genannt; andere Berechtigte ohne Registrierung können eine Durchfahrt binnen 48 Stunden begründen (ztl@amts.ct.it)."),
+    ("Electric cars need a (free) transit permit requested from AMTS, so GateLR does not exempt them. Motorbikes are not mentioned: only bicycles enter freely. Blue Badge holders who drive in often must register the plate and badge number online with AMTS. Fine 84–335 € (Highway Code, unofficial source). Info: ztl@amts.ct.it.",
+     "Le auto elettriche devono chiedere ad AMTS un permesso di transito (gratuito), quindi GateLR non le esenta. Le moto non sono citate: entrano liberamente solo le biciclette. Con il contrassegno disabili, chi entra spesso registra online su AMTS targa e numero del contrassegno. Multa 84–335 € (Codice della Strada, fonte non ufficiale). Info: ztl@amts.ct.it.",
+     "Elektroautos brauchen eine (kostenlose) Durchfahrtsgenehmigung von AMTS, daher befreit GateLR sie nicht. Motorräder werden nicht erwähnt: frei einfahren dürfen nur Fahrräder. Wer mit Behindertenausweis oft einfährt, meldet Kennzeichen und Ausweisnummer online bei AMTS. Bußgeld 84–335 € (Straßenverkehrsordnung, inoffizielle Quelle). Info: ztl@amts.ct.it."),
+    ("Perimeter and the two cameras from OpenStreetMap: the streets inside match the City's 2022 list (piazza Scammacca, via Pulvirenti, via Mazza, piazza Ogninella, via Sant'Orsola, via Euplio Reina, via Maria Callas). Pedestrian areas drawn: piazza Bellini/via Rapisarda and via Etnea (via Dusmet–piazza Stesicoro) with piazza Duomo; not drawn: San Giovanni li Cuti.",
+     "Perimetro e i due varchi da OpenStreetMap: le strade dentro coincidono con l'elenco del Comune del 2022 (piazza Scammacca, via Pulvirenti, via Mazza, piazza Ogninella, via Sant'Orsola, via Euplio Reina, via Maria Callas). Aree pedonali disegnate: piazza Bellini/via Rapisarda e via Etnea (da via Dusmet a piazza Stesicoro) con piazza Duomo; non disegnata: San Giovanni li Cuti.",
+     "Grenze und die zwei Kameras aus OpenStreetMap: Die Straßen innen entsprechen der Liste der Stadt von 2022 (Piazza Scammacca, Via Pulvirenti, Via Mazza, Piazza Ogninella, Via Sant'Orsola, Via Euplio Reina, Via Maria Callas). Eingezeichnete Fußgängerzonen: Piazza Bellini/Via Rapisarda und Via Etnea (Via Dusmet–Piazza Stesicoro) mit Piazza Duomo; nicht eingezeichnet: San Giovanni li Cuti."),
 ]
 
 zone = {"id": "catania-centro-storico", "name": "Teatro Massimo · historic-centre ZTL", "name_it": "Teatro Massimo · ZTL Centro Storico",
@@ -121,16 +141,19 @@ zone = {"id": "catania-centro-storico", "name": "Teatro Massimo · historic-cent
         "perimeter": shape, "gates": gate_list,
         "windows": [{"weekdays": EVERY_DAY, "start": 0, "end": 24 * 60}],
         "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True,
-        "source": {"authority": "City of Catania", "pageURL": PRESS_2022, "ordinance": "ZTL Centro Storico (attiva dal 28/07/2022); disposizioni operative AMTS",
-                   "ordinanceURL": AMTS_RULES, "quote": None, "quoteTranslation": None, "quoteTranslation_de": None,
+        "source": {"authority": "City of Catania", "pageURL": AMTS_RULES, "ordinance": "Disposizioni operative per la gestione degli accessi alle ZTL ed Aree Pedonali (Comune di Catania / AMTS); ZTL attiva dal 28/07/2022",
+                   "ordinanceURL": AMTS_RULES, "quote": QUOTE,
+                   "quoteTranslation": "The limited traffic zone and the pedestrian areas in article 1 are in force 24 hours a day, every day of the year.",
+                   "quoteTranslation_de": "Die verkehrsberuhigte Zone und die Fußgängerzonen nach Artikel 1 gelten rund um die Uhr, an allen Tagen des Jahres.",
                    "checkedOn": CHECKED, "reviewedByHuman": False,
                    "pending": [p[0] for p in PENDING], "pending_it": [p[1] for p in PENDING], "pending_de": [p[2] for p in PENDING],
                    "links": LINKS}}
 
 city = {"id": "catania", "name": "Catania", "name_it": "Catania", "name_de": "Catania",
         "center": {"lat": 37.5030, "lon": 15.0880}, "zones": [zone], "status": "draft",
-        "pedestrian": [{"id": "ct-ap-piazza-bellini", "name": "Piazza Vincenzo Bellini", "perimeter": ap}],
-        "license": "Rules: Comune di Catania and AMTS (read through web-search summaries). Perimeter, gates and pedestrian area: " + osm_geo.ODBL + " (approximate, not official)."}
+        "pedestrian": [{"id": "ct-ap-piazza-bellini", "name": "Piazza Vincenzo Bellini", "perimeter": ap},
+                       {"id": "ct-ap-via-etnea", "name": "Via Etnea · Piazza Duomo", "perimeter": etnea}],
+        "license": "Rules: Comune di Catania and AMTS (operative rules for the ZTL and pedestrian areas). Perimeter, gates and pedestrian area: " + osm_geo.ODBL + " (approximate, not official)."}
 
 # Pubblicabile solo con una citazione verificata sul testo ufficiale; altrimenti bozza
 ready = all(len(z["perimeter"]) >= 5 and z["source"]["quote"] for z in city["zones"])
