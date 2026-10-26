@@ -2,38 +2,37 @@ import MapKit
 import Network
 import SwiftUI
 
-/// Prima pagina, «il problema e la soluzione», in tre passi con la stessa inquadratura di Firenze, per confrontarli:
-/// 1. «La strada più diretta»: la freccia entra nella ZTL dal varco di via Cavour, la attraversa ed esce a piazza Beccaria,
-///    verso il ristorante; il pannello si accende, arriva il verbale. «Evita multe con GateLR»
-/// 2. «Con GateLR»: lo stesso viaggio intorno alla zona, lungo i viali (e 4 minuti prima); il pannello dice NESSUNA MULTA
-/// 3. «Oppure parcheggia vicino»: fino al Parcheggio Beccaria, poi a piedi fino al ristorante
+/// Prima pagina, «il problema e la soluzione», in tre passi con la stessa inquadratura di Firenze:
+/// 1. «La strada più diretta»: la freccia va dritta al ristorante, che è dentro la ZTL: entra dal varco di via Guelfa,
+///    il pannello si accende, arriva il verbale. «Evita multe con GateLR»
+/// 2. «Con GateLR»: la stessa partenza, lungo i viali fino al Parcheggio Beccaria, fuori dalla ZTL; NESSUNA MULTA
+/// 3. «Poi a piedi»: dal parcheggio al ristorante, le impronte compaiono una dopo l'altra
 @MainActor final class IntroDrive: ObservableObject {
-    enum Step: Int { case direct = 1, around, park }
-    enum Phase { case waiting, driving, walking, done }
+    enum Step: Int { case direct = 1, park, walk }
+    enum Phase { case waiting, moving, done }
     @Published private(set) var step: Step = .direct
     @Published private(set) var phase: Phase = .waiting
     @Published var panel: LEDState = .idle
     @Published var flash = 0.0
     @Published var showFine = false
     let direct = IntroPath(IntroScene.direct)
-    let around = IntroPath(IntroScene.around)
     let toParking = IntroPath(IntroScene.toParking)
     let walk = IntroPath(IntroScene.walk)
-    /// Il passo 1 (circa 5 s): fino al varco, una breve sosta sotto il pannello, poi dentro e fuori dall'altra parte
-    static let toGate = 1.1
+    /// Le impronte del tratto a piedi: una ogni 95 m, alternate di 9 m a sinistra e a destra (si vedono anche da lontano)
+    let footprints = IntroPath(IntroScene.walk).footprints(every: 95, side: 9)
+    /// Il passo 1 (circa 5 s): fino al varco, una breve sosta sotto il pannello, poi dentro fino al ristorante
+    static let toGate = 1.7
     static let gatePause = 0.6
-    static let afterGate = 3.2
+    static let afterGate = 2.6
     static let directSeconds = toGate + gatePause + afterGate
-    /// Il passo 2, intorno lungo i viali
-    static let aroundSeconds = 4.6
-    /// Il passo 3: in auto fino al parcheggio, poi a piedi
-    static let parkSeconds = 3.6
-    static let walkSeconds = 1.5
-    /// Dove sta il varco lungo il percorso dentro la ZTL (frazione)
+    /// Il passo 2, lungo i viali fino al parcheggio
+    static let parkSeconds = 4.6
+    /// Il passo 3, le impronte
+    static let walkSeconds = 3.2
+    /// Dove sta il varco lungo la strada dritta (frazione)
     let gateAt = IntroPath(IntroScene.direct).fraction(near: IntroScene.gatePoint)
     var reduceMotion = false
     private(set) var stepStart = Date.distantFuture
-    private(set) var walkStart = Date.distantFuture
     private var task: Task<Void, Never>?
 
     /// L'andatura: parte e si ferma morbida
@@ -42,75 +41,65 @@ import SwiftUI
         return 0.35 * x + 0.65 * x * x * (3 - 2 * x)
     }
 
-    /// Il percorso in auto del passo
-    var path: IntroPath {
-        switch step {
-        case .direct: direct
-        case .around: around
-        case .park: toParking
-        }
-    }
+    /// Il percorso in auto del passo (nel passo 3 l'auto resta al parcheggio)
+    var path: IntroPath { step == .direct ? direct : toParking }
 
-    var driveSeconds: Double {
+    var seconds: Double {
         switch step {
         case .direct: Self.directSeconds
-        case .around: Self.aroundSeconds
         case .park: Self.parkSeconds
+        case .walk: Self.walkSeconds
         }
     }
 
-    /// La frazione del percorso del passo dopo t secondi (nel passo 1 rallenta fino al varco, si ferma, riparte)
+    /// La frazione del passo dopo t secondi (nel passo 1 rallenta fino al varco, si ferma, riparte)
     func fraction(after t: Double) -> Double {
-        guard step == .direct else { return Self.ease(t / driveSeconds) }
-        if t < Self.toGate { return gateAt * Self.ease(t / Self.toGate) }
-        if t < Self.toGate + Self.gatePause { return gateAt }
-        return gateAt + (1 - gateAt) * Self.ease((t - Self.toGate - Self.gatePause) / Self.afterGate)
+        switch step {
+        case .direct:
+            if t < Self.toGate { return gateAt * Self.ease(t / Self.toGate) }
+            if t < Self.toGate + Self.gatePause { return gateAt }
+            return gateAt + (1 - gateAt) * Self.ease((t - Self.toGate - Self.gatePause) / Self.afterGate)
+        case .park: return Self.ease(t / Self.parkSeconds)
+        case .walk: return min(max(t / Self.walkSeconds, 0), 1)
+        }
     }
 
     func fraction(_ d: Date) -> Double {
         switch phase {
         case .waiting: 0
-        case .driving: reduceMotion ? 0 : fraction(after: d.timeIntervalSince(stepStart))
-        case .walking, .done: 1
-        }
-    }
-
-    /// Quanto del tratto a piedi si vede (passo 3)
-    func walkFraction(_ d: Date) -> Double {
-        guard step == .park else { return 0 }
-        switch phase {
-        case .waiting, .driving: return 0
-        case .walking: return reduceMotion ? 1 : Self.ease(d.timeIntervalSince(walkStart) / Self.walkSeconds)
-        case .done: return 1
+        case .moving: reduceMotion ? 0 : fraction(after: d.timeIntervalSince(stepStart))
+        case .done: 1
         }
     }
 
     /// Dove si trova la freccia in quel momento: calcolato a ogni fotogramma dello schermo
-    func car(at d: Date) -> CLLocationCoordinate2D { path.point(fraction(d)) }
+    func car(at d: Date) -> CLLocationCoordinate2D {
+        step == .walk ? IntroScene.toParking[IntroScene.toParking.count - 1] : path.point(fraction(d))
+    }
 
     /// Dove guarda la freccia (gradi da nord)
     func heading(at d: Date) -> Double {
-        let f = fraction(d), p = path
+        let p = path, f = step == .walk ? 1 : fraction(d)
         let delta = 12 / max(p.length, 1)
         return p.point(max(f - delta, 0)).notteBearing(to: p.point(min(f + delta, 1)))
     }
 
     /// Una linea sulla mappa: quanto se ne vede (0…1) e con che opacità
     struct Line { var progress: Double; var opacity: Double }
-    struct Lines { var direct: Line; var around: Line; var park: Line; var walk: Double }
+    struct Lines { var direct: Line; var park: Line; var footprints: Int }
 
-    /// Le linee di tutte le mappe: quella del passo si disegna dietro la freccia; la strada dentro la ZTL resta
-    /// più tenue nei passi 2 e 3, per il confronto
+    /// Le linee di tutte le mappe: quella del passo si disegna dietro la freccia; la strada dritta resta più tenue
+    /// nei passi 2 e 3, per il confronto; nel passo 3 compaiono le impronte una dopo l'altra
     func lines(at d: Date) -> Lines {
         let f = fraction(d)
-        return Lines(direct: Line(progress: step == .direct ? f : 1, opacity: step == .direct ? 1 : 0.32),
-                     around: Line(progress: step == .around ? f : 0, opacity: 1),
-                     park: Line(progress: step == .park ? f : 0, opacity: 1),
-                     walk: walkFraction(d))
+        let shown = step == .walk ? Int((Double(footprints.count) * f).rounded(.up)) : 0
+        return Lines(direct: Line(progress: step == .direct ? f : 1, opacity: step == .direct ? 1 : 0.3),
+                     park: Line(progress: step == .direct ? 0 : step == .park ? f : 1, opacity: 1),
+                     footprints: min(shown, footprints.count))
     }
 
     /// Il parcheggio si accende quando la freccia ci arriva
-    var parked: Bool { step == .park && (phase == .walking || phase == .done) }
+    var parked: Bool { step == .walk || (step == .park && phase == .done) }
 
     func start() {
         guard task == nil else { return }
@@ -123,13 +112,13 @@ import SwiftUI
 
     func stop() { task?.cancel() }
 
-    /// Il pulsante del passo: «Evita multe con GateLR» dopo il verbale, «Avanti» dopo il giro intorno
+    /// Il pulsante del passo: «Evita multe con GateLR» dopo il verbale, «Avanti» al parcheggio
     func advance() {
         guard phase == .done else { return }
         switch step {
-        case .direct: task = Task { [weak self] in await self?.run(.around) }
-        case .around: task = Task { [weak self] in await self?.run(.park) }
-        case .park: break
+        case .direct: task = Task { [weak self] in await self?.run(.park) }
+        case .park: task = Task { [weak self] in await self?.run(.walk) }
+        case .walk: break
         }
     }
 
@@ -138,9 +127,9 @@ import SwiftUI
             showFine = false
             step = next
         }
-        panel = .idle
+        if next != .walk { panel = .idle }
         stepStart = Date()
-        phase = .driving
+        phase = .moving
         let quick = 1.4
         switch next {
         case .direct:
@@ -156,18 +145,13 @@ import SwiftUI
                 showFine = true
             }
             await autoplay(after: 2.6)
-        case .around:
-            try? await Task.sleep(for: .seconds(reduceMotion ? quick : Self.aroundSeconds))
-            guard !Task.isCancelled else { return }
-            panel = .noFine
-            withAnimation(.easeInOut(duration: 0.4)) { phase = .done }
-            await autoplay(after: 1.8)
         case .park:
             try? await Task.sleep(for: .seconds(reduceMotion ? quick : Self.parkSeconds))
             guard !Task.isCancelled else { return }
             panel = .noFine
-            walkStart = Date()
-            withAnimation(.easeInOut(duration: 0.3)) { phase = .walking }
+            withAnimation(.easeInOut(duration: 0.4)) { phase = .done }
+            await autoplay(after: 1.8)
+        case .walk:
             try? await Task.sleep(for: .seconds(reduceMotion ? 0.3 : Self.walkSeconds))
             guard !Task.isCancelled else { return }
             withAnimation(.easeInOut(duration: 0.4)) { phase = .done }
@@ -188,6 +172,14 @@ import SwiftUI
         withAnimation(.easeOut(duration: 0.06)) { flash = 0.85 }
         withAnimation(.easeOut(duration: 0.7).delay(0.08)) { flash = 0 }
     }
+}
+
+/// Il colore della strada percorsa dalla freccia, in tutti e tre i passi: azzurro acceso (il rosso è della ZTL)
+enum IntroRouteColor {
+    static let glowHex: UInt32 = 0x2FD3FF
+    static let coreHex: UInt32 = 0xB5F0FF
+    static let glow = Color(hex: 0x2FD3FF)
+    static let core = Color(hex: 0xB5F0FF)
 }
 
 struct IntroDriveSlide: View {
@@ -255,7 +247,7 @@ struct IntroDriveSlide: View {
             if engine != .mapbox { drive.start() }
         }
         .onChange(of: drive.phase) { _, phase in
-            guard IntroAutoplay.on, phase == .done, drive.step == .park else { return }
+            guard IntroAutoplay.on, phase == .done, drive.step == .walk else { return }
             Task { try? await Task.sleep(for: .milliseconds(1800)); next() }
         }
         .onDisappear { drive.stop() }
@@ -264,8 +256,8 @@ struct IntroDriveSlide: View {
     private var title: String {
         switch drive.step {
         case .direct: L("The most direct route")
-        case .around: L("With GateLR")
-        case .park: L("Or park nearby")
+        case .park: L("With GateLR")
+        case .walk: L("Then walk to the restaurant")
         }
     }
 
@@ -292,20 +284,17 @@ struct IntroDriveSlide: View {
                                 identifier: "intro2.avoid") { drive.advance() }
                         .transition(.opacity)
                 }
-            case .around:
-                IntroHint(systemImage: "arrow.triangle.turn.up.right.diamond.fill",
-                          text: String(format: L("GateLR: around the ZTL, %lld min faster"), IntroScene.minutesSaved))
+            case .park:
+                IntroHint(systemImage: "parkingsign", text: L("GateLR: park outside the ZTL"))
                     .transition(.opacity.combined(with: .move(edge: .bottom)))
                 if drive.phase == .done {
-                    IntroButton(title: L("Next"), identifier: "intro2.around") { drive.advance() }
+                    IntroButton(title: L("Next"), identifier: "intro2.park") { drive.advance() }
                         .transition(.opacity)
                 }
-            case .park:
-                if drive.phase == .walking || drive.phase == .done {
-                    IntroHint(systemImage: "figure.walk",
-                              text: String(format: L("Car park outside the ZTL, then %lld min on foot"), IntroScene.walkMinutes))
-                        .transition(.opacity.combined(with: .move(edge: .bottom)))
-                }
+            case .walk:
+                IntroHint(systemImage: "figure.walk",
+                          text: String(format: L("%lld min on foot, no fine"), IntroScene.walkMinutes))
+                    .transition(.opacity.combined(with: .move(edge: .bottom)))
                 if drive.phase == .done {
                     IntroButton(title: L("Next"), identifier: "intro2.next1", action: next)
                         .transition(.opacity)
@@ -416,13 +405,16 @@ private struct IntroLiveMap: View {
                 MapPolyline(coordinates: scene.zones[i] + scene.zones[i].prefix(1))
                     .stroke(Notte.ledRed, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round))
             }
-            route(drive.direct, lines.direct, glow: Notte.action, core: Color(hex: 0xFF6A5C))
-            route(drive.around, lines.around, glow: Notte.chalk, core: Notte.chalk)
-            route(drive.toParking, lines.park, glow: Notte.chalk, core: Notte.chalk)
-            if lines.walk > 0 {
-                MapPolyline(coordinates: drive.walk.prefix(lines.walk))
-                    .stroke(Notte.chalk, style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round, dash: [0.1, 10]))
-                    .mapOverlayLevel(level: .aboveLabels)
+            route(drive.direct, lines.direct, glow: IntroRouteColor.glow, core: IntroRouteColor.core)
+            route(drive.toParking, lines.park, glow: IntroRouteColor.glow, core: IntroRouteColor.core)
+            ForEach(0..<lines.footprints, id: \.self) { i in
+                let fp = drive.footprints[i]
+                Annotation("", coordinate: fp.coordinate, anchor: .center) {
+                    IntroFootprintMark(left: fp.left)
+                        .rotationEffect(.degrees(fp.bearing - IntroCamera.heading))
+                        .transition(.scale.combined(with: .opacity))
+                }
+                .annotationTitles(.hidden)
             }
 
             Annotation("", coordinate: scene.gate, anchor: .bottom) {
@@ -438,7 +430,7 @@ private struct IntroLiveMap: View {
             }
             .annotationTitles(.hidden)
             Annotation("", coordinate: drive.car(at: now), anchor: .center) {
-                IntroArrow(glow: drive.step == .direct ? Notte.action : Notte.chalk)
+                IntroArrow(glow: IntroRouteColor.glow)
                     .rotationEffect(.degrees(drive.heading(at: now) - IntroCamera.heading))
             }
             .annotationTitles(.hidden)
@@ -470,11 +462,11 @@ private struct IntroLiveMap: View {
 enum IntroCamera {
     /// Un centinaio di metri più avanti del centro di Mapbox: le etichette alte del ristorante e del parcheggio restano
     /// sotto il titolo (con MapKit e con il disegno la scena sta un po' più in alto)
-    static let frame = CLLocationCoordinate2D(latitude: 43.7749, longitude: 11.2669)
+    static let frame = CLLocationCoordinate2D(latitude: 43.7761, longitude: 11.2586)
     static let heading = IntroMapboxMap.bearing
     static let pitch = IntroMapboxMap.pitch
-    /// MapKit misura la distanza della camera, non lo zoom: circa la stessa porzione di città dello zoom 14 di Mapbox
-    static let distance = 5200.0
+    /// MapKit misura la distanza della camera, non lo zoom: circa la stessa porzione di città dello zoom 13,8 di Mapbox
+    static let distance = 6000.0
 
     static var camera: MapCamera {
         MapCamera(centerCoordinate: frame, distance: distance, heading: heading, pitch: pitch)
@@ -494,14 +486,16 @@ private struct IntroFallbackMap: View {
         (43.7748, 11.2380), (43.7718, 11.2448), (43.7693, 11.2497), (43.7680, 11.2531),
         (43.7672, 11.2566), (43.7660, 11.2612), (43.7641, 11.2662), (43.7622, 11.2722), (43.7605, 11.2790),
     ])
+    /// La proiezione a mano è più larga di quella vera: un centro e una distanza propri, per avere tutta la scena
+    private static let center = CLLocationCoordinate2D(latitude: 43.7769, longitude: 11.2596)
     private static let duomo = CLLocationCoordinate2D(latitude: 43.77310, longitude: 11.25600)
     private static let santaCroce = CLLocationCoordinate2D(latitude: 43.76858, longitude: 11.26225)
 
     var body: some View {
         TimelineView(.animation(paused: reduceMotion || drive.phase == .waiting || drive.phase == .done)) { tl in
             GeometryReader { g in
-                let pr = IntroProjector(center: IntroCamera.frame, heading: IntroCamera.heading, pitch: IntroCamera.pitch,
-                                        distance: 3100, size: g.size)
+                let pr = IntroProjector(center: Self.center, heading: IntroCamera.heading, pitch: IntroCamera.pitch,
+                                        distance: 4200, size: g.size)
                 ZStack {
                     Canvas { ctx, _ in draw(ctx, pr, tl.date) }
                     landmark("Duomo", pr.point(Self.duomo))
@@ -512,7 +506,7 @@ private struct IntroFallbackMap: View {
                         .position(pr.point(IntroScene.restaurant)).offset(y: -IntroPlacePin.size.height / 2)
                     IntroPlacePin(kind: .parking, lit: drive.parked)
                         .position(pr.point(IntroScene.parking)).offset(y: -IntroPlacePin.size.height / 2)
-                    IntroArrow(glow: drive.step == .direct ? Notte.action : Notte.chalk)
+                    IntroArrow(glow: IntroRouteColor.glow)
                         .rotationEffect(.degrees(drive.heading(at: tl.date) - IntroCamera.heading))
                         .position(pr.point(drive.car(at: tl.date)))
                 }
@@ -534,7 +528,7 @@ private struct IntroFallbackMap: View {
         // Una trama di isolati ogni 110 m, che si perde verso l'orizzonte
         var grid = Path()
         let step = 110.0 / 111_320
-        let c = IntroCamera.frame
+        let c = Self.center
         let k = cos(c.latitude * .pi / 180)
         for i in -16...16 {
             let lat = c.latitude + Double(i) * step
@@ -564,15 +558,18 @@ private struct IntroFallbackMap: View {
         glow.addFilter(.blur(radius: 8))
         let round = StrokeStyle(lineWidth: 6, lineCap: .round, lineJoin: .round)
         let lines = drive.lines(at: now)
-        for (path, line, color) in [(drive.direct, lines.direct, Notte.action), (drive.around, lines.around, Notte.chalk),
-                                    (drive.toParking, lines.park, Notte.chalk)] where line.progress > 0.001 {
+        for (path, line) in [(drive.direct, lines.direct), (drive.toParking, lines.park)] where line.progress > 0.001 {
             let p = pr.path(path.prefix(line.progress))
-            glow.stroke(p, with: .color(color.opacity(line.opacity * 0.7)), lineWidth: 10)
-            ctx.stroke(p, with: .color(color.opacity(line.opacity)), style: round)
+            glow.stroke(p, with: .color(IntroRouteColor.glow.opacity(line.opacity * 0.7)), lineWidth: 10)
+            ctx.stroke(p, with: .color(IntroRouteColor.core.opacity(line.opacity)), style: round)
         }
-        if lines.walk > 0 {
-            ctx.stroke(pr.path(drive.walk.prefix(lines.walk)), with: .color(Notte.chalk),
-                       style: StrokeStyle(lineWidth: 5, lineCap: .round, lineJoin: .round, dash: [0.1, 9]))
+        // Le impronte, girate verso dove si cammina
+        for fp in drive.footprints.prefix(lines.footprints) {
+            let c = pr.point(fp.coordinate)
+            var foot = ctx
+            foot.translateBy(x: c.x, y: c.y)
+            foot.rotate(by: .degrees(fp.bearing - IntroCamera.heading))
+            foot.fill(IntroFootprintShape(left: fp.left).path(in: CGRect(x: -5, y: -8, width: 10, height: 16)), with: .color(.white))
         }
     }
 }
@@ -606,6 +603,33 @@ struct IntroArrow: View {
         }
         .frame(width: 56, height: 56)
         .animation(.easeInOut(duration: 0.4), value: glow)
+    }
+}
+
+/// Un'impronta di scarpa vista dall'alto, punta in alto: pianta, tallone e cinque dita (il destro è lo specchio del sinistro)
+struct IntroFootprintShape: Shape {
+    var left: Bool
+    func path(in r: CGRect) -> Path {
+        var p = Path()
+        let w = r.width, h = r.height
+        func x(_ v: CGFloat) -> CGFloat { r.minX + (left ? v : 1 - v) * w }
+        p.addEllipse(in: CGRect(x: x(0.5) - 0.3 * w, y: r.minY + 0.22 * h, width: 0.6 * w, height: 0.45 * h))
+        p.addEllipse(in: CGRect(x: x(0.5) - 0.22 * w, y: r.minY + 0.7 * h, width: 0.44 * w, height: 0.28 * h))
+        for (cx, cy, d) in [(0.3, 0.1, 0.24), (0.5, 0.06, 0.2), (0.66, 0.08, 0.17), (0.79, 0.13, 0.14), (0.88, 0.2, 0.12)] as [(CGFloat, CGFloat, CGFloat)] {
+            p.addEllipse(in: CGRect(x: x(cx) - d * w / 2, y: r.minY + cy * h - d * w / 2 + 0.04 * h, width: d * w, height: d * w))
+        }
+        return p
+    }
+}
+
+/// L'impronta sulla mappa: bianca con un filo d'ombra, così si vede sugli edifici e sulla zona rossa
+struct IntroFootprintMark: View {
+    var left: Bool
+    var body: some View {
+        IntroFootprintShape(left: left).fill(.white)
+            .frame(width: 10, height: 16)
+            .shadow(color: .black.opacity(0.7), radius: 1.5)
+            .accessibilityHidden(true)
     }
 }
 

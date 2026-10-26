@@ -578,10 +578,10 @@
 "NO FINE" = "SIN MULTA";
 "The most direct route" = "El camino más directo";
 "With GateLR" = "Con GateLR";
-"Or park nearby" = "O aparca cerca";
-"GateLR: around the ZTL, %lld min faster" = "GateLR: rodea la ZTL, %lld min menos";
-"Car park outside the ZTL, then %lld min on foot" = "Aparcamiento fuera de la ZTL y %lld min a pie";
 "Restaurant" = "Restaurante";
+"Then walk to the restaurant" = "Luego a pie hasta el restaurante";
+"GateLR: park outside the ZTL" = "GateLR: aparca fuera de la ZTL";
+"%lld min on foot, no fine" = "%lld min a pie, sin multa";
 "Avoid fines with GateLR" = "Evita multas con GateLR";
 "FINE NOTICE" = "MULTA";
 "Entering a ZTL without a permit" = "Entrada en la ZTL sin permiso";

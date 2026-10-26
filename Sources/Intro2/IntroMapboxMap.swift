@@ -4,7 +4,7 @@ import SwiftUI
 import UIKit
 
 /// La prima pagina su Mapbox: Firenze al crepuscolo vista da lontano, ferma per tutti e tre i passi (così si confrontano),
-/// rivolta a sud-est: il viale Lavagnini in basso, piazza Beccaria in alto. Il centro storico (Settori A e B) velato di
+/// rivolta a sud-est: il viale Strozzi in basso a destra, piazza Beccaria in alto. Il centro storico (Settori A e B) velato di
 /// rosso con il bordo acceso; tutti gli edifici in 3D, uguali e trasparenti (Tools/intro_buildings.py), i monumenti
 /// di Mapbox restano. Sopra, più evidenti di tutto, il ristorante e il parcheggio; la freccia di navigazione corre sui
 /// percorsi veri. Tempi e stati sono quelli di IntroDrive, gli stessi della mappa di Apple e del disegno di riserva.
@@ -20,12 +20,13 @@ struct IntroMapboxMap: UIViewRepresentable {
     /// Lo stile non è arrivato: si torna alla mappa di Apple
     var onFail: () -> Void
 
-    /// L'inquadratura: zoom 14, inclinata di 45°, rivolta a 152° (sud-sud-est). Si vedono la partenza, il varco,
-    /// tutta la strada dentro la ZTL, i viali intorno, il parcheggio e il ristorante
-    static let center = CLLocationCoordinate2D(latitude: 43.7758, longitude: 11.2662)
-    static let zoom = 14.0
-    static let pitch = 45.0
-    static let bearing = 152.0
+    /// L'inquadratura: zoom 13,8, inclinata di 42°, rivolta a 145° (sud-est): la partenza in basso a destra, il centro
+    /// della ZTL in mezzo tra la freccia e il ristorante (la strada dritta si legge come la più corta), i viali a
+    /// sinistra, in alto il ristorante e il parcheggio ben separati
+    static let center = CLLocationCoordinate2D(latitude: 43.7768, longitude: 11.2579)
+    static let zoom = 13.8
+    static let pitch = 42.0
+    static let bearing = 145.0
 
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 
@@ -104,10 +105,12 @@ struct IntroMapboxMap: UIViewRepresentable {
             let map = mapView.mapboxMap!
             if let buildings = IntroMapboxMap.buildings { NotteMap.addBuildings(map, geojson: buildings) }
             NotteMap.addZone(map, id: "ztl", rings: [IntroScene.outline])
-            NotteMap.addRoute(map, id: "direct", coordinates: IntroScene.direct, glowHex: 0xE5322D, coreHex: 0xFF6A5C)
-            NotteMap.addRoute(map, id: "around", coordinates: IntroScene.around, glowHex: 0xF2F4FA, coreHex: 0xFFFFFF)
-            NotteMap.addRoute(map, id: "park", coordinates: IntroScene.toParking, glowHex: 0xF2F4FA, coreHex: 0xFFFFFF)
-            NotteMap.addWalk(map, id: "walk")
+            // La strada della freccia in azzurro acceso in tutti i passi (il rosso è della ZTL)
+            NotteMap.addRoute(map, id: "direct", coordinates: IntroScene.direct,
+                              glowHex: IntroRouteColor.glowHex, coreHex: IntroRouteColor.coreHex)
+            NotteMap.addRoute(map, id: "park", coordinates: IntroScene.toParking,
+                              glowHex: IntroRouteColor.glowHex, coreHex: IntroRouteColor.coreHex)
+            addFootprints(map)
             addAnnotations(mapView)
             let link = CADisplayLink(target: DisplayTarget { [weak self] in self?.tick() }, selector: #selector(DisplayTarget.fire))
             link.add(to: .main, forMode: .common)
@@ -148,12 +151,12 @@ struct IntroMapboxMap: UIViewRepresentable {
             let drive = parent.drive
             let now = Date()
             let lines = drive.lines(at: now)
-            for (id, line) in [("direct", lines.direct), ("around", lines.around), ("park", lines.park)]
+            for (id, line) in [("direct", lines.direct), ("park", lines.park)]
                 where changed(id, line.progress * 1000 + line.opacity) {
                 NotteMap.setRoute(map, id: id, progress: line.progress, opacity: line.opacity)
             }
-            if changed("walk", lines.walk) {
-                NotteMap.setWalk(map, id: "walk", coordinates: drive.walk.prefix(lines.walk))
+            if changed("feet", Double(lines.footprints)) {
+                setFootprints(map, count: lines.footprints)
             }
             let here = drive.car(at: now)
             if changed("car", here.latitude * 1e6 + here.longitude) {
@@ -163,6 +166,41 @@ struct IntroMapboxMap: UIViewRepresentable {
             if changed("heading", heading) {
                 carView?.content.transform = CGAffineTransform(rotationAngle: heading * .pi / 180)
             }
+        }
+
+        /// Le impronte del tratto a piedi: un livello di simboli (sinistra e destra), girati verso dove si cammina,
+        /// sempre dritti verso lo schermo così si leggono anche lontano
+        private func addFootprints(_ map: MapboxMap) {
+            for left in [true, false] {
+                let renderer = ImageRenderer(content: IntroFootprintMark(left: left).padding(3))
+                renderer.scale = 3
+                if let image = renderer.uiImage { try? map.addImage(image, id: Self.footImage(left)) }
+            }
+            var source = GeoJSONSource(id: "feet")
+            source.data = .featureCollection(FeatureCollection(features: []))
+            var layer = SymbolLayer(id: "feet-prints", source: "feet")
+            layer.slot = .top
+            layer.iconImage = .expression(Exp(.get) { "img" })
+            layer.iconRotate = .expression(Exp(.get) { "r" })
+            layer.iconRotationAlignment = .constant(.map)
+            layer.iconPitchAlignment = .constant(.viewport)
+            layer.iconAllowOverlap = .constant(true)
+            layer.iconIgnorePlacement = .constant(true)
+            layer.iconSize = .constant(1.3)
+            layer.iconEmissiveStrength = .constant(1)
+            try? map.addSource(source)
+            try? map.addLayer(layer)
+        }
+
+        private static func footImage(_ left: Bool) -> String { "intro-foot-" + (left ? "l" : "r") }
+
+        private func setFootprints(_ map: MapboxMap, count: Int) {
+            let features = parent.drive.footprints.prefix(count).map { fp -> Feature in
+                var f = Feature(geometry: .point(Point(fp.coordinate)))
+                f.properties = ["r": .number(fp.bearing), "img": .string(Self.footImage(fp.left))]
+                return f
+            }
+            map.updateGeoJSONSource(withId: "feet", geoJSON: .featureCollection(FeatureCollection(features: Array(features))))
         }
 
         private func changed(_ key: String, _ value: Double) -> Bool {
@@ -204,7 +242,7 @@ private struct IntroPinAnnotation: View {
 private struct IntroArrowAnnotation: View {
     @ObservedObject var drive: IntroDrive
     var body: some View {
-        IntroArrow(glow: drive.step == .direct ? Notte.action : Notte.chalk)
+        IntroArrow(glow: IntroRouteColor.glow)
             .frame(width: 56, height: 56)
     }
 }

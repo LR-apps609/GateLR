@@ -11,7 +11,7 @@ struct Intro2View: View {
     @State private var fill = 0.0
 
     /// Quanto dura ogni pagina, per riempire la sua barretta
-    private static let durations: [Double] = [23, 7, 9]
+    private static let durations: [Double] = [21, 7, 9]
 
     var body: some View {
         ZStack(alignment: .top) {

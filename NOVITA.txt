@@ -1,3 +1,7 @@
+Novità della 1.15.2 (anteprima intro 2.0):
+• Prima pagina con una storia nuova: il ristorante è dentro la ZTL. «La strada più diretta» ci va dritta attraverso il centro (la più corta) e prende la multa al varco di via Guelfa; «Con GateLR» si va al Parcheggio Beccaria, fuori dalla ZTL, e poi a piedi fino al ristorante, con le impronte che compaiono una dopo l'altra (15 minuti)
+• La strada della freccia in azzurro acceso (il rosso resta solo per la ZTL); inquadratura girata, con il centro tra la freccia e il ristorante, e ristorante e parcheggio ben separati
+
 Novità della 1.15.1 (anteprima intro 2.0):
 • Prima pagina in tre passi con la stessa inquadratura di Firenze: «La strada più diretta» (la freccia entra dal varco di via Cavour, attraversa la ZTL e arriva il verbale), «Con GateLR» (intorno lungo i viali, 4 minuti prima e nessuna multa) e «Oppure parcheggia vicino» (Parcheggio Beccaria e 6 minuti a piedi fino al ristorante)
 • Tutti gli edifici in 3D, uguali e trasparenti, così la freccia e i percorsi si vedono anche dietro; il ristorante e il parcheggio in evidenza; la freccia di navigazione al posto dell'auto

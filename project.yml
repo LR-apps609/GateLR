@@ -9,8 +9,8 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.15.1"
-    CURRENT_PROJECT_VERSION: "32"
+    MARKETING_VERSION: "1.15.2"
+    CURRENT_PROJECT_VERSION: "33"
 
 # Mapbox Maps (v11, Swift Package Manager, nessun token segreto per scaricarlo): la mappa 3D della nuova
 # presentazione e dell'anteprima della prima pagina 2.0. Se non si carica, resta la mappa di Apple (MapKit).

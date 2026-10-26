@@ -4,9 +4,9 @@ import Foundation
 import SwiftUI
 
 /// La scena della prima pagina: la ZTL del centro storico di Firenze (Settori A e B, perimetri veri di
-/// Resources/Cities/firenze.json; il Settore A non ha varchi propri, si entra da quelli del B), il varco di via Cavour,
-/// un ristorante appena fuori dalla ZTL dall'altra parte (via Gioberti, vicino a piazza Beccaria; generico, non un locale
-/// vero) e il Parcheggio Beccaria. I percorsi seguono strade vere: calcolati con OSRM sui dati OpenStreetMap da
+/// Resources/Cities/firenze.json; il Settore A non ha varchi propri, si entra da quelli del B), il varco di via Guelfa,
+/// un ristorante DENTRO la ZTL (borgo degli Albizi, vicino a piazza San Pier Maggiore; generico, non un locale vero) e il
+/// Parcheggio Beccaria FUORI. I percorsi seguono strade vere: calcolati con OSRM sui dati OpenStreetMap da
 /// Tools/intro_routes.py (ramo «intro-routes»), semplificati a ~1 m e copiati qui.
 struct IntroScene {
     /// I perimetri da disegnare: prima il Settore B (l'anello esterno), poi il Settore A
@@ -16,65 +16,54 @@ struct IntroScene {
     var zoneName: String
     var cityName: String
 
-    /// 1. «La strada più diretta»: viale Lavagnini → piazza della Libertà → dentro dal varco di via Cavour → via degli Alfani,
-    /// via dei Pilastri, via dei Pepi, via Ghibellina → fuori a piazza Beccaria → via Gioberti (OSRM, 3,5 km, 9,7 min; 2,5 km nella ZTL)
+    /// 1. «La strada più diretta»: dal viale Strozzi (fuori dalla ZTL, vicino alla Fortezza) dritto al ristorante:
+    /// via del Pratello, dentro dal varco di via Guelfa, via degli Alfani, via dei Pilastri, via dell'Agnolo
+    /// (OSRM, 2,5 km, 2 km nella ZTL): la strada più corta, e la multa
     static let direct: [CLLocationCoordinate2D] = coords([
-        (43.782961, 11.257894), (43.783682, 11.260928), (43.783706, 11.261121), (43.783682, 11.261259),
-        (43.783563, 11.261600), (43.783501, 11.261677), (43.783192, 11.262404), (43.782339, 11.261742),
-        (43.778315, 11.258512), (43.778216, 11.258478), (43.778024, 11.258330), (43.777930, 11.258230),
-        (43.776729, 11.257305), (43.775702, 11.259719), (43.773866, 11.263594), (43.773128, 11.264515),
-        (43.772175, 11.263914), (43.771400, 11.263488), (43.769979, 11.262754), (43.768574, 11.269661),
-        (43.768319, 11.269513), (43.768249, 11.269758), (43.768104, 11.270143), (43.768072, 11.270513),
-        (43.768082, 11.271201), (43.769286, 11.271130), (43.768981, 11.273724), (43.769502, 11.274132),
-        (43.769585, 11.273885)
+        (43.779815, 11.247385), (43.780378, 11.248986), (43.780245, 11.249061), (43.780208, 11.249107),
+        (43.780186, 11.249217), (43.780191, 11.249334), (43.780250, 11.249637), (43.780408, 11.250020),
+        (43.780440, 11.250217), (43.780540, 11.250576), (43.780645, 11.251278), (43.780638, 11.251649),
+        (43.780615, 11.251675), (43.780579, 11.251667), (43.779943, 11.251101), (43.779301, 11.250562),
+        (43.779272, 11.250558), (43.777239, 11.255827), (43.776706, 11.257371), (43.775702, 11.259719),
+        (43.773845, 11.263636), (43.773128, 11.264515), (43.772175, 11.263914), (43.770896, 11.263222),
+        (43.770487, 11.263024), (43.770716, 11.261965), (43.770887, 11.261037), (43.770878, 11.259500)
     ])
 
-    /// 2. «Con GateLR»: stessa partenza, sempre fuori da ogni ZTL lungo i viali Matteotti, Gramsci e della Giovine Italia
-    /// (OSRM, 2,9 km, 5,4 min, nessun metro nei Settori A, B, O, F, G): 4 minuti in meno della strada dentro la ZTL
-    static let around: [CLLocationCoordinate2D] = coords([
-        (43.782961, 11.257894), (43.783682, 11.260928), (43.783706, 11.261121), (43.783682, 11.261259),
-        (43.783563, 11.261600), (43.783501, 11.261677), (43.783101, 11.262588), (43.783050, 11.262663),
-        (43.782693, 11.263021), (43.781337, 11.264309), (43.778321, 11.267124), (43.778126, 11.267238),
-        (43.777818, 11.267373), (43.777481, 11.267563), (43.777238, 11.267753), (43.776921, 11.268109),
-        (43.776518, 11.268728), (43.776377, 11.268903), (43.774957, 11.270248), (43.774429, 11.270710),
-        (43.774210, 11.270835), (43.773969, 11.270936), (43.773847, 11.270976), (43.773616, 11.271013),
-        (43.771343, 11.270910), (43.771193, 11.270884), (43.771078, 11.270850), (43.770889, 11.270719),
-        (43.770769, 11.270666), (43.770675, 11.270648), (43.770433, 11.270656), (43.770291, 11.270615),
-        (43.769649, 11.270276), (43.768319, 11.269513), (43.768249, 11.269758), (43.768104, 11.270143),
-        (43.768072, 11.270513), (43.768082, 11.271201), (43.769286, 11.271130), (43.768981, 11.273724),
-        (43.769502, 11.274132), (43.769585, 11.273885)
-    ])
-
-    /// 3. «Oppure parcheggia vicino»: lungo gli stessi viali fino al Parcheggio Beccaria, sotterraneo (OSM way/231098032,
-    /// in Resources/Parking/firenze.json) (OSRM, 2,6 km, 4,6 min, sempre fuori dalla ZTL)
+    /// 2. «Con GateLR»: stessa partenza, lungo i viali Strozzi, Lavagnini, Matteotti e Gramsci fino al Parcheggio Beccaria,
+    /// sotterraneo (OSM way/231098032, in Resources/Parking/firenze.json) (OSRM, 3,6 km, sempre fuori da ogni ZTL)
     static let toParking: [CLLocationCoordinate2D] = coords([
-        (43.782961, 11.257894), (43.783682, 11.260928), (43.783706, 11.261121), (43.783682, 11.261259),
-        (43.783563, 11.261600), (43.783501, 11.261677), (43.783146, 11.262506), (43.783050, 11.262663),
-        (43.782779, 11.262937), (43.781337, 11.264309), (43.778321, 11.267124), (43.778126, 11.267238),
-        (43.777818, 11.267373), (43.777481, 11.267563), (43.777238, 11.267753), (43.776921, 11.268109),
-        (43.776518, 11.268728), (43.776377, 11.268903), (43.774712, 11.270475), (43.774429, 11.270710),
-        (43.774092, 11.270890), (43.773740, 11.270999), (43.773485, 11.271015), (43.771343, 11.270910),
+        (43.779815, 11.247385), (43.779986, 11.247875), (43.780005, 11.248066), (43.779991, 11.248165),
+        (43.780121, 11.248499), (43.780534, 11.249882), (43.780680, 11.250307), (43.780767, 11.250711),
+        (43.780910, 11.251616), (43.780973, 11.251902), (43.781124, 11.252177), (43.781614, 11.252644),
+        (43.781731, 11.252790), (43.781797, 11.252887), (43.781846, 11.253037), (43.782961, 11.257894),
+        (43.783682, 11.260928), (43.783706, 11.261121), (43.783682, 11.261259), (43.783563, 11.261600),
+        (43.783501, 11.261677), (43.783101, 11.262588), (43.783050, 11.262663), (43.782779, 11.262937),
+        (43.781337, 11.264309), (43.778321, 11.267124), (43.778126, 11.267238), (43.777818, 11.267373),
+        (43.777481, 11.267563), (43.777238, 11.267753), (43.776921, 11.268109), (43.776518, 11.268728),
+        (43.776377, 11.268903), (43.774957, 11.270248), (43.774429, 11.270710), (43.774210, 11.270835),
+        (43.773969, 11.270936), (43.773847, 11.270976), (43.773616, 11.271013), (43.771343, 11.270910),
         (43.771193, 11.270884), (43.771078, 11.270850), (43.770889, 11.270719), (43.770769, 11.270666),
         (43.770675, 11.270648), (43.770433, 11.270656), (43.770291, 11.270615), (43.769649, 11.270276),
         (43.768319, 11.269513), (43.768249, 11.269758), (43.768104, 11.270143), (43.768072, 11.270513),
         (43.768082, 11.271201), (43.769906, 11.271083)
     ])
 
-    /// A piedi dal Parcheggio Beccaria al ristorante, per piazza Beccaria e via Gioberti (OSRM a piedi, 462 m, 6 min)
+    /// 3. A piedi dal Parcheggio Beccaria al ristorante, per borgo la Croce, via Pietrapiana e borgo degli Albizi
+    /// (OSRM a piedi, 1,1 km, 15 min)
     static let walk: [CLLocationCoordinate2D] = coords([
         (43.769903, 11.270726), (43.770164, 11.270856), (43.770316, 11.270884), (43.770406, 11.270830),
-        (43.770536, 11.270836), (43.770609, 11.270901), (43.770713, 11.270944), (43.770628, 11.271366),
-        (43.770585, 11.271443), (43.770624, 11.271468), (43.770572, 11.271688), (43.770634, 11.271710),
-        (43.770503, 11.273250), (43.770524, 11.273265), (43.770489, 11.273421), (43.770422, 11.273415),
-        (43.770334, 11.274149), (43.769585, 11.273885)
+        (43.770536, 11.270836), (43.770609, 11.270901), (43.770713, 11.270944), (43.771344, 11.267915),
+        (43.771379, 11.267582), (43.771426, 11.266495), (43.771423, 11.264692), (43.771424, 11.264656),
+        (43.771441, 11.264656), (43.771424, 11.263524), (43.771479, 11.262722), (43.771535, 11.262653),
+        (43.771446, 11.262631), (43.771473, 11.262258), (43.771487, 11.259940), (43.770891, 11.259936),
+        (43.770890, 11.259501)
     ])
 
-    /// Il ristorante (la fine dei percorsi 1 e 2) e l'ingresso del Parcheggio Beccaria
-    static var restaurant: CLLocationCoordinate2D { direct[direct.count - 1] }
+    /// Il ristorante (la fine della strada dritta e del tratto a piedi) e l'ingresso del Parcheggio Beccaria
+    static var restaurant: CLLocationCoordinate2D { walk[walk.count - 1] }
     static let parking = CLLocationCoordinate2D(latitude: 43.769894, longitude: 11.270761)
-    /// Minuti risparmiati girando intorno (OSRM: 583 s dentro la ZTL, 324 s intorno) e minuti a piedi (370 s)
-    static let minutesSaved = 4
-    static let walkMinutes = 6
+    /// Minuti a piedi dal parcheggio al ristorante (OSRM: 889 s)
+    static let walkMinutes = 15
 
     /// Il contorno dei Settori A e B uniti (senza il confine interno), per la mappa Mapbox: unione dei perimetri di
     /// firenze.json calcolata con shapely e semplificata a ~4 m (72 punti)
@@ -114,20 +103,20 @@ struct IntroScene {
                          interiorPolygons: hole.isEmpty ? nil : [MKPolygon(coordinates: hole, count: hole.count)])
     }
 
-    /// Il varco di via Cavour (ptm-9 in firenze.json), se la città non fosse ancora letta
-    static let gatePoint = CLLocationCoordinate2D(latitude: 43.78305, longitude: 11.262289)
+    /// Il varco di via Guelfa (ptm-18 in firenze.json), se la città non fosse ancora letta
+    static let gatePoint = CLLocationCoordinate2D(latitude: 43.777767, longitude: 11.254444)
 
     /// Il centro della scena (lo stesso dell'inquadratura di Mapbox)
-    static let center = CLLocationCoordinate2D(latitude: 43.7758, longitude: 11.2662)
+    static let center = CLLocationCoordinate2D(latitude: 43.7768, longitude: 11.2579)
 
     @MainActor static func load(_ store: Store) -> IntroScene {
         let city = store.cities.first { $0.id == "firenze" }
         let zoneA = city?.zones.first { $0.id == "firenze-a" }
         let zoneB = city?.zones.first { $0.id == "firenze-b" }
-        let gate = city?.zones.flatMap(\.gates).first { $0.id == "ptm-9" }
+        let gate = city?.zones.flatMap(\.gates).first { $0.id == "ptm-18" }
         return IntroScene(
             zones: [zoneB, zoneA].compactMap { $0?.perimeter.map(\.cl) },
-            gateName: gate?.name ?? "Via Cavour",
+            gateName: gate?.name ?? "Via Guelfa",
             gate: gate?.location.cl ?? gatePoint,
             zoneName: "ZTL · " + String(format: L("Sector %@"), "A + B"),
             cityName: city?.localizedName ?? "Firenze")
@@ -228,5 +217,36 @@ struct IntroProjector {
         for c in coords.dropFirst() { p.addLine(to: point(c)) }
         if closed { p.closeSubpath() }
         return p
+    }
+}
+
+/// Un'impronta del tratto a piedi: dove, verso dove guarda (gradi da nord) e se è il piede sinistro
+struct IntroFootprint {
+    var coordinate: CLLocationCoordinate2D
+    var bearing: Double
+    var left: Bool
+}
+
+extension IntroPath {
+    /// Le impronte lungo il percorso: una ogni «every» metri, alternate a sinistra e a destra di «side» metri
+    func footprints(every: Double, side: Double) -> [IntroFootprint] {
+        guard length > every else { return [] }
+        var out: [IntroFootprint] = []
+        var d = every / 2
+        var left = true
+        let delta = 6 / length
+        while d < length {
+            let f = d / length
+            let c = point(f)
+            let bearing = point(max(f - delta, 0)).notteBearing(to: point(min(f + delta, 1)))
+            let a = (bearing + (left ? -90 : 90)) * .pi / 180
+            let k = cos(c.latitude * .pi / 180)
+            let shifted = CLLocationCoordinate2D(latitude: c.latitude + cos(a) * side / 111_320,
+                                                 longitude: c.longitude + sin(a) * side / (111_320 * k))
+            out.append(IntroFootprint(coordinate: shifted, bearing: bearing, left: left))
+            left.toggle()
+            d += every
+        }
+        return out
     }
 }
