@@ -1,0 +1,16 @@
+Ricerca WebSearch: Catania ZTL centro storico piazza Ogninella via Pulvirenti perimetro strade ordinanza AMTS permessi alberghi B&B ospiti
+Letta il: 2026-10-26 (riassunto restituito dal motore di ricerca WebSearch, NON testo letterale delle pagine; comune.catania.it e amts.ct.it non erano raggiungibili dal sandbox: proxy 403, WebFetch non risolve l'host)
+
+Links: https://www.amts.ct.it/wp-content/uploads/Sostare/Disposizioni_%20operative_%20accesso_alle_ZTL_e_%20AP.pdf ("Comune di Catania Azienda metropolitana Trasporti Catania" – Disposizioni operative accesso alle ZTL e AP) ; https://www.amts.ct.it/ztl-e-aree-pedonali-nella-citta-di-catania-un-primo-bilancio-sui-vantaggi-per-la-mobilita ; https://www.autovia.it/ztl-catania-guida-completa/ ; https://www.sicurauto.it/news/attualita-e-curiosita/ztl-catania-orari-mappa-e-accesso-disabili/ ; https://www.sixt.it/magazine/guide/ztl-a-catania-tutte-le-informazioni/
+
+- Perimeter: One guide lists the boundary streets, including via A. di Sangiuliano, via Vittorio Emanuele II and via A. Mancini. It notes that these streets only mark the edge of the restricted zone, and they can all be driven on. Another source says the zone covers the entire centro storico and is active 24 hours a day, 365 days a year.
+- Hotel and B&B guests: The AMTS regulations let accommodation providers request temporary permits for guests' vehicles, to help with unloading luggage on arrival and departure days. The permit is temporary and lasts no more than 12 hours from issue. A provider can request no more permits than the number of rooms in operation. Issuance is free for everyone entitled.
+- How to apply: Providers submit requests through the AMTS online platform.
+- Conflicting information: One older guide says no known exceptions exist for customers accessing hotels inside the Catania ZTL. That predates the current AMTS rules, so the AMTS document should take precedence.
+
+Ricerca collegata (Catania ZTL centro storico auto elettriche disabili contrassegno moto multa importo AMTS pass):
+Links: https://www.sicurauto.it/news/ztl-catania-orari-mappa-e-accesso-disabili/ ; https://www.sicurauto.it/news/codice-della-strada/divieto-ztl-chi-e-esonerato-e-puo-circolare/ ; https://sicilia.usb.it/leggi-notizia/ztl-e-disabilita-a-catania-zone-a-traffico-limitato-o-zone-a-transito-liberato-1152.pdf
+- Scope and access: The ZTL was set up in 2014 around piazza Bellini and later expanded. The perimeter is bounded by via A. di Sangiuliano, via Monsignor Ventimiglia, via Vittorio Emanuele II, via Raddusa, via S. Maria del Rosario, via della Loggetta and via A. Mancini. Some of those streets only mark the boundary and can be driven. Vehicles serving disabled people, if they carry the proper contrassegno and the disabled person is on board, are among those allowed in.
+- Electric cars: Results indicate that electric cars are not automatically exempt.
+- Fines: A general ZTL violation draws a fine between 84 and 335 euros, with no accessory deduction of license points.
+- Gaps: None of the results addressed motorcycles in the ZTL.

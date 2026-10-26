@@ -1,0 +1,274 @@
+{
+ "id": "catania",
+ "name": "Catania",
+ "name_it": "Catania",
+ "name_de": "Catania",
+ "center": {
+  "lat": 37.503,
+  "lon": 15.088
+ },
+ "zones": [
+  {
+   "id": "catania-centro-storico",
+   "name": "Teatro Massimo · historic-centre ZTL",
+   "name_it": "Teatro Massimo · ZTL Centro Storico",
+   "name_de": "Teatro Massimo · ZTL Altstadt",
+   "kind": "restricted",
+   "summary": "The small ZTL around the Teatro Massimo Bellini (piazza Scammacca, via Pulvirenti, piazza Ogninella) is closed to cars without a permit 24 hours a day, every day; cameras at the via Sant'Agata and via Landolina entrances off via Vittorio Emanuele II. Staying inside? Your hotel or B&B can get a free 12-hour permit for your car on the AMTS website. Via Etnea and piazza Bellini are pedestrian.",
+   "summary_it": "La piccola ZTL attorno al Teatro Massimo Bellini (piazza Scammacca, via Pulvirenti, piazza Ogninella) è chiusa alle auto senza permesso 24 ore su 24, tutti i giorni; telecamere agli ingressi di via Sant'Agata e via Landolina da via Vittorio Emanuele II. Dormi dentro? L'hotel o il B&B può chiedere per la tua auto un permesso gratuito di 12 ore sul sito AMTS. Via Etnea e piazza Bellini sono pedonali.",
+   "summary_de": "Die kleine ZTL rund um das Teatro Massimo Bellini (Piazza Scammacca, Via Pulvirenti, Piazza Ogninella) ist für Autos ohne Genehmigung rund um die Uhr, täglich gesperrt; Kameras an den Zufahrten Via Sant'Agata und Via Landolina von der Via Vittorio Emanuele II. Du übernachtest innen? Hotel oder B&B können auf der AMTS-Website eine kostenlose 12-Stunden-Genehmigung für dein Auto beantragen. Via Etnea und Piazza Bellini sind Fußgängerzonen.",
+   "perimeter": [
+    {
+     "lat": 37.503541,
+     "lon": 15.090104
+    },
+    {
+     "lat": 37.503119,
+     "lon": 15.090306
+    },
+    {
+     "lat": 37.502965,
+     "lon": 15.088886
+    },
+    {
+     "lat": 37.503469,
+     "lon": 15.088866
+    },
+    {
+     "lat": 37.503467,
+     "lon": 15.08882
+    },
+    {
+     "lat": 37.503773,
+     "lon": 15.08879
+    },
+    {
+     "lat": 37.504088,
+     "lon": 15.088551
+    },
+    {
+     "lat": 37.50403,
+     "lon": 15.088144
+    },
+    {
+     "lat": 37.504067,
+     "lon": 15.088132
+    },
+    {
+     "lat": 37.504119,
+     "lon": 15.088351
+    },
+    {
+     "lat": 37.504208,
+     "lon": 15.088381
+    },
+    {
+     "lat": 37.504257,
+     "lon": 15.088487
+    },
+    {
+     "lat": 37.503935,
+     "lon": 15.088729
+    },
+    {
+     "lat": 37.503974,
+     "lon": 15.088797
+    },
+    {
+     "lat": 37.504984,
+     "lon": 15.089282
+    },
+    {
+     "lat": 37.505009,
+     "lon": 15.090073
+    },
+    {
+     "lat": 37.504357,
+     "lon": 15.090334
+    },
+    {
+     "lat": 37.504376,
+     "lon": 15.09041
+    },
+    {
+     "lat": 37.504148,
+     "lon": 15.090519
+    },
+    {
+     "lat": 37.504163,
+     "lon": 15.090663
+    },
+    {
+     "lat": 37.503646,
+     "lon": 15.090745
+    },
+    {
+     "lat": 37.503541,
+     "lon": 15.090104
+    }
+   ],
+   "gates": [
+    {
+     "id": "ct-osm9930355548",
+     "name": "Varco · Via Landolina / Via Vittorio Emanuele II",
+     "location": {
+      "lat": 37.503555,
+      "lon": 15.090132
+     }
+    },
+    {
+     "id": "ct-osm9930355537",
+     "name": "Varco · Via Sant'Agata / Via Vittorio Emanuele II",
+     "location": {
+      "lat": 37.503484,
+      "lon": 15.088842
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Catania",
+    "pageURL": "https://www.comune.catania.it/informazioni/cstampa/default.aspx?cs=84326",
+    "ordinance": "ZTL Centro Storico (attiva dal 28/07/2022); disposizioni operative AMTS",
+    "ordinanceURL": "https://www.amts.ct.it/wp-content/uploads/Sostare/Disposizioni_%20operative_%20accesso_alle_ZTL_e_%20AP.pdf",
+    "quote": null,
+    "quoteTranslation": null,
+    "quoteTranslation_de": null,
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Draft: the City's and AMTS websites could not be read from here (connection refused). Every rule comes from web-search summaries of the official pages and press, not from their text: to be checked word for word.",
+     "Hours 24 hours a day, every day: confirmed only by unofficial guides (autovia.it, sicurauto.it); one site says Monday–Friday 8 am–8 pm. GateLR uses 24 hours as the safer answer. The ordinance number was not found.",
+     "Hotels and B&Bs inside: they request a free temporary permit for your car on the AMTS website (for unloading luggage on arrival and departure, at most 12 hours, no more permits than rooms). Deadline for the request not found.",
+     "Electric cars: not automatically exempt, so GateLR does not exempt them. Motorbikes: not covered by the sources. Blue Badge: allowed with the person on board; how to register the plate not found. Fine 84–335 € (Highway Code). Info: ztl@amts.ct.it, 095 7519367.",
+     "Perimeter and the two cameras from OpenStreetMap: the streets inside match the City's 2022 list (piazza Scammacca, via Pulvirenti, via Mazza, piazza Ogninella, via Sant'Orsola, via Euplio Reina, via Maria Callas). Not shown: the camera-watched pedestrian streets (via Etnea, via Crociferi, via Sciuti, via Mazzini, San Giovanni li Cuti seafront); only piazza Bellini is drawn as a pedestrian area."
+    ],
+    "pending_it": [
+     "Bozza: i siti del Comune e di AMTS non erano leggibili da qui (connessione rifiutata). Ogni regola viene dai riassunti della ricerca web sulle pagine ufficiali e sulla stampa, non dal loro testo: da verificare parola per parola.",
+     "Orario 0–24 tutti i giorni: confermato solo da guide non ufficiali (autovia.it, sicurauto.it); un sito indica lun–ven 8–20. GateLR usa 0–24, la risposta più prudente. Il numero dell'ordinanza non è stato trovato.",
+     "Alberghi e B&B dentro: chiedono per la tua auto un permesso temporaneo gratuito sul sito AMTS (per scaricare i bagagli all'arrivo e alla partenza, al massimo 12 ore, non più permessi delle camere). Scadenza della richiesta non trovata.",
+     "Auto elettriche: non esenti in automatico, quindi GateLR non le esenta. Moto: le fonti non ne parlano. Contrassegno disabili: ammessi con la persona a bordo; non trovato come registrare la targa. Multa 84–335 € (Codice della Strada). Info: ztl@amts.ct.it, 095 7519367.",
+     "Perimetro e i due varchi da OpenStreetMap: le strade dentro coincidono con l'elenco del Comune del 2022 (piazza Scammacca, via Pulvirenti, via Mazza, piazza Ogninella, via Sant'Orsola, via Euplio Reina, via Maria Callas). Non mostrate: le aree pedonali con telecamera (via Etnea, via Crociferi, via Sciuti, via Mazzini, lungomare di San Giovanni li Cuti); solo piazza Bellini è disegnata come area pedonale."
+    ],
+    "pending_de": [
+     "Entwurf: Die Websites der Stadt und der AMTS waren von hier aus nicht lesbar (Verbindung abgelehnt). Alle Regeln stammen aus Zusammenfassungen der Websuche zu offiziellen Seiten und Presse, nicht aus deren Text: Wort für Wort zu prüfen.",
+     "Zeiten rund um die Uhr, täglich: nur von inoffiziellen Ratgebern bestätigt (autovia.it, sicurauto.it); eine Seite nennt Mo–Fr 8–20 Uhr. GateLR nimmt 24 Stunden als sicherere Antwort. Die Nummer der Verordnung wurde nicht gefunden.",
+     "Hotels und B&Bs innen: Sie beantragen für dein Auto eine kostenlose befristete Genehmigung auf der AMTS-Website (zum Ausladen bei An- und Abreise, höchstens 12 Stunden, nicht mehr Genehmigungen als Zimmer). Frist für den Antrag nicht gefunden.",
+     "Elektroautos: nicht automatisch befreit, daher befreit GateLR sie nicht. Motorräder: in den Quellen nicht behandelt. Behindertenausweis: erlaubt mit der Person an Bord; wie das Kennzeichen gemeldet wird, nicht gefunden. Bußgeld 84–335 € (Straßenverkehrsordnung). Info: ztl@amts.ct.it, 095 7519367.",
+     "Grenze und die zwei Kameras aus OpenStreetMap: Die Straßen innen entsprechen der Liste der Stadt von 2022 (Piazza Scammacca, Via Pulvirenti, Via Mazza, Piazza Ogninella, Via Sant'Orsola, Via Euplio Reina, Via Maria Callas). Nicht gezeigt: die kameraüberwachten Fußgängerstraßen (Via Etnea, Via Crociferi, Via Sciuti, Via Mazzini, Uferstraße San Giovanni li Cuti); nur die Piazza Bellini ist als Fußgängerzone eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "City of Catania (2022): historic-centre ZTL cameras on",
+      "title_it": "Comune di Catania (2022): ZTL Centro Storico, telecamere attive",
+      "title_de": "Stadt Catania (2022): Kameras der ZTL Centro Storico aktiv",
+      "url": "https://www.comune.catania.it/informazioni/cstampa/default.aspx?cs=84326"
+     },
+     {
+      "title": "AMTS (city mobility company): rules for entering the ZTL and pedestrian areas (PDF)",
+      "title_it": "AMTS: disposizioni operative per l'accesso alle ZTL e AP (PDF)",
+      "title_de": "AMTS (städtische Mobilitätsgesellschaft): Regeln für die Zufahrt zu ZTL und Fußgängerzonen (PDF)",
+      "url": "https://www.amts.ct.it/wp-content/uploads/Sostare/Disposizioni_%20operative_%20accesso_alle_ZTL_e_%20AP.pdf"
+     },
+     {
+      "title": "AMTS: ZTL and pedestrian areas in Catania",
+      "title_it": "AMTS: «ZTL e Aree pedonali» nella città di Catania",
+      "title_de": "AMTS: ZTL und Fußgängerzonen in Catania",
+      "url": "https://www.amts.ct.it/ztl-e-aree-pedonali-nella-citta-di-catania-un-primo-bilancio-sui-vantaggi-per-la-mobilita"
+     },
+     {
+      "title": "CataniaToday (2022): the ZTL starts, fines from 28 July",
+      "title_it": "CataniaToday (2022): attiva la ZTL, sanzioni dal 28 luglio",
+      "title_de": "CataniaToday (2022): ZTL startet, Bußgelder ab 28. Juli",
+      "url": "https://www.cataniatoday.it/cronaca/ztl-centro-storico-attivazione-comune-catania-1-luglio-2022.html"
+     },
+     {
+      "title": "OpenStreetMap: relation 14421298 «ZTL Centro Storico» (ODbL)",
+      "title_it": "OpenStreetMap: relazione 14421298 «ZTL Centro Storico» (ODbL)",
+      "title_de": "OpenStreetMap: Relation 14421298 «ZTL Centro Storico» (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/14421298"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "pedestrian": [
+  {
+   "id": "ct-ap-piazza-bellini",
+   "name": "Piazza Vincenzo Bellini",
+   "perimeter": [
+    {
+     "lat": 37.505009,
+     "lon": 15.090073
+    },
+    {
+     "lat": 37.505013,
+     "lon": 15.090225
+    },
+    {
+     "lat": 37.504497,
+     "lon": 15.090459
+    },
+    {
+     "lat": 37.504596,
+     "lon": 15.090863
+    },
+    {
+     "lat": 37.504606,
+     "lon": 15.091192
+    },
+    {
+     "lat": 37.504157,
+     "lon": 15.091216
+    },
+    {
+     "lat": 37.504117,
+     "lon": 15.090374
+    },
+    {
+     "lat": 37.504152,
+     "lon": 15.090346
+    },
+    {
+     "lat": 37.504253,
+     "lon": 15.09046
+    },
+    {
+     "lat": 37.504376,
+     "lon": 15.09041
+    },
+    {
+     "lat": 37.504417,
+     "lon": 15.090241
+    },
+    {
+     "lat": 37.504452,
+     "lon": 15.090277
+    },
+    {
+     "lat": 37.505009,
+     "lon": 15.090073
+    }
+   ]
+  }
+ ],
+ "license": "Rules: Comune di Catania and AMTS (read through web-search summaries). Perimeter, gates and pedestrian area: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

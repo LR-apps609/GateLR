@@ -1,0 +1,19 @@
+Ricerca WebSearch: Catania ZTL centro storico 2026 orari varchi telecamere attivazione
+Letta il: 2026-10-26 (riassunto restituito dal motore di ricerca WebSearch, NON testo letterale delle pagine; comune.catania.it e amts.ct.it non erano raggiungibili dal sandbox: proxy 403, WebFetch non risolve l'host)
+
+Links: https://www.comune.catania.it/informazioni/cstampa/default.aspx?cs=84326 ("ZTL Centro Storico, telecamere attive in pre esercizio: dal 28 luglio violazioni rilevate elettronicamente » Comunicati Stampa") ; https://www.autovia.it/ztl-catania-guida-completa/ ; https://www.sixt.it/magazine/guide/ztl-a-catania-tutte-le-informazioni/ ; https://www.accessibilitacentristorici.it/ztl/sicilia/catania.html ; https://www.cataniatoday.it/guida/viabilita/permesso-auto-ztl-catania-come-richiederlo.html ; https://tyremap.com/emission-zones/catania/
+
+- Orari: Diverse guide aggiornate al 2026 indicano che il controllo non si interrompe mai, anche la notte, la domenica e a Ferragosto (La ZTL di Catania non prevede fasce orarie. È attiva ventiquattro ore su ventiquattro, tutti i giorni dell'anno.). Anche altre fonti confermano il funzionamento h24 (Le telecamere a protezione della ZTL di Catania sono in funzione tutti i giorni 24 ore su 24.).
+- Conflitto: Il sito tyremap.com riporta invece un orario feriale 8-20 (Operating hours: Mon-Fri 8am-8pm), ma è un sito generico, non ufficiale, e si contraddice nella stessa pagina.
+- Varchi: I due punti di controllo principali si trovano in via Sant'Agata e via Landolina, entrambi all'incrocio nord con via Vittorio Emanuele II. Al sistema ZTL si integrano diverse aree pedonali video-controllate del centro storico: via Etnea, via dei Crociferi, piazza Vincenzo Bellini, via Sciuti, via Mazzini e il lungomare di San Giovanni li Cuti (varchi attivi dal 2022).
+- Riconoscimento e permessi: L'autorizzazione è un'informazione digitale collegata alla targa, riconosciuta in automatico dalle telecamere al transito. I cittadini aventi diritto potranno attivare il servizio di rilascio dei pass di ingresso nell'area, che avverrà esclusivamente mediante procedura on-line sulla piattaforma web del sito dell'Amts.
+- Attivazione: Diventa effettiva la Zona a Traffico Limitato nel Centro Storico, con epicentro piazza Ogninella e via Pulvirenti, nei pressi del Teatro Massimo Bellini.
+- Carico/scarico: Le operazioni di carico e scarico si possono effettuare all'interno della ZTL di Catania dalle ore 6,00 alle ore 8,00 e dalle ore 14,00 alle ore 16,00 (fonti datate).
+
+Ricerca collegata (comune.catania.it "ZTL Centro Storico" telecamere pre esercizio 28 luglio …):
+Links: https://catania.gds.it/articoli/politica/2022/07/02/__trashed-76-100279a7-a076-438a-aac6-bb9eaedc9276/ ; https://www.cataniatoday.it/cronaca/ztl-centro-storico-attivazione-comune-catania-1-luglio-2022.html ; https://newsicilia.it/catania/cronaca/ztl-centro-storico-di-catania-telecamere-attive-in-pre-esercizio-dal-28-luglio-violazioni-rilevate-elettronicamente/794356/ ; https://livesicilia.it/ztl-centro-storico-attivi-i-varchi-in-zona-piazza-teatro-massimo/
+- Coverage from July 1–2, 2022 describes the pre-operation phase as running until July 28, when fines through the access-point cameras were to begin.
+- Camera-monitored streets included via Euplio Reina, piazza Scammacca, via Sant'Agata, via Mazza, and via Maria Callas (ex via Birreria), per CataniaToday.
+- A newsicilia article describes the zone as covering piazza Scammacca, via Pulvirenti, via Mazza, piazza Ogninella, and via Sant'Orsola, with access-control cameras at via Pulvirenti and via Sant'Agata.
+- The official press release lists ztl@amts.ct.it and phone numbers 095 7519367 and 095 7519368 for information (newsicilia.it).
+- I did not find the original municipal ordinance (ordinanza) number or its current status.
