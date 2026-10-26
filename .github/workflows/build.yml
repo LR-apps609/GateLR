@@ -105,6 +105,11 @@ jobs:
           grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true
           grep -E "error:|Test Case .*failed" ui.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
           ls -la screenshots || true
+          if [ "$status" != 0 ]; then
+            # Dove si è fermato: righe sospette e coda del registro come avvisi (i registri interi non si scaricano)
+            grep -nE "hung|crash|Crash|Timed out|timed out|Failed to|failed:|not hittable|Unable|Assertion|Fatal|t =  .*(Tap|Find|Wait)" ui.log | tail -n 25 | while IFS= read -r l; do echo "::warning::${l:0:300}"; done
+            tail -n 30 ui.log | while IFS= read -r l; do echo "::notice::${l:0:300}"; done
+          fi
           exit $status
 
       - name: Pubblica le foto nel ramo «screenshots»
