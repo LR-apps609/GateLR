@@ -104,6 +104,12 @@ struct VehicleForm: View {
     @EnvironmentObject var store: Store
     @Environment(\.dismiss) private var dismiss
     @State var vehicle: Vehicle
+    @State private var scanning = false
+    @State private var pickingRental = false
+    /// I dati appena letti dal libretto o scelti tra le auto a noleggio: i cambi di marca e di anno che arrivano
+    /// da qui non cancellano il modello e non ricalcolano la classe Euro (quella del libretto vale più dell'anno)
+    @State private var filled: Vehicle?
+    private var isNew: Bool { !store.vehicles.contains { $0.id == vehicle.id } }
 
     private var models: [String] { CarCatalog.makes.first { $0.make == vehicle.make }?.models ?? [] }
     private static let thisYear = Calendar.current.component(.year, from: Date())
@@ -111,6 +117,16 @@ struct VehicleForm: View {
     var body: some View {
         NavigationStack {
             Form {
+                if isNew {
+                    Section {
+                        Button { scanning = true } label: { Label("Photograph the registration document", systemImage: "doc.text.viewfinder") }
+                            .accessibilityIdentifier("vehicle.scan")
+                        Button { pickingRental = true } label: { Label("Rental car: pick the model", systemImage: "car.2.fill") }
+                            .accessibilityIdentifier("vehicle.rental")
+                    } header: { Text("Car in 10 seconds") } footer: {
+                        Text("Plate, make, model, fuel and Euro class read on the iPhone: you check them before saving.")
+                    }
+                }
                 Section {
                     TextField(L("Name (e.g. Rental car)"), text: $vehicle.name)
                     TextField(L("Plate"), text: $vehicle.plate).textInputAutocapitalization(.characters).autocorrectionDisabled()
@@ -120,9 +136,10 @@ struct VehicleForm: View {
                     Picker(L("Make"), selection: $vehicle.make) {
                         Text("–").tag(String?.none)
                         ForEach(CarCatalog.makes, id: \.make) { Text($0.make).tag(Optional($0.make)) }
+                        if let m = vehicle.make, !CarCatalog.makes.contains(where: { $0.make == m }) { Text(m).tag(Optional(m)) }
                     }
                     .pickerStyle(.navigationLink)
-                    .onChange(of: vehicle.make) { vehicle.model = "" }
+                    .onChange(of: vehicle.make) { vehicle.model = filled?.make == vehicle.make ? (filled?.model ?? "") : "" }
                     if !models.isEmpty {
                         Picker(L("Model"), selection: $vehicle.model) {
                             Text("–").tag("")
@@ -137,7 +154,10 @@ struct VehicleForm: View {
                         Text("–").tag(Int?.none)
                         ForEach((1990...Self.thisYear).reversed(), id: \.self) { Text(String($0)).tag(Optional($0)) }
                     }
-                    .onChange(of: vehicle.year) { if let y = vehicle.year { vehicle.euro = CarCatalog.euro(forYear: y) } }
+                    .onChange(of: vehicle.year) {
+                        if let f = filled, f.year == vehicle.year { vehicle.euro = f.euro }
+                        else if let y = vehicle.year { vehicle.euro = CarCatalog.euro(forYear: y) }
+                    }
                 } header: { Text("Car") }
                 Section {
                     Picker(L("Fuel"), selection: $vehicle.fuel) { ForEach(Fuel.allCases) { Text($0.label).tag($0) } }
@@ -163,7 +183,21 @@ struct VehicleForm: View {
                     .disabled(vehicle.name.isEmpty && vehicle.make == nil)
                 }
             }
+            .sheet(isPresented: $scanning) { RegistrationScanView { fill($0) } }
+            .sheet(isPresented: $pickingRental) { RentalPresetsView { fill($0) } }
         }
+    }
+
+    /// Dal libretto o dalle auto a noleggio al modulo: si salva solo dopo averlo controllato
+    private func fill(_ v: Vehicle) {
+        filled = v
+        if !v.plate.isEmpty { vehicle.plate = v.plate }
+        vehicle.make = v.make
+        vehicle.model = v.model
+        vehicle.year = v.year
+        vehicle.fuel = v.fuel
+        vehicle.euro = v.euro
+        if v.isRental { vehicle.isRental = true }
     }
 }
 

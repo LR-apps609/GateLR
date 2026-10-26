@@ -70,7 +70,7 @@ targets:
         # iPad: tutte le orientazioni (anche Split View e Slide Over); l'iPhone resta in verticale
         UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
         NSHumanReadableCopyright: "Uso personale di Ledion"
-        NSCameraUsageDescription: "GateLR reads the hours on the ZTL panel you point the camera at."
+        NSCameraUsageDescription: "GateLR reads the hours on the ZTL panels, registration documents and fine notices you photograph, on your iPhone."
         NSLocationWhenInUseUsageDescription: "GateLR uses your location to tell you which ZTL gates are near you."
         # Navigazione: posizione e voce anche con lo schermo spento o un'altra app davanti
         UIBackgroundModes: [location, audio]

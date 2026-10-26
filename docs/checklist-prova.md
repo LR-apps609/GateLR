@@ -206,3 +206,21 @@ Da provare guidando davvero (con qualcuno che guarda il telefono, o col telefono
 - [ ] iPhone in italiano: nessuna parola inglese
 - [ ] Modalità scura: tutto leggibile
 - [ ] Widget: si sceglie la zona (tieni premuto → Modifica widget)
+
+## 12. Auto in 10 secondi e «Ho preso una multa?» (lettura di libretto e verbale)
+- [ ] Garage → + : in cima «Auto in 10 secondi» con «Fotografa il libretto» e «Auto a noleggio: scegli il modello» (solo per un veicolo nuovo, non quando ne modifichi uno)
+- [ ] «Fotografa il libretto» → «Usa la fotocamera»: foto del fronte del libretto vero → scheda «Controlla prima di salvare» con targa (A), marca (D.1), modello (D.3), anno (B), alimentazione (P.3), classe Euro (V.9)
+- [ ] La nota sotto la classe Euro: «dal libretto: …» se ha letto il V.9; in giallo «proposta dall'anno» se il V.9 non c'è
+- [ ] Correggi un campo, «Usa questi dati» → il modulo è compilato, il modello non si cancella e la classe Euro resta quella del libretto; «Salva»
+- [ ] «Scegli una foto» con una foto del libretto (anche storta o con riflessi): legge qualcosa o dice di riprovare
+- [ ] Se c'è, un libretto estero (tedesco, francese, spagnolo, olandese): targa come stampata, carburante giusto
+- [ ] Fotocamera negata (Impostazioni → GateLR → Fotocamera spenta): riquadro «Consenti la fotocamera» con «Apri Impostazioni»; riaccesa e tornando nell'app la fotocamera si apre da sola
+- [ ] «Auto a noleggio»: elenco (Panda, 500, Ypsilon, Polo, Golf, T-Roc, 208, 2008, Clio, Captur, Yaris, Yaris Cross, Renegade, Compass, C3, Corsa, Sandero…) → per i modelli con più versioni chiede il carburante → modulo con «Auto a noleggio» acceso, Euro 6
+- [ ] Account → «Ho preso una multa?» → in cima «Fotografa il verbale»
+- [ ] Foto di un verbale ZTL (o scrivi a mano: «Comune di Firenze … il giorno 12/03/2026 alle ore 10:32 … varco … Via Cavour … Notificato il 02/04/2026»)
+- [ ] «Cosa abbiamo letto»: data e ora (in ora italiana), varco o via, città e zona proposte e modificabili, importo, articolo, numero, targa
+- [ ] «Il varco era attivo?»: rosso «era attivo» / verde «non era attivo» / giallo nei festivi non confermati, con la nota che gli orari sono quelli di oggi e il link alla fonte del Comune
+- [ ] «Scadenze» dalla data di notifica (modificabile): −30% entro 5 giorni, Giudice di Pace 30, pagamento e Prefetto 60; le date passate barrate in rosso; la nota 90/360 giorni (art. 201)
+- [ ] «Copia un testo per il ricorso» → «Copiato»; incollato in Note: inizia con «BOZZA», ha i dati letti e i segnaposto tra [ ]
+- [ ] «Riferimenti ufficiali»: i link a Normattiva si aprono
+- [ ] In italiano e in modalità scura: niente inglese, tutto leggibile

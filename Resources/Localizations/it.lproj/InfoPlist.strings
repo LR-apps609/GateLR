@@ -1,4 +1,4 @@
 /* Generato da Tools/translations.py */
 "NSLocationWhenInUseUsageDescription" = "GateLR usa la tua posizione per dirti quali varchi ZTL hai vicino.";
 "NSLocationAlwaysAndWhenInUseUsageDescription" = "GateLR ti avvisa prima di un varco ZTL mentre guidi con un altro navigatore e quando l'app è chiusa.";
-"NSCameraUsageDescription" = "GateLR legge gli orari sul pannello ZTL che inquadri.";
+"NSCameraUsageDescription" = "GateLR legge sul tuo iPhone gli orari dei pannelli ZTL, i libretti e i verbali che fotografi.";

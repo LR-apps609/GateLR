@@ -1,4 +1,4 @@
 /* Generato da Tools/translations.py */
 "NSLocationWhenInUseUsageDescription" = "GateLR 使用你的位置，告诉你附近有哪些 ZTL 入口。";
 "NSLocationAlwaysAndWhenInUseUsageDescription" = "当你使用其他导航驾驶或应用关闭时，GateLR 会在 ZTL 入口前提醒你。";
-"NSCameraUsageDescription" = "GateLR 读取你用相机对准的 ZTL 牌子上的时间。";
+"NSCameraUsageDescription" = "GateLR 在你的 iPhone 上读取你拍摄的 ZTL 牌子上的时间、行驶证和罚单。";

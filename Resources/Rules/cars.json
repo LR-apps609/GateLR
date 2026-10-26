@@ -361,5 +361,376 @@
     "V60"
    ]
   }
+ ],
+ "rental_note": "Modelli tipici delle flotte di noleggio in Italia (elenco nostro): carburanti delle versioni più comuni, tutte Euro 6. Il primo carburante è il più frequente; la versione vera è sul libretto in auto (P.3 e V.9).",
+ "rental": [
+  {
+   "make": "Fiat",
+   "model": "Panda",
+   "fuels": [
+    "hybrid",
+    "petrol",
+    "lpg"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Fiat",
+   "model": "500",
+   "fuels": [
+    "hybrid",
+    "petrol"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Fiat",
+   "model": "500e",
+   "fuels": [
+    "electric"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Fiat",
+   "model": "500X",
+   "fuels": [
+    "petrol",
+    "diesel",
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Fiat",
+   "model": "Tipo",
+   "fuels": [
+    "petrol",
+    "diesel",
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Fiat",
+   "model": "600",
+   "fuels": [
+    "hybrid",
+    "electric"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Lancia",
+   "model": "Ypsilon",
+   "fuels": [
+    "hybrid",
+    "petrol",
+    "electric"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Volkswagen",
+   "model": "Polo",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Volkswagen",
+   "model": "Golf",
+   "fuels": [
+    "petrol",
+    "diesel",
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Volkswagen",
+   "model": "T-Roc",
+   "fuels": [
+    "petrol",
+    "diesel"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Volkswagen",
+   "model": "T-Cross",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Peugeot",
+   "model": "208",
+   "fuels": [
+    "petrol",
+    "diesel",
+    "electric"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Peugeot",
+   "model": "2008",
+   "fuels": [
+    "petrol",
+    "diesel",
+    "hybrid",
+    "electric"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Peugeot",
+   "model": "308",
+   "fuels": [
+    "petrol",
+    "diesel",
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Renault",
+   "model": "Clio",
+   "fuels": [
+    "petrol",
+    "hybrid",
+    "lpg",
+    "diesel"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Renault",
+   "model": "Captur",
+   "fuels": [
+    "petrol",
+    "hybrid",
+    "lpg"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Toyota",
+   "model": "Yaris",
+   "fuels": [
+    "hybrid",
+    "petrol"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Toyota",
+   "model": "Yaris Cross",
+   "fuels": [
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Toyota",
+   "model": "Aygo X",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Jeep",
+   "model": "Renegade",
+   "fuels": [
+    "hybrid",
+    "petrol",
+    "diesel"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Jeep",
+   "model": "Compass",
+   "fuels": [
+    "hybrid",
+    "diesel"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Jeep",
+   "model": "Avenger",
+   "fuels": [
+    "petrol",
+    "hybrid",
+    "electric"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Citroën",
+   "model": "C3",
+   "fuels": [
+    "petrol",
+    "diesel",
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Citroën",
+   "model": "C3 Aircross",
+   "fuels": [
+    "petrol",
+    "diesel"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Opel",
+   "model": "Corsa",
+   "fuels": [
+    "petrol",
+    "hybrid",
+    "electric"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Opel",
+   "model": "Mokka",
+   "fuels": [
+    "petrol",
+    "electric"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Dacia",
+   "model": "Sandero",
+   "fuels": [
+    "petrol",
+    "lpg"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Dacia",
+   "model": "Duster",
+   "fuels": [
+    "petrol",
+    "lpg",
+    "diesel",
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Ford",
+   "model": "Puma",
+   "fuels": [
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Ford",
+   "model": "Fiesta",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Kia",
+   "model": "Picanto",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Kia",
+   "model": "Stonic",
+   "fuels": [
+    "petrol",
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Hyundai",
+   "model": "i10",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Hyundai",
+   "model": "i20",
+   "fuels": [
+    "petrol",
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Skoda",
+   "model": "Fabia",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Nissan",
+   "model": "Juke",
+   "fuels": [
+    "petrol",
+    "hybrid"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Nissan",
+   "model": "Qashqai",
+   "fuels": [
+    "hybrid",
+    "diesel"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Mercedes-Benz",
+   "model": "Classe A",
+   "fuels": [
+    "petrol",
+    "diesel"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "Audi",
+   "model": "A3",
+   "fuels": [
+    "petrol",
+    "diesel"
+   ],
+   "euro": 6
+  },
+  {
+   "make": "BMW",
+   "model": "Serie 1",
+   "fuels": [
+    "petrol",
+    "diesel"
+   ],
+   "euro": 6
+  }
  ]
 }

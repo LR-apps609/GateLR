@@ -73,6 +73,24 @@ struct FineGuideView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
+                NavigationLink { FineScanView() } label: {
+                    HStack(spacing: 14) {
+                        Image(systemName: "doc.text.viewfinder")
+                            .font(.app(size: 20, weight: .semibold)).foregroundStyle(.white)
+                            .frame(width: 44, height: 44)
+                            .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Photograph the notice").font(Theme.display(21)).foregroundStyle(Theme.ink)
+                            Text("GateLR reads date, time and gate, checks the hours we know and works out your deadlines.")
+                                .font(.app(size: 14)).foregroundStyle(Theme.muted).fixedSize(horizontal: false, vertical: true)
+                        }
+                        Spacer(minLength: 0)
+                        Image(systemName: "chevron.right").foregroundStyle(Theme.muted)
+                    }
+                    .padding(16).frame(maxWidth: .infinity, alignment: .leading).card(18)
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("fine.scan")
                 step("1", "When it arrives", "In Italy the notice must arrive within 90 days. If you live abroad it can take up to a year (360 days). With a rental car, the company is asked first and then passes on your details.")
                 step("2", "The rental company's charge", "The rental company often charges your card €30–90 for passing on your details. That's their fee, not the fine: the fine arrives later, by post, from the city.")
                 step("3", "How much", fineText)
