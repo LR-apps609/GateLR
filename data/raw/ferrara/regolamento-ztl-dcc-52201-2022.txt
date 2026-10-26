@@ -1,0 +1,1084 @@
+URL: https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf
+Letto il: 2026-10-26 (Comune di Ferrara, Regolamento per l'accesso e la circolazione dei veicoli nelle ZTL e nelle aree pedonali e per la sosta nei settori, DCC P.G. 52201/2022 del 16/05/2022: fonte ufficiale; testo estratto con pdftotext -layout)
+
+Servizio Mobilità, Traffico e Sosta
+U.O. Mobilità, Traffico e Sosta
+
+
+
+
+ “REGOLAMENTO
+  REGOLAMENTO PER L’ACCESSO E
+        LA CIRCOLAZIONE DEI VEICOLI
+NELLE ZONE A TRAFFICO LIMITATO E
+     NELLE AREE PEDONALI E PER LA
+     SOSTA DEI VEICOLI NEI SETTORI”
+                           SETTORI
+   (Approvato con Delibera di Consi
+                              Consiglio
+                                    glio Comunale P.G. n. 52201/2022 del 16/05/2022)
+
+
+
+
+                                                                                       1
+2
+Sommario
+ TITOLO I – AMBITO TERRITORIALE E DISPOSIZIONI GENERALI                     5
+  ART. 1 DEFINIZIONI                                                        5
+  ART. 2 AMBITO TERRITORIALE                                                6
+  ART. 3 OGGETTO DEL REGOLAMENTO E DISPOSIZIONI GENERALI                    6
+  ART. 4 TIPOLOGIE DI AUTORIZZAZIONI                                        6
+    4.1 Accesso, transito e sosta in ZTL                                    6
+    4.2 Sosta nei Settori                                                  7
+    4.3 Ferrara Pass                                                        7
+  ART. 5 CATEGORIE DI VEICOLI                                               8
+    5.1 Veicoli esenti dall’autorizzazione                                  8
+    5.2 Veicoli elettrici                                                   8
+    5.3 Veicoli trasporto merci                                             8
+    5.4 Veicoli e categorie ambientali                                      8
+  ART. 6 PROPRIETA’ DEI VEICOLI                                             8
+  ART. 6 bis MODALITA’ DI RILASCIO DEI PASS                                 9
+ TITOLO II –RESIDENTI E DOMICILIATI                                         9
+  ART. 7 RESIDENTI E DOMICILIATI IN ZTL e AP SENZA POSTO AUTO               9
+    7.1 Permesso ZTL                                                        9
+    7.2 Permesso Sosta                                                     11
+  ART. 8 RESIDENTI E DOMICILIATI IN ZTL e AP CON POSTO AUTO                11
+    8.1 Permesso ZTL                                                       11
+    8.2 Permesso Sosta                                                     12
+  ART. 9 RESIDENTI FUORI ZTL O AP                                          13
+    9.1 Permesso ZTL                                                       13
+    9.2 Permesso Sosta                                                     13
+  ART. 10 AUTORIZZAZIONI SCUOLE                                            14
+    Procedimento di rilascio e validità dell'autorizzazione                14
+ TITOLO III –OPERATORI COMMERCIALI, ARTIGIANI E ALTRI                      15
+  ART. 11 AUTORIZZAZIONI TIPO F1, F2, F3, F4, F5 - OPERATORI COMMERCIALI   15
+    Validità dell'autorizzazione                                           16
+  ART. 12 AUTORIZZAZIONE TIPO F6 - ARTIGIANI                               16
+  ART. 13 AUTORIZZAZIONE TIPO F7 - ALTRE                                   17
+  ART.14 AUTORIZZAZIONE PER GLI OPERATORI DEL COMMERCIO SU AREA PUBBLICA   20
+  ART.15 AUTORIZZAZIONE PER MANIFESTAZIONI                                 20
+ TITOLO IV – PERSONE DISABILI                                              20
+  ART.16 ACCESSO DEI VEICOLI AL SERVIZIO DI PERSONA DISABILE               20
+ TITOLO V – VALIDITA’ DELLA AUTORIZZAZIONI E DISPOSIZIONI VARIE            21
+
+                                                                            3
+   Criteri di articolazione ed uso dei proventi corrispondenti    21
+TITOLO VI – NORME TRANSITORIE ED ENTRATA IN VIGORE                26
+ ART. 24 INTRODUZIONE DEL CONTRASSEGNO ELETTRONICO FERRARA PASS   26
+ ART. 25 ENTRATA IN VIGORE DEL REGOLAMENTO                        27
+
+
+
+
+                                                                   4
+          TITOLO I – AMBITO TERRITORIALE E DISPOSIZIONI
+                                                  GENERALI
+
+         ART. 1 DEFINIZIONI
+Area Pedonale (AP): zona interdetta alla circolazione dei veicoli, salvo quelli in servizio di emergenza, i
+velocipedi e i veicoli al servizio di persone con limitate o impedite capacità motorie, nonché eventuali
+deroghe per i veicoli ad emissioni zero aventi ingombro e velocità tali da poter essere assimilate a
+velocipedi.
+Autorizzazione per l’accesso, la circolazione e la sosta in ZTL e AP (di seguito detto Permesso ZTL):
+autorizzazione che consente, all’avente diritto l’accesso, la circolazione e la sosta in ZTL e AP secondo le
+modalità previste dal presente Regolamento e con eventuali ulteriori limitazioni previste dalle singole
+Ordinanze Sindacali.
+Autorizzazione per la sosta nei Settori (di seguito detto Permesso Sosta): autorizzazione che consente
+all’avente diritto la sosta nei Settori secondo le modalità previste dal presente Regolamento.
+Famiglia: si intende la famiglia anagrafica, cioè l’insieme di persone coabitanti unite da vincoli di parentela,
+matrimonio, adozione, affinità o convivenza (art. 4 DPR 30/05/89 n. 223).
+Ferrara Pass: contrassegno elettronico senza scadenza a cui può essere associata sia l’autorizzazione per
+l’accesso, la circolazione e la sosta nelle zone a traffico limitato e nelle aree pedonali (Permesso ZTL) che
+l’autorizzazione alla sosta nei Settori (Permesso Sosta), a seconda dei diritti in possesso del richiedente.
+Tale Pass riporterà sul fronte il numero di identificazione e il Qr code, sul retro alcune istruzioni generali
+sull’utilizzo e all’interno sarà contenuto il dispositivo Rfid.
+Lista bianca: lista contenente l’elenco delle targhe autorizzate all’accesso in ZTL per il controllo tramite i
+varchi elettronici; il sistema di rilevamento consente il riconoscimento automatico delle targhe autorizzate.
+Parcheggio a pagamento: area di sosta a pagamento su strada identificata da segnaletica orizzontale blu e
+da segnaletica verticale che riporta anche la tipologia di tariffa prevista. Nei parcheggi a pagamento la sosta
+è consentita gratuitamente ai Residenti del Settore di appartenenza se specificamente indicato sulla
+segnaletica verticale.
+Parcheggio Residenti: area di sosta gratuita riservata in via esclusiva a particolari categorie definite dal
+presente Regolamento. La specifica dicitura sulla segnaletica verticale ne identifica precisamente la
+categoria cui è riservata.
+Posto auto: si considerano posti auto garage, cortili, box, aree pertinenziali private (di proprietà o in affitto).
+Settore: area che comprende una zona a traffico limitato e un’area adiacente esterna alla ZTL.
+Strada corridoio: strada posta tra diverse ZTL o all’interno di una stessa ZTL, transitabile senza limitazioni.
+Tag Rfid: (Tag radio frequency identification) dispositivo elettronico di tipo passivo presente all’interno del
+Ferrara Pass in grado di essere riconosciuto dalle antenne Rfid collocate su strada.
+Virtual TAG: codice virtuale che permette di identificare in modo univoco un veicolo.
+Unità abitativa: è l'alloggio residenziale che, di norma, è parte dell'unità immobiliare, potendo anche però
+coincidere con quest'ultima.
+
+                                                                                                                      5
+Zona a Traffico Limitato (ZTL): area in cui l’accesso e la circolazione veicolare sono limitati ad ore
+prestabilite e/o a particolari categorie di utenti e di veicoli.
+
+         ART. 2 AMBITO TERRITORIALE
+Gli ambiti territoriali della ZTL e dei Settori sono quelli stabiliti dalle rispettive Delibere di Giunta.
+
+         ART. 3 OGGETTO DEL REGOLAMENTO E DISPOSIZIONI GENERALI
+La circolazione e la sosta nell’ambito delle ZTL e delle AP, istituite dal Comune di Ferrara ai sensi dell’art. 7
+del D.Lgs 30 aprile 1992, n. 285, “Nuovo Codice della Strada” (in seguito definito Codice della Strada), e dei
+Settori sono disciplinati dal presente Regolamento con le modalità e secondo le prescrizioni in esso
+contenute.
+In particolare, il Regolamento definisce tipologia e modalità di rilascio delle autorizzazioni necessarie
+all’accesso, al transito e alla sosta nelle suddette zone ed aree, nonché i soggetti responsabili del relativo
+procedimento autorizzatorio.
+Le autorizzazioni di cui al presente regolamento possono subire limitazioni dovute ad eventuali
+provvedimenti adottati dall’Amministrazione Comunale (ad es. ordinanze per la tutela dell’Aria e
+dell’Ambiente).
+
+         ART. 4 TIPOLOGIE DI AUTORIZZAZIONI
+
+4.1 Accesso, transito e sosta in ZTL
+Le autorizzazioni previste dal presente regolamento consentono l’accesso, la circolazione e la sosta nelle
+zone a traffico limitato e nelle aree pedonali, nei limiti previsti dalle presenti norme nonché dalle prescrizioni
+particolari in esse indicate.
+I Permessi ZTL consentono la circolazione limitatamente alle vie e percorsi indicati, ovvero seguendo il
+percorso più breve all’interno della zona a traffico limitato, e possono essere in qualsiasi momento revocati,
+sospesi o limitati per motivi di sicurezza e di ordine pubblico.
+Indipendentemente dalle prescrizioni che condizionano l’efficacia dell’autorizzazione, è sempre vietato il
+transito in attraversamento delle AP e ZTL, al solo fine di abbreviare il percorso.
+In caso di impraticabilità dei percorsi consentiti, l’efficacia dei pass abilita alla circolazione dagli altri ingressi
+del comparto fino al ripristino delle normali condizioni di circolazione, fatta salva l'osservanza della
+prescrizione del percorso alternativo più breve.
+È possibile inserire nella stessa autorizzazione fino a 5 targhe.
+Resta invariato l’obbligo di esposizione del Ferrara Pass previsto dall’art. 22, ad eccezione dei permessi
+giornalieri acquistati online.
+In conformità a quanto disposto dal regolamento (UE) n. 2016/679 noto con la sigla GDPR i dati vengono
+conservati nel rispetto della privacy.
+Le tipologie di autorizzazioni sono le seguenti:
+a)   Autorizzazioni permanenti:
+Le autorizzazioni permanenti hanno validità superiore a giorni 90 che decorrono dalla data di rilascio
+dell’autorizzazione.
+
+                                                                                                                     6
+b)   Autorizzazioni temporanee:
+Le autorizzazioni temporanee hanno validità di 90 giorni e sono rilasciabili secondo le stesse modalità e
+tipologie previste per le autorizzazioni permanenti.
+Un’autorizzazione temporanea in scadenza può essere trasformata in permanente, purché il titolare
+autocertifichi la sussistenza di tutti i requisiti previsti per quest’ultima, previo pagamento della quota
+integrativa della tariffa annuale e dei costi per il rilascio della nuova autorizzazione
+c)   Titolo per l’accesso giornaliero:
+I titoli giornalieri sono rilasciati nel rispetto dei limiti delle fasce orarie previste per le corrispondenti tipologie
+dei permessi permanenti.
+Possono essere rilasciati titoli per l’accesso giornaliero a tutte le categorie ad eccezione dei residenti con
+garage (AG1). A questi ultimi possono essere rilasciati permessi giornalieri in caso di targa provvisoria.
+Possono essere anche rilasciati permessi speciali per le seguenti necessità: per carico-scarico di effetti
+personali di residenti o domiciliati, per l’accompagnamento di pazienti da sottoporre a visite mediche
+ambulatoriali, per il trasporto di persone anziane o con difficoltà deambulatorie.
+Possono essere rilasciati titoli giornalieri, altresì, per l’allestimento-organizzazione di manifestazioni, purché
+gli orari e le condizioni del titolo siano corrispondenti alle prescrizioni contenute negli atti della
+manifestazione. La validità del titolo sarà estesa fino alla durata della manifestazione indicata nella Delibera
+di Giunta che la autorizza.
+L’accesso alla ZTL Duomo per tutte le categorie di autorizzati, fatta eccezione per i residenti, i
+disabili ed altre categorie che dimostrino la necessità di un accesso costante, è ammessa solo con
+l’utilizzo di titoli giornalieri.
+Le operazioni di rilascio dei Ferrara Pass sono in carico al Centro Unico Permessi del Comune secondo le
+modalità previste dall’art. 6bis.
+
+4.2 Sosta nei Settori
+Il Permesso Sosta è un’ulteriore autorizzazione prevista dal presente Regolamento che dà diritto ad alcune
+categorie a sostare nelle aree, appositamente riservate alle stesse, ubicate all'interno del proprio Settore.
+Tale autorizzazione non assume alcun valore per l'accesso e la sosta nelle Zone a Traffico Limitato. In
+queste ultime l'unico titolo che legittima l'accesso e la sosta è il relativo specifico Permesso ZTL rilasciato
+dall’Amministrazione Comunale.
+I Permessi Sosta sono titoli permanenti rilasciati a titolo gratuito. Solo in determinati casi, valutati dalla
+Commissione Tecnica ZTL (vedi art. 21), possono essere rilasciati permessi temporanei a titolo oneroso.
+A ciascun Ferrara Pass possono essere associate fino a 5 targhe. Resta tuttavia invariato l’obbligo di
+esposizione del contrassegno previsto dall’art. 22.
+Le operazioni di rilascio dei Ferrara Pass sono in carico al Centro Unico Permessi del Comune secondo le
+modalità previste dall’art. 6bis.
+
+4.3 Ferrara Pass
+Ad ogni Pass può essere associata sia l’autorizzazione per l’accesso, la circolazione e la sosta nelle zone a
+traffico limitato e nelle aree pedonali (Permesso ZTL) che l’autorizzazione alla sosta nei Settori (Permesso
+
+
+                                                                                                                      7
+Sosta) a seconda dei diritti in possesso del richiedente.
+
+         ART. 5 CATEGORIE DI VEICOLI
+
+5.1 Veicoli esenti dall’autorizzazione
+È consentito il transito in tutta la ZTL e nelle AP a veicoli a braccia, veicoli a trazione animale, velocipedi.
+I veicoli al servizio di persone invalide possono accedere e circolare nella ZTL e nelle AP in base a quanto
+prescritto dall’art. 188 del Codice della Strada e dagli artt. 11 e 12 del D.P.R. 24 Luglio 1996, n. 503, con le
+modalità previste all’art. 16 del presente Regolamento.
+Gli autoveicoli e i motoveicoli adibiti a servizio di polizia, antincendio, le autoambulanze e le automediche in
+servizio di pronto intervento possono circolare nella ZTL e nelle AP senza autorizzazione, benché sia
+necessaria la registrazione nel sistema dei varchi elettronici.
+I veicoli per l’espletamento dei servizi di trasporto di pubblica utilità (servizi di linea con conducente, taxi e
+servizio di autonoleggio con conducente), i veicoli che effettuano esclusivamente la raccolta e la
+distribuzione della posta autorizzati dal Ministero dello Sviluppo Economico, possono circolare nelle ZTL
+mentre sono soggetti alla disciplina di volta in volta definita con specifica Ordinanza per quanto riguarda le
+AP e la ZTL Duomo.
+
+5.2 Veicoli elettrici
+I veicoli elettrici che hanno titolo per l’accesso in ZTL possono circolare e sostare, con regolare
+autorizzazione, senza limitazioni di orario a titolo gratuito. Per questi veicoli il transito nelle A.P. e nella ZTL
+Duomo è consentito solo qualora esplicitamente indicato nell’Ordinanza Sindacale dell’area.
+Ai residenti della Provincia di Ferrara, proprietari di veicoli elettrici può essere rilasciato un ulteriore
+contrassegno specifico secondo lo schema individuato dalla Regione Emilia-Romagna (MI MUOVO
+ELETTRICO), ai sensi della Delibera di Giunta Regione Emilia-Romagna n. 597/2012, che consente la sosta
+gratuita nelle aree a pagamento in concessione a Ferrara TUA ad esclusione dei parcheggi in struttura.
+
+5.3 Veicoli trasporto merci
+I veicoli immatricolati per trasporto merci per accedere alla ZTL non possono superare la massa complessiva
+a pieno carico di 3,5 t. Solo in caso di comprovata necessità, e previo nulla osta dell’Ufficio competente, in
+deroga alla presente disciplina può essere consentito l’accesso ai veicoli aventi massa complessiva a pieno
+carico superiore alle 3,5 t. Qualora la massa complessiva del veicolo superi la portata consentita delle strade
+percorse, l’autorizzazione di cui sopra verrà rilasciata anche previo nulla osta del Servizio Mobilità, Traffico e
+Sosta.
+
+5.4 Veicoli e categorie ambientali
+In linea con i provvedimenti che annualmente vengono adottati per la limitazione delle polveri su indicazione
+regionale, verranno previste ordinanze per definire i veicoli che potranno entrare in ZTL. La compatibilità
+ambientale dei veicoli a motore sarà ulteriore requisito per il rilascio dei permessi di accesso e circolazione in
+ZTL.
+
+         ART. 6 PROPRIETA’ DEI VEICOLI
+
+                                                                                                                   8
+Ai fini dell’applicazione del presente Regolamento sono considerati equipollenti alla proprietà del veicolo:
+-   i veicoli di proprietà di altri componenti della famiglia con residenza nella stessa unità abitativa per la
+    quale viene richiesta l’autorizzazione;
+-   i veicoli affidati in uso esclusivo con annotazione sulla carta di circolazione;
+-   i veicoli in leasing o nolo a lungo termine o in forza di usufrutto;
+-   i veicoli concessi al dipendente/collaboratore in uso esclusivo da aziende/enti comprovato ai sensi del
+    Codice della Strada;
+-   il possesso continuativo annotato sulla carta di circolazione di veicolo aziendale qualora l’avente diritto al
+    permesso sia:
+    ●   per le società S.p.A.: Presidente o Amministratore delegato,
+    ●   per le società S.a.s. o S.r.l.: Legale rappresentante,
+    ●   per le società S.n.c.: Socio;
+-   i veicoli sostitutivi di altri già in possesso di autorizzazione al transito in ZTL e temporaneamente in
+    riparazione, dietro presentazione di dichiarazione dell’officina presso cui è depositato il veicolo sostituito.
+Nel testo del presente Regolamento ogni utilizzo del termine “proprietà” fa riferimento a tutti i casi sopra
+elencati. Si riporta in allegato la tabella (vedi Allegato 1) con l’indicazione della documentazione da
+presentare per la richiesta delle autorizzazioni a seconda del diverso titolo di disponibilità del veicolo.
+
+         ART. 6 bis MODALITA’ DI RILASCIO DEI PASS
+Il procedimento per il rilascio dei Ferrara Pass può avvenire tramite procedura on line previo accreditamento
+o rivolgendosi direttamente al Centro Unico Permessi, allegando la documentazione prevista dagli specifici
+moduli di richiesta.
+I titoli giornalieri validi per l’accesso alla ZTL Duomo richiedono obbligatoriamente l’accreditamento.
+Ogni utente, attraverso l’accreditamento presso il portale dedicato, dovrà provvedere all’inserimento dei
+propri dati ed al caricamento della documentazione richiesta. Nel caso in cui l’autorizzazione richiesta sia a
+titolo oneroso, dovrà provvedere al relativo pagamento.
+La validazione dell’accreditamento sarà gestita dal Centro Unico Permessi, nel rispetto del presente
+Regolamento.
+Per le modalità di accreditamento delle scuole/centri estivi si rimanda all’art. 10 del presente Regolamento.
+Per le modalità di accreditamento degli hotel e delle strutture ricettive si rimanda all’art. 13 punto 9.
+
+
+
+
+                        TITOLO II –RESIDENTI E DOMICILIATI
+
+         ART. 7 RESIDENTI E DOMICILIATI IN ZTL e AP SENZA POSTO AUTO
+
+7.1 Permesso ZTL
+I residenti e domiciliati nelle ZTL, nelle AP e nelle strade corridoio hanno diritto:
+a) se residenti, al rilascio di un’autorizzazione di tipo A nel numero di una per unità abitativa, a condizione
+
+                                                                                                                      9
+     che nessun componente della famiglia stessa sia proprietario, possessore ovvero detentore di un posto
+     auto in area privata o di un posto auto in area pubblica ad esclusivo utilizzo del proprio veicolo, all’interno
+     della ZTL o AP, ovvero che dichiari con dichiarazione sostitutiva di atto di notorietà, indicante gli estremi
+     della registrazione del contratto di titolarità del posto auto, di non averne la disponibilità;
+b) se domiciliati e residenti anagraficamente in altro comune ad una distanza superiore a 35 Km dalla sede
+     centrale del Municipio di Ferrara (vedi Allegato 2), al rilascio di un’autorizzazione di tipo AD, nel numero
+     di una per unità abitativa, indipendentemente dal numero di veicoli in uso dai componenti dell’unità
+     abitativa.
+Ad ogni autorizzazione di tipo A o AD possono essere associate fino a 5 targhe.
+Non è previsto il rilascio di permessi di tipo A e AD per la stessa unità abitativa.
+Sarà onere del proprietario dare comunicazione al Centro Unico Permessi qualora acquisisca la disponibilità
+di un posto auto o cambi residenza o domicilio.
+La sosta degli autoveicoli nell’ambito delle ZTL è consentita prioritariamente nelle aree riservate e
+regolarmente segnalate e, dove non presenti, nel rispetto di quanto stabilito dagli artt. 7 e 158 del C.d.S. I
+tempi di sosta degli autoveicoli nell’ambito della ZTL Duomo sono definiti dalla apposita Ordinanza
+Sindacale.
+Nel caso in cui il titolare dell’autorizzazione di tipo A sia in possesso di un posto auto (o abbia un
+appartenente allo stesso nucleo abitativo, possessore di un posto auto), ma non vi ricorre, l’autorizzazione è
+soggetta a pagamento e la sosta in ZTL gli è consentita solo per effettuare operazioni di carico scarico nei
+limiti di tempo strettamente necessari e comunque non eccedenti i 30’, con esposizione obbligatoria del
+disco orario.
+Ai soli titolari di posto auto le cui dimensioni, o le dimensioni della sede stradale su cui si affaccia, in rapporto
+a quelle del veicolo, siano tali da non permettere il ricovero del veicolo oggetto della richiesta, previa
+valutazione della commissione tecnica di cui all’art. 21, la sosta sarà consentita nelle aree riservate e
+regolarmente segnalate nel rispetto di quanto previsto dagli artt. 7 e 158 del D. L.vo 285/1992.
+Il transito nelle AP è consentito ai residenti e dimoranti in dette aree solo qualora sia esplicitamente
+indicato nell’Ordinanza Sindacale istitutiva dell’AP stessa e, in tal caso, solo al fine di effettuare operazioni di
+carico e scarico in prossimità della propria residenza, nei limiti di tempo strettamente necessari ad effettuarle
+e comunque non eccedenti i 30’.
+Validità del Permesso ZTL
+a) Autorizzazione permanente:
+      in caso di residenti, è valida sino a quando non intervengono variazioni di residenza o il decesso del
+      titolare. Nel caso di autorizzazione A a titolo oneroso o AD la validità dell’autorizzazione è di 1 anno (o
+      comunque non oltre la scadenza del contratto di locazione). Per gli utilizzatori di autovetture in uso
+      esclusivo: scadenza annuale a decorrere dalla data di emissione della stessa (o comunque non oltre la
+      durata dell’uso esclusivo).
+b)    Autorizzazione temporanea:
+       validità non oltre 90 giorni.
+c)    Titolo per l’accesso giornaliero: validità come prevista dall'art.4.1 lett.c).
+
+
+                                                                                                                  10
+7.2 Permesso Sosta
+I residenti o domiciliati che sono residenti anagraficamente in altro comune ad una distanza superiore a 35
+Km dalla sede centrale del Municipio di Ferrara (vedi Allegato 2), all'interno delle ZTL o AP o strada corridoio
+hanno diritto anche al rilascio di massimo due permessi sosta per la sosta all’interno del Settore di
+appartenenza:
+
+
+
+       N. POSTI AUTO                1 AUTOVETTURA                   2 AUTOVETTURE               PIU’ DI 2 AUTOVETTURE
+
+
+0                            1 permesso sosta                2 permessi sosta                 2 permessi sosta
+
+
+
+
+Per i residenti e domiciliati delle ZTL B e B1 è previsto il rilascio di un’ulteriore autorizzazione ZTL di tipo A
+o AD (solo ZTL B) e di massimo un Permesso Sosta secondo il seguente criterio:
+
+
+
+       N. POSTI AUTO                1 AUTOVETTURA                   2 AUTOVETTURE               PIU’ DI 2 AUTOVETTURE
+
+
+0                            1 permesso ZTL B1 di tipo A o   1 permesso ZTL B1 di tipo A o    1 permesso ZTL B1 di tipo A o
+                             AD aggiuntivo                   AD   aggiuntivo    e   max   1   AD   aggiuntivo    e   max   1
+                                                             permesso sosta aggiuntivo        permesso sosta aggiuntivo
+
+
+
+
+Tale opzione si attiverà solo con l’estensione della ZTL B1. Finché non sarà in essere la ZTL B1 i residenti e
+domiciliati della ZTL B continueranno ad avere diritto al rilascio di massimo due permessi sosta per la sosta
+all’interno del Settore di appartenenza con le modalità sopra indicate.
+Validità del Permesso Sosta.
+I soggetti cointestatari di un’autovettura, residenti o domiciliati in Settori diversi, potranno richiedere il
+Permesso relativo ad un unico Settore.
+    Validità:
+-   per i residenti: stessa scadenza del permesso ZTL permanente;
+-   per i domiciliati: scadenza annuale a decorrere dalla data di emissione del Permesso Sosta (o comunque
+    non oltre la scadenza dell’eventuale contratto di locazione).
+
+         ART. 8 RESIDENTI E DOMICILIATI IN ZTL e AP CON POSTO AUTO
+
+8.1 Permesso ZTL
+I residenti o domiciliati nelle ZTL o AP proprietari o utilizzatori a qualsiasi titolo di autorimesse o posti auto su
+area privata oppure anche in area pubblica, ma ad esclusivo utilizzo del proprio veicolo, ubicati all’interno
+della ZTL o AP, hanno diritto al rilascio di autorizzazioni di tipo AG1/AG1 Moto.
+L’autorizzazione consente il transito in ZTL secondo il percorso più breve, finalizzato al ricovero del proprio
+veicolo a motore. È consentito inoltre, ad eccezione dei titolari di autorizzazione AG1 Moto, effettuare
+
+
+                                                                                                                               11
+operazioni di carico e scarico in prossimità del proprio domicilio e nei limiti di tempo strettamente necessari
+ad effettuarle e comunque, non eccedenti i 30’ con esposizione obbligatoria del disco orario.
+Ai titolari di autorizzazione AG1 Moto, è consentito il transito in ZTL secondo il percorso più breve per il solo
+ricovero del motoveicolo.
+Validità del Permesso ZTL
+     a)    Autorizzazione permanente: Validità sino a quando non intervengono variazioni di residenza o in
+           caso di decesso del titolare. In caso di domiciliati durata 1 anno (o comunque non oltre la scadenza
+           del contratto di locazione); per gli utilizzatori di autovetture in uso esclusivo durata 1 anno (o
+           comunque non oltre la durata dell’uso esclusivo).
+     b)    Autorizzazione temporanea: E’ prevista solo per i residenti in attesa di conferma del cambio di
+           residenza.
+           Validità non oltre 90 giorni.
+     c)    Titolo per l’accesso giornaliero: non previsto.
+
+8.2 Permesso Sosta
+Per la sosta all’interno del Settore di appartenenza è invece previsto il rilascio di un Permesso Sosta.
+I residenti o domiciliati all'interno delle ZTL o AP hanno diritto al massimo a due Permessi Sosta qualora il
+numero delle autovetture nella loro disponibilità risulti maggiore dei posti auto a disposizione.
+
+
+
+          N. POSTI AUTO                1 AUTOVETTURA                 2 AUTOVETTURE              PIU’ DI 2 AUTOVETTURE
+
+
+1                               0 permessi sosta              1 permesso sosta                Max 2 permessi sosta
+
+
+2                               0 permessi sosta              0 permessi sosta                Max 2 permessi sosta
+
+
+>2                              0 permessi sosta              0 permessi sosta                Max 2 permessi sosta
+
+
+
+
+Per i residenti e domiciliati delle ZTL B e B1 è previsto il rilascio di un’ulteriore autorizzazione ZTL di tipo A
+o AD (solo ZTL B) e di massimo un Permesso Sosta secondo il seguente criterio:
+
+
+
+          N. POSTI AUTO                1 AUTOVETTURA                 2 AUTOVETTURE              PIU’ DI 2 AUTOVETTURE
+
+
+1                               0 permessi sosta aggiuntivi   1 permesso ZTL B1 di tipo A o   1 permesso ZTL B1 di tipo A o
+                                                              AD e max 1 permesso sosta       AD e max 1 permesso sosta
+
+
+2                               0 permessi aggiuntivi         0 permessi aggiuntivi           1 permesso ZTL B1 di tipo A o
+                                                                                              AD max 1 permesso sosta
+
+
+>2                              0 permessi aggiuntivi         0 permessi aggiuntivi           1 permesso ZTL B1 di tipo A o
+                                                                                              AD max 1 permesso sosta
+
+
+
+
+                                                                                                                          12
+Tale opzione si attiverà solo con l’estensione della ZTL B1. Finché non sarà in essere la ZTL B1 i residenti e
+domiciliati della ZTL B continueranno ad avere diritto al rilascio di massimo due permessi sosta per la sosta
+all’interno del Settore di appartenenza con le modalità sopra indicate.
+Validità del Permesso Sosta.
+I soggetti cointestatari di un’autovettura, residenti o domiciliati in Settori diversi, potranno richiedere il
+Permesso relativo ad un unico Settore.
+    Validità:
+    -    per i residenti: stessa scadenza del permesso ZTL permanente;
+    -    per i domiciliati: scadenza annuale a decorrere dalla data di emissione del Permesso Sosta (o
+         comunque non oltre la scadenza dell’eventuale contratto di locazione).
+
+         ART. 9 RESIDENTI FUORI ZTL O AP
+
+9.1 Permesso ZTL
+I titolari o utilizzatori a qualsiasi titolo di posto auto in ZTL o AP, residenti fuori dalla ZTL o AP, possono
+richiedere il rilascio di autorizzazioni di tipo AG2.
+Per le autorimesse e i parcheggi ad uso pubblico verranno rilasciati un numero di contrassegni pari a 1,2
+volte la dotazione di posti auto risultante dal nulla osta dei Vigili del Fuoco o dalla planimetria.
+Per i garage o aree scoperte con più posti auto privati verranno rilasciati un numero di contrassegni
+coincidente al numero di posti auto che risulta dalla planimetria dell’area con riferimento agli standard
+previsti dalla normativa di settore (pari a 25 mq/posto auto).
+Validità del Permesso ZTL
+Il proprietario dell’area di sosta o il titolare della licenza dovrà richiedere l’autorizzazione.
+L’autorizzazione non è rilasciabile ai clienti delle autorimesse o parcheggi ad uso pubblico.
+L’utilizzatore a qualsiasi titolo del posto auto dovrà essere in possesso del Ferrara Pass valido per
+l’accesso alla ZTL.
+Questo tipo di autorizzazione è finalizzata al ricovero del proprio veicolo a motore ed esclude la possibilità di
+sosta su strada in ZTL o AP.
+Sono rilasciabili le seguenti autorizzazioni:
+a) Autorizzazione permanente:
+validità 1 anno, ovvero il minor periodo che risulti dal contratto di affitto o comodato; 5 anni se il posto auto è
+di proprietà.
+b) Autorizzazione temporanea:
+validità non oltre 90 giorni.
+c) Titolo per l’accesso giornaliero:
+validità come prevista dall'art. 4 lett.c).
+
+9.2 Permesso Sosta
+È previsto il rilascio di un Permesso Sosta per la sosta all’interno del Settore di appartenenza:
+-   per i residenti all’interno di ciascun Settore, ma esternamente alla ZTL o AP;
+-   per i domiciliati all’interno di ciascun Settore, ma esternamente alla ZTL o AP, se residenti
+
+                                                                                                                13
+   anagraficamente in altro comune ad una distanza superiore a 35 Km dalla sede centrale del Municipio di
+   Ferrara (vedi Allegato 2).
+Hanno diritto al massimo ad 1 Permesso Sosta qualora il numero delle autovetture nella loro disponibilità
+risulti maggiore dei posti auto a disposizione.
+
+
+
+       N. POSTI AUTO               1 AUTOVETTURA                 2 AUTOVETTURE             PIU’ DI 2 AUTOVETTURE
+
+
+            0               1 permesso Sosta              1 permesso Sosta             1 permesso Sosta
+
+
+            1               0 permessi sosta              1 permesso sosta             1 permesso sosta
+
+
+            2               0 permessi sosta              0 permessi sosta             1 permesso sosta
+
+
+            >2              0 permessi sosta              0 permessi sosta             1     permesso     sosta    se
+                                                                                       autovetture>posti auto
+
+
+
+
+Validità dei permessi Sosta.
+fino al permanere della residenza o domicilio. Per gli utilizzatori di autovetture in uso esclusivo (sia residenti
+che domiciliati), durata 1 anno (o comunque non oltre la durata dell’uso esclusivo).
+
+        ART. 10 AUTORIZZAZIONI SCUOLE
+Si tratta di autorizzazioni che consentono l’accesso, il transito e la sosta in ZTL a persone che
+accompagnano o riprendono i minori di anni 14 presso asili nido, scuole dell’infanzia, primarie,
+secondarie di I grado e centri estivi situati all’interno della ZTL. Può essere rilasciato un solo
+contrassegno per famiglia associato ad un numero massimo di 2 targhe.
+Il permesso di tipologia SCUOLE avrà validità a seconda degli orari di ingresso/uscita degli alunni dalla
+scuola e nei giorni di apertura della scuola.
+L’autorizzazione consente il transito nella zona dove è collocato l’istituto scolastico/centro estivo, secondo il
+percorso più breve, e la sosta nei pressi dell’istituto scolastico/centro estivo per massimo 30 minuti con
+l’esposizione obbligatoria del disco orario.
+
+Procedimento di rilascio e validità dell'autorizzazione
+L’istituto scolastico deve accreditarsi per ottenere l’autorizzazione e provvedere all’inserimento dei dati dei
+singoli utenti accompagnatori dei minori e dei dati dei veicoli in uso, nonché il periodo di validità del
+permesso per accedere in ZTL.
+Validità autorizzazione permanente: 1 anno scolastico;
+Validità autorizzazione temporanea: non oltre 90 giorni.
+Validità autorizzazione per l’accesso giornaliero: come prevista dall'art. 4 lett.c.
+
+
+
+
+                                                                                                                   14
+     TITOLO III –OPERATORI COMMERCIALI, ARTIGIANI E ALTRI
+
+            ART. 11 AUTORIZZAZIONI TIPO F1, F2, F3, F4, F5 - OPERATORI COMMERCIALI
+Le autorizzazioni sono suddivise per fasce orarie e consentono il transito e la sosta nella ZTL, con
+l'esclusione delle aree destinate al commercio su area pubblica:
+F1 -        06.00 - 11.00 (tariffa base)
+F2 -        11.00 – 15.00 (tariffa maggiorata)
+F3 -        15.00 - 19.00 (tariffa maggiorata)
+F4          19.00 – 24.00 (tariffa base)
+F5          24.00 – 06.00 (gratuita).
+Ogni operatore ha la possibilità di scegliere fino ad un massimo di 2 fasce orarie tra quelle sopra elencate.
+Le fasce F2 ed F3 non possono essere scelte contemporaneamente.
+L’accesso alla ZTL Duomo, secondo le modalità previste da apposita Ordinanza, può avvenire solo con
+autorizzazioni giornaliere fatta eccezione per gli operatori che dimostrano di avere necessità di accessi
+frequenti e regolari.
+Agli operatori che dimostrano di avere necessità di accessi frequenti e regolari sarà concesso l’accesso in
+ZTL Duomo, con il seguente criterio:
+un’autorizzazione permanente per la ZTL Duomo ogni cinque veicoli, per un massimo di quattro
+autorizzazioni.
+
+    veicoli          autorizzazioni permanenti per
+                     la ZTL Duomo
+
+    0-5              1
+
+    6-10             2
+
+    11-15            3
+
+    16—->n           4
+
+
+Le autorizzazioni di tipo F1, F2, F3, F4, F5 - OPERATORI COMMERCIALI vengono rilasciate:
+-     agli operatori commerciali che devono trasportare merci con origine o destinazione in ZTL;
+-     ai clienti delle attività commerciali situate in ZTL per il trasporto di merci ingombranti presentando copia
+      del documento attestante l’avvenuto acquisto;
+-     agli istituti di credito;
+-     agli agenti di commercio compresi i procacciatori di affari, iscritti agli Albi e Registri delle C.C.I.A.A.
+      esclusivamente per il trasporto di campionario voluminoso o ingombrante ovvero campionario di preziosi,
+      con esclusione di coloro che operano su catalogo o simili.
+Le autorizzazioni sono valide tutti i giorni feriali e consentono la sosta su strada per un tempo massimo di 90
+minuti per ogni fascia autorizzata, con esposizione obbligatoria del disco orario, con esclusione delle aree
+riservate ai residenti o ad altre categorie di veicoli, fatti salvi ulteriori divieti. Il numero di autorizzazioni
+
+                                                                                                               15
+rilasciabili è una per ciascun esercizio o attività.
+Per gli operatori del commercio su area pubblica si rimanda all’art. 14 del presente Regolamento.
+
+Validità dell'autorizzazione
+    Validità autorizzazione permanente: 1 anno.
+    Validità autorizzazione temporanea: non oltre 90 giorni.
+    Validità autorizzazione per l’accesso giornaliero: come prevista dall'art.4 lett.c).
+
+        ART. 12 AUTORIZZAZIONE TIPO F6 - ARTIGIANI
+Consente l’accesso, il transito e la sosta in ZTL e AP (se espressamente indicato nell’Ordinanza sindacale
+dell’AP) con esclusione delle aree destinate al commercio su area pubblica nell’unica fascia oraria:
+
+
+    F6 - 06.00 - 20.00
+
+
+Tale autorizzazione, valida i giorni feriali, viene rilasciata alla seguente categoria di operatori:
+-   Artigiani ed altre ditte che effettuano attività di manutenzione al domicilio del cliente.
+    L’autorizzazione ha validità per tutti i giorni feriali e consente la sosta su strada per un tempo massimo di
+    90 minuti con esposizione obbligatoria del disco orario e dovrà essere sempre obbligatoriamente
+    accompagnata da un foglio di adeguate dimensioni dal quale risulti, perfettamente leggibile al controllo,
+    l’indirizzo presso cui l’attività è svolta. Nel caso di interventi urgenti ed improrogabili, da effettuarsi al di
+    fuori degli orari e giorni autorizzati, il titolare dell’autorizzazione dovrà inoltre comunicare al Centro Unico
+    Permessi, entro le 48 ore successive al transito, l’accesso non autorizzato in ZTL. Per le ditte di cui
+    sopra aventi sede nella ZTL, l’autorizzazione di cui al presente articolo ha validità anche per la sosta, da
+    effettuarsi nelle immediate vicinanze della sede stessa e nel solo settore di appartenenza, qualora non
+    sia effettivamente possibile il ricovero in area privata e ove sia consentito dalla segnaletica e comunque
+    limitatamente ad un massimo di due veicoli per ditta. Per le categorie dei soli manutentori di impianti gas
+    e termoelettrici è inoltre prevista la possibilità di sosta, durante gli interventi, anche negli spazi riservati ai
+    residenti della ZTL e dei Settori identificati da apposita segnaletica verticale.
+-   Imprese o privati che effettuano traslochi: l’autorizzazione consente il transito nella ZTL o in AP, con
+    l'esclusione delle aree di mercato, per il tempo strettamente necessario alle operazioni di carico e
+    scarico. L’autorizzazione ha validità per tutti i giorni feriali e consente la sosta su strada per un tempo
+    massimo di 90 minuti con esposizione obbligatoria del disco orario; se in possesso della concessione di
+    occupazione di suolo pubblico il tempo sarà indicato su quest’ultima.
+-   Veicoli in uso a corrieri che effettuano trasporto di medicinali. L’autorizzazione ha validità per tutti i
+    giorni feriali e consente la sosta su strada per un tempo massimo di 45 minuti con esposizione
+    obbligatoria del disco orario.
+L’accesso alla ZTL Duomo, secondo le modalità previste da apposita Ordinanza, può avvenire solo con
+autorizzazioni giornaliere fatta eccezione per gli operatori che dimostrano di avere necessità di accessi
+frequenti e regolari, previa presentazione di idonea documentazione.
+Validità dell'autorizzazione
+    Validità autorizzazione permanente: 1 anno.
+                                                                                                                    16
+       Validità autorizzazione temporanea: non oltre 90 giorni.
+       Validità autorizzazione per l’accesso giornaliero: come prevista dall'art. 4 lett.c).
+
+           ART. 13 AUTORIZZAZIONE TIPO F7 - ALTRE
+Consente l’accesso, il transito e la sosta in ZTL e AP (se espressamente indicato nell’Ordinanza sindacale
+dell’AP) nell’unica fascia oraria:
+
+
+F7 -       0.00 -24.00
+
+
+Tale autorizzazione vale tutti i giorni e viene rilasciate alle seguenti categorie di operatori:
+1      Onoranze funebri;
+2 Istituti privati di vigilanza o Agenzie investigative, per lo svolgimento dei compiti loro affidati, ognuna
+    delle quali riportante non più di 5 targhe di veicoli;
+3 Titolari di attività che prevedano la consegna delle merci a domicilio del cliente (pasticcerie,
+    pizzerie, gastronomie, piante e fiori, ecc.). A queste ditte possono essere rilasciati un numero massimo di
+    2 autorizzazioni, ognuna delle quali riportante non più di 5 targhe di veicoli. Inoltre, nel caso che l’attività
+    utilizzi per il trasporto delle merci anche o solamente i ciclomotori, possono essere rilasciate ulteriori
+    autorizzazioni: in numero massimo di 4, ognuna riportante un solo ciclomotore, se la ditta ha sede
+    all’interno della ZTL; una autorizzazione solamente, riportante un solo ciclomotore, se la ditta ha sede
+    fuori dalla ZTL. Qualora il servizio di consegna a domicilio sia riferito a generi alimentari, ed effettuato
+    con autoveicoli, l'autorizzazione sarà rilasciata previo possesso della prescritta autorizzazione sanitaria.
+4 Enti civili, militari e religiosi, aziende che svolgono attività di pubblico servizio che hanno esigenze
+    operative continuative e/o di pronto intervento, o per compiti di carattere istituzionale. Si tratta di
+    permessi rilasciabili per il solo svolgimento di attività di servizio debitamente e motivatamente
+    autorizzate, nella misura indicativa di 3 per ente, con un massimo di 5 targhe per ogni contrassegno,
+    comunque concordate nell’ambito della Commissione Tecnica di cui all’art. 21. La sosta è consentita nei
+    giorni feriali e festivi senza limiti di orario e di durata e per comprovati motivi di servizio, secondo quanto
+    previsto dal D.Lvo 285/1992. Le autorizzazioni vengono rilasciate agli Enti per essere utilizzate sui veicoli
+    riportanti, o non, il logo dell’Amministrazione cui appartengono. In caso di utilizzo di auto privata, alla
+    domanda dovrà essere allegata un’autocertificazione nella quale si dichiara che tale auto verrà utilizzata
+    unicamente per ragioni di servizio.
+5 Quotidiani locali ed emittenti televisive e radiofoniche aventi sede nel Comune di Ferrara. Si tratta
+    di permessi rilasciabili per il solo svolgimento di attività di servizio debitamente e motivatamente
+    autorizzate, nella misura indicativa di 3 per quotidiano o emittente, comunque concordate nell’ambito
+    della Commissione Tecnica di cui all’art. 21. La sosta è consentita nei giorni feriali e festivi senza limiti di
+    orario e di durata e per comprovati motivi di servizio, secondo quanto previsto dal D.Lvo 285/1992. Le
+    autorizzazioni vengono rilasciate per essere utilizzate sui veicoli riportanti, o non, il logo del mass media
+    cui appartengono. In caso di utilizzo di auto privata, alla domanda dovrà essere allegata
+    un’autocertificazione nella quale si dichiara che tale auto verrà utilizzata unicamente per ragioni di
+    servizio.
+
+                                                                                                                 17
+6 Soggetti che svolgono compiti istituzionali e di rappresentanza o magistrati per l’espletamento
+     delle attività di servizio. Il transito e la sosta sono consentiti nei giorni feriali e festivi senza limiti di orario
+     e di durata. Hanno validità limitata alla durata dell’incarico istituzionale dei loro titolari:
+-    Sindaco e autoveicoli di rappresentanza del Comune e della Provincia di Ferrara,
+-    Presidente Tribunale, Procuratore Capo e Sostituti presso il Tribunale e la Procura di Ferrara,
+-    Magistrati assegnati al Tribunale di Ferrara,
+-    Prefetto,
+-    Questore di Ferrara,
+-    Autorità Religiosa,
+-    Comandante Provinciale Carabinieri,
+-    Comandante Guardia di Finanza,
+-     Comandante Aeronautica.
+7 Medici di base convenzionati con il S.S.N., pediatri convenzionati con il S.S.N. (con ambulatorio
+     all’interno della ZTL o fuori ZTL):
+    ● i medici iscritti all’Albo Professionale dei Medici Chirurghi e degli Odontoiatri, e i Medici
+        Veterinari, fisioterapisti e gli infermieri professionali, con ambulatorio all’interno della ZTL o AP
+        per il transito e la sosta, senza limiti di orario, nei pressi dell’ambulatorio o del paziente visitato.
+        L’autorizzazione viene rilasciata al medico richiedente previa richiesta contenente i dati anagrafici
+        dello stesso, l’indirizzo dell’ambulatorio, il numero di iscrizione all’ordine dei Medici, i dati dei veicoli.
+        Qualora i professionisti di cui sopra dovessero utilizzare per urgenza un veicolo diverso da quello
+        autorizzato, entro le 48 ore successive al transito devono comunicare al Centro Unico Permessi il
+        modello e la targa del veicolo. In caso di sostituzione temporanea del medico, la richiesta di rilascio
+        del permesso provvisorio deve avvenire, previa comunicazione al Centro Unico Permessi, a cura del
+        medico sostituto.
+     ● I medici iscritti all’Albo Professionale dei Medici Chirurghi e degli Odontoiatri e i Medici
+        Veterinari, fisioterapisti e gli infermieri professionali, senza ambulatorio in ZTL, dovranno
+        accreditarsi e per raggiungere un paziente domiciliato in ZTL devono comunicare entro le 48 ore
+        dall’avvenuto accesso e sosta la targa del veicolo utilizzato.
+8 Associazioni di volontariato che effettuano trasporto e/o assistenza infermieristica al domicilio di
+     pazienti o disabili, coloro che prestano assistenza a persone non autosufficienti, le associazioni di
+     volontariato per la tutela degli animali, le ditte che forniscono pasti al domicilio degli anziani e nelle
+     case di riposo, e simili. Per le associazioni di volontariato e per le ditte fornitrici, l’autorizzazione può
+     essere concessa a condizione che i veicoli siano intestati alle stesse, ovvero che l’utilizzo del mezzo
+     proprio sia espressamente autorizzato dall’associazione stessa. Nel caso di coloro che effettuano
+     assistenza a propri familiari, l’autorizzazione sarà limitata al percorso necessario a raggiungere la
+     residenza del famigliare non autosufficiente, previa presentazione al Centro Unico Permessi di un
+     certificato medico comprovante la necessità di assistenza dello stesso. Per ogni persona da assistere
+     potranno essere rilasciate al massimo due autorizzazioni indicanti le targhe di non più di 5 veicoli
+     utilizzabili alternativamente. La sosta è consentita senza limitazioni di orario.
+9 I titolari di alberghi e strutture ricettive aventi sede all’interno della ZTL e delle AP possono ottenere
+
+                                                                                                                        18
+    l’autorizzazione per il rilascio ai propri clienti di permessi utili per l’accesso e la sosta limitata al tempo
+    strettamente necessario al carico – scarico bagagli, nelle immediate vicinanze del proprio esercizio,
+    valide per tutto il periodo di permanenza del cliente.
+    Nel caso in cui la struttura disponga di propri posti auto, verrà rilasciata un’autorizzazione, per ciascun
+    posto, a titolo gratuito, di tipologia AG2.
+    Il numero massimo dei virtual TAG assegnati a ciascuna struttura ricettiva, sarà il 10% in più rispetto al
+    numero delle camere destinate agli ospiti e risultante dalla autorizzazione rilasciata dal SUAP. Qualora il
+    10% non risultasse essere un numero intero, questo sarà arrotondato al numero intero per eccesso.
+   (esempio: numero stanze 25 applicazione del 10% =2.5 virtual TAG              rilasciati 3 virtual TAG in più).
+    Nessun contrassegno è comunque rilasciabile, da parte del titolare dell’albergo o della struttura ricettiva
+    nei periodi di chiusura dell’esercizio per ferie o altro motivo. Non sono autorizzabili i veicoli di proprietà
+    del titolare, suoi famigliari e dei dipendenti.
+Le autorizzazioni di tipo F7 sono valide tutti i giorni e consentono la sosta su strada per un tempo massimo
+di 90 minuti con esposizione del disco orario, eccetto gli autorizzati del punto 9 ai quali è consentita una
+sosta per un tempo massimo di 30 minuti e gli autorizzati dei punti 4, 5, 6, 7, 8 per i quali è consentita la
+sosta nei giorni feriali e festivi senza limiti di orario e di durata.
+L’accesso alla ZTL Duomo, secondo le modalità previste da apposita Ordinanza, può avvenire solo con
+autorizzazioni giornaliere fatta eccezione per gli operatori che dimostrano di avere necessità di accessi
+frequenti e regolari, previa presentazione di idonea documentazione.
+Validità dell'autorizzazione per le categorie 1, 2 e 3:
+    Validità autorizzazione permanente: 1 anno.
+    Validità autorizzazione temporanea: non oltre 90 giorni.
+    Validità autorizzazione per l’accesso giornaliero: come prevista dall'art. 4 lett.c).
+Validità dell'autorizzazione per le categorie 4, 5 e 6:
+Il rilascio è vincolato al parere della Commissione Tecnica, di cui al successivo articolo 21, che può
+eccezionalmente prevedere il rilascio di autorizzazioni eccedenti i limiti numerici di cui sopra. Con delibera di
+Giunta potrà essere integrato l’elenco degli Enti ed Istituzioni ivi indicati.
+Tali autorizzazioni hanno validità 5 anni previo mantenimento dei requisiti e nel caso di titolari di
+incarichi istituzionali (categoria 6), fino alla durata di tale incarico.
+Validità dell'autorizzazione per le categorie 7 e 8:
+    Validità autorizzazione permanente: categoria n. 7: anni 5 previo mantenimento dei requisiti; categoria
+    n. 8: anni 1.
+    Validità autorizzazione temporanea: non oltre 90 giorni.
+    Validità autorizzazione per l’accesso giornaliero: come prevista dall'art. 4 lett.c).
+Validità dell'autorizzazione per la categoria 9 e procedimento di rilascio:
+La direzione dell’albergo o di altra struttura ricettiva deve accreditarsi per ottenere l’autorizzazione e
+provvedere all’inserimento dei dati dei veicoli in uso ai clienti, per il periodo di permanenza presso la
+struttura entro 48 (quarantotto) ore dall'arrivo del cliente.
+La struttura ricettiva o l’albergo dovrà inoltre allegare un’autocertificazione attestante il numero delle camere
+destinate agli ospiti, risultanti dalla autorizzazione rilasciata dal SUAP.
+
+                                                                                                                     19
+Per il periodo autorizzato il veicolo del cliente esporrà apposito contrassegno riportante l’intestazione
+dell’albergo o della struttura ricettiva.
+Il cliente che, a bordo del proprio veicolo, si rechi all’interno della ZTL (con esclusione delle AP) per recarsi
+presso un albergo o altra struttura ricettiva, dovrà accertarsi che la direzione dell’albergo o altra struttura
+ricettiva, entro la scadenza prevista dal precedente comma, provveda all’inserimento dei suoi dati nella
+piattaforma online.
+Qualora la targa non venga trasmessa al Centro Unico Permessi il cliente sarà sottoposto all’applicazione
+della prevista sanzione.
+Validità: anni cinque.
+
+         ART.14 AUTORIZZAZIONE PER GLI OPERATORI DEL COMMERCIO SU AREA PUBBLICA
+Gli operatori del commercio su area pubblica all’interno della ZTL o AP, qualora il veicolo da loro utilizzato
+sia ricompreso nell’area di posteggio autorizzata, possono accedere e sostare nella ZTL negli orari stabiliti
+dal Regolamento del mercato o dall’autorizzazione in loro possesso previa comunicazione dei numeri di
+targa al Centro Unico Permessi.
+Nei casi in cui il veicolo al seguito sia utilizzato solo per il carico e scarico delle merci o delle attrezzature
+necessarie alla vendita, potrà essere rilasciata autorizzazione per l’accesso e la sosta nella ZTL nella fascia
+oraria 6-20 secondo le prescrizioni riportate nel titolo autorizzatorio. Qualunque variazione degli orari rispetto
+alle prescrizioni riportate nel titolo autorizzatorio per cause impreviste dovrà essere tempestivamente
+comunicata al Centro Unico Permessi.
+Tutti gli operatori di commercio su area pubblica dovranno fornire annualmente il numero di targa al Centro
+Unico Permessi.
+Nel caso degli “spuntisti”, che potranno accedere nella ZTL solo in seguito all’assegnazione del posteggio,
+questi dovranno di volta in volta provvedere, entro 48 ore dall’ingresso in ZTL, tramite l’ausilio della Polizia
+Commerciale, o personalmente qualora questa non fosse presente, alla comunicazione dell’avvenuto
+ingresso in ZTL per l’occupazione del posto liberato.
+Gli operatori del commercio su area pubblica all’interno della ZTL o AP, (espositori di mercatini ed eventi
+fieristici) nei casi in cui il veicolo al seguito sia utilizzato solo per il carico e scarico delle merci o delle
+attrezzature necessarie alla vendita, potrà essere rilasciata autorizzazione per l’accesso e la sosta per il
+carico/scarico nella ZTL nella fascia oraria F7.
+
+         ART.15 AUTORIZZAZIONE PER MANIFESTAZIONI
+Per l’allestimento e l’organizzazione di manifestazioni possono essere rilasciati titoli giornalieri purché gli
+orari e le condizioni del titolo siano strettamente correlati alle prescrizioni contenute nelle Delibere di Giunta
+che autorizzano la manifestazione.
+
+
+
+                             TITOLO IV – PERSONE DISABILI
+
+         ART.16 ACCESSO DEI VEICOLI AL SERVIZIO DI PERSONA DISABILE
+
+
+                                                                                                               20
+Contestualmente al rilascio del contrassegno invalidi CUDE (di cui all’art 381 del Regolamento di attuazione
+del Codice della Strada), il titolare potrà comunicare, su apposito modulo, le targhe dei veicoli ad egli in uso
+(fino ad un numero massimo di 2 con esclusione di veicoli commerciali e motoveicoli) che verranno inserite
+nella “lista bianca”.
+I motocicli potranno essere inseriti in lista bianca solo se di proprietà del disabile che deve avere patente di
+guida specifica per la conduzione.
+I disabili che accedono alla Zona a Traffico Limitato saltuariamente e/o in eccedenza alla seconda targa,
+devono comunicare al Centro Unico Permessi, entro le 48 ore successive al transito, il modello e la targa
+dell'auto, indicando i varchi di accesso utilizzati.
+
+
+
+
+             TITOLO V – VALIDITA’ DELLA AUTORIZZAZIONI E
+                                       DISPOSIZIONI VARIE
+
+         ART. 17 VERIFICA E REVOCA DELLE AUTORIZZAZIONI
+Il titolare ha l’obbligo di comunicare all’Amministrazione tutte le variazioni che comportino la sospensione e
+la revoca delle autorizzazioni.
+L’Amministrazione si riserva di procedere in qualsiasi momento alla verifica delle condizioni che hanno
+determinato il rilascio delle autorizzazioni. Nel caso in cui venga accertato che non sussistano più i requisiti
+per il mantenimento dell’autorizzazione, si procederà all’avvio del procedimento finalizzato alla revoca
+d’ufficio.
+
+
+
+         ART. 18 TARIFFE
+
+Criteri di articolazione ed uso dei proventi corrispondenti
+In linea generale, salvo le eccezioni di seguito evidenziate, tutte le autorizzazioni di accesso e circolazione in
+ZTL, indipendentemente dalla durata della loro validità, sono soggette al pagamento di una somma, da
+intendersi quale corrispettivo per acquisire il diritto ad accedere alla suddetta ZTL, sulla base di quanto
+previsto nell’art. 7 del D.L.vo 285/92 (Nuovo Codice della Strada), ove è fatto esplicito riferimento alla
+possibilità per i comuni di “subordinare l’ingresso o la circolazione dei veicoli a motore, all’interno delle zone
+a traffico limitato, anche al pagamento di una somma”.
+
+Detta tariffa verrà determinata con altro apposito atto.
+Il mancato pagamento della tariffa determina l’archiviazione dell’istanza propedeutica al rilascio
+dell’autorizzazione.
+
+I criteri generali di articolazione delle tariffe, per le diverse tipologie di utenti ed aventi diritto alle
+autorizzazioni, sono determinati secondo quanto previsto dalla Circolare del Ministero dei Lavori Pubblici del
+21 luglio 1997, n° 3816.
+
+                                                                                                               21
+    In particolare, viene disposto che, al fine di favorire la maggiore equità ed efficienza nell’utilizzo del suolo
+    pubblico compreso nelle aree classificate come ZTL, la determinazione quantitativa del livello tariffario dovrà
+    essere stabilita in modo da:
+
+-effettuare una distinzione tra la categoria dei residenti (e dei domiciliati ad essa equiparati) e di tutte le altre
+        categorie di utenti che accedono con veicoli a motore alla ZTL per motivi di carattere professionale o per
+        esigenze lavorative;
+-riequilibrare le situazioni di utilizzo del suolo pubblico, in modo da disincentivare il parcheggio su strada di
+        veicoli a motore appartenenti a privati che risultino nelle condizioni di poter disporre di aree di ricovero e
+        sosta dei propri mezzi esterne alle sedi stradali pubbliche e non ne facciano utilizzo, al fine di limitare la
+        sottrazione di spazi pubblici per altri beneficiari della sosta, attesa la oggettiva scarsità delle possibili
+        aree di sosta disponibili nella ZTL;
+-       limitare – attraverso l’imposizione di un opportuno pagamento – la circolazione dei veicoli appartenenti a
+        non residenti in ZTL o AP che potendo beneficiare – a qualunque titolo - di aree di parcheggio su aree
+        private (ancorché non adibite a uso pubblico, quali le autorimesse) vanno ad incrementare i flussi di
+        traffico e sottraggono indirettamente possibili aree di sosta ai residenti in ZTL, inducendo eventualmente
+        anche una distorsione nell’offerta del mercato della sosta;
+    -   incentivare gli utenti che utilizzano veicoli a basso impatto ambientale;
+    -   disincentivare gli operatori commerciali che utilizzano veicoli con massa pieno carico superiore a 3,5 ton;
+    -   suddividere gli ingressi per determinate categorie di veicoli “operativi” in 5 fasce orarie (6.00-11.00,
+        11.00-15.00, 15.00-19.00, 19.00-24.00, 24.00-06.00), con possibilità di scegliere al massimo 2 fasce
+        (escludendo la contemporaneità di quelle centrali F2 e F3), differenziandone il costo al fine di incentivare
+        la circolazione in ZTL dei veicoli “operativi” in fasce orarie in cui è limitata la presenza di pedoni e turisti.
+    Con riferimento a quanto sopra indicato, si stabilisce che la tariffazione potrà essere applicata alle seguenti
+    autorizzazioni:
+    ●   autorizzazione di tipo A limitatamente a quelle i cui titolari dispongono di spazi privati all’interno di ZTL e
+        AP e non vi ricorrono per ricoverare il proprio autoveicolo;
+    ●   autorizzazione di tipo AG2, con esclusione dei permessi AG2 rilasciati ai residenti nelle strade corridoio
+        limitatamente al settore di appartenenza e di coloro che sono titolari di un diritto reale di godimento in
+        qualità di proprietario o con un grado di parentela e affini rispetto al proprietario, salvo che la disponibilità
+        delle aree derivi da contratti di affitto;
+    ●   autorizzazioni di tipo A, AD, AG1 e AG2 per ogni targa ulteriore alla prima aggiunta allo stesso
+        permesso, entro i limiti massimi consentiti;
+    ●   autorizzazione di tipo F1;
+    ●   autorizzazione di tipo F2;
+    ●   autorizzazione di tipo F3;
+    ●   autorizzazione di tipo F4;
+    ●   autorizzazione di tipo F6;
+    ●   autorizzazione di tipo F7, eccetto enti e aziende per lo svolgimento di compiti di carattere istituzionale, i
+        medici di base convenzionati con il S.S.N., pediatri (con ambulatorio all’interno della ZTL o fuori ZTL), i
+
+
+                                                                                                                       22
+        medici iscritti all’Albo Professionale dei Medici Chirurghi e i medici veterinari con ambulatorio all’interno
+        della ZTL o AP, le associazioni di volontariato che effettuano trasporto e/o assistenza infermieristica al
+        domicilio di pazienti o disabili, coloro che prestano assistenza a famigliari non autosufficienti, le
+        associazioni di volontariato per la tutela degli animali, i titolari di alberghi e strutture ricettive aventi sede
+        all’interno della ZTL e delle AP per il carico scarico bagagli dei propri clienti.
+Si stabilisce inoltre che:
+-       per la categoria dei residenti in AP o ZTL che dispongono di spazi privati e non vi ricorrono per
+        ricoverare il proprio autoveicolo e i titolari di autorizzazione di tipo AG2 sia stabilita una tariffa su base
+        annua compresa tra 150 € e 350 €.
+-       per la categoria dei titolari di permessi AG2, non residenti, che usufruiscono di spazi privati di
+        parcheggio presso gli enti e/o le ditte di cui sono dipendenti la tariffa di accesso prevista sarà ridotta del
+        70% (ed eventualmente in proporzione alla durata di effettivo utilizzo) trattandosi di autorizzazioni al
+        semplice transito, purché detti titolari non risiedano entro l’area delimitata dal perimetro delle mura;
+-       per i titolari dei permessi di tipo A, AD, AG1 e AG2, per ogni targa ulteriore alla prima aggiunta allo
+        stesso permesso (entro il numero massimo di 5 targhe ammissibili), potrà essere stabilita una tariffa da 0
+        a 50 €;
+-       per le restanti autorizzazioni soggette a tariffazione sopraindicate, la tariffa su base annua sia compresa
+        tra 60 e 500 €. Nel caso di utilizzo di veicoli ibridi (alimentazione elettrica+motore termico), è prevista
+        una riduzione della tariffa che può andare dall’80% al 40%. Nel caso di utilizzo di veicoli alimentati a
+        metano e gpl, è prevista una riduzione della tariffa che può andare dal 50% al 25%. La riduzione per i
+        veicoli a ridotte emissioni potrà essere riconosciuta solo qualora gli estremi del/i veicolo/i a ridotte
+        emissioni inquinanti siano contenuti in un permesso che contenga esclusivamente tale tipologia di
+        mezzi. Qualora durante il periodo di validità dell’autorizzazione si dia luogo alla sostituzione sulle
+        autorizzazioni delle targhe dei veicoli autorizzati con altri a ridotte emissioni, tale cambiamento non
+        determina alcuna riduzione sulla tariffa già pagata. Analogamente qualora durante il periodo di validità
+        dell’autorizzazione si dia luogo alla sostituzione sulle autorizzazioni dei veicoli a basse emissioni con altri
+        non con le stesse caratteristiche, tale cambiamento non determina il diritto per l’Amministrazione di
+        introitare una tariffa differenziale.
+-       Tutte le richieste di cambio targa e di duplicati dei permessi potranno essere soggette al pagamento di
+        una tariffa i cui importi verranno determinati con apposito Atto della Giunta Comunale;
+    -   I veicoli elettrici appartenenti a qualsiasi categoria degli aventi diritto possono accedere in tutte
+        le fasce orarie a titolo gratuito.
+Al fine di contenere l’utilizzo delle autorizzazioni di carattere temporaneo e dei titoli per l’accesso giornalieri,
+la determinazione della tariffa corrispondente a tali tipologie assumerà come criterio di proporzionalità i
+seguenti valori rispetto alla tariffa annua:
+
+▪       1:12 – 1:15 nel caso dei titoli per l’accesso giornalieri (se previsti). Il valore minimo per i veicoli a basso
+        impatto ambientale non potrà essere inferiore ad 1 euro, fatta eccezione per i veicoli elettrici per i quali
+        non è prevista alcuna tariffazione.
+▪       Sono previsti titoli per l’accesso giornaliero con una tariffa che non dipende dall’alimentazione del
+
+
+                                                                                                                       23
+    veicolo e dalle fasce orarie d’accesso e che potranno essere rilasciati ad utenti che non appartengono a
+    nessuna categoria. Tale titolo avrà una tariffa tale da contenerne al massimo l’utilizzo e che sarà
+    compresa tra 20 € e 30 € al giorno. Salvo che per i veicoli al seguito di Manifestazioni ed eventi la cui
+    tariffa sarà ¼ di quella giornaliera con un massimo di 20 € a settimana a veicolo;
+▪   1:4 nel caso dei permessi di tipo temporaneo (se previsti).
+
+        ART.19 MODIFICHE IN CORSO DI VALIDITA’ E RINNOVI
+In caso di rinnovo o qualora in corso di validità dei Permessi ZTL e dei Permessi Sosta si verificassero
+modifiche relative al tipo o numero dei veicoli, il titolare dovrà contattare il Centro Unico Permessi, per
+l’aggiornamento dei dati tramite l’interfaccia web o personalmente attraverso il caricamento o la
+presentazione dei documenti richiesti.
+In caso di smarrimento o sottrazione del Ferrara Pass, il titolare della stessa potrà richiederne il duplicato
+previo pagamento ed esibizione di autocertificazione. In caso di deterioramento il duplicato verrà rilasciato
+solo previa restituzione dell’autorizzazione deteriorata.
+L’importo del duplicato verrà determinato con apposito atto della Giunta Comunale.
+L’Amministrazione Comunale può apportare modifiche alle fasce orarie di accesso alla zona a traffico
+limitato con apposita Ordinanza sindacale; in tal caso ciò verrà comunicato ai titolari dell’autorizzazione,
+senza costi per l’utente.
+L’istanza di rinnovo di un Permesso ZTL permanente o di un Permesso Sosta può essere revocata entro 30
+giorni dall’avvenuta richiesta previa comunicazione all’utente.
+Il titolare dell’autorizzazione è tenuto a verificare la scadenza della stessa e sarà unico responsabile di
+sanzioni in caso di mancato rinnovo.
+
+        ART.20 RILASCIO DELLE AUTORIZZAZIONI
+L’eventuale rigetto dell’istanza di rilascio delle autorizzazioni potrà avvenire entro 30 giorni dalla
+presentazione della domanda in caso di autorizzazioni permanenti.
+
+
+Il rilascio delle autorizzazioni speciali per enti, aziende pubbliche e compiti istituzionali (vedi art. 13 punti 4, 5
+e 6), nonché di tutte le autorizzazioni ad esse assimilabili (in quanto non incluse tra le tipologie indicate nel
+presente Regolamento e tuttavia oggettivamente motivate da esigenze di interesse pubblico non
+contemplate in questa disciplina regolamentare), è soggetto alla ratifica dell’apposita Commissione Tecnica
+di cui al successivo articolo 21.
+
+        ART. 21 COMMISSIONE TECNICA
+Composizione:
+è costituita dai seguenti membri:
+    ●   Dirigente del Servizio, Mobilità, Traffico e Sosta, che ne è anche Presidente,
+    ●   Comandante del Corpo Polizia Locale o suo delegato,
+    ●   Responsabile del Centro Unico Permessi.
+Funzioni:
+La Commissione Tecnica è autorizzata ad esprimersi sul diniego motivato al rilascio di Permesso ZTL o
+
+                                                                                                                   24
+Permesso Sosta, di cui l’interessato faccia richiesta entro 30 giorni dal ricevimento.
+La Commissione Tecnica può altresì rilasciare pareri anche su richiesta del responsabile del Centro Unico
+Permessi.
+La Commissione Tecnica procederà con cadenza periodica, non superiore a mesi tre, all’esame delle
+richieste rientranti nelle fattispecie indicate nei commi precedenti.
+La Commissione Tecnica potrà effettuare verifiche avvalendosi del parere di soggetti esterni
+all’amministrazione per valutare le richieste.
+Avverso il diniego espresso dalla Commissione Tecnica è ammesso ricorso al T.A.R. entro il termine di 60
+giorni decorrenti da quello in cui il richiedente ne ha avuto conoscenza.
+
+          ART. 22 FERRARA PASS: ESPOSIZIONE, USO E PRESCRIZIONI
+I dati contenuti nei Ferrara Pass, rilasciati ai sensi degli articoli precedenti, nonché le modalità ed i tempi di
+utilizzo degli stessi, sono inseriti in una banca dati funzionale al controllo dell'Area Pedonale, della Zona a
+Traffico Limitato e dei Settori; tali dati vengono trattati secondo quanto disposto dal regolamento (UE) n.
+2016/679 noto con la sigla GDPR; i dati vengono conservati nel rispetto della privacy.
+Tutti i Pass, su cui saranno caricate le autorizzazioni di cui ha diritto il richiedente, dovranno essere sempre
+esposti, col fronte visibile e leggibile dall’esterno, comunque sul lato anteriore del veicolo. Tali contrassegni
+riporteranno sul fronte il numero di identificazione e il Qr code, sul retro alcune istruzioni generali sul loro
+utilizzo e all’interno sarà contenuto il dispositivo Tag Rfid. La mancata esposizione dei permessi all’interno
+del parabrezza dell’autovettura, o la non validità degli stessi - rilevata dagli operatori addetti al controllo -
+costituirà violazione delle normative in materia di sosta e circolazione previste dagli articoli 7, 157, 158 del
+Codice della Strada e comporterà l’applicazione della relativa sanzione o quella prevista dall’art. 23 del
+presente Regolamento.
+Sono esenti dall’esposizione i titolari di permessi di veicoli che non consentono la chiusura a chiave
+dell’abitacolo (es. motocicli, ciclomotori).
+In caso di limitazioni temporali di sosta è obbligatorio l’uso del disco orario.
+Il Ferrara Pass deve sempre essere presente sul veicolo cui si riferisce e deve essere esibita, quando
+richiesta, agli operatori che espletano il servizio di Polizia Stradale ai sensi dell’art.12 del Codice della
+Strada.
+Il venir meno, durante il periodo di validità dell’autorizzazione, di uno o più requisiti che abbiano determinato
+il suo rilascio, ne provoca la decadenza con l’obbligo della restituzione al Centro Unico Permessi e
+conseguente eliminazione dalla lista bianca.
+
+          ART. 23 SANZIONI
+Le autorizzazioni devono essere utilizzate solamente per gli scopi per le quali sono state rilasciate e nel
+rispetto delle prescrizioni particolari riportate sul relativo contrassegno.
+La circolazione non autorizzata, ovvero la violazione degli altri obblighi, divieti o limitazioni all’interno delle
+AP e delle ZTL, comporta l’irrogazione delle sanzioni previste dal Codice della Strada, in applicazione del
+Titolo I, V e VI, Capo I del codice stesso.
+L’introduzione del controllo automatico degli accessi alla ZTL si integra, e non si sostituisce, a quello
+
+
+                                                                                                                25
+effettuato dagli operatori di Polizia Stradale ai sensi dell’art.12 del Codice della Strada.
+Attraverso i varchi elettronici degli accessi, potranno essere elevate delle sanzioni così come previsto
+dall’art. 201, comma 1 lett. g) del Codice della Strada.
+Il transito di attraversamento nella ZTL al solo fine di abbreviare un tragitto, benché l’autorizzazione non sia
+limitata a percorsi determinati, è sanzionata come circolazione non autorizzata.
+È vietato l’uso di ogni forma di riproduzione del contrassegno autorizzatorio. L’inosservanza di questa
+disposizione comporta la revoca dell’autorizzazione, il ritiro del contrassegno originale e di quelli contraffatti,
+nonché l’applicazione delle conseguenti sanzioni amministrative e penali.
+
+Costituiscono violazioni regolamentari le ipotesi previste:
+●   dall’art. 12, per omessa indicazione, da parte del titolare di autorizzazione “F6” che rientra nella
+    categoria degli artigiani o di altre ditte che effettuano attività di manutenzione al domicilio del cliente, del
+    luogo ove viene effettuato l’intervento;
+●   dall'art. 22 per mancata esposizione in modo chiaro e ben visibile dall'esterno, nel lato anteriore del
+    veicolo, del permesso ZTL o del permesso sosta;
+●   dall’art. 22 per mancata esposizione del disco orario da attivare nel caso di limitazioni temporali della
+    sosta.
+Le sanzioni amministrative e pecuniarie da applicarsi a ciascuna fattispecie sopra previste sono stabilite nel
+rispetto dei limiti edittali dell’art. 7bis del D.L.vo 267/2000, e prevista da una Delibera di Giunta Comunale,
+giusta la disposizione dell’art. 16 comma 2 della Legge 689/1981.
+Contro i verbali di accertamento per le suddette violazioni regolamentari è ammesso ricorso al Sindaco nel
+termine di 30 giorni dall'accertamento o notifica della violazione secondo le norme previste dal Capo I,
+sezione I e II legge n.689 del 24/11/81.
+
+
+    TITOLO VI – NORME TRANSITORIE ED ENTRATA IN VIGORE
+
+         ART. 24 INTRODUZIONE DEL CONTRASSEGNO ELETTRONICO FERRARA PASS
+Adozione dei Ferrara Pass (tecnologia RFID):
+Il Comune di Ferrara ha in previsione un’implementazione graduale dei varchi di accesso alla ZTL mediante
+l’installazione di tecnologia Rfid finalizzata al rilevamento dei veicoli sia all’ingresso che all’uscita delle ZTL.
+Le antenne Rfid installate sui varchi di accesso e uscita dalla ZTL rilevano i TAG Rfid situati all’interno del
+Ferrara Pass.
+Modalità di controllo dei contrassegni elettronici:
+In ottemperanza alle attuali norme vigenti in materia di controllo elettronico degli accessi in ZTL ed in
+particolare dalle disposizioni di cui al DPR 250/1999 e ss.mm.ii. la circolazione sarà così controllata:
+a. gli ingressi in ZTL saranno sottoposti all’accertamento elettronico della targa tramite i varchi elettronici e
+    al successivo abbinamento con il TAG Rfid letto dal sistema;
+b. le uscite dalle ZTL saranno sottoposte alla sola lettura del TAG Rfid per verificare che siano avvenute
+    entro l’orario predisposto dalla presente disciplina;
+c. la presenza contemporanea dei veicoli presenti, così come da limite stabilito dalle autorizzazioni
+                                                                                                                 26
+   rilasciate, tramite l’incrocio dei dati tra gli ingressi rilevati dai varchi e le uscite rilevate attraverso il TAG
+   Rfid.
+Salvo quanto diversamente specificato, le sanzioni alle violazioni delle disposizioni concernenti gli orari di
+accesso e di uscita dalla ZTL dei veicoli e di qualsiasi disposizione nel presente Regolamento saranno
+definiti con separato provvedimento della Giunta.
+
+           ART. 25 ENTRATA IN VIGORE DEL REGOLAMENTO
+Dall'entrata in vigore del presente regolamento le autorizzazioni saranno rilasciate secondo le disposizioni in
+esso contenute.
+I permessi rilasciati in vigenza del precedente regolamento avranno vita fino alla loro naturale scadenza e
+saranno progressivamente sostituiti con il Ferrara Pass munito di TAG Rfid di tipo passivo per il
+riconoscimento dei veicoli.
+I permessi senza scadenza, rilasciati in vigenza del precedente regolamento, saranno progressivamente
+sostituiti secondo modalità stabilite dal Centro Unico Permessi.
+Qualora l'amministrazione comunale, per il rilascio delle autorizzazioni oggetto del presente regolamento si
+avvalga del servizio di società esterna, essa Amministrazione si riserva di effettuare controlli periodici, anche
+presso la sede della società, al fine di verificare la corretta applicazione della presente delibera e degli atti ad
+essa correlati.
+In ogni caso dovrà prevedersi la possibilità di mantenere in capo alla Polizia Locale la visualizzazione degli
+archivi relativi alle autorizzazioni rilasciate, al fine dell’espletamento delle attività di propria competenza.
+Le autorizzazioni di tipo A relative ai veicoli di tipologia L1 e L3 saranno rilasciate quando l’Amministrazione
+comunale riserverà aree di sosta a questi veicoli all’interno della ZTL.
+
+
+
+
+                                                                                                                   27
+

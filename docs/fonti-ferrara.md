@@ -1,30 +1,40 @@
-# Ferrara: fonti della scheda ZTL (bozza)
+# Ferrara: fonti della scheda ZTL
 
-Scheda generata da `Tools/build_ferrara.py` → `data/drafts/ferrara.json` (**bozza, non nell'app**: manca il perimetro e nessuna citazione è verificata sul testo ufficiale).
+Scheda generata da `Tools/build_ferrara.py` → `Resources/Cities/ferrara.json` (stato **draft**, `reviewedByHuman: false`), nell'app tramite `manifest.json` dal 26/10/2026.
+Fonti lette il **26/10/2026** e salvate in `data/raw/ferrara/` (testo estratto, con URL e data in testa a ogni file). Lo script si ferma se una frase citata o riassunta non c'è più parola per parola nel testo salvato.
 
-## Perché è una bozza
-Il 26/10/2026 dal sandbox tutti i siti utili rispondevano con rifiuto del proxy (403 al CONNECT, host non consentito per la sessione): www.comune.ferrara.it, www.comune.fe.it, sit.comune.fe.it, servizife.comune.ferrara.it, overpass-api.de, overpass.kumi.systems, overpass.private.coffee, api.openstreetmap.org, dati.emilia-romagna.it, geoportale regionale, web.archive.org. Anche WebFetch non risolveva questi host. Il workflow «Scarica pagine» **non** è stato usato: servirebbe ad aggirare il blocco della rete della sessione, e l'incarico vietava di aggirare i controlli di sicurezza. Raggiungibile solo www.dati.gov.it (catalogo CKAN) e la ricerca web.
+## Zone nell'app (11 perimetri ufficiali)
 
-Quindi ogni regola qui sotto viene dai **riassunti della ricerca web** (salvati in `data/raw/ferrara/websearch-*.txt`, non testo letterale), che indicano le pagine ufficiali da cui provengono. `quote` è `null`. Lo script controlla comunque che ogni fatto usato sia scritto nei file salvati.
+Perimetri: open data del Comune di Ferrara, dataset «Zone a traffico limitato (ZTL esistente)» (catalogo Regione Emilia-Romagna su dati.gov.it, modificato il 24/10/2026), WFS `Ferrara:ZTL_esistente_preview` su https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs, scaricato in GeoJSON WGS84 → `ztl_perimetro.geojson` (ufficiale). 11 poligoni con campo `NOME`: ZTL A, ZTL A Garibaldi (2), ZTL B (3), ZTL B Medievale, ZTL C (2, uno di 500 m²), ZTL D CERTOSA, ZTL DUOMO. Ogni poligono è una zona; le descrizioni dopo «·» sono nostre. Semplificazione 2 m.
 
-## Fatti usati
-
-| Fatto | Pagina indicata dalla ricerca | Tipo | Letto il |
+| Zone | Tipo | Orario usato | Ticket |
 |---|---|---|---|
-| ZTL attiva tutti i giorni dell'anno 24 ore su 24 | https://www.accessibilitacentristorici.it/ztl/emilia-romagna/ferrara.html, https://tolltracker.eu/zones/italy/ferrara-ztl | **non ufficiale** (confermato solo da queste guide) | 26/10/2026 |
-| Centro storico diviso in comparti A, B, C, D con varchi elettronici; lista bianca delle targhe; Ferrara Pass (contrassegno elettronico) | https://www.comune.ferrara.it/it/b/11833/permessi-ztl, regolamento https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf | ufficiale (via riassunto) | 26/10/2026 |
-| Ospiti di alberghi/case vacanza in ZTL: accesso per carico/scarico bagagli o sosta nella struttura; targa alla reception al check-in; nessuna scadenza trovata | https://www.comune.ferrara.it/it/b/57142/casi-particolari | ufficiale (via riassunto) | 26/10/2026 |
-| Permesso giornaliero 20 €, pacchetti da 5 o 10 accessi; online su INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA) o allo sportello; prima di entrare; non online per ZTL Duomo e veicoli > 3,5 t | https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti | ufficiale (via riassunto, pagina di circa 2 anni fa) | 26/10/2026 |
-| Centro Unico Permessi, via Marconi 41, lun–ven 7:30–12; tel. 0532 418890; musa@comune.fe.it | https://www.comune.ferrara.it/it/b/25854/centro-unico-permessi | ufficiale (via riassunto) | 26/10/2026 |
-| Elettriche: «VEICOLI ELETTRICI ACCESSO GRATUITO IN TUTTE LE FASCE ORARIE» (presentazione 2021); h24 nel progetto regionale 2013 | https://www.cronacacomune.it/media/uploads/allegati/46/nuovo-ztl-_conf_stampa_16_04_2021.pdf | ufficiale ma datato → non esentate (`exemptFuels: []`) | 26/10/2026 |
-| Nuovi varchi via Francesco del Cossa e Largo Castello (DD n. 2221 del 17 settembre), fine lavori entro 31/03/2027 | https://www.estense.com/2026/1208535/nuovi-varchi-ztl-in-via-del-cossa-e-largo-castello-intervento-da-95mila-euro/ | non ufficiale | 26/10/2026 |
-| Varchi per nome (Porta Reno, via Garibaldi, via De' Romei, via Camaleonte, via della Paglia, via Armari, via Ercole De' Roberti, via Ghisiglieri, vicolo del Chiozzino, via Gusmaria, Corso Ercole I d'Este, piazza T. Tasso) | accessibilitacentristorici.it | non ufficiale, senza coordinate | 26/10/2026 |
-| Multe: art. 7 Codice della Strada, 84–335 € (o 83–332 €) | sicurauto.it, autosupermarket.it | non ufficiale | 26/10/2026 |
+| A, A Garibaldi, B, B Medievale, C, D Certosa | `pass` | 0–24 tutti i giorni, festivi compresi | 20 € al giorno, prima di entrare (`beforeEntry`) |
+| Duomo | `restricted` | 0–24 tutti i giorni | nessuno: solo permesso specifico |
 
-Festivi: con orario 0–24 tutti i giorni `freeOnHolidays: false`; il patrono (San Giorgio, 23 aprile) non serve in `localHolidays`.
+Citazione delle zone A–D (pagina «Sportello permessi ZTL, sosta e Mi Muovo Elettrico», https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico, ufficiale): «Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.»
 
-## Pending (anche nella scheda)
-Orari solo da guide non ufficiali; comparti A–D e ZTL Duomo non disegnati; scadenza della registrazione hotel ignota; chi può comprare il giornaliero (turisti?) e prezzo attuale; elettriche; nuovi varchi 2027.
+Citazione della ZTL Duomo (pagina «Permessi ZTL Giornalieri e Abbonamenti», https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti, ufficiale): «L'accesso alla ZTL Duomo è consentito esclusivamente ai veicoli autorizzati da specifico permesso ZTL (rivolgersi preventivamente al Centro Unico Permessi che rilascerà l'autorizzazione, se sussistono i requisiti).» La stessa pagina elenca le vie della ZTL Duomo; Piazza Trento Trieste (lati sud ed est), Piazzetta Gramsci e un tratto di via San Romano solo 6–11 (O.S. 17153/2016): nei pending.
 
-## Geometria
-Esiste un perimetro **ufficiale** in open data: dataset «Zone a traffico limitato (ZTL esistente)» (Comune di Ferrara, catalogo Regione Emilia-Romagna su dati.gov.it, modificato il 24/10/2026), WFS `Ferrara:ZTL_esistente_preview` su https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs (anche shape-zip). Non scaricabile da qui. Per pubblicare: salvarlo in WGS84 come `data/raw/ferrara/ztl_perimetro.geojson`, salvare il testo delle pagine ufficiali in `data/raw/ferrara/`, mettere una citazione verificata e rilanciare lo script (passa da solo in `Resources/Cities/`).
+**Orario 0–24**: nessuna pagina del Comune scrive un orario. Si deduce da: (1) «Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL» senza limiti di orario; (2) il Regolamento divide i permessi degli operatori in fasce F1 06–11, F2 11–15, F3 15–19, F4 19–24, «F5 24.00 – 06.00 (gratuita)» (art. 11), cioè serve un'autorizzazione anche di notte; (3) le guide non ufficiali (accessibilitacentristorici.it, tolltracker.eu: «attiva tutti i giorni dell'anno 24 ore su 24», `websearch-1`/`websearch-5`). Scritto nei pending.
+
+## Regole
+
+| Fatto | Fonte | Tipo |
+|---|---|---|
+| Regolamento ZTL, aree pedonali e settori, DCC P.G. 52201/2022 del 16/05/2022 | https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf → `regolamento-ztl-dcc-52201-2022.txt` | ufficiale |
+| Permesso giornaliero «A tutti coloro che debbano accedere alla ZTL saltuariamente», «singolo ingresso (20€/giorno)», «Gli accessi giornalieri alla ZTL vanno acquistati prima di effettuare l'accesso», online su INES Cloud (esclusi ZTL Duomo e veicoli > 3,5 t) o allo sportello | pagina giornalieri → `comune-permessi-ztl-giornalieri.txt` | ufficiale |
+| Titoli giornalieri per «utenti che non appartengono a nessuna categoria», tariffa «compresa tra 20 € e 30 € al giorno» | Regolamento art. 18 | ufficiale |
+| Ospiti di strutture in ZTL: carico/scarico bagagli o sosta nella struttura, targa alla reception; l'hotel inserisce i dati «entro 48 (quarantotto) ore dall'arrivo del cliente», altrimenti multa al cliente; sosta su strada max 30 minuti | https://www.comune.ferrara.it/it/b/57142/casi-particolari → `comune-casi-particolari.txt`; Regolamento art. 13 punto 9 | ufficiale |
+| Elettriche: «che hanno titolo per l'accesso» circolano gratis senza limiti di orario «con regolare autorizzazione» → non esenti (`exemptFuels: []`) | Regolamento art. 5.2 | ufficiale |
+| Disabili saltuari: targa e varchi al Centro Unico Permessi entro 48 ore | Regolamento art. 16 | ufficiale |
+| Centro Unico Permessi via Marconi 41, lun–ven 7:30–12, tel. 0532 418890 (11–13) | `comune-centro-unico-permessi.txt` | ufficiale |
+| Nuovi varchi via F. del Cossa e Largo Castello, fine lavori entro 31/03/2027 | Estense (`websearch-5`) | non ufficiale |
+
+Festivi: con 0–24 `freeOnHolidays: false`; il patrono (San Giorgio, 23 aprile) non serve in `localHolidays`.
+
+## Controlli
+Piazza Cattedrale dentro la ZTL Duomo, Certosa dentro la ZTL D, via delle Volte dentro la B Medievale, Casa dell'Ariosto dentro la A; stazione e Castello Estense (strade corridoio) fuori da tutte. Superficie totale 1,27 km².
+
+## Pending
+Varchi senza coordinate: OpenStreetMap (Overpass e API) non era raggiungibile dal sandbox il 26/10/2026 e il Comune non pubblica i varchi in open data. Orario 0–24 dedotto (sopra). Fasce 6–11 di parte della ZTL Duomo non modellate.

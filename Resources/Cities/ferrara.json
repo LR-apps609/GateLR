@@ -1,0 +1,2811 @@
+{
+ "id": "ferrara",
+ "name": "Ferrara",
+ "name_it": "Ferrara",
+ "name_de": "Ferrara",
+ "center": {
+  "lat": 44.8377,
+  "lon": 11.6188
+ },
+ "zones": [
+  {
+   "id": "ferrara-ztl-a",
+   "name": "ZTL A · west of Corso Ercole I d'Este",
+   "name_it": "ZTL A · a ovest di Corso Ercole I d'Este",
+   "name_de": "ZTL A · westlich des Corso Ercole I d'Este",
+   "kind": "pass",
+   "summary": "Closed to vehicles without a permit 24 hours a day, every day. Anyone can buy a 20 € day permit, before entering (INES Cloud online or the permit office). Hotels inside let you in to unload: give your plate at reception, the hotel registers it within 48 hours.",
+   "summary_it": "Chiusa ai veicoli senza permesso 24 ore su 24, tutti i giorni. Chiunque può comprare un permesso giornaliero da 20 €, prima di entrare (online su INES Cloud o allo sportello). Gli hotel dentro ti fanno entrare per scaricare: dai la targa alla reception, l'hotel la registra entro 48 ore.",
+   "summary_de": "Rund um die Uhr, jeden Tag für Fahrzeuge ohne Genehmigung gesperrt. Jeder kann vor der Einfahrt eine Tagesgenehmigung für 20 € kaufen (online bei INES Cloud oder am Schalter). Hotels in der Zone lassen dich zum Ausladen hinein: Kennzeichen an der Rezeption angeben, das Hotel meldet es innerhalb von 48 Stunden.",
+   "perimeter": [
+    {
+     "lat": 44.839495,
+     "lon": 11.616531
+    },
+    {
+     "lat": 44.839245,
+     "lon": 11.616298
+    },
+    {
+     "lat": 44.838913,
+     "lon": 11.616184
+    },
+    {
+     "lat": 44.838751,
+     "lon": 11.617046
+    },
+    {
+     "lat": 44.838136,
+     "lon": 11.616796
+    },
+    {
+     "lat": 44.838187,
+     "lon": 11.616416
+    },
+    {
+     "lat": 44.83821,
+     "lon": 11.61641
+    },
+    {
+     "lat": 44.83831,
+     "lon": 11.615869
+    },
+    {
+     "lat": 44.83825,
+     "lon": 11.615887
+    },
+    {
+     "lat": 44.838071,
+     "lon": 11.615826
+    },
+    {
+     "lat": 44.837951,
+     "lon": 11.615701
+    },
+    {
+     "lat": 44.837857,
+     "lon": 11.61566
+    },
+    {
+     "lat": 44.837851,
+     "lon": 11.615701
+    },
+    {
+     "lat": 44.837878,
+     "lon": 11.615711
+    },
+    {
+     "lat": 44.837816,
+     "lon": 11.61607
+    },
+    {
+     "lat": 44.838092,
+     "lon": 11.616208
+    },
+    {
+     "lat": 44.837934,
+     "lon": 11.61695
+    },
+    {
+     "lat": 44.837905,
+     "lon": 11.616939
+    },
+    {
+     "lat": 44.837892,
+     "lon": 11.617007
+    },
+    {
+     "lat": 44.837836,
+     "lon": 11.616984
+    },
+    {
+     "lat": 44.837818,
+     "lon": 11.617079
+    },
+    {
+     "lat": 44.837632,
+     "lon": 11.617038
+    },
+    {
+     "lat": 44.837471,
+     "lon": 11.616972
+    },
+    {
+     "lat": 44.83743,
+     "lon": 11.616897
+    },
+    {
+     "lat": 44.836794,
+     "lon": 11.61652
+    },
+    {
+     "lat": 44.836709,
+     "lon": 11.61654
+    },
+    {
+     "lat": 44.836083,
+     "lon": 11.616399
+    },
+    {
+     "lat": 44.835828,
+     "lon": 11.616274
+    },
+    {
+     "lat": 44.835452,
+     "lon": 11.615996
+    },
+    {
+     "lat": 44.835405,
+     "lon": 11.615945
+    },
+    {
+     "lat": 44.835423,
+     "lon": 11.615913
+    },
+    {
+     "lat": 44.835237,
+     "lon": 11.615749
+    },
+    {
+     "lat": 44.834967,
+     "lon": 11.615395
+    },
+    {
+     "lat": 44.835525,
+     "lon": 11.614537
+    },
+    {
+     "lat": 44.835848,
+     "lon": 11.614134
+    },
+    {
+     "lat": 44.836474,
+     "lon": 11.613237
+    },
+    {
+     "lat": 44.836779,
+     "lon": 11.612728
+    },
+    {
+     "lat": 44.837532,
+     "lon": 11.611734
+    },
+    {
+     "lat": 44.837603,
+     "lon": 11.611843
+    },
+    {
+     "lat": 44.838006,
+     "lon": 11.612119
+    },
+    {
+     "lat": 44.838982,
+     "lon": 11.612217
+    },
+    {
+     "lat": 44.841061,
+     "lon": 11.612207
+    },
+    {
+     "lat": 44.841298,
+     "lon": 11.612298
+    },
+    {
+     "lat": 44.84145,
+     "lon": 11.612435
+    },
+    {
+     "lat": 44.840347,
+     "lon": 11.614775
+    },
+    {
+     "lat": 44.840009,
+     "lon": 11.615387
+    },
+    {
+     "lat": 44.840018,
+     "lon": 11.615433
+    },
+    {
+     "lat": 44.839495,
+     "lon": 11.616531
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 20.0,
+    "howTo": "Single-day permit 20 €, for anyone who needs to enter occasionally. Buy it before you enter: online on the INES Cloud portal (PERMESSI ZTL → PRENOTA/ACQUISTA, with SPID/CIE/CNS) or at the permit office, Via Marconi 41 (Mon–Fri 7:30–12). Not valid for the ZTL Duomo.",
+    "howTo_it": "Permesso giornaliero 20 €, per chiunque debba entrare saltuariamente. Va comprato prima di entrare: online sul portale INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, con SPID/CIE/CNS) o allo sportello del Centro Unico Permessi, via Marconi 41 (lun–ven 7:30–12). Non vale per la ZTL Duomo.",
+    "howTo_de": "Tagesgenehmigung 20 €, für alle, die gelegentlich einfahren müssen. Vor der Einfahrt kaufen: online im Portal INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, mit SPID/CIE/CNS) oder am Genehmigungsbüro, Via Marconi 41 (Mo–Fr 7:30–12). Gilt nicht für die ZTL Duomo.",
+    "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.",
+    "quoteTranslation": "Ferrara's historic centre is divided into 4 limited traffic zones (A, B, C, D) with gates for electronic checks of vehicles, marked by road signs on site. To enter the ZTL you must first have a ZTL permit issued by the permit office.",
+    "quoteTranslation_de": "Die Altstadt von Ferrara ist in 4 verkehrsberuhigte Zonen (A, B, C, D) geteilt, mit Kameras zur elektronischen Kontrolle und Schildern vor Ort. Für die Einfahrt braucht man vorher eine ZTL-Genehmigung des Genehmigungsbüros.",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ferrara-ztl-a-garibaldi-1",
+   "name": "ZTL A Garibaldi · Via Garibaldi area (1/2)",
+   "name_it": "ZTL A Garibaldi · zona di via Garibaldi (1/2)",
+   "name_de": "ZTL A Garibaldi · Gegend Via Garibaldi (1/2)",
+   "kind": "pass",
+   "summary": "Closed to vehicles without a permit 24 hours a day, every day. Anyone can buy a 20 € day permit, before entering (INES Cloud online or the permit office). Hotels inside let you in to unload: give your plate at reception, the hotel registers it within 48 hours.",
+   "summary_it": "Chiusa ai veicoli senza permesso 24 ore su 24, tutti i giorni. Chiunque può comprare un permesso giornaliero da 20 €, prima di entrare (online su INES Cloud o allo sportello). Gli hotel dentro ti fanno entrare per scaricare: dai la targa alla reception, l'hotel la registra entro 48 ore.",
+   "summary_de": "Rund um die Uhr, jeden Tag für Fahrzeuge ohne Genehmigung gesperrt. Jeder kann vor der Einfahrt eine Tagesgenehmigung für 20 € kaufen (online bei INES Cloud oder am Schalter). Hotels in der Zone lassen dich zum Ausladen hinein: Kennzeichen an der Rezeption angeben, das Hotel meldet es innerhalb von 48 Stunden.",
+   "perimeter": [
+    {
+     "lat": 44.834668,
+     "lon": 11.619719
+    },
+    {
+     "lat": 44.834368,
+     "lon": 11.619535
+    },
+    {
+     "lat": 44.834339,
+     "lon": 11.619501
+    },
+    {
+     "lat": 44.834373,
+     "lon": 11.619406
+    },
+    {
+     "lat": 44.833756,
+     "lon": 11.618937
+    },
+    {
+     "lat": 44.8333,
+     "lon": 11.618514
+    },
+    {
+     "lat": 44.832751,
+     "lon": 11.617699
+    },
+    {
+     "lat": 44.832674,
+     "lon": 11.617756
+    },
+    {
+     "lat": 44.832425,
+     "lon": 11.617326
+    },
+    {
+     "lat": 44.83285,
+     "lon": 11.616493
+    },
+    {
+     "lat": 44.833211,
+     "lon": 11.616928
+    },
+    {
+     "lat": 44.833306,
+     "lon": 11.616777
+    },
+    {
+     "lat": 44.832961,
+     "lon": 11.616291
+    },
+    {
+     "lat": 44.833271,
+     "lon": 11.615717
+    },
+    {
+     "lat": 44.833537,
+     "lon": 11.615362
+    },
+    {
+     "lat": 44.833618,
+     "lon": 11.615371
+    },
+    {
+     "lat": 44.833892,
+     "lon": 11.6151
+    },
+    {
+     "lat": 44.834504,
+     "lon": 11.614837
+    },
+    {
+     "lat": 44.834777,
+     "lon": 11.615186
+    },
+    {
+     "lat": 44.834757,
+     "lon": 11.615218
+    },
+    {
+     "lat": 44.834906,
+     "lon": 11.615466
+    },
+    {
+     "lat": 44.835254,
+     "lon": 11.615915
+    },
+    {
+     "lat": 44.835516,
+     "lon": 11.616155
+    },
+    {
+     "lat": 44.836118,
+     "lon": 11.61653
+    },
+    {
+     "lat": 44.835979,
+     "lon": 11.61697
+    },
+    {
+     "lat": 44.836012,
+     "lon": 11.617215
+    },
+    {
+     "lat": 44.836114,
+     "lon": 11.617479
+    },
+    {
+     "lat": 44.836028,
+     "lon": 11.617691
+    },
+    {
+     "lat": 44.835819,
+     "lon": 11.618455
+    },
+    {
+     "lat": 44.835507,
+     "lon": 11.61819
+    },
+    {
+     "lat": 44.835454,
+     "lon": 11.61822
+    },
+    {
+     "lat": 44.835264,
+     "lon": 11.618784
+    },
+    {
+     "lat": 44.835099,
+     "lon": 11.618676
+    },
+    {
+     "lat": 44.834668,
+     "lon": 11.619719
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 20.0,
+    "howTo": "Single-day permit 20 €, for anyone who needs to enter occasionally. Buy it before you enter: online on the INES Cloud portal (PERMESSI ZTL → PRENOTA/ACQUISTA, with SPID/CIE/CNS) or at the permit office, Via Marconi 41 (Mon–Fri 7:30–12). Not valid for the ZTL Duomo.",
+    "howTo_it": "Permesso giornaliero 20 €, per chiunque debba entrare saltuariamente. Va comprato prima di entrare: online sul portale INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, con SPID/CIE/CNS) o allo sportello del Centro Unico Permessi, via Marconi 41 (lun–ven 7:30–12). Non vale per la ZTL Duomo.",
+    "howTo_de": "Tagesgenehmigung 20 €, für alle, die gelegentlich einfahren müssen. Vor der Einfahrt kaufen: online im Portal INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, mit SPID/CIE/CNS) oder am Genehmigungsbüro, Via Marconi 41 (Mo–Fr 7:30–12). Gilt nicht für die ZTL Duomo.",
+    "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.",
+    "quoteTranslation": "Ferrara's historic centre is divided into 4 limited traffic zones (A, B, C, D) with gates for electronic checks of vehicles, marked by road signs on site. To enter the ZTL you must first have a ZTL permit issued by the permit office.",
+    "quoteTranslation_de": "Die Altstadt von Ferrara ist in 4 verkehrsberuhigte Zonen (A, B, C, D) geteilt, mit Kameras zur elektronischen Kontrolle und Schildern vor Ort. Für die Einfahrt braucht man vorher eine ZTL-Genehmigung des Genehmigungsbüros.",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ferrara-ztl-a-garibaldi-2",
+   "name": "ZTL A Garibaldi · Via Garibaldi area (2/2)",
+   "name_it": "ZTL A Garibaldi · zona di via Garibaldi (2/2)",
+   "name_de": "ZTL A Garibaldi · Gegend Via Garibaldi (2/2)",
+   "kind": "pass",
+   "summary": "Closed to vehicles without a permit 24 hours a day, every day. Anyone can buy a 20 € day permit, before entering (INES Cloud online or the permit office). Hotels inside let you in to unload: give your plate at reception, the hotel registers it within 48 hours.",
+   "summary_it": "Chiusa ai veicoli senza permesso 24 ore su 24, tutti i giorni. Chiunque può comprare un permesso giornaliero da 20 €, prima di entrare (online su INES Cloud o allo sportello). Gli hotel dentro ti fanno entrare per scaricare: dai la targa alla reception, l'hotel la registra entro 48 ore.",
+   "summary_de": "Rund um die Uhr, jeden Tag für Fahrzeuge ohne Genehmigung gesperrt. Jeder kann vor der Einfahrt eine Tagesgenehmigung für 20 € kaufen (online bei INES Cloud oder am Schalter). Hotels in der Zone lassen dich zum Ausladen hinein: Kennzeichen an der Rezeption angeben, das Hotel meldet es innerhalb von 48 Stunden.",
+   "perimeter": [
+    {
+     "lat": 44.837628,
+     "lon": 11.617646
+    },
+    {
+     "lat": 44.837804,
+     "lon": 11.617287
+    },
+    {
+     "lat": 44.837832,
+     "lon": 11.617296
+    },
+    {
+     "lat": 44.837842,
+     "lon": 11.617186
+    },
+    {
+     "lat": 44.838126,
+     "lon": 11.617135
+    },
+    {
+     "lat": 44.838504,
+     "lon": 11.617127
+    },
+    {
+     "lat": 44.8387,
+     "lon": 11.617194
+    },
+    {
+     "lat": 44.838761,
+     "lon": 11.61727
+    },
+    {
+     "lat": 44.838788,
+     "lon": 11.617221
+    },
+    {
+     "lat": 44.839027,
+     "lon": 11.617426
+    },
+    {
+     "lat": 44.839133,
+     "lon": 11.617564
+    },
+    {
+     "lat": 44.83855,
+     "lon": 11.618818
+    },
+    {
+     "lat": 44.838481,
+     "lon": 11.618951
+    },
+    {
+     "lat": 44.838433,
+     "lon": 11.618974
+    },
+    {
+     "lat": 44.838333,
+     "lon": 11.619199
+    },
+    {
+     "lat": 44.838152,
+     "lon": 11.619056
+    },
+    {
+     "lat": 44.838136,
+     "lon": 11.619096
+    },
+    {
+     "lat": 44.837548,
+     "lon": 11.618624
+    },
+    {
+     "lat": 44.837615,
+     "lon": 11.61833
+    },
+    {
+     "lat": 44.837458,
+     "lon": 11.618266
+    },
+    {
+     "lat": 44.837555,
+     "lon": 11.617825
+    },
+    {
+     "lat": 44.837914,
+     "lon": 11.618062
+    },
+    {
+     "lat": 44.837949,
+     "lon": 11.618002
+    },
+    {
+     "lat": 44.837568,
+     "lon": 11.617767
+    },
+    {
+     "lat": 44.837628,
+     "lon": 11.617646
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 20.0,
+    "howTo": "Single-day permit 20 €, for anyone who needs to enter occasionally. Buy it before you enter: online on the INES Cloud portal (PERMESSI ZTL → PRENOTA/ACQUISTA, with SPID/CIE/CNS) or at the permit office, Via Marconi 41 (Mon–Fri 7:30–12). Not valid for the ZTL Duomo.",
+    "howTo_it": "Permesso giornaliero 20 €, per chiunque debba entrare saltuariamente. Va comprato prima di entrare: online sul portale INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, con SPID/CIE/CNS) o allo sportello del Centro Unico Permessi, via Marconi 41 (lun–ven 7:30–12). Non vale per la ZTL Duomo.",
+    "howTo_de": "Tagesgenehmigung 20 €, für alle, die gelegentlich einfahren müssen. Vor der Einfahrt kaufen: online im Portal INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, mit SPID/CIE/CNS) oder am Genehmigungsbüro, Via Marconi 41 (Mo–Fr 7:30–12). Gilt nicht für die ZTL Duomo.",
+    "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.",
+    "quoteTranslation": "Ferrara's historic centre is divided into 4 limited traffic zones (A, B, C, D) with gates for electronic checks of vehicles, marked by road signs on site. To enter the ZTL you must first have a ZTL permit issued by the permit office.",
+    "quoteTranslation_de": "Die Altstadt von Ferrara ist in 4 verkehrsberuhigte Zonen (A, B, C, D) geteilt, mit Kameras zur elektronischen Kontrolle und Schildern vor Ort. Für die Einfahrt braucht man vorher eine ZTL-Genehmigung des Genehmigungsbüros.",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ferrara-ztl-b-1",
+   "name": "ZTL B · southern centre (1/3)",
+   "name_it": "ZTL B · centro sud (1/3)",
+   "name_de": "ZTL B · südliche Altstadt (1/3)",
+   "kind": "pass",
+   "summary": "Closed to vehicles without a permit 24 hours a day, every day. Anyone can buy a 20 € day permit, before entering (INES Cloud online or the permit office). Hotels inside let you in to unload: give your plate at reception, the hotel registers it within 48 hours.",
+   "summary_it": "Chiusa ai veicoli senza permesso 24 ore su 24, tutti i giorni. Chiunque può comprare un permesso giornaliero da 20 €, prima di entrare (online su INES Cloud o allo sportello). Gli hotel dentro ti fanno entrare per scaricare: dai la targa alla reception, l'hotel la registra entro 48 ore.",
+   "summary_de": "Rund um die Uhr, jeden Tag für Fahrzeuge ohne Genehmigung gesperrt. Jeder kann vor der Einfahrt eine Tagesgenehmigung für 20 € kaufen (online bei INES Cloud oder am Schalter). Hotels in der Zone lassen dich zum Ausladen hinein: Kennzeichen an der Rezeption angeben, das Hotel meldet es innerhalb von 48 Stunden.",
+   "perimeter": [
+    {
+     "lat": 44.829619,
+     "lon": 11.624124
+    },
+    {
+     "lat": 44.830072,
+     "lon": 11.623127
+    },
+    {
+     "lat": 44.830971,
+     "lon": 11.621298
+    },
+    {
+     "lat": 44.831114,
+     "lon": 11.62143
+    },
+    {
+     "lat": 44.831097,
+     "lon": 11.621463
+    },
+    {
+     "lat": 44.831343,
+     "lon": 11.621669
+    },
+    {
+     "lat": 44.831152,
+     "lon": 11.622213
+    },
+    {
+     "lat": 44.831209,
+     "lon": 11.622255
+    },
+    {
+     "lat": 44.831325,
+     "lon": 11.62194
+    },
+    {
+     "lat": 44.831481,
+     "lon": 11.622062
+    },
+    {
+     "lat": 44.83151,
+     "lon": 11.621997
+    },
+    {
+     "lat": 44.831531,
+     "lon": 11.622016
+    },
+    {
+     "lat": 44.831464,
+     "lon": 11.622176
+    },
+    {
+     "lat": 44.831592,
+     "lon": 11.622196
+    },
+    {
+     "lat": 44.831626,
+     "lon": 11.621937
+    },
+    {
+     "lat": 44.831585,
+     "lon": 11.621928
+    },
+    {
+     "lat": 44.831599,
+     "lon": 11.621791
+    },
+    {
+     "lat": 44.831643,
+     "lon": 11.6218
+    },
+    {
+     "lat": 44.831647,
+     "lon": 11.621772
+    },
+    {
+     "lat": 44.832422,
+     "lon": 11.621999
+    },
+    {
+     "lat": 44.83242,
+     "lon": 11.622038
+    },
+    {
+     "lat": 44.833048,
+     "lon": 11.622014
+    },
+    {
+     "lat": 44.833255,
+     "lon": 11.622476
+    },
+    {
+     "lat": 44.832828,
+     "lon": 11.622979
+    },
+    {
+     "lat": 44.832881,
+     "lon": 11.62308
+    },
+    {
+     "lat": 44.833302,
+     "lon": 11.622569
+    },
+    {
+     "lat": 44.83354,
+     "lon": 11.622946
+    },
+    {
+     "lat": 44.833988,
+     "lon": 11.623805
+    },
+    {
+     "lat": 44.834271,
+     "lon": 11.624136
+    },
+    {
+     "lat": 44.833503,
+     "lon": 11.625731
+    },
+    {
+     "lat": 44.833015,
+     "lon": 11.625471
+    },
+    {
+     "lat": 44.83202,
+     "lon": 11.625163
+    },
+    {
+     "lat": 44.831672,
+     "lon": 11.625003
+    },
+    {
+     "lat": 44.83161,
+     "lon": 11.624937
+    },
+    {
+     "lat": 44.83131,
+     "lon": 11.625736
+    },
+    {
+     "lat": 44.830907,
+     "lon": 11.626206
+    },
+    {
+     "lat": 44.830756,
+     "lon": 11.627208
+    },
+    {
+     "lat": 44.829843,
+     "lon": 11.626702
+    },
+    {
+     "lat": 44.829111,
+     "lon": 11.626384
+    },
+    {
+     "lat": 44.829083,
+     "lon": 11.626336
+    },
+    {
+     "lat": 44.828748,
+     "lon": 11.626176
+    },
+    {
+     "lat": 44.829038,
+     "lon": 11.625406
+    },
+    {
+     "lat": 44.829059,
+     "lon": 11.62542
+    },
+    {
+     "lat": 44.829619,
+     "lon": 11.624124
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 20.0,
+    "howTo": "Single-day permit 20 €, for anyone who needs to enter occasionally. Buy it before you enter: online on the INES Cloud portal (PERMESSI ZTL → PRENOTA/ACQUISTA, with SPID/CIE/CNS) or at the permit office, Via Marconi 41 (Mon–Fri 7:30–12). Not valid for the ZTL Duomo.",
+    "howTo_it": "Permesso giornaliero 20 €, per chiunque debba entrare saltuariamente. Va comprato prima di entrare: online sul portale INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, con SPID/CIE/CNS) o allo sportello del Centro Unico Permessi, via Marconi 41 (lun–ven 7:30–12). Non vale per la ZTL Duomo.",
+    "howTo_de": "Tagesgenehmigung 20 €, für alle, die gelegentlich einfahren müssen. Vor der Einfahrt kaufen: online im Portal INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, mit SPID/CIE/CNS) oder am Genehmigungsbüro, Via Marconi 41 (Mo–Fr 7:30–12). Gilt nicht für die ZTL Duomo.",
+    "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.",
+    "quoteTranslation": "Ferrara's historic centre is divided into 4 limited traffic zones (A, B, C, D) with gates for electronic checks of vehicles, marked by road signs on site. To enter the ZTL you must first have a ZTL permit issued by the permit office.",
+    "quoteTranslation_de": "Die Altstadt von Ferrara ist in 4 verkehrsberuhigte Zonen (A, B, C, D) geteilt, mit Kameras zur elektronischen Kontrolle und Schildern vor Ort. Für die Einfahrt braucht man vorher eine ZTL-Genehmigung des Genehmigungsbüros.",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ferrara-ztl-b-2",
+   "name": "ZTL B · southern centre (2/3)",
+   "name_it": "ZTL B · centro sud (2/3)",
+   "name_de": "ZTL B · südliche Altstadt (2/3)",
+   "kind": "pass",
+   "summary": "Closed to vehicles without a permit 24 hours a day, every day. Anyone can buy a 20 € day permit, before entering (INES Cloud online or the permit office). Hotels inside let you in to unload: give your plate at reception, the hotel registers it within 48 hours.",
+   "summary_it": "Chiusa ai veicoli senza permesso 24 ore su 24, tutti i giorni. Chiunque può comprare un permesso giornaliero da 20 €, prima di entrare (online su INES Cloud o allo sportello). Gli hotel dentro ti fanno entrare per scaricare: dai la targa alla reception, l'hotel la registra entro 48 ore.",
+   "summary_de": "Rund um die Uhr, jeden Tag für Fahrzeuge ohne Genehmigung gesperrt. Jeder kann vor der Einfahrt eine Tagesgenehmigung für 20 € kaufen (online bei INES Cloud oder am Schalter). Hotels in der Zone lassen dich zum Ausladen hinein: Kennzeichen an der Rezeption angeben, das Hotel meldet es innerhalb von 48 Stunden.",
+   "perimeter": [
+    {
+     "lat": 44.828394,
+     "lon": 11.622503
+    },
+    {
+     "lat": 44.82796,
+     "lon": 11.622106
+    },
+    {
+     "lat": 44.828011,
+     "lon": 11.622069
+    },
+    {
+     "lat": 44.8281,
+     "lon": 11.62186
+    },
+    {
+     "lat": 44.828806,
+     "lon": 11.621
+    },
+    {
+     "lat": 44.828843,
+     "lon": 11.621006
+    },
+    {
+     "lat": 44.829028,
+     "lon": 11.62127
+    },
+    {
+     "lat": 44.829085,
+     "lon": 11.621228
+    },
+    {
+     "lat": 44.828901,
+     "lon": 11.620821
+    },
+    {
+     "lat": 44.829369,
+     "lon": 11.620291
+    },
+    {
+     "lat": 44.829973,
+     "lon": 11.619511
+    },
+    {
+     "lat": 44.829992,
+     "lon": 11.619539
+    },
+    {
+     "lat": 44.83025,
+     "lon": 11.619247
+    },
+    {
+     "lat": 44.830218,
+     "lon": 11.61919
+    },
+    {
+     "lat": 44.830363,
+     "lon": 11.619017
+    },
+    {
+     "lat": 44.830385,
+     "lon": 11.619054
+    },
+    {
+     "lat": 44.830751,
+     "lon": 11.618644
+    },
+    {
+     "lat": 44.831236,
+     "lon": 11.61831
+    },
+    {
+     "lat": 44.831493,
+     "lon": 11.618745
+    },
+    {
+     "lat": 44.831602,
+     "lon": 11.618992
+    },
+    {
+     "lat": 44.831966,
+     "lon": 11.619559
+    },
+    {
+     "lat": 44.831154,
+     "lon": 11.620732
+    },
+    {
+     "lat": 44.830876,
+     "lon": 11.621198
+    },
+    {
+     "lat": 44.829791,
+     "lon": 11.623585
+    },
+    {
+     "lat": 44.829118,
+     "lon": 11.623021
+    },
+    {
+     "lat": 44.829395,
+     "lon": 11.622302
+    },
+    {
+     "lat": 44.829416,
+     "lon": 11.622315
+    },
+    {
+     "lat": 44.829436,
+     "lon": 11.622262
+    },
+    {
+     "lat": 44.829917,
+     "lon": 11.621829
+    },
+    {
+     "lat": 44.829941,
+     "lon": 11.621754
+    },
+    {
+     "lat": 44.829568,
+     "lon": 11.621531
+    },
+    {
+     "lat": 44.829033,
+     "lon": 11.62295
+    },
+    {
+     "lat": 44.828484,
+     "lon": 11.622485
+    },
+    {
+     "lat": 44.828394,
+     "lon": 11.622503
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 20.0,
+    "howTo": "Single-day permit 20 €, for anyone who needs to enter occasionally. Buy it before you enter: online on the INES Cloud portal (PERMESSI ZTL → PRENOTA/ACQUISTA, with SPID/CIE/CNS) or at the permit office, Via Marconi 41 (Mon–Fri 7:30–12). Not valid for the ZTL Duomo.",
+    "howTo_it": "Permesso giornaliero 20 €, per chiunque debba entrare saltuariamente. Va comprato prima di entrare: online sul portale INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, con SPID/CIE/CNS) o allo sportello del Centro Unico Permessi, via Marconi 41 (lun–ven 7:30–12). Non vale per la ZTL Duomo.",
+    "howTo_de": "Tagesgenehmigung 20 €, für alle, die gelegentlich einfahren müssen. Vor der Einfahrt kaufen: online im Portal INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, mit SPID/CIE/CNS) oder am Genehmigungsbüro, Via Marconi 41 (Mo–Fr 7:30–12). Gilt nicht für die ZTL Duomo.",
+    "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.",
+    "quoteTranslation": "Ferrara's historic centre is divided into 4 limited traffic zones (A, B, C, D) with gates for electronic checks of vehicles, marked by road signs on site. To enter the ZTL you must first have a ZTL permit issued by the permit office.",
+    "quoteTranslation_de": "Die Altstadt von Ferrara ist in 4 verkehrsberuhigte Zonen (A, B, C, D) geteilt, mit Kameras zur elektronischen Kontrolle und Schildern vor Ort. Für die Einfahrt braucht man vorher eine ZTL-Genehmigung des Genehmigungsbüros.",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ferrara-ztl-b-3",
+   "name": "ZTL B · southern centre (3/3)",
+   "name_it": "ZTL B · centro sud (3/3)",
+   "name_de": "ZTL B · südliche Altstadt (3/3)",
+   "kind": "pass",
+   "summary": "Closed to vehicles without a permit 24 hours a day, every day. Anyone can buy a 20 € day permit, before entering (INES Cloud online or the permit office). Hotels inside let you in to unload: give your plate at reception, the hotel registers it within 48 hours.",
+   "summary_it": "Chiusa ai veicoli senza permesso 24 ore su 24, tutti i giorni. Chiunque può comprare un permesso giornaliero da 20 €, prima di entrare (online su INES Cloud o allo sportello). Gli hotel dentro ti fanno entrare per scaricare: dai la targa alla reception, l'hotel la registra entro 48 ore.",
+   "summary_de": "Rund um die Uhr, jeden Tag für Fahrzeuge ohne Genehmigung gesperrt. Jeder kann vor der Einfahrt eine Tagesgenehmigung für 20 € kaufen (online bei INES Cloud oder am Schalter). Hotels in der Zone lassen dich zum Ausladen hinein: Kennzeichen an der Rezeption angeben, das Hotel meldet es innerhalb von 48 Stunden.",
+   "perimeter": [
+    {
+     "lat": 44.830816,
+     "lon": 11.62725
+    },
+    {
+     "lat": 44.831031,
+     "lon": 11.626164
+    },
+    {
+     "lat": 44.831264,
+     "lon": 11.625933
+    },
+    {
+     "lat": 44.831384,
+     "lon": 11.625756
+    },
+    {
+     "lat": 44.831644,
+     "lon": 11.625061
+    },
+    {
+     "lat": 44.831977,
+     "lon": 11.625271
+    },
+    {
+     "lat": 44.832876,
+     "lon": 11.625521
+    },
+    {
+     "lat": 44.833473,
+     "lon": 11.625782
+    },
+    {
+     "lat": 44.832838,
+     "lon": 11.626865
+    },
+    {
+     "lat": 44.832214,
+     "lon": 11.628118
+    },
+    {
+     "lat": 44.830816,
+     "lon": 11.62725
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 20.0,
+    "howTo": "Single-day permit 20 €, for anyone who needs to enter occasionally. Buy it before you enter: online on the INES Cloud portal (PERMESSI ZTL → PRENOTA/ACQUISTA, with SPID/CIE/CNS) or at the permit office, Via Marconi 41 (Mon–Fri 7:30–12). Not valid for the ZTL Duomo.",
+    "howTo_it": "Permesso giornaliero 20 €, per chiunque debba entrare saltuariamente. Va comprato prima di entrare: online sul portale INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, con SPID/CIE/CNS) o allo sportello del Centro Unico Permessi, via Marconi 41 (lun–ven 7:30–12). Non vale per la ZTL Duomo.",
+    "howTo_de": "Tagesgenehmigung 20 €, für alle, die gelegentlich einfahren müssen. Vor der Einfahrt kaufen: online im Portal INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, mit SPID/CIE/CNS) oder am Genehmigungsbüro, Via Marconi 41 (Mo–Fr 7:30–12). Gilt nicht für die ZTL Duomo.",
+    "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.",
+    "quoteTranslation": "Ferrara's historic centre is divided into 4 limited traffic zones (A, B, C, D) with gates for electronic checks of vehicles, marked by road signs on site. To enter the ZTL you must first have a ZTL permit issued by the permit office.",
+    "quoteTranslation_de": "Die Altstadt von Ferrara ist in 4 verkehrsberuhigte Zonen (A, B, C, D) geteilt, mit Kameras zur elektronischen Kontrolle und Schildern vor Ort. Für die Einfahrt braucht man vorher eine ZTL-Genehmigung des Genehmigungsbüros.",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ferrara-ztl-b-medievale",
+   "name": "ZTL B Medievale · medieval quarter",
+   "name_it": "ZTL B Medievale · quartiere medievale",
+   "name_de": "ZTL B Medievale · mittelalterliches Viertel",
+   "kind": "pass",
+   "summary": "Closed to vehicles without a permit 24 hours a day, every day. Anyone can buy a 20 € day permit, before entering (INES Cloud online or the permit office). Hotels inside let you in to unload: give your plate at reception, the hotel registers it within 48 hours.",
+   "summary_it": "Chiusa ai veicoli senza permesso 24 ore su 24, tutti i giorni. Chiunque può comprare un permesso giornaliero da 20 €, prima di entrare (online su INES Cloud o allo sportello). Gli hotel dentro ti fanno entrare per scaricare: dai la targa alla reception, l'hotel la registra entro 48 ore.",
+   "summary_de": "Rund um die Uhr, jeden Tag für Fahrzeuge ohne Genehmigung gesperrt. Jeder kann vor der Einfahrt eine Tagesgenehmigung für 20 € kaufen (online bei INES Cloud oder am Schalter). Hotels in der Zone lassen dich zum Ausladen hinein: Kennzeichen an der Rezeption angeben, das Hotel meldet es innerhalb von 48 Stunden.",
+   "perimeter": [
+    {
+     "lat": 44.836793,
+     "lon": 11.622568
+    },
+    {
+     "lat": 44.83604,
+     "lon": 11.624186
+    },
+    {
+     "lat": 44.835116,
+     "lon": 11.623288
+    },
+    {
+     "lat": 44.834995,
+     "lon": 11.62312
+    },
+    {
+     "lat": 44.834913,
+     "lon": 11.623074
+    },
+    {
+     "lat": 44.83435,
+     "lon": 11.623995
+    },
+    {
+     "lat": 44.834056,
+     "lon": 11.623687
+    },
+    {
+     "lat": 44.833958,
+     "lon": 11.62354
+    },
+    {
+     "lat": 44.83374,
+     "lon": 11.623105
+    },
+    {
+     "lat": 44.833374,
+     "lon": 11.622509
+    },
+    {
+     "lat": 44.833137,
+     "lon": 11.621888
+    },
+    {
+     "lat": 44.832473,
+     "lon": 11.621948
+    },
+    {
+     "lat": 44.832344,
+     "lon": 11.621879
+    },
+    {
+     "lat": 44.831872,
+     "lon": 11.621751
+    },
+    {
+     "lat": 44.831875,
+     "lon": 11.621723
+    },
+    {
+     "lat": 44.831395,
+     "lon": 11.621611
+    },
+    {
+     "lat": 44.831172,
+     "lon": 11.621424
+    },
+    {
+     "lat": 44.831189,
+     "lon": 11.621389
+    },
+    {
+     "lat": 44.831022,
+     "lon": 11.621216
+    },
+    {
+     "lat": 44.831114,
+     "lon": 11.621019
+    },
+    {
+     "lat": 44.832065,
+     "lon": 11.619574
+    },
+    {
+     "lat": 44.831476,
+     "lon": 11.61858
+    },
+    {
+     "lat": 44.831436,
+     "lon": 11.618382
+    },
+    {
+     "lat": 44.8316,
+     "lon": 11.618227
+    },
+    {
+     "lat": 44.831989,
+     "lon": 11.617984
+    },
+    {
+     "lat": 44.832036,
+     "lon": 11.617868
+    },
+    {
+     "lat": 44.832351,
+     "lon": 11.617407
+    },
+    {
+     "lat": 44.832434,
+     "lon": 11.61733
+    },
+    {
+     "lat": 44.832568,
+     "lon": 11.617596
+    },
+    {
+     "lat": 44.832865,
+     "lon": 11.618034
+    },
+    {
+     "lat": 44.833289,
+     "lon": 11.618567
+    },
+    {
+     "lat": 44.833779,
+     "lon": 11.619053
+    },
+    {
+     "lat": 44.834368,
+     "lon": 11.619535
+    },
+    {
+     "lat": 44.834784,
+     "lon": 11.619796
+    },
+    {
+     "lat": 44.834756,
+     "lon": 11.619892
+    },
+    {
+     "lat": 44.835084,
+     "lon": 11.620077
+    },
+    {
+     "lat": 44.835004,
+     "lon": 11.620378
+    },
+    {
+     "lat": 44.834975,
+     "lon": 11.620364
+    },
+    {
+     "lat": 44.834958,
+     "lon": 11.620423
+    },
+    {
+     "lat": 44.83491,
+     "lon": 11.620401
+    },
+    {
+     "lat": 44.834917,
+     "lon": 11.620335
+    },
+    {
+     "lat": 44.83489,
+     "lon": 11.62032
+    },
+    {
+     "lat": 44.834874,
+     "lon": 11.620419
+    },
+    {
+     "lat": 44.834974,
+     "lon": 11.620512
+    },
+    {
+     "lat": 44.834793,
+     "lon": 11.620917
+    },
+    {
+     "lat": 44.834477,
+     "lon": 11.621386
+    },
+    {
+     "lat": 44.833831,
+     "lon": 11.621968
+    },
+    {
+     "lat": 44.83388,
+     "lon": 11.622071
+    },
+    {
+     "lat": 44.834681,
+     "lon": 11.621303
+    },
+    {
+     "lat": 44.83481,
+     "lon": 11.621076
+    },
+    {
+     "lat": 44.835002,
+     "lon": 11.621272
+    },
+    {
+     "lat": 44.834815,
+     "lon": 11.621639
+    },
+    {
+     "lat": 44.834635,
+     "lon": 11.621873
+    },
+    {
+     "lat": 44.834716,
+     "lon": 11.62197
+    },
+    {
+     "lat": 44.834788,
+     "lon": 11.621854
+    },
+    {
+     "lat": 44.834816,
+     "lon": 11.621882
+    },
+    {
+     "lat": 44.835035,
+     "lon": 11.621367
+    },
+    {
+     "lat": 44.835502,
+     "lon": 11.621671
+    },
+    {
+     "lat": 44.835314,
+     "lon": 11.622329
+    },
+    {
+     "lat": 44.835214,
+     "lon": 11.622541
+    },
+    {
+     "lat": 44.835279,
+     "lon": 11.622607
+    },
+    {
+     "lat": 44.835464,
+     "lon": 11.62215
+    },
+    {
+     "lat": 44.835566,
+     "lon": 11.621719
+    },
+    {
+     "lat": 44.83648,
+     "lon": 11.622287
+    },
+    {
+     "lat": 44.836793,
+     "lon": 11.622568
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 20.0,
+    "howTo": "Single-day permit 20 €, for anyone who needs to enter occasionally. Buy it before you enter: online on the INES Cloud portal (PERMESSI ZTL → PRENOTA/ACQUISTA, with SPID/CIE/CNS) or at the permit office, Via Marconi 41 (Mon–Fri 7:30–12). Not valid for the ZTL Duomo.",
+    "howTo_it": "Permesso giornaliero 20 €, per chiunque debba entrare saltuariamente. Va comprato prima di entrare: online sul portale INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, con SPID/CIE/CNS) o allo sportello del Centro Unico Permessi, via Marconi 41 (lun–ven 7:30–12). Non vale per la ZTL Duomo.",
+    "howTo_de": "Tagesgenehmigung 20 €, für alle, die gelegentlich einfahren müssen. Vor der Einfahrt kaufen: online im Portal INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, mit SPID/CIE/CNS) oder am Genehmigungsbüro, Via Marconi 41 (Mo–Fr 7:30–12). Gilt nicht für die ZTL Duomo.",
+    "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.",
+    "quoteTranslation": "Ferrara's historic centre is divided into 4 limited traffic zones (A, B, C, D) with gates for electronic checks of vehicles, marked by road signs on site. To enter the ZTL you must first have a ZTL permit issued by the permit office.",
+    "quoteTranslation_de": "Die Altstadt von Ferrara ist in 4 verkehrsberuhigte Zonen (A, B, C, D) geteilt, mit Kameras zur elektronischen Kontrolle und Schildern vor Ort. Für die Einfahrt braucht man vorher eine ZTL-Genehmigung des Genehmigungsbüros.",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ferrara-ztl-c-1",
+   "name": "ZTL C · north of the Castle (1/2)",
+   "name_it": "ZTL C · a nord del Castello (1/2)",
+   "name_de": "ZTL C · nördlich der Burg (1/2)",
+   "kind": "pass",
+   "summary": "Closed to vehicles without a permit 24 hours a day, every day. Anyone can buy a 20 € day permit, before entering (INES Cloud online or the permit office). Hotels inside let you in to unload: give your plate at reception, the hotel registers it within 48 hours.",
+   "summary_it": "Chiusa ai veicoli senza permesso 24 ore su 24, tutti i giorni. Chiunque può comprare un permesso giornaliero da 20 €, prima di entrare (online su INES Cloud o allo sportello). Gli hotel dentro ti fanno entrare per scaricare: dai la targa alla reception, l'hotel la registra entro 48 ore.",
+   "summary_de": "Rund um die Uhr, jeden Tag für Fahrzeuge ohne Genehmigung gesperrt. Jeder kann vor der Einfahrt eine Tagesgenehmigung für 20 € kaufen (online bei INES Cloud oder am Schalter). Hotels in der Zone lassen dich zum Ausladen hinein: Kennzeichen an der Rezeption angeben, das Hotel meldet es innerhalb von 48 Stunden.",
+   "perimeter": [
+    {
+     "lat": 44.838135,
+     "lon": 11.620358
+    },
+    {
+     "lat": 44.838262,
+     "lon": 11.620037
+    },
+    {
+     "lat": 44.838437,
+     "lon": 11.619735
+    },
+    {
+     "lat": 44.838552,
+     "lon": 11.619199
+    },
+    {
+     "lat": 44.838965,
+     "lon": 11.618394
+    },
+    {
+     "lat": 44.839389,
+     "lon": 11.617786
+    },
+    {
+     "lat": 44.839577,
+     "lon": 11.61806
+    },
+    {
+     "lat": 44.83973,
+     "lon": 11.618363
+    },
+    {
+     "lat": 44.839987,
+     "lon": 11.619293
+    },
+    {
+     "lat": 44.840933,
+     "lon": 11.618418
+    },
+    {
+     "lat": 44.841001,
+     "lon": 11.618249
+    },
+    {
+     "lat": 44.841477,
+     "lon": 11.616088
+    },
+    {
+     "lat": 44.843044,
+     "lon": 11.616693
+    },
+    {
+     "lat": 44.842824,
+     "lon": 11.618536
+    },
+    {
+     "lat": 44.842292,
+     "lon": 11.62155
+    },
+    {
+     "lat": 44.841911,
+     "lon": 11.621384
+    },
+    {
+     "lat": 44.841862,
+     "lon": 11.621593
+    },
+    {
+     "lat": 44.841822,
+     "lon": 11.621576
+    },
+    {
+     "lat": 44.841867,
+     "lon": 11.621365
+    },
+    {
+     "lat": 44.84025,
+     "lon": 11.620666
+    },
+    {
+     "lat": 44.840257,
+     "lon": 11.621309
+    },
+    {
+     "lat": 44.840294,
+     "lon": 11.621326
+    },
+    {
+     "lat": 44.840289,
+     "lon": 11.621565
+    },
+    {
+     "lat": 44.840269,
+     "lon": 11.621557
+    },
+    {
+     "lat": 44.840243,
+     "lon": 11.621712
+    },
+    {
+     "lat": 44.840077,
+     "lon": 11.621531
+    },
+    {
+     "lat": 44.839314,
+     "lon": 11.620952
+    },
+    {
+     "lat": 44.838906,
+     "lon": 11.620732
+    },
+    {
+     "lat": 44.838633,
+     "lon": 11.621679
+    },
+    {
+     "lat": 44.838127,
+     "lon": 11.621345
+    },
+    {
+     "lat": 44.838162,
+     "lon": 11.621215
+    },
+    {
+     "lat": 44.837974,
+     "lon": 11.621113
+    },
+    {
+     "lat": 44.837961,
+     "lon": 11.621158
+    },
+    {
+     "lat": 44.838024,
+     "lon": 11.621191
+    },
+    {
+     "lat": 44.837998,
+     "lon": 11.621268
+    },
+    {
+     "lat": 44.838088,
+     "lon": 11.621322
+    },
+    {
+     "lat": 44.83807,
+     "lon": 11.62138
+    },
+    {
+     "lat": 44.83861,
+     "lon": 11.621757
+    },
+    {
+     "lat": 44.838518,
+     "lon": 11.622043
+    },
+    {
+     "lat": 44.838313,
+     "lon": 11.621942
+    },
+    {
+     "lat": 44.838209,
+     "lon": 11.622217
+    },
+    {
+     "lat": 44.837783,
+     "lon": 11.621917
+    },
+    {
+     "lat": 44.837863,
+     "lon": 11.621694
+    },
+    {
+     "lat": 44.837658,
+     "lon": 11.621576
+    },
+    {
+     "lat": 44.837633,
+     "lon": 11.621637
+    },
+    {
+     "lat": 44.837564,
+     "lon": 11.621583
+    },
+    {
+     "lat": 44.837506,
+     "lon": 11.621719
+    },
+    {
+     "lat": 44.837411,
+     "lon": 11.621624
+    },
+    {
+     "lat": 44.837879,
+     "lon": 11.620529
+    },
+    {
+     "lat": 44.838004,
+     "lon": 11.620453
+    },
+    {
+     "lat": 44.838523,
+     "lon": 11.62066
+    },
+    {
+     "lat": 44.838566,
+     "lon": 11.620567
+    },
+    {
+     "lat": 44.838135,
+     "lon": 11.620358
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 20.0,
+    "howTo": "Single-day permit 20 €, for anyone who needs to enter occasionally. Buy it before you enter: online on the INES Cloud portal (PERMESSI ZTL → PRENOTA/ACQUISTA, with SPID/CIE/CNS) or at the permit office, Via Marconi 41 (Mon–Fri 7:30–12). Not valid for the ZTL Duomo.",
+    "howTo_it": "Permesso giornaliero 20 €, per chiunque debba entrare saltuariamente. Va comprato prima di entrare: online sul portale INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, con SPID/CIE/CNS) o allo sportello del Centro Unico Permessi, via Marconi 41 (lun–ven 7:30–12). Non vale per la ZTL Duomo.",
+    "howTo_de": "Tagesgenehmigung 20 €, für alle, die gelegentlich einfahren müssen. Vor der Einfahrt kaufen: online im Portal INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, mit SPID/CIE/CNS) oder am Genehmigungsbüro, Via Marconi 41 (Mo–Fr 7:30–12). Gilt nicht für die ZTL Duomo.",
+    "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.",
+    "quoteTranslation": "Ferrara's historic centre is divided into 4 limited traffic zones (A, B, C, D) with gates for electronic checks of vehicles, marked by road signs on site. To enter the ZTL you must first have a ZTL permit issued by the permit office.",
+    "quoteTranslation_de": "Die Altstadt von Ferrara ist in 4 verkehrsberuhigte Zonen (A, B, C, D) geteilt, mit Kameras zur elektronischen Kontrolle und Schildern vor Ort. Für die Einfahrt braucht man vorher eine ZTL-Genehmigung des Genehmigungsbüros.",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ferrara-ztl-c-2",
+   "name": "ZTL C · north of the Castle (2/2)",
+   "name_it": "ZTL C · a nord del Castello (2/2)",
+   "name_de": "ZTL C · nördlich der Burg (2/2)",
+   "kind": "pass",
+   "summary": "Closed to vehicles without a permit 24 hours a day, every day. Anyone can buy a 20 € day permit, before entering (INES Cloud online or the permit office). Hotels inside let you in to unload: give your plate at reception, the hotel registers it within 48 hours.",
+   "summary_it": "Chiusa ai veicoli senza permesso 24 ore su 24, tutti i giorni. Chiunque può comprare un permesso giornaliero da 20 €, prima di entrare (online su INES Cloud o allo sportello). Gli hotel dentro ti fanno entrare per scaricare: dai la targa alla reception, l'hotel la registra entro 48 ore.",
+   "summary_de": "Rund um die Uhr, jeden Tag für Fahrzeuge ohne Genehmigung gesperrt. Jeder kann vor der Einfahrt eine Tagesgenehmigung für 20 € kaufen (online bei INES Cloud oder am Schalter). Hotels in der Zone lassen dich zum Ausladen hinein: Kennzeichen an der Rezeption angeben, das Hotel meldet es innerhalb von 48 Stunden.",
+   "perimeter": [
+    {
+     "lat": 44.840396,
+     "lon": 11.624644
+    },
+    {
+     "lat": 44.840365,
+     "lon": 11.624626
+    },
+    {
+     "lat": 44.841009,
+     "lon": 11.622869
+    },
+    {
+     "lat": 44.841032,
+     "lon": 11.622888
+    },
+    {
+     "lat": 44.840999,
+     "lon": 11.622988
+    },
+    {
+     "lat": 44.840396,
+     "lon": 11.624644
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 20.0,
+    "howTo": "Single-day permit 20 €, for anyone who needs to enter occasionally. Buy it before you enter: online on the INES Cloud portal (PERMESSI ZTL → PRENOTA/ACQUISTA, with SPID/CIE/CNS) or at the permit office, Via Marconi 41 (Mon–Fri 7:30–12). Not valid for the ZTL Duomo.",
+    "howTo_it": "Permesso giornaliero 20 €, per chiunque debba entrare saltuariamente. Va comprato prima di entrare: online sul portale INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, con SPID/CIE/CNS) o allo sportello del Centro Unico Permessi, via Marconi 41 (lun–ven 7:30–12). Non vale per la ZTL Duomo.",
+    "howTo_de": "Tagesgenehmigung 20 €, für alle, die gelegentlich einfahren müssen. Vor der Einfahrt kaufen: online im Portal INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, mit SPID/CIE/CNS) oder am Genehmigungsbüro, Via Marconi 41 (Mo–Fr 7:30–12). Gilt nicht für die ZTL Duomo.",
+    "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.",
+    "quoteTranslation": "Ferrara's historic centre is divided into 4 limited traffic zones (A, B, C, D) with gates for electronic checks of vehicles, marked by road signs on site. To enter the ZTL you must first have a ZTL permit issued by the permit office.",
+    "quoteTranslation_de": "Die Altstadt von Ferrara ist in 4 verkehrsberuhigte Zonen (A, B, C, D) geteilt, mit Kameras zur elektronischen Kontrolle und Schildern vor Ort. Für die Einfahrt braucht man vorher eine ZTL-Genehmigung des Genehmigungsbüros.",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ferrara-ztl-d-certosa",
+   "name": "ZTL D Certosa · Certosa area, north-east",
+   "name_it": "ZTL D Certosa · zona della Certosa, nord-est",
+   "name_de": "ZTL D Certosa · Gegend der Certosa, Nordosten",
+   "kind": "pass",
+   "summary": "Closed to vehicles without a permit 24 hours a day, every day. Anyone can buy a 20 € day permit, before entering (INES Cloud online or the permit office). Hotels inside let you in to unload: give your plate at reception, the hotel registers it within 48 hours.",
+   "summary_it": "Chiusa ai veicoli senza permesso 24 ore su 24, tutti i giorni. Chiunque può comprare un permesso giornaliero da 20 €, prima di entrare (online su INES Cloud o allo sportello). Gli hotel dentro ti fanno entrare per scaricare: dai la targa alla reception, l'hotel la registra entro 48 ore.",
+   "summary_de": "Rund um die Uhr, jeden Tag für Fahrzeuge ohne Genehmigung gesperrt. Jeder kann vor der Einfahrt eine Tagesgenehmigung für 20 € kaufen (online bei INES Cloud oder am Schalter). Hotels in der Zone lassen dich zum Ausladen hinein: Kennzeichen an der Rezeption angeben, das Hotel meldet es innerhalb von 48 Stunden.",
+   "perimeter": [
+    {
+     "lat": 44.84904,
+     "lon": 11.624191
+    },
+    {
+     "lat": 44.849024,
+     "lon": 11.624388
+    },
+    {
+     "lat": 44.848824,
+     "lon": 11.624289
+    },
+    {
+     "lat": 44.848757,
+     "lon": 11.624325
+    },
+    {
+     "lat": 44.848718,
+     "lon": 11.624461
+    },
+    {
+     "lat": 44.848744,
+     "lon": 11.624473
+    },
+    {
+     "lat": 44.848583,
+     "lon": 11.626258
+    },
+    {
+     "lat": 44.848506,
+     "lon": 11.626281
+    },
+    {
+     "lat": 44.848338,
+     "lon": 11.628646
+    },
+    {
+     "lat": 44.848321,
+     "lon": 11.629491
+    },
+    {
+     "lat": 44.848246,
+     "lon": 11.629875
+    },
+    {
+     "lat": 44.847188,
+     "lon": 11.629683
+    },
+    {
+     "lat": 44.847177,
+     "lon": 11.629831
+    },
+    {
+     "lat": 44.845495,
+     "lon": 11.62957
+    },
+    {
+     "lat": 44.845505,
+     "lon": 11.629791
+    },
+    {
+     "lat": 44.845329,
+     "lon": 11.632529
+    },
+    {
+     "lat": 44.843894,
+     "lon": 11.632978
+    },
+    {
+     "lat": 44.843108,
+     "lon": 11.633176
+    },
+    {
+     "lat": 44.842968,
+     "lon": 11.632414
+    },
+    {
+     "lat": 44.843025,
+     "lon": 11.631944
+    },
+    {
+     "lat": 44.843048,
+     "lon": 11.631947
+    },
+    {
+     "lat": 44.843108,
+     "lon": 11.631269
+    },
+    {
+     "lat": 44.843304,
+     "lon": 11.630204
+    },
+    {
+     "lat": 44.843353,
+     "lon": 11.630234
+    },
+    {
+     "lat": 44.843381,
+     "lon": 11.630145
+    },
+    {
+     "lat": 44.841549,
+     "lon": 11.628997
+    },
+    {
+     "lat": 44.842006,
+     "lon": 11.625299
+    },
+    {
+     "lat": 44.844077,
+     "lon": 11.6255
+    },
+    {
+     "lat": 44.8446,
+     "lon": 11.622363
+    },
+    {
+     "lat": 44.84904,
+     "lon": 11.624191
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 20.0,
+    "howTo": "Single-day permit 20 €, for anyone who needs to enter occasionally. Buy it before you enter: online on the INES Cloud portal (PERMESSI ZTL → PRENOTA/ACQUISTA, with SPID/CIE/CNS) or at the permit office, Via Marconi 41 (Mon–Fri 7:30–12). Not valid for the ZTL Duomo.",
+    "howTo_it": "Permesso giornaliero 20 €, per chiunque debba entrare saltuariamente. Va comprato prima di entrare: online sul portale INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, con SPID/CIE/CNS) o allo sportello del Centro Unico Permessi, via Marconi 41 (lun–ven 7:30–12). Non vale per la ZTL Duomo.",
+    "howTo_de": "Tagesgenehmigung 20 €, für alle, die gelegentlich einfahren müssen. Vor der Einfahrt kaufen: online im Portal INES Cloud (PERMESSI ZTL → PRENOTA/ACQUISTA, mit SPID/CIE/CNS) oder am Genehmigungsbüro, Via Marconi 41 (Mo–Fr 7:30–12). Gilt nicht für die ZTL Duomo.",
+    "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "Il centro storico di Ferrara è suddiviso in 4 Zone a Traffico Limitato (A, B, C, D) dotate di varchi per il controllo elettronico dei transiti veicolari e indicate da apposita segnaletica verticale presente in loco. Per accedere alla ZTL occorre essere preventivamente dotati di Permesso ZTL rilasciato dal Centro Unico Permessi.",
+    "quoteTranslation": "Ferrara's historic centre is divided into 4 limited traffic zones (A, B, C, D) with gates for electronic checks of vehicles, marked by road signs on site. To enter the ZTL you must first have a ZTL permit issued by the permit office.",
+    "quoteTranslation_de": "Die Altstadt von Ferrara ist in 4 verkehrsberuhigte Zonen (A, B, C, D) geteilt, mit Kameras zur elektronischen Kontrolle und Schildern vor Ort. Für die Einfahrt braucht man vorher eine ZTL-Genehmigung des Genehmigungsbüros.",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ferrara-ztl-duomo",
+   "name": "ZTL Duomo · Cathedral and Corso Martiri",
+   "name_it": "ZTL Duomo · Cattedrale e Corso Martiri",
+   "name_de": "ZTL Duomo · Dom und Corso Martiri",
+   "kind": "restricted",
+   "summary": "The area around the Cathedral is open only to vehicles with a specific permit, issued by the permit office for documented needs. The 20 € day permit does not cover it.",
+   "summary_it": "L'area della Cattedrale è aperta solo ai veicoli con un permesso specifico, rilasciato dal Centro Unico Permessi per esigenze documentate. Il permesso giornaliero da 20 € non vale.",
+   "summary_de": "Der Bereich um den Dom ist nur für Fahrzeuge mit einer eigenen Genehmigung offen, die das Genehmigungsbüro bei nachgewiesenem Bedarf ausstellt. Die Tagesgenehmigung für 20 € gilt hier nicht.",
+   "perimeter": [
+    {
+     "lat": 44.835666,
+     "lon": 11.619049
+    },
+    {
+     "lat": 44.835996,
+     "lon": 11.619247
+    },
+    {
+     "lat": 44.836017,
+     "lon": 11.619177
+    },
+    {
+     "lat": 44.83675,
+     "lon": 11.619619
+    },
+    {
+     "lat": 44.836861,
+     "lon": 11.619212
+    },
+    {
+     "lat": 44.837065,
+     "lon": 11.619376
+    },
+    {
+     "lat": 44.837037,
+     "lon": 11.619441
+    },
+    {
+     "lat": 44.837114,
+     "lon": 11.619507
+    },
+    {
+     "lat": 44.837025,
+     "lon": 11.619704
+    },
+    {
+     "lat": 44.837039,
+     "lon": 11.619823
+    },
+    {
+     "lat": 44.837159,
+     "lon": 11.619921
+    },
+    {
+     "lat": 44.837868,
+     "lon": 11.620283
+    },
+    {
+     "lat": 44.837732,
+     "lon": 11.620507
+    },
+    {
+     "lat": 44.837617,
+     "lon": 11.620788
+    },
+    {
+     "lat": 44.83759,
+     "lon": 11.620757
+    },
+    {
+     "lat": 44.837587,
+     "lon": 11.620649
+    },
+    {
+     "lat": 44.837552,
+     "lon": 11.620628
+    },
+    {
+     "lat": 44.837504,
+     "lon": 11.620677
+    },
+    {
+     "lat": 44.837492,
+     "lon": 11.620812
+    },
+    {
+     "lat": 44.837607,
+     "lon": 11.620813
+    },
+    {
+     "lat": 44.836851,
+     "lon": 11.622466
+    },
+    {
+     "lat": 44.835563,
+     "lon": 11.621623
+    },
+    {
+     "lat": 44.835566,
+     "lon": 11.621719
+    },
+    {
+     "lat": 44.835464,
+     "lon": 11.62215
+    },
+    {
+     "lat": 44.835279,
+     "lon": 11.622607
+    },
+    {
+     "lat": 44.835214,
+     "lon": 11.622541
+    },
+    {
+     "lat": 44.835406,
+     "lon": 11.622051
+    },
+    {
+     "lat": 44.835502,
+     "lon": 11.621671
+    },
+    {
+     "lat": 44.835509,
+     "lon": 11.62152
+    },
+    {
+     "lat": 44.835269,
+     "lon": 11.621411
+    },
+    {
+     "lat": 44.835053,
+     "lon": 11.621237
+    },
+    {
+     "lat": 44.835228,
+     "lon": 11.620716
+    },
+    {
+     "lat": 44.83528,
+     "lon": 11.620765
+    },
+    {
+     "lat": 44.835332,
+     "lon": 11.620607
+    },
+    {
+     "lat": 44.835278,
+     "lon": 11.620557
+    },
+    {
+     "lat": 44.835592,
+     "lon": 11.619558
+    },
+    {
+     "lat": 44.836023,
+     "lon": 11.619817
+    },
+    {
+     "lat": 44.836112,
+     "lon": 11.61953
+    },
+    {
+     "lat": 44.835574,
+     "lon": 11.619203
+    },
+    {
+     "lat": 44.835469,
+     "lon": 11.619487
+    },
+    {
+     "lat": 44.835354,
+     "lon": 11.619402
+    },
+    {
+     "lat": 44.835296,
+     "lon": 11.619532
+    },
+    {
+     "lat": 44.835147,
+     "lon": 11.619412
+    },
+    {
+     "lat": 44.835075,
+     "lon": 11.619574
+    },
+    {
+     "lat": 44.835228,
+     "lon": 11.619685
+    },
+    {
+     "lat": 44.83514,
+     "lon": 11.619896
+    },
+    {
+     "lat": 44.834987,
+     "lon": 11.619805
+    },
+    {
+     "lat": 44.835028,
+     "lon": 11.619699
+    },
+    {
+     "lat": 44.834857,
+     "lon": 11.619559
+    },
+    {
+     "lat": 44.8348,
+     "lon": 11.619701
+    },
+    {
+     "lat": 44.834696,
+     "lon": 11.61964
+    },
+    {
+     "lat": 44.834796,
+     "lon": 11.619371
+    },
+    {
+     "lat": 44.835021,
+     "lon": 11.619534
+    },
+    {
+     "lat": 44.835089,
+     "lon": 11.619369
+    },
+    {
+     "lat": 44.834869,
+     "lon": 11.6192
+    },
+    {
+     "lat": 44.834796,
+     "lon": 11.619371
+    },
+    {
+     "lat": 44.835099,
+     "lon": 11.618676
+    },
+    {
+     "lat": 44.835561,
+     "lon": 11.619018
+    },
+    {
+     "lat": 44.835666,
+     "lon": 11.619049
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Ferrara",
+    "pageURL": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico",
+    "ordinance": "Regolamento ZTL, aree pedonali e settori (DCC P.G. 52201/2022 del 16/05/2022)",
+    "ordinanceURL": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf",
+    "quote": "L'accesso alla ZTL Duomo è consentito esclusivamente ai veicoli autorizzati da specifico permesso ZTL (rivolgersi preventivamente al Centro Unico Permessi che rilascerà l'autorizzazione, se sussistono i requisiti).",
+    "quoteTranslation": "Access to the ZTL Duomo is allowed only to vehicles authorised by a specific ZTL permit (ask the permit office in advance, which issues it if the requirements are met).",
+    "quoteTranslation_de": "Die Zufahrt zur ZTL Duomo ist nur Fahrzeugen mit einer eigenen ZTL-Genehmigung erlaubt (vorher beim Genehmigungsbüro anfragen, das sie bei erfüllten Voraussetzungen ausstellt).",
+    "checkedOn": "2026-10-26T23:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "In Piazza Trento Trieste (south and east sides), Piazzetta Gramsci and part of Via San Romano the Duomo rules apply only 6–11 am (order 17153/2016); GateLR applies them all day to the whole zone.",
+     "Hours: the City writes no timetable, only that a permit is needed to enter; the 2022 rules split permits into time bands covering all 24 hours (including midnight–6 am). GateLR treats the ZTL as active 24 hours a day, every day, as unofficial guides also say.",
+     "Hotels inside the ZTL: guests may enter to unload luggage (max 30 minutes on the street) or reach the hotel's parking; give your plate at reception. The hotel must register it within 48 hours of your arrival, otherwise you are fined.",
+     "Electric cars still need a permit (free, at all hours): they are not exempt automatically. Disabled badge holders entering occasionally must send plate and gates used to the permit office within 48 hours.",
+     "Gate positions are not on the map yet (no open data with coordinates). New gates are planned in Via Francesco del Cossa and Largo Castello, works due by 31 March 2027 (Estense news site)."
+    ],
+    "pending_it": [
+     "In Piazza Trento Trieste (lati sud ed est), Piazzetta Gramsci e in parte di via San Romano le regole della ZTL Duomo valgono solo dalle 6 alle 11 (O.S. 17153/2016); GateLR le applica tutto il giorno a tutta la zona.",
+     "Orari: il Comune non scrive un orario, solo che per entrare serve il permesso; il regolamento 2022 divide i permessi in fasce che coprono tutte le 24 ore (anche 24–6). GateLR tratta la ZTL come attiva 0–24 tutti i giorni, come dicono anche le guide non ufficiali.",
+     "Alberghi dentro la ZTL: gli ospiti entrano per scaricare i bagagli (sosta su strada massimo 30 minuti) o raggiungere il parcheggio della struttura; dai la targa alla reception. L'hotel deve registrarla entro 48 ore dall'arrivo, altrimenti scatta la multa.",
+     "Le auto elettriche hanno comunque bisogno del permesso (gratuito, a ogni ora): non sono esenti in automatico. I titolari di contrassegno disabili che entrano saltuariamente devono comunicare targa e varchi usati al Centro Unico Permessi entro 48 ore.",
+     "La posizione dei varchi non è ancora sulla mappa (nessun open data con coordinate). Sono previsti nuovi varchi in via Francesco del Cossa e Largo Castello, lavori entro il 31 marzo 2027 (notizia di Estense)."
+    ],
+    "pending_de": [
+     "Auf der Piazza Trento Trieste (Süd- und Ostseite), der Piazzetta Gramsci und einem Teil der Via San Romano gelten die Regeln der ZTL Duomo nur 6–11 Uhr (Anordnung 17153/2016); GateLR wendet sie ganztägig auf die ganze Zone an.",
+     "Zeiten: Die Stadt nennt keine Uhrzeiten, nur dass zur Einfahrt eine Genehmigung nötig ist; die Regelung von 2022 teilt die Genehmigungen in Zeitbänder über alle 24 Stunden (auch 0–6 Uhr). GateLR behandelt die ZTL als täglich rund um die Uhr aktiv, wie auch inoffizielle Ratgeber sagen.",
+     "Hotels in der ZTL: Gäste dürfen zum Ausladen (höchstens 30 Minuten auf der Straße) oder zum Hotelparkplatz einfahren; Kennzeichen an der Rezeption angeben. Das Hotel muss es innerhalb von 48 Stunden nach der Ankunft melden, sonst gibt es ein Bußgeld.",
+     "Elektroautos brauchen trotzdem eine Genehmigung (kostenlos, zu jeder Zeit): sie sind nicht automatisch befreit. Inhaber eines Behindertenausweises, die gelegentlich einfahren, müssen Kennzeichen und benutzte Kameras innerhalb von 48 Stunden dem Genehmigungsbüro melden.",
+     "Die Kamerastandorte sind noch nicht auf der Karte (keine offenen Daten mit Koordinaten). Neue Kameras sind in Via Francesco del Cossa und Largo Castello geplant, Arbeiten bis 31. März 2027 (Nachrichtenseite Estense)."
+    ],
+    "links": [
+     {
+      "title": "City of Ferrara: daily ZTL permits and passes (20 € a day, INES Cloud)",
+      "title_it": "Comune di Ferrara: permessi ZTL giornalieri e abbonamenti (20 € al giorno, INES Cloud)",
+      "title_de": "Stadt Ferrara: ZTL-Tagesgenehmigungen und Abos (20 € pro Tag, INES Cloud)",
+      "url": "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti"
+     },
+     {
+      "title": "City of Ferrara: special cases (hotel guests)",
+      "title_it": "Comune di Ferrara: casi particolari (ospiti di alberghi)",
+      "title_de": "Stadt Ferrara: Sonderfälle (Hotelgäste)",
+      "url": "https://www.comune.ferrara.it/it/b/57142/casi-particolari"
+     },
+     {
+      "title": "City of Ferrara: ZTL, parking and «Mi Muovo Elettrico» desk",
+      "title_it": "Comune di Ferrara: sportello permessi ZTL, sosta e Mi Muovo Elettrico",
+      "title_de": "Stadt Ferrara: Schalter für ZTL, Parken und «Mi Muovo Elettrico»",
+      "url": "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico"
+     },
+     {
+      "title": "City of Ferrara: permit office (Via Marconi 41)",
+      "title_it": "Comune di Ferrara: Centro Unico Permessi (via Marconi 41)",
+      "title_de": "Stadt Ferrara: Genehmigungsbüro (Via Marconi 41)",
+      "url": "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi"
+     },
+     {
+      "title": "City of Ferrara: ZTL regulation 2022 (PDF)",
+      "title_it": "Comune di Ferrara: regolamento ZTL 2022 (PDF)",
+      "title_de": "Stadt Ferrara: ZTL-Regelung 2022 (PDF)",
+      "url": "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf"
+     },
+     {
+      "title": "City of Ferrara: official ZTL perimeters, open data (WFS)",
+      "title_it": "Comune di Ferrara: perimetri ufficiali ZTL, open data (WFS)",
+      "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
+      "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules and perimeters: Comune di Ferrara official pages, regulation and open data (WFS ZTL_esistente_preview)."
+}

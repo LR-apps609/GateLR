@@ -1,6 +1,6 @@
 {
- "version": "202610262337",
- "digest": "c1f59728db9e",
+ "version": "202610262342",
+ "digest": "8d36d2759684",
  "schema": 1,
  "cities": [
   {
@@ -22,6 +22,11 @@
    "id": "bologna",
    "file": "bologna.json",
    "sha256": "9373bc5f803c8df4a198e42f6ff8274e28f22a9437bf6dd82d056cea868f0daf"
+  },
+  {
+   "id": "ferrara",
+   "file": "ferrara.json",
+   "sha256": "2650309d67f04eb268adc1f181b4bf91f7a05ce4fef491ae02e7265c8f97befb"
   },
   {
    "id": "firenze",

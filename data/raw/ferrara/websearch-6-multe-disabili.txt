@@ -1,8 +1,0 @@
-Ricerca WebSearch: Ferrara ZTL multa importo transito non autorizzato disabili contrassegno
-Letta il: 2026-10-26 (riassunto restituito dal motore di ricerca, NON testo letterale delle pagine; i siti del Comune non erano raggiungibili dal sandbox: proxy 403)
-
-Links: https://www.sicurauto.it/news/codice-della-strada/divieto-ztl-chi-e-esonerato-e-puo-circolare/ ; https://autosupermarket.it/magazine/normative-auto/multa-ztl ; https://www.ilrestodelcarlino.it/ferrara/cronaca/ztl-multe-annullate-c0321e04
-
-- Fine amount (national Codice della Strada, art. 7): between 84 and 335 euros (other source 2026: 83 to 332 euros), no points.
-- Disabled: vehicles transporting disabled people are generally exempt with the badge; no Ferrara-specific notification deadline found.
-- Ferrara: whitelist of plates checked by electronic gates; ZTL divided into sectors (ZTL A, B, C and D). No source on motorcycles.
