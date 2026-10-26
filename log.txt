@@ -1,0 +1,11 @@
+1 000ERR  https://overpass.private.coffee/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3B%28relation%5B%22type%22%3D%22enforcement%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%3Bnode%5B%22man_made%22%3D%22surveillance%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%3Bway%5B%22highway%22%3D%22pedestrian%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%3Bway%5B%22historic%22%3D%22citywalls%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%3Bway%5B%22motor_vehicle%22%5D%5B%22highway%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%3Bway%5B%22access%22%5D%5B%22highway%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%29%3Bout%20geom%3B -> 1-interpreter_
+2 400 840 https://maps.mail.ru/osm/tools/overpass/api/interpreter?data=%5Bout%3Ajson%5D%5Btimeout%3A180%5D%3B%28relation%5B%22type%22%3D%22enforcement%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%3Bnode%5B%22man_made%22%3D%22surveillance%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%3Bway%5B%22highway%22%3D%22pedestrian%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%3Bway%5B%22historic%22%3D%22citywalls%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%3Bway%5B%22motor_vehicle%22%5D%5B%22highway%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%3Bway%5B%22access%22%5D%5B%22highway%22%5D%2843.095%2C12.370%2C43.125%2C12.400%29%29%3Bout%20geom%3B -> 2-interpreter_
+3 200 2768981 https://api.openstreetmap.org/api/0.6/map.json?bbox=12.376,43.1,12.387,43.11 -> 3-map.json_
+4 200 2270666 https://api.openstreetmap.org/api/0.6/map.json?bbox=12.376,43.11,12.387,43.12 -> 4-map.json_
+5 200 3031691 https://api.openstreetmap.org/api/0.6/map.json?bbox=12.387,43.1,12.398,43.11 -> 5-map.json_
+6 200 3031733 https://api.openstreetmap.org/api/0.6/map.json?bbox=12.387,43.11,12.398,43.12 -> 6-map.json_
+7 200 142852 https://www.comune.perugia.it/wp-content/uploads/2025/10/DG-283-2025-PagamentoPermessi.pdf -> 7-DG-283-2025-PagamentoPermessi.pdf_
+8 200 136652 https://www.comune.perugia.it/documento_pubblico/34-domanda-permessi-per-alberghi/ -> 8-34-domanda-permessi-per-alberghi_
+9 200 132277 https://www.comune.perugia.it/argomento/ztl/page/2/ -> 9-2_
+10 000ERR  https://www.mit.gov.it/nfsmitgov/files/media/normativa/2026-01/elencovarchi_27_01_2026.pdf -> 10-elencovarchi_27_01_2026.pdf_
+11 404 101119 https://www.comune.perugia.it/resources/regolamenti/07.01_AccessoZTL.pdf -> 11-07.01_AccessoZTL.pdf_
