@@ -1,0 +1,1 @@
+1 200 9547726 https://api.openstreetmap.org/api/0.6/map?bbox=11.868,43.456,11.894,43.473 -> 1-map_
