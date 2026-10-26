@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-5853859515128741" />
+  <title>Bari ZTL map &amp; hours 2026 — where you can’t drive</title>
+  <meta name="description" content="Bari ZTL hours: Permit holders only · 24 h, every day. See the limited traffic zone on a map and where to park." />
+  <link rel="canonical" href="https://ztlitaly.com/ztl/bari/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Bari ZTL map &amp; hours 2026 — where you can’t drive" />
+  <meta property="og:description" content="Bari ZTL hours: Permit holders only · 24 h, every day. See the limited traffic zone on a map and where to park." />
+  <meta property="og:url" content="https://ztlitaly.com/ztl/bari/" />
+  <meta property="og:site_name" content="ZTL Italia" />
+  <meta property="og:image" content="https://ztlitaly.com/og-card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ZTL Italia — know the ZTL before you drive. Italy's camera-enforced historic centres, mapped across 350 cities." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bari ZTL map &amp; hours 2026 — where you can’t drive" />
+  <meta name="twitter:description" content="Bari ZTL hours: Permit holders only · 24 h, every day. See the limited traffic zone on a map and where to park." />
+  <meta name="twitter:image" content="https://ztlitaly.com/og-card.jpg" />
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+  <meta name="theme-color" content="#EBE3D4" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../../city.css" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ztlitaly.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Apulia",
+      "item": "https://ztlitaly.com/ztl/apulia/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "ZTL Bari",
+      "item": "https://ztlitaly.com/ztl/bari/"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Place",
+  "name": "Limited Traffic Zones (ZTL) in Bari",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bari",
+    "addressRegion": "Puglia",
+    "addressCountry": "IT"
+  },
+  "url": "https://ztlitaly.com/ztl/bari/"
+}
+  </script>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script defer src="../../basemap.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <a class="brand" href="/">
+        <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/></svg></span>
+        <div>
+          <p class="bt">ZTL <em>Italia</em></p>
+          <p>Limited traffic zones · Italy</p>
+        </div>
+      </a>
+      <div class="spacer"></div>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="pagelinks">
+        <svg class="ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg class="ico-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+      <nav class="pagelinks" id="pagelinks" aria-label="Pages">
+        <a href="/">Home</a>
+        <a href="/map/">ZTL map</a>
+        <a href="/ztl/" aria-current="page">Cities</a>
+        <a href="/guides/">Guides</a>
+        <a href="/driving-tools/">Tools</a>
+        <a href="/about">About</a>
+        <a href="/faq">FAQ</a>
+        <a href="/contact">Contact</a>
+      </nav>
+      <!-- City search. Markup is static so the header never shifts; the panel and
+           the city list are created by nav.js only when the button is used. -->
+      <button class="search-toggle" id="searchToggle" type="button" aria-label="Search cities" aria-expanded="false" aria-controls="siteSearch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+    </header>
+
+    <main class="legal-scroll">
+      <article class="legal city">
+        <nav class="bc" aria-label="Breadcrumb">
+          <a href="/">Home</a> <span class="sep">›</span>
+          <a href="../apulia/">Apulia</a> <span class="sep">›</span>
+          <span class="cur">ZTL Bari</span>
+        </nav>
+
+        <h1>Bari <em>ZTL</em> map, hours and where to park</h1>
+        <p class="lede">Bari has two centres that could hardly be less alike. Bari Vecchia is the old town on the headland — a dense tangle of lanes, courtyards and churches where women still make orecchiette at tables in the street — and it is the restricted zone. Behind it lies the Murat quarter, a nineteenth-century grid of wide straight streets laid out on the orders of Napoleon’s brother-in-law, which is where you can actually drive. Getting Bari right is largely a matter of knowing which of the two you are heading into.</p>
+        <p class="byline">
+          By <a href="/about">ZTL Italia</a>
+          <span class="by-sep">·</span>
+          <span>Zone data and guidance last reviewed <time datetime="2026-08-23">23 August 2026</time></span>
+        </p>
+
+        <div id="map" class="city-map" role="img" aria-label="Map of ZTL zones in Bari"></div>
+        <p class="map-cta">
+          <a href="../../map/?city=Bari&amp;region=Puglia">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11Z"/></svg> Open Bari on the full interactive map
+          </a>
+          <a href="/ztl-active-now/?city=Bari&amp;region=Puglia">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Is the Bari ZTL active right now?
+          </a>
+        </p>
+
+                <aside class="aff-box" aria-label="Car hire">
+          <p class="aff-h">Hiring a car for Bari?</p>
+          <p>Book a small car — garages and lanes near the centre are tight — and book it before you travel. The plate on your booking is what a hotel inside the zone needs to register you for access.</p>
+          <a class="aff-btn" href="/go/discovercars?from=city-bari" target="_blank" rel="sponsored noopener">
+            Compare hire cars in Italy
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <span class="aff-disc">Affiliate link — we may earn a commission if you book, at no extra cost to you.</span>
+        </aside>
+
+        <section>
+          <h2 class="zones-title">Limited Traffic Zones in Bari</h2>
+          <ul class="zone-list">
+        <li class="zone-block">
+          <h2>Bari Vecchia (Città Vecchia)</h2>
+          <p class="zb-hours"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Permit holders only · 24 h, every day</span></p>
+          <p class="zb-info">Old town peninsula — Corso Vittorio Emanuele, Piazza Massari, Corso De Tullio, Lungomare Imperatore Augusto (San Nicola, Cattedrale). Seven camera gates, and no visitor permits of any kind.</p>
+        </li>
+          </ul>
+        </section>
+
+        <section class="city-guide">
+          <h2>The old town and its gates</h2>
+          <p>The restricted zone covers Bari Vecchia between the Norman-Swabian castle and the waterfront at Santa Chiara, behind seven camera gates. The rule is the simplest and strictest kind: <strong>permit holders only, twenty-four hours a day, every day of the year</strong>. There is no window in which the old town opens to ordinary traffic, and no time of day at which driving in becomes acceptable.</p>
+          <p>Permits are for residents and the domiciled — one per household, one vehicle. <strong>There is no tourist or visitor permit</strong>, and no advance-booking scheme of the kind some other Italian towns run. The only temporary authorisation is for disabled-badge vehicles, arranged by telephone with the Polizia Municipale for a single entry.</p>
+          <p>The arrangement has been reworked more than once in recent years, most recently in mid-2026 with a further gate switched on and interior parking near the waterfront restricted, so older advice about which streets and car parks you can use is not reliable.</p>
+          <p>Parts of the old town go further than a ZTL: the area around the Basilica di San Nicola is a pedestrian zone closed to vehicles at all hours, not merely restricted, and some gates open only in narrow windows during the day for loading. None of this is a problem if you have no intention of driving in — which is the right intention, since the lanes are barely wide enough for a small car and there is nowhere to leave one.</p>
+        </section>
+        <section class="city-guide">
+          <h2>Where to leave the car</h2>
+          <p>The Pane e Pomodoro car park, on the seafront promenade south of the old town, is the easiest option for a visit: a large surface lot at a modest hourly rate with a daily cap, an easy walk from the cathedral and the entrance to Bari Vecchia. The Mercato del Pesce lot near the harbour is the same idea on the other side.</p>
+          <p>In the Murat grid, street parking is metered and dearer by the hour, while the strip along the seafront beside the old town is cheaper. The city also runs park-and-ride sites on the approaches with bus links in, which make sense if you are leaving the car for several days.</p>
+        </section>
+        <section class="city-guide">
+          <h2>If you are arriving for a ferry</h2>
+          <p>Bari is one of Italy’s main passenger ports, with sailings to Greece, Albania, Montenegro and Croatia, and a great many people pass through with a car and a deadline. The port has its own access arrangements and approach roads, and it sits immediately alongside the old town — exactly the situation in which a driver running late and following a phone ends up in the zone. Follow the port signs rather than the shortest route to the terminal, and allow more time than the distance suggests.</p>
+        </section>
+        <section class="city-guide">
+          <h2>Staying inside the old town</h2>
+          <p>Bari Vecchia has a growing number of B&amp;Bs and short-let apartments, and this is where Bari differs sharply from most Italian towns: <strong>the ordinance provides no guest-access route at all</strong>. Elsewhere a hotel registers your plate and you drive in; here there is no such mechanism. A property can only help if it holds a <em>passo carrabile</em> permit tied to an off-street space of its own, which few addresses in the old town have.</p>
+          <p>So assume you are arriving on foot with your luggage. Ask before booking how close a car can actually get and where you are expected to leave it, and treat any confident promise of driving to the door with suspicion — many addresses in Bari Vecchia cannot be reached by car under any permission.</p>
+        </section>
+
+        <p class="guide-link">
+          Making a trip of it? <a href="../../guides/driving-puglia-ztl/">Puglia road trip: ZTLs from Bari to Lecce</a> covers Bari, Lecce, Ostuni, Polignano and Otranto, and which towns we cannot yet source.
+        </p>
+
+        <section class="accept">
+          <p>See Bari in context — search nearby towns, or use your live location on the map.</p>
+          <a class="back" href="../../map/?city=Bari&amp;region=Puglia" style="flex-direction:row-reverse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            Show Bari on the interactive map
+          </a>
+        </section>
+
+        <section class="nearby">
+          <h2>Other ZTL cities in Apulia</h2>
+          <ul class="nearby-list">
+            <li><a href="../lecce/">ZTL Lecce</a></li>
+            <li><a href="../ostuni/">ZTL Ostuni</a></li>
+            <li><a href="../polignano-a-mare/">ZTL Polignano a Mare</a></li>
+          </ul>
+        </section>
+
+        <p class="src-note">
+          Zone outlines are traced from published outlines on <a href="https://www.accessibilitacentristorici.it/ztl" target="_blank" rel="noopener">accessibilitacentristorici.it</a>.
+          Base map by <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, © <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a>, data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors.
+          Boundaries are simplified and hours are indicative — a guide, not an official source.
+        </p>
+      </article>
+
+        <p class="ztl-foot">
+          <a href="/">Home</a> · <a href="/map/">ZTL map</a> · <a href="/ztl/">All cities</a> ·
+          <a href="/guides/">Guides</a> · <a href="/driving-tools/">Driving tools</a> ·
+          <a href="/about">About</a> · <a href="/methodology/">Methodology</a> ·
+          <a href="/faq">FAQ</a> · <a href="/contact">Contact</a> ·
+          <a href="/terms">Terms</a> ·
+          <a href="/privacy">Privacy</a> ·
+          <a href="#" data-consent-open>Cookie settings</a><br>
+          Information only — hours are indicative and change by season, day and gate.
+          Always confirm with the local <em>Comune</em> before driving.
+        </p>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var ZONES = [{"name":"Bari Vecchia (Città Vecchia)","rings":[[[16.8699,41.133258],[16.86925,41.132696],[16.868826,41.132427],[16.868135,41.131866],[16.867718,41.131369],[16.867668,41.130233],[16.867134,41.129404],[16.866357,41.129042],[16.865611,41.128868],[16.864834,41.128757],[16.865764,41.127227],[16.866087,41.127314],[16.866862,41.126186],[16.867328,41.126198],[16.86778,41.126198],[16.867932,41.126288],[16.868392,41.126293],[16.868869,41.126283],[16.869335,41.126298],[16.870312,41.126392],[16.87096,41.126437],[16.871008,41.126278],[16.871819,41.12628],[16.872344,41.126295],[16.872316,41.126608],[16.872171,41.127065],[16.872373,41.127648],[16.872535,41.127723],[16.872996,41.127902],[16.873641,41.128068],[16.873622,41.128276],[16.873486,41.128297],[16.872818,41.128478],[16.872628,41.128606],[16.872589,41.128884],[16.872684,41.129006],[16.872718,41.129042],[16.872236,41.129227],[16.871962,41.129398],[16.871576,41.129699],[16.87137,41.130011],[16.871162,41.130243],[16.871076,41.130698],[16.871162,41.1313],[16.871398,41.131713],[16.871501,41.132219],[16.871531,41.13258],[16.87143,41.132958],[16.871199,41.13316],[16.87099,41.133225],[16.870727,41.13326],[16.870446,41.133305],[16.870157,41.133294],[16.8699,41.133258]]],"kind":"ztl","popup":"<div class=\"pc\">Apulia · ZTL</div><h3>Bari Vecchia (Città Vecchia)</h3><div class=\"ph\">Permit holders only · 24 h, every day</div>"}];
+      var KIND_STYLE = {"ztl":{"color":"#A85440","fillColor":"#C06C50"},"apu":{"color":"#8B2F3F","fillColor":"#A83E50"},"charge":{"color":"#B07A28","fillColor":"#D69B3C"},"lez":{"color":"#5B6472","fillColor":"#7C8796"}};
+      function init() {
+        if (typeof L === 'undefined') { return setTimeout(init, 60); }
+        var m = L.map('map', { zoomControl: true, scrollWheelZoom: false, preferCanvas: true });
+        /* Ground tiles load only when the map nears the viewport — basemap.js. */
+        if (window.ztlBasemap) ztlBasemap(m, { lazy: true });
+        var polys = [], hits = [];
+        /* Mean width of a ring in metres (2·area/perimeter). A pedestrianised
+           street is a real zone but ~30 m across, which is a few pixels at city
+           zoom — visible, but far under a 44 px touch target. Mirrors
+           ringWidthM/THIN_RING_M in common.js. */
+        function ringWidth(r) {
+          var cy = 0, i, j, a = 0, p = 0;
+          for (i = 0; i < r.length; i++) cy += r[i][1];
+          cy /= r.length;
+          var kx = Math.cos(cy * Math.PI / 180) * 111320;
+          for (i = 0; i < r.length; i++) {
+            j = (i + 1) % r.length;
+            a += (r[i][0] * kx) * (r[j][1] * 111320) - (r[j][0] * kx) * (r[i][1] * 111320);
+            p += Math.hypot((r[i][0] - r[j][0]) * kx, (r[i][1] - r[j][1]) * 111320);
+          }
+          return p ? 2 * (Math.abs(a) / 2) / p : 0;
+        }
+        ZONES.forEach(function (z) {
+          /* Every ring is wound the same way before drawing. nonzero alone is not
+             enough: five zones (Rome's Centro Storico, Matera, Piacenza, Mantova,
+             Mazara del Vallo) were traced with rings running in both directions,
+             and where a clockwise ring overlaps an anticlockwise one the winding
+             numbers cancel and the overlap still renders as a hole. None of those
+             rings is a real hole (checked 2026-09-23: no reversed ring lies wholly
+             inside another), so normalising the winding is safe. */
+          var ll = z.rings.map(function (r) {
+            var a = 0, k;
+            for (k = 0; k < r.length - 1; k++) a += r[k][0] * r[k + 1][1] - r[k + 1][0] * r[k][1];
+            var rr = a < 0 ? r.slice().reverse() : r;
+            return [rr.map(function (p) { return [p[1], p[0]]; })];
+          });
+          /* fillRule MUST be nonzero. Leaflet defaults to 'evenodd', and 46 of the
+             zones in data.js have overlapping rings — under even-odd every overlap
+             renders as a HOLE, i.e. the map shows a restricted area as unrestricted.
+             On Rome that put the Pantheon, Colosseum, Trevi, Navona, Campo de' Fiori,
+             Monti and Trastevere all inside holes. Do not remove this. */
+          var ks = KIND_STYLE[z.kind] || KIND_STYLE.ztl;
+          var poly = L.polygon(ll, { color: ks.color, weight: 1.4, fillColor: ks.fillColor, fillOpacity: .34, fillRule: 'nonzero' }).addTo(m);
+          if (z.popup) poly.bindPopup(z.popup);
+          poly._kind = z.kind || 'ztl';
+          polys.push(poly);
+          /* Invisible fat polyline over street-width rings so they can be
+             tapped. Stroke weight is in screen pixels, so the target stays
+             finger-sized at every zoom and nothing about the drawing changes. */
+          z.rings.forEach(function (r) {
+            if (ringWidth(r) >= 60) return;
+            var hit = L.polyline(r.map(function (p) { return [p[1], p[0]]; }),
+              { color: ks.color, weight: 32, opacity: 0, className: 'ztl-hit', interactive: true }).addTo(m);
+            if (z.popup) hit.bindPopup(z.popup);
+            hits.push(hit);
+          });
+        });
+        /* Stack smallest-scope on top. A city-wide emissions zone contains every
+           ZTL inside it, so drawn last it covers them and swallows their clicks
+           — on Milan the grey Area B made the centre and the Navigli
+           unclickable. Mirrors Z_STACK in common.js. */
+        ['lez', 'charge', 'ztl', 'apu'].forEach(function (k) {
+          polys.forEach(function (p) { if (p._kind === k) p.bringToFront(); });
+        });
+        /* Hit areas last — the stacking above would otherwise bury them. */
+        hits.forEach(function (h) { h.bringToFront(); });
+        m.fitBounds(L.featureGroup(polys).getBounds().pad(0.3));
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+      else init();
+    })();
+  </script>
+  <script src="../../nav.js"></script>
+  <script src="../../consent.js"></script>
+  <script src="../../adsense.js"></script>
+</body>
+</html>

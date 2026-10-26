@@ -1,0 +1,28 @@
+1 000ERR  https://www.poliziamunicipalebari.it/home-page/cosa-fare-in-caso-di/rilascio-permessi-ztl/ -> 1-rilascio-permessi-ztl_
+2 200 48359 https://www.amtab.it/it/zona-a-traffico-limitato/regolamento-ztl -> 2-regolamento-ztl_
+3 200 34282 https://www.amtab.it/it/zona-a-traffico-limitato -> 3-zona-a-traffico-limitato_
+4 000ERR  https://www.comune.bari.it/-/zona-a-traffico-limitato-di-bari-vecchia-giunta-approva-l-aggiornamento-degli-elaborati-tecnici-con-novita-su-varchi-aree-sosta-e-strade-verdi- -> 4-zona-a-traffico-limitato-di-bari-vecchia-giunta-approva-l-aggiornamento-degli-el
+5 000ERR  https://www.comune.bari.it/-/giunta-approva-disciplinare-tecnico-per-le-nuove-regole-ztl-della-citta-vecchia -> 5-giunta-approva-disciplinare-tecnico-per-le-nuove-regole-ztl-della-citta-vecchia_
+6 000ERR  https://www.comune.bari.it/-/nuovo-sistema-di-monitoraggio-ztl-a-bari-vecchia-da-lunedi-al-via-la-sperimentazione -> 6-nuovo-sistema-di-monitoraggio-ztl-a-bari-vecchia-da-lunedi-al-via-la-sperimentaz
+7 000ERR  https://www.comune.bari.it/notizie/-/asset_publisher/CpZan0sO3xBG/content/zona-a-traffico-limitato-della-citta-vecchia-pubblicata-ordinanza-con-le-nuove-regole-da-fine-mese-attiva-la-sperimentazione?inheritRedirect=false -> 7-zona-a-traffico-limitato-della-citta-vecchia-pubblicata-ordinanza-con-le-nuove-r
+8 000ERR  https://www.comune.bari.it/it/homepage -> 8-homepage_
+9 000ERR  https://www.comune.bari.it/-/festa-di-san-nicola-sosta-gratuita-per-i-possessori-di-contrassegni-ztl-e-zsr-negli-spazi-di-sosta-regolamentata -> 9-festa-di-san-nicola-sosta-gratuita-per-i-possessori-di-contrassegni-ztl-e-zsr-ne
+10 200 223 https://opendata.comune.bari.it/api/3/action/package_search?q=ztl&rows=50 -> 10-package_search_
+11 200 33295 https://opendata.comune.bari.it/api/3/action/package_search?q=traffico&rows=50 -> 11-package_search_
+12 200 224 https://www.dati.gov.it/opendata/api/3/action/package_search?q=ztl%20bari&rows=50 -> 12-package_search_
+13 200 316759 https://www.quotidianodipuglia.it/bari/ztl_bari_nuove_regole_varco_attivo-9586924.html -> 13-ztl_bari_nuove_regole_varco_attivo-9586924.html_
+14 200 951876 https://www.baritoday.it/cronaca/zrl-bari-vecchia-nuove-regole-parcheggi-transito-strade.html -> 14-zrl-bari-vecchia-nuove-regole-parcheggi-transito-strade.html_
+15 200 90664 https://citynext.it/2026/06/27/bari-vecchia-dal-1-luglio-cambia-la-ztl-nuove-regole-orari-e-parcheggi/ -> 15-bari-vecchia-dal-1-luglio-cambia-la-ztl-nuove-regole-orari-e-parcheggi_
+16 200 175289 https://www.telebari.it/attualita/255902-ztl-attivo-dal-1-luglio-il-varco-del-castello-scaramuzzi-soluzione-presa-con-residenti-e-commercianti.html -> 16-255902-ztl-attivo-dal-1-luglio-il-varco-del-castello-scaramuzzi-soluzione-presa-
+17 200 171693 https://www.borderline24.com/2026/06/25/bari-vecchia-accordo-comune-residenti-sulla-ztl-la-mappa-dei-nuovi-varchi-e-dei-parcheggi-al-castello/ -> 17-bari-vecchia-accordo-comune-residenti-sulla-ztl-la-mappa-dei-nuovi-varchi-e-dei-
+18 200 115229 https://ilikepuglia.it/11/06/2026/ztl-bari-vecchia/ -> 18-ztl-bari-vecchia_
+19 200 48944 https://www.lagazzettadelmezzogiorno.it/news/bari/2115194/ztl-a-bari-vecchia-i-turisti-multati-nel-centro-storico-gli-albergatori-scrivono-al-comune-serve-piu-elasticita.amp -> 19-ztl-a-bari-vecchia-i-turisti-multati-nel-centro-storico-gli-albergatori-scrivono
+20 200 438842 https://telenorba.it/2026/09/03/ztl-bari-vecchia-gli-albergatori-si-permetta-lo-scarico-dei-bagagli/ -> 20-ztl-bari-vecchia-gli-albergatori-si-permetta-lo-scarico-dei-bagagli_
+21 200 935460 https://www.baritoday.it/attualita/ztl-bari-vecchia-varchi-parcheggi.html -> 21-ztl-bari-vecchia-varchi-parcheggi.html_
+22 200 159731 https://moveo.telepass.com/ztl-bari-vecchia-mappa-orari-novita/ -> 22-ztl-bari-vecchia-mappa-orari-novita_
+23 200 21091 https://ztlitaly.com/ztl/bari/ -> 23-bari_
+24 200 321186 https://www.accessibilitacentristorici.it/ztl/puglia/bari.html -> 24-bari.html_
+25 200 930488 https://www.baritoday.it/attualita/comune-approva-modifiche-ztl-bari-vecchia.html -> 25-comune-approva-modifiche-ztl-bari-vecchia.html_
+26 200 202513 https://www.parkingmycar.it/blog/ztl-bari-orari-regole/ -> 26-ztl-bari-orari-regole_
+27 200 937838 https://www.baritoday.it/attualita/ztl-bari-vecchia-castello-svevo-pannelli.html -> 27-ztl-bari-vecchia-castello-svevo-pannelli.html_
+28 overpass 156
