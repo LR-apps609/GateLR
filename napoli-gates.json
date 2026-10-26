@@ -1,0 +1,229 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-25T07:12:47Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 257082341,
+  "lat": 40.8496416,
+  "lon": 14.2499464,
+  "tags": {
+    "entrance": "yes",
+    "man_made": "surveillance",
+    "name": "Varco ZTL",
+    "surveillance:type": "ALPR"
+  }
+},
+{
+  "type": "node",
+  "id": 257087180,
+  "lat": 40.8460888,
+  "lon": 14.2512725,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "Varco ZTL"
+  }
+},
+{
+  "type": "node",
+  "id": 298239866,
+  "lat": 40.8453068,
+  "lon": 14.2568762,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "Varco ZTL",
+    "surveillance:type": "ALPR"
+  }
+},
+{
+  "type": "node",
+  "id": 459505114,
+  "lat": 40.8542751,
+  "lon": 14.2615507,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "Varco ZTL",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 1228089817,
+  "lat": 40.8623277,
+  "lon": 14.2350728,
+  "tags": {
+    "highway": "speed_camera",
+    "maxspeed": "80"
+  }
+},
+{
+  "type": "node",
+  "id": 1286851736,
+  "lat": 40.8476415,
+  "lon": 14.2494761,
+  "tags": {
+    "highway": "traffic_signals",
+    "name": "Varco ZTL"
+  }
+},
+{
+  "type": "node",
+  "id": 1587473895,
+  "lat": 40.8455064,
+  "lon": 14.2628623,
+  "tags": {
+    "barrier": "gate",
+    "name": "Varco Pisacane"
+  }
+},
+{
+  "type": "node",
+  "id": 2721810539,
+  "lat": 40.8479139,
+  "lon": 14.2597956,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "Varco ZTL",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 2762443906,
+  "lat": 40.8548382,
+  "lon": 14.2562907,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "Varco ZTL",
+    "surveillance:type": "ALPR"
+  }
+},
+{
+  "type": "node",
+  "id": 2838062629,
+  "lat": 40.8375328,
+  "lon": 14.2093883,
+  "tags": {
+    "highway": "speed_camera",
+    "maxspeed": "80"
+  }
+},
+{
+  "type": "node",
+  "id": 4274003803,
+  "lat": 40.8511276,
+  "lon": 14.2149220,
+  "tags": {
+    "highway": "speed_camera",
+    "maxspeed": "80"
+  }
+},
+{
+  "type": "node",
+  "id": 4388593951,
+  "lat": 40.8693758,
+  "lon": 14.2605845,
+  "tags": {
+    "highway": "speed_camera",
+    "maxspeed": "80"
+  }
+},
+{
+  "type": "node",
+  "id": 7177239934,
+  "lat": 40.8460117,
+  "lon": 14.2549361,
+  "tags": {
+    "amenity": "bar",
+    "check_date": "2026-05-30",
+    "name": "Varco Attivo"
+  }
+},
+{
+  "type": "node",
+  "id": 9056904289,
+  "lat": 40.8420270,
+  "lon": 14.2576017,
+  "tags": {
+    "barrier": "lift_gate",
+    "name": "Varco Immacolatella Vecchia"
+  }
+},
+{
+  "type": "node",
+  "id": 9056904360,
+  "lat": 40.8454928,
+  "lon": 14.2627980,
+  "tags": {
+    "barrier": "gate",
+    "name": "Varco Pisacane"
+  }
+},
+{
+  "type": "node",
+  "id": 9056904437,
+  "lat": 40.8457200,
+  "lon": 14.2690270,
+  "tags": {
+    "barrier": "yes",
+    "name": "Varco Carmine"
+  }
+},
+{
+  "type": "node",
+  "id": 9056922639,
+  "lat": 40.8458079,
+  "lon": 14.2690289,
+  "tags": {
+    "barrier": "yes",
+    "name": "Varco Carmine"
+  }
+},
+{
+  "type": "node",
+  "id": 10860813821,
+  "lat": 40.8513159,
+  "lon": 14.2389895,
+  "tags": {
+    "barrier": "gate",
+    "name": "Varco 5G"
+  }
+},
+{
+  "type": "node",
+  "id": 11473298609,
+  "lat": 40.8493169,
+  "lon": 14.2607280,
+  "tags": {
+    "camera:mount": "pole",
+    "camera:type": "fixed",
+    "designation": "Varco ZTL",
+    "enforcement": "access",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 13309424429,
+  "lat": 40.8517705,
+  "lon": 14.2397858,
+  "tags": {
+    "barrier": "gate",
+    "name": "Varco 4S lato destro"
+  }
+}
+
+  ]
+}

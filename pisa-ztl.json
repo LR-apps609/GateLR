@@ -1,0 +1,137 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-24T19:20:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "relation",
+  "id": 9342809,
+  "bounds": {
+    "minlat": 43.7107751,
+    "minlon": 10.3956107,
+    "maxlat": 43.7233465,
+    "maxlon": 10.4072549
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 5105785566,
+      "role": "device",
+      "lat": 43.7197178,
+      "lon": 10.4066052
+    },
+    {
+      "type": "node",
+      "ref": 2996195895,
+      "role": "device",
+      "lat": 43.7199367,
+      "lon": 10.3956107
+    },
+    {
+      "type": "node",
+      "ref": 6073331857,
+      "role": "device",
+      "lat": 43.7167500,
+      "lon": 10.3998930
+    },
+    {
+      "type": "node",
+      "ref": 6290979184,
+      "role": "device",
+      "lat": 43.7156461,
+      "lon": 10.4003194
+    },
+    {
+      "type": "node",
+      "ref": 6290984385,
+      "role": "device",
+      "lat": 43.7155222,
+      "lon": 10.3988966
+    },
+    {
+      "type": "node",
+      "ref": 6290984390,
+      "role": "device",
+      "lat": 43.7137705,
+      "lon": 10.3959410
+    },
+    {
+      "type": "node",
+      "ref": 5599820736,
+      "role": "device",
+      "lat": 43.7114088,
+      "lon": 10.3976238
+    },
+    {
+      "type": "node",
+      "ref": 3483939523,
+      "role": "device",
+      "lat": 43.7107751,
+      "lon": 10.4005109
+    },
+    {
+      "type": "node",
+      "ref": 3358120379,
+      "role": "device",
+      "lat": 43.7115813,
+      "lon": 10.4055519
+    },
+    {
+      "type": "node",
+      "ref": 6290984391,
+      "role": "device",
+      "lat": 43.7133471,
+      "lon": 10.4064135
+    },
+    {
+      "type": "node",
+      "ref": 6290984392,
+      "role": "device",
+      "lat": 43.7135869,
+      "lon": 10.4045413
+    },
+    {
+      "type": "node",
+      "ref": 3358108593,
+      "role": "device",
+      "lat": 43.7153330,
+      "lon": 10.4070267
+    },
+    {
+      "type": "node",
+      "ref": 3358118456,
+      "role": "device",
+      "lat": 43.7167561,
+      "lon": 10.4072549
+    },
+    {
+      "type": "node",
+      "ref": 2996195894,
+      "role": "device",
+      "lat": 43.7233465,
+      "lon": 10.3983950
+    },
+    {
+      "type": "node",
+      "ref": 11184543009,
+      "role": "device",
+      "lat": 43.7222295,
+      "lon": 10.4015053
+    }
+  ],
+  "tags": {
+    "enforcement": "access",
+    "name": "Zona a Traffico Limitato",
+    "name:en": "Restricted Traffic Zone",
+    "operator": "Comune di Pisa",
+    "short_name": "ZTL",
+    "type": "enforcement"
+  }
+}
+
+  ]
+}

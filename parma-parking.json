@@ -1,0 +1,8955 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-26T06:39:48Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 391647834,
+  "lat": 44.8060782,
+  "lon": 10.3360689,
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "144",
+    "fee": "yes",
+    "name": "DUS Parking",
+    "parking": "multi-storey"
+  }
+},
+{
+  "type": "node",
+  "id": 1896822113,
+  "lat": 44.7989926,
+  "lon": 10.3409170,
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "200",
+    "fee": "yes",
+    "layer": "-1",
+    "parking": "underground"
+  }
+},
+{
+  "type": "node",
+  "id": 1925004536,
+  "lat": 44.8305093,
+  "lon": 10.3630185,
+  "tags": {
+    "amenity": "parking",
+    "layer": "-1",
+    "parking": "underground"
+  }
+},
+{
+  "type": "node",
+  "id": 5168717539,
+  "lat": 44.8244536,
+  "lon": 10.3238291,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 5168717571,
+  "lat": 44.8243354,
+  "lon": 10.3238988,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 5168717572,
+  "lat": 44.8244117,
+  "lon": 10.3234268,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 5273857166,
+  "lat": 44.8104734,
+  "lon": 10.3596374,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 5275207623,
+  "lat": 44.8068232,
+  "lon": 10.3466869,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 5275207624,
+  "lat": 44.8067251,
+  "lon": 10.3472885,
+  "tags": {
+    "amenity": "parking",
+    "name": "Parcheggio Superiore"
+  }
+},
+{
+  "type": "node",
+  "id": 5275590154,
+  "lat": 44.8144896,
+  "lon": 10.3194056,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 5310424859,
+  "lat": 44.8099478,
+  "lon": 10.3466527,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 5310473549,
+  "lat": 44.8049222,
+  "lon": 10.3503535,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 5310858545,
+  "lat": 44.8043337,
+  "lon": 10.3523190,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 5339537707,
+  "lat": 44.8174495,
+  "lon": 10.2871072,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 5339568134,
+  "lat": 44.8116726,
+  "lon": 10.2924786,
+  "tags": {
+    "amenity": "parking",
+    "layer": "-1",
+    "parking": "underground"
+  }
+},
+{
+  "type": "node",
+  "id": 6974902267,
+  "lat": 44.7973972,
+  "lon": 10.3376863,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 12095473099,
+  "lat": 44.8298931,
+  "lon": 10.3649411,
+  "tags": {
+    "amenity": "parking",
+    "layer": "-1",
+    "parking": "underground"
+  }
+},
+{
+  "type": "node",
+  "id": 12140549260,
+  "lat": 44.8014777,
+  "lon": 10.3005939,
+  "tags": {
+    "amenity": "parking",
+    "capacity": "1",
+    "capacity:disabled": "1",
+    "parking": "surface",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "node",
+  "id": 12565910677,
+  "lat": 44.8108346,
+  "lon": 10.3274640,
+  "tags": {
+    "amenity": "parking",
+    "capacity": "350",
+    "fee": "yes",
+    "layer": "-1",
+    "parking": "underground"
+  }
+},
+{
+  "type": "node",
+  "id": 13121926132,
+  "lat": 44.7940658,
+  "lon": 10.3273836,
+  "tags": {
+    "amenity": "parking",
+    "charge": "1,20 Eur/h",
+    "fee": "yes",
+    "note": "fee 9:00-19:00, no visible maxstay"
+  }
+},
+{
+  "type": "node",
+  "id": 13201357949,
+  "lat": 44.7806462,
+  "lon": 10.3596040,
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13418368097,
+  "lat": 44.8099448,
+  "lon": 10.3163805,
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "layer": "-1",
+    "parking": "underground"
+  }
+},
+{
+  "type": "way",
+  "id": 25624939,
+  "center": {
+    "lat": 44.8033918,
+    "lon": 10.3454676
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 25639705,
+  "center": {
+    "lat": 44.8023897,
+    "lon": 10.3443271
+  },
+  "tags": {
+    "amenity": "parking",
+    "capacity": "170",
+    "note": "parking reserved Auditorium Paganini"
+  }
+},
+{
+  "type": "way",
+  "id": 25807999,
+  "center": {
+    "lat": 44.8255258,
+    "lon": 10.3415460
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 30914726,
+  "center": {
+    "lat": 44.7997681,
+    "lon": 10.3392767
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 30925367,
+  "center": {
+    "lat": 44.8001572,
+    "lon": 10.3423065
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 30988116,
+  "center": {
+    "lat": 44.7987559,
+    "lon": 10.3391961
+  },
+  "tags": {
+    "amenity": "parking",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 31262445,
+  "center": {
+    "lat": 44.8199676,
+    "lon": 10.3348424
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 32555980,
+  "center": {
+    "lat": 44.7987784,
+    "lon": 10.3406595
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 32751670,
+  "center": {
+    "lat": 44.8032732,
+    "lon": 10.3423703
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 32877824,
+  "center": {
+    "lat": 44.7875865,
+    "lon": 10.3123885
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 32896724,
+  "center": {
+    "lat": 44.8214391,
+    "lon": 10.2981949
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 32974538,
+  "center": {
+    "lat": 44.7993180,
+    "lon": 10.3390890
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 32975260,
+  "center": {
+    "lat": 44.8047351,
+    "lon": 10.3136088
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 32975322,
+  "center": {
+    "lat": 44.8057859,
+    "lon": 10.3145726
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface",
+    "surface": "paving_stones",
+    "survey:date": "2025-08-25",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 33175468,
+  "center": {
+    "lat": 44.7995076,
+    "lon": 10.3259011
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "lane"
+  }
+},
+{
+  "type": "way",
+  "id": 33196707,
+  "center": {
+    "lat": 44.8012555,
+    "lon": 10.3262832
+  },
+  "tags": {
+    "access": "permissive",
+    "amenity": "parking",
+    "name": "Piazzale Bernieri"
+  }
+},
+{
+  "type": "way",
+  "id": 33473868,
+  "center": {
+    "lat": 44.8227243,
+    "lon": 10.3375002
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 33478859,
+  "center": {
+    "lat": 44.8195476,
+    "lon": 10.3355011
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 33478921,
+  "center": {
+    "lat": 44.8194120,
+    "lon": 10.3361258
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 33483546,
+  "center": {
+    "lat": 44.8205451,
+    "lon": 10.3383269
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 33484134,
+  "center": {
+    "lat": 44.8202175,
+    "lon": 10.3382285
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 33484539,
+  "center": {
+    "lat": 44.8208556,
+    "lon": 10.3369247
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 33630850,
+  "center": {
+    "lat": 44.7906536,
+    "lon": 10.3205557
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Piazza Lago Balano"
+  }
+},
+{
+  "type": "way",
+  "id": 33630934,
+  "center": {
+    "lat": 44.7884373,
+    "lon": 10.3213463
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 33746707,
+  "center": {
+    "lat": 44.7870540,
+    "lon": 10.2956336
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 33757088,
+  "center": {
+    "lat": 44.7787630,
+    "lon": 10.3196067
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 33757099,
+  "center": {
+    "lat": 44.7795746,
+    "lon": 10.3139542
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 33757383,
+  "center": {
+    "lat": 44.7802081,
+    "lon": 10.3213947
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 33760205,
+  "center": {
+    "lat": 44.7905868,
+    "lon": 10.3415892
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 33784293,
+  "center": {
+    "lat": 44.7761899,
+    "lon": 10.3110141
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 34159598,
+  "center": {
+    "lat": 44.7951473,
+    "lon": 10.3027025
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 34159695,
+  "center": {
+    "lat": 44.7923011,
+    "lon": 10.3023557
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Parcheggio Palasport 2"
+  }
+},
+{
+  "type": "way",
+  "id": 34237176,
+  "center": {
+    "lat": 44.7931143,
+    "lon": 10.3572307
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 34410404,
+  "center": {
+    "lat": 44.7730667,
+    "lon": 10.3129015
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 34414196,
+  "center": {
+    "lat": 44.8068399,
+    "lon": 10.3028538
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 34490907,
+  "center": {
+    "lat": 44.8112736,
+    "lon": 10.3097474
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 34828232,
+  "center": {
+    "lat": 44.8125069,
+    "lon": 10.3380214
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 34859639,
+  "center": {
+    "lat": 44.7988318,
+    "lon": 10.3465735
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 35128515,
+  "center": {
+    "lat": 44.8159715,
+    "lon": 10.3255724
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 35482210,
+  "center": {
+    "lat": 44.7946070,
+    "lon": 10.3587467
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 35731137,
+  "center": {
+    "lat": 44.8039727,
+    "lon": 10.3578908
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 37104039,
+  "center": {
+    "lat": 44.8087739,
+    "lon": 10.2852226
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Parcheggio Scambiatore Ovest"
+  }
+},
+{
+  "type": "way",
+  "id": 37560940,
+  "center": {
+    "lat": 44.7978488,
+    "lon": 10.3536797
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 38807729,
+  "center": {
+    "lat": 44.8249905,
+    "lon": 10.3360630
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 38876869,
+  "center": {
+    "lat": 44.8009851,
+    "lon": 10.3344042
+  },
+  "tags": {
+    "amenity": "parking",
+    "capacity": "13",
+    "capacity:disabled": "5",
+    "fee": "yes",
+    "name": "Piazzale dei Servi"
+  }
+},
+{
+  "type": "way",
+  "id": 38876872,
+  "center": {
+    "lat": 44.8001222,
+    "lon": 10.3356728
+  },
+  "tags": {
+    "access": "permissive",
+    "amenity": "parking",
+    "name": "Piazzale Santo Sepolcro",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 39260551,
+  "center": {
+    "lat": 44.8076018,
+    "lon": 10.3602158
+  },
+  "tags": {
+    "amenity": "parking",
+    "area": "yes",
+    "name": "Largo Ambra Cacciari"
+  }
+},
+{
+  "type": "way",
+  "id": 43379715,
+  "center": {
+    "lat": 44.7773727,
+    "lon": 10.3183412
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 43382845,
+  "center": {
+    "lat": 44.7765861,
+    "lon": 10.3183464
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 55833104,
+  "center": {
+    "lat": 44.7820883,
+    "lon": 10.3399610
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 71507952,
+  "center": {
+    "lat": 44.8124947,
+    "lon": 10.3122348
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 76207541,
+  "center": {
+    "lat": 44.8210949,
+    "lon": 10.3357485
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 76207801,
+  "center": {
+    "lat": 44.8205927,
+    "lon": 10.3363091
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 76885411,
+  "center": {
+    "lat": 44.8250511,
+    "lon": 10.3287932
+  },
+  "tags": {
+    "amenity": "parking",
+    "operator": "Villa Ducale",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 77368238,
+  "center": {
+    "lat": 44.7952224,
+    "lon": 10.3573679
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 79953535,
+  "center": {
+    "lat": 44.8032900,
+    "lon": 10.3137561
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 79953592,
+  "center": {
+    "lat": 44.8023799,
+    "lon": 10.3134522
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 79957668,
+  "center": {
+    "lat": 44.8012763,
+    "lon": 10.3132748
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 79959298,
+  "center": {
+    "lat": 44.7999766,
+    "lon": 10.3140418
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 79959991,
+  "center": {
+    "lat": 44.7991582,
+    "lon": 10.3147554
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 79960451,
+  "center": {
+    "lat": 44.7983955,
+    "lon": 10.3154287
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 79960580,
+  "center": {
+    "lat": 44.7975687,
+    "lon": 10.3161834
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 80725484,
+  "center": {
+    "lat": 44.7876404,
+    "lon": 10.3578094
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 81508811,
+  "center": {
+    "lat": 44.8254082,
+    "lon": 10.3434327
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 97155093,
+  "center": {
+    "lat": 44.7793085,
+    "lon": 10.3171028
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 97155096,
+  "center": {
+    "lat": 44.7795757,
+    "lon": 10.3174084
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 97155108,
+  "center": {
+    "lat": 44.7827146,
+    "lon": 10.3248743
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 117206444,
+  "center": {
+    "lat": 44.7779688,
+    "lon": 10.3149095
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Largo Giovanni Francesco Guercino",
+    "name:etymology:wikidata": "Q334262"
+  }
+},
+{
+  "type": "way",
+  "id": 124172443,
+  "center": {
+    "lat": 44.7822427,
+    "lon": 10.3635355
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 124172445,
+  "center": {
+    "lat": 44.7827733,
+    "lon": 10.3636868
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 126491516,
+  "center": {
+    "lat": 44.8190592,
+    "lon": 10.3379134
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 126502566,
+  "center": {
+    "lat": 44.8224348,
+    "lon": 10.3435125
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 126502567,
+  "center": {
+    "lat": 44.8223506,
+    "lon": 10.3440866
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 142155214,
+  "center": {
+    "lat": 44.8186289,
+    "lon": 10.3388088
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 143777996,
+  "center": {
+    "lat": 44.7725760,
+    "lon": 10.3241017
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 163993802,
+  "center": {
+    "lat": 44.7958119,
+    "lon": 10.3575978
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 178443685,
+  "center": {
+    "lat": 44.8008993,
+    "lon": 10.3063475
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "yes",
+    "name": "Parking Abbeveratoia",
+    "operator": "APCOA",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:maestro": "yes",
+    "payment:mastercard": "yes",
+    "payment:telepass": "yes",
+    "payment:visa": "yes",
+    "payment:visa_electron": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 178443716,
+  "center": {
+    "lat": 44.8017136,
+    "lon": 10.3064956
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 178444029,
+  "center": {
+    "lat": 44.7987952,
+    "lon": 10.3059591
+  },
+  "tags": {
+    "access": "permit",
+    "amenity": "parking",
+    "name": "Parcheggio Dipenenti",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 179585124,
+  "center": {
+    "lat": 44.8010667,
+    "lon": 10.3064491
+  },
+  "tags": {
+    "amenity": "parking",
+    "building": "yes",
+    "parking": "multi-storey",
+    "source": "Regione Emilia Romagna"
+  }
+},
+{
+  "type": "way",
+  "id": 181435599,
+  "center": {
+    "lat": 44.8255313,
+    "lon": 10.3364709
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 182148399,
+  "center": {
+    "lat": 44.8078694,
+    "lon": 10.3320767
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "building": "yes",
+    "capacity": "280",
+    "fee": "yes",
+    "name": "DUC Parking",
+    "operator": "INFOMOBILITY SPA",
+    "parking": "multi-storey",
+    "source": "Regione Emilia Romagna"
+  }
+},
+{
+  "type": "way",
+  "id": 182247919,
+  "center": {
+    "lat": 44.8310132,
+    "lon": 10.3630970
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "IKEA",
+    "operator": "Ikea Italia Retail S.r.l.",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 182247920,
+  "center": {
+    "lat": 44.8306037,
+    "lon": 10.3651177
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "IKEA",
+    "operator": "Ikea Italia Retail S.r.l.",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 185263269,
+  "center": {
+    "lat": 44.8275257,
+    "lon": 10.3380167
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 185263273,
+  "center": {
+    "lat": 44.8269593,
+    "lon": 10.3385094
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 185264979,
+  "center": {
+    "lat": 44.8277184,
+    "lon": 10.3394258
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Piazza George Sand"
+  }
+},
+{
+  "type": "way",
+  "id": 185280239,
+  "center": {
+    "lat": 44.8205088,
+    "lon": 10.3342628
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 185952777,
+  "center": {
+    "lat": 44.8222565,
+    "lon": 10.3428054
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 185969335,
+  "center": {
+    "lat": 44.8227745,
+    "lon": 10.3344215
+  },
+  "tags": {
+    "amenity": "parking",
+    "barrier": "ditch",
+    "shop": "car"
+  }
+},
+{
+  "type": "way",
+  "id": 186211353,
+  "center": {
+    "lat": 44.8152903,
+    "lon": 10.3317172
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Parcheggio Equ"
+  }
+},
+{
+  "type": "way",
+  "id": 186216327,
+  "center": {
+    "lat": 44.8100407,
+    "lon": 10.3311471
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 187196696,
+  "center": {
+    "lat": 44.8114492,
+    "lon": 10.3438403
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Parcheggio ambulatorio San Moderanno"
+  }
+},
+{
+  "type": "way",
+  "id": 234791819,
+  "center": {
+    "lat": 44.7765549,
+    "lon": 10.3449175
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 271715477,
+  "center": {
+    "lat": 44.8257522,
+    "lon": 10.3394760
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 271715478,
+  "center": {
+    "lat": 44.8263105,
+    "lon": 10.3383978
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 271777574,
+  "center": {
+    "lat": 44.8210898,
+    "lon": 10.3404483
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 272676242,
+  "center": {
+    "lat": 44.8197160,
+    "lon": 10.3340337
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 272676244,
+  "center": {
+    "lat": 44.8200895,
+    "lon": 10.3337361
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 272930236,
+  "center": {
+    "lat": 44.8132747,
+    "lon": 10.3393648
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 300482939,
+  "center": {
+    "lat": 44.8113353,
+    "lon": 10.3184199
+  },
+  "tags": {
+    "amenity": "parking",
+    "capacity": "20",
+    "park_ride": "no",
+    "parking": "surface",
+    "supervised": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 311406159,
+  "center": {
+    "lat": 44.7884908,
+    "lon": 10.3391392
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 352569277,
+  "center": {
+    "lat": 44.7920137,
+    "lon": 10.3041889
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 376059009,
+  "center": {
+    "lat": 44.8274719,
+    "lon": 10.3370095
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 380676144,
+  "center": {
+    "lat": 44.8110937,
+    "lon": 10.3386603
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 403712170,
+  "center": {
+    "lat": 44.7834091,
+    "lon": 10.3462978
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 403712171,
+  "center": {
+    "lat": 44.7830848,
+    "lon": 10.3461967
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 431551827,
+  "center": {
+    "lat": 44.7989928,
+    "lon": 10.3301350
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 431848726,
+  "center": {
+    "lat": 44.7969238,
+    "lon": 10.3187378
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 431857865,
+  "center": {
+    "lat": 44.8028978,
+    "lon": 10.3111009
+  },
+  "tags": {
+    "access": "permissive",
+    "amenity": "parking",
+    "operator": "Azienza Ospedaliera di Parma",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 431862065,
+  "center": {
+    "lat": 44.8000916,
+    "lon": 10.3101081
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 431899250,
+  "center": {
+    "lat": 44.7992651,
+    "lon": 10.3401103
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "yes",
+    "name": "Barilla Center",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 431905901,
+  "center": {
+    "lat": 44.7987399,
+    "lon": 10.3446619
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 460820583,
+  "center": {
+    "lat": 44.7801302,
+    "lon": 10.3689574
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 505845190,
+  "center": {
+    "lat": 44.8303297,
+    "lon": 10.3421272
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 505846500,
+  "center": {
+    "lat": 44.8286165,
+    "lon": 10.3430094
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Piazza Giuseppina Strepponi"
+  }
+},
+{
+  "type": "way",
+  "id": 505846501,
+  "center": {
+    "lat": 44.8272991,
+    "lon": 10.3429470
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Piazza Anna Maria Mozzoni",
+    "name:etymology:wikidata": "Q2809294",
+    "name:language": "it"
+  }
+},
+{
+  "type": "way",
+  "id": 505846502,
+  "center": {
+    "lat": 44.8279280,
+    "lon": 10.3429232
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Piazza Golda Meir"
+  }
+},
+{
+  "type": "way",
+  "id": 505846503,
+  "center": {
+    "lat": 44.8293100,
+    "lon": 10.3432050
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Piazza Virginia Woolf"
+  }
+},
+{
+  "type": "way",
+  "id": 516621540,
+  "center": {
+    "lat": 44.7985136,
+    "lon": 10.2999973
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 516622790,
+  "center": {
+    "lat": 44.7921944,
+    "lon": 10.2991941
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 516706266,
+  "center": {
+    "lat": 44.7939385,
+    "lon": 10.2952790
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 543569816,
+  "center": {
+    "lat": 44.8101424,
+    "lon": 10.2928149
+  },
+  "tags": {
+    "amenity": "parking",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 544293381,
+  "center": {
+    "lat": 44.7814586,
+    "lon": 10.3562675
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 545050592,
+  "center": {
+    "lat": 44.8130805,
+    "lon": 10.3425131
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 545696658,
+  "center": {
+    "lat": 44.8087504,
+    "lon": 10.3551373
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 545837565,
+  "center": {
+    "lat": 44.8066283,
+    "lon": 10.3472597
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 547304600,
+  "center": {
+    "lat": 44.7776976,
+    "lon": 10.3314826
+  },
+  "tags": {
+    "amenity": "parking",
+    "area": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 547307406,
+  "center": {
+    "lat": 44.7765222,
+    "lon": 10.3408685
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 547757569,
+  "center": {
+    "lat": 44.8040898,
+    "lon": 10.3544270
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 549128728,
+  "center": {
+    "lat": 44.7852413,
+    "lon": 10.3069285
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 549759801,
+  "center": {
+    "lat": 44.8077463,
+    "lon": 10.3455562
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 551261333,
+  "center": {
+    "lat": 44.8189590,
+    "lon": 10.3340954
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 551327769,
+  "center": {
+    "lat": 44.7932284,
+    "lon": 10.3546814
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 551333134,
+  "center": {
+    "lat": 44.7805341,
+    "lon": 10.2976416
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 551333135,
+  "center": {
+    "lat": 44.7822135,
+    "lon": 10.3008550
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 552825030,
+  "center": {
+    "lat": 44.7953354,
+    "lon": 10.3502519
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "service_times": "9:00-20:00"
+  }
+},
+{
+  "type": "way",
+  "id": 553614561,
+  "center": {
+    "lat": 44.7738109,
+    "lon": 10.3566701
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 553850804,
+  "center": {
+    "lat": 44.7778060,
+    "lon": 10.3431036
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 558075009,
+  "center": {
+    "lat": 44.7897143,
+    "lon": 10.3553121
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 567575473,
+  "center": {
+    "lat": 44.7821539,
+    "lon": 10.3598636
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 567575644,
+  "center": {
+    "lat": 44.7818144,
+    "lon": 10.3623709
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 567576193,
+  "center": {
+    "lat": 44.7829829,
+    "lon": 10.3601808
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 575279619,
+  "center": {
+    "lat": 44.7978538,
+    "lon": 10.3604268
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 575281158,
+  "center": {
+    "lat": 44.7917909,
+    "lon": 10.3569002
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 582070119,
+  "center": {
+    "lat": 44.8100897,
+    "lon": 10.3171696
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647478006,
+  "center": {
+    "lat": 44.7915862,
+    "lon": 10.3263874
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 647478007,
+  "center": {
+    "lat": 44.7874722,
+    "lon": 10.3368762
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647478010,
+  "center": {
+    "lat": 44.7888646,
+    "lon": 10.3339097
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "lane"
+  }
+},
+{
+  "type": "way",
+  "id": 647478014,
+  "center": {
+    "lat": 44.7856866,
+    "lon": 10.3298417
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 647478016,
+  "center": {
+    "lat": 44.7881102,
+    "lon": 10.3353456
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 647478019,
+  "center": {
+    "lat": 44.7832357,
+    "lon": 10.3299049
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647478020,
+  "center": {
+    "lat": 44.7821444,
+    "lon": 10.3307483
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647478021,
+  "center": {
+    "lat": 44.7817441,
+    "lon": 10.3327321
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 647478022,
+  "center": {
+    "lat": 44.7817312,
+    "lon": 10.3338844
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 647478025,
+  "center": {
+    "lat": 44.7839917,
+    "lon": 10.3355063
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 647478027,
+  "center": {
+    "lat": 44.7827605,
+    "lon": 10.3346367
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 647478028,
+  "center": {
+    "lat": 44.7823742,
+    "lon": 10.3333236
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 647478029,
+  "center": {
+    "lat": 44.7828527,
+    "lon": 10.3321414
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647478030,
+  "center": {
+    "lat": 44.7800925,
+    "lon": 10.3390051
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 647478031,
+  "center": {
+    "lat": 44.7784561,
+    "lon": 10.3343081
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647478032,
+  "center": {
+    "lat": 44.7788007,
+    "lon": 10.3360462
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647478033,
+  "center": {
+    "lat": 44.7771408,
+    "lon": 10.3397635
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647478034,
+  "center": {
+    "lat": 44.7808429,
+    "lon": 10.3423970
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647478035,
+  "center": {
+    "lat": 44.7790077,
+    "lon": 10.3436978
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771607,
+  "center": {
+    "lat": 44.7858248,
+    "lon": 10.3415141
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "name": "Largo Brunetto Bucciarelli Ducci",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 647771608,
+  "center": {
+    "lat": 44.7855612,
+    "lon": 10.3433808
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Largo Flaminio Piccoli"
+  }
+},
+{
+  "type": "way",
+  "id": 647771609,
+  "center": {
+    "lat": 44.7839286,
+    "lon": 10.3462850
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771610,
+  "center": {
+    "lat": 44.7836251,
+    "lon": 10.3477083
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771611,
+  "center": {
+    "lat": 44.7842026,
+    "lon": 10.3486641
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771612,
+  "center": {
+    "lat": 44.7843266,
+    "lon": 10.3478735
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771622,
+  "center": {
+    "lat": 44.7854037,
+    "lon": 10.3511013
+  },
+  "tags": {
+    "amenity": "parking",
+    "operator": "Piazza Riccardo Bauer"
+  }
+},
+{
+  "type": "way",
+  "id": 647771624,
+  "center": {
+    "lat": 44.7858513,
+    "lon": 10.3527868
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771636,
+  "center": {
+    "lat": 44.7869158,
+    "lon": 10.3518698
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771638,
+  "center": {
+    "lat": 44.7865031,
+    "lon": 10.3539843
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771649,
+  "center": {
+    "lat": 44.7836306,
+    "lon": 10.3512729
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771651,
+  "center": {
+    "lat": 44.7963439,
+    "lon": 10.3542903
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771660,
+  "center": {
+    "lat": 44.7985624,
+    "lon": 10.3566767
+  },
+  "tags": {
+    "amenity": "parking",
+    "surface": "gravel"
+  }
+},
+{
+  "type": "way",
+  "id": 647771669,
+  "center": {
+    "lat": 44.7997250,
+    "lon": 10.3463221
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771672,
+  "center": {
+    "lat": 44.8006045,
+    "lon": 10.3488676
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 647771673,
+  "center": {
+    "lat": 44.8016140,
+    "lon": 10.3487181
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647771674,
+  "center": {
+    "lat": 44.8022711,
+    "lon": 10.3485547
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647905714,
+  "center": {
+    "lat": 44.7903189,
+    "lon": 10.3421729
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647905733,
+  "center": {
+    "lat": 44.7872957,
+    "lon": 10.3518852
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 647905749,
+  "center": {
+    "lat": 44.7845550,
+    "lon": 10.3627364
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647905787,
+  "center": {
+    "lat": 44.8012049,
+    "lon": 10.3415571
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647905812,
+  "center": {
+    "lat": 44.7924266,
+    "lon": 10.3148806
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647917029,
+  "center": {
+    "lat": 44.8092027,
+    "lon": 10.3136840
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647917070,
+  "center": {
+    "lat": 44.7984156,
+    "lon": 10.3038274
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 647917073,
+  "center": {
+    "lat": 44.7953024,
+    "lon": 10.3055057
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 647917074,
+  "center": {
+    "lat": 44.7940098,
+    "lon": 10.3031974
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Parcheggio Palasport 1"
+  }
+},
+{
+  "type": "way",
+  "id": 648192578,
+  "center": {
+    "lat": 44.7951866,
+    "lon": 10.3009048
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192614,
+  "center": {
+    "lat": 44.8154189,
+    "lon": 10.3532604
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192615,
+  "center": {
+    "lat": 44.8150432,
+    "lon": 10.3542904
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192638,
+  "center": {
+    "lat": 44.7969360,
+    "lon": 10.3604832
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192651,
+  "center": {
+    "lat": 44.7891927,
+    "lon": 10.3606787
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 648192657,
+  "center": {
+    "lat": 44.7889339,
+    "lon": 10.3561185
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 648192662,
+  "center": {
+    "lat": 44.7876126,
+    "lon": 10.3598081
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 648192664,
+  "center": {
+    "lat": 44.7878250,
+    "lon": 10.3609729
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192666,
+  "center": {
+    "lat": 44.7858609,
+    "lon": 10.3653042
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192671,
+  "center": {
+    "lat": 44.7796369,
+    "lon": 10.3671664
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192672,
+  "center": {
+    "lat": 44.7791043,
+    "lon": 10.3669642
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192693,
+  "center": {
+    "lat": 44.7807826,
+    "lon": 10.3663902
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192694,
+  "center": {
+    "lat": 44.7785452,
+    "lon": 10.3682704
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192701,
+  "center": {
+    "lat": 44.7811238,
+    "lon": 10.3669891
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192705,
+  "center": {
+    "lat": 44.7806337,
+    "lon": 10.3683159
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192707,
+  "center": {
+    "lat": 44.7801435,
+    "lon": 10.3615456
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648192709,
+  "center": {
+    "lat": 44.7797516,
+    "lon": 10.3627826
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234083,
+  "center": {
+    "lat": 44.7766013,
+    "lon": 10.3194573
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234087,
+  "center": {
+    "lat": 44.7780343,
+    "lon": 10.3191997
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234088,
+  "center": {
+    "lat": 44.7791744,
+    "lon": 10.3200378
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234089,
+  "center": {
+    "lat": 44.7790430,
+    "lon": 10.3221586
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234123,
+  "center": {
+    "lat": 44.7778505,
+    "lon": 10.3121683
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234126,
+  "center": {
+    "lat": 44.7796086,
+    "lon": 10.3118265
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234128,
+  "center": {
+    "lat": 44.7809213,
+    "lon": 10.3138900
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234130,
+  "center": {
+    "lat": 44.7767668,
+    "lon": 10.3140666
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 648234131,
+  "center": {
+    "lat": 44.7735439,
+    "lon": 10.3119061
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234132,
+  "center": {
+    "lat": 44.7736110,
+    "lon": 10.3101055
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234133,
+  "center": {
+    "lat": 44.7742972,
+    "lon": 10.3094193
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234134,
+  "center": {
+    "lat": 44.7746994,
+    "lon": 10.3120006
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234141,
+  "center": {
+    "lat": 44.7728644,
+    "lon": 10.3145830
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 648234142,
+  "center": {
+    "lat": 44.7725967,
+    "lon": 10.3158832
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 648234145,
+  "center": {
+    "lat": 44.7740189,
+    "lon": 10.3128604
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234146,
+  "center": {
+    "lat": 44.7749865,
+    "lon": 10.3091253
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234148,
+  "center": {
+    "lat": 44.7759213,
+    "lon": 10.3139019
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234150,
+  "center": {
+    "lat": 44.7764337,
+    "lon": 10.3114338
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234154,
+  "center": {
+    "lat": 44.7765177,
+    "lon": 10.3101695
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234155,
+  "center": {
+    "lat": 44.7790367,
+    "lon": 10.3150657
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234166,
+  "center": {
+    "lat": 44.7816225,
+    "lon": 10.2962294
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234182,
+  "center": {
+    "lat": 44.7837344,
+    "lon": 10.3021867
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234184,
+  "center": {
+    "lat": 44.7843029,
+    "lon": 10.3045256
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234197,
+  "center": {
+    "lat": 44.7849402,
+    "lon": 10.3028733
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234201,
+  "center": {
+    "lat": 44.7817931,
+    "lon": 10.2993728
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 648234202,
+  "center": {
+    "lat": 44.7814391,
+    "lon": 10.2981068
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648234203,
+  "center": {
+    "lat": 44.7814080,
+    "lon": 10.2988205
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 648256579,
+  "center": {
+    "lat": 44.7864654,
+    "lon": 10.3175422
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256580,
+  "center": {
+    "lat": 44.7858574,
+    "lon": 10.3195022
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256583,
+  "center": {
+    "lat": 44.7880021,
+    "lon": 10.3133963
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256589,
+  "center": {
+    "lat": 44.7908769,
+    "lon": 10.3145752
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256591,
+  "center": {
+    "lat": 44.7892961,
+    "lon": 10.3138445
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256595,
+  "center": {
+    "lat": 44.7926701,
+    "lon": 10.3160107
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256596,
+  "center": {
+    "lat": 44.7813350,
+    "lon": 10.2935929
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256601,
+  "center": {
+    "lat": 44.7826007,
+    "lon": 10.2933413
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256610,
+  "center": {
+    "lat": 44.7840619,
+    "lon": 10.2941332
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256616,
+  "center": {
+    "lat": 44.7837725,
+    "lon": 10.2907965
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256623,
+  "center": {
+    "lat": 44.7892959,
+    "lon": 10.2970131
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256624,
+  "center": {
+    "lat": 44.7891728,
+    "lon": 10.2976395
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256625,
+  "center": {
+    "lat": 44.7887462,
+    "lon": 10.2992321
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256630,
+  "center": {
+    "lat": 44.7884039,
+    "lon": 10.2964855
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256631,
+  "center": {
+    "lat": 44.7879227,
+    "lon": 10.2972765
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256633,
+  "center": {
+    "lat": 44.7883770,
+    "lon": 10.2975606
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256637,
+  "center": {
+    "lat": 44.7899176,
+    "lon": 10.3474874
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256643,
+  "center": {
+    "lat": 44.7897340,
+    "lon": 10.3516144
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 648256645,
+  "center": {
+    "lat": 44.7903370,
+    "lon": 10.3497627
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 648256648,
+  "center": {
+    "lat": 44.7897699,
+    "lon": 10.3506513
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256649,
+  "center": {
+    "lat": 44.7896081,
+    "lon": 10.3498317
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256652,
+  "center": {
+    "lat": 44.7881344,
+    "lon": 10.3529590
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 648256656,
+  "center": {
+    "lat": 44.7906417,
+    "lon": 10.3443148
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256660,
+  "center": {
+    "lat": 44.7915033,
+    "lon": 10.3442677
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 648256662,
+  "center": {
+    "lat": 44.7924822,
+    "lon": 10.3452230
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256663,
+  "center": {
+    "lat": 44.7923866,
+    "lon": 10.3455986
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256668,
+  "center": {
+    "lat": 44.7912209,
+    "lon": 10.3473867
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 648256687,
+  "center": {
+    "lat": 44.7816695,
+    "lon": 10.3404428
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648256727,
+  "center": {
+    "lat": 44.7822206,
+    "lon": 10.3372662
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 648298503,
+  "center": {
+    "lat": 44.7840073,
+    "lon": 10.3296580
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648298513,
+  "center": {
+    "lat": 44.7823298,
+    "lon": 10.3288159
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648298514,
+  "center": {
+    "lat": 44.7845171,
+    "lon": 10.3279573
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648298518,
+  "center": {
+    "lat": 44.7807680,
+    "lon": 10.3296260
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "lane"
+  }
+},
+{
+  "type": "way",
+  "id": 648298524,
+  "center": {
+    "lat": 44.7809280,
+    "lon": 10.3307004
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 648298532,
+  "center": {
+    "lat": 44.7797943,
+    "lon": 10.3298445
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "lane"
+  }
+},
+{
+  "type": "way",
+  "id": 648304276,
+  "center": {
+    "lat": 44.7847445,
+    "lon": 10.3099522
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648304281,
+  "center": {
+    "lat": 44.7851332,
+    "lon": 10.3011503
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648315665,
+  "center": {
+    "lat": 44.7882216,
+    "lon": 10.3549064
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648542671,
+  "center": {
+    "lat": 44.7729528,
+    "lon": 10.3198033
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648760607,
+  "center": {
+    "lat": 44.7773193,
+    "lon": 10.3574714
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648760625,
+  "center": {
+    "lat": 44.7734842,
+    "lon": 10.3698431
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648791079,
+  "center": {
+    "lat": 44.7742618,
+    "lon": 10.2889442
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648791094,
+  "center": {
+    "lat": 44.7740783,
+    "lon": 10.2875763
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648791121,
+  "center": {
+    "lat": 44.7793639,
+    "lon": 10.2860279
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648809441,
+  "center": {
+    "lat": 44.7969071,
+    "lon": 10.3022465
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648809483,
+  "center": {
+    "lat": 44.8206929,
+    "lon": 10.3315273
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 648809499,
+  "center": {
+    "lat": 44.8234998,
+    "lon": 10.3399512
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648809501,
+  "center": {
+    "lat": 44.8246352,
+    "lon": 10.3419237
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648809512,
+  "center": {
+    "lat": 44.8260033,
+    "lon": 10.3438404
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648809517,
+  "center": {
+    "lat": 44.8249764,
+    "lon": 10.3446959
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648809525,
+  "center": {
+    "lat": 44.8306264,
+    "lon": 10.3466470
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648809556,
+  "center": {
+    "lat": 44.8196492,
+    "lon": 10.3383974
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648809558,
+  "center": {
+    "lat": 44.8209402,
+    "lon": 10.3346303
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648919167,
+  "center": {
+    "lat": 44.8076085,
+    "lon": 10.2956760
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 648919188,
+  "center": {
+    "lat": 44.8126230,
+    "lon": 10.2929652
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 648919189,
+  "center": {
+    "lat": 44.8137011,
+    "lon": 10.2944519
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648919254,
+  "center": {
+    "lat": 44.7887406,
+    "lon": 10.3685439
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648923868,
+  "center": {
+    "lat": 44.7807495,
+    "lon": 10.3437055
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648923872,
+  "center": {
+    "lat": 44.7876452,
+    "lon": 10.3529109
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648938387,
+  "center": {
+    "lat": 44.7808584,
+    "lon": 10.2983294
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 648938395,
+  "center": {
+    "lat": 44.7868711,
+    "lon": 10.3042903
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 649560328,
+  "center": {
+    "lat": 44.7893619,
+    "lon": 10.3397903
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 649560332,
+  "center": {
+    "lat": 44.7913415,
+    "lon": 10.3420280
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "lane"
+  }
+},
+{
+  "type": "way",
+  "id": 649667805,
+  "center": {
+    "lat": 44.8169212,
+    "lon": 10.3520570
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 649667807,
+  "center": {
+    "lat": 44.8145734,
+    "lon": 10.3100388
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 649701283,
+  "center": {
+    "lat": 44.7951122,
+    "lon": 10.3595417
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 650254029,
+  "center": {
+    "lat": 44.7834965,
+    "lon": 10.3573223
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 650254034,
+  "center": {
+    "lat": 44.7841441,
+    "lon": 10.3533383
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Largo Pietro Nenni"
+  }
+},
+{
+  "type": "way",
+  "id": 650254102,
+  "center": {
+    "lat": 44.8051015,
+    "lon": 10.3409596
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 650254110,
+  "center": {
+    "lat": 44.8061864,
+    "lon": 10.3403129
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 650254112,
+  "center": {
+    "lat": 44.8051552,
+    "lon": 10.3390663
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 651191393,
+  "center": {
+    "lat": 44.8007825,
+    "lon": 10.3494246
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 651191410,
+  "center": {
+    "lat": 44.8099393,
+    "lon": 10.3560406
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 651191411,
+  "center": {
+    "lat": 44.8109056,
+    "lon": 10.3523843
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 651191419,
+  "center": {
+    "lat": 44.8146265,
+    "lon": 10.3449775
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 651191444,
+  "center": {
+    "lat": 44.7892831,
+    "lon": 10.3535013
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 651191450,
+  "center": {
+    "lat": 44.7894418,
+    "lon": 10.3547192
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 651191466,
+  "center": {
+    "lat": 44.7839843,
+    "lon": 10.3510190
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 651191477,
+  "center": {
+    "lat": 44.7794189,
+    "lon": 10.3322071
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 651191479,
+  "center": {
+    "lat": 44.7829174,
+    "lon": 10.3310015
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 651191491,
+  "center": {
+    "lat": 44.7826534,
+    "lon": 10.3292873
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 653219893,
+  "center": {
+    "lat": 44.8004063,
+    "lon": 10.2852767
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 653219900,
+  "center": {
+    "lat": 44.7862376,
+    "lon": 10.3184340
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 653219902,
+  "center": {
+    "lat": 44.7861688,
+    "lon": 10.3189726
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 653219916,
+  "center": {
+    "lat": 44.7803979,
+    "lon": 10.3241582
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 653236451,
+  "center": {
+    "lat": 44.7784508,
+    "lon": 10.3402722
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 654851346,
+  "center": {
+    "lat": 44.8279950,
+    "lon": 10.3312565
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 654851350,
+  "center": {
+    "lat": 44.8273380,
+    "lon": 10.3299299
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 654851362,
+  "center": {
+    "lat": 44.8242719,
+    "lon": 10.3335608
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 654851368,
+  "center": {
+    "lat": 44.8259855,
+    "lon": 10.3333419
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 655494700,
+  "center": {
+    "lat": 44.8229594,
+    "lon": 10.3426411
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 655494701,
+  "center": {
+    "lat": 44.8236170,
+    "lon": 10.3428843
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 655494703,
+  "center": {
+    "lat": 44.8239771,
+    "lon": 10.3442240
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 656102156,
+  "center": {
+    "lat": 44.7782564,
+    "lon": 10.3669331
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 665688799,
+  "center": {
+    "lat": 44.7783339,
+    "lon": 10.3462163
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 675634211,
+  "center": {
+    "lat": 44.8184230,
+    "lon": 10.3351496
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 675634215,
+  "center": {
+    "lat": 44.8187189,
+    "lon": 10.3332240
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 686096539,
+  "center": {
+    "lat": 44.8165270,
+    "lon": 10.3531615
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 686314883,
+  "center": {
+    "lat": 44.7786075,
+    "lon": 10.3311798
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 686314887,
+  "center": {
+    "lat": 44.7786482,
+    "lon": 10.3304386
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 692412951,
+  "center": {
+    "lat": 44.8131643,
+    "lon": 10.3383086
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 693639657,
+  "center": {
+    "lat": 44.7823233,
+    "lon": 10.2974993
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 695293166,
+  "center": {
+    "lat": 44.8013715,
+    "lon": 10.3586742
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 704843628,
+  "center": {
+    "lat": 44.8283881,
+    "lon": 10.3392381
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 704843629,
+  "center": {
+    "lat": 44.8289535,
+    "lon": 10.3389976
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 738904509,
+  "center": {
+    "lat": 44.7937707,
+    "lon": 10.3547642
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 747904157,
+  "center": {
+    "lat": 44.8069038,
+    "lon": 10.3405096
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 751007514,
+  "center": {
+    "lat": 44.7868834,
+    "lon": 10.3598950
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 762076872,
+  "center": {
+    "lat": 44.8041445,
+    "lon": 10.3219289
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes",
+    "operator": "Piazzale Giuseppe Serventi",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 770757484,
+  "center": {
+    "lat": 44.8135768,
+    "lon": 10.3508284
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 770757485,
+  "center": {
+    "lat": 44.8134336,
+    "lon": 10.3525467
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 772877229,
+  "center": {
+    "lat": 44.7855084,
+    "lon": 10.3285177
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 772877231,
+  "center": {
+    "lat": 44.7852847,
+    "lon": 10.3278431
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 794461426,
+  "center": {
+    "lat": 44.7883097,
+    "lon": 10.3142033
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "capacity:disabled": "1",
+    "operator": "TEP SpA",
+    "parking": "surface",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 795051617,
+  "center": {
+    "lat": 44.7887726,
+    "lon": 10.3195920
+  },
+  "tags": {
+    "access": "permissive",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 795051620,
+  "center": {
+    "lat": 44.7880813,
+    "lon": 10.3194209
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 812419403,
+  "center": {
+    "lat": 44.8101413,
+    "lon": 10.3131310
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 832186969,
+  "center": {
+    "lat": 44.8013348,
+    "lon": 10.3080710
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 832186972,
+  "center": {
+    "lat": 44.8014400,
+    "lon": 10.3083425
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 832186977,
+  "center": {
+    "lat": 44.8021865,
+    "lon": 10.3083321
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 832186996,
+  "center": {
+    "lat": 44.8025643,
+    "lon": 10.3083915
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 832187013,
+  "center": {
+    "lat": 44.7988553,
+    "lon": 10.3112121
+  },
+  "tags": {
+    "access": "permissive",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 838497594,
+  "center": {
+    "lat": 44.8001657,
+    "lon": 10.3081078
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 839972788,
+  "center": {
+    "lat": 44.8048969,
+    "lon": 10.3080875
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 840106669,
+  "center": {
+    "lat": 44.7962248,
+    "lon": 10.3193211
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Parcheggio Dipendenti USL"
+  }
+},
+{
+  "type": "way",
+  "id": 840719736,
+  "center": {
+    "lat": 44.7975967,
+    "lon": 10.3048569
+  },
+  "tags": {
+    "amenity": "parking",
+    "building": "parking",
+    "name": "Parcheggio Flemming",
+    "parking": "multi-storey"
+  }
+},
+{
+  "type": "way",
+  "id": 840831751,
+  "center": {
+    "lat": 44.8027436,
+    "lon": 10.3460338
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 840960462,
+  "center": {
+    "lat": 44.7951515,
+    "lon": 10.3373076
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 856800550,
+  "center": {
+    "lat": 44.7863745,
+    "lon": 10.3040271
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 868806578,
+  "center": {
+    "lat": 44.8098324,
+    "lon": 10.3537211
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 868806580,
+  "center": {
+    "lat": 44.8086535,
+    "lon": 10.3527313
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 868806582,
+  "center": {
+    "lat": 44.8052268,
+    "lon": 10.3562276
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 891219099,
+  "center": {
+    "lat": 44.8087148,
+    "lon": 10.3322136
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 892767889,
+  "center": {
+    "lat": 44.8222291,
+    "lon": 10.2982519
+  },
+  "tags": {
+    "amenity": "parking",
+    "operator": "Parcheggio Dipendenti"
+  }
+},
+{
+  "type": "way",
+  "id": 892770902,
+  "center": {
+    "lat": 44.8154019,
+    "lon": 10.2990486
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 892770913,
+  "center": {
+    "lat": 44.8157742,
+    "lon": 10.2997126
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 906645088,
+  "center": {
+    "lat": 44.7870605,
+    "lon": 10.3435537
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 906645109,
+  "center": {
+    "lat": 44.7844804,
+    "lon": 10.3456812
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 908927500,
+  "center": {
+    "lat": 44.7849980,
+    "lon": 10.3441368
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 913425650,
+  "center": {
+    "lat": 44.8258282,
+    "lon": 10.3459902
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "parking": "surface",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 924393524,
+  "center": {
+    "lat": 44.7924091,
+    "lon": 10.3628581
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 924393525,
+  "center": {
+    "lat": 44.7934272,
+    "lon": 10.3631085
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 924846358,
+  "center": {
+    "lat": 44.7988263,
+    "lon": 10.3178987
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 925215855,
+  "center": {
+    "lat": 44.7966576,
+    "lon": 10.3625245
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Piazzale Passo Del Ticchiano"
+  }
+},
+{
+  "type": "way",
+  "id": 932004580,
+  "center": {
+    "lat": 44.7960286,
+    "lon": 10.3609980
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 932004584,
+  "center": {
+    "lat": 44.7951903,
+    "lon": 10.3625387
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 932004588,
+  "center": {
+    "lat": 44.7944054,
+    "lon": 10.3627567
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 932007748,
+  "center": {
+    "lat": 44.7903595,
+    "lon": 10.3557128
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "orientation": "perpendicular",
+    "parking": "street_side",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 932007749,
+  "center": {
+    "lat": 44.7913853,
+    "lon": 10.3567539
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "orientation": "perpendicular",
+    "parking": "street_side",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 941975036,
+  "center": {
+    "lat": 44.8174495,
+    "lon": 10.3092074
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 941975037,
+  "center": {
+    "lat": 44.8178446,
+    "lon": 10.3093628
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 942589224,
+  "center": {
+    "lat": 44.7904589,
+    "lon": 10.3021384
+  },
+  "tags": {
+    "amenity": "parking",
+    "capacity": "10",
+    "fee": "no",
+    "parking": "surface",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 942997664,
+  "center": {
+    "lat": 44.8032490,
+    "lon": 10.3110533
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 951710195,
+  "center": {
+    "lat": 44.8148691,
+    "lon": 10.3099483
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 951710208,
+  "center": {
+    "lat": 44.8160141,
+    "lon": 10.3098316
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 951710221,
+  "center": {
+    "lat": 44.8154028,
+    "lon": 10.3118387
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 951710223,
+  "center": {
+    "lat": 44.8158229,
+    "lon": 10.3122858
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 962749230,
+  "center": {
+    "lat": 44.8043582,
+    "lon": 10.3053617
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 964258017,
+  "center": {
+    "lat": 44.8009280,
+    "lon": 10.3086590
+  },
+  "tags": {
+    "amenity": "parking",
+    "name": "Riservato 118"
+  }
+},
+{
+  "type": "way",
+  "id": 964258022,
+  "center": {
+    "lat": 44.8007437,
+    "lon": 10.3089293
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 964258024,
+  "center": {
+    "lat": 44.7994530,
+    "lon": 10.3073504
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 964258026,
+  "center": {
+    "lat": 44.7988463,
+    "lon": 10.3092983
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 970586271,
+  "center": {
+    "lat": 44.7845180,
+    "lon": 10.3256822
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 970637310,
+  "center": {
+    "lat": 44.7847163,
+    "lon": 10.3250662
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1013762609,
+  "center": {
+    "lat": 44.8007416,
+    "lon": 10.3585598
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1021748765,
+  "center": {
+    "lat": 44.7852396,
+    "lon": 10.3580836
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1023411292,
+  "center": {
+    "lat": 44.8144477,
+    "lon": 10.3126570
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1023411295,
+  "center": {
+    "lat": 44.8149321,
+    "lon": 10.3129618
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1023431007,
+  "center": {
+    "lat": 44.8141960,
+    "lon": 10.3198577
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1079506432,
+  "center": {
+    "lat": 44.7871371,
+    "lon": 10.3461938
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1083558639,
+  "center": {
+    "lat": 44.7908331,
+    "lon": 10.3546788
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "street_side",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1083558641,
+  "center": {
+    "lat": 44.7914183,
+    "lon": 10.3522403
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1083558642,
+  "center": {
+    "lat": 44.7919961,
+    "lon": 10.3524557
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "lane"
+  }
+},
+{
+  "type": "way",
+  "id": 1083769836,
+  "center": {
+    "lat": 44.8129220,
+    "lon": 10.3404094
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1084131502,
+  "center": {
+    "lat": 44.7729902,
+    "lon": 10.3573909
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1088778994,
+  "center": {
+    "lat": 44.8064881,
+    "lon": 10.3045251
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1088778995,
+  "center": {
+    "lat": 44.8061242,
+    "lon": 10.3042779
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1088778996,
+  "center": {
+    "lat": 44.8058388,
+    "lon": 10.3044819
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1088778997,
+  "center": {
+    "lat": 44.8058841,
+    "lon": 10.3046320
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1092698925,
+  "center": {
+    "lat": 44.8082224,
+    "lon": 10.3506518
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1092737104,
+  "center": {
+    "lat": 44.7973181,
+    "lon": 10.3346682
+  },
+  "tags": {
+    "access": "permit",
+    "amenity": "parking",
+    "parking": "surface",
+    "surface": "unpaved"
+  }
+},
+{
+  "type": "way",
+  "id": 1095163709,
+  "center": {
+    "lat": 44.7936134,
+    "lon": 10.3551077
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1095163710,
+  "center": {
+    "lat": 44.7937920,
+    "lon": 10.3552844
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1095185410,
+  "center": {
+    "lat": 44.8116720,
+    "lon": 10.3382642
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1095185411,
+  "center": {
+    "lat": 44.8118894,
+    "lon": 10.3371898
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1095185772,
+  "center": {
+    "lat": 44.8121575,
+    "lon": 10.3378796
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1095196703,
+  "center": {
+    "lat": 44.8038224,
+    "lon": 10.3254484
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "yes",
+    "layer": "-1",
+    "parking": "underground"
+  }
+},
+{
+  "type": "way",
+  "id": 1097700505,
+  "center": {
+    "lat": 44.8060767,
+    "lon": 10.3256793
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "473",
+    "fee": "yes",
+    "layer": "-1",
+    "name": "Parcheggio Interrato Toschi",
+    "operator": "APCOA Parking",
+    "operator:type": "private",
+    "operator:wikidata": "Q296108",
+    "parking": "underground",
+    "website": "https://www.apcoa.it/parcheggi-in/parma/toschi/"
+  }
+},
+{
+  "type": "way",
+  "id": 1097701612,
+  "center": {
+    "lat": 44.7964551,
+    "lon": 10.3253979
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "254",
+    "fee": "yes",
+    "layer": "-1",
+    "name": "Parcheggio Interrato Goito",
+    "operator": "APCOA",
+    "parking": "underground"
+  }
+},
+{
+  "type": "way",
+  "id": 1106441022,
+  "center": {
+    "lat": 44.7900233,
+    "lon": 10.3058644
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1106876133,
+  "center": {
+    "lat": 44.8306352,
+    "lon": 10.3299896
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "fee": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1133273290,
+  "center": {
+    "lat": 44.7790739,
+    "lon": 10.3369092
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1133273292,
+  "center": {
+    "lat": 44.7795062,
+    "lon": 10.3372395
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1133273294,
+  "center": {
+    "lat": 44.7787379,
+    "lon": 10.3406663
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1133273295,
+  "center": {
+    "lat": 44.7874679,
+    "lon": 10.3292832
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1133273298,
+  "center": {
+    "lat": 44.7873395,
+    "lon": 10.3338428
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1133273300,
+  "center": {
+    "lat": 44.7959776,
+    "lon": 10.3470052
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1133346209,
+  "center": {
+    "lat": 44.7771014,
+    "lon": 10.3361450
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1133346210,
+  "center": {
+    "lat": 44.7790294,
+    "lon": 10.3330838
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1133346212,
+  "center": {
+    "lat": 44.7798557,
+    "lon": 10.3331948
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1133346213,
+  "center": {
+    "lat": 44.7799727,
+    "lon": 10.3335748
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1136470499,
+  "center": {
+    "lat": 44.7924404,
+    "lon": 10.3468021
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1138536833,
+  "center": {
+    "lat": 44.7793657,
+    "lon": 10.3350479
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1138536839,
+  "center": {
+    "lat": 44.7801021,
+    "lon": 10.3345910
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1138536840,
+  "center": {
+    "lat": 44.7801293,
+    "lon": 10.3352649
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1138536866,
+  "center": {
+    "lat": 44.7810940,
+    "lon": 10.3400028
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1138536868,
+  "center": {
+    "lat": 44.7807153,
+    "lon": 10.3398675
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1138536869,
+  "center": {
+    "lat": 44.7807624,
+    "lon": 10.3400268
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1138536870,
+  "center": {
+    "lat": 44.7809263,
+    "lon": 10.3405575
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1138536871,
+  "center": {
+    "lat": 44.7809715,
+    "lon": 10.3407084
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1138536872,
+  "center": {
+    "lat": 44.7813365,
+    "lon": 10.3396074
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1138536874,
+  "center": {
+    "lat": 44.7816906,
+    "lon": 10.3397844
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1138549284,
+  "center": {
+    "lat": 44.7777303,
+    "lon": 10.3312759
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1139078940,
+  "center": {
+    "lat": 44.7790890,
+    "lon": 10.3358747
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1139078954,
+  "center": {
+    "lat": 44.7745256,
+    "lon": 10.3305780
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1140615472,
+  "center": {
+    "lat": 44.7787677,
+    "lon": 10.3318134
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1150764333,
+  "center": {
+    "lat": 44.7795663,
+    "lon": 10.2913151
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1153993115,
+  "center": {
+    "lat": 44.8187145,
+    "lon": 10.2856077
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity:disabled": "2",
+    "parking": "surface",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1180389493,
+  "center": {
+    "lat": 44.7886082,
+    "lon": 10.3343540
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1180483874,
+  "center": {
+    "lat": 44.7893156,
+    "lon": 10.3448069
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1182101968,
+  "center": {
+    "lat": 44.7851862,
+    "lon": 10.3388088
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1182189682,
+  "center": {
+    "lat": 44.7890398,
+    "lon": 10.3355136
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1187357185,
+  "center": {
+    "lat": 44.8188807,
+    "lon": 10.3430324
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1188188564,
+  "center": {
+    "lat": 44.8110080,
+    "lon": 10.3501866
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1199363481,
+  "center": {
+    "lat": 44.8135979,
+    "lon": 10.3258206
+  },
+  "tags": {
+    "access": "no",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1201022496,
+  "center": {
+    "lat": 44.8115034,
+    "lon": 10.3280835
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1204967258,
+  "center": {
+    "lat": 44.7975578,
+    "lon": 10.3097933
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1204967264,
+  "center": {
+    "lat": 44.7970194,
+    "lon": 10.3096967
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1204967267,
+  "center": {
+    "lat": 44.7976310,
+    "lon": 10.3082528
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1204967268,
+  "center": {
+    "lat": 44.7973394,
+    "lon": 10.3081664
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1225625262,
+  "center": {
+    "lat": 44.8165808,
+    "lon": 10.3316034
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1226662339,
+  "center": {
+    "lat": 44.8147686,
+    "lon": 10.3367058
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1230125665,
+  "center": {
+    "lat": 44.7776265,
+    "lon": 10.3483434
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1230125666,
+  "center": {
+    "lat": 44.7779046,
+    "lon": 10.3484445
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1230125672,
+  "center": {
+    "lat": 44.7814456,
+    "lon": 10.3423814
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1230125673,
+  "center": {
+    "lat": 44.7817174,
+    "lon": 10.3420022
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1239157202,
+  "center": {
+    "lat": 44.7923844,
+    "lon": 10.3017005
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1239986043,
+  "center": {
+    "lat": 44.8063222,
+    "lon": 10.3085365
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1244999861,
+  "center": {
+    "lat": 44.7750696,
+    "lon": 10.3360858
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1244999868,
+  "center": {
+    "lat": 44.7745982,
+    "lon": 10.3365370
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1248223966,
+  "center": {
+    "lat": 44.7754562,
+    "lon": 10.3668047
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1248223967,
+  "center": {
+    "lat": 44.7754437,
+    "lon": 10.3668518
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1259395710,
+  "center": {
+    "lat": 44.8174654,
+    "lon": 10.2871063
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1259395711,
+  "center": {
+    "lat": 44.8176845,
+    "lon": 10.2868522
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1259395721,
+  "center": {
+    "lat": 44.8166195,
+    "lon": 10.2880342
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1272199137,
+  "center": {
+    "lat": 44.7804480,
+    "lon": 10.3025256
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1272199138,
+  "center": {
+    "lat": 44.7805132,
+    "lon": 10.3024199
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1273383003,
+  "center": {
+    "lat": 44.7892559,
+    "lon": 10.3166223
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1273383009,
+  "center": {
+    "lat": 44.7900572,
+    "lon": 10.3178121
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1273383013,
+  "center": {
+    "lat": 44.7904724,
+    "lon": 10.3171122
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1273383014,
+  "center": {
+    "lat": 44.7909159,
+    "lon": 10.3173030
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1274618935,
+  "center": {
+    "lat": 44.8006093,
+    "lon": 10.3036746
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1275049306,
+  "center": {
+    "lat": 44.8063092,
+    "lon": 10.3017031
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1275064033,
+  "center": {
+    "lat": 44.8047186,
+    "lon": 10.3015540
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1275064036,
+  "center": {
+    "lat": 44.8048550,
+    "lon": 10.3010128
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1280560460,
+  "center": {
+    "lat": 44.7973090,
+    "lon": 10.3366331
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1280560461,
+  "center": {
+    "lat": 44.7985511,
+    "lon": 10.3376978
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1280560463,
+  "center": {
+    "lat": 44.7984326,
+    "lon": 10.3379427
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1280560464,
+  "center": {
+    "lat": 44.7972128,
+    "lon": 10.3369188
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1280898181,
+  "center": {
+    "lat": 44.8158504,
+    "lon": 10.3385664
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1283281593,
+  "center": {
+    "lat": 44.8104562,
+    "lon": 10.3354521
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1286512205,
+  "center": {
+    "lat": 44.8070537,
+    "lon": 10.3105391
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1286512206,
+  "center": {
+    "lat": 44.8070356,
+    "lon": 10.3106264
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1286512207,
+  "center": {
+    "lat": 44.8059162,
+    "lon": 10.3101797
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1286512208,
+  "center": {
+    "lat": 44.8059501,
+    "lon": 10.3100916
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1286785631,
+  "center": {
+    "lat": 44.8207504,
+    "lon": 10.3117446
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1291145658,
+  "center": {
+    "lat": 44.7903562,
+    "lon": 10.3558645
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "orientation": "perpendicular",
+    "parking": "street_side",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 1291145659,
+  "center": {
+    "lat": 44.7909918,
+    "lon": 10.3559475
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "orientation": "perpendicular",
+    "parking": "street_side",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 1291145660,
+  "center": {
+    "lat": 44.7909505,
+    "lon": 10.3560454
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "orientation": "perpendicular",
+    "parking": "street_side",
+    "surface": "concrete"
+  }
+},
+{
+  "type": "way",
+  "id": 1291145661,
+  "center": {
+    "lat": 44.7914662,
+    "lon": 10.3566622
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "orientation": "parallel",
+    "parking": "street_side",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1297293520,
+  "center": {
+    "lat": 44.7911750,
+    "lon": 10.3650705
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1297293521,
+  "center": {
+    "lat": 44.7890972,
+    "lon": 10.3695762
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1303928350,
+  "center": {
+    "lat": 44.7867616,
+    "lon": 10.3323691
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1304089275,
+  "center": {
+    "lat": 44.7807016,
+    "lon": 10.3566701
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1304089287,
+  "center": {
+    "lat": 44.7810700,
+    "lon": 10.3578401
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1304097009,
+  "center": {
+    "lat": 44.7797817,
+    "lon": 10.3567567
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1304835690,
+  "center": {
+    "lat": 44.7945165,
+    "lon": 10.3554573
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1305981114,
+  "center": {
+    "lat": 44.8302530,
+    "lon": 10.3627543
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1308570818,
+  "center": {
+    "lat": 44.7852646,
+    "lon": 10.2955771
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1310809961,
+  "center": {
+    "lat": 44.7858992,
+    "lon": 10.3683211
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1310862069,
+  "center": {
+    "lat": 44.7866657,
+    "lon": 10.3684430
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1310862091,
+  "center": {
+    "lat": 44.7855197,
+    "lon": 10.3681627
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1310862096,
+  "center": {
+    "lat": 44.7846636,
+    "lon": 10.3676993
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1311000711,
+  "center": {
+    "lat": 44.7844795,
+    "lon": 10.3668804
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1312242475,
+  "center": {
+    "lat": 44.8113139,
+    "lon": 10.3476112
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1312255683,
+  "center": {
+    "lat": 44.7906324,
+    "lon": 10.3468188
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1312619294,
+  "center": {
+    "lat": 44.7918102,
+    "lon": 10.3467053
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1312991276,
+  "center": {
+    "lat": 44.8148389,
+    "lon": 10.3484416
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1313984916,
+  "center": {
+    "lat": 44.8225492,
+    "lon": 10.3395490
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1314163106,
+  "center": {
+    "lat": 44.8200719,
+    "lon": 10.3295442
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1314724894,
+  "center": {
+    "lat": 44.8248976,
+    "lon": 10.3217238
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1331714021,
+  "center": {
+    "lat": 44.7804621,
+    "lon": 10.3169866
+  },
+  "tags": {
+    "amenity": "parking",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1331720966,
+  "center": {
+    "lat": 44.8128099,
+    "lon": 10.3411888
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity:disabled": "1",
+    "fee": "no",
+    "orientation": "perpendicular",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1337997649,
+  "center": {
+    "lat": 44.7900339,
+    "lon": 10.3545213
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1339059969,
+  "center": {
+    "lat": 44.7899928,
+    "lon": 10.3521525
+  },
+  "tags": {
+    "amenity": "parking",
+    "capacity": "5",
+    "capacity:disabled": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1340060855,
+  "center": {
+    "lat": 44.8087173,
+    "lon": 10.2983341
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1340540067,
+  "center": {
+    "lat": 44.7892190,
+    "lon": 10.3670688
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1340732575,
+  "center": {
+    "lat": 44.8035196,
+    "lon": 10.3048768
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1340735561,
+  "center": {
+    "lat": 44.8019909,
+    "lon": 10.3047791
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1340735563,
+  "center": {
+    "lat": 44.8018187,
+    "lon": 10.3051166
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1340735565,
+  "center": {
+    "lat": 44.8022170,
+    "lon": 10.3051234
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1340735566,
+  "center": {
+    "lat": 44.8041782,
+    "lon": 10.3032302
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1343007294,
+  "center": {
+    "lat": 44.7919472,
+    "lon": 10.3575560
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1343501971,
+  "center": {
+    "lat": 44.7890971,
+    "lon": 10.3567099
+  },
+  "tags": {
+    "amenity": "parking",
+    "capacity": "6",
+    "capacity:disabled": "1",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1343781479,
+  "center": {
+    "lat": 44.8109034,
+    "lon": 10.3568755
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1343781487,
+  "center": {
+    "lat": 44.8104546,
+    "lon": 10.3596259
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1343781489,
+  "center": {
+    "lat": 44.8100352,
+    "lon": 10.3613742
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1343781492,
+  "center": {
+    "lat": 44.8084451,
+    "lon": 10.3560712
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1346057350,
+  "center": {
+    "lat": 44.8003821,
+    "lon": 10.3524620
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1346057351,
+  "center": {
+    "lat": 44.8003545,
+    "lon": 10.3525965
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1346356038,
+  "center": {
+    "lat": 44.7954568,
+    "lon": 10.3529978
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1346356039,
+  "center": {
+    "lat": 44.7951934,
+    "lon": 10.3528774
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1346356053,
+  "center": {
+    "lat": 44.7962829,
+    "lon": 10.3525310
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1346356054,
+  "center": {
+    "lat": 44.7958857,
+    "lon": 10.3523348
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1346356057,
+  "center": {
+    "lat": 44.7969080,
+    "lon": 10.3495071
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1346356058,
+  "center": {
+    "lat": 44.7963719,
+    "lon": 10.3494194
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1346639773,
+  "center": {
+    "lat": 44.7907570,
+    "lon": 10.3640414
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1348670958,
+  "center": {
+    "lat": 44.8138525,
+    "lon": 10.3546495
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1348670959,
+  "center": {
+    "lat": 44.8141657,
+    "lon": 10.3534502
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1348670960,
+  "center": {
+    "lat": 44.8132416,
+    "lon": 10.3536605
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1348670961,
+  "center": {
+    "lat": 44.8147766,
+    "lon": 10.3544401
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1349179763,
+  "center": {
+    "lat": 44.7951795,
+    "lon": 10.3190877
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1349788048,
+  "center": {
+    "lat": 44.7964311,
+    "lon": 10.3174818
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1349801909,
+  "center": {
+    "lat": 44.7951858,
+    "lon": 10.3171221
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1349801910,
+  "center": {
+    "lat": 44.7953419,
+    "lon": 10.3183059
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1350013358,
+  "center": {
+    "lat": 44.7940861,
+    "lon": 10.3124240
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1350013367,
+  "center": {
+    "lat": 44.7947049,
+    "lon": 10.3121407
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1352281610,
+  "center": {
+    "lat": 44.7748063,
+    "lon": 10.3313315
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1354895986,
+  "center": {
+    "lat": 44.7911948,
+    "lon": 10.3579782
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1355736774,
+  "center": {
+    "lat": 44.7796760,
+    "lon": 10.3451383
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "fee": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1357829278,
+  "center": {
+    "lat": 44.8116226,
+    "lon": 10.3296414
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1358719053,
+  "center": {
+    "lat": 44.7848001,
+    "lon": 10.3318299
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1358719081,
+  "center": {
+    "lat": 44.7838235,
+    "lon": 10.3349633
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1358719084,
+  "center": {
+    "lat": 44.7838368,
+    "lon": 10.3339357
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1358719085,
+  "center": {
+    "lat": 44.7838459,
+    "lon": 10.3332336
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1359064344,
+  "center": {
+    "lat": 44.8203554,
+    "lon": 10.3328072
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1363825539,
+  "center": {
+    "lat": 44.8068901,
+    "lon": 10.3007459
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1363825540,
+  "center": {
+    "lat": 44.8065374,
+    "lon": 10.2990294
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1364477614,
+  "center": {
+    "lat": 44.7892691,
+    "lon": 10.2890457
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1364776888,
+  "center": {
+    "lat": 44.7985632,
+    "lon": 10.3015599
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1364845654,
+  "center": {
+    "lat": 44.7991452,
+    "lon": 10.3009844
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1364845655,
+  "center": {
+    "lat": 44.7990650,
+    "lon": 10.3015154
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1366319865,
+  "center": {
+    "lat": 44.7963311,
+    "lon": 10.3359721
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1366772655,
+  "center": {
+    "lat": 44.7874258,
+    "lon": 10.3571909
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1367752496,
+  "center": {
+    "lat": 44.7988603,
+    "lon": 10.3054572
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1367752497,
+  "center": {
+    "lat": 44.7985116,
+    "lon": 10.3053889
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1369185242,
+  "center": {
+    "lat": 44.8042234,
+    "lon": 10.3134107
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1370319310,
+  "center": {
+    "lat": 44.7937975,
+    "lon": 10.3557905
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372983585,
+  "center": {
+    "lat": 44.7825735,
+    "lon": 10.3675940
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372983601,
+  "center": {
+    "lat": 44.7830272,
+    "lon": 10.3674761
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372984468,
+  "center": {
+    "lat": 44.7818202,
+    "lon": 10.3687141
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372984469,
+  "center": {
+    "lat": 44.7817815,
+    "lon": 10.3688951
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372984470,
+  "center": {
+    "lat": 44.7821642,
+    "lon": 10.3683408
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372984471,
+  "center": {
+    "lat": 44.7823036,
+    "lon": 10.3682863
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372984472,
+  "center": {
+    "lat": 44.7822338,
+    "lon": 10.3686140
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372984473,
+  "center": {
+    "lat": 44.7820844,
+    "lon": 10.3693151
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372984474,
+  "center": {
+    "lat": 44.7820145,
+    "lon": 10.3696436
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372984475,
+  "center": {
+    "lat": 44.7819354,
+    "lon": 10.3694151
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372984476,
+  "center": {
+    "lat": 44.7822384,
+    "lon": 10.3689125
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1372984477,
+  "center": {
+    "lat": 44.7822071,
+    "lon": 10.3690585
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1373383792,
+  "center": {
+    "lat": 44.7964504,
+    "lon": 10.3054830
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1373383793,
+  "center": {
+    "lat": 44.7965050,
+    "lon": 10.3059621
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "capacity": "6",
+    "fee": "no",
+    "note": "Parcheggio privato esclusivamente per i residenti, delimitato da una catena",
+    "parking": "on_kerb",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1374497795,
+  "center": {
+    "lat": 44.7937437,
+    "lon": 10.3134064
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1374744735,
+  "center": {
+    "lat": 44.8002218,
+    "lon": 10.3085373
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1374744736,
+  "center": {
+    "lat": 44.8005069,
+    "lon": 10.3087384
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1374744737,
+  "center": {
+    "lat": 44.8005821,
+    "lon": 10.3089691
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1381615026,
+  "center": {
+    "lat": 44.8006910,
+    "lon": 10.3202733
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1381615027,
+  "center": {
+    "lat": 44.8008081,
+    "lon": 10.3204237
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1381664741,
+  "center": {
+    "lat": 44.7866483,
+    "lon": 10.3116558
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1382747084,
+  "center": {
+    "lat": 44.7935322,
+    "lon": 10.3167732
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1383009043,
+  "center": {
+    "lat": 44.8097449,
+    "lon": 10.3323489
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1383009046,
+  "center": {
+    "lat": 44.8099609,
+    "lon": 10.3324285
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1383009047,
+  "center": {
+    "lat": 44.8122421,
+    "lon": 10.3334928
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1384153631,
+  "center": {
+    "lat": 44.7812307,
+    "lon": 10.3446700
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1384288071,
+  "center": {
+    "lat": 44.7848106,
+    "lon": 10.3435888
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1384434770,
+  "center": {
+    "lat": 44.7871767,
+    "lon": 10.3009611
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1384434771,
+  "center": {
+    "lat": 44.7868635,
+    "lon": 10.3015015
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1385109135,
+  "center": {
+    "lat": 44.7940119,
+    "lon": 10.3060721
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1385160018,
+  "center": {
+    "lat": 44.7824816,
+    "lon": 10.3223613
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1385160019,
+  "center": {
+    "lat": 44.7824387,
+    "lon": 10.3224840
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1385160028,
+  "center": {
+    "lat": 44.7819701,
+    "lon": 10.3233399
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1385160035,
+  "center": {
+    "lat": 44.7822111,
+    "lon": 10.3213722
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1385160039,
+  "center": {
+    "lat": 44.7825110,
+    "lon": 10.3215747
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1388213467,
+  "center": {
+    "lat": 44.8054271,
+    "lon": 10.2926933
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1388247553,
+  "center": {
+    "lat": 44.8024427,
+    "lon": 10.2905511
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1388496109,
+  "center": {
+    "lat": 44.8095663,
+    "lon": 10.2990606
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1388496110,
+  "center": {
+    "lat": 44.8095843,
+    "lon": 10.2991551
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1388496115,
+  "center": {
+    "lat": 44.8095212,
+    "lon": 10.2992736
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1388496123,
+  "center": {
+    "lat": 44.8094225,
+    "lon": 10.3001170
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1388496124,
+  "center": {
+    "lat": 44.8095380,
+    "lon": 10.2998983
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1388496125,
+  "center": {
+    "lat": 44.8092800,
+    "lon": 10.3000491
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1392054626,
+  "center": {
+    "lat": 44.7775229,
+    "lon": 10.3543197
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1392054627,
+  "center": {
+    "lat": 44.7776180,
+    "lon": 10.3544984
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1392054628,
+  "center": {
+    "lat": 44.7774907,
+    "lon": 10.3546004
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1392054629,
+  "center": {
+    "lat": 44.7774823,
+    "lon": 10.3544493
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1392054652,
+  "center": {
+    "lat": 44.7779367,
+    "lon": 10.3542470
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1392054653,
+  "center": {
+    "lat": 44.7778570,
+    "lon": 10.3543697
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1393015996,
+  "center": {
+    "lat": 44.7812664,
+    "lon": 10.3478657
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1393015997,
+  "center": {
+    "lat": 44.7812278,
+    "lon": 10.3480704
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1393016009,
+  "center": {
+    "lat": 44.7812021,
+    "lon": 10.3477172
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1393116940,
+  "center": {
+    "lat": 44.7770620,
+    "lon": 10.3530636
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1394109202,
+  "center": {
+    "lat": 44.7806105,
+    "lon": 10.3470703
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1394109203,
+  "center": {
+    "lat": 44.7803967,
+    "lon": 10.3468313
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1394109204,
+  "center": {
+    "lat": 44.7805759,
+    "lon": 10.3469074
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1394109205,
+  "center": {
+    "lat": 44.7807540,
+    "lon": 10.3469828
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1394109206,
+  "center": {
+    "lat": 44.7808760,
+    "lon": 10.3470344
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1394109208,
+  "center": {
+    "lat": 44.7811904,
+    "lon": 10.3473880
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1412156900,
+  "center": {
+    "lat": 44.7823429,
+    "lon": 10.3411589
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1412156901,
+  "center": {
+    "lat": 44.7822987,
+    "lon": 10.3396955
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1412156902,
+  "center": {
+    "lat": 44.7823068,
+    "lon": 10.3399502
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1412156903,
+  "center": {
+    "lat": 44.7822719,
+    "lon": 10.3412930
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1412318288,
+  "center": {
+    "lat": 44.7998078,
+    "lon": 10.3117548
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1412695928,
+  "center": {
+    "lat": 44.7832706,
+    "lon": 10.3519628
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1412695929,
+  "center": {
+    "lat": 44.7832583,
+    "lon": 10.3517869
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1412695931,
+  "center": {
+    "lat": 44.7830435,
+    "lon": 10.3581114
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1415456746,
+  "center": {
+    "lat": 44.7818386,
+    "lon": 10.3479309
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1415456747,
+  "center": {
+    "lat": 44.7822636,
+    "lon": 10.3481146
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1415627656,
+  "center": {
+    "lat": 44.7865799,
+    "lon": 10.3384789
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1415627657,
+  "center": {
+    "lat": 44.7865713,
+    "lon": 10.3385841
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1426412293,
+  "center": {
+    "lat": 44.8023434,
+    "lon": 10.3076546
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1426412298,
+  "center": {
+    "lat": 44.8028739,
+    "lon": 10.3079848
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1429685380,
+  "center": {
+    "lat": 44.7971148,
+    "lon": 10.3070435
+  },
+  "tags": {
+    "access": "permit",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1429709361,
+  "center": {
+    "lat": 44.7983571,
+    "lon": 10.3456944
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1429709362,
+  "center": {
+    "lat": 44.7986173,
+    "lon": 10.3449803
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1429724646,
+  "center": {
+    "lat": 44.7931931,
+    "lon": 10.3552616
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "fee": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1429724652,
+  "center": {
+    "lat": 44.7918151,
+    "lon": 10.3604422
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1429953475,
+  "center": {
+    "lat": 44.7968621,
+    "lon": 10.3457089
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1429953476,
+  "center": {
+    "lat": 44.7967924,
+    "lon": 10.3459163
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1431496230,
+  "center": {
+    "lat": 44.7945617,
+    "lon": 10.3503238
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1431496231,
+  "center": {
+    "lat": 44.7947675,
+    "lon": 10.3500682
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1431498035,
+  "center": {
+    "lat": 44.7935257,
+    "lon": 10.3542146
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1436260258,
+  "center": {
+    "lat": 44.7806052,
+    "lon": 10.3590659
+  },
+  "tags": {
+    "amenity": "parking",
+    "capacity": "4",
+    "capacity:disabled": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1436260259,
+  "center": {
+    "lat": 44.7804856,
+    "lon": 10.3590252
+  },
+  "tags": {
+    "amenity": "parking",
+    "capacity": "2"
+  }
+},
+{
+  "type": "way",
+  "id": 1444760052,
+  "center": {
+    "lat": 44.7936336,
+    "lon": 10.3166014
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1444760053,
+  "center": {
+    "lat": 44.7910352,
+    "lon": 10.3150757
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1455158332,
+  "center": {
+    "lat": 44.8133547,
+    "lon": 10.3676914
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1455206169,
+  "center": {
+    "lat": 44.8064435,
+    "lon": 10.3613236
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1459601802,
+  "center": {
+    "lat": 44.8010230,
+    "lon": 10.3356272
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1462857418,
+  "center": {
+    "lat": 44.8093971,
+    "lon": 10.3165574
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1462857420,
+  "center": {
+    "lat": 44.8104460,
+    "lon": 10.3162739
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1462868705,
+  "center": {
+    "lat": 44.8115855,
+    "lon": 10.3159618
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1462868707,
+  "center": {
+    "lat": 44.8094644,
+    "lon": 10.3161866
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1462868721,
+  "center": {
+    "lat": 44.8090990,
+    "lon": 10.3184977
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1462868723,
+  "center": {
+    "lat": 44.8089717,
+    "lon": 10.3175600
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1462868724,
+  "center": {
+    "lat": 44.8095504,
+    "lon": 10.3178261
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1462868726,
+  "center": {
+    "lat": 44.8084935,
+    "lon": 10.3183590
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1463181327,
+  "center": {
+    "lat": 44.7787929,
+    "lon": 10.3041008
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1463184975,
+  "center": {
+    "lat": 44.7806298,
+    "lon": 10.3071948
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1463184977,
+  "center": {
+    "lat": 44.7848151,
+    "lon": 10.3114067
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1468788569,
+  "center": {
+    "lat": 44.8069569,
+    "lon": 10.3004182
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1468788582,
+  "center": {
+    "lat": 44.8072791,
+    "lon": 10.2988093
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1468788583,
+  "center": {
+    "lat": 44.8073117,
+    "lon": 10.2986535
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1469543947,
+  "center": {
+    "lat": 44.7863972,
+    "lon": 10.3607808
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1470894341,
+  "center": {
+    "lat": 44.7988969,
+    "lon": 10.3066786
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "name": "Parcheggio Centro Oncologico"
+  }
+},
+{
+  "type": "way",
+  "id": 1473916732,
+  "center": {
+    "lat": 44.7861932,
+    "lon": 10.3146814
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "12",
+    "capacity:disabled": "1",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1474192230,
+  "center": {
+    "lat": 44.7992332,
+    "lon": 10.3050658
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1476180359,
+  "center": {
+    "lat": 44.7823240,
+    "lon": 10.3445090
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1476197071,
+  "center": {
+    "lat": 44.7850426,
+    "lon": 10.3288178
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1476197074,
+  "center": {
+    "lat": 44.7856233,
+    "lon": 10.3293390
+  },
+  "tags": {
+    "access": "permissive",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1476201490,
+  "center": {
+    "lat": 44.7875179,
+    "lon": 10.3467487
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1480749217,
+  "center": {
+    "lat": 44.7877072,
+    "lon": 10.3630716
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1480749219,
+  "center": {
+    "lat": 44.7889858,
+    "lon": 10.3638748
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1513574599,
+  "center": {
+    "lat": 44.7984868,
+    "lon": 10.3547260
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1526259469,
+  "center": {
+    "lat": 44.7857588,
+    "lon": 10.3636453
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1526259470,
+  "center": {
+    "lat": 44.7872620,
+    "lon": 10.3647870
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1526259471,
+  "center": {
+    "lat": 44.7870328,
+    "lon": 10.3652441
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1534581971,
+  "center": {
+    "lat": 44.8131140,
+    "lon": 10.2935268
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1534581972,
+  "center": {
+    "lat": 44.8134970,
+    "lon": 10.2937198
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1534581973,
+  "center": {
+    "lat": 44.8138189,
+    "lon": 10.2933594
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1534581974,
+  "center": {
+    "lat": 44.8129701,
+    "lon": 10.2938737
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1534581975,
+  "center": {
+    "lat": 44.8128652,
+    "lon": 10.2939959
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1534581976,
+  "center": {
+    "lat": 44.8127942,
+    "lon": 10.2937830
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1534581977,
+  "center": {
+    "lat": 44.8127367,
+    "lon": 10.2942363
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1534581978,
+  "center": {
+    "lat": 44.8126070,
+    "lon": 10.2944498
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1534581979,
+  "center": {
+    "lat": 44.8125918,
+    "lon": 10.2942030
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1535825779,
+  "center": {
+    "lat": 44.7953850,
+    "lon": 10.3079857
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516393,
+  "center": {
+    "lat": 44.7880373,
+    "lon": 10.2984492
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516394,
+  "center": {
+    "lat": 44.7878023,
+    "lon": 10.2983477
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516395,
+  "center": {
+    "lat": 44.7877472,
+    "lon": 10.2980429
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516396,
+  "center": {
+    "lat": 44.7890752,
+    "lon": 10.2975959
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516397,
+  "center": {
+    "lat": 44.7889981,
+    "lon": 10.2979405
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516398,
+  "center": {
+    "lat": 44.7890943,
+    "lon": 10.2979854
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516400,
+  "center": {
+    "lat": 44.7914049,
+    "lon": 10.3017419
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516401,
+  "center": {
+    "lat": 44.7911433,
+    "lon": 10.3016278
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516402,
+  "center": {
+    "lat": 44.7905383,
+    "lon": 10.3010540
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516403,
+  "center": {
+    "lat": 44.7905016,
+    "lon": 10.3012226
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516404,
+  "center": {
+    "lat": 44.7900810,
+    "lon": 10.3010371
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516405,
+  "center": {
+    "lat": 44.7901180,
+    "lon": 10.3008691
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516406,
+  "center": {
+    "lat": 44.7904720,
+    "lon": 10.2980788
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1537516407,
+  "center": {
+    "lat": 44.7902226,
+    "lon": 10.2992826
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1539732351,
+  "center": {
+    "lat": 44.7928067,
+    "lon": 10.3091055
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1544078252,
+  "center": {
+    "lat": 44.7755169,
+    "lon": 10.3224025
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1545998944,
+  "center": {
+    "lat": 44.7939997,
+    "lon": 10.3220962
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1545998945,
+  "center": {
+    "lat": 44.7942051,
+    "lon": 10.3221406
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1553013873,
+  "center": {
+    "lat": 44.7866184,
+    "lon": 10.3006026
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1553013874,
+  "center": {
+    "lat": 44.7865751,
+    "lon": 10.3020024
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1553013875,
+  "center": {
+    "lat": 44.7795779,
+    "lon": 10.3030353
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1553013876,
+  "center": {
+    "lat": 44.7743572,
+    "lon": 10.3103409
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1553013877,
+  "center": {
+    "lat": 44.7741070,
+    "lon": 10.3101323
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1553013878,
+  "center": {
+    "lat": 44.7745779,
+    "lon": 10.3092849
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1553013879,
+  "center": {
+    "lat": 44.7742431,
+    "lon": 10.3089955
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1553392072,
+  "center": {
+    "lat": 44.8215309,
+    "lon": 10.2972230
+  },
+  "tags": {
+    "amenity": "parking",
+    "operator": "P Mezzi di servizio"
+  }
+},
+{
+  "type": "way",
+  "id": 1561977365,
+  "center": {
+    "lat": 44.8145803,
+    "lon": 10.3244199
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "no",
+    "surface": "unpaved"
+  }
+},
+{
+  "type": "relation",
+  "id": 9588545,
+  "center": {
+    "lat": 44.7847182,
+    "lon": 10.2917966
+  },
+  "tags": {
+    "amenity": "parking",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 17880294,
+  "center": {
+    "lat": 44.7800757,
+    "lon": 10.3562902
+  },
+  "tags": {
+    "amenity": "parking",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 17880490,
+  "center": {
+    "lat": 44.7805634,
+    "lon": 10.3539917
+  },
+  "tags": {
+    "amenity": "parking",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 19054054,
+  "center": {
+    "lat": 44.8072080,
+    "lon": 10.3049121
+  },
+  "tags": {
+    "amenity": "parking",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 19599996,
+  "center": {
+    "lat": 44.7978770,
+    "lon": 10.3073329
+  },
+  "tags": {
+    "amenity": "parking",
+    "capacity": "300",
+    "name": "Parcheggio Ospedale Via Volturno",
+    "parking": "surface",
+    "type": "multipolygon"
+  }
+}
+
+  ]
+}

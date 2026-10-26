@@ -1,0 +1,748 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-25T07:15:51Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 4519785664,
+  "lat": 45.0474329,
+  "lon": 7.6870241,
+  "tags": {
+    "highway": "speed_camera",
+    "maxspeed": "50"
+  }
+},
+{
+  "type": "node",
+  "id": 7013639636,
+  "lat": 45.0887950,
+  "lon": 7.6885454,
+  "tags": {
+    "highway": "speed_camera",
+    "name": "EnVES EVO MVD 1605"
+  }
+},
+{
+  "type": "node",
+  "id": 7013639637,
+  "lat": 45.0889086,
+  "lon": 7.6878936,
+  "tags": {
+    "highway": "speed_camera",
+    "name": "EnVES EVO MVD 1605"
+  }
+},
+{
+  "type": "node",
+  "id": 7227520722,
+  "lat": 45.0845642,
+  "lon": 7.6497713,
+  "tags": {
+    "enforcement": "traffic_signals",
+    "name": "EnVES EVO MVD 1605",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "node",
+  "id": 7227535961,
+  "lat": 45.0920257,
+  "lon": 7.6546271,
+  "tags": {
+    "enforcement": "traffic_signals",
+    "name": "EnVES EVO MVD 1605",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "node",
+  "id": 7227538383,
+  "lat": 45.0913980,
+  "lon": 7.6543951,
+  "tags": {
+    "enforcement": "traffic_signals",
+    "name": "EnVES EVO MVD 1605",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "node",
+  "id": 7227539238,
+  "lat": 45.0852100,
+  "lon": 7.6499698,
+  "tags": {
+    "enforcement": "traffic_signals",
+    "name": "EnVES EVO MVD 1605",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "node",
+  "id": 8478891855,
+  "lat": 45.0674149,
+  "lon": 7.6657302,
+  "tags": {
+    "camera:type": "fixed",
+    "enforcement": "red_light_camera",
+    "fixme": "inserire posizione corretta",
+    "man_made": "surveillance",
+    "source": "https://www.lastampa.it/torino/2021/03/02/news/stretta-su-chi-guida-col-cellulare-sanzioni-triplicate-e-arrivano-altri-4-t-red-1.39972198",
+    "surveillance": "traffic",
+    "surveillance:type": "camera"
+  }
+},
+{
+  "type": "node",
+  "id": 8478910062,
+  "lat": 45.0470267,
+  "lon": 7.6622396,
+  "tags": {
+    "camera:type": "fixed",
+    "enforcement": "red_light_camera",
+    "fixme": "inserire posizione corretta",
+    "man_made": "surveillance",
+    "source": "https://www.lastampa.it/torino/2021/03/02/news/stretta-su-chi-guida-col-cellulare-sanzioni-triplicate-e-arrivano-altri-4-t-red-1.39972198",
+    "surveillance": "traffic",
+    "surveillance:type": "camera",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 8759106622,
+  "lat": 45.0500485,
+  "lon": 7.6656957,
+  "tags": {
+    "direction": "230",
+    "highway": "speed_camera",
+    "man_made": "surveillance",
+    "mapillary": "4211743828914703",
+    "speed_camera": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 8759106623,
+  "lat": 45.0500313,
+  "lon": 7.6652201,
+  "tags": {
+    "direction": "20;100",
+    "highway": "speed_camera",
+    "man_made": "surveillance",
+    "mapillary": "738484123487336",
+    "speed_camera": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 12926324745,
+  "lat": 45.0464900,
+  "lon": 7.6618850,
+  "tags": {
+    "camera:mount": "pole",
+    "camera:type": "enforcement",
+    "enforcement": "red_light",
+    "man_made": "surveillance",
+    "operator": "polizia_municipale",
+    "surveillance": "traffic",
+    "surveillance:type": "camera",
+    "surveillance:zone": "intersection"
+  }
+},
+{
+  "type": "node",
+  "id": 13352714448,
+  "lat": 45.0821691,
+  "lon": 7.6537059,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "ZTL Campidoglio",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 13352714449,
+  "lat": 45.0803761,
+  "lon": 7.6535154,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "ZTL Campidoglio",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 13352714450,
+  "lat": 45.0805985,
+  "lon": 7.6525264,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "ZTL Campidoglio",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 13352714451,
+  "lat": 45.0808963,
+  "lon": 7.6541705,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "ZTL Campidoglio",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 13352714452,
+  "lat": 45.0819440,
+  "lon": 7.6531542,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "ZTL Campidoglio",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "relation",
+  "id": 17451262,
+  "bounds": {
+    "minlat": 45.0887950,
+    "minlon": 7.6879907,
+    "maxlat": 45.0889872,
+    "maxlon": 7.6885454
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 3906409675,
+      "role": "to",
+      "lat": 45.0889872,
+      "lon": 7.6879907
+    },
+    {
+      "type": "node",
+      "ref": 7111967379,
+      "role": "from",
+      "lat": 45.0888424,
+      "lon": 7.6885349
+    },
+    {
+      "type": "node",
+      "ref": 7013639636,
+      "role": "device",
+      "lat": 45.0887950,
+      "lon": 7.6885454
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "name": "T-Red direzione Corso Vigevano",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 17451325,
+  "bounds": {
+    "minlat": 45.0888533,
+    "minlon": 7.6878936,
+    "maxlat": 45.0889086,
+    "maxlon": 7.6884957
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 5166399183,
+      "role": "to",
+      "lat": 45.0888533,
+      "lon": 7.6884957
+    },
+    {
+      "type": "node",
+      "ref": 7013639637,
+      "role": "device",
+      "lat": 45.0889086,
+      "lon": 7.6878936
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "name": "T-Red direzione Corso Novara",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 19834294,
+  "bounds": {
+    "minlat": 45.0463135,
+    "minlon": 7.6616806,
+    "maxlat": 45.0464977,
+    "maxlon": 7.6618941
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 13301789252,
+      "role": "from",
+      "lat": 45.0463135,
+      "lon": 7.6616806
+    },
+    {
+      "type": "node",
+      "ref": 12926324745,
+      "role": "device",
+      "lat": 45.0464900,
+      "lon": 7.6618850
+    },
+    {
+      "type": "node",
+      "ref": 6153920214,
+      "role": "to",
+      "lat": 45.0464977,
+      "lon": 7.6618941
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 19834295,
+  "bounds": {
+    "minlat": 45.0468543,
+    "minlon": 7.6615882,
+    "maxlat": 45.0470136,
+    "maxlon": 7.6618598
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 12105966696,
+      "role": "from",
+      "lat": 45.0470136,
+      "lon": 7.6615882
+    },
+    {
+      "type": "node",
+      "ref": 6153920201,
+      "role": "device",
+      "lat": 45.0468543,
+      "lon": 7.6618598
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 19834296,
+  "bounds": {
+    "minlat": 45.0469446,
+    "minlon": 7.6624039,
+    "maxlat": 45.0471731,
+    "maxlon": 7.6626539
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 13301789253,
+      "role": "from",
+      "lat": 45.0471731,
+      "lon": 7.6626539
+    },
+    {
+      "type": "node",
+      "ref": 6153905737,
+      "role": "device",
+      "lat": 45.0469446,
+      "lon": 7.6624039
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 19834297,
+  "bounds": {
+    "minlat": 45.0464705,
+    "minlon": 7.6623233,
+    "maxlat": 45.0465715,
+    "maxlon": 7.6624937
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 12105966694,
+      "role": "from",
+      "lat": 45.0464705,
+      "lon": 7.6624937
+    },
+    {
+      "type": "node",
+      "ref": 6153920205,
+      "role": "device",
+      "lat": 45.0465715,
+      "lon": 7.6623233
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20046647,
+  "bounds": {
+    "minlat": 45.0668881,
+    "minlon": 7.6659507,
+    "maxlat": 45.0671428,
+    "maxlon": 7.6661323
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 13430419176,
+      "role": "from",
+      "lat": 45.0668881,
+      "lon": 7.6659507
+    },
+    {
+      "type": "node",
+      "ref": 5736908274,
+      "role": "to",
+      "lat": 45.0670790,
+      "lon": 7.6660888
+    },
+    {
+      "type": "node",
+      "ref": 1726394728,
+      "role": "device",
+      "lat": 45.0671428,
+      "lon": 7.6661323
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20046648,
+  "bounds": {
+    "minlat": 45.0673752,
+    "minlon": 7.6656325,
+    "maxlat": 45.0675067,
+    "maxlon": 7.6659974
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 12983697369,
+      "role": "from",
+      "lat": 45.0675067,
+      "lon": 7.6656325
+    },
+    {
+      "type": "node",
+      "ref": 5736908269,
+      "role": "to",
+      "lat": 45.0674532,
+      "lon": 7.6657811
+    },
+    {
+      "type": "node",
+      "ref": 11286894820,
+      "role": "device",
+      "lat": 45.0673752,
+      "lon": 7.6659974
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20046649,
+  "bounds": {
+    "minlat": 45.0674129,
+    "minlon": 7.6663215,
+    "maxlat": 45.0676524,
+    "maxlon": 7.6664893
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 13430419177,
+      "role": "from",
+      "lat": 45.0676524,
+      "lon": 7.6664893
+    },
+    {
+      "type": "node",
+      "ref": 11665576058,
+      "role": "to",
+      "lat": 45.0675298,
+      "lon": 7.6664034
+    },
+    {
+      "type": "node",
+      "ref": 452446338,
+      "role": "device",
+      "lat": 45.0674129,
+      "lon": 7.6663215
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20046650,
+  "bounds": {
+    "minlat": 45.0670935,
+    "minlon": 7.6664775,
+    "maxlat": 45.0672007,
+    "maxlon": 7.6667746
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 13430419178,
+      "role": "from",
+      "lat": 45.0670935,
+      "lon": 7.6667746
+    },
+    {
+      "type": "node",
+      "ref": 5736908273,
+      "role": "to",
+      "lat": 45.0671537,
+      "lon": 7.6666058
+    },
+    {
+      "type": "node",
+      "ref": 11287160846,
+      "role": "device",
+      "lat": 45.0672007,
+      "lon": 7.6664775
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20046654,
+  "bounds": {
+    "minlat": 45.0685989,
+    "minlon": 7.6620757,
+    "maxlat": 45.0687916,
+    "maxlon": 7.6626113
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 13430502902,
+      "role": "from",
+      "lat": 45.0687916,
+      "lon": 7.6620757
+    },
+    {
+      "type": "node",
+      "ref": 12983534144,
+      "role": "to",
+      "lat": 45.0686908,
+      "lon": 7.6623572
+    },
+    {
+      "type": "node",
+      "ref": 11289472220,
+      "role": "device",
+      "lat": 45.0685989,
+      "lon": 7.6626113
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20046655,
+  "bounds": {
+    "minlat": 45.0686369,
+    "minlon": 7.6629249,
+    "maxlat": 45.0689672,
+    "maxlon": 7.6631546
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 2006433692,
+      "role": "from",
+      "lat": 45.0689672,
+      "lon": 7.6631546
+    },
+    {
+      "type": "node",
+      "ref": 5736659516,
+      "role": "to",
+      "lat": 45.0687678,
+      "lon": 7.6630187
+    },
+    {
+      "type": "node",
+      "ref": 320879142,
+      "role": "device",
+      "lat": 45.0686369,
+      "lon": 7.6629249
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20046656,
+  "bounds": {
+    "minlat": 45.0681809,
+    "minlon": 7.6632178,
+    "maxlat": 45.0683787,
+    "maxlon": 7.6637529
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 13430502903,
+      "role": "from",
+      "lat": 45.0681809,
+      "lon": 7.6637529
+    },
+    {
+      "type": "node",
+      "ref": 5736659510,
+      "role": "to",
+      "lat": 45.0682889,
+      "lon": 7.6634672
+    },
+    {
+      "type": "node",
+      "ref": 11289472223,
+      "role": "device",
+      "lat": 45.0683787,
+      "lon": 7.6632178
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20046657,
+  "bounds": {
+    "minlat": 45.0680342,
+    "minlon": 7.6626793,
+    "maxlat": 45.0683294,
+    "maxlon": 7.6628887
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 12092781131,
+      "role": "from",
+      "lat": 45.0680342,
+      "lon": 7.6626793
+    },
+    {
+      "type": "node",
+      "ref": 5736659513,
+      "role": "to",
+      "lat": 45.0681734,
+      "lon": 7.6627769
+    },
+    {
+      "type": "node",
+      "ref": 452446345,
+      "role": "device",
+      "lat": 45.0683294,
+      "lon": 7.6628887
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 20446316,
+  "bounds": {
+    "minlat": 45.0548392,
+    "minlon": 7.6717228,
+    "maxlat": 45.0550311,
+    "maxlon": 7.6722438
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 13729687176,
+      "role": "from",
+      "lat": 45.0548392,
+      "lon": 7.6722438
+    },
+    {
+      "type": "node",
+      "ref": 7054181505,
+      "role": "to",
+      "lat": 45.0549660,
+      "lon": 7.6719046
+    },
+    {
+      "type": "node",
+      "ref": 1628116962,
+      "role": "device",
+      "lat": 45.0550311,
+      "lon": 7.6717228
+    }
+  ],
+  "tags": {
+    "enforcement": "traffic_signals",
+    "type": "enforcement"
+  }
+}
+
+  ]
+}

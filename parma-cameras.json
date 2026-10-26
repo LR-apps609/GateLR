@@ -1,0 +1,112 @@
+{
+"source": "Overpass API (overpass-api.de), letto il 2026-10-26: nodi man_made=surveillance con surveillance:type=ALPR nel centro di Parma",
+"license": "© OpenStreetMap contributors, ODbL 1.0",
+"elements": [
+{
+"type": "node",
+"id": 4308548378,
+"lat": 44.8043628,
+"lon": 10.3248884,
+"tags": {
+"camera:angle": "15",
+"camera:direction": "9",
+"camera:mount": "pole",
+"camera:type": "fixed",
+"height": "4",
+"man_made": "surveillance",
+"surveillance": "traffic",
+"surveillance:type": "ALPR",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 4718425106,
+"lat": 44.7987099,
+"lon": 10.3243797,
+"tags": {
+"camera:type": "fixed",
+"man_made": "surveillance",
+"surveillance": "traffic",
+"surveillance:type": "ALPR",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 7173204180,
+"lat": 44.8046715,
+"lon": 10.3249088,
+"tags": {
+"camera:angle": "15",
+"camera:direction": "189",
+"camera:mount": "pole",
+"camera:type": "fixed",
+"height": "4",
+"man_made": "surveillance",
+"surveillance": "public",
+"surveillance:type": "ALPR",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 7173204182,
+"lat": 44.8046715,
+"lon": 10.3249099,
+"tags": {
+"camera:angle": "15",
+"camera:direction": "189",
+"camera:mount": "pole",
+"camera:type": "fixed",
+"height": "5",
+"man_made": "surveillance",
+"surveillance": "public",
+"surveillance:type": "ALPR",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 7179007287,
+"lat": 44.7957212,
+"lon": 10.3311158,
+"tags": {
+"camera:angle": "20",
+"camera:direction": "4",
+"camera:mount": "pole",
+"camera:type": "fixed",
+"height": "6",
+"man_made": "surveillance",
+"surveillance": "public",
+"surveillance:type": "ALPR",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 9899450021,
+"lat": 44.7993539,
+"lon": 10.3380175,
+"tags": {
+"direction": "270",
+"man_made": "surveillance",
+"surveillance": "outdoor",
+"surveillance:type": "ALPR"
+}
+},
+{
+"type": "node",
+"id": 14131154046,
+"lat": 44.8041775,
+"lon": 10.3336343,
+"tags": {
+"direction": "320",
+"man_made": "surveillance",
+"surveillance": "traffic",
+"surveillance:type": "ALPR",
+"surveillance:zone": "entrance"
+}
+}
+]
+}

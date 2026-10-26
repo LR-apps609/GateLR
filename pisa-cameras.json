@@ -1,0 +1,2477 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-26T01:17:36Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 31770712,
+  "lat": 43.7100190,
+  "lon": 10.4104285,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "emergency"
+  }
+},
+{
+  "type": "node",
+  "id": 31770821,
+  "lat": 43.7192625,
+  "lon": 10.4163357,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 33681447,
+  "lat": 43.7156025,
+  "lon": 10.3949766,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 33715696,
+  "lat": 43.7133508,
+  "lon": 10.3888516,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 33715701,
+  "lat": 43.7181759,
+  "lon": 10.3894504,
+  "tags": {
+    "highway": "traffic_signals",
+    "source": "PCN aerial 2006",
+    "traffic_signals": "bus_priority"
+  }
+},
+{
+  "type": "node",
+  "id": 33715717,
+  "lat": 43.7170206,
+  "lon": 10.3916516,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "bus_priority"
+  }
+},
+{
+  "type": "node",
+  "id": 38037854,
+  "lat": 43.7240033,
+  "lon": 10.3972290,
+  "tags": {
+    "highway": "traffic_signals",
+    "source": "PCN aerial 2006; Bing aerial"
+  }
+},
+{
+  "type": "node",
+  "id": 38037891,
+  "lat": 43.7228354,
+  "lon": 10.4017621,
+  "tags": {
+    "highway": "traffic_signals",
+    "source": "PCN aerial 2006; Bing aerial"
+  }
+},
+{
+  "type": "node",
+  "id": 187390194,
+  "lat": 43.7267955,
+  "lon": 10.3982039,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 213114083,
+  "lat": 43.7225513,
+  "lon": 10.4017244,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 245927308,
+  "lat": 43.7053402,
+  "lon": 10.3996023,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 251127085,
+  "lat": 43.7151989,
+  "lon": 10.4069626,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 251208763,
+  "lat": 43.7173793,
+  "lon": 10.4168491,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 278246118,
+  "lat": 43.7147231,
+  "lon": 10.3957059,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 292067252,
+  "lat": 43.7289650,
+  "lon": 10.3885462,
+  "tags": {
+    "highway": "traffic_signals",
+    "source": "PCN aerial 2006; Bing aerial",
+    "traffic_signals": "signal"
+  }
+},
+{
+  "type": "node",
+  "id": 704411639,
+  "lat": 43.7102518,
+  "lon": 10.4144538,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 1044590246,
+  "lat": 43.7063955,
+  "lon": 10.4098719,
+  "tags": {
+    "camera:direction": "308",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 1215869768,
+  "lat": 43.7159832,
+  "lon": 10.4034450,
+  "tags": {
+    "camera:mount": "building",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "operator:type": "public",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 1386672976,
+  "lat": 43.7099159,
+  "lon": 10.4100523,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "emergency"
+  }
+},
+{
+  "type": "node",
+  "id": 1386672980,
+  "lat": 43.7100623,
+  "lon": 10.4100893,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "emergency"
+  }
+},
+{
+  "type": "node",
+  "id": 1948805160,
+  "lat": 43.7156869,
+  "lon": 10.3998770,
+  "tags": {
+    "camera:mount": "building",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "operator:type": "public",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 2264596421,
+  "lat": 43.7213416,
+  "lon": 10.3972271,
+  "tags": {
+    "camera:mount": "building",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "operator:type": "public",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 2474030088,
+  "lat": 43.7063774,
+  "lon": 10.4083299,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 2481380963,
+  "lat": 43.7107566,
+  "lon": 10.4011031,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 2513847928,
+  "lat": 43.7168735,
+  "lon": 10.4024491,
+  "tags": {
+    "camera:mount": "building",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "operator:type": "public",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 2591055063,
+  "lat": 43.7145896,
+  "lon": 10.4019910,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 2996195894,
+  "lat": 43.7233465,
+  "lon": 10.3983950,
+  "tags": {
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 2996195895,
+  "lat": 43.7199367,
+  "lon": 10.3956107,
+  "tags": {
+    "access": "yes",
+    "man_made": "surveillance",
+    "moped": "yes",
+    "motor_vehicle": "private",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "ref": "03",
+    "surveillance": "outdoor",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 3178033659,
+  "lat": 43.7098332,
+  "lon": 10.4101614,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "emergency"
+  }
+},
+{
+  "type": "node",
+  "id": 3358108593,
+  "lat": 43.7153330,
+  "lon": 10.4070267,
+  "tags": {
+    "access": "yes",
+    "man_made": "surveillance",
+    "name": "Varco ZTL",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 3358118456,
+  "lat": 43.7167561,
+  "lon": 10.4072549,
+  "tags": {
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "name": "Varco ZTL",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 3358120379,
+  "lat": 43.7115813,
+  "lon": 10.4055519,
+  "tags": {
+    "man_made": "surveillance",
+    "moped": "yes",
+    "motorcar": "private",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "ref": "12",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 3483939523,
+  "lat": 43.7107751,
+  "lon": 10.4005109,
+  "tags": {
+    "access": "yes",
+    "man_made": "surveillance",
+    "moped": "yes",
+    "motor_vehicle": "private",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "ref": "13",
+    "surveillance": "public",
+    "surveillance:type": "ALPR"
+  }
+},
+{
+  "type": "node",
+  "id": 3680774442,
+  "lat": 43.7189718,
+  "lon": 10.3899712,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 3689932343,
+  "lat": 43.7196252,
+  "lon": 10.4021751,
+  "tags": {
+    "access": "yes",
+    "barrier": "bollard",
+    "bicycle": "yes",
+    "bollard": "rising",
+    "foot": "yes",
+    "highway": "traffic_signals",
+    "motor_vehicle": "no",
+    "motor_vehicle:conditional": "yes @ (14:00-16:30, 20:30-10:30)"
+  }
+},
+{
+  "type": "node",
+  "id": 3951327100,
+  "lat": 43.7103502,
+  "lon": 10.3960225,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "blink_mode",
+    "traffic_signals:direction": "backward"
+  }
+},
+{
+  "type": "node",
+  "id": 3951327101,
+  "lat": 43.7104441,
+  "lon": 10.3954819,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "blink_mode",
+    "traffic_signals:direction": "forward"
+  }
+},
+{
+  "type": "node",
+  "id": 4235311376,
+  "lat": 43.7194435,
+  "lon": 10.4086871,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 4487262887,
+  "lat": 43.7107037,
+  "lon": 10.4177000,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "signal",
+    "traffic_signals:direction": "forward"
+  }
+},
+{
+  "type": "node",
+  "id": 4487262888,
+  "lat": 43.7106491,
+  "lon": 10.4172374,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "signal",
+    "traffic_signals:direction": "backward"
+  }
+},
+{
+  "type": "node",
+  "id": 4487263789,
+  "lat": 43.7105955,
+  "lon": 10.4173185,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "signal",
+    "traffic_signals:direction": "forward"
+  }
+},
+{
+  "type": "node",
+  "id": 4982860904,
+  "lat": 43.7102424,
+  "lon": 10.3957812,
+  "tags": {
+    "highway": "traffic_signals",
+    "traffic_signals": "blink_mode"
+  }
+},
+{
+  "type": "node",
+  "id": 5105785566,
+  "lat": 43.7197178,
+  "lon": 10.4066052,
+  "tags": {
+    "camera:type": "fixed",
+    "enforcement": "access",
+    "enforcement:forward": "access",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera"
+  }
+},
+{
+  "type": "node",
+  "id": 5253760930,
+  "lat": 43.7155415,
+  "lon": 10.4071138,
+  "tags": {
+    "highway": "traffic_signals"
+  }
+},
+{
+  "type": "node",
+  "id": 5596491630,
+  "lat": 43.7131356,
+  "lon": 10.4075892,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "Varco ZTL"
+  }
+},
+{
+  "type": "node",
+  "id": 5599820736,
+  "lat": 43.7114088,
+  "lon": 10.3976238,
+  "tags": {
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "residential"
+  }
+},
+{
+  "type": "node",
+  "id": 6073331857,
+  "lat": 43.7167500,
+  "lon": 10.3998930,
+  "tags": {
+    "man_made": "surveillance",
+    "surveillance:type": "camera",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 6290979184,
+  "lat": 43.7156461,
+  "lon": 10.4003194,
+  "tags": {
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "ALPR"
+  }
+},
+{
+  "type": "node",
+  "id": 6290984385,
+  "lat": 43.7155222,
+  "lon": 10.3988966,
+  "tags": {
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "ALPR"
+  }
+},
+{
+  "type": "node",
+  "id": 6290984390,
+  "lat": 43.7137705,
+  "lon": 10.3959410,
+  "tags": {
+    "direction": "65",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 6290984391,
+  "lat": 43.7133471,
+  "lon": 10.4064135,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "Varco ZTL",
+    "surveillance": "public",
+    "surveillance:type": "ALPR"
+  }
+},
+{
+  "type": "node",
+  "id": 6290984392,
+  "lat": 43.7135869,
+  "lon": 10.4045413,
+  "tags": {
+    "man_made": "surveillance",
+    "name": "Varco ZTL",
+    "surveillance": "public",
+    "surveillance:type": "ALPR"
+  }
+},
+{
+  "type": "node",
+  "id": 6416096387,
+  "lat": 43.7211870,
+  "lon": 10.4022110,
+  "tags": {
+    "camera:type": "fixed",
+    "check_date": "2026-08-19",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 6957424170,
+  "lat": 43.7157402,
+  "lon": 10.3953178,
+  "tags": {
+    "direction": "255",
+    "man_made": "surveillance",
+    "name": "Varco ZTL",
+    "surveillance": "traffic",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 9130468223,
+  "lat": 43.7200794,
+  "lon": 10.4075495,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "indoor": "no",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 11184543009,
+  "lat": 43.7222295,
+  "lon": 10.4015053,
+  "tags": {
+    "man_made": "surveillance",
+    "moped": "yes",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 13153294199,
+  "lat": 43.7190859,
+  "lon": 10.4006495,
+  "tags": {
+    "camera:mount": "building",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 13200283389,
+  "lat": 43.7091147,
+  "lon": 10.3985168,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 13200290956,
+  "lat": 43.7087199,
+  "lon": 10.3979022,
+  "tags": {
+    "man_made": "surveillance",
+    "surveillance:type": "camera"
+  }
+},
+{
+  "type": "node",
+  "id": 13200309906,
+  "lat": 43.7084665,
+  "lon": 10.3992545,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;public_transport_platform;street"
+  }
+},
+{
+  "type": "node",
+  "id": 13200327597,
+  "lat": 43.7089253,
+  "lon": 10.3977098,
+  "tags": {
+    "man_made": "surveillance",
+    "surveillance:type": "camera"
+  }
+},
+{
+  "type": "node",
+  "id": 13236806624,
+  "lat": 43.7141191,
+  "lon": 10.4031600,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "indoor": "no",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 13694885695,
+  "lat": 43.7197746,
+  "lon": 10.4057769,
+  "tags": {
+    "addr:housenumber": "26",
+    "addr:street": "Via San Lorenzo",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "entrance": "yes",
+    "indoor": "no",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 14120615002,
+  "lat": 43.7130794,
+  "lon": 10.4076926,
+  "tags": {
+    "camera:mount": "pole",
+    "camera:type": "dome",
+    "indoor": "no",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "street;town;traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 14124825019,
+  "lat": 43.7120985,
+  "lon": 10.3997036,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14125808977,
+  "lat": 43.7125949,
+  "lon": 10.4052318,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "indoor": "no",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14125829818,
+  "lat": 43.7145324,
+  "lon": 10.4087553,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "indoor": "yes",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14125829820,
+  "lat": 43.7185154,
+  "lon": 10.4077770,
+  "tags": {
+    "camera:mount": "pole",
+    "camera:type": "dome",
+    "indoor": "no",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14125838745,
+  "lat": 43.7176257,
+  "lon": 10.4081182,
+  "tags": {
+    "camera:mount": "pole",
+    "camera:type": "dome",
+    "indoor": "no",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14125845636,
+  "lat": 43.7169605,
+  "lon": 10.4086571,
+  "tags": {
+    "camera:mount": "pole",
+    "camera:type": "dome",
+    "indoor": "no",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14127177508,
+  "lat": 43.7111144,
+  "lon": 10.4031002,
+  "tags": {
+    "camera:mount": "street_lamp",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14127177620,
+  "lat": 43.7197748,
+  "lon": 10.4055797,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 14127177683,
+  "lat": 43.7099815,
+  "lon": 10.4028736,
+  "tags": {
+    "camera:mount": "street_lamp",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 14127178251,
+  "lat": 43.7162837,
+  "lon": 10.4023449,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street;town"
+  }
+},
+{
+  "type": "node",
+  "id": 14127185503,
+  "lat": 43.7163048,
+  "lon": 10.4021079,
+  "tags": {
+    "camera:mount": "pole",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street;traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 14127187741,
+  "lat": 43.7196638,
+  "lon": 10.4041756,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 14127188937,
+  "lat": 43.7156260,
+  "lon": 10.4014504,
+  "tags": {
+    "camera:mount": "street_lamp",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street;town;traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 14127190541,
+  "lat": 43.7154328,
+  "lon": 10.4018786,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street;town"
+  }
+},
+{
+  "type": "node",
+  "id": 14127192255,
+  "lat": 43.7196645,
+  "lon": 10.4033406,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 14127197133,
+  "lat": 43.7197751,
+  "lon": 10.4056831,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance"
+  }
+},
+{
+  "type": "node",
+  "id": 14127209844,
+  "lat": 43.7168677,
+  "lon": 10.4023837,
+  "tags": {
+    "camera:direction": "90",
+    "camera:mount": "wall",
+    "camera:type": "doorbell",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14127213489,
+  "lat": 43.7105665,
+  "lon": 10.4031008,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14127755617,
+  "lat": 43.7098908,
+  "lon": 10.4028464,
+  "tags": {
+    "camera:direction": "17",
+    "camera:mount": "street_lamp",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 14127910770,
+  "lat": 43.7106907,
+  "lon": 10.4005741,
+  "tags": {
+    "camera:mount": "street_lamp",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 14127934366,
+  "lat": 43.7114226,
+  "lon": 10.4006193,
+  "tags": {
+    "camera:direction": "112",
+    "camera:mount": "pole",
+    "camera:type": "panning",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14127946282,
+  "lat": 43.7098447,
+  "lon": 10.3991518,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street;traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 14127967701,
+  "lat": 43.7107460,
+  "lon": 10.4012947,
+  "tags": {
+    "camera:direction": "82",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14127967962,
+  "lat": 43.7089055,
+  "lon": 10.3993754,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "shop;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14127970306,
+  "lat": 43.7119182,
+  "lon": 10.4006223,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14127976766,
+  "lat": 43.7090676,
+  "lon": 10.3988741,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "public_transport_platform;street;traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 14150142834,
+  "lat": 43.7111215,
+  "lon": 10.4007046,
+  "tags": {
+    "camera:direction": "192",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;shop;town"
+  }
+},
+{
+  "type": "node",
+  "id": 14158009498,
+  "lat": 43.7063827,
+  "lon": 10.4098966,
+  "tags": {
+    "camera:direction": "119",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14158019022,
+  "lat": 43.7093073,
+  "lon": 10.4076288,
+  "tags": {
+    "camera:mount": "street_lamp",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance:type": "camera",
+    "surveillance:zone": "parking;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14158034725,
+  "lat": 43.7069253,
+  "lon": 10.4089563,
+  "tags": {
+    "camera:mount": "pole",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "parking;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14158037033,
+  "lat": 43.7092984,
+  "lon": 10.4063737,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14158046480,
+  "lat": 43.7073560,
+  "lon": 10.4086571,
+  "tags": {
+    "camera:mount": "street_lamp",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "parking;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14158064925,
+  "lat": 43.7085731,
+  "lon": 10.4026702,
+  "tags": {
+    "camera:direction": "209",
+    "camera:mount": "wall",
+    "camera:type": "doorbell",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14159074861,
+  "lat": 43.7114687,
+  "lon": 10.4033670,
+  "tags": {
+    "camera:direction": "44",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14159117162,
+  "lat": 43.7097065,
+  "lon": 10.4031517,
+  "tags": {
+    "camera:direction": "231",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14159169245,
+  "lat": 43.7096511,
+  "lon": 10.4029528,
+  "tags": {
+    "camera:direction": "197",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14159174305,
+  "lat": 43.7096402,
+  "lon": 10.4029411,
+  "tags": {
+    "camera:direction": "60",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14159927382,
+  "lat": 43.7185120,
+  "lon": 10.4074059,
+  "tags": {
+    "camera:direction": "263",
+    "camera:mount": "pole",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "ALPR",
+    "surveillance:zone": "street;traffic"
+  }
+},
+{
+  "type": "node",
+  "id": 14160330100,
+  "lat": 43.7104836,
+  "lon": 10.4004781,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14160387371,
+  "lat": 43.7109044,
+  "lon": 10.4006211,
+  "tags": {
+    "camera:direction": "9",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14160389443,
+  "lat": 43.7094339,
+  "lon": 10.3996371,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14160389807,
+  "lat": 43.7087897,
+  "lon": 10.4017273,
+  "tags": {
+    "camera:direction": "294",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;shop;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14160394782,
+  "lat": 43.7091443,
+  "lon": 10.4005580,
+  "tags": {
+    "camera:direction": "291",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;shop;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14160398705,
+  "lat": 43.7108918,
+  "lon": 10.4006168,
+  "tags": {
+    "camera:direction": "195",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14162707847,
+  "lat": 43.7190630,
+  "lon": 10.4082918,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street;town"
+  }
+},
+{
+  "type": "node",
+  "id": 14162744035,
+  "lat": 43.7187366,
+  "lon": 10.4083428,
+  "tags": {
+    "camera:direction": "324",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 14162761054,
+  "lat": 43.7202932,
+  "lon": 10.4092143,
+  "tags": {
+    "camera:mount": "pole",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "parking;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14162766392,
+  "lat": 43.7204850,
+  "lon": 10.4098665,
+  "tags": {
+    "camera:direction": "189",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;parking;shop;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14162769044,
+  "lat": 43.7202496,
+  "lon": 10.4098368,
+  "tags": {
+    "camera:direction": "13",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;parking;shop;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14165620230,
+  "lat": 43.7137068,
+  "lon": 10.4101043,
+  "tags": {
+    "camera:direction": "95",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14165635810,
+  "lat": 43.7093456,
+  "lon": 10.4063678,
+  "tags": {
+    "camera:direction": "84",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14167151946,
+  "lat": 43.7127307,
+  "lon": 10.4000836,
+  "tags": {
+    "camera:direction": "207",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;shop;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14167153093,
+  "lat": 43.7099056,
+  "lon": 10.4012839,
+  "tags": {
+    "camera:direction": "102",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14167157757,
+  "lat": 43.7100119,
+  "lon": 10.4012165,
+  "tags": {
+    "camera:direction": "96",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14167157776,
+  "lat": 43.7127232,
+  "lon": 10.4000804,
+  "tags": {
+    "camera:direction": "357",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "shop;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14167166830,
+  "lat": 43.7110936,
+  "lon": 10.3993445,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street;town"
+  }
+},
+{
+  "type": "node",
+  "id": 14167171765,
+  "lat": 43.7100320,
+  "lon": 10.3994699,
+  "tags": {
+    "camera:direction": "134",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14167173980,
+  "lat": 43.7141895,
+  "lon": 10.4005938,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14167175732,
+  "lat": 43.7131179,
+  "lon": 10.4002522,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street;town"
+  }
+},
+{
+  "type": "node",
+  "id": 14167181382,
+  "lat": 43.7116852,
+  "lon": 10.3996893,
+  "tags": {
+    "camera:direction": "207",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;shop;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14168682007,
+  "lat": 43.7111002,
+  "lon": 10.3989347,
+  "tags": {
+    "camera:direction": "186",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;shop;street;town"
+  }
+},
+{
+  "type": "node",
+  "id": 14168708986,
+  "lat": 43.7111227,
+  "lon": 10.3988059,
+  "tags": {
+    "camera:direction": "349",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "shop;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14181535225,
+  "lat": 43.7119783,
+  "lon": 10.4023480,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14181542679,
+  "lat": 43.7176587,
+  "lon": 10.4022387,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street;town"
+  }
+},
+{
+  "type": "node",
+  "id": 14181547311,
+  "lat": 43.7126092,
+  "lon": 10.4022101,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14181552262,
+  "lat": 43.7113362,
+  "lon": 10.4025260,
+  "tags": {
+    "camera:direction": "117",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14181571436,
+  "lat": 43.7107917,
+  "lon": 10.4031493,
+  "tags": {
+    "camera:direction": "10",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14183315571,
+  "lat": 43.7166893,
+  "lon": 10.4077446,
+  "tags": {
+    "camera:direction": "264",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14183322692,
+  "lat": 43.7171777,
+  "lon": 10.4073890,
+  "tags": {
+    "camera:direction": "188",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "outdoor",
+    "surveillance:type": "camera",
+    "surveillance:zone": "entrance;street"
+  }
+},
+{
+  "type": "node",
+  "id": 14183335534,
+  "lat": 43.7174231,
+  "lon": 10.4074068,
+  "tags": {
+    "camera:direction": "186",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14184491227,
+  "lat": 43.7133114,
+  "lon": 10.4046456,
+  "tags": {
+    "camera:mount": "wall",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14185085723,
+  "lat": 43.7089982,
+  "lon": 10.4094327,
+  "tags": {
+    "camera:direction": "263",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "shop;town"
+  }
+},
+{
+  "type": "node",
+  "id": 14185128180,
+  "lat": 43.7089896,
+  "lon": 10.4094395,
+  "tags": {
+    "camera:direction": "213",
+    "camera:mount": "wall",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "town"
+  }
+},
+{
+  "type": "node",
+  "id": 14264930879,
+  "lat": 43.7197999,
+  "lon": 10.3996469,
+  "tags": {
+    "camera:direction": "90",
+    "camera:mount": "building",
+    "camera:type": "fixed",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14265060669,
+  "lat": 43.7190533,
+  "lon": 10.3999907,
+  "tags": {
+    "camera:mount": "building",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "node",
+  "id": 14265060670,
+  "lat": 43.7194240,
+  "lon": 10.4004876,
+  "tags": {
+    "camera:mount": "building",
+    "camera:type": "dome",
+    "man_made": "surveillance",
+    "surveillance": "public",
+    "surveillance:type": "camera",
+    "surveillance:zone": "street"
+  }
+},
+{
+  "type": "way",
+  "id": 23884059,
+  "bounds": {
+    "minlat": 43.7158309,
+    "minlon": 10.4034616,
+    "maxlat": 43.7162178,
+    "maxlon": 10.4039158
+  },
+  "nodes": [
+    2678697468,
+    2678697474,
+    2513850799,
+    3668311335,
+    2678697472,
+    258881376,
+    1419161937,
+    1419162003,
+    3081267764,
+    2678697468
+  ],
+  "geometry": [
+    { "lat": 43.7159079, "lon": 10.4034616 },
+    { "lat": 43.7162034, "lon": 10.4036147 },
+    { "lat": 43.7162021, "lon": 10.4036483 },
+    { "lat": 43.7162178, "lon": 10.4036595 },
+    { "lat": 43.7161605, "lon": 10.4039158 },
+    { "lat": 43.7161409, "lon": 10.4039032 },
+    { "lat": 43.7161136, "lon": 10.4038885 },
+    { "lat": 43.7158768, "lon": 10.4037602 },
+    { "lat": 43.7158309, "lon": 10.4037341 },
+    { "lat": 43.7159079, "lon": 10.4034616 }
+  ],
+  "tags": {
+    "alt_name": "Piazza della Berlina",
+    "area": "yes",
+    "bicycle": "yes",
+    "foot": "designated",
+    "highway": "pedestrian",
+    "lit": "yes",
+    "loc_name": "Piazza della Berlina",
+    "name": "Piazza Cairoli",
+    "surface": "sett",
+    "wikidata": "Q55180108"
+  }
+},
+{
+  "type": "way",
+  "id": 26681125,
+  "bounds": {
+    "minlat": 43.7142865,
+    "minlon": 10.4032414,
+    "maxlat": 43.7147628,
+    "maxlon": 10.4036323
+  },
+  "nodes": [
+    292619080,
+    292619079,
+    292619076,
+    3166461140,
+    292619074,
+    3166461142,
+    3166461141,
+    292619069,
+    1952494739,
+    1947381680,
+    1947381681
+  ],
+  "geometry": [
+    { "lat": 43.7142865, "lon": 10.4032414 },
+    { "lat": 43.7143783, "lon": 10.4033068 },
+    { "lat": 43.7144808, "lon": 10.4032766 },
+    { "lat": 43.7145593, "lon": 10.4033383 },
+    { "lat": 43.7145773, "lon": 10.4033881 },
+    { "lat": 43.7145989, "lon": 10.4034532 },
+    { "lat": 43.7146343, "lon": 10.4035091 },
+    { "lat": 43.7146670, "lon": 10.4035450 },
+    { "lat": 43.7147000, "lon": 10.4035805 },
+    { "lat": 43.7147104, "lon": 10.4035901 },
+    { "lat": 43.7147628, "lon": 10.4036323 }
+  ],
+  "tags": {
+    "bicycle": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "foot": "yes",
+    "highway": "residential",
+    "maxspeed": "30",
+    "maxspeed:type": "zone",
+    "moped": "yes",
+    "motor_vehicle": "permit",
+    "motorcycle": "yes",
+    "name": "Piazza San Sepolcro",
+    "oneway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 457948328,
+  "bounds": {
+    "minlat": 43.7143718,
+    "minlon": 10.4030415,
+    "maxlat": 43.7144808,
+    "maxlon": 10.4032766
+  },
+  "nodes": [
+    417072500,
+    3166461138,
+    3166461137,
+    292619076
+  ],
+  "geometry": [
+    { "lat": 43.7143718, "lon": 10.4030415 },
+    { "lat": 43.7143779, "lon": 10.4031575 },
+    { "lat": 43.7144339, "lon": 10.4032028 },
+    { "lat": 43.7144808, "lon": 10.4032766 }
+  ],
+  "tags": {
+    "highway": "service",
+    "maxspeed": "30",
+    "maxspeed:type": "zone",
+    "name": "Piazza San Sepolcro",
+    "service": "parking_aisle"
+  }
+},
+{
+  "type": "way",
+  "id": 457948331,
+  "bounds": {
+    "minlat": 43.7143476,
+    "minlon": 10.4033337,
+    "maxlat": 43.7145777,
+    "maxlon": 10.4036520
+  },
+  "nodes": [
+    2596717608,
+    4540062983,
+    2596717620,
+    8617171605,
+    2596717622,
+    2596717626,
+    2596717629,
+    3166461136,
+    4540055813,
+    4540055814,
+    4540055815,
+    2596717608
+  ],
+  "geometry": [
+    { "lat": 43.7143511, "lon": 10.4034874 },
+    { "lat": 43.7143476, "lon": 10.4034675 },
+    { "lat": 43.7143941, "lon": 10.4033625 },
+    { "lat": 43.7144761, "lon": 10.4033353 },
+    { "lat": 43.7144811, "lon": 10.4033337 },
+    { "lat": 43.7145567, "lon": 10.4033978 },
+    { "lat": 43.7145777, "lon": 10.4035182 },
+    { "lat": 43.7145494, "lon": 10.4035820 },
+    { "lat": 43.7145311, "lon": 10.4036232 },
+    { "lat": 43.7144443, "lon": 10.4036520 },
+    { "lat": 43.7143686, "lon": 10.4035879 },
+    { "lat": 43.7143511, "lon": 10.4034874 }
+  ],
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "height": "10",
+    "name": "Chiesa del Santo Sepolcro",
+    "religion": "christian",
+    "roof:material": "roof_tiles",
+    "start_date": "1113",
+    "wikidata": "Q428178",
+    "wikipedia": "it:Chiesa del Santo Sepolcro (Pisa)"
+  }
+},
+{
+  "type": "way",
+  "id": 1022651632,
+  "bounds": {
+    "minlat": 43.7102234,
+    "minlon": 10.3976575,
+    "maxlat": 43.7102761,
+    "maxlon": 10.3978116
+  },
+  "nodes": [
+    1375182228,
+    1386522855,
+    8874815118,
+    1375182214,
+    8874815117,
+    1456207434,
+    1210969682
+  ],
+  "geometry": [
+    { "lat": 43.7102761, "lon": 10.3978116 },
+    { "lat": 43.7102760, "lon": 10.3977666 },
+    { "lat": 43.7102732, "lon": 10.3977442 },
+    { "lat": 43.7102666, "lon": 10.3977236 },
+    { "lat": 43.7102601, "lon": 10.3977057 },
+    { "lat": 43.7102485, "lon": 10.3976861 },
+    { "lat": 43.7102234, "lon": 10.3976575 }
+  ],
+  "tags": {
+    "cycleway:right": "no",
+    "highway": "secondary",
+    "junction": "roundabout",
+    "lane_markings": "no",
+    "name": "Rotatoria dell'Ordine del Santo Sepolcro (OESSG)",
+    "noname": "yes",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1163413731,
+  "bounds": {
+    "minlat": 43.7100604,
+    "minlon": 10.3978375,
+    "maxlat": 43.7101578,
+    "maxlon": 10.3979428
+  },
+  "nodes": [
+    1375182223,
+    1375182252,
+    1375182197,
+    3080004786,
+    1375182231
+  ],
+  "geometry": [
+    { "lat": 43.7100604, "lon": 10.3978375 },
+    { "lat": 43.7100750, "lon": 10.3978779 },
+    { "lat": 43.7100975, "lon": 10.3979106 },
+    { "lat": 43.7101259, "lon": 10.3979329 },
+    { "lat": 43.7101578, "lon": 10.3979428 }
+  ],
+  "tags": {
+    "cycleway:right": "no",
+    "highway": "secondary",
+    "junction": "roundabout",
+    "lane_markings": "no",
+    "name": "Rotatoria dell'Ordine del Santo Sepolcro (OESSG)",
+    "noname": "yes",
+    "sidewalk": "no",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1163413732,
+  "bounds": {
+    "minlat": 43.7100549,
+    "minlon": 10.3976611,
+    "maxlat": 43.7101046,
+    "maxlon": 10.3978375
+  },
+  "nodes": [
+    1375182230,
+    3080004789,
+    7840112117,
+    1375182246,
+    3080004790,
+    1375182223
+  ],
+  "geometry": [
+    { "lat": 43.7101046, "lon": 10.3976611 },
+    { "lat": 43.7100870, "lon": 10.3976810 },
+    { "lat": 43.7100687, "lon": 10.3977147 },
+    { "lat": 43.7100578, "lon": 10.3977541 },
+    { "lat": 43.7100549, "lon": 10.3977960 },
+    { "lat": 43.7100604, "lon": 10.3978375 }
+  ],
+  "tags": {
+    "cycleway:right": "no",
+    "highway": "secondary",
+    "junction": "roundabout",
+    "lane_markings": "no",
+    "name": "Rotatoria  dell'Ordine del Santo Sepolcro (OESSG)",
+    "noname": "yes",
+    "sidewalk:left": "no",
+    "sidewalk:right": "separate",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1163413733,
+  "bounds": {
+    "minlat": 43.7101046,
+    "minlon": 10.3976350,
+    "maxlat": 43.7101843,
+    "maxlon": 10.3976611
+  },
+  "nodes": [
+    3738673111,
+    8874815119,
+    1386522845,
+    3080004788,
+    1375182230
+  ],
+  "geometry": [
+    { "lat": 43.7101843, "lon": 10.3976376 },
+    { "lat": 43.7101679, "lon": 10.3976350 },
+    { "lat": 43.7101566, "lon": 10.3976360 },
+    { "lat": 43.7101294, "lon": 10.3976440 },
+    { "lat": 43.7101046, "lon": 10.3976611 }
+  ],
+  "tags": {
+    "cycleway:right": "no",
+    "highway": "secondary",
+    "junction": "roundabout",
+    "lane_markings": "no",
+    "name": "Rotatoria dell'Ordine del Santo Sepolcro (OESSG)",
+    "noname": "yes",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1163413734,
+  "bounds": {
+    "minlat": 43.7101843,
+    "minlon": 10.3976376,
+    "maxlat": 43.7102234,
+    "maxlon": 10.3976575
+  },
+  "nodes": [
+    1210969682,
+    1375182221,
+    3738673111
+  ],
+  "geometry": [
+    { "lat": 43.7102234, "lon": 10.3976575 },
+    { "lat": 43.7102045, "lon": 10.3976450 },
+    { "lat": 43.7101843, "lon": 10.3976376 }
+  ],
+  "tags": {
+    "cycleway:right": "no",
+    "highway": "secondary",
+    "junction": "roundabout",
+    "lane_markings": "no",
+    "name": "Rotatoria dell'Ordine del Santo Sepolcro (OESSG)",
+    "noname": "yes",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1163413735,
+  "bounds": {
+    "minlat": 43.7101578,
+    "minlon": 10.3978116,
+    "maxlat": 43.7102761,
+    "maxlon": 10.3979428
+  },
+  "nodes": [
+    1375182231,
+    7840380172,
+    1375182261,
+    8788348345,
+    5264167256,
+    1375182228
+  ],
+  "geometry": [
+    { "lat": 43.7101578, "lon": 10.3979428 },
+    { "lat": 43.7101902, "lon": 10.3979395 },
+    { "lat": 43.7102206, "lon": 10.3979235 },
+    { "lat": 43.7102463, "lon": 10.3978959 },
+    { "lat": 43.7102651, "lon": 10.3978592 },
+    { "lat": 43.7102761, "lon": 10.3978116 }
+  ],
+  "tags": {
+    "cycleway:right": "no",
+    "highway": "secondary",
+    "junction": "roundabout",
+    "lane_markings": "no",
+    "name": "Rotatoria  dell'Ordine del Santo Sepolcro (OESSG)",
+    "noname": "yes",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1230657390,
+  "bounds": {
+    "minlat": 43.7159079,
+    "minlon": 10.4034616,
+    "maxlat": 43.7162034,
+    "maxlon": 10.4036147
+  },
+  "nodes": [
+    2678697474,
+    2678697469,
+    2678697468
+  ],
+  "geometry": [
+    { "lat": 43.7162034, "lon": 10.4036147 },
+    { "lat": 43.7159755, "lon": 10.4034988 },
+    { "lat": 43.7159079, "lon": 10.4034616 }
+  ],
+  "tags": {
+    "highway": "residential",
+    "maxspeed": "30",
+    "name": "Piazza Cairoli",
+    "oneway": "yes",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1484226291,
+  "bounds": {
+    "minlat": 43.7161409,
+    "minlon": 10.4036147,
+    "maxlat": 43.7162034,
+    "maxlon": 10.4039032
+  },
+  "nodes": [
+    258881376,
+    2678697474
+  ],
+  "geometry": [
+    { "lat": 43.7161409, "lon": 10.4039032 },
+    { "lat": 43.7162034, "lon": 10.4036147 }
+  ],
+  "tags": {
+    "highway": "pedestrian",
+    "name": "Piazza Cairoli",
+    "surface": "paving_stones"
+  }
+},
+{
+  "type": "relation",
+  "id": 3934816,
+  "bounds": {
+    "minlat": 43.7233465,
+    "minlon": 10.3983950,
+    "maxlat": 43.7235875,
+    "maxlon": 10.3985304
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 2996195894,
+      "role": "device",
+      "lat": 43.7233465,
+      "lon": 10.3983950
+    },
+    {
+      "type": "way",
+      "ref": 293575547,
+      "role": "from",
+      "geometry": [
+         { "lat": 43.7235875, "lon": 10.3985304 },
+         { "lat": 43.7235160, "lon": 10.3984854 },
+         { "lat": 43.7234366, "lon": 10.3984367 },
+         { "lat": 43.7233465, "lon": 10.3983950 }
+      ]
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 9342809,
+  "bounds": {
+    "minlat": 43.7107751,
+    "minlon": 10.3956107,
+    "maxlat": 43.7233465,
+    "maxlon": 10.4072549
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 5105785566,
+      "role": "device",
+      "lat": 43.7197178,
+      "lon": 10.4066052
+    },
+    {
+      "type": "node",
+      "ref": 2996195895,
+      "role": "device",
+      "lat": 43.7199367,
+      "lon": 10.3956107
+    },
+    {
+      "type": "node",
+      "ref": 6073331857,
+      "role": "device",
+      "lat": 43.7167500,
+      "lon": 10.3998930
+    },
+    {
+      "type": "node",
+      "ref": 6290979184,
+      "role": "device",
+      "lat": 43.7156461,
+      "lon": 10.4003194
+    },
+    {
+      "type": "node",
+      "ref": 6290984385,
+      "role": "device",
+      "lat": 43.7155222,
+      "lon": 10.3988966
+    },
+    {
+      "type": "node",
+      "ref": 6290984390,
+      "role": "device",
+      "lat": 43.7137705,
+      "lon": 10.3959410
+    },
+    {
+      "type": "node",
+      "ref": 5599820736,
+      "role": "device",
+      "lat": 43.7114088,
+      "lon": 10.3976238
+    },
+    {
+      "type": "node",
+      "ref": 3483939523,
+      "role": "device",
+      "lat": 43.7107751,
+      "lon": 10.4005109
+    },
+    {
+      "type": "node",
+      "ref": 3358120379,
+      "role": "device",
+      "lat": 43.7115813,
+      "lon": 10.4055519
+    },
+    {
+      "type": "node",
+      "ref": 6290984391,
+      "role": "device",
+      "lat": 43.7133471,
+      "lon": 10.4064135
+    },
+    {
+      "type": "node",
+      "ref": 6290984392,
+      "role": "device",
+      "lat": 43.7135869,
+      "lon": 10.4045413
+    },
+    {
+      "type": "node",
+      "ref": 3358108593,
+      "role": "device",
+      "lat": 43.7153330,
+      "lon": 10.4070267
+    },
+    {
+      "type": "node",
+      "ref": 3358118456,
+      "role": "device",
+      "lat": 43.7167561,
+      "lon": 10.4072549
+    },
+    {
+      "type": "node",
+      "ref": 2996195894,
+      "role": "device",
+      "lat": 43.7233465,
+      "lon": 10.3983950
+    },
+    {
+      "type": "node",
+      "ref": 11184543009,
+      "role": "device",
+      "lat": 43.7222295,
+      "lon": 10.4015053
+    }
+  ],
+  "tags": {
+    "enforcement": "access",
+    "name": "Zona a Traffico Limitato",
+    "name:en": "Restricted Traffic Zone",
+    "operator": "Comune di Pisa",
+    "short_name": "ZTL",
+    "type": "enforcement"
+  }
+}
+
+  ]
+}

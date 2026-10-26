@@ -1,0 +1,665 @@
+{
+"version": 0.6,
+"generator": "Overpass API (overpass-api.de), out geom",
+"note": "Estratto per GateLR, scaricato il 2026-10-26. © OpenStreetMap contributors, ODbL 1.0. Nodi man_made=surveillance con surveillance:zone=traffic (Genova centro e levante) e le way 23100847 (Via Oberdan, Nervi) e 584692911 (ZTL Nervi).",
+"elements": [
+{
+"type": "node",
+"id": 2579946021,
+"lat": 44.4131892,
+"lon": 8.9300183,
+"tags": {
+"camera:type": "fixed",
+"man_made": "surveillance",
+"name": "Varco Cairoli",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 2829907843,
+"lat": 44.4037117,
+"lon": 8.93271,
+"tags": {
+"camera:type": "fixed",
+"man_made": "surveillance",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5582069618,
+"lat": 44.4007637,
+"lon": 8.9460306,
+"tags": {
+"camera:mount": "wall",
+"camera:type": "dome",
+"man_made": "surveillance",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5592753725,
+"lat": 44.3841801,
+"lon": 9.0325412,
+"tags": {
+"camera:type": "fixed",
+"man_made": "surveillance",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5592753726,
+"lat": 44.4083342,
+"lon": 8.9289147,
+"tags": {
+"man_made": "surveillance",
+"name": "Varco Raibetta",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5592753727,
+"lat": 44.4107418,
+"lon": 8.9345972,
+"tags": {
+"camera:type": "panning",
+"man_made": "surveillance",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5592753728,
+"lat": 44.4111027,
+"lon": 8.9286721,
+"tags": {
+"check_date": "2025-09-06",
+"man_made": "surveillance",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5592753729,
+"lat": 44.4066304,
+"lon": 8.9273132,
+"tags": {
+"man_made": "surveillance",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5592753730,
+"lat": 44.4129108,
+"lon": 8.9272467,
+"tags": {
+"check_date": "2025-09-06",
+"man_made": "surveillance",
+"name": "varco del Campo",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5592753731,
+"lat": 44.4050994,
+"lon": 8.9285652,
+"tags": {
+"man_made": "surveillance",
+"name": "Varco Grazie",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5592753732,
+"lat": 44.4074492,
+"lon": 8.9285323,
+"tags": {
+"camera:type": "dome",
+"check_date": "2025-12-22",
+"man_made": "surveillance",
+"name": "Varco San Giorgio",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5594220117,
+"lat": 44.4065961,
+"lon": 8.9278299,
+"tags": {
+"man_made": "surveillance",
+"name": "Varco Cavour",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 5594220118,
+"lat": 44.4063216,
+"lon": 8.9334484,
+"tags": {
+"camera:type": "fixed",
+"man_made": "surveillance",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "node",
+"id": 8116477688,
+"lat": 44.4133263,
+"lon": 8.9294792,
+"tags": {
+"camera:type": "dome",
+"check_date": "2025-08-22",
+"man_made": "surveillance",
+"name": "Varco Lomellini",
+"surveillance": "public",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+},
+{
+"type": "way",
+"id": 23100847,
+"bounds": {
+"minlat": 44.3837259,
+"minlon": 9.0366487,
+"maxlat": 44.383983,
+"maxlon": 9.0400231
+},
+"nodes": [
+248585015,
+1870153336,
+5327216109,
+5327216110,
+5327216111,
+104695684,
+3512000743,
+5775921571,
+1870153309,
+252716831,
+5775921572,
+104695682,
+5775921573,
+671924366,
+3512000740,
+13369941590,
+104695681,
+858046279,
+3512000741,
+3512000745,
+7108414137,
+104695679,
+248842633
+],
+"geometry": [
+{
+"lat": 44.3838188,
+"lon": 9.0400231
+},
+{
+"lat": 44.3838183,
+"lon": 9.0400111
+},
+{
+"lat": 44.3838146,
+"lon": 9.0399397
+},
+{
+"lat": 44.3838079,
+"lon": 9.039856
+},
+{
+"lat": 44.383793,
+"lon": 9.0396932
+},
+{
+"lat": 44.3837692,
+"lon": 9.0394639
+},
+{
+"lat": 44.3837651,
+"lon": 9.0392276
+},
+{
+"lat": 44.3837721,
+"lon": 9.0390819
+},
+{
+"lat": 44.3837778,
+"lon": 9.0388658
+},
+{
+"lat": 44.3837782,
+"lon": 9.0388225
+},
+{
+"lat": 44.3837678,
+"lon": 9.0387138
+},
+{
+"lat": 44.3837444,
+"lon": 9.0384906
+},
+{
+"lat": 44.3837319,
+"lon": 9.0382867
+},
+{
+"lat": 44.3837259,
+"lon": 9.0381248
+},
+{
+"lat": 44.3837272,
+"lon": 9.0380572
+},
+{
+"lat": 44.3837287,
+"lon": 9.0380277
+},
+{
+"lat": 44.3837417,
+"lon": 9.0377759
+},
+{
+"lat": 44.3837449,
+"lon": 9.0377102
+},
+{
+"lat": 44.3837505,
+"lon": 9.0376144
+},
+{
+"lat": 44.3838137,
+"lon": 9.0372833
+},
+{
+"lat": 44.3838367,
+"lon": 9.0371858
+},
+{
+"lat": 44.3839053,
+"lon": 9.0368998
+},
+{
+"lat": 44.383983,
+"lon": 9.0366487
+}
+],
+"tags": {
+"access": "yes",
+"disabled": "yes",
+"highway": "residential",
+"maxspeed": "30",
+"motor_vehicle": "destination",
+"name": "Via Guglielmo Oberdan",
+"oneway": "yes",
+"sidewalk": "both",
+"surface": "asphalt",
+"taxi": "yes",
+"width": "3"
+}
+},
+{
+"type": "way",
+"id": 584692911,
+"bounds": {
+"minlat": 44.3826392,
+"minlon": 9.0308067,
+"maxlat": 44.3843797,
+"maxlon": 9.0334783
+},
+"nodes": [
+5588492780,
+5588492783,
+5588492769,
+5588492756,
+5588492803,
+5588492793,
+5588492779,
+5588492752,
+5588492801,
+5588492775,
+5588492762,
+5588492750,
+5588492797,
+5588492785,
+5588492771,
+5588492759,
+5588492782,
+5588492768,
+5588492755,
+5588492805,
+5588492792,
+5588492778,
+5588492766,
+5588492753,
+5588492800,
+5588492790,
+5588492776,
+5588492744,
+5588492763,
+5588492749,
+5588492798,
+5588492786,
+5588492772,
+5588492758,
+5588492746,
+5588492795,
+5588492781,
+5588492767,
+5588492754,
+5588492802,
+5588492791,
+5588492745,
+5588492777,
+5588492764,
+5588492751,
+5588492799,
+5588492787,
+5588492773,
+5588492760,
+5588492747,
+5588492788,
+5588492774,
+5588492761,
+5588492748,
+5588492796,
+5588492784,
+5588492770,
+5588492757,
+5588492804,
+5588492794,
+5588492780
+],
+"geometry": [
+{
+"lat": 44.3826392,
+"lon": 9.0309327
+},
+{
+"lat": 44.3829518,
+"lon": 9.0309723
+},
+{
+"lat": 44.3829495,
+"lon": 9.0309882
+},
+{
+"lat": 44.3829758,
+"lon": 9.030993
+},
+{
+"lat": 44.3830007,
+"lon": 9.0310365
+},
+{
+"lat": 44.3829982,
+"lon": 9.0310628
+},
+{
+"lat": 44.3830981,
+"lon": 9.031081
+},
+{
+"lat": 44.3832961,
+"lon": 9.0310838
+},
+{
+"lat": 44.3833993,
+"lon": 9.0313703
+},
+{
+"lat": 44.3834624,
+"lon": 9.0318168
+},
+{
+"lat": 44.3834294,
+"lon": 9.0320063
+},
+{
+"lat": 44.3834027,
+"lon": 9.032023
+},
+{
+"lat": 44.3833681,
+"lon": 9.032252
+},
+{
+"lat": 44.383389,
+"lon": 9.0322756
+},
+{
+"lat": 44.3833657,
+"lon": 9.0324247
+},
+{
+"lat": 44.3833688,
+"lon": 9.0325009
+},
+{
+"lat": 44.3834004,
+"lon": 9.0325922
+},
+{
+"lat": 44.3834371,
+"lon": 9.0325222
+},
+{
+"lat": 44.3838839,
+"lon": 9.0329558
+},
+{
+"lat": 44.3843589,
+"lon": 9.0334783
+},
+{
+"lat": 44.3843797,
+"lon": 9.0334232
+},
+{
+"lat": 44.3843752,
+"lon": 9.0333954
+},
+{
+"lat": 44.3843506,
+"lon": 9.0333716
+},
+{
+"lat": 44.3843427,
+"lon": 9.0333849
+},
+{
+"lat": 44.384115,
+"lon": 9.0331696
+},
+{
+"lat": 44.3841223,
+"lon": 9.0331531
+},
+{
+"lat": 44.3837127,
+"lon": 9.0327282
+},
+{
+"lat": 44.3835587,
+"lon": 9.0326017
+},
+{
+"lat": 44.3834064,
+"lon": 9.0324615
+},
+{
+"lat": 44.3834588,
+"lon": 9.0321896
+},
+{
+"lat": 44.383733,
+"lon": 9.0322866
+},
+{
+"lat": 44.383841,
+"lon": 9.0323578
+},
+{
+"lat": 44.3841803,
+"lon": 9.0326491
+},
+{
+"lat": 44.384195,
+"lon": 9.0325444
+},
+{
+"lat": 44.3837485,
+"lon": 9.0322035
+},
+{
+"lat": 44.3834621,
+"lon": 9.0321332
+},
+{
+"lat": 44.3835322,
+"lon": 9.0316826
+},
+{
+"lat": 44.3835298,
+"lon": 9.0316358
+},
+{
+"lat": 44.3834831,
+"lon": 9.0316324
+},
+{
+"lat": 44.3834801,
+"lon": 9.0314379
+},
+{
+"lat": 44.3835167,
+"lon": 9.0314438
+},
+{
+"lat": 44.3835245,
+"lon": 9.031416
+},
+{
+"lat": 44.3835422,
+"lon": 9.0312913
+},
+{
+"lat": 44.3835006,
+"lon": 9.0312838
+},
+{
+"lat": 44.3834264,
+"lon": 9.0313287
+},
+{
+"lat": 44.3834014,
+"lon": 9.0313116
+},
+{
+"lat": 44.3832605,
+"lon": 9.0309423
+},
+{
+"lat": 44.3832324,
+"lon": 9.0309608
+},
+{
+"lat": 44.3831837,
+"lon": 9.031022
+},
+{
+"lat": 44.3830775,
+"lon": 9.031036
+},
+{
+"lat": 44.383063,
+"lon": 9.0309897
+},
+{
+"lat": 44.3829981,
+"lon": 9.0309454
+},
+{
+"lat": 44.3829915,
+"lon": 9.0308517
+},
+{
+"lat": 44.3829001,
+"lon": 9.0308363
+},
+{
+"lat": 44.3828947,
+"lon": 9.0308961
+},
+{
+"lat": 44.3827383,
+"lon": 9.0308691
+},
+{
+"lat": 44.3827415,
+"lon": 9.0308111
+},
+{
+"lat": 44.3826965,
+"lon": 9.0308067
+},
+{
+"lat": 44.3826881,
+"lon": 9.0308298
+},
+{
+"lat": 44.3826735,
+"lon": 9.0308224
+},
+{
+"lat": 44.3826392,
+"lon": 9.0309327
+}
+],
+"tags": {
+"bicycle": "yes",
+"boundary": "limited_traffic_zone",
+"description": "Zona a Traffico Limitato",
+"motor_vehicle": "private",
+"name": "ZTL Nervi",
+"psv": "yes",
+"taxi": "yes"
+}
+}
+]
+}

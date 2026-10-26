@@ -1,0 +1,754 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-26T06:41:49Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 2920519336,
+  "lat": 43.4597392,
+  "lon": 11.0647847,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 8888141693,
+  "lat": 43.4700103,
+  "lon": 11.0408802,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 11292666442,
+  "lat": 43.4619107,
+  "lon": 11.0748146,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 11861753369,
+  "lat": 43.4621231,
+  "lon": 11.0371076,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13849458217,
+  "lat": 43.4599163,
+  "lon": 11.0370459,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13849458218,
+  "lat": 43.4652370,
+  "lon": 11.0318112,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13849458219,
+  "lat": 43.4652606,
+  "lon": 11.0317352,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13849458323,
+  "lat": 43.4803905,
+  "lon": 11.0131061,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13849458607,
+  "lat": 43.4703052,
+  "lon": 11.0291168,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13849458913,
+  "lat": 43.4763385,
+  "lon": 11.0295241,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13849459010,
+  "lat": 43.4616401,
+  "lon": 11.0423322,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13849459011,
+  "lat": 43.4620854,
+  "lon": 11.0412687,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "node",
+  "id": 13849459416,
+  "lat": 43.4585204,
+  "lon": 11.0530497,
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 28566957,
+  "center": {
+    "lat": 43.4709734,
+    "lon": 11.0442684
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "104",
+    "capacity:disabled": "2",
+    "fee": "yes",
+    "name": "P3 - Parcheggio Bagnaia Superiore",
+    "name:en": "P3 - Bagnaia Superiore Parking",
+    "name:it": "P3 - Parcheggio Bagnaia Superiore",
+    "parking": "surface",
+    "supervised": "no",
+    "surface": "asphalt",
+    "website": "https://www.sangimignano.com/en/useful-information/parking-and-city-bus/"
+  }
+},
+{
+  "type": "way",
+  "id": 97815420,
+  "center": {
+    "lat": 43.4627023,
+    "lon": 11.0409091
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 97815425,
+  "center": {
+    "lat": 43.4677954,
+    "lon": 11.0398200
+  },
+  "tags": {
+    "access": "permit",
+    "amenity": "parking",
+    "fee": "yes",
+    "name": "Parcheggio dei Fossi",
+    "name:en": "Fossi Parking",
+    "name:it": "Parcheggio dei Fossi",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 97815436,
+  "center": {
+    "lat": 43.4648634,
+    "lon": 11.0411975
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "155",
+    "capacity:disabled": "3",
+    "fee": "yes",
+    "name": "P2 - Parcheggio Montemaggio",
+    "name:en": "P2 - Parking Montemaggio",
+    "name:it": "P2 - Parcheggio Montemaggio",
+    "parking": "surface",
+    "supervised": "no",
+    "surface": "asphalt",
+    "website": "https://www.sangimignano.com/en/useful-information/parking-and-city-bus/"
+  }
+},
+{
+  "type": "way",
+  "id": 100252101,
+  "center": {
+    "lat": 43.4550255,
+    "lon": 11.0361816
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 132116348,
+  "center": {
+    "lat": 43.4712111,
+    "lon": 11.0324713
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 132116350,
+  "center": {
+    "lat": 43.4698092,
+    "lon": 11.0328279
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 132116351,
+  "center": {
+    "lat": 43.4710605,
+    "lon": 11.0327932
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 132116353,
+  "center": {
+    "lat": 43.4711526,
+    "lon": 11.0322604
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 132116354,
+  "center": {
+    "lat": 43.4707427,
+    "lon": 11.0382016
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 132116356,
+  "center": {
+    "lat": 43.4705899,
+    "lon": 11.0321215
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 166018190,
+  "center": {
+    "lat": 43.4615863,
+    "lon": 11.0399354
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "315",
+    "capacity:disabled": "5",
+    "fee": "yes",
+    "name": "P1 - Parcheggio Giubileo",
+    "name:en": "P1 - Parking Giubileo",
+    "name:it": "P1 - Parcheggio Giubileo",
+    "parking": "surface",
+    "supervised": "no",
+    "surface": "asphalt",
+    "website": "https://www.sangimignano.com/en/useful-information/parking-and-city-bus/"
+  }
+},
+{
+  "type": "way",
+  "id": 182495654,
+  "center": {
+    "lat": 43.4707832,
+    "lon": 11.0446962
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "yes",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 183558099,
+  "center": {
+    "lat": 43.4920882,
+    "lon": 11.0211685
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 275088042,
+  "center": {
+    "lat": 43.4775317,
+    "lon": 11.0251003
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 347732467,
+  "center": {
+    "lat": 43.4712800,
+    "lon": 11.0360416
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface",
+    "source": "Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 491609331,
+  "center": {
+    "lat": 43.4640726,
+    "lon": 11.0406022
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 560396154,
+  "center": {
+    "lat": 43.4903583,
+    "lon": 11.0633733
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 569560036,
+  "center": {
+    "lat": 43.4613143,
+    "lon": 11.0366212
+  },
+  "tags": {
+    "amenity": "parking",
+    "fee": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 741614777,
+  "center": {
+    "lat": 43.4696146,
+    "lon": 11.0363213
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface",
+    "surface": "unpaved"
+  }
+},
+{
+  "type": "way",
+  "id": 741614778,
+  "center": {
+    "lat": 43.4694153,
+    "lon": 11.0356402
+  },
+  "tags": {
+    "amenity": "parking",
+    "orientation": "diagonal",
+    "parking": "street_side",
+    "surface": "unpaved"
+  }
+},
+{
+  "type": "way",
+  "id": 1067944185,
+  "center": {
+    "lat": 43.4528050,
+    "lon": 11.0528901
+  },
+  "tags": {
+    "access": "customers",
+    "amenity": "parking",
+    "fee": "no",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1081948082,
+  "center": {
+    "lat": 43.4716060,
+    "lon": 11.0444482
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "274",
+    "capacity:disabled": "6",
+    "fee": "yes",
+    "name": "P4 - Parcheggio Bagnaia Inferiore",
+    "name:en": "P4 - Parking Bagnaia Inferiore",
+    "name:it": "P4 - Parcheggio Bagnaia Inferiore",
+    "parking": "surface",
+    "supervised": "no",
+    "surface": "asphalt",
+    "website": "https://www.sangimignano.com/en/useful-information/parking-and-city-bus/"
+  }
+},
+{
+  "type": "way",
+  "id": 1106575129,
+  "center": {
+    "lat": 43.4715778,
+    "lon": 11.0289613
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1106575130,
+  "center": {
+    "lat": 43.4715004,
+    "lon": 11.0288070
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "street_side"
+  }
+},
+{
+  "type": "way",
+  "id": 1161186837,
+  "center": {
+    "lat": 43.4486919,
+    "lon": 11.0222045
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1192162595,
+  "center": {
+    "lat": 43.4914151,
+    "lon": 11.0205420
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1202348766,
+  "center": {
+    "lat": 43.4709510,
+    "lon": 11.0328035
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1203085589,
+  "center": {
+    "lat": 43.4661581,
+    "lon": 11.0434961
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1203085590,
+  "center": {
+    "lat": 43.4661857,
+    "lon": 11.0436587
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1203085591,
+  "center": {
+    "lat": 43.4662835,
+    "lon": 11.0436970
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1203184324,
+  "center": {
+    "lat": 43.4625391,
+    "lon": 11.0414420
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "fee": "no",
+    "maxstay": "60 minutes",
+    "parking": "surface",
+    "supervised": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 1263731040,
+  "center": {
+    "lat": 43.4704325,
+    "lon": 11.0447929
+  },
+  "tags": {
+    "access": "private",
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1264536153,
+  "center": {
+    "lat": 43.4522265,
+    "lon": 11.0535497
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1272406860,
+  "center": {
+    "lat": 43.4703733,
+    "lon": 11.0372870
+  },
+  "tags": {
+    "amenity": "parking",
+    "orientation": "perpendicular",
+    "parking": "street_side",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1272406862,
+  "center": {
+    "lat": 43.4704565,
+    "lon": 11.0378708
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+},
+{
+  "type": "way",
+  "id": 1272407185,
+  "center": {
+    "lat": 43.4695275,
+    "lon": 11.0356774
+  },
+  "tags": {
+    "amenity": "parking",
+    "orientation": "diagonal",
+    "parking": "street_side",
+    "surface": "unpaved"
+  }
+},
+{
+  "type": "way",
+  "id": 1272407186,
+  "center": {
+    "lat": 43.4696134,
+    "lon": 11.0355684
+  },
+  "tags": {
+    "amenity": "parking",
+    "orientation": "diagonal",
+    "parking": "street_side",
+    "surface": "unpaved"
+  }
+},
+{
+  "type": "way",
+  "id": 1313216426,
+  "center": {
+    "lat": 43.4777104,
+    "lon": 11.0229595
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1313289608,
+  "center": {
+    "lat": 43.4520457,
+    "lon": 11.0551717
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "40",
+    "capacity:disabled": "40",
+    "covered": "no",
+    "fee": "no",
+    "opening_hours": "24/7",
+    "parking": "surface",
+    "supervised": "no",
+    "surface": "gravel"
+  }
+},
+{
+  "type": "way",
+  "id": 1313289609,
+  "center": {
+    "lat": 43.4529450,
+    "lon": 11.0554974
+  },
+  "tags": {
+    "amenity": "parking"
+  }
+},
+{
+  "type": "way",
+  "id": 1326568187,
+  "center": {
+    "lat": 43.4515680,
+    "lon": 11.0619581
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "20",
+    "capacity:disabled": "0",
+    "covered": "no",
+    "fee": "no",
+    "opening_hours": "24/7",
+    "parking": "surface",
+    "supervised": "no",
+    "surface": "gravel"
+  }
+},
+{
+  "type": "way",
+  "id": 1326568191,
+  "center": {
+    "lat": 43.4509128,
+    "lon": 11.0619337
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "20",
+    "capacity:disabled": "0",
+    "covered": "no",
+    "fee": "no",
+    "opening_hours": "24/7",
+    "parking": "surface",
+    "supervised": "no",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1326568192,
+  "center": {
+    "lat": 43.4501354,
+    "lon": 11.0620456
+  },
+  "tags": {
+    "access": "yes",
+    "amenity": "parking",
+    "capacity": "20",
+    "capacity:disabled": "0",
+    "covered": "no",
+    "fee": "no",
+    "opening_hours": "24/7",
+    "parking": "surface",
+    "supervised": "no",
+    "surface": "asphalt"
+  }
+},
+{
+  "type": "way",
+  "id": 1493867637,
+  "center": {
+    "lat": 43.4626684,
+    "lon": 11.0344597
+  },
+  "tags": {
+    "amenity": "parking",
+    "parking": "surface"
+  }
+}
+
+  ]
+}

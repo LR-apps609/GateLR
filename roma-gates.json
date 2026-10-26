@@ -1,0 +1,2235 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-24T19:24:50Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 280135528,
+  "lat": 41.9155270,
+  "lon": 12.4808590,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 385120537,
+  "lat": 41.8878210,
+  "lon": 12.4734026,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Mo-Th 06:30-10:00); Fr-Sa (06:30-10:00,21:30-03:00; May-Jul (Mo-Tu 06:30-10:00); We-Sa (06:30-10:00,21:30-03:00); Aug (Mo-Sa 06:30-10:00); Sep-Oct (Mo-Th 06:30-10:00; Fr-Sa 06:30-10:00,21:30-03:00)]; (Mo-Sa 06:30-10:00; PH off)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 534612091,
+  "lat": 41.8925372,
+  "lon": 12.4902777,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 746725001,
+  "lat": 41.9080763,
+  "lon": 12.4821210,
+  "tags": {
+    "bicycle": "yes",
+    "bus": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "man_made": "surveillance",
+    "motor_vehicle:conditional": "private @ (Mo-Fr 06:30-19:00; Sa 10:00-19:00; PH off)",
+    "motor_vehicle:electric": "yes",
+    "name": "Varco ZTL Tridente",
+    "psv": "yes",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1001085050,
+  "lat": 41.8955047,
+  "lon": 12.4655364,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Mo-Th 06:30-10:00); Fr-Sa (06:30-10:00,21:30-03:00; May-Jul (Mo-Tu 06:30-10:00); We-Sa (06:30-10:00,21:30-03:00); Aug (Mo-Sa 06:30-10:00); Sep-Oct (Mo-Th 06:30-10:00; Fr-Sa 06:30-10:00,21:30-03:00)]; (Mo-Sa 06:30-10:00; PH off)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 1119375699,
+  "lat": 41.8878527,
+  "lon": 12.4726922,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Mo-Th 06:30-10:00); Fr-Sa (06:30-10:00,21:30-03:00; May-Jul (Mo-Tu 06:30-10:00); We-Sa (06:30-10:00,21:30-03:00); Aug (Mo-Sa 06:30-10:00); Sep-Oct (Mo-Th 06:30-10:00; Fr-Sa 06:30-10:00,21:30-03:00)]; (Mo-Sa 06:30-10:00; PH off)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 1125488401,
+  "lat": 41.8929318,
+  "lon": 12.4712898,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1233060720,
+  "lat": 41.9021726,
+  "lon": 12.4954764,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1245344163,
+  "lat": 41.9016587,
+  "lon": 12.4718664,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1266998227,
+  "lat": 41.9048701,
+  "lon": 12.4756946,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1379885758,
+  "lat": 41.9120476,
+  "lon": 12.4498707,
+  "tags": {
+    "access": "permissive",
+    "bicycle": "yes",
+    "foot": "yes",
+    "name": "ZTL anello ferroviario"
+  }
+},
+{
+  "type": "node",
+  "id": 1387901060,
+  "lat": 41.9053035,
+  "lon": 12.4478008,
+  "tags": {
+    "access": "permissive",
+    "bicycle": "yes",
+    "foot": "yes",
+    "name": "ZTL anello ferroviario"
+  }
+},
+{
+  "type": "node",
+  "id": 1418810285,
+  "lat": 41.8997107,
+  "lon": 12.4661497,
+  "tags": {
+    "direction": "315",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1438375734,
+  "lat": 41.9057184,
+  "lon": 12.4471382,
+  "tags": {
+    "access": "permissive",
+    "bicycle": "yes",
+    "foot": "yes",
+    "name": "ZTL anello ferroviario"
+  }
+},
+{
+  "type": "node",
+  "id": 1455388913,
+  "lat": 41.8929838,
+  "lon": 12.5156047,
+  "tags": {
+    "car_sharing": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Fr-Su 21:30-03:00); May-Jul (We-Sa 21:30-03:00); Aug off; Sep-Oct (We-Sa 21:30-03:00)]",
+    "name": "Varco ZTL San Lorenzo",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 1603316081,
+  "lat": 41.8912707,
+  "lon": 12.4804546,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1603316084,
+  "lat": 41.8912797,
+  "lon": 12.4805052,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1603335621,
+  "lat": 41.9021983,
+  "lon": 12.4954389,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1640364038,
+  "lat": 41.8860024,
+  "lon": 12.4692432,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Mo-Th 06:30-10:00); Fr-Sa (06:30-10:00,21:30-03:00; May-Jul (Mo-Tu 06:30-10:00); We-Sa (06:30-10:00,21:30-03:00); Aug (Mo-Sa 06:30-10:00); Sep-Oct (Mo-Th 06:30-10:00; Fr-Sa 06:30-10:00,21:30-03:00)]; (Mo-Sa 06:30-10:00; PH off)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 1640364041,
+  "lat": 41.8876465,
+  "lon": 12.4662761,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Mo-Th 06:30-10:00); Fr-Sa (06:30-10:00,21:30-03:00; May-Jul (Mo-Tu 06:30-10:00); We-Sa (06:30-10:00,21:30-03:00); Aug (Mo-Sa 06:30-10:00); Sep-Oct (Mo-Th 06:30-10:00; Fr-Sa 06:30-10:00,21:30-03:00)]; (Mo-Sa 06:30-10:00; PH off)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 1706540367,
+  "lat": 41.9103832,
+  "lon": 12.4752450,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1836671845,
+  "lat": 41.8985913,
+  "lon": 12.5150478,
+  "tags": {
+    "car_sharing": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Fr-Su 21:30-03:00); May-Jul (We-Sa 21:30-03:00); Aug off; Sep-Oct (We-Sa 21:30-03:00)]",
+    "name": "Varco ZTL San Lorenzo",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 1923808683,
+  "lat": 41.9045405,
+  "lon": 12.4753691,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2001954485,
+  "lat": 41.8860565,
+  "lon": 12.4693653,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Mo-Th 06:30-10:00); Fr-Sa (06:30-10:00,21:30-03:00; May-Jul (Mo-Tu 06:30-10:00); We-Sa (06:30-10:00,21:30-03:00); Aug (Mo-Sa 06:30-10:00); Sep-Oct (Mo-Th 06:30-10:00; Fr-Sa 06:30-10:00,21:30-03:00)]; (Mo-Sa 06:30-10:00; PH off)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2015658640,
+  "lat": 41.8930324,
+  "lon": 12.4752688,
+  "tags": {
+    "car_sharing": "yes",
+    "direction": "208",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2126941293,
+  "lat": 41.8988970,
+  "lon": 12.4962245,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2141788522,
+  "lat": 41.9010564,
+  "lon": 12.4669239,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2141788538,
+  "lat": 41.9032434,
+  "lon": 12.4925211,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2141788567,
+  "lat": 41.9053420,
+  "lon": 12.4901776,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2141788579,
+  "lat": 41.9059673,
+  "lon": 12.4891906,
+  "tags": {
+    "car_sharing": "yes",
+    "direction": "backward",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2141788587,
+  "lat": 41.9060141,
+  "lon": 12.4891393,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2141788601,
+  "lat": 41.9061638,
+  "lon": 12.4858738,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2141800766,
+  "lat": 41.8973187,
+  "lon": 12.4956243,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2141800767,
+  "lat": 41.8994932,
+  "lon": 12.4969062,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2141801677,
+  "lat": 41.8985726,
+  "lon": 12.4960914,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2141865772,
+  "lat": 41.8991105,
+  "lon": 12.4645933,
+  "tags": {
+    "bicycle": "yes",
+    "direction": "235",
+    "emergency": "yes",
+    "foot": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar": "yes",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-24:00; Sa 00:00-03:00,14:00-18:00,23:00-24:00; Su 00:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2142007235,
+  "lat": 41.8843973,
+  "lon": 12.4739407,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Fr-Sa 21:30-03:00); May-Jul (We-Sa 21:30-03:00); Aug off; Sep-Oct (Fr-Sa 21:30-03:00)]",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2142007236,
+  "lat": 41.8861732,
+  "lon": 12.4774379,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Fr-Sa 21:30-03:00); May-Jul (We-Sa 21:30-03:00); Aug off; Sep-Oct (Fr-Sa 21:30-03:00)]",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2142007237,
+  "lat": 41.8878372,
+  "lon": 12.4786603,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Mo-Th 06:30-10:00); Fr-Sa (06:30-10:00,21:30-03:00; May-Jul (Mo-Tu 06:30-10:00); We-Sa (06:30-10:00,21:30-03:00); Aug (Mo-Sa 06:30-10:00); Sep-Oct (Mo-Th 06:30-10:00; Fr-Sa 06:30-10:00,21:30-03:00)]; (Mo-Sa 06:30-10:00; PH off)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2142007238,
+  "lat": 41.8892747,
+  "lon": 12.4774428,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Mo-Th 06:30-10:00); Fr-Sa (06:30-10:00,21:30-03:00; May-Jul (Mo-Tu 06:30-10:00); We-Sa (06:30-10:00,21:30-03:00); Aug (Mo-Sa 06:30-10:00); Sep-Oct (Mo-Th 06:30-10:00; Fr-Sa 06:30-10:00,21:30-03:00)]; (Mo-Sa 06:30-10:00; PH off)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2142007239,
+  "lat": 41.8907585,
+  "lon": 12.4717785,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Mo-Th 06:30-10:00); Fr-Sa (06:30-10:00,21:30-03:00; May-Jul (Mo-Tu 06:30-10:00); We-Sa (06:30-10:00,21:30-03:00); Aug (Mo-Sa 06:30-10:00); Sep-Oct (Mo-Th 06:30-10:00; Fr-Sa 06:30-10:00,21:30-03:00)]; (Mo-Sa 06:30-10:00; PH off)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2142042253,
+  "lat": 41.8965505,
+  "lon": 12.5186928,
+  "tags": {
+    "car_sharing": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Fr-Su 21:30-03:00); May-Jul (We-Sa 21:30-03:00); Aug off; Sep-Oct (We-Sa 21:30-03:00)]",
+    "name": "Varco ZTL San Lorenzo",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2142042254,
+  "lat": 41.8971241,
+  "lon": 12.5124148,
+  "tags": {
+    "car_sharing": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Fr-Su 21:30-03:00); May-Jul (We-Sa 21:30-03:00); Aug off; Sep-Oct (We-Sa 21:30-03:00)]",
+    "name": "Varco ZTL San Lorenzo",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2142042255,
+  "lat": 41.8979012,
+  "lon": 12.5136168,
+  "tags": {
+    "car_sharing": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Fr-Su 21:30-03:00); May-Jul (We-Sa 21:30-03:00); Aug off; Sep-Oct (We-Sa 21:30-03:00)]",
+    "name": "Varco ZTL San Lorenzo",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2142042256,
+  "lat": 41.8980137,
+  "lon": 12.5188865,
+  "tags": {
+    "car_sharing": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Fr-Su 21:30-03:00); May-Jul (We-Sa 21:30-03:00); Aug off; Sep-Oct (We-Sa 21:30-03:00)]",
+    "name": "Varco ZTL San Lorenzo",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2407423122,
+  "lat": 41.8774778,
+  "lon": 12.4761409,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Fr 23:00-24:00; Sa 00:00-03:00,23:00-24:00; Su 00:00-03:00)",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2407423123,
+  "lat": 41.8777148,
+  "lon": 12.4758097,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Fr 23:00-24:00; Sa 00:00-03:00,23:00-24:00; Su 00:00-03:00)",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2407423124,
+  "lat": 41.8777353,
+  "lon": 12.4730004,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Fr 23:00-24:00; Sa 00:00-03:00,23:00-24:00; Su 00:00-03:00)",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2407423125,
+  "lat": 41.8780267,
+  "lon": 12.4709712,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Fr 23:00-24:00; Sa 00:00-03:00,23:00-24:00; Su 00:00-03:00)",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2407423126,
+  "lat": 41.8786221,
+  "lon": 12.4789170,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Fr 23:00-24:00; Sa 00:00-03:00,23:00-24:00; Su 00:00-03:00)",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2407423127,
+  "lat": 41.8795328,
+  "lon": 12.4716908,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Fr 23:00-24:00; Sa 00:00-03:00,23:00-24:00; Su 00:00-03:00)",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2407423128,
+  "lat": 41.8802236,
+  "lon": 12.4778667,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Fr 23:00-24:00; Sa 00:00-03:00,23:00-24:00; Su 00:00-03:00)",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2407423129,
+  "lat": 41.8803920,
+  "lon": 12.4726425,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Fr 23:00-24:00; Sa 00:00-03:00,23:00-24:00; Su 00:00-03:00)",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2407423130,
+  "lat": 41.8817220,
+  "lon": 12.4767735,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Fr 23:00-24:00; Sa 00:00-03:00,23:00-24:00; Su 00:00-03:00)",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2407423131,
+  "lat": 41.8817963,
+  "lon": 12.4744670,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Fr 23:00-24:00; Sa 00:00-03:00,23:00-24:00; Su 00:00-03:00)",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 2557991444,
+  "lat": 41.8669025,
+  "lon": 12.4965748,
+  "tags": {
+    "highway": "speed_camera"
+  }
+},
+{
+  "type": "node",
+  "id": 2959672886,
+  "lat": 41.8927689,
+  "lon": 12.4913850,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2959672887,
+  "lat": 41.8940947,
+  "lon": 12.4908834,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "image": "https://www.flickr.com/photos/76225195@N07/15045664091/",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Fr 06:30-18:00; Sa 14:00-18:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3141587666,
+  "lat": 41.8992468,
+  "lon": 12.5176716,
+  "tags": {
+    "car_sharing": "yes",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Fr-Su 21:30-03:00); May-Jul (We-Sa 21:30-03:00); Aug off; Sep-Oct (We-Sa 21:30-03:00)]",
+    "name": "Varco ZTL San Lorenzo",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 3141587667,
+  "lat": 41.9038208,
+  "lon": 12.4842259,
+  "tags": {
+    "bicycle": "yes",
+    "bus": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "man_made": "surveillance",
+    "motor_vehicle:conditional": "private @ (Mo-Fr 06:30-19:00; Sa 10:00-19:00; PH off)",
+    "motor_vehicle:electric": "yes",
+    "name": "Varco ZTL Tridente",
+    "psv": "yes",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3141587668,
+  "lat": 41.9046513,
+  "lon": 12.4791721,
+  "tags": {
+    "bicycle": "yes",
+    "bus": "yes",
+    "direction": "forward",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "man_made": "surveillance",
+    "motor_vehicle:conditional": "private @ (Mo-Fr 06:30-19:00; Sa 10:00-19:00; PH off)",
+    "motor_vehicle:electric": "yes",
+    "name": "Varco ZTL Tridente",
+    "psv": "yes",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3141587669,
+  "lat": 41.9064961,
+  "lon": 12.4774711,
+  "tags": {
+    "bicycle": "yes",
+    "bus": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "man_made": "surveillance",
+    "motor_vehicle:conditional": "private @ (Mo-Fr 06:30-19:00; Sa 10:00-19:00; PH off)",
+    "motor_vehicle:electric": "yes",
+    "name": "Varco ZTL Tridente",
+    "psv": "yes",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3141587670,
+  "lat": 41.9097183,
+  "lon": 12.4762226,
+  "tags": {
+    "bicycle": "yes",
+    "bus": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "man_made": "surveillance",
+    "motor_vehicle:conditional": "private @ (Mo-Fr 06:30-19:00; Sa 10:00-19:00; PH off)",
+    "motor_vehicle:electric": "yes",
+    "name": "Varco ZTL Tridente",
+    "psv": "yes",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3739088577,
+  "lat": 41.8919391,
+  "lon": 12.4699110,
+  "tags": {
+    "car_sharing": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ [Nov-Apr (Mo-Th 06:30-10:00); Fr-Sa (06:30-10:00,21:30-03:00; May-Jul (Mo-Tu 06:30-10:00); We-Sa (06:30-10:00,21:30-03:00); Aug (Mo-Sa 06:30-10:00); Sep-Oct (Mo-Th 06:30-10:00; Fr-Sa 06:30-10:00,21:30-03:00)]; (Mo-Sa 06:30-10:00; PH off)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor"
+  }
+},
+{
+  "type": "node",
+  "id": 11265814469,
+  "lat": 41.8989156,
+  "lon": 12.4962376,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12789778876,
+  "lat": 41.9045412,
+  "lon": 12.4753460,
+  "tags": {
+    "car_sharing": "yes",
+    "disabled": "yes",
+    "emergency": "yes",
+    "goods": "delivery",
+    "hgv": "private",
+    "man_made": "surveillance",
+    "motorcar:conditional": "private @ (Mo-Th 06:30-18:00; Fr 06:30-18:00,23:00-03:00; Sa 14:00-19:00,23:00-03:00)",
+    "motorcycle": "yes",
+    "name": "Varco ZTL",
+    "psv": "yes",
+    "surveillance": "outdoor",
+    "taxi": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 2122456,
+  "bounds": {
+    "minlat": 41.9048618,
+    "minlon": 12.4754432,
+    "maxlat": 41.9048992,
+    "maxlon": 12.4758346
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1266998221,
+      "role": "to",
+      "lat": 41.9048618,
+      "lon": 12.4758346
+    },
+    {
+      "type": "node",
+      "ref": 166217947,
+      "role": "from",
+      "lat": 41.9048992,
+      "lon": 12.4754432
+    },
+    {
+      "type": "node",
+      "ref": 1266998227,
+      "role": "device",
+      "lat": 41.9048701,
+      "lon": 12.4756946
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2122458,
+  "bounds": {
+    "minlat": 41.9103579,
+    "minlon": 12.4751124,
+    "maxlat": 41.9104027,
+    "maxlon": 12.4753559
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 746724973,
+      "role": "to",
+      "lat": 41.9104027,
+      "lon": 12.4753559
+    },
+    {
+      "type": "node",
+      "ref": 315147600,
+      "role": "from",
+      "lat": 41.9103579,
+      "lon": 12.4751124
+    },
+    {
+      "type": "node",
+      "ref": 1706540367,
+      "role": "device",
+      "lat": 41.9103832,
+      "lon": 12.4752450
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2122467,
+  "bounds": {
+    "minlat": 41.8929414,
+    "minlon": 12.5153719,
+    "maxlat": 41.8930743,
+    "maxlon": 12.5157133
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 952405918,
+      "role": "to",
+      "lat": 41.8930743,
+      "lon": 12.5153719
+    },
+    {
+      "type": "node",
+      "ref": 253711683,
+      "role": "from",
+      "lat": 41.8929414,
+      "lon": 12.5157133
+    },
+    {
+      "type": "node",
+      "ref": 1455388913,
+      "role": "device",
+      "lat": 41.8929838,
+      "lon": 12.5156047
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL San Lorenzo",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2307423,
+  "bounds": {
+    "minlat": 41.8985913,
+    "minlon": 12.5149329,
+    "maxlat": 41.8987073,
+    "maxlon": 12.5150478
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 248532567,
+      "role": "from",
+      "lat": 41.8987073,
+      "lon": 12.5149329
+    },
+    {
+      "type": "node",
+      "ref": 1836671845,
+      "role": "device",
+      "lat": 41.8985913,
+      "lon": 12.5150478
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL San Lorenzo",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2425951,
+  "bounds": {
+    "minlat": 41.9044518,
+    "minlon": 12.4752412,
+    "maxlat": 41.9048320,
+    "maxlon": 12.4754227
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1266993828,
+      "role": "to",
+      "lat": 41.9044518,
+      "lon": 12.4753789
+    },
+    {
+      "type": "node",
+      "ref": 1166397505,
+      "role": "from",
+      "lat": 41.9048320,
+      "lon": 12.4754227
+    },
+    {
+      "type": "node",
+      "ref": 1166397507,
+      "role": "from",
+      "lat": 41.9048229,
+      "lon": 12.4752412
+    },
+    {
+      "type": "node",
+      "ref": 1923808683,
+      "role": "device",
+      "lat": 41.9045405,
+      "lon": 12.4753691
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2425962,
+  "bounds": {
+    "minlat": 41.9015502,
+    "minlon": 12.4717790,
+    "maxlat": 41.9018675,
+    "maxlon": 12.4719378
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1436615334,
+      "role": "to",
+      "lat": 41.9015502,
+      "lon": 12.4719378
+    },
+    {
+      "type": "node",
+      "ref": 1245344163,
+      "role": "device",
+      "lat": 41.9016587,
+      "lon": 12.4718664
+    },
+    {
+      "type": "node",
+      "ref": 301350728,
+      "role": "from",
+      "lat": 41.9018675,
+      "lon": 12.4717790
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL Centro Storico",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2470653,
+  "bounds": {
+    "minlat": 41.8952471,
+    "minlon": 12.4655109,
+    "maxlat": 41.8956278,
+    "maxlon": 12.4657408
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 309886900,
+      "role": "to",
+      "lat": 41.8952471,
+      "lon": 12.4657408
+    },
+    {
+      "type": "node",
+      "ref": 497364938,
+      "role": "from",
+      "lat": 41.8956278,
+      "lon": 12.4655109
+    },
+    {
+      "type": "node",
+      "ref": 1001085050,
+      "role": "device",
+      "lat": 41.8955047,
+      "lon": 12.4655364
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2550449,
+  "bounds": {
+    "minlat": 41.9020980,
+    "minlon": 12.4953585,
+    "maxlat": 41.9023130,
+    "maxlon": 12.4956520
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1603332697,
+      "role": "to",
+      "lat": 41.9020980,
+      "lon": 12.4953585
+    },
+    {
+      "type": "node",
+      "ref": 1732968336,
+      "role": "from",
+      "lat": 41.9023130,
+      "lon": 12.4956520
+    },
+    {
+      "type": "node",
+      "ref": 1233060720,
+      "role": "device",
+      "lat": 41.9021726,
+      "lon": 12.4954764
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL Centro Storico",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2550450,
+  "bounds": {
+    "minlat": 41.9020855,
+    "minlon": 12.4952863,
+    "maxlat": 41.9023172,
+    "maxlon": 12.4956248
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1732968342,
+      "role": "to",
+      "lat": 41.9020855,
+      "lon": 12.4952863
+    },
+    {
+      "type": "node",
+      "ref": 1732968303,
+      "role": "from",
+      "lat": 41.9023172,
+      "lon": 12.4956248
+    },
+    {
+      "type": "node",
+      "ref": 1603335621,
+      "role": "device",
+      "lat": 41.9021983,
+      "lon": 12.4954389
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL Centro Storico",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2550465,
+  "bounds": {
+    "minlat": 41.8986042,
+    "minlon": 12.4905396,
+    "maxlat": 41.8991436,
+    "maxlon": 12.4908193
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1995402584,
+      "role": "to",
+      "lat": 41.8991436,
+      "lon": 12.4908193
+    },
+    {
+      "type": "node",
+      "ref": 1995402536,
+      "role": "from",
+      "lat": 41.8986042,
+      "lon": 12.4906001
+    },
+    {
+      "type": "node",
+      "ref": 1995402555,
+      "role": "device",
+      "lat": 41.8988821,
+      "lon": 12.4905396
+    }
+  ],
+  "tags": {
+    "description": "rilevazione transito su corsia preferenziale non autorizzato",
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2561341,
+  "bounds": {
+    "minlat": 41.8859587,
+    "minlon": 12.4693492,
+    "maxlat": 41.8864015,
+    "maxlon": 12.4693678
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 247289355,
+      "role": "to",
+      "lat": 41.8864015,
+      "lon": 12.4693492
+    },
+    {
+      "type": "node",
+      "ref": 247289380,
+      "role": "from",
+      "lat": 41.8859587,
+      "lon": 12.4693678
+    },
+    {
+      "type": "node",
+      "ref": 2001954485,
+      "role": "device",
+      "lat": 41.8860565,
+      "lon": 12.4693653
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2561342,
+  "bounds": {
+    "minlat": 41.8859587,
+    "minlon": 12.4690615,
+    "maxlat": 41.8860279,
+    "maxlon": 12.4693678
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1640364040,
+      "role": "to",
+      "lat": 41.8860279,
+      "lon": 12.4690615
+    },
+    {
+      "type": "node",
+      "ref": 247289380,
+      "role": "from",
+      "lat": 41.8859587,
+      "lon": 12.4693678
+    },
+    {
+      "type": "node",
+      "ref": 1640364038,
+      "role": "device",
+      "lat": 41.8860024,
+      "lon": 12.4692432
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2576777,
+  "bounds": {
+    "minlat": 41.8930324,
+    "minlon": 12.4752688,
+    "maxlat": 41.8936201,
+    "maxlon": 12.4757088
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 83649810,
+      "role": "to",
+      "lat": 41.8936201,
+      "lon": 12.4757088
+    },
+    {
+      "type": "node",
+      "ref": 2015658640,
+      "role": "from",
+      "lat": 41.8930324,
+      "lon": 12.4752688
+    },
+    {
+      "type": "node",
+      "ref": 317348279,
+      "role": "device",
+      "lat": 41.8932927,
+      "lon": 12.4754405
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2684883,
+  "bounds": {
+    "minlat": 41.8996483,
+    "minlon": 12.4652172,
+    "maxlat": 41.8998704,
+    "maxlon": 12.4662554
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1233461529,
+      "role": "to",
+      "lat": 41.8996483,
+      "lon": 12.4662554
+    },
+    {
+      "type": "node",
+      "ref": 427603383,
+      "role": "from",
+      "lat": 41.8998704,
+      "lon": 12.4652172
+    },
+    {
+      "type": "node",
+      "ref": 1418810285,
+      "role": "device",
+      "lat": 41.8997107,
+      "lon": 12.4661497
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL Centro Storico",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2715687,
+  "bounds": {
+    "minlat": 41.9154716,
+    "minlon": 12.4807591,
+    "maxlat": 41.9157016,
+    "maxlon": 12.4809632
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 280135530,
+      "role": "to",
+      "lat": 41.9154716,
+      "lon": 12.4807591
+    },
+    {
+      "type": "node",
+      "ref": 2122430028,
+      "role": "from",
+      "lat": 41.9157016,
+      "lon": 12.4809632
+    },
+    {
+      "type": "node",
+      "ref": 280135528,
+      "role": "device",
+      "lat": 41.9155270,
+      "lon": 12.4808590
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2727487,
+  "bounds": {
+    "minlat": 41.8965806,
+    "minlon": 12.4870394,
+    "maxlat": 41.8967958,
+    "maxlon": 12.4872215
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 2132314012,
+      "role": "to",
+      "lat": 41.8967958,
+      "lon": 12.4872215
+    },
+    {
+      "type": "node",
+      "ref": 1233060753,
+      "role": "from",
+      "lat": 41.8965806,
+      "lon": 12.4870394
+    },
+    {
+      "type": "node",
+      "ref": 2132314011,
+      "role": "device",
+      "lat": 41.8966449,
+      "lon": 12.4871750
+    }
+  ],
+  "tags": {
+    "description": "rilevazione transito non autorizzato su corsia preferenziale",
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2802496,
+  "bounds": {
+    "minlat": 41.8842376,
+    "minlon": 12.4739407,
+    "maxlat": 41.8853776,
+    "maxlon": 12.4752796
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 2132791325,
+      "role": "to",
+      "lat": 41.8853776,
+      "lon": 12.4752796
+    },
+    {
+      "type": "node",
+      "ref": 247335153,
+      "role": "from",
+      "lat": 41.8842376,
+      "lon": 12.4740095
+    },
+    {
+      "type": "node",
+      "ref": 2142007235,
+      "role": "device",
+      "lat": 41.8843973,
+      "lon": 12.4739407
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2802503,
+  "bounds": {
+    "minlat": 41.8878121,
+    "minlon": 12.4732223,
+    "maxlat": 41.8878469,
+    "maxlon": 12.4743311
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 247334979,
+      "role": "to",
+      "lat": 41.8878121,
+      "lon": 12.4743311
+    },
+    {
+      "type": "node",
+      "ref": 1427920464,
+      "role": "from",
+      "lat": 41.8878469,
+      "lon": 12.4732223
+    },
+    {
+      "type": "node",
+      "ref": 385120537,
+      "role": "device",
+      "lat": 41.8878210,
+      "lon": 12.4734026
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2802504,
+  "bounds": {
+    "minlat": 41.8878184,
+    "minlon": 12.4718585,
+    "maxlat": 41.8879031,
+    "maxlon": 12.4729929
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 305298778,
+      "role": "to",
+      "lat": 41.8879031,
+      "lon": 12.4718585
+    },
+    {
+      "type": "node",
+      "ref": 247289228,
+      "role": "from",
+      "lat": 41.8878184,
+      "lon": 12.4729929
+    },
+    {
+      "type": "node",
+      "ref": 1119375699,
+      "role": "device",
+      "lat": 41.8878527,
+      "lon": 12.4726922
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2802514,
+  "bounds": {
+    "minlat": 41.8892669,
+    "minlon": 12.4770401,
+    "maxlat": 41.8893022,
+    "maxlon": 12.4775517
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 32649917,
+      "role": "to",
+      "lat": 41.8893022,
+      "lon": 12.4770401
+    },
+    {
+      "type": "node",
+      "ref": 305313875,
+      "role": "from",
+      "lat": 41.8892669,
+      "lon": 12.4775517
+    },
+    {
+      "type": "node",
+      "ref": 2142007238,
+      "role": "device",
+      "lat": 41.8892747,
+      "lon": 12.4774428
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2812763,
+  "bounds": {
+    "minlat": 41.9029372,
+    "minlon": 12.4858769,
+    "maxlat": 41.9031819,
+    "maxlon": 12.4867244
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 2122815996,
+      "role": "to",
+      "lat": 41.9029372,
+      "lon": 12.4858769
+    },
+    {
+      "type": "node",
+      "ref": 1245329708,
+      "role": "from",
+      "lat": 41.9031612,
+      "lon": 12.4867244
+    },
+    {
+      "type": "node",
+      "ref": 2195009060,
+      "role": "device",
+      "lat": 41.9031819,
+      "lon": 12.4866498
+    }
+  ],
+  "tags": {
+    "description": "rilevazione transito su corsia preferenziale non autorizzato",
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2827007,
+  "bounds": {
+    "minlat": 41.8965505,
+    "minlon": 12.5183315,
+    "maxlat": 41.8969304,
+    "maxlon": 12.5186928
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 255276200,
+      "role": "to",
+      "lat": 41.8969304,
+      "lon": 12.5183315
+    },
+    {
+      "type": "node",
+      "ref": 2142042253,
+      "role": "device",
+      "lat": 41.8965505,
+      "lon": 12.5186928
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "name": "Varco ZTL San Lorenzo",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 2981261,
+  "bounds": {
+    "minlat": 41.9031500,
+    "minlon": 12.4923896,
+    "maxlat": 41.9033907,
+    "maxlon": 12.4927683
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 2141788616,
+      "role": "to",
+      "lat": 41.9031500,
+      "lon": 12.4923896
+    },
+    {
+      "type": "node",
+      "ref": 269022663,
+      "role": "from",
+      "lat": 41.9033907,
+      "lon": 12.4927683
+    },
+    {
+      "type": "node",
+      "ref": 2141788538,
+      "role": "device",
+      "lat": 41.9032434,
+      "lon": 12.4925211
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "name": "Varco ZTL",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 3087272,
+  "bounds": {
+    "minlat": 41.9133985,
+    "minlon": 12.5278107,
+    "maxlat": 41.9150449,
+    "maxlon": 12.5280223
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 429979311,
+      "role": "to",
+      "lat": 41.9133985,
+      "lon": 12.5280223
+    },
+    {
+      "type": "node",
+      "ref": 248529033,
+      "role": "from",
+      "lat": 41.9150449,
+      "lon": 12.5278107
+    }
+  ],
+  "tags": {
+    "enforcement": "maxspeed",
+    "maxspeed": "70",
+    "name": "Autovelox",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 3178455,
+  "bounds": {
+    "minlat": 41.9052742,
+    "minlon": 12.4900911,
+    "maxlat": 41.9057888,
+    "maxlon": 12.4908043
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 2442843032,
+      "role": "to",
+      "lat": 41.9052742,
+      "lon": 12.4900911
+    },
+    {
+      "type": "node",
+      "ref": 1116790374,
+      "role": "from",
+      "lat": 41.9057888,
+      "lon": 12.4908043
+    },
+    {
+      "type": "node",
+      "ref": 2141788567,
+      "role": "device",
+      "lat": 41.9053420,
+      "lon": 12.4901776
+    }
+  ],
+  "tags": {
+    "check": "LEZ",
+    "enforcement": "check",
+    "name": "Varco ZTL",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 3351402,
+  "bounds": {
+    "minlat": 41.8660197,
+    "minlon": 12.4964988,
+    "maxlat": 41.8671771,
+    "maxlon": 12.4968409
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 303876714,
+      "role": "to",
+      "lat": 41.8671771,
+      "lon": 12.4964988
+    },
+    {
+      "type": "node",
+      "ref": 805802182,
+      "role": "from",
+      "lat": 41.8660197,
+      "lon": 12.4968409
+    },
+    {
+      "type": "node",
+      "ref": 2557997766,
+      "role": "device",
+      "lat": 41.8670075,
+      "lon": 12.4965978
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 3736584,
+  "bounds": {
+    "minlat": 41.8905157,
+    "minlon": 12.4938325,
+    "maxlat": 41.8906271,
+    "maxlon": 12.4942216
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 1437110257,
+      "role": "to",
+      "lat": 41.8906271,
+      "lon": 12.4938325
+    },
+    {
+      "type": "node",
+      "ref": 1365283547,
+      "role": "from",
+      "lat": 41.8905157,
+      "lon": 12.4942216
+    },
+    {
+      "type": "node",
+      "ref": 259866356,
+      "role": "device",
+      "lat": 41.8905698,
+      "lon": 12.4940283
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+},
+{
+  "type": "relation",
+  "id": 3736618,
+  "bounds": {
+    "minlat": 41.8929528,
+    "minlon": 12.4863159,
+    "maxlat": 41.8937336,
+    "maxlon": 12.4877572
+  },
+  "members": [
+    {
+      "type": "node",
+      "ref": 25388406,
+      "role": "from",
+      "lat": 41.8937336,
+      "lon": 12.4863159
+    },
+    {
+      "type": "node",
+      "ref": 1536870211,
+      "role": "to",
+      "lat": 41.8929528,
+      "lon": 12.4877572
+    },
+    {
+      "type": "node",
+      "ref": 366569122,
+      "role": "device",
+      "lat": 41.8930540,
+      "lon": 12.4875745
+    }
+  ],
+  "tags": {
+    "enforcement": "check",
+    "type": "enforcement"
+  }
+}
+
+  ]
+}
