@@ -779,16 +779,20 @@ function paintSvg(st, selId){ const C = SCOL();
     e.setAttribute("fill", c); e.setAttribute("stroke", c);
     e.setAttribute("fill-opacity", on ? .32 : big ? .04 : .13); e.setAttribute("stroke-width", on ? 5 : 2); e.setAttribute("stroke-opacity", on ? 1 : .7);
   } }
+// Zoom da cui la mappa vera mostra aree pedonali e varchi (gli stessi valori negli strati e nella legenda)
+const PED_MINZOOM = 12.5, GATE_MINZOOM = 14;
 // Legenda: i colori presenti adesso sulla mappa, più aree pedonali, varchi e il tuo posto
 function legend(st){
   const c = CITIES.find(x => x.id === drawn) || city, L = $("legend");
   const have = new Set(Object.values(st || legend.st || {}).map(v => v === "out" ? "yes" : v)); if (st) legend.st = st;
-  const key = [c.id, lang, ...[...have].sort()].join("|"); if (legend.key === key) return; legend.key = key;
+  // sulla mappa vera aree pedonali e varchi compaiono solo da vicino (minzoom degli strati): in legenda solo quando si vedono
+  const zm = ml.ready && ml.map ? ml.map.getZoom() : Infinity, showPed = zm >= PED_MINZOOM, showGate = zm >= GATE_MINZOOM;
+  const key = [c.id, lang, showPed, showGate, ...[...have].sort()].join("|"); if (legend.key === key) return; legend.key = key;
   L.innerHTML = ""; const C = SCOL();
   const item = (sw, text) => { const s = document.createElement("span"); s.innerHTML = sw; const b = document.createElement("b"); b.style.fontWeight = "inherit"; b.textContent = text; s.append(b); L.append(s); };
   for (const [v, k] of [["no", "st3"], ["cond", "lcond"], ["yes", "st1"], ["unsure", "st4"]]) if (have.has(v)) item(`<i class="sw" style="--c:${C[v]}"></i>`, t_(k));
-  if ((c.pedestrian || []).length) item(`<i class="sw ped"></i>`, t_("lped"));
-  item(`<i class="dot gate"></i>`, t_("lgate"));
+  if ((c.pedestrian || []).length && showPed) item(`<i class="sw ped"></i>`, t_("lped"));
+  if (showGate) item(`<i class="dot gate"></i>`, t_("lgate"));
   item(`<i class="dot" style="background:var(--blue)"></i>`, t_("lplace"));
 }
 svg.addEventListener("click", e => {
@@ -1209,13 +1213,14 @@ function startRealMap(style){
     map.addLayer({id:"zones-casing", type:"line", source:"zones", filter:["==", sel, true], layout:{"line-join":"round"}, paint:{"line-color": paper, "line-width": 7, "line-opacity": .9}});
     map.addLayer({id:"zones-line", type:"line", source:"zones", layout:{"line-join":"round"}, paint:{"line-color": ["get","color"], "line-width": ["case", sel, 3.5, ["get","big"], 2, 1.75], "line-opacity": ["case", sel, 1, .8]}});
     map.addSource("ped", {type:"geojson", data: pedGeo()});
-    map.addLayer({id:"ped-fill", type:"fill", source:"ped", minzoom: 12.5, paint:{"fill-color": PED, "fill-opacity": ["case", sel, .85, .4]}});
-    map.addLayer({id:"ped-line", type:"line", source:"ped", minzoom: 12.5, paint:{"line-color": PED, "line-width": ["case", sel, 3, .8], "line-opacity": .8}});
+    map.addLayer({id:"ped-fill", type:"fill", source:"ped", minzoom: PED_MINZOOM, paint:{"fill-color": PED, "fill-opacity": ["case", sel, .85, .4]}});
+    map.addLayer({id:"ped-line", type:"line", source:"ped", minzoom: PED_MINZOOM, paint:{"line-color": PED, "line-width": ["case", sel, 3, .8], "line-opacity": .8}});
     map.addSource("gates", {type:"geojson", data: gatesGeo()});
     // i varchi solo da vicino, piccoli: la vista d'insieme resta pulita
-    map.addLayer({id:"gates", type:"circle", source:"gates", minzoom: 14, paint:{"circle-radius": ["interpolate",["linear"],["zoom"],14,2.5,16,4.5,18,6], "circle-color": ink, "circle-opacity": .8, "circle-stroke-color": paper, "circle-stroke-width": 1.2}});
+    map.addLayer({id:"gates", type:"circle", source:"gates", minzoom: GATE_MINZOOM, paint:{"circle-radius": ["interpolate",["linear"],["zoom"],14,2.5,16,4.5,18,6], "circle-color": ink, "circle-opacity": .8, "circle-stroke-color": paper, "circle-stroke-width": 1.2}});
     makeLabels();
     map.on("moveend", placeLabels); map.on("zoomend", placeLabels);
+    map.on("zoom", () => legend());
     map.on("click", e => choose({name: t_("point"), lat: e.lngLat.lat, lon: e.lngLat.lng, map: true}));
     // le zone si toccano per sceglierle: il puntatore lo fa capire
     for (const l of ["zones-fill", "ped-fill"]){ map.on("mouseenter", l, () => map.getCanvas().style.cursor = "pointer"); map.on("mouseleave", l, () => map.getCanvas().style.cursor = ""); }
