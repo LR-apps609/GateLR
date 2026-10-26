@@ -1,26 +1,26 @@
 # Ravenna: fonti della scheda ZTL (bozza)
 
-Scheda generata da `Tools/build_ravenna.py` → `data/drafts/ravenna.json` (**bozza, non nell'app**: manca il perimetro e nessuna citazione è verificata sul testo ufficiale).
+Scheda generata da `Tools/build_ravenna.py` → `data/drafts/ravenna.json` (**bozza, non nell'app**). Regole e citazione **verificate** sui testi ufficiali letti il **26/10/2026** e salvati in `data/raw/ravenna/` (URL e data in testa a ogni file). **Manca solo il perimetro** (sotto).
 
-## Perché è una bozza
-Il 26/10/2026 dal sandbox comune.ravenna.it, www.comune.ra.it, azimut-spa.it, i server Overpass, api.openstreetmap.org e i portali open data regionali erano rifiutati dal proxy (403, host non consentito per la sessione); WebFetch non li risolveva. Il workflow «Scarica pagine» **non** è stato usato perché aggirerebbe il blocco di rete della sessione (vietato dall'incarico). Su www.dati.gov.it (CKAN, raggiungibile) nessun dataset ZTL per Ravenna.
+## Zona (bozza)
+**Ravenna · ZTL Centro storico** (`ravenna-ztl`, `pass`): 0–24 tutti i giorni per tutta la zona (prudenziale), ticket 15 € `beforeEntry`.
 
-Ogni regola viene dai **riassunti della ricerca web** salvati in `data/raw/ravenna/websearch-*.txt` (non testo letterale), che indicano le pagine ufficiali. `quote` è `null`; lo script controlla che ogni fatto usato sia nei file salvati.
+Citazione (pagina «SIRIO – Controllo accessi in ZTL», https://comune.ravenna.it/altro-contenuto/sirio-controllo-accessi-in-ztl/, ufficiale, «Pagina aggiornata il 30/07/2025»): «Attraverso una rete di telecamere, le targhe dei veicoli che accedono attraverso i “varchi” vengono riconosciute e confrontate con la lista delle targhe dei veicoli abilitati al transito».
 
-## Fatti usati
+| Fatto | Fonte | Tipo |
+|---|---|---|
+| Varchi 24 ore su 24: via di Roma, via G. Guaccimanni, via A. Baccarini, via N. Rondinelli, via Cavour (ingresso piazzetta Gandhi), via Ponte Marino; dalle 07.30 alle 20.30: via A. Mariani, via Ar. Guerrini, via P. Matteucci | pagina SIRIO → `comune-sirio-controllo-accessi-ztl.txt` | ufficiale |
+| Contrassegno giornaliero rilasciato 24 ore su 24 dai parcometri abilitati, veicoli ≤ 5 t; valido 00.00–23.59; ufficio via D'Alaggio 3, lun–ven 9–12:30 | pagina SIRIO | ufficiale |
+| Mezza giornata 8 € (0–12 o 12–24), dal 1° marzo 2026 | https://comune.ravenna.it/novita/comunicato-stampa/in-seguito-agli-incontri-pubblici-approvata-la-modifica-alla-delibera-del-piano-che-disciplina-circolazione-e-sosta-nel-comune-di-ravenna/ → `comune-comunicato-piano-sosta-2026.txt` | ufficiale |
+| Giornaliero 15 €, mattiniero 8 €, pomeridiano 8 €; 12 parcometri (elenco); monete senza resto o carta; sosta max 90 minuti con disco, mai in Piazza del Popolo e aree pedonali; esporre sul cruscotto | https://www.azimut-spa.it/ita/Servizi/Sosta/Permessi-giornalieri-ZTL → `azimut-permessi-giornalieri-ztl.txt` | ufficiale (gestore della sosta) |
+| Strutture ricettive: trasmissione della modulistica per i clienti con auto, «inserimento alla data della comunicazione», gratis; disabili: modulo targhe (max 2) | https://comune.ravenna.it/servizi/autorizzazioni/comunicazione-targhe-di-veicoli-abilitati-a-circolare-in-zona-a-traffico-limitato-di-ravenna-sirio/ (aggiornata il 15/09/2026) | ufficiale |
+| Contrassegni giornalieri per i clienti delle strutture in ZTL (blocchi da 50), validi nel solo giorno di rilascio | Determina E 2/4 del 13/03/2006 → `determina-e2-4-2006-contrassegni-ztl.txt` | ufficiale, datata |
 
-| Fatto | Pagina indicata dalla ricerca | Tipo | Letto il |
-|---|---|---|---|
-| Sistema SIRIO dal 2007; varchi 24 ore su 24: via di Roma, via Guaccimanni, via Baccarini, via Rondinelli, via Cavour (da piazzetta Gandhi), via Ponte Marino; varchi 7:30–20:30: via Mariani, via Guerrini, via Matteucci | https://comune.ravenna.it/altro-contenuto/sirio-controllo-accessi-in-ztl/ | ufficiale (via riassunto) | 26/10/2026 |
-| Via Ponte Marino 7:30–20:30 (contrasto con il Comune) | https://www.accessibilitacentristorici.it/ztl/emilia-romagna/ravenna.html | non ufficiale | 26/10/2026 |
-| Il Comune non dice in quali giorni valgono le fasce 7:30–20:30 | https://www.autovia.it/ztl-ravenna-guida-completa/ | non ufficiale | 26/10/2026 |
-| Permesso giornaliero ai parcometri abilitati, 24 ore su 24, veicoli fino a 5 t; ufficio permessi via D'Alaggio 3, tel. 0544 482937, lun–ven 9–12:30 | pagina ZTL del Comune; https://www.azimut-spa.it/ita/Servizi/Sosta/Permessi-giornalieri-ZTL | ufficiale (via riassunto) | 26/10/2026 |
-| Dal 1° marzo 2026: giornaliero 15 €, mezza giornata 8 € (0–12 o 12–24) | https://comune.ravenna.it/novita/comunicato-stampa/in-seguito-agli-incontri-pubblici-approvata-la-modifica-alla-delibera-del-piano-che-disciplina-circolazione-e-sosta-nel-comune-di-ravenna/ ; Resto del Carlino; Teleromagna | ufficiale (via riassunto) + stampa | 26/10/2026 |
-| Hotel: la struttura comunica la targa (SIRIO, contrassegno tipo H); invio preventivo o entro cinque giorni dall'accesso (pagina Rapida, datata); servizio gratuito | https://comune.ravenna.it/servizi/autorizzazioni/comunicazione-targhe-di-veicoli-abilitati-a-circolare-in-zona-a-traffico-limitato-di-ravenna-sirio/ ; http://www.rapida.comune.ra.it/Impresa/Permessi-di-circolazione/Contrassegno-tipo-H-Strutture-Ricettive-Z.T.L | ufficiale (via riassunto) | 26/10/2026 |
-| Disabili: modulo comunicazione targhe persone invalide (29/04/2026) | https://comune.ravenna.it/amministrazione/documenti-e-dati/modulistica/modulo-comunicazione-targhe-persone-invalide-accesso-sirio-ztl/ | ufficiale (via riassunto) | 26/10/2026 |
-| Elettriche/ibride non esenti | autovia.it | **confermato solo da** guida non ufficiale | 26/10/2026 |
+La regola dei «cinque giorni» della vecchia pagina Rapida non è più citata (non c'è nelle pagine attuali). Elettriche: nessuna esenzione nelle pagine ufficiali → `exemptFuels: []`. Patrono Sant'Apollinare (23 luglio): non serve con 0–24.
 
-Scelte: `kind: pass` con ticket 15 € (`deadline: beforeEntry`, prudenziale); finestra 0–24 tutti i giorni per tutta la zona (i varchi 7:30–20:30 sono nei pending); `freeOnHolidays: false`. Patrono Sant'Apollinare (23 luglio): non serve in `localHolidays` perché la regola non esclude i festivi.
+## Perché resta bozza: geometria
+- Nessun perimetro ufficiale in open data (dati.gov.it: nessun dataset ZTL per Ravenna).
+- La «Piantina stradale con varchi Sirio» (https://comune.ravenna.it/wp-content/uploads/2025/07/Piantina-stradale-con-varchi-Sirio.pdf) è un'immagine senza coordinate.
+- OpenStreetMap non raggiungibile dal sandbox il 26/10/2026 (overpass-api.de, mirror e kumi: connessione chiusa; api.openstreetmap.org: rifiutato dal proxy).
 
-## Geometria
-Nessun perimetro ufficiale in open data su dati.gov.it. Da fare quando la rete lo consente: relazione OSM della ZTL con il nome ufficiale o strade dell'elenco ufficiale (osm_geo.street_area), varchi sui nodi OSM delle vie elencate sopra; salvare in `data/raw/ravenna/ztl_perimetro.geojson` e rilanciare lo script.
+Per pubblicare: scaricare da OSM la relazione della ZTL o le strade del centro, ricavare il perimetro dai 9 varchi ufficiali (metodo di `Tools/build_perugia.py`) o dalla relazione con il nome ufficiale, salvarlo in `data/raw/ravenna/ztl_perimetro.geojson` e rilanciare lo script: passa da solo in `Resources/Cities/`.
