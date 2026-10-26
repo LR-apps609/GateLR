@@ -4,11 +4,11 @@
 # Sources/Intro2/IntroGeo.swift e si prepara Resources/Intro/firenze-edifici.geojson (Tools/intro_buildings.py).
 # Gira su GitHub (workflow intro-routes.yml), il risultato va nel ramo «intro-routes».
 #
-# La scena (1.15.1): l'auto parte dal viale Lavagnini (fuori dalla ZTL) e va a un ristorante in via Gioberti, appena fuori
-# dalla ZTL dall'altra parte, vicino a piazza Beccaria.
-#  1. «La strada più diretta»: dentro dal varco di via Cavour, attraverso il Settore B, fuori a piazza Beccaria
-#  2. «Con GateLR»: intorno lungo i viali (Matteotti, Gramsci), sempre fuori da ogni ZTL
-#  3. «Oppure parcheggia vicino»: fino al Parcheggio Beccaria (OSM way/231098032), poi a piedi
+# La scena (1.15.2): un ristorante DENTRO la ZTL (via Verdi, vicino a Santa Croce) e il Parcheggio Beccaria FUORI.
+#  1. «La strada più diretta»: dalla partenza dritto al ristorante, dentro dal varco → verbale
+#  2. «Con GateLR»: fino al Parcheggio Beccaria (OSM way/231098032), sempre fuori dalla ZTL
+#  3. a piedi dal parcheggio al ristorante
+# Si provano più partenze dall'altra parte del centro, per scegliere quella in cui la strada dritta è davvero la più corta.
 import json, math, sys, time, urllib.parse, urllib.request
 from pathlib import Path
 
@@ -80,26 +80,22 @@ def check(r):
     r["gates"] = sorted({g[0] for g in gates for p in pts if meters(p, (g[1], g[2])) < 25})
 
 
-start = (43.782961, 11.257894)       # viale Lavagnini, fuori dalla ZTL
-cavour = (43.78305, 11.262289)       # varco di via Cavour (ptm-9)
+starts = {"lavagnini": (43.782961, 11.257894), "strozzi": (43.78345, 11.24960), "prato": (43.77720, 11.23900),
+          "belfiore": (43.78100, 11.24200)}
+gates_w = {"cavour": (43.78305, 11.262289), "guelfa": (43.777767, 11.254444), "scala": (43.774943, 11.24642),
+           "ruote": (43.781448, 11.256587)}
 beccaria = (43.769894, 11.270761)    # Parcheggio Beccaria, sotterraneo (OSM way/231098032)
-dest = {"gioberti1": (43.76955, 11.2738), "gioberti2": (43.7693, 11.2750), "gioberti3": (43.76965, 11.2728)}
-w = {"sanmarco": (43.7779, 11.2590), "alfani": (43.7763, 11.2608), "pilastri": (43.7728, 11.2632),
-     "pinti": (43.7735, 11.2640), "ghibellina": (43.7700, 11.2690), "borgocroce": (43.7712, 11.2680),
-     "matteotti": (43.7806, 11.2665), "gramsci": (43.7745, 11.2716), "piazzabeccaria": (43.7697, 11.2712)}
+dest = {"verdi": (43.7700, 11.2610), "albizi": (43.7708, 11.2580), "sanpier": (43.7710, 11.2595)}
 
-out = {"direct": {}, "around": {}, "parking": {}, "walk": {}}
+out = {"direct": {}, "parking": {}, "walk": {}}
+for sn, s0 in starts.items():
+    for dn, d in dest.items():
+        out["direct"][f"{sn}>{dn}"] = route([s0, d]); time.sleep(1.1)
+        for gn, g in gates_w.items():
+            out["direct"][f"{sn}>{gn}>{dn}"] = route([s0, g, d]); time.sleep(1.1)
+    out["parking"][sn] = route([s0, beccaria]); time.sleep(1.1)
 for dn, d in dest.items():
-    for name, via in {"cav": [], "cav-ghib": ["ghibellina"], "cav-pil-ghib": ["pilastri", "ghibellina"],
-                      "cav-alf-pil-ghib": ["alfani", "pilastri", "ghibellina"], "cav-pil-croce": ["pilastri", "borgocroce"],
-                      "cav-pinti": ["pinti"], "cav-sm-pil": ["sanmarco", "pilastri"]}.items():
-        out["direct"][f"{dn}:{name}"] = route([start, cavour] + [w[v] for v in via] + [d]); time.sleep(1.1)
-    for name, via in {"plain": [], "gramsci": ["gramsci"], "matt-gramsci": ["matteotti", "gramsci"],
-                      "matt-gramsci-becc": ["matteotti", "gramsci", "piazzabeccaria"]}.items():
-        out["around"][f"{dn}:{name}"] = route([start] + [w[v] for v in via] + [d]); time.sleep(1.1)
     out["walk"][dn] = route([beccaria, d], "foot"); time.sleep(1.1)
-for name, via in {"plain": [], "gramsci": ["gramsci"], "matt-gramsci": ["matteotti", "gramsci"]}.items():
-    out["parking"][name] = route([start] + [w[v] for v in via] + [beccaria]); time.sleep(1.1)
 for group in out.values():
     for r in group.values():
         check(r)
