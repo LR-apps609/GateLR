@@ -17,9 +17,12 @@ LANGS = ["en", "it", "de"]
 OG_LOCALE = {"en": "en_GB", "it": "it_IT", "de": "de_DE"}
 ORDER = [2, 3, 4, 5, 6, 7, 1]                           # lun … dom (1 = domenica, come l'app)
 
-cities = [json.loads(f.read_text(encoding="utf-8")) for f in sorted((ROOT / "Resources/Cities").glob("*.json")) if f.stem != "manifest"]
+# le città, nell'ordine del manifest dell'app (Resources/Cities/manifest.json): numero ed elenco del sito vengono da qui
+MANIFEST = json.loads((ROOT / "Resources/Cities/manifest.json").read_text(encoding="utf-8"))
+cities = [json.loads((ROOT / "Resources/Cities" / m["file"]).read_text(encoding="utf-8")) for m in MANIFEST["cities"]]
 fine = json.loads(FINE_FILE.read_text(encoding="utf-8")) if FINE_FILE.exists() else None
-template = (WEB / "template.html").read_text(encoding="utf-8")
+# {{N}} nei testi del modello = numero di città (calcolato qui, mai scritto a mano)
+template = (WEB / "template.html").read_text(encoding="utf-8").replace("{{N}}", str(len(cities)))
 esc = lambda s: html.escape(str(s), quote=True)
 ld = lambda o: '<script type="application/ld+json">' + json.dumps(o, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/") + "</script>"
 prefix = lambda l: "" if l == "en" else l + "/"
@@ -100,13 +103,15 @@ def build_home(lang):
         {"@type": "WebSite", "@id": SITE + "#site", "name": "GateLR", "url": SITE, "inLanguage": LANGS, "description": T["en"]["desc"]},
         {"@type": "SoftwareApplication", "name": "GateLR", "operatingSystem": "iOS, Android", "applicationCategory": "TravelApplication",
          "url": SITE + prefix(lang) + "#app", "description": t["appP"], "inLanguage": lang,
-         "featureList": [t["app1"], t["app2"], t["app3"], t["app4"]]},
-        faq([(t[f"q{i}"], t[f"a{i}"]) for i in range(1, 5)]),
+         "featureList": [t[f"f{i}T"].strip("«»") + ": " + t[f"f{i}P"] for i in range(1, 13) if f"f{i}T" in t]},
+        faq([(t[f"q{i}"], t[f"a{i}"]) for i in range(1, 10) if f"q{i}" in t]),
     ]
     page = template.replace("<!--HEAD-->", head(lang, t["title"], t["desc"], HOME_ALT[lang], HOME_ALT, root, graph))
     page = (page.replace("{{LANG}}", lang).replace("{{ROOT}}", root).replace("{{LP}}", prefix(lang))
                 .replace("{{PAGELANG}}", "" if lang == "en" else lang))
     page = page.replace("/*CITIES*/", CITIES_JSON).replace("/*FINE*/null", FINE_JSON)
+    links = sorted(cities, key=lambda c: city_name(c, lang))
+    page = page.replace("<!--CITYLINKS-->", "".join(f'<a data-city="{c["id"]}" href="{root}{prefix(lang)}{c["id"]}/">{esc(city_name(c, lang))}</a>' for c in links))
     page = prerender(page, lang)
     out = WEB / prefix(lang) / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
