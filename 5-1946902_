@@ -1,0 +1,130 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="it" class="no-js">
+<!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Determina N. 65 di Registro per le Ordinanze del 30/04/2026</title>
+
+	<link rel="shortcut icon" href="/AttiVisualizzatore/static/images/faviconBlu.ico" type="image/x-icon" />
+	
+	<link rel="stylesheet" href="/AttiVisualizzatore/static/css/bootstrap.min.css" 	type="text/css" />
+	<link rel="stylesheet" href="/AttiVisualizzatore/static/css/datepicker.css" 		type="text/css" />
+	<link rel="stylesheet" href="/AttiVisualizzatore/static/css/visualizzatore.css" 	type="text/css" />
+	<link rel="stylesheet" href="/AttiVisualizzatore/static/css/custom.css" 			type="text/css" />
+
+	<!--[if lt IE 9]>
+      <script src="/AttiVisualizzatore/static/js/html5shiv.min.js"></script>
+      <script src="/AttiVisualizzatore/static/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1 logo visible-lg hidden-md hidden-xs hidden-sm">
+				<img src="/AttiVisualizzatore/static/images/visualizzatore/logo.png" alt="Gruppo Finmatica" />
+			</div>
+			<div class="col-md-10 col-md-offset-1 hidden-lg visible-md visible-xs visible-sm">
+				<img src="/AttiVisualizzatore/static/images/visualizzatore/logo-mini.png" width="100%" alt="Gruppo Finmatica" onerror="this.src = '/AttiVisualizzatore/static/images/visualizzatore/logo.png'"/>
+			</div>
+		</div>
+		<div class="row main-content">
+				<div class="col-md-2 col-md-offset-1">
+					<ul class="nav nav-pills nav-stacked menu">
+						<li class="">
+										<a href="/AttiVisualizzatore/visualizzatore/ricercaDelibere">
+											Deliberazioni</a>
+									</li>
+								<li class="active">
+										<a href="/AttiVisualizzatore/visualizzatore/ricercaDetermine">
+											Determinazioni</a>
+									</li>
+								</ul>
+					</div>
+				<div class="col-md-8">
+					<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="titoloDettaglioAtto">
+						Determina N. 65 di Registro per le Ordinanze del 30/04/2026</h2>
+							
+					<dl class="dl-horizontal">
+						<dt>Oggetto</dt>
+						<dd class="labelAttoADS">ATTIVAZIONE DEI VARCHI PER IL  SISTEMA DI CONTROLLO AUTOMATIZZATO DEGLI ACCESSI DEI VEICOLI  NELLA ZTL  DEL CENTRO STORICO DEL COMUNE DI SAN GIMIGNANO - TERMINE FASE DI PRE-ESERCIZIO E AVVIO FASE ORDINARIA </dd>
+						
+						<dt>Proposta da</dt>
+						<dd class="labelAttoADS">SETTORE POLIZIA MUNICIPALE</dd>  	
+									
+						<dt>Esecutiva il</dt>
+						<dd class="labelAttoADS">30/04/2026</dd>
+						
+						<dt>Pubblicata dal</dt>
+						<dd class="labelAttoADS">
+					  		Pubblicata dal 30/04/2026 al 15/05/2026</dd>
+						<dt>Testo</dt>
+						<dd class="labelAttoADS">
+							<a target="_blank" href="/AttiVisualizzatore/download/determina/1946902?fId=1950908">
+										<img src="/AttiVisualizzatore/static/images/agsde2/16x16/pdf.png" alt="Copia informatica ad uso amministrativo"/>
+									</a>
+								<a target="_blank" href="/AttiVisualizzatore/download/determina/1946902?fId=1946913">
+												<img src="/AttiVisualizzatore/static/images/agsde2/16x16/testo_firmato.png" alt="Testo firmato digitalmente"/>
+											</a>
+										<a target="_blank" href="/AttiVisualizzatore/download/determina/1946902?fId=1946913&amp;sbustato=true">
+											<img src="/AttiVisualizzatore/static/images/agsde2/16x16/logo_determina_16.png" alt="Testo Atto"/>
+										</a>
+									</dd>
+					</dl>
+					
+					<table class="table table-bordered">
+			<caption class="muted" style="text-align: left;"></caption> <!-- necessario per l'accessibilita -->
+				<thead>
+					<tr>
+						<th class="oggetto">Descrizione</th>
+						<th class="download-file">File</th>
+					</tr>
+			</thead>
+			<tbody>
+				<tr class="">
+						<td>
+							DISCIPLINARE PER IL RILASCIO DELLE AUTORIZZAZIONI DI ACCESSO E CIRCOLAZIONE NELLA ZONA A TRAFFICO LIMITATO DEL CENTRO STORICO DI SAN GIMIGNANO</td>
+						<td>
+							<a target="_blank" href="/AttiVisualizzatore/download/allegato/1949734?fId=1949738">
+												<img src="/AttiVisualizzatore/static/images/agsde2/16x16/testo_firmato.png" alt="File allegatoegato firmato digitalmente" title="File allegato firmato digitalmente"/>
+											</a>
+										<a target="_blank" href="/AttiVisualizzatore/download/allegato/1949734?fId=1949738&amp;sbustato=true">
+											<img src="/AttiVisualizzatore/static/images/agsde2/16x16/pdf.png" alt="Copia informatica ad uso amministrativo del file allegato" title="Copia informatica ad uso amministrativo del file allegato"/>
+										</a>
+									Disciplinare_def_ZTL 12 marzo 2026.pdf.p7m<br/>
+								</td>
+					</tr>
+				</tbody>
+		</table>
+	</div>
+			</div>
+		</div>
+    </div>
+			</div>
+
+	<div class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+					<p>
+						<a href="http://www.ads.it" target="_blank">Gruppo Finmatica</a> - Tutti i diritti riservati </p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="/AttiVisualizzatore/static/js/jquery.min.js"></script>
+	<script src="/AttiVisualizzatore/static/js/bootstrap.min.js"></script>
+	<script src="/AttiVisualizzatore/static/js/datepicker.js"></script>
+	<script type="text/javascript">$('.datepicker').datepicker({weekStart: 1}).on('changeDate', function(ev){$(this).datepicker('hide');})</script>
+</body>
+</html>

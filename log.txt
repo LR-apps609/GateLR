@@ -1,0 +1,15 @@
+1 200 7785738 https://cloud-ita.municipiumapp.it/s3/6203/allegati/polizia-municipale/nuova-ztl/brochure-ztl_aprile-2026.pdf -> 1-brochure-ztl_aprile-2026.pdf_
+2 200 424650 https://visualizzatore.comune.sangimignano.si.it/AttiVisualizzatore/download/allegato/1919896?fId=1931869&sbustato=true -> 2-1919896_
+3 200 2047819 https://cloud-ita.municipiumapp.it/s3/6203/allegati/polizia-municipale/nuova-ztl/ztl-planimetria.pdf -> 3-ztl-planimetria.pdf_
+4 200 315411 https://san-gimignano-api.cloud.municipiumapp.it/s3/6203/allegati/ufficio-stampa/cs-nuova-ztl-da-1-maggio.pdf -> 4-cs-nuova-ztl-da-1-maggio.pdf_
+5 200 5924 https://visualizzatore.comune.sangimignano.si.it/AttiVisualizzatore/visualizza/determina/1946902 -> 5-1946902_
+6 410 80852 https://www.comune.sangimignano.si.it/it/news/san-gimignano-da-venerdi-1-maggio-entra-in-vigore-la-nuova-ztl -> 6-san-gimignano-da-venerdi-1-maggio-entra-in-vigore-la-nuova-ztl_
+7 200 361113 https://visualizzatore.comune.sangimignano.si.it/AttiVisualizzatore/download/allegato/1774873?fId=1777485&sbustato=true -> 7-1774873_
+8 200 339550 https://cloud-ita.municipiumapp.it/s3/6203/allegati/comununicato-stampa-ztl.pdf -> 8-comununicato-stampa-ztl.pdf_
+9 200 0 https://san-gimignano-api.municipiumapp.it/s3/6203/allegati/polizia-municipale/nuova-ztl/brochure-ztl-comune-di-san-gimignano.pdf -> 9-brochure-ztl-comune-di-san-gimignano.pdf_
+10 200 37760 https://www.informagiovani-italia.com/dove-pargheggiare-san-gimignano.htm -> 10-dove-pargheggiare-san-gimignano.htm_
+11 200 71730 https://guidasiena.com/blog/come-arrivare-san-gimignano/ -> 11-come-arrivare-san-gimignano_
+12 404 80741 https://www.comune.sangimignano.si.it/it/page/parcheggi-a-san-gimignano -> 12-parcheggi-a-san-gimignano_
+13 404 236 https://www.sangimignano.com/it/scopri-san-gimignano/come-arrivare.htm -> 13-come-arrivare.htm_
+14 200 106167 https://www.comune.sangimignano.si.it/it/topics/ztl -> 14-ztl_
+15 200 99141 https://tyremap.com/emission-zones/san-gimignano/ -> 15-san-gimignano_
