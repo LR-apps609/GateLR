@@ -1,0 +1,913 @@
+{
+"note": "Estratto da api.openstreetmap.org/api/0.6/map (16 riquadri sul centro storico, 26/10/2026, via workflow Scarica pagine palermo-7). (c) OpenStreetMap contributors, ODbL 1.0",
+"elements": [
+{
+"type": "way",
+"id": 24800852,
+"tags": {
+"access": "no",
+"bicycle": "yes",
+"cycleway:right": "no",
+"foot": "yes",
+"highway": "pedestrian",
+"lit": "yes",
+"motor_vehicle": "no",
+"name": "Via Vittorio Emanuele",
+"oneway": "no",
+"smoothness": "good",
+"surface": "asphalt"
+},
+"geometry": [
+{
+"lat": 38.1139019,
+"lon": 13.3570829
+},
+{
+"lat": 38.113921,
+"lon": 13.3571304
+},
+{
+"lat": 38.1140218,
+"lon": 13.357381
+},
+{
+"lat": 38.1141234,
+"lon": 13.3576334
+}
+]
+},
+{
+"type": "way",
+"id": 82605003,
+"tags": {
+"bicycle": "no",
+"cycleway:both": "no",
+"highway": "pedestrian",
+"lane_markings": "no",
+"lit": "yes",
+"motor_vehicle": "permit",
+"name": "Via Vittorio Emanuele",
+"note:zone": "This road is inside the 'ZTL Centrale'",
+"oneway": "no",
+"surface": "asphalt",
+"vehicle": "permit",
+"vehicle:conditional": "yes @ (Mo-Th 08:00-20:00; May 01-Oct 31 Fr 08:00-24:00; May 01-Oct 31 Sa 00:00-06:00,20:00-24:00; May 01-Oct 31 Su 00:00-06:00; Nov 01-Apr 30 Fr 08:00-20:00,23:00-24:00; Nov 01-Apr 30 Sa 00:00-06:00,23:00-24:00; Nov 01-Apr 30 Su 00:00-06:00)"
+},
+"geometry": [
+{
+"lat": 38.1165432,
+"lon": 13.3635876
+},
+{
+"lat": 38.1164511,
+"lon": 13.3633587
+},
+{
+"lat": 38.1162684,
+"lon": 13.36291
+},
+{
+"lat": 38.1161413,
+"lon": 13.3625977
+},
+{
+"lat": 38.1160213,
+"lon": 13.362303
+},
+{
+"lat": 38.1160113,
+"lon": 13.3622784
+},
+{
+"lat": 38.1158574,
+"lon": 13.3619004
+},
+{
+"lat": 38.1158404,
+"lon": 13.3618587
+},
+{
+"lat": 38.1157364,
+"lon": 13.3616033
+},
+{
+"lat": 38.1156801,
+"lon": 13.361465
+}
+]
+},
+{
+"type": "way",
+"id": 86273382,
+"tags": {
+"cycleway:both": "no",
+"highway": "pedestrian",
+"lane_markings": "no",
+"lit": "yes",
+"motor_vehicle": "permit",
+"name": "Via Vittorio Emanuele",
+"note:zone": "This road is inside the 'ZTL Centrale'",
+"surface": "asphalt",
+"vehicle": "permit",
+"vehicle:conditional": "yes @ (Mo-Th 08:00-20:00; May 01-Oct 31 Fr 08:00-24:00; May 01-Oct 31 Sa 00:00-06:00,20:00-24:00; May 01-Oct 31 Su 00:00-06:00; Nov 01-Apr 30 Fr 08:00-20:00,23:00-24:00; Nov 01-Apr 30 Sa 00:00-06:00,23:00-24:00; Nov 01-Apr 30 Su 00:00-06:00)"
+},
+"geometry": [
+{
+"lat": 38.1167455,
+"lon": 13.3640646
+},
+{
+"lat": 38.116793,
+"lon": 13.3641842
+},
+{
+"lat": 38.1169176,
+"lon": 13.3644899
+},
+{
+"lat": 38.1169383,
+"lon": 13.3645408
+},
+{
+"lat": 38.1171434,
+"lon": 13.3650483
+},
+{
+"lat": 38.1171961,
+"lon": 13.3651783
+},
+{
+"lat": 38.1172918,
+"lon": 13.3654143
+},
+{
+"lat": 38.1176256,
+"lon": 13.3662374
+},
+{
+"lat": 38.1177434,
+"lon": 13.3665279
+},
+{
+"lat": 38.1178472,
+"lon": 13.3667838
+},
+{
+"lat": 38.1179721,
+"lon": 13.367092
+}
+]
+},
+{
+"type": "way",
+"id": 86273383,
+"tags": {
+"bicycle": "no",
+"highway": "pedestrian",
+"lit": "yes",
+"name": "Via Maqueda",
+"note:zone": "This road is inside the 'ZTL Centrale'",
+"oneway": "yes",
+"smoothness": "good",
+"surface": "asphalt",
+"vehicle": "permit",
+"vehicle:conditional": "yes @ (Mo-Th 08:00-20:00; May 01-Oct 31 Fr 08:00-24:00; May 01-Oct 31 Sa 00:00-06:00,20:00-24:00; May 01-Oct 31 Su 00:00-06:00; Nov 01-Apr 30 Fr 08:00-20:00,23:00-24:00; Nov 01-Apr 30 Sa 00:00-06:00,23:00-24:00; Nov 01-Apr 30 Su 00:00-06:00)",
+"wikidata": "Q4010658",
+"wikipedia": "it:Via Maqueda"
+},
+"geometry": [
+{
+"lat": 38.1212302,
+"lon": 13.3578714
+},
+{
+"lat": 38.1211269,
+"lon": 13.357944
+},
+{
+"lat": 38.1210263,
+"lon": 13.3580147
+},
+{
+"lat": 38.1209032,
+"lon": 13.3580939
+},
+{
+"lat": 38.1207358,
+"lon": 13.3582016
+},
+{
+"lat": 38.120507,
+"lon": 13.3583488
+},
+{
+"lat": 38.1201568,
+"lon": 13.3585741
+},
+{
+"lat": 38.1200727,
+"lon": 13.3586282
+},
+{
+"lat": 38.1200557,
+"lon": 13.3586392
+},
+{
+"lat": 38.1197261,
+"lon": 13.3588512
+},
+{
+"lat": 38.1197025,
+"lon": 13.3588664
+},
+{
+"lat": 38.1196818,
+"lon": 13.3588798
+},
+{
+"lat": 38.119151,
+"lon": 13.3592212
+},
+{
+"lat": 38.11912,
+"lon": 13.3592412
+},
+{
+"lat": 38.1183937,
+"lon": 13.3597085
+},
+{
+"lat": 38.1182359,
+"lon": 13.3598108
+},
+{
+"lat": 38.1180183,
+"lon": 13.359952
+},
+{
+"lat": 38.1178455,
+"lon": 13.3600641
+},
+{
+"lat": 38.1176528,
+"lon": 13.3601852
+},
+{
+"lat": 38.1174672,
+"lon": 13.3603045
+},
+{
+"lat": 38.1174203,
+"lon": 13.3603347
+},
+{
+"lat": 38.1172063,
+"lon": 13.3604724
+},
+{
+"lat": 38.1171807,
+"lon": 13.3604889
+},
+{
+"lat": 38.1168623,
+"lon": 13.3606937
+},
+{
+"lat": 38.1157932,
+"lon": 13.3613912
+},
+{
+"lat": 38.1156801,
+"lon": 13.361465
+}
+]
+},
+{
+"type": "way",
+"id": 86273384,
+"tags": {
+"cycleway:both": "no",
+"highway": "pedestrian",
+"lane_markings": "no",
+"lit": "yes",
+"motor_vehicle": "permit",
+"name": "Via Vittorio Emanuele",
+"note:zone": "This road is inside the 'ZTL Centrale'",
+"oneway": "yes",
+"surface": "asphalt",
+"vehicle": "permit",
+"vehicle:conditional": "yes @ (Mo-Th 08:00-20:00; May 01-Oct 31 Fr 08:00-24:00; May 01-Oct 31 Sa 00:00-06:00,20:00-24:00; May 01-Oct 31 Su 00:00-06:00; Nov 01-Apr 30 Fr 08:00-20:00,23:00-24:00; Nov 01-Apr 30 Sa 00:00-06:00,23:00-24:00; Nov 01-Apr 30 Su 00:00-06:00)"
+},
+"geometry": [
+{
+"lat": 38.1167281,
+"lon": 13.3640206
+},
+{
+"lat": 38.1165711,
+"lon": 13.3636518
+},
+{
+"lat": 38.1165432,
+"lon": 13.3635876
+}
+]
+},
+{
+"type": "way",
+"id": 96929471,
+"tags": {
+"highway": "pedestrian",
+"lit": "yes",
+"maxspeed": "10",
+"name": "Via Maqueda",
+"note:zone": "This road is inside the 'ZTL Centrale'",
+"oneway": "yes",
+"smoothness": "good",
+"surface": "asphalt",
+"vehicle": "permit",
+"vehicle:conditional": "yes @ (Mo-Th 08:00-20:00; May 01-Oct 31 Fr 08:00-24:00; May 01-Oct 31 Sa 00:00-06:00,20:00-24:00; May 01-Oct 31 Su 00:00-06:00; Nov 01-Apr 30 Fr 08:00-20:00,23:00-24:00; Nov 01-Apr 30 Sa 00:00-06:00,23:00-24:00; Nov 01-Apr 30 Su 00:00-06:00)",
+"wikipedia": "it:Via Maqueda"
+},
+"geometry": [
+{
+"lat": 38.1100323,
+"lon": 13.3651143
+},
+{
+"lat": 38.1101426,
+"lon": 13.365043
+},
+{
+"lat": 38.1101529,
+"lon": 13.3650364
+},
+{
+"lat": 38.1106605,
+"lon": 13.3647084
+},
+{
+"lat": 38.1108683,
+"lon": 13.3645742
+},
+{
+"lat": 38.1109144,
+"lon": 13.3645444
+},
+{
+"lat": 38.1109665,
+"lon": 13.3645107
+},
+{
+"lat": 38.1110578,
+"lon": 13.3644517
+},
+{
+"lat": 38.1111335,
+"lon": 13.3644028
+},
+{
+"lat": 38.1112399,
+"lon": 13.364334
+},
+{
+"lat": 38.1112671,
+"lon": 13.3643165
+},
+{
+"lat": 38.1113843,
+"lon": 13.3642407
+},
+{
+"lat": 38.1116663,
+"lon": 13.3640585
+},
+{
+"lat": 38.1118492,
+"lon": 13.3639404
+},
+{
+"lat": 38.1125192,
+"lon": 13.3635071
+},
+{
+"lat": 38.1125313,
+"lon": 13.3634996
+},
+{
+"lat": 38.112965,
+"lon": 13.3632194
+},
+{
+"lat": 38.1130084,
+"lon": 13.3631913
+},
+{
+"lat": 38.1130878,
+"lon": 13.36314
+},
+{
+"lat": 38.1133671,
+"lon": 13.3629595
+},
+{
+"lat": 38.113653,
+"lon": 13.3627748
+},
+{
+"lat": 38.1141901,
+"lon": 13.3624277
+},
+{
+"lat": 38.1144929,
+"lon": 13.3622321
+}
+]
+},
+{
+"type": "way",
+"id": 186203238,
+"tags": {
+"bicycle": "no",
+"highway": "pedestrian",
+"lit": "yes",
+"motor_vehicle": "no",
+"name": "Via Vittorio Emanuele",
+"note:zone": "This road is inside the 'ZTL Centrale'",
+"oneway": "no",
+"smoothness": "good",
+"surface": "asphalt",
+"vehicle": "permit",
+"vehicle:conditional": "yes @ (Mo-Th 08:00-20:00; May 01-Oct 31 Fr 08:00-24:00; May 01-Oct 31 Sa 00:00-06:00,20:00-24:00; May 01-Oct 31 Su 00:00-06:00; Nov 01-Apr 30 Fr 08:00-20:00,23:00-24:00; Nov 01-Apr 30 Sa 00:00-06:00,23:00-24:00; Nov 01-Apr 30 Su 00:00-06:00)"
+},
+"geometry": [
+{
+"lat": 38.1146996,
+"lon": 13.359065
+},
+{
+"lat": 38.1149107,
+"lon": 13.3595818
+},
+{
+"lat": 38.1150148,
+"lon": 13.3598389
+},
+{
+"lat": 38.1151329,
+"lon": 13.3601272
+},
+{
+"lat": 38.1151396,
+"lon": 13.360142
+},
+{
+"lat": 38.1152537,
+"lon": 13.3604214
+},
+{
+"lat": 38.1153722,
+"lon": 13.3607114
+},
+{
+"lat": 38.1154826,
+"lon": 13.3609817
+},
+{
+"lat": 38.1155871,
+"lon": 13.3612374
+},
+{
+"lat": 38.1156209,
+"lon": 13.3613201
+},
+{
+"lat": 38.1156681,
+"lon": 13.3614355
+},
+{
+"lat": 38.1156801,
+"lon": 13.361465
+}
+]
+},
+{
+"type": "way",
+"id": 186203243,
+"tags": {
+"access": "no",
+"bicycle": "yes",
+"cycleway:right": "no",
+"foot": "yes",
+"highway": "pedestrian",
+"lit": "yes",
+"motor_vehicle": "permit",
+"name": "Via Vittorio Emanuele",
+"oneway": "no",
+"sidewalk": "both",
+"smoothness": "good",
+"surface": "asphalt"
+},
+"geometry": [
+{
+"lat": 38.1141234,
+"lon": 13.3576334
+},
+{
+"lat": 38.1142383,
+"lon": 13.357919
+},
+{
+"lat": 38.11445,
+"lon": 13.3584448
+},
+{
+"lat": 38.1145901,
+"lon": 13.3587929
+},
+{
+"lat": 38.1146996,
+"lon": 13.359065
+}
+]
+},
+{
+"type": "way",
+"id": 244275609,
+"tags": {
+"access": "no",
+"bicycle": "yes",
+"foot": "yes",
+"highway": "pedestrian",
+"lanes": "2",
+"lit": "yes",
+"maxspeed": "50",
+"motor_vehicle": "permit",
+"name": "Corso Vittorio Emanuele",
+"oneway": "yes",
+"psv": "yes",
+"shoulder": "no",
+"sidewalk": "both",
+"sidewalk:both:surface": "paving_stones",
+"smoothness": "good",
+"surface": "asphalt"
+},
+"geometry": [
+{
+"lat": 38.1121779,
+"lon": 13.352778
+},
+{
+"lat": 38.1122993,
+"lon": 13.353082
+},
+{
+"lat": 38.1124194,
+"lon": 13.3533823
+},
+{
+"lat": 38.1125588,
+"lon": 13.3537311
+},
+{
+"lat": 38.1126106,
+"lon": 13.3538606
+},
+{
+"lat": 38.1126564,
+"lon": 13.3539751
+}
+]
+},
+{
+"type": "way",
+"id": 358037409,
+"tags": {
+"access": "no",
+"bicycle": "yes",
+"foot": "yes",
+"highway": "pedestrian",
+"lanes": "2",
+"lit": "yes",
+"maxspeed": "50",
+"motor_vehicle": "permit",
+"name": "Via Vittorio Emanuele",
+"oneway": "yes",
+"psv": "yes",
+"sidewalk": "both",
+"smoothness": "excellent",
+"surface": "asphalt"
+},
+"geometry": [
+{
+"lat": 38.1126564,
+"lon": 13.3539751
+},
+{
+"lat": 38.1128547,
+"lon": 13.354471
+},
+{
+"lat": 38.112988,
+"lon": 13.3548046
+},
+{
+"lat": 38.1132919,
+"lon": 13.3555645
+},
+{
+"lat": 38.1133308,
+"lon": 13.3556629
+}
+]
+},
+{
+"type": "way",
+"id": 965251361,
+"tags": {
+"access": "no",
+"bicycle": "yes",
+"foot": "yes",
+"highway": "pedestrian",
+"lit": "yes",
+"motor_vehicle": "no",
+"name": "Via Vittorio Emanuele",
+"oneway": "no",
+"smoothness": "good",
+"surface": "asphalt"
+},
+"geometry": [
+{
+"lat": 38.1136781,
+"lon": 13.3565298
+},
+{
+"lat": 38.1137918,
+"lon": 13.3568093
+},
+{
+"lat": 38.1137962,
+"lon": 13.3568203
+},
+{
+"lat": 38.1139019,
+"lon": 13.3570829
+}
+]
+},
+{
+"type": "way",
+"id": 965251362,
+"tags": {
+"access": "no",
+"bicycle": "yes",
+"foot": "yes",
+"highway": "pedestrian",
+"lit": "yes",
+"motor_vehicle": "no",
+"name": "Via Vittorio Emanuele",
+"oneway": "no",
+"smoothness": "good",
+"surface": "asphalt"
+},
+"geometry": [
+{
+"lat": 38.1134465,
+"lon": 13.3559513
+},
+{
+"lat": 38.1135591,
+"lon": 13.3562325
+}
+]
+},
+{
+"type": "way",
+"id": 1026693290,
+"tags": {
+"cycleway:both": "no",
+"highway": "pedestrian",
+"lane_markings": "no",
+"lit": "yes",
+"motor_vehicle": "permit",
+"name": "Via Vittorio Emanuele",
+"note:zone": "This road is inside the 'ZTL Centrale'",
+"oneway": "yes",
+"surface": "asphalt",
+"vehicle": "permit",
+"vehicle:conditional": "yes @ (Mo-Th 08:00-20:00; May 01-Oct 31 Fr 08:00-24:00; May 01-Oct 31 Sa 00:00-06:00,20:00-24:00; May 01-Oct 31 Su 00:00-06:00; Nov 01-Apr 30 Fr 08:00-20:00,23:00-24:00; Nov 01-Apr 30 Sa 00:00-06:00,23:00-24:00; Nov 01-Apr 30 Su 00:00-06:00)"
+},
+"geometry": [
+{
+"lat": 38.1167455,
+"lon": 13.3640646
+},
+{
+"lat": 38.1167281,
+"lon": 13.3640206
+}
+]
+},
+{
+"type": "way",
+"id": 1026693291,
+"tags": {
+"cycleway:both": "no",
+"highway": "pedestrian",
+"lane_markings": "no",
+"lit": "yes",
+"motor_vehicle": "permit",
+"name": "Via Vittorio Emanuele",
+"surface": "asphalt"
+},
+"geometry": [
+{
+"lat": 38.1179721,
+"lon": 13.367092
+},
+{
+"lat": 38.1180912,
+"lon": 13.3673857
+},
+{
+"lat": 38.1182352,
+"lon": 13.3677408
+}
+]
+},
+{
+"type": "way",
+"id": 1112272543,
+"tags": {
+"highway": "pedestrian",
+"lit": "yes",
+"maxspeed": "10",
+"motor_vehicle": "permit",
+"name": "Via Maqueda",
+"note:zone": "This road is inside the 'ZTL Centrale'",
+"oneway": "yes",
+"smoothness": "good",
+"surface": "asphalt",
+"vehicle": "permit",
+"vehicle:conditional": "yes @ (Mo-Th 08:00-20:00; May 01-Oct 31 Fr 08:00-24:00; May 01-Oct 31 Sa 00:00-06:00,20:00-24:00; May 01-Oct 31 Su 00:00-06:00; Nov 01-Apr 30 Fr 08:00-20:00,23:00-24:00; Nov 01-Apr 30 Sa 00:00-06:00,23:00-24:00; Nov 01-Apr 30 Su 00:00-06:00)",
+"wikidata": "Q4010658",
+"wikipedia": "it:Via Maqueda"
+},
+"geometry": [
+{
+"lat": 38.1144929,
+"lon": 13.3622321
+},
+{
+"lat": 38.1145286,
+"lon": 13.362209
+},
+{
+"lat": 38.1146269,
+"lon": 13.3621455
+},
+{
+"lat": 38.1148269,
+"lon": 13.3620163
+}
+]
+},
+{
+"type": "way",
+"id": 1112272544,
+"tags": {
+"bicycle": "no",
+"highway": "pedestrian",
+"lit": "yes",
+"maxspeed": "10",
+"motor_vehicle": "permit",
+"name": "Via Maqueda",
+"note:zone": "This road is inside the 'ZTL Centrale'",
+"oneway": "yes",
+"smoothness": "good",
+"surface": "asphalt",
+"vehicle": "permit",
+"vehicle:conditional": "yes @ (Mo-Th 08:00-20:00; May 01-Oct 31 Fr 08:00-24:00; May 01-Oct 31 Sa 00:00-06:00,20:00-24:00; May 01-Oct 31 Su 00:00-06:00; Nov 01-Apr 30 Fr 08:00-20:00,23:00-24:00; Nov 01-Apr 30 Sa 00:00-06:00,23:00-24:00; Nov 01-Apr 30 Su 00:00-06:00)",
+"wikidata": "Q4010658",
+"wikipedia": "it:Via Maqueda"
+},
+"geometry": [
+{
+"lat": 38.1148269,
+"lon": 13.3620163
+},
+{
+"lat": 38.1148869,
+"lon": 13.3619775
+},
+{
+"lat": 38.1150119,
+"lon": 13.3618967
+},
+{
+"lat": 38.1151612,
+"lon": 13.3618003
+},
+{
+"lat": 38.1152192,
+"lon": 13.3617628
+},
+{
+"lat": 38.1154686,
+"lon": 13.3616016
+},
+{
+"lat": 38.1155756,
+"lon": 13.3615325
+},
+{
+"lat": 38.1156801,
+"lon": 13.361465
+}
+]
+},
+{
+"type": "way",
+"id": 1112272556,
+"tags": {
+"access": "no",
+"bicycle": "yes",
+"foot": "yes",
+"highway": "pedestrian",
+"lane_markings": "no",
+"lit": "yes",
+"motor_vehicle": "permit",
+"name": "Via Vittorio Emanuele",
+"oneway": "yes",
+"psv": "yes",
+"sidewalk": "both",
+"surface": "asphalt"
+},
+"geometry": [
+{
+"lat": 38.1133308,
+"lon": 13.3556629
+},
+{
+"lat": 38.1133514,
+"lon": 13.3557133
+},
+{
+"lat": 38.1134465,
+"lon": 13.3559513
+}
+]
+},
+{
+"type": "way",
+"id": 1112272557,
+"tags": {
+"access": "no",
+"bicycle": "yes",
+"foot": "yes",
+"highway": "pedestrian",
+"lit": "yes",
+"motor_vehicle": "no",
+"name": "Via Vittorio Emanuele",
+"oneway": "no",
+"smoothness": "good",
+"surface": "asphalt"
+},
+"geometry": [
+{
+"lat": 38.1135591,
+"lon": 13.3562325
+},
+{
+"lat": 38.1136781,
+"lon": 13.3565298
+}
+]
+},
+{
+"type": "node",
+"id": 9466015647,
+"lat": 38.1147266,
+"lon": 13.3549041,
+"tags": {
+"man_made": "surveillance",
+"name": "Telecamera ZTL"
+}
+},
+{
+"type": "node",
+"id": 3633226710,
+"lat": 38.1199982,
+"lon": 13.3561185,
+"tags": {
+"camera:mount": "pole",
+"camera:type": "fixed",
+"check_date": "2026-01-18",
+"man_made": "surveillance",
+"surveillance": "traffic",
+"surveillance:type": "camera",
+"surveillance:zone": "traffic"
+}
+}
+]
+}

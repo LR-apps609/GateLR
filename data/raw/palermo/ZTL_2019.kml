@@ -1,0 +1,1522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.opengis.net/kml/2.2 http://schemas.opengis.net/kml/2.2.0/ogckml22.xsd http://www.google.com/kml/ext/2.2 http://code.google.com/apis/kml/schema/kml22gx.xsd">
+<Document id="ZTL">
+  <name>ZTL</name>
+  <Snippet></Snippet>
+  <Folder id="FeatureLayer0">
+    <name>ZTL</name>
+    <Snippet></Snippet>
+    <Placemark id="ID_00000">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.37448676508651,38.11441998054642,0 13.37467317833035,38.1145079935349,0 13.37610505256333,38.11516625194427,0 13.37603382370703,38.11523232782079,0 13.37568175207423,38.11548375990938,0 13.37544352791445,38.11563479665787,0 13.37484737289363,38.11603901865438,0 13.37431958867166,38.11640100782752,0 13.37398196811994,38.1166672721164,0 13.37356694896468,38.11636193755123,0 13.37389385695809,38.11606847717748,0 13.37328335567616,38.11564440563794,0 13.37321384655629,38.11573383929501,0 13.37300056780514,38.11602406554471,0 13.37350595472847,38.11636910335119,0 13.37395508131905,38.11669093108292,0 13.37384983891492,38.11676747258359,0 13.37341548809359,38.11716290340183,0 13.37301335464529,38.11757347702709,0 13.37290841063857,38.11769144629908,0 13.37254530517823,38.11812460618377,0 13.37238660216175,38.11835941575419,0 13.37220658654631,38.11861138385249,0 13.37183084805772,38.11914174192534,0 13.37127563280571,38.11989926951959,0 13.37114366071681,38.11997736090276,0 13.37103363325463,38.12000982459921,0 13.37091495292421,38.12008467814765,0 13.3708039147972,38.12006206652055,0 13.37067636637834,38.12002232330735,0 13.37048667955276,38.11994083081402,0 13.36984887957901,38.11968839984228,0 13.36959785160768,38.11957743499915,0 13.369441410999,38.11950085370424,0 13.3692601603228,38.11939829571736,0 13.36900234779534,38.11921094358888,0 13.36873141265871,38.11900871044941,0 13.36868558884342,38.11897775898678,0 13.36847753500163,38.11886922589248,0 13.36823696590977,38.11877224536102,0 13.36804577745978,38.11872181948757,0 13.36789438234068,38.11870549146038,0 13.36772224160759,38.11871025253313,0 13.36752711654708,38.11873244691904,0 13.36732943329972,38.11879617152538,0 13.36719089365609,38.11886884537178,0 13.36702750800206,38.1189971233665,0 13.36685600341894,38.11917191302105,0 13.36672962864257,38.11933427503061,0 13.36665227319293,38.11952156345616,0 13.36658990024235,38.11977806484794,0 13.36651327553011,38.12014440245545,0 13.366467471412,38.12029296470583,0 13.36640742383601,38.12044505881391,0 13.36636294891793,38.12053395979498,0 13.36630199521068,38.120620766561,0 13.36628934655205,38.12064255353192,0 13.36619987426924,38.12062318704401,0 13.36591933446406,38.12050413296896,0 13.36540604582773,38.12028631584911,0 13.36509845260412,38.12096854968106,0 13.36450055281673,38.12070712368356,0 13.36453916710513,38.12058368813368,0 13.36404824699075,38.12035605397963,0 13.3639563084059,38.12077148971747,0 13.36394670311669,38.12084910150346,0 13.36397124682153,38.12116042568876,0 13.36402651012254,38.12150638579463,0 13.36405105428558,38.12181770994254,0 13.36404896820182,38.12224777291628,0 13.36397306098468,38.1225721841185,0 13.36388779360102,38.1225721885694,0 13.36366662545028,38.12255573469671,0 13.36334713333738,38.12252173702172,0 13.3624950015469,38.12241202585293,0 13.36231033176258,38.12238224210216,0 13.36179504786942,38.12224808096764,0 13.3608743690129,38.12197998990236,0 13.36122058533743,38.12138751854074,0 13.36081208251628,38.12135150431912,0 13.36070993224707,38.12133893199998,0 13.36036832981172,38.12127120992827,0 13.35998447611372,38.12118164563913,0 13.35969162188435,38.12112198074131,0 13.35956005641033,38.12109488174242,0 13.35950962955455,38.12125248309201,0 13.35936322129273,38.12122180835429,0 13.35923899989049,38.12154772585076,0 13.3586767096663,38.12141207911784,0 13.35789384931117,38.12118514071538,0 13.3578463867948,38.12117099672683,0 13.35770058761751,38.12112851694361,0 13.35755655487639,38.12108336559961,0 13.35733645283698,38.12100614528415,0 13.3572519446936,38.12096991428792,0 13.35699040495705,38.12083819211659,0 13.35696611588293,38.12077988657838,0 13.35689724878001,38.12065490341295,0 13.35686251323314,38.12060588800154,0 13.35680733766019,38.12055523858337,0 13.35674016075444,38.12050711731641,0 13.35660065943618,38.12041215068671,0 13.35626165100409,38.12023485760083,0 13.3562211337071,38.12021541799245,0 13.35613166060532,38.12017237650777,0 13.35610296341915,38.12015849445425,0 13.35556650292217,38.11995956309762,0 13.35530310800987,38.11989610734094,0 13.35514103231589,38.11985568758841,0 13.35490443505522,38.11977368936309,0 13.35422428371079,38.11955195100014,0 13.35393644912549,38.11946684850948,0 13.35369728460847,38.11942230457471,0 13.35365772285488,38.11941343827834,0 13.3533487041994,38.11938264399513,0 13.35298327984046,38.11937251320124,0 13.35262695440868,38.11943427880215,0 13.35255316061813,38.11943082842547,0 13.35253218860809,38.11940719829223,0 13.35250160753518,38.11923565803685,0 13.35251841733307,38.11918463044319,0 13.35257077863336,38.11914470771234,0 13.35263628306612,38.11911734321458,0 13.35274420840846,38.11909410902465,0 13.35274698815301,38.11906727044914,0 13.35270681711846,38.11906530138148,0 13.35262585328579,38.11908361058121,0 13.35254680856337,38.11911608826354,0 13.35248310409016,38.11916292268764,0 13.35245687021399,38.11923503051693,0 13.35233305872886,38.11966638087295,0 13.35256265278461,38.11970244725884,0 13.35240518175269,38.12008598041452,0 13.35092782065933,38.11986813099642,0 13.35091981707809,38.11979457966351,0 13.35092491775474,38.11972884233695,0 13.35096684555261,38.11942136884574,0 13.3510523747954,38.11894664693863,0 13.3510865447818,38.11850791402411,0 13.35111772914322,38.11810412726837,0 13.35116964809587,38.11771198126243,0 13.35124672279754,38.11752797547736,0 13.35138781327426,38.11734748733142,0 13.35205269873694,38.11662694333655,0 13.35241330071542,38.11621817373334,0 13.35268180809441,38.11592422780481,0 13.35290313072692,38.11605868344301,0 13.35305716852027,38.11613467053715,0 13.35321299668224,38.11623001821627,0 13.35339559498718,38.11632222539511,0 13.35354927868634,38.11641402699105,0 13.35370752963187,38.11650061903394,0 13.3538678079162,38.11659602822524,0 13.35378282779628,38.11671436691311,0 13.35401957449365,38.11687237023846,0 13.35421286276493,38.11698406164582,0 13.35431504484851,38.11689233050637,0 13.35449181013772,38.11674891047156,0 13.35415488716134,38.11629595358274,0 13.35390168446824,38.11657365172405,0 13.3537678602963,38.11648916008509,0 13.35360953037661,38.11640608259508,0 13.35344261961475,38.11630882229009,0 13.35326669397047,38.11621670873289,0 13.3531129320962,38.11612842125363,0 13.35294578577289,38.11604170368326,0 13.35270780500536,38.11589840073008,0 13.352904235571,38.11566455730127,0 13.35316428054875,38.11540279460546,0 13.35326080320096,38.1153105839125,0 13.35351707405923,38.11545046307566,0 13.35355888793455,38.11541368469679,0 13.35389671002827,38.11581448316895,0 13.35411646480221,38.11557593892019,0 13.35432062620217,38.11532970286657,0 13.35460177337296,38.1150247616877,0 13.35474339649008,38.11475523008325,0 13.35472194788528,38.11472752901428,0 13.35456306762299,38.11478259569131,0 13.35437272400128,38.11483473038288,0 13.35412547814782,38.11489354034993,0 13.35393226158367,38.11493317923082,0 13.35369419121758,38.11500457169944,0 13.35357805694923,38.11504800455961,0 13.35307245197578,38.1149166455134,0 13.35303343226896,38.11490666211179,0 13.35265900647808,38.11479939138623,0 13.35206463540785,38.11458706865775,0 13.35222680068511,38.11435613247468,0 13.35231027004886,38.11421036683364,0 13.35238620991039,38.11402001013224,0 13.35242699594451,38.11379950336969,0 13.35242617892877,38.11360806996494,0 13.35240209780677,38.11346483974634,0 13.35233904875333,38.11323344018738,0 13.3523037647433,38.11313319013979,0 13.35209940015329,38.11250887586846,0 13.35205664853366,38.11236133950352,0 13.35202980272373,38.11226525187708,0 13.35202354602157,38.11216406093823,0 13.35203617268741,38.11205774275846,0 13.35205312880345,38.1119865344118,0 13.35206975172966,38.11193014985123,0 13.35208463724381,38.11188893753309,0 13.35178327449538,38.11177110555366,0 13.35134596578928,38.11156680631488,0 13.35107551761833,38.11145381871422,0 13.3512811376534,38.11118709655111,0 13.35137012471315,38.11109937475405,0 13.35148999467965,38.11100399805416,0 13.35158355284597,38.11094060500196,0 13.3520076709802,38.11066885932497,0 13.35219944802614,38.11056235831507,0 13.35254224734614,38.11034069549371,0 13.35307638453283,38.1099559052153,0 13.35383773823476,38.10925346264288,0 13.35424244812583,38.10885741669891,0 13.35470556640354,38.10844331480261,0 13.35523975607783,38.10797898050997,0 13.35545776693,38.10808353779153,0 13.35578088797798,38.1081592273421,0 13.35590947081688,38.10822958948058,0 13.35593832951998,38.10827284488541,0 13.35595648899916,38.10830952281467,0 13.35591966361322,38.10837971237159,0 13.35578337527599,38.10853207015094,0 13.3554544935465,38.10880814347323,0 13.35524899097453,38.10902380880194,0 13.35512200605701,38.10924485841586,0 13.35502904023842,38.10939996448509,0 13.35511223267477,38.10955967995761,0 13.35516380774634,38.10967824373672,0 13.35529557711639,38.10996933629568,0 13.35555683693889,38.10968588914953,0 13.3562980041268,38.10999977288637,0 13.35666258699126,38.11015985914693,0 13.35702701125735,38.1103270952286,0 13.35741869579557,38.11048994261573,0 13.35787600600704,38.11068708758007,0 13.35836449599378,38.11093485819873,0 13.35838654646043,38.11093423381445,0 13.35869831283419,38.11107979418162,0 13.35858208872008,38.11121437545869,0 13.35900242954486,38.11140219438743,0 13.35910527928001,38.11123286630404,0 13.35914919842128,38.1111674100731,0 13.35922547444848,38.11109325768199,0 13.35882920658741,38.11092203921803,0 13.35872433035819,38.11106694376836,0 13.35839364629862,38.11092163570861,0 13.35838713202293,38.11090807780455,0 13.3578787615668,38.11065727066725,0 13.35783453888667,38.1106375773382,0 13.35735080297379,38.11042223036385,0 13.35698681574765,38.11027474121242,0 13.35668736280503,38.11013159311353,0 13.35643599728387,38.11002386489256,0 13.35671990000517,38.10969788044962,0 13.35687794693487,38.1096636675765,0 13.3571082284121,38.10943120535862,0 13.35688809671058,38.10933171049405,0 13.35709479511321,38.10906249462725,0 13.35724761089849,38.10877752681592,0 13.35786163049805,38.10888743044679,0 13.35912834349083,38.10912185048873,0 13.35912729811966,38.10912338904509,0 13.35960260646767,38.10921634192865,0 13.35960309269956,38.1092161949464,0 13.36022061769552,38.10933971228057,0 13.35974455441108,38.10989227778212,0 13.36075675334175,38.11028782711078,0 13.36138959708889,38.11054301188151,0 13.3615028676216,38.11032819181253,0 13.36160243939358,38.11011960827871,0 13.36161143350611,38.1100811673675,0 13.36166590758015,38.10994908746454,0 13.36168317787923,38.10990433425033,0 13.36179080019804,38.10994225902459,0 13.3619259470655,38.10971917329785,0 13.36179609610017,38.10967159502692,0 13.36159809437074,38.10961832497856,0 13.36173081608302,38.10926592697418,0 13.36187056671093,38.10928774079976,0 13.36204971770627,38.10933525230256,0 13.3627200411569,38.10957042145066,0 13.36308881048695,38.10971443629438,0 13.3633516397418,38.10979844509753,0 13.36353595829232,38.10984008954742,0 13.36401290631316,38.10991986492031,0 13.36476878305618,38.110030880803,0 13.36505931506058,38.11008912460591,0 13.36510780456701,38.11010449771339,0 13.36527723200788,38.11015535058068,0 13.36544588515018,38.11022035792548,0 13.36556215309177,38.11027250088092,0 13.36605916847547,38.11049526470455,0 13.3660150262998,38.1105662555667,0 13.36553266435088,38.11035912101868,0 13.36530467965959,38.1102606853871,0 13.36527067673617,38.11031093669553,0 13.36518829184151,38.11028380928829,0 13.36510399796202,38.11041254034048,0 13.36513648446872,38.11043031305423,0 13.36509116534838,38.11049649019076,0 13.36506936059512,38.1104912379708,0 13.36499426540233,38.11062875724973,0 13.36526317087959,38.11071786551584,0 13.36536873350789,38.11075892443117,0 13.36584393220743,38.11093626760722,0 13.36599444499336,38.11071690563225,0 13.36602075306834,38.11073088060746,0 13.36615509975527,38.11053493285852,0 13.36626559633684,38.11058451874134,0 13.36638090772856,38.11062746120396,0 13.36651308127883,38.11069635992237,0 13.36655686084759,38.11071442285396,0 13.36683523856684,38.11084874027211,0 13.36731487759952,38.11108231167124,0 13.36833911278745,38.11155678143628,0 13.36883407611076,38.11178137316366,0 13.36918756514069,38.11193693811807,0 13.36994240689902,38.11229190510116,0 13.37041874178572,38.11251806897163,0 13.37044402782846,38.11253128070762,0 13.37046700958192,38.11254354183286,0 13.37051529782084,38.11256809631924,0 13.37003054647785,38.11317804912341,0 13.36986277096364,38.11309654674584,0 13.36951052663794,38.11356873253292,0 13.36971831950355,38.11369951335822,0 13.37011680008324,38.11322796852591,0 13.3700660573463,38.11319884294112,0 13.37037627925533,38.11279191252258,0 13.37055027788593,38.11258349732868,0 13.37106788272066,38.11281644401063,0 13.37164997904137,38.11309735059182,0 13.37249379710769,38.11347833798327,0 13.37252830128991,38.11349535155199,0 13.37324047348863,38.113835926729,0 13.3740586954511,38.11421838575861,0 13.37402692569019,38.11428776253595,0 13.3740302718011,38.11434660173843,0 13.37405228818266,38.11438077067104,0 13.37412954223945,38.11443971755787,0 13.37420766712622,38.11446779807083,0 13.37427411863036,38.11449903091516,0 13.37433528708815,38.11450897143455,0 13.37439075892064,38.11450224803653,0 13.37443578605901,38.11447550223478,0 13.37448676508651,38.11441998054642,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00001">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35982130906599,38.10896725886401,0 13.35981988110934,38.10897009292043,0 13.35981919021831,38.10896995674403,0 13.35982130906599,38.10896725886401,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00002">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35912446733753,38.10908865745199,0 13.35930495076766,38.10887186130629,0 13.35977867658847,38.10894504364792,0 13.35977821314634,38.10894585409047,0 13.35959404308233,38.10918275933766,0 13.35912446733753,38.10908865745199,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00003">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36046867585196,38.10905740779582,0 13.36038733400597,38.10915065703072,0 13.36024693786066,38.10931136938916,0 13.35964537397504,38.10919127830174,0 13.35981919637071,38.1089699550781,0 13.35982131521837,38.1089672571981,0 13.35983073541449,38.10895526267625,0 13.35983080922986,38.10895515125753,0 13.3598322539853,38.10895312522913,0 13.35983230802147,38.10895306857861,0 13.36022872429575,38.10901797345555,0 13.36046867585196,38.10905740779582,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00004">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36168995980474,38.10925810168499,0 13.36155641561389,38.10961057970018,0 13.36119318967649,38.1095244435367,0 13.36073686924535,38.1094179320251,0 13.36029245759104,38.10931873815062,0 13.36049503943041,38.10909210987384,0 13.36051630515972,38.10906629469339,0 13.36168995980474,38.10925810168499,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00005">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35926143264771,38.10886013977179,0 13.35907549088078,38.10907809834865,0 13.3584851155025,38.10896136002999,0 13.35787034083434,38.1088561996061,0 13.35804978426308,38.10859165655513,0 13.35926143264771,38.10886013977179,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00006">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35800564805751,38.10858118877879,0 13.35782629688765,38.10884849163155,0 13.35732234955787,38.10875289233966,0 13.35724894739876,38.10874633127647,0 13.3573647669362,38.10842279526859,0 13.35800564805751,38.10858118877879,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00007">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.3573259060106,38.1084131548572,0 13.35721469594001,38.10874350641458,0 13.35671907218887,38.10870157166632,0 13.35659770825436,38.1086720203224,0 13.35623637591107,38.10858126158198,0 13.35606940831387,38.10852964578432,0 13.35599091775719,38.10851846667806,0 13.35633546491202,38.10822571672516,0 13.35648264061223,38.10822968351615,0 13.35656732388484,38.10822133076867,0 13.35670256070381,38.10821940771992,0 13.35686759108225,38.1082884791559,0 13.35709067206924,38.1083526397525,0 13.3573259060106,38.1084131548572,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00008">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35618629724089,38.1090005820776,0 13.35619184996764,38.10902211926911,0 13.35643628961289,38.10915668099776,0 13.35681832863507,38.10934562365463,0 13.35625564326551,38.10994576984612,0 13.35554695947681,38.109654493081,0 13.35507887815128,38.10939996300326,0 13.35518836965521,38.10922743595854,0 13.35524232854398,38.10910897215072,0 13.35533511542014,38.10899056006127,0 13.35549596070969,38.10883354993437,0 13.35573570668738,38.10863900193998,0 13.35618629724089,38.1090005820776,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00009">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35669460503586,38.10873670914648,0 13.3570354871547,38.10908160979401,0 13.35684315751383,38.10931497393662,0 13.35620757515141,38.10899372667592,0 13.35607136711398,38.10887736993298,0 13.35631799285675,38.10864298989929,0 13.35650920132542,38.10868385452601,0 13.35668042791826,38.10873397045169,0 13.35669460503586,38.10873670914648,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00010">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35981305594326,38.10988587973164,0 13.3600024871198,38.10966849956125,0 13.36085521563484,38.10990810227516,0 13.3607054095579,38.1102360493727,0 13.35981305594326,38.10988587973164,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00011">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36074061709429,38.11025444972933,0 13.36089712584306,38.10991636239015,0 13.36155348506112,38.11010460957497,0 13.36145111531722,38.11033855732993,0 13.36139949357644,38.11033016193775,0 13.36121947490434,38.11027136509848,0 13.36112645725562,38.11023169087861,0 13.3610332110508,38.110202247122,0 13.36093636333279,38.11033393420777,0 13.36074061709429,38.11025444972933,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00012">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36001930152289,38.10964059157163,0 13.36009939276043,38.10953425561665,0 13.36056937000906,38.10965850373751,0 13.36119375561493,38.10982839764128,0 13.36114251330794,38.10994792900667,0 13.36050830131272,38.10978301453925,0 13.36001930152289,38.10964059157163,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00013">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36117864809486,38.10996079578874,0 13.3612333836007,38.10983830651743,0 13.36162387382216,38.10993208488366,0 13.36157536134033,38.11006698643118,0 13.36117864809486,38.10996079578874,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00014">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36107581612968,38.10975942402077,0 13.36116195867607,38.10955079968783,0 13.36173225479912,38.10968870407028,0 13.36163854493654,38.10989841547846,0 13.36123919525721,38.10980819901874,0 13.36107581612968,38.10975942402077,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00015">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.3606784026734,38.10965015757103,0 13.36076120967264,38.10945579331873,0 13.36112292630037,38.1095419097546,0 13.36103530187237,38.10974932118769,0 13.3606784026734,38.10965015757103,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00016">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36012475488403,38.10951009611922,0 13.36027017023689,38.1093499876846,0 13.36072209747362,38.10945047872187,0 13.36063638011778,38.1096400335516,0 13.36012475488403,38.10951009611922,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00017">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>Libero Transito</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Tutti i giorni H 24:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle017</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35270835084725,38.11589805072761,0 13.35294590408264,38.11604134768446,0 13.35311305040527,38.11612806525486,0 13.35326681227904,38.1162163527338,0 13.3534427379226,38.11630846629086,0 13.3536096486838,38.11640572659574,0 13.35376797860294,38.11648880408559,0 13.35390180277438,38.11657329572429,0 13.35415500546577,38.11629559758271,0 13.35449192844127,38.11674855447126,0 13.35431516315327,38.1168919745061,0 13.35421298107034,38.11698370564579,0 13.35401969279969,38.11687201423872,0 13.35378294610321,38.11671401091346,0 13.35386792622251,38.11659567222556,0 13.35370764793882,38.1165002630343,0 13.35354939699391,38.11641367099168,0 13.35339571329528,38.11632186939595,0 13.35321311499102,38.11622966221731,0 13.35305728682971,38.11613431453834,0 13.352903249037,38.11605832744444,0 13.3526823539366,38.11592387780241,0 13.35270835084725,38.11589805072761,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00018">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35387838912726,38.11528123906575,0 13.35368275899345,38.11549364858894,0 13.35358285493164,38.11538191427538,0 13.35378305614679,38.11517324678006,0 13.35387838912726,38.11528123906575,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00019">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35409598755246,38.11554173440799,0 13.35389570361402,38.11575407906495,0 13.35370389177239,38.11552061474888,0 13.35389883534818,38.11530359240812,0 13.35409598755246,38.11554173440799,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00020">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>Libero Transito</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Tutti i giorni H 24:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle017</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35390001958899,38.11581601079248,0 13.35356219747015,38.11541521232932,0 13.3535203835955,38.11545199070928,0 13.35325934346659,38.11531056344751,0 13.35337123370826,38.11521950832563,0 13.35353940556402,38.11511660460588,0 13.35359042512439,38.11509075335522,0 13.3535889465199,38.11508869285827,0 13.35358730494689,38.11505113614847,0 13.35369750073797,38.11500609932796,0 13.35393557110606,38.11493470685264,0 13.35412878767268,38.11489506796639,0 13.35437603352898,38.11483625799242,0 13.35456637715253,38.11478412329559,0 13.35472525741579,38.11472905661406,0 13.3547467060223,38.1147567576825,0 13.35460508291411,38.11502628929107,0 13.35432393575061,38.11533123047785,0 13.35411977435718,38.11557746653741,0 13.35390001958899,38.11581601079248,0</coordinates></LinearRing></outerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.35370365197438,38.11552245028808,0 13.35389546381983,38.11575591460456,0 13.35409574776418,38.11554356994817,0 13.35389859555596,38.11530542794791,0 13.35370365197438,38.11552245028808,0</coordinates></LinearRing></innerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.35412200334073,38.11551451544931,0 13.35427525406813,38.11532357821766,0 13.35411026474534,38.11510427619736,0 13.35392784018195,38.11528473846108,0 13.35412200334073,38.11551451544931,0</coordinates></LinearRing></innerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.35387814933462,38.11528307460551,0 13.35378281635222,38.11517508231955,0 13.35358261513119,38.11538374981435,0 13.35368251919503,38.11549548412813,0 13.35387814933462,38.11528307460551,0</coordinates></LinearRing></innerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00021">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35427312574997,38.11532354839775,0 13.3541198750172,38.11551448562651,0 13.3539257118653,38.1152847086349,0 13.35410813643372,38.11510424637459,0 13.35427312574997,38.11532354839775,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00022">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>Libero Transito</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Tutti i giorni H 24:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle017</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35245143577162,38.12009777500287,0 13.35240018584424,38.12008821759174,0 13.35256537622251,38.11970443505835,0 13.35256470093784,38.11970442558673,0 13.35233510687473,38.1196683592045,0 13.35245891835167,38.11923700884637,0 13.35248515222663,38.11916490101658,0 13.35254885670037,38.11911806659148,0 13.3526279014241,38.11908558890768,0 13.35270886525847,38.11906727970668,0 13.35274552834425,38.11906724997609,0 13.35274625655028,38.11909608734926,0 13.35263833120559,38.11911932154102,0 13.35257282677176,38.11914668603979,0 13.35252046547108,38.11918660877154,0 13.3525036556741,38.11923763636555,0 13.35253423675248,38.11940917662047,0 13.35255520876374,38.11943280675344,0 13.35262900255642,38.11943625712872,0 13.35298532799642,38.11937449152181,0 13.35335075236573,38.11938462230963,0 13.35365772285487,38.11941343827832,0 13.35369728460845,38.11942230457468,0 13.35369487517022,38.11944972152664,0 13.35332470343454,38.1194168453596,0 13.35302414476466,38.11940579682903,0 13.35296594639265,38.11940674845126,0 13.35265404904393,38.11946331350016,0 13.35260782042653,38.11970730276055,0 13.35245143577162,38.12009777500287,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00023">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.35927485906882,38.12155779212785,0 13.35939519222778,38.12125557932729,0 13.36038539004463,38.12149507610447,0 13.3610063164398,38.12166036396905,0 13.36082833567923,38.12196768648474,0 13.35986989521473,38.12170165191566,0 13.35927485906882,38.12155779212785,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00024">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36115463725351,38.12141487047101,0 13.36106798393877,38.12157196703203,0 13.36103051205299,38.12162701954407,0 13.36076124840151,38.12156095006992,0 13.36085261642936,38.12138371030274,0 13.36115463725351,38.12141487047101,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00025">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36627992742318,38.12066911118519,0 13.36623941196768,38.12073889781048,0 13.36611009117239,38.12092732796766,0 13.36600910341941,38.12100879730232,0 13.36590748632094,38.12109918243969,0 13.36578978131227,38.12123724040799,0 13.36551221355741,38.12113615775476,0 13.3651308857791,38.12098029614609,0 13.36543042889965,38.12033374680085,0 13.36619310245522,38.12065610572481,0 13.36627992742318,38.12066911118519,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00026">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36576884632805,38.1212678894943,0 13.3655437734852,38.12163810814872,0 13.36505771642163,38.12243289861825,0 13.36495763628499,38.12243348973227,0 13.3648552602669,38.12244319437279,0 13.36474997084292,38.12245936252944,0 13.36449839875142,38.12251518517526,0 13.36434535278044,38.12254091893291,0 13.36418675961015,38.12256028313831,0 13.36401237841488,38.12257309835332,0 13.36408999429652,38.12224595995895,0 13.36409317634382,38.12183290960805,0 13.36451875377354,38.12196818922371,0 13.36458922904965,38.12196789886958,0 13.36463888302235,38.12192753907127,0 13.3647171900817,38.12170223574252,0 13.36480264168969,38.12152089699833,0 13.36491061206086,38.12132553012686,0 13.36519511767281,38.12145388335279,0 13.36526595373471,38.12145486927771,0 13.36531624555551,38.12143088259282,0 13.36543066712401,38.12127391338547,0 13.36546731659396,38.12122077474452,0 13.36550838568298,38.12117246636586,0 13.36576884632805,38.1212678894943,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00027">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>ZTL</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Giorni feriali dal lunedi al venerdì frascia oraria 08:00 - 20:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle00</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36450544223311,38.12115866228194,0 13.36452752296048,38.1211989060354,0 13.36486974777044,38.1213089573885,0 13.36487143275931,38.12131006130421,0 13.36477639373683,38.12147647932185,0 13.36468765018579,38.12166951228899,0 13.36433992232283,38.12157387312797,0 13.36406108605534,38.12150645471974,0 13.36401364971982,38.12116088969385,0 13.36398668550767,38.12082468622021,0 13.36403305806952,38.12069226775748,0 13.36430396916064,38.12079260844168,0 13.36459570965091,38.12090635265029,0 13.36542321766667,38.12122188090672,0 13.36528203800824,38.12140835093351,0 13.3652469799165,38.12142395759251,0 13.36520270405638,38.1214225093181,0 13.36490251514982,38.12128218426339,0 13.36456484422284,38.12117401170054,0 13.36453804771536,38.12113914814814,0 13.3645220081597,38.12113710952202,0 13.36450544223311,38.12115866228194,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00028">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>Libero Transito</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Tutti i giorni H 24:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle017</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36087234454365,38.12197996164969,0 13.36082833567923,38.12196768648474,0 13.3610063164398,38.12166036396905,0 13.36038539004463,38.12149507610447,0 13.35939519222778,38.12125557932729,0 13.35927485906882,38.12155779212785,0 13.35923697543481,38.12154769757022,0 13.35936119684591,38.12122178007607,0 13.35950760510674,38.12125245481629,0 13.35955803196684,38.12109485346765,0 13.35968959743996,38.12112195246881,0 13.3599824516674,38.12118161737164,0 13.36036630536251,38.12127118166733,0 13.36070790779565,38.12133890374489,0 13.36081005806443,38.12135147606576,0 13.36086810047229,38.12135659326106,0 13.36117264656578,38.12138344249089,0 13.36121856088415,38.12138749029442,0 13.36109817086818,38.12159351196436,0 13.36109683782234,38.12159579317871,0 13.36087234454365,38.12197996164969,0</coordinates></LinearRing></outerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.36076124840152,38.12156095006992,0 13.361030512053,38.12162701954407,0 13.36106798393877,38.12157196703203,0 13.36115463725351,38.12141487047103,0 13.36085261642937,38.12138371030274,0 13.36076124840152,38.12156095006992,0</coordinates></LinearRing></innerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00029">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>Libero Transito</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Tutti i giorni H 24:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle017</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36408999429652,38.12224595995899,0 13.36401237841488,38.12257309835332,0 13.36397160109794,38.12257216378337,0 13.36404750832149,38.12224775258223,0 13.36404959441379,38.12181768960871,0 13.36402505025699,38.12150636546063,0 13.36396978696291,38.12116040535423,0 13.36394524326426,38.12084908116877,0 13.36400562173623,38.12058060640874,0 13.36404681590478,38.12035474512915,0 13.36453773600587,38.12058237928898,0 13.36450055281673,38.12070712368356,0 13.36509702148733,38.12096724084282,0 13.36509749895965,38.12096740660903,0 13.36540458598545,38.12028629553281,0 13.36591787461708,38.12050411265894,0 13.36619841441966,38.12062316673742,0 13.36628788670201,38.12064253322644,0 13.36627992742318,38.12066911118521,0 13.36619310245524,38.12065610572483,0 13.36543042889965,38.12033374680086,0 13.36513139227685,38.120979202906,0 13.36551224228917,38.12113486923676,0 13.36578981003924,38.12123595188979,0 13.36576887505544,38.12126660097617,0 13.36550838568297,38.12117246636588,0 13.36546731659396,38.12122077474452,0 13.36531624555552,38.12143088259285,0 13.36526595373471,38.12145486927771,0 13.36519511767281,38.12145388335279,0 13.36491061206087,38.12132553012688,0 13.36480264168969,38.12152089699835,0 13.36471719008172,38.12170223574253,0 13.36463888302235,38.12192753907129,0 13.36458922904967,38.12196789886958,0 13.36451875377354,38.12196818922371,0 13.36409317634382,38.12183290960809,0 13.36408999429652,38.12224595995899,0</coordinates></LinearRing></outerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.36398668550767,38.12082468622021,0 13.36401364971982,38.12116088969385,0 13.36406108605534,38.12150645471974,0 13.36433992232283,38.12157387312797,0 13.36468765018579,38.12166951228899,0 13.36477639373683,38.12147647932185,0 13.36486974777044,38.1213089573885,0 13.36452752296048,38.1211989060354,0 13.36450544223311,38.12115866228194,0 13.36453804771536,38.12113914814814,0 13.36456484422284,38.12117401170054,0 13.36490251514982,38.12128218426339,0 13.36520270405638,38.1214225093181,0 13.3652469799165,38.12142395759251,0 13.36528203800824,38.12140835093351,0 13.36542158291998,38.12122125758724,0 13.36542321766667,38.12122188090672,0 13.36546949275952,38.12115702271576,0 13.36542158291998,38.12122125758724,0 13.36459570965091,38.12090635265029,0 13.36430396916064,38.12079260844168,0 13.36403305806952,38.12069226775748,0 13.36398668550767,38.12082468622021,0</coordinates></LinearRing></innerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00030">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>Libero Transito</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Tutti i giorni H 24:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle017</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.37395362154213,38.11669091087446,0 13.37350449495826,38.11636908313729,0 13.3729991080422,38.11602404532469,0 13.37321238679897,38.11573381907775,0 13.37328335567616,38.11564440563794,0 13.3738923971936,38.11606845696853,0 13.37356548919458,38.11636191733808,0 13.37398050834348,38.11666725190828,0 13.37395362154213,38.11669091087446,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00031">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>Libero Transito</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Tutti i giorni H 24:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle017</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.37054881819323,38.11258347707971,0 13.37006459764172,38.1131988226859,0 13.37011534037801,38.1132279482713,0 13.36971685978925,38.11369949309843,0 13.36950906692638,38.11356871227061,0 13.36986131126123,38.11309652648809,0 13.37002908677372,38.11317802886772,0 13.37051383812845,38.11256807606984,0 13.37054881819323,38.11258347707971,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00032">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>Libero Transito</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Tutti i giorni H 24:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle017</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36615364010652,38.11053491255589,0 13.36601929341582,38.11073086030309,0 13.36599298534114,38.11071688532751,0 13.36584247255095,38.11093624730054,0 13.36536727385527,38.11075890411866,0 13.36499280575257,38.11062873693265,0 13.36506790094807,38.11049121765469,0 13.36508970570117,38.11049646987492,0 13.36513502482281,38.11043029273897,0 13.36510253831648,38.11041252002485,0 13.3651868321985,38.11028378897374,0 13.36526921709251,38.11031091638202,0 13.36530322001692,38.11026066507401,0 13.36553120470609,38.11035910070837,0 13.36601356665054,38.11056623526233,0 13.36605770882759,38.11049524440075,0 13.36615364010652,38.11053491255589,0</coordinates></LinearRing></outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+    <Placemark id="ID_00033">
+      <name></name>
+      <Snippet></Snippet>
+      <description><![CDATA[<html xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+<body style="margin:0px 0px 0px 0px;overflow:auto;background:#FFFFFF;">
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-collapse:collapse;padding:3px 3px 3px 3px">
+<tr style="text-align:center;font-weight:bold;background:#9CBCE2">
+<td></td>
+</tr>
+<tr>
+<td>
+<table style="font-family:Arial,Verdana,Times;font-size:12px;text-align:left;width:100%;border-spacing:0px; padding:3px 3px 3px 3px">
+<tr>
+<td>Ambito Territoriale</td>
+<td>Libero Transito</td>
+</tr>
+<tr bgcolor="#D4E4F3">
+<td>Validità</td>
+<td>Tutti i giorni H 24:00</td>
+</tr>
+<tr>
+<td>Informazioni</td>
+<td><a target="_blank" href="https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30">https://mobilitasostenibile.comune.palermo.it/maps.php?tp=30</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+]]></description>
+      <styleUrl>#PolyStyle017</styleUrl>
+      <MultiGeometry>
+        <Polygon>
+          <extrude>0</extrude>          <altitudeMode>clampToGround</altitudeMode>
+          <outerBoundaryIs><LinearRing><coordinates> 13.36029245759104,38.10931873815062,0 13.36073686924535,38.1094179320251,0 13.36119318967649,38.1095244435367,0 13.36155641561389,38.10961057970018,0 13.36168995980474,38.10925810168499,0 13.36172935646277,38.10926590661718,0 13.36159663474358,38.10961830461974,0 13.36192448743607,38.10971915294305,0 13.36178934056428,38.10994223866798,0 13.36168171824631,38.10990431389242,0 13.36160997386971,38.11008114700863,0 13.36160097975643,38.11011958791973,0 13.36150140798035,38.11032817145219,0 13.36138813744348,38.11054299151967,0 13.36075529370191,38.11028780674119,0 13.35974309477982,38.10989225740014,0 13.36021915807489,38.10933969190476,0 13.35960163308186,38.10921617456296,0 13.35912688387537,38.10912183009942,0 13.35786017088816,38.10888741004187,0 13.35724615129124,38.10877750640344,0 13.35709333550041,38.1090624742127,0 13.35688663709254,38.10933169007686,0 13.35710676879194,38.10943118494409,0 13.35687648731028,38.10966364715902,0 13.35671844038001,38.10969786003013,0 13.35643453765241,38.11002384446942,0 13.35668590317127,38.11013157269346,0 13.35698535611082,38.11027472079599,0 13.35734934333372,38.11042220995187,0 13.35783307924199,38.11063755693214,0 13.35787730192167,38.11065725026172,0 13.35838567237242,38.11090805740523,0 13.35839218664785,38.11092161530939,0 13.35872287070431,38.11106692337318,0 13.35882774693631,38.11092201882423,0 13.35922401479368,38.111093237293,0 13.35914773876506,38.11116738968315,0 13.35910381962253,38.11123284591351,0 13.35900096988411,38.11140217399554,0 13.35858062906335,38.11121435506167,0 13.35869685318007,38.11107977378612,0 13.3583850868094,38.11093421341515,0 13.35836303634278,38.11093483779914,0 13.35787454636133,38.11068706717452,0 13.35702555161943,38.11032707481265,0 13.35666112735691,38.11015983872656,0 13.35641276659817,38.11005226153691,0 13.35629654449592,38.10999975246151,0 13.35555537731479,38.10968586871561,0 13.35529411748685,38.10996931585838,0 13.35502758062039,38.10939994404477,0 13.35512054644201,38.10924483797675,0 13.35524753136384,38.10902378836452,0 13.35545303393996,38.10880812303846,0 13.35569881365378,38.10861016174083,0 13.3557819156747,38.10853204972037,0 13.35591820401485,38.10837969194277,0 13.35595502940215,38.10830950238634,0 13.35593686992374,38.10827282445686,0 13.35590801122154,38.10822956905169,0 13.3557794283841,38.10815920691164,0 13.35604388856041,38.10821647272376,0 13.35617105724673,38.10822896526725,0 13.35633546491202,38.10822571672516,0 13.35599091775719,38.10851846667806,0 13.35606940831387,38.10852964578432,0 13.35631997982013,38.10860171463623,0 13.35659770825436,38.1086720203224,0 13.35671907218887,38.10870157166632,0 13.35721469594001,38.10874350641458,0 13.3573259060106,38.1084131548572,0 13.3573647669362,38.10842279526859,0 13.35724894739876,38.10874633127647,0 13.35732234955787,38.10875289233966,0 13.35782629688765,38.10884849163155,0 13.35800564805751,38.10858118877879,0 13.35804978426308,38.10859165655513,0 13.35787034083434,38.1088561996061,0 13.3584851155025,38.10896136002999,0 13.35907549088078,38.10907809834865,0 13.35926143264771,38.10886013977179,0 13.35930495076766,38.10887186130629,0 13.35912446733753,38.10908865745199,0 13.35959404308233,38.10918275933766,0 13.35977867658847,38.10894504364792,0 13.35983080922986,38.10895515125753,0 13.35964537397504,38.10919127830174,0 13.36024693786066,38.10931136938916,0 13.36046867585196,38.10905740779582,0 13.36051630515972,38.10906629469339,0 13.36029245759104,38.10931873815062,0 13.36012475488403,38.10951009611922,0 13.36063638011778,38.1096400335516,0 13.36072209747362,38.10945047872187,0 13.36027017023689,38.1093499876846,0 13.36029245759104,38.10931873815062,0</coordinates></LinearRing></outerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.36112292630037,38.1095419097546,0 13.36076120967264,38.10945579331873,0 13.3606784026734,38.10965015757103,0 13.36103530187237,38.10974932118769,0 13.36112292630037,38.1095419097546,0</coordinates></LinearRing></innerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.36001930152289,38.10964059157163,0 13.36050830131272,38.10978301453925,0 13.36114251330794,38.10994792900667,0 13.36119375561493,38.10982839764128,0 13.36056937000906,38.10965850373751,0 13.36010420380345,38.10953552752607,0 13.36001930152289,38.10964059157163,0 13.35981305594326,38.10988587973164,0 13.3607054095579,38.1102360493727,0 13.36085521563484,38.10990810227516,0 13.3600024871198,38.10966849956125,0 13.36001930152289,38.10964059157163,0</coordinates></LinearRing></innerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.36089712584306,38.10991636239015,0 13.36074061709429,38.11025444972933,0 13.36093636333279,38.11033393420777,0 13.3610332110508,38.110202247122,0 13.36112645725562,38.11023169087861,0 13.36121947490434,38.11027136509848,0 13.36145111531722,38.11033855732993,0 13.36155348506112,38.11010460957497,0 13.36089712584306,38.10991636239015,0</coordinates></LinearRing></innerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.36117864809486,38.10996079578874,0 13.36157536134033,38.11006698643118,0 13.36162387382216,38.10993208488366,0 13.3612333836007,38.10983830651743,0 13.36117864809486,38.10996079578874,0</coordinates></LinearRing></innerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.36163854493654,38.10989841547846,0 13.36173225479912,38.10968870407028,0 13.36116195867607,38.10955079968783,0 13.36107581612968,38.10975942402077,0 13.36123919525721,38.10980819901874,0 13.36163854493654,38.10989841547846,0</coordinates></LinearRing></innerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.35703548715471,38.10908160979403,0 13.35669460503587,38.10873670914651,0 13.35650920132541,38.10868385452602,0 13.35631799285676,38.10864298989932,0 13.35607136711399,38.10887736993299,0 13.35620757515141,38.10899372667594,0 13.35684315751383,38.10931497393662,0 13.35703548715471,38.10908160979403,0</coordinates></LinearRing></innerBoundaryIs>
+          <innerBoundaryIs><LinearRing><coordinates> 13.35643628961289,38.10915668099776,0 13.35619184996764,38.10902211926911,0 13.35618629724089,38.1090005820776,0 13.35573570668738,38.10863900193998,0 13.35549596070969,38.10883354993437,0 13.35533511542014,38.10899056006127,0 13.35524232854398,38.10910897215072,0 13.35518836965521,38.10922743595854,0 13.35507887815128,38.10939996300326,0 13.35554695947681,38.109654493081,0 13.35625564326551,38.10994576984612,0 13.35681832863507,38.10934562365463,0 13.35643628961289,38.10915668099776,0</coordinates></LinearRing></innerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+  </Folder>
+  <Folder id="GroupLayer1">
+    <name>Mappa di base</name>
+    <Snippet></Snippet>
+  </Folder>
+  <Folder id="GroupLayer2">
+    <name>Mappa di base</name>
+    <Snippet></Snippet>
+  </Folder>
+  <Folder id="GroupLayer3">
+    <name>Mappa di base</name>
+    <Snippet></Snippet>
+  </Folder>
+  <Style id="PolyStyle00">
+    <LabelStyle>
+      <color>00000000</color>
+      <scale>0.000000</scale>
+    </LabelStyle>
+    <PolyStyle>
+      <color>7f73ffff</color>
+      <outline>0</outline>
+    </PolyStyle>
+  </Style>
+  <Style id="PolyStyle017">
+    <LabelStyle>
+      <color>00000000</color>
+      <scale>0.000000</scale>
+    </LabelStyle>
+    <LineStyle>
+      <color>7f007326</color>
+      <width>0.400000</width>
+    </LineStyle>
+    <PolyStyle>
+      <color>7f007326</color>
+      <outline>1</outline>
+    </PolyStyle>
+  </Style>
+</Document>
+</kml>

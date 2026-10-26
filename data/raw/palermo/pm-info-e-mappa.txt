@@ -1,0 +1,126 @@
+Letto il 2026-10-26 (Comune di Palermo, Polizia Municipale, pagina ufficiale; testo estratto dall'HTML)
+URL: https://repository.comune.palermo.it/polizia-municipale-info.php
+ Info e Mappa - Zona a Traffico Limitato - ZTL 
+ × 
+ Comune di Palermo
+ Amministrazione 
+ Atti e normativa -->
+ Vai al contenuto principale 
+ Regione Siciliana 
+ Accedi -->
+ Accedi -->
+ MENU
+ Comune di Palermo
+ ITA 
+ ENG -->
+ Seguici su 
+ Amministrazione 
+ Servizi 
+ Protezione Civile 
+ Amministrazione 
+ Aree Tematiche 
+ Servizi 
+ URP 
+ -->
+ Home 
+ > 
+ Polizia Municipale 
+ > 
+ Zona a Traffico Limitato - ZTL 
+ > 
+ Info e Mappa 
+ Info e Mappa
+ Cerca 
+ Ztl non attiva 
+ La Ztl è in vigore secondo le seguenti modalità 
+ Dal lunedì al venerdì dalle ore 08:00 alle ore 20:00
+ Attualmente la ZTL notturna non è attiva 
+-->
+ Dal 1 Maggio al 31 Ottobre 
+ Il Venerdì dalle 20:00 alle 24:00 
+ Il Sabato dalle 00:00 alle 06:00 e dalle 20:00 alle 24:00 
+ La Domenica dalle 00:00 alle 06:00 
+-->
+ ZTL notturna 
+ Dal 1 Novembre al 30 Aprile -->
+ Il Venerdì dalle 23:00 alle 24:00 
+ Il Sabato dalle 00:00 alle 06:00 e dalle 23:00 alle 24:00 
+ La Domenica dalle 00:00 alle 06:00 
+ La polizia municipale 
+ ricorda che "per l'accesso alla ZTL nelle ore notturne tra le 23:00 di 
+ venerdì le 6:00 di sabato e tra le 23:00 di sabato e le 6:00 di domenica il passa 
+ DEVE essere consumato entro le ore 6:00 della sera/notte del transito. Infine, 
+ per transitare tra le ore 23:00 del sabato e le ore 6:00 della domenica il 
+ pass può essere consumato a partire dalle ore 6:01 del sabato. 
+ Il pass può essere giornaliero, mensile, semestrale e annuale. Per ciascuno periodo indicato, il numero di accessi è illimitato. 
+ Il pass per le auto elettriche è sempre gratuito. 
+ I pass giornalieri possono essere Acquistati On-Line, presso le rivendite autorizzate o tramite. l’App PalerMobilità 
+ Acquista pass giornaliero -->
+ Comunicazione utilizzo Pass Giornaliero Cartaceo 
+ Si ricorda che a seguito OD 1071/2022 deliberata con DG 169 del 26/08/2022 
+ sono state apportare le seguenti modifiche al disciplinare tecnico 
+ I pass giornalieri di accesso potranno essere convalidati anche a posteriori 
+ con le seguenti modalità: 
+ - dal lunedì al giovedì entro le ore 24,00 del giorno in cui è stato effettuato il transito; 
+ - dal venerdì alla domenica entro le ore 6,00 del periodo per cui è stato effettuato il transito notturno; 
+ La validità dei pass giornalieri richiesti per le giornate di venerdì e sabato è estesa 
+ fino alle ore 06.00 del giorno successivo.
+ I Pass per la ZTL notturna della domenica devono essere attivati dopo le ore 06:00 del sabato. 
+ Persone con limitata o impedita capacità motoria muniti del contrassegno speciale 
+Il titolare del contrassegno, 
+ entro 15 giorni dal momento in cui è stato effettuato il transito dal varco di accesso, potrà inviare 
+ copia dello stesso all’AMAT ztlcentrale@amat.pa.it , allegando i riferimenti del veicolo con il 
+ quale ha effettuato l’accesso oppure effettuando la registrazione sul portale del comune di 
+ Palermo al link ztl.comune.palermo.it .
+ Accessi multipli Gli attraversamenti multipli dei varchi attivi eseguiti 
+ nell’arco temporale di 15 minuti saranno considerati come un unico ingresso.
+ X 
+ Ti è stata utile questa pagina?
+ Sì 
+ In parte, ma la migliorerei 
+ Seleziona un motivo 
+ Completezza dei contenuti 
+ Chiarezza dei contenuti 
+ Navigazione 
+ Grafica 
+ No 
+ Come possiamo migliorare questa pagina? 
+ Segnala contenuti non accessibili 
+ Informativa privacy
+ Ho letto e compreso l' infomativa privacy e acconsento al trattamento 
+ Invia 
+ Ti è stata utile questa pagina? 
+ Per valutare questa pagina devi essere registrato ( Accedi ) 
+ Comune di Palermo 
+ Recapiti e Contatti 
+ Sede: Piazza Pretoria, 1 
+ Posta elettronica certificata (PEC): 
+ protocollo@cert.comune.palermo.it 
+ Telefono: 0917401111 
+ CF:80016350821 
+ Ufficio Stampa --> 
+ Polizia Municipale 
+ URP - Ufficio Relazioni con il Pubblico -->
+ Trasparenza 
+ Amministrazione Trasparente 
+ Bandi di Gara e Contratti 
+ Telefono e Posta Elettronica 
+ Informativa Data Breach -->
+ Obiettivi di accessibilità 
+ Protezione Civile PA 
+ Open Data 
+ Pubblicità Legale 
+ Albo Pretorio on Line 
+ Pubblicazioni matrimoni 
+ Siti Tematici --> 
+ Palermo Welcome --> 
+ Seguici su 
+ Credits -->
+ Note Legali 
+ Mappa del Sito 
+ Dichiarazione di accessibilità -->
+ © 2021 Comune di Palermo - Tutti i diritti riservati 
+ https://repository.comune.palermo.it/polizia-municipale-info.php 
+(dal sorgente HTML della stessa pagina: mappa caricata dal campo nascosto jsonField)
+value='[{"type":"kml","opts":{"url":"https://docs.comune.palermo.it/kml/ZTL_2019.kmz","name":"Area restrizione costa"}}]
+
