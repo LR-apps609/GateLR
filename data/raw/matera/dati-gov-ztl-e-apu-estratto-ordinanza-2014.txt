@@ -1,0 +1,144 @@
+Fonte: dati.gov.it, dataset «ZTL e APU» (Comune di Matera), campo notes (estratto di ordinanza, 2014), API CKAN package_show?id=ztl-e-apu
+Letta il: 2026-10-26 (testo letterale dei metadati ufficiali)
+
+Estratto ordinanza. Per approfondimenti: http://www.mediareatrust.it/ztl/.
+
+
+1. Zona VERDE – Area Centro Storico ![Alt text](/images/OpenData_quad_verde.png) ZTL Mercato: (via A. Persio – tratto compreso tra intersezione con vico A. Persio e via La Vista - e via La Vista);
+ZTL Prefettura: (via Roma sud – tratto compreso tra l’intersezione con via Lucana e via XX Settembre - e via XX Settembre – tratto compreso tra l’intersezione con via Roma e vico XX Settembre);
+ZTL Centro: (via A. Volta, via D. Ridola – tratto compreso tra l’intersezione con via Volta e via San Francesco, via del Corso, via e piazza San Francesco, via R.Scotellaro, via delle Beccherie, piazzetta denominata S.Eligio e p.tta Bracco);
+
+2. Zona AZZURRA – Area Duomo / Via San Biagio ![Alt text](/images/OpenData_quad_celeste.png)
+<br>ZTL Civita: ( via e piazza Duomo e via delle Beccherie - tratto compreso tra il civico 37 e p.zza del
+Sedile);
+ZTL San Biagio: (via T. Stigliani – tratto compreso tra l’intersezione con vico XX Settembre e via San Biagio -, via San Biagio – tratto compreso tra l’intersezione con via T. Stigliani e l’intersezione con Via san Rocco e l’area pedonale di Via San Biagio ed il tratto di Via San Rocco limitrofo a Via San Biagio);
+
+3. Zona GIALLA – Area Sassi ![Alt text](/images/OpenData_quad_giallo.png) ZTL Sassi: (area che comprende via D’Addozio, Via Fiorentini, Via Sant’Antonio Abate, Via Madonna delle Virtù, via Bruno Buozzi, ed ogni altra strada interna ai Rioni Sassi limitrofa alle anzidette strade, con esclusione di via Casalnuovo e Via Santo Stefano).
+
+
+L’accesso alle predette zone sarà disciplinato mediante la segnaletica verticale ed orizzontale e la rilevazione mediante varchi elettronici omologati, ubicati in:
+1. Via Ascanio Persio angolo Vico Ascanio Persio
+2. Via Volta angolo Via Lucana
+3. Via delle Beccherie, retrostante il Palazzo delle Poste
+4. Via Roma sud angolo Via Lucana
+5. Via Stigliani , intersezione Vico XX Settembre
+6. Via Bruno Buozzi, intersezione Via Casalnuovo
+7. Via D’Addozio, intersezione Via Santo Stefano.
+Nelle suddette ZTL sarà istituito il divieto di transito e sosta a tutti i veicoli, con esclusione dei veicoli degli autorizzati, delle forze dell’ordine, di vigilanza, dei mezzi di soccorso e dei veicoli ad uso di soggetti muniti di regolare contrassegno per disabili, nonché i veicoli a completa trazione elettrica, taxi, autovetture noleggio con conducente, nei periodi ed orari di seguito riportati:
+
+ZONA VERDE - Area Centro Storico
+ZTL Prefettura:
+periodo invernale (dal 15/10 al 14/03):
+- giorni prefestivi ore 20.30 – 22.30;
+- giorni festivi ore 17.00 – 22.30; periodo estivo (dal 15/03 al 14/10):
+- giorni feriali ore 21.00 – 24.00
+- giorni festivi ore 17.00 – 24.00. ZTL Mercato e ZTL Centro:
+periodo invernale (dal 15/10 al 14/03):
+- giorni prefestivi ore 20.30 – 22.30;
+- giorni festivi ore 9.30 – 13.30 e 17.00 – 22.30;
+periodo estivo (dal 15/03 al 14/10):
+- giorni feriali ore 21.00 – 24.00
+- giorni festivi ore 9.30 – 13.30 e 17.00 – 24.00.
+
+ZONA AZZURRA - Area Duomo / San Biagio
+ZTL Civita e ZTL San Biagio:
+ZTL Sassi:
+dal 01/01 al 31/12 dalle ore 00.00 dalle ore 24.00. :
+
+ZONA GIALLA – Area Sassi:
+- tutti i giorni dalle ore 10:00 alle ore 13:00 e dalle ore 17:00 alle ore 21:30
+
+Ai motocicli ed ai ciclomotori sarà consentito il solo transito alle ZTL, ad esclusione della sosta che avverrà secondo i dettami del vigente C.d.S..
+La permanenza dei veicoli in sosta entro l’orario di vigenza delle ZTL, qualora non autorizzata, verrà sanzionata secondo le norme del vigente C.d. S.;
+
+l’istituzione delle seguenti APU (Aree Pedonali Urbane)![Alt text](/images/OpenData_quad_rosso.png) :
+VIA D. RIDOLA – tratto compreso tra l’intersezione con via A. Volta e via E. Duni;
+PIAZZA G. PASCOLI;
+VICO CASE NUOVE;
+PIAZZA DEL SEDILE;
+VIA DEL CORSO – tratto compreso tra il civico 14 e piazza V. Veneto;
+PIAZZA V. VENETO;
+VIA SAN BIAGIO - tratto compreso tra l’intersezione con piazza V. Veneto ed il civico n. 42 di Via San Biagio;
+VIA S. CESAREA – tratto compreso tra intersezione con via San Biagio e vico Piave;
+PIAZZA ASCANIO PERSIO;
+VIA RISCATTO;
+VIA SAN POTITO;
+PIAZZA SAN PIETRO ;
+VICO SOLITARIO;
+PIAZZA C. FIRRAO - area compresa tra il civico 24 e Recinto C. Firrao.
+In tali aree sarà consentito il transito e la fermata ai veicoli adibiti al carico e scarico delle merci con automezzi adibiti a tale uso nelle seguenti fasce orarie:
+- 07.00 - 10.00;
+- 15.00 - 18.00
+ad eccezione dei giorni festivi.
+
+Sarà autorizzato il transito nelle ZTL e nelle APU sopra individuate ai titolari, in diritto di proprietà o in uso, di un posto auto in rimessa o area privata adibita a tale scopo – regolarizzata da “passo carrabile” ex art. 22 del D.lg.vo n. 285/1992 e ss.mm.ii. -, previa richiesta all’ufficio competente.
+All’interno delle predette A.P.U. sarà vietato il transito e la sosta dei veicoli ad uso dei disabili.
+Pertanto al fine di agevolare la mobilità di tali utenti, vengono istituiti, nel perimetro esterno alle aree pedonali, n. 26 stalli di sosta riservati, ubicati nelle vie di seguito riportate e così distinti:
+- n. 2 in Via Volta;
+- n. 2 in Via A. Persio;
+- n. 2 in Via De Blasiis;
+- n. 2 in Via Roma;
+- n. 2 in Via Amendola;
+- n. 2 in Via T. Stigliani;
+- n. 2 in Via Duomo;
+- n. 2 in Via San Francesco;
+- n. 2 in Via Scotellaro;
+- n. 2 in p.zza Duomo;
+- n. 2 in Via Madonna delle Virtù angolo Via D’Addozio;
+- n. 4 in Via Ridola –prospiciente il muretto di Via Casalnuovo -.
+In sede di richiesta di autorizzazione, gli utenti residenti nelle ZTL ed APU, ovvero in strade non altrimenti raggiungibili attigue a queste, dovranno indicare preventivamente, la ZTL entro la quale intendono accedere e/o sostare.
+I residenti nelle ZTL e nelle APU, ad accezione dei residenti nelle APU di via Ridola e vico Case Nuove e strade non altrimenti raggiungibili attigue a queste, ai quali sarà consentita durante l’orario di vigenza delle ZTL, esclusivamente la sosta in Via Duni ed in Via Ridola, tratto compreso tra Via Duni e Via lucana, potranno sostare secondo la pianificazione di seguito riportata:.
+
+1. “ZTL PREFETTURA”: via Roma sud – da intersezione con via Lucana a via XX Settembre - negli appositi stalli riservati, secondo segnaletica e negli orari di vigenza della ZTL ;
+
+2. “ZTL MERCATO”: via A. Persio - da intersezione con vico A. Persio a via La Vista – e via La Vista - negli appositi stalli riservati, secondo segnaletica e negli orari di vigenza della ZTL;
+
+3. “ZTL CENTRO”: Via Duni, via A. Volta, via del Corso- da Via san Francesco a Via Scotellaro - , via San Francesco, via R. Scotellaro, via delle Beccherie – tratto compreso tra i civici 19 e 35 – negli appositi stalli riservati secondo segnaletica, con divieto di fermata in P.tta denominata “S.Eligio”, negli orari di vigenza della ZTL, i residenti in p.tta Bracco potranno parcheggiare esclusivamente in Via Duni, Via Ridola – dall’intersezione con Via Duni sino all’intersezione con Via Lucana, negli orari di vigenza della ZTL, sarà inoltre consentita la sosta con modalità disco orario 1 ora per il solo carico e scarico ;
+
+4. “ZTL CIVITA”: piazza San Francesco - antistante l’ex Istituto della Banca d’Italia –, piazza Duomo – lato prospiciente il “Belvedere” – negli appositi stalli riservati esclusivamente ai residenti in via Duomo, piazza Duomo e in strade non altrimenti raggiungibili, immediatamente attigue, nonché al 3° livello del parcheggio in struttura di Via Lucana con tariffazione calmierata secondo le modalità già disciplinate con apposito atto. In particolare in Piazza Duomo vigerà il divieto di fermata ad eccezione del lato prospiciente il “Belvedere”,;con modalità disco orario di 1h (un’ora) dalle ore 08,30 alle ore 14,00 e dalle ore 16,30 alle ore 20,30 di tutti i giorni settimanali, consentendo, altresì, la sosta non limitata nei medesimi stalli dalle ore 14.00 alle 16.30 e dalle ore 20.30 alle ore 08.30, eccetto i giorni di 25 aprile, 1° maggio, Pasqua e Pasquetta, 15 agosto e 2 luglio in cui vigerà il divieto di sosta e fermata in tutta la piazza ivi compresi gli stalli sopracitati;
+
+5. “ZTL SAN BIAGIO”: via T. Stigliani – tratto compreso tra l’intersezione di Via Amendola e vico XX Settembre, durante gli orari di vigenza della ZTL – e tratto compreso tra l’intersezione con vico XX settembre e l’area pedonale di Via san Biagio con divieto di fermata, eccetto negli appositi stalli riservati esclusivamente ai residenti nella ZTL San Biagio e in strade non altrimenti raggiungibili, immediatamente attigue, con modalità disco orario di 1h (un’ora) dalle ore 08,30 alle ore 14,00 e dalle ore 16,30 alle ore 20,30 di tutti i giorni settimanali, consentendo, altresì, la sosta non limitata nei medesimi stalli dalle ore 14.00 alle 16.30 e dalle ore 20.30 alle ore 08.30 secondo segnaletica;
+
+6. “ZTL SASSI”: via D’Addozio, Via Fiorentini, Via Sant’Antonio Abate, Via Buozzi – negli appositi stalli di sosta riservati agli autorizzati, ad eccezione del lato adiacente il complesso di Santa Lucia-Agata, dove nell’immediate adiacenze del “fontanino” vengono istituiti n. 4 stalli si sosta riservati ai disabili.
+Nelle strade ricadenti nella ZTL SASSI, si istituisce il divieto di sosta permanente (0-24).
+Le modifiche alla ZTL-Sassi (Zona Gialla) sono le seguenti:
+
+APU San Pietro Caveoso: viene istituita una nuova Area Pedonale Urbana in Piazza San Pietro Caveoso e in Vico Solitario  nel tratto compreso e delimitato da fioriere metalliche con basole di marmo. L’accesso ai veicoli ad uso dei portatori di Handicap , nonchè, il carico e scarico delle merci sarà consentito dalle ore 7,00 alle ore 10,00 e dalle ore 14,00 alle ore 17,00 ad eccezione dei giorni festivi.
+ZTL - Fasce orarie nel periodo estivo: si passa da una limitazione del traffico prevista solo nei giorni prefestivi e festivi ore 9.30-13.00 e 16.00-20.00 ad una limitazione prevista per tutti i giorni ore 10.00-13.00 e 17.00-21.30.
+ 
+Il carico e scarico delle merci sarà consentito dalle ore 7,00 alle ore 10,00 e dalle ore 14,00 alle ore 17,00
+
+Istituzione del divieto di transito in Via Fiorentini (tutti i giorni h.24), per tutti i veicoli, ad eccezione di quelli autorizzati alla sosta nei Rioni Sassi.
+
+La sosta dei veicoli non autorizzati è consentita esclusivamente nel piazzale di Porta Postergola e negli stalli come individuati secondo segnaletica. Potrà protrarsi anche negli orari di vigenza della “ZTL – Sassi” fermo restando il divieto di circolazione nei suddetti orari.
+
+***Riepilogando, con l'Ordinanza Dirigenziale n. 291 del 27 Agosto 2014 le modifiche alla ZTL- Sassi (Zona Gialla) sono le seguenti:***
+
+1.	APU San Pietro Caveoso: viene istituita una nuova Area Pedonale Urbana in Piazza San Pietro Caveoso e in Vico Solitario  nel tratto compreso e delimitato da fioriere metalliche con basole di marmo. L’accesso ai veicoli ad uso dei portatori di Handicap , nonchè, il carico e scarico delle merci sarà consentito dalle ore 7,00 alle ore 10,00 e dalle ore 14,00 alle ore 17,00 ad eccezione dei giorni festivi.
+
+2.	ZTL - Fasce orarie nel periodo estivo: si passa da una limitazione del traffico prevista solo nei giorni prefestivi e festivi ore 9.30-13.00 e 16.00-20.00 ad una limitazione prevista per tutti i giorni ore 10.00-13.00 e 17.00-21.30. Il carico e scarico delle merci sarà consentito dalle ore 07.00 alle ore 10.00 e dalle ore 14.00 alle ore 17.00
+
+3.	Istituzione del divieto di transito in Via Fiorentini (tutti i giorni h.24), per tutti i veicoli, ad eccezione di quelli autorizzati alla sosta nei Rioni Sassi
+
+4.	La sosta dei veicoli non autorizzati è consentita esclusivamente nel piazzale di Porta Postergola e negli stalli come individuati secondo segnaletica. Potrà protrarsi anche negli orari di vigenza della “ZTL – Sassi” fermo restando il divieto di circolazione nei suddetti orari.
+
+La disciplina delle modalità di autorizzazione al transito e alla sosta nelle suddette aree rimane quella prevista nella citata O.D. n.278/2013. 
+
+Parcheggi: l’uso degli stalli (c.a. 120) sarà consentito esclusivamente agli autorizzati prevedendo una percentuale di stalli liberi, secondo segnaletica. 
+
+Prevista, inoltre, la riapertura al traffico con l’istituzione del senso unico di circolazione su via Casalnuovo, dalla intersezione di via B. Buozzi, e sino alla intersezione con via Ridola in direzione e verso Via Ridola.
+
+I residenti ed i commercianti con sede entro il perimetro delle APU e ZTL potranno usufruire dei parcheggi a pagamento con tariffazione calmierata, con particolare riferimento al 3° livello del parcheggio in struttura di Via Lucana secondo le modalità già disciplinate con apposito atto.
+
+Ai soggetti autorizzati all’accesso nei Rioni Sassi sarà consentito il solo transito. 
+
+La sosta è consentita nella misura di 1 (uno) veicolo per volta.
+
+Tutto le circostanze diverse e non inserite nella presente Ordinanza, sono contemplate nel predetto disciplinare.
+
+Questa Amministrazione declina ogni responsabilità civile e penale per danni causati a persone o cose che potrebbero derivare dall’inosservanza della presente ordinanza.
+La presente ordinanza entrerà in vigore con l’apposizione della relativa segnaletica stradale.
+E’ fatto obbligo a chiunque spetti di osservare e fare osservare la presente ordinanza. 
+
+Ringraziamo il Dott. Rocco Lista per l'elaborazione cartografica.
+Mappa statica su Google Maps: http://goo.gl/maps/nuICd
