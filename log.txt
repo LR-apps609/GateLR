@@ -1,0 +1,18 @@
+1 200 15619 https://docs.comune.palermo.it/kml/ZTL_2019.kmz -> 1-ZTL_2019.kmz_
+2 200 152260 https://www.amat.pa.it/14-07-2026-sospensione-temporanea-della-ztl-fino-alle-ore-8-del-16-luglio-2026/ -> 2-14-07-2026-sospensione-temporanea-della-ztl-fino-alle-ore-8-del-16-luglio-2026_
+3 200 152750 https://www.amat.pa.it/02-04-04-2026-settimana-santa-sospensione-temporanea-della-ztl/ -> 3-02-04-04-2026-settimana-santa-sospensione-temporanea-della-ztl_
+4 200 152326 https://www.amat.pa.it/14-15-07-2025-401-festino-di-santa-rosalia-sospensione-della-ztl-diurna-e-notturna/ -> 4-14-15-07-2025-401-festino-di-santa-rosalia-sospensione-della-ztl-diurna-e-nottur
+5 200 152166 https://www.amat.pa.it/sospensione-temporanea-della-ztl-in-occasione-delle-festivita-natalizie/ -> 5-sospensione-temporanea-della-ztl-in-occasione-delle-festivita-natalizie_
+6 200 153279 https://www.amat.pa.it/29-05-2025-accesso-in-ztl-titolari-cude-contrassegno-disabili-per-i-non-residenti-nel-comune-di-palermo/ -> 6-29-05-2025-accesso-in-ztl-titolari-cude-contrassegno-disabili-per-i-non-resident
+7 200 131181 https://www.amat.pa.it/call-center-ztl/ -> 7-call-center-ztl_
+8 200 180944 https://www.comune.palermo.it/novita/avviso-cambio-orario-ztl-notturna-dal-1-maggio-2024-con-effetto-dal-3-maggio/ -> 8-avviso-cambio-orario-ztl-notturna-dal-1-maggio-2024-con-effetto-dal-3-maggio_
+9 200 179069 https://www.comune.palermo.it/novita/comunicazione-od-sospensione-ztl-centrale/ -> 9-comunicazione-od-sospensione-ztl-centrale_
+10 200 184174 https://www.comune.palermo.it/argomento/ztl/ -> 10-ztl_
+11 200 188599 https://www.comune.palermo.it/novita/accesso-in-ztl-titolari-cude/ -> 11-accesso-in-ztl-titolari-cude_
+12 404 122501 https://www.comune.palermo.it/js/server/uploads/_16092016114611.pdf -> 12-_16092016114611.pdf_
+13 200 41244 https://repository.comune.palermo.it/polizia-municipale-ztl.php -> 13-polizia-municipale-ztl.php_
+14 200 13063 https://ztl.comune.palermo.it/ztl/jsp/home.jsp?modo=info&info=datiZTL.jsp -> 14-home.jsp_
+15 200 11596 https://ztl.comune.palermo.it/ztl/jsp/home.jsp?modo=info&info=faq.jsp -> 15-home.jsp_
+16 200 16986 https://ztl.comune.palermo.it/ztl/pu/push-tabella-notizie-hp.do?nomeTabella=FOZTL_NEWS -> 16-push-tabella-notizie-hp.do_
+17 200 29104 https://opendata.comune.palermo.it/ -> 17-opendata.comune.palermo.it_
+18 overpass 156

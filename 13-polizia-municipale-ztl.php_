@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Benvenuti sul sito istituzionale del Comune di Palermo">
+    <meta name="keywords" content=""/>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:url" content="https://repository.comune.palermo.it/polizia-municipale-ztl.php" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sito istituzionale del Comune di Palermo" />
+    <meta property="og:description" content="Zona a Traffico Limitato - ZTL - Polizia Municipale - Comune di Palermo" />
+    <meta property="og:image" content="https://docs.comune.palermo.it/img/aqu.png" />
+    <meta property="og:site_name" content="Sito istituzionale del Comune di Palermo" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="https://repository.comune.palermo.it/polizia-municipale-ztl.php" />
+    <meta name="twitter:description" content="Zona a Traffico Limitato - ZTL - Polizia Municipale - Comune di Palermo" />
+    <meta name="twitter:image:src" content="https://docs.comune.palermo.it/img/aqu.png" />
+    
+    <title>Zona a Traffico Limitato - ZTL - Polizia Municipale</title>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link href="css/main.css" rel="stylesheet" type="text/css" media="screen">
+    <link rel="stylesheet" media="screen and (min-width: 320px) and (max-width : 667px)" href="css/max-480px.css">
+    <link rel="stylesheet" media="screen and (min-width: 668px) and (max-width : 1024px)" href="css/max-1024px.css">
+    <link rel="stylesheet" media="screen and (min-width: 1025px) and (max-width : 1280px)" href="css/max-1280px.css">
+    <link href="js/jquery.cookiebar/jquery.cookiebar.css" rel="stylesheet" type="text/css">
+<!-- Google tag (gtag.js) -->
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-J524QGPQ17"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J524QGPQ17');
+</script>--> 
+</head>
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <div id="menu_hdr">
+        <a href="#" class="closebtn">&times;</a>
+       <div id="logo"><a href="index.php"><img src="img/aqu.png" alt="logo header"/></a></div><div id="title">Comune di Palermo</div>
+       <div id="menu-bc">
+       <!--<span><a href="#">Amministrazione</a></span>
+       <span><a href="#">Atti e normativa</a></span>-->
+       </div>
+        </div><ul></ul><!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  
+    </div>
+	
+    <main id="mainpage">
+        <div id="push-screen"></div>  
+        <header id="header" style="background-color:#0C6594">
+
+    <a href="#mainpage" class="skip-to-main-content-link">Vai al contenuto principale</a>
+
+    <div id="header-top"><span><a href="https://www.regione.sicilia.it" target="_blank" style="color:#FFF;">Regione Siciliana</a></span>
+        
+        
+        <!--<a href="https://comune.palermo.it/oauth/login.php" id="spid">Accedi</a>-->
+<!--        <a href="https://servizionline.comune.palermo.it/" id="spid">Accedi</a>-->
+    </div>
+        <div class="clear"></div>
+        <div id="header-main">
+        <!--blocco sin hdr-->
+        	
+            <nav id="nav"  onclick="openNav()">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <div style="width:100%;height:1rem;color:#FFF;display:block;top:35px;position:absolute;text-align:center;font-size: 0.8rem;margin-top:0.3rem;" class="mobile-not">MENU</div>
+            </nav>
+            
+        <div id="logo-box">
+              <img src="https://docs.comune.palermo.it/img/aqu.png" alt="logo">
+              <span style="margin-top: 1.5rem;">
+                  <a href="https://www.comune.palermo.it" class="up-logo"><div class="h-h1" role="heading" aria-level="2">Comune di Palermo</div></a>
+              </span>
+              <div id="mob-src">
+              <a href="#" class="mobile-only"><img id="do-mob-src" src="https://docs.comune.palermo.it/img/lente_40.png" alt="cerca"></a>
+              </div>
+            </div>
+
+        
+         <!--//blocco sin hdr--> 
+         
+         <!--blocco dx hdr-->
+        	          
+           <div id="social-box" class="mobile-not">
+            	<!-- <a href="#" class="lang">ITA</a>
+                <a href="#" class="lang disabled">ENG</a>-->
+            	<span>Seguici su</span>
+           	<a href="http://www.facebook.com/ComunediPalermo"  target="_blank"><img src="https://docs.comune.palermo.it/img/ico/b_face.png" class="ico" alt="facebook"></a>
+                <a href="http://twitter.com/ComunePalermo" target="_blank"><img src="https://docs.comune.palermo.it/img/ico/b_twitter.png" class="ico" alt="twitter"></a>
+                <a href="https://www.instagram.com/comunepalermo/" target="_blank"><img src="https://docs.comune.palermo.it/img/ico/b_instagram.png" class="ico" alt="instagram"></a> 
+                <a href="https://www.comune.palermo.it/lista-rss.php"><img src="https://docs.comune.palermo.it/img/ico/rssw.png" class="ico" alt="rss"></a> 
+            </div>
+
+         
+            <div id="search-box" class="mobile-not">
+                <form id="cse-search-box" role="search" class="search" title="CSE Search" action="search.php" style="height:100%;">
+                    <input type="text" id="q" name="q" size="" aria-label="Cerca" placeholder="Cerca" />
+                    <input type="submit" name="sa" id="gse-send" style="display:none" />
+                    <a href="#" role="button" class="mobile-not" ><img src="https://docs.comune.palermo.it/img/lente_45.png" alt="cerca" id="desk-src"></a>
+                </form>
+            </div>
+         
+        
+         <!--//blocco dx hdr--> 
+
+        </div>
+      		
+        <!--motore di ricerca mobile-->  
+        <div id="m-search-box"><input name="q" id="m-gse" type="text" placeholder="Cerca"></div>
+        <!--//motore di ricerca mobile--> 
+        
+</header>
+<script src="js/jquery-1.12.1.min.js"></script>
+<script>
+
+  (function() {
+    var cx = '004601980036908349058:qfba1ybb28m';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+
+var mobsrcopened=false;
+    
+$(document).on("click","#desk-src", function(event){
+    
+    $("#gse-send").click();
+    var term =encodeURIComponent($("#q").val());
+
+    var phrase = "search.php?q="+term+"&sa=Invia";
+
+       window.location= phrase;
+  
+});
+
+$(document).on("click","#do-mob-src", function(event){
+    
+    if(mobsrcopened===false){
+        
+        $("#m-search-box").show();
+        $("#header").css("height","auto");
+        
+        
+    }else{
+        
+        $("#m-search-box").hide();
+        $("#header").css("height","auto");
+        
+    }
+    
+    mobsrcopened = !mobsrcopened;
+  
+    return false;
+  
+
+});
+
+$('#m-gse, #q').keyup(function(e){
+    
+    var term =encodeURIComponent($(this).val());
+    
+    var phrase = "search.php?q="+term+"&sa=Invia";
+    
+    
+    if(e.keyCode == 13)
+    {   
+        window.location= phrase;
+        
+   
+    }
+});
+</script>
+ 
+        <div id="slide-level">
+            <div id="top-lev">
+                <span id="sel-type"><img src="img/arrows.png" alt=""/><span></span></span>
+            </div>
+        </div>     
+        
+<nav id="opt-nav">
+    
+    <div id="opt-nav-main"><ul><li><a href="sezione-categoria.php?sez=2">Amministrazione</a></li>
+            <li><a href="https://repository.comune.palermo.it/servizi/">Servizi</a></li>
+            <li><a href="https://protezionecivile.comune.palermo.it/">Protezione Civile</a></li>
+            </ul></div>
+
+<!--   <div id="opt-nav-main"> 
+    
+      <ul>
+        <li><a href="struttura-amministrativa.php?sez=2&grp=2">Amministrazione</a></li>
+        <li><a href="#">Aree Tematiche</a></li>
+        <li><a href="#">Servizi</a></li>
+        <li><a href="#">URP</a></li> 
+      </ul>
+   
+   </div>     -->
+         
+</nav> 
+         
+            <section class="wrap-full first">
+                
+                    <div class="content" id="bc_cont">
+                        
+                        <ul id="breadcrumbs" vocab="https://schema.org/" typeof="BreadcrumbList">
+
+    <li property="itemListElement" typeof="ListItem">
+        <a property="item" typeof="WebPage" href="index.php">
+        <span property="name">Home</span>
+        </a>
+         <meta property="position" content="1">
+    </li>
+    <span>&gt;</span>  
+    <li property="itemListElement" typeof="ListItem">            
+        <a property="item" typeof="WebPage" href="polizia-municipale.php" data-id="122">
+            <span property="name">Polizia Municipale</span>
+        </a> 
+        <meta property="position" content="2">
+    </li>  
+    <span>&gt;</span>  
+    <li property="itemListElement" typeof="ListItem">
+        <a property="item" typeof="WebPage" href="#">
+            <span property="name">Zona a Traffico Limitato - ZTL</span> 
+        </a>  
+        <meta property="position" content="3">
+    </li>
+                        </ul>
+                    </div>
+                    <!--inizio blocco condivisione-->
+<div class="content" id="socials-sh">             
+    <div id="share-container">
+        
+        <div style="float:right;margin:0.3rem;" class="tw_share">
+
+        </div>
+        
+        <div style="float:right;margin:0.3rem;" class="fb_share">
+            <a class="fb-share-button" 
+                   data-href="https://repository.comune.palermo.it/polizia-municipale-ztl.php" 
+                   data-layout="button" data-size="large" >
+            </a>   
+        </div>
+        
+    </div>
+</div>
+<!--fine blocco condivisione-->
+
+                    
+            </section>
+        
+        
+        
+        <section class="wrap-full">
+                
+            <div class="content">
+                
+                <h1>Zona a Traffico Limitato - ZTL</h1>
+                
+                <div id="pm-ztl" class="div100">
+                    
+                    
+
+        <img src="https://docs.comune.palermo.it/js/server/uploads/bars/immagini/_05052021111444.png" alt="Zona a Traffico Limitato - ZTL"/>
+        <div><p>La Zona a Traffico Limitato (ZTL), ai sensi dell&rsquo;art. 3 del N.C.d.S., &egrave; un&rsquo;area in cui l&rsquo;accesso e la circolazione veicolare sono limitati ad ore prestabilite o a particolari categorie di utenti e di veicoli. La ZTL &egrave; un&rsquo;area soggetta a pagamento per l&rsquo;accesso, come previsto all&rsquo;art. 7 comma 9 del N.C.d.S. e dalla circolare del Ministero del Lavori Pubblici n. 3816 del 21/07/1997. L&rsquo;accesso e il transito nella &lsquo;ZTL Centrale&rsquo; sono pertanto sottoposti ad un sistema di tariffazione.</p>
+
+<p>L&#39;istituzione della Zona a Traffico Limitato (ZTL) &egrave; una misura ambientale che contribuir&agrave; a migliorare la vivibilit&agrave; della nostra citt&agrave; e a tutelare la salute dei palermitani, abbattendo i tassi d&#39;inquinamento e limitando la pressione veicolare privata nella zona centrale. Tale misura render&agrave; pi&ugrave; efficiente il servizio di trasporto pubblico e faciliter&agrave; gli spostamenti in ambito urbano.</p>
+</div>
+        <div class="content"><ul id="pm-faq" class="div100 bg-gray-s">
+                        <li>
+                            <a href="https://servizionline.comune.palermo.it/portcitt/jsp/home.jsp?modo=info&info=servizi.jsp&ARECOD=40&S=30">Sportello OnLine</a>
+                        </li>
+                    
+                        <li>
+                            <a href="polizia-municipale-info.php">Info e Mappa</a>
+                        </li>
+                    </ul></div>
+                    <div class="div100">
+                        <h2>Scarica l'app PalerMobilit&agrave;</h2>
+                        <img src="img/pm/mobile.png" alt="immagine app palermobilità"/>
+                        <div>
+                            <ul class="div100">
+                                
+                                <li class="div100">- <strong>Gestione di un unico borsellino</strong> con il quale potr&agrave; effettuare 
+                                    l'acquisto di tutti i prodotti AMAT (<strong>Biglietto autobus, Sosta tariffata, Pass ZTL</strong>) 
+                                    e di quelli che verranno successivamente rilasciati.</li>
+
+                                <li class="div100">- <strong>acquisto delle diverse tipologie di biglietti per autobus e tram.</strong> </li>
+
+                                <li class="div100">- obliterazione dei biglietti, acquistati tramite l'app, che genera un titolo di 
+                                    viaggio visualizzabile in formato QRCode da esibire ad un eventuale controllo. </li>
+
+                                <li class="div100">- <strong>Gestione ZTL</strong> </li>
+
+                                <li class="div100">- attivazione di una sosta tariffata per una specifica targa in una 
+                                    determinata zona. Se non precedentemente interrotta dall'utente, la sosta 
+                                    ha una durata determinata dal credito disponibile e, in ogni caso, la 
+                                    durata massima &egrave; di 12 ore dopo le quali, se necessario, 
+                                    bisogner&agrave; riattivarla.</li>
+                                
+                            </ul> 
+                        </div>
+                        <div class="div100" style="margin-top:2rem;">
+                            <a href="https://play.google.com/store/apps/details?id=com.cittadigitale&hl=it"><img src="img/pm/android.png" alt="immagine google play"/></a>
+                            <a href="https://apps.apple.com/it/app/palermobilit%C3%A0/id1483908799"><img src="img/pm/apple_store.png" alt="immagine app store"/></a>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>           
+            
+            
+            
+        </section>
+                  
+</main>
+<div id="service-box">
+    
+    <div id="segnala">
+        
+        <form id="frm_segnala" class="div100">
+            <a id="segnala-close" href="#">X</a>   
+            <h2>Ti &egrave; stata utile questa pagina?</h2>
+            <div class="div100">
+            <input type="radio" class="radio-btn required" id="utile_1" name="utile" value="1">
+            <label for="utile_1">S&igrave;</label>
+            </div>
+            <div class="div100">
+            <input type="radio" class="radio-btn required" id="utile_2" name="utile" value="2">
+            <label for="utile_2">In parte, ma la migliorerei</label>
+            </div>
+            <div class="div100">
+                <select name="motivo" id="motivo" class="div100" disabled>
+                    <option value="0" selected="">Seleziona un motivo</option>
+                    <option value="1">Completezza dei contenuti</option>
+                    <option value="2">Chiarezza dei contenuti</option>
+                    <option value="3">Navigazione</option>
+                    <option value="4">Grafica</option>
+                </select>
+            </div>
+            <div class="div100">
+            <input type="radio" class="radio-btn required" id="utile_3" name="utile" value="3">
+            <label for="utile_3">No</label>
+            </div>
+            <div class="div100">
+                
+                <label for="migliora" style="font-size:.9rem;">Come possiamo migliorare questa pagina?</label>
+
+                <textarea id="migliora" name="migliora" class="div100">
+                </textarea>
+                
+            </div>
+            <div class="div100">
+                
+                <label for="segnalapag" style="font-size:.9rem;">Segnala contenuti non accessibili</label>
+
+                <textarea id="segnalapag" name="segnalapag" class="div100">
+                </textarea>
+                
+            </div>
+            
+            <div class="div100 ">
+                <h3>Informativa privacy</h3>
+                    <input type="checkbox" id="infoprivacy" name="infoprivacy" value="1">
+                    <label style="font-size: .8rem;font-weight:550;" for="infoprivacy">Ho letto e compreso l'<a href="cookie-policy.php" rel="noopener" id="info-lnk">infomativa privacy</a> e acconsento al trattamento</label>
+            </div>
+            
+            <a href="#" id="segn-invia">Invia</a>
+            
+        </form>
+        
+        
+    </div>
+    <a href="#" role="button" class="bef-ans">Ti &egrave; stata utile questa pagina?</a>
+    <div id="answer"><span>Per valutare questa pagina devi essere registrato</span>&nbsp;&nbsp;(<a href="oauth/login.php" rel="noopener" class="aft-ans">Accedi</a>) </div>
+</div>
+<footer id="footer">
+  <div id="footer-wrap">
+  
+    <div id="footer-hdr">
+    
+        <div id="footer-logo"><img src="img/aqu_trasp.png" alt="logo"></div>
+        <span class="mob-adapt" role="heading" aria-level="2">Comune di Palermo</span>
+    
+    </div>
+  
+  
+    <div id="sub-footer">
+        
+        <div class="footer-sect">
+    
+            <span class="big" role="heading" aria-level="2">Recapiti e Contatti</span>
+            <span class="medium">Sede: Piazza Pretoria, 1</span>
+            <span class="medium">Posta elettronica certificata (PEC):</span>
+            <span class="medium"><a href="mailto:protocollo@cert.comune.palermo.it">protocollo@cert.comune.palermo.it</a></span>
+            <span class="medium">Telefono:<a href="tel:+390917401111"> 0917401111</a></span>
+            <span class="medium">CF:80016350821</span>
+            <!--<span class="big"><a href="ufficio-stampa.php"  aria-label="Questo link apre una nuova finestra" rel="noopener noreferrer" style="padding-top:.8rem;" target="_blank">Ufficio Stampa</a></span>-->  
+
+
+            <span class="big"><a href="polizia-municipale.php" rel="noopener">Polizia Municipale</a></span>
+            <!--<span class="big"><a href="urp.php" rel="noopener">URP - Ufficio Relazioni con il Pubblico</a></span>-->
+        
+        </div>
+        
+        <div class="footer-sect">
+    
+            <span class="big" role="heading" aria-level="2">Trasparenza</span>
+            <span class="medium"><a href="amministrazione-trasparente.php?grp=3" rel="noopener">Amministrazione Trasparente</a></span>
+            <span class="medium"><a href="amministrazione-trasparente.php?grp=3&lev=2&id=11" rel="noopener">Bandi di Gara e Contratti</a></span>
+            <span class="medium"><a href="amministrazione-trasparente.php?grp=3&lev=3&id=35" rel="noopener">Telefono e Posta Elettronica</a></span>
+            <!--<span class="medium" style="margin-bottom:2rem;"><a href="palermo-informa-dettaglio.php?tp=4&id=34881">Informativa Data Breach</a></span>-->
+            <span class="medium" style="margin-bottom:2rem;"><a href="amministrazione-trasparente.php?grp=3&lev=4&id=90" rel="noopener">Obiettivi di accessibilit&agrave;</a></span>
+
+            <span class="big"><a href="https://protezionecivile.comune.palermo.it/" rel="noopener">Protezione Civile PA</a></span>
+            <span class="big"><a href="https://opendata.comune.palermo.it" rel="noopener">Open Data</a></span>
+       
+        </div>
+        
+        <div class="footer-sect">
+            
+            <span class="big" role="heading" aria-level="2">Pubblicit&agrave; Legale</span>
+            <span class="medium"><a href="http://albopretorio.comune.palermo.it/albopretorio/jsp/home.jsp?modo=info&info=servizi.jsp&ARECOD=70&SERCOD=-1&sportello=albopretorio">Albo Pretorio on Line</a></span>
+            <span class="medium"><a href="https://albopretorio.comune.palermo.it/albopretorio/pu/push-tabella-delibere.do?nomeTabella=FO_SCEDELIBEREAP&AP=AP&TD=2014&TDDES=Matrimoni">Pubblicazioni matrimoni</a></span>
+
+            
+            <!--<span class="big" style="padding-top:0rem;"><a href="siti-tematici.php">Siti Tematici</a></span>-->    
+            <!--<span class="big"><a href="https://turismo.comune.palermo.it" style="padding-top:.8rem;" target="_blank">Palermo Welcome</a></span>-->        
+                  
+      
+        </div>
+        
+    </div>
+  
+    <div id="footer-socials" itemscope itemtype="http://schema.org/Organization">
+        <link itemprop="url" href="https://www.comune.palermo.it">
+        <span role="heading" aria-level="2">Seguici su</span>
+        <a itemprop="sameAs"  href="http://www.facebook.com/ComunediPalermo"><img src="img/ico/facebook.png" width="40" height="40" title="Facebook" alt="facebook"></a>
+        <a itemprop="sameAs"  href="http://twitter.com/ComunePalermo"><img src="img/ico/twitter.png" width="40" height="40" title="Twitter" alt="twitter"></a>
+        <a itemprop="sameAs"  href="https://www.instagram.com/comunepalermo/"><img src="img/ico/instaf.png" width="40" height="40" title="Instagram" alt="instagram"></a>
+        <a itemprop="sameAs"  href="https://www.youtube.com/user/ComunediPalermo1"><img src="img/ico/youtube_footer.png" width="40" height="40" title="Youtube" alt="youtube"></a>
+        <a href="https://www.comune.palermo.it/lista-rss.php"><img src="img/ico/rssw.png" width="40" height="40" alt="rss" title="Accedi alla pagina degli RSS"></a>
+      
+    </div>
+      
+      <div id="footer-logos">
+          
+          <a href="https://palermoculture.comune.palermo.it/" target="_blank" aria-label="Questo link apre una nuova finestra" rel="noopener noreferrer">
+              <img src="img/s_rosalia_white.png" alt="logo santa rosalia"/>
+          </a>
+          
+      </div>
+  
+    <div id="footer-credits">
+    
+    <!--<span><a href="credits.php">Credits</a></span>-->
+<!--    <span><a href="note-legali.php">Note Legali</a></span>
+    <span><a href="cookie-policy.php">Privacy e Cookie Policy</a></span>
+    <span><a href="mappa-sito.php">Mappa del Sito</a></span>
+    <span><a href="accessibilita.php">Dichiarazione di accessibilit&agrave;</a></span>-->
+    <span>&copy; 2021 Comune di Palermo - Tutti i diritti riservati</span>
+    
+    </div>
+
+  </div>  
+    <span style="display:none">https://repository.comune.palermo.it/polizia-municipale-ztl.php</span>
+</footer>
+<script>
+var ans_op = false;
+var is_auth=false;
+
+//function openReport() {
+//    
+//    $('body').css('overflow','hidden');
+//    $("#header").css('position','inherit');
+//    $('#content,#opt-nav').css('margin-top','0rem');
+//    $("#mainpage").css('margin-left','0rem');
+//    $('a:not(#segn-invia,#segnala-close,#info-lnk)').css('pointer-events','none');
+//    $("#push-screen").css("pointer-events","none").show();
+//    $("#segnala").css("display","block");
+//		
+//}
+//
+///* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+//function closeReport() {
+//    
+//    $('body').css('overflow','auto');
+//    $("#header").css('position','fixed');
+//    $('#content,#opt-nav').css('margin-top','13rem');
+//    $("#push-screen").css("pointer-events","auto").hide();
+//    $("#segnala").css("display","none");
+//    $("#mainpage").css('margin-left','0rem');
+//    $('a:not(#segn-invia)').css('pointer-events','auto');
+//   
+//}
+
+function validateRadios(form){
+    
+    let radioFields;
+    let names = {};
+    let count = 0;
+    let name;
+    
+    $(".radio-btn").removeClass("error");
+    
+    $('#'+form+' input:radio.required').each(function() { 
+        
+        names[$(this).attr('name')] = true;
+        name= $(this).attr('name');
+        
+        if($(this).prop("checked") === false){
+
+            if ($('input[name="'+name+'"]:checked').length == 0){
+                
+                $(this).next('label').addClass('error');
+            
+            }
+    
+        }
+ 
+    });
+    
+    $.each(names, function() {count++;});
+    
+    if($('#'+form+' input:radio.required:checked').length == count) {radioFields=0 ;}    
+
+    if(radioFields==0) return true ;
+    
+    return false;
+    
+}
+
+$( document ).on( "click",".radio-btn", function() { 
+
+    let val = $(this).val();
+
+    console.log('val->'+val);
+   
+    
+    if(val==2){
+        
+        
+        $('#motivo').prop("disabled", false); 
+        
+    }else{
+        
+        $('#motivo').prop("disabled", true);
+        
+    }
+    
+
+
+});
+
+
+
+$( document ).on( "click","#segn-invia", function() { 
+    
+        $("*").removeClass("error");
+        
+        let url = $("#frm_segnala").serialize();       
+        let radiosChecked = validateRadios('frm_segnala');
+        let val = $("#motivo").val();
+//        let cbval = $("#utile_2").val();
+        let cbval = $("#utile_2").prop("checked");
+        let privacy = $("#infoprivacy").prop("checked");
+        
+        console.log('privacy->'+privacy);
+ 
+        
+        if(radiosChecked==false){
+        
+            alert('Compilare tutti i campi obbligatori');
+            return false;
+
+        }
+        
+        if(cbval==true){
+            
+            if(val==0){
+                
+                alert('Selezionare il motivo');
+                $("#motivo").addClass('error');
+                return false;
+                
+            }            
+        }
+        
+        if( privacy === false){
+            
+            alert('E\' necessario accettare l\'informativa privacy per procedere');
+            $("label[for='infoprivacy']").addClass('error');
+            return false;
+            
+        }
+
+        $.ajax({
+
+            type: "POST",
+            url: 'ajax/act_ajax_send_report.php',
+            data: url, 
+            success: function(data) {
+
+                if(data==1){
+                    
+                    alert('Segnalazione inviata con successo');
+                    closeReport();
+                    
+                }else{
+
+                    closeReport();
+                    console.log(data);
+                    alert('Problemi nell\'invio della segnalazione.');
+                    return false;
+
+                }
+
+            }
+        });
+
+            return true;
+        
+});
+    
+$(document).on( "click", "#segnala-close", function(e) {
+    
+    closeReport();
+    
+    
+});
+
+$(document).on( "click", ".bef-ans", function(e) {
+    
+    e.preventDefault();
+    
+    if(!is_auth){
+    
+        if(ans_op){
+
+            $("#answer").hide();
+
+        }else{
+
+             $("#answer").show();
+
+        }
+
+        ans_op = !ans_op;
+    
+    }else{
+        
+        openReport();
+        
+    }
+    
+    return false;
+    
+});
+
+
+</script>    
+<!--js globali -->
+<script  src="js/jquery-latest.min.js"></script>
+<script  src="js/jquery-migrate-3.3.2.min.js"></script>
+<script  defer src="js/jquery.cookie.js"></script>
+<script defer src="js/dyscrollup.min.js"></script>
+<script defer src="js/mylib/menu.js"></script>
+<script defer src="js/mylib/globalvar.js"></script>
+<script type="text/javascript" src="js/jquery.blockui.js"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script type="text/javascript">
+//js before on ready 
+ var menu_open=false;
+
+jQuery.event.special.touchstart = {
+    setup: function( _, ns, handle ){
+     if ( ns.includes("noPreventDefault") ) {
+       this.addEventListener("touchstart", handle, { passive: false });
+     } else {
+       this.addEventListener("touchstart", handle, { passive: true });
+     }
+    }
+};
+
+jQuery.fn.clickToggle = function(a,b) {
+      var ab=[b,a];
+      function cb(){ ab[this._tog^=1].call(this); }
+      return this.on("click", cb);
+    };
+
+function openNav() {
+    
+    $('body').css('overflow','hidden');
+    $("#mySidenav").css('display','block');
+    $("#header").css('position','inherit');
+    $('#content,#opt-nav').css('margin-top','0rem');
+    $('#push-screen').show(250);
+    $("#mainpage").css('margin-left','0rem');
+    $('a:not(#mySidenav a)').css('pointer-events','none');
+   
+		
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+    
+    $('body').css('overflow','auto');
+    $("#mySidenav").css('display','none');
+    $("#header").css('position','fixed');
+    $('#content,#opt-nav').css('margin-top','13rem');
+    $('#push-screen').hide(250);
+    $("#mainpage").css('margin-left','0rem');
+    $('a:not(#mySidenav a)').css('pointer-events','auto');
+   
+}
+
+function openReport() {
+    
+    $('body').css('overflow','hidden');
+    $("#header").css('position','inherit');
+    $('#content,#opt-nav').css('margin-top','0rem');
+    $("#mainpage").css('margin-left','0rem');
+    $('a:not(#segn-invia,#segnala-close,#info-lnk)').css('pointer-events','none');
+    $("#push-screen").css("pointer-events","none").show();
+    $("#segnala").css("display","block");
+		
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeReport() {
+    
+    $('body').css('overflow','auto');
+    $("#header").css('position','fixed');
+    $('#content,#opt-nav').css('margin-top','13rem');
+    $("#push-screen").css("pointer-events","auto").hide();
+    $("#segnala").css("display","none");
+    $("#mainpage").css('margin-left','0rem');
+    $('a:not(#segn-invia)').css('pointer-events','auto');
+   
+}
+
+
+//-js before on ready 
+$(document).ready(function()
+{ 
+// js gdpr 
+//- js gdpr 
+// js on ready 
+
+var bc_lev;
+var menu_activities = [];
+
+$( "#breadcrumbs li a" ).each(function( i ) {
+
+    let rel_lev;
+    rel_lev = $(this).attr("data-id");
+    bc_lev = $(this).next('meta').attr("content");
+    
+    menu_activities[bc_lev]=rel_lev;
+    
+    console.dir(menu_activities);
+    console.log('lev->'+bc_lev);
+    console.log('rel->'+rel_lev);
+      
+});
+ 
+$.ajax({
+
+    type: "POST",
+    url: 'ajax/act_ajax_menu_act.php', 
+    data:'act='+menu_activities,
+    success: function(data) {          
+
+        console.log(data);
+
+    }
+});
+
+initMenu(bc_lev-1,menu_activities[bc_lev-1]);
+console.log("bc_lev"+bc_lev-1);
+console.log("menu_activities"+menu_activities);
+
+$( ".overed" ).mouseover(function() {
+    
+    let cl = $(this).attr("data-pathin");
+    
+    console.log('img->'+cl);
+    $(this).css("background-image","url("+cl+")");
+    
+});
+
+$( ".overed" ).mouseout(function() {
+    
+    let cl = $(this).attr("data-pathout");
+    
+    console.log('img out->'+cl);
+    $(this).css("background-image","url("+cl+")");
+    
+});
+
+     dyscrollup.init({
+
+        // show after 300px
+        showafter : '400',
+
+        // scrolling animation speed
+        scrolldelay : '500',
+
+        // where to place the button
+        position : 'right',
+
+        // scroll to top image
+        image : 'https://comune.palermo.it/img/48-red.png',
+
+        // circle or square
+        shape : 'circle',
+
+        // width / height
+        width : "48px",
+        height : "48px"
+
+    });
+    
+var act;
+
+$("body,html").on( "click", "#mySidenav ul a", function(e) {
+        
+        var lev = $(this).attr('data-level');
+        var rel = $(this).attr('data-rel');
+        var href = $(this).attr('href');
+                        
+        act = $(this).attr("data-prec");
+                        
+        if(href=='#'){
+             
+            $.when( 
+                    
+                $.ajax({
+
+                    type: "GET",
+                    url: 'ajax/act_ajax_menu.php', 
+                    data:'level='+lev+'&rel='+rel,
+                    success: function(data) {          
+
+                    $('#mySidenav ul').html(data);
+                    console.log('level->'+lev+'   rel->'+rel);
+                    addSpan();
+                    
+                    
+                    
+                    //if(act){$("#goback").attr("data-rel",act);}
+
+                    }
+                })
+                    
+            ).then(
+            
+                $.ajax({
+
+                    type: "GET",
+                    url: 'ajax/act_ajax_menu.php', 
+                    data:'level='+lev+'&rel='+rel+'&bc=1',
+                    success: function(data) {          
+                 
+                        
+                            
+                             $('#menu-bc').html(data);
+                            
+                       
+                 
+                       // console.log(data);  
+
+                    }
+                })
+            
+            );
+            
+        }else{
+            
+            window.location.href = href;
+            
+        }
+        
+        return false;
+        
+    });   
+
+  	
+    $( "#mob-src" ).toggle(function() {
+
+        $( "#m-search-box" ).slideDown( 200, function() {
+                // Animation complete.
+        });
+
+    }, function() {
+
+        $( "#m-search-box" ).slideUp( 200, function() {
+        // Animation complete.
+        });
+
+    });
+		
+    $("body,html").on( "click", "#push-screen", function(e) {
+        
+        closeNav();
+        menu_open=false;
+        
+    });
+
+    $(document).on("click","#nav, .closebtn", function(event){
+										
+														
+        if (menu_open==false) {
+
+            openNav();	
+            
+
+        } else {
+
+            closeNav();
+            
+        }
+
+        menu_open=!menu_open;
+        return false;
+
+    });
+
+    
+    $(function(){
+    	$("#header").data('size','big');
+    });
+    
+    if(isMobile){
+
+        header_h_coll = '8rem';
+        header_h_exp = '5rem';
+
+    }else{
+
+        header_h_coll = '13rem';
+        header_h_exp = '8rem';
+
+    }
+
+    function expandHdr(){
+        
+        $('#header').data('size','small');
+        $('#header').css("overflow","hidden").animate({
+            height:header_h_exp
+        },5);
+        $('#header-top').hide();
+        //$('#social-box').hide();
+        $('#opt-nav').css('height','0rem');
+        $('#logo-box').css('margin-top','1.5rem');
+        $('#logo-box').css('height','5rem');
+        $('#header-main').css('height','67%');
+        $('#nav').css('margin-top','2rem');
+        $('#search-box').css('top','4rem');
+        $("#alert-bar").css('min-height','0rem');
+        $("#alert-content").css('display','none');
+        $("#m-search-box").css('display','none');
+        
+    }
+    
+    function collapseHdr(){
+        
+        $("#header").data('size','big');
+        $("#header").css("overflow","hidden").animate({
+            height:header_h_coll
+        },5);
+        $('#header-top').show();
+      //  $('#social-box').show();
+        $('#opt-nav').css('height','auto');
+        $('#logo-box').css('margin-top','2rem');
+        $('#logo-box').css('height','6rem');
+        $('#header-main').css('height','65%');
+        $('#nav').css('margin-top','3.2rem');
+        $('#search-box').css('top','5rem');
+        $("#alert-bar").css('min-height','10rem');
+        $("#alert-content").css('display','block');
+        $("#m-search-box").css('display','none');
+        mobsrcopened = !mobsrcopened;
+    }
+		
+    $(window).scroll(function(){
+        
+        scrollPos = $(window).scrollTop();
+        
+        
+        //console.log('posonready->'+scrollPos);
+        $("#links").hide(100);
+        $(".arrow-up").removeClass('arrow-up').addClass('arrow-down');
+          
+                
+        if($(document).scrollTop() > 0)
+        {
+                   
+            if($("#header").data('size') == 'big')
+            {
+                
+                expandHdr();
+                
+            }
+            
+        } else
+        {
+            if($("#header").data('size') == 'small')
+            {
+                
+                collapseHdr();
+
+            }  
+        }
+        
+        if(scrollPos!=0){actualPos=scrollPos}
+        
+       // console.log('scrollPos->'+scrollPos);
+       // console.log('actualPos->'+actualPos);
+       // $("#poser").text(scrollPos+' '+actualPos);
+    });
+    
+    
+function sostituisciURL() {
+       
+  const immagini = document.querySelectorAll('img');
+  const link = document.querySelectorAll('a');
+
+  const domini = {
+    'https://www.comune.palermo.it': 'https://docs.comune.palermo.it',
+    'http://www.comune.palermo.it': 'https://docs.comune.palermo.it',
+    'https://comune.palermo.it': 'https://docs.comune.palermo.it',
+    'http://comune.palermo.it': 'https://docs.comune.palermo.it'
+  };
+
+  const dominioPHP = '//repository.comune.palermo.it';
+
+    function sostituisci(elemento, attributo) {
+
+        const url = elemento.getAttribute(attributo);
+
+        if (url) {
+
+            for (const vecchioDominio in domini) {
+
+                if (url.startsWith(vecchioDominio)) {
+
+                  const nuovoDominio = domini[vecchioDominio];
+                  const nuovoURL = url.replace(vecchioDominio, nuovoDominio);
+                  elemento.setAttribute(attributo, nuovoURL);
+                  break; // Esci dal ciclo una volta trovata la corrispondenza
+
+                }
+
+            }
+
+            // Gestione specifica per i link pdf
+            if (elemento.tagName === 'A' && url.endsWith('.pdf')) {
+              elemento.setAttribute('href', url.replace(/\/\/[^\/]+/, dominioPHP));
+            }
+
+        }
+
+    }
+
+  immagini.forEach(img => sostituisci(img, 'src'));
+ // link.forEach(link => sostituisci(link, 'href'));
+ 
+}
+
+function onAjaxCompleteHook() {
+    
+    $(document).ajaxComplete(function() {
+        
+        sostituisciURL();
+      
+    });
+      
+}
+
+
+function sostituisciDominioImmagini(oldDomain, newDomain) {
+  // Ottieni tutti gli elementi della pagina
+  const elements = document.querySelectorAll('*');
+  
+  // Itera su tutti gli elementi
+  elements.forEach(element => {
+    // Controlla se l'elemento ha la proprietà background-image
+    const backgroundImage = window.getComputedStyle(element).backgroundImage;
+    
+    if (backgroundImage && backgroundImage.includes(oldDomain)) {
+
+        
+      // Sostituisci il vecchio dominio con il nuovo dominio
+      const updatedBackgroundImage = backgroundImage.replace(oldDomain, newDomain);
+      element.style.backgroundImage = updatedBackgroundImage;
+    }
+  });
+}
+
+
+sostituisciURL();
+onAjaxCompleteHook();
+sostituisciDominioImmagini('https://www.comune.palermo.it','https://docs.comune.palermo.it');
+    
+//-js on ready 
+
+});
+
+//Global Ajax Complete
+$( document ).ajaxStart(function() {		
+	//$.blockUI({ message: '<img src="img/ajaxload.gif" style="width:100%;height:auto;"/>' });
+	$.blockUI({ message: '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>' });
+	
+});
+
+$(document).ajaxStop($.unblockUI);
+
+</script>
+<script type="application/ld+json">
+{
+        "@context": "http://schema.org",
+        "@type": "GovernmentOrganization",
+        "name": "Sito Istituzionale del Comune di Palermo",
+        "alternateName": "Comune di Palermo",
+        "url": "https://www.comune.palermo.it",
+        "logo": "https://www.comune.palermo.it/img/comune_pa_fondorosso.jpg",
+        "telephone": "+390917401111",
+        "address": "Piazza Pretoria, 1",
+        "contactPoint": [
+          { "@type": "ContactPoint",
+            "telephone": "+390917401111",
+            "contactType": "Customer Service"
+          }
+        ]     
+},
+{
+        "@context": "http://schema.org",
+        "@type": "PostalAddress",
+        "addressCountry": "Italia",
+        "addressLocality": "Palermo",
+        "addressRegion": "Sicilia",
+        "name": "Comune di Palermo",
+        "postalCode": "90133"
+    }
+
+</script></body>
+</html>
