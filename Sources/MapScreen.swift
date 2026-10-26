@@ -197,8 +197,8 @@ struct MapScreen: View {
                             .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
                             .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous).stroke(.white, lineWidth: 2))
                             .overlay(alignment: .bottomTrailing) {
-                                Image(systemName: "figure.walk").font(.system(size: 8, weight: .bold)).foregroundStyle(Theme.blueFill)
-                                    .frame(width: 14, height: 14).background(.white, in: Circle()).offset(x: 5, y: 5)
+                                Image(systemName: "figure.walk").font(.system(size: 7, weight: .bold)).foregroundStyle(Theme.blueFill)
+                                    .frame(width: 12, height: 12).background(.white, in: Circle()).accessibilityHidden(true)
                             }
                             .onTapGesture { parkSheet = true }
                     }
@@ -345,10 +345,10 @@ struct MapScreen: View {
             .background(tint, in: Circle())
             .overlay(Circle().stroke(.white, lineWidth: selected ? 3 : 2))
             .overlay(alignment: .bottomTrailing) {
-                Image(systemName: access.symbol).font(.system(size: selected ? 8 : 7, weight: .black)).foregroundStyle(tint)
-                    .frame(width: selected ? 15 : 13, height: selected ? 15 : 13)
+                Image(systemName: access.symbol).font(.system(size: selected ? 7 : 6, weight: .black)).foregroundStyle(tint)
+                    .frame(width: selected ? 12 : 10, height: selected ? 12 : 10)
                     .background(.white, in: Circle())
-                    .offset(x: 4, y: 4)
+                    .accessibilityHidden(true)
             }
             .shadow(color: .black.opacity(0.25), radius: 3, y: 1)
     }

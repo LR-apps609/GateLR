@@ -277,7 +277,9 @@ final class ParkOutsideFinder: ObservableObject {
         var spots: [ParkingSpot] = []
         if let city { spots = await ParkingData.spots(for: city) }
         fromApple = spots.isEmpty
-        if spots.isEmpty { spots = await Self.appleParkings(near: destination) }
+        // Nel giro delle foto (-uitest) niente ricerche di Apple né percorsi: solo i dati dentro l'app
+        let offline = ProcessInfo.processInfo.arguments.contains("-uitest")
+        if spots.isEmpty && !offline { spots = await Self.appleParkings(near: destination) }
         let zones = store.cities.flatMap(\.zones)
         let pedestrian = store.cities.flatMap { $0.pedestrian ?? [] }
         let answer: (Zone, Date) -> Answer = { store.answer(at: $1, zone: $0, hotelInside: false) }
@@ -285,7 +287,7 @@ final class ParkOutsideFinder: ObservableObject {
         let holiday = ItalianHolidays.isHoliday(arrival, calendar: RuleEngine.rome, local: city?.localHolidays)
         var ranked = Array(ParkOutside.rank(outside, to: destination.location, at: arrival, holiday: holiday).prefix(5))
         // Percorsi veri per i primi: a piedi fino alla destinazione, in auto da qui al parcheggio (ZTL lungo la strada)
-        for i in ranked.indices {
+        for i in ranked.indices where !offline {
             if Task.isCancelled { return }
             if let walk = await Self.walking(from: ranked[i].spot.location, to: destination.location) {
                 ranked[i].walkMeters = walk
@@ -365,7 +367,8 @@ struct ParkOutsideCard: View {
             }
             switch finder.phase {
             case .idle, .searching:
-                HStack(spacing: 8) { ProgressView(); Text("Searching…").font(.app(size: 14)).foregroundStyle(Theme.muted) }
+                // Senza rotella che gira: il giro delle foto aspetta che l'app sia ferma
+                Label(L("Searching…"), systemImage: "hourglass").font(.app(size: 14)).foregroundStyle(Theme.muted)
             case .empty:
                 Text("No car parks found just outside the zone.").font(.app(size: 14)).foregroundStyle(Theme.muted)
             case .done:

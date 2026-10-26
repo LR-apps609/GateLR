@@ -73,6 +73,17 @@ final class ParkingTests: XCTestCase {
         XCTAssertTrue(open("Mo-Sa 08:00-20:00", date(2026, 12, 8, 10), holiday: true))   // PH non nominato: orario del giorno
     }
 
+    /// Le stringhe vere dei garage di Firenze (Resources/Parking/firenze.json)
+    func testRealFlorenceStrings() {
+        XCTAssertTrue(open("Mo-Su,PH 06:00-02:00", date(2026, 10, 27, 1, 30)))           // martedì notte: coda di lunedì
+        XCTAssertFalse(open("Mo-Su,PH 06:00-02:00", date(2026, 10, 27, 3)))
+        let fosi = "Mo-Sa 07:00-00:00; Su 07:00-13:00,15:00-24:00; PH 08:00-13:00,15:00-24:00"
+        XCTAssertTrue(open(fosi, date(2026, 10, 26, 23, 59)))
+        XCTAssertFalse(open(fosi, date(2026, 11, 1, 14)))                                  // domenica, pausa
+        XCTAssertFalse(open(fosi, date(2026, 12, 8, 7, 30), holiday: true))                // festivo: dalle 8
+        XCTAssertTrue(open(fosi, date(2026, 12, 8, 7, 30)))
+    }
+
     func testUnreadableFormats() {
         for s in ["", "Jan-Mar 08:00-20:00", "sunrise-sunset", "Mo-Fr 08:00+", "Mo-Fr", "8h-20h", "Mo-Fr 08:00-20:00 \"su prenotazione\"",
                   "Mo-Fr 25:00-26:00", "Mo-Fr 08:00-12:00 || Sa 08:00-12:00", "week 1-20 Mo 08:00-12:00"] {
