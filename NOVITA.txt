@@ -1,3 +1,8 @@
+Novità della 1.16.1 (correzioni di GateLR 2.0):
+• Il pannello del varco in Varco si accende sempre per intero (prima, con il telefono occupato, poteva restare spento o a metà)
+• Garage: «Cerca dalla targa» con il lucchetto su una riga sua, subito sotto la targa (accanto si tagliava), con «In arrivo»
+• Varco senza posto cercato: il titolo grande su due righe più strette
+
 Novità della 1.16.0 (GateLR 2.0: tre schede):
 • Tre schede: «Varco», «Mappa» al centro con il simbolo grande, «Tu». La prima pagina 2.0 diventa la prima scheda: la risposta detta come sul pannello («Non entrare.», «Arrivo sereno.»…), il pannello del varco che gira quando cambia, «Adesso ▾» e il veicolo, la ricerca
 • In cima a Varco una striscia di mappa dal vivo (Mapbox 3D, o la mappa di Apple): un tocco, o «Guarda la mappa», apre la Mappa sulla zona della risposta

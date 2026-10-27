@@ -127,10 +127,9 @@ struct VehicleForm: View {
                 }
                 Section {
                     TextField(L("Name (e.g. Rental car)"), text: $vehicle.name)
-                    HStack(spacing: 10) {
-                        TextField(L("Plate"), text: $vehicle.plate).textInputAutocapitalization(.characters).autocorrectionDisabled()
-                        PlateLookupButton()
-                    }
+                    TextField(L("Plate"), text: $vehicle.plate).textInputAutocapitalization(.characters).autocorrectionDisabled()
+                    // Subito sotto la targa (accanto, nel campo stretto, la scritta si tagliava)
+                    PlateLookupButton()
                     Toggle(L("Rental car"), isOn: $vehicle.isRental)
                 }
                 Section {
@@ -209,25 +208,27 @@ struct PlateLookupButton: View {
 
     var body: some View {
         let on = service.isAvailable
-        VStack(alignment: .trailing, spacing: 1) {
-            Button {} label: {
-                Label(L("Look up by plate"), systemImage: Symbols.pick(on, "magnifyingglass", else: "lock.fill"))
-                    .font(.app(size: 13, weight: .semibold)).lineLimit(1)
-                    .padding(.horizontal, 10).frame(minHeight: 30)
-                    .background(Theme.raised, in: Capsule())
-                    .foregroundStyle(Theme.muted)
+        Button {} label: {
+            HStack(spacing: 10) {
+                Image(systemName: Symbols.pick(on, "magnifyingglass", else: "lock.fill"))
+                    .font(.app(size: 14, weight: .semibold))
+                    .frame(width: 22)
+                Text("Look up by plate").font(.app(size: 16))
+                Spacer(minLength: 8)
+                if !on {
+                    Text("Coming soon").font(.app(size: 12, weight: .semibold))
+                        .padding(.horizontal, 8).padding(.vertical, 3)
+                        .background(Theme.raised, in: Capsule())
+                }
             }
-            .buttonStyle(.plain)
-            .disabled(!on)
-            // VoiceOver: «Cerca dalla targa, in arrivo, non disponibile»
-            .accessibilityLabel(on ? L("Look up by plate") : L("Look up by plate") + ", " + L("Coming soon"))
-            .accessibilityIdentifier("vehicle.plateLookup")
-            if !on {
-                Text("Coming soon").font(.app(size: 11, weight: .semibold)).foregroundStyle(Theme.muted)
-                    .accessibilityHidden(true)
-            }
+            .foregroundStyle(Theme.muted)
         }
-        .fixedSize()
+        .disabled(!on)
+        // VoiceOver: «Cerca dalla targa, in arrivo, non disponibile»
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(on ? L("Look up by plate") : L("Look up by plate") + ", " + L("Coming soon"))
+        .accessibilityAddTraits(.isButton)
+        .accessibilityIdentifier("vehicle.plateLookup")
     }
 }
 

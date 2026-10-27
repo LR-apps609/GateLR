@@ -11,12 +11,13 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 - [ ] Un tocco sulla striscia o su «Guarda la mappa» → scheda Mappa sulla zona della risposta (es. Palazzo Vecchio → Settore A di Firenze)
 - [ ] Cerca «Palazzo Vecchio» dalla ricerca di Varco: compare il pannello del varco, la frase grande («Non entrare.» di giorno feriale, «Entra pure.» di notte), l'ora del cambio, la zona
 - [ ] Un posto fuori dalle ZTL (es. Parcheggio Parterre) → «Arrivo sereno.» e pannello «FUORI ZTL» verde
+- [ ] Il pannello del varco si accende sempre per intero, anche cercando subito un altro posto (1.16.1)
 - [ ] Cambia «Adesso ▾» (es. Stasera 21:00) e il veicolo: la risposta e il pannello cambiano (il pannello gira con un colpo di vibrazione)
 - [ ] Rosso o ambra: «Parcheggia fuori e cammina» apre i parcheggi; «Perché?» apre la scheda della zona; «Dettagli del viaggio» apre Tu → Viaggio e hotel
 - [ ] Senza posto cercato ma dentro una ZTL con la posizione attiva: la risposta è per «La mia posizione»
 - [ ] Mappa a tutto schermo: sotto i chip la legenda corta con i quattro colori (un tocco apre quella intera), ricerca, «Naviga» e «Parcheggia fuori e cammina» sulla scheda del posto; la guida con GateLR funziona come prima
 - [ ] Tu: Garage, Viaggio e hotel, Multe e passaggi (Diario dei passaggi, Ho preso una multa?, Fotografa il verbale), Cosa sono le ZTL (Impara, Leggi il cartello, Rivedi la presentazione), Impostazioni, Abbonamento (solo «Presto», nessun acquisto)
-- [ ] Garage → «+»: accanto alla targa «Cerca dalla targa» con il lucchetto, grigio, sotto «In arrivo»; toccandolo non succede niente; «Fotografa il libretto» e «Auto a noleggio» come prima
+- [ ] Garage → «+»: subito sotto la targa la riga «Cerca dalla targa» con il lucchetto, grigia, con «In arrivo» (1.16.1); toccandolo non succede niente; «Fotografa il libretto» e «Auto a noleggio» come prima
 - [ ] Primo avvio (cancella e reinstalla): parte la presentazione 2.0, una volta; alla fine (o «Più tardi») la richiesta della posizione di iOS; riaprendo l'app non ricompare
 - [ ] Tu → Cosa sono le ZTL → «Rivedi la presentazione»: la presentazione riparte e si chiude tornando a Tu
 - [ ] Widget: un tocco apre Varco (o Tu → Viaggio e hotel per il widget del viaggio); gatelr://map dal sito apre la Mappa

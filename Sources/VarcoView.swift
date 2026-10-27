@@ -383,11 +383,16 @@ struct VarcoView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text(L("Can I drive in?").uppercased())
                 .font(Self.font(13, .bold)).kerning(1.4).foregroundStyle(Notte.muted)
-            Text(L("Find out if you|can drive in").replacingOccurrences(of: "|", with: "\n"))
-                .font(Self.font(36, .black)).foregroundStyle(Notte.text)
-                .fixedSize(horizontal: false, vertical: true)
-                .accessibilityLabel(L("Find out if you|can drive in").replacingOccurrences(of: "|", with: " "))
-                .accessibilityAddTraits(.isHeader)
+            // Una riga per parte, strette (con «\n» l'interlinea del carattere le allontanava troppo)
+            VStack(alignment: .leading, spacing: -6) {
+                ForEach(L("Find out if you|can drive in").components(separatedBy: "|"), id: \.self) {
+                    Text(verbatim: $0).font(Self.font(36, .black)).foregroundStyle(Notte.text)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(L("Find out if you|can drive in").replacingOccurrences(of: "|", with: " "))
+            .accessibilityAddTraits(.isHeader)
             Text("Search a hotel, address or square: GateLR tells you at once if your car can get there.")
                 .font(.app(size: 15)).foregroundStyle(Notte.muted)
                 .fixedSize(horizontal: false, vertical: true)

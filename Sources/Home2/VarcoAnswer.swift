@@ -82,9 +82,9 @@ struct GatePanelObject: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var shown: GatePanelState?
     @State private var angle = 0.0
-    /// Quante righe di punti sono accese (da 0 a rows)
-    @State private var lit = 0
-    private static let rows = 16
+    /// Quanta parte dello schermo è accesa, dall'alto (da 0 a 1). Un'animazione sola, non un ciclo con le attese:
+    /// con il telefono (o il simulatore) occupato il ciclo restava a metà e il pannello sembrava spento
+    @State private var lit = 0.0
 
     var body: some View {
         let s = shown ?? panel
@@ -95,7 +95,7 @@ struct GatePanelObject: View {
                     .fill(s.mood.color)
                     .frame(width: 300, height: 150)
                     .blur(radius: 50)
-                    .opacity(0.45 * Double(lit) / Double(Self.rows))
+                    .opacity(0.45 * lit)
                 bezel(s)
             }
             pole(s)
@@ -127,7 +127,7 @@ struct GatePanelObject: View {
         }
         .frame(width: 270, height: 140)
         .shadow(color: .black.opacity(0.55), radius: 18, y: 14)
-        .shadow(color: s.mood.color.opacity(0.35 * Double(lit) / Double(Self.rows)), radius: 26)
+        .shadow(color: s.mood.color.opacity(0.35 * lit), radius: 26)
     }
 
     private var screws: some View {
@@ -158,7 +158,7 @@ struct GatePanelObject: View {
             // I punti si accendono a righe, dall'alto in basso
             .mask(alignment: .top) {
                 GeometryReader { g in
-                    Rectangle().frame(height: g.size.height * Double(lit) / Double(Self.rows))
+                    Rectangle().frame(height: g.size.height * lit)
                 }
             }
             // La trama a punti sopra il testo: sembra fatto di LED
@@ -178,7 +178,7 @@ struct GatePanelObject: View {
     private func pole(_ s: GatePanelState) -> some View {
         ZStack(alignment: .bottom) {
             // L'ombra a terra e la luce che ci cade sopra
-            Ellipse().fill(s.mood.color.opacity(0.35 * Double(lit) / Double(Self.rows))).frame(width: 160, height: 26).blur(radius: 14)
+            Ellipse().fill(s.mood.color.opacity(0.35 * lit)).frame(width: 160, height: 26).blur(radius: 14)
             Ellipse().fill(Color.black.opacity(0.45)).frame(width: 60, height: 10).blur(radius: 4)
             Rectangle()
                 .fill(LinearGradient(colors: [Color(hex: 0x3A4256), Color(hex: 0x9AA3B8), Color(hex: 0x4A5266), Color(hex: 0x262B3A)],
@@ -189,15 +189,12 @@ struct GatePanelObject: View {
         .frame(height: 84)
     }
 
-    /// Le righe di punti che si accendono una dopo l'altra (tutte insieme con «Riduci movimento»)
+    /// I punti che si accendono dall'alto in basso (tutti insieme con «Riduci movimento»); alla fine sempre accesi
     private func light() {
-        if reduceMotion { lit = Self.rows; return }
+        if reduceMotion { lit = 1; return }
         lit = 0
-        Task { @MainActor in
-            for i in 1...Self.rows {
-                try? await Task.sleep(for: .milliseconds(28))
-                lit = i
-            }
+        DispatchQueue.main.async {
+            withAnimation(.easeOut(duration: 0.45)) { lit = 1 }
         }
     }
 
