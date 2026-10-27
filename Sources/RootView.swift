@@ -41,18 +41,26 @@ enum YouRoute: Hashable { case garage, trip, fines, learn, settings, subscriptio
         }
     }
 
-    /// La presentazione al primo avvio, una volta sola (-intro2: sempre, per il video su GitHub;
-    /// -showOnboarding: anche nel giro automatico delle foto)
-    nonisolated static func showIntroAtLaunch(onboarded: Bool, arguments: [String]) -> Bool {
+    /// La versione della presentazione: chi ha visto solo una versione più vecchia (o nessuna, perché era già
+    /// «onboarded» prima della 2.0) la vede una volta dopo l'aggiornamento. Si alza solo con una presentazione nuova
+    nonisolated static let introVersion = 2
+
+    /// La presentazione al primo avvio, o una volta dopo l'aggiornamento a una presentazione nuova (introSeen: la
+    /// versione già vista, «introVersionSeen»; 0 = nessuna), poi mai più (-intro2: sempre, per il video su GitHub;
+    /// -showOnboarding: anche nel giro automatico delle foto; -uitest: mai, se no copre le schermate)
+    nonisolated static func showIntroAtLaunch(onboarded: Bool, introSeen: Int = introVersion, arguments: [String]) -> Bool {
         if arguments.contains("-intro2") { return true }
         if arguments.contains("-showOnboarding") { return !onboarded }
-        return !onboarded && !arguments.contains("-uitest")
+        if arguments.contains("-uitest") { return false }
+        return !onboarded || introSeen < introVersion
     }
 }
 
 struct RootView: View {
     @EnvironmentObject var store: Store
     @AppStorage("onboarded") private var onboarded = false
+    /// La versione della presentazione già vista (0 = nessuna, anche per chi era già entrato prima della 2.0)
+    @AppStorage("introVersionSeen") private var introSeen = 0
     @StateObject private var router = AppRouter()
     @State private var showZone = false
     @State private var whatsNew = false
@@ -89,7 +97,7 @@ struct RootView: View {
                 .background(Theme.ground.ignoresSafeArea())
         }
         .task {
-            if AppRouter.showIntroAtLaunch(onboarded: onboarded, arguments: ProcessInfo.processInfo.arguments) {
+            if AppRouter.showIntroAtLaunch(onboarded: onboarded, introSeen: introSeen, arguments: ProcessInfo.processInfo.arguments) {
                 router.showIntro = true
             } else if WhatsNewView.shouldShow(onboarded: onboarded) {
                 try? await Task.sleep(for: .milliseconds(500))      // dopo che la pagina è comparsa
@@ -101,6 +109,8 @@ struct RootView: View {
         .fullScreenCover(isPresented: $router.showIntro) {
             Intro2View {
                 router.showIntro = false
+                // Vista: non ricompare più da sola (né al prossimo avvio né al prossimo aggiornamento)
+                introSeen = max(introSeen, AppRouter.introVersion)
                 if !onboarded {
                     onboarded = true
                     Task { await GateMonitor.shared.startIfReady(store: store) }

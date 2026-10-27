@@ -35,6 +35,23 @@ final class AppStructureTests: XCTestCase {
         XCTAssertTrue(AppRouter.showIntroAtLaunch(onboarded: true, arguments: ["-uitest", "-intro2"]))
     }
 
+    /// Chi era già entrato prima della 2.0 (onboarded, nessuna presentazione vista) la vede una volta dopo
+    /// l'aggiornamento, poi mai più; il giro delle foto e gli argomenti di avvio come prima
+    func testIntroOnceAfterUpdateForOnboardedUsers() {
+        let v = AppRouter.introVersion
+        XCTAssertGreaterThanOrEqual(v, 2)
+        XCTAssertTrue(AppRouter.showIntroAtLaunch(onboarded: true, introSeen: 0, arguments: []))          // aggiornato alla 2.0
+        XCTAssertTrue(AppRouter.showIntroAtLaunch(onboarded: true, introSeen: v - 1, arguments: []))
+        XCTAssertFalse(AppRouter.showIntroAtLaunch(onboarded: true, introSeen: v, arguments: []))         // già vista
+        XCTAssertFalse(AppRouter.showIntroAtLaunch(onboarded: true, introSeen: v + 1, arguments: []))
+        XCTAssertTrue(AppRouter.showIntroAtLaunch(onboarded: false, introSeen: 0, arguments: []))         // primo avvio
+        XCTAssertTrue(AppRouter.showIntroAtLaunch(onboarded: false, introSeen: v, arguments: []))
+        XCTAssertFalse(AppRouter.showIntroAtLaunch(onboarded: true, introSeen: 0, arguments: ["-uitest"]))
+        XCTAssertFalse(AppRouter.showIntroAtLaunch(onboarded: true, introSeen: 0, arguments: ["-uitest", "-showOnboarding"]))
+        XCTAssertTrue(AppRouter.showIntroAtLaunch(onboarded: false, introSeen: 0, arguments: ["-uitest", "-showOnboarding"]))
+        XCTAssertTrue(AppRouter.showIntroAtLaunch(onboarded: true, introSeen: v, arguments: ["-uitest", "-intro2"]))
+    }
+
     func testPlateLookupStaysOff() async {
         XCTAssertFalse(PlateLookupService.current.isAvailable)
         do {

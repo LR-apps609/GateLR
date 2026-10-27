@@ -259,3 +259,8 @@ Le zone con `"official": false` nella fonte (per ora Cagliari, Polignano a Mare,
 - [ ] Una zona ufficiale (es. Firenze Settore A): nessun avviso, «Non entrare.» / «Entra pure.» come prima
 - [ ] Sotto la risposta la riga della zona si legge bene: «ZTL · Settore A» (non più «Accesso vietato · Settore A» sotto «Entra pure.»)
 - [ ] Un iPhone con la 1.16.1 o prima: dopo l'aggiornamento dei dati (Tu → Impostazioni → dati delle città) Cagliari, Polignano e Ostuni non compaiono
+
+## 14. Presentazione 2.0 dopo l'aggiornamento (1.16.2)
+- [ ] iPhone con una versione precedente già configurata: dopo l'aggiornamento alla 1.16.2 parte la presentazione 2.0, una volta
+- [ ] Chiudi e riapri l'app: la presentazione non ricompare (e al posto suo nessun foglio «Novità» vuoto)
+- [ ] Tu → Cosa sono le ZTL → «Rivedi la presentazione» funziona ancora

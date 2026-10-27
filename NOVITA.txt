@@ -2,6 +2,7 @@ Novità della 1.16.2 (fonti non ufficiali):
 • Le città con regole prese solo da fonti non ufficiali (per ora Cagliari, Polignano a Mare e Ostuni) mostrano ovunque il riquadro ambra «Fonte non ufficiale: verifica sempre il cartello al varco», con il sito da cui vengono i dati; la risposta si dice con prudenza («Probabilmente no.», «Probabilmente sì.»), i colori restano quelli del motore
 • Le versioni fino alla 1.16.1 non scaricano mai queste città (nuova lista «unofficialCities» nel manifest)
 • Sotto la risposta la riga della zona si legge bene: «ZTL · Settore A» al posto di «Accesso vietato · Settore A»
+• La presentazione 2.0 parte una volta anche per chi usava già l'app prima della 2.0
 
 Novità della 1.16.1 (correzioni di GateLR 2.0):
 • Il pannello del varco in Varco si accende sempre per intero (prima, con il telefono occupato, poteva restare spento o a metà)
