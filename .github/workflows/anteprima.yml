@@ -1,0 +1,168 @@
+# Le riprese per il video di anteprima dell'App Store (solo a mano, «Run workflow»): l'app vera nel simulatore iPhone più
+# grande disponibile (17 Pro Max, se c'è), registrata con «simctl io recordVideo». Niente scene finte: la presentazione
+# 2.0 (-intro2 -intro2Autoplay, di giorno e di sera) e una ricerca vera in Varco con la mappa e la legenda
+# (UITests/AnteprimaTests.swift). Le riprese grezze vanno negli artefatti e, ridotte a 1080 di larghezza, nel ramo
+# «anteprima-clips» (git fetch origin anteprima-clips). Il montaggio con le scritte si fa fuori da qui.
+name: Riprese per l'anteprima
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: anteprima
+  cancel-in-progress: false
+
+permissions:
+  contents: write        # per pubblicare le riprese nel ramo «anteprima-clips»
+
+jobs:
+  riprese:
+    runs-on: macos-15-intel
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Xcode più recente disponibile
+        run: |
+          XCODE=$(ls -d /Applications/Xcode*.app | sort -V | tail -n 1)
+          sudo xcode-select -s "$XCODE/Contents/Developer"
+          xcodebuild -version
+
+      - name: Strumenti
+        run: |
+          brew install xcodegen
+          command -v ffmpeg > /dev/null || brew install ffmpeg
+
+      # Come in build.yml: token pubblico di Mapbox dal segreto, se c'è (mai stampato); senza, la mappa di Apple
+      - name: Token Mapbox (facoltativo)
+        env:
+          MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
+        run: |
+          if [ -n "$MAPBOX_ACCESS_TOKEN" ]; then
+            printf 'MAPBOX_ACCESS_TOKEN = %s\n' "$MAPBOX_ACCESS_TOKEN" > Config/Local.xcconfig
+            echo "::notice::Mapbox acceso (segreto MAPBOX_ACCESS_TOKEN)"
+          else
+            echo "::notice::Nessun segreto MAPBOX_ACCESS_TOKEN: Mapbox spento, si usa la mappa di Apple"
+          fi
+
+      - name: Progetto
+        run: xcodegen generate
+
+      - name: Simulatore più grande
+        run: |
+          xcrun simctl list devices available | grep -E "iPhone" | head -n 40
+          SIM=""
+          for want in "iPhone 17 Pro Max" "iPhone 16 Pro Max" "iPhone Air" "iPhone 16 Plus" "iPhone 15 Pro Max"; do
+            if xcrun simctl list devices available | grep -qF "$want ("; then SIM="$want"; break; fi
+          done
+          [ -n "$SIM" ] || SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+ Pro Max" | sort -V | tail -n 1)
+          [ -n "$SIM" ] || SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
+          UDID=$(xcrun simctl list devices available | grep -F "$SIM (" | tail -n 1 | grep -oE "[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}")
+          echo "::notice::Simulatore: $SIM ($UDID)"
+          echo "SIM=$SIM" >> "$GITHUB_ENV"
+          echo "UDID=$UDID" >> "$GITHUB_ENV"
+          xcrun simctl boot "$UDID" 2>/dev/null || true
+          xcrun simctl bootstatus "$UDID" -b > /dev/null 2>&1 || true
+
+      - name: Compilazione (app e test, senza firma)
+        run: |
+          status=0
+          xcodebuild build-for-testing -project GateLR.xcodeproj -scheme GateLRUITests \
+            -destination "id=$UDID" -derivedDataPath build-ui CODE_SIGNING_ALLOWED=NO > build.log 2>&1 || status=$?
+          grep -E "error:|TEST BUILD (SUCCEEDED|FAILED)|BUILD (SUCCEEDED|FAILED)" build.log | sort -u | head -n 40 || true
+          grep -E "error:" build.log | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          exit $status
+
+      - name: Riprese
+        timeout-minutes: 40
+        run: |
+          lim() { perl -e 'alarm shift; exec @ARGV' "$@"; }
+          APP=build-ui/Build/Products/Debug-iphonesimulator/GateLR.app
+          lim 120 xcrun simctl install "$UDID" "$APP"
+          lim 30 xcrun simctl ui "$UDID" appearance dark || true
+          lim 30 xcrun simctl status_bar "$UDID" override --time 9:41 --dataNetwork wifi --wifiBars 3 \
+            --batteryState charged --batteryLevel 100 --cellularBars 4 || true
+          mkdir -p clips
+          REC=""
+          # Con il controllo dei processi (set -m) il registratore in sottofondo riceve davvero SIGINT
+          rec_start() {
+            set -m
+            xcrun simctl io "$UDID" recordVideo --codec=h264 --force "clips/$1.mp4" > "clips/$1.log" 2>&1 &
+            REC=$!
+            set +m
+            sleep 2
+          }
+          rec_stop() {
+            kill -INT $REC 2>/dev/null || true
+            for i in $(seq 1 40); do kill -0 $REC 2>/dev/null || break; sleep 0.5; done
+            kill -0 $REC 2>/dev/null && { echo "::warning::Il registratore non si è fermato"; kill -9 $REC || true; }
+            wait $REC 2>/dev/null || true
+          }
+          ARGS="-uitest -intro2 -intro2Autoplay -AppleLanguages (it) -AppleLocale it_IT"
+
+          # 1. La presentazione: un giro non registrato per scaldare le mattonelle, poi due riprese
+          lim 60 xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS || true
+          sleep 50
+          lim 30 xcrun simctl terminate "$UDID" it.ledion.GateLR || true
+          for take in 1 2; do
+            sleep 2
+            rec_start "intro-$take"
+            lim 60 xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS || true
+            sleep 46
+            rec_stop
+            lim 30 xcrun simctl terminate "$UDID" it.ledion.GateLR || true
+            echo "::notice::Presentazione, ripresa $take: $(du -h clips/intro-$take.mp4 | cut -f1)"
+          done
+
+          # 2. Varco: ricerca, risposta, mappa e legenda (UITests/AnteprimaTests.swift). Prima un giro non registrato
+          ui() {
+            TEST_RUNNER_ANTEPRIMA=1 lim 600 xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
+              -destination "id=$UDID" -derivedDataPath build-ui -only-testing:"GateLRUITests/AnteprimaTests/$1" \
+              CODE_SIGNING_ALLOWED=NO > "clips/$2.xcodebuild.log" 2>&1 || true
+            grep -E "Test Case .*(passed|failed|skipped)|error:" "clips/$2.xcodebuild.log" | sort -u | head -n 8 \
+              | while IFS= read -r l; do echo "::notice::$2: ${l:0:300}"; done
+          }
+          ui testA1RicercaFirenze warmup
+          for t in "testA1RicercaFirenze varco-firenze" "testA2RicercaTreviso varco-treviso"; do
+            set -- $t
+            lim 30 xcrun simctl terminate "$UDID" it.ledion.GateLR 2>/dev/null || true
+            rec_start "$2"
+            ui "$1" "$2"
+            rec_stop
+            echo "::notice::$2: $(du -h clips/$2.mp4 | cut -f1)"
+          done
+          ls -la clips
+
+      - name: Riprese grezze (artefatto)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anteprima-riprese
+          path: clips/
+          if-no-files-found: warn
+
+      # Gli artefatti a volte non si possono scaricare: le stesse riprese, 1080 di larghezza a 30 fps, in un ramo a parte
+      - name: Riprese nel ramo «anteprima-clips»
+        if: always()
+        run: |
+          mkdir -p out
+          for f in clips/*.mp4; do
+            [ -s "$f" ] || continue
+            ffmpeg -v error -y -i "$f" -vf "scale=1080:-2:flags=lanczos,fps=30" -c:v libx264 -preset slow -crf 18 \
+              -pix_fmt yuv420p -an -movflags +faststart "out/$(basename "$f")" || echo "::warning::$f non convertito"
+          done
+          ls -la out
+          ls out/*.mp4 > /dev/null 2>&1 || { echo "::warning::Nessuna ripresa"; exit 1; }
+          cd out
+          echo "Riprese per l'anteprima di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ)), $SIM" > README.md
+          git init -q && git checkout -q -b anteprima-clips
+          for f in README.md *.mp4; do
+            git add "$f"
+            git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Ripresa $f per $GITHUB_SHA"
+          done
+          for try in 1 2 3; do
+            out=$(git -c http.postBuffer=157286400 push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" anteprima-clips 2>&1) \
+              && { echo "::notice::Riprese pubblicate nel ramo anteprima-clips"; exit 0; }
+            sleep 5
+          done
+          echo "::warning::Push non riuscito: $(echo "$out" | sed 's/x-access-token:[^@]*@/***@/' | tail -n 3 | tr '\n' ' ' | cut -c1-400)"; exit 1
