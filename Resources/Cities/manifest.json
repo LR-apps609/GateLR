@@ -1,6 +1,6 @@
 {
- "version": "202610271231",
- "digest": "b6f53483bd92",
+ "version": "202610271239",
+ "digest": "ab8fcb54337e",
  "schema": 1,
  "cities": [
   {
@@ -167,6 +167,11 @@
    "id": "trento",
    "file": "trento.json",
    "sha256": "77339ac631ac70ac80933cf59cd663094c130b33ba206c2bb03cd5b3857ef5a0"
+  },
+  {
+   "id": "trieste",
+   "file": "trieste.json",
+   "sha256": "f899e0a39786f2c9f5f488c8499d0c3dcac49e11443a7a438e6ee8b7e5ffbdea"
   },
   {
    "id": "verona",
