@@ -1,3 +1,10 @@
+Novità della 1.16.3:
+• Presentazione: di giorno (☀︎ martedì 11:30, mappa chiara) il varco è ATTIVO fin dall'inizio e la strada dritta prende la multa; con GateLR si gira fino al parcheggio e «Adesso una passeggiata…» porta a piedi al ristorante; «E se entro la sera?» mostra la stessa strada alle 21:00, con la ZTL verde e il varco spento
+• «Attiva gli avvisi» chiede davvero i permessi di notifiche e posizione; «Dove vuoi andare?» suggerisce i posti mentre scrivi e «Cerca» apre Varco con la risposta
+• Varco: il pannello senza palo, così «Guarda la mappa», «Perché?» e «Dettagli del viaggio» si vedono senza scorrere
+• Mappa: la legenda si richiude con un tocco sulla legenda o fuori
+• Dopo la prima risposta a una ricerca iOS può chiedere una recensione su App Store (al massimo una volta per versione)
+
 Novità della 1.16.2 (fonti non ufficiali):
 • Le città con regole prese solo da fonti non ufficiali (per ora Cagliari, Polignano a Mare e Ostuni) mostrano ovunque il riquadro ambra «Fonte non ufficiale: verifica sempre il cartello al varco», con il sito da cui vengono i dati; la risposta si dice con prudenza («Probabilmente no.», «Probabilmente sì.»), i colori restano quelli del motore
 • Le versioni fino alla 1.16.1 non scaricano mai queste città (nuova lista «unofficialCities» nel manifest)

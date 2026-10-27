@@ -9,6 +9,8 @@ struct IntroStatusSlide: View {
     @State private var index = 0
     @State private var banner = false
     @State private var bannerOpen = false
+    /// Le richieste di iOS in corso (un tocco solo)
+    @State private var asking = false
 
     private let states: [LEDState] = [.active, .soon, .off]
     private var explanation: String {
@@ -54,9 +56,19 @@ struct IntroStatusSlide: View {
                 Image(systemName: "doc.text.fill").foregroundStyle(Notte.muted)
             }
             .padding(.bottom, 16)
-            // Qui, nell'app vera, la richiesta dei permessi: notifiche (UNUserNotificationCenter.requestAuthorization)
-            // e posizione con GateMonitor.shared.startIfReady(store:). Nel prototipo si va solo avanti.
-            IntroButton(title: L("Turn on alerts"), systemImage: "bell.fill", identifier: "intro2.alerts", action: next)
+            // Le richieste vere di iOS: notifiche e posizione (GateMonitor.requestAlertPermissions). Con un «no» si va
+            // avanti lo stesso. Nel video su GitHub e nel giro delle foto niente richieste (coprirebbero la pagina)
+            IntroButton(title: L("Turn on alerts"), systemImage: "bell.fill", identifier: "intro2.alerts") {
+                guard !asking else { return }
+                if IntroAutoplay.on || ProcessInfo.processInfo.arguments.contains("-uitest") { next(); return }
+                asking = true
+                Task {
+                    await GateMonitor.shared.requestAlertPermissions()
+                    asking = false
+                    next()
+                }
+            }
+            .disabled(asking)
         }
         .padding(.horizontal, 20).padding(.bottom, 12)
         .task { await cycle() }

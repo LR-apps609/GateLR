@@ -20,7 +20,7 @@ jobs:
   build:
     # I Mac Apple Silicon di GitHub sono spesso esauriti: si usa il Mac Intel, come per AudioLR
     runs-on: macos-15-intel
-    timeout-minutes: 85
+    timeout-minutes: 100
     steps:
       - uses: actions/checkout@v5
 
@@ -122,6 +122,27 @@ jobs:
             grep -nE "hung|crash|Crash|Timed out|timed out|Failed to|failed:|not hittable|Unable|Assertion|Fatal|t =  .*(Tap|Find|Wait)" ui.log | tail -n 25 | while IFS= read -r l; do echo "::warning::${l:0:300}"; done
             tail -n 30 ui.log | while IFS= read -r l; do echo "::notice::${l:0:300}"; done
           fi
+          # 1.16.3: la scheda Varco con un posto su iPhone da 6,9" (Pro Max, 440×956 punti): «Guarda la mappa», «Perché?»
+          # e «Dettagli del viaggio» senza scorrere (test6VarcoProMax, con la stessa app già compilata)
+          PM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+ Pro Max" | head -n 1)
+          if [ -n "$PM" ]; then
+            xcrun simctl boot "$PM" 2>/dev/null || true
+            xcrun simctl bootstatus "$PM" -b > /dev/null 2>&1 || true
+            pm=0
+            xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
+              -destination "platform=iOS Simulator,name=$PM" -derivedDataPath build-ui \
+              -only-testing:GateLRUITests/ScreenshotTests/test6VarcoProMax \
+              CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" > ui-pm.log 2>&1 || pm=$?
+            grep -E "Test Case .*(passed|failed)" ui-pm.log | sort -u | while IFS= read -r l; do echo "::notice::$PM: ${l:0:300}"; done
+            if [ "$pm" != 0 ]; then
+              grep -E "error:" ui-pm.log | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::$PM: ${l:0:400}"; done
+              tail -n 20 ui-pm.log | while IFS= read -r l; do echo "::notice::${l:0:300}"; done
+              status=$pm
+            fi
+            xcrun simctl shutdown "$PM" 2>/dev/null || true
+          else
+            echo "::warning::Nessun simulatore iPhone Pro Max: controllo della scheda Varco da 6,9 pollici saltato"
+          fi
           exit $status
 
       - name: Pubblica le foto nel ramo «screenshots»
@@ -200,21 +221,22 @@ jobs:
           # Aspetta fino a «secondi» dall'avvio dell'app
           at() { while [ $(( $(date +%s) - T0 )) -lt "$1" ]; do sleep 0.5; done; }
           T0=$(date +%s); lim 60 xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS
-          at 7; shot intro-1-verbale
-          at 14; shot intro-2-parcheggio
-          at 19; shot intro-3-a-piedi
-          at 30; shot intro-4-avvisi
-          at 36; shot intro-5-cartello
-          at 40; shot intro-6-cartelli
-          at 46; shot intro-7-dove-vai
-          at 49
+          at 8; shot intro-1-giorno-verbale
+          at 15; shot intro-2-parcheggio
+          at 20; shot intro-3-a-piedi
+          at 27; shot intro-4-sera
+          at 33; shot intro-5-avvisi
+          at 40; shot intro-6-cartello
+          at 44; shot intro-7-cartelli
+          at 53; shot intro-8-dove-vai
+          at 56
           lim 30 xcrun simctl terminate "$UDID" it.ledion.GateLR || true
           sleep 1
           T0=$(date +%s); lim 60 xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS -intro2Fallback
-          at 7; shot intro-8-riserva-verbale
-          at 14; shot intro-9-riserva-parcheggio
-          at 19; shot intro-10-riserva-a-piedi
-          at 24
+          at 8; shot intro-9-riserva-verbale
+          at 15; shot intro-10-riserva-parcheggio
+          at 27; shot intro-11-riserva-sera
+          at 29
           kill -INT $REC 2>/dev/null || true
           for i in $(seq 1 40); do kill -0 $REC 2>/dev/null || break; sleep 0.5; done
           if kill -0 $REC 2>/dev/null; then echo "::warning::Il registratore non si è fermato con SIGINT"; kill -9 $REC || true; fi

@@ -243,6 +243,16 @@ struct MapScreen: View {
                 }
             }
         }
+        // La legenda aperta si chiude con un tocco fuori (anche sulla mappa): questo velo trasparente prende quel tocco,
+        // così non seleziona anche una zona o un varco
+        .overlay {
+            if showLegend {
+                Color.black.opacity(0.001)
+                    .ignoresSafeArea()
+                    .onTapGesture { withAnimation(.snappy) { showLegend = false } }
+                    .accessibilityHidden(true)
+            }
+        }
         // iPad: la mappa a tutto schermo, barra e scheda larghe al massimo 700 punti, al centro
         .safeAreaInset(edge: .top) { topBar.readableFrame() }
         .safeAreaInset(edge: .bottom) {
@@ -432,6 +442,13 @@ struct MapScreen: View {
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        // Un tocco sulla legenda la richiude (prima restava aperta); con VoiceOver l'azione «Chiudi»
+        .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .onTapGesture { withAnimation(.snappy) { showLegend = false } }
+        .accessibilityElement(children: .contain)
+        .accessibilityAction(named: Text(L("Close"))) { withAnimation(.snappy) { showLegend = false } }
+        .accessibilityHint(Text(L("Double-tap to close the legend.")))
+        .accessibilityIdentifier("map.legend.full")
     }
 
     /// La legenda corta: i quattro colori con il loro tratto e simbolo, in una riga

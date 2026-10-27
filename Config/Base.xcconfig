@@ -3,4 +3,6 @@
 // lo crea «Installa su iPhone.command»; modello in Config/Local.xcconfig.example). Senza, Mapbox resta spento e
 // l'app usa la mappa di Apple. Su GitHub il token arriva dal segreto MAPBOX_ACCESS_TOKEN del repository, se c'è.
 MAPBOX_ACCESS_TOKEN =
+// Il numero dell'app su App Store (per «Lascia una recensione» in Tu): vuoto finché l'app non è pubblicata
+APP_STORE_ID =
 #include? "Local.xcconfig"

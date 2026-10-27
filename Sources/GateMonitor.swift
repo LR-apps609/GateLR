@@ -17,6 +17,19 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
 
     private var started = false
 
+    /// «Attiva gli avvisi» nella presentazione: le due richieste di iOS, notifiche e posizione mentre usi l'app (gli avvisi
+    /// «Varco attivo tra 250 m» servono a tutte e due). Un «no» va bene: si va avanti, l'app funziona lo stesso e i
+    /// permessi si possono dare dopo da Impostazioni. Restituisce se le notifiche sono permesse.
+    @discardableResult
+    func requestAlertPermissions() async -> Bool {
+        let granted = (try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])) ?? false
+        if manager.authorizationStatus == .notDetermined {
+            manager.delegate = self
+            manager.requestWhenInUseAuthorization()
+        }
+        return granted
+    }
+
     /// Si parte solo dopo la presentazione del primo avvio (i permessi si chiedono dopo averli spiegati)
     /// e mai nel giro automatico delle foto.
     func startIfReady(store: Store) async {

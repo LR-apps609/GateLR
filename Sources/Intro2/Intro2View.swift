@@ -1,3 +1,4 @@
+import MapKit
 import SwiftUI
 
 /// Il prototipo della nuova presentazione: tre pagine animate (circa 40 s in tutto) e la pagina «Dove vai e con che auto?».
@@ -11,7 +12,7 @@ struct Intro2View: View {
     @State private var fill = 0.0
 
     /// Quanto dura ogni pagina, per riempire la sua barretta
-    private static let durations: [Double] = [21, 7, 9]
+    private static let durations: [Double] = [28, 7, 9]
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -72,17 +73,22 @@ struct Intro2View: View {
     }
 }
 
-/// L'ultima pagina: un solo invito, «Dove vuoi andare?», con la ricerca. L'auto si imposta poi nell'app (Garage).
+/// L'ultima pagina: un solo invito, «Dove vuoi andare?», con la ricerca e i suggerimenti mentre scrivi (la stessa ricerca
+/// di Apple Maps della scheda Varco, AddressSearch). Scelto un posto compare «Cerca»: la presentazione si chiude e la
+/// scheda Varco mostra quel posto con la risposta. L'auto si imposta poi nell'app (Garage).
 struct IntroSetupPage: View {
     @EnvironmentObject var store: Store
+    @EnvironmentObject var router: AppRouter
     var done: () -> Void
-    @State private var query = ""
+    @StateObject private var search = AddressSearch()
     @FocusState private var focused: Bool
     @State private var shown = false
+    @State private var chosen: Place?
+    @State private var resolving = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Spacer()
+            Spacer(minLength: 70)
             VStack(alignment: .leading, spacing: 14) {
                 IntroTitle(text: L("Where do you want to go?"), size: 40)
                 Text(L("We'll find the route that keeps you out of the ZTL."))
@@ -90,24 +96,18 @@ struct IntroSetupPage: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
             .opacity(shown ? 1 : 0).offset(y: shown ? 0 : 12)
-            HStack(spacing: 12) {
-                Image(systemName: "magnifyingglass").font(.system(size: 20, weight: .semibold)).foregroundStyle(Notte.action)
-                TextField("", text: $query, prompt: Text(L("Hotel, address or square")).foregroundColor(Notte.muted))
-                    .font(Notte.font(20, .semibold)).foregroundStyle(Notte.text)
-                    .focused($focused)
-                    .submitLabel(.search)
-                    .onSubmit(finish)
-                    .accessibilityIdentifier("intro2.search")
+            field
+                .padding(.top, 28)
+                .opacity(shown ? 1 : 0).offset(y: shown ? 0 : 18)
+            if chosen == nil && !search.query.isEmpty {
+                suggestions.padding(.top, 10)
             }
-            .padding(.horizontal, 18).frame(height: 64)
-            .background(Notte.surface, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(focused || !query.isEmpty ? Notte.action : Notte.line, lineWidth: focused || !query.isEmpty ? 2 : 1))
-            .shadow(color: Notte.action.opacity(focused || !query.isEmpty ? 0.25 : 0), radius: 18)
-            .padding(.top, 28)
-            .opacity(shown ? 1 : 0).offset(y: shown ? 0 : 18)
             Spacer()
-            Spacer()
+            if let chosen {
+                IntroButton(title: L("Search"), systemImage: "magnifyingglass", identifier: "intro2.go") { open(chosen) }
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .padding(.bottom, 6)
+            }
             Button(action: done) {
                 Text(L("Later")).font(Notte.font(17, .semibold)).foregroundStyle(Notte.muted)
                     .frame(maxWidth: .infinity, minHeight: 44)
@@ -116,18 +116,88 @@ struct IntroSetupPage: View {
             .accessibilityIdentifier("intro2.later")
         }
         .padding(.horizontal, 20).padding(.bottom, 12)
+        .animation(.snappy, value: chosen)
+        .animation(.snappy, value: search.results.count)
+        .onAppear { search.focus(on: store.city) }
         .task {
             withAnimation(.easeOut(duration: 0.6).delay(0.15)) { shown = true }
-            // Nel video: si scrive come farebbe una persona, senza confermare
+            // Nel video: si scrive come farebbe una persona e si sceglie il primo suggerimento, senza confermare
             guard IntroAutoplay.on else { return }
             try? await Task.sleep(for: .milliseconds(1200))
             for ch in "Palazzo Vecchio" {
-                query.append(ch)
+                search.query.append(ch)
                 try? await Task.sleep(for: .milliseconds(90))
             }
+            try? await Task.sleep(for: .milliseconds(1800))
+            if let first = search.results.first { choose(first) }
         }
     }
 
-    /// Prototipo: la ricerca vera è quella di Viaggio (AddressSearch); qui si chiude e si torna all'app.
-    private func finish() { done() }
+    private var field: some View {
+        HStack(spacing: 12) {
+            Image(systemName: "magnifyingglass").font(.system(size: 20, weight: .semibold)).foregroundStyle(Notte.action)
+            TextField("", text: $search.query, prompt: Text(L("Hotel, address or square")).foregroundColor(Notte.muted))
+                .font(Notte.font(20, .semibold)).foregroundStyle(Notte.text)
+                .focused($focused)
+                .autocorrectionDisabled()
+                .submitLabel(.search)
+                .onSubmit { if let first = search.results.first { choose(first) } }
+                .onChange(of: search.query) { _, q in if let c = chosen, q != c.name { chosen = nil } }
+                .accessibilityIdentifier("intro2.search")
+            if resolving { ProgressView().tint(Notte.text) }
+        }
+        .padding(.horizontal, 18).frame(height: 64)
+        .background(Notte.surface, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous)
+            .stroke(focused || !search.query.isEmpty ? Notte.action : Notte.line, lineWidth: focused || !search.query.isEmpty ? 2 : 1))
+        .shadow(color: Notte.action.opacity(focused || !search.query.isEmpty ? 0.25 : 0), radius: 18)
+    }
+
+    private var suggestions: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            if search.results.isEmpty {
+                Text(search.failed ? L("Search isn't working right now. Check your connection.") : L("Keep typing…"))
+                    .font(Notte.font(15)).foregroundStyle(Notte.muted).padding(14)
+            }
+            ForEach(Array(search.results.prefix(5).enumerated()), id: \.offset) { i, r in
+                Button { choose(r) } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: "mappin.circle.fill").font(.system(size: 22)).foregroundStyle(Notte.action)
+                        VStack(alignment: .leading, spacing: 1) {
+                            Text(r.title).font(Notte.font(16, .semibold)).foregroundStyle(Notte.text).lineLimit(1)
+                            if !r.subtitle.isEmpty {
+                                Text(r.subtitle).font(Notte.font(13)).foregroundStyle(Notte.muted).lineLimit(1)
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal, 14).padding(.vertical, 9).contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("intro2.result.\(i)")
+                if i < min(search.results.count, 5) - 1 { Divider().overlay(Notte.line).padding(.leading, 48) }
+            }
+        }
+        .background(Notte.surface, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    }
+
+    /// Dal suggerimento al posto: il nome nel campo e «Cerca» in basso
+    private func choose(_ r: MKLocalSearchCompletion) {
+        Task {
+            resolving = true
+            if let place = await search.resolve(r) {
+                chosen = place
+                search.query = place.name
+                focused = false
+            }
+            resolving = false
+        }
+    }
+
+    /// «Cerca»: la presentazione si chiude sulla scheda Varco con quel posto e la sua risposta
+    private func open(_ place: Place) {
+        store.select(place)
+        router.tab = .varco
+        done()
+    }
 }

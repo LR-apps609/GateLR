@@ -7,7 +7,7 @@ import SwiftUI
 /// Resources/Cities/firenze.json; il Settore A non ha varchi propri, si entra da quelli del B), il varco di via Vittorio
 /// Alfieri, un ristorante DENTRO la ZTL (via Faenza, Settore A, vicino al Mercato Centrale; generico, non un locale vero)
 /// e il parcheggio che per quel ristorante sceglierebbe l'app stessa («Parcheggia fuori e cammina», ParkOutside.rank):
-/// il più vicino fuori da ogni ZTL attiva alle 8:47 di un giorno feriale, Largo Vincenzo Giudice alla Fortezza
+/// il più vicino fuori da ogni ZTL attiva alle 11:30 di un giorno feriale, Largo Vincenzo Giudice alla Fortezza
 /// (OSM way/1452850178, in Resources/Parking/firenze.json; il secondo, Fortezza Fiera, è a 13 minuti).
 /// I percorsi seguono strade vere: calcolati con OSRM sui dati OpenStreetMap da Tools/intro_routes.py
 /// (ramo «intro-routes») e dal workflow «Scarica pagine», semplificati a ~1 m e copiati qui.
@@ -70,6 +70,22 @@ struct IntroScene {
     /// dell'ingresso (che è a 7 m dal bordo della ZTL), dalla parte di fuori, così sulla mappa inclinata si legge fuori
     static var restaurant: CLLocationCoordinate2D { walk[walk.count - 1] }
     static let parking = CLLocationCoordinate2D(latitude: 43.78002, longitude: 11.24782)
+    /// Il giorno della scena: martedì 17 novembre 2026, non festivo e fuori dalle notti d'estate (dal 2 aprile al 3 ottobre
+    /// il Settore A è chiuso anche giovedì, venerdì e sabato dalle 23 alle 3). Alle 11:30 il Settore A è attivo
+    /// (feriali 7:30–20), alle 21:00 no: lo controlla IntroMomentTests con il RuleEngine e firenze.json
+    static let dayMoment = RuleEngine.rome.date(from: DateComponents(year: 2026, month: 11, day: 17, hour: 11, minute: 30))!
+    static let nightMoment = RuleEngine.rome.date(from: DateComponents(year: 2026, month: 11, day: 17, hour: 21, minute: 0))!
+
+    /// «martedì 11:30» in ora italiana, nella lingua del telefono
+    static func clock(_ date: Date) -> String {
+        RuleEngine.format(date, .dateTime.weekday(.wide)) + " " + time(date)
+    }
+
+    /// «11:30»
+    static func time(_ date: Date) -> String {
+        RuleEngine.format(date, Date.FormatStyle(date: .omitted, time: .shortened))
+    }
+
     /// Minuti a piedi dal parcheggio al ristorante (OSRM a piedi: 513 s dall'ingresso, più i 30 m del segno)
     static let walkMinutes = 9
 

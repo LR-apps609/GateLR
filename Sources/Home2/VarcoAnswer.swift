@@ -90,6 +90,8 @@ struct GatePanelState: Equatable {
 /// Quando lo stato cambia lo schermo gira come una paletta (con un colpo di vibrazione).
 struct GatePanelObject: View {
     var panel: GatePanelState
+    /// Il palo con l'ombra a terra; senza (scheda Varco con un posto scelto) solo la scatola dei punti luminosi, più bassa
+    var showsPole = true
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var shown: GatePanelState?
     @State private var angle = 0.0
@@ -109,7 +111,7 @@ struct GatePanelObject: View {
                     .opacity(0.45 * lit)
                 bezel(s)
             }
-            pole(s)
+            if showsPole { pole(s) }
         }
         .sensoryFeedback(.impact(weight: .heavy, intensity: 0.9), trigger: panel)
         .onAppear {

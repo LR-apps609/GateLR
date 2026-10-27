@@ -3,9 +3,9 @@ import MapboxMaps
 import SwiftUI
 import UIKit
 
-/// La prima pagina su Mapbox: Firenze al crepuscolo vista da lontano, ferma per tutti e tre i passi (così si confrontano),
-/// rivolta a ovest: il viale Gramsci in basso, la Fortezza e il Mercato Centrale in alto. Il centro storico (Settori A e B) velato di
-/// rosso con il bordo acceso; tutti gli edifici in 3D, uguali e trasparenti (Tools/intro_buildings.py), i monumenti
+/// La prima pagina su Mapbox: Firenze vista da lontano, di giorno (Standard chiaro) e poi la sera (crepuscolo «Notte»,
+/// ZTL verde), ferma per tutti i passi (così si confrontano), rivolta a ovest: il viale Gramsci in basso, la Fortezza e
+/// il Mercato Centrale in alto. Il centro storico (Settori A e B) velato di rosso con il bordo acceso; tutti gli edifici in 3D, uguali e trasparenti (Tools/intro_buildings.py), i monumenti
 /// di Mapbox restano. Sopra, più evidenti di tutto, il ristorante e il parcheggio; la freccia di navigazione corre sui
 /// percorsi veri. Tempi e stati sono quelli di IntroDrive, gli stessi della mappa di Apple e del disegno di riserva.
 /// Provato prima con Mapbox GL JS con gli stessi valori.
@@ -32,7 +32,7 @@ struct IntroMapboxMap: UIViewRepresentable {
 
     func makeUIView(context: Context) -> MapView {
         let camera = CameraOptions(center: Self.center, zoom: Self.zoom, bearing: Self.bearing, pitch: Self.pitch)
-        let mapView = MapView(frame: .zero, mapInitOptions: MapInitOptions(mapStyle: NotteMap.style(standardBuildings: false),
+        let mapView = MapView(frame: .zero, mapInitOptions: MapInitOptions(mapStyle: NotteMap.dayStyle(standardBuildings: false),
                                                                            cameraOptions: camera))
         NotteMap.configure(mapView, ornamentBottom: ornamentBottom)
         context.coordinator.attach(mapView)
@@ -67,6 +67,8 @@ struct IntroMapboxMap: UIViewRepresentable {
         private var carView: HostedAnnotationView?
         /// Gli ultimi valori mandati a Mapbox: si aggiorna solo quello che cambia
         private var last: [String: Double] = [:]
+        /// La sera è già sulla mappa (stile notte, ZTL verde)
+        private var eveningShown = false
 
         init(_ parent: IntroMapboxMap) { self.parent = parent }
 
@@ -151,6 +153,11 @@ struct IntroMapboxMap: UIViewRepresentable {
             let drive = parent.drive
             let now = Date()
             let lines = drive.lines(at: now)
+            if drive.evening && !eveningShown {
+                eveningShown = true
+                NotteMap.setEvening(map)
+                NotteMap.setZoneColor(map, id: "ztl", hex: 0x3BE07A)
+            }
             for (id, line) in [("direct", lines.direct), ("park", lines.park)]
                 where changed(id, line.progress * 1000 + line.opacity) {
                 NotteMap.setRoute(map, id: id, progress: line.progress, opacity: line.opacity)

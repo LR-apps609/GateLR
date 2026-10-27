@@ -1,5 +1,6 @@
 import SwiftUI
 import MapKit
+import StoreKit
 import UIKit
 
 /// «Varco»: la prima pagina di GateLR 2.0, una sola domanda: «Posso entrare?». Sul blu notte dell'identità:
@@ -21,6 +22,7 @@ struct VarcoView: View {
     @State private var parkSheet = false
     @State private var driving = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.requestReview) private var requestReview
 
     var body: some View {
         TimelineView(.everyMinute) { ctx in
@@ -63,6 +65,18 @@ struct VarcoView: View {
         .onChange(of: store.cityId) { search.focus(on: store.city) }
         .sheet(isPresented: $parkSheet) { parkOutsideSheet }
         .fullScreenCover(isPresented: $driving) { DriveView() }
+        // La recensione su App Store: 2 secondi dopo la risposta alla prima ricerca di un posto o di un hotel (ReviewPrompter)
+        .onChange(of: store.place) { _, place in
+            guard let place, place.name != L("My position") else { return }
+            Task { @MainActor in
+                try? await Task.sleep(for: ReviewPrompter.delay)
+                let blocked = store.place != place || router.tab != .varco || router.showIntro || driving || parkSheet
+                    || showZone || DriveSession.shared.active
+                guard ReviewPrompter.shouldRequest(blocked: blocked) else { return }
+                ReviewPrompter.recordRequest()
+                requestReview()
+            }
+        }
     }
 
     // MARK: Il posto della risposta
@@ -152,7 +166,8 @@ struct VarcoView: View {
                 .allowsHitTesting(false)
                 .accessibilityHidden(true)
         }
-        .frame(height: 168)
+        // Più bassa quando c'è una risposta: la risposta e i suoi pulsanti stanno nello schermo
+        .frame(height: check == nil ? 168 : 128)
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
         .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).stroke(mood.color.opacity(0.55), lineWidth: 1))
         .shadow(color: mood.color.opacity(0.25), radius: 18, y: 6)
@@ -247,9 +262,12 @@ struct VarcoView: View {
         VStack(alignment: .leading, spacing: 12) {
             placeRow(check)
             if a.unofficial { UnofficialBanner(source: a.unofficialSource) }
-            GatePanelObject(panel: a.panel)
+            // Solo la scatola dei punti luminosi, senza palo: la pagina più corta, così «Guarda la mappa», «Perché?» e
+            // «Dettagli del viaggio» si vedono senza scorrere anche su iPhone Pro Max (vedi ScreenshotTests.test5VarcoProMax)
+            GatePanelObject(panel: a.panel, showsPole: false)
+                .scaleEffect(0.86)
                 .frame(maxWidth: .infinity)
-                .padding(.top, 2)
+                .frame(height: 122)
             Text(a.headline)
                 .font(Self.font(44, .black)).foregroundStyle(Notte.text)
                 .lineLimit(2).minimumScaleFactor(0.6)
@@ -260,6 +278,7 @@ struct VarcoView: View {
             if let label = a.timeLabel {
                 timeBlock(label, a)
             }
+            actions(check)
             VStack(alignment: .leading, spacing: 2) {
                 Text(verbatim: a.zoneLine).font(.app(size: 15, weight: .semibold)).foregroundStyle(Notte.muted)
                 if store.when != nil {
@@ -267,7 +286,6 @@ struct VarcoView: View {
                         .font(.app(size: 13, weight: .semibold)).foregroundStyle(Notte.muted)
                 }
             }
-            actions(check)
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -291,7 +309,7 @@ struct VarcoView: View {
             if let time = a.time {
                 HStack(alignment: .firstTextBaseline, spacing: 10) {
                     Text(verbatim: time)
-                        .font(Self.font(76, .black)).monospacedDigit()
+                        .font(Self.font(64, .black)).monospacedDigit()
                         .foregroundStyle(Notte.text)
                         .shadow(color: a.mood.color.opacity(0.55), radius: 20)
                         .lineLimit(1).minimumScaleFactor(0.5)
@@ -345,17 +363,6 @@ struct VarcoView: View {
             }
             .buttonStyle(.plain)
             .accessibilityIdentifier("varco.map")
-            // Rosso o ambra: i parcheggi fuori dalla ZTL, con i minuti a piedi
-            if check.suggestsParking {
-                Button { parkSheet = true } label: {
-                    Label(L("Park outside and walk"), systemImage: "figure.walk")
-                        .font(.app(size: 16, weight: .bold)).foregroundStyle(.white)
-                        .frame(maxWidth: .infinity, minHeight: 48)
-                        .background(Notte.action, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-                }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("varco.park")
-            }
             HStack(spacing: 10) {
                 if let hit = check.hits.first {
                     secondary(L("Why?"), "doc.text") {
@@ -369,6 +376,17 @@ struct VarcoView: View {
                     router.open(.trip)
                 }
                 .accessibilityIdentifier("varco.details")
+            }
+            // Rosso o ambra (sotto «Perché?» e «Dettagli», che devono stare nello schermo): i parcheggi fuori dalla ZTL, con i minuti a piedi
+            if check.suggestsParking {
+                Button { parkSheet = true } label: {
+                    Label(L("Park outside and walk"), systemImage: "figure.walk")
+                        .font(.app(size: 16, weight: .bold)).foregroundStyle(.white)
+                        .frame(maxWidth: .infinity, minHeight: 48)
+                        .background(Notte.action, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("varco.park")
             }
         }
         .padding(.top, 4)

@@ -117,6 +117,7 @@ struct RootView: View {
                 }
             }
             .environmentObject(store)
+            .environmentObject(router)
             .readableFrame(640)
             .background(Notte.navy.ignoresSafeArea())
         }

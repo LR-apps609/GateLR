@@ -38,6 +38,31 @@ enum NotteMap {
             themeData: NotteLUT.base64)
     }
 
+    /// Il giorno (prima pagina della presentazione): lo Standard chiaro con i suoi colori, senza la tabella «Notte»
+    static func dayStyle(standardBuildings: Bool = true) -> MapStyle {
+        .standard(
+            theme: .default,
+            lightPreset: .day,
+            showPointOfInterestLabels: false,
+            showTransitLabels: false,
+            showPlaceLabels: true,
+            showRoadLabels: false,
+            show3dObjects: true,
+            show3dBuildings: standardBuildings,
+            show3dLandmarks: true,
+            show3dTrees: standardBuildings ? nil : false,
+            showAdminBoundaries: false,
+            showLandmarkIcons: false)
+    }
+
+    /// Dal giorno alla sera senza ricaricare lo stile: crepuscolo e colori «Notte», come style()
+    static func setEvening(_ map: MapboxMap) {
+        try? map.setStyleImportConfigProperties(for: "basemap", configs: [
+            "theme": "custom", "theme-data": NotteLUT.base64, "lightPreset": "dusk",
+            "colorMotorways": "#4A5070", "colorRoads": "#3A3F55", "colorTrunks": "#40465E",
+        ])
+    }
+
     static func uiColor(_ hex: UInt32, _ alpha: CGFloat = 1) -> UIColor {
         UIColor(red: CGFloat((hex >> 16) & 0xFF) / 255, green: CGFloat((hex >> 8) & 0xFF) / 255,
                 blue: CGFloat(hex & 0xFF) / 255, alpha: alpha)

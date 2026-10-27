@@ -582,6 +582,16 @@
 "Then a short walk" = "Potem kilka kroków pieszo";
 "GateLR: park outside the ZTL" = "GateLR: zaparkuj poza ZTL";
 "%lld min on foot, no fine" = "%lld min pieszo, bez mandatu";
+"And in the evening?" = "A wieczorem?";
+"What if I drive in this evening?" = "A jeśli wjadę wieczorem?";
+"Now a short walk…" = "Teraz krótki spacer…";
+"GATE OFF" = "BRAMKA WYŁĄCZONA";
+"At %@ the gate is off: you can drive in." = "O %@ bramka jest wyłączona: możesz wjechać.";
+"Every ZTL has its own hours: GateLR tells you before you set off." = "Każda ZTL ma swoje godziny: GateLR poda je przed wyjazdem.";
+"Search" = "Szukaj";
+"Leave a review" = "Napisz recenzję";
+"Close" = "Zamknij";
+"Double-tap to close the legend." = "Stuknij dwukrotnie, aby zamknąć legendę.";
 "Avoid fines with GateLR" = "Unikaj mandatów z GateLR";
 "FINE NOTICE" = "MANDAT";
 "Entering a ZTL without a permit" = "Wjazd do ZTL bez zezwolenia";

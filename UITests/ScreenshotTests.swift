@@ -232,6 +232,43 @@ final class ScreenshotTests: XCTestCase {
         snap("25-unofficial-map")
     }
 
+    /// 1.16.3: con un posto scelto il pannello senza palo e «Guarda la mappa», «Perché?» e «Dettagli del viaggio» nello
+    /// schermo senza scorrere. Il controllo vale su iPhone da 6,9" (Pro Max, 440×956 punti): il workflow lancia questo test
+    /// anche su un simulatore Pro Max; sugli altri iPhone fa solo la foto
+    func test6VarcoProMax() {
+        app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT",
+                               "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]
+        app.launch()
+        XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
+        sleep(5)
+        let window = app.windows.firstMatch.frame
+        let big = window.height >= 950
+        snap(big ? "26-varco-69" : "26-varco-place")
+        // Il bordo alto della barra delle schede: quello che sta sopra si vede senza scorrere
+        let tabTop = app.tabBars.firstMatch.exists ? app.tabBars.firstMatch.frame.minY : window.maxY
+        for id in ["varco.map", "varco.why", "varco.details"] {
+            let b = app.buttons[id].firstMatch
+            XCTAssertTrue(b.waitForExistence(timeout: 5), "Manca \(id)")
+            if big {
+                XCTAssertTrue(b.isHittable && b.frame.maxY <= tabTop + 1,
+                              "\(id) non si vede senza scorrere su \(Int(window.width))×\(Int(window.height)): fondo a \(Int(b.frame.maxY)), barra a \(Int(tabTop))")
+            }
+        }
+        // La legenda della mappa: si apre con un tocco e si richiude con un tocco sulla legenda stessa
+        mapTab.tap()
+        sleep(4)
+        let strip = app.buttons["map.legend"].firstMatch
+        if strip.waitForExistence(timeout: 4) {
+            strip.tap(); sleep(1)
+            snap(big ? "27-legend-open-69" : "27-legend-open")
+            let full = app.descendants(matching: .any)["map.legend.full"].firstMatch
+            if full.waitForExistence(timeout: 3) {
+                full.tap(); sleep(1)
+                XCTAssertTrue(app.buttons["map.legend"].firstMatch.waitForExistence(timeout: 3), "La legenda non si è richiusa")
+            }
+        }
+    }
+
     private func snap(_ name: String) {
         let shot = XCUIScreen.main.screenshot()
         let attachment = XCTAttachment(screenshot: shot)

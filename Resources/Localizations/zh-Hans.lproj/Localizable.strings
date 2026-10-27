@@ -582,6 +582,16 @@
 "Then a short walk" = "然后走几步";
 "GateLR: park outside the ZTL" = "GateLR：在 ZTL 外停车";
 "%lld min on foot, no fine" = "步行 %lld 分钟，没有罚单";
+"And in the evening?" = "那晚上呢？";
+"What if I drive in this evening?" = "如果晚上进去呢？";
+"Now a short walk…" = "现在走几步…";
+"GATE OFF" = "闸口已关闭";
+"At %@ the gate is off: you can drive in." = "%@ 闸口已关闭：可以进入。";
+"Every ZTL has its own hours: GateLR tells you before you set off." = "每个 ZTL 都有自己的时间：GateLR 在出发前告诉你。";
+"Search" = "搜索";
+"Leave a review" = "撰写评价";
+"Close" = "关闭";
+"Double-tap to close the legend." = "轻点两下关闭图例。";
 "Avoid fines with GateLR" = "用 GateLR 避免罚单";
 "FINE NOTICE" = "罚单";
 "Entering a ZTL without a permit" = "无许可证进入 ZTL";

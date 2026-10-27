@@ -36,6 +36,17 @@ struct YouView: View {
                     row(.settings, "Settings", "gearshape.fill", Color(hex: 0x5D6670), L("Alerts, navigator, language and city data"))
                     row(.subscription, "Subscription", "star.fill", Theme.brass, L("GateLR Plus: coming soon"))
                 }
+
+                // Solo quando l'app ha il suo numero su App Store (APP_STORE_ID): la pagina per scrivere la recensione
+                if let url = ReviewPrompter.writeReviewURL {
+                    Section {
+                        Link(destination: url) {
+                            Label("Leave a review", systemImage: "star.bubble.fill")
+                                .font(.app(size: 17, weight: .semibold)).foregroundStyle(Theme.ink)
+                        }
+                        .accessibilityIdentifier("you.review")
+                    }
+                }
             }
             .navigationTitle("You")
             .tint(Theme.blue)

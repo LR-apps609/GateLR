@@ -2,18 +2,22 @@ import MapKit
 import Network
 import SwiftUI
 
-/// Prima pagina, «il problema e la soluzione», in tre passi con la stessa inquadratura di Firenze:
-/// 1. «La strada più diretta»: la freccia va dritta al ristorante, che è dentro la ZTL: entra dal varco di via Alfieri,
-///    il pannello si accende, arriva il verbale. «Evita multe con GateLR»
-/// 2. «Con GateLR»: la stessa partenza, intorno lungo i viali fino al parcheggio che sceglierebbe l'app, fuori dalla ZTL;
-///    NESSUNA MULTA
-/// 3. «Poi due passi a piedi»: dal parcheggio al ristorante, le impronte compaiono una dopo l'altra
+/// Prima pagina, «il problema e la soluzione», con la stessa inquadratura di Firenze per tutti i passi:
+/// 1. Di giorno (martedì 11:30, mappa chiara), «La strada più diretta»: il pannello dice VARCO ATTIVO dal primo
+///    fotogramma, la freccia va dritta al ristorante dentro la ZTL dal varco di via Alfieri, lampo e verbale.
+///    «Evita multe con GateLR»
+/// 2. Ancora di giorno, «Con GateLR»: intorno lungo i viali fino al parcheggio che sceglierebbe l'app, fuori dalla ZTL;
+///    «Adesso una passeggiata…» fa comparire le impronte fino al ristorante (stessa pagina), poi «E se entro la sera?»
+/// 3. La sera (martedì 21:00, mappa notte): la ZTL diventa verde, il pannello dice VARCO NON ATTIVO, la freccia entra
+///    dritta fino al ristorante senza multa; al posto del verbale la scheda «Alle 21:00 il varco è spento…».
+/// Giorno e ora sono veri per il Settore A (RuleEngine, Resources/Cities/firenze.json): vedi IntroScene.dayMoment.
 @MainActor final class IntroDrive: ObservableObject {
-    enum Step: Int { case direct = 1, park, walk }
+    enum Step: Int { case direct = 1, park, walk, evening }
     enum Phase { case waiting, moving, done }
     @Published private(set) var step: Step = .direct
     @Published private(set) var phase: Phase = .waiting
-    @Published var panel: LEDState = .idle
+    /// VARCO ATTIVO fin dal primo fotogramma: di giorno il varco è acceso, prima ancora che la freccia arrivi
+    @Published var panel: LEDState = .active
     @Published var flash = 0.0
     @Published var showFine = false
     let direct = IntroPath(IntroScene.direct)
@@ -30,6 +34,8 @@ import SwiftUI
     static let parkSeconds = 4.6
     /// Il passo 3, le impronte
     static let walkSeconds = 3.2
+    /// La sera, dritto fino al ristorante senza fermarsi al varco
+    static let eveningSeconds = 4.6
     /// Dove sta il varco lungo la strada dritta (frazione)
     let gateAt = IntroPath(IntroScene.direct).fraction(near: IntroScene.gatePoint)
     var reduceMotion = false
@@ -42,14 +48,18 @@ import SwiftUI
         return 0.35 * x + 0.65 * x * x * (3 - 2 * x)
     }
 
-    /// Il percorso in auto del passo (nel passo 3 l'auto resta al parcheggio)
-    var path: IntroPath { step == .direct ? direct : toParking }
+    /// Di sera: la mappa notte, la ZTL verde
+    var evening: Bool { step == .evening }
+
+    /// Il percorso in auto del passo (a piedi l'auto resta al parcheggio)
+    var path: IntroPath { step == .direct || step == .evening ? direct : toParking }
 
     var seconds: Double {
         switch step {
         case .direct: Self.directSeconds
         case .park: Self.parkSeconds
         case .walk: Self.walkSeconds
+        case .evening: Self.eveningSeconds
         }
     }
 
@@ -62,6 +72,7 @@ import SwiftUI
             return gateAt + (1 - gateAt) * Self.ease((t - Self.toGate - Self.gatePause) / Self.afterGate)
         case .park: return Self.ease(t / Self.parkSeconds)
         case .walk: return min(max(t / Self.walkSeconds, 0), 1)
+        case .evening: return Self.ease(t / Self.eveningSeconds)
         }
     }
 
@@ -90,17 +101,25 @@ import SwiftUI
     struct Lines { var direct: Line; var park: Line; var footprints: Int }
 
     /// Le linee di tutte le mappe: quella del passo si disegna dietro la freccia; la strada dritta resta più tenue
-    /// nei passi 2 e 3, per il confronto; nel passo 3 compaiono le impronte una dopo l'altra
+    /// nei passi 2 e 3, per il confronto; a piedi compaiono le impronte una dopo l'altra; la sera c'è solo la strada dritta
     func lines(at d: Date) -> Lines {
         let f = fraction(d)
-        let shown = step == .walk ? Int((Double(footprints.count) * f).rounded(.up)) : 0
-        return Lines(direct: Line(progress: step == .direct ? f : 1, opacity: step == .direct ? 1 : 0.3),
-                     park: Line(progress: step == .direct ? 0 : step == .park ? f : 1, opacity: 1),
-                     footprints: min(shown, footprints.count))
+        switch step {
+        case .evening:
+            return Lines(direct: Line(progress: f, opacity: 1), park: Line(progress: 0, opacity: 0), footprints: 0)
+        default:
+            let shown = step == .walk ? Int((Double(footprints.count) * f).rounded(.up)) : 0
+            return Lines(direct: Line(progress: step == .direct ? f : 1, opacity: step == .direct ? 1 : 0.3),
+                         park: Line(progress: step == .direct ? 0 : step == .park ? f : 1, opacity: 1),
+                         footprints: min(shown, footprints.count))
+        }
     }
 
     /// Il parcheggio si accende quando la freccia ci arriva
     var parked: Bool { step == .walk || (step == .park && phase == .done) }
+
+    /// La scheda della sera al posto del verbale
+    var showEvening: Bool { step == .evening && phase == .done }
 
     func start() {
         guard task == nil else { return }
@@ -113,13 +132,15 @@ import SwiftUI
 
     func stop() { task?.cancel() }
 
-    /// Il pulsante del passo: «Evita multe con GateLR» dopo il verbale, «Avanti» al parcheggio
+    /// Il pulsante del passo: «Evita multe con GateLR» dopo il verbale, «Adesso una passeggiata…» al parcheggio,
+    /// «E se entro la sera?» dopo le impronte
     func advance() {
         guard phase == .done else { return }
         switch step {
         case .direct: task = Task { [weak self] in await self?.run(.park) }
         case .park: task = Task { [weak self] in await self?.run(.walk) }
-        case .walk: break
+        case .walk: task = Task { [weak self] in await self?.run(.evening) }
+        case .evening: break
         }
     }
 
@@ -128,7 +149,12 @@ import SwiftUI
             showFine = false
             step = next
         }
-        if next != .walk { panel = .idle }
+        // Di giorno il varco resta acceso (anche mentre si gira intorno); la sera è spento fin dall'inizio
+        switch next {
+        case .direct, .park: panel = .active
+        case .walk: break
+        case .evening: panel = .off
+        }
         stepStart = Date()
         phase = .moving
         let quick = 1.4
@@ -156,6 +182,13 @@ import SwiftUI
             try? await Task.sleep(for: .seconds(reduceMotion ? 0.3 : Self.walkSeconds))
             guard !Task.isCancelled else { return }
             withAnimation(.easeInOut(duration: 0.4)) { phase = .done }
+            await autoplay(after: 1.8)
+        case .evening:
+            try? await Task.sleep(for: .seconds(reduceMotion ? quick : Self.eveningSeconds))
+            guard !Task.isCancelled else { return }
+            withAnimation(reduceMotion ? .easeInOut(duration: 0.4) : .spring(response: 0.55, dampingFraction: 0.78)) {
+                phase = .done
+            }
         }
     }
 
@@ -168,7 +201,6 @@ import SwiftUI
     }
 
     private func hitGate() {
-        panel = .active
         guard !reduceMotion else { return }
         withAnimation(.easeOut(duration: 0.06)) { flash = 0.85 }
         withAnimation(.easeOut(duration: 0.7).delay(0.08)) { flash = 0 }
@@ -177,10 +209,11 @@ import SwiftUI
 
 /// Il colore della strada percorsa dalla freccia, in tutti e tre i passi: azzurro acceso (il rosso è della ZTL)
 enum IntroRouteColor {
+    /// Il cuore più scuro della 1.15: si vede anche sulla mappa chiara del giorno
     static let glowHex: UInt32 = 0x2FD3FF
-    static let coreHex: UInt32 = 0xB5F0FF
+    static let coreHex: UInt32 = 0x1E86FF
     static let glow = Color(hex: 0x2FD3FF)
-    static let core = Color(hex: 0xB5F0FF)
+    static let core = Color(hex: 0x1E86FF)
 }
 
 struct IntroDriveSlide: View {
@@ -238,8 +271,8 @@ struct IntroDriveSlide: View {
             }
             .padding(.horizontal, 20).padding(.bottom, 12)
         }
-        .sensoryFeedback(.warning, trigger: drive.panel == .active)
-        .sensoryFeedback(.success, trigger: drive.panel == .noFine)
+        .sensoryFeedback(.warning, trigger: drive.flash > 0.5)
+        .sensoryFeedback(.success, trigger: drive.panel == .noFine || drive.showEvening)
         .task {
             if scene == nil { scene = IntroScene.load(store) }
             drive.reduceMotion = reduceMotion
@@ -248,8 +281,8 @@ struct IntroDriveSlide: View {
             if engine != .mapbox { drive.start() }
         }
         .onChange(of: drive.phase) { _, phase in
-            guard IntroAutoplay.on, phase == .done, drive.step == .walk else { return }
-            Task { try? await Task.sleep(for: .milliseconds(1800)); next() }
+            guard IntroAutoplay.on, phase == .done, drive.step == .evening else { return }
+            Task { try? await Task.sleep(for: .milliseconds(2600)); next() }
         }
         .onDisappear { drive.stop() }
     }
@@ -259,6 +292,7 @@ struct IntroDriveSlide: View {
         case .direct: L("The most direct route")
         case .park: L("With GateLR")
         case .walk: L("Then a short walk")
+        case .evening: L("And in the evening?")
         }
     }
 
@@ -271,6 +305,7 @@ struct IntroDriveSlide: View {
                 Text(verbatim: "\(scene.cityName) · \(scene.zoneName)")
                     .font(Notte.font(15, .semibold)).foregroundStyle(Notte.muted)
             }
+            IntroClock(evening: drive.evening)
         }
     }
 
@@ -289,7 +324,8 @@ struct IntroDriveSlide: View {
                 IntroHint(systemImage: "parkingsign", text: L("GateLR: park outside the ZTL"))
                     .transition(.opacity.combined(with: .move(edge: .bottom)))
                 if drive.phase == .done {
-                    IntroButton(title: L("Next"), identifier: "intro2.park") { drive.advance() }
+                    IntroButton(title: L("Now a short walk…"), systemImage: "figure.walk",
+                                identifier: "intro2.park") { drive.advance() }
                         .transition(.opacity)
                 }
             case .walk:
@@ -297,6 +333,14 @@ struct IntroDriveSlide: View {
                           text: String(format: L("%lld min on foot, no fine"), IntroScene.walkMinutes))
                     .transition(.opacity.combined(with: .move(edge: .bottom)))
                 if drive.phase == .done {
+                    IntroButton(title: L("What if I drive in this evening?"), systemImage: "moon.fill",
+                                identifier: "intro2.evening") { drive.advance() }
+                        .transition(.opacity)
+                }
+            case .evening:
+                if drive.showEvening {
+                    EveningNotice()
+                        .transition(reduceMotion ? .opacity : .move(edge: .bottom).combined(with: .opacity))
                     IntroButton(title: L("Next"), identifier: "intro2.next1", action: next)
                         .transition(.opacity)
                 }
@@ -304,6 +348,58 @@ struct IntroDriveSlide: View {
         }
         .animation(reduceMotion ? .easeInOut(duration: 0.3) : .spring(response: 0.5, dampingFraction: 0.85), value: drive.phase)
         .animation(.easeInOut(duration: 0.35), value: drive.step)
+    }
+}
+
+/// Il momento della scena sotto il titolo: il sole e «martedì 11:30» di giorno, la luna e «martedì 21:00» la sera
+struct IntroClock: View {
+    var evening: Bool
+    static func symbol(evening: Bool) -> String { evening ? "moon" + ".fill" : "sun.max" + ".fill" }
+    var body: some View {
+        HStack(spacing: 7) {
+            Image(systemName: Self.symbol(evening: evening))
+                .foregroundStyle(evening ? Color(hex: 0xC9D3FF) : Color(hex: 0xFFC83D))
+                .symbolRenderingMode(.hierarchical)
+            Text(verbatim: IntroScene.clock(evening ? IntroScene.nightMoment : IntroScene.dayMoment))
+                .foregroundStyle(Notte.text)
+                .contentTransition(.numericText())
+        }
+        .font(Notte.font(15, .bold))
+        .padding(.horizontal, 11).frame(height: 30)
+        .background(Notte.surface.opacity(0.85), in: Capsule())
+        .overlay(Capsule().stroke(Notte.line, lineWidth: 1))
+        .padding(.top, 4)
+        .animation(.easeInOut(duration: 0.4), value: evening)
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("intro2.clock")
+    }
+}
+
+/// La sera, al posto del verbale: il varco è spento, si entra; e ogni ZTL ha i suoi orari
+struct EveningNotice: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text(L("GATE OFF")).font(Notte.font(13, .bold)).kerning(1.5).foregroundStyle(Color(hex: 0x1E8A4C))
+                Spacer()
+                Image(systemName: "moon.fill").foregroundStyle(Color(hex: 0x5A5F70))
+            }
+            Text(String(format: L("At %@ the gate is off: you can drive in."), IntroScene.time(IntroScene.nightMoment)))
+                .font(Notte.font(22, .bold)).foregroundStyle(Color(hex: 0x1B2033))
+                .fixedSize(horizontal: false, vertical: true)
+            Rectangle().fill(Color(hex: 0xD8D3C4)).frame(height: 1)
+            Text(L("Every ZTL has its own hours: GateLR tells you before you set off."))
+                .font(Notte.font(15)).foregroundStyle(Color(hex: 0x5A5F70))
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(18)
+        .background(Notte.chalk, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .overlay(alignment: .leading) {
+            UnevenRoundedRectangle(topLeadingRadius: 14, bottomLeadingRadius: 14).fill(Notte.ledGreen).frame(width: 6)
+        }
+        .shadow(color: .black.opacity(0.45), radius: 24, y: 10)
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("intro2.evening.card")
     }
 }
 
@@ -350,7 +446,7 @@ struct FineNotice: View {
                 .minimumScaleFactor(0.6).lineLimit(1)
             Rectangle().fill(Color(hex: 0xD8D3C4)).frame(height: 1)
             HStack(alignment: .firstTextBaseline) {
-                Text(verbatim: "\(scene.gateName) · 08:47").font(Notte.font(14, .semibold)).foregroundStyle(Color(hex: 0x5A5F70))
+                Text(verbatim: "\(scene.gateName) · \(IntroScene.time(IntroScene.dayMoment))").font(Notte.font(14, .semibold)).foregroundStyle(Color(hex: 0x5A5F70))
                 Spacer()
             }
             Text(L("For each day you drive in. It reaches you months later."))
@@ -395,16 +491,17 @@ private struct IntroLiveMap: View {
     private func map(at now: Date) -> some View {
         let lines = drive.lines(at: now)
         return Map(position: $position, interactionModes: []) {
-            // Fuori dalla ZTL: un velo grigio-blu che spegne i colori; dentro resta il rosso
+            // Fuori dalla ZTL: un velo che spegne i colori (chiaro di giorno, grigio-blu la sera); dentro resta il colore
+            // della zona: rosso di giorno (attiva), verde la sera (spenta)
             MapPolygon(IntroScene.outside(scene))
-                .foregroundStyle(Color(hex: 0x1B2236).opacity(0.5))
+                .foregroundStyle(drive.evening ? Color(hex: 0x1B2236).opacity(0.5) : Color.white.opacity(0.25))
             ForEach(scene.zones.indices, id: \.self) { i in
                 MapPolygon(coordinates: scene.zones[i])
-                    .foregroundStyle(Notte.ledRed.opacity(0.2))
+                    .foregroundStyle(zoneColor.opacity(0.2))
                 MapPolyline(coordinates: scene.zones[i] + scene.zones[i].prefix(1))
-                    .stroke(Notte.ledRed.opacity(0.3), style: StrokeStyle(lineWidth: 12, lineCap: .round, lineJoin: .round))
+                    .stroke(zoneColor.opacity(0.3), style: StrokeStyle(lineWidth: 12, lineCap: .round, lineJoin: .round))
                 MapPolyline(coordinates: scene.zones[i] + scene.zones[i].prefix(1))
-                    .stroke(Notte.ledRed, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round))
+                    .stroke(zoneColor, style: StrokeStyle(lineWidth: 3.5, lineCap: .round, lineJoin: .round))
             }
             route(drive.direct, lines.direct, glow: IntroRouteColor.glow, core: IntroRouteColor.core)
             route(drive.toParking, lines.park, glow: IntroRouteColor.glow, core: IntroRouteColor.core)
@@ -436,14 +533,16 @@ private struct IntroLiveMap: View {
             }
             .annotationTitles(.hidden)
         }
-        .mapStyle(standard ? .standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll)
-                           : .hybrid(elevation: .realistic, pointsOfInterest: .excludingAll))
-        .environment(\.colorScheme, .dark)
+        // Di giorno la mappa chiara; la sera il satellite 3D scuro con il velo blu notte (o la mappa normale con -intro2Standard)
+        .mapStyle(!drive.evening || standard ? .standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll)
+                                             : .hybrid(elevation: .realistic, pointsOfInterest: .excludingAll))
+        .environment(\.colorScheme, drive.evening ? .dark : .light)
         .mapControlVisibility(.hidden)
-        // Un velo blu notte sopra il satellite, per la palette «Notte»
-        .overlay(Notte.navy.opacity(standard ? 0 : 0.22).allowsHitTesting(false))
+        .overlay(Notte.navy.opacity(drive.evening && !standard ? 0.22 : 0).allowsHitTesting(false))
         .ignoresSafeArea()
     }
+
+    private var zoneColor: Color { drive.evening ? Notte.ledGreen : Notte.ledRed }
 
     /// Un percorso con l'alone, sopra gli edifici e le scritte (si deve vedere anche sul 3D)
     @MapContentBuilder
@@ -498,6 +597,8 @@ private struct IntroFallbackMap: View {
                 let pr = IntroProjector(center: Self.center, heading: IntroCamera.heading, pitch: IntroCamera.pitch,
                                         distance: 3800, size: g.size)
                 ZStack {
+                    // Di giorno un fondo chiaro come la carta di una mappa; la sera il blu notte della pagina
+                    if !drive.evening { Color(hex: 0xE9EDF3) }
                     Canvas { ctx, _ in draw(ctx, pr, tl.date) }
                     landmark("Duomo", pr.point(Self.duomo))
                     landmark("Santa Croce", pr.point(Self.santaCroce))
@@ -520,7 +621,8 @@ private struct IntroFallbackMap: View {
     private func landmark(_ name: String, _ p: CGPoint) -> some View {
         VStack(spacing: 3) {
             Circle().fill(Notte.muted).frame(width: 5, height: 5)
-            Text(verbatim: name).font(Notte.font(11, .semibold)).foregroundStyle(Notte.muted.opacity(0.8))
+            Text(verbatim: name).font(Notte.font(11, .semibold))
+                .foregroundStyle(drive.evening ? Notte.muted.opacity(0.8) : Color(hex: 0x5A6378))
         }
         .position(x: p.x, y: p.y + 8)
     }
@@ -539,19 +641,23 @@ private struct IntroFallbackMap: View {
             grid.move(to: pr.point(.init(latitude: c.latitude - 16 * step, longitude: lon)))
             grid.addLine(to: pr.point(.init(latitude: c.latitude + 16 * step, longitude: lon)))
         }
-        ctx.stroke(grid, with: .color(Notte.line.opacity(0.7)), lineWidth: 1)
-        ctx.stroke(pr.path(Self.arno), with: .color(Color(hex: 0x1C3A6E)), style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round))
+        let day = !drive.evening
+        ctx.stroke(grid, with: .color(day ? Color(hex: 0xC6CDDA) : Notte.line.opacity(0.7)), lineWidth: 1)
+        ctx.stroke(pr.path(Self.arno), with: .color(day ? Color(hex: 0x9EC4EA) : Color(hex: 0x1C3A6E)),
+                   style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round))
 
         for perimeter in scene.zones { drawZone(ctx, pr.path(perimeter, closed: true)) }
         drawRoutes(ctx, pr, now)
     }
 
+    /// Rossa di giorno (attiva), verde la sera (spenta)
     private func drawZone(_ ctx: GraphicsContext, _ zone: Path) {
-        ctx.fill(zone, with: .color(Notte.ledRed.opacity(0.14)))
+        let color = drive.evening ? Notte.ledGreen : Notte.ledRed
+        ctx.fill(zone, with: .color(color.opacity(0.14)))
         var glow = ctx
         glow.addFilter(.blur(radius: 8))
-        glow.stroke(zone, with: .color(Notte.ledRed.opacity(0.7)), lineWidth: 8)
-        ctx.stroke(zone, with: .color(Notte.ledRed), lineWidth: 2.5)
+        glow.stroke(zone, with: .color(color.opacity(0.7)), lineWidth: 8)
+        ctx.stroke(zone, with: .color(color), lineWidth: 2.5)
     }
 
     private func drawRoutes(_ ctx: GraphicsContext, _ pr: IntroProjector, _ now: Date) {

@@ -9,8 +9,8 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.16.2"
-    CURRENT_PROJECT_VERSION: "38"
+    MARKETING_VERSION: "1.16.3"
+    CURRENT_PROJECT_VERSION: "39"
 
 # Mapbox Maps (v11, Swift Package Manager, nessun token segreto per scaricarlo): la mappa 3D della nuova
 # presentazione e della striscia di mappa della prima pagina (Varco). Se non si carica, resta la mappa di Apple (MapKit).
@@ -77,6 +77,9 @@ targets:
         # Token pubblico (pk.) di Mapbox dall'impostazione MAPBOX_ACCESS_TOKEN (Config/Local.xcconfig, mai nel repository);
         # vuoto = Mapbox spento, l'app usa la mappa di Apple
         MBXAccessToken: "$(MAPBOX_ACCESS_TOKEN)"
+        # Il numero dell'app su App Store (APP_STORE_ID in Config/Base.xcconfig), vuoto per ora: senza, niente riga
+        # «Lascia una recensione» in Tu
+        GateLRAppStoreID: "$(APP_STORE_ID)"
         LSRequiresIPhoneOS: true
         UIAppFonts: [TitilliumWeb-Bold.ttf, TitilliumWeb-Black.ttf, TitilliumWeb-SemiBold.ttf, TitilliumWeb-Regular.ttf, DotGothic16-Regular.ttf]
         # Schermata d'avvio con il marchio (prima era vuota: nera in modalità scura per tutto il caricamento).
