@@ -20,7 +20,8 @@ struct ZoneDetailView: View {
                              ink: answer.gatesOn ? Theme.amberInk : Theme.greenInk)
                         Text(city.localizedName).font(.app(size: 13)).foregroundStyle(Theme.muted)
                     }
-                    StatusBanner(status: city.status)
+                    // Zona da fonti non ufficiali: c'è già l'avviso qui sotto («Bozza: dalle fonti ufficiali» sarebbe falso)
+                    if !zone.isUnofficial { StatusBanner(status: city.status) }
                 }
 
                 if zone.isUnofficial { unofficialCard }
