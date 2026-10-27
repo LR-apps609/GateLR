@@ -1,0 +1,154 @@
+Fonte: https://www.comune.lecce.it/docs/default-source/altri-documenti/nuove-tariffe-ztl.pdf
+Letta il: 2026-10-27 (testo estratto dal documento ufficiale del Comune di Lecce, scaricato con curl verificando il certificato: catena completata con l'intermedio «Telecom Italia Trust Technologies RSA OV SSL CA 2» da crt.sh, verificato con openssl contro le radici di sistema)
+
+Tariffe con variazione del punto n. 14
+
+Permesso giornaliero temporaneo € 5,00
+
+Permesso trimestrale temporaneo € 5,00
+ Nr   Categoria                                Veicolo 1    Veicolo 2     Oltre secondo veicolo
+ 1    RES: Residenti senza posto auto          •   €10,00   •   €10,00    Non ammesso
+
+      Validità 2 anni
+
+
+
+ 2    DIM: Dimoranti non residenti             •   €10,00   •   €10,00    Non ammesso
+
+      Validità 2 anni
+
+ 3    GAR1: Residenti con posto auto           •   €10,00   •   €10,00    •   €10,00
+
+      Validità 2 anni
+
+ 4    GAR2: Proprietari o utilizzatori di      •   €10,00   •   €10,00    Non ammesso
+      posto auto non residenti
+
+      Validità 2 anni
+
+
+
+
+ 5    C/S: Proprietari di immobili non         •   €10,00   Non ammesso   Non ammesso
+      residenti, titolari di esercizi
+      commerciali, pubblici esercizi di
+      somministrazione di alimenti e
+      bevande, strutture ricettive,
+      artigiani che effettuino la vendita
+      diretta al pubblico con sede in ZTL
+
+      Validità 2 anni
+
+ 6    HTL: Alberghi, Bed and Breakfast,        •   €0,00
+      affittacamere e strutture ricettive
+      (UTENZA)
+
+ 7    ART: Imprese che effettuano con          •   €10,00   •   €10,00    Non ammesso
+      regolarità attività di pronto
+      intervento, manutenzione e
+      assistenza tecnica (idraulici,
+      falegnami, elettricisti, fornitura di
+      bombole di gas, ascensori,
+      sicurezza, manutenzione di
+      attrezzature per ufficio e per
+      negozi quali insegne, tende solari,
+      frigo bar, assistenza a ristoranti e
+      attività ricettive, imprese di pulizia
+      ecc.), imprese edili, imprese di
+      trasloco.
+     Validità 2 anni
+
+8    LOG (Logistica Urbana): imprese di •        €10,00   Non ammesso       Non ammesso
+     trasporto merci in conto terzi,
+     corriere espresso, servizi postali;
+     fornitori, distributori, esercizi
+     commerciali e farmacie che
+     effettuano trasporto merci in conto
+     proprio, vendita al minuto di
+     oggetti ingombranti, vendita e
+     consegna delle merci a domicilio
+     del cliente (pasticcerie, pizzerie,
+     gastronomie, catering, piante e
+     fiori, prodotti ortofrutticoli, ecc.)
+
+     Validità 2 anni
+
+
+
+9    MED1: medici senza ambulatorio          •   €10,00   Non ammesso       Non ammesso
+     (Medici convenzionati con il SSN
+     con assistiti in ZTL, medici di ruolo
+     e convenzionati INPS, guardie
+     mediche)
+
+     Validità 2 anni
+
+10   MED2: medici con ambulatorio            •   €10,00   Non ammesso       Non ammesso
+     (Medici convenzionati con il SSN,
+     medici specialisti, medici
+     veterinari)
+
+     Validità 2 anni
+
+11   ASS1: erogatori Assistenza            •     €10,00   Non ammesso       Non ammesso
+     Domiciliare Integrata (ADI),
+     imprese e associazioni area
+     socio/sanitaria (servizi di trasporto
+     e/o assistenza infermieristica)
+
+     Validità 2 anni
+
+12   ASS2: familiari e operatori             •   €10,00   Non ammesso       Non ammesso
+     sanitari professionali che
+     assistono residenti non
+     autosufficienti quali disabili e
+     anziani over 75
+
+     Validità 2 anni
+
+13   CUDE: titolari contrassegno             •   €0,00    •   Non ammesso   Non ammesso
+     unificato disabili europeo
+14   OCC: accessi occasionali per                                      Non ammesso   Non ammesso
+
+     •     esigenze eccezionali e/o urgenti         •   € 5,00
+     •     visite mediche presso
+           ambulatori e clienti farmacia
+                                                    •   € 0,00
+
+     •     manifestazioni ed eventi                 •   € 5,00 trim.
+
+     •     matrimoni                                •   € 5,00
+                                                        giornaliero
+     •     accompagnamento alunni delle
+           scuole materne ed elementari
+           da parte dei genitori                    •   € 5,00
+                                                        annuo
+
+
+
+
+                                                                                     Non ammesso
+15   IST: enti pubblici e altre istituzioni    €0                      €0
+     per attività istituzionali e/o di
+     servizio
+
+16   Veicoli esenti                            €0                        €0          €0
+     •     Forze dell'Ordine e Polizia
+     •     Servizio antincendio
+     •     Autoambulanze
+     •     Automediche in servizio di
+           prontointervento
+     •     Veicoli istituti di vigilanza
+     •     Trasporto pubblico
+     •     Taxi
+     •     NCC
+     •     Raccolta rifiuti e pulizia strade
+     •     Raccolta e distribuzione della
+           posta
+     •     Gestori reti elettrica, digitale,
+           gas, idrica e fognante
+     •     Carri funebri
+     •     Portavalori
+     Carro attrezzi (SGM, società, sharing
+         mobility)
+

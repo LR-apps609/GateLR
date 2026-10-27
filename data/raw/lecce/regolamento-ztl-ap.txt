@@ -1,0 +1,876 @@
+Fonte: https://www.comune.lecce.it/docs/default-source/regolamenti-comunali/polizia-locale/regolamento-per-l-accesso-e-la-circolazione-dei-veicoli-nelle-zone-a-traffico-limitato-e-nelle-aree-pedonali-del-comune-di-lecce.pdf
+Letta il: 2026-10-27 (testo estratto dal documento ufficiale del Comune di Lecce, scaricato con curl verificando il certificato: catena completata con l'intermedio «Telecom Italia Trust Technologies RSA OV SSL CA 2» da crt.sh, verificato con openssl contro le radici di sistema)
+
+                                              Città di Lecce
+                                                    Provincia di Lecce
+
+
+
+REGOLAMENTO PER L’ACCESSO E LA CIRCOLAZIONE DEI VEICOLI NELLE
+ZONE A TRAFFICO LIMITATO E NELLE AREE PEDONALI DEL COMUNE DI
+LECCE
+Versione elaborata nell’ambito delle misure contingenti del Piano Urbano della
+Mobilità Sostenibile (PUMS)
+
+
+ART.1 OGGETTO DEL REGOLAMENTO
+Il presente Regolamento disciplina l’accesso, la circolazione e la sosta nelle Zone a Traffico Limitato (Z.T.L.) e nelle Aree
+Pedonali (A.P.) istituite con deliberazione della Giunta Comunale, ai sensi dell’articolo 7 comma 9 del D. Lgs. 30 aprile
+1992, n. 285, “Nuovo Codice della Strada” (in seguito Codice della Strada) ed in coerenza con quanto prescritto dalle
+“Linee Guida sulla regolamentazione della circolazione stradale e segnaletica nelle zone a traffico limitato” emanate
+con nota prot. 5050 del 28 giugno 2019 dalla Direzione Generale per la sicurezza stradale del Ministero delle
+Infrastrutture e dei Trasporti.
+Il Regolamento definisce le diverse tipologie, regole, limitazioni e modalità di rilascio delle autorizzazioni necessarie
+all’accesso, al transito e alla sosta nelle suddette zone ed aree.
+L’art. 3 del Codice della Strada definisce in particolare la Zona a Traffico Limitato (Z.T.L.) quale area in cui l’accesso ela
+circolazione veicolare sono limitati ad ore prestabilite o a particolari categorie di utenti di veicoli e l’Area Pedonale
+(A.P.) quale zona interdetta alla circolazione dei veicoli, salvo alcune particolari categorie di veicoli.
+
+
+ART.2 PRINCIPI GENERALI
+L’istituzione di Zone a Traffico Limitato e Aree Pedonali è finalizzata a contrastare gli impatti negativi del traffico
+motorizzato sulla sicurezza degli utenti della strada, sulla salute dei cittadini, sul territorio, sul patrimonio ambientale
+e culturale nonché per favorire la mobilità urbana sostenibile e per esigenze di ordine pubblico.
+Le autorizzazioni previste dal presente Regolamento regolano l’accesso, la circolazione e la sosta dei veicoli nelle Zone
+a Traffico Limitato e nelle Aree Pedonali, nei limiti previsti dalle presenti norme nonché dalle prescrizioni particolari
+indicate nei provvedimenti istitutivi delle stesse e possono essere in qualsiasi momento revocate, sospese o limitate.
+Le autorizzazioni possono contenere indicazioni relative ai limiti previsti dalle diverse tipologie di permesso, ai
+varchi/ingressi di accesso e uscita, ai divieti e/o ai tempi di sosta o di fermata zonali istituiti nel comparto e/o nelle vie
+oggetto dell’autorizzazione stessa.
+Indipendentemente dalle prescrizioni contenute nell’autorizzazione, l’accesso e la circolazione dei veicoli sono limitati
+agli spostamenti con origine e/o destinazione nelle aree interessate seguendo il percorso più breve mentre è sempre
+vietato il transito in attraversamento al solo fine di abbreviare il percorso di spostamenti aventi origine e destinazione
+al di fuori della Z.T.L. o A.P.
+In caso di impraticabilità dei percorsi indicati, l’efficacia delle autorizzazioni abilita alla circolazione dagli altri ingressi
+del comparto fino al ripristino delle normali condizioni di circolazione, fatta salva l'osservanza della prescrizione del
+percorso alternativo più breve.
+Se non altrimenti specificato, lungo tutto il perimetro delle Zone a Traffico Limitato il limite di velocità non potrà
+superare i 30 km/h.
+I provvedimenti istitutivi delle Z.T.L. e A.P. possono contenere limitazioni in relazione a tipologia, sagoma limite, massa
+limite, traino e classe ambientale dei veicoli per i quali è possibile richiedere il rilascio di autorizzazioni e titoli di
+accesso.
+Le autorizzazioni possono essere altresì rilasciate previo pagamento di quote e tariffe differenziate a copertura
+parziale o totale dei costi amministrativi, dei costi esterni generati dalla circolazione dei veicoli e/o per favorire
+maggiore equità ed efficienza nell’utilizzo del suolo pubblico compreso all’interno delle aree interessate.
+I veicoli al servizio di persone invalide muniti di contrassegno unificato disabili europeo (CUDE) possono accedere e
+circolare nelle Z.T.L. e nelle A.P. in base a quanto prescritto dal successivo art. 14, dall’art. 188 del Codice della Strada
+e dagli artt. 11 e 12 del D.P.R. 24 Luglio 1996, n. 503 ad esclusione delle A.P. per le quali è escluso il transito di veicoli
+adibiti a servizi di trasporto e pubblica utilità.
+Gliautoveicolieimotoveicoliadibitiaserviziodipolizia,antincendio,leautoambulanzeeleautomedicheinserviziodi            pronto
+interventi nonché i veicoli per l’espletamento dei servizi di pubblica utilità possono accedere e circolare nella
+Z.T.L.enelleA.P.senzaautorizzazioneesenzarestrizioniinbaseaquantoprescrittodalsuccessivoart.16.
+La circolazione dei velocipedi e dei mezzi equiparati dal codice della strada, nonché dei veicoli rientranti nelle
+categorie L1e L3e di cui all’art. 47 del Codice della Strada è sempre consentita nelle Z.T.L. mentre dovrà essere
+espressamente normata con apposita modifica a questo regolamento, quella relativa alla circolazione dei veicoli
+elettrici e ibridi.
+Nelle Z.T.L. e A.P. del Comune di Lecce non è mai consentito il rilascio di autorizzazioni o licenze per autofficine,
+autorimesse o parcheggi ad uso pubblico se non per l’esclusivo utilizzo dei residenti e dei dimoranti di quelle zone
+previa verifica di compatibilità da parte del Settore Mobilità Trasporti, Viabilità e Segnaletica.
+La presenza dei varchi elettronici per il controllo degli accessi alla zona a traffico limitato comporta la necessità di
+inserire ogni targa collegata ad un’autorizzazione in una lista (cosiddetta “lista bianca”) che consente al sistema di
+rilevamento il riconoscimento automatico degli autorizzati. Resta tuttavia invariato l’obbligo di esposizione
+dell’autorizzazione previsto dall’art. 22.
+InconformitàaquantodispostodalD.Lgs.196/2003idativengonoconservatinelrispettodellaprivacy.
+
+
+ART.3 VALIDITÀ DELLE AUTORIZZAZIONI
+Possono essere rilasciate tre tipologie di autorizzazioni, distinte in permanenti, temporanee e giornaliere in relazione
+alla durata della loro validità:
+    •    Autorizzazioni permanenti:
+         Hannovaliditàsuperioreagiorni90chedecorronodalladatadirilasciodell’autorizzazionedefinitivao
+         eventualmente di quella provvisoria.
+         Laduratadelleautorizzazionipermanentièstabilitadagliartt.4eseguentidelpresenteRegolamento.
+    •    Autorizzazioni temporanee:
+         Hannovaliditàfinoa90giorniesonorilasciabilisecondolestessemodalitàetipologieprevisteperle autorizzazioni
+         permanenti.
+         Un’autorizzazionetemporaneainscadenzapuòesseretrasformatainpermanente,purchéiltitolareneabbia diritto
+         e autocertifichi la sussistenza di tutti i requisiti previsti per quest’ultima.
+    •    Autorizzazioni giornaliere:
+         Hanno validità nell’arco di una giornata e possono essere limitate rispetto alla durata e/o alla fascia oraria di
+         accesso e permanenza.
+         ItitoligiornalierisonorilasciatinelrispettodeilimitieprescrizioniespressamenteprevistedalSettore Mobilità,
+         Trasporti, Viabilità e Segnaletica.
+Leautorizzazionihannovaliditàperiltempoindicatonellestesseepossonoesseresoggettearinnovoneilimiti previsti dal
+presente Regolamento e dai provvedimenti istitutivi delle Z.T.L. o A.P..
+Leautorizzazionigiornaliereetemporaneesonorilasciateinviaprioritariarispettoaquellepermanentiinragione delle
+effettive necessità di accesso degli aventi diritto.
+ART.4 AUTORIZZAZIONI TIPO RES (Residenti)
+LeautorizzazioniditipoRESsonorilasciabiliairesidentidelleZ.T.L.oA.P..
+Tali autorizzazioni sono rilasciabili nel numero massimo di due veicoli per nucleo familiare e unità immobiliare, a
+condizione che il numero di veicoli per i quali viene richiesta autorizzazione non superi il numero di patentati nella
+famiglia.
+Sarà onere del titolare dell’autorizzazione dare immediata comunicazione al Settore Mobilità, Trasporti, Viabilità e
+Segnaletica qualora acquisisca la disponibilità di un garage o posto auto.
+In nessun caso la somma delle autorizzazioni permanenti e temporanee in possesso del nucleo familiare e unità
+immobiliare potrà superare il numero di due autoveicoli.
+Possono essere oggetto di autorizzazione di tipo RES i veicoli di proprietà dei componenti il nucleo familiare residente,
+nonché:
+    •    i veicoli di cui un componente del nucleo familiare residente in Z.T.L. o A.P. sia uno dei soggetti individuati
+         dall’art.196 comma 1 del Codice della Strada (proprietario, usufruttuario, acquirente con patto di riservato
+         dominio o utilizzatore a titolo di locazione finanziaria o a lungo termine);
+    •    i veicoli intestati a ditta commerciale ed utilizzati in via esclusiva dal legale rappresentante o da un
+         dipendente della stessa, anagraficamente residente in Z.T.L. e A.P.
+Il possesso dei requisiti dovrà essere certificato da idonea documentazione probatoria e annotazione sulla carta di
+circolazione dei veicoli.
+Ai residenti in Z.T.L. o A.P. è consentito richiedere l’attivazione, anche attraverso comunicazione telematica, di
+permessi occasionali per visitatori e/o fornitori diretti alla propria abitazione per esigenze di carattere eccezionale e/o
+urgente, in ogni caso limitatamente ad un numero massimo di 5 accessi mensili per nucleo familiare e unità
+immobiliare.
+L’autorizzazione consente il transito dei veicoli dei residenti nelle Z.T.L. e A.P, limitatamente alla zona di appartenenza
+indicata sul contrassegno, seguendo il percorso più breve per raggiungere la propria abitazione.
+La sosta dei veicoli nell’ambito delle Z.T.L. è consentita prioritariamente nelle aree riservate e regolarmente segnalate
+e nel rispetto di quanto stabilito dagli artt. 7 e 158 del C.d.S. in assenza della prescritta segnaletica. La sosta su strada
+può essere limitata qualora le condizioni di circolazione nel comparto interessato siano particolarmente difficoltose e
+nel caso il numero di richieste sia notevolmente eccedente i limiti di capacità riscontrati nella Z.T.L.
+NelleA.P.imotociclieiciclomotoridovrannoesserecondottiamanoeconilmotorespento.
+Il transito nelle A.P. è consentito ai residenti in dette aree solo negli orari in cui la validità dell’A.P. è sospesa come
+indicato nel provvedimento istitutivo dell’A.P. stessa e in tal caso, solo al fine di effettuare operazioni di carico e scarico
+in prossimità della propria residenza, nei limiti di tempo strettamente necessari ad effettuarle e comunque non
+eccedenti i 15’ previa attivazione del disco orario.
+Procedimento di rilascio e validità dell'autorizzazione
+    •    Autorizzazionepermanente:richiestapressoilSettoreMobilità,Trasporti,ViabilitàeSegnaleticaallegando:
+              •   copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                  validità;
+              •   autocertificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia di
+                  autorizzazione;
+              •   autocertificazionestatodifamiglia,diresidenzaeognialtrotitoloodocumentocomprovanteil diritto
+                  ad ottenere l’autorizzazione ove richiesto dalla modulistica appositamente predisposta.
+         Validità:finoalvenirmenodeirequisitichenehannodeterminatoilrilascioecomunquenonoltrei5anni.
+    •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+         Validità:nonoltre90giorni.
+    •    Autorizzazione giornaliera: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quantoprevistoperl’autorizzazionepermanenteorichiestodallamodulisticaappositamentepredisposta.
+         Validità: come prevista dall'art.3 lett.c).
+
+
+ART.5 AUTORIZZAZIONI TIPOLOGIA DIM (Dimoranti senza postoauto)
+Le autorizzazioni di tipo DIM sono rilasciabili ai cittadini dimoranti nelle Z.T.L. ed A.P. e residenti anagraficamente in
+altro comune che non siano proprietari o utilizzatori a qualsiasi titolo, nelle stesse aree, di garage o posti auto su
+area privata oppure anche in area pubblica ma ad esclusivo utilizzo del proprio veicolo.
+Tali autorizzazioni sono rilasciabili nel numero massimo due veicoli per nucleo familiare e unità immobiliare, a
+condizione che il numero di veicoli per i quali viene richiesta autorizzazione non superi il numero di patentati nella
+famiglia.
+Limitatamente alle autorizzazioni richieste per accedere nel centro storico, il dimorante richiedente dovrà risiedere
+fuori dal territorio comunale.
+Sarà onere del titolare dell’autorizzazione di tipo DIM dare comunicazione al Settore Mobilità, Trasporti, Viabilità e
+Segnaletica qualora acquisisca la disponibilità di un garage o posto auto.
+In nessun caso la somma delle autorizzazioni permanenti e temporanee in possesso del nucleo familiare e unità
+immobiliare potrà superare il numero di due autoveicoli.
+Possono essere oggetto di autorizzazione di tipo DIM i veicoli di proprietà dei componenti il nucleo familiare
+dimorante, nonché:
+    •    i veicoli di cui un componente del nucleo familiare dimorante in ZTL/AP sia uno dei soggetti individuati
+         dall’art.196 comma 1 del Codice della Strada (proprietario, usufruttuario, acquirente con patto di riservato
+         dominio o utilizzatore a titolo di locazione finanziaria o a lungo termine);
+    •    i veicoli intestati a ditta commerciale ed utilizzati in via esclusiva dal legale rappresentante o da un
+         dipendente della stessa, appartenente al nucleo familiare richiedente in Z.T.L. e A.P.
+Il possesso dei requisiti dovrà essere certificato da idonea documentazione probatoria e annotazione sulla carta di
+circolazione dei veicoli.
+Tali autorizzazioni consentono il transito dei veicoli dei dimoranti nelle Z.T.L. e A.P, limitatamente alla zona di
+appartenenza indicata sul contrassegno, seguendo il percorso più breve per raggiungere la propria abitazione.
+La sosta dei veicoli nell’ambito delle Z.T.L. è consentita prioritariamente nelle aree riservate e regolarmente segnalate
+e nel rispetto di quanto stabilito dagli artt. 7 e 158 del C.d.S. in assenza della prescritta segnaletica. La sosta su strada
+può essere vietata o limitata qualora le condizioni di circolazione nel comparto interessato siano particolarmente
+difficoltose e nel caso il numero di richieste sia notevolmente eccedente i limiti di capacità riscontrati nella Z.T.L.
+NelleA.P.imotociclieiciclomotoridovrannoesserecondottiamanoeconilmotorespento.
+Procedimento di rilascio e validità dell’autorizzazione.
+    •    Autorizzazionepermanente:richiestapressoilSettoreMobilità,Trasporti,ViabilitàeSegnaleticaallegando:
+              •   copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                  validità;
+              •   autocertificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia di
+                  autorizzazione;
+              •   copia del contratto di locazione, copia di una bolletta di un’utenza domestica intestata e ogni altro
+                  titolo o documento comprovante il diritto ad ottenere l’autorizzazione ove richiesto dalla
+                  modulistica appositamente predisposta.
+         Validità:finoalvenirmenodeirequisitichenehannodeterminatoilrilascioecomunquenonoltrei2anni.
+    •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+         Validità:nonoltre90giorni.
+    •    Autorizzazione giornaliera: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quantoprevistoperl’autorizzazionepermanenteorichiestodallamodulisticaappositamentepredisposta.
+         Validità: come prevista dall'art.3 lett.c).
+ART.6 AUTORIZZAZIONI TIPO GAR1 (Residenti con garage/posto auto)
+Le autorizzazioni di tipo GAR1 sono rilasciabili ai soli residenti nelle Z.T.L. o A.P. e proprietari o utilizzatori a qualsiasi
+titolo di garage o posti auto su area privata che ne dichiarino la disponibilità ubicati all’interno della Z.T.L. o A.P.
+Tali autorizzazioni sono rilasciabili in numero pari al numero di posti auto disponibili.
+PossonoessereoggettodiautorizzazioneditipoGAR1iveicolidiproprietàdeicomponentiilnucleofamiliare residente
+nonché:
+    •    i veicoli di cui un componente del nucleo familiare residente in ZTL/AP sia uno dei soggetti individuati
+         dall’art.196 comma 1 del Codice della Strada (proprietario, usufruttuario, acquirente con patto di riservato
+         dominio o utilizzatore a titolo di locazione finanziaria o a lungo termine);
+    •    i veicoli intestati a ditta commerciale ed utilizzati in via esclusiva dal legale rappresentante o da un
+         dipendente della stessa, anagraficamente residente in Z.T.L. e A.P.
+Il possesso dei requisiti dovrà essere certificato da idonea documentazione probatoria e annotazione sulla carta di
+circolazione dei veicoli.
+L’autorizzazione consente il transito dei veicoli dei residenti nelle Z.T.L.e A.P finalizzato al ricovero del proprio veicolo
+a motore, limitatamente alla zona di appartenenza indicata sul contrassegno, seguendo il percorso più breve.
+L’autorizzazione non consente la sosta su strada mentre è consentito effettuare operazioni di carico e scarico in
+prossimità della propria residenza e nei limiti di tempo strettamente necessari ad effettuarle e comunque non
+eccedenti i30 minuti previa attivazione del disco orario.
+NelleA.P.imotociclieiciclomotoridovrannoesserecondottiamanoeconilmotorespento.
+Il transito nelle A.P. è consentito ai residenti in dette aree solo negli orari in cui la validità dell’A.P. è sospesa come
+indicato nel provvedimento istitutivo dell’A.P .stessa e in tal caso, solo al fine di effettuare operazioni di carico e scarico
+in prossimità della propria residenza, nei limiti di tempo strettamente necessari ad effettuarle e comunque non
+eccedenti i 30 minuti previa attivazione del disco orario.
+
+
+Procedimento di rilascio e validità dell'autorizzazione
+    •    Autorizzazionepermanente:richiestapressoilSettoreMobilità,Trasporti,ViabilitàeSegnaleticaallegando:
+              •    copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                   validità;
+              •    autocertificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia di
+                   autorizzazione;
+              •    planimetria catastale, copia del contratto di affitto, comodato, atto di proprietà del posto auto o
+                   autorizzazionerilasciataperpassocarrabileeognialtrotitoloodocumentocomprovanteildirittoad
+                   ottenere l’autorizzazione ove richiesto dalla modulistica appositamente predisposta quale.
+         Validità:finoalvenirmenodeirequisitichenehannodeterminatoilrilascioecomunquenonoltrei5anni.
+    •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+         Validità:nonoltre90giorni.
+    •    Autorizzazione giornaliera: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+         Validità: come prevista dall'art.3 lett.c).
+
+
+ART.7 AUTORIZZAZIONI TIPO GAR2 (Utilizzatori di garage/posto auto non residenti)
+Le autorizzazioni di tipo GAR2 sono rilasciabili ai proprietari o utilizzatori a qualsiasi titolo di garage o aree private
+utilizzati come zone di sosta veicolare, ubicati all’interno della Z.T.L. o A.P. ma non residenti all’interno delle Z.T.L. o
+A.P.
+Per i garage o aree scoperte con più posti auto privati verranno rilasciati un numero di contrassegni
+coincidente al numero di posti auto che risulta dalla planimetria catastale dell’area con riferimento agli
+standard previsti dalla normativa di settore (pari a 25 mq/posto auto) comunque non eccedenti il limite di
+due veicoli per nucleo familiare.
+PossonoessereoggettodiautorizzazioneditipoGAR2iveicolidiproprietàdeicomponentiilnucleofamiliarenonché:
+    •    i veicoli di cui un componente del nucleo familiare sia uno dei soggetti individuati dall’art.196 comma 1 del
+         Codice della Strada (proprietario, usufruttuario, acquirente con patto di riservato dominio o utilizzatore a
+         titolo di locazione finanziaria o a lungo termine);
+    •    i veicoli intestati a ditta commerciale ed utilizzati in via esclusiva dal legale rappresentante o da un
+         dipendente della stessa.
+Il possesso dei requisiti dovrà essere certificato da idonea documentazione probatoria e annotazione sulla carta di
+circolazione dei veicoli.
+L’autorizzazione consente il transito dei veicoli finalizzato al ricovero del proprio veicolo a motore, limitatamente alla
+zona di appartenenza indicata sul contrassegno, seguendo il percorso più breve.
+È sempre esclusa la possibilità di sosta su strada.
+
+Procedimento di rilascio e validità dell'autorizzazione
+    •    Autorizzazionepermanente:richiestapressoilSettoreMobilità,Trasporti,ViabilitàeSegnaleticaallegando:
+             •    copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                  validità;
+             •    autocertificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia di
+                  autorizzazione;
+             •    planimetria catastale, copia del contratto di affitto, comodato, atto di proprietà del posto auto o
+                  autorizzazione per passo carrabile e ogni altro titolo o documento comprovante il diritto ad ottenere
+                  l’autorizzazione ove richiesto dalla modulistica appositamente predisposta;
+             •    per garage con superficie maggiore o uguale a 300 mq occorre produrre quanto previsto in materia
+                  di prevenzione incendi.
+         Validità:finoalvenirmenodeirequisitichenehannodeterminatoilrilascioecomunquenonoltrei2anni.
+    •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+         Validità: non oltre 90 giorni.
+    •    Autorizzazione giornaliera: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quantoprevistoperl’autorizzazionepermanenteorichiestodallamodulisticaappositamentepredisposta.
+         Validità: come prevista dall'art.3 lett.c).
+
+
+ART.8 AUTORIZZAZIONI TIPO C/S (Carico e Scarico proprietari non residenti ed esercenti)
+Le autorizzazioni di tipo C/S sono rilasciabili a proprietari di immobili non residenti e non dimoranti in Z.T.L./A.P.,
+titolari di esercizi per il commercio su area privata e di pubblici esercizi di somministrazione di alimenti e bevande,
+titolari di strutture ricettive, artigiani che effettuino la vendita diretta al pubblico ai sensi della legge 8/8/1985 n.
+443, le cui proprietà/sedi/laboratori/strutture siano ubicate all’interno della Z.T.L./A.P., unicamente per
+l’effettuazione delle operazioni di carico e scarico merci, materiali e cose e limitatamente al percorso autorizzato e agli
+orari di riportati nel provvedimento istitutivo.
+Le    autorizzazioni     di    tipo    C/S     sono     altresì   rilasciabili a     liberi   professionisti,     le     cui
+proprietà/sedi/laboratori/strutture/studi siano ubicate all’interno della Z.T.L., unicamente per l’effettuazione delle
+operazioni di carico e scarico merci, materiali e cose e limitatamente al percorso autorizzato e agli orari di riportati nel
+provvedimento istitutivo.
+Tali autorizzazioni sono rilasciabili nel numero massimo di un veicolo per soggetto richiedente appartenente alle
+  Suddette categorie sia esso soggetto privato, impresa, associazione, ente pubblico e altro.
+  Possono essere oggetto di autorizzazione di tipo C/S i veicoli di proprietà del richiedente nonché:
+      • i veicoli di cui un componente del nucleo familiare sia uno dei soggetti individuati dall’art.196 comma 1 del
+          Codice della Strada (proprietario, usufruttuario, acquirente con patto di riservato dominio o utilizzatore a
+          titolo di locazione finanziaria o a lungo termine);
+      • i veicoli intestati a ditta commerciale ed utilizzati in via esclusiva dal legale rappresentante o da un
+          dipendente della stessa.
+  Il possesso dei requisiti dovrà essere certificato da idonea documentazione probatoria e annotazione sulla carta di
+  circolazione dei veicoli.
+  Se non diversamente stabilito dal provvedimento istitutivo, l’autorizzazione di tipo C/S consente il transito nella Z.T.L.
+  nei giorni feriali dalle ore 6.00 alle ore 11.00 e dalle ore 16.00 alle ore 18.00 e nei giorni festivi nella sola fascia
+  oraria 6:00 - 11.00. Per i soli studi professionali è consentito il transito nella Z.T.L. dal lunedì al venerdì dalle ore 8.00
+  alle ore 20.00. La sosta è autorizzata per la durata massima di minuti 30 con esposizione del disco orario. Il transito ela
+  sosta nelle A.P. non sono mai consentiti.
+  Il provvedimento istitutivo della Z.T.L. dovrà prevedere l’articolazione dei giorni e degli orari di transito in ogni caso
+  organizzati in due finestre orarie uniche non consecutive mai eccedenti il limite delle 7 ore complessive nei giorni feriali
+  e 5 ore complessive nei giorni festivi (fascia unica). Lo stesso provvedimento potrà prevedere limitazioni speciali per
+  aree sottoposte a maggior tutela.
+Procedimento di rilascio e validità dell'autorizzazione
+      •    Autorizzazionepermanente:richiestapressoilSettoreMobilità,Trasporti,ViabilitàeSegnaleticaallegando:
+                •   copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                    validità;
+               •    autocertificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia di
+                    autorizzazione;
+                •   copia del titolo di proprietà dell’immobile o del contratto di locazione, copia di una bolletta di
+                    un’utenza intestata e ogni altro titolo o documento comprovante il diritto ad ottenere
+                    l’autorizzazione ove richiesto dalla modulistica appositamente predisposta.
+           Validità: fino al venir meno dei requisiti che ne hanno determinato il rilascio e comunque non oltre i 2anni.
+      •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+           quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+           Validità:nonoltre90giorni.
+      •    Autorizzazione giornaliera: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+           quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+           Validità: come prevista dall'art.3 lett.c).
+
+
+   ART.9 AUTORIZZAZIONITIPOHTL (Carico e Scarico Bagagli)
+  Le autorizzazioni di tipo HTL sono rilasciabili ai titolari di alberghi, bed and breakfast, affittacamere e strutture
+  ricettive aventi sede all’interno della Z.T.L.o A.P. per consentire l’accesso dei propri clienti per i soli giorni di check-in
+  e check-out al fine di effettuare le operazioni di carico-scarico bagagli nelle immediate vicinanze della struttura.
+  Il numero massimo dei contrassegni attivabili nella stessa giornata non può in alcun modo superare quello del numero
+  delle camere destinate agli ospiti risultanti dalle autorizzazioni rilasciate.
+  La sosta è autorizzata per la durata massima di minuti 20 con esposizione del disco orario. Il transito e la sosta nelle
+  A.P. non sono mai consentiti.
+  Nel caso in cui la struttura disponga di propri posti auto, verrà rilasciata un’autorizzazione, per ciascun posto, di
+  tipologia GAR2 riferibile all’autorizzazione HTL. In tal caso, l’accesso in Z.T.L. è consentito per tutto il periodo di
+  permanenza del cliente.
+  Nessun contrassegno è comunque rilasciabile, da parte del titolare dell’albergo o della struttura ricettiva, nei periodi
+  di chiusura dell’esercizio per ferie o altro motivo.
+Procedimento di rilascio e validità dell'autorizzazione
+         •    Autorizzazione permanente: non prevista.
+         •    Autorizzazione temporanea: non prevista.
+         •    Autorizzazione giornaliera: la direzione della struttura ricettiva ovvero il titolare della stessa, dovrà
+              comunicare al Settore Mobilità, Trasporti, Viabilità e Segnaletica il numero di targa, i dati anagrafici del
+              cliente (cognome, nome e/o ragione sociale incluso codice fiscale/partita Iva) e il periodo di soggiorno
+              indicando numero e data della fattura emessa e fornendo copia della comunicazione alla
+              Questura/immissione dati nel sistema SPOT secondo i protocolli operativi concordati con il Settore
+              preferibilmente prima dell’arrivo del cliente e comunque al massimo entro 48 ore dall’accesso in Z.T.L. A
+              completamento dell’iter autorizzativo alla struttura ricettiva potrà essere richiesta copia della quietanza della
+              tassa di soggiorno.
+              Validità: come prevista dall'art.3 lett.c).
+
+
+   ART.10AUTORIZZAZIONITIPOART(Manutenzione,EdiliziaeAssistenzaTecnica)
+  Le autorizzazioni di tipo ART sono rilasciabili ad imprese che effettuano con regolarità attività di pronto intervento,
+  manutenzione e assistenza tecnica presso il domicilio di clienti siti in Z.T.L. o A.P. (a titolo esemplificativo: idraulici,
+  falegnami, elettricisti, fornitura di bombole di gas, ascensori, sicurezza, manutenzione di attrezzature per ufficio e per
+  negozi quali insegne, tende solari, frigo bar, assistenza a ristoranti e attività ricettive, imprese di pulizia, ecc.), imprese
+  edili che debbano effettuare opere di manutenzione ordinaria e/o straordinaria, imprese di trasloco.
+  Tali autorizzazioni sono rilasciabili nel numero massimo di un veicolo aziendale per soggetto richiedente
+  appartenente alle suddette categorie.
+  I veicoli oggetto dell'autorizzazione non possono superare la massa complessiva a pieno carico di 3,5t.
+  Solo in caso di comprovata necessità e limitatamente ai percorsi che non presentano problematiche particolari in
+  relazione alla sicurezza della circolazione ed alla staticità degli edifici, previa autorizzazione del Settore Mobilità,
+  Trasporti, Viabilità e Segnaletica, in deroga alla presente disciplina può essere consentito l’accesso ai veicoli aventi
+  massa complessiva a pieno carico superiore alle 3,5 t. Qualora la massa complessiva del veicolo superi la portata
+  consentita dalle strade percorse, l’autorizzazione di cui sopra verrà rilasciata solo previo nulla osta dell’Ufficio Lavori
+  Pubblici.
+ Gli aventi diritto possono essere autorizzati per l’accesso e la sosta nelle Z.T.L. alle seguenti condizioni:
+     •       nei soli giorni feriali dalle ore 6:00 alle ore 19:00, con esclusione delle aree sottoposte a maggior tutela per le
+             quali vigono speciali regole di accesso come da provvedimento istitutivo delle stesse;
+     •       con sosta nelle immediate vicinanze del luogo in cui deve essere effettuata l’attività di
+             manutenzione/assistenza e per un tempo massimo di 90 minuti, con esclusione delle aree pedonali dove sarà
+             consentita la sosta per le sole operazioni di carico/scarico da effettuarsi per un tempo massimo di 20 minuti. In
+             entrambi i casi è obbligatoria l'esposizione del disco orario;
+     •       durante la sosta l’autorizzazione dovrà essere sempre accompagnata da un foglio di adeguate dimensioni dal
+             quale risulti, perfettamente leggibile al controllo, l’indirizzo presso cui l’attività è svolta. Nel caso di interventi
+             urgenti ed improrogabili, da effettuarsi al di fuori degli orari e giorni autorizzati, il foglio integrativo dovrà
+             riportare anche l’orario di inizio della sosta; inoltre, il titolare dell’autorizzazione dovrà comunicare tramite
+             invio telematico di modulo prestampato al Settore Polizia Locale e Protezione Civile, Mobilità e Viabilità
+             l’accesso non autorizzato in Z.T.L. entro 48 ore dall’accesso.
+  Contrassegno in deroga ART-D1: il provvedimento istitutivo della Z.T.L. potrà prevedere una diversa articolazione
+  della fascia oraria di transito e del numero di veicoli autorizzabili, anche in ragione di esigenze specifiche o di pronto
+  intervento per alcune imprese (ad esempio per interventi necessari nelle ore notturne o per imprese di traslochi) che
+  dovrà essere in ogni caso mai eccedente il limite delle 12 ore complessive.
+  Contrassegno in deroga ART-D2: il rilascio di autorizzazioni per l’effettuazione di lavori edili dovrà avvenire previa
+  verifica di compatibilità da parte degli uffici comunali in merito alla tipologia e massa complessiva a pieno carico dei
+  veicoli autorizzabili oltre che delle autorizzazioni rilasciate dai competenti uffici comunali in base alle quali dovrà
+  essere stabilita laduratamassimadelleautorizzazioniconcedibiliedeventualiderogheperl’accessogiornalierodialtri mezzi
+  d’opera e/o di estensione oraria.
+Per le ditte di cui sopra aventi sede nella Z.T.L. l’autorizzazione di cui al presente articolo consente l’accesso anche per
+un secondo veicolo aziendale ed ha validità anche per la sosta, da effettuarsi nelle immediate vicinanze della sede
+stessa e nel solo settore di appartenenza, qualora non sia effettivamente possibile il ricovero in area privata e ove sia
+consentito dalla segnaletica e comunque limitatamente alla sosta su strada di un solo veicolo per ditta.
+Procedimento di rilascio e validità dell'autorizzazione
+    •    Autorizzazionepermanente:richiestapressoilSettoreMobilità,Trasporti,ViabilitàeSegnaleticaallegando:
+              •   copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                  validità;
+             •    autocertificazioneincuisidichiaridiaverelecaratteristicheprevisteperlapresentetipologiadi
+                  autorizzazione;
+             •    ognialtrotitoloodocumentocomprovanteildirittoadottenerel’autorizzazioneoverichiesto dalla
+                  modulistica appositamente predisposta.
+         Validità:finoalvenirmenodeirequisitichenehannodeterminatoilrilascioecomunquenonoltrei2anni.
+    •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+         Validità:nonoltre90giorni.
+    •    Autorizzazione giornaliera: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+         Validità: come prevista dall'art.3 lett.c).
+
+
+ART.11 AUTORIZZAZIONI TIPO LOG (Logistica Urbana)
+Le autorizzazioni di tipo LOG sono rilasciabili alle imprese di autotrasporto merci in conto terzi, corriere espresso,
+servizi postali; fornitori, distributori, esercizi commerciali e farmacie che effettuano trasporto merci in conto proprio,
+attività di vendita al minuto di oggetti ingombranti, attività che prevedano la vendita e consegna delle merci a
+domicilio del cliente (a titolo esemplificativo ma non esaustivo: pasticcerie, pizzerie, gastronomie, catering, piante e
+fiori, prodotti ortofrutticoli, ecc.), con necessità di presenza continuativa in Z.T.L.
+Tali autorizzazioni sono rilasciabili nel numero massimo di un veicolo aziendale per soggetto richiedente
+appartenente alle suddette categorie.
+Iveicolioggettodell'autorizzazionedevonoessereimmatricolatipertrasportomercie non possono superare la massa
+complessiva a pieno carico di 3,5 t.
+Solo in caso di comprovata necessità e limitatamente ai percorsi che non presentano problematiche particolari in
+relazione alla sicurezza della circolazione ed alla staticità degli edifici, previa autorizzazione del Settore Mobilità,
+Trasporti, Viabilità e Segnaletica, in deroga alla presente disciplina può essere consentito l’accesso ai veicoli aventi
+massa complessiva a pieno carico superiore alle 3,5 t. Qualora la massa complessiva del veicolo superi la portata
+consentita dalle strade percorse, l’autorizzazione di cui sopra verrà rilasciata solo previo nulla osta dell’Ufficio Lavori
+Pubblici.
+Se non diversamente stabilito dal provvedimento istitutivo, l’autorizzazione di tipo LOG consente il transito nella Z.T.L.
+nei giorni feriali dalle ore 6.00 alle ore 11.00 e dalle ore 16.00 alle ore 18.00 e nei giorni festivi nella sola fascia
+oraria 6:00 - 11.00. La sosta è consentita per un massimo di 60 minuti previa esposizione del disco orario. Il transito e
+la sosta nelle A.P. non sono mai consentiti.
+Il provvedimento istitutivo della Z.T.L. dovrà prevedere l’articolazione dei giorni e degli orari di transito in ogni caso
+organizzati in due finestre orarie uniche non consecutive mai eccedenti il limite delle 7 ore complessive nei giorni feriali
+e 5 ore complessive nei giorni festivi (fascia unica). Lo stesso provvedimento potrà prevedere limitazioni speciali per
+aree sottoposte a maggior tutela.
+Contrassegno in deroga LOG-D: è rilasciato un contrassegno LOG-D ad imprese che effettuano trasporto di medicinali e
+prodotti deperibili su veicoli idonei dal punto di vista igienico-sanitario, ai fini del transito in Z.T.L. per il tempo
+strettamente necessario alle operazioni di carico e scarico/consegna sulla base di fasce orarie differenti così come
+espressamente indicato nell’autorizzazione comunque mai eccedenti il limite di 7 ore complessive nei giorni feriali e 5
+ore complessive nei giorni festivi (fascia unica).
+  Contrassegno in deroga LOG-D2:èrilasciatouncontrassegnoLOG-D2adimpresedilogisticaegrossisticondepositoin
+  Z.T.L. per un secondo veicolo aziendale che consente il transito e la sosta, da effettuarsi nelle immediate vicinanze della
+  sede stessa qualora non sia effettivamente possibile il ricovero in area privata, dalle ore 8:00 alle ore 20:00 dei soli
+  giorni feriali.
+
+Procedimento di rilascio e validità dell'autorizzazione
+      •    Autorizzazione permanente: richiesta presso il Settore Mobilità Mobilità, Trasporti, Viabilità e Segnaletica
+           allegando:
+                • copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                    validità;
+               •    auto certificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia
+                    di autorizzazione;
+               •    idoneità sanitaria per i veicoli adibiti al trasporto di prodotti deperibili;
+                •   ogni altro titolo o documento comprovante il diritto ad ottenere l’autorizzazione ove richiesto dalla
+                    modulistica appositamente predisposta.
+           Validità: fino al venir meno dei requisiti che ne hanno determinato il rilascio e comunque non oltre i 2 anni.
+      •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+           quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+           Validità:non oltre 90 giorni.
+      •    Autorizzazione giornaliera: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+           quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+           Validità: come prevista dall'art.3 lett.c).
+
+   ART.12 AUTORIZZAZIONI TIPO MED (Medici)
+  Le autorizzazioni di tipo MED sono rilasciabili agli iscritti all’Albo Professionale dei Medici Chirurghi e degli
+  Odontoiatri, ai medici veterinari e alle guardie mediche.
+  Sono previsti due tipi di contrassegno:
+  Contrassegno MED1: è previsto per i medici convenzionati con il Servizio Sanitario Nazionale per la medicina generale
+  e la pediatria di base titolari di scelte nel Comune di Lecce e con assistiti residenti o domiciliati in Z.T.L./A.P. oltre ai
+  medici di ruolo e convenzionati con l’INPS, senza ambulatorio nelle suddette aree, incluse le guardie mediche, e
+  consente il transito e la sosta, all’interno della Z.T.L., nei limiti previsti dall’art. 7 del D. Lgs. 285/92, per il tempo
+  strettamente necessario per effettuare urgenti visite mediche al domicilio dei pazienti per un massimo di 60 minuti
+  previa esposizione del disco orario.
+  Contrassegno MED2: è previsto per i medici convenzionati con il Servizio Sanitario Nazionale per la medicina generale
+  e la pediatria di base, i medici specialisti e i medici veterinari, con ambulatorio all’interno della Z.T.L. o A.P. e consente
+  il transito e la sosta nei pressi dell’ambulatorio nei limiti previsti dall’art. 7 del D. Lgs.285/92. Tale autorizzazione
+  consente inoltre l’effettuazione delle visite al domicilio del paziente nei limiti di cui al contrassegno MED1 (sosta per
+  un massimo di 60 minuti previa esposizione del disco orario).
+  Tali autorizzazioni sono rilasciabili nel numero massimo di un veicolo per medico richiedente.
+  Possono essere oggetto di autorizzazione di tipo MED i veicoli di proprietà del richiedente nonché:
+      •    i veicoli di cui un componente del nucleo familiare sia uno dei soggetti individuati dall’art.196 comma 1 del
+           Codice della Strada (proprietario, usufruttuario, acquirente con patto di riservato dominio o utilizzatore a
+           titolo di locazione finanziaria o a lungo termine);
+  Il possesso dei requisiti dovrà essere certificato da idonea documentazione probatoria e annotazione sula carta di
+  circolazione dei veicoli.
+  Procedimento di rilascio e validità dell'autorizzazione
+      •    Autorizzazione permanente: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando:
+             •   copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                 validità;
+             •   autocertificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia
+                 di autorizzazione;
+             •   ogni altro titolo o documento comprovante il diritto ad ottenere l’autorizzazione ove richiesto dalla
+                 modulistica appositamente predisposta.
+        Validità: fino al venir meno dei requisiti che ne hanno determinato il rilascio e comunque non oltre i 5anni.
+    •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+        Validità: non oltre 90 giorni.
+    •   Autorizzazione giornaliera: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+        quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+        Validità: come prevista dall'art.3 lett.c).
+
+
+ART.13 AUTORIZZAZIONE TIPO ASS (Assistenza alla Persona)
+Le autorizzazioni di tipo ASS sono rilasciabili a enti erogatori del servizio di Assistenza Domiciliare Integrata (ADI),
+imprese e associazioni di volontariato che effettuano trasporto e/o assistenza infermieristica al domicilio di pazienti o
+disabili, familiari e operatori professionali che prestano assistenza continuativa a residenti non autosufficienti.
+ Tali autorizzazioni sono rilasciabili nel numero massimo di un veicolo per soggetto richiedente appartenente alle
+ suddette categorie.
+Sono previsti due tipi di contrassegno:
+Contrassegno ASS1: è previsto per gli enti erogatori del servizio di Assistenza Domiciliare Integrata (ADI), le
+imprese e le associazioni di volontariato operanti nell'area socio/sanitaria iscritte nel relativo Registro
+Regionale che effettuano con regolarità servizi di trasporto e/o assistenza infermieristica al domicilio di
+pazienti o disabili residenti in Z.T.L. o A.P.. Nonché è previsto per le associazioni di volontariato
+giuridicamente riconosciute ed operanti sul territorio che si occupano di assistenza alle persone di evidente e
+riconosciuta fragilità ed in particolare a quelle senza fissa dimora presenti nel centro storico. Il contrassegno
+consente il transito all’interno della Z.T.L. senza limiti legati all’orario o al giorno della settimana. La sosta è
+consentita per un periodo massimo di 60 minuti previa attivazione del disco orario.
+Contrassegno ASS2: è previsto per familiari di primo grado o, in alternativa, di secondo o di terzo grado, e
+operatori sanitari professionali, amministratori di sostegno nominati dal giudice tutelare, o suoi delegati che
+assistono residenti in Z.T.L. o A.P. (per le sole A.P. il transito è consentito con pass CUDE) non autosufficienti
+e/o privi di mezzo proprio o patente di guida, disabili o anziani di almeno 75 anni che vivono da soli o con
+altra persona nelle medesime condizioni. Il contrassegno consente il transito all’interno della Z.T.L. senza
+limiti legati all’orario o al giorno della settimana limitatamente alla zona di appartenenza indicata sul
+contrassegno, seguendo il percorso più breve per raggiungere l’abitazione dell’assistito. La sosta è
+consentitaperunperiodomassimodi60minutipreviaattivazionedeldisco orario.
+Possono essere oggetto di autorizzazione di tipo ASS i veicoli di proprietà dei richiedenti nonché i veicoli
+intestati a ditta commerciale ed utilizzati in via esclusiva dal legale rappresentante o da un dipendente della
+stessa.
+Procedimento di rilascio e validità dell'autorizzazione
+    •   Autorizzazione permanente: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando:
+             •   copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                 validità;
+             •   autocertificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia di
+                 autorizzazione;
+             •   prescrizione o certificazione medica in ogni caso attestante la necessità di assistenza e/o di terapia in
+                 un luogo diverso dal proprio domicilio (per contrassegno ASS2 solo nel caso di assistenza da parte di
+                 operatori sanitari professionali) e ogni altro titolo o documento comprovante il diritto ad ottenere
+l’autorizzazione ove richiesto dalla modulistica appositamente predisposta.
+            Validità: fino al venir meno dei requisiti che ne hanno determinato il rilascio e comunque non oltre i 2 anni, il
+            soggetto titolare dell'autorizzazione è tenuto a darne comunicazione entro 10 giorni dalla perdita;
+       •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+            quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+            Validità: non oltre 90 giorni.
+       •    Autorizzazione giornaliera: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+            quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+            Validità: come prevista dall'art. 3 lett. c).
+
+
+    ART.14 AUTORIZZAZIONE TIPO CUDE (Contrassegno Disabili)
+   Le autorizzazioni di tipo CUDE sono rilasciabili ai titolari del contrassegno unificato disabili europeo (CUDE)
+   introdotto dalla Raccomandazione del Consiglio dell'Unione europea 98/376/CE e valido su tutto il territorio nazionale
+   e dell’Unione Europea.
+   Il “contrassegno di parcheggio per disabili” è rilasciato dal Comune di residenza, in base agli artt.188 del Codice della
+   Strada e 381 del Regolamento di esecuzione, a persone invalide con capacità di deambulazione impedita o
+   sensibilmente ridotta (art. 381 del D.P.R. 16 dicembre 1992 n. 495 modificato successivamente dal D.P.R. 30 luglio
+   2012, n. 151) e persone non vendenti (D.P.R. 503/1996 art. 12 comma 3). Può essere rilasciato temporaneamente
+   anche a persone con temporanea riduzione della capacità di deambulazione a causa di infortunio o per altre cause
+   patologiche e persone con totale assenza di ogni autonomia funzionale e con necessità di assistenza continua, per
+   recarsi in luoghi di cura.
+   Le autorizzazioni permanenti sono rilasciabili nel numero massimo di un veicolo per soggetto titolare del CUDE. Gli
+   aventi diritto potranno ottenere autorizzazioni temporanee o giornaliere anche per un secondo veicolo oltre a quello
+   già autorizzato.
+   L’accesso potrà avvenire da qualsiasi varco e la circolazione e sosta senza limiti di tempo nella Z.T.L. o A.P. laddove sia
+   autorizzato l’accesso anche a una sola categoria di veicoli adibiti a servizi di trasporto e pubblica utilità (artt. 11, c.1 e
+   3, e 12 D.P.R. 503/1996);
+
+
+Procedimento di rilascio e validità dell'autorizzazione
+       •    Autorizzazione permanente: richiesta presso il Settore Mobilità,Trasporti, Viabilità e Segnaletica allegando:
+                 •    copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                      validità;
+                 •    autocertificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia di
+                      autorizzazione;
+                 •    copia del contrassegno unificato disabili europeo (C.U.D.E.) e ogni altro titolo o documento
+                      comprovante il diritto ad ottenere l’autorizzazione ove richiesto dalla modulistica appositamente
+                      predisposta.
+            Validità: fino al venir meno dei requisiti che ne hanno determinato il rilascio e comunque non oltre i 5anni;
+       •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+            quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+            Validità:nonoltre90giorni.
+       •    Autorizzazione giornaliera: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+            quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+            Validità:come prevista dall'art.3 lett.c).
+
+
+    ART.15 AUTORIZZAZIONI TIPO OCC (Accessi Occasionali)
+   Le autorizzazioni di tipo OCC per accessi occasionali sono rilasciabili esclusivamente nei seguenti casi:
+   •       esigenze eccezionali e/o urgenti debitamente motivate che non rientrano nei casi previsti dal presente
+           regolamento, in ogni caso mai superiori a 5 accessi mensili autorizzabili per lo stesso richiedente e veicolo. E'
+           consentito il transito all'utenza che ha necessità di raggiungere, nei soli orari di apertura, le farmacie e gli studi
+           dei medici di famiglia ubicati nella ZTL. Al fine di evitare la sanzione, l'utente è tenuto a comunicare,tramite invio
+           telematico di modulo prestampato al Settore Polizia Locale e Protezione Civile, Mobilità e Viabilità, l’accesso non
+           autorizzato in Z.T.L. entro 48 ore dal transito, allegando lo scontrino fiscale della farmacia o l'attestazione del
+           medico;
+   •       allestimento-organizzazionedimanifestazioniedeventiregolarmenteautorizzati;
+   •       matrimoni;
+   •       accompagnamento alunni delle scuole materne ed elementari, limitatamente ai giorni del calendario scolastico
+           ed alle fasce orarie di ingresso/uscita; è consentito il transito in orari non coperti dalle fasce orarie autorizzate
+           per esigenze di carattere eccezionale e/o urgente – in tali casi il titolare dell’autorizzazione dovrà comunicare,
+           tramite invio telematico di modulo prestampato al Settore Polizia Locale e Protezione Civile, Mobilità e Viabilità
+           l’accesso non autorizzato in Z.T.L. entro 48 ore dal transito;
+   •       Donne in stato di gravidanza a partire dal sesto mese di gestazione. L’accesso potrà avvenire da qualsiasi varco
+           e la circolazione e sosta senza limiti di tempo nella ZTL.
+Tali autorizzazioni sono rilasciabili nel numero massimo di un veicolo per soggetto richiedente.
+Possono essere oggetto di autorizzazione di tipo OCC i veicoli di proprietà del richiedente
+nonché:
+       •    i veicoli di cui un componente del nucleo familiare sia uno dei soggetti individuati dall’art.196 comma 1 del
+            Codice della Strada (proprietario, usufruttuario, acquirente con patto di riservato dominio o utilizzatore a
+            titolo di locazione finanziaria o a lungo termine);
+       •    i veicoli intestati a ditta commerciale ed utilizzati in via esclusiva dal legale rappresentante o da un
+            dipendente della stessa.
+Il possesso dei requisiti dovrà essere certificato da idonea documentazione probatoria e annotazione sulla carta di
+circolazione dei veicoli.
+L’autorizzazione consente il transito all’interno della Z.T.L. limitatamente al percorso e agli orari indicati nella stessa.La
+sosta è consentita per un periodo massimo di 30 minuti previa attivazione del disco orario ad esclusione dei casi di
+allestimento-organizzazione manifestazioni/eventi e matrimoni. Il transito e la sosta nelle A.P. non sonomai consentiti.
+Procedimento di rilascio e validità dell'autorizzazione
+       •    Autorizzazione permanente: non prevista
+       •    Autorizzazione temporanea: per l'accompagnamento degli alunni delle scuole materne ed elementari con
+            richiesta presso il settore Mobilità, Trasporti, Viabilità e Segnaletica, allegando quanto previsto per
+            l'autorizzazione giornaliera.
+       •    per donne in stato di gravidanza a partire dal sesto mese di gestazione con richiesta presso il settore Mobilità,
+            Trasporti, Viabilità e Segnaletica, allegando il certificato medico attestante lo stato di gravidanza e la data
+            presunta del parto.
+       •    Validità:
+       •    Per donne in stato di gravidanza 180 giorni
+       •    Per tutti gli altri casi non oltre 90 giorni
+       •    Autorizzazione giornaliera: richiesta presso il Settore Mobilità,Trasporti, Viabilità e Segnaletica allegando
+                 •      copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                        validità;
+                 •      autocertificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia di
+                        autorizzazione indicando anche il motivo della richiesta;
+                 •      ogni altro titolo o documento comprovante il diritto ad ottenere l’autorizzazione ove richiesto dalla
+                        modulistica appositamente predisposta.
+         Validità: come prevista dall'art.3 lett.c).
+ART.16 AUTORIZZAZIONI TIPO IST (Istituzioni)
+Le autorizzazioni di tipo IST sono rilasciate a enti pubblici e istituzioni per lo svolgimento di attività istituzionali o di
+servizio.
+PossonoessererilasciateautorizzazioniditipoIST,limitatamentealnumerodiveicolidiseguitoriportati,alleseguenti
+istituzioni:
+    •    Comune di Lecce: tutti i veicoli di servizio;
+    •    Altre istituzioni pubbliche con sede in Z.T.L./A.P.: due veicoli di servizio;
+    •    Autorità giudiziarie: due veicoli di servizio;
+    •    Ufficio UNEP presso Corte d'Appello di Lecce. Massimo 4 veicoli, dal Lunedì al Venerdì dalle ore 08:00 alleore
+         20:00 con sosta consentita per minuti 60;
+    •    ArcidiocesidiLecce:unveicoloalserviziodell’ArcivescovoeunveicoloalserviziodelVicariogenerale;
+    •    Edifici di culto con sede in Z.T.L./A.P.: due veicoli di servizio;
+
+Le autorizzazioni di tipo IST hanno validità nei giorni feriali e festivi.
+La sosta è consentita senza limiti di orario e durata e per comprovati motivi di servizio, secondo quanto previsto dal
+D. L.vo 285/1992.
+
+
+Procedimento di rilascio e validità dell'autorizzazione
+    •    Autorizzazione permanente: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+              •    copia fronte/retro della carta di circolazione e del certificato di assicurazione del veicolo in corso di
+                   validità;
+              •    autocertificazione in cui si dichiari di avere le caratteristiche previste per la presente tipologia di
+                   autorizzazione;
+              •    ogni altro titolo o documento comprovante il diritto ad ottenere l’autorizzazione ove richiesto dalla
+                   modulistica appositamente predisposta.
+         Validità: fino al venir meno dei requisiti che ne hanno determinato il rilascio e comunque non oltre i 5anni.
+    •    Autorizzazione temporanea: richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quanto previsto per l'autorizzazione permanente.
+         Validità:nonoltre90giorni.
+    •    Autorizzazione giornaliera:richiesta presso il Settore Mobilità, Trasporti, Viabilità e Segnaletica allegando
+         quanto previsto per l’autorizzazione permanente o richiesto dalla modulistica appositamente predisposta.
+         Validità: come prevista dall'art.3 lett.c).
+
+
+ART.17 VEICOLI ESENTI
+Gli autoveicoli e i motoveicoli adibiti a servizio delle Forze dell'Ordine e di Polizia, a servizio antincendio, le
+autoambulanze e le automediche in servizio di pronto intervento e i veicoli degli istituti di vigilanza, carro attrezzi(in
+dotazione alle società partecipate del Comune di Lecce, quelli delle società private che effettuano servizio di pronto
+intervento e quelli delle aziende di sharing mobility che effettuano attività sul territorio comunale), possono
+accedere e circolare nelle Z.T.L. e nelle A.P. senza autorizzazione e senza restrizioni previa comunicazione del numero
+di targa dei veicoli al Settore Mobilità, Trasporti, Viabilità e Segnaletica.
+Analogamente, i veicoli per l’espletamento dei servizi di Protezione Civile, di pubblica utilità (servizi di linea,
+scuolabus, taxi e servizio di autonoleggio con conducente, veicoli per la raccolta dei rifiuti e per la pulizia delle
+strade, veicoli che effettuano la raccolta e la distribuzione della posta), i veicoli dei gestori delle reti elettrica,
+digitale, gas, idrica e fognante, i carri funebri (oltre a 1 veicolo di servizio delle imprese funebri),i veicoli portavalori;
+per le emittenti televisive o società da queste incaricate per ingressi relativi alle sole riprese video con operatore a
+bordo è consentito un solo veicolo. Limitatamente ai servizi espletati con continuità sul territorio
+comunale, possono circolare nelle Z.T.L. senza autorizzazione e senza restrizioni, previa comunicazione del numero di
+targa dei veicoli al Settore Polizia Locale e Protezione Civile, Mobilità e Viabilità.
+
+I taxi ed i veicoli adibiti a noleggio con conducente autorizzati all’esercizio dell’attività da altre amministrazioni
+comunali e i cui titolari di licenza abbiano istituito la sede legale della propria ditta al di fuori del Comune di Lecce,
+possono essere autorizzati al transito nella ztl per il massimo di un quadrimestre, rinnovabile, previa apposita richiesta
+protocollata, corredata dalla copia della licenza con il relativo numero di iscrizione e il numero di targa del veicolo.
+Resta ferma, inoltre, la possibilità, per i titolari di licenza che non abbiano provveduto a produrre la richiesta di cui
+sopra, di effettuare la comunicazione di transito entro le successive 48 ore.
+I veicoli esentati dovranno essere sempre muniti di logo/stemma sulla carrozzeria.
+
+
+ART.18 VERIFICA E REVOCA DELLE AUTORIZZAZIONI
+L’Amministrazione Comunale si riserva di procedere in qualsiasi momento alla verifica delle condizioni che hanno
+determinato il rilascio delle autorizzazioni.
+Nel caso in cui venga accertato che non sussistano più gli elementi per il mantenimento dell’autorizzazione, si
+procederà alla immediata revoca d’ufficio.
+Il titolare ha l’obbligo di comunicare all’Amministrazione Comunale tutte le variazioni che possano comportare la
+sospensione e la revoca delle autorizzazioni.
+
+
+ART19 TARIFFE E USO DEI PROVENTI CORRISPONDENTI
+In linea generale, tutte le autorizzazioni di accesso e circolazione in Z.T.L., indipendentemente dalla durata della loro
+validità, sono soggette al pagamento di una somma da intendersi quale corrispettivo per la copertura dei costi di
+rilascio e di controllo degli accessi.
+Le autorizzazioni previste dal presente Regolamento potranno altresì essere soggette al pagamento di una somma da
+intendersi quale corrispettivo per acquisire il diritto ad accedere alla suddetta Z.T.L. e/o a sostare nella stessa sulla
+base di quanto previsto dall’ art. 7 del Codice della Strada.
+Le tariffe sono determinate con apposita delibera di Giunta Comunale.
+Il mancato pagamento della tariffa dovuta determina la sospensione di validità dell’autorizzazione.
+I criteri generali di articolazione delle tariffe per le diverse tipologie di utenti ed aventi diritto alle autorizzazioni, cosi
+come articolate nel presente Regolamento, sono determinati secondo quanto previsto dalla Circolare del Ministero
+dei Lavori Pubblici del 21 luglio 1997 n° 3816.
+In particolare, viene disposto che al fine di favorire la maggiore equità ed efficienza nell’utilizzo del suolo pubblico
+compreso nelle aree classificate come Z.T.L. la determinazione quantitativa del livello tariffario dovrà essere stabilita
+in modo da:
+    •    effettuare una distinzione tra la categoria dei residenti (e dei dimoranti ad essa equiparati) e tutte le altre
+         categorie di utenti che accedono con veicoli a motore alla Z.T.L. per motivi di carattere professionale o per
+         esigenze lavorative;
+    •    riequilibrare le situazioni di utilizzo del suolo pubblico, in modo da disincentivare il parcheggio su strada di
+         veicoli a motore appartenenti a privati che risultino nelle condizioni di poter disporre di aree di ricovero e
+         sosta dei propri mezzi esterne alle sedi stradali pubbliche e non ne facciano utilizzo, al fine di limitare la
+         sottrazione di spazi pubblici per altri beneficiari della sosta, attesa la oggettiva scarsità delle possibili aree di
+         sosta disponibili nella Z.T.L.;
+    •    incentivare gli utenti che utilizzano veicoli elettrici e velocipedi;
+    •    incentivare la circolazione in Z.T.L. dei veicoli “operativi” in fasce orarie in cui è limitata la presenza di pedoni
+         e turisti.
+Il pagamento della tariffa, se dovuta, avverrà tramite versamento in c/c o c/o la tesoreria del Comune o con altre
+modalità che verranno determinate successivamente con Delibera di Giunta Comunale.
+I proventi delle tariffe relative alla facoltà di accesso e transito nella Z.T.L. sia di carattere permanente che
+temporanea dovranno essere obbligatoriamente contabilizzati in una specifica voce contabile del bilancio annuale del
+Comune.
+Un importo non inferiore ai proventi annualmente riscossi, decurtati dei costi amministrativi e di gestione, sarà
+destinato e finalizzato ad interventi di miglioramento del sistema della sosta e di promozione di azioni in favore della
+mobilità sostenibile.
+
+
+ART.20 CONTENUTO DELLE AUTORIZZAZIONI
+Le autorizzazioni, opportunamente numerate nonché realizzate utilizzando materiali e tecniche tali da impedirne
+qualsiasi tentativo di duplicazione o falsificazione, devono contenere:
+    •    la data di rilascio e il periodo di validità;
+    •    i dati identificativi del o dei veicoli autorizzati;
+    •    la tipologia dell’autorizzazione;
+    •    il percorso/zona ed il varco autorizzato per l’accesso alla Z.T.L. per le tipologie che lo richiedono;
+    •    l’eventuale presenza di divieti zonali relativi al comparto;
+    •    modalità della sosta qualora previste;
+    •    i giorni, l’orario o gli orari di validità dell’autorizzazione;
+    •    il tempo massimo di durata della sosta qualora prevista.
+
+
+ART.21 MODIFICHE IN CORSO DI VALIDITA’
+Qualora in corso di validità dell’autorizzazione si verificassero modifiche relative al tipo o numero dei veicoli, il titolare
+dovrà presentarsi al Settore Mobilità, Trasporti, Viabilità e Segnaletica con l’autorizzazione originale e la carta di
+circolazione dei nuovi veicoli; l’ufficio provvederà al rilascio di una nuova autorizzazione, previo pagamento dei soli
+costi di rilascio (stampa documenti e vetrofanie) ove previsto.
+Qualora non sia possibile procedere immediatamente alla consegna della nuova autorizzazione, si procederà al rilascio
+di permesso temporaneo.
+L’Amministrazione Comunale può apportare modifiche alle fasce orarie di accesso alle Z.T.L. o A.P. che dovranno
+essere comunicate ai titolari dell’autorizzazione.
+
+
+ART.22 RILASCIO DELLE AUTORIZZAZIONI
+Il procedimento per il rilascio delle autorizzazioni è disciplinato dalle disposizioni seguenti.
+        •    Autorizzazioni permanenti
+         Per l’ottenimento delle autorizzazioni permanenti, l’interessato dovrà rivolgere istanza scritta al Sindaco del
+         Comune di Lecce, o a suo delegato, allegando copia della carta di circolazione, del certificato di assicurazione
+         del veicolo e la specifica documentazione richiesta per ogni singola tipologia. Il possesso dei requisiti richiesti
+         per l’ottenimento delle singole autorizzazioni dovrà essere dichiarato dal richiedente, tramite
+         autocertificazione, nelle forme e modi previsti dalle vigenti norme.
+         A seguito di avvenuta presentazione di istanza scritta, documentabile mediante fotocopia timbrata o email
+         PEC dell’istanza presentata all’Ufficio Protocollo del Comune, nelle modalità suindicate, può essere rilasciato
+         gratuitamente un permesso provvisorio della durata massima di sessanta (20) giorni, revocabile qualora sia
+         espresso diniego al rilascio dell’autorizzazione richiesta.
+         Per il rinnovo delle autorizzazioni l’interessato dovrà rivolgere istanza scritta al Sindaco del Comune di Lecce,o
+         al soggetto da lui delegato, allegando copia della carta di circolazione, del certificato di assicurazione del
+         veicolo e di ogni atto o documento comprovante il perdurare dei requisiti per l’ottenimento
+         dell’autorizzazione e previo pagamento della tariffa, se previsto.
+         Diverse modalità di rinnovo saranno determinate con apposito provvedimento amministrativo.
+         Accertata l’avvenuta presentazione di istanza di rinnovo, nei modi indicati,può essere rilasciato al richiedente
+         un permesso temporaneo provvisorio e gratuito della durata massima di trenta (30) giorni, revocabile qualora
+         sia espresso diniego al rinnovo dell’autorizzazione richiesta.
+         L’ufficio competente dovrà predisporre e mettere a disposizione dell’utenza idonei schemi di istanza e di
+         autocertificazione.
+         •   Autorizzazioni temporanee
+         Per l’ottenimento dell’autorizzazione temporanea, l’interessato dovrà rivolgere istanza scritta al Settore
+         Mobilità, Trasporti, Viabilità e Segnaletica, allegando copia della carta di circolazione e del certificato di
+         assicurazione del veicolo e la specifica documentazione richiesta per ogni singola tipologia. Il possesso dei
+         requisiti richiesti per l’ottenimento delle singole autorizzazioni dovrà essere dichiarato dalrichiedente, tramite
+         autocertificazione, nelle forme e modi previsti dal Regolamento e dai relativi provvedimenti amministrativi di
+         attuazione.
+         •   Autorizzazioni giornaliere
+         Per l’ottenimento del titolo d'accesso giornaliero, l’interessato deve rivolgersi al Settore Mobilità, Trasporti,
+         Viabilità e Segnaletica, munito della carta di circolazione e del certificato di assicurazione del veicolo, nonché
+         di ogni altro documento comprovante il diritto all’ottenimento.
+         Il titolo verrà rilasciato immediatamente previo pagamento, se previsto, della tariffa giornaliera fissata per le
+         singole tipologie. Diverse e/o più specifiche modalità di rilascio (es. attraverso piattaforme digitali) potranno
+         essere determinate con apposito provvedimento amministrativo.
+
+
+ART.23 AUTORIZZAZIONI:ESPOSIZIONE,USO E PRESCRIZIONI
+I dati contenuti nelle autorizzazioni rilasciate ai sensi degli articoli precedenti, nonché le modalità ed i tempi di utilizzo
+delle stesse, sono inseriti in una banca dati funzionale al controllo delle Aree Pedonali e delle Zone a Traffico Limitato,
+eseguito anche tramite varchi elettronici e/o dissuasori mobili a scomparsa (pilomat); tali dati vengono trattati
+secondo quanto di sposto dal D.Lgs. 196/2003, i dati vengono conservati nel rispetto della privacy conformemente alla
+normativa europea e nazionale.
+
+
+Tutte le autorizzazioni permanenti e temporanee dovranno essere sempre esposte, mediante contrassegno adesivo o
+cartaceo, in modo chiaro e ben visibile dall’esterno, comunque sul lato anteriore del veicolo.
+Il rilascio del titolo giornaliero potrà avvenire anche per via telematica e senza il rilascio del titolo cartaceo purché sia
+documentabile sia la richiesta che l’autorizzazione all’ingresso in Z.T.L. attraverso comunicazioni via posta elettronica,
+form on line o applicazioni per smartphone.
+Leautorizzazionisoggettearinnovoriporterannoladatadiscadenzareale.
+Le autorizzazioni e i titoli giornalieri che prevedono limitazioni orarie di circolazione e sosta nella Z.T.L./A.P. sono
+validesolosecorredatedall’esposizionedeldiscoorarioe,oveprescritto,daaltreinformazioniesplicitatealmomento            del
+rilascio da esporre sul parabrezza anteriore.
+L’autorizzazione e il titolo giornaliero deve sempre accompagnare il veicolo cui si riferisce e deve essere esibita,
+quando richiesta, agli operatori che espletano il servizio di Polizia Stradale ai sensi dell’art.12 del D. Lgs. del 30/04/92
+n.285.
+Il venir meno, durante il periodo di validità dell’autorizzazione, di uno o più requisiti che abbiano determinato il suo
+rilascio, ne provoca la decadenza con l’obbligo della restituzione al Settore Mobilità, Trasporti, Viabilità e Segnaletica.
+In caso di smarrimento o sottrazione dell’autorizzazione, il titolare della stessa potrà richiederne il duplicato previa
+esibizione di copia della denuncia effettuata presso l’autorità competente. In caso di deterioramento il duplicato verrà
+rilasciato solo previa restituzione dell’autorizzazione deteriorata.
+
+
+ART.24 SANZIONI
+Le autorizzazioni devono essere utilizzate solamente per gli scopi per le quali sono state rilasciate e nel rispetto delle
+prescrizioni particolari riportate sul relativo contrassegno.
+La circolazione non autorizzata, ovvero la violazione degli altri obblighi, divieti o limitazioni all’interno delle A.P. e delle
+Z.T.L., comporta l’irrogazione delle sanzioni previste dal Codice della Strada, in applicazione del Titolo VI, Capo I del
+Codice stesso.
+L’introduzione del controllo automatico degli accessi alla Z.T.L. andrà ad integrarsi, e non a sostituirsi, a quello
+effettuato dalla Polizia Locale e di altre forze di polizia di cui al richiamato art. 12 del D. Lgs 295/1992 (Codice della
+Strada).
+La circolazione nell’ambito delle Z.T.L., al di fuori degli itinerari prescritti nell’autorizzazione, ovvero il transito di
+attraversamento al solo fine di abbreviare un tragitto, benché l’autorizzazione non sia limitata a percorsi determinati,
+sono sanzionate come circolazione non autorizzata.
+E’ vietato l’uso di ogni forma di riproduzione del contrassegno autorizzatorio. L’inosservanza di questa disposizione
+comportalarevocadell’autorizzazione,ilritirodelcontrassegnooriginalee di quelli contraffatti, nonché l’applicazione
+delle conseguenti sanzioni amministrative e penali.
+Costituiscono violazioni regolamentari le ipotesi previste:
+    •    dall’art. 10, per omessa indicazione, da parte del titolare di autorizzazione “ART”, del luogo ove viene
+         effettuato l’intervento;
+    •    dall'art. 22, per mancata esposizione in modo chiaro e ben visibile dall'esterno nel lato anteriore del veicolo,
+         dell'autorizzazione;
+Le violazioni dei su citati articoli comportano l’applicazione della sanzione amministrativa per circolazione non
+autorizzata ai sensi del comma 2 del presente articolo.
+Il non aver restituito l'autorizzazione al Settore Mobilità, Trasporti, Viabilità e Segnaletica in seguito al venir meno di
+unoopiùdeirequisitichenehannodeterminatoilrilasciocomportal’applicazionedellesanzionidicuiall’art.7bisdel            D.Lgs.
+267/2000.
+Contro i verbali di accertamento per le suddette violazioni regolamentari è ammesso ricorso al Sindaco nel termine di
+30 giorni dall'accertamento o notifica della violazione secondo le norme previste dal Capo I,sezione I e II legge n.689
+del 24/11/81.
+
+
+ART.25 NORME TRANSITORIE E ENTRATA IN VIGORE
+Il presente Regolamento, approvato dal Consiglio Comunale, entra in vigore dalla data di esecutività del relativo
+provvedimento.
+Della entrata in vigore è data notizia mediante ripubblicazione e affissione per giorni quindici di apposito avviso
+all’Albo Pretorio.
+Qualora l'Amministrazione Comunale, per il rilascio delle autorizzazioni oggetto del presente regolamento si avvalga
+del servizio di società esterna, essa Amministrazione si riserva di effettuare controlli periodici, anche presso la sede
+della società, al fine di verificare la corretta applicazione del presente Regolamento e degli atti ad essa correlati.
+In ogni caso dovrà prevedersi la possibilità di mantenere in capo alla Polizia Locale e al Settore Mobilità, Trasporti,
+Viabilità e Segnaletica la visualizzazione degli archivi relativi alle autorizzazioni rilasciate, al fine dell’espletamento
+delle attività di propria competenza.
+Qualsiasi modifica al presente Regolamento circa orari carico/scarico o orari in genere e circa altri aspetti non
+riconducibili ai principi generali ex. art. 2, alla validità delle autorizzazioni ex. art. 3, nonché alle categorie e ai limiti
+previsti per il rilascio di autorizzazioni, potrà essere effettuata con modalità diverse dalla deliberazione di C.C. poiché
+non vertenti su situazioni regolamentari “stricto sensu”.
+Il presente regolamento abroga tutti i precedenti, nonché altri atti normativi locali disciplinanti la materia.
+Tutte le autorizzazioni rilasciate prima dell’entrata in vigore del presente Regolamento devono essere ripresentate
+secondo il dettame dello stesso Regolamento entro 4 mesi a decorrere dalla relativa entrata in vigore. Decorso tale
+tempo l’autorizzazione si intende decaduta e l’Amministrazione provvederà alla cancellazione dell’autorizzazione già
+rilasciata.
+

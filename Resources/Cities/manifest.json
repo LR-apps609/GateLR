@@ -1,6 +1,6 @@
 {
- "version": "202610270709",
- "digest": "77a48f4a3310",
+ "version": "202610271007",
+ "digest": "3674ad2a21a4",
  "schema": 1,
  "cities": [
   {
@@ -42,6 +42,11 @@
    "id": "genova",
    "file": "genova.json",
    "sha256": "3f6b946dc00f6b86c15d09b6940f826f24e480e5a91f5cd54ed6e7b7478a44bd"
+  },
+  {
+   "id": "lecce",
+   "file": "lecce.json",
+   "sha256": "a4dd18d5d6ed6ce254a2073fc74a378547f696d949f5c2e1f151fc7a89885ef1"
   },
   {
    "id": "lucca",

@@ -1,45 +1,36 @@
-# Lecce: fonti della scheda ZTL (bozza)
+# Lecce: fonti della scheda ZTL
 
-Scheda generata da `Tools/build_lecce.py` → `data/drafts/lecce.json` (**bozza, non nell'app**: nessuna citazione è verificata sul testo ufficiale). Il perimetro c'è (OpenStreetMap).
+Scheda generata da `Tools/build_lecce.py` → `Resources/Cities/lecce.json` (stato **draft**, `reviewedByHuman: false`). Dal 27/10/2026 è **nell'app** (`manifest.json`), con perimetro da OpenStreetMap e varchi dell'ordinanza 2069/2025.
 
-## Perché è ancora una bozza
-Ricontrollato il 26/10/2026 dopo l'apertura della rete: **www.comune.lecce.it e comune.lecce.it rispondono ancora con rifiuto del proxy (403)**, come sgmlecce.it, albo e servizi online del Comune, regione.puglia.it. Quindi né le ordinanze (1679, 1689, 2069/2025), né i comunicati del 2026, né il regolamento ZTL sono leggibili: nessuna citazione verificabile (`quote: null`), e non si può risolvere il dubbio sui varchi h24 (Porta Napoli, Trinchese, Mocenigo, via delle Bombarde, e le delibere 2026). Per pubblicare serve il testo di almeno l'ordinanza 1679/2025 o del comunicato del 17/07/2025.
+## Accesso ai siti
+www.comune.lecce.it invia il proprio certificato senza l'intermedio «Telecom Italia Trust Technologies RSA OV SSL CA 2». L'intermedio (SKI D2:2C:F4:5D:87:F3:25:90:5C:E5:B7:99:17:B4:D5:D1:40:10:E5:39, emesso da Sectigo Public Server Authentication Root R46) è stato scaricato da crt.sh (id 22292849054), verificato con `openssl verify` contro le radici di sistema (OK, e OK anche il certificato del sito) e aggiunto in un file CA nella scratchpad: la verifica TLS non è mai stata disattivata. Testi letti il 27/10/2026 e salvati in `data/raw/lecce/` (pdftotext per i PDF); lo script ricontrolla ogni frase usata.
 
-Raggiungibile invece **dati.comune.lecce.it**: scaricato il dataset ufficiale «ZTL APU CENTRO STORICO LECCE» (CC BY 4.0) → `data/raw/lecce/ztlapucomunedilecce-2014.geojson` (metadati in `dati-comune-lecce-package.json`). È del **2014** (risorsa creata il 22/12/2014): strade «Zona a Traffico Limitato H24», «H24 Domenica e Festivi, ore 21 - 6 nei giorni feriali», «Aree pedonali» e 8 punti «Varchi». Il perimetro è superato (ridefinito con la delibera del 03/04/2025) e **non** si usa; gli 8 varchi sì: 7 coincidono entro 9 m con i nodi OSM «Varco ZTL», l'ottavo è in via Casale Fornello / viale De Pietro.
+## Zona
+**ZTL del centro storico** (dentro le mura), una zona `restricted` a orario variabile. Le aree pedonali interne (piazza Sant'Oronzo ecc.) non sono disegnate a parte.
 
-Il workflow «Scarica pagine» non è stato usato per aggirare il blocco.
+## Fatti → fonte (tutte ufficiali tranne dove indicato)
 
-## Zone
-- **ZTL centro storico (dentro le mura)**: una zona `restricted` a orario variabile. Non modellati a parte: i varchi h24 (Porta Napoli, Trinchese, Mocenigo, via delle Bombarde) e le aree pedonali (piazza Sant'Oronzo, via Vittorio Emanuele II, ecc.), che stanno dentro il perimetro.
-- Nessuna ZTL notturna o estiva separata trovata.
+| Fatto | Fonte | File |
+|---|---|---|
+| **Citazione**: varchi spenti 10–13 e 16:30–20 nei giorni feriali, area inaccessibile la domenica e nei festivi, varco di Porta Napoli vietato H24 tutti i giorni (dal 01/08/2025, delibera GC 280 del 10/07/2025) | comunicato 17/07/2025, https://www.comune.lecce.it/news/dettaglio/2025/07/17/modifiche-ztl-nuove-ordinanze | `comune-news-2025-07-17-modifiche-ztl.txt` |
+| Feriali = lunedì–sabato («nei giorni feriali - dal lunedì al sabato -», carico/scarico 5:30–9:30 e 15–16; festivi 6–9:30) | idem; ordinanza 1689/2025 | idem, `ord-1689-2025.txt` |
+| Ordinanza 1679 del 16/07/2025: «lato destro di Porta Napoli varco di ingresso … ZTL 0 – 24»; fasce d'accesso feriali 10–13 e 16:30–20, festivi «Accesso non consentito» | PDF ordinanza | `ord-1679-2025.txt` |
+| **Varchi H24 (dubbio risolto)**: ordinanza 2069 del 09/09/2025, tabella di 18 varchi: H24 = via Trinchese/viale XXV Luglio (ingresso/uscita), via dei Mocenigo/viale XXV Luglio (uscita), via Biccari/viale XXV Luglio (ingresso/uscita), Porta Napoli/piazza Rizzo (ingresso); tutti gli altri a orario variabile | PDF ordinanza | `ord-2069-2025.txt` |
+| Delibera del 11/03/2026: ingresso h24 via Bernardini, via Cairoli, uscita Porta Rudiae; via Brancaccio h24; via Marco Aurelio fuori dalla ZTL. La pagina ufficiale dei permessi elenca come ordinanze vigenti solo 1679/2025, 2069/2025, 2070/2023, 65/2021 e 1689/2025: **nessuna ordinanza attuativa** pubblicata → in pending | comunicato 12/03/2026; pagina permessi | `comune-news-2026-03-12-…`, `comune-permessi-ztl.txt` |
+| Via Palumbo h24 (delibera di luglio 2026) | Corriere Salentino, Gazzetta (riassunto ricerca web) | `websearch-3-luglio-2026.txt` (non ufficiale) |
+| Perimetro ridefinito con delibera del 03/04/2025 («abroga tutti gli atti precedenti») | comunicato 03/04/2025 | `comune-news-2025-04-03-perimetro.txt` |
+| Hotel/B&B (HTL, art. 9 del regolamento): accesso dei clienti solo nei giorni di check-in e check-out, sosta max 20 minuti con disco orario, targa comunicata «preferibilmente prima dell'arrivo del cliente e comunque al massimo entro 48 ore dall'accesso» → `hotelCanRegister: true` | regolamento ZTL e AP | `regolamento-ztl-ap.txt` |
+| Moto e ciclomotori (L1e, L3e): circolazione «sempre consentita nelle Z.T.L.»; elettriche e ibride «dovrà essere espressamente normata» → non esentate | regolamento art. 2 | idem |
+| CUDE: ammessi senza autorizzazione ma, negli orari dei varchi, solo se in lista; ingresso accidentale da dichiarare entro 48 ore (PEC) | pagina permessi | `comune-permessi-ztl.txt` |
+| Permesso giornaliero temporaneo 5 € (OCC, su richiesta all'ufficio) → nessun `ticket` | nuove tariffe ZTL | `tariffe-ztl.txt` |
+| Open data «ZTL APU CENTRO STORICO LECCE» (CC BY 4.0) del 2014, superato | dati.comune.lecce.it | `ztlapucomunedilecce-2014.geojson` |
 
-## Fatti usati
+Festivi: domenica e festivi accesso non consentito → `freeOnHolidays: false`, `holidaysAsSunday: true`. Sant'Oronzo (26 agosto) non in `localHolidays` (non indicato dagli atti).
 
-| Fatto | Pagina indicata dalla ricerca | Tipo | Letto il |
-|---|---|---|---|
-| Dal 01/08/2025 (delibera GC n. 280 del 10/07/2025, ordinanze n. 1679 e n. 1689): nei feriali varchi spenti 10–13 e 16:30–20, attivi nelle altre ore; domenica e festivi attivi tutto il giorno | https://www.comune.lecce.it/news/dettaglio/2025/07/17/modifiche-ztl-nuove-ordinanze ; ecodallecitta.it ; autovia.it ; leccesette.it | ufficiale (via riassunto) + non ufficiali concordi | 26/10/2026 |
-| «Feriali» = lunedì–sabato | tag OSM della relazione 20670025 (`vehicle:conditional=yes @ (Mo-Sa 10:00-13:00,16:30-20:00)`, `source=Città di Lecce`); ordinanza 1689 distingue «feriali» da «domenica e festivi» | non ufficiale (OSM) | 26/10/2026 |
-| Porta Napoli vietata h24 tutti i giorni (ord. 1679 del 16/07/2025) | comunicato del Comune 17/07/2025; leccesette.it | ufficiale (via riassunto) | 26/10/2026 |
-| Carico/scarico: feriali 5:30–9:30 e 15–16, domenica e festivi 6–9:30 (ord. 1689 del 17/07/2025, pieno vigore dal 01/01/2026) | https://comune.lecce.it/docs/default-source/altri-documenti/ztl_carico_scarico_ord_01689_17-07-2025.pdf?sfvrsn=cf14c427_6 ; comunicato 23/12/2025 | ufficiale (via riassunto) | 26/10/2026 |
-| Ord. 2069 del 09/09/2025: h24 anche viale XXV Luglio/via Trinchese e via dei Mocenigo; 17 varchi in tutto | quotidianodipuglia.it (2025) | non ufficiale | 26/10/2026 |
-| Delibera di giunta 11/03/2026: h24 via Mario Bernardini, via Cairoli (entrata), Porta Rudiae–via Adua (uscita), via Marino Brancaccio; via Marco Aurelio esclusa dalla ZTL, varco spostato su vico Mondo Nuovo; atto di indirizzo, da attuare | https://www.comune.lecce.it/news/dettaglio/2026/03/12/ztl-nuovi-provvedimenti-che-interessando-il-centro-storico ; citynext.it 16/03/2026 | ufficiale (via riassunto) | 26/10/2026 |
-| Delibera di luglio 2026: varco di via Pietro Palumbo h24 (eccetto disabili), via delle Bombarde resta h24, nuovi sensi di marcia; serve ordinanza della Polizia Locale, data non trovata | corrieresalentino.it 07/2026 ; lagazzettadelmezzogiorno.it ; quotidianodipuglia.it ; leccesette.it | non ufficiale | 26/10/2026 |
-| Hotel/B&B in ZTL: permesso HTL chiesto dalla struttura (solo arrivo/partenza, sosta 20 min); targhe trasmesse dalla struttura accreditata (foglio Excel), «preferibilmente prima dell'arrivo e comunque al massimo entro 48 ore dall'accesso» → `hotelCanRegister: true` | https://www.comune.lecce.it/aree-tematiche/imprese/servizi-comunali/permesso-di-transito-e-sosta-nelle-ztl-del-centro-storico ; Gazzetta del Mezzogiorno ; autovia.it | ufficiale (via riassunto) + non ufficiali | 26/10/2026 |
-| Ingresso non registrato: «Dichiarazione di transito in ZTL» entro 48 ore via PEC (protocollo@pec.comune.lecce.it) con fattura/ricevuta | pagina permessi del Comune; regolamento ZTL (PDF) | ufficiale (via riassunto) | 26/10/2026 |
-| Permessi: ~14 categorie (HTL, OCC, CUDE gratuito, C-S…); Ufficio Permessi ZTL e CUDE, viale Rossini 110, online con SPID o PEC; OCC 5 €; ~7 giorni lavorativi → nessun `ticket` | autovia.it | non ufficiale | 26/10/2026 |
-| Elettriche/ibride: nessuna regola trovata → `exemptFuels: []`; moto: non trattate | ricerca web | — | 26/10/2026 |
-| Multa 83–332 €, −30% entro 5 giorni | autovia.it | non ufficiale | 26/10/2026 |
-| Dataset ufficiale «ZTL APU CENTRO STORICO LECCE» (CC BY 4.0, GeoJSON) | https://www.dati.gov.it/view-dataset/dataset?id=ztl-apu-centro-storico-lecce (metadati in `data/raw/lecce/dati-gov-ztl-apu-centro-storico-lecce.json`); file su dati.comune.lecce.it non raggiungibile | ufficiale | 26/10/2026 |
-
-Festivi: domenica e festivi la ZTL è attiva tutto il giorno → `freeOnHolidays: false`, `holidaysAsSunday: true`. Patrono Sant'Oronzo (26 agosto): non confermato come festivo per la ZTL, non messo in `localHolidays` (vedi pending).
-
-## Geometria: provenienza e licenza
-**Da OpenStreetMap, non ufficiale** (© OpenStreetMap contributors, ODbL 1.0).
-- Dati: `data/raw/geo/lecce-ztl.json`, estratto il 26/10/2026 con `Tools/fetch_osm_api.py` dall'API principale di OSM (www.openstreetmap.org/api/0.6, tasselli bbox 40,346–40,358 / 18,161–18,178, più `relation/20670025/full`), ridotto agli elementi usati.
-- **Perimetro**: relazione [20670025](https://www.openstreetmap.org/relation/20670025) «ZTL Lecce» (`boundary=limited_traffic_zone`, creata il 10/05/2026, `source=Città di Lecce`, `website` = comunicato del 17/07/2025), un solo membro outer (way 1511705702, 92 nodi), semplificato a 4 m: 54 punti, 0,74 km².
-- **Varchi**: gli 8 punti ufficiali dell'open data del Comune (CC BY 4.0, 2014); nomi dalla strada OSM del nodo «Varco ZTL» coincidente (≤ 9 m) o, per l'ottavo, dalla strada OSM più vicina (via Casale Fornello). I tag orari dei nodi OSM (`Mo-Fr 6:00-21:00`) sono vecchi e non sono usati. La stampa parla di circa 17 varchi oggi.
-- Controlli nello script: Duomo, colonna di Sant'Oronzo, basilica di Santa Croce, Teatro Romano dentro; stazione, Castello Carlo V, mercato di Porta Rudiae fuori; area tra 0,4 e 1,1 km²; varchi a meno di 40 m dal bordo.
-- Se si scarica il GeoJSON ufficiale (dati.comune.lecce.it, CC BY 4.0) come `data/raw/lecce/ztl_perimetro.geojson`, lo script usa quello.
+## Geometria
+**Perimetro da OpenStreetMap, non ufficiale** (© OpenStreetMap contributors, ODbL 1.0): relazione [20670025](https://www.openstreetmap.org/relation/20670025) «ZTL Lecce» (`source=Città di Lecce`, creata il 10/05/2026, `vehicle:conditional=yes @ (Mo-Sa 10:00-13:00,16:30-20:00)` uguale all'ordinanza: lo script si ferma se cambia), semplificata a 4 m: 54 punti, 0,74 km². Dati in `data/raw/geo/lecce-ztl.json` (API OSM, `Tools/fetch_osm_api.py`, 26–27/10/2026), con le strade dei varchi.
+**Varchi**: i 18 dell'ordinanza 2069/2025 (17 punti: righe 2 e 3 sono lo stesso incrocio), nel nodo OSM comune alle due strade indicate; per via Maremonti/viale Marconi, via Cairoli/via Duca degli Abruzzi e Porta Rudiae/via Adua il punto più vicino (OSM non ha un nodo in comune; Porta Rudiae = centro della porta). Nome con «(exit)» per i varchi in uscita e «— 24 h» per quelli H24. I 7 nodi OSM «Varco ZTL» e gli 8 varchi dell'open data 2014 coincidono con questi incroci.
+Controlli: Duomo, Sant'Oronzo, Santa Croce, Teatro Romano dentro; stazione, Castello Carlo V, mercato di Porta Rudiae fuori; varchi a meno di 60 m dal bordo.
 
 ## Da verificare (`pending`)
-Testo ufficiale (citazione); varchi h24 dentro una zona a orario variabile; attuazione delle delibere 2026 (Bernardini, Cairoli, Brancaccio, Palumbo, via Marco Aurelio fuori); perimetro ufficiale; regola hotel (48 ore) confermata solo da riassunti; OCC per turisti; elettriche e moto; multa; 26 agosto.
+Varchi H24 dentro una zona a orario variabile (GateLR mostra l'orario della zona); attuazione delle delibere 2026; perimetro OSM; elettriche; 26 agosto.

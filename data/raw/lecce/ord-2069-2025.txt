@@ -1,0 +1,238 @@
+Fonte: https://www.comune.lecce.it/docs/default-source/altri-documenti/ordinanza-n-2069-del-09-09-2025.pdf
+Letta il: 2026-10-27 (testo estratto dal documento ufficiale del Comune di Lecce, scaricato con curl verificando il certificato: catena completata con l'intermedio «Telecom Italia Trust Technologies RSA OV SSL CA 2» da crt.sh, verificato con openssl contro le radici di sistema)
+
+                                CITTÀ DI LECCE
+
+                                           Ordinanza N. 2069
+                                           Data di registrazione: 09/09/2025
+
+
+                             Ufficio Segnaletica e Passi Carrai
+
+
+OGGETTO: AGGIORNAMENTO ORARIO VARCHI ZTL
+
+
+     Premesso:
+
+     CHE questa Amministrazione ha tra i suoi obiettivi strategici la riduzione degli effetti
+     negativi della circolazione veicolare e il miglioramento della vivibilità all’interno del
+     centro storico cittadino;
+     CHE il comma 9 dell’art. 7 del D. Lgs. n. 285 del 30.04.1992 stabilisce che i comuni,
+     con deliberazione della giunta, provvedono a delimitare le aree pedonali e le zone a
+     traffico limitato tenendo conto degli effetti del traffico sulla sicurezza della
+     circolazione, sulla salute, sull'ordine pubblico, sul patrimonio ambientale e culturale
+     e sul territorio;
+     CHE con delibera di Giunta Comunale n. 124 del 03/04/2025 si è provveduto a:
+        •   uniformare i provvedimenti amministrativi dell’Ente in merito alla disciplina
+            della Zona a Traffico Limitato e delle aree pedonali urbane del centro storico
+            della città di Lecce allo scopo di renderne più razionale, efficace e
+            comprensibile il funzionamento della Z.T.L. e delle aree pedonali ivi
+            ricomprese;
+        •   modificare la perimetrazione della Z.T.L., aggiornando, altresì, la lista dei
+            varchi controllati elettronicamente
+     CHE, su disposizione di Delibera di Giunta Comunale n. 280 del 10/07/2025 con la
+     quale si deliberava la graduale trasformazione di tutto il centro storico in ZTL 0-24,
+     con ordinanza n. 1679 del 16/07/2025 si è proceduto a trasformare il varco in entrata
+     da Porta Napoli in varco ZTL H24, e modificati gli orari di accesso alla ZTL variabile
+     CHE con Delibera di Giunta Comunale n. 336 del 05.09.2025 si è disposto di:
+        •   approvare, a parziale modifica ed integrazione della delibera di Giunta
+            Comunale n. 124 del 03/04/2025, l’aggiornamento degli orari del controllo
+            elettronico dei varchi posti in viale XXV Luglio/via Trinchese e via dei
+            Mocenigo, con la modifica dell’orario variabile in H24;
+      •   approvare l'aggiornamento della lista dei varchi controllati elettronicamente
+          nel modo che segue:
+
+
+
+Prog. Ubicazione varco                               Tipo di controllo   Variabile/H24
+
+1     Via Casale Fornello/V.le M. De Pietro          ingresso/uscita     Variabile
+
+2     Via Marco Aurelio/Vico Mondo Nuovo             uscita              Variabile
+
+3     Vico Mondo Nuovo/Via Marco Aurelio             ingresso            Variabile
+
+4     Vico dei Fieschi/Via XXV Luglio                uscita              Variabile
+
+5     Via Trinchese/Via XXV Luglio                   ingresso/uscita     H24
+
+6     Via dei Mocenigo/Via XXV Luglio                uscita              H24
+
+7     Via Biccari/Via XXV Luglio                     ingresso/uscita     H24
+
+8     Via Fazzi/Via XXV Luglio                       ingresso/uscita     Variabile
+
+6     Via Maremonti/Viale G. Marconi                 uscita              Variabile
+
+10    Vico dei Verardi/viale F. Lo Re                ingresso/uscita     Variabile
+
+11    Via M. Bernardini/Via Duca degli Abruzzi       ingresso/uscita     Variabile
+
+12    Vico De Argenteris/Via Duca degli Abruzzi      uscita              Variabile
+
+13    Via Benedetto Cairoli/Via Duca degli Abruzzi   ingresso/uscita     Variabile
+
+14    Via Giuseppe Cino/Via Manifattura Tabacchi     ingresso            Variabile
+
+15    Porta Rudiae/Via Adua                          uscita              Variabile
+
+16    Via Pietro Palumbo/Via Adua                    ingresso            Variabile
+
+17    Porta Napoli/P.zza A. Rizzo                    ingresso            H24
+
+18    Porta Napoli/Corte V. Licci                    uscita              Variabile
+
+
+      •   dare mandato al Dirigente del Settore XI Polizia Locale e Protezione Civile,
+          Mobilità–Viabilità, Randagismo e Canili, di provvedere all’adozione della
+          relativa ordinanza ed all’installazione di apposita segnaletica con modifica del
+          messaggio variabile, al fine di segnalare il transito veicolare non autorizzato
+          nelle zone a traffico limitato e di porre in essere ogni eventuale provvedimento
+          ed atto connesso e consequenziale di quanto deliberato;
+Ritenuto che risulta opportuno garantire quanto richiesto con Delibera di Giunta
+Comunale n. 336 del 05.09.2025 mediante i dovuti provvedimenti e indicazioni sulle
+opportune segnaletiche così come previsto dal C.D.S. e dal Regolamento di
+esecuzione e di attuazione del nuovo C.D.S. approvato con D.P.R. n. 495 del 16
+dicembre 1992;
+
+Valutato di procedere con l’aggiornamento:
+   •   degli orari del controllo elettronico dei varchi posti in viale XXV Luglio/via
+       Trinchese e via dei Mocenigo, con la modifica dell’orario variabile in H24;
+   •   della lista dei varchi controllati elettronicamente, così come indicato nella
+       suddetta tabella
+Atteso che la viabilità cittadina necessita di una modifica della disciplina della sosta
+degli autoveicoli, motoveicoli e velocipedi, legata a situazioni contingenti, con il fine
+di garantirne una piena fruibilità
+Valutato opportuno rendere immediatamente efficace la presente ordinanza
+
+Considerato che tale provvedimento riguarda in particolare le seguenti aree
+relativamente ai varchi:
+
+1) Via Casale Fornello/V.le M. De Pietro;
+
+2) Via Marco Aurelio/Vico Mondo Nuovo;
+
+3) Vico Mondo Nuovo/Via Marco Aurelio;
+
+4) Vico dei Fieschi/Via XXV Luglio;
+
+5) Via Trinchese/Via XXV Luglio;
+
+6) Via dei Mocenigo/Via XXV Luglio;
+
+7) Via Biccari/Via XXV Luglio;
+
+8) Via Fazzi/Via XXV Luglio;
+
+9) Via Maremonti/Viale G. Marconi;
+
+10) Vico dei Verardi/viale F. Lo Re;
+
+11) Via M. Bernardini/Via Duca degli Abruzzi;
+
+12) Vico De Argenteris/Via Duca degli Abruzzi;
+
+13) Via Benedetto Cairoli/Via Duca degli Abruzzi;
+
+14) Via Giuseppe Cino/Via Manifattura Tabacchi;
+
+15) Porta Rudiae/Via Adua;
+
+16) Via Pietro Palumbo/Via Adua;
+       17) Porta Napoli/P.zza A. Rizzo;
+
+       18) Porta Napoli/Corte V. Licci
+
+
+
+              Ritenuto di adottare i provvedimenti più efficaci per motivi di sicurezza della
+              circolazione stradale, oltre che per le esigenze di carattere tecnico- viabilistico;
+
+
+              Visti:
+
+- il Nuovo Codice della Strada, approvato con D.L.vo n.285 del 30.04.1992, ed in specie
+l’artt. 6 e 7 che dà facoltà ai Comuni di stabilire obblighi, divieti e limitazioni alla circolazione
+dei veicoli nei centri abitati;
+- il Reg. di esecuzione del richiamato Nuovo C.d.S. approvato con D.P.R. 16.12.1992 n°495;
+- il Testo Unico delle leggi sull’ordinamento degli enti locali D.L.vo n.267 del 18.08.2000,
+Art. 107;
+                - il Decreto Sindacale n. 08 del 28.02.2025 di conferimento incarico di
+                     direzione del Settore 11 Polizia Locale e Protezione Civile – Mobilità,
+                     Viabilità
+                                                   ORDINA
+              Per i motivi specificati in premessa, che qui si intendono integralmente riportati
+              e confermati, l’adozione del seguente provvedimento nelle vie appresso
+              indicate:
+                  1. Aggiornamento dell’orario di controllo variabile dei varchi dalle ore
+                     10:00 alle ore 13:00 e dalle ore 16:30 alle ore 20:00 dei giorni Feriali e
+                     dalle ore 0:00 alle ore 24:00 dei giorni Festivi e dei varchi H/24, il tutto
+                     appresso indicato nella seguente tabella della Zona a Traffico Limitato
+                     “ZTL”:
+
+
+
+ Prog. Ubicazione varco                                    Tipo di controllo   Variabile/H24
+
+ 1      Via Casale Fornello/V.le M. De Pietro              ingresso/uscita     Variabile
+
+ 2      Via Marco Aurelio/Vico Mondo Nuovo                 uscita              Variabile
+
+ 3      Vico Mondo Nuovo/Via Marco Aurelio                 ingresso            Variabile
+
+ 4      Vico dei Fieschi/Via XXV Luglio                    uscita              Variabile
+
+ 5      Via Trinchese/Via XXV Luglio                       ingresso/uscita     H24
+
+ 6      Via dei Mocenigo/Via XXV Luglio                    uscita              H24
+
+ 7      Via Biccari/Via XXV Luglio                         ingresso/uscita     H24
+
+ 8      Via Fazzi/Via XXV Luglio                           ingresso/uscita     Variabile
+ 6       Via Maremonti/Viale G. Marconi                    uscita               Variabile
+
+ 10      Vico dei Verardi/viale F. Lo Re                   ingresso/uscita      Variabile
+
+ 11      Via M. Bernardini/Via Duca degli Abruzzi          ingresso/uscita      Variabile
+
+ 12      Vico De Argenteris/Via Duca degli Abruzzi         uscita               Variabile
+
+ 13      Via Benedetto Cairoli/Via Duca degli Abruzzi      ingresso/uscita      Variabile
+
+ 14      Via Giuseppe Cino/Via Manifattura Tabacchi        ingresso             Variabile
+
+ 15      Porta Rudiae/Via Adua                             uscita               Variabile
+
+ 16      Via Pietro Palumbo/Via Adua                       ingresso             Variabile
+
+ 17      Porta Napoli/P.zza A. Rizzo                       ingresso             H24
+
+ 18      Porta Napoli/Corte V. Licci                       uscita               Variabile
+
+
+
+ Quanto sopra, sarà attuato mediante aggiornamento delle indicazioni sui segnali e sui
+ dispositivi elettronici posti sui varchi di accesso alle Z.T.L. al fine di rendere chiaro e
+ facilmente intuibile all’utente della strda quanto disposto dalla presente ordinanza.
+                                                  DISPONE
+- che la presente Ordinanza sia pubblicata sull’albo pretorio on-line a termini di legge;
+- che il Corpo di Polizia Locale, unitamente agli altri soggetti individuati dall’art. 12 del C.d.S.
+siano incaricati al controllo affinché, la presente ordinanza venga osservata;
+
+                                                 AVVERTE
+
+- che è fatto obbligo di osservare il presente provvedimento;
+- che la violazione di quanto disposto con il presente provvedimento sarà sanzionata ai sensi del
+C.d.S.;
+- che Avverso il presente provvedimento, ai sensi dell’art. 37 del Codice della Strada e dell’art. 74
+del Regolamento di Esecuzione ed Attuazione, è ammesso ricorso al T.A.R. Puglia ovvero entro 120
+giorni ricorso straordinario al Presidente della Repubblica.
+
+
+
+
+                                                                     Dirigente
+                                                          Donato Zacheo / InfoCert S.p.A.
+                                                          (Atto sottoscritto digitalmente)
+

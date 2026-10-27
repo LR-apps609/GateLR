@@ -1,0 +1,523 @@
+{
+ "id": "lecce",
+ "name": "Lecce",
+ "name_it": "Lecce",
+ "name_de": "Lecce",
+ "center": {
+  "lat": 40.3524,
+  "lon": 18.1705
+ },
+ "zones": [
+  {
+   "id": "lecce-centro-storico",
+   "name": "Lecce old town · ZTL inside the walls",
+   "name_it": "Lecce centro storico · ZTL dentro le mura",
+   "name_de": "Lecce Altstadt · ZTL innerhalb der Mauern",
+   "kind": "restricted",
+   "summary": "The old town inside the walls is closed to cars without a permit on Monday–Saturday from 1 pm to 4:30 pm and from 8 pm to 10 am, and all day on Sundays and holidays; on Monday–Saturday 10 am–1 pm and 4:30–8 pm the cameras are off. Porta Napoli, via Trinchese and via Biccari stay closed around the clock. Motorbikes and mopeds may always enter. Staying inside? The hotel or B&B registers your plate (before arrival or within 48 hours) for check-in and check-out only, with 20 minutes to unload.",
+   "summary_it": "Il centro storico dentro le mura è chiuso alle auto senza permesso dal lunedì al sabato dalle 13 alle 16:30 e dalle 20 alle 10, e tutto il giorno la domenica e nei festivi; dal lunedì al sabato 10–13 e 16:30–20 i varchi sono spenti. Porta Napoli, via Trinchese e via Biccari restano chiusi a tutte le ore. Moto e ciclomotori entrano sempre. Dormi dentro? L'hotel o il B&B registra la targa (prima dell'arrivo o entro 48 ore) solo per arrivo e partenza, con 20 minuti per scaricare.",
+   "summary_de": "Die Altstadt innerhalb der Mauern ist für Autos ohne Genehmigung Montag–Samstag von 13 bis 16:30 Uhr und von 20 bis 10 Uhr gesperrt, sonntags und an Feiertagen den ganzen Tag; Montag–Samstag 10–13 und 16:30–20 Uhr sind die Kameras aus. Porta Napoli, Via Trinchese und Via Biccari bleiben rund um die Uhr gesperrt. Motorräder und Mopeds dürfen immer hinein. Du übernachtest innen? Hotel oder B&B melden dein Kennzeichen (vor der Ankunft oder binnen 48 Stunden) nur für An- und Abreise, mit 20 Minuten zum Ausladen.",
+   "perimeter": [
+    {
+     "lat": 40.356583,
+     "lon": 18.168511
+    },
+    {
+     "lat": 40.354759,
+     "lon": 18.16706
+    },
+    {
+     "lat": 40.352724,
+     "lon": 18.165686
+    },
+    {
+     "lat": 40.352868,
+     "lon": 18.165503
+    },
+    {
+     "lat": 40.352661,
+     "lon": 18.16508
+    },
+    {
+     "lat": 40.352297,
+     "lon": 18.165038
+    },
+    {
+     "lat": 40.352228,
+     "lon": 18.165194
+    },
+    {
+     "lat": 40.350883,
+     "lon": 18.164176
+    },
+    {
+     "lat": 40.349395,
+     "lon": 18.166653
+    },
+    {
+     "lat": 40.349352,
+     "lon": 18.166706
+    },
+    {
+     "lat": 40.34904,
+     "lon": 18.166368
+    },
+    {
+     "lat": 40.348273,
+     "lon": 18.167666
+    },
+    {
+     "lat": 40.34854,
+     "lon": 18.167929
+    },
+    {
+     "lat": 40.34847,
+     "lon": 18.168144
+    },
+    {
+     "lat": 40.348647,
+     "lon": 18.168305
+    },
+    {
+     "lat": 40.348142,
+     "lon": 18.170206
+    },
+    {
+     "lat": 40.348106,
+     "lon": 18.170261
+    },
+    {
+     "lat": 40.348006,
+     "lon": 18.170227
+    },
+    {
+     "lat": 40.3476,
+     "lon": 18.171338
+    },
+    {
+     "lat": 40.348764,
+     "lon": 18.172283
+    },
+    {
+     "lat": 40.3487,
+     "lon": 18.172419
+    },
+    {
+     "lat": 40.349109,
+     "lon": 18.172763
+    },
+    {
+     "lat": 40.349326,
+     "lon": 18.172685
+    },
+    {
+     "lat": 40.349389,
+     "lon": 18.172553
+    },
+    {
+     "lat": 40.3496,
+     "lon": 18.172746
+    },
+    {
+     "lat": 40.349535,
+     "lon": 18.172889
+    },
+    {
+     "lat": 40.350131,
+     "lon": 18.17365
+    },
+    {
+     "lat": 40.351255,
+     "lon": 18.174419
+    },
+    {
+     "lat": 40.351537,
+     "lon": 18.174542
+    },
+    {
+     "lat": 40.351731,
+     "lon": 18.173791
+    },
+    {
+     "lat": 40.352431,
+     "lon": 18.174046
+    },
+    {
+     "lat": 40.352815,
+     "lon": 18.174041
+    },
+    {
+     "lat": 40.355906,
+     "lon": 18.173635
+    },
+    {
+     "lat": 40.355948,
+     "lon": 18.173891
+    },
+    {
+     "lat": 40.356101,
+     "lon": 18.173869
+    },
+    {
+     "lat": 40.356236,
+     "lon": 18.174365
+    },
+    {
+     "lat": 40.356297,
+     "lon": 18.174404
+    },
+    {
+     "lat": 40.359048,
+     "lon": 18.172784
+    },
+    {
+     "lat": 40.359593,
+     "lon": 18.172173
+    },
+    {
+     "lat": 40.359471,
+     "lon": 18.171963
+    },
+    {
+     "lat": 40.359544,
+     "lon": 18.171883
+    },
+    {
+     "lat": 40.359695,
+     "lon": 18.172044
+    },
+    {
+     "lat": 40.360476,
+     "lon": 18.17087
+    },
+    {
+     "lat": 40.360559,
+     "lon": 18.170498
+    },
+    {
+     "lat": 40.36051,
+     "lon": 18.170034
+    },
+    {
+     "lat": 40.36041,
+     "lon": 18.169722
+    },
+    {
+     "lat": 40.360174,
+     "lon": 18.169498
+    },
+    {
+     "lat": 40.359928,
+     "lon": 18.169348
+    },
+    {
+     "lat": 40.359906,
+     "lon": 18.169415
+    },
+    {
+     "lat": 40.356999,
+     "lon": 18.167628
+    },
+    {
+     "lat": 40.356709,
+     "lon": 18.168479
+    },
+    {
+     "lat": 40.357609,
+     "lon": 18.169061
+    },
+    {
+     "lat": 40.357584,
+     "lon": 18.169155
+    },
+    {
+     "lat": 40.356583,
+     "lon": 18.168511
+    }
+   ],
+   "gates": [
+    {
+     "id": "le-porta-napoli-corte-licci",
+     "name": "Varco · Porta Napoli / Corte Licci (exit)",
+     "location": {
+      "lat": 40.356681,
+      "lon": 18.168526
+     }
+    },
+    {
+     "id": "le-porta-napoli-piazza-rizzo",
+     "name": "Varco · Porta Napoli / Piazza Rizzo — 24 h",
+     "location": {
+      "lat": 40.356326,
+      "lon": 18.168304
+     }
+    },
+    {
+     "id": "le-porta-rudiae-via-adua",
+     "name": "Varco · Porta Rudiae / Via Adua (exit)",
+     "location": {
+      "lat": 40.351328,
+      "lon": 18.164581
+     }
+    },
+    {
+     "id": "le-via-bernardini-via-duca-degli-abruzzi",
+     "name": "Varco · Via Bernardini / Via Duca degli Abruzzi",
+     "location": {
+      "lat": 40.347869,
+      "lon": 18.170444
+     }
+    },
+    {
+     "id": "le-via-biccari-viale-xxv-luglio",
+     "name": "Varco · Via Biccari / Viale XXV Luglio — 24 h",
+     "location": {
+      "lat": 40.352462,
+      "lon": 18.174125
+     }
+    },
+    {
+     "id": "le-via-cairoli-via-duca-degli-abruzzi",
+     "name": "Varco · Via Cairoli / Via Duca degli Abruzzi",
+     "location": {
+      "lat": 40.349038,
+      "lon": 18.168661
+     }
+    },
+    {
+     "id": "le-via-casale-fornello-viale-de-pietro",
+     "name": "Varco · Via Casale Fornello / Viale De Pietro",
+     "location": {
+      "lat": 40.359717,
+      "lon": 18.172111
+     }
+    },
+    {
+     "id": "le-via-cino-via-manifattura-tabacchi",
+     "name": "Varco · Via Cino / Via Manifattura Tabacchi",
+     "location": {
+      "lat": 40.349344,
+      "lon": 18.166642
+     }
+    },
+    {
+     "id": "le-via-fazzi-viale-xxv-luglio",
+     "name": "Varco · Via Fazzi / Viale XXV Luglio",
+     "location": {
+      "lat": 40.352016,
+      "lon": 18.173945
+     }
+    },
+    {
+     "id": "le-via-marco-aurelio-vico-mondo-nuovo",
+     "name": "Varco · Via Marco Aurelio / Vico Mondo Nuovo (exit)",
+     "location": {
+      "lat": 40.357128,
+      "lon": 18.17363
+     }
+    },
+    {
+     "id": "le-via-maremonti-viale-marconi",
+     "name": "Varco · Via Maremonti / Viale Marconi (exit)",
+     "location": {
+      "lat": 40.351509,
+      "lon": 18.173759
+     }
+    },
+    {
+     "id": "le-via-palumbo-via-adua",
+     "name": "Varco · Via Palumbo / Via Adua",
+     "location": {
+      "lat": 40.353299,
+      "lon": 18.166015
+     }
+    },
+    {
+     "id": "le-via-trinchese-viale-xxv-luglio",
+     "name": "Varco · Via Trinchese / Viale XXV Luglio — 24 h",
+     "location": {
+      "lat": 40.353464,
+      "lon": 18.174041
+     }
+    },
+    {
+     "id": "le-via-dei-mocenigo-viale-xxv-luglio",
+     "name": "Varco · Via dei Mocenigo / Viale XXV Luglio (exit) — 24 h",
+     "location": {
+      "lat": 40.352849,
+      "lon": 18.174109
+     }
+    },
+    {
+     "id": "le-vico-de-argenteris-via-duca-degli-abruzzi",
+     "name": "Varco · Vico De Argenteris / Via Duca degli Abruzzi (exit)",
+     "location": {
+      "lat": 40.348097,
+      "lon": 18.170228
+     }
+    },
+    {
+     "id": "le-vico-dei-fieschi-viale-xxv-luglio",
+     "name": "Varco · Vico dei Fieschi / Viale XXV Luglio (exit)",
+     "location": {
+      "lat": 40.355745,
+      "lon": 18.173734
+     }
+    },
+    {
+     "id": "le-vico-dei-verardi-viale-lo-re",
+     "name": "Varco · Vico dei Verardi / Viale Lo Re",
+     "location": {
+      "lat": 40.350247,
+      "lon": 18.173836
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 600
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 780,
+     "end": 990
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1200,
+     "end": 1440
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Lecce",
+    "pageURL": "https://www.comune.lecce.it/news/dettaglio/2025/07/17/modifiche-ztl-nuove-ordinanze",
+    "ordinance": "Delibera GC n. 280 del 10/07/2025; ordinanze dirigenziali n. 1679 del 16/07/2025, n. 1689 del 17/07/2025 e n. 2069 del 09/09/2025",
+    "ordinanceURL": "https://www.comune.lecce.it/docs/default-source/altri-documenti/ordinanza-n-2069-del-09-09-2025.pdf",
+    "quote": "I varchi elettronici di controllo degli ingressi nel centro storico della città saranno spenti dalle ore 10:00 alle ore 13:00 e dalle ore 16:30 alle ore 20:00 nei giorni feriali mentre l’area rimane inaccessibile nei giorni festivi e di domenica, così come sarà vietato transitare dal varco di Porta Napoli H24 tutti i giorni della settimana .",
+    "quoteTranslation": "The electronic gates into the old town will be switched off from 10:00 to 13:00 and from 16:30 to 20:00 on working days, while the area stays closed on holidays and Sundays; driving through the Porta Napoli gate will be banned 24 hours a day, every day of the week.",
+    "quoteTranslation_de": "Die elektronischen Kameras an den Zufahrten zur Altstadt werden an Werktagen von 10:00 bis 13:00 und von 16:30 bis 20:00 Uhr ausgeschaltet, an Feiertagen und Sonntagen bleibt das Gebiet gesperrt; die Durchfahrt durch die Kamera Porta Napoli ist rund um die Uhr, an allen Wochentagen verboten.",
+    "checkedOn": "2026-10-27T10:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Four entrances are closed 24 hours a day even when the others are off (ordinance 2069/2025): Porta Napoli from piazza Rizzo, via Trinchese, via Biccari (both ways) and the via dei Mocenigo exit on viale XXV Luglio. GateLR shows the hours of the whole zone: in the free hours enter only through the other gates.",
+     "Coming changes: on 11 March 2026 the council decided 24-hour entry at via Bernardini, via Cairoli and the Porta Rudiae exit, a 24-hour ban in via Brancaccio and taking via Marco Aurelio out of the ZTL; in July 2026 also via Palumbo (press). No ordinance putting them in force was among the City's published acts when checked: follow the signs at those gates.",
+     "Map outline from OpenStreetMap (relation «ZTL Lecce», 2026, hours as the ordinance), not an official map; the City's open-data map is from 2014. Gate positions at the junctions named in ordinance 2069/2025; approximate for Via Maremonti / Viale Marconi, Via Cairoli / Via Duca degli Abruzzi, Porta Rudiae / Via Adua.",
+     "Electric and hybrid cars: the rules say their access is still to be regulated, so GateLR does not exempt them. Blue Badge: allowed, but during camera hours only if the plate is on the authorised list; an accidental entry must be declared within 48 hours (form «Dichiarazione di Transito in ZTL» by PEC). Occasional permits (OCC) must be requested from the ZTL office; a one-day permit costs 5 €.",
+     "Feast of Sant'Oronzo (24–26 August): whether 26 August counts as a holiday for the ZTL is not stated, so it is not treated as one."
+    ],
+    "pending_it": [
+     "Quattro varchi sono chiusi 24 ore su 24 anche quando gli altri sono spenti (ordinanza 2069/2025): Porta Napoli da piazza Rizzo, via Trinchese, via Biccari (in entrata e uscita) e l'uscita di via dei Mocenigo su viale XXV Luglio. GateLR mostra gli orari di tutta la zona: nelle ore libere entra solo dagli altri varchi.",
+     "Modifiche in arrivo: l'11/03/2026 la giunta ha deciso l'ingresso h24 in via Bernardini, via Cairoli e l'uscita di Porta Rudiae, il divieto h24 in via Brancaccio e l'esclusione di via Marco Aurelio dalla ZTL; a luglio 2026 anche via Palumbo (stampa). Alla verifica nessuna ordinanza attuativa era tra gli atti pubblicati dal Comune: seguire i cartelli a quei varchi.",
+     "Perimetro da OpenStreetMap (relazione «ZTL Lecce», 2026, con gli orari dell'ordinanza), non da una mappa ufficiale; la mappa open data del Comune è del 2014. Varchi agli incroci indicati dall'ordinanza 2069/2025; approssimati per Via Maremonti / Viale Marconi, Via Cairoli / Via Duca degli Abruzzi, Porta Rudiae / Via Adua.",
+     "Auto elettriche e ibride: il regolamento dice che il loro accesso è ancora da normare, quindi GateLR non le esenta. Contrassegno CUDE: ammessi, ma negli orari dei varchi solo se la targa è nella lista degli autorizzati; un ingresso accidentale va dichiarato entro 48 ore (modulo «Dichiarazione di Transito in ZTL» via PEC). I permessi occasionali (OCC) si chiedono all'ufficio ZTL; il giornaliero costa 5 €.",
+     "Festa di Sant'Oronzo (24–26 agosto): non è indicato se il 26 agosto valga come festivo per la ZTL, quindi non è trattato come tale."
+    ],
+    "pending_de": [
+     "Vier Zufahrten sind rund um die Uhr gesperrt, auch wenn die anderen aus sind (Verordnung 2069/2025): Porta Napoli von der Piazza Rizzo, Via Trinchese, Via Biccari (beide Richtungen) und die Ausfahrt Via dei Mocenigo am Viale XXV Luglio. GateLR zeigt die Zeiten der ganzen Zone: in den freien Stunden nur über die anderen Zufahrten einfahren.",
+     "Geplante Änderungen: Am 11.03.2026 beschloss der Stadtrat 24-Stunden-Einfahrt an Via Bernardini, Via Cairoli und der Ausfahrt Porta Rudiae, ein 24-Stunden-Verbot in Via Brancaccio und die Herausnahme der Via Marco Aurelio; im Juli 2026 auch Via Palumbo (Presse). Bei der Prüfung war noch keine Umsetzungsverordnung veröffentlicht: an diesen Zufahrten den Schildern folgen.",
+     "Grenze aus OpenStreetMap (Relation «ZTL Lecce», 2026, mit den Zeiten der Verordnung), keine offizielle Karte; die offene Karte der Stadt ist von 2014. Kameras an den in der Verordnung 2069/2025 genannten Kreuzungen; ungefähr für Via Maremonti / Viale Marconi, Via Cairoli / Via Duca degli Abruzzi, Porta Rudiae / Via Adua.",
+     "Elektro- und Hybridautos: Laut Regelung ist ihre Zufahrt noch zu regeln, daher befreit GateLR sie nicht. Behindertenausweis (CUDE): erlaubt, während der Kamerazeiten aber nur, wenn das Kennzeichen auf der Liste steht; eine versehentliche Einfahrt binnen 48 Stunden melden (Formular «Dichiarazione di Transito in ZTL» per PEC). Gelegenheitsgenehmigungen (OCC) beim ZTL-Büro beantragen; ein Tag kostet 5 €.",
+     "Fest des hl. Oronzo (24.–26. August): Ob der 26. August für die ZTL als Feiertag gilt, ist nicht angegeben, daher wird er nicht so behandelt."
+    ],
+    "links": [
+     {
+      "title": "City of Lecce (17 Jul 2025): new ZTL hours from 1 August 2025",
+      "title_it": "Comune di Lecce (17/07/2025): modifiche ZTL, nuove ordinanze",
+      "title_de": "Stadt Lecce (17.07.2025): neue ZTL-Zeiten ab 1. August 2025",
+      "url": "https://www.comune.lecce.it/news/dettaglio/2025/07/17/modifiche-ztl-nuove-ordinanze"
+     },
+     {
+      "title": "Ordinance 1679/2025: access hours and Porta Napoli 0–24 (PDF)",
+      "title_it": "Ordinanza 1679/2025: fasce d'accesso e Porta Napoli 0–24 (PDF)",
+      "title_de": "Verordnung 1679/2025: Zufahrtszeiten und Porta Napoli 0–24 (PDF)",
+      "url": "https://www.comune.lecce.it/docs/default-source/altri-documenti/ord_01679_16-07-2025.pdf"
+     },
+     {
+      "title": "Ordinance 2069/2025: the 18 cameras, variable or 24 h (PDF)",
+      "title_it": "Ordinanza 2069/2025: i 18 varchi, variabili o H24 (PDF)",
+      "title_de": "Verordnung 2069/2025: die 18 Kameras, variabel oder 24 h (PDF)",
+      "url": "https://www.comune.lecce.it/docs/default-source/altri-documenti/ordinanza-n-2069-del-09-09-2025.pdf"
+     },
+     {
+      "title": "Ordinance 1689/2025: deliveries (PDF)",
+      "title_it": "Ordinanza 1689/2025: carico e scarico (PDF)",
+      "title_de": "Verordnung 1689/2025: Lieferungen (PDF)",
+      "url": "https://www.comune.lecce.it/docs/default-source/altri-documenti/ztl_carico_scarico_ord_01689_17-07-2025.pdf"
+     },
+     {
+      "title": "City of Lecce: ZTL permits",
+      "title_it": "Comune di Lecce: permesso di transito e sosta nelle ZTL",
+      "title_de": "Stadt Lecce: ZTL-Genehmigungen",
+      "url": "https://www.comune.lecce.it/aree-tematiche/imprese/servizi-comunali/permesso-di-transito-e-sosta-nelle-ztl-del-centro-storico"
+     },
+     {
+      "title": "ZTL and pedestrian area regulation (PDF)",
+      "title_it": "Regolamento ZTL e aree pedonali (PDF)",
+      "title_de": "Regelung für ZTL und Fußgängerzonen (PDF)",
+      "url": "https://www.comune.lecce.it/docs/default-source/regolamenti-comunali/polizia-locale/regolamento-per-l-accesso-e-la-circolazione-dei-veicoli-nelle-zone-a-traffico-limitato-e-nelle-aree-pedonali-del-comune-di-lecce.pdf"
+     },
+     {
+      "title": "City of Lecce (12 Mar 2026): more 24-hour gates decided",
+      "title_it": "Comune di Lecce (12/03/2026): nuovi provvedimenti ZTL, varchi h24",
+      "title_de": "Stadt Lecce (12.03.2026): weitere 24-Stunden-Kameras beschlossen",
+      "url": "https://www.comune.lecce.it/news/dettaglio/2026/03/12/ztl-nuovi-provvedimenti-che-interessando-il-centro-storico"
+     },
+     {
+      "title": "City of Lecce (3 Apr 2025): new ZTL perimeter",
+      "title_it": "Comune di Lecce (03/04/2025): aggiornamento del perimetro della ZTL",
+      "title_de": "Stadt Lecce (3.4.2025): neue ZTL-Grenze",
+      "url": "https://www.comune.lecce.it/news/dettaglio/2025/04/03/centro-storico-aggiornamento-del-perimetro-della-ztl"
+     },
+     {
+      "title": "Corriere Salentino (Jul 2026): via Palumbo to become 24 h",
+      "title_it": "Corriere Salentino (07/2026): via Palumbo diventa h24",
+      "title_de": "Corriere Salentino (07.2026): Via Palumbo soll 24 h werden",
+      "url": "https://www.corrieresalentino.it/2026/07/centro-storico-cambia-la-mappa-della-viabilita-sensi-di-marcia-invertiti-nuove-ztl-e-percorsi-ridisegnati/"
+     },
+     {
+      "title": "OpenStreetMap: relation 20670025 «ZTL Lecce» (ODbL)",
+      "title_it": "OpenStreetMap: relazione 20670025 «ZTL Lecce» (ODbL)",
+      "title_de": "OpenStreetMap: Relation 20670025 «ZTL Lecce» (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/20670025"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Lecce (ordinances 1679, 1689 and 2069/2025, ZTL regulation). Perimeter and gate positions: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}
