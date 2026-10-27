@@ -1,0 +1,464 @@
+{
+ "id": "polignano-a-mare",
+ "name": "Polignano a Mare",
+ "name_it": "Polignano a Mare",
+ "name_de": "Polignano a Mare",
+ "center": {
+  "lat": 40.996,
+  "lon": 17.2195
+ },
+ "zones": [
+  {
+   "id": "polignano-a-mare-centro",
+   "name": "Old town · pedestrian area",
+   "name_it": "Borgo antico · area pedonale",
+   "name_de": "Altstadt · Fußgängerzone",
+   "kind": "restricted",
+   "summary": "The old town of Polignano a Mare (through the Arco Marchesale gate, from Piazza Vittorio Emanuele to Piazza Santa Maria delle Grazie and Via Tritone up to Via Narciso) is a pedestrian area closed to cars and motorbikes 24 hours a day, every day. Camera at the Arco Marchesale. Park outside and walk in. Rules from an unofficial site.",
+   "summary_it": "Il borgo antico di Polignano a Mare (dall'Arco Marchesale, da piazza Vittorio Emanuele a piazza Santa Maria delle Grazie e via Tritone fino a via Narciso) è area pedonale chiusa ad auto e moto 24 ore su 24, tutti i giorni. Telecamera all'Arco Marchesale. Parcheggia fuori ed entra a piedi. Regole da un sito non ufficiale.",
+   "summary_de": "Die Altstadt von Polignano a Mare (durch das Arco Marchesale, von der Piazza Vittorio Emanuele bis zur Piazza Santa Maria delle Grazie und Via Tritone bis Via Narciso) ist eine Fußgängerzone, rund um die Uhr und täglich für Autos und Motorräder gesperrt. Kamera am Arco Marchesale. Draußen parken und zu Fuß hinein. Regeln von einer inoffiziellen Website.",
+   "perimeter": [
+    {
+     "lat": 40.997251,
+     "lon": 17.218992
+    },
+    {
+     "lat": 40.997115,
+     "lon": 17.218873
+    },
+    {
+     "lat": 40.997115,
+     "lon": 17.218695
+    },
+    {
+     "lat": 40.997025,
+     "lon": 17.218695
+    },
+    {
+     "lat": 40.997025,
+     "lon": 17.218635
+    },
+    {
+     "lat": 40.996934,
+     "lon": 17.218635
+    },
+    {
+     "lat": 40.996889,
+     "lon": 17.218754
+    },
+    {
+     "lat": 40.996618,
+     "lon": 17.218814
+    },
+    {
+     "lat": 40.996618,
+     "lon": 17.218873
+    },
+    {
+     "lat": 40.996572,
+     "lon": 17.218873
+    },
+    {
+     "lat": 40.996572,
+     "lon": 17.218814
+    },
+    {
+     "lat": 40.996346,
+     "lon": 17.218754
+    },
+    {
+     "lat": 40.996346,
+     "lon": 17.218695
+    },
+    {
+     "lat": 40.996256,
+     "lon": 17.218635
+    },
+    {
+     "lat": 40.996256,
+     "lon": 17.218576
+    },
+    {
+     "lat": 40.996165,
+     "lon": 17.218576
+    },
+    {
+     "lat": 40.996165,
+     "lon": 17.218516
+    },
+    {
+     "lat": 40.99612,
+     "lon": 17.218516
+    },
+    {
+     "lat": 40.99612,
+     "lon": 17.218576
+    },
+    {
+     "lat": 40.99603,
+     "lon": 17.218576
+    },
+    {
+     "lat": 40.99603,
+     "lon": 17.218516
+    },
+    {
+     "lat": 40.995985,
+     "lon": 17.218516
+    },
+    {
+     "lat": 40.995985,
+     "lon": 17.218576
+    },
+    {
+     "lat": 40.995894,
+     "lon": 17.218576
+    },
+    {
+     "lat": 40.995894,
+     "lon": 17.218635
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.218695
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.218754
+    },
+    {
+     "lat": 40.995532,
+     "lon": 17.218695
+    },
+    {
+     "lat": 40.995532,
+     "lon": 17.218814
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.218873
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.219052
+    },
+    {
+     "lat": 40.995668,
+     "lon": 17.219052
+    },
+    {
+     "lat": 40.995668,
+     "lon": 17.219111
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.219111
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.21929
+    },
+    {
+     "lat": 40.995532,
+     "lon": 17.21935
+    },
+    {
+     "lat": 40.995532,
+     "lon": 17.219409
+    },
+    {
+     "lat": 40.995442,
+     "lon": 17.219409
+    },
+    {
+     "lat": 40.995442,
+     "lon": 17.219469
+    },
+    {
+     "lat": 40.995532,
+     "lon": 17.219528
+    },
+    {
+     "lat": 40.995578,
+     "lon": 17.219826
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.219826
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.220004
+    },
+    {
+     "lat": 40.995668,
+     "lon": 17.220004
+    },
+    {
+     "lat": 40.995668,
+     "lon": 17.220064
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.220064
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.220242
+    },
+    {
+     "lat": 40.995578,
+     "lon": 17.220242
+    },
+    {
+     "lat": 40.995578,
+     "lon": 17.220302
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.220302
+    },
+    {
+     "lat": 40.995578,
+     "lon": 17.220421
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.220421
+    },
+    {
+     "lat": 40.995623,
+     "lon": 17.22054
+    },
+    {
+     "lat": 40.995668,
+     "lon": 17.22054
+    },
+    {
+     "lat": 40.995668,
+     "lon": 17.220659
+    },
+    {
+     "lat": 40.995713,
+     "lon": 17.220659
+    },
+    {
+     "lat": 40.995713,
+     "lon": 17.220837
+    },
+    {
+     "lat": 40.995758,
+     "lon": 17.220837
+    },
+    {
+     "lat": 40.995758,
+     "lon": 17.221254
+    },
+    {
+     "lat": 40.995804,
+     "lon": 17.221254
+    },
+    {
+     "lat": 40.995804,
+     "lon": 17.221075
+    },
+    {
+     "lat": 40.995849,
+     "lon": 17.221075
+    },
+    {
+     "lat": 40.995849,
+     "lon": 17.220897
+    },
+    {
+     "lat": 40.995985,
+     "lon": 17.220778
+    },
+    {
+     "lat": 40.995985,
+     "lon": 17.220659
+    },
+    {
+     "lat": 40.99612,
+     "lon": 17.22054
+    },
+    {
+     "lat": 40.99612,
+     "lon": 17.220421
+    },
+    {
+     "lat": 40.996211,
+     "lon": 17.220361
+    },
+    {
+     "lat": 40.996211,
+     "lon": 17.220183
+    },
+    {
+     "lat": 40.996256,
+     "lon": 17.220183
+    },
+    {
+     "lat": 40.996256,
+     "lon": 17.220123
+    },
+    {
+     "lat": 40.996346,
+     "lon": 17.220123
+    },
+    {
+     "lat": 40.996346,
+     "lon": 17.220004
+    },
+    {
+     "lat": 40.996437,
+     "lon": 17.219945
+    },
+    {
+     "lat": 40.996437,
+     "lon": 17.219766
+    },
+    {
+     "lat": 40.996572,
+     "lon": 17.219647
+    },
+    {
+     "lat": 40.996572,
+     "lon": 17.219588
+    },
+    {
+     "lat": 40.996708,
+     "lon": 17.219588
+    },
+    {
+     "lat": 40.996844,
+     "lon": 17.21935
+    },
+    {
+     "lat": 40.996889,
+     "lon": 17.21935
+    },
+    {
+     "lat": 40.996889,
+     "lon": 17.21929
+    },
+    {
+     "lat": 40.997115,
+     "lon": 17.219231
+    },
+    {
+     "lat": 40.997115,
+     "lon": 17.219171
+    },
+    {
+     "lat": 40.997251,
+     "lon": 17.219171
+    },
+    {
+     "lat": 40.997251,
+     "lon": 17.219111
+    },
+    {
+     "lat": 40.997296,
+     "lon": 17.219111
+    },
+    {
+     "lat": 40.997296,
+     "lon": 17.218992
+    },
+    {
+     "lat": 40.997251,
+     "lon": 17.218992
+    }
+   ],
+   "gates": [
+    {
+     "id": "pm-osm-way166622037",
+     "name": "Varco Arco Marchesale",
+     "location": {
+      "lat": 40.995586,
+      "lon": 17.218773
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Polignano a Mare",
+    "pageURL": "https://www.comune.polignanoamare.ba.it/Argomenti/Trasporto-pubblico/ZTL",
+    "ordinance": "Ordinanza n. 207 del 2018 (prot. 16681), D.G.C. n. 45/2017 e n. 56/2018 — copia sul sito non ufficiale",
+    "ordinanceURL": "https://www.accessibilitacentristorici.it/ufficiali/ordinanze/Polignano_a_mare_ordinanza_PAP-00966-2018.pdf",
+    "quote": "L'APU di Polignano a Mare è attiva tutti i giorni 24 ore su 24 ore .",
+    "quoteTranslation": "The pedestrian area of Polignano a Mare is active every day, 24 hours a day.",
+    "quoteTranslation_de": "Die Fußgängerzone von Polignano a Mare ist täglich rund um die Uhr aktiv.",
+    "checkedOn": "2026-10-27T17:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Confirmed only by accessibilitacentristorici.it (a private permit-service site, page updated 04/10/2018), which also hosts a copy of the City's ordinance no. 207 of 2018 (pedestrian area 24 hours a day, all year). The City's website has a ZTL page and a privacy notice for the ZTL cameras, but no hours, map or current ordinance.",
+     "Hotel guests: no access for hotels inside the pedestrian area according to the same site; ask your accommodation or the Municipal Police before driving in. Blue Badge holders: weekdays only, after registering plate and badge with the Municipal Police. Motorbikes and mopeds banned too. Entering without a permit cannot be regularised afterwards.",
+     "Area drawn from the OpenStreetMap streets of the old town between Arco Marchesale and Piazza Santa Maria delle Grazie, plus Via Tritone up to Via Narciso (the limits named in the ordinance); no official map is published."
+    ],
+    "pending_it": [
+     "Confermato solo da accessibilitacentristorici.it (sito privato di servizi per i permessi, pagina aggiornata il 04/10/2018), che ospita anche una copia dell'ordinanza del Comune n. 207 del 2018 (area pedonale 24 ore su 24, tutto l'anno). Il sito del Comune ha una pagina ZTL e l'informativa privacy sulle telecamere, ma né orari né mappa né ordinanza vigente.",
+     "Ospiti degli hotel: secondo lo stesso sito le strutture dentro l'area pedonale non possono far entrare i clienti; chiedi alla struttura o alla Polizia Locale prima di entrare. Disabili: solo nei giorni feriali, dopo aver registrato targa e contrassegno alla Polizia Locale. Vietato anche a moto e ciclomotori. Chi entra senza permesso non può sanare dopo.",
+     "Area ricavata dalle strade OpenStreetMap del borgo antico tra l'Arco Marchesale e piazza Santa Maria delle Grazie, più via Tritone fino a via Narciso (i limiti dell'ordinanza); nessuna mappa ufficiale pubblicata."
+    ],
+    "pending_de": [
+     "Nur von accessibilitacentristorici.it bestätigt (private Website für Genehmigungsdienste, Seite aktualisiert am 04.10.2018), die auch eine Kopie der städtischen Verordnung Nr. 207 von 2018 bereitstellt (Fußgängerzone rund um die Uhr, ganzjährig). Die Website der Stadt hat eine ZTL-Seite und einen Datenschutzhinweis zu den Kameras, aber weder Zeiten noch Karte noch geltende Verordnung.",
+     "Hotelgäste: laut gleicher Website keine Zufahrt für Unterkünfte in der Fußgängerzone; frag vor der Einfahrt deine Unterkunft oder die Stadtpolizei. Inhaber eines Behindertenausweises: nur werktags, nach Registrierung von Kennzeichen und Ausweis bei der Stadtpolizei. Auch Motorräder und Mopeds verboten. Unerlaubte Einfahrt lässt sich nachträglich nicht regeln.",
+     "Fläche aus den OpenStreetMap-Straßen der Altstadt zwischen Arco Marchesale und Piazza Santa Maria delle Grazie, plus Via Tritone bis Via Narciso (die Grenzen der Verordnung); keine offizielle Karte veröffentlicht."
+    ],
+    "links": [
+     {
+      "title": "accessibilitacentristorici.it: Polignano a Mare ZTL (unofficial)",
+      "title_it": "accessibilitacentristorici.it: ZTL di Polignano a Mare (non ufficiale)",
+      "title_de": "accessibilitacentristorici.it: ZTL Polignano a Mare (inoffiziell)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/puglia/polignano-a-mare.html"
+     },
+     {
+      "title": "Ordinance no. 207/2018 on the pedestrian area (copy on accessibilitacentristorici.it, PDF)",
+      "title_it": "Ordinanza n. 207/2018 sull'area pedonale (copia su accessibilitacentristorici.it, PDF)",
+      "title_de": "Verordnung Nr. 207/2018 zur Fußgängerzone (Kopie auf accessibilitacentristorici.it, PDF)",
+      "url": "https://www.accessibilitacentristorici.it/ufficiali/ordinanze/Polignano_a_mare_ordinanza_PAP-00966-2018.pdf"
+     },
+     {
+      "title": "City of Polignano a Mare: ZTL page",
+      "title_it": "Comune di Polignano a Mare: pagina ZTL",
+      "title_de": "Stadt Polignano a Mare: ZTL-Seite",
+      "url": "https://www.comune.polignanoamare.ba.it/Argomenti/Trasporto-pubblico/ZTL"
+     },
+     {
+      "title": "OpenStreetMap: Arco Marchesale (ODbL)",
+      "title_it": "OpenStreetMap: Arco Marchesale (ODbL)",
+      "title_de": "OpenStreetMap: Arco Marchesale (ODbL)",
+      "url": "https://www.openstreetmap.org/way/166622037"
+     }
+    ],
+    "official": false,
+    "unofficialSource": {
+     "name": "accessibilitacentristorici.it",
+     "url": "https://www.accessibilitacentristorici.it/ztl/puglia/polignano-a-mare.html"
+    }
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: accessibilitacentristorici.it (unofficial) and its copy of the City's ordinance 207/2018. Area and gate: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

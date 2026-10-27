@@ -1,6 +1,6 @@
 {
- "version": "202610271647",
- "digest": "785b428c72ea",
+ "version": "202610271649",
+ "digest": "071130765f97",
  "schema": 1,
  "cities": [
   {
@@ -214,6 +214,11 @@
    "id": "mantova",
    "file": "mantova.json",
    "sha256": "c62cf23ddf846105154ffda9a273aa2eeb7417f5dcd3039b37bb5089e5128e86"
+  },
+  {
+   "id": "polignano-a-mare",
+   "file": "polignano-a-mare.json",
+   "sha256": "93508f405bb1a3845313d34aa33f6c1fd2532db4b66c0998e8406946d3b73be2"
   },
   {
    "id": "salerno",
