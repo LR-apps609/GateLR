@@ -1,6 +1,6 @@
 {
- "version": "202610271239",
- "digest": "ab8fcb54337e",
+ "version": "202610271358",
+ "digest": "5946080429b7",
  "schema": 1,
  "cities": [
   {
@@ -37,6 +37,11 @@
    "id": "como",
    "file": "como.json",
    "sha256": "781e30c889aa6f000131d196bc2dec0f07897ec01c90cc1ef5e575ca0b7b9d30"
+  },
+  {
+   "id": "cortona",
+   "file": "cortona.json",
+   "sha256": "4f7afe9c8dbe9ef86641ea3a78f2da7ff3de9333d8279308bb3eb49985e37ebd"
   },
   {
    "id": "ferrara",

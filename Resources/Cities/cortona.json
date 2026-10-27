@@ -1,0 +1,896 @@
+{
+ "id": "cortona",
+ "name": "Cortona",
+ "name_it": "Cortona",
+ "name_de": "Cortona",
+ "center": {
+  "lat": 43.275,
+  "lon": 11.9854
+ },
+ "zones": [
+  {
+   "id": "cortona-rossa",
+   "name": "Via Nazionale · Red ZTL",
+   "name_it": "Via Nazionale · ZTL Rossa",
+   "name_de": "Via Nazionale · Rote ZTL",
+   "kind": "restricted",
+   "summary": "The heart of Cortona (Via Nazionale from Piazzale Garibaldi, Piazza della Repubblica, Piazza Signorelli, Via Casali and the lanes off Via Nazionale) is closed to cars and motorbikes without a permit every day, holidays included: 10 am–4 am from 1 May to 30 September, 10 am–8 pm from 1 October to 30 April. Cameras at Via Nazionale and Via Roma. Staying inside? Your hotel registers your plate. Otherwise park outside the walls (Piazzale Garibaldi, Piazzale del Mercato) and walk.",
+   "summary_it": "Il cuore di Cortona (via Nazionale da piazzale Garibaldi, piazza della Repubblica, piazza Signorelli, via Casali e i vicoli di via Nazionale) è chiuso ad auto e moto senza permesso tutti i giorni, festivi compresi: 10–4 dal 1° maggio al 30 settembre, 10–20 dal 1° ottobre al 30 aprile. Telecamere in via Nazionale e via Roma. Dormi dentro? L'hotel registra la targa. Altrimenti parcheggia fuori dalle mura (piazzale Garibaldi, piazzale del Mercato) e cammina.",
+   "summary_de": "Das Herz von Cortona (Via Nazionale ab Piazzale Garibaldi, Piazza della Repubblica, Piazza Signorelli, Via Casali und die Gassen der Via Nazionale) ist für Autos und Motorräder ohne Genehmigung täglich gesperrt, auch an Feiertagen: 10–4 Uhr vom 1. Mai bis 30. September, 10–20 Uhr vom 1. Oktober bis 30. April. Kameras in der Via Nazionale und Via Roma. Du übernachtest innen? Dein Hotel meldet dein Kennzeichen an. Sonst außerhalb der Mauern parken (Piazzale Garibaldi, Piazzale del Mercato) und laufen.",
+   "perimeter": [
+    {
+     "lat": 43.274404,
+     "lon": 11.986674
+    },
+    {
+     "lat": 43.274404,
+     "lon": 11.986773
+    },
+    {
+     "lat": 43.274332,
+     "lon": 11.986773
+    },
+    {
+     "lat": 43.274332,
+     "lon": 11.98697
+    },
+    {
+     "lat": 43.27426,
+     "lon": 11.98697
+    },
+    {
+     "lat": 43.27426,
+     "lon": 11.987069
+    },
+    {
+     "lat": 43.274115,
+     "lon": 11.987168
+    },
+    {
+     "lat": 43.274115,
+     "lon": 11.987266
+    },
+    {
+     "lat": 43.274043,
+     "lon": 11.987266
+    },
+    {
+     "lat": 43.274043,
+     "lon": 11.987661
+    },
+    {
+     "lat": 43.274115,
+     "lon": 11.987661
+    },
+    {
+     "lat": 43.274115,
+     "lon": 11.987859
+    },
+    {
+     "lat": 43.274404,
+     "lon": 11.987859
+    },
+    {
+     "lat": 43.274404,
+     "lon": 11.98776
+    },
+    {
+     "lat": 43.274549,
+     "lon": 11.987859
+    },
+    {
+     "lat": 43.274549,
+     "lon": 11.98776
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.98776
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.987464
+    },
+    {
+     "lat": 43.274694,
+     "lon": 11.987464
+    },
+    {
+     "lat": 43.274694,
+     "lon": 11.987365
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.987365
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.987266
+    },
+    {
+     "lat": 43.274694,
+     "lon": 11.987266
+    },
+    {
+     "lat": 43.274694,
+     "lon": 11.986872
+    },
+    {
+     "lat": 43.274766,
+     "lon": 11.986872
+    },
+    {
+     "lat": 43.274766,
+     "lon": 11.986773
+    },
+    {
+     "lat": 43.274911,
+     "lon": 11.986674
+    },
+    {
+     "lat": 43.274911,
+     "lon": 11.986378
+    },
+    {
+     "lat": 43.274983,
+     "lon": 11.986378
+    },
+    {
+     "lat": 43.274983,
+     "lon": 11.986279
+    },
+    {
+     "lat": 43.274911,
+     "lon": 11.986279
+    },
+    {
+     "lat": 43.274911,
+     "lon": 11.986181
+    },
+    {
+     "lat": 43.274983,
+     "lon": 11.986181
+    },
+    {
+     "lat": 43.274983,
+     "lon": 11.985786
+    },
+    {
+     "lat": 43.275056,
+     "lon": 11.985786
+    },
+    {
+     "lat": 43.275128,
+     "lon": 11.985588
+    },
+    {
+     "lat": 43.275273,
+     "lon": 11.98549
+    },
+    {
+     "lat": 43.275273,
+     "lon": 11.985391
+    },
+    {
+     "lat": 43.275417,
+     "lon": 11.985391
+    },
+    {
+     "lat": 43.275417,
+     "lon": 11.985292
+    },
+    {
+     "lat": 43.275707,
+     "lon": 11.985292
+    },
+    {
+     "lat": 43.275707,
+     "lon": 11.984898
+    },
+    {
+     "lat": 43.275851,
+     "lon": 11.984799
+    },
+    {
+     "lat": 43.275851,
+     "lon": 11.984601
+    },
+    {
+     "lat": 43.275779,
+     "lon": 11.984601
+    },
+    {
+     "lat": 43.275779,
+     "lon": 11.9847
+    },
+    {
+     "lat": 43.275562,
+     "lon": 11.9847
+    },
+    {
+     "lat": 43.275562,
+     "lon": 11.984799
+    },
+    {
+     "lat": 43.275273,
+     "lon": 11.984799
+    },
+    {
+     "lat": 43.275273,
+     "lon": 11.984898
+    },
+    {
+     "lat": 43.2752,
+     "lon": 11.984898
+    },
+    {
+     "lat": 43.275128,
+     "lon": 11.985095
+    },
+    {
+     "lat": 43.274839,
+     "lon": 11.985095
+    },
+    {
+     "lat": 43.274839,
+     "lon": 11.985194
+    },
+    {
+     "lat": 43.274694,
+     "lon": 11.985292
+    },
+    {
+     "lat": 43.274694,
+     "lon": 11.985687
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.985687
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.985983
+    },
+    {
+     "lat": 43.274477,
+     "lon": 11.986082
+    },
+    {
+     "lat": 43.274477,
+     "lon": 11.986477
+    },
+    {
+     "lat": 43.274404,
+     "lon": 11.986477
+    },
+    {
+     "lat": 43.274404,
+     "lon": 11.986674
+    }
+   ],
+   "gates": [
+    {
+     "id": "cor-osm4581048295",
+     "name": "Varco Via Nazionale (Piazzale Garibaldi)",
+     "location": {
+      "lat": 43.2741,
+      "lon": 11.987939
+     }
+    },
+    {
+     "id": "cor-osm702185098",
+     "name": "Varco Via Roma / Piazza della Repubblica",
+     "location": {
+      "lat": 43.275037,
+      "lon": 11.985179
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 600,
+     "end": 240,
+     "season": {
+      "fromMonth": 5,
+      "fromDay": 1,
+      "toMonth": 9,
+      "toDay": 30
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 600,
+     "end": 1200,
+     "season": {
+      "fromMonth": 10,
+      "fromDay": 1,
+      "toMonth": 4,
+      "toDay": 30
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cortona",
+    "pageURL": "https://www.comune.cortona.ar.it/servizi/autorizzazioni/accesso-ztl",
+    "ordinance": "Disciplinare ZTL Rossa e Gialla, testo coordinato con D.G.C. n. 88 del 16/04/2019 (ordinanza n. 110 del 26/04/2019; prima ord. n. 41/2016 e n. 214/2018)",
+    "ordinanceURL": "https://www.comune.cortona.ar.it/document/open?id=436",
+    "quote": "Z.T.L. ROSSA Periodo Invernale (dal 01 ottobre al 30 aprile, tutti i giorni, festivi compresi) La Z.T.L. è attiva: dalle ore 10.00 alle ore 20.00. Periodo Estivo (dal 01 maggio al 30 settembre, tutti i giorni, festivi compresi) La Z.T.L. è attiva: dalle ore 10.00 alle ore 04.00.",
+    "quoteTranslation": "Red ZTL. Winter period (1 October to 30 April, every day, holidays included): the ZTL is active from 10.00 to 20.00. Summer period (1 May to 30 September, every day, holidays included): the ZTL is active from 10.00 to 04.00.",
+    "quoteTranslation_de": "Rote ZTL. Winterzeit (1. Oktober bis 30. April, täglich, auch an Feiertagen): die ZTL ist von 10.00 bis 20.00 Uhr aktiv. Sommerzeit (1. Mai bis 30. September, täglich, auch an Feiertagen): die ZTL ist von 10.00 bis 04.00 Uhr aktiv.",
+    "checkedOn": "2026-10-27T14:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotels and holiday lets inside the ZTL register their guests' plates on the City's portal for hotels, valid for the stay and only for the zone where the property is; they may do it up to 48 hours after you drive in. Blue Badge holders not living here may also be registered within 48 hours. Anyone else needs a permit before entering (online form, free; reply immediately or within 7 days): the request alone does not authorise you.",
+     "Motorbikes and mopeds are banned too; only bicycles and handcarts are always allowed. No exemption for electric cars is written in the regulations. Hours from the 2019 regulations, confirmed by the City's ZTL page (updated 15/04/2025); during events the City can change the rules with temporary ordinances.",
+     "Area drawn from the official list of streets on OpenStreetMap (no official map is published). Vicolo Venuti (split between the zones at house no. 13/14) and Vicolo della Scala are drawn in the Red zone, the one with longer hours. A few small lanes in the list are not in OpenStreetMap. The separate ZTL of via Benedetti, piazza Pescheria, vicolo Boni, via Passerini and via dell'Amorino has the Red zone's hours but is not drawn."
+    ],
+    "pending_it": [
+     "Hotel e affitti turistici dentro la ZTL registrano la targa dei clienti sul portale del Comune riservato alle strutture, valida per il soggiorno e solo per la zona della struttura; possono farlo fino a 48 ore dopo l'ingresso. Anche i titolari di contrassegno disabili non residenti possono essere registrati entro 48 ore. Tutti gli altri devono avere il permesso prima di entrare (modulo online, gratuito; risposta immediata o entro 7 giorni): la sola richiesta non abilita al transito.",
+     "Vietato anche a moto e ciclomotori; sono sempre ammessi solo biciclette e veicoli a braccia. Il disciplinare non prevede esenzioni per auto elettriche. Orari del disciplinare 2019, confermati dalla pagina ZTL del Comune (aggiornata il 15/04/2025); durante gli eventi il Comune può cambiare le regole con ordinanze temporanee.",
+     "Area ricavata dall'elenco ufficiale delle strade su OpenStreetMap (nessuna mappa ufficiale pubblicata). Vicolo Venuti (diviso tra le zone al civico 13/14) e vicolo della Scala sono disegnati nella Rossa, quella con gli orari più ampi. Alcuni piccoli vicoli dell'elenco non sono in OpenStreetMap. La ZTL separata di via Benedetti, piazza Pescheria, vicolo Boni, via Passerini e via dell'Amorino ha gli orari della Rossa ma non è disegnata."
+    ],
+    "pending_de": [
+     "Hotels und Ferienwohnungen in der ZTL melden die Kennzeichen ihrer Gäste im Portal der Stadt für Unterkünfte an, gültig für den Aufenthalt und nur für die Zone der Unterkunft; das geht bis 48 Stunden nach der Einfahrt. Auch Inhaber eines Behindertenausweises ohne Wohnsitz hier können binnen 48 Stunden gemeldet werden. Alle anderen brauchen die Genehmigung vor der Einfahrt (Online-Formular, kostenlos; Antwort sofort oder binnen 7 Tagen): der Antrag allein berechtigt nicht.",
+     "Auch Motorräder und Mopeds sind verboten; immer erlaubt sind nur Fahrräder und Handkarren. Eine Ausnahme für Elektroautos sieht die Regelung nicht vor. Zeiten aus der Regelung von 2019, bestätigt durch die ZTL-Seite der Stadt (aktualisiert 15.04.2025); bei Veranstaltungen kann die Stadt die Regeln mit befristeten Verordnungen ändern.",
+     "Fläche aus der amtlichen Straßenliste auf OpenStreetMap (keine amtliche Karte veröffentlicht). Vicolo Venuti (zwischen den Zonen bei Hausnummer 13/14 geteilt) und Vicolo della Scala sind in der Roten Zone eingezeichnet, der mit längeren Zeiten. Einige kleine Gassen der Liste fehlen in OpenStreetMap. Die eigene ZTL von Via Benedetti, Piazza Pescheria, Vicolo Boni, Via Passerini und Via dell'Amorino hat die Zeiten der Roten Zone, ist aber nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "City of Cortona: ZTL access (hours, permits)",
+      "title_it": "Comune di Cortona: accesso ZTL (orari, permessi)",
+      "title_de": "Stadt Cortona: ZTL-Zufahrt (Zeiten, Genehmigungen)",
+      "url": "https://www.comune.cortona.ar.it/servizi/autorizzazioni/accesso-ztl"
+     },
+     {
+      "title": "City of Cortona: ZTL Rossa and Gialla regulations (coordinated text 2019, PDF)",
+      "title_it": "Comune di Cortona: disciplinare ZTL Rossa e Gialla (testo coordinato 2019, PDF)",
+      "title_de": "Stadt Cortona: Regelung ZTL Rossa und Gialla (konsolidierte Fassung 2019, PDF)",
+      "url": "https://www.comune.cortona.ar.it/document/open?id=436"
+     },
+     {
+      "title": "City of Cortona: ordinance no. 110 of 26/04/2019 (PDF)",
+      "title_it": "Comune di Cortona: ordinanza n. 110 del 26/04/2019 (PDF)",
+      "title_de": "Stadt Cortona: Verordnung Nr. 110 vom 26.04.2019 (PDF)",
+      "url": "https://www.comune.cortona.ar.it/document/open?id=429"
+     },
+     {
+      "title": "City of Cortona: all ZTL acts",
+      "title_it": "Comune di Cortona: tutti gli atti sulle ZTL",
+      "title_de": "Stadt Cortona: alle ZTL-Rechtsakte",
+      "url": "https://www.comune.cortona.ar.it/amministrazione/documenti-e-dati/atto-normativo/atti-normativi-ztl-rossa-ztl-gialla-e-ztl-di-via-benedetti"
+     },
+     {
+      "title": "City of Cortona: online temporary permit request",
+      "title_it": "Comune di Cortona: richiesta online di transito temporaneo",
+      "title_de": "Stadt Cortona: Online-Antrag auf befristete Durchfahrt",
+      "url": "https://www.sicurnext.it/ZTLgest/public/public_inserisci.php"
+     },
+     {
+      "title": "OpenStreetMap: streets of the regulations (ODbL)",
+      "title_it": "OpenStreetMap: strade del disciplinare (ODbL)",
+      "title_de": "OpenStreetMap: Straßen der Regelung (ODbL)",
+      "url": "https://www.openstreetmap.org/way/462978262"
+     }
+    ]
+   }
+  },
+  {
+   "id": "cortona-gialla",
+   "name": "Via Guelfa · Yellow ZTL",
+   "name_it": "Via Guelfa · ZTL Gialla",
+   "name_de": "Via Guelfa · Gelbe ZTL",
+   "kind": "restricted",
+   "summary": "The south-west part of the old town (Via Guelfa from Porta Sant'Agostino, Via Ghibellina, Via Ghini, Via San Sebastiano, Via Roma up to Via Zefferini and the lanes between them) is closed to cars and motorbikes without a permit every day, holidays included: 10 am–3 pm and 4 pm–4 am from 1 May to 30 September, 11 am–2 pm and 5–8 pm from 1 October to 30 April. Camera at Porta Sant'Agostino. Staying inside? Your hotel registers your plate. Park at Piazzale del Mercato and walk.",
+   "summary_it": "La parte sud-ovest del centro (via Guelfa da Porta Sant'Agostino, via Ghibellina, via Ghini, via San Sebastiano, via Roma fino a via Zefferini e i vicoli in mezzo) è chiusa ad auto e moto senza permesso tutti i giorni, festivi compresi: 10–15 e 16–4 dal 1° maggio al 30 settembre, 11–14 e 17–20 dal 1° ottobre al 30 aprile. Telecamera a Porta Sant'Agostino. Dormi dentro? L'hotel registra la targa. Parcheggia in piazzale del Mercato e cammina.",
+   "summary_de": "Der Südwesten der Altstadt (Via Guelfa ab Porta Sant'Agostino, Via Ghibellina, Via Ghini, Via San Sebastiano, Via Roma bis Via Zefferini und die Gassen dazwischen) ist für Autos und Motorräder ohne Genehmigung täglich gesperrt, auch an Feiertagen: 10–15 und 16–4 Uhr vom 1. Mai bis 30. September, 11–14 und 17–20 Uhr vom 1. Oktober bis 30. April. Kamera an der Porta Sant'Agostino. Du übernachtest innen? Dein Hotel meldet dein Kennzeichen an. Auf dem Piazzale del Mercato parken und laufen.",
+   "perimeter": [
+    {
+     "lat": 43.274115,
+     "lon": 11.983446
+    },
+    {
+     "lat": 43.273826,
+     "lon": 11.983446
+    },
+    {
+     "lat": 43.273826,
+     "lon": 11.983544
+    },
+    {
+     "lat": 43.273392,
+     "lon": 11.983643
+    },
+    {
+     "lat": 43.273392,
+     "lon": 11.983742
+    },
+    {
+     "lat": 43.273102,
+     "lon": 11.983742
+    },
+    {
+     "lat": 43.273102,
+     "lon": 11.98384
+    },
+    {
+     "lat": 43.272957,
+     "lon": 11.983742
+    },
+    {
+     "lat": 43.272957,
+     "lon": 11.983939
+    },
+    {
+     "lat": 43.27303,
+     "lon": 11.983939
+    },
+    {
+     "lat": 43.27303,
+     "lon": 11.984531
+    },
+    {
+     "lat": 43.273175,
+     "lon": 11.98463
+    },
+    {
+     "lat": 43.273175,
+     "lon": 11.984827
+    },
+    {
+     "lat": 43.273247,
+     "lon": 11.984827
+    },
+    {
+     "lat": 43.273319,
+     "lon": 11.985025
+    },
+    {
+     "lat": 43.273392,
+     "lon": 11.985025
+    },
+    {
+     "lat": 43.273464,
+     "lon": 11.98542
+    },
+    {
+     "lat": 43.273536,
+     "lon": 11.98542
+    },
+    {
+     "lat": 43.273536,
+     "lon": 11.985518
+    },
+    {
+     "lat": 43.273681,
+     "lon": 11.985617
+    },
+    {
+     "lat": 43.273681,
+     "lon": 11.985814
+    },
+    {
+     "lat": 43.273753,
+     "lon": 11.985814
+    },
+    {
+     "lat": 43.273753,
+     "lon": 11.986209
+    },
+    {
+     "lat": 43.273826,
+     "lon": 11.986209
+    },
+    {
+     "lat": 43.273826,
+     "lon": 11.986801
+    },
+    {
+     "lat": 43.27397,
+     "lon": 11.9869
+    },
+    {
+     "lat": 43.27397,
+     "lon": 11.987295
+    },
+    {
+     "lat": 43.274043,
+     "lon": 11.987295
+    },
+    {
+     "lat": 43.274043,
+     "lon": 11.987394
+    },
+    {
+     "lat": 43.274115,
+     "lon": 11.987394
+    },
+    {
+     "lat": 43.274115,
+     "lon": 11.987295
+    },
+    {
+     "lat": 43.274332,
+     "lon": 11.987295
+    },
+    {
+     "lat": 43.274332,
+     "lon": 11.987394
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.987394
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.987492
+    },
+    {
+     "lat": 43.274766,
+     "lon": 11.987492
+    },
+    {
+     "lat": 43.274766,
+     "lon": 11.987394
+    },
+    {
+     "lat": 43.274694,
+     "lon": 11.987394
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.987196
+    },
+    {
+     "lat": 43.274477,
+     "lon": 11.987098
+    },
+    {
+     "lat": 43.274477,
+     "lon": 11.986703
+    },
+    {
+     "lat": 43.274404,
+     "lon": 11.986703
+    },
+    {
+     "lat": 43.274404,
+     "lon": 11.986604
+    },
+    {
+     "lat": 43.274477,
+     "lon": 11.986604
+    },
+    {
+     "lat": 43.274477,
+     "lon": 11.986209
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.986111
+    },
+    {
+     "lat": 43.274622,
+     "lon": 11.985716
+    },
+    {
+     "lat": 43.274694,
+     "lon": 11.985716
+    },
+    {
+     "lat": 43.274694,
+     "lon": 11.985617
+    },
+    {
+     "lat": 43.274766,
+     "lon": 11.985617
+    },
+    {
+     "lat": 43.274839,
+     "lon": 11.98542
+    },
+    {
+     "lat": 43.274911,
+     "lon": 11.98542
+    },
+    {
+     "lat": 43.274911,
+     "lon": 11.985321
+    },
+    {
+     "lat": 43.274983,
+     "lon": 11.985321
+    },
+    {
+     "lat": 43.275056,
+     "lon": 11.985123
+    },
+    {
+     "lat": 43.275128,
+     "lon": 11.985123
+    },
+    {
+     "lat": 43.275128,
+     "lon": 11.984926
+    },
+    {
+     "lat": 43.2752,
+     "lon": 11.984926
+    },
+    {
+     "lat": 43.2752,
+     "lon": 11.984729
+    },
+    {
+     "lat": 43.275273,
+     "lon": 11.984729
+    },
+    {
+     "lat": 43.275273,
+     "lon": 11.984433
+    },
+    {
+     "lat": 43.275345,
+     "lon": 11.984433
+    },
+    {
+     "lat": 43.275345,
+     "lon": 11.984235
+    },
+    {
+     "lat": 43.275417,
+     "lon": 11.984235
+    },
+    {
+     "lat": 43.27549,
+     "lon": 11.983446
+    },
+    {
+     "lat": 43.275562,
+     "lon": 11.983446
+    },
+    {
+     "lat": 43.275562,
+     "lon": 11.983347
+    },
+    {
+     "lat": 43.275707,
+     "lon": 11.983248
+    },
+    {
+     "lat": 43.275707,
+     "lon": 11.983051
+    },
+    {
+     "lat": 43.275562,
+     "lon": 11.983051
+    },
+    {
+     "lat": 43.275562,
+     "lon": 11.982952
+    },
+    {
+     "lat": 43.27549,
+     "lon": 11.982952
+    },
+    {
+     "lat": 43.27549,
+     "lon": 11.983051
+    },
+    {
+     "lat": 43.275056,
+     "lon": 11.983051
+    },
+    {
+     "lat": 43.275056,
+     "lon": 11.983149
+    },
+    {
+     "lat": 43.274766,
+     "lon": 11.983149
+    },
+    {
+     "lat": 43.274766,
+     "lon": 11.983248
+    },
+    {
+     "lat": 43.274477,
+     "lon": 11.983248
+    },
+    {
+     "lat": 43.274477,
+     "lon": 11.983347
+    },
+    {
+     "lat": 43.274187,
+     "lon": 11.983347
+    },
+    {
+     "lat": 43.274187,
+     "lon": 11.983446
+    },
+    {
+     "lat": 43.274115,
+     "lon": 11.983446
+    }
+   ],
+   "gates": [
+    {
+     "id": "cor-osm5535568192",
+     "name": "Varco Via Guelfa (Porta Sant'Agostino)",
+     "location": {
+      "lat": 43.272996,
+      "lon": 11.983835
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 600,
+     "end": 900,
+     "season": {
+      "fromMonth": 5,
+      "fromDay": 1,
+      "toMonth": 9,
+      "toDay": 30
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 960,
+     "end": 240,
+     "season": {
+      "fromMonth": 5,
+      "fromDay": 1,
+      "toMonth": 9,
+      "toDay": 30
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 660,
+     "end": 840,
+     "season": {
+      "fromMonth": 10,
+      "fromDay": 1,
+      "toMonth": 4,
+      "toDay": 30
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1020,
+     "end": 1200,
+     "season": {
+      "fromMonth": 10,
+      "fromDay": 1,
+      "toMonth": 4,
+      "toDay": 30
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cortona",
+    "pageURL": "https://www.comune.cortona.ar.it/servizi/autorizzazioni/accesso-ztl",
+    "ordinance": "Disciplinare ZTL Rossa e Gialla, testo coordinato con D.G.C. n. 88 del 16/04/2019 (ordinanza n. 110 del 26/04/2019; prima ord. n. 41/2016 e n. 214/2018)",
+    "ordinanceURL": "https://www.comune.cortona.ar.it/document/open?id=436",
+    "quote": "Z.T.L. GIALLA Periodo Invernale (dal 01 ottobre al 30 aprile, tutti i giorni, festivi compresi) La Z.T.L. è attiva: dalle ore 11.00 alle ore 14.00; dalle ore 17.00 alle ore 20.00. Periodo Estivo (dal 01 maggio al giorno 30 settembre, tutti i giorni, festivi compresi) La Z.T.L. è attiva: dalle ore 10.00 alle ore 15.00; dalle ore 16.00 alle ore 04.00.",
+    "quoteTranslation": "Yellow ZTL. Winter period (1 October to 30 April, every day, holidays included): the ZTL is active from 11.00 to 14.00 and from 17.00 to 20.00. Summer period (1 May to 30 September, every day, holidays included): the ZTL is active from 10.00 to 15.00 and from 16.00 to 04.00.",
+    "quoteTranslation_de": "Gelbe ZTL. Winterzeit (1. Oktober bis 30. April, täglich, auch an Feiertagen): die ZTL ist von 11.00 bis 14.00 und von 17.00 bis 20.00 Uhr aktiv. Sommerzeit (1. Mai bis 30. September, täglich, auch an Feiertagen): die ZTL ist von 10.00 bis 15.00 und von 16.00 bis 04.00 Uhr aktiv.",
+    "checkedOn": "2026-10-27T14:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotels and holiday lets inside the ZTL register their guests' plates on the City's portal for hotels, valid for the stay and only for the zone where the property is; they may do it up to 48 hours after you drive in. Blue Badge holders not living here may also be registered within 48 hours. Anyone else needs a permit before entering (online form, free; reply immediately or within 7 days): the request alone does not authorise you.",
+     "Motorbikes and mopeds are banned too; only bicycles and handcarts are always allowed. No exemption for electric cars is written in the regulations. Hours from the 2019 regulations, confirmed by the City's ZTL page (updated 15/04/2025); during events the City can change the rules with temporary ordinances.",
+     "Area drawn from the official list of streets on OpenStreetMap (no official map is published). Vicolo Venuti (split between the zones at house no. 13/14) and Vicolo della Scala are drawn in the Red zone, the one with longer hours. A few small lanes in the list are not in OpenStreetMap. The separate ZTL of via Benedetti, piazza Pescheria, vicolo Boni, via Passerini and via dell'Amorino has the Red zone's hours but is not drawn."
+    ],
+    "pending_it": [
+     "Hotel e affitti turistici dentro la ZTL registrano la targa dei clienti sul portale del Comune riservato alle strutture, valida per il soggiorno e solo per la zona della struttura; possono farlo fino a 48 ore dopo l'ingresso. Anche i titolari di contrassegno disabili non residenti possono essere registrati entro 48 ore. Tutti gli altri devono avere il permesso prima di entrare (modulo online, gratuito; risposta immediata o entro 7 giorni): la sola richiesta non abilita al transito.",
+     "Vietato anche a moto e ciclomotori; sono sempre ammessi solo biciclette e veicoli a braccia. Il disciplinare non prevede esenzioni per auto elettriche. Orari del disciplinare 2019, confermati dalla pagina ZTL del Comune (aggiornata il 15/04/2025); durante gli eventi il Comune può cambiare le regole con ordinanze temporanee.",
+     "Area ricavata dall'elenco ufficiale delle strade su OpenStreetMap (nessuna mappa ufficiale pubblicata). Vicolo Venuti (diviso tra le zone al civico 13/14) e vicolo della Scala sono disegnati nella Rossa, quella con gli orari più ampi. Alcuni piccoli vicoli dell'elenco non sono in OpenStreetMap. La ZTL separata di via Benedetti, piazza Pescheria, vicolo Boni, via Passerini e via dell'Amorino ha gli orari della Rossa ma non è disegnata."
+    ],
+    "pending_de": [
+     "Hotels und Ferienwohnungen in der ZTL melden die Kennzeichen ihrer Gäste im Portal der Stadt für Unterkünfte an, gültig für den Aufenthalt und nur für die Zone der Unterkunft; das geht bis 48 Stunden nach der Einfahrt. Auch Inhaber eines Behindertenausweises ohne Wohnsitz hier können binnen 48 Stunden gemeldet werden. Alle anderen brauchen die Genehmigung vor der Einfahrt (Online-Formular, kostenlos; Antwort sofort oder binnen 7 Tagen): der Antrag allein berechtigt nicht.",
+     "Auch Motorräder und Mopeds sind verboten; immer erlaubt sind nur Fahrräder und Handkarren. Eine Ausnahme für Elektroautos sieht die Regelung nicht vor. Zeiten aus der Regelung von 2019, bestätigt durch die ZTL-Seite der Stadt (aktualisiert 15.04.2025); bei Veranstaltungen kann die Stadt die Regeln mit befristeten Verordnungen ändern.",
+     "Fläche aus der amtlichen Straßenliste auf OpenStreetMap (keine amtliche Karte veröffentlicht). Vicolo Venuti (zwischen den Zonen bei Hausnummer 13/14 geteilt) und Vicolo della Scala sind in der Roten Zone eingezeichnet, der mit längeren Zeiten. Einige kleine Gassen der Liste fehlen in OpenStreetMap. Die eigene ZTL von Via Benedetti, Piazza Pescheria, Vicolo Boni, Via Passerini und Via dell'Amorino hat die Zeiten der Roten Zone, ist aber nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "City of Cortona: ZTL access (hours, permits)",
+      "title_it": "Comune di Cortona: accesso ZTL (orari, permessi)",
+      "title_de": "Stadt Cortona: ZTL-Zufahrt (Zeiten, Genehmigungen)",
+      "url": "https://www.comune.cortona.ar.it/servizi/autorizzazioni/accesso-ztl"
+     },
+     {
+      "title": "City of Cortona: ZTL Rossa and Gialla regulations (coordinated text 2019, PDF)",
+      "title_it": "Comune di Cortona: disciplinare ZTL Rossa e Gialla (testo coordinato 2019, PDF)",
+      "title_de": "Stadt Cortona: Regelung ZTL Rossa und Gialla (konsolidierte Fassung 2019, PDF)",
+      "url": "https://www.comune.cortona.ar.it/document/open?id=436"
+     },
+     {
+      "title": "City of Cortona: ordinance no. 110 of 26/04/2019 (PDF)",
+      "title_it": "Comune di Cortona: ordinanza n. 110 del 26/04/2019 (PDF)",
+      "title_de": "Stadt Cortona: Verordnung Nr. 110 vom 26.04.2019 (PDF)",
+      "url": "https://www.comune.cortona.ar.it/document/open?id=429"
+     },
+     {
+      "title": "City of Cortona: all ZTL acts",
+      "title_it": "Comune di Cortona: tutti gli atti sulle ZTL",
+      "title_de": "Stadt Cortona: alle ZTL-Rechtsakte",
+      "url": "https://www.comune.cortona.ar.it/amministrazione/documenti-e-dati/atto-normativo/atti-normativi-ztl-rossa-ztl-gialla-e-ztl-di-via-benedetti"
+     },
+     {
+      "title": "City of Cortona: online temporary permit request",
+      "title_it": "Comune di Cortona: richiesta online di transito temporaneo",
+      "title_de": "Stadt Cortona: Online-Antrag auf befristete Durchfahrt",
+      "url": "https://www.sicurnext.it/ZTLgest/public/public_inserisci.php"
+     },
+     {
+      "title": "OpenStreetMap: streets of the regulations (ODbL)",
+      "title_it": "OpenStreetMap: strade del disciplinare (ODbL)",
+      "title_de": "OpenStreetMap: Straßen der Regelung (ODbL)",
+      "url": "https://www.openstreetmap.org/way/462978262"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Cortona (ZTL regulations 2019 and official page). Areas and gates: © OpenStreetMap contributors, ODbL 1.0 (streets of the regulations, approximate)."
+}
