@@ -1,0 +1,8 @@
+URL: https://smart-pass.comune.taormina.me.it/ (applicazione web; testi letti nel file https://smart-pass.comune.taormina.me.it/static/js/main.49f5aaf3.js)
+Letto il: 2026-10-27 (portale «Taormina ZTL» del Comune; fonte ufficiale; solo le frasi dell'interfaccia, nessuna regola o orario)
+
+Accettando la richista di entrare a far parte dell'organizzazione, potrai accedere alle informazioni di questa organizzazione, tra cui Ospiti, Impiegati, richieste di accesso ZTL.
+Informazioni accesso ZTL
+Inserisci nuovo accesso ZTL
+Sei residente a Taormina? <strong>Accedi</strong> e invia la richiesta per ricevere il pass per la ZTL
+Servizio per la gestione di rilascio pass parcheggi e accessi ZTL, nel comune di Taormina
