@@ -273,7 +273,7 @@ def hour_rows(z, lang):
     if z.get("freeOnHolidays") is None: rows.append((t["hol"], t["notConf"], ""))
     elif z.get("freeOnHolidays") is True: rows.append((t["hol"], t["open"], "free"))
     elif z.get("holidaysAsSunday") is True: rows.append((t["hol"], t["asSun"], ""))
-    if any(w["start"] == 0 and w["end"] == 1440 for w in z["windows"]): rows = [(t["always"], t["closed"], "")]
+    if any(w["start"] == 0 and w["end"] == 1440 and not w.get("season") for w in z["windows"]): rows = [(t["always"], t["closed"], "")]
     return rows
 
 

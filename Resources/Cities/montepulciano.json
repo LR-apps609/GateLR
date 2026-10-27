@@ -1,0 +1,921 @@
+{
+ "id": "montepulciano",
+ "name": "Montepulciano",
+ "name_it": "Montepulciano",
+ "name_de": "Montepulciano",
+ "center": {
+  "lat": 43.0927,
+  "lon": 11.781
+ },
+ "zones": [
+  {
+   "id": "montepulciano-centro",
+   "name": "Old town · ZTL inside the walls",
+   "name_it": "Centro storico · ZTL dentro le mura",
+   "name_de": "Altstadt · ZTL innerhalb der Mauern",
+   "kind": "restricted",
+   "summary": "The whole old town of Montepulciano inside the walls (the Corso, Piazza Grande) is closed to cars without a permit every day: 24 hours a day from 1 May to 30 September, 8 am–8 pm in April and October, 8 am–5 pm from November to March. Cameras check entries and exits. Staying inside? Your hotel puts your plate on the white list, only to unload. Park at the car parks outside the gates (e.g. P1 near Porta al Prato) and walk.",
+   "summary_it": "Tutto il centro storico di Montepulciano dentro le mura (il Corso, Piazza Grande) è chiuso alle auto senza permesso tutti i giorni: 24 ore su 24 dal 1° maggio al 30 settembre, 8–20 ad aprile e ottobre, 8–17 da novembre a marzo. Le telecamere controllano ingressi e uscite. Dormi dentro? L'hotel inserisce la targa nella white list, solo per scaricare. Parcheggia nei parcheggi fuori dalle porte (es. P1 vicino a Porta al Prato) e cammina.",
+   "summary_de": "Die ganze Altstadt von Montepulciano innerhalb der Mauern (der Corso, Piazza Grande) ist für Autos ohne Genehmigung täglich gesperrt: rund um die Uhr vom 1. Mai bis 30. September, 8–20 Uhr im April und Oktober, 8–17 Uhr von November bis März. Kameras überwachen Ein- und Ausfahrten. Du übernachtest innen? Dein Hotel setzt dein Kennzeichen auf die weiße Liste, nur zum Ausladen. Auf den Parkplätzen vor den Toren parken (z. B. P1 bei der Porta al Prato) und laufen.",
+   "perimeter": [
+    {
+     "lat": 43.096786,
+     "lon": 11.785464
+    },
+    {
+     "lat": 43.096858,
+     "lon": 11.785464
+    },
+    {
+     "lat": 43.096931,
+     "lon": 11.785267
+    },
+    {
+     "lat": 43.097148,
+     "lon": 11.785267
+    },
+    {
+     "lat": 43.097148,
+     "lon": 11.785169
+    },
+    {
+     "lat": 43.097075,
+     "lon": 11.785169
+    },
+    {
+     "lat": 43.097075,
+     "lon": 11.784972
+    },
+    {
+     "lat": 43.096931,
+     "lon": 11.784972
+    },
+    {
+     "lat": 43.096858,
+     "lon": 11.784775
+    },
+    {
+     "lat": 43.096786,
+     "lon": 11.784775
+    },
+    {
+     "lat": 43.096714,
+     "lon": 11.784579
+    },
+    {
+     "lat": 43.096641,
+     "lon": 11.784579
+    },
+    {
+     "lat": 43.096641,
+     "lon": 11.78448
+    },
+    {
+     "lat": 43.096569,
+     "lon": 11.78448
+    },
+    {
+     "lat": 43.096569,
+     "lon": 11.784382
+    },
+    {
+     "lat": 43.096496,
+     "lon": 11.784382
+    },
+    {
+     "lat": 43.096496,
+     "lon": 11.784086
+    },
+    {
+     "lat": 43.096424,
+     "lon": 11.784086
+    },
+    {
+     "lat": 43.096424,
+     "lon": 11.783988
+    },
+    {
+     "lat": 43.096279,
+     "lon": 11.78389
+    },
+    {
+     "lat": 43.096279,
+     "lon": 11.783791
+    },
+    {
+     "lat": 43.096135,
+     "lon": 11.783791
+    },
+    {
+     "lat": 43.096135,
+     "lon": 11.783693
+    },
+    {
+     "lat": 43.096062,
+     "lon": 11.783693
+    },
+    {
+     "lat": 43.09599,
+     "lon": 11.783496
+    },
+    {
+     "lat": 43.095918,
+     "lon": 11.783496
+    },
+    {
+     "lat": 43.095918,
+     "lon": 11.783398
+    },
+    {
+     "lat": 43.095845,
+     "lon": 11.783398
+    },
+    {
+     "lat": 43.095845,
+     "lon": 11.783004
+    },
+    {
+     "lat": 43.095773,
+     "lon": 11.783004
+    },
+    {
+     "lat": 43.095773,
+     "lon": 11.782807
+    },
+    {
+     "lat": 43.095701,
+     "lon": 11.782807
+    },
+    {
+     "lat": 43.095701,
+     "lon": 11.782709
+    },
+    {
+     "lat": 43.095628,
+     "lon": 11.782709
+    },
+    {
+     "lat": 43.095628,
+     "lon": 11.782315
+    },
+    {
+     "lat": 43.095556,
+     "lon": 11.782315
+    },
+    {
+     "lat": 43.095556,
+     "lon": 11.782118
+    },
+    {
+     "lat": 43.095628,
+     "lon": 11.782118
+    },
+    {
+     "lat": 43.095628,
+     "lon": 11.78202
+    },
+    {
+     "lat": 43.095556,
+     "lon": 11.78202
+    },
+    {
+     "lat": 43.095556,
+     "lon": 11.781725
+    },
+    {
+     "lat": 43.095484,
+     "lon": 11.781725
+    },
+    {
+     "lat": 43.095484,
+     "lon": 11.781528
+    },
+    {
+     "lat": 43.095411,
+     "lon": 11.781528
+    },
+    {
+     "lat": 43.095411,
+     "lon": 11.781331
+    },
+    {
+     "lat": 43.095339,
+     "lon": 11.781331
+    },
+    {
+     "lat": 43.095339,
+     "lon": 11.780937
+    },
+    {
+     "lat": 43.095267,
+     "lon": 11.780937
+    },
+    {
+     "lat": 43.095267,
+     "lon": 11.78074
+    },
+    {
+     "lat": 43.095339,
+     "lon": 11.78074
+    },
+    {
+     "lat": 43.095339,
+     "lon": 11.780445
+    },
+    {
+     "lat": 43.094615,
+     "lon": 11.780445
+    },
+    {
+     "lat": 43.094615,
+     "lon": 11.780347
+    },
+    {
+     "lat": 43.094326,
+     "lon": 11.780347
+    },
+    {
+     "lat": 43.094326,
+     "lon": 11.780248
+    },
+    {
+     "lat": 43.094109,
+     "lon": 11.780248
+    },
+    {
+     "lat": 43.094109,
+     "lon": 11.78015
+    },
+    {
+     "lat": 43.093964,
+     "lon": 11.78015
+    },
+    {
+     "lat": 43.093964,
+     "lon": 11.780052
+    },
+    {
+     "lat": 43.093747,
+     "lon": 11.780052
+    },
+    {
+     "lat": 43.093747,
+     "lon": 11.78015
+    },
+    {
+     "lat": 43.09353,
+     "lon": 11.78015
+    },
+    {
+     "lat": 43.09353,
+     "lon": 11.780052
+    },
+    {
+     "lat": 43.093241,
+     "lon": 11.780052
+    },
+    {
+     "lat": 43.093168,
+     "lon": 11.779855
+    },
+    {
+     "lat": 43.093024,
+     "lon": 11.779855
+    },
+    {
+     "lat": 43.093024,
+     "lon": 11.779756
+    },
+    {
+     "lat": 43.092879,
+     "lon": 11.779756
+    },
+    {
+     "lat": 43.092879,
+     "lon": 11.779658
+    },
+    {
+     "lat": 43.092734,
+     "lon": 11.779658
+    },
+    {
+     "lat": 43.092734,
+     "lon": 11.779559
+    },
+    {
+     "lat": 43.092517,
+     "lon": 11.779559
+    },
+    {
+     "lat": 43.092517,
+     "lon": 11.779461
+    },
+    {
+     "lat": 43.0923,
+     "lon": 11.779461
+    },
+    {
+     "lat": 43.0923,
+     "lon": 11.779363
+    },
+    {
+     "lat": 43.092011,
+     "lon": 11.779264
+    },
+    {
+     "lat": 43.091938,
+     "lon": 11.779067
+    },
+    {
+     "lat": 43.091721,
+     "lon": 11.779067
+    },
+    {
+     "lat": 43.091721,
+     "lon": 11.778969
+    },
+    {
+     "lat": 43.091432,
+     "lon": 11.778969
+    },
+    {
+     "lat": 43.091432,
+     "lon": 11.778871
+    },
+    {
+     "lat": 43.091287,
+     "lon": 11.778871
+    },
+    {
+     "lat": 43.09136,
+     "lon": 11.779067
+    },
+    {
+     "lat": 43.091432,
+     "lon": 11.779067
+    },
+    {
+     "lat": 43.091432,
+     "lon": 11.779166
+    },
+    {
+     "lat": 43.091504,
+     "lon": 11.779166
+    },
+    {
+     "lat": 43.091504,
+     "lon": 11.779559
+    },
+    {
+     "lat": 43.091577,
+     "lon": 11.779559
+    },
+    {
+     "lat": 43.091577,
+     "lon": 11.779756
+    },
+    {
+     "lat": 43.091504,
+     "lon": 11.779756
+    },
+    {
+     "lat": 43.091504,
+     "lon": 11.78015
+    },
+    {
+     "lat": 43.09136,
+     "lon": 11.780248
+    },
+    {
+     "lat": 43.09136,
+     "lon": 11.780347
+    },
+    {
+     "lat": 43.091287,
+     "lon": 11.780347
+    },
+    {
+     "lat": 43.091215,
+     "lon": 11.780544
+    },
+    {
+     "lat": 43.090926,
+     "lon": 11.780544
+    },
+    {
+     "lat": 43.090926,
+     "lon": 11.780642
+    },
+    {
+     "lat": 43.090419,
+     "lon": 11.780642
+    },
+    {
+     "lat": 43.090419,
+     "lon": 11.780544
+    },
+    {
+     "lat": 43.090274,
+     "lon": 11.780544
+    },
+    {
+     "lat": 43.090274,
+     "lon": 11.780642
+    },
+    {
+     "lat": 43.090347,
+     "lon": 11.780642
+    },
+    {
+     "lat": 43.090347,
+     "lon": 11.780839
+    },
+    {
+     "lat": 43.090491,
+     "lon": 11.780937
+    },
+    {
+     "lat": 43.090491,
+     "lon": 11.781134
+    },
+    {
+     "lat": 43.090636,
+     "lon": 11.781232
+    },
+    {
+     "lat": 43.090636,
+     "lon": 11.781626
+    },
+    {
+     "lat": 43.090781,
+     "lon": 11.781725
+    },
+    {
+     "lat": 43.090781,
+     "lon": 11.782118
+    },
+    {
+     "lat": 43.090926,
+     "lon": 11.782118
+    },
+    {
+     "lat": 43.090926,
+     "lon": 11.782217
+    },
+    {
+     "lat": 43.091287,
+     "lon": 11.782217
+    },
+    {
+     "lat": 43.091287,
+     "lon": 11.782315
+    },
+    {
+     "lat": 43.09136,
+     "lon": 11.782315
+    },
+    {
+     "lat": 43.091432,
+     "lon": 11.782118
+    },
+    {
+     "lat": 43.091504,
+     "lon": 11.782118
+    },
+    {
+     "lat": 43.091504,
+     "lon": 11.78202
+    },
+    {
+     "lat": 43.091794,
+     "lon": 11.78202
+    },
+    {
+     "lat": 43.091794,
+     "lon": 11.781921
+    },
+    {
+     "lat": 43.092011,
+     "lon": 11.781921
+    },
+    {
+     "lat": 43.092011,
+     "lon": 11.78202
+    },
+    {
+     "lat": 43.0923,
+     "lon": 11.78202
+    },
+    {
+     "lat": 43.0923,
+     "lon": 11.782118
+    },
+    {
+     "lat": 43.092445,
+     "lon": 11.782118
+    },
+    {
+     "lat": 43.092445,
+     "lon": 11.782217
+    },
+    {
+     "lat": 43.092734,
+     "lon": 11.782315
+    },
+    {
+     "lat": 43.092734,
+     "lon": 11.782413
+    },
+    {
+     "lat": 43.092879,
+     "lon": 11.782413
+    },
+    {
+     "lat": 43.092879,
+     "lon": 11.782315
+    },
+    {
+     "lat": 43.093096,
+     "lon": 11.782315
+    },
+    {
+     "lat": 43.093096,
+     "lon": 11.782217
+    },
+    {
+     "lat": 43.093385,
+     "lon": 11.782217
+    },
+    {
+     "lat": 43.093385,
+     "lon": 11.782118
+    },
+    {
+     "lat": 43.093747,
+     "lon": 11.782118
+    },
+    {
+     "lat": 43.093747,
+     "lon": 11.782217
+    },
+    {
+     "lat": 43.094037,
+     "lon": 11.782217
+    },
+    {
+     "lat": 43.094109,
+     "lon": 11.782413
+    },
+    {
+     "lat": 43.094181,
+     "lon": 11.782413
+    },
+    {
+     "lat": 43.094181,
+     "lon": 11.782512
+    },
+    {
+     "lat": 43.094254,
+     "lon": 11.782512
+    },
+    {
+     "lat": 43.094254,
+     "lon": 11.78261
+    },
+    {
+     "lat": 43.094326,
+     "lon": 11.78261
+    },
+    {
+     "lat": 43.094326,
+     "lon": 11.782709
+    },
+    {
+     "lat": 43.094398,
+     "lon": 11.782709
+    },
+    {
+     "lat": 43.094398,
+     "lon": 11.783004
+    },
+    {
+     "lat": 43.094543,
+     "lon": 11.783004
+    },
+    {
+     "lat": 43.094543,
+     "lon": 11.783102
+    },
+    {
+     "lat": 43.094688,
+     "lon": 11.783201
+    },
+    {
+     "lat": 43.094688,
+     "lon": 11.783299
+    },
+    {
+     "lat": 43.09476,
+     "lon": 11.783299
+    },
+    {
+     "lat": 43.09476,
+     "lon": 11.783398
+    },
+    {
+     "lat": 43.094905,
+     "lon": 11.783496
+    },
+    {
+     "lat": 43.094905,
+     "lon": 11.783693
+    },
+    {
+     "lat": 43.095049,
+     "lon": 11.783791
+    },
+    {
+     "lat": 43.095049,
+     "lon": 11.784086
+    },
+    {
+     "lat": 43.095122,
+     "lon": 11.784086
+    },
+    {
+     "lat": 43.095122,
+     "lon": 11.784185
+    },
+    {
+     "lat": 43.095267,
+     "lon": 11.784283
+    },
+    {
+     "lat": 43.095267,
+     "lon": 11.784677
+    },
+    {
+     "lat": 43.095339,
+     "lon": 11.784677
+    },
+    {
+     "lat": 43.095267,
+     "lon": 11.785071
+    },
+    {
+     "lat": 43.095339,
+     "lon": 11.785071
+    },
+    {
+     "lat": 43.095339,
+     "lon": 11.785169
+    },
+    {
+     "lat": 43.095484,
+     "lon": 11.785267
+    },
+    {
+     "lat": 43.095484,
+     "lon": 11.785366
+    },
+    {
+     "lat": 43.095773,
+     "lon": 11.785366
+    },
+    {
+     "lat": 43.095773,
+     "lon": 11.785464
+    },
+    {
+     "lat": 43.095918,
+     "lon": 11.785464
+    },
+    {
+     "lat": 43.095918,
+     "lon": 11.785366
+    },
+    {
+     "lat": 43.096786,
+     "lon": 11.785464
+    }
+   ],
+   "gates": [
+    {
+     "id": "mp-osm305521951",
+     "name": "Varco Porta al Prato · ingresso",
+     "location": {
+      "lat": 43.097013,
+      "lon": 11.785042
+     }
+    },
+    {
+     "id": "mp-osm2198093415",
+     "name": "Varco Via di Ciliano · ingresso e uscita",
+     "location": {
+      "lat": 43.096285,
+      "lon": 11.78399
+     }
+    },
+    {
+     "id": "mp-osm1776199386",
+     "name": "Varco Via di Collazzi · ingresso",
+     "location": {
+      "lat": 43.091331,
+      "lon": 11.778954
+     }
+    },
+    {
+     "id": "mp-osm787024727",
+     "name": "Varco Via di San Donato · ingresso",
+     "location": {
+      "lat": 43.091517,
+      "lon": 11.779983
+     }
+    },
+    {
+     "id": "mp-osm787008407",
+     "name": "Varco Via Fiorenzuola Vecchia · ingresso",
+     "location": {
+      "lat": 43.091441,
+      "lon": 11.780588
+     }
+    },
+    {
+     "id": "mp-osm264347932",
+     "name": "Varco Porta di Gozzano (Borgo Buio) · uscita",
+     "location": {
+      "lat": 43.095081,
+      "lon": 11.784036
+     }
+    },
+    {
+     "id": "mp-osm787008514",
+     "name": "Varco Porta delle Farine (Via del Teatro) · uscita",
+     "location": {
+      "lat": 43.091299,
+      "lon": 11.782261
+     }
+    },
+    {
+     "id": "mp-osm2972092117",
+     "name": "Varco Porta dei Grassi · uscita",
+     "location": {
+      "lat": 43.093795,
+      "lon": 11.78011
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440,
+     "season": {
+      "fromMonth": 5,
+      "fromDay": 1,
+      "toMonth": 9,
+      "toDay": 30
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 480,
+     "end": 1200,
+     "season": {
+      "fromMonth": 4,
+      "fromDay": 1,
+      "toMonth": 4,
+      "toDay": 30
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 480,
+     "end": 1200,
+     "season": {
+      "fromMonth": 10,
+      "fromDay": 1,
+      "toMonth": 10,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 480,
+     "end": 1020,
+     "season": {
+      "fromMonth": 11,
+      "fromDay": 1,
+      "toMonth": 3,
+      "toDay": 31
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Montepulciano",
+    "pageURL": "https://www.comune.montepulciano.si.it/istruzioni-ztl/",
+    "ordinance": "Ordinanza n. 77 dell'11/05/2022 (modificata dalle n. 114/2022 e 32/2023); varchi d'uscita: ordinanza n. 9 del 14/01/2025",
+    "ordinanceURL": "https://www.comune.montepulciano.si.it/wp-content/uploads/2024/11/DEF_ordinanza_ZTL_77_2022_EN.pdf",
+    "quote": "Dal 1 maggio al 30 settembre, ZTL attiva 24 ore (dalle ore 00.00 alle ore 24.00) Nei mesi di aprile ed ottobre, ZTL attiva dalle 8.00 alle 20.00 Dal 1 novembre al 31 marzo, ZTL attiva dalle 8.00 alle 17.00",
+    "quoteTranslation": "From 1 May to 30 September, ZTL active 24 hours (from 00.00 to 24.00). In April and October, ZTL active from 8.00 to 20.00. From 1 November to 31 March, ZTL active from 8.00 to 17.00.",
+    "quoteTranslation_de": "Vom 1. Mai bis 30. September ZTL 24 Stunden aktiv (von 00.00 bis 24.00 Uhr). Im April und Oktober ZTL aktiv von 8.00 bis 20.00 Uhr. Vom 1. November bis 31. März ZTL aktiv von 8.00 bis 17.00 Uhr.",
+    "checkedOn": "2026-10-27T13:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotels inside the walls put your plate on the City's temporary white list for the length of your stay: you may drive only by the shortest route to the hotel, stop at most 20 minutes to unload, never park inside. Each permit also fixes the exit gate: since 20 January 2025 cameras check the exits too.",
+     "No exemption for electric or hybrid cars. Loading and unloading of goods is allowed 7–11 am every day (for deliveries, not for visitors). Blue Badge holders can have their plate added to the white list, even by the working day after the access. Temporary permits: online with SPID/CIE (max 7 days) or, in exceptional cases, the free number 800 669 945.",
+     "The City's «temporary access» service page gives April and October as 8 am–midnight, while the ordinance, the ZTL instructions page and the January 2025 notice say 8 am–8 pm: GateLR follows the latter.",
+     "Area drawn from the streets of the OpenStreetMap ZTL relation (the ordinance's map, annex A, is not published): the whole old town inside the walls. Gates placed where the streets named by the City leave the ZTL. Ordinance 32/2023 (amendments) was not read."
+    ],
+    "pending_it": [
+     "Gli hotel dentro le mura inseriscono la targa nella «white list» temporanea del Comune per la durata del soggiorno: si va solo per il percorso più breve fino alla struttura, sosta al massimo 20 minuti per scaricare, mai parcheggio dentro. Ogni permesso fissa anche l'uscita: dal 20 gennaio 2025 le telecamere controllano anche le uscite.",
+     "Nessuna deroga per auto elettriche o ibride. Carico e scarico merci consentito 7–11 tutti i giorni (per le consegne, non per i visitatori). I titolari di contrassegno disabili possono far inserire la targa nella white list, anche entro il giorno lavorativo successivo all'accesso. Permessi temporanei: online con SPID/CIE (massimo 7 giorni) o, in casi eccezionali, al numero verde 800 669 945.",
+     "La scheda del servizio «accesso temporaneo» del Comune indica per aprile e ottobre 8–24, mentre ordinanza, pagina delle istruzioni ZTL e comunicato di gennaio 2025 dicono 8–20: GateLR segue questi ultimi.",
+     "Area ricavata dalle strade della relazione ZTL di OpenStreetMap (la planimetria dell'ordinanza, allegato A, non è pubblicata): tutto il centro storico dentro le mura. Varchi nei punti in cui le strade indicate dal Comune escono dalla ZTL. L'ordinanza 32/2023 (modifiche) non è stata letta."
+    ],
+    "pending_de": [
+     "Hotels innerhalb der Mauern setzen dein Kennzeichen für die Dauer des Aufenthalts auf die befristete weiße Liste der Stadt: Fahrt nur auf dem kürzesten Weg zur Unterkunft, höchstens 20 Minuten Halt zum Ausladen, nie innen parken. Jede Genehmigung legt auch die Ausfahrt fest: Seit 20. Januar 2025 überwachen Kameras auch die Ausfahrten.",
+     "Keine Ausnahme für Elektro- oder Hybridautos. Be- und Entladen von Waren ist täglich 7–11 Uhr erlaubt (für Lieferungen, nicht für Besucher). Inhaber eines Behindertenausweises können ihr Kennzeichen auf die weiße Liste setzen lassen, auch bis zum Werktag nach der Einfahrt. Befristete Genehmigungen: online mit SPID/CIE (höchstens 7 Tage) oder in Ausnahmefällen über die Gratisnummer 800 669 945.",
+     "Die Serviceseite «befristete Zufahrt» der Stadt nennt für April und Oktober 8–24 Uhr, Verordnung, ZTL-Anleitung und Mitteilung vom Januar 2025 dagegen 8–20 Uhr: GateLR folgt Letzteren.",
+     "Fläche aus den Straßen der OpenStreetMap-ZTL-Relation (der Plan der Verordnung, Anlage A, ist nicht veröffentlicht): die ganze Altstadt innerhalb der Mauern. Kameras dort, wo die von der Stadt genannten Straßen die ZTL verlassen. Verordnung 32/2023 (Änderungen) wurde nicht gelesen."
+    ],
+    "links": [
+     {
+      "title": "City of Montepulciano: ZTL instructions (hours)",
+      "title_it": "Comune di Montepulciano: istruzioni ZTL (orari)",
+      "title_de": "Stadt Montepulciano: ZTL-Anleitung (Zeiten)",
+      "url": "https://www.comune.montepulciano.si.it/istruzioni-ztl/"
+     },
+     {
+      "title": "City of Montepulciano: ordinance no. 77/2022 (official English translation, PDF)",
+      "title_it": "Comune di Montepulciano: ordinanza n. 77/2022 (traduzione inglese ufficiale, PDF)",
+      "title_de": "Stadt Montepulciano: Verordnung Nr. 77/2022 (offizielle englische Übersetzung, PDF)",
+      "url": "https://www.comune.montepulciano.si.it/wp-content/uploads/2024/11/DEF_ordinanza_ZTL_77_2022_EN.pdf"
+     },
+     {
+      "title": "City of Montepulciano: exit gates active from 20 January 2025",
+      "title_it": "Comune di Montepulciano: varchi in uscita dal 20 gennaio 2025",
+      "title_de": "Stadt Montepulciano: Ausfahrtskameras ab 20. Januar 2025",
+      "url": "https://www.comune.montepulciano.si.it/novita/da-lunedi-20-gennaio-entrano-in-funzione-i-varchi-in-uscita-per-il-controllo-della-ztl-nel-centro-storico/"
+     },
+     {
+      "title": "City of Montepulciano: ordinance no. 9/2025 (PDF)",
+      "title_it": "Comune di Montepulciano: ordinanza n. 9/2025 (PDF)",
+      "title_de": "Stadt Montepulciano: Verordnung Nr. 9/2025 (PDF)",
+      "url": "https://www.comune.montepulciano.si.it/wp-content/uploads/2025/01/OrdinanzadelResponsabile_Copia_9_2025-ztl-varchi-uscita.pdf"
+     },
+     {
+      "title": "City of Montepulciano: temporary ZTL access",
+      "title_it": "Comune di Montepulciano: accesso temporaneo alla ZTL",
+      "title_de": "Stadt Montepulciano: befristete ZTL-Zufahrt",
+      "url": "https://www.comune.montepulciano.si.it/servizio/richiesta-permesso-di-accesso-temporaneo-alla-ztl/"
+     },
+     {
+      "title": "OpenStreetMap: relation 18111528 «ZTL Montepulciano» (ODbL)",
+      "title_it": "OpenStreetMap: relazione 18111528 «ZTL Montepulciano» (ODbL)",
+      "title_de": "OpenStreetMap: Relation 18111528 «ZTL Montepulciano» (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/18111528"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Montepulciano (ordinances 77/2022 and 9/2025, official pages). Area and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

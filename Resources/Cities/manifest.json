@@ -1,6 +1,6 @@
 {
- "version": "202610271047",
- "digest": "0f93b39a6f4c",
+ "version": "202610271058",
+ "digest": "3247e2793456",
  "schema": 1,
  "cities": [
   {
@@ -72,6 +72,11 @@
    "id": "modena",
    "file": "modena.json",
    "sha256": "d8027a6666597b6d8646e115f9efdfd5b628ca1c2912c59278896997969c1994"
+  },
+  {
+   "id": "montepulciano",
+   "file": "montepulciano.json",
+   "sha256": "3d7b8922646ba258b141f0ad7e7bf995514491fc6073bda40468c5cd819a92b0"
   },
   {
    "id": "napoli",
