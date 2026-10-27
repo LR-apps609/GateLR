@@ -167,7 +167,7 @@ struct VarcoView: View {
                 .accessibilityHidden(true)
         }
         // Più bassa quando c'è una risposta: la risposta e i suoi pulsanti stanno nello schermo
-        .frame(height: check == nil ? 168 : 128)
+        .frame(height: check == nil ? 168 : 112)
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
         .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).stroke(mood.color.opacity(0.55), lineWidth: 1))
         .shadow(color: mood.color.opacity(0.25), radius: 18, y: 6)
@@ -265,9 +265,9 @@ struct VarcoView: View {
             // Solo la scatola dei punti luminosi, senza palo: la pagina più corta, così «Guarda la mappa», «Perché?» e
             // «Dettagli del viaggio» si vedono senza scorrere anche su iPhone Pro Max (vedi ScreenshotTests.test5VarcoProMax)
             GatePanelObject(panel: a.panel, showsPole: false)
-                .scaleEffect(0.86)
+                .scaleEffect(0.8)
                 .frame(maxWidth: .infinity)
-                .frame(height: 122)
+                .frame(height: 114)
             Text(a.headline)
                 .font(Self.font(44, .black)).foregroundStyle(Notte.text)
                 .lineLimit(2).minimumScaleFactor(0.6)
@@ -309,7 +309,7 @@ struct VarcoView: View {
             if let time = a.time {
                 HStack(alignment: .firstTextBaseline, spacing: 10) {
                     Text(verbatim: time)
-                        .font(Self.font(64, .black)).monospacedDigit()
+                        .font(Self.font(56, .black)).monospacedDigit()
                         .foregroundStyle(Notte.text)
                         .shadow(color: a.mood.color.opacity(0.55), radius: 20)
                         .lineLimit(1).minimumScaleFactor(0.5)

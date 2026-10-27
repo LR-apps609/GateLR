@@ -129,10 +129,10 @@ jobs:
             xcrun simctl boot "$PM" 2>/dev/null || true
             xcrun simctl bootstatus "$PM" -b > /dev/null 2>&1 || true
             pm=0
-            xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
-              -destination "platform=iOS Simulator,name=$PM" -derivedDataPath build-ui \
-              -only-testing:GateLRUITests/ScreenshotTests/test6VarcoProMax \
-              CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" > ui-pm.log 2>&1 || pm=$?
+            # La cartella delle foto come variabile d'ambiente: con test-without-building le impostazioni non arrivano al test
+            TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" xcodebuild test-without-building -project GateLR.xcodeproj \
+              -scheme GateLRUITests -destination "platform=iOS Simulator,name=$PM" -derivedDataPath build-ui \
+              -only-testing:GateLRUITests/ScreenshotTests/test6VarcoProMax CODE_SIGNING_ALLOWED=NO > ui-pm.log 2>&1 || pm=$?
             grep -E "Test Case .*(passed|failed)" ui-pm.log | sort -u | while IFS= read -r l; do echo "::notice::$PM: ${l:0:300}"; done
             if [ "$pm" != 0 ]; then
               grep -E "error:" ui-pm.log | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::$PM: ${l:0:400}"; done
