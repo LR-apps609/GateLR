@@ -747,6 +747,10 @@
    "source": {
     "authority": "Accessibilità Centri Storici (unofficial); City of Salerno",
     "official": false,
+    "unofficialSource": {
+     "name": "Accessibilità Centri Storici",
+     "url": "https://www.accessibilitacentristorici.it/ztl/campania/salerno.html"
+    },
     "pageURL": "https://www.accessibilitacentristorici.it/ztl/campania/salerno.html",
     "quote": "La telecamere sono in funzioni tutti i giorni 24 ore su 24 ore",
     "quoteTranslation": "The cameras are in operation every day, 24 hours a day.",

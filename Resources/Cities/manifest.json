@@ -1,6 +1,6 @@
 {
- "version": "202610271639",
- "digest": "47085cd8151d",
+ "version": "202610271645",
+ "digest": "ff1e7e7dde66",
  "schema": 1,
  "cities": [
   {
@@ -202,6 +202,13 @@
    "id": "volterra",
    "file": "volterra.json",
    "sha256": "ad90d345d9b4eb66adbb0c1b43af191c53fd6cdfcb7a0d4d41e0d625c5ed2a3e"
+  }
+ ],
+ "unofficialCities": [
+  {
+   "id": "salerno",
+   "file": "salerno.json",
+   "sha256": "36f71135514c845644e2d8ba8522268b48574f6bb0c82caa77d3a75b18c106f2"
   }
  ]
 }

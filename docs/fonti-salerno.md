@@ -1,12 +1,10 @@
 # Salerno: fonti della scheda ZTL
 
-Scheda generata da `Tools/build_salerno.py` → `data/drafts/salerno.json` (stato **draft**, **bozza**: non è nel manifest dell'app né sul sito).
+Scheda generata da `Tools/build_salerno.py` → `Resources/Cities/salerno.json`, pubblicata come **città con fonte non ufficiale** (app 1.16.2: `source.official: false`, `unofficialSource` = accessibilitacentristorici.it; nel manifest sta in `unofficialCities`, nascosta alle app fino alla 1.16.1; avviso «Fonte non ufficiale» in app e sito).
 
-## Perché resta bozza
+## Perché la fonte è «non ufficiale»
 1. **Nessun orario ufficiale.** Nessuna pagina o documento ufficiale letto indica quando la ZTL è attiva (ricercato di nuovo il 27/10/2026: pagine ZTL e PGTU di www.comune.salerno.it, ricerca web). Con il permesso del proprietario la scheda usa **accessibilitacentristorici.it** (non ufficiale, scheda agg. 07/12/2019): «La telecamere sono in funzioni tutti i giorni 24 ore su 24 ore» → `quote` da quella pagina, `source.official: false`, pending «confermato solo da accessibilitacentristorici.it».
-2. Finché su main non c'è l'app **1.16.2** (che gestisce `official: false` e nasconde queste schede alle app vecchie), resta in `data/drafts/` (`OFFICIAL_RELEASED = False` in `Tools/build_salerno.py`). Poi va pubblicata con quel meccanismo.
-
-Il perimetro e i varchi ora ci sono (vedi Geometria).
+2. Perimetro e varchi invece sono **ufficiali** (tavola del PGTU 2019, vedi Geometria).
 
 ## Fonti ufficiali lette (27/10/2026)
 | Fatto | URL | Tipo | Letto il |

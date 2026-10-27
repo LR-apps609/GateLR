@@ -12,8 +12,8 @@
 # Perimetro e varchi: tavola ufficiale del PGTU «TAVOLA 7.2 Individuazione ZTL» (2019, 14 varchi con nome), fornita dal
 #   proprietario, georeferenziata in automatico da Tools/salerno_mappa.py sulle strade OSM → data/raw/salerno/ztl-pgtu-tav7.geojson.
 #
-# Resta in data/drafts/salerno.json finché l'app non gestisce le schede con fonte non ufficiale (campo «official»,
-# versione 1.16.2): poi va pubblicata con quel meccanismo. Ricontrollo host 27/10/2026: website.comune.salerno.it, albo,
+# Pubblicata con il meccanismo della 1.16.2 (source.official = false + unofficialSource; il manifest la mette in
+# «unofficialCities», nascosta alle app fino alla 1.16.1). Ricontrollo host 27/10/2026: website.comune.salerno.it, albo,
 # amministrazionetrasparente, servizionline e servizi.comune.salerno.it chiudono la connessione; /search su www risponde 403.
 # Uso: python3 Tools/build_salerno.py   (non tocca le altre città né manifest.json)
 import json, re
@@ -31,7 +31,7 @@ OCCASIONAL = B + "/servizi/comunicazione-transito-occasionale-ztl"
 PERMITS = B + "/servizi/richiesta-autorizzazione-transito-eo-sosta-ztl-eo-rinnovi"
 FORM_B1 = B + "/sites/default/files/documento_pubblico/modello-b1.pdf"
 UNOFFICIAL = "https://www.accessibilitacentristorici.it/ztl/campania/salerno.html"
-OFFICIAL_RELEASED = False   # True quando su main c'è l'app 1.16.2 con il campo source.official
+OFFICIAL_RELEASED = True    # su main c'è l'app 1.16.2 (commit 1ca9109): source.official e manifest «unofficialCities»
 
 
 def flat(s):
@@ -134,7 +134,8 @@ zone = {"id": "salerno-centro-storico", "name": "Old town · ZTL from via Roma t
         "perimeter": shape, "gates": gate_list,
         "windows": [{"weekdays": ALL, "start": 0, "end": 24 * 60}],
         "freeOnHolidays": False, "holidaysAsSunday": False, "exemptFuels": [], "hotelCanRegister": True,
-        "source": {"authority": "Accessibilità Centri Storici (unofficial); City of Salerno", "official": False, "pageURL": UNOFFICIAL, "quote": QUOTE,
+        "source": {"authority": "Accessibilità Centri Storici (unofficial); City of Salerno", "official": False,
+                   "unofficialSource": {"name": "Accessibilità Centri Storici", "url": UNOFFICIAL}, "pageURL": UNOFFICIAL, "quote": QUOTE,
                    "quoteTranslation": "The cameras are in operation every day, 24 hours a day.",
                    "quoteTranslation_de": "Die Kameras sind täglich rund um die Uhr in Betrieb.",
                    "checkedOn": CHECKED, "reviewedByHuman": False,
@@ -145,7 +146,7 @@ city = {"id": "salerno", "name": "Salerno", "name_it": "Salerno", "name_de": "Sa
         "center": {"lat": 40.6795, "lon": 14.7590}, "zones": [zone], "status": "draft",
         "license": "Hours: accessibilitacentristorici.it (unofficial). Rules: Comune di Salerno (official pages, form B1). Area and gates: Comune di Salerno, PGTU 2019 table 7.2, georeferenced on " + osm_geo.ODBL + "."}
 
-# Pubblicabile solo quando l'app gestisce le schede con fonte non ufficiale (OFFICIAL_RELEASED); fino ad allora → bozza
+# Pubblicabile con perimetro e citazione (non ufficiale, segnalata all'utente dall'app 1.16.2)
 ready = OFFICIAL_RELEASED and all(len(z["perimeter"]) >= 5 and z["source"]["quote"] for z in city["zones"])
 out = ROOT / ("Resources/Cities/salerno.json" if ready else "data/drafts/salerno.json")
 out.parent.mkdir(parents=True, exist_ok=True)
