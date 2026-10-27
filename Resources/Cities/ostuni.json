@@ -1,0 +1,443 @@
+{
+ "id": "ostuni",
+ "name": "Ostuni",
+ "name_it": "Ostuni",
+ "name_de": "Ostuni",
+ "center": {
+  "lat": 40.7333,
+  "lon": 17.5785
+ },
+ "zones": [
+  {
+   "id": "ostuni-centro",
+   "name": "Old town · Città Bianca ZTL",
+   "name_it": "Borgo antico · ZTL della Città Bianca",
+   "name_de": "Altstadt · ZTL der Città Bianca",
+   "kind": "restricted",
+   "summary": "The old town of Ostuni (the white hilltop town with the Cathedral, inside Viale Oronzo Quaranta) is closed to cars and motorbikes without a permit every day except 7–10 am and 2–5 pm, when the gates of Via Cattedrale, Via Francesco Cavallo and Via Francesco Vitale are open. The Via Montegrappa gate is open 8 am–1 pm and 4–7 pm instead. Rules from an unofficial site.",
+   "summary_it": "Il borgo antico di Ostuni (la città bianca sul colle con la Cattedrale, dentro viale Oronzo Quaranta) è chiuso ad auto e moto senza permesso tutti i giorni tranne 7–10 e 14–17, quando i varchi di via Cattedrale, via Francesco Cavallo e via Francesco Vitale sono aperti. Il varco di via Montegrappa invece è aperto 8–13 e 16–19. Regole da un sito non ufficiale.",
+   "summary_de": "Die Altstadt von Ostuni (die weiße Stadt auf dem Hügel mit der Kathedrale, innerhalb des Viale Oronzo Quaranta) ist für Autos und Motorräder ohne Genehmigung täglich gesperrt, außer 7–10 und 14–17 Uhr, wenn die Einfahrten Via Cattedrale, Via Francesco Cavallo und Via Francesco Vitale offen sind. Die Einfahrt Via Montegrappa ist dagegen 8–13 und 16–19 Uhr offen. Regeln von einer inoffiziellen Website.",
+   "perimeter": [
+    {
+     "lat": 40.734657,
+     "lon": 17.576843
+    },
+    {
+     "lat": 40.734495,
+     "lon": 17.576558
+    },
+    {
+     "lat": 40.734386,
+     "lon": 17.576558
+    },
+    {
+     "lat": 40.734386,
+     "lon": 17.576487
+    },
+    {
+     "lat": 40.734277,
+     "lon": 17.576487
+    },
+    {
+     "lat": 40.734277,
+     "lon": 17.576416
+    },
+    {
+     "lat": 40.734169,
+     "lon": 17.576416
+    },
+    {
+     "lat": 40.734169,
+     "lon": 17.576345
+    },
+    {
+     "lat": 40.73406,
+     "lon": 17.576345
+    },
+    {
+     "lat": 40.73406,
+     "lon": 17.576274
+    },
+    {
+     "lat": 40.733735,
+     "lon": 17.576274
+    },
+    {
+     "lat": 40.733735,
+     "lon": 17.576203
+    },
+    {
+     "lat": 40.733464,
+     "lon": 17.576132
+    },
+    {
+     "lat": 40.733464,
+     "lon": 17.576203
+    },
+    {
+     "lat": 40.733355,
+     "lon": 17.576203
+    },
+    {
+     "lat": 40.733355,
+     "lon": 17.576274
+    },
+    {
+     "lat": 40.733138,
+     "lon": 17.576487
+    },
+    {
+     "lat": 40.733138,
+     "lon": 17.57663
+    },
+    {
+     "lat": 40.732867,
+     "lon": 17.576914
+    },
+    {
+     "lat": 40.732867,
+     "lon": 17.577056
+    },
+    {
+     "lat": 40.732758,
+     "lon": 17.577128
+    },
+    {
+     "lat": 40.732758,
+     "lon": 17.577199
+    },
+    {
+     "lat": 40.732595,
+     "lon": 17.577341
+    },
+    {
+     "lat": 40.732595,
+     "lon": 17.577483
+    },
+    {
+     "lat": 40.732541,
+     "lon": 17.577483
+    },
+    {
+     "lat": 40.732595,
+     "lon": 17.577697
+    },
+    {
+     "lat": 40.732541,
+     "lon": 17.577697
+    },
+    {
+     "lat": 40.732487,
+     "lon": 17.578052
+    },
+    {
+     "lat": 40.732378,
+     "lon": 17.578123
+    },
+    {
+     "lat": 40.732378,
+     "lon": 17.578194
+    },
+    {
+     "lat": 40.732433,
+     "lon": 17.578194
+    },
+    {
+     "lat": 40.732433,
+     "lon": 17.578479
+    },
+    {
+     "lat": 40.732378,
+     "lon": 17.578479
+    },
+    {
+     "lat": 40.732378,
+     "lon": 17.578692
+    },
+    {
+     "lat": 40.732324,
+     "lon": 17.578692
+    },
+    {
+     "lat": 40.732324,
+     "lon": 17.578764
+    },
+    {
+     "lat": 40.732433,
+     "lon": 17.578764
+    },
+    {
+     "lat": 40.732758,
+     "lon": 17.579333
+    },
+    {
+     "lat": 40.732867,
+     "lon": 17.579404
+    },
+    {
+     "lat": 40.733029,
+     "lon": 17.579688
+    },
+    {
+     "lat": 40.733192,
+     "lon": 17.579759
+    },
+    {
+     "lat": 40.733192,
+     "lon": 17.579902
+    },
+    {
+     "lat": 40.733301,
+     "lon": 17.579973
+    },
+    {
+     "lat": 40.733301,
+     "lon": 17.580115
+    },
+    {
+     "lat": 40.733409,
+     "lon": 17.580186
+    },
+    {
+     "lat": 40.733518,
+     "lon": 17.5804
+    },
+    {
+     "lat": 40.733681,
+     "lon": 17.5804
+    },
+    {
+     "lat": 40.733681,
+     "lon": 17.580471
+    },
+    {
+     "lat": 40.73406,
+     "lon": 17.580471
+    },
+    {
+     "lat": 40.73406,
+     "lon": 17.580542
+    },
+    {
+     "lat": 40.734549,
+     "lon": 17.580542
+    },
+    {
+     "lat": 40.734549,
+     "lon": 17.580471
+    },
+    {
+     "lat": 40.734657,
+     "lon": 17.580471
+    },
+    {
+     "lat": 40.734766,
+     "lon": 17.580257
+    },
+    {
+     "lat": 40.734874,
+     "lon": 17.580257
+    },
+    {
+     "lat": 40.734874,
+     "lon": 17.580186
+    },
+    {
+     "lat": 40.735091,
+     "lon": 17.579973
+    },
+    {
+     "lat": 40.735091,
+     "lon": 17.57983
+    },
+    {
+     "lat": 40.7352,
+     "lon": 17.579759
+    },
+    {
+     "lat": 40.735254,
+     "lon": 17.578977
+    },
+    {
+     "lat": 40.7352,
+     "lon": 17.578977
+    },
+    {
+     "lat": 40.7352,
+     "lon": 17.57855
+    },
+    {
+     "lat": 40.735146,
+     "lon": 17.57855
+    },
+    {
+     "lat": 40.735146,
+     "lon": 17.577625
+    },
+    {
+     "lat": 40.735091,
+     "lon": 17.577625
+    },
+    {
+     "lat": 40.735037,
+     "lon": 17.577341
+    },
+    {
+     "lat": 40.734929,
+     "lon": 17.57727
+    },
+    {
+     "lat": 40.734929,
+     "lon": 17.577128
+    },
+    {
+     "lat": 40.734657,
+     "lon": 17.576843
+    }
+   ],
+   "gates": [
+    {
+     "id": "os-osm14092310617",
+     "name": "Varco Via Cattedrale",
+     "location": {
+      "lat": 40.732482,
+      "lon": 17.578108
+     }
+    },
+    {
+     "id": "os-osm-way471740016",
+     "name": "Varco Via Francesco Cavallo",
+     "location": {
+      "lat": 40.73261,
+      "lon": 17.578986
+     }
+    },
+    {
+     "id": "os-osm-way469078013",
+     "name": "Varco Via Montegrappa (open 8–13, 16–19)",
+     "location": {
+      "lat": 40.733362,
+      "lon": 17.576261
+     }
+    },
+    {
+     "id": "os-osm-way260475472",
+     "name": "Varco Via Francesco Vitale",
+     "location": {
+      "lat": 40.734007,
+      "lon": 17.58046
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 420
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 600,
+     "end": 840
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1020,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [
+    "electric"
+   ],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Ostuni",
+    "pageURL": "https://www.comune.ostuni.br.it/servizio/richiedere-permesso-di-accesso-ad-area-ztl/",
+    "ordinance": "Disciplina dell'accesso, circolazione e sosta nella ZTL del centro storico, D.G.C. n. 64 del 28/03/2018 — copia sul sito non ufficiale",
+    "ordinanceURL": "https://www.accessibilitacentristorici.it/ufficiali/regolamenti/Ostuni_regolamento%20ztl%20con%20modifica%20di%20di%20marzo%202018.pdf",
+    "quote": "La ZTL di Ostuni è attiva tutti i giorni 24 ore su 24 ore con le seguenti eccezioni: Via Cattedrale (varco aperto dalle ore 07:00 alle ore 10:00 e dalle ore 14:00 alle ore 17:00 ) Via Francesco Cavallo (varco aperto dalle ore 07:00 alle ore 10:00 e dalle ore 14:00 alle ore 17:00 ) Via Montegrappa (varco aperto dalle 8.00 alle 13.00 e dalle ore 16.00 alle 19.00 ) Via Francesco Vitale (varco aperto dalle ore 07:00 alle ore 10:00. e dalle ore 14:00 alle ore 17:00 )",
+    "quoteTranslation": "The Ostuni ZTL is active every day, 24 hours a day, with these exceptions: Via Cattedrale (gate open from 07:00 to 10:00 and from 14:00 to 17:00), Via Francesco Cavallo (gate open from 07:00 to 10:00 and from 14:00 to 17:00), Via Montegrappa (gate open from 8.00 to 13.00 and from 16.00 to 19.00), Via Francesco Vitale (gate open from 07:00 to 10:00 and from 14:00 to 17:00)",
+    "quoteTranslation_de": "Die ZTL Ostuni ist täglich rund um die Uhr aktiv, mit diesen Ausnahmen: Via Cattedrale (Einfahrt offen von 07:00 bis 10:00 und von 14:00 bis 17:00), Via Francesco Cavallo (offen von 07:00 bis 10:00 und von 14:00 bis 17:00), Via Montegrappa (offen von 8.00 bis 13.00 und von 16.00 bis 19.00), Via Francesco Vitale (offen von 07:00 bis 10:00 und von 14:00 bis 17:00)",
+    "checkedOn": "2026-10-27T17:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Confirmed only by accessibilitacentristorici.it (a private permit-service site, page updated 30/10/2018), which also hosts a copy of the City's 2018 ZTL regulations (Giunta resolution 64 of 28/03/2018). The City's website has only the permit-request page, with no hours or map. OpenStreetMap tags Via Cattedrale with the same open hours (7–10, 14–17).",
+     "The Via Montegrappa gate (Porta Nova side) has different open hours: 8 am–1 pm and 4–7 pm. The app shows the hours of the other three gates.",
+     "Hotels inside the ZTL can give guests a permit to stop for luggage near the hotel; ask before arriving. Fully electric cars may always drive in. Blue Badge holders may enter in an emergency and send the papers to the Municipal Police within 120 hours (5 days); nobody else can regularise afterwards. Motorbikes and mopeds banned too.",
+     "Area drawn on OpenStreetMap as the old town inside the ring road (Viale Oronzo Quaranta), closed to the south by the four gate streets: the official map attached to the regulations is not published. OpenStreetMap also marks Piazza della Libertà, Corso Mazzini and Corso Vittorio Emanuele below the old town as permit-only outside Mon–Fri 7–10 and 14–17 and Saturday 0–10, with two more cameras: not confirmed by any source, not drawn."
+    ],
+    "pending_it": [
+     "Confermato solo da accessibilitacentristorici.it (sito privato di servizi per i permessi, pagina aggiornata il 30/10/2018), che ospita anche una copia del disciplinare ZTL del Comune del 2018 (D.G.C. 64 del 28/03/2018). Il sito del Comune ha solo la scheda per chiedere il permesso, senza orari né mappa. OpenStreetMap dà a via Cattedrale gli stessi orari di apertura (7–10, 14–17).",
+     "Il varco di via Montegrappa (lato Porta Nova) ha altri orari di apertura: 8–13 e 16–19. L'app mostra gli orari degli altri tre varchi.",
+     "Gli hotel dentro la ZTL possono dare ai clienti un permesso per fermarsi a scaricare i bagagli vicino alla struttura; chiedi prima di arrivare. Le auto solo elettriche entrano sempre. I disabili possono entrare in urgenza e mandare i documenti alla Polizia Locale entro 120 ore (5 giorni); gli altri non possono sanare dopo. Vietato anche a moto e ciclomotori.",
+     "Area disegnata su OpenStreetMap come il borgo antico dentro la circonvallazione (viale Oronzo Quaranta), chiuso a sud dalle strade dei quattro varchi: la planimetria allegata al disciplinare non è pubblicata. OpenStreetMap segna anche piazza della Libertà, corso Mazzini e corso Vittorio Emanuele, sotto il borgo, come riservati ai permessi fuori da lun–ven 7–10 e 14–17 e sabato 0–10, con altre due telecamere: nessuna fonte lo conferma, non disegnati."
+    ],
+    "pending_de": [
+     "Nur von accessibilitacentristorici.it bestätigt (private Website für Genehmigungsdienste, Seite aktualisiert am 30.10.2018), die auch eine Kopie der städtischen ZTL-Regelung von 2018 bereitstellt (Beschluss 64 vom 28.03.2018). Die Website der Stadt hat nur die Antragsseite, ohne Zeiten oder Karte. OpenStreetMap gibt der Via Cattedrale die gleichen Öffnungszeiten (7–10, 14–17).",
+     "Die Kamera in der Via Montegrappa (Seite Porta Nova) hat andere Öffnungszeiten: 8–13 und 16–19 Uhr. Die App zeigt die Zeiten der anderen drei Einfahrten.",
+     "Hotels in der ZTL können Gästen eine Genehmigung zum Halten für das Gepäck in Hotelnähe geben; frag vor der Ankunft. Reine Elektroautos dürfen immer hinein. Inhaber eines Behindertenausweises dürfen im Notfall hinein und die Unterlagen binnen 120 Stunden (5 Tage) der Stadtpolizei schicken; alle anderen können nachträglich nichts regeln. Auch Motorräder und Mopeds verboten.",
+     "Fläche in OpenStreetMap als Altstadt innerhalb der Ringstraße (Viale Oronzo Quaranta), im Süden durch die vier Kamerastraßen begrenzt: Die der Regelung beigefügte Karte ist nicht veröffentlicht. OpenStreetMap markiert außerdem Piazza della Libertà, Corso Mazzini und Corso Vittorio Emanuele unterhalb der Altstadt als nur mit Genehmigung außerhalb Mo–Fr 7–10 und 14–17 sowie Sa 0–10, mit zwei weiteren Kameras: von keiner Quelle bestätigt, nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "accessibilitacentristorici.it: Ostuni ZTL (unofficial)",
+      "title_it": "accessibilitacentristorici.it: ZTL di Ostuni (non ufficiale)",
+      "title_de": "accessibilitacentristorici.it: ZTL Ostuni (inoffiziell)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/puglia/ostuni.html"
+     },
+     {
+      "title": "Ostuni ZTL regulations 2018 (copy on accessibilitacentristorici.it, PDF)",
+      "title_it": "Disciplinare ZTL di Ostuni 2018 (copia su accessibilitacentristorici.it, PDF)",
+      "title_de": "ZTL-Regelung Ostuni 2018 (Kopie auf accessibilitacentristorici.it, PDF)",
+      "url": "https://www.accessibilitacentristorici.it/ufficiali/regolamenti/Ostuni_regolamento%20ztl%20con%20modifica%20di%20di%20marzo%202018.pdf"
+     },
+     {
+      "title": "City of Ostuni: ZTL permit request",
+      "title_it": "Comune di Ostuni: richiesta permesso ZTL",
+      "title_de": "Stadt Ostuni: ZTL-Genehmigung beantragen",
+      "url": "https://www.comune.ostuni.br.it/servizio/richiedere-permesso-di-accesso-ad-area-ztl/"
+     },
+     {
+      "title": "OpenStreetMap: Via Cattedrale camera (ODbL)",
+      "title_it": "OpenStreetMap: telecamera di via Cattedrale (ODbL)",
+      "title_de": "OpenStreetMap: Kamera Via Cattedrale (ODbL)",
+      "url": "https://www.openstreetmap.org/node/14092310617"
+     }
+    ],
+    "official": false,
+    "unofficialSource": {
+     "name": "accessibilitacentristorici.it",
+     "url": "https://www.accessibilitacentristorici.it/ztl/puglia/ostuni.html"
+    }
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: accessibilitacentristorici.it (unofficial) and its copy of the City's 2018 ZTL regulations. Area and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}
