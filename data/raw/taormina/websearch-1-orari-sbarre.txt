@@ -1,0 +1,9 @@
+Riassunto della ricerca web del 27/10/2026 (fonti NON ufficiali; i siti qds.it e taorminanews24.com erano bloccati dal proxy del sandbox, 403):
+- accessibilitacentristorici.it (https://www.accessibilitacentristorici.it/ztl/sicilia/taormina.html): the ZTL of Taormina is in operation 24 hours a day; currently the cameras are not in operation. Loading and unloading for goods in all weekdays, excluding Sundays and holidays, from 06.00 to 09.30. Gates indicated: via Dionisio, Corso Umberto I at Porta Catania, via Cappuccini.
+- taorminanews24.com (dicembre 2024, «Taormina verso la Ztl, dal 1 dicembre cambia l'accesso alle sbarre di Via Timeo/Via Damiano Rosso"): the barriers of via Timeo and via Damiano Rosso regulate access to Corso Umberto during set hours, e.g. from 04:00 to 08:15 for Corso Umberto I, with exceptions for residents, emergency vehicles and other categories; a register of authorisations is kept at the Polizia Locale command.
+- qds.it (data non visibile): the bollards were meant to protect pedestrians on Corso Umberto; loading and unloading was allowed only from 5 to 9 in the morning.
+- qds.it: since the electronic gates were installed the cameras have never actually entered into operation, remaining only in pre-operation, experimental mode. Planned cameras: Lumbi, Porta Catania, Porta Pasquale, Cappuccini arch, via Dionisio.
+- bluekeys.it (guida 2026): restriction every day 10.30–13.00 and 16.00–20.00, with an extra summer window 21.00–01.00; the source itself says this is not a municipal act.
+- tyremap.com: hotel guests exempt after registering the plate, fines roughly 83–160 euro; the "24/7 in summer" claim is not officially confirmed.
+- quotabus.com: tourist buses cannot enter the ZTL and must use the Lumbi or Porta Catania car parks; permit portal smart-pass.comune.taormina.me.it (bloccato dal proxy, 403).
+I couldn't find a 2026 ordinance for the Taormina ZTL.
