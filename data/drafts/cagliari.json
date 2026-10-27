@@ -1,0 +1,832 @@
+{
+ "id": "cagliari",
+ "name": "Cagliari",
+ "name_it": "Cagliari",
+ "name_de": "Cagliari",
+ "center": {
+  "lat": 39.218,
+  "lon": 9.114
+ },
+ "zones": [
+  {
+   "id": "cagliari-castello",
+   "name": "Castello · hilltop quarter",
+   "name_it": "Castello · quartiere alto",
+   "name_de": "Castello · Oberstadt",
+   "kind": "restricted",
+   "summary": "Castello (the walled hilltop quarter with the Cathedral and Bastione di Saint Remy) is closed to cars without a pass every night from midnight to 9 am. During the day you may drive in.",
+   "summary_it": "Castello (il quartiere alto murato con la Cattedrale e il Bastione di Saint Remy) è chiuso alle auto senza pass ogni notte da mezzanotte alle 9. Di giorno si entra.",
+   "summary_de": "Castello (das ummauerte Oberstadtviertel mit Kathedrale und Bastione di Saint Remy) ist für Autos ohne Pass jede Nacht von Mitternacht bis 9 Uhr gesperrt. Tagsüber darfst du hinein.",
+   "perimeter": [
+    {
+     "lat": 39.215505,
+     "lon": 9.116443
+    },
+    {
+     "lat": 39.215783,
+     "lon": 9.11642
+    },
+    {
+     "lat": 39.215781,
+     "lon": 9.116514
+    },
+    {
+     "lat": 39.215923,
+     "lon": 9.116732
+    },
+    {
+     "lat": 39.216705,
+     "lon": 9.117026
+    },
+    {
+     "lat": 39.216803,
+     "lon": 9.116647
+    },
+    {
+     "lat": 39.217668,
+     "lon": 9.116861
+    },
+    {
+     "lat": 39.217824,
+     "lon": 9.116812
+    },
+    {
+     "lat": 39.218597,
+     "lon": 9.117194
+    },
+    {
+     "lat": 39.219094,
+     "lon": 9.11726
+    },
+    {
+     "lat": 39.21913,
+     "lon": 9.117187
+    },
+    {
+     "lat": 39.219392,
+     "lon": 9.117097
+    },
+    {
+     "lat": 39.219793,
+     "lon": 9.117118
+    },
+    {
+     "lat": 39.219838,
+     "lon": 9.117053
+    },
+    {
+     "lat": 39.220068,
+     "lon": 9.117075
+    },
+    {
+     "lat": 39.220305,
+     "lon": 9.117284
+    },
+    {
+     "lat": 39.220535,
+     "lon": 9.117299
+    },
+    {
+     "lat": 39.220915,
+     "lon": 9.11713
+    },
+    {
+     "lat": 39.221002,
+     "lon": 9.117154
+    },
+    {
+     "lat": 39.220982,
+     "lon": 9.117219
+    },
+    {
+     "lat": 39.221036,
+     "lon": 9.117253
+    },
+    {
+     "lat": 39.221343,
+     "lon": 9.117219
+    },
+    {
+     "lat": 39.221441,
+     "lon": 9.11709
+    },
+    {
+     "lat": 39.221465,
+     "lon": 9.116903
+    },
+    {
+     "lat": 39.221396,
+     "lon": 9.116148
+    },
+    {
+     "lat": 39.221008,
+     "lon": 9.116029
+    },
+    {
+     "lat": 39.220609,
+     "lon": 9.115768
+    },
+    {
+     "lat": 39.220451,
+     "lon": 9.115017
+    },
+    {
+     "lat": 39.220541,
+     "lon": 9.11494
+    },
+    {
+     "lat": 39.22062,
+     "lon": 9.114983
+    },
+    {
+     "lat": 39.220754,
+     "lon": 9.114792
+    },
+    {
+     "lat": 39.220312,
+     "lon": 9.114227
+    },
+    {
+     "lat": 39.219671,
+     "lon": 9.114365
+    },
+    {
+     "lat": 39.219696,
+     "lon": 9.114692
+    },
+    {
+     "lat": 39.218712,
+     "lon": 9.114731
+    },
+    {
+     "lat": 39.218623,
+     "lon": 9.114945
+    },
+    {
+     "lat": 39.218162,
+     "lon": 9.114894
+    },
+    {
+     "lat": 39.218064,
+     "lon": 9.114941
+    },
+    {
+     "lat": 39.217971,
+     "lon": 9.114799
+    },
+    {
+     "lat": 39.217757,
+     "lon": 9.114703
+    },
+    {
+     "lat": 39.217785,
+     "lon": 9.114913
+    },
+    {
+     "lat": 39.217743,
+     "lon": 9.114963
+    },
+    {
+     "lat": 39.216764,
+     "lon": 9.11538
+    },
+    {
+     "lat": 39.216698,
+     "lon": 9.115313
+    },
+    {
+     "lat": 39.217139,
+     "lon": 9.114569
+    },
+    {
+     "lat": 39.217055,
+     "lon": 9.114525
+    },
+    {
+     "lat": 39.216977,
+     "lon": 9.114581
+    },
+    {
+     "lat": 39.21692,
+     "lon": 9.114502
+    },
+    {
+     "lat": 39.217149,
+     "lon": 9.114068
+    },
+    {
+     "lat": 39.217054,
+     "lon": 9.113611
+    },
+    {
+     "lat": 39.216166,
+     "lon": 9.114803
+    },
+    {
+     "lat": 39.216077,
+     "lon": 9.115165
+    },
+    {
+     "lat": 39.215657,
+     "lon": 9.115886
+    },
+    {
+     "lat": 39.215505,
+     "lon": 9.116443
+    }
+   ],
+   "gates": [
+    {
+     "id": "ca-osm9920253881",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.22055,
+      "lon": 9.115684
+     }
+    },
+    {
+     "id": "ca-osm9920827840",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.221475,
+      "lon": 9.116675
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 540
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cagliari",
+    "pageURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "ordinance": "Regolamento comunale per le ZTL (D.C.C. n. 42/2012, modificato con D.C.C. n. 27/2013 e n. 168 del 02/12/2025)",
+    "ordinanceURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "quote": "Le strutture ricettive alberghiere ed extralberghiere di cui alla L.R. 14 maggio 1984, n.22 e alla L.R. 12 agosto 1998, n. 27 e loro ss. mm. e ii., allo scopo di agevolare le operazioni di scarico dei bagagli dei clienti nei giorni di arrivo e di partenza, possono trasmettere per via telematica all'ufficio ZTL del Servizio Viabilità e Mobilità e al Servizio di Polizia Municipale le targhe dei veicoli dei clienti interessati, per consentirne il riconoscimento ai varchi di accesso. La sosta non può superare i sessanta minuti",
+    "quoteTranslation": "Hotels and other accommodation, to make unloading their guests' luggage easier on arrival and departure days, may send online to the ZTL office and to the Municipal Police the plates of their guests' vehicles, so they are recognised at the gates. Parking may not exceed sixty minutes",
+    "quoteTranslation_de": "Hotels und andere Unterkünfte können, um das Ausladen des Gepäcks ihrer Gäste am An- und Abreisetag zu erleichtern, die Kennzeichen der Gästefahrzeuge online an das ZTL-Büro und die Stadtpolizei übermitteln, damit sie an den Kameras erkannt werden. Das Parken darf sechzig Minuten nicht überschreiten",
+    "checkedOn": "2026-10-27T12:30:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by unofficial sources (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, quoting an older City page): the regulation leaves the hours to a City Council (Giunta) act that was not found; the City's page with hours and its map service could not be reached from here.",
+     "Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with parking disc and the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free-hours transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com)."
+    ],
+    "pending_it": [
+     "Orari confermati solo da fonti non ufficiali (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, che riprendono una vecchia pagina del Comune): il regolamento rimanda gli orari a un atto della Giunta non trovato; la pagina del Comune con gli orari e il suo servizio cartografico non erano raggiungibili da qui.",
+     "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con disco orario e pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito senza limiti orari; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com)."
+    ],
+    "pending_de": [
+     "Zeiten nur von inoffiziellen Quellen bestätigt (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, nach einer älteren Stadtseite): Die Ordnung überlässt die Zeiten einem Beschluss des Stadtrats (Giunta), der nicht gefunden wurde; die Stadtseite mit den Zeiten und ihr Kartendienst waren von hier nicht erreichbar.",
+     "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit Parkscheibe und Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen Durchfahrtspass ohne Zeitbegrenzung; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt)."
+    ],
+    "links": [
+     {
+      "title": "City of Cagliari: ZTL regulation (text in force, Dec. 2025)",
+      "title_it": "Comune di Cagliari: regolamento ZTL (testo vigente, dic. 2025)",
+      "title_de": "Stadt Cagliari: ZTL-Ordnung (geltender Text, Dez. 2025)",
+      "url": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/"
+     },
+     {
+      "title": "City of Cagliari: ZTL and pedestrian zones office",
+      "title_it": "Comune di Cagliari: ufficio ZTL e zone pedonali",
+      "title_de": "Stadt Cagliari: Büro ZTL und Fußgängerzonen",
+      "url": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497"
+     },
+     {
+      "title": "City of Cagliari: ZTL passes",
+      "title_it": "Comune di Cagliari: rilascio pass ZTL",
+      "title_de": "Stadt Cagliari: ZTL-Pässe",
+      "url": "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350"
+     },
+     {
+      "title": "City of Cagliari: ZTL pass for hotels",
+      "title_it": "Comune di Cagliari: pass ZTL per strutture ricettive",
+      "title_de": "Stadt Cagliari: ZTL-Pass für Unterkünfte",
+      "url": "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363"
+     },
+     {
+      "title": "SicurAUTO: Cagliari ZTL hours (unofficial)",
+      "title_it": "SicurAUTO: orari ZTL Cagliari (non ufficiale)",
+      "title_de": "SicurAUTO: ZTL-Zeiten Cagliari (inoffiziell)",
+      "url": "https://www.sicurauto.it/news/attualita-e-curiosita/ztl-cagliari-orari-mappa-e-pass/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "cagliari-marina",
+   "name": "Marina · harbour quarter",
+   "name_it": "Marina · quartiere del porto",
+   "name_de": "Marina · Hafenviertel",
+   "kind": "restricted",
+   "summary": "Marina (the quarter between via Roma and Castello) is closed to cars without a pass every day 3:30–5 pm and 9 pm–7 am.",
+   "summary_it": "Marina (il quartiere tra via Roma e Castello) è chiuso alle auto senza pass ogni giorno 15:30–17 e 21–7.",
+   "summary_de": "Marina (das Viertel zwischen Via Roma und Castello) ist für Autos ohne Pass täglich 15:30–17 und 21–7 Uhr gesperrt.",
+   "perimeter": [
+    {
+     "lat": 39.215505,
+     "lon": 9.116443
+    },
+    {
+     "lat": 39.215657,
+     "lon": 9.115886
+    },
+    {
+     "lat": 39.216077,
+     "lon": 9.115165
+    },
+    {
+     "lat": 39.216166,
+     "lon": 9.114803
+    },
+    {
+     "lat": 39.217054,
+     "lon": 9.113611
+    },
+    {
+     "lat": 39.215644,
+     "lon": 9.111825
+    },
+    {
+     "lat": 39.214844,
+     "lon": 9.110998
+    },
+    {
+     "lat": 39.214728,
+     "lon": 9.111026
+    },
+    {
+     "lat": 39.212726,
+     "lon": 9.114619
+    },
+    {
+     "lat": 39.21342,
+     "lon": 9.115236
+    },
+    {
+     "lat": 39.213091,
+     "lon": 9.115774
+    },
+    {
+     "lat": 39.214592,
+     "lon": 9.116885
+    },
+    {
+     "lat": 39.215499,
+     "lon": 9.116713
+    },
+    {
+     "lat": 39.215505,
+     "lon": 9.116443
+    }
+   ],
+   "gates": [
+    {
+     "id": "ca-osm9920827835",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.215595,
+      "lon": 9.111748
+     }
+    },
+    {
+     "id": "ca-osm9920827836",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.215123,
+      "lon": 9.111414
+     }
+    },
+    {
+     "id": "ca-osm9920827838",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.213257,
+      "lon": 9.114071
+     }
+    },
+    {
+     "id": "ca-osm9920827839",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.215045,
+      "lon": 9.116677
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1260,
+     "end": 420
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 930,
+     "end": 1020
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cagliari",
+    "pageURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "ordinance": "Regolamento comunale per le ZTL (D.C.C. n. 42/2012, modificato con D.C.C. n. 27/2013 e n. 168 del 02/12/2025)",
+    "ordinanceURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "quote": "Le strutture ricettive alberghiere ed extralberghiere di cui alla L.R. 14 maggio 1984, n.22 e alla L.R. 12 agosto 1998, n. 27 e loro ss. mm. e ii., allo scopo di agevolare le operazioni di scarico dei bagagli dei clienti nei giorni di arrivo e di partenza, possono trasmettere per via telematica all'ufficio ZTL del Servizio Viabilità e Mobilità e al Servizio di Polizia Municipale le targhe dei veicoli dei clienti interessati, per consentirne il riconoscimento ai varchi di accesso. La sosta non può superare i sessanta minuti",
+    "quoteTranslation": "Hotels and other accommodation, to make unloading their guests' luggage easier on arrival and departure days, may send online to the ZTL office and to the Municipal Police the plates of their guests' vehicles, so they are recognised at the gates. Parking may not exceed sixty minutes",
+    "quoteTranslation_de": "Hotels und andere Unterkünfte können, um das Ausladen des Gepäcks ihrer Gäste am An- und Abreisetag zu erleichtern, die Kennzeichen der Gästefahrzeuge online an das ZTL-Büro und die Stadtpolizei übermitteln, damit sie an den Kameras erkannt werden. Das Parken darf sechzig Minuten nicht überschreiten",
+    "checkedOn": "2026-10-27T12:30:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by unofficial sources (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, quoting an older City page): the regulation leaves the hours to a City Council (Giunta) act that was not found; the City's page with hours and its map service could not be reached from here.",
+     "Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with parking disc and the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free-hours transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com)."
+    ],
+    "pending_it": [
+     "Orari confermati solo da fonti non ufficiali (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, che riprendono una vecchia pagina del Comune): il regolamento rimanda gli orari a un atto della Giunta non trovato; la pagina del Comune con gli orari e il suo servizio cartografico non erano raggiungibili da qui.",
+     "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con disco orario e pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito senza limiti orari; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com)."
+    ],
+    "pending_de": [
+     "Zeiten nur von inoffiziellen Quellen bestätigt (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, nach einer älteren Stadtseite): Die Ordnung überlässt die Zeiten einem Beschluss des Stadtrats (Giunta), der nicht gefunden wurde; die Stadtseite mit den Zeiten und ihr Kartendienst waren von hier nicht erreichbar.",
+     "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit Parkscheibe und Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen Durchfahrtspass ohne Zeitbegrenzung; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt)."
+    ],
+    "links": [
+     {
+      "title": "City of Cagliari: ZTL regulation (text in force, Dec. 2025)",
+      "title_it": "Comune di Cagliari: regolamento ZTL (testo vigente, dic. 2025)",
+      "title_de": "Stadt Cagliari: ZTL-Ordnung (geltender Text, Dez. 2025)",
+      "url": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/"
+     },
+     {
+      "title": "City of Cagliari: ZTL and pedestrian zones office",
+      "title_it": "Comune di Cagliari: ufficio ZTL e zone pedonali",
+      "title_de": "Stadt Cagliari: Büro ZTL und Fußgängerzonen",
+      "url": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497"
+     },
+     {
+      "title": "City of Cagliari: ZTL passes",
+      "title_it": "Comune di Cagliari: rilascio pass ZTL",
+      "title_de": "Stadt Cagliari: ZTL-Pässe",
+      "url": "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350"
+     },
+     {
+      "title": "City of Cagliari: ZTL pass for hotels",
+      "title_it": "Comune di Cagliari: pass ZTL per strutture ricettive",
+      "title_de": "Stadt Cagliari: ZTL-Pass für Unterkünfte",
+      "url": "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363"
+     },
+     {
+      "title": "SicurAUTO: Cagliari ZTL hours (unofficial)",
+      "title_it": "SicurAUTO: orari ZTL Cagliari (non ufficiale)",
+      "title_de": "SicurAUTO: ZTL-Zeiten Cagliari (inoffiziell)",
+      "url": "https://www.sicurauto.it/news/attualita-e-curiosita/ztl-cagliari-orari-mappa-e-pass/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "cagliari-stampace-alto",
+   "name": "Stampace Alto · upper Stampace",
+   "name_it": "Stampace Alto · Stampace alta",
+   "name_de": "Stampace Alto · oberes Stampace",
+   "kind": "restricted",
+   "summary": "Upper Stampace is closed to cars without a pass every day 3:30–5 pm and 9 pm–9 am.",
+   "summary_it": "Stampace Alto è chiuso alle auto senza pass ogni giorno 15:30–17 e 21–9.",
+   "summary_de": "Das obere Stampace ist für Autos ohne Pass täglich 15:30–17 und 21–9 Uhr gesperrt.",
+   "perimeter": [],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1260,
+     "end": 540
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 930,
+     "end": 1020
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cagliari",
+    "pageURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "ordinance": "Regolamento comunale per le ZTL (D.C.C. n. 42/2012, modificato con D.C.C. n. 27/2013 e n. 168 del 02/12/2025)",
+    "ordinanceURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "quote": "Le strutture ricettive alberghiere ed extralberghiere di cui alla L.R. 14 maggio 1984, n.22 e alla L.R. 12 agosto 1998, n. 27 e loro ss. mm. e ii., allo scopo di agevolare le operazioni di scarico dei bagagli dei clienti nei giorni di arrivo e di partenza, possono trasmettere per via telematica all'ufficio ZTL del Servizio Viabilità e Mobilità e al Servizio di Polizia Municipale le targhe dei veicoli dei clienti interessati, per consentirne il riconoscimento ai varchi di accesso. La sosta non può superare i sessanta minuti",
+    "quoteTranslation": "Hotels and other accommodation, to make unloading their guests' luggage easier on arrival and departure days, may send online to the ZTL office and to the Municipal Police the plates of their guests' vehicles, so they are recognised at the gates. Parking may not exceed sixty minutes",
+    "quoteTranslation_de": "Hotels und andere Unterkünfte können, um das Ausladen des Gepäcks ihrer Gäste am An- und Abreisetag zu erleichtern, die Kennzeichen der Gästefahrzeuge online an das ZTL-Büro und die Stadtpolizei übermitteln, damit sie an den Kameras erkannt werden. Das Parken darf sechzig Minuten nicht überschreiten",
+    "checkedOn": "2026-10-27T12:30:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "One unofficial source gives 9 pm–10 am instead of 9 pm–9 am.",
+     "Hours confirmed only by unofficial sources (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, quoting an older City page): the regulation leaves the hours to a City Council (Giunta) act that was not found; the City's page with hours and its map service could not be reached from here.",
+     "Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with parking disc and the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free-hours transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com).",
+     "No perimeter: OpenStreetMap has no area for this ZTL and the City's map could not be read."
+    ],
+    "pending_it": [
+     "Una fonte non ufficiale indica 21–10 invece di 21–9.",
+     "Orari confermati solo da fonti non ufficiali (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, che riprendono una vecchia pagina del Comune): il regolamento rimanda gli orari a un atto della Giunta non trovato; la pagina del Comune con gli orari e il suo servizio cartografico non erano raggiungibili da qui.",
+     "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con disco orario e pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito senza limiti orari; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com).",
+     "Nessun perimetro: OpenStreetMap non ha un'area per questa ZTL e la mappa del Comune non era leggibile."
+    ],
+    "pending_de": [
+     "Eine inoffizielle Quelle nennt 21–10 statt 21–9 Uhr.",
+     "Zeiten nur von inoffiziellen Quellen bestätigt (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, nach einer älteren Stadtseite): Die Ordnung überlässt die Zeiten einem Beschluss des Stadtrats (Giunta), der nicht gefunden wurde; die Stadtseite mit den Zeiten und ihr Kartendienst waren von hier nicht erreichbar.",
+     "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit Parkscheibe und Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen Durchfahrtspass ohne Zeitbegrenzung; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt).",
+     "Keine Grenze: OpenStreetMap hat keine Fläche für diese ZTL, und die Stadtkarte war nicht lesbar."
+    ],
+    "links": [
+     {
+      "title": "City of Cagliari: ZTL regulation (text in force, Dec. 2025)",
+      "title_it": "Comune di Cagliari: regolamento ZTL (testo vigente, dic. 2025)",
+      "title_de": "Stadt Cagliari: ZTL-Ordnung (geltender Text, Dez. 2025)",
+      "url": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/"
+     },
+     {
+      "title": "City of Cagliari: ZTL and pedestrian zones office",
+      "title_it": "Comune di Cagliari: ufficio ZTL e zone pedonali",
+      "title_de": "Stadt Cagliari: Büro ZTL und Fußgängerzonen",
+      "url": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497"
+     },
+     {
+      "title": "City of Cagliari: ZTL passes",
+      "title_it": "Comune di Cagliari: rilascio pass ZTL",
+      "title_de": "Stadt Cagliari: ZTL-Pässe",
+      "url": "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350"
+     },
+     {
+      "title": "City of Cagliari: ZTL pass for hotels",
+      "title_it": "Comune di Cagliari: pass ZTL per strutture ricettive",
+      "title_de": "Stadt Cagliari: ZTL-Pass für Unterkünfte",
+      "url": "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363"
+     },
+     {
+      "title": "SicurAUTO: Cagliari ZTL hours (unofficial)",
+      "title_it": "SicurAUTO: orari ZTL Cagliari (non ufficiale)",
+      "title_de": "SicurAUTO: ZTL-Zeiten Cagliari (inoffiziell)",
+      "url": "https://www.sicurauto.it/news/attualita-e-curiosita/ztl-cagliari-orari-mappa-e-pass/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "cagliari-stampace-basso",
+   "name": "Stampace Basso · lower Stampace",
+   "name_it": "Stampace Basso · Stampace bassa",
+   "name_de": "Stampace Basso · unteres Stampace",
+   "kind": "restricted",
+   "summary": "Lower Stampace is closed to cars without a pass Monday–Friday 7:30–10:30 am and 3:30–5 pm, Saturday 7:30–10:30 am.",
+   "summary_it": "Stampace Basso è chiuso alle auto senza pass dal lunedì al venerdì 7:30–10:30 e 15:30–17, il sabato 7:30–10:30.",
+   "summary_de": "Das untere Stampace ist für Autos ohne Pass Montag–Freitag 7:30–10:30 und 15:30–17 Uhr, samstags 7:30–10:30 Uhr gesperrt.",
+   "perimeter": [],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 450,
+     "end": 630
+    },
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 930,
+     "end": 1020
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cagliari",
+    "pageURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "ordinance": "Regolamento comunale per le ZTL (D.C.C. n. 42/2012, modificato con D.C.C. n. 27/2013 e n. 168 del 02/12/2025)",
+    "ordinanceURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "quote": "Le strutture ricettive alberghiere ed extralberghiere di cui alla L.R. 14 maggio 1984, n.22 e alla L.R. 12 agosto 1998, n. 27 e loro ss. mm. e ii., allo scopo di agevolare le operazioni di scarico dei bagagli dei clienti nei giorni di arrivo e di partenza, possono trasmettere per via telematica all'ufficio ZTL del Servizio Viabilità e Mobilità e al Servizio di Polizia Municipale le targhe dei veicoli dei clienti interessati, per consentirne il riconoscimento ai varchi di accesso. La sosta non può superare i sessanta minuti",
+    "quoteTranslation": "Hotels and other accommodation, to make unloading their guests' luggage easier on arrival and departure days, may send online to the ZTL office and to the Municipal Police the plates of their guests' vehicles, so they are recognised at the gates. Parking may not exceed sixty minutes",
+    "quoteTranslation_de": "Hotels und andere Unterkünfte können, um das Ausladen des Gepäcks ihrer Gäste am An- und Abreisetag zu erleichtern, die Kennzeichen der Gästefahrzeuge online an das ZTL-Büro und die Stadtpolizei übermitteln, damit sie an den Kameras erkannt werden. Das Parken darf sechzig Minuten nicht überschreiten",
+    "checkedOn": "2026-10-27T12:30:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Sources disagree on Saturdays (afternoon window or not) and on whether this ZTL still exists (an older City press note proposed removing it).",
+     "Hours confirmed only by unofficial sources (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, quoting an older City page): the regulation leaves the hours to a City Council (Giunta) act that was not found; the City's page with hours and its map service could not be reached from here.",
+     "Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with parking disc and the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free-hours transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com).",
+     "No perimeter: OpenStreetMap has no area for this ZTL and the City's map could not be read."
+    ],
+    "pending_it": [
+     "Le fonti non concordano sul sabato (fascia pomeridiana o no) e sul fatto che questa ZTL esista ancora (un vecchio comunicato del Comune ne proponeva l'abolizione).",
+     "Orari confermati solo da fonti non ufficiali (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, che riprendono una vecchia pagina del Comune): il regolamento rimanda gli orari a un atto della Giunta non trovato; la pagina del Comune con gli orari e il suo servizio cartografico non erano raggiungibili da qui.",
+     "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con disco orario e pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito senza limiti orari; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com).",
+     "Nessun perimetro: OpenStreetMap non ha un'area per questa ZTL e la mappa del Comune non era leggibile."
+    ],
+    "pending_de": [
+     "Die Quellen sind sich uneinig über den Samstag (Nachmittag oder nicht) und darüber, ob diese ZTL noch besteht (eine ältere Pressemitteilung der Stadt schlug ihre Abschaffung vor).",
+     "Zeiten nur von inoffiziellen Quellen bestätigt (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, nach einer älteren Stadtseite): Die Ordnung überlässt die Zeiten einem Beschluss des Stadtrats (Giunta), der nicht gefunden wurde; die Stadtseite mit den Zeiten und ihr Kartendienst waren von hier nicht erreichbar.",
+     "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit Parkscheibe und Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen Durchfahrtspass ohne Zeitbegrenzung; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt).",
+     "Keine Grenze: OpenStreetMap hat keine Fläche für diese ZTL, und die Stadtkarte war nicht lesbar."
+    ],
+    "links": [
+     {
+      "title": "City of Cagliari: ZTL regulation (text in force, Dec. 2025)",
+      "title_it": "Comune di Cagliari: regolamento ZTL (testo vigente, dic. 2025)",
+      "title_de": "Stadt Cagliari: ZTL-Ordnung (geltender Text, Dez. 2025)",
+      "url": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/"
+     },
+     {
+      "title": "City of Cagliari: ZTL and pedestrian zones office",
+      "title_it": "Comune di Cagliari: ufficio ZTL e zone pedonali",
+      "title_de": "Stadt Cagliari: Büro ZTL und Fußgängerzonen",
+      "url": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497"
+     },
+     {
+      "title": "City of Cagliari: ZTL passes",
+      "title_it": "Comune di Cagliari: rilascio pass ZTL",
+      "title_de": "Stadt Cagliari: ZTL-Pässe",
+      "url": "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350"
+     },
+     {
+      "title": "City of Cagliari: ZTL pass for hotels",
+      "title_it": "Comune di Cagliari: pass ZTL per strutture ricettive",
+      "title_de": "Stadt Cagliari: ZTL-Pass für Unterkünfte",
+      "url": "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363"
+     },
+     {
+      "title": "SicurAUTO: Cagliari ZTL hours (unofficial)",
+      "title_it": "SicurAUTO: orari ZTL Cagliari (non ufficiale)",
+      "title_de": "SicurAUTO: ZTL-Zeiten Cagliari (inoffiziell)",
+      "url": "https://www.sicurauto.it/news/attualita-e-curiosita/ztl-cagliari-orari-mappa-e-pass/"
+     }
+    ]
+   }
+  },
+  {
+   "id": "cagliari-villanova",
+   "name": "Villanova · old quarter",
+   "name_it": "Villanova · quartiere storico",
+   "name_de": "Villanova · Altstadtviertel",
+   "kind": "restricted",
+   "summary": "Villanova is closed to cars without a pass every day 3:30–5 pm and 9 pm–7 am.",
+   "summary_it": "Villanova è chiuso alle auto senza pass ogni giorno 15:30–17 e 21–7.",
+   "summary_de": "Villanova ist für Autos ohne Pass täglich 15:30–17 und 21–7 Uhr gesperrt.",
+   "perimeter": [],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1260,
+     "end": 420
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 930,
+     "end": 1020
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cagliari",
+    "pageURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "ordinance": "Regolamento comunale per le ZTL (D.C.C. n. 42/2012, modificato con D.C.C. n. 27/2013 e n. 168 del 02/12/2025)",
+    "ordinanceURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "quote": "Le strutture ricettive alberghiere ed extralberghiere di cui alla L.R. 14 maggio 1984, n.22 e alla L.R. 12 agosto 1998, n. 27 e loro ss. mm. e ii., allo scopo di agevolare le operazioni di scarico dei bagagli dei clienti nei giorni di arrivo e di partenza, possono trasmettere per via telematica all'ufficio ZTL del Servizio Viabilità e Mobilità e al Servizio di Polizia Municipale le targhe dei veicoli dei clienti interessati, per consentirne il riconoscimento ai varchi di accesso. La sosta non può superare i sessanta minuti",
+    "quoteTranslation": "Hotels and other accommodation, to make unloading their guests' luggage easier on arrival and departure days, may send online to the ZTL office and to the Municipal Police the plates of their guests' vehicles, so they are recognised at the gates. Parking may not exceed sixty minutes",
+    "quoteTranslation_de": "Hotels und andere Unterkünfte können, um das Ausladen des Gepäcks ihrer Gäste am An- und Abreisetag zu erleichtern, die Kennzeichen der Gästefahrzeuge online an das ZTL-Büro und die Stadtpolizei übermitteln, damit sie an den Kameras erkannt werden. Das Parken darf sechzig Minuten nicht überschreiten",
+    "checkedOn": "2026-10-27T12:30:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by unofficial sources (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, quoting an older City page): the regulation leaves the hours to a City Council (Giunta) act that was not found; the City's page with hours and its map service could not be reached from here.",
+     "Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with parking disc and the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free-hours transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com).",
+     "No perimeter: OpenStreetMap has no area for this ZTL and the City's map could not be read."
+    ],
+    "pending_it": [
+     "Orari confermati solo da fonti non ufficiali (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, che riprendono una vecchia pagina del Comune): il regolamento rimanda gli orari a un atto della Giunta non trovato; la pagina del Comune con gli orari e il suo servizio cartografico non erano raggiungibili da qui.",
+     "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con disco orario e pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito senza limiti orari; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com).",
+     "Nessun perimetro: OpenStreetMap non ha un'area per questa ZTL e la mappa del Comune non era leggibile."
+    ],
+    "pending_de": [
+     "Zeiten nur von inoffiziellen Quellen bestätigt (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, nach einer älteren Stadtseite): Die Ordnung überlässt die Zeiten einem Beschluss des Stadtrats (Giunta), der nicht gefunden wurde; die Stadtseite mit den Zeiten und ihr Kartendienst waren von hier nicht erreichbar.",
+     "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit Parkscheibe und Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen Durchfahrtspass ohne Zeitbegrenzung; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt).",
+     "Keine Grenze: OpenStreetMap hat keine Fläche für diese ZTL, und die Stadtkarte war nicht lesbar."
+    ],
+    "links": [
+     {
+      "title": "City of Cagliari: ZTL regulation (text in force, Dec. 2025)",
+      "title_it": "Comune di Cagliari: regolamento ZTL (testo vigente, dic. 2025)",
+      "title_de": "Stadt Cagliari: ZTL-Ordnung (geltender Text, Dez. 2025)",
+      "url": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/"
+     },
+     {
+      "title": "City of Cagliari: ZTL and pedestrian zones office",
+      "title_it": "Comune di Cagliari: ufficio ZTL e zone pedonali",
+      "title_de": "Stadt Cagliari: Büro ZTL und Fußgängerzonen",
+      "url": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497"
+     },
+     {
+      "title": "City of Cagliari: ZTL passes",
+      "title_it": "Comune di Cagliari: rilascio pass ZTL",
+      "title_de": "Stadt Cagliari: ZTL-Pässe",
+      "url": "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350"
+     },
+     {
+      "title": "City of Cagliari: ZTL pass for hotels",
+      "title_it": "Comune di Cagliari: pass ZTL per strutture ricettive",
+      "title_de": "Stadt Cagliari: ZTL-Pass für Unterkünfte",
+      "url": "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363"
+     },
+     {
+      "title": "SicurAUTO: Cagliari ZTL hours (unofficial)",
+      "title_it": "SicurAUTO: orari ZTL Cagliari (non ufficiale)",
+      "title_de": "SicurAUTO: ZTL-Zeiten Cagliari (inoffiziell)",
+      "url": "https://www.sicurauto.it/news/attualita-e-curiosita/ztl-cagliari-orari-mappa-e-pass/"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Cagliari (ZTL regulation and official pages); hours from unofficial sources. Perimeters and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

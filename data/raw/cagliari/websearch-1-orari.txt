@@ -1,0 +1,12 @@
+Riassunto della ricerca web del 27/10/2026 (fonti NON ufficiali; la pagina ufficiale con gli orari, old.comune.cagliari.it/portale/viabilita/at16_ztl_aree_pedonali_info, e il Sistema informativo territoriale geoportale.comune.cagliari.it sono bloccati dal proxy del sandbox, 403):
+Hours (from an older archived page of the City, as summarised by the search; same values on sicurauto.it, brumbrum.it, accessibilitacentristorici.it, revisioneauto.eu):
+- Castello: 24:00–09:00 (every day, 0:00 to 9:00).
+- Marina: 21:00–07:00 and 15:30–17:00 (every day).
+- Stampace alto: 21:00–09:00 and 15:30–17:00 (one source says 21:00 to 10:00).
+- Stampace basso: weekdays 07:30–10:30 and 15:30–17:00; Saturday 07:30–10:30 (sources disagree on Saturdays).
+- Villanova: 21:00–07:00 and 15:30–17:00 (every day).
+- Poetto: 00:00–24:00 per the archived page; another source says every day from 21.00 to 6.00.
+Comunicati del Comune (2016, 2018): fascia ZTL di Castello e Stampace alto estesa per eventi (varchi aperti ai non autorizzati dalle 20 alle 24; ZTL Castello estesa 9-20 per Monumenti Aperti).
+Unione Sarda (luglio 2025): cameras switched back on, about 13,920 violations detected in one year; new rules end free permit renewals and add temporary passes, plus penalties for overstaying the exit time.
+tyremap.com: fine roughly €80–335, the exact amount applied by the city is not confirmed on the official portal; says the weekday 7:30–19:30 schedule circulating online is wrong.
+I found no 2025 or 2026 ordinance changing the Cagliari ZTL hours.
