@@ -1,0 +1,1223 @@
+{
+ "id": "cagliari",
+ "name": "Cagliari",
+ "name_it": "Cagliari",
+ "name_de": "Cagliari",
+ "center": {
+  "lat": 39.218,
+  "lon": 9.114
+ },
+ "zones": [
+  {
+   "id": "cagliari-castello",
+   "name": "Castello · hilltop quarter",
+   "name_it": "Castello · quartiere alto",
+   "name_de": "Castello · Oberstadt",
+   "kind": "restricted",
+   "summary": "Castello (the walled hilltop quarter with the Cathedral and Bastione di Saint Remy) is closed to cars and motorbikes without a pass every night from midnight to 9 am. During the day you may drive in. Hours from an unofficial site.",
+   "summary_it": "Castello (il quartiere alto murato con la Cattedrale e il Bastione di Saint Remy) è chiuso ad auto e moto senza pass ogni notte da mezzanotte alle 9. Di giorno si entra. Orari da un sito non ufficiale.",
+   "summary_de": "Castello (das ummauerte Oberstadtviertel mit Kathedrale und Bastione di Saint Remy) ist für Autos und Motorräder ohne Pass jede Nacht von Mitternacht bis 9 Uhr gesperrt. Tagsüber darfst du hinein. Zeiten von einer inoffiziellen Website.",
+   "perimeter": [
+    {
+     "lat": 39.215505,
+     "lon": 9.116443
+    },
+    {
+     "lat": 39.215783,
+     "lon": 9.11642
+    },
+    {
+     "lat": 39.215781,
+     "lon": 9.116514
+    },
+    {
+     "lat": 39.215923,
+     "lon": 9.116732
+    },
+    {
+     "lat": 39.216705,
+     "lon": 9.117026
+    },
+    {
+     "lat": 39.216803,
+     "lon": 9.116647
+    },
+    {
+     "lat": 39.217668,
+     "lon": 9.116861
+    },
+    {
+     "lat": 39.217824,
+     "lon": 9.116812
+    },
+    {
+     "lat": 39.218597,
+     "lon": 9.117194
+    },
+    {
+     "lat": 39.219094,
+     "lon": 9.11726
+    },
+    {
+     "lat": 39.21913,
+     "lon": 9.117187
+    },
+    {
+     "lat": 39.219392,
+     "lon": 9.117097
+    },
+    {
+     "lat": 39.219793,
+     "lon": 9.117118
+    },
+    {
+     "lat": 39.219838,
+     "lon": 9.117053
+    },
+    {
+     "lat": 39.220068,
+     "lon": 9.117075
+    },
+    {
+     "lat": 39.220305,
+     "lon": 9.117284
+    },
+    {
+     "lat": 39.220535,
+     "lon": 9.117299
+    },
+    {
+     "lat": 39.220915,
+     "lon": 9.11713
+    },
+    {
+     "lat": 39.221002,
+     "lon": 9.117154
+    },
+    {
+     "lat": 39.220982,
+     "lon": 9.117219
+    },
+    {
+     "lat": 39.221036,
+     "lon": 9.117253
+    },
+    {
+     "lat": 39.221343,
+     "lon": 9.117219
+    },
+    {
+     "lat": 39.221441,
+     "lon": 9.11709
+    },
+    {
+     "lat": 39.221465,
+     "lon": 9.116903
+    },
+    {
+     "lat": 39.221396,
+     "lon": 9.116148
+    },
+    {
+     "lat": 39.221008,
+     "lon": 9.116029
+    },
+    {
+     "lat": 39.220609,
+     "lon": 9.115768
+    },
+    {
+     "lat": 39.220451,
+     "lon": 9.115017
+    },
+    {
+     "lat": 39.220541,
+     "lon": 9.11494
+    },
+    {
+     "lat": 39.22062,
+     "lon": 9.114983
+    },
+    {
+     "lat": 39.220754,
+     "lon": 9.114792
+    },
+    {
+     "lat": 39.220312,
+     "lon": 9.114227
+    },
+    {
+     "lat": 39.219671,
+     "lon": 9.114365
+    },
+    {
+     "lat": 39.219696,
+     "lon": 9.114692
+    },
+    {
+     "lat": 39.218712,
+     "lon": 9.114731
+    },
+    {
+     "lat": 39.218623,
+     "lon": 9.114945
+    },
+    {
+     "lat": 39.218162,
+     "lon": 9.114894
+    },
+    {
+     "lat": 39.218064,
+     "lon": 9.114941
+    },
+    {
+     "lat": 39.217971,
+     "lon": 9.114799
+    },
+    {
+     "lat": 39.217757,
+     "lon": 9.114703
+    },
+    {
+     "lat": 39.217785,
+     "lon": 9.114913
+    },
+    {
+     "lat": 39.217743,
+     "lon": 9.114963
+    },
+    {
+     "lat": 39.216764,
+     "lon": 9.11538
+    },
+    {
+     "lat": 39.216698,
+     "lon": 9.115313
+    },
+    {
+     "lat": 39.217139,
+     "lon": 9.114569
+    },
+    {
+     "lat": 39.217055,
+     "lon": 9.114525
+    },
+    {
+     "lat": 39.216977,
+     "lon": 9.114581
+    },
+    {
+     "lat": 39.21692,
+     "lon": 9.114502
+    },
+    {
+     "lat": 39.217149,
+     "lon": 9.114068
+    },
+    {
+     "lat": 39.217054,
+     "lon": 9.113611
+    },
+    {
+     "lat": 39.216166,
+     "lon": 9.114803
+    },
+    {
+     "lat": 39.216077,
+     "lon": 9.115165
+    },
+    {
+     "lat": 39.215657,
+     "lon": 9.115886
+    },
+    {
+     "lat": 39.215505,
+     "lon": 9.116443
+    }
+   ],
+   "gates": [
+    {
+     "id": "ca-osm9920253881",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.22055,
+      "lon": 9.115684
+     }
+    },
+    {
+     "id": "ca-osm9920827840",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.221475,
+      "lon": 9.116675
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 540
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cagliari",
+    "pageURL": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497",
+    "ordinance": "Orari: nessun atto ufficiale pubblicato (regolamento ZTL, D.C.C. n. 42/2012, 27/2013 e 168/2025, art. 31: orari decisi dalla Giunta)",
+    "ordinanceURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "quote": "La z.t.l. Castello è in vigore dal lunedì alla domenica dalle 24.00 alle 9.00",
+    "quoteTranslation": "The Castello ZTL is in force Monday to Sunday from 24.00 to 9.00",
+    "quoteTranslation_de": "Die ZTL Castello gilt von Montag bis Sonntag von 24.00 bis 9.00 Uhr",
+    "checkedOn": "2026-10-27T17:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Confirmed only by accessibilitacentristorici.it (a private permit-service site, page updated 02/05/2020, rated «modest» reliability by the site itself); hours match the OpenStreetMap access tags of the streets and other unofficial sites. The City publishes no hours: its regulation leaves them to an act of the City executive that is not on the online notice board (all titles 2016–October 2026 checked).",
+     "Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com).",
+     "Area from the OpenStreetMap ZTL relation (not an official map).",
+     "The Poetto seafront ZTL (from Piazza Arcipelaghi to the Saline canal, 9 pm–6 am every day according to the same site) is not drawn in the app."
+    ],
+    "pending_it": [
+     "Confermato solo da accessibilitacentristorici.it (sito privato di servizi per i permessi, pagina aggiornata il 02/05/2020, affidabilità «modesta» secondo il sito stesso); gli orari coincidono con i tag di accesso delle strade su OpenStreetMap e con altri siti non ufficiali. Il Comune non pubblica gli orari: il regolamento li rimanda a un atto della Giunta che non c'è nell'albo pretorio online (controllati tutti i titoli 2016–ottobre 2026).",
+     "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con il pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito gratuito; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com).",
+     "Area dalla relazione ZTL di OpenStreetMap (non è una mappa ufficiale).",
+     "La ZTL del Poetto (da piazza Arcipelaghi al canale adduttore delle Saline, 21–6 tutti i giorni secondo lo stesso sito) non è disegnata nell'app."
+    ],
+    "pending_de": [
+     "Nur von accessibilitacentristorici.it bestätigt (private Website für Genehmigungsdienste, Seite aktualisiert am 02.05.2020, Zuverlässigkeit laut Website selbst «mäßig»); die Zeiten stimmen mit den Zufahrts-Tags der Straßen in OpenStreetMap und anderen inoffiziellen Seiten überein. Die Stadt veröffentlicht keine Zeiten: Ihre Ordnung überlässt sie einem Beschluss des Stadtvorstands, der nicht auf der Online-Amtstafel steht (alle Titel 2016–Oktober 2026 geprüft).",
+     "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit dem Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen kostenlosen Durchfahrtspass; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt).",
+     "Fläche aus der ZTL-Relation von OpenStreetMap (keine offizielle Karte).",
+     "Die ZTL am Poetto (von Piazza Arcipelaghi bis zum Saline-Kanal, laut gleicher Website täglich 21–6 Uhr) ist in der App nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "accessibilitacentristorici.it: Cagliari ZTL (unofficial, hours and streets)",
+      "title_it": "accessibilitacentristorici.it: ZTL di Cagliari (non ufficiale, orari e strade)",
+      "title_de": "accessibilitacentristorici.it: ZTL Cagliari (inoffiziell, Zeiten und Straßen)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
+     },
+     {
+      "title": "City of Cagliari: ZTL regulation (text in force, Dec. 2025)",
+      "title_it": "Comune di Cagliari: regolamento ZTL (testo vigente, dic. 2025)",
+      "title_de": "Stadt Cagliari: ZTL-Ordnung (geltender Text, Dez. 2025)",
+      "url": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/"
+     },
+     {
+      "title": "City of Cagliari: ZTL and pedestrian zones office",
+      "title_it": "Comune di Cagliari: ufficio ZTL e zone pedonali",
+      "title_de": "Stadt Cagliari: Büro ZTL und Fußgängerzonen",
+      "url": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497"
+     },
+     {
+      "title": "City of Cagliari: ZTL passes",
+      "title_it": "Comune di Cagliari: rilascio pass ZTL",
+      "title_de": "Stadt Cagliari: ZTL-Pässe",
+      "url": "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350"
+     },
+     {
+      "title": "City of Cagliari: ZTL pass for hotels",
+      "title_it": "Comune di Cagliari: pass ZTL per strutture ricettive",
+      "title_de": "Stadt Cagliari: ZTL-Pass für Unterkünfte",
+      "url": "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363"
+     }
+    ],
+    "official": false,
+    "unofficialSource": {
+     "name": "accessibilitacentristorici.it",
+     "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
+    }
+   }
+  },
+  {
+   "id": "cagliari-marina",
+   "name": "Marina · harbour quarter",
+   "name_it": "Marina · quartiere del porto",
+   "name_de": "Marina · Hafenviertel",
+   "kind": "restricted",
+   "summary": "Marina (the quarter between Via Roma and Castello) is closed to cars and motorbikes without a pass every day 3:30–5 pm and 9 pm–7 am. Hours from an unofficial site.",
+   "summary_it": "Marina (il quartiere tra via Roma e Castello) è chiuso ad auto e moto senza pass ogni giorno 15:30–17 e 21–7. Orari da un sito non ufficiale.",
+   "summary_de": "Marina (das Viertel zwischen Via Roma und Castello) ist für Autos und Motorräder ohne Pass täglich 15:30–17 und 21–7 Uhr gesperrt. Zeiten von einer inoffiziellen Website.",
+   "perimeter": [
+    {
+     "lat": 39.215505,
+     "lon": 9.116443
+    },
+    {
+     "lat": 39.215657,
+     "lon": 9.115886
+    },
+    {
+     "lat": 39.216077,
+     "lon": 9.115165
+    },
+    {
+     "lat": 39.216166,
+     "lon": 9.114803
+    },
+    {
+     "lat": 39.217054,
+     "lon": 9.113611
+    },
+    {
+     "lat": 39.215644,
+     "lon": 9.111825
+    },
+    {
+     "lat": 39.214844,
+     "lon": 9.110998
+    },
+    {
+     "lat": 39.214728,
+     "lon": 9.111026
+    },
+    {
+     "lat": 39.212726,
+     "lon": 9.114619
+    },
+    {
+     "lat": 39.21342,
+     "lon": 9.115236
+    },
+    {
+     "lat": 39.213091,
+     "lon": 9.115774
+    },
+    {
+     "lat": 39.214592,
+     "lon": 9.116885
+    },
+    {
+     "lat": 39.215499,
+     "lon": 9.116713
+    },
+    {
+     "lat": 39.215505,
+     "lon": 9.116443
+    }
+   ],
+   "gates": [
+    {
+     "id": "ca-osm9920827835",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.215595,
+      "lon": 9.111748
+     }
+    },
+    {
+     "id": "ca-osm9920827836",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.215123,
+      "lon": 9.111414
+     }
+    },
+    {
+     "id": "ca-osm9920827838",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.213257,
+      "lon": 9.114071
+     }
+    },
+    {
+     "id": "ca-osm9920827839",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.215045,
+      "lon": 9.116677
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1260,
+     "end": 420
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 930,
+     "end": 1020
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cagliari",
+    "pageURL": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497",
+    "ordinance": "Orari: nessun atto ufficiale pubblicato (regolamento ZTL, D.C.C. n. 42/2012, 27/2013 e 168/2025, art. 31: orari decisi dalla Giunta)",
+    "ordinanceURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "quote": "La z.t.l. Marina è in vigore dal lunedì alla domenica dalle 21.00 alle 07.00 e dalle 15.30 alle 17.00",
+    "quoteTranslation": "The Marina ZTL is in force Monday to Sunday from 21.00 to 07.00 and from 15.30 to 17.00",
+    "quoteTranslation_de": "Die ZTL Marina gilt von Montag bis Sonntag von 21.00 bis 07.00 und von 15.30 bis 17.00 Uhr",
+    "checkedOn": "2026-10-27T17:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Not restricted at any time (same site): Via Porcile from Via Roma to Via Cavour, Via Cavour and Via Sardegna from Viale Regina Margherita to Via Porcile. Via Sardegna, Via Concezione, Via Barcellona and Via Napoli are also a pedestrian area.",
+     "Confirmed only by accessibilitacentristorici.it (a private permit-service site, page updated 02/05/2020, rated «modest» reliability by the site itself); hours match the OpenStreetMap access tags of the streets and other unofficial sites. The City publishes no hours: its regulation leaves them to an act of the City executive that is not on the online notice board (all titles 2016–October 2026 checked).",
+     "Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com).",
+     "Area from the OpenStreetMap ZTL relation (not an official map).",
+     "The Poetto seafront ZTL (from Piazza Arcipelaghi to the Saline canal, 9 pm–6 am every day according to the same site) is not drawn in the app."
+    ],
+    "pending_it": [
+     "Mai soggetti a limitazioni (stesso sito): via Porcile da via Roma a via Cavour, via Cavour e via Sardegna da viale Regina Margherita a via Porcile. Via Sardegna, via Concezione, via Barcellona e via Napoli sono anche area pedonale.",
+     "Confermato solo da accessibilitacentristorici.it (sito privato di servizi per i permessi, pagina aggiornata il 02/05/2020, affidabilità «modesta» secondo il sito stesso); gli orari coincidono con i tag di accesso delle strade su OpenStreetMap e con altri siti non ufficiali. Il Comune non pubblica gli orari: il regolamento li rimanda a un atto della Giunta che non c'è nell'albo pretorio online (controllati tutti i titoli 2016–ottobre 2026).",
+     "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con il pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito gratuito; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com).",
+     "Area dalla relazione ZTL di OpenStreetMap (non è una mappa ufficiale).",
+     "La ZTL del Poetto (da piazza Arcipelaghi al canale adduttore delle Saline, 21–6 tutti i giorni secondo lo stesso sito) non è disegnata nell'app."
+    ],
+    "pending_de": [
+     "Nie beschränkt (gleiche Website): Via Porcile von Via Roma bis Via Cavour, Via Cavour und Via Sardegna von Viale Regina Margherita bis Via Porcile. Via Sardegna, Via Concezione, Via Barcellona und Via Napoli sind zudem Fußgängerzone.",
+     "Nur von accessibilitacentristorici.it bestätigt (private Website für Genehmigungsdienste, Seite aktualisiert am 02.05.2020, Zuverlässigkeit laut Website selbst «mäßig»); die Zeiten stimmen mit den Zufahrts-Tags der Straßen in OpenStreetMap und anderen inoffiziellen Seiten überein. Die Stadt veröffentlicht keine Zeiten: Ihre Ordnung überlässt sie einem Beschluss des Stadtvorstands, der nicht auf der Online-Amtstafel steht (alle Titel 2016–Oktober 2026 geprüft).",
+     "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit dem Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen kostenlosen Durchfahrtspass; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt).",
+     "Fläche aus der ZTL-Relation von OpenStreetMap (keine offizielle Karte).",
+     "Die ZTL am Poetto (von Piazza Arcipelaghi bis zum Saline-Kanal, laut gleicher Website täglich 21–6 Uhr) ist in der App nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "accessibilitacentristorici.it: Cagliari ZTL (unofficial, hours and streets)",
+      "title_it": "accessibilitacentristorici.it: ZTL di Cagliari (non ufficiale, orari e strade)",
+      "title_de": "accessibilitacentristorici.it: ZTL Cagliari (inoffiziell, Zeiten und Straßen)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
+     },
+     {
+      "title": "City of Cagliari: ZTL regulation (text in force, Dec. 2025)",
+      "title_it": "Comune di Cagliari: regolamento ZTL (testo vigente, dic. 2025)",
+      "title_de": "Stadt Cagliari: ZTL-Ordnung (geltender Text, Dez. 2025)",
+      "url": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/"
+     },
+     {
+      "title": "City of Cagliari: ZTL and pedestrian zones office",
+      "title_it": "Comune di Cagliari: ufficio ZTL e zone pedonali",
+      "title_de": "Stadt Cagliari: Büro ZTL und Fußgängerzonen",
+      "url": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497"
+     },
+     {
+      "title": "City of Cagliari: ZTL passes",
+      "title_it": "Comune di Cagliari: rilascio pass ZTL",
+      "title_de": "Stadt Cagliari: ZTL-Pässe",
+      "url": "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350"
+     },
+     {
+      "title": "City of Cagliari: ZTL pass for hotels",
+      "title_it": "Comune di Cagliari: pass ZTL per strutture ricettive",
+      "title_de": "Stadt Cagliari: ZTL-Pass für Unterkünfte",
+      "url": "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363"
+     }
+    ],
+    "official": false,
+    "unofficialSource": {
+     "name": "accessibilitacentristorici.it",
+     "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
+    }
+   }
+  },
+  {
+   "id": "cagliari-villanova",
+   "name": "Villanova · old quarter",
+   "name_it": "Villanova · quartiere storico",
+   "name_de": "Villanova · Altstadtviertel",
+   "kind": "restricted",
+   "summary": "Villanova (between Viale Regina Elena, Via Garibaldi and Via Bacaredda) is closed to cars and motorbikes without a pass every day 3:30–5 pm and 9 pm–7 am. Hours from an unofficial site.",
+   "summary_it": "Villanova (tra viale Regina Elena, via Garibaldi e via Bacaredda) è chiuso ad auto e moto senza pass ogni giorno 15:30–17 e 21–7. Orari da un sito non ufficiale.",
+   "summary_de": "Villanova (zwischen Viale Regina Elena, Via Garibaldi und Via Bacaredda) ist für Autos und Motorräder ohne Pass täglich 15:30–17 und 21–7 Uhr gesperrt. Zeiten von einer inoffiziellen Website.",
+   "perimeter": [
+    {
+     "lat": 39.21577,
+     "lon": 9.116768
+    },
+    {
+     "lat": 39.217972,
+     "lon": 9.117491
+    },
+    {
+     "lat": 39.219083,
+     "lon": 9.118028
+    },
+    {
+     "lat": 39.220613,
+     "lon": 9.11781
+    },
+    {
+     "lat": 39.221707,
+     "lon": 9.118188
+    },
+    {
+     "lat": 39.222349,
+     "lon": 9.117995
+    },
+    {
+     "lat": 39.22299,
+     "lon": 9.118064
+    },
+    {
+     "lat": 39.224061,
+     "lon": 9.117707
+    },
+    {
+     "lat": 39.225372,
+     "lon": 9.117541
+    },
+    {
+     "lat": 39.226121,
+     "lon": 9.117076
+    },
+    {
+     "lat": 39.226521,
+     "lon": 9.117126
+    },
+    {
+     "lat": 39.226705,
+     "lon": 9.117306
+    },
+    {
+     "lat": 39.226877,
+     "lon": 9.117877
+    },
+    {
+     "lat": 39.227105,
+     "lon": 9.118109
+    },
+    {
+     "lat": 39.227413,
+     "lon": 9.119586
+    },
+    {
+     "lat": 39.227046,
+     "lon": 9.119744
+    },
+    {
+     "lat": 39.226978,
+     "lon": 9.119932
+    },
+    {
+     "lat": 39.223836,
+     "lon": 9.121684
+    },
+    {
+     "lat": 39.223623,
+     "lon": 9.121716
+    },
+    {
+     "lat": 39.221573,
+     "lon": 9.121458
+    },
+    {
+     "lat": 39.219561,
+     "lon": 9.121929
+    },
+    {
+     "lat": 39.219585,
+     "lon": 9.121787
+    },
+    {
+     "lat": 39.218959,
+     "lon": 9.121732
+    },
+    {
+     "lat": 39.218965,
+     "lon": 9.121593
+    },
+    {
+     "lat": 39.21853,
+     "lon": 9.120839
+    },
+    {
+     "lat": 39.217906,
+     "lon": 9.11991
+    },
+    {
+     "lat": 39.217432,
+     "lon": 9.119432
+    },
+    {
+     "lat": 39.216832,
+     "lon": 9.119241
+    },
+    {
+     "lat": 39.216251,
+     "lon": 9.11858
+    },
+    {
+     "lat": 39.215939,
+     "lon": 9.117968
+    },
+    {
+     "lat": 39.215644,
+     "lon": 9.117097
+    },
+    {
+     "lat": 39.215647,
+     "lon": 9.11686
+    },
+    {
+     "lat": 39.21577,
+     "lon": 9.116768
+    }
+   ],
+   "gates": [
+    {
+     "id": "ca-osm9920042867",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.219605,
+      "lon": 9.121726
+     }
+    },
+    {
+     "id": "ca-osm9920042868",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.221436,
+      "lon": 9.121313
+     }
+    },
+    {
+     "id": "ca-osm9920042870",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.216908,
+      "lon": 9.117515
+     }
+    },
+    {
+     "id": "ca-osm9920042871",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.223414,
+      "lon": 9.118292
+     }
+    },
+    {
+     "id": "ca-osm9920042872",
+     "name": "Varco ZTL",
+     "location": {
+      "lat": 39.226568,
+      "lon": 9.119814
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1260,
+     "end": 420
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 930,
+     "end": 1020
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cagliari",
+    "pageURL": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497",
+    "ordinance": "Orari: nessun atto ufficiale pubblicato (regolamento ZTL, D.C.C. n. 42/2012, 27/2013 e 168/2025, art. 31: orari decisi dalla Giunta)",
+    "ordinanceURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "quote": "La z.t.l. Villanova è in vigore dal lunedì alla domenica dalle 21.00 alle 07.00 e dalle 15.30 alle 17.00",
+    "quoteTranslation": "The Villanova ZTL is in force Monday to Sunday from 21.00 to 07.00 and from 15.30 to 17.00",
+    "quoteTranslation_de": "Die ZTL Villanova gilt von Montag bis Sonntag von 21.00 bis 07.00 und von 15.30 bis 17.00 Uhr",
+    "checkedOn": "2026-10-27T17:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Via Piccioni, Via San Giacomo, Via and Vico Sulis, Piazza San Giacomo, Via San Giovanni and its lanes are also a pedestrian area (same site).",
+     "Confirmed only by accessibilitacentristorici.it (a private permit-service site, page updated 02/05/2020, rated «modest» reliability by the site itself); hours match the OpenStreetMap access tags of the streets and other unofficial sites. The City publishes no hours: its regulation leaves them to an act of the City executive that is not on the online notice board (all titles 2016–October 2026 checked).",
+     "Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com).",
+     "Area drawn from the boundary streets named by accessibilitacentristorici.it, followed on OpenStreetMap along their centre lines: streets on the edge may be only partly inside.",
+     "The Poetto seafront ZTL (from Piazza Arcipelaghi to the Saline canal, 9 pm–6 am every day according to the same site) is not drawn in the app."
+    ],
+    "pending_it": [
+     "Via Piccioni, via San Giacomo, via e vico Sulis, piazza San Giacomo, via San Giovanni e i suoi vicoli sono anche area pedonale (stesso sito).",
+     "Confermato solo da accessibilitacentristorici.it (sito privato di servizi per i permessi, pagina aggiornata il 02/05/2020, affidabilità «modesta» secondo il sito stesso); gli orari coincidono con i tag di accesso delle strade su OpenStreetMap e con altri siti non ufficiali. Il Comune non pubblica gli orari: il regolamento li rimanda a un atto della Giunta che non c'è nell'albo pretorio online (controllati tutti i titoli 2016–ottobre 2026).",
+     "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con il pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito gratuito; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com).",
+     "Area ricavata dalle strade di confine indicate da accessibilitacentristorici.it, seguite su OpenStreetMap lungo la mezzeria: le strade di confine possono essere dentro solo in parte.",
+     "La ZTL del Poetto (da piazza Arcipelaghi al canale adduttore delle Saline, 21–6 tutti i giorni secondo lo stesso sito) non è disegnata nell'app."
+    ],
+    "pending_de": [
+     "Via Piccioni, Via San Giacomo, Via und Vico Sulis, Piazza San Giacomo, Via San Giovanni und ihre Gassen sind zudem Fußgängerzone (gleiche Website).",
+     "Nur von accessibilitacentristorici.it bestätigt (private Website für Genehmigungsdienste, Seite aktualisiert am 02.05.2020, Zuverlässigkeit laut Website selbst «mäßig»); die Zeiten stimmen mit den Zufahrts-Tags der Straßen in OpenStreetMap und anderen inoffiziellen Seiten überein. Die Stadt veröffentlicht keine Zeiten: Ihre Ordnung überlässt sie einem Beschluss des Stadtvorstands, der nicht auf der Online-Amtstafel steht (alle Titel 2016–Oktober 2026 geprüft).",
+     "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit dem Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen kostenlosen Durchfahrtspass; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt).",
+     "Fläche aus den von accessibilitacentristorici.it genannten Grenzstraßen, in OpenStreetMap entlang der Straßenmitte verfolgt: Grenzstraßen liegen eventuell nur teilweise innen.",
+     "Die ZTL am Poetto (von Piazza Arcipelaghi bis zum Saline-Kanal, laut gleicher Website täglich 21–6 Uhr) ist in der App nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "accessibilitacentristorici.it: Cagliari ZTL (unofficial, hours and streets)",
+      "title_it": "accessibilitacentristorici.it: ZTL di Cagliari (non ufficiale, orari e strade)",
+      "title_de": "accessibilitacentristorici.it: ZTL Cagliari (inoffiziell, Zeiten und Straßen)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
+     },
+     {
+      "title": "City of Cagliari: ZTL regulation (text in force, Dec. 2025)",
+      "title_it": "Comune di Cagliari: regolamento ZTL (testo vigente, dic. 2025)",
+      "title_de": "Stadt Cagliari: ZTL-Ordnung (geltender Text, Dez. 2025)",
+      "url": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/"
+     },
+     {
+      "title": "City of Cagliari: ZTL and pedestrian zones office",
+      "title_it": "Comune di Cagliari: ufficio ZTL e zone pedonali",
+      "title_de": "Stadt Cagliari: Büro ZTL und Fußgängerzonen",
+      "url": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497"
+     },
+     {
+      "title": "City of Cagliari: ZTL passes",
+      "title_it": "Comune di Cagliari: rilascio pass ZTL",
+      "title_de": "Stadt Cagliari: ZTL-Pässe",
+      "url": "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350"
+     },
+     {
+      "title": "City of Cagliari: ZTL pass for hotels",
+      "title_it": "Comune di Cagliari: pass ZTL per strutture ricettive",
+      "title_de": "Stadt Cagliari: ZTL-Pass für Unterkünfte",
+      "url": "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363"
+     }
+    ],
+    "official": false,
+    "unofficialSource": {
+     "name": "accessibilitacentristorici.it",
+     "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
+    }
+   }
+  },
+  {
+   "id": "cagliari-stampace-alto",
+   "name": "Stampace Alto · upper Stampace",
+   "name_it": "Stampace Alto · Stampace alta",
+   "name_de": "Stampace Alto · oberes Stampace",
+   "kind": "restricted",
+   "summary": "Upper Stampace (around Sant'Efisio and Via Ospedale) is closed to cars and motorbikes without a pass every day 3:30–5 pm and 9 pm–9 am. Hours from an unofficial site.",
+   "summary_it": "Stampace Alto (intorno a Sant'Efisio e via Ospedale) è chiuso ad auto e moto senza pass ogni giorno 15:30–17 e 21–9. Orari da un sito non ufficiale.",
+   "summary_de": "Das obere Stampace (um Sant'Efisio und Via Ospedale) ist für Autos und Motorräder ohne Pass täglich 15:30–17 und 21–9 Uhr gesperrt. Zeiten von einer inoffiziellen Website.",
+   "perimeter": [
+    {
+     "lat": 39.220705,
+     "lon": 9.113487
+    },
+    {
+     "lat": 39.220896,
+     "lon": 9.112552
+    },
+    {
+     "lat": 39.218504,
+     "lon": 9.11142
+    },
+    {
+     "lat": 39.218204,
+     "lon": 9.111971
+    },
+    {
+     "lat": 39.217783,
+     "lon": 9.112321
+    },
+    {
+     "lat": 39.217431,
+     "lon": 9.113423
+    },
+    {
+     "lat": 39.217586,
+     "lon": 9.113406
+    },
+    {
+     "lat": 39.21803,
+     "lon": 9.113633
+    },
+    {
+     "lat": 39.217932,
+     "lon": 9.11395
+    },
+    {
+     "lat": 39.217962,
+     "lon": 9.114025
+    },
+    {
+     "lat": 39.21829,
+     "lon": 9.11427
+    },
+    {
+     "lat": 39.218375,
+     "lon": 9.114641
+    },
+    {
+     "lat": 39.218515,
+     "lon": 9.114659
+    },
+    {
+     "lat": 39.218557,
+     "lon": 9.114599
+    },
+    {
+     "lat": 39.218672,
+     "lon": 9.114644
+    },
+    {
+     "lat": 39.218885,
+     "lon": 9.114456
+    },
+    {
+     "lat": 39.220109,
+     "lon": 9.11413
+    },
+    {
+     "lat": 39.220134,
+     "lon": 9.113944
+    },
+    {
+     "lat": 39.220404,
+     "lon": 9.113919
+    },
+    {
+     "lat": 39.220575,
+     "lon": 9.113821
+    },
+    {
+     "lat": 39.220705,
+     "lon": 9.113487
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1260,
+     "end": 540
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 930,
+     "end": 1020
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cagliari",
+    "pageURL": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497",
+    "ordinance": "Orari: nessun atto ufficiale pubblicato (regolamento ZTL, D.C.C. n. 42/2012, 27/2013 e 168/2025, art. 31: orari decisi dalla Giunta)",
+    "ordinanceURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "quote": "La z.t.l. Stampace Alto è in vigore dal lunedì alla domenica dalle 21.00 alle 9.00 e dalle 15.30 alle 17.00.",
+    "quoteTranslation": "The Stampace Alto ZTL is in force Monday to Sunday from 21.00 to 9.00 and from 15.30 to 17.00.",
+    "quoteTranslation_de": "Die ZTL Stampace Alto gilt von Montag bis Sonntag von 21.00 bis 9.00 und von 15.30 bis 17.00 Uhr.",
+    "checkedOn": "2026-10-27T17:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Via Azuni and Via Santa Margherita are never restricted (same site). One other unofficial source gives 9 pm–10 am.",
+     "Confirmed only by accessibilitacentristorici.it (a private permit-service site, page updated 02/05/2020, rated «modest» reliability by the site itself); hours match the OpenStreetMap access tags of the streets and other unofficial sites. The City publishes no hours: its regulation leaves them to an act of the City executive that is not on the online notice board (all titles 2016–October 2026 checked).",
+     "Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com).",
+     "Area drawn from the boundary streets named by accessibilitacentristorici.it, followed on OpenStreetMap along their centre lines: streets on the edge may be only partly inside.",
+     "The Poetto seafront ZTL (from Piazza Arcipelaghi to the Saline canal, 9 pm–6 am every day according to the same site) is not drawn in the app."
+    ],
+    "pending_it": [
+     "Via Azuni e via Santa Margherita non sono mai soggette a limitazioni (stesso sito). Un'altra fonte non ufficiale indica 21–10.",
+     "Confermato solo da accessibilitacentristorici.it (sito privato di servizi per i permessi, pagina aggiornata il 02/05/2020, affidabilità «modesta» secondo il sito stesso); gli orari coincidono con i tag di accesso delle strade su OpenStreetMap e con altri siti non ufficiali. Il Comune non pubblica gli orari: il regolamento li rimanda a un atto della Giunta che non c'è nell'albo pretorio online (controllati tutti i titoli 2016–ottobre 2026).",
+     "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con il pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito gratuito; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com).",
+     "Area ricavata dalle strade di confine indicate da accessibilitacentristorici.it, seguite su OpenStreetMap lungo la mezzeria: le strade di confine possono essere dentro solo in parte.",
+     "La ZTL del Poetto (da piazza Arcipelaghi al canale adduttore delle Saline, 21–6 tutti i giorni secondo lo stesso sito) non è disegnata nell'app."
+    ],
+    "pending_de": [
+     "Via Azuni und Via Santa Margherita sind nie beschränkt (gleiche Website). Eine andere inoffizielle Quelle nennt 21–10 Uhr.",
+     "Nur von accessibilitacentristorici.it bestätigt (private Website für Genehmigungsdienste, Seite aktualisiert am 02.05.2020, Zuverlässigkeit laut Website selbst «mäßig»); die Zeiten stimmen mit den Zufahrts-Tags der Straßen in OpenStreetMap und anderen inoffiziellen Seiten überein. Die Stadt veröffentlicht keine Zeiten: Ihre Ordnung überlässt sie einem Beschluss des Stadtvorstands, der nicht auf der Online-Amtstafel steht (alle Titel 2016–Oktober 2026 geprüft).",
+     "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit dem Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen kostenlosen Durchfahrtspass; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt).",
+     "Fläche aus den von accessibilitacentristorici.it genannten Grenzstraßen, in OpenStreetMap entlang der Straßenmitte verfolgt: Grenzstraßen liegen eventuell nur teilweise innen.",
+     "Die ZTL am Poetto (von Piazza Arcipelaghi bis zum Saline-Kanal, laut gleicher Website täglich 21–6 Uhr) ist in der App nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "accessibilitacentristorici.it: Cagliari ZTL (unofficial, hours and streets)",
+      "title_it": "accessibilitacentristorici.it: ZTL di Cagliari (non ufficiale, orari e strade)",
+      "title_de": "accessibilitacentristorici.it: ZTL Cagliari (inoffiziell, Zeiten und Straßen)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
+     },
+     {
+      "title": "City of Cagliari: ZTL regulation (text in force, Dec. 2025)",
+      "title_it": "Comune di Cagliari: regolamento ZTL (testo vigente, dic. 2025)",
+      "title_de": "Stadt Cagliari: ZTL-Ordnung (geltender Text, Dez. 2025)",
+      "url": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/"
+     },
+     {
+      "title": "City of Cagliari: ZTL and pedestrian zones office",
+      "title_it": "Comune di Cagliari: ufficio ZTL e zone pedonali",
+      "title_de": "Stadt Cagliari: Büro ZTL und Fußgängerzonen",
+      "url": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497"
+     },
+     {
+      "title": "City of Cagliari: ZTL passes",
+      "title_it": "Comune di Cagliari: rilascio pass ZTL",
+      "title_de": "Stadt Cagliari: ZTL-Pässe",
+      "url": "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350"
+     },
+     {
+      "title": "City of Cagliari: ZTL pass for hotels",
+      "title_it": "Comune di Cagliari: pass ZTL per strutture ricettive",
+      "title_de": "Stadt Cagliari: ZTL-Pass für Unterkünfte",
+      "url": "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363"
+     }
+    ],
+    "official": false,
+    "unofficialSource": {
+     "name": "accessibilitacentristorici.it",
+     "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
+    }
+   }
+  },
+  {
+   "id": "cagliari-stampace-basso",
+   "name": "Stampace Basso · lower Stampace",
+   "name_it": "Stampace Basso · Stampace bassa",
+   "name_de": "Stampace Basso · unteres Stampace",
+   "kind": "restricted",
+   "summary": "Lower Stampace (between Via Roma, Viale Trieste and Corso Vittorio Emanuele) is closed to cars and motorbikes without a pass every day, holidays included, 7:30–10:30 am and 3:30–5 pm. Hours from an unofficial site.",
+   "summary_it": "Stampace Basso (tra via Roma, viale Trieste e corso Vittorio Emanuele) è chiuso ad auto e moto senza pass tutti i giorni, festivi compresi, 7:30–10:30 e 15:30–17. Orari da un sito non ufficiale.",
+   "summary_de": "Das untere Stampace (zwischen Via Roma, Viale Trieste und Corso Vittorio Emanuele) ist für Autos und Motorräder ohne Pass täglich, auch an Feiertagen, 7:30–10:30 und 15:30–17 Uhr gesperrt. Zeiten von einer inoffiziellen Website.",
+   "perimeter": [
+    {
+     "lat": 39.219775,
+     "lon": 9.104241
+    },
+    {
+     "lat": 39.219994,
+     "lon": 9.104453
+    },
+    {
+     "lat": 39.221233,
+     "lon": 9.106704
+    },
+    {
+     "lat": 39.220577,
+     "lon": 9.107195
+    },
+    {
+     "lat": 39.220101,
+     "lon": 9.107696
+    },
+    {
+     "lat": 39.219592,
+     "lon": 9.108668
+    },
+    {
+     "lat": 39.219286,
+     "lon": 9.109437
+    },
+    {
+     "lat": 39.218467,
+     "lon": 9.110388
+    },
+    {
+     "lat": 39.218347,
+     "lon": 9.110606
+    },
+    {
+     "lat": 39.217677,
+     "lon": 9.112624
+    },
+    {
+     "lat": 39.216911,
+     "lon": 9.112094
+    },
+    {
+     "lat": 39.216437,
+     "lon": 9.111527
+    },
+    {
+     "lat": 39.215719,
+     "lon": 9.110379
+    },
+    {
+     "lat": 39.216885,
+     "lon": 9.108506
+    },
+    {
+     "lat": 39.216474,
+     "lon": 9.108063
+    },
+    {
+     "lat": 39.216533,
+     "lon": 9.107969
+    },
+    {
+     "lat": 39.217208,
+     "lon": 9.107031
+    },
+    {
+     "lat": 39.219236,
+     "lon": 9.105137
+    },
+    {
+     "lat": 39.219775,
+     "lon": 9.104241
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 450,
+     "end": 630
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 930,
+     "end": 1020
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Cagliari",
+    "pageURL": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497",
+    "ordinance": "Orari: nessun atto ufficiale pubblicato (regolamento ZTL, D.C.C. n. 42/2012, 27/2013 e 168/2025, art. 31: orari decisi dalla Giunta)",
+    "ordinanceURL": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/",
+    "quote": "La z.t.l. Stampace Basso è in vigore i giorni festivi e feriali dalle 7.30 alle 10.30 e dalle 15.30 alle 17.00.",
+    "quoteTranslation": "The Stampace Basso ZTL is in force on holidays and weekdays from 7.30 to 10.30 and from 15.30 to 17.00.",
+    "quoteTranslation_de": "Die ZTL Stampace Basso gilt an Feier- und Werktagen von 7.30 bis 10.30 und von 15.30 bis 17.00 Uhr.",
+    "checkedOn": "2026-10-27T17:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Sources disagree: OpenStreetMap and other unofficial sites give Monday–Friday 7:30–10:30 and 3:30–5 pm, Saturday 7:30–10:30 only, Sundays and holidays free; the app uses the stricter hours of accessibilitacentristorici.it. Viale Trieste is never restricted.",
+     "Confirmed only by accessibilitacentristorici.it (a private permit-service site, page updated 02/05/2020, rated «modest» reliability by the site itself); hours match the OpenStreetMap access tags of the streets and other unofficial sites. The City publishes no hours: its regulation leaves them to an act of the City executive that is not on the online notice board (all titles 2016–October 2026 checked).",
+     "Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com).",
+     "Area drawn from the boundary streets named by accessibilitacentristorici.it, followed on OpenStreetMap along their centre lines: streets on the edge may be only partly inside.",
+     "The Poetto seafront ZTL (from Piazza Arcipelaghi to the Saline canal, 9 pm–6 am every day according to the same site) is not drawn in the app."
+    ],
+    "pending_it": [
+     "Le fonti non concordano: OpenStreetMap e altri siti non ufficiali indicano lunedì–venerdì 7:30–10:30 e 15:30–17, sabato solo 7:30–10:30, domenica e festivi liberi; l'app usa gli orari più ampi di accessibilitacentristorici.it. Il viale Trieste non è mai soggetto a limitazioni.",
+     "Confermato solo da accessibilitacentristorici.it (sito privato di servizi per i permessi, pagina aggiornata il 02/05/2020, affidabilità «modesta» secondo il sito stesso); gli orari coincidono con i tag di accesso delle strade su OpenStreetMap e con altri siti non ufficiali. Il Comune non pubblica gli orari: il regolamento li rimanda a un atto della Giunta che non c'è nell'albo pretorio online (controllati tutti i titoli 2016–ottobre 2026).",
+     "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con il pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito gratuito; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com).",
+     "Area ricavata dalle strade di confine indicate da accessibilitacentristorici.it, seguite su OpenStreetMap lungo la mezzeria: le strade di confine possono essere dentro solo in parte.",
+     "La ZTL del Poetto (da piazza Arcipelaghi al canale adduttore delle Saline, 21–6 tutti i giorni secondo lo stesso sito) non è disegnata nell'app."
+    ],
+    "pending_de": [
+     "Die Quellen sind sich uneinig: OpenStreetMap und andere inoffizielle Seiten nennen Montag–Freitag 7:30–10:30 und 15:30–17, Samstag nur 7:30–10:30, Sonn- und Feiertage frei; die App nimmt die strengeren Zeiten von accessibilitacentristorici.it. Der Viale Trieste ist nie beschränkt.",
+     "Nur von accessibilitacentristorici.it bestätigt (private Website für Genehmigungsdienste, Seite aktualisiert am 02.05.2020, Zuverlässigkeit laut Website selbst «mäßig»); die Zeiten stimmen mit den Zufahrts-Tags der Straßen in OpenStreetMap und anderen inoffiziellen Seiten überein. Die Stadt veröffentlicht keine Zeiten: Ihre Ordnung überlässt sie einem Beschluss des Stadtvorstands, der nicht auf der Online-Amtstafel steht (alle Titel 2016–Oktober 2026 geprüft).",
+     "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit dem Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen kostenlosen Durchfahrtspass; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt).",
+     "Fläche aus den von accessibilitacentristorici.it genannten Grenzstraßen, in OpenStreetMap entlang der Straßenmitte verfolgt: Grenzstraßen liegen eventuell nur teilweise innen.",
+     "Die ZTL am Poetto (von Piazza Arcipelaghi bis zum Saline-Kanal, laut gleicher Website täglich 21–6 Uhr) ist in der App nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "accessibilitacentristorici.it: Cagliari ZTL (unofficial, hours and streets)",
+      "title_it": "accessibilitacentristorici.it: ZTL di Cagliari (non ufficiale, orari e strade)",
+      "title_de": "accessibilitacentristorici.it: ZTL Cagliari (inoffiziell, Zeiten und Straßen)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
+     },
+     {
+      "title": "City of Cagliari: ZTL regulation (text in force, Dec. 2025)",
+      "title_it": "Comune di Cagliari: regolamento ZTL (testo vigente, dic. 2025)",
+      "title_de": "Stadt Cagliari: ZTL-Ordnung (geltender Text, Dez. 2025)",
+      "url": "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/"
+     },
+     {
+      "title": "City of Cagliari: ZTL and pedestrian zones office",
+      "title_it": "Comune di Cagliari: ufficio ZTL e zone pedonali",
+      "title_de": "Stadt Cagliari: Büro ZTL und Fußgängerzonen",
+      "url": "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497"
+     },
+     {
+      "title": "City of Cagliari: ZTL passes",
+      "title_it": "Comune di Cagliari: rilascio pass ZTL",
+      "title_de": "Stadt Cagliari: ZTL-Pässe",
+      "url": "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350"
+     },
+     {
+      "title": "City of Cagliari: ZTL pass for hotels",
+      "title_it": "Comune di Cagliari: pass ZTL per strutture ricettive",
+      "title_de": "Stadt Cagliari: ZTL-Pass für Unterkünfte",
+      "url": "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363"
+     }
+    ],
+    "official": false,
+    "unofficialSource": {
+     "name": "accessibilitacentristorici.it",
+     "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
+    }
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Cagliari (ZTL regulation); hours and boundary streets from accessibilitacentristorici.it (unofficial). Perimeters and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

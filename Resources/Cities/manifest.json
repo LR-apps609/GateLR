@@ -1,6 +1,6 @@
 {
- "version": "202610271646",
- "digest": "df57db283270",
+ "version": "202610271647",
+ "digest": "785b428c72ea",
  "schema": 1,
  "cities": [
   {
@@ -205,6 +205,11 @@
   }
  ],
  "unofficialCities": [
+  {
+   "id": "cagliari",
+   "file": "cagliari.json",
+   "sha256": "ffa228817bf6a553d0ae743bf2ae4320d3c32d2f3373f67add0ef878c1973cb6"
+  },
   {
    "id": "mantova",
    "file": "mantova.json",
