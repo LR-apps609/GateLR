@@ -1,6 +1,6 @@
 {
- "version": "202610271122",
- "digest": "a8bcccb9035e",
+ "version": "202610271127",
+ "digest": "5cea16a68e7c",
  "schema": 1,
  "cities": [
   {
@@ -112,6 +112,11 @@
    "id": "ravenna",
    "file": "ravenna.json",
    "sha256": "03d0d8b61fef982664daabcdc3799692e36d7e6370ebcae4b1be4bf656cd6131"
+  },
+  {
+   "id": "rimini",
+   "file": "rimini.json",
+   "sha256": "accffadde32d1c5bcdc262019fe200e975b7cc2fa7d47903271b26f1693655b2"
   },
   {
    "id": "roma",
