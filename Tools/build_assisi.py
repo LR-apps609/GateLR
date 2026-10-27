@@ -8,6 +8,9 @@
 # la scheda resta in data/drafts/assisi.json. Per pubblicarla servono il perimetro (data/raw/assisi/ztl_perimetro.geojson,
 # WGS84, da OSM: strade raggiungibili solo dai 5 varchi come in build_perugia.py) e un modo di seguire le ordinanze
 # periodiche (o la conferma del Comune che lo schema feriali/prefestivi resta stabile).
+# Ricontrollo 27/10/2026: nessun elenco ufficiale dei varchi (l'ordinanza cita le DGC 80/2016 e 231/2025 senza nominarli;
+# i nomi sono solo nella stampa) e www.comune.assisi.pg.it chiude la connessione: perimetro ancora assente. Le finestre restano
+# SENZA season (una season limitata al periodo dell'ordinanza farebbe risultare la zona libera dopo la scadenza).
 # Uso: python3 Tools/build_assisi.py   (non tocca le altre città né manifest.json)
 import json, re
 from pathlib import Path

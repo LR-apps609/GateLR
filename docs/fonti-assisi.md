@@ -27,4 +27,13 @@ Per pubblicare: perimetro da OSM (strade raggiungibili solo dai 5 varchi, come `
 | Disabili non in lista: targa prima dell'accesso o entro 72 ore a permessivarchi@comune.assisi.pg.it | https://www.comune.assisi.pg.it/servizi/mobilita_e_trasporti/servizio_23.html (aggiornata il 14/10/2026) |
 | Varchi: Porta San Giacomo, Largo Properzio, via Porta Perlici, via Marconi, via del Turrione; multe dal 16/09/2026; multa 84 € (58,10 € entro 5 giorni) | Assisi News e altre testate (`websearch-1`, `websearch-3`), **non ufficiale** |
 
+## Ricontrollo del 27/10/2026 (perimetro e orari)
+- **Elenco ufficiale dei varchi: non trovato.** L'ordinanza 368/2026 cita la DGC n. 231 dell'11/12/2025 («vengono attivati cinque varchi elettronici») e la DGC n. 80 del 14/04/2016 («sono state delimitate le Zone a Traffico Limitato»), ma non nomina i varchi né le vie; i nomi (Porta San Giacomo, Largo Properzio, via Porta Perlici, via Marconi, via del Turrione) sono solo nella stampa (Assisi News, VivoUmbria). Le due delibere non sono state lette: `www.comune.assisi.pg.it` e `comune.assisi.pg.it` oggi chiudono la connessione (5 tentativi con timeout di 120 s; il 26/10 il proxy rispondeva 403); WebFetch non risolve il nome. Un perimetro OSM «strade raggiungibili solo dai 5 varchi» si appoggerebbe a un elenco non ufficiale, quindi non è stato pubblicato.
+- **Come codificare orari che cambiano a ogni ordinanza.** Lo schema dell'app (`TimeWindow`) ha solo `weekdays`, `start`, `end` e una `season` ripetuta ogni anno: non c'è una data di scadenza. Le alternative oneste, senza toccare il codice dell'app:
+  1. finestre dell'ordinanza vigente **senza** `season` (così fuori dal periodo l'app non dice «aperto» per errore), `checkedOn` uguale alla data di lettura e un pending che dice per quali giorni vale l'ordinanza e che lo schema feriali 11–12:30 / 15:30–17:30 e festivi-prefestivi 11–20 è identico nelle ordinanze 355 e 368; la scheda va ricostruita a ogni nuova ordinanza;
+  2. `season` limitata al periodo dell'ordinanza: **da evitare**, perché alla scadenza la zona risulterebbe libera e la `season` si ripeterebbe l'anno dopo.
+  La scelta 1 è quella del builder; resta comunque bozza finché manca il perimetro. Per un vero «valido fino al» serve un campo nuovo nello schema (decisione sul codice dell'app, non presa qui).
+
+Per pubblicare servono: la DGC 80/2016 (delimitazione) o la DGC 231/2025 (posizione dei varchi) dal sito del Comune, poi il perimetro OSM dai varchi ufficiali.
+
 Nota: il 4 ottobre non è nell'elenco dei festivi nazionali dell'app (`ItalianHolidays`), codice non toccato.
