@@ -5,7 +5,12 @@
 # testo vigente pubblicato sul portale il 29/12/2025) e pagine dell'Ufficio ZTL (pass, strutture ricettive, dimoranti).
 # Il regolamento elenca le ZTL (Marina, Castello, Stampace Alto, Stampace Basso, Villanova, Poetto) ma rimanda gli ORARI
 # (art. 31) e la PERIMETRAZIONE (art. 1 c. 2) a delibere di Giunta, non trovate. La pagina ufficiale con gli orari
-# (old.comune.cagliari.it) e il Sistema informativo territoriale (geoportale.comune.cagliari.it) sono bloccati dal proxy (403).
+# (old.comune.cagliari.it) non risponde (502 dal proxy, server irraggiungibile); il Geoportale (geoportale.comune.cagliari.it,
+# ArcGIS Hub, ora raggiungibile) ha una pagina e un'app «Zone a traffico limitato» non scaricabili (openData false), i cui dati
+# stanno su *.arcgis.com, bloccato dal proxy (403).
+# Ricerca del 27/10/2026 nell'albo pretorio (archivio da agosto 2016, tutte le delibere di Giunta 2016–2026, 2.900 titoli):
+# nessuna delibera di Giunta su orari o perimetri delle ZTL, né prima né dopo la D.C.C. 168 del 02/12/2025
+# (elenco dal 02/12/2025 in data/raw/cagliari/albo-delibere-giunta-dal-02-12-2025.txt); solo aree pedonali stagionali.
 # Gli orari qui sotto sono quindi solo da fonti non ufficiali (data/raw/cagliari/websearch-1-orari.txt).
 #
 # Geometria: OpenStreetMap (© OpenStreetMap contributors, ODbL 1.0; API OSM, data/raw/geo/cagliari-ztl.json): relazioni
@@ -66,6 +71,8 @@ check("comune-rilascio-pass-ztl", "Nel Comune di Cagliari sono presenti sei dive
       "Consulta mappa e orari delle zone a traffico limitato nel Sistema informativo territoriale del Comune")
 check("comune-pass-dimoranti", "L'autorizzazione consente di transitare e sostare h 24 nelle zone a traffico limitato Castello, Marina, Stampace alto, Stampace basso e Villanova.",
       "Il costo del pass è di 5,00 euro")
+check("albo-delibere-giunta-dal-02-12-2025", "Istituzione Aree pedonali nella via Cavour nel tratto compreso tra la Via Sant'Eulalia e la via Lepanto")
+check("geoportale-ztl-metadati", "Il tematismo riporta la localizzazione delle zone a traffico limitato e degli accessi pedonali", "openData: False")
 check("websearch-1-orari", "Castello: 24:00–09:00", "Marina: 21:00–07:00 and 15:30–17:00", "Stampace alto: 21:00–09:00 and 15:30–17:00",
       "Stampace basso: weekdays 07:30–10:30 and 15:30–17:00; Saturday 07:30–10:30", "Villanova: 21:00–07:00 and 15:30–17:00",
       "I found no 2025 or 2026 ordinance changing the Cagliari ZTL hours.")
@@ -99,9 +106,9 @@ LINKS = [link("City of Cagliari: ZTL regulation (text in force, Dec. 2025)", "Co
          link("SicurAUTO: Cagliari ZTL hours (unofficial)", "SicurAUTO: orari ZTL Cagliari (non ufficiale)", "SicurAUTO: ZTL-Zeiten Cagliari (inoffiziell)", UNOFFICIAL)]
 
 COMMON = [
-    ("Hours confirmed only by unofficial sources (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, quoting an older City page): the regulation leaves the hours to a City Council (Giunta) act that was not found; the City's page with hours and its map service could not be reached from here.",
-     "Orari confermati solo da fonti non ufficiali (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, che riprendono una vecchia pagina del Comune): il regolamento rimanda gli orari a un atto della Giunta non trovato; la pagina del Comune con gli orari e il suo servizio cartografico non erano raggiungibili da qui.",
-     "Zeiten nur von inoffiziellen Quellen bestätigt (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, nach einer älteren Stadtseite): Die Ordnung überlässt die Zeiten einem Beschluss des Stadtrats (Giunta), der nicht gefunden wurde; die Stadtseite mit den Zeiten und ihr Kartendienst waren von hier nicht erreichbar."),
+    ("Hours confirmed only by unofficial sources (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, quoting an older City page): the regulation leaves the hours to a City executive (Giunta) act, and no such act appears among the Giunta resolutions on the City's online notice board (all titles 2016–October 2026 checked); the City's old page with hours could not be reached from here and its ZTL map is not downloadable.",
+     "Orari confermati solo da fonti non ufficiali (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, che riprendono una vecchia pagina del Comune): il regolamento rimanda gli orari a un atto della Giunta, e nessun atto del genere compare tra le delibere di Giunta dell'albo pretorio online (controllati tutti i titoli 2016–ottobre 2026); la vecchia pagina del Comune con gli orari non era raggiungibile da qui e la mappa ZTL del Geoportale non è scaricabile.",
+     "Zeiten nur von inoffiziellen Quellen bestätigt (sicurauto.it, brumbrum.it, accessibilitacentristorici.it, nach einer älteren Stadtseite): Die Ordnung überlässt die Zeiten einem Beschluss des Stadtvorstands (Giunta), und kein solcher Beschluss steht unter den Giunta-Beschlüssen der Online-Amtstafel (alle Titel 2016–Oktober 2026 geprüft); die alte Stadtseite mit den Zeiten war von hier nicht erreichbar und die ZTL-Karte des Geoportals ist nicht herunterladbar."),
     ("Hotels (official, ZTL regulation art. 10): the hotel sends your plate online to the City's ZTL office for arrival and departure days, to unload luggage; stop 60 minutes at most with parking disc and the hotel's pass. Mopeds (not motorbikes) may enter; electric cars need a free-hours transit pass; Blue Badge plates go on a white list on request. Fine about 80–335 € (confirmed only by tyremap.com).",
      "Hotel (ufficiale, regolamento ZTL art. 10): la struttura trasmette online la targa all'ufficio ZTL per i giorni di arrivo e partenza, per scaricare i bagagli; sosta al massimo 60 minuti con disco orario e pass della struttura. I ciclomotori (non le moto) entrano; le auto elettriche hanno bisogno di un pass di solo transito senza limiti orari; le targhe CUDE vanno in lista bianca su richiesta. Multa circa 80–335 € (confermato solo da tyremap.com).",
      "Hotels (offiziell, ZTL-Ordnung Art. 10): Die Unterkunft meldet dein Kennzeichen online an das ZTL-Büro für An- und Abreisetag, zum Ausladen; höchstens 60 Minuten mit Parkscheibe und Pass der Unterkunft. Mopeds (keine Motorräder) dürfen hinein; Elektroautos brauchen einen Durchfahrtspass ohne Zeitbegrenzung; Kennzeichen mit Behindertenausweis kommen auf Antrag auf eine weiße Liste. Bußgeld etwa 80–335 € (nur von tyremap.com bestätigt)."),

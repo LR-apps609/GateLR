@@ -1,0 +1,23 @@
+URL: https://geoportale.comune.cagliari.it/api/v3/datasets/da9f5f1437da41999d06a30841d3046b e .../api/v3/datasets/957e472721554125a96650b7179c6410 (Geoportale del Comune, ArcGIS Hub)
+Letto il: 2026-10-27 (Comune di Cagliari: fonte ufficiale; campi estratti dal JSON)
+
+name: Zone a traffico limitato
+hubType: Hub Page
+description: Il tematismo riporta la localizzazione delle zone a traffico limitato e degli accessi pedonali
+searchDescription: Zone a traffico limitato Servizio Smart City e Innovazione Tecnologica
+organization: Comune di Cagliari (EU)
+url: None
+modified: 1771324178000
+openData: False
+downloadable: False
+
+name: Zone a Traffico Limitato
+hubType: Web Mapping Application
+description: None
+searchDescription: None
+organization: Comune di Cagliari (EU)
+url: https://comunecagliarieu.maps.arcgis.com/apps/webappviewer/index.html?id=957e472721554125a96650b7179c6410
+modified: 1770815531000
+openData: False
+downloadable: False
+
