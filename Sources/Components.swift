@@ -80,10 +80,12 @@ struct Pill: View {
 /// La risposta in breve, con il simbolo (✓ ✕ ! ?) oltre al colore: si legge anche senza distinguere i colori
 struct VerdictPill: View {
     var verdict: Verdict
+    /// Regole da fonti non ufficiali: «Probabilmente sì/no»
+    var unofficial = false
     var body: some View {
         HStack(spacing: 4) {
-            Image(systemName: verdict.symbol).font(.system(size: 9, weight: .heavy)).accessibilityHidden(true)
-            Text(verdict.short)
+            Image(systemName: unofficial ? "exclamationmark.triangle.fill" : verdict.symbol).font(.system(size: 9, weight: .heavy)).accessibilityHidden(true)
+            Text(verdict.shortText(unofficial: unofficial))
         }
         .font(.app(size: 12, weight: .semibold))
         .padding(.horizontal, 9).padding(.vertical, 4)
@@ -109,6 +111,7 @@ struct VerdictCard: View {
                 Spacer()
                 Pill(text: answer.gatesOn ? L("ZTL active") : L("ZTL not active"), fill: v.onFill.opacity(0.16), ink: v.onFill)
             }
+            if !source.isOfficial { UnofficialBanner(source: source.unofficialSource) }
             HStack(spacing: 14) {
                 Image(systemName: v.symbol)
                     .font(.app(size: 26, weight: .heavy))
@@ -117,12 +120,12 @@ struct VerdictCard: View {
                     .background(v.badgeFill, in: Circle())
                     .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: -15) {
-                    ForEach(v.titleLines, id: \.self) { line in
+                    ForEach(v.titleLines(unofficial: !source.isOfficial), id: \.self) { line in
                         Text(line).font(Theme.display(36)).lineLimit(1).minimumScaleFactor(0.6)
                     }
                 }
                 .accessibilityElement(children: .ignore)
-                .accessibilityLabel(v.title)
+                .accessibilityLabel(source.isOfficial ? v.title : v.titleLines(unofficial: true).joined(separator: " "))
                 .accessibilityAddTraits(.isHeader)
             }
             Text(detail).font(.app(size: 16)).fixedSize(horizontal: false, vertical: true)
@@ -192,10 +195,50 @@ struct VerdictCard: View {
     }
 }
 
+/// «Fonte non ufficiale: verifica sempre il cartello al varco»: ben visibile (ambra pieno, testo scuro, triangolo)
+/// ovunque si mostra una risposta per una zona con regole da fonti non ufficiali. Con il nome del sito, se c'è.
+/// Niente da chiudere o nascondere: resta finché la zona non ha una fonte ufficiale.
+struct UnofficialBanner: View {
+    var source: UnofficialSource? = nil
+    /// Una riga sola, per i riquadri piccoli (striscia della mappa, widget)
+    var compact = false
+
+    static let fill = Color(hex: 0xFFB21E)
+    static let ink = Color(hex: 0x2B1A00)
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 8) {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .font(.app(size: compact ? 13 : 16, weight: .bold))
+                .accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(verbatim: L("Unofficial source: always check the sign at the gate"))
+                    .font(.app(size: compact ? 12 : 15, weight: .bold))
+                    .fixedSize(horizontal: false, vertical: true)
+                if let source, !compact {
+                    Text(verbatim: String(format: L("Data from %@"), source.name))
+                        .font(.app(size: 13, weight: .medium))
+                }
+            }
+            Spacer(minLength: 0)
+        }
+        .foregroundStyle(Self.ink)
+        .padding(.horizontal, compact ? 10 : 12).padding(.vertical, compact ? 6 : 10)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Self.fill, in: RoundedRectangle(cornerRadius: compact ? 8 : 12, style: .continuous))
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("unofficial.banner")
+    }
+}
+
 struct StatusBanner: View {
     var status: City.Status
+    /// La città ha zone con regole da fonti non ufficiali: al posto di «Bozza: dalle fonti ufficiali…»
+    var unofficial = false
     var body: some View {
-        if status != .verified {
+        if unofficial {
+            UnofficialBanner()
+        } else if status != .verified {
             Label(L(status == .sample ? "Sample data, not real" : "Draft: from official sources, not yet reviewed by a person"),
                   systemImage: "exclamationmark.triangle.fill")
                 .font(.app(size: 13, weight: .semibold))

@@ -155,12 +155,20 @@ data class Source(
     val reviewedByHuman: Boolean,
     val pending: List<String>,
     val links: List<SourceLink>,
+    /** false = regole solo da fonti non ufficiali (come l'iPhone dalla 1.16.2); assente = ufficiale */
+    val official: Boolean? = null,
+    /** Il sito da cui vengono i dati quando la fonte non è ufficiale */
+    val unofficialSource: UnofficialSource? = null,
 ) {
+    val isOfficial: Boolean get() = official ?: true
     val checked: Instant get() = Instant.parse(checkedOn)
     val localizedAuthority: String get() = L(authority)
     val localizedPending: List<String> get() = when (Strings.language) { "it" -> pendingIt ?: pending; "de" -> pendingDe ?: pending; else -> pending }
     val localizedTranslation: String? get() = when (Strings.language) { "it" -> null; "de" -> quoteTranslationDe ?: quoteTranslation; else -> quoteTranslation }
 }
+
+@Serializable
+data class UnofficialSource(val name: String, val url: String)
 
 @Serializable
 data class SourceLink(

@@ -275,7 +275,15 @@ enum CityLoader {
         struct Entry: Codable { var id: String; var file: String; var sha256: String }
         var version: String
         var schema: Int
+        /// Le città con tutte le zone da fonti ufficiali: le leggono tutte le versioni dell'app
         var cities: [Entry]
+        /// Dalla 1.16.2: le città con almeno una zona da fonti non ufficiali (source.official = false). Chiave nuova
+        /// apposta: le app fino alla 1.16.1 leggono solo «cities», scaricano solo quelle e cancellano le altre, così
+        /// non mostrano mai queste città senza l'avviso «Fonte non ufficiale» (che non conoscono)
+        var unofficialCities: [Entry]? = nil
+
+        /// Tutto quello che questa versione scarica
+        var allCities: [Entry] { cities + (unofficialCities ?? []) }
     }
 
     /// Letta una volta sola (Account la mostra a ogni aggiornamento della pagina)

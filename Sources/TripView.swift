@@ -281,7 +281,7 @@ struct TripView: View {
                 .background(zone?.type.color ?? Theme.green, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
             VStack(alignment: .leading, spacing: 1) {
                 Text(place.name).font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
-                Text(zone.map { "\($0.type.title) · \($0.shortName)" } ?? L("Outside the ZTL"))
+                Text(zone.map(\.kindLine) ?? L("Outside the ZTL"))
                     .font(.app(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
             }
             Spacer()
@@ -384,7 +384,7 @@ struct TripView: View {
                                 .font(.app(size: 12)).foregroundStyle(Theme.muted)
                         }
                         Spacer()
-                        VerdictPill(verdict: a.verdict)
+                        VerdictPill(verdict: a.verdict, unofficial: z.isUnofficial)
                     }
                     .padding(.horizontal, 14).padding(.vertical, 10)
                     .contentShape(Rectangle())

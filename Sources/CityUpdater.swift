@@ -36,7 +36,8 @@ final class CityUpdater: ObservableObject {
             let manifest = try JSONDecoder().decode(CityLoader.Manifest.self, from: data)
             guard manifest.schema == 1, manifest.version > currentVersion else { state = .upToDate; return }
             var files: [(String, Data, String)] = []
-            for entry in manifest.cities {
+            // Anche le città con zone da fonti non ufficiali: questa versione mostra l'avviso (vedi Manifest.unofficialCities)
+            for entry in manifest.allCities {
                 let (d, _) = try await URLSession.shared.data(from: Self.base.appendingPathComponent(entry.file))
                 files.append((entry.file, d, entry.sha256))
             }

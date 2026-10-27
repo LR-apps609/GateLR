@@ -526,11 +526,12 @@ struct MapScreen: View {
                 if pedestrian != nil {
                     Pill(text: L("Don't enter"), fill: Verdict.no(reason: "").pillFill, ink: Verdict.no(reason: "").pillInk)
                 } else if let answer {
-                    VerdictPill(verdict: answer.verdict)
+                    VerdictPill(verdict: answer.verdict, unofficial: check.unofficial)
                 } else {
                     Pill(text: L("You can enter"), fill: Theme.greenSoft, ink: Theme.greenInk)
                 }
             }
+            if check.unofficial { UnofficialBanner(source: hit?.zone.source.unofficialSource) }
             // Riquadri sottili: fino a quando vale la risposta, quanto sei lontano
             if check.until != nil || meters != nil {
                 HStack(spacing: 8) {
@@ -622,8 +623,9 @@ struct MapScreen: View {
                     }
                 }
                 Spacer()
-                VerdictPill(verdict: answer.verdict)
+                VerdictPill(verdict: answer.verdict, unofficial: zone.isUnofficial)
             }
+            if zone.isUnofficial { UnofficialBanner(source: zone.source.unofficialSource) }
             if let parkingMessage {
                 Text(parkingMessage).font(.app(size: 13)).foregroundStyle(Theme.muted)
             }
@@ -875,6 +877,14 @@ private struct PlaceCallout: View {
                 }
                 .foregroundStyle(check.neon)
                 .fixedSize()
+                if check.unofficial {
+                    Label(L("Unofficial source").uppercased(), systemImage: "exclamationmark.triangle.fill")
+                        .font(Theme.label(11)).tracking(0.8).lineLimit(1)
+                        .padding(.horizontal, 6).padding(.vertical, 2)
+                        .background(UnofficialBanner.fill, in: RoundedRectangle(cornerRadius: 3, style: .continuous))
+                        .foregroundStyle(UnofficialBanner.ink)
+                        .fixedSize()
+                }
                 Text(check.place.name).font(.app(size: 12, weight: .medium)).foregroundStyle(.white.opacity(0.85)).lineLimit(1)
                 if let until = check.until {
                     Text(until).font(.app(size: 11)).foregroundStyle(.white.opacity(0.6)).lineLimit(1)

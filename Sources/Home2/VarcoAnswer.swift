@@ -34,14 +34,20 @@ struct Home2Answer: Equatable {
     var zoneLine: String
     var panel: GatePanelState
     var city: City?
+    /// Le regole della zona vengono solo da fonti non ufficiali: il titolo si dice con prudenza e sopra c'è l'avviso
+    var unofficial = false
+    var unofficialSource: UnofficialSource?
 
     static func == (l: Home2Answer, r: Home2Answer) -> Bool {
         l.mood == r.mood && l.headline == r.headline && l.time == r.time && l.panel == r.panel && l.zoneLine == r.zoneLine
+            && l.unofficial == r.unofficial
     }
 
     init(_ check: PlaceCheck, now: Date) {
         zoneLine = check.zoneLine
         city = check.hits.first?.city
+        unofficial = check.unofficial
+        unofficialSource = check.unofficial ? check.zone?.source.unofficialSource : nil
         switch check.kind {
         case .closed:
             mood = .red; headline = L("Don't enter."); panel = GatePanelState(lines: ["VARCO", "ATTIVO"], mood: .red)
@@ -55,6 +61,11 @@ struct Home2Answer: Equatable {
             mood = .amber; headline = L("Check the sign."); panel = GatePanelState(lines: ["VARCO", "ATTIVO"], mood: .amber)
         case .pedestrian:
             mood = .red; headline = L("Pedestrian area."); panel = GatePanelState(lines: ["AREA", "PEDONALE"], mood: .red)
+        }
+        // Fonte non ufficiale: stessi colori e stesso pannello (la risposta non cambia), parole più prudenti
+        if unofficial {
+            if check.kind == .closed { headline = L("Probably not.") }
+            if check.kind == .open { headline = L("Probably yes.") }
         }
         if check.kind == .pedestrian {
             timeLabel = L("At any time"); time = nil

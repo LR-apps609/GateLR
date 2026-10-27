@@ -624,6 +624,19 @@ T = {
 "Tap the live map at the top of Gate or See the map: the Map tab opens on the zone of the answer, with the four colours always in view.": ("Tocca la mappa dal vivo in cima a Varco o Guarda la mappa: la scheda Mappa si apre sulla zona della risposta, con i quattro colori sempre in vista.", "Tippe auf die Live-Karte oben in Einfahrt oder auf Karte ansehen: Der Tab Karte öffnet sich in der Zone der Antwort, die vier Farben immer im Blick."),
 "The new intro": ("La nuova presentazione", "Die neue Einführung"),
 "Watch it again whenever you like: You → What are ZTLs → Replay the intro.": ("Rivedila quando vuoi: Tu → Cosa sono le ZTL → Rivedi la presentazione.", "Sieh sie dir jederzeit wieder an: Du → Was sind ZTL → Einführung noch einmal ansehen."),
+# 1.16.2 Fonti non ufficiali, riga della zona
+"Unofficial source: always check the sign at the gate": ("Fonte non ufficiale: verifica sempre il cartello al varco", "Inoffizielle Quelle: prüfe immer das Schild an der Einfahrt"),
+"Unofficial source": ("Fonte non ufficiale", "Inoffizielle Quelle"),
+"Data from %@": ("Dati da %@", "Daten von %@"),
+"Probably yes.": ("Probabilmente sì.", "Wahrscheinlich ja."),
+"Probably not.": ("Probabilmente no.", "Wahrscheinlich nicht."),
+"Probably yes": ("Probabilmente sì", "Wahrscheinlich ja"),
+"Probably not": ("Probabilmente no", "Wahrscheinlich nicht"),
+"Paid ZTL": ("ZTL a pagamento", "Gebührenpflichtige ZTL"),
+"Low-emission zone": ("Zona a basse emissioni", "Umweltzone"),
+"What the source says": ("Cosa dice la fonte", "Was die Quelle sagt"),
+"These rules come from a non-official website, not from the city: they may be wrong or out of date.": ("Queste regole vengono da un sito non ufficiale, non dal Comune: possono essere sbagliate o non aggiornate.", "Diese Regeln stammen von einer inoffiziellen Website, nicht von der Stadt: Sie können falsch oder veraltet sein."),
+"Read from a non-official source on %@, not yet reviewed by a person. Road signs on site always win over the app.": ("Letto da una fonte non ufficiale il %@, non ancora rivisto da una persona. Vale sempre la segnaletica sul posto, non l'app.", "Am %@ aus einer inoffiziellen Quelle gelesen, noch nicht von einer Person geprüft. Es gelten immer die Schilder vor Ort, nicht die App."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

@@ -19,7 +19,14 @@ ORDER = [2, 3, 4, 5, 6, 7, 1]                           # lun … dom (1 = domen
 
 # le città, nell'ordine del manifest dell'app (Resources/Cities/manifest.json): numero ed elenco del sito vengono da qui
 MANIFEST = json.loads((ROOT / "Resources/Cities/manifest.json").read_text(encoding="utf-8"))
-cities = [json.loads((ROOT / "Resources/Cities" / m["file"]).read_text(encoding="utf-8")) for m in MANIFEST["cities"]]
+# anche le città con zone da fonti non ufficiali («unofficialCities», vedi Tools/build_manifest.py): sul sito con l'avviso
+cities = [json.loads((ROOT / "Resources/Cities" / m["file"]).read_text(encoding="utf-8"))
+          for m in sorted(MANIFEST["cities"] + MANIFEST.get("unofficialCities", []), key=lambda m: m["file"])]
+
+
+def unofficial(z):
+    """Regole della zona solo da fonti non ufficiali (official assente = ufficiale)"""
+    return z["source"].get("official", True) is False
 fine = json.loads(FINE_FILE.read_text(encoding="utf-8")) if FINE_FILE.exists() else None
 # {{N}} nei testi del modello = numero di città (calcolato qui, mai scritto a mano)
 template = (WEB / "template.html").read_text(encoding="utf-8").replace("{{N}}", str(len(cities)))
@@ -163,6 +170,8 @@ P = {
         "desc": "When the {c} ZTL is on, which zones you can't drive into, the day ticket, the fine and how your hotel can register your plate. From the city's official sources, checked {d}.",
         "kicker": "Driving guide · limited traffic zones", "h1": "{c} <em>ZTL</em>",
         "lead": "Where you can't drive in {c}, when the cameras are on, what a ticket costs and what your hotel can do for you. Taken from the city's official pages.",
+        "leadU": "Where you can't drive in {c}, when the cameras are on, what a ticket costs and what your hotel can do for you. Some of these rules come only from non-official sources.",
+        "descU": "When the {c} ZTL is on, which zones you can't drive into, the fine and how your hotel can register your plate. Partly from non-official sources: always check the sign at the gate.",
         "cta": "Check your hotel or address", "ctaN": "A live answer for your arrival time, on the map.",
         "kind": {"restricted": "ZTL · no entry without a permit", "pass": "ZTL · entry with a day ticket", "green": "Low-emission zone"},
         "hours": "When it's on", "ticketT": "Day ticket", "buy": "How to buy it ↗", "hotelT": "Staying at a hotel inside",
@@ -170,7 +179,7 @@ P = {
         "hotelN": "Hotels can't register your plate for this zone.",
         "rental": "A typical modern rental car (petrol Euro 6, hybrid or electric) can drive in.", "bansT": "Older cars banned while it's on",
         "since": "since {d}", "from": "from {d}", "electric": "Electric cars: always free.", "gates": "{n} camera gates",
-        "srcT": "Official source", "checked": "Checked on {d}", "page": "Official page ↗", "pending": "Still being checked",
+        "srcT": "Official source", "srcU": "Unofficial source", "dataFrom": "Data from {s} ↗", "checked": "Checked on {d}", "page": "Official page ↗", "pending": "Still being checked",
         "pedT": "Pedestrian areas", "pedP": "{n} pedestrian areas: cars can't drive in at any time, not even with a permit or a ticket. Park outside and walk.",
         "pedAll": "Show all {n}", "fineL": "If you drive in by mistake", "perDay": "per day", "faqT": "Questions",
         "other": "Other cities", "mapL": "Map of the zones in {c}", "home": "Home",
@@ -186,6 +195,8 @@ P = {
         "desc": "Quando è attiva la ZTL di {c}, dove non si entra in auto, il ticket giornaliero, la multa e come l'hotel può registrare la targa. Dalle fonti ufficiali del Comune, controllate il {d}.",
         "kicker": "Guida per chi guida · zone a traffico limitato", "h1": "ZTL <em>{c}</em>",
         "lead": "Dove non si entra in auto a {c}, quando le telecamere sono accese, quanto costa il ticket e cosa può fare l'hotel per te. Dalle pagine ufficiali del Comune.",
+        "leadU": "Dove non si entra in auto a {c}, quando le telecamere sono accese, quanto costa il ticket e cosa può fare l'hotel per te. Alcune di queste regole vengono solo da fonti non ufficiali.",
+        "descU": "Quando è attiva la ZTL di {c}, dove non si entra in auto, la multa e come l'hotel può registrare la targa. In parte da fonti non ufficiali: verifica sempre il cartello al varco.",
         "cta": "Controlla il tuo hotel o indirizzo", "ctaN": "La risposta per l'ora di arrivo, sulla mappa.",
         "kind": {"restricted": "ZTL · vietato entrare senza permesso", "pass": "ZTL · si entra con il ticket", "green": "Zona a basse emissioni"},
         "hours": "Quando è attiva", "ticketT": "Ticket giornaliero", "buy": "Come comprarlo ↗", "hotelT": "Se dormi in un hotel dentro",
@@ -193,7 +204,7 @@ P = {
         "hotelN": "Gli hotel non possono registrare la tua targa per questa zona.",
         "rental": "Una tipica auto a noleggio recente (benzina Euro 6, ibrida o elettrica) può entrare.", "bansT": "Auto vecchie vietate quando è attiva",
         "since": "dal {d}", "from": "dal {d}", "electric": "Auto elettriche: entrano sempre.", "gates": "{n} varchi con telecamera",
-        "srcT": "Fonte ufficiale", "checked": "Controllato il {d}", "page": "Pagina ufficiale ↗", "pending": "Ancora da verificare",
+        "srcT": "Fonte ufficiale", "srcU": "Fonte non ufficiale", "dataFrom": "Dati da {s} ↗", "checked": "Controllato il {d}", "page": "Pagina ufficiale ↗", "pending": "Ancora da verificare",
         "pedT": "Aree pedonali", "pedP": "{n} aree pedonali: le auto non entrano mai, neanche con permesso o ticket. Parcheggia fuori e prosegui a piedi.",
         "pedAll": "Mostra tutte ({n})", "fineL": "Se entri per sbaglio", "perDay": "al giorno", "faqT": "Domande",
         "other": "Altre città", "mapL": "Mappa delle zone di {c}", "home": "Home",
@@ -209,6 +220,8 @@ P = {
         "desc": "Wann die ZTL in {c} aktiv ist, wo du nicht hineinfahren darfst, das Tagesticket, das Bußgeld und wie dein Hotel dein Kennzeichen anmeldet. Aus offiziellen Quellen der Stadt, geprüft am {d}.",
         "kicker": "Ratgeber für Autofahrer · verkehrsberuhigte Zonen", "h1": "ZTL <em>{c}</em>",
         "lead": "Wo du in {c} nicht hineinfahren darfst, wann die Kameras aktiv sind, was ein Ticket kostet und was dein Hotel für dich tun kann. Aus den offiziellen Seiten der Stadt.",
+        "leadU": "Wo du in {c} nicht hineinfahren darfst, wann die Kameras aktiv sind, was ein Ticket kostet und was dein Hotel für dich tun kann. Einige dieser Regeln stammen nur aus inoffiziellen Quellen.",
+        "descU": "Wann die ZTL in {c} aktiv ist, wo du nicht hineinfahren darfst, das Bußgeld und wie dein Hotel dein Kennzeichen anmeldet. Teilweise aus inoffiziellen Quellen: prüfe immer das Schild an der Einfahrt.",
         "cta": "Hotel oder Adresse prüfen", "ctaN": "Die Antwort für deine Ankunftszeit, auf der Karte.",
         "kind": {"restricted": "ZTL · keine Einfahrt ohne Genehmigung", "pass": "ZTL · Einfahrt mit Tagesticket", "green": "Umweltzone"},
         "hours": "Wann sie aktiv ist", "ticketT": "Tagesticket", "buy": "So kaufst du es ↗", "hotelT": "Hotel in der Zone",
@@ -216,7 +229,7 @@ P = {
         "hotelN": "Hotels können dein Kennzeichen für diese Zone nicht anmelden.",
         "rental": "Ein typischer neuerer Mietwagen (Benzin Euro 6, Hybrid oder Elektro) darf hinein.", "bansT": "Ältere Autos verboten, wenn sie aktiv ist",
         "since": "seit {d}", "from": "ab {d}", "electric": "Elektroautos: immer frei.", "gates": "{n} Kamera-Einfahrten",
-        "srcT": "Offizielle Quelle", "checked": "Geprüft am {d}", "page": "Offizielle Seite ↗", "pending": "Wird noch geprüft",
+        "srcT": "Offizielle Quelle", "srcU": "Inoffizielle Quelle", "dataFrom": "Daten von {s} ↗", "checked": "Geprüft am {d}", "page": "Offizielle Seite ↗", "pending": "Wird noch geprüft",
         "pedT": "Fußgängerzonen", "pedP": "{n} Fußgängerzonen: Autos dürfen nie hinein, auch nicht mit Genehmigung oder Ticket. Parke außerhalb und geh zu Fuß.",
         "pedAll": "Alle {n} zeigen", "fineL": "Wenn du aus Versehen hineinfährst", "perDay": "pro Tag", "faqT": "Fragen",
         "other": "Andere Städte", "mapL": "Karte der Zonen in {c}", "home": "Start",
@@ -404,6 +417,8 @@ p{margin:0}
 .lead{font-size:19px;color:var(--muted);max-width:60ch}
 .cta{display:inline-flex;align-items:center;gap:10px;justify-self:start;background:var(--blue);color:var(--sheet);border-radius:14px;padding:13px 20px;font:700 18px var(--display);text-decoration:none}
 .draft{background:var(--amber-soft);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:400}
+.unoff{background:#FFB21E;color:#2B1A00;border-radius:12px;padding:10px 12px;font-size:16px;font-weight:700;line-height:1.35}
+.unoff a{color:inherit}
 .card{background:var(--sheet);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:12px;margin-bottom:18px;min-width:0}
 .card h2{font-size:28px;font-weight:700}
 .card h3{font-size:19px;font-weight:700;margin-top:4px}
@@ -482,15 +497,19 @@ def build_city(c, lang):
              "breadcrumb": {"@type": "BreadcrumbList", "itemListElement": [
                  {"@type": "ListItem", "position": 1, "name": "GateLR", "item": SITE + prefix(lang)},
                  {"@type": "ListItem", "position": 2, "name": f"ZTL {cn}", "item": city_url(c, lang)}]}}]
-    hd = head(lang, p["title"].format(c=cn), p["desc"].format(c=cn, d=day(checked, lang)), city_url(c, lang), alts, root, graph)
+    unoff = any(unofficial(z) for z in c["zones"])
+    hd = head(lang, p["title"].format(c=cn), p["descU" if unoff else "desc"].format(c=cn, d=day(checked, lang)), city_url(c, lang), alts, root, graph)
     home = root + prefix(lang)
     B = []
     B.append(f'<header class="top"><a class="brand" href="{home}" aria-label="GateLR {p["home"]}">{LOGO}<b>Gate<span>LR</span></b></a>'
              '<nav class="langs" aria-label="Language">' + "".join(
                  f'<a href="{root}{prefix(l)}{c["id"]}/" hreflang="{l}" lang="{l}"{CUR if l == lang else ""}>{l.upper()}</a>' for l in LANGS) + "</nav></header>")
     B.append(f'<main><section class="hero"><span class="label">{esc(p["kicker"])}</span><h1>{p["h1"].format(c=esc(cn))}</h1>'
-             f'<p class="lead">{esc(p["lead"].format(c=cn))}</p><a class="cta" href="{home}#{c["id"]}">{esc(p["cta"])} →</a>'
-             f'<p class="muted">{esc(p["ctaN"])}</p>' + (f'<p class="draft">{esc(t["draft"])}</p>' if c.get("status") != "verified" else "") + "</section>")
+             f'<p class="lead">{esc(p["leadU" if unoff else "lead"].format(c=cn))}</p><a class="cta" href="{home}#{c["id"]}">{esc(p["cta"])} →</a>'
+             f'<p class="muted">{esc(p["ctaN"])}</p>'
+             # Zone da fonti non ufficiali: l'avviso al posto di «Bozza: dalle fonti ufficiali…»
+             + (f'<p class="unoff" role="note">⚠ {esc(t["unoff"])}</p>' if unoff
+                else f'<p class="draft">{esc(t["draft"])}</p>' if c.get("status") != "verified" else "") + "</section>")
     # mappa e legenda
     kinds = [k for k in ("restricted", "pass", "green") if any(kind_of(z) == k for z in zones)]
     leg = "".join(f'<span><i class="sw {k}"></i>{esc(t[{"restricted": "lsector", "pass": "lpass", "green": "lgreen"}[k]])}</span>' for k in kinds)
@@ -502,7 +521,8 @@ def build_city(c, lang):
         k, s = kind_of(z), z["source"]
         rows = "".join(f'<tr><td>{esc(a)}</td><td class="{cl}">{esc(b)}</td></tr>' for a, b, cl in hour_rows(z, lang))
         h = [f'<section class="card" id="{z["id"]}"><span class="kind"><i class="sw {k}"></i>{esc(p["kind"][k])}</span>',
-             f'<h2>{esc(loc(z, "name", lang))}</h2><p>{esc(loc(z, "summary", lang))}</p>',
+             f'<h2>{esc(loc(z, "name", lang))}</h2>' + (f'<p class="unoff" role="note">⚠ {esc(t["unoff"])}</p>' if unofficial(z) else "")
+             + f'<p>{esc(loc(z, "summary", lang))}</p>',
              f'<h3>{esc(p["hours"])}</h3><table>{rows}</table>']
         if z.get("ticket"):
             tk = z["ticket"]
@@ -522,7 +542,10 @@ def build_city(c, lang):
         if quote and lang != "it" and tr: quote += f"<p>{esc(tr)}</p>"
         links = [l for l in s.get("links") or [] if l.get("url") and l["url"] != s.get("pageURL")]
         pend = s.get("pending_" + lang) or s.get("pending") or []
-        h.append(f'<h3>{esc(p["srcT"])}</h3><p>{esc(s.get("authority") or "")} · <a href="{esc(s["pageURL"])}" rel="noopener">{esc(p["page"])}</a></p>'
+        u = s.get("unofficialSource") if unofficial(z) else None
+        h.append(f'<h3>{esc(p["srcU" if unofficial(z) else "srcT"])}</h3>'
+                 + (f'<p><a href="{esc(u["url"])}" rel="noopener">{esc(p["dataFrom"].format(s=u["name"]))}</a></p>' if u and u.get("url") else "")
+                 + f'<p>{esc(s.get("authority") or "")} · <a href="{esc(s["pageURL"])}" rel="noopener">{esc(p["page"])}</a></p>'
                  + (f"<blockquote>{quote}</blockquote>" if quote else "")
                  + (f'<ul>' + "".join(f'<li><a href="{esc(l["url"])}" rel="noopener">{esc(loc(l, "title", lang) or l["url"])}</a></li>' for l in links) + "</ul>" if links else "")
                  + f'<p class="muted">{esc(p["checked"].format(d=day(s["checkedOn"], lang)))}</p>'

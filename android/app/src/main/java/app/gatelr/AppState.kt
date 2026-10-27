@@ -63,6 +63,8 @@ object AppState {
         }
         cities = (ctx.assets.list("Cities") ?: emptyArray()).filter { it.endsWith(".json") && it != "manifest.json" }
             .mapNotNull { runCatching { CityLoader.decode(ctx.assets.open("Cities/$it").bufferedReader().readText()) }.getOrNull() }
+            // L'app Android non ha ancora l'avviso «Fonte non ufficiale»: le città con zone da fonti non ufficiali restano fuori
+            .filter { c -> c.zones.all { it.source.isOfficial } }
             .sortedBy { it.localizedName }
 
         prefs = ctx.getSharedPreferences("gatelr", Context.MODE_PRIVATE)

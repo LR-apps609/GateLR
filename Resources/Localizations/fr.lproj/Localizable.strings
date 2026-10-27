@@ -728,3 +728,15 @@
 "Tap the live map at the top of Gate or See the map: the Map tab opens on the zone of the answer, with the four colours always in view." = "Touchez la carte en direct en haut d'Accès ou Voir la carte : l'onglet Carte s'ouvre sur la zone de la réponse, avec les quatre couleurs toujours visibles.";
 "The new intro" = "La nouvelle présentation";
 "Watch it again whenever you like: You → What are ZTLs → Replay the intro." = "Revoyez-la quand vous voulez : Vous → Que sont les ZTL → Revoir la présentation.";
+"Unofficial source: always check the sign at the gate" = "Source non officielle : vérifiez toujours le panneau à l'entrée";
+"Unofficial source" = "Source non officielle";
+"Data from %@" = "Données de %@";
+"Probably yes." = "Probablement oui.";
+"Probably not." = "Probablement pas.";
+"Probably yes" = "Probablement oui";
+"Probably not" = "Probablement pas";
+"Paid ZTL" = "ZTL payante";
+"Low-emission zone" = "Zone à faibles émissions";
+"What the source says" = "Ce que dit la source";
+"These rules come from a non-official website, not from the city: they may be wrong or out of date." = "Ces règles viennent d'un site non officiel, pas de la ville : elles peuvent être fausses ou dépassées.";
+"Read from a non-official source on %@, not yet reviewed by a person. Road signs on site always win over the app." = "Lu sur une source non officielle le %@, pas encore vérifié par une personne. La signalisation sur place prime toujours sur l'app.";

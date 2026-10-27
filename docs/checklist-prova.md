@@ -245,3 +245,17 @@ Da provare guidando davvero (con qualcuno che guarda il telefono, o col telefono
 - [ ] «Copia un testo per il ricorso» → «Copiato»; incollato in Note: inizia con «BOZZA», ha i dati letti e i segnaposto tra [ ]
 - [ ] «Riferimenti ufficiali»: i link a Normattiva si aprono
 - [ ] In italiano e in modalità scura: niente inglese, tutto leggibile
+
+## 13. Fonti non ufficiali (1.16.2)
+Le zone con `"official": false` nella fonte (per ora Cagliari, Polignano a Mare, Ostuni, quando arrivano i dati).
+- [ ] Varco: cerca un indirizzo dentro una di queste ZTL → riquadro ambra «Fonte non ufficiale: verifica sempre il cartello al varco» sopra il pannello, con «Dati da …»; il titolo è «Probabilmente no.» / «Probabilmente sì.», ma colore e pannello sono quelli di sempre
+- [ ] Nella striscia di mappa in cima a Varco la stessa scritta, piccola
+- [ ] In fondo a Varco l'avviso al posto di «Bozza: dalle fonti ufficiali…»
+- [ ] «Perché?» → scheda della zona: in cima l'avviso, la frase «Queste regole vengono da un sito non ufficiale…» e il link al sito; «Cosa dice la fonte» al posto di «Le parole del Comune»; in fondo «Letto da una fonte non ufficiale il …»
+- [ ] Mappa: il riquadro sul posto cercato ha «FONTE NON UFFICIALE» in ambra; la scheda in basso ha l'avviso e la pillola «Probabilmente no/sì»
+- [ ] Viaggio e percorso: le pillole dicono «Probabilmente no/sì»
+- [ ] Guardiano o navigatore verso una di queste zone: Live Activity e Dynamic Island con «… · Probabilmente no · Fonte non ufficiale»
+- [ ] Widget della zona: «⚠ Fonte non ufficiale» al posto del tipo di zona; sulla schermata di blocco «⚠︎» davanti
+- [ ] Una zona ufficiale (es. Firenze Settore A): nessun avviso, «Non entrare.» / «Entra pure.» come prima
+- [ ] Sotto la risposta la riga della zona si legge bene: «ZTL · Settore A» (non più «Accesso vietato · Settore A» sotto «Entra pure.»)
+- [ ] Un iPhone con la 1.16.1 o prima: dopo l'aggiornamento dei dati (Tu → Impostazioni → dati delle città) Cagliari, Polignano e Ostuni non compaiono

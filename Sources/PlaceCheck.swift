@@ -68,8 +68,13 @@ struct PlaceCheck {
         }
     }
 
+    /// Le regole della zona vengono solo da fonti non ufficiali: la risposta si dice con prudenza
+    var unofficial: Bool { pedestrian == nil && zone?.isUnofficial == true }
+
     /// La scritta del riquadro sulla mappa (in maiuscolo dove si mostra)
     var callout: String {
+        if unofficial, kind == .open { return L("Probably yes") }
+        if unofficial, kind == .closed { return L("Probably not") }
         switch kind {
         case .outside: return L("Outside the ZTL")
         case .pedestrian: return L("Pedestrian area · don't enter")
@@ -89,10 +94,20 @@ struct PlaceCheck {
         return String(format: L(answer.gatesOn ? "Active until %@" : "Off until %@"), time)
     }
 
-    /// «Settore A» o «Fuori dalla ZTL»
+    /// «ZTL · Settore A» o «Fuori dalla ZTL»
     var zoneLine: String {
         if let pedestrian { return String(format: L("Pedestrian area · %@"), pedestrian.name) }
-        if let zone { return zone.type.title + " · " + zone.shortName }
+        if let zone { return zone.kindLine }
         return L("Outside the ZTL")
+    }
+}
+
+extension PlaceCheck {
+    /// Con la risposta già pronta (test e anteprime)
+    init(place: Place, hits: [(city: City, zone: Zone)], pedestrian: PedestrianArea? = nil, answer: Answer?) {
+        self.place = place
+        self.hits = hits
+        self.pedestrian = pedestrian
+        self.answer = answer
     }
 }

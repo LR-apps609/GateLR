@@ -205,6 +205,31 @@ final class ScreenshotTests: XCTestCase {
         if openYou("settings") { snap("22-it-settings") }
     }
 
+    /// 1.16.2: una zona con regole da fonti non ufficiali (Firenze segnata così solo nel giro delle foto): l'avviso
+    /// «Fonte non ufficiale: verifica sempre il cartello al varco» in Varco, nella scheda della zona e sulla mappa
+    func test5Unofficial() {
+        app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiUnofficial", "firenze",
+                               "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]
+        app.launch()
+        XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
+        sleep(4)
+        snap("23-unofficial-varco")
+        XCTAssertTrue(app.descendants(matching: .any)["unofficial.banner"].firstMatch.waitForExistence(timeout: 5),
+                      "Manca l'avviso «Fonte non ufficiale» in Varco")
+        let why = app.buttons["varco.why"].firstMatch
+        if why.waitForExistence(timeout: 5) {
+            if !why.isHittable { app.swipeUp(); sleep(1) }
+            why.tap(); sleep(1); snap("24-unofficial-zone")
+            XCTAssertTrue(app.descendants(matching: .any)["unofficial.banner"].firstMatch.waitForExistence(timeout: 3),
+                          "Manca l'avviso nella scheda della zona")
+            app.buttons["Fine"].tap()
+            sleep(1)
+        }
+        mapTab.tap()
+        sleep(5)
+        snap("25-unofficial-map")
+    }
+
     private func snap(_ name: String) {
         let shot = XCUIScreen.main.screenshot()
         let attachment = XCTAttachment(screenshot: shot)

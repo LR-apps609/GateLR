@@ -403,7 +403,9 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         for a in ahead where a.meters < 800 {
             if case .yes = a.answer.verdict { continue }
             let zone = a.crossing.zone
-            newWarning = String(format: L("%@ in %@: %@"), zone.shortName, Self.distanceText(a.meters), a.answer.verdict.short)
+            let short = a.answer.verdict.shortText(unofficial: zone.isUnofficial)
+                + (zone.isUnofficial ? " · " + L("Unofficial source") : "")
+            newWarning = String(format: L("%@ in %@: %@"), zone.shortName, Self.distanceText(a.meters), short)
             if a.meters < 550 && !announced.contains("ztl|\(zone.id)") {
                 announced.insert("ztl|\(zone.id)")
                 say(String(format: L("Attention: in %@ you enter %@. %@."), Self.distanceText(a.meters), zone.shortName, a.answer.verdict.short))

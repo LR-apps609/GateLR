@@ -15,13 +15,15 @@ struct ZoneDetailView: View {
                     Text(zone.localizedName).font(Theme.display(30))
                     HStack(spacing: 8) {
                         Pill(text: zone.type.title, fill: zone.type.color.opacity(0.16), ink: zone.type.color)
-                        Pill(text: answer.gatesOn ? L("ZTL active") : L("ZTL not active · you can enter"),
+                        Pill(text: answer.gatesOn ? L("ZTL active") : (zone.isUnofficial ? L("ZTL not active") : L("ZTL not active · you can enter")),
                              fill: answer.gatesOn ? Theme.amberSoft : Theme.greenSoft,
                              ink: answer.gatesOn ? Theme.amberInk : Theme.greenInk)
                         Text(city.localizedName).font(.app(size: 13)).foregroundStyle(Theme.muted)
                     }
                     StatusBanner(status: city.status)
                 }
+
+                if zone.isUnofficial { unofficialCard }
 
                 VStack(alignment: .leading, spacing: 6) {
                     SectionLabel("In short")
@@ -45,7 +47,7 @@ struct ZoneDetailView: View {
                 .card()
 
                 VStack(alignment: .leading, spacing: 8) {
-                    SectionLabel("The city's own words")
+                    SectionLabel(zone.isUnofficial ? "What the source says" : "The city's own words")
                     if let q = zone.source.quote {
                         // Theme.ink: il grigio scuro fisso di prima spariva sulla scheda in modalità scura
                         Text("«\(q)»").italic().font(.app(size: 14)).foregroundStyle(Theme.ink.opacity(0.85))
@@ -126,7 +128,9 @@ struct ZoneDetailView: View {
                 }
 
                 Label {
-                    Text(String(format: L(zone.source.reviewedByHuman
+                    Text(String(format: zone.isUnofficial
+                         ? L("Read from a non-official source on %@, not yet reviewed by a person. Road signs on site always win over the app.")
+                         : L(zone.source.reviewedByHuman
                          ? "Checked by a person on %@. Road signs on site always win over the app."
                          : "Read from official sources on %@, not yet reviewed by a person. Road signs on site always win over the app."),
                          zone.source.checkedOn.formatted(date: .long, time: .omitted)))
@@ -143,6 +147,31 @@ struct ZoneDetailView: View {
         .background(Theme.ground)
         .tint(Theme.blue)
         .toolbar { ToolbarItem(placement: .topBarTrailing) { Button("Done") { dismiss() } } }
+    }
+
+    /// In cima alla scheda: l'avviso, perché, e il sito da cui vengono i dati
+    private var unofficialCard: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            UnofficialBanner(source: zone.source.unofficialSource)
+            Text("These rules come from a non-official website, not from the city: they may be wrong or out of date.")
+                .font(.app(size: 14)).foregroundStyle(Theme.ink)
+                .fixedSize(horizontal: false, vertical: true)
+            if let site = zone.source.unofficialSource {
+                Link(destination: site.url) {
+                    HStack {
+                        Image(systemName: "globe")
+                        Text(verbatim: String(format: L("Data from %@"), site.name)).fontWeight(.semibold)
+                        Spacer()
+                        Image(systemName: "arrow.up.right")
+                    }
+                    .font(.app(size: 14)).padding(12)
+                    .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 12))
+                    .foregroundStyle(Theme.blue)
+                }
+                .accessibilityIdentifier("zone.unofficialSource")
+            }
+        }
+        .padding(14).card()
     }
 
     private struct Row { var days: String; var hours: String; var free = false }

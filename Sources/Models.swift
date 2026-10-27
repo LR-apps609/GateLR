@@ -143,6 +143,15 @@ enum ZoneKind: String, Codable, CaseIterable {
         case .green: L("Green zone")
         }
     }
+    /// Il tipo detto come un nome, per la riga sotto la risposta («ZTL · Settore A»): «Accesso vietato · Settore A»
+    /// sotto «Entra pure.» si leggeva come una contraddizione
+    var noun: String {
+        switch self {
+        case .restricted: "ZTL"
+        case .pass: L("Paid ZTL")
+        case .green: L("Low-emission zone")
+        }
+    }
 }
 
 /// Il testo nella lingua del telefono, se c'è; altrimenti l'inglese
@@ -247,6 +256,31 @@ struct Source: Codable, Hashable {
     var reviewedByHuman: Bool   // la promessa: nessuna scheda «verificata» senza un controllo umano
     var pending: [String]       // punti ancora da verificare, mostrati nella scheda
     var links: [SourceLink]
+    /// false = le regole vengono solo da fonti non ufficiali (siti, stampa), non dal Comune: l'app lo scrive in chiaro
+    /// ovunque mostra la risposta. Assente = true (tutte le città fino alla 1.16.1). Le città con zone non ufficiali
+    /// stanno in «unofficialCities» del manifest, che le app fino alla 1.16.1 non leggono (vedi Tools/build_manifest.py)
+    var official: Bool? = nil
+    /// Il sito da cui vengono i dati quando la fonte non è ufficiale
+    var unofficialSource: UnofficialSource? = nil
+
+    /// Assente vuol dire ufficiale
+    var isOfficial: Bool { official ?? true }
+}
+
+/// Il sito non ufficiale da cui vengono le regole di una zona (es. una guida turistica, un giornale)
+struct UnofficialSource: Codable, Hashable {
+    var name: String
+    var url: URL
+}
+
+extension Zone {
+    /// Le regole di questa zona vengono solo da fonti non ufficiali
+    var isUnofficial: Bool { !source.isOfficial }
+}
+
+extension City {
+    /// Almeno una zona con regole da fonti non ufficiali
+    var hasUnofficialZones: Bool { zones.contains(where: \.isUnofficial) }
 }
 
 extension Source {
@@ -389,6 +423,13 @@ extension Zone {
     /// «Settore B», «Area C», «Zona T»
     var shortName: String {
         localizedName.split(separator: "·").first.map { $0.trimmingCharacters(in: .whitespaces) } ?? localizedName
+    }
+
+    /// «ZTL · Settore A», «ZTL a pagamento · Area C», «ZTL A» (se il nome dice già ZTL non si ripete)
+    var kindLine: String {
+        let name = shortName
+        if type != .green, name.range(of: "ZTL", options: .caseInsensitive) != nil { return name }
+        return type.noun + " · " + name
     }
 
     /// Il punto è dentro il perimetro? (ray casting sulle coordinate)

@@ -203,7 +203,7 @@ struct RouteCard: View {
                                     .font(.app(size: 12)).foregroundStyle(Theme.muted)
                             }
                             Spacer()
-                            VerdictPill(verdict: c.answer.verdict)
+                            VerdictPill(verdict: c.answer.verdict, unofficial: c.zone.isUnofficial)
                         }
                         .padding(.vertical, 7)
                         if c.id != plan.crossings.last?.id { Divider().padding(.leading, 38) }

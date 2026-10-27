@@ -728,3 +728,15 @@
 "Tap the live map at the top of Gate or See the map: the Map tab opens on the zone of the answer, with the four colours always in view." = "点按“入口”顶部的实时地图或“查看地图”：地图标签会打开到答案所在的区域，四种颜色始终可见。";
 "The new intro" = "全新介绍";
 "Watch it again whenever you like: You → What are ZTLs → Replay the intro." = "随时重看：我的 → 什么是 ZTL → 重看介绍。";
+"Unofficial source: always check the sign at the gate" = "非官方来源：请务必查看入口处的标志";
+"Unofficial source" = "非官方来源";
+"Data from %@" = "数据来自 %@";
+"Probably yes." = "大概可以。";
+"Probably not." = "大概不行。";
+"Probably yes" = "大概可以";
+"Probably not" = "大概不行";
+"Paid ZTL" = "收费 ZTL";
+"Low-emission zone" = "低排放区";
+"What the source says" = "来源原文";
+"These rules come from a non-official website, not from the city: they may be wrong or out of date." = "这些规则来自非官方网站，而非市政府：可能有误或已过时。";
+"Read from a non-official source on %@, not yet reviewed by a person. Road signs on site always win over the app." = "于 %@ 从非官方来源读取，尚未经人工核查。现场路牌始终优先于本应用。";

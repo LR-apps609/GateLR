@@ -32,6 +32,17 @@ class CoreTest {
         cities.values.forEach { c -> c.zones.forEach { z -> assertNotNull(z.kind, z.id); assertTrue(z.perimeter.size > 3, z.id) } }
     }
 
+    /** source.official (1.16.2): assente = ufficiale; false con il sito da cui vengono i dati */
+    @Test fun unofficialSourceDecodes() {
+        val text = File(System.getProperty("gatelr.cities"), "lucca.json").readText()
+        assertTrue(CityLoader.decode(text).zones.all { it.source.isOfficial && it.source.unofficialSource == null })
+        val marked = text.replaceFirst("\"reviewedByHuman\"",
+            "\"official\": false, \"unofficialSource\": {\"name\": \"Guida\", \"url\": \"https://example.org\"}, \"reviewedByHuman\"")
+        val z = CityLoader.decode(marked).zones[0]
+        assertFalse(z.source.isOfficial)
+        assertEquals("Guida", z.source.unofficialSource?.name)
+    }
+
     @Test fun florenceDayAndNight() {
         val b = zone("firenze", "firenze-b")
         assertTrue(verdict(b, at = date(2026, 10, 26, 18)) is Verdict.No)                  // lunedì 18:00

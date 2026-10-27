@@ -208,6 +208,10 @@ p{margin:0}
 .answer .src a{color:inherit;font-weight:600}
 .answer[data-v=cond] .draft{background:var(--sheet)}
 .draft{background:var(--amber-soft);color:var(--ink);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:400}
+/* Fonte non ufficiale: ambra pieno e testo scuro in ogni tema, ben visibile sopra la risposta */
+.unoff{display:flex;gap:8px;align-items:flex-start;background:#FFB21E;color:#2B1A00;border-radius:12px;padding:10px 12px;font-size:15px;line-height:1.35}
+.unoff[hidden]{display:none}
+.unoff strong{font-weight:700}.unoff a{color:inherit;font-weight:600}.unoff svg{flex:none;width:18px;height:18px;margin-top:1px}
 
 .mapcard{background:var(--paper);border:1px solid var(--line);border-radius:26px;padding:12px;display:grid;gap:8px}
 .mapcard svg{width:100%;height:auto;display:block;border-radius:18px;background:var(--map-land);cursor:crosshair;touch-action:manipulation}
@@ -355,6 +359,7 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
     <div class="result">
       <article class="answer" id="answer" data-v="out">
         <div class="row"><span class="where" id="a-where">Florence</span><span class="pill" id="a-gates">–</span></div>
+        <div class="unoff" id="a-unoff" role="note" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2zm1 15h-2v2h2v-2zm0-7h-2v5h2v-5z"/></svg><div><strong data-i18n="unoff">Unofficial source: always check the sign at the gate</strong><span id="a-unoff-src"></span></div></div>
         <div class="ledbox"><div class="led" id="led" data-light="red" data-dim="true"><span id="led-t">VARCO</span></div><small data-i18n="ledCap">The panel at the gate</small></div>
         <div class="verdict" aria-live="polite">
           <div class="badge"><svg id="a-mark" viewBox="0 0 32 32"><path d="M8 16l6 6 11-12"/></svg></div>
@@ -493,7 +498,7 @@ const T = {
   q2:"How do I know if a gate is on?", a2:"Each entry has a sign and usually a light panel that reads 'Varco attivo' (gate on) or 'Varco non attivo' (gate off). GateLR tells you in advance from the city's official hours, but the panel at the gate always wins.",
   q3:"My hotel is inside the ZTL. What do I do?", a3:"Write to the hotel before you arrive and ask them to register your plate with the city. Many hotels can do this for the day you arrive and leave. Use the message above: it's ready in English, Italian and German.",
   q4:"I drove in by mistake. What now?", a4:"Note the time and the gate. If your hotel is inside the zone, tell them at once: some cities accept a registration after the fact, within a short time. Otherwise the fine arrives by post; paying within 5 days of notification saves 30%.", whyTicket:(t,h,dl)=>`The gates are on. You can enter with the day ticket (€${t.price.toFixed(2)}${dl ? "; " + dl : ""}). ${h}`, h1:"Can I drive <em>in?</em>", lead:"Pick a city or search your hotel, then choose your car and the time: the answer changes as you go.",
-  ph:"Hotel, address or place: Florence, Rome, Milan…", now:"Now", arrival:"Arrival", try:"Try", draft:"Draft: taken from the city's official sources, not yet reviewed by a person. Signs at the gate always win.",
+  ph:"Hotel, address or place: Florence, Rome, Milan…", now:"Now", arrival:"Arrival", try:"Try", draft:"Draft: taken from the city's official sources, not yet reviewed by a person. Signs at the gate always win.", unoff:"Unofficial source: always check the sign at the gate", dataFrom:"Data from", probYes:"Probably yes", probNo:"Probably not",
   tap:"Tap anywhere to check it", lsector:"ZTL: no entry", lgate:"Camera gate", lplace:"Your place", hoursT:"When the gates are on", fineL:"If you drive in by mistake", fineT:"The fine",
   hotelL:"Staying inside the ZTL?", hotelT:"Ask your hotel first", hotelP:"Hotels inside the zone can register your plate with the city. Send this before you arrive.",
   copy:"Copy message", copied:"Copied", selected:"Text selected: copy it", hotelN:"The current online procedure in Florence is still being checked.",
@@ -526,7 +531,7 @@ const T = {
   q2:"Come capisco se un varco è acceso?", a2:"A ogni ingresso c'è un cartello e di solito un pannello luminoso con scritto «Varco attivo» o «Varco non attivo». GateLR te lo dice prima, dagli orari ufficiali del Comune, ma vale sempre il pannello al varco.",
   q3:"Il mio hotel è dentro la ZTL. Cosa faccio?", a3:"Scrivi all'hotel prima di arrivare e chiedi di comunicare la tua targa al Comune. Molti hotel possono farlo per il giorno di arrivo e di partenza. Usa il messaggio qui sopra: è pronto in italiano, inglese e tedesco.",
   q4:"Sono entrato per sbaglio. E adesso?", a4:"Annota l'ora e il varco. Se dormi in un hotel dentro la zona, avvisalo subito: alcuni Comuni accettano la comunicazione anche dopo, entro poco tempo. Altrimenti la multa arriva per posta; pagando entro 5 giorni dalla notifica risparmi il 30%.", whyTicket:(t,h,dl)=>`I varchi sono accesi. Puoi entrare con il biglietto giornaliero (${t.price.toFixed(2).replace(".",",")} €${dl ? ", " + dl : ""}). ${h}`, h1:"Posso <em>entrare?</em>", lead:"Scegli una città o cerca il tuo hotel, poi l'auto e l'ora: la risposta cambia mentre scegli.",
-  ph:"Hotel, indirizzo o luogo: Firenze, Roma, Milano…", now:"Adesso", arrival:"Arrivo", try:"Prova", draft:"Bozza: presa dalle fonti ufficiali del Comune, non ancora rivista da una persona. Vale sempre il cartello al varco.",
+  ph:"Hotel, indirizzo o luogo: Firenze, Roma, Milano…", now:"Adesso", arrival:"Arrivo", try:"Prova", draft:"Bozza: presa dalle fonti ufficiali del Comune, non ancora rivista da una persona. Vale sempre il cartello al varco.", unoff:"Fonte non ufficiale: verifica sempre il cartello al varco", dataFrom:"Dati da", probYes:"Probabilmente sì", probNo:"Probabilmente no",
   tap:"Tocca un punto per controllarlo", lsector:"ZTL: vietato entrare", lgate:"Varco con telecamera", lplace:"Il tuo luogo", hoursT:"Quando i varchi sono accesi", fineL:"Se entri per sbaglio", fineT:"La multa",
   hotelL:"Dormi dentro la ZTL?", hotelT:"Prima scrivi all'hotel", hotelP:"Gli hotel dentro la zona possono comunicare la tua targa al Comune. Mandalo prima di arrivare.",
   copy:"Copia il messaggio", copied:"Copiato", selected:"Testo selezionato: copialo", hotelN:"La procedura online attuale di Firenze è ancora in verifica.",
@@ -559,7 +564,7 @@ const T = {
   q2:"Woran erkenne ich, ob eine Einfahrt aktiv ist?", a2:"An jeder Einfahrt steht ein Schild und meist eine Leuchtanzeige mit „Varco attivo“ (aktiv) oder „Varco non attivo“ (nicht aktiv). GateLR sagt es dir vorher anhand der offiziellen Zeiten der Stadt, aber die Anzeige an der Einfahrt gilt immer.",
   q3:"Mein Hotel liegt in der ZTL. Was tun?", a3:"Schreib dem Hotel vor der Ankunft und bitte es, dein Kennzeichen bei der Stadt anzumelden. Viele Hotels können das für An- und Abreisetag tun. Nutze die Nachricht oben: fertig auf Deutsch, Englisch und Italienisch.",
   q4:"Ich bin aus Versehen hineingefahren. Was jetzt?", a4:"Notiere Uhrzeit und Einfahrt. Wenn dein Hotel in der Zone liegt, sag sofort Bescheid: Manche Städte akzeptieren die Anmeldung auch kurz danach. Sonst kommt das Bußgeld per Post; wer innerhalb von 5 Tagen nach Zustellung zahlt, spart 30 %.", whyTicket:(t,h,dl)=>`Die Kameras sind aktiv. Du darfst mit dem Tagesticket hinein (${t.price.toFixed(2).replace(".",",")} €${dl ? ", " + dl : ""}). ${h}`, h1:"Darf ich <em>rein?</em>", lead:"Wähle eine Stadt oder suche dein Hotel, dann Auto und Uhrzeit: Die Antwort ändert sich sofort.",
-  ph:"Hotel, Adresse oder Ort: Florenz, Rom, Mailand…", now:"Jetzt", arrival:"Ankunft", try:"Probier", draft:"Entwurf: aus den offiziellen Quellen der Stadt, noch nicht von einer Person geprüft. Es gilt immer das Schild an der Einfahrt.",
+  ph:"Hotel, Adresse oder Ort: Florenz, Rom, Mailand…", now:"Jetzt", arrival:"Ankunft", try:"Probier", draft:"Entwurf: aus den offiziellen Quellen der Stadt, noch nicht von einer Person geprüft. Es gilt immer das Schild an der Einfahrt.", unoff:"Inoffizielle Quelle: prüfe immer das Schild an der Einfahrt", dataFrom:"Daten von", probYes:"Wahrscheinlich ja", probNo:"Wahrscheinlich nicht",
   tap:"Tippe auf einen Punkt, um ihn zu prüfen", lsector:"ZTL: keine Einfahrt", lgate:"Kamera-Einfahrt", lplace:"Dein Ort", hoursT:"Wann die Kameras aktiv sind", fineL:"Wenn du aus Versehen hineinfährst", fineT:"Das Bußgeld",
   hotelL:"Hotel in der ZTL?", hotelT:"Schreib zuerst dem Hotel", hotelP:"Hotels in der Zone können dein Kennzeichen bei der Stadt anmelden. Schick das vor deiner Ankunft.",
   copy:"Nachricht kopieren", copied:"Kopiert", selected:"Text markiert: kopieren", hotelN:"Das aktuelle Online-Verfahren in Florenz wird noch geprüft.",
@@ -831,7 +836,7 @@ function render(){
   syncTime(); chipsState();
   gPin.innerHTML = "";
   for (const id in pedEls){ pedEls[id].setAttribute("fill-opacity", .6); pedEls[id].setAttribute("stroke-width", 1.2); }
-  if (!p){ paintAll(t); setVerdict("out"); $("a-title").textContent = t_("pick"); $("a-why").textContent = t_("pickWhy"); $("a-until").textContent = ""; led("VARCO", "red", true); track("none"); return; }
+  if (!p){ $("a-unoff").hidden = true; paintAll(t); setVerdict("out"); $("a-title").textContent = t_("pick"); $("a-why").textContent = t_("pickWhy"); $("a-until").textContent = ""; led("VARCO", "red", true); track("none"); return; }
   const hit = zoneAt(p.lat, p.lon), near = hit ? null : nearestZone(p.lat, p.lon), ped = pedAt(p.lat, p.lon);
   const c = ped ? ped.city : hit ? hit.city : near.city;
   if (c !== city){ city = c; drawMap(city); chipsState(); }
@@ -840,7 +845,11 @@ function render(){
   el("circle", {cx:X(p.lon), cy:Y(p.lat), r:12, fill:"var(--blue)", stroke:"var(--sheet)", "stroke-width":4}, gPin);
   const z = hit ? hit.zone : null;
   const stamp = state.later ? when(t, new Date()) : t_("nowAt") + " " + hm(t);
-  $("a-draft").hidden = city.status === "verified";
+  // Fonte non ufficiale (source.official === false): l'avviso in cima e il titolo detto con prudenza; la risposta resta la stessa
+  const unoff = !ped && !!z && z.source.official === false;
+  $("a-unoff").hidden = !unoff;
+  $("a-unoff-src").textContent = "";
+  $("a-draft").hidden = city.status === "verified" || unoff;
   if (ped){
     // Area pedonale: risposta «no» a ogni ora, si parcheggia fuori e si va a piedi
     const zz = z || near.zone;
@@ -882,7 +891,7 @@ function render(){
   led(r.on ? "VARCO ATTIVO" : "VARCO NON ATTIVO", r.on ? (r.v === "unsure" ? "amber" : "red") : "green");
   $("a-where").textContent = `${p.name} · ${zoneLabel(z)} · ${stamp}`;
   $("a-gates").textContent = r.on ? t_("gOn") : t_("gOff");
-  $("a-title").textContent = r.title;
+  $("a-title").textContent = unoff && r.v === "yes" ? t_("probYes") : unoff && r.v === "no" ? t_("probNo") : r.title;
   $("a-until").textContent = r.next ? T[lang][r.on ? "untilOn" : "untilOff"](when(r.next, new Date())) : r.on ? t_("always") : "";
   $("a-why").textContent = r.why + (staying ? "" : (r.on && z.hotelCanRegister && r.v !== "yes" ? t_("hint") : ""));
   $("a-mark").innerHTML = `<path d="${MARKS[r.v]}"/>`;
@@ -902,6 +911,12 @@ function sources(z){
   $("a-src").innerHTML = "";
   const span = document.createElement("span"); span.textContent = T[lang].read(read, cityName(city)); $("a-src").append(span);
   const link = document.createElement("a"); link.href = s.pageURL; link.target = "_blank"; link.rel = "noopener"; link.textContent = t_("official"); $("a-src").append(link);
+  // Fonte non ufficiale: il sito da cui vengono i dati, sotto l'avviso
+  const u = s.official === false ? s.unofficialSource : null;
+  if (u && u.url && !$("a-unoff").hidden){
+    const a = document.createElement("a"); a.href = u.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = u.name;
+    $("a-unoff-src").append(document.createElement("br"), `${t_("dataFrom")} `, a);
+  }
 }
 
 const ORDER = [2,3,4,5,6,7,1];

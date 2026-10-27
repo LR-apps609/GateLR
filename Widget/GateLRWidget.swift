@@ -80,6 +80,8 @@ struct GateWidgetView: View {
     let entry: GateEntry
 
     private var letter: String { entry.zone?.letter ?? "–" }
+    /// Sulla schermata di blocco c'è poco posto: un triangolo davanti se le regole vengono da fonti non ufficiali
+    private var warn: String { entry.zone?.isUnofficial == true ? "⚠︎ " : "" }
     private var state: String { entry.on ? L("ZTL active") : L("ZTL not active") }
     private var change: String {
         guard let next = entry.next else { return "" }
@@ -100,12 +102,12 @@ struct GateWidgetView: View {
             }
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 1) {
-                Text("ZTL \(entry.city) · \(letter)").font(.system(size: 13, weight: .semibold))
+                Text(verbatim: warn + "ZTL \(entry.city) · \(letter)").font(.system(size: 13, weight: .semibold))
                 Text(state).font(.system(size: 17, weight: .bold))
                 Text(change).font(.system(size: 12))
             }
         case .accessoryInline:
-            Text("ZTL \(letter): \(state.lowercased()) · \(change)")
+            Text(verbatim: warn + "ZTL \(letter): \(state.lowercased()) · \(change)")
         default:
             VStack(alignment: .leading, spacing: 6) {
                 HStack {
@@ -113,7 +115,17 @@ struct GateWidgetView: View {
                     Spacer()
                     Text("\(entry.city) · \(letter)").font(.system(size: 12, weight: .semibold)).foregroundStyle(.secondary)
                 }
-                if let z = entry.zone {
+                if let z = entry.zone, z.isUnofficial {
+                    // Regole da fonti non ufficiali: l'avviso al posto del tipo di zona
+                    HStack(spacing: 4) {
+                        Image(systemName: "exclamationmark.triangle.fill")
+                        Text(verbatim: L("Unofficial source"))
+                    }
+                    .font(.system(size: 11, weight: .bold)).lineLimit(1)
+                    .padding(.horizontal, 6).padding(.vertical, 2)
+                    .background(UnofficialBanner.fill, in: Capsule())
+                    .foregroundStyle(UnofficialBanner.ink)
+                } else if let z = entry.zone {
                     // Il tipo di zona con il suo colore (vietato, pass, verde)
                     HStack(spacing: 4) {
                         Image(systemName: z.type.symbol).foregroundStyle(z.type.color)
@@ -161,6 +173,8 @@ struct GuardianWidgetView: View {
     let entry: GateEntry
 
     private var letter: String { entry.zone?.letter ?? "–" }
+    /// Sulla schermata di blocco c'è poco posto: un triangolo davanti se le regole vengono da fonti non ufficiali
+    private var warn: String { entry.zone?.isUnofficial == true ? "⚠︎ " : "" }
     private var state: String { entry.on ? L("ZTL active") : L("ZTL not active") }
     private var tint: Color { entry.on ? Color(hex: 0xC1272D) : Color(hex: 0x0FA34A) }
     private var change: String {

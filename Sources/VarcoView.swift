@@ -44,7 +44,7 @@ struct VarcoView: View {
                         }
                         nearYou(at: moment)
                         if let next = store.trips.filter({ $0.arrival > ctx.date }).min(by: { $0.arrival < $1.arrival }) { tripRow(next) }
-                        StatusBanner(status: store.city.status)
+                        StatusBanner(status: store.city.status, unofficial: store.city.hasUnofficialZones)
                         Text("Road signs on site always win over the app.")
                             .font(.app(size: 12)).foregroundStyle(Notte.muted)
                             .frame(maxWidth: .infinity)
@@ -138,6 +138,12 @@ struct VarcoView: View {
             .padding(.bottom, 30)
             .accessibilityLabel(L("See the map"))
             .accessibilityIdentifier("varco.mapstrip")
+            if check?.unofficial == true {
+                UnofficialBanner(compact: true)
+                    .padding(8)
+                    .frame(maxHeight: .infinity, alignment: .top)
+                    .allowsHitTesting(false)
+            }
             Label(L("See the map"), systemImage: "arrow.up.left.and.arrow.down.right")
                 .font(.app(size: 12, weight: .bold)).foregroundStyle(Notte.text)
                 .padding(.horizontal, 10).frame(height: 26)
@@ -240,6 +246,7 @@ struct VarcoView: View {
     private func answerCard(_ check: PlaceCheck, _ a: Home2Answer) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             placeRow(check)
+            if a.unofficial { UnofficialBanner(source: a.unofficialSource) }
             GatePanelObject(panel: a.panel)
                 .frame(maxWidth: .infinity)
                 .padding(.top, 2)
@@ -480,7 +487,7 @@ struct VarcoView: View {
             Image(systemName: "shield.lefthalf.filled").font(.app(size: 22, weight: .bold))
             VStack(alignment: .leading, spacing: 2) {
                 Text(String(format: L("Guardian on · to %@"), guardian.destination?.name ?? "")).font(.app(size: 15, weight: .bold)).lineLimit(1)
-                Text(guardian.threat.map { "\($0.zone.shortName) · \(DriveSession.distanceText($0.meters)) · \($0.answer.verdict.short)" }
+                Text(guardian.threat.map { "\($0.zone.shortName) · \(DriveSession.distanceText($0.meters)) · \($0.answer.verdict.shortText(unofficial: $0.zone.isUnofficial))" }
                      ?? L("No active ZTL ahead"))
                     .font(.app(size: 13)).opacity(0.9)
             }

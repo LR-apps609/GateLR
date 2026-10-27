@@ -109,6 +109,25 @@ extension Verdict {
         case .unsure: L("Not sure")
         }
     }
+    /// La versione breve detta con prudenza quando le regole vengono da fonti non ufficiali: «Probabilmente sì/no».
+    /// Solo le parole: la risposta (sì, no, con condizioni, non sicuro) resta quella del motore
+    func shortText(unofficial: Bool) -> String {
+        guard unofficial else { return short }
+        switch self {
+        case .yes: return L("Probably yes")
+        case .no: return L("Probably not")
+        case .conditional, .unsure: return short
+        }
+    }
+    /// Il titolo in righe, con prudenza se la fonte non è ufficiale
+    func titleLines(unofficial: Bool) -> [String] {
+        guard unofficial else { return titleLines }
+        switch self {
+        case .yes: return [L("Probably yes.")]
+        case .no: return [L("Probably not.")]
+        case .conditional, .unsure: return titleLines
+        }
+    }
     var pillFill: Color {
         switch self {
         case .yes: Theme.greenSoft
