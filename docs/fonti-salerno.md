@@ -16,12 +16,17 @@ Per pubblicarla servono l'ordinanza vigente (orari e vie o mappa) e la posizione
 | Elenco dei 10 varchi; carico/scarico 6–9:30 e 14–17; veicoli fino a 18 q.li su via Duomo, Portanova, Conforti, Corso V. Emanuele | https://www.comune.salerno.it/sites/default/files/documento_pubblico/modello-b1.pdf → `comune-modello-b1.txt` | ufficiale | 27/10/2026 |
 | Permessi: categorie (residenti, domiciliati, disabili, attività, CVE…), 10 € PagoPA, risposta entro 30 giorni | https://www.comune.salerno.it/servizi/richiesta-autorizzazione-transito-eo-sosta-ztl-eo-rinnovi → `comune-richiesta-autorizzazione-ztl.txt` | ufficiale | 27/10/2026 |
 
+| PUMS (Proposta di Piano, 2° Rapporto, p. 180): per tutti i varchi carico/scarico 06.00–09.30 e 14.00–17.00 con autorizzazione annuale, permanenza 15 minuti, portata massima 18 quintali; nessun orario della ZTL | https://www.comune.salerno.it/documento-pubblico/pums-elaborati-progettuali → `comune-pums-2-rapporto-estratto.txt` | ufficiale (pianificazione) | 27/10/2026 |
+
+Ricontrollo del 27/10/2026: pagine «ZTL» del sito (argomento, Ufficio Varchi, servizi «Verifica transiti», «Comunicazione transito occasionale», «Richiesta autorizzazione», moduli) rilette: nessun orario e nessuna ordinanza linkata. I 9 moduli di richiesta (PDF) sono scansioni senza testo. La ricerca interna del sito (`/search`) risponde **403** (non insistito).
+
 ## Fonti non ufficiali
 `data/raw/salerno/websearch-1-orari.txt`: accessibilitacentristorici.it, sicurauto.it, automobilista.it (24 ore su 24; confini via Roma – via Duomo/San Benedetto/Salvatore Rienzi); stampa 2023 (nuovi varchi Conforti, Corso Garibaldi, Corso V. Emanuele) e delibera per sostituire i 15 varchi.
 
-## Host non raggiungibili
-- Bloccato dal proxy (403, non aggirato): `website.comune.salerno.it` (vecchio sito del Comune).
-- Nessuna risposta (connessione fallita): `amministrazionetrasparente.comune.salerno.it`, `albo.comune.salerno.it`.
+## Host non raggiungibili (ricontrollati il 27/10/2026)
+- `website.comune.salerno.it` (vecchio sito con la scheda orari 2007): il proxy accetta, ma il server chiude la connessione («connection reset»), anche con timeout di 180 s e più tentativi.
+- Connessione chiusa allo stesso modo: `amministrazionetrasparente.comune.salerno.it`, `albo.comune.salerno.it`, `servizionline.comune.salerno.it`, `servizi.comune.salerno.it`.
+- `www.comune.salerno.it` funziona, tranne `/search` (403 dal sito).
 
 ## Geometria
 Nessuna. Nessun disegno a mano.

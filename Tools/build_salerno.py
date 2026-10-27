@@ -13,6 +13,10 @@
 #   2. manca il perimetro: nessun open data, nessuna relazione ZTL in OpenStreetMap (le vie del centro storico hanno
 #      solo access=destination, che non è una delimitazione ufficiale) e i varchi del modello B1 non hanno coordinate.
 # Per pubblicarla servono l'ordinanza vigente (orari, perimetro o elenco delle vie) e la posizione dei 10 varchi.
+# Ricontrollo 27/10/2026: website.comune.salerno.it, albo.comune.salerno.it, amministrazionetrasparente.comune.salerno.it,
+# servizionline e servizi.comune.salerno.it chiudono la connessione (riprovati con timeout lunghi); su www.comune.salerno.it
+# la ricerca interna (/search) risponde 403 (non insistito), i moduli dei permessi sono scansioni senza testo e il PUMS
+# (2° Rapporto, p. 180) conferma solo carico/scarico 6–9:30 e 14–17 e il limite di 18 quintali: ancora nessun orario ufficiale.
 # Uso: python3 Tools/build_salerno.py   (non tocca le altre città né manifest.json)
 import json, re
 from pathlib import Path
@@ -56,6 +60,8 @@ check("comune-modello-b1", *["Varco " + g for g in GATES],
 check("comune-comunicazione-transito-occasionale", "Non sono previsti costi per il procedimento.", "Modello B1 debitamente compilato")
 check("comune-richiesta-autorizzazione-ztl", "Pagamento di € 10.00 (Euro dieci/00)", "L’istanza sarà evasa entro 30 giorni dalla data della richiesta",
       "persona diversamente abile", "rilascio o rinnovo autorizzazione al traffico CVE")
+check("comune-pums-2-rapporto-estratto", "carico e scarico sono consentiti negli intervalli orari 06.00-09.30 e 14.00-17.00",
+      "può transitare all’interno di ZTL e CVE deve avere portata non superiore ai 18 quintali")
 check("websearch-1-orari", "the cameras are active every day, 24 hours a day",
       "bounded to the south by Via Roma and to the north by Via Duomo, San Benedetto and Salvatore Rienzi",
       "I couldn't find the current 2026 ZTL hours or the current ordinance.")
