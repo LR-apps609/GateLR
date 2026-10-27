@@ -1,0 +1,909 @@
+{
+ "id": "sorrento",
+ "name": "Sorrento",
+ "name_it": "Sorrento",
+ "name_de": "Sorrent",
+ "center": {
+  "lat": 40.6263,
+  "lon": 14.3759
+ },
+ "zones": [
+  {
+   "id": "sorrento-centro",
+   "name": "Piazza Tasso · ZTL Centro",
+   "name_it": "Piazza Tasso · ZTL Centro",
+   "name_de": "Piazza Tasso · ZTL Centro",
+   "kind": "restricted",
+   "summary": "From 1 April to 25 October the streets around piazza Tasso (viale Caruso, Corso Italia to via Marziale, via Correale from the Lauro car park, via De Maio, piazza Sant'Antonino, via San Francesco down to piazza della Vittoria) are closed to cars without a permit every evening 7:30 pm–4 am, and on holidays also 10 am–1 pm. From 7 December to 6 January only on holidays and the evenings before them. Staying in town? Your hotel asks the City for your permit. Park at the Lauro or Fuorimura car parks.",
+   "summary_it": "Dal 1° aprile al 25 ottobre le strade intorno a piazza Tasso (viale Caruso, Corso Italia fino a via Marziale, via Correale dal parcheggio Lauro, via De Maio, piazza Sant'Antonino, via San Francesco fino a piazza della Vittoria) sono chiuse alle auto senza permesso ogni sera 19:30–4, e nei festivi anche 10–13. Dal 7 dicembre al 6 gennaio solo nei festivi e prefestivi. Dormi in centro? L'hotel chiede al Comune il permesso per te. Parcheggia al Lauro o al Fuorimura.",
+   "summary_de": "Vom 1. April bis 25. Oktober sind die Straßen um die Piazza Tasso (Viale Caruso, Corso Italia bis Via Marziale, Via Correale ab Parkplatz Lauro, Via De Maio, Piazza Sant'Antonino, Via San Francesco bis Piazza della Vittoria) für Autos ohne Genehmigung jeden Abend 19:30–4 Uhr gesperrt, an Feiertagen auch 10–13 Uhr. Vom 7. Dezember bis 6. Januar nur an Feiertagen und deren Vortagen. Du übernachtest im Zentrum? Dein Hotel beantragt die Genehmigung bei der Stadt. Am Parkplatz Lauro oder Fuorimura parken.",
+   "perimeter": [
+    {
+     "lat": 40.628502,
+     "lon": 14.374293
+    },
+    {
+     "lat": 40.627923,
+     "lon": 14.374104
+    },
+    {
+     "lat": 40.627851,
+     "lon": 14.373914
+    },
+    {
+     "lat": 40.627706,
+     "lon": 14.373819
+    },
+    {
+     "lat": 40.627706,
+     "lon": 14.373725
+    },
+    {
+     "lat": 40.627634,
+     "lon": 14.373725
+    },
+    {
+     "lat": 40.627634,
+     "lon": 14.373346
+    },
+    {
+     "lat": 40.627562,
+     "lon": 14.373346
+    },
+    {
+     "lat": 40.627562,
+     "lon": 14.372778
+    },
+    {
+     "lat": 40.627489,
+     "lon": 14.372778
+    },
+    {
+     "lat": 40.627489,
+     "lon": 14.372494
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.372494
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.372115
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.372115
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.371926
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.371926
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.371547
+    },
+    {
+     "lat": 40.627562,
+     "lon": 14.371452
+    },
+    {
+     "lat": 40.627562,
+     "lon": 14.371263
+    },
+    {
+     "lat": 40.627489,
+     "lon": 14.371263
+    },
+    {
+     "lat": 40.627489,
+     "lon": 14.370884
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.370884
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.370505
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.370505
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.370032
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.370032
+    },
+    {
+     "lat": 40.627489,
+     "lon": 14.369274
+    },
+    {
+     "lat": 40.627562,
+     "lon": 14.369274
+    },
+    {
+     "lat": 40.627562,
+     "lon": 14.368801
+    },
+    {
+     "lat": 40.627634,
+     "lon": 14.368801
+    },
+    {
+     "lat": 40.627634,
+     "lon": 14.368706
+    },
+    {
+     "lat": 40.627489,
+     "lon": 14.368706
+    },
+    {
+     "lat": 40.627489,
+     "lon": 14.36918
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.36918
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.369558
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.369558
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.369748
+    },
+    {
+     "lat": 40.6272,
+     "lon": 14.369843
+    },
+    {
+     "lat": 40.6272,
+     "lon": 14.370221
+    },
+    {
+     "lat": 40.627128,
+     "lon": 14.370221
+    },
+    {
+     "lat": 40.627128,
+     "lon": 14.370505
+    },
+    {
+     "lat": 40.626983,
+     "lon": 14.3706
+    },
+    {
+     "lat": 40.626983,
+     "lon": 14.370979
+    },
+    {
+     "lat": 40.627055,
+     "lon": 14.370979
+    },
+    {
+     "lat": 40.627055,
+     "lon": 14.371452
+    },
+    {
+     "lat": 40.627128,
+     "lon": 14.371452
+    },
+    {
+     "lat": 40.627128,
+     "lon": 14.371736
+    },
+    {
+     "lat": 40.6272,
+     "lon": 14.371736
+    },
+    {
+     "lat": 40.6272,
+     "lon": 14.37202
+    },
+    {
+     "lat": 40.627272,
+     "lon": 14.37202
+    },
+    {
+     "lat": 40.627272,
+     "lon": 14.372304
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.372304
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.372683
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.372683
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.373157
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.373157
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.373535
+    },
+    {
+     "lat": 40.627272,
+     "lon": 14.373535
+    },
+    {
+     "lat": 40.627272,
+     "lon": 14.373914
+    },
+    {
+     "lat": 40.6272,
+     "lon": 14.373914
+    },
+    {
+     "lat": 40.6272,
+     "lon": 14.374009
+    },
+    {
+     "lat": 40.627128,
+     "lon": 14.374009
+    },
+    {
+     "lat": 40.627055,
+     "lon": 14.374198
+    },
+    {
+     "lat": 40.626983,
+     "lon": 14.374198
+    },
+    {
+     "lat": 40.62691,
+     "lon": 14.374388
+    },
+    {
+     "lat": 40.626766,
+     "lon": 14.374388
+    },
+    {
+     "lat": 40.626766,
+     "lon": 14.374766
+    },
+    {
+     "lat": 40.626693,
+     "lon": 14.374766
+    },
+    {
+     "lat": 40.626693,
+     "lon": 14.374861
+    },
+    {
+     "lat": 40.626621,
+     "lon": 14.374861
+    },
+    {
+     "lat": 40.626549,
+     "lon": 14.37505
+    },
+    {
+     "lat": 40.626476,
+     "lon": 14.37505
+    },
+    {
+     "lat": 40.626476,
+     "lon": 14.375145
+    },
+    {
+     "lat": 40.626332,
+     "lon": 14.37524
+    },
+    {
+     "lat": 40.626332,
+     "lon": 14.375334
+    },
+    {
+     "lat": 40.626259,
+     "lon": 14.375334
+    },
+    {
+     "lat": 40.626259,
+     "lon": 14.375429
+    },
+    {
+     "lat": 40.626187,
+     "lon": 14.375429
+    },
+    {
+     "lat": 40.626115,
+     "lon": 14.375619
+    },
+    {
+     "lat": 40.626042,
+     "lon": 14.375619
+    },
+    {
+     "lat": 40.626042,
+     "lon": 14.375713
+    },
+    {
+     "lat": 40.62597,
+     "lon": 14.375713
+    },
+    {
+     "lat": 40.62597,
+     "lon": 14.375808
+    },
+    {
+     "lat": 40.625825,
+     "lon": 14.375903
+    },
+    {
+     "lat": 40.625825,
+     "lon": 14.375997
+    },
+    {
+     "lat": 40.625391,
+     "lon": 14.376092
+    },
+    {
+     "lat": 40.625391,
+     "lon": 14.376376
+    },
+    {
+     "lat": 40.625608,
+     "lon": 14.376376
+    },
+    {
+     "lat": 40.625608,
+     "lon": 14.376281
+    },
+    {
+     "lat": 40.625753,
+     "lon": 14.376281
+    },
+    {
+     "lat": 40.625753,
+     "lon": 14.376376
+    },
+    {
+     "lat": 40.626042,
+     "lon": 14.376376
+    },
+    {
+     "lat": 40.626115,
+     "lon": 14.376565
+    },
+    {
+     "lat": 40.626187,
+     "lon": 14.376565
+    },
+    {
+     "lat": 40.626187,
+     "lon": 14.37666
+    },
+    {
+     "lat": 40.626332,
+     "lon": 14.376755
+    },
+    {
+     "lat": 40.626332,
+     "lon": 14.377134
+    },
+    {
+     "lat": 40.626404,
+     "lon": 14.377134
+    },
+    {
+     "lat": 40.626404,
+     "lon": 14.377891
+    },
+    {
+     "lat": 40.626476,
+     "lon": 14.377891
+    },
+    {
+     "lat": 40.626476,
+     "lon": 14.378554
+    },
+    {
+     "lat": 40.626549,
+     "lon": 14.378554
+    },
+    {
+     "lat": 40.626549,
+     "lon": 14.378175
+    },
+    {
+     "lat": 40.626621,
+     "lon": 14.378175
+    },
+    {
+     "lat": 40.626621,
+     "lon": 14.377891
+    },
+    {
+     "lat": 40.626693,
+     "lon": 14.377891
+    },
+    {
+     "lat": 40.626766,
+     "lon": 14.377702
+    },
+    {
+     "lat": 40.626838,
+     "lon": 14.377702
+    },
+    {
+     "lat": 40.62691,
+     "lon": 14.377512
+    },
+    {
+     "lat": 40.6272,
+     "lon": 14.377512
+    },
+    {
+     "lat": 40.6272,
+     "lon": 14.377418
+    },
+    {
+     "lat": 40.627272,
+     "lon": 14.377418
+    },
+    {
+     "lat": 40.627272,
+     "lon": 14.377512
+    },
+    {
+     "lat": 40.627562,
+     "lon": 14.377512
+    },
+    {
+     "lat": 40.627634,
+     "lon": 14.377702
+    },
+    {
+     "lat": 40.627706,
+     "lon": 14.377702
+    },
+    {
+     "lat": 40.627779,
+     "lon": 14.377891
+    },
+    {
+     "lat": 40.627851,
+     "lon": 14.377891
+    },
+    {
+     "lat": 40.627851,
+     "lon": 14.377986
+    },
+    {
+     "lat": 40.627923,
+     "lon": 14.377986
+    },
+    {
+     "lat": 40.627923,
+     "lon": 14.377796
+    },
+    {
+     "lat": 40.627779,
+     "lon": 14.377702
+    },
+    {
+     "lat": 40.627779,
+     "lon": 14.377512
+    },
+    {
+     "lat": 40.627634,
+     "lon": 14.377418
+    },
+    {
+     "lat": 40.627634,
+     "lon": 14.377228
+    },
+    {
+     "lat": 40.627562,
+     "lon": 14.377228
+    },
+    {
+     "lat": 40.627489,
+     "lon": 14.376849
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.376755
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.376376
+    },
+    {
+     "lat": 40.627272,
+     "lon": 14.376376
+    },
+    {
+     "lat": 40.627272,
+     "lon": 14.376187
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.376187
+    },
+    {
+     "lat": 40.627345,
+     "lon": 14.375808
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.375808
+    },
+    {
+     "lat": 40.627417,
+     "lon": 14.375713
+    },
+    {
+     "lat": 40.627489,
+     "lon": 14.375713
+    },
+    {
+     "lat": 40.627562,
+     "lon": 14.375524
+    },
+    {
+     "lat": 40.627634,
+     "lon": 14.375524
+    },
+    {
+     "lat": 40.627634,
+     "lon": 14.375429
+    },
+    {
+     "lat": 40.627779,
+     "lon": 14.375429
+    },
+    {
+     "lat": 40.627779,
+     "lon": 14.375334
+    },
+    {
+     "lat": 40.627923,
+     "lon": 14.375334
+    },
+    {
+     "lat": 40.627923,
+     "lon": 14.37524
+    },
+    {
+     "lat": 40.628068,
+     "lon": 14.37524
+    },
+    {
+     "lat": 40.628068,
+     "lon": 14.375145
+    },
+    {
+     "lat": 40.628357,
+     "lon": 14.375145
+    },
+    {
+     "lat": 40.628357,
+     "lon": 14.37505
+    },
+    {
+     "lat": 40.629081,
+     "lon": 14.37505
+    },
+    {
+     "lat": 40.629153,
+     "lon": 14.374672
+    },
+    {
+     "lat": 40.629081,
+     "lon": 14.374672
+    },
+    {
+     "lat": 40.629009,
+     "lon": 14.374482
+    },
+    {
+     "lat": 40.628936,
+     "lon": 14.374482
+    },
+    {
+     "lat": 40.628864,
+     "lon": 14.374293
+    },
+    {
+     "lat": 40.628792,
+     "lon": 14.374293
+    },
+    {
+     "lat": 40.628792,
+     "lon": 14.374198
+    },
+    {
+     "lat": 40.628575,
+     "lon": 14.374198
+    },
+    {
+     "lat": 40.628575,
+     "lon": 14.374293
+    },
+    {
+     "lat": 40.628502,
+     "lon": 14.374293
+    }
+   ],
+   "gates": [
+    {
+     "id": "so-osm679052212",
+     "name": "Varco 1 · Via Fuorimura / Viale Caruso",
+     "location": {
+      "lat": 40.625413,
+      "lon": 14.376313
+     }
+    },
+    {
+     "id": "so-osm10907830588",
+     "name": "Varco 2 · Corso Italia (Carmine) / Piazza Tasso",
+     "location": {
+      "lat": 40.626337,
+      "lon": 14.376577
+     }
+    },
+    {
+     "id": "so-osm10006422062",
+     "name": "Varco 3 · Via Correale (parcheggio Lauro)",
+     "location": {
+      "lat": 40.627866,
+      "lon": 14.37792
+     }
+    },
+    {
+     "id": "so-osm1622123958",
+     "name": "Varco 4 · Via San Francesco / Via De Maio",
+     "location": {
+      "lat": 40.627364,
+      "lon": 14.374242
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1170,
+     "end": 240,
+     "season": {
+      "fromMonth": 4,
+      "fromDay": 1,
+      "toMonth": 10,
+      "toDay": 25
+     }
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 600,
+     "end": 780,
+     "season": {
+      "fromMonth": 4,
+      "fromDay": 1,
+      "toMonth": 10,
+      "toDay": 25
+     }
+    },
+    {
+     "weekdays": [
+      7,
+      1
+     ],
+     "start": 1170,
+     "end": 240,
+     "season": {
+      "fromMonth": 12,
+      "fromDay": 7,
+      "toMonth": 1,
+      "toDay": 6
+     }
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 600,
+     "end": 780,
+     "season": {
+      "fromMonth": 12,
+      "fromDay": 7,
+      "toMonth": 1,
+      "toDay": 6
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1170,
+     "end": 240,
+     "season": {
+      "fromMonth": 12,
+      "fromDay": 7,
+      "toMonth": 12,
+      "toDay": 7
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1170,
+     "end": 240,
+     "season": {
+      "fromMonth": 12,
+      "fromDay": 24,
+      "toMonth": 12,
+      "toDay": 24
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1170,
+     "end": 240,
+     "season": {
+      "fromMonth": 12,
+      "fromDay": 31,
+      "toMonth": 12,
+      "toDay": 31
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1170,
+     "end": 240,
+     "season": {
+      "fromMonth": 1,
+      "fromDay": 5,
+      "toMonth": 1,
+      "toDay": 5
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Sorrento",
+    "pageURL": "https://www.comune.sorrento.na.it/it/novita/page/z-t-l-centro",
+    "ordinance": "Ordinanza n. 230 del 16/06/2023 (sostituisce le n. 321/2021 e 139/2023); regolamento permessi D.C.C. n. 7 del 16/03/2023 e n. 28 del 26/05/2023",
+    "ordinanceURL": "https://www.comune.sorrento.na.it/download/b81cb24c5b6b4de7a26a24f08057427e/ORD%20N.%20230.pdf",
+    "quote": "Periodi di vigenza della ZTL: • dal 1 aprile al 25 ottobre; dal 7 dicembre al 6 gennaio (limitatamente ai festivi ed ai prefestivi). Orari di vigenza della ZTL: • giorni feriali: dalle ore 19:30 alle ore 04:00 giorni festivi: dalle ore 10:00 alle ore 13:00 e dalle ore 19:30 alle ore 04:00.",
+    "quoteTranslation": "ZTL periods: from 1 April to 25 October; from 7 December to 6 January (only on holidays and the days before holidays). ZTL hours: weekdays from 19:30 to 04:00; holidays from 10:00 to 13:00 and from 19:30 to 04:00.",
+    "quoteTranslation_de": "Geltungszeiträume der ZTL: vom 1. April bis 25. Oktober; vom 7. Dezember bis 6. Januar (nur an Feiertagen und deren Vortagen). Zeiten der ZTL: werktags 19:30 bis 04:00 Uhr; feiertags 10:00 bis 13:00 und 19:30 bis 04:00 Uhr.",
+    "checkedOn": "2026-10-27T11:30:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Winter (7 December – 6 January) the ZTL works only on holidays and on the days before them: GateLR counts as such the Saturdays and 7, 24 and 31 December and 5 January (weekday hours 7:30 pm–4 am), and Sundays plus 8, 25, 26 December, 1 and 6 January (10 am–1 pm and 7:30 pm–4 am). This reading of «prefestivi» is ours.",
+     "Dates for 2026 (1 April – 25 October) are those of ordinance 230/2023 and the City's pages; the 2026 season is confirmed only by the press (Metropolis, ANSA, March 2026). No newer ordinance was found.",
+     "Hotels and other accommodation request a temporary transit permit for their guests on the City's «ZTL per strutture» portal (issued from immediately up to 30 days); the time limit for sending your plate is not stated: ask your hotel before you arrive. Others with a documented need can ask for a temporary permit online or by calling the free number 800 477 311 when passing the gate.",
+     "Electric cars, motorbikes and Blue Badge holders: the permit regulation (council resolutions 7 and 28/2023) is a scanned PDF that could not be read here, so GateLR exempts nobody. Fine 83–332 € (Highway Code; confirmed only by tyremap.com). The permit portals (sorrento.domosweb.it) could not be reached from here.",
+     "Area drawn from the OpenStreetMap streets listed in the ordinance (not an official map). The pedestrian Corso Italia west of piazza Tasso and the old-town lanes are outside this ZTL; the lower part of via Marina Grande (beach side, no gate) is left out."
+    ],
+    "pending_it": [
+     "D'inverno (7 dicembre – 6 gennaio) la ZTL vale solo nei festivi e prefestivi: GateLR conta come prefestivi i sabati e il 7, 24 e 31 dicembre e il 5 gennaio (orario feriale 19:30–4), come festivi le domeniche e l'8, 25, 26 dicembre, 1 e 6 gennaio (10–13 e 19:30–4). Questa lettura di «prefestivi» è nostra.",
+     "Le date 2026 (1 aprile – 25 ottobre) sono quelle dell'ordinanza 230/2023 e delle pagine del Comune; la stagione 2026 è confermata solo dalla stampa (Metropolis, ANSA, marzo 2026). Nessuna ordinanza più recente trovata.",
+     "Hotel e strutture ricettive chiedono un permesso di transito temporaneo per gli ospiti sul portale «ZTL per strutture» del Comune (rilascio da immediato a 30 giorni); il termine per comunicare la targa non è indicato: chiedi all'hotel prima di arrivare. Chi ha un'esigenza documentata può chiedere un permesso temporaneo online o chiamando il numero verde 800 477 311 al momento del passaggio.",
+     "Auto elettriche, moto e contrassegno disabili: il regolamento dei permessi (delibere di Consiglio 7 e 28/2023) è un PDF scansionato non leggibile da qui, quindi GateLR non esenta nessuno. Multa 83–332 € (Codice della Strada; confermato solo da tyremap.com). I portali dei permessi (sorrento.domosweb.it) non erano raggiungibili da qui.",
+     "Area ricavata dalle strade OpenStreetMap elencate nell'ordinanza (non è una mappa ufficiale). Il Corso Italia pedonale a ovest di piazza Tasso e i vicoli del centro antico sono fuori da questa ZTL; il tratto basso di via Marina Grande (verso la spiaggia, senza varco) è escluso."
+    ],
+    "pending_de": [
+     "Im Winter (7. Dezember – 6. Januar) gilt die ZTL nur an Feiertagen und an deren Vortagen: GateLR zählt dazu die Samstage sowie 7., 24. und 31. Dezember und 5. Januar (Werktagszeiten 19:30–4 Uhr) und als Feiertage Sonntage sowie 8., 25., 26. Dezember, 1. und 6. Januar (10–13 und 19:30–4 Uhr). Diese Auslegung von «prefestivi» ist unsere.",
+     "Die Daten für 2026 (1. April – 25. Oktober) sind die der Verordnung 230/2023 und der Stadtseiten; die Saison 2026 bestätigt nur die Presse (Metropolis, ANSA, März 2026). Keine neuere Verordnung gefunden.",
+     "Hotels und Unterkünfte beantragen für ihre Gäste eine befristete Durchfahrtsgenehmigung im Portal «ZTL per strutture» der Stadt (Ausstellung sofort bis 30 Tage); eine Frist für die Kennzeichenmeldung ist nicht angegeben: frag dein Hotel vor der Anreise. Wer einen belegten Bedarf hat, kann online oder über die Gratisnummer 800 477 311 beim Passieren eine befristete Genehmigung erbitten.",
+     "Elektroautos, Motorräder und Behindertenausweis: Die Genehmigungsordnung (Ratsbeschlüsse 7 und 28/2023) ist ein gescanntes PDF, das hier nicht lesbar war, daher befreit GateLR niemanden. Bußgeld 83–332 € (Straßenverkehrsordnung; nur von tyremap.com bestätigt). Die Genehmigungsportale (sorrento.domosweb.it) waren von hier aus nicht erreichbar.",
+     "Fläche aus den in der Verordnung genannten OpenStreetMap-Straßen (keine amtliche Karte). Der Fußgänger-Corso Italia westlich der Piazza Tasso und die Gassen der Altstadt liegen außerhalb dieser ZTL; der untere Teil der Via Marina Grande (Strandseite, ohne Kamera) ist ausgelassen."
+    ],
+    "links": [
+     {
+      "title": "City of Sorrento: ZTL Centro (periods and hours)",
+      "title_it": "Comune di Sorrento: Z.T.L. Centro (periodi e orari)",
+      "title_de": "Stadt Sorrent: ZTL Centro (Zeiträume und Zeiten)",
+      "url": "https://www.comune.sorrento.na.it/it/novita/page/z-t-l-centro"
+     },
+     {
+      "title": "City of Sorrento: ordinance no. 230 of 16/06/2023 (PDF)",
+      "title_it": "Comune di Sorrento: ordinanza n. 230 del 16/06/2023 (PDF)",
+      "title_de": "Stadt Sorrent: Verordnung Nr. 230 vom 16.06.2023 (PDF)",
+      "url": "https://www.comune.sorrento.na.it/download/b81cb24c5b6b4de7a26a24f08057427e/ORD%20N.%20230.pdf"
+     },
+     {
+      "title": "City of Sorrento: ZTL permits for hotels and accommodation",
+      "title_it": "Comune di Sorrento: permessi ZTL per strutture",
+      "title_de": "Stadt Sorrent: ZTL-Genehmigungen für Unterkünfte",
+      "url": "https://www.comune.sorrento.na.it/it/servizi/page/richiesta-autorizzazione-ztl-per-strutture"
+     },
+     {
+      "title": "City of Sorrento: temporary ZTL permit",
+      "title_it": "Comune di Sorrento: permesso ZTL temporaneo",
+      "title_de": "Stadt Sorrent: befristete ZTL-Genehmigung",
+      "url": "https://www.comune.sorrento.na.it/it/servizi/page/rilascio-autorizzazioni-ztl"
+     },
+     {
+      "title": "City of Sorrento: the ZTL returns (gates)",
+      "title_it": "Comune di Sorrento: ritorna la ZTL (varchi)",
+      "title_de": "Stadt Sorrent: die ZTL kehrt zurück (Kameras)",
+      "url": "https://www.comune.sorrento.na.it/it/novita/page/sorrento-viabilita-ritorna-la-zona-a-traffico-limitato"
+     },
+     {
+      "title": "Metropolis: ZTL from 1 April to 25 October 2026",
+      "title_it": "Metropolis: ZTL dal 1° aprile al 25 ottobre 2026",
+      "title_de": "Metropolis: ZTL vom 1. April bis 25. Oktober 2026",
+      "url": "https://www.metropolisweb.it/2026/03/30/torna-la-ztl-sorrento-orari-varchi-regole-vigore-dal-1-aprile-al-25-ottobre/"
+     },
+     {
+      "title": "OpenStreetMap: streets of the ordinance (ODbL)",
+      "title_it": "OpenStreetMap: strade dell'ordinanza (ODbL)",
+      "title_de": "OpenStreetMap: Straßen der Verordnung (ODbL)",
+      "url": "https://www.openstreetmap.org/way/220483714"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Sorrento (ordinance 230/2023 and official pages). Area and gates: © OpenStreetMap contributors, ODbL 1.0 (streets of the ordinance, approximate)."
+}
