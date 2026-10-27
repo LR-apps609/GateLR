@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 # Costruisce la scheda di Mantova (BOZZA) da quanto salvato in data/raw/mantova/ (fonti e date in docs/fonti-mantova.md).
 #
-# Perché è una bozza (27/10/2026): sul sito del Comune (www.comune.mantova.it) l'argomento «ZTL» non ha una pagina con
-# orari, vie o perimetro; il servizio dei permessi rimanda allo sportello www.sut.comune.mantova.it e le regole dei pass sono
-# su www.aster.mn.it: entrambi bloccati dal proxy (403), come l'albo pretorio (pubblicazioni.comune.mantova.it) e gli
-# allegati del PUMS/PUT (nextcloud-municipium.maggiolicloud.it); il vecchio sito www.comune.mantova.gov.it non risponde
-# (502). Le regole qui sotto vengono quindi solo da fonti non ufficiali (riassunti della ricerca web), senza citazione.
+# Perché è ancora una bozza (27/10/2026): nessun testo ufficiale con gli ORARI della ZTL per le auto e nessun perimetro.
+# - Letto ora: le pagine di Aster (aster.mn.it, senza «www»; società del Comune che rilascia i pass ZTL): zone ZTL A, A/RU
+#   (area pedonale via Roma, corso Umberto I, via Grazioli), AV (dissuasore di via Verdi), B; varchi n. 9 via Trieste e n. 10
+#   corso Libertà; 5 telecamere della «Zona Rossa»; permesso orario per i turisti dall'Area Pass con PagoPA (almeno 5 giorni
+#   prima); auto elettriche di altri comuni: pass di solo transito a 100 €; regolamento ZTL DCC 62/2013 (non trovato
+#   online). La sola fascia oraria ufficiale è quella della ZTL per gli AUTOBUS turistici (7–19 tutti i giorni), non per le auto.
+# - Ancora irraggiungibili: www.aster.mn.it e www.sut.comune.mantova.it (403 dal proxy), nextcloud-municipium.maggiolicloud.it
+#   (403), pubblicazioni.comune.mantova.it (albo pretorio: connessione chiusa dal server), comune.mantova.gov.it (502).
+# - sut.comune.mantova.it (senza «www») risponde, ma è solo lo sportello telematico (nessun testo sulla ZTL).
 # Geometria: nessun open data (dati.lombardia.it, dati.gov.it); in OpenStreetMap (API OSM, 27/10/2026) non c'è una relazione
-# della ZTL e le 99 strade con motor_vehicle=permit non coprono le vie principali (l'area che ne risulta è a pezzi): nessun
-# perimetro affidabile.
-# Per pubblicarla servono: il disciplinare/ordinanza ZTL o la pagina Aster salvati (con orari di ZTL A e B e la procedura
-# per gli ospiti degli hotel) e un perimetro (elenco ufficiale delle vie, da applicare alle strade OSM come in build_como.py).
+# della ZTL e le 99 strade con motor_vehicle=permit non coprono le vie principali: nessun perimetro affidabile. Gli elenchi di
+# vie di Aster riguardano solo sottozone (A/RU, AV) e i requisiti dei pass, non il confine della ZTL A e B.
+# Per pubblicarla servono: l'ordinanza/disciplinare ZTL (o il regolamento DCC 62/2013 con gli atti di Giunta) con orari di ZTL
+# A e B, la procedura per gli ospiti degli hotel e l'elenco delle vie o una mappa ufficiale.
 # Uso: python3 Tools/build_mantova.py   (non tocca le altre città né manifest.json)
 import json, re
 from pathlib import Path
@@ -36,10 +40,16 @@ def check(file, *phrases):
 
 TOPIC = "https://www.comune.mantova.it/it/topics/ztl"
 DISABLED = "https://www.comune.mantova.it/it/services/prenotazione-accesso-zona-a-traffico-limitato-ztl-con-pass-disabile-altre-citta"
-ASTER = "https://www.aster.mn.it/cittadini/ztl"
+ASTER, ASTER_TOUR, ASTER_BUS = "https://aster.mn.it/cittadini/ztl", "https://aster.mn.it/turisti/permesso-orario-ztl", "https://aster.mn.it/turisti/bus-turistici"
 check("comune-servizio-pass-disabili-altre-citta",
       "I possessori di pass disabile residenti fuori Comune che necessitano di circolare nelle zone a traffico limitato (ZTL) e sostare nei parcheggi riservati possono prenotare l'accesso.",
       "infomulte@comune.mantova.it")
+check("aster-pass-ztl-persone-fisiche", "PASS PER CITTADINI CHE ABITANO NEL COMUNE DI MANTOVA", "ZTL A/RU - Area Pedonale",
+      "Transito in ZTL A su percorso obbligato e vincolato alle sole 5 telecamere presenti nelle seguenti vie")
+check("aster-pass-ztl-aziende", "Valido anche per il transito dai varchi n. 9 via Trieste e n. 10 corso Libertà")
+check("aster-permesso-orario-ztl-turisti", "Per richiedere un permesso orario di accesso alle ZTL di Mantova", "consigliamo un anticipo di almeno 5 giorni")
+check("aster-pass-auto-elettriche", "RESIDENTI O DITTE CON SEDE IN ALTRI COMUNI", "Solo Transito 100,00 €")
+check("aster-bus-turistici", "regolamentato da ZTL attiva tutti i giorni dalle 7:00 alle 19:00")
 check("websearch-27-ottobre-2026", "telecamere attive tutti i giorni 24 ore su 24", "Corso della Libertà e via Trieste aperti a tutti 7–12 e 18–21",
       "voucher ZTL 2,60 € per 24 ore")
 
@@ -49,12 +59,15 @@ def link(en, it, de, url):
 
 
 PENDING = [
-    ("Hours confirmed only by unofficial guides (accessibilitacentristorici.it, tyremap.com): ZTL A and B cameras active 24 hours a day, every day; Corso della Libertà and Via Trieste open to all 7–12 and 18–21. One tour-bus site says 7–19.",
-     "Orari confermati solo da guide non ufficiali (accessibilitacentristorici.it, tyremap.com): telecamere di ZTL A e B attive 24 ore su 24 tutti i giorni; Corso della Libertà e via Trieste aperti a tutti 7–12 e 18–21. Un sito per bus turistici indica 7–19.",
-     "Zeiten nur von inoffiziellen Führern bestätigt (accessibilitacentristorici.it, tyremap.com): Kameras der ZTL A und B täglich rund um die Uhr aktiv; Corso della Libertà und Via Trieste 7–12 und 18–21 für alle offen. Eine Reisebus-Seite nennt 7–19."),
-    ("Hotel guests: the hotel registers the plate online through Aster (the City's company); hotels mention a 24-hour ZTL voucher of 2.60 € — confirmed only by a newspaper (Gazzetta di Mantova) and hotel sites.",
-     "Ospiti degli hotel: la struttura registra la targa online tramite Aster (società del Comune); alcuni hotel indicano un voucher ZTL di 2,60 € per 24 ore — confermato solo dalla Gazzetta di Mantova e da siti di hotel.",
-     "Hotelgäste: Das Hotel meldet das Kennzeichen online über Aster (Gesellschaft der Stadt); Hotels nennen einen ZTL-Gutschein von 2,60 € für 24 Stunden — nur von der Gazzetta di Mantova und Hotelseiten bestätigt."),
+    ("Hours for cars confirmed only by unofficial guides (accessibilitacentristorici.it, tyremap.com): ZTL A and B cameras active 24 hours a day, every day; Corso della Libertà (gate 10) and Via Trieste (gate 9) open to all 7–12 and 18–21. The official 7–19 schedule on Aster's site is the tour-bus ZTL, not the car ZTL.",
+     "Orari per le auto confermati solo da guide non ufficiali (accessibilitacentristorici.it, tyremap.com): telecamere di ZTL A e B attive 24 ore su 24 tutti i giorni; corso della Libertà (varco 10) e via Trieste (varco 9) aperti a tutti 7–12 e 18–21. La fascia ufficiale 7–19 sul sito di Aster è quella della ZTL per i bus turistici, non per le auto.",
+     "Zeiten für Autos nur von inoffiziellen Führern bestätigt (accessibilitacentristorici.it, tyremap.com): Kameras der ZTL A und B täglich rund um die Uhr aktiv; Corso della Libertà (Zufahrt 10) und Via Trieste (Zufahrt 9) 7–12 und 18–21 für alle offen. Die offizielle Zeit 7–19 auf der Aster-Seite gilt für die Reisebus-ZTL, nicht für Autos."),
+    ("Visitors can buy an hourly ZTL permit online in Aster's «Area Pass» (register, «Permessi ZTL» → «Prenota/Acquista», pay with PagoPA; Aster advises at least 5 days ahead). Price not shown on the page; hotels mention 2.60 € for 24 hours (unofficial). Hotel guests: plate registered online through Aster according to the Gazzetta di Mantova and hotel sites (unofficial).",
+     "I visitatori possono comprare un permesso orario ZTL online nell'«Area Pass» di Aster (registrazione, «Permessi ZTL» → «Prenota/Acquista», pagamento PagoPA; Aster consiglia almeno 5 giorni di anticipo). Prezzo non indicato sulla pagina; alcuni hotel indicano 2,60 € per 24 ore (non ufficiale). Ospiti degli hotel: targa registrata online tramite Aster secondo la Gazzetta di Mantova e siti di hotel (non ufficiale).",
+     "Besucher können online im «Area Pass» von Aster eine stundenweise ZTL-Genehmigung kaufen (registrieren, «Permessi ZTL» → «Prenota/Acquista», Zahlung über PagoPA; Aster empfiehlt mindestens 5 Tage Vorlauf). Preis nicht auf der Seite; Hotels nennen 2,60 € für 24 Stunden (inoffiziell). Hotelgäste: Kennzeichen laut Gazzetta di Mantova und Hotelseiten online über Aster gemeldet (inoffiziell)."),
+    ("Electric cars are not exempt: drivers from other municipalities need a transit-only pass (100 €/year). Inside ZTL A there are further pedestrian sub-zones (A/RU: Via Roma, Corso Umberto I, Via Grazioli; AV: Via Verdi, Piazza Erbe, Piazza Broletto with a retractable bollard).",
+     "Le auto elettriche non sono esenti: chi viene da altri comuni ha bisogno di un pass di solo transito (100 € l'anno). Dentro la ZTL A ci sono altre sottozone pedonali (A/RU: via Roma, corso Umberto I, via Grazioli; AV: via Verdi, piazza Erbe, piazza Broletto con dissuasore mobile).",
+     "Elektroautos sind nicht befreit: Fahrer aus anderen Gemeinden brauchen einen Durchfahrtsausweis (100 € pro Jahr). In der ZTL A gibt es weitere Fußgänger-Teilzonen (A/RU: Via Roma, Corso Umberto I, Via Grazioli; AV: Via Verdi, Piazza Erbe, Piazza Broletto mit versenkbarem Poller)."),
     ("No official map: the perimeter is not drawn.",
      "Nessuna mappa ufficiale: il perimetro non è disegnato.",
      "Keine offizielle Karte: die Grenze ist nicht eingezeichnet."),
@@ -68,17 +81,19 @@ zone = {"id": "mantova-ztl", "name": "Mantova · Historic centre ZTL (A and B)",
         "perimeter": [], "gates": [],
         "windows": [{"weekdays": EVERY_DAY, "start": 0, "end": 24 * 60}],
         "freeOnHolidays": None, "exemptFuels": [], "hotelCanRegister": True,
-        "source": {"authority": "City of Mantua", "pageURL": TOPIC, "ordinance": None, "ordinanceURL": None, "quote": None,
+        "source": {"authority": "City of Mantua", "pageURL": TOPIC, "ordinance": "Regolamento ZTL (D.C.C. n. 62/2013), citato da Aster; testo non trovato", "ordinanceURL": None, "quote": None,
                    "checkedOn": CHECKED, "reviewedByHuman": False,
                    "pending": [p[0] for p in PENDING], "pending_it": [p[1] for p in PENDING], "pending_de": [p[2] for p in PENDING],
                    "links": [link("City of Mantua: ZTL topic", "Comune di Mantova: argomento ZTL", "Stadt Mantua: Thema ZTL", TOPIC),
                              link("Aster: access to the ZTL (passes)", "Aster: accesso alle ZTL (pass)", "Aster: Zufahrt zur ZTL (Ausweise)", ASTER),
+                             link("Aster: hourly ZTL permit for visitors", "Aster: permesso orario ZTL per i turisti", "Aster: stundenweise ZTL-Genehmigung für Besucher", ASTER_TOUR),
+                             link("Aster: tour buses (bus ZTL 7–19)", "Aster: bus turistici (ZTL bus 7–19)", "Aster: Reisebusse (Bus-ZTL 7–19)", ASTER_BUS),
                              link("City of Mantua: disabled badge holders from other cities", "Comune di Mantova: pass disabili di altre città",
                                   "Stadt Mantua: Behindertenausweise aus anderen Städten", DISABLED)]}}
 
 city = {"id": "mantova", "name": "Mantua", "name_it": "Mantova", "name_de": "Mantua",
         "center": {"lat": 45.1597, "lon": 10.7967}, "zones": [zone], "status": "draft",
-        "license": "Rules: unofficial sources only (draft)."}
+        "license": "Rules: Aster (City of Mantua company) pages for permits; hours from unofficial sources only (draft)."}
 
 ready = all(len(z["perimeter"]) >= 5 and z["source"]["quote"] for z in city["zones"])
 out = ROOT / ("Resources/Cities/mantova.json" if ready else "data/drafts/mantova.json")
