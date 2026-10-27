@@ -1,0 +1,88 @@
+{
+ "id": "mantova",
+ "name": "Mantua",
+ "name_it": "Mantova",
+ "name_de": "Mantua",
+ "center": {
+  "lat": 45.1597,
+  "lon": 10.7967
+ },
+ "zones": [
+  {
+   "id": "mantova-ztl",
+   "name": "Mantova · Historic centre ZTL (A and B)",
+   "name_it": "Mantova · ZTL centro storico (A e B)",
+   "name_de": "Mantova · ZTL Altstadt (A und B)",
+   "kind": "restricted",
+   "summary": "Draft: the historic centre is split into ZTL A and B with cameras reported active 24 hours a day. Rules not yet confirmed on official pages.",
+   "summary_it": "Bozza: il centro storico è diviso in ZTL A e B con telecamere indicate attive 24 ore su 24. Regole non ancora confermate su pagine ufficiali.",
+   "summary_de": "Entwurf: Die Altstadt ist in ZTL A und B geteilt, Kameras laut Berichten rund um die Uhr aktiv. Regeln noch nicht auf offiziellen Seiten bestätigt.",
+   "perimeter": [],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Mantua",
+    "pageURL": "https://www.comune.mantova.it/it/topics/ztl",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": null,
+    "checkedOn": "2026-10-27T13:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by unofficial guides (accessibilitacentristorici.it, tyremap.com): ZTL A and B cameras active 24 hours a day, every day; Corso della Libertà and Via Trieste open to all 7–12 and 18–21. One tour-bus site says 7–19.",
+     "Hotel guests: the hotel registers the plate online through Aster (the City's company); hotels mention a 24-hour ZTL voucher of 2.60 € — confirmed only by a newspaper (Gazzetta di Mantova) and hotel sites.",
+     "No official map: the perimeter is not drawn."
+    ],
+    "pending_it": [
+     "Orari confermati solo da guide non ufficiali (accessibilitacentristorici.it, tyremap.com): telecamere di ZTL A e B attive 24 ore su 24 tutti i giorni; Corso della Libertà e via Trieste aperti a tutti 7–12 e 18–21. Un sito per bus turistici indica 7–19.",
+     "Ospiti degli hotel: la struttura registra la targa online tramite Aster (società del Comune); alcuni hotel indicano un voucher ZTL di 2,60 € per 24 ore — confermato solo dalla Gazzetta di Mantova e da siti di hotel.",
+     "Nessuna mappa ufficiale: il perimetro non è disegnato."
+    ],
+    "pending_de": [
+     "Zeiten nur von inoffiziellen Führern bestätigt (accessibilitacentristorici.it, tyremap.com): Kameras der ZTL A und B täglich rund um die Uhr aktiv; Corso della Libertà und Via Trieste 7–12 und 18–21 für alle offen. Eine Reisebus-Seite nennt 7–19.",
+     "Hotelgäste: Das Hotel meldet das Kennzeichen online über Aster (Gesellschaft der Stadt); Hotels nennen einen ZTL-Gutschein von 2,60 € für 24 Stunden — nur von der Gazzetta di Mantova und Hotelseiten bestätigt.",
+     "Keine offizielle Karte: die Grenze ist nicht eingezeichnet."
+    ],
+    "links": [
+     {
+      "title": "City of Mantua: ZTL topic",
+      "title_it": "Comune di Mantova: argomento ZTL",
+      "title_de": "Stadt Mantua: Thema ZTL",
+      "url": "https://www.comune.mantova.it/it/topics/ztl"
+     },
+     {
+      "title": "Aster: access to the ZTL (passes)",
+      "title_it": "Aster: accesso alle ZTL (pass)",
+      "title_de": "Aster: Zufahrt zur ZTL (Ausweise)",
+      "url": "https://www.aster.mn.it/cittadini/ztl"
+     },
+     {
+      "title": "City of Mantua: disabled badge holders from other cities",
+      "title_it": "Comune di Mantova: pass disabili di altre città",
+      "title_de": "Stadt Mantua: Behindertenausweise aus anderen Städten",
+      "url": "https://www.comune.mantova.it/it/services/prenotazione-accesso-zona-a-traffico-limitato-ztl-con-pass-disabile-altre-citta"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: unofficial sources only (draft)."
+}
