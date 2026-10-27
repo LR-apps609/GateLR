@@ -1,0 +1,33 @@
+Fonte: https://www.ztltreviso.it/myportal/C_L407_ZTL/varchi (portale ufficiale «ZTL nel Centro di Treviso», Città di Treviso; testo della pagina estratto dal pacchetto dell'applicazione /myportal/C_L407_ZTL/build.js, componente VarchiComponent), letto il 27/10/2026
+
+Accessi alla Zona a Traffico Limitato
+Gli accessi sono 8 controllati da sistemi elettronici in grado di rilevare i numeri delle targhe dei veicoli in transito.
+Dove si trovano 
+1) Via XX Settembre - attivo H24
+2) Via Martiri della Libertà - attivo H24
+3) Via San Leonardo - attivo H24
+4) Ponte San Francesco
+ - Orari di attività
+ dalle 22:00 alle 06:00 nei giorni dal lunedì al venerdì
+ dalle 00:00 alle 24:00 nei giorni di sabato, domenica e nelle festività del 1 gennaio, 6 gennaio, Lunedì di Pasquetta, 25 aprile, 1 maggio, 2 giugno, 15 agosto, 1 novembre, 8 dicembre, 25 dicembre, 26 dicembre
+5) Vicolo Buranelli - attivo H24
+6) Via Cornarotta - attivo H24
+7) Calmaggiore - attivo H24
+8) Via Manin
+ - Orari di attività
+ dalle 22:00 alle 6:00 tutti i giorni
+Veicoli ammessi
+Possono circolare in ZTL senza alcuna limitazione le biciclette e i veicoli ibridi/elettrici, ma per questi ultimi è obbligatoria la comunicazione del numero di targa per l’inserimento negli elenchi della Polizia Locale.
+Sono ammessi a circolare in ZTL i veicoli di enti pubblici o di aziende che svolgono servizi di pubblica utilità. Tuttavia tali enti o aziende, dovranno comunicare obbligatoriamente il numero delle targhe dei veicoli in uso per l'inserimento nelle liste della Polizia Locale:
+Istituti di vigilanza privata
+Medici di base convenzionati con il Servizio Sanitario Nazionale, pediatri, medici sostituti, medici specialisti e medici veterinari per visita domiciliare
+Operatori postali (titolari di licenza o autorizzazione ministeriale)
+Gestore della sosta a pagamento
+Gestori/fornitori di servizi pubblici essenziali (acqua, energia elettrica, gas, telefonia, trasporto salme)
+Veicoli destinati a verde pubblico, raccolta rifiuti, spazzamento strade
+Taxi e NCC in servizio
+Trasporto pubblico urbano
+Veicoli di enti pubblici in servizio (Prefettura, Comuni, Province, ASL, etc.)
+Veicoli diretti al Comando Provinciale Carabinieri di Treviso (muniti del contrassegno rilasciato dal Comando stesso).
+ Consulta la disciplina completa
+[links] https://www.ztltreviso.it/myportal/C_L407_ZTL/api/content/download?id=63cfdcb70206d0008c0bec21 https://portaleztl.comune.treviso.it/cittadino/ http://myportal-cl407ztl.regione.veneto.it/myintranet/C_L407_ZTL/admin/preview?contentId=6377665b8dee9000a28f07f2&amp;type=content&amp;path=/dettaglio https://www.ztltreviso.it/myportal/C_L407_ZTL/api/content/download?id=63776d498dd6a3008bf632da https://www.ztltreviso.it/myportal/C_L407_ZTL/api/content/download?id=6377665b8dee9000a28f07f2

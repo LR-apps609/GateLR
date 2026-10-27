@@ -1,0 +1,810 @@
+{
+ "id": "treviso",
+ "name": "Treviso",
+ "name_it": "Treviso",
+ "name_de": "Treviso",
+ "center": {
+  "lat": 45.6664,
+  "lon": 12.2445
+ },
+ "zones": [
+  {
+   "id": "treviso-centro",
+   "name": "Piazza dei Signori · old-town ZTL",
+   "name_it": "Piazza dei Signori · ZTL del centro",
+   "name_de": "Piazza dei Signori · Altstadt-ZTL",
+   "kind": "restricted",
+   "summary": "The heart of Treviso (Piazza dei Signori, Calmaggiore, Loggia dei Cavalieri, Piazza Rinaldi, the Buranelli canal) is closed to cars and motorbikes without a pass 24 hours a day, every day. Seven cameras: Via XX Settembre, Via Martiri della Libertà, Via San Leonardo, Vicolo Buranelli, Via Cornarotta, Calmaggiore (always on) and Ponte San Francesco (nights on weekdays, all day at weekends and holidays). Staying at a hotel inside? Your plate can be reported within five days. Otherwise park outside and walk.",
+   "summary_it": "Il cuore di Treviso (piazza dei Signori, Calmaggiore, Loggia dei Cavalieri, piazza Rinaldi, canale dei Buranelli) è chiuso ad auto e moto senza pass 24 ore su 24, tutti i giorni. Sette telecamere: via XX Settembre, via Martiri della Libertà, via San Leonardo, vicolo Buranelli, via Cornarotta, Calmaggiore (sempre attive) e Ponte San Francesco (di notte nei feriali, tutto il giorno nel fine settimana e nei festivi). Dormi in un hotel dentro? La targa si può comunicare entro cinque giorni. Altrimenti parcheggia fuori e cammina.",
+   "summary_de": "Das Herz von Treviso (Piazza dei Signori, Calmaggiore, Loggia dei Cavalieri, Piazza Rinaldi, Buranelli-Kanal) ist für Autos und Motorräder ohne Pass rund um die Uhr gesperrt, jeden Tag. Sieben Kameras: Via XX Settembre, Via Martiri della Libertà, Via San Leonardo, Vicolo Buranelli, Via Cornarotta, Calmaggiore (immer aktiv) und Ponte San Francesco (werktags nachts, am Wochenende und an Feiertagen ganztägig). Du übernachtest in einem Hotel innen? Dein Kennzeichen kann binnen fünf Tagen gemeldet werden. Sonst draußen parken und laufen.",
+   "perimeter": [
+    {
+     "lat": 45.66503,
+     "lon": 12.246568
+    },
+    {
+     "lat": 45.665392,
+     "lon": 12.247147
+    },
+    {
+     "lat": 45.665482,
+     "lon": 12.247147
+    },
+    {
+     "lat": 45.665618,
+     "lon": 12.24734
+    },
+    {
+     "lat": 45.665618,
+     "lon": 12.247468
+    },
+    {
+     "lat": 45.665301,
+     "lon": 12.247918
+    },
+    {
+     "lat": 45.664804,
+     "lon": 12.248047
+    },
+    {
+     "lat": 45.664804,
+     "lon": 12.248111
+    },
+    {
+     "lat": 45.664668,
+     "lon": 12.248111
+    },
+    {
+     "lat": 45.664668,
+     "lon": 12.248175
+    },
+    {
+     "lat": 45.664487,
+     "lon": 12.248175
+    },
+    {
+     "lat": 45.664487,
+     "lon": 12.24824
+    },
+    {
+     "lat": 45.664306,
+     "lon": 12.24824
+    },
+    {
+     "lat": 45.664306,
+     "lon": 12.248304
+    },
+    {
+     "lat": 45.664171,
+     "lon": 12.248304
+    },
+    {
+     "lat": 45.664171,
+     "lon": 12.248368
+    },
+    {
+     "lat": 45.664261,
+     "lon": 12.248432
+    },
+    {
+     "lat": 45.664261,
+     "lon": 12.248561
+    },
+    {
+     "lat": 45.664397,
+     "lon": 12.248754
+    },
+    {
+     "lat": 45.664578,
+     "lon": 12.248689
+    },
+    {
+     "lat": 45.664578,
+     "lon": 12.248625
+    },
+    {
+     "lat": 45.664758,
+     "lon": 12.248625
+    },
+    {
+     "lat": 45.664758,
+     "lon": 12.248561
+    },
+    {
+     "lat": 45.664894,
+     "lon": 12.248625
+    },
+    {
+     "lat": 45.664894,
+     "lon": 12.248754
+    },
+    {
+     "lat": 45.664985,
+     "lon": 12.248818
+    },
+    {
+     "lat": 45.665075,
+     "lon": 12.249139
+    },
+    {
+     "lat": 45.665301,
+     "lon": 12.249396
+    },
+    {
+     "lat": 45.665256,
+     "lon": 12.249718
+    },
+    {
+     "lat": 45.665165,
+     "lon": 12.249846
+    },
+    {
+     "lat": 45.665165,
+     "lon": 12.249975
+    },
+    {
+     "lat": 45.665211,
+     "lon": 12.249975
+    },
+    {
+     "lat": 45.665618,
+     "lon": 12.249396
+    },
+    {
+     "lat": 45.665708,
+     "lon": 12.249396
+    },
+    {
+     "lat": 45.665934,
+     "lon": 12.249011
+    },
+    {
+     "lat": 45.666115,
+     "lon": 12.249268
+    },
+    {
+     "lat": 45.666115,
+     "lon": 12.249396
+    },
+    {
+     "lat": 45.666251,
+     "lon": 12.249525
+    },
+    {
+     "lat": 45.666296,
+     "lon": 12.249332
+    },
+    {
+     "lat": 45.666205,
+     "lon": 12.249204
+    },
+    {
+     "lat": 45.666205,
+     "lon": 12.248947
+    },
+    {
+     "lat": 45.666296,
+     "lon": 12.248947
+    },
+    {
+     "lat": 45.666386,
+     "lon": 12.248754
+    },
+    {
+     "lat": 45.666477,
+     "lon": 12.248754
+    },
+    {
+     "lat": 45.666612,
+     "lon": 12.248497
+    },
+    {
+     "lat": 45.666703,
+     "lon": 12.248497
+    },
+    {
+     "lat": 45.666793,
+     "lon": 12.248304
+    },
+    {
+     "lat": 45.666884,
+     "lon": 12.248304
+    },
+    {
+     "lat": 45.667019,
+     "lon": 12.248047
+    },
+    {
+     "lat": 45.667652,
+     "lon": 12.247661
+    },
+    {
+     "lat": 45.667743,
+     "lon": 12.247533
+    },
+    {
+     "lat": 45.667969,
+     "lon": 12.247533
+    },
+    {
+     "lat": 45.667969,
+     "lon": 12.246954
+    },
+    {
+     "lat": 45.668557,
+     "lon": 12.246504
+    },
+    {
+     "lat": 45.668557,
+     "lon": 12.246119
+    },
+    {
+     "lat": 45.668421,
+     "lon": 12.246119
+    },
+    {
+     "lat": 45.668331,
+     "lon": 12.24599
+    },
+    {
+     "lat": 45.667969,
+     "lon": 12.245861
+    },
+    {
+     "lat": 45.667788,
+     "lon": 12.245604
+    },
+    {
+     "lat": 45.667698,
+     "lon": 12.244897
+    },
+    {
+     "lat": 45.668014,
+     "lon": 12.244833
+    },
+    {
+     "lat": 45.668105,
+     "lon": 12.244705
+    },
+    {
+     "lat": 45.667879,
+     "lon": 12.244383
+    },
+    {
+     "lat": 45.667879,
+     "lon": 12.244255
+    },
+    {
+     "lat": 45.667788,
+     "lon": 12.24419
+    },
+    {
+     "lat": 45.667698,
+     "lon": 12.243805
+    },
+    {
+     "lat": 45.667607,
+     "lon": 12.243676
+    },
+    {
+     "lat": 45.667607,
+     "lon": 12.243419
+    },
+    {
+     "lat": 45.667562,
+     "lon": 12.243419
+    },
+    {
+     "lat": 45.667517,
+     "lon": 12.243034
+    },
+    {
+     "lat": 45.667472,
+     "lon": 12.243034
+    },
+    {
+     "lat": 45.667472,
+     "lon": 12.242841
+    },
+    {
+     "lat": 45.667426,
+     "lon": 12.242841
+    },
+    {
+     "lat": 45.667381,
+     "lon": 12.242391
+    },
+    {
+     "lat": 45.667155,
+     "lon": 12.242712
+    },
+    {
+     "lat": 45.667155,
+     "lon": 12.242841
+    },
+    {
+     "lat": 45.667019,
+     "lon": 12.242969
+    },
+    {
+     "lat": 45.667019,
+     "lon": 12.243098
+    },
+    {
+     "lat": 45.666929,
+     "lon": 12.243098
+    },
+    {
+     "lat": 45.666884,
+     "lon": 12.242969
+    },
+    {
+     "lat": 45.666793,
+     "lon": 12.242969
+    },
+    {
+     "lat": 45.666658,
+     "lon": 12.242776
+    },
+    {
+     "lat": 45.666341,
+     "lon": 12.242776
+    },
+    {
+     "lat": 45.666296,
+     "lon": 12.242841
+    },
+    {
+     "lat": 45.666296,
+     "lon": 12.242776
+    },
+    {
+     "lat": 45.666115,
+     "lon": 12.242712
+    },
+    {
+     "lat": 45.66607,
+     "lon": 12.242584
+    },
+    {
+     "lat": 45.665934,
+     "lon": 12.242584
+    },
+    {
+     "lat": 45.665663,
+     "lon": 12.242969
+    },
+    {
+     "lat": 45.665663,
+     "lon": 12.243098
+    },
+    {
+     "lat": 45.66503,
+     "lon": 12.243933
+    },
+    {
+     "lat": 45.66503,
+     "lon": 12.244062
+    },
+    {
+     "lat": 45.664894,
+     "lon": 12.24419
+    },
+    {
+     "lat": 45.664894,
+     "lon": 12.244319
+    },
+    {
+     "lat": 45.664713,
+     "lon": 12.244576
+    },
+    {
+     "lat": 45.664713,
+     "lon": 12.244897
+    },
+    {
+     "lat": 45.664623,
+     "lon": 12.245026
+    },
+    {
+     "lat": 45.664623,
+     "lon": 12.245219
+    },
+    {
+     "lat": 45.664532,
+     "lon": 12.245347
+    },
+    {
+     "lat": 45.664532,
+     "lon": 12.245476
+    },
+    {
+     "lat": 45.664397,
+     "lon": 12.245604
+    },
+    {
+     "lat": 45.664397,
+     "lon": 12.245733
+    },
+    {
+     "lat": 45.66503,
+     "lon": 12.246568
+    }
+   ],
+   "gates": [
+    {
+     "id": "tv-osm-way147034082",
+     "name": "Varco 1 · Via XX Settembre",
+     "location": {
+      "lat": 45.66447,
+      "lon": 12.245823
+     }
+    },
+    {
+     "id": "tv-osm-way51980502",
+     "name": "Varco 2 · Via Martiri della Libertà",
+     "location": {
+      "lat": 45.665289,
+      "lon": 12.246977
+     }
+    },
+    {
+     "id": "tv-osm8180786497",
+     "name": "Varco 3 · Via San Leonardo",
+     "location": {
+      "lat": 45.666329,
+      "lon": 12.249473
+     }
+    },
+    {
+     "id": "tv-osm8176957946",
+     "name": "Varco 4 · Ponte San Francesco (22–6 Mon–Fri; all day Sat, Sun, holidays)",
+     "location": {
+      "lat": 45.667998,
+      "lon": 12.247461
+     }
+    },
+    {
+     "id": "tv-osm-way457233030",
+     "name": "Varco 5 · Vicolo Buranelli",
+     "location": {
+      "lat": 45.66769,
+      "lon": 12.245955
+     }
+    },
+    {
+     "id": "tv-osm8176957944",
+     "name": "Varco 6 · Via Cornarotta",
+     "location": {
+      "lat": 45.667698,
+      "lon": 12.244886
+     }
+    },
+    {
+     "id": "tv-osm-way25554725",
+     "name": "Varco 7 · Calmaggiore",
+     "location": {
+      "lat": 45.666914,
+      "lon": 12.243068
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [
+    "electric"
+   ],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Treviso",
+    "pageURL": "https://www.ztltreviso.it/myportal/C_L407_ZTL/varchi",
+    "ordinance": "Disciplinare per la circolazione stradale nella ZTL (Polizia Locale, novembre 2017); disciplinare allegato A alla DGC (2014)",
+    "ordinanceURL": "https://www.ztltreviso.it/myportal/C_L407_ZTL/api/content/download?id=6377665b8dee9000a28f07f2",
+    "quote": "Gli accessi sono 8 controllati da sistemi elettronici in grado di rilevare i numeri delle targhe dei veicoli in transito. Dove si trovano 1) Via XX Settembre - attivo H24 2) Via Martiri della Libertà - attivo H24 3) Via San Leonardo - attivo H24",
+    "quoteTranslation": "There are 8 entrances, watched by electronic systems that read the number plates of passing vehicles. Where they are: 1) Via XX Settembre – active 24h; 2) Via Martiri della Libertà – active 24h; 3) Via San Leonardo – active 24h",
+    "quoteTranslation_de": "Es gibt 8 Zufahrten, überwacht von elektronischen Systemen, die die Kennzeichen der durchfahrenden Fahrzeuge erfassen. Wo sie sind: 1) Via XX Settembre – 24 h aktiv; 2) Via Martiri della Libertà – 24 h aktiv; 3) Via San Leonardo – 24 h aktiv",
+    "checkedOn": "2026-10-27T16:30:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The ZTL rules apply 24 hours a day, every day (regulations); the camera at Ponte San Francesco only records 10 pm–6 am Monday to Friday and all day on Saturdays, Sundays and public holidays. Entering there on weekday daytime is still not allowed without a pass.",
+     "Hotels: guests of hotels and other accommodation inside the ZTL may drive in for the length of their stay (stop at most 20 minutes); the hotel or you must report the plate to the Municipal Police, also afterwards, within five days of the first entry. Everyone else needs a pass or an occasional-access notice before driving in (online portal, 24 hours a day).",
+     "Electric cars may drive in but their plate must be registered with the Municipal Police first. The official ZTL page says the same for hybrids; the 2017 regulations name only fully electric vehicles, so hybrids are not marked as exempt here. Blue Badge holders may drive in and report the plate within five days. Bicycles always allowed. Fine amount not published on the official pages.",
+     "Area from OpenStreetMap (relation 19430980), checked against the official map on the City's ZTL portal (the official map is an image, not open data). The Via Manin strip is drawn as the part within 35 m of the street."
+    ],
+    "pending_it": [
+     "Le regole della ZTL valgono 24 ore su 24, tutti i giorni (disciplinare); la telecamera di Ponte San Francesco è attiva solo 22–6 dal lunedì al venerdì e tutto il giorno sabato, domenica e festivi. Entrare da lì di giorno nei feriali senza pass resta comunque non consentito.",
+     "Hotel: gli ospiti di alberghi e altre strutture ricettive in ZTL possono entrare per la durata del soggiorno (sosta al massimo 20 minuti); la targa va comunicata alla Polizia Locale, anche dopo, entro cinque giorni dal primo transito. Tutti gli altri devono avere un pass o comunicare l'accesso occasionale prima di entrare (portale online, 24 ore su 24).",
+     "Le auto elettriche entrano ma la targa va prima comunicata alla Polizia Locale. La pagina ufficiale della ZTL dice lo stesso per le ibride; il disciplinare 2017 nomina solo i veicoli a trazione esclusivamente elettrica, quindi qui le ibride non sono segnate come esenti. I titolari di contrassegno disabili entrano e comunicano la targa entro cinque giorni. Biciclette sempre ammesse. Importo della multa non pubblicato nelle pagine ufficiali.",
+     "Area da OpenStreetMap (relazione 19430980), confrontata con la mappa ufficiale del portale ZTL del Comune (la mappa ufficiale è un'immagine, non open data). La striscia di via Manin è la parte entro 35 m dalla strada."
+    ],
+    "pending_de": [
+     "Die ZTL-Regeln gelten rund um die Uhr, täglich (Regelung); die Kamera an der Ponte San Francesco zeichnet nur Montag–Freitag 22–6 Uhr und samstags, sonntags und feiertags ganztägig auf. Werktags tagsüber ohne Pass einzufahren ist trotzdem nicht erlaubt.",
+     "Hotels: Gäste von Hotels und anderen Unterkünften in der ZTL dürfen für die Dauer des Aufenthalts einfahren (höchstens 20 Minuten halten); das Kennzeichen muss der Stadtpolizei gemeldet werden, auch nachträglich, binnen fünf Tagen nach der ersten Einfahrt. Alle anderen brauchen vor der Einfahrt einen Pass oder eine Meldung der gelegentlichen Zufahrt (Online-Portal, rund um die Uhr).",
+     "Elektroautos dürfen einfahren, das Kennzeichen muss aber vorher bei der Stadtpolizei registriert sein. Die offizielle ZTL-Seite sagt dasselbe für Hybride; die Regelung von 2017 nennt nur reine Elektrofahrzeuge, daher sind Hybride hier nicht als befreit markiert. Inhaber eines Behindertenausweises dürfen einfahren und melden das Kennzeichen binnen fünf Tagen. Fahrräder immer erlaubt. Bußgeldhöhe auf den offiziellen Seiten nicht veröffentlicht.",
+     "Fläche aus OpenStreetMap (Relation 19430980), abgeglichen mit der offiziellen Karte im ZTL-Portal der Stadt (die offizielle Karte ist ein Bild, keine offenen Daten). Der Streifen der Via Manin ist der Teil bis 35 m von der Straße."
+    ],
+    "links": [
+     {
+      "title": "City of Treviso: the ZTL and its gates (official portal)",
+      "title_it": "Comune di Treviso: la ZTL e i varchi (portale ufficiale)",
+      "title_de": "Stadt Treviso: die ZTL und ihre Kameras (offizielles Portal)",
+      "url": "https://www.ztltreviso.it/myportal/C_L407_ZTL/varchi"
+     },
+     {
+      "title": "City of Treviso: ZTL regulations (November 2017, PDF)",
+      "title_it": "Comune di Treviso: disciplinare ZTL (novembre 2017, PDF)",
+      "title_de": "Stadt Treviso: ZTL-Regelung (November 2017, PDF)",
+      "url": "https://www.ztltreviso.it/myportal/C_L407_ZTL/api/content/download?id=6377665b8dee9000a28f07f2"
+     },
+     {
+      "title": "City of Treviso: occasional access",
+      "title_it": "Comune di Treviso: accesso occasionale",
+      "title_de": "Stadt Treviso: gelegentliche Zufahrt",
+      "url": "https://www.ztltreviso.it/myportal/C_L407_ZTL/occasionale"
+     },
+     {
+      "title": "City of Treviso: ZTL pass portal",
+      "title_it": "Comune di Treviso: portale dei pass ZTL",
+      "title_de": "Stadt Treviso: ZTL-Pass-Portal",
+      "url": "https://portaleztl.comune.treviso.it/cittadino/"
+     },
+     {
+      "title": "OpenStreetMap: ZTL area (ODbL)",
+      "title_it": "OpenStreetMap: area ZTL (ODbL)",
+      "title_de": "OpenStreetMap: ZTL-Fläche (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/19430980"
+     }
+    ]
+   }
+  },
+  {
+   "id": "treviso-manin",
+   "name": "Via Manin · night ZTL",
+   "name_it": "Via Manin · ZTL notturna",
+   "name_de": "Via Manin · Nacht-ZTL",
+   "kind": "restricted",
+   "summary": "Via Daniele Manin (from Corso del Popolo to Piazza Duomo) is closed to cars and motorbikes without a pass every night from 10 pm to 6 am. During the day you may drive through.",
+   "summary_it": "Via Daniele Manin (da Corso del Popolo a piazza Duomo) è chiusa ad auto e moto senza pass ogni notte dalle 22 alle 6. Di giorno si passa.",
+   "summary_de": "Die Via Daniele Manin (vom Corso del Popolo bis zur Piazza Duomo) ist für Autos und Motorräder ohne Pass jede Nacht von 22 bis 6 Uhr gesperrt. Tagsüber darfst du durchfahren.",
+   "perimeter": [
+    {
+     "lat": 45.665663,
+     "lon": 12.241684
+    },
+    {
+     "lat": 45.665256,
+     "lon": 12.242262
+    },
+    {
+     "lat": 45.665256,
+     "lon": 12.242391
+    },
+    {
+     "lat": 45.664758,
+     "lon": 12.243034
+    },
+    {
+     "lat": 45.664758,
+     "lon": 12.243162
+    },
+    {
+     "lat": 45.664442,
+     "lon": 12.243548
+    },
+    {
+     "lat": 45.664442,
+     "lon": 12.243676
+    },
+    {
+     "lat": 45.664351,
+     "lon": 12.243805
+    },
+    {
+     "lat": 45.664351,
+     "lon": 12.243998
+    },
+    {
+     "lat": 45.664261,
+     "lon": 12.244126
+    },
+    {
+     "lat": 45.664261,
+     "lon": 12.244319
+    },
+    {
+     "lat": 45.664171,
+     "lon": 12.244447
+    },
+    {
+     "lat": 45.664171,
+     "lon": 12.24464
+    },
+    {
+     "lat": 45.664125,
+     "lon": 12.24464
+    },
+    {
+     "lat": 45.66408,
+     "lon": 12.244962
+    },
+    {
+     "lat": 45.664035,
+     "lon": 12.244962
+    },
+    {
+     "lat": 45.66408,
+     "lon": 12.245283
+    },
+    {
+     "lat": 45.664351,
+     "lon": 12.245669
+    },
+    {
+     "lat": 45.664532,
+     "lon": 12.245476
+    },
+    {
+     "lat": 45.664532,
+     "lon": 12.245347
+    },
+    {
+     "lat": 45.664623,
+     "lon": 12.245219
+    },
+    {
+     "lat": 45.664758,
+     "lon": 12.244447
+    },
+    {
+     "lat": 45.664894,
+     "lon": 12.244319
+    },
+    {
+     "lat": 45.664894,
+     "lon": 12.24419
+    },
+    {
+     "lat": 45.66503,
+     "lon": 12.244062
+    },
+    {
+     "lat": 45.66503,
+     "lon": 12.243933
+    },
+    {
+     "lat": 45.665979,
+     "lon": 12.242584
+    },
+    {
+     "lat": 45.665753,
+     "lon": 12.242198
+    },
+    {
+     "lat": 45.66607,
+     "lon": 12.241748
+    },
+    {
+     "lat": 45.665889,
+     "lon": 12.241684
+    },
+    {
+     "lat": 45.665798,
+     "lon": 12.241555
+    },
+    {
+     "lat": 45.665663,
+     "lon": 12.241684
+    }
+   ],
+   "gates": [
+    {
+     "id": "tv-osm8180571113",
+     "name": "Varco 8 · Via Manin (22–6)",
+     "location": {
+      "lat": 45.664221,
+      "lon": 12.245326
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1320,
+     "end": 360
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [
+    "electric"
+   ],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Treviso",
+    "pageURL": "https://www.ztltreviso.it/myportal/C_L407_ZTL/varchi",
+    "ordinance": "Disciplinare per la circolazione stradale nella ZTL (Polizia Locale, novembre 2017); disciplinare allegato A alla DGC (2014)",
+    "ordinanceURL": "https://www.ztltreviso.it/myportal/C_L407_ZTL/api/content/download?id=6377665b8dee9000a28f07f2",
+    "quote": "8) Via Manin - Orari di attività dalle 22:00 alle 6:00 tutti i giorni",
+    "quoteTranslation": "8) Via Manin – hours of operation from 22:00 to 6:00 every day",
+    "quoteTranslation_de": "8) Via Manin – Betriebszeiten von 22:00 bis 6:00 Uhr, täglich",
+    "checkedOn": "2026-10-27T16:30:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The 2014 regulations put all ZTL rules 0–24 every day; the official ZTL page gives the Via Manin camera only 10 pm–6 am. The app follows the official ZTL page for this street.",
+     "Hotels: guests of hotels and other accommodation inside the ZTL may drive in for the length of their stay (stop at most 20 minutes); the hotel or you must report the plate to the Municipal Police, also afterwards, within five days of the first entry. Everyone else needs a pass or an occasional-access notice before driving in (online portal, 24 hours a day).",
+     "Electric cars may drive in but their plate must be registered with the Municipal Police first. The official ZTL page says the same for hybrids; the 2017 regulations name only fully electric vehicles, so hybrids are not marked as exempt here. Blue Badge holders may drive in and report the plate within five days. Bicycles always allowed. Fine amount not published on the official pages.",
+     "Area from OpenStreetMap (relation 19430980), checked against the official map on the City's ZTL portal (the official map is an image, not open data). The Via Manin strip is drawn as the part within 35 m of the street."
+    ],
+    "pending_it": [
+     "Il disciplinare 2014 mette tutte le regole della ZTL 0–24 tutti i giorni; la pagina ufficiale della ZTL indica per la telecamera di via Manin solo 22–6. Per questa via l'app segue la pagina ufficiale della ZTL.",
+     "Hotel: gli ospiti di alberghi e altre strutture ricettive in ZTL possono entrare per la durata del soggiorno (sosta al massimo 20 minuti); la targa va comunicata alla Polizia Locale, anche dopo, entro cinque giorni dal primo transito. Tutti gli altri devono avere un pass o comunicare l'accesso occasionale prima di entrare (portale online, 24 ore su 24).",
+     "Le auto elettriche entrano ma la targa va prima comunicata alla Polizia Locale. La pagina ufficiale della ZTL dice lo stesso per le ibride; il disciplinare 2017 nomina solo i veicoli a trazione esclusivamente elettrica, quindi qui le ibride non sono segnate come esenti. I titolari di contrassegno disabili entrano e comunicano la targa entro cinque giorni. Biciclette sempre ammesse. Importo della multa non pubblicato nelle pagine ufficiali.",
+     "Area da OpenStreetMap (relazione 19430980), confrontata con la mappa ufficiale del portale ZTL del Comune (la mappa ufficiale è un'immagine, non open data). La striscia di via Manin è la parte entro 35 m dalla strada."
+    ],
+    "pending_de": [
+     "Die Regelung von 2014 setzt alle ZTL-Regeln täglich 0–24 Uhr; die offizielle ZTL-Seite nennt für die Kamera der Via Manin nur 22–6 Uhr. Für diese Straße folgt die App der offiziellen ZTL-Seite.",
+     "Hotels: Gäste von Hotels und anderen Unterkünften in der ZTL dürfen für die Dauer des Aufenthalts einfahren (höchstens 20 Minuten halten); das Kennzeichen muss der Stadtpolizei gemeldet werden, auch nachträglich, binnen fünf Tagen nach der ersten Einfahrt. Alle anderen brauchen vor der Einfahrt einen Pass oder eine Meldung der gelegentlichen Zufahrt (Online-Portal, rund um die Uhr).",
+     "Elektroautos dürfen einfahren, das Kennzeichen muss aber vorher bei der Stadtpolizei registriert sein. Die offizielle ZTL-Seite sagt dasselbe für Hybride; die Regelung von 2017 nennt nur reine Elektrofahrzeuge, daher sind Hybride hier nicht als befreit markiert. Inhaber eines Behindertenausweises dürfen einfahren und melden das Kennzeichen binnen fünf Tagen. Fahrräder immer erlaubt. Bußgeldhöhe auf den offiziellen Seiten nicht veröffentlicht.",
+     "Fläche aus OpenStreetMap (Relation 19430980), abgeglichen mit der offiziellen Karte im ZTL-Portal der Stadt (die offizielle Karte ist ein Bild, keine offenen Daten). Der Streifen der Via Manin ist der Teil bis 35 m von der Straße."
+    ],
+    "links": [
+     {
+      "title": "City of Treviso: the ZTL and its gates (official portal)",
+      "title_it": "Comune di Treviso: la ZTL e i varchi (portale ufficiale)",
+      "title_de": "Stadt Treviso: die ZTL und ihre Kameras (offizielles Portal)",
+      "url": "https://www.ztltreviso.it/myportal/C_L407_ZTL/varchi"
+     },
+     {
+      "title": "City of Treviso: ZTL regulations (November 2017, PDF)",
+      "title_it": "Comune di Treviso: disciplinare ZTL (novembre 2017, PDF)",
+      "title_de": "Stadt Treviso: ZTL-Regelung (November 2017, PDF)",
+      "url": "https://www.ztltreviso.it/myportal/C_L407_ZTL/api/content/download?id=6377665b8dee9000a28f07f2"
+     },
+     {
+      "title": "City of Treviso: occasional access",
+      "title_it": "Comune di Treviso: accesso occasionale",
+      "title_de": "Stadt Treviso: gelegentliche Zufahrt",
+      "url": "https://www.ztltreviso.it/myportal/C_L407_ZTL/occasionale"
+     },
+     {
+      "title": "City of Treviso: ZTL pass portal",
+      "title_it": "Comune di Treviso: portale dei pass ZTL",
+      "title_de": "Stadt Treviso: ZTL-Pass-Portal",
+      "url": "https://portaleztl.comune.treviso.it/cittadino/"
+     },
+     {
+      "title": "OpenStreetMap: ZTL area (ODbL)",
+      "title_it": "OpenStreetMap: area ZTL (ODbL)",
+      "title_de": "OpenStreetMap: ZTL-Fläche (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/19430980"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Treviso (official ZTL portal and regulations). Areas and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}
