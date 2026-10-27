@@ -1,0 +1,3040 @@
+{
+ "id": "mantova",
+ "name": "Mantua",
+ "name_it": "Mantova",
+ "name_de": "Mantua",
+ "center": {
+  "lat": 45.1597,
+  "lon": 10.7967
+ },
+ "zones": [
+  {
+   "id": "mantova-ztl-a",
+   "name": "Historic centre · ZTL A",
+   "name_it": "Centro storico · ZTL A",
+   "name_de": "Altstadt · ZTL A",
+   "kind": "restricted",
+   "summary": "Mantua's historic centre (Piazza delle Erbe, Sant'Andrea, Piazza Sordello and the Ducal Palace area) is ZTL A, reportedly camera-controlled every day, 24 hours a day. Without a permit stay out: park outside (e.g. Campo Canoa, Piazza Virgiliana) and walk. Staying inside? Ask your hotel to register your plate; visitors can buy an hourly permit online from Aster.",
+   "summary_it": "Il centro storico di Mantova (piazza delle Erbe, Sant'Andrea, piazza Sordello e la zona di Palazzo Ducale) è la ZTL A, con telecamere attive secondo le guide tutti i giorni 24 ore su 24. Senza permesso non entrare: parcheggia fuori (es. Campo Canoa, piazza Virgiliana) e cammina. Dormi dentro? Chiedi all'hotel di registrare la targa; i visitatori possono comprare un permesso orario online da Aster.",
+   "summary_de": "Die Altstadt von Mantua (Piazza delle Erbe, Sant'Andrea, Piazza Sordello und das Gebiet des Herzogspalasts) ist die ZTL A, laut Reiseführern täglich rund um die Uhr kameraüberwacht. Ohne Genehmigung draußen bleiben: außerhalb parken (z. B. Campo Canoa, Piazza Virgiliana) und laufen. Du übernachtest innen? Bitte das Hotel, dein Kennzeichen zu melden; Besucher können online bei Aster eine stundenweise Genehmigung kaufen.",
+   "perimeter": [
+    {
+     "lat": 45.156872,
+     "lon": 10.791553
+    },
+    {
+     "lat": 45.156872,
+     "lon": 10.791655
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.791655
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.791757
+    },
+    {
+     "lat": 45.156872,
+     "lon": 10.791757
+    },
+    {
+     "lat": 45.156872,
+     "lon": 10.792063
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.792063
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.792368
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.792368
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.792674
+    },
+    {
+     "lat": 45.156655,
+     "lon": 10.792674
+    },
+    {
+     "lat": 45.156655,
+     "lon": 10.792776
+    },
+    {
+     "lat": 45.156438,
+     "lon": 10.792776
+    },
+    {
+     "lat": 45.156438,
+     "lon": 10.792878
+    },
+    {
+     "lat": 45.156294,
+     "lon": 10.792878
+    },
+    {
+     "lat": 45.156294,
+     "lon": 10.792776
+    },
+    {
+     "lat": 45.156076,
+     "lon": 10.792776
+    },
+    {
+     "lat": 45.156076,
+     "lon": 10.792674
+    },
+    {
+     "lat": 45.155932,
+     "lon": 10.792674
+    },
+    {
+     "lat": 45.155932,
+     "lon": 10.792572
+    },
+    {
+     "lat": 45.155787,
+     "lon": 10.792572
+    },
+    {
+     "lat": 45.155787,
+     "lon": 10.79247
+    },
+    {
+     "lat": 45.155715,
+     "lon": 10.79247
+    },
+    {
+     "lat": 45.155642,
+     "lon": 10.792674
+    },
+    {
+     "lat": 45.155498,
+     "lon": 10.792674
+    },
+    {
+     "lat": 45.155498,
+     "lon": 10.792878
+    },
+    {
+     "lat": 45.155425,
+     "lon": 10.792878
+    },
+    {
+     "lat": 45.155425,
+     "lon": 10.79298
+    },
+    {
+     "lat": 45.155208,
+     "lon": 10.79298
+    },
+    {
+     "lat": 45.155208,
+     "lon": 10.793286
+    },
+    {
+     "lat": 45.155136,
+     "lon": 10.793286
+    },
+    {
+     "lat": 45.155064,
+     "lon": 10.793489
+    },
+    {
+     "lat": 45.154847,
+     "lon": 10.793489
+    },
+    {
+     "lat": 45.154847,
+     "lon": 10.793591
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.793489
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.793591
+    },
+    {
+     "lat": 45.154557,
+     "lon": 10.793591
+    },
+    {
+     "lat": 45.154557,
+     "lon": 10.793693
+    },
+    {
+     "lat": 45.15434,
+     "lon": 10.793693
+    },
+    {
+     "lat": 45.15434,
+     "lon": 10.793897
+    },
+    {
+     "lat": 45.154412,
+     "lon": 10.793897
+    },
+    {
+     "lat": 45.154412,
+     "lon": 10.794305
+    },
+    {
+     "lat": 45.15434,
+     "lon": 10.794305
+    },
+    {
+     "lat": 45.15434,
+     "lon": 10.79461
+    },
+    {
+     "lat": 45.154268,
+     "lon": 10.79461
+    },
+    {
+     "lat": 45.154268,
+     "lon": 10.794916
+    },
+    {
+     "lat": 45.154195,
+     "lon": 10.794916
+    },
+    {
+     "lat": 45.154195,
+     "lon": 10.795018
+    },
+    {
+     "lat": 45.153978,
+     "lon": 10.795018
+    },
+    {
+     "lat": 45.153978,
+     "lon": 10.79512
+    },
+    {
+     "lat": 45.153906,
+     "lon": 10.79512
+    },
+    {
+     "lat": 45.153906,
+     "lon": 10.795018
+    },
+    {
+     "lat": 45.153689,
+     "lon": 10.795018
+    },
+    {
+     "lat": 45.153689,
+     "lon": 10.794916
+    },
+    {
+     "lat": 45.153544,
+     "lon": 10.794916
+    },
+    {
+     "lat": 45.153472,
+     "lon": 10.794712
+    },
+    {
+     "lat": 45.153327,
+     "lon": 10.794712
+    },
+    {
+     "lat": 45.153327,
+     "lon": 10.794814
+    },
+    {
+     "lat": 45.153472,
+     "lon": 10.794916
+    },
+    {
+     "lat": 45.153544,
+     "lon": 10.795528
+    },
+    {
+     "lat": 45.153472,
+     "lon": 10.795528
+    },
+    {
+     "lat": 45.153472,
+     "lon": 10.795833
+    },
+    {
+     "lat": 45.153327,
+     "lon": 10.795935
+    },
+    {
+     "lat": 45.153255,
+     "lon": 10.796343
+    },
+    {
+     "lat": 45.153472,
+     "lon": 10.796343
+    },
+    {
+     "lat": 45.153472,
+     "lon": 10.796445
+    },
+    {
+     "lat": 45.153544,
+     "lon": 10.796445
+    },
+    {
+     "lat": 45.153544,
+     "lon": 10.796343
+    },
+    {
+     "lat": 45.153761,
+     "lon": 10.796343
+    },
+    {
+     "lat": 45.153761,
+     "lon": 10.796445
+    },
+    {
+     "lat": 45.154195,
+     "lon": 10.796547
+    },
+    {
+     "lat": 45.154195,
+     "lon": 10.796649
+    },
+    {
+     "lat": 45.154268,
+     "lon": 10.796649
+    },
+    {
+     "lat": 45.154268,
+     "lon": 10.796547
+    },
+    {
+     "lat": 45.154629,
+     "lon": 10.796547
+    },
+    {
+     "lat": 45.154629,
+     "lon": 10.796649
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.796649
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.796547
+    },
+    {
+     "lat": 45.154919,
+     "lon": 10.796547
+    },
+    {
+     "lat": 45.154919,
+     "lon": 10.796445
+    },
+    {
+     "lat": 45.154991,
+     "lon": 10.796445
+    },
+    {
+     "lat": 45.154991,
+     "lon": 10.796547
+    },
+    {
+     "lat": 45.155208,
+     "lon": 10.796547
+    },
+    {
+     "lat": 45.155208,
+     "lon": 10.796649
+    },
+    {
+     "lat": 45.155281,
+     "lon": 10.796649
+    },
+    {
+     "lat": 45.155281,
+     "lon": 10.796955
+    },
+    {
+     "lat": 45.155353,
+     "lon": 10.796955
+    },
+    {
+     "lat": 45.155353,
+     "lon": 10.797158
+    },
+    {
+     "lat": 45.155281,
+     "lon": 10.797158
+    },
+    {
+     "lat": 45.155281,
+     "lon": 10.797464
+    },
+    {
+     "lat": 45.155208,
+     "lon": 10.797464
+    },
+    {
+     "lat": 45.155208,
+     "lon": 10.797668
+    },
+    {
+     "lat": 45.155136,
+     "lon": 10.797668
+    },
+    {
+     "lat": 45.155136,
+     "lon": 10.797872
+    },
+    {
+     "lat": 45.155064,
+     "lon": 10.797872
+    },
+    {
+     "lat": 45.155064,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.154991,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.154919,
+     "lon": 10.798279
+    },
+    {
+     "lat": 45.154847,
+     "lon": 10.798279
+    },
+    {
+     "lat": 45.154847,
+     "lon": 10.798381
+    },
+    {
+     "lat": 45.155064,
+     "lon": 10.798381
+    },
+    {
+     "lat": 45.155136,
+     "lon": 10.798177
+    },
+    {
+     "lat": 45.155353,
+     "lon": 10.798177
+    },
+    {
+     "lat": 45.155353,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.155498,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.155498,
+     "lon": 10.798177
+    },
+    {
+     "lat": 45.155715,
+     "lon": 10.798177
+    },
+    {
+     "lat": 45.155787,
+     "lon": 10.798381
+    },
+    {
+     "lat": 45.155932,
+     "lon": 10.798381
+    },
+    {
+     "lat": 45.155932,
+     "lon": 10.798279
+    },
+    {
+     "lat": 45.156149,
+     "lon": 10.798279
+    },
+    {
+     "lat": 45.156149,
+     "lon": 10.798381
+    },
+    {
+     "lat": 45.156366,
+     "lon": 10.798381
+    },
+    {
+     "lat": 45.156366,
+     "lon": 10.798483
+    },
+    {
+     "lat": 45.156438,
+     "lon": 10.798483
+    },
+    {
+     "lat": 45.156438,
+     "lon": 10.798687
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.798687
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.798789
+    },
+    {
+     "lat": 45.156872,
+     "lon": 10.798789
+    },
+    {
+     "lat": 45.156872,
+     "lon": 10.798687
+    },
+    {
+     "lat": 45.157162,
+     "lon": 10.798687
+    },
+    {
+     "lat": 45.157162,
+     "lon": 10.798789
+    },
+    {
+     "lat": 45.157379,
+     "lon": 10.798789
+    },
+    {
+     "lat": 45.157379,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.157596,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.157596,
+     "lon": 10.798993
+    },
+    {
+     "lat": 45.157741,
+     "lon": 10.799095
+    },
+    {
+     "lat": 45.157741,
+     "lon": 10.7994
+    },
+    {
+     "lat": 45.157813,
+     "lon": 10.7994
+    },
+    {
+     "lat": 45.157813,
+     "lon": 10.799502
+    },
+    {
+     "lat": 45.157885,
+     "lon": 10.799502
+    },
+    {
+     "lat": 45.157885,
+     "lon": 10.799197
+    },
+    {
+     "lat": 45.157958,
+     "lon": 10.799197
+    },
+    {
+     "lat": 45.157958,
+     "lon": 10.799095
+    },
+    {
+     "lat": 45.158175,
+     "lon": 10.799095
+    },
+    {
+     "lat": 45.158175,
+     "lon": 10.798993
+    },
+    {
+     "lat": 45.158609,
+     "lon": 10.799095
+    },
+    {
+     "lat": 45.158681,
+     "lon": 10.799299
+    },
+    {
+     "lat": 45.15897,
+     "lon": 10.7994
+    },
+    {
+     "lat": 45.15897,
+     "lon": 10.799197
+    },
+    {
+     "lat": 45.159043,
+     "lon": 10.799197
+    },
+    {
+     "lat": 45.159115,
+     "lon": 10.798993
+    },
+    {
+     "lat": 45.15926,
+     "lon": 10.798993
+    },
+    {
+     "lat": 45.15926,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.159477,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.159477,
+     "lon": 10.798789
+    },
+    {
+     "lat": 45.159549,
+     "lon": 10.798789
+    },
+    {
+     "lat": 45.159549,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.159766,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.159766,
+     "lon": 10.798993
+    },
+    {
+     "lat": 45.159839,
+     "lon": 10.798993
+    },
+    {
+     "lat": 45.159911,
+     "lon": 10.7994
+    },
+    {
+     "lat": 45.1602,
+     "lon": 10.799299
+    },
+    {
+     "lat": 45.1602,
+     "lon": 10.7994
+    },
+    {
+     "lat": 45.160417,
+     "lon": 10.7994
+    },
+    {
+     "lat": 45.160417,
+     "lon": 10.799502
+    },
+    {
+     "lat": 45.160852,
+     "lon": 10.799502
+    },
+    {
+     "lat": 45.160924,
+     "lon": 10.799299
+    },
+    {
+     "lat": 45.161069,
+     "lon": 10.799299
+    },
+    {
+     "lat": 45.161069,
+     "lon": 10.798993
+    },
+    {
+     "lat": 45.161141,
+     "lon": 10.798993
+    },
+    {
+     "lat": 45.161141,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.161358,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.161358,
+     "lon": 10.798789
+    },
+    {
+     "lat": 45.161575,
+     "lon": 10.798789
+    },
+    {
+     "lat": 45.161575,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.161864,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.161864,
+     "lon": 10.798993
+    },
+    {
+     "lat": 45.161937,
+     "lon": 10.798993
+    },
+    {
+     "lat": 45.161937,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.162082,
+     "lon": 10.798891
+    },
+    {
+     "lat": 45.162082,
+     "lon": 10.798687
+    },
+    {
+     "lat": 45.162009,
+     "lon": 10.798687
+    },
+    {
+     "lat": 45.162009,
+     "lon": 10.798483
+    },
+    {
+     "lat": 45.162082,
+     "lon": 10.798483
+    },
+    {
+     "lat": 45.162082,
+     "lon": 10.798177
+    },
+    {
+     "lat": 45.162154,
+     "lon": 10.798177
+    },
+    {
+     "lat": 45.162154,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.162371,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.162371,
+     "lon": 10.797974
+    },
+    {
+     "lat": 45.162516,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.162516,
+     "lon": 10.797872
+    },
+    {
+     "lat": 45.162443,
+     "lon": 10.797872
+    },
+    {
+     "lat": 45.162371,
+     "lon": 10.797668
+    },
+    {
+     "lat": 45.162299,
+     "lon": 10.797668
+    },
+    {
+     "lat": 45.162299,
+     "lon": 10.797566
+    },
+    {
+     "lat": 45.162226,
+     "lon": 10.797566
+    },
+    {
+     "lat": 45.162226,
+     "lon": 10.797464
+    },
+    {
+     "lat": 45.162154,
+     "lon": 10.797464
+    },
+    {
+     "lat": 45.162154,
+     "lon": 10.79726
+    },
+    {
+     "lat": 45.162082,
+     "lon": 10.79726
+    },
+    {
+     "lat": 45.162082,
+     "lon": 10.797158
+    },
+    {
+     "lat": 45.162009,
+     "lon": 10.797158
+    },
+    {
+     "lat": 45.161937,
+     "lon": 10.796955
+    },
+    {
+     "lat": 45.161864,
+     "lon": 10.796955
+    },
+    {
+     "lat": 45.161864,
+     "lon": 10.79726
+    },
+    {
+     "lat": 45.161937,
+     "lon": 10.79726
+    },
+    {
+     "lat": 45.161937,
+     "lon": 10.797362
+    },
+    {
+     "lat": 45.161864,
+     "lon": 10.797362
+    },
+    {
+     "lat": 45.161864,
+     "lon": 10.797668
+    },
+    {
+     "lat": 45.161792,
+     "lon": 10.797668
+    },
+    {
+     "lat": 45.16172,
+     "lon": 10.797872
+    },
+    {
+     "lat": 45.161575,
+     "lon": 10.797872
+    },
+    {
+     "lat": 45.161575,
+     "lon": 10.797974
+    },
+    {
+     "lat": 45.161358,
+     "lon": 10.797974
+    },
+    {
+     "lat": 45.161358,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.161141,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.161141,
+     "lon": 10.798177
+    },
+    {
+     "lat": 45.160996,
+     "lon": 10.798177
+    },
+    {
+     "lat": 45.160996,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.160779,
+     "lon": 10.798076
+    },
+    {
+     "lat": 45.160779,
+     "lon": 10.797974
+    },
+    {
+     "lat": 45.160707,
+     "lon": 10.797974
+    },
+    {
+     "lat": 45.160707,
+     "lon": 10.797668
+    },
+    {
+     "lat": 45.160635,
+     "lon": 10.797668
+    },
+    {
+     "lat": 45.160635,
+     "lon": 10.79726
+    },
+    {
+     "lat": 45.160707,
+     "lon": 10.79726
+    },
+    {
+     "lat": 45.160707,
+     "lon": 10.797056
+    },
+    {
+     "lat": 45.160562,
+     "lon": 10.797056
+    },
+    {
+     "lat": 45.160562,
+     "lon": 10.796955
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.796955
+    },
+    {
+     "lat": 45.160417,
+     "lon": 10.796751
+    },
+    {
+     "lat": 45.160273,
+     "lon": 10.796751
+    },
+    {
+     "lat": 45.1602,
+     "lon": 10.796547
+    },
+    {
+     "lat": 45.160056,
+     "lon": 10.796445
+    },
+    {
+     "lat": 45.160056,
+     "lon": 10.796343
+    },
+    {
+     "lat": 45.159911,
+     "lon": 10.796343
+    },
+    {
+     "lat": 45.159911,
+     "lon": 10.796241
+    },
+    {
+     "lat": 45.159766,
+     "lon": 10.796139
+    },
+    {
+     "lat": 45.159766,
+     "lon": 10.796037
+    },
+    {
+     "lat": 45.159549,
+     "lon": 10.796037
+    },
+    {
+     "lat": 45.159549,
+     "lon": 10.795935
+    },
+    {
+     "lat": 45.159477,
+     "lon": 10.795935
+    },
+    {
+     "lat": 45.159405,
+     "lon": 10.795732
+    },
+    {
+     "lat": 45.159332,
+     "lon": 10.795732
+    },
+    {
+     "lat": 45.159332,
+     "lon": 10.795426
+    },
+    {
+     "lat": 45.15926,
+     "lon": 10.795426
+    },
+    {
+     "lat": 45.15926,
+     "lon": 10.795324
+    },
+    {
+     "lat": 45.159332,
+     "lon": 10.795324
+    },
+    {
+     "lat": 45.159332,
+     "lon": 10.795018
+    },
+    {
+     "lat": 45.159405,
+     "lon": 10.795018
+    },
+    {
+     "lat": 45.159477,
+     "lon": 10.794814
+    },
+    {
+     "lat": 45.159694,
+     "lon": 10.794814
+    },
+    {
+     "lat": 45.159694,
+     "lon": 10.794712
+    },
+    {
+     "lat": 45.159983,
+     "lon": 10.794712
+    },
+    {
+     "lat": 45.159983,
+     "lon": 10.794814
+    },
+    {
+     "lat": 45.160128,
+     "lon": 10.794814
+    },
+    {
+     "lat": 45.160128,
+     "lon": 10.794509
+    },
+    {
+     "lat": 45.1602,
+     "lon": 10.794509
+    },
+    {
+     "lat": 45.1602,
+     "lon": 10.794407
+    },
+    {
+     "lat": 45.160417,
+     "lon": 10.794407
+    },
+    {
+     "lat": 45.160417,
+     "lon": 10.794101
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.794101
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.793897
+    },
+    {
+     "lat": 45.160562,
+     "lon": 10.793897
+    },
+    {
+     "lat": 45.160562,
+     "lon": 10.793591
+    },
+    {
+     "lat": 45.160707,
+     "lon": 10.793489
+    },
+    {
+     "lat": 45.160635,
+     "lon": 10.793286
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.793184
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.793082
+    },
+    {
+     "lat": 45.160417,
+     "lon": 10.793082
+    },
+    {
+     "lat": 45.160417,
+     "lon": 10.792776
+    },
+    {
+     "lat": 45.160345,
+     "lon": 10.792776
+    },
+    {
+     "lat": 45.160345,
+     "lon": 10.792674
+    },
+    {
+     "lat": 45.160417,
+     "lon": 10.792674
+    },
+    {
+     "lat": 45.160417,
+     "lon": 10.792368
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.792368
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.792266
+    },
+    {
+     "lat": 45.160707,
+     "lon": 10.792266
+    },
+    {
+     "lat": 45.160707,
+     "lon": 10.792063
+    },
+    {
+     "lat": 45.160852,
+     "lon": 10.791961
+    },
+    {
+     "lat": 45.160779,
+     "lon": 10.791757
+    },
+    {
+     "lat": 45.160635,
+     "lon": 10.791757
+    },
+    {
+     "lat": 45.160562,
+     "lon": 10.791553
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.791553
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.791247
+    },
+    {
+     "lat": 45.160417,
+     "lon": 10.791247
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.790636
+    },
+    {
+     "lat": 45.160562,
+     "lon": 10.790636
+    },
+    {
+     "lat": 45.160562,
+     "lon": 10.790432
+    },
+    {
+     "lat": 45.160635,
+     "lon": 10.790432
+    },
+    {
+     "lat": 45.160635,
+     "lon": 10.790228
+    },
+    {
+     "lat": 45.160779,
+     "lon": 10.790126
+    },
+    {
+     "lat": 45.160779,
+     "lon": 10.789922
+    },
+    {
+     "lat": 45.160707,
+     "lon": 10.789922
+    },
+    {
+     "lat": 45.160707,
+     "lon": 10.789821
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.789821
+    },
+    {
+     "lat": 45.16049,
+     "lon": 10.789719
+    },
+    {
+     "lat": 45.160345,
+     "lon": 10.789719
+    },
+    {
+     "lat": 45.160345,
+     "lon": 10.789821
+    },
+    {
+     "lat": 45.160128,
+     "lon": 10.789821
+    },
+    {
+     "lat": 45.160128,
+     "lon": 10.789922
+    },
+    {
+     "lat": 45.159983,
+     "lon": 10.789922
+    },
+    {
+     "lat": 45.159983,
+     "lon": 10.789821
+    },
+    {
+     "lat": 45.159766,
+     "lon": 10.789821
+    },
+    {
+     "lat": 45.159694,
+     "lon": 10.789617
+    },
+    {
+     "lat": 45.159622,
+     "lon": 10.789617
+    },
+    {
+     "lat": 45.159622,
+     "lon": 10.789311
+    },
+    {
+     "lat": 45.159549,
+     "lon": 10.789311
+    },
+    {
+     "lat": 45.159549,
+     "lon": 10.788292
+    },
+    {
+     "lat": 45.159477,
+     "lon": 10.788292
+    },
+    {
+     "lat": 45.159477,
+     "lon": 10.790024
+    },
+    {
+     "lat": 45.159405,
+     "lon": 10.790024
+    },
+    {
+     "lat": 45.159405,
+     "lon": 10.790432
+    },
+    {
+     "lat": 45.159332,
+     "lon": 10.790432
+    },
+    {
+     "lat": 45.159332,
+     "lon": 10.790738
+    },
+    {
+     "lat": 45.15926,
+     "lon": 10.790738
+    },
+    {
+     "lat": 45.15926,
+     "lon": 10.790942
+    },
+    {
+     "lat": 45.159188,
+     "lon": 10.790942
+    },
+    {
+     "lat": 45.159188,
+     "lon": 10.791043
+    },
+    {
+     "lat": 45.15897,
+     "lon": 10.791043
+    },
+    {
+     "lat": 45.15897,
+     "lon": 10.791145
+    },
+    {
+     "lat": 45.158898,
+     "lon": 10.791145
+    },
+    {
+     "lat": 45.158898,
+     "lon": 10.791043
+    },
+    {
+     "lat": 45.158609,
+     "lon": 10.791043
+    },
+    {
+     "lat": 45.158609,
+     "lon": 10.790942
+    },
+    {
+     "lat": 45.158392,
+     "lon": 10.790942
+    },
+    {
+     "lat": 45.158392,
+     "lon": 10.79084
+    },
+    {
+     "lat": 45.158247,
+     "lon": 10.790738
+    },
+    {
+     "lat": 45.158247,
+     "lon": 10.790432
+    },
+    {
+     "lat": 45.158175,
+     "lon": 10.790432
+    },
+    {
+     "lat": 45.158175,
+     "lon": 10.790228
+    },
+    {
+     "lat": 45.158247,
+     "lon": 10.790228
+    },
+    {
+     "lat": 45.158247,
+     "lon": 10.790126
+    },
+    {
+     "lat": 45.15803,
+     "lon": 10.790126
+    },
+    {
+     "lat": 45.15803,
+     "lon": 10.790024
+    },
+    {
+     "lat": 45.157958,
+     "lon": 10.790024
+    },
+    {
+     "lat": 45.157958,
+     "lon": 10.790126
+    },
+    {
+     "lat": 45.157741,
+     "lon": 10.790126
+    },
+    {
+     "lat": 45.157741,
+     "lon": 10.790228
+    },
+    {
+     "lat": 45.157596,
+     "lon": 10.790126
+    },
+    {
+     "lat": 45.157596,
+     "lon": 10.79033
+    },
+    {
+     "lat": 45.157451,
+     "lon": 10.790432
+    },
+    {
+     "lat": 45.157451,
+     "lon": 10.790534
+    },
+    {
+     "lat": 45.157379,
+     "lon": 10.790534
+    },
+    {
+     "lat": 45.157379,
+     "lon": 10.790738
+    },
+    {
+     "lat": 45.157306,
+     "lon": 10.790738
+    },
+    {
+     "lat": 45.157234,
+     "lon": 10.790942
+    },
+    {
+     "lat": 45.157162,
+     "lon": 10.790942
+    },
+    {
+     "lat": 45.157162,
+     "lon": 10.791145
+    },
+    {
+     "lat": 45.157089,
+     "lon": 10.791145
+    },
+    {
+     "lat": 45.157089,
+     "lon": 10.791247
+    },
+    {
+     "lat": 45.156945,
+     "lon": 10.791349
+    },
+    {
+     "lat": 45.156945,
+     "lon": 10.791553
+    },
+    {
+     "lat": 45.156872,
+     "lon": 10.791553
+    }
+   ],
+   "gates": [
+    {
+     "id": "mn-varco-via-tassoni",
+     "name": "Varco via Tassoni",
+     "location": {
+      "lat": 45.161311,
+      "lon": 10.792008
+     }
+    },
+    {
+     "id": "mn-varco-via-fernelli--via-arrivabene",
+     "name": "Varco via Fernelli / via Arrivabene",
+     "location": {
+      "lat": 45.160786,
+      "lon": 10.789898
+     }
+    },
+    {
+     "id": "mn-varco-via-carlo-montanari",
+     "name": "Varco via Carlo Montanari",
+     "location": {
+      "lat": 45.16251,
+      "lon": 10.79807
+     }
+    },
+    {
+     "id": "mn-varco-via-accademia",
+     "name": "Varco via Accademia",
+     "location": {
+      "lat": 45.159377,
+      "lon": 10.795836
+     }
+    },
+    {
+     "id": "mn-varco-via-pietro-fortunato-calvi",
+     "name": "Varco via Pietro Fortunato Calvi",
+     "location": {
+      "lat": 45.156012,
+      "lon": 10.796699
+     }
+    },
+    {
+     "id": "mn-varco-via-trieste",
+     "name": "Varco via Trieste",
+     "location": {
+      "lat": 45.153289,
+      "lon": 10.796342
+     }
+    },
+    {
+     "id": "mn-varco-piazza-martiri",
+     "name": "Varco piazza Martiri",
+     "location": {
+      "lat": 45.156806,
+      "lon": 10.792069
+     }
+    },
+    {
+     "id": "mn-varco-corso-della-liberta",
+     "name": "Varco corso della Libertà",
+     "location": {
+      "lat": 45.157243,
+      "lon": 10.790053
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "Accessibilità Centri Storici (unofficial); Aster / City of Mantua",
+    "official": false,
+    "unofficialSource": {
+     "name": "Accessibilità Centri Storici",
+     "url": "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html"
+    },
+    "pageURL": "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html",
+    "quote": "Le telecamere a protezione della ZTL A e B di Mantova sono attive tutti i giorni 24 su 24 ore",
+    "quoteTranslation": "The cameras protecting ZTL A and B in Mantua are active every day, 24 hours a day.",
+    "quoteTranslation_de": "Die Kameras der ZTL A und B in Mantua sind täglich rund um die Uhr aktiv.",
+    "checkedOn": "2026-10-27T13:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by accessibilitacentristorici.it: ZTL A and B cameras active every day, 24 hours a day. No official page gives the car hours; an old City regulation (2002, copy on the same site) says the ban applies 0–24 in all ZTLs, and Aster's official goods page lets delivery vans in without a pass only 6–10 am and 3–4:30 pm. The official 7 am–7 pm schedule on Aster's site is the tour-bus ZTL, not the car ZTL.",
+     "Corso della Libertà and Via Trieste (gates 10 and 9) are open to everyone 7 am–12 noon and 6–9 pm, confirmed only by accessibilitacentristorici.it; GateLR shows Via Trieste inside the ZTL at all times.",
+     "Visitors can buy an hourly ZTL permit online in Aster's «Area Pass» (register, «Permessi ZTL» → «Prenota/Acquista», pay with PagoPA; Aster advises at least 5 days ahead); price not shown. Hotel guests: the hotel records your plate on a permit for loading and unloading luggage, valid 24 hours, parking at most 60 minutes (confirmed only by accessibilitacentristorici.it, old rules); hotels and the Gazzetta di Mantova mention online registration through Aster.",
+     "Electric cars are not exempt: drivers from other municipalities need a transit-only pass (100 €/year, Aster). Blue Badge holders from other cities book their access with the City (form to infomulte@comune.mantova.it). Pedestrian sub-zones inside ZTL A: Via Roma, Corso Umberto I, Via Grazioli, Piazza Erbe, Piazza Broletto, Via Verdi (bollard).",
+     "Areas drawn from the street lists of accessibilitacentristorici.it (ZTL A and U as one zone, ZTL B, ZTL N) applied to OpenStreetMap streets; streets listed only for some house numbers are taken whole, «Commercio», «Martiri», Bertazzolo, Galleria San Maurizio, San Crispino, Canonica, Paradiso and San Paolo are not matched. No official map or street list was found (the regulation D.C.C. 62/2013 is not online). Gates are the 13 cameras in the same list, placed where each named street meets the zone."
+    ],
+    "pending_it": [
+     "Orari confermati solo da accessibilitacentristorici.it: telecamere di ZTL A e B attive tutti i giorni 24 ore su 24. Nessuna pagina ufficiale indica gli orari per le auto; un vecchio regolamento del Comune (2002, copia sullo stesso sito) dice divieto 0–24 in tutte le ZTL, e la pagina ufficiale di Aster sulle merci fa entrare i furgoni senza pass solo 6–10 e 15–16:30. La fascia ufficiale 7–19 sul sito di Aster è quella della ZTL per i bus turistici, non per le auto.",
+     "Corso della Libertà e via Trieste (varchi 10 e 9) sono aperti a tutti 7–12 e 18–21, confermato solo da accessibilitacentristorici.it; GateLR mostra via Trieste dentro la ZTL a ogni ora.",
+     "I visitatori possono comprare un permesso orario ZTL online nell'«Area Pass» di Aster (registrazione, «Permessi ZTL» → «Prenota/Acquista», pagamento PagoPA; Aster consiglia almeno 5 giorni di anticipo); prezzo non indicato. Ospiti degli hotel: l'albergo annota la targa su un permesso per carico e scarico bagagli valido 24 ore, sosta al massimo 60 minuti (confermato solo da accessibilitacentristorici.it, regole vecchie); hotel e Gazzetta di Mantova parlano di registrazione online tramite Aster.",
+     "Le auto elettriche non sono esenti: chi viene da altri comuni ha bisogno di un pass di solo transito (100 € l'anno, Aster). I disabili con contrassegno di altre città prenotano l'accesso presso il Comune (modulo a infomulte@comune.mantova.it). Sottozone pedonali dentro la ZTL A: via Roma, corso Umberto I, via Grazioli, piazza Erbe, piazza Broletto, via Verdi (dissuasore).",
+     "Aree ricavate dagli elenchi delle vie di accessibilitacentristorici.it (ZTL A e U come una sola zona, ZTL B, ZTL N) sulle strade di OpenStreetMap; le vie elencate solo per alcuni civici sono prese intere, «Commercio», «Martiri», Bertazzolo, Galleria San Maurizio, San Crispino, Canonica, Paradiso e San Paolo non sono abbinate. Nessuna mappa o elenco ufficiale trovato (il regolamento D.C.C. 62/2013 non è online). I varchi sono le 13 telecamere dello stesso elenco, dove ogni via indicata incontra la zona."
+    ],
+    "pending_de": [
+     "Zeiten nur von accessibilitacentristorici.it bestätigt: Kameras der ZTL A und B täglich rund um die Uhr aktiv. Keine offizielle Seite nennt die Zeiten für Autos; eine alte Verordnung der Stadt (2002, Kopie auf derselben Seite) nennt ein Verbot 0–24 in allen ZTL, und Asters offizielle Warenseite lässt Lieferwagen ohne Ausweis nur 6–10 und 15–16:30 Uhr hinein. Die offizielle Zeit 7–19 auf der Aster-Seite gilt für die Reisebus-ZTL, nicht für Autos.",
+     "Corso della Libertà und Via Trieste (Kameras 10 und 9) sind 7–12 und 18–21 Uhr für alle offen, nur von accessibilitacentristorici.it bestätigt; GateLR zeigt die Via Trieste immer innerhalb der ZTL.",
+     "Besucher können online im «Area Pass» von Aster eine stundenweise ZTL-Genehmigung kaufen (registrieren, «Permessi ZTL» → «Prenota/Acquista», Zahlung über PagoPA; Aster empfiehlt mindestens 5 Tage Vorlauf); Preis nicht angegeben. Hotelgäste: Das Hotel trägt dein Kennzeichen auf eine Genehmigung zum Be- und Entladen des Gepäcks ein, 24 Stunden gültig, höchstens 60 Minuten Parken (nur von accessibilitacentristorici.it bestätigt, alte Regeln); Hotels und die Gazzetta di Mantova nennen eine Online-Meldung über Aster.",
+     "Elektroautos sind nicht befreit: Fahrer aus anderen Gemeinden brauchen einen Durchfahrtsausweis (100 € pro Jahr, Aster). Inhaber eines Behindertenausweises aus anderen Städten melden ihre Zufahrt bei der Stadt an (Formular an infomulte@comune.mantova.it). Fußgänger-Teilzonen in der ZTL A: Via Roma, Corso Umberto I, Via Grazioli, Piazza Erbe, Piazza Broletto, Via Verdi (Poller).",
+     "Flächen aus den Straßenlisten von accessibilitacentristorici.it (ZTL A und U als eine Zone, ZTL B, ZTL N) auf OpenStreetMap-Straßen; nur für einige Hausnummern gelistete Straßen sind ganz übernommen, «Commercio», «Martiri», Bertazzolo, Galleria San Maurizio, San Crispino, Canonica, Paradiso und San Paolo nicht zugeordnet. Keine offizielle Karte oder Straßenliste gefunden (die Verordnung D.C.C. 62/2013 ist nicht online). Kameras: die 13 der gleichen Liste, dort, wo jede genannte Straße die Zone trifft."
+    ],
+    "links": [
+     {
+      "title": "Accessibilità Centri Storici: Mantua (unofficial, hours and streets)",
+      "title_it": "Accessibilità Centri Storici: Mantova (non ufficiale, orari e vie)",
+      "title_de": "Accessibilità Centri Storici: Mantua (inoffiziell, Zeiten und Straßen)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html"
+     },
+     {
+      "title": "Aster: access to the ZTL (passes)",
+      "title_it": "Aster: accesso alle ZTL (pass)",
+      "title_de": "Aster: Zufahrt zur ZTL (Ausweise)",
+      "url": "https://aster.mn.it/cittadini/ztl"
+     },
+     {
+      "title": "Aster: hourly ZTL permit for visitors",
+      "title_it": "Aster: permesso orario ZTL per i turisti",
+      "title_de": "Aster: stundenweise ZTL-Genehmigung für Besucher",
+      "url": "https://aster.mn.it/turisti/permesso-orario-ztl"
+     },
+     {
+      "title": "Aster: goods vehicles in ZTL A and B (6–10, 15–16:30)",
+      "title_it": "Aster: trasporto merci nelle ZTL A e B (6–10, 15–16:30)",
+      "title_de": "Aster: Lieferverkehr in ZTL A und B (6–10, 15–16:30)",
+      "url": "https://aster.mn.it/cittadini/trasporto-merci"
+     },
+     {
+      "title": "City of Mantua: disabled badge holders from other cities",
+      "title_it": "Comune di Mantova: pass disabili di altre città",
+      "title_de": "Stadt Mantua: Behindertenausweise aus anderen Städten",
+      "url": "https://www.comune.mantova.it/it/services/prenotazione-accesso-zona-a-traffico-limitato-ztl-con-pass-disabile-altre-citta"
+     },
+     {
+      "title": "City of Mantua: ZTL topic",
+      "title_it": "Comune di Mantova: argomento ZTL",
+      "title_de": "Stadt Mantua: Thema ZTL",
+      "url": "https://www.comune.mantova.it/it/topics/ztl"
+     }
+    ]
+   }
+  },
+  {
+   "id": "mantova-ztl-b",
+   "name": "Via Carducci and Via Speri · ZTL B",
+   "name_it": "Via Carducci e via Speri · ZTL B",
+   "name_de": "Via Carducci und Via Speri · ZTL B",
+   "kind": "restricted",
+   "summary": "ZTL B covers the streets west of Corso della Libertà around Via Carducci, Via Tito Speri and Via Frutta, reportedly camera-controlled every day, 24 hours a day. Without a permit stay out.",
+   "summary_it": "La ZTL B comprende le vie a ovest di corso della Libertà intorno a via Carducci, via Tito Speri e via Frutta, con telecamere attive secondo le guide tutti i giorni 24 ore su 24. Senza permesso non entrare.",
+   "summary_de": "Die ZTL B umfasst die Straßen westlich des Corso della Libertà um Via Carducci, Via Tito Speri und Via Frutta, laut Reiseführern täglich rund um die Uhr kameraüberwacht. Ohne Genehmigung draußen bleiben.",
+   "perimeter": [
+    {
+     "lat": 45.154268,
+     "lon": 10.789078
+    },
+    {
+     "lat": 45.154268,
+     "lon": 10.78918
+    },
+    {
+     "lat": 45.154195,
+     "lon": 10.78918
+    },
+    {
+     "lat": 45.154195,
+     "lon": 10.789384
+    },
+    {
+     "lat": 45.154123,
+     "lon": 10.789384
+    },
+    {
+     "lat": 45.154123,
+     "lon": 10.789588
+    },
+    {
+     "lat": 45.154051,
+     "lon": 10.789588
+    },
+    {
+     "lat": 45.154051,
+     "lon": 10.789893
+    },
+    {
+     "lat": 45.154123,
+     "lon": 10.789893
+    },
+    {
+     "lat": 45.154123,
+     "lon": 10.78969
+    },
+    {
+     "lat": 45.154195,
+     "lon": 10.78969
+    },
+    {
+     "lat": 45.154195,
+     "lon": 10.789588
+    },
+    {
+     "lat": 45.154412,
+     "lon": 10.789588
+    },
+    {
+     "lat": 45.154412,
+     "lon": 10.789486
+    },
+    {
+     "lat": 45.154485,
+     "lon": 10.789486
+    },
+    {
+     "lat": 45.154485,
+     "lon": 10.789588
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.789588
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.78969
+    },
+    {
+     "lat": 45.154774,
+     "lon": 10.78969
+    },
+    {
+     "lat": 45.154774,
+     "lon": 10.789995
+    },
+    {
+     "lat": 45.154847,
+     "lon": 10.789995
+    },
+    {
+     "lat": 45.154847,
+     "lon": 10.790301
+    },
+    {
+     "lat": 45.154919,
+     "lon": 10.790301
+    },
+    {
+     "lat": 45.154919,
+     "lon": 10.790199
+    },
+    {
+     "lat": 45.154991,
+     "lon": 10.790199
+    },
+    {
+     "lat": 45.154991,
+     "lon": 10.789893
+    },
+    {
+     "lat": 45.155064,
+     "lon": 10.789893
+    },
+    {
+     "lat": 45.155064,
+     "lon": 10.789791
+    },
+    {
+     "lat": 45.155136,
+     "lon": 10.789791
+    },
+    {
+     "lat": 45.155136,
+     "lon": 10.789588
+    },
+    {
+     "lat": 45.155281,
+     "lon": 10.789486
+    },
+    {
+     "lat": 45.155281,
+     "lon": 10.789282
+    },
+    {
+     "lat": 45.155353,
+     "lon": 10.789282
+    },
+    {
+     "lat": 45.155353,
+     "lon": 10.78918
+    },
+    {
+     "lat": 45.155425,
+     "lon": 10.78918
+    },
+    {
+     "lat": 45.155425,
+     "lon": 10.789078
+    },
+    {
+     "lat": 45.15557,
+     "lon": 10.788976
+    },
+    {
+     "lat": 45.15557,
+     "lon": 10.788874
+    },
+    {
+     "lat": 45.155642,
+     "lon": 10.788874
+    },
+    {
+     "lat": 45.155715,
+     "lon": 10.78867
+    },
+    {
+     "lat": 45.155787,
+     "lon": 10.78867
+    },
+    {
+     "lat": 45.155787,
+     "lon": 10.788569
+    },
+    {
+     "lat": 45.156004,
+     "lon": 10.788569
+    },
+    {
+     "lat": 45.156004,
+     "lon": 10.788467
+    },
+    {
+     "lat": 45.156076,
+     "lon": 10.788467
+    },
+    {
+     "lat": 45.156076,
+     "lon": 10.788569
+    },
+    {
+     "lat": 45.156294,
+     "lon": 10.788569
+    },
+    {
+     "lat": 45.156294,
+     "lon": 10.78867
+    },
+    {
+     "lat": 45.156511,
+     "lon": 10.78867
+    },
+    {
+     "lat": 45.156511,
+     "lon": 10.788772
+    },
+    {
+     "lat": 45.156655,
+     "lon": 10.788772
+    },
+    {
+     "lat": 45.156655,
+     "lon": 10.788874
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.788874
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.78918
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.78918
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.789282
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.789282
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.789588
+    },
+    {
+     "lat": 45.156583,
+     "lon": 10.78969
+    },
+    {
+     "lat": 45.156583,
+     "lon": 10.789791
+    },
+    {
+     "lat": 45.156366,
+     "lon": 10.789791
+    },
+    {
+     "lat": 45.156366,
+     "lon": 10.789893
+    },
+    {
+     "lat": 45.156221,
+     "lon": 10.789893
+    },
+    {
+     "lat": 45.156221,
+     "lon": 10.789995
+    },
+    {
+     "lat": 45.156004,
+     "lon": 10.789995
+    },
+    {
+     "lat": 45.156004,
+     "lon": 10.790097
+    },
+    {
+     "lat": 45.156149,
+     "lon": 10.790097
+    },
+    {
+     "lat": 45.156149,
+     "lon": 10.790199
+    },
+    {
+     "lat": 45.156221,
+     "lon": 10.790199
+    },
+    {
+     "lat": 45.156221,
+     "lon": 10.790505
+    },
+    {
+     "lat": 45.156294,
+     "lon": 10.790505
+    },
+    {
+     "lat": 45.156221,
+     "lon": 10.790912
+    },
+    {
+     "lat": 45.156294,
+     "lon": 10.790912
+    },
+    {
+     "lat": 45.156366,
+     "lon": 10.790709
+    },
+    {
+     "lat": 45.156438,
+     "lon": 10.790709
+    },
+    {
+     "lat": 45.156438,
+     "lon": 10.790607
+    },
+    {
+     "lat": 45.156583,
+     "lon": 10.790505
+    },
+    {
+     "lat": 45.156583,
+     "lon": 10.790403
+    },
+    {
+     "lat": 45.156655,
+     "lon": 10.790403
+    },
+    {
+     "lat": 45.156655,
+     "lon": 10.790301
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.790301
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.790097
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.790097
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.789995
+    },
+    {
+     "lat": 45.156945,
+     "lon": 10.789893
+    },
+    {
+     "lat": 45.156945,
+     "lon": 10.78969
+    },
+    {
+     "lat": 45.157017,
+     "lon": 10.78969
+    },
+    {
+     "lat": 45.157017,
+     "lon": 10.789588
+    },
+    {
+     "lat": 45.157234,
+     "lon": 10.789588
+    },
+    {
+     "lat": 45.157234,
+     "lon": 10.78918
+    },
+    {
+     "lat": 45.157162,
+     "lon": 10.78918
+    },
+    {
+     "lat": 45.157162,
+     "lon": 10.789078
+    },
+    {
+     "lat": 45.156945,
+     "lon": 10.789078
+    },
+    {
+     "lat": 45.156872,
+     "lon": 10.788874
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.788874
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.788569
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.788569
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.787753
+    },
+    {
+     "lat": 45.156366,
+     "lon": 10.787753
+    },
+    {
+     "lat": 45.156366,
+     "lon": 10.787651
+    },
+    {
+     "lat": 45.156149,
+     "lon": 10.787651
+    },
+    {
+     "lat": 45.156149,
+     "lon": 10.787549
+    },
+    {
+     "lat": 45.156076,
+     "lon": 10.787549
+    },
+    {
+     "lat": 45.156076,
+     "lon": 10.787244
+    },
+    {
+     "lat": 45.156004,
+     "lon": 10.787244
+    },
+    {
+     "lat": 45.156004,
+     "lon": 10.78704
+    },
+    {
+     "lat": 45.156076,
+     "lon": 10.78704
+    },
+    {
+     "lat": 45.156076,
+     "lon": 10.786734
+    },
+    {
+     "lat": 45.156221,
+     "lon": 10.786632
+    },
+    {
+     "lat": 45.156221,
+     "lon": 10.78653
+    },
+    {
+     "lat": 45.156438,
+     "lon": 10.78653
+    },
+    {
+     "lat": 45.156438,
+     "lon": 10.786428
+    },
+    {
+     "lat": 45.156511,
+     "lon": 10.786428
+    },
+    {
+     "lat": 45.156511,
+     "lon": 10.78653
+    },
+    {
+     "lat": 45.156728,
+     "lon": 10.78653
+    },
+    {
+     "lat": 45.1568,
+     "lon": 10.786734
+    },
+    {
+     "lat": 45.157596,
+     "lon": 10.786734
+    },
+    {
+     "lat": 45.157596,
+     "lon": 10.786632
+    },
+    {
+     "lat": 45.157523,
+     "lon": 10.786632
+    },
+    {
+     "lat": 45.157523,
+     "lon": 10.786327
+    },
+    {
+     "lat": 45.157451,
+     "lon": 10.786327
+    },
+    {
+     "lat": 45.157451,
+     "lon": 10.786123
+    },
+    {
+     "lat": 45.157523,
+     "lon": 10.786123
+    },
+    {
+     "lat": 45.157523,
+     "lon": 10.786021
+    },
+    {
+     "lat": 45.157306,
+     "lon": 10.786021
+    },
+    {
+     "lat": 45.157306,
+     "lon": 10.785919
+    },
+    {
+     "lat": 45.157162,
+     "lon": 10.785919
+    },
+    {
+     "lat": 45.157162,
+     "lon": 10.785817
+    },
+    {
+     "lat": 45.157089,
+     "lon": 10.785817
+    },
+    {
+     "lat": 45.157089,
+     "lon": 10.785511
+    },
+    {
+     "lat": 45.157017,
+     "lon": 10.785511
+    },
+    {
+     "lat": 45.157017,
+     "lon": 10.785409
+    },
+    {
+     "lat": 45.157089,
+     "lon": 10.785409
+    },
+    {
+     "lat": 45.157089,
+     "lon": 10.785104
+    },
+    {
+     "lat": 45.157162,
+     "lon": 10.785104
+    },
+    {
+     "lat": 45.157162,
+     "lon": 10.785002
+    },
+    {
+     "lat": 45.157379,
+     "lon": 10.785002
+    },
+    {
+     "lat": 45.157379,
+     "lon": 10.7849
+    },
+    {
+     "lat": 45.157523,
+     "lon": 10.7849
+    },
+    {
+     "lat": 45.157523,
+     "lon": 10.784798
+    },
+    {
+     "lat": 45.157451,
+     "lon": 10.784798
+    },
+    {
+     "lat": 45.157451,
+     "lon": 10.78439
+    },
+    {
+     "lat": 45.157379,
+     "lon": 10.78439
+    },
+    {
+     "lat": 45.157379,
+     "lon": 10.784492
+    },
+    {
+     "lat": 45.157089,
+     "lon": 10.784492
+    },
+    {
+     "lat": 45.157089,
+     "lon": 10.784594
+    },
+    {
+     "lat": 45.156872,
+     "lon": 10.784594
+    },
+    {
+     "lat": 45.156872,
+     "lon": 10.784696
+    },
+    {
+     "lat": 45.156511,
+     "lon": 10.784696
+    },
+    {
+     "lat": 45.156511,
+     "lon": 10.784798
+    },
+    {
+     "lat": 45.156294,
+     "lon": 10.784798
+    },
+    {
+     "lat": 45.156294,
+     "lon": 10.7849
+    },
+    {
+     "lat": 45.156004,
+     "lon": 10.785002
+    },
+    {
+     "lat": 45.155932,
+     "lon": 10.785206
+    },
+    {
+     "lat": 45.155787,
+     "lon": 10.785206
+    },
+    {
+     "lat": 45.155715,
+     "lon": 10.785409
+    },
+    {
+     "lat": 45.15557,
+     "lon": 10.785409
+    },
+    {
+     "lat": 45.155498,
+     "lon": 10.785613
+    },
+    {
+     "lat": 45.155281,
+     "lon": 10.785613
+    },
+    {
+     "lat": 45.155281,
+     "lon": 10.785715
+    },
+    {
+     "lat": 45.155064,
+     "lon": 10.785715
+    },
+    {
+     "lat": 45.155064,
+     "lon": 10.785817
+    },
+    {
+     "lat": 45.154991,
+     "lon": 10.785817
+    },
+    {
+     "lat": 45.154991,
+     "lon": 10.785715
+    },
+    {
+     "lat": 45.154774,
+     "lon": 10.785715
+    },
+    {
+     "lat": 45.154774,
+     "lon": 10.785613
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.785613
+    },
+    {
+     "lat": 45.154629,
+     "lon": 10.785206
+    },
+    {
+     "lat": 45.154557,
+     "lon": 10.785206
+    },
+    {
+     "lat": 45.154557,
+     "lon": 10.785002
+    },
+    {
+     "lat": 45.154485,
+     "lon": 10.785002
+    },
+    {
+     "lat": 45.154485,
+     "lon": 10.784798
+    },
+    {
+     "lat": 45.154412,
+     "lon": 10.784798
+    },
+    {
+     "lat": 45.154412,
+     "lon": 10.784594
+    },
+    {
+     "lat": 45.15434,
+     "lon": 10.784594
+    },
+    {
+     "lat": 45.15434,
+     "lon": 10.78439
+    },
+    {
+     "lat": 45.154268,
+     "lon": 10.78439
+    },
+    {
+     "lat": 45.154268,
+     "lon": 10.784186
+    },
+    {
+     "lat": 45.154195,
+     "lon": 10.784186
+    },
+    {
+     "lat": 45.154195,
+     "lon": 10.784492
+    },
+    {
+     "lat": 45.154268,
+     "lon": 10.784492
+    },
+    {
+     "lat": 45.15434,
+     "lon": 10.7849
+    },
+    {
+     "lat": 45.154412,
+     "lon": 10.7849
+    },
+    {
+     "lat": 45.154412,
+     "lon": 10.785104
+    },
+    {
+     "lat": 45.154485,
+     "lon": 10.785104
+    },
+    {
+     "lat": 45.154485,
+     "lon": 10.785307
+    },
+    {
+     "lat": 45.154557,
+     "lon": 10.785307
+    },
+    {
+     "lat": 45.154557,
+     "lon": 10.785511
+    },
+    {
+     "lat": 45.154629,
+     "lon": 10.785511
+    },
+    {
+     "lat": 45.154629,
+     "lon": 10.785817
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.785817
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.785919
+    },
+    {
+     "lat": 45.154629,
+     "lon": 10.785919
+    },
+    {
+     "lat": 45.154629,
+     "lon": 10.786225
+    },
+    {
+     "lat": 45.154557,
+     "lon": 10.786225
+    },
+    {
+     "lat": 45.154485,
+     "lon": 10.786428
+    },
+    {
+     "lat": 45.154629,
+     "lon": 10.786428
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.786225
+    },
+    {
+     "lat": 45.154919,
+     "lon": 10.786225
+    },
+    {
+     "lat": 45.154919,
+     "lon": 10.786123
+    },
+    {
+     "lat": 45.154991,
+     "lon": 10.786123
+    },
+    {
+     "lat": 45.154991,
+     "lon": 10.786225
+    },
+    {
+     "lat": 45.155208,
+     "lon": 10.786225
+    },
+    {
+     "lat": 45.155208,
+     "lon": 10.786327
+    },
+    {
+     "lat": 45.155281,
+     "lon": 10.786327
+    },
+    {
+     "lat": 45.155353,
+     "lon": 10.78653
+    },
+    {
+     "lat": 45.155425,
+     "lon": 10.78653
+    },
+    {
+     "lat": 45.155425,
+     "lon": 10.786632
+    },
+    {
+     "lat": 45.15557,
+     "lon": 10.786734
+    },
+    {
+     "lat": 45.15557,
+     "lon": 10.78704
+    },
+    {
+     "lat": 45.155642,
+     "lon": 10.78704
+    },
+    {
+     "lat": 45.155642,
+     "lon": 10.787142
+    },
+    {
+     "lat": 45.15557,
+     "lon": 10.787142
+    },
+    {
+     "lat": 45.15557,
+     "lon": 10.787448
+    },
+    {
+     "lat": 45.155498,
+     "lon": 10.787448
+    },
+    {
+     "lat": 45.155425,
+     "lon": 10.787651
+    },
+    {
+     "lat": 45.155208,
+     "lon": 10.787651
+    },
+    {
+     "lat": 45.155208,
+     "lon": 10.787753
+    },
+    {
+     "lat": 45.154919,
+     "lon": 10.787651
+    },
+    {
+     "lat": 45.154919,
+     "lon": 10.787753
+    },
+    {
+     "lat": 45.154847,
+     "lon": 10.787753
+    },
+    {
+     "lat": 45.154774,
+     "lon": 10.787957
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.787957
+    },
+    {
+     "lat": 45.154702,
+     "lon": 10.788059
+    },
+    {
+     "lat": 45.154629,
+     "lon": 10.788059
+    },
+    {
+     "lat": 45.154629,
+     "lon": 10.788263
+    },
+    {
+     "lat": 45.154485,
+     "lon": 10.788365
+    },
+    {
+     "lat": 45.154485,
+     "lon": 10.78867
+    },
+    {
+     "lat": 45.15434,
+     "lon": 10.788772
+    },
+    {
+     "lat": 45.15434,
+     "lon": 10.789078
+    },
+    {
+     "lat": 45.154268,
+     "lon": 10.789078
+    }
+   ],
+   "gates": [
+    {
+     "id": "mn-varco-via-bellalancia",
+     "name": "Varco via Bellalancia",
+     "location": {
+      "lat": 45.156227,
+      "lon": 10.790851
+     }
+    },
+    {
+     "id": "mn-varco-piazza-cavallotti",
+     "name": "Varco piazza Cavallotti",
+     "location": {
+      "lat": 45.157225,
+      "lon": 10.789553
+     }
+    },
+    {
+     "id": "mn-varco-via-carducci",
+     "name": "Varco via Carducci",
+     "location": {
+      "lat": 45.154485,
+      "lon": 10.786429
+     }
+    },
+    {
+     "id": "mn-varco-via-speri--corso-vittorio-emanuele-ii",
+     "name": "Varco via Speri / corso Vittorio Emanuele II",
+     "location": {
+      "lat": 45.157511,
+      "lon": 10.786089
+     }
+    },
+    {
+     "id": "mn-varco-via-speri--via-chiassi",
+     "name": "Varco via Speri / via Chiassi",
+     "location": {
+      "lat": 45.155179,
+      "lon": 10.788037
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "Accessibilità Centri Storici (unofficial); Aster / City of Mantua",
+    "official": false,
+    "unofficialSource": {
+     "name": "Accessibilità Centri Storici",
+     "url": "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html"
+    },
+    "pageURL": "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html",
+    "quote": "Le telecamere a protezione della ZTL A e B di Mantova sono attive tutti i giorni 24 su 24 ore",
+    "quoteTranslation": "The cameras protecting ZTL A and B in Mantua are active every day, 24 hours a day.",
+    "quoteTranslation_de": "Die Kameras der ZTL A und B in Mantua sind täglich rund um die Uhr aktiv.",
+    "checkedOn": "2026-10-27T13:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by accessibilitacentristorici.it: ZTL A and B cameras active every day, 24 hours a day. No official page gives the car hours; an old City regulation (2002, copy on the same site) says the ban applies 0–24 in all ZTLs, and Aster's official goods page lets delivery vans in without a pass only 6–10 am and 3–4:30 pm. The official 7 am–7 pm schedule on Aster's site is the tour-bus ZTL, not the car ZTL.",
+     "Corso della Libertà and Via Trieste (gates 10 and 9) are open to everyone 7 am–12 noon and 6–9 pm, confirmed only by accessibilitacentristorici.it; GateLR shows Via Trieste inside the ZTL at all times.",
+     "Visitors can buy an hourly ZTL permit online in Aster's «Area Pass» (register, «Permessi ZTL» → «Prenota/Acquista», pay with PagoPA; Aster advises at least 5 days ahead); price not shown. Hotel guests: the hotel records your plate on a permit for loading and unloading luggage, valid 24 hours, parking at most 60 minutes (confirmed only by accessibilitacentristorici.it, old rules); hotels and the Gazzetta di Mantova mention online registration through Aster.",
+     "Electric cars are not exempt: drivers from other municipalities need a transit-only pass (100 €/year, Aster). Blue Badge holders from other cities book their access with the City (form to infomulte@comune.mantova.it). Pedestrian sub-zones inside ZTL A: Via Roma, Corso Umberto I, Via Grazioli, Piazza Erbe, Piazza Broletto, Via Verdi (bollard).",
+     "Areas drawn from the street lists of accessibilitacentristorici.it (ZTL A and U as one zone, ZTL B, ZTL N) applied to OpenStreetMap streets; streets listed only for some house numbers are taken whole, «Commercio», «Martiri», Bertazzolo, Galleria San Maurizio, San Crispino, Canonica, Paradiso and San Paolo are not matched. No official map or street list was found (the regulation D.C.C. 62/2013 is not online). Gates are the 13 cameras in the same list, placed where each named street meets the zone."
+    ],
+    "pending_it": [
+     "Orari confermati solo da accessibilitacentristorici.it: telecamere di ZTL A e B attive tutti i giorni 24 ore su 24. Nessuna pagina ufficiale indica gli orari per le auto; un vecchio regolamento del Comune (2002, copia sullo stesso sito) dice divieto 0–24 in tutte le ZTL, e la pagina ufficiale di Aster sulle merci fa entrare i furgoni senza pass solo 6–10 e 15–16:30. La fascia ufficiale 7–19 sul sito di Aster è quella della ZTL per i bus turistici, non per le auto.",
+     "Corso della Libertà e via Trieste (varchi 10 e 9) sono aperti a tutti 7–12 e 18–21, confermato solo da accessibilitacentristorici.it; GateLR mostra via Trieste dentro la ZTL a ogni ora.",
+     "I visitatori possono comprare un permesso orario ZTL online nell'«Area Pass» di Aster (registrazione, «Permessi ZTL» → «Prenota/Acquista», pagamento PagoPA; Aster consiglia almeno 5 giorni di anticipo); prezzo non indicato. Ospiti degli hotel: l'albergo annota la targa su un permesso per carico e scarico bagagli valido 24 ore, sosta al massimo 60 minuti (confermato solo da accessibilitacentristorici.it, regole vecchie); hotel e Gazzetta di Mantova parlano di registrazione online tramite Aster.",
+     "Le auto elettriche non sono esenti: chi viene da altri comuni ha bisogno di un pass di solo transito (100 € l'anno, Aster). I disabili con contrassegno di altre città prenotano l'accesso presso il Comune (modulo a infomulte@comune.mantova.it). Sottozone pedonali dentro la ZTL A: via Roma, corso Umberto I, via Grazioli, piazza Erbe, piazza Broletto, via Verdi (dissuasore).",
+     "Aree ricavate dagli elenchi delle vie di accessibilitacentristorici.it (ZTL A e U come una sola zona, ZTL B, ZTL N) sulle strade di OpenStreetMap; le vie elencate solo per alcuni civici sono prese intere, «Commercio», «Martiri», Bertazzolo, Galleria San Maurizio, San Crispino, Canonica, Paradiso e San Paolo non sono abbinate. Nessuna mappa o elenco ufficiale trovato (il regolamento D.C.C. 62/2013 non è online). I varchi sono le 13 telecamere dello stesso elenco, dove ogni via indicata incontra la zona."
+    ],
+    "pending_de": [
+     "Zeiten nur von accessibilitacentristorici.it bestätigt: Kameras der ZTL A und B täglich rund um die Uhr aktiv. Keine offizielle Seite nennt die Zeiten für Autos; eine alte Verordnung der Stadt (2002, Kopie auf derselben Seite) nennt ein Verbot 0–24 in allen ZTL, und Asters offizielle Warenseite lässt Lieferwagen ohne Ausweis nur 6–10 und 15–16:30 Uhr hinein. Die offizielle Zeit 7–19 auf der Aster-Seite gilt für die Reisebus-ZTL, nicht für Autos.",
+     "Corso della Libertà und Via Trieste (Kameras 10 und 9) sind 7–12 und 18–21 Uhr für alle offen, nur von accessibilitacentristorici.it bestätigt; GateLR zeigt die Via Trieste immer innerhalb der ZTL.",
+     "Besucher können online im «Area Pass» von Aster eine stundenweise ZTL-Genehmigung kaufen (registrieren, «Permessi ZTL» → «Prenota/Acquista», Zahlung über PagoPA; Aster empfiehlt mindestens 5 Tage Vorlauf); Preis nicht angegeben. Hotelgäste: Das Hotel trägt dein Kennzeichen auf eine Genehmigung zum Be- und Entladen des Gepäcks ein, 24 Stunden gültig, höchstens 60 Minuten Parken (nur von accessibilitacentristorici.it bestätigt, alte Regeln); Hotels und die Gazzetta di Mantova nennen eine Online-Meldung über Aster.",
+     "Elektroautos sind nicht befreit: Fahrer aus anderen Gemeinden brauchen einen Durchfahrtsausweis (100 € pro Jahr, Aster). Inhaber eines Behindertenausweises aus anderen Städten melden ihre Zufahrt bei der Stadt an (Formular an infomulte@comune.mantova.it). Fußgänger-Teilzonen in der ZTL A: Via Roma, Corso Umberto I, Via Grazioli, Piazza Erbe, Piazza Broletto, Via Verdi (Poller).",
+     "Flächen aus den Straßenlisten von accessibilitacentristorici.it (ZTL A und U als eine Zone, ZTL B, ZTL N) auf OpenStreetMap-Straßen; nur für einige Hausnummern gelistete Straßen sind ganz übernommen, «Commercio», «Martiri», Bertazzolo, Galleria San Maurizio, San Crispino, Canonica, Paradiso und San Paolo nicht zugeordnet. Keine offizielle Karte oder Straßenliste gefunden (die Verordnung D.C.C. 62/2013 ist nicht online). Kameras: die 13 der gleichen Liste, dort, wo jede genannte Straße die Zone trifft."
+    ],
+    "links": [
+     {
+      "title": "Accessibilità Centri Storici: Mantua (unofficial, hours and streets)",
+      "title_it": "Accessibilità Centri Storici: Mantova (non ufficiale, orari e vie)",
+      "title_de": "Accessibilità Centri Storici: Mantua (inoffiziell, Zeiten und Straßen)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html"
+     },
+     {
+      "title": "Aster: access to the ZTL (passes)",
+      "title_it": "Aster: accesso alle ZTL (pass)",
+      "title_de": "Aster: Zufahrt zur ZTL (Ausweise)",
+      "url": "https://aster.mn.it/cittadini/ztl"
+     },
+     {
+      "title": "Aster: hourly ZTL permit for visitors",
+      "title_it": "Aster: permesso orario ZTL per i turisti",
+      "title_de": "Aster: stundenweise ZTL-Genehmigung für Besucher",
+      "url": "https://aster.mn.it/turisti/permesso-orario-ztl"
+     },
+     {
+      "title": "Aster: goods vehicles in ZTL A and B (6–10, 15–16:30)",
+      "title_it": "Aster: trasporto merci nelle ZTL A e B (6–10, 15–16:30)",
+      "title_de": "Aster: Lieferverkehr in ZTL A und B (6–10, 15–16:30)",
+      "url": "https://aster.mn.it/cittadini/trasporto-merci"
+     },
+     {
+      "title": "City of Mantua: disabled badge holders from other cities",
+      "title_it": "Comune di Mantova: pass disabili di altre città",
+      "title_de": "Stadt Mantua: Behindertenausweise aus anderen Städten",
+      "url": "https://www.comune.mantova.it/it/services/prenotazione-accesso-zona-a-traffico-limitato-ztl-con-pass-disabile-altre-citta"
+     },
+     {
+      "title": "City of Mantua: ZTL topic",
+      "title_it": "Comune di Mantova: argomento ZTL",
+      "title_de": "Stadt Mantua: Thema ZTL",
+      "url": "https://www.comune.mantova.it/it/topics/ztl"
+     }
+    ]
+   }
+  },
+  {
+   "id": "mantova-ztl-n",
+   "name": "San Leonardo · ZTL N",
+   "name_it": "San Leonardo · ZTL N",
+   "name_de": "San Leonardo · ZTL N",
+   "kind": "restricted",
+   "summary": "ZTL N is the small quarter around Piazza San Leonardo and Via Cavriani, north-west of the centre, reportedly camera-controlled every day, 24 hours a day. Without a permit stay out.",
+   "summary_it": "La ZTL N è il piccolo quartiere intorno a piazza San Leonardo e via Cavriani, a nord-ovest del centro, con telecamere attive secondo le guide tutti i giorni 24 ore su 24. Senza permesso non entrare.",
+   "summary_de": "Die ZTL N ist das kleine Viertel um die Piazza San Leonardo und die Via Cavriani nordwestlich des Zentrums, laut Reiseführern täglich rund um die Uhr kameraüberwacht. Ohne Genehmigung draußen bleiben.",
+   "perimeter": [
+    {
+     "lat": 45.164035,
+     "lon": 10.791372
+    },
+    {
+     "lat": 45.164035,
+     "lon": 10.79127
+    },
+    {
+     "lat": 45.163818,
+     "lon": 10.79127
+    },
+    {
+     "lat": 45.163746,
+     "lon": 10.791066
+    },
+    {
+     "lat": 45.163528,
+     "lon": 10.791066
+    },
+    {
+     "lat": 45.163528,
+     "lon": 10.790964
+    },
+    {
+     "lat": 45.163384,
+     "lon": 10.790964
+    },
+    {
+     "lat": 45.163384,
+     "lon": 10.791168
+    },
+    {
+     "lat": 45.163311,
+     "lon": 10.791168
+    },
+    {
+     "lat": 45.163311,
+     "lon": 10.791474
+    },
+    {
+     "lat": 45.163167,
+     "lon": 10.791576
+    },
+    {
+     "lat": 45.163167,
+     "lon": 10.791678
+    },
+    {
+     "lat": 45.163239,
+     "lon": 10.791678
+    },
+    {
+     "lat": 45.163239,
+     "lon": 10.792187
+    },
+    {
+     "lat": 45.163167,
+     "lon": 10.792187
+    },
+    {
+     "lat": 45.163167,
+     "lon": 10.792493
+    },
+    {
+     "lat": 45.163094,
+     "lon": 10.792493
+    },
+    {
+     "lat": 45.163022,
+     "lon": 10.792697
+    },
+    {
+     "lat": 45.162877,
+     "lon": 10.792697
+    },
+    {
+     "lat": 45.162877,
+     "lon": 10.792799
+    },
+    {
+     "lat": 45.16266,
+     "lon": 10.792799
+    },
+    {
+     "lat": 45.16266,
+     "lon": 10.792901
+    },
+    {
+     "lat": 45.162805,
+     "lon": 10.793003
+    },
+    {
+     "lat": 45.162805,
+     "lon": 10.793104
+    },
+    {
+     "lat": 45.16295,
+     "lon": 10.793104
+    },
+    {
+     "lat": 45.16295,
+     "lon": 10.793206
+    },
+    {
+     "lat": 45.163022,
+     "lon": 10.793206
+    },
+    {
+     "lat": 45.163022,
+     "lon": 10.793512
+    },
+    {
+     "lat": 45.163094,
+     "lon": 10.793512
+    },
+    {
+     "lat": 45.163094,
+     "lon": 10.793716
+    },
+    {
+     "lat": 45.163022,
+     "lon": 10.793716
+    },
+    {
+     "lat": 45.163022,
+     "lon": 10.793818
+    },
+    {
+     "lat": 45.163167,
+     "lon": 10.793818
+    },
+    {
+     "lat": 45.163167,
+     "lon": 10.793716
+    },
+    {
+     "lat": 45.163601,
+     "lon": 10.793818
+    },
+    {
+     "lat": 45.163601,
+     "lon": 10.79392
+    },
+    {
+     "lat": 45.163673,
+     "lon": 10.79392
+    },
+    {
+     "lat": 45.163673,
+     "lon": 10.794124
+    },
+    {
+     "lat": 45.163746,
+     "lon": 10.794124
+    },
+    {
+     "lat": 45.163746,
+     "lon": 10.794429
+    },
+    {
+     "lat": 45.163818,
+     "lon": 10.794429
+    },
+    {
+     "lat": 45.163818,
+     "lon": 10.794226
+    },
+    {
+     "lat": 45.163963,
+     "lon": 10.794124
+    },
+    {
+     "lat": 45.163963,
+     "lon": 10.79392
+    },
+    {
+     "lat": 45.164035,
+     "lon": 10.79392
+    },
+    {
+     "lat": 45.164035,
+     "lon": 10.793818
+    },
+    {
+     "lat": 45.164252,
+     "lon": 10.793818
+    },
+    {
+     "lat": 45.164252,
+     "lon": 10.793716
+    },
+    {
+     "lat": 45.164397,
+     "lon": 10.793716
+    },
+    {
+     "lat": 45.164397,
+     "lon": 10.793818
+    },
+    {
+     "lat": 45.164614,
+     "lon": 10.793818
+    },
+    {
+     "lat": 45.164614,
+     "lon": 10.79392
+    },
+    {
+     "lat": 45.164758,
+     "lon": 10.79392
+    },
+    {
+     "lat": 45.164831,
+     "lon": 10.793308
+    },
+    {
+     "lat": 45.164903,
+     "lon": 10.793308
+    },
+    {
+     "lat": 45.164903,
+     "lon": 10.793206
+    },
+    {
+     "lat": 45.16512,
+     "lon": 10.793206
+    },
+    {
+     "lat": 45.16512,
+     "lon": 10.792901
+    },
+    {
+     "lat": 45.165193,
+     "lon": 10.792901
+    },
+    {
+     "lat": 45.16512,
+     "lon": 10.792697
+    },
+    {
+     "lat": 45.164903,
+     "lon": 10.792697
+    },
+    {
+     "lat": 45.164903,
+     "lon": 10.792595
+    },
+    {
+     "lat": 45.164831,
+     "lon": 10.792595
+    },
+    {
+     "lat": 45.164758,
+     "lon": 10.791983
+    },
+    {
+     "lat": 45.164686,
+     "lon": 10.791983
+    },
+    {
+     "lat": 45.164614,
+     "lon": 10.791779
+    },
+    {
+     "lat": 45.164469,
+     "lon": 10.791779
+    },
+    {
+     "lat": 45.164469,
+     "lon": 10.791678
+    },
+    {
+     "lat": 45.164397,
+     "lon": 10.791678
+    },
+    {
+     "lat": 45.164397,
+     "lon": 10.791576
+    },
+    {
+     "lat": 45.164252,
+     "lon": 10.791576
+    },
+    {
+     "lat": 45.16418,
+     "lon": 10.791372
+    },
+    {
+     "lat": 45.164035,
+     "lon": 10.791372
+    }
+   ],
+   "gates": [
+    {
+     "id": "mn-varco-via-cavriani",
+     "name": "Varco via Cavriani",
+     "location": {
+      "lat": 45.163186,
+      "lon": 10.791594
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "Accessibilità Centri Storici (unofficial); Aster / City of Mantua",
+    "official": false,
+    "unofficialSource": {
+     "name": "Accessibilità Centri Storici",
+     "url": "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html"
+    },
+    "pageURL": "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html",
+    "quote": "Le telecamere a protezione della ZTL A e B di Mantova sono attive tutti i giorni 24 su 24 ore",
+    "quoteTranslation": "The cameras protecting ZTL A and B in Mantua are active every day, 24 hours a day.",
+    "quoteTranslation_de": "Die Kameras der ZTL A und B in Mantua sind täglich rund um die Uhr aktiv.",
+    "checkedOn": "2026-10-27T13:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by accessibilitacentristorici.it: ZTL A and B cameras active every day, 24 hours a day. No official page gives the car hours; an old City regulation (2002, copy on the same site) says the ban applies 0–24 in all ZTLs, and Aster's official goods page lets delivery vans in without a pass only 6–10 am and 3–4:30 pm. The official 7 am–7 pm schedule on Aster's site is the tour-bus ZTL, not the car ZTL.",
+     "Corso della Libertà and Via Trieste (gates 10 and 9) are open to everyone 7 am–12 noon and 6–9 pm, confirmed only by accessibilitacentristorici.it; GateLR shows Via Trieste inside the ZTL at all times.",
+     "Visitors can buy an hourly ZTL permit online in Aster's «Area Pass» (register, «Permessi ZTL» → «Prenota/Acquista», pay with PagoPA; Aster advises at least 5 days ahead); price not shown. Hotel guests: the hotel records your plate on a permit for loading and unloading luggage, valid 24 hours, parking at most 60 minutes (confirmed only by accessibilitacentristorici.it, old rules); hotels and the Gazzetta di Mantova mention online registration through Aster.",
+     "Electric cars are not exempt: drivers from other municipalities need a transit-only pass (100 €/year, Aster). Blue Badge holders from other cities book their access with the City (form to infomulte@comune.mantova.it). Pedestrian sub-zones inside ZTL A: Via Roma, Corso Umberto I, Via Grazioli, Piazza Erbe, Piazza Broletto, Via Verdi (bollard).",
+     "Areas drawn from the street lists of accessibilitacentristorici.it (ZTL A and U as one zone, ZTL B, ZTL N) applied to OpenStreetMap streets; streets listed only for some house numbers are taken whole, «Commercio», «Martiri», Bertazzolo, Galleria San Maurizio, San Crispino, Canonica, Paradiso and San Paolo are not matched. No official map or street list was found (the regulation D.C.C. 62/2013 is not online). Gates are the 13 cameras in the same list, placed where each named street meets the zone."
+    ],
+    "pending_it": [
+     "Orari confermati solo da accessibilitacentristorici.it: telecamere di ZTL A e B attive tutti i giorni 24 ore su 24. Nessuna pagina ufficiale indica gli orari per le auto; un vecchio regolamento del Comune (2002, copia sullo stesso sito) dice divieto 0–24 in tutte le ZTL, e la pagina ufficiale di Aster sulle merci fa entrare i furgoni senza pass solo 6–10 e 15–16:30. La fascia ufficiale 7–19 sul sito di Aster è quella della ZTL per i bus turistici, non per le auto.",
+     "Corso della Libertà e via Trieste (varchi 10 e 9) sono aperti a tutti 7–12 e 18–21, confermato solo da accessibilitacentristorici.it; GateLR mostra via Trieste dentro la ZTL a ogni ora.",
+     "I visitatori possono comprare un permesso orario ZTL online nell'«Area Pass» di Aster (registrazione, «Permessi ZTL» → «Prenota/Acquista», pagamento PagoPA; Aster consiglia almeno 5 giorni di anticipo); prezzo non indicato. Ospiti degli hotel: l'albergo annota la targa su un permesso per carico e scarico bagagli valido 24 ore, sosta al massimo 60 minuti (confermato solo da accessibilitacentristorici.it, regole vecchie); hotel e Gazzetta di Mantova parlano di registrazione online tramite Aster.",
+     "Le auto elettriche non sono esenti: chi viene da altri comuni ha bisogno di un pass di solo transito (100 € l'anno, Aster). I disabili con contrassegno di altre città prenotano l'accesso presso il Comune (modulo a infomulte@comune.mantova.it). Sottozone pedonali dentro la ZTL A: via Roma, corso Umberto I, via Grazioli, piazza Erbe, piazza Broletto, via Verdi (dissuasore).",
+     "Aree ricavate dagli elenchi delle vie di accessibilitacentristorici.it (ZTL A e U come una sola zona, ZTL B, ZTL N) sulle strade di OpenStreetMap; le vie elencate solo per alcuni civici sono prese intere, «Commercio», «Martiri», Bertazzolo, Galleria San Maurizio, San Crispino, Canonica, Paradiso e San Paolo non sono abbinate. Nessuna mappa o elenco ufficiale trovato (il regolamento D.C.C. 62/2013 non è online). I varchi sono le 13 telecamere dello stesso elenco, dove ogni via indicata incontra la zona."
+    ],
+    "pending_de": [
+     "Zeiten nur von accessibilitacentristorici.it bestätigt: Kameras der ZTL A und B täglich rund um die Uhr aktiv. Keine offizielle Seite nennt die Zeiten für Autos; eine alte Verordnung der Stadt (2002, Kopie auf derselben Seite) nennt ein Verbot 0–24 in allen ZTL, und Asters offizielle Warenseite lässt Lieferwagen ohne Ausweis nur 6–10 und 15–16:30 Uhr hinein. Die offizielle Zeit 7–19 auf der Aster-Seite gilt für die Reisebus-ZTL, nicht für Autos.",
+     "Corso della Libertà und Via Trieste (Kameras 10 und 9) sind 7–12 und 18–21 Uhr für alle offen, nur von accessibilitacentristorici.it bestätigt; GateLR zeigt die Via Trieste immer innerhalb der ZTL.",
+     "Besucher können online im «Area Pass» von Aster eine stundenweise ZTL-Genehmigung kaufen (registrieren, «Permessi ZTL» → «Prenota/Acquista», Zahlung über PagoPA; Aster empfiehlt mindestens 5 Tage Vorlauf); Preis nicht angegeben. Hotelgäste: Das Hotel trägt dein Kennzeichen auf eine Genehmigung zum Be- und Entladen des Gepäcks ein, 24 Stunden gültig, höchstens 60 Minuten Parken (nur von accessibilitacentristorici.it bestätigt, alte Regeln); Hotels und die Gazzetta di Mantova nennen eine Online-Meldung über Aster.",
+     "Elektroautos sind nicht befreit: Fahrer aus anderen Gemeinden brauchen einen Durchfahrtsausweis (100 € pro Jahr, Aster). Inhaber eines Behindertenausweises aus anderen Städten melden ihre Zufahrt bei der Stadt an (Formular an infomulte@comune.mantova.it). Fußgänger-Teilzonen in der ZTL A: Via Roma, Corso Umberto I, Via Grazioli, Piazza Erbe, Piazza Broletto, Via Verdi (Poller).",
+     "Flächen aus den Straßenlisten von accessibilitacentristorici.it (ZTL A und U als eine Zone, ZTL B, ZTL N) auf OpenStreetMap-Straßen; nur für einige Hausnummern gelistete Straßen sind ganz übernommen, «Commercio», «Martiri», Bertazzolo, Galleria San Maurizio, San Crispino, Canonica, Paradiso und San Paolo nicht zugeordnet. Keine offizielle Karte oder Straßenliste gefunden (die Verordnung D.C.C. 62/2013 ist nicht online). Kameras: die 13 der gleichen Liste, dort, wo jede genannte Straße die Zone trifft."
+    ],
+    "links": [
+     {
+      "title": "Accessibilità Centri Storici: Mantua (unofficial, hours and streets)",
+      "title_it": "Accessibilità Centri Storici: Mantova (non ufficiale, orari e vie)",
+      "title_de": "Accessibilità Centri Storici: Mantua (inoffiziell, Zeiten und Straßen)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html"
+     },
+     {
+      "title": "Aster: access to the ZTL (passes)",
+      "title_it": "Aster: accesso alle ZTL (pass)",
+      "title_de": "Aster: Zufahrt zur ZTL (Ausweise)",
+      "url": "https://aster.mn.it/cittadini/ztl"
+     },
+     {
+      "title": "Aster: hourly ZTL permit for visitors",
+      "title_it": "Aster: permesso orario ZTL per i turisti",
+      "title_de": "Aster: stundenweise ZTL-Genehmigung für Besucher",
+      "url": "https://aster.mn.it/turisti/permesso-orario-ztl"
+     },
+     {
+      "title": "Aster: goods vehicles in ZTL A and B (6–10, 15–16:30)",
+      "title_it": "Aster: trasporto merci nelle ZTL A e B (6–10, 15–16:30)",
+      "title_de": "Aster: Lieferverkehr in ZTL A und B (6–10, 15–16:30)",
+      "url": "https://aster.mn.it/cittadini/trasporto-merci"
+     },
+     {
+      "title": "City of Mantua: disabled badge holders from other cities",
+      "title_it": "Comune di Mantova: pass disabili di altre città",
+      "title_de": "Stadt Mantua: Behindertenausweise aus anderen Städten",
+      "url": "https://www.comune.mantova.it/it/services/prenotazione-accesso-zona-a-traffico-limitato-ztl-con-pass-disabile-altre-citta"
+     },
+     {
+      "title": "City of Mantua: ZTL topic",
+      "title_it": "Comune di Mantova: argomento ZTL",
+      "title_de": "Stadt Mantua: Thema ZTL",
+      "url": "https://www.comune.mantova.it/it/topics/ztl"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Hours and streets: accessibilitacentristorici.it (unofficial). Permits: Aster (City of Mantua company). Areas and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}
