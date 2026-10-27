@@ -1,8 +1,13 @@
 {
- "version": "202610271358",
- "digest": "5946080429b7",
+ "version": "202610271406",
+ "digest": "1b0fd7741d7d",
  "schema": 1,
  "cities": [
+  {
+   "id": "alghero",
+   "file": "alghero.json",
+   "sha256": "946f7618a71461ab079f708d5bb558d37d267a2f618b3887ac33080c3cc268bc"
+  },
   {
    "id": "arezzo",
    "file": "arezzo.json",

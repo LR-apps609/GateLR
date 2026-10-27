@@ -1,0 +1,376 @@
+{
+ "id": "alghero",
+ "name": "Alghero",
+ "name_it": "Alghero",
+ "name_de": "Alghero",
+ "center": {
+  "lat": 40.5593,
+  "lon": 8.3135
+ },
+ "zones": [
+  {
+   "id": "alghero-centro",
+   "name": "Walled city · ZTL Centro Storico",
+   "name_it": "Città murata · ZTL Centro Storico",
+   "name_de": "Altstadt in den Mauern · ZTL Centro Storico",
+   "kind": "restricted",
+   "summary": "The whole walled old town of Alghero (inside the bastions, from Porta a Mare and Porta Terra to Piazza Sulis) is closed to vehicles without a permit all year, every day: midnight–8 am, 10:30 am–2:30 pm and 4:30 pm–midnight. Open to all only 8–10:30 am and 2:30–4:30 pm. Cameras at Via Simon/Piazza Porta Terra and Piazza Sulis. Staying inside? Your hotel gives your plate to the Local Police, only to unload luggage. Park outside the walls and walk.",
+   "summary_it": "Tutta la città murata di Alghero (dentro i bastioni, da Porta a Mare e Porta Terra a piazza Sulis) è chiusa ai veicoli senza permesso tutto l'anno, tutti i giorni: 0–8, 10:30–14:30 e 16:30–24. Aperta a tutti solo 8–10:30 e 14:30–16:30. Telecamere in via Simon/piazza Porta Terra e in piazza Sulis. Dormi dentro? La struttura comunica la targa alla Polizia Locale, solo per scaricare i bagagli. Parcheggia fuori dalle mura e cammina.",
+   "summary_de": "Die ganze ummauerte Altstadt von Alghero (innerhalb der Bastionen, von Porta a Mare und Porta Terra bis Piazza Sulis) ist für Fahrzeuge ohne Genehmigung ganzjährig täglich gesperrt: 0–8, 10:30–14:30 und 16:30–24 Uhr. Für alle offen nur 8–10:30 und 14:30–16:30 Uhr. Kameras an Via Simon/Piazza Porta Terra und Piazza Sulis. Du übernachtest innen? Dein Hotel meldet das Kennzeichen der Ortspolizei, nur zum Gepäckausladen. Außerhalb der Mauern parken und laufen.",
+   "perimeter": [
+    {
+     "lat": 40.560052,
+     "lon": 8.310895
+    },
+    {
+     "lat": 40.560258,
+     "lon": 8.310817
+    },
+    {
+     "lat": 40.560269,
+     "lon": 8.310765
+    },
+    {
+     "lat": 40.56049,
+     "lon": 8.31071
+    },
+    {
+     "lat": 40.560546,
+     "lon": 8.311041
+    },
+    {
+     "lat": 40.56051,
+     "lon": 8.311101
+    },
+    {
+     "lat": 40.560541,
+     "lon": 8.311295
+    },
+    {
+     "lat": 40.560518,
+     "lon": 8.311621
+    },
+    {
+     "lat": 40.560555,
+     "lon": 8.311705
+    },
+    {
+     "lat": 40.560518,
+     "lon": 8.311755
+    },
+    {
+     "lat": 40.560456,
+     "lon": 8.311718
+    },
+    {
+     "lat": 40.560268,
+     "lon": 8.311932
+    },
+    {
+     "lat": 40.560361,
+     "lon": 8.312118
+    },
+    {
+     "lat": 40.559596,
+     "lon": 8.312836
+    },
+    {
+     "lat": 40.55962,
+     "lon": 8.313178
+    },
+    {
+     "lat": 40.559585,
+     "lon": 8.313191
+    },
+    {
+     "lat": 40.559649,
+     "lon": 8.313432
+    },
+    {
+     "lat": 40.559731,
+     "lon": 8.313397
+    },
+    {
+     "lat": 40.559958,
+     "lon": 8.313976
+    },
+    {
+     "lat": 40.560019,
+     "lon": 8.313972
+    },
+    {
+     "lat": 40.560088,
+     "lon": 8.314107
+    },
+    {
+     "lat": 40.560095,
+     "lon": 8.314173
+    },
+    {
+     "lat": 40.560035,
+     "lon": 8.314204
+    },
+    {
+     "lat": 40.560231,
+     "lon": 8.314683
+    },
+    {
+     "lat": 40.559655,
+     "lon": 8.314904
+    },
+    {
+     "lat": 40.559584,
+     "lon": 8.314678
+    },
+    {
+     "lat": 40.558871,
+     "lon": 8.315258
+    },
+    {
+     "lat": 40.558688,
+     "lon": 8.315256
+    },
+    {
+     "lat": 40.558609,
+     "lon": 8.315443
+    },
+    {
+     "lat": 40.557228,
+     "lon": 8.316519
+    },
+    {
+     "lat": 40.556765,
+     "lon": 8.315533
+    },
+    {
+     "lat": 40.556378,
+     "lon": 8.315257
+    },
+    {
+     "lat": 40.55617,
+     "lon": 8.31527
+    },
+    {
+     "lat": 40.556192,
+     "lon": 8.315109
+    },
+    {
+     "lat": 40.556084,
+     "lon": 8.315036
+    },
+    {
+     "lat": 40.556135,
+     "lon": 8.314269
+    },
+    {
+     "lat": 40.556039,
+     "lon": 8.31366
+    },
+    {
+     "lat": 40.556257,
+     "lon": 8.313301
+    },
+    {
+     "lat": 40.556458,
+     "lon": 8.312369
+    },
+    {
+     "lat": 40.556417,
+     "lon": 8.312225
+    },
+    {
+     "lat": 40.556514,
+     "lon": 8.312178
+    },
+    {
+     "lat": 40.556553,
+     "lon": 8.312266
+    },
+    {
+     "lat": 40.556767,
+     "lon": 8.312153
+    },
+    {
+     "lat": 40.556845,
+     "lon": 8.311937
+    },
+    {
+     "lat": 40.557053,
+     "lon": 8.311897
+    },
+    {
+     "lat": 40.557236,
+     "lon": 8.312075
+    },
+    {
+     "lat": 40.557618,
+     "lon": 8.312103
+    },
+    {
+     "lat": 40.558435,
+     "lon": 8.31167
+    },
+    {
+     "lat": 40.5591,
+     "lon": 8.311487
+    },
+    {
+     "lat": 40.559118,
+     "lon": 8.311129
+    },
+    {
+     "lat": 40.559228,
+     "lon": 8.311152
+    },
+    {
+     "lat": 40.559249,
+     "lon": 8.311298
+    },
+    {
+     "lat": 40.55942,
+     "lon": 8.311213
+    },
+    {
+     "lat": 40.559718,
+     "lon": 8.311167
+    },
+    {
+     "lat": 40.559698,
+     "lon": 8.31096
+    },
+    {
+     "lat": 40.559824,
+     "lon": 8.310834
+    },
+    {
+     "lat": 40.559992,
+     "lon": 8.310776
+    },
+    {
+     "lat": 40.560052,
+     "lon": 8.310895
+    }
+   ],
+   "gates": [
+    {
+     "id": "al-osm9919391555",
+     "name": "Varco Via Simon / Piazza Porta Terra",
+     "location": {
+      "lat": 40.558718,
+      "lon": 8.31523
+     }
+    },
+    {
+     "id": "al-osm9919391554",
+     "name": "Varco Piazza Sulis",
+     "location": {
+      "lat": 40.556376,
+      "lon": 8.315198
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 480
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 630,
+     "end": 870
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 990,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Alghero",
+    "pageURL": "https://comune.alghero.ss.it/.galleries/doc-documenti/ZTL2019_Ordinanza-dirigenziale-n.-4-del-07.01.2019.pdf",
+    "ordinance": "Ordinanza dirigenziale n. 4 del 07/01/2019; regolamento allegato A (D.G.C. n. 442 del 27/12/2018)",
+    "ordinanceURL": "https://comune.alghero.ss.it/.galleries/doc-documenti/ZTL2019_Ordinanza-dirigenziale-n.-4-del-07.01.2019.pdf",
+    "quote": "Tutta l’area del centro storico cittadino come sopra perimetrata è connotata come Zona a Traffico Limitato con conseguente divieto di circolazione e sosta per tutte le categorie di veicoli fatte salve le deroghe esplicitamente previste – tutto l’anno - dalle ore 00:00 alle ore 08:00, dalle ore 10:30 alle ore 14:30 e dalle ore 16:30 alle ore 24:00",
+    "quoteTranslation": "The whole area of the historic town centre, bounded as above, is a Limited Traffic Zone, with a consequent ban on driving and parking for all categories of vehicles, except for the exemptions expressly provided, all year round, from 00:00 to 08:00, from 10:30 to 14:30 and from 16:30 to 24:00.",
+    "quoteTranslation_de": "Das gesamte wie oben abgegrenzte Gebiet der historischen Altstadt ist Zone mit beschränktem Verkehr, mit Fahr- und Parkverbot für alle Fahrzeugarten, vorbehaltlich der ausdrücklich vorgesehenen Ausnahmen, ganzjährig von 00:00 bis 08:00, von 10:30 bis 14:30 und von 16:30 bis 24:00 Uhr.",
+    "checkedOn": "2026-10-27T14:40:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotels and B&Bs inside the walls tell the Local Police the plate of the car you use to reach them: you may then drive in only to load and unload luggage, not to park. Ask your hotel before you arrive.",
+     "Fully electric cars may enter, but only after their plate has been registered in writing on the City's white list. Blue Badge holders not resident in Alghero who enter in an emergency must send the Local Police the plate, date, time and a copy of the badge within 72 hours.",
+     "Hours from ordinance 4/2019, still the ZTL document published by the City in 2026; no newer ordinance was found (the City's online services and the official notice board could not be reached from here). Some unofficial guides give different summer evening hours. The ZTL is also closed to vehicles over 2.5 t; pedestrian areas inside have their own rules.",
+     "Area: the OpenStreetMap ZTL relation drawn on the walls and bastions after the ordinance's perimeter (not an official map). Gates: the two cameras named in the ordinance, positions from OpenStreetMap."
+    ],
+    "pending_it": [
+     "Hotel e strutture extralberghiere dentro le mura comunicano alla Polizia Locale la targa dell'auto con cui arrivi: puoi entrare solo per caricare e scaricare i bagagli, non per sostare. Chiedi alla struttura prima di arrivare.",
+     "Le auto solo elettriche possono entrare, ma solo dopo aver comunicato per iscritto la targa per la «lista bianca» del Comune. I titolari di contrassegno disabili non residenti ad Alghero che entrano per urgenza devono inviare alla Polizia Locale targa, data, ora e copia del contrassegno entro 72 ore.",
+     "Orari dell'ordinanza 4/2019, ancora il documento ZTL pubblicato dal Comune nel 2026; nessuna ordinanza più recente trovata (i servizi online del Comune e l'albo pretorio non erano raggiungibili da qui). Alcune guide non ufficiali riportano orari serali estivi diversi. La ZTL è vietata anche ai veicoli oltre 2,5 t; le aree pedonali interne hanno regole proprie.",
+     "Area: la relazione ZTL di OpenStreetMap disegnata su mura e bastioni seguendo il perimetro dell'ordinanza (non è una mappa ufficiale). Varchi: le due telecamere indicate dall'ordinanza, posizioni da OpenStreetMap."
+    ],
+    "pending_de": [
+     "Hotels und Unterkünfte innerhalb der Mauern melden der Ortspolizei das Kennzeichen deines Autos: du darfst dann nur zum Be- und Entladen des Gepäcks hinein, nicht parken. Frag dein Hotel vor der Anreise.",
+     "Reine Elektroautos dürfen hinein, aber erst nachdem das Kennzeichen schriftlich für die weiße Liste der Stadt gemeldet wurde. Inhaber eines Behindertenausweises ohne Wohnsitz in Alghero, die im Notfall einfahren, müssen der Ortspolizei Kennzeichen, Datum, Uhrzeit und eine Kopie des Ausweises binnen 72 Stunden schicken.",
+     "Zeiten aus der Verordnung 4/2019, die 2026 weiterhin das von der Stadt veröffentlichte ZTL-Dokument ist; keine neuere Verordnung gefunden (Onlinedienste und Amtstafel der Stadt waren von hier aus nicht erreichbar). Einige inoffizielle Führer nennen andere Sommerabendzeiten. Die ZTL ist außerdem für Fahrzeuge über 2,5 t gesperrt; Fußgängerzonen innen haben eigene Regeln.",
+     "Fläche: die OpenStreetMap-ZTL-Relation, entlang Mauern und Bastionen nach dem Perimeter der Verordnung gezeichnet (keine amtliche Karte). Kameras: die beiden in der Verordnung genannten, Positionen aus OpenStreetMap."
+    ],
+    "links": [
+     {
+      "title": "City of Alghero: ordinance no. 4 of 07/01/2019, old-town ZTL (PDF)",
+      "title_it": "Comune di Alghero: ordinanza n. 4 del 07/01/2019, ZTL del centro storico (PDF)",
+      "title_de": "Stadt Alghero: Verordnung Nr. 4 vom 07.01.2019, ZTL der Altstadt (PDF)",
+      "url": "https://comune.alghero.ss.it/.galleries/doc-documenti/ZTL2019_Ordinanza-dirigenziale-n.-4-del-07.01.2019.pdf"
+     },
+     {
+      "title": "City of Alghero: ZTL permit regulations (annex A, PDF)",
+      "title_it": "Comune di Alghero: regolamento per le autorizzazioni ZTL (allegato A, PDF)",
+      "title_de": "Stadt Alghero: ZTL-Genehmigungsordnung (Anlage A, PDF)",
+      "url": "https://comune.alghero.ss.it/.galleries/doc-documenti/ZTL2019_ALLEGATOA_NUOVOREGOLAMENTO_ZTL2018.pdf"
+     },
+     {
+      "title": "City of Alghero: traffic changes for the Alghero Fashion Day 2025 (ZTL access)",
+      "title_it": "Comune di Alghero: modifiche alla viabilità per l'Alghero Fashion Day 2025 (accesso ZTL)",
+      "title_de": "Stadt Alghero: Verkehrsänderungen zum Alghero Fashion Day 2025 (ZTL-Zufahrt)",
+      "url": "https://comune.alghero.ss.it/it/novita/notizia/Alghero-Fashion-Day/"
+     },
+     {
+      "title": "OpenStreetMap: relation 14400850 «ZTL Centro Storico» (ODbL)",
+      "title_it": "OpenStreetMap: relazione 14400850 «ZTL Centro Storico» (ODbL)",
+      "title_de": "OpenStreetMap: Relation 14400850 «ZTL Centro Storico» (ODbL)",
+      "url": "https://www.openstreetmap.org/relation/14400850"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Alghero (ordinance 4/2019). Area and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}
