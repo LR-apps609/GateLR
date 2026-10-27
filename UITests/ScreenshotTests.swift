@@ -194,15 +194,17 @@ final class ScreenshotTests: XCTestCase {
             app.buttons["Fine"].tap()
             sleep(1)
         }
-        mapTab.tap()
-        sleep(5)
-        snap("19-it-map")
         youTab.tap()
         sleep(1)
         snap("20-it-tu")
         if openYou("trip") { sleep(1); snap("16-it-trip"); back() }
         if openYou("learn") { snap("21-it-learn"); back() }
-        if openYou("settings") { snap("22-it-settings") }
+        if openYou("settings") { snap("22-it-settings"); back() }
+        // La mappa per ultima: con tutte le città l'albero di accessibilità della mappa è grande e, sul Mac di GitHub,
+        // la ricerca della scheda «Tu» subito dopo andava a volte in tempo scaduto (run 40556483108)
+        mapTab.tap()
+        sleep(5)
+        snap("19-it-map")
     }
 
     /// 1.16.2: una zona con regole da fonti non ufficiali (Firenze segnata così solo nel giro delle foto): l'avviso
