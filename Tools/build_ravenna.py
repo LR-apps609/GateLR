@@ -6,11 +6,14 @@
 # targhe (strutture ricettive, disabili), comunicato sul piano sosta 2026 (mezza giornata 8 €), pagina di Azimut
 # (giornaliero 15 €, mattiniero e pomeridiano 8 €), determina E 2/4 del 2006 (contrassegni giornalieri degli hotel).
 #
-# Geometria: il Comune non pubblica un perimetro in open data (niente su dati.gov.it) e la «Piantina stradale con varchi
-# Sirio» è un'immagine senza coordinate; OpenStreetMap (Overpass e API) non era raggiungibile dal sandbox il 26/10/2026.
-# Senza perimetro la scheda resta in data/drafts/ravenna.json: basta salvare un perimetro verificato (relazione OSM con il
-# nome ufficiale, o strade OSM ricavate dai varchi come in build_perugia.py) in data/raw/ravenna/ztl_perimetro.geojson
-# (WGS84) e rilanciare lo script (vedi «ready»).
+# Geometria (mai disegnata a mano): il Comune non pubblica un perimetro in open data (niente su dati.gov.it), la «Piantina
+# stradale con varchi Sirio» è un'immagine senza coordinate e OpenStreetMap non ha una relazione della ZTL. In OSM però le
+# strade della ZTL sono segnate (motor_vehicle=permit, o motor_vehicle:conditional «permit_holders/private @ 07:30-20:30»):
+# il perimetro è l'area coperta da quelle strade e dalle vie pedonali attaccate (osm_geo.street_area), dai dati
+# scaricati con l'API OSM il 27/10/2026 (data/raw/geo/ravenna-centro-strade.json, © OpenStreetMap contributors, ODbL 1.0).
+# Controllo: tutti i 9 varchi dell'elenco ufficiale sono su strade di quell'insieme, e i 7 nodi «Varco» di OSM (via di
+# Roma, Guaccimanni, Baccarini, Guerrini, Mariani, Ponte Marino, Matteucci) cadono sul bordo (entro 50 m).
+# I varchi sono quei nodi OSM, con il nome dell'elenco ufficiale; mancano via Rondinelli e via Cavour (pending).
 # Uso: python3 Tools/build_ravenna.py   (non tocca le altre città né manifest.json)
 import json, re
 from pathlib import Path
@@ -18,7 +21,7 @@ import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/ravenna"
-CHECKED = "2026-10-27T00:10:00Z"
+CHECKED = "2026-10-27T07:00:00Z"
 EVERY_DAY = [1, 2, 3, 4, 5, 6, 7]
 
 
@@ -83,9 +86,9 @@ PENDING = [
     ("Gate hours: Via di Roma, Via Guaccimanni, Via Baccarini, Via Rondinelli, Via Cavour (from Piazzetta Gandhi) and Via Ponte Marino 24 hours a day; Via Mariani, Via Guerrini and Via Matteucci only 7:30–20:30. GateLR uses 24 hours for the whole zone, to be safe.",
      "Orari dei varchi: via di Roma, via Guaccimanni, via Baccarini, via Rondinelli, via Cavour (da piazzetta Gandhi) e via Ponte Marino 24 ore su 24; via Mariani, via Guerrini e via Matteucci solo 7:30–20:30. GateLR usa 0–24 per tutta la zona, per prudenza.",
      "Kamerazeiten: Via di Roma, Via Guaccimanni, Via Baccarini, Via Rondinelli, Via Cavour (von der Piazzetta Gandhi) und Via Ponte Marino rund um die Uhr; Via Mariani, Via Guerrini und Via Matteucci nur 7:30–20:30. GateLR verwendet sicherheitshalber 0–24 für die ganze Zone."),
-    ("Map outline and gate positions missing: the City publishes no perimeter as open data (its gate map is a picture without coordinates) and OpenStreetMap could not be downloaded from here.",
-     "Mancano perimetro e posizione dei varchi: il Comune non pubblica un perimetro in open data (la mappa dei varchi è un'immagine senza coordinate) e OpenStreetMap non era scaricabile da qui.",
-     "Grenze und Kamerastandorte fehlen: Die Stadt veröffentlicht keine Grenze als offene Daten (ihre Kamerakarte ist ein Bild ohne Koordinaten), und OpenStreetMap war von hier nicht ladbar."),
+    ("Perimeter not official: the City publishes no map data, so GateLR draws the zone around the streets marked as ZTL in OpenStreetMap; the edge is approximate. Gates on the map are the OpenStreetMap cameras on the official gate streets; Via Rondinelli and Via Cavour (Piazzetta Gandhi) are missing.",
+     "Perimetro non ufficiale: il Comune non pubblica dati geografici, quindi GateLR disegna la zona attorno alle strade segnate come ZTL in OpenStreetMap; il bordo è approssimato. I varchi sulla mappa sono le telecamere di OpenStreetMap sulle vie dei varchi ufficiali; mancano via Rondinelli e via Cavour (piazzetta Gandhi).",
+     "Grenze nicht offiziell: Die Stadt veröffentlicht keine Kartendaten, daher zeichnet GateLR die Zone um die in OpenStreetMap als ZTL markierten Straßen; der Rand ist ungefähr. Die Kameras auf der Karte sind die OpenStreetMap-Kameras an den offiziellen Torstraßen; Via Rondinelli und Via Cavour (Piazzetta Gandhi) fehlen."),
     ("Day permit 15 € (0:00–23:59), morning 8 € (0:00–11:59) or afternoon 8 € (12:00–23:59), from the grey «titanium» parking meters (coins without change or credit card), for vehicles up to 5 t. Display it on the dashboard; it allows parking in ZTL streets for up to 90 minutes with a parking disc, never in Piazza del Popolo or pedestrian areas.",
      "Permesso giornaliero 15 € (0–23:59), mattiniero 8 € (0–11:59) o pomeridiano 8 € (12–23:59), ai parcometri grigi «titanium» (monete senza resto o carta di credito), per veicoli fino a 5 t. Va esposto sul cruscotto; consente la sosta nelle vie della ZTL al massimo 90 minuti con disco orario, mai in Piazza del Popolo né nelle aree pedonali.",
      "Tagesgenehmigung 15 € (0–23:59), Vormittag 8 € (0–11:59) oder Nachmittag 8 € (12–23:59), an den grauen «Titanium»-Parkautomaten (Münzen ohne Wechselgeld oder Kreditkarte), für Fahrzeuge bis 5 t. Sichtbar aufs Armaturenbrett legen; erlaubt Parken in ZTL-Straßen bis 90 Minuten mit Parkscheibe, nie auf der Piazza del Popolo oder in Fußgängerzonen."),
@@ -98,15 +101,44 @@ PENDING = [
 ]
 
 
+GEO = json.loads((ROOT / "data/raw/geo/ravenna-centro-strade.json").read_text(encoding="utf-8"))["elements"]
+STREETS = [e for e in GEO if e["type"] == "way"]
+
+
+def ztl_way(t):
+    c = t.get("motor_vehicle:conditional", "")
+    return t.get("motor_vehicle") == "permit" or (("permit" in c or "private @" in c) and "07:30-20:30" in c)
+
+
 def perimeter():
-    """Solo da un file verificato salvato (mai disegnato a mano)"""
-    f = RAW / "ztl_perimetro.geojson"
-    if not f.exists():
-        return []
-    g = json.loads(f.read_text())
-    g = g["features"][0]["geometry"] if "features" in g else g
-    polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]
-    return osm_geo.perimeter(max((p[0] for p in polys), key=osm_geo.area_km2), tol_m=4)
+    """Area coperta dalle strade OSM segnate come ZTL e dalle vie pedonali attaccate (mai disegnata a mano)"""
+    ztl = [w for w in STREETS if ztl_way(w["tags"])]
+    pts = {(p["lon"], p["lat"]) for w in ztl for p in w["geometry"]}
+    ped = [w for w in STREETS if w["tags"].get("highway") == "pedestrian" and any((p["lon"], p["lat"]) in pts for p in w["geometry"])]
+    names = {w["tags"].get("name", "") for w in ztl}
+    for g in ["Via di Roma", "Via Girotto Guaccimanni", "Via Alfredo Baccarini", "Via Nicolò Rondinelli", "Via Camillo Cavour",
+              "Via Angelo Mariani", "Via Arnaldo Guerrini", "Via Ponte Marino", "Via Pellegrino Matteucci"]:
+        assert g in names, f"varco ufficiale {g} non su una strada ZTL di OSM"
+    rel = {"id": 0, "members": [{"type": "way", "role": "section", "geometry": w["geometry"]} for w in ztl + ped]}
+    return osm_geo.perimeter(osm_geo.street_area(rel, close_m=60), tol_m=6)
+
+
+OFFICIAL = {"Via di Roma": "Via di Roma", "Via Girotto Guaccimanni": "Via G. Guaccimanni", "Via Alfredo Baccarini": "Via A. Baccarini",
+            "Via Angelo Mariani": "Via A. Mariani (7:30–20:30)", "Via Arnaldo Guerrini": "Via Ar. Guerrini (7:30–20:30)",
+            "Via Ponte Marino": "Via Ponte Marino", "Via Pellegrino Matteucci": "Via P. Matteucci (7:30–20:30)"}
+
+
+def gates():
+    """I nodi OSM «Varco» sulle vie dei varchi ufficiali, con il nome dell'elenco del Comune"""
+    out = []
+    for n in GEO:
+        if n["type"] != "node" or n.get("tags", {}).get("name") != "Varco":
+            continue
+        on = [w["tags"].get("name") for w in STREETS if n["id"] in w["nodes"]]
+        name = next((OFFICIAL[x] for x in on if x in OFFICIAL), None)
+        if name:
+            out.append({"id": f"ra-osm{n['id']}", "name": name, "location": {"lat": round(n["lat"], 6), "lon": round(n["lon"], 6)}})
+    return sorted(out, key=lambda g: g["name"])
 
 
 zone = {"id": "ravenna-ztl", "name": "Ravenna · Historic centre ZTL", "name_it": "Ravenna · ZTL Centro storico",
@@ -114,7 +146,7 @@ zone = {"id": "ravenna-ztl", "name": "Ravenna · Historic centre ZTL", "name_it"
         "summary": "The historic centre (Piazza del Popolo, San Vitale) is watched by SIRIO cameras: most gates are on 24 hours a day, three only 7:30–20:30. Without a permit, buy a day permit (15 €, or 8 € for the morning or afternoon) at the grey parking meters before entering. If your hotel is inside, it registers your plate.",
         "summary_it": "Il centro storico (Piazza del Popolo, San Vitale) è controllato dalle telecamere SIRIO: la maggior parte dei varchi è accesa 24 ore su 24, tre solo 7:30–20:30. Senza permesso compra il giornaliero (15 €, o 8 € per mattina o pomeriggio) ai parcometri grigi prima di entrare. Se l'hotel è dentro, registra la tua targa.",
         "summary_de": "Die Altstadt (Piazza del Popolo, San Vitale) wird von SIRIO-Kameras überwacht: die meisten sind rund um die Uhr aktiv, drei nur 7:30–20:30. Ohne Genehmigung vor der Einfahrt an den grauen Parkautomaten eine Tagesgenehmigung kaufen (15 €, oder 8 € für Vormittag oder Nachmittag). Liegt dein Hotel innen, meldet es dein Kennzeichen.",
-        "perimeter": perimeter(), "gates": [],
+        "perimeter": perimeter(), "gates": gates(),
         "windows": [{"weekdays": EVERY_DAY, "start": 0, "end": 24 * 60}],
         "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True,
         "ticket": {"price": 15.0,
@@ -134,12 +166,16 @@ zone = {"id": "ravenna-ztl", "name": "Ravenna · Historic centre ZTL", "name_it"
 
 city = {"id": "ravenna", "name": "Ravenna", "name_it": "Ravenna", "name_de": "Ravenna",
         "center": {"lat": 44.4175, "lon": 12.1990}, "zones": [zone], "status": "draft",
-        "license": "Rules: Comune di Ravenna and Azimut official pages. Perimeter: not yet available."}
+        "license": "Rules: Comune di Ravenna and Azimut official pages. Perimeter and gates: " + osm_geo.ODBL + " (approximate, not official)."}
 
-# Controlli di plausibilità, quando c'è il perimetro: Piazza del Popolo dentro, la stazione fuori
-if zone["perimeter"]:
-    assert osm_geo.contains(zone["perimeter"], 44.4175, 12.1990), "Piazza del Popolo fuori dal perimetro"
-    assert not osm_geo.contains(zone["perimeter"], 44.4182, 12.2088), "stazione di Ravenna dentro il perimetro"
+# Controlli di plausibilità: Piazza del Popolo e la Tomba di Dante dentro, la stazione fuori, i varchi sul bordo
+for n, lat, lon in [("Piazza del Popolo", 44.4175, 12.1990), ("Tomba di Dante", 44.4160, 12.2010)]:
+    assert osm_geo.contains(zone["perimeter"], lat, lon), f"{n} fuori dal perimetro"
+assert not osm_geo.contains(zone["perimeter"], 44.4182, 12.2088), "stazione di Ravenna dentro il perimetro"
+assert len(zone["gates"]) == 7, zone["gates"]
+for g in zone["gates"]:
+    assert osm_geo.distance_m(zone["perimeter"], g["location"]["lat"], g["location"]["lon"]) < 50, g
+assert 0.3 < osm_geo.area_km2(zone["perimeter"]) < 0.6
 
 ready = all(len(z["perimeter"]) >= 5 and z["source"]["quote"] for z in city["zones"])
 out = ROOT / ("Resources/Cities/ravenna.json" if ready else "data/drafts/ravenna.json")

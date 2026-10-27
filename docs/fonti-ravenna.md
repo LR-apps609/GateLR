@@ -1,8 +1,8 @@
-# Ravenna: fonti della scheda ZTL (bozza)
+# Ravenna: fonti della scheda ZTL
 
-Scheda generata da `Tools/build_ravenna.py` → `data/drafts/ravenna.json` (**bozza, non nell'app**). Regole e citazione **verificate** sui testi ufficiali letti il **26/10/2026** e salvati in `data/raw/ravenna/` (URL e data in testa a ogni file). **Manca solo il perimetro** (sotto).
+Scheda generata da `Tools/build_ravenna.py` → `Resources/Cities/ravenna.json` (stato **draft**, `reviewedByHuman: false`), nell'app tramite `manifest.json` dal 27/10/2026. Regole e citazione **verificate** sui testi ufficiali letti il **26/10/2026** e salvati in `data/raw/ravenna/` (URL e data in testa a ogni file).
 
-## Zona (bozza)
+## Zona
 **Ravenna · ZTL Centro storico** (`ravenna-ztl`, `pass`): 0–24 tutti i giorni per tutta la zona (prudenziale), ticket 15 € `beforeEntry`.
 
 Citazione (pagina «SIRIO – Controllo accessi in ZTL», https://comune.ravenna.it/altro-contenuto/sirio-controllo-accessi-in-ztl/, ufficiale, «Pagina aggiornata il 30/07/2025»): «Attraverso una rete di telecamere, le targhe dei veicoli che accedono attraverso i “varchi” vengono riconosciute e confrontate con la lista delle targhe dei veicoli abilitati al transito».
@@ -18,9 +18,10 @@ Citazione (pagina «SIRIO – Controllo accessi in ZTL», https://comune.ravenna
 
 La regola dei «cinque giorni» della vecchia pagina Rapida non è più citata (non c'è nelle pagine attuali). Elettriche: nessuna esenzione nelle pagine ufficiali → `exemptFuels: []`. Patrono Sant'Apollinare (23 luglio): non serve con 0–24.
 
-## Perché resta bozza: geometria
-- Nessun perimetro ufficiale in open data (dati.gov.it: nessun dataset ZTL per Ravenna).
-- La «Piantina stradale con varchi Sirio» (https://comune.ravenna.it/wp-content/uploads/2025/07/Piantina-stradale-con-varchi-Sirio.pdf) è un'immagine senza coordinate.
-- OpenStreetMap non raggiungibile dal sandbox il 26/10/2026 (overpass-api.de, mirror e kumi: connessione chiusa; api.openstreetmap.org: rifiutato dal proxy).
-
-Per pubblicare: scaricare da OSM la relazione della ZTL o le strade del centro, ricavare il perimetro dai 9 varchi ufficiali (metodo di `Tools/build_perugia.py`) o dalla relazione con il nome ufficiale, salvarlo in `data/raw/ravenna/ztl_perimetro.geojson` e rilanciare lo script: passa da solo in `Resources/Cities/`.
+## Geometria (non ufficiale, da OpenStreetMap)
+- Il Comune non pubblica un perimetro in open data (dati.gov.it: nessun dataset ZTL per Ravenna); la «Piantina stradale con varchi Sirio» (https://comune.ravenna.it/wp-content/uploads/2025/07/Piantina-stradale-con-varchi-Sirio.pdf) è un'immagine senza coordinate; in OSM non c'è una relazione della ZTL.
+- Strade OSM scaricate il 27/10/2026 con l'API OSM (`Tools/fetch_osm_api.py`, riquadro 44.408–44.426 N, 12.186–12.212 E; Overpass non rispondeva) → `data/raw/geo/ravenna-centro-strade.json` (solo strade e telecamere, © OpenStreetMap contributors, ODbL 1.0).
+- Perimetro: area coperta (osm_geo.street_area, chiusura 60 m, semplificazione 6 m) dalle strade con `motor_vehicle=permit` o `motor_vehicle:conditional` «permit_holders/private @ 07:30-20:30», più le vie pedonali attaccate. 0,41 km².
+- Controlli: le 9 vie dei varchi ufficiali sono tutte tra quelle strade; i 7 nodi OSM «Varco» (via di Roma, Guaccimanni, Baccarini, Guerrini, Mariani, Ponte Marino, Matteucci) sono entro 50 m dal bordo; Piazza del Popolo e Tomba di Dante dentro, stazione fuori.
+- Varchi nella scheda: quei 7 nodi OSM con il nome dell'elenco ufficiale; mancano via Rondinelli e via Cavour (piazzetta Gandhi) (nei pending).
+- In OSM via Ponte Marino è segnata «private @ 07:30-20:30», il Comune la dà 24 ore su 24: vale il Comune (la zona è comunque 0–24).

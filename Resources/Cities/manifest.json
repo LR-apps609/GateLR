@@ -1,6 +1,6 @@
 {
- "version": "202610262347",
- "digest": "314c09fa46c0",
+ "version": "202610270709",
+ "digest": "77a48f4a3310",
  "schema": 1,
  "cities": [
   {
@@ -92,6 +92,11 @@
    "id": "pisa",
    "file": "pisa.json",
    "sha256": "9d67adc1a089a6bff6428c3669dc69002e45a46de7978b0780e809116c3bb1c8"
+  },
+  {
+   "id": "ravenna",
+   "file": "ravenna.json",
+   "sha256": "03d0d8b61fef982664daabcdc3799692e36d7e6370ebcae4b1be4bf656cd6131"
   },
   {
    "id": "roma",

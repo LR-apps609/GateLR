@@ -1,0 +1,956 @@
+{
+ "id": "ravenna",
+ "name": "Ravenna",
+ "name_it": "Ravenna",
+ "name_de": "Ravenna",
+ "center": {
+  "lat": 44.4175,
+  "lon": 12.199
+ },
+ "zones": [
+  {
+   "id": "ravenna-ztl",
+   "name": "Ravenna · Historic centre ZTL",
+   "name_it": "Ravenna · ZTL Centro storico",
+   "name_de": "Ravenna · ZTL Altstadt",
+   "kind": "pass",
+   "summary": "The historic centre (Piazza del Popolo, San Vitale) is watched by SIRIO cameras: most gates are on 24 hours a day, three only 7:30–20:30. Without a permit, buy a day permit (15 €, or 8 € for the morning or afternoon) at the grey parking meters before entering. If your hotel is inside, it registers your plate.",
+   "summary_it": "Il centro storico (Piazza del Popolo, San Vitale) è controllato dalle telecamere SIRIO: la maggior parte dei varchi è accesa 24 ore su 24, tre solo 7:30–20:30. Senza permesso compra il giornaliero (15 €, o 8 € per mattina o pomeriggio) ai parcometri grigi prima di entrare. Se l'hotel è dentro, registra la tua targa.",
+   "summary_de": "Die Altstadt (Piazza del Popolo, San Vitale) wird von SIRIO-Kameras überwacht: die meisten sind rund um die Uhr aktiv, drei nur 7:30–20:30. Ohne Genehmigung vor der Einfahrt an den grauen Parkautomaten eine Tagesgenehmigung kaufen (15 €, oder 8 € für Vormittag oder Nachmittag). Liegt dein Hotel innen, meldet es dein Kennzeichen.",
+   "perimeter": [
+    {
+     "lat": 44.414058,
+     "lon": 12.199778
+    },
+    {
+     "lat": 44.413841,
+     "lon": 12.199476
+    },
+    {
+     "lat": 44.413768,
+     "lon": 12.198772
+    },
+    {
+     "lat": 44.413623,
+     "lon": 12.198772
+    },
+    {
+     "lat": 44.413479,
+     "lon": 12.198571
+    },
+    {
+     "lat": 44.413479,
+     "lon": 12.198369
+    },
+    {
+     "lat": 44.413406,
+     "lon": 12.198369
+    },
+    {
+     "lat": 44.413406,
+     "lon": 12.198067
+    },
+    {
+     "lat": 44.413334,
+     "lon": 12.198067
+    },
+    {
+     "lat": 44.413406,
+     "lon": 12.197564
+    },
+    {
+     "lat": 44.413334,
+     "lon": 12.197564
+    },
+    {
+     "lat": 44.413189,
+     "lon": 12.198067
+    },
+    {
+     "lat": 44.412972,
+     "lon": 12.198369
+    },
+    {
+     "lat": 44.4129,
+     "lon": 12.198772
+    },
+    {
+     "lat": 44.412755,
+     "lon": 12.198872
+    },
+    {
+     "lat": 44.412611,
+     "lon": 12.199476
+    },
+    {
+     "lat": 44.412394,
+     "lon": 12.199677
+    },
+    {
+     "lat": 44.412176,
+     "lon": 12.200482
+    },
+    {
+     "lat": 44.411815,
+     "lon": 12.200683
+    },
+    {
+     "lat": 44.411887,
+     "lon": 12.200985
+    },
+    {
+     "lat": 44.411959,
+     "lon": 12.200985
+    },
+    {
+     "lat": 44.411959,
+     "lon": 12.201287
+    },
+    {
+     "lat": 44.412032,
+     "lon": 12.201287
+    },
+    {
+     "lat": 44.411959,
+     "lon": 12.201589
+    },
+    {
+     "lat": 44.412032,
+     "lon": 12.201589
+    },
+    {
+     "lat": 44.412176,
+     "lon": 12.203098
+    },
+    {
+     "lat": 44.412249,
+     "lon": 12.203098
+    },
+    {
+     "lat": 44.412176,
+     "lon": 12.202293
+    },
+    {
+     "lat": 44.412249,
+     "lon": 12.202293
+    },
+    {
+     "lat": 44.412321,
+     "lon": 12.20179
+    },
+    {
+     "lat": 44.412683,
+     "lon": 12.201589
+    },
+    {
+     "lat": 44.412683,
+     "lon": 12.201488
+    },
+    {
+     "lat": 44.413045,
+     "lon": 12.201388
+    },
+    {
+     "lat": 44.413045,
+     "lon": 12.201488
+    },
+    {
+     "lat": 44.413406,
+     "lon": 12.201589
+    },
+    {
+     "lat": 44.413479,
+     "lon": 12.201891
+    },
+    {
+     "lat": 44.413551,
+     "lon": 12.201891
+    },
+    {
+     "lat": 44.413696,
+     "lon": 12.203802
+    },
+    {
+     "lat": 44.413768,
+     "lon": 12.203802
+    },
+    {
+     "lat": 44.413768,
+     "lon": 12.203501
+    },
+    {
+     "lat": 44.413841,
+     "lon": 12.203501
+    },
+    {
+     "lat": 44.413985,
+     "lon": 12.202998
+    },
+    {
+     "lat": 44.414347,
+     "lon": 12.202897
+    },
+    {
+     "lat": 44.414347,
+     "lon": 12.202796
+    },
+    {
+     "lat": 44.414492,
+     "lon": 12.202897
+    },
+    {
+     "lat": 44.414564,
+     "lon": 12.202696
+    },
+    {
+     "lat": 44.414926,
+     "lon": 12.202595
+    },
+    {
+     "lat": 44.414926,
+     "lon": 12.202495
+    },
+    {
+     "lat": 44.414998,
+     "lon": 12.202595
+    },
+    {
+     "lat": 44.415287,
+     "lon": 12.202495
+    },
+    {
+     "lat": 44.415287,
+     "lon": 12.202595
+    },
+    {
+     "lat": 44.415505,
+     "lon": 12.202595
+    },
+    {
+     "lat": 44.415505,
+     "lon": 12.202696
+    },
+    {
+     "lat": 44.415722,
+     "lon": 12.202796
+    },
+    {
+     "lat": 44.415794,
+     "lon": 12.203299
+    },
+    {
+     "lat": 44.415866,
+     "lon": 12.203299
+    },
+    {
+     "lat": 44.415794,
+     "lon": 12.203702
+    },
+    {
+     "lat": 44.415866,
+     "lon": 12.203702
+    },
+    {
+     "lat": 44.415939,
+     "lon": 12.204205
+    },
+    {
+     "lat": 44.416011,
+     "lon": 12.204205
+    },
+    {
+     "lat": 44.415939,
+     "lon": 12.204607
+    },
+    {
+     "lat": 44.416083,
+     "lon": 12.204607
+    },
+    {
+     "lat": 44.416083,
+     "lon": 12.204507
+    },
+    {
+     "lat": 44.416734,
+     "lon": 12.204306
+    },
+    {
+     "lat": 44.416734,
+     "lon": 12.204205
+    },
+    {
+     "lat": 44.416952,
+     "lon": 12.204205
+    },
+    {
+     "lat": 44.416952,
+     "lon": 12.204104
+    },
+    {
+     "lat": 44.417169,
+     "lon": 12.204104
+    },
+    {
+     "lat": 44.417169,
+     "lon": 12.204004
+    },
+    {
+     "lat": 44.417386,
+     "lon": 12.204004
+    },
+    {
+     "lat": 44.417386,
+     "lon": 12.203903
+    },
+    {
+     "lat": 44.417675,
+     "lon": 12.203903
+    },
+    {
+     "lat": 44.417603,
+     "lon": 12.203601
+    },
+    {
+     "lat": 44.41753,
+     "lon": 12.203601
+    },
+    {
+     "lat": 44.41753,
+     "lon": 12.203299
+    },
+    {
+     "lat": 44.417458,
+     "lon": 12.203299
+    },
+    {
+     "lat": 44.417458,
+     "lon": 12.202998
+    },
+    {
+     "lat": 44.41753,
+     "lon": 12.202998
+    },
+    {
+     "lat": 44.417458,
+     "lon": 12.202897
+    },
+    {
+     "lat": 44.417458,
+     "lon": 12.202495
+    },
+    {
+     "lat": 44.41753,
+     "lon": 12.202495
+    },
+    {
+     "lat": 44.41753,
+     "lon": 12.202193
+    },
+    {
+     "lat": 44.417603,
+     "lon": 12.202193
+    },
+    {
+     "lat": 44.417675,
+     "lon": 12.201891
+    },
+    {
+     "lat": 44.417964,
+     "lon": 12.20179
+    },
+    {
+     "lat": 44.417964,
+     "lon": 12.20169
+    },
+    {
+     "lat": 44.418181,
+     "lon": 12.20169
+    },
+    {
+     "lat": 44.418109,
+     "lon": 12.201388
+    },
+    {
+     "lat": 44.418037,
+     "lon": 12.201388
+    },
+    {
+     "lat": 44.418037,
+     "lon": 12.201086
+    },
+    {
+     "lat": 44.417964,
+     "lon": 12.201086
+    },
+    {
+     "lat": 44.418181,
+     "lon": 12.200382
+    },
+    {
+     "lat": 44.418543,
+     "lon": 12.200281
+    },
+    {
+     "lat": 44.418543,
+     "lon": 12.20018
+    },
+    {
+     "lat": 44.419122,
+     "lon": 12.20018
+    },
+    {
+     "lat": 44.419122,
+     "lon": 12.20008
+    },
+    {
+     "lat": 44.419339,
+     "lon": 12.20008
+    },
+    {
+     "lat": 44.419339,
+     "lon": 12.20018
+    },
+    {
+     "lat": 44.419628,
+     "lon": 12.200281
+    },
+    {
+     "lat": 44.419773,
+     "lon": 12.20008
+    },
+    {
+     "lat": 44.420063,
+     "lon": 12.199979
+    },
+    {
+     "lat": 44.420063,
+     "lon": 12.20008
+    },
+    {
+     "lat": 44.420424,
+     "lon": 12.20018
+    },
+    {
+     "lat": 44.420569,
+     "lon": 12.200382
+    },
+    {
+     "lat": 44.420569,
+     "lon": 12.200583
+    },
+    {
+     "lat": 44.420641,
+     "lon": 12.200583
+    },
+    {
+     "lat": 44.420641,
+     "lon": 12.200784
+    },
+    {
+     "lat": 44.420714,
+     "lon": 12.200784
+    },
+    {
+     "lat": 44.420714,
+     "lon": 12.200482
+    },
+    {
+     "lat": 44.420786,
+     "lon": 12.200482
+    },
+    {
+     "lat": 44.420858,
+     "lon": 12.20018
+    },
+    {
+     "lat": 44.421365,
+     "lon": 12.199979
+    },
+    {
+     "lat": 44.421365,
+     "lon": 12.20008
+    },
+    {
+     "lat": 44.421727,
+     "lon": 12.20018
+    },
+    {
+     "lat": 44.421944,
+     "lon": 12.200482
+    },
+    {
+     "lat": 44.421944,
+     "lon": 12.200683
+    },
+    {
+     "lat": 44.422016,
+     "lon": 12.200683
+    },
+    {
+     "lat": 44.422016,
+     "lon": 12.20008
+    },
+    {
+     "lat": 44.422088,
+     "lon": 12.20008
+    },
+    {
+     "lat": 44.422161,
+     "lon": 12.199275
+    },
+    {
+     "lat": 44.422233,
+     "lon": 12.199275
+    },
+    {
+     "lat": 44.422305,
+     "lon": 12.198973
+    },
+    {
+     "lat": 44.42274,
+     "lon": 12.198772
+    },
+    {
+     "lat": 44.42274,
+     "lon": 12.198369
+    },
+    {
+     "lat": 44.422667,
+     "lon": 12.198269
+    },
+    {
+     "lat": 44.422161,
+     "lon": 12.198269
+    },
+    {
+     "lat": 44.422161,
+     "lon": 12.198168
+    },
+    {
+     "lat": 44.421871,
+     "lon": 12.198168
+    },
+    {
+     "lat": 44.421871,
+     "lon": 12.198067
+    },
+    {
+     "lat": 44.42151,
+     "lon": 12.197967
+    },
+    {
+     "lat": 44.421437,
+     "lon": 12.197665
+    },
+    {
+     "lat": 44.421365,
+     "lon": 12.197665
+    },
+    {
+     "lat": 44.421293,
+     "lon": 12.197162
+    },
+    {
+     "lat": 44.420641,
+     "lon": 12.197162
+    },
+    {
+     "lat": 44.420641,
+     "lon": 12.197061
+    },
+    {
+     "lat": 44.42028,
+     "lon": 12.196961
+    },
+    {
+     "lat": 44.420207,
+     "lon": 12.196659
+    },
+    {
+     "lat": 44.420135,
+     "lon": 12.196659
+    },
+    {
+     "lat": 44.420063,
+     "lon": 12.196156
+    },
+    {
+     "lat": 44.420135,
+     "lon": 12.196156
+    },
+    {
+     "lat": 44.420135,
+     "lon": 12.195854
+    },
+    {
+     "lat": 44.420207,
+     "lon": 12.195854
+    },
+    {
+     "lat": 44.420207,
+     "lon": 12.195653
+    },
+    {
+     "lat": 44.420352,
+     "lon": 12.195452
+    },
+    {
+     "lat": 44.420352,
+     "lon": 12.19525
+    },
+    {
+     "lat": 44.420424,
+     "lon": 12.19525
+    },
+    {
+     "lat": 44.420424,
+     "lon": 12.194948
+    },
+    {
+     "lat": 44.42028,
+     "lon": 12.194948
+    },
+    {
+     "lat": 44.420063,
+     "lon": 12.194647
+    },
+    {
+     "lat": 44.419918,
+     "lon": 12.194647
+    },
+    {
+     "lat": 44.419484,
+     "lon": 12.194043
+    },
+    {
+     "lat": 44.418977,
+     "lon": 12.194244
+    },
+    {
+     "lat": 44.418977,
+     "lon": 12.194144
+    },
+    {
+     "lat": 44.41876,
+     "lon": 12.194144
+    },
+    {
+     "lat": 44.41876,
+     "lon": 12.194043
+    },
+    {
+     "lat": 44.418399,
+     "lon": 12.193842
+    },
+    {
+     "lat": 44.418399,
+     "lon": 12.194144
+    },
+    {
+     "lat": 44.418326,
+     "lon": 12.194144
+    },
+    {
+     "lat": 44.418254,
+     "lon": 12.194546
+    },
+    {
+     "lat": 44.417892,
+     "lon": 12.194747
+    },
+    {
+     "lat": 44.417964,
+     "lon": 12.195049
+    },
+    {
+     "lat": 44.417892,
+     "lon": 12.195049
+    },
+    {
+     "lat": 44.41782,
+     "lon": 12.195552
+    },
+    {
+     "lat": 44.417603,
+     "lon": 12.195653
+    },
+    {
+     "lat": 44.417603,
+     "lon": 12.195753
+    },
+    {
+     "lat": 44.417386,
+     "lon": 12.195753
+    },
+    {
+     "lat": 44.417313,
+     "lon": 12.196055
+    },
+    {
+     "lat": 44.417169,
+     "lon": 12.196256
+    },
+    {
+     "lat": 44.417024,
+     "lon": 12.196256
+    },
+    {
+     "lat": 44.416952,
+     "lon": 12.196659
+    },
+    {
+     "lat": 44.416734,
+     "lon": 12.196759
+    },
+    {
+     "lat": 44.416734,
+     "lon": 12.197061
+    },
+    {
+     "lat": 44.416662,
+     "lon": 12.197061
+    },
+    {
+     "lat": 44.416517,
+     "lon": 12.197564
+    },
+    {
+     "lat": 44.416373,
+     "lon": 12.197564
+    },
+    {
+     "lat": 44.416156,
+     "lon": 12.197866
+    },
+    {
+     "lat": 44.415939,
+     "lon": 12.197866
+    },
+    {
+     "lat": 44.415939,
+     "lon": 12.197967
+    },
+    {
+     "lat": 44.415432,
+     "lon": 12.197766
+    },
+    {
+     "lat": 44.41536,
+     "lon": 12.197564
+    },
+    {
+     "lat": 44.415215,
+     "lon": 12.197564
+    },
+    {
+     "lat": 44.414998,
+     "lon": 12.197866
+    },
+    {
+     "lat": 44.41507,
+     "lon": 12.198269
+    },
+    {
+     "lat": 44.415287,
+     "lon": 12.19847
+    },
+    {
+     "lat": 44.41536,
+     "lon": 12.198973
+    },
+    {
+     "lat": 44.415432,
+     "lon": 12.198973
+    },
+    {
+     "lat": 44.415215,
+     "lon": 12.199677
+    },
+    {
+     "lat": 44.414853,
+     "lon": 12.199778
+    },
+    {
+     "lat": 44.414853,
+     "lon": 12.199879
+    },
+    {
+     "lat": 44.414564,
+     "lon": 12.199879
+    },
+    {
+     "lat": 44.414564,
+     "lon": 12.199979
+    },
+    {
+     "lat": 44.414347,
+     "lon": 12.199979
+    },
+    {
+     "lat": 44.414347,
+     "lon": 12.199879
+    },
+    {
+     "lat": 44.414058,
+     "lon": 12.199778
+    }
+   ],
+   "gates": [
+    {
+     "id": "ra-osm3924090488",
+     "name": "Via A. Baccarini",
+     "location": {
+      "lat": 44.415069,
+      "lon": 12.199815
+     }
+    },
+    {
+     "id": "ra-osm573404542",
+     "name": "Via A. Mariani (7:30–20:30)",
+     "location": {
+      "lat": 44.417459,
+      "lon": 12.202962
+     }
+    },
+    {
+     "id": "ra-osm601465517",
+     "name": "Via Ar. Guerrini (7:30–20:30)",
+     "location": {
+      "lat": 44.415442,
+      "lon": 12.199343
+     }
+    },
+    {
+     "id": "ra-osm3924090487",
+     "name": "Via G. Guaccimanni",
+     "location": {
+      "lat": 44.415251,
+      "lon": 12.200293
+     }
+    },
+    {
+     "id": "ra-osm3924266654",
+     "name": "Via P. Matteucci (7:30–20:30)",
+     "location": {
+      "lat": 44.419584,
+      "lon": 12.200151
+     }
+    },
+    {
+     "id": "ra-osm573404543",
+     "name": "Via Ponte Marino",
+     "location": {
+      "lat": 44.41908,
+      "lon": 12.199888
+     }
+    },
+    {
+     "id": "ra-osm573405311",
+     "name": "Via di Roma",
+     "location": {
+      "lat": 44.417507,
+      "lon": 12.203822
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "ticket": {
+    "price": 15.0,
+    "howTo": "Day permit 15 € (0:00–23:59), or 8 € for the morning (0:00–11:59) or afternoon (12:00–23:59), from the grey «titanium» parking meters, 24 hours a day, for vehicles up to 5 t: coins (no change) or credit card. Buy it before you pass the camera and display it on the dashboard.",
+    "howTo_it": "Permesso giornaliero 15 € (0–23:59), o 8 € per la mattina (0–11:59) o il pomeriggio (12–23:59), ai parcometri grigi «titanium», 24 ore su 24, per veicoli fino a 5 t: monete (senza resto) o carta di credito. Compralo prima di passare dal varco ed esponilo sul cruscotto.",
+    "howTo_de": "Tagesgenehmigung 15 € (0–23:59) oder 8 € für den Vormittag (0–11:59) bzw. Nachmittag (12–23:59), an den grauen «Titanium»-Parkautomaten, rund um die Uhr, für Fahrzeuge bis 5 t: Münzen (ohne Wechselgeld) oder Kreditkarte. Vor der Kamera kaufen und aufs Armaturenbrett legen.",
+    "url": "https://www.azimut-spa.it/ita/Servizi/Sosta/Permessi-giornalieri-ZTL",
+    "deadline": "beforeEntry"
+   },
+   "source": {
+    "authority": "City of Ravenna",
+    "pageURL": "https://comune.ravenna.it/altro-contenuto/sirio-controllo-accessi-in-ztl/",
+    "ordinance": "Determinazione dirigenziale E 2/4 del 13/03/2006 (contrassegni ZTL); piano sosta e ZTL modificato dal 01/03/2026",
+    "ordinanceURL": "https://comune.ravenna.it/wp-content/uploads/2025/07/Determina-contrassegni-e-regolamentazione-accesso-e-sosta-ZTL.pdf",
+    "quote": "Attraverso una rete di telecamere, le targhe dei veicoli che accedono attraverso i “varchi” vengono riconosciute e confrontate con la lista delle targhe dei veicoli abilitati al transito",
+    "quoteTranslation": "Through a network of cameras, the plates of vehicles entering through the «gates» are recognised and checked against the list of plates of vehicles allowed through",
+    "quoteTranslation_de": "Über ein Kameranetz werden die Kennzeichen der Fahrzeuge, die durch die «Tore» einfahren, erkannt und mit der Liste der zugelassenen Kennzeichen abgeglichen",
+    "checkedOn": "2026-10-27T07:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Gate hours: Via di Roma, Via Guaccimanni, Via Baccarini, Via Rondinelli, Via Cavour (from Piazzetta Gandhi) and Via Ponte Marino 24 hours a day; Via Mariani, Via Guerrini and Via Matteucci only 7:30–20:30. GateLR uses 24 hours for the whole zone, to be safe.",
+     "Perimeter not official: the City publishes no map data, so GateLR draws the zone around the streets marked as ZTL in OpenStreetMap; the edge is approximate. Gates on the map are the OpenStreetMap cameras on the official gate streets; Via Rondinelli and Via Cavour (Piazzetta Gandhi) are missing.",
+     "Day permit 15 € (0:00–23:59), morning 8 € (0:00–11:59) or afternoon 8 € (12:00–23:59), from the grey «titanium» parking meters (coins without change or credit card), for vehicles up to 5 t. Display it on the dashboard; it allows parking in ZTL streets for up to 90 minutes with a parking disc, never in Piazza del Popolo or pedestrian areas.",
+     "Hotels inside the ZTL send your plate to the City's SIRIO system (it is entered on the day it is sent) and give you a day badge for the windscreen. Ask the hotel to confirm. Disabled badge holders register up to two plates with the City's form.",
+     "Electric and hybrid cars are not exempt (no exemption in the City's pages)."
+    ],
+    "pending_it": [
+     "Orari dei varchi: via di Roma, via Guaccimanni, via Baccarini, via Rondinelli, via Cavour (da piazzetta Gandhi) e via Ponte Marino 24 ore su 24; via Mariani, via Guerrini e via Matteucci solo 7:30–20:30. GateLR usa 0–24 per tutta la zona, per prudenza.",
+     "Perimetro non ufficiale: il Comune non pubblica dati geografici, quindi GateLR disegna la zona attorno alle strade segnate come ZTL in OpenStreetMap; il bordo è approssimato. I varchi sulla mappa sono le telecamere di OpenStreetMap sulle vie dei varchi ufficiali; mancano via Rondinelli e via Cavour (piazzetta Gandhi).",
+     "Permesso giornaliero 15 € (0–23:59), mattiniero 8 € (0–11:59) o pomeridiano 8 € (12–23:59), ai parcometri grigi «titanium» (monete senza resto o carta di credito), per veicoli fino a 5 t. Va esposto sul cruscotto; consente la sosta nelle vie della ZTL al massimo 90 minuti con disco orario, mai in Piazza del Popolo né nelle aree pedonali.",
+     "Gli alberghi dentro la ZTL comunicano la targa al sistema SIRIO del Comune (inserita alla data della comunicazione) e ti danno un contrassegno giornaliero da esporre. Chiedi conferma all'hotel. I titolari di contrassegno disabili registrano fino a due targhe con il modulo del Comune.",
+     "Auto elettriche e ibride non esenti (nessuna esenzione nelle pagine del Comune)."
+    ],
+    "pending_de": [
+     "Kamerazeiten: Via di Roma, Via Guaccimanni, Via Baccarini, Via Rondinelli, Via Cavour (von der Piazzetta Gandhi) und Via Ponte Marino rund um die Uhr; Via Mariani, Via Guerrini und Via Matteucci nur 7:30–20:30. GateLR verwendet sicherheitshalber 0–24 für die ganze Zone.",
+     "Grenze nicht offiziell: Die Stadt veröffentlicht keine Kartendaten, daher zeichnet GateLR die Zone um die in OpenStreetMap als ZTL markierten Straßen; der Rand ist ungefähr. Die Kameras auf der Karte sind die OpenStreetMap-Kameras an den offiziellen Torstraßen; Via Rondinelli und Via Cavour (Piazzetta Gandhi) fehlen.",
+     "Tagesgenehmigung 15 € (0–23:59), Vormittag 8 € (0–11:59) oder Nachmittag 8 € (12–23:59), an den grauen «Titanium»-Parkautomaten (Münzen ohne Wechselgeld oder Kreditkarte), für Fahrzeuge bis 5 t. Sichtbar aufs Armaturenbrett legen; erlaubt Parken in ZTL-Straßen bis 90 Minuten mit Parkscheibe, nie auf der Piazza del Popolo oder in Fußgängerzonen.",
+     "Hotels in der ZTL melden dein Kennzeichen dem SIRIO-System der Stadt (es wird am Tag der Meldung eingetragen) und geben dir einen Tagesausweis für die Windschutzscheibe. Lass es dir vom Hotel bestätigen. Inhaber eines Behindertenausweises melden bis zu zwei Kennzeichen mit dem Formular der Stadt.",
+     "Elektro- und Hybridautos sind nicht befreit (keine Ausnahme auf den Seiten der Stadt)."
+    ],
+    "links": [
+     {
+      "title": "City of Ravenna: SIRIO, ZTL gates and hours",
+      "title_it": "Comune di Ravenna: SIRIO, varchi e orari della ZTL",
+      "title_de": "Stadt Ravenna: SIRIO, ZTL-Kameras und Zeiten",
+      "url": "https://comune.ravenna.it/altro-contenuto/sirio-controllo-accessi-in-ztl/"
+     },
+     {
+      "title": "Azimut: day permits from parking meters (15 €, half day 8 €)",
+      "title_it": "Azimut: permessi giornalieri ai parcometri (15 €, mezza giornata 8 €)",
+      "title_de": "Azimut: Tagesgenehmigungen am Parkautomaten (15 €, halber Tag 8 €)",
+      "url": "https://www.azimut-spa.it/ita/Servizi/Sosta/Permessi-giornalieri-ZTL"
+     },
+     {
+      "title": "City of Ravenna: registering plates in the ZTL (hotels, disabled badge)",
+      "title_it": "Comune di Ravenna: comunicazione targhe in ZTL (strutture ricettive, disabili)",
+      "title_de": "Stadt Ravenna: Kennzeichenmeldung in der ZTL (Hotels, Behindertenausweis)",
+      "url": "https://comune.ravenna.it/servizi/autorizzazioni/comunicazione-targhe-di-veicoli-abilitati-a-circolare-in-zona-a-traffico-limitato-di-ravenna-sirio/"
+     },
+     {
+      "title": "City of Ravenna: parking and ZTL plan changes from 1 March 2026",
+      "title_it": "Comune di Ravenna: modifiche al piano sosta e ZTL dal 1° marzo 2026",
+      "title_de": "Stadt Ravenna: Änderungen bei Parken und ZTL ab 1. März 2026",
+      "url": "https://comune.ravenna.it/novita/comunicato-stampa/in-seguito-agli-incontri-pubblici-approvata-la-modifica-alla-delibera-del-piano-che-disciplina-circolazione-e-sosta-nel-comune-di-ravenna/"
+     },
+     {
+      "title": "City of Ravenna: form for disabled badge holders",
+      "title_it": "Comune di Ravenna: modulo targhe per persone invalide",
+      "title_de": "Stadt Ravenna: Formular für Inhaber eines Behindertenausweises",
+      "url": "https://comune.ravenna.it/amministrazione/documenti-e-dati/modulistica/modulo-comunicazione-targhe-persone-invalide-accesso-sirio-ztl/"
+     },
+     {
+      "title": "Ravenna Tourism: limited traffic zone",
+      "title_it": "Ravenna Turismo: zona a traffico limitato",
+      "title_de": "Ravenna Tourismus: verkehrsberuhigte Zone",
+      "url": "https://www.turismo.ra.it/en/getting-around-ravenna/limited-traffic-zone-ltz/"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Ravenna and Azimut official pages. Perimeter and gates: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}
