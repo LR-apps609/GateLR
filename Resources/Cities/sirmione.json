@@ -1,0 +1,448 @@
+{
+ "id": "sirmione",
+ "name": "Sirmione",
+ "name_it": "Sirmione",
+ "name_de": "Sirmione",
+ "center": {
+  "lat": 45.4935,
+  "lon": 10.6075
+ },
+ "zones": [
+  {
+   "id": "sirmione-ztl",
+   "name": "Sirmione · Old town ZTL",
+   "name_it": "Sirmione · ZTL centro storico",
+   "name_de": "Sirmione · ZTL Altstadt",
+   "kind": "restricted",
+   "summary": "The old town beyond the Scaliger Castle, up to the Grottoes of Catullus, is closed to all unauthorised vehicles at any hour, all year. The only entrance is the camera-controlled barrier at Largo Goethe by the castle. There is no ticket for visitors: park outside. If your hotel is inside, it registers your plate (two entries a day, with set hours).",
+   "summary_it": "Il centro storico oltre il Castello Scaligero, fino alle Grotte di Catullo, è chiuso a tutti i veicoli non autorizzati a ogni ora, tutto l'anno. L'unico ingresso è la sbarra con telecamera di largo Goethe, davanti al castello. Non c'è un ticket per i visitatori: parcheggia fuori. Se l'hotel è dentro, registra la tua targa (due accessi al giorno, con orari fissati).",
+   "summary_de": "Die Altstadt hinter der Skaligerburg bis zu den Grotten des Catull ist für alle nicht berechtigten Fahrzeuge jederzeit und das ganze Jahr gesperrt. Einzige Zufahrt ist die kameraüberwachte Schranke am Largo Goethe vor der Burg. Ein Ticket für Besucher gibt es nicht: außerhalb parken. Liegt dein Hotel innen, meldet es dein Kennzeichen (zwei Einfahrten pro Tag, zu festen Zeiten).",
+   "perimeter": [
+    {
+     "lat": 45.495262,
+     "lon": 10.608372
+    },
+    {
+     "lat": 45.49571,
+     "lon": 10.608451
+    },
+    {
+     "lat": 45.496372,
+     "lon": 10.608808
+    },
+    {
+     "lat": 45.497128,
+     "lon": 10.608805
+    },
+    {
+     "lat": 45.497224,
+     "lon": 10.608511
+    },
+    {
+     "lat": 45.497132,
+     "lon": 10.608257
+    },
+    {
+     "lat": 45.49785,
+     "lon": 10.607697
+    },
+    {
+     "lat": 45.497945,
+     "lon": 10.607745
+    },
+    {
+     "lat": 45.498403,
+     "lon": 10.607494
+    },
+    {
+     "lat": 45.499681,
+     "lon": 10.607552
+    },
+    {
+     "lat": 45.500926,
+     "lon": 10.608085
+    },
+    {
+     "lat": 45.502294,
+     "lon": 10.607337
+    },
+    {
+     "lat": 45.502524,
+     "lon": 10.607063
+    },
+    {
+     "lat": 45.502749,
+     "lon": 10.60645
+    },
+    {
+     "lat": 45.502758,
+     "lon": 10.606266
+    },
+    {
+     "lat": 45.502382,
+     "lon": 10.605683
+    },
+    {
+     "lat": 45.50135,
+     "lon": 10.605228
+    },
+    {
+     "lat": 45.501242,
+     "lon": 10.604972
+    },
+    {
+     "lat": 45.500998,
+     "lon": 10.604788
+    },
+    {
+     "lat": 45.500777,
+     "lon": 10.604295
+    },
+    {
+     "lat": 45.50049,
+     "lon": 10.603978
+    },
+    {
+     "lat": 45.500127,
+     "lon": 10.604142
+    },
+    {
+     "lat": 45.499884,
+     "lon": 10.603814
+    },
+    {
+     "lat": 45.499632,
+     "lon": 10.603927
+    },
+    {
+     "lat": 45.499563,
+     "lon": 10.603889
+    },
+    {
+     "lat": 45.499413,
+     "lon": 10.603701
+    },
+    {
+     "lat": 45.498815,
+     "lon": 10.60235
+    },
+    {
+     "lat": 45.498031,
+     "lon": 10.602217
+    },
+    {
+     "lat": 45.497875,
+     "lon": 10.601778
+    },
+    {
+     "lat": 45.497119,
+     "lon": 10.60103
+    },
+    {
+     "lat": 45.496823,
+     "lon": 10.600523
+    },
+    {
+     "lat": 45.496741,
+     "lon": 10.60054
+    },
+    {
+     "lat": 45.496201,
+     "lon": 10.601233
+    },
+    {
+     "lat": 45.49565,
+     "lon": 10.602442
+    },
+    {
+     "lat": 45.495136,
+     "lon": 10.603268
+    },
+    {
+     "lat": 45.495144,
+     "lon": 10.603468
+    },
+    {
+     "lat": 45.494253,
+     "lon": 10.604884
+    },
+    {
+     "lat": 45.494352,
+     "lon": 10.604943
+    },
+    {
+     "lat": 45.494309,
+     "lon": 10.60505
+    },
+    {
+     "lat": 45.494287,
+     "lon": 10.604991
+    },
+    {
+     "lat": 45.494219,
+     "lon": 10.605072
+    },
+    {
+     "lat": 45.494245,
+     "lon": 10.605251
+    },
+    {
+     "lat": 45.494181,
+     "lon": 10.605353
+    },
+    {
+     "lat": 45.493554,
+     "lon": 10.605789
+    },
+    {
+     "lat": 45.493579,
+     "lon": 10.605856
+    },
+    {
+     "lat": 45.493496,
+     "lon": 10.605697
+    },
+    {
+     "lat": 45.493442,
+     "lon": 10.605734
+    },
+    {
+     "lat": 45.493491,
+     "lon": 10.605904
+    },
+    {
+     "lat": 45.493327,
+     "lon": 10.605974
+    },
+    {
+     "lat": 45.49329,
+     "lon": 10.605852
+    },
+    {
+     "lat": 45.493129,
+     "lon": 10.60595
+    },
+    {
+     "lat": 45.493098,
+     "lon": 10.60584
+    },
+    {
+     "lat": 45.492968,
+     "lon": 10.60592
+    },
+    {
+     "lat": 45.492979,
+     "lon": 10.606185
+    },
+    {
+     "lat": 45.492875,
+     "lon": 10.606243
+    },
+    {
+     "lat": 45.492822,
+     "lon": 10.606084
+    },
+    {
+     "lat": 45.492706,
+     "lon": 10.606156
+    },
+    {
+     "lat": 45.492704,
+     "lon": 10.60629
+    },
+    {
+     "lat": 45.492666,
+     "lon": 10.606169
+    },
+    {
+     "lat": 45.492563,
+     "lon": 10.606226
+    },
+    {
+     "lat": 45.492593,
+     "lon": 10.606351
+    },
+    {
+     "lat": 45.492533,
+     "lon": 10.606395
+    },
+    {
+     "lat": 45.492495,
+     "lon": 10.606273
+    },
+    {
+     "lat": 45.492381,
+     "lon": 10.606339
+    },
+    {
+     "lat": 45.492424,
+     "lon": 10.606467
+    },
+    {
+     "lat": 45.49236,
+     "lon": 10.606512
+    },
+    {
+     "lat": 45.492382,
+     "lon": 10.606581
+    },
+    {
+     "lat": 45.491745,
+     "lon": 10.607133
+    },
+    {
+     "lat": 45.492007,
+     "lon": 10.608346
+    },
+    {
+     "lat": 45.492258,
+     "lon": 10.608103
+    },
+    {
+     "lat": 45.492278,
+     "lon": 10.608165
+    },
+    {
+     "lat": 45.492427,
+     "lon": 10.60801
+    },
+    {
+     "lat": 45.492481,
+     "lon": 10.608051
+    },
+    {
+     "lat": 45.492615,
+     "lon": 10.608579
+    },
+    {
+     "lat": 45.492611,
+     "lon": 10.609383
+    },
+    {
+     "lat": 45.492565,
+     "lon": 10.609421
+    },
+    {
+     "lat": 45.492794,
+     "lon": 10.609136
+    },
+    {
+     "lat": 45.493317,
+     "lon": 10.608759
+    },
+    {
+     "lat": 45.493561,
+     "lon": 10.608849
+    },
+    {
+     "lat": 45.494407,
+     "lon": 10.608381
+    },
+    {
+     "lat": 45.495262,
+     "lon": 10.608372
+    }
+   ],
+   "gates": [
+    {
+     "id": "sirmione-largo-goethe",
+     "name": "Varco · Largo Goethe / Via Marconi (castle)",
+     "location": {
+      "lat": 45.491537,
+      "lon": 10.608356
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Sirmione",
+    "pageURL": "https://www.comune.sirmione.bs.it/it/public_documents/regolamentazione-della-ztl",
+    "ordinance": "Ordinanza n. 30 del 06/03/2026 (Polizia Locale), allegato C",
+    "ordinanceURL": "https://www.comune.sirmione.bs.it/s3/6918/allegati/ordinanza-ztl-2026-n-30.pdf",
+    "quote": "È istituito il divieto, nella Z.T.L. come sopra definita, di circolazione dinamica e statica per tutte le categorie di veicoli non compresi e/o autorizzati ai sensi del predetto Disciplinare di Gestione della Z.T.L.",
+    "quoteTranslation": "In the ZTL defined above, driving and parking are prohibited for all categories of vehicles not included in and/or authorised under the said ZTL Management Rules.",
+    "quoteTranslation_de": "In der oben bestimmten ZTL ist das Fahren und Parken für alle Fahrzeugkategorien verboten, die nicht nach der genannten ZTL-Verwaltungsregelung erfasst und/oder zugelassen sind.",
+    "checkedOn": "2026-10-27T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotel guests («soggiornanti»): the hotel enters your plate in the City's portal before you arrive, and the barrier opens by itself. You get two entries a day. Annex C limits the hours: in the off-season (from 14 October) weekdays 0–24 and holidays 0–9 and 19–24; in summer (23 March–13 October 2026) weekdays 0–24, days before holidays 0–10, 12–14, 19–21, 22:30–24, holidays 0–10, 19–21, 22:30–24. GateLR does not model these windows: check with the hotel.",
+     "On the 31 pedestrian days of 2026 (April to September, 14:00–19:00) nobody may drive in or out, hotel guests included; only the Grifo Parking shuttle, emergency vehicles and residents leaving for emergencies. Hotels without their own parking send guests' cars to the Grifo Parking outside the centre (the City's car park service for hotel guests).",
+     "No ticket for visitors. A daily or temporary permit (e.g. guests of private homes: one access to unload luggage) is requested with the City's form at least 7 days before; it lasts at most 3 days. Fines 83–333 € (Highway Code art. 7 c. 14).",
+     "Perimeter: OpenStreetMap area «ZTL Sirmione» (the peninsula north of the castle moat), not an official map. The single camera gate is the barrier on Largo Goethe by Via Marconi, about 50 m before the castle bridge; Piazzale Porto is outside the ZTL but a «Welcome Point» barrier further south may stop unregistered cars.",
+     "The management rules (Annex A of ordinance 30/2026) are not published on the City's site; the deadline for hotels to register plates and the off-season dates for 2026–27 are therefore not confirmed. Electric cars are not exempt (only listed service vehicles with a special permit)."
+    ],
+    "pending_it": [
+     "Ospiti delle strutture («soggiornanti»): la struttura inserisce la targa nel portale del Comune prima dell'arrivo e la barriera si alza da sola. Due accessi al giorno. L'allegato C limita gli orari: fuori stagione (dal 14 ottobre) feriali 0–24, festivi 0–9 e 19–24; in estate (23 marzo–13 ottobre 2026) feriali 0–24, prefestivi 0–10, 12–14, 19–21, 22:30–24, festivi 0–10, 19–21, 22:30–24. GateLR non modella queste fasce: chiedi all'hotel.",
+     "Nelle 31 giornate di pedonalizzazione 2026 (da aprile a settembre, 14–19) nessuno può entrare né uscire in auto, ospiti degli hotel compresi; solo i veicoli Grifoparking, i soccorsi e i residenti in uscita per emergenze. Le strutture senza parcheggio mandano le auto degli ospiti al Grifo Parking fuori dal centro (servizio comunale di sosta per i clienti delle strutture ricettive).",
+     "Nessun ticket per i visitatori. Il permesso giornaliero o temporaneo (es. ospiti presso privati: un solo accesso per scaricare i bagagli) si chiede con il modulo del Comune almeno 7 giorni prima e dura al massimo 3 giorni. Multe da 83 a 333 € (art. 7 c. 14 del Codice della strada).",
+     "Perimetro: area OpenStreetMap «ZTL Sirmione» (la penisola a nord del fossato del castello), non una mappa ufficiale. L'unico varco è la sbarra su largo Goethe all'altezza di via Marconi, circa 50 m prima del ponte del castello; piazzale Porto è fuori dalla ZTL, ma il «Welcome Point» più a sud può fermare le auto non registrate.",
+     "Il disciplinare di gestione (allegato A dell'ordinanza 30/2026) non è pubblicato sul sito del Comune: non sono confermati il termine per la registrazione delle targhe da parte degli hotel né le date invernali 2026–27. Auto elettriche non esenti (solo veicoli di servizio elencati con permesso in deroga)."
+    ],
+    "pending_de": [
+     "Hotelgäste («soggiornanti»): Das Hotel trägt dein Kennzeichen vor der Ankunft im Portal der Gemeinde ein, die Schranke öffnet sich dann von selbst. Zwei Einfahrten pro Tag. Anlage C begrenzt die Zeiten: außerhalb der Saison (ab 14. Oktober) werktags 0–24, feiertags 0–9 und 19–24; im Sommer (23. März–13. Oktober 2026) werktags 0–24, vor Feiertagen 0–10, 12–14, 19–21, 22:30–24, feiertags 0–10, 19–21, 22:30–24. GateLR bildet diese Zeiten nicht ab: frag das Hotel.",
+     "An den 31 Fußgängertagen 2026 (April bis September, 14–19 Uhr) darf niemand ein- oder ausfahren, auch Hotelgäste nicht; nur Grifoparking-Fahrzeuge, Rettungsdienste und Anwohner in Notfällen. Hotels ohne eigene Parkplätze schicken die Autos der Gäste zum Grifo Parking außerhalb des Zentrums (städtischer Parkdienst für Hotelgäste).",
+     "Kein Ticket für Besucher. Eine Tages- oder Kurzzeitgenehmigung (z. B. Gäste in Privatunterkünften: eine Einfahrt zum Ausladen) wird mit dem Formular der Gemeinde mindestens 7 Tage vorher beantragt und gilt höchstens 3 Tage. Bußgelder 83–333 € (Art. 7 Abs. 14 StVO).",
+     "Grenze: OpenStreetMap-Fläche «ZTL Sirmione» (die Halbinsel nördlich des Burggrabens), keine offizielle Karte. Die einzige Kamera ist die Schranke am Largo Goethe bei der Via Marconi, etwa 50 m vor der Burgbrücke; der Piazzale Porto liegt außerhalb der ZTL, doch der «Welcome Point» weiter südlich kann nicht registrierte Autos stoppen.",
+     "Die Verwaltungsregeln (Anlage A der Verordnung 30/2026) sind auf der Website der Gemeinde nicht veröffentlicht; die Frist für die Kennzeichenmeldung durch Hotels und die Wintertermine 2026–27 sind daher nicht bestätigt. Elektroautos sind nicht befreit (nur aufgeführte Dienstfahrzeuge mit Sondergenehmigung)."
+    ],
+    "links": [
+     {
+      "title": "City of Sirmione: ZTL rules, permits and fines",
+      "title_it": "Comune di Sirmione: regolamentazione della ZTL, permessi e multe",
+      "title_de": "Gemeinde Sirmione: ZTL-Regeln, Genehmigungen und Bußgelder",
+      "url": "https://www.comune.sirmione.bs.it/it/public_documents/regolamentazione-della-ztl"
+     },
+     {
+      "title": "Ordinance 30/2026 (ZTL area and ban)",
+      "title_it": "Ordinanza 30/2026 (area e divieto della ZTL)",
+      "title_de": "Verordnung 30/2026 (ZTL-Gebiet und Verbot)",
+      "url": "https://www.comune.sirmione.bs.it/s3/6918/allegati/ordinanza-ztl-2026-n-30.pdf"
+     },
+     {
+      "title": "Annex C: hours by category, summer period and pedestrian days 2026",
+      "title_it": "Allegato C: orari per categoria, periodo estivo e giornate di pedonalizzazione 2026",
+      "title_de": "Anlage C: Zeiten je Kategorie, Sommerzeitraum und Fußgängertage 2026",
+      "url": "https://www.comune.sirmione.bs.it/s3/6918/allegati/allegato-c.pdf"
+     },
+     {
+      "title": "FAQ: Welcome Point barrier and plates registered by hotels",
+      "title_it": "FAQ: barriera del Welcome Point e targhe inserite dalle strutture",
+      "title_de": "FAQ: Schranke am Welcome Point und von Hotels gemeldete Kennzeichen",
+      "url": "https://municipium-images-production.s3-eu-west-1.amazonaws.com/s3/6918/allegati/ztl/faq-ztl-sperimentale.pdf"
+     },
+     {
+      "title": "Tourist season 2026: what changes",
+      "title_it": "Stagione turistica 2026: cosa cambia",
+      "title_de": "Tourismussaison 2026: was sich ändert",
+      "url": "https://www.comune.sirmione.bs.it/it/news/stagione-turistica-2026?type=1"
+     },
+     {
+      "title": "Form for daily or temporary permits (PDF)",
+      "title_it": "Modulo per permessi giornalieri o temporanei (PDF)",
+      "title_de": "Formular für Tages- oder Kurzzeitgenehmigungen (PDF)",
+      "url": "https://municipium-images-production.s3-eu-west-1.amazonaws.com/s3/6918/allegati/ztl/mod-05-permesso-giornaliero-e-temporaneo.pdf"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Sirmione official pages and ordinance 30/2026. Perimeter and gate: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

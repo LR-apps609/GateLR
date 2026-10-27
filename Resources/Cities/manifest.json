@@ -1,6 +1,6 @@
 {
- "version": "202610271040",
- "digest": "d4b2ac9c08b6",
+ "version": "202610271047",
+ "digest": "0f93b39a6f4c",
  "schema": 1,
  "cities": [
   {
@@ -132,6 +132,11 @@
    "id": "siracusa",
    "file": "siracusa.json",
    "sha256": "17dc9a7aadd4aca865d45926ec1ed9ca90ac90466f39f1bae0c6604240c80932"
+  },
+  {
+   "id": "sirmione",
+   "file": "sirmione.json",
+   "sha256": "013d9f17887cdbf31f5d2e2d3091ab2765dbf2c8bba7d12cb190a5af785082d3"
   },
   {
    "id": "sorrento",
