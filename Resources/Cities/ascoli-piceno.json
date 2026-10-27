@@ -1,0 +1,1838 @@
+{
+ "id": "ascoli-piceno",
+ "name": "Ascoli Piceno",
+ "name_it": "Ascoli Piceno",
+ "name_de": "Ascoli Piceno",
+ "center": {
+  "lat": 42.8542,
+  "lon": 13.5754
+ },
+ "zones": [
+  {
+   "id": "ap-ztl-ampia-est",
+   "name": "Corso Mazzini east · wide-hours ZTL",
+   "name_it": "Corso Mazzini est · ZTL a fascia ampia",
+   "name_de": "Corso Mazzini Ost · ZTL mit langen Zeiten",
+   "kind": "restricted",
+   "summary": "Palazzo Malaspina, Corso Mazzini (east end), Via Palestro, Via dei Centini Piccolomini. Limited traffic zone with cameras: closed without a permit 9:00–12:45 and 15:30–5:00 every day; open to everyone 5:00–9:00 and 12:45–15:30. The screen at each gate shows «ZTL Attiva» (red) or «ZTL non Attiva» (green).",
+   "summary_it": "Palazzo Malaspina, Corso Mazzini (tratto est), Via Palestro, Via dei Centini Piccolomini. ZTL con telecamere: vietata senza permesso 9:00–12:45 e 15:30–5:00 tutti i giorni; aperta a tutti 5:00–9:00 e 12:45–15:30. Il pannello al varco indica «ZTL Attiva» (rosso) o «ZTL non Attiva» (verde).",
+   "summary_de": "Palazzo Malaspina, Corso Mazzini (Ostteil), Via Palestro, Via dei Centini Piccolomini. ZTL mit Kameras: ohne Genehmigung täglich 9:00–12:45 und 15:30–5:00 Uhr gesperrt; frei für alle 5:00–9:00 und 12:45–15:30 Uhr. Die Anzeige am Varco zeigt «ZTL Attiva» (rot) oder «ZTL non Attiva» (grün).",
+   "perimeter": [
+    {
+     "lat": 42.854521,
+     "lon": 13.579321
+    },
+    {
+     "lat": 42.854623,
+     "lon": 13.578643
+    },
+    {
+     "lat": 42.855023,
+     "lon": 13.578565
+    },
+    {
+     "lat": 42.855099,
+     "lon": 13.578792
+    },
+    {
+     "lat": 42.855135,
+     "lon": 13.579177
+    },
+    {
+     "lat": 42.855537,
+     "lon": 13.579287
+    },
+    {
+     "lat": 42.855547,
+     "lon": 13.579743
+    },
+    {
+     "lat": 42.855491,
+     "lon": 13.579886
+    },
+    {
+     "lat": 42.85552,
+     "lon": 13.579932
+    },
+    {
+     "lat": 42.855694,
+     "lon": 13.579866
+    },
+    {
+     "lat": 42.855751,
+     "lon": 13.579913
+    },
+    {
+     "lat": 42.855773,
+     "lon": 13.58058
+    },
+    {
+     "lat": 42.856593,
+     "lon": 13.580605
+    },
+    {
+     "lat": 42.856627,
+     "lon": 13.580652
+    },
+    {
+     "lat": 42.856543,
+     "lon": 13.581494
+    },
+    {
+     "lat": 42.856311,
+     "lon": 13.582182
+    },
+    {
+     "lat": 42.856087,
+     "lon": 13.582438
+    },
+    {
+     "lat": 42.855822,
+     "lon": 13.582395
+    },
+    {
+     "lat": 42.85576,
+     "lon": 13.582436
+    },
+    {
+     "lat": 42.855554,
+     "lon": 13.582825
+    },
+    {
+     "lat": 42.855123,
+     "lon": 13.584019
+    },
+    {
+     "lat": 42.854939,
+     "lon": 13.584321
+    },
+    {
+     "lat": 42.854759,
+     "lon": 13.584442
+    },
+    {
+     "lat": 42.854651,
+     "lon": 13.584381
+    },
+    {
+     "lat": 42.854495,
+     "lon": 13.583912
+    },
+    {
+     "lat": 42.854427,
+     "lon": 13.583906
+    },
+    {
+     "lat": 42.854353,
+     "lon": 13.583797
+    },
+    {
+     "lat": 42.854285,
+     "lon": 13.583814
+    },
+    {
+     "lat": 42.854241,
+     "lon": 13.583901
+    },
+    {
+     "lat": 42.854038,
+     "lon": 13.583921
+    },
+    {
+     "lat": 42.854003,
+     "lon": 13.583795
+    },
+    {
+     "lat": 42.85398,
+     "lon": 13.583025
+    },
+    {
+     "lat": 42.854166,
+     "lon": 13.582967
+    },
+    {
+     "lat": 42.854268,
+     "lon": 13.583044
+    },
+    {
+     "lat": 42.854284,
+     "lon": 13.582957
+    },
+    {
+     "lat": 42.854254,
+     "lon": 13.582745
+    },
+    {
+     "lat": 42.854142,
+     "lon": 13.582865
+    },
+    {
+     "lat": 42.854007,
+     "lon": 13.582891
+    },
+    {
+     "lat": 42.853961,
+     "lon": 13.582813
+    },
+    {
+     "lat": 42.85382,
+     "lon": 13.579286
+    },
+    {
+     "lat": 42.853859,
+     "lon": 13.579215
+    },
+    {
+     "lat": 42.854359,
+     "lon": 13.579497
+    },
+    {
+     "lat": 42.85444,
+     "lon": 13.579739
+    },
+    {
+     "lat": 42.854507,
+     "lon": 13.579738
+    },
+    {
+     "lat": 42.854631,
+     "lon": 13.579618
+    },
+    {
+     "lat": 42.854607,
+     "lon": 13.579524
+    },
+    {
+     "lat": 42.854505,
+     "lon": 13.579502
+    },
+    {
+     "lat": 42.854521,
+     "lon": 13.579321
+    }
+   ],
+   "gates": [
+    {
+     "id": "ap-varco-carmine",
+     "name": "Varco Carmine · Corso Mazzini / Rua dell'Orso",
+     "location": {
+      "lat": 42.854263,
+      "lon": 13.583962
+     }
+    },
+    {
+     "id": "ap-varco-mercantini",
+     "name": "Varco Mercantini · Via Mercantini / Via Palestro",
+     "location": {
+      "lat": 42.854486,
+      "lon": 13.579566
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 540,
+     "end": 765
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 930,
+     "end": 300
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Ascoli Piceno",
+    "pageURL": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11478",
+    "ordinance": "Deliberazione di Giunta n. 37/2023 (regolamento ZTL e APU) e ordinanza dirigenziale n. 220/2023",
+    "ordinanceURL": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Ff%252Fa%252FD.a499f86397016cc5843e/P/BLOB%3AID%3D11478/E/pdf?mode=download",
+    "quote": "Per le zone a traffico limitato esistenti, perimetrate con Deliberazione n. 123/2015 e successiva modifica con Deliberazione n. 37/2023 il transito veicolare è limitato ai soli autorizzati dalle ore 9:00 alle ore 12:45 e dalle ore 15:30 alle ore 05:00",
+    "quoteTranslation": "For the existing limited traffic zones, defined by resolution 123/2015 as amended by resolution 37/2023, traffic is limited to authorised vehicles only from 9:00 to 12:45 and from 15:30 to 05:00",
+    "quoteTranslation_de": "In den bestehenden verkehrsberuhigten Zonen, festgelegt mit Beschluss 123/2015 und geändert mit Beschluss 37/2023, ist die Durchfahrt von 9:00 bis 12:45 und von 15:30 bis 05:00 Uhr nur Berechtigten erlaubt",
+    "checkedOn": "2026-10-27T16:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Not drawn: resolution 37/2023 also lists as wide-hours ZTL some streets that the official gate map leaves uncoloured and no camera watches, mainly south of Piazza Arringo (Piazza San Gregorio, Via dei Marsi, Via di Vesta, Via Capitolina, Via della Piazzarola and nearby rue) and a few near Porta Solestà (Rua della Musica, Rua dei Salvioni). The same hours apply there and the police can fine, but GateLR does not show them.",
+     "Holidays: resolution 194/2024 planned to extend the existing gates to the whole of Sundays and holidays, but the only ordinance found applies this to the Via XX Settembre gate (ordinance 630/2025); the City's ZTL page (2026) still gives these hours every day. Ordinance 775/2024, which put resolution 194/2024 into effect, is not published online.",
+     "Hotels: a guest of a hotel inside the ZTL gives the plate to the hotel, which has it added to the authorised list (City page). The 2023 rules say the hotel sends the list to the Local Police within 48 hours; without private parking you may only stop 30 minutes to unload, with a parking disc and a copy of the hotel's notice on the windscreen.",
+     "Motorcycles and mopeds may always enter the ZTLs (not the pedestrian areas). Vehicles over 3.5 t are banned 0–24. Pure electric cars need a Local Police permit. Disabled badge holders from other towns send the form to varchi@comune.ap.it before or within 48 hours of entering. There is no visitor ticket.",
+     "Perimeter traced automatically from the City's official gate map (March 2026), georeferenced on OpenStreetMap buildings (accurate to about 5–10 m) and checked against the street lists of resolution 37/2023 and of the City's gate page. Piazza del Popolo, Piazza Arringo and the streets around them are pedestrian areas, closed to cars at all times."
+    ],
+    "pending_it": [
+     "Non disegnate: la delibera 37/2023 elenca come ZTL a fascia ampia anche vie che la mappa ufficiale dei varchi non colora e che nessuna telecamera controlla, soprattutto a sud di piazza Arringo (piazza San Gregorio, via dei Marsi, via di Vesta, via Capitolina, via della Piazzarola e rue vicine) e alcune vicino a Porta Solestà (rua della Musica, rua dei Salvioni). Valgono gli stessi orari e la Polizia Locale può multare, ma GateLR non le mostra.",
+     "Festivi: la delibera 194/2024 prevedeva di estendere i varchi esistenti all'intera giornata festiva, ma l'unica ordinanza trovata lo applica al varco di via XX Settembre (ord. 630/2025); la pagina ZTL del Comune (2026) dà ancora questi orari tutti i giorni. L'ordinanza 775/2024 che attua la delibera 194/2024 non è pubblicata online.",
+     "Alberghi: chi alloggia in una struttura dentro la ZTL comunica la targa alla struttura, che la fa inserire nella lista degli autorizzati (pagina del Comune). Il regolamento 2023 dice che la struttura invia l'elenco alla Polizia Locale entro 48 ore; senza parcheggio privato si sosta al massimo 30 minuti per i bagagli, con disco orario e copia della comunicazione sul parabrezza.",
+     "Moto e ciclomotori entrano sempre nelle ZTL (non nelle APU). Veicoli oltre 3,5 t vietati 0–24. Le auto elettriche «pure» hanno bisogno dell'autorizzazione della Polizia Locale. I disabili con contrassegno di altri Comuni mandano il modulo a varchi@comune.ap.it prima del transito o entro 48 ore. Non c'è un permesso per i visitatori.",
+     "Perimetro ricavato in automatico dalla mappa ufficiale dei varchi del Comune (marzo 2026), agganciata ai fabbricati di OpenStreetMap (precisione di circa 5–10 m) e controllato con gli elenchi delle vie della delibera 37/2023 e della pagina dei varchi. Piazza del Popolo, piazza Arringo e le vie intorno sono APU, chiuse alle auto sempre."
+    ],
+    "pending_de": [
+     "Nicht eingezeichnet: Beschluss 37/2023 nennt als ZTL mit langen Zeiten auch Straßen, die die offizielle Kamerakarte nicht färbt und keine Kamera überwacht, vor allem südlich der Piazza Arringo (Piazza San Gregorio, Via dei Marsi, Via di Vesta, Via Capitolina, Via della Piazzarola und Gassen ringsum) und einige bei der Porta Solestà (Rua della Musica, Rua dei Salvioni). Dort gelten dieselben Zeiten und die Polizei kann Bußgelder verhängen, GateLR zeigt sie aber nicht.",
+     "Feiertage: Beschluss 194/2024 sah vor, die bestehenden Kameras an Sonn- und Feiertagen ganztägig zu aktivieren; die einzige gefundene Verordnung wendet das nur auf die Kamera Via XX Settembre an (Verordnung 630/2025); die ZTL-Seite der Stadt (2026) nennt weiterhin diese Zeiten für alle Tage. Verordnung 775/2024 zur Umsetzung von Beschluss 194/2024 ist nicht online.",
+     "Hotels: Gäste eines Hotels in der ZTL geben das Kennzeichen dem Hotel, das es in die Liste der Berechtigten eintragen lässt (Seite der Stadt). Laut Regeln von 2023 schickt das Hotel die Liste innerhalb von 48 Stunden an die Ortspolizei; ohne eigenen Parkplatz höchstens 30 Minuten zum Ausladen, mit Parkscheibe und Kopie der Meldung hinter der Windschutzscheibe.",
+     "Motorräder und Mopeds dürfen immer in die ZTL (nicht in die Fußgängerzonen). Fahrzeuge über 3,5 t sind rund um die Uhr verboten. Reine Elektroautos brauchen eine Genehmigung der Ortspolizei. Inhaber eines Behindertenausweises anderer Gemeinden schicken das Formular vor der Einfahrt oder binnen 48 Stunden an varchi@comune.ap.it. Ein Besucherticket gibt es nicht.",
+     "Grenze automatisch aus der offiziellen Kamerakarte der Stadt (März 2026) abgeleitet, an OpenStreetMap-Gebäuden ausgerichtet (Genauigkeit etwa 5–10 m) und mit den Straßenlisten des Beschlusses 37/2023 und der Kameraseite geprüft. Piazza del Popolo, Piazza Arringo und die Straßen ringsum sind Fußgängerzonen, für Autos immer gesperrt."
+    ],
+    "links": [
+     {
+      "title": "City of Ascoli Piceno: ZTL and gates (hours, gates, hotels, disabled badge holders)",
+      "title_it": "Comune di Ascoli Piceno: ZTL e varchi (orari, varchi, alberghi, disabili)",
+      "title_de": "Stadt Ascoli Piceno: ZTL und Kameras (Zeiten, Kameras, Hotels, Behindertenausweis)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11478"
+     },
+     {
+      "title": "Ordinance 713 of 30/10/2025: reduced-hours ZTL weekdays 8:30 pm–5 am, holidays all day (experimental, from 3/11/2025)",
+      "title_it": "Ordinanza 713 del 30/10/2025: ZTL a fascia ridotta feriali 20:30–5, festivi 0–24 (sperimentale, dal 3/11/2025)",
+      "title_de": "Verordnung 713 vom 30.10.2025: ZTL mit verkürzten Zeiten werktags 20:30–5 Uhr, Feiertage ganztägig (Versuch, ab 3.11.2025)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/26886"
+     },
+     {
+      "title": "Official map of the ZTLs, pedestrian areas and gates (March 2026, PDF)",
+      "title_it": "Mappa ufficiale di ZTL, APU e varchi (marzo 2026, PDF)",
+      "title_de": "Offizielle Karte der ZTL, Fußgängerzonen und Kameras (März 2026, PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F0%252F3%252FD.f10a4b76c1cd77460c83/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     },
+     {
+      "title": "Council resolution 37/2023: ZTL and pedestrian-area rules with the street lists (PDF)",
+      "title_it": "Delibera di Giunta 37/2023: regolamento ZTL e APU con gli elenchi delle vie (PDF)",
+      "title_de": "Stadtratsbeschluss 37/2023: ZTL- und Fußgängerzonenregeln mit Straßenlisten (PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Ff%252Fa%252FD.a499f86397016cc5843e/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     },
+     {
+      "title": "Council resolution 194/2024: ZTL extension with three new gates (PDF)",
+      "title_it": "Delibera di Giunta 194/2024: ampliamento della ZTL con tre nuovi varchi (PDF)",
+      "title_de": "Stadtratsbeschluss 194/2024: Erweiterung der ZTL mit drei neuen Kameras (PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fb%252Fa%252FD.06909d20f5f0f509415c/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ap-ztl-ampia-nord",
+   "name": "Canterine · wide-hours ZTL",
+   "name_it": "Canterine · ZTL a fascia ampia",
+   "name_de": "Canterine · ZTL mit langen Zeiten",
+   "kind": "restricted",
+   "summary": "Via delle Canterine, Via dei Tessitori, Via Francesco Crispi. Limited traffic zone with cameras: closed without a permit 9:00–12:45 and 15:30–5:00 every day; open to everyone 5:00–9:00 and 12:45–15:30. The screen at each gate shows «ZTL Attiva» (red) or «ZTL non Attiva» (green).",
+   "summary_it": "Via delle Canterine, Via dei Tessitori, Via Francesco Crispi. ZTL con telecamere: vietata senza permesso 9:00–12:45 e 15:30–5:00 tutti i giorni; aperta a tutti 5:00–9:00 e 12:45–15:30. Il pannello al varco indica «ZTL Attiva» (rosso) o «ZTL non Attiva» (verde).",
+   "summary_de": "Via delle Canterine, Via dei Tessitori, Via Francesco Crispi. ZTL mit Kameras: ohne Genehmigung täglich 9:00–12:45 und 15:30–5:00 Uhr gesperrt; frei für alle 5:00–9:00 und 12:45–15:30 Uhr. Die Anzeige am Varco zeigt «ZTL Attiva» (rot) oder «ZTL non Attiva» (grün).",
+   "perimeter": [
+    {
+     "lat": 42.856372,
+     "lon": 13.57627
+    },
+    {
+     "lat": 42.856643,
+     "lon": 13.576226
+    },
+    {
+     "lat": 42.856659,
+     "lon": 13.576846
+    },
+    {
+     "lat": 42.856725,
+     "lon": 13.577364
+    },
+    {
+     "lat": 42.856715,
+     "lon": 13.577451
+    },
+    {
+     "lat": 42.856642,
+     "lon": 13.577507
+    },
+    {
+     "lat": 42.856631,
+     "lon": 13.577633
+    },
+    {
+     "lat": 42.856733,
+     "lon": 13.577702
+    },
+    {
+     "lat": 42.856762,
+     "lon": 13.577788
+    },
+    {
+     "lat": 42.856764,
+     "lon": 13.578653
+    },
+    {
+     "lat": 42.856386,
+     "lon": 13.578746
+    },
+    {
+     "lat": 42.855127,
+     "lon": 13.57876
+    },
+    {
+     "lat": 42.855105,
+     "lon": 13.57814
+    },
+    {
+     "lat": 42.855194,
+     "lon": 13.578052
+    },
+    {
+     "lat": 42.855188,
+     "lon": 13.577902
+    },
+    {
+     "lat": 42.855425,
+     "lon": 13.57789
+    },
+    {
+     "lat": 42.855437,
+     "lon": 13.577371
+    },
+    {
+     "lat": 42.855488,
+     "lon": 13.577315
+    },
+    {
+     "lat": 42.855407,
+     "lon": 13.577089
+    },
+    {
+     "lat": 42.855142,
+     "lon": 13.577101
+    },
+    {
+     "lat": 42.855147,
+     "lon": 13.57703
+    },
+    {
+     "lat": 42.855225,
+     "lon": 13.576982
+    },
+    {
+     "lat": 42.855128,
+     "lon": 13.576842
+    },
+    {
+     "lat": 42.855147,
+     "lon": 13.57637
+    },
+    {
+     "lat": 42.856141,
+     "lon": 13.576337
+    },
+    {
+     "lat": 42.856372,
+     "lon": 13.57627
+    }
+   ],
+   "gates": [
+    {
+     "id": "ap-varco-afranio",
+     "name": "Varco Afranio · Via Tito Afranio / Corso Mazzini",
+     "location": {
+      "lat": 42.855095,
+      "lon": 13.578015
+     }
+    },
+    {
+     "id": "ap-varco-tessitori",
+     "name": "Varco Tessitori · Via dei Tessitori / Lungotronto",
+     "location": {
+      "lat": 42.856823,
+      "lon": 13.57752
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 540,
+     "end": 765
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 930,
+     "end": 300
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Ascoli Piceno",
+    "pageURL": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11478",
+    "ordinance": "Deliberazione di Giunta n. 37/2023 (regolamento ZTL e APU) e ordinanza dirigenziale n. 220/2023",
+    "ordinanceURL": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Ff%252Fa%252FD.a499f86397016cc5843e/P/BLOB%3AID%3D11478/E/pdf?mode=download",
+    "quote": "Per le zone a traffico limitato esistenti, perimetrate con Deliberazione n. 123/2015 e successiva modifica con Deliberazione n. 37/2023 il transito veicolare è limitato ai soli autorizzati dalle ore 9:00 alle ore 12:45 e dalle ore 15:30 alle ore 05:00",
+    "quoteTranslation": "For the existing limited traffic zones, defined by resolution 123/2015 as amended by resolution 37/2023, traffic is limited to authorised vehicles only from 9:00 to 12:45 and from 15:30 to 05:00",
+    "quoteTranslation_de": "In den bestehenden verkehrsberuhigten Zonen, festgelegt mit Beschluss 123/2015 und geändert mit Beschluss 37/2023, ist die Durchfahrt von 9:00 bis 12:45 und von 15:30 bis 05:00 Uhr nur Berechtigten erlaubt",
+    "checkedOn": "2026-10-27T16:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Not drawn: resolution 37/2023 also lists as wide-hours ZTL some streets that the official gate map leaves uncoloured and no camera watches, mainly south of Piazza Arringo (Piazza San Gregorio, Via dei Marsi, Via di Vesta, Via Capitolina, Via della Piazzarola and nearby rue) and a few near Porta Solestà (Rua della Musica, Rua dei Salvioni). The same hours apply there and the police can fine, but GateLR does not show them.",
+     "Holidays: resolution 194/2024 planned to extend the existing gates to the whole of Sundays and holidays, but the only ordinance found applies this to the Via XX Settembre gate (ordinance 630/2025); the City's ZTL page (2026) still gives these hours every day. Ordinance 775/2024, which put resolution 194/2024 into effect, is not published online.",
+     "Hotels: a guest of a hotel inside the ZTL gives the plate to the hotel, which has it added to the authorised list (City page). The 2023 rules say the hotel sends the list to the Local Police within 48 hours; without private parking you may only stop 30 minutes to unload, with a parking disc and a copy of the hotel's notice on the windscreen.",
+     "Motorcycles and mopeds may always enter the ZTLs (not the pedestrian areas). Vehicles over 3.5 t are banned 0–24. Pure electric cars need a Local Police permit. Disabled badge holders from other towns send the form to varchi@comune.ap.it before or within 48 hours of entering. There is no visitor ticket.",
+     "Perimeter traced automatically from the City's official gate map (March 2026), georeferenced on OpenStreetMap buildings (accurate to about 5–10 m) and checked against the street lists of resolution 37/2023 and of the City's gate page. Piazza del Popolo, Piazza Arringo and the streets around them are pedestrian areas, closed to cars at all times."
+    ],
+    "pending_it": [
+     "Non disegnate: la delibera 37/2023 elenca come ZTL a fascia ampia anche vie che la mappa ufficiale dei varchi non colora e che nessuna telecamera controlla, soprattutto a sud di piazza Arringo (piazza San Gregorio, via dei Marsi, via di Vesta, via Capitolina, via della Piazzarola e rue vicine) e alcune vicino a Porta Solestà (rua della Musica, rua dei Salvioni). Valgono gli stessi orari e la Polizia Locale può multare, ma GateLR non le mostra.",
+     "Festivi: la delibera 194/2024 prevedeva di estendere i varchi esistenti all'intera giornata festiva, ma l'unica ordinanza trovata lo applica al varco di via XX Settembre (ord. 630/2025); la pagina ZTL del Comune (2026) dà ancora questi orari tutti i giorni. L'ordinanza 775/2024 che attua la delibera 194/2024 non è pubblicata online.",
+     "Alberghi: chi alloggia in una struttura dentro la ZTL comunica la targa alla struttura, che la fa inserire nella lista degli autorizzati (pagina del Comune). Il regolamento 2023 dice che la struttura invia l'elenco alla Polizia Locale entro 48 ore; senza parcheggio privato si sosta al massimo 30 minuti per i bagagli, con disco orario e copia della comunicazione sul parabrezza.",
+     "Moto e ciclomotori entrano sempre nelle ZTL (non nelle APU). Veicoli oltre 3,5 t vietati 0–24. Le auto elettriche «pure» hanno bisogno dell'autorizzazione della Polizia Locale. I disabili con contrassegno di altri Comuni mandano il modulo a varchi@comune.ap.it prima del transito o entro 48 ore. Non c'è un permesso per i visitatori.",
+     "Perimetro ricavato in automatico dalla mappa ufficiale dei varchi del Comune (marzo 2026), agganciata ai fabbricati di OpenStreetMap (precisione di circa 5–10 m) e controllato con gli elenchi delle vie della delibera 37/2023 e della pagina dei varchi. Piazza del Popolo, piazza Arringo e le vie intorno sono APU, chiuse alle auto sempre."
+    ],
+    "pending_de": [
+     "Nicht eingezeichnet: Beschluss 37/2023 nennt als ZTL mit langen Zeiten auch Straßen, die die offizielle Kamerakarte nicht färbt und keine Kamera überwacht, vor allem südlich der Piazza Arringo (Piazza San Gregorio, Via dei Marsi, Via di Vesta, Via Capitolina, Via della Piazzarola und Gassen ringsum) und einige bei der Porta Solestà (Rua della Musica, Rua dei Salvioni). Dort gelten dieselben Zeiten und die Polizei kann Bußgelder verhängen, GateLR zeigt sie aber nicht.",
+     "Feiertage: Beschluss 194/2024 sah vor, die bestehenden Kameras an Sonn- und Feiertagen ganztägig zu aktivieren; die einzige gefundene Verordnung wendet das nur auf die Kamera Via XX Settembre an (Verordnung 630/2025); die ZTL-Seite der Stadt (2026) nennt weiterhin diese Zeiten für alle Tage. Verordnung 775/2024 zur Umsetzung von Beschluss 194/2024 ist nicht online.",
+     "Hotels: Gäste eines Hotels in der ZTL geben das Kennzeichen dem Hotel, das es in die Liste der Berechtigten eintragen lässt (Seite der Stadt). Laut Regeln von 2023 schickt das Hotel die Liste innerhalb von 48 Stunden an die Ortspolizei; ohne eigenen Parkplatz höchstens 30 Minuten zum Ausladen, mit Parkscheibe und Kopie der Meldung hinter der Windschutzscheibe.",
+     "Motorräder und Mopeds dürfen immer in die ZTL (nicht in die Fußgängerzonen). Fahrzeuge über 3,5 t sind rund um die Uhr verboten. Reine Elektroautos brauchen eine Genehmigung der Ortspolizei. Inhaber eines Behindertenausweises anderer Gemeinden schicken das Formular vor der Einfahrt oder binnen 48 Stunden an varchi@comune.ap.it. Ein Besucherticket gibt es nicht.",
+     "Grenze automatisch aus der offiziellen Kamerakarte der Stadt (März 2026) abgeleitet, an OpenStreetMap-Gebäuden ausgerichtet (Genauigkeit etwa 5–10 m) und mit den Straßenlisten des Beschlusses 37/2023 und der Kameraseite geprüft. Piazza del Popolo, Piazza Arringo und die Straßen ringsum sind Fußgängerzonen, für Autos immer gesperrt."
+    ],
+    "links": [
+     {
+      "title": "City of Ascoli Piceno: ZTL and gates (hours, gates, hotels, disabled badge holders)",
+      "title_it": "Comune di Ascoli Piceno: ZTL e varchi (orari, varchi, alberghi, disabili)",
+      "title_de": "Stadt Ascoli Piceno: ZTL und Kameras (Zeiten, Kameras, Hotels, Behindertenausweis)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11478"
+     },
+     {
+      "title": "Ordinance 713 of 30/10/2025: reduced-hours ZTL weekdays 8:30 pm–5 am, holidays all day (experimental, from 3/11/2025)",
+      "title_it": "Ordinanza 713 del 30/10/2025: ZTL a fascia ridotta feriali 20:30–5, festivi 0–24 (sperimentale, dal 3/11/2025)",
+      "title_de": "Verordnung 713 vom 30.10.2025: ZTL mit verkürzten Zeiten werktags 20:30–5 Uhr, Feiertage ganztägig (Versuch, ab 3.11.2025)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/26886"
+     },
+     {
+      "title": "Official map of the ZTLs, pedestrian areas and gates (March 2026, PDF)",
+      "title_it": "Mappa ufficiale di ZTL, APU e varchi (marzo 2026, PDF)",
+      "title_de": "Offizielle Karte der ZTL, Fußgängerzonen und Kameras (März 2026, PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F0%252F3%252FD.f10a4b76c1cd77460c83/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     },
+     {
+      "title": "Council resolution 37/2023: ZTL and pedestrian-area rules with the street lists (PDF)",
+      "title_it": "Delibera di Giunta 37/2023: regolamento ZTL e APU con gli elenchi delle vie (PDF)",
+      "title_de": "Stadtratsbeschluss 37/2023: ZTL- und Fußgängerzonenregeln mit Straßenlisten (PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Ff%252Fa%252FD.a499f86397016cc5843e/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     },
+     {
+      "title": "Council resolution 194/2024: ZTL extension with three new gates (PDF)",
+      "title_it": "Delibera di Giunta 194/2024: ampliamento della ZTL con tre nuovi varchi (PDF)",
+      "title_de": "Stadtratsbeschluss 194/2024: Erweiterung der ZTL mit drei neuen Kameras (PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fb%252Fa%252FD.06909d20f5f0f509415c/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ap-ztl-ampia-ovest",
+   "name": "Vidacilio · wide-hours ZTL",
+   "name_it": "Vidacilio · ZTL a fascia ampia",
+   "name_de": "Vidacilio · ZTL mit langen Zeiten",
+   "kind": "restricted",
+   "summary": "Via Vidacilio, Via Antonio Ceci, Via Benedetto Cairoli. Limited traffic zone with cameras: closed without a permit 9:00–12:45 and 15:30–5:00 every day; open to everyone 5:00–9:00 and 12:45–15:30. The screen at each gate shows «ZTL Attiva» (red) or «ZTL non Attiva» (green).",
+   "summary_it": "Via Vidacilio, Via Antonio Ceci, Via Benedetto Cairoli. ZTL con telecamere: vietata senza permesso 9:00–12:45 e 15:30–5:00 tutti i giorni; aperta a tutti 5:00–9:00 e 12:45–15:30. Il pannello al varco indica «ZTL Attiva» (rosso) o «ZTL non Attiva» (verde).",
+   "summary_de": "Via Vidacilio, Via Antonio Ceci, Via Benedetto Cairoli. ZTL mit Kameras: ohne Genehmigung täglich 9:00–12:45 und 15:30–5:00 Uhr gesperrt; frei für alle 5:00–9:00 und 12:45–15:30 Uhr. Die Anzeige am Varco zeigt «ZTL Attiva» (rot) oder «ZTL non Attiva» (grün).",
+   "perimeter": [
+    {
+     "lat": 42.857001,
+     "lon": 13.574364
+    },
+    {
+     "lat": 42.85707,
+     "lon": 13.57452
+    },
+    {
+     "lat": 42.857009,
+     "lon": 13.574734
+    },
+    {
+     "lat": 42.856931,
+     "lon": 13.574829
+    },
+    {
+     "lat": 42.856983,
+     "lon": 13.575033
+    },
+    {
+     "lat": 42.856903,
+     "lon": 13.575514
+    },
+    {
+     "lat": 42.856773,
+     "lon": 13.57561
+    },
+    {
+     "lat": 42.856753,
+     "lon": 13.575941
+    },
+    {
+     "lat": 42.856635,
+     "lon": 13.575974
+    },
+    {
+     "lat": 42.856437,
+     "lon": 13.575899
+    },
+    {
+     "lat": 42.856388,
+     "lon": 13.576112
+    },
+    {
+     "lat": 42.856004,
+     "lon": 13.576135
+    },
+    {
+     "lat": 42.855943,
+     "lon": 13.574847
+    },
+    {
+     "lat": 42.856044,
+     "lon": 13.574845
+    },
+    {
+     "lat": 42.856089,
+     "lon": 13.574773
+    },
+    {
+     "lat": 42.856025,
+     "lon": 13.573815
+    },
+    {
+     "lat": 42.855991,
+     "lon": 13.573753
+    },
+    {
+     "lat": 42.855742,
+     "lon": 13.573758
+    },
+    {
+     "lat": 42.855127,
+     "lon": 13.573855
+    },
+    {
+     "lat": 42.855078,
+     "lon": 13.573353
+    },
+    {
+     "lat": 42.8551,
+     "lon": 13.573305
+    },
+    {
+     "lat": 42.855281,
+     "lon": 13.57327
+    },
+    {
+     "lat": 42.855313,
+     "lon": 13.573003
+    },
+    {
+     "lat": 42.856216,
+     "lon": 13.573018
+    },
+    {
+     "lat": 42.856258,
+     "lon": 13.57323
+    },
+    {
+     "lat": 42.856245,
+     "lon": 13.573843
+    },
+    {
+     "lat": 42.856308,
+     "lon": 13.573858
+    },
+    {
+     "lat": 42.856408,
+     "lon": 13.573699
+    },
+    {
+     "lat": 42.85697,
+     "lon": 13.574011
+    },
+    {
+     "lat": 42.85697,
+     "lon": 13.57409
+    },
+    {
+     "lat": 42.85714,
+     "lon": 13.574118
+    },
+    {
+     "lat": 42.857001,
+     "lon": 13.574364
+    }
+   ],
+   "gates": [
+    {
+     "id": "ap-varco-cairoli",
+     "name": "Varco Cairoli · Via Cairoli / Via Marucci",
+     "location": {
+      "lat": 42.8571,
+      "lon": 13.573845
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 540,
+     "end": 765
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 930,
+     "end": 300
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Ascoli Piceno",
+    "pageURL": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11478",
+    "ordinance": "Deliberazione di Giunta n. 37/2023 (regolamento ZTL e APU) e ordinanza dirigenziale n. 220/2023",
+    "ordinanceURL": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Ff%252Fa%252FD.a499f86397016cc5843e/P/BLOB%3AID%3D11478/E/pdf?mode=download",
+    "quote": "Per le zone a traffico limitato esistenti, perimetrate con Deliberazione n. 123/2015 e successiva modifica con Deliberazione n. 37/2023 il transito veicolare è limitato ai soli autorizzati dalle ore 9:00 alle ore 12:45 e dalle ore 15:30 alle ore 05:00",
+    "quoteTranslation": "For the existing limited traffic zones, defined by resolution 123/2015 as amended by resolution 37/2023, traffic is limited to authorised vehicles only from 9:00 to 12:45 and from 15:30 to 05:00",
+    "quoteTranslation_de": "In den bestehenden verkehrsberuhigten Zonen, festgelegt mit Beschluss 123/2015 und geändert mit Beschluss 37/2023, ist die Durchfahrt von 9:00 bis 12:45 und von 15:30 bis 05:00 Uhr nur Berechtigten erlaubt",
+    "checkedOn": "2026-10-27T16:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Not drawn: resolution 37/2023 also lists as wide-hours ZTL some streets that the official gate map leaves uncoloured and no camera watches, mainly south of Piazza Arringo (Piazza San Gregorio, Via dei Marsi, Via di Vesta, Via Capitolina, Via della Piazzarola and nearby rue) and a few near Porta Solestà (Rua della Musica, Rua dei Salvioni). The same hours apply there and the police can fine, but GateLR does not show them.",
+     "Holidays: resolution 194/2024 planned to extend the existing gates to the whole of Sundays and holidays, but the only ordinance found applies this to the Via XX Settembre gate (ordinance 630/2025); the City's ZTL page (2026) still gives these hours every day. Ordinance 775/2024, which put resolution 194/2024 into effect, is not published online.",
+     "Hotels: a guest of a hotel inside the ZTL gives the plate to the hotel, which has it added to the authorised list (City page). The 2023 rules say the hotel sends the list to the Local Police within 48 hours; without private parking you may only stop 30 minutes to unload, with a parking disc and a copy of the hotel's notice on the windscreen.",
+     "Motorcycles and mopeds may always enter the ZTLs (not the pedestrian areas). Vehicles over 3.5 t are banned 0–24. Pure electric cars need a Local Police permit. Disabled badge holders from other towns send the form to varchi@comune.ap.it before or within 48 hours of entering. There is no visitor ticket.",
+     "Perimeter traced automatically from the City's official gate map (March 2026), georeferenced on OpenStreetMap buildings (accurate to about 5–10 m) and checked against the street lists of resolution 37/2023 and of the City's gate page. Piazza del Popolo, Piazza Arringo and the streets around them are pedestrian areas, closed to cars at all times."
+    ],
+    "pending_it": [
+     "Non disegnate: la delibera 37/2023 elenca come ZTL a fascia ampia anche vie che la mappa ufficiale dei varchi non colora e che nessuna telecamera controlla, soprattutto a sud di piazza Arringo (piazza San Gregorio, via dei Marsi, via di Vesta, via Capitolina, via della Piazzarola e rue vicine) e alcune vicino a Porta Solestà (rua della Musica, rua dei Salvioni). Valgono gli stessi orari e la Polizia Locale può multare, ma GateLR non le mostra.",
+     "Festivi: la delibera 194/2024 prevedeva di estendere i varchi esistenti all'intera giornata festiva, ma l'unica ordinanza trovata lo applica al varco di via XX Settembre (ord. 630/2025); la pagina ZTL del Comune (2026) dà ancora questi orari tutti i giorni. L'ordinanza 775/2024 che attua la delibera 194/2024 non è pubblicata online.",
+     "Alberghi: chi alloggia in una struttura dentro la ZTL comunica la targa alla struttura, che la fa inserire nella lista degli autorizzati (pagina del Comune). Il regolamento 2023 dice che la struttura invia l'elenco alla Polizia Locale entro 48 ore; senza parcheggio privato si sosta al massimo 30 minuti per i bagagli, con disco orario e copia della comunicazione sul parabrezza.",
+     "Moto e ciclomotori entrano sempre nelle ZTL (non nelle APU). Veicoli oltre 3,5 t vietati 0–24. Le auto elettriche «pure» hanno bisogno dell'autorizzazione della Polizia Locale. I disabili con contrassegno di altri Comuni mandano il modulo a varchi@comune.ap.it prima del transito o entro 48 ore. Non c'è un permesso per i visitatori.",
+     "Perimetro ricavato in automatico dalla mappa ufficiale dei varchi del Comune (marzo 2026), agganciata ai fabbricati di OpenStreetMap (precisione di circa 5–10 m) e controllato con gli elenchi delle vie della delibera 37/2023 e della pagina dei varchi. Piazza del Popolo, piazza Arringo e le vie intorno sono APU, chiuse alle auto sempre."
+    ],
+    "pending_de": [
+     "Nicht eingezeichnet: Beschluss 37/2023 nennt als ZTL mit langen Zeiten auch Straßen, die die offizielle Kamerakarte nicht färbt und keine Kamera überwacht, vor allem südlich der Piazza Arringo (Piazza San Gregorio, Via dei Marsi, Via di Vesta, Via Capitolina, Via della Piazzarola und Gassen ringsum) und einige bei der Porta Solestà (Rua della Musica, Rua dei Salvioni). Dort gelten dieselben Zeiten und die Polizei kann Bußgelder verhängen, GateLR zeigt sie aber nicht.",
+     "Feiertage: Beschluss 194/2024 sah vor, die bestehenden Kameras an Sonn- und Feiertagen ganztägig zu aktivieren; die einzige gefundene Verordnung wendet das nur auf die Kamera Via XX Settembre an (Verordnung 630/2025); die ZTL-Seite der Stadt (2026) nennt weiterhin diese Zeiten für alle Tage. Verordnung 775/2024 zur Umsetzung von Beschluss 194/2024 ist nicht online.",
+     "Hotels: Gäste eines Hotels in der ZTL geben das Kennzeichen dem Hotel, das es in die Liste der Berechtigten eintragen lässt (Seite der Stadt). Laut Regeln von 2023 schickt das Hotel die Liste innerhalb von 48 Stunden an die Ortspolizei; ohne eigenen Parkplatz höchstens 30 Minuten zum Ausladen, mit Parkscheibe und Kopie der Meldung hinter der Windschutzscheibe.",
+     "Motorräder und Mopeds dürfen immer in die ZTL (nicht in die Fußgängerzonen). Fahrzeuge über 3,5 t sind rund um die Uhr verboten. Reine Elektroautos brauchen eine Genehmigung der Ortspolizei. Inhaber eines Behindertenausweises anderer Gemeinden schicken das Formular vor der Einfahrt oder binnen 48 Stunden an varchi@comune.ap.it. Ein Besucherticket gibt es nicht.",
+     "Grenze automatisch aus der offiziellen Kamerakarte der Stadt (März 2026) abgeleitet, an OpenStreetMap-Gebäuden ausgerichtet (Genauigkeit etwa 5–10 m) und mit den Straßenlisten des Beschlusses 37/2023 und der Kameraseite geprüft. Piazza del Popolo, Piazza Arringo und die Straßen ringsum sind Fußgängerzonen, für Autos immer gesperrt."
+    ],
+    "links": [
+     {
+      "title": "City of Ascoli Piceno: ZTL and gates (hours, gates, hotels, disabled badge holders)",
+      "title_it": "Comune di Ascoli Piceno: ZTL e varchi (orari, varchi, alberghi, disabili)",
+      "title_de": "Stadt Ascoli Piceno: ZTL und Kameras (Zeiten, Kameras, Hotels, Behindertenausweis)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11478"
+     },
+     {
+      "title": "Ordinance 713 of 30/10/2025: reduced-hours ZTL weekdays 8:30 pm–5 am, holidays all day (experimental, from 3/11/2025)",
+      "title_it": "Ordinanza 713 del 30/10/2025: ZTL a fascia ridotta feriali 20:30–5, festivi 0–24 (sperimentale, dal 3/11/2025)",
+      "title_de": "Verordnung 713 vom 30.10.2025: ZTL mit verkürzten Zeiten werktags 20:30–5 Uhr, Feiertage ganztägig (Versuch, ab 3.11.2025)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/26886"
+     },
+     {
+      "title": "Official map of the ZTLs, pedestrian areas and gates (March 2026, PDF)",
+      "title_it": "Mappa ufficiale di ZTL, APU e varchi (marzo 2026, PDF)",
+      "title_de": "Offizielle Karte der ZTL, Fußgängerzonen und Kameras (März 2026, PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F0%252F3%252FD.f10a4b76c1cd77460c83/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     },
+     {
+      "title": "Council resolution 37/2023: ZTL and pedestrian-area rules with the street lists (PDF)",
+      "title_it": "Delibera di Giunta 37/2023: regolamento ZTL e APU con gli elenchi delle vie (PDF)",
+      "title_de": "Stadtratsbeschluss 37/2023: ZTL- und Fußgängerzonenregeln mit Straßenlisten (PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Ff%252Fa%252FD.a499f86397016cc5843e/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     },
+     {
+      "title": "Council resolution 194/2024: ZTL extension with three new gates (PDF)",
+      "title_it": "Delibera di Giunta 194/2024: ampliamento della ZTL con tre nuovi varchi (PDF)",
+      "title_de": "Stadtratsbeschluss 194/2024: Erweiterung der ZTL mit drei neuen Kameras (PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fb%252Fa%252FD.06909d20f5f0f509415c/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ap-ztl-ridotta-ovest",
+   "name": "Ventidio Basso · night and holiday ZTL",
+   "name_it": "Ventidio Basso · ZTL a fascia ridotta",
+   "name_de": "Ventidio Basso · ZTL nachts und feiertags",
+   "kind": "restricted",
+   "summary": "Piazza San Tommaso, Piazza Sant'Agostino, Corso di Sotto, Via della Fortezza. Limited traffic zone with cameras: closed without a permit on weekdays 20:30–5:00 and all day on Sundays and holidays; open to everyone on weekdays 5:00–20:30.",
+   "summary_it": "Piazza San Tommaso, Piazza Sant'Agostino, Corso di Sotto, Via della Fortezza. ZTL con telecamere: vietata senza permesso nei feriali 20:30–5:00 e tutto il giorno la domenica e nei festivi; aperta a tutti nei feriali 5:00–20:30.",
+   "summary_de": "Piazza San Tommaso, Piazza Sant'Agostino, Corso di Sotto, Via della Fortezza. ZTL mit Kameras: ohne Genehmigung werktags 20:30–5:00 Uhr und an Sonn- und Feiertagen ganztägig gesperrt; werktags 5:00–20:30 Uhr frei für alle.",
+   "perimeter": [
+    {
+     "lat": 42.855054,
+     "lon": 13.567481
+    },
+    {
+     "lat": 42.855059,
+     "lon": 13.567402
+    },
+    {
+     "lat": 42.854951,
+     "lon": 13.567263
+    },
+    {
+     "lat": 42.855062,
+     "lon": 13.567041
+    },
+    {
+     "lat": 42.85523,
+     "lon": 13.566857
+    },
+    {
+     "lat": 42.855577,
+     "lon": 13.567126
+    },
+    {
+     "lat": 42.855892,
+     "lon": 13.56767
+    },
+    {
+     "lat": 42.856363,
+     "lon": 13.568024
+    },
+    {
+     "lat": 42.856616,
+     "lon": 13.568554
+    },
+    {
+     "lat": 42.856767,
+     "lon": 13.569149
+    },
+    {
+     "lat": 42.857013,
+     "lon": 13.56949
+    },
+    {
+     "lat": 42.857324,
+     "lon": 13.570224
+    },
+    {
+     "lat": 42.857457,
+     "lon": 13.570685
+    },
+    {
+     "lat": 42.857505,
+     "lon": 13.571022
+    },
+    {
+     "lat": 42.857756,
+     "lon": 13.571309
+    },
+    {
+     "lat": 42.857952,
+     "lon": 13.571855
+    },
+    {
+     "lat": 42.85806,
+     "lon": 13.571854
+    },
+    {
+     "lat": 42.858105,
+     "lon": 13.571908
+    },
+    {
+     "lat": 42.858169,
+     "lon": 13.572158
+    },
+    {
+     "lat": 42.858143,
+     "lon": 13.572363
+    },
+    {
+     "lat": 42.858202,
+     "lon": 13.572669
+    },
+    {
+     "lat": 42.857921,
+     "lon": 13.572862
+    },
+    {
+     "lat": 42.857537,
+     "lon": 13.572955
+    },
+    {
+     "lat": 42.857482,
+     "lon": 13.573074
+    },
+    {
+     "lat": 42.857386,
+     "lon": 13.573123
+    },
+    {
+     "lat": 42.857238,
+     "lon": 13.573629
+    },
+    {
+     "lat": 42.857349,
+     "lon": 13.574107
+    },
+    {
+     "lat": 42.857251,
+     "lon": 13.573904
+    },
+    {
+     "lat": 42.857128,
+     "lon": 13.573969
+    },
+    {
+     "lat": 42.857003,
+     "lon": 13.573908
+    },
+    {
+     "lat": 42.856958,
+     "lon": 13.574011
+    },
+    {
+     "lat": 42.856408,
+     "lon": 13.573699
+    },
+    {
+     "lat": 42.856263,
+     "lon": 13.573866
+    },
+    {
+     "lat": 42.856239,
+     "lon": 13.573049
+    },
+    {
+     "lat": 42.856064,
+     "lon": 13.572989
+    },
+    {
+     "lat": 42.855313,
+     "lon": 13.573003
+    },
+    {
+     "lat": 42.855281,
+     "lon": 13.57327
+    },
+    {
+     "lat": 42.8551,
+     "lon": 13.573305
+    },
+    {
+     "lat": 42.855078,
+     "lon": 13.573353
+    },
+    {
+     "lat": 42.85511,
+     "lon": 13.573839
+    },
+    {
+     "lat": 42.855037,
+     "lon": 13.573904
+    },
+    {
+     "lat": 42.854642,
+     "lon": 13.573966
+    },
+    {
+     "lat": 42.854461,
+     "lon": 13.573882
+    },
+    {
+     "lat": 42.853687,
+     "lon": 13.573841
+    },
+    {
+     "lat": 42.853696,
+     "lon": 13.57355
+    },
+    {
+     "lat": 42.853797,
+     "lon": 13.573525
+    },
+    {
+     "lat": 42.85379,
+     "lon": 13.57336
+    },
+    {
+     "lat": 42.853717,
+     "lon": 13.573361
+    },
+    {
+     "lat": 42.853711,
+     "lon": 13.573251
+    },
+    {
+     "lat": 42.853834,
+     "lon": 13.573139
+    },
+    {
+     "lat": 42.853753,
+     "lon": 13.572857
+    },
+    {
+     "lat": 42.853854,
+     "lon": 13.5728
+    },
+    {
+     "lat": 42.853847,
+     "lon": 13.572635
+    },
+    {
+     "lat": 42.85379,
+     "lon": 13.572629
+    },
+    {
+     "lat": 42.853784,
+     "lon": 13.572542
+    },
+    {
+     "lat": 42.854207,
+     "lon": 13.568903
+    },
+    {
+     "lat": 42.85424,
+     "lon": 13.568847
+    },
+    {
+     "lat": 42.854867,
+     "lon": 13.568805
+    },
+    {
+     "lat": 42.8549,
+     "lon": 13.567916
+    },
+    {
+     "lat": 42.855054,
+     "lon": 13.567481
+    }
+   ],
+   "gates": [
+    {
+     "id": "ap-varco-ventidio-basso",
+     "name": "Varco Ventidio Basso · Via dei Tamburini",
+     "location": {
+      "lat": 42.85745,
+      "lon": 13.574355
+     }
+    },
+    {
+     "id": "ap-varco-fortezza",
+     "name": "Varco Fortezza · Via della Fortezza / Via Angelini",
+     "location": {
+      "lat": 42.853633,
+      "lon": 13.573083
+     }
+    },
+    {
+     "id": "ap-varco-corso-di-sotto",
+     "name": "Varco Corso di Sotto · Piazza Cecco d'Ascoli",
+     "location": {
+      "lat": 42.854945,
+      "lon": 13.567426
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1230,
+     "end": 300
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 0,
+     "end": 1440
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 1230,
+     "end": 300
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Ascoli Piceno",
+    "pageURL": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/26886",
+    "ordinance": "Ordinanza dirigenziale n. 713 del 30/10/2025",
+    "ordinanceURL": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fe%252F5%252FD.640c159e1b1dc33b0ea9/P/BLOB%3AID%3D26886/E/pdf?mode=download",
+    "quote": "La modifica del regime orario di limitazione al traffico veicolare nelle ZTL “a fascia ridotta” con orario di validità 20:30–05:00 nei giorni feriali e 0-24 nei giorni festivi.",
+    "quoteTranslation": "The change of the hours of the traffic restriction in the “reduced-hours” ZTLs, valid 20:30–05:00 on weekdays and 0–24 on holidays.",
+    "quoteTranslation_de": "Die Änderung der Zeiten der Verkehrsbeschränkung in den ZTL „mit verkürzten Zeiten“: gültig werktags 20:30–05:00 Uhr und an Feiertagen 0–24 Uhr.",
+    "checkedOn": "2026-10-27T16:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "These hours are experimental (ordinance 713/2025, from 3 November 2025, to be made permanent later); no later ordinance was found up to 27/10/2026. Older City pages (FAQ, zone sheet) still say 8:30 pm–7:30 am; on the City's gate page the Via XX Settembre gate text says until 5:30 am and the Corso di Sotto text says open to all 7:30 am–8:30 pm on weekdays. GateLR uses the ordinance; the night after a Sunday or holiday is treated as closed until 5 am.",
+     "Events: ordinances can change the rules for single days (e.g. Christmas 2025, ordinance 781/2025, ended 6 January 2026).",
+     "Hotels: a guest of a hotel inside the ZTL gives the plate to the hotel, which has it added to the authorised list (City page). The 2023 rules say the hotel sends the list to the Local Police within 48 hours; without private parking you may only stop 30 minutes to unload, with a parking disc and a copy of the hotel's notice on the windscreen.",
+     "Motorcycles and mopeds may always enter the ZTLs (not the pedestrian areas). Vehicles over 3.5 t are banned 0–24. Pure electric cars need a Local Police permit. Disabled badge holders from other towns send the form to varchi@comune.ap.it before or within 48 hours of entering. There is no visitor ticket.",
+     "Perimeter traced automatically from the City's official gate map (March 2026), georeferenced on OpenStreetMap buildings (accurate to about 5–10 m) and checked against the street lists of resolution 37/2023 and of the City's gate page. Piazza del Popolo, Piazza Arringo and the streets around them are pedestrian areas, closed to cars at all times."
+    ],
+    "pending_it": [
+     "Orari sperimentali (ord. 713/2025, dal 3 novembre 2025, da rendere definitivi con un atto successivo); nessuna ordinanza più recente trovata fino al 27/10/2026. Pagine più vecchie del Comune (FAQ, scheda della zona) dicono ancora 20:30–7:30; nella pagina dei varchi il testo del varco di via XX Settembre dice fino alle 5:30 e quello di corso di Sotto aperto a tutti 7:30–20:30 nei feriali. GateLR segue l'ordinanza; la notte dopo una domenica o un festivo è considerata chiusa fino alle 5.",
+     "Eventi: ordinanze possono cambiare le regole per singoli giorni (es. Natale 2025, ord. 781/2025, finita il 6 gennaio 2026).",
+     "Alberghi: chi alloggia in una struttura dentro la ZTL comunica la targa alla struttura, che la fa inserire nella lista degli autorizzati (pagina del Comune). Il regolamento 2023 dice che la struttura invia l'elenco alla Polizia Locale entro 48 ore; senza parcheggio privato si sosta al massimo 30 minuti per i bagagli, con disco orario e copia della comunicazione sul parabrezza.",
+     "Moto e ciclomotori entrano sempre nelle ZTL (non nelle APU). Veicoli oltre 3,5 t vietati 0–24. Le auto elettriche «pure» hanno bisogno dell'autorizzazione della Polizia Locale. I disabili con contrassegno di altri Comuni mandano il modulo a varchi@comune.ap.it prima del transito o entro 48 ore. Non c'è un permesso per i visitatori.",
+     "Perimetro ricavato in automatico dalla mappa ufficiale dei varchi del Comune (marzo 2026), agganciata ai fabbricati di OpenStreetMap (precisione di circa 5–10 m) e controllato con gli elenchi delle vie della delibera 37/2023 e della pagina dei varchi. Piazza del Popolo, piazza Arringo e le vie intorno sono APU, chiuse alle auto sempre."
+    ],
+    "pending_de": [
+     "Versuchszeiten (Verordnung 713/2025, ab 3. November 2025, später endgültig zu regeln); bis 27.10.2026 keine neuere Verordnung gefunden. Ältere Seiten der Stadt (FAQ, Zonenblatt) nennen noch 20:30–7:30 Uhr; auf der Kameraseite steht beim Varco Via XX Settembre bis 5:30 Uhr und beim Varco Corso di Sotto werktags 7:30–20:30 Uhr für alle frei. GateLR folgt der Verordnung; die Nacht nach einem Sonn- oder Feiertag gilt bis 5 Uhr als gesperrt.",
+     "Veranstaltungen: Verordnungen können die Regeln an einzelnen Tagen ändern (z. B. Weihnachten 2025, Verordnung 781/2025, endete am 6. Januar 2026).",
+     "Hotels: Gäste eines Hotels in der ZTL geben das Kennzeichen dem Hotel, das es in die Liste der Berechtigten eintragen lässt (Seite der Stadt). Laut Regeln von 2023 schickt das Hotel die Liste innerhalb von 48 Stunden an die Ortspolizei; ohne eigenen Parkplatz höchstens 30 Minuten zum Ausladen, mit Parkscheibe und Kopie der Meldung hinter der Windschutzscheibe.",
+     "Motorräder und Mopeds dürfen immer in die ZTL (nicht in die Fußgängerzonen). Fahrzeuge über 3,5 t sind rund um die Uhr verboten. Reine Elektroautos brauchen eine Genehmigung der Ortspolizei. Inhaber eines Behindertenausweises anderer Gemeinden schicken das Formular vor der Einfahrt oder binnen 48 Stunden an varchi@comune.ap.it. Ein Besucherticket gibt es nicht.",
+     "Grenze automatisch aus der offiziellen Kamerakarte der Stadt (März 2026) abgeleitet, an OpenStreetMap-Gebäuden ausgerichtet (Genauigkeit etwa 5–10 m) und mit den Straßenlisten des Beschlusses 37/2023 und der Kameraseite geprüft. Piazza del Popolo, Piazza Arringo und die Straßen ringsum sind Fußgängerzonen, für Autos immer gesperrt."
+    ],
+    "links": [
+     {
+      "title": "City of Ascoli Piceno: ZTL and gates (hours, gates, hotels, disabled badge holders)",
+      "title_it": "Comune di Ascoli Piceno: ZTL e varchi (orari, varchi, alberghi, disabili)",
+      "title_de": "Stadt Ascoli Piceno: ZTL und Kameras (Zeiten, Kameras, Hotels, Behindertenausweis)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11478"
+     },
+     {
+      "title": "Ordinance 713 of 30/10/2025: reduced-hours ZTL weekdays 8:30 pm–5 am, holidays all day (experimental, from 3/11/2025)",
+      "title_it": "Ordinanza 713 del 30/10/2025: ZTL a fascia ridotta feriali 20:30–5, festivi 0–24 (sperimentale, dal 3/11/2025)",
+      "title_de": "Verordnung 713 vom 30.10.2025: ZTL mit verkürzten Zeiten werktags 20:30–5 Uhr, Feiertage ganztägig (Versuch, ab 3.11.2025)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/26886"
+     },
+     {
+      "title": "Official map of the ZTLs, pedestrian areas and gates (March 2026, PDF)",
+      "title_it": "Mappa ufficiale di ZTL, APU e varchi (marzo 2026, PDF)",
+      "title_de": "Offizielle Karte der ZTL, Fußgängerzonen und Kameras (März 2026, PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F0%252F3%252FD.f10a4b76c1cd77460c83/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     },
+     {
+      "title": "Council resolution 37/2023: ZTL and pedestrian-area rules with the street lists (PDF)",
+      "title_it": "Delibera di Giunta 37/2023: regolamento ZTL e APU con gli elenchi delle vie (PDF)",
+      "title_de": "Stadtratsbeschluss 37/2023: ZTL- und Fußgängerzonenregeln mit Straßenlisten (PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Ff%252Fa%252FD.a499f86397016cc5843e/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     },
+     {
+      "title": "Council resolution 194/2024: ZTL extension with three new gates (PDF)",
+      "title_it": "Delibera di Giunta 194/2024: ampliamento della ZTL con tre nuovi varchi (PDF)",
+      "title_de": "Stadtratsbeschluss 194/2024: Erweiterung der ZTL mit drei neuen Kameras (PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fb%252Fa%252FD.06909d20f5f0f509415c/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     }
+    ]
+   }
+  },
+  {
+   "id": "ap-ztl-ridotta-trento",
+   "name": "Corso Trento e Trieste · night and holiday ZTL",
+   "name_it": "Corso Trento e Trieste · ZTL a fascia ridotta",
+   "name_de": "Corso Trento e Trieste · ZTL nachts und feiertags",
+   "kind": "restricted",
+   "summary": "Corso Trento e Trieste, Piazza Santa Maria Intervineas. Limited traffic zone with cameras: closed without a permit on weekdays 20:30–5:00 and all day on Sundays and holidays; open to everyone on weekdays 5:00–20:30.",
+   "summary_it": "Corso Trento e Trieste, Piazza Santa Maria Intervineas. ZTL con telecamere: vietata senza permesso nei feriali 20:30–5:00 e tutto il giorno la domenica e nei festivi; aperta a tutti nei feriali 5:00–20:30.",
+   "summary_de": "Corso Trento e Trieste, Piazza Santa Maria Intervineas. ZTL mit Kameras: ohne Genehmigung werktags 20:30–5:00 Uhr und an Sonn- und Feiertagen ganztägig gesperrt; werktags 5:00–20:30 Uhr frei für alle.",
+   "perimeter": [
+    {
+     "lat": 42.854347,
+     "lon": 13.576557
+    },
+    {
+     "lat": 42.854138,
+     "lon": 13.576537
+    },
+    {
+     "lat": 42.854024,
+     "lon": 13.576437
+    },
+    {
+     "lat": 42.853583,
+     "lon": 13.576445
+    },
+    {
+     "lat": 42.853567,
+     "lon": 13.575856
+    },
+    {
+     "lat": 42.853663,
+     "lon": 13.575838
+    },
+    {
+     "lat": 42.853665,
+     "lon": 13.576113
+    },
+    {
+     "lat": 42.853621,
+     "lon": 13.576208
+    },
+    {
+     "lat": 42.853689,
+     "lon": 13.576294
+    },
+    {
+     "lat": 42.85413,
+     "lon": 13.57627
+    },
+    {
+     "lat": 42.854208,
+     "lon": 13.576159
+    },
+    {
+     "lat": 42.85422,
+     "lon": 13.576229
+    },
+    {
+     "lat": 42.854474,
+     "lon": 13.576193
+    },
+    {
+     "lat": 42.854593,
+     "lon": 13.576278
+    },
+    {
+     "lat": 42.85545,
+     "lon": 13.576152
+    },
+    {
+     "lat": 42.855767,
+     "lon": 13.576178
+    },
+    {
+     "lat": 42.856354,
+     "lon": 13.576121
+    },
+    {
+     "lat": 42.856404,
+     "lon": 13.576081
+    },
+    {
+     "lat": 42.856437,
+     "lon": 13.575899
+    },
+    {
+     "lat": 42.856641,
+     "lon": 13.575974
+    },
+    {
+     "lat": 42.856654,
+     "lon": 13.57621
+    },
+    {
+     "lat": 42.85657,
+     "lon": 13.576258
+    },
+    {
+     "lat": 42.856141,
+     "lon": 13.576337
+    },
+    {
+     "lat": 42.854662,
+     "lon": 13.576379
+    },
+    {
+     "lat": 42.854538,
+     "lon": 13.576436
+    },
+    {
+     "lat": 42.854516,
+     "lon": 13.576586
+    },
+    {
+     "lat": 42.854347,
+     "lon": 13.576557
+    }
+   ],
+   "gates": [
+    {
+     "id": "ap-varco-xx-settembre",
+     "name": "Varco XX Settembre · Piazza Roma",
+     "location": {
+      "lat": 42.853571,
+      "lon": 13.575595
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1230,
+     "end": 300
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 0,
+     "end": 1440
+    },
+    {
+     "weekdays": [
+      1
+     ],
+     "start": 1230,
+     "end": 300
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": true,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Ascoli Piceno",
+    "pageURL": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/26886",
+    "ordinance": "Ordinanza dirigenziale n. 713 del 30/10/2025",
+    "ordinanceURL": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fe%252F5%252FD.640c159e1b1dc33b0ea9/P/BLOB%3AID%3D26886/E/pdf?mode=download",
+    "quote": "La modifica del regime orario di limitazione al traffico veicolare nelle ZTL “a fascia ridotta” con orario di validità 20:30–05:00 nei giorni feriali e 0-24 nei giorni festivi.",
+    "quoteTranslation": "The change of the hours of the traffic restriction in the “reduced-hours” ZTLs, valid 20:30–05:00 on weekdays and 0–24 on holidays.",
+    "quoteTranslation_de": "Die Änderung der Zeiten der Verkehrsbeschränkung in den ZTL „mit verkürzten Zeiten“: gültig werktags 20:30–05:00 Uhr und an Feiertagen 0–24 Uhr.",
+    "checkedOn": "2026-10-27T16:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "These hours are experimental (ordinance 713/2025, from 3 November 2025, to be made permanent later); no later ordinance was found up to 27/10/2026. Older City pages (FAQ, zone sheet) still say 8:30 pm–7:30 am; on the City's gate page the Via XX Settembre gate text says until 5:30 am and the Corso di Sotto text says open to all 7:30 am–8:30 pm on weekdays. GateLR uses the ordinance; the night after a Sunday or holiday is treated as closed until 5 am.",
+     "Events: ordinances can change the rules for single days (e.g. Christmas 2025, ordinance 781/2025, ended 6 January 2026).",
+     "Hotels: a guest of a hotel inside the ZTL gives the plate to the hotel, which has it added to the authorised list (City page). The 2023 rules say the hotel sends the list to the Local Police within 48 hours; without private parking you may only stop 30 minutes to unload, with a parking disc and a copy of the hotel's notice on the windscreen.",
+     "Motorcycles and mopeds may always enter the ZTLs (not the pedestrian areas). Vehicles over 3.5 t are banned 0–24. Pure electric cars need a Local Police permit. Disabled badge holders from other towns send the form to varchi@comune.ap.it before or within 48 hours of entering. There is no visitor ticket.",
+     "Perimeter traced automatically from the City's official gate map (March 2026), georeferenced on OpenStreetMap buildings (accurate to about 5–10 m) and checked against the street lists of resolution 37/2023 and of the City's gate page. Piazza del Popolo, Piazza Arringo and the streets around them are pedestrian areas, closed to cars at all times."
+    ],
+    "pending_it": [
+     "Orari sperimentali (ord. 713/2025, dal 3 novembre 2025, da rendere definitivi con un atto successivo); nessuna ordinanza più recente trovata fino al 27/10/2026. Pagine più vecchie del Comune (FAQ, scheda della zona) dicono ancora 20:30–7:30; nella pagina dei varchi il testo del varco di via XX Settembre dice fino alle 5:30 e quello di corso di Sotto aperto a tutti 7:30–20:30 nei feriali. GateLR segue l'ordinanza; la notte dopo una domenica o un festivo è considerata chiusa fino alle 5.",
+     "Eventi: ordinanze possono cambiare le regole per singoli giorni (es. Natale 2025, ord. 781/2025, finita il 6 gennaio 2026).",
+     "Alberghi: chi alloggia in una struttura dentro la ZTL comunica la targa alla struttura, che la fa inserire nella lista degli autorizzati (pagina del Comune). Il regolamento 2023 dice che la struttura invia l'elenco alla Polizia Locale entro 48 ore; senza parcheggio privato si sosta al massimo 30 minuti per i bagagli, con disco orario e copia della comunicazione sul parabrezza.",
+     "Moto e ciclomotori entrano sempre nelle ZTL (non nelle APU). Veicoli oltre 3,5 t vietati 0–24. Le auto elettriche «pure» hanno bisogno dell'autorizzazione della Polizia Locale. I disabili con contrassegno di altri Comuni mandano il modulo a varchi@comune.ap.it prima del transito o entro 48 ore. Non c'è un permesso per i visitatori.",
+     "Perimetro ricavato in automatico dalla mappa ufficiale dei varchi del Comune (marzo 2026), agganciata ai fabbricati di OpenStreetMap (precisione di circa 5–10 m) e controllato con gli elenchi delle vie della delibera 37/2023 e della pagina dei varchi. Piazza del Popolo, piazza Arringo e le vie intorno sono APU, chiuse alle auto sempre."
+    ],
+    "pending_de": [
+     "Versuchszeiten (Verordnung 713/2025, ab 3. November 2025, später endgültig zu regeln); bis 27.10.2026 keine neuere Verordnung gefunden. Ältere Seiten der Stadt (FAQ, Zonenblatt) nennen noch 20:30–7:30 Uhr; auf der Kameraseite steht beim Varco Via XX Settembre bis 5:30 Uhr und beim Varco Corso di Sotto werktags 7:30–20:30 Uhr für alle frei. GateLR folgt der Verordnung; die Nacht nach einem Sonn- oder Feiertag gilt bis 5 Uhr als gesperrt.",
+     "Veranstaltungen: Verordnungen können die Regeln an einzelnen Tagen ändern (z. B. Weihnachten 2025, Verordnung 781/2025, endete am 6. Januar 2026).",
+     "Hotels: Gäste eines Hotels in der ZTL geben das Kennzeichen dem Hotel, das es in die Liste der Berechtigten eintragen lässt (Seite der Stadt). Laut Regeln von 2023 schickt das Hotel die Liste innerhalb von 48 Stunden an die Ortspolizei; ohne eigenen Parkplatz höchstens 30 Minuten zum Ausladen, mit Parkscheibe und Kopie der Meldung hinter der Windschutzscheibe.",
+     "Motorräder und Mopeds dürfen immer in die ZTL (nicht in die Fußgängerzonen). Fahrzeuge über 3,5 t sind rund um die Uhr verboten. Reine Elektroautos brauchen eine Genehmigung der Ortspolizei. Inhaber eines Behindertenausweises anderer Gemeinden schicken das Formular vor der Einfahrt oder binnen 48 Stunden an varchi@comune.ap.it. Ein Besucherticket gibt es nicht.",
+     "Grenze automatisch aus der offiziellen Kamerakarte der Stadt (März 2026) abgeleitet, an OpenStreetMap-Gebäuden ausgerichtet (Genauigkeit etwa 5–10 m) und mit den Straßenlisten des Beschlusses 37/2023 und der Kameraseite geprüft. Piazza del Popolo, Piazza Arringo und die Straßen ringsum sind Fußgängerzonen, für Autos immer gesperrt."
+    ],
+    "links": [
+     {
+      "title": "City of Ascoli Piceno: ZTL and gates (hours, gates, hotels, disabled badge holders)",
+      "title_it": "Comune di Ascoli Piceno: ZTL e varchi (orari, varchi, alberghi, disabili)",
+      "title_de": "Stadt Ascoli Piceno: ZTL und Kameras (Zeiten, Kameras, Hotels, Behindertenausweis)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11478"
+     },
+     {
+      "title": "Ordinance 713 of 30/10/2025: reduced-hours ZTL weekdays 8:30 pm–5 am, holidays all day (experimental, from 3/11/2025)",
+      "title_it": "Ordinanza 713 del 30/10/2025: ZTL a fascia ridotta feriali 20:30–5, festivi 0–24 (sperimentale, dal 3/11/2025)",
+      "title_de": "Verordnung 713 vom 30.10.2025: ZTL mit verkürzten Zeiten werktags 20:30–5 Uhr, Feiertage ganztägig (Versuch, ab 3.11.2025)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/26886"
+     },
+     {
+      "title": "Official map of the ZTLs, pedestrian areas and gates (March 2026, PDF)",
+      "title_it": "Mappa ufficiale di ZTL, APU e varchi (marzo 2026, PDF)",
+      "title_de": "Offizielle Karte der ZTL, Fußgängerzonen und Kameras (März 2026, PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F0%252F3%252FD.f10a4b76c1cd77460c83/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     },
+     {
+      "title": "Council resolution 37/2023: ZTL and pedestrian-area rules with the street lists (PDF)",
+      "title_it": "Delibera di Giunta 37/2023: regolamento ZTL e APU con gli elenchi delle vie (PDF)",
+      "title_de": "Stadtratsbeschluss 37/2023: ZTL- und Fußgängerzonenregeln mit Straßenlisten (PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Ff%252Fa%252FD.a499f86397016cc5843e/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     },
+     {
+      "title": "Council resolution 194/2024: ZTL extension with three new gates (PDF)",
+      "title_it": "Delibera di Giunta 194/2024: ampliamento della ZTL con tre nuovi varchi (PDF)",
+      "title_de": "Stadtratsbeschluss 194/2024: Erweiterung der ZTL mit drei neuen Kameras (PDF)",
+      "url": "https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252Fb%252Fa%252FD.06909d20f5f0f509415c/P/BLOB%3AID%3D11478/E/pdf?mode=download"
+     }
+    ]
+   }
+  }
+ ],
+ "pedestrian": [
+  {
+   "id": "ap-apu-popolo",
+   "name": "APU · Piazza del Popolo",
+   "perimeter": [
+    {
+     "lat": 42.853655,
+     "lon": 13.574022
+    },
+    {
+     "lat": 42.853637,
+     "lon": 13.573936
+    },
+    {
+     "lat": 42.853687,
+     "lon": 13.573841
+    },
+    {
+     "lat": 42.854003,
+     "lon": 13.573851
+    },
+    {
+     "lat": 42.853993,
+     "lon": 13.573954
+    },
+    {
+     "lat": 42.854033,
+     "lon": 13.574008
+    },
+    {
+     "lat": 42.854095,
+     "lon": 13.573983
+    },
+    {
+     "lat": 42.854105,
+     "lon": 13.573873
+    },
+    {
+     "lat": 42.854246,
+     "lon": 13.573863
+    },
+    {
+     "lat": 42.854281,
+     "lon": 13.574003
+    },
+    {
+     "lat": 42.854343,
+     "lon": 13.573971
+    },
+    {
+     "lat": 42.854359,
+     "lon": 13.573884
+    },
+    {
+     "lat": 42.854461,
+     "lon": 13.573882
+    },
+    {
+     "lat": 42.85453,
+     "lon": 13.574031
+    },
+    {
+     "lat": 42.85462,
+     "lon": 13.57395
+    },
+    {
+     "lat": 42.854705,
+     "lon": 13.574075
+    },
+    {
+     "lat": 42.854727,
+     "lon": 13.573956
+    },
+    {
+     "lat": 42.854874,
+     "lon": 13.573907
+    },
+    {
+     "lat": 42.85502,
+     "lon": 13.573904
+    },
+    {
+     "lat": 42.855072,
+     "lon": 13.573997
+    },
+    {
+     "lat": 42.855144,
+     "lon": 13.573847
+    },
+    {
+     "lat": 42.855471,
+     "lon": 13.573817
+    },
+    {
+     "lat": 42.855489,
+     "lon": 13.573911
+    },
+    {
+     "lat": 42.855557,
+     "lon": 13.573942
+    },
+    {
+     "lat": 42.855584,
+     "lon": 13.573808
+    },
+    {
+     "lat": 42.855991,
+     "lon": 13.573753
+    },
+    {
+     "lat": 42.856025,
+     "lon": 13.573839
+    },
+    {
+     "lat": 42.855936,
+     "lon": 13.573943
+    },
+    {
+     "lat": 42.85597,
+     "lon": 13.574013
+    },
+    {
+     "lat": 42.856044,
+     "lon": 13.574027
+    },
+    {
+     "lat": 42.856089,
+     "lon": 13.574773
+    },
+    {
+     "lat": 42.856044,
+     "lon": 13.574845
+    },
+    {
+     "lat": 42.855943,
+     "lon": 13.574847
+    },
+    {
+     "lat": 42.85599,
+     "lon": 13.575884
+    },
+    {
+     "lat": 42.855912,
+     "lon": 13.575995
+    },
+    {
+     "lat": 42.855997,
+     "lon": 13.576033
+    },
+    {
+     "lat": 42.856004,
+     "lon": 13.576135
+    },
+    {
+     "lat": 42.854643,
+     "lon": 13.576237
+    },
+    {
+     "lat": 42.854592,
+     "lon": 13.576144
+    },
+    {
+     "lat": 42.854513,
+     "lon": 13.5762
+    },
+    {
+     "lat": 42.854225,
+     "lon": 13.576229
+    },
+    {
+     "lat": 42.854208,
+     "lon": 13.576159
+    },
+    {
+     "lat": 42.85413,
+     "lon": 13.57627
+    },
+    {
+     "lat": 42.853689,
+     "lon": 13.576294
+    },
+    {
+     "lat": 42.853728,
+     "lon": 13.576191
+    },
+    {
+     "lat": 42.853665,
+     "lon": 13.576105
+    },
+    {
+     "lat": 42.853657,
+     "lon": 13.575736
+    },
+    {
+     "lat": 42.853865,
+     "lon": 13.575669
+    },
+    {
+     "lat": 42.853923,
+     "lon": 13.575794
+    },
+    {
+     "lat": 42.853973,
+     "lon": 13.575785
+    },
+    {
+     "lat": 42.853954,
+     "lon": 13.575495
+    },
+    {
+     "lat": 42.854015,
+     "lon": 13.575376
+    },
+    {
+     "lat": 42.853924,
+     "lon": 13.575268
+    },
+    {
+     "lat": 42.853962,
+     "lon": 13.575007
+    },
+    {
+     "lat": 42.853668,
+     "lon": 13.574989
+    },
+    {
+     "lat": 42.853682,
+     "lon": 13.574651
+    },
+    {
+     "lat": 42.853766,
+     "lon": 13.574531
+    },
+    {
+     "lat": 42.853669,
+     "lon": 13.574415
+    },
+    {
+     "lat": 42.853655,
+     "lon": 13.574022
+    }
+   ]
+  },
+  {
+   "id": "ap-apu-arringo",
+   "name": "APU · Piazza Arringo",
+   "perimeter": [
+    {
+     "lat": 42.85288,
+     "lon": 13.578179
+    },
+    {
+     "lat": 42.853275,
+     "lon": 13.578125
+    },
+    {
+     "lat": 42.853224,
+     "lon": 13.576781
+    },
+    {
+     "lat": 42.853399,
+     "lon": 13.576755
+    },
+    {
+     "lat": 42.853432,
+     "lon": 13.57666
+    },
+    {
+     "lat": 42.853528,
+     "lon": 13.576611
+    },
+    {
+     "lat": 42.853572,
+     "lon": 13.576437
+    },
+    {
+     "lat": 42.854024,
+     "lon": 13.576437
+    },
+    {
+     "lat": 42.854059,
+     "lon": 13.576602
+    },
+    {
+     "lat": 42.854138,
+     "lon": 13.576537
+    },
+    {
+     "lat": 42.854516,
+     "lon": 13.576586
+    },
+    {
+     "lat": 42.854623,
+     "lon": 13.576489
+    },
+    {
+     "lat": 42.854639,
+     "lon": 13.576387
+    },
+    {
+     "lat": 42.855034,
+     "lon": 13.576372
+    },
+    {
+     "lat": 42.855063,
+     "lon": 13.576442
+    },
+    {
+     "lat": 42.855136,
+     "lon": 13.576449
+    },
+    {
+     "lat": 42.855142,
+     "lon": 13.577101
+    },
+    {
+     "lat": 42.855407,
+     "lon": 13.577089
+    },
+    {
+     "lat": 42.855447,
+     "lon": 13.577135
+    },
+    {
+     "lat": 42.855448,
+     "lon": 13.577214
+    },
+    {
+     "lat": 42.855386,
+     "lon": 13.57727
+    },
+    {
+     "lat": 42.855438,
+     "lon": 13.577418
+    },
+    {
+     "lat": 42.85543,
+     "lon": 13.577859
+    },
+    {
+     "lat": 42.855391,
+     "lon": 13.577922
+    },
+    {
+     "lat": 42.855205,
+     "lon": 13.577918
+    },
+    {
+     "lat": 42.855141,
+     "lon": 13.577714
+    },
+    {
+     "lat": 42.855073,
+     "lon": 13.577731
+    },
+    {
+     "lat": 42.85504,
+     "lon": 13.577826
+    },
+    {
+     "lat": 42.854622,
+     "lon": 13.577849
+    },
+    {
+     "lat": 42.854593,
+     "lon": 13.577716
+    },
+    {
+     "lat": 42.854525,
+     "lon": 13.577702
+    },
+    {
+     "lat": 42.85447,
+     "lon": 13.57786
+    },
+    {
+     "lat": 42.854222,
+     "lon": 13.577919
+    },
+    {
+     "lat": 42.854102,
+     "lon": 13.577811
+    },
+    {
+     "lat": 42.854097,
+     "lon": 13.578605
+    },
+    {
+     "lat": 42.853962,
+     "lon": 13.578663
+    },
+    {
+     "lat": 42.85386,
+     "lon": 13.578555
+    },
+    {
+     "lat": 42.853804,
+     "lon": 13.578689
+    },
+    {
+     "lat": 42.853731,
+     "lon": 13.578698
+    },
+    {
+     "lat": 42.853733,
+     "lon": 13.578942
+    },
+    {
+     "lat": 42.853611,
+     "lon": 13.57918
+    },
+    {
+     "lat": 42.853181,
+     "lon": 13.579085
+    },
+    {
+     "lat": 42.853006,
+     "lon": 13.578436
+    },
+    {
+     "lat": 42.852858,
+     "lon": 13.578226
+    },
+    {
+     "lat": 42.85288,
+     "lon": 13.578179
+    }
+   ]
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Ascoli Piceno official pages, resolutions and ordinances. Perimeters: the City's official gate map, georeferenced on © OpenStreetMap contributors, ODbL 1.0; approximate."
+}

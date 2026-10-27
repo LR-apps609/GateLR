@@ -1,0 +1,22 @@
+URL: https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/<n>/UT/systemPrint (n da 23000 a 28700)
+Letto il: 2026-10-27 (titoli di tutte le pagine pubblicate sul sito del Comune con IDPagina da 23000 a 28700, cioè da fine 2023 al 27/10/2026, comprese ordinanze e comunicati; qui solo i titoli che parlano di ZTL, varchi o traffico limitato; fonte ufficiale; elenco ricavato da GateLR)
+
+23645|Ordinanza dirigenziale n. 734 del 21/12/2023 - Proroga validità dei permessi annuali 2023 per il transito e la sosta nelle Zone a traffico limitato e nelle Aree pedonali urbane
+23646|Comunicato stampa - I permessi annuali per il transito e la sosta nelle Zone a traffico limitato e nelle Aree pedonali urbani saranno validi fino al 29 febbraio 2024
+23673|Da lunedì 8 gennaio al via il rinnovo dei permessi per transito e sosta in ZTL e APU
+23956|Ordinanza dirigenziale n. 130 del 29/02/2024 - Proroga validità dei permessi annuali 2023 per il transito e la sosta nelle zone a traffico limitato (z.t.l.)
+24889|ZTL (fascia oraria ampia)
+24890|ZTL (fascia ridotta)
+25212|Ordinanza dirigenziale n. 814 del 23/12/2024 - Proroga validità dei permessi annuali 2024 per il transito e la sosta nelle Zone a traffico limitato e nelle Aree pedonali urbane
+25213|Comunicato stampa - Ordinanza dirigenziale n. 814 del 23/12/2024 - Proroga validità dei permessi annuali 2024 per il transito e la sosta nelle Zone a traffico limitato e nelle Aree pedonali urbane
+26689|Ordinanza dirigenziale n. 630 del 29/09/2025 - Zone a traffico limitato a fascia oraria ridotta presidiate da varchi elettronici – Avvio della fase di pre-esercizio e attivazione della rilevazione automatizzata
+26719|Comunicato stampa - Ordinanza dirigenziale n. 630 del 29/09/2025 - Zone a traffico limitato a fascia oraria ridotta presidiate da varchi elettronici – Avvio della fase di pre-esercizio e attivazione della rilevazione automatizzata
+26864|Comunicato stampa - Tutto pronto per l’attivazione definitiva dei quattro varchi elettronici relativi alle Zone a Traffico Limitato a fascia ridotta e posizionati in Piazza Ventidio Basso, via della Fortezza, Corso di Sotto e via XX Settembre
+26886|Ordinanza dirigenziale n. 713 del 30/10/25 - Zone a traffico limitato a fascia oraria ridotta presidiate da varchi elettronici - modifica sperimentale degli orari ZTL
+26889|Comunicato stampa - Ordinanza dirigenziale n. 713 del 30/10/25 - Zone a traffico limitato a fascia oraria ridotta presidiate da varchi elettronici - modifica sperimentale degli orari ZTL
+27027|Ordinanza dirigenziale n. 781 del 26/11/25 - Deroga temporanea agli orari delle domeniche e dei festivi dal 28 novembre 2025 al 6 gennaio 2026 nelle ZTL
+27030|Comunicato stampa - Ordinanza dirigenziale n. 781 del 26/11/25 - Deroga temporanea agli orari delle domeniche e dei festivi dal 28 novembre 2025 al 6 gennaio 2026 nelle ZTL
+27430|Comunicato stampa - Ultimi giorni per rinnovare i permessi di transito e sosta nelle Zone a traffico limitato (ZTL) e nelle Aree pedonali urbane (APU)
+28296|Ordinanza dirigenziale n. 524 del 25/08/2026 - Regolamentazione della circolazione stradale in c.so Mazzini per la sospensione temporanea della ZTL protetta da varchi elettronici
+28297|Comunicato stampa - Ordinanza dirigenziale n. 524 del 25/08/2026 - Regolamentazione della circolazione stradale in c.so Mazzini per la sospensione temporanea della ZTL protetta da varchi elettronici
+28580|Comunicato stampa - Una nuova area di sosta dedicata per chi abita nel centro storico. Da oggi e fino al 31 dicembre 2026, al Giardino Colucci, sarà possibile parcheggiare per l’intera giornata, a condizione di essere in possesso del permesso di sosta per la 'Ztl centro storico'

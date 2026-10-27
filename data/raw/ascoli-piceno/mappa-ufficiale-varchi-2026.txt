@@ -1,0 +1,15 @@
+URL: https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F0%252F3%252FD.f10a4b76c1cd77460c83/P/BLOB%3AID%3D11478/E/pdf?mode=download
+Letto il: 2026-10-27 (Comune di Ascoli Piceno, «Mappa cittadina ufficiale dei varchi collegata al regolamento dei varchi», PDF modificato il 16/03/2026, linkato dalla pagina https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/11478; fonte ufficiale; scritte della legenda estratte con pdftotext -raw; il PDF è mappa-ufficiale-varchi-2026.pdf)
+
+LEGENDA
+ZTL A FASCIA AMPIA PRESIDIATA DA VARCHI ELETTRONICI
+ZTL A FASCIA RIDOTTA PRESIDIATA DA VARCHI ELETTRONICI
+AREA PEDONALE URBANA 00:00 - 24:00
+VIA DI FUGA
+PERCORSI AUTORIZZATI DAI VARCHI 09:00-12:45 / 15:30-05:00
+PERCORSI AUTORIZZATI DAI VARCHI AD ORARI 20:30-07:30
+DISSUASORE FISSO
+DISSUASORE MOBILE
+VARCO ELETTRONICO AUTORIZZATO
+VARCO ELETTRONICO NUOVO
+PRESEGNALAZIONE DI VARCO

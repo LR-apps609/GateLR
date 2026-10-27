@@ -1,6 +1,6 @@
 {
- "version": "202610271651",
- "digest": "b4a6eeb485d9",
+ "version": "202610271653",
+ "digest": "88af5ce4a098",
  "schema": 1,
  "cities": [
   {
@@ -12,6 +12,11 @@
    "id": "arezzo",
    "file": "arezzo.json",
    "sha256": "79f1e5e281d7e20e95f76174d75d6539a2bc2f45542f56768b6a18ee64dc8fe0"
+  },
+  {
+   "id": "ascoli-piceno",
+   "file": "ascoli-piceno.json",
+   "sha256": "3ee3c517309d5513535cefe1eccb929f9ced8170eda70ed61192633ef8e7e8a6"
   },
   {
    "id": "bari",

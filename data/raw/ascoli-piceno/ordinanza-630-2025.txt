@@ -1,0 +1,212 @@
+URL: https://www.comune.ap.it/flex/cm/pages/ServeAttachment.php/L/IT/D/1%252F0%252F7%252FD.13f994fb8b7a8edaae56/P/BLOB%3AID%3D26689/E/pdf?mode=download
+Letto il: 2026-10-27 (Ordinanza dirigenziale n. 630 del 29/09/2025, pagina https://www.comune.ap.it/flex/cm/pages/ServeBLOB.php/L/IT/IDPagina/26689; fonte ufficiale; testo estratto dal PDF con pdftotext)
+
+                                                                                                              COPIA
+
+
+
+
+                                 ORDINANZA DIRIGENZIALE
+                                  SETTORE 1 - POLIZIA LOCALE
+                                        Ufficio OSAP
+
+                                            N. 630 DEL 29/09/2025
+
+       OGGETTO: ZONE A TRAFFICO LIMITATO A FASCIA ORARIA RIDOTTA PRESIDIATE DA
+       VARCHI ELETTRONICI – AVVIO DELLA FASE DI PRE-ESERCIZIO E ATTIVAZIONE DELLA
+       RILEVAZIONE AUTOMATIZZATA
+
+
+
+
+                                                      IL DIRIGENTE
+
+       RICHIAMATE:
+       - la deliberazione del Consiglio Comunale n. 120 in data 8 ottobre 1998 avente per oggetto l’adozione del
+       Piano del Traffico del Comune di Ascoli Piceno;
+       - la deliberazione del Consiglio Comunale n.39 del 03/06/2002;
+       - la deliberazione del Consiglio Comunale n.31 del 08/03/2008;
+       - la deliberazione di Giunta Comunale n. 123 del 27 maggio 2015, avente ad oggetto “Sistema di varchi
+       elettronici per la rilevazione degli accessi dei veicoli al centro storico ZTL ed APU di Ascoli Piceno (chiesa
+       del Carmine e Piazza della Viola). Ricognizione stato attuale ZTL ed APU. Revoca APU Corso Mazzini e
+       relativa Istituzione di ZTL. Approvazione del progetto relativo a n. 2 vachi con possibilità di
+       implementazione di ulteriori varchi” con la quale è stata confermata l’articolazione delle vie e piazze
+       cittadine in ZTL ed APU così come individuate con una serie di atti richiamati nella medesima delibera e
+       comunque espressamente indicate nell’elenco allegato alla stessa;
+       - le deliberazioni di Giunta Comunale n. 191 del 7 agosto 2015, n. 240 del 27 ottobre 2015, n. 29 del 25
+       febbraio 2016, n. 36 del 1° marzo 2016 con le quali, in conseguenza dello stato di avanzamento ed
+       ultimazione dei lavori di riqualificazione del Centro Storico cittadino sono state apportate ulteriori
+       modifiche alla Zona a Traffico Limitato ed all’Area Pedonale Urbana del Centro Storico cittadino;
+       - la deliberazione di Giunta Comunale n.43 in data 8 marzo 2016, avente per oggetto “Approvazione del
+       progetto definitivo del controllo degli accessi a due aree omogenee della ZTL del Centro Storico di Ascoli
+       Piceno, tramite varchi elettronici”, con la quale è stato approvato il progetto definitivo del controllo degli
+       accessi a due aree omogenee della ZTL del Centro Storico di Ascoli Piceno tramite varchi elettronici;
+       - la deliberazione n.137 in data 8 luglio 2016 con la quale la Giunta Comunale ha approvato la
+       regolamentazione dell’accesso e della sosta nell’Area Pedonale Urbana (A.P.U.) e nella zona a traffico
+       limitato (Z.T.L.) del Centro Storico di Ascoli Piceno;
+
+
+________________________________________________________________________________
+Ordinanza N. 630 del 29/09/2025
+       - la deliberazione della Giunta Comunale n. 270, in data 30 dicembre 2016, avente per oggetto:
+       “Approvazione definitiva della regolamentazione dell'accesso e della sosta nell'area pedonale Urbana
+       (A.P.U.) e nella zona a traffico limitato (Z.T.L.) del Centro Storico di Ascoli Piceno, attivazione del sistema
+       di n. 5 varchi elettronici in regime di pre - esercizio per la durata di mesi due” con la quale, tra le altre
+       disposizioni, è stato stabilito di approvare in via definitiva il “Regolamento dell’accesso e della sosta
+       nell’Area Pedonale Urbana (A.P.U.) e nella zona a traffico limitato (Z.T.L.) del Centro Storico di Ascoli
+       Piceno” nonché la “Tavola 1” ad esso acclusa;
+       - la deliberazione della Giunta Comunale n. 62 in data 27 Marzo 2018 avente per oggetto la
+       regolamentazione dell’accesso e della sosta nell’area pedonale urbana (APU) e nella zona a traffico
+       limitato (ZTL) del Centro Storico di Ascoli Piceno. Integrazioni;
+       - la deliberazione di giunta comunale n. 62 in data 27 aprile 2020, con la quale la Giunta Comunale ha
+       formulato atto di indirizzo circa l’espletamento di apposita procedura ad evidenza pubblica riguardante
+       la concessione del servizio di trasporto di persone mediante Trenino Turistico;
+       - la deliberazione n.114 del 23/06/2020 mediante la quale si è integrato l’indirizzo espresso nella
+       precedente deliberazione n.62 del 27/04/2020;
+       - la deliberazione n.146 del 24/07/2020 avente per oggetto “modifiche alla regolamentazione
+       dell'accesso e della sosta nell'area pedonale urbana (APU) e nella zona a traffico limitato (ZTL) del centro
+       storico di Ascoli Piceno”.
+       - la deliberazione n.186 del 17/06/2021 concernente l’istituzione in via sperimentale di una nuova
+       porzione di ZTL in via Mediterraneo con riserva di sosta per residenti;
+       - la deliberazione n.365 del 25/11/2021 avente per oggetto “nuova disciplina concernente la circolazione
+       dei veicoli in uso al personale addetto alle consegne a domicilio di generi alimentari (riders) nelle zone a
+       traffico limitato del Centro Storico”.
+       - la deliberazione di Giunta Comunale n.36 del 09/02/2023 adottata per la modifica e l’ampliamento
+       delle Zone a Traffico Limitato cittadine;
+       - la deliberazione di Giunta Comunale n.37 del 09/02/2023 adottata per la rimodulazione dei presidi
+       elettronici agli accessi delle Zone a Traffico Limitato;
+       - la deliberazione di Giunta Comunale n.194 del 27/06/2024 adottata per l’ampliamento della ZTL nella
+       zona Nord/Ovest del Centro Storico ed estensione oraria dei varchi esistenti all’intera fascia oraria delle
+       giornate festive;
+
+       RICHIAMATE, altresì
+       - le ordinanze dirigenziali n. 13 in data 10 gennaio 2017, n. 70 in data 16 gennaio 2017, n. 1263 in data 5
+       ottobre 2017, n. 328 in data 28 febbraio 2018 tutte aventi per oggetto integrazioni, modificazioni e
+       rettifiche di carattere meramente formale al Regolamento per l’accesso alle ZTL e APU;
+       - le ordinanze dirigenziali n.90 e 91 del 18/02/2022 per la modifica della regolamentazione dell’offerta di
+       sosta per residenti e a pagamento in Centro Storico e nel quartiere di Campo Parignano;
+       - l’ordinanza dirigenziale 164 del 24/03/2022 attuativa della delibera 186/22 sopracitata;
+       - l’ordinanza dirigenziale n.220 del 19/04/2023 avente per oggetto “modifica e ampliamento della zona a
+       traffico limitato e dei presidi elettronici nel centro storico di Ascoli piceno con istituzione di ZTL
+       variabili”;
+       - l’ordinanza dirigenziale n.775 del 06/12/2024 avente per oggetto “modifica e ampliamento della
+       zona a traffico limitato e dei presidi elettronici nel centro storico di Ascoli Piceno con istituzione di una
+       nuova ZTL a fasce ridotte”
+
+       VISTO il documento del Ministero delle Infrastrutture e dei Trasporti n.5050 del 28/06/2019 avente per
+       oggetto “Linee Guida sulla regolamentazione della circolazione stradale e segnaletica nelle zone a
+       traffico limitato”;
+
+       PRESO ATTO dell’avvenuta installazione dei dispositivi elettronici di rilevamento automatico e della
+       relativa segnaletica di avviso e pre-avviso per i varchi di piazza V.Basso, via della Fortezza e c.so Di
+       Sotto conformemente a quanto previsto dal decreto autorizzativo sopra-citato;
+________________________________________________________________________________
+Ordinanza N. 630 del 29/09/2025
+       TENUTO CONTO della prevista modifica oraria per il varco elettronico già installato in via XX
+       Settembre con estensione oraria del presidio elettronico e relativa validità della ZTL 0-24 nei giorni
+       festivi;
+
+       VISTO il decreto di autorizzazione del Ministero delle infrastrutture e dei trasporti per il varco di via XX
+       Settembre n.0000508 del 09/11/2023;
+
+       VISTO il decreto di autorizzazione del Ministero delle infrastrutture e dei trasporti per i tre nuovi varchi
+       elettronici n.0000001 del 13/01/2025 acquisito al protocollo n.3751 del 15/01/2025;
+
+       CONSIDERATO che per la compiuta attivazione dei nuovi varchi elettronici è prescritto l’avvio di un
+       periodo di pre-esercizio, avente durata non inferiore a 30 giorni, nel corso dei quali gli accertamenti circa
+       i transiti non autorizzati potranno essere accertati con contestazione immediata da parte della Polizia
+       Locale;
+
+       RICHIAMATO
+       -il Decreto Sindacale n. 4 del 18/03/2022 con il quale alla sottoscritta è stata conferita la nomina a
+       Dirigente del Settore 1 “Polizia Locale”;
+       -il Decreto Sindacale n. 41 del 26/06/2025 “nomina dirigente a tempo determinato ex art. 110, comma
+       1, d.lgs. 267/2000 SETTORE 1 Polizia Locale della macrostruttura vigente presso l’Ente approvata con
+       Deliberazione di Giunta Comunale 377/2024 e ss.mm.ii. a decorrere dal 1° luglio 2025 per 3 anni
+       eventualmente prorogabili”;
+
+       VISTO gli artt. 6, 7 e 21 del D.Lgs. 30/04/1992 n.285 approvativo "Nuovo Codice della Strada";
+
+       VISTO il Regolamento di Esecuzione e di Attuazione del Nuovo Codice della Strada, approvato con
+       D.P.R.16/12/1992 n. 495;
+
+       VISTI gli artt.107 e 109 del Testo unico sull’ordinamento degli Enti Locali, approvato con D.Lgs.
+       18/8/2000, n. 267;
+
+       DATO ATTO che la sottoscritta è il responsabile del procedimento relativo al presente atto;
+
+
+                                                         ORDINA
+
+       Per i motivi indicati in premessa:
+
+           -   A far data dal 01/10/2025 l’avvio della fase di pre-esercizio per i varchi elettronici di piazza
+               V.Basso, via della Fortezza e c.so di Sotto con orario di presidio ZTL 20:30-07:30 nei giorni feriali
+               e 0-24 nei giorni festivi;
+           -   A far data dal 01/10/2025 l’avvio della fase di pre-esercizio per il varco elettronico di via XX
+               Settembre, esclusivamente per quanto concerne la modifica nella fascia oraria festiva, con orario
+               di presidio ZTL 20:30-07:30 nei giorni feriali (già in vigore) e 0-24 nei giorni festivi;
+
+           -   A far data dal 01/11/2025, al termine della fase di pre-esercizio per i suddetti varchi elettronici,
+               l’avvio della rilevazione automatizzata delle infrazioni, nel rispetto del DPR 22 giugno 1999 n.250
+               nonché delle prescrizioni e raccomandazioni contenute nel decreto ministeriale di autorizzazione
+               citato in premessa.
+
+
+
+________________________________________________________________________________
+Ordinanza N. 630 del 29/09/2025
+                                                         DEMANDA
+
+       Al personale appartenente alla Polizia Locale e agli altri organi di Polizia Stradale di cui all’art.12 del D.Lgs
+       30/04/1992 n.285 Nuovo Codice della Strada, la vigilanza sul rispetto di quanto disposto dalla presente
+       ordinanza.
+
+       Al Servizio Segnaletica per la parte di competenza l’incarico di rendere noto al pubblico quanto sopra
+       disposto provvedendo all’adeguamento della segnaletica stradale necessaria in ossequio alle prescrizioni
+       stabilite dal D.L.vo 30/4/92 n.285 s.m.i. (Nuovo Codice della Strada) e suo Regolamento di Esecuzione ed
+       Attuazione approvato con D.P.R. 16/12/92 n.495;
+
+       Alla ditta Maggioli SPA la materiale esecuzione delle fasi di pre-esercizio e di esercizio con adeguamento
+       delle liste autorizzati in conformità a quanto previsto dalle regolamentazioni citate in premessa.
+
+                                                           AVVISA
+
+       A norma dell’art. 3, comma 4, della Legge n. 241 del 07/08/1990, avverso alla presente Ordinanza,
+       chiunque vi abbia interesse potrà ricorrere per illegittimità ai sensi dell'art. 21 della Legge 1034/1971
+       entro 60 giorni dalla pubblicazione al Tribunale Amministrativo Regionale Marche, in alternativa può
+       essere proposto ricorso straordinario al Presidente della Repubblica entro il termine di 120 giorni dalla
+       stessa data, ai sensi dell'art. 9 del DPR 1199/1971.
+
+       La presente Ordinanza annulla/revoca/modifica ogni precedente ordinanza in contrasto con il presente
+       provvedimento e sarà resa nota al pubblico mediante affissione all’Albo Comunale.
+
+       L’inottemperanza agli obblighi e divieti disciplinati alla presente ordinanza comporterà l’applicazione
+       delle sanzioni previste dal Decreto Legislativo 30 aprile 1992 n.285 e s.m.i.
+
+       Copia del presente atto è trasmessa a:
+
+       - Sindaco
+       - Comando di PL
+       - Settore 7 (segnaletica)
+       - Prefettura
+       - Questura
+       - Carabinieri
+       - GdF
+       - Polstrada
+       - URP
+       - Ditta Maggioli SPA
+
+
+
+
+                                                                                                          Il Dirigente
+                                                                                                     CELANI PATRIZIA
+                                                   (sottoscritto digitalmente ai sensi dell'art. 21 del D.lgs 82/2005 e s.m.i.)
+
+
+
+
+________________________________________________________________________________
+Ordinanza N. 630 del 29/09/2025
+
