@@ -1,0 +1,1060 @@
+{
+ "id": "bolzano",
+ "name": "Bolzano",
+ "name_it": "Bolzano",
+ "name_de": "Bozen",
+ "center": {
+  "lat": 46.4983,
+  "lon": 11.3548
+ },
+ "zones": [
+  {
+   "id": "bolzano-ztl",
+   "name": "Old town · ZTL 24 hours",
+   "name_it": "Centro storico · ZTL 0–24",
+   "name_de": "Altstadt · Verkehrsberuhigte Zone rund um die Uhr",
+   "kind": "restricted",
+   "summary": "The old town of Bolzano (Piazza Walther, Via Portici, Piazza Erbe) is closed to cars without authorisation 24 hours a day, every day; cameras at the entrances read plates. There is no day ticket: if your hotel is inside, contact it before arriving and give your plate. Otherwise park outside (e.g. Mayr-Nusser car park, Piazza Walther underground car park).",
+   "summary_it": "Il centro storico di Bolzano (piazza Walther, via Portici, piazza Erbe) è chiuso alle auto senza autorizzazione 24 ore su 24, tutti i giorni; le telecamere ai varchi leggono le targhe. Non c'è un biglietto giornaliero: se l'albergo è dentro, contattalo prima di arrivare e comunica la targa. Altrimenti parcheggia fuori (es. parcheggio Mayr Nusser, garage di piazza Walther).",
+   "summary_de": "Die Bozner Altstadt (Waltherplatz, Laubengasse, Obstplatz) ist rund um die Uhr, jeden Tag, für Autos ohne Genehmigung gesperrt; Kameras an den Zufahrten lesen die Kennzeichen. Ein Tagesticket gibt es nicht: Liegt dein Hotel in der Zone, kontaktiere es vor der Ankunft und teile dein Kennzeichen mit. Sonst außerhalb parken (z. B. Parkplatz Mayr-Nusser, Tiefgarage Waltherplatz).",
+   "perimeter": [
+    {
+     "lat": 46.496283,
+     "lon": 11.352357
+    },
+    {
+     "lat": 46.495632,
+     "lon": 11.352357
+    },
+    {
+     "lat": 46.495632,
+     "lon": 11.352462
+    },
+    {
+     "lat": 46.495415,
+     "lon": 11.352462
+    },
+    {
+     "lat": 46.495415,
+     "lon": 11.352566
+    },
+    {
+     "lat": 46.495487,
+     "lon": 11.352566
+    },
+    {
+     "lat": 46.495487,
+     "lon": 11.353297
+    },
+    {
+     "lat": 46.495632,
+     "lon": 11.353297
+    },
+    {
+     "lat": 46.495632,
+     "lon": 11.353401
+    },
+    {
+     "lat": 46.495921,
+     "lon": 11.353506
+    },
+    {
+     "lat": 46.495921,
+     "lon": 11.35361
+    },
+    {
+     "lat": 46.495994,
+     "lon": 11.35361
+    },
+    {
+     "lat": 46.495994,
+     "lon": 11.353819
+    },
+    {
+     "lat": 46.496066,
+     "lon": 11.353819
+    },
+    {
+     "lat": 46.496066,
+     "lon": 11.354132
+    },
+    {
+     "lat": 46.496138,
+     "lon": 11.354132
+    },
+    {
+     "lat": 46.496138,
+     "lon": 11.354237
+    },
+    {
+     "lat": 46.496066,
+     "lon": 11.354237
+    },
+    {
+     "lat": 46.496066,
+     "lon": 11.35455
+    },
+    {
+     "lat": 46.495994,
+     "lon": 11.35455
+    },
+    {
+     "lat": 46.495994,
+     "lon": 11.354759
+    },
+    {
+     "lat": 46.495849,
+     "lon": 11.354863
+    },
+    {
+     "lat": 46.495849,
+     "lon": 11.354967
+    },
+    {
+     "lat": 46.495704,
+     "lon": 11.354967
+    },
+    {
+     "lat": 46.495704,
+     "lon": 11.355072
+    },
+    {
+     "lat": 46.495487,
+     "lon": 11.355072
+    },
+    {
+     "lat": 46.495487,
+     "lon": 11.355176
+    },
+    {
+     "lat": 46.496211,
+     "lon": 11.355176
+    },
+    {
+     "lat": 46.496211,
+     "lon": 11.35528
+    },
+    {
+     "lat": 46.496428,
+     "lon": 11.35528
+    },
+    {
+     "lat": 46.496428,
+     "lon": 11.355385
+    },
+    {
+     "lat": 46.496572,
+     "lon": 11.355385
+    },
+    {
+     "lat": 46.496572,
+     "lon": 11.355489
+    },
+    {
+     "lat": 46.496645,
+     "lon": 11.355489
+    },
+    {
+     "lat": 46.496645,
+     "lon": 11.355698
+    },
+    {
+     "lat": 46.496717,
+     "lon": 11.355698
+    },
+    {
+     "lat": 46.496717,
+     "lon": 11.355907
+    },
+    {
+     "lat": 46.496934,
+     "lon": 11.355907
+    },
+    {
+     "lat": 46.496934,
+     "lon": 11.356011
+    },
+    {
+     "lat": 46.497079,
+     "lon": 11.356011
+    },
+    {
+     "lat": 46.497079,
+     "lon": 11.356116
+    },
+    {
+     "lat": 46.497151,
+     "lon": 11.356116
+    },
+    {
+     "lat": 46.497224,
+     "lon": 11.356324
+    },
+    {
+     "lat": 46.497441,
+     "lon": 11.356324
+    },
+    {
+     "lat": 46.497441,
+     "lon": 11.356429
+    },
+    {
+     "lat": 46.497585,
+     "lon": 11.356429
+    },
+    {
+     "lat": 46.497658,
+     "lon": 11.356638
+    },
+    {
+     "lat": 46.49773,
+     "lon": 11.356638
+    },
+    {
+     "lat": 46.49773,
+     "lon": 11.356846
+    },
+    {
+     "lat": 46.497802,
+     "lon": 11.356846
+    },
+    {
+     "lat": 46.497802,
+     "lon": 11.35716
+    },
+    {
+     "lat": 46.497875,
+     "lon": 11.35716
+    },
+    {
+     "lat": 46.497802,
+     "lon": 11.357368
+    },
+    {
+     "lat": 46.497947,
+     "lon": 11.357368
+    },
+    {
+     "lat": 46.497947,
+     "lon": 11.357264
+    },
+    {
+     "lat": 46.498092,
+     "lon": 11.357264
+    },
+    {
+     "lat": 46.498092,
+     "lon": 11.35716
+    },
+    {
+     "lat": 46.498309,
+     "lon": 11.35716
+    },
+    {
+     "lat": 46.498309,
+     "lon": 11.357055
+    },
+    {
+     "lat": 46.498381,
+     "lon": 11.357055
+    },
+    {
+     "lat": 46.498381,
+     "lon": 11.35716
+    },
+    {
+     "lat": 46.498598,
+     "lon": 11.35716
+    },
+    {
+     "lat": 46.498598,
+     "lon": 11.357264
+    },
+    {
+     "lat": 46.498743,
+     "lon": 11.357264
+    },
+    {
+     "lat": 46.498743,
+     "lon": 11.357368
+    },
+    {
+     "lat": 46.498888,
+     "lon": 11.357473
+    },
+    {
+     "lat": 46.498888,
+     "lon": 11.357682
+    },
+    {
+     "lat": 46.49896,
+     "lon": 11.357682
+    },
+    {
+     "lat": 46.499032,
+     "lon": 11.358099
+    },
+    {
+     "lat": 46.499466,
+     "lon": 11.358412
+    },
+    {
+     "lat": 46.499466,
+     "lon": 11.358204
+    },
+    {
+     "lat": 46.499394,
+     "lon": 11.358204
+    },
+    {
+     "lat": 46.499394,
+     "lon": 11.35789
+    },
+    {
+     "lat": 46.499322,
+     "lon": 11.35789
+    },
+    {
+     "lat": 46.499322,
+     "lon": 11.357682
+    },
+    {
+     "lat": 46.499394,
+     "lon": 11.357682
+    },
+    {
+     "lat": 46.499394,
+     "lon": 11.357368
+    },
+    {
+     "lat": 46.499466,
+     "lon": 11.357368
+    },
+    {
+     "lat": 46.499466,
+     "lon": 11.35716
+    },
+    {
+     "lat": 46.499539,
+     "lon": 11.35716
+    },
+    {
+     "lat": 46.499539,
+     "lon": 11.357055
+    },
+    {
+     "lat": 46.499683,
+     "lon": 11.357055
+    },
+    {
+     "lat": 46.499683,
+     "lon": 11.356951
+    },
+    {
+     "lat": 46.499901,
+     "lon": 11.356951
+    },
+    {
+     "lat": 46.499901,
+     "lon": 11.356846
+    },
+    {
+     "lat": 46.500769,
+     "lon": 11.356846
+    },
+    {
+     "lat": 46.500769,
+     "lon": 11.356951
+    },
+    {
+     "lat": 46.501275,
+     "lon": 11.356951
+    },
+    {
+     "lat": 46.501275,
+     "lon": 11.356846
+    },
+    {
+     "lat": 46.500841,
+     "lon": 11.356846
+    },
+    {
+     "lat": 46.500841,
+     "lon": 11.356742
+    },
+    {
+     "lat": 46.500624,
+     "lon": 11.356742
+    },
+    {
+     "lat": 46.500624,
+     "lon": 11.356638
+    },
+    {
+     "lat": 46.500479,
+     "lon": 11.356638
+    },
+    {
+     "lat": 46.500479,
+     "lon": 11.356533
+    },
+    {
+     "lat": 46.500407,
+     "lon": 11.356533
+    },
+    {
+     "lat": 46.500407,
+     "lon": 11.356324
+    },
+    {
+     "lat": 46.500335,
+     "lon": 11.356324
+    },
+    {
+     "lat": 46.500335,
+     "lon": 11.356011
+    },
+    {
+     "lat": 46.500262,
+     "lon": 11.356011
+    },
+    {
+     "lat": 46.500262,
+     "lon": 11.35528
+    },
+    {
+     "lat": 46.50019,
+     "lon": 11.35528
+    },
+    {
+     "lat": 46.50019,
+     "lon": 11.35455
+    },
+    {
+     "lat": 46.500262,
+     "lon": 11.35455
+    },
+    {
+     "lat": 46.500262,
+     "lon": 11.354237
+    },
+    {
+     "lat": 46.500335,
+     "lon": 11.354237
+    },
+    {
+     "lat": 46.500335,
+     "lon": 11.354028
+    },
+    {
+     "lat": 46.500407,
+     "lon": 11.354028
+    },
+    {
+     "lat": 46.500407,
+     "lon": 11.353923
+    },
+    {
+     "lat": 46.500552,
+     "lon": 11.353923
+    },
+    {
+     "lat": 46.500552,
+     "lon": 11.353819
+    },
+    {
+     "lat": 46.500769,
+     "lon": 11.353819
+    },
+    {
+     "lat": 46.500769,
+     "lon": 11.353715
+    },
+    {
+     "lat": 46.501058,
+     "lon": 11.353715
+    },
+    {
+     "lat": 46.501058,
+     "lon": 11.35361
+    },
+    {
+     "lat": 46.500696,
+     "lon": 11.35361
+    },
+    {
+     "lat": 46.500696,
+     "lon": 11.353506
+    },
+    {
+     "lat": 46.500479,
+     "lon": 11.353506
+    },
+    {
+     "lat": 46.500479,
+     "lon": 11.353401
+    },
+    {
+     "lat": 46.500335,
+     "lon": 11.353401
+    },
+    {
+     "lat": 46.500335,
+     "lon": 11.353297
+    },
+    {
+     "lat": 46.50019,
+     "lon": 11.353193
+    },
+    {
+     "lat": 46.50019,
+     "lon": 11.352984
+    },
+    {
+     "lat": 46.500118,
+     "lon": 11.352984
+    },
+    {
+     "lat": 46.500118,
+     "lon": 11.352775
+    },
+    {
+     "lat": 46.500045,
+     "lon": 11.352775
+    },
+    {
+     "lat": 46.500045,
+     "lon": 11.352462
+    },
+    {
+     "lat": 46.499973,
+     "lon": 11.352462
+    },
+    {
+     "lat": 46.499973,
+     "lon": 11.352357
+    },
+    {
+     "lat": 46.500045,
+     "lon": 11.352357
+    },
+    {
+     "lat": 46.500045,
+     "lon": 11.352044
+    },
+    {
+     "lat": 46.500118,
+     "lon": 11.352044
+    },
+    {
+     "lat": 46.500118,
+     "lon": 11.351835
+    },
+    {
+     "lat": 46.500262,
+     "lon": 11.351731
+    },
+    {
+     "lat": 46.500262,
+     "lon": 11.351627
+    },
+    {
+     "lat": 46.500407,
+     "lon": 11.351627
+    },
+    {
+     "lat": 46.500407,
+     "lon": 11.351522
+    },
+    {
+     "lat": 46.500624,
+     "lon": 11.351522
+    },
+    {
+     "lat": 46.500624,
+     "lon": 11.351418
+    },
+    {
+     "lat": 46.500986,
+     "lon": 11.351418
+    },
+    {
+     "lat": 46.500986,
+     "lon": 11.351313
+    },
+    {
+     "lat": 46.500552,
+     "lon": 11.351313
+    },
+    {
+     "lat": 46.500552,
+     "lon": 11.351418
+    },
+    {
+     "lat": 46.500479,
+     "lon": 11.351418
+    },
+    {
+     "lat": 46.500479,
+     "lon": 11.351313
+    },
+    {
+     "lat": 46.500262,
+     "lon": 11.351313
+    },
+    {
+     "lat": 46.500262,
+     "lon": 11.351209
+    },
+    {
+     "lat": 46.500118,
+     "lon": 11.351209
+    },
+    {
+     "lat": 46.500118,
+     "lon": 11.351105
+    },
+    {
+     "lat": 46.500045,
+     "lon": 11.351105
+    },
+    {
+     "lat": 46.500045,
+     "lon": 11.350896
+    },
+    {
+     "lat": 46.499973,
+     "lon": 11.350896
+    },
+    {
+     "lat": 46.499973,
+     "lon": 11.350583
+    },
+    {
+     "lat": 46.499901,
+     "lon": 11.350583
+    },
+    {
+     "lat": 46.499901,
+     "lon": 11.350374
+    },
+    {
+     "lat": 46.499973,
+     "lon": 11.350374
+    },
+    {
+     "lat": 46.499973,
+     "lon": 11.349956
+    },
+    {
+     "lat": 46.500045,
+     "lon": 11.349956
+    },
+    {
+     "lat": 46.500045,
+     "lon": 11.34933
+    },
+    {
+     "lat": 46.499973,
+     "lon": 11.34933
+    },
+    {
+     "lat": 46.499973,
+     "lon": 11.349434
+    },
+    {
+     "lat": 46.499828,
+     "lon": 11.349434
+    },
+    {
+     "lat": 46.499828,
+     "lon": 11.349539
+    },
+    {
+     "lat": 46.499611,
+     "lon": 11.349539
+    },
+    {
+     "lat": 46.499611,
+     "lon": 11.349643
+    },
+    {
+     "lat": 46.499539,
+     "lon": 11.349643
+    },
+    {
+     "lat": 46.499539,
+     "lon": 11.349539
+    },
+    {
+     "lat": 46.499322,
+     "lon": 11.349539
+    },
+    {
+     "lat": 46.499322,
+     "lon": 11.349434
+    },
+    {
+     "lat": 46.499177,
+     "lon": 11.349434
+    },
+    {
+     "lat": 46.499177,
+     "lon": 11.34933
+    },
+    {
+     "lat": 46.499105,
+     "lon": 11.34933
+    },
+    {
+     "lat": 46.499105,
+     "lon": 11.349121
+    },
+    {
+     "lat": 46.499032,
+     "lon": 11.349121
+    },
+    {
+     "lat": 46.499032,
+     "lon": 11.34933
+    },
+    {
+     "lat": 46.49896,
+     "lon": 11.34933
+    },
+    {
+     "lat": 46.49896,
+     "lon": 11.349747
+    },
+    {
+     "lat": 46.498888,
+     "lon": 11.349747
+    },
+    {
+     "lat": 46.498888,
+     "lon": 11.350061
+    },
+    {
+     "lat": 46.498815,
+     "lon": 11.350061
+    },
+    {
+     "lat": 46.498815,
+     "lon": 11.350269
+    },
+    {
+     "lat": 46.498743,
+     "lon": 11.350269
+    },
+    {
+     "lat": 46.498743,
+     "lon": 11.350374
+    },
+    {
+     "lat": 46.498598,
+     "lon": 11.350374
+    },
+    {
+     "lat": 46.498598,
+     "lon": 11.350478
+    },
+    {
+     "lat": 46.498454,
+     "lon": 11.350478
+    },
+    {
+     "lat": 46.498454,
+     "lon": 11.350583
+    },
+    {
+     "lat": 46.498236,
+     "lon": 11.350583
+    },
+    {
+     "lat": 46.498236,
+     "lon": 11.350687
+    },
+    {
+     "lat": 46.498164,
+     "lon": 11.350687
+    },
+    {
+     "lat": 46.498164,
+     "lon": 11.350583
+    },
+    {
+     "lat": 46.497947,
+     "lon": 11.350583
+    },
+    {
+     "lat": 46.497947,
+     "lon": 11.350478
+    },
+    {
+     "lat": 46.497802,
+     "lon": 11.350478
+    },
+    {
+     "lat": 46.497802,
+     "lon": 11.350374
+    },
+    {
+     "lat": 46.497658,
+     "lon": 11.350269
+    },
+    {
+     "lat": 46.497658,
+     "lon": 11.350061
+    },
+    {
+     "lat": 46.497585,
+     "lon": 11.350061
+    },
+    {
+     "lat": 46.497585,
+     "lon": 11.350374
+    },
+    {
+     "lat": 46.497513,
+     "lon": 11.350374
+    },
+    {
+     "lat": 46.497441,
+     "lon": 11.350791
+    },
+    {
+     "lat": 46.497368,
+     "lon": 11.350791
+    },
+    {
+     "lat": 46.497368,
+     "lon": 11.350896
+    },
+    {
+     "lat": 46.497224,
+     "lon": 11.350896
+    },
+    {
+     "lat": 46.497224,
+     "lon": 11.351
+    },
+    {
+     "lat": 46.497007,
+     "lon": 11.351
+    },
+    {
+     "lat": 46.497007,
+     "lon": 11.351522
+    },
+    {
+     "lat": 46.496934,
+     "lon": 11.351522
+    },
+    {
+     "lat": 46.496934,
+     "lon": 11.351835
+    },
+    {
+     "lat": 46.496862,
+     "lon": 11.351835
+    },
+    {
+     "lat": 46.496862,
+     "lon": 11.352044
+    },
+    {
+     "lat": 46.496789,
+     "lon": 11.352044
+    },
+    {
+     "lat": 46.496789,
+     "lon": 11.352149
+    },
+    {
+     "lat": 46.496645,
+     "lon": 11.352149
+    },
+    {
+     "lat": 46.496645,
+     "lon": 11.352253
+    },
+    {
+     "lat": 46.496428,
+     "lon": 11.352253
+    },
+    {
+     "lat": 46.496428,
+     "lon": 11.352357
+    },
+    {
+     "lat": 46.496283,
+     "lon": 11.352357
+    }
+   ],
+   "gates": [
+    {
+     "id": "bz-osm9228707916",
+     "name": "Largo Adolph Kolping / Adolph-Kolping-Straße",
+     "location": {
+      "lat": 46.497576,
+      "lon": 11.350395
+     }
+    },
+    {
+     "id": "bz-osm9231280065",
+     "name": "Passaggio dott. Perathoner / Dr.-Perathoner-Durchgang",
+     "location": {
+      "lat": 46.499656,
+      "lon": 11.35697
+     }
+    },
+    {
+     "id": "bz-osm9231280067",
+     "name": "Piazzetta Maria Delago / Maria-Delago-Platz",
+     "location": {
+      "lat": 46.501162,
+      "lon": 11.356875
+     }
+    },
+    {
+     "id": "bz-osm3424391750",
+     "name": "Via Alto Adige / Südtiroler Straße",
+     "location": {
+      "lat": 46.495334,
+      "lon": 11.355302
+     }
+    },
+    {
+     "id": "bz-osm13130639016",
+     "name": "Via Alto Adige / Südtiroler Straße",
+     "location": {
+      "lat": 46.495408,
+      "lon": 11.355107
+     }
+    },
+    {
+     "id": "bz-osm9228707915",
+     "name": "Via Leonardo da Vinci / Leonardo-da-Vinci-Straße",
+     "location": {
+      "lat": 46.499011,
+      "lon": 11.350063
+     }
+    },
+    {
+     "id": "bz-osm12349521602",
+     "name": "Via Museo / Museumstraße",
+     "location": {
+      "lat": 46.50004,
+      "lon": 11.349653
+     }
+    },
+    {
+     "id": "bz-osm9231245403",
+     "name": "Via dei Conciapelli / Gerbergasse",
+     "location": {
+      "lat": 46.49875,
+      "lon": 11.356928
+     }
+    },
+    {
+     "id": "bz-osm9231011609",
+     "name": "Via della Roggia / Rauschertorgasse",
+     "location": {
+      "lat": 46.50092,
+      "lon": 11.351328
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Bolzano",
+    "pageURL": "https://www.comune.bolzano.bz.it/Vivere-il-Comune/Guide/Accesso-ZTL-e-sosta-nel-centro-abitato",
+    "ordinance": "Delibere della Giunta comunale n. 518/2022 e n. 17/2023, ordinanze sindacali n. 709/2022 e n. 51/2023 (ZTL dal 01/02/2023)",
+    "ordinanceURL": "https://www.comune.bolzano.bz.it/ocmultibinary/download/10136/271413/5/90e4623ba8f7fbcae1eaa5d8bfb5e0f5.pdf/file/cd6fd97163c172f472707f9e682ad037.pdf",
+    "quote": "La ZTL del centro storico di Bolzano è attiva 24 ore su 24, tutti i giorni",
+    "quoteTranslation": "The ZTL of Bolzano's historic centre is active 24 hours a day, every day",
+    "quoteTranslation_de": "Die verkehrsberuhigte Zone der Bozner Altstadt ist rund um die Uhr, jeden Tag, aktiv",
+    "checkedOn": "2026-10-27T12:30:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotel inside the zone: contact it before arriving and give your plate; it obtains the temporary authorisation. The rules let authorised hotel guests drive in and stop only for the time needed to load and unload luggage; the City's pages give no deadline for the hotel to register the plate, so ask the hotel.",
+     "No day ticket for visitors: park outside (e.g. Mayr-Nusser car park or Piazza Walther underground car park). Other temporary permits only for special reasons, from the municipal police (tel. 0471 997799, revenue stamp 16 €). Electric and hybrid cars are not exempt; the rules name no exemption for motorcycles either.",
+     "Deliveries up to 3.5 t Monday–Saturday 6:00–10:30 (not on holidays); electric, hybrid and hydrogen vans up to 4.25 t with a permit also 10:30–11:00 and, at some gates, 14:30–16:00. Piazza Walther is a pedestrian area.",
+     "Across the whole built-up area of Bolzano, Monday–Friday (not on holidays) 7:00–10:00 and 16:00–19:00: no Euro 0–1 petrol cars and no Euro 0–3 diesel cars. LPG, methane, electric, hybrid cars and motorcycles may always drive. GateLR does not show this area on the map.",
+     "Perimeter traced from the official list of ZTL streets (resolution 518/2022) on OpenStreetMap streets; the short stretches of Viale Stazione and Via Piave are approximate. Cameras from OpenStreetMap: the City's gate map (Google My Maps) could not be read. The fine amount is not on the City's pages (about 80 € according to unofficial guides)."
+    ],
+    "pending_it": [
+     "Albergo dentro la zona: contattalo prima di arrivare e comunica la targa; ottiene lui l'autorizzazione temporanea. Le regole consentono agli ospiti autorizzati di entrare e sostare solo per il tempo necessario a caricare e scaricare i bagagli; le pagine del Comune non indicano entro quando l'albergo registra la targa: chiedilo all'albergo.",
+     "Nessun biglietto giornaliero per i visitatori: parcheggia fuori (es. parcheggio Mayr Nusser o garage di piazza Walther). Altri permessi temporanei solo per motivi particolari, dalla Polizia Municipale (tel. 0471 997799, marca da bollo 16 €). Auto elettriche e ibride non esenti; le regole non prevedono esenzioni neanche per le moto.",
+     "Carico e scarico fino a 3,5 t lunedì–sabato 6–10:30 (non nei festivi); furgoni elettrici, ibridi e a idrogeno fino a 4,25 t con permesso anche 10:30–11 e, per alcuni varchi, 14:30–16. Piazza Walther è area pedonale.",
+     "In tutto il centro abitato di Bolzano, lunedì–venerdì (festivi esclusi) 7–10 e 16–19: vietate le auto a benzina Euro 0–1 e diesel Euro 0–3. GPL, metano, elettriche, ibride e moto circolano sempre. GateLR non mostra quest'area sulla mappa.",
+     "Perimetro tracciato dall'elenco ufficiale delle vie della ZTL (delibera 518/2022) sulle strade di OpenStreetMap; i brevi tratti di viale Stazione e via Piave sono approssimati. Telecamere da OpenStreetMap: la mappa dei varchi del Comune (Google My Maps) non era leggibile. L'importo della multa non è sulle pagine del Comune (circa 80 € secondo guide non ufficiali)."
+    ],
+    "pending_de": [
+     "Hotel in der Zone: vor der Ankunft kontaktieren und das Kennzeichen mitteilen; das Hotel besorgt die vorübergehende Genehmigung. Die Regeln erlauben berechtigten Hotelgästen nur Einfahrt und Halt zum Be- und Entladen des Gepäcks; eine Frist für die Meldung des Kennzeichens nennen die Seiten der Stadt nicht, also beim Hotel nachfragen.",
+     "Kein Tagesticket für Besucher: außerhalb parken (z. B. Parkplatz Mayr-Nusser oder Tiefgarage Waltherplatz). Andere befristete Genehmigungen nur aus besonderen Gründen bei der Stadtpolizei (Tel. 0471 997799, Stempelmarke 16 €). Elektro- und Hybridautos sind nicht befreit; auch für Motorräder sehen die Regeln keine Befreiung vor.",
+     "Lieferverkehr bis 3,5 t Montag–Samstag 6–10:30 Uhr (nicht an Feiertagen); Elektro-, Hybrid- und Wasserstoff-Lieferwagen bis 4,25 t mit Genehmigung auch 10:30–11 Uhr und an einigen Zufahrten 14:30–16 Uhr. Der Waltherplatz ist Fußgängerzone.",
+     "Im ganzen Ortsgebiet von Bozen, Montag–Freitag (außer Feiertagen) 7–10 und 16–19 Uhr: Fahrverbot für Benziner Euro 0–1 und Diesel Euro 0–3. Flüssiggas, Methan, Elektro, Hybrid und Motorräder dürfen immer fahren. GateLR zeigt dieses Gebiet nicht auf der Karte.",
+     "Grenze aus der offiziellen Straßenliste der VBZ (Beschluss 518/2022) auf OpenStreetMap-Straßen gezeichnet; die kurzen Abschnitte der Bahnhofsallee und der Piavestraße sind angenähert. Kameras aus OpenStreetMap: die Zufahrtskarte der Stadt (Google My Maps) war nicht lesbar. Die Höhe des Bußgelds steht nicht auf den Seiten der Stadt (laut inoffiziellen Ratgebern etwa 80 €)."
+    ],
+    "links": [
+     {
+      "title": "City of Bolzano: ZTL access and parking guide",
+      "title_it": "Comune di Bolzano: guida accesso ZTL e sosta nel centro abitato",
+      "title_de": "Stadt Bozen: Leitfaden Zufahrt verkehrsberuhigte Zone und Parken",
+      "url": "https://www.comune.bolzano.bz.it/Vivere-il-Comune/Guide/Accesso-ZTL-e-sosta-nel-centro-abitato"
+     },
+     {
+      "title": "City of Bolzano (municipal police): ZTL and pedestrian-zone permits",
+      "title_it": "Comune di Bolzano (Polizia Municipale): permessi varchi elettronici ZTL e aree pedonali",
+      "title_de": "Stadt Bozen (Stadtpolizei): Genehmigung für die Einfahrt in die VBZ und die Fußgängerzone",
+      "url": "https://www.comune.bolzano.bz.it/Servizi/Polizia-Municipale-Permessi-varchi-elettronici-ZTL-ed-aree-pedonali"
+     },
+     {
+      "title": "Council resolutions 518/2022 and 17/2023: ZTL streets and rules from 1 February 2023",
+      "title_it": "Delibere di Giunta 518/2022 e 17/2023: vie e regole della ZTL dal 1° febbraio 2023",
+      "title_de": "Beschlüsse des Gemeindeausschusses 518/2022 und 17/2023: Straßen und Regeln der VBZ ab 1. Februar 2023",
+      "url": "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Delibere-della-Giunta-Comunale-n.-518-2022-e-n.-17-2023"
+     },
+     {
+      "title": "City of Bolzano: ZTL entry cameras (with link to the official gate map)",
+      "title_it": "Comune di Bolzano: i varchi con le telecamere della ZTL (con la mappa ufficiale dei varchi)",
+      "title_de": "Stadt Bozen: die Zufahrtskameras der VBZ (mit Link zur offiziellen Karte)",
+      "url": "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Polizia-Municipale-I-varchi-gates-con-le-telecamere-di-controllo-della-ZTL-in-centro-storico"
+     },
+     {
+      "title": "City of Bolzano: weekday bans on older Euro classes (whole built-up area)",
+      "title_it": "Comune di Bolzano: divieti di circolazione per l'inquinamento dell'aria (tutto il centro abitato)",
+      "title_de": "Stadt Bozen: Fahrverbote für ältere Euro-Klassen an Werktagen (ganzes Ortsgebiet)",
+      "url": "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Divieti-di-circolazione-per-limitare-l-inquinamento-dell-aria"
+     },
+     {
+      "title": "OpenStreetMap: ZTL relation (cameras on the map)",
+      "title_it": "OpenStreetMap: relazione della ZTL (telecamere sulla mappa)",
+      "title_de": "OpenStreetMap: ZTL-Relation (Kameras auf der Karte)",
+      "url": "https://www.openstreetmap.org/relation/19584710"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Bolzano / Stadtgemeinde Bozen official pages and acts (CC BY 4.0). Perimeter: official street list (resolution 518/2022) traced on © OpenStreetMap contributors, ODbL 1.0; cameras from OSM relation 19584710 (not official)."
+}
