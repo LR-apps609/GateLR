@@ -25,9 +25,12 @@ final class ScreenshotTests: XCTestCase {
         return true
     }
 
+    /// Indietro con il gesto dal bordo sinistro: nessuna ricerca di elementi (sul Mac di GitHub la ricerca del pulsante
+    /// «indietro» andava a volte in tempo scaduto e faceva fallire tutto il giro)
     private func back() {
-        let b = app.navigationBars.buttons.element(boundBy: 0)
-        if b.waitForExistence(timeout: 2) { b.tap(); sleep(1) }
+        let start = app.coordinate(withNormalizedOffset: CGVector(dx: 0.01, dy: 0.45))
+        start.press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.85, dy: 0.45)))
+        sleep(1)
     }
 
     func test1Tour() {

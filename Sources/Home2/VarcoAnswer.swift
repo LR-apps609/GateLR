@@ -82,9 +82,9 @@ struct GatePanelObject: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var shown: GatePanelState?
     @State private var angle = 0.0
-    /// Quanta parte dello schermo è accesa, dall'alto (da 0 a 1). Un'animazione sola, non un ciclo con le attese:
-    /// con il telefono (o il simulatore) occupato il ciclo restava a metà e il pannello sembrava spento
-    @State private var lit = 0.0
+    /// Quanta parte dello schermo è accesa, dall'alto (da 0 a 1). Di base accesa: se l'accensione animata non parte
+    /// (nella 1.16.0 il pannello verde dopo una ricerca restava spento) il pannello si legge comunque
+    @State private var lit = 1.0
 
     var body: some View {
         let s = shown ?? panel
@@ -192,10 +192,14 @@ struct GatePanelObject: View {
     /// I punti che si accendono dall'alto in basso (tutti insieme con «Riduci movimento»); alla fine sempre accesi
     private func light() {
         if reduceMotion { lit = 1; return }
-        lit = 0
+        var t = Transaction()
+        t.disablesAnimations = true
+        withTransaction(t) { lit = 0 }
         DispatchQueue.main.async {
             withAnimation(.easeOut(duration: 0.45)) { lit = 1 }
         }
+        // In ogni caso, poco dopo, tutto acceso
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { if lit < 1 { lit = 1 } }
     }
 
     /// La paletta: metà giro, cambia la faccia, l'altra metà con un piccolo rimbalzo; poi i punti si riaccendono
