@@ -250,8 +250,10 @@ struct IntroDriveSlide: View {
             }
             // Il blu notte sopra il titolo e sotto il pannello in basso, perché il testo resti leggibile sulla mappa
             VStack(spacing: 0) {
-                LinearGradient(colors: [Notte.navy, Notte.navy.opacity(0.8), .clear], startPoint: .top, endPoint: .bottom)
-                    .frame(height: 170)
+                // Più pieno di giorno: sulla mappa chiara il titolo bianco altrimenti si legge poco
+                LinearGradient(stops: [.init(color: Notte.navy, location: 0), .init(color: Notte.navy.opacity(0.92), location: 0.55),
+                                       .init(color: .clear, location: 1)], startPoint: .top, endPoint: .bottom)
+                    .frame(height: 200)
                     .ignoresSafeArea(edges: .top)
                 Spacer()
                 LinearGradient(colors: [.clear, Notte.navy.opacity(0.85), Notte.navy], startPoint: .top, endPoint: .bottom)
