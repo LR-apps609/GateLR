@@ -1,0 +1,448 @@
+{
+ "id": "trento",
+ "name": "Trento",
+ "name_it": "Trento",
+ "name_de": "Trient",
+ "center": {
+  "lat": 46.067,
+  "lon": 11.1213
+ },
+ "zones": [
+  {
+   "id": "trento-ztl",
+   "name": "Historic centre · ZTL 24 hours",
+   "name_it": "Centro storico · ZTL 0–24",
+   "name_de": "Altstadt · ZTL rund um die Uhr",
+   "kind": "restricted",
+   "summary": "Trento's historic centre (Piazza Duomo, Via Belenzani, Piazza Battisti) is closed to cars without a permit 24 hours a day, every day; 7 cameras at the entrances read plates. There is no day ticket. If your hotel or B&B is inside, you may drive in: give your plate at check-in and check-out and the reception issues a permit with a 30-minute stop.",
+   "summary_it": "Il centro storico di Trento (piazza Duomo, via Belenzani, piazza Battisti) è chiuso alle auto senza permesso 24 ore su 24, tutti i giorni; 7 telecamere agli ingressi leggono le targhe. Non c'è un biglietto giornaliero. Se l'albergo o il B&B è dentro puoi entrare: comunica la targa al check-in e al check-out e la reception rilascia un permesso con sosta di 30 minuti.",
+   "summary_de": "Die Altstadt von Trient (Domplatz, Via Belenzani, Piazza Battisti) ist rund um die Uhr, jeden Tag, für Autos ohne Genehmigung gesperrt; 7 Kameras an den Einfahrten lesen die Kennzeichen. Ein Tagesticket gibt es nicht. Liegt dein Hotel oder B&B innen, darfst du einfahren: Kennzeichen beim Check-in und Check-out angeben, die Rezeption stellt eine Genehmigung mit 30 Minuten Halt aus.",
+   "perimeter": [
+    {
+     "lat": 46.06592,
+     "lon": 11.12128
+    },
+    {
+     "lat": 46.065904,
+     "lon": 11.121881
+    },
+    {
+     "lat": 46.066193,
+     "lon": 11.121813
+    },
+    {
+     "lat": 46.066146,
+     "lon": 11.121215
+    },
+    {
+     "lat": 46.066309,
+     "lon": 11.121159
+    },
+    {
+     "lat": 46.066294,
+     "lon": 11.121018
+    },
+    {
+     "lat": 46.066217,
+     "lon": 11.121028
+    },
+    {
+     "lat": 46.066037,
+     "lon": 11.119334
+    },
+    {
+     "lat": 46.069159,
+     "lon": 11.118683
+    },
+    {
+     "lat": 46.069214,
+     "lon": 11.118629
+    },
+    {
+     "lat": 46.069493,
+     "lon": 11.118545
+    },
+    {
+     "lat": 46.069699,
+     "lon": 11.11839
+    },
+    {
+     "lat": 46.069873,
+     "lon": 11.118343
+    },
+    {
+     "lat": 46.069932,
+     "lon": 11.118803
+    },
+    {
+     "lat": 46.069859,
+     "lon": 11.118823
+    },
+    {
+     "lat": 46.06987,
+     "lon": 11.118921
+    },
+    {
+     "lat": 46.069922,
+     "lon": 11.11893
+    },
+    {
+     "lat": 46.069995,
+     "lon": 11.119696
+    },
+    {
+     "lat": 46.070022,
+     "lon": 11.119709
+    },
+    {
+     "lat": 46.070027,
+     "lon": 11.119767
+    },
+    {
+     "lat": 46.069989,
+     "lon": 11.119777
+    },
+    {
+     "lat": 46.070169,
+     "lon": 11.121487
+    },
+    {
+     "lat": 46.070242,
+     "lon": 11.12168
+    },
+    {
+     "lat": 46.070399,
+     "lon": 11.122397
+    },
+    {
+     "lat": 46.070537,
+     "lon": 11.122737
+    },
+    {
+     "lat": 46.070459,
+     "lon": 11.122794
+    },
+    {
+     "lat": 46.070432,
+     "lon": 11.123081
+    },
+    {
+     "lat": 46.070648,
+     "lon": 11.123062
+    },
+    {
+     "lat": 46.07091,
+     "lon": 11.123474
+    },
+    {
+     "lat": 46.070882,
+     "lon": 11.123554
+    },
+    {
+     "lat": 46.070957,
+     "lon": 11.123604
+    },
+    {
+     "lat": 46.070973,
+     "lon": 11.123711
+    },
+    {
+     "lat": 46.071094,
+     "lon": 11.123779
+    },
+    {
+     "lat": 46.071081,
+     "lon": 11.124001
+    },
+    {
+     "lat": 46.071053,
+     "lon": 11.124034
+    },
+    {
+     "lat": 46.071292,
+     "lon": 11.124499
+    },
+    {
+     "lat": 46.071337,
+     "lon": 11.124464
+    },
+    {
+     "lat": 46.071376,
+     "lon": 11.124553
+    },
+    {
+     "lat": 46.071338,
+     "lon": 11.124688
+    },
+    {
+     "lat": 46.071807,
+     "lon": 11.124852
+    },
+    {
+     "lat": 46.072011,
+     "lon": 11.125034
+    },
+    {
+     "lat": 46.072004,
+     "lon": 11.125165
+    },
+    {
+     "lat": 46.071938,
+     "lon": 11.125301
+    },
+    {
+     "lat": 46.071901,
+     "lon": 11.125803
+    },
+    {
+     "lat": 46.071539,
+     "lon": 11.126117
+    },
+    {
+     "lat": 46.070971,
+     "lon": 11.126483
+    },
+    {
+     "lat": 46.070759,
+     "lon": 11.126561
+    },
+    {
+     "lat": 46.070471,
+     "lon": 11.126753
+    },
+    {
+     "lat": 46.070345,
+     "lon": 11.126743
+    },
+    {
+     "lat": 46.069901,
+     "lon": 11.127166
+    },
+    {
+     "lat": 46.069581,
+     "lon": 11.127218
+    },
+    {
+     "lat": 46.069218,
+     "lon": 11.127135
+    },
+    {
+     "lat": 46.06918,
+     "lon": 11.127201
+    },
+    {
+     "lat": 46.068883,
+     "lon": 11.127222
+    },
+    {
+     "lat": 46.067672,
+     "lon": 11.126547
+    },
+    {
+     "lat": 46.067622,
+     "lon": 11.12642
+    },
+    {
+     "lat": 46.066535,
+     "lon": 11.125736
+    },
+    {
+     "lat": 46.066082,
+     "lon": 11.125376
+    },
+    {
+     "lat": 46.066015,
+     "lon": 11.124654
+    },
+    {
+     "lat": 46.06569,
+     "lon": 11.124686
+    },
+    {
+     "lat": 46.065688,
+     "lon": 11.1248
+    },
+    {
+     "lat": 46.065628,
+     "lon": 11.124856
+    },
+    {
+     "lat": 46.065553,
+     "lon": 11.124801
+    },
+    {
+     "lat": 46.065507,
+     "lon": 11.124631
+    },
+    {
+     "lat": 46.065467,
+     "lon": 11.124642
+    },
+    {
+     "lat": 46.065381,
+     "lon": 11.122983
+    },
+    {
+     "lat": 46.065054,
+     "lon": 11.122936
+    },
+    {
+     "lat": 46.065315,
+     "lon": 11.121237
+    },
+    {
+     "lat": 46.06592,
+     "lon": 11.12128
+    }
+   ],
+   "gates": [
+    {
+     "id": "tn-varco1",
+     "name": "via Pozzo – via Torre Vanga",
+     "location": {
+      "lat": 46.070084,
+      "lon": 11.119721
+     }
+    },
+    {
+     "id": "tn-varco2",
+     "name": "via Suffragio - piazza Sanzio",
+     "location": {
+      "lat": 46.072057,
+      "lon": 11.12517
+     }
+    },
+    {
+     "id": "tn-varco3",
+     "name": "piazza della Mostra – piazza Sanzio",
+     "location": {
+      "lat": 46.07201,
+      "lon": 11.125697
+     }
+    },
+    {
+     "id": "tn-varco4",
+     "name": "via Marchetti – via dei Ventuno",
+     "location": {
+      "lat": 46.069666,
+      "lon": 11.127285
+     }
+    },
+    {
+     "id": "tn-varco5",
+     "name": "via Galilei - largo Porta Nuova",
+     "location": {
+      "lat": 46.067466,
+      "lon": 11.126601
+     }
+    },
+    {
+     "id": "tn-varco6",
+     "name": "piazza Garzetti – largo Pigarelli",
+     "location": {
+      "lat": 46.065664,
+      "lon": 11.125169
+     }
+    },
+    {
+     "id": "tn-varco7",
+     "name": "via Verdi – via Rosmini",
+     "location": {
+      "lat": 46.06668,
+      "lon": 11.119025
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Trento",
+    "pageURL": "https://www.comune.trento.it/Vivere-il-Comune/Guide/Guida-alla-Ztl",
+    "ordinance": "Disciplinare per la circolazione veicolare nella ZTL (delibera di Giunta 290/2018, determinazione 59/33 del 06/11/2023); ordinanze 30/2016 e 219/2023",
+    "ordinanceURL": "https://www.comune.trento.it/content/download/2623/41796/file/Disciplinare_Ztl_2023_det.59-33.pdf",
+    "quote": "Tutti gli accessi irregolari sono rilevati automaticamente, 24 ore su 24",
+    "quoteTranslation": "All unauthorised entries are detected automatically, 24 hours a day",
+    "quoteTranslation_de": "Alle unerlaubten Einfahrten werden automatisch erfasst, rund um die Uhr",
+    "checkedOn": "2026-10-27T11:40:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotel and B&B guests inside the ZTL may drive in without a permit: at check-in and check-out give your plate to the reception, which enters it online and issues a temporary permit (entry, exit and a 30-minute stop near the hotel, by the shortest route). Ask the hotel to confirm; longer parking only in the Ex-SIT car park in Via Canestrini with the hotel's pass.",
+     "No day ticket for visitors: other temporary permits only for special needs, from Trentino Mobilità (at least 2 working days before) or the municipal police for urgent cases.",
+     "Electric and hybrid cars are not exempt (only reduced permit fees for residents); motorcycles need a permit too.",
+     "The ZTL has two parts: the inner pedestrian ZTL-P (Piazza Battisti, Via Oss Mazzurana, Via Diaz…) and the ZTL-CS around it; GateLR shows them as one zone, closed 24 hours a day to cars without a permit.",
+     "Perimeter: the City's open-data boundary as copied into OpenStreetMap (2025); the City's own file server could not be reached. Gates on the map are the 7 entry cameras listed in the rules, placed at the street junctions."
+    ],
+    "pending_it": [
+     "Gli ospiti di alberghi e B&B dentro la ZTL possono entrare senza permesso: al check-in e al check-out comunicano la targa alla reception, che la inserisce online e rilascia un permesso temporaneo (entrata, uscita e sosta di 30 minuti vicino alla struttura, per la via più breve). Chiedi conferma all'hotel; la sosta lunga solo nel parcheggio Ex-SIT di via Canestrini con il contrassegno dell'hotel.",
+     "Nessun biglietto giornaliero per i visitatori: altri permessi temporanei solo per esigenze particolari, da Trentino Mobilità (almeno 2 giorni lavorativi prima) o dalla Polizia Locale per i casi urgenti.",
+     "Auto elettriche e ibride non esenti (solo tariffe ridotte per i permessi dei residenti); anche le moto servono il permesso.",
+     "La ZTL ha due parti: la ZTL-P pedonale più interna (piazza Battisti, via Oss Mazzurana, via Diaz…) e la ZTL-CS che la circonda; GateLR le mostra come un'unica zona, chiusa 24 ore su 24 alle auto senza permesso.",
+     "Perimetro: il confine open data del Comune come riportato in OpenStreetMap (2025); il server dei file del Comune non era raggiungibile. I varchi sulla mappa sono i 7 varchi in entrata del Disciplinare, agli incroci indicati."
+    ],
+    "pending_de": [
+     "Gäste von Hotels und B&Bs in der ZTL dürfen ohne Genehmigung einfahren: beim Check-in und Check-out das Kennzeichen an der Rezeption angeben, die es online einträgt und eine befristete Genehmigung ausstellt (Ein- und Ausfahrt und 30 Minuten Halt beim Hotel, auf kürzestem Weg). Vom Hotel bestätigen lassen; längeres Parken nur im Parkplatz Ex-SIT in der Via Canestrini mit dem Ausweis des Hotels.",
+     "Kein Tagesticket für Besucher: andere befristete Genehmigungen nur für besondere Fälle, bei Trentino Mobilità (mindestens 2 Werktage vorher) oder bei der Ortspolizei in dringenden Fällen.",
+     "Elektro- und Hybridautos sind nicht befreit (nur ermäßigte Gebühren für Anwohnergenehmigungen); auch Motorräder brauchen eine Genehmigung.",
+     "Die ZTL hat zwei Teile: die innere Fußgänger-ZTL-P (Piazza Battisti, Via Oss Mazzurana, Via Diaz…) und die umgebende ZTL-CS; GateLR zeigt sie als eine Zone, rund um die Uhr für Autos ohne Genehmigung gesperrt.",
+     "Grenze: die Open-Data-Grenze der Stadt, wie sie in OpenStreetMap übernommen wurde (2025); der Dateiserver der Stadt war nicht erreichbar. Die Kameras auf der Karte sind die 7 Einfahrtskameras des Regelwerks an den genannten Kreuzungen."
+    ],
+    "links": [
+     {
+      "title": "City of Trento: ZTL guide",
+      "title_it": "Comune di Trento: guida alla ZTL",
+      "title_de": "Stadt Trient: Leitfaden zur ZTL",
+      "url": "https://www.comune.trento.it/Vivere-il-Comune/Guide/Guida-alla-Ztl"
+     },
+     {
+      "title": "City of Trento: hotel and B&B guests, temporary permits",
+      "title_it": "Comune di Trento: clienti di alberghi e B&B, permessi temporanei",
+      "title_de": "Stadt Trient: Hotel- und B&B-Gäste, befristete Genehmigungen",
+      "url": "https://www.comune.trento.it/Servizi/Utenti-occasionali-in-Ztl-richiesta-permessi"
+     },
+     {
+      "title": "ZTL rules (Disciplinare 2023, PDF)",
+      "title_it": "Disciplinare della ZTL (2023, PDF)",
+      "title_de": "ZTL-Regelwerk (Disciplinare 2023, PDF)",
+      "url": "https://www.comune.trento.it/content/download/2623/41796/file/Disciplinare_Ztl_2023_det.59-33.pdf"
+     },
+     {
+      "title": "Ordinance 219/2023 (ZTL boundary, PDF)",
+      "title_it": "Ordinanza 219/2023 (delimitazione della ZTL, PDF)",
+      "title_de": "Verordnung 219/2023 (ZTL-Grenze, PDF)",
+      "url": "https://www.comune.trento.it/content/download/27530/1058147/file/Atto.pdf"
+     },
+     {
+      "title": "Official ZTL map data (open data, Trentino portal)",
+      "title_it": "Perimetro ufficiale della ZTL (open data, portale del Trentino)",
+      "title_de": "Offizielle ZTL-Kartendaten (Open Data, Trentiner Portal)",
+      "url": "https://dati.trentino.it/dataset/zona-a-traffico-limitato-open-data"
+     },
+     {
+      "title": "Trentino Mobilità: permits office",
+      "title_it": "Trentino Mobilità: ufficio permessi",
+      "title_de": "Trentino Mobilità: Genehmigungsbüro",
+      "url": "https://www.trentinomobilita.it/"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Trento official pages and acts. Perimeter: Comune di Trento open data (CC0) via © OpenStreetMap contributors, ODbL 1.0 (relation 19186663); gates at OSM street junctions."
+}

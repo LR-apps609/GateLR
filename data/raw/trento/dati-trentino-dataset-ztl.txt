@@ -1,0 +1,26 @@
+URL: https://dati.trentino.it/dataset/zona-a-traffico-limitato-open-data
+Letto il: 2026-10-27 (portale open data della Provincia, scheda del dataset del Comune di Trento «Zona a traffico limitato (Open data)», licenza Creative Commons CCZero 1.0, modificata 2023-10-18T11:46:53.482235: fonte ufficiale; testo dall'API CKAN. I file del dataset sono su gis.comune.trento.it, bloccato dal proxy del sandbox (403))
+
+Zona a traffico limitato (Open data)
+
+La zona a traffico limitato è l'area del centro storico in cui possono accedere e circolare solo gli automezzi autorizzati.
+
+Il comune di Trento ha individuato una Zona a Traffico Limitato centrale ed esternamente, aree di prima e seconda corona con tariffe di sosta differenziate.
+
+La Zona a Traffico Limitato - ZTL (costituita dalla ZTL-P più centrale e dalla ZTL-CS che la circonda) è l'area del centro storico in cui possono accedere e circolare solo gli automezzi autorizzati.
+
+Le categorie autorizzate ad accedere sono individuate nell'Ordinanza (N°30/2016) mentre le modalità di accesso sono contenute nel relativo Disciplinare.
+
+Ai residenti in ztl, autorizzati per la sosta su area pubblica, in particolare, è consentita la sosta con le seguenti modalità:
+
+• in ZTL, indipendentemente dalla zona colorata di appartenenza
+
+• nell'area di prima corona centrale, come individuata all'art. 5 del disciplinare, esterna alla ZTL e regolamentata a pagamento, indipendentemente dalla zona colorata di appartenenza
+
+• nell'area di seconda corona centrale, come individuata all'art. 6 del disciplinare, esterna alla ZTL e regolamentata a pagamento, nel rispetto della zona colorata di appartenenza.
+
+Risorse:
+GeoJSON https://gis.comune.trento.it/dbexport?db=base&sc=mobilita&ly=zone_traffico_limitato&fr=geojson
+SHP (Shapefile) https://gis.comune.trento.it/dbexport?db=base&sc=mobilita&ly=zone_traffico_limitato&fr=shp
+KML (Google)  https://gis.comune.trento.it/dbexport?db=base&sc=mobilita&ly=zone_traffico_limitato&fr=kml
+CSV https://gis.comune.trento.it/dbexport?db=base&sc=mobilita&ly=zone_traffico_limitato&fr=csv
