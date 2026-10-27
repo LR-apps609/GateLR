@@ -1,6 +1,6 @@
 {
- "version": "202610271630",
- "digest": "13aad6df65f6",
+ "version": "202610271639",
+ "digest": "47085cd8151d",
  "schema": 1,
  "cities": [
   {
@@ -197,6 +197,11 @@
    "id": "vicenza",
    "file": "vicenza.json",
    "sha256": "1eec4bbcd29e26fa6eb28afb47044226357b93685243bf64f1646e9201ec3977"
+  },
+  {
+   "id": "volterra",
+   "file": "volterra.json",
+   "sha256": "ad90d345d9b4eb66adbb0c1b43af191c53fd6cdfcb7a0d4d41e0d625c5ed2a3e"
   }
  ]
 }

@@ -1,0 +1,421 @@
+{
+ "id": "volterra",
+ "name": "Volterra",
+ "name_it": "Volterra",
+ "name_de": "Volterra",
+ "center": {
+  "lat": 43.4011,
+  "lon": 10.8603
+ },
+ "zones": [
+  {
+   "id": "volterra-centro",
+   "name": "Old town · ZTL inside the walls",
+   "name_it": "Centro storico · ZTL dentro le mura",
+   "name_de": "Altstadt · ZTL innerhalb der Mauern",
+   "kind": "restricted",
+   "summary": "Volterra's old town inside the walls (Piazza dei Priori, the Duomo) is closed to cars without a permit every day, holidays included: 10 am–8 pm from 21 March to 1 November, 10 am–5:30 pm from 2 November to 20 March. Cameras at Porta San Francesco and Porta a Selci. Outside those hours you can drive in. Park outside the walls (e.g. La Dogana under Piazza Martiri, Docciola, La Stazione) and walk.",
+   "summary_it": "Il centro storico di Volterra dentro le mura (piazza dei Priori, il Duomo) è chiuso alle auto senza permesso tutti i giorni, festivi compresi: 10–20 dal 21 marzo al 1° novembre, 10–17:30 dal 2 novembre al 20 marzo. Telecamere a Porta San Francesco e Porta a Selci. Fuori da questi orari si entra. Parcheggia fuori dalle mura (es. La Dogana sotto piazza Martiri, Docciola, La Stazione) e cammina.",
+   "summary_de": "Die Altstadt von Volterra innerhalb der Mauern (Piazza dei Priori, Dom) ist für Autos ohne Genehmigung täglich gesperrt, auch an Feiertagen: 10–20 Uhr vom 21. März bis 1. November, 10–17:30 Uhr vom 2. November bis 20. März. Kameras an der Porta San Francesco und Porta a Selci. Außerhalb dieser Zeiten darfst du hinein. Vor den Mauern parken (z. B. La Dogana unter der Piazza Martiri, Docciola, La Stazione) und laufen.",
+   "perimeter": [
+    {
+     "lat": 43.400815,
+     "lon": 10.858884
+    },
+    {
+     "lat": 43.400888,
+     "lon": 10.858458
+    },
+    {
+     "lat": 43.400841,
+     "lon": 10.858437
+    },
+    {
+     "lat": 43.400846,
+     "lon": 10.858364
+    },
+    {
+     "lat": 43.400909,
+     "lon": 10.858258
+    },
+    {
+     "lat": 43.401184,
+     "lon": 10.857929
+    },
+    {
+     "lat": 43.401325,
+     "lon": 10.857869
+    },
+    {
+     "lat": 43.401562,
+     "lon": 10.857417
+    },
+    {
+     "lat": 43.402344,
+     "lon": 10.856571
+    },
+    {
+     "lat": 43.402676,
+     "lon": 10.855943
+    },
+    {
+     "lat": 43.403156,
+     "lon": 10.855677
+    },
+    {
+     "lat": 43.403285,
+     "lon": 10.855323
+    },
+    {
+     "lat": 43.403868,
+     "lon": 10.854724
+    },
+    {
+     "lat": 43.404202,
+     "lon": 10.855124
+    },
+    {
+     "lat": 43.404895,
+     "lon": 10.85523
+    },
+    {
+     "lat": 43.40498,
+     "lon": 10.855532
+    },
+    {
+     "lat": 43.404992,
+     "lon": 10.855842
+    },
+    {
+     "lat": 43.404437,
+     "lon": 10.85674
+    },
+    {
+     "lat": 43.404148,
+     "lon": 10.857768
+    },
+    {
+     "lat": 43.403925,
+     "lon": 10.858
+    },
+    {
+     "lat": 43.403658,
+     "lon": 10.857808
+    },
+    {
+     "lat": 43.403366,
+     "lon": 10.858424
+    },
+    {
+     "lat": 43.403403,
+     "lon": 10.858989
+    },
+    {
+     "lat": 43.403361,
+     "lon": 10.859242
+    },
+    {
+     "lat": 43.403135,
+     "lon": 10.859668
+    },
+    {
+     "lat": 43.403062,
+     "lon": 10.86005
+    },
+    {
+     "lat": 43.403161,
+     "lon": 10.860417
+    },
+    {
+     "lat": 43.40338,
+     "lon": 10.860662
+    },
+    {
+     "lat": 43.403684,
+     "lon": 10.861319
+    },
+    {
+     "lat": 43.403725,
+     "lon": 10.861614
+    },
+    {
+     "lat": 43.403866,
+     "lon": 10.861537
+    },
+    {
+     "lat": 43.404004,
+     "lon": 10.862148
+    },
+    {
+     "lat": 43.403659,
+     "lon": 10.862503
+    },
+    {
+     "lat": 43.403563,
+     "lon": 10.862332
+    },
+    {
+     "lat": 43.403042,
+     "lon": 10.862785
+    },
+    {
+     "lat": 43.402692,
+     "lon": 10.863476
+    },
+    {
+     "lat": 43.402596,
+     "lon": 10.863925
+    },
+    {
+     "lat": 43.402365,
+     "lon": 10.864281
+    },
+    {
+     "lat": 43.402117,
+     "lon": 10.86503
+    },
+    {
+     "lat": 43.401881,
+     "lon": 10.864949
+    },
+    {
+     "lat": 43.40164,
+     "lon": 10.864709
+    },
+    {
+     "lat": 43.401322,
+     "lon": 10.86491
+    },
+    {
+     "lat": 43.401185,
+     "lon": 10.865094
+    },
+    {
+     "lat": 43.401196,
+     "lon": 10.865666
+    },
+    {
+     "lat": 43.401721,
+     "lon": 10.866381
+    },
+    {
+     "lat": 43.402105,
+     "lon": 10.867253
+    },
+    {
+     "lat": 43.402124,
+     "lon": 10.867587
+    },
+    {
+     "lat": 43.401191,
+     "lon": 10.867293
+    },
+    {
+     "lat": 43.401096,
+     "lon": 10.867047
+    },
+    {
+     "lat": 43.40059,
+     "lon": 10.866892
+    },
+    {
+     "lat": 43.400302,
+     "lon": 10.866655
+    },
+    {
+     "lat": 43.400155,
+     "lon": 10.866459
+    },
+    {
+     "lat": 43.399957,
+     "lon": 10.862271
+    },
+    {
+     "lat": 43.400103,
+     "lon": 10.862281
+    },
+    {
+     "lat": 43.400171,
+     "lon": 10.861199
+    },
+    {
+     "lat": 43.400137,
+     "lon": 10.861197
+    },
+    {
+     "lat": 43.400225,
+     "lon": 10.860287
+    },
+    {
+     "lat": 43.40043,
+     "lon": 10.860023
+    },
+    {
+     "lat": 43.400672,
+     "lon": 10.859372
+    },
+    {
+     "lat": 43.400919,
+     "lon": 10.85952
+    },
+    {
+     "lat": 43.401172,
+     "lon": 10.859548
+    },
+    {
+     "lat": 43.40104,
+     "lon": 10.859213
+    },
+    {
+     "lat": 43.400918,
+     "lon": 10.859087
+    },
+    {
+     "lat": 43.400745,
+     "lon": 10.859123
+    },
+    {
+     "lat": 43.400815,
+     "lon": 10.858884
+    }
+   ],
+   "gates": [
+    {
+     "id": "vt-osm937863921",
+     "name": "Varco Porta San Francesco · ingresso",
+     "location": {
+      "lat": 43.404202,
+      "lon": 10.855124
+     }
+    },
+    {
+     "id": "vt-osm471087421",
+     "name": "Varco Porta a Selci · ingresso",
+     "location": {
+      "lat": 43.400182,
+      "lon": 10.866488
+     }
+    },
+    {
+     "id": "vt-osm471087415",
+     "name": "Varco Porta Fiorentina · uscita",
+     "location": {
+      "lat": 43.403689,
+      "lon": 10.861375
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 600,
+     "end": 1200,
+     "season": {
+      "fromMonth": 3,
+      "fromDay": 21,
+      "toMonth": 11,
+      "toDay": 1
+     }
+    },
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 600,
+     "end": 1050,
+     "season": {
+      "fromMonth": 11,
+      "fromDay": 2,
+      "toMonth": 3,
+      "toDay": 20
+     }
+    }
+   ],
+   "freeOnHolidays": false,
+   "holidaysAsSunday": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Volterra",
+    "pageURL": "https://www.comune.volterra.pi.it/articolo_tematico/z-t-l-zona-a-traffico-limitato-informazioni-e-servizi/",
+    "quote": "Orario Z.T.L. INVERNALE: Nel periodo che va dal 2 novembre al 20 marzo, la ZTL sarà attiva dalle ore 10:00 alle ore 17:30. Orario Z.T.L. ESTIVO: Nel periodo che va dal 21 marzo al 1 novembre, la ZTL sarà attiva dalle ore 10:00 alle ore 20:00.",
+    "quoteTranslation": "Winter ZTL hours: from 2 November to 20 March the ZTL will be active from 10:00 to 17:30. Summer ZTL hours: from 21 March to 1 November the ZTL will be active from 10:00 to 20:00.",
+    "quoteTranslation_de": "Winterzeiten der ZTL: vom 2. November bis 20. März ist die ZTL von 10:00 bis 17:30 Uhr aktiv. Sommerzeiten der ZTL: vom 21. März bis 1. November ist die ZTL von 10:00 bis 20:00 Uhr aktiv.",
+    "checkedOn": "2026-10-27T16:30:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Visitors and hotel guests: the City's page has no hotel procedure. Anyone can ask for a temporary access by e-mail to ztl@comune.volterra.pi.it, giving date and time, name, plate, reason and the gate/street of access (at most 15 temporary accesses per calendar year); the access is valid only once the authorisation is received. Hotels registering plates is confirmed only by tyremap.com: ask your hotel before you arrive.",
+     "Blue Badge holders send date, name, issuing town and number of the badge and plate to ztl@comune.volterra.pi.it. No exemption for electric cars is mentioned; from 1 April 2026 mopeds (50 cc) also need a permit. The free number 800 865 635 shown at the gates is confirmed only by accessibilitacentristorici.it. Fines not stated by the City.",
+     "Hours change by City notice: summer 2025 was 10 am–7 pm (then 10 pm from 15 July to 15 September 2025 on trial, Giunta resolution 162/2025), summer 2026 is 10 am–8 pm; the gates are sometimes switched off (elections, roadworks) or extended (events). A summer night ZTL (Fri–Sun 8:30 pm–1 am, 29 June–31 July 2026) is confirmed only by tyremap.com and is not in GateLR. Check the City's notices.",
+     "Area drawn from the town walls in OpenStreetMap (two unmapped stretches, along the Fortress/prison and at Piazza Martiri della Libertà, closed with a straight line): the City's map and resolution are on a server not reachable from here. That the ZTL is the whole old town inside the walls is confirmed only by accessibilitacentristorici.it; the City names the gates Porta San Francesco and Porta a Selci (entry) and Porta Fiorentina, Piazza Martiri della Libertà and Porta all'Arco (exit). The bus terminal and the underground car park «La Dogana» at Piazza Martiri are left outside."
+    ],
+    "pending_it": [
+     "Visitatori e ospiti degli hotel: la pagina del Comune non indica una procedura per gli alberghi. Chiunque può chiedere un accesso temporaneo per e-mail a ztl@comune.volterra.pi.it indicando data e orario, nominativo, targa, motivazione e via/piazza di accesso (al massimo 15 accessi temporanei per anno solare); l'autorizzazione vale solo da quando è ricevuta. La registrazione della targa da parte degli hotel è confermata solo da tyremap.com: chiedi all'hotel prima di arrivare.",
+     "I titolari di contrassegno disabili inviano data, nominativo, comune di rilascio e numero del contrassegno e targa a ztl@comune.volterra.pi.it. Nessuna deroga per le auto elettriche è indicata; dal 1° aprile 2026 anche i ciclomotori 50 cc devono avere il permesso. Il numero verde 800 865 635 ai varchi è confermato solo da accessibilitacentristorici.it. Importo delle multe non indicato dal Comune.",
+     "Gli orari cambiano con gli avvisi del Comune: estate 2025 10–19 (poi fino alle 22 dal 15 luglio al 15 settembre 2025 in via sperimentale, delibera di Giunta 162/2025), estate 2026 10–20; i varchi a volte sono spenti (elezioni, lavori) o prolungati (eventi). Una ZTL notturna estiva (ven–dom 20:30–1, 29 giugno–31 luglio 2026) è confermata solo da tyremap.com e non è in GateLR. Controlla gli avvisi del Comune.",
+     "Area ricavata dalle mura in OpenStreetMap (due tratti non mappati, lungo la Fortezza/carcere e in piazza Martiri della Libertà, chiusi con un segmento): mappa e delibera del Comune sono su un server non raggiungibile da qui. Che la ZTL sia tutto il centro storico dentro le mura è confermato solo da accessibilitacentristorici.it; il Comune indica come varchi Porta San Francesco e Porta a Selci (ingresso) e Porta Fiorentina, piazza Martiri della Libertà e Porta all'Arco (uscita). Il terminal bus e il parcheggio sotterraneo «La Dogana» in piazza Martiri restano fuori."
+    ],
+    "pending_de": [
+     "Besucher und Hotelgäste: Die Seite der Stadt nennt kein Verfahren für Hotels. Jeder kann eine befristete Zufahrt per E-Mail an ztl@comune.volterra.pi.it beantragen, mit Datum und Uhrzeit, Name, Kennzeichen, Grund und Zufahrtsstraße (höchstens 15 befristete Zufahrten pro Kalenderjahr); sie gilt erst ab Erhalt der Genehmigung. Dass Hotels Kennzeichen melden, bestätigt nur tyremap.com: frag dein Hotel vor der Anreise.",
+     "Inhaber eines Behindertenausweises senden Datum, Name, ausstellende Gemeinde und Nummer des Ausweises und Kennzeichen an ztl@comune.volterra.pi.it. Keine Ausnahme für Elektroautos genannt; ab 1. April 2026 brauchen auch Mopeds (50 cm³) eine Genehmigung. Die Gratisnummer 800 865 635 an den Kameras bestätigt nur accessibilitacentristorici.it. Bußgeldhöhe von der Stadt nicht angegeben.",
+     "Die Zeiten ändern sich per Mitteilung der Stadt: Sommer 2025 10–19 Uhr (dann versuchsweise bis 22 Uhr vom 15. Juli bis 15. September 2025, Beschluss 162/2025), Sommer 2026 10–20 Uhr; die Kameras sind manchmal aus (Wahlen, Bauarbeiten) oder länger aktiv (Veranstaltungen). Eine nächtliche Sommer-ZTL (Fr–So 20:30–1 Uhr, 29. Juni–31. Juli 2026) bestätigt nur tyremap.com; sie ist nicht in GateLR. Mitteilungen der Stadt prüfen.",
+     "Fläche aus der Stadtmauer in OpenStreetMap (zwei nicht kartierte Abschnitte, an der Festung/dem Gefängnis und an der Piazza Martiri della Libertà, mit einer Geraden geschlossen): Karte und Beschluss der Stadt liegen auf einem von hier nicht erreichbaren Server. Dass die ZTL die ganze Altstadt innerhalb der Mauern ist, bestätigt nur accessibilitacentristorici.it; die Stadt nennt als Kameras Porta San Francesco und Porta a Selci (Einfahrt) sowie Porta Fiorentina, Piazza Martiri della Libertà und Porta all'Arco (Ausfahrt). Busterminal und Tiefgarage «La Dogana» an der Piazza Martiri bleiben draußen."
+    ],
+    "links": [
+     {
+      "title": "City of Volterra: ZTL information and services (hours)",
+      "title_it": "Comune di Volterra: Z.T.L. informazioni e servizi (orari)",
+      "title_de": "Stadt Volterra: ZTL-Informationen und Dienste (Zeiten)",
+      "url": "https://www.comune.volterra.pi.it/articolo_tematico/z-t-l-zona-a-traffico-limitato-informazioni-e-servizi/"
+     },
+     {
+      "title": "City of Volterra: summer hours 2026 (notice of 18 March 2026)",
+      "title_it": "Comune di Volterra: orario estivo 2026 (avviso del 18/03/2026)",
+      "title_de": "Stadt Volterra: Sommerzeiten 2026 (Mitteilung vom 18.03.2026)",
+      "url": "https://www.comune.volterra.pi.it/novita/variazioni-ztl/"
+     },
+     {
+      "title": "City of Volterra: ZTL also active on public holidays (notice of 12 December 2025)",
+      "title_it": "Comune di Volterra: ZTL attiva anche nei festivi (avviso del 12/12/2025)",
+      "title_de": "Stadt Volterra: ZTL auch an Feiertagen aktiv (Mitteilung vom 12.12.2025)",
+      "url": "https://www.comune.volterra.pi.it/novita/divieto-di-transito-e-proroga-orario-ztl/"
+     },
+     {
+      "title": "City of Volterra: permits 2026, mopeds need a permit from 1 April 2026",
+      "title_it": "Comune di Volterra: permessi 2026, ciclomotori con permesso dal 1° aprile 2026",
+      "title_de": "Stadt Volterra: Genehmigungen 2026, Mopeds ab 1. April 2026 mit Genehmigung",
+      "url": "https://www.comune.volterra.pi.it/novita/rinnovo-permessi-ztl/"
+     },
+     {
+      "title": "Accessibilità Centri Storici: Volterra (unofficial)",
+      "title_it": "Accessibilità Centri Storici: Volterra (non ufficiale)",
+      "title_de": "Accessibilità Centri Storici: Volterra (inoffiziell)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/toscana/volterra.html"
+     },
+     {
+      "title": "OpenStreetMap: town walls of Volterra (ODbL)",
+      "title_it": "OpenStreetMap: mura di Volterra (ODbL)",
+      "title_de": "OpenStreetMap: Stadtmauer von Volterra (ODbL)",
+      "url": "https://www.openstreetmap.org/way/355037914"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Volterra (official ZTL page and notices). Area and gates: © OpenStreetMap contributors, ODbL 1.0 (town walls, approximate, not official)."
+}
