@@ -1,0 +1,1220 @@
+{
+ "id": "trieste",
+ "name": "Trieste",
+ "name_it": "Trieste",
+ "name_de": "Triest",
+ "center": {
+  "lat": 45.6503,
+  "lon": 13.7681
+ },
+ "zones": [
+  {
+   "id": "trieste-ztl-b-trento",
+   "name": "Via Trento · Borgo Teresiano ZTL B",
+   "name_it": "Via Trento · ZTL B Borgo Teresiano",
+   "name_de": "Via Trento · ZTL B Borgo Teresiano",
+   "kind": "restricted",
+   "summary": "Via Trento in the Borgo Teresiano is a «type B» ZTL: reserved 0:00–24:00 on working days, mainly for residents' parking. No cameras: police checks.",
+   "summary_it": "Via Trento nel Borgo Teresiano è una ZTL «tipo B»: riservata dalle 0 alle 24 dei giorni feriali, soprattutto alla sosta dei residenti. Niente telecamere: controlli della Polizia Locale.",
+   "summary_de": "Die Via Trento im Borgo Teresiano ist eine ZTL «Typ B»: an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. Keine Kameras: Polizeikontrollen.",
+   "perimeter": [
+    {
+     "lat": 45.655624,
+     "lon": 13.772771
+    },
+    {
+     "lat": 45.655624,
+     "lon": 13.772809
+    },
+    {
+     "lat": 45.655706,
+     "lon": 13.772809
+    },
+    {
+     "lat": 45.655706,
+     "lon": 13.772771
+    },
+    {
+     "lat": 45.655651,
+     "lon": 13.772771
+    },
+    {
+     "lat": 45.655651,
+     "lon": 13.772732
+    },
+    {
+     "lat": 45.655489,
+     "lon": 13.772694
+    },
+    {
+     "lat": 45.655489,
+     "lon": 13.772655
+    },
+    {
+     "lat": 45.655434,
+     "lon": 13.772655
+    },
+    {
+     "lat": 45.655434,
+     "lon": 13.772617
+    },
+    {
+     "lat": 45.655353,
+     "lon": 13.772617
+    },
+    {
+     "lat": 45.655353,
+     "lon": 13.772578
+    },
+    {
+     "lat": 45.65519,
+     "lon": 13.772539
+    },
+    {
+     "lat": 45.65519,
+     "lon": 13.772578
+    },
+    {
+     "lat": 45.655244,
+     "lon": 13.772578
+    },
+    {
+     "lat": 45.655244,
+     "lon": 13.772617
+    },
+    {
+     "lat": 45.655407,
+     "lon": 13.772655
+    },
+    {
+     "lat": 45.655407,
+     "lon": 13.772694
+    },
+    {
+     "lat": 45.655462,
+     "lon": 13.772694
+    },
+    {
+     "lat": 45.655462,
+     "lon": 13.772732
+    },
+    {
+     "lat": 45.655624,
+     "lon": 13.772771
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Trieste",
+    "pageURL": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/",
+    "ordinance": "Ordinanza n. 24/2016 (elenco aree pedonali e ZTL del Comune)",
+    "ordinanceURL": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf",
+    "quote": null,
+    "quoteTranslation": null,
+    "quoteTranslation_de": null,
+    "checkedOn": "2026-10-27T11:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by a web-search summary of the municipal police FAQ: «type B» ZTLs are reserved 0:00–24:00 on working days, mainly for residents' parking. GateLR treats Monday–Saturday as working days and Sundays and public holidays as free.",
+     "No cameras are known in Trieste: checks are made by municipal police officers. Not in GateLR yet: the small «type A» ZTLs (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) and the many pedestrian areas (e.g. Piazza Unità d'Italia, Cavana).",
+     "Disabled badge holders are exempt. Permits from the municipal police permits office (Via Revoltella 35, by appointment).",
+     "Street outlines from OpenStreetMap (not official); the City's list of ZTLs dates from 2021."
+    ],
+    "pending_it": [
+     "Orari confermati solo dal riassunto della ricerca web della FAQ della Polizia Locale: le ZTL «tipo B» sono riservate dalle 0 alle 24 dei giorni feriali, soprattutto per la sosta dei residenti. GateLR considera feriali lunedì–sabato e liberi domeniche e festivi.",
+     "Non risultano telecamere a Trieste: i controlli sono degli agenti della Polizia Locale. Non ancora in GateLR: le piccole ZTL «tipo A» (via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) e le molte aree pedonali (es. piazza Unità d'Italia, Cavana).",
+     "I titolari di contrassegno disabili sono esentati. Permessi all'Ufficio Permessi della Polizia Locale (via Revoltella 35, su appuntamento).",
+     "Tracciati delle vie da OpenStreetMap (non ufficiali); l'elenco delle ZTL del Comune è del 2021."
+    ],
+    "pending_de": [
+     "Zeiten nur durch eine Websuche-Zusammenfassung der FAQ der Ortspolizei bestätigt: ZTL «Typ B» sind an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. GateLR behandelt Montag–Samstag als Werktage, Sonn- und Feiertage als frei.",
+     "In Triest sind keine Kameras bekannt: kontrolliert wird von Beamten der Ortspolizei. Noch nicht in GateLR: die kleinen ZTL «Typ A» (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) und die vielen Fußgängerzonen (z. B. Piazza Unità d'Italia, Cavana).",
+     "Inhaber eines Behindertenausweises sind befreit. Genehmigungen beim Genehmigungsbüro der Ortspolizei (Via Revoltella 35, nach Termin).",
+     "Straßenverläufe aus OpenStreetMap (nicht offiziell); die ZTL-Liste der Stadt stammt von 2021."
+    ],
+    "links": [
+     {
+      "title": "Municipal police: how to enter a ZTL in Trieste",
+      "title_it": "Polizia Locale: come accedere a una ZTL di Trieste",
+      "title_de": "Ortspolizei: Zufahrt zu einer ZTL in Triest",
+      "url": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/"
+     },
+     {
+      "title": "City of Trieste: list of pedestrian areas and ZTLs (PDF)",
+      "title_it": "Comune di Trieste: elenco aree pedonali e ZTL (PDF)",
+      "title_de": "Stadt Triest: Liste der Fußgängerzonen und ZTL (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf"
+     },
+     {
+      "title": "City of Trieste: ZTL B permit form for businesses (PDF)",
+      "title_it": "Comune di Trieste: modulo permessi ZTL B per le ditte (PDF)",
+      "title_de": "Stadt Triest: Antrag ZTL-B-Genehmigung für Firmen (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/Mod_Ditte.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "trieste-ztl-b-mercadante",
+   "name": "Via Saverio Mercadante · Borgo Teresiano ZTL B",
+   "name_it": "Via Saverio Mercadante · ZTL B Borgo Teresiano",
+   "name_de": "Via Saverio Mercadante · ZTL B Borgo Teresiano",
+   "kind": "restricted",
+   "summary": "Via Saverio Mercadante in the Borgo Teresiano is a «type B» ZTL: reserved 0:00–24:00 on working days, mainly for residents' parking. No cameras: police checks.",
+   "summary_it": "Via Saverio Mercadante nel Borgo Teresiano è una ZTL «tipo B»: riservata dalle 0 alle 24 dei giorni feriali, soprattutto alla sosta dei residenti. Niente telecamere: controlli della Polizia Locale.",
+   "summary_de": "Die Via Saverio Mercadante im Borgo Teresiano ist eine ZTL «Typ B»: an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. Keine Kameras: Polizeikontrollen.",
+   "perimeter": [
+    {
+     "lat": 45.652993,
+     "lon": 13.775667
+    },
+    {
+     "lat": 45.653047,
+     "lon": 13.775667
+    },
+    {
+     "lat": 45.653047,
+     "lon": 13.775705
+    },
+    {
+     "lat": 45.653101,
+     "lon": 13.775705
+    },
+    {
+     "lat": 45.653101,
+     "lon": 13.775744
+    },
+    {
+     "lat": 45.653182,
+     "lon": 13.775744
+    },
+    {
+     "lat": 45.653182,
+     "lon": 13.775782
+    },
+    {
+     "lat": 45.653237,
+     "lon": 13.775782
+    },
+    {
+     "lat": 45.653237,
+     "lon": 13.775821
+    },
+    {
+     "lat": 45.653264,
+     "lon": 13.775821
+    },
+    {
+     "lat": 45.653264,
+     "lon": 13.775744
+    },
+    {
+     "lat": 45.65321,
+     "lon": 13.775744
+    },
+    {
+     "lat": 45.65321,
+     "lon": 13.775705
+    },
+    {
+     "lat": 45.653128,
+     "lon": 13.775705
+    },
+    {
+     "lat": 45.653128,
+     "lon": 13.775667
+    },
+    {
+     "lat": 45.653074,
+     "lon": 13.775667
+    },
+    {
+     "lat": 45.653074,
+     "lon": 13.775628
+    },
+    {
+     "lat": 45.652993,
+     "lon": 13.775628
+    },
+    {
+     "lat": 45.652993,
+     "lon": 13.77559
+    },
+    {
+     "lat": 45.652938,
+     "lon": 13.77559
+    },
+    {
+     "lat": 45.652938,
+     "lon": 13.775551
+    },
+    {
+     "lat": 45.652857,
+     "lon": 13.775551
+    },
+    {
+     "lat": 45.652857,
+     "lon": 13.775513
+    },
+    {
+     "lat": 45.652803,
+     "lon": 13.775513
+    },
+    {
+     "lat": 45.65283,
+     "lon": 13.77559
+    },
+    {
+     "lat": 45.652911,
+     "lon": 13.77559
+    },
+    {
+     "lat": 45.652911,
+     "lon": 13.775628
+    },
+    {
+     "lat": 45.652965,
+     "lon": 13.775628
+    },
+    {
+     "lat": 45.652965,
+     "lon": 13.775667
+    },
+    {
+     "lat": 45.652993,
+     "lon": 13.775667
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Trieste",
+    "pageURL": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/",
+    "ordinance": "Ordinanza n. 26/1990 (elenco aree pedonali e ZTL del Comune)",
+    "ordinanceURL": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf",
+    "quote": null,
+    "quoteTranslation": null,
+    "quoteTranslation_de": null,
+    "checkedOn": "2026-10-27T11:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by a web-search summary of the municipal police FAQ: «type B» ZTLs are reserved 0:00–24:00 on working days, mainly for residents' parking. GateLR treats Monday–Saturday as working days and Sundays and public holidays as free.",
+     "No cameras are known in Trieste: checks are made by municipal police officers. Not in GateLR yet: the small «type A» ZTLs (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) and the many pedestrian areas (e.g. Piazza Unità d'Italia, Cavana).",
+     "Disabled badge holders are exempt. Permits from the municipal police permits office (Via Revoltella 35, by appointment).",
+     "Street outlines from OpenStreetMap (not official); the City's list of ZTLs dates from 2021."
+    ],
+    "pending_it": [
+     "Orari confermati solo dal riassunto della ricerca web della FAQ della Polizia Locale: le ZTL «tipo B» sono riservate dalle 0 alle 24 dei giorni feriali, soprattutto per la sosta dei residenti. GateLR considera feriali lunedì–sabato e liberi domeniche e festivi.",
+     "Non risultano telecamere a Trieste: i controlli sono degli agenti della Polizia Locale. Non ancora in GateLR: le piccole ZTL «tipo A» (via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) e le molte aree pedonali (es. piazza Unità d'Italia, Cavana).",
+     "I titolari di contrassegno disabili sono esentati. Permessi all'Ufficio Permessi della Polizia Locale (via Revoltella 35, su appuntamento).",
+     "Tracciati delle vie da OpenStreetMap (non ufficiali); l'elenco delle ZTL del Comune è del 2021."
+    ],
+    "pending_de": [
+     "Zeiten nur durch eine Websuche-Zusammenfassung der FAQ der Ortspolizei bestätigt: ZTL «Typ B» sind an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. GateLR behandelt Montag–Samstag als Werktage, Sonn- und Feiertage als frei.",
+     "In Triest sind keine Kameras bekannt: kontrolliert wird von Beamten der Ortspolizei. Noch nicht in GateLR: die kleinen ZTL «Typ A» (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) und die vielen Fußgängerzonen (z. B. Piazza Unità d'Italia, Cavana).",
+     "Inhaber eines Behindertenausweises sind befreit. Genehmigungen beim Genehmigungsbüro der Ortspolizei (Via Revoltella 35, nach Termin).",
+     "Straßenverläufe aus OpenStreetMap (nicht offiziell); die ZTL-Liste der Stadt stammt von 2021."
+    ],
+    "links": [
+     {
+      "title": "Municipal police: how to enter a ZTL in Trieste",
+      "title_it": "Polizia Locale: come accedere a una ZTL di Trieste",
+      "title_de": "Ortspolizei: Zufahrt zu einer ZTL in Triest",
+      "url": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/"
+     },
+     {
+      "title": "City of Trieste: list of pedestrian areas and ZTLs (PDF)",
+      "title_it": "Comune di Trieste: elenco aree pedonali e ZTL (PDF)",
+      "title_de": "Stadt Triest: Liste der Fußgängerzonen und ZTL (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf"
+     },
+     {
+      "title": "City of Trieste: ZTL B permit form for businesses (PDF)",
+      "title_it": "Comune di Trieste: modulo permessi ZTL B per le ditte (PDF)",
+      "title_de": "Stadt Triest: Antrag ZTL-B-Genehmigung für Firmen (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/Mod_Ditte.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "trieste-ztl-b-torre-bianca",
+   "name": "Via di Torre Bianca · Borgo Teresiano ZTL B",
+   "name_it": "Via di Torre Bianca · ZTL B Borgo Teresiano",
+   "name_de": "Via di Torre Bianca · ZTL B Borgo Teresiano",
+   "kind": "restricted",
+   "summary": "Via di Torre Bianca in the Borgo Teresiano is a «type B» ZTL: reserved 0:00–24:00 on working days, mainly for residents' parking. No cameras: police checks.",
+   "summary_it": "Via di Torre Bianca nel Borgo Teresiano è una ZTL «tipo B»: riservata dalle 0 alle 24 dei giorni feriali, soprattutto alla sosta dei residenti. Niente telecamere: controlli della Polizia Locale.",
+   "summary_de": "Die Via di Torre Bianca im Borgo Teresiano ist eine ZTL «Typ B»: an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. Keine Kameras: Polizeikontrollen.",
+   "perimeter": [
+    {
+     "lat": 45.652911,
+     "lon": 13.773546
+    },
+    {
+     "lat": 45.652911,
+     "lon": 13.773585
+    },
+    {
+     "lat": 45.652884,
+     "lon": 13.773585
+    },
+    {
+     "lat": 45.652884,
+     "lon": 13.773662
+    },
+    {
+     "lat": 45.652857,
+     "lon": 13.773662
+    },
+    {
+     "lat": 45.652857,
+     "lon": 13.773777
+    },
+    {
+     "lat": 45.65283,
+     "lon": 13.773777
+    },
+    {
+     "lat": 45.65283,
+     "lon": 13.773854
+    },
+    {
+     "lat": 45.652803,
+     "lon": 13.773854
+    },
+    {
+     "lat": 45.652803,
+     "lon": 13.77397
+    },
+    {
+     "lat": 45.65283,
+     "lon": 13.77397
+    },
+    {
+     "lat": 45.65283,
+     "lon": 13.773893
+    },
+    {
+     "lat": 45.652857,
+     "lon": 13.773893
+    },
+    {
+     "lat": 45.652857,
+     "lon": 13.773816
+    },
+    {
+     "lat": 45.652884,
+     "lon": 13.773816
+    },
+    {
+     "lat": 45.652884,
+     "lon": 13.7737
+    },
+    {
+     "lat": 45.652911,
+     "lon": 13.7737
+    },
+    {
+     "lat": 45.652911,
+     "lon": 13.773623
+    },
+    {
+     "lat": 45.652938,
+     "lon": 13.773623
+    },
+    {
+     "lat": 45.652938,
+     "lon": 13.773507
+    },
+    {
+     "lat": 45.652965,
+     "lon": 13.773507
+    },
+    {
+     "lat": 45.652965,
+     "lon": 13.77343
+    },
+    {
+     "lat": 45.652993,
+     "lon": 13.77343
+    },
+    {
+     "lat": 45.652993,
+     "lon": 13.773315
+    },
+    {
+     "lat": 45.652965,
+     "lon": 13.773315
+    },
+    {
+     "lat": 45.652965,
+     "lon": 13.773392
+    },
+    {
+     "lat": 45.652938,
+     "lon": 13.773392
+    },
+    {
+     "lat": 45.652911,
+     "lon": 13.773546
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Trieste",
+    "pageURL": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/",
+    "ordinance": "Ordinanza n. 26/1990 (elenco aree pedonali e ZTL del Comune)",
+    "ordinanceURL": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf",
+    "quote": null,
+    "quoteTranslation": null,
+    "quoteTranslation_de": null,
+    "checkedOn": "2026-10-27T11:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by a web-search summary of the municipal police FAQ: «type B» ZTLs are reserved 0:00–24:00 on working days, mainly for residents' parking. GateLR treats Monday–Saturday as working days and Sundays and public holidays as free.",
+     "No cameras are known in Trieste: checks are made by municipal police officers. Not in GateLR yet: the small «type A» ZTLs (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) and the many pedestrian areas (e.g. Piazza Unità d'Italia, Cavana).",
+     "Disabled badge holders are exempt. Permits from the municipal police permits office (Via Revoltella 35, by appointment).",
+     "Street outlines from OpenStreetMap (not official); the City's list of ZTLs dates from 2021."
+    ],
+    "pending_it": [
+     "Orari confermati solo dal riassunto della ricerca web della FAQ della Polizia Locale: le ZTL «tipo B» sono riservate dalle 0 alle 24 dei giorni feriali, soprattutto per la sosta dei residenti. GateLR considera feriali lunedì–sabato e liberi domeniche e festivi.",
+     "Non risultano telecamere a Trieste: i controlli sono degli agenti della Polizia Locale. Non ancora in GateLR: le piccole ZTL «tipo A» (via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) e le molte aree pedonali (es. piazza Unità d'Italia, Cavana).",
+     "I titolari di contrassegno disabili sono esentati. Permessi all'Ufficio Permessi della Polizia Locale (via Revoltella 35, su appuntamento).",
+     "Tracciati delle vie da OpenStreetMap (non ufficiali); l'elenco delle ZTL del Comune è del 2021."
+    ],
+    "pending_de": [
+     "Zeiten nur durch eine Websuche-Zusammenfassung der FAQ der Ortspolizei bestätigt: ZTL «Typ B» sind an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. GateLR behandelt Montag–Samstag als Werktage, Sonn- und Feiertage als frei.",
+     "In Triest sind keine Kameras bekannt: kontrolliert wird von Beamten der Ortspolizei. Noch nicht in GateLR: die kleinen ZTL «Typ A» (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) und die vielen Fußgängerzonen (z. B. Piazza Unità d'Italia, Cavana).",
+     "Inhaber eines Behindertenausweises sind befreit. Genehmigungen beim Genehmigungsbüro der Ortspolizei (Via Revoltella 35, nach Termin).",
+     "Straßenverläufe aus OpenStreetMap (nicht offiziell); die ZTL-Liste der Stadt stammt von 2021."
+    ],
+    "links": [
+     {
+      "title": "Municipal police: how to enter a ZTL in Trieste",
+      "title_it": "Polizia Locale: come accedere a una ZTL di Trieste",
+      "title_de": "Ortspolizei: Zufahrt zu einer ZTL in Triest",
+      "url": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/"
+     },
+     {
+      "title": "City of Trieste: list of pedestrian areas and ZTLs (PDF)",
+      "title_it": "Comune di Trieste: elenco aree pedonali e ZTL (PDF)",
+      "title_de": "Stadt Triest: Liste der Fußgängerzonen und ZTL (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf"
+     },
+     {
+      "title": "City of Trieste: ZTL B permit form for businesses (PDF)",
+      "title_it": "Comune di Trieste: modulo permessi ZTL B per le ditte (PDF)",
+      "title_de": "Stadt Triest: Antrag ZTL-B-Genehmigung für Firmen (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/Mod_Ditte.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "trieste-ztl-b-lavatoio",
+   "name": "Via del Lavatoio · Borgo Teresiano ZTL B",
+   "name_it": "Via del Lavatoio · ZTL B Borgo Teresiano",
+   "name_de": "Via del Lavatoio · ZTL B Borgo Teresiano",
+   "kind": "restricted",
+   "summary": "Via del Lavatoio in the Borgo Teresiano is a «type B» ZTL: reserved 0:00–24:00 on working days, mainly for residents' parking. No cameras: police checks.",
+   "summary_it": "Via del Lavatoio nel Borgo Teresiano è una ZTL «tipo B»: riservata dalle 0 alle 24 dei giorni feriali, soprattutto alla sosta dei residenti. Niente telecamere: controlli della Polizia Locale.",
+   "summary_de": "Die Via del Lavatoio im Borgo Teresiano ist eine ZTL «Typ B»: an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. Keine Kameras: Polizeikontrollen.",
+   "perimeter": [
+    {
+     "lat": 45.653969,
+     "lon": 13.774922
+    },
+    {
+     "lat": 45.653969,
+     "lon": 13.77496
+    },
+    {
+     "lat": 45.653942,
+     "lon": 13.77496
+    },
+    {
+     "lat": 45.653942,
+     "lon": 13.775038
+    },
+    {
+     "lat": 45.653915,
+     "lon": 13.775038
+    },
+    {
+     "lat": 45.653915,
+     "lon": 13.775153
+    },
+    {
+     "lat": 45.653888,
+     "lon": 13.775153
+    },
+    {
+     "lat": 45.653888,
+     "lon": 13.77523
+    },
+    {
+     "lat": 45.653861,
+     "lon": 13.77523
+    },
+    {
+     "lat": 45.653861,
+     "lon": 13.775346
+    },
+    {
+     "lat": 45.653888,
+     "lon": 13.775346
+    },
+    {
+     "lat": 45.653915,
+     "lon": 13.775192
+    },
+    {
+     "lat": 45.653942,
+     "lon": 13.775192
+    },
+    {
+     "lat": 45.653942,
+     "lon": 13.775076
+    },
+    {
+     "lat": 45.653969,
+     "lon": 13.775076
+    },
+    {
+     "lat": 45.653969,
+     "lon": 13.774999
+    },
+    {
+     "lat": 45.653996,
+     "lon": 13.774999
+    },
+    {
+     "lat": 45.653996,
+     "lon": 13.774883
+    },
+    {
+     "lat": 45.654024,
+     "lon": 13.774883
+    },
+    {
+     "lat": 45.654024,
+     "lon": 13.774806
+    },
+    {
+     "lat": 45.654051,
+     "lon": 13.774806
+    },
+    {
+     "lat": 45.654051,
+     "lon": 13.774691
+    },
+    {
+     "lat": 45.654078,
+     "lon": 13.774691
+    },
+    {
+     "lat": 45.654078,
+     "lon": 13.774613
+    },
+    {
+     "lat": 45.654105,
+     "lon": 13.774613
+    },
+    {
+     "lat": 45.654105,
+     "lon": 13.774498
+    },
+    {
+     "lat": 45.654132,
+     "lon": 13.774498
+    },
+    {
+     "lat": 45.654132,
+     "lon": 13.774459
+    },
+    {
+     "lat": 45.654078,
+     "lon": 13.774459
+    },
+    {
+     "lat": 45.654078,
+     "lon": 13.774575
+    },
+    {
+     "lat": 45.654051,
+     "lon": 13.774575
+    },
+    {
+     "lat": 45.654051,
+     "lon": 13.774652
+    },
+    {
+     "lat": 45.654024,
+     "lon": 13.774652
+    },
+    {
+     "lat": 45.654024,
+     "lon": 13.774768
+    },
+    {
+     "lat": 45.653996,
+     "lon": 13.774768
+    },
+    {
+     "lat": 45.653996,
+     "lon": 13.774845
+    },
+    {
+     "lat": 45.653969,
+     "lon": 13.774845
+    },
+    {
+     "lat": 45.653969,
+     "lon": 13.774922
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Trieste",
+    "pageURL": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/",
+    "ordinance": "Ordinanza n. 60/1990 (elenco aree pedonali e ZTL del Comune)",
+    "ordinanceURL": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf",
+    "quote": null,
+    "quoteTranslation": null,
+    "quoteTranslation_de": null,
+    "checkedOn": "2026-10-27T11:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by a web-search summary of the municipal police FAQ: «type B» ZTLs are reserved 0:00–24:00 on working days, mainly for residents' parking. GateLR treats Monday–Saturday as working days and Sundays and public holidays as free.",
+     "No cameras are known in Trieste: checks are made by municipal police officers. Not in GateLR yet: the small «type A» ZTLs (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) and the many pedestrian areas (e.g. Piazza Unità d'Italia, Cavana).",
+     "Disabled badge holders are exempt. Permits from the municipal police permits office (Via Revoltella 35, by appointment).",
+     "Street outlines from OpenStreetMap (not official); the City's list of ZTLs dates from 2021."
+    ],
+    "pending_it": [
+     "Orari confermati solo dal riassunto della ricerca web della FAQ della Polizia Locale: le ZTL «tipo B» sono riservate dalle 0 alle 24 dei giorni feriali, soprattutto per la sosta dei residenti. GateLR considera feriali lunedì–sabato e liberi domeniche e festivi.",
+     "Non risultano telecamere a Trieste: i controlli sono degli agenti della Polizia Locale. Non ancora in GateLR: le piccole ZTL «tipo A» (via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) e le molte aree pedonali (es. piazza Unità d'Italia, Cavana).",
+     "I titolari di contrassegno disabili sono esentati. Permessi all'Ufficio Permessi della Polizia Locale (via Revoltella 35, su appuntamento).",
+     "Tracciati delle vie da OpenStreetMap (non ufficiali); l'elenco delle ZTL del Comune è del 2021."
+    ],
+    "pending_de": [
+     "Zeiten nur durch eine Websuche-Zusammenfassung der FAQ der Ortspolizei bestätigt: ZTL «Typ B» sind an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. GateLR behandelt Montag–Samstag als Werktage, Sonn- und Feiertage als frei.",
+     "In Triest sind keine Kameras bekannt: kontrolliert wird von Beamten der Ortspolizei. Noch nicht in GateLR: die kleinen ZTL «Typ A» (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) und die vielen Fußgängerzonen (z. B. Piazza Unità d'Italia, Cavana).",
+     "Inhaber eines Behindertenausweises sind befreit. Genehmigungen beim Genehmigungsbüro der Ortspolizei (Via Revoltella 35, nach Termin).",
+     "Straßenverläufe aus OpenStreetMap (nicht offiziell); die ZTL-Liste der Stadt stammt von 2021."
+    ],
+    "links": [
+     {
+      "title": "Municipal police: how to enter a ZTL in Trieste",
+      "title_it": "Polizia Locale: come accedere a una ZTL di Trieste",
+      "title_de": "Ortspolizei: Zufahrt zu einer ZTL in Triest",
+      "url": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/"
+     },
+     {
+      "title": "City of Trieste: list of pedestrian areas and ZTLs (PDF)",
+      "title_it": "Comune di Trieste: elenco aree pedonali e ZTL (PDF)",
+      "title_de": "Stadt Triest: Liste der Fußgängerzonen und ZTL (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf"
+     },
+     {
+      "title": "City of Trieste: ZTL B permit form for businesses (PDF)",
+      "title_it": "Comune di Trieste: modulo permessi ZTL B per le ditte (PDF)",
+      "title_de": "Stadt Triest: Antrag ZTL-B-Genehmigung für Firmen (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/Mod_Ditte.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "trieste-ztl-b-geppa",
+   "name": "Via della Geppa · Borgo Teresiano ZTL B",
+   "name_it": "Via della Geppa · ZTL B Borgo Teresiano",
+   "name_de": "Via della Geppa · ZTL B Borgo Teresiano",
+   "kind": "restricted",
+   "summary": "Via della Geppa in the Borgo Teresiano is a «type B» ZTL: reserved 0:00–24:00 on working days, mainly for residents' parking. No cameras: police checks.",
+   "summary_it": "Via della Geppa nel Borgo Teresiano è una ZTL «tipo B»: riservata dalle 0 alle 24 dei giorni feriali, soprattutto alla sosta dei residenti. Niente telecamere: controlli della Polizia Locale.",
+   "summary_de": "Die Via della Geppa im Borgo Teresiano ist eine ZTL «Typ B»: an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. Keine Kameras: Polizeikontrollen.",
+   "perimeter": [
+    {
+     "lat": 45.655272,
+     "lon": 13.773739
+    },
+    {
+     "lat": 45.655299,
+     "lon": 13.773739
+    },
+    {
+     "lat": 45.655299,
+     "lon": 13.773623
+    },
+    {
+     "lat": 45.655326,
+     "lon": 13.773623
+    },
+    {
+     "lat": 45.655326,
+     "lon": 13.773546
+    },
+    {
+     "lat": 45.655353,
+     "lon": 13.773546
+    },
+    {
+     "lat": 45.655353,
+     "lon": 13.77343
+    },
+    {
+     "lat": 45.65538,
+     "lon": 13.77343
+    },
+    {
+     "lat": 45.65538,
+     "lon": 13.773353
+    },
+    {
+     "lat": 45.655407,
+     "lon": 13.773353
+    },
+    {
+     "lat": 45.655407,
+     "lon": 13.773238
+    },
+    {
+     "lat": 45.655434,
+     "lon": 13.773238
+    },
+    {
+     "lat": 45.655434,
+     "lon": 13.773161
+    },
+    {
+     "lat": 45.655462,
+     "lon": 13.773161
+    },
+    {
+     "lat": 45.655489,
+     "lon": 13.772929
+    },
+    {
+     "lat": 45.655462,
+     "lon": 13.772929
+    },
+    {
+     "lat": 45.655462,
+     "lon": 13.773006
+    },
+    {
+     "lat": 45.655434,
+     "lon": 13.773006
+    },
+    {
+     "lat": 45.655434,
+     "lon": 13.773122
+    },
+    {
+     "lat": 45.655407,
+     "lon": 13.773122
+    },
+    {
+     "lat": 45.655407,
+     "lon": 13.773199
+    },
+    {
+     "lat": 45.65538,
+     "lon": 13.773199
+    },
+    {
+     "lat": 45.65538,
+     "lon": 13.773315
+    },
+    {
+     "lat": 45.655353,
+     "lon": 13.773315
+    },
+    {
+     "lat": 45.655353,
+     "lon": 13.773392
+    },
+    {
+     "lat": 45.655326,
+     "lon": 13.773392
+    },
+    {
+     "lat": 45.655326,
+     "lon": 13.773508
+    },
+    {
+     "lat": 45.655299,
+     "lon": 13.773508
+    },
+    {
+     "lat": 45.655299,
+     "lon": 13.773585
+    },
+    {
+     "lat": 45.655272,
+     "lon": 13.773585
+    },
+    {
+     "lat": 45.655272,
+     "lon": 13.7737
+    },
+    {
+     "lat": 45.655244,
+     "lon": 13.7737
+    },
+    {
+     "lat": 45.655244,
+     "lon": 13.773777
+    },
+    {
+     "lat": 45.655217,
+     "lon": 13.773777
+    },
+    {
+     "lat": 45.65519,
+     "lon": 13.774009
+    },
+    {
+     "lat": 45.655217,
+     "lon": 13.774009
+    },
+    {
+     "lat": 45.655217,
+     "lon": 13.773932
+    },
+    {
+     "lat": 45.655244,
+     "lon": 13.773932
+    },
+    {
+     "lat": 45.655244,
+     "lon": 13.773816
+    },
+    {
+     "lat": 45.655272,
+     "lon": 13.773816
+    },
+    {
+     "lat": 45.655272,
+     "lon": 13.773739
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Trieste",
+    "pageURL": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/",
+    "ordinance": "Ordinanza n. 60/1990 (elenco aree pedonali e ZTL del Comune)",
+    "ordinanceURL": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf",
+    "quote": null,
+    "quoteTranslation": null,
+    "quoteTranslation_de": null,
+    "checkedOn": "2026-10-27T11:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by a web-search summary of the municipal police FAQ: «type B» ZTLs are reserved 0:00–24:00 on working days, mainly for residents' parking. GateLR treats Monday–Saturday as working days and Sundays and public holidays as free.",
+     "No cameras are known in Trieste: checks are made by municipal police officers. Not in GateLR yet: the small «type A» ZTLs (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) and the many pedestrian areas (e.g. Piazza Unità d'Italia, Cavana).",
+     "Disabled badge holders are exempt. Permits from the municipal police permits office (Via Revoltella 35, by appointment).",
+     "Street outlines from OpenStreetMap (not official); the City's list of ZTLs dates from 2021."
+    ],
+    "pending_it": [
+     "Orari confermati solo dal riassunto della ricerca web della FAQ della Polizia Locale: le ZTL «tipo B» sono riservate dalle 0 alle 24 dei giorni feriali, soprattutto per la sosta dei residenti. GateLR considera feriali lunedì–sabato e liberi domeniche e festivi.",
+     "Non risultano telecamere a Trieste: i controlli sono degli agenti della Polizia Locale. Non ancora in GateLR: le piccole ZTL «tipo A» (via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) e le molte aree pedonali (es. piazza Unità d'Italia, Cavana).",
+     "I titolari di contrassegno disabili sono esentati. Permessi all'Ufficio Permessi della Polizia Locale (via Revoltella 35, su appuntamento).",
+     "Tracciati delle vie da OpenStreetMap (non ufficiali); l'elenco delle ZTL del Comune è del 2021."
+    ],
+    "pending_de": [
+     "Zeiten nur durch eine Websuche-Zusammenfassung der FAQ der Ortspolizei bestätigt: ZTL «Typ B» sind an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. GateLR behandelt Montag–Samstag als Werktage, Sonn- und Feiertage als frei.",
+     "In Triest sind keine Kameras bekannt: kontrolliert wird von Beamten der Ortspolizei. Noch nicht in GateLR: die kleinen ZTL «Typ A» (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) und die vielen Fußgängerzonen (z. B. Piazza Unità d'Italia, Cavana).",
+     "Inhaber eines Behindertenausweises sind befreit. Genehmigungen beim Genehmigungsbüro der Ortspolizei (Via Revoltella 35, nach Termin).",
+     "Straßenverläufe aus OpenStreetMap (nicht offiziell); die ZTL-Liste der Stadt stammt von 2021."
+    ],
+    "links": [
+     {
+      "title": "Municipal police: how to enter a ZTL in Trieste",
+      "title_it": "Polizia Locale: come accedere a una ZTL di Trieste",
+      "title_de": "Ortspolizei: Zufahrt zu einer ZTL in Triest",
+      "url": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/"
+     },
+     {
+      "title": "City of Trieste: list of pedestrian areas and ZTLs (PDF)",
+      "title_it": "Comune di Trieste: elenco aree pedonali e ZTL (PDF)",
+      "title_de": "Stadt Triest: Liste der Fußgängerzonen und ZTL (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf"
+     },
+     {
+      "title": "City of Trieste: ZTL B permit form for businesses (PDF)",
+      "title_it": "Comune di Trieste: modulo permessi ZTL B per le ditte (PDF)",
+      "title_de": "Stadt Triest: Antrag ZTL-B-Genehmigung für Firmen (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/Mod_Ditte.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "id": "trieste-ztl-b-galatti",
+   "name": "Via Giorgio Galatti · Borgo Teresiano ZTL B",
+   "name_it": "Via Giorgio Galatti · ZTL B Borgo Teresiano",
+   "name_de": "Via Giorgio Galatti · ZTL B Borgo Teresiano",
+   "kind": "restricted",
+   "summary": "Via Giorgio Galatti in the Borgo Teresiano is a «type B» ZTL: reserved 0:00–24:00 on working days, mainly for residents' parking. No cameras: police checks.",
+   "summary_it": "Via Giorgio Galatti nel Borgo Teresiano è una ZTL «tipo B»: riservata dalle 0 alle 24 dei giorni feriali, soprattutto alla sosta dei residenti. Niente telecamere: controlli della Polizia Locale.",
+   "summary_de": "Die Via Giorgio Galatti im Borgo Teresiano ist eine ZTL «Typ B»: an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. Keine Kameras: Polizeikontrollen.",
+   "perimeter": [
+    {
+     "lat": 45.654485,
+     "lon": 13.774852
+    },
+    {
+     "lat": 45.654512,
+     "lon": 13.774852
+    },
+    {
+     "lat": 45.654512,
+     "lon": 13.774736
+    },
+    {
+     "lat": 45.654539,
+     "lon": 13.774736
+    },
+    {
+     "lat": 45.654539,
+     "lon": 13.774659
+    },
+    {
+     "lat": 45.654566,
+     "lon": 13.774659
+    },
+    {
+     "lat": 45.654593,
+     "lon": 13.774428
+    },
+    {
+     "lat": 45.654566,
+     "lon": 13.774428
+    },
+    {
+     "lat": 45.654566,
+     "lon": 13.774505
+    },
+    {
+     "lat": 45.654539,
+     "lon": 13.774505
+    },
+    {
+     "lat": 45.654539,
+     "lon": 13.774621
+    },
+    {
+     "lat": 45.654512,
+     "lon": 13.774621
+    },
+    {
+     "lat": 45.654512,
+     "lon": 13.774698
+    },
+    {
+     "lat": 45.654485,
+     "lon": 13.774698
+    },
+    {
+     "lat": 45.654485,
+     "lon": 13.774813
+    },
+    {
+     "lat": 45.654458,
+     "lon": 13.774813
+    },
+    {
+     "lat": 45.654458,
+     "lon": 13.774891
+    },
+    {
+     "lat": 45.654431,
+     "lon": 13.774891
+    },
+    {
+     "lat": 45.654403,
+     "lon": 13.775122
+    },
+    {
+     "lat": 45.654431,
+     "lon": 13.775122
+    },
+    {
+     "lat": 45.654431,
+     "lon": 13.775045
+    },
+    {
+     "lat": 45.654458,
+     "lon": 13.775045
+    },
+    {
+     "lat": 45.654458,
+     "lon": 13.774929
+    },
+    {
+     "lat": 45.654485,
+     "lon": 13.774929
+    },
+    {
+     "lat": 45.654485,
+     "lon": 13.774852
+    }
+   ],
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Trieste",
+    "pageURL": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/",
+    "ordinance": "Ordinanza n. 60/1990 (elenco aree pedonali e ZTL del Comune)",
+    "ordinanceURL": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf",
+    "quote": null,
+    "quoteTranslation": null,
+    "quoteTranslation_de": null,
+    "checkedOn": "2026-10-27T11:45:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hours confirmed only by a web-search summary of the municipal police FAQ: «type B» ZTLs are reserved 0:00–24:00 on working days, mainly for residents' parking. GateLR treats Monday–Saturday as working days and Sundays and public holidays as free.",
+     "No cameras are known in Trieste: checks are made by municipal police officers. Not in GateLR yet: the small «type A» ZTLs (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) and the many pedestrian areas (e.g. Piazza Unità d'Italia, Cavana).",
+     "Disabled badge holders are exempt. Permits from the municipal police permits office (Via Revoltella 35, by appointment).",
+     "Street outlines from OpenStreetMap (not official); the City's list of ZTLs dates from 2021."
+    ],
+    "pending_it": [
+     "Orari confermati solo dal riassunto della ricerca web della FAQ della Polizia Locale: le ZTL «tipo B» sono riservate dalle 0 alle 24 dei giorni feriali, soprattutto per la sosta dei residenti. GateLR considera feriali lunedì–sabato e liberi domeniche e festivi.",
+     "Non risultano telecamere a Trieste: i controlli sono degli agenti della Polizia Locale. Non ancora in GateLR: le piccole ZTL «tipo A» (via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) e le molte aree pedonali (es. piazza Unità d'Italia, Cavana).",
+     "I titolari di contrassegno disabili sono esentati. Permessi all'Ufficio Permessi della Polizia Locale (via Revoltella 35, su appuntamento).",
+     "Tracciati delle vie da OpenStreetMap (non ufficiali); l'elenco delle ZTL del Comune è del 2021."
+    ],
+    "pending_de": [
+     "Zeiten nur durch eine Websuche-Zusammenfassung der FAQ der Ortspolizei bestätigt: ZTL «Typ B» sind an Werktagen von 0 bis 24 Uhr vorbehalten, vor allem zum Parken für Anwohner. GateLR behandelt Montag–Samstag als Werktage, Sonn- und Feiertage als frei.",
+     "In Triest sind keine Kameras bekannt: kontrolliert wird von Beamten der Ortspolizei. Noch nicht in GateLR: die kleinen ZTL «Typ A» (Via Genova, Caboro, Beccherie/Ombrelle/Ponte/Pane) und die vielen Fußgängerzonen (z. B. Piazza Unità d'Italia, Cavana).",
+     "Inhaber eines Behindertenausweises sind befreit. Genehmigungen beim Genehmigungsbüro der Ortspolizei (Via Revoltella 35, nach Termin).",
+     "Straßenverläufe aus OpenStreetMap (nicht offiziell); die ZTL-Liste der Stadt stammt von 2021."
+    ],
+    "links": [
+     {
+      "title": "Municipal police: how to enter a ZTL in Trieste",
+      "title_it": "Polizia Locale: come accedere a una ZTL di Trieste",
+      "title_de": "Ortspolizei: Zufahrt zu einer ZTL in Triest",
+      "url": "https://polizialocaletrieste.it/domande_frequenti/come-posso-accedere-a-una-ztl-zona-a-traffico-limitato-del-comune-di-trieste/"
+     },
+     {
+      "title": "City of Trieste: list of pedestrian areas and ZTLs (PDF)",
+      "title_it": "Comune di Trieste: elenco aree pedonali e ZTL (PDF)",
+      "title_de": "Stadt Triest: Liste der Fußgängerzonen und ZTL (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/TRIESTE_APU_ZTL_2020.pdf"
+     },
+     {
+      "title": "City of Trieste: ZTL B permit form for businesses (PDF)",
+      "title_it": "Comune di Trieste: modulo permessi ZTL B per le ditte (PDF)",
+      "title_de": "Stadt Triest: Antrag ZTL-B-Genehmigung für Firmen (PDF)",
+      "url": "https://www.comune.trieste.it/media/files/032006/attachment/Mod_Ditte.pdf"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Trieste documents and a web-search summary of the municipal police FAQ (not verified). Street outlines: © OpenStreetMap contributors, ODbL 1.0."
+}
