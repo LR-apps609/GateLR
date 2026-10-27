@@ -1,0 +1,612 @@
+{
+ "id": "como",
+ "name": "Como",
+ "name_it": "Como",
+ "name_de": "Como",
+ "center": {
+  "lat": 45.8114,
+  "lon": 9.0832
+ },
+ "zones": [
+  {
+   "id": "como-ztl",
+   "name": "Città Murata · Walled town ZTL",
+   "name_it": "Città Murata · ZTL centro storico",
+   "name_de": "Città Murata · ZTL Altstadt",
+   "kind": "restricted",
+   "summary": "The whole walled town (Duomo, Piazza Cavour, Piazza Volta, San Fedele) plus Piazza Roma and Via Garibaldi is closed to cars 24 hours a day, every day, with cameras at the gates. There is no ticket for visitors. If your hotel is inside, give it your plate: it allows one trip in on arrival day and one on departure day (45 minutes each).",
+   "summary_it": "Tutta la città murata (Duomo, piazza Cavour, piazza Volta, San Fedele) più piazza Roma e via Garibaldi è chiusa alle auto 24 ore su 24, tutti i giorni, con telecamere ai varchi. Non c'è un ticket per i visitatori. Se l'hotel è dentro, dagli la targa: vale un ingresso il giorno di arrivo e uno il giorno di partenza (45 minuti ciascuno).",
+   "summary_de": "Die ganze ummauerte Altstadt (Dom, Piazza Cavour, Piazza Volta, San Fedele) plus Piazza Roma und Via Garibaldi ist rund um die Uhr, jeden Tag für Autos gesperrt, mit Kameras an den Einfahrten. Ein Ticket für Besucher gibt es nicht. Liegt dein Hotel innen, gib ihm dein Kennzeichen: erlaubt ist eine Einfahrt am Anreise- und eine am Abreisetag (je 45 Minuten).",
+   "perimeter": [
+    {
+     "lat": 45.810549,
+     "lon": 9.077342
+    },
+    {
+     "lat": 45.805463,
+     "lon": 9.082743
+    },
+    {
+     "lat": 45.805447,
+     "lon": 9.08288
+    },
+    {
+     "lat": 45.807979,
+     "lon": 9.088117
+    },
+    {
+     "lat": 45.808058,
+     "lon": 9.088148
+    },
+    {
+     "lat": 45.810126,
+     "lon": 9.08632
+    },
+    {
+     "lat": 45.810167,
+     "lon": 9.086082
+    },
+    {
+     "lat": 45.810669,
+     "lon": 9.085587
+    },
+    {
+     "lat": 45.810541,
+     "lon": 9.085317
+    },
+    {
+     "lat": 45.811095,
+     "lon": 9.084768
+    },
+    {
+     "lat": 45.811138,
+     "lon": 9.084861
+    },
+    {
+     "lat": 45.81065,
+     "lon": 9.085395
+    },
+    {
+     "lat": 45.810839,
+     "lon": 9.085807
+    },
+    {
+     "lat": 45.812178,
+     "lon": 9.084784
+    },
+    {
+     "lat": 45.812234,
+     "lon": 9.084962
+    },
+    {
+     "lat": 45.813634,
+     "lon": 9.084249
+    },
+    {
+     "lat": 45.814446,
+     "lon": 9.083619
+    },
+    {
+     "lat": 45.814585,
+     "lon": 9.083401
+    },
+    {
+     "lat": 45.814632,
+     "lon": 9.083182
+    },
+    {
+     "lat": 45.814508,
+     "lon": 9.082679
+    },
+    {
+     "lat": 45.813258,
+     "lon": 9.080709
+    },
+    {
+     "lat": 45.812976,
+     "lon": 9.079468
+    },
+    {
+     "lat": 45.812881,
+     "lon": 9.079287
+    },
+    {
+     "lat": 45.812248,
+     "lon": 9.079713
+    },
+    {
+     "lat": 45.811995,
+     "lon": 9.079719
+    },
+    {
+     "lat": 45.811977,
+     "lon": 9.078846
+    },
+    {
+     "lat": 45.811534,
+     "lon": 9.078654
+    },
+    {
+     "lat": 45.811533,
+     "lon": 9.078577
+    },
+    {
+     "lat": 45.811028,
+     "lon": 9.078586
+    },
+    {
+     "lat": 45.810549,
+     "lon": 9.077342
+    }
+   ],
+   "gates": [
+    {
+     "id": "co-via-cinque-giornate",
+     "name": "Varco · Via Cinque Giornate",
+     "location": {
+      "lat": 45.809139,
+      "lon": 9.078832
+     }
+    },
+    {
+     "id": "co-via-diaz",
+     "name": "Varco · Via Diaz",
+     "location": {
+      "lat": 45.80609,
+      "lon": 9.084358
+     }
+    },
+    {
+     "id": "co-via-carducci",
+     "name": "Varco · Via Carducci",
+     "location": {
+      "lat": 45.807029,
+      "lon": 9.086238
+     }
+    },
+    {
+     "id": "co-via-indipendenza",
+     "name": "Varco · Via Indipendenza",
+     "location": {
+      "lat": 45.810752,
+      "lon": 9.085679
+     }
+    },
+    {
+     "id": "co-via-rodari",
+     "name": "Varco · Via Rodari",
+     "location": {
+      "lat": 45.812278,
+      "lon": 9.083937
+     }
+    },
+    {
+     "id": "co-via-grassi",
+     "name": "Varco · Via Grassi",
+     "location": {
+      "lat": 45.811579,
+      "lon": 9.078632
+     }
+    },
+    {
+     "id": "co-via-cairoli",
+     "name": "Varco · Via Cairoli",
+     "location": {
+      "lat": 45.812929,
+      "lon": 9.079393
+     }
+    },
+    {
+     "id": "co-via-dellannunciata-exit",
+     "name": "Varco · Via dell’Annunciata (exit)",
+     "location": {
+      "lat": 45.806847,
+      "lon": 9.081171
+     }
+    },
+    {
+     "id": "co-via-garibaldi-exit",
+     "name": "Varco · Via Garibaldi (exit)",
+     "location": {
+      "lat": 45.810504,
+      "lon": 9.077423
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": true,
+   "source": {
+    "authority": "City of Como",
+    "pageURL": "https://www.comune.como.it/servizi/Accesso-alla-ZTL-Zona-a-Traffico-Limitato/",
+    "ordinance": "Ordinanza dirigenziale n. 11 del 13/01/2017 (testo coordinato con le ordinanze n. 248/2019 e n. 105/2023)",
+    "ordinanceURL": "https://www.comune.como.it/export/sites/comune-di-como/.galleries/PLocale-PrCivile/ord_ztl_11-2017.pdf",
+    "quote": "Nella zona a traffico limitato “Città Murata”, dalle ore 00:00 alle ore 24:00, di ogni giorno, è vietata la circolazione (transito e sosta) di tutti i veicoli a motore ad eccezione di quanto previsto al capo II della presente ordinanza.",
+    "quoteTranslation": "In the limited traffic zone «Città Murata», from 00:00 to 24:00 every day, traffic (driving and parking) of all motor vehicles is prohibited, except as provided in chapter II of this ordinance.",
+    "quoteTranslation_de": "In der verkehrsberuhigten Zone «Città Murata» ist von 00:00 bis 24:00 Uhr an jedem Tag der Verkehr (Fahren und Parken) aller Kraftfahrzeuge verboten, außer in den in Kapitel II dieser Verordnung vorgesehenen Fällen.",
+    "checkedOn": "2026-10-27T11:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Hotel guests: give your plate to the hotel inside the ZTL; it reports it to the Local Police and you are cleared afterwards, but only for one trip on check-in day and one on check-out day, 45 minutes each (to load and unload). If the hotel has private parking, access is allowed for the whole stay, within its spaces. The deadline for the hotel's report is set by a City regulation we have not found: ask the hotel.",
+     "No tourist ticket. A temporary permit for specific, documented needs must be requested online (SPID/CIE, 16 € stamp plus 5–20 € fees) at least 2 working days before and lasts at most 2 days.",
+     "Cars heading to the «Arena» car park (near Via Indipendenza) may enter when the panel at the ZTL entrance shows free spaces (ordinance 11/2017, art. 9). That the car park is still open is confirmed only by unofficial sites.",
+     "Motorcycles and mopeds may enter without formalities only to reach the public motorcycle parking inside the ZTL, by the shortest route. Electric and hybrid cars are not exempt. Vehicles over 3.5 t or 7 m need a separate authorisation.",
+     "Pedestrian areas inside the ZTL: «Alessandro Volta» (Piazza Volta, Piazza Cavour, Piazza Grimoldi, Via Pretorio, Piazza Verdi and others) closed 0–24 even to disabled badge holders; «Duomo» (Piazza Duomo, Via Plinio, part of Via Vittorio Emanuele II) closed 10:30–14:30 and 15:00–6:00. Only some squares are drawn on the map.",
+     "Perimeter not official: drawn from an OpenStreetMap area (October 2026) along the city walls, checked against the City's street list; near Piazza Verdi and Piazza Volta the edge is approximate. Gates on the map are placed on the streets named by the City (entry: Cinque Giornate, Diaz, Carducci, Indipendenza, Rodari, Grassi, Cairoli; exit only: Annunciata, Garibaldi), not at surveyed camera positions.",
+     "Fines follow the Highway Code (art. 7); the ordinance gives no amount. No changes for 2026–2027 found on the City's site."
+    ],
+    "pending_it": [
+     "Ospiti degli hotel: dai la targa alla struttura dentro la ZTL; la comunica alla Polizia Locale e il transito viene autorizzato in sanatoria, ma solo un accesso il giorno del check-in e uno il giorno del check-out, 45 minuti ciascuno (carico e scarico). Se la struttura ha posti privati, l'accesso vale per tutto il soggiorno, nei limiti dei posti. Il termine per la comunicazione è nel regolamento comunale, che non abbiamo trovato: chiedi all'hotel.",
+     "Nessun ticket per turisti. Il permesso per esigenze specifiche e documentate si chiede online (SPID/CIE, bollo 16 € più 5–20 € di spese) almeno 2 giorni lavorativi prima e dura al massimo 2 giorni.",
+     "Le auto dirette al parcheggio «Arena» (vicino a via Indipendenza) possono entrare se il pannello all'ingresso della ZTL indica posti liberi (ordinanza 11/2017, art. 9). Che il parcheggio sia ancora in funzione è confermato solo da siti non ufficiali.",
+     "Moto e ciclomotori possono entrare senza formalità solo per raggiungere i parcheggi pubblici a loro riservati dentro la ZTL, per la via più breve. Auto elettriche e ibride non esenti. Veicoli oltre 3,5 t o 7 m serve un'autorizzazione a parte.",
+     "Aree pedonali dentro la ZTL: «Alessandro Volta» (piazza Volta, piazza Cavour, piazza Grimoldi, via Pretorio, piazza Verdi e altre) chiusa 0–24 anche ai titolari di contrassegno disabili; «Duomo» (piazza Duomo, via Plinio, parte di via Vittorio Emanuele II) chiusa 10:30–14:30 e 15:00–6:00. Sulla mappa sono disegnate solo alcune piazze.",
+     "Perimetro non ufficiale: area OpenStreetMap (ottobre 2026) lungo le mura, controllata con l'elenco delle vie del Comune; vicino a piazza Verdi e piazza Volta il bordo è approssimato. I varchi sulla mappa sono posti sulle vie indicate dal Comune (ingresso: Cinque Giornate, Diaz, Carducci, Indipendenza, Rodari, Grassi, Cairoli; solo uscita: Annunciata, Garibaldi), non nelle posizioni rilevate delle telecamere.",
+     "Le multe seguono il Codice della strada (art. 7); l'ordinanza non indica importi. Nessuna modifica 2026–2027 trovata sul sito del Comune."
+    ],
+    "pending_de": [
+     "Hotelgäste: Gib dem Hotel in der ZTL dein Kennzeichen; es meldet es der Ortspolizei und die Fahrt wird nachträglich genehmigt, aber nur eine Einfahrt am Anreisetag und eine am Abreisetag, je 45 Minuten (Be- und Entladen). Hat das Hotel eigene Stellplätze, gilt die Zufahrt für den ganzen Aufenthalt, im Rahmen der Plätze. Die Meldefrist steht in einer städtischen Regelung, die wir nicht gefunden haben: frag das Hotel.",
+     "Kein Touristenticket. Eine befristete Genehmigung für konkrete, belegte Gründe wird online beantragt (SPID/CIE, 16 € Stempelmarke plus 5–20 € Gebühren), mindestens 2 Werktage vorher, und gilt höchstens 2 Tage.",
+     "Autos zum Parkplatz «Arena» (bei der Via Indipendenza) dürfen einfahren, wenn die Anzeige an der ZTL-Einfahrt freie Plätze zeigt (Verordnung 11/2017, Art. 9). Dass der Parkplatz noch betrieben wird, bestätigen nur inoffizielle Seiten.",
+     "Motorräder und Mopeds dürfen ohne Formalitäten nur zu den öffentlichen Motorradparkplätzen in der ZTL fahren, auf dem kürzesten Weg. Elektro- und Hybridautos sind nicht befreit. Fahrzeuge über 3,5 t oder 7 m brauchen eine eigene Genehmigung.",
+     "Fußgängerzonen in der ZTL: «Alessandro Volta» (Piazza Volta, Piazza Cavour, Piazza Grimoldi, Via Pretorio, Piazza Verdi u. a.) 0–24 gesperrt, auch für Behindertenausweise; «Duomo» (Piazza Duomo, Via Plinio, Teil der Via Vittorio Emanuele II) 10:30–14:30 und 15:00–6:00 gesperrt. Auf der Karte sind nur einige Plätze eingezeichnet.",
+     "Grenze nicht offiziell: OpenStreetMap-Fläche (Oktober 2026) entlang der Stadtmauer, mit der Straßenliste der Stadt abgeglichen; bei Piazza Verdi und Piazza Volta ist der Rand ungefähr. Die Kameras auf der Karte liegen auf den von der Stadt genannten Straßen (Einfahrt: Cinque Giornate, Diaz, Carducci, Indipendenza, Rodari, Grassi, Cairoli; nur Ausfahrt: Annunciata, Garibaldi), nicht an vermessenen Kamerastandorten.",
+     "Bußgelder nach der Straßenverkehrsordnung (Art. 7); die Verordnung nennt keine Beträge. Keine Änderungen für 2026–2027 auf der Website der Stadt gefunden."
+    ],
+    "links": [
+     {
+      "title": "City of Como: access to the ZTL (area, gates, permits)",
+      "title_it": "Comune di Como: accesso alla ZTL (area, varchi, permessi)",
+      "title_de": "Stadt Como: Zufahrt zur ZTL (Gebiet, Kameras, Genehmigungen)",
+      "url": "https://www.comune.como.it/servizi/Accesso-alla-ZTL-Zona-a-Traffico-Limitato/"
+     },
+     {
+      "title": "Ordinance 11/2017 (consolidated text): ZTL «Città Murata» and pedestrian areas",
+      "title_it": "Ordinanza 11/2017 (testo coordinato): ZTL «Città Murata» e aree pedonali",
+      "title_de": "Verordnung 11/2017 (konsolidierter Text): ZTL «Città Murata» und Fußgängerzonen",
+      "url": "https://www.comune.como.it/export/sites/comune-di-como/.galleries/PLocale-PrCivile/ord_ztl_11-2017.pdf"
+     },
+     {
+      "title": "Official map of the ZTL and pedestrian areas (PDF)",
+      "title_it": "Planimetria ufficiale della ZTL e delle aree pedonali (PDF)",
+      "title_de": "Offizieller Plan der ZTL und der Fußgängerzonen (PDF)",
+      "url": "https://www.comune.como.it/export/sites/comune-di-como/.galleries/PLocale-PrCivile/Allegato-planimetrico.pdf"
+     },
+     {
+      "title": "Official list of ZTL streets (PDF)",
+      "title_it": "Elenco ufficiale delle vie in ZTL (PDF)",
+      "title_de": "Offizielle Liste der ZTL-Straßen (PDF)",
+      "url": "https://www.comune.como.it/export/sites/comune-di-como/.galleries/PLocale-PrCivile/Elenco_delle_vie_inserite_nella_Zona_a_Traffico_Limitato.pdf"
+     },
+     {
+      "title": "Permit categories, hours and parking limits (PDF)",
+      "title_it": "Permessi, orari, tempi di sosta e limitazioni (PDF)",
+      "title_de": "Genehmigungsarten, Zeiten und Parkdauer (PDF)",
+      "url": "https://www.comune.como.it/export/sites/comune-di-como/.galleries/PLocale-PrCivile/Permessi-orari-ingresso-tempi-sosta-e-limitazioni.pdf"
+     },
+     {
+      "title": "City of Como: tourist coaches to hotels in the ZTL",
+      "title_it": "Comune di Como: bus turistici per gli hotel in ZTL",
+      "title_de": "Stadt Como: Reisebusse zu Hotels in der ZTL",
+      "url": "https://www.comune.como.it/servizi/Bus-turistici-Accesso-alla-ZTL/"
+     }
+    ]
+   }
+  }
+ ],
+ "pedestrian": [
+  {
+   "id": "co-apu-547472905",
+   "name": "APU Alessandro Volta · Piazza Volta",
+   "perimeter": [
+    {
+     "lat": 45.812004,
+     "lon": 9.079705
+    },
+    {
+     "lat": 45.811994,
+     "lon": 9.079348
+    },
+    {
+     "lat": 45.812049,
+     "lon": 9.079342
+    },
+    {
+     "lat": 45.812041,
+     "lon": 9.079064
+    },
+    {
+     "lat": 45.811994,
+     "lon": 9.079066
+    },
+    {
+     "lat": 45.811988,
+     "lon": 9.078826
+    },
+    {
+     "lat": 45.811684,
+     "lon": 9.078823
+    },
+    {
+     "lat": 45.811683,
+     "lon": 9.07867
+    },
+    {
+     "lat": 45.811534,
+     "lon": 9.078661
+    },
+    {
+     "lat": 45.81179,
+     "lon": 9.079108
+    },
+    {
+     "lat": 45.811583,
+     "lon": 9.079342
+    },
+    {
+     "lat": 45.81153,
+     "lon": 9.079213
+    },
+    {
+     "lat": 45.811481,
+     "lon": 9.079288
+    },
+    {
+     "lat": 45.811351,
+     "lon": 9.079395
+    },
+    {
+     "lat": 45.811449,
+     "lon": 9.079523
+    },
+    {
+     "lat": 45.811643,
+     "lon": 9.079932
+    },
+    {
+     "lat": 45.811759,
+     "lon": 9.07982
+    },
+    {
+     "lat": 45.811884,
+     "lon": 9.080084
+    },
+    {
+     "lat": 45.811844,
+     "lon": 9.080119
+    },
+    {
+     "lat": 45.81185,
+     "lon": 9.080133
+    },
+    {
+     "lat": 45.811935,
+     "lon": 9.080061
+    },
+    {
+     "lat": 45.811927,
+     "lon": 9.080043
+    },
+    {
+     "lat": 45.812065,
+     "lon": 9.079925
+    },
+    {
+     "lat": 45.812004,
+     "lon": 9.079705
+    }
+   ]
+  },
+  {
+   "id": "co-apu-7819572",
+   "name": "APU Alessandro Volta · Piazza Cavour",
+   "perimeter": [
+    {
+     "lat": 45.813084,
+     "lon": 9.080138
+    },
+    {
+     "lat": 45.812518,
+     "lon": 9.080676
+    },
+    {
+     "lat": 45.812575,
+     "lon": 9.080854
+    },
+    {
+     "lat": 45.812667,
+     "lon": 9.080773
+    },
+    {
+     "lat": 45.812803,
+     "lon": 9.08109
+    },
+    {
+     "lat": 45.81271,
+     "lon": 9.081171
+    },
+    {
+     "lat": 45.81272,
+     "lon": 9.081196
+    },
+    {
+     "lat": 45.812813,
+     "lon": 9.081116
+    },
+    {
+     "lat": 45.81298,
+     "lon": 9.081514
+    },
+    {
+     "lat": 45.812888,
+     "lon": 9.081594
+    },
+    {
+     "lat": 45.812987,
+     "lon": 9.0818
+    },
+    {
+     "lat": 45.813572,
+     "lon": 9.081225
+    },
+    {
+     "lat": 45.813369,
+     "lon": 9.080928
+    },
+    {
+     "lat": 45.813356,
+     "lon": 9.080942
+    },
+    {
+     "lat": 45.813301,
+     "lon": 9.0809
+    },
+    {
+     "lat": 45.813184,
+     "lon": 9.080684
+    },
+    {
+     "lat": 45.813146,
+     "lon": 9.080492
+    },
+    {
+     "lat": 45.813162,
+     "lon": 9.080483
+    },
+    {
+     "lat": 45.813094,
+     "lon": 9.080131
+    },
+    {
+     "lat": 45.813084,
+     "lon": 9.080138
+    }
+   ]
+  },
+  {
+   "id": "co-apu-429693158",
+   "name": "APU Alessandro Volta · Piazza Grimoldi",
+   "perimeter": [
+    {
+     "lat": 45.812235,
+     "lon": 9.083041
+    },
+    {
+     "lat": 45.812081,
+     "lon": 9.083191
+    },
+    {
+     "lat": 45.812017,
+     "lon": 9.083004
+    },
+    {
+     "lat": 45.811937,
+     "lon": 9.082845
+    },
+    {
+     "lat": 45.811988,
+     "lon": 9.082661
+    },
+    {
+     "lat": 45.812136,
+     "lon": 9.082483
+    },
+    {
+     "lat": 45.812162,
+     "lon": 9.08254
+    },
+    {
+     "lat": 45.812165,
+     "lon": 9.082614
+    },
+    {
+     "lat": 45.812275,
+     "lon": 9.082801
+    },
+    {
+     "lat": 45.812362,
+     "lon": 9.082698
+    },
+    {
+     "lat": 45.812381,
+     "lon": 9.082731
+    },
+    {
+     "lat": 45.81259,
+     "lon": 9.082473
+    },
+    {
+     "lat": 45.812712,
+     "lon": 9.082668
+    },
+    {
+     "lat": 45.812448,
+     "lon": 9.082909
+    },
+    {
+     "lat": 45.812423,
+     "lon": 9.082854
+    },
+    {
+     "lat": 45.812235,
+     "lon": 9.083041
+    }
+   ]
+  },
+  {
+   "id": "co-apu-10961938",
+   "name": "APU Duomo · Piazza Duomo (10:30–14:30, 15–6)",
+   "perimeter": [
+    {
+     "lat": 45.811433,
+     "lon": 9.083306
+    },
+    {
+     "lat": 45.811303,
+     "lon": 9.083044
+    },
+    {
+     "lat": 45.811846,
+     "lon": 9.082501
+    },
+    {
+     "lat": 45.811911,
+     "lon": 9.082503
+    },
+    {
+     "lat": 45.811988,
+     "lon": 9.082661
+    },
+    {
+     "lat": 45.811937,
+     "lon": 9.082845
+    },
+    {
+     "lat": 45.811452,
+     "lon": 9.083342
+    },
+    {
+     "lat": 45.811433,
+     "lon": 9.083306
+    }
+   ]
+  }
+ ],
+ "status": "draft",
+ "license": "Rules: Comune di Como official pages and ordinance 11/2017. Perimeter, gates and pedestrian squares: © OpenStreetMap contributors, ODbL 1.0 (approximate, not official)."
+}

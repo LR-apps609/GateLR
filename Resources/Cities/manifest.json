@@ -1,6 +1,6 @@
 {
- "version": "202610271007",
- "digest": "3674ad2a21a4",
+ "version": "202610271037",
+ "digest": "5368a01bb31a",
  "schema": 1,
  "cities": [
   {
@@ -27,6 +27,11 @@
    "id": "catania",
    "file": "catania.json",
    "sha256": "842ded81c23781942edf11626cea65e4339c960764f4ef186f7ecb65369dbf1c"
+  },
+  {
+   "id": "como",
+   "file": "como.json",
+   "sha256": "781e30c889aa6f000131d196bc2dec0f07897ec01c90cc1ef5e575ca0b7b9d30"
   },
   {
    "id": "ferrara",
