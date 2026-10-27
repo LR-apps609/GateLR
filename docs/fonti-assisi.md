@@ -6,6 +6,10 @@ Scheda generata da `Tools/build_assisi.py` → `data/drafts/assisi.json` (**bozz
 1. **Orari non fissi**: ad Assisi la ZTL è regolata da ordinanze della Polizia Locale che durano una o due settimane (elenco: https://www.comune.assisi.pg.it/novita/comunicati_stampa/novita_298.html, aggiornato il 26/10/2026: n. 355 dal 9 al 21 ottobre, n. 368 dal 22 al 30 ottobre, n. 378 per il solo 27 ottobre 2026). Una scheda con orari fissi sarebbe giusta solo fino al 30/10/2026.
 2. **Nessun perimetro**: nessun open data (dati.gov.it: nessun dataset ZTL per Assisi); OpenStreetMap non raggiungibile dal sandbox il 26/10/2026.
 
+Verifica del 27/10/2026 con l'API OSM (`Tools/fetch_osm_api.py`, riquadro 43.064–43.080 N, 12.598–12.628 E): nessuna relazione ZTL, nessuna strada segnata come ZTL (solo 1 `motor_vehicle=permit` e 3 `access=permit`), nessuna telecamera; dei 5 varchi solo via Porta Perlici e viale Marconi hanno un nome in OSM (Largo Properzio, via del Turrione e Porta San Giacomo no). Un perimetro ricavato da lì sarebbe un'ipotesi, quindi non c'è.
+
+Scelta sugli orari: si potrebbero mettere gli orari dell'ordinanza 368 con la scadenza nei pending, ma dal 31/10/2026 l'app continuerebbe a dare per certi orari che nessun atto conferma (o, limitandoli con `season`, direbbe «aperto» fuori dal periodo). Per questo la scheda resta bozza.
+
 Per pubblicare: perimetro da OSM (strade raggiungibili solo dai 5 varchi, come `Tools/build_perugia.py`) in `data/raw/assisi/ztl_perimetro.geojson`, e conferma dal Comune che lo schema feriali/prefestivi è stabile (oppure aggiornamento della scheda a ogni ordinanza).
 
 ## Orari usati (ordinanza n. 368/2026, 22–30 ottobre 2026, uguali alla n. 355)
