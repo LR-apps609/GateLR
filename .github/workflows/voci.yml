@@ -1,0 +1,51 @@
+# Campioni delle voci italiane di Apple (solo voci già presenti sul runner macOS, niente download)
+name: Voci Apple
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  voci:
+    runs-on: macos-latest
+    timeout-minutes: 15
+    steps:
+      - name: Elenco voci it_IT
+        run: |
+          mkdir -p out
+          sw_vers | tee out/macos.txt
+          say -v '?' > out/tutte-le-voci.txt
+          grep -E ' it_IT ' out/tutte-le-voci.txt | tee out/voci-it_IT.txt || true
+          if grep -E ' it_IT ' out/tutte-le-voci.txt | grep -qiE 'enhanced|premium|migliorata|ottimizzata'; then
+            echo "Varianti Enhanced/Premium it_IT: SI" | tee -a out/voci-it_IT.txt
+          else
+            echo "Varianti Enhanced/Premium it_IT: NESSUNA" | tee -a out/voci-it_IT.txt
+          fi
+      - name: Frasi
+        run: |
+          printf '%s\n' "Tra trecento metri, gira a destra in via dei Calzaiuoli." > f1.txt
+          printf '%s\n' "Attenzione: più avanti c'è un varco ZTL attivo. Gira a sinistra prima del varco." > f2.txt
+          printf '%s\n' "Sei arrivato al parcheggio. Da qui sono sei minuti a piedi fino al ristorante." > f3.txt
+      - name: Sintesi
+        run: |
+          render() { # $1 voce, $2 prefisso
+            for n in 1 2 3; do
+              say -v "$1" -f "f$n.txt" -o "out/$2-$n.aiff" --data-format=LEF32@22050 2>/dev/null \
+                || say -v "$1" -f "f$n.txt" -o "out/$2-$n.wav" --file-format=WAVE --data-format=LEF32@22050 \
+                || say -v "$1" -f "f$n.txt" -o "out/$2-$n.aiff"
+            done
+          }
+          render Alice apple-alice
+          grep -E ' it_IT ' out/tutte-le-voci.txt | grep -iE 'enhanced|premium|migliorata|ottimizzata' \
+            | sed -E 's/^(.*[^ ]) +it_IT +#.*$/\1/' | while IFS= read -r v; do
+              slug=$(echo "$v" | tr 'A-Z' 'a-z' | tr -c 'a-z0-9\n' '-' | sed -E 's/-+/-/g; s/-$//')
+              echo "Voce extra: $v -> apple-$slug"
+              render "$v" "apple-$slug"
+            done
+          for f in out/*.aiff out/*.wav; do [ -e "$f" ] || continue
+            afconvert -f WAVE -d LEI16@22050 -c 1 "$f" "${f%.*}.16.wav" && afinfo "$f" | head -n 4
+          done
+          ls -la out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: voci-apple
+          path: out/
