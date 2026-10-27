@@ -4,21 +4,727 @@
  "name_it": "Salerno",
  "name_de": "Salerno",
  "center": {
-  "lat": 40.68,
-  "lon": 14.758
+  "lat": 40.6795,
+  "lon": 14.759
  },
  "zones": [
   {
    "id": "salerno-centro-storico",
-   "name": "Salerno old town · ZTL",
-   "name_it": "Centro storico di Salerno · ZTL",
-   "name_de": "Altstadt Salerno · ZTL",
+   "name": "Old town · ZTL from via Roma to via Duomo",
+   "name_it": "Centro storico · ZTL tra via Roma e via Duomo",
+   "name_de": "Altstadt · ZTL zwischen Via Roma und Via Duomo",
    "kind": "restricted",
-   "summary": "Salerno's historic centre (between via Roma and via Duomo / via San Benedetto) is a camera-controlled ZTL with 10 gates, including Portanova, via Duomo and Corso Vittorio Emanuele. Without a permit stay out. Staying inside? Your hotel or B&B sends your transit to the City's ZTL office: ask them before you arrive.",
-   "summary_it": "Il centro storico di Salerno (tra via Roma e via Duomo / via San Benedetto) è una ZTL con 10 varchi a telecamera, tra cui Portanova, via Duomo e Corso Vittorio Emanuele. Senza permesso non entrare. Dormi dentro? L'hotel o il B&B trasmette il tuo transito all'Ufficio Varchi ZTL: chiedi prima di arrivare.",
-   "summary_de": "Die Altstadt von Salerno (zwischen Via Roma und Via Duomo / Via San Benedetto) ist eine kameraüberwachte ZTL mit 10 Kameras, u. a. Portanova, Via Duomo und Corso Vittorio Emanuele. Ohne Genehmigung draußen bleiben. Du übernachtest innen? Hotel oder B&B melden deine Durchfahrt dem ZTL-Büro: frag vor der Anreise.",
-   "perimeter": [],
-   "gates": [],
+   "summary": "Salerno's historic centre (between via Roma and via Duomo / via San Benedetto, plus Corso Vittorio Emanuele) is a camera-controlled ZTL with 14 gates, such as Portanova, via Duomo and via dei Principati, reportedly active 24 hours a day. Without a permit stay out. Staying inside? Your hotel or B&B sends your transit to the City's ZTL office: ask them before you arrive.",
+   "summary_it": "Il centro storico di Salerno (tra via Roma e via Duomo / via San Benedetto, più Corso Vittorio Emanuele) è una ZTL con 14 varchi a telecamera, tra cui Portanova, via Duomo e via dei Principati, attiva secondo le guide 24 ore su 24. Senza permesso non entrare. Dormi dentro? L'hotel o il B&B trasmette il tuo transito all'Ufficio Varchi ZTL: chiedi prima di arrivare.",
+   "summary_de": "Die Altstadt von Salerno (zwischen Via Roma und Via Duomo / Via San Benedetto, dazu der Corso Vittorio Emanuele) ist eine kameraüberwachte ZTL mit 14 Kameras, u. a. Portanova, Via Duomo und Via dei Principati, laut Reiseführern rund um die Uhr aktiv. Ohne Genehmigung draußen bleiben. Du übernachtest innen? Hotel oder B&B melden deine Durchfahrt dem ZTL-Büro: frag vor der Anreise.",
+   "perimeter": [
+    {
+     "lat": 40.67954,
+     "lon": 14.749931
+    },
+    {
+     "lat": 40.679543,
+     "lon": 14.750143
+    },
+    {
+     "lat": 40.67961,
+     "lon": 14.750383
+    },
+    {
+     "lat": 40.679879,
+     "lon": 14.751045
+    },
+    {
+     "lat": 40.67997,
+     "lon": 14.751562
+    },
+    {
+     "lat": 40.680147,
+     "lon": 14.751981
+    },
+    {
+     "lat": 40.680162,
+     "lon": 14.752256
+    },
+    {
+     "lat": 40.680112,
+     "lon": 14.752475
+    },
+    {
+     "lat": 40.67985,
+     "lon": 14.752842
+    },
+    {
+     "lat": 40.679438,
+     "lon": 14.753051
+    },
+    {
+     "lat": 40.679433,
+     "lon": 14.753323
+    },
+    {
+     "lat": 40.679349,
+     "lon": 14.753517
+    },
+    {
+     "lat": 40.679225,
+     "lon": 14.75361
+    },
+    {
+     "lat": 40.679056,
+     "lon": 14.753624
+    },
+    {
+     "lat": 40.679019,
+     "lon": 14.753682
+    },
+    {
+     "lat": 40.679054,
+     "lon": 14.753774
+    },
+    {
+     "lat": 40.67934,
+     "lon": 14.753886
+    },
+    {
+     "lat": 40.67944,
+     "lon": 14.75411
+    },
+    {
+     "lat": 40.679344,
+     "lon": 14.754951
+    },
+    {
+     "lat": 40.679448,
+     "lon": 14.755158
+    },
+    {
+     "lat": 40.679468,
+     "lon": 14.755314
+    },
+    {
+     "lat": 40.679419,
+     "lon": 14.755785
+    },
+    {
+     "lat": 40.67933,
+     "lon": 14.756012
+    },
+    {
+     "lat": 40.679417,
+     "lon": 14.756231
+    },
+    {
+     "lat": 40.679419,
+     "lon": 14.756427
+    },
+    {
+     "lat": 40.679332,
+     "lon": 14.756624
+    },
+    {
+     "lat": 40.679205,
+     "lon": 14.756715
+    },
+    {
+     "lat": 40.67906,
+     "lon": 14.756716
+    },
+    {
+     "lat": 40.678767,
+     "lon": 14.756585
+    },
+    {
+     "lat": 40.678705,
+     "lon": 14.756624
+    },
+    {
+     "lat": 40.678713,
+     "lon": 14.75672
+    },
+    {
+     "lat": 40.678861,
+     "lon": 14.756816
+    },
+    {
+     "lat": 40.678953,
+     "lon": 14.75696
+    },
+    {
+     "lat": 40.678966,
+     "lon": 14.757255
+    },
+    {
+     "lat": 40.678866,
+     "lon": 14.757436
+    },
+    {
+     "lat": 40.678649,
+     "lon": 14.757552
+    },
+    {
+     "lat": 40.678644,
+     "lon": 14.757804
+    },
+    {
+     "lat": 40.678543,
+     "lon": 14.758068
+    },
+    {
+     "lat": 40.67826,
+     "lon": 14.758229
+    },
+    {
+     "lat": 40.678272,
+     "lon": 14.758633
+    },
+    {
+     "lat": 40.678048,
+     "lon": 14.758929
+    },
+    {
+     "lat": 40.678195,
+     "lon": 14.759213
+    },
+    {
+     "lat": 40.678182,
+     "lon": 14.759477
+    },
+    {
+     "lat": 40.678042,
+     "lon": 14.759669
+    },
+    {
+     "lat": 40.677808,
+     "lon": 14.759733
+    },
+    {
+     "lat": 40.677779,
+     "lon": 14.760063
+    },
+    {
+     "lat": 40.677633,
+     "lon": 14.760283
+    },
+    {
+     "lat": 40.67766,
+     "lon": 14.760374
+    },
+    {
+     "lat": 40.677917,
+     "lon": 14.760508
+    },
+    {
+     "lat": 40.678025,
+     "lon": 14.760631
+    },
+    {
+     "lat": 40.678078,
+     "lon": 14.760881
+    },
+    {
+     "lat": 40.678003,
+     "lon": 14.761179
+    },
+    {
+     "lat": 40.678209,
+     "lon": 14.761328
+    },
+    {
+     "lat": 40.678292,
+     "lon": 14.761477
+    },
+    {
+     "lat": 40.678303,
+     "lon": 14.761732
+    },
+    {
+     "lat": 40.678174,
+     "lon": 14.762099
+    },
+    {
+     "lat": 40.678051,
+     "lon": 14.762249
+    },
+    {
+     "lat": 40.677914,
+     "lon": 14.762289
+    },
+    {
+     "lat": 40.677177,
+     "lon": 14.761979
+    },
+    {
+     "lat": 40.677103,
+     "lon": 14.762029
+    },
+    {
+     "lat": 40.677133,
+     "lon": 14.76213
+    },
+    {
+     "lat": 40.677816,
+     "lon": 14.762467
+    },
+    {
+     "lat": 40.677909,
+     "lon": 14.762655
+    },
+    {
+     "lat": 40.677906,
+     "lon": 14.762881
+    },
+    {
+     "lat": 40.677531,
+     "lon": 14.764013
+    },
+    {
+     "lat": 40.677447,
+     "lon": 14.764159
+    },
+    {
+     "lat": 40.677237,
+     "lon": 14.764245
+    },
+    {
+     "lat": 40.676831,
+     "lon": 14.764067
+    },
+    {
+     "lat": 40.676753,
+     "lon": 14.764076
+    },
+    {
+     "lat": 40.67665,
+     "lon": 14.764188
+    },
+    {
+     "lat": 40.676666,
+     "lon": 14.764276
+    },
+    {
+     "lat": 40.676793,
+     "lon": 14.764354
+    },
+    {
+     "lat": 40.676888,
+     "lon": 14.764497
+    },
+    {
+     "lat": 40.676908,
+     "lon": 14.764833
+    },
+    {
+     "lat": 40.67706,
+     "lon": 14.765064
+    },
+    {
+     "lat": 40.677082,
+     "lon": 14.765322
+    },
+    {
+     "lat": 40.675426,
+     "lon": 14.770215
+    },
+    {
+     "lat": 40.675328,
+     "lon": 14.770351
+    },
+    {
+     "lat": 40.675193,
+     "lon": 14.770411
+    },
+    {
+     "lat": 40.674854,
+     "lon": 14.770273
+    },
+    {
+     "lat": 40.674784,
+     "lon": 14.770321
+    },
+    {
+     "lat": 40.674806,
+     "lon": 14.770419
+    },
+    {
+     "lat": 40.675092,
+     "lon": 14.770614
+    },
+    {
+     "lat": 40.675171,
+     "lon": 14.770815
+    },
+    {
+     "lat": 40.675161,
+     "lon": 14.771004
+    },
+    {
+     "lat": 40.674959,
+     "lon": 14.771618
+    },
+    {
+     "lat": 40.675,
+     "lon": 14.771712
+    },
+    {
+     "lat": 40.675079,
+     "lon": 14.771659
+    },
+    {
+     "lat": 40.677681,
+     "lon": 14.76399
+    },
+    {
+     "lat": 40.677816,
+     "lon": 14.76385
+    },
+    {
+     "lat": 40.677959,
+     "lon": 14.763826
+    },
+    {
+     "lat": 40.678117,
+     "lon": 14.763917
+    },
+    {
+     "lat": 40.678221,
+     "lon": 14.764101
+    },
+    {
+     "lat": 40.67829,
+     "lon": 14.764099
+    },
+    {
+     "lat": 40.678676,
+     "lon": 14.763203
+    },
+    {
+     "lat": 40.67929,
+     "lon": 14.762262
+    },
+    {
+     "lat": 40.679503,
+     "lon": 14.76217
+    },
+    {
+     "lat": 40.679815,
+     "lon": 14.762349
+    },
+    {
+     "lat": 40.679892,
+     "lon": 14.76233
+    },
+    {
+     "lat": 40.680573,
+     "lon": 14.761033
+    },
+    {
+     "lat": 40.6807,
+     "lon": 14.760896
+    },
+    {
+     "lat": 40.680921,
+     "lon": 14.760878
+    },
+    {
+     "lat": 40.681114,
+     "lon": 14.761101
+    },
+    {
+     "lat": 40.681187,
+     "lon": 14.761092
+    },
+    {
+     "lat": 40.681206,
+     "lon": 14.761013
+    },
+    {
+     "lat": 40.681054,
+     "lon": 14.760397
+    },
+    {
+     "lat": 40.681271,
+     "lon": 14.759631
+    },
+    {
+     "lat": 40.681483,
+     "lon": 14.75941
+    },
+    {
+     "lat": 40.681517,
+     "lon": 14.759169
+    },
+    {
+     "lat": 40.681621,
+     "lon": 14.759
+    },
+    {
+     "lat": 40.682104,
+     "lon": 14.758801
+    },
+    {
+     "lat": 40.682079,
+     "lon": 14.75871
+    },
+    {
+     "lat": 40.681854,
+     "lon": 14.75865
+    },
+    {
+     "lat": 40.681705,
+     "lon": 14.758466
+    },
+    {
+     "lat": 40.681607,
+     "lon": 14.758489
+    },
+    {
+     "lat": 40.681452,
+     "lon": 14.758657
+    },
+    {
+     "lat": 40.681338,
+     "lon": 14.758686
+    },
+    {
+     "lat": 40.681133,
+     "lon": 14.758593
+    },
+    {
+     "lat": 40.681026,
+     "lon": 14.758417
+    },
+    {
+     "lat": 40.681007,
+     "lon": 14.75823
+    },
+    {
+     "lat": 40.681103,
+     "lon": 14.75778
+    },
+    {
+     "lat": 40.6812,
+     "lon": 14.757633
+    },
+    {
+     "lat": 40.681417,
+     "lon": 14.757465
+    },
+    {
+     "lat": 40.681367,
+     "lon": 14.756815
+    },
+    {
+     "lat": 40.681243,
+     "lon": 14.756655
+    },
+    {
+     "lat": 40.68119,
+     "lon": 14.756483
+    },
+    {
+     "lat": 40.681252,
+     "lon": 14.755182
+    },
+    {
+     "lat": 40.681204,
+     "lon": 14.754562
+    },
+    {
+     "lat": 40.681142,
+     "lon": 14.754501
+    },
+    {
+     "lat": 40.680964,
+     "lon": 14.754616
+    },
+    {
+     "lat": 40.680797,
+     "lon": 14.754599
+    },
+    {
+     "lat": 40.68061,
+     "lon": 14.754358
+    },
+    {
+     "lat": 40.680387,
+     "lon": 14.754315
+    },
+    {
+     "lat": 40.680247,
+     "lon": 14.754135
+    },
+    {
+     "lat": 40.680226,
+     "lon": 14.753813
+    },
+    {
+     "lat": 40.680286,
+     "lon": 14.753601
+    },
+    {
+     "lat": 40.680761,
+     "lon": 14.753252
+    },
+    {
+     "lat": 40.680789,
+     "lon": 14.753163
+    },
+    {
+     "lat": 40.680514,
+     "lon": 14.752818
+    },
+    {
+     "lat": 40.680501,
+     "lon": 14.752036
+    },
+    {
+     "lat": 40.680097,
+     "lon": 14.751529
+    },
+    {
+     "lat": 40.680016,
+     "lon": 14.751024
+    },
+    {
+     "lat": 40.679866,
+     "lon": 14.750731
+    },
+    {
+     "lat": 40.679685,
+     "lon": 14.750183
+    },
+    {
+     "lat": 40.679646,
+     "lon": 14.749744
+    },
+    {
+     "lat": 40.679608,
+     "lon": 14.749687
+    },
+    {
+     "lat": 40.679528,
+     "lon": 14.749734
+    },
+    {
+     "lat": 40.67954,
+     "lon": 14.749931
+    }
+   ],
+   "gates": [
+    {
+     "id": "sa-tav7-1",
+     "name": "Varco Antica Corte",
+     "location": {
+      "lat": 40.678704,
+      "lon": 14.757577
+     }
+    },
+    {
+     "id": "sa-tav7-2",
+     "name": "Varco San Michele",
+     "location": {
+      "lat": 40.679367,
+      "lon": 14.761878
+     }
+    },
+    {
+     "id": "sa-tav7-3",
+     "name": "Varco Via Monte Risi",
+     "location": {
+      "lat": 40.680748,
+      "lon": 14.760119
+     }
+    },
+    {
+     "id": "sa-tav7-4",
+     "name": "Varco Via Romualdo II Guarna",
+     "location": {
+      "lat": 40.68069,
+      "lon": 14.759356
+     }
+    },
+    {
+     "id": "sa-tav7-5",
+     "name": "Varco Via Duomo",
+     "location": {
+      "lat": 40.678099,
+      "lon": 14.758975
+     }
+    },
+    {
+     "id": "sa-tav7-6",
+     "name": "Varco Portanova",
+     "location": {
+      "lat": 40.677168,
+      "lon": 14.762034
+     }
+    },
+    {
+     "id": "sa-tav7-7",
+     "name": "Varco Mazza Antonio",
+     "location": {
+      "lat": 40.677694,
+      "lon": 14.760332
+     }
+    },
+    {
+     "id": "sa-tav7-8",
+     "name": "Varco Via Vigorito",
+     "location": {
+      "lat": 40.677847,
+      "lon": 14.759815
+     }
+    },
+    {
+     "id": "sa-tav7-9",
+     "name": "Varco Via Portacatena",
+     "location": {
+      "lat": 40.679466,
+      "lon": 14.754476
+     }
+    },
+    {
+     "id": "sa-tav7-10",
+     "name": "Varco Via della Porta",
+     "location": {
+      "lat": 40.680973,
+      "lon": 14.760323
+     }
+    },
+    {
+     "id": "sa-tav7-11",
+     "name": "Varco Piazzetta Elina",
+     "location": {
+      "lat": 40.678779,
+      "lon": 14.7607
+     }
+    },
+    {
+     "id": "sa-tav7-12",
+     "name": "Varco Via dei Principati",
+     "location": {
+      "lat": 40.677059,
+      "lon": 14.765608
+     }
+    },
+    {
+     "id": "sa-tav7-13",
+     "name": "Varco Via Conforti Raffaele",
+     "location": {
+      "lat": 40.676823,
+      "lon": 14.764109
+     }
+    },
+    {
+     "id": "sa-tav7-14",
+     "name": "Varco Via Porta di Mare",
+     "location": {
+      "lat": 40.678759,
+      "lon": 14.756662
+     }
+    }
+   ],
    "windows": [
     {
      "weekdays": [
@@ -39,32 +745,39 @@
    "exemptFuels": [],
    "hotelCanRegister": true,
    "source": {
-    "authority": "City of Salerno",
-    "pageURL": "https://www.comune.salerno.it/amministrazione/ufficio/ufficio-varchi-ztl",
-    "quote": "Verifica e ricezione transiti trasmessi da: Autorimesse private; Bed and breakfast; Enti pubblici, Salerno solidale, Convitto Nazionale, Curia, Ostello, Alberghi e Pensioni .",
-    "quoteTranslation": "Checking and receiving transits sent by: private garages; bed and breakfasts; public bodies, Salerno Solidale, Convitto Nazionale, the Curia, the hostel, hotels and guesthouses.",
-    "quoteTranslation_de": "Prüfung und Empfang der Durchfahrten, die gemeldet werden von: privaten Garagen; Bed and Breakfasts; öffentlichen Stellen, Salerno Solidale, Convitto Nazionale, Kurie, Hostel, Hotels und Pensionen.",
+    "authority": "Accessibilità Centri Storici (unofficial); City of Salerno",
+    "official": false,
+    "pageURL": "https://www.accessibilitacentristorici.it/ztl/campania/salerno.html",
+    "quote": "La telecamere sono in funzioni tutti i giorni 24 ore su 24 ore",
+    "quoteTranslation": "The cameras are in operation every day, 24 hours a day.",
+    "quoteTranslation_de": "Die Kameras sind täglich rund um die Uhr in Betrieb.",
     "checkedOn": "2026-10-27T12:00:00Z",
     "reviewedByHuman": false,
     "pending": [
-     "Hours: no official text read states them. Guides say the cameras work every day, 24 hours a day (confirmed only by accessibilitacentristorici.it and car-news sites); an old City page from 2007 (ordinance 291/05, not reachable from here) gave different time slots. GateLR shows the ZTL as always on until the ordinance is found.",
-     "No perimeter: the historic centre between via Roma (south) and via Duomo / via San Benedetto / via Salvatore Rienzi (north), with 10 gates listed on the City's form B1 (Antica Corte, San Michele, Monterisi, Romualdo II Guarna, Portanova, Antonio Mazza, Duomo/via Roma, Conforti, Corso Garibaldi, Corso Vittorio Emanuele), but no official map or open data, and OpenStreetMap has no ZTL area.",
+     "Hours: confirmed only by accessibilitacentristorici.it (every day, 24 hours a day; page updated 7 December 2019). No official text read states them; an old City page from 2007 (ordinance 291/05, not reachable from here) gave different time slots.",
+     "Area and the 14 gates from the City's official traffic-plan map (PGTU 2019, table 7.2 «Individuazione ZTL»), matched automatically to OpenStreetMap streets. The City's current form B1 lists 10 gates, including Corso Garibaldi and Corso Vittorio Emanuele (added in 2023), and not Vigorito, Portacatena, Della Porta, Piazzetta Elina or Porta di Mare: some gates may have moved since 2019.",
      "Hotels, guesthouses and B&Bs send their guests' transits to the City's ZTL gates office; the time limit is not stated. Occasional transits (loading, disabled people, doctors) are communicated with form B1, free, by e-mail or certified mail; loading is allowed 6–9:30 am and 2–5 pm.",
      "Not found: electric cars, motorbikes, fines, summer or Christmas (Luci d'Artista) variations. The old City website (website.comune.salerno.it) could not be reached from here."
     ],
     "pending_it": [
-     "Orari: nessun testo ufficiale letto li indica. Le guide dicono che le telecamere funzionano tutti i giorni 24 ore su 24 (confermato solo da accessibilitacentristorici.it e siti di motori); una vecchia pagina del Comune del 2007 (ordinanza 291/05, non raggiungibile da qui) dava fasce diverse. GateLR mostra la ZTL sempre attiva finché non si trova l'ordinanza.",
-     "Nessun perimetro: il centro storico tra via Roma (sud) e via Duomo / via San Benedetto / via Salvatore Rienzi (nord), con 10 varchi elencati nel modello B1 del Comune (Antica Corte, San Michele, Monterisi, Romualdo II Guarna, Portanova, Antonio Mazza, Duomo/via Roma, Conforti, Corso Garibaldi, Corso Vittorio Emanuele), ma senza mappa ufficiale né open data, e OpenStreetMap non ha un'area ZTL.",
+     "Orari: confermato solo da accessibilitacentristorici.it (tutti i giorni 24 ore su 24; scheda aggiornata al 07/12/2019). Nessun testo ufficiale letto li indica; una vecchia pagina del Comune del 2007 (ordinanza 291/05, non raggiungibile da qui) dava fasce diverse.",
+     "Area e 14 varchi dalla tavola ufficiale del PGTU (2019, tavola 7.2 «Individuazione ZTL»), agganciata in automatico alle strade di OpenStreetMap. L'attuale modello B1 del Comune elenca 10 varchi, tra cui Corso Garibaldi e Corso Vittorio Emanuele (aggiunti nel 2023), e non Vigorito, Portacatena, Della Porta, Piazzetta Elina e Porta di Mare: alcuni varchi potrebbero essere cambiati dal 2019.",
      "Alberghi, pensioni e B&B trasmettono i transiti dei loro ospiti all'Ufficio Varchi ZTL del Comune; il termine non è indicato. I transiti occasionali (carico/scarico, disabili, medici) si comunicano con il modello B1, gratis, via e-mail o PEC; il carico/scarico è consentito 6–9:30 e 14–17.",
      "Non trovati: auto elettriche, moto, multe, variazioni estive o natalizie (Luci d'Artista). Il vecchio sito del Comune (website.comune.salerno.it) non era raggiungibile da qui."
     ],
     "pending_de": [
-     "Zeiten: Kein gelesener offizieller Text nennt sie. Reiseführer sagen, die Kameras laufen täglich rund um die Uhr (nur von accessibilitacentristorici.it und Autoportalen bestätigt); eine alte Stadtseite von 2007 (Verordnung 291/05, von hier nicht erreichbar) nannte andere Zeitfenster. GateLR zeigt die ZTL als immer aktiv, bis die Verordnung gefunden ist.",
-     "Keine Grenze: die Altstadt zwischen Via Roma (Süden) und Via Duomo / Via San Benedetto / Via Salvatore Rienzi (Norden), mit 10 Kameras im städtischen Formular B1 (Antica Corte, San Michele, Monterisi, Romualdo II Guarna, Portanova, Antonio Mazza, Duomo/Via Roma, Conforti, Corso Garibaldi, Corso Vittorio Emanuele), aber ohne amtliche Karte oder Open Data; OpenStreetMap hat keine ZTL-Fläche.",
+     "Zeiten: nur von accessibilitacentristorici.it bestätigt (täglich rund um die Uhr; Seite vom 7. Dezember 2019). Kein gelesener offizieller Text nennt sie; eine alte Stadtseite von 2007 (Verordnung 291/05, von hier nicht erreichbar) nannte andere Zeitfenster.",
+     "Fläche und 14 Kameras aus der amtlichen Karte des Verkehrsplans (PGTU 2019, Tafel 7.2 «Individuazione ZTL»), automatisch an OpenStreetMap-Straßen ausgerichtet. Das aktuelle Formular B1 der Stadt nennt 10 Kameras, darunter Corso Garibaldi und Corso Vittorio Emanuele (2023 ergänzt), nicht aber Vigorito, Portacatena, Della Porta, Piazzetta Elina und Porta di Mare: einige Kameras können sich seit 2019 geändert haben.",
      "Hotels, Pensionen und B&Bs melden die Durchfahrten ihrer Gäste dem ZTL-Büro der Stadt; eine Frist ist nicht angegeben. Gelegentliche Durchfahrten (Laden, Behinderte, Ärzte) meldet man kostenlos mit Formular B1 per E-Mail oder PEC; Laden ist 6–9:30 und 14–17 Uhr erlaubt.",
      "Nicht gefunden: Elektroautos, Motorräder, Bußgelder, Sommer- oder Weihnachtsänderungen (Luci d'Artista). Die alte Stadtwebsite (website.comune.salerno.it) war von hier nicht erreichbar."
     ],
     "links": [
+     {
+      "title": "Accessibilità Centri Storici: Salerno (unofficial, hours)",
+      "title_it": "Accessibilità Centri Storici: Salerno (non ufficiale, orari)",
+      "title_de": "Accessibilità Centri Storici: Salerno (inoffiziell, Zeiten)",
+      "url": "https://www.accessibilitacentristorici.it/ztl/campania/salerno.html"
+     },
      {
       "title": "City of Salerno: ZTL gates office",
       "title_it": "Comune di Salerno: Ufficio Varchi ZTL",
@@ -88,17 +801,11 @@
       "title_it": "Comune di Salerno: richiesta autorizzazione transito e/o sosta ZTL",
       "title_de": "Stadt Salerno: ZTL-Genehmigungen",
       "url": "https://www.comune.salerno.it/servizi/richiesta-autorizzazione-transito-eo-sosta-ztl-eo-rinnovi"
-     },
-     {
-      "title": "Accessibilità Centri Storici: Salerno (unofficial)",
-      "title_it": "Accessibilità Centri Storici: Salerno (non ufficiale)",
-      "title_de": "Accessibilità Centri Storici: Salerno (inoffiziell)",
-      "url": "https://www.accessibilitacentristorici.it/ztl/campania/salerno.html"
      }
     ]
    }
   }
  ],
  "status": "draft",
- "license": "Rules: Comune di Salerno (official pages and form B1). No perimeter yet."
+ "license": "Hours: accessibilitacentristorici.it (unofficial). Rules: Comune di Salerno (official pages, form B1). Area and gates: Comune di Salerno, PGTU 2019 table 7.2, georeferenced on © OpenStreetMap contributors, ODbL 1.0."
 }

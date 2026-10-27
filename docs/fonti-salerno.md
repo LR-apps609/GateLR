@@ -3,10 +3,10 @@
 Scheda generata da `Tools/build_salerno.py` → `data/drafts/salerno.json` (stato **draft**, **bozza**: non è nel manifest dell'app né sul sito).
 
 ## Perché resta bozza
-1. **Nessun orario ufficiale.** Nessuna pagina o documento ufficiale letto indica quando la ZTL è attiva; «24 ore su 24» è solo in guide e siti di motori. La vecchia scheda del Comune (website.comune.salerno.it, 2007, ord. 291/05) è bloccata dal proxy e comunque superata.
-2. **Nessun perimetro.** Nessun open data (Comune, dati.regione.campania.it), nessuna relazione ZTL in OpenStreetMap (API, 27/10/2026, bbox 40.672–40.686 N, 14.744–14.772 E): le vie del centro storico hanno solo `access=destination`, che non è una delimitazione ufficiale. I 10 varchi del modello B1 non hanno coordinate.
+1. **Nessun orario ufficiale.** Nessuna pagina o documento ufficiale letto indica quando la ZTL è attiva (ricercato di nuovo il 27/10/2026: pagine ZTL e PGTU di www.comune.salerno.it, ricerca web). Con il permesso del proprietario la scheda usa **accessibilitacentristorici.it** (non ufficiale, scheda agg. 07/12/2019): «La telecamere sono in funzioni tutti i giorni 24 ore su 24 ore» → `quote` da quella pagina, `source.official: false`, pending «confermato solo da accessibilitacentristorici.it».
+2. Finché su main non c'è l'app **1.16.2** (che gestisce `official: false` e nasconde queste schede alle app vecchie), resta in `data/drafts/` (`OFFICIAL_RELEASED = False` in `Tools/build_salerno.py`). Poi va pubblicata con quel meccanismo.
 
-Per pubblicarla servono l'ordinanza vigente (orari e vie o mappa) e la posizione dei varchi.
+Il perimetro e i varchi ora ci sono (vedi Geometria).
 
 ## Fonti ufficiali lette (27/10/2026)
 | Fatto | URL | Tipo | Letto il |
@@ -20,7 +20,10 @@ Per pubblicarla servono l'ordinanza vigente (orari e vie o mappa) e la posizione
 
 Ricontrollo del 27/10/2026: pagine «ZTL» del sito (argomento, Ufficio Varchi, servizi «Verifica transiti», «Comunicazione transito occasionale», «Richiesta autorizzazione», moduli) rilette: nessun orario e nessuna ordinanza linkata. I 9 moduli di richiesta (PDF) sono scansioni senza testo. La ricerca interna del sito (`/search`) risponde **403** (non insistito).
 
+**Tavola ufficiale del PGTU (perimetro e varchi):** PGTU, «TAVOLA 7.2 Individuazione ZTL» 1:5000 (PDF vettoriale AutoCAD del 25/07/2019, coordinatore scientifico Stefano de Luca): strade in ZTL (rosso), passaggi pedonali, scale, area pedonale lungomare; varchi 1 Antica Corte, 2 San Michele, 3 Via Monte Risi, 4 Via Romualdo II Guarna, 5 Via Duomo, 6 Portanova, 7 Mazza Antonio, 8 Via Vigorito, 9 Via Portacatena, 10 Via della Porta, 11 Piazzetta Elina, 12 Via dei Principati, 13 Via Conforti Raffaele, 14 Via Porta di Mare — file caricato dal proprietario il 27/10/2026 (copia del documento ufficiale del Comune; nessun URL pubblico raggiungibile) → vettori e legenda estratti in `data/raw/salerno/pgtu-tav7-vettori.json` (ufficiale (pianificazione 2019), letta il 27/10/2026).
+
 ## Fonti non ufficiali
+- https://www.accessibilitacentristorici.it/ztl/campania/salerno.html → `data/raw/salerno/accessibilitacentristorici-salerno.txt` (27/10/2026; scheda agg. 07/12/2019): **orari (citazione)** «tutti i giorni 24 ore su 24», confini via Roma – via Duomo/San Benedetto/Salvatore Rienzi, 14 telecamere (stessi nomi della Tav. 7.2), disabili con contrassegno liberi di transitare, carico/scarico 6–9:30 e 14–17. Usata solo per gli orari (non la sua mappa).
 `data/raw/salerno/websearch-1-orari.txt`: accessibilitacentristorici.it, sicurauto.it, automobilista.it (24 ore su 24; confini via Roma – via Duomo/San Benedetto/Salvatore Rienzi); stampa 2023 (nuovi varchi Conforti, Corso Garibaldi, Corso V. Emanuele) e delibera per sostituire i 15 varchi.
 
 ## Host non raggiungibili (ricontrollati il 27/10/2026)
@@ -29,4 +32,8 @@ Ricontrollo del 27/10/2026: pagine «ZTL» del sito (argomento, Ufficio Varchi, 
 - `www.comune.salerno.it` funziona, tranne `/search` (403 dal sito).
 
 ## Geometria
-Nessuna. Nessun disegno a mano.
+- Fonte: Tav. 7.2 del PGTU (sopra). `Tools/salerno_mappa.py --pdf <PDF>` estrae dal PDF le polilinee per colore e le etichette dei varchi (`data/raw/salerno/pgtu-tav7-vettori.json`), poi aggancia le linee rosse (assi delle strade in ZTL) alle strade OpenStreetMap (API OSM, `data/raw/geo/salerno-centro.json`, solo strade, © OpenStreetMap contributors, ODbL 1.0) con una similitudine: scala 1,719 m/pt (≈ 1:4875), rotazione 0,15°; **98,6 % dei punti rossi entro ~4 m** da una strada OSM. Risultato in `data/raw/salerno/ztl-pgtu-tav7.geojson`.
+- Area: linee rosse allargate di 23 pt e ristrette di 19 pt (chiude gli isolati tra le strade della ZTL), buchi riempiti, semplificata a 3 m: **0,239 km²**. La mappa non ha un bordo disegnato: l'area è quella coperta dalle strade in ZTL.
+- Varchi: punto della linea rossa più vicino a ogni etichetta, agganciato alla via OSM del nome in legenda se entro 25 m (13 su 14; «Piazzetta Elina» resta sul punto della tavola). Alcuni varchi (3, 4, 11) sono interni all'area.
+- Controlli: Duomo, via dei Mercanti, via Duomo, Corso Vittorio Emanuele dentro; via Roma (Comune), lungomare Trieste, stazione FS, castello di Arechi fuori.
+- Dubbi: la tavola è del 2019; il modello B1 attuale elenca 10 varchi (con Corso Garibaldi e Corso Vittorio Emanuele del 2023) e non Vigorito, Portacatena, Della Porta, Piazzetta Elina, Porta di Mare. Nessun disegno a mano.
