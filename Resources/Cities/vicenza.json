@@ -1,0 +1,806 @@
+{
+ "id": "vicenza",
+ "name": "Vicenza",
+ "name_it": "Vicenza",
+ "name_de": "Vicenza",
+ "center": {
+  "lat": 45.5473,
+  "lon": 11.5465
+ },
+ "zones": [
+  {
+   "id": "vicenza-ztl",
+   "name": "Centro storico · Old town ZTL",
+   "name_it": "Centro storico · ZTL",
+   "name_de": "Centro storico · ZTL Altstadt",
+   "kind": "restricted",
+   "summary": "The old town (Piazza dei Signori, Basilica Palladiana, Corso Palladio) is a limited traffic zone: cameras at the entry gates record every car 24 hours a day and fine those without a permit automatically. There is no permit for visitors: park outside the zone and walk in.",
+   "summary_it": "Il centro storico (piazza dei Signori, Basilica Palladiana, corso Palladio) è ZTL: le telecamere ai varchi d'ingresso registrano ogni auto 24 ore su 24 e multano in automatico chi non ha il permesso. Non c'è un permesso per i visitatori: parcheggia fuori e prosegui a piedi.",
+   "summary_de": "Die Altstadt (Piazza dei Signori, Basilica Palladiana, Corso Palladio) ist eine ZTL: Kameras an den Einfahrten erfassen jedes Auto rund um die Uhr und verhängen ohne Genehmigung automatisch ein Bußgeld. Eine Besuchergenehmigung gibt es nicht: außerhalb parken und zu Fuß gehen.",
+   "perimeter": [
+    {
+     "lat": 45.544065,
+     "lon": 11.542713
+    },
+    {
+     "lat": 45.544182,
+     "lon": 11.542555
+    },
+    {
+     "lat": 45.544392,
+     "lon": 11.541979
+    },
+    {
+     "lat": 45.545036,
+     "lon": 11.540955
+    },
+    {
+     "lat": 45.545595,
+     "lon": 11.540468
+    },
+    {
+     "lat": 45.545763,
+     "lon": 11.540442
+    },
+    {
+     "lat": 45.545797,
+     "lon": 11.540638
+    },
+    {
+     "lat": 45.545916,
+     "lon": 11.540805
+    },
+    {
+     "lat": 45.546025,
+     "lon": 11.540669
+    },
+    {
+     "lat": 45.54596,
+     "lon": 11.540504
+    },
+    {
+     "lat": 45.545993,
+     "lon": 11.540354
+    },
+    {
+     "lat": 45.546053,
+     "lon": 11.540399
+    },
+    {
+     "lat": 45.54701,
+     "lon": 11.540241
+    },
+    {
+     "lat": 45.547016,
+     "lon": 11.540317
+    },
+    {
+     "lat": 45.54712,
+     "lon": 11.54044
+    },
+    {
+     "lat": 45.547198,
+     "lon": 11.540335
+    },
+    {
+     "lat": 45.547208,
+     "lon": 11.540238
+    },
+    {
+     "lat": 45.547681,
+     "lon": 11.540234
+    },
+    {
+     "lat": 45.547784,
+     "lon": 11.540401
+    },
+    {
+     "lat": 45.547871,
+     "lon": 11.540263
+    },
+    {
+     "lat": 45.547977,
+     "lon": 11.540267
+    },
+    {
+     "lat": 45.54853,
+     "lon": 11.540472
+    },
+    {
+     "lat": 45.549342,
+     "lon": 11.541088
+    },
+    {
+     "lat": 45.549477,
+     "lon": 11.540822
+    },
+    {
+     "lat": 45.549552,
+     "lon": 11.540847
+    },
+    {
+     "lat": 45.549631,
+     "lon": 11.540742
+    },
+    {
+     "lat": 45.549588,
+     "lon": 11.540556
+    },
+    {
+     "lat": 45.549679,
+     "lon": 11.540603
+    },
+    {
+     "lat": 45.549773,
+     "lon": 11.540477
+    },
+    {
+     "lat": 45.550107,
+     "lon": 11.539765
+    },
+    {
+     "lat": 45.550551,
+     "lon": 11.53923
+    },
+    {
+     "lat": 45.550479,
+     "lon": 11.539412
+    },
+    {
+     "lat": 45.550569,
+     "lon": 11.539534
+    },
+    {
+     "lat": 45.550677,
+     "lon": 11.539441
+    },
+    {
+     "lat": 45.550936,
+     "lon": 11.539883
+    },
+    {
+     "lat": 45.550872,
+     "lon": 11.540021
+    },
+    {
+     "lat": 45.550946,
+     "lon": 11.540132
+    },
+    {
+     "lat": 45.551045,
+     "lon": 11.540147
+    },
+    {
+     "lat": 45.550806,
+     "lon": 11.540278
+    },
+    {
+     "lat": 45.549748,
+     "lon": 11.541774
+    },
+    {
+     "lat": 45.549914,
+     "lon": 11.542699
+    },
+    {
+     "lat": 45.549844,
+     "lon": 11.542772
+    },
+    {
+     "lat": 45.549719,
+     "lon": 11.54253
+    },
+    {
+     "lat": 45.549616,
+     "lon": 11.542688
+    },
+    {
+     "lat": 45.549675,
+     "lon": 11.543609
+    },
+    {
+     "lat": 45.549664,
+     "lon": 11.544171
+    },
+    {
+     "lat": 45.549173,
+     "lon": 11.544358
+    },
+    {
+     "lat": 45.549118,
+     "lon": 11.544442
+    },
+    {
+     "lat": 45.549027,
+     "lon": 11.544406
+    },
+    {
+     "lat": 45.548933,
+     "lon": 11.544543
+    },
+    {
+     "lat": 45.549052,
+     "lon": 11.544689
+    },
+    {
+     "lat": 45.549122,
+     "lon": 11.544626
+    },
+    {
+     "lat": 45.549727,
+     "lon": 11.544498
+    },
+    {
+     "lat": 45.549922,
+     "lon": 11.545046
+    },
+    {
+     "lat": 45.549955,
+     "lon": 11.54534
+    },
+    {
+     "lat": 45.549886,
+     "lon": 11.545348
+    },
+    {
+     "lat": 45.549808,
+     "lon": 11.545464
+    },
+    {
+     "lat": 45.549904,
+     "lon": 11.545608
+    },
+    {
+     "lat": 45.549988,
+     "lon": 11.5456
+    },
+    {
+     "lat": 45.550025,
+     "lon": 11.545678
+    },
+    {
+     "lat": 45.549917,
+     "lon": 11.545706
+    },
+    {
+     "lat": 45.549823,
+     "lon": 11.545843
+    },
+    {
+     "lat": 45.54992,
+     "lon": 11.545987
+    },
+    {
+     "lat": 45.550028,
+     "lon": 11.545926
+    },
+    {
+     "lat": 45.550054,
+     "lon": 11.546133
+    },
+    {
+     "lat": 45.549975,
+     "lon": 11.546281
+    },
+    {
+     "lat": 45.550049,
+     "lon": 11.546392
+    },
+    {
+     "lat": 45.550133,
+     "lon": 11.546406
+    },
+    {
+     "lat": 45.550263,
+     "lon": 11.54679
+    },
+    {
+     "lat": 45.550232,
+     "lon": 11.546821
+    },
+    {
+     "lat": 45.550233,
+     "lon": 11.546735
+    },
+    {
+     "lat": 45.550152,
+     "lon": 11.546612
+    },
+    {
+     "lat": 45.550007,
+     "lon": 11.546618
+    },
+    {
+     "lat": 45.549928,
+     "lon": 11.546723
+    },
+    {
+     "lat": 45.549922,
+     "lon": 11.547047
+    },
+    {
+     "lat": 45.549698,
+     "lon": 11.54719
+    },
+    {
+     "lat": 45.549605,
+     "lon": 11.547316
+    },
+    {
+     "lat": 45.549678,
+     "lon": 11.547449
+    },
+    {
+     "lat": 45.54977,
+     "lon": 11.547452
+    },
+    {
+     "lat": 45.550419,
+     "lon": 11.54699
+    },
+    {
+     "lat": 45.550505,
+     "lon": 11.546875
+    },
+    {
+     "lat": 45.550303,
+     "lon": 11.546261
+    },
+    {
+     "lat": 45.550214,
+     "lon": 11.546139
+    },
+    {
+     "lat": 45.55021,
+     "lon": 11.545977
+    },
+    {
+     "lat": 45.550077,
+     "lon": 11.545744
+    },
+    {
+     "lat": 45.550163,
+     "lon": 11.545596
+    },
+    {
+     "lat": 45.550344,
+     "lon": 11.545722
+    },
+    {
+     "lat": 45.550698,
+     "lon": 11.546731
+    },
+    {
+     "lat": 45.550519,
+     "lon": 11.546951
+    },
+    {
+     "lat": 45.550718,
+     "lon": 11.547305
+    },
+    {
+     "lat": 45.550696,
+     "lon": 11.547682
+    },
+    {
+     "lat": 45.550306,
+     "lon": 11.548132
+    },
+    {
+     "lat": 45.550188,
+     "lon": 11.547933
+    },
+    {
+     "lat": 45.549757,
+     "lon": 11.548144
+    },
+    {
+     "lat": 45.549677,
+     "lon": 11.548292
+    },
+    {
+     "lat": 45.549747,
+     "lon": 11.548652
+    },
+    {
+     "lat": 45.549617,
+     "lon": 11.548679
+    },
+    {
+     "lat": 45.549507,
+     "lon": 11.548826
+    },
+    {
+     "lat": 45.549581,
+     "lon": 11.548948
+    },
+    {
+     "lat": 45.549657,
+     "lon": 11.548962
+    },
+    {
+     "lat": 45.549728,
+     "lon": 11.548857
+    },
+    {
+     "lat": 45.550355,
+     "lon": 11.548729
+    },
+    {
+     "lat": 45.550425,
+     "lon": 11.549078
+    },
+    {
+     "lat": 45.5504,
+     "lon": 11.549585
+    },
+    {
+     "lat": 45.550203,
+     "lon": 11.549945
+    },
+    {
+     "lat": 45.549547,
+     "lon": 11.549931
+    },
+    {
+     "lat": 45.549557,
+     "lon": 11.549834
+    },
+    {
+     "lat": 45.549468,
+     "lon": 11.549701
+    },
+    {
+     "lat": 45.54935,
+     "lon": 11.549891
+    },
+    {
+     "lat": 45.54928,
+     "lon": 11.549542
+    },
+    {
+     "lat": 45.549191,
+     "lon": 11.549388
+    },
+    {
+     "lat": 45.548908,
+     "lon": 11.549452
+    },
+    {
+     "lat": 45.548848,
+     "lon": 11.549385
+    },
+    {
+     "lat": 45.548412,
+     "lon": 11.549477
+    },
+    {
+     "lat": 45.548317,
+     "lon": 11.548878
+    },
+    {
+     "lat": 45.548235,
+     "lon": 11.548767
+    },
+    {
+     "lat": 45.547758,
+     "lon": 11.548965
+    },
+    {
+     "lat": 45.547626,
+     "lon": 11.549133
+    },
+    {
+     "lat": 45.547543,
+     "lon": 11.549054
+    },
+    {
+     "lat": 45.547282,
+     "lon": 11.549585
+    },
+    {
+     "lat": 45.546945,
+     "lon": 11.550037
+    },
+    {
+     "lat": 45.546471,
+     "lon": 11.549283
+    },
+    {
+     "lat": 45.546734,
+     "lon": 11.548699
+    },
+    {
+     "lat": 45.546931,
+     "lon": 11.548749
+    },
+    {
+     "lat": 45.54701,
+     "lon": 11.548633
+    },
+    {
+     "lat": 45.546758,
+     "lon": 11.548245
+    },
+    {
+     "lat": 45.546837,
+     "lon": 11.548075
+    },
+    {
+     "lat": 45.546748,
+     "lon": 11.547953
+    },
+    {
+     "lat": 45.546625,
+     "lon": 11.548046
+    },
+    {
+     "lat": 45.546485,
+     "lon": 11.547781
+    },
+    {
+     "lat": 45.546516,
+     "lon": 11.547728
+    },
+    {
+     "lat": 45.546492,
+     "lon": 11.547413
+    },
+    {
+     "lat": 45.546418,
+     "lon": 11.547302
+    },
+    {
+     "lat": 45.546265,
+     "lon": 11.547296
+    },
+    {
+     "lat": 45.546133,
+     "lon": 11.547032
+    },
+    {
+     "lat": 45.545922,
+     "lon": 11.546926
+    },
+    {
+     "lat": 45.545751,
+     "lon": 11.546649
+    },
+    {
+     "lat": 45.545405,
+     "lon": 11.54642
+    },
+    {
+     "lat": 45.544453,
+     "lon": 11.546362
+    },
+    {
+     "lat": 45.544287,
+     "lon": 11.54629
+    },
+    {
+     "lat": 45.544292,
+     "lon": 11.545988
+    },
+    {
+     "lat": 45.544159,
+     "lon": 11.545788
+    },
+    {
+     "lat": 45.544185,
+     "lon": 11.545638
+    },
+    {
+     "lat": 45.544103,
+     "lon": 11.545516
+    },
+    {
+     "lat": 45.544004,
+     "lon": 11.54549
+    },
+    {
+     "lat": 45.543926,
+     "lon": 11.545595
+    },
+    {
+     "lat": 45.543904,
+     "lon": 11.545973
+    },
+    {
+     "lat": 45.543348,
+     "lon": 11.545908
+    },
+    {
+     "lat": 45.543351,
+     "lon": 11.545779
+    },
+    {
+     "lat": 45.543277,
+     "lon": 11.545668
+    },
+    {
+     "lat": 45.543161,
+     "lon": 11.545739
+    },
+    {
+     "lat": 45.543177,
+     "lon": 11.544885
+    },
+    {
+     "lat": 45.543354,
+     "lon": 11.543627
+    },
+    {
+     "lat": 45.543576,
+     "lon": 11.543149
+    },
+    {
+     "lat": 45.544065,
+     "lon": 11.542713
+    }
+   ],
+   "gates": [
+    {
+     "id": "vi-varco-01",
+     "name": "Varco 1 · Piazzale De Gasperi",
+     "location": {
+      "lat": 45.545872,
+      "lon": 11.540404
+     }
+    },
+    {
+     "id": "vi-varco-02",
+     "name": "Varco 2 · Via Montagna",
+     "location": {
+      "lat": 45.547785,
+      "lon": 11.540175
+     }
+    },
+    {
+     "id": "vi-varco-03",
+     "name": "Varco 3 · Corso Fogazzaro (20–9; festivi 0–24)",
+     "location": {
+      "lat": 45.550585,
+      "lon": 11.539385
+     }
+    },
+    {
+     "id": "vi-varco-04",
+     "name": "Varco 4 · Contrà Pedemuro S. Biagio",
+     "location": {
+      "lat": 45.549727,
+      "lon": 11.542713
+     }
+    },
+    {
+     "id": "vi-varco-05",
+     "name": "Varco 5 · Contrà Porti",
+     "location": {
+      "lat": 45.549902,
+      "lon": 11.54541
+     }
+    },
+    {
+     "id": "vi-varco-06",
+     "name": "Varco 6 · Stradella S. Stefano",
+     "location": {
+      "lat": 45.550094,
+      "lon": 11.546251
+     }
+    },
+    {
+     "id": "vi-varco-07",
+     "name": "Varco 7 · Contrà San Faustino",
+     "location": {
+      "lat": 45.547588,
+      "lon": 11.548878
+     }
+    },
+    {
+     "id": "vi-varco-08",
+     "name": "Varco 8 · Contrà Gazzolle",
+     "location": {
+      "lat": 45.546738,
+      "lon": 11.548093
+     }
+    },
+    {
+     "id": "vi-varco-09",
+     "name": "Varco 9 · Contrà Carpagnon",
+     "location": {
+      "lat": 45.544396,
+      "lon": 11.545822
+     }
+    },
+    {
+     "id": "vi-varco-10",
+     "name": "Varco 10 · Contrà Mure Carmini",
+     "location": {
+      "lat": 45.550995,
+      "lon": 11.53994
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": false,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Vicenza",
+    "pageURL": "https://www.comune.vicenza.it/Servizi/ZTL-zona-a-traffico-limitato-informazioni-generali",
+    "ordinance": "Ordinanza PGN 3474/95 e successive integrazioni",
+    "quote": "Le telecamere registrano tutti gli accessi dei veicoli 24 ore su 24, tranne che per il varco di corso Fogazzaro (varco CHIUSO, con rilevazione dei transiti non autorizzati, dalle 20 alle 9 nei giorni feriali e 0-24 nei giorni festivi).",
+    "quoteTranslation": "The cameras record every vehicle entering 24 hours a day, except at the Corso Fogazzaro gate (gate CLOSED, with detection of unauthorised transits, from 8 pm to 9 am on weekdays and all day on holidays).",
+    "quoteTranslation_de": "Die Kameras erfassen alle einfahrenden Fahrzeuge rund um die Uhr, außer an der Einfahrt Corso Fogazzaro (Einfahrt GESCHLOSSEN, mit Erfassung unerlaubter Durchfahrten, werktags von 20 bis 9 Uhr und an Feiertagen ganztägig).",
+    "checkedOn": "2026-10-27T14:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Corso Fogazzaro gate: the City's Italian page says it is closed and enforced 20:00–9:00 on weekdays and all day on holidays (open to all 9:00–20:00 on weekdays); GateLR still treats the whole zone as closed 0–24. The City's English page, not reachable from here, is reported to describe it the other way round.",
+     "Hotel guests: the City's pages describe no procedure for hotels to register guests' plates and no visitor permit (temporary permits are only for goods, building sites and markets). Ask your hotel before driving in; otherwise park outside.",
+     "Exit gates: the official map shows 20 exit points; permits list the allowed entry and exit gates. 12 exit cameras are due by the end of 2026 (City press release, 12/12/2025). The City's page lists 9 entry cameras; the map shows a 10th entry at Contrà Mure Carmini.",
+     "Perimeter traced automatically from the official map (2023), georeferenced on the OpenStreetMap rivers: accurate to roughly 10–20 m. Pedestrian areas (AP) inside the ZTL are not drawn. Electric cars are not exempt; disabled badge holders need the City's permit."
+    ],
+    "pending_it": [
+     "Varco di corso Fogazzaro: la pagina del Comune lo dà chiuso e controllato 20–9 nei feriali e 0–24 nei festivi (aperto a tutti 9–20 nei feriali); GateLR tratta comunque tutta la zona come chiusa 0–24. La pagina inglese del Comune, non raggiungibile da qui, lo descriverebbe al contrario.",
+     "Ospiti degli hotel: le pagine del Comune non descrivono una procedura per far registrare la targa dall'hotel né un permesso per visitatori (i temporanei sono solo per merci, cantieri e mercati). Chiedi all'hotel prima di entrare; altrimenti parcheggia fuori.",
+     "Varchi di uscita: la mappa ufficiale ne indica 20; i permessi riportano i varchi di entrata e di uscita consentiti. 12 telecamere in uscita sono previste entro il 2026 (comunicato del 12/12/2025). La pagina del Comune elenca 9 telecamere d'ingresso; la mappa indica un 10° ingresso in contrà Mure Carmini.",
+     "Perimetro ricavato in automatico dalla mappa ufficiale (2023), agganciata ai fiumi di OpenStreetMap: precisione di circa 10–20 m. Le aree pedonali (AP) dentro la ZTL non sono disegnate. Auto elettriche non esenti; i titolari di contrassegno disabili seguono le regole del Comune."
+    ],
+    "pending_de": [
+     "Kamera Corso Fogazzaro: Laut der italienischen Seite der Stadt ist sie werktags 20–9 Uhr und an Feiertagen ganztägig geschlossen und überwacht (werktags 9–20 Uhr frei); GateLR behandelt die ganze Zone trotzdem als 0–24 gesperrt. Die englische Seite der Stadt (hier nicht erreichbar) soll es umgekehrt beschreiben.",
+     "Hotelgäste: Die Seiten der Stadt beschreiben weder eine Kennzeichenmeldung durch Hotels noch eine Besuchergenehmigung (befristete Genehmigungen nur für Waren, Baustellen und Märkte). Frag dein Hotel vor der Einfahrt; sonst außerhalb parken.",
+     "Ausfahrten: Die offizielle Karte zeigt 20 Ausfahrtpunkte; Genehmigungen nennen die erlaubten Ein- und Ausfahrten. 12 Ausfahrtkameras sollen bis Ende 2026 kommen (Pressemitteilung vom 12.12.2025). Die Seite der Stadt nennt 9 Einfahrtkameras; die Karte zeigt eine 10. Einfahrt an der Contrà Mure Carmini.",
+     "Grenze automatisch aus der offiziellen Karte (2023) abgeleitet und an den OpenStreetMap-Flüssen ausgerichtet: Genauigkeit etwa 10–20 m. Fußgängerzonen (AP) in der ZTL sind nicht eingezeichnet. Elektroautos sind nicht befreit; Inhaber eines Behindertenausweises folgen den Regeln der Stadt."
+    ],
+    "links": [
+     {
+      "title": "City of Vicenza: ZTL general information (cameras, hours)",
+      "title_it": "Comune di Vicenza: ZTL, informazioni generali (telecamere, orari)",
+      "title_de": "Stadt Vicenza: ZTL, allgemeine Informationen (Kameras, Zeiten)",
+      "url": "https://www.comune.vicenza.it/Servizi/ZTL-zona-a-traffico-limitato-informazioni-generali"
+     },
+     {
+      "title": "Official map of the ZTL and its gates",
+      "title_it": "Mappa ufficiale della ZTL con i varchi",
+      "title_de": "Offizielle Karte der ZTL mit den Kameras",
+      "url": "https://www.comune.vicenza.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Mappa-ZTL-con-varchi"
+     },
+     {
+      "title": "City of Vicenza: ZTL permit types",
+      "title_it": "Comune di Vicenza: tipologie di permessi ZTL",
+      "title_de": "Stadt Vicenza: Arten von ZTL-Genehmigungen",
+      "url": "https://www.comune.vicenza.it/Servizi/Permessi-per-accesso-ZTL-e-AP-tipologie-e-come-ottenerli"
+     },
+     {
+      "title": "City of Vicenza: temporary ZTL permits",
+      "title_it": "Comune di Vicenza: permessi temporanei ZTL",
+      "title_de": "Stadt Vicenza: befristete ZTL-Genehmigungen",
+      "url": "https://www.comune.vicenza.it/Servizi/Permessi-temporanei-ZTL"
+     },
+     {
+      "title": "City of Vicenza: exit cameras by 2026 (press release, 12/12/2025)",
+      "title_it": "Comune di Vicenza: telecamere ai varchi di uscita entro il 2026 (comunicato del 12/12/2025)",
+      "title_de": "Stadt Vicenza: Ausfahrtkameras bis 2026 (Pressemitteilung, 12.12.2025)",
+      "url": "https://www.comune.vicenza.it/Novita/Comunicati/Vicenza-completa-il-sistema-di-controllo-della-Ztl-in-arrivo-12-telecamere-ai-varchi-di-uscita-e-3-sulle-corsie-riservate-a-bus-e-taxi"
+     }
+    ]
+   }
+  }
+ ],
+ "status": "draft",
+ "license": "Rules and perimeter: Comune di Vicenza official pages and ZTL map (georeferenced on © OpenStreetMap contributors, ODbL 1.0; approximate)."
+}
