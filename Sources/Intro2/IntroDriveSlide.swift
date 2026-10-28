@@ -743,14 +743,15 @@ struct IntroFootprintMark: View {
 }
 
 /// I due posti della scena, più evidenti di tutto il resto: il ristorante (generico, nessun locale vero) e il parcheggio.
-/// L'etichetta sta a destra del punto (il parcheggio è più in alto, così non si coprono) e il punto esatto è
-/// in fondo al gambo, al centro della vista: si ancora in basso al centro.
+/// Solo il segno, senza scritte (1.16.4): forchetta e coltello nel cerchio arancione, la «P» nel quadrato blu (verde
+/// quando la freccia arriva al parcheggio), grandi e con il bordo bianco e l'alone. Il punto esatto è in fondo al gambo,
+/// al centro della vista: si ancora in basso al centro. VoiceOver legge «Ristorante» e «Parcheggio».
 struct IntroPlacePin: View {
     enum Kind { case restaurant, parking }
     var kind: Kind
     /// Il parcheggio diventa verde quando la freccia ci arriva
     var lit = false
-    static let size = CGSize(width: 380, height: 84)
+    static let size = CGSize(width: 64, height: 84)
 
     private var color: Color {
         switch kind {
@@ -760,48 +761,38 @@ struct IntroPlacePin: View {
     }
 
     var body: some View {
-        // Tutte e due le etichette a destra del punto: nell'inquadratura il ristorante sta a sinistra, vicino al bordo
-        HStack(spacing: 0) {
-            Color.clear.frame(width: Self.size.width / 2)
-            Color.clear.frame(width: Self.size.width / 2)
-                .overlay(alignment: .bottomLeading) { label.padding(.leading, -30).padding(.bottom, 30) }
+        VStack(spacing: 0) {
+            badge
+            Rectangle().fill(Notte.chalk).frame(width: 3, height: 14)
+            Circle().fill(color).frame(width: 12, height: 12)
+                .overlay(Circle().stroke(.white, lineWidth: 2.5))
+                .shadow(color: color, radius: 6)
         }
-        .overlay(alignment: .bottom) {
-            VStack(spacing: 0) {
-                Rectangle().fill(kind == .restaurant ? Notte.chalk : color).frame(width: 3, height: 18)
-                Circle().fill(color).frame(width: 13, height: 13)
-                    .overlay(Circle().stroke(.white, lineWidth: 2.5))
-                    .shadow(color: color, radius: 6)
-            }
-        }
-        .frame(width: Self.size.width, height: Self.size.height)
+        .frame(width: Self.size.width, height: Self.size.height, alignment: .bottom)
         .animation(.easeInOut(duration: 0.4), value: lit)
-        .accessibilityHidden(true)
+        .accessibilityElement()
+        .accessibilityLabel(Text(kind == .restaurant ? L("Restaurant") : L("Car park")))
+        .accessibilityIdentifier("intro2.pin." + String(describing: kind))
     }
 
-    @ViewBuilder private var label: some View {
-        HStack(spacing: 8) {
-            Group {
-                switch kind {
-                case .restaurant:
-                    Image(systemName: "fork.knife").font(.system(size: 14, weight: .bold)).foregroundStyle(.white)
-                case .parking:
-                    Text(verbatim: "P").font(Notte.font(20, .black)).foregroundStyle(color)
-                }
+    /// Il segno grande: 46 punti, bordo bianco, alone del suo colore
+    @ViewBuilder private var badge: some View {
+        Group {
+            switch kind {
+            case .restaurant:
+                Image(systemName: "fork.knife").font(.system(size: 21, weight: .bold)).foregroundStyle(.white)
+                    .frame(width: 46, height: 46)
+                    .background(color, in: Circle())
+                    .overlay(Circle().stroke(.white, lineWidth: 3))
+            case .parking:
+                Text(verbatim: "P").font(Notte.font(30, .black)).foregroundStyle(.white)
+                    .frame(width: 46, height: 46)
+                    .background(color, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                    .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous).stroke(.white, lineWidth: 3))
             }
-            .frame(width: 30, height: 30)
-            .background(kind == .restaurant ? color : .white, in: kind == .restaurant ? AnyShape(Circle()) : AnyShape(RoundedRectangle(cornerRadius: 8)))
-            Text(kind == .restaurant ? L("Restaurant") : L("Car park"))
-                .font(Notte.font(17, .bold))
-                .foregroundStyle(kind == .restaurant ? Notte.navy : .white)
-                .lineLimit(1)
-                .fixedSize()
         }
-        .padding(.leading, 6).padding(.trailing, 14).padding(.vertical, 6)
-        .background(kind == .restaurant ? Notte.chalk : color, in: Capsule())
-        .overlay(Capsule().stroke(.white.opacity(kind == .restaurant ? 0 : 0.35), lineWidth: 1))
-        .shadow(color: color.opacity(0.55), radius: 14)
-        .shadow(color: .black.opacity(0.45), radius: 10, y: 4)
+        .shadow(color: color.opacity(0.7), radius: 14)
+        .shadow(color: .black.opacity(0.45), radius: 8, y: 4)
     }
 }
 
