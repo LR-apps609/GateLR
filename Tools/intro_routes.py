@@ -119,3 +119,13 @@ for host in ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.s
         break
     except Exception as e:  # noqa: BLE001
         print("edifici: errore", host, e)
+
+# 1.17.0: i giri finti per la prova sul campo (Tools/gpx_routes.py), con lo stesso workflow: da qui i server di percorso
+# rispondono, dal computer di casa a volte no. Il risultato «gpx-routes.json» va nel ramo «intro-routes»; i file .gpx
+# si scrivono poi con «python3 Tools/gpx_routes.py build gpx-routes.json Resources/GPX»
+try:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import gpx_routes
+    gpx_routes.fetch(OUT.parent / "gpx-routes.json")
+except Exception as e:  # noqa: BLE001
+    print("gpx: errore", e)
