@@ -83,12 +83,15 @@ struct RootView: View {
             YouView(showZone: $showZone, tab: $router.tab)
                 .tabItem { Label("You", systemImage: "person.crop.circle") }.tag(Tab.you)
         }
+        // «Modalità prova attiva» in cima a ogni scheda finché la modalità prova è accesa
+        .testModeBar()
         .environmentObject(router)
         .tint(Theme.red)
         .sensoryFeedback(.selection, trigger: router.tab)
         .sheet(isPresented: $showZone) {
             NavigationStack { ZoneDetailView(zone: store.zone, city: store.city) }
                 .readableScrollWidth()
+                .testModeBar()
         }
         // «Novità»: una volta sola dopo ogni aggiornamento, mai al primo avvio (c'è la presentazione)
         .sheet(isPresented: $whatsNew) {

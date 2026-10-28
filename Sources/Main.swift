@@ -22,6 +22,7 @@ struct GateLRApp: App {
                     await Guardian.endOrphanActivities()
                     await store.whenLoaded()
                     Self.uiTestUnofficial(store)
+                    Self.uiTestMode(store)
                     Self.uiTestPlace(store)
                     // Siri impara i nomi delle zone («posso entrare a Firenze Settore A…») dalle città appena lette
                     GateLRShortcuts.updateAppShortcutParameters()
@@ -47,6 +48,17 @@ struct GateLRApp: App {
             city.zones[z].source.unofficialSource = UnofficialSource(name: "example.org", url: URL(string: "https://example.org")!)
         }
         store.cities[c] = city
+    }
+
+    /// Solo per le foto automatiche: «-uiTestMode 43.7765 11.2830» accende la modalità prova intorno a quel punto
+    /// (varchi sul bordo, senza rete), per fotografare la striscia «Modalità prova attiva» e la zona di prova
+    @MainActor private static func uiTestMode(_ store: Store) {
+        let args = ProcessInfo.processInfo.arguments
+        guard args.contains("-uitest"), let i = args.firstIndex(of: "-uiTestMode"), args.count > i + 2,
+              let lat = Double(args[i + 1]), let lon = Double(args[i + 2]) else { return }
+        store.testMode = TestZone.make(at: Coordinate(lat: lat, lon: lon))
+        store.cityId = TestZone.cityId
+        store.zoneId = TestZone.zoneId
     }
 
     /// Solo per le foto automatiche: «-uiPlace "Duomo di Milano" 45.4641 9.1919» sceglie un posto senza cercarlo in rete

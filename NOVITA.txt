@@ -1,3 +1,8 @@
+Novità della 1.17.0 (prova sul campo):
+• «Modalità prova» (Tu → Impostazioni): una ZTL finta larga circa 400 m intorno a te, con 1–2 varchi sulle strade vere vicine e un parcheggio fuori, «attiva adesso» o «spenta». Passa da risposta, mappa («ZONA DI PROVA»), avvisi, guardiano, navigazione, Live Activity, voce e «Parcheggia fuori»; la striscia viola «Modalità prova attiva» resta in cima con «Spegni» e «Sposta la zona qui». Mai accesa da sola, solo sul telefono
+• Giri finti per Xcode (Debug → Simulate Location): Firenze via Cavour e Beccaria, Pisa, Roma Tridente, Bologna, Siena, con orari da 25–35 km/h (docs/prova-sul-campo.md)
+• «Segnala un errore» su ogni scheda di zona e sotto la risposta di Varco: orari, confini, varco o altro, una nota, una foto e il contesto; parte con Mail (o con Condividi)
+
 Novità della 1.16.4:
 • Presentazione: il ristorante e il parcheggio sulla mappa sono solo il loro segno, più grande (forchetta e coltello, «P»), senza scritte
 

@@ -34,6 +34,15 @@ final class Store: ObservableObject {
     /// L'ora scelta nel chip «Adesso ▾» (ContextChips): nil = adesso. Non si salva: a ogni avvio si riparte da «Adesso».
     /// Il veicolo scelto nel chip è activeVehicleId, che invece resta salvato.
     @Published var when: Date?
+    /// «Modalità prova» (Tu → Impostazioni): la ZTL finta intorno a dove eri (TestZone). nil = spenta, com'è sempre
+    /// all'inizio. Si salva solo su questo telefono (UserDefaults, fuori dal garage), mai sincronizzata né inviata
+    @Published var testMode: TestModeState? = Store.savedTestMode() {
+        didSet {
+            guard testMode != oldValue else { return }
+            Store.saveTestMode(testMode)
+            applyTestZone()
+        }
+    }
 
     let engine = RuleEngine()
     private let key = "garage.v1"
@@ -59,7 +68,7 @@ final class Store: ObservableObject {
     /// Lettura e decodifica dei JSON delle città fuori dal thread principale (milano e firenze sono grandi)
     private func load() async {
         let fresh = await Task.detached(priority: .userInitiated) { CityLoader.shared }.value
-        cities = fresh
+        replaceCities(fresh)
         if !city.zones.contains(where: { $0.id == zoneId }) { zoneId = city.zones[0].id }
         loaded = true
     }
@@ -67,6 +76,38 @@ final class Store: ObservableObject {
     /// Aspetta che le città vere siano pronte (avvisi, Siri, CarPlay, giro delle foto)
     func whenLoaded() async {
         await loading?.value
+    }
+
+    /// Le città nuove (lette all'avvio o aggiornate da GitHub), con la zona di prova se la modalità è accesa
+    func replaceCities(_ fresh: [City]) {
+        cities = TestZone.merged(fresh, with: testMode)
+        testModeCenter = testMode?.center
+    }
+
+    /// La zona di prova entra o esce dall'elenco delle città; se era quella scelta si torna alla città più vicina
+    private func applyTestZone() {
+        cities = TestZone.merged(cities, with: testMode)
+        if testMode == nil, TestZone.isTest(cityId: cityId) {
+            let back = testModeCenter.flatMap { nearestCity(to: $0) } ?? cities[0]
+            cityId = back.id
+            zoneId = back.zones[0].id
+        }
+        testModeCenter = testMode?.center
+    }
+    private var testModeCenter: Coordinate?
+
+    nonisolated private static let testModeKey = "testMode.v1"
+
+    nonisolated private static func savedTestMode() -> TestModeState? {
+        // Nel giro delle foto si parte sempre spenti (la accende solo -uiTestMode)
+        if ProcessInfo.processInfo.arguments.contains("-uitest") { return nil }
+        guard let d = UserDefaults.standard.data(forKey: testModeKey) else { return nil }
+        return try? JSONDecoder().decode(TestModeState.self, from: d)
+    }
+
+    nonisolated private static func saveTestMode(_ s: TestModeState?) {
+        if let s, let d = try? JSONEncoder().encode(s) { UserDefaults.standard.set(d, forKey: testModeKey) }
+        else { UserDefaults.standard.removeObject(forKey: testModeKey) }
     }
 
     private func save() {

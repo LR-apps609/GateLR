@@ -286,6 +286,11 @@ struct VarcoView: View {
                         .font(.app(size: 13, weight: .semibold)).foregroundStyle(Notte.muted)
                 }
             }
+            // «Segnala un errore» per la zona della risposta
+            if let hit = check.hits.first {
+                ReportErrorButton(zone: hit.zone, city: hit.city, onDark: true)
+                    .accessibilityIdentifier("varco.report")
+            }
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)

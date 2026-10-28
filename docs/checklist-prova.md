@@ -264,3 +264,23 @@ Le zone con `"official": false` nella fonte (per ora Cagliari, Polignano a Mare,
 - [ ] iPhone con una versione precedente già configurata: dopo l'aggiornamento alla 1.16.2 parte la presentazione 2.0, una volta
 - [ ] Chiudi e riapri l'app: la presentazione non ricompare (e al posto suo nessun foglio «Novità» vuoto)
 - [ ] Tu → Cosa sono le ZTL → «Rivedi la presentazione» funziona ancora
+
+## 15. Prova sul campo: modalità prova, giri GPX, «Segnala un errore» (1.17.0)
+Istruzioni passo passo in docs/prova-sul-campo.md.
+- [ ] Appena installata: la modalità prova è spenta, nessuna striscia viola
+- [ ] Tu → Impostazioni → «Modalità prova» accesa: dopo qualche secondo («Cerco le strade intorno a te…») compaiono 1–2 «Varco di prova» con il nome della via e il «Parcheggio di prova»
+- [ ] La striscia viola «Modalità prova attiva» in cima a Varco, Mappa, Tu, nella scheda della zona e nella guida, con «Spegni» e il menu (Spegni/Accendi la ZTL di prova, «Sposta la zona qui»)
+- [ ] Varco senza posto cercato, dentro la zona: «Non entrare.» per «La mia posizione», riga «ZTL · ZONA DI PROVA»; con «Spenta» diventa «Entra pure.»
+- [ ] Mappa: il cerchio di circa 400 m con la scritta viola «ZONA DI PROVA · attiva/spenta», i varchi sulle strade vere (non in mezzo alle case)
+- [ ] «Parcheggia fuori e cammina» propone il «Parcheggio di prova» fuori dalla zona; «Avvia» porta lì
+- [ ] 🚗 A piedi o in auto verso un varco di prova con gli avvisi accesi: notifica «Varco ZTL a … m · ZTL attiva»
+- [ ] 🚗 Navigazione di GateLR verso un punto dentro la zona: il percorso la segnala; la voce avvisa; Live Activity e Dynamic Island con «ZONA DI PROVA»
+- [ ] Guardiano verso un punto dentro la zona: striscia rossa in Varco, Live Activity
+- [ ] «Sposta la zona qui» da un altro posto: la zona si sposta, la vecchia sparisce
+- [ ] «Spegni»: la striscia sparisce, la zona sparisce da mappa e risposte; chiudi e riapri l'app: resta spenta
+- [ ] Con l'iPhone collegato al Mac: Xcode → Debug → Simulate Location elenca i sei giri; «firenze-viale-cavour-settore-a» passa dal varco di via Cavour e Varco/guida dicono «Non entrare» prima del varco (di giorno feriale)
+- [ ] «Segnala un errore» in fondo alla risposta di Varco e nella scheda di ogni zona: Orari / Confini / Varco / Altro, nota, «Scatta una foto» o «Scegli una foto», «Allega posizione» spenta di base
+- [ ] Il riquadro «Aggiunto per te» mostra città, zona, data e ora scelte («Adesso ▾»), veicolo senza targa, versione; le coordinate solo con «Allega posizione»
+- [ ] «Invia la segnalazione» con Mail configurata: si apre Mail con destinatario support@example.com, oggetto, testo e la foto allegata
+- [ ] Senza Mail configurata: si apre il foglio Condividi con testo e foto
+- [ ] VoiceOver legge «Segnala un errore», «Foto allegata», «Allega posizione», «Spegni la modalità prova»

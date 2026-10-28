@@ -40,6 +40,8 @@ struct DriveView: View {
         ZStack(alignment: .top) {
             map
             VStack(spacing: 8) {
+                // Modalità prova: la striscia viola anche durante la guida
+                if store.testMode != nil { TestModeBar().clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous)) }
                 maneuver
                 ztlBar
                 // Guida 3D: velocità e prossimo semaforo a sinistra, barra del viaggio a destra, sotto i pannelli

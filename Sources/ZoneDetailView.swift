@@ -47,6 +47,9 @@ struct ZoneDetailView: View {
                 }
                 .card()
 
+                // «Segnala un errore»: orari, confini o varchi diversi da quello che vedi sul posto
+                ReportErrorButton(zone: zone, city: city).card()
+
                 VStack(alignment: .leading, spacing: 8) {
                     SectionLabel(zone.isUnofficial ? "What the source says" : "The city's own words")
                     if let q = zone.source.quote {

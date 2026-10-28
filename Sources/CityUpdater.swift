@@ -57,7 +57,7 @@ final class CityUpdater: ObservableObject {
                 return CityLoader.best()
             }.value
             guard let fresh else { state = .failed; return }
-            store.cities = fresh
+            store.replaceCities(fresh)
             state = .updated(manifest.version)
         } catch {
             state = .failed

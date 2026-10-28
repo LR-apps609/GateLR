@@ -250,6 +250,20 @@ def timed(coords, cruise=31.0):
     return out
 
 
+def per_second(points):
+    """La posizione a ogni secondo intero, interpolata tra i punti con l'ora di passaggio"""
+    out, j = [], 0
+    total = points[-1][1]
+    for sec in range(int(math.ceil(total)) + 1):
+        t = min(sec, total)
+        while j < len(points) - 2 and points[j + 1][1] < t:
+            j += 1
+        (a, ta), (b, tb) = points[j], points[j + 1]
+        f = 0 if tb <= ta else max(0.0, min(1.0, (t - ta) / (tb - ta)))
+        out.append((a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f))
+    return out
+
+
 def gpx(name, title, points, start=datetime(2026, 10, 28, 9, 0, 0, tzinfo=timezone.utc)):
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<gpx version="1.1" creator="GateLR Tools/gpx_routes.py" xmlns="http://www.topografix.com/GPX/1/1">',
@@ -259,9 +273,10 @@ def gpx(name, title, points, start=datetime(2026, 10, 28, 9, 0, 0, tzinfo=timezo
     first = points[0][0]
     for k in range(3):
         lines.append(f'  <wpt lat="{first[0]:.6f}" lon="{first[1]:.6f}"><time>{(start + timedelta(seconds=k)).strftime("%Y-%m-%dT%H:%M:%SZ")}</time></wpt>')
-    for (lat, lon), t in points:
-        when = start + timedelta(seconds=3 + t)
-        lines.append(f'  <wpt lat="{lat:.6f}" lon="{lon:.6f}"><time>{when.strftime("%Y-%m-%dT%H:%M:%S.%f")[:-4]}Z</time></wpt>')
+    # Un punto al secondo, come un GPS vero (e orari a secondi interi, che Xcode legge di sicuro)
+    for k, (lat, lon) in enumerate(per_second(points)):
+        when = start + timedelta(seconds=3 + k)
+        lines.append(f'  <wpt lat="{lat:.6f}" lon="{lon:.6f}"><time>{when.strftime("%Y-%m-%dT%H:%M:%SZ")}</time></wpt>')
     lines.append("</gpx>")
     return "\n".join(lines) + "\n"
 
