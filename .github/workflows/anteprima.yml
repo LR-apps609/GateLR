@@ -7,6 +7,12 @@ name: Riprese per l'anteprima
 
 on:
   workflow_dispatch:
+    inputs:
+      parti:
+        description: "Cosa registrare: tutto, solo la presentazione (intro) o solo la ricerca in Varco (varco)"
+        type: choice
+        options: [tutto, intro, varco]
+        default: tutto
 
 concurrency:
   group: anteprima
@@ -100,7 +106,9 @@ jobs:
           }
           ARGS="-uitest -intro2 -intro2Autoplay -AppleLanguages (it) -AppleLocale it_IT"
 
+          PARTI="${{ inputs.parti || 'tutto' }}"
           # 1. La presentazione: un giro non registrato per scaldare le mattonelle, poi due riprese
+          if [ "$PARTI" != varco ]; then
           lim 60 xcrun simctl launch "$UDID" it.ledion.GateLR $ARGS || true
           sleep 50
           lim 30 xcrun simctl terminate "$UDID" it.ledion.GateLR || true
@@ -113,6 +121,7 @@ jobs:
             lim 30 xcrun simctl terminate "$UDID" it.ledion.GateLR || true
             echo "::notice::Presentazione, ripresa $take: $(du -h clips/intro-$take.mp4 | cut -f1)"
           done
+          fi
 
           # 2. Varco: ricerca, risposta, mappa e legenda (UITests/AnteprimaTests.swift). Prima un giro non registrato
           ui() {
@@ -122,6 +131,7 @@ jobs:
             grep -E "Test Case .*(passed|failed|skipped)|error:" "clips/$2.xcodebuild.log" | sort -u | head -n 8 \
               | while IFS= read -r l; do echo "::notice::$2: ${l:0:300}"; done
           }
+          if [ "$PARTI" != intro ]; then
           ui testA1RicercaFirenze warmup
           for t in "testA1RicercaFirenze varco-firenze" "testA2RicercaTreviso varco-treviso"; do
             set -- $t
@@ -131,6 +141,7 @@ jobs:
             rec_stop
             echo "::notice::$2: $(du -h clips/$2.mp4 | cut -f1)"
           done
+          fi
           ls -la clips
 
       - name: Riprese grezze (artefatto)
