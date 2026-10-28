@@ -274,6 +274,46 @@ final class ScreenshotTests: XCTestCase {
         }
     }
 
+    /// 1.17.0: la modalità prova (zona finta intorno a Campo di Marte a Firenze, senza rete) con la striscia viola,
+    /// la scheda della zona, il modulo «Segnala un errore», Impostazioni e la mappa con «ZONA DI PROVA»
+    func test7TestModeAndReport() {
+        app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT",
+                               "-uiTestMode", "43.7765", "11.2830", "-uiPlace", "Zona di prova", "43.7765", "11.2830"]
+        app.launch()
+        XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
+        sleep(5)
+        XCTAssertTrue(app.descendants(matching: .any)["testmode.banner"].firstMatch.waitForExistence(timeout: 5),
+                      "Manca la striscia «Modalità prova attiva»")
+        snap("28-prova-varco")
+        let why = app.buttons["varco.why"].firstMatch
+        if why.waitForExistence(timeout: 5) {
+            if !why.isHittable { app.swipeUp(); sleep(1) }
+            why.tap(); sleep(2)
+            snap("29-prova-zona")
+            let report = app.buttons["zone.report"].firstMatch
+            if report.waitForExistence(timeout: 4) {
+                if !report.isHittable { app.swipeUp(); sleep(1) }
+                report.tap(); sleep(2)
+                snap("30-prova-segnala")
+                let cancel = app.buttons["Annulla"].firstMatch
+                if cancel.waitForExistence(timeout: 3) { cancel.tap() } else { app.swipeDown(velocity: .fast) }
+                sleep(1)
+            } else {
+                XCTFail("Manca «Segnala un errore» nella scheda della zona")
+            }
+            let done = app.buttons["Fine"].firstMatch
+            if done.waitForExistence(timeout: 3) { done.tap() } else { app.swipeDown(velocity: .fast) }
+            sleep(1)
+        }
+        youTab.tap()
+        sleep(1)
+        if openYou("settings") { sleep(1); snap("32-prova-impostazioni"); back() }
+        // La mappa per ultima (albero di accessibilità grande, vedi test4Italian)
+        mapTab.tap()
+        sleep(5)
+        snap("31-prova-mappa")
+    }
+
     private func snap(_ name: String) {
         let shot = XCUIScreen.main.screenshot()
         let attachment = XCTAttachment(screenshot: shot)

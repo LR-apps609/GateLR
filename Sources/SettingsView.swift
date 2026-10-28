@@ -29,6 +29,9 @@ struct SettingsView: View {
                 Text("Alerts work with the app closed for the saved cities. They need location access \"Always\".")
             }
 
+            // «Modalità prova»: una ZTL finta intorno a te per provare tutto sul posto (TestMode.swift)
+            TestModeSection()
+
             Section {
                 Picker(L("Preferred navigator"), selection: $preferredNavigator) {
                     Text("Ask every time").tag("")
@@ -102,7 +105,7 @@ struct SettingsView: View {
             }
 
             Section("Offline cities") {
-                ForEach(store.cities) { c in
+                ForEach(store.cities.filter { !TestZone.isTest(cityId: $0.id) }) { c in
                     HStack {
                         Image(systemName: "checkmark.circle.fill").foregroundStyle(Theme.greenInk)
                         Text(c.localizedName)

@@ -113,6 +113,14 @@ struct MapScreen: View {
                             .stroke(tint.opacity(selected ? 1 : 0.8),
                                     style: StrokeStyle(lineWidth: selected ? 3.5 : (access == .closed ? 2.5 : 2), dash: access.dash))
                     }
+                    // Modalità prova: la scritta «ZONA DI PROVA» sempre in vista, a ogni distanza
+                    if TestZone.isTest(zoneId: z.id) {
+                        Annotation("", coordinate: shape.label, anchor: .bottom) {
+                            TestZoneMapLabel(active: store.testMode?.active ?? false)
+                                .offset(y: -20)
+                        }
+                        .annotationTitles(.hidden)
+                    }
                     // Un solo segno piccolo per zona: lettera e colore (la legenda spiega i colori)
                     if shape.width > distance * 0.06 && (check == nil || on) {
                         Annotation("", coordinate: shape.label, anchor: .center) {
@@ -681,6 +689,13 @@ struct MapScreen: View {
                 !store.city.zones.contains { $0.contains(item.placemark.coordinate) && $0.closes(to: store.vehicle, at: store.moment()) }
             }
             parkings = outside.prefix(12).map { Parking(item: $0) }
+            // Modalità prova: anche il parcheggio finto fuori dalla zona di prova, per primo
+            if TestZone.isTest(zoneId: zone.id) {
+                let spot = TestZone.parkingSpot(at: store.city.center, store: store)
+                let item = MKMapItem(placemark: MKPlacemark(coordinate: spot.location.cl))
+                item.name = spot.displayName
+                parkings.insert(Parking(item: item), at: 0)
+            }
             parkingMessage = parkings.isEmpty ? L("No car parks found just outside the zone.")
                 : String(format: L("%lld car parks outside the ZTL. Tap a P for directions."), parkings.count)
             if !parkings.isEmpty {

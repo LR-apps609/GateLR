@@ -9,8 +9,8 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.16.4"
-    CURRENT_PROJECT_VERSION: "40"
+    MARKETING_VERSION: "1.17.0"
+    CURRENT_PROJECT_VERSION: "41"
 
 # Mapbox Maps (v11, Swift Package Manager, nessun token segreto per scaricarlo): la mappa 3D della nuova
 # presentazione e della striscia di mappa della prima pagina (Varco). Se non si carica, resta la mappa di Apple (MapKit).
@@ -61,6 +61,10 @@ targets:
       # Titillium Web e DotGothic16 (SIL Open Font License, OFL.txt e OFL-DotGothic16.txt)
       - path: Resources/Fonts
         buildPhase: resources
+      # I giri finti per la prova sul campo (Tools/gpx_routes.py, docs/prova-sul-campo.md): nel progetto, così compaiono
+      # in Xcode in Debug → Simulate Location con l'iPhone collegato, ma NON copiati nell'app (buildPhase: none)
+      - path: Resources/GPX
+        buildPhase: none
     info:
       path: Sources/Info.plist
       properties:
@@ -132,6 +136,7 @@ targets:
       - path: Sources/Theme.swift
       - path: Sources/Components.swift
       - path: Sources/DriveActivity.swift
+      - path: Sources/TestZone.swift          # la zona della modalità prova (Store la usa)
       - path: Resources/Cities
         type: folder
         buildPhase: resources
@@ -201,6 +206,9 @@ schemes:
         GateLR: all
     run:
       config: Release
+      # Debug → Simulate Location con i GPX di Resources/GPX (nessuna posizione finta di partenza)
+      simulateLocation:
+        allow: true
     profile:
       config: Release
     archive:

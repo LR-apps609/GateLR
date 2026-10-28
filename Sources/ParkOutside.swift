@@ -67,6 +67,8 @@ enum ParkingData {
                         "https://maps.mail.ru/osm/tools/overpass/api/interpreter"]
 
     static func spots(for city: City) async -> [ParkingSpot] {
+        // Modalità prova: il parcheggio finto fuori dalla zona di prova (mai in memoria: la zona si può spostare)
+        if TestZone.isTest(cityId: city.id) { return [TestZone.parkingSpot(at: city.center, store: Store.shared)] }
         if let hit = memory[city.id] { return hit }
         if let list = bundled(city.id) { memory[city.id] = list; return list }
         let cached = cache(city.id)

@@ -13,7 +13,7 @@ struct BugReportView: View {
 
     /// L'indirizzo a cui arrivano le segnalazioni: da decidere prima della pubblicazione.
     /// Si può anche condividere (Mail, Messaggi, WhatsApp…) o copiare.
-    static let supportEmail: String? = "support@example.com"   // segnaposto: da sostituire prima della pubblicazione
+    static let supportEmail: String? = AppConfig.supportEmail
 
     enum Screen: String, CaseIterable, Identifiable {
         case varco, map, trip, garage, account, widget, alerts, other
