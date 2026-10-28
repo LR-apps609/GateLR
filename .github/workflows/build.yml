@@ -129,8 +129,9 @@ jobs:
             xcrun simctl boot "$PM" 2>/dev/null || true
             xcrun simctl bootstatus "$PM" -b > /dev/null 2>&1 || true
             pm=0
-            # La cartella delle foto come variabile d'ambiente: con test-without-building le impostazioni non arrivano al test
-            TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" xcodebuild test-without-building -project GateLR.xcodeproj \
+            # La cartella delle foto come variabile d'ambiente: con test-without-building le impostazioni non arrivano al test.
+            # Una cartella a parte: le foto del giro arrivano dagli allegati del risultato solo se «screenshots» è vuota
+            TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots-pm" xcodebuild test-without-building -project GateLR.xcodeproj \
               -scheme GateLRUITests -destination "platform=iOS Simulator,name=$PM" -derivedDataPath build-ui \
               -only-testing:GateLRUITests/ScreenshotTests/test6VarcoProMax CODE_SIGNING_ALLOWED=NO > ui-pm.log 2>&1 || pm=$?
             grep -E "Test Case .*(passed|failed)" ui-pm.log | sort -u | while IFS= read -r l; do echo "::notice::$PM: ${l:0:300}"; done
@@ -166,6 +167,8 @@ jobs:
               print("allegati non letti:", e)
           PY
           fi
+          # Le foto dell'iPhone Pro Max (test6VarcoProMax) accanto a quelle del giro
+          cp screenshots-pm/*.png screenshots/ 2>/dev/null || true
           N=$(ls screenshots/*.png 2>/dev/null | wc -l | tr -d ' ')
           echo "::notice::Foto dell'app: $N — $(ls screenshots | grep png | tr '\n' ' ' | cut -c1-900)"
           if [ "$N" -eq 0 ]; then echo "Nessuna foto da pubblicare"; exit 0; fi
