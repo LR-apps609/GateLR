@@ -24,6 +24,11 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # Pochi secondi: il sito ricostruito dalle città di questo commit e i suoi script controllati con node
+      # (Tools/check_site_js.py), così un errore di sintassi nella pagina si vede anche qui
+      - name: Script del sito
+        run: python3 Tools/build_site.py > /dev/null && python3 Tools/check_site_js.py
+
       - name: Xcode più recente disponibile
         run: |
           XCODE=$(ls -d /Applications/Xcode*.app | sort -V | tail -n 1)

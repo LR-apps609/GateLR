@@ -12,6 +12,8 @@ on:
       - 'Resources/Cities/**'
       - 'Resources/Parking/**'
       - 'Tools/build_site.py'
+      - 'Tools/check_site_js.py'
+      - 'Tools/seasons.py'
       - '.github/workflows/site.yml'
 
 permissions:
@@ -33,6 +35,13 @@ jobs:
       - uses: actions/checkout@v5
       - name: Costruisci la pagina
         run: python3 Tools/build_site.py
+      # Ogni script delle pagine passa da `node --check`: un errore di sintassi ferma la pubblicazione
+      # invece di bloccare in silenzio «Posso entrare?» sul sito
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Controlla gli script delle pagine
+        run: python3 Tools/check_site_js.py
       - name: Prepara i file
         run: |
           # tutta la cartella web/ (home in 3 lingue, pagine delle città, sitemap, robots), tranne il modello e il README
