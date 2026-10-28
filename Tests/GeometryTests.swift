@@ -32,14 +32,24 @@ final class GeometryTests: XCTestCase {
         for p in pts { hits += Store.zones(at: p, in: cities).count }
         let elapsed = Date().timeIntervalSince(start)
         XCTAssertGreaterThan(hits, 0)
-        XCTAssertLessThan(elapsed, 5, "zones(at:) per 2000 punti: \(elapsed) s")
-        // Stesso risultato del conto senza rettangoli (poligono di tutte le zone)
-        for p in pts.prefix(300) {
+        // Un tetto largo per i casi disastrosi; la vera misura è il confronto qui sotto, sulla stessa macchina:
+        // con un limite fisso di 5 s il Mac Intel di GitHub, lento e carico, falliva a caso (5,5 e 7,4 s nelle
+        // corse 40637963795 e 40736161361) anche senza nessun cambiamento nel codice
+        XCTAssertLessThan(elapsed, 30, "zones(at:) per 2000 punti: \(elapsed) s")
+        // Stesso risultato del conto senza rettangoli (poligono di tutte le zone), e almeno due volte più veloce
+        let sample = Array(pts.prefix(300))
+        var slowTime = 0.0, fastTime = 0.0
+        for p in sample {
+            var t = Date()
             let fast = Store.zones(at: p, in: cities).map(\.zone.id)
+            fastTime += Date().timeIntervalSince(t)
+            t = Date()
             let slow = cities.flatMap(\.zones).filter { Zone.inside($0.perimeter, lat: p.lat, lon: p.lon) }
                 .sorted { Zone.polygonArea($0.perimeter) < Zone.polygonArea($1.perimeter) }.map(\.id)
+            slowTime += Date().timeIntervalSince(t)
             XCTAssertEqual(fast, slow)
         }
+        XCTAssertLessThan(fastTime * 2, slowTime, "con i rettangoli \(fastTime) s, senza \(slowTime) s per \(sample.count) punti")
     }
 
     func testNearestZoneMatchesFullSearch() throws {

@@ -106,7 +106,26 @@ jobs:
 
       - name: Foto dell'app (giro nel simulatore)
         run: |
+          # Le corse di main della 1.17.0 (40736198654, 40741812555) sono morte qui con «The hosted runner lost
+          # communication with the server», senza registri: il Mac Intel (4 core, 14 GB) arrivava al giro con quattro
+          # cartelle di compilazione (build, build-test, build-device, build-ui: Mapbox compilato quattro volte) e, per
+          # il controllo dell'iPhone Pro Max, due simulatori accesi insieme. Sui rami versione-* (senza la .ipa) la
+          # stessa app passava. Ora: via le cartelle che non servono più, il giro riusa quella dei test (si compila
+          # solo il target delle foto), un simulatore alla volta, e spazio e memoria scritti mentre gira.
+          free_report() {
+            echo "::notice::$1: disco $(df -h / | awk 'NR==2 {print $4 " liberi su " $2}'), memoria libera $(vm_stat | awk '/Pages free/ {gsub("\\.",""); printf "%.1f GB", $3*4096/1e9}')"
+          }
+          free_report "Prima del giro"
+          rm -rf build-device ipa build
+          if [ -d build-test ] && [ ! -d build-ui ]; then rm -rf build-test/Logs/Test; mv build-test build-ui; fi
+          free_report "Cartelle liberate"
+          # Ogni 2 minuti, mentre il giro va: se il runner si ferma di nuovo resta l'ultima riga
+          ( while true; do sleep 120; free_report "Durante il giro ($(date -u +%T))"; done ) &
+          WATCH=$!
+          trap 'kill $WATCH 2>/dev/null || true' EXIT
           SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
+          # Un solo simulatore acceso: quello del giro
+          xcrun simctl shutdown all 2>/dev/null || true
           # Simulatore acceso prima dei test: al primo avvio a freddo l'app rischia il tempo scaduto
           xcrun simctl boot "$SIM" 2>/dev/null || true
           xcrun simctl bootstatus "$SIM" -b > /dev/null 2>&1 || true
@@ -126,6 +145,10 @@ jobs:
           # e «Dettagli del viaggio» senza scorrere (test6VarcoProMax, con la stessa app già compilata)
           PM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+ Pro Max" | head -n 1)
           if [ -n "$PM" ]; then
+            # Prima si spegne il simulatore del giro: due accesi insieme sul Mac Intel non rispondevano
+            # («Timed out waiting for AX loaded notification», corse 40713141400 e 40727183750)
+            xcrun simctl shutdown "$SIM" 2>/dev/null || true
+            free_report "Prima dell'iPhone Pro Max"
             xcrun simctl boot "$PM" 2>/dev/null || true
             xcrun simctl bootstatus "$PM" -b > /dev/null 2>&1 || true
             # La cartella delle foto come variabile d'ambiente: con test-without-building le impostazioni non arrivano al test.
@@ -154,6 +177,8 @@ jobs:
           else
             echo "::warning::Nessun simulatore iPhone Pro Max: controllo della scheda Varco da 6,9 pollici saltato"
           fi
+          kill $WATCH 2>/dev/null || true
+          free_report "Fine del giro"
           exit $status
 
       - name: Pubblica le foto nel ramo «screenshots»
@@ -162,7 +187,7 @@ jobs:
           mkdir -p screenshots
           # Se il test non ha potuto scrivere le foto, si prendono dagli allegati del risultato
           if ! ls screenshots/*.png >/dev/null 2>&1; then
-            RESULT=$(ls -d build-ui/Logs/Test/*.xcresult | head -n 1)
+            RESULT=$(ls -d build-ui/Logs/Test/*GateLRUITests*.xcresult | head -n 1)
             xcrun xcresulttool export attachments --path "$RESULT" --output-path attachments || true
             python3 - <<'PY'
           import json, shutil, pathlib
