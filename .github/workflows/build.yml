@@ -139,9 +139,9 @@ jobs:
                 -only-testing:GateLRUITests/ScreenshotTests/test6VarcoProMax CODE_SIGNING_ALLOWED=NO > ui-pm.log 2>&1 || pm=$?
               [ "$pm" = 0 ] && break
               grep -q "Failed to initialize for UI testing\|Timed out waiting for AX" ui-pm.log || break
-              echo "::warning::$PM: il simulatore non ha risposto, secondo tentativo"
-              xcrun simctl shutdown "$PM" 2>/dev/null || true
-              xcrun simctl boot "$PM" 2>/dev/null || true
+              # Senza spegnerlo: spento e riacceso, nella corsa 40727183750 xcodebuild non lo trovava più
+              echo "::warning::$PM: il simulatore non ha risposto, secondo tentativo tra 30 secondi"
+              sleep 30
               xcrun simctl bootstatus "$PM" -b > /dev/null 2>&1 || true
             done
             grep -E "Test Case .*(passed|failed)" ui-pm.log | sort -u | while IFS= read -r l; do echo "::notice::$PM: ${l:0:300}"; done
