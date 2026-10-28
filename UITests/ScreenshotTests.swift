@@ -65,6 +65,11 @@ final class ScreenshotTests: XCTestCase {
         sleep(6)                       // le mappe si caricano dalla rete
         snap("04-map-place")
 
+        // Dopo la mappa l'app si riapre: con la scheda Mappa viva l'albero di accessibilità è enorme e sul Mac di GitHub
+        // la ricerca delle righe di «Tu» andava in tempo scaduto (corse 40613295232 e 40612515432). Il posto scelto resta
+        app.terminate()
+        app.launch()
+        XCTAssertTrue(youTab.waitForExistence(timeout: 15))
         youTab.tap()
         sleep(1)
         snap("05-you")
