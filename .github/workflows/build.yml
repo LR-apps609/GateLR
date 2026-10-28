@@ -128,12 +128,22 @@ jobs:
           if [ -n "$PM" ]; then
             xcrun simctl boot "$PM" 2>/dev/null || true
             xcrun simctl bootstatus "$PM" -b > /dev/null 2>&1 || true
-            pm=0
             # La cartella delle foto come variabile d'ambiente: con test-without-building le impostazioni non arrivano al test.
-            # Una cartella a parte: le foto del giro arrivano dagli allegati del risultato solo se «screenshots» è vuota
-            TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots-pm" xcodebuild test-without-building -project GateLR.xcodeproj \
-              -scheme GateLRUITests -destination "platform=iOS Simulator,name=$PM" -derivedDataPath build-ui \
-              -only-testing:GateLRUITests/ScreenshotTests/test6VarcoProMax CODE_SIGNING_ALLOWED=NO > ui-pm.log 2>&1 || pm=$?
+            # Una cartella a parte: le foto del giro arrivano dagli allegati del risultato solo se «screenshots» è vuota.
+            # Un secondo tentativo se il simulatore appena acceso non risponde («Timed out waiting for AX loaded
+            # notification», corsa 40713141400)
+            for attempt in 1 2; do
+              pm=0
+              TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots-pm" xcodebuild test-without-building -project GateLR.xcodeproj \
+                -scheme GateLRUITests -destination "platform=iOS Simulator,name=$PM" -derivedDataPath build-ui \
+                -only-testing:GateLRUITests/ScreenshotTests/test6VarcoProMax CODE_SIGNING_ALLOWED=NO > ui-pm.log 2>&1 || pm=$?
+              [ "$pm" = 0 ] && break
+              grep -q "Failed to initialize for UI testing\|Timed out waiting for AX" ui-pm.log || break
+              echo "::warning::$PM: il simulatore non ha risposto, secondo tentativo"
+              xcrun simctl shutdown "$PM" 2>/dev/null || true
+              xcrun simctl boot "$PM" 2>/dev/null || true
+              xcrun simctl bootstatus "$PM" -b > /dev/null 2>&1 || true
+            done
             grep -E "Test Case .*(passed|failed)" ui-pm.log | sort -u | while IFS= read -r l; do echo "::notice::$PM: ${l:0:300}"; done
             if [ "$pm" != 0 ]; then
               grep -E "error:" ui-pm.log | sort -u | head -n 8 | while IFS= read -r l; do echo "::error::$PM: ${l:0:400}"; done
