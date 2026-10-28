@@ -160,9 +160,11 @@ jobs:
             grep -hE "Test Case .*(passed|failed|skipped)|error:" clips/*.xcodebuild.log 2>/dev/null | sort -u | head -n 20 || true
           } > out/README.md
           cat out/README.md
+          # Il simulatore spento e ffmpeg piano: nella corsa 40600539362 il runner ha perso il contatto col server
+          xcrun simctl shutdown "$UDID" 2>/dev/null || true
           for f in clips/*.mp4; do
             [ -s "$f" ] || continue
-            ffmpeg -v error -y -i "$f" -vf "scale=1080:-2:flags=bicubic,fps=30" -c:v libx264 -preset veryfast -crf 20 \
+            nice -n 10 ffmpeg -v error -y -threads 2 -i "$f" -vf "scale=1080:-2:flags=bicubic,fps=30" -c:v libx264 -preset veryfast -crf 20 -threads 2 \
               -pix_fmt yuv420p -an -movflags +faststart "out/$(basename "$f")" || echo "::warning::$f non convertito"
           done
           ls -la out
