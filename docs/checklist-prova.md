@@ -284,3 +284,17 @@ Istruzioni passo passo in docs/prova-sul-campo.md.
 - [ ] «Invia la segnalazione» con Mail configurata: si apre Mail con destinatario support@example.com, oggetto, testo e la foto allegata
 - [ ] Senza Mail configurata: si apre il foglio Condividi con testo e foto
 - [ ] VoiceOver legge «Segnala un errore», «Foto allegata», «Allega posizione», «Spegni la modalità prova»
+
+## 16. Stagioni con le regole e moto / scooter (1.17.1)
+- [ ] Garage → «+»: in cima «Tipo di veicolo» con Auto / Moto / scooter; con Moto / scooter marca e modello si scrivono a mano, l'anno propone la classe Euro delle moto (2022 → Euro 5)
+- [ ] «Auto a noleggio: scegli il modello»: in fondo gli scooter (Piaggio Liberty 125, Honda SH 125, Vespa Primavera 125, Kymco Agility 125) con l'icona dello scooter; scelto uno, il tipo diventa Moto / scooter
+- [ ] Nel Garage la moto ha l'icona dello scooter e la riga «Moto / scooter · …»; il chip del veicolo in Varco e sulla mappa mostra lo scooter
+- [ ] Varco con la moto in uso, Firenze Duomo un giorno feriale alle 11: «Entra pure.», «La ZTL è attiva, ma moto e scooter possono entrare.»; con l'auto a noleggio «Non entrare.»
+- [ ] Moto in uso: Roma Pantheon feriale alle 11 → «Entra pure.»; Roma piazza di Spagna (Tridente) → «Non entrare.»; Ostuni Cattedrale alle 20 → «Non entrare.»
+- [ ] Moto in uso, Firenze, una zona dello Scudo Verde fuori dai settori (es. Campo di Marte): «A una condizione»: «Qui le moto hanno limiti Euro loro…»
+- [ ] Garage → «Consigli per …» con la moto: «Moto e scooter possono entrare» per i settori di Firenze, nessuna riga rossa sui divieti delle auto
+- [ ] Scheda del Settore F di Firenze: «gio – sab (1 apr – 3 ott)» (la stagione 2027, perché quella del 2026 è finita); il riassunto dice «dal primo giovedì di aprile alla prima domenica di ottobre»
+- [ ] Scegli giovedì 7 ottobre 2027 alle 23:30 («Adesso ▾»), Firenze Settore F: «Entra pure.» (la stagione 2027 finisce il 3 ottobre)
+- [ ] Bergamo, Città Alta e Colli: venerdì 30 ottobre 2026 alle 21:30 «Entra pure.»; sabato 24 ottobre alle 23 «Non entrare.»
+- [ ] Un iPhone con la 1.17.0: dopo l'aggiornamento dei dati Firenze si apre come prima, il Settore F mostra «1 apr – 7 ott» e nessun errore
+- [ ] Il sito (Firenze): nel menu del veicolo «Moto / scooter · benzina Euro 5»; con la moto, Duomo di giorno → «Puoi entrare»

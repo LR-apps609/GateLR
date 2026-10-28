@@ -53,7 +53,7 @@ Multe: le pagine non indicano l'importo; si applica l'art. 7 del Codice della St
 
 **Festivi e patrono.** Le ZTL di Bergamo non sono mai «libere nei festivi»: Città Alta e Colli e Valverde, al contrario, nei festivi si **chiudono** (10–24 e 0–24). Tutte le zone hanno quindi `freeOnHolidays: false` e la città non ha `localHolidays` (Sant'Alessandro, 26 agosto, conterebbe solo per regole che escludono i festivi). Per Colli e Valverde la scheda usa `holidaysAsSunday: true` (aggiunto all'app nella 1.13.2): un festivo infrasettimanale (8 dicembre, 15 agosto, …) segue l'orario della domenica. Non è chiaro se la festa del patrono (26 agosto) conti come «festivo» per le ZTL: non è in `localHolidays` ed è nei punti in sospeso.
 
-**Ora legale.** La stagione delle sere di giovedì–sabato cambia ogni anno; l'app ha date fisse, quindi è usato il periodo più largo possibile (29 marzo–30 ottobre).
+**Ora legale.** «dal giovedì successivo all'entrata in vigore dell'ora legale, al sabato precedente l'entrata in vigore dell'ora solare» (pagina della ZTL Città Alta e Colli). Dalla 1.17.1 la stagione è una regola (`Tools/seasons.py`): dal giovedì dopo l'ultima domenica di marzo (`{"month": 3, "weekday": 1, "nth": -1, "offset": 4}`) al sabato prima dell'ultima domenica di ottobre (`{"month": 10, "weekday": 1, "nth": -1, "offset": -1}`): 2 aprile–24 ottobre 2026, 1° aprile–30 ottobre 2027. Le date fisse 29 marzo–30 ottobre (il periodo più largo possibile) restano per le app fino alla 1.17.0.
 
 ## Geometria: provenienza e licenza
 
@@ -75,3 +75,6 @@ Elenco con URL in `data/raw/bergamo/nonufficiale-ricerche-web.txt`; testi salvat
 - Accesso ai parcheggi di Città Alta con la ZTL Colli attiva: regola del 2024 di ATB, i 30 minuti solo da VisitBergamo.
 - Pagine dei servizi online per albergatori (SPID): procedura e scadenza prese dal documento operativo e dagli estratti ATB.
 - Varco allo studio da porta San Lorenzo (L'Eco di Bergamo, marzo 2026): nessuna conferma.
+
+## Moto e scooter (1.17.1)
+`exemptVehicleTypes: ["motorcycle"]` solo su `bergamo-colli` e `bergamo-colli-2`: *"j) Ciclomotori e motocicli esclusivamente per la ZTL festiva e serale di Città Alta Colli."* (documento operativo, punto 13) e ATB: *"ad eccezione dei motoveicoli (motocicli e ciclomotori), cui è consentito l'accesso per i varchi della sola ZTL Festiva e serale dei Colli"*. Nelle altre ZTL di Bergamo le moto hanno bisogno del permesso → «Non entrare».

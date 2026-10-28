@@ -177,6 +177,8 @@ def zones():
           "notturna San Lorenzo è chiusa alle automobili: dalle 21.30 alle 3.00 venerdì e sabato (anche se festivi) da maggio ad ottobre è attiva anche il mercoledì e il giovedì (anche se festivi) con gli stessi orari nel mese di agosto la ZTL non è attiva",
           "notturna Testaccio è interdetta ai veicoli non autorizzati: dalle 23.00 alle 3.00 venerdì e sabato (esclusi i festivi); nel mese di agosto la ZTL non è attiva")
     check("ztl-tutti-gli-orari", "sono in funzione dal mercoledì al sabato dalle 21.30 alle 3.00")
+    check("ztl-in-centro", "moto e ciclomotori hanno libero accesso alla ZTL tutti i giorni, in tutte le ore, e possono sostare al suo interno negli spazi per i veicoli a due ruote ( ad eccezione della ZTL Tridente A1 )",
+          "La ZTL Tridente (A1) è interdetta ai veicoli non autorizzati (automobili, ciclomotori e motocicli)")
     check("permesso-x-circolazione-e-sosta", "1 permesso ogni 10 stanze a disposizione degli istituti alberghieri",
           "(ad eccezione della ZTL A1 – Tridente ) e “Trastevere”", "cliccando su “Hotel, autorizzazione per i clienti”")
     check("ZTL_Regolamento_Alberghi", "notturna (dalle 23:00 alle 03:00 – nelle sole giornate del venerdì e sabato)",
@@ -273,6 +275,9 @@ def zones():
         z["perimeter"] = perims.get(z["id"]) or osm_perims.get(z["id"], [])
         z["gates"] = sorted(gates.get(z["id"]) if official else osm_gates.get(z["id"], []), key=lambda g: (g["name"], g["id"]))
         z["exemptFuels"] = []          # dal 1/7/2026 nessuna esenzione per le elettriche
+        # «moto e ciclomotori hanno libero accesso alla ZTL tutti i giorni, in tutte le ore … ( ad eccezione della ZTL Tridente A1 )»
+        if z["id"] != "roma-tridente":
+            z["exemptVehicleTypes"] = ["motorcycle"]
         s = z["source"]
         if official:                   # con la geometria ufficiale la nota sul perimetro non serve più
             for key, i in (("pending", 0), ("pending_it", 1), ("pending_de", 2)):
@@ -285,8 +290,8 @@ def zones():
             print("zona senza perimetro, esclusa:", z["id"])
     out = kept
     order = ["id", "name", "name_it", "name_de", "kind", "summary", "summary_it", "summary_de", "perimeter", "gates",
-             "windows", "freeOnHolidays", "exemptFuels", "hotelCanRegister", "source"]
-    return [{k: z[k] for k in order} for z in out]
+             "windows", "freeOnHolidays", "exemptFuels", "exemptVehicleTypes", "hotelCanRegister", "source"]
+    return [{k: z[k] for k in order if k in z} for z in out]
 
 
 city = {"id": "roma", "name": "Rome", "name_it": "Roma", "name_de": "Rom", "center": {"lat": 41.8960, "lon": 12.4823},

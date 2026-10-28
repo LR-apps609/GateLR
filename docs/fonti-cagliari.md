@@ -55,3 +55,6 @@ Ricerca nel portale fatta con l'API pubblica di ricerca (`/portale/api/plugins/a
 - `old.comune.cagliari.it` (pagina orari ZTL): il proxy risponde 502 (server irraggiungibile), quattro tentativi con timeout lunghi.
 - `geoportale.comune.cagliari.it`: raggiungibile (vedi sopra); i dati su `comunecagliarieu.maps.arcgis.com`, `www.arcgis.com`, `services1…9.arcgis.com`: **403** dal proxy, non aggirati.
 - `servizi.comune.cagliari.it`: 403 dal proxy.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione nel modello: il regolamento lascia entrare i soli *ciclomotori* (non le moto), ma il tipo «Moto / scooter» li comprende entrambi, quindi per prudenza «Non entrare».

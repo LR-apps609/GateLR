@@ -63,3 +63,6 @@ Per rifare: `python3 Tools/lucca_mappa.py` (solo se cambia la mappa), poi `pytho
 - Mappa e perimetri sono precisi a pochi metri, non sono un file di coordinate del Comune: se il Comune pubblica dati aperti della ZTL, usarli.
 - www.metrolucca.it / www.luccaplus.it (gestore permessi e portale hotel) non raggiungibili da qui (403); pagine dei servizi «permesso temporaneo/permanente» su comune.lucca.it in 403.
 - Patrono (San Paolino, 12 luglio): non serve, la ZTL vale anche nei festivi.
+
+## Moto e scooter (1.17.1)
+`exemptVehicleTypes: ["motorcycle"]` su `lucca-b` e `lucca-b-est`: *"Ciclomotori e motocicli. L'accesso, il transito dei ciclomotori e dei motocicli è consentito nella ZTL B seguendo i normali sensi di marcia"* (disciplinare febbraio 2026). ZTL A no: *"Il transito nella ZTL A è consentito ai mezzi di proprietà dei residenti all'interno di tale zona"* → per le moto «Non entrare».

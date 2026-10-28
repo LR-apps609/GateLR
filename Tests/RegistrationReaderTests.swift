@@ -447,10 +447,16 @@ final class RegistrationReaderTests: XCTestCase {
         let presets = CarCatalog.rentals(from: RegistrationReaderTests.cars)
         XCTAssertGreaterThanOrEqual(presets.count, 20)
         for p in presets {
-            XCTAssertTrue(makes.contains { $0.make == p.make && $0.models.contains(p.model) }, p.id)
             XCTAssertFalse(p.fuels.isEmpty, p.id)
+            if p.type == .motorcycle {
+                XCTAssertEqual(p.euro, 5, p.id)        // scooter a noleggio: Euro 5 dal 2021, fuori dal catalogo delle auto
+                continue
+            }
+            XCTAssertNil(p.type, p.id)
+            XCTAssertTrue(makes.contains { $0.make == p.make && $0.models.contains(p.model) }, p.id)
             XCTAssertEqual(p.euro, 6, p.id)
         }
+        XCTAssertGreaterThanOrEqual(presets.filter { $0.type == .motorcycle }.count, 3)
         for needed in ["Fiat Panda", "Fiat 500", "Lancia Ypsilon", "Volkswagen Polo", "Volkswagen Golf", "Volkswagen T-Roc", "Peugeot 208",
                        "Peugeot 2008", "Renault Clio", "Renault Captur", "Toyota Yaris", "Toyota Yaris Cross", "Jeep Renegade", "Jeep Compass",
                        "Citroën C3", "Opel Corsa", "Dacia Sandero"] {

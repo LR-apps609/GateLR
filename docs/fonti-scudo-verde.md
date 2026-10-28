@@ -39,7 +39,7 @@ Le pagine `ambiente.comune.fi.it/dalle-redazioni/attivazione-scudo-verde` e il p
   - benzina ≤ Euro 1 e diesel ≤ Euro 2 dal `2026-12-01`.
 - Il motore conta ibride e GPL come benzina. Per GPL e metano è il caso giusto quando la targa non è registrata su SAS; con la targa registrata quelle auto sono esenti, e lo dice una nota `pending`.
 - Elettriche: non sono in nessun divieto, quindi entrano.
-- Le regole valgono solo per le auto (M1). Moto, furgoni e bus non sono considerati.
+- Le regole valgono solo per le auto (M1). Furgoni e bus non sono considerati. Le moto (tipo «Moto / scooter», 1.17.1) hanno limiti loro (*"per due ruote, bus e merci regole diverse"*): GateLR non applica loro le classi delle auto e risponde «a una condizione: controlla la tua sul sito del Comune».
 
 ## Geometria
 

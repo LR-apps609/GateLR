@@ -5128,7 +5128,19 @@
       "fromMonth": 3,
       "fromDay": 29,
       "toMonth": 10,
-      "toDay": 30
+      "toDay": 30,
+      "from": {
+       "month": 3,
+       "weekday": 1,
+       "nth": -1,
+       "offset": 4
+      },
+      "to": {
+       "month": 10,
+       "weekday": 1,
+       "nth": -1,
+       "offset": -1
+      }
      }
     }
    ],
@@ -5149,30 +5161,30 @@
      "Map outline: official open data of the City of Bergamo, last updated 4 October 2024. The city redrew the Città Alta, Colli and Valverde zones in 2025 (decisions 398 and 560/2025): edges to be checked. No gate positions are published.",
      "Fully electric cars and cars carrying a disabled badge holder don't need a permit, but the plate must be registered with ATB (accessi.ztl@atb.bergamo.it) no later than 120 hours after the first entry: GateLR does not count them as exempt.",
      "Hotels inside a ZTL register guests' plates online with ATB within 72 hours of entry (max 30 days, 1 € per day per plate). The ATB pages could not be read from here: rules taken from the city's 2024 permit rules.",
-     "Summer-time nights: the exact start and end move every year (Thursday after the clocks go forward, Saturday before they go back); GateLR uses 29 March–30 October, so a few extra nights may show as active.",
+     "Summer-time nights: from the Thursday after the clocks go forward (last Sunday of March) to the Saturday before they go back (last Sunday of October): 2 April–24 October in 2026, 1 April–30 October in 2027. Older versions of the app use 29 March–30 October, so they may show a few extra nights as active.",
      "Since 21 June 2026 Sundays and holidays are closed continuously 10–24 (the free 12–14 and 19–24 slots were removed). Older guides still show the old hours.",
      "Car parks: drivers without a permit may reach only the three public car parks (Via Fara, Tre Armi, Porta Sant'Alessandro), entering only from the Viale Vittorio Emanuele gate (ATB, 31 Aug 2024). VisitBergamo (June 2026) adds that you must park within 30 minutes: confirmed only by VisitBergamo. GateLR still shows the zone as closed.",
-     "Motorbikes and mopeds may enter this zone without a permit (city permit rules); GateLR has no motorbike vehicle type.",
+     "Motorbikes and mopeds may enter this zone without a permit (city permit rules, point 13 j; ATB): with «Motorbike / scooter» in Garage GateLR answers yes. In the other ZTLs of Bergamo they need a permit.",
      "Public holidays follow the Sunday hours. Not confirmed whether the patron saint's day (Sant'Alessandro, 26 August) counts as a holiday for the ZTL: GateLR treats it as a normal day."
     ],
     "pending_it": [
      "Perimetro: dati aperti ufficiali del Comune di Bergamo, aggiornati il 4 ottobre 2024. Il Comune ha ridisegnato le ZTL di Città Alta, Colli e Valverde nel 2025 (delibere 398 e 560/2025): confini da verificare. Le posizioni dei varchi non sono pubblicate.",
      "Auto totalmente elettriche e veicoli al servizio di disabili con contrassegno non hanno bisogno del permesso, ma la targa va comunicata ad ATB (accessi.ztl@atb.bergamo.it) entro 120 ore dal primo transito: GateLR non le conta come esenti.",
      "Gli hotel dentro una ZTL registrano online con ATB la targa degli ospiti entro 72 ore dall'ingresso (massimo 30 giorni, 1 € al giorno per targa). Le pagine di ATB non erano leggibili da qui: regole prese dal documento operativo del Comune (2024).",
-     "Sere con l'ora legale: inizio e fine cambiano ogni anno (giovedì dopo il passaggio all'ora legale, sabato prima del ritorno all'ora solare); GateLR usa 29 marzo–30 ottobre, quindi qualche sera in più può risultare attiva.",
+     "Sere con l'ora legale: dal giovedì dopo il passaggio all'ora legale (ultima domenica di marzo) al sabato prima del ritorno all'ora solare (ultima domenica di ottobre): nel 2026 dal 2 aprile al 24 ottobre, nel 2027 dal 1° aprile al 30 ottobre. Le versioni più vecchie dell'app usano 29 marzo–30 ottobre, quindi qualche sera in più può risultare attiva.",
      "Dal 21 giugno 2026 domeniche e festivi sono chiusi senza interruzioni 10–24 (eliminate le fasce libere 12–14 e 19–24). Le guide più vecchie riportano ancora l'orario precedente.",
      "Parcheggi: chi non ha il permesso può raggiungere solo i tre parcheggi pubblici (via Fara, Tre Armi, Porta Sant'Alessandro), entrando solo dal varco di viale Vittorio Emanuele (ATB, 31/08/2024). VisitBergamo (giugno 2026) aggiunge l'obbligo di parcheggiare entro 30 minuti: confermato solo da VisitBergamo. GateLR mostra comunque la zona come chiusa.",
-     "Moto e ciclomotori possono entrare in questa zona senza permesso (documento operativo del Comune); GateLR non ha un tipo di veicolo «moto».",
+     "Moto e ciclomotori possono entrare in questa zona senza permesso (documento operativo del Comune, punto 13 j; ATB): con «Moto / scooter» nel Garage GateLR risponde sì. Nelle altre ZTL di Bergamo serve il permesso.",
      "I festivi seguono l'orario della domenica. Non è confermato se la festa del patrono (Sant'Alessandro, 26 agosto) conti come festivo per la ZTL: GateLR la tratta come un giorno normale."
     ],
     "pending_de": [
      "Grenze: offizielle offene Daten der Stadt Bergamo, zuletzt aktualisiert am 4. Oktober 2024. Die Stadt hat Città Alta, Colli und Valverde 2025 neu abgegrenzt (Beschlüsse 398 und 560/2025): Ränder zu prüfen. Kamerastandorte sind nicht veröffentlicht.",
      "Reine Elektroautos und Fahrzeuge mit Behindertenausweis brauchen keine Genehmigung, das Kennzeichen muss aber spätestens 120 Stunden nach der ersten Einfahrt bei ATB (accessi.ztl@atb.bergamo.it) gemeldet werden: GateLR zählt sie nicht als befreit.",
      "Hotels in einer ZTL melden das Kennzeichen der Gäste online bei ATB innerhalb von 72 Stunden nach der Einfahrt (höchstens 30 Tage, 1 € pro Tag und Kennzeichen). Die ATB-Seiten waren von hier nicht lesbar: Regeln aus den städtischen Genehmigungsregeln von 2024.",
-     "Sommerzeit-Nächte: Beginn und Ende verschieben sich jedes Jahr (Donnerstag nach der Zeitumstellung im Frühjahr, Samstag vor der im Herbst); GateLR nimmt 29. März–30. Oktober, daher können einige Nächte zu viel als aktiv erscheinen.",
+     "Sommerzeit-Nächte: vom Donnerstag nach der Zeitumstellung im Frühjahr (letzter Sonntag im März) bis zum Samstag vor der im Herbst (letzter Sonntag im Oktober): 2. April–24. Oktober 2026, 1. April–30. Oktober 2027. Ältere App-Versionen nehmen 29. März–30. Oktober und zeigen daher einige Nächte zu viel als aktiv.",
      "Seit 21. Juni 2026 sind Sonn- und Feiertage durchgehend 10–24 Uhr gesperrt (die freien Zeiten 12–14 und 19–24 Uhr entfallen). Ältere Reiseführer zeigen noch die alten Zeiten.",
      "Parkplätze: Ohne Genehmigung erreicht man nur die drei öffentlichen Parkplätze (Via Fara, Tre Armi, Porta Sant'Alessandro), Einfahrt nur über die Kamera am Viale Vittorio Emanuele (ATB, 31.08.2024). VisitBergamo (Juni 2026) nennt zusätzlich: innerhalb von 30 Minuten parken – nur von VisitBergamo bestätigt. GateLR zeigt die Zone trotzdem als gesperrt.",
-     "Motorräder und Mopeds dürfen ohne Genehmigung in diese Zone (städtische Regeln); GateLR kennt keinen Fahrzeugtyp Motorrad.",
+     "Motorräder und Mopeds dürfen ohne Genehmigung in diese Zone (städtische Regeln, Punkt 13 j; ATB): mit «Motorrad / Roller» in der Garage antwortet GateLR mit Ja. In den anderen ZTL von Bergamo brauchen sie eine Genehmigung.",
      "Feiertage folgen den Sonntagszeiten. Ob der Tag des Stadtpatrons (Sant'Alessandro, 26. August) für die ZTL als Feiertag gilt, ist nicht bestätigt: GateLR behandelt ihn als normalen Tag."
     ],
     "links": [
@@ -5220,6 +5232,9 @@
      }
     ]
    },
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "holidaysAsSunday": true
   },
   {
@@ -5406,7 +5421,19 @@
       "fromMonth": 3,
       "fromDay": 29,
       "toMonth": 10,
-      "toDay": 30
+      "toDay": 30,
+      "from": {
+       "month": 3,
+       "weekday": 1,
+       "nth": -1,
+       "offset": 4
+      },
+      "to": {
+       "month": 10,
+       "weekday": 1,
+       "nth": -1,
+       "offset": -1
+      }
      }
     }
    ],
@@ -5427,30 +5454,30 @@
      "Map outline: official open data of the City of Bergamo, last updated 4 October 2024. The city redrew the Città Alta, Colli and Valverde zones in 2025 (decisions 398 and 560/2025): edges to be checked. No gate positions are published.",
      "Fully electric cars and cars carrying a disabled badge holder don't need a permit, but the plate must be registered with ATB (accessi.ztl@atb.bergamo.it) no later than 120 hours after the first entry: GateLR does not count them as exempt.",
      "Hotels inside a ZTL register guests' plates online with ATB within 72 hours of entry (max 30 days, 1 € per day per plate). The ATB pages could not be read from here: rules taken from the city's 2024 permit rules.",
-     "Summer-time nights: the exact start and end move every year (Thursday after the clocks go forward, Saturday before they go back); GateLR uses 29 March–30 October, so a few extra nights may show as active.",
+     "Summer-time nights: from the Thursday after the clocks go forward (last Sunday of March) to the Saturday before they go back (last Sunday of October): 2 April–24 October in 2026, 1 April–30 October in 2027. Older versions of the app use 29 March–30 October, so they may show a few extra nights as active.",
      "Since 21 June 2026 Sundays and holidays are closed continuously 10–24 (the free 12–14 and 19–24 slots were removed). Older guides still show the old hours.",
      "Car parks: drivers without a permit may reach only the three public car parks (Via Fara, Tre Armi, Porta Sant'Alessandro), entering only from the Viale Vittorio Emanuele gate (ATB, 31 Aug 2024). VisitBergamo (June 2026) adds that you must park within 30 minutes: confirmed only by VisitBergamo. GateLR still shows the zone as closed.",
-     "Motorbikes and mopeds may enter this zone without a permit (city permit rules); GateLR has no motorbike vehicle type.",
+     "Motorbikes and mopeds may enter this zone without a permit (city permit rules, point 13 j; ATB): with «Motorbike / scooter» in Garage GateLR answers yes. In the other ZTLs of Bergamo they need a permit.",
      "Public holidays follow the Sunday hours. Not confirmed whether the patron saint's day (Sant'Alessandro, 26 August) counts as a holiday for the ZTL: GateLR treats it as a normal day."
     ],
     "pending_it": [
      "Perimetro: dati aperti ufficiali del Comune di Bergamo, aggiornati il 4 ottobre 2024. Il Comune ha ridisegnato le ZTL di Città Alta, Colli e Valverde nel 2025 (delibere 398 e 560/2025): confini da verificare. Le posizioni dei varchi non sono pubblicate.",
      "Auto totalmente elettriche e veicoli al servizio di disabili con contrassegno non hanno bisogno del permesso, ma la targa va comunicata ad ATB (accessi.ztl@atb.bergamo.it) entro 120 ore dal primo transito: GateLR non le conta come esenti.",
      "Gli hotel dentro una ZTL registrano online con ATB la targa degli ospiti entro 72 ore dall'ingresso (massimo 30 giorni, 1 € al giorno per targa). Le pagine di ATB non erano leggibili da qui: regole prese dal documento operativo del Comune (2024).",
-     "Sere con l'ora legale: inizio e fine cambiano ogni anno (giovedì dopo il passaggio all'ora legale, sabato prima del ritorno all'ora solare); GateLR usa 29 marzo–30 ottobre, quindi qualche sera in più può risultare attiva.",
+     "Sere con l'ora legale: dal giovedì dopo il passaggio all'ora legale (ultima domenica di marzo) al sabato prima del ritorno all'ora solare (ultima domenica di ottobre): nel 2026 dal 2 aprile al 24 ottobre, nel 2027 dal 1° aprile al 30 ottobre. Le versioni più vecchie dell'app usano 29 marzo–30 ottobre, quindi qualche sera in più può risultare attiva.",
      "Dal 21 giugno 2026 domeniche e festivi sono chiusi senza interruzioni 10–24 (eliminate le fasce libere 12–14 e 19–24). Le guide più vecchie riportano ancora l'orario precedente.",
      "Parcheggi: chi non ha il permesso può raggiungere solo i tre parcheggi pubblici (via Fara, Tre Armi, Porta Sant'Alessandro), entrando solo dal varco di viale Vittorio Emanuele (ATB, 31/08/2024). VisitBergamo (giugno 2026) aggiunge l'obbligo di parcheggiare entro 30 minuti: confermato solo da VisitBergamo. GateLR mostra comunque la zona come chiusa.",
-     "Moto e ciclomotori possono entrare in questa zona senza permesso (documento operativo del Comune); GateLR non ha un tipo di veicolo «moto».",
+     "Moto e ciclomotori possono entrare in questa zona senza permesso (documento operativo del Comune, punto 13 j; ATB): con «Moto / scooter» nel Garage GateLR risponde sì. Nelle altre ZTL di Bergamo serve il permesso.",
      "I festivi seguono l'orario della domenica. Non è confermato se la festa del patrono (Sant'Alessandro, 26 agosto) conti come festivo per la ZTL: GateLR la tratta come un giorno normale."
     ],
     "pending_de": [
      "Grenze: offizielle offene Daten der Stadt Bergamo, zuletzt aktualisiert am 4. Oktober 2024. Die Stadt hat Città Alta, Colli und Valverde 2025 neu abgegrenzt (Beschlüsse 398 und 560/2025): Ränder zu prüfen. Kamerastandorte sind nicht veröffentlicht.",
      "Reine Elektroautos und Fahrzeuge mit Behindertenausweis brauchen keine Genehmigung, das Kennzeichen muss aber spätestens 120 Stunden nach der ersten Einfahrt bei ATB (accessi.ztl@atb.bergamo.it) gemeldet werden: GateLR zählt sie nicht als befreit.",
      "Hotels in einer ZTL melden das Kennzeichen der Gäste online bei ATB innerhalb von 72 Stunden nach der Einfahrt (höchstens 30 Tage, 1 € pro Tag und Kennzeichen). Die ATB-Seiten waren von hier nicht lesbar: Regeln aus den städtischen Genehmigungsregeln von 2024.",
-     "Sommerzeit-Nächte: Beginn und Ende verschieben sich jedes Jahr (Donnerstag nach der Zeitumstellung im Frühjahr, Samstag vor der im Herbst); GateLR nimmt 29. März–30. Oktober, daher können einige Nächte zu viel als aktiv erscheinen.",
+     "Sommerzeit-Nächte: vom Donnerstag nach der Zeitumstellung im Frühjahr (letzter Sonntag im März) bis zum Samstag vor der im Herbst (letzter Sonntag im Oktober): 2. April–24. Oktober 2026, 1. April–30. Oktober 2027. Ältere App-Versionen nehmen 29. März–30. Oktober und zeigen daher einige Nächte zu viel als aktiv.",
      "Seit 21. Juni 2026 sind Sonn- und Feiertage durchgehend 10–24 Uhr gesperrt (die freien Zeiten 12–14 und 19–24 Uhr entfallen). Ältere Reiseführer zeigen noch die alten Zeiten.",
      "Parkplätze: Ohne Genehmigung erreicht man nur die drei öffentlichen Parkplätze (Via Fara, Tre Armi, Porta Sant'Alessandro), Einfahrt nur über die Kamera am Viale Vittorio Emanuele (ATB, 31.08.2024). VisitBergamo (Juni 2026) nennt zusätzlich: innerhalb von 30 Minuten parken – nur von VisitBergamo bestätigt. GateLR zeigt die Zone trotzdem als gesperrt.",
-     "Motorräder und Mopeds dürfen ohne Genehmigung in diese Zone (städtische Regeln); GateLR kennt keinen Fahrzeugtyp Motorrad.",
+     "Motorräder und Mopeds dürfen ohne Genehmigung in diese Zone (städtische Regeln, Punkt 13 j; ATB): mit «Motorrad / Roller» in der Garage antwortet GateLR mit Ja. In den anderen ZTL von Bergamo brauchen sie eine Genehmigung.",
      "Feiertage folgen den Sonntagszeiten. Ob der Tag des Stadtpatrons (Sant'Alessandro, 26. August) für die ZTL als Feiertag gilt, ist nicht bestätigt: GateLR behandelt ihn als normalen Tag."
     ],
     "links": [
@@ -5498,6 +5525,9 @@
      }
     ]
    },
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "holidaysAsSunday": true
   },
   {

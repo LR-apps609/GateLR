@@ -1,3 +1,8 @@
+Novità della 1.17.1 (dati controllati con Street View):
+• Moto e scooter: nel Garage «Tipo di veicolo» Auto o Moto / scooter (ciclomotori compresi), anche tra i noleggi (Liberty, SH, Vespa, Agility). Dove il Comune lascia entrare le due ruote la risposta è «Entra pure.»: Firenze (settori A, B, O, F, G), Roma (tranne il Tridente), Pisa, Lucca (ZTL B), Arezzo (ZTL A), Bergamo (Città Alta e Colli), Verona, Padova, Parma (ZTL), Modena, Palermo, Lecce, Ascoli Piceno, Napoli (Tarsia, Morelli); altrove, e dove la fonte dice che le moto non entrano (Ostuni, Polignano, Cortona, Roma Tridente…), «Non entrare.». Nelle zone con divieti per classe Euro (Scudo Verde, Area B e C…) per le moto «controlla sul sito del Comune»
+• Stagioni con le regole: la ZTL notturna estiva di Firenze va «dal primo giovedì di aprile alla prima domenica di ottobre» ogni anno (2027: 1° aprile–3 ottobre), le sere estive di Bergamo Città Alta seguono l'ora legale; prima valevano solo le date del 2026
+• Sito: la moto nel menu del veicolo e le stesse risposte; corretto un errore nel codice della pagina che fermava le risposte
+
 Novità della 1.17.0 (prova sul campo):
 • «Modalità prova» (Tu → Impostazioni): una ZTL finta larga circa 400 m intorno a te, con 1–2 varchi sulle strade vere vicine e un parcheggio fuori, «attiva adesso» o «spenta». Passa da risposta, mappa («ZONA DI PROVA»), avvisi, guardiano, navigazione, Live Activity, voce e «Parcheggia fuori»; la striscia viola «Modalità prova attiva» resta in cima con «Spegni» e «Sposta la zona qui». Mai accesa da sola, solo sul telefono
 • Giri finti per Xcode (Debug → Simulate Location): Firenze via Cavour e Beccaria, Pisa, Roma Tridente, Bologna, Siena, con orari da 25–35 km/h (docs/prova-sul-campo.md)

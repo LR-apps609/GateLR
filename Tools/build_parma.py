@@ -410,7 +410,8 @@ for z in ["1", "2", "3"]:
                   "summary": SUMMARY_ZTL[0], "summary_it": SUMMARY_ZTL[1], "summary_de": SUMMARY_ZTL[2],
                   "perimeter": osm_geo.perimeter(RINGS[z], tol_m=3), "gates": gates(z),
                   "windows": [window(EVERY_DAY, 7 * 60 + 30, 19 * 60 + 30)],
-                  "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True, "ticket": TICKET,
+                  # Punto 4 dell'OD-2024-65: «ciclomotori e motocicli» entrano nelle ZTL senza permesso né accreditamento (non nelle Isole)
+                  "freeOnHolidays": False, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": True, "ticket": TICKET,
                   "source": source(ZTL_PAGE, QUOTE_ZTL,
                                    ("The ban on unauthorised vehicles entering the ZTLs applies from 7:30 to 19:30 on working days and holidays",
                                     "Das Einfahrverbot für nicht berechtigte Fahrzeuge in die ZTL gilt von 7:30 bis 19:30 Uhr an Werk- und Feiertagen"),
@@ -437,7 +438,7 @@ zones.append({"id": "parma-ztl-stazione", "name": "ZTL Stazione · Station squar
               "name_de": "ZTL Stazione · Bahnhofsplatz", "kind": "restricted",
               "summary": SUMMARY_STAZ[0], "summary_it": SUMMARY_STAZ[1], "summary_de": SUMMARY_STAZ[2],
               "perimeter": osm_geo.perimeter(RINGS["S"], tol_m=2), "gates": [],
-              "windows": [window(EVERY_DAY, 0, 24 * 60)], "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": False,
+              "windows": [window(EVERY_DAY, 0, 24 * 60)], "freeOnHolidays": False, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": False,
               "source": source(ZTL_PAGE, "PLE DALLA CHIESA (escluso lato sud) – dalle 00:00 alle 24:00",
                                ("Piazzale Dalla Chiesa (except the south side): from 00:00 to 24:00", "Piazzale Dalla Chiesa (außer Südseite): von 00:00 bis 24:00 Uhr"),
                                ZTL_LINKS + [OSM_LINKS["S"]],

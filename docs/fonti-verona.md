@@ -69,3 +69,6 @@ Il centro della città (45.4390, 10.9944, l'Arena) serve solo a inquadrare la ma
 - Area pedonale urbana di piazza Erbe (Ordinanze n. 1504/2024, 1512 e 1513/2024, solo da estratti di giornali): è dentro la ZTL, non disegnata.
 - Importo della multa: la pagina FAQ è nell'archivio "non più aggiornato" e nessuna pagina attuale del Comune dà un importo (cercato il 25/10/2026).
 - Antismog e ZTL Stadio: non modellati (la prima vale su tutto il comune e dipende dal bollettino Arpav; la seconda solo nei giorni di partita).
+
+## Moto e scooter (1.17.1)
+`exemptVehicleTypes: ["motorcycle"]` sulle tre zone della ZTL: *"è consentito l'accesso e il transito libero in ZTL ai ciclomotori e motoveicoli a due e tre ruote"* (ordinanza 1545/2024).

@@ -282,6 +282,11 @@
 "Year" = "年份";
 "Car" = "汽车";
 "Emissions" = "排放";
+"Motorbike / scooter" = "摩托车 / 踏板车";
+"Vehicle type" = "车辆类型";
+"The ZTL is active, but motorbikes and scooters may enter." = "ZTL 正在生效，但摩托车和踏板车可以进入。";
+"Motorbikes have their own Euro limits here. Check yours on the city's page." = "这里摩托车有自己的欧标限制。请在市政府网页上查看你的车。";
+"Motorbikes and scooters may enter" = "摩托车和踏板车可以进入";
 "Euro %lld" = "欧 %lld";
 "The Euro class is on the registration document, field V.9." = "欧洲排放标准写在行驶证 V.9 栏。";
 "Euro class suggested from the year. Check it on the registration document, field V.9." = "排放标准根据年份推测。请在行驶证 V.9 栏核对。";

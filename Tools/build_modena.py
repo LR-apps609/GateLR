@@ -100,7 +100,8 @@ zone = {"id": "modena-ztl", "name": "Modena · Historic centre ZTL", "name_it": 
         "summary_de": "Die Altstadt innerhalb der Ringstraßen (Dom, Piazza Grande) ist für nicht berechtigte Autos rund um die Uhr, jeden Tag gesperrt; Kameras prüfen jede Zufahrt. Ein Touristenticket gibt es nicht. Liegt dein Hotel innen, gibt es dir einen Ausweis für die Windschutzscheibe und meldet dein Kennzeichen innerhalb von 48 Stunden. Motorräder und Mopeds dürfen hinein.",
         "perimeter": perimeter(), "gates": [],
         "windows": [{"weekdays": EVERY_DAY, "start": 0, "end": 24 * 60}],
-        "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True,
+        # Deroga B2: «ai velocipedi, ciclomotori, motocicli…» (testo coordinato dell'ordinanza ZTL)
+        "freeOnHolidays": False, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": True,
         "source": {"authority": "City of Modena", "pageURL": url_of(PAGE),
                    "ordinance": "Testo coordinato Ordinanza ZTL (prot. P.G. 85253 del 01/04/2020)", "ordinanceURL": url_of(ORD),
                    "quote": QUOTE,

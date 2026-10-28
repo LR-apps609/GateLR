@@ -162,6 +162,11 @@ object CarCatalog {
     fun euroForYear(y: Int): Int = when {
         y >= 2016 -> 6; y >= 2011 -> 5; y >= 2006 -> 4; y >= 2001 -> 3; y >= 1997 -> 2; y >= 1993 -> 1; else -> 0
     }
+
+    /** Moto e scooter: Euro 3 dal 2007, 4 dal 2017, 5 dal 2021 (valori tipici, da controllare sul libretto) */
+    fun euroForYear(y: Int, type: VehicleType): Int = if (type != VehicleType.MOTORCYCLE) euroForYear(y) else when {
+        y >= 2021 -> 5; y >= 2017 -> 4; y >= 2007 -> 3; y >= 2004 -> 2; y >= 1999 -> 1; else -> 0
+    }
 }
 
 data class AdviceLine(val city: String, val zone: String, val text: String, val ok: Boolean)
@@ -169,8 +174,9 @@ data class AdviceLine(val city: String, val zone: String, val text: String, val 
 fun carAdvice(v: Vehicle, cities: List<City>, at: Instant): List<AdviceLine> = cities.flatMap { city ->
     city.zones.mapNotNull { z ->
         when {
+            z.exempts(v) -> AdviceLine(city.localizedName, z.shortName, L("Motorbikes and scooters may enter"), true)
             v.fuel in z.exemptFuels -> AdviceLine(city.localizedName, z.shortName, F("%@ cars may enter", v.fuel.label), true)
-            z.bans == null -> null
+            z.bans == null || v.kind != VehicleType.CAR -> null
             z.ban(v, at) != null -> AdviceLine(city.localizedName, z.shortName, L("Your car can't enter while it's active"), false)
             z.nextBan(v, at) != null -> AdviceLine(city.localizedName, z.shortName, F("Allowed until %@", z.nextBan(v, at)!!.since), true)
             else -> AdviceLine(city.localizedName, z.shortName, L("Your car's class is allowed"), true)

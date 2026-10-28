@@ -34,3 +34,6 @@ Controlli: Duomo, Sant'Oronzo, Santa Croce, Teatro Romano dentro; stazione, Cast
 
 ## Da verificare (`pending`)
 Varchi H24 dentro una zona a orario variabile (GateLR mostra l'orario della zona); attuazione delle delibere 2026; perimetro OSM; elettriche; 26 agosto.
+
+## Moto e scooter (1.17.1)
+`exemptVehicleTypes: ["motorcycle"]`: *"La circolazione dei velocipedi … nonché dei veicoli rientranti nelle categorie L1e L3e di cui all'art. 47 del Codice della Strada è sempre consentita nelle Z.T.L."* (regolamento ZTL e AP, `regolamento-ztl-ap.txt`).

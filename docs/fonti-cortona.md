@@ -28,3 +28,6 @@ Fonti non ufficiali: tyremap.com (orari uguali, «circa»), solo per incrocio. N
 
 ## Pending (nella scheda)
 Registrazione hotel entro 48 ore e permessi temporanei; nessuna esenzione per elettriche; area non ufficiale; ZTL via Benedetti / Viale Passerini (stessi orari della Rossa) non disegnata.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: *"all'interno della Z.T.L. sono vietati il transito e la sosta a tutti i veicoli (compresi ciclomotori e motocicli)"* → «Non entrare».

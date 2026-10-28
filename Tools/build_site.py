@@ -7,6 +7,7 @@
 import html, json, math, re, shutil
 from datetime import date
 from pathlib import Path
+import seasons          # Tools/seasons.py: le date delle stagioni con le regole
 
 SITE = "https://lr-apps609.github.io/GateLR/"          # indirizzo pubblico (con la barra finale): cambiarlo qui col dominio
 ROOT = Path(__file__).resolve().parent.parent
@@ -178,7 +179,7 @@ P = {
         "hotelY": "Hotels inside this zone can register your plate with the city, so you can drive to the hotel. Ask them before you arrive.",
         "hotelN": "Hotels can't register your plate for this zone.",
         "rental": "A typical modern rental car (petrol Euro 6, hybrid or electric) can drive in.", "bansT": "Older cars banned while it's on",
-        "since": "since {d}", "from": "from {d}", "electric": "Electric cars: always free.", "gates": "{n} camera gates",
+        "since": "since {d}", "from": "from {d}", "electric": "Electric cars: always free.", "moto": "Motorbikes and scooters: always free.", "gates": "{n} camera gates",
         "srcT": "Official source", "srcU": "Unofficial source", "dataFrom": "Data from {s} ↗", "checked": "Checked on {d}", "page": "Official page ↗", "pending": "Still being checked",
         "pedT": "Pedestrian areas", "pedP": "{n} pedestrian areas: cars can't drive in at any time, not even with a permit or a ticket. Park outside and walk.",
         "pedAll": "Show all {n}", "fineL": "If you drive in by mistake", "perDay": "per day", "faqT": "Questions",
@@ -203,7 +204,7 @@ P = {
         "hotelY": "Gli hotel dentro questa zona possono comunicare la tua targa al Comune, così arrivi all'hotel in auto. Chiedilo prima di arrivare.",
         "hotelN": "Gli hotel non possono registrare la tua targa per questa zona.",
         "rental": "Una tipica auto a noleggio recente (benzina Euro 6, ibrida o elettrica) può entrare.", "bansT": "Auto vecchie vietate quando è attiva",
-        "since": "dal {d}", "from": "dal {d}", "electric": "Auto elettriche: entrano sempre.", "gates": "{n} varchi con telecamera",
+        "since": "dal {d}", "from": "dal {d}", "electric": "Auto elettriche: entrano sempre.", "moto": "Moto e scooter: entrano sempre.", "gates": "{n} varchi con telecamera",
         "srcT": "Fonte ufficiale", "srcU": "Fonte non ufficiale", "dataFrom": "Dati da {s} ↗", "checked": "Controllato il {d}", "page": "Pagina ufficiale ↗", "pending": "Ancora da verificare",
         "pedT": "Aree pedonali", "pedP": "{n} aree pedonali: le auto non entrano mai, neanche con permesso o ticket. Parcheggia fuori e prosegui a piedi.",
         "pedAll": "Mostra tutte ({n})", "fineL": "Se entri per sbaglio", "perDay": "al giorno", "faqT": "Domande",
@@ -228,7 +229,7 @@ P = {
         "hotelY": "Hotels in dieser Zone können dein Kennzeichen bei der Stadt anmelden, damit du zum Hotel fahren darfst. Frag vor der Ankunft.",
         "hotelN": "Hotels können dein Kennzeichen für diese Zone nicht anmelden.",
         "rental": "Ein typischer neuerer Mietwagen (Benzin Euro 6, Hybrid oder Elektro) darf hinein.", "bansT": "Ältere Autos verboten, wenn sie aktiv ist",
-        "since": "seit {d}", "from": "ab {d}", "electric": "Elektroautos: immer frei.", "gates": "{n} Kamera-Einfahrten",
+        "since": "seit {d}", "from": "ab {d}", "electric": "Elektroautos: immer frei.", "moto": "Motorräder und Roller: immer frei.", "gates": "{n} Kamera-Einfahrten",
         "srcT": "Offizielle Quelle", "srcU": "Inoffizielle Quelle", "dataFrom": "Daten von {s} ↗", "checked": "Geprüft am {d}", "page": "Offizielle Seite ↗", "pending": "Wird noch geprüft",
         "pedT": "Fußgängerzonen", "pedP": "{n} Fußgängerzonen: Autos dürfen nie hinein, auch nicht mit Genehmigung oder Ticket. Parke außerhalb und geh zu Fuß.",
         "pedAll": "Alle {n} zeigen", "fineL": "Wenn du aus Versehen hineinfährst", "perDay": "pro Tag", "faqT": "Fragen",
@@ -277,8 +278,9 @@ def hour_rows(z, lang):
         contiguous = len(days) > 2 and all(i == 0 or ORDER.index(d) == ORDER.index(days[i - 1]) + 1 for i, d in enumerate(days))
         label = f"{SHORT[lang][days[0] - 1]} – {SHORT[lang][days[-1] - 1]}" if contiguous else ", ".join(SHORT[lang][d - 1] for d in days)
         if w.get("season"):
-            s = w["season"]
-            label += f" {t['nights']} ({s['fromDay']} {MONTHS[lang][s['fromMonth'] - 1][:3]} – {s['toDay']} {MONTHS[lang][s['toMonth'] - 1][:3]})"
+            # Le date della stagione in corso o della prossima: con le regole («primo giovedì di aprile») cambiano ogni anno
+            a, b = seasons.shown(w["season"], date.today())
+            label += f" {t['nights']} ({a.day} {MONTHS[lang][a.month - 1][:3]} – {b.day} {MONTHS[lang][b.month - 1][:3]})"
         rows.append((label, f"{clock(w['start'], lang)} – {clock(w['end'], lang)}", ""))
     covered = {d for w in z["windows"] if not w.get("season") for d in w["weekdays"]}
     free = [DAYS[lang][d - 1] for d in ORDER if d not in covered]
@@ -536,6 +538,7 @@ def build_city(c, lang):
                      + (f'<p class="muted">{esc(p["electric"])}</p>' if "electric" in (z.get("exemptFuels") or []) else ""))
         if k != "green":
             h.append(f'<h3>{esc(p["hotelT"])}</h3><p>{esc(p["hotelY"] if z.get("hotelCanRegister") else p["hotelN"])}</p>')
+        if "motorcycle" in (z.get("exemptVehicleTypes") or []): h.append(f'<p class="muted">{esc(p["moto"])}</p>')
         if z["gates"]: h.append(f'<p class="muted">{esc(p["gates"].format(n=len(z["gates"])))}</p>')
         quote = f'<p>“{esc(s["quote"])}”</p>' if s.get("quote") else ""
         tr = s.get("quoteTranslation_" + lang) if lang != "en" else s.get("quoteTranslation")

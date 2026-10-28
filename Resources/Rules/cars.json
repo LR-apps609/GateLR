@@ -362,7 +362,7 @@
    ]
   }
  ],
- "rental_note": "Modelli tipici delle flotte di noleggio in Italia (elenco nostro): carburanti delle versioni più comuni, tutte Euro 6. Il primo carburante è il più frequente; la versione vera è sul libretto in auto (P.3 e V.9).",
+ "rental_note": "Modelli tipici delle flotte di noleggio in Italia (elenco nostro): carburanti delle versioni più comuni, tutte Euro 6. Il primo carburante è il più frequente; la versione vera è sul libretto in auto (P.3 e V.9). Gli scooter (type: motorcycle) dalla 1.17.1: Euro 5, la classe delle moto nuove dal 2021.",
  "rental": [
   {
    "make": "Fiat",
@@ -731,6 +731,42 @@
     "diesel"
    ],
    "euro": 6
+  },
+  {
+   "make": "Piaggio",
+   "model": "Liberty 125",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 5,
+   "type": "motorcycle"
+  },
+  {
+   "make": "Honda",
+   "model": "SH 125",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 5,
+   "type": "motorcycle"
+  },
+  {
+   "make": "Piaggio",
+   "model": "Vespa Primavera 125",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 5,
+   "type": "motorcycle"
+  },
+  {
+   "make": "Kymco",
+   "model": "Agility 125",
+   "fuels": [
+    "petrol"
+   ],
+   "euro": 5,
+   "type": "motorcycle"
   }
  ]
 }

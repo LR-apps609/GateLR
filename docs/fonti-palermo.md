@@ -66,3 +66,6 @@ Enti: **Comune di Palermo** (Ufficio Pianificazione Mobilità Sostenibile, Uffic
 5. Status pedonale di via Maqueda e del Cassaro: **confermato solo da PalermoToday/BlogSicilia** e da OSM; nessun atto ufficiale letto.
 6. Mondello (ZTL estiva) e Vergine Maria (ZTL sperimentale, apparentemente abbandonata): non inseriti.
 7. Varchi: nessuna fonte con coordinate.
+
+## Moto e scooter (1.17.1)
+`exemptVehicleTypes: ["motorcycle"]`: art. 13.1 e) del disciplinare tecnico, esenti *"e) velocipedi, ciclomotori e motocicli, inclusi i quadricicli;"*.

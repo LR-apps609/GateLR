@@ -79,3 +79,6 @@ Aree pedonali (`pedestrian`, contorni OSM, allegato 3): piazza Grande, piazza de
 
 - Chiedere all'Ufficio Mobilità / Polizia Locale (permessiztl@comune.arezzo.it, numero verde 800211155): sabato nella ZTL A, 7 agosto, prezzo dell'accesso giornaliero, termine per gli hotel, coordinate dei varchi.
 - Quando esce il nuovo disciplinare, rifare la scheda.
+
+## Moto e scooter (1.17.1)
+`exemptVehicleTypes: ["motorcycle"]` su `arezzo-ztl-a` e `arezzo-ztl-a-marconi`: *"Sono esclusi dal divieto i ciclomotori a due ruote, motocicli a due ruote e i veicoli dotati di motorizzazione solamente elettrica…"* (disciplinare ZTL, scheda ZTL A, controllata da `Tools/build_arezzo.py`). ZTL B no: *"Nel divieto sono inclusi tutti i mezzi a motore"* (accessibilitacentristorici, uguale al disciplinare) → per le moto «Non entrare».

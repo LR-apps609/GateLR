@@ -282,6 +282,11 @@
 "Year" = "Año";
 "Car" = "Coche";
 "Emissions" = "Emisiones";
+"Motorbike / scooter" = "Moto / scooter";
+"Vehicle type" = "Tipo de vehículo";
+"The ZTL is active, but motorbikes and scooters may enter." = "La ZTL está activa, pero las motos y los scooters pueden entrar.";
+"Motorbikes have their own Euro limits here. Check yours on the city's page." = "Aquí las motos tienen sus propios límites Euro. Comprueba la tuya en la página del ayuntamiento.";
+"Motorbikes and scooters may enter" = "Las motos y los scooters pueden entrar";
 "Euro %lld" = "Euro %lld";
 "The Euro class is on the registration document, field V.9." = "La clase Euro figura en el permiso de circulación, campo V.9.";
 "Euro class suggested from the year. Check it on the registration document, field V.9." = "Clase Euro deducida del año. Compruébala en el permiso de circulación, campo V.9.";

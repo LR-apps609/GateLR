@@ -351,7 +351,8 @@ zone_a = {"id": "padova-a", "name": "Zona A · Historic Centre", "name_it": "Zon
           "kind": "restricted", "summary": SUMMARY_A[0], "summary_it": SUMMARY_A[1], "summary_de": SUMMARY_A[2],
           "perimeter": osm_geo.perimeter(ring_ztl, tol_m=4), "gates": gate_list("pd-a", GATES_A),
           "windows": [window(MON_SAT, 8 * 60, 23 * 60 + 30), window(SUN, 14 * 60, 23 * 60 + 30)],
-          "freeOnHolidays": False, "holidaysAsSunday": True, "exemptFuels": [], "hotelCanRegister": True,
+          # «…consentita esclusivamente ai velocipedi, ciclomotori, motoveicoli a due e tre ruote…» (ordinanza 2023/62/0437)
+          "freeOnHolidays": False, "holidaysAsSunday": True, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": True,
           "source": source(ZTL_PAGE, QUOTE_A, ("ZONE A: working days 8:00–23:30; holidays: 14:00–23:30",
                                                "ZONE A: Werktage 8:00–23:30; Feiertage: 14:00–23:30"),
                            ZTL_LINKS + [OSM_LINK], ZTL_PENDING + A_PENDING,
@@ -360,7 +361,7 @@ zone_b = {"id": "padova-b", "name": "Zona B · Squares and Riverside", "name_it"
           "kind": "restricted", "summary": SUMMARY_B[0], "summary_it": SUMMARY_B[1], "summary_de": SUMMARY_B[2],
           "perimeter": osm_geo.perimeter(ring_b, tol_m=4), "gates": gate_list("pd-b", GATES_B),
           "windows": [window(EVERY_DAY, 0, 24 * 60)],
-          "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True,
+          "freeOnHolidays": False, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": True,
           "source": source(ZTL_PAGE, QUOTE_B, ("ZONE B: working days and holidays 00:00–24:00",
                                                "ZONE B: Werktage und Feiertage 00:00–24:00"),
                            ZTL_LINKS + [OSM_LINK], B_PENDING + ZTL_PENDING,

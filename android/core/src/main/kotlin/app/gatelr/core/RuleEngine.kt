@@ -57,11 +57,20 @@ class RuleEngine(
         if (mine.any { it.status == Permit.Status.CONFIRMED }) {
             return Answer(Verdict.Yes(L("The ZTL is active, but your permit covers this vehicle.")), true, next)
         }
+        // Prima il tipo di veicolo, poi alimentazione e classe Euro (come Sources/RuleEngine.swift)
+        if (zone.exempts(vehicle)) {
+            return Answer(Verdict.Yes(L("The ZTL is active, but motorbikes and scooters may enter.")), true, next)
+        }
         if (vehicle.fuel in zone.exemptFuels) {
             return Answer(Verdict.Yes(F("The ZTL is active, but %@ vehicles may enter.", vehicle.fuel.label.lowercase())), true, next)
         }
         if (mine.any { it.status == Permit.Status.WAITING }) {
             return Answer(Verdict.Conditional(L("The ZTL is active."), L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")), true, next)
+        }
+        // I divieti per classe Euro sono scritti per le auto: le moto hanno limiti loro
+        if (vehicle.kind == VehicleType.MOTORCYCLE && zone.bans != null) {
+            return Answer(Verdict.Conditional(if (zone.type == ZoneKind.GREEN) L("The low-emission zone is active.") else L("The ZTL is active."),
+                L("Motorbikes have their own Euro limits here. Check yours on the city's page.")), true, next)
         }
         if (zone.ban(vehicle, at) != null) {
             return Answer(Verdict.No(F("%@ Euro %lld cars can't enter this zone while it's active, not even with a ticket. A few free days a year may apply: see the city's page.",
@@ -123,9 +132,7 @@ class RuleEngine(
 
     private fun inSeason(w: TimeWindow, d: ZonedDateTime): Boolean {
         val s = w.season ?: return true
-        val md = d.monthValue * 100 + d.dayOfMonth
-        val from = s.fromMonth * 100 + s.fromDay; val to = s.toMonth * 100 + s.toDay
-        return if (from <= to) md in from..to else md >= from || md <= to
+        return s.contains(d.toLocalDate())
     }
 
     /** I soli istanti in cui lo stato può cambiare: inizio e fine delle fasce e le mezzanotti */

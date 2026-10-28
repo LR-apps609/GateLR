@@ -194,6 +194,12 @@ T = {
 "Your car (%@ Euro %lld) is allowed in this low-emission zone.": ("La tua auto (%@ Euro %lld) può entrare in questa zona a basse emissioni.", "Dein Auto (%@ Euro %lld) darf in diese Umweltzone."),
 # 0.7 Garage
 "Make": ("Marca", "Marke"), "Year": ("Anno", "Baujahr"), "Car": ("Auto", "Auto"), "Emissions": ("Emissioni", "Emissionen"),
+# Moto e scooter (1.17.1)
+'Motorbike / scooter': ('Moto / scooter', 'Motorrad / Roller'),
+'Vehicle type': ('Tipo di veicolo', 'Fahrzeugtyp'),
+'The ZTL is active, but motorbikes and scooters may enter.': ('La ZTL è attiva, ma moto e scooter possono entrare.', 'Die ZTL ist aktiv, aber Motorräder und Roller dürfen einfahren.'),
+"Motorbikes have their own Euro limits here. Check yours on the city's page.": ('Qui le moto hanno limiti Euro loro. Controlla la tua sulla pagina del Comune.', 'Für Motorräder gelten hier eigene Euro-Grenzen. Prüfe deins auf der Seite der Stadt.'),
+'Motorbikes and scooters may enter': ('Moto e scooter possono entrare', 'Motorräder und Roller dürfen hinein'),
 "Euro %lld": ("Euro %lld", "Euro %lld"),
 "The Euro class is on the registration document, field V.9.": ("La classe Euro è sul libretto di circolazione, campo V.9.", "Die Euro-Klasse steht im Fahrzeugschein, Feld V.9."),
 "Euro class suggested from the year. Check it on the registration document, field V.9.": ("Classe Euro proposta dall'anno. Controllala sul libretto, campo V.9.", "Euro-Klasse aus dem Baujahr vorgeschlagen. Prüfe sie im Fahrzeugschein, Feld V.9."),

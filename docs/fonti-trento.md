@@ -26,3 +26,6 @@ Procedura hotel/B&B e parcheggio Ex-SIT; nessun ticket per visitatori; elettrich
 - Si usa la relazione OSM **19186663** «ZTL Centro Storico» (`boundary=limited_traffic_zone`, `source=Comune di Trento`, `source:website` = pagina di download del Comune; versione 1 del 28/05/2025), scaricata il 27/10/2026 con `Tools/fetch_osm_api.py` (riquadro 46.062–46.076 N, 11.113–11.131 E) → `data/raw/geo/trento-ztl.json` (© OpenStreetMap contributors, ODbL 1.0). 0,33 km².
 - Controllo con gli elenchi ufficiali: 87 vie della ZTL-CS e della ZTL-P trovate in OSM (stesso tipo e stessa ultima parola del nome), nessuna fuori dal perimetro (tolleranza 25 m); piazza della Mostra (estensione 2023) e piazza Duomo dentro; stazione FS e piazza Dante fuori.
 - Varchi: i 7 varchi in entrata dell'art. 4 del Disciplinare, all'incrocio OSM delle due vie indicate (nodo in comune, altrimenti punto medio dei punti più vicini), entro 40 m dal bordo.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: per moto e ciclomotori cambia solo l'esposizione del permesso (*"Da tale obbligo sono esclusi motocicli e ciclomotori, che devono dimostrare di essere in possesso dell'autorizzazione"*) → «Non entrare».

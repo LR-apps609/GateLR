@@ -44,7 +44,9 @@ fun TimeWindow.text(): String {
     val dayText = if (days.size == 7) L("Every day") else runs.joinToString(", ") { r -> if (r.size > 2) "${name(r.first())}–${name(r.last())}" else r.joinToString(", ") { name(it) } }
     fun hm(m: Int) = String.format("%d:%02d", (m / 60) % 24, m % 60)
     val hours = if (start == 0 && (end == 0 || end == 1440)) L("all day") else "${hm(start)}–${hm(end)}"
-    val when_ = season?.let { s -> " (${s.fromDay}/${s.fromMonth}–${s.toDay}/${s.toMonth})" } ?: ""
+    // Le date della stagione in corso o della prossima: con le regole («primo giovedì di aprile») cambiano ogni anno
+    val when_ = season?.let { s -> val (a, b) = s.shown(java.time.LocalDate.now(app.gatelr.core.RuleEngine.ROME))
+        " (${a.dayOfMonth}/${a.monthValue}–${b.dayOfMonth}/${b.monthValue})" } ?: ""
     return "$dayText · $hours$when_"
 }
 

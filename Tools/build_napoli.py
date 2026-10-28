@@ -339,6 +339,12 @@ def build():
         z["perimeter"] = official.get(z["id"]) or osm_perims.get(z["id"], [])
         z["gates"] = sorted(osm_gates.get(z["id"], []), key=lambda g: (g["name"], g["id"]))
         z["exemptFuels"] = []
+        # Moto e scooter: liberi nella Tarsia («consentito l’accesso a tutti i ciclomotori e ai motoveicoli», via Brombeis è
+        # area pedonale a parte) e nella Morelli («C1) motoveicoli e ciclomotori» tra chi può circolare). NON nel Centro Antico:
+        # il perimetro comprende Mezzocannone, dove «Non possono circolare i ciclomotori e i motoveicoli»; né nella Belledonne
+        # (la pagina non ne parla)
+        if z["id"] in ("napoli-tarsia", "napoli-morelli"):
+            z["exemptVehicleTypes"] = ["motorcycle"]
         s = z["source"]
         if is_official:
             for key, i in (("pending", 0), ("pending_it", 1), ("pending_de", 2)):
@@ -350,7 +356,7 @@ def build():
         else:
             print("zona senza perimetro, esclusa:", z["id"])
     order = ["id", "name", "name_it", "name_de", "kind", "summary", "summary_it", "summary_de", "perimeter", "gates",
-             "windows", "freeOnHolidays", "holidaysAsSunday", "exemptFuels", "hotelCanRegister", "source"]
+             "windows", "freeOnHolidays", "holidaysAsSunday", "exemptFuels", "exemptVehicleTypes", "hotelCanRegister", "source"]
     return [{k: z[k] for k in order if k in z} for z in kept], len(out)
 
 

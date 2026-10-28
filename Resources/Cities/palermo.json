@@ -681,6 +681,9 @@
    ],
    "freeOnHolidays": true,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "ticket": {
     "price": 5.0,

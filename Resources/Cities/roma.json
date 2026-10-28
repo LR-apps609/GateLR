@@ -574,6 +574,9 @@
    ],
    "freeOnHolidays": true,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "Roma Servizi per la Mobilità",
@@ -1256,6 +1259,9 @@
    ],
    "freeOnHolidays": true,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "Roma Servizi per la Mobilità",
@@ -1680,6 +1686,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": false,
    "source": {
     "authority": "Roma Servizi per la Mobilità",
@@ -1939,6 +1948,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": false,
    "source": {
     "authority": "Roma Servizi per la Mobilità",
@@ -2194,6 +2206,9 @@
    ],
    "freeOnHolidays": true,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": false,
    "source": {
     "authority": "Roma Servizi per la Mobilità",

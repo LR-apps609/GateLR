@@ -34,3 +34,6 @@ Festivi: nei festivi vale l'orario della domenica → `holidaysAsSunday: true`, 
 
 ## Da verificare (`pending`)
 Testo delle ordinanze 189 e 292/2026; orario invernale 2026–27 (atteso a dicembre); elettriche, moto, disabili; multa; feste; perimetro ufficiale.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: le moto sono fermate ai varchi come le auto → «Non entrare».

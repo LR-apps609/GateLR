@@ -57,11 +57,21 @@ struct RuleEngine {
         if mine.contains(where: { $0.status == .confirmed }) {
             return Answer(verdict: .yes(reason: L("The ZTL is active, but your permit covers this vehicle.")), gatesOn: true, nextChange: next)
         }
+        // Prima il tipo di veicolo, poi alimentazione e classe Euro (lo stesso ordine nel sito e su Android)
+        if zone.exempts(vehicle) {
+            return Answer(verdict: .yes(reason: L("The ZTL is active, but motorbikes and scooters may enter.")), gatesOn: true, nextChange: next)
+        }
         if zone.exemptFuels.contains(vehicle.fuel) {
             return Answer(verdict: .yes(reason: String(format: L("The ZTL is active, but %@ vehicles may enter."), vehicle.fuel.label.lowercased())), gatesOn: true, nextChange: next)
         }
         if mine.contains(where: { $0.status == .waiting }) {
             return Answer(verdict: .conditional(reason: L("The ZTL is active."), condition: L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")),
+                          gatesOn: true, nextChange: next)
+        }
+        // I divieti per classe Euro sono scritti per le auto: le moto hanno limiti loro, che GateLR non ha
+        if vehicle.kind == .motorcycle && zone.bans != nil {
+            return Answer(verdict: .conditional(reason: zone.type == .green ? L("The low-emission zone is active.") : L("The ZTL is active."),
+                                                condition: L("Motorbikes have their own Euro limits here. Check yours on the city's page.")),
                           gatesOn: true, nextChange: next)
         }
         if zone.ban(for: vehicle, at: date) != nil {
@@ -164,9 +174,8 @@ struct RuleEngine {
 
     private func inSeason(_ w: TimeWindow, _ date: Date) -> Bool {
         guard let s = w.season else { return true }
-        let md = calendar.component(.month, from: date) * 100 + calendar.component(.day, from: date)
-        let from = s.fromMonth * 100 + s.fromDay, to = s.toMonth * 100 + s.toDay
-        return from <= to ? (md >= from && md <= to) : (md >= from || md <= to)
+        let c = calendar.dateComponents([.year, .month, .day], from: date)
+        return s.contains(year: c.year ?? 2026, month: c.month ?? 1, day: c.day ?? 1)
     }
 
     func describe(_ date: Date, from ref: Date) -> String {

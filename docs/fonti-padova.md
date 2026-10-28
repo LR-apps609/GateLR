@@ -75,3 +75,6 @@ Nota: `Tools/check_sources.py` confronta l'HTML delle pagine, ma per Padova l'HT
 - Antismog: livelli arancio e rosso (decisi da ARPAV lunedì, mercoledì e venerdì) non sono nella scheda; vie escluse (tangenziali, zona industriale…) non sono tolte dal perimetro; la stagione 2027/2028 avrà date nuove (e forse il diesel Euro 5).
 - Domeniche ecologiche: le date valgono solo per la stagione 2026/2027; il perimetro è approssimato.
 - Hotel: la registrazione è "per ogni giorno di transito"; non è chiaro se vale anche per la Zona B e le aree pedonali delle Piazze (il disciplinare parla di ZTL o aree pedonali): chiedere a zonablu@comune.padova.it (049 2010066).
+
+## Moto e scooter (1.17.1)
+`exemptVehicleTypes: ["motorcycle"]` su `padova-a` e `padova-b`: *"La circolazione all'interno di tale area è consentita esclusivamente ai velocipedi, ciclomotori, motoveicoli a due e tre ruote, nonché ai veicoli autorizzati"* (ordinanza 2023/62/0437). Domeniche ecologiche no (*"E' vietata la circolazione dei veicoli e dei ciclomotori a motore"*) → «Non entrare». Antismog: per le moto valgono limiti loro (*"motoveicoli e ciclomotori (categoria L) Euro 0 e Euro 1"*) → «a una condizione: controlla la tua sul sito del Comune».

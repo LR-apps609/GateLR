@@ -26,3 +26,6 @@ Incrocio OpenStreetMap: via Cattedrale `motor_vehicle=permit`, `motor_vehicle:co
 - Area (`osm_geo.street_area`, celle 6 m, chiusura 45 m, buchi riempiti; 0,086 km²): il borgo antico racchiuso da viale Oronzo Quaranta (way 81082631, 260475467, 777774751) e via Montegrappa (469078013, 477749231, 477749232), chiuso a sud da via Francesco Tanzarella Vitale (77244730), il primo tratto di via Cattedrale (1098789290), via Anna Carmignano (316414278) e via Francesco Cavallo (471740016).
 - Varchi: telecamera OSM di via Cattedrale; inizio di via Francesco Cavallo; estremo sud-ovest di via Montegrappa; punto di via Francesco Vitale più vicino al bordo (incrocio con viale O. Quaranta).
 - Controlli: via Cattedrale alta, largo Arcidiacono Teodoro Trinchera, via Petrarolo, via Brancasi dentro; piazza della Libertà, corso Mazzini, via Roma, via Giosuè Pinto (est) fuori.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: la fonte dice *vietato anche a moto e ciclomotori* (vedi sopra) → con «Moto / scooter» la risposta resta «Non entrare».

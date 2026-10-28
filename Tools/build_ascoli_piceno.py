@@ -410,7 +410,9 @@ for key, zid, (en, it, de), places in ZDEF:
          "summary": lead[0] + s[0], "summary_it": lead[1] + s[1], "summary_de": lead[2] + s[2],
          "perimeter": shape, "gates": gates,
          "windows": AMPIA_WINDOWS if kind == "ampia" else RIDOTTA_WINDOWS,
-         "freeOnHolidays": False, "holidaysAsSunday": kind == "ridotta", "exemptFuels": [], "hotelCanRegister": True,
+         "freeOnHolidays": False, "holidaysAsSunday": kind == "ridotta", "exemptFuels": [],
+         # «I motoveicoli e i ciclomotori sono sempre autorizzati a transitare nelle sole Zone a Traffico Limitato» (regolamento)
+         "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": True,
          "source": source(Q_AMPIA, *TR_AMPIA, "Deliberazione di Giunta n. 37/2023 (regolamento ZTL e APU) e ordinanza dirigenziale n. 220/2023", D37, PAGE,
                           AMPIA_PENDING + COMMON_PENDING) if kind == "ampia" else
          source(Q_RIDOTTA, *TR_RIDOTTA, "Ordinanza dirigenziale n. 713 del 30/10/2025", O713, O713_PAGE, RIDOTTA_PENDING + COMMON_PENDING)}

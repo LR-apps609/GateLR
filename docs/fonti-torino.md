@@ -87,3 +87,6 @@ I dati aperti ufficiali (5T «Perimetro, varchi e orari ZTL», geoportale «Zone
 - Sostituire perimetri e varchi con i dati 5T/geoportale (CC BY 4.0) quando si potranno scaricare.
 - Aggiungere Valentino, Monte dei Cappuccini e Borgo Campidoglio.
 - `Tools/fetch_geo.py` (blocco «Torino») scarica ancora le pagine del Comune e di GTT, ma `build_torino.py` non le usa più. Se un giorno arrivano, conviene confrontarle con le trascrizioni.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione nel modello: GTT esenta moto e ciclomotori solo *"se Euro 1, a 4 tempi"* (e non nell'Area Romana); GateLR non conosce il tipo di motore, quindi la risposta resta quella delle auto («Non entrare» a ZTL attiva). Da rivedere se arriva un campo per le condizioni.

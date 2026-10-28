@@ -40,3 +40,6 @@ Patrono (Sant'Abbondio, 31 agosto): non serve con 0–24 tutti i giorni.
 - Controlli nel builder: tutte le 60 vie dell'elenco ufficiale trovate in OSM (tranne «via Ballerini», assente, e viale Battisti, in ZTL solo per il viale alberato del mercato) hanno almeno un tratto dentro il perimetro; l'area coperta da quelle vie (osm_geo.street_area) cade per il 95% dentro il perimetro (via Garibaldi e via Grassi proseguono oltre i varchi) e il perimetro è 1,29 volte quell'area; confronto visivo con la planimetria ufficiale. Duomo, San Fedele, piazza Cavour e parcheggio Arena dentro; stazione San Giovanni, Tempio Voltiano, Novosilo di via Sirtori fuori.
 - Varchi: per ogni via dell'elenco ufficiale dei varchi, il nodo OSM di quella via più vicino al bordo (tutti entro 7 m, via Rodari 67 m: il varco è all'imbocco da piazza Verdi); non sono posizioni rilevate delle telecamere (in OSM non ci sono telecamere ZTL etichettate).
 - Aree pedonali: contorni OSM di piazza Volta (way 547472905), piazza Cavour (relazione 7819572), piazza Grimoldi (way 429693158), piazza Duomo (relazione 10961938).
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: moto e ciclomotori entrano senza formalità solo per raggiungere i parcheggi a loro riservati, per la via più breve → «Non entrare» (nota nel riassunto).

@@ -24,3 +24,6 @@ OpenStreetMap: nessuna relazione ZTL/APU, nessun tag `*:conditional` nel borgo a
 - Area (`osm_geo.street_area`, celle 5 m, chiusura 25 m, 0,020 km²): le strade OSM con nome del borgo antico comprese tra l'Arco Marchesale (way 166622037) e piazza Santa Maria delle Grazie (way 103204028), cioè a nord della linea che unisce i due luoghi (33 m di margine verso sud) e tra le loro longitudini, escluse via Muraglia, piazza Garibaldi e le strade fuori dal borgo; più via Tritone (way 58523641) fino a via Narciso.
 - Varco: centro della way «Arco Marchesale».
 - Controlli: piazza Vittorio Emanuele II, Chiesa Matrice, Torre dell'Orologio, piazza Santa Maria delle Grazie dentro; piazza Garibaldi, piazza Aldo Moro, Lama Monachile, via Narciso (tratto sud) fuori.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: *"Il divieto al transito nella APU di Polignano a Mare è valido per ogni tipologia di veicolo e pertanto ciclomotori e motoveicoli non possono eccedere se non espressamente autorizzati."* → «Non entrare».

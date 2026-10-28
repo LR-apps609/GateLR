@@ -19,7 +19,7 @@ struct GarageView: View {
                 }
                 ForEach(store.vehicles) { v in
                     HStack(spacing: 12) {
-                        Image(systemName: "car.fill")
+                        Image(systemName: v.kind.symbol)
                             .foregroundStyle(v.id == store.vehicle.id ? Theme.blue : Theme.muted)
                             .frame(width: 44, height: 44)
                             .background(v.id == store.vehicle.id ? Theme.blueSoft : Theme.ground, in: RoundedRectangle(cornerRadius: 12))
@@ -90,10 +90,10 @@ struct GarageView: View {
 }
 
 extension GarageView {
-    /// «Fiat Panda · Benzina · Euro 6 · AB123CD»
+    /// «Fiat Panda · Benzina · Euro 6 · AB123CD»; per le moto «Moto / scooter · Honda SH 125 · Benzina · Euro 5»
     static func subtitle(_ v: Vehicle) -> String {
         let car: String = [v.make ?? "", v.model].filter { !$0.isEmpty }.joined(separator: " ")
-        let parts: [String] = [car, v.fuel.label, "Euro \(v.euro)", v.plate]
+        let parts: [String] = [v.kind == .motorcycle ? v.kind.label : "", car, v.fuel.label, "Euro \(v.euro)", v.plate]
         return parts.filter { !$0.isEmpty }.joined(separator: " · ")
     }
 }
@@ -126,6 +126,13 @@ struct VehicleForm: View {
                     }
                 }
                 Section {
+                    // Auto o moto: nelle ZTL che lasciano entrare le due ruote la risposta cambia
+                    Picker(L("Vehicle type"), selection: Binding(get: { vehicle.kind }, set: { vehicle.type = $0 })) {
+                        ForEach(VehicleType.allCases) { Text($0.label).tag($0) }
+                    }
+                    .pickerStyle(.segmented)
+                    .accessibilityIdentifier("vehicle.type")
+                    .onChange(of: vehicle.type) { if let y = vehicle.year, filled?.year != y { vehicle.euro = CarCatalog.euro(forYear: y, type: vehicle.kind) } }
                     TextField(L("Name (e.g. Rental car)"), text: $vehicle.name)
                     TextField(L("Plate"), text: $vehicle.plate).textInputAutocapitalization(.characters).autocorrectionDisabled()
                     // Subito sotto la targa (accanto, nel campo stretto, la scritta si tagliava)
@@ -133,22 +140,28 @@ struct VehicleForm: View {
                     Toggle(L("Rental car"), isOn: $vehicle.isRental)
                 }
                 Section {
-                    Picker(L("Make"), selection: $vehicle.make) {
-                        Text("–").tag(String?.none)
-                        ForEach(CarCatalog.makes, id: \.make) { Text($0.make).tag(Optional($0.make)) }
-                        if let m = vehicle.make, !CarCatalog.makes.contains(where: { $0.make == m }) { Text(m).tag(Optional(m)) }
-                    }
-                    .pickerStyle(.navigationLink)
-                    .onChange(of: vehicle.make) { vehicle.model = filled?.make == vehicle.make ? (filled?.model ?? "") : "" }
-                    if !models.isEmpty {
-                        Picker(L("Model"), selection: $vehicle.model) {
-                            Text("–").tag("")
-                            ForEach(models, id: \.self) { Text($0).tag($0) }
-                            if !vehicle.model.isEmpty && !models.contains(vehicle.model) { Text(vehicle.model).tag(vehicle.model) }
+                    if vehicle.kind == .motorcycle {
+                        // L'elenco di marche e modelli è per le auto: per moto e scooter si scrivono
+                        TextField(L("Make"), text: Binding(get: { vehicle.make ?? "" }, set: { vehicle.make = $0.isEmpty ? nil : $0 }))
+                        TextField(L("Model"), text: $vehicle.model)
+                    } else {
+                        Picker(L("Make"), selection: $vehicle.make) {
+                            Text("–").tag(String?.none)
+                            ForEach(CarCatalog.makes, id: \.make) { Text($0.make).tag(Optional($0.make)) }
+                            if let m = vehicle.make, !CarCatalog.makes.contains(where: { $0.make == m }) { Text(m).tag(Optional(m)) }
                         }
                         .pickerStyle(.navigationLink)
-                    } else {
-                        TextField(L("Model"), text: $vehicle.model)
+                        .onChange(of: vehicle.make) { vehicle.model = filled?.make == vehicle.make ? (filled?.model ?? "") : "" }
+                        if !models.isEmpty {
+                            Picker(L("Model"), selection: $vehicle.model) {
+                                Text("–").tag("")
+                                ForEach(models, id: \.self) { Text($0).tag($0) }
+                                if !vehicle.model.isEmpty && !models.contains(vehicle.model) { Text(vehicle.model).tag(vehicle.model) }
+                            }
+                            .pickerStyle(.navigationLink)
+                        } else {
+                            TextField(L("Model"), text: $vehicle.model)
+                        }
                     }
                     Picker(L("Year"), selection: $vehicle.year) {
                         Text("–").tag(Int?.none)
@@ -156,9 +169,9 @@ struct VehicleForm: View {
                     }
                     .onChange(of: vehicle.year) {
                         if let f = filled, f.year == vehicle.year { vehicle.euro = f.euro }
-                        else if let y = vehicle.year { vehicle.euro = CarCatalog.euro(forYear: y) }
+                        else if let y = vehicle.year { vehicle.euro = CarCatalog.euro(forYear: y, type: vehicle.kind) }
                     }
-                } header: { Text("Car") }
+                } header: { Text(vehicle.kind == .motorcycle ? L("Motorbike / scooter") : L("Car")) }
                 Section {
                     Picker(L("Fuel"), selection: $vehicle.fuel) { ForEach(Fuel.allCases) { Text($0.label).tag($0) } }
                     Stepper(String(format: L("Euro %lld"), vehicle.euro), value: $vehicle.euro, in: 0...7)
@@ -197,6 +210,7 @@ struct VehicleForm: View {
         vehicle.year = v.year
         vehicle.fuel = v.fuel
         vehicle.euro = v.euro
+        if let t = v.type { vehicle.type = t }
         if v.isRental { vehicle.isRental = true }
     }
 }
@@ -241,10 +255,14 @@ struct CarAdvice: View {
     nonisolated static func lines(for v: Vehicle, cities: [City], at date: Date = Date()) -> [Line] {
         cities.flatMap { city in
             city.zones.compactMap { z -> Line? in
+                if z.exempts(v) {
+                    return Line(city: city.localizedName, zone: z.shortName, text: L("Motorbikes and scooters may enter"), ok: true)
+                }
                 if z.exemptFuels.contains(v.fuel) {
                     return Line(city: city.localizedName, zone: z.shortName, text: String(format: L("%@ cars may enter"), v.fuel.label), ok: true)
                 }
-                guard z.bans != nil else { return nil }
+                // Per le moto i divieti per classe Euro delle auto non valgono (Zone.ban)
+                guard z.bans != nil, v.kind == .car else { return nil }
                 if z.ban(for: v, at: date) != nil {
                     return Line(city: city.localizedName, zone: z.shortName, text: L("Your car can't enter while it's active"), ok: false)
                 }

@@ -4,6 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import java.time.Instant
+import java.time.LocalDate
 
 // I dati di GateLR: gli stessi file JSON delle città dell'app iPhone (Resources/Cities).
 
@@ -57,6 +58,8 @@ data class Zone(
     val windows: List<TimeWindow>,
     val freeOnHolidays: Boolean? = null,
     val exemptFuels: Set<Fuel> = emptySet(),
+    /** Dalla 1.17.1 (iPhone): i tipi di veicolo che entrano sempre, es. ["motorcycle"]. Stringhe, così un tipo nuovo non rompe la lettura */
+    val exemptVehicleTypes: List<String>? = null,
     val hotelCanRegister: Boolean,
     val ticket: Ticket? = null,
     val bans: List<EuroBan>? = null,
@@ -90,13 +93,18 @@ data class Zone(
         return perimeter.minOfOrNull { kotlin.math.hypot((it.lat - lat) * 111_000, (it.lon - lon) * 111_000 * k) } ?: Double.POSITIVE_INFINITY
     }
 
-    /** Il divieto per classe Euro che ferma questa auto a quella data, se c'è */
+    /** Questo tipo di veicolo entra sempre (es. moto e scooter dove il Comune dice «eccetto veicoli a due ruote») */
+    fun exempts(vehicle: Vehicle): Boolean = vehicle.kind.raw in exemptVehicleTypes.orEmpty()
+
+    /** Il divieto per classe Euro che ferma questa auto a quella data, se c'è (le classi sono quelle delle auto: per le moto nessuno) */
     fun ban(vehicle: Vehicle, at: Instant): EuroBan? {
+        if (vehicle.kind != VehicleType.CAR) return null
         val group = vehicle.fuel.banGroup ?: return null
         return bans.orEmpty().filter { it.fuel == group && vehicle.euro <= it.maxEuro && !it.date.isAfter(at) }.maxByOrNull { it.date }
     }
 
     fun nextBan(vehicle: Vehicle, after: Instant): EuroBan? {
+        if (vehicle.kind != VehicleType.CAR) return null
         val group = vehicle.fuel.banGroup ?: return null
         return bans.orEmpty().filter { it.fuel == group && vehicle.euro <= it.maxEuro && it.date.isAfter(after) }.minByOrNull { it.date }
     }
@@ -115,8 +123,51 @@ data class TimeWindow(
     val end: Int,                // se < start, finisce il giorno dopo
     val season: Season? = null,
 ) {
+    /** Dal giorno «from» al giorno «to» compresi. Date fisse per tutte le versioni; dalla 1.17.1 (iPhone) un estremo può
+     *  essere una regola («dal primo giovedì di aprile alla prima domenica di ottobre») che vince sulle date fisse.
+     *  Le date fisse restano, larghe, per le app più vecchie (Tools/seasons.py) */
     @Serializable
-    data class Season(val fromMonth: Int, val fromDay: Int, val toMonth: Int, val toDay: Int)
+    data class Season(val fromMonth: Int, val fromDay: Int, val toMonth: Int, val toDay: Int,
+                      val from: DayRule? = null, val to: DayRule? = null) {
+        /** month 1…12, weekday 1 = domenica … 7 = sabato, nth 1…5 o -1 = l'ultimo, offset in giorni */
+        @Serializable
+        data class DayRule(val month: Int, val weekday: Int, val nth: Int, val offset: Int? = null) {
+            fun day(year: Int): LocalDate? {
+                if (month !in 1..12 || weekday !in 1..7 || nth == 0 || nth !in -5..5) return null
+                val first = LocalDate.of(year, month, 1)
+                val length = first.lengthOfMonth()
+                fun wd(d: LocalDate) = d.dayOfWeek.value % 7 + 1
+                val d = if (nth > 0) 1 + Math.floorMod(weekday - wd(first), 7) + (nth - 1) * 7
+                        else length - Math.floorMod(wd(first.withDayOfMonth(length)) - weekday, 7) + (nth + 1) * 7
+                if (d !in 1..length) return null
+                return first.withDayOfMonth(d).plusDays((offset ?: 0).toLong())
+            }
+        }
+
+        /** Primo e ultimo giorno nell'anno dato (mese * 100 + giorno) */
+        fun bounds(year: Int): Pair<Int, Int> {
+            val a = from?.day(year)?.let { it.monthValue * 100 + it.dayOfMonth } ?: (fromMonth * 100 + fromDay)
+            val b = to?.day(year)?.let { it.monthValue * 100 + it.dayOfMonth } ?: (toMonth * 100 + toDay)
+            return a to b
+        }
+
+        fun contains(d: LocalDate): Boolean {
+            val (a, b) = bounds(d.year)
+            val md = d.monthValue * 100 + d.dayOfMonth
+            return if (a <= b) md in a..b else md >= a || md <= b
+        }
+
+        /** Le date da mostrare il giorno dato: la stagione in corso o, se è già finita, la prossima */
+        fun shown(today: LocalDate): Pair<LocalDate, LocalDate> {
+            var y = today.year
+            var (a, b) = bounds(y)
+            val md = today.monthValue * 100 + today.dayOfMonth
+            if (a <= b && md > b) { y += 1; val n = bounds(y); a = n.first; b = n.second }
+            val fromYear = if (a <= b) y else if (md > b) y else y - 1
+            val toYear = if (a <= b) y else if (md > b) y + 1 else y
+            return LocalDate.of(fromYear, a / 100, a % 100) to LocalDate.of(toYear, b / 100, b % 100)
+        }
+    }
 }
 
 @Serializable
@@ -214,7 +265,20 @@ data class Vehicle(
     val isRental: Boolean = false,
     val make: String? = null,
     val year: Int? = null,
-)
+    /** Auto o moto (dalla 1.17.1, come sull'iPhone). Assente = auto */
+    val type: VehicleType? = null,
+) {
+    val kind: VehicleType get() = type ?: VehicleType.CAR
+}
+
+@Serializable
+enum class VehicleType(val raw: String) {
+    @SerialName("car") CAR("car"),
+    /** Moto e scooter, ciclomotori compresi */
+    @SerialName("motorcycle") MOTORCYCLE("motorcycle");
+
+    val label: String get() = when (this) { CAR -> L("Car"); MOTORCYCLE -> L("Motorbike / scooter") }
+}
 
 @Serializable
 data class Permit(

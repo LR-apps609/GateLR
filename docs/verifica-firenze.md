@@ -36,7 +36,7 @@ Nell'app oggi: **giovedì, venerdì e sabato dalle 23 alle 3 del giorno dopo, da
 
 - [ ] Apri: [Comune di Firenze, 31 marzo 2026](https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/ztl-estiva-dal-primo-giovedi-di-aprile-torna-lo-stop-serale-2)
   Cerca: «dalle 23 di giovedì, venerdì e sabato alle 3 del giorno successivo» e «fino al 3 ottobre». Questo testo l'ho letto direttamente: è il punto più solido.
-- [ ] Per il **2027**: la data di inizio cambia (primo giovedì di aprile). Va aggiornata ogni anno; a marzo cercare il nuovo comunicato.
+- [x] Per il **2027** e gli anni dopo: dalla 1.17.1 la stagione è la regola del disciplinare («dal primo giovedì di aprile alla prima domenica di ottobre», `docs/fonti-firenze.md`), non va più aggiornata a mano. A marzo resta da controllare che la delibera dell'anno non cambi gli orari.
 
 ## 4. Perimetri dei settori
 

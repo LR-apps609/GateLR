@@ -29,4 +29,4 @@ Patrono San Geminiano (31 gennaio): con 0–24 non serve in `localHolidays`. Nes
 Perimetro **ufficiale**: open data del Comune di Modena, dataset «Zone a traffico limitato» (catalogo Regione Emilia-Romagna su dati.gov.it, modificato il 24/10/2026), WFS `Modena:Ztl_preview` (https://geonext.comune.modena.it/geoservernext//Modena/Ztl_preview/wfs), un poligono «Centro x 2000», scaricato in GeoJSON WGS84 → `ztl_perimetro.geojson`; semplificazione 2 m, 0,75 km². Controlli: Piazza Grande e Palazzo Ducale dentro, stazione e Parco Novi Sad fuori.
 
 ## Pending
-Varchi senza coordinate (nessun open data; OpenStreetMap non raggiungibile dal sandbox il 26/10/2026). Corsie riservate e aree pedonali non disegnate a parte. App: nessun tipo «moto», l'esenzione delle due ruote è solo nel testo.
+Varchi senza coordinate (nessun open data; OpenStreetMap non raggiungibile dal sandbox il 26/10/2026). Corsie riservate e aree pedonali non disegnate a parte. Moto e ciclomotori: dalla 1.17.1 `exemptVehicleTypes: ["motorcycle"]` (deroga B2: *"ai velocipedi, ciclomotori, motocicli nonché ai motoveicoli appartenenti alla categoria internazionale L5e"*).

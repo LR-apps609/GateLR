@@ -281,6 +281,8 @@ struct RentalPreset: Codable, Hashable, Identifiable {
     var model: String
     var fuels: [Fuel]
     var euro: Int
+    /// Assente = auto; «motorcycle» per gli scooter a noleggio (dalla 1.17.1)
+    var type: VehicleType? = nil
     var id: String { make + " " + model }
 }
 

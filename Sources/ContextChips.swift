@@ -46,7 +46,8 @@ enum TimeChoice {
 extension Vehicle {
     /// «Golf · benzina Euro 6» (le elettriche senza classe Euro)
     var chipLabel: String {
-        let car = name.isEmpty ? [make ?? "", model].filter { !$0.isEmpty }.joined(separator: " ") : name
+        var car = name.isEmpty ? [make ?? "", model].filter { !$0.isEmpty }.joined(separator: " ") : name
+        if car.isEmpty && kind == .motorcycle { car = kind.label }     // «Moto / scooter · benzina Euro 5»
         // In tedesco i nomi restano maiuscoli («Benzin»)
         let german = Locale.current.language.languageCode?.identifier == "de"
         let fuelText = german ? fuel.label : fuel.label.lowercased()
@@ -116,7 +117,7 @@ struct ContextChips: View {
                 newVehicle = v
             } label: { Label(L("Add a vehicle"), systemImage: "plus") }
         } label: {
-            chip(symbol: "car.fill", text: store.vehicle.chipLabel, highlighted: false)
+            chip(symbol: store.vehicle.kind.symbol, text: store.vehicle.chipLabel, highlighted: false)
         }
         .accessibilityLabel(String(format: L("Vehicle: %@"), store.vehicle.chipLabel))
         .accessibilityIdentifier("context.vehicle")

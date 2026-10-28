@@ -260,6 +260,9 @@
    "freeOnHolidays": false,
    "holidaysAsSunday": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Ascoli Piceno",
@@ -490,6 +493,9 @@
    "freeOnHolidays": false,
    "holidaysAsSunday": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Ascoli Piceno",
@@ -736,6 +742,9 @@
    "freeOnHolidays": false,
    "holidaysAsSunday": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Ascoli Piceno",
@@ -1110,6 +1119,9 @@
    "freeOnHolidays": false,
    "holidaysAsSunday": true,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Ascoli Piceno",
@@ -1336,6 +1348,9 @@
    "freeOnHolidays": false,
    "holidaysAsSunday": true,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Ascoli Piceno",

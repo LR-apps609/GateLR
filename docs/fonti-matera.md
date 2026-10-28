@@ -44,3 +44,6 @@ Nessun perimetro ufficiale scaricabile: il GeoJSON open data «ZTL_APU_MATERA_AG
 
 ## Da verificare (`pending`)
 Perimetri approssimativi (aree delle strade); orari serali 20:30–24 (tabella 2025) contro 20:30–2 (ordinanza 2021); regole per gli ospiti negli hotel dei Sassi; elettriche solo con permesso; moto.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: moto e ciclomotori senza autorizzazione solo per raggiungere gli stalli a loro riservati → «Non entrare».

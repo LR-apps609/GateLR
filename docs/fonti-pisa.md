@@ -65,3 +65,6 @@ Letture del **24–26/10/2026**. Scheda generata da `Tools/build_pisa.py` a part
 - `comune-pisa-search-ZTL-index.json`: indice dei 227 risultati della ricerca «ZTL» sul sito del Comune.
 
 Licenza dei contenuti del sito: CC BY 4.0, come dichiarato nei metadati dei documenti.
+
+## Moto e scooter (1.17.1)
+`exemptVehicleTypes: ["motorcycle"]` su Nord, Sud (*"VEICOLI A TRAZIONE ANIMALE, VELOCIPEDI, CICLOMOTORI, QUADRICICLI LEGGERI E MOTOCICLI"*, ord. 2386/2024 punto 1.1) e Lungarni (*"i veicoli a trazione animale, velocipedi, ciclomotori, quadricicli leggeri e motocicli sia consentito l'accesso, il transito e anche la sosta"*, ord. 2845/2024).

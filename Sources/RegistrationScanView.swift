@@ -146,7 +146,7 @@ struct RentalPresetsView: View {
                             if p.fuels.count == 1 { pick(p, p.fuels[0]) } else { chosen = p }
                         } label: {
                             HStack(spacing: 12) {
-                                Image(systemName: "car.fill").foregroundStyle(Theme.blue)
+                                Image(systemName: (p.type ?? .car).symbol).foregroundStyle(Theme.blue)
                                     .frame(width: 36, height: 36).background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 10))
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(p.id).font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink)
@@ -178,6 +178,7 @@ struct RentalPresetsView: View {
         var v = Vehicle(name: "", fuel: fuel, euro: p.euro)
         v.make = p.make
         v.model = p.model
+        v.type = p.type
         v.isRental = true
         onPick(v)
         dismiss()

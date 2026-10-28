@@ -13,6 +13,7 @@
 import json, re, unicodedata
 from pathlib import Path
 import osm_geo
+from seasons import season
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/bergamo"
@@ -22,9 +23,11 @@ AUTHORITY = "City of Bergamo"
 
 EVERY_DAY, MON_FRI, THU_SAT, SUN = [1, 2, 3, 4, 5, 6, 7], [2, 3, 4, 5, 6], [5, 6, 7], [1]
 # «dal giovedì successivo all'entrata in vigore dell'ora legale, al sabato precedente l'entrata in vigore dell'ora solare»:
-# l'ora legale cambia data ogni anno, le stagioni dell'app no. Teniamo il periodo più largo possibile (dal 29 marzo,
-# primo giovedì possibile, al 30 ottobre, ultimo sabato possibile): qualche sera in più segnata come accesa, mai una in meno.
-DST = {"fromMonth": 3, "fromDay": 29, "toMonth": 10, "toDay": 30}
+# l'ora legale comincia l'ultima domenica di marzo e finisce l'ultima domenica di ottobre, quindi dal giovedì dopo
+# l'ultima domenica di marzo (offset +4) al sabato prima dell'ultima domenica di ottobre (offset -1): nel 2026 dal 2 aprile
+# al 24 ottobre, nel 2027 dal 1° aprile al 30 ottobre. Regola dalla 1.17.1 (Tools/seasons.py); per le app più vecchie
+# restano le date più larghe possibili (29 marzo – 30 ottobre): qualche sera in più segnata come accesa, mai una in meno.
+DST = season({"month": 3, "weekday": 1, "nth": -1, "offset": 4}, {"month": 10, "weekday": 1, "nth": -1, "offset": -1})
 
 B = "https://www.comune.bergamo.it"
 LIST_PAGE = B + "/page:c_a794:zona.traffico.limitata;quali.sono.ztl"
@@ -163,18 +166,18 @@ ZONES = [
           "Le strade per Città Alta e i Colli sono chiuse la domenica e i festivi dalle 10 a mezzanotte e, con l'ora legale, il giovedì, venerdì e sabato sera dalle 21 all'1. Negli altri orari si sale liberamente (il centro storico dentro le mura resta chiuso). Anche a ZTL attiva si possono raggiungere i parcheggi di via Fara, Tre Armi e Porta Sant'Alessandro, ma solo dal varco di viale Vittorio Emanuele (rotonda Conca d'Oro). Le moto possono entrare.",
           "Die Straßen nach Città Alta und in die Hügel (Colli) sind sonn- und feiertags von 10 bis 24 Uhr gesperrt und während der Sommerzeit donnerstags, freitags und samstags von 21 bis 1 Uhr. Sonst frei befahrbar (die Altstadt innerhalb der Mauern bleibt gesperrt). Auch während der Sperre darf man zu den Parkplätzen Fara, Tre Armi und Porta Sant'Alessandro fahren, aber nur über die Kamera am Viale Vittorio Emanuele (Kreisverkehr Conca d'Oro). Motorräder dürfen hinein."),
          ["colli"], holidays=True,
-         extra_pending=[("Summer-time nights: the exact start and end move every year (Thursday after the clocks go forward, Saturday before they go back); GateLR uses 29 March–30 October, so a few extra nights may show as active.",
-                         "Sere con l'ora legale: inizio e fine cambiano ogni anno (giovedì dopo il passaggio all'ora legale, sabato prima del ritorno all'ora solare); GateLR usa 29 marzo–30 ottobre, quindi qualche sera in più può risultare attiva.",
-                         "Sommerzeit-Nächte: Beginn und Ende verschieben sich jedes Jahr (Donnerstag nach der Zeitumstellung im Frühjahr, Samstag vor der im Herbst); GateLR nimmt 29. März–30. Oktober, daher können einige Nächte zu viel als aktiv erscheinen."),
+         extra_pending=[("Summer-time nights: from the Thursday after the clocks go forward (last Sunday of March) to the Saturday before they go back (last Sunday of October): 2 April–24 October in 2026, 1 April–30 October in 2027. Older versions of the app use 29 March–30 October, so they may show a few extra nights as active.",
+                         "Sere con l'ora legale: dal giovedì dopo il passaggio all'ora legale (ultima domenica di marzo) al sabato prima del ritorno all'ora solare (ultima domenica di ottobre): nel 2026 dal 2 aprile al 24 ottobre, nel 2027 dal 1° aprile al 30 ottobre. Le versioni più vecchie dell'app usano 29 marzo–30 ottobre, quindi qualche sera in più può risultare attiva.",
+                         "Sommerzeit-Nächte: vom Donnerstag nach der Zeitumstellung im Frühjahr (letzter Sonntag im März) bis zum Samstag vor der im Herbst (letzter Sonntag im Oktober): 2. April–24. Oktober 2026, 1. April–30. Oktober 2027. Ältere App-Versionen nehmen 29. März–30. Oktober und zeigen daher einige Nächte zu viel als aktiv."),
                         ("Since 21 June 2026 Sundays and holidays are closed continuously 10–24 (the free 12–14 and 19–24 slots were removed). Older guides still show the old hours.",
                          "Dal 21 giugno 2026 domeniche e festivi sono chiusi senza interruzioni 10–24 (eliminate le fasce libere 12–14 e 19–24). Le guide più vecchie riportano ancora l'orario precedente.",
                          "Seit 21. Juni 2026 sind Sonn- und Feiertage durchgehend 10–24 Uhr gesperrt (die freien Zeiten 12–14 und 19–24 Uhr entfallen). Ältere Reiseführer zeigen noch die alten Zeiten."),
                         ("Car parks: drivers without a permit may reach only the three public car parks (Via Fara, Tre Armi, Porta Sant'Alessandro), entering only from the Viale Vittorio Emanuele gate (ATB, 31 Aug 2024). VisitBergamo (June 2026) adds that you must park within 30 minutes: confirmed only by VisitBergamo. GateLR still shows the zone as closed.",
                          "Parcheggi: chi non ha il permesso può raggiungere solo i tre parcheggi pubblici (via Fara, Tre Armi, Porta Sant'Alessandro), entrando solo dal varco di viale Vittorio Emanuele (ATB, 31/08/2024). VisitBergamo (giugno 2026) aggiunge l'obbligo di parcheggiare entro 30 minuti: confermato solo da VisitBergamo. GateLR mostra comunque la zona come chiusa.",
                          "Parkplätze: Ohne Genehmigung erreicht man nur die drei öffentlichen Parkplätze (Via Fara, Tre Armi, Porta Sant'Alessandro), Einfahrt nur über die Kamera am Viale Vittorio Emanuele (ATB, 31.08.2024). VisitBergamo (Juni 2026) nennt zusätzlich: innerhalb von 30 Minuten parken – nur von VisitBergamo bestätigt. GateLR zeigt die Zone trotzdem als gesperrt."),
-                        ("Motorbikes and mopeds may enter this zone without a permit (city permit rules); GateLR has no motorbike vehicle type.",
-                         "Moto e ciclomotori possono entrare in questa zona senza permesso (documento operativo del Comune); GateLR non ha un tipo di veicolo «moto».",
-                         "Motorräder und Mopeds dürfen ohne Genehmigung in diese Zone (städtische Regeln); GateLR kennt keinen Fahrzeugtyp Motorrad.")],
+                        ("Motorbikes and mopeds may enter this zone without a permit (city permit rules, point 13 j; ATB): with «Motorbike / scooter» in Garage GateLR answers yes. In the other ZTLs of Bergamo they need a permit.",
+                         "Moto e ciclomotori possono entrare in questa zona senza permesso (documento operativo del Comune, punto 13 j; ATB): con «Moto / scooter» nel Garage GateLR risponde sì. Nelle altre ZTL di Bergamo serve il permesso.",
+                         "Motorräder und Mopeds dürfen ohne Genehmigung in diese Zone (städtische Regeln, Punkt 13 j; ATB): mit «Motorrad / Roller» in der Garage antwortet GateLR mit Ja. In den anderen ZTL von Bergamo brauchen sie eine Genehmigung.")],
          extra_links=[link("City of Bergamo: from 21 June 2026 ZTL 10–24 on Sundays and holidays", "Comune di Bergamo: dal 21 giugno 2026 ZTL 10–24 domenica e festivi",
                            "Stadt Bergamo: ab 21. Juni 2026 ZTL 10–24 Uhr an Sonn- und Feiertagen", NEWS_HOLIDAYS)]),
     zone("bergamo-valverde", ("Valverde · below Porta San Lorenzo", "Valverde · sotto porta San Lorenzo", "Valverde · unterhalb der Porta San Lorenzo"),
@@ -356,6 +359,9 @@ for z in ZONES:
                "kind": "restricted", "summary": z["summary"][0], "summary_it": z["summary"][1], "summary_de": z["summary"][2],
                "perimeter": shape, "gates": [], "windows": z["windows"],
                "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True, "source": source(z)}
+        # «j) Ciclomotori e motocicli esclusivamente per la ZTL festiva e serale di Città Alta Colli» (documento operativo)
+        if z["zid"] == "bergamo-colli":
+            out["exemptVehicleTypes"] = ["motorcycle"]
         if z["holidays"]:
             out["holidaysAsSunday"] = True
         (zones if shape else skipped).append(out)

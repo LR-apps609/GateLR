@@ -63,3 +63,6 @@ Il Comune non pubblica dati aperti né una mappa con coordinate (dati.gov.it: ne
 4. le zone di una sola strada (via del Roscetto, Corso Bersaglieri, via Bontempi) sono l'area della strada;
 5. il varco è il primo nodo, nel senso di marcia, della strada d'accesso raggiungibile da fuori.
 Il fatto che dieci accessi bastino a chiudere un'area unica attorno all'acropoli conferma l'elenco. Controlli nello script: Piazza IV Novembre/Fontana Maggiore, Corso Vannucci e San Francesco al Prato dentro il centro storico; Corso Garibaldi dentro la sua zona e fuori dall'acropoli; stazione di Fontivegge fuori da tutte; area del centro storico tra 0,25 e 0,8 km² (risulta 0,43 km²).
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: senza permesso solo su itinerari fissi verso i parcheggi moto (regolamento, art. 30) → «Non entrare».

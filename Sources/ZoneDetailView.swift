@@ -197,8 +197,11 @@ struct ZoneDetailView: View {
             let season = w.season.map { s in
                 let f = DateFormatter(); f.setLocalizedDateFormatFromTemplate("d MMM")
                 let c = Calendar(identifier: .gregorian)
-                let a = c.date(from: DateComponents(year: 2026, month: s.fromMonth, day: s.fromDay))!
-                let b = c.date(from: DateComponents(year: 2026, month: s.toMonth, day: s.toDay))!
+                // Le date della stagione in corso o della prossima: con le regole («primo giovedì di aprile») cambiano ogni anno
+                let today = RuleEngine.rome.dateComponents([.year, .month, .day], from: Date())
+                let d = s.shown(year: today.year ?? 2026, month: today.month ?? 1, day: today.day ?? 1)
+                let a = c.date(from: DateComponents(year: d.from.year, month: d.from.month, day: d.from.day, hour: 12))!
+                let b = c.date(from: DateComponents(year: d.to.year, month: d.to.month, day: d.to.day, hour: 12))!
                 return " (\(f.string(from: a)) – \(f.string(from: b)))"
             } ?? ""
             let hours = w.start == 0 && w.end >= 24 * 60 ? L("all day") : "\(time(w.start)) – \(time(w.end))"

@@ -76,3 +76,6 @@ Festivi: le ZTL e le Isole valgono "dei giorni feriali e festivi" → `freeOnHol
 - Piazza Garibaldi (44.8015, 10.3280) e Duomo (44.8030, 10.3306) dentro la ZTL 1; Duomo dentro l'Isola Ambientale 1; strada Farini nella ZTL 2; piazzale Corridoni nella ZTL 3; via Sauro nell'Isola 2; piazza delle Barricate nell'Isola 3; str. Inzani nella sua Isola.
 - Stazione (44.8096, 10.3283) fuori da tutte le ZTL e le Isole (è al bordo della piccola ZTL Stazione) e dentro l'area PAIR; il Campus (44.7700, 10.3150) fuori dal contorno PAIR.
 - Ogni citazione presente nei file salvati; almeno l'88% delle vie di ciascuna Isola dentro il contorno calcolato.
+
+## Moto e scooter (1.17.1)
+`exemptVehicleTypes: ["motorcycle"]` su `parma-ztl-1`, `-2`, `-3` e `parma-ztl-stazione`: tra i veicoli *"autorizzati ad accedere alle ZTL, senza specifico permesso"* ci sono *"ciclomotori e motocicli"*, senza accreditamento (*"eccetto biciclette, ciclomotori, motocicli e veicoli di soccorso…"*) (OD-2024-65, punto 4). Isole ambientali no → «Non entrare». PAIR: limiti loro per le moto (*"ciclomotori e moto Euro 0–2"*) → «a una condizione».

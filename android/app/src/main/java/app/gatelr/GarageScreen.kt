@@ -49,6 +49,7 @@ import app.gatelr.core.Fuel
 import app.gatelr.core.L
 import app.gatelr.core.Permit
 import app.gatelr.core.Vehicle
+import app.gatelr.core.VehicleType
 import app.gatelr.core.carAdvice
 import java.time.Instant
 import java.time.ZoneId
@@ -74,7 +75,8 @@ fun GarageScreen(modifier: Modifier) {
                     Spacer(Modifier.width(12.dp))
                     Column(Modifier.weight(1f)) {
                         Text(v.name, fontWeight = FontWeight.SemiBold)
-                        Text(listOf(v.model, v.fuel.label, "Euro ${v.euro}", v.plate).filter { it.isNotBlank() }.joinToString(" · "), fontSize = 13.sp,
+                        Text(listOf(if (v.kind == VehicleType.MOTORCYCLE) v.kind.label else "", v.model, v.fuel.label, "Euro ${v.euro}", v.plate)
+                            .filter { it.isNotBlank() }.joinToString(" · "), fontSize = 13.sp,
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f))
                     }
                     TextButton(onClick = { editing = v }) { Text(L("Edit")) }
@@ -133,15 +135,22 @@ private fun VehicleDialog(v: Vehicle?, close: () -> Unit) {
     var euro by remember { mutableStateOf(v?.euro ?: 6) }
     var year by remember { mutableStateOf(v?.year?.toString() ?: "") }
     var rental by remember { mutableStateOf(v?.isRental ?: false) }
+    var type by remember { mutableStateOf(v?.kind ?: VehicleType.CAR) }
     AlertDialog(onDismissRequest = close,
         title = { Text(if (v == null) L("Add a car") else L("Edit")) },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                // Auto o moto: nelle ZTL che lasciano entrare le due ruote la risposta cambia
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    VehicleType.entries.forEach { t -> FilterChip(selected = type == t, onClick = {
+                        type = t; year.toIntOrNull()?.takeIf { it in 1950..2100 }?.let { euro = CarCatalog.euroForYear(it, t) }
+                    }, label = { Text(t.label, fontSize = 12.sp) }) }
+                }
                 OutlinedTextField(name, { name = it }, label = { Text(L("Name")) }, singleLine = true)
                 OutlinedTextField(model, { model = it }, label = { Text(L("Model")) }, singleLine = true)
                 OutlinedTextField(plate, { plate = it.uppercase() }, label = { Text(L("Plate")) }, singleLine = true,
                     keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Characters))
-                OutlinedTextField(year, { y -> year = y.filter { it.isDigit() }.take(4); year.toIntOrNull()?.takeIf { it in 1950..2100 }?.let { euro = CarCatalog.euroForYear(it) } },
+                OutlinedTextField(year, { y -> year = y.filter { it.isDigit() }.take(4); year.toIntOrNull()?.takeIf { it in 1950..2100 }?.let { euro = CarCatalog.euroForYear(it, type) } },
                     label = { Text(L("Year of first registration")) }, singleLine = true, keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number))
                 FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                     Fuel.entries.forEach { f -> FilterChip(selected = fuel == f, onClick = { fuel = f }, label = { Text(f.label, fontSize = 12.sp) }) }
@@ -158,7 +167,8 @@ private fun VehicleDialog(v: Vehicle?, close: () -> Unit) {
         confirmButton = {
             TextButton(onClick = {
                 val nv = Vehicle(id = v?.id ?: java.util.UUID.randomUUID().toString(), name = name.ifBlank { L("My car") }, model = model, fuel = fuel, euro = euro,
-                    plate = plate.trim(), isRental = rental, make = v?.make, year = year.toIntOrNull())
+                    plate = plate.trim(), isRental = rental, make = v?.make, year = year.toIntOrNull(),
+                    type = if (type == VehicleType.CAR && v?.type == null) null else type)
                 AppState.vehicles = if (v == null) AppState.vehicles + nv else AppState.vehicles.map { if (it.id == nv.id) nv else it }
                 if (v == null) AppState.activeVehicleId = nv.id
                 AppState.save(); close()

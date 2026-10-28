@@ -94,6 +94,9 @@ struct Zone: Codable, Identifiable, Hashable {
     /// true = nei festivi valgono gli orari della domenica (es. Padova 14–23:30, San Giovanni Valdarno chiusa tutto il giorno)
     var holidaysAsSunday: Bool? = nil
     var exemptFuels: Set<Fuel>  // es. elettriche ammesse
+    /// Dalla 1.17.1: i tipi di veicolo che entrano sempre (es. ["motorcycle"]: «eccetto veicoli a due ruote»). Stringhe e
+    /// non VehicleType, così un tipo nuovo nei dati scaricati non rompe la lettura della città; le app più vecchie lo ignorano
+    var exemptVehicleTypes: [String]? = nil
     var hotelCanRegister: Bool  // l'hotel dentro la zona può comunicare la targa
     var ticket: Ticket? = nil   // ZTL a pagamento (es. Area C di Milano): si entra pagando
     var bans: [EuroBan]? = nil  // divieti ambientali per carburante e classe Euro (Area B e C di Milano)
@@ -190,9 +193,15 @@ extension Fuel {
 }
 
 extension Zone {
-    /// Il divieto che ferma questa auto a quella data, se c'è
+    /// Questo tipo di veicolo entra sempre (es. moto e scooter dove il Comune dice «eccetto veicoli a due ruote»)
+    func exempts(_ vehicle: Vehicle) -> Bool {
+        (exemptVehicleTypes ?? []).contains(vehicle.kind.rawValue)
+    }
+
+    /// Il divieto che ferma questa auto a quella data, se c'è. Le classi Euro dei divieti sono quelle delle auto:
+    /// per le moto non valgono (hanno limiti loro, che GateLR non ha), e la risposta lo dice (RuleEngine.answer)
     func ban(for vehicle: Vehicle, at date: Date) -> EuroBan? {
-        guard let group = vehicle.fuel.banGroup else { return nil }
+        guard vehicle.kind == .car, let group = vehicle.fuel.banGroup else { return nil }
         return (bans ?? []).filter { $0.fuel == group && vehicle.euro <= $0.maxEuro && $0.date <= date }.max { $0.date < $1.date }
     }
     /// Lasciare l'auto qui è un problema? Zone vietate o a pagamento sì; zone verdi solo se l'auto è vietata
@@ -201,7 +210,7 @@ extension Zone {
     }
     /// Il prossimo divieto che toccherà questa auto, se c'è
     func nextBan(for vehicle: Vehicle, after date: Date) -> EuroBan? {
-        guard let group = vehicle.fuel.banGroup else { return nil }
+        guard vehicle.kind == .car, let group = vehicle.fuel.banGroup else { return nil }
         return (bans ?? []).filter { $0.fuel == group && vehicle.euro <= $0.maxEuro && $0.date > date }.min { $0.date < $1.date }
     }
 }
@@ -235,9 +244,102 @@ struct TimeWindow: Codable, Hashable {
     var end: Int                // se < start, finisce il giorno dopo
     var season: Season?
 
+    /// Dal giorno «from» al giorno «to» compresi. Le date fisse (fromMonth/fromDay, toMonth/toDay) le leggono tutte
+    /// le versioni dell'app. Dalla 1.17.1 un estremo può essere una regola («dal primo giovedì di aprile alla prima
+    /// domenica di ottobre», Firenze): allora vince la regola e le date fisse restano solo per le app fino alla 1.17.0,
+    /// che ignorano «from»/«to». I programmi in Tools/ le scrivono larghe (Tools/seasons.py): il giorno più presto
+    /// possibile per l'inizio e il più tardi possibile per la fine, così una app vecchia segna qualche sera in più, mai una in meno.
     struct Season: Codable, Hashable {
         var fromMonth: Int, fromDay: Int
         var toMonth: Int, toDay: Int
+        var from: DayRule? = nil
+        var to: DayRule? = nil
+
+        /// «Il primo giovedì di aprile» = {month: 4, weekday: 5, nth: 1}; «l'ultima domenica di marzo» = nth -1;
+        /// «il giovedì dopo l'ultima domenica di marzo» = {month: 3, weekday: 1, nth: -1, offset: 4}
+        struct DayRule: Codable, Hashable {
+            var month: Int
+            var weekday: Int        // 1 = domenica … 7 = sabato, come Calendar
+            var nth: Int            // 1…5, -1 = l'ultimo del mese
+            var offset: Int? = nil  // giorni da aggiungere (anche negativi)
+
+            /// Il giorno nell'anno «year» come (mese, giorno); nil se la regola è scritta male (es. quinto lunedì che non c'è)
+            func day(in year: Int) -> (month: Int, day: Int)? {
+                guard (1...12).contains(month), (1...7).contains(weekday), nth != 0, nth >= -5, nth <= 5 else { return nil }
+                let length = CivilDay.daysIn(year, month)
+                let d: Int
+                if nth > 0 {
+                    let first = CivilDay.weekday(year, month, 1)
+                    d = 1 + (weekday - first + 7) % 7 + (nth - 1) * 7
+                } else {
+                    let last = CivilDay.weekday(year, month, length)
+                    d = length - (last - weekday + 7) % 7 + (nth + 1) * 7
+                }
+                guard d >= 1 && d <= length else { return nil }
+                let c = CivilDay.civil(CivilDay.ordinal(year, month, d) + (offset ?? 0))
+                return (month: c.month, day: c.day)
+            }
+        }
+
+        /// Il primo e l'ultimo giorno della stagione nell'anno «year» (mese * 100 + giorno)
+        func bounds(in year: Int) -> (from: Int, to: Int) {
+            let a: (month: Int, day: Int) = from?.day(in: year) ?? (month: fromMonth, day: fromDay)
+            let b: (month: Int, day: Int) = to?.day(in: year) ?? (month: toMonth, day: toDay)
+            return (from: a.month * 100 + a.day, to: b.month * 100 + b.day)
+        }
+
+        /// Le date da mostrare il giorno dato: quelle della stagione in corso o, se è già finita, della prossima
+        /// (con le regole cambiano ogni anno). Anno, mese e giorno di inizio e di fine
+        func shown(year: Int, month: Int, day: Int) -> (from: (year: Int, month: Int, day: Int), to: (year: Int, month: Int, day: Int)) {
+            var y = year
+            var n = bounds(in: y)
+            let md = month * 100 + day
+            if n.from <= n.to && md > n.to { y += 1; n = bounds(in: y) }
+            let a = n.from, b = n.to
+            let toYear = a <= b ? y : (md > b ? y + 1 : y)
+            let fromYear = a <= b ? y : (md > b ? y : y - 1)
+            return (from: (year: fromYear, month: a / 100, day: a % 100), to: (year: toYear, month: b / 100, day: b % 100))
+        }
+
+        /// Il giorno (anno, mese, giorno) è nella stagione? Se l'inizio viene dopo la fine, la stagione passa il capodanno
+        func contains(year: Int, month: Int, day: Int) -> Bool {
+            let n = bounds(in: year), a = n.from, b = n.to, md = month * 100 + day
+            return a <= b ? (md >= a && md <= b) : (md >= a || md <= b)
+        }
+    }
+}
+
+/// Conti sui giorni del calendario gregoriano senza fusi orari (il giorno della settimana di una data, i giorni del mese)
+enum CivilDay {
+    /// Giorni dal 1° gennaio 1970 (algoritmo «days from civil» di H. Hinnant)
+    static func ordinal(_ y: Int, _ m: Int, _ d: Int) -> Int {
+        let y2 = m <= 2 ? y - 1 : y
+        let era = (y2 >= 0 ? y2 : y2 - 399) / 400
+        let yoe = y2 - era * 400
+        let doy = (153 * (m + (m > 2 ? -3 : 9)) + 2) / 5 + d - 1
+        let doe = yoe * 365 + yoe / 4 - yoe / 100 + doy
+        return era * 146_097 + doe - 719_468
+    }
+
+    static func civil(_ n: Int) -> (year: Int, month: Int, day: Int) {
+        let z = n + 719_468
+        let era = (z >= 0 ? z : z - 146_096) / 146_097
+        let doe = z - era * 146_097
+        let yoe = (doe - doe / 1460 + doe / 36_524 - doe / 146_096) / 365
+        let doy = doe - (365 * yoe + yoe / 4 - yoe / 100)
+        let mp = (5 * doy + 2) / 153
+        let d = doy - (153 * mp + 2) / 5 + 1
+        let m = mp < 10 ? mp + 3 : mp - 9
+        return (yoe + era * 400 + (m <= 2 ? 1 : 0), m, d)
+    }
+
+    /// 1 = domenica … 7 = sabato (il 1° gennaio 1970 era un giovedì)
+    static func weekday(_ y: Int, _ m: Int, _ d: Int) -> Int {
+        ((ordinal(y, m, d) % 7 + 7 + 4) % 7) + 1
+    }
+
+    static func daysIn(_ y: Int, _ m: Int) -> Int {
+        ordinal(m == 12 ? y + 1 : y, m == 12 ? 1 : m + 1, 1) - ordinal(y, m, 1)
     }
 }
 
@@ -335,6 +437,29 @@ struct Vehicle: Codable, Identifiable, Hashable {
     var isRental = false
     var make: String? = nil
     var year: Int? = nil
+    /// Auto o moto. Assente = auto (i veicoli salvati fino alla 1.17.0)
+    var type: VehicleType? = nil
+
+    var kind: VehicleType { type ?? .car }
+}
+
+/// Il tipo di veicolo: le regole delle ZTL a volte lasciano entrare le due ruote («eccetto veicoli a due ruote»)
+enum VehicleType: String, Codable, CaseIterable, Identifiable {
+    case car
+    case motorcycle         // moto e scooter, ciclomotori compresi
+    var id: String { rawValue }
+    var label: String {
+        switch self {
+        case .car: L("Car")
+        case .motorcycle: L("Motorbike / scooter")
+        }
+    }
+    var symbol: String {
+        switch self {
+        case .car: "car.fill"
+        case .motorcycle: "scooter"
+        }
+    }
 }
 
 /// Marche e modelli più diffusi (Resources/Rules/cars.json) e la classe Euro probabile dall'anno
@@ -347,6 +472,20 @@ enum CarCatalog {
               let data = try? Data(contentsOf: url) else { return [] }
         return (try? JSONDecoder().decode(File.self, from: data))?.makes ?? []
     }()
+
+    /// Dall'anno di prima immatricolazione alla classe Euro di moto e scooter (Euro 3 dal 2007, 4 dal 2017, 5 dal 2021;
+    /// valori tipici: va controllata sul libretto)
+    static func euro(forYear y: Int, type: VehicleType) -> Int {
+        guard type == .motorcycle else { return euro(forYear: y) }
+        switch y {
+        case 2021...: return 5
+        case 2017...2020: return 4
+        case 2007...2016: return 3
+        case 2004...2006: return 2
+        case 1999...2003: return 1
+        default: return 0
+        }
+    }
 
     /// Dall'anno di prima immatricolazione alla classe Euro (auto, valori tipici: va controllata sul libretto, campo V.9)
     static func euro(forYear y: Int) -> Int {

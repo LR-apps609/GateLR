@@ -198,6 +198,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Verona",
@@ -412,6 +415,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Verona",
@@ -569,6 +575,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Verona",

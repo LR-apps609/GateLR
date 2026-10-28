@@ -103,7 +103,8 @@ QUOTE_LUNG = ("A far data dal 01 Gennaio 2025 nei giorni di Venerdì, Sabato e D
 for q in [QUOTE_LUNG, "N. Atto 2845 del 23/12/2024", "RITENUTO di rendere permanente il provvedimento",
           "i permessi di transito e sosta, già rilasciati per le ZTL Nord e Sud, siano automaticamente validi, con le stesse modalità, anche all’interno della ZTL dei Lungarni.",
           "I permessi temporanei per la ZTL Nord o Sud sono validi anche per la ZTL dei Lungarni se attiva",
-          "i veicoli che alle 22:00 si trovino in sosta all’interno della ZTL dei Lungarni possano prolungare la sosta"]:
+          "i veicoli che alle 22:00 si trovino in sosta all’interno della ZTL dei Lungarni possano prolungare la sosta",
+          "i veicoli a trazione animale, velocipedi, ciclomotori, quadricicli leggeri e motocicli sia consentito l’accesso"]:
     must_contain(LUNG, q, "ord. 2845/2024")
 for q in ["ABBONAMENTI PER STRUTTURE RICETTIVE PROFESSIONALI IN ZTL", "cap.lo 5 punto 5.1 ordinanza n. 2386",
           "12,00 (validità 24 ore) Sosta nella Z.T.L (esclusi gli stalli riservati ai residenti), Z.S.C e LITORALE"]:
@@ -526,7 +527,8 @@ def zone(key, en, it, de, where_en, where_it, where_de):
         "summary": f"{where_en} {SUMMARY[0]}", "summary_it": f"{where_it} {SUMMARY[1]}", "summary_de": f"{where_de} {SUMMARY[2]}",
         "perimeter": rings.get(key, []) if not problems else [], "gates": gates_for(key),
         "windows": [{"weekdays": EVERY_DAY, "start": 0, "end": 24 * 60}],
-        "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True,
+        # Punto 1.1 dell'ord. 2386/2024: «…VELOCIPEDI, CICLOMOTORI, QUADRICICLI LEGGERI E MOTOCICLI» entrano liberamente
+        "freeOnHolidays": False, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": True,
         "source": source("Ordinanza Dir. 12 n. 2386 del 24/10/2024 (disciplina ZTL dal 01/01/2025)", ORD_URL, QUOTE, TRANSLATION, pending),
     }
 
@@ -552,7 +554,8 @@ zones = [
                    "freitags, samstags und sonntags nachts von 22 bis 5 Uhr für nicht berechtigte Autos gesperrt. Genehmigungen der ZTL Nord und Sud gelten auch hier.",
      "perimeter": rings.get("lungarni", []) if LUNG_OK else [], "gates": [],
      "windows": [{"weekdays": FRI_SAT_SUN, "start": 22 * 60, "end": 5 * 60}],
-     "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": False,
+     # Ord. 2845/2024: «i veicoli a trazione animale, velocipedi, ciclomotori, quadricicli leggeri e motocicli sia consentito l’accesso»
+     "freeOnHolidays": False, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": False,
      "source": source("Ordinanza Dir. 12 n. 2845 del 23/12/2024 (ZTL dei Lungarni dal 01/01/2025)", LUNGARNI_URL, QUOTE_LUNG, TRANSLATION_LUNG, pending_lung)},
 ]
 

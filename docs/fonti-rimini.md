@@ -48,3 +48,6 @@ Orari tutti i giorni senza eccezioni per i festivi (nessuna menzione nei testi);
 - Varchi: incrocio OSM delle due vie dell'elenco ufficiale (nodo in comune; per 04 e 05, dove le vie non si toccano in OSM, il punto medio dei due punti più vicini, a 7 e 6 m), assegnato alla zona più vicina con la stessa fascia oraria.
 - Parti più piccole di 500 m² (minuscole aree pedonali e resti di simboli) escluse.
 - Controlli nel builder: piazza Tre Martiri, piazza Cavour e il Tempio Malatestiano nell'area pedonale, via Santa Chiara nel settore 9–12/16–19:30, via Forzieri nel Borgo, stazione FS e fermata «Arco d'Augusto» (fuori dalle mura) fuori da tutte le zone, varchi a meno di 60 m dal bordo, settori senza sovrapposizioni.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: moto e ciclomotori passano senza permesso solo sull'itinerario via Bertani – Largo Giulio Cesare – via dell'Onestà → per la zona «Non entrare».

@@ -2383,6 +2383,9 @@
    ],
    "freeOnHolidays": true,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Arezzo",
@@ -2663,6 +2666,9 @@
    ],
    "freeOnHolidays": true,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Arezzo",

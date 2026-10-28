@@ -238,7 +238,8 @@ for key, shape in shapes.items():
                   "summary": SUMMARY, "summary_it": SUMMARY_IT, "summary_de": SUMMARY_DE,
                   "perimeter": shape, "gates": sorted(gate_map.get(key, []), key=lambda g: g["name"]),
                   "windows": [{"weekdays": EVERY_DAY, "start": 0, "end": 24 * 60}],
-                  "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True,
+                  # Ord. 1545/2024: «è consentito l’accesso e il transito libero in ZTL ai ciclomotori e motoveicoli a due e tre ruote»
+                  "freeOnHolidays": False, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": True,
                   "source": source(pending)})
 
 city = {"id": "verona", "name": "Verona", "name_it": "Verona", "name_de": "Verona",

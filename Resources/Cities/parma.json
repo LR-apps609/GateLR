@@ -250,6 +250,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "ticket": {
     "price": 10.0,
@@ -465,6 +468,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "ticket": {
     "price": 10.0,
@@ -743,6 +749,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "ticket": {
     "price": 10.0,
@@ -2907,6 +2916,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": false,
    "source": {
     "authority": "City of Parma",

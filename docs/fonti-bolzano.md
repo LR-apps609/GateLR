@@ -32,3 +32,6 @@ Procedura albergo (nessun termine ufficiale per la registrazione della targa); n
 - La relazione OSM 19584710 (usata nella bozza) non contiene diverse vie ufficiali (via Cappuccini, via Isarco, piazza Università, piazza del Grano, vicolo Wolkenstein, via Perathoner…): non è più usata per il perimetro.
 - Varchi: le 13 telecamere «device» della relazione OSM 19584710 (9 dopo aver unito le coppie a meno di 15 m), con il nome della via OSM più vicina; non ufficiali, perché la mappa ufficiale (Google My Maps `mid=1n6yKwLwGM9aBtfaLJTzddB6JmDcRIkE`) dà 403 dal proxy.
 - Controlli nel builder: piazza Walther, piazza Erbe e via Portici dentro; stazione, piazza Verdi sud e Museion fuori; il punto centrale di ogni via intera dell'elenco dentro; telecamere entro 80 m dal bordo.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: elettriche e moto non esenti nella ZTL → «Non entrare».

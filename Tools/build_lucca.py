@@ -89,7 +89,8 @@ for q in [QUOTE_A, QUOTE_B, "Lucca, Febbraio 2026", "Figura 1: Zone regolamentat
           "Trascorso tale periodo il veicolo deve stazionare nelle aree al di fuori della ZTL A e B",
           "La tariffa è gratuita per tutti i tipi di veicoli e per tutta la durata del soggiorno",
           # Permessi giornalieri solo per categorie precise
-          "Z12 giornaliero 15 15 15 15 15 15"]:
+          "Z12 giornaliero 15 15 15 15 15 15",
+          "Ciclomotori e motocicli. L’accesso, il transito dei ciclomotori e dei motocicli è consentito nella ZTL B"]:
     must_contain(rules, q, "Disciplinare febbraio 2026")
 for q in ["si modifica a “ entro 3 gg o 72 ore”", "decorrenti dal 01/01/2026",
           "passaggio da “ZTL C” a “ZTL B” del quadrilatero compreso tra Via Elisa/Via del Fosso/Via del Giardino Botanico/Via San Micheletto",
@@ -329,12 +330,15 @@ if from_map:
          "summary_de": "Der Block zwischen Via della Quarquonia, Via dei Bacchettoni, Via Elisa und Via Santa Chiara ist auf der offiziellen Karte Sektor B: Einfahrt nur mit Genehmigung. Seine Kameras sind seit Januar 2026 wegen der Arbeiten an der Villa Bottini abgeschaltet, und die Stadt hat nicht gesagt, wann sie wieder laufen: GateLR behandelt ihn vorsichtshalber als gesperrt. Die Straßen ringsum führen frei zu den Parkplätzen Piazza San Ponziano und Via dei Bacchettoni." + HOTEL_DE,
          "source": source("lucca-b-est", QUOTE_B, QUOTE_B_TR, [P_EAST, P_EAST_UNOFFICIAL] + B_NOTES)})
 order = ["id", "name", "name_it", "name_de", "kind", "summary", "summary_it", "summary_de", "perimeter", "gates",
-         "windows", "freeOnHolidays", "exemptFuels", "hotelCanRegister", "source"]
+         "windows", "freeOnHolidays", "exemptFuels", "exemptVehicleTypes", "hotelCanRegister", "source"]
 for z in zones:
     z.update({"perimeter": perims.get(z["id"], []), "gates": [],   # il Comune non pubblica le coordinate dei varchi
               "windows": [{"weekdays": EVERY_DAY, "start": 0, "end": 24 * 60}],
               "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True})
-zones = [{k: z[k] for k in order} for z in zones]
+    # «L’accesso, il transito dei ciclomotori e dei motocicli è consentito nella ZTL B»; nella ZTL A solo per i residenti
+    if z["id"] != "lucca-a":
+        z["exemptVehicleTypes"] = ["motorcycle"]
+zones = [{k: z[k] for k in order if k in z} for z in zones]
 
 # Centro della mappa: il centro del riquadro della ZTL A; serve solo a inquadrare
 a = perims["lucca-a"]

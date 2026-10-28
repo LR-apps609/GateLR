@@ -399,7 +399,8 @@ for i, ring in enumerate(RINGS["A"]):
     zones.append({"id": f"arezzo-ztl-a{'' if i == 0 else '-marconi'}", "name": NAMES_A[i][0], "name_it": NAMES_A[i][1], "name_de": NAMES_A[i][2],
                   "kind": "restricted", "summary": SUMMARY_A, "summary_it": SUMMARY_A_IT, "summary_de": SUMMARY_A_DE,
                   "perimeter": osm_geo.perimeter(ring, tol_m=2), "gates": gates_by_ring[("A", i)],
-                  "windows": WINDOWS_A, "freeOnHolidays": True, "exemptFuels": [], "hotelCanRegister": True,
+                  # «Sono esclusi dal divieto i ciclomotori a due ruote, motocicli a due ruote…» (disciplinare, ZTL A); nella ZTL B no
+                  "windows": WINDOWS_A, "freeOnHolidays": True, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": True,
                   "source": source(QUOTE_A, TR_A, PENDING_A + PENDING_COMMON)})
 
 ped_ways = {e["id"]: e for e in ELEMENTS if e["type"] == "way"}

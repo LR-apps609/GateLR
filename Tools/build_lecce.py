@@ -226,7 +226,8 @@ zone = {"id": "lecce-centro-storico", "name": "Lecce old town · ZTL inside the 
                     {"weekdays": MON_SAT, "start": 13 * 60, "end": 16 * 60 + 30},
                     {"weekdays": MON_SAT, "start": 20 * 60, "end": 24 * 60},
                     {"weekdays": SUN, "start": 0, "end": 24 * 60}],
-        "freeOnHolidays": False, "holidaysAsSunday": True, "exemptFuels": [], "hotelCanRegister": True,
+        # «…veicoli rientranti nelle categorie L1e L3e … è sempre consentita nelle Z.T.L.» (regolamento ZTL e AP)
+        "freeOnHolidays": False, "holidaysAsSunday": True, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": True,
         "source": {"authority": "City of Lecce", "pageURL": NEWS_2025,
                    "ordinance": "Delibera GC n. 280 del 10/07/2025; ordinanze dirigenziali n. 1679 del 16/07/2025, n. 1689 del 17/07/2025 e n. 2069 del 09/09/2025",
                    "ordinanceURL": ORD_2069, "quote": QUOTE,

@@ -189,7 +189,8 @@ def zone():
     return {"id": "palermo-centrale", "name": "Centro Storico · ZTL Centrale", "name_it": "Centro Storico · ZTL Centrale",
             "name_de": "Centro Storico · ZTL Centrale (Altstadt)", "kind": "pass",
             "summary": SUMMARY, "summary_it": SUMMARY_IT, "summary_de": SUMMARY_DE,
-            "windows": w, "freeOnHolidays": True, "exemptFuels": [], "hotelCanRegister": True, "ticket": TICKET,
+            # Art. 13.1 e) del disciplinare: «velocipedi, ciclomotori e motocicli, inclusi i quadricicli» esenti
+            "windows": w, "freeOnHolidays": True, "exemptFuels": [], "exemptVehicleTypes": ["motorcycle"], "hotelCanRegister": True, "ticket": TICKET,
             "bans": [{"fuel": "petrol", "maxEuro": 2, "since": "2024-07-01"}, {"fuel": "diesel", "maxEuro": 3, "since": "2024-07-01"}],
             "source": {"authority": AUTHORITY, "pageURL": AMAT_PAGE,
                        "ordinance": "O.D. n. 802 del 27/06/2024 (Disciplinare Tecnico della ZTL Centrale, D.G.C. n. 122 del 30/05/2024)",
@@ -273,7 +274,7 @@ ring = official_perimeter()
 z["perimeter"] = osm_geo.perimeter(ring, tol_m=3)
 z["gates"] = []
 order = ["id", "name", "name_it", "name_de", "kind", "summary", "summary_it", "summary_de", "perimeter", "gates",
-         "windows", "freeOnHolidays", "exemptFuels", "hotelCanRegister", "ticket", "bans", "source"]
+         "windows", "freeOnHolidays", "exemptFuels", "exemptVehicleTypes", "hotelCanRegister", "ticket", "bans", "source"]
 z = {k: z[k] for k in order if k in z}
 peds = pedestrian()
 

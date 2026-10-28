@@ -35,7 +35,7 @@ Tutte le pagine sono di **Roma Servizi per la Mobilità (RSM)**, l'agenzia di Ro
 - Giorni: 1 = domenica … 7 = sabato. Le finestre notturne hanno `end < start` (finiscono il giorno dopo); il motore usa la stagione del giorno in cui la finestra comincia.
 - **Hotel** (`hotelCanRegister`): `true` per Centro Storico (fasce diurne e fascia notturna 23–3 del regolamento) e Trastevere diurna; `false` con nota «pending» per Tridente (il permesso X lo esclude), Trastevere notturna, San Lorenzo e Testaccio (le fonti non dicono che l'albergo possa registrare i clienti in queste ZTL).
 - **Elettriche**: nessuna esenzione dal 1/7/2026.
-- Moto e ciclomotori (liberi tranne Tridente) sono solo nel riassunto: il modello è per le auto.
+- Moto e ciclomotori: dalla 1.17.1 `exemptVehicleTypes: ["motorcycle"]` per Centro, Trastevere (diurna e notturna), San Lorenzo e Testaccio: *"moto e ciclomotori hanno libero accesso alla ZTL tutti i giorni, in tutte le ore … ( ad eccezione della ZTL Tridente A1 )"* (`ztl-in-centro.txt`, controllata da `Tools/build_roma.py`). Tridente no: *"interdetta ai veicoli non autorizzati (automobili, ciclomotori e motocicli)"* → per le moto «Non entrare».
 
 ## 3. Dubbi e punti da verificare
 

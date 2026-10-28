@@ -10,6 +10,18 @@
 import json, math, re, urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from seasons import season
+
+# Il disciplinare e la pagina ZTL di SAS (data/raw/firenze/, letti il 28/10/2026): le frasi usate qui sotto devono esserci
+_RAW = Path(__file__).resolve().parent.parent / "data/raw/firenze"
+_norm = lambda t: re.sub(r"\s+", " ", t)
+for _f, _q in [("disciplinare-ztl.txt", "Nei settori A, B, O, F e G la ZTL avrà validità anche nel periodo dell’anno compreso tra il primo giovedì di aprile e la prima domenica di ottobre"),
+               ("disciplinare-ztl.txt", "In deroga ai divieti di cui al punto 3, è consentito il transito su tutti i settori ZTL a:"),
+               ("disciplinare-ztl.txt", "Ciclomotori a due ruote (categoria L1) e motocicli (categoria L3)"),
+               ("sas-ztl.txt", "Dal primo giovedì di aprile alla prima domenica di ottobre (ZTL NOTTURNA ESTIVA"),
+               ("sas-ztl-notturna-2026.txt", "da giovedì 2 aprile è attiva la ZTL notturna estiva che durerà fino a domenica 4 ottobre")]:
+    if _norm(_q) not in _norm((_RAW / _f).read_text(encoding="utf-8")):
+        raise SystemExit(f"{_f}: frase non trovata, ricontrollare la fonte: {_q!r}")
 
 DIURNA = "https://datigis.comune.fi.it/json/ztl_diurna.json"
 NOTTURNA = "https://datigis.comune.fi.it/json/ztl_notturna.json"
@@ -44,9 +56,19 @@ DAY_WINDOWS = [
     {"weekdays": MON_FRI, "start": 7 * 60 + 30, "end": 20 * 60},
     {"weekdays": SAT, "start": 7 * 60 + 30, "end": 16 * 60},
 ]
-# Estate 2026: dal 2 aprile al primo fine settimana di ottobre compreso (3 ottobre), 23 → 3
+# Notti d'estate «dal primo giovedì di aprile alla prima domenica di ottobre» (disciplinare, punto 3), 23 → 3:
+# nel 2026 dal 2 aprile al 4 ottobre, nel 2027 dal 1° aprile al 3 ottobre, nel 2028 dal 6 aprile al 1° ottobre.
+# Regola dalla 1.17.1; per le app più vecchie date fisse larghe 1 aprile – 7 ottobre (Tools/seasons.py)
 NIGHT_WINDOW = {"weekdays": THU_SAT, "start": 23 * 60, "end": 3 * 60,
-                "season": {"fromMonth": 4, "fromDay": 2, "toMonth": 10, "toDay": 3}}
+                "season": season({"month": 4, "weekday": 5, "nth": 1}, {"month": 10, "weekday": 1, "nth": 1})}
+DISCIPLINARE = {
+    "title": "SAS: ZTL rules (disciplinare; summer nights in point 3, exempt two-wheelers in point 17)",
+    "title_it": "SAS: disciplinare ZTL (notti d'estate al punto 3, due ruote esenti al punto 17)",
+    "title_de": "SAS: ZTL-Regelwerk (Sommernächte in Punkt 3, befreite Zweiräder in Punkt 17)",
+    "url": "https://www.serviziallastrada.it/disciplinari/ztl/Disciplinare_ZTL.pdf",
+}
+# «Veicoli esenti: … Ciclomotori a due ruote (categoria L1) e motocicli (categoria L3)» su tutti i settori (disciplinare, punto 17)
+TWO_WHEELS = ["motorcycle"]
 
 NAMES = {
     "A": "Sector A · Historic Centre",
@@ -246,21 +268,21 @@ def main():
         feature = night[s] if summer_only else day[s]
         windows = ([] if summer_only else DAY_WINDOWS) + [NIGHT_WINDOW]
         if summer_only:
-            summary = ("Only on summer nights: from early April to the first weekend of October, "
-                       "Thursday, Friday and Saturday from 11 pm to 3 am. The rest of the year it's open to all.")
+            summary = ("Only on summer nights: from the first Thursday of April to the first Sunday of October, "
+                       "Thursday, Friday and Saturday from 11 pm to 3 am. The rest of the year it's open to all. Motorbikes and scooters may enter.")
         else:
             summary = ("On weekdays you can't drive in from 7:30 am to 8 pm without a permit, on Saturdays until 4 pm. "
-                       "In summer it's also closed on Thursday, Friday and Saturday nights, 11 pm to 3 am.")
-        if summary_only := summer_only:
-            summary_it = ("Solo nelle notti d'estate: da inizio aprile al primo fine settimana di ottobre, "
-                          "giovedì, venerdì e sabato dalle 23 alle 3. Il resto dell'anno è libero.")
-            summary_de = ("Nur in Sommernächten: von Anfang April bis zum ersten Oktoberwochenende, "
-                          "Donnerstag, Freitag und Samstag von 23 bis 3 Uhr. Den Rest des Jahres frei.")
+                       "In summer it's also closed on Thursday, Friday and Saturday nights, 11 pm to 3 am. Motorbikes and scooters may enter.")
+        if summer_only:
+            summary_it = ("Solo nelle notti d'estate: dal primo giovedì di aprile alla prima domenica di ottobre, "
+                          "giovedì, venerdì e sabato dalle 23 alle 3. Il resto dell'anno è libero. Moto e scooter possono entrare.")
+            summary_de = ("Nur in Sommernächten: vom ersten Donnerstag im April bis zum ersten Sonntag im Oktober, "
+                          "Donnerstag, Freitag und Samstag von 23 bis 3 Uhr. Den Rest des Jahres frei. Motorräder und Roller dürfen hinein.")
         else:
             summary_it = ("Nei feriali non si entra dalle 7:30 alle 20 senza permesso, il sabato fino alle 16. "
-                          "D'estate è chiusa anche giovedì, venerdì e sabato notte, dalle 23 alle 3.")
+                          "D'estate è chiusa anche giovedì, venerdì e sabato notte, dalle 23 alle 3. Moto e scooter possono entrare.")
             summary_de = ("Werktags keine Einfahrt von 7:30 bis 20 Uhr ohne Genehmigung, samstags bis 16 Uhr. "
-                          "Im Sommer auch Donnerstag-, Freitag- und Samstagnacht gesperrt, von 23 bis 3 Uhr.")
+                          "Im Sommer auch Donnerstag-, Freitag- und Samstagnacht gesperrt, von 23 bis 3 Uhr. Motorräder und Roller dürfen hinein.")
         zones.append({
             "id": f"firenze-{s.lower()}",
             "name": NAMES[s],
@@ -275,6 +297,7 @@ def main():
             "windows": windows,
             "freeOnHolidays": None,
             "exemptFuels": [],
+            "exemptVehicleTypes": TWO_WHEELS,
             "hotelCanRegister": not summer_only,
             "source": {
                 "authority": "City of Florence",
@@ -292,7 +315,7 @@ def main():
                 "pending": PENDING_COMMON + ([] if summer_only else [HOTEL_PENDING]),
                 "pending_it": PENDING_COMMON_IT + ([] if summer_only else [HOTEL_PENDING_IT]),
                 "pending_de": PENDING_COMMON_DE + ([] if summer_only else [HOTEL_PENDING_DE]),
-                "links": ([NIGHT_2026] if summer_only else [DAY_HOURS, DAY_START, NIGHT_2026]) + OPEN_DATA,
+                "links": ([NIGHT_2026] if summer_only else [DAY_HOURS, DAY_START, NIGHT_2026]) + [DISCIPLINARE] + OPEN_DATA,
             },
         })
 

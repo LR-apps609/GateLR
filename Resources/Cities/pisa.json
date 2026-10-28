@@ -962,6 +962,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Pisa",
@@ -1790,6 +1793,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Pisa",
@@ -2373,6 +2379,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": false,
    "source": {
     "authority": "City of Pisa",

@@ -38,3 +38,6 @@ Citazione (pagina ufficiale): «Orario Z.T.L. INVERNALE: Nel periodo che va dal 
 ## Host bloccati
 - `static-www.comune.volterra.pi.it` (allegati e immagini del sito comunale): 403 dal proxy.
 - Overpass (overpass-api.de reset, overpass.kumi.systems timeout): usata l'API OSM principale.
+
+## Moto e scooter (1.17.1)
+Nessuna esenzione: dal 1° aprile 2026 anche i ciclomotori 50 cc hanno bisogno del permesso → «Non entrare».

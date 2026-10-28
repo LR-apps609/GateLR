@@ -1230,6 +1230,9 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Padua",
@@ -1614,6 +1617,9 @@
    "freeOnHolidays": false,
    "holidaysAsSunday": true,
    "exemptFuels": [],
+   "exemptVehicleTypes": [
+    "motorcycle"
+   ],
    "hotelCanRegister": true,
    "source": {
     "authority": "City of Padua",
