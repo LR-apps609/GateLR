@@ -32,10 +32,13 @@ final class AnteprimaTests: XCTestCase {
         guard field.waitForExistence(timeout: 5) else { return XCTFail("Manca la ricerca di Varco") }
         field.tap()
         usleep(700_000)
-        // Lettera per lettera, come una persona: i suggerimenti compaiono mentre si scrive
-        for ch in query {
-            field.typeText(String(ch))
-            usleep(110_000)
+        // A pezzi di quattro lettere, come chi scrive in fretta: i suggerimenti compaiono mentre si scrive. Lettera per
+        // lettera sul Mac Intel di GitHub ci volevano circa 6 s a lettera e il test finiva prima della mappa
+        var rest = Substring(query)
+        while !rest.isEmpty {
+            field.typeText(String(rest.prefix(4)))
+            rest = rest.dropFirst(4)
+            usleep(250_000)
         }
         sleep(3)
 
