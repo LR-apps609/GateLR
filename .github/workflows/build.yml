@@ -112,25 +112,28 @@ jobs:
       - name: Foto dell'app (giro nel simulatore)
         run: |
           # Le corse di main della 1.17.0 (40736198654, 40741812555) sono morte qui con «The hosted runner lost
-          # communication with the server», senza registri: il Mac Intel (4 core, 14 GB) arrivava al giro con quattro
-          # cartelle di compilazione (build, build-test, build-device, build-ui: Mapbox compilato quattro volte) e, per
-          # il controllo dell'iPhone Pro Max, due simulatori accesi insieme. Sui rami versione-* (senza la .ipa) la
-          # stessa app passava. Ora: via le cartelle che non servono più, il giro riusa quella dei test (si compila
-          # solo il target delle foto), un simulatore alla volta, e spazio e memoria scritti mentre gira.
+          # communication with the server», senza registri. Il disco non c'entra (oltre 100 GB liberi, corsa
+          # 40778649048), la memoria sì: il Mac Intel (4 core, 14 GB) arrivava al giro con 1,2 GB liberi e scendeva a 0,
+          # perché restavano in memoria il servizio di compilazione della .ipa (solo su main: sui rami versione-* la
+          # stessa app passava), il simulatore dei test e, per il controllo dell'iPhone Pro Max, un secondo simulatore
+          # acceso insieme al primo. Ora prima del giro si chiudono i servizi di compilazione rimasti e tutti i
+          # simulatori, si cancellano le cartelle che non servono più, un solo simulatore alla volta, e la memoria
+          # viene scritta mentre il giro va.
           free_report() {
-            echo "::notice::$1: disco $(df -h / | awk 'NR==2 {print $4 " liberi su " $2}'), memoria libera $(vm_stat | awk '/Pages free/ {gsub("\\.",""); printf "%.1f GB", $3*4096/1e9}')"
+            echo "::notice::$1: memoria $(memory_pressure 2>/dev/null | awk -F': ' '/free percentage/ {print $2 " libera"}'), più grandi: $(ps -axo rss=,comm= | sort -nr | head -n 3 | awk '{n=split($2,a,"/"); printf "%s %.1f GB; ", a[n], $1/1e6}')disco $(df -h / | awk 'NR==2 {print $4}') liberi"
           }
           free_report "Prima del giro"
-          rm -rf build-device ipa build
-          if [ -d build-test ] && [ ! -d build-ui ]; then rm -rf build-test/Logs/Test; mv build-test build-ui; fi
-          free_report "Cartelle liberate"
+          # La .ipa è già caricata e i test sono finiti: le loro cartelle e i loro servizi non servono più
+          rm -rf build-device ipa build-test
+          killall -9 SWBBuildService XCBBuildService 2>/dev/null || true
+          xcrun simctl shutdown all 2>/dev/null || true
+          sleep 5
+          free_report "Memoria liberata"
           # Ogni 2 minuti, mentre il giro va: se il runner si ferma di nuovo resta l'ultima riga
           ( while true; do sleep 120; free_report "Durante il giro ($(date -u +%T))"; done ) &
           WATCH=$!
           trap 'kill $WATCH 2>/dev/null || true' EXIT
           SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
-          # Un solo simulatore acceso: quello del giro
-          xcrun simctl shutdown all 2>/dev/null || true
           # Simulatore acceso prima dei test: al primo avvio a freddo l'app rischia il tempo scaduto
           xcrun simctl boot "$SIM" 2>/dev/null || true
           xcrun simctl bootstatus "$SIM" -b > /dev/null 2>&1 || true
@@ -192,7 +195,7 @@ jobs:
           mkdir -p screenshots
           # Se il test non ha potuto scrivere le foto, si prendono dagli allegati del risultato
           if ! ls screenshots/*.png >/dev/null 2>&1; then
-            RESULT=$(ls -d build-ui/Logs/Test/*GateLRUITests*.xcresult | head -n 1)
+            RESULT=$(ls -d build-ui/Logs/Test/*.xcresult | head -n 1)
             xcrun xcresulttool export attachments --path "$RESULT" --output-path attachments || true
             python3 - <<'PY'
           import json, shutil, pathlib
