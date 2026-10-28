@@ -142,19 +142,32 @@ jobs:
           if-no-files-found: warn
 
       # Gli artefatti a volte non si possono scaricare: le stesse riprese, 1080 di larghezza a 30 fps, in un ramo a parte
+      # Veloce (preset veryfast, non «slow»): nella corsa 40600539362 questo passo è stato interrotto a metà, senza ramo.
+      # Nel README anche l'esito dei test e la durata delle riprese, perché da fuori i log non sempre si leggono
       - name: Riprese nel ramo «anteprima-clips»
         if: always()
+        timeout-minutes: 20
         run: |
           mkdir -p out
+          {
+            echo "Riprese per l'anteprima di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ)), $SIM"
+            echo
+            for f in clips/*.mp4; do
+              [ -s "$f" ] || continue
+              echo "$(basename "$f"): $(du -h "$f" | cut -f1), $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f" 2>/dev/null) s"
+            done
+            echo
+            grep -hE "Test Case .*(passed|failed|skipped)|error:" clips/*.xcodebuild.log 2>/dev/null | sort -u | head -n 20 || true
+          } > out/README.md
+          cat out/README.md
           for f in clips/*.mp4; do
             [ -s "$f" ] || continue
-            ffmpeg -v error -y -i "$f" -vf "scale=1080:-2:flags=lanczos,fps=30" -c:v libx264 -preset slow -crf 18 \
+            ffmpeg -v error -y -i "$f" -vf "scale=1080:-2:flags=bicubic,fps=30" -c:v libx264 -preset veryfast -crf 20 \
               -pix_fmt yuv420p -an -movflags +faststart "out/$(basename "$f")" || echo "::warning::$f non convertito"
           done
           ls -la out
           ls out/*.mp4 > /dev/null 2>&1 || { echo "::warning::Nessuna ripresa"; exit 1; }
           cd out
-          echo "Riprese per l'anteprima di $GITHUB_SHA ($(date -u +%Y-%m-%dT%H:%MZ)), $SIM" > README.md
           git init -q && git checkout -q -b anteprima-clips
           for f in README.md *.mp4; do
             git add "$f"
