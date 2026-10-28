@@ -31,11 +31,17 @@ ROUTES = {
             [(43.78120, 11.26680), (43.78330, 11.26250), (43.77520, 11.25690)],
             [(43.78600, 11.26000), (43.78305, 11.26229), (43.77450, 11.25650)],
             [(43.78360, 11.25300), (43.78305, 11.26229), (43.77700, 11.25800), (43.77380, 11.25560)],
+            # Il Settore A comincia a sud di via de' Pucci: arrivo verso il Duomo
+            [(43.78360, 11.25300), (43.78305, 11.26229), (43.77410, 11.25610)],
+            [(43.78360, 11.25300), (43.78305, 11.26229), (43.77310, 11.25690)],
+            [(43.78360, 11.25300), (43.78305, 11.26229), (43.77220, 11.25800)],
+            [(43.78360, 11.25300), (43.78305, 11.26229), (43.77780, 11.25930), (43.77350, 11.25750)],
+            [(43.78120, 11.26680), (43.78305, 11.26229), (43.77220, 11.25800)],
         ],
     },
     "firenze-viali-parcheggio-beccaria": {
         "city": "firenze", "goal": "outside", "zones": ["firenze-a", "firenze-b", "firenze-o"],
-        "title": "Firenze: intorno alla ZTL lungo i viali fino al Parcheggio Beccaria",
+        "title": "Firenze: intorno alla ZTL lungo i viali fino al Parcheggio Beccaria", "prefer": 1,
         "variants": [
             [(43.77950, 11.23950), (43.78380, 11.25600), (43.78000, 11.26850), (43.769894, 11.270761)],
             [(43.77950, 11.23950), (43.78200, 11.24700), (43.78380, 11.26170), (43.77650, 11.27050), (43.769894, 11.270761)],
@@ -65,7 +71,7 @@ ROUTES = {
     },
     "bologna-in-centro-dal-varco": {
         "city": "bologna", "goal": "enter", "zone": "bologna-ztl", "gate": None,
-        "title": "Bologna: in centro da un varco",
+        "title": "Bologna: in centro da un varco", "prefer": 0,
         "variants": [
             [(44.49920, 11.32400), (44.498921, 11.327967), (44.49750, 11.33300)],
             [(44.49450, 11.32500), (44.494527, 11.329338), (44.49400, 11.33400)],
@@ -269,6 +275,9 @@ def build(src, outdir):
         for i, r in enumerate(data.get(name, [])):
             ok, score, note = judge(spec, r)
             print(f"{name} variante {i}: {'OK' if ok else '--'} {round(r.get('distance', 0))} m · {note}")
+            # «prefer»: la variante scelta a mano (la più adatta alla prova), se va bene
+            if ok and spec.get("prefer") == i:
+                score = -1
             if ok and (best is None or score < best[0]):
                 best = (score, i, r)
         if best is None:
