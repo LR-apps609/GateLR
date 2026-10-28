@@ -116,7 +116,7 @@ jobs:
 
           # 2. Varco: ricerca, risposta, mappa e legenda (UITests/AnteprimaTests.swift). Prima un giro non registrato
           ui() {
-            TEST_RUNNER_ANTEPRIMA=1 lim 600 xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
+            TEST_RUNNER_ANTEPRIMA=1 lim 240 xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
               -destination "id=$UDID" -derivedDataPath build-ui -only-testing:"GateLRUITests/AnteprimaTests/$1" \
               CODE_SIGNING_ALLOWED=NO > "clips/$2.xcodebuild.log" 2>&1 || true
             grep -E "Test Case .*(passed|failed|skipped)|error:" "clips/$2.xcodebuild.log" | sort -u | head -n 8 \

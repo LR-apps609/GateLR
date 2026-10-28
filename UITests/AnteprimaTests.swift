@@ -14,7 +14,7 @@ final class AnteprimaTests: XCTestCase {
     }
 
     /// Varco: «Hotel, indirizzo o piazza», un posto scritto lettera per lettera, la risposta, «Guarda la mappa»,
-    /// la mappa un po' più larga e la legenda aperta
+    /// e la legenda aperta
     func testA1RicercaFirenze() { tour(query: "Palazzo Vecchio") }
 
     /// Lo stesso con un'altra città (ZTL 0–24): nel montaggio si sceglie la risposta che si legge meglio
@@ -60,12 +60,8 @@ final class AnteprimaTests: XCTestCase {
         }
         sleep(6)                                   // mattonelle della mappa dalla rete
 
-        // Un passo indietro con due dita per vedere tutta la zona, poi la legenda
-        let map = app.maps.firstMatch
-        if map.exists {
-            map.pinch(withScale: 0.55, velocity: -0.6)
-            sleep(4)
-        }
+        // La legenda, come nel giro delle foto. Niente app.maps né pinch: l'istantanea della mappa (piena di zone) nella
+        // corsa 40610078905 ha fatto perdere al test il contatto con l'app per 300 s
         let legend = app.buttons["map.legend"].firstMatch
         if legend.waitForExistence(timeout: 4) {
             legend.tap()
