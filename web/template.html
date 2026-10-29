@@ -225,12 +225,10 @@ p{margin:0}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
 .sw{width:18px;height:12px;border-radius:3px;display:inline-block;border:2px solid var(--c);background:color-mix(in srgb,var(--c) 30%,transparent)}
-.sw.ped{--c:#7A1F5C;background:color-mix(in srgb,#7A1F5C 55%,transparent)}
+.legend svg{width:30px;height:20px;flex:none;background:none;border-radius:0;cursor:auto}
+.legend .lnote{font-style:normal;font-size:12px;opacity:.85}
 .dot.gate{width:8px;height:8px;background:var(--ink);opacity:.75;box-shadow:0 0 0 1.5px var(--sheet)}
 /* nomi delle zone sulla mappa vera (segnaposti HTML: usano il carattere del sito) */
-.zlab{font:500 12.5px/1.15 var(--text);letter-spacing:.01em;color:var(--ink);background:color-mix(in srgb,var(--sheet) 88%,transparent);border:1.5px solid var(--c,var(--line));border-radius:999px;padding:2px 8px;white-space:nowrap;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.12)}
-.zlab.sel{font-weight:600;background:var(--sheet)}
-.zlab.off{visibility:hidden}
 
 /* details */
 .details{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;padding-block:8px 36px}
@@ -487,7 +485,7 @@ const T = {
   cityL:"City", carL:"Vehicle", whenL:"When", dToday:"Today", dTomorrow:"Tomorrow", slideHint:"Drag the hour: the answer changes live", ledCap:"The panel at the gate", ledOut:"NO ZTL HERE", vRental:"Rental car", vRentalS:"petrol Euro 6", vP3:"Petrol Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Hybrid", vEl:"Electric", vMoto:"Motorbike / scooter", vMotoS:"petrol Euro 5", whyMoto:"The gates are on, but motorbikes and scooters may drive in.", whyMotoBan:"The gates are on. Motorbikes have their own Euro limits here: check yours on the city's page.", whyMotoNo:e=>`Motorbikes and scooters Euro ${e} can't enter this zone while it's active.`, whyMotoOk:e=>`Your motorbike (Euro ${e}) is allowed in this low-emission zone.`, moreC:n=>`+ ${n} more`, lessC:"Fewer", lcond:"With a ticket or condition", allC:"All cities",
   untilOn:n=>`On until ${n.replace(/^on /, "")}`, untilOff:n=>`Off until ${n.replace(/^on /, "")}`, carPl:(f,n)=>f==="electric"||f==="hybrid" ? `${T.en.fuel[f]} cars` : `${T.en.fuel[f]} Euro ${n} cars`, whyExempt:c=>`The gates are on, but ${c} may drive in.`, whyBan:c=>`The gates are on and ${c} can't drive in, not even with a ticket. Check the city's page for any free days.`, whyGreenOk:(c,l)=>`The low-emission zone is on, but ${c} may drive in.${l ? " Banned now: " + l + "." : ""}`,
   fL:"In the iPhone app", fT:"Everything you need before the gate", fP:"The app gives the same answers as this page, for {{N}} Italian cities, and helps you on the road.", f1T:"«Can I enter?»", f1P:"One clear answer for where you're going, with the city's official source and the date we read it.", st1:"You can enter", st2:"You can enter if…", st3:"You can't enter", st4:"To be checked", f2T:"Your time, your car", f2P:"Tap «Now ▾» to pick tonight, tomorrow or any day and time, and choose the car you're driving: every answer, the map and your trip change together.", f3T:"The map", f3P:"ZTL zones coloured by the answer, camera gates and pedestrian areas, for the time and car you picked.", f4T:"Park outside and walk", f4P:"Destination in an active ZTL? Car parks outside it, the minutes on foot, prices and opening hours when known. Works offline.", f5T:"Hotel inside the ZTL", f5P:"A ready message asking your hotel to register your plate with the city for every day of your stay.", f6T:"Guardian", f6P:"Drive with Google Maps, Waze or Apple Maps: GateLR stays in the background, warns you before an active ZTL and shows it in the Dynamic Island, a Live Activity and the lock-screen widget.", f7T:"GateLR's own navigator", f7P:"Turn-by-turn voice directions on a smooth map, rerouting after a wrong turn and a warning before every active gate.", f8T:"Siri and Shortcuts", f8P:"«Can I enter Florence Sector A with GateLR?», the ZTL nearest to you, or stop the guardian, without opening the app.", f9T:"Read the sign", f9P:"Point the camera at the ZTL sign: GateLR reads the days and hours and explains them in your language.", f10T:"Garage", f10P:"«Photograph the registration document» reads fuel and Euro class from EU registration certificates; for a rental car, pick the model from a list.", f11T:"«Got a fine?»", f11P:"Photograph the notice: was the gate active according to our data, your deadlines, and a draft appeal to complete. General information, not legal advice.", f12T:"8 languages", f12P:"English, Italiano, Deutsch, Français, Español, Nederlands, Polski and 简体中文.", q5:"Where do the rules come from?", a5:"From each city's official pages, ordinances and open data, with the link and the date we read them. They are drafts: checked against the official sources but not yet reviewed on site by a person. The sign and the light panel at the gate always win.", q6:"Can I download the app?", a6:"Not yet: GateLR for iPhone is in testing and not yet on the App Store. Until then, this page gives you the same answer for every city, for now or for your arrival time.",title:"Can I drive into the ZTL? {{N}} Italian cities · GateLR", desc:"Driving to an Italian old town? Search your hotel and see at once if it's inside a ZTL in one of {{N}} Italian cities, from Florence, Rome and Milan to Siena and San Gimignano: whether you can drive in when you arrive, the hours, the day ticket and the fine. From the cities' official sources.",
-  lpass:"ZTL: day ticket", lgreen:"Low-emission zone", lped:"Pedestrian area", ped:"Pedestrian area", guides:"ZTL guides", and:"and",
+  lcondOne:"You can enter on a condition", lcheck:"«?»: check the sign", loff:"No ZTL active now", lpass:"ZTL: day ticket", lgreen:"Low-emission zone", lped:"Pedestrian area", ped:"Pedestrian area", guides:"ZTL guides", and:"and",
   phones:"An Android version is in development, also for Huawei and Honor phones without Google services.",   whyGreen0:"The low-emission zone is on. Most cars can enter, the most polluting can't. Check your car on the city's page.",
   banNote:l=>` Older cars (${l}) can't enter, not even with a ticket.`, banNext:(d,l)=>` From ${d} also banned: ${l}.`, upTo:(f,n)=>`${f} up to Euro ${n}`,
   fuel:{petrol:"petrol", diesel:"diesel", lpg:"LPG", cng:"CNG", hybrid:"hybrid", electric:"electric"},
@@ -520,7 +518,7 @@ const T = {
   cityL:"Città", carL:"Veicolo", whenL:"Quando", dToday:"Oggi", dTomorrow:"Domani", slideHint:"Trascina l'ora: la risposta cambia subito", ledCap:"Il pannello al varco", ledOut:"FUORI ZTL", vRental:"Auto a noleggio", vRentalS:"benzina Euro 6", vP3:"Benzina Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Ibrida", vEl:"Elettrica", vMoto:"Moto / scooter", vMotoS:"benzina Euro 5", whyMoto:"I varchi sono accesi, ma moto e scooter possono entrare.", whyMotoBan:"I varchi sono accesi. Qui le moto hanno limiti Euro loro: controlla la tua sul sito del Comune.", whyMotoNo:e=>`Moto e scooter Euro ${e} non possono entrare in questa zona quando è attiva.`, whyMotoOk:e=>`La tua moto (Euro ${e}) può entrare in questa zona a basse emissioni.`, moreC:n=>`e altre ${n}`, lessC:"Meno", lcond:"Con ticket o condizioni", allC:"Tutte le città",
   untilOn:n=>`Attivo fino a ${n}`, untilOff:n=>`Non attivo fino a ${n}`, carPl:(f,n)=>f==="electric"||f==="hybrid" ? `le auto ${T.it.fuel[f]}` : `le auto ${T.it.fuel[f]} Euro ${n}`, whyExempt:c=>`I varchi sono accesi, ma ${c} possono entrare.`, whyBan:c=>`I varchi sono accesi e ${c} non possono entrare, neanche con il ticket. Eventuali giornate libere sul sito del Comune.`, whyGreenOk:(c,l)=>`La zona a basse emissioni è attiva, ma ${c} possono entrare.${l ? " Ora sono vietate: " + l + "." : ""}`,
   fL:"Nell'app per iPhone", fT:"Tutto quello che serve prima del varco", fP:"L'app dà le stesse risposte di questa pagina, per {{N}} città italiane, e ti aiuta anche per strada.", f1T:"«Posso entrare?»", f1P:"Una risposta chiara per il posto dove vai, con la fonte ufficiale del Comune e la data in cui l'abbiamo letta.", st1:"Puoi entrare", st2:"Puoi entrare se…", st3:"Non puoi entrare", st4:"Da verificare", f2T:"La tua ora, la tua auto", f2P:"Tocca «Adesso ▾» per scegliere stasera, domani o un giorno e un'ora qualsiasi, e scegli l'auto che guidi: le risposte, la mappa e il viaggio cambiano insieme.", f3T:"La mappa", f3P:"Le zone ZTL colorate secondo la risposta, i varchi con le telecamere e le aree pedonali, per l'ora e l'auto che hai scelto.", f4T:"Parcheggia fuori e cammina", f4P:"Destinazione in una ZTL attiva? I parcheggi fuori dalla zona, i minuti a piedi, prezzi e orari quando si conoscono. Funziona anche offline.", f5T:"Hotel dentro la ZTL", f5P:"Un messaggio pronto per chiedere all'hotel di comunicare la tua targa al Comune per ogni giorno del soggiorno.", f6T:"Guardiano", f6P:"Guida con Google Maps, Waze o Apple Maps: GateLR resta in sottofondo, ti avvisa prima di una ZTL attiva e la mostra nella Dynamic Island, in una Live Activity e nel widget della schermata di blocco.", f7T:"Il navigatore di GateLR", f7P:"Indicazioni a voce svolta per svolta su una mappa fluida, ricalcolo dopo una svolta sbagliata e un avviso prima di ogni varco attivo.", f8T:"Siri e Comandi rapidi", f8P:"«Posso entrare a Firenze Settore A con GateLR?», la ZTL più vicina o «ferma il guardiano», senza aprire l'app.", f9T:"Leggi il cartello", f9P:"Inquadra il cartello della ZTL: GateLR legge giorni e orari e te li spiega nella tua lingua.", f10T:"Garage", f10P:"«Fotografa il libretto» legge alimentazione e classe Euro dalle carte di circolazione europee; per un'auto a noleggio scegli il modello da un elenco.", f11T:"«Ho preso una multa?»", f11P:"Fotografa il verbale: il varco era attivo secondo i nostri dati, le tue scadenze e una bozza di ricorso da completare. Informazioni generali, non consulenza legale.", f12T:"8 lingue", f12P:"English, Italiano, Deutsch, Français, Español, Nederlands, Polski e 简体中文.", q5:"Da dove vengono le regole?", a5:"Dalle pagine ufficiali, dalle ordinanze e dagli open data di ogni Comune, con il link e la data in cui le abbiamo lette. Sono bozze: controllate sulle fonti ufficiali ma non ancora verificate sul posto da una persona. Valgono sempre il cartello e il pannello luminoso al varco.", q6:"Posso scaricare l'app?", a6:"Non ancora: GateLR per iPhone è in prova e non è ancora sull'App Store. Nel frattempo questa pagina ti dà la stessa risposta per ogni città, per adesso o per l'ora di arrivo.",title:"Posso entrare in ZTL? {{N}} città italiane · GateLR", desc:"Vai in auto in un centro storico italiano? Cerca il tuo hotel e scopri subito se è in ZTL in una di {{N}} città italiane, da Firenze, Roma e Milano a Siena e San Gimignano: se puoi entrare all'ora di arrivo, gli orari, il ticket e la multa. Dalle fonti ufficiali dei Comuni.",
-  lpass:"ZTL: con ticket", lgreen:"Zona a basse emissioni", lped:"Area pedonale", ped:"Area pedonale", guides:"Guide ZTL", and:"e",
+  lcondOne:"Entri a una condizione", lcheck:"«?»: controlla il cartello", loff:"Nessuna ZTL attiva", lpass:"ZTL: con ticket", lgreen:"Zona a basse emissioni", lped:"Area pedonale", ped:"Area pedonale", guides:"Guide ZTL", and:"e",
   phones:"Una versione per Android è in lavorazione, anche per i telefoni Huawei e Honor senza servizi Google.",   whyGreen0:"La zona a basse emissioni è attiva. Quasi tutte le auto possono entrare, le più inquinanti no. Controlla la tua auto sul sito del Comune.",
   banNote:l=>` Le auto più vecchie (${l}) non possono entrare, neanche con il ticket.`, banNext:(d,l)=>` Dal ${d} vietate anche: ${l}.`, upTo:(f,n)=>`${f} fino a Euro ${n}`,
   fuel:{petrol:"benzina", diesel:"diesel", lpg:"GPL", cng:"metano", hybrid:"ibride", electric:"elettriche"},
@@ -553,7 +551,7 @@ const T = {
   cityL:"Stadt", carL:"Fahrzeug", whenL:"Wann", dToday:"Heute", dTomorrow:"Morgen", slideHint:"Zieh an der Uhrzeit: die Antwort ändert sich sofort", ledCap:"Die Anzeige an der Einfahrt", ledOut:"KEINE ZTL", vRental:"Mietwagen", vRentalS:"Benzin Euro 6", vP3:"Benzin Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Hybrid", vEl:"Elektro", vMoto:"Motorrad / Roller", vMotoS:"Benzin Euro 5", whyMoto:"Die Kameras sind aktiv, aber Motorräder und Roller dürfen hinein.", whyMotoBan:"Die Kameras sind aktiv. Für Motorräder gelten hier eigene Euro-Grenzen: prüfe deins auf der Seite der Stadt.", whyMotoNo:e=>`Motorräder und Roller Euro ${e} dürfen nicht in diese Zone, solange sie aktiv ist.`, whyMotoOk:e=>`Dein Motorrad (Euro ${e}) darf in diese Umweltzone.`, moreC:n=>`und ${n} weitere`, lessC:"Weniger", lcond:"Mit Ticket oder Bedingung", allC:"Alle Städte",
   untilOn:n=>`Aktiv bis ${n.replace(/^am /, "")}`, untilOff:n=>`Aus bis ${n.replace(/^am /, "")}`, carPl:(f,n)=>f==="electric" ? "Elektroautos" : f==="hybrid" ? "Hybridautos" : `Autos mit ${T.de.fuel[f]} Euro ${n}`, whyExempt:c=>`Die Kameras sind aktiv, aber ${c} dürfen hinein.`, whyBan:c=>`Die Kameras sind aktiv und ${c} dürfen nicht hinein, auch nicht mit Ticket. Eventuelle freie Tage stehen auf der Seite der Stadt.`, whyGreenOk:(c,l)=>`Die Umweltzone ist aktiv, aber ${c} dürfen hinein.${l ? " Derzeit verboten: " + l + "." : ""}`,
   fL:"In der iPhone-App", fT:"Alles, was du vor der Einfahrt brauchst", fP:"Die App gibt dieselben Antworten wie diese Seite, für {{N}} italienische Städte, und hilft dir auch unterwegs.", f1T:"«Darf ich hinein?»", f1P:"Eine klare Antwort für dein Ziel, mit der offiziellen Quelle der Stadt und dem Datum, an dem wir sie gelesen haben.", st1:"Einfahrt erlaubt", st2:"Einfahrt nur wenn…", st3:"Keine Einfahrt", st4:"Noch zu prüfen", f2T:"Deine Uhrzeit, dein Auto", f2P:"Tippe auf «Jetzt ▾» für heute Abend, morgen oder einen beliebigen Tag und eine Uhrzeit, und wähle das Auto, das du fährst: Antworten, Karte und Reise ändern sich zusammen.", f3T:"Die Karte", f3P:"ZTL-Zonen nach Antwort eingefärbt, Kamera-Einfahrten und Fußgängerzonen, für die gewählte Uhrzeit und dein Auto.", f4T:"Draußen parken und laufen", f4P:"Ziel in einer aktiven ZTL? Parkplätze außerhalb, die Minuten zu Fuß, Preise und Öffnungszeiten, wenn bekannt. Funktioniert auch offline.", f5T:"Hotel in der ZTL", f5P:"Eine fertige Nachricht, mit der dein Hotel dein Kennzeichen für jeden Tag deines Aufenthalts bei der Stadt anmeldet.", f6T:"Wächter", f6P:"Fahr mit Google Maps, Waze oder Apple Maps: GateLR bleibt im Hintergrund, warnt dich vor einer aktiven ZTL und zeigt sie in der Dynamic Island, einer Live-Aktivität und im Sperrbildschirm-Widget.", f7T:"GateLRs eigenes Navi", f7P:"Sprachansagen Abbiegung für Abbiegung auf einer flüssigen Karte, Neuberechnung nach einer falschen Abzweigung und eine Warnung vor jeder aktiven Einfahrt.", f8T:"Siri und Kurzbefehle", f8P:"«Darf ich mit GateLR in Florenz Sektor A?», die nächste ZTL oder den Wächter stoppen, ohne die App zu öffnen.", f9T:"Schild lesen", f9P:"Richte die Kamera auf das ZTL-Schild: GateLR liest Tage und Zeiten und erklärt sie dir in deiner Sprache.", f10T:"Garage", f10P:"«Fahrzeugschein fotografieren» liest Kraftstoff und Euro-Klasse aus EU-Zulassungsbescheinigungen; für einen Mietwagen wählst du das Modell aus einer Liste.", f11T:"«Bußgeld bekommen?»", f11P:"Fotografiere den Bescheid: War die Einfahrt laut unseren Daten aktiv, deine Fristen und ein Entwurf für den Einspruch zum Ergänzen. Allgemeine Informationen, keine Rechtsberatung.", f12T:"8 Sprachen", f12P:"English, Italiano, Deutsch, Français, Español, Nederlands, Polski und 简体中文.", q5:"Woher kommen die Regeln?", a5:"Aus den offiziellen Seiten, Verordnungen und Open Data jeder Stadt, mit Link und dem Datum, an dem wir sie gelesen haben. Es sind Entwürfe: an den offiziellen Quellen geprüft, aber noch nicht von einer Person vor Ort. Schild und Leuchttafel an der Einfahrt gelten immer.", q6:"Kann ich die App laden?", a6:"Noch nicht: GateLR für iPhone ist im Test und noch nicht im App Store. Bis dahin gibt dir diese Seite für jede Stadt dieselbe Antwort, für jetzt oder für deine Ankunftszeit.",title:"Darf ich in die ZTL? {{N}} italienische Städte · GateLR", desc:"Mit dem Auto in eine italienische Altstadt? Suche dein Hotel und sieh sofort, ob es in einer ZTL in einer von {{N}} italienischen Städten liegt, von Florenz, Rom und Mailand bis Siena und San Gimignano: ob du bei Ankunft hineinfahren darfst, die Zeiten, das Tagesticket und das Bußgeld. Aus offiziellen Quellen der Städte.",
-  lpass:"ZTL: mit Tagesticket", lgreen:"Umweltzone", lped:"Fußgängerzone", ped:"Fußgängerzone", guides:"ZTL-Ratgeber", and:"und",
+  lcondOne:"Einfahrt mit Bedingung", lcheck:"«?»: Schild prüfen", loff:"Keine ZTL aktiv", lpass:"ZTL: mit Tagesticket", lgreen:"Umweltzone", lped:"Fußgängerzone", ped:"Fußgängerzone", guides:"ZTL-Ratgeber", and:"und",
   phones:"Eine Android-Version ist in Arbeit, auch für Huawei- und Honor-Handys ohne Google-Dienste.",   whyGreen0:"Die Umweltzone ist aktiv. Die meisten Autos dürfen hinein, die schmutzigsten nicht. Prüfe dein Auto auf der Seite der Stadt.",
   banNote:l=>` Ältere Autos (${l}) dürfen nicht hinein, auch nicht mit Ticket.`, banNext:(d,l)=>` Ab ${d} auch verboten: ${l}.`, upTo:(f,n)=>`${f} bis Euro ${n}`,
   fuel:{petrol:"Benzin", diesel:"Diesel", lpg:"Autogas", cng:"Erdgas", hybrid:"Hybrid", electric:"Elektro"},
@@ -726,9 +724,30 @@ function nearestZone(lat, lon){ let best = null, bc = null, bd = 1e9;
 const svg = document.getElementById("map"), NS = "http://www.w3.org/2000/svg";
 const el = (n, a, parent = svg) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); parent.appendChild(e); return e; };
 let box, W = 1000, H, gZones, gPed, gGates, gPin, zoneEls = {}, pedEls = {}, drawn = null;
-// Colori per tipo di zona (gli stessi dell'app); opacità del riempimento: normale, scelta
-const COLOR = {restricted:"var(--red)", pass:"#D99A00", green:"#0FA34A"}, PED = "#7A1F5C";   // colori per tipo (solo per il primo disegno: poi vince lo stato)
-const FILL = {restricted:[.08, .22], pass:[.10, .26], green:[.16, .30]};
+// ── Stile delle zone sulla mappa: TUTTI i colori e le misure qui (gli stessi dell'app: Sources/MapTheme.swift) ──
+// Il colore è la risposta per IL TUO veicolo all'ora scelta (answer()), mai «ZTL attiva in generale»: rosso non puoi entrare,
+// giallo entri a una condizione (con «?»: da verificare, controlla il cartello), verde puoi entrare, grigio nessuna ZTL attiva
+// in quel momento. Gli altri segni: bordo tratteggiato = è una ZTL; righe a 45° = la ZTL è attiva adesso (per tutti i veicoli);
+// il segno «ZTL» nel colore della risposta (grigio se spenta); aree pedonali col segno «PEDONALE» grigio scuro, senza righe.
+const MAP_THEME = {
+  light: {no:{fill:"#D64545", line:"#A82F2F"}, cond:{fill:"#E8C21A", line:"#8A6D00"}, yes:{fill:"#3E9F5C", line:"#2C7543"}, off:{fill:"#7A8594", line:"#5B6573"},
+          base:"#F2F3F0", name:"#1C2742", fill:.12, fillOff:.05, hatch:.22},
+  dark:  {no:{fill:"#E5544F", line:"#FF8A80"}, cond:{fill:"#E8C21A", line:"#F2D24B"}, yes:{fill:"#4DB56E", line:"#86E0A2"}, off:{fill:"#7A8594", line:"#9AA5B5"},
+          base:"#1C1923", name:"#E6ECFA", fill:.16, fillOff:.07, hatch:.28},
+  // il segno «ZTL» (uguale chiaro e scuro): fondo, scritta, bordo
+  badge: {no:["#A82F2F", "#FFFFFF"], cond:["#E8C21A", "#2B2300", "#8A6D00"], yes:["#2C7543", "#FFFFFF"], off:["#5B6573", "#FFFFFF"], ped:["#3A3F47", "#FFFFFF"]},
+  hatchPitch: 7,                       // px fra le righe a 45°, spesse 1 px
+  dash: [5, 4], dashOff: [3, 5],       // px: tratteggio del bordo (ZTL spenta: più rado)
+  width: ["interpolate", ["linear"], ["zoom"], 13, 1, 14, 1.5, 16, 1.5, 17, 2],
+  corridorZoom: 15, badgeOnlyPx: 16, gateZoom: 16, nameZoom: 15, streetNameZoom: 17,
+  legend: ["no", "cond", "yes", "off"]
+};
+const mapTheme = () => MAP_THEME[DARK() ? "dark" : "light"];
+// Lo stato disegnato di una zona per il veicolo e l'ora scelti: c = colore (no, cond, yes, off), q = da verificare, on = attiva
+function look(z, t, v, r){ r = r || answer(z, t, false, v, true);
+  if (r.v === "unsure") return {c:"cond", q:true, on:!!r.on};
+  if (!r.on) return {c:"off", q:false, on:false};
+  return {c: r.v === "no" ? "no" : r.v === "cond" ? "cond" : "yes", q:false, on:true}; }
 const X = lon => (lon - box.minLon) / (box.maxLon - box.minLon) * W, Y = lat => (box.maxLat - lat) / (box.maxLat - box.minLat) * H;
 function drawMap(c){
   if (drawn === c.id) return; drawn = c.id;
@@ -745,8 +764,8 @@ function drawMap(c){
   gZones = el("g", {}); gPed = el("g", {}); gGates = el("g", {}); gPin = el("g", {});
   const path = per => per.map((p, i) => (i ? "L" : "M") + X(p.lon).toFixed(1) + " " + Y(p.lat).toFixed(1)).join(" ") + "Z";
   for (const z of [...ZONES_OF[c.id]].reverse()){
-    const k = kindOf(z), col = COLOR[k], green = k === "green";
-    zoneEls[z.id] = el("path", {d:path(z.perimeter), fill:col, "fill-opacity":FILL[k][0], stroke:col, "stroke-width":2, "stroke-linejoin":"round"}, gZones);
+    const k = kindOf(z), col = MAP_THEME.light.off.line, green = k === "green";
+    zoneEls[z.id] = el("path", {d:path(z.perimeter), fill:col, "fill-opacity":.05, stroke:col, "stroke-width":2, "stroke-linejoin":"round", "stroke-dasharray":"10 8"}, gZones);
     zoneEls[z.id].dataset.kind = k;
     const lats = z.perimeter.map(p=>p.lat), lons = z.perimeter.map(p=>p.lon);
     // la zona verde contiene le altre: l'etichetta va in alto, non al centro
@@ -756,7 +775,7 @@ function drawMap(c){
     t.textContent = z.name.split("·")[0].trim().split(" ").pop();
   }
   for (const a of c.pedestrian || []){
-    pedEls[a.id] = el("path", {d:path(a.perimeter), fill:PED, "fill-opacity":.6, stroke:PED, "stroke-width":1.2, "stroke-linejoin":"round"}, gPed);
+    pedEls[a.id] = el("path", {d:path(a.perimeter), fill:MAP_THEME.light.no.fill, "fill-opacity":.35, stroke:MAP_THEME.light.no.line, "stroke-width":1.2, "stroke-linejoin":"round", "stroke-dasharray":"5 4"}, gPed);
     el("title", {}, pedEls[a.id]).textContent = a.name;
   }
   const many = c.zones.reduce((n, z) => n + z.gates.length, 0) > 80;   // a Milano i varchi sono centinaia: punti più piccoli
@@ -765,34 +784,32 @@ function drawMap(c){
     el("title", {}, dot).textContent = g.name;
   }
 }
-// Colori per stato, per l'ora e il veicolo scelti: rosso = non entrare, verde = si entra, ambra = ticket o condizione
-const SCOL = () => { const cs = getComputedStyle(document.documentElement), v = n => cs.getPropertyValue(n).trim();
-  return {no: v("--red") || "#C1272D", yes: v("--green") || "#2B7A47", out: v("--green") || "#2B7A47", cond: "#D99A00", unsure: "#8C8696"}; };
 // Lo stato di ogni zona della città mostrata (stesso motore della risposta); la zona scelta usa la risposta vera
 function zoneStates(t, sel){ const out = {}, v = CARS[state.car];
-  for (const z of city.zones) out[z.id] = sel && sel.id === z.id && sel.v ? sel.v : answer(z, t, false, v, true).v;
+  for (const z of city.zones) out[z.id] = sel && sel.id === z.id && sel.r ? look(z, t, v, sel.r) : look(z, t, v);
   return out; }
-// Disegno di riserva (SVG): la zona scelta piena e marcata, le altre più chiare; la LEZ grande quasi solo il bordo
-function paintSvg(st, selId){ const C = SCOL();
-  for (const id in zoneEls){ const e = zoneEls[id], on = id === selId, big = e.dataset.kind === "green", c = C[st[id]] || C.unsure;
-    e.setAttribute("fill", c); e.setAttribute("stroke", c);
-    e.setAttribute("fill-opacity", on ? .32 : big ? .04 : .13); e.setAttribute("stroke-width", on ? 5 : 2); e.setAttribute("stroke-opacity", on ? 1 : .7);
+// Disegno di riserva (SVG): gli stessi colori e lo stesso tratteggio; la zona scelta piena, bordo continuo
+function paintSvg(st, selId){ const M = mapTheme();
+  for (const id in zoneEls){ const e = zoneEls[id], on = id === selId, big = e.dataset.kind === "green", s = st[id] || {c:"off"}, C = M[s.c];
+    e.setAttribute("fill", C.fill); e.setAttribute("stroke", C.line);
+    e.setAttribute("fill-opacity", on ? .3 : big ? .04 : s.c === "off" ? M.fillOff : M.fill + .04); e.setAttribute("stroke-width", on ? 5 : 2.5);
+    e.setAttribute("stroke-dasharray", on ? "none" : s.c === "off" ? "6 10" : "10 8"); e.setAttribute("stroke-opacity", on ? 1 : .85);
   } }
-// Zoom da cui la mappa vera mostra aree pedonali e varchi (gli stessi valori negli strati e nella legenda)
-const PED_MINZOOM = 12.5, GATE_MINZOOM = 14;
-// Legenda: i colori presenti adesso sulla mappa, più aree pedonali, varchi e il tuo posto
-function legend(st){
-  const c = CITIES.find(x => x.id === drawn) || city, L = $("legend");
-  const have = new Set(Object.values(st || legend.st || {}).map(v => v === "out" ? "yes" : v)); if (st) legend.st = st;
-  // sulla mappa vera aree pedonali e varchi compaiono solo da vicino (minzoom degli strati): in legenda solo quando si vedono
-  const zm = ml.ready && ml.map ? ml.map.getZoom() : Infinity, showPed = zm >= PED_MINZOOM, showGate = zm >= GATE_MINZOOM;
-  const key = [c.id, lang, showPed, showGate, ...[...have].sort()].join("|"); if (legend.key === key) return; legend.key = key;
-  L.innerHTML = ""; const C = SCOL();
-  const item = (sw, text) => { const s = document.createElement("span"); s.innerHTML = sw; const b = document.createElement("b"); b.style.fontWeight = "inherit"; b.textContent = text; s.append(b); L.append(s); };
-  for (const [v, k] of [["no", "st3"], ["cond", "lcond"], ["yes", "st1"], ["unsure", "st4"]]) if (have.has(v)) item(`<i class="sw" style="--c:${C[v]}"></i>`, t_(k));
-  if ((c.pedestrian || []).length && showPed) item(`<i class="sw ped"></i>`, t_("lped"));
-  if (showGate) item(`<i class="dot gate"></i>`, t_("lgate"));
-  item(`<i class="dot" style="background:var(--blue)"></i>`, t_("lplace"));
+// Il campione della legenda: stessi parametri della mappa (riempimento, righe a 45°, alone, tratteggio)
+function swatch(c){ const M = mapTheme(), C = M[c], off = c === "off", p = MAP_THEME.hatchPitch * Math.SQRT2;
+  return `<svg width="30" height="20" viewBox="0 0 30 20" aria-hidden="true"><defs><pattern id="lh-${c}" width="${p}" height="${p}" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="${p}" stroke="${C.line}" stroke-width="2" opacity="${M.hatch}"/></pattern></defs>`
+    + `<rect x="2" y="2" width="26" height="16" rx="4" fill="${C.fill}" fill-opacity="${off ? M.fillOff + .03 : M.fill + .04}"/>`
+    + (off ? "" : `<rect x="2" y="2" width="26" height="16" rx="4" fill="url(#lh-${c})"/>`)
+    + `<rect x="2" y="2" width="26" height="16" rx="4" fill="none" stroke="${M.base}" stroke-width="4.5" opacity=".4"/>`
+    + `<rect x="2" y="2" width="26" height="16" rx="4" fill="none" stroke="${C.line}" stroke-width="1.5" stroke-dasharray="${(off ? MAP_THEME.dashOff : MAP_THEME.dash).join(" ")}" stroke-linecap="round" opacity="${off ? .7 : .85}"/></svg>`; }
+// Legenda: sempre le quattro voci, con il campione disegnato come le zone sulla mappa
+function legend(){
+  const L = $("legend"), key = [lang, DARK()].join("|"); if (legend.key === key) return; legend.key = key;
+  L.innerHTML = "";
+  const item = (sw, text, note) => { const s = document.createElement("span"); s.innerHTML = sw; const b = document.createElement("b"); b.style.fontWeight = "inherit"; b.textContent = text;
+    s.append(b); if (note){ const i = document.createElement("i"); i.className = "lnote"; i.textContent = note; s.append(i); } L.append(s); };
+  const TXT = {no:"st3", cond:"lcondOne", yes:"st1", off:"loff"};
+  for (const c of MAP_THEME.legend) item(swatch(c), t_(TXT[c]), c === "cond" ? t_("lcheck") : "");
 }
 svg.addEventListener("click", e => {
   const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
@@ -829,7 +846,7 @@ function led(text, light, dim){
 function setVerdict(v){ const a = $("answer"); if (a.dataset.v !== v && led.ready && !RM.matches){ a.classList.remove("pop"); void a.offsetWidth; a.classList.add("pop"); } a.dataset.v = v; }
 
 // La barra dell'ora colorata con le risposte del giorno scelto (ogni 15 minuti, stesso motore)
-const VCOL = {yes:"var(--green)", out:"var(--green)", no:"var(--red)", cond:"#D99A00", unsure:"var(--muted)"};
+const VCOL = {yes:"var(--green)", out:"var(--green)", no:"var(--red)", cond:MAP_THEME.light.cond.fill, unsure:MAP_THEME.light.cond.fill};
 function track(kind, z, staying){
   const r = dayRome(state.later ? state.day : 0), key = [kind, z ? z.id : "", r.y, r.m, r.d, state.car, staying, lang].join("|");
   if (track.key === key) return; track.key = key;
@@ -849,7 +866,7 @@ function syncTime(){
 }
 
 // Colora mappa disegnata, mappa vera e legenda con lo stato di ogni zona all'ora scelta
-function paintAll(t, sel){ const st = zoneStates(t, sel); paintSvg(st, sel ? sel.id : ""); legend(st); ml.states = st; ml.selected = sel ? sel.id : ""; if (ml.ready) paintReal(); return st; }
+function paintAll(t, sel){ const st = zoneStates(t, sel); paintSvg(st, sel ? sel.id : ""); legend(); ml.states = st; ml.selected = sel ? sel.id : ""; if (ml.ready) paintReal(); return st; }
 function render(){
   const t = arrivalTime(), p = state.place, a = $("answer"), v = CARS[state.car];
   syncTime(); chipsState();
@@ -905,7 +922,7 @@ function render(){
   }
   const staying = /hotel|b&b|hostel|albergo|residence/i.test(p.name) || !!p.hotel;
   const r = answer(z, t, staying, v);
-  updateRealMap(p, z, null, paintAll(t, {id: z.id, v: r.v}));
+  updateRealMap(p, z, null, paintAll(t, {id: z.id, r}));
   setVerdict(r.v);
   led(r.on ? "VARCO ATTIVO" : "VARCO NON ATTIVO", r.on ? (r.v === "unsure" ? "amber" : "red") : "green");
   $("a-where").textContent = `${p.name} · ${zoneLabel(z)} · ${stamp}`;
@@ -1123,64 +1140,63 @@ function loadRealMap(){
   const js = document.createElement("script"); js.src = ML + ".js"; js.async = true; js.onload = () => startRealMap(); document.head.append(js);
 }
 const poly = (per, props) => ({type:"Feature", properties:props, geometry:{type:"Polygon", coordinates:[per.map(p => [p.lon, p.lat]).concat([[per[0].lon, per[0].lat]])]}});
-// Zone colorate per stato; la scelta per ultima (sopra le altre), la LEZ grande quasi trasparente
-function geo(){
-  const C = SCOL(), st = ml.states || {};
-  const zs = [...ZONES_OF[city.id]].reverse().sort((a, b) => (a.id === ml.selected) - (b.id === ml.selected));
-  return {type:"FeatureCollection", features: zs.map(z => poly(z.perimeter, {id:z.id, big:kindOf(z) === "green", color:C[st[z.id]] || C.unsure, sel:z.id === ml.selected}))};
+// Le forme disegnate (Tools/build_map_shapes.py, in city.shapes): corridoi delle vie, punto del segno, varchi sul bordo
+const lonlat = q => [q[1], q[0]];
+const extentM = per => { const b = bbox(per), k = Math.cos((b[1] + b[3]) / 2 * Math.PI / 180); return Math.max((b[2] - b[0]) * 111320 * k, (b[3] - b[1]) * 110540); };
+// lo zoom (intero) da cui si disegna la forma: almeno badgeOnlyPx sullo schermo e, fino a z12, solo le grandi (4 volte
+// tanto); prima solo il segno. Lo stesso calcolo nell'app (MapShapes.fromZoom)
+const fromZoom = (ext, lat, min) => { const z16 = Math.ceil(Math.log2(78271.517 * Math.cos(lat * Math.PI / 180) * MAP_THEME.badgeOnlyPx / Math.max(ext, 1)));
+  return Math.min(19, Math.max(min, Math.min(Math.max(13, z16), z16 + 2))); };
+function labelOf(o){ const b = bbox(o.perimeter); let ll = [(b[0] + b[2]) / 2, (b[1] + b[3]) / 2];
+  if (!contains(o, ll[1], ll[0])){ const c = o.perimeter.reduce((s, q) => [s[0] + q.lon, s[1] + q.lat], [0, 0]).map(v => v / o.perimeter.length); if (contains(o, c[1], c[0])) ll = c; }
+  return ll; }
+function mapData(){
+  const M = mapTheme(), th = DARK() ? "d" : "l", st = ml.states || {}, sel = ml.selected || ml.ped, sh = city.shapes || {}, lat = city.center.lat;
+  const zones = [], badges = [], axes = [], gates = [];
+  const add = (o, s, kind) => {
+    const e = sh[o.id] || {}, corr = !!e.corridor, ped = kind === "ped", big = kind === "green", isSel = o.id === sel, dim = !!sel && !isSel, C = M[s.c];
+    const zb = corr ? Math.max(MAP_THEME.corridorZoom, fromZoom(e.ext, lat, 8)) : fromZoom(e.ext || extentM(o.perimeter), lat, ped ? 14 : 8);
+    const fo = big ? M.fill * .4 : s.c === "off" ? M.fillOff : M.fill;
+    zones.push({type:"Feature", properties:{id:o.id, c:s.c, on:s.on && !ped, fill:C.fill, line:C.line, base:M.base, fo, zb, sel:isSel, dim, pat:`hatch|${s.c}|${th}`},
+      geometry:{type:"Polygon", coordinates: corr ? [e.corridor.map(lonlat)] : poly(o.perimeter).geometry.coordinates}});
+    const name = ped ? o.name : zoneLabel(o), mark = ped ? "PEDONALE" : (big ? "LEZ" : "ZTL") + (s.q ? " ?" : "");
+    badges.push({type:"Feature", properties:{id:o.id, icon:`badge|${ped ? "ped" : s.c}|${mark}|${th}`, name, corr, ped, dim, ink:M.name, base:M.base,
+      sort: ped ? 3 : big ? 4 : {no:0, cond:1, yes:2, off:5}[s.c]}, geometry:{type:"Point", coordinates: e.label ? lonlat(e.label) : labelOf(o)}});
+    if (corr && e.axis) axes.push({type:"Feature", properties:{text: ped ? name : mark + " · " + name, line:C.line, base:M.base, dim}, geometry:{type:"LineString", coordinates:e.axis.map(lonlat)}});
+    (o.gates || []).forEach((g, i) => gates.push({type:"Feature", properties:{name:g.name, icon:`gate|${s.c}||${th}`, dim},
+      geometry:{type:"Point", coordinates: e.gates && e.gates[i] ? lonlat(e.gates[i]) : [g.location.lon, g.location.lat]}}));
+  };
+  for (const z of [...ZONES_OF[city.id]].reverse()) add(z, st[z.id] || {c:"off", q:false, on:false}, kindOf(z));
+  for (const a of city.pedestrian || []) add(a, {c:"no", q:false, on:true}, "ped");
+  zones.sort((a, b) => a.properties.sel - b.properties.sel);       // la scelta sopra le altre
+  const fc = features => ({type:"FeatureCollection", features});
+  return {zones: fc(zones), badges: fc(badges), axes: fc(axes), gates: fc(gates)};
 }
-const pedGeo = () => ({type:"FeatureCollection", features:(city.pedestrian || []).map(a => poly(a.perimeter, {id:a.id, name:a.name, sel:a.id === ml.ped}))});
-function gatesGeo(){
-  return {type:"FeatureCollection", features: city.zones.flatMap(z => z.gates.map(g => ({type:"Feature", properties:{name:g.name}, geometry:{type:"Point", coordinates:[g.location.lon, g.location.lat]}})))};
+// Le immagini della mappa, disegnate qui alla prima richiesta (styleimagemissing): righe a 45°, segni «ZTL», varchi.
+// Nome «tipo|colore|testo|tema»; a 2× per gli schermi retina
+const CAM = "M5.6 7.6h6.2a1.6 1.6 0 0 1 1.6 1.6v5.6a1.6 1.6 0 0 1-1.6 1.6H5.6A1.6 1.6 0 0 1 4 14.8V9.2a1.6 1.6 0 0 1 1.6-1.6zM14.2 10.6l3.4-2.2v7.2l-3.4-2.2z";
+function mapImage(id){
+  const [k, c, txt, th] = id.split("|"), M = MAP_THEME[th === "d" ? "dark" : "light"], R = 2, cv = document.createElement("canvas"), g = cv.getContext("2d");
+  const draw = (w, h, f) => { cv.width = Math.ceil(w * R); cv.height = Math.ceil(h * R); g.scale(R, R); f(); return {width: cv.width, height: cv.height, data: new Uint8Array(g.getImageData(0, 0, cv.width, cv.height).data.buffer)}; };
+  const pill = (x, y, w, h) => { g.beginPath(); if (g.roundRect) g.roundRect(x, y, w, h, h / 2); else g.rect(x, y, w, h); };
+  if (k === "hatch" && M[c]){ const t = Math.round(MAP_THEME.hatchPitch * Math.SQRT2);
+    return draw(t, t, () => { g.strokeStyle = M[c].line; g.globalAlpha = M.hatch; g.lineWidth = 1; g.lineCap = "square";
+      for (const o of [-t, 0, t]){ g.beginPath(); g.moveTo(o, t); g.lineTo(o + t, 0); g.stroke(); } }); }
+  const B = MAP_THEME.badge[c]; if (!B) return null;
+  if (k === "badge"){ const font = "600 10.5px system-ui,-apple-system,'Segoe UI',Roboto,sans-serif", ls = .42;
+    g.font = font; const w = Math.ceil(g.measureText(txt).width + ls * txt.length) + 14, h = 17;
+    return draw(w, h, () => { g.font = font; if ("letterSpacing" in g) g.letterSpacing = ls + "px";
+      g.fillStyle = B[0]; pill(1, 1, w - 2, h - 2); g.fill();
+      if (B[2] || th === "d"){ g.strokeStyle = B[2] || "rgba(255,255,255,.25)"; g.lineWidth = B[2] ? 1 : 1.2; g.stroke(); }
+      g.fillStyle = B[1]; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(txt, w / 2 + ls / 2, h / 2 + .5); }); }
+  if (k === "gate") return draw(22, 22, () => { g.fillStyle = B[0]; g.strokeStyle = "#fff"; g.lineWidth = 1.8; g.beginPath(); g.arc(11, 11, 9.6, 0, 7); g.fill(); g.stroke();
+      g.translate(-.4, -1); g.fillStyle = B[1]; g.fill(new Path2D(CAM)); });
+  return null;
 }
 const bounds = () => [[box.minLon, box.minLat], [box.maxLon, box.maxLat]];
 const bbox = per => { const la = per.map(q => q.lat), lo = per.map(q => q.lon); return [Math.min(...lo), Math.min(...la), Math.max(...lo), Math.max(...la)]; };
-// Ridipinge zone e nomi con gli stati correnti (all'ora e col veicolo scelti)
-function paintReal(){
-  ml.map.getSource("zones").setData(geo()); ml.map.getSource("ped").setData(pedGeo());
-  const C = SCOL(), st = ml.states || {};
-  for (const L of ml.labels || []){ L.el.style.setProperty("--c", C[st[L.id]] || C.unsure); L.el.classList.toggle("sel", L.id === ml.selected); }
-  placeLabels();
-}
-// Nomi delle zone: uno per zona, nascosto se la zona è troppo piccola sullo schermo o si sovrappone a un altro
-function makeLabels(){
-  for (const L of ml.labels || []) L.m.remove();
-  ml.labels = [];
-  const seen = {};
-  for (const z of [...ZONES_OF[city.id]].reverse()){
-    const name = zoneLabel(z), b = bbox(z.perimeter), big = kindOf(z) === "green";
-    // la LEZ contiene le altre: il nome va vicino al bordo nord, non al centro
-    let ll = [(b[0] + b[2]) / 2, big ? b[3] - (b[3] - b[1]) * .08 : (b[1] + b[3]) / 2];
-    if (!big){ const c = z.perimeter.reduce((s, q) => [s[0] + q.lon, s[1] + q.lat], [0, 0]).map(v => v / z.perimeter.length);
-      if (!contains(z, ll[1], ll[0]) && contains(z, c[1], c[0])) ll = c; }
-    const k = name + "|" + ll.map(v => v.toFixed(3)).join(","); if (seen[k]) continue; seen[k] = 1;
-    // posti di riserva dentro la zona, se il primo è coperto (es. il settore che ne contiene un altro)
-    const alt = [ll];
-    for (const [fx, fy] of [[.5, .8], [.5, .2], [.25, .5], [.75, .5], [.3, .75], [.7, .75], [.3, .25], [.7, .25]]){
-      const q = [b[0] + (b[2] - b[0]) * fx, b[1] + (b[3] - b[1]) * fy]; if (contains(z, q[1], q[0])) alt.push(q); }
-    const e = document.createElement("div"); e.className = "zlab"; e.textContent = name;
-    ml.labels.push({id:z.id, el:e, b, big, alt, m:new maplibregl.Marker({element:e}).setLngLat(ll).addTo(ml.map)});
-  }
-}
-function placeLabels(){
-  if (!ml.labels) return;
-  const taken = [], order = [...ml.labels].sort((a, b) => (b.id === ml.selected) - (a.id === ml.selected));
-  // il tuo posto resta libero: un nome che gli sta sopra scende un poco o si nasconde
-  const pin = ml.marker && ml.marker._map ? ml.marker.getElement().getBoundingClientRect() : null;
-  const over = (r, o, m = 4) => r.left < o.right + m && r.right > o.left - m && r.top < o.bottom + 2 && r.bottom > o.top - 2;
-  const box0 = ml.map.getContainer().getBoundingClientRect();
-  if (pin) taken.push({left: pin.left - 4, right: pin.right + 4, top: pin.top - 4, bottom: pin.bottom + 4});
-  for (const L of order){
-    L.el.classList.remove("off"); L.m.setOffset([0, 0]);
-    if (pin && L.id === ml.selected && over(L.el.getBoundingClientRect(), taken[0])) L.m.setOffset([0, Math.round(pin.bottom - L.el.getBoundingClientRect().top + 8)]);
-    const p0 = ml.map.project([L.b[0], L.b[1]]), p1 = ml.map.project([L.b[2], L.b[3]]);
-    let r = L.el.getBoundingClientRect(), hit = true;
-    const fits = Math.abs(p1.x - p0.x) > r.width * .9 && Math.abs(p1.y - p0.y) > r.height * 1.6;
-    for (const q of L.alt){ L.m.setLngLat(q); r = L.el.getBoundingClientRect();
-      if (!(hit = taken.some(o => over(r, o)) || r.left < box0.left || r.right > box0.right || r.top < box0.top || r.bottom > box0.bottom)) break; if (L.id === ml.selected) break; }
-    if (L.id !== ml.selected && (!fits || hit)) L.el.classList.add("off"); else taken.push(r);
-  }
-}
+// Ridipinge zone, segni, nomi e varchi con gli stati correnti (all'ora e col veicolo scelti)
+function paintReal(){ const d = mapData(); for (const k in d) ml.map.getSource(k).setData(d[k]); }
 // Mappa di base calma: OpenFreeMap «positron» (chiara, pochi colori); senza punti d'interesse; al buio gli stessi strati in toni scuri
 const DARK = () => matchMedia("(prefers-color-scheme: dark)").matches && document.documentElement.dataset.theme !== "light" || document.documentElement.dataset.theme === "dark";
 function calmStyle(map){
@@ -1196,7 +1212,7 @@ function calmStyle(map){
   }
 }
 // Mappa di riserva (CARTO, raster chiaro o scuro) se OpenFreeMap non risponde: la mappa con le strade c'è sempre
-const RASTER = () => ({version:8, sources:{c:{type:"raster", tileSize:256, attribution:"© OpenStreetMap contributors © CARTO",
+const RASTER = () => ({version:8, glyphs:"https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf", sources:{c:{type:"raster", tileSize:256, attribution:"© OpenStreetMap contributors © CARTO",
   tiles:["a","b","c"].map(s => "https://" + s + ".basemaps.cartocdn.com/" + (DARK() ? "dark_all" : "light_all") + "/{z}/{x}/{y}@2x.png")}}, layers:[{id:"c", type:"raster", source:"c", paint:{"raster-saturation": -.35}}]});
 function startRealMap(style){
   if (!window.maplibregl || ml.map) return;
@@ -1214,27 +1230,45 @@ function startRealMap(style){
     clearTimeout(fail); ml.ready = true; ml.city = city.id;
     calmStyle(map);
     $("mapbox").classList.add("real");
-    const ink = getComputedStyle(document.documentElement).getPropertyValue("--ink").trim() || "#2B2433";
-    const paper = getComputedStyle(document.documentElement).getPropertyValue("--sheet").trim() || "#fff";
-    const sel = ["get","sel"];
-    map.addSource("zones", {type:"geojson", data: geo()});
-    // riempimento pieno: la zona scelta forte, le altre leggere, la LEZ grande appena accennata
-    map.addLayer({id:"zones-fill", type:"fill", source:"zones", paint:{"fill-color": ["get","color"], "fill-opacity": ["case", sel, .34, ["get","big"], .04, .13]}});
-    // bordo chiaro sotto quello colorato della zona scelta: si stacca dalla mappa
-    map.addLayer({id:"zones-casing", type:"line", source:"zones", filter:["==", sel, true], layout:{"line-join":"round"}, paint:{"line-color": paper, "line-width": 7, "line-opacity": .9}});
-    map.addLayer({id:"zones-line", type:"line", source:"zones", layout:{"line-join":"round"}, paint:{"line-color": ["get","color"], "line-width": ["case", sel, 3.5, ["get","big"], 2, 1.75], "line-opacity": ["case", sel, 1, .8]}});
-    map.addSource("ped", {type:"geojson", data: pedGeo()});
-    map.addLayer({id:"ped-fill", type:"fill", source:"ped", minzoom: PED_MINZOOM, paint:{"fill-color": PED, "fill-opacity": ["case", sel, .85, .4]}});
-    map.addLayer({id:"ped-line", type:"line", source:"ped", minzoom: PED_MINZOOM, paint:{"line-color": PED, "line-width": ["case", sel, 3, .8], "line-opacity": .8}});
-    map.addSource("gates", {type:"geojson", data: gatesGeo()});
-    // i varchi solo da vicino, piccoli: la vista d'insieme resta pulita
-    map.addLayer({id:"gates", type:"circle", source:"gates", minzoom: GATE_MINZOOM, paint:{"circle-radius": ["interpolate",["linear"],["zoom"],14,2.5,16,4.5,18,6], "circle-color": ink, "circle-opacity": .8, "circle-stroke-color": paper, "circle-stroke-width": 1.2}});
-    makeLabels();
-    map.on("moveend", placeLabels); map.on("zoomend", placeLabels);
-    map.on("zoom", () => legend());
+    // Le zone nello stile del blocco MAP_THEME: riempimento, righe a 45° se attiva, alone e bordo tratteggiato, la scelta a
+    // bordo pieno e le altre al 40%; sotto ~16 px sullo schermo (e le vie sotto z15) solo il segno
+    map.on("styleimagemissing", e => { if (map.hasImage(e.id)) return; const im = mapImage(e.id); if (im) map.addImage(e.id, im, {pixelRatio: 2}); });
+    const d = mapData();
+    for (const k in d) map.addSource(k, {type:"geojson", data: d[k]});
+    const B = k => ["==", ["get", k], true];
+    const vis = v => { const x = ["step", ["zoom"], 0]; for (let k = 8; k <= 19; k++) x.push(k - .5, ["case", ["<=", ["get","zb"], k], v, 0]); return x; };
+    const dim = v => ["case", B("dim"), typeof v === "number" ? v * .4 : ["*", v, .4], v];
+    const notSel = ["!", B("sel")], isOff = ["==", ["get","c"], "off"], round = {"line-join":"round", "line-cap":"round"};
+    // il tratteggio in px costanti: line-dasharray è in unità di spessore, quindi cambia a gradini con lo spessore (1 → 1,5 → 2 px)
+    const dashes = a => ["step", ["zoom"], ["literal", a], 14, ["literal", a.map(x => x / 1.5)], 17, ["literal", a.map(x => x / 2)]];
+    map.addLayer({id:"zones-fill", type:"fill", source:"zones", paint:{"fill-color": ["get","fill"],
+      "fill-opacity": vis(["*", ["get","fo"], ["case", B("sel"), 1.6, B("dim"), .4, 1]])}});
+    map.addLayer({id:"zones-hatch", type:"fill", source:"zones", minzoom: MAP_THEME.corridorZoom, filter: B("on"), paint:{"fill-pattern": ["get","pat"], "fill-opacity": vis(dim(1))}});
+    map.addLayer({id:"zones-halo", type:"line", source:"zones", filter: notSel, layout: round, paint:{"line-color": ["get","base"],
+      "line-width": ["interpolate", ["linear"], ["zoom"], 13, 4, 14, 4.5, 16, 4.5, 17, 5], "line-opacity": vis(dim(.4))}});
+    map.addLayer({id:"zones-edge", type:"line", source:"zones", filter: ["all", notSel, ["!", isOff]], layout: round,
+      paint:{"line-color": ["get","line"], "line-width": MAP_THEME.width, "line-dasharray": dashes(MAP_THEME.dash), "line-opacity": vis(dim(.85))}});
+    map.addLayer({id:"zones-edge-off", type:"line", source:"zones", filter: ["all", notSel, isOff], layout: round,
+      paint:{"line-color": ["get","line"], "line-width": MAP_THEME.width, "line-dasharray": dashes(MAP_THEME.dashOff), "line-opacity": vis(dim(.7))}});
+    map.addLayer({id:"zones-sel-halo", type:"line", source:"zones", filter: B("sel"), layout: round, paint:{"line-color": ["get","base"], "line-width": 6, "line-opacity": vis(.55)}});
+    map.addLayer({id:"zones-sel", type:"line", source:"zones", filter: B("sel"), layout: round, paint:{"line-color": ["get","line"], "line-width": 2.5, "line-opacity": vis(1)}});
+    // varchi da z16, nel colore della zona e sul bordo disegnato
+    map.addLayer({id:"gates", type:"symbol", source:"gates", minzoom: MAP_THEME.gateZoom, layout:{"icon-image": ["get","icon"],
+      "icon-size": ["interpolate", ["linear"], ["zoom"], 16, .8, 18, 1], "icon-allow-overlap": true}, paint:{"icon-opacity": dim(1)}});
+    // segni e nomi: il segno vince sui nomi (symbol-sort-key: attive prima, spente per ultime)
+    const font = ["Noto Sans Bold"], nameText = {"text-font": font, "text-size": 11.5, "text-letter-spacing": .01, "text-padding": 1, "text-optional": true};
+    const namePaint = {"text-color": ["get","ink"], "text-halo-color": ["get","base"], "text-halo-width": 1.5, "text-opacity": dim(1), "icon-opacity": dim(1)};
+    const badge = {"icon-image": ["get","icon"], "symbol-sort-key": ["get","sort"], "icon-padding": 2};
+    const around = {"text-field": ["step", ["zoom"], "", MAP_THEME.nameZoom, ["get","name"]], "text-variable-anchor": ["top","bottom","right","left"], "text-radial-offset": 1.45, "text-justify": "auto"};
+    map.addLayer({id:"axes", type:"symbol", source:"axes", minzoom: MAP_THEME.streetNameZoom, layout:{...nameText, "symbol-placement": "line", "symbol-spacing": 260,
+      "text-field": ["get","text"], "text-max-angle": 30, "text-keep-upright": true}, paint:{...namePaint, "text-color": ["get","line"]}});
+    map.addLayer({id:"badges", type:"symbol", source:"badges", maxzoom: MAP_THEME.streetNameZoom, filter: ["!", B("ped")], layout:{...nameText, ...badge, ...around}, paint: namePaint});
+    map.addLayer({id:"badges-ped", type:"symbol", source:"badges", minzoom: MAP_THEME.nameZoom, maxzoom: MAP_THEME.streetNameZoom, filter: B("ped"), layout:{...nameText, ...badge, ...around}, paint: namePaint});
+    map.addLayer({id:"badges-17", type:"symbol", source:"badges", minzoom: MAP_THEME.streetNameZoom, filter: ["!", B("corr")],
+      layout:{...nameText, ...badge, "text-field": ["get","name"], "text-anchor": "top", "text-offset": [0, 1.05]}, paint: namePaint});
     map.on("click", e => choose({name: t_("point"), lat: e.lngLat.lat, lon: e.lngLat.lng, map: true}));
     // le zone si toccano per sceglierle: il puntatore lo fa capire
-    for (const l of ["zones-fill", "ped-fill"]){ map.on("mouseenter", l, () => map.getCanvas().style.cursor = "pointer"); map.on("mouseleave", l, () => map.getCanvas().style.cursor = ""); }
+    for (const l of ["zones-fill"]){ map.on("mouseenter", l, () => map.getCanvas().style.cursor = "pointer"); map.on("mouseleave", l, () => map.getCanvas().style.cursor = ""); }
     render();
   });
 }
@@ -1244,12 +1278,11 @@ function updateRealMap(p, z, ped, st){
   ml.selected = z ? z.id : ""; ml.ped = ped ? ped.id : ""; if (st) ml.states = st;
   const key = p ? `${p.lat},${p.lon}` : "", moved = key !== ml.flown;
   if (ml.city !== city.id){ ml.city = city.id; ml.map.resize();
-    ml.map.getSource("gates").setData(gatesGeo()); makeLabels();
     if (!p || p.map) ml.map.fitBounds(bounds(), {padding: 24, duration: 0}); }
   paintReal();
   if (!p) return;
   if (!ml.marker){ const dot = document.createElement("div"); dot.style.cssText = "width:20px;height:20px;border-radius:50%;background:#1F4E9E;border:3px solid #fff;box-shadow:0 0 0 7px rgba(31,78,158,.22),0 1px 4px rgba(0,0,0,.3);z-index:3"; ml.marker = new maplibregl.Marker({element: dot}); }
-  ml.marker.setLngLat([p.lon, p.lat]).addTo(ml.map); placeLabels();
+  ml.marker.setLngLat([p.lon, p.lat]).addTo(ml.map);
   if (!moved || p.map) { ml.flown = key; return; }
   ml.flown = key;
   const per = (ped || z || {}).perimeter, dur = RM.matches ? 0 : 1400;

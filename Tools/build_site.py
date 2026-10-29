@@ -100,7 +100,30 @@ def faq(qas):
 
 
 # ── Home in tre lingue ───────────────────────────────────────────────────────
-CITIES_JSON = json.dumps(cities, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+# Le forme disegnate sulla mappa (corridoi delle vie, punto del segno «ZTL», varchi sul bordo): Tools/build_map_shapes.py,
+# le stesse dell'app. Una forma nata da un perimetro diverso da quello di oggi (città aggiornata, script non rilanciato) si
+# scarta: la mappa usa il perimetro vero e qui si avvisa.
+SHAPES_FILE = ROOT / "Resources/Map/zone-shapes.json"
+SHAPES = json.loads(SHAPES_FILE.read_text(encoding="utf-8"))["cities"] if SHAPES_FILE.exists() else {}
+
+
+def map_shapes(c):
+    out, stale = {}, []
+    for o in c["zones"] + (c.get("pedestrian") or []):
+        e = SHAPES.get(c["id"], {}).get(o["id"])
+        if not e:
+            continue
+        p0 = o["perimeter"][0]
+        if e["n"] != len(o["perimeter"]) or abs(e["p0"][0] - p0["lat"]) > 1e-6 or abs(e["p0"][1] - p0["lon"]) > 1e-6:
+            stale.append(o["id"])
+            continue
+        out[o["id"]] = {k: v for k, v in e.items() if k in ("corridor", "axis", "label", "ext", "gates")}
+    if stale:
+        print(f"Avviso: forme della mappa vecchie per {c['id']} ({', '.join(stale)}): rilancia python3 Tools/build_map_shapes.py")
+    return out
+
+
+CITIES_JSON = json.dumps([dict(c, shapes=map_shapes(c)) for c in cities], ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 FINE_JSON = json.dumps(fine, ensure_ascii=False) if fine else "null"
 HOME_ALT = {l: SITE + prefix(l) for l in LANGS}
 
