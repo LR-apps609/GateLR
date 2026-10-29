@@ -643,6 +643,13 @@
 "Only with a condition: day ticket, hotel registration or a permit." = "Solo con una condición: ticket diario, registro del hotel o un permiso.";
 "Unconfirmed holiday, old data or a point still to verify: check the sign." = "Festivo sin confirmar, datos antiguos o un punto por comprobar: mira el cartel.";
 "ZTL off, or your vehicle may enter." = "ZTL apagada, o tu vehículo puede entrar.";
+"No ZTL active" = "Ninguna ZTL activa";
+"Only with a condition: day ticket, hotel or permit. With «?» we're not sure: check the sign." = "Solo con una condición: ticket, hotel o permiso. Con «?» no estamos seguros: mira el cartel.";
+"The ZTL is active, but your vehicle may enter." = "La ZTL está activa, pero tu vehículo puede entrar.";
+"The ZTL is off at that time: no restrictions." = "A esa hora la ZTL está apagada: sin restricciones.";
+"Diagonal lines: the ZTL is active at that time. Dashed border: a ZTL." = "Líneas oblicuas: la ZTL está activa a esa hora. Borde discontinuo: una ZTL.";
+"Small zone: only the sign" = "Zona pequeña: solo la señal";
+"Camera gate" = "Acceso con cámara";
 "Multi-storey" = "De varias plantas";
 "Underground" = "Subterráneo";
 "Open-air" = "Al aire libre";

@@ -1,3 +1,9 @@
+Novità della 1.18.0 (nuovo stile della mappa):
+• Sulla mappa il colore di ogni zona è la risposta per il TUO veicolo all'ora scelta: rosso non puoi entrare, giallo entri a una condizione (con «?»: controlla il cartello), verde puoi entrare, grigio nessuna ZTL attiva. La stessa zona può essere verde per la tua auto e rossa per un diesel Euro 2
+• Bordo tratteggiato = è una ZTL; righe a 45° = la ZTL è attiva in quel momento; il segno «ZTL» nel colore della risposta, «PEDONALE» sulle aree pedonali
+• Le ZTL lungo una via (Trieste, Torino, Genova…) sono corridoi ben visibili invece di una striscia sottile; da lontano solo il segno, da vicino «ZTL · Via …» lungo la strada; varchi nel colore della zona, sul bordo
+• Lo stesso stile nella striscia di mappa di Varco, nella legenda e sul sito
+
 Novità della 1.17.1 (dati controllati con Street View):
 • Moto e scooter: nel Garage «Tipo di veicolo» Auto o Moto / scooter (ciclomotori compresi), anche tra i noleggi (Liberty, SH, Vespa, Agility). Dove il Comune lascia entrare le due ruote la risposta è «Entra pure.»: Firenze (settori A, B, O, F, G), Roma (tranne il Tridente), Pisa, Lucca (ZTL B), Arezzo (ZTL A), Bergamo (Città Alta e Colli), Verona, Padova, Parma (ZTL), Modena, Palermo, Lecce, Ascoli Piceno, Napoli (Tarsia, Morelli); altrove, e dove la fonte dice che le moto non entrano (Ostuni, Polignano, Cortona, Roma Tridente…), «Non entrare.». Nelle zone con divieti per classe Euro (Scudo Verde, Area B e C…) per le moto «controlla sul sito del Comune»
 • Stagioni con le regole: la ZTL notturna estiva di Firenze va «dal primo giovedì di aprile alla prima domenica di ottobre» ogni anno (2027: 1° aprile–3 ottobre), le sere estive di Bergamo Città Alta seguono l'ora legale; prima valevano solo le date del 2026

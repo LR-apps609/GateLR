@@ -142,9 +142,10 @@ struct VarcoView: View {
         let place = check?.place ?? Place(name: store.zone.shortName, address: "",
                                           location: Coordinate(lat: zoneCenter.latitude, lon: zoneCenter.longitude))
         // Ogni zona con il colore della SUA risposta (lo Scudo Verde verde per un'auto ammessa, anche se l'hotel è nel Settore A rosso)
+        // (colore della risposta per il tuo veicolo e righe se attiva, come sulla Mappa: MapTheme; le vie come corridoi)
         let rings = Dictionary(grouping: (check?.hits.first?.city ?? store.city).zones) {
-            PlaceCheck.mood(AccessCache.access($0, store: store, at: moment))
-        }.mapValues { $0.map { $0.perimeter.map(\.cl) } }
+            AccessCache.look($0, store: store, at: moment)
+        }.mapValues { $0.map { ZoneShapes.shape(id: $0.id, perimeter: $0.perimeter)?.corridorCoords ?? $0.perimeter.map(\.cl) } }
         let marker = Self.stripMarker(check: check, zone: store.zone)
         // La tua posizione: c'è solo con il permesso. Il pallino blu, e la ripresa con te dentro se sei a meno di 5 km
         let user = monitor.location.map { Coordinate(lat: $0.coordinate.latitude, lon: $0.coordinate.longitude) }
@@ -646,8 +647,8 @@ struct VarcoView: View {
 private struct VarcoAppleStrip: View {
     var place: Place
     var focus: Zone?
-    /// Le zone per colore, ognuna con la sua risposta
-    var zones: [Home2Answer.Mood: [[CLLocationCoordinate2D]]]
+    /// Le zone per colore e stato (attiva o no), ognuna con la sua risposta
+    var zones: [AccessCache.Look: [[CLLocationCoordinate2D]]]
     var tint: Color
     var marker: StripMarkerKind?
     var framing: StripFrame
@@ -657,9 +658,13 @@ private struct VarcoAppleStrip: View {
     var body: some View {
         Map(initialPosition: position, interactionModes: []) {
             ForEach(Self.layers(zones)) { z in
-                MapPolygon(coordinates: z.ring)
-                    .foregroundStyle(z.mood.color.opacity(0.16))
-                    .stroke(z.mood.color, lineWidth: 2)
+                ZoneOverlay(coords: z.ring, access: z.look.access, picked: false, dim: false, big: false, zoom: 16, dark: true)
+                if z.look.active {
+                    ForEach(HatchCache.lines(id: z.id, coords: z.ring, zoom: 16, box: nil)) { h in
+                        MapPolyline(coordinates: [h.a, h.b])
+                            .stroke(MapTheme.tone(z.look.access).line.opacity(MapTheme.hatchOpacity(dark: true)), lineWidth: 1)
+                    }
+                }
             }
             // Il cartello della ZTL o lo spillo della destinazione, con la base sul posto: mai un pallino
             if let marker {
@@ -680,14 +685,14 @@ private struct VarcoAppleStrip: View {
 
     private struct Layer: Identifiable {
         var id: String
-        var mood: Home2Answer.Mood
+        var look: AccessCache.Look
         var ring: [CLLocationCoordinate2D]
     }
 
-    /// Verde sotto, rosso sopra
-    private static func layers(_ zones: [Home2Answer.Mood: [[CLLocationCoordinate2D]]]) -> [Layer] {
-        [Home2Answer.Mood.green, .amber, .red].flatMap { mood in
-            (zones[mood] ?? []).enumerated().map { Layer(id: "\(mood)-\($0.offset)", mood: mood, ring: $0.element) }
+    /// Grigio e verde sotto, rosso sopra (Home2Map.Coordinator.order)
+    private static func layers(_ zones: [AccessCache.Look: [[CLLocationCoordinate2D]]]) -> [Layer] {
+        Home2Map.Coordinator.order(zones.keys).flatMap { look in
+            (zones[look] ?? []).enumerated().map { Layer(id: "\(look.access)-\(look.active)-\($0.offset)", look: look, ring: $0.element) }
         }
     }
 

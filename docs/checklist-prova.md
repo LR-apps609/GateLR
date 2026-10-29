@@ -329,3 +329,18 @@ Istruzioni passo passo in docs/prova-sul-campo.md.
 - [ ] Bergamo, Città Alta e Colli: venerdì 30 ottobre 2026 alle 21:30 «Entra pure.»; sabato 24 ottobre alle 23 «Non entrare.»
 - [ ] Un iPhone con la 1.17.0: dopo l'aggiornamento dei dati Firenze si apre come prima, il Settore F mostra «1 apr – 7 ott» e nessun errore
 - [ ] Il sito (Firenze): nel menu del veicolo «Moto / scooter · benzina Euro 5»; con la moto, Duomo di giorno → «Puoi entrare»
+
+## 17. Nuovo stile delle zone sulla mappa (1.18.0)
+- [ ] Mappa, Firenze, un giorno feriale alle 11 con l'auto a noleggio (benzina Euro 6): il Settore A è rosso, con il bordo tratteggiato e, avvicinando la mappa (z15, un quartiere sullo schermo), le righe a 45°; il segno «ZTL» è rosso
+- [ ] Stessa ora, lo Scudo Verde (fuori dai settori) è verde con le righe (attivo, ma la tua auto entra); con un diesel Euro 2 dal 1° dicembre 2026 diventa rosso
+- [ ] «Adesso ▾» → stasera alle 22: i settori A, B e O diventano grigi (nessuna ZTL attiva), bordo tratteggiato più rado, niente righe, segno «ZTL» grigio
+- [ ] Milano Area C un giorno feriale alle 10 con l'auto benzina Euro 6: gialla (si entra col ticket), segno «ZTL» giallo con la scritta scura; il giallo si distingue bene dal rosso e dal verde anche al sole
+- [ ] Una zona «da verificare» (es. un festivo non confermato): gialla con il segno «ZTL ?», mai grigia; in legenda la voce gialla dice «Con «?» non siamo sicuri: controlla il cartello»
+- [ ] Trieste, Borgo Teresiano: da lontano (meno di z15) le vie (via Trento, via della Geppa…) sono solo il segno «ZTL»; avvicinando diventano corridoi larghi circa 15–20 punti con angoli tondi; ancora più vicino (z17) la scritta «ZTL · Via Trento» corre lungo la strada
+- [ ] Bologna o Milano da vicino: le aree pedonali sono rosse, tratteggiate, senza righe, con il segno «PEDONALE» grigio scuro; i segni non si coprono (quelli che non stanno spariscono, le zone attive restano)
+- [ ] I varchi compaiono solo da vicino (z16, poche vie sullo schermo): cerchio nel colore della risposta della zona con la telecamera bianca
+- [ ] Cerca un hotel dentro una zona: quella zona ha il bordo pieno più spesso con l'alone, le altre si attenuano (40%); senza un posto cercato la zona della scheda ha il bordo pieno e le altre restano piene
+- [ ] La striscia legenda sotto i chip ha quattro voci (rosso, giallo, verde, grigio) con i campioni tratteggiati e righe; la legenda intera spiega righe e tratteggio, «PEDONALE», «Zona piccola: solo il segno», «Varco con telecamera»
+- [ ] Varco, la striscia di mappa in cima (Mapbox): le zone hanno gli stessi colori, il bordo tratteggiato e le righe se attive; senza Mapbox (mappa di Apple) lo stesso disegno
+- [ ] La mappa resta fluida spostandola e zoomando a Firenze e a Milano (molte zone e aree pedonali); niente scatti quando compaiono le righe
+- [ ] Modalità scura: colori più chiari sui bordi, segni leggibili, il giallo resta giallo

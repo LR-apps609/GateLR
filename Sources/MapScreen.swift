@@ -17,6 +17,9 @@ struct MapScreen: View {
     @Binding var tab: Tab
     @State private var camera: MapCameraPosition = .automatic
     @State private var distance: Double = 8_000         // distanza della camera, per le scritte
+    /// Lo zoom «alla MapLibre» (lo stesso del sito) e la direzione della camera: corridoi, righe, segni, varchi
+    @State private var zoom: Double = 14
+    @State private var heading: Double = 0
     @State private var center: CLLocationCoordinate2D?
     /// Livello di dettaglio (MapDetail.bucket) e parte visibile con margine: si aggiornano alla fine dei gesti
     @State private var bucket = MapDetail.bucket(for: 8_000)
@@ -80,47 +83,34 @@ struct MapScreen: View {
         // quando cambia il gradino di zoom o la parte visibile alla fine di un gesto)
         let shapes = MapShapes.visible(store, bucket: bucket, in: visibleBox, selected: zone.id)
         // Da lontano niente varchi (pallini sovrapposti a centinaia); da vicino quelli nella parte visibile
-        let gateGroups = distance < MapDetail.gateDistance
-            ? MapShapes.gates(store, in: visibleBox, selected: zone.id, near: distance < 6_000) : []
+        let gateGroups = zoom >= MapTheme.gateZoom ? MapShapes.gates(store, in: visibleBox, selected: zone.id, near: true) : []
         // Il posto cercato: la risposta si calcola una volta per disegno e vale per zone, spillo e scheda
         let check = store.place.map { PlaceCheck($0, store: store, at: moment) }
         let lit = check?.zoneIds ?? []
         let night = visible && check != nil && style == .standard
+        let darkMap = night || scheme == .dark || style != .standard
+        // I segni «ZTL» che stanno sullo schermo senza coprirsi (attive prima, spente per ultime)
+        let badges = MapShapes.badges(store, shapes: shapes, zoom: zoom, at: moment, picked: check == nil ? [zone.id] : lit,
+                                      pedestrian: zoom >= MapTheme.nameZoom ? store.cities.filter { isNear($0.center.cl) } : [])
         MapReader { proxy in
             Map(position: $camera) {
+                // Le zone nello stile di MapTheme: colore = la risposta per il tuo veicolo, bordo tratteggiato, righe a 45°
+                // se la ZTL è attiva (da z15, solo le zone in vista), segno «ZTL»; sotto ~16 punti (e le vie sotto z15) solo il segno.
+                // Scelta: la zona della scheda, o quelle con dentro il posto cercato (bordo pieno, le altre al 40%)
                 ForEach(shapes) { shape in
                     let z = shape.zone
-                    let selected = z.id == zone.id
-                    let on = lit.contains(z.id)
-                    // Il colore è la risposta per quell'ora e quel veicolo (no, se…, da verificare, sì), con il suo tratto
-                    let access = AccessCache.access(z, store: store, at: moment)
-                    // Accesa o no, ogni zona ha il colore della SUA risposta (1.17.2): cercando un hotel nel Settore A con
-                    // un diesel Euro 5 il Settore A è rosso e lo Scudo Verde che lo contiene resta verde (prima tutte le zone
-                    // con dentro il posto prendevano il colore della risposta del posto)
-                    let tint = PlaceCheck.zoneTint(access, lit: on)
-                    if check != nil {
-                        // Con un posto cercato: accese (con un bagliore e il bordo più spesso) le zone che lo contengono;
-                        // le altre restano leggibili nel colore della LORO risposta, come senza posto (1.17.4). Prima erano
-                        // appena accennate in grigio: a Catania, cercando un hotel fuori, la ZTL attiva 0–24 per un diesel
-                        // Euro 5 sembrava un isolato qualsiasi e restavano rosse solo l'area pedonale e le telecamere
-                        if on {
-                            MapPolygon(coordinates: shape.coords)
-                                .foregroundStyle(.clear)
-                                .stroke(tint.opacity(0.3), lineWidth: 12)
-                            MapPolygon(coordinates: shape.coords)
-                                .foregroundStyle(tint.opacity(access.fillOpacity + 0.08))
-                                .stroke(tint, lineWidth: 3)
-                        } else {
-                            MapPolygon(coordinates: shape.coords)
-                                .foregroundStyle(tint.opacity(access.fillOpacity))
-                                .stroke(tint.opacity(0.8), style: StrokeStyle(lineWidth: access == .closed ? 2 : 1.5, dash: access.dash))
+                    let look = AccessCache.look(z, store: store, at: moment)
+                    let picked = check == nil ? z.id == zone.id : lit.contains(z.id)
+                    let dim = check != nil && !picked
+                    if let coords = shape.drawn(zoom: zoom) {
+                        ZoneOverlay(coords: coords, access: look.access, picked: picked, dim: dim, big: z.type == .green,
+                                    zoom: zoom, dark: darkMap)
+                        if look.active && zoom >= MapTheme.hatchZoom {
+                            ForEach(HatchCache.lines(id: z.id, coords: coords, zoom: zoom, box: visibleBox)) { h in
+                                MapPolyline(coordinates: [h.a, h.b])
+                                    .stroke(MapTheme.tone(look.access).line.opacity(MapTheme.hatchOpacity(dark: darkMap) * (dim ? 0.4 : 1)), lineWidth: 1)
+                            }
                         }
-                    } else {
-                        // Bordo pieno per «no» e «sì», tratteggiato per «se…», a puntini per «da verificare» (AccessLegend)
-                        MapPolygon(coordinates: shape.coords)
-                            .foregroundStyle(tint.opacity(selected ? access.fillOpacity + 0.08 : access.fillOpacity))
-                            .stroke(tint.opacity(selected ? 1 : 0.8),
-                                    style: StrokeStyle(lineWidth: selected ? 3.5 : (access == .closed ? 2.5 : 2), dash: access.dash))
                     }
                     // Modalità prova: la scritta «ZONA DI PROVA» sempre in vista, a ogni distanza
                     if TestZone.isTest(zoneId: z.id) {
@@ -130,30 +120,50 @@ struct MapScreen: View {
                         }
                         .annotationTitles(.hidden)
                     }
-                    // Un solo segno piccolo per zona: lettera e colore (la legenda spiega i colori)
-                    if shape.width > distance * 0.06 && (check == nil || on) {
+                    if badges.contains(z.id) {
                         Annotation("", coordinate: shape.label, anchor: .center) {
-                            letterBadge(z, selected: selected, access: access)
+                            ZoneMark(text: MapTheme.badgeText(look.access, kind: z.type), badge: MapTheme.badge(look.access),
+                                     name: zoom >= MapTheme.nameZoom ? z.shortName : nil, selected: picked)
+                                .opacity(dim ? 0.4 : 1)
                                 .onTapGesture { withAnimation(.snappy) { select(z) } }
-                                .accessibilityLabel("\(z.localizedName), \(z.type.title), \(access.title)")
+                                .accessibilityLabel("\(z.localizedName), \(z.type.title), \(look.access.title)")
                                 .accessibilityAddTraits(.isButton)
                         }
+                        .annotationTitles(.hidden)
+                    }
+                    // Da z17 le vie: «ZTL · Via …» lungo la strada
+                    if zoom >= MapTheme.streetNameZoom, let axis = shape.axis, axis.count == 2 {
+                        Annotation("", coordinate: StreetLabel.middle(axis), anchor: .center) {
+                            StreetLabel(text: MapTheme.badgeText(look.access, kind: z.type) + " · " + z.shortName,
+                                        color: MapTheme.tone(look.access).line, angle: StreetLabel.angle(axis, heading: heading))
+                                .opacity(dim ? 0.4 : 1)
+                                .allowsHitTesting(false)
+                        }
+                        .annotationTitles(.hidden)
                     }
                 }
-                // Da vicino: aree pedonali e telecamere delle corsie bus
-                if distance < 4_000 {
+                // Le aree pedonali: lo stesso disegno (corridoi per le vie), rosse, senza righe, segno «PEDONALE» grigio scuro
+                if zoom >= 13 {
                     ForEach(store.cities.filter { isNear($0.center.cl) }) { city in
                         ForEach(MapShapes.pedestrian(city, store)) { a in
-                            MapPolygon(coordinates: a.coords)
-                                .foregroundStyle(Theme.red.opacity(0.22))
-                                .stroke(Theme.red.opacity(0.7), lineWidth: 1)
+                            if let coords = a.drawn(zoom: zoom) {
+                                ZoneOverlay(coords: coords, access: .closed, picked: check?.pedestrian?.id == a.id, dim: check != nil && check?.pedestrian?.id != a.id,
+                                            big: false, zoom: zoom, dark: darkMap)
+                            }
+                            if zoom >= MapTheme.nameZoom && badges.contains(a.id) {
+                                Annotation("", coordinate: a.label, anchor: .center) {
+                                    ZoneMark(text: "PEDONALE", badge: MapTheme.pedestrianBadge, name: zoom >= MapTheme.streetNameZoom && a.axis != nil ? nil : a.name, selected: false)
+                                        .allowsHitTesting(false)
+                                }
+                                .annotationTitles(.hidden)
+                            }
                         }
                         ForEach(city.cameras ?? []) { cam in
                             Annotation(cam.name, coordinate: cam.location.cl) {
                                 Image(systemName: cam.kind == .bus ? "bus.fill" : "figure.walk")
                                     .font(.app(size: 9, weight: .bold)).foregroundStyle(.white)
                                     .frame(width: 20, height: 20)
-                                    .background(cam.kind == .bus ? Theme.blueFill : Theme.red, in: RoundedRectangle(cornerRadius: 5, style: .continuous))
+                                    .background(cam.kind == .bus ? Theme.blueFill : Color(hex: MapTheme.pedestrianBadge.fill), in: RoundedRectangle(cornerRadius: 5, style: .continuous))
                                     .overlay(RoundedRectangle(cornerRadius: 5, style: .continuous).stroke(.white, lineWidth: 1.5))
                                     .accessibilityHidden(true)
                             }
@@ -161,21 +171,12 @@ struct MapScreen: View {
                         }
                     }
                 }
-                // Ogni varco con lo stato della sua zona (rosso acceso, verde spento) e, intorno, un anello nel colore
-                // della zona: si vede a quale zona appartiene (1.17.4)
+                // I varchi da z16, nel colore della risposta della loro zona, sul bordo disegnato (le vie: sul corridoio)
                 ForEach(gateGroups) { group in
-                    let on = store.engine.isActive(group.zone, at: moment)
-                    let ring = PlaceCheck.zoneTint(AccessCache.access(group.zone, store: store, at: moment), lit: lit.contains(group.zone.id))
+                    let access = AccessCache.access(group.zone, store: store, at: moment)
                     ForEach(group.gates) { g in
-                        Annotation(g.name, coordinate: g.location.cl) {
-                            Image(systemName: "video.fill")
-                                .font(.app(size: 9, weight: .bold))
-                                .foregroundStyle(.white)
-                                .frame(width: 20, height: 20)
-                                .background(on ? Theme.red : Theme.green, in: Circle())
-                                .overlay(Circle().stroke(.white, lineWidth: 2))
-                                .padding(2)
-                                .overlay(Circle().stroke(ring, lineWidth: 2))
+                        Annotation(g.name, coordinate: group.snapped[g.id] ?? g.location.cl) {
+                            GateMark(badge: MapTheme.badge(access))
                                 .accessibilityHidden(true)     // centinaia di varchi: VoiceOver (e i test) restano veloci
                         }
                         .annotationTitles(.hidden)
@@ -246,10 +247,14 @@ struct MapScreen: View {
             .onMapCameraChange(frequency: .continuous) { ctx in
                 let d = ctx.camera.distance
                 if abs(d - distance) / max(distance, 1) > 0.08 { distance = d }
+                let zz = MapZoom.zoom(distance: d, latitude: ctx.camera.centerCoordinate.latitude)
+                if abs(zz - zoom) > 0.25 { zoom = zz }
             }
             .onMapCameraChange(frequency: .onEnd) { ctx in
                 distance = ctx.camera.distance
                 center = ctx.camera.centerCoordinate
+                zoom = MapZoom.zoom(distance: ctx.camera.distance, latitude: ctx.camera.centerCoordinate.latitude)
+                heading = ctx.camera.heading
                 // Gradino di zoom e parte visibile: cambiano solo alla fine del gesto
                 let b = MapDetail.bucket(for: ctx.camera.distance)
                 if b != bucket { bucket = b }
@@ -366,26 +371,6 @@ struct MapScreen: View {
         }
     }
 
-    /// La lettera del settore nel colore della risposta, con il simbolo (✕ ! ? ✓) per chi non distingue i colori
-    private func letterBadge(_ z: Zone, selected: Bool, access: Access) -> some View {
-        let tint = access.color
-        let size: CGFloat = selected ? 32 : 26
-        return Text(z.letter.count > 2 ? String(z.letter.prefix(1)) : z.letter)
-            .font(Theme.display(selected ? 17 : 14))
-            .lineLimit(1).minimumScaleFactor(0.5)
-            .foregroundStyle(.white)
-            .frame(width: size, height: size)
-            .background(tint, in: Circle())
-            .overlay(Circle().stroke(.white, lineWidth: selected ? 3 : 2))
-            .overlay(alignment: .bottomTrailing) {
-                Image(systemName: access.symbol).font(.system(size: selected ? 7 : 6, weight: .black)).foregroundStyle(tint)
-                    .frame(width: selected ? 12 : 10, height: selected ? 12 : 10)
-                    .background(.white, in: Circle())
-                    .accessibilityHidden(true)
-            }
-            .shadow(color: .black.opacity(0.25), radius: 3, y: 1)
-    }
-
     private var topBar: some View {
         VStack(spacing: 8) {
             HStack(spacing: 8) {
@@ -455,9 +440,17 @@ struct MapScreen: View {
                 .font(Theme.label(12)).foregroundStyle(Theme.muted).lineLimit(2)
             AccessLegend()
             Divider()
-            legendRow(L("Pedestrian area"), RoundedRectangle(cornerRadius: 3).fill(Theme.red.opacity(0.4)))
-            legendRow(L("Camera on"), Circle().fill(Theme.red))
-            legendRow(L("Camera off"), Circle().fill(Theme.green))
+            Text("Diagonal lines: the ZTL is active at that time. Dashed border: a ZTL.")
+                .font(.app(size: 12)).foregroundStyle(Theme.muted).fixedSize(horizontal: false, vertical: true)
+            HStack(spacing: 10) {
+                ZoneBadge(text: "PEDONALE", badge: MapTheme.pedestrianBadge).frame(width: 74, alignment: .leading)
+                Text("Pedestrian area").font(.app(size: 14, weight: .medium)).foregroundStyle(Theme.ink)
+            }
+            HStack(spacing: 10) {
+                ZoneBadge(text: "ZTL", badge: MapTheme.badge(.closed)).frame(width: 74, alignment: .leading)
+                Text("Small zone: only the sign").font(.app(size: 14, weight: .medium)).foregroundStyle(Theme.ink)
+            }
+            legendRow(L("Camera gate"), GateMark(badge: MapTheme.badge(.closed)).scaleEffect(0.7))
             legendRow(L("Bus lane camera"), RoundedRectangle(cornerRadius: 3).fill(Theme.blueFill))
         }
         .padding(14)
@@ -485,15 +478,15 @@ struct MapScreen: View {
         .buttonStyle(.plain)
         .frame(maxWidth: .infinity, alignment: .leading)
         .accessibilityElement(children: .combine)
-        .accessibilityLabel(L("Legend") + ": " + Access.allCases.map(\.title).joined(separator: ", "))
+        .accessibilityLabel(L("Legend") + ": " + Access.legend.map(\.title).joined(separator: ", "))
         .accessibilityIdentifier("map.legend")
     }
 
     private func legendItems(short: Bool) -> some View {
         HStack(spacing: 10) {
-            ForEach(Access.allCases, id: \.self) { a in
+            ForEach(Access.legend, id: \.self) { a in
                 HStack(spacing: 4) {
-                    AccessSwatch(access: a).frame(width: 18, height: 14)
+                    AccessSwatch(access: a).frame(width: 20, height: 14)
                     if !short { Text(verbatim: a.title).font(.app(size: 12, weight: .semibold)).lineLimit(1) }
                 }
             }
@@ -733,17 +726,46 @@ enum MapShapes {
         let label: CLLocationCoordinate2D
         let width: Double
         let bounds: BBox
+        /// Le vie strette: il corridoio (Tools/build_map_shapes.py) e l'asse per la scritta lungo la strada
+        var corridor: [CLLocationCoordinate2D]? = nil
+        var axis: [CLLocationCoordinate2D]? = nil
+        /// Lo zoom da cui si disegna la forma (prima solo il segno)
+        var fromZoom: Double = 0
         var id: String { zone.id }
+        /// La forma da disegnare a questo zoom: il corridoio per le vie, il perimetro per le altre, nil = solo il segno
+        func drawn(zoom: Double) -> [CLLocationCoordinate2D]? {
+            zoom >= fromZoom ? (corridor ?? coords) : nil
+        }
     }
     struct Area: Identifiable {
         let id: String
+        let name: String
         let coords: [CLLocationCoordinate2D]
+        var corridor: [CLLocationCoordinate2D]? = nil
+        var axis: [CLLocationCoordinate2D]? = nil
+        var label: CLLocationCoordinate2D
+        var fromZoom: Double = 0
+        func drawn(zoom: Double) -> [CLLocationCoordinate2D]? { zoom >= fromZoom ? (corridor ?? coords) : nil }
     }
-    /// I varchi di una zona da disegnare
+    /// I varchi di una zona da disegnare; «snapped»: quelli delle vie sul bordo del corridoio
     struct GateGroup: Identifiable {
         let zone: Zone
         let gates: [Gate]
+        var snapped: [String: CLLocationCoordinate2D] = [:]
         var id: String { zone.id }
+    }
+
+    /// Lo zoom da cui una forma lunga «meters» si disegna: almeno 16 punti sullo schermo e, sotto z12,5, solo le grandi
+    /// (almeno 64 punti); le vie (corridoi) da z15
+    nonisolated static func fromZoom(meters: Double, latitude: Double, street: Bool) -> Double {
+        let z16 = MapZoom.fromZoom(meters: meters, latitude: latitude)
+        let z = min(max(12.5, z16), z16 + 2)
+        return street ? max(MapTheme.corridorZoom, z) : z
+    }
+
+    private static func meters(_ b: BBox) -> Double {
+        let k = cos((b.minLat + b.maxLat) / 2 * .pi / 180)
+        return max((b.maxLat - b.minLat) * 110_540, (b.maxLon - b.minLon) * 111_320 * k)
     }
 
     private struct VisibleKey: Equatable {
@@ -771,7 +793,10 @@ enum MapShapes {
             .map { r -> Shape in
                 let z = r.zone
                 let box = z.bounds ?? BBox(z.perimeter) ?? BBox(minLat: 0, minLon: 0, maxLat: 0, maxLon: 0)
-                return Shape(zone: z, coords: z.perimeter.map(\.cl), label: z.labelPoint, width: z.widthMeters, bounds: box)
+                let drawn = ZoneShapes.shape(id: z.id, perimeter: z.perimeter)
+                return Shape(zone: z, coords: z.perimeter.map(\.cl), label: drawn?.labelCoord ?? z.labelPoint, width: z.widthMeters, bounds: box,
+                             corridor: drawn?.corridorCoords, axis: drawn?.axisCoords,
+                             fromZoom: fromZoom(meters: drawn?.ext ?? meters(box), latitude: (box.minLat + box.maxLat) / 2, street: drawn?.isStreet == true))
             }
         byId = [:]
         for (i, s) in shapes.enumerated() { byId[s.zone.id] = i }
@@ -795,7 +820,7 @@ enum MapShapes {
         let tolerance = MapDetail.tolerance(for: bucket)
         let list = shapes.map { s in
             Shape(zone: s.zone, coords: Simplifier.simplifyPolygon(s.zone.perimeter, tolerance: tolerance).map(\.cl),
-                  label: s.label, width: s.width, bounds: s.bounds)
+                  label: s.label, width: s.width, bounds: s.bounds, corridor: s.corridor, axis: s.axis, fromZoom: s.fromZoom)
         }
         detail[bucket] = list
         return list
@@ -823,7 +848,12 @@ enum MapShapes {
             guard s.zone.id == selected || near else { return nil }
             if let box, !s.bounds.expanded(by: 0.05).intersects(box) { return nil }
             let list = box.map { b in s.zone.gates.filter { b.contains(lat: $0.location.lat, lon: $0.location.lon) } } ?? s.zone.gates
-            return list.isEmpty ? nil : GateGroup(zone: s.zone, gates: list)
+            guard !list.isEmpty else { return nil }
+            var snapped: [String: CLLocationCoordinate2D] = [:]
+            if let drawn = ZoneShapes.shape(id: s.zone.id, perimeter: s.zone.perimeter), let g = drawn.gates, g.count == s.zone.gates.count {
+                for (gate, p) in zip(s.zone.gates, g) where p.count == 2 { snapped[gate.id] = CLLocationCoordinate2D(latitude: p[0], longitude: p[1]) }
+            }
+            return GateGroup(zone: s.zone, gates: list, snapped: snapped)
         }
         return gateGroups
     }
@@ -832,9 +862,38 @@ enum MapShapes {
     static func pedestrian(_ city: City, _ store: Store) -> [Area] {
         refresh(store)
         if let hit = areas[city.id] { return hit }
-        let list = (city.pedestrian ?? []).map { Area(id: $0.id, coords: $0.perimeter.map(\.cl)) }
+        let list = (city.pedestrian ?? []).map { a -> Area in
+            let drawn = ZoneShapes.shape(id: a.id, perimeter: a.perimeter)
+            let box = a.bounds ?? BBox(a.perimeter) ?? BBox(minLat: 0, minLon: 0, maxLat: 0, maxLon: 0)
+            let center = CLLocationCoordinate2D(latitude: (box.minLat + box.maxLat) / 2, longitude: (box.minLon + box.maxLon) / 2)
+            return Area(id: a.id, name: a.name, coords: a.perimeter.map(\.cl), corridor: drawn?.corridorCoords, axis: drawn?.axisCoords,
+                        label: drawn?.labelCoord ?? center,
+                        fromZoom: max(14, fromZoom(meters: drawn?.ext ?? meters(box), latitude: center.latitude, street: drawn?.isStreet == true)))
+        }
         areas[city.id] = list
         return list
+    }
+
+    /// I segni da mostrare (zone visibili e, da z15, aree pedonali vicine), senza sovrapposizioni: BadgeLayout in punti di mappa
+    static func badges(_ store: Store, shapes: [Shape], zoom: Double, at date: Date, picked: Set<String>, pedestrian: [City]) -> Set<String> {
+        let k = MapZoom.mapPointsPerPoint(zoom: zoom)
+        let named = zoom >= MapTheme.nameZoom
+        var items: [BadgeLayout.Item] = shapes.compactMap { s -> BadgeLayout.Item? in
+            // da z17 le vie hanno la scritta lungo la strada al posto del segno
+            if zoom >= MapTheme.streetNameZoom && s.corridor != nil { return nil }
+            let a = AccessCache.access(s.zone, store: store, at: date)
+            let text = MapTheme.badgeText(a, kind: s.zone.type)
+            let w = Double(text.count) * 7.5 + 14, nameW = named ? Double(s.zone.shortName.count) * 7 : 0
+            return BadgeLayout.Item(id: s.zone.id, point: MKMapPoint(s.label), size: CGSize(width: max(w, nameW), height: named ? 34 : 18),
+                                    priority: BadgeLayout.priority(a, kind: s.zone.type, pedestrian: false), force: picked.contains(s.zone.id))
+        }
+        for c in pedestrian {
+            for a in Self.pedestrian(c, store) where !(zoom >= MapTheme.streetNameZoom && a.corridor != nil) {
+                items.append(BadgeLayout.Item(id: a.id, point: MKMapPoint(a.label), size: CGSize(width: max(80, Double(a.name.count) * 7), height: 34),
+                                              priority: 3, force: false))
+            }
+        }
+        return BadgeLayout.place(items, mapPointsPerPoint: k)
     }
 
     /// Il perimetro di una zona già convertito (per la schermata di guida), semplificato per il gradino di zoom

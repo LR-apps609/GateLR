@@ -643,6 +643,13 @@
 "Only with a condition: day ticket, hotel registration or a permit." = "仅在满足条件时：日票、酒店登记或许可证。";
 "Unconfirmed holiday, old data or a point still to verify: check the sign." = "未确认的节假日、旧数据或待核实事项：请查看标志。";
 "ZTL off, or your vehicle may enter." = "ZTL 未生效，或你的车辆可以进入。";
+"No ZTL active" = "无生效的 ZTL";
+"Only with a condition: day ticket, hotel or permit. With «?» we're not sure: check the sign." = "仅在满足条件时：日票、酒店或许可证。带「?」表示我们不确定：请查看标志。";
+"The ZTL is active, but your vehicle may enter." = "ZTL 已生效，但你的车辆可以进入。";
+"The ZTL is off at that time: no restrictions." = "该时间 ZTL 未生效：没有限制。";
+"Diagonal lines: the ZTL is active at that time. Dashed border: a ZTL." = "斜线：该时间 ZTL 已生效。虚线边框：ZTL 区域。";
+"Small zone: only the sign" = "小区域：只显示标记";
+"Camera gate" = "摄像头入口";
 "Multi-storey" = "多层停车场";
 "Underground" = "地下停车场";
 "Open-air" = "露天";

@@ -643,6 +643,13 @@
 "Only with a condition: day ticket, hotel registration or a permit." = "Alleen op één voorwaarde: dagticket, aanmelding door het hotel of een vergunning.";
 "Unconfirmed holiday, old data or a point still to verify: check the sign." = "Onbevestigde feestdag, oude gegevens of een punt dat nog gecontroleerd moet worden: kijk naar het bord.";
 "ZTL off, or your vehicle may enter." = "ZTL uit, of je voertuig mag erin.";
+"No ZTL active" = "Geen ZTL actief";
+"Only with a condition: day ticket, hotel or permit. With «?» we're not sure: check the sign." = "Alleen onder een voorwaarde: dagticket, hotel of vergunning. Met «?» weten we het niet zeker: kijk naar het bord.";
+"The ZTL is active, but your vehicle may enter." = "De ZTL is actief, maar je voertuig mag erin.";
+"The ZTL is off at that time: no restrictions." = "Op dat moment is de ZTL uit: geen beperkingen.";
+"Diagonal lines: the ZTL is active at that time. Dashed border: a ZTL." = "Schuine lijnen: de ZTL is op dat moment actief. Gestippelde rand: een ZTL.";
+"Small zone: only the sign" = "Kleine zone: alleen het teken";
+"Camera gate" = "Toegang met camera";
 "Multi-storey" = "Parkeergarage";
 "Underground" = "Ondergronds";
 "Open-air" = "Buiten";

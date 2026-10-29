@@ -6,15 +6,16 @@ import UIKit
 /// La striscia di mappa in cima a «Varco»: la città del posto in 3D al crepuscolo (Mapbox), vista da vicino e inclinata,
 /// con la camera che gira piano avanti e indietro intorno al posto. Le zone sono velate del colore della risposta
 /// (rosso se il varco è attivo, verde se si entra). Con «mapMode» la stessa camera scende sulla mappa intera
-/// (vista dall'alto, più lontana) e la mappa si può muovere con le dita. Senza token o se Mapbox non si carica,
+/// (vista dall'alto, più lontana) e la mappa si può muovere con le dita. Le zone hanno lo stile della Mappa (MapTheme):
+/// colore della risposta per il tuo veicolo, bordo tratteggiato, righe a 45° se attive. Senza token o se Mapbox non si carica,
 /// VarcoView mostra la mappa di Apple (onFail).
 /// Il posto non è mai un pallino (sembrava «sei qui»): il cartello della ZTL o lo spillo della destinazione, con il nome
 /// (StripMarker); la tua posizione è il pallino blu di sempre, e se sei a meno di 5 km la ripresa tiene dentro anche te
 /// (StripFrame).
 struct Home2Map: UIViewRepresentable {
     var place: Place
-    /// Le zone divise per colore: ognuna con la SUA risposta (1.17.2), non quella del posto
-    var zones: [Home2Answer.Mood: [[CLLocationCoordinate2D]]]
+    /// Le zone divise per colore e stato: ognuna con la SUA risposta (1.17.2), non quella del posto
+    var zones: [AccessCache.Look: [[CLLocationCoordinate2D]]]
     /// La risposta del posto: il colore dello spillo
     var mood: Home2Answer.Mood
     var mapMode: Bool
@@ -123,30 +124,34 @@ struct Home2Map: UIViewRepresentable {
             startDrift(forward: true)
         }
 
-        private static func key(_ zones: [Home2Answer.Mood: [[CLLocationCoordinate2D]]]) -> Int {
+        private static func key(_ zones: [AccessCache.Look: [[CLLocationCoordinate2D]]]) -> Int {
             var h = Hasher()
-            for mood in Self.order {
-                let rings = zones[mood] ?? []
-                h.combine(mood)
+            for look in Self.order(zones.keys) {
+                let rings = zones[look] ?? []
+                h.combine(look)
                 h.combine(rings.count)
                 for z in rings { h.combine(z.count); if let f = z.first { h.combine(f.latitude); h.combine(f.longitude) } }
             }
             return h.finalize()
         }
 
-        /// Verde sotto, rosso sopra: dove le zone si sovrappongono si vede la più severa
-        static let order: [Home2Answer.Mood] = [.green, .amber, .red]
+        /// Grigio e verde sotto, rosso sopra: dove le zone si sovrappongono si vede la più severa
+        nonisolated static func order<S: Sequence>(_ looks: S) -> [AccessCache.Look] where S.Element == AccessCache.Look {
+            let rank: [Access: Int] = [.off: 0, .open: 1, .check: 2, .conditional: 3, .closed: 4]
+            return looks.sorted { (rank[$0.access] ?? 0, $0.active ? 1 : 0) < (rank[$1.access] ?? 0, $1.active ? 1 : 0) }
+        }
+        private var drawn: [String] = []
 
-        /// Un livello per colore («zones-red», …), ridisegnati da capo quando cambiano le zone o le loro risposte
+        /// Un livello per colore e stato («zones-closed-1», …), ridisegnati da capo quando cambiano le zone o le loro risposte
         private func drawZones(_ map: MapboxMap) {
-            for mood in Self.order {
-                let id = "zones-\(mood)"
-                for layer in ["-fill", "-glow", "-edge"] { try? map.removeLayer(withId: id + layer) }
-                try? map.removeSource(withId: id)
-                let rings = parent.zones[mood] ?? []
+            for id in drawn { NotteMap.removeAnswerZones(map, id: id) }
+            drawn = []
+            for look in Self.order(parent.zones.keys) {
+                let rings = parent.zones[look] ?? []
                 guard !rings.isEmpty else { continue }
-                NotteMap.addZone(map, id: id, rings: rings, fill: 0.14, hex: mood.hex)
-                NotteMap.setZoneColor(map, id: id, hex: mood.hex)
+                let id = "zones-\(look.access)-\(look.active ? 1 : 0)"
+                NotteMap.addAnswerZones(map, id: id, rings: rings, access: look.access, active: look.active)
+                drawn.append(id)
             }
             zoneKey = Self.key(parent.zones)
         }

@@ -179,10 +179,14 @@ private struct TimePickerSheet: View {
 
 // MARK: Le quattro risposte sulla mappa
 
-/// Il colore di una zona per l'ora e il veicolo scelti. Colore e forma insieme (simbolo e tratto del bordo),
-/// così si distinguono anche senza vedere i colori
+/// Il colore di una zona per l'ora e il VEICOLO scelti (la risposta del motore delle regole, mai «ZTL attiva in
+/// generale»): rosso non puoi entrare, giallo a una condizione (o da verificare, col «?»), verde puoi entrare, grigio
+/// nessuna ZTL attiva in quel momento. Lo stile del disegno (tratteggio, righe, segni) è in MapTheme.
 enum Access: CaseIterable, Hashable {
-    case closed, conditional, check, open
+    case closed, conditional, check, open, off
+
+    /// Le quattro voci della legenda (i quattro colori): «da verificare» è giallo, col «?»
+    static let legend: [Access] = [.closed, .conditional, .open, .off]
 
     init(_ verdict: Verdict) {
         switch verdict {
@@ -191,6 +195,14 @@ enum Access: CaseIterable, Hashable {
         case .unsure: self = .check
         case .yes: self = .open
         }
+    }
+
+    /// Dalla risposta intera: con i varchi spenti la zona è grigia. «Da verificare» resta giallo anche a varchi spenti
+    /// (il grigio direbbe «nessuna ZTL», e non lo sappiamo)
+    init(_ answer: Answer, status: City.Status? = nil, pendingCritical: Bool = false) {
+        if case .unsure = answer.verdict { self = .check; return }
+        if !answer.gatesOn { self = (status == .sample || pendingCritical) ? .check : .off; return }
+        self = Access(answer.verdict, status: status, pendingCritical: pendingCritical)
     }
 
     /// Come sopra, ma dati di esempio o un punto critico ancora da verificare non danno mai una risposta piena
@@ -205,26 +217,21 @@ enum Access: CaseIterable, Hashable {
         case .conditional: L("You can enter, on one condition")
         case .check: L("To be checked")
         case .open: L("You can enter")
+        case .off: L("No ZTL active")
         }
     }
 
     var detail: String {
         switch self {
         case .closed: L("The ZTL is active for your vehicle at that time.")
-        case .conditional: L("Only with a condition: day ticket, hotel registration or a permit.")
+        case .conditional: L("Only with a condition: day ticket, hotel or permit. With «?» we're not sure: check the sign.")
         case .check: L("Unconfirmed holiday, old data or a point still to verify: check the sign.")
-        case .open: L("ZTL off, or your vehicle may enter.")
+        case .open: L("The ZTL is active, but your vehicle may enter.")
+        case .off: L("The ZTL is off at that time: no restrictions.")
         }
     }
 
-    var color: Color {
-        switch self {
-        case .closed: Color(light: 0xC1272D, dark: 0xEF5B55)
-        case .conditional: Color(light: 0xD99A00, dark: 0xF2C14E)
-        case .check: Color(light: 0x5B7A99, dark: 0x8FA9C4)
-        case .open: Color(light: 0x0FA34A, dark: 0x3DDC74)
-        }
-    }
+    var color: Color { MapTheme.tone(self).line }
 
     var symbol: String {
         switch self {
@@ -232,24 +239,17 @@ enum Access: CaseIterable, Hashable {
         case .conditional: "exclamationmark"
         case .check: "questionmark"
         case .open: "checkmark"
+        case .off: "minus"
         }
     }
 
-    /// Bordo pieno per «no» e «sì», tratteggiato per le condizioni, a puntini per «da verificare»
-    var dash: [CGFloat] {
-        switch self {
-        case .closed, .open: []
-        case .conditional: [8, 5]
-        case .check: [2, 5]
-        }
-    }
+    /// Bordo tratteggiato (è una ZTL), più rado se spenta
+    var dash: [CGFloat] { MapTheme.dash(self) }
 
     var fillOpacity: Double {
         switch self {
-        case .closed: 0.24
-        case .conditional: 0.20
-        case .check: 0.16
-        case .open: 0.12
+        case .off: 0.06
+        default: 0.14
         }
     }
 }
@@ -258,12 +258,16 @@ enum Access: CaseIterable, Hashable {
 /// non a ogni disegno della mappa (che si ridisegna a ogni gesto)
 @MainActor
 enum AccessCache {
+    /// Il colore e se la zona è attiva (le righe a 45°: attiva per tutti, qualunque sia il veicolo)
+    struct Look: Hashable { var access: Access; var active: Bool }
     private static var key = ""
-    private static var values: [String: Access] = [:]
+    private static var values: [String: Look] = [:]
     private static var statusVersion = -1
     private static var status: [String: City.Status] = [:]
 
-    static func access(_ zone: Zone, store: Store, at date: Date) -> Access {
+    static func access(_ zone: Zone, store: Store, at date: Date) -> Access { look(zone, store: store, at: date).access }
+
+    static func look(_ zone: Zone, store: Store, at date: Date) -> Look {
         if statusVersion != store.citiesVersion {
             statusVersion = store.citiesVersion
             status = [:]
@@ -271,22 +275,23 @@ enum AccessCache {
         }
         let minute = Int(date.timeIntervalSinceReferenceDate / 60)
         let v = store.vehicle
-        let k = "\(store.citiesVersion)|\(minute)|\(v.id)|\(v.fuel.rawValue)\(v.euro)|\(store.permits.hashValue)"
+        let k = "\(store.citiesVersion)|\(minute)|\(v.id)|\(v.fuel.rawValue)\(v.euro)|\(v.kind)|\(store.permits.hashValue)"
         if k != key { key = k; values = [:] }
         if let hit = values[zone.id] { return hit }
-        let a = Access(store.answer(at: date, zone: zone, hotelInside: false).verdict, status: status[zone.id])
-        values[zone.id] = a
-        return a
+        let answer = store.answer(at: date, zone: zone, hotelInside: false)
+        let l = Look(access: Access(answer, status: status[zone.id]), active: answer.gatesOn)
+        values[zone.id] = l
+        return l
     }
 }
 
-/// La legenda delle quattro risposte (mappa)
+/// La legenda delle quattro risposte (mappa): i quattro colori, disegnati come le zone
 struct AccessLegend: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 9) {
-            ForEach(Access.allCases, id: \.self) { a in
+            ForEach(Access.legend, id: \.self) { a in
                 HStack(alignment: .top, spacing: 10) {
-                    AccessSwatch(access: a).frame(width: 26, height: 20)
+                    AccessSwatch(access: a).frame(width: 30, height: 20)
                     VStack(alignment: .leading, spacing: 1) {
                         Text(verbatim: a.title).font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.ink)
                         Text(verbatim: a.detail).font(.app(size: 12)).foregroundStyle(Theme.muted)
@@ -299,14 +304,31 @@ struct AccessLegend: View {
     }
 }
 
-/// Il campione della legenda: fondo, bordo con il suo tratto e simbolo, come sulla mappa
+/// Il campione della legenda con gli stessi parametri della mappa: fondo, righe a 45° (zona attiva: rosso, giallo,
+/// verde), alone e bordo tratteggiato
 struct AccessSwatch: View {
     var access: Access
+    @Environment(\.colorScheme) private var scheme
     var body: some View {
+        let tone = MapTheme.tone(access), dark = scheme == .dark
+        let shape = RoundedRectangle(cornerRadius: 4)
         ZStack {
-            RoundedRectangle(cornerRadius: 4).fill(access.color.opacity(access.fillOpacity + 0.1))
-            RoundedRectangle(cornerRadius: 4).strokeBorder(access.color, style: StrokeStyle(lineWidth: 2, dash: access.dash))
-            Image(systemName: access.symbol).font(.system(size: 10, weight: .heavy)).foregroundStyle(access.color)
+            shape.fill(tone.fill.opacity(MapTheme.fillOpacity(access, dark: dark) + 0.06))
+            if access != .off {
+                Canvas { ctx, size in
+                    let p = MapTheme.hatchPitch * 2.0.squareRoot()
+                    var path = Path()
+                    var x = -size.height
+                    while x < size.width + size.height {
+                        path.move(to: CGPoint(x: x, y: size.height)); path.addLine(to: CGPoint(x: x + size.height, y: 0)); x += p
+                    }
+                    ctx.stroke(path, with: .color(tone.line.opacity(MapTheme.hatchOpacity(dark: dark))), lineWidth: 1)
+                }
+                .clipShape(shape)
+            }
+            shape.stroke(MapTheme.base.opacity(0.4), lineWidth: 4.5)
+            shape.strokeBorder(tone.line.opacity(access == .off ? 0.7 : 0.85),
+                               style: StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: access.dash))
         }
         .accessibilityHidden(true)
     }

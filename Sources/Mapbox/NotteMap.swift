@@ -131,6 +131,72 @@ enum NotteMap {
         try? map.addLayer(edge)
     }
 
+    /// Le zone con lo stile della Mappa (MapTheme, toni scuri: lo stile Notte è sempre scuro): riempimento nel colore della
+    /// risposta, righe a 45° (fill-pattern) se la ZTL è attiva, alone e bordo tratteggiato (dasharray in unità di spessore:
+    /// 5/4 punti a 2 punti di spessore)
+    static func addAnswerZones(_ map: MapboxMap, id: String, rings: [[CLLocationCoordinate2D]], access: Access, active: Bool) {
+        let polygons = rings.filter { $0.count > 2 }.map { Polygon([$0 + [$0[0]]]) }
+        guard !polygons.isEmpty else { return }
+        let tone = MapTheme.tone(access)
+        var source = GeoJSONSource(id: id)
+        source.data = .geometry(.multiPolygon(MultiPolygon(polygons)))
+        try? map.addSource(source)
+        var fillLayer = FillLayer(id: id + "-fill", source: id)
+        fillLayer.slot = .middle
+        fillLayer.fillColor = .constant(color(tone.fillHex(dark: true)))
+        fillLayer.fillOpacity = .constant(MapTheme.fillOpacity(access, dark: true) + 0.04)
+        fillLayer.fillEmissiveStrength = .constant(1)
+        try? map.addLayer(fillLayer)
+        if active {
+            let image = "hatch-\(access)"
+            if !map.imageExists(withId: image) { try? map.addImage(hatchImage(tone.lineHex(dark: true)), id: image) }
+            var hatch = FillLayer(id: id + "-hatch", source: id)
+            hatch.slot = .middle
+            hatch.fillPattern = .constant(.name(image))
+            hatch.fillEmissiveStrength = .constant(1)
+            try? map.addLayer(hatch)
+        }
+        var halo = LineLayer(id: id + "-halo", source: id)
+        halo.slot = .top
+        halo.lineColor = .constant(color(0x0B1530))
+        halo.lineWidth = .constant(5)
+        halo.lineOpacity = .constant(0.4)
+        halo.lineEmissiveStrength = .constant(1)
+        try? map.addLayer(halo)
+        var edge = LineLayer(id: id + "-edge", source: id)
+        edge.slot = .top
+        edge.lineCap = .constant(.round)
+        edge.lineJoin = .constant(.round)
+        edge.lineColor = .constant(color(tone.lineHex(dark: true)))
+        edge.lineWidth = .constant(2)
+        edge.lineDasharray = .constant(MapTheme.dash(access).map { Double($0) / 2 })
+        edge.lineOpacity = .constant(access == .off ? 0.7 : 0.9)
+        edge.lineEmissiveStrength = .constant(1)
+        try? map.addLayer(edge)
+    }
+
+    static func removeAnswerZones(_ map: MapboxMap, id: String) {
+        for layer in ["-fill", "-hatch", "-halo", "-edge"] { try? map.removeLayer(withId: id + layer) }
+        try? map.removeSource(withId: id)
+    }
+
+    /// Il motivo delle righe a 45°: righe da 1 punto ogni MapTheme.hatchPitch punti, nel colore del bordo
+    static func hatchImage(_ hex: UInt32) -> UIImage {
+        let t = (MapTheme.hatchPitch * 2.0.squareRoot()).rounded()
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 2
+        return UIGraphicsImageRenderer(size: CGSize(width: t, height: t), format: format).image { ctx in
+            let g = ctx.cgContext
+            g.setStrokeColor(uiColor(hex, CGFloat(MapTheme.hatchOpacity(dark: true))).cgColor)
+            g.setLineWidth(1)
+            g.setLineCap(.square)
+            for o in [-t, 0, t] {
+                g.move(to: CGPoint(x: o, y: t)); g.addLine(to: CGPoint(x: o + t, y: 0))
+            }
+            g.strokePath()
+        }
+    }
+
     /// Gli edifici 3D trasparenti (Tools/intro_buildings.py, edifici OpenStreetMap uniti in blocchi della stessa altezza):
     /// tutti uguali, grigio-blu che schiarisce verso l'alto, al 40%, così l'auto, i percorsi e la zona si vedono anche
     /// dietro e attraverso. Senza luci e ombre dello stile (emissive 1), con appena un'ombra nei punti di contatto.

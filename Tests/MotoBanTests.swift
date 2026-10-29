@@ -140,10 +140,9 @@ final class MotoBanTests: XCTestCase {
         }
         XCTAssertEqual(access("firenze-a"), .closed)
         XCTAssertEqual(access("firenze-scudo-verde"), .open)
-        // Accese tutte e due (contengono il posto), ognuna con il suo colore
-        XCTAssertEqual(PlaceCheck.mood(access("firenze-a")), .red)
-        XCTAssertEqual(PlaceCheck.mood(access("firenze-scudo-verde")), .green)
-        XCTAssertEqual(PlaceCheck.zoneTint(.open, lit: true), PlaceCheck.neon(.open))
-        XCTAssertNotEqual(PlaceCheck.zoneTint(.open, lit: true), PlaceCheck.zoneTint(.closed, lit: true))
+        // Accese tutte e due (contengono il posto), ognuna con il suo colore (1.18.0: i colori di MapTheme)
+        XCTAssertEqual(MapTheme.tone(access("firenze-a")).lineLight, MapTheme.red.lineLight)
+        XCTAssertEqual(MapTheme.tone(access("firenze-scudo-verde")).lineLight, MapTheme.green.lineLight)
+        XCTAssertNotEqual(MapTheme.tone(.open).lineLight, MapTheme.tone(.closed).lineLight)
     }
 }
