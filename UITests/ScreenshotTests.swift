@@ -42,13 +42,13 @@ final class ScreenshotTests: XCTestCase {
         snap("01-varco")
 
         // Varco: la ricerca, poi la risposta con il pannello
-        let field = app.textFields["varco.search"]
+        let field = app.textFields["varco.search"].firstMatch
         if field.waitForExistence(timeout: 3) {
             field.tap()
             field.typeText("Palazzo Vecchio")
             sleep(4)
             snap("02-varco-search")
-            let first = app.buttons["varco.result.0"]
+            let first = app.buttons["varco.result.0"].firstMatch
             if first.waitForExistence(timeout: 5) {
                 first.tap()
                 sleep(4)
@@ -60,8 +60,12 @@ final class ScreenshotTests: XCTestCase {
         }
 
         // «Guarda la mappa»: la scheda Mappa sulla zona della risposta
-        let seeMap = app.buttons["varco.map"]
-        if seeMap.waitForExistence(timeout: 3) && seeMap.isHittable { seeMap.tap() } else { mapTab.tap() }
+        // Una sola ricerca, con firstMatch: in più «isHittable» rifaceva la fotografia dell'albero di accessibilità
+        // della risposta (grande, con la striscia di mappa) e sul Mac di GitHub andava in tempo scaduto (corsa
+        // 40782824915: «Failed to get matching snapshots: Timed out while evaluating UI query»). Dopo lo swipe il
+        // pulsante è sullo schermo
+        let seeMap = app.buttons["varco.map"].firstMatch
+        if seeMap.waitForExistence(timeout: 5) { seeMap.tap() } else { mapTab.tap() }
         sleep(6)                       // le mappe si caricano dalla rete
         snap("04-map-place")
 
@@ -162,14 +166,14 @@ final class ScreenshotTests: XCTestCase {
         guard openYou("trip") else { return }
         sleep(1)
         snap("12-trip-milan-dark")
-        let route = app.buttons["trip.route"]
+        let route = app.buttons["trip.route"].firstMatch
         if route.waitForExistence(timeout: 3) {
             route.tap()
             sleep(10)                  // percorso e parcheggio dalla rete
             app.swipeUp()
             sleep(1)
             snap("13-route-milan-dark")
-            let start = app.buttons["route.start"]
+            let start = app.buttons["route.start"].firstMatch
             if start.waitForExistence(timeout: 3) {
                 start.tap()
                 sleep(1)
@@ -178,7 +182,7 @@ final class ScreenshotTests: XCTestCase {
                 if own.waitForExistence(timeout: 3) { own.tap() }
                 sleep(8)
                 snap("14-drive-milan-dark")
-                let end = app.buttons["drive.end"]
+                let end = app.buttons["drive.end"].firstMatch
                 if end.waitForExistence(timeout: 3) { end.tap(); sleep(1) }
             }
         }
@@ -196,7 +200,7 @@ final class ScreenshotTests: XCTestCase {
             if !why.isHittable { app.swipeUp(); sleep(1) }
             why.tap(); sleep(1); snap("17-it-zone")
             app.swipeUp(); sleep(1); snap("18-it-zone-sources")
-            app.buttons["Fine"].tap()
+            app.buttons["Fine"].firstMatch.tap()
             sleep(1)
         }
         youTab.tap()
@@ -229,7 +233,7 @@ final class ScreenshotTests: XCTestCase {
             why.tap(); sleep(1); snap("24-unofficial-zone")
             XCTAssertTrue(app.descendants(matching: .any)["unofficial.banner"].firstMatch.waitForExistence(timeout: 3),
                           "Manca l'avviso nella scheda della zona")
-            app.buttons["Fine"].tap()
+            app.buttons["Fine"].firstMatch.tap()
             sleep(1)
         }
         mapTab.tap()

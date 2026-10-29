@@ -138,9 +138,11 @@ jobs:
           xcrun simctl boot "$SIM" 2>/dev/null || true
           xcrun simctl bootstatus "$SIM" -b > /dev/null 2>&1 || true
           status=0
-          xcodebuild test -project GateLR.xcodeproj -scheme GateLRUITests \
+          # La cartella delle foto come variabile d'ambiente (come per il Pro Max): come impostazione di compilazione
+          # nella corsa 40782824915 non è arrivata al test e sono state pubblicate solo le 2 foto del Pro Max
+          TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" xcodebuild test -project GateLR.xcodeproj -scheme GateLRUITests \
             -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
-            CODE_SIGNING_ALLOWED=NO TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" > ui.log 2>&1 || status=$?
+            CODE_SIGNING_ALLOWED=NO > ui.log 2>&1 || status=$?
           grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true
           grep -E "error:|Test Case .*failed" ui.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
           ls -la screenshots || true
@@ -195,19 +197,24 @@ jobs:
           mkdir -p screenshots
           # Se il test non ha potuto scrivere le foto, si prendono dagli allegati del risultato
           if ! ls screenshots/*.png >/dev/null 2>&1; then
-            RESULT=$(ls -d build-ui/Logs/Test/*.xcresult | head -n 1)
-            xcrun xcresulttool export attachments --path "$RESULT" --output-path attachments || true
+            # Da tutti i risultati (giro e Pro Max): con il primo solo, a volte si prendevano le foto del Pro Max
+            i=0
+            for RESULT in build-ui/Logs/Test/*.xcresult; do
+              i=$((i + 1))
+              xcrun xcresulttool export attachments --path "$RESULT" --output-path "attachments-$i" || true
+            done
             python3 - <<'PY'
           import json, shutil, pathlib
-          src = pathlib.Path("attachments"); out = pathlib.Path("screenshots")
-          try:
-              manifest = json.loads((src / "manifest.json").read_text())
-              for test in manifest:
-                  for a in test.get("attachments", []):
-                      name = a.get("suggestedHumanReadableName", a["exportedFileName"]).split("_")[0]
-                      shutil.copy(src / a["exportedFileName"], out / (name if name.endswith(".png") else name + ".png"))
-          except Exception as e:
-              print("allegati non letti:", e)
+          out = pathlib.Path("screenshots")
+          for src in sorted(pathlib.Path(".").glob("attachments-*")):
+              try:
+                  manifest = json.loads((src / "manifest.json").read_text())
+                  for test in manifest:
+                      for a in test.get("attachments", []):
+                          name = a.get("suggestedHumanReadableName", a["exportedFileName"]).split("_")[0]
+                          shutil.copy(src / a["exportedFileName"], out / (name if name.endswith(".png") else name + ".png"))
+              except Exception as e:
+                  print("allegati non letti:", src, e)
           PY
           fi
           # Le foto dell'iPhone Pro Max (test6VarcoProMax) accanto a quelle del giro
