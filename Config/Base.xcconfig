@@ -5,4 +5,6 @@
 MAPBOX_ACCESS_TOKEN =
 // Il numero dell'app su App Store (per «Lascia una recensione» in Tu): vuoto finché l'app non è pubblicata
 APP_STORE_ID =
+// Il Team di firma (Apple ID dello sviluppatore): vuoto qui, lo scrive in Config/Local.xcconfig lo script di installazione
+DEVELOPMENT_TEAM =
 #include? "Local.xcconfig"

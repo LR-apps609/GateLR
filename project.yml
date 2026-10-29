@@ -121,7 +121,7 @@ targets:
         SWIFT_VERSION: "5.0"
         SWIFT_STRICT_CONCURRENCY: minimal
         CODE_SIGN_STYLE: Automatic
-        DEVELOPMENT_TEAM: ""
+        # DEVELOPMENT_TEAM: da Config/Local.xcconfig (lo scrive «Installa su iPhone.command»), così il Team resta scelto
 
   # Widget: lo stato dei varchi del settore scelto, calcolato sul telefono
   GateLRWidget:
@@ -157,7 +157,7 @@ targets:
         SWIFT_VERSION: "5.0"
         SWIFT_STRICT_CONCURRENCY: minimal
         CODE_SIGN_STYLE: Automatic
-        DEVELOPMENT_TEAM: ""
+        # DEVELOPMENT_TEAM: da Config/Local.xcconfig (lo scrive «Installa su iPhone.command»), così il Team resta scelto
         TARGETED_DEVICE_FAMILY: "1,2"          # iPhone e iPad
         APPLICATION_EXTENSION_API_ONLY: YES
 

@@ -1,3 +1,5 @@
 // Copia questo file in Config/Local.xcconfig (ignorato da git) e metti il token pubblico (pk.…) di Mapbox.
 // Lo fa da solo «Installa su iPhone.command» la prima volta. Non mettere mai il token nei file del repository.
 MAPBOX_ACCESS_TOKEN = pk.IL_TUO_TOKEN_PUBBLICO
+// Il Team di firma (10 caratteri, es. AB12CD34EF): lo trova da solo lo script dal certificato «Apple Development» del Mac
+DEVELOPMENT_TEAM = IL_TUO_TEAM_ID

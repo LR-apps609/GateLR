@@ -48,6 +48,25 @@ if [[ ! -f Config/Local.xcconfig ]]; then
   fi
 fi
 
+# 1d. Il Team di firma: lo cerco una volta nel certificato «Apple Development» del portachiavi e lo salvo in
+# Config/Local.xcconfig, così non va più scelto a mano in Xcode a ogni installazione
+if ! grep -q '^DEVELOPMENT_TEAM *= *[A-Z0-9]\{10\}' Config/Local.xcconfig 2>/dev/null; then
+  team=$(security find-certificate -a -c "Apple Development" -p 2>/dev/null | openssl x509 -noout -subject 2>/dev/null | grep -oE 'OU ?= ?[A-Z0-9]{10}' | grep -oE '[A-Z0-9]{10}' | head -1)
+  if [[ -z $team ]]; then
+    print ""
+    print "  Team di firma: non l'ho trovato da solo. In Xcode → Settings → Accounts scegli il tuo Apple ID:"
+    print "  il Team ID sono 10 lettere e numeri (es. AB12CD34EF). Incollalo e premi Invio (Invio vuoto = lo scegli in Xcode)."
+    read -r "team?  Team ID: "
+    team=${team//[[:space:]]/}
+  fi
+  if [[ $team =~ ^[A-Z0-9]{10}$ ]]; then
+    print "DEVELOPMENT_TEAM = $team" >> Config/Local.xcconfig
+    print "       ✅ Team $team salvato in Config/Local.xcconfig (resta solo su questo Mac)"
+  else
+    print "       Team non salvato: sceglilo in Xcode (Signing & Capabilities) per GateLR e GateLRWidget"
+  fi
+fi
+
 # 2. XcodeGen (crea il progetto dal file project.yml)
 print "  2/3  Controllo XcodeGen…"
 if ! command -v xcodegen >/dev/null 2>&1; then
@@ -66,7 +85,7 @@ open GateLR.xcodeproj
 print ""
 print "  In Xcode:"
 print "   • a sinistra clicca «GateLR» (l'icona blu), poi il target GateLR"
-print "   • scheda «Signing & Capabilities» → Team: scegli il tuo Apple ID"
+print "   • scheda «Signing & Capabilities»: il Team dovrebbe essere già scelto; se è vuoto scegli il tuo Apple ID"
 print "   • fai lo stesso per il target GateLRWidget (il widget), sempre sotto TARGETS"
 print "     (se non c'è: Xcode → Settings → Accounts → +)"
 print "   • in alto scegli il tuo iPhone collegato con il cavo"
