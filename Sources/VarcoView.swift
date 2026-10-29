@@ -127,18 +127,35 @@ struct VarcoView: View {
 
     // MARK: La striscia di mappa
 
+    /// Il segno sul posto della striscia: lo spillo con il nome del posto cercato, il cartello della ZTL con il nome
+    /// corto della zona senza un posto; niente quando il posto è la tua posizione (c'è già il pallino blu)
+    static func stripMarker(check: PlaceCheck?, zone: Zone) -> StripMarkerKind? {
+        guard let check else { return .zone(zone.shortName) }
+        if check.place.name == L("My position") { return nil }
+        return .destination(check.place.name)
+    }
+
     /// La città dal vivo intorno al posto: un tocco apre la scheda Mappa sulla zona della risposta
     private func mapStrip(check: PlaceCheck?, mood: Home2Answer.Mood) -> some View {
-        let place = check?.place ?? Place(name: store.city.localizedName, address: "", location: store.city.center)
+        // Senza un posto cercato: la zona scelta, al centro della zona, con il suo cartello (non il centro della città)
+        let zoneCenter = store.zone.region(padding: 1).center
+        let place = check?.place ?? Place(name: store.zone.shortName, address: "",
+                                          location: Coordinate(lat: zoneCenter.latitude, lon: zoneCenter.longitude))
         let rings = (check?.hits.first?.city ?? store.city).zones.map { $0.perimeter.map(\.cl) }
+        let marker = Self.stripMarker(check: check, zone: store.zone)
+        // La tua posizione: c'è solo con il permesso. Il pallino blu, e la ripresa con te dentro se sei a meno di 5 km
+        let user = monitor.location.map { Coordinate(lat: $0.coordinate.latitude, lon: $0.coordinate.longitude) }
+        let height: CGFloat = check == nil ? 168 : 112
+        let framing = StripFrame.make(target: place.location, user: user)
         return ZStack(alignment: .bottomLeading) {
             Group {
                 if mapFailed {
                     VarcoAppleStrip(place: place, focus: check?.zone ?? (check == nil ? store.zone : nil),
-                                    zones: rings, tint: mood.color)
+                                    zones: rings, tint: mood.color, marker: marker, framing: framing, showsUser: user != nil)
                 } else {
                     Home2Map(place: place, zones: rings, mood: mood, mapMode: false, reduceMotion: reduceMotion,
-                             ornamentBottom: 6, focusBottom: 0, onFail: { mapFailed = true })
+                             ornamentBottom: 6, focusBottom: 0, marker: marker, user: user, stripPoints: height,
+                             onFail: { mapFailed = true })
                 }
             }
             .accessibilityHidden(true)
@@ -151,6 +168,9 @@ struct VarcoView: View {
             .buttonStyle(.plain)
             .padding(.bottom, 30)
             .accessibilityLabel(L("See the map"))
+            // Quello che la striscia mostra: il cartello o la destinazione, e la tua posizione se è nella ripresa
+            .accessibilityValue([marker?.accessibilityText, framing.includesUser ? L("Your position") : nil]
+                .compactMap { $0 }.joined(separator: ", "))
             .accessibilityIdentifier("varco.mapstrip")
             if check?.unofficial == true {
                 UnofficialBanner(compact: true)
@@ -167,7 +187,7 @@ struct VarcoView: View {
                 .accessibilityHidden(true)
         }
         // Più bassa quando c'è una risposta: la risposta e i suoi pulsanti stanno nello schermo
-        .frame(height: check == nil ? 168 : 112)
+        .frame(height: height)
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
         .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).stroke(mood.color.opacity(0.55), lineWidth: 1))
         .shadow(color: mood.color.opacity(0.25), radius: 18, y: 6)
@@ -590,6 +610,10 @@ private struct VarcoAppleStrip: View {
     var focus: Zone?
     var zones: [[CLLocationCoordinate2D]]
     var tint: Color
+    var marker: StripMarkerKind?
+    var framing: StripFrame
+    /// Il pallino blu di iOS, solo con il permesso della posizione
+    var showsUser: Bool
 
     var body: some View {
         Map(initialPosition: position, interactionModes: []) {
@@ -598,19 +622,28 @@ private struct VarcoAppleStrip: View {
                     .foregroundStyle(tint.opacity(0.16))
                     .stroke(tint, lineWidth: 2)
             }
-            Annotation("", coordinate: place.location.cl) {
-                Circle().fill(tint).frame(width: 14, height: 14)
-                    .overlay(Circle().stroke(.white, lineWidth: 3))
-                    .shadow(color: tint, radius: 8)
+            // Il cartello della ZTL o lo spillo della destinazione, con la base sul posto: mai un pallino
+            if let marker {
+                Annotation("", coordinate: place.location.cl, anchor: .bottom) {
+                    StripMarker(kind: marker, tint: tint)
+                }
+                .annotationTitles(.hidden)
             }
-            .annotationTitles(.hidden)
+            if showsUser {
+                UserAnnotation()
+            }
         }
         .mapStyle(.standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll))
         // Una mappa nuova quando cambia il posto o la zona (la camera iniziale non si sposta da sola)
-        .id("\(place.location.lat),\(place.location.lon),\(focus?.id ?? "")")
+        // (e quando la tua posizione entra o esce dalla ripresa, o si sposta di qualche centinaio di metri)
+        .id("\(place.location.lat),\(place.location.lon),\(focus?.id ?? ""),\(framing.includesUser),\(Int(framing.center.lat * 500)),\(Int(framing.center.lon * 500))")
     }
 
     private var position: MapCameraPosition {
+        if framing.includesUser {
+            let d = framing.degrees
+            return .region(MKCoordinateRegion(center: framing.center.cl, span: MKCoordinateSpan(latitudeDelta: d.lat, longitudeDelta: d.lon)))
+        }
         if let focus, focus.widthMeters < 6_000 { return .region(focus.region(padding: 1.2)) }
         return .camera(MapCamera(centerCoordinate: place.location.cl, distance: 1_800, heading: 340, pitch: 55))
     }

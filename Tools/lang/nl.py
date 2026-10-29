@@ -665,6 +665,9 @@ T = {
 '%lld spaces': '%lld plaatsen',
 'Route there without active ZTL': 'Route erheen zonder actieve ZTL',
 'Route not checked: allow location access': 'Route niet gecontroleerd: sta locatietoegang toe',
+'Your position': 'Jouw positie',
+'Destination: %@': 'Bestemming: %@',
+'ZTL zone: %@': 'ZTL-zone: %@',
 'For %@': 'Voor %@',
 'Colours for %@ · %@': 'Kleuren voor %@ · %@',
 # Auto in 10 secondi e «Fotografa il verbale»

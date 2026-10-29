@@ -663,6 +663,9 @@
 "%lld spaces" = "%lld miejsc";
 "Route there without active ZTL" = "Trasa dojazdu bez aktywnych ZTL";
 "Route not checked: allow location access" = "Trasa nie sprawdzona: zezwól na dostęp do lokalizacji";
+"Your position" = "Twoja pozycja";
+"Destination: %@" = "Cel: %@";
+"ZTL zone: %@" = "Strefa ZTL: %@";
 "For %@" = "Na %@";
 "Colours for %@ · %@" = "Kolory dla %@ · %@";
 "No text found in this photo. Try again with more light, the document flat and filling the frame." = "Na tym zdjęciu nie ma tekstu. Spróbuj ponownie przy lepszym świetle, z dokumentem płasko i wypełniającym kadr.";

@@ -224,6 +224,8 @@ struct IntroDriveSlide: View {
     @State private var scene: IntroScene?
     /// L'altezza di quello che c'è in basso (verbale, suggerimento, pulsante): il velo e il logo di Mapbox stanno sopra
     @State private var bottomHeight: CGFloat = 0
+    /// I bordi sicuri dello schermo (Dynamic Island in alto, la barra di Home in basso): il velo li copre per intero
+    @State private var insets = EdgeInsets()
     /// Quale mappa: Mapbox 3D (la nuova), la mappa di Apple se Mapbox non si carica (-intro2MapKit per provarla),
     /// il disegno sullo stesso fondo blu notte senza rete (o con -intro2Fallback)
     enum Engine { case mapbox, mapkit, drawing }
@@ -235,31 +237,39 @@ struct IntroDriveSlide: View {
     var body: some View {
         ZStack {
             Notte.navy.ignoresSafeArea()
-            if let scene {
-                switch engine {
-                case .drawing: IntroFallbackMap(scene: scene, drive: drive)
-                case .mapkit: IntroLiveMap(scene: scene, drive: drive)
-                case .mapbox:
-                    // Logo e attribuzione di Mapbox sopra il pannello in basso e sopra il velo (che sfuma in 90 punti)
-                    IntroMapboxMap(scene: scene, drive: drive, reduceMotion: reduceMotion, ornamentBottom: bottomHeight + 12 + 64,
-                                   onReady: { drive.start() },
-                                   onFail: { engine = .mapkit; drive.start() })
-                        .ignoresSafeArea()
-                        .accessibilityHidden(true)
+            // Una sola mappa, da bordo a bordo: il contenitore ignora i bordi sicuri e occupa tutto lo schermo
+            Group {
+                if let scene {
+                    switch engine {
+                    case .drawing: IntroFallbackMap(scene: scene, drive: drive)
+                    case .mapkit: IntroLiveMap(scene: scene, drive: drive)
+                    case .mapbox:
+                        // Logo e attribuzione di Mapbox sopra il pannello in basso e sopra il velo (che sfuma in 90 punti),
+                        // dentro i bordi sicuri (i margini di Mapbox partono dal fondo sicuro)
+                        IntroMapboxMap(scene: scene, drive: drive, reduceMotion: reduceMotion, ornamentBottom: bottomHeight + 12 + 64,
+                                       onReady: { drive.start() },
+                                       onFail: { engine = .mapkit; drive.start() })
+                            .accessibilityHidden(true)
+                    }
                 }
             }
-            // Il blu notte sopra il titolo e sotto il pannello in basso, perché il testo resti leggibile sulla mappa
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
+            // Il blu notte sopra il titolo e sotto il pannello in basso, perché il testo resti leggibile sulla mappa.
+            // Il velo intero ignora i bordi sicuri e ogni sfumatura aggiunge il suo bordo: arriva fino al fondo dello
+            // schermo (prima una sfumatura alta fissa si fermava sopra la barra di Home e sotto restava una striscia di mappa)
             VStack(spacing: 0) {
                 // Più pieno di giorno: sulla mappa chiara il titolo bianco altrimenti si legge poco
                 LinearGradient(stops: [.init(color: Notte.navy, location: 0), .init(color: Notte.navy.opacity(0.92), location: 0.55),
                                        .init(color: .clear, location: 1)], startPoint: .top, endPoint: .bottom)
-                    .frame(height: 200)
-                    .ignoresSafeArea(edges: .top)
-                Spacer()
-                LinearGradient(colors: [.clear, Notte.navy.opacity(0.85), Notte.navy], startPoint: .top, endPoint: .bottom)
-                    .frame(height: bottomHeight + 12 + 90)
-                    .ignoresSafeArea(edges: .bottom)
+                    .frame(height: 200 + insets.top)
+                Spacer(minLength: 0)
+                LinearGradient(stops: [.init(color: .clear, location: 0), .init(color: Notte.navy.opacity(0.85), location: 0.5),
+                                       .init(color: Notte.navy, location: 0.85)], startPoint: .top, endPoint: .bottom)
+                    .frame(height: bottomHeight + 12 + 90 + insets.bottom)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .ignoresSafeArea()
             .allowsHitTesting(false)
             .animation(.easeInOut(duration: 0.4), value: bottomHeight)
 
@@ -273,6 +283,7 @@ struct IntroDriveSlide: View {
             }
             .padding(.horizontal, 20).padding(.bottom, 12)
         }
+        .onGeometryChange(for: EdgeInsets.self) { $0.safeAreaInsets } action: { insets = $0 }
         .sensoryFeedback(.warning, trigger: drive.flash > 0.5)
         .sensoryFeedback(.success, trigger: drive.panel == .noFine || drive.showEvening)
         .task {

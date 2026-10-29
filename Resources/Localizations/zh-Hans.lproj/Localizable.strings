@@ -663,6 +663,9 @@
 "%lld spaces" = "%lld 个车位";
 "Route there without active ZTL" = "前往路线不经过生效的 ZTL";
 "Route not checked: allow location access" = "路线未检查：请允许访问位置";
+"Your position" = "你的位置";
+"Destination: %@" = "目的地：%@";
+"ZTL zone: %@" = "ZTL 区域：%@";
 "For %@" = "%@";
 "Colours for %@ · %@" = "颜色对应 %@ · %@";
 "No text found in this photo. Try again with more light, the document flat and filling the frame." = "这张照片里没有找到文字。请在更亮的地方重试，把文件放平并占满画面。";

@@ -557,6 +557,9 @@ T = {
 '%lld spaces': ('%lld posti', '%lld Plätze'),
 'Route there without active ZTL': ('Strada fin lì senza ZTL attive', 'Weg dorthin ohne aktive ZTL'),
 'Route not checked: allow location access': ("Strada non controllata: consenti l'accesso alla posizione", 'Weg nicht geprüft: erlaube den Standortzugriff'),
+'Your position': ('La tua posizione', 'Dein Standort'),
+'Destination: %@': ('Destinazione: %@', 'Ziel: %@'),
+'ZTL zone: %@': ('Zona ZTL: %@', 'ZTL-Zone: %@'),
 'For %@': ('Per %@', 'Für %@'),
 'Colours for %@ · %@': ('Colori per %@ · %@', 'Farben für %@ · %@'),
 # Auto in 10 secondi (libretto, noleggio) e «Fotografa il verbale»

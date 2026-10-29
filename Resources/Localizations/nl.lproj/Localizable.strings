@@ -663,6 +663,9 @@
 "%lld spaces" = "%lld plaatsen";
 "Route there without active ZTL" = "Route erheen zonder actieve ZTL";
 "Route not checked: allow location access" = "Route niet gecontroleerd: sta locatietoegang toe";
+"Your position" = "Jouw positie";
+"Destination: %@" = "Bestemming: %@";
+"ZTL zone: %@" = "ZTL-zone: %@";
 "For %@" = "Voor %@";
 "Colours for %@ · %@" = "Kleuren voor %@ · %@";
 "No text found in this photo. Try again with more light, the document flat and filling the frame." = "Geen tekst gevonden op deze foto. Probeer opnieuw met meer licht, het document plat en beeldvullend.";

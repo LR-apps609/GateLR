@@ -665,6 +665,9 @@ T = {
 '%lld spaces': '%lld plazas',
 'Route there without active ZTL': 'Ruta hasta allí sin ZTL activas',
 'Route not checked: allow location access': 'Ruta no comprobada: permite el acceso a la ubicación',
+'Your position': 'Tu posición',
+'Destination: %@': 'Destino: %@',
+'ZTL zone: %@': 'Zona ZTL: %@',
 'For %@': 'Para %@',
 'Colours for %@ · %@': 'Colores para %@ · %@',
 # Auto in 10 secondi e «Fotografa il verbale»

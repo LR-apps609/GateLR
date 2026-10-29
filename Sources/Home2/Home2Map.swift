@@ -8,6 +8,9 @@ import UIKit
 /// (rosso se il varco è attivo, verde se si entra). Con «mapMode» la stessa camera scende sulla mappa intera
 /// (vista dall'alto, più lontana) e la mappa si può muovere con le dita. Senza token o se Mapbox non si carica,
 /// VarcoView mostra la mappa di Apple (onFail).
+/// Il posto non è mai un pallino (sembrava «sei qui»): il cartello della ZTL o lo spillo della destinazione, con il nome
+/// (StripMarker); la tua posizione è il pallino blu di sempre, e se sei a meno di 5 km la ripresa tiene dentro anche te
+/// (StripFrame).
 struct Home2Map: UIViewRepresentable {
     var place: Place
     var zones: [[CLLocationCoordinate2D]]
@@ -18,13 +21,22 @@ struct Home2Map: UIViewRepresentable {
     var ornamentBottom: CGFloat
     /// Lo spazio sotto il posto nella ripresa vicina: 360 punti sotto il vetro a tutta pagina, 0 nella striscia della prima pagina
     var focusBottom: CGFloat = 360
+    /// Il segno sul posto (nil = nessuno, per esempio quando il posto è la tua posizione)
+    var marker: StripMarkerKind? = nil
+    /// La tua posizione, solo se iOS la dà (permesso concesso): il pallino blu e la ripresa con te dentro se sei vicino
+    var user: Coordinate? = nil
+    /// Il lato corto della striscia in punti, per lo zoom della ripresa con te dentro
+    var stripPoints: CGFloat = 150
     var onFail: () -> Void
+
+    var stripFrame: StripFrame { StripFrame.make(target: place.location, user: user) }
 
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 
     func makeUIView(context: Context) -> MapView {
         let mapView = MapView(frame: .zero, mapInitOptions: MapInitOptions(mapStyle: NotteMap.style(),
-                                                                           cameraOptions: Coordinator.scenic(place.location.cl, bearing: Coordinator.bearing0, bottom: focusBottom)))
+                                                                           cameraOptions: Coordinator.scenic(stripFrame, bearing: Coordinator.bearing0, bottom: focusBottom,
+                                                                                                             points: stripPoints)))
         NotteMap.configure(mapView, ornamentBottom: ornamentBottom)
         context.coordinator.attach(mapView)
         return mapView
@@ -57,12 +69,14 @@ struct Home2Map: UIViewRepresentable {
         init(_ parent: Home2Map) {
             self.parent = parent
             pinModel.mood = parent.mood
+            pinModel.marker = parent.marker
         }
 
-        /// La ripresa vicina: il posto un po' sopra il centro (sotto c'è il vetro con la risposta), inclinata di 60°
-        static func scenic(_ c: CLLocationCoordinate2D, bearing: Double, bottom: CGFloat = 360) -> CameraOptions {
-            CameraOptions(center: c, padding: UIEdgeInsets(top: 0, left: 0, bottom: bottom, right: 0),
-                          zoom: 15.7, bearing: bearing, pitch: 60)
+        /// La ripresa vicina: il posto un po' sopra il centro (sotto c'è il vetro con la risposta), inclinata di 60°.
+        /// Con te dentro (StripFrame.includesUser): il punto a metà, lo zoom che tiene tutti e due, meno inclinata
+        static func scenic(_ frame: StripFrame, bearing: Double, bottom: CGFloat = 360, points: CGFloat = 150) -> CameraOptions {
+            CameraOptions(center: frame.center.cl, padding: UIEdgeInsets(top: 0, left: 0, bottom: bottom, right: 0),
+                          zoom: frame.zoom(points: Double(points)), bearing: bearing, pitch: frame.includesUser ? 40 : 60)
         }
 
         /// La mappa intera: dall'alto, più lontana, il posto al centro
@@ -97,11 +111,14 @@ struct Home2Map: UIViewRepresentable {
             ready = true
             NotteMap.addZone(map, id: "zones", rings: parent.zones, fill: 0.14, hex: parent.mood.hex)
             zoneKey = Self.key(parent.zones)
-            let pinView = HostedAnnotationView(size: CGSize(width: 64, height: 64)) { Home2Pin(model: pinModel) }
+            let pinView = HostedAnnotationView(size: StripMarker.size) { Home2Pin(model: pinModel) }
             let pin = ViewAnnotation(coordinate: parent.place.location.cl, view: pinView)
+            // La punta dello spillo (o il piede del palo) sul posto
+            pin.variableAnchors = [ViewAnnotationAnchorConfig(anchor: .bottom)]
             pin.allowOverlap = true
             mapView.viewAnnotations.add(pin)
             self.pin = pin
+            setPuck(mapView)
             startDrift(forward: true)
         }
 
@@ -112,9 +129,18 @@ struct Home2Map: UIViewRepresentable {
             return h.finalize()
         }
 
+        /// Il pallino blu della posizione, solo con il permesso (la posizione c'è)
+        private func setPuck(_ mapView: MapView) {
+            let on = parent.user != nil
+            guard (mapView.location.options.puckType != nil) != on else { return }
+            mapView.location.options.puckType = on ? .puck2D(.makeDefault(showBearing: false)) : nil
+        }
+
         func update(from old: Home2Map) {
             pinModel.mood = parent.mood
+            pinModel.marker = parent.marker
             guard ready, let mapView, let map = mapView.mapboxMap else { return }
+            setPuck(mapView)
             if old.mood != parent.mood { NotteMap.setZoneColor(map, id: "zones", hex: parent.mood.hex) }
             let key = Self.key(parent.zones)
             if key != zoneKey {
@@ -122,11 +148,12 @@ struct Home2Map: UIViewRepresentable {
                 NotteMap.setZoneRings(map, id: "zones", rings: parent.zones)
             }
             let c = parent.place.location.cl
-            if old.place.location != parent.place.location {
+            if old.place.location != parent.place.location || (!parent.mapMode && parent.stripFrame.differs(from: old.stripFrame)) {
                 pin?.annotatedFeature = .geometry(Point(c))
                 if !parent.mapMode {
                     drift?.cancel()
-                    mapView.camera.fly(to: Self.scenic(c, bearing: map.cameraState.bearing, bottom: parent.focusBottom), duration: 2.2) { [weak self] _ in
+                    mapView.camera.fly(to: Self.scenic(parent.stripFrame, bearing: map.cameraState.bearing, bottom: parent.focusBottom,
+                                                       points: parent.stripPoints), duration: 2.2) { [weak self] _ in
                         self?.startDrift(forward: true)
                     }
                 } else {
@@ -141,7 +168,8 @@ struct Home2Map: UIViewRepresentable {
                     // La stessa camera scende e si raddrizza: dall'inclinata vicina alla mappa dall'alto
                     mapView.camera.ease(to: Self.overview(c), duration: parent.reduceMotion ? 0.4 : 1.8, curve: .easeInOut)
                 } else {
-                    mapView.camera.ease(to: Self.scenic(c, bearing: Self.bearing0, bottom: parent.focusBottom), duration: parent.reduceMotion ? 0.4 : 1.8,
+                    mapView.camera.ease(to: Self.scenic(parent.stripFrame, bearing: Self.bearing0, bottom: parent.focusBottom,
+                                                        points: parent.stripPoints), duration: parent.reduceMotion ? 0.4 : 1.8,
                                         curve: .easeInOut) { [weak self] _ in self?.startDrift(forward: true) }
                 }
             }
@@ -177,23 +205,19 @@ extension NotteMap {
     }
 }
 
-/// Il punto del posto sulla mappa: un cerchio del colore della risposta che pulsa piano
+/// Il segno del posto sulla mappa: il cartello della ZTL o lo spillo della destinazione (StripMarker), mai un pallino
 @MainActor final class Home2PinModel: ObservableObject {
     @Published var mood: Home2Answer.Mood = .red
+    @Published var marker: StripMarkerKind?
 }
 
 private struct Home2Pin: View {
     @ObservedObject var model: Home2PinModel
-    @State private var pulse = false
     var body: some View {
-        ZStack {
-            Circle().fill(model.mood.color.opacity(0.35)).frame(width: 56, height: 56)
-                .scaleEffect(pulse ? 1 : 0.4).opacity(pulse ? 0 : 1)
-            Circle().fill(model.mood.color).frame(width: 16, height: 16)
-                .overlay(Circle().stroke(.white, lineWidth: 3))
-                .shadow(color: model.mood.color, radius: 10)
+        if let marker = model.marker {
+            StripMarker(kind: marker, tint: model.mood.color)
+        } else {
+            Color.clear.frame(width: StripMarker.size.width, height: StripMarker.size.height)
         }
-        .frame(width: 64, height: 64)
-        .onAppear { withAnimation(.easeOut(duration: 1.8).repeatForever(autoreverses: false)) { pulse = true } }
     }
 }

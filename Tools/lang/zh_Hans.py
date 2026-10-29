@@ -665,6 +665,9 @@ T = {
 '%lld spaces': '%lld 个车位',
 'Route there without active ZTL': '前往路线不经过生效的 ZTL',
 'Route not checked: allow location access': '路线未检查：请允许访问位置',
+'Your position': '你的位置',
+'Destination: %@': '目的地：%@',
+'ZTL zone: %@': 'ZTL 区域：%@',
 'For %@': '%@',
 'Colours for %@ · %@': '颜色对应 %@ · %@',
 # Auto in 10 secondi e «Fotografa il verbale»

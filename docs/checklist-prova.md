@@ -4,6 +4,18 @@ Spunta ogni riga. Se qualcosa non va: Tu → Impostazioni → «Segnala un bug»
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
 
 
+## ★ Presentazione a tutto schermo e striscia di Varco (1.17.2)
+- [ ] Presentazione con Mapbox su un iPhone con Dynamic Island: la mappa arriva fino al bordo in basso; sotto il blu notte del pannello non resta nessuna striscia di mappa (né sopra la barra di Home né sotto)
+- [ ] In alto il blu notte copre la Dynamic Island e l'ora; logo Mapbox e «ⓘ» visibili sopra il pannello in basso, dentro lo schermo, e la «ⓘ» si tocca
+- [ ] Lo stesso con la mappa di Apple (avvio con -intro2MapKit) e con il disegno senza rete (modalità aereo o -intro2Fallback)
+- [ ] Varco senza un posto cercato: al centro della zona il cartello della ZTL (cerchio rosso su bianco, su un palo) con il nome corto («Centro»), non più il pallino rosso/bianco
+- [ ] Con il permesso della posizione e a meno di 5 km dalla zona (es. 550 m fuori dal Centro di San Giovanni Valdarno): il pallino blu di iOS dove sei, e la ripresa tiene dentro sia te sia la zona, così si vede che sei fuori
+- [ ] Oltre 5 km (o senza permesso): solo la zona, come prima, nessun pallino blu fuori posto
+- [ ] Cerca un hotel: sulla striscia lo spillo della destinazione con il nome dell'hotel, del colore della risposta
+- [ ] Lo stesso senza Mapbox (mappa di Apple): cartello, spillo, pallino blu e ripresa uguali
+- [ ] VoiceOver sulla striscia: «Guarda la mappa», poi «Zona ZTL: Centro» (o «Destinazione: …») e «La tua posizione» quando sei nella ripresa
+
+
 ## ★ GateLR 2.0: tre schede (1.16.0)
 - [ ] In basso solo tre schede: «Varco», «Mappa» al centro con il simbolo più grande, «Tu»; VoiceOver legge i tre nomi
 - [ ] Varco su fondo blu notte anche con l'iPhone in modalità chiara; la barra delle schede resta quella di iOS
