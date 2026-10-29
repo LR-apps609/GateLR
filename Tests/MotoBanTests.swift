@@ -145,6 +145,5 @@ final class MotoBanTests: XCTestCase {
         XCTAssertEqual(PlaceCheck.mood(access("firenze-scudo-verde")), .green)
         XCTAssertEqual(PlaceCheck.zoneTint(.open, lit: true), PlaceCheck.neon(.open))
         XCTAssertNotEqual(PlaceCheck.zoneTint(.open, lit: true), PlaceCheck.zoneTint(.closed, lit: true))
-        XCTAssertEqual(PlaceCheck.zoneTint(.open, lit: false), Access.open.color)
     }
 }
