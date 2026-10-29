@@ -14,103 +14,91 @@
    "name_it": "Teatro Massimo · ZTL Centro Storico",
    "name_de": "Teatro Massimo · ZTL Altstadt",
    "kind": "restricted",
-   "summary": "The small ZTL around the Teatro Massimo Bellini (piazza Scammacca, via Pulvirenti, piazza Ogninella) is closed to cars without a permit 24 hours a day, every day; cameras at the via Sant'Agata and via Landolina entrances off via Vittorio Emanuele II. Staying inside? Your hotel or B&B can get a free 12-hour permit for your car on the AMTS website. Via Etnea and piazza Bellini are pedestrian.",
-   "summary_it": "La piccola ZTL attorno al Teatro Massimo Bellini (piazza Scammacca, via Pulvirenti, piazza Ogninella) è chiusa alle auto senza permesso 24 ore su 24, tutti i giorni; telecamere agli ingressi di via Sant'Agata e via Landolina da via Vittorio Emanuele II. Dormi dentro? L'hotel o il B&B può chiedere per la tua auto un permesso gratuito di 12 ore sul sito AMTS. Via Etnea e piazza Bellini sono pedonali.",
-   "summary_de": "Die kleine ZTL rund um das Teatro Massimo Bellini (Piazza Scammacca, Via Pulvirenti, Piazza Ogninella) ist für Autos ohne Genehmigung rund um die Uhr, täglich gesperrt; Kameras an den Zufahrten Via Sant'Agata und Via Landolina von der Via Vittorio Emanuele II. Du übernachtest innen? Hotel oder B&B können auf der AMTS-Website eine kostenlose 12-Stunden-Genehmigung für dein Auto beantragen. Via Etnea und Piazza Bellini sind Fußgängerzonen.",
+   "summary": "The small ZTL around the Teatro Massimo Bellini (piazza Scammacca, via Pulvirenti, piazza Ogninella) is closed to cars without a permit 24 hours a day, every day; cameras where via Sant'Agata and via Leonardi enter it (coming from via Vittorio Emanuele II and via Landolina). Staying inside? Your hotel or B&B can get a free 12-hour permit for your car on the AMTS website. Via Etnea and piazza Bellini are pedestrian.",
+   "summary_it": "La piccola ZTL attorno al Teatro Massimo Bellini (piazza Scammacca, via Pulvirenti, piazza Ogninella) è chiusa alle auto senza permesso 24 ore su 24, tutti i giorni; telecamere dove si entra in via Sant'Agata e in via Leonardi (arrivando da via Vittorio Emanuele II e da via Landolina). Dormi dentro? L'hotel o il B&B può chiedere per la tua auto un permesso gratuito di 12 ore sul sito AMTS. Via Etnea e piazza Bellini sono pedonali.",
+   "summary_de": "Die kleine ZTL rund um das Teatro Massimo Bellini (Piazza Scammacca, Via Pulvirenti, Piazza Ogninella) ist für Autos ohne Genehmigung rund um die Uhr, täglich gesperrt; Kameras dort, wo man in die Via Sant'Agata und die Via Leonardi einfährt (von der Via Vittorio Emanuele II und der Via Landolina). Du übernachtest innen? Hotel oder B&B können auf der AMTS-Website eine kostenlose 12-Stunden-Genehmigung für dein Auto beantragen. Via Etnea und Piazza Bellini sind Fußgängerzonen.",
    "perimeter": [
     {
-     "lat": 37.503541,
-     "lon": 15.090104
+     "lat": 37.505004,
+     "lon": 15.087579
     },
     {
-     "lat": 37.503119,
-     "lon": 15.090306
+     "lat": 37.503971,
+     "lon": 15.087586
     },
     {
-     "lat": 37.502965,
-     "lon": 15.088886
+     "lat": 37.504051,
+     "lon": 15.088116
     },
     {
-     "lat": 37.503469,
-     "lon": 15.088866
+     "lat": 37.503431,
+     "lon": 15.08828
     },
     {
-     "lat": 37.503467,
-     "lon": 15.08882
+     "lat": 37.50345,
+     "lon": 15.088842
     },
     {
-     "lat": 37.503773,
-     "lon": 15.08879
+     "lat": 37.502939,
+     "lon": 15.088862
     },
     {
-     "lat": 37.504088,
-     "lon": 15.088551
+     "lat": 37.5031,
+     "lon": 15.09035
     },
     {
-     "lat": 37.50403,
-     "lon": 15.088144
+     "lat": 37.503529,
+     "lon": 15.090142
     },
     {
-     "lat": 37.504067,
-     "lon": 15.088132
+     "lat": 37.503634,
+     "lon": 15.090769
     },
     {
-     "lat": 37.504119,
-     "lon": 15.088351
+     "lat": 37.504134,
+     "lon": 15.090699
     },
     {
-     "lat": 37.504208,
-     "lon": 15.088381
+     "lat": 37.504117,
+     "lon": 15.090374
     },
     {
-     "lat": 37.504257,
-     "lon": 15.088487
+     "lat": 37.504152,
+     "lon": 15.090346
     },
     {
-     "lat": 37.503935,
-     "lon": 15.088729
-    },
-    {
-     "lat": 37.503974,
-     "lon": 15.088797
-    },
-    {
-     "lat": 37.504984,
-     "lon": 15.089282
-    },
-    {
-     "lat": 37.505009,
-     "lon": 15.090073
-    },
-    {
-     "lat": 37.504357,
-     "lon": 15.090334
+     "lat": 37.504253,
+     "lon": 15.09046
     },
     {
      "lat": 37.504376,
      "lon": 15.09041
     },
     {
-     "lat": 37.504148,
-     "lon": 15.090519
+     "lat": 37.504417,
+     "lon": 15.090241
     },
     {
-     "lat": 37.504163,
-     "lon": 15.090663
+     "lat": 37.504452,
+     "lon": 15.090277
     },
     {
-     "lat": 37.503646,
-     "lon": 15.090745
+     "lat": 37.505009,
+     "lon": 15.090073
     },
     {
-     "lat": 37.503541,
-     "lon": 15.090104
+     "lat": 37.505068,
+     "lon": 15.090133
+    },
+    {
+     "lat": 37.505004,
+     "lon": 15.087579
     }
    ],
    "gates": [
     {
      "id": "ct-osm9930355548",
-     "name": "Varco · Via Landolina / Via Vittorio Emanuele II",
+     "name": "Varco · Via Leonardi / Via Valle (da via Landolina)",
      "location": {
       "lat": 37.503555,
       "lon": 15.090132
@@ -118,7 +106,7 @@
     },
     {
      "id": "ct-osm9930355537",
-     "name": "Varco · Via Sant'Agata / Via Vittorio Emanuele II",
+     "name": "Varco · Via Sant'Agata / Via Santa Maria del Rosario",
      "location": {
       "lat": 37.503484,
       "lon": 15.088842
@@ -156,17 +144,17 @@
     "pending": [
      "Hotels and B&Bs inside: they request a free temporary permit for your car on the AMTS website (for unloading luggage on arrival and departure, at most 12 hours, no more permits than rooms). No deadline set for the request; other entitled drivers who were not registered can justify a passage within 48 hours (ztl@amts.ct.it).",
      "Electric cars need a (free) transit permit requested from AMTS, so GateLR does not exempt them. Motorbikes are not mentioned: only bicycles enter freely. Blue Badge holders who drive in often must register the plate and badge number online with AMTS. Fine 84–335 € (Highway Code, unofficial source). Info: ztl@amts.ct.it.",
-     "Perimeter and the two cameras from OpenStreetMap: the streets inside match the City's 2022 list (piazza Scammacca, via Pulvirenti, via Mazza, piazza Ogninella, via Sant'Orsola, via Euplio Reina, via Maria Callas). Pedestrian areas drawn: piazza Bellini/via Rapisarda and via Etnea (via Dusmet–piazza Stesicoro) with piazza Duomo; not drawn: San Giovanni li Cuti."
+     "Perimeter drawn on the boundary streets listed by the City (via di Sangiuliano, via Mancini, via Euplio Reina, via della Loggetta, via S. Maria del Rosario, via Sant'Agata, via Vittorio Emanuele, via Leonardi, via Valle, via Landolina; the boundary streets themselves are outside), on OpenStreetMap street lines; cameras from OpenStreetMap, at the start of via Sant'Agata (after via S. Maria del Rosario) and of via Leonardi (after via Valle). Pedestrian areas drawn: piazza Bellini/via Rapisarda and via Etnea (via Dusmet–piazza Stesicoro) with piazza Duomo; not drawn: San Giovanni li Cuti."
     ],
     "pending_it": [
      "Alberghi e B&B dentro: chiedono per la tua auto un permesso temporaneo gratuito sul sito AMTS (per scaricare i bagagli all'arrivo e alla partenza, al massimo 12 ore, non più permessi delle camere). Nessuna scadenza indicata per la richiesta; gli altri aventi diritto non registrati possono giustificare il passaggio entro 48 ore (ztl@amts.ct.it).",
      "Le auto elettriche devono chiedere ad AMTS un permesso di transito (gratuito), quindi GateLR non le esenta. Le moto non sono citate: entrano liberamente solo le biciclette. Con il contrassegno disabili, chi entra spesso registra online su AMTS targa e numero del contrassegno. Multa 84–335 € (Codice della Strada, fonte non ufficiale). Info: ztl@amts.ct.it.",
-     "Perimetro e i due varchi da OpenStreetMap: le strade dentro coincidono con l'elenco del Comune del 2022 (piazza Scammacca, via Pulvirenti, via Mazza, piazza Ogninella, via Sant'Orsola, via Euplio Reina, via Maria Callas). Aree pedonali disegnate: piazza Bellini/via Rapisarda e via Etnea (da via Dusmet a piazza Stesicoro) con piazza Duomo; non disegnata: San Giovanni li Cuti."
+     "Perimetro tracciato sulle vie perimetrali elencate dal Comune (via di Sangiuliano, via Mancini, via Euplio Reina, via della Loggetta, via S. Maria del Rosario, via Sant'Agata, via Vittorio Emanuele, via Leonardi, via Valle, via Landolina; le vie perimetrali restano fuori), sulle linee delle strade di OpenStreetMap; varchi da OpenStreetMap, all'inizio di via Sant'Agata (dopo via S. Maria del Rosario) e di via Leonardi (dopo via Valle). Aree pedonali disegnate: piazza Bellini/via Rapisarda e via Etnea (da via Dusmet a piazza Stesicoro) con piazza Duomo; non disegnata: San Giovanni li Cuti."
     ],
     "pending_de": [
      "Hotels und B&Bs innen: Sie beantragen für dein Auto eine kostenlose befristete Genehmigung auf der AMTS-Website (zum Ausladen bei An- und Abreise, höchstens 12 Stunden, nicht mehr Genehmigungen als Zimmer). Keine Frist für den Antrag genannt; andere Berechtigte ohne Registrierung können eine Durchfahrt binnen 48 Stunden begründen (ztl@amts.ct.it).",
      "Elektroautos brauchen eine (kostenlose) Durchfahrtsgenehmigung von AMTS, daher befreit GateLR sie nicht. Motorräder werden nicht erwähnt: frei einfahren dürfen nur Fahrräder. Wer mit Behindertenausweis oft einfährt, meldet Kennzeichen und Ausweisnummer online bei AMTS. Bußgeld 84–335 € (Straßenverkehrsordnung, inoffizielle Quelle). Info: ztl@amts.ct.it.",
-     "Grenze und die zwei Kameras aus OpenStreetMap: Die Straßen innen entsprechen der Liste der Stadt von 2022 (Piazza Scammacca, Via Pulvirenti, Via Mazza, Piazza Ogninella, Via Sant'Orsola, Via Euplio Reina, Via Maria Callas). Eingezeichnete Fußgängerzonen: Piazza Bellini/Via Rapisarda und Via Etnea (Via Dusmet–Piazza Stesicoro) mit Piazza Duomo; nicht eingezeichnet: San Giovanni li Cuti."
+     "Grenze entlang der von der Stadt genannten Randstraßen gezogen (Via di Sangiuliano, Via Mancini, Via Euplio Reina, Via della Loggetta, Via S. Maria del Rosario, Via Sant'Agata, Via Vittorio Emanuele, Via Leonardi, Via Valle, Via Landolina; die Randstraßen selbst liegen außerhalb), auf den Straßenlinien von OpenStreetMap; Kameras aus OpenStreetMap, am Beginn der Via Sant'Agata (nach der Via S. Maria del Rosario) und der Via Leonardi (nach der Via Valle). Eingezeichnete Fußgängerzonen: Piazza Bellini/Via Rapisarda und Via Etnea (Via Dusmet–Piazza Stesicoro) mit Piazza Duomo; nicht eingezeichnet: San Giovanni li Cuti."
     ],
     "links": [
      {
@@ -194,10 +182,10 @@
       "url": "https://www.cataniatoday.it/cronaca/ztl-centro-storico-attivazione-comune-catania-1-luglio-2022.html"
      },
      {
-      "title": "OpenStreetMap: relation 14421298 «ZTL Centro Storico» (ODbL)",
-      "title_it": "OpenStreetMap: relazione 14421298 «ZTL Centro Storico» (ODbL)",
-      "title_de": "OpenStreetMap: Relation 14421298 «ZTL Centro Storico» (ODbL)",
-      "url": "https://www.openstreetmap.org/relation/14421298"
+      "title": "OpenStreetMap: the ZTL streets (ODbL)",
+      "title_it": "OpenStreetMap: le vie della ZTL (ODbL)",
+      "title_de": "OpenStreetMap: die Straßen der ZTL (ODbL)",
+      "url": "https://www.openstreetmap.org/#map=18/37.50405/15.08900"
      }
     ]
    }
