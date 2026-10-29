@@ -20,7 +20,9 @@ jobs:
   build:
     # I Mac Apple Silicon di GitHub sono spesso esauriti: si usa il Mac Intel, come per AudioLR
     runs-on: macos-15-intel
-    timeout-minutes: 100
+    # Il Mac Intel di GitHub ha giorni lenti: compilazione, test e .ipa da 15 a 30 minuti, il giro delle foto da 50 a
+    # 70, il video 10. Con 100 minuti la corsa 40793867218 è stata fermata a metà giro; il giro ha poi il suo limite
+    timeout-minutes: 160
     steps:
       - uses: actions/checkout@v5
 
@@ -110,6 +112,7 @@ jobs:
           if-no-files-found: warn
 
       - name: Foto dell'app (giro nel simulatore)
+        timeout-minutes: 90
         run: |
           # Le corse di main della 1.17.0 (40736198654, 40741812555) sono morte qui con «The hosted runner lost
           # communication with the server», senza registri. Il disco non c'entra (oltre 100 GB liberi, corsa
