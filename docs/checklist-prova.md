@@ -16,6 +16,17 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 - [ ] VoiceOver sulla striscia: «Guarda la mappa», poi «Zona ZTL: Centro» (o «Destinazione: …») e «La tua posizione» quando sei nella ripresa
 
 
+## ★ «Entri a una condizione:», colori delle zone e limiti delle moto (1.17.2)
+- [ ] Varco con una risposta «a una condizione» (es. una moto in Area B a Milano, o un hotel che può registrare la targa): il titolo è «Entri a una condizione:» e sotto, subito, la condizione in testo normale; «Non entrare.» ed «Entra pure.» come prima
+- [ ] Una risposta «non sicuro» (es. un festivo incerto): sotto il titolo il motivo
+- [ ] iPhone Pro Max: con una risposta a una condizione «Guarda la mappa», «Perché?» e «Dettagli del viaggio» si vedono senza scorrere
+- [ ] Mappa: cerca Hotel Helvetia & Bristol con un diesel Euro 5 in un giorno feriale: il Settore A è rosso, lo Scudo Verde intorno resta VERDE (prima tutta Firenze era rossa)
+- [ ] La striscia in cima a Varco: anche lì ogni zona ha il suo colore (Settore A rosso, Scudo Verde verde)
+- [ ] Garage → nuova moto: sotto «Euro» compaiono «Due ruote» (ciclomotore / motociclo) e «Motore» (4 tempi / 2 tempi), con la spiegazione; di serie motociclo e 4 tempi
+- [ ] Scudo Verde con una moto Euro 5: «Entra pure.»; con un ciclomotore 2 tempi Euro 1: «Non entrare.»; dal 1° dicembre 2026 (scegli la data) una moto Euro 1 4 tempi: «Non entrare.»
+- [ ] Milano Area B con una moto: ancora «Entri a una condizione:» con sotto «Qui le moto hanno limiti Euro loro…»
+
+
 ## ★ GateLR 2.0: tre schede (1.16.0)
 - [ ] In basso solo tre schede: «Varco», «Mappa» al centro con il simbolo più grande, «Tu»; VoiceOver legge i tre nomi
 - [ ] Varco su fondo blu notte anche con l'iPhone in modalità chiara; la barra delle schede resta quella di iOS

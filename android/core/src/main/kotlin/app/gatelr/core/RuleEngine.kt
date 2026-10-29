@@ -18,7 +18,7 @@ sealed class Verdict {
 
     val title: String get() = when (this) {
         is Yes -> L("Yes, you can enter"); is No -> L("No, don't enter")
-        is Conditional -> L("Yes, on one condition"); is Unsure -> L("Not sure")
+        is Conditional -> L("You can enter, on one condition"); is Unsure -> L("Not sure")
     }
     val short: String get() = when (this) {
         is Yes -> L("You can enter"); is No -> L("Don't enter")
@@ -67,8 +67,19 @@ class RuleEngine(
         if (mine.any { it.status == Permit.Status.WAITING }) {
             return Answer(Verdict.Conditional(L("The ZTL is active."), L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")), true, next)
         }
-        // I divieti per classe Euro sono scritti per le auto: le moto hanno limiti loro
-        if (vehicle.kind == VehicleType.MOTORCYCLE && zone.bans != null) {
+        // Moto e scooter: i limiti loro, dove una fonte ufficiale li scrive («motoBans», 1.17.2, come sull'iPhone)
+        if (vehicle.kind == VehicleType.MOTORCYCLE && zone.motoBans != null) {
+            val moto = F(if (vehicle.strokes == 2) "%@, 2-stroke" else "%@, 4-stroke", if (vehicle.motoCategory == "moped") L("moped") else L("motorbike"))
+            if (zone.motoBan(vehicle, at) != null) {
+                return Answer(Verdict.No(F("Motorbikes and scooters Euro %lld (%@) can't enter this zone while it's active.", vehicle.euro, moto)), true, next)
+            }
+            if (zone.type == ZoneKind.GREEN) {
+                val until = zone.nextMotoBan(vehicle, at)?.let { " " + F("Until %@.", it.since) } ?: ""
+                return Answer(Verdict.Yes(F("Your motorbike (%@, Euro %lld) is allowed in this low-emission zone.", moto, vehicle.euro) + until), true, next)
+            }
+        }
+        // I divieti per classe Euro sono scritti per le auto: senza «motoBans» le moto hanno limiti loro
+        else if (vehicle.kind == VehicleType.MOTORCYCLE && zone.bans != null) {
             return Answer(Verdict.Conditional(if (zone.type == ZoneKind.GREEN) L("The low-emission zone is active.") else L("The ZTL is active."),
                 L("Motorbikes have their own Euro limits here. Check yours on the city's page.")), true, next)
         }

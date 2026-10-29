@@ -175,9 +175,28 @@ struct VehicleForm: View {
                 Section {
                     Picker(L("Fuel"), selection: $vehicle.fuel) { ForEach(Fuel.allCases) { Text($0.label).tag($0) } }
                     Stepper(String(format: L("Euro %lld"), vehicle.euro), value: $vehicle.euro, in: 0...7)
+                    // 1.17.2: alcune zone a basse emissioni (Scudo Verde di Firenze) hanno limiti diversi per ciclomotori
+                    // e motori a 2 tempi. Di serie motociclo e 4 tempi
+                    if vehicle.kind == .motorcycle {
+                        Picker(L("Two-wheeler"), selection: Binding(get: { vehicle.motoCategory }, set: { vehicle.motoClass = $0 })) {
+                            ForEach(MotoClass.allCases) { Text($0.label).tag($0) }
+                        }
+                        .accessibilityIdentifier("vehicle.motoClass")
+                        Picker(L("Engine"), selection: Binding(get: { vehicle.strokes }, set: { vehicle.stroke = $0 })) {
+                            Text(L("4-stroke")).tag(4)
+                            Text(L("2-stroke")).tag(2)
+                        }
+                        .pickerStyle(.segmented)
+                        .accessibilityIdentifier("vehicle.stroke")
+                    }
                 } header: { Text("Emissions") } footer: {
-                    Text(vehicle.year == nil ? L("The Euro class is on the registration document, field V.9.")
-                         : L("Euro class suggested from the year. Check it on the registration document, field V.9."))
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(vehicle.year == nil ? L("The Euro class is on the registration document, field V.9.")
+                             : L("Euro class suggested from the year. Check it on the registration document, field V.9."))
+                        if vehicle.kind == .motorcycle {
+                            Text(L("Some low-emission zones have different limits for mopeds and 2-stroke engines. If you're not sure, leave 4-stroke: almost all motorbikes and scooters made after 2000 are."))
+                        }
+                    }
                 }
             }
             .navigationTitle(vehicle.name.isEmpty ? L("New vehicle") : vehicle.name)

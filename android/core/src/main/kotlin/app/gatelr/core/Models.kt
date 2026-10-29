@@ -63,6 +63,8 @@ data class Zone(
     val hotelCanRegister: Boolean,
     val ticket: Ticket? = null,
     val bans: List<EuroBan>? = null,
+    /** Dalla 1.17.2: i divieti per moto e scooter, solo dove una fonte ufficiale li scrive. Chiave a parte da «bans»: le app vecchie la ignorano */
+    val motoBans: List<MotoBan>? = null,
     val source: Source,
     /** Le feste del patrono della città ("MM-DD"): copiate dalla città quando si legge il file (CityLoader) */
     val localHolidays: List<String>? = null,
@@ -108,6 +110,13 @@ data class Zone(
         val group = vehicle.fuel.banGroup ?: return null
         return bans.orEmpty().filter { it.fuel == group && vehicle.euro <= it.maxEuro && it.date.isAfter(after) }.minByOrNull { it.date }
     }
+
+    /** Il divieto per moto e scooter che ferma questo veicolo a quella data, se c'è (solo con «motoBans») */
+    fun motoBan(vehicle: Vehicle, at: Instant): MotoBan? =
+        motoBans.orEmpty().filter { it.applies(vehicle) && !it.date.isAfter(at) }.maxByOrNull { it.date }
+
+    fun nextMotoBan(vehicle: Vehicle, after: Instant): MotoBan? =
+        motoBans.orEmpty().filter { it.applies(vehicle) && it.date.isAfter(after) }.minByOrNull { it.date }
 
     /** Lasciare l'auto qui è un problema? Zone vietate o a pagamento sì; verdi solo se l'auto è vietata */
     fun closes(vehicle: Vehicle, at: Instant): Boolean = type != ZoneKind.GREEN || ban(vehicle, at) != null
@@ -191,6 +200,19 @@ data class EuroBan(val fuel: Fuel, val maxEuro: Int, val since: String) {
     }
 }
 
+/** Un divieto per moto e scooter (categoria L): classe Euro e, se il testo lo dice, «moped»/«motorcycle» e 2 o 4 tempi. Assente = tutti */
+@Serializable
+data class MotoBan(val category: String? = null, val stroke: Int? = null, val maxEuro: Int, val since: String) {
+    val date: Instant get() = EuroBan(Fuel.PETROL, maxEuro, since).date
+
+    fun applies(vehicle: Vehicle): Boolean {
+        if (vehicle.kind != VehicleType.MOTORCYCLE || vehicle.fuel == Fuel.ELECTRIC) return false
+        if (category != null && category != vehicle.motoCategory) return false
+        if (stroke != null && stroke != vehicle.strokes) return false
+        return vehicle.euro <= maxEuro
+    }
+}
+
 @Serializable
 data class Source(
     val authority: String,
@@ -267,8 +289,14 @@ data class Vehicle(
     val year: Int? = null,
     /** Auto o moto (dalla 1.17.1, come sull'iPhone). Assente = auto */
     val type: VehicleType? = null,
+    /** Dalla 1.17.2, solo moto e scooter: «moped» (ciclomotore) o «motorcycle». Assente = motociclo */
+    val motoClass: String? = null,
+    /** Dalla 1.17.2, solo moto e scooter: 2 o 4 tempi. Assente = 4 tempi */
+    val stroke: Int? = null,
 ) {
     val kind: VehicleType get() = type ?: VehicleType.CAR
+    val motoCategory: String get() = if (motoClass == "moped") "moped" else "motorcycle"
+    val strokes: Int get() = if (stroke == 2) 2 else 4
 }
 
 @Serializable

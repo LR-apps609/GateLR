@@ -135,9 +135,10 @@ final class SeasonAndVehicleTests: XCTestCase {
         XCTAssertTrue(isYes(verdict(try zone("arezzo", "arezzo-ztl-a"), moto, date(2026, 10, 26, 10))))
         // Napoli Centro Antico: dentro c'è Mezzocannone, vietato alle moto
         XCTAssertFalse(isYes(verdict(try zone("napoli", "napoli-centro-antico"), moto, monday)))
-        // Zona verde con divieti per classe Euro delle auto: per le moto «controlla sul sito del Comune»
+        // Scudo Verde: dalla 1.17.2 i limiti delle moto dalle fonti ufficiali («motoBans»): una moto Euro 5 entra.
+        // Milano Area B non li ha: per le moto «controlla sul sito del Comune»
         let sv = try zone("firenze", "firenze-scudo-verde")
-        XCTAssertTrue(isConditional(verdict(sv, moto, date(2026, 12, 1, 3))))
+        XCTAssertTrue(isYes(verdict(sv, moto, date(2026, 12, 1, 3))))
         XCTAssertTrue(isConditional(verdict(try zone("milano", "milano-b"), moto, monday)))
         var old = moto; old.euro = 0
         XCTAssertNil(sv.ban(for: old, at: date(2026, 12, 1, 3)))              // i divieti delle auto non toccano le moto

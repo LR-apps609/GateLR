@@ -7,7 +7,7 @@ import SwiftUI
 
 /// La risposta del motore delle regole detta come sul pannello: colore, frase breve, ora del prossimo cambio
 struct Home2Answer: Equatable {
-    enum Mood: Equatable {
+    enum Mood: Hashable, CaseIterable {
         case red, green, amber
         var color: Color {
             switch self {
@@ -27,6 +27,9 @@ struct Home2Answer: Equatable {
 
     var mood: Mood
     var headline: String
+    /// La frase sotto il titolo: la condizione («a una condizione:») o il motivo del dubbio, sempre in vista, non solo
+    /// dietro «Perché?»
+    var detail: String?
     var timeLabel: String?
     var time: String?
     /// Il giorno, se il cambio non è oggi
@@ -39,7 +42,7 @@ struct Home2Answer: Equatable {
     var unofficialSource: UnofficialSource?
 
     static func == (l: Home2Answer, r: Home2Answer) -> Bool {
-        l.mood == r.mood && l.headline == r.headline && l.time == r.time && l.panel == r.panel && l.zoneLine == r.zoneLine
+        l.mood == r.mood && l.headline == r.headline && l.detail == r.detail && l.time == r.time && l.panel == r.panel && l.zoneLine == r.zoneLine
             && l.unofficial == r.unofficial
     }
 
@@ -56,11 +59,16 @@ struct Home2Answer: Equatable {
         case .outside:
             mood = .green; headline = L("Easy arrival."); panel = GatePanelState(lines: ["FUORI", "ZTL"], mood: .green)
         case .conditional:
-            mood = .amber; headline = L("On one condition."); panel = GatePanelState(lines: ["VARCO", "ATTIVO"], mood: .amber)
+            mood = .amber; headline = L("You can enter, on one condition:"); panel = GatePanelState(lines: ["VARCO", "ATTIVO"], mood: .amber)
         case .unsure:
             mood = .amber; headline = L("Check the sign."); panel = GatePanelState(lines: ["VARCO", "ATTIVO"], mood: .amber)
         case .pedestrian:
             mood = .red; headline = L("Pedestrian area."); panel = GatePanelState(lines: ["AREA", "PEDONALE"], mood: .red)
+        }
+        switch check.answer?.verdict {
+        case .conditional(_, let condition)? where check.kind == .conditional: detail = condition
+        case .unsure(let reason)? where check.kind == .unsure: detail = reason
+        default: detail = nil
         }
         // Fonte non ufficiale: stessi colori e stesso pannello (la risposta non cambia), parole più prudenti
         if unofficial {

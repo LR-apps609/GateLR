@@ -7658,6 +7658,30 @@
      "since": "2026-12-01"
     }
    ],
+   "motoBans": [
+    {
+     "category": "moped",
+     "stroke": 2,
+     "maxEuro": 1,
+     "since": "2025-07-01"
+    },
+    {
+     "category": "moped",
+     "stroke": 4,
+     "maxEuro": 0,
+     "since": "2025-07-01"
+    },
+    {
+     "category": "motorcycle",
+     "stroke": 2,
+     "maxEuro": 0,
+     "since": "2025-07-01"
+    },
+    {
+     "maxEuro": 1,
+     "since": "2026-12-01"
+    }
+   ],
    "source": {
     "authority": "City of Florence",
     "pageURL": "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/domani-lattivazione-dello-scudo-verde-pre-esercizio",

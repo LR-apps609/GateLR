@@ -78,3 +78,7 @@ Nota: `Tools/check_sources.py` confronta l'HTML delle pagine, ma per Padova l'HT
 
 ## Moto e scooter (1.17.1)
 `exemptVehicleTypes: ["motorcycle"]` su `padova-a` e `padova-b`: *"La circolazione all'interno di tale area è consentita esclusivamente ai velocipedi, ciclomotori, motoveicoli a due e tre ruote, nonché ai veicoli autorizzati"* (ordinanza 2023/62/0437). Domeniche ecologiche no (*"E' vietata la circolazione dei veicoli e dei ciclomotori a motore"*) → «Non entrare». Antismog: per le moto valgono limiti loro (*"motoveicoli e ciclomotori (categoria L) Euro 0 e Euro 1"*) → «a una condizione: controlla la tua sul sito del Comune».
+
+## Moto e scooter (1.17.2)
+
+`padova-antismog` ha `motoBans: [{maxEuro: 0, since: 2026-10-01}]`: ordinanza del Sindaco 46/2026 (`ordinanza_sindaco_2026_46_limitazioni_traffico.txt`), livello verde, lettera d) *«ciclomotori e motoveicoli … di categoria L1e … L7e … non omologati ai sensi delle direttive rispondenti alla dicitura EURO 1 e successive»* (= Euro 0), stessi giorni e orari delle auto. Confermato dalla pagina del Comune (`limitazioni-2026-2027.json`: *«motoveicoli e ciclomotori (categoria L) non omologati ai sensi della direttiva 97/24/CE (Euro 0)»*). I livelli arancio e rosso (Euro 0–1) non sono modellati, come per le auto.

@@ -2602,6 +2602,12 @@
      "since": "2026-10-01"
     }
    ],
+   "motoBans": [
+    {
+     "maxEuro": 0,
+     "since": "2026-10-01"
+    }
+   ],
    "source": {
     "authority": "City of Padua",
     "pageURL": "https://www.comune.padova.it/limitazioni-del-traffico-stagione-invernale-20262027",

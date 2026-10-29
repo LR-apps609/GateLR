@@ -13,7 +13,7 @@ enum Verdict: Equatable {
         switch self {
         case .yes: L("Yes, you can enter")
         case .no: L("No, don't enter")
-        case .conditional: L("Yes, on one condition")
+        case .conditional: L("You can enter, on one condition")
         case .unsure: L("Not sure")
         }
     }
@@ -68,8 +68,20 @@ struct RuleEngine {
             return Answer(verdict: .conditional(reason: L("The ZTL is active."), condition: L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")),
                           gatesOn: true, nextChange: next)
         }
-        // I divieti per classe Euro sono scritti per le auto: le moto hanno limiti loro, che GateLR non ha
-        if vehicle.kind == .motorcycle && zone.bans != nil {
+        // Moto e scooter: i limiti loro, dove una fonte ufficiale li scrive («motoBans», 1.17.2)
+        if vehicle.kind == .motorcycle && zone.motoBans != nil {
+            if zone.motoBan(for: vehicle, at: date) != nil {
+                return Answer(verdict: .no(reason: String(format: L("Motorbikes and scooters Euro %lld (%@) can't enter this zone while it's active."),
+                                                         vehicle.euro, Self.motoText(vehicle))), gatesOn: true, nextChange: next)
+            }
+            if zone.type == .green {
+                let until = zone.nextMotoBan(for: vehicle, after: date).map { " " + String(format: L("Until %@."), day($0.date, style: .long)) } ?? ""
+                return Answer(verdict: .yes(reason: String(format: L("Your motorbike (%@, Euro %lld) is allowed in this low-emission zone."),
+                                                          Self.motoText(vehicle), vehicle.euro) + until), gatesOn: true, nextChange: next)
+            }
+        }
+        // I divieti per classe Euro sono scritti per le auto: senza «motoBans» le moto hanno limiti loro, che GateLR non ha
+        else if vehicle.kind == .motorcycle && zone.bans != nil {
             return Answer(verdict: .conditional(reason: zone.type == .green ? L("The low-emission zone is active.") : L("The ZTL is active."),
                                                 condition: L("Motorbikes have their own Euro limits here. Check yours on the city's page.")),
                           gatesOn: true, nextChange: next)
@@ -99,6 +111,11 @@ struct RuleEngine {
         }
         let off = next.map { " " + String(format: L("It ends %@."), describe($0, from: date)) } ?? ""
         return Answer(verdict: .no(reason: L("The ZTL is active.") + off), gatesOn: true, nextChange: next)
+    }
+
+    /// «ciclomotore 2 tempi», «motociclo 4 tempi»
+    static func motoText(_ v: Vehicle) -> String {
+        String(format: L(v.strokes == 2 ? "%@, 2-stroke" : "%@, 4-stroke"), v.motoCategory == .moped ? L("moped") : L("motorbike"))
     }
 
     // MARK: Orari

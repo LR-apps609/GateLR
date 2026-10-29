@@ -39,7 +39,11 @@ Le pagine `ambiente.comune.fi.it/dalle-redazioni/attivazione-scudo-verde` e il p
   - benzina ≤ Euro 1 e diesel ≤ Euro 2 dal `2026-12-01`.
 - Il motore conta ibride e GPL come benzina. Per GPL e metano è il caso giusto quando la targa non è registrata su SAS; con la targa registrata quelle auto sono esenti, e lo dice una nota `pending`.
 - Elettriche: non sono in nessun divieto, quindi entrano.
-- Le regole valgono solo per le auto (M1). Furgoni e bus non sono considerati. Le moto (tipo «Moto / scooter», 1.17.1) hanno limiti loro (*"per due ruote, bus e merci regole diverse"*): GateLR non applica loro le classi delle auto e risponde «a una condizione: controlla la tua sul sito del Comune».
+- `bans` vale solo per le auto (M1). Furgoni e bus non sono considerati.
+- `motoBans` (dalla 1.17.2, chiave a parte: le app fino alla 1.17.1 la ignorano e alle moto rispondono «a una condizione» come prima):
+  - fase 1, dal `2025-07-01` (comunicato del 31/03/2025, «I veicoli interessati dal divieto»): ciclomotori (L1, L2) *«a miscela olio/benzina 2 tempi Euro 0 - 1, benzina 4 tempi Euro 0»*; motocicli (L3) *«a miscela olio/benzina 2 tempi Euro 0»*;
+  - fase 2, dal `2026-12-01` (comunicato del 21/08/2026): *«i divieti si estendono per le due ruote alla classe di emissione Euro 1»* → tutte le due ruote Euro 0–1, senza distinzione di tempi (il testo non ne fa). Il testo della delibera non l'abbiamo letto: da confermare;
+  - nel Garage la moto ha «Ciclomotore / Motociclo» e «4 tempi / 2 tempi» (di serie motociclo 4 tempi). Elettriche mai vietate.
 
 ## Geometria
 

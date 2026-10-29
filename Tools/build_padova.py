@@ -375,6 +375,9 @@ zone_smog = {"id": "padova-antismog", "name": "Padua · Winter smog limits", "na
              "freeOnHolidays": True, "exemptFuels": ["electric", "hybrid"], "hotelCanRegister": False,
              "bans": [{"fuel": "petrol", "maxEuro": 1, "since": "2026-10-01"}, {"fuel": "lpg", "maxEuro": 1, "since": "2026-10-01"},
                       {"fuel": "diesel", "maxEuro": 4, "since": "2026-10-01"}],
+             # Moto e scooter (categoria L): ordinanza 46/2026, livello verde, lettera d) «non omologati ai sensi delle
+             # direttive rispondenti alla dicitura EURO 1 e successive» = Euro 0 (MotoBan nell'app, 1.17.2)
+             "motoBans": [{"maxEuro": 0, "since": "2026-10-01"}],
              "source": source(SMOG_PAGE, QUOTE_SMOG,
                               ("no alert level – green: Monday to Friday, excluding public holidays on weekdays, from 8:30 am to 7:30 pm",
                                "keine Warnstufe – grün: Montag bis Freitag, ausgenommen Feiertage unter der Woche, von 8:30 bis 19:30 Uhr"),

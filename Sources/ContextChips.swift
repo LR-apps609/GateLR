@@ -202,7 +202,7 @@ enum Access: CaseIterable, Hashable {
     var title: String {
         switch self {
         case .closed: L("You can't enter")
-        case .conditional: L("You can enter if…")
+        case .conditional: L("You can enter, on one condition")
         case .check: L("To be checked")
         case .open: L("You can enter")
         }

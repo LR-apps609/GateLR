@@ -51,6 +51,30 @@ struct PlaceCheck {
     }
 
     /// Lo stesso colore, più acceso, per la mappa scura
+    /// Il colore acceso di una zona secondo la SUA risposta (rosso, ambra, verde): lo stesso «neon» del posto
+    static func neon(_ access: Access) -> Color {
+        switch access {
+        case .closed: Color(hex: 0xFF4D4D)
+        case .conditional, .check: Color(hex: 0xF2C14E)
+        case .open: Color(hex: 0x3DDC74)
+        }
+    }
+
+    /// Il colore di una zona sulla mappa: acceso (neon) se contiene il posto cercato, quello di sempre se no.
+    /// In tutti e due i casi è la risposta della zona, mai quella del posto
+    static func zoneTint(_ access: Access, lit: Bool) -> Color {
+        lit ? neon(access) : access.color
+    }
+
+    /// La striscia di Varco: lo stesso colore per zona, come umore (rosso, ambra, verde)
+    static func mood(_ access: Access) -> Home2Answer.Mood {
+        switch access {
+        case .closed: .red
+        case .conditional, .check: .amber
+        case .open: .green
+        }
+    }
+
     var neon: Color {
         switch kind {
         case .outside, .open: return Color(hex: 0x3DDC74)

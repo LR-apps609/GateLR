@@ -125,8 +125,9 @@ class SeasonAndVehicleTest {
         assertTrue(verdict(zone("arezzo", "arezzo-ztl-a"), moto, date(2026, 10, 26, 10)) is Verdict.Yes)
         // Napoli Centro Antico: dentro c'è Mezzocannone, vietato alle moto
         assertFalse(verdict(zone("napoli", "napoli-centro-antico"), moto, date(2026, 10, 26, 12)) is Verdict.Yes)
-        // Zona verde con divieti per classe Euro delle auto: per le moto «controlla sul sito del Comune»
-        assertTrue(verdict(zone("firenze", "firenze-scudo-verde"), moto, date(2026, 12, 1, 3)) is Verdict.Conditional)
+        // Scudo Verde: dalla 1.17.2 i limiti delle moto dalle fonti ufficiali («motoBans»): una moto Euro 5 entra.
+        // Milano Area B non li ha: per le moto «controlla sul sito del Comune»
+        assertTrue(verdict(zone("firenze", "firenze-scudo-verde"), moto, date(2026, 12, 1, 3)) is Verdict.Yes)
         assertTrue(verdict(zone("milano", "milano-b"), moto, monday) is Verdict.Conditional)
         // Una moto Euro 2 non è un'auto Euro 2: i divieti delle auto non la toccano
         assertEquals(null, zone("firenze", "firenze-scudo-verde").ban(moto.copy(euro = 0), date(2026, 12, 1, 3)))
@@ -134,5 +135,29 @@ class SeasonAndVehicleTest {
         assertEquals(VehicleType.CAR, CityLoader.json.decodeFromString(Vehicle.serializer(), """{"name":"x","fuel":"petrol","euro":6}""").kind)
         assertEquals(5, CarCatalog.euroForYear(2022, VehicleType.MOTORCYCLE))
         assertEquals(6, CarCatalog.euroForYear(2022, VehicleType.CAR))
+    }
+
+    /** 1.17.2: i limiti delle moto dove le fonti ufficiali li scrivono (gli stessi casi di Tests/MotoBanTests.swift) */
+    @Test fun motorbikeBansFromOfficialSources() {
+        val sv = zone("firenze", "firenze-scudo-verde")
+        val oct = date(2026, 10, 29, 12); val dec = date(2026, 12, 2, 12)
+        fun m(euro: Int, cls: String, stroke: Int) = moto.copy(euro = euro, motoClass = cls, stroke = stroke)
+        assertTrue(verdict(sv, m(1, "moped", 2), oct) is Verdict.No)          // ciclomotore 2 tempi Euro 0–1
+        assertTrue(verdict(sv, m(1, "moped", 4), oct) is Verdict.Yes)         // 4 tempi: solo Euro 0 nella fase 1
+        assertTrue(verdict(sv, m(0, "moped", 4), oct) is Verdict.No)
+        assertTrue(verdict(sv, m(0, "motorcycle", 2), oct) is Verdict.No)     // motociclo 2 tempi Euro 0
+        assertTrue(verdict(sv, m(0, "motorcycle", 4), oct) is Verdict.Yes)
+        assertTrue(verdict(sv, m(1, "motorcycle", 4), dec) is Verdict.No)     // fase 2: tutte le due ruote Euro 0–1
+        assertTrue(verdict(sv, m(2, "moped", 2), dec) is Verdict.Yes)
+        // Le auto non cambiano
+        assertTrue(verdict(sv, car.copy(fuel = Fuel.DIESEL, euro = 1), oct) is Verdict.No)
+        assertTrue(verdict(sv, car.copy(fuel = Fuel.DIESEL, euro = 5), oct) is Verdict.Yes)
+        assertEquals(null, sv.motoBan(car.copy(euro = 0), dec))
+        // Padova, antismog (ordinanza 46/2026): moto Euro 0 vietate
+        val pd = zone("padova", "padova-antismog")
+        assertTrue(verdict(pd, moto.copy(euro = 0), date(2026, 11, 2, 10)) is Verdict.No)
+        assertTrue(verdict(pd, moto.copy(euro = 1), date(2026, 11, 2, 10)) is Verdict.Yes)
+        // Milano Area B: nessun limite delle moto nei dati, resta «a una condizione»
+        assertTrue(verdict(zone("milano", "milano-b"), moto, date(2026, 10, 26, 12)) is Verdict.Conditional)
     }
 }

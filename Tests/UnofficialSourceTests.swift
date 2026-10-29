@@ -97,7 +97,8 @@ final class UnofficialSourceTests: XCTestCase {
         // Condizioni e «non sicuro» sono già prudenti: le parole non cambiano
         let cond = Answer(verdict: .conditional(reason: "r", condition: "c"), gatesOn: true, nextChange: nil)
         let c = Home2Answer(PlaceCheck(place: place, hits: [(city: unofficial, zone: unofficial.zones[0])], answer: cond), now: Date())
-        XCTAssertEqual(c.headline, L("On one condition."))
+        XCTAssertEqual(c.headline, L("You can enter, on one condition:"))
+        XCTAssertEqual(c.detail, "c")      // 1.17.2: la condizione sotto il titolo, sempre in vista
         XCTAssertTrue(c.unofficial)
     }
 

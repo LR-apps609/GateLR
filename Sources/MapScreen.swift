@@ -94,7 +94,10 @@ struct MapScreen: View {
                     let on = lit.contains(z.id)
                     // Il colore è la risposta per quell'ora e quel veicolo (no, se…, da verificare, sì), con il suo tratto
                     let access = AccessCache.access(z, store: store, at: moment)
-                    let tint = on ? (check?.neon ?? access.color) : access.color
+                    // Accesa o no, ogni zona ha il colore della SUA risposta (1.17.2): cercando un hotel nel Settore A con
+                    // un diesel Euro 5 il Settore A è rosso e lo Scudo Verde che lo contiene resta verde (prima tutte le zone
+                    // con dentro il posto prendevano il colore della risposta del posto)
+                    let tint = PlaceCheck.zoneTint(access, lit: on)
                     if check != nil {
                         // Con un posto cercato: accese (rosso o verde, con un bagliore) le zone che lo contengono,
                         // appena accennate le altre

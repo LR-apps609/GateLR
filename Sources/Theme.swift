@@ -96,7 +96,7 @@ extension Verdict {
         switch self {
         case .yes: L("Yes, you can|enter").components(separatedBy: "|")
         case .no: L("No, don't|enter").components(separatedBy: "|")
-        case .conditional: L("Yes, on one|condition").components(separatedBy: "|")
+        case .conditional: L("You can enter,|on one condition").components(separatedBy: "|")
         case .unsure: [L("Not sure")]
         }
     }

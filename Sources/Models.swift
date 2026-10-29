@@ -100,6 +100,10 @@ struct Zone: Codable, Identifiable, Hashable {
     var hotelCanRegister: Bool  // l'hotel dentro la zona può comunicare la targa
     var ticket: Ticket? = nil   // ZTL a pagamento (es. Area C di Milano): si entra pagando
     var bans: [EuroBan]? = nil  // divieti ambientali per carburante e classe Euro (Area B e C di Milano)
+    /// Dalla 1.17.2: i divieti per moto e scooter, solo dove una fonte ufficiale li scrive (Scudo Verde di Firenze,
+    /// antismog di Padova). Una chiave a parte e non dentro «bans»: le app più vecchie la ignorano e alle moto
+    /// rispondono «a una condizione» come prima, senza mai prendere questi divieti per divieti delle auto
+    var motoBans: [MotoBan]? = nil
     var source: Source
     /// Le feste del patrono della città ("MM-DD"): copiate dalla città quando si legge il file (CityLoader)
     var localHolidays: [String]? = nil
@@ -181,6 +185,26 @@ struct EuroBan: Codable, Hashable {
     }
 }
 
+/// Un divieto per moto e scooter (categoria L): classe Euro, e se il testo lo dice ciclomotore o motociclo e 2 o 4 tempi.
+/// Campo assente = vale per tutti. Le elettriche non sono mai vietate.
+struct MotoBan: Codable, Hashable {
+    /// «moped» (ciclomotore, L1e/L2e) o «motorcycle» (motociclo, L3e e oltre); nil = tutti e due
+    var category: String?
+    /// 2 o 4 tempi; nil = tutti e due
+    var stroke: Int?
+    var maxEuro: Int
+    var since: String
+
+    var date: Date { EuroBan(fuel: .petrol, maxEuro: maxEuro, since: since).date }
+
+    func applies(to vehicle: Vehicle) -> Bool {
+        guard vehicle.kind == .motorcycle, vehicle.fuel != .electric else { return false }
+        if let category, category != vehicle.motoCategory.rawValue { return false }
+        if let stroke, stroke != vehicle.strokes { return false }
+        return vehicle.euro <= maxEuro
+    }
+}
+
 extension Fuel {
     /// Per i divieti ambientali ibride, GPL e metano contano come benzina (da confermare città per città)
     var banGroup: Fuel? {
@@ -203,6 +227,14 @@ extension Zone {
     func ban(for vehicle: Vehicle, at date: Date) -> EuroBan? {
         guard vehicle.kind == .car, let group = vehicle.fuel.banGroup else { return nil }
         return (bans ?? []).filter { $0.fuel == group && vehicle.euro <= $0.maxEuro && $0.date <= date }.max { $0.date < $1.date }
+    }
+    /// Il divieto per moto e scooter che ferma questo veicolo a quella data, se c'è (solo con «motoBans»)
+    func motoBan(for vehicle: Vehicle, at date: Date) -> MotoBan? {
+        (motoBans ?? []).filter { $0.applies(to: vehicle) && $0.date <= date }.max { $0.date < $1.date }
+    }
+    /// Il prossimo divieto per moto che toccherà questo veicolo, se c'è
+    func nextMotoBan(for vehicle: Vehicle, after date: Date) -> MotoBan? {
+        (motoBans ?? []).filter { $0.applies(to: vehicle) && $0.date > date }.min { $0.date < $1.date }
     }
     /// Lasciare l'auto qui è un problema? Zone vietate o a pagamento sì; zone verdi solo se l'auto è vietata
     func closes(to vehicle: Vehicle, at date: Date) -> Bool {
@@ -439,8 +471,28 @@ struct Vehicle: Codable, Identifiable, Hashable {
     var year: Int? = nil
     /// Auto o moto. Assente = auto (i veicoli salvati fino alla 1.17.0)
     var type: VehicleType? = nil
+    /// Dalla 1.17.2, solo per moto e scooter: ciclomotore o motociclo. Assente = motociclo
+    var motoClass: MotoClass? = nil
+    /// Dalla 1.17.2, solo per moto e scooter: motore a 2 o 4 tempi. Assente = 4 tempi (quasi tutte le moto e gli
+    /// scooter dopo il 2000)
+    var stroke: Int? = nil
 
     var kind: VehicleType { type ?? .car }
+    var motoCategory: MotoClass { motoClass ?? .motorcycle }
+    var strokes: Int { stroke == 2 ? 2 : 4 }
+}
+
+/// Moto e scooter per i divieti ambientali: il ciclomotore (fino a 50 cc, targhino) o il motociclo (targa)
+enum MotoClass: String, Codable, CaseIterable, Identifiable {
+    case moped          // ciclomotore, L1e/L2e
+    case motorcycle     // motociclo, L3e e oltre
+    var id: String { rawValue }
+    var label: String {
+        switch self {
+        case .moped: L("Moped (up to 50 cc)")
+        case .motorcycle: L("Motorbike (over 50 cc)")
+        }
+    }
 }
 
 /// Il tipo di veicolo: le regole delle ZTL a volte lasciano entrare le due ruote («eccetto veicoli a due ruote»)

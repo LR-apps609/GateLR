@@ -32,7 +32,7 @@ struct VarcoView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     header
-                    mapStrip(check: check, mood: answer?.mood ?? cityMood(at: moment))
+                    mapStrip(check: check, mood: answer?.mood ?? cityMood(at: moment), at: moment)
                     ContextChips(material: true)
                     if guardian.active { guardianBanner }
                     searchField
@@ -136,12 +136,15 @@ struct VarcoView: View {
     }
 
     /// La città dal vivo intorno al posto: un tocco apre la scheda Mappa sulla zona della risposta
-    private func mapStrip(check: PlaceCheck?, mood: Home2Answer.Mood) -> some View {
+    private func mapStrip(check: PlaceCheck?, mood: Home2Answer.Mood, at moment: Date) -> some View {
         // Senza un posto cercato: la zona scelta, al centro della zona, con il suo cartello (non il centro della città)
         let zoneCenter = store.zone.region(padding: 1).center
         let place = check?.place ?? Place(name: store.zone.shortName, address: "",
                                           location: Coordinate(lat: zoneCenter.latitude, lon: zoneCenter.longitude))
-        let rings = (check?.hits.first?.city ?? store.city).zones.map { $0.perimeter.map(\.cl) }
+        // Ogni zona con il colore della SUA risposta (lo Scudo Verde verde per un'auto ammessa, anche se l'hotel è nel Settore A rosso)
+        let rings = Dictionary(grouping: (check?.hits.first?.city ?? store.city).zones) {
+            PlaceCheck.mood(AccessCache.access($0, store: store, at: moment))
+        }.mapValues { $0.map { $0.perimeter.map(\.cl) } }
         let marker = Self.stripMarker(check: check, zone: store.zone)
         // La tua posizione: c'è solo con il permesso. Il pallino blu, e la ripresa con te dentro se sei a meno di 5 km
         let user = monitor.location.map { Coordinate(lat: $0.coordinate.latitude, lon: $0.coordinate.longitude) }
@@ -295,6 +298,14 @@ struct VarcoView: View {
                 .accessibilityIdentifier("varco.answer")
                 .id(a.headline)
                 .transition(.opacity.combined(with: .offset(y: 8)))
+            // La condizione (o il motivo del dubbio) subito sotto il titolo, in testo normale
+            if let detail = a.detail {
+                Text(verbatim: detail)
+                    .font(.app(size: 17, weight: .medium)).foregroundStyle(Notte.text)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.top, -6)
+                    .accessibilityIdentifier("varco.condition")
+            }
             if let label = a.timeLabel {
                 timeBlock(label, a)
             }
@@ -608,7 +619,8 @@ struct VarcoView: View {
 private struct VarcoAppleStrip: View {
     var place: Place
     var focus: Zone?
-    var zones: [[CLLocationCoordinate2D]]
+    /// Le zone per colore, ognuna con la sua risposta
+    var zones: [Home2Answer.Mood: [[CLLocationCoordinate2D]]]
     var tint: Color
     var marker: StripMarkerKind?
     var framing: StripFrame
@@ -617,10 +629,10 @@ private struct VarcoAppleStrip: View {
 
     var body: some View {
         Map(initialPosition: position, interactionModes: []) {
-            ForEach(zones.indices, id: \.self) { i in
-                MapPolygon(coordinates: zones[i])
-                    .foregroundStyle(tint.opacity(0.16))
-                    .stroke(tint, lineWidth: 2)
+            ForEach(Self.layers(zones)) { z in
+                MapPolygon(coordinates: z.ring)
+                    .foregroundStyle(z.mood.color.opacity(0.16))
+                    .stroke(z.mood.color, lineWidth: 2)
             }
             // Il cartello della ZTL o lo spillo della destinazione, con la base sul posto: mai un pallino
             if let marker {
@@ -637,6 +649,19 @@ private struct VarcoAppleStrip: View {
         // Una mappa nuova quando cambia il posto o la zona (la camera iniziale non si sposta da sola)
         // (e quando la tua posizione entra o esce dalla ripresa, o si sposta di qualche centinaio di metri)
         .id("\(place.location.lat),\(place.location.lon),\(focus?.id ?? ""),\(framing.includesUser),\(Int(framing.center.lat * 500)),\(Int(framing.center.lon * 500))")
+    }
+
+    private struct Layer: Identifiable {
+        var id: String
+        var mood: Home2Answer.Mood
+        var ring: [CLLocationCoordinate2D]
+    }
+
+    /// Verde sotto, rosso sopra
+    private static func layers(_ zones: [Home2Answer.Mood: [[CLLocationCoordinate2D]]]) -> [Layer] {
+        [Home2Answer.Mood.green, .amber, .red].flatMap { mood in
+            (zones[mood] ?? []).enumerated().map { Layer(id: "\(mood)-\($0.offset)", mood: mood, ring: $0.element) }
+        }
     }
 
     private var position: MapCameraPosition {

@@ -140,6 +140,14 @@ SV_LINKS = [
 # Fase 2 (delibera di giunta dell'11/8/2026): dal 1/12/2026 anche benzina Euro 1 e diesel Euro 2.
 SV_BANS = [{"fuel": "petrol", "maxEuro": 0, "since": "2025-07-01"}, {"fuel": "diesel", "maxEuro": 1, "since": "2025-07-01"},
            {"fuel": "petrol", "maxEuro": 1, "since": "2026-12-01"}, {"fuel": "diesel", "maxEuro": 2, "since": "2026-12-01"}]
+# Moto e scooter (categoria L), solo dalle fonti ufficiali (MotoBan nell'app, 1.17.2). Fase 1 (comunicato del 31/03/2025,
+# «I veicoli interessati dal divieto»): ciclomotori L1/L2 a miscela 2 tempi Euro 0–1 e benzina 4 tempi Euro 0; motocicli L3
+# a miscela 2 tempi Euro 0. Fase 2 dal 1/12/2026 (comunicato del 21/08/2026): «i divieti si estendono per le due ruote
+# alla classe di emissione Euro 1», cioè tutte le due ruote Euro 0–1. Chiave a parte da «bans»: le app vecchie la ignorano.
+SV_MOTO_BANS = [{"category": "moped", "stroke": 2, "maxEuro": 1, "since": "2025-07-01"},
+                {"category": "moped", "stroke": 4, "maxEuro": 0, "since": "2025-07-01"},
+                {"category": "motorcycle", "stroke": 2, "maxEuro": 0, "since": "2025-07-01"},
+                {"maxEuro": 1, "since": "2026-12-01"}]
 SV_PENDING = [
     ("Perimeter: from OpenStreetMap (relation 19205738), traced from the Metropolitan City's PUMS «Scudo verde» dataset. 75 of the 77 official gates are within 35 m of it; Via della Pietra and Via Etruria are 240–270 m away. Near the edge, look at the signs.",
      "Perimetro: da OpenStreetMap (relazione 19205738), ricalcato dal dataset PUMS «Scudo verde» della Città Metropolitana. 75 dei 77 varchi ufficiali sono entro 35 m dal confine; via della Pietra e via Etruria sono a 240–270 m. Vicino al bordo guarda i cartelli.",
@@ -195,6 +203,7 @@ def scudo_verde():
         "exemptFuels": [],
         "hotelCanRegister": False,
         "bans": SV_BANS,
+        "motoBans": SV_MOTO_BANS,
         "source": {
             "authority": "City of Florence",
             "pageURL": SV_LINKS[0]["url"],

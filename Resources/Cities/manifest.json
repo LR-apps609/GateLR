@@ -1,6 +1,6 @@
 {
- "version": "202610282057",
- "digest": "1a0fe31dc126",
+ "version": "202610291255",
+ "digest": "53104e11980c",
  "schema": 1,
  "cities": [
   {
@@ -61,7 +61,7 @@
   {
    "id": "firenze",
    "file": "firenze.json",
-   "sha256": "4e9e0899bb0bda8d75a4f0e636abc859a3e7d606eec15bc010a3bbe0990983ec"
+   "sha256": "248954a49dee19e9315edc202f2dafee06afa0772b6abee7adf05dc1151beaa2"
   },
   {
    "id": "genova",
@@ -106,7 +106,7 @@
   {
    "id": "padova",
    "file": "padova.json",
-   "sha256": "6620f8b724fbec8a44e872af993486598762b954699252f43486cde0354a1285"
+   "sha256": "073d72f4479bb483b2f5099ca442306eb37b1085e169bcbc134e7da3b80d1ce6"
   },
   {
    "id": "palermo",

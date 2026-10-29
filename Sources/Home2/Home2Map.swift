@@ -13,7 +13,9 @@ import UIKit
 /// (StripFrame).
 struct Home2Map: UIViewRepresentable {
     var place: Place
-    var zones: [[CLLocationCoordinate2D]]
+    /// Le zone divise per colore: ognuna con la SUA risposta (1.17.2), non quella del posto
+    var zones: [Home2Answer.Mood: [[CLLocationCoordinate2D]]]
+    /// La risposta del posto: il colore dello spillo
     var mood: Home2Answer.Mood
     var mapMode: Bool
     var reduceMotion: Bool
@@ -109,8 +111,7 @@ struct Home2Map: UIViewRepresentable {
         private func styleLoaded() {
             guard !ready, !failed, let mapView, let map = mapView.mapboxMap else { return }
             ready = true
-            NotteMap.addZone(map, id: "zones", rings: parent.zones, fill: 0.14, hex: parent.mood.hex)
-            zoneKey = Self.key(parent.zones)
+            drawZones(map)
             let pinView = HostedAnnotationView(size: StripMarker.size) { Home2Pin(model: pinModel) }
             let pin = ViewAnnotation(coordinate: parent.place.location.cl, view: pinView)
             // La punta dello spillo (o il piede del palo) sul posto
@@ -122,11 +123,32 @@ struct Home2Map: UIViewRepresentable {
             startDrift(forward: true)
         }
 
-        private static func key(_ zones: [[CLLocationCoordinate2D]]) -> Int {
+        private static func key(_ zones: [Home2Answer.Mood: [[CLLocationCoordinate2D]]]) -> Int {
             var h = Hasher()
-            h.combine(zones.count)
-            for z in zones { h.combine(z.count); if let f = z.first { h.combine(f.latitude); h.combine(f.longitude) } }
+            for mood in Self.order {
+                let rings = zones[mood] ?? []
+                h.combine(mood)
+                h.combine(rings.count)
+                for z in rings { h.combine(z.count); if let f = z.first { h.combine(f.latitude); h.combine(f.longitude) } }
+            }
             return h.finalize()
+        }
+
+        /// Verde sotto, rosso sopra: dove le zone si sovrappongono si vede la più severa
+        static let order: [Home2Answer.Mood] = [.green, .amber, .red]
+
+        /// Un livello per colore («zones-red», …), ridisegnati da capo quando cambiano le zone o le loro risposte
+        private func drawZones(_ map: MapboxMap) {
+            for mood in Self.order {
+                let id = "zones-\(mood)"
+                for layer in ["-fill", "-glow", "-edge"] { try? map.removeLayer(withId: id + layer) }
+                try? map.removeSource(withId: id)
+                let rings = parent.zones[mood] ?? []
+                guard !rings.isEmpty else { continue }
+                NotteMap.addZone(map, id: id, rings: rings, fill: 0.14, hex: mood.hex)
+                NotteMap.setZoneColor(map, id: id, hex: mood.hex)
+            }
+            zoneKey = Self.key(parent.zones)
         }
 
         /// Il pallino blu della posizione, solo con il permesso (la posizione c'è)
@@ -141,12 +163,7 @@ struct Home2Map: UIViewRepresentable {
             pinModel.marker = parent.marker
             guard ready, let mapView, let map = mapView.mapboxMap else { return }
             setPuck(mapView)
-            if old.mood != parent.mood { NotteMap.setZoneColor(map, id: "zones", hex: parent.mood.hex) }
-            let key = Self.key(parent.zones)
-            if key != zoneKey {
-                zoneKey = key
-                NotteMap.setZoneRings(map, id: "zones", rings: parent.zones)
-            }
+            if Self.key(parent.zones) != zoneKey { drawZones(map) }
             let c = parent.place.location.cl
             if old.place.location != parent.place.location || (!parent.mapMode && parent.stripFrame.differs(from: old.stripFrame)) {
                 pin?.annotatedFeature = .geometry(Point(c))
