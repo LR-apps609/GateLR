@@ -99,16 +99,22 @@ struct MapScreen: View {
                     // con dentro il posto prendevano il colore della risposta del posto)
                     let tint = PlaceCheck.zoneTint(access, lit: on)
                     if check != nil {
-                        // Con un posto cercato: accese (rosso o verde, con un bagliore) le zone che lo contengono,
-                        // appena accennate le altre
+                        // Con un posto cercato: accese (con un bagliore e il bordo più spesso) le zone che lo contengono;
+                        // le altre restano leggibili nel colore della LORO risposta, come senza posto (1.17.4). Prima erano
+                        // appena accennate in grigio: a Catania, cercando un hotel fuori, la ZTL attiva 0–24 per un diesel
+                        // Euro 5 sembrava un isolato qualsiasi e restavano rosse solo l'area pedonale e le telecamere
                         if on {
                             MapPolygon(coordinates: shape.coords)
                                 .foregroundStyle(.clear)
                                 .stroke(tint.opacity(0.3), lineWidth: 12)
+                            MapPolygon(coordinates: shape.coords)
+                                .foregroundStyle(tint.opacity(access.fillOpacity + 0.08))
+                                .stroke(tint, lineWidth: 3)
+                        } else {
+                            MapPolygon(coordinates: shape.coords)
+                                .foregroundStyle(tint.opacity(access.fillOpacity))
+                                .stroke(tint.opacity(0.8), style: StrokeStyle(lineWidth: access == .closed ? 2 : 1.5, dash: access.dash))
                         }
-                        MapPolygon(coordinates: shape.coords)
-                            .foregroundStyle(on ? tint.opacity(0.18) : tint.opacity(0.05))
-                            .stroke(on ? tint : Color.white.opacity(0.22), lineWidth: on ? 2.5 : 1)
                     } else {
                         // Bordo pieno per «no» e «sì», tratteggiato per «se…», a puntini per «da verificare» (AccessLegend)
                         MapPolygon(coordinates: shape.coords)
@@ -155,9 +161,11 @@ struct MapScreen: View {
                         }
                     }
                 }
-                // Ogni varco con lo stato della sua zona
+                // Ogni varco con lo stato della sua zona (rosso acceso, verde spento) e, intorno, un anello nel colore
+                // della zona: si vede a quale zona appartiene (1.17.4)
                 ForEach(gateGroups) { group in
                     let on = store.engine.isActive(group.zone, at: moment)
+                    let ring = PlaceCheck.zoneTint(AccessCache.access(group.zone, store: store, at: moment), lit: lit.contains(group.zone.id))
                     ForEach(group.gates) { g in
                         Annotation(g.name, coordinate: g.location.cl) {
                             Image(systemName: "video.fill")
@@ -166,6 +174,8 @@ struct MapScreen: View {
                                 .frame(width: 20, height: 20)
                                 .background(on ? Theme.red : Theme.green, in: Circle())
                                 .overlay(Circle().stroke(.white, lineWidth: 2))
+                                .padding(2)
+                                .overlay(Circle().stroke(ring, lineWidth: 2))
                                 .accessibilityHidden(true)     // centinaia di varchi: VoiceOver (e i test) restano veloci
                         }
                         .annotationTitles(.hidden)
