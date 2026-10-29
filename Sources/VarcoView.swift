@@ -287,10 +287,11 @@ struct VarcoView: View {
             if a.unofficial { UnofficialBanner(source: a.unofficialSource) }
             // Solo la scatola dei punti luminosi, senza palo: la pagina più corta, così «Guarda la mappa», «Perché?» e
             // «Dettagli del viaggio» si vedono senza scorrere anche su iPhone Pro Max (vedi ScreenshotTests.test5VarcoProMax)
+            // Più piccolo dalla 1.17.3: sopra c'è il nome del posto
             GatePanelObject(panel: a.panel, showsPole: false)
-                .scaleEffect(0.8)
+                .scaleEffect(0.64)
                 .frame(maxWidth: .infinity)
-                .frame(height: 114)
+                .frame(height: 92)
             Text(a.headline)
                 .font(Self.font(44, .black)).foregroundStyle(Notte.text)
                 .lineLimit(2).minimumScaleFactor(0.6)
@@ -310,12 +311,10 @@ struct VarcoView: View {
                 timeBlock(label, a)
             }
             actions(check)
-            VStack(alignment: .leading, spacing: 2) {
-                Text(verbatim: a.zoneLine).font(.app(size: 15, weight: .semibold)).foregroundStyle(Notte.muted)
-                if store.when != nil {
-                    Text(verbatim: String(format: L("For %@"), TimeChoice.label(store.when)))
-                        .font(.app(size: 13, weight: .semibold)).foregroundStyle(Notte.muted)
-                }
+            // Città e zona sono già sotto il titolo: qui resta solo l'ora scelta
+            if store.when != nil {
+                Text(verbatim: String(format: L("For %@"), TimeChoice.label(store.when)))
+                    .font(.app(size: 13, weight: .semibold)).foregroundStyle(Notte.muted)
             }
             // «Segnala un errore» per la zona della risposta
             if let hit = check.hits.first {
@@ -368,13 +367,29 @@ struct VarcoView: View {
                 }
                 ForEach(store.recent.prefix(5)) { p in Button(p.name) { store.select(p) } }
             } label: {
-                HStack(spacing: 6) {
-                    Image(systemName: "mappin.and.ellipse")
-                    Text(verbatim: check.place.name).lineLimit(1)
-                    Image(systemName: "chevron.down").font(.app(size: 11, weight: .bold)).opacity(0.7)
+                // 1.17.3: il posto è il titolo della scheda (grande, nel carattere dei titoli, fino a due righe), sotto
+                // la città e la zona: si capisce subito di quale hotel parla la risposta. Il ▾ apre gli altri posti
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack(alignment: .firstTextBaseline, spacing: 8) {
+                        Text(verbatim: Self.placeTitle(check))
+                            .font(Self.font(30, .black)).foregroundStyle(Notte.text)
+                            .lineLimit(2).minimumScaleFactor(0.75)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Image(systemName: "chevron.down").font(.app(size: 14, weight: .bold))
+                            .foregroundStyle(Notte.text.opacity(0.7))
+                            .accessibilityHidden(true)
+                    }
+                    Text(verbatim: placeSubtitle(check))
+                        .font(.app(size: 14, weight: .semibold)).foregroundStyle(Notte.muted)
+                        .lineLimit(1).minimumScaleFactor(0.85)
                 }
-                .font(.app(size: 16, weight: .semibold)).foregroundStyle(Notte.text)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
             }
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("\(Self.placeTitle(check)), \(placeSubtitle(check))")
+            .accessibilityAddTraits(.isHeader)
             .accessibilityIdentifier("varco.place")
             Spacer(minLength: 4)
             if store.place != nil {
@@ -387,6 +402,18 @@ struct VarcoView: View {
                 .accessibilityIdentifier("varco.clear")
             }
         }
+    }
+
+    /// Il titolo della scheda: il nome del posto; la tua posizione si dice «La tua posizione»
+    static func placeTitle(_ check: PlaceCheck) -> String {
+        check.place.name == L("My position") ? L("Your position") : check.place.name
+    }
+
+    /// La riga sotto il titolo: città e zona («Firenze · Settore A»), l'area pedonale o «Fuori dalla ZTL»
+    private func placeSubtitle(_ check: PlaceCheck) -> String {
+        let city = check.hits.first?.city ?? store.nearestCity(to: check.place.location)
+        let where_ = check.pedestrian?.name ?? check.zone?.shortName ?? L("Outside the ZTL")
+        return [city?.localizedName, where_].compactMap { $0 }.joined(separator: " · ")
     }
 
     private func actions(_ check: PlaceCheck) -> some View {

@@ -4,6 +4,14 @@ Spunta ogni riga. Se qualcosa non va: Tu → Impostazioni → «Segnala un bug»
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
 
 
+## ★ Il posto come titolo della risposta (1.17.3)
+- [ ] Cerca «Hotel Cavour»: in cima alla scheda il nome grande, nel carattere dei titoli, con ▾; sotto, piccolo, «Firenze · Settore A»; poi il pannello più piccolo, «Non entrare.» e i pulsanti
+- [ ] Un nome lungo va su due righe senza tagliarsi; il ▾ apre ancora gli hotel salvati e i posti recenti
+- [ ] Dentro una ZTL senza cercare nulla: il titolo è «La tua posizione» con sotto città e zona
+- [ ] iPhone Pro Max: «Guarda la mappa», «Perché?» e «Dettagli del viaggio» si vedono senza scorrere
+- [ ] VoiceOver: il titolo si legge come intestazione, con città e zona
+
+
 ## ★ Presentazione a tutto schermo e striscia di Varco (1.17.2)
 - [ ] Presentazione con Mapbox su un iPhone con Dynamic Island: la mappa arriva fino al bordo in basso; sotto il blu notte del pannello non resta nessuna striscia di mappa (né sopra la barra di Home né sotto)
 - [ ] In alto il blu notte copre la Dynamic Island e l'ora; logo Mapbox e «ⓘ» visibili sopra il pannello in basso, dentro lo schermo, e la «ⓘ» si tocca
