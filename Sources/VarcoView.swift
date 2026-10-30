@@ -199,7 +199,7 @@ struct VarcoView: View {
 
     /// La scheda Mappa sulla zona della risposta (la mappa va sul posto scelto o sulla zona scelta, vedi MapScreen.focus)
     private func openMap(_ check: PlaceCheck?) {
-        if let hit = check?.hits.first { store.cityId = hit.city.id; store.zoneId = hit.zone.id }
+        if let hit = check?.hit { store.cityId = hit.city.id; store.zoneId = hit.zone.id }
         tab = .map
     }
 
@@ -318,7 +318,7 @@ struct VarcoView: View {
                     .font(.app(size: 13, weight: .semibold)).foregroundStyle(Notte.muted)
             }
             // «Segnala un errore» per la zona della risposta
-            if let hit = check.hits.first {
+            if let hit = check.hit {
                 ReportErrorButton(zone: hit.zone, city: hit.city, onDark: true)
                     .accessibilityIdentifier("varco.report")
             }
@@ -410,10 +410,11 @@ struct VarcoView: View {
         check.place.name == L("My position") ? L("Your position") : check.place.name
     }
 
-    /// La riga sotto il titolo: città e zona («Firenze · Settore A»), l'area pedonale o «Fuori dalla ZTL»
+    /// La riga sotto il titolo: città e zona che decide («Firenze · Scudo Verde»), l'area pedonale o «Fuori dalla ZTL»;
+    /// fuori copertura nessuna città (la più vicina può essere a 30 km) e «Non conosciamo le ZTL di questo posto»
     private func placeSubtitle(_ check: PlaceCheck) -> String {
-        let city = check.hits.first?.city ?? store.nearestCity(to: check.place.location)
-        let where_ = check.pedestrian?.name ?? check.zone?.shortName ?? L("Outside the ZTL")
+        let city = check.city ?? (check.covered ? store.nearestCity(to: check.place.location) : nil)
+        let where_ = check.pedestrian?.name ?? check.zone?.shortName ?? check.zoneLine
         return [city?.localizedName, where_].compactMap { $0 }.joined(separator: " · ")
     }
 
@@ -428,7 +429,7 @@ struct VarcoView: View {
             .buttonStyle(.plain)
             .accessibilityIdentifier("varco.map")
             HStack(spacing: 10) {
-                if let hit = check.hits.first {
+                if let hit = check.hit {
                     secondary(L("Why?"), "doc.text") {
                         store.cityId = hit.city.id; store.zoneId = hit.zone.id
                         showZone = true

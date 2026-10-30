@@ -75,7 +75,8 @@ final class UnofficialSourceTests: XCTestCase {
         XCTAssertEqual(m2.allCities.map(\.id), ["a", "b"])
     }
 
-    /// Varco: l'avviso c'è, il titolo è prudente, ma colore e pannello (la risposta) restano quelli del motore
+    /// Varco: l'avviso c'è, il titolo è prudente; il «no» resta rosso, il «sì» diventa giallo (1.19.0: mai un verde
+    /// che non sappiamo), il testo del pannello resta lo stato vero dei varchi
     func testVarcoAnswerShowsBannerAndSoftensWording() throws {
         let official = try lucca(), unofficial = try lucca(official: false, site: true)
         let place = Place(name: "Prova", address: "", location: unofficial.center)
@@ -86,8 +87,15 @@ final class UnofficialSourceTests: XCTestCase {
             XCTAssertFalse(a.unofficial)
             XCTAssertTrue(b.unofficial)
             XCTAssertEqual(b.unofficialSource?.name, "Guida di prova")
-            XCTAssertEqual(a.mood, b.mood)
-            XCTAssertEqual(a.panel, b.panel)
+            if gatesOn {
+                XCTAssertEqual(a.mood, b.mood)
+                XCTAssertEqual(a.panel, b.panel)
+            } else {
+                XCTAssertEqual(a.mood, .green)
+                XCTAssertEqual(b.mood, .amber)
+                XCTAssertEqual(a.panel.lines, b.panel.lines)
+                XCTAssertEqual(b.panel.mood, .amber)
+            }
             XCTAssertNotEqual(a.headline, b.headline)
             XCTAssertEqual(b.headline, gatesOn ? L("Probably not.") : L("Probably yes."))
             let check = PlaceCheck(place: place, hits: [(city: unofficial, zone: unofficial.zones[0])], answer: answer)

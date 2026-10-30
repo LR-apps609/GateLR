@@ -1,3 +1,11 @@
+Novità della 1.19.0 (mai un verde che non sappiamo):
+• Se un posto è dentro più zone conta la più severa: a Palazzo Vecchio di notte un diesel Euro 1 riceve «Non entrare.» per lo Scudo Verde (sempre attivo), anche con il Settore A spento; a Milano conta anche l'Area B intorno all'Area C. Sotto la risposta si vede la zona che decide
+• Fuori dalle città che GateLR conosce (a più di 2 km dalle loro zone, es. Pistoia o Prato) la risposta è «Non conosciamo le ZTL di questo posto», neutra, mai verde né «Arrivo sereno»; «Fuori dalla ZTL» resta solo dentro le città coperte. Anche in Viaggio, sulla mappa e con Siri («Non conosciamo ancora le ZTL di questa zona»)
+• Fonte non ufficiale: un «sì» non è mai verde. «Probabilmente sì · fonte non ufficiale: controlla il cartello», in giallo con il «?», in Varco, sulla mappa, nel guardiano e nella Live Activity, nel widget e con Siri
+• Il pannello di Varco dice lo stato vero dei varchi con la dicitura ufficiale, «ZTL ATTIVA» o «ZTL NON ATTIVA», e il colore dice la risposta: verde «ZTL ATTIVA · SEI ESENTE» se i varchi sono accesi ma puoi entrare
+• «Non sicuro» è giallo con il «?», mai grigio (il grigio dice solo «nessuna ZTL attiva»)
+• Scheda della zona, mappa, avvisi e CarPlay non dicono più «a una condizione: l'hotel registra la targa» di nascosto: la condizione vale solo quando cerchi l'hotel del tuo viaggio
+
 Novità della 1.18.0 (nuovo stile della mappa):
 • Sulla mappa il colore di ogni zona è la risposta per il TUO veicolo all'ora scelta: rosso non puoi entrare, giallo entri a una condizione (con «?»: controlla il cartello), verde puoi entrare, grigio nessuna ZTL attiva. La stessa zona può essere verde per la tua auto e rossa per un diesel Euro 2
 • Bordo tratteggiato = è una ZTL; righe a 45° = la ZTL è attiva in quel momento; il segno «ZTL» nel colore della risposta, «PEDONALE» sulle aree pedonali

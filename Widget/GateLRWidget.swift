@@ -88,7 +88,14 @@ struct GateWidgetView: View {
         // Ora italiana e, se non è oggi, anche il giorno (il sabato sera «Inizia alle 07:30» voleva dire lunedì)
         return String(format: L(entry.on ? "Ends at %@" : "Starts at %@"), RuleEngine().clock(next, from: entry.date))
     }
-    private var tint: Color { entry.on ? Color(hex: 0xC1272D) : Color(hex: 0x0FA34A) }
+    /// Fonte non ufficiale: mai verde (1.19.0), giallo con il «?» anche a varchi spenti
+    private var unofficial: Bool { entry.zone?.isUnofficial == true }
+    /// Il simbolo a varchi spenti: «?» se la fonte non è ufficiale
+    private var offSymbol: String {
+        if unofficial { return "questionmark" }
+        return "checkmark"
+    }
+    private var tint: Color { entry.on ? Color(hex: 0xC1272D) : (unofficial ? Color(hex: 0xD99A00) : Color(hex: 0x0FA34A)) }
 
     var body: some View {
         switch family {
@@ -97,7 +104,7 @@ struct GateWidgetView: View {
                 AccessoryWidgetBackground()
                 VStack(spacing: 0) {
                     Text(letter).font(.system(size: 20, weight: .bold))
-                    Image(systemName: entry.on ? "video.fill" : "checkmark").font(.system(size: 11, weight: .bold))
+                    Image(systemName: entry.on ? "video.fill" : offSymbol).font(.system(size: 11, weight: .bold))
                 }
             }
         case .accessoryRectangular:
@@ -134,7 +141,7 @@ struct GateWidgetView: View {
                     .font(.system(size: 11, weight: .semibold)).lineLimit(1)
                 }
                 Spacer(minLength: 0)
-                Image(systemName: entry.on ? "video.fill" : "checkmark.circle.fill")
+                Image(systemName: entry.on ? "video.fill" : offSymbol + ".circle.fill")
                     .font(.system(size: 22, weight: .bold)).foregroundStyle(tint)
                 Text(state).font(.system(size: 24, weight: .bold)).foregroundStyle(tint).minimumScaleFactor(0.7).lineLimit(1)
                 Text(change).font(.system(size: 13, weight: .medium)).foregroundStyle(.secondary)
@@ -176,7 +183,8 @@ struct GuardianWidgetView: View {
     /// Sulla schermata di blocco c'è poco posto: un triangolo davanti se le regole vengono da fonti non ufficiali
     private var warn: String { entry.zone?.isUnofficial == true ? "⚠︎ " : "" }
     private var state: String { entry.on ? L("ZTL active") : L("ZTL not active") }
-    private var tint: Color { entry.on ? Color(hex: 0xC1272D) : Color(hex: 0x0FA34A) }
+    /// Fonte non ufficiale: mai verde (1.19.0)
+    private var tint: Color { entry.on ? Color(hex: 0xC1272D) : (entry.zone?.isUnofficial == true ? Color(hex: 0xD99A00) : Color(hex: 0x0FA34A)) }
     private var change: String {
         guard let next = entry.next else { return "" }
         // Ora italiana e, se non è oggi, anche il giorno (il sabato sera «Inizia alle 07:30» voleva dire lunedì)

@@ -136,14 +136,15 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
         guard parts.count == 2,
               let zone = store.cities.flatMap(\.zones).first(where: { $0.id == parts[0] }),
               let gate = zone.gates.first(where: { $0.id == parts[1] }) else { return }
-        let answer = store.answer(zone: zone)
+        let answer = store.answer(zone: zone, hotelInside: false)
         guard answer.gatesOn else { return }      // varco spento: nessun disturbo
         if case .yes = answer.verdict {} else { store.record(.nearGate, zone: zone, gate: gate, verdict: answer.verdict) }
 
         let content = UNMutableNotificationContent()
         content.title = String(format: L("ZTL gate in %lld m · ZTL active"), Int(store.alertDistance))
         switch answer.verdict {
-        case .yes(let r): content.body = "\(gate.name). \(r)"
+        // Fonte non ufficiale: «Probabilmente sì · fonte non ufficiale: controlla il cartello» (1.19.0)
+        case .yes(let r): content.body = "\(gate.name). " + (zone.isUnofficial ? answer.verdict.spokenText(unofficial: true) : r)
         case .no: content.body = "\(gate.name). " + L("Don't drive in. Tap for parking outside.")
         case .conditional(_, let c): content.body = "\(gate.name). \(c)"
         case .unsure(let r): content.body = "\(gate.name). \(r)"

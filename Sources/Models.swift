@@ -417,6 +417,33 @@ extension City {
     var hasUnofficialZones: Bool { zones.contains(where: \.isUnofficial) }
 }
 
+// MARK: Copertura (1.19.0)
+
+extension City {
+    /// Fin dove sappiamo rispondere «fuori dalla ZTL»: il rettangolo che contiene tutte le zone e le aree pedonali
+    /// della città, allargato di questi metri per lato. I dati non hanno il confine del comune, e oltre le zone che
+    /// conosciamo potrebbero esserci altre ZTL (Roma ha più zone di quelle nell'app): 2 km bastano per gli alberghi e
+    /// i parcheggi appena fuori dal centro, senza dire «fuori dalla ZTL» a Prato (10 km dallo Scudo Verde) o a Pistoia.
+    static let coverageMargin: Double = 2_000
+
+    /// Il rettangolo di zone e aree pedonali (nil se la città non ne ha)
+    var coverage: BBox? {
+        var boxes = zones.compactMap { $0.bounds ?? BBox($0.perimeter) }
+        boxes += (pedestrian ?? []).compactMap { $0.bounds ?? BBox($0.perimeter) }
+        guard let first = boxes.first else { return nil }
+        return boxes.dropFirst().reduce(first) {
+            BBox(minLat: min($0.minLat, $1.minLat), minLon: min($0.minLon, $1.minLon),
+                 maxLat: max($0.maxLat, $1.maxLat), maxLon: max($0.maxLon, $1.maxLon))
+        }
+    }
+
+    /// Vero se il punto è dentro la copertura della città: lì «fuori da ogni zona» vuol dire davvero fuori dalla ZTL
+    func covers(lat: Double, lon: Double) -> Bool {
+        guard let box = coverage else { return false }
+        return box.distance(lat: lat, lon: lon) <= City.coverageMargin
+    }
+}
+
 extension Source {
     /// «City of Florence» → «Comune di Firenze»
     var localizedAuthority: String { L(authority) }

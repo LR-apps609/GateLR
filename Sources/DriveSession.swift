@@ -89,6 +89,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     @Published private(set) var path: [Coordinate] = []
     @Published private(set) var crossings: [RouteCrossing] = []
     @Published private(set) var warning: String?
+    /// Il colore dell'avviso nella Live Activity: «no» rosso, «cond» giallo (condizioni, dubbi, fonte non ufficiale)
+    private var warningLevel = "no"
     @Published private(set) var arrived = false
     @Published private(set) var rerouting = false
     @Published private(set) var error: String?
@@ -401,14 +403,15 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
 
         var newWarning: String?
         for a in ahead where a.meters < 800 {
-            if case .yes = a.answer.verdict { continue }
             let zone = a.crossing.zone
-            let short = a.answer.verdict.shortText(unofficial: zone.isUnofficial)
-                + (zone.isUnofficial ? " · " + L("Unofficial source") : "")
+            // Un «sì» da fonte non ufficiale non è un via libera (1.19.0): si avvisa, in giallo
+            if a.answer.verdict.shown(unofficial: zone.isUnofficial).isYes { continue }
+            let short = a.answer.verdict.spokenText(unofficial: zone.isUnofficial)
             newWarning = String(format: L("%@ in %@: %@"), zone.shortName, Self.distanceText(a.meters), short)
+            if case .no = a.answer.verdict { warningLevel = "no" } else { warningLevel = "cond" }
             if a.meters < 550 && !announced.contains("ztl|\(zone.id)") {
                 announced.insert("ztl|\(zone.id)")
-                say(String(format: L("Attention: in %@ you enter %@. %@."), Self.distanceText(a.meters), zone.shortName, a.answer.verdict.short))
+                say(String(format: L("Attention: in %@ you enter %@. %@."), Self.distanceText(a.meters), zone.shortName, short))
             }
             break
         }
@@ -460,7 +463,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
             symbol: DriveView.symbol(for: arrived ? "" : (nextInstruction ?? "")),
             distance: arrived ? "" : DriveSession.distanceText(toNext),
             instruction: arrived ? L("You have arrived") : (nextInstruction ?? destination?.name ?? ""),
-            warning: warning, eta: eta, level: warning == nil ? nil : "no")
+            warning: warning, eta: eta, level: warning == nil ? nil : warningLevel)
     }
 
     /// L'id della Live Activity della guida, se è aperta

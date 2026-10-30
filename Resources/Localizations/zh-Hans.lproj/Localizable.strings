@@ -776,6 +776,13 @@
 "Probably not." = "大概不行。";
 "Probably yes" = "大概可以";
 "Probably not" = "大概不行";
+"Probably yes · unofficial source: check the sign" = "大概可以 · 非官方来源：请看路牌";
+"Unofficial source: check the sign." = "非官方来源：请看路牌。";
+"We don't know this place." = "我们不了解这个地方。";
+"We don't know this place" = "未知地点";
+"We don't know the ZTLs of this place" = "我们不了解这个地方的 ZTL";
+"We don't know the ZTLs of this place. Check the signs at the entrance." = "我们不了解这个地方的 ZTL。请看入口处的路牌。";
+"We don't know the ZTLs of this area yet." = "我们还不了解这一带的 ZTL。";
 "Paid ZTL" = "收费 ZTL";
 "Low-emission zone" = "低排放区";
 "What the source says" = "来源原文";

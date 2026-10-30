@@ -19,6 +19,32 @@ enum Verdict: Equatable {
     }
 }
 
+extension Verdict {
+    /// 1.19.0 «Mai un verde che non sappiamo»: la risposta come si MOSTRA. Un «sì» da fonte non ufficiale non è mai
+    /// verde: si mostra come «non sicuro» (giallo con «?», «Probabilmente sì · fonte non ufficiale: controlla il cartello»).
+    /// Le parole prudenti restano quelle di shortText(unofficial:) e titleLines(unofficial:); il motore non cambia.
+    func shown(unofficial: Bool) -> Verdict {
+        if unofficial, case .yes(let reason) = self { return .unsure(reason: reason) }
+        return self
+    }
+
+    /// Quanto è grave per chi guida, per scegliere la peggiore tra più zone che contengono lo stesso posto
+    /// (Settore A dentro lo Scudo Verde, Area C dentro l'Area B): no > condizione > non sicuro > sì
+    var severity: Int {
+        switch self {
+        case .no: 3
+        case .conditional: 2
+        case .unsure: 1
+        case .yes: 0
+        }
+    }
+
+    var isYes: Bool {
+        if case .yes = self { return true }
+        return false
+    }
+}
+
 struct Answer: Equatable {
     var verdict: Verdict
     var gatesOn: Bool

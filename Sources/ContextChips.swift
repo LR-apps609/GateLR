@@ -279,7 +279,10 @@ enum AccessCache {
         if k != key { key = k; values = [:] }
         if let hit = values[zone.id] { return hit }
         let answer = store.answer(at: date, zone: zone, hotelInside: false)
-        let l = Look(access: Access(answer, status: status[zone.id]), active: answer.gatesOn)
+        var access = Access(answer, status: status[zone.id])
+        // Fonte non ufficiale (1.19.0): mai verde né grigio, giallo con il «?» («Probabilmente sì», controlla il cartello)
+        if zone.isUnofficial && (access == .open || access == .off) { access = .check }
+        let l = Look(access: access, active: answer.gatesOn)
         values[zone.id] = l
         return l
     }

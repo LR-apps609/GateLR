@@ -21,7 +21,6 @@ final class Store: ObservableObject {
     @Published var vehicles: [Vehicle] { didSet { save() } }
     @Published var activeVehicleId: UUID? { didSet { save() } }
     @Published var permits: [Permit] { didSet { save() } }
-    @Published var hotelInside = true { didSet { save() } }
     @Published var alertsOn = true { didSet { save() } }
     @Published var alertDistance: Double = 500 { didSet { save() } }
     @Published var trips: [Trip] { didSet { save() } }
@@ -49,7 +48,11 @@ final class Store: ObservableObject {
 
     private struct Saved: Codable {
         var vehicles: [Vehicle], activeVehicleId: UUID?, permits: [Permit]
-        var hotelInside: Bool, alertsOn: Bool, alertDistance: Double
+        /// Fino alla 1.18: «l'hotel è dentro la ZTL», vero di nascosto per ogni risposta. Dalla 1.19.0 non si usa più
+        /// (si legge e si scarta: vale solo per il posto che è il tuo hotel, Store.isHotel); si scrive false, così una
+        /// versione vecchia reinstallata legge ancora il garage e non torna a dire «a una condizione» di nascosto
+        var hotelInside: Bool? = nil
+        var alertsOn: Bool, alertDistance: Double
         var trips: [Trip]?
         var stays: [String: HotelStay]?
         var log: [LogEntry]?
@@ -58,7 +61,7 @@ final class Store: ObservableObject {
     init() {
         if let data = UserDefaults.standard.data(forKey: key), let s = try? JSONDecoder().decode(Saved.self, from: data) {
             vehicles = s.vehicles; activeVehicleId = s.activeVehicleId; permits = s.permits; trips = s.trips ?? []; stays = s.stays ?? [:]; log = s.log ?? []
-            hotelInside = s.hotelInside; alertsOn = s.alertsOn; alertDistance = s.alertDistance
+            alertsOn = s.alertsOn; alertDistance = s.alertDistance
         } else {
             vehicles = [SampleData.rental]; activeVehicleId = SampleData.rental.id; permits = []; trips = []
         }
@@ -112,7 +115,7 @@ final class Store: ObservableObject {
 
     private func save() {
         let s = Saved(vehicles: vehicles, activeVehicleId: activeVehicleId, permits: permits,
-                      hotelInside: hotelInside, alertsOn: alertsOn, alertDistance: alertDistance, trips: trips, stays: stays, log: log)
+                      hotelInside: false, alertsOn: alertsOn, alertDistance: alertDistance, trips: trips, stays: stays, log: log)
         if let data = try? JSONEncoder().encode(s) { UserDefaults.standard.set(data, forKey: key) }
     }
 
@@ -120,11 +123,13 @@ final class Store: ObservableObject {
     var zone: Zone { city.zones.first { $0.id == zoneId } ?? city.zones[0] }
     var vehicle: Vehicle { vehicles.first { $0.id == activeVehicleId } ?? vehicles.first ?? SampleData.rental }
 
-    func answer(at date: Date = Date(), zone: Zone? = nil, hotelInside: Bool? = nil) -> Answer {
+    /// «hotelInside»: vero solo se la destinazione è il tuo hotel (Store.isHotel). Prima era vero di nascosto
+    /// (Store.hotelInside, mai cambiato dall'interfaccia): scheda zona, mappa, avvisi e CarPlay dicevano «a una condizione»
+    func answer(at date: Date = Date(), zone: Zone? = nil, hotelInside: Bool) -> Answer {
         let z = zone ?? self.zone
         // Un permesso vale solo nella sua città: la registrazione dell'hotel a Firenze non apre l'Area C di Milano
         let city = cities.first { $0.zones.contains { $0.id == z.id } }?.id
-        return engine.answer(zone: z, vehicle: vehicle, permits: permits.filter { $0.cityId == city }, hotelInside: hotelInside ?? self.hotelInside, at: date)
+        return engine.answer(zone: z, vehicle: vehicle, permits: permits.filter { $0.cityId == city }, hotelInside: hotelInside, at: date)
     }
 
     /// Le zone che contengono il punto, dalla più piccola (es. Area C dentro Area B)
@@ -139,6 +144,19 @@ final class Store: ObservableObject {
             for z in city.zones where z.contains(lat: c.lat, lon: c.lon) { hits.append((city: city, zone: z)) }
         }
         return hits.count < 2 ? hits : hits.sorted { $0.zone.roughArea < $1.zone.roughArea }
+    }
+
+    /// Vero se il punto è in una città che conosciamo (City.coverage): fuori, «fuori dalla ZTL» non si può dire
+    func covers(_ c: Coordinate) -> Bool { Store.covers(c, in: cities) }
+
+    nonisolated static func covers(_ c: Coordinate, in cities: [City]) -> Bool {
+        cities.contains { $0.covers(lat: c.lat, lon: c.lon) }
+    }
+
+    /// Vero se il posto è il tuo hotel (un viaggio salvato o un soggiorno): solo lì vale «l'hotel registra la targa»
+    func isHotel(_ place: Place?) -> Bool {
+        guard let place else { return false }
+        return stays[place.key] != nil || trips.contains { $0.hotel?.key == place.key }
     }
 
     /// L'area pedonale che contiene il punto, se c'è

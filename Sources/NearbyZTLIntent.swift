@@ -23,11 +23,16 @@ struct NearbyZTLIntent: AppIntent {
         let zones = store.cities.flatMap(\.zones)
         // Dentro più zone (Area C dentro l'Area B): la più piccola, come nel resto dell'app, non la prima del file
         let near = Self.nearest(zones, to: p)
-        guard let near, near.1 < 5_000 else { return L("No ZTL within 5 km of you.") }
+        // Fuori dalle città che conosciamo (1.19.0): non diciamo «nessuna ZTL», perché non lo sappiamo
+        guard let near, near.1 < 5_000 else {
+            return Store.covers(p, in: store.cities) ? L("No ZTL within 5 km of you.") : L("We don't know the ZTLs of this area yet.")
+        }
         let (z, d) = near
         let a = store.answer(at: now, zone: z, hotelInside: false)
-        var text = d == 0 ? String(format: L("You're inside %@: %@."), z.shortName, a.verdict.short)
-                          : String(format: L("%@ is %@ away: %@."), z.shortName, DriveSession.distanceText(d), a.verdict.short)
+        // Un «sì» da fonte non ufficiale: «Probabilmente sì · fonte non ufficiale: controlla il cartello»
+        let short = a.verdict.spokenText(unofficial: z.isUnofficial)
+        var text = d == 0 ? String(format: L("You're inside %@: %@."), z.shortName, short)
+                          : String(format: L("%@ is %@ away: %@."), z.shortName, DriveSession.distanceText(d), short)
         if let next = a.nextChange {
             let when = store.engine.describe(next, from: now)
             text += " " + String(format: L(a.gatesOn ? "The gates switch off %@." : "The gates switch on %@."), when)

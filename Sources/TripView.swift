@@ -180,9 +180,11 @@ struct TripView: View {
 
     @ViewBuilder
     private func placeAnswer(_ place: Place, at date: Date) -> some View {
-        let hits = store.zones(at: place.location)
-        placeCard(place, inside: hits.first?.zone)
-        if let area = store.pedestrianArea(at: place.location) {
+        // 1.19.0: la risposta di TUTTE le zone che contengono il posto, la peggiore decide (Scudo Verde sopra il Settore A)
+        let check = PlaceCheck(place, store: store, at: date)
+        let hits = check.hits
+        placeCard(place, inside: check.zone, covered: check.covered)
+        if let area = check.pedestrian {
             Label {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(String(format: L("Pedestrian area · %@"), area.name)).font(.app(size: 15, weight: .bold))
@@ -194,11 +196,11 @@ struct TripView: View {
             .padding(14).frame(maxWidth: .infinity, alignment: .leading)
             .background(Theme.red, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
-        if let hit = hits.first {
-            VerdictCard(answer: store.pedestrianArea(at: place.location) != nil
+        if let hit = check.hit, let first = hits.first {
+            VerdictCard(answer: check.pedestrian != nil
                             ? Answer(verdict: .no(reason: L("It's a pedestrian area: cars can't drive in at any time, whatever the ZTL hours.")),
                                      gatesOn: true, nextChange: nil)
-                            : store.answer(at: date, zone: hit.zone, hotelInside: false),
+                            : check.answer ?? store.answer(at: date, zone: hit.zone, hotelInside: store.isHotel(place)),
                         heading: heading(hit.zone, date),
                         source: hit.zone.source,
                         since: atArrival ? nil : store.engine.previousChange(hit.zone, before: date),
@@ -208,12 +210,12 @@ struct TripView: View {
             if hits.count > 1 {
                 VStack(alignment: .leading, spacing: 8) {
                     SectionLabel("Also inside")
-                    zoneList(hits.dropFirst().map { $0.zone }, at: date)
+                    zoneList(hits.map(\.zone).filter { $0.id != hit.zone.id }, at: date)
                 }
             }
             routeCard(place)
             // Rosso o ambra all'ora scelta: i parcheggi fuori da ogni ZTL attiva, poi a piedi
-            if PlaceCheck(place, store: store, at: date).suggestsParking {
+            if check.suggestsParking {
                 ParkOutsideCard(destination: place, arrival: date, onStart: { target in
                     Task {
                         await DriveSession.shared.start(to: target, store: store)
@@ -223,16 +225,20 @@ struct TripView: View {
                     Guardian.shared.start(to: target, with: navigator, store: store)
                 })
             }
-            if let ticket = hit.zone.ticket, store.engine.isActive(hit.zone, at: date), store.pedestrianArea(at: place.location) == nil {
-                TicketCard(zone: hit.zone, ticket: ticket, entry: date)
+            // Biglietto e hotel: della zona più piccola, come prima (sono servizi di quella zona)
+            if let ticket = first.zone.ticket, store.engine.isActive(first.zone, at: date), check.pedestrian == nil {
+                TicketCard(zone: first.zone, ticket: ticket, entry: date)
             }
-            if hit.zone.hotelCanRegister {
-                HotelStayCard(place: place, zone: hit.zone, arrival: atArrival ? arrivalTime : Date())
+            if first.zone.hotelCanRegister {
+                HotelStayCard(place: place, zone: first.zone, arrival: atArrival ? arrivalTime : Date())
                 hotelMessage
             }
-        } else {
+        } else if check.covered {
             outsideCard(place)
             TipView(StartGuardianTip()).tipBackground(Theme.card)
+            routeCard(place)
+        } else {
+            uncoveredCard
             routeCard(place)
         }
     }
@@ -272,16 +278,16 @@ struct TripView: View {
         }
     }
 
-    private func placeCard(_ place: Place, inside zone: Zone?) -> some View {
+    private func placeCard(_ place: Place, inside zone: Zone?, covered: Bool) -> some View {
         HStack(spacing: 12) {
-            Image(systemName: zone?.type.symbol ?? "checkmark")
+            Image(systemName: zone?.type.symbol ?? Symbols.pick(covered, "checkmark", else: "questionmark"))
                 .font(.app(size: 17, weight: .bold))
                 .foregroundStyle(.white)
                 .frame(width: 40, height: 40)
-                .background(zone?.type.color ?? Theme.green, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                .background(zone?.type.color ?? (covered ? Theme.green : Theme.muted), in: RoundedRectangle(cornerRadius: 11, style: .continuous))
             VStack(alignment: .leading, spacing: 1) {
                 Text(place.name).font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
-                Text(zone.map(\.kindLine) ?? L("Outside the ZTL"))
+                Text(zone.map(\.kindLine) ?? (covered ? L("Outside the ZTL") : L("We don't know the ZTLs of this place")))
                     .font(.app(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
             }
             Spacer()
@@ -292,6 +298,26 @@ struct TripView: View {
             .accessibilityLabel(L("Show on the map"))
         }
         .padding(12).card()
+    }
+
+    /// Fuori copertura (1.19.0): neutro, con il contorno e il «?», mai verde né «Arrivo sereno»
+    private var uncoveredCard: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 12) {
+                Image(systemName: "questionmark").font(.app(size: 24, weight: .heavy)).foregroundStyle(Theme.muted)
+                    .frame(width: 52, height: 52).overlay(Circle().stroke(Theme.muted, lineWidth: 2))
+                Text("We don't know this place.").font(Theme.display(30)).foregroundStyle(Theme.ink)
+                    .lineLimit(2).minimumScaleFactor(0.7)
+            }
+            Text("We don't know the ZTLs of this place. Check the signs at the entrance.")
+                .font(.app(size: 16)).foregroundStyle(Theme.ink)
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 26, style: .continuous).stroke(Theme.muted.opacity(0.6), lineWidth: 1.5))
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("trip.uncovered")
     }
 
     private func outsideCard(_ place: Place) -> some View {

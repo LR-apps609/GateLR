@@ -83,14 +83,16 @@ struct VerdictPill: View {
     /// Regole da fonti non ufficiali: «Probabilmente sì/no»
     var unofficial = false
     var body: some View {
+        // 1.19.0: un «sì» da fonte non ufficiale è giallo con il «?», mai verde
+        let look = verdict.shown(unofficial: unofficial)
         HStack(spacing: 4) {
-            Image(systemName: unofficial ? "exclamationmark.triangle.fill" : verdict.symbol).font(.system(size: 9, weight: .heavy)).accessibilityHidden(true)
+            Image(systemName: unofficial && !verdict.isYes ? "exclamationmark.triangle.fill" : look.symbol).font(.system(size: 9, weight: .heavy)).accessibilityHidden(true)
             Text(verdict.shortText(unofficial: unofficial))
         }
         .font(.app(size: 12, weight: .semibold))
         .padding(.horizontal, 9).padding(.vertical, 4)
-        .background(verdict.pillFill, in: Capsule())
-        .foregroundStyle(verdict.pillInk)
+        .background(look.pillFill, in: Capsule())
+        .foregroundStyle(look.pillInk)
         .fixedSize()
     }
 }
@@ -104,7 +106,9 @@ struct VerdictCard: View {
     var onWhy: (() -> Void)? = nil
 
     var body: some View {
-        let v = answer.verdict
+        // I colori e il simbolo dalla risposta come si mostra (un «sì» non ufficiale è giallo con «?»), le parole dal motore
+        let v = answer.verdict.shown(unofficial: !source.isOfficial)
+        let words = answer.verdict
         VStack(alignment: .leading, spacing: 14) {
             HStack {
                 Text(heading.uppercased()).font(Theme.label(13)).tracking(1.1).opacity(0.9)
@@ -120,12 +124,12 @@ struct VerdictCard: View {
                     .background(v.badgeFill, in: Circle())
                     .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: -15) {
-                    ForEach(v.titleLines(unofficial: !source.isOfficial), id: \.self) { line in
+                    ForEach(words.titleLines(unofficial: !source.isOfficial), id: \.self) { line in
                         Text(line).font(Theme.display(36)).lineLimit(1).minimumScaleFactor(0.6)
                     }
                 }
                 .accessibilityElement(children: .ignore)
-                .accessibilityLabel(source.isOfficial ? v.title : v.titleLines(unofficial: true).joined(separator: " "))
+                .accessibilityLabel(source.isOfficial ? words.title : words.titleLines(unofficial: true).joined(separator: " "))
                 .accessibilityAddTraits(.isHeader)
             }
             Text(detail).font(.app(size: 16)).fixedSize(horizontal: false, vertical: true)
@@ -163,8 +167,8 @@ struct VerdictCard: View {
             if span > 0 {
                 GeometryReader { g in
                     ZStack(alignment: .leading) {
-                        Capsule().fill(answer.verdict.onFill.opacity(0.22))
-                        Capsule().fill(answer.verdict.onFill)
+                        Capsule().fill(answer.verdict.shown(unofficial: !source.isOfficial).onFill.opacity(0.22))
+                        Capsule().fill(answer.verdict.shown(unofficial: !source.isOfficial).onFill)
                             .frame(width: g.size.width * min(1, max(0.03, 1 - left / span)))
                     }
                 }
@@ -189,6 +193,7 @@ struct VerdictCard: View {
 
     private var detail: String {
         switch answer.verdict {
+        case .yes(let r) where !source.isOfficial: L("Unofficial source: check the sign.") + " " + r
         case .yes(let r), .no(let r), .unsure(let r): r
         case .conditional(let r, let c): "\(r) \(c)"
         }

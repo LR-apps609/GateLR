@@ -318,6 +318,30 @@ final class ScreenshotTests: XCTestCase {
         snap("31-prova-mappa")
     }
 
+    /// 1.19.0 «Mai un verde che non sappiamo»: il pannello e il colore di Varco nei casi nuovi. Per ultimo: il veicolo
+    /// di prova resta salvato nel garage del simulatore
+    func test9NeverGreenUnknown() {
+        let it = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT"]
+        let cases: [(String, [String])] = [
+            // Fonte non ufficiale, varchi spenti (martedì 22:00): giallo con il «?», «Probabilmente sì»
+            ("33-varco-unofficial-yes", ["-uiUnofficial", "firenze", "-uiAt", "22:00", "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]),
+            // Pistoia non è tra le città: neutro, «Non conosciamo questo posto»
+            ("34-varco-uncovered", ["-uiPlace", "Piazza del Duomo Pistoia", "43.9333", "10.9167"]),
+            // Diesel Euro 1 di notte a Palazzo Vecchio: Settore A spento, ma lo Scudo Verde lo vieta
+            ("35-varco-scudo-euro1-night", ["-uiVehicle", "diesel", "1", "-uiAt", "22:00", "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]),
+            // Elettrica nell'Area C attiva (Corso Magenta, fuori dall'area pedonale del Duomo): verde «ZTL ATTIVA · SEI ESENTE»
+            ("36-varco-active-exempt", ["-uiVehicle", "electric", "6", "-uiAt", "11:00", "-uiPlace", "Corso Magenta", "45.4658", "9.1780"]),
+        ]
+        for (name, extra) in cases {
+            app.terminate()
+            app.launchArguments = it + extra
+            app.launch()
+            XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
+            sleep(5)
+            snap(name)
+        }
+    }
+
     private func snap(_ name: String) {
         let shot = XCUIScreen.main.screenshot()
         let attachment = XCTAttachment(screenshot: shot)
