@@ -373,7 +373,9 @@ function start(style,fallback){
   m.addControl(new maplibregl.NavigationControl({showCompass:false}),"top-right");
   let ok=false;
   const t=setTimeout(()=>{ if(!ok&&fallback){ m.remove(); start(RASTER,false);} },7000);
-  m.on("load",()=>{ ok=true; clearTimeout(t); layers(m); wrap.classList.add("on"); });
+  // l'attribuzione compatta parte aperta e copre la mappa: chiusa nella «i» (si apre con un tocco)
+  const fold=()=>{ const a=m.getContainer().querySelector(".maplibregl-ctrl-attrib"); if(a) a.classList.remove("maplibregl-compact-show"); };
+  m.on("load",()=>{ ok=true; clearTimeout(t); layers(m); wrap.classList.add("on"); fold(); setTimeout(fold,0); });
   m.on("error",e=>{ if(!ok&&fallback&&String(e&&e.error&&e.error.message||"").match(/style|fetch|load/i)){ clearTimeout(t); try{m.remove();}catch(_){} start(RASTER,false);} });
 }
 function load(){

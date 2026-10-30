@@ -1251,7 +1251,10 @@ function startRealMap(style){
   map.addControl(new maplibregl.NavigationControl({showCompass: false}), "top-right");
   const fail = setTimeout(() => { if (!ml.ready){ try { map.remove(); } catch {} ml.map = null; if (!style) startRealMap(RASTER()); } }, 7000);
   map.on("error", () => {});
+  // l'attribuzione compatta parte aperta e copre la mappa: chiusa nella «i» (si apre con un tocco)
+  const foldAttrib = () => { const a = cont.querySelector(".maplibregl-ctrl-attrib"); if (a) a.classList.remove("maplibregl-compact-show"); };
   map.on("load", () => {
+    foldAttrib(); setTimeout(foldAttrib, 0);
     clearTimeout(fail); ml.ready = true; ml.city = city.id;
     calmStyle(map);
     $("mapbox").classList.add("real");
