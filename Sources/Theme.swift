@@ -58,23 +58,21 @@ extension Verdict {
         switch self {
         case .yes: Theme.green
         case .no: Color(hex: 0xC1272D)
-        case .conditional: Theme.amberSoft
-        case .unsure: Color(light: 0xE3E6E8, dark: 0x2A323B)
+        // 1.19.0: «non sicuro» è giallo come le condizioni (con il «?»), mai grigio: il grigio dice «nessuna ZTL attiva»
+        case .conditional, .unsure: Theme.amberSoft
         }
     }
     var onFill: Color {
         switch self {
         case .yes, .no: .white
-        case .conditional: Theme.amberInk
-        case .unsure: Theme.ink
+        case .conditional, .unsure: Theme.amberInk
         }
     }
     /// Il cerchio con il simbolo: bianco sui fondi pieni, scuro su quelli chiari
     var badgeFill: Color {
         switch self {
         case .yes, .no: .white
-        case .conditional: Theme.amber
-        case .unsure: Theme.muted
+        case .conditional, .unsure: Theme.amber
         }
     }
     var badgeInk: Color {
@@ -119,6 +117,13 @@ extension Verdict {
         case .conditional, .unsure: return short
         }
     }
+    /// La frase breve da dire o scrivere da sola (Siri, Live Activity, avvisi): un «sì» da fonte non ufficiale
+    /// diventa «Probabilmente sì · fonte non ufficiale: controlla il cartello» (1.19.0, mai un verde che non sappiamo)
+    func spokenText(unofficial: Bool) -> String {
+        guard unofficial else { return short }
+        if case .yes = self { return L("Probably yes · unofficial source: check the sign") }
+        return shortText(unofficial: true) + " · " + L("Unofficial source")
+    }
     /// Il titolo in righe, con prudenza se la fonte non è ufficiale
     func titleLines(unofficial: Bool) -> [String] {
         guard unofficial else { return titleLines }
@@ -132,16 +137,14 @@ extension Verdict {
         switch self {
         case .yes: Theme.greenSoft
         case .no: Color(light: 0xF8DADB, dark: 0x3D1A1C)
-        case .conditional: Theme.amberSoft
-        case .unsure: Color(light: 0xE3E6E8, dark: 0x2A323B)
+        case .conditional, .unsure: Theme.amberSoft
         }
     }
     var pillInk: Color {
         switch self {
         case .yes: Theme.greenInk
         case .no: Color(light: 0x9E1F25, dark: 0xF59A96)
-        case .conditional: Theme.amberInk
-        case .unsure: Theme.ink
+        case .conditional, .unsure: Theme.amberInk
         }
     }
 }

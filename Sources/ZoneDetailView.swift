@@ -8,7 +8,7 @@ struct ZoneDetailView: View {
     var city: City
 
     var body: some View {
-        let answer = store.answer(zone: zone)
+        let answer = store.answer(zone: zone, hotelInside: false)
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
                 VStack(alignment: .leading, spacing: 6) {

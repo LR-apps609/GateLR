@@ -8,12 +8,14 @@ import SwiftUI
 /// La risposta del motore delle regole detta come sul pannello: colore, frase breve, ora del prossimo cambio
 struct Home2Answer: Equatable {
     enum Mood: Hashable, CaseIterable {
-        case red, green, amber
+        /// «neutral» (1.19.0): fuori copertura, non sappiamo. Né verde né giallo: un contorno grigio-azzurro
+        case red, green, amber, neutral
         var color: Color {
             switch self {
             case .red: Notte.ledRed
             case .green: Notte.ledGreen
             case .amber: Notte.ledAmber
+            case .neutral: Notte.muted
             }
         }
         var hex: UInt32 {
@@ -21,6 +23,7 @@ struct Home2Answer: Equatable {
             case .red: 0xFF4D3D
             case .green: 0x3BE07A
             case .amber: 0xFFB21E
+            case .neutral: 0xA9B3D1
             }
         }
     }
@@ -48,32 +51,41 @@ struct Home2Answer: Equatable {
 
     init(_ check: PlaceCheck, now: Date) {
         zoneLine = check.zoneLine
-        city = check.hits.first?.city
+        city = check.city
         unofficial = check.unofficial
         unofficialSource = check.unofficial ? check.zone?.source.unofficialSource : nil
+        let gatesOn = check.answer?.gatesOn ?? false
+        // Prima in variabili locali: il pannello si fa dal colore, prima che la struttura sia tutta pronta
+        let m: Mood, h: String
         switch check.kind {
         case .closed:
-            mood = .red; headline = L("Don't enter."); panel = GatePanelState(lines: ["VARCO", "ATTIVO"], mood: .red)
+            m = .red; h = L("Don't enter.")
         case .open:
-            mood = .green; headline = L("Drive in."); panel = GatePanelState(lines: ["VARCO", "NON ATTIVO"], mood: .green)
+            // Fonte non ufficiale: mai verde (1.19.0). Giallo con il «?», «Probabilmente sì · fonte non ufficiale: controlla il cartello»
+            m = check.hedged ? .amber : .green; h = L("Drive in.")
         case .outside:
-            mood = .green; headline = L("Easy arrival."); panel = GatePanelState(lines: ["FUORI", "ZTL"], mood: .green)
+            m = .green; h = L("Easy arrival.")
+        case .uncovered:
+            m = .neutral; h = L("We don't know this place.")
         case .conditional:
-            mood = .amber; headline = L("You can enter, on one condition:"); panel = GatePanelState(lines: ["VARCO", "ATTIVO"], mood: .amber)
+            m = .amber; h = L("You can enter, on one condition:")
         case .unsure:
-            mood = .amber; headline = L("Check the sign."); panel = GatePanelState(lines: ["VARCO", "ATTIVO"], mood: .amber)
+            m = .amber; h = L("Check the sign.")
         case .pedestrian:
-            mood = .red; headline = L("Pedestrian area."); panel = GatePanelState(lines: ["AREA", "PEDONALE"], mood: .red)
+            m = .red; h = L("Pedestrian area.")
         }
+        mood = m; headline = h
+        panel = GatePanelState.make(kind: check.kind, gatesOn: gatesOn, mood: m)
         switch check.answer?.verdict {
         case .conditional(_, let condition)? where check.kind == .conditional: detail = condition
         case .unsure(let reason)? where check.kind == .unsure: detail = reason
         default: detail = nil
         }
-        // Fonte non ufficiale: stessi colori e stesso pannello (la risposta non cambia), parole più prudenti
+        if check.kind == .uncovered { detail = L("We don't know the ZTLs of this place. Check the signs at the entrance.") }
+        // Fonte non ufficiale: parole più prudenti; il «sì» anche giallo, con l'invito a guardare il cartello
         if unofficial {
             if check.kind == .closed { headline = L("Probably not.") }
-            if check.kind == .open { headline = L("Probably yes.") }
+            if check.kind == .open { headline = L("Probably yes."); detail = L("Unofficial source: check the sign.") }
         }
         if check.kind == .pedestrian {
             timeLabel = L("At any time"); time = nil
@@ -89,6 +101,21 @@ struct Home2Answer: Equatable {
 struct GatePanelState: Equatable {
     var lines: [String]
     var mood: Home2Answer.Mood
+
+    /// 1.19.0: il TESTO dice lo stato vero dei varchi (answer.gatesOn), con la dicitura ufficiale dei pannelli
+    /// «ZTL ATTIVA» / «ZTL NON ATTIVA» (docs/parole.md); il COLORE dice la risposta. Varchi accesi ma puoi entrare
+    /// (elettrica, moto esente, permesso, zona verde ammessa): verde «ZTL ATTIVA · SEI ESENTE». Mai «NON ATTIVA» a
+    /// varchi accesi né «ATTIVA» a varchi spenti (prima «VARCO NON ATTIVO» per ogni «sì», «VARCO ATTIVO» per ogni dubbio)
+    static func make(kind: PlaceCheck.Kind, gatesOn: Bool, mood: Home2Answer.Mood) -> GatePanelState {
+        switch kind {
+        case .pedestrian: return GatePanelState(lines: ["AREA", "PEDONALE"], mood: mood)
+        case .outside: return GatePanelState(lines: ["FUORI", "ZTL"], mood: mood)
+        case .uncovered: return GatePanelState(lines: ["ZONA", "NON COPERTA"], mood: mood)
+        case .open where gatesOn: return GatePanelState(lines: ["ZTL ATTIVA", "SEI ESENTE"], mood: mood)
+        case .open, .closed, .conditional, .unsure:
+            return GatePanelState(lines: gatesOn ? ["ZTL", "ATTIVA"] : ["ZTL", "NON ATTIVA"], mood: mood)
+        }
+    }
 }
 
 // MARK: Il pannello come oggetto

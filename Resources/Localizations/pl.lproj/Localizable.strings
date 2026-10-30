@@ -776,6 +776,13 @@
 "Probably not." = "Prawdopodobnie nie.";
 "Probably yes" = "Prawdopodobnie tak";
 "Probably not" = "Prawdopodobnie nie";
+"Probably yes · unofficial source: check the sign" = "Prawdopodobnie tak · źródło nieoficjalne: sprawdź znak";
+"Unofficial source: check the sign." = "Źródło nieoficjalne: sprawdź znak.";
+"We don't know this place." = "Nie znamy tego miejsca.";
+"We don't know this place" = "Nieznane miejsce";
+"We don't know the ZTLs of this place" = "Nie znamy stref ZTL w tym miejscu";
+"We don't know the ZTLs of this place. Check the signs at the entrance." = "Nie znamy stref ZTL w tym miejscu. Sprawdź znaki przy wjeździe.";
+"We don't know the ZTLs of this area yet." = "Nie znamy jeszcze stref ZTL w tej okolicy.";
 "Paid ZTL" = "Płatna ZTL";
 "Low-emission zone" = "Strefa niskiej emisji";
 "What the source says" = "Co mówi źródło";

@@ -79,7 +79,8 @@ struct MapScreen: View {
         let zone = store.zone
         // L'ora e il veicolo dei chip: colori delle zone, varchi, scheda della zona e del posto
         let moment = store.moment()
-        let answer = store.answer(at: moment)
+        // Nessuna destinazione qui: la zona scelta, senza la condizione dell'hotel (1.19.0)
+        let answer = store.answer(at: moment, hotelInside: false)
         // Le forme pronte (ordinate, grandi sotto) si calcolano una volta per ogni versione dei dati, non a ogni disegno
         // Da lontano perimetri semplificati e solo le zone nella parte visibile (MapShapes, ricalcolati solo
         // quando cambia il gradino di zoom o la parte visibile alla fine di un gesto)
@@ -548,7 +549,8 @@ struct MapScreen: View {
     /// La scheda del posto cercato: dov'è, in che zona, se adesso si entra
     private func placeSheet(_ check: PlaceCheck) -> some View {
         let place = check.place
-        let hit = check.hits.first
+        // La zona che decide: la risposta peggiore tra quelle che contengono il posto (1.19.0)
+        let hit = check.hit
         let pedestrian = check.pedestrian
         let answer = check.answer
         let here = GateMonitor.shared.location     // letta, non osservata: la mappa non si ridisegna a ogni passo
@@ -566,8 +568,11 @@ struct MapScreen: View {
                     Pill(text: L("Don't enter"), fill: Verdict.no(reason: "").pillFill, ink: Verdict.no(reason: "").pillInk)
                 } else if let answer {
                     VerdictPill(verdict: answer.verdict, unofficial: check.unofficial)
-                } else {
+                } else if check.covered {
                     Pill(text: L("You can enter"), fill: Theme.greenSoft, ink: Theme.greenInk)
+                } else {
+                    // Fuori copertura: neutro, mai verde (1.19.0)
+                    Pill(text: L("We don't know this place"), fill: Theme.muted.opacity(0.16), ink: Theme.muted)
                 }
             }
             if check.unofficial { UnofficialBanner(source: hit?.zone.source.unofficialSource) }
@@ -583,6 +588,8 @@ struct MapScreen: View {
             }
             if let answer, pedestrian == nil {
                 Text(Self.detail(answer.verdict)).font(.app(size: 14)).foregroundStyle(Theme.ink).lineLimit(3)
+            } else if check.kind == .uncovered {
+                Text(Self.detail(check.verdict)).font(.app(size: 14)).foregroundStyle(Theme.ink).lineLimit(3)
             }
             // «Avvia» direttamente da qui: il navigatore preferito con gli avvisi di GateLR
             HStack(spacing: 10) {

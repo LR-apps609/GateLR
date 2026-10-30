@@ -31,13 +31,13 @@ final class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegat
     @MainActor
     private func template() -> CPTemplate {
         let store = Store.shared
-        let answer = store.answer()
+        let answer = store.answer(hotelInside: false)
         let zone = store.zone
         var items: [CPInformationItem] = []
         // Con il guardiano attivo, in auto conta la prossima ZTL davanti
         if Guardian.shared.active {
             if let t = Guardian.shared.threat {
-                items.append(CPInformationItem(title: "\(t.zone.shortName) · \(DriveSession.distanceText(t.meters))", detail: t.answer.verdict.short))
+                items.append(CPInformationItem(title: "\(t.zone.shortName) · \(DriveSession.distanceText(t.meters))", detail: t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial)))
             } else {
                 items.append(CPInformationItem(title: L("No active ZTL ahead"), detail: Guardian.shared.destination?.name ?? ""))
             }

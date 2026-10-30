@@ -124,14 +124,14 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         if let t = best {
             if t.meters < 550 && !alerted.contains("far|\(t.zone.id)") {
                 alerted.insert("far|\(t.zone.id)")
-                let text = String(format: L("Attention: in %@ you enter %@. %@."), DriveSession.distanceText(t.meters), t.zone.shortName, t.answer.verdict.short)
+                let text = String(format: L("Attention: in %@ you enter %@. %@."), DriveSession.distanceText(t.meters), t.zone.shortName, t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial))
                 say(text)
-                notify(title: String(format: L("%@ in %@"), t.zone.shortName, DriveSession.distanceText(t.meters)), body: t.answer.verdict.short, id: "far|\(t.zone.id)")
+                notify(title: String(format: L("%@ in %@"), t.zone.shortName, DriveSession.distanceText(t.meters)), body: t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial), id: "far|\(t.zone.id)")
             }
             if t.meters < 150 && !alerted.contains("near|\(t.zone.id)") {
                 alerted.insert("near|\(t.zone.id)")
-                say(String(format: L("Gate ahead: %@."), t.answer.verdict.short))
-                notify(title: String(format: L("Gate ahead: %@"), t.zone.shortName), body: t.answer.verdict.short, id: "near|\(t.zone.id)")
+                say(String(format: L("Gate ahead: %@."), t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial)))
+                notify(title: String(format: L("Gate ahead: %@"), t.zone.shortName), body: t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial), id: "near|\(t.zone.id)")
             }
         } else {
             // Ti sei allontanato: gli avvisi si possono ripetere se torni verso la zona
@@ -155,12 +155,13 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
             if d == 0 {
                 if let before, before > 0 {
                     let a = answer(z, 0)
-                    if case .yes = a.verdict {} else { entered.append((z, a)) }
+                    // Un «sì» da fonte non ufficiale non è un via libera (1.19.0): si mostra giallo e si avvisa
+                    if !a.verdict.shown(unofficial: z.isUnofficial).isYes { entered.append((z, a)) }
                 }
                 continue
             }
             let a = answer(z, d)
-            if case .yes = a.verdict { continue }
+            if a.verdict.shown(unofficial: z.isUnofficial).isYes { continue }
             guard before.map({ d < $0 - 3 }) ?? true else { continue }       // solo se ti stai avvicinando
             if best == nil || d < best!.meters { best = Threat(zone: z, meters: d, answer: a) }
         }
@@ -171,10 +172,10 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
 
     private var state: DriveAttributes.ContentState {
         if let t = threat {
-            let level: String = switch t.answer.verdict { case .no: "no"; case .yes: "ok"; default: "cond" }
-            // Fonte non ufficiale: «Probabilmente no · Fonte non ufficiale» (la risposta resta la stessa)
-            let short = t.answer.verdict.shortText(unofficial: t.zone.isUnofficial)
-                + (t.zone.isUnofficial ? " · " + L("Unofficial source") : "")
+            // Il livello dalla risposta come si mostra: un «sì» da fonte non ufficiale è giallo («cond»), mai «ok» verde
+            let level: String = switch t.answer.verdict.shown(unofficial: t.zone.isUnofficial) { case .no: "no"; case .yes: "ok"; default: "cond" }
+            // Fonte non ufficiale: «Probabilmente no · Fonte non ufficiale», «Probabilmente sì · fonte non ufficiale: controlla il cartello»
+            let short = t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial)
             return DriveAttributes.ContentState(symbol: t.zone.type.symbol, distance: DriveSession.distanceText(t.meters),
                                                 instruction: "\(t.zone.shortName) · \(short)",
                                                 warning: t.meters < 600 ? String(format: L("%@ in %@: %@"), t.zone.shortName, DriveSession.distanceText(t.meters), short) : nil,

@@ -23,6 +23,8 @@ struct GateLRApp: App {
                     await store.whenLoaded()
                     Self.uiTestUnofficial(store)
                     Self.uiTestMode(store)
+                    Self.uiTestVehicle(store)
+                    Self.uiTestAt(store)
                     Self.uiTestPlace(store)
                     // Siri impara i nomi delle zone («posso entrare a Firenze Settore A…») dalle città appena lette
                     GateLRShortcuts.updateAppShortcutParameters()
@@ -59,6 +61,34 @@ struct GateLRApp: App {
         store.testMode = TestZone.make(at: Coordinate(lat: lat, lon: lon))
         store.cityId = TestZone.cityId
         store.zoneId = TestZone.zoneId
+    }
+
+    /// Solo per le foto automatiche (1.19.0): «-uiVehicle diesel 1» mette quel veicolo nel garage e lo sceglie
+    /// (Palazzo Vecchio di notte con un diesel Euro 1: lo Scudo Verde lo vieta anche a Settore A spento)
+    @MainActor private static func uiTestVehicle(_ store: Store) {
+        let args = ProcessInfo.processInfo.arguments
+        guard args.contains("-uitest"), let i = args.firstIndex(of: "-uiVehicle"), args.count > i + 2,
+              let fuel = Fuel(rawValue: args[i + 1]), let euro = Int(args[i + 2]) else { return }
+        let v = Vehicle(name: "Prova", fuel: fuel, euro: euro)
+        store.vehicles = [v]
+        store.activeVehicleId = v.id
+    }
+
+    /// Solo per le foto automatiche (1.19.0): «-uiAt 22:00» sceglie nel chip quell'ora (di Roma) del prossimo martedì,
+    /// mercoledì o giovedì non festivo: la foto non dipende dall'ora in cui gira il giro
+    @MainActor private static func uiTestAt(_ store: Store) {
+        let args = ProcessInfo.processInfo.arguments
+        guard args.contains("-uitest"), let i = args.firstIndex(of: "-uiAt"), args.count > i + 1 else { return }
+        let parts = args[i + 1].split(separator: ":").compactMap { Int($0) }
+        guard parts.count == 2 else { return }
+        let cal = RuleEngine.rome
+        var day = cal.startOfDay(for: Date())
+        for _ in 0..<14 {
+            day = cal.date(byAdding: .day, value: 1, to: day) ?? day
+            let w = cal.component(.weekday, from: day)
+            if (3...5).contains(w) && !ItalianHolidays.isHoliday(day, calendar: cal) { break }
+        }
+        store.when = cal.date(bySettingHour: parts[0], minute: parts[1], second: 0, of: day)
     }
 
     /// Solo per le foto automatiche: «-uiPlace "Duomo di Milano" 45.4641 9.1919» sceglie un posto senza cercarlo in rete

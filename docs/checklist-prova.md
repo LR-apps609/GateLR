@@ -344,3 +344,15 @@ Istruzioni passo passo in docs/prova-sul-campo.md.
 - [ ] Varco, la striscia di mappa in cima (Mapbox): le zone hanno gli stessi colori, il bordo tratteggiato e le righe se attive; senza Mapbox (mappa di Apple) lo stesso disegno
 - [ ] La mappa resta fluida spostandola e zoomando a Firenze e a Milano (molte zone e aree pedonali); niente scatti quando compaiono le righe
 - [ ] Modalità scura: colori più chiari sui bordi, segni leggibili, il giallo resta giallo
+
+## 18. Mai un verde che non sappiamo (1.19.0)
+- [ ] Garage: un diesel Euro 1. Varco, «Adesso ▾» stasera alle 22 (non giovedì–sabato dopo le 23), cerca «Palazzo Vecchio»: «Non entrare.», sotto «Firenze · Scudo Verde», pannello rosso «ZTL ATTIVA» (il Settore A è spento, ma lo Scudo Verde è sempre acceso). Con l'auto a noleggio benzina Euro 6 alla stessa ora: «Entra pure.», «ZTL NON ATTIVA» verde
+- [ ] Milano, Corso Magenta, un giorno feriale alle 11 con la benzina Euro 6: «A una condizione» (ticket dell'Area C), anche se l'Area B da sola direbbe sì; in Viaggio «Anche dentro» elenca l'Area B
+- [ ] Cerca un posto fuori dalle città di GateLR (es. Piazza del Duomo a Pistoia, Prato centro): «Non conosciamo questo posto.», contorno grigio-azzurro, pannello «ZONA NON COPERTA», mai verde né «Arrivo sereno»; in Viaggio la scheda con il «?» e il bordo grigio; sulla mappa il segno «Non conosciamo questo posto»
+- [ ] Un indirizzo a meno di 2 km dalle zone di una città che c'è (es. Lucca appena fuori dalle mura): «Arrivo sereno.», «FUORI ZTL» verde, come prima
+- [ ] Siri «ZTL vicine con GateLR» lontano da tutte le città: «Non conosciamo ancora le ZTL di questa zona.» (non più «Nessuna ZTL entro 5 km»)
+- [ ] Una città con fonte non ufficiale (Cagliari, Mantova, Ostuni, Polignano, Salerno) a varchi spenti: «Probabilmente sì.» con «Fonte non ufficiale: controlla il cartello.», tutto giallo con il «?» (pannello, pillola, spillo e riquadro sulla mappa, zona sulla mappa, widget), mai verde; il guardiano avvisa «Probabilmente sì · fonte non ufficiale: controlla il cartello» e la Live Activity è gialla
+- [ ] Pannello di Varco: con un'auto elettrica nell'Area C attiva (feriale alle 11) «ZTL ATTIVA · SEI ESENTE» verde; con dati da controllare o un festivo non confermato di notte il pannello dice «ZTL NON ATTIVA» in giallo, mai «ATTIVA» a varchi spenti
+- [ ] «Non sicuro» è giallo con il «?» anche nella scheda grande di Viaggio e nelle pillole, mai grigio
+- [ ] Scheda della zona, scheda della mappa, CarPlay e avvisi ad app chiusa per il Settore A di giorno con l'auto a noleggio: «Non entrare» (prima «A una condizione: l'hotel registra la targa»). Solo cercando l'hotel di un viaggio salvato dentro la ZTL la risposta è «A una condizione»
+- [ ] Dopo l'aggiornamento il garage, i viaggi e i permessi ci sono ancora (il vecchio valore nascosto «hotel dentro la ZTL» si scarta)
