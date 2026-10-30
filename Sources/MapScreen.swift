@@ -20,6 +20,8 @@ struct MapScreen: View {
     /// Lo zoom «alla MapLibre» (lo stesso del sito) e la direzione della camera: corridoi, righe, segni, varchi
     @State private var zoom: Double = 14
     @State private var heading: Double = 0
+    /// La parte visibile senza margine: le righe a 45° solo lì (poche MapPolyline, la mappa resta fluida)
+    @State private var shownBox: BBox?
     @State private var center: CLLocationCoordinate2D?
     /// Livello di dettaglio (MapDetail.bucket) e parte visibile con margine: si aggiornano alla fine dei gesti
     @State private var bucket = MapDetail.bucket(for: 8_000)
@@ -106,7 +108,7 @@ struct MapScreen: View {
                         ZoneOverlay(coords: coords, access: look.access, picked: picked, dim: dim, big: z.type == .green,
                                     zoom: zoom, dark: darkMap)
                         if look.active && zoom >= MapTheme.hatchZoom {
-                            ForEach(HatchCache.lines(id: z.id, coords: coords, zoom: zoom, box: visibleBox)) { h in
+                            ForEach(HatchCache.lines(id: z.id, coords: coords, zoom: zoom, box: shownBox ?? visibleBox)) { h in
                                 MapPolyline(coordinates: [h.a, h.b])
                                     .stroke(MapTheme.tone(look.access).line.opacity(MapTheme.hatchOpacity(dark: darkMap) * (dim ? 0.4 : 1)), lineWidth: 1)
                             }
@@ -138,6 +140,7 @@ struct MapScreen: View {
                                         color: MapTheme.tone(look.access).line, angle: StreetLabel.angle(axis, heading: heading))
                                 .opacity(dim ? 0.4 : 1)
                                 .allowsHitTesting(false)
+                                .accessibilityHidden(true)
                         }
                         .annotationTitles(.hidden)
                     }
@@ -154,6 +157,7 @@ struct MapScreen: View {
                                 Annotation("", coordinate: a.label, anchor: .center) {
                                     ZoneMark(text: "PEDONALE", badge: MapTheme.pedestrianBadge, name: zoom >= MapTheme.streetNameZoom && a.axis != nil ? nil : a.name, selected: false)
                                         .allowsHitTesting(false)
+                                        .accessibilityHidden(true)     // decine di aree pedonali: VoiceOver (e i test) restano veloci
                                 }
                                 .annotationTitles(.hidden)
                             }
@@ -255,6 +259,10 @@ struct MapScreen: View {
                 center = ctx.camera.centerCoordinate
                 zoom = MapZoom.zoom(distance: ctx.camera.distance, latitude: ctx.camera.centerCoordinate.latitude)
                 heading = ctx.camera.heading
+                let r = ctx.region
+                let seen = BBox(minLat: r.center.latitude - r.span.latitudeDelta / 2, minLon: r.center.longitude - r.span.longitudeDelta / 2,
+                                maxLat: r.center.latitude + r.span.latitudeDelta / 2, maxLon: r.center.longitude + r.span.longitudeDelta / 2)
+                if seen != shownBox { shownBox = seen }
                 // Gradino di zoom e parte visibile: cambiano solo alla fine del gesto
                 let b = MapDetail.bucket(for: ctx.camera.distance)
                 if b != bucket { bucket = b }

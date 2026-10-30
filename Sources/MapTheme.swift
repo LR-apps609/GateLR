@@ -328,9 +328,9 @@ enum HatchCache {
     struct Line: Identifiable { let id: Int; let a: CLLocationCoordinate2D; let b: CLLocationCoordinate2D }
     private static var cache: [String: [Line]] = [:]
 
-    static func lines(id: String, coords: [CLLocationCoordinate2D], zoom: Double, box: BBox?) -> [Line] {
+    static func lines(id: String, coords: [CLLocationCoordinate2D], zoom: Double, box: BBox?, limit: Int = 200) -> [Line] {
         let step = min(18, floor(zoom))
-        let key = "\(id)|\(step)|\(coords.count)|\(box.map { "\($0.minLat),\($0.minLon),\($0.maxLat),\($0.maxLon)" } ?? "")"
+        let key = "\(id)|\(step)|\(limit)|\(coords.count)|\(box.map { "\($0.minLat),\($0.minLon),\($0.maxLat),\($0.maxLon)" } ?? "")"
         if let hit = cache[key] { return hit }
         if cache.count > 400 { cache = [:] }
         let clip = box.map { b -> MKMapRect in
@@ -339,7 +339,7 @@ enum HatchCache {
             return MKMapRect(x: p.x, y: p.y, width: q.x - p.x, height: q.y - p.y)
         }
         let segs = Hatch.segments(rings: [coords.map { MKMapPoint($0) }], pitch: MapTheme.hatchPitch * MapZoom.mapPointsPerPoint(zoom: step),
-                                  clip: clip, limit: 400)
+                                  clip: clip, limit: limit)
         let out = segs.enumerated().map { Line(id: $0.offset, a: $0.element.0.coordinate, b: $0.element.1.coordinate) }
         cache[key] = out
         return out

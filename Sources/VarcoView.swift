@@ -660,7 +660,8 @@ private struct VarcoAppleStrip: View {
             ForEach(Self.layers(zones)) { z in
                 ZoneOverlay(coords: z.ring, access: z.look.access, picked: false, dim: false, big: false, zoom: 16, dark: true)
                 if z.look.active {
-                    ForEach(HatchCache.lines(id: z.id, coords: z.ring, zoom: 16, box: nil)) { h in
+                    // solo intorno al posto (la striscia ne mostra poche centinaia di metri), al massimo 80 righe per zona
+                    ForEach(HatchCache.lines(id: z.id, coords: z.ring, zoom: 16, box: stripBox, limit: 80)) { h in
                         MapPolyline(coordinates: [h.a, h.b])
                             .stroke(MapTheme.tone(z.look.access).line.opacity(MapTheme.hatchOpacity(dark: true)), lineWidth: 1)
                     }
@@ -694,6 +695,11 @@ private struct VarcoAppleStrip: View {
         Home2Map.Coordinator.order(zones.keys).flatMap { look in
             (zones[look] ?? []).enumerated().map { Layer(id: "\(look.access)-\(look.active)-\($0.offset)", look: look, ring: $0.element) }
         }
+    }
+
+    private var stripBox: BBox {
+        let c = framing.includesUser ? framing.center : place.location
+        return BBox(minLat: c.lat - 0.006, minLon: c.lon - 0.008, maxLat: c.lat + 0.006, maxLon: c.lon + 0.008)
     }
 
     private var position: MapCameraPosition {
