@@ -340,7 +340,10 @@ final class ScreenshotTests: XCTestCase {
             app.launchArguments = it + extra
             app.launch()
             XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
-            sleep(5)
+            // La risposta arriva dopo la lettura delle città (Milano è grande) e la scheda entra con una dissolvenza:
+            // si aspetta il titolo della risposta, poi la fine dell'animazione (nella 1.19.0 le foto 33, 35 e 36 erano a metà)
+            XCTAssertTrue(app.descendants(matching: .any)["varco.answer"].firstMatch.waitForExistence(timeout: 30), "\(name): manca la risposta")
+            sleep(4)
             snap(name)
         }
     }
