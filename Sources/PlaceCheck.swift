@@ -120,6 +120,21 @@ struct PlaceCheck {
         }
     }
 
+    /// 1.19.1 «l'area pedonale vince»: la risposta da mostrare in Viaggio. Nell'area pedonale sempre «no», ma con lo
+    /// stato VERO dei varchi della zona all'ora scelta (prima «ZTL attiva» era scritto fisso, anche alle 23:58 con la
+    /// ZTL 7–20); fuori dalle aree pedonali la risposta della zona che decide
+    var shownAnswer: Answer? {
+        guard pedestrian != nil else { return answer }
+        return Answer(verdict: verdict, gatesOn: answer?.gatesOn ?? false, nextChange: nil)
+    }
+
+    /// La scheda verde «Fuori dalla ZTL. Puoi andarci»: solo fuori da ogni zona E da ogni area pedonale, in una città
+    /// che conosciamo (1.19.1: in via Galliera a Bologna, fuori dalle zone, c'era il riquadro rosso e sotto il verde)
+    var showsOutside: Bool { hits.isEmpty && pedestrian == nil && covered }
+
+    /// La risposta è «no» (rosso): «Parcheggia fuori e cammina» diventa l'azione principale (1.19.1)
+    var parkingFirst: Bool { kind == .closed || kind == .pedestrian }
+
     /// Le regole della zona vengono solo da fonti non ufficiali: la risposta si dice con prudenza
     var unofficial: Bool { pedestrian == nil && zone?.isUnofficial == true }
 

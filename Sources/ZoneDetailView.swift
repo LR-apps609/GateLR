@@ -8,16 +8,21 @@ struct ZoneDetailView: View {
     var city: City
 
     var body: some View {
-        let answer = store.answer(zone: zone, hotelInside: false)
+        // 1.19.1: lo stato dei varchi all'ora scelta nei chip (la stessa di Viaggio e della mappa), non sempre «adesso».
+        // Il pill dice solo lo stato dei varchi: «puoi entrare» è la risposta, che dipende dal veicolo (Viaggio, Varco)
+        let date = store.moment()
+        let on = store.engine.isActive(zone, at: date)
+        let later = store.when.map { $0 > Date() } ?? false
+        let state = (on ? L("ZTL active") : L("ZTL not active"))
+            + (later ? " · " + store.engine.format(date, .dateTime.weekday(.abbreviated).hour().minute()) : "")
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(zone.localizedName).font(Theme.display(30))
                     HStack(spacing: 8) {
                         Pill(text: zone.type.title, fill: zone.type.color.opacity(0.16), ink: zone.type.color)
-                        Pill(text: answer.gatesOn ? L("ZTL active") : (zone.isUnofficial ? L("ZTL not active") : L("ZTL not active · you can enter")),
-                             fill: answer.gatesOn ? Theme.amberSoft : Theme.greenSoft,
-                             ink: answer.gatesOn ? Theme.amberInk : Theme.greenInk)
+                        Pill(text: state, fill: on ? Theme.amberSoft : Theme.raised, ink: on ? Theme.amberInk : Theme.muted)
+                            .accessibilityIdentifier("zone.state")
                         Text(city.localizedName).font(.app(size: 13)).foregroundStyle(Theme.muted)
                     }
                     // Zona da fonti non ufficiali: c'è già l'avviso qui sotto («Bozza: dalle fonti ufficiali» sarebbe falso)

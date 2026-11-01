@@ -1,3 +1,10 @@
+Novità della 1.19.1 (l'area pedonale vince):
+• In un'area pedonale la risposta è sempre «Non entrare», anche fuori dalle zone: in Viaggio (es. via Galliera a Bologna) non compare più sotto il rosso la scheda verde «Fuori dalla ZTL. Puoi andarci»
+• Viaggio e la scheda della zona usano l'ora scelta in «Adesso ▾» e il tuo veicolo: «ZTL attiva» / «ZTL non attiva» è lo stato vero dei varchi a quell'ora (prima nelle aree pedonali «ZTL attiva» a qualsiasi ora); la scheda della zona non dice più «puoi entrare» (dipende dal veicolo)
+• Il controllo del percorso conosce le aree pedonali: una destinazione in un'area pedonale è «Non entrare», con il parcheggio fuori
+• Con la risposta «no» l'azione principale è «Parcheggia fuori e cammina», in Varco e in Viaggio; la mappa diventa un pulsante secondario
+• Mappa: la riga «Legenda» non copre più l'etichetta del posto cercato (con un posto la legenda è sul pulsante «i»)
+
 Novità della 1.19.0 (mai un verde che non sappiamo):
 • Se un posto è dentro più zone conta la più severa: a Palazzo Vecchio di notte un diesel Euro 1 riceve «Non entrare.» per lo Scudo Verde (sempre attivo), anche con il Settore A spento; a Milano conta anche l'Area B intorno all'Area C. Sotto la risposta si vede la zona che decide
 • Fuori dalle città che GateLR conosce (a più di 2 km dalle loro zone, es. Pistoia o Prato) la risposta è «Non conosciamo le ZTL di questo posto», neutra, mai verde né «Arrivo sereno»; «Fuori dalla ZTL» resta solo dentro le città coperte. Anche in Viaggio, sulla mappa e con Siri («Non conosciamo ancora le ZTL di questa zona»)

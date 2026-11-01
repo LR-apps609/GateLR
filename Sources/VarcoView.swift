@@ -420,41 +420,65 @@ struct VarcoView: View {
 
     private func actions(_ check: PlaceCheck) -> some View {
         VStack(spacing: 10) {
-            Button { openMap(check) } label: {
-                Label(L("See the map"), systemImage: "map.fill")
-                    .font(Self.font(18, .bold)).foregroundStyle(Notte.navy)
-                    .frame(maxWidth: .infinity, minHeight: 52)
-                    .background(Notte.text, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-            }
-            .buttonStyle(.plain)
-            .accessibilityIdentifier("varco.map")
-            HStack(spacing: 10) {
-                if let hit = check.hit {
-                    secondary(L("Why?"), "doc.text") {
-                        store.cityId = hit.city.id; store.zoneId = hit.zone.id
-                        showZone = true
+            if check.parkingFirst {
+                // 1.19.1: «Non entrare.» → l'azione principale è «Parcheggia fuori e cammina», grande e per prima;
+                // la mappa diventa un pulsante secondario accanto a «Perché?» e «Dettagli del viaggio»
+                parkButton(primary: true)
+                HStack(spacing: 10) {
+                    Button { openMap(check) } label: {
+                        Image(systemName: "map.fill").font(.app(size: 16, weight: .semibold)).foregroundStyle(Notte.text)
+                            .frame(width: 52, height: 44)
+                            .background(Color.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                     }
-                    .accessibilityIdentifier("varco.why")
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(L("See the map"))
+                    .accessibilityIdentifier("varco.map")
+                    whyAndDetails(check)
                 }
-                secondary(L("Trip details"), "suitcase.rolling") {
-                    if store.place == nil { store.select(check.place) }
-                    router.open(.trip)
-                }
-                .accessibilityIdentifier("varco.details")
-            }
-            // Rosso o ambra (sotto «Perché?» e «Dettagli», che devono stare nello schermo): i parcheggi fuori dalla ZTL, con i minuti a piedi
-            if check.suggestsParking {
-                Button { parkSheet = true } label: {
-                    Label(L("Park outside and walk"), systemImage: "figure.walk")
-                        .font(.app(size: 16, weight: .bold)).foregroundStyle(.white)
-                        .frame(maxWidth: .infinity, minHeight: 48)
-                        .background(Notte.action, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            } else {
+                Button { openMap(check) } label: {
+                    Label(L("See the map"), systemImage: "map.fill")
+                        .font(Self.font(18, .bold)).foregroundStyle(Notte.navy)
+                        .frame(maxWidth: .infinity, minHeight: 52)
+                        .background(Notte.text, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                 }
                 .buttonStyle(.plain)
-                .accessibilityIdentifier("varco.park")
+                .accessibilityIdentifier("varco.map")
+                HStack(spacing: 10) { whyAndDetails(check) }
+                // Ambra (sotto «Perché?» e «Dettagli», che devono stare nello schermo): i parcheggi fuori dalla ZTL, con i minuti a piedi
+                if check.suggestsParking { parkButton(primary: false) }
             }
         }
         .padding(.top, 4)
+    }
+
+    @ViewBuilder
+    private func whyAndDetails(_ check: PlaceCheck) -> some View {
+        if let hit = check.hit {
+            secondary(L("Why?"), "doc.text") {
+                store.cityId = hit.city.id; store.zoneId = hit.zone.id
+                showZone = true
+            }
+            .accessibilityIdentifier("varco.why")
+        }
+        secondary(L("Trip details"), "suitcase.rolling") {
+            if store.place == nil { store.select(check.place) }
+            router.open(.trip)
+        }
+        .accessibilityIdentifier("varco.details")
+    }
+
+    /// «Parcheggia fuori e cammina»: principale (più grande, per primo) quando la risposta è «no»
+    private func parkButton(primary: Bool) -> some View {
+        Button { parkSheet = true } label: {
+            Label(L("Park outside and walk"), systemImage: "figure.walk")
+                .font(primary ? Self.font(18, .bold) : Font.app(size: 16, weight: .bold)).foregroundStyle(.white)
+                .lineLimit(1).minimumScaleFactor(0.8)
+                .frame(maxWidth: .infinity, minHeight: primary ? 52 : 48)
+                .background(Notte.action, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("varco.park")
     }
 
     private func secondary(_ title: String, _ symbol: String, action: @escaping () -> Void) -> some View {

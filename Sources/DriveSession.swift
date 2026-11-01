@@ -279,7 +279,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         answerCache = [:]
         if let store {
             crossings = RouteCheck.crossings(path: RouteCheck.densify(path), zones: store.cities.flatMap(\.zones),
-                                             departure: Date(), travelTime: r.expectedTravelTime) {
+                                             pedestrian: store.cities.flatMap { $0.pedestrian ?? [] }, departure: Date(), travelTime: r.expectedTravelTime) {
                 store.answer(at: $1, zone: $0, hotelInside: false)
             }
             busCameras = Self.camerasNear(path, cameras: store.cities.flatMap { $0.cameras ?? [] }.filter { $0.kind == .bus })
@@ -429,7 +429,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     private func cachedAnswer(_ c: RouteCrossing, inSeconds s: Double) -> Answer {
         let bucket = Int(s / 120)
         if let e = answerCache[c.id], e.bucket == bucket, Date().timeIntervalSince(e.time) < 30 { return e.answer }
-        guard let store else { return c.answer }
+        // Area pedonale (1.19.1): sempre «no», il motore delle regole non la conosce
+        guard let store, c.pedestrian == nil else { return c.answer }
         let a = store.answer(at: Date().addingTimeInterval(s), zone: c.zone, hotelInside: false)
         answerCache[c.id] = (Date(), bucket, a)
         return a

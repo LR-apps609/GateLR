@@ -318,6 +318,18 @@ struct MapScreen: View {
         }
     }
 
+    /// La regione allargata verso nord quanto basta perché il posto stia almeno a «fraction» dell'altezza dal bordo alto:
+    /// sopra c'è l'etichetta con la risposta (circa metà della mappa visibile tra la barra in alto e la scheda in basso)
+    nonisolated static func roomAbove(_ r: MKCoordinateRegion, for p: CLLocationCoordinate2D, fraction k: Double = 0.55) -> MKCoordinateRegion {
+        var top = r.center.latitude + r.span.latitudeDelta / 2
+        var bottom = r.center.latitude - r.span.latitudeDelta / 2
+        // Il posto dentro la regione, con un margine in basso per il punto
+        bottom = min(bottom, p.latitude - r.span.latitudeDelta * 0.08)
+        top = max(top, (p.latitude - k * bottom) / (1 - k))
+        return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (top + bottom) / 2, longitude: r.center.longitude),
+                                  span: MKCoordinateSpan(latitudeDelta: top - bottom, longitudeDelta: r.span.longitudeDelta))
+    }
+
     static func region(_ path: [Coordinate]) -> MKCoordinateRegion? {
         guard let first = path.first else { return nil }
         var lo = first, hi = first
@@ -345,11 +357,14 @@ struct MapScreen: View {
                 camera = .region(r)
             } else if let place = store.place {
                 // Si vede tutta la zona che contiene il posto (il confine acceso), se non è enorme
+                // 1.19.1: con spazio sopra il posto per la sua etichetta (che non deve finire sotto la barra in alto)
+                let base: MKCoordinateRegion
                 if let z = store.zones(at: place.location).first?.zone, z.widthMeters < 6_000 {
-                    camera = .region(z.region(padding: 1.25))
+                    base = z.region(padding: 1.25)
                 } else {
-                    camera = .camera(MapCamera(centerCoordinate: place.location.cl, distance: 1_500, heading: 0, pitch: 0))
+                    base = MKCoordinateRegion(center: place.location.cl, latitudinalMeters: 1_500, longitudinalMeters: 1_500)
                 }
+                camera = .region(Self.roomAbove(base, for: place.location.cl))
             } else {
                 camera = .region(store.zone.region(padding: 1.4))
             }
@@ -404,6 +419,8 @@ struct MapScreen: View {
                         .frame(width: 44, height: 44).background(.regularMaterial, in: Circle()).foregroundStyle(Theme.ink)
                 }
                 .accessibilityLabel(L("Legend"))
+                // Con un posto scelto la riga della legenda non c'è: il pulsante «i» prende il suo identificatore (giro delle foto)
+                .accessibilityIdentifier(store.place != nil && !showLegend ? "map.legend" : "map.legend.info")
                 Menu {
                     Picker(L("Map style"), selection: $style) {
                         ForEach(Style.allCases) { Label($0.title, systemImage: $0.symbol).tag($0) }
@@ -425,13 +442,13 @@ struct MapScreen: View {
                 suggestions
             } else if showLegend {
                 legend.transition(.opacity.combined(with: .move(edge: .top)))
-            } else {
-                // Le quattro risposte, sempre in vista: un tocco apre la legenda intera
+            } else if store.place == nil {
+                // Le quattro risposte, in vista finché non c'è un posto scelto: un tocco apre la legenda intera.
+                // Con un posto (1.19.1) la riga sparisce: copriva l'etichetta del posto sulla mappa («Legenda» sopra
+                // «PROBABILMENTE SÌ»); la legenda intera resta sul pulsante «i»
                 legendStrip
-                if store.place == nil {
-                    // Sotto la barra, dentro la pagina: non copre la ricerca né i pulsanti
-                    TipView(MapSearchTip()).tipBackground(.regularMaterial)
-                }
+                // Sotto la barra, dentro la pagina: non copre la ricerca né i pulsanti
+                TipView(MapSearchTip()).tipBackground(.regularMaterial)
             }
         }
         .padding(.horizontal, 12).padding(.top, 8)
@@ -1014,7 +1031,7 @@ private struct PlaceCallout: View {
             .background(Color.black.opacity(0.8), in: RoundedRectangle(cornerRadius: 4, style: .continuous))
             .overlay(RoundedRectangle(cornerRadius: 4, style: .continuous).stroke(check.neon, lineWidth: 1))
             .shadow(color: check.neon.opacity(0.45), radius: 8)
-            Rectangle().fill(check.neon).frame(width: 1, height: 44)
+            Rectangle().fill(check.neon).frame(width: 1, height: 28)
         }
         .accessibilityElement(children: .combine)
     }

@@ -63,7 +63,8 @@ final class RoutePlanner: ObservableObject {
             let path = RouteCheck.densify(raw)
             let departure = Self.departure(arriving: wanted, travelTime: route.expectedTravelTime)
             let zones = store.cities.flatMap(\.zones)
-            let crossings = RouteCheck.crossings(path: path, zones: zones, departure: departure, travelTime: route.expectedTravelTime) {
+            let crossings = RouteCheck.crossings(path: path, zones: zones, pedestrian: store.cities.flatMap { $0.pedestrian ?? [] },
+                                                 departure: departure, travelTime: route.expectedTravelTime) {
                 store.answer(at: $1, zone: $0, hotelInside: false)
             }
             var plan = RoutePlan(destination: place, path: raw, distance: route.distance, travelTime: route.expectedTravelTime,
@@ -197,7 +198,7 @@ struct RouteCard: View {
                                 .frame(width: 28, height: 28)
                                 .background(c.zone.type.color.opacity(0.16), in: Circle()).foregroundStyle(c.zone.type.color)
                             VStack(alignment: .leading, spacing: 1) {
-                                Text(c.zone.shortName).font(.app(size: 15, weight: .semibold)).lineLimit(1)
+                                Text(c.title).font(.app(size: 15, weight: .semibold)).lineLimit(1)
                                 Text(String(format: L(c.isDestination ? "Destination · at %@" : "On the way · at %@"),
                                             RuleEngine.format(c.at, .init(date: .omitted, time: .shortened))))
                                     .font(.app(size: 12)).foregroundStyle(Theme.muted)

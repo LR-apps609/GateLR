@@ -180,7 +180,8 @@ struct TripView: View {
 
     @ViewBuilder
     private func placeAnswer(_ place: Place, at date: Date) -> some View {
-        // 1.19.0: la risposta di TUTTE le zone che contengono il posto, la peggiore decide (Scudo Verde sopra il Settore A)
+        // 1.19.0: la risposta di TUTTE le zone che contengono il posto, la peggiore decide (Scudo Verde sopra il Settore A).
+        // 1.19.1: sempre all'ora scelta nei chip («date») e per il veicolo scelto; l'area pedonale vince su tutto
         let check = PlaceCheck(place, store: store, at: date)
         let hits = check.hits
         placeCard(place, inside: check.zone, covered: check.covered)
@@ -195,16 +196,17 @@ struct TripView: View {
             .foregroundStyle(.white)
             .padding(14).frame(maxWidth: .infinity, alignment: .leading)
             .background(Theme.red, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .accessibilityElement(children: .combine)
+            .accessibilityIdentifier("trip.pedestrian")
         }
         if let hit = check.hit, let first = hits.first {
-            VerdictCard(answer: check.pedestrian != nil
-                            ? Answer(verdict: .no(reason: L("It's a pedestrian area: cars can't drive in at any time, whatever the ZTL hours.")),
-                                     gatesOn: true, nextChange: nil)
-                            : check.answer ?? store.answer(at: date, zone: hit.zone, hotelInside: store.isHotel(place)),
+            VerdictCard(answer: check.shownAnswer ?? store.answer(at: date, zone: hit.zone, hotelInside: store.isHotel(place)),
                         heading: heading(hit.zone, date),
                         source: hit.zone.source,
                         since: atArrival ? nil : store.engine.previousChange(hit.zone, before: date),
                         onWhy: { store.cityId = hit.city.id; store.zoneId = hit.zone.id; showZone = true })
+            // «No» (1.19.1): prima «Parcheggia fuori e cammina», poi il resto
+            if check.parkingFirst { parkOutside(place, at: date) }
             // Dopo la prima risposta: il guardiano accanto a Google Maps (un riquadro nella pagina, non sopra i pulsanti)
             TipView(StartGuardianTip()).tipBackground(Theme.card)
             if hits.count > 1 {
@@ -213,18 +215,9 @@ struct TripView: View {
                     zoneList(hits.map(\.zone).filter { $0.id != hit.zone.id }, at: date)
                 }
             }
-            routeCard(place)
-            // Rosso o ambra all'ora scelta: i parcheggi fuori da ogni ZTL attiva, poi a piedi
-            if check.suggestsParking {
-                ParkOutsideCard(destination: place, arrival: date, onStart: { target in
-                    Task {
-                        await DriveSession.shared.start(to: target, store: store)
-                        driving = DriveSession.shared.active
-                    }
-                }, onGuardian: { target, navigator in
-                    Guardian.shared.start(to: target, with: navigator, store: store)
-                })
-            }
+            routeCard(place, secondary: check.parkingFirst)
+            // Ambra all'ora scelta: i parcheggi fuori da ogni ZTL attiva, poi a piedi (sotto il percorso, come prima)
+            if check.suggestsParking && !check.parkingFirst { parkOutside(place, at: date) }
             // Biglietto e hotel: della zona più piccola, come prima (sono servizi di quella zona)
             if let ticket = first.zone.ticket, store.engine.isActive(first.zone, at: date), check.pedestrian == nil {
                 TicketCard(zone: first.zone, ticket: ticket, entry: date)
@@ -233,7 +226,11 @@ struct TripView: View {
                 HotelStayCard(place: place, zone: first.zone, arrival: atArrival ? arrivalTime : Date())
                 hotelMessage
             }
-        } else if check.covered {
+        } else if check.pedestrian != nil {
+            // Area pedonale fuori da ogni zona: solo la risposta rossa qui sopra, mai «Fuori dalla ZTL. Puoi andarci»
+            parkOutside(place, at: date)
+            routeCard(place, secondary: true)
+        } else if check.showsOutside {
             outsideCard(place)
             TipView(StartGuardianTip()).tipBackground(Theme.card)
             routeCard(place)
@@ -243,10 +240,23 @@ struct TripView: View {
         }
     }
 
+    /// «Parcheggia fuori e cammina»: i parcheggi fuori da ogni ZTL attiva all'ora scelta, poi a piedi
+    private func parkOutside(_ place: Place, at date: Date) -> some View {
+        ParkOutsideCard(destination: place, arrival: date, onStart: { target in
+            Task {
+                await DriveSession.shared.start(to: target, store: store)
+                driving = DriveSession.shared.active
+            }
+        }, onGuardian: { target, navigator in
+            Guardian.shared.start(to: target, with: navigator, store: store)
+        })
+    }
+
     // MARK: Il percorso
 
+    /// «secondary»: con la risposta «no» il controllo del percorso è un pulsante chiaro sotto «Parcheggia fuori» (1.19.1)
     @ViewBuilder
-    private func routeCard(_ place: Place) -> some View {
+    private func routeCard(_ place: Place, secondary: Bool = false) -> some View {
         if let plan = planner.plan, plan.destination == place {
             RouteCard(plan: plan, onMap: { tab = .map }, onStart: { target in
                 Task {
@@ -260,7 +270,7 @@ struct TripView: View {
             DriveErrorText()
         } else {
             VStack(alignment: .leading, spacing: 8) {
-                WideButton(title: planner.working ? "Planning…" : "Check the drive", systemImage: "car.fill") {
+                WideButton(title: planner.working ? "Planning…" : "Check the drive", systemImage: "car.fill", prominent: !secondary) {
                     Task {
                         await planner.plan(to: place, from: monitor.location?.coordinate ?? RoutePlanner.testOrigin,
                                            arrival: atArrival ? arrivalTime : nil, store: store)

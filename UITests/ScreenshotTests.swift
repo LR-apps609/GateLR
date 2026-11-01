@@ -348,6 +348,40 @@ final class ScreenshotTests: XCTestCase {
         }
     }
 
+    /// 1.19.1 «L'area pedonale vince»: Viaggio all'ora scelta, l'area pedonale fuori dalle zone solo rossa, «Parcheggia
+    /// fuori e cammina» per primo quando la risposta è «no». Dopo test9 (il nome «9b» lo mette dopo nell'ordine dei test)
+    func test9bPedestrianWins() {
+        let it = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT"]
+        let cases: [(String, [String])] = [
+            // Bologna, via Galliera: area pedonale fuori da ogni zona. Prima rosso e sotto il verde «Fuori dalla ZTL»
+            ("37-trip-pedestrian-outside", ["-uiPlace", "Via Galliera", "44.50337", "11.34431"]),
+            // Piazza Maggiore alle 23:58: «Non entrare» (area pedonale) ma «ZTL non attiva» (ZTL 7–20)
+            ("38-trip-pedestrian-2358", ["-uiAt", "23:58", "-uiPlace", "Piazza Maggiore", "44.4939", "11.3426"]),
+            // Diesel Euro 1 alle 22 a Palazzo Vecchio (Scudo Verde): «Parcheggia fuori e cammina» subito sotto la risposta
+            ("39-trip-euro1-park-first", ["-uiVehicle", "diesel", "1", "-uiAt", "22:00", "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]),
+        ]
+        for (name, extra) in cases {
+            app.terminate()
+            app.launchArguments = it + extra
+            app.launch()
+            XCTAssertTrue(youTab.waitForExistence(timeout: 15))
+            // Prima la risposta di Varco (le città si leggono), poi Viaggio
+            XCTAssertTrue(app.descendants(matching: .any)["varco.answer"].firstMatch.waitForExistence(timeout: 30), "\(name): manca la risposta")
+            youTab.tap()
+            sleep(1)
+            guard openYou("trip") else { XCTFail("\(name): manca Viaggio"); continue }
+            if name.hasPrefix("37") {
+                XCTAssertTrue(app.descendants(matching: .any)["trip.pedestrian"].firstMatch.waitForExistence(timeout: 10), "\(name): manca l'area pedonale")
+                XCTAssertFalse(app.staticTexts["Fuori"].exists, "\(name): c'è ancora «Fuori dalla ZTL»")
+            }
+            // «Parcheggia fuori e cammina» cerca i parcheggi: si aspetta che finisca («Cerco…» sparisce), poi la fine delle animazioni
+            let searching = app.staticTexts["Cerco…"].firstMatch
+            for _ in 0..<20 where searching.exists { sleep(1) }
+            sleep(3)
+            snap(name)
+        }
+    }
+
     private func snap(_ name: String) {
         let shot = XCUIScreen.main.screenshot()
         let attachment = XCTAttachment(screenshot: shot)
