@@ -5,6 +5,10 @@ struct GarageView: View {
     @EnvironmentObject var store: Store
     @State private var editing: Vehicle?
     @State private var addingPermit = false
+    /// Un permesso senza zona (versioni vecchie): si sceglie la zona
+    @State private var zoning: Permit?
+    /// Il permesso da confermare (dialogo «Hai la conferma scritta?»)
+    @State private var confirming: Permit?
 
     var body: some View {
         List {
@@ -46,33 +50,38 @@ struct GarageView: View {
                 }
             }
 
-            Section("Permits") {
+            Section {
                 ForEach(store.permits) { p in
                     HStack {
                         Image(systemName: p.kind == .hotelRegistration ? "house" : "checkmark.seal")
-                            .foregroundStyle(p.status == .confirmed ? Theme.greenInk : Theme.amberInk)   // le versioni «Ink» si leggono anche al buio
-                        VStack(alignment: .leading) {
+                            .foregroundStyle(p.status == .confirmed && !p.needsZone ? Theme.greenInk : Theme.amberInk)   // le versioni «Ink» si leggono anche al buio
+                        VStack(alignment: .leading, spacing: 2) {
                             Text(p.kind.label)
+                            Text(verbatim: Self.place(p, cities: store.cities))
+                                .font(.app(size: 13, weight: .semibold)).foregroundStyle(p.needsZone ? Theme.amberInk : Theme.ink)
                             Text("\(RuleEngine.format(p.from, .dateTime.day().month())) – \(RuleEngine.format(p.to, .dateTime.day().month()))")
                                 .font(.app(size: 13)).foregroundStyle(Theme.muted)
                         }
                         Spacer()
-                        Button {
-                            if let i = store.permits.firstIndex(of: p) {
-                                store.permits[i].status = p.status == .confirmed ? .waiting : .confirmed
+                        Button { tapStatus(p) } label: {
+                            if p.needsZone {
+                                Pill(text: L("Choose the zone"), fill: Theme.amberSoft, ink: Theme.amberInk)
+                            } else if p.status == .confirmed {
+                                Pill(text: L("Confirmed"), fill: Theme.greenSoft, ink: Theme.greenInk)
+                            } else {
+                                Pill(text: L("Waiting"), fill: Theme.amberSoft, ink: Theme.amberInk)
                             }
-                        } label: {
-                            Pill(text: L(p.status == .confirmed ? "Confirmed" : "Waiting"),
-                                 fill: p.status == .confirmed ? Theme.greenSoft : Theme.amberSoft,
-                                 ink: p.status == .confirmed ? Theme.greenInk : Theme.amberInk)
                         }
                         .buttonStyle(.plain)
+                        .accessibilityIdentifier("garage.permit.status")
                     }
                 }
                 .onDelete { store.permits.remove(atOffsets: $0) }
                 Button { addingPermit = true } label: { Label("Add a permit", systemImage: "plus.circle") }
+                    .accessibilityIdentifier("garage.addPermit")
+            } header: { Text("Permits") } footer: {
+                Text("A permit counts only in its zone, for the chosen vehicle and days.")
             }
-
             CarAdvice()
         }
         .safeAreaInset(edge: .bottom) { Color.clear.frame(height: 4) }
@@ -86,6 +95,44 @@ struct GarageView: View {
         }
         .sheet(item: $editing) { v in VehicleForm(vehicle: v) }
         .sheet(isPresented: $addingPermit) { PermitForm() }
+        .sheet(item: $zoning) { p in PermitForm(existing: p) }
+        .confirmationDialog(L("Do you have the written confirmation?"), isPresented: Binding(get: { confirming != nil }, set: { if !$0 { confirming = nil } }),
+                            titleVisibility: .visible, presenting: confirming) { p in
+            Button(L("Yes, I have it in writing")) {
+                if let i = store.permits.firstIndex(where: { $0.id == p.id }) { store.permits[i].status = .confirmed }
+                confirming = nil
+            }
+            .accessibilityIdentifier("permit.confirm.yes")
+            Button(L("Cancel"), role: .cancel) { confirming = nil }
+        } message: { p in
+            Text(verbatim: Self.confirmText(p, store: store))
+        }
+    }
+
+    /// Il tocco sulla pillola: confermato → in attesa subito (più prudente); in attesa → confermato solo dopo il dialogo;
+    /// senza zona si sceglie prima la zona
+    private func tapStatus(_ p: Permit) {
+        if p.needsZone { zoning = p; return }
+        if p.status == .confirmed {
+            if let i = store.permits.firstIndex(where: { $0.id == p.id }) { store.permits[i].status = .waiting }
+        } else {
+            confirming = p
+        }
+    }
+
+    /// «Firenze · Settore A», o «Firenze · scegli la zona» per i permessi salvati senza zona
+    static func place(_ p: Permit, cities: [City]) -> String {
+        let city = cities.first { $0.id == p.cityId }
+        let name = city?.localizedName ?? p.cityId
+        guard let id = p.zoneId else { return name + " · " + L("no zone: it doesn't count") }
+        return name + " · " + (city?.zones.first { $0.id == id }?.localizedName ?? id)
+    }
+
+    static func confirmText(_ p: Permit, store: Store) -> String {
+        let vehicle = store.vehicles.first { $0.id == p.vehicleId }
+        let who = vehicle.map { $0.plate.isEmpty ? $0.name : $0.plate } ?? L("your vehicle")
+        return String(format: L("Confirm only if the city or the hotel has confirmed in writing that %@ is registered for %@. GateLR will answer \"yes\" there for these days, and only there."),
+                      who, place(p, cities: store.cities))
     }
 }
 
@@ -323,29 +370,80 @@ struct CarAdvice: View {
 struct PermitForm: View {
     @EnvironmentObject var store: Store
     @Environment(\.dismiss) private var dismiss
+    /// Un permesso già salvato senza zona (versioni fino alla 1.19.1): si sceglie la zona e si salva al suo posto
+    var existing: Permit? = nil
     @State private var kind: Permit.Kind = .hotelRegistration
     @State private var from = Date()
     @State private var to = Date().addingTimeInterval(86_400 * 3)
+    @State private var cityId: String?
+    @State private var zoneId: String?
+    @State private var asking = false
+    @State private var loaded = false
+
+    private var city: City? { store.cities.first { $0.id == (cityId ?? store.city.id) } }
+    private var vehicleId: UUID { existing?.vehicleId ?? store.vehicle.id }
+    private var draft: Permit? {
+        guard let c = city, let z = zoneId, c.zones.contains(where: { $0.id == z }) else { return nil }
+        return Permit(id: existing?.id ?? UUID(), kind: kind, cityId: c.id, zoneId: z, vehicleId: vehicleId,
+                      from: from, to: to, status: .waiting)
+    }
 
     var body: some View {
         NavigationStack {
             Form {
-                Picker("Type", selection: $kind) { ForEach(Permit.Kind.allCases, id: \.self) { Text($0.label).tag($0) } }
-                DatePicker("From", selection: $from)
-                DatePicker("To", selection: $to, in: from...)
-                Text(String(format: L("For %@ in %@"), store.vehicle.name, store.city.localizedName)).foregroundStyle(Theme.muted)
+                Section {
+                    Picker("Type", selection: $kind) { ForEach(Permit.Kind.allCases, id: \.self) { Text($0.label).tag($0) } }
+                    DatePicker("From", selection: $from)
+                    DatePicker("To", selection: $to, in: from...)
+                }
+                Section {
+                    Picker(L("City"), selection: Binding(get: { cityId ?? store.city.id }, set: { cityId = $0; zoneId = nil })) {
+                        ForEach(store.cities) { Text($0.localizedName).tag($0.id) }
+                    }
+                    // La zona è obbligatoria: niente più permessi per tutta la città
+                    Picker(L("Zone"), selection: $zoneId) {
+                        Text(L("Choose the zone")).tag(String?.none)
+                        ForEach(city?.zones ?? []) { Text($0.localizedName).tag(Optional($0.id)) }
+                    }
+                    .accessibilityIdentifier("permit.zone")
+                } header: { Text("Where it counts") } footer: {
+                    Text(String(format: L("For %@. The permit counts only in this zone: in the other zones GateLR answers as if you had none."),
+                                store.vehicles.first { $0.id == vehicleId }?.name ?? store.vehicle.name))
+                }
             }
-            .navigationTitle("New permit")
+            .navigationTitle(existing == nil ? L("New permit") : L("Choose the zone"))
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") {
-                        store.permits.append(Permit(kind: kind, cityId: store.city.id, zoneId: nil, vehicleId: store.vehicle.id,
-                                                    from: from, to: to, status: .waiting))
-                        dismiss()
-                    }
+                    Button("Save") { asking = true }
+                        .disabled(draft == nil)
+                        .accessibilityIdentifier("permit.save")
                 }
             }
+            .confirmationDialog(L("Save this permit?"), isPresented: $asking, titleVisibility: .visible) {
+                Button(L("Save the permit")) { save() }
+                    .accessibilityIdentifier("permit.save.confirm")
+                Button(L("Cancel"), role: .cancel) {}
+            } message: {
+                if let p = draft { Text(verbatim: Self.consentText(p, cities: store.cities)) }
+            }
+            .onAppear {
+                guard !loaded, let e = existing else { return }
+                loaded = true
+                kind = e.kind; from = e.from; to = e.to; cityId = e.cityId; zoneId = e.zoneId
+            }
         }
+    }
+
+    /// Il testo del dialogo: dove vale e cosa cambia nella risposta
+    static func consentText(_ p: Permit, cities: [City]) -> String {
+        String(format: L("It counts only in %@, from %@ to %@. While it's waiting, GateLR answers \"on one condition\" there instead of \"don't enter\". Save it only if you have really asked for it."),
+               GarageView.place(p, cities: cities), RuleEngine.format(p.from, .dateTime.day().month()), RuleEngine.format(p.to, .dateTime.day().month()))
+    }
+
+    private func save() {
+        guard let p = draft else { return }
+        if let i = store.permits.firstIndex(where: { $0.id == p.id }) { store.permits[i] = p } else { store.permits.append(p) }
+        dismiss()
     }
 }

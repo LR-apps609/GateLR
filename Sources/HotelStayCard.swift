@@ -8,6 +8,8 @@ struct HotelStayCard: View {
     var place: Place
     var zone: Zone
     var arrival: Date
+    /// Lo stato scelto che aspetta la conferma nel dialogo
+    @State private var pending: HotelStay.Status?
 
     private var stay: HotelStay {
         store.stays[place.key] ?? HotelStay(arrival: arrival, departure: RuleEngine.rome.date(byAdding: .day, value: 2, to: arrival) ?? arrival)
@@ -52,7 +54,10 @@ struct HotelStayCard: View {
             }
             Text(String(format: L("%lld days to register, including the day you leave."), s.days.count))
                 .font(.app(size: 13)).foregroundStyle(Theme.muted)
-            Picker(L("Status"), selection: Binding(get: { s.status }, set: { v in edit { $0.status = v } })) {
+            // 1.19.2: «Chiesto» e «Confermato» cambiano la risposta per la zona dell'hotel: si salvano dopo il dialogo
+            Picker(L("Status"), selection: Binding(get: { s.status }, set: { v in
+                if Permit.Status.needsConsent(from: s.status.permitStatus, to: v.permitStatus) { pending = v } else { edit { $0.status = v } }
+            })) {
                 Text("Not asked").tag(HotelStay.Status.notAsked)
                 Text("Asked").tag(HotelStay.Status.asked)
                 Text("Confirmed").tag(HotelStay.Status.confirmed)
@@ -75,6 +80,18 @@ struct HotelStayCard: View {
             }
         }
         .padding(14).card()
+        .confirmationDialog(L(pending == .confirmed ? "Do you have the written confirmation?" : "Save this permit?"),
+                            isPresented: Binding(get: { pending != nil }, set: { if !$0 { pending = nil } }), titleVisibility: .visible) {
+            Button(L(pending == .confirmed ? "Yes, I have it in writing" : "Save the permit")) {
+                if let v = pending { edit { $0.status = v } }
+                pending = nil
+            }
+            Button(L("Cancel"), role: .cancel) { pending = nil }
+        } message: {
+            Text(verbatim: String(format: L(pending == .confirmed
+                    ? "Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days."
+                    : "GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing."), zone.localizedName))
+        }
     }
 
     private func tip(_ text: String) -> some View {
@@ -122,6 +139,17 @@ struct HotelStayCard: View {
         Task {
             _ = try? await center.requestAuthorization(options: [.alert, .sound])
             try? await center.add(UNNotificationRequest(identifier: id, content: content, trigger: UNCalendarNotificationTrigger(dateMatching: comps, repeats: false)))
+        }
+    }
+}
+
+extension HotelStay.Status {
+    /// Il permesso che lo stato del soggiorno crea nel Garage (vedi syncPermit)
+    var permitStatus: Permit.Status? {
+        switch self {
+        case .notAsked: nil
+        case .asked: .waiting
+        case .confirmed: .confirmed
         }
     }
 }

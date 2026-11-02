@@ -358,6 +358,27 @@ enum FineCheck {
         return on ? .active : .inactive
     }
 
+    /// 1.19.2: come si MOSTRA lo stato del varco. «Non attivo» è verde solo con dati ufficiali, recenti e rivisti da una
+    /// persona; senza revisione è giallo con il «?» («non risulterebbe attivo»); con dati vecchi o non ufficiali non si dice
+    enum Shown: Equatable { case active, inactive, probablyInactive, unknownData, unsure }
+
+    /// Dati ufficiali e controllati da meno di 120 giorni (RuleEngine.staleAfterDays): la bozza può citarli, al condizionale
+    static func dataIsReliable(_ zone: Zone, engine: RuleEngine = RuleEngine()) -> Bool {
+        guard zone.source.isOfficial else { return false }
+        let age = engine.calendar.dateComponents([.day], from: zone.source.checkedOn, to: engine.now()).day ?? 0
+        return age <= engine.staleAfterDays
+    }
+
+    static func shown(_ status: Status, zone: Zone, engine: RuleEngine = RuleEngine()) -> Shown {
+        switch status {
+        case .active: return .active
+        case .unsure: return .unsure
+        case .inactive:
+            guard dataIsReliable(zone, engine: engine) else { return .unknownData }
+            return zone.source.reviewedByHuman ? .inactive : .probablyInactive
+        }
+    }
+
     // MARK: Scadenze
 
     struct Deadlines: Equatable {
@@ -395,7 +416,11 @@ enum FineCheck {
     // MARK: Bozza del ricorso
 
     /// Una bozza in italiano con i dati letti, da completare: chiaramente segnata come bozza, non è una consulenza legale
+    /// 1.19.2: mai un'affermazione di fatto. Con dati ufficiali e recenti il motivo degli orari è al condizionale
+    /// («secondo i dati disponibili … non risulterebbe attiva»), con la data della lettura; con dati vecchi o non
+    /// ufficiali («reliable» falso) nessun motivo dagli orari, solo l'invito a verificarli sul sito del Comune
     static func appealDraft(_ n: FineReader.Notice, city: String?, zone: String?, status: Status?, source: URL?,
+                            checkedOn: Date? = nil, reliable: Bool = false,
                             calendar: Calendar = RuleEngine.rome) -> String {
         let comune = city ?? n.city ?? "[Comune]"
         let number = n.number.map { "n. " + $0 } ?? "n. [numero]"
@@ -407,10 +432,14 @@ enum FineCheck {
         let zonePart = zone.map { ", " + $0 } ?? ""
         let article = n.articleText ?? "art. 7 del Codice della Strada"
         var reasons: [String] = []
-        if status == .inactive {
-            let src = source.map { " (fonte: " + $0.absoluteString + ")" } ?? ""
-            reasons.append("1. Secondo gli orari pubblicati dal Comune" + src + ", nel giorno e nell'ora indicati la zona a traffico limitato non risultava attiva. Si chiede di verificare lo stato del varco e del pannello luminoso al momento del transito.")
+        if status == .inactive && reliable {
+            let read = checkedOn.map { ", consultati il " + DocumentText.italian($0, calendar: calendar) } ?? ""
+            let src = source.map { "; fonte: " + $0.absoluteString } ?? ""
+            reasons.append("1. Secondo i dati disponibili (orari pubblicati dal Comune" + read + src + "), nel giorno e nell'ora indicati la zona a traffico limitato non risulterebbe attiva. Gli orari potrebbero essere stati diversi in quel giorno: si chiede di verificare lo stato del varco e del pannello luminoso al momento del transito.")
             reasons.append("2. [Altri motivi, se ci sono]")
+        } else if status == .inactive {
+            reasons.append("1. [Verificare sul sito del Comune gli orari della ZTL in vigore nel giorno della violazione: i dati disponibili per questa zona sono vecchi o non ufficiali e non bastano per un motivo del ricorso]")
+            reasons.append("2. [Indicare i motivi: ad esempio pannello «varco attivo» spento o guasto; segnaletica assente o non leggibile; targa comunicata dall'hotel o permesso valido; più verbali per la stessa ZTL nello stesso giorno; notifica oltre i termini dell'art. 201 C.d.S.]")
         } else {
             reasons.append("1. [Indicare i motivi: ad esempio pannello «varco attivo» spento o guasto; segnaletica assente o non leggibile; targa comunicata dall'hotel o permesso valido; più verbali per la stessa ZTL nello stesso giorno; notifica oltre i termini dell'art. 201 C.d.S.]")
         }

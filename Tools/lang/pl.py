@@ -834,6 +834,26 @@ T = {
 "Thank you!": "Dziękujemy!",
 "Send the report": "Wyślij zgłoszenie",
 "Sent by email to %@. Without Mail, you can share it with another app.": "Wysyłane e-mailem na %@. Bez aplikacji Mail możesz udostępnić je w innej aplikacji.",
+# 1.19.2
+"According to the sign, the ZTL seems off right now: check that there are no other bans": "Według znaku strefa ZTL wydaje się teraz wyłączona: sprawdź, czy nie ma innych zakazów",
+"The sign doesn't know your vehicle, your permits, Euro bans or pedestrian areas, and the photo can be misread. Check the sign.": "Znak nie zna twojego pojazdu, zezwoleń, zakazów dla klas Euro ani stref pieszych, a zdjęcie może zostać źle odczytane. Sprawdź znak.",
+"I can't read it": "Nie mogę tego odczytać",
+"Check that the days and hours above are the ones on the panel: the photo can be misread.": "Sprawdź, czy dni i godziny powyżej są takie jak na tablicy: zdjęcie może zostać źle odczytane.",
+"According to the data available, the gate would not have been active. The data haven't been checked by a person yet: check the official source.": "Według dostępnych danych wjazd nie byłby aktywny. Dane nie zostały jeszcze sprawdzone przez człowieka: sprawdź oficjalne źródło.",
+"Our data for this zone are old or unofficial: we can't tell whether the gate was active. Check the city's page.": "Nasze dane dla tej strefy są stare lub nieoficjalne: nie możemy powiedzieć, czy wjazd był aktywny. Sprawdź stronę miasta.",
+"A permit counts only in its zone, for the chosen vehicle and days.": "Zezwolenie obowiązuje tylko w swojej strefie, dla wybranego pojazdu i dni.",
+"Do you have the written confirmation?": "Czy masz pisemne potwierdzenie?",
+"Yes, I have it in writing": "Tak, mam je na piśmie",
+"no zone: it doesn't count": "brak strefy: nie obowiązuje",
+"your vehicle": "twój pojazd",
+"Confirm only if the city or the hotel has confirmed in writing that %@ is registered for %@. GateLR will answer \"yes\" there for these days, and only there.": "Potwierdź tylko, jeśli miasto lub hotel potwierdziło na piśmie, że %@ jest zarejestrowany dla %@. GateLR odpowie tam „tak” w te dni i tylko tam.",
+"Where it counts": "Gdzie obowiązuje",
+"For %@. The permit counts only in this zone: in the other zones GateLR answers as if you had none.": "Dla %@. Zezwolenie obowiązuje tylko w tej strefie: w innych GateLR odpowiada tak, jakbyś go nie miał.",
+"Save this permit?": "Zapisać to zezwolenie?",
+"Save the permit": "Zapisz zezwolenie",
+"It counts only in %@, from %@ to %@. While it's waiting, GateLR answers \"on one condition\" there instead of \"don't enter\". Save it only if you have really asked for it.": "Obowiązuje tylko w %@, od %@ do %@. Dopóki czeka, GateLR odpowiada tam „pod jednym warunkiem” zamiast „nie wjeżdżaj”. Zapisz je tylko, jeśli naprawdę o nie prosiłeś.",
+"Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days.": "Potwierdź tylko, jeśli hotel potwierdził na piśmie, że twoja rejestracja jest zgłoszona na każdy dzień. GateLR odpowie „tak” tylko w %@, tylko w te dni.",
+"GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing.": "GateLR będzie odpowiadać „pod jednym warunkiem” w %@ w te dni, dopóki hotel nie potwierdzi na piśmie.",
 }
 
 INFO = {

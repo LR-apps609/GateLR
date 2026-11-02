@@ -834,6 +834,26 @@ T = {
 "Thank you!": "Bedankt!",
 "Send the report": "Melding versturen",
 "Sent by email to %@. Without Mail, you can share it with another app.": "Wordt per e-mail verstuurd naar %@. Zonder Mail kun je hem met een andere app delen.",
+# 1.19.2
+"According to the sign, the ZTL seems off right now: check that there are no other bans": "Volgens het bord lijkt de ZTL nu uit: controleer of er geen andere verboden gelden",
+"The sign doesn't know your vehicle, your permits, Euro bans or pedestrian areas, and the photo can be misread. Check the sign.": "Het bord kent je voertuig, je vergunningen, Euro-verboden en voetgangersgebieden niet, en de foto kan verkeerd gelezen worden. Controleer het bord.",
+"I can't read it": "Ik kan het niet lezen",
+"Check that the days and hours above are the ones on the panel: the photo can be misread.": "Controleer of de dagen en tijden hierboven op het bord staan: de foto kan verkeerd gelezen worden.",
+"According to the data available, the gate would not have been active. The data haven't been checked by a person yet: check the official source.": "Volgens de beschikbare gegevens zou de toegang niet actief zijn geweest. De gegevens zijn nog niet door een persoon gecontroleerd: kijk bij de officiële bron.",
+"Our data for this zone are old or unofficial: we can't tell whether the gate was active. Check the city's page.": "Onze gegevens voor deze zone zijn oud of niet officieel: we kunnen niet zeggen of de toegang actief was. Kijk op de pagina van de gemeente.",
+"A permit counts only in its zone, for the chosen vehicle and days.": "Een vergunning geldt alleen in haar zone, voor het gekozen voertuig en de gekozen dagen.",
+"Do you have the written confirmation?": "Heb je de schriftelijke bevestiging?",
+"Yes, I have it in writing": "Ja, ik heb hem op schrift",
+"no zone: it doesn't count": "geen zone: telt niet",
+"your vehicle": "je voertuig",
+"Confirm only if the city or the hotel has confirmed in writing that %@ is registered for %@. GateLR will answer \"yes\" there for these days, and only there.": "Bevestig alleen als de gemeente of het hotel schriftelijk heeft bevestigd dat %@ is geregistreerd voor %@. GateLR antwoordt daar deze dagen \"ja\", en alleen daar.",
+"Where it counts": "Waar hij geldt",
+"For %@. The permit counts only in this zone: in the other zones GateLR answers as if you had none.": "Voor %@. De vergunning geldt alleen in deze zone: in de andere antwoordt GateLR alsof je er geen hebt.",
+"Save this permit?": "Deze vergunning bewaren?",
+"Save the permit": "Vergunning bewaren",
+"It counts only in %@, from %@ to %@. While it's waiting, GateLR answers \"on one condition\" there instead of \"don't enter\". Save it only if you have really asked for it.": "Hij geldt alleen in %@, van %@ tot %@. Zolang hij in afwachting is, antwoordt GateLR daar \"onder één voorwaarde\" in plaats van \"niet inrijden\". Bewaar hem alleen als je hem echt hebt aangevraagd.",
+"Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days.": "Bevestig alleen als het hotel schriftelijk heeft bevestigd dat je kenteken voor elke dag is geregistreerd. GateLR antwoordt alleen in %@ \"ja\", alleen voor deze dagen.",
+"GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing.": "GateLR antwoordt deze dagen in %@ \"onder één voorwaarde\", totdat het hotel schriftelijk bevestigt.",
 }
 
 INFO = {

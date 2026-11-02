@@ -587,14 +587,31 @@ struct Permit: Codable, Identifiable, Hashable {
     var id = UUID()
     var kind: Kind
     var cityId: String
-    var zoneId: String?         // nil = tutta la città
+    /// La zona del permesso. 1.19.2: obbligatoria; un permesso senza zona (salvato dalle versioni fino alla 1.19.1,
+    /// valeva per tutta la città) non copre niente finché nel Garage non si sceglie la zona
+    var zoneId: String?
     var vehicleId: UUID
     var from: Date
     var to: Date
     var status: Status
 
     func covers(zone: Zone, vehicle: Vehicle, at date: Date) -> Bool {
-        vehicleId == vehicle.id && (zoneId == nil || zoneId == zone.id) && from <= date && date <= to
+        guard let zoneId else { return false }
+        return vehicleId == vehicle.id && zoneId == zone.id && from <= date && date <= to
+    }
+
+    /// Senza zona il permesso non vale (niente più permessi per tutta la città)
+    var needsZone: Bool { zoneId == nil }
+}
+
+extension Permit.Status {
+    /// Quanto spinge la risposta verso il «sì»: nessun permesso < in attesa (giallo) < confermato (verde)
+    var rank: Int { self == .confirmed ? 2 : 1 }
+
+    /// 1.19.2: un permesso che può far passare la risposta da «Non entrare» a giallo o verde (nuovo, in attesa → confermato)
+    /// si salva solo dopo una conferma esplicita; tornare indietro (confermato → in attesa, togliere) no
+    static func needsConsent(from old: Permit.Status?, to new: Permit.Status?) -> Bool {
+        (new?.rank ?? 0) > (old?.rank ?? 0)
     }
 }
 

@@ -269,14 +269,15 @@ final class FineReaderTests: XCTestCase {
         n.articleText = "art. 7, c. 9 e 14 C.d.S."
         n.plate = "GX482KM"
         let url = URL(string: "https://www.comune.firenze.it/ztl")!
-        let off = FineCheck.appealDraft(n, city: "Firenze", zone: "Settore B", status: .inactive, source: url)
+        let off = FineCheck.appealDraft(n, city: "Firenze", zone: "Settore B", status: .inactive, source: url, reliable: true)
         XCTAssertTrue(off.hasPrefix("BOZZA"))
         for part in ["Al Prefetto di Firenze", "n. 2026/F/0123456", "02/04/2026", "12/03/2026", "10:32", "Via Cavour, Settore B",
-                     "GX482KM", "art. 7, c. 9 e 14 C.d.S.", "non risultava attiva", url.absoluteString] {
+                     "GX482KM", "art. 7, c. 9 e 14 C.d.S.", "non risulterebbe attiva", url.absoluteString] {
             XCTAssertTrue(off.contains(part), part)
         }
+        XCTAssertFalse(off.contains("non risultava attiva"))
         let on = FineCheck.appealDraft(n, city: "Firenze", zone: nil, status: .active, source: url)
-        XCTAssertFalse(on.contains("non risultava attiva"))
+        XCTAssertFalse(on.contains("non risulterebbe attiva"))
         XCTAssertTrue(on.contains("[Indicare i motivi"))
         let empty = FineCheck.appealDraft(FineReader.Notice(), city: nil, zone: nil, status: nil, source: nil)
         XCTAssertTrue(empty.contains("[Comune]"))

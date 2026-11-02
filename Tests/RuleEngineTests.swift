@@ -404,7 +404,7 @@ final class RuleEngineTests: XCTestCase {
 
     func testSignReader() {
         let a = SignReader.parse("ZONA TRAFFICO LIMITATO\n7.30-20.00\nFERIALI\nCONTROLLO ELETTRONICO")
-        XCTAssertEqual(a.rules, [SignReader.Rule(days: [2, 3, 4, 5, 6, 7], start: 450, end: 1200)])
+        XCTAssertEqual(a.rules, [SignReader.Rule(days: [2, 3, 4, 5, 6, 7], start: 450, end: 1200, holidays: .excluded)])
         XCTAssertTrue(a.holidaysExcluded)
         XCTAssertTrue(SignReader.isActive(a, at: date(2026, 10, 26, 10), calendar: cal))       // lunedì
         XCTAssertFalse(SignReader.isActive(a, at: date(2026, 10, 25, 10), calendar: cal))      // domenica

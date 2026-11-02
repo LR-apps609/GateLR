@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import UniformTypeIdentifiers
 
 /// «Fotografa il verbale»: legge data, ora, varco e Comune, confronta con gli orari che conosciamo,
 /// calcola le scadenze dalla notifica e prepara una bozza di ricorso. Informazioni generali, non legali.
@@ -42,6 +43,7 @@ struct FineScanView: View {
                     if !text.isEmpty {
                         Button { readText() } label: { Label("Read this text", systemImage: "text.viewfinder") }
                             .font(.app(size: 15, weight: .semibold)).tint(Theme.blue)
+                            .accessibilityIdentifier("fine.read")
                     }
                 }
                 .padding(14).card()
@@ -57,6 +59,7 @@ struct FineScanView: View {
             }
             .padding(20)
         }
+        .scrollDismissesKeyboard(.immediately)
         .background(Theme.ground)
         .navigationTitle("Photograph the notice")
         .navigationBarTitleDisplayMode(.inline)
@@ -153,11 +156,22 @@ struct FineScanView: View {
         VStack(alignment: .leading, spacing: 10) {
             SectionLabel("Was the gate active?")
             if let z = zone, let s = status {
-                let look = Self.look(s)
-                Label(look.title, systemImage: look.symbol)
-                    .font(.app(size: 16, weight: .bold)).foregroundStyle(look.ink)
-                    .padding(14).frame(maxWidth: .infinity, alignment: .leading)
-                    .background(look.fill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                let look = Self.look(FineCheck.shown(s, zone: z, engine: engine))
+                HStack(alignment: .top, spacing: 10) {
+                    Image(systemName: look.symbol)
+                        .font(.app(size: 15, weight: .heavy))
+                        .foregroundStyle(look.fill == Theme.amberSoft ? Color.white : look.ink)
+                        .frame(width: 26, height: 26)
+                        .background(look.fill == Theme.amberSoft ? Theme.amber : Color.clear, in: Circle())
+                        .accessibilityHidden(true)
+                    Text(look.title)
+                        .font(.app(size: 16, weight: .bold)).foregroundStyle(look.ink)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding(14).frame(maxWidth: .infinity, alignment: .leading)
+                .background(look.fill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .accessibilityElement(children: .combine)
+                .accessibilityIdentifier("fine.verdict")
                 Text(verbatim: z.localizedName + " · " + engine.format(violation, .dateTime.weekday(.wide).day().month().year().hour().minute()))
                     .font(.app(size: 14, weight: .semibold))
                 Text("These are today's hours as published by the city: on that day they may have been different (summer hours, events, panels off). We are not lawyers: check the notice and the official source.")
@@ -176,11 +190,18 @@ struct FineScanView: View {
         .padding(14).card()
     }
 
-    private static func look(_ s: FineCheck.Status) -> (title: String, symbol: String, fill: Color, ink: Color) {
+    /// 1.19.2: il verde solo con dati ufficiali, recenti e rivisti da una persona; altrimenti giallo con il «?»
+    private static func look(_ s: FineCheck.Shown) -> (title: String, symbol: String, fill: Color, ink: Color) {
         switch s {
         case .active: return (L("According to the rules we know, the gate was active"), "video.fill", Theme.red, Color.white)
         case .inactive: return (L("According to the rules we know, the gate was not active"), "video.slash.fill", Theme.green, Color.white)
-        case .unsure: return (L("We can't tell: it was a public holiday and we haven't confirmed the holiday rules"), "questionmark.circle.fill", Theme.amberSoft, Theme.amberInk)
+        case .probablyInactive:
+            return (L("According to the data available, the gate would not have been active. The data haven't been checked by a person yet: check the official source."),
+                    "questionmark", Theme.amberSoft, Theme.amberInk)
+        case .unknownData:
+            return (L("Our data for this zone are old or unofficial: we can't tell whether the gate was active. Check the city's page."),
+                    "questionmark", Theme.amberSoft, Theme.amberInk)
+        case .unsure: return (L("We can't tell: it was a public holiday and we haven't confirmed the holiday rules"), "questionmark", Theme.amberSoft, Theme.amberInk)
         }
     }
 
@@ -236,7 +257,9 @@ struct FineScanView: View {
         n.place = place.isEmpty ? nil : place
         n.notificationDate = notified
         return FineCheck.appealDraft(n, city: city?.name_it ?? city?.name ?? notice.city, zone: zone.map { $0.name_it ?? $0.name },
-                                     status: status, source: zone?.source.pageURL, calendar: engine.calendar)
+                                     status: status, source: zone?.source.pageURL, checkedOn: zone?.source.checkedOn,
+                                     reliable: zone.map { FineCheck.dataIsReliable($0, engine: engine) } ?? false,
+                                     calendar: engine.calendar)
     }
 
     private var appeal: some View {
@@ -246,7 +269,8 @@ struct FineScanView: View {
                 .font(.app(size: 14)).foregroundStyle(Theme.muted)
                 .fixedSize(horizontal: false, vertical: true)
             WideButton(title: copied ? "Copied" : "Copy a text for the appeal", systemImage: copied ? "checkmark" : "doc.on.doc") {
-                UIPasteboard.general.string = draft
+                // Solo su questo iPhone (mai negli Appunti universali: c'è la targa) e per 10 minuti
+                LocalClipboard.copy(draft)
                 copied = true
             }
             .accessibilityIdentifier("fine.copyAppeal")
@@ -269,5 +293,19 @@ struct FineScanView: View {
             }
         }
         .padding(14).frame(maxWidth: .infinity, alignment: .leading).card()
+    }
+}
+
+/// 1.19.2: copia negli appunti solo su questo iPhone (niente Appunti universali verso Mac e iPad) e con una scadenza:
+/// la bozza del ricorso contiene targa, numero del verbale e Comune
+enum LocalClipboard {
+    static let lifetime: TimeInterval = 600
+
+    static func options(now: Date = Date()) -> [UIPasteboard.OptionsKey: Any] {
+        [.localOnly: true, .expirationDate: now.addingTimeInterval(lifetime)]
+    }
+
+    static func copy(_ text: String, to pasteboard: UIPasteboard = .general, now: Date = Date()) {
+        pasteboard.setItems([[UTType.utf8PlainText.identifier: text]], options: options(now: now))
     }
 }

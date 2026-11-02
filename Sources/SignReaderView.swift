@@ -8,6 +8,7 @@ import AVFoundation
 /// «Leggi il cartello»: inquadri il pannello degli orari (o scegli una foto) e GateLR lo spiega
 /// nella tua lingua e dice se adesso, secondo il cartello, la ZTL è attiva.
 struct SignReaderView: View {
+    @EnvironmentObject var store: Store
     @State private var text = ""
     @State private var scanning = false
     @State private var photo: PhotosPickerItem?
@@ -67,6 +68,7 @@ struct SignReaderView: View {
             }
             .padding(20)
         }
+        .scrollDismissesKeyboard(.immediately)
         .background(Theme.ground)
         .navigationTitle("Read the sign")
         .navigationBarTitleDisplayMode(.inline)
@@ -128,18 +130,21 @@ struct SignReaderView: View {
         .background(Theme.amberSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
     }
 
+    /// L'ora con cui si legge il cartello: adesso (nel giro delle foto l'ora scelta con -uiAt, così la foto non dipende
+    /// dall'ora in cui gira)
+    private var moment: Date {
+        ProcessInfo.processInfo.arguments.contains("-uitest") ? (store.when ?? Date()) : Date()
+    }
+
+    /// 1.19.2: mai verde. Il cartello non conosce il veicolo, i permessi, i divieti per classe Euro né le aree pedonali,
+    /// e la lettura della foto può sbagliare: il meglio che si può dire è il giallo con il «?»
     @ViewBuilder
     private var explanation: some View {
         let r = result
-        if r.understood {
-            let now = SignReader.isActive(r, at: Date())
-            VStack(alignment: .leading, spacing: 10) {
-                Label(now ? L("Active now, according to the sign: don't drive in") : L("Not active now, according to the sign: you may drive in"),
-                      systemImage: now ? "xmark.octagon.fill" : "checkmark.circle.fill")
-                    .font(.app(size: 17, weight: .bold))
-                    .foregroundStyle(.white)
-                    .padding(14).frame(maxWidth: .infinity, alignment: .leading)
-                    .background(now ? Theme.red : Theme.green, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        let reading = SignReader.reading(r, at: moment)
+        VStack(alignment: .leading, spacing: 10) {
+            Self.verdictBox(reading)
+            if r.understood {
                 SectionLabel("What it means")
                 ForEach(Array(r.rules.enumerated()), id: \.offset) { _, rule in
                     HStack {
@@ -151,14 +156,54 @@ struct SignReaderView: View {
                 }
                 if r.holidaysExcluded { Text("Public holidays: not active.").font(.app(size: 14)).foregroundStyle(Theme.muted) }
                 if r.holidaysIncluded { Text("Also on public holidays.").font(.app(size: 14)).foregroundStyle(Theme.muted) }
+                Text("Check that the days and hours above are the ones on the panel: the photo can be misread.")
+                    .font(.app(size: 13)).foregroundStyle(Theme.muted)
+                    .fixedSize(horizontal: false, vertical: true)
             }
-            .padding(14).card()
-        } else {
-            Label("I can't find days and hours in this text. Try again closer to the panel, or type them.", systemImage: "questionmark.circle")
-                .font(.app(size: 14)).foregroundStyle(Theme.amberInk)
-                .padding(14).frame(maxWidth: .infinity, alignment: .leading)
-                .background(Theme.amberSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
         }
+        .padding(14).card()
+    }
+
+    /// Il riquadro della risposta: rosso se secondo il cartello è accesa, altrimenti giallo con il «?» (mai verde)
+    @ViewBuilder
+    static func verdictBox(_ reading: SignReader.Reading) -> some View {
+        switch reading {
+        case .active:
+            Label("Active now, according to the sign: don't drive in", systemImage: "xmark.octagon.fill")
+                .font(.app(size: 17, weight: .bold))
+                .foregroundStyle(.white)
+                .padding(14).frame(maxWidth: .infinity, alignment: .leading)
+                .background(Theme.red, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .accessibilityIdentifier("sign.verdict.active")
+        case .seemsOff:
+            amberBox(title: L("According to the sign, the ZTL seems off right now: check that there are no other bans"),
+                     detail: L("The sign doesn't know your vehicle, your permits, Euro bans or pedestrian areas, and the photo can be misread. Check the sign."),
+                     id: "sign.verdict.seemsOff")
+        case .unreadable:
+            amberBox(title: L("I can't read it"),
+                     detail: L("I can't find days and hours in this text. Try again closer to the panel, or type them."),
+                     id: "sign.verdict.unreadable")
+        }
+    }
+
+    private static func amberBox(title: String, detail: String, id: String) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: "questionmark")
+                .font(.app(size: 16, weight: .heavy))
+                .foregroundStyle(.white)
+                .frame(width: 30, height: 30)
+                .background(Theme.amber, in: Circle())
+                .accessibilityHidden(true)
+            VStack(alignment: .leading, spacing: 6) {
+                Text(title).font(.app(size: 17, weight: .bold)).foregroundStyle(Theme.amberInk)
+                Text(detail).font(.app(size: 14)).foregroundStyle(Theme.amberInk)
+            }
+            .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(14).frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.amberSoft, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier(id)
     }
 
     static func time(_ m: Int) -> String {

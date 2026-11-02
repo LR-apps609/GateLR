@@ -133,9 +133,21 @@ struct GatePanelObject: View {
     /// Quanta parte dello schermo è accesa, dall'alto (da 0 a 1). Di base accesa: se l'accensione animata non parte
     /// (nella 1.16.0 il pannello verde dopo una ricerca restava spento) il pannello si legge comunque
     @State private var lit = 1.0
+    /// 1.19.2: alla fine dell'accensione il pannello è acceso per forza, senza animazione. Prima il controllo «lit < 1»
+    /// non scattava mai (il valore era già 1, solo l'animazione era rimasta a metà) e il pannello poteva restare nero
+    /// (foto 35 della 1.19.1)
+    @State private var forceLit = true
+    /// Ogni accensione ha il suo numero: il «tutto acceso» di un'accensione vecchia non tocca quella nuova
+    @State private var generation = 0
+    @State private var flipping = false
+    private var level: Double { forceLit ? 1 : lit }
+    private static let uiTest = ProcessInfo.processInfo.arguments.contains("-uitest")
+    private static let settledWord = "settled", movingWord = "moving"
+    private var testState: String { forceLit && !flipping && shown == panel ? Self.settledWord : Self.movingWord }
 
     var body: some View {
         let s = shown ?? panel
+        let lit = level
         VStack(spacing: 0) {
             ZStack {
                 // La luce che si spande sulla scena dietro
@@ -156,6 +168,9 @@ struct GatePanelObject: View {
         .onChange(of: panel) { _, new in flip(to: new) }
         .accessibilityElement()
         .accessibilityLabel(Text(verbatim: s.lines.joined(separator: " ")))
+        // Solo nel giro delle foto: «settled» quando il pannello è fermo e tutto acceso (la foto aspetta questo)
+        .accessibilityIdentifier("gate.panel")
+        .accessibilityValue(Text(verbatim: Self.uiTest ? testState : ""))
     }
 
     private func bezel(_ s: GatePanelState) -> some View {
@@ -175,7 +190,7 @@ struct GatePanelObject: View {
         }
         .frame(width: 270, height: 140)
         .shadow(color: .black.opacity(0.55), radius: 18, y: 14)
-        .shadow(color: s.mood.color.opacity(0.35 * lit), radius: 26)
+        .shadow(color: s.mood.color.opacity(0.35 * level), radius: 26)
     }
 
     private var screws: some View {
@@ -206,7 +221,7 @@ struct GatePanelObject: View {
             // I punti si accendono a righe, dall'alto in basso
             .mask(alignment: .top) {
                 GeometryReader { g in
-                    Rectangle().frame(height: g.size.height * lit)
+                    Rectangle().frame(height: g.size.height * level)
                 }
             }
             // La trama a punti sopra il testo: sembra fatto di LED
@@ -226,7 +241,7 @@ struct GatePanelObject: View {
     private func pole(_ s: GatePanelState) -> some View {
         ZStack(alignment: .bottom) {
             // L'ombra a terra e la luce che ci cade sopra
-            Ellipse().fill(s.mood.color.opacity(0.35 * lit)).frame(width: 160, height: 26).blur(radius: 14)
+            Ellipse().fill(s.mood.color.opacity(0.35 * level)).frame(width: 160, height: 26).blur(radius: 14)
             Ellipse().fill(Color.black.opacity(0.45)).frame(width: 60, height: 10).blur(radius: 4)
             Rectangle()
                 .fill(LinearGradient(colors: [Color(hex: 0x3A4256), Color(hex: 0x9AA3B8), Color(hex: 0x4A5266), Color(hex: 0x262B3A)],
@@ -239,15 +254,24 @@ struct GatePanelObject: View {
 
     /// I punti che si accendono dall'alto in basso (tutti insieme con «Riduci movimento»); alla fine sempre accesi
     private func light() {
-        if reduceMotion { lit = 1; return }
+        generation += 1
+        let mine = generation
+        if reduceMotion { lit = 1; forceLit = true; return }
         var t = Transaction()
         t.disablesAnimations = true
-        withTransaction(t) { lit = 0 }
+        withTransaction(t) { lit = 0; forceLit = false }
         DispatchQueue.main.async {
+            guard mine == generation else { return }
             withAnimation(.easeOut(duration: 0.45)) { lit = 1 }
         }
-        // In ogni caso, poco dopo, tutto acceso
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { if lit < 1 { lit = 1 } }
+        // In ogni caso, poco dopo, tutto acceso: «forceLit» cambia davvero, quindi il pannello si ridisegna acceso
+        // anche se l'animazione di «lit» si è fermata a metà
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            guard mine == generation else { return }
+            var t = Transaction()
+            t.disablesAnimations = true
+            withTransaction(t) { lit = 1; forceLit = true }
+        }
     }
 
     /// La paletta: metà giro, cambia la faccia, l'altra metà con un piccolo rimbalzo; poi i punti si riaccendono
@@ -256,12 +280,19 @@ struct GatePanelObject: View {
             withAnimation(.easeInOut(duration: 0.35)) { shown = new }
             return
         }
+        flipping = true
         withAnimation(.easeIn(duration: 0.18)) { angle = 90 } completion: {
             shown = new
             angle = -90
-            lit = 0
-            withAnimation(.spring(response: 0.45, dampingFraction: 0.55)) { angle = 0 }
             light()
+            withAnimation(.spring(response: 0.45, dampingFraction: 0.55)) { angle = 0 } completion: { flipping = false }
+        }
+        // Se il completamento non arriva (vista sparita a metà), la paletta torna dritta e accesa
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            guard flipping else { return }
+            var t = Transaction()
+            t.disablesAnimations = true
+            withTransaction(t) { shown = panel; angle = 0; lit = 1; forceLit = true; flipping = false }
         }
     }
 }

@@ -343,9 +343,25 @@ final class ScreenshotTests: XCTestCase {
             // La risposta arriva dopo la lettura delle città (Milano è grande) e la scheda entra con una dissolvenza:
             // si aspetta il titolo della risposta, poi la fine dell'animazione (nella 1.19.0 le foto 33, 35 e 36 erano a metà)
             XCTAssertTrue(app.descendants(matching: .any)["varco.answer"].firstMatch.waitForExistence(timeout: 30), "\(name): manca la risposta")
-            sleep(4)
+            // 1.19.2: si aspetta anche il pannello LED fermo e tutto acceso (nella 1.19.1 la foto 35 era col pannello nero)
+            waitForPanel(name)
+            sleep(1)
             snap(name)
         }
+    }
+
+    /// Il pannello LED di Varco fermo e acceso: nel giro delle foto il suo valore di accessibilità è «settled» solo a
+    /// paletta ferma e punti tutti accesi. Due letture di fila, a mezzo secondo, per non fotografare un cambio a metà
+    private func waitForPanel(_ name: String) {
+        let panel = app.descendants(matching: .any)["gate.panel"].firstMatch
+        guard panel.waitForExistence(timeout: 10) else { return }
+        var calm = 0
+        for _ in 0..<40 {
+            calm = (panel.value as? String) == "settled" ? calm + 1 : 0
+            if calm >= 2 { return }
+            usleep(500_000)
+        }
+        XCTFail("\(name): il pannello LED non si è fermato")
     }
 
     /// 1.19.1 «L'area pedonale vince»: Viaggio all'ora scelta, l'area pedonale fuori dalle zone solo rossa, «Parcheggia
@@ -379,6 +395,114 @@ final class ScreenshotTests: XCTestCase {
             for _ in 0..<20 where searching.exists { sleep(1) }
             sleep(3)
             snap(name)
+        }
+    }
+
+    /// 1.19.2 «Fiducia»: il cartello mai verde (giallo con il «?» a ZTL spenta), il permesso solo per una zona e con il
+    /// dialogo, il verbale giallo sui dati non rivisti. Dopo test9b (il nome «9c» lo mette dopo nell'ordine dei test)
+    func test9cTrustFix() {
+        app.terminate()
+        app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiAt", "22:00",
+                               "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]
+        app.launch()
+        XCTAssertTrue(youTab.waitForExistence(timeout: 15))
+        XCTAssertTrue(app.descendants(matching: .any)["varco.answer"].firstMatch.waitForExistence(timeout: 30), "manca la risposta")
+        youTab.tap()
+        sleep(1)
+
+        // Leggi il cartello alle 22 di un giorno feriale: «7.30-20.00 FERIALI» → spenta secondo il cartello, giallo con il «?»
+        if openYou("learn") {
+            let sign = app.buttons["learn.sign"].firstMatch
+            if sign.waitForExistence(timeout: 3) {
+                sign.tap()
+                let t = app.descendants(matching: .any)["sign.text"]
+                if t.waitForExistence(timeout: 3) {
+                    t.tap()
+                    if !app.keyboards.firstMatch.waitForExistence(timeout: 3) { t.tap(); _ = app.keyboards.firstMatch.waitForExistence(timeout: 3) }
+                    t.typeText("ZONA TRAFFICO LIMITATO\n7.30-20.00\nFERIALI")
+                    // La tastiera si chiude scorrendo (scrollDismissesKeyboard), poi la risposta sale nello schermo
+                    app.swipeUp()
+                    let verdict = app.descendants(matching: .any)["sign.verdict.seemsOff"].firstMatch
+                    XCTAssertTrue(verdict.waitForExistence(timeout: 5), "Cartello: manca il giallo «sembra spenta»")
+                    XCTAssertFalse(app.descendants(matching: .any)["sign.verdict.active"].exists)
+                    for _ in 0..<6 where app.keyboards.firstMatch.exists { sleep(1) }
+                    sleep(2)
+                    snap("40-sign-seems-off")
+                }
+                back()
+            }
+            back()
+        }
+
+        // Garage → Aggiungi un permesso: zona obbligatoria, poi il dialogo prima di salvare
+        if openYou("garage") {
+            let add = app.buttons["garage.addPermit"].firstMatch
+            if !add.waitForExistence(timeout: 3) { app.swipeUp(); sleep(1) }
+            if add.waitForExistence(timeout: 3) {
+                add.tap()
+                sleep(2)
+                let save = app.buttons["permit.save"].firstMatch
+                XCTAssertTrue(save.waitForExistence(timeout: 5), "Manca «Salva» nel permesso")
+                XCTAssertFalse(save.isEnabled, "Si salva un permesso senza zona")
+                let zone = app.buttons["permit.zone"].firstMatch
+                if zone.waitForExistence(timeout: 3) {
+                    zone.tap()
+                    sleep(1)
+                    let sectorA = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Settore A'")).firstMatch
+                    if sectorA.waitForExistence(timeout: 3) { sectorA.tap() }
+                    sleep(2)
+                }
+                snap("41-permit-zone")
+                if save.isEnabled {
+                    save.tap()
+                    sleep(2)
+                    snap("41b-permit-dialog")
+                    let confirm = app.buttons["Salva il permesso"].firstMatch
+                    if confirm.waitForExistence(timeout: 3) { confirm.tap() } else { XCTFail("Manca il dialogo «Salvare questo permesso?»") }
+                    sleep(2)
+                    snap("42-garage-permit-zone")
+                    // Il tocco su «In attesa»: «Confermato» solo dopo il dialogo della conferma scritta
+                    let pill = app.buttons["garage.permit.status"].firstMatch
+                    if pill.waitForExistence(timeout: 3) {
+                        pill.tap()
+                        sleep(2)
+                        snap("43-permit-confirm-dialog")
+                        let cancel = app.buttons["Annulla"].firstMatch
+                        if cancel.waitForExistence(timeout: 3) { cancel.tap() }
+                        sleep(1)
+                    }
+                } else {
+                    XCTFail("Scelta la zona, «Salva» resta spento")
+                    let cancel = app.buttons["Annulla"].firstMatch
+                    if cancel.waitForExistence(timeout: 3) { cancel.tap() } else { app.swipeDown(velocity: .fast) }
+                    sleep(1)
+                }
+            }
+            back()
+        }
+
+        // Fotografa il verbale (testo scritto): Settore B alle 21:32, varchi spenti secondo gli orari ma dati non rivisti
+        if openYou("fines") {
+            let scan = app.buttons["fine.scan"].firstMatch
+            if scan.waitForExistence(timeout: 3) {
+                scan.tap()
+                sleep(1)
+                let t = app.descendants(matching: .any)["fine.text"].firstMatch
+                if t.waitForExistence(timeout: 3) {
+                    t.tap()
+                    if !app.keyboards.firstMatch.waitForExistence(timeout: 3) { t.tap(); _ = app.keyboards.firstMatch.waitForExistence(timeout: 3) }
+                    t.typeText("COMUNE DI FIRENZE\nVERBALE N. 2026/F/0123456\nIl giorno 12/03/2026 alle ore 21:32 il veicolo targato GX482KM\ntransitava dal varco della ZTL Settore B situato in Via Cavour\nNotificato il 02/04/2026")
+                    let read = app.buttons["fine.read"].firstMatch
+                    if read.waitForExistence(timeout: 3) { read.tap() }
+                    sleep(1)
+                    let verdict = app.descendants(matching: .any)["fine.verdict"].firstMatch
+                    for _ in 0..<6 where !(verdict.exists && verdict.isHittable) { app.swipeUp(); sleep(1) }
+                    sleep(2)
+                    snap("44-fine-verdict")
+                }
+                back()
+            }
+            back()
         }
     }
 

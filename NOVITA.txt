@@ -1,3 +1,10 @@
+Novità della 1.19.2 (fiducia: cartello, verbale, permessi):
+• «Leggi il cartello» non dà mai il verde: a ZTL spenta secondo il cartello dice in giallo con il «?» «Secondo il cartello la ZTL sembra spenta adesso: controlla che non ci siano altri divieti» (il cartello non conosce veicolo, permessi, divieti Euro e aree pedonali, e la foto può essere letta male); accesa = rosso; testo illeggibile = giallo «Non riesco a leggerlo»
+• Il cartello si legge meglio: i giorni solo come parole intere (non più «mercoledì» dentro «merci», «martedì» dentro «marzo», «giovedì» dentro «giorni»); «feriali e festivi» = tutti i giorni, domenica e festivi compresi; «festivi» = domeniche e festivi nazionali (8 dicembre, Natale, 2 giugno…); «feriali» resta «festivi esclusi»
+• Verbale: «il varco non era attivo» è verde solo con dati ufficiali, recenti e controllati da una persona; altrimenti giallo con il «?» («non risulterebbe attivo», o «dati vecchi o non ufficiali: non possiamo dirlo»). La bozza del ricorso è al condizionale («secondo i dati disponibili… non risulterebbe attiva», con la data della lettura) e con dati vecchi o non ufficiali non usa gli orari come motivo. «Copia» mette la bozza negli appunti solo di questo iPhone (niente Appunti universali) per 10 minuti
+• Permessi: ogni permesso vale solo per la sua zona (scelta obbligatoria nel Garage); un permesso salvato senza zona non vale finché non scegli la zona. Salvare un permesso e passarlo a «Confermato» (anche il soggiorno in hotel «Chiesto»/«Confermato» in Viaggio) chiede prima una conferma esplicita
+• Il pannello LED di Varco non resta più spento a metà accensione
+
 Novità della 1.19.1 (l'area pedonale vince):
 • In un'area pedonale la risposta è sempre «Non entrare», anche fuori dalle zone: in Viaggio (es. via Galliera a Bologna) non compare più sotto il rosso la scheda verde «Fuori dalla ZTL. Puoi andarci»
 • Viaggio e la scheda della zona usano l'ora scelta in «Adesso ▾» e il tuo veicolo: «ZTL attiva» / «ZTL non attiva» è lo stato vero dei varchi a quell'ora (prima nelle aree pedonali «ZTL attiva» a qualsiasi ora); la scheda della zona non dice più «puoi entrare» (dipende dal veicolo)

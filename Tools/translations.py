@@ -730,6 +730,26 @@ T = {
 "Thank you!": ("Grazie!", "Danke!"),
 "Send the report": ("Invia la segnalazione", "Meldung senden"),
 "Sent by email to %@. Without Mail, you can share it with another app.": ("Si invia per email a %@. Senza Mail, puoi condividerla con un'altra app.", "Wird per E-Mail an %@ gesendet. Ohne Mail kannst du sie mit einer anderen App teilen."),
+# 1.19.2: il cartello mai verde, il verbale al condizionale, i permessi per una zona
+"According to the sign, the ZTL seems off right now: check that there are no other bans": ("Secondo il cartello la ZTL sembra spenta adesso: controlla che non ci siano altri divieti", "Laut Schild scheint die ZTL gerade aus zu sein: prüfe, ob andere Verbote gelten"),
+"The sign doesn't know your vehicle, your permits, Euro bans or pedestrian areas, and the photo can be misread. Check the sign.": ("Il cartello non conosce il tuo veicolo, i permessi, i divieti per classe Euro e le aree pedonali, e la foto può essere letta male. Controlla il cartello.", "Das Schild kennt weder dein Fahrzeug noch deine Genehmigungen, Euro-Verbote oder Fußgängerzonen, und das Foto kann falsch gelesen werden. Achte auf das Schild."),
+"I can't read it": ("Non riesco a leggerlo", "Ich kann es nicht lesen"),
+"Check that the days and hours above are the ones on the panel: the photo can be misread.": ("Controlla che giorni e orari qui sopra siano quelli del pannello: la foto può essere letta male.", "Prüfe, ob Tage und Uhrzeiten oben mit der Tafel übereinstimmen: das Foto kann falsch gelesen werden."),
+"According to the data available, the gate would not have been active. The data haven't been checked by a person yet: check the official source.": ("Secondo i dati disponibili il varco non risulterebbe attivo. I dati non sono ancora stati controllati da una persona: verifica la fonte ufficiale.", "Nach den verfügbaren Daten wäre die Einfahrt nicht aktiv gewesen. Die Daten wurden noch nicht von einer Person geprüft: sieh in der offiziellen Quelle nach."),
+"Our data for this zone are old or unofficial: we can't tell whether the gate was active. Check the city's page.": ("I nostri dati per questa zona sono vecchi o non ufficiali: non possiamo dire se il varco era attivo. Guarda la pagina del Comune.", "Unsere Daten für diese Zone sind alt oder inoffiziell: wir können nicht sagen, ob die Einfahrt aktiv war. Sieh auf der Seite der Stadt nach."),
+"A permit counts only in its zone, for the chosen vehicle and days.": ("Un permesso vale solo nella sua zona, per il veicolo e i giorni scelti.", "Eine Genehmigung gilt nur in ihrer Zone, für das gewählte Fahrzeug und die gewählten Tage."),
+"Do you have the written confirmation?": ("Hai la conferma scritta?", "Hast du die schriftliche Bestätigung?"),
+"Yes, I have it in writing": ("Sì, ce l'ho per iscritto", "Ja, ich habe sie schriftlich"),
+"no zone: it doesn't count": ("nessuna zona: non vale", "keine Zone: gilt nicht"),
+"your vehicle": ("il tuo veicolo", "dein Fahrzeug"),
+"Confirm only if the city or the hotel has confirmed in writing that %@ is registered for %@. GateLR will answer \"yes\" there for these days, and only there.": ("Conferma solo se il Comune o l'hotel ti ha confermato per iscritto che %@ è registrata per %@. GateLR risponderà «sì» lì per questi giorni, e solo lì.", "Bestätige nur, wenn die Stadt oder das Hotel schriftlich bestätigt hat, dass %@ für %@ angemeldet ist. GateLR antwortet dort für diese Tage „ja“, und nur dort."),
+"Where it counts": ("Dove vale", "Wo sie gilt"),
+"For %@. The permit counts only in this zone: in the other zones GateLR answers as if you had none.": ("Per %@. Il permesso vale solo in questa zona: nelle altre GateLR risponde come se non lo avessi.", "Für %@. Die Genehmigung gilt nur in dieser Zone: in den anderen antwortet GateLR, als hättest du keine."),
+"Save this permit?": ("Salvare questo permesso?", "Diese Genehmigung speichern?"),
+"Save the permit": ("Salva il permesso", "Genehmigung speichern"),
+"It counts only in %@, from %@ to %@. While it's waiting, GateLR answers \"on one condition\" there instead of \"don't enter\". Save it only if you have really asked for it.": ("Vale solo in %@, dal %@ al %@. Finché è in attesa, lì GateLR risponde «a una condizione» invece di «non entrare». Salvalo solo se l'hai chiesto davvero.", "Sie gilt nur in %@, vom %@ bis %@. Solange sie aussteht, antwortet GateLR dort „mit Bedingung“ statt „nicht einfahren“. Speichere sie nur, wenn du sie wirklich beantragt hast."),
+"Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days.": ("Conferma solo se l'hotel ti ha confermato per iscritto che la targa è registrata per ogni giorno. GateLR risponderà «sì» solo in %@, solo per questi giorni.", "Bestätige nur, wenn das Hotel schriftlich bestätigt hat, dass dein Kennzeichen für jeden Tag angemeldet ist. GateLR antwortet nur in %@ „ja“, nur für diese Tage."),
+"GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing.": ("GateLR risponderà «a una condizione» in %@ per questi giorni, finché l'hotel non conferma per iscritto.", "GateLR antwortet in %@ für diese Tage „mit Bedingung“, bis das Hotel schriftlich bestätigt."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
