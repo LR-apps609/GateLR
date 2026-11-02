@@ -892,6 +892,7 @@ T = {
 "What gets shared": "Wat er gedeeld wordt",
 "The shared text never includes your plate.": "De gedeelde tekst bevat nooit je kenteken.",
 "This message includes your plate: the hotel needs it to register you with the city.": "Dit bericht bevat je kenteken: het hotel heeft het nodig om je bij de gemeente aan te melden.",
+"Try again": "Opnieuw proberen",
 }
 
 INFO = {

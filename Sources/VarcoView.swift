@@ -12,13 +12,16 @@ struct VarcoView: View {
     @EnvironmentObject var store: Store
     @EnvironmentObject var router: AppRouter
     @ObservedObject private var monitor = GateMonitor.shared
-    @ObservedObject private var guardian = Guardian.shared
+    // 1.19.5: il guardiano non si osserva qui (pubblica la distanza a ogni posizione e ridisegnava tutta la pagina,
+    // striscia di Mapbox compresa): lo osserva solo il suo riquadro, GuardianBannerSlot
     @StateObject private var search = AddressSearch()
     @Binding var showZone: Bool
     @Binding var tab: Tab
     @FocusState private var typing: Bool
     @State private var resolving = false
     @State private var mapFailed = !NotteMap.hasToken
+    /// 1.19.5: Mapbox pronto (stile e zone): fino ad allora sopra la striscia c'è lo scheletro, non un rettangolo vuoto
+    @State private var mapReady = false
     @State private var parkSheet = false
     @State private var driving = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -34,7 +37,7 @@ struct VarcoView: View {
                     header
                     mapStrip(check: check, mood: answer?.mood ?? cityMood(at: moment), at: moment)
                     ContextChips(material: true)
-                    if guardian.active { guardianBanner }
+                    GuardianBannerSlot()
                     searchField
                     if typing && !search.query.isEmpty {
                         suggestions
@@ -159,7 +162,10 @@ struct VarcoView: View {
                 } else {
                     Home2Map(place: place, zones: rings, mood: mood, mapMode: false, reduceMotion: reduceMotion,
                              ornamentBottom: 6, focusBottom: 0, marker: marker, user: user, stripPoints: height,
-                             onFail: { mapFailed = true })
+                             onFail: { mapFailed = true }, onReady: { mapReady = true })
+                        // Mapbox può metterci qualche secondo (fino a 10 prima della mappa di Apple): la striscia neutra,
+                        // senza il colore della risposta, finché lo stile non è caricato
+                        .overlay { if !mapReady { MapStripSkeleton() } }
                 }
             }
             .accessibilityHidden(true)
@@ -588,30 +594,6 @@ struct VarcoView: View {
         }
     }
 
-    /// Il guardiano è attivo: cosa vede adesso e il pulsante per fermarlo. 1.19.3: con le parole e il colore della
-    /// risposta (rosso, giallo); senza zone davanti grigio «Nessuna ZTL attiva davanti», fuori dalle città che conosciamo
-    /// neutro «Non conosciamo le ZTL di questo posto» (prima era sempre verde, anche dove non sapevamo niente)
-    private var guardianBanner: some View {
-        let look = Self.guardianLook(threat: guardian.threat, resting: guardian.resting)
-        return HStack(spacing: 12) {
-            Image(systemName: look.symbol).font(.app(size: 22, weight: .bold))
-            VStack(alignment: .leading, spacing: 2) {
-                Text(String(format: L("Guardian on · to %@"), guardian.destination?.name ?? "")).font(.app(size: 15, weight: .bold)).lineLimit(1)
-                Text(verbatim: look.text).font(.app(size: 13)).opacity(0.9).lineLimit(2)
-            }
-            Spacer()
-            Button(L("Stop")) { guardian.stop() }
-                .font(.app(size: 14, weight: .bold))
-                .padding(.horizontal, 12).frame(height: 34)
-                .background(.white.opacity(0.2), in: Capsule())
-        }
-        .foregroundStyle(.white)
-        .padding(14)
-        .background(look.fill, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .accessibilityElement(children: .contain)
-        .accessibilityIdentifier("guardian.banner")
-    }
-
     /// Simbolo, testo e colore del riquadro del guardiano (testabile)
     static func guardianLook(threat: Guardian.Threat?, resting: ThreatResting) -> (symbol: String, text: String, fill: Color) {
         if let t = threat {
@@ -683,6 +665,65 @@ struct VarcoView: View {
     /// Titillium Web come i cartelli, che cresce con «Testo più grande» fino a +30% (come Font.app)
     static func font(_ size: CGFloat, _ weight: Font.Weight) -> Font {
         Notte.font(min(size * 1.3, UIFontMetrics.default.scaledValue(for: size)), weight)
+    }
+}
+
+/// 1.19.5: il riquadro del guardiano in Varco, l'unica parte della pagina che osserva Guardian (la distanza cambia a ogni
+/// posizione: prima si ridisegnava tutta la pagina, ora solo questo riquadro)
+private struct GuardianBannerSlot: View {
+    @ObservedObject private var guardian = Guardian.shared
+
+    /// Il guardiano è attivo: cosa vede adesso e il pulsante per fermarlo. 1.19.3: con le parole e il colore della
+    /// risposta (rosso, giallo); senza zone davanti grigio «Nessuna ZTL attiva davanti», fuori dalle città che conosciamo
+    /// neutro «Non conosciamo le ZTL di questo posto» (prima era sempre verde, anche dove non sapevamo niente)
+    var body: some View {
+        if guardian.active { banner }
+    }
+
+    private var banner: some View {
+        let look = VarcoView.guardianLook(threat: guardian.threat, resting: guardian.resting)
+        return HStack(spacing: 12) {
+            Image(systemName: look.symbol).font(.app(size: 22, weight: .bold))
+            VStack(alignment: .leading, spacing: 2) {
+                Text(String(format: L("Guardian on · to %@"), guardian.destination?.name ?? "")).font(.app(size: 15, weight: .bold)).lineLimit(1)
+                Text(verbatim: look.text).font(.app(size: 13)).opacity(0.9).lineLimit(2)
+            }
+            Spacer()
+            Button(L("Stop")) { guardian.stop() }
+                .font(.app(size: 14, weight: .bold))
+                .padding(.horizontal, 12).frame(height: 34)
+                .background(.white.opacity(0.2), in: Capsule())
+        }
+        .foregroundStyle(.white)
+        .padding(14)
+        .background(look.fill, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("guardian.banner")
+    }
+}
+
+/// 1.19.5: lo scheletro della striscia di mappa mentre Mapbox si carica: il blu notte con qualche via accennata,
+/// fermo (nessuna animazione) e neutro (mai il colore di una risposta)
+struct MapStripSkeleton: View {
+    var body: some View {
+        ZStack {
+            Notte.surface
+            Canvas { ctx, size in
+                let streets: [(CGPoint, CGPoint, CGFloat)] = [
+                    (CGPoint(x: 0, y: 0.62), CGPoint(x: 1, y: 0.38), 7), (CGPoint(x: 0.18, y: 0), CGPoint(x: 0.42, y: 1), 5),
+                    (CGPoint(x: 0.64, y: 0), CGPoint(x: 0.86, y: 1), 4), (CGPoint(x: 0, y: 0.22), CGPoint(x: 0.6, y: 0.05), 3),
+                    (CGPoint(x: 0.3, y: 1), CGPoint(x: 1, y: 0.8), 3),
+                ]
+                for (a, b, w) in streets {
+                    var p = Path()
+                    p.move(to: CGPoint(x: a.x * size.width, y: a.y * size.height))
+                    p.addLine(to: CGPoint(x: b.x * size.width, y: b.y * size.height))
+                    ctx.stroke(p, with: .color(Notte.line), lineWidth: w)
+                }
+            }
+        }
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
     }
 }
 

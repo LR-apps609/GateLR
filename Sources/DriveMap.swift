@@ -115,6 +115,13 @@ struct DriveMapView: UIViewRepresentable {
         private var lastTick: CFTimeInterval = 0
         private var blendFrom: (center: CLLocationCoordinate2D, distance: Double, heading: Double, pitch: Double)?
         private var blendStart: CFTimeInterval = 0
+        // 1.19.5: quello che è già sulla mappa, per non ridisegnare a ogni fotogramma la stessa cosa (auto ferma al
+        // semaforo, camera già arrivata): MapKit ridisegna solo quando qualcosa cambia davvero
+        private var shownCamera: (lat: Double, lon: Double, distance: Double, heading: Double, pitch: Double)?
+        private var shownAngle: CGFloat = .nan
+        /// Fotogrammi di fila senza cambiamenti: dopo un secondo il display link rallenta a 15 al secondo
+        private var stillFrames = 0
+        private var slow = false
 
         init(_ parent: DriveMapView) { self.parent = parent }
 
@@ -130,9 +137,23 @@ struct DriveMapView: UIViewRepresentable {
             map.addAnnotation(vehicle)
             let proxy = LinkProxy(self)
             let l = CADisplayLink(target: proxy, selector: #selector(LinkProxy.tick(_:)))
-            l.preferredFrameRateRange = CAFrameRateRange(minimum: 30, maximum: 60, preferred: 60)
+            l.preferredFrameRateRange = Self.fast
             l.add(to: .main, forMode: .common)
             link = l
+        }
+
+        static let fast = CAFrameRateRange(minimum: 30, maximum: 60, preferred: 60)
+        static let still = CAFrameRateRange(minimum: 10, maximum: 15, preferred: 15)
+
+        /// Un fotogramma con o senza cambiamenti: fermi da un secondo → 15 al secondo; al primo cambiamento di nuovo 60
+        private func frame(changed: Bool) {
+            if changed {
+                stillFrames = 0
+                if slow { slow = false; link?.preferredFrameRateRange = Self.fast }
+            } else {
+                stillFrames += 1
+                if !slow && stillFrames >= 60 { slow = true; link?.preferredFrameRateRange = Self.still }
+            }
         }
 
         func detach() {
@@ -291,7 +312,12 @@ struct DriveMapView: UIViewRepresentable {
             lastTick = now
             let drive = parent.drive
             guard let pose = drive.displayPose(at: now) else { return }
-            vehicle.coordinate = pose.coordinate.cl
+            var changed = false
+            let car = pose.coordinate.cl
+            if car.latitude != vehicle.coordinate.latitude || car.longitude != vehicle.coordinate.longitude {
+                vehicle.coordinate = car
+                changed = true
+            }
 
             if parent.following {
                 let (base, pitch): (Double, Double) = switch parent.style {
@@ -318,15 +344,31 @@ struct DriveMapView: UIViewRepresentable {
                     tilt = b.pitch + (tilt - b.pitch) * e
                     if u >= 1 { blendFrom = nil }
                 }
-                camera.centerCoordinate = center
-                camera.centerCoordinateDistance = distance
-                camera.heading = heading
-                camera.pitch = tilt
-                map.setCamera(camera, animated: false)
+                // Solo se la camera si sposta davvero (sotto un millimetro e un millesimo di grado non si vede)
+                let want = (lat: center.latitude, lon: center.longitude, distance: distance, heading: heading, pitch: tilt)
+                if let s = shownCamera, abs(s.lat - want.lat) < 1e-8, abs(s.lon - want.lon) < 1e-8,
+                   abs(s.distance - want.distance) < 0.001, abs(s.heading - want.heading) < 0.001, abs(s.pitch - want.pitch) < 0.001 {
+                    // ferma: niente da ridisegnare
+                } else {
+                    camera.centerCoordinate = center
+                    camera.centerCoordinateDistance = distance
+                    camera.heading = heading
+                    camera.pitch = tilt
+                    map.setCamera(camera, animated: false)
+                    shownCamera = want
+                    changed = true
+                }
+            } else {
+                shownCamera = nil
             }
             // L'auto girata nella direzione di marcia rispetto alla mappa
-            let angle = Heading.delta(Double(map.camera.heading), pose.heading) * .pi / 180
-            vehicleView?.inner.transform = CGAffineTransform(rotationAngle: CGFloat(angle))
+            let angle = CGFloat(Heading.delta(Double(map.camera.heading), pose.heading) * .pi / 180)
+            if angle != shownAngle {
+                vehicleView?.inner.transform = CGAffineTransform(rotationAngle: angle)
+                shownAngle = angle
+                changed = true
+            }
+            frame(changed: changed)
 
             updateTravelled(along: pose.along ?? drive.done)
             if abs(drive.done - shownSignalsAt) > 25 { updateSignals(map, done: drive.done) }
@@ -411,6 +453,7 @@ struct DriveMapView: UIViewRepresentable {
                 let v = VehicleView(annotation: annotation, reuseIdentifier: nil)
                 if let vehicleImage { v.set(vehicleImage) }
                 vehicleView = v
+                shownAngle = .nan          // vista nuova: la rotazione si riapplica al prossimo fotogramma
                 return v
             case is SignalAnnotation:
                 let compact = parent.style != .guide

@@ -301,7 +301,8 @@ struct MapScreen: View {
         .onAppear { search.focus(on: store.city) }
         .onAppear { visible = true; focus() }
         .onDisappear { visible = false }
-        .onChange(of: store.cityId) { parkings = []; focus() }
+        // 1.19.5: i suggerimenti della ricerca dalla città scelta anche quando cambia (prima solo all'apertura)
+        .onChange(of: store.cityId) { parkings = []; focus(); search.focus(on: store.city) }
         .onChange(of: store.place) {
             outsideSpots = []
             focus()
