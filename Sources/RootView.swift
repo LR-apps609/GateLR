@@ -75,6 +75,12 @@ struct RootView: View {
         Group {
             if store.loaded { tabs } else { LaunchSplash() }
         }
+        // 1.19.5: il contatore dei fotogrammi, solo nel test delle misure (-uitest -uiFps)
+        .overlay(alignment: .topLeading) {
+            if Misure.fps {
+                FrameMeter().frame(width: 280, height: 12).allowsHitTesting(false)
+            }
+        }
         .onOpenURL { router.handle($0) }
     }
 

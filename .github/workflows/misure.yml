@@ -1,0 +1,113 @@
+# 1.19.5: le misure delle prestazioni dell'app per iPhone, a parte dal giro delle foto (che è già vicino al suo limite).
+# Prima i test del motore delle regole (devono restare verdi: le risposte non cambiano), poi UITests/MisureTests.swift
+# nel simulatore: avvio → prima risposta, ricerca di un indirizzo, parcheggi fuori (senza rete e dal vivo), mappa di
+# Milano Area B (fotogrammi e scatti), processore del guardiano in un giro simulato e della guida da ferma.
+# I numeri finiscono nelle annotazioni della corsa (i registri non si scaricano). Gira sui rami prestazioni-* e a mano.
+# Nessuna telemetria: niente esce dal simulatore.
+name: Misure iPhone
+
+on:
+  push:
+    branches: ["prestazioni-*"]
+  workflow_dispatch:
+
+concurrency:
+  group: misure-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  misure:
+    runs-on: macos-15-intel
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Xcode più recente disponibile
+        run: |
+          XCODE=$(ls -d /Applications/Xcode*.app | sort -V | tail -n 1)
+          sudo xcode-select -s "$XCODE/Contents/Developer"
+          xcodebuild -version
+          echo "::notice::Macchina: $(sysctl -n machdep.cpu.brand_string), $(sysctl -n hw.ncpu) core, $(( $(sysctl -n hw.memsize) / 1073741824 )) GB; $(xcodebuild -version | head -n 1)"
+
+      - name: XcodeGen
+        run: brew install xcodegen
+
+      # Come in build.yml: con il segreto la striscia di Varco è Mapbox, come nell'app vera
+      - name: Token Mapbox (facoltativo)
+        env:
+          MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
+        run: |
+          if [ -n "$MAPBOX_ACCESS_TOKEN" ]; then
+            printf 'MAPBOX_ACCESS_TOKEN = %s\n' "$MAPBOX_ACCESS_TOKEN" > Config/Local.xcconfig
+            echo "::notice::Mapbox acceso"
+          else
+            echo "::notice::Mapbox spento: mappa di Apple"
+          fi
+
+      - name: Progetto
+        run: xcodegen generate
+
+      - name: Test del motore delle regole
+        run: |
+          SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
+          echo "SIM=$SIM" >> "$GITHUB_ENV"
+          status=0
+          xcodebuild test -project GateLR.xcodeproj -scheme GateLRTests \
+            -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-test \
+            CODE_SIGNING_ALLOWED=NO > test.log 2>&1 || status=$?
+          N=$(grep -cE "Test Case .*passed" test.log || true); F=$(grep -cE "Test Case .*failed" test.log || true)
+          echo "::notice::Test del motore: $N passati, $F falliti ($(grep -m1 -oE "Executed [0-9]+ tests?, with [0-9]+ failures?" test.log | tail -n 1))"
+          grep -E "error:|Test Case .*failed" test.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          rm -rf build-test
+          exit $status
+
+      - name: Compilazione per le misure
+        run: |
+          xcrun simctl shutdown all 2>/dev/null || true
+          status=0
+          xcodebuild build-for-testing -project GateLR.xcodeproj -scheme GateLRUITests \
+            -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
+            CODE_SIGNING_ALLOWED=NO > build.log 2>&1 || status=$?
+          grep -E "error:" build.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          killall -9 SWBBuildService XCBBuildService 2>/dev/null || true
+          exit $status
+
+      - name: Misure nel simulatore
+        timeout-minutes: 100
+        run: |
+          xcrun simctl boot "$SIM" 2>/dev/null || true
+          xcrun simctl bootstatus "$SIM" -b > /dev/null 2>&1 || true
+          echo "::notice::Simulatore: $SIM"
+          status=0
+          TEST_RUNNER_MISURE=1 xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
+            -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
+            -only-testing:GateLRUITests/MisureTests CODE_SIGNING_ALLOWED=NO > misure.log 2>&1 || status=$?
+          # Le righe delle misure come annotazioni: GitHub ne tiene poche per passo, quindi più righe in ogni annotazione
+          { grep -E "^MISURA " misure.log || true
+            grep -E "measured \[" misure.log | sed -E 's/.*MisureTests (test[A-Za-z0-9]+)\]. measured \[([^]]+)\] average: ([0-9.]+), relative standard deviation: ([0-9.]+%), values: \[([^]]*)\].*/XCTEST \1 [\2] media=\3 dev=\4 valori=[\5]/' || true
+          } > righe.txt
+          python3 - <<'PY'
+          lines = [l.strip() for l in open("righe.txt") if l.strip()]
+          chunk = ""
+          for l in lines:
+              if len(chunk) + len(l) > 3000:
+                  print("::notice::" + chunk); chunk = ""
+              chunk += l[:900] + " || "
+          if chunk: print("::notice::" + chunk)
+          print(f"{len(lines)} righe di misure")
+          PY
+          echo "::notice::$(grep -E "Test Case .*(passed|failed|skipped)" misure.log | sort -u | sed -E 's/.*MisureTests (test[A-Za-z0-9]+)\]. (passed|failed|skipped).*\(([0-9.]+) seconds\).*/\1 \2 \3s/' | tr '\n' ';')"
+          grep -E "error:" misure.log | sort -u | head -n 15 | while IFS= read -r l; do echo "::warning::${l:0:400}"; done
+          # Le misure non bloccano: una misura fallita (rete, simulatore lento) si legge nelle annotazioni
+          exit 0
+
+      - name: Registri
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: misure-registri
+          path: |
+            test.log
+            build.log
+            misure.log
+          if-no-files-found: ignore

@@ -71,10 +71,10 @@ enum ParkingData {
         if TestZone.isTest(cityId: city.id) { return [TestZone.parkingSpot(at: city.center, store: Store.shared)] }
         if let hit = memory[city.id] { return hit }
         if let list = bundled(city.id) { memory[city.id] = list; return list }
-        let cached = cache(city.id)
+        let cached = Misure.noParkingCache ? nil : cache(city.id)
         if let cached, cached.fresh { memory[city.id] = cached.spots; return cached.spots }
-        // Nel giro delle foto niente rete: si usa quello che c'è
-        guard !ProcessInfo.processInfo.arguments.contains("-uitest") else { return cached?.spots ?? [] }
+        // Nel giro delle foto niente rete: si usa quello che c'è (il test delle misure con -uiLive la usa)
+        guard !ProcessInfo.processInfo.arguments.contains("-uitest") || Misure.live else { return cached?.spots ?? [] }
         if let live = await live(city) {
             memory[city.id] = live
             store(live, for: city.id)
@@ -280,7 +280,7 @@ final class ParkOutsideFinder: ObservableObject {
         if let city { spots = await ParkingData.spots(for: city) }
         fromApple = spots.isEmpty
         // Nel giro delle foto (-uitest) niente ricerche di Apple né percorsi: solo i dati dentro l'app
-        let offline = ProcessInfo.processInfo.arguments.contains("-uitest")
+        let offline = ProcessInfo.processInfo.arguments.contains("-uitest") && !Misure.live
         if spots.isEmpty && !offline { spots = await Self.appleParkings(near: destination) }
         let zones = store.cities.flatMap(\.zones)
         let pedestrian = store.cities.flatMap { $0.pedestrian ?? [] }
@@ -371,8 +371,10 @@ struct ParkOutsideCard: View {
             case .idle, .searching:
                 // Senza rotella che gira: il giro delle foto aspetta che l'app sia ferma
                 Label(L("Searching…"), systemImage: "hourglass").font(.app(size: 14)).foregroundStyle(Theme.muted)
+                    .accessibilityIdentifier("park.searching")
             case .empty:
                 Text("No car parks found just outside the zone.").font(.app(size: 14)).foregroundStyle(Theme.muted)
+                    .accessibilityIdentifier("park.empty")
             case .done:
                 VStack(spacing: 0) {
                     ForEach(Array(finder.options.enumerated()), id: \.element.id) { i, o in
