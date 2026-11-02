@@ -70,6 +70,19 @@ enum ParkingData {
         // Modalità prova: il parcheggio finto fuori dalla zona di prova (mai in memoria: la zona si può spostare)
         if TestZone.isTest(cityId: city.id) { return [TestZone.parkingSpot(at: city.center, store: Store.shared)] }
         if let hit = memory[city.id] { return hit }
+        // 1.19.5: la stessa città chiesta due volte insieme (il percorso di Viaggio e il riquadro «Parcheggia fuori»)
+        // aspetta la stessa ricerca invece di farne due
+        if let running = inFlight[city.id] { return await running.value }
+        let task = Task { @MainActor in await load(city) }
+        inFlight[city.id] = task
+        let list = await task.value
+        inFlight[city.id] = nil
+        return list
+    }
+
+    private static var inFlight: [String: Task<[ParkingSpot], Never>] = [:]
+
+    private static func load(_ city: City) async -> [ParkingSpot] {
         if let list = bundled(city.id) { memory[city.id] = list; return list }
         let cached = Misure.noParkingCache ? nil : cache(city.id)
         if let cached, cached.fresh { memory[city.id] = cached.spots; return cached.spots }
@@ -118,28 +131,80 @@ enum ParkingData {
         return BBox(minLat: b.minLat - dLat, minLon: b.minLon - dLon, maxLat: b.maxLat + dLat, maxLon: b.maxLon + dLon)
     }
 
-    /// Overpass dal telefono, con un User-Agent che dice chi siamo e i server di riserva
+    /// Quanto aspettare un server di Overpass (prima 40 secondi per server, uno dopo l'altro: fino a 2 minuti di «Cerco…»)
+    nonisolated static let hostTimeout: TimeInterval = 20
+    /// Il server di riserva parte dopo questa attesa se il primo non ha ancora risposto (non tutti e tre insieme
+    /// a ogni ricerca: i server di Overpass sono gratuiti e condivisi)
+    nonisolated static let hedgeDelay: TimeInterval = 3
+
+    /// Overpass dal telefono, con un User-Agent che dice chi siamo. 1.19.5: i server di riserva partono a 3 e 6 secondi
+    /// se il primo non ha ancora risposto (o subito, se ha già sbagliato); vale la prima risposta buona e le altre si
+    /// annullano. Ognuno al massimo 20 secondi: al peggio circa 26 secondi, prima fino a 2 minuti
     private static func live(_ city: City) async -> [ParkingSpot]? {
         guard let b = searchBox(city) else { return nil }
         let bb = String(format: "%.5f,%.5f,%.5f,%.5f", b.minLat, b.minLon, b.maxLat, b.maxLon)
-        let query = "[out:json][timeout:60];( nwr[\"amenity\"=\"parking\"](\(bb)); );out center tags;"
+        let query = "[out:json][timeout:25];( nwr[\"amenity\"=\"parking\"](\(bb)); );out center tags;"
         var allowed = CharacterSet.alphanumerics
         allowed.insert(charactersIn: "-._~")
         let body = "data=" + (query.addingPercentEncoding(withAllowedCharacters: allowed) ?? "")
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1"
-        for host in hosts {
-            guard let url = URL(string: host) else { continue }
-            var req = URLRequest(url: url, timeoutInterval: 40)
+        let requests: [URLRequest] = hosts.compactMap { host in
+            guard let url = URL(string: host) else { return nil }
+            var req = URLRequest(url: url, timeoutInterval: hostTimeout)
             req.httpMethod = "POST"
             req.setValue("GateLR/\(version) (iOS; ZTL parking outside)", forHTTPHeaderField: "User-Agent")
             req.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
             req.httpBody = body.data(using: .utf8)
-            if let result = try? await URLSession.shared.data(for: req),
-               (result.1 as? HTTPURLResponse)?.statusCode == 200, let list = fromOverpass(result.0) {
-                return list
-            }
+            return req
         }
-        return nil
+        return await firstGood(requests)
+    }
+
+    private enum Outcome: Sendable { case timer, done([ParkingSpot]?) }
+
+    /// La prima risposta buona: la richiesta i parte dopo i × «hedge» secondi, o subito se quelle partite hanno già
+    /// sbagliato; nil se nessuna risponde bene. Le altre si annullano appena una risponde
+    nonisolated static func firstGood(_ requests: [URLRequest], hedge: TimeInterval = hedgeDelay,
+                                      fetch: @escaping @Sendable (URLRequest) async -> [ParkingSpot]? = overpass) async -> [ParkingSpot]? {
+        guard !requests.isEmpty else { return nil }
+        return await withTaskGroup(of: Outcome.self) { group in
+            var next = 1, running = 1
+            let first = requests[0]
+            group.addTask { .done(await fetch(first)) }
+            for i in 1..<requests.count {
+                group.addTask {
+                    try? await Task.sleep(for: .seconds(hedge * Double(i)))
+                    return .timer
+                }
+            }
+            while let outcome = await group.next() {
+                var start = false
+                switch outcome {
+                case .done(let list?):
+                    group.cancelAll()
+                    return list
+                case .done(nil):
+                    running -= 1
+                    start = true
+                case .timer:
+                    start = true
+                }
+                if start && next < requests.count {
+                    let req = requests[next]
+                    next += 1; running += 1
+                    group.addTask { .done(await fetch(req)) }
+                }
+                if running == 0 && next >= requests.count { break }
+            }
+            group.cancelAll()
+            return nil
+        }
+    }
+
+    nonisolated static func overpass(_ req: URLRequest) async -> [ParkingSpot]? {
+        guard let (data, response) = try? await URLSession.shared.data(for: req),
+              (response as? HTTPURLResponse)?.statusCode == 200 else { return nil }
+        return fromOverpass(data)
     }
 
     private struct Overpass: Decodable {
@@ -263,6 +328,35 @@ enum ParkOutside {
     }
 }
 
+/// 1.19.5: la ricerca dei parcheggi fuori, una sola per il riquadro «Parcheggia fuori e cammina» (ParkOutsideFinder)
+/// e per il parcheggio del percorso di Viaggio (RoutePlanner.parkingOutside): stessa città, stessi dati, stesso ordine
+@MainActor
+enum ParkOutsideSearch {
+    /// La città della destinazione: quella della zona che la contiene, o la più vicina
+    static func city(for destination: Coordinate, store: Store) -> City? {
+        store.zones(at: destination).first?.city ?? store.nearestCity(to: destination)
+    }
+
+    /// I parcheggi fuori da ogni ZTL attiva all'arrivo, nell'ordine di ParkOutside.rank
+    static func rankOutside(_ spots: [ParkingSpot], to destination: Coordinate, at date: Date, city: City?, store: Store) -> [ParkingOption] {
+        let zones = store.cities.flatMap(\.zones)
+        let pedestrian = store.cities.flatMap { $0.pedestrian ?? [] }
+        let answer: (Zone, Date) -> Answer = { store.answer(at: $1, zone: $0, hotelInside: false) }
+        let outside = spots.filter { ParkOutside.isOutside($0.location, zones: zones, pedestrian: pedestrian, at: date, answer: answer) }
+        let holiday = ItalianHolidays.isHoliday(date, calendar: RuleEngine.rome, local: city?.localHolidays)
+        return ParkOutside.rank(outside, to: destination, at: date, holiday: holiday)
+    }
+
+    /// I parcheggi di OpenStreetMap della città della destinazione (ParkingData: dentro l'app, disco o Overpass, con una
+    /// sola ricerca alla volta per città) e quelli fuori, in ordine
+    static func osm(to destination: Coordinate, at date: Date, store: Store) async
+        -> (city: City?, spots: [ParkingSpot], ranked: [ParkingOption]) {
+        guard let city = city(for: destination, store: store) else { return (nil, [], []) }
+        let spots = await ParkingData.spots(for: city)
+        return (city, spots, rankOutside(spots, to: destination, at: date, city: city, store: store))
+    }
+}
+
 /// Cerca e controlla i parcheggi per una destinazione
 @MainActor
 final class ParkOutsideFinder: ObservableObject {
@@ -275,29 +369,46 @@ final class ParkOutsideFinder: ObservableObject {
     func find(to destination: Place, arrival: Date, origin: CLLocationCoordinate2D?, store: Store) async {
         phase = .searching
         options = []
-        let city = store.zones(at: destination.location).first?.city ?? store.nearestCity(to: destination.location)
-        var spots: [ParkingSpot] = []
-        if let city { spots = await ParkingData.spots(for: city) }
+        // 1.19.5: la stessa ricerca del percorso di Viaggio (RoutePlanner.parkingOutside): ParkOutsideSearch
+        let found = await ParkOutsideSearch.osm(to: destination.location, at: arrival, store: store)
+        var spots = found.spots
+        var ranked = found.ranked
         fromApple = spots.isEmpty
         // Nel giro delle foto (-uitest) niente ricerche di Apple né percorsi: solo i dati dentro l'app
         let offline = ProcessInfo.processInfo.arguments.contains("-uitest") && !Misure.live
-        if spots.isEmpty && !offline { spots = await Self.appleParkings(near: destination) }
+        if spots.isEmpty && !offline {
+            spots = await Self.appleParkings(near: destination)
+            ranked = ParkOutsideSearch.rankOutside(spots, to: destination.location, at: arrival, city: found.city, store: store)
+        }
+        ranked = Array(ranked.prefix(5))
         let zones = store.cities.flatMap(\.zones)
-        let pedestrian = store.cities.flatMap { $0.pedestrian ?? [] }
         let answer: (Zone, Date) -> Answer = { store.answer(at: $1, zone: $0, hotelInside: false) }
-        let outside = spots.filter { ParkOutside.isOutside($0.location, zones: zones, pedestrian: pedestrian, at: arrival, answer: answer) }
-        let holiday = ItalianHolidays.isHoliday(arrival, calendar: RuleEngine.rome, local: city?.localHolidays)
-        var ranked = Array(ParkOutside.rank(outside, to: destination.location, at: arrival, holiday: holiday).prefix(5))
-        // Percorsi veri per i primi: a piedi fino alla destinazione, in auto da qui al parcheggio (ZTL lungo la strada)
-        for i in ranked.indices where !offline {
+        // Percorsi veri per i primi: a piedi fino alla destinazione, in auto da qui al parcheggio (ZTL lungo la strada).
+        // 1.19.5: tre parcheggi alla volta invece di uno (prima 10 richieste ad Apple una dopo l'altra); i conti
+        // delle ZTL lungo la strada restano gli stessi, sul thread principale
+        if !offline && !ranked.isEmpty {
+            let target = destination.location
+            let job: (Int) -> @Sendable () async -> (Int, Double?, Bool?) = { i in
+                let spot = ranked[i].spot.location
+                return {
+                    async let walk = Self.walking(from: spot, to: target)
+                    async let clear = Self.routeIsClear(from: origin, to: spot, arrival: arrival, zones: zones, answer: answer)
+                    return (i, await walk, await clear)
+                }
+            }
+            await withTaskGroup(of: (Int, Double?, Bool?).self) { group in
+                var next = 0
+                while next < min(3, ranked.count) { group.addTask(operation: job(next)); next += 1 }
+                for await (i, walk, clear) in group {
+                    if let walk {
+                        ranked[i].walkMeters = walk
+                        ranked[i].walkMeasured = true
+                    }
+                    ranked[i].routeClear = clear
+                    if next < ranked.count && !Task.isCancelled { group.addTask(operation: job(next)); next += 1 }
+                }
+            }
             if Task.isCancelled { return }
-            if let walk = await Self.walking(from: ranked[i].spot.location, to: destination.location) {
-                ranked[i].walkMeters = walk
-                ranked[i].walkMeasured = true
-            }
-            if let origin {
-                ranked[i].routeClear = await Self.routeIsClear(from: origin, to: ranked[i].spot.location, arrival: arrival, zones: zones, answer: answer)
-            }
         }
         options = ParkOutside.finalize(ranked)
         phase = options.isEmpty ? .empty : .done
@@ -312,8 +423,10 @@ final class ParkOutsideFinder: ObservableObject {
     }
 
     /// La strada in auto fino al parcheggio non entra in una ZTL dove non si può («sì» in ogni zona attraversata)
-    private static func routeIsClear(from origin: CLLocationCoordinate2D, to spot: Coordinate, arrival: Date,
+    /// nil anche senza la tua posizione (non controllata)
+    private static func routeIsClear(from origin: CLLocationCoordinate2D?, to spot: Coordinate, arrival: Date,
                                      zones: [Zone], answer: (Zone, Date) -> Answer) async -> Bool? {
+        guard let origin else { return nil }
         let r = MKDirections.Request()
         r.source = MKMapItem(placemark: MKPlacemark(coordinate: origin))
         r.destination = MKMapItem(placemark: MKPlacemark(coordinate: spot.cl))
@@ -350,9 +463,11 @@ struct ParkOutsideCard: View {
     var onOptions: ([ParkingOption]) -> Void = { _ in }
     @StateObject private var finder = ParkOutsideFinder()
     @State private var chosen: String?
+    /// «Riprova»: cambia la chiave, la ricerca riparte
+    @State private var attempt = 0
 
     private var key: String {
-        "\(destination.key)|\(Int(arrival.timeIntervalSinceReferenceDate / 300))|\(store.vehicle.id)|\(store.vehicle.fuel.rawValue)\(store.vehicle.euro)"
+        "\(destination.key)|\(Int(arrival.timeIntervalSinceReferenceDate / 300))|\(store.vehicle.id)|\(store.vehicle.fuel.rawValue)\(store.vehicle.euro)|\(attempt)"
     }
 
     var body: some View {
@@ -372,9 +487,19 @@ struct ParkOutsideCard: View {
                 // Senza rotella che gira: il giro delle foto aspetta che l'app sia ferma
                 Label(L("Searching…"), systemImage: "hourglass").font(.app(size: 14)).foregroundStyle(Theme.muted)
                     .accessibilityIdentifier("park.searching")
+                // 1.19.5: la forma delle righe che arrivano, ferma e grigia (niente colori né risposte prima del tempo)
+                ParkingSkeleton()
             case .empty:
                 Text("No car parks found just outside the zone.").font(.app(size: 14)).foregroundStyle(Theme.muted)
                     .accessibilityIdentifier("park.empty")
+                Button { attempt += 1 } label: {
+                    Label(L("Try again"), systemImage: "arrow.clockwise")
+                        .font(.app(size: 15, weight: .semibold)).foregroundStyle(Theme.blue)
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                        .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("park.retry")
             case .done:
                 VStack(spacing: 0) {
                     ForEach(Array(finder.options.enumerated()), id: \.element.id) { i, o in
@@ -451,6 +576,33 @@ struct ParkOutsideCard: View {
         }
         .buttonStyle(.plain)
         .accessibilityAddTraits(selected ? .isSelected : [])
+    }
+}
+
+/// 1.19.5: le righe dei parcheggi mentre arrivano: tre righe grigie ferme (nessuna animazione, il giro delle foto
+/// aspetta che l'app sia ferma), con la forma delle righe vere (simbolo, nome, minuti e prezzo, orari)
+struct ParkingSkeleton: View {
+    var body: some View {
+        VStack(spacing: 0) {
+            ForEach(0..<3, id: \.self) { i in
+                HStack(alignment: .top, spacing: 12) {
+                    RoundedRectangle(cornerRadius: 8, style: .continuous).fill(Theme.line.opacity(0.6)).frame(width: 32, height: 32)
+                    VStack(alignment: .leading, spacing: 7) {
+                        bar(width: [170, 140, 190][i], height: 13)
+                        bar(width: [120, 150, 110][i], height: 10)
+                        bar(width: [90, 80, 100][i], height: 10)
+                    }
+                    Spacer(minLength: 0)
+                }
+                .padding(.vertical, 10)
+                if i < 2 { Divider().padding(.leading, 44) }
+            }
+        }
+        .accessibilityHidden(true)
+    }
+
+    private func bar(width: CGFloat, height: CGFloat) -> some View {
+        RoundedRectangle(cornerRadius: height / 2, style: .continuous).fill(Theme.line.opacity(0.6)).frame(width: width, height: height)
     }
 }
 

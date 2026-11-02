@@ -339,8 +339,23 @@ enum CityLoader {
     static func bundled(skipping ids: Set<String> = []) -> [City] {
         let urls = (Bundle.main.urls(forResourcesWithExtension: "json", subdirectory: "Cities") ?? [])
             .filter { $0.lastPathComponent != "manifest.json" && !ids.contains($0.deletingPathExtension().lastPathComponent) }
-        let cities = urls.compactMap { try? decode(Data(contentsOf: $0)) }.sorted { $0.name < $1.name }
+        let cities = decodeAll(urls).sorted { $0.name < $1.name }
         return cities.isEmpty && ids.isEmpty ? [SampleData.florence] : cities
+    }
+
+    /// 1.19.5: le città lette su più core insieme (46 file, 2,7 MB: all'avvio la risposta aspetta questa lettura).
+    /// Stesso risultato, nello stesso ordine dei file. Nel widget una alla volta: ha poca memoria
+    static func decodeAll(_ urls: [URL]) -> [City] {
+        guard urls.count > 1, !Bundle.main.bundlePath.hasSuffix(".appex") else {
+            return urls.compactMap { try? decode(Data(contentsOf: $0)) }
+        }
+        var out = [City?](repeating: nil, count: urls.count)
+        let lock = NSLock()
+        DispatchQueue.concurrentPerform(iterations: urls.count) { i in
+            let city = try? decode(Data(contentsOf: urls[i]))
+            lock.lock(); out[i] = city; lock.unlock()
+        }
+        return out.compactMap { $0 }
     }
 
     struct Manifest: Codable {
@@ -399,7 +414,7 @@ enum CityLoader {
     static func downloaded() -> [City]? {
         guard let dir = downloadDir,
               let files = try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil) else { return nil }
-        let cities = files.filter { $0.pathExtension == "json" }.compactMap { try? decode(Data(contentsOf: $0)) }
+        let cities = decodeAll(files.filter { $0.pathExtension == "json" })
         return cities.isEmpty ? nil : cities
     }
 }

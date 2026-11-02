@@ -8,7 +8,11 @@ import WidgetKit
 @MainActor
 final class CityUpdater: ObservableObject {
     static let shared = CityUpdater()
-    static let base = URL(string: "https://raw.githubusercontent.com/LR-apps609/GateLR/main/Resources/Cities/")!
+    nonisolated static let base = URL(string: "https://raw.githubusercontent.com/LR-apps609/GateLR/main/Resources/Cities/")!
+    /// 1.19.5: ogni richiesta al più 20 secondi (prima il minuto di iOS, e lo scaricamento intero poteva durare di più)
+    nonisolated static let timeout: TimeInterval = 20
+    /// L'ETag dell'ultimo elenco letto: se GitHub risponde «non cambiato» (304) non si scarica niente
+    nonisolated static let etagKey = "cities.manifestETag"
 
     enum State: Equatable { case idle, checking, upToDate, updated(String), failed }
     @Published private(set) var state: State = .idle
@@ -33,22 +37,44 @@ final class CityUpdater: ObservableObject {
             UserDefaults.standard.set(lastCheck, forKey: "cities.lastCheck")
         }
         do {
-            let (data, _) = try await URLSession.shared.data(from: Self.base.appendingPathComponent("manifest.json"))
+            // 1.19.5: richiesta condizionale (If-None-Match): con l'elenco uguale GitHub risponde 304 senza mandarlo
+            var req = Self.request(Self.base.appendingPathComponent("manifest.json"))
+            let etag = UserDefaults.standard.string(forKey: Self.etagKey)
+            if let etag { req.setValue(etag, forHTTPHeaderField: "If-None-Match") }
+            let (data, response) = try await URLSession.shared.data(for: req)
+            let http = response as? HTTPURLResponse
+            if http?.statusCode == 304 { state = .upToDate; return }
+            guard http == nil || http?.statusCode == 200 else { state = .failed; return }
+            let newTag = http?.value(forHTTPHeaderField: "ETag")
             let manifest = try JSONDecoder().decode(CityLoader.Manifest.self, from: data)
-            guard manifest.schema == 1, manifest.version > currentVersion else { state = .upToDate; return }
-            var files: [(String, Data, String)] = []
-            // Anche le città con zone da fonti non ufficiali: questa versione mostra l'avviso (vedi Manifest.unofficialCities)
-            for entry in manifest.allCities {
-                let (d, _) = try await URLSession.shared.data(from: Self.base.appendingPathComponent(entry.file))
-                files.append((entry.file, d, entry.sha256))
+            guard manifest.schema == 1, manifest.version > currentVersion else {
+                state = .upToDate
+                Self.saveETag(newTag)
+                return
+            }
+            // Anche le città con zone da fonti non ufficiali: questa versione mostra l'avviso (vedi Manifest.unofficialCities).
+            // 1.19.5: insieme invece che una dopo l'altra, e quelle che il telefono ha già uguali (stessa impronta, nell'app
+            // o già scaricate) non si scaricano di nuovo
+            let entries = manifest.allCities
+            let files: [(String, Data, String)] = try await withThrowingTaskGroup(of: (Int, String, Data, String).self) { group in
+                for (i, entry) in entries.enumerated() {
+                    group.addTask {
+                        if let local = Self.localCopy(entry) { return (i, entry.file, local, entry.sha256) }
+                        let (d, r) = try await URLSession.shared.data(for: Self.request(Self.base.appendingPathComponent(entry.file)))
+                        if let code = (r as? HTTPURLResponse)?.statusCode, code != 200 { throw URLError(.badServerResponse) }
+                        return (i, entry.file, d, entry.sha256)
+                    }
+                }
+                var out = [(String, Data, String)?](repeating: nil, count: entries.count)
+                for try await (i, file, d, sha) in group { out[i] = (file, d, sha) }
+                return out.compactMap { $0 }
             }
             // Impronta, prova di lettura, salvataggio e nuova lettura delle città: tutto fuori dal thread principale
             // (prima si faceva qui, sul principale, e al ritorno dell'app la bloccava per qualche istante)
             let version = manifest.version, all = files
             let fresh: [City]? = try await Task.detached(priority: .utility) { () throws -> [City]? in
                 for (_, d, sha) in all {
-                    let hash = SHA256.hash(data: d).map { String(format: "%02x", $0) }.joined()
-                    guard hash == sha, (try? CityLoader.decode(d))?.zones.isEmpty == false else { return nil }
+                    guard CityUpdater.sha256(d) == sha, (try? CityLoader.decode(d))?.zones.isEmpty == false else { return nil }
                 }
                 guard let dir = CityLoader.downloadDir else { return nil }
                 try? FileManager.default.removeItem(at: dir)
@@ -58,6 +84,7 @@ final class CityUpdater: ObservableObject {
                 return CityLoader.best()
             }.value
             guard let fresh else { state = .failed; return }
+            Self.saveETag(newTag)
             store.replaceCities(fresh)
             state = .updated(manifest.version)
             // 1.19.3: il widget legge le stesse città (App Group): si ricalcola subito con i dati nuovi
@@ -65,6 +92,32 @@ final class CityUpdater: ObservableObject {
         } catch {
             state = .failed
         }
+    }
+
+    /// Una richiesta a GitHub con il tempo massimo, senza la copia di iOS (la decide l'ETag)
+    nonisolated static func request(_ url: URL) -> URLRequest {
+        var r = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: timeout)
+        r.setValue("application/json", forHTTPHeaderField: "Accept")
+        return r
+    }
+
+    nonisolated static func saveETag(_ tag: String?) {
+        if let tag, !tag.isEmpty { UserDefaults.standard.set(tag, forKey: etagKey) }
+    }
+
+    /// La città già sul telefono con la stessa impronta (scaricata prima o dentro l'app): non serve scaricarla
+    nonisolated static func localCopy(_ entry: CityLoader.Manifest.Entry) -> Data? {
+        let candidates = [CityLoader.downloadDir?.appendingPathComponent(entry.file),
+                          Bundle.main.url(forResource: entry.file, withExtension: nil, subdirectory: "Cities")].compactMap { $0 }
+        for url in candidates {
+            guard let d = try? Data(contentsOf: url) else { continue }
+            if sha256(d) == entry.sha256 { return d }
+        }
+        return nil
+    }
+
+    nonisolated static func sha256(_ d: Data) -> String {
+        SHA256.hash(data: d).map { String(format: "%02x", $0) }.joined()
     }
 
     /// «24 ott 2026, 06:44» da «202610240644»

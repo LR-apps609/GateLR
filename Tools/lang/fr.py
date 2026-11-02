@@ -893,6 +893,7 @@ T = {
 "What gets shared": "Ce qui est partagé",
 "The shared text never includes your plate.": "Le texte partagé ne contient jamais votre plaque.",
 "This message includes your plate: the hotel needs it to register you with the city.": "Ce message contient votre plaque : l'hôtel en a besoin pour vous enregistrer auprès de la ville.",
+"Try again": "Réessayer",
 }
 
 INFO = {

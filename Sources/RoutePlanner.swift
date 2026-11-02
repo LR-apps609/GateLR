@@ -90,18 +90,11 @@ final class RoutePlanner: ObservableObject {
     }
 
     /// Il parcheggio più vicino alla destinazione fuori da ogni ZTL attiva all'arrivo: prima i dati di OpenStreetMap
-    /// (ParkingData, con gli orari), poi la ricerca di Apple
+    /// (ParkingData, con gli orari), poi la ricerca di Apple. 1.19.5: la stessa ricerca del riquadro «Parcheggia fuori»
+    /// (ParkOutsideSearch), così i due insieme non scaricano due volte i parcheggi della stessa città
     static func parkingOutside(near place: Place, store: Store, at date: Date) async -> Place? {
-        let zones = store.cities.flatMap(\.zones)
-        if let city = store.zones(at: place.location).first?.city ?? store.nearestCity(to: place.location) {
-            let spots = await ParkingData.spots(for: city)
-            let pedestrian = store.cities.flatMap { $0.pedestrian ?? [] }
-            let answer: (Zone, Date) -> Answer = { store.answer(at: $1, zone: $0, hotelInside: false) }
-            let ok = spots.filter { s in ParkOutside.isOutside(s.location, zones: zones, pedestrian: pedestrian, at: date, answer: answer) }
-            let holiday = ItalianHolidays.isHoliday(date, calendar: RuleEngine.rome, local: city.localHolidays)
-            if let best = ParkOutside.rank(ok, to: place.location, at: date, holiday: holiday).first { return best.spot.place }
-        }
-        return await parkingOutside(near: place, zones: zones, vehicle: store.vehicle, at: date)
+        if let best = await ParkOutsideSearch.osm(to: place.location, at: date, store: store).ranked.first { return best.spot.place }
+        return await parkingOutside(near: place, zones: store.cities.flatMap(\.zones), vehicle: store.vehicle, at: date)
     }
 
     /// Il parcheggio fuori dalle zone vietate o a pagamento più vicino alla destinazione (ricerca di Apple)

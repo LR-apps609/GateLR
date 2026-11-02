@@ -31,6 +31,8 @@ struct Home2Map: UIViewRepresentable {
     /// Il lato corto della striscia in punti, per lo zoom della ripresa con te dentro
     var stripPoints: CGFloat = 150
     var onFail: () -> Void
+    /// 1.19.5: lo stile è caricato e le zone disegnate (VarcoView toglie lo scheletro della striscia)
+    var onReady: () -> Void = {}
 
     var stripFrame: StripFrame { StripFrame.make(target: place.location, user: user) }
 
@@ -122,6 +124,7 @@ struct Home2Map: UIViewRepresentable {
             self.pin = pin
             setPuck(mapView)
             startDrift(forward: true)
+            parent.onReady()
         }
 
         private static func key(_ zones: [AccessCache.Look: [[CLLocationCoordinate2D]]]) -> Int {

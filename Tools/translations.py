@@ -788,6 +788,8 @@ T = {
 "What gets shared": ("Cosa viene condiviso", "Was geteilt wird"),
 "The shared text never includes your plate.": ("Il testo condiviso non contiene mai la tua targa.", "Der geteilte Text enthält nie dein Kennzeichen."),
 "This message includes your plate: the hotel needs it to register you with the city.": ("Questo messaggio contiene la tua targa: all'hotel serve per registrarti al Comune.", "Diese Nachricht enthält dein Kennzeichen: Das Hotel braucht es, um dich bei der Stadt anzumelden."),
+# 1.19.5 «Più veloce»: «Riprova» quando i parcheggi non arrivano
+"Try again": ("Riprova", "Erneut versuchen"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
