@@ -93,7 +93,7 @@ final class PlatePrivacyTests: XCTestCase {
         let inside = zone.perimeter.first ?? city.center
         for text in [NearbyZTLIntent.answer(at: inside, store: store),
                      NearbyZTLIntent.answer(at: city.center, store: store),
-                     DriveIntoIntent.answer(city: city, zone: zone, at: nil, store: store)] {
+                     CanIDriveIntoIntent.answer(city: city, zone: zone, at: nil, store: store)] {
             XCTAssertFalse(text.contains("GX482KM"), text)
             XCTAssertFalse(text.isEmpty)
         }
