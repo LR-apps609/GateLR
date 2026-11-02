@@ -10,6 +10,22 @@ final class ScreenshotTests: XCTestCase {
         continueAfterFailure = true
     }
 
+    /// 1.19.2: alla fine di ogni test l'app si chiude, con un dialogo o un fumetto ancora aperto chiuso prima (Annulla o
+    /// un tocco fuori). Così il test dopo non deve chiudere un'app con la mappa grande o un dialogo sopra (corsa 41391461842:
+    /// «Failed to terminate» al lancio di test5) e il simulatore libera la memoria prima del lancio seguente
+    override func tearDown() {
+        if app.state == .runningForeground {
+            let cancel = app.buttons["Annulla"].firstMatch
+            if app.sheets.firstMatch.exists || app.alerts.firstMatch.exists || app.popovers.firstMatch.exists {
+                if cancel.exists && cancel.isHittable { cancel.tap() }
+                else { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.85)).tap() }
+                sleep(1)
+            }
+            app.terminate()
+        }
+        super.tearDown()
+    }
+
     // Le tre schede di GateLR 2.0: 0 «Varco», 1 «Mappa» (al centro), 2 «Tu»
     private var varcoTab: XCUIElement { app.tabBars.buttons.element(boundBy: 0) }
     private var mapTab: XCUIElement { app.tabBars.buttons.element(boundBy: 1) }
