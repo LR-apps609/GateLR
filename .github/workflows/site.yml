@@ -13,6 +13,9 @@ on:
       - 'Resources/Parking/**'
       - 'Tools/build_site.py'
       - 'Tools/check_site_js.py'
+      - 'Tools/check_site_answers.mjs'
+      - 'Tools/site_fonts/**'
+      - 'Tools/site_img/**'
       - 'Tools/seasons.py'
       - '.github/workflows/site.yml'
 
@@ -42,6 +45,9 @@ jobs:
           node-version: 22
       - name: Controlla gli script delle pagine
         run: python3 Tools/check_site_js.py
+      # 1.19.5: i dati delle città si scaricano a richiesta; le risposte devono restare quelle di quando la home li aveva tutti
+      - name: Controlla che le risposte non cambino
+        run: node Tools/check_site_answers.mjs
       - name: Prepara i file
         run: |
           # tutta la cartella web/ (home in 3 lingue, pagine delle città, sitemap, robots), tranne il modello e il README
