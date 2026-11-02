@@ -376,3 +376,5 @@ Istruzioni passo passo in docs/prova-sul-campo.md.
 - [ ] Se avevi un permesso salvato prima della 1.19.2: nel Garage la riga dice «nessuna zona: non vale» e la pillola «Scegli la zona»; scelta la zona torna «In attesa» e va riconfermato
 - [ ] Viaggio con un hotel dentro la ZTL: nella registrazione della targa tocca «Chiesto» o «Confermato» → prima compare il dialogo; con «Annulla» lo stato non cambia
 - [ ] Varco su Palazzo Vecchio (anche con l'ora cambiata più volte di seguito): il pannello LED finisce sempre acceso con la scritta, mai nero
+- [ ] Verbale del Settore F di Firenze (notti d'estate) un venerdì di luglio alle 23:30: «Il varco era attivo?» è rosso; cambia la data a un venerdì di novembre alle 23:30: giallo (spento secondo gli orari, dati non rivisti). Una data di più di 4 mesi prima della lettura dei dati: giallo «dati vecchi o non ufficiali»
+- [ ] Viaggio → Messaggio per l'hotel → «Copia»: si incolla sull'iPhone, NON su Mac/iPad (Appunti universali); dopo 10 minuti gli appunti sono vuoti

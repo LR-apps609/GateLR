@@ -156,7 +156,7 @@ struct FineScanView: View {
         VStack(alignment: .leading, spacing: 10) {
             SectionLabel("Was the gate active?")
             if let z = zone, let s = status {
-                let look = Self.look(FineCheck.shown(s, zone: z, engine: engine))
+                let look = Self.look(FineCheck.shown(s, zone: z, engine: engine, violation: violation))
                 HStack(alignment: .top, spacing: 10) {
                     Image(systemName: look.symbol)
                         .font(.app(size: 15, weight: .heavy))
@@ -174,7 +174,8 @@ struct FineScanView: View {
                 .accessibilityIdentifier("fine.verdict")
                 Text(verbatim: z.localizedName + " · " + engine.format(violation, .dateTime.weekday(.wide).day().month().year().hour().minute()))
                     .font(.app(size: 14, weight: .semibold))
-                Text("These are today's hours as published by the city: on that day they may have been different (summer hours, events, panels off). We are not lawyers: check the notice and the official source.")
+                Text(String(format: L("Checked at the day and time of the notice, with the hours we read on %@: on that day they may have been different (summer hours, events, panels off). We are not lawyers: check the notice and the official source."),
+                            engine.day(z.source.checkedOn, style: .abbreviated)))
                     .font(.app(size: 13)).foregroundStyle(Theme.muted)
                     .fixedSize(horizontal: false, vertical: true)
                 Link(destination: z.source.pageURL) {
@@ -258,7 +259,7 @@ struct FineScanView: View {
         n.notificationDate = notified
         return FineCheck.appealDraft(n, city: city?.name_it ?? city?.name ?? notice.city, zone: zone.map { $0.name_it ?? $0.name },
                                      status: status, source: zone?.source.pageURL, checkedOn: zone?.source.checkedOn,
-                                     reliable: zone.map { FineCheck.dataIsReliable($0, engine: engine) } ?? false,
+                                     reliable: zone.map { FineCheck.dataIsReliable($0, engine: engine, violation: hasViolation ? violation : nil) } ?? false,
                                      calendar: engine.calendar)
     }
 

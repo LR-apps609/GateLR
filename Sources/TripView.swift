@@ -539,7 +539,8 @@ struct TripView: View {
                         .background(Color(hex: 0x1F4E9E), in: RoundedRectangle(cornerRadius: 14, style: .continuous)).foregroundStyle(.white)
                 }
                 Button {
-                    UIPasteboard.general.string = text
+                    // Solo su questo iPhone e per 10 minuti, come la bozza del ricorso (c'è la targa)
+                    LocalClipboard.copy(text)
                     copied = true
                     Task { try? await Task.sleep(for: .seconds(1.5)); copied = false }
                 } label: {

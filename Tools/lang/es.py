@@ -854,6 +854,7 @@ T = {
 "It counts only in %@, from %@ to %@. While it's waiting, GateLR answers \"on one condition\" there instead of \"don't enter\". Save it only if you have really asked for it.": "Solo vale en %@, del %@ al %@. Mientras esté pendiente, GateLR responde allí «con una condición» en lugar de «no entres». Guárdalo solo si de verdad lo has pedido.",
 "Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days.": "Confirma solo si el hotel te ha confirmado por escrito que tu matrícula está registrada para cada día. GateLR responderá «sí» solo en %@, solo durante estos días.",
 "GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing.": "GateLR responderá «con una condición» en %@ durante estos días, hasta que el hotel confirme por escrito.",
+"Checked at the day and time of the notice, with the hours we read on %@: on that day they may have been different (summer hours, events, panels off). We are not lawyers: check the notice and the official source.": "Comprobado en el día y la hora de la multa, con los horarios leídos el %@: ese día podían ser distintos (horario de verano, eventos, paneles apagados). No somos abogados: revisa la multa y la fuente oficial.",
 }
 
 INFO = {

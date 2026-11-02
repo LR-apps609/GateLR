@@ -163,6 +163,26 @@ final class TrustFixTests: XCTestCase {
         }
     }
 
+    /// Gli orari si contano al giorno e all'ora del verbale, non a oggi: il Settore F di Firenze (notti d'estate, da aprile
+    /// a inizio ottobre) è acceso un venerdì di luglio alle 23:30 e spento lo stesso giorno della settimana a novembre;
+    /// una violazione lontana più di 120 giorni dalla lettura dei dati non si dice «non attiva»
+    func testFineStatusAtTheNoticeDate() throws {
+        let f = try XCTUnwrap(try firenze().zones.first { $0.id == "firenze-f" })
+        XCTAssertEqual(FineCheck.status(f, at: date(2026, 7, 3, 23, 30)), .active)       // venerdì d'estate
+        XCTAssertEqual(FineCheck.status(f, at: date(2026, 7, 4, 1, 30)), .active)        // la notte dopo
+        XCTAssertEqual(FineCheck.status(f, at: date(2026, 11, 6, 23, 30)), .inactive)    // venerdì di novembre
+        XCTAssertEqual(FineCheck.status(f, at: date(2026, 7, 1, 23, 30)), .inactive)     // mercoledì d'estate
+
+        let b = try zone(reviewed: true)
+        let e = engine(daysAfterCheck: 10, of: b)
+        let near = cal.date(byAdding: .day, value: -30, to: b.source.checkedOn)!
+        let far = cal.date(byAdding: .day, value: -300, to: b.source.checkedOn)!
+        XCTAssertTrue(FineCheck.dataIsReliable(b, engine: e, violation: near))
+        XCTAssertFalse(FineCheck.dataIsReliable(b, engine: e, violation: far))
+        XCTAssertEqual(FineCheck.shown(.inactive, zone: b, engine: e, violation: near), .inactive)
+        XCTAssertEqual(FineCheck.shown(.inactive, zone: b, engine: e, violation: far), .unknownData)
+    }
+
     /// La bozza: al condizionale con la data della lettura; con dati vecchi o non ufficiali nessun motivo dagli orari
     func testAppealDraftIsConditional() throws {
         var n = FineReader.Notice()
@@ -185,7 +205,7 @@ final class TrustFixTests: XCTestCase {
         XCTAssertFalse(old.contains("non risultava attiva"))
     }
 
-    /// Gli appunti: solo su questo iPhone (niente Appunti universali) e con una scadenza di 10 minuti
+    /// Gli appunti (bozza del ricorso e messaggio per l'hotel): solo su questo iPhone (niente Appunti universali) e con una scadenza di 10 minuti
     func testAppealCopyIsLocalOnly() {
         let now = date(2026, 11, 2, 10)
         let o = LocalClipboard.options(now: now)

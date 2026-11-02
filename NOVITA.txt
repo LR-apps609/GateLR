@@ -4,6 +4,7 @@ Novità della 1.19.2 (fiducia: cartello, verbale, permessi):
 • Verbale: «il varco non era attivo» è verde solo con dati ufficiali, recenti e controllati da una persona; altrimenti giallo con il «?» («non risulterebbe attivo», o «dati vecchi o non ufficiali: non possiamo dirlo»). La bozza del ricorso è al condizionale («secondo i dati disponibili… non risulterebbe attiva», con la data della lettura) e con dati vecchi o non ufficiali non usa gli orari come motivo. «Copia» mette la bozza negli appunti solo di questo iPhone (niente Appunti universali) per 10 minuti
 • Permessi: ogni permesso vale solo per la sua zona (scelta obbligatoria nel Garage); un permesso salvato senza zona non vale finché non scegli la zona. Salvare un permesso e passarlo a «Confermato» (anche il soggiorno in hotel «Chiesto»/«Confermato» in Viaggio) chiede prima una conferma esplicita
 • Il pannello LED di Varco non resta più spento a metà accensione
+• Verbale: gli orari si contano al giorno e all'ora del verbale; se la violazione è lontana più di 120 giorni dalla lettura dei dati, «non possiamo dirlo». Anche il messaggio per l'hotel in Viaggio si copia solo su questo iPhone, per 10 minuti
 
 Novità della 1.19.1 (l'area pedonale vince):
 • In un'area pedonale la risposta è sempre «Non entrare», anche fuori dalle zone: in Viaggio (es. via Galliera a Bologna) non compare più sotto il rosso la scheda verde «Fuori dalla ZTL. Puoi andarci»

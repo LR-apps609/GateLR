@@ -849,3 +849,4 @@
 "It counts only in %@, from %@ to %@. While it's waiting, GateLR answers \"on one condition\" there instead of \"don't enter\". Save it only if you have really asked for it." = "仅在 %@ 有效，从 %@ 到 %@。在等待期间，GateLR 在那里会回答“有条件”而不是“不要进入”。只有在你确实申请过时才保存。";
 "Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days." = "仅当酒店已书面确认你的车牌每天都已登记时才确认。GateLR 只会在 %@、只在这些日期回答“是”。";
 "GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing." = "在酒店书面确认之前，GateLR 在这些日期会对 %@ 回答“有条件”。";
+"Checked at the day and time of the notice, with the hours we read on %@: on that day they may have been different (summer hours, events, panels off). We are not lawyers: check the notice and the official source." = "按罚单上的日期和时间核对，使用 %@ 读取的时段：当天的时段可能不同（夏季时段、活动、显示屏关闭）。我们不是律师：请核对罚单和官方来源。";

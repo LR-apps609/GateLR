@@ -351,7 +351,8 @@ enum FineCheck {
         return main.count == 1 ? main[0] : nil
     }
 
-    /// A quell'ora, secondo gli orari che conosciamo, il varco era acceso? Nei festivi che non abbiamo confermato: non si sa
+    /// A quell'ora, secondo gli orari che conosciamo, il varco era acceso? Si conta al giorno e all'ora del verbale (giorno
+    /// della settimana, stagione, festivi di quell'anno), mai a oggi. Nei festivi che non abbiamo confermato: non si sa
     static func status(_ zone: Zone, at date: Date, engine: RuleEngine = RuleEngine()) -> Status {
         let on = engine.isActive(zone, at: date)
         if on && zone.freeOnHolidays == nil && engine.isHoliday(zone, date) { return .unsure }
@@ -362,19 +363,23 @@ enum FineCheck {
     /// persona; senza revisione è giallo con il «?» («non risulterebbe attivo»); con dati vecchi o non ufficiali non si dice
     enum Shown: Equatable { case active, inactive, probablyInactive, unknownData, unsure }
 
-    /// Dati ufficiali e controllati da meno di 120 giorni (RuleEngine.staleAfterDays): la bozza può citarli, al condizionale
-    static func dataIsReliable(_ zone: Zone, engine: RuleEngine = RuleEngine()) -> Bool {
+    /// Dati ufficiali, controllati da meno di 120 giorni (RuleEngine.staleAfterDays) E letti a meno di 120 giorni dalla
+    /// violazione: gli orari si contano al giorno e all'ora del verbale, ma sono quelli letti il giorno «checkedOn»;
+    /// per una violazione lontana da quella lettura non sappiamo se valevano già (o ancora). Solo così la bozza li cita
+    static func dataIsReliable(_ zone: Zone, engine: RuleEngine = RuleEngine(), violation: Date? = nil) -> Bool {
         guard zone.source.isOfficial else { return false }
-        let age = engine.calendar.dateComponents([.day], from: zone.source.checkedOn, to: engine.now()).day ?? 0
-        return age <= engine.staleAfterDays
+        let days = { (a: Date, b: Date) in abs(engine.calendar.dateComponents([.day], from: a, to: b).day ?? 0) }
+        guard days(zone.source.checkedOn, engine.now()) <= engine.staleAfterDays else { return false }
+        if let violation, days(violation, zone.source.checkedOn) > engine.staleAfterDays { return false }
+        return true
     }
 
-    static func shown(_ status: Status, zone: Zone, engine: RuleEngine = RuleEngine()) -> Shown {
+    static func shown(_ status: Status, zone: Zone, engine: RuleEngine = RuleEngine(), violation: Date? = nil) -> Shown {
         switch status {
         case .active: return .active
         case .unsure: return .unsure
         case .inactive:
-            guard dataIsReliable(zone, engine: engine) else { return .unknownData }
+            guard dataIsReliable(zone, engine: engine, violation: violation) else { return .unknownData }
             return zone.source.reviewedByHuman ? .inactive : .probablyInactive
         }
     }
