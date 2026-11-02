@@ -123,6 +123,8 @@ struct GateLRApp: App {
         guard args.contains("-uitest"), let i = args.firstIndex(of: "-uiGuardian"), args.count > i + 3,
               let lat = Double(args[i + 1]), let lon = Double(args[i + 2]), let course = Double(args[i + 3]) else { return }
         Guardian.shared.startDemo(at: Coordinate(lat: lat, lon: lon), course: course, store: store)
+        // 1.19.5: il giro simulato del test delle misure (-uiGuardianDrive), spento nel giro delle foto
+        Misure.startGuardianDrive(from: Coordinate(lat: lat, lon: lon), course: course)
     }
 
     /// Solo per le foto automatiche: «-uiPlace "Duomo di Milano" 45.4641 9.1919» sceglie un posto senza cercarlo in rete
