@@ -343,19 +343,10 @@ enum CityLoader {
         return cities.isEmpty && ids.isEmpty ? [SampleData.florence] : cities
     }
 
-    /// 1.19.5: le città lette su più core insieme (46 file, 2,7 MB: all'avvio la risposta aspetta questa lettura).
-    /// Stesso risultato, nello stesso ordine dei file. Nel widget una alla volta: ha poca memoria
+    /// Tutte le città dei file, nell'ordine dei file. 1.19.5: provata la lettura su più core insieme (corsa 41537655699):
+    /// sul simulatore l'avvio è stato più lento e la memoria doppia, quindi resta una alla volta
     static func decodeAll(_ urls: [URL]) -> [City] {
-        guard urls.count > 1, !Bundle.main.bundlePath.hasSuffix(".appex") else {
-            return urls.compactMap { try? decode(Data(contentsOf: $0)) }
-        }
-        var out = [City?](repeating: nil, count: urls.count)
-        let lock = NSLock()
-        DispatchQueue.concurrentPerform(iterations: urls.count) { i in
-            let city = try? decode(Data(contentsOf: urls[i]))
-            lock.lock(); out[i] = city; lock.unlock()
-        }
-        return out.compactMap { $0 }
+        urls.compactMap { try? decode(Data(contentsOf: $0)) }
     }
 
     struct Manifest: Codable {
