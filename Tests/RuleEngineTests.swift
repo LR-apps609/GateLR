@@ -42,7 +42,7 @@ final class RuleEngineTests: XCTestCase {
     }
 
     func testConfirmedPermitIsYes() {
-        let p = Permit(kind: .hotelRegistration, cityId: "x", zoneId: nil, vehicleId: car.id,
+        let p = Permit(kind: .hotelRegistration, cityId: "x", zoneId: zone.id, vehicleId: car.id,
                        from: date(2026, 10, 26, 0), to: date(2026, 10, 28, 23), status: .confirmed)
         let a = engine.answer(zone: zone, vehicle: car, permits: [p], hotelInside: true, at: date(2026, 10, 26, 18))
         guard case .yes = a.verdict else { return XCTFail("atteso sì, ottenuto \(a.verdict)") }
