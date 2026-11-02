@@ -358,7 +358,7 @@ Istruzioni passo passo in docs/prova-sul-campo.md.
 - [ ] Dopo l'aggiornamento il garage, i viaggi e i permessi ci sono ancora (il vecchio valore nascosto «hotel dentro la ZTL» si scarta)
 
 ## 19. L'area pedonale vince, Viaggio all'ora scelta (1.19.1)
-- [ ] Viaggio (Tu → Viaggio e hotel), Bologna, cerca «Via Galliera»: solo il riquadro rosso «Area pedonale · Via Galliera» e sotto «Parcheggia fuori e cammina»; NON c'è più la scheda verde «Fuori dalla ZTL. Puoi andarci»
+- [ ] Viaggio (Tu → Viaggio e hotel), Bologna, cerca «Via Galliera»: in alto l'icona rossa con il pedone e «Area pedonale · Via Galliera» (non la spunta verde «Fuori dalla ZTL»); solo il riquadro rosso «Area pedonale · Via Galliera» e sotto «Parcheggia fuori e cammina»; NON c'è più la scheda verde «Fuori dalla ZTL. Puoi andarci»
 - [ ] Viaggio, «Adesso ▾» stasera alle 23:58, cerca «Piazza Maggiore» (Bologna): «No, non entrare» (area pedonale) con la pillola «ZTL non attiva» (ZTL 7–20) e il titolo «ZTL · … 23:58»; prima diceva «ZTL attiva» a qualsiasi ora. Tocca «Perché?»: la scheda della zona dice «ZTL non attiva · <giorno> 23:58» in grigio, senza «puoi entrare»; con «Adesso» di giorno dice «ZTL attiva» in giallo
 - [ ] Garage: diesel Euro 1. Varco, stasera alle 22, «Palazzo Vecchio»: «Non entrare.» e subito sotto il grande pulsante rosso «Parcheggia fuori e cammina»; la mappa è il pulsante piccolo accanto a «Perché?» e «Dettagli del viaggio» (tutti nello schermo senza scorrere). Con una risposta gialla (es. Area C col ticket) l'ordine resta quello di prima («Guarda la mappa» in alto)
 - [ ] Stesso caso in Viaggio: dopo la scheda rossa viene «Parcheggia fuori e cammina», poi «Controlla il percorso» in azzurro chiaro (non più il pulsante blu pieno)

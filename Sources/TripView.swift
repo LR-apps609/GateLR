@@ -184,7 +184,7 @@ struct TripView: View {
         // 1.19.1: sempre all'ora scelta nei chip («date») e per il veicolo scelto; l'area pedonale vince su tutto
         let check = PlaceCheck(place, store: store, at: date)
         let hits = check.hits
-        placeCard(place, inside: check.zone, covered: check.covered)
+        placeCard(place, inside: check.zone, covered: check.covered, pedestrian: check.pedestrian)
         if let area = check.pedestrian {
             Label {
                 VStack(alignment: .leading, spacing: 2) {
@@ -288,16 +288,19 @@ struct TripView: View {
         }
     }
 
-    private func placeCard(_ place: Place, inside zone: Zone?, covered: Bool) -> some View {
+    /// 1.19.1: nell'area pedonale (anche fuori dalle zone) l'icona rossa con il pedone e «Area pedonale · …»: mai la
+    /// spunta verde «Fuori dalla ZTL» accanto al «no»
+    private func placeCard(_ place: Place, inside zone: Zone?, covered: Bool, pedestrian: PedestrianArea? = nil) -> some View {
         HStack(spacing: 12) {
-            Image(systemName: zone?.type.symbol ?? Symbols.pick(covered, "checkmark", else: "questionmark"))
+            Image(systemName: pedestrian != nil ? "figure.walk" : zone?.type.symbol ?? Symbols.pick(covered, "checkmark", else: "questionmark"))
                 .font(.app(size: 17, weight: .bold))
                 .foregroundStyle(.white)
                 .frame(width: 40, height: 40)
-                .background(zone?.type.color ?? (covered ? Theme.green : Theme.muted), in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                .background(pedestrian != nil ? Theme.red : zone?.type.color ?? (covered ? Theme.green : Theme.muted), in: RoundedRectangle(cornerRadius: 11, style: .continuous))
             VStack(alignment: .leading, spacing: 1) {
                 Text(place.name).font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
-                Text(zone.map(\.kindLine) ?? (covered ? L("Outside the ZTL") : L("We don't know the ZTLs of this place")))
+                Text(pedestrian.map { String(format: L("Pedestrian area · %@"), $0.name) }
+                     ?? zone.map(\.kindLine) ?? (covered ? L("Outside the ZTL") : L("We don't know the ZTLs of this place")))
                     .font(.app(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
             }
             Spacer()
