@@ -1,6 +1,6 @@
 import XCTest
 
-/// 1.19.5 «Più veloce»: le parti pure delle ottimizzazioni. Le città lette su più core danno le stesse città nello stesso
+/// 1.19.5 «Più veloce»: le parti pure delle ottimizzazioni. La lettura delle città dà le stesse città nello stesso
 /// ordine; Overpass: la prima risposta buona, i server di riserva solo se servono; impronte e chiavi della ricerca.
 final class PrestazioniTests: XCTestCase {
     private static let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
