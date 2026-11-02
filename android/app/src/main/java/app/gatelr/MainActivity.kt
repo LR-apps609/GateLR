@@ -8,6 +8,17 @@ import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Looper
+import android.provider.Settings
+import androidx.compose.animation.Crossfade
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -109,17 +120,20 @@ fun Root() {
         NavigationBar {
             tabs.forEachIndexed { i, t ->
                 NavigationBarItem(selected = Nav.tab == i, onClick = { Nav.tab = i },
-                    icon = { Icon(t.second, null) }, label = { Text(L(t.first), maxLines = 1) })
+                    icon = { TabIcon(t.second, Nav.tab == i) }, label = { Text(L(t.first), maxLines = 1) })
             }
         }
     }) { pad ->
         val m = Modifier.padding(pad)
-        when (Nav.tab) {
-            0 -> HomeScreen(m)
-            1 -> MapScreen(m)
-            2 -> TripScreen(m)
-            3 -> GarageScreen(m)
-            else -> AccountScreen(m)
+        // Cambio di scheda: dissolvenza breve (180 ms), niente scorrimento; con le animazioni spente è immediato
+        Crossfade(targetState = Nav.tab, animationSpec = tween(if (animationsOn()) 180 else 0), label = "scheda") { tab ->
+            when (tab) {
+                0 -> HomeScreen(m)
+                1 -> MapScreen(m)
+                2 -> TripScreen(m)
+                3 -> GarageScreen(m)
+                else -> AccountScreen(m)
+            }
         }
     }
     Nav.zone?.let { z ->
@@ -132,6 +146,31 @@ fun Root() {
             when (t) { "sign" -> SignReaderScreen(); "log" -> DriveLog(); else -> FineGuide() }
         }
     }
+}
+
+/** Le animazioni di sistema sono accese? (Opzioni sviluppatore / Accessibilità → «Rimuovi animazioni» le mette a 0) */
+@Composable
+fun animationsOn(): Boolean {
+    val ctx = LocalContext.current
+    return remember(ctx) {
+        Settings.Global.getFloat(ctx.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) > 0f
+    }
+}
+
+/** L'icona della scheda: quando diventa scelta fa un piccolo rimbalzo 1 → 1,12 → 1 (120 ms + molla senza rimbalzo,
+ *  in tutto meno di 0,3 s, solo la scala). Niente animazione se le animazioni di sistema sono spente. */
+@Composable
+fun TabIcon(icon: ImageVector, selected: Boolean) {
+    val scale = remember { Animatable(1f) }
+    val animate = animationsOn()
+    var first by remember { mutableStateOf(true) }
+    LaunchedEffect(selected) {
+        if (first) { first = false; return@LaunchedEffect }       // all'avvio nessun rimbalzo
+        if (!selected || !animate) { scale.snapTo(1f); return@LaunchedEffect }
+        scale.animateTo(1.12f, tween(durationMillis = 90, easing = FastOutSlowInEasing))
+        scale.animateTo(1f, spring(dampingRatio = Spring.DampingRatioNoBouncy, stiffness = Spring.StiffnessMediumLow))
+    }
+    Icon(icon, null, modifier = Modifier.graphicsLayer { scaleX = scale.value; scaleY = scale.value })
 }
 
 @SuppressLint("MissingPermission")

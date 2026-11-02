@@ -123,6 +123,14 @@ struct RootView: View {
         .environmentObject(router)
         .tint(Theme.red)
         .sensoryFeedback(.selection, trigger: router.tab)
+        // Il piccolo rimbalzo dell'icona della scheda scelta (simboli SF: rimbalzo di sistema; mappa: scala 1 → 1,12 → 1)
+        .onChange(of: router.tab) { _, tab in
+            switch tab {
+            case .varco: TabBarBounce.play(index: 0, symbol: true)
+            case .map: TabBarBounce.play(index: 1, symbol: false)
+            case .you: TabBarBounce.play(index: 2, symbol: true)
+            }
+        }
         .sheet(isPresented: $showZone) {
             NavigationStack { ZoneDetailView(zone: store.zone, city: store.city) }
                 .readableScrollWidth()
