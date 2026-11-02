@@ -6,10 +6,11 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <!--HEAD-->
 <!-- Quando l'app sarà sull'App Store: <meta name="apple-itunes-app" content="app-id=APP_ID, app-argument=https://gatelr.app/"> -->
-<!-- MapLibre (stile e script) si carica solo quando la mappa entra nello schermo: vedi loadRealMap -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&family=DotGothic16&display=swap">
+<!-- MapLibre (stile e script) si carica dopo la prima risposta, quando la mappa entra nello schermo: vedi loadRealMap -->
+<!-- Caratteri sul sito stesso (Tools/build_site.py: @font-face in linea e preload) -->
+<!--FONTS-->
+<!-- I dati della città del link (#roma) o di Firenze partono subito, prima del resto della pagina (Tools/build_site.py) -->
+<!--PRELOAD-->
 <style>
 /* Layout: a road-sign search bar on LR-family paper; answer panel beside a drawn map of the sectors, stacked on phones */
 :root{
@@ -192,6 +193,16 @@ p{margin:0}
 .answer[data-v=cond]{--v-bg:var(--amber-soft);--v-fg:var(--ink);--v-badge:#8A5A00;--v-mark:#fff}
 .answer[data-v=unsure]{--v-bg:var(--unsure);--v-fg:var(--ink);--v-badge:var(--muted);--v-mark:var(--paper)}
 .answer[data-v=out]{--v-bg:var(--paper);--v-fg:var(--ink);--v-badge:var(--green);--v-mark:#fff;border:1px solid var(--line)}
+/* 1.19.5: in attesa della risposta (dati della città in arrivo) o senza un luogo: neutro, mai verde */
+.answer[data-v=wait]{--v-bg:var(--paper);--v-fg:var(--ink);--v-badge:var(--well);--v-mark:transparent;border:1px solid var(--line)}
+.answer[data-v=wait] #a-mark path{display:none}
+.skel{color:transparent!important;border-radius:8px;background:linear-gradient(90deg,var(--well) 30%,var(--line) 50%,var(--well) 70%) 0 0/300% 100%;animation:skel 1.4s linear infinite}
+.answer .skel{display:block;min-height:1em;width:9ch;max-width:100%}.answer .why.skel{width:auto;min-height:2.6em}
+.suggest small.skel{display:inline-block;min-width:4ch}
+@keyframes skel{from{background-position:100% 0}to{background-position:0 0}}
+@media (prefers-reduced-motion: reduce){.skel{animation:none}}
+.verdict h2.err{font-size:21px;line-height:1.25}
+.retry{font:600 15px var(--display);border:1.5px solid var(--ink);color:var(--ink);background:transparent;border-radius:12px;padding:8px 14px;cursor:pointer;margin-top:8px}
 .answer .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .answer .where{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.09em;text-transform:uppercase;opacity:.9}
 .pill{font:500 13px var(--text);letter-spacing:.01em;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--v-fg) 16%,transparent)}
@@ -355,15 +366,15 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
     </div>
 
     <div class="result">
-      <article class="answer" id="answer" data-v="out">
+      <article class="answer" id="answer" data-v="wait" aria-busy="true">
         <div class="row"><span class="where" id="a-where">Florence</span><span class="pill" id="a-gates">–</span></div>
         <div class="unoff" id="a-unoff" role="note" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2zm1 15h-2v2h2v-2zm0-7h-2v5h2v-5z"/></svg><div><strong data-i18n="unoff">Unofficial source: always check the sign at the gate</strong><span id="a-unoff-src"></span></div></div>
         <div class="ledbox"><div class="led" id="led" data-light="red" data-dim="true"><span id="led-t">VARCO</span></div><small data-i18n="ledCap">The panel at the gate</small></div>
         <div class="verdict" aria-live="polite">
-          <div class="badge"><svg id="a-mark" viewBox="0 0 32 32"><path d="M8 16l6 6 11-12"/></svg></div>
-          <div><h2 id="a-title">Pick a place</h2><p class="until tnum" id="a-until"></p></div>
+          <div class="badge"><svg id="a-mark" viewBox="0 0 32 32"></svg></div>
+          <div><h2 id="a-title" class="skel">&nbsp;</h2><p class="until tnum" id="a-until"></p></div>
         </div>
-        <p class="why" id="a-why">Search above, tap a suggestion, or tap the map.</p>
+        <p class="why skel" id="a-why">&nbsp;</p>
         <div id="a-count" hidden>
           <div class="bar"><span id="a-bar"></span></div>
           <div class="meta tnum"><span id="a-since"></span><span id="a-next"></span></div>
@@ -471,6 +482,7 @@ footer{border-top:1px solid var(--line);padding-block:26px 40px;display:grid;gap
 <script>
 (() => {
 "use strict";
+// Solo l'indice delle città (1.19.5): id, nomi, centro, riquadri e file dei dati; zone e aree arrivano con loadCity()
 const CITIES = JSON.parse(document.getElementById("cities").textContent);
 const CITY_NAMES = {mantova:{en:"Mantua", it:"Mantova", de:"Mantua"}, salerno:{en:"Salerno", it:"Salerno", de:"Salerno"}, volterra:{en:"Volterra", it:"Volterra", de:"Volterra"}, bergamo:{en:"Bergamo", it:"Bergamo", de:"Bergamo"}, firenze:{en:"Florence", it:"Firenze", de:"Florenz"}, bologna:{en:"Bologna", it:"Bologna", de:"Bologna"}, milano:{en:"Milan", it:"Milano", de:"Mailand"}, roma:{en:"Rome", it:"Roma", de:"Rom"}, siena:{en:"Siena", it:"Siena", de:"Siena"}, lucca:{en:"Lucca", it:"Lucca", de:"Lucca"}, pisa:{en:"Pisa", it:"Pisa", de:"Pisa"}, verona:{en:"Verona", it:"Verona", de:"Verona"}, napoli:{en:"Naples", it:"Napoli", de:"Neapel"}, torino:{en:"Turin", it:"Torino", de:"Turin"}, padova:{en:"Padua", it:"Padova", de:"Padua"}, parma:{en:"Parma", it:"Parma", de:"Parma"}, "san-giovanni-valdarno":{en:"San Giovanni Valdarno", it:"San Giovanni Valdarno", de:"San Giovanni Valdarno"}, perugia:{en:"Perugia", it:"Perugia", de:"Perugia"}, arezzo:{en:"Arezzo", it:"Arezzo", de:"Arezzo"}, palermo:{en:"Palermo", it:"Palermo", de:"Palermo"}, "san-gimignano":{en:"San Gimignano", it:"San Gimignano", de:"San Gimignano"}, genova:{en:"Genoa", it:"Genova", de:"Genua"}, bari:{en:"Bari", it:"Bari", de:"Bari"}, ferrara:{en:"Ferrara", it:"Ferrara", de:"Ferrara"}, ravenna:{en:"Ravenna", it:"Ravenna", de:"Ravenna"}, modena:{en:"Modena", it:"Modena", de:"Modena"}, lecce:{en:"Lecce", it:"Lecce", de:"Lecce"}, assisi:{en:"Assisi", it:"Assisi", de:"Assisi"}, matera:{en:"Matera", it:"Matera", de:"Matera"}, catania:{en:"Catania", it:"Catania", de:"Catania"}, siracusa:{en:"Syracuse", it:"Siracusa", de:"Syrakus"}, como:{en:"Como", it:"Como", de:"Como"}, sorrento:{en:"Sorrento", it:"Sorrento", de:"Sorrent"}, sirmione:{en:"Sirmione", it:"Sirmione", de:"Sirmione"}, montepulciano:{en:"Montepulciano", it:"Montepulciano", de:"Montepulciano"}, vicenza:{en:"Vicenza", it:"Vicenza", de:"Vicenza"}, rimini:{en:"Rimini", it:"Rimini", de:"Rimini"}, trento:{en:"Trento", it:"Trento", de:"Trient"}, trieste:{en:"Trieste", it:"Trieste", de:"Triest"}, bolzano:{en:"Bolzano", it:"Bolzano", de:"Bozen"}, cortona:{en:"Cortona", it:"Cortona", de:"Cortona"}, alghero:{en:"Alghero", it:"Alghero", de:"Alghero"}, treviso:{en:"Treviso", it:"Treviso", de:"Treviso"}, cagliari:{en:"Cagliari", it:"Cagliari", de:"Cagliari"}, "polignano-a-mare":{en:"Polignano a Mare", it:"Polignano a Mare", de:"Polignano a Mare"}, ostuni:{en:"Ostuni", it:"Ostuni", de:"Ostuni"}, "ascoli-piceno":{en:"Ascoli Piceno", it:"Ascoli Piceno", de:"Ascoli Piceno"}};
 // Multa per l'ingresso in ZTL senza permesso (art. 7 c. 9 e 14 Codice della Strada). Valori da docs/multe-mappe-caratteri.md
@@ -512,6 +524,7 @@ const T = {
   outside:"outside the ZTL", inside:"inside the ZTL", out2:"outside", noGates:"No gates here", gOn:"Gates on", gOff:"Gates off", nowAt:"now",
   today:"today at", tomorrow:"tomorrow at", on:"on", at:"at", d:"d", h:"h", min:"min", onSince:"On since", offSince:"Off since", onIn:"On in", offIn:"Off in",
   read:(d,c)=>`Read ${d} from the City of ${c}:`, official:"official page ↗", nights:"nights", open:"open to all", notConf:"not confirmed", asSun:"as on Sunday", hol:"Public holidays",
+  loadErr:"Couldn't load the rules of this city. Check your connection.", retry:"Try again",
   perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", far:"We don't cover this place yet. GateLR covers {{N}} Italian cities: see the ZTL guides below.",
   msg:(day,time,h,pl)=>`${h ? "Dear " + h + " team," : "Hello,"}\n\nI'm arriving by car on ${day} at about ${time}. Could you please register my plate ${pl || "[PLATE]"} for the ZTL, so I can reach the hotel without a fine?\n\nThank you!`},
  it:{
@@ -545,6 +558,7 @@ const T = {
   outside:"fuori ZTL", inside:"in ZTL", out2:"fuori", noGates:"Nessun varco", gOn:"Varchi accesi", gOff:"Varchi spenti", nowAt:"adesso",
   today:"oggi alle", tomorrow:"domani alle", on:"", at:"alle", d:"g", h:"h", min:"min", onSince:"Accesi dalle", offSince:"Spenti dalle", onIn:"Si accendono tra", offIn:"Si spengono tra",
   read:(d,c)=>`Letto il ${d} dal sito del Comune di ${c}:`, official:"pagina ufficiale ↗", nights:"notti", open:"libero", notConf:"da confermare", asSun:"come la domenica", hol:"Festivi",
+  loadErr:"Non riesco a caricare le regole di questa città. Controlla la connessione.", retry:"Riprova",
   perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", far:"Questo luogo non è ancora coperto. GateLR copre {{N}} città italiane: vedi le guide ZTL qui sotto.",
   msg:(day,time,h,pl)=>`${h ? "Gentile staff di " + h + "," : "Buongiorno,"}\n\narrivo in auto ${day} verso le ${time}. Potete registrare la mia targa ${pl || "[TARGA]"} per la ZTL, così raggiungo l'hotel senza multa?\n\nGrazie!`},
  de:{
@@ -578,6 +592,7 @@ const T = {
   outside:"außerhalb der ZTL", inside:"in der ZTL", out2:"außerhalb", noGates:"Keine Einfahrten", gOn:"Kameras aktiv", gOff:"Kameras aus", nowAt:"jetzt",
   today:"heute um", tomorrow:"morgen um", on:"am", at:"um", d:"T", h:"Std", min:"Min", onSince:"Aktiv seit", offSince:"Aus seit", onIn:"Aktiv in", offIn:"Aus in",
   read:(d,c)=>`Gelesen am ${d} bei der Stadt ${c}:`, official:"offizielle Seite ↗", nights:"Nächte", open:"frei", notConf:"unbestätigt", asSun:"wie sonntags", hol:"Feiertage",
+  loadErr:"Die Regeln dieser Stadt lassen sich gerade nicht laden. Prüfe deine Verbindung.", retry:"Nochmal versuchen",
   perDay:"pro Tag", verifying:"Betrag wird geprüft", stillChecking:"Beträge werden noch am offiziellen Text geprüft.", point:"Punkt auf der Karte", far:"Diesen Ort decken wir noch nicht ab. GateLR deckt {{N}} italienische Städte ab: siehe die ZTL-Ratgeber unten.",
   msg:(day,time,h,pl)=>`${h ? "Liebes Team von " + h + "," : "Guten Tag,"}\n\nich komme am ${day} gegen ${time} mit dem Auto an. Könnten Sie bitte mein Kennzeichen ${pl || "[KENNZEICHEN]"} für die ZTL anmelden, damit ich das Hotel ohne Bußgeld erreiche?\n\nVielen Dank!`}
 };
@@ -610,7 +625,8 @@ const CARS = [{fuel:"petrol", euro:6, k:"vRental", s:"vRentalS"}, {fuel:"petrol"
 const SAMPLES = [[{en:"Florence Cathedral", it:"Duomo di Firenze", de:"Dom von Florenz"}, 43.7731, 11.2560], [{en:"Colosseum", it:"Colosseo", de:"Kolosseum"}, 41.8902, 12.4922],
   [{en:"Piazza Maggiore", it:"Piazza Maggiore", de:"Piazza Maggiore"}, 44.4938, 11.3430], [{en:"Milan Cathedral", it:"Duomo di Milano", de:"Mailänder Dom"}, 45.4642, 9.1900],
   [{en:"Trevi Fountain", it:"Fontana di Trevi", de:"Trevi-Brunnen"}, 41.9009, 12.4833], [{en:"Piazza del Campo", it:"Piazza del Campo", de:"Piazza del Campo"}, 43.3184, 11.3316]];
-const GEOCODER = q => `https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&lat=43.7712&lon=11.2550&limit=6&lang=${lang}`;
+// Ricerca: Photon, con i risultati più vicini alla città mostrata (prima sempre Firenze)
+const GEOCODER = (q, near) => `https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&lat=${near.lat}&lon=${near.lon}&limit=6&lang=${lang}`;
 
 // ── Motore delle regole (lo stesso dell'app: Sources/RuleEngine.swift) ─────────────────────
 const fmtParts = new Intl.DateTimeFormat("en-GB", {timeZone: TZ, year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", weekday:"short", hourCycle:"h23"});
@@ -708,17 +724,57 @@ function contains(zone, lat, lon){ let inside = false; const p = zone.perimeter;
   return inside; }
 // Il settore più specifico che contiene il punto (A sta dentro B: vince quello con area minore)
 function area(z){ let s = 0; const p = z.perimeter; for (let i = 0, j = p.length-1; i < p.length; j = i++) s += (p[j].lon + p[i].lon)*(p[j].lat - p[i].lat); return Math.abs(s/2); }
-// Tutte le città: si cerca il settore in ognuna; la città «attiva» è quella del luogo scelto
+// Tutte le città: si cerca il settore in ognuna; la città «attiva» è quella del luogo scelto.
+// Le città non ancora scaricate si saltano: ensureFor() scarica prima tutte quelle che possono cambiare il risultato.
 const ZONES_OF = {};
-for (const c of CITIES) ZONES_OF[c.id] = [...c.zones].sort((a, b) => area(a) - area(b));
 function zoneAt(lat, lon){
-  for (const c of CITIES){ const z = ZONES_OF[c.id].find(z => contains(z, lat, lon)); if (z) return {city: c, zone: z}; }
+  for (const c of CITIES){ if (!c.zones) continue; const z = ZONES_OF[c.id].find(z => contains(z, lat, lon)); if (z) return {city: c, zone: z}; }
   return null; }
 // Aree pedonali: niente auto, mai
-function pedAt(lat, lon){ for (const c of CITIES) for (const a of c.pedestrian || []) if (contains(a, lat, lon)) return {city: c, area: a}; return null; }
+function pedAt(lat, lon){ for (const c of CITIES) if (c.zones) for (const a of c.pedestrian || []) if (contains(a, lat, lon)) return {city: c, area: a}; return null; }
 function nearestZone(lat, lon){ let best = null, bc = null, bd = 1e9;
-  for (const c of CITIES) for (const z of c.zones) for (const p of z.perimeter){ const d = (p.lat-lat)**2 + ((p.lon-lon)*0.72)**2; if (d < bd){ bd = d; best = z; bc = c; } }
-  return {city: bc, zone: best, meters: Math.sqrt(bd)*111000}; }
+  for (const c of CITIES) if (c.zones) for (const z of c.zones) for (const p of z.perimeter){ const d = (p.lat-lat)**2 + ((p.lon-lon)*0.72)**2; if (d < bd){ bd = d; best = z; bc = c; } }
+  return {city: bc, zone: best, meters: Math.sqrt(bd)*111000, d: bd}; }
+
+// ── Dati delle città su richiesta (1.19.5) ─────────────────────────────────────
+// La pagina porta solo l'indice: per ogni città «ab» = riquadro [latMin, lonMin, latMax, lonMax] di zone e aree pedonali,
+// «zb» = riquadro delle sole zone, «f» = file dei dati (con l'impronta nel nome). ensureFor(lat, lon) scarica tutte e sole le
+// città che servono per rispondere su quel punto, così zoneAt, pedAt e nearestZone danno lo stesso risultato di quando la
+// pagina conteneva tutte le città (controllo: Tools/check_site_answers.mjs):
+// - un punto dentro una zona o un'area pedonale sta nel riquadro «ab» della sua città;
+// - la distanza (stessa formula di nearestZone) dal riquadro «zb» non supera mai quella da un punto del perimetro: bastano le
+//   città con il riquadro vicino almeno quanto la zona migliore trovata finora, scaricate dalla più vicina.
+const inBox = (b, lat, lon) => lat >= b[0] && lat <= b[2] && lon >= b[1] && lon <= b[3];
+function boxDist(b, lat, lon){ const dy = Math.max(0, b[0] - lat, lat - b[2]), dx = Math.max(0, b[1] - lon, lon - b[3]); return dy**2 + (dx*0.72)**2; }
+const LOADING = {};
+// Una richiesta con un tempo massimo (rete lenta: 3G), ritentata una volta dopo un attimo; poi l'errore («Riprova»)
+async function getJSON(url, ms){
+  for (let i = 0; ; i++){
+    const ac = typeof AbortController === "function" ? new AbortController() : null, t = ac && setTimeout(() => ac.abort(), ms);
+    try { const r = await fetch(url, ac ? {signal: ac.signal} : {}); if (!r.ok) throw new Error("HTTP " + r.status); return await r.json(); }
+    catch (e) { if (i >= 1) throw e; await new Promise(z => setTimeout(z, 1200)); }
+    finally { if (t) clearTimeout(t); }
+  }
+}
+function loadCity(c){
+  if (c.zones) return Promise.resolve(c);
+  if (!LOADING[c.id]){
+    const early = (window.__glr || {})[c.id]; if (window.__glr) delete window.__glr[c.id];   // partita dalla testa della pagina
+    LOADING[c.id] = (early ? early.catch(() => getJSON(ROOT + c.f, 30000)) : getJSON(ROOT + c.f, 30000)).then(d => {
+      Object.assign(c, d); ZONES_OF[c.id] = [...c.zones].sort((a, b) => area(a) - area(b)); return c;
+    }, e => { delete LOADING[c.id]; throw e; });
+  }
+  return LOADING[c.id];
+}
+// Le città che mancano per rispondere su un punto: quelle che possono contenerlo (tutte insieme), altrimenti la più vicina
+// che potrebbe avere una zona più vicina di quella trovata finora (una alla volta)
+function missing(lat, lon){
+  const inside = CITIES.filter(c => !c.zones && inBox(c.ab, lat, lon));
+  if (inside.length || zoneAt(lat, lon)) return inside;
+  const best = nearestZone(lat, lon).d, far = CITIES.filter(c => !c.zones && boxDist(c.zb, lat, lon) <= best);
+  return far.length ? [far.reduce((a, b) => boxDist(b.zb, lat, lon) < boxDist(a.zb, lat, lon) ? b : a)] : [];
+}
+async function ensureFor(lat, lon){ for (let m; (m = missing(lat, lon)).length; ) await Promise.all(m.map(loadCity)); }
 
 // ── Mappa disegnata (SVG): niente servizi esterni ─────────────────────────────
 const svg = document.getElementById("map"), NS = "http://www.w3.org/2000/svg";
@@ -812,14 +868,14 @@ function legend(){
   for (const c of MAP_THEME.legend) item(swatch(c), t_(TXT[c]), c === "cond" ? t_("lcheck") : "");
 }
 svg.addEventListener("click", e => {
+  if (!box) return;
   const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
   const p = pt.matrixTransform(svg.getScreenCTM().inverse());
   const lon = box.minLon + p.x / W * (box.maxLon - box.minLon), lat = box.maxLat - p.y / H * (box.maxLat - box.minLat);
   choose({name:t_("point"), lat, lon, map:true});
 });
 const $ = id => document.getElementById(id);
-let city = CITIES.find(c => c.id === "firenze") || CITIES[0];
-drawMap(city);
+let city = CITIES.find(c => c.id === "firenze") || CITIES[0];   // disegnata quando arrivano i suoi dati (render)
 const cityName = c => (CITY_NAMES[c.id] || {})[lang] || c.name;
 
 // ── Stato e disegno della risposta ─────────────────────────────────────────
@@ -867,15 +923,31 @@ function syncTime(){
 
 // Colora mappa disegnata, mappa vera e legenda con lo stato di ogni zona all'ora scelta
 function paintAll(t, sel){ const st = zoneStates(t, sel); paintSvg(st, sel ? sel.id : ""); legend(); ml.states = st; ml.selected = sel ? sel.id : ""; if (ml.ready) paintReal(); return st; }
+// In attesa dei dati: risposta neutra a scheletro (aria-busy), nessun colore; «Riprova» se non arrivano
+function waiting(p, failed){
+  const a = $("answer"); a.dataset.v = "wait"; a.setAttribute("aria-busy", failed ? "false" : "true"); $("a-mark").innerHTML = "";
+  $("a-unoff").hidden = true; $("a-draft").hidden = true; $("a-count").hidden = true; $("a-until").textContent = ""; $("a-src").innerHTML = "";
+  if (p) $("a-where").textContent = p.name;
+  $("a-gates").textContent = "–"; led("VARCO", "red", true);     // il pannello spento, non quello del luogo di prima
+  $("a-title").classList.toggle("skel", !failed); $("a-title").classList.toggle("err", !!failed); $("a-why").classList.toggle("skel", !failed);
+  $("a-title").textContent = failed ? t_("loadErr") : "\u00A0"; $("a-why").textContent = failed ? "" : "\u00A0";
+  if (failed){ const b = document.createElement("button"); b.type = "button"; b.className = "retry"; b.textContent = t_("retry"); b.addEventListener("click", () => choose(p)); $("a-why").append(b); }
+}
+function ready(){ const a = $("answer"); a.removeAttribute("aria-busy"); $("a-title").classList.remove("skel", "err"); $("a-why").classList.remove("skel"); }
 function render(){
   const t = arrivalTime(), p = state.place, a = $("answer"), v = CARS[state.car];
   syncTime(); chipsState();
+  // la città del luogo (i suoi dati ci sono già: choose li aspetta)
+  const hit = p && zoneAt(p.lat, p.lon), near = !p || hit ? null : nearestZone(p.lat, p.lon), ped = p && pedAt(p.lat, p.lon);
+  const c = p ? (ped ? ped.city : hit ? hit.city : near.city) : city;
+  if (c && c !== city){ city = c; chipsState(); }
+  // dati della città ancora in arrivo: lo scheletro, mai una risposta in anticipo
+  if (!city.zones){ waiting(); return; }
+  drawMap(city);
+  ready(); firstAnswer();
   gPin.innerHTML = "";
   for (const id in pedEls){ pedEls[id].setAttribute("fill-opacity", .6); pedEls[id].setAttribute("stroke-width", 1.2); }
-  if (!p){ $("a-unoff").hidden = true; paintAll(t); setVerdict("out"); $("a-title").textContent = t_("pick"); $("a-why").textContent = t_("pickWhy"); $("a-until").textContent = ""; led("VARCO", "red", true); track("none"); return; }
-  const hit = zoneAt(p.lat, p.lon), near = hit ? null : nearestZone(p.lat, p.lon), ped = pedAt(p.lat, p.lon);
-  const c = ped ? ped.city : hit ? hit.city : near.city;
-  if (c !== city){ city = c; drawMap(city); chipsState(); }
+  if (!p){ $("a-unoff").hidden = true; paintAll(t); setVerdict("wait"); $("a-mark").innerHTML = ""; $("a-title").textContent = t_("pick"); $("a-why").textContent = t_("pickWhy"); $("a-until").textContent = ""; led("VARCO", "red", true); track("none"); return; }
   gPin.innerHTML = "";
   el("circle", {cx:X(p.lon), cy:Y(p.lat), r:24, fill:"var(--blue)", "fill-opacity":.18}, gPin);
   el("circle", {cx:X(p.lon), cy:Y(p.lat), r:12, fill:"var(--blue)", stroke:"var(--sheet)", "stroke-width":4}, gPin);
@@ -1017,31 +1089,64 @@ $("copy").addEventListener("click", () => {
 
 // ── Ricerca ────────────────────────────────────────────────────────────────
 const q = $("q"), box2 = $("suggest");
-let results = [], active = -1, timer = null, remoteOK = true;
-function choose(p){ state.place = p; q.value = p.map ? "" : p.name; closeSuggest(); render(); }
+let results = [], active = -1, timer = null;
+// Il luogo scelto: prima i dati delle città che servono (scheletro intanto), poi la risposta. Vince sempre l'ultima scelta.
+let chosen = 0;
+async function choose(p){
+  const n = ++chosen; q.value = p.map ? "" : p.name; closeSuggest();
+  if (missing(p.lat, p.lon).length){
+    waiting(p);
+    try { await ensureFor(p.lat, p.lon); } catch { if (n === chosen) waiting(p, true); return; }
+    if (n !== chosen) return;
+  }
+  state.place = p; render();
+}
 function closeSuggest(){ box2.hidden = true; q.setAttribute("aria-expanded", "false"); active = -1; }
 function showSuggest(list){
   results = list; box2.innerHTML = ""; active = -1;
   if (!list.length){ closeSuggest(); return; }
   list.forEach((p, i) => { const b = document.createElement("button"); b.type = "button"; b.setAttribute("role", "option"); b.id = "opt" + i;
-    const hit = zoneAt(p.lat, p.lon), ped = pedAt(p.lat, p.lon);
-    b.innerHTML = `<span></span><small>${ped ? t_("ped") : hit ? t_("inside") : t_("out2")}</small>`; b.firstChild.textContent = p.name;
+    b.innerHTML = `<span></span><small></small>`; b.firstChild.textContent = p.name; whereLabel(b.lastChild, p);
     b.addEventListener("click", () => choose(p)); box2.append(b); });
   box2.hidden = false; q.setAttribute("aria-expanded", "true");
 }
+// «in ZTL» / «fuori» accanto al suggerimento: subito se la città è già scaricata, altrimenti uno scheletro finché arriva
+function whereLabel(el, p){
+  const set = () => { const hit = zoneAt(p.lat, p.lon), ped = pedAt(p.lat, p.lon); el.classList.remove("skel"); el.textContent = ped ? t_("ped") : hit ? t_("inside") : t_("out2"); };
+  const need = CITIES.filter(c => !c.zones && inBox(c.ab, p.lat, p.lon));
+  if (!need.length) return set();
+  el.classList.add("skel"); el.textContent = "\u00A0";
+  Promise.all(need.map(loadCity)).then(set, () => { el.classList.remove("skel"); el.textContent = ""; });
+}
 function local(text){ const s = text.trim().toLowerCase(); if (!s) return [];
   return PLACES.filter(([n]) => n.toLowerCase().includes(s)).map(([name, lat, lon]) => ({name, lat, lon})); }
+// Photon (1.19.5): almeno 3 lettere, 280 ms dopo l'ultimo tasto, la richiesta vecchia annullata, un tempo massimo di 6 s,
+// le risposte ricordate (stessa parola, lingua e città: niente seconda richiesta) e, se non risponde, una pausa di 30 s
+// invece di spegnerla fino alla prossima visita
+const SEARCHED = new Map();
+let searching = null, remoteOff = 0;
 async function remote(text){
-  if (!remoteOK) return [];
+  const s = text.trim().toLowerCase(), near = city.center || {lat: 43.7712, lon: 11.2550};
+  if (s.length < 3 || Date.now() < remoteOff) return [];
+  const key = [lang, city.id, s].join("|");
+  if (SEARCHED.has(key)) return SEARCHED.get(key);
+  if (searching) searching.abort();
+  const ac = typeof AbortController === "function" ? new AbortController() : null, t = ac && setTimeout(() => ac.abort(), 6000); searching = ac;
   try {
-    const r = await fetch(GEOCODER(text)); if (!r.ok) throw 0; const j = await r.json();
-    return j.features.filter(f => f.properties.country === "Italy" || f.properties.countrycode === "IT").map(f => {
+    const r = await fetch(GEOCODER(text, near), ac ? {signal: ac.signal} : {}); if (!r.ok) throw 0; const j = await r.json();
+    const out = j.features.filter(f => f.properties.country === "Italy" || f.properties.countrycode === "IT").map(f => {
       const pr = f.properties; const name = [pr.name, pr.street && pr.housenumber ? pr.street + " " + pr.housenumber : pr.street, pr.city].filter(Boolean).join(", ");
       return {name, lat:f.geometry.coordinates[1], lon:f.geometry.coordinates[0], hotel: /hotel|guest_house|hostel|motel|apartment/.test(pr.osm_value || "")}; });
-  } catch { remoteOK = false; return []; }
+    SEARCHED.set(key, out); if (SEARCHED.size > 40) SEARCHED.delete(SEARCHED.keys().next().value);
+    return out;
+  } catch (e) { if (!(ac && ac.signal.aborted && searching !== ac)) remoteOff = Date.now() + 30000; return []; }
+  finally { if (t) clearTimeout(t); if (searching === ac) searching = null; }
 }
 q.addEventListener("input", () => { clearTimeout(timer); const v = q.value;
-  showSuggest(local(v)); timer = setTimeout(async () => { const r = await remote(v); if (q.value === v && r.length) showSuggest([...local(v), ...r].slice(0, 7)); }, 280); });
+  showSuggest(local(v));
+  const key = [lang, city.id, v.trim().toLowerCase()].join("|");
+  if (SEARCHED.has(key)){ const r = SEARCHED.get(key); if (r.length) showSuggest([...local(v), ...r].slice(0, 7)); return; }
+  timer = setTimeout(async () => { const r = await remote(v); if (q.value === v && r.length) showSuggest([...local(v), ...r].slice(0, 7)); }, 280); });
 q.addEventListener("keydown", e => {
   const opts = [...box2.querySelectorAll("button")]; if (box2.hidden || !opts.length) return;
   if (e.key === "ArrowDown" || e.key === "ArrowUp"){ e.preventDefault(); active = (active + (e.key === "ArrowDown" ? 1 : -1) + opts.length) % opts.length;
@@ -1056,8 +1161,11 @@ document.addEventListener("click", e => { if (!$("search").contains(e.target)) c
 // Il punto di partenza di ogni città (START), con il nome della città nella lingua della pagina
 function startPlace(c){ const s = START[c.id];
   if (s) return {name: s[0].replace(" (Cathedral)", "").split(",")[0] + ", " + cityName(c), lat: s[1], lon: s[2]};
+  if (!ZONES_OF[c.id]) return {name: cityName(c), lat: c.center.lat, lon: c.center.lon};   // solo prima dei dati (messaggio d'errore)
   const z = ZONES_OF[c.id][0], la = z.perimeter.map(p => p.lat), lo = z.perimeter.map(p => p.lon);
   return {name: cityName(c), lat: (Math.min(...la) + Math.max(...la))/2, lon: (Math.min(...lo) + Math.max(...lo))/2}; }
+// Una città dai pulsanti o dal link #città: i suoi dati, poi il punto di partenza
+async function pickCity(c){ const n = ++chosen; if (!c.zones){ waiting(startPlace(c)); try { await loadCity(c); } catch { if (n === chosen) waiting(startPlace(c), true); return; } if (n !== chosen) return; } choose(startPlace(c)); }
 const chip = (label, onClick, cls = "") => { const b = document.createElement("button"); b.type = "button"; b.className = "chip " + cls; b.textContent = label; b.addEventListener("click", onClick); return b; };
 function dayChipLabel(i){ if (i === 0) return t_("dToday"); if (i === 1) return t_("dTomorrow");
   const r = dayRome(i); return new Intl.DateTimeFormat(LOCALE[lang], {weekday:"short", day:"numeric", timeZone:"UTC"}).format(new Date(Date.UTC(r.y, r.m-1, r.d, 12))); }
@@ -1072,7 +1180,10 @@ function buildCities(){
   // la città scelta resta visibile anche quando l'elenco è chiuso
   const extra = !cityUI.open && state.place && rest.includes(city) ? [city] : [];
   const shown = cityUI.open ? [...top, ...rest] : [...top, ...extra];
-  for (const c of shown){ const b = chip(cityName(c), () => choose(startPlace(c))); b.dataset.city = c.id; b.setAttribute("aria-pressed", "false"); cc.append(b); }
+  for (const c of shown){ const b = chip(cityName(c), () => pickCity(c)); b.dataset.city = c.id; b.setAttribute("aria-pressed", "false");
+    // il dito o il mouse sul pulsante: i dati della città partono già (prima del tocco)
+    for (const ev of ["pointerenter", "focus", "touchstart"]) b.addEventListener(ev, () => loadCity(c).catch(() => {}), {once: true, passive: true});
+    cc.append(b); }
   const hidden = CITIES.length - shown.length;
   if (rest.length){
     const m = chip(cityUI.open ? t_("lessC") + " \u25B4" : T[lang].moreC(hidden) + " \u25BE", () => { cityUI.open = !cityUI.open; buildCities(); chipsState();
@@ -1126,7 +1237,7 @@ function applyLang(l){
   for (const e of document.querySelectorAll("[data-i18n-ph]")) e.placeholder = t_(e.dataset.i18nPh);
   for (const b of document.querySelectorAll(".langs button")) b.setAttribute("aria-pressed", b.dataset.lang === lang);
   if (state.place && state.place.map) state.place.name = t_("point");
-  for (const img of document.querySelectorAll("img[data-src-" + lang + "]")){ img.src = img.getAttribute("data-src-" + lang); img.alt = img.getAttribute("data-alt-" + lang); }
+  for (const img of document.querySelectorAll("img[data-src-" + lang + "]")){ const ss = img.getAttribute("data-srcset-" + lang); if (ss) img.srcset = ss; img.src = img.getAttribute("data-src-" + lang); img.alt = img.getAttribute("data-alt-" + lang); }
   buildControls(); track.key = null; renderFine(); legend(); render();
 }
 for (const b of document.querySelectorAll(".langs button")) b.addEventListener("click", () => applyLang(b.dataset.lang));
@@ -1216,6 +1327,7 @@ const RASTER = () => ({version:8, glyphs:"https://tiles.openfreemap.org/fonts/{f
   tiles:["a","b","c"].map(s => "https://" + s + ".basemaps.cartocdn.com/" + (DARK() ? "dark_all" : "light_all") + "/{z}/{x}/{y}@2x.png")}}, layers:[{id:"c", type:"raster", source:"c", paint:{"raster-saturation": -.35}}]});
 function startRealMap(style){
   if (!window.maplibregl || ml.map) return;
+  if (!box){ ml.waitData = true; return; }        // la mappa è pronta prima dei dati della città: parte con la prima risposta
   const cont = $("mlmap");
   let map;
   try {
@@ -1295,23 +1407,30 @@ function updateRealMap(p, z, ped, st){
       ml.map.fitBounds([[b[0] - mx, b[1] - my], [b[2] + mx, b[3] + my]], {padding: 16, maxZoom: 15, duration: dur}); return; } }
   ml.map.flyTo({center: [p.lon, p.lat], zoom: 13.5, duration: dur});
 }
-if ("IntersectionObserver" in window){
-  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)){ io.disconnect(); loadRealMap(); } }, {rootMargin: "200px"});
-  io.observe($("mapbox"));
-} else loadRealMap();
+// 1.19.5: la mappa vera (MapLibre, ~800 kB) solo dopo la prima risposta e il caricamento della pagina, nei momenti liberi
+// del browser e quando la mappa è vicina allo schermo; un tocco o un tasto la chiedono subito
+function firstAnswer(){
+  if (ml.waitData){ ml.waitData = false; startRealMap(); }
+  if (firstAnswer.done) return; firstAnswer.done = true;
+  const watch = () => { if ("IntersectionObserver" in window){
+      const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)){ io.disconnect(); loadRealMap(); } }, {rootMargin: "200px"});
+      io.observe($("mapbox")); } else loadRealMap(); };
+  const idle = () => (window.requestIdleCallback || (f => setTimeout(f, 200)))(watch, {timeout: 3000});
+  if (document.readyState === "complete") idle(); else addEventListener("load", idle, {once: true});
+}
 for (const ev of ["pointerdown", "keydown"]) addEventListener(ev, loadRealMap, {once: true, passive: true});
 
 applyLang(lang);
 // Link diretti a una città: …/#firenze, #bologna, #milano
 
 const hashCity = () => CITIES.find(x => x.id === (location.hash || "").slice(1).toLowerCase());
-function startFromHash(){ const c = hashCity() || CITIES.find(x => x.id === "firenze") || CITIES[0]; choose(startPlace(c)); }
+function startFromHash(){ const c = hashCity() || CITIES.find(x => x.id === "firenze") || CITIES[0]; pickCity(c); }
 // solo i link a una città cambiano il luogo (#app, #check… no)
 window.addEventListener("hashchange", () => { if (hashCity()) startFromHash(); });
 startFromHash();
 setInterval(() => { if (!state.later) render(); }, 60000);
 // Per le prove automatiche (Playwright): scegliere un luogo e leggere la risposta
-window.gatelr = {choose, pedAt, zoneAt, cities: CITIES};
+window.gatelr = {choose, pedAt, zoneAt, cities: CITIES, loadCity, ensureFor};
 })();
 </script>
 </body>

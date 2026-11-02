@@ -36,6 +36,78 @@ ld = lambda o: '<script type="application/ld+json">' + json.dumps(o, ensure_asci
 prefix = lambda l: "" if l == "en" else l + "/"
 
 
+# ── File con l'impronta nel nome (1.19.5) ─────────────────────────────────────
+# Dati delle città, caratteri e immagini escono come <nome>.<impronta>.<ext>: un file cambiato ha un nome nuovo, così i
+# browser e le cache non tengono mai una versione vecchia, e uno uguale si riusa. Ogni costruzione rifà queste cartelle.
+import hashlib
+ASSET_DIRS = {"data": WEB / "data", "fonts": WEB / "fonts", "img": WEB / "img"}
+for d in ASSET_DIRS.values():
+    if d.exists(): shutil.rmtree(d)
+    d.mkdir(parents=True)
+
+
+def asset(kind, name, data):
+    """Scrive web/<kind>/<name>.<impronta>.<ext> e torna il percorso relativo alla radice del sito"""
+    if isinstance(data, str): data = data.encode("utf-8")
+    stem, ext = name.rsplit(".", 1)
+    rel = f"{kind}/{stem}.{hashlib.sha256(data).hexdigest()[:10]}.{ext}"
+    (WEB / rel).write_bytes(data)
+    return rel
+
+
+# Caratteri sul sito stesso (prima Google Fonts: tre famiglie che bloccavano il primo disegno). Licenza SIL OFL 1.1 per tutte
+# e tre (Tools/site_fonts/OFL-*.txt): si possono ridistribuire e servire dal sito. Solo i pesi usati, in WOFF2, sottoinsiemi
+# latin e latin-ext di Google Fonts (il secondo si scarica solo se la pagina ha lettere che ne hanno bisogno), font-display:
+# swap: il testo si vede subito col carattere di sistema.
+FONT_DIR = ROOT / "Tools/site_fonts"
+LATIN = "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+LATIN_EXT = "U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF"
+FACES = [  # famiglia, peso (Atkinson è variabile: un file per 400–700), file, sottoinsieme
+    ("Atkinson Hyperlegible Next", "400 700", "atkinson-next-latin.woff2", LATIN), ("Atkinson Hyperlegible Next", "400 700", "atkinson-next-latin-ext.woff2", LATIN_EXT),
+    ("Titillium Web", "400", "titillium-400-latin.woff2", LATIN), ("Titillium Web", "400", "titillium-400-latin-ext.woff2", LATIN_EXT),
+    ("Titillium Web", "600", "titillium-600-latin.woff2", LATIN), ("Titillium Web", "600", "titillium-600-latin-ext.woff2", LATIN_EXT),
+    ("Titillium Web", "700", "titillium-700-latin.woff2", LATIN), ("Titillium Web", "700", "titillium-700-latin-ext.woff2", LATIN_EXT),
+    ("DotGothic16", "400", "dotgothic16-400-latin.woff2", LATIN),
+]
+FONT_URL = {f: asset("fonts", f, (FONT_DIR / f).read_bytes()) for f in sorted({x[2] for x in FACES})}
+for f in FONT_DIR.glob("OFL-*.txt"): (WEB / "fonts" / f.name).write_bytes(f.read_bytes())   # le licenze accanto ai caratteri
+
+
+def fonts_head(root, preload):
+    """@font-face in linea (nessun CSS esterno da aspettare) e il preload dei file che servono al primo disegno"""
+    faces = "".join(f'@font-face{{font-family:"{fam}";font-style:normal;font-weight:{w};font-display:swap;src:url({root}{FONT_URL[f]}) format("woff2");unicode-range:{ur}}}\n'
+                    for fam, w, f, ur in FACES)
+    pre = "".join(f'<link rel="preload" href="{root}{FONT_URL[f]}" as="font" type="font/woff2" crossorigin>\n' for f in preload)
+    return f"{pre}<style>\n{faces}</style>"
+
+
+# Le schermate dell'app nella vetrina e le icone piccole: in WebP / PNG alla misura giusta (sullo schermo le schermate sono
+# larghe 78–148 px; prima l'icona da 1024 px, 135 kB, arrivava a ogni visita come favicon). I file ridotti stanno in
+# Tools/site_img/ (si rifanno con `python3 Tools/build_site.py --images`, serve Pillow); qui si copiano con l'impronta.
+IMG_DIR = ROOT / "Tools/site_img"
+SHOT_W = [240, 320, 480]
+SHOT_KEYS = ["home-dark", "map-dark", "it-home", "it-zone"]
+
+
+def make_images():
+    from PIL import Image
+    IMG_DIR.mkdir(exist_ok=True)
+    for key in SHOT_KEYS:
+        im = Image.open(WEB / "app" / f"{key}.webp")
+        for w in SHOT_W:
+            if w > im.width: w = im.width
+            im.resize((w, round(im.height * w / im.width)), Image.LANCZOS).save(IMG_DIR / f"{key}-{w}.webp", "WEBP", quality=82, method=6)
+    icon = Image.open(ICON).convert("RGBA")
+    for name, s in (("favicon", 48), ("apple-touch-icon", 180)):
+        icon.resize((s, s), Image.LANCZOS).save(IMG_DIR / f"{name}.png", "PNG", optimize=True)
+
+
+if __name__ == "__main__" and "--images" in __import__("sys").argv: make_images()
+SHOTS_IMG = {k: [(int(f.stem.rsplit("-", 1)[1]), asset("img", f.name, f.read_bytes()))
+                 for f in sorted(IMG_DIR.glob(f"{k}-*.webp"), key=lambda f: int(f.stem.rsplit("-", 1)[1]))] for k in SHOT_KEYS}
+ICONS = {n: asset("img", f"{n}.png", (IMG_DIR / f"{n}.png").read_bytes()) for n in ("favicon", "apple-touch-icon") if (IMG_DIR / f"{n}.png").exists()}
+
+
 # ── Testi: le stringhe semplici della tabella T del modello (stessa fonte del JavaScript) ─────────
 def strings_of_T(src):
     block = src[src.index("const T = {"):]
@@ -75,8 +147,8 @@ def head(lang, title, desc, url, alternates, root, graph):
 <link rel="canonical" href="{url}">
 {alt}
 <link rel="alternate" hreflang="x-default" href="{alternates["en"]}">
-<link rel="icon" type="image/png" href="{root}icon.png">
-<link rel="apple-touch-icon" href="{root}icon.png">
+<link rel="icon" type="image/png" sizes="48x48" href="{root}{ICONS.get("favicon", "icon.png")}">
+<link rel="apple-touch-icon" href="{root}{ICONS.get("apple-touch-icon", "icon.png")}">
 <meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#17141E" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
@@ -123,7 +195,27 @@ def map_shapes(c):
     return out
 
 
-CITIES_JSON = json.dumps([dict(c, shapes=map_shapes(c)) for c in cities], ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+# 1.19.5: ogni città nel suo file (web/data/<città>.<impronta>.json, zone + forme), scaricato quando serve; nella home solo
+# l'indice. Prima la home conteneva tutte le città (2,2 MB su 2,4). I riquadri «ab» (zone e aree pedonali) e «zb» (solo zone)
+# servono alla pagina per sapere quali città scaricare (vedi ensureFor in web/template.html).
+def box_of(polys):
+    pts = [q for per in polys for q in per]
+    return [min(q["lat"] for q in pts), min(q["lon"] for q in pts), max(q["lat"] for q in pts), max(q["lon"] for q in pts)]
+
+
+CITY_FILE = {c["id"]: asset("data", f"{c['id']}.json", json.dumps(dict(c, shapes=map_shapes(c)), ensure_ascii=False, separators=(",", ":"))) for c in cities}
+INDEX = [{k: c[k] for k in ("id", "name", "name_it", "name_de", "center", "status") if k in c}
+         | {"ab": box_of([z["perimeter"] for z in c["zones"] + (c.get("pedestrian") or [])]), "zb": box_of([z["perimeter"] for z in c["zones"]]), "f": CITY_FILE[c["id"]]}
+         for c in cities]
+CITIES_JSON = json.dumps(INDEX, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+
+
+def preload_script(root):
+    """In testa alla pagina: parte subito il file della città del link (#roma) o di Firenze; la pagina lo prende in loadCity"""
+    files = json.dumps(CITY_FILE, separators=(",", ":"))
+    return ('<script>window.__glr=(function(F,R){var h=(location.hash||"").slice(1).toLowerCase(),id=F[h]?h:"firenze",o={};'
+            'if(F[id]&&window.fetch){o[id]=fetch(R+F[id]).then(function(r){if(!r.ok)throw r.status;return r.json()});o[id].catch(function(){})}'
+            f'return o}})({files},"{root}")</script>')
 FINE_JSON = json.dumps(fine, ensure_ascii=False) if fine else "null"
 HOME_ALT = {l: SITE + prefix(l) for l in LANGS}
 
@@ -141,17 +233,21 @@ SHOTS["de"] = SHOTS["en"]
 
 
 def shot_img(m, lang, root):
-    """L'iPhone della vetrina nella lingua della pagina; data-src-* e data-alt-* servono alla home inglese
+    """L'iPhone della vetrina nella lingua della pagina; data-src-*, data-srcset-* e data-alt-* servono alla home inglese
     quando il visitatore passa a un'altra lingua (le schermate cambiano con i testi)"""
     slot = m.group(1)
-    def src(l): return f"{root}app/{SHOTS[l][slot]}.webp"
+    def files(l): return SHOTS_IMG[SHOTS[l][slot]]
+    def src(l): return root + files(l)[min(1, len(files(l)) - 1)][1]
+    def srcset(l): return ", ".join(f"{root}{u} {w}w" for w, u in files(l))
     def alt(l):
         a = SHOT_ALT[SHOTS[l][slot]]
         return a.get(l) or a.get("en") or a["it"]
-    swap = "".join(f' data-src-{l}="{src(l)}" data-alt-{l}="{esc(alt(l))}"' for l in LANGS)
+    swap = "".join(f' data-src-{l}="{src(l)}" data-srcset-{l}="{srcset(l)}" data-alt-{l}="{esc(alt(l))}"' for l in LANGS)
     lazy = "" if slot == "front" else ' loading="lazy"'
     pri = ' fetchpriority="high"' if slot == "front" else ""
-    return f'<img src="{src(lang)}" width="600" height="1304" alt="{esc(alt(lang))}" decoding="async"{lazy}{pri}{swap}>'
+    # larghezza sullo schermo: 148 px, 96 px sotto 860 px, 78 px sotto 480 px (CSS .phone)
+    return (f'<img src="{src(lang)}" srcset="{srcset(lang)}" sizes="(max-width:480px) 78px, (max-width:860px) 96px, 148px" '
+            f'width="600" height="1304" alt="{esc(alt(lang))}" decoding="async"{lazy}{pri}{swap}>')
 
 
 def build_home(lang):
@@ -164,6 +260,8 @@ def build_home(lang):
         faq([(t[f"q{i}"], t[f"a{i}"]) for i in range(1, 10) if f"q{i}" in t]),
     ]
     page = template.replace("<!--HEAD-->", head(lang, t["title"], t["desc"], HOME_ALT[lang], HOME_ALT, root, graph))
+    page = page.replace("<!--FONTS-->", fonts_head(root, ["atkinson-next-latin.woff2", "titillium-700-latin.woff2"]))
+    page = page.replace("<!--PRELOAD-->", preload_script(root))
     page = (page.replace("{{LANG}}", lang).replace("{{ROOT}}", root).replace("{{LP}}", prefix(lang))
                 .replace("{{PAGELANG}}", "" if lang == "en" else lang))
     page = re.sub(r"\{\{SHOT:(\w+)\}\}", lambda m: shot_img(m, lang, root), page)
@@ -335,7 +433,7 @@ MAP_COLORS = {"restricted": "#E0312F", "pass": "#E5A100", "green": "#12A150"}
 
 def map_script(c, lang):
     """La mappa vera (strade, nomi, zone colorate) sopra quella disegnata: MapLibre + OpenFreeMap,
-    con una mappa di riserva (CARTO) se la prima non risponde. Si carica quando arriva sullo schermo."""
+    con una mappa di riserva (CARTO) se la prima non risponde. Si carica al primo gesto del visitatore, con la mappa vicina allo schermo."""
     feats = []
     for z in c["zones"]:
         k = kind_of(z)
@@ -382,7 +480,13 @@ function load(){
   const l=document.createElement("link"); l.rel="stylesheet"; l.href=V+".css"; document.head.appendChild(l);
   const s=document.createElement("script"); s.src=V+".js"; s.onload=()=>start("https://tiles.openfreemap.org/styles/liberty",true); document.head.appendChild(s);
 }
-if("IntersectionObserver" in window){ const io=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ io.disconnect(); load(); } },{rootMargin:"300px"}); io.observe(wrap); } else load();
+// 1.19.5: la mappa disegnata c'è già; MapLibre (~800 kB di script, mezzo secondo e più di lavoro su un telefono lento) arriva
+// al primo gesto del visitatore (scorrere, toccare, un tasto) se la mappa è vicina allo schermo, o al tocco sulla mappa
+let asked=false, near=false; const go=()=>{ if(!asked){ asked=true; load(); } };
+if("IntersectionObserver" in window){ new IntersectionObserver(es=>{ near=es.some(e=>e.isIntersecting); },{rootMargin:"300px"}).observe(wrap); } else near=true;
+const gesture=()=>{ if(near){ for(const ev of ["scroll","pointerdown","keydown","touchstart"]) removeEventListener(ev,gesture); (window.requestIdleCallback||(f=>setTimeout(f,50)))(go,{timeout:1500}); } };
+for(const ev of ["scroll","pointerdown","keydown","touchstart"]) addEventListener(ev,gesture,{passive:true});
+wrap.addEventListener("pointerdown",go,{once:true,passive:true});
 })();
 </script>""" % data
 
@@ -486,7 +590,6 @@ details summary{cursor:pointer;font-weight:600}
 footer{border-top:1px solid var(--line);margin-top:24px;padding-block:22px 40px;display:grid;gap:10px;color:var(--muted);font-size:14px}.maplibregl-ctrl-group button{width:40px;height:40px}
 """
 LOGO = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="10 4 468 468" aria-hidden="true"><defs> <linearGradient id="lg-bg" gradientUnits="userSpaceOnUse" x1="244" y1="4" x2="244" y2="472"><stop offset="0" stop-color="#1D2948"/><stop offset=".55" stop-color="#101A30"/><stop offset="1" stop-color="#060D1A"/></linearGradient> <radialGradient id="lg-red" cx=".35" cy=".25" r=".9"><stop offset="0" stop-color="#FF5A50"/><stop offset=".6" stop-color="#F0302A"/><stop offset="1" stop-color="#C81E1C"/></radialGradient> <linearGradient id="lg-band" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1A33"/><stop offset=".55" stop-color="#26355A"/><stop offset="1" stop-color="#5B6B8C"/></linearGradient> <linearGradient id="lg-white" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E9ECF2"/></linearGradient> <filter id="lg-sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity=".35"/></filter></defs><rect x="10" y="4" width="468" height="468" fill="url(#lg-bg)"/><path d="M244 432 L125.2 274.8 A137 137 0 1 1 355.5 267.5 Z" fill="url(#lg-red)" filter="url(#lg-sh)"/><circle cx="240" cy="187" r="80" fill="#FFFFFF"/><rect x="180" y="168" width="118" height="44" rx="10" fill="#F2302B"/><text x="239" y="191" text-anchor="middle" dominant-baseline="central" font-family="Inter Display, Inter, Helvetica Neue, Arial" font-weight="800" font-size="34" fill="#FFFFFF" letter-spacing="1">ZTL</text><path d="M359 250 C300 258 205 280 168 312 C138 338 140 372 168 392 L236 420 L190 472 L478 472 L478 236 Z" fill="url(#lg-bg)"/><path d="M359 250 C300 258 205 280 168 312 C138 338 140 372 168 392 L236 420 L254 408 C226 392 200 366 202 343 C205 314 268 280 352 254 Z" fill="url(#lg-band)"/><path d="M359 250 C300 258 205 280 168 312 C138 338 140 372 168 392 L236 420" fill="none" stroke="url(#lg-white)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/><path d="M352 254 C268 280 205 314 202 343 C200 366 226 392 254 408" fill="none" stroke="url(#lg-white)" stroke-width="11" stroke-linecap="round"/></svg>'
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&family=Atkinson+Hyperlegible+Next:wght@400;500;600;700&display=swap">'
 
 
 CUR = ' aria-current="page"'
@@ -596,7 +699,7 @@ def build_city(c, lang):
     B.append(f'<footer><p><a href="{home}">GateLR</a> · <a href="{root}privacy/">Privacy</a> · <a href="{root}support/">Support</a> · '
              f'<a href="mailto:support@example.com">support@example.com</a></p><p>{esc(c.get("license", ""))}. {esc(t["foot"])}</p></footer>')
     page = (f'<!doctype html>\n<html lang="{lang}">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
-            f'{hd}\n{FONTS}\n<style>\n{CITY_CSS}\n</style>\n</head>\n<body>\n<div class="wrap">\n' + "\n".join(B) + "\n</div>\n</body>\n</html>\n")
+            f'{hd}\n{fonts_head(root, ["atkinson-next-latin.woff2", "titillium-700-latin.woff2"])}\n<style>\n{CITY_CSS}\n</style>\n</head>\n<body>\n<div class="wrap">\n' + "\n".join(B) + "\n</div>\n</body>\n</html>\n")
     out = WEB / prefix(lang) / c["id"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")
@@ -619,6 +722,13 @@ def sitemap():
 if __name__ == "__main__":
     made = [build_home(l) for l in LANGS] + [build_city(c, l) for c in cities for l in LANGS]
     sitemap()
+    # Privacy e Supporto (scritte a mano): gli stessi caratteri del sito al posto di Google Fonts, tra <!--FONTS--> e <!--/FONTS-->
+    for f in (WEB / "privacy/index.html", WEB / "support/index.html"):
+        if f.exists():
+            src = f.read_text(encoding="utf-8")
+            new = re.sub(r'<link rel="stylesheet" href="https://fonts\.googleapis\.com[^>]*>|<!--FONTS-->.*?<!--/FONTS-->',
+                         lambda m: "<!--FONTS-->" + fonts_head("../", ["atkinson-next-latin.woff2"]) + "<!--/FONTS-->", src, count=1, flags=re.S)
+            if new != src: f.write_text(new, encoding="utf-8")
     if ICON.exists(): shutil.copyfile(ICON, WEB / "icon.png")
     for f in made: print(f.relative_to(ROOT), f.stat().st_size, "byte")
     print("web/sitemap.xml, web/robots.txt ·", len(cities), "città · multe:", "sì" if fine else "in verifica")
