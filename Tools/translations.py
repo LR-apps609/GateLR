@@ -869,6 +869,8 @@ ANDROID = {
 "Reading a sign happens on the phone with Google ML Kit, which may send Google anonymous usage and performance statistics.": ("La lettura del cartello avviene sul telefono con ML Kit di Google, che può inviare a Google statistiche anonime d'uso e di prestazioni.", "Das Schild wird auf dem Handy mit Google ML Kit gelesen; ML Kit kann anonyme Nutzungs- und Leistungsstatistiken an Google senden."),
 "Your plate never appears in shared texts. Only exception: the message for the hotel, which needs it to register you. You send it yourself.": ("La tua targa non compare mai nei testi condivisi. Unica eccezione: il messaggio per l'hotel, che ne ha bisogno per registrarti. Lo mandi tu.", "Dein Kennzeichen erscheint nie in geteilten Texten. Einzige Ausnahme: die Nachricht ans Hotel, die es für die Anmeldung braucht. Du schickst sie selbst."),
 "Privacy policy": ("Informativa sulla privacy", "Datenschutzerklärung"),
+# 1.19.5: ricerca senza risposta
+"Try again": ("Riprova", "Nochmal versuchen"),
 }
 
 # Gli stessi testi per l'app Android (assets/i18n/strings_it.json, strings_de.json)

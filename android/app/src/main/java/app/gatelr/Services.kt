@@ -7,7 +7,13 @@ import android.net.Uri
 import app.gatelr.core.Coordinate
 import app.gatelr.core.L
 import app.gatelr.core.Place
+import app.gatelr.core.RecentCache
+import app.gatelr.core.SearchPlan
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.double
@@ -54,18 +60,49 @@ enum class Navigator(val id: String, private val title: String, val pkg: String?
     }
 }
 
-/** Ricerca dei posti con Photon (dati OpenStreetMap): funziona su tutti i telefoni, anche senza Google */
+/**
+ * Ricerca dei posti con Photon (dati OpenStreetMap): funziona su tutti i telefoni, anche senza Google.
+ * 1.19.5: risultati verso la città giusta (SearchPlan.near), la stessa domanda non parte due volte (memoria degli ultimi 40
+ * e una sola richiesta per domanda in corso), tempi massimi più brevi e `null` quando Photon non risponde, così la UI
+ * può dire «Riprova» invece di «Nessun risultato».
+ */
 object Geocoder {
     private val json = Json { ignoreUnknownKeys = true }
+    private val memory = RecentCache<String, List<Place>>(40)
+    private val inFlight = HashMap<String, Deferred<List<Place>?>>()
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
-    suspend fun search(q: String, near: Coordinate?): List<Place> = withContext(Dispatchers.IO) {
-        if (q.isBlank()) return@withContext emptyList()
-        val lang = when (Locale.getDefault().language) { "it", "de", "fr" -> Locale.getDefault().language; else -> "en" }
-        val bias = near?.let { "&lat=${it.lat}&lon=${it.lon}" } ?: "&lat=43.77&lon=11.25"
-        val url = URL("https://photon.komoot.io/api/?q=${URLEncoder.encode(q, "UTF-8")}&limit=8&lang=$lang$bias")
-        runCatching {
+    private fun lang() = when (Locale.getDefault().language) { "it", "de", "fr" -> Locale.getDefault().language; else -> "en" }
+
+    /** Il punto verso cui ordinare: la posizione se sei nella città scelta, altrimenti la città scelta */
+    fun near(): Coordinate = SearchPlan.near(Here.coordinate, AppState.city.center)
+
+    /** La risposta già avuta per la stessa domanda (subito, senza rete), o null */
+    fun cached(q: String, near: Coordinate): List<Place>? = memory[SearchPlan.key(q, lang(), near)]
+
+    /** I posti trovati; null se Photon non ha risposto (rete assente o lenta) */
+    suspend fun find(q: String, near: Coordinate): List<Place>? {
+        if (!SearchPlan.worthAsking(q)) return emptyList()
+        val lang = lang()
+        val key = SearchPlan.key(q, lang, near)
+        memory[key]?.let { return it }
+        val job = synchronized(inFlight) {
+            inFlight.getOrPut(key) {
+                scope.async {
+                    try { fetch(q, lang, near)?.also { memory[key] = it } } finally { synchronized(inFlight) { inFlight.remove(key) } }
+                }
+            }
+        }
+        return job.await()
+    }
+
+    suspend fun search(q: String, near: Coordinate?): List<Place> = find(q, near ?: near()) ?: emptyList()
+
+    private fun fetch(q: String, lang: String, near: Coordinate): List<Place>? {
+        val url = URL("https://photon.komoot.io/api/?q=${URLEncoder.encode(q.trim(), "UTF-8")}&limit=8&lang=$lang&lat=${near.lat}&lon=${near.lon}")
+        return runCatching {
             val c = url.openConnection() as HttpURLConnection
-            c.connectTimeout = 8000; c.readTimeout = 8000
+            c.connectTimeout = SearchPlan.CONNECT_TIMEOUT_MS; c.readTimeout = SearchPlan.READ_TIMEOUT_MS
             c.setRequestProperty("User-Agent", "GateLR-Android/0.1")
             val text = c.inputStream.bufferedReader().use { it.readText() }
             json.parseToJsonElement(text).jsonObject["features"]!!.jsonArray.mapNotNull { f ->
@@ -78,7 +115,7 @@ object Geocoder {
                     .filter { it != name }.joinToString(", ")
                 Place(name, address, Coordinate(xy[1].jsonPrimitive.double, xy[0].jsonPrimitive.double))
             }
-        }.getOrDefault(emptyList())
+        }.getOrNull()
     }
 }
 

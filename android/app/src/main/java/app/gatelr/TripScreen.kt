@@ -63,6 +63,7 @@ import app.gatelr.core.Answer
 import app.gatelr.core.F
 import app.gatelr.core.Geometry
 import app.gatelr.core.L
+import app.gatelr.core.SearchPlan
 import app.gatelr.core.Permit
 import app.gatelr.core.Place
 import app.gatelr.core.Strings
@@ -96,11 +97,16 @@ fun TripScreen(modifier: Modifier) {
     var searching by remember { mutableStateOf(false) }
     val place = AppState.place
 
-    LaunchedEffect(query) {
-        if (query.length < 3) { results = emptyList(); return@LaunchedEffect }
-        delay(350)
+    var searchFailed by remember { mutableStateOf(false) }
+    var retry by remember { mutableStateOf(0) }
+    LaunchedEffect(query, retry) {
+        searchFailed = false
+        if (!SearchPlan.worthAsking(query)) { results = emptyList(); return@LaunchedEffect }
+        val near = Geocoder.near()
+        Geocoder.cached(query, near)?.let { results = it; return@LaunchedEffect }
+        delay(SearchPlan.DEBOUNCE_MS)
         searching = true
-        try { results = Geocoder.search(query, Here.coordinate ?: AppState.city.center) } finally { searching = false }
+        try { val r = Geocoder.find(query, near); searchFailed = r == null; results = r ?: emptyList() } finally { searching = false }
     }
 
     LazyColumn(modifier.fillMaxSize().background(MaterialTheme.colorScheme.background), contentPadding = PaddingValues(16.dp),
@@ -114,7 +120,9 @@ fun TripScreen(modifier: Modifier) {
         }
         if (results.isNotEmpty()) {
             items(results) { p -> PlaceRow(p) { AppState.select(p); query = ""; results = emptyList() } }
-        } else if (query.length >= 3 && !searching) {
+        } else if (searchFailed && !searching) {
+            item { SearchRetry { retry++ } }
+        } else if (SearchPlan.worthAsking(query) && !searching) {
             item { Text(L("No results"), color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)) }
         } else if (place == null) {
             item {
