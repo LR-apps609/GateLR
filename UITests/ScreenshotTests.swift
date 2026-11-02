@@ -467,9 +467,12 @@ final class ScreenshotTests: XCTestCase {
                         pill.tap()
                         sleep(2)
                         snap("43-permit-confirm-dialog")
+                        // Su iOS 26 il dialogo è un fumetto senza «Annulla»: si chiude toccando fuori
                         let cancel = app.buttons["Annulla"].firstMatch
-                        if cancel.waitForExistence(timeout: 3) { cancel.tap() }
-                        sleep(1)
+                        if cancel.waitForExistence(timeout: 2) && cancel.isHittable { cancel.tap() }
+                        else { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.8)).tap() }
+                        sleep(2)
+                        XCTAssertTrue(app.buttons["garage.permit.status"].firstMatch.label.contains("attesa"), "Senza conferma il permesso deve restare «In attesa»")
                     }
                 } else {
                     XCTFail("Scelta la zona, «Salva» resta spento")
