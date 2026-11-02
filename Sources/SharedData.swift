@@ -53,7 +53,8 @@ struct WidgetAnswer: Equatable {
     var stale: Bool
     var gatesOn: Bool
     var next: Date?
-    /// Il veicolo della risposta (nil = non lo sappiamo: auto a noleggio come nell'app appena installata)
+    /// Il veicolo della risposta (nil = non lo sappiamo: auto a noleggio come nell'app appena installata). 1.19.4: mai
+    /// la targa, nemmeno se scritta nel nome (il widget si vede anche a telefono bloccato)
     var vehicleName: String?
 
     static func make(zone: Zone, cityId: String?, garage: SharedData.Garage?, at date: Date, engine: RuleEngine = RuleEngine()) -> WidgetAnswer {
@@ -64,7 +65,7 @@ struct WidgetAnswer: Equatable {
         let age = engine.calendar.dateComponents([.day], from: zone.source.checkedOn, to: engine.now()).day ?? 0
         let stale = age > engine.staleAfterDays
         var w = WidgetAnswer(tone: .amber, symbol: "questionmark", title: L("Check the sign"), stale: stale,
-                             gatesOn: a.gatesOn, next: a.nextChange, vehicleName: garage?.vehicle.name)
+                             gatesOn: a.gatesOn, next: a.nextChange, vehicleName: garage.map { PlatePrivacy.displayName($0.vehicle) })
         switch a.verdict.shown(unofficial: zone.isUnofficial) {
         case .no:
             w.tone = .red; w.symbol = "xmark"; w.title = L(zone.isUnofficial ? "Probably not" : "Don't enter")

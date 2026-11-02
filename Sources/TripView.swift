@@ -531,6 +531,10 @@ struct TripView: View {
             if store.vehicle.plate.isEmpty {
                 Label("Add your plate in Garage to fill it in.", systemImage: "info.circle")
                     .font(.app(size: 12)).foregroundStyle(Theme.muted)
+            } else {
+                // 1.19.4: l'unico testo che esce con la targa, e lo mandi tu: si dice chiaro
+                Label("This message includes your plate: the hotel needs it to register you with the city.", systemImage: "lock.open")
+                    .font(.app(size: 12)).foregroundStyle(Theme.muted)
             }
             HStack(spacing: 10) {
                 ShareLink(item: text) {

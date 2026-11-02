@@ -98,6 +98,21 @@ fun AccountScreen(modifier: Modifier) {
             }
         }
 
+        // 1.19.4 «Privacy onesta»: cosa resta sul telefono e cosa esce, come nel codice (Services.kt, MapScreen.kt)
+        item { SectionLabel("Privacy") }
+        item {
+            CardBox {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(L("No account, no ads, no tracking."), fontWeight = FontWeight.SemiBold)
+                    Text(L("Stays on this phone: your cars and plates, permits, trips and the drive log. Your location is used on the phone; GateLR doesn't collect it."), fontSize = 13.sp, color = muted)
+                    Text(L("What goes out: map tiles to OpenFreeMap, place search to Photon (komoot), routes to OSRM (OpenStreetMap). They receive the map area, what you search with your position (to sort the results) and, for a route, start and destination, plus your IP address."), fontSize = 13.sp, color = muted)
+                    Text(L("Reading a sign happens on the phone with Google ML Kit, which may send Google anonymous usage and performance statistics."), fontSize = 13.sp, color = muted)
+                    Text(L("Your plate never appears in shared texts. Only exception: the message for the hotel, which needs it to register you. You send it yourself."), fontSize = 13.sp, color = muted)
+                    Text(L("Privacy policy") + " ›", color = MaterialTheme.colorScheme.primary, modifier = Modifier.clickable { open("https://lr-apps609.github.io/GateLR/privacy/") })
+                }
+            }
+        }
+
         item { SectionLabel("Help") }
         item {
             CardBox {

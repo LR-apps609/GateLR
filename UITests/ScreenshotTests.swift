@@ -591,6 +591,46 @@ final class ScreenshotTests: XCTestCase {
         snap("47-alert-park-outside")
     }
 
+    /// 1.19.4 «Privacy onesta»: la pagina Privacy (foto 48), poi il diario dei passaggi con una targa nel Garage: la riga
+    /// nell'app mostra GX482KM (resta sul telefono), il testo da condividere no (foto 49) e nemmeno il foglio di
+    /// condivisione (foto 49b). L'ultimo test: la targa e il diario restano salvati nel simulatore
+    func test9fPrivacy() {
+        app.terminate()
+        app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiPlate", "GX482KM"]
+        app.launch()
+        XCTAssertTrue(youTab.waitForExistence(timeout: 15))
+        sleep(2)
+        youTab.tap()
+        sleep(1)
+        guard openYou("privacy") else { return XCTFail("manca Privacy in Tu") }
+        XCTAssertTrue(app.descendants(matching: .any)["privacy.header"].firstMatch.waitForExistence(timeout: 5), "manca la pagina Privacy")
+        sleep(1)
+        snap("48-privacy")
+        app.swipeUp()
+        sleep(1)
+        snap("48b-privacy-plate")
+
+        relaunchOnYou()
+        guard openYou("fines") else { return XCTFail("manca Multe") }
+        let log = app.descendants(matching: .any)["fines.log"].firstMatch
+        guard log.waitForExistence(timeout: 5) else { return XCTFail("manca il diario dei passaggi") }
+        log.tap()
+        sleep(1)
+        let preview = app.descendants(matching: .any)["log.sharePreview"].firstMatch
+        for _ in 0..<4 where !(preview.exists && preview.isHittable) { app.swipeUp(); sleep(1) }
+        XCTAssertTrue(preview.exists, "manca il testo da condividere")
+        XCTAssertFalse(preview.label.contains("GX482KM"), "la targa è nel testo da condividere: \(preview.label)")
+        XCTAssertFalse(preview.label.isEmpty, "testo da condividere vuoto")
+        sleep(1)
+        snap("49-share-no-plate")
+        let share = app.descendants(matching: .any)["log.share"].firstMatch
+        if share.exists && share.isHittable {
+            share.tap()
+            sleep(4)
+            snap("49b-share-sheet-no-plate")
+        }
+    }
+
     private func snap(_ name: String) {
         let shot = XCUIScreen.main.screenshot()
         let attachment = XCTAttachment(screenshot: shot)

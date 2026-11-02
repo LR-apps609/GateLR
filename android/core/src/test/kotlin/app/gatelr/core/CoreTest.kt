@@ -200,4 +200,17 @@ class CoreTest {
         assertFalse(verdict(fi, at = date(2027, 5, 1, 1, 0)) is Verdict.Unsure)
         assertTrue(verdict(fi, at = date(2027, 5, 2, 1, 0)) is Verdict.Unsure)
     }
+
+    /** 1.19.4: la targa non entra mai nei testi condivisi (diario dei passaggi), nemmeno scritta con spazi o trattini */
+    @Test fun plateNeverInSharedText() {
+        val plates = listOf("GX482KM", "M AB 1234")
+        val line = PlatePrivacy.logLine("12 mar 2026 · 21:32", "Settore B", "Drove into the zone", "Don't enter", plates)
+        assertFalse(line.contains("GX482KM"))
+        assertEquals("12 mar 2026 · 21:32 · Settore B · Drove into the zone · Don't enter", line)
+        assertEquals("Targa ••• ok", PlatePrivacy.scrub("Targa GX 482-KM ok", plates))
+        assertEquals("Auto •••", PlatePrivacy.scrub("Auto MAB1234", plates))
+        assertEquals("Auto •••", PlatePrivacy.scrub("Auto ab123cd"))
+        assertFalse(PlatePrivacy.leaks("Via Cavour 12, Firenze", plates))
+        assertTrue(PlatePrivacy.leaks("plate GX482KM", plates))
+    }
 }

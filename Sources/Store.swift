@@ -125,7 +125,8 @@ final class Store: ObservableObject {
     /// 1.19.3: il veicolo scelto, i permessi e la zona per il widget (App Group); i widget si ricalcolano solo se cambia
     private func shareWithWidget() {
         guard !ProcessInfo.processInfo.arguments.contains("-uitest") else { return }
-        if SharedData.save(SharedData.Garage(vehicle: vehicle, permits: permits, zoneId: zoneId)) {
+        // 1.19.4: al widget non serve la targa: nel contenitore condiviso il veicolo va senza
+        if SharedData.save(SharedData.Garage(vehicle: PlatePrivacy.withoutPlate(vehicle), permits: permits, zoneId: zoneId)) {
             WidgetCenter.shared.reloadAllTimelines()
         }
     }

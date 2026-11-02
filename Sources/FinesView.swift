@@ -6,11 +6,17 @@ struct DriveLogView: View {
     @EnvironmentObject var store: Store
     @State private var confirmClear = false
 
-    private var shareText: String {
-        store.log.map { e -> String in
+    private var shareText: String { Self.shareText(store.log, plates: store.vehicles.map(\.plate)) }
+
+    /// 1.19.4: il testo da condividere, MAI con la targa (prima c'era in fondo a ogni riga). Le targhe del Garage e quelle
+    /// italiane si tolgono anche se fossero finite nel nome di un varco o di una zona
+    static func shareText(_ log: [LogEntry], plates: [String]) -> String {
+        let all = plates + log.map(\.plate)
+        return log.map { e -> String in
             let when: String = e.date.formatted(date: .abbreviated, time: .shortened)
-            let parts: [String?] = [when, e.zoneName, e.gateName, e.verdict, e.plate.isEmpty ? nil : e.plate]
-            return parts.compactMap { $0 }.joined(separator: " · ")
+            let what = e.kind == .entered ? L("Drove into the zone") : L("Near an active gate")
+            let parts: [String?] = [when, e.zoneName, e.gateName, what, e.verdict]
+            return PlatePrivacy.scrub(parts.compactMap { $0 }.joined(separator: " · "), plates: all)
         }.joined(separator: "\n")
     }
 
@@ -56,7 +62,19 @@ struct DriveLogView: View {
                     ShareLink(item: shareText) {
                         Label("Share the log", systemImage: "square.and.arrow.up")
                     }
+                    .accessibilityIdentifier("log.share")
                     Button(role: .destructive) { confirmClear = true } label: { Label("Delete the log", systemImage: "trash") }
+                }
+                // 1.19.4: quello che parte, prima di condividerlo: senza targa
+                Section {
+                    Text(verbatim: shareText.components(separatedBy: "\n").prefix(3).joined(separator: "\n"))
+                        .font(.app(size: 12, design: .monospaced)).foregroundStyle(Theme.muted)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .accessibilityIdentifier("log.sharePreview")
+                } header: {
+                    Text("What gets shared")
+                } footer: {
+                    Text("The shared text never includes your plate.")
                 }
             }
         }

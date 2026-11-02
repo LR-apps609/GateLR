@@ -88,7 +88,8 @@ struct ZoneReport: Equatable {
 
     /// «Fiat 500 · Benzina · Euro 6» (mai la targa)
     static func vehicleLine(_ v: Vehicle) -> String {
-        [v.model.isEmpty ? v.name : v.model, v.fuel.label, "Euro \(v.euro)"].joined(separator: " · ")
+        // 1.19.4: senza modello il nome, ma senza la targa anche se l'hai scritta lì
+        [v.model.isEmpty ? PlatePrivacy.displayName(v) : PlatePrivacy.scrub(v.model, plates: [v.plate]), v.fuel.label, "Euro \(v.euro)"].joined(separator: " · ")
     }
 }
 

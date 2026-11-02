@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -11,30 +11,54 @@
 <main>
   <a class="brand" href="../">Gate<span>LR</span></a>
   <h1>Privacy</h1>
-  <p class="muted">Last updated: 24 October 2026</p>
+  <p class="muted">Ultimo aggiornamento: 2 novembre 2026 (app iPhone 1.19.4) · <a href="#en">English below</a></p>
   <section>
-    <h2>The short version</h2>
-    <p>GateLR does not collect your personal data. There is no account, no tracking and no advertising.</p>
+    <h2>In breve</h2>
+    <p>Nessun account, nessuna pubblicità, nessun tracciamento. GateLR non ha server che raccolgono i tuoi dati.</p>
   </section>
   <section>
-    <h2>Your location</h2>
-    <p>The app uses your location only on your phone (iPhone or Android), to tell you which gates are near and to warn you before a gate that's on. Your location never leaves the device and we never see it.</p>
+    <h2>Cosa resta sul telefono</h2>
+    <p>I tuoi veicoli e le targhe, i permessi, i viaggi e il diario dei passaggi sono salvati solo sul tuo telefono (iPhone o Android). La posizione è usata sul telefono per la risposta, gli avvisi e il guardiano: GateLR non la raccoglie. Le foto di cartelli, libretti e verbali sono lette sul telefono e non vengono caricate.</p>
   </section>
   <section>
-    <h2>Your cars and permits</h2>
-    <p>The vehicles, plates and permits you add in Garage are saved only on your phone. When you send a message to your hotel, you choose the app and the recipient; GateLR does not send anything by itself.</p>
+    <h2>Cosa esce dall'iPhone</h2>
+    <ul>
+      <li><strong>Mappe, ricerca e percorsi: Apple Mappe</strong> riceve la zona della mappa, quello che cerchi e, quando chiedi un percorso, partenza e arrivo.</li>
+      <li><strong>Mappe 3D: Mapbox</strong> riceve le richieste della mappa per la zona mostrata e un conteggio d'uso per la fatturazione. La telemetria di Mapbox è spenta di serie; puoi accenderla in Tu → Privacy o dalla (i) sulla mappa.</li>
+      <li><strong>Dati delle città: GitHub.</strong> L'app scarica gli aggiornamenti delle ZTL dal repository pubblico di GateLR. Non viene inviato niente su di te.</li>
+      <li><strong>Parcheggi: OpenStreetMap (Overpass).</strong> Se i parcheggi di una città non sono già nell'app, si chiede la zona intorno alle ZTL della città, non la tua posizione.</li>
+    </ul>
   </section>
   <section>
-    <h2>The Android app</h2>
-    <p>On Android, place search uses Photon by komoot and the map uses OpenFreeMap tiles: like the website, these services receive the text you search and your IP address, not your location. Reading a sign photo happens on the phone (ML Kit, on-device). The gate alerts run as a notification you start and stop; nothing is uploaded.</p>
-    <h2>The website</h2>
-    <p>When you search a place on this website, the text you type is sent to a map search service to find the address (Photon by komoot, or Apple Maps). The map is drawn with OpenFreeMap tiles. These services may see your IP address, as with any web request. We don't store your searches.</p>
+    <h2>Cosa esce dal telefono Android</h2>
+    <p>Le mappe arrivano da OpenFreeMap, la ricerca dei luoghi va a Photon (komoot) con quello che cerchi e la tua posizione (per ordinare i risultati vicini), i percorsi vanno a OSRM (OpenStreetMap) con partenza e arrivo. La lettura del cartello avviene sul telefono con ML Kit di Google, che può inviare a Google statistiche anonime d'uso e di prestazioni. I dati delle città sono dentro l'app.</p>
   </section>
   <section>
-    <h2>Questions</h2>
-    <p>See the <a href="../support/">support page</a>.</p>
+    <h2>La tua targa</h2>
+    <p>La targa non compare mai nei testi condivisi o copiati (diario dei passaggi, bozza del ricorso), nel widget, in Siri, nelle notifiche o nella Live Activity. Unica eccezione: il messaggio per l'hotel, che ha bisogno della targa per registrarti al Comune; lo mandi tu, all'app e alla persona che scegli.</p>
   </section>
-  <p class="muted">Italiano: GateLR non raccoglie dati personali. Posizione, auto, targhe e permessi restano sul tuo telefono (iPhone o Android). Nessun account, nessun tracciamento, nessuna pubblicità.</p>
+  <section>
+    <h2>Quello che mandi tu</h2>
+    <p>Il messaggio per l'hotel, le segnalazioni di un errore e il diario dei passaggi partono solo se li mandi tu, con l'app che scegli. Ogni servizio in rete vede il tuo indirizzo IP, come ogni richiesta su internet, ma non sa chi sei in GateLR: non c'è un account.</p>
+  </section>
+  <section>
+    <h2>Il sito</h2>
+    <p>Quando cerchi un luogo su questo sito, il testo che scrivi va a un servizio di ricerca sulle mappe (Photon di komoot, o Apple Mappe) e la mappa usa OpenFreeMap. Non salviamo le tue ricerche.</p>
+  </section>
+
+  <section id="en">
+    <h2>English</h2>
+    <p><strong>No account, no ads, no tracking.</strong> GateLR has no servers that collect your data.</p>
+    <p><strong>Stays on your phone:</strong> your vehicles and plates, permits, trips and the drive log. Your location is used on the phone for the answer, the alerts and the guardian; GateLR doesn't collect it. Photos of signs, registration documents and fines are read on the phone and never uploaded.</p>
+    <p><strong>What goes out (iPhone):</strong> maps, search and routes go to Apple Maps (the map area, what you search and, for a route, start and destination); the 3D maps come from Mapbox, which receives the map requests and a usage count for billing, with its telemetry off by default; city data is downloaded from GitHub; car parks not already in the app are looked up on OpenStreetMap (Overpass) for the area around the city's zones, not your position.</p>
+    <p><strong>What goes out (Android):</strong> map tiles from OpenFreeMap, place search to Photon (komoot) with what you search and your position (to sort nearby results), routes to OSRM (OpenStreetMap) with start and destination. Reading a sign happens on the phone with Google ML Kit, which may send Google anonymous usage and performance statistics.</p>
+    <p><strong>Your plate</strong> never appears in shared or copied texts, the widget, Siri, notifications or the Live Activity. The only exception is the message for the hotel, which needs your plate to register you; you send it yourself.</p>
+    <p>Every online service sees your IP address, like any internet request. When you search a place on this website, the text goes to a map search service (Photon by komoot, or Apple Maps) and the map uses OpenFreeMap tiles. We don't store your searches.</p>
+  </section>
+  <section>
+    <h2>Domande · Questions</h2>
+    <p>Vedi la <a href="../support/">pagina di supporto</a> · See the <a href="../support/">support page</a>.</p>
+  </section>
 </main>
 </body>
 </html>

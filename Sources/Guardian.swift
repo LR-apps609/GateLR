@@ -188,8 +188,8 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
 
     private func startActivity() {
         guard !Self.demo, ActivityAuthorizationInfo().areActivitiesEnabled, activity == nil else { return }
-        activity = try? Activity.request(attributes: DriveAttributes(destination: destination?.name ?? "GateLR"),
-                                         content: ActivityContent(state: state, staleDate: nil), pushType: nil)
+        activity = try? Activity.request(attributes: DriveAttributes(destination: PlatePrivacy.clean(destination?.name ?? "GateLR")),
+                                         content: ActivityContent(state: state.withoutPlates(PlatePrivacy.knownPlates), staleDate: nil), pushType: nil)
         lastShown = state
     }
 
@@ -199,7 +199,8 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         // Distanza arrotondata: si aggiorna ogni 50-100 metri, non a ogni passo
         guard s != lastShown else { return }
         lastShown = s
-        Task { await activity.update(ActivityContent(state: s, staleDate: nil)) }
+        let shown = s.withoutPlates(PlatePrivacy.knownPlates)
+        Task { await activity.update(ActivityContent(state: shown, staleDate: nil)) }
     }
 
     // MARK: Voce e notifiche
@@ -212,7 +213,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
 
     private func notify(title: String, body: String, id: String) {
         let c = UNMutableNotificationContent()
-        c.title = title; c.body = body; c.sound = .default
+        c.title = PlatePrivacy.clean(title); c.body = PlatePrivacy.clean(body); c.sound = .default   // 1.19.4: mai una targa
         c.interruptionLevel = .timeSensitive
         UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "guardian|\(id)", content: c, trigger: nil))
     }

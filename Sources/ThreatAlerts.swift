@@ -49,6 +49,8 @@ final class ThreatAlerts: NSObject, ObservableObject, UNUserNotificationCenterDe
 
     /// Un avviso già pronto (prova da Impostazioni, «Sei arrivato»)
     func deliver(title: String, body: String, level: ThreatLevel, park: Place?, zoneId: String, id: String, inApp: Bool? = nil) {
+        // 1.19.4: un avviso si vede a telefono bloccato: mai una targa
+        let title = PlatePrivacy.clean(title), body = PlatePrivacy.clean(body)
         // App davanti (anche «inattiva» un istante, es. all'avvio): il banner; in sottofondo o a schermo bloccato la notifica
         let foreground = inApp ?? (Self.uitest || UIApplication.shared.applicationState != .background)
         if foreground {

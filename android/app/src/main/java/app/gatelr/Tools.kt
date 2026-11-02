@@ -172,7 +172,12 @@ fun DriveLog() {
             Text(L("A row here doesn't mean you'll be fined: maybe you didn't cross the gate, or your plate was registered. It's a reminder, and a note of when and where."), fontSize = 12.sp, color = muted)
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(onClick = {
-                    HotelMessage.share(ctx, AppState.log.joinToString("\n") { e -> "${d(e.date)} · ${e.zoneName} · ${if (e.kind == "entered") L("Drove into the zone") else L("Near an active gate")} · ${e.verdict} ${e.plate}".trim() })
+                    // 1.19.4: il testo condiviso non ha mai la targa (prima era in fondo a ogni riga)
+                    val plates = AppState.vehicles.map { it.plate } + AppState.log.map { it.plate }
+                    HotelMessage.share(ctx, AppState.log.joinToString("\n") { e ->
+                        app.gatelr.core.PlatePrivacy.logLine(d(e.date), e.zoneName,
+                            if (e.kind == "entered") L("Drove into the zone") else L("Near an active gate"), e.verdict, plates)
+                    })
                 }) { Text(L("Share the log")) }
                 OutlinedButton(onClick = { AppState.log = emptyList(); AppState.save() }) { Text(L("Delete the log")) }
             }

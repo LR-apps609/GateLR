@@ -35,6 +35,9 @@ targets:
       - path: Resources/Assets.xcassets
       - path: NOVITA.txt
         buildPhase: resources
+      # 1.19.4: il manifesto della privacy dell'app (Mapbox porta il suo, dentro il pacchetto)
+      - path: Privacy/App/PrivacyInfo.xcprivacy
+        buildPhase: resources
       # Le città: JSON costruiti dagli script in Tools/ dai dati aperti dei Comuni
       - path: Resources/Cities
         type: folder
@@ -106,12 +109,13 @@ targets:
         # iPad: tutte le orientazioni (anche Split View e Slide Over); l'iPhone resta in verticale
         UISupportedInterfaceOrientations~ipad: [UIInterfaceOrientationPortrait, UIInterfaceOrientationPortraitUpsideDown, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
         NSHumanReadableCopyright: "Uso personale di Ledion"
-        NSCameraUsageDescription: "GateLR reads the hours on the ZTL panels, registration documents and fine notices you photograph, on your iPhone."
-        NSLocationWhenInUseUsageDescription: "GateLR uses your location to tell you which ZTL gates are near you."
+        # 1.19.4: testi onesti, gli stessi della pagina Privacy (Sources/PrivacyView.swift); traduzioni in Tools/translations.py (INFO)
+        NSCameraUsageDescription: "GateLR reads the hours on the ZTL panels, registration documents and fine notices you photograph, on your iPhone. The photos are not uploaded."
+        NSLocationWhenInUseUsageDescription: "GateLR uses your location on your iPhone to tell you which ZTL gates are near you. GateLR doesn't collect it."
         # Navigazione: posizione e voce anche con lo schermo spento o un'altra app davanti
         UIBackgroundModes: [location, audio]
         NSSupportsLiveActivities: true
-        NSLocationAlwaysAndWhenInUseUsageDescription: "GateLR warns you before a ZTL gate while you drive with another navigator, and when the app is closed."
+        NSLocationAlwaysAndWhenInUseUsageDescription: "GateLR warns you before a ZTL gate while you drive with another navigator, and when the app is closed. Your location is used on your iPhone; GateLR doesn't collect it."
         # CarPlay: la scena si attiva solo quando Apple concede l'autorizzazione «Driving Task»
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: true
@@ -148,6 +152,10 @@ targets:
       - path: Sources/DriveActivity.swift
       - path: Sources/TestZone.swift          # la zona della modalità prova (Store la usa)
       - path: Sources/SharedData.swift        # App Group: città scaricate, veicolo e permessi dell'app (1.19.3)
+      - path: Sources/PlatePrivacy.swift      # 1.19.4: mai la targa nel widget né nella Live Activity
+      # 1.19.4: il manifesto della privacy del widget (widget, guardiano e Live Activity)
+      - path: Privacy/Widget/PrivacyInfo.xcprivacy
+        buildPhase: resources
       - path: Resources/Cities
         type: folder
         buildPhase: resources

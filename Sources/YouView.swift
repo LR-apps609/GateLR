@@ -34,6 +34,7 @@ struct YouView: View {
 
                 Section {
                     row(.settings, "Settings", "gearshape.fill", Color(hex: 0x5D6670), L("Alerts, navigator, language and city data"))
+                    row(.privacy, "Privacy", "hand.raised.fill", Theme.blueFill, L("What stays on this iPhone and what goes out"))
                     row(.subscription, "Subscription", "star.fill", Theme.brass, L("GateLR Plus: coming soon"))
                 }
 
@@ -87,6 +88,7 @@ struct YouView: View {
         case .fines: FinesHubView().readableScrollWidth()
         case .learn: LearnHubView().readableScrollWidth()
         case .settings: SettingsView().readableScrollWidth()
+        case .privacy: PrivacyView().readableScrollWidth()
         case .subscription: SubscriptionView().readableScrollWidth()
         }
     }
@@ -106,6 +108,7 @@ struct FinesHubView: View {
                         if !store.log.isEmpty { Pill(text: "\(store.log.count)", fill: Theme.amberSoft, ink: Theme.amberInk) }
                     }
                 }
+                .accessibilityIdentifier("fines.log")
                 NavigationLink { FineGuideView() } label: { Label("Got a fine?", systemImage: "envelope.badge") }
                 NavigationLink { FineScanView() } label: { Label("Photograph the notice", systemImage: "doc.text.viewfinder") }
                     .accessibilityIdentifier("fines.scan")

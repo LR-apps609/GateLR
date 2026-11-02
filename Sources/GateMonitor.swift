@@ -138,6 +138,7 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
             content.title = ThreatEvaluator.title(shown: .no(reason: ""), candidate: cand) ?? ""
             content.body = String(format: L("In %@."), DriveSession.distanceText(store.alertDistance)) + " " + (zone.gates.first?.name ?? zone.shortName) + ". " + L("Tap for car parks outside.")
             if let url = ParkLink.url(zoneId: zone.id, name: cand.name, at: place) { content.userInfo = ["url": url.absoluteString] }
+            content.title = PlatePrivacy.clean(content.title); content.body = PlatePrivacy.clean(content.body)
             content.sound = .default
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
             try? await UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "test", content: content, trigger: trigger))

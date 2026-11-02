@@ -51,8 +51,10 @@ fun Onboarding(onDone: () -> Unit) {
             "Search your hotel or destination: GateLR tells you if you can drive there, now or when you arrive, and prepares the message for the hotel.")
         Point(Icons.Filled.Shield, "A guardian next to your navigator",
             "Drive with Google Maps, Waze or Petal Maps: GateLR warns you before every active ZTL with a notification, a voice and a small bubble.")
-        Point(Icons.Filled.LocationOn, "Your location stays on your phone",
-            "GateLR uses your location to show the ZTL near you and, only while the guardian is on (with its notification), to warn you before the gates. It is never sent or stored anywhere.")
+        // 1.19.4: detto com'è. Prima «non viene mai inviata»: ma la ricerca (Photon) e i percorsi (OSRM) ricevono
+        // quello che cerchi e partenza e arrivo
+        Point(Icons.Filled.LocationOn, "Your location is used on your phone",
+            "GateLR uses your location on your phone to show the ZTL near you and, only while the guardian is on (with its notification), to warn you before the gates. GateLR doesn't collect it. Place search receives what you search and your position, to sort the results; routes receive start and destination.")
         Spacer(Modifier.size(4.dp))
         Button(onClick = onDone, colors = ButtonDefaults.buttonColors(containerColor = Color.White, contentColor = Palette.blue),
             modifier = Modifier.fillMaxWidth()) { Text(L("Continue"), fontWeight = FontWeight.SemiBold) }

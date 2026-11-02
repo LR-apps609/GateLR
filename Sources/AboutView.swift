@@ -33,7 +33,7 @@ struct AboutView: View {
             }
             Section("Typeface and maps") {
                 Text("Titillium Web, SIL Open Font License 1.1 (Accademia di Belle Arti di Urbino).").font(.app(size: 13))
-                Text("Maps and car parks: Apple Maps.").font(.app(size: 13))
+                Text("Maps: Apple Maps and Mapbox. Car parks: OpenStreetMap contributors (ODbL) and Apple Maps.").font(.app(size: 13))
             }
             Section {
                 Text("Part of the LR family: AudioLR, OrbitLR, WebcamLR, GateLR.")

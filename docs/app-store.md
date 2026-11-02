@@ -99,10 +99,27 @@ GateLR ist mit keiner Stadt und nicht mit der Polizei verbunden.
 
 ## Privacy (etichette dell'App Store)
 
-- **Posizione**: usata solo sul telefono per gli avvisi vicino ai varchi; non lascia il dispositivo → «Dati non raccolti».
-- **Garage (auto, targhe, permessi)**: salvati solo sul telefono → «Dati non raccolti».
-- Nessun account, nessun tracciamento, nessuna pubblicità.
-- Serve una pagina «Privacy policy» sul sito (da scrivere: semplice, una pagina).
+1.19.4 «Privacy onesta», controllato sulle richieste in rete del codice (`URLSession`, MapKit, Mapbox):
+
+- **Etichetta**: «Dati non raccolti» per GateLR. Garage (auto, targhe, permessi), viaggi e diario restano sull'iPhone; la
+  posizione è usata sull'iPhone (risposta, avvisi, guardiano).
+- **Cosa esce, senza dati dell'utente verso di noi**: Apple MapKit (mappa, ricerca, percorsi: testo cercato, partenza e
+  arrivo); Mapbox (mappe 3D con il token: richieste delle mattonelle e il conteggio d'uso per la fatturazione; telemetria
+  spenta di serie con `MGLMapboxMetricsEnabled`, si accende in Tu → Privacy o dalla (i) della mappa); GitHub
+  (`raw.githubusercontent.com`, dati delle città); Overpass/OpenStreetMap (parcheggi: il rettangolo delle zone della città,
+  solo se mancano nell'app).
+- **Manifesti**: `Privacy/App/PrivacyInfo.xcprivacy` e `Privacy/Widget/PrivacyInfo.xcprivacy` (tracciamento no, dati
+  raccolti nessuno; UserDefaults CA92.1 e 1C8F.1 per l'App Group, data dei file C617.1 per i parcheggi salvati, tempo
+  dall'accensione 35F9.1 per CACurrentMediaTime). Mapbox Maps ha il suo manifesto (posizione e identificativo per la sua
+  telemetria e l'analisi): Xcode lo unisce nel rapporto della privacy; nell'etichetta dell'App Store va considerato quello
+  che dichiara Mapbox. Con la telemetria spenta Mapbox riceve comunque le richieste della mappa e il conteggio d'uso:
+  rileggere la guida di Mapbox per l'App Store al momento dell'invio.
+- **Segnalazioni** (errore di una zona, bug): partono dall'app Mail dell'utente solo se le scrive e le invia lui, verso
+  l'indirizzo del supporto (`AppConfig.supportEmail`, ancora un segnaposto). Raccolta facoltativa e rara: secondo le regole
+  Apple non va dichiarata, ma è scritta nella privacy policy.
+- **Targa**: mai nei testi condivisi, nelle copie, nel widget (né nell'App Group), in Siri, nelle notifiche o nella Live
+  Activity (`Sources/PlatePrivacy.swift`); unica eccezione il messaggio per l'hotel.
+- Nessun account, nessun tracciamento, nessuna pubblicità. Privacy policy: https://lr-apps609.github.io/GateLR/privacy/
 
 ## Schermate richieste
 
@@ -117,6 +134,6 @@ iPhone 6,9" (1320 × 2868) e 6,5" (1284 × 2778). Le foto del ramo `screenshots`
 
 - [ ] Apple Developer Program (99 USD/anno)
 - [ ] Città «verified» (almeno Firenze) — vedi `docs/verifica-firenze.md`
-- [ ] Privacy policy e pagina di supporto sul sito
+- [x] Privacy policy e pagina di supporto sul sito (privacy riscritta nella 1.19.4)
 - [ ] Richiesta CarPlay «Driving Task» (dopo la prima pubblicazione)
 - [ ] Decidere il prezzo (Pass viaggio 7/30 giorni?)

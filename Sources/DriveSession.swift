@@ -483,8 +483,9 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
 
     private func startActivity(to place: Place) {
         guard ActivityAuthorizationInfo().areActivitiesEnabled, activity == nil else { return }
-        let content = ActivityContent(state: state, staleDate: nil)
-        activity = try? Activity.request(attributes: DriveAttributes(destination: place.name), content: content, pushType: nil)
+        // 1.19.4: Dynamic Island e schermata di blocco senza targhe
+        let content = ActivityContent(state: state.withoutPlates(PlatePrivacy.knownPlates), staleDate: nil)
+        activity = try? Activity.request(attributes: DriveAttributes(destination: PlatePrivacy.clean(place.name)), content: content, pushType: nil)
         lastShown = state
     }
 
@@ -495,7 +496,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         guard s.symbol != lastShown?.symbol || s.distance != lastShown?.distance || s.warning != lastShown?.warning
                 || s.instruction != lastShown?.instruction else { return }
         lastShown = s
-        Task { await activity.update(ActivityContent(state: s, staleDate: nil)) }
+        let shown = s.withoutPlates(PlatePrivacy.knownPlates)
+        Task { await activity.update(ActivityContent(state: shown, staleDate: nil)) }
     }
 
     nonisolated static func distanceText(_ m: Double) -> String {

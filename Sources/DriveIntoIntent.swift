@@ -89,8 +89,14 @@ struct CanIDriveIntoIntent: AppIntent {
     }
 
     /// La frase da dire (testabile, senza Siri): «Firenze Settore A: Non entrare. I varchi si spengono oggi alle 20:00.»
+    /// 1.19.4: senza le targhe del Garage (Siri la dice ad alta voce)
     @MainActor
     static func answer(city: City, zone z: Zone, at asked: Date?, store: Store, now: Date = Date()) -> String {
+        PlatePrivacy.scrub(spokenAnswer(city: city, zone: z, at: asked, store: store, now: now), plates: store.vehicles.map(\.plate))
+    }
+
+    @MainActor
+    private static func spokenAnswer(city: City, zone z: Zone, at asked: Date?, store: Store, now: Date) -> String {
         let date = asked.map { arrival($0, now: now, calendar: store.engine.calendar) }
         let when = date ?? now
         let a = store.answer(at: when, zone: z, hotelInside: false)

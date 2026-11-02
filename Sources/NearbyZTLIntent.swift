@@ -21,8 +21,14 @@ struct NearbyZTLIntent: AppIntent {
     /// la più severa tra quelle che ti contengono (PlaceCheck), l'area pedonale vince, fonte non ufficiale detta con
     /// prudenza; fuori la zona o l'area pedonale più vicina (ThreatEvaluator); fuori dalle città che conosciamo
     /// «Non conosciamo le ZTL di questo posto», mai «Nessuna ZTL entro 5 km», che suonava come un via libera
+    /// 1.19.4: senza le targhe del Garage (Siri la dice ad alta voce)
     @MainActor
     static func answer(at p: Coordinate, store: Store, now: Date = Date()) -> String {
+        PlatePrivacy.scrub(spokenAnswer(at: p, store: store, now: now), plates: store.vehicles.map(\.plate))
+    }
+
+    @MainActor
+    private static func spokenAnswer(at p: Coordinate, store: Store, now: Date) -> String {
         let check = PlaceCheck(Place(name: "", address: "", location: p), store: store, at: now)
         if let area = check.pedestrian {
             return String(format: L("You're inside %@: %@."), String(format: L("Pedestrian area · %@"), area.name), L("Don't enter"))

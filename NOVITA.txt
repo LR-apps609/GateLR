@@ -1,3 +1,10 @@
+Novità della 1.19.4 (privacy onesta):
+• Nuova pagina Tu → Privacy: cosa resta sull'iPhone (veicoli, targhe, permessi, viaggi, diario dei passaggi; la posizione è usata sull'iPhone), cosa esce e verso chi (mappe, ricerca e percorsi ad Apple Mappe, mappe 3D a Mapbox, dati delle città da GitHub, parcheggi da OpenStreetMap con la zona della città, non la tua posizione). Nessun account, nessuna pubblicità, nessun tracciamento
+• La targa non compare più nei testi condivisi: il diario dei passaggi condiviso è senza targa (e mostra prima cosa parte), la bozza del ricorso ha «[targa]» da completare, il widget, Siri, le notifiche, la Live Activity e le segnalazioni non la dicono mai, nemmeno se l'hai scritta nel nome del veicolo. Unica eccezione, detta chiara sotto il messaggio: il messaggio per l'hotel, che serve proprio a registrare la targa
+• Telemetria di Mapbox spenta di serie; si accende in Privacy o dalla (i) sulla mappa 3D
+• Testi delle autorizzazioni (posizione, fotocamera) più chiari: la posizione è usata sull'iPhone e GateLR non la raccoglie; le foto non vengono caricate
+• Manifesto della privacy di Apple per l'app e per il widget
+
 Novità della 1.19.3 (un solo avviso):
 • Un solo sistema di avvisi: guida, guardiano e avvisi ad app chiusa usano lo stesso calcolo, con la risposta per il tuo veicolo all'ora in cui arrivi (permessi della zona, hotel della meta, aree pedonali sempre «no», fonte non ufficiale in giallo) e solo per le zone DAVANTI nel verso di marcia. Ogni zona avvisa una volta per avvicinamento, senza doppioni tra guardiano e avvisi ad app chiusa
 • Il titolo dell'avviso dice la risposta: «Non entrare · Firenze Settore A», «Entri a una condizione: …», «? Controlla il cartello · …»; mai un avviso quando puoi entrare (prima «ZTL attiva» fisso). Il tocco sull'avviso apre «Parcheggia fuori e cammina» per quella zona; con l'app aperta l'avviso è un banner in alto

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  GateLR (app), 1.19.4 «Privacy onesta». Solo il codice di GateLR: Mapbox Maps ha il suo PrivacyInfo.xcprivacy dentro
+  il pacchetto (Sources/MapboxMaps/PrivacyInfo.xcprivacy) e Xcode li unisce nel rapporto; qui non si ripete.
+  Dati raccolti: nessuno. Garage, permessi, viaggi, diario e posizione restano sul telefono; le richieste in rete
+  (Apple MapKit, GitHub per le città, Overpass per i parcheggi con il rettangolo delle zone) non portano dati
+  dell'utente a GateLR. Le segnalazioni partono dall'app Mail dell'utente, solo se le scrive e le invia lui.
+-->
+<plist version="1.0">
+<dict>
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array/>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<!-- UserDefaults: impostazioni e garage dell'app (CA92.1), garage condiviso con il widget nell'App Group (1C8F.1) -->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+				<string>1C8F.1</string>
+			</array>
+		</dict>
+		<!-- Data di modifica dei parcheggi salvati nella cartella Caches dell'app (ParkingData: valgono 30 giorni) -->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>C617.1</string>
+			</array>
+		</dict>
+		<!-- Tempo dall'accensione (CACurrentMediaTime, su mach_absolute_time): solo intervalli tra due momenti nell'app
+		     (animazione della mappa di guida, ricalcolo del percorso), mai inviato -->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>35F9.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

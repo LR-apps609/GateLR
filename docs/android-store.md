@@ -33,7 +33,18 @@ Ordine consigliato: Google Play → AppGallery → Galaxy Store → GetApps.
 ## 3. Google Play: le cose che chiede
 - **Account personale nuovo**: prima della pubblicazione serve un **test chiuso con almeno 12 tester per 14 giorni** (amici con Android: basta la loro email Gmail).
 - **Posizione in background / servizio in primo piano**: GateLR usa il servizio in primo piano «location» avviato da te (non chiede «posizione sempre»). Nel modulo «Foreground service» scegli *Navigation* e allega un video di 30 s: Viaggio → Avvia → Google Maps si apre → notifica GateLR con la distanza.
-- **Sicurezza dei dati**: nessun dato raccolto né condiviso; la posizione resta sul telefono; nessun account.
+- **Sicurezza dei dati** (1.19.4, controllato sulle richieste in rete di `android/app`: `Services.kt`, `MapScreen.kt`):
+  - *Dati raccolti*: nessuno. Garage (auto, targhe), permessi, viaggi e diario restano sul telefono; la posizione è usata sul telefono.
+  - *Dati condivisi con terze parti*: nessuno per conto di GateLR. Le richieste che l'app fa per funzionare: mappe da OpenFreeMap
+    (zona della mappa), ricerca dei luoghi a Photon/komoot (testo cercato e un punto per ordinare i risultati: la posizione o il
+    centro di Firenze), percorsi a OSRM (partenza e arrivo). Google Play le considera «trasferimenti a un fornitore di servizi»
+    solo se trattati per conto nostro: qui nessun dato torna a noi, quindi nel modulo resta «nessun dato raccolto»; scriverlo
+    comunque nella privacy policy (fatto: sito → Privacy).
+  - *ML Kit* (lettura del cartello, modello dentro l'app): il testo si legge sul telefono; la libreria può mandare a Google
+    statistiche d'uso e di prestazioni. Prima dell'invio controllare nella guida di Google per ML Kit se nel modulo vanno
+    dichiarati i dati «Diagnostica» raccolti dall'SDK (non verificato qui).
+  - *Nessun account, nessuna pubblicità, nessun tracciamento*; dati cifrati in transito (HTTPS); eliminazione: disinstallare l'app.
+  - La targa non entra mai nei testi condivisi (diario: `PlatePrivacy` in `android/core`), tranne il messaggio per l'hotel, che la contiene apposta.
 - **Classificazione dei contenuti**: tutti; nessuna pubblicità.
 - **Privacy policy**: https://lr-apps609.github.io/GateLR/privacy/ (poi il tuo dominio).
 - **Mostra sopra altre app** (la bolla): è facoltativa e la attiva l'utente; non serve dichiararla.

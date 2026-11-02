@@ -457,7 +457,7 @@ enum FineCheck {
             "",
             "Oggetto: ricorso ai sensi dell'art. 203 del Codice della Strada avverso il verbale " + number + noticeDate,
             "",
-            "Il/La sottoscritto/a [nome e cognome], nato/a a [luogo] il [data], residente in [indirizzo], in qualità di [proprietario / conducente / locatario] del veicolo targato " + (n.plate ?? "[targa]") + ",",
+            "Il/La sottoscritto/a [nome e cognome], nato/a a [luogo] il [data], residente in [indirizzo], in qualità di [proprietario / conducente / locatario] del veicolo targato [targa],",
             "",
             "PREMESSO CHE",
             "- in data " + notified + " gli/le è stato notificato il verbale sopra indicato, per la violazione dell'" + article + " (accesso a zona a traffico limitato);",
@@ -475,6 +475,8 @@ enum FineCheck {
             "",
             "(Ricorso al Prefetto entro 60 giorni dalla notifica; in alternativa ricorso al Giudice di Pace entro 30 giorni. Segui le istruzioni scritte sul verbale.)",
         ]
-        return lines.joined(separator: "\n")
+        // 1.19.4: la targa letta sul verbale non entra mai nella bozza (si copia e si incolla altrove): «[targa]» da
+        // completare a mano, come nome e indirizzo; tolta anche se fosse finita nel luogo o nel numero letti dalla foto
+        return PlatePrivacy.scrub(lines.joined(separator: "\n"), plates: [n.plate].compactMap { $0 })
     }
 }

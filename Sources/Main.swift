@@ -6,6 +6,8 @@ struct GateLRApp: App {
     @StateObject private var store = Store.shared
 
     init() {
+        // 1.19.4: la telemetria di Mapbox spenta di serie, prima che si crei una mappa (poi decide chi usa l'app)
+        MapboxTelemetry.applyDefault()
         // I consigli (TipKit) una volta sola all'avvio; mai nel giro automatico delle foto
         AppTips.configure()
         // 1.19.3: il tocco su un avviso apre «Parcheggia fuori» anche quando l'avviso ha riaperto l'app
@@ -26,6 +28,7 @@ struct GateLRApp: App {
                     Self.uiTestUnofficial(store)
                     Self.uiTestMode(store)
                     Self.uiTestVehicle(store)
+                    Self.uiTestPlate(store)
                     Self.uiTestAt(store)
                     Self.uiTestPlace(store)
                     Self.uiTestGuardian(store)
@@ -75,6 +78,25 @@ struct GateLRApp: App {
         let v = Vehicle(name: "Prova", fuel: fuel, euro: euro)
         store.vehicles = [v]
         store.activeVehicleId = v.id
+    }
+
+    /// Solo per le foto automatiche (1.19.4): «-uiPlate GX482KM» mette quella targa al veicolo scelto e due righe nel diario
+    /// dei passaggi, per fotografare il testo da condividere SENZA la targa (nell'app la riga la mostra, sul telefono)
+    @MainActor private static func uiTestPlate(_ store: Store) {
+        let args = ProcessInfo.processInfo.arguments
+        guard args.contains("-uitest"), let i = args.firstIndex(of: "-uiPlate"), args.count > i + 1 else { return }
+        var v = store.vehicle
+        v.plate = args[i + 1]
+        if let k = store.vehicles.firstIndex(where: { $0.id == v.id }) { store.vehicles[k] = v } else { store.vehicles = [v] }
+        store.activeVehicleId = v.id
+        guard let zone = store.cities.first(where: { $0.id == "firenze" })?.zones.first else { return }
+        let now = Date()
+        store.log = [
+            LogEntry(date: now.addingTimeInterval(-3_600), kind: .entered, zoneId: zone.id, zoneName: zone.localizedName,
+                     gateName: zone.gates.first?.name, verdict: L("Don't enter"), plate: v.plate),
+            LogEntry(date: now.addingTimeInterval(-86_400), kind: .nearGate, zoneId: zone.id, zoneName: zone.localizedName,
+                     gateName: zone.gates.dropFirst().first?.name, verdict: L("Don't enter"), plate: v.plate),
+        ]
     }
 
     /// Solo per le foto automatiche (1.19.0): «-uiAt 22:00» sceglie nel chip quell'ora (di Roma) del prossimo martedì,

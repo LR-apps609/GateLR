@@ -5,7 +5,7 @@ import UIKit
 enum Tab: Hashable { case varco, map, you }
 
 /// Le pagine di «Tu»
-enum YouRoute: Hashable { case garage, trip, fines, learn, settings, subscription }
+enum YouRoute: Hashable { case garage, trip, fines, learn, settings, privacy, subscription }
 
 /// Dove si va nell'app: la scheda scelta, le pagine aperte in «Tu» e la presentazione
 @MainActor final class AppRouter: ObservableObject {
@@ -38,6 +38,7 @@ enum YouRoute: Hashable { case garage, trip, fines, learn, settings, subscriptio
         case "fines", "multe": (.you, .fines)
         case "learn": (.you, .learn)
         case "settings": (.you, .settings)
+        case "privacy": (.you, .privacy)
         case "account", "you", "tu": (.you, nil)
         default: (.varco, nil)
         }

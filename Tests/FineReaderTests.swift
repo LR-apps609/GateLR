@@ -272,9 +272,11 @@ final class FineReaderTests: XCTestCase {
         let off = FineCheck.appealDraft(n, city: "Firenze", zone: "Settore B", status: .inactive, source: url, reliable: true)
         XCTAssertTrue(off.hasPrefix("BOZZA"))
         for part in ["Al Prefetto di Firenze", "n. 2026/F/0123456", "02/04/2026", "12/03/2026", "10:32", "Via Cavour, Settore B",
-                     "GX482KM", "art. 7, c. 9 e 14 C.d.S.", "non risulterebbe attiva", url.absoluteString] {
+                     "veicolo targato [targa]", "art. 7, c. 9 e 14 C.d.S.", "non risulterebbe attiva", url.absoluteString] {
             XCTAssertTrue(off.contains(part), part)
         }
+        // 1.19.4: la targa letta sul verbale non finisce mai nella bozza che si copia
+        XCTAssertFalse(off.contains("GX482KM"))
         XCTAssertFalse(off.contains("non risultava attiva"))
         let on = FineCheck.appealDraft(n, city: "Firenze", zone: nil, status: .active, source: url)
         XCTAssertFalse(on.contains("non risulterebbe attiva"))
