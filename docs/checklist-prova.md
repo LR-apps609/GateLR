@@ -3,14 +3,12 @@
 Spunta ogni riga. Se qualcosa non va: Tu → Impostazioni → «Segnala un bug» → Copia, e incollalo in chat.
 Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il telefono).
 
-
 ## ★ Il posto come titolo della risposta (1.17.3)
 - [ ] Cerca «Hotel Cavour»: in cima alla scheda il nome grande, nel carattere dei titoli, con ▾; sotto, piccolo, «Firenze · Settore A»; poi il pannello più piccolo, «Non entrare.» e i pulsanti
 - [ ] Un nome lungo va su due righe senza tagliarsi; il ▾ apre ancora gli hotel salvati e i posti recenti
 - [ ] Dentro una ZTL senza cercare nulla: il titolo è «La tua posizione» con sotto città e zona
 - [ ] iPhone Pro Max: «Guarda la mappa», «Perché?» e «Dettagli del viaggio» si vedono senza scorrere
 - [ ] VoiceOver: il titolo si legge come intestazione, con città e zona
-
 
 ## ★ Presentazione a tutto schermo e striscia di Varco (1.17.2)
 - [ ] Presentazione con Mapbox su un iPhone con Dynamic Island: la mappa arriva fino al bordo in basso; sotto il blu notte del pannello non resta nessuna striscia di mappa (né sopra la barra di Home né sotto)
@@ -23,7 +21,6 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 - [ ] Lo stesso senza Mapbox (mappa di Apple): cartello, spillo, pallino blu e ripresa uguali
 - [ ] VoiceOver sulla striscia: «Guarda la mappa», poi «Zona ZTL: Centro» (o «Destinazione: …») e «La tua posizione» quando sei nella ripresa
 
-
 ## ★ «Entri a una condizione:», colori delle zone e limiti delle moto (1.17.2)
 - [ ] Varco con una risposta «a una condizione» (es. una moto in Area B a Milano, o un hotel che può registrare la targa): il titolo è «Entri a una condizione:» e sotto, subito, la condizione in testo normale; «Non entrare.» ed «Entra pure.» come prima
 - [ ] Una risposta «non sicuro» (es. un festivo incerto): sotto il titolo il motivo
@@ -33,7 +30,6 @@ Le prove marcate 🚗 vanno fatte in auto (meglio con un passeggero che tiene il
 - [ ] Garage → nuova moto: sotto «Euro» compaiono «Due ruote» (ciclomotore / motociclo) e «Motore» (4 tempi / 2 tempi), con la spiegazione; di serie motociclo e 4 tempi
 - [ ] Scudo Verde con una moto Euro 5: «Entra pure.»; con un ciclomotore 2 tempi Euro 1: «Non entrare.»; dal 1° dicembre 2026 (scegli la data) una moto Euro 1 4 tempi: «Non entrare.»
 - [ ] Milano Area B con una moto: ancora «Entri a una condizione:» con sotto «Qui le moto hanno limiti Euro loro…»
-
 
 ## ★ GateLR 2.0: tre schede (1.16.0)
 - [ ] In basso solo tre schede: «Varco», «Mappa» al centro con il simbolo più grande, «Tu»; VoiceOver legge i tre nomi
@@ -409,3 +405,13 @@ Istruzioni passo passo in docs/prova-sul-campo.md.
 - [ ] Guardiano acceso (Viaggio → Avvia → un navigatore) per 10–15 minuti in città: la pagina Varco scorre fluida, il riquadro del guardiano cambia distanza; l'iPhone non scalda più del solito. Guida di GateLR: fermo a un semaforo la mappa resta ferma e liscia, alla ripartenza auto e camera riprendono subito senza scatti
 - [ ] iPhone più vecchio che hai (o Impostazioni → Accessibilità → Movimento → Riduci movimento) e rete lenta (Impostazioni sviluppatore → Network Link Conditioner «3G», se c'è): Varco, Mappa su Milano Area B (sposta e ingrandisci fino ai varchi) e «Parcheggia fuori» restano usabili; Account → «Aggiorna i dati» finisce entro circa 20 secondi o dice che non è riuscito
 
+## 24. Più veloce: sito e Android (1.19.5)
+- [ ] Sito sul telefono (https://lr-apps609.github.io/GateLR/), meglio con la rete lenta (Wi-Fi debole o 3G): mentre carica, la risposta è un riquadro grigio che «respira», MAI verde; poi compare la risposta per Firenze. Con il link …/#roma la prima risposta è per Roma
+- [ ] Tocca «Milano», poi subito «Roma»: resta la risposta dell'ultima città toccata (Roma), mai quella di Milano dopo
+- [ ] Cerca «via tornabuoni» con Firenze mostrata: i primi risultati sono a Firenze; mostra Roma (tocca «Roma») e cerca «via del corso»: i primi sono a Roma. Cancella e riscrivi la stessa parola: i risultati tornano subito, senza attesa
+- [ ] Accanto a un risultato di un'altra città: «in ZTL» / «fuori» arriva dopo un attimo (prima un trattino grigio), mai un'etichetta sbagliata
+- [ ] Modalità aereo dopo aver aperto la pagina, poi tocca una città mai aperta (es. «Lecce»): dopo qualche secondo «Non riesco a caricare le regole di questa città…» con «Riprova»; riaccendi la rete, «Riprova»: arriva la risposta
+- [ ] La mappa vera (strade) arriva dopo la risposta, non prima; i caratteri sono quelli di sempre (titoli Titillium, testo Atkinson, pannello del varco a puntini); le due schermate dell'iPhone nella vetrina sono nitide
+- [ ] Pagina di una città (es. …/firenze/): si legge subito, la mappa vera arriva dopo; Privacy e Supporto con gli stessi caratteri
+- [ ] Android → Mappa o Viaggio: cerca un hotel di Firenze mentre sei in un'altra città: i risultati sono a Firenze (la città scelta); vicino a casa vincono i posti vicino a te
+- [ ] Android in modalità aereo → cerca «duomo»: «La ricerca non funziona adesso. Controlla la connessione.» con «Riprova» (prima: «Nessun risultato»); riaccendi la rete e tocca «Riprova»: arrivano i risultati
