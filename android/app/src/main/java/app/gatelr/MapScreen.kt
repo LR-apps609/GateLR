@@ -58,6 +58,7 @@ import app.gatelr.core.F
 import app.gatelr.core.Geometry
 import app.gatelr.core.L
 import app.gatelr.core.Place
+import app.gatelr.core.SearchPlan
 import app.gatelr.core.Verdict
 import app.gatelr.core.ZoneKind
 import app.gatelr.core.nearestZone
@@ -175,6 +176,8 @@ fun MapScreen(modifier: Modifier) {
     var styleReady by remember { mutableStateOf(false) }
     var query by remember { mutableStateOf("") }
     var results by remember { mutableStateOf(listOf<Place>()) }
+    var searchFailed by remember { mutableStateOf(false) }
+    var retry by remember { mutableStateOf(0) }
     var pin by remember { mutableStateOf<Place?>(null) }
     var legend by remember { mutableStateOf(false) }
     var styleUri by remember { mutableStateOf("") }
@@ -220,11 +223,16 @@ fun MapScreen(modifier: Modifier) {
         }
     }
 
-    // Ricerca con una piccola attesa mentre scrivi
-    LaunchedEffect(query) {
-        if (query.length < 3) { results = emptyList(); return@LaunchedEffect }
-        delay(350)
-        results = Geocoder.search(query, Here.coordinate ?: AppState.city.center)
+    // Ricerca con una piccola attesa mentre scrivi; la stessa domanda risponde subito dalla memoria; se Photon non risponde, «Riprova»
+    LaunchedEffect(query, retry) {
+        searchFailed = false
+        if (!SearchPlan.worthAsking(query)) { results = emptyList(); return@LaunchedEffect }
+        val near = Geocoder.near()
+        Geocoder.cached(query, near)?.let { results = it; return@LaunchedEffect }
+        delay(SearchPlan.DEBOUNCE_MS)
+        val r = Geocoder.find(query, near)
+        searchFailed = r == null
+        results = r ?: emptyList()
     }
 
     val pinZone = pin?.let { p -> zonesAt(AppState.cities, p.location).minByOrNull { it.second.roughArea }?.second }
@@ -278,6 +286,7 @@ fun MapScreen(modifier: Modifier) {
                 colors = OutlinedTextFieldDefaults.colors(focusedContainerColor = MaterialTheme.colorScheme.surface, unfocusedContainerColor = MaterialTheme.colorScheme.surface),
                 modifier = Modifier.fillMaxWidth()
             )
+            if (searchFailed && pin?.name != query) SearchRetry { retry++ }
             if (results.isNotEmpty() && pin?.name != query) {
                 LazyColumn(Modifier.fillMaxWidth().heightIn(max = 280.dp).padding(top = 4.dp)
                     .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(14.dp))) {

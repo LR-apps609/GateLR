@@ -941,5 +941,6 @@
 "What goes out: map tiles to OpenFreeMap, place search to Photon (komoot), routes to OSRM (OpenStreetMap). They receive the map area, what you search with your position (to sort the results) and, for a route, start and destination, plus your IP address.": "Was hinausgeht: Karten von OpenFreeMap, Ortssuche an Photon (komoot), Routen an OSRM (OpenStreetMap). Sie erhalten den Kartenausschnitt, was du suchst samt deinem Standort (zum Sortieren der Ergebnisse) und für eine Route Start und Ziel, dazu deine IP-Adresse.",
 "Reading a sign happens on the phone with Google ML Kit, which may send Google anonymous usage and performance statistics.": "Das Schild wird auf dem Handy mit Google ML Kit gelesen; ML Kit kann anonyme Nutzungs- und Leistungsstatistiken an Google senden.",
 "Your plate never appears in shared texts. Only exception: the message for the hotel, which needs it to register you. You send it yourself.": "Dein Kennzeichen erscheint nie in geteilten Texten. Einzige Ausnahme: die Nachricht ans Hotel, die es für die Anmeldung braucht. Du schickst sie selbst.",
-"Privacy policy": "Datenschutzerklärung"
+"Privacy policy": "Datenschutzerklärung",
+"Try again": "Nochmal versuchen"
 }

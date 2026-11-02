@@ -24,6 +24,7 @@ import androidx.compose.material.icons.filled.QuestionMark
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
@@ -86,6 +87,17 @@ fun Pill(text: String, fill: Color, ink: Color) {
 
 @Composable
 fun VerdictPill(v: Verdict) = Pill(v.short, v.pillFill(), v.pillInk())
+
+/** 1.19.5: la ricerca non ha avuto risposta (rete): lo si dice e si può riprovare, invece di «Nessun risultato» */
+@Composable
+fun SearchRetry(onRetry: () -> Unit) {
+    Row(Modifier.fillMaxWidth().padding(top = 4.dp).background(MaterialTheme.colorScheme.surface, RoundedCornerShape(14.dp)).padding(start = 12.dp, end = 4.dp),
+        verticalAlignment = Alignment.CenterVertically) {
+        Text(L("Search isn't working right now. Check your connection."), fontSize = 14.sp, modifier = Modifier.weight(1f).padding(vertical = 10.dp),
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f))
+        TextButton(onClick = onRetry) { Text(L("Try again"), fontWeight = FontWeight.SemiBold) }
+    }
+}
 
 @Composable
 fun SectionLabel(text: String) {
