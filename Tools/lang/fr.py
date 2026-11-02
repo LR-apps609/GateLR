@@ -856,6 +856,18 @@ T = {
 "Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days.": "Confirmez seulement si l'hôtel vous a confirmé par écrit que votre plaque est enregistrée pour chaque jour. GateLR répondra « oui » seulement dans %@, seulement pour ces jours.",
 "GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing.": "GateLR répondra « à une condition » dans %@ pour ces jours, jusqu'à ce que l'hôtel confirme par écrit.",
 "Checked at the day and time of the notice, with the hours we read on %@: on that day they may have been different (summer hours, events, panels off). We are not lawyers: check the notice and the official source.": "Vérifié au jour et à l'heure de l'avis, avec les horaires lus le %@ : ce jour-là ils pouvaient être différents (horaires d'été, événements, panneaux éteints). Nous ne sommes pas avocats : vérifiez l'avis et la source officielle.",
+# 1.19.3
+"Don't enter · %@": "N'entrez pas · %@",
+"Probably not · %@": "Probablement pas · %@",
+"You can enter on one condition: %@": "Vous entrez à une condition : %@",
+"? Check the sign · %@": "? Vérifiez le panneau · %@",
+"In %@.": "Dans %@.",
+"Tap for car parks outside.": "Touchez pour les parkings à l'extérieur.",
+"Close": "Fermer",
+"Check the sign": "Vérifiez le panneau",
+"Data to recheck": "Données à revérifier",
+"Inside it there are pedestrian areas: cars can never drive in there.": "Elle contient des zones piétonnes : les voitures n'y entrent jamais.",
+"Whether your vehicle can enter your zone now, and when that changes.": "Si votre véhicule peut entrer dans votre zone maintenant, et quand cela change.",
 }
 
 INFO = {

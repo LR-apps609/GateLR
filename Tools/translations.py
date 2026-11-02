@@ -751,6 +751,18 @@ T = {
 "Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days.": ("Conferma solo se l'hotel ti ha confermato per iscritto che la targa è registrata per ogni giorno. GateLR risponderà «sì» solo in %@, solo per questi giorni.", "Bestätige nur, wenn das Hotel schriftlich bestätigt hat, dass dein Kennzeichen für jeden Tag angemeldet ist. GateLR antwortet nur in %@ „ja“, nur für diese Tage."),
 "GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing.": ("GateLR risponderà «a una condizione» in %@ per questi giorni, finché l'hotel non conferma per iscritto.", "GateLR antwortet in %@ für diese Tage „mit Bedingung“, bis das Hotel schriftlich bestätigt."),
 "Checked at the day and time of the notice, with the hours we read on %@: on that day they may have been different (summer hours, events, panels off). We are not lawyers: check the notice and the official source.": ("Controllato al giorno e all'ora del verbale, con gli orari letti il %@: quel giorno potevano essere diversi (orari estivi, eventi, pannelli spenti). Non siamo avvocati: controlla il verbale e la fonte ufficiale.", "Geprüft für Tag und Uhrzeit des Bescheids, mit den am %@ gelesenen Zeiten: an jenem Tag können sie anders gewesen sein (Sommerzeiten, Veranstaltungen, Anzeigen aus). Wir sind keine Anwälte: prüfe den Bescheid und die offizielle Quelle."),
+# 1.19.3: un solo avviso (guida, guardiano, app chiusa), widget con il veicolo e i dati condivisi
+"Don't enter · %@": ("Non entrare · %@", "Nicht einfahren · %@"),
+"Probably not · %@": ("Probabilmente no · %@", "Wahrscheinlich nicht · %@"),
+"You can enter on one condition: %@": ("Entri a una condizione: %@", "Einfahrt unter einer Bedingung: %@"),
+"? Check the sign · %@": ("? Controlla il cartello · %@", "? Achte auf das Schild · %@"),
+"In %@.": ("Tra %@.", "In %@."),
+"Tap for car parks outside.": ("Tocca per i parcheggi fuori.", "Tippe für Parkplätze außerhalb."),
+"Close": ("Chiudi", "Schließen"),
+"Check the sign": ("Controlla il cartello", "Achte auf das Schild"),
+"Data to recheck": ("Dati da ricontrollare", "Daten neu prüfen"),
+"Inside it there are pedestrian areas: cars can never drive in there.": ("Dentro ci sono aree pedonali: lì le auto non entrano mai.", "Darin gibt es Fußgängerzonen: dort dürfen Autos nie hineinfahren."),
+"Whether your vehicle can enter your zone now, and when that changes.": ("Se il tuo veicolo può entrare nella tua zona adesso, e quando cambia.", "Ob dein Fahrzeug jetzt in deine Zone darf und wann sich das ändert."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

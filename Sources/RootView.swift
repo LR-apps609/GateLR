@@ -22,6 +22,8 @@ enum YouRoute: Hashable { case garage, trip, fines, learn, settings, subscriptio
 
     /// gatelr://varco (widget, Live Activity), gatelr://map, gatelr://trip (widget), gatelr://garage, gatelr://account
     func handle(_ url: URL) {
+        // gatelr://park?zone=…&lat=…&lon=… (1.19.3, il tocco su un avviso): «Parcheggia fuori» per quella zona
+        if url.host?.lowercased() == "park" { ThreatAlerts.shared.open(url); return }
         let (tab, route) = Self.destination(for: url.host)
         youPath = route.map { [$0] } ?? []
         self.tab = tab
@@ -64,6 +66,8 @@ struct RootView: View {
     @StateObject private var router = AppRouter()
     @State private var showZone = false
     @State private var whatsNew = false
+    @ObservedObject private var alerts = ThreatAlerts.shared
+    @State private var driving = false
 
     var body: some View {
         // Finché le città non sono pronte (si leggono in sottofondo) si vede la stessa schermata d'avvio di iOS
@@ -85,6 +89,36 @@ struct RootView: View {
         }
         // «Modalità prova attiva» in cima a ogni scheda finché la modalità prova è accesa
         .testModeBar()
+        // 1.19.3: l'avviso del guardiano o della guida con l'app aperta (al posto della notifica): tocco = parcheggi fuori
+        .overlay(alignment: .top) {
+            if let b = alerts.banner {
+                ThreatBannerView(banner: b, onTap: { alerts.openBanner() }, onClose: { alerts.dismissBanner() })
+                    .padding(.top, 4)
+                    .transition(.move(edge: .top).combined(with: .opacity))
+            }
+        }
+        .animation(.snappy, value: alerts.banner)
+        // Il tocco su un avviso (notifica o banner): «Parcheggia fuori» per la zona dell'avviso
+        .sheet(item: $alerts.parkFor) { place in
+            ScrollView {
+                ParkOutsideCard(destination: place, arrival: Date(), onStart: { target in
+                    alerts.parkFor = nil
+                    Task {
+                        try? await Task.sleep(for: .milliseconds(450))
+                        await DriveSession.shared.start(to: target, store: store)
+                        driving = DriveSession.shared.active
+                    }
+                }, onGuardian: { target, navigator in
+                    alerts.parkFor = nil
+                    Guardian.shared.start(to: target, with: navigator, store: store)
+                })
+                .padding(16)
+            }
+            .background(Theme.ground)
+            .presentationDetents([.medium, .large])
+            .environmentObject(store)
+        }
+        .fullScreenCover(isPresented: $driving) { DriveView().environmentObject(store) }
         .environmentObject(router)
         .tint(Theme.red)
         .sensoryFeedback(.selection, trigger: router.tab)

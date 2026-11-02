@@ -588,15 +588,16 @@ struct VarcoView: View {
         }
     }
 
-    /// Il guardiano è attivo: cosa vede adesso e il pulsante per fermarlo
+    /// Il guardiano è attivo: cosa vede adesso e il pulsante per fermarlo. 1.19.3: con le parole e il colore della
+    /// risposta (rosso, giallo); senza zone davanti grigio «Nessuna ZTL attiva davanti», fuori dalle città che conosciamo
+    /// neutro «Non conosciamo le ZTL di questo posto» (prima era sempre verde, anche dove non sapevamo niente)
     private var guardianBanner: some View {
-        HStack(spacing: 12) {
-            Image(systemName: "shield.lefthalf.filled").font(.app(size: 22, weight: .bold))
+        let look = Self.guardianLook(threat: guardian.threat, resting: guardian.resting)
+        return HStack(spacing: 12) {
+            Image(systemName: look.symbol).font(.app(size: 22, weight: .bold))
             VStack(alignment: .leading, spacing: 2) {
                 Text(String(format: L("Guardian on · to %@"), guardian.destination?.name ?? "")).font(.app(size: 15, weight: .bold)).lineLimit(1)
-                Text(guardian.threat.map { "\($0.zone.shortName) · \(DriveSession.distanceText($0.meters)) · \($0.answer.verdict.shortText(unofficial: $0.zone.isUnofficial))" }
-                     ?? L("No active ZTL ahead"))
-                    .font(.app(size: 13)).opacity(0.9)
+                Text(verbatim: look.text).font(.app(size: 13)).opacity(0.9).lineLimit(2)
             }
             Spacer()
             Button(L("Stop")) { guardian.stop() }
@@ -606,7 +607,24 @@ struct VarcoView: View {
         }
         .foregroundStyle(.white)
         .padding(14)
-        .background(guardian.threat == nil ? Theme.green : Theme.red, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .background(look.fill, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("guardian.banner")
+    }
+
+    /// Simbolo, testo e colore del riquadro del guardiano (testabile)
+    static func guardianLook(threat: Guardian.Threat?, resting: ThreatResting) -> (symbol: String, text: String, fill: Color) {
+        if let t = threat {
+            let text = "\(t.candidate.pedestrian != nil ? t.zone.localizedName : t.zone.shortName) · \(DriveSession.distanceText(t.meters)) · \(t.spoken)"
+            switch t.level {
+            case .stop: return ("exclamationmark.shield.fill", text, Theme.red)
+            case .condition, .check, .clear: return ("shield.lefthalf.filled", text, Color(hex: 0xB07A00))
+            }
+        }
+        switch resting {
+        case .clear: return ("checkmark.shield", L("No active ZTL ahead"), Color(hex: 0x5B6476))
+        case .unknownPlace: return ("shield", L("We don't know the ZTLs of this place"), Color(hex: 0x3A4A6B))
+        }
     }
 
     private func tripRow(_ t: Trip) -> some View {

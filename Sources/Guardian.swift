@@ -12,15 +12,15 @@ import UIKit
 final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVSpeechSynthesizerDelegate {
     static let shared = Guardian()
 
-    struct Threat: Equatable {
-        var zone: Zone
-        var meters: Double
-        var answer: Answer
-    }
+    /// 1.19.3: la minaccia è quella di ThreatEvaluator, la stessa della guida e degli avvisi ad app chiusa
+    typealias Threat = ZoneThreat
 
     @Published private(set) var active = false
     @Published private(set) var destination: Place?
     @Published private(set) var threat: Threat?          // la ZTL più vicina verso cui stai andando, se a quell'ora non entri
+    /// Senza minacce davanti: «nessuna zona nota qui» (neutro, fuori dalle città che conosciamo) o «nessuna ZTL attiva
+    /// davanti» (in una città che conosciamo). Prima era sempre lo scudo verde con la spunta, anche a Pistoia
+    @Published private(set) var resting: ThreatResting = .unknownPlace
     /// Non pubblicata: cambia a ogni posizione e ridisegnerebbe la pagina Varco per niente (la legge solo Siri)
     private(set) var here: Coordinate?
 
@@ -35,7 +35,6 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     private var activity: Activity<DriveAttributes>?
     private var lastShown: DriveAttributes.ContentState?
     private var lastDistances: [String: Double] = [:]
-    private var alerted = Set<String>()
     private var lastMove = Date()
     private var startedAt = Date()
     private var watchdog: Task<Void, Never>?
@@ -53,7 +52,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     func start(to place: Place, with navigator: Navigator, store: Store) {
         self.store = store
         destination = place
-        alerted = []; lastDistances = [:]; threat = nil
+        lastDistances = [:]; threat = nil; resting = .unknownPlace
         lastMove = Date(); startedAt = Date()
         manager.requestAlwaysAuthorization()
         if Bundle.main.object(forInfoDictionaryKey: "UIBackgroundModes") != nil {
@@ -91,98 +90,86 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
 
     // MARK: A ogni posizione
 
-    func update(_ p: Coordinate, course: Double = -1) {
+    func update(_ p: Coordinate, course: Double = -1, speed: Double? = nil) {
         guard active, let store else { return }
         if let here, PathMath.meters(here, p) > 20 { lastMove = Date() }
         here = p
 
         // Arrivo, fermo da 15 minuti o più di 4 ore: il guardiano si ferma da solo
         if let d = destination, PathMath.meters(p, d.location) < 120 {
-            notify(title: L("You have arrived"), body: L("GateLR has stopped watching the gates."), id: "arrived")
+            if !Self.demo { notify(title: L("You have arrived"), body: L("GateLR has stopped watching the gates."), id: "arrived") }
             stop(); return
         }
         if Date().timeIntervalSince(lastMove) > 15 * 60 || Date().timeIntervalSince(startedAt) > 4 * 3600 { stop(); return }
 
-        // Le zone vicine che a quell'ora non ti fanno entrare liberamente, e verso cui ti stai avvicinando
-        let scan = Self.scan(at: p, zones: store.cities.flatMap(\.zones), last: lastDistances) { z, d in
-            store.answer(at: Date().addingTimeInterval(d / 9), zone: z, hotelInside: false)
+        // 1.19.3: lo stesso calcolo della guida e degli avvisi ad app chiusa (ThreatEvaluator): zone E aree pedonali,
+        // solo davanti nel verso di marcia, la risposta per il tuo veicolo all'ora d'arrivo (permessi, hotel della meta)
+        let destination = self.destination
+        let scan = ThreatEvaluator.scan(at: p, course: course >= 0 ? course : nil,
+                                        candidates: ThreatEvaluator.candidates(store.cities, near: p),
+                                        last: lastDistances, covered: store.covers(p)) { c, d in
+            store.threatAnswer(c, at: ThreatEvaluator.arrival(in: d, speed: speed), destination: destination)
         }
         lastDistances = scan.distances
-        for (z, a) in scan.entered {
-            store.record(.entered, zone: z, verdict: a.verdict)
+        ThreatAlerts.shared.moved(scan.distances)
+        for t in scan.entered {
+            store.record(.entered, zone: t.zone, verdict: t.answer.verdict)
             // Il consiglio che evita le multe a catena: non girare dentro cercando l'uscita
-            if case .no = a.verdict, !alerted.contains("in|\(z.id)") {
-                alerted.insert("in|\(z.id)")
-                say(String(format: L("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine."), z.shortName))
-                notify(title: String(format: L("You're inside %@"), z.shortName),
-                       body: L("Leave by the nearest exit and don't drive around: every gate can mean another fine."), id: "in|\(z.id)")
+            if t.level == .stop, ThreatAlerts.shared.post(t, prefix: "in") {
+                say(String(format: L("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine."), t.candidate.name))
             }
         }
-        let best = scan.threat
-        if best != threat { threat = best }      // si pubblica solo se cambia davvero
+        if scan.threat != threat { threat = scan.threat }      // si pubblica solo se cambia davvero
+        if scan.resting != resting { resting = scan.resting }
 
-        if let t = best {
-            if t.meters < 550 && !alerted.contains("far|\(t.zone.id)") {
-                alerted.insert("far|\(t.zone.id)")
-                let text = String(format: L("Attention: in %@ you enter %@. %@."), DriveSession.distanceText(t.meters), t.zone.shortName, t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial))
-                say(text)
-                notify(title: String(format: L("%@ in %@"), t.zone.shortName, DriveSession.distanceText(t.meters)), body: t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial), id: "far|\(t.zone.id)")
-            }
-            if t.meters < 150 && !alerted.contains("near|\(t.zone.id)") {
-                alerted.insert("near|\(t.zone.id)")
-                say(String(format: L("Gate ahead: %@."), t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial)))
-                notify(title: String(format: L("Gate ahead: %@"), t.zone.shortName), body: t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial), id: "near|\(t.zone.id)")
-            }
-        } else {
-            // Ti sei allontanato: gli avvisi si possono ripetere se torni verso la zona
-            alerted = alerted.filter { key in lastDistances.contains { key.hasSuffix("|\($0.key)") && $0.value < 900 } }
+        // Un avviso per avvicinamento (lo stesso ThreatDeduper della guida e degli avvisi ad app chiusa)
+        if let t = scan.threat, t.meters < max(store.alertDistance, 300), ThreatAlerts.shared.post(t) {
+            say(String(format: L("Attention: in %@ you enter %@. %@."), DriveSession.distanceText(t.meters), t.candidate.name, t.spoken))
         }
         refreshActivity()
     }
 
-    /// Il calcolo puro (testabile): la ZTL più vicina verso cui ti avvicini e dove non entri liberamente,
-    /// e le zone in cui sei appena entrato. «answer» dà la risposta per la zona a quella distanza.
-    nonisolated static func scan(at p: Coordinate, zones: [Zone], last: [String: Double],
-                                 answer: (Zone, Double) -> Answer) -> (threat: Threat?, entered: [(Zone, Answer)], distances: [String: Double]) {
-        var distances = last
-        var best: Threat?
-        var entered: [(Zone, Answer)] = []
-        for z in zones {
-            let d = z.distance(lat: p.lat, lon: p.lon)
-            let before = last[z.id]
-            distances[z.id] = d
-            guard d < 3_000 else { continue }
-            if d == 0 {
-                if let before, before > 0 {
-                    let a = answer(z, 0)
-                    // Un «sì» da fonte non ufficiale non è un via libera (1.19.0): si mostra giallo e si avvisa
-                    if !a.verdict.shown(unofficial: z.isUnofficial).isYes { entered.append((z, a)) }
-                }
-                continue
-            }
-            let a = answer(z, d)
-            if a.verdict.shown(unofficial: z.isUnofficial).isYes { continue }
-            guard before.map({ d < $0 - 3 }) ?? true else { continue }       // solo se ti stai avvicinando
-            if best == nil || d < best!.meters { best = Threat(zone: z, meters: d, answer: a) }
-        }
-        return (best, entered, distances)
+    /// Solo per il giro delle foto (-uitest -uiGuardian lat lon rotta): il guardiano acceso in quel punto, senza GPS,
+    /// navigatore, voce né Live Activity, per fotografare lo stato a riposo e l'avviso dentro l'app
+    func startDemo(at p: Coordinate, course: Double, store: Store) {
+        self.store = store
+        destination = Place(name: L("Guardian"), address: "", location: PathMath.offset(p, meters: 5_000, bearing: course))
+        lastDistances = [:]; threat = nil; resting = .unknownPlace
+        lastMove = Date(); startedAt = Date()
+        active = true
+        update(p, course: course)
+        // Un secondo punto 60 m più avanti: «ti avvicini» anche per il calcolo senza direzione
+        update(PathMath.offset(p, meters: 60, bearing: course), course: course)
     }
+
+    private static var demo: Bool { ProcessInfo.processInfo.arguments.contains("-uitest") }
 
     // MARK: Live Activity
 
-    private var state: DriveAttributes.ContentState {
+    private var state: DriveAttributes.ContentState { Self.state(threat: threat, resting: resting) }
+
+    /// Quello che mostrano Dynamic Island e schermata di blocco (testabile): la minaccia con le parole della risposta;
+    /// senza, «Nessuna ZTL attiva davanti» (grigio, scudo con la spunta) o, fuori dalle città che conosciamo,
+    /// «Non conosciamo le ZTL di questo posto» (neutro, scudo vuoto). Mai verde per una cosa che non sappiamo
+    nonisolated static func state(threat: Threat?, resting: ThreatResting) -> DriveAttributes.ContentState {
         if let t = threat {
-            // Il livello dalla risposta come si mostra: un «sì» da fonte non ufficiale è giallo («cond»), mai «ok» verde
-            let level: String = switch t.answer.verdict.shown(unofficial: t.zone.isUnofficial) { case .no: "no"; case .yes: "ok"; default: "cond" }
             // Fonte non ufficiale: «Probabilmente no · Fonte non ufficiale», «Probabilmente sì · fonte non ufficiale: controlla il cartello»
-            let short = t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial)
-            return DriveAttributes.ContentState(symbol: t.zone.type.symbol, distance: DriveSession.distanceText(t.meters),
-                                                instruction: "\(t.zone.shortName) · \(short)",
-                                                warning: t.meters < 600 ? String(format: L("%@ in %@: %@"), t.zone.shortName, DriveSession.distanceText(t.meters), short) : nil,
-                                                eta: nil, level: level, zone: t.zone.shortName)
+            let short = t.spoken
+            let name = t.candidate.pedestrian != nil ? t.zone.localizedName : t.zone.shortName
+            return DriveAttributes.ContentState(symbol: t.candidate.pedestrian != nil ? "figure.walk" : t.zone.type.symbol,
+                                                distance: DriveSession.distanceText(t.meters),
+                                                instruction: "\(name) · \(short)",
+                                                warning: t.meters < 600 ? String(format: L("%@ in %@: %@"), name, DriveSession.distanceText(t.meters), short) : nil,
+                                                eta: nil, level: t.level.activity, zone: name)
         }
-        return DriveAttributes.ContentState(symbol: "checkmark.shield.fill", distance: "",
-                                            instruction: L("No active ZTL ahead"), warning: nil, eta: nil, level: "ok", zone: nil)
+        switch resting {
+        case .clear:
+            return DriveAttributes.ContentState(symbol: "checkmark.shield", distance: "",
+                                                instruction: L("No active ZTL ahead"), warning: nil, eta: nil, level: "clear", zone: nil)
+        case .unknownPlace:
+            return DriveAttributes.ContentState(symbol: "shield", distance: "",
+                                                instruction: L("We don't know the ZTLs of this place"), warning: nil, eta: nil, level: "none", zone: nil)
+        }
     }
 
     /// L'id della Live Activity di questo guardiano, se è aperta
@@ -200,7 +187,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     }
 
     private func startActivity() {
-        guard ActivityAuthorizationInfo().areActivitiesEnabled, activity == nil else { return }
+        guard !Self.demo, ActivityAuthorizationInfo().areActivitiesEnabled, activity == nil else { return }
         activity = try? Activity.request(attributes: DriveAttributes(destination: destination?.name ?? "GateLR"),
                                          content: ActivityContent(state: state, staleDate: nil), pushType: nil)
         lastShown = state
@@ -218,6 +205,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     // MARK: Voce e notifiche
 
     private func say(_ text: String) {
+        guard !Self.demo else { return }
         VoiceSession.activate()
         voice.speak(SpeechVoice.utterance(text))
     }
@@ -238,7 +226,9 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let l = locations.last, l.horizontalAccuracy >= 0, l.horizontalAccuracy < 80 else { return }
         let c = Coordinate(lat: l.coordinate.latitude, lon: l.coordinate.longitude)
-        let course = l.course
-        Task { @MainActor in self.update(c, course: course) }
+        // La direzione conta solo se il GPS la dà abbastanza precisa (come nella guida)
+        let course = l.course >= 0 && (l.courseAccuracy < 0 || l.courseAccuracy <= 45) ? l.course : -1
+        let speed = l.speed >= 0 ? l.speed : nil
+        Task { @MainActor in self.update(c, course: course, speed: speed) }
     }
 }

@@ -17,27 +17,41 @@ struct NearbyZTLIntent: AppIntent {
         return .result(dialog: IntentDialog(stringLiteral: Self.answer(at: here, store: Store.shared)))
     }
 
-    /// La frase da dire (testabile, senza Siri)
+    /// La frase da dire (testabile, senza Siri). 1.19.3: la stessa risposta di Varco e del guardiano. Dentro una zona
+    /// la più severa tra quelle che ti contengono (PlaceCheck), l'area pedonale vince, fonte non ufficiale detta con
+    /// prudenza; fuori la zona o l'area pedonale più vicina (ThreatEvaluator); fuori dalle città che conosciamo
+    /// «Non conosciamo le ZTL di questo posto», mai «Nessuna ZTL entro 5 km», che suonava come un via libera
     @MainActor
     static func answer(at p: Coordinate, store: Store, now: Date = Date()) -> String {
-        let zones = store.cities.flatMap(\.zones)
-        // Dentro più zone (Area C dentro l'Area B): la più piccola, come nel resto dell'app, non la prima del file
-        let near = Self.nearest(zones, to: p)
-        // Fuori dalle città che conosciamo (1.19.0): non diciamo «nessuna ZTL», perché non lo sappiamo
+        let check = PlaceCheck(Place(name: "", address: "", location: p), store: store, at: now)
+        if let area = check.pedestrian {
+            return String(format: L("You're inside %@: %@."), String(format: L("Pedestrian area · %@"), area.name), L("Don't enter"))
+        }
+        if let zone = check.zone, let a = check.answer {
+            var text = String(format: L("You're inside %@: %@."), zone.shortName, a.verdict.spokenText(unofficial: check.unofficial))
+            text += next(a, store: store, now: now)
+            return text
+        }
+        // Fuori: la zona o l'area pedonale più vicina entro 5 km, con la risposta all'ora in cui ci arrivi
+        let near = ThreatEvaluator.candidates(store.cities, near: p, within: 5_000, now: now)
+            .map { ($0, ThreatEvaluator.nearestPoint($0.zone.perimeter, to: p).meters) }
+            .min { $0.1 != $1.1 ? $0.1 < $1.1 : $0.0.zone.roughArea < $1.0.zone.roughArea }
         guard let near, near.1 < 5_000 else {
-            return Store.covers(p, in: store.cities) ? L("No ZTL within 5 km of you.") : L("We don't know the ZTLs of this area yet.")
+            return check.covered ? L("No ZTL within 5 km of you.") : L("We don't know the ZTLs of this place") + "."
         }
-        let (z, d) = near
-        let a = store.answer(at: now, zone: z, hotelInside: false)
-        // Un «sì» da fonte non ufficiale: «Probabilmente sì · fonte non ufficiale: controlla il cartello»
-        let short = a.verdict.spokenText(unofficial: z.isUnofficial)
-        var text = d == 0 ? String(format: L("You're inside %@: %@."), z.shortName, short)
-                          : String(format: L("%@ is %@ away: %@."), z.shortName, DriveSession.distanceText(d), short)
-        if let next = a.nextChange {
-            let when = store.engine.describe(next, from: now)
-            text += " " + String(format: L(a.gatesOn ? "The gates switch off %@." : "The gates switch on %@."), when)
-        }
+        let (c, d) = near
+        let a = store.threatAnswer(c, at: ThreatEvaluator.arrival(in: d, speed: nil, now: now), destination: nil)
+        let name = c.pedestrian != nil ? c.zone.localizedName : c.zone.shortName
+        var text = String(format: L("%@ is %@ away: %@."), name, DriveSession.distanceText(d), ThreatEvaluator.spoken(a.verdict, c))
+        if c.pedestrian == nil { text += next(a, store: store, now: now) }
         return text
+    }
+
+    /// « I varchi si spengono oggi alle 20:00.»
+    @MainActor
+    private static func next(_ a: Answer, store: Store, now: Date) -> String {
+        guard let next = a.nextChange else { return "" }
+        return " " + String(format: L(a.gatesOn ? "The gates switch off %@." : "The gates switch on %@."), store.engine.describe(next, from: now))
     }
 
     /// La zona più vicina con la distanza; a parità (dentro a due zone) la più piccola

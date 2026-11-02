@@ -500,29 +500,76 @@ final class ScreenshotTests: XCTestCase {
             back()
         }
 
-        // Fotografa il verbale (testo scritto): Settore B alle 21:32, varchi spenti secondo gli orari ma dati non rivisti
-        if openYou("fines") {
-            let scan = app.buttons["fine.scan"].firstMatch
-            if scan.waitForExistence(timeout: 3) {
-                scan.tap()
-                sleep(1)
-                let t = app.descendants(matching: .any)["fine.text"].firstMatch
-                if t.waitForExistence(timeout: 3) {
-                    t.tap()
-                    if !app.keyboards.firstMatch.waitForExistence(timeout: 3) { t.tap(); _ = app.keyboards.firstMatch.waitForExistence(timeout: 3) }
-                    t.typeText("COMUNE DI FIRENZE\nVERBALE N. 2026/F/0123456\nIl giorno 12/03/2026 alle ore 21:32 il veicolo targato GX482KM\ntransitava dal varco della ZTL Settore B situato in Via Cavour\nNotificato il 02/04/2026")
-                    let read = app.buttons["fine.read"].firstMatch
-                    if read.waitForExistence(timeout: 3) { read.tap() }
-                    sleep(1)
-                    let verdict = app.descendants(matching: .any)["fine.verdict"].firstMatch
-                    for _ in 0..<6 where !(verdict.exists && verdict.isHittable) { app.swipeUp(); sleep(1) }
-                    sleep(2)
-                    snap("44-fine-verdict")
-                }
-                back()
-            }
-            back()
-        }
+        // Il verbale (foto 44) è in test9dFine, con l'app appena aperta: nella 1.19.2 il giro non arrivava qui dopo il Garage
+    }
+
+    /// 1.19.2/1.19.3: «Fotografa il verbale» (testo scritto): Settore B alle 21:32, varchi spenti secondo gli orari ma
+    /// dati non rivisti → giallo. Un test a sé (dopo test9c): nella 1.19.2 la foto 44 non arrivava mai dopo il Garage
+    func test9dFine() {
+        app.terminate()
+        app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiAt", "22:00",
+                               "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]
+        app.launch()
+        XCTAssertTrue(youTab.waitForExistence(timeout: 15))
+        XCTAssertTrue(app.descendants(matching: .any)["varco.answer"].firstMatch.waitForExistence(timeout: 30), "manca la risposta")
+        youTab.tap()
+        sleep(1)
+        guard openYou("fines") else { return XCTFail("manca Multe") }
+        let scan = app.buttons["fine.scan"].firstMatch
+        if !scan.waitForExistence(timeout: 3) { app.swipeUp(); sleep(1) }
+        guard scan.waitForExistence(timeout: 3) else { return XCTFail("manca «Fotografa il verbale»") }
+        scan.tap()
+        sleep(1)
+        let t = app.descendants(matching: .any)["fine.text"].firstMatch
+        guard t.waitForExistence(timeout: 5) else { return XCTFail("manca il testo del verbale") }
+        t.tap()
+        if !app.keyboards.firstMatch.waitForExistence(timeout: 3) { t.tap(); _ = app.keyboards.firstMatch.waitForExistence(timeout: 3) }
+        t.typeText("COMUNE DI FIRENZE\nVERBALE N. 2026/F/0123456\nIl giorno 12/03/2026 alle ore 21:32 il veicolo targato GX482KM\ntransitava dal varco della ZTL Settore B situato in Via Cavour\nNotificato il 02/04/2026")
+        let read = app.buttons["fine.read"].firstMatch
+        if read.waitForExistence(timeout: 3) { read.tap() }
+        sleep(1)
+        let verdict = app.descendants(matching: .any)["fine.verdict"].firstMatch
+        for _ in 0..<6 where !(verdict.exists && verdict.isHittable) { app.swipeUp(); sleep(1) }
+        XCTAssertTrue(verdict.exists, "manca «Il varco era attivo?»")
+        sleep(2)
+        snap("44-fine-verdict")
+    }
+
+    /// 1.19.3 «Un solo avviso»: il guardiano a riposo fuori dalle città che conosciamo (neutro, «Non conosciamo le ZTL di
+    /// questo posto», non più lo scudo verde), poi verso l'area pedonale di via Galliera a Bologna (sempre «no», a
+    /// qualsiasi ora): l'avviso dentro l'app con le parole della risposta e, toccandolo, «Parcheggia fuori»
+    func test9eGuardianAlert() {
+        let it = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT"]
+        app.terminate()
+        // Pistoia, verso est: nessuna città conosciuta
+        app.launchArguments = it + ["-uiGuardian", "43.9333", "10.9167", "90"]
+        app.launch()
+        XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
+        let banner = app.descendants(matching: .any)["guardian.banner"].firstMatch
+        XCTAssertTrue(banner.waitForExistence(timeout: 30), "manca il riquadro del guardiano")
+        XCTAssertTrue(app.staticTexts["Non conosciamo le ZTL di questo posto"].firstMatch.waitForExistence(timeout: 5),
+                      "a Pistoia il guardiano deve dire «Non conosciamo le ZTL di questo posto»")
+        sleep(2)
+        snap("45-guardian-unknown")
+
+        // Bologna, 400 m a nord di via Galliera, verso sud
+        app.terminate()
+        app.launchArguments = it + ["-uiGuardian", "44.5074", "11.3443", "180"]
+        app.launch()
+        XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
+        let alert = app.descendants(matching: .any)["threat.banner"].firstMatch
+        XCTAssertTrue(alert.waitForExistence(timeout: 30), "manca l'avviso dentro l'app")
+        XCTAssertTrue(alert.label.hasPrefix("Non entrare") || alert.label.contains("?") || alert.label.contains("condizione"),
+                      "titolo dell'avviso senza le parole della risposta: \(alert.label)")
+        sleep(2)
+        snap("46-guardian-alert")
+        alert.tap()
+        // «Parcheggia fuori» per la zona dell'avviso: si aspetta la fine della ricerca
+        let searching = app.staticTexts["Cerco…"].firstMatch
+        sleep(2)
+        for _ in 0..<20 where searching.exists { sleep(1) }
+        sleep(2)
+        snap("47-alert-park-outside")
     }
 
     private func snap(_ name: String) {

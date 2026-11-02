@@ -1,5 +1,6 @@
 import Foundation
 import CryptoKit
+import WidgetKit
 
 /// Aggiornamento dei dati delle città senza una nuova versione dell'app: si legge l'elenco su GitHub
 /// (Resources/Cities/manifest.json); se è più nuovo, si scaricano le città, si controlla l'impronta
@@ -53,12 +54,14 @@ final class CityUpdater: ObservableObject {
                 try? FileManager.default.removeItem(at: dir)
                 try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
                 for (name, d, _) in all { try d.write(to: dir.appendingPathComponent(name), options: .atomic) }
-                UserDefaults.standard.set(version, forKey: "cities.version")
+                CityLoader.setDownloadedVersion(version)
                 return CityLoader.best()
             }.value
             guard let fresh else { state = .failed; return }
             store.replaceCities(fresh)
             state = .updated(manifest.version)
+            // 1.19.3: il widget legge le stesse città (App Group): si ricalcola subito con i dati nuovi
+            WidgetCenter.shared.reloadAllTimelines()
         } catch {
             state = .failed
         }

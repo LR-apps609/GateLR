@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import WidgetKit
 
 // Lo stato dell'app: città, garage (veicoli e permessi), impostazioni. Il garage resta sul telefono.
 @MainActor
@@ -17,7 +18,7 @@ final class Store: ObservableObject {
     @Published var cityId: String = "firenze" {
         didSet { if !city.zones.contains(where: { $0.id == zoneId }) { zoneId = city.zones[0].id } }
     }
-    @Published var zoneId: String = "firenze-b"
+    @Published var zoneId: String = "firenze-b" { didSet { shareWithWidget() } }
     @Published var vehicles: [Vehicle] { didSet { save() } }
     @Published var activeVehicleId: UUID? { didSet { save() } }
     @Published var permits: [Permit] { didSet { save() } }
@@ -74,6 +75,7 @@ final class Store: ObservableObject {
         replaceCities(fresh)
         if !city.zones.contains(where: { $0.id == zoneId }) { zoneId = city.zones[0].id }
         loaded = true
+        shareWithWidget()
     }
 
     /// Aspetta che le città vere siano pronte (avvisi, Siri, CarPlay, giro delle foto)
@@ -117,6 +119,15 @@ final class Store: ObservableObject {
         let s = Saved(vehicles: vehicles, activeVehicleId: activeVehicleId, permits: permits,
                       hotelInside: false, alertsOn: alertsOn, alertDistance: alertDistance, trips: trips, stays: stays, log: log)
         if let data = try? JSONEncoder().encode(s) { UserDefaults.standard.set(data, forKey: key) }
+        shareWithWidget()
+    }
+
+    /// 1.19.3: il veicolo scelto, i permessi e la zona per il widget (App Group); i widget si ricalcolano solo se cambia
+    private func shareWithWidget() {
+        guard !ProcessInfo.processInfo.arguments.contains("-uitest") else { return }
+        if SharedData.save(SharedData.Garage(vehicle: vehicle, permits: permits, zoneId: zoneId)) {
+            WidgetCenter.shared.reloadAllTimelines()
+        }
     }
 
     var city: City { cities.first { $0.id == cityId } ?? cities[0] }
@@ -314,6 +325,7 @@ enum CityLoader {
     static let shared: [City] = best()
 
     static func best() -> [City] {
+        moveDownloadsToSharedContainer()
         guard (downloadedVersion ?? "") > (bundledVersion ?? ""), let newer = downloaded() else { return bundled() }
         // Le città scaricate sostituiscono quelle dell'app con lo stesso id; le altre restano
         // (e quelle sostituite non si decodificano nemmeno: si risparmia metà del lavoro all'avvio)
@@ -352,11 +364,36 @@ enum CityLoader {
         return (try? JSONDecoder().decode(Manifest.self, from: data))?.version
     }()
 
-    /// Dove si salvano le città scaricate (Application Support/Cities)
+    /// Dove si salvano le città scaricate: dalla 1.19.3 nella cartella dell'App Group (le legge anche il widget),
+    /// altrimenti Application Support/Cities come prima
     static var downloadDir: URL? {
+        if let shared = SharedData.container { return shared.appendingPathComponent("Cities", isDirectory: true) }
+        return legacyDownloadDir
+    }
+    static var legacyDownloadDir: URL? {
         FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first?.appendingPathComponent("Cities", isDirectory: true)
     }
-    static var downloadedVersion: String? { UserDefaults.standard.string(forKey: "cities.version") }
+    static let versionKey = "cities.version"
+    static var downloadedVersion: String? {
+        SharedData.defaults?.string(forKey: versionKey) ?? UserDefaults.standard.string(forKey: versionKey)
+    }
+    static func setDownloadedVersion(_ v: String) {
+        UserDefaults.standard.set(v, forKey: versionKey)
+        SharedData.defaults?.set(v, forKey: versionKey)
+    }
+
+    /// Le città scaricate da una versione fino alla 1.19.2 (in Application Support) passano nella cartella condivisa,
+    /// con la loro versione: così il widget vede gli stessi dati dell'app. Nel widget non c'è niente da spostare
+    static func moveDownloadsToSharedContainer() {
+        guard let shared = SharedData.container?.appendingPathComponent("Cities", isDirectory: true),
+              let old = legacyDownloadDir, FileManager.default.fileExists(atPath: old.path),
+              !FileManager.default.fileExists(atPath: shared.path) else { return }
+        do {
+            try FileManager.default.createDirectory(at: shared.deletingLastPathComponent(), withIntermediateDirectories: true)
+            try FileManager.default.moveItem(at: old, to: shared)
+            if let v = UserDefaults.standard.string(forKey: versionKey) { SharedData.defaults?.set(v, forKey: versionKey) }
+        } catch {}
+    }
 
     static func downloaded() -> [City]? {
         guard let dir = downloadDir,

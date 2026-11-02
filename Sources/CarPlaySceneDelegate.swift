@@ -36,10 +36,13 @@ final class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegat
         var items: [CPInformationItem] = []
         // Con il guardiano attivo, in auto conta la prossima ZTL davanti
         if Guardian.shared.active {
+            // 1.19.3: le parole di ThreatEvaluator (aree pedonali, fonte non ufficiale); fuori dalle città che conosciamo
+            // «Non conosciamo le ZTL di questo posto», non «Nessuna ZTL attiva davanti»
             if let t = Guardian.shared.threat {
-                items.append(CPInformationItem(title: "\(t.zone.shortName) · \(DriveSession.distanceText(t.meters))", detail: t.answer.verdict.spokenText(unofficial: t.zone.isUnofficial)))
+                items.append(CPInformationItem(title: (t.title ?? t.candidate.name) + " · " + DriveSession.distanceText(t.meters), detail: t.spoken))
             } else {
-                items.append(CPInformationItem(title: L("No active ZTL ahead"), detail: Guardian.shared.destination?.name ?? ""))
+                items.append(CPInformationItem(title: L(Guardian.shared.resting == .clear ? "No active ZTL ahead" : "We don't know the ZTLs of this place"),
+                                               detail: Guardian.shared.destination?.name ?? ""))
             }
         }
         items += [

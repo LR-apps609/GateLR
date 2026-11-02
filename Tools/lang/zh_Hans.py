@@ -855,6 +855,18 @@ T = {
 "Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days.": "仅当酒店已书面确认你的车牌每天都已登记时才确认。GateLR 只会在 %@、只在这些日期回答“是”。",
 "GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing.": "在酒店书面确认之前，GateLR 在这些日期会对 %@ 回答“有条件”。",
 "Checked at the day and time of the notice, with the hours we read on %@: on that day they may have been different (summer hours, events, panels off). We are not lawyers: check the notice and the official source.": "按罚单上的日期和时间核对，使用 %@ 读取的时段：当天的时段可能不同（夏季时段、活动、显示屏关闭）。我们不是律师：请核对罚单和官方来源。",
+# 1.19.3
+"Don't enter · %@": "请勿进入 · %@",
+"Probably not · %@": "可能不行 · %@",
+"You can enter on one condition: %@": "满足条件才可进入：%@",
+"? Check the sign · %@": "? 请查看标牌 · %@",
+"In %@.": "%@ 后。",
+"Tap for car parks outside.": "点按查看区外停车场。",
+"Close": "关闭",
+"Check the sign": "请查看标牌",
+"Data to recheck": "数据需重新核实",
+"Inside it there are pedestrian areas: cars can never drive in there.": "区内有步行区：汽车任何时候都不能驶入。",
+"Whether your vehicle can enter your zone now, and when that changes.": "你的车辆现在能否进入你的区域，以及何时改变。",
 }
 
 INFO = {

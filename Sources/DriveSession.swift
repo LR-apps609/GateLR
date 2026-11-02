@@ -108,6 +108,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     private(set) var track = RouteTrack([])
     /// A quanti metri dall'inizio del percorso si entra in ogni ZTL (per id della zona)
     private(set) var entryAlong: [String: Double] = [:]
+    /// Le zone del percorso come le vede ThreatEvaluator (con il nome della città), per id della zona
+    private var candidates: [String: ThreatCandidate] = [:]
 
     private let manager = CLLocationManager()
     // La voce si crea solo quando serve: niente lavoro audio all'avvio dell'app
@@ -278,13 +280,20 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         secondsPerMeter = r.distance > 0 ? r.expectedTravelTime / r.distance : 0.08
         answerCache = [:]
         if let store {
+            // 1.19.3: la stessa risposta del guardiano e degli avvisi ad app chiusa (Store.threatAnswer): l'hotel conta
+            // solo se la meta è il tuo hotel ed è in quella zona
+            let goal = destination
             crossings = RouteCheck.crossings(path: RouteCheck.densify(path), zones: store.cities.flatMap(\.zones),
                                              pedestrian: store.cities.flatMap { $0.pedestrian ?? [] }, departure: Date(), travelTime: r.expectedTravelTime) {
-                store.answer(at: $1, zone: $0, hotelInside: false)
+                store.threatAnswer(ThreatCandidate(zone: $0, cityName: ""), at: $1, destination: goal)
             }
+            candidates = Dictionary(crossings.map { c in
+                (c.id, ThreatCandidate(zone: c.zone, cityName: store.cities.first { $0.zones.contains { $0.id == c.zone.id } }?.localizedName ?? "",
+                                       pedestrian: c.pedestrian))
+            }, uniquingKeysWith: { a, _ in a })
             busCameras = Self.camerasNear(path, cameras: store.cities.flatMap { $0.cameras ?? [] }.filter { $0.kind == .bus })
         } else {
-            crossings = []; busCameras = []
+            crossings = []; busCameras = []; candidates = [:]
         }
         entryAlong = Dictionary(crossings.compactMap { c in
             c.entry.flatMap { track.locateAnywhere($0) }.map { (c.id, $0.along) }
@@ -402,16 +411,18 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         nextZTL = ahead.first
 
         var newWarning: String?
+        // 1.19.3: le stesse parole, gli stessi colori e lo stesso «una volta per avvicinamento» del guardiano e degli
+        // avvisi ad app chiusa (ThreatEvaluator, ThreatAlerts). La direzione qui è il percorso: contano solo le zone davanti
+        ThreatAlerts.shared.moved(Dictionary(ahead.map { ($0.crossing.id, $0.meters) }, uniquingKeysWith: { Swift.min($0, $1) }))
         for a in ahead where a.meters < 800 {
-            let zone = a.crossing.zone
+            let cand = candidates[a.crossing.id] ?? ThreatCandidate(zone: a.crossing.zone, cityName: "", pedestrian: a.crossing.pedestrian)
             // Un «sì» da fonte non ufficiale non è un via libera (1.19.0): si avvisa, in giallo
-            if a.answer.verdict.shown(unofficial: zone.isUnofficial).isYes { continue }
-            let short = a.answer.verdict.spokenText(unofficial: zone.isUnofficial)
-            newWarning = String(format: L("%@ in %@: %@"), zone.shortName, Self.distanceText(a.meters), short)
-            if case .no = a.answer.verdict { warningLevel = "no" } else { warningLevel = "cond" }
-            if a.meters < 550 && !announced.contains("ztl|\(zone.id)") {
-                announced.insert("ztl|\(zone.id)")
-                say(String(format: L("Attention: in %@ you enter %@. %@."), Self.distanceText(a.meters), zone.shortName, short))
+            guard ThreatEvaluator.alerts(a.answer.verdict, cand) else { continue }
+            let t = ZoneThreat(candidate: cand, meters: a.meters, answer: a.answer, point: a.crossing.entry ?? p)
+            newWarning = String(format: L("%@ in %@: %@"), a.crossing.title, Self.distanceText(a.meters), t.spoken)
+            warningLevel = t.level.activity
+            if a.meters < max(store?.alertDistance ?? 500, 300), ThreatAlerts.shared.post(t) {
+                say(String(format: L("Attention: in %@ you enter %@. %@."), Self.distanceText(a.meters), a.crossing.title, t.spoken))
             }
             break
         }
@@ -431,7 +442,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         if let e = answerCache[c.id], e.bucket == bucket, Date().timeIntervalSince(e.time) < 30 { return e.answer }
         // Area pedonale (1.19.1): sempre «no», il motore delle regole non la conosce
         guard let store, c.pedestrian == nil else { return c.answer }
-        let a = store.answer(at: Date().addingTimeInterval(s), zone: c.zone, hotelInside: false)
+        let a = store.threatAnswer(ThreatCandidate(zone: c.zone, cityName: ""), at: Date().addingTimeInterval(s), destination: destination)
         answerCache[c.id] = (Date(), bucket, a)
         return a
     }
@@ -487,7 +498,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         Task { await activity.update(ActivityContent(state: s, staleDate: nil)) }
     }
 
-    static func distanceText(_ m: Double) -> String {
+    nonisolated static func distanceText(_ m: Double) -> String {
         let rounded = m >= 1_000 ? (m / 100).rounded() * 100 : m >= 100 ? (m / 50).rounded() * 50 : (m / 10).rounded() * 10
         return Measurement(value: rounded, unit: UnitLength.meters).formatted(.measurement(width: .wide, usage: .road))
     }

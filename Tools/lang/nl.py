@@ -855,6 +855,18 @@ T = {
 "Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days.": "Bevestig alleen als het hotel schriftelijk heeft bevestigd dat je kenteken voor elke dag is geregistreerd. GateLR antwoordt alleen in %@ \"ja\", alleen voor deze dagen.",
 "GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing.": "GateLR antwoordt deze dagen in %@ \"onder één voorwaarde\", totdat het hotel schriftelijk bevestigt.",
 "Checked at the day and time of the notice, with the hours we read on %@: on that day they may have been different (summer hours, events, panels off). We are not lawyers: check the notice and the official source.": "Gecontroleerd op de dag en het tijdstip van de boete, met de tijden gelezen op %@: die dag konden ze anders zijn (zomertijden, evenementen, borden uit). We zijn geen advocaten: controleer de boete en de officiële bron.",
+# 1.19.3
+"Don't enter · %@": "Niet inrijden · %@",
+"Probably not · %@": "Waarschijnlijk niet · %@",
+"You can enter on one condition: %@": "Inrijden onder één voorwaarde: %@",
+"? Check the sign · %@": "? Controleer het bord · %@",
+"In %@.": "Over %@.",
+"Tap for car parks outside.": "Tik voor parkeerplaatsen buiten.",
+"Close": "Sluiten",
+"Check the sign": "Controleer het bord",
+"Data to recheck": "Gegevens opnieuw controleren",
+"Inside it there are pedestrian areas: cars can never drive in there.": "Er liggen voetgangersgebieden in: daar mogen auto's nooit in.",
+"Whether your vehicle can enter your zone now, and when that changes.": "Of je voertuig nu je zone in mag, en wanneer dat verandert.",
 }
 
 INFO = {

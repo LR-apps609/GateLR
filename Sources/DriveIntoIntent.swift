@@ -111,6 +111,10 @@ struct CanIDriveIntoIntent: AppIntent {
         if let next = a.nextChange {
             text += " " + String(format: L(a.gatesOn ? "The gates switch off %@." : "The gates switch on %@."), store.engine.describe(next, from: now))
         }
+        // 1.19.3: le aree pedonali dentro la zona (lì non si entra mai, a qualsiasi ora): prima Siri non le nominava
+        if (city.pedestrian ?? []).contains(where: { area in area.perimeter.contains { z.contains(lat: $0.lat, lon: $0.lon) } }) {
+            text += " " + L("Inside it there are pedestrian areas: cars can never drive in there.")
+        }
         return text
     }
 

@@ -154,11 +154,14 @@ final class NeverGreenTests: XCTestCase {
         var zone = SampleData.sectorA
         zone.source.official = false
         let far = Coordinate(lat: 43.7700, lon: 11.2300), nearer = Coordinate(lat: 43.7710, lon: 11.2360)
-        let open: (Zone, Double) -> Answer = { _, _ in Answer(verdict: .yes(reason: ""), gatesOn: false, nextChange: nil) }
-        let first = Guardian.scan(at: far, zones: [zone], last: [:], answer: open)
-        XCTAssertNotNil(Guardian.scan(at: nearer, zones: [zone], last: first.distances, answer: open).threat)
-        let first2 = Guardian.scan(at: far, zones: [SampleData.sectorA], last: [:], answer: open)
-        XCTAssertNil(Guardian.scan(at: nearer, zones: [SampleData.sectorA], last: first2.distances, answer: open).threat)
+        let open: (ThreatCandidate, Double) -> Answer = { _, _ in Answer(verdict: .yes(reason: ""), gatesOn: false, nextChange: nil) }
+        func scan(_ p: Coordinate, _ z: Zone, _ last: [String: Double]) -> ThreatEvaluator.Scan {
+            ThreatEvaluator.scan(at: p, course: nil, candidates: [ThreatCandidate(zone: z, cityName: "Firenze")], last: last, covered: true, answer: open)
+        }
+        let first = scan(far, zone, [:])
+        XCTAssertNotNil(scan(nearer, zone, first.distances).threat)
+        let first2 = scan(far, SampleData.sectorA, [:])
+        XCTAssertNil(scan(nearer, SampleData.sectorA, first2.distances).threat)
     }
 
     // MARK: #6 Il pannello LED

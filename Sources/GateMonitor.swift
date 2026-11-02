@@ -2,10 +2,11 @@ import Foundation
 import CoreLocation
 import UserNotifications
 
-// Avvisi ad app chiusa: un cerchio attorno a ogni varco delle città salvate (CLMonitor, iOS 17).
-// Quando entri nel cerchio, GateLR calcola la risposta per quel momento e manda la notifica.
+// Avvisi ad app chiusa: un cerchio attorno ai varchi (e alle telecamere delle aree pedonali) più vicini (CLMonitor, iOS 17).
+// Quando entri nel cerchio, GateLR chiede a ThreatEvaluator (lo stesso calcolo di guida e guardiano) se il varco è davanti
+// e la risposta per il tuo veicolo; l'avviso lo consegna ThreatAlerts, con le parole della risposta (1.19.3).
 @MainActor
-final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, UNUserNotificationCenterDelegate {
+final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = GateMonitor()
 
     @Published private(set) var location: CLLocation?
@@ -42,7 +43,7 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
     func start(store: Store) async {
         self.store = store
         manager.delegate = self
-        UNUserNotificationCenter.current().delegate = self
+        ThreatAlerts.shared.install()
         manager.requestWhenInUseAuthorization()
         manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.distanceFilter = 50
@@ -90,11 +91,24 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
         registeredAt = here
         for id in await monitor.identifiers { await monitor.remove(id) }
         let ordered = [store.city] + store.cities.filter { $0.id != store.city.id }
-        let gates = Self.nearest(ordered.flatMap { c in c.zones.flatMap { z in z.gates.map { (z, $0) } } }, to: here, limit: maxRegions)
-        for (zone, gate) in gates {
+        // I varchi delle zone e, dalla 1.19.3, le telecamere agli ingressi delle aree pedonali (prima ignorate)
+        var points = ordered.flatMap { c in c.zones.flatMap { z in z.gates.map { (z, $0) } } }
+        for c in ordered {
+            for cam in (c.cameras ?? []) where cam.kind == .pedestrian {
+                guard let area = Self.area(for: cam, in: c) else { continue }
+                points.append((RouteCheck.pedestrianZone(area, checkedOn: Date()), Gate(id: "cam-" + cam.id, name: cam.name, location: cam.location)))
+            }
+        }
+        for (zone, gate) in Self.nearest(points, to: here, limit: maxRegions) {
             let condition = CLMonitor.CircularGeographicCondition(center: gate.location.cl, radius: store.alertDistance)
             await monitor.add(condition, identifier: "\(zone.id)|\(gate.id)", assuming: .unsatisfied)
         }
+    }
+
+    /// L'area pedonale di una telecamera: quella che la contiene o la più vicina entro 80 m
+    nonisolated static func area(for cam: Camera, in city: City) -> PedestrianArea? {
+        (city.pedestrian ?? []).map { a in (a, a.contains(lat: cam.location.lat, lon: cam.location.lon) ? 0 : ThreatEvaluator.nearestPoint(a.perimeter, to: cam.location).meters) }
+            .filter { $0.1 < 80 }.min { $0.1 < $1.1 }?.0
     }
 
     nonisolated static func nearest(_ gates: [(Zone, Gate)], to here: CLLocation?, limit: Int) -> [(Zone, Gate)] {
@@ -113,51 +127,69 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate, 
 
     /// Un avviso di prova, dalla scheda Account: com'è fatto, senza aspettare un varco vero
     func sendTest(store: Store) {
-        UNUserNotificationCenter.current().delegate = self
+        ThreatAlerts.shared.install()
         Task {
             _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
             let content = UNMutableNotificationContent()
-            content.title = String(format: L("ZTL gate in %lld m · ZTL active"), Int(store.alertDistance))
-            content.body = (store.zone.gates.first?.name ?? store.zone.shortName) + ". " + L("Don't drive in. Tap for parking outside.")
+            // Com'è fatto un avviso vero: il titolo con le parole della risposta (1.19.3), il tocco apre i parcheggi fuori
+            let zone = store.zone
+            let place = zone.gates.first?.location ?? zone.perimeter.first ?? store.city.center
+            let cand = ThreatCandidate(zone: zone, cityName: store.city.localizedName)
+            content.title = ThreatEvaluator.title(shown: .no(reason: ""), candidate: cand) ?? ""
+            content.body = String(format: L("In %@."), DriveSession.distanceText(store.alertDistance)) + " " + (zone.gates.first?.name ?? zone.shortName) + ". " + L("Tap for car parks outside.")
+            if let url = ParkLink.url(zoneId: zone.id, name: cand.name, at: place) { content.userInfo = ["url": url.absoluteString] }
             content.sound = .default
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
             try? await UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "test", content: content, trigger: trigger))
         }
     }
 
-    /// Ultimo avviso per ogni varco: niente doppioni quando i cerchi vengono rifatti mentre ci sei vicino
-    private var lastNotified: [String: Date] = [:]
-
     private func notify(identifier: String) {
         guard let store, store.alertsOn else { return }
-        if let last = lastNotified[identifier], Date().timeIntervalSince(last) < 30 * 60 { return }
-        lastNotified[identifier] = Date()
+        // Con il guardiano o la guida accesi avvisano loro, con lo stesso calcolo: niente doppioni
+        guard !Guardian.shared.active, !DriveSession.shared.active else { return }
         let parts = identifier.split(separator: "|").map(String.init)
-        guard parts.count == 2,
-              let zone = store.cities.flatMap(\.zones).first(where: { $0.id == parts[0] }),
-              let gate = zone.gates.first(where: { $0.id == parts[1] }) else { return }
-        let answer = store.answer(zone: zone, hotelInside: false)
-        guard answer.gatesOn else { return }      // varco spento: nessun disturbo
-        if case .yes = answer.verdict {} else { store.record(.nearGate, zone: zone, gate: gate, verdict: answer.verdict) }
-
-        let content = UNMutableNotificationContent()
-        content.title = String(format: L("ZTL gate in %lld m · ZTL active"), Int(store.alertDistance))
-        switch answer.verdict {
-        // Fonte non ufficiale: «Probabilmente sì · fonte non ufficiale: controlla il cartello» (1.19.0)
-        case .yes(let r): content.body = "\(gate.name). " + (zone.isUnofficial ? answer.verdict.spokenText(unofficial: true) : r)
-        case .no: content.body = "\(gate.name). " + L("Don't drive in. Tap for parking outside.")
-        case .conditional(_, let c): content.body = "\(gate.name). \(c)"
-        case .unsure(let r): content.body = "\(gate.name). \(r)"
+        guard parts.count == 2, let target = Self.target(parts[0], gate: parts[1], in: store.cities) else { return }
+        let fix = manager.location.flatMap { $0.timestamp.timeIntervalSinceNow > -120 && $0.horizontalAccuracy < 150 ? $0 : nil }
+        guard let t = Self.threat(target.candidate, gate: target.gate, from: fix.map { Coordinate(lat: $0.coordinate.latitude, lon: $0.coordinate.longitude) },
+                                  course: fix.flatMap { $0.course >= 0 && ($0.courseAccuracy < 0 || $0.courseAccuracy <= 45) ? $0.course : nil },
+                                  alertDistance: store.alertDistance,
+                                  answer: { c, d in store.threatAnswer(c, at: ThreatEvaluator.arrival(in: d, speed: fix.map(\.speed)), destination: nil) })
+        else { return }
+        if ThreatAlerts.shared.post(t), t.candidate.pedestrian == nil {
+            store.record(.nearGate, zone: t.zone, gate: target.gate, verdict: t.answer.verdict)
         }
-        content.sound = .default
-        content.interruptionLevel = .timeSensitive
-        UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: identifier, content: content, trigger: nil))
     }
 
-    /// Anche con l'app aperta l'avviso si vede in alto
-    nonisolated func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
-                                            withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .sound])
+    /// La zona (o l'area pedonale) e il varco di un cerchio («<id zona>|<id varco>»)
+    static func target(_ zoneId: String, gate gateId: String, in cities: [City]) -> (candidate: ThreatCandidate, gate: Gate)? {
+        for c in cities {
+            if let z = c.zones.first(where: { $0.id == zoneId }), let g = z.gates.first(where: { $0.id == gateId }) {
+                return (ThreatCandidate(zone: z, cityName: c.localizedName), g)
+            }
+            if gateId.hasPrefix("cam-"), let cam = c.cameras?.first(where: { "cam-" + $0.id == gateId }), let a = area(for: cam, in: c),
+               RouteCheck.pedestrianZoneId(a) == zoneId {
+                return (ThreatCandidate(zone: RouteCheck.pedestrianZone(a, checkedOn: Date()), cityName: c.localizedName, pedestrian: a),
+                        Gate(id: gateId, name: cam.name, location: cam.location))
+            }
+        }
+        return nil
+    }
+
+    /// Il calcolo puro (testabile) dell'avviso ad app chiusa: il varco è davanti (con la direzione di marcia; senza,
+    /// prudente: sì) e da fuori della zona? La risposta non è verde? Senza una posizione recente: il varco a «alertDistance»
+    nonisolated static func threat(_ c: ThreatCandidate, gate: Gate, from p: Coordinate?, course: Double?, alertDistance: Double,
+                                   answer: (ThreatCandidate, Double) -> Answer) -> ZoneThreat? {
+        var meters = alertDistance
+        if let p {
+            // Già dentro la zona: il varco è un'uscita (o sei già entrato), non un ingresso davanti
+            if c.zone.contains(lat: p.lat, lon: p.lon) { return nil }
+            meters = PathMath.meters(p, gate.location)
+            guard ThreatEvaluator.isAhead(from: p, to: gate.location, meters: meters, course: course, approaching: nil) else { return nil }
+        }
+        let a = answer(c, meters)
+        guard ThreatEvaluator.alerts(a.verdict, c) else { return nil }
+        return ZoneThreat(candidate: c, meters: meters, answer: a, point: gate.location)
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

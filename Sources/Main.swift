@@ -8,6 +8,8 @@ struct GateLRApp: App {
     init() {
         // I consigli (TipKit) una volta sola all'avvio; mai nel giro automatico delle foto
         AppTips.configure()
+        // 1.19.3: il tocco su un avviso apre «Parcheggia fuori» anche quando l'avviso ha riaperto l'app
+        ThreatAlerts.shared.install()
     }
 
     var body: some Scene {
@@ -26,6 +28,7 @@ struct GateLRApp: App {
                     Self.uiTestVehicle(store)
                     Self.uiTestAt(store)
                     Self.uiTestPlace(store)
+                    Self.uiTestGuardian(store)
                     // Siri impara i nomi delle zone («posso entrare a Firenze Settore A…») dalle città appena lette
                     GateLRShortcuts.updateAppShortcutParameters()
                     SpeechVoice.prepare()
@@ -89,6 +92,15 @@ struct GateLRApp: App {
             if (3...5).contains(w) && !ItalianHolidays.isHoliday(day, calendar: cal) { break }
         }
         store.when = cal.date(bySettingHour: parts[0], minute: parts[1], second: 0, of: day)
+    }
+
+    /// Solo per le foto automatiche (1.19.3): «-uiGuardian 43.9333 10.9167 90» accende il guardiano in quel punto e in
+    /// quella direzione (senza GPS né navigatore), per lo stato a riposo e l'avviso dentro l'app
+    @MainActor private static func uiTestGuardian(_ store: Store) {
+        let args = ProcessInfo.processInfo.arguments
+        guard args.contains("-uitest"), let i = args.firstIndex(of: "-uiGuardian"), args.count > i + 3,
+              let lat = Double(args[i + 1]), let lon = Double(args[i + 2]), let course = Double(args[i + 3]) else { return }
+        Guardian.shared.startDemo(at: Coordinate(lat: lat, lon: lon), course: course, store: store)
     }
 
     /// Solo per le foto automatiche: «-uiPlace "Duomo di Milano" 45.4641 9.1919» sceglie un posto senza cercarlo in rete

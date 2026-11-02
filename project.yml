@@ -69,6 +69,12 @@ targets:
       # in Xcode in Debug → Simulate Location con l'iPhone collegato, ma NON copiati nell'app (buildPhase: none)
       - path: Resources/GPX
         buildPhase: none
+    # 1.19.3: App Group condiviso con il widget (città scaricate, veicolo e permessi: Sources/SharedData.swift).
+    # Senza la capacità nella firma l'app funziona lo stesso: il widget torna ai dati dentro l'app
+    entitlements:
+      path: Config/GateLR.entitlements
+      properties:
+        com.apple.security.application-groups: [group.it.ledion.GateLR]
     info:
       path: Sources/Info.plist
       properties:
@@ -141,11 +147,16 @@ targets:
       - path: Sources/Components.swift
       - path: Sources/DriveActivity.swift
       - path: Sources/TestZone.swift          # la zona della modalità prova (Store la usa)
+      - path: Sources/SharedData.swift        # App Group: città scaricate, veicolo e permessi dell'app (1.19.3)
       - path: Resources/Cities
         type: folder
         buildPhase: resources
       - path: Resources/Localizations
         buildPhase: resources
+    entitlements:
+      path: Config/GateLRWidget.entitlements
+      properties:
+        com.apple.security.application-groups: [group.it.ledion.GateLR]
     info:
       path: Widget/Info.plist
       properties:

@@ -1,3 +1,10 @@
+Novità della 1.19.3 (un solo avviso):
+• Un solo sistema di avvisi: guida, guardiano e avvisi ad app chiusa usano lo stesso calcolo, con la risposta per il tuo veicolo all'ora in cui arrivi (permessi della zona, hotel della meta, aree pedonali sempre «no», fonte non ufficiale in giallo) e solo per le zone DAVANTI nel verso di marcia. Ogni zona avvisa una volta per avvicinamento, senza doppioni tra guardiano e avvisi ad app chiusa
+• Il titolo dell'avviso dice la risposta: «Non entrare · Firenze Settore A», «Entri a una condizione: …», «? Controlla il cartello · …»; mai un avviso quando puoi entrare (prima «ZTL attiva» fisso). Il tocco sull'avviso apre «Parcheggia fuori e cammina» per quella zona; con l'app aperta l'avviso è un banner in alto
+• Guardiano, Dynamic Island, schermata di blocco e CarPlay: fuori dalle città che conosciamo «Non conosciamo le ZTL di questo posto» (neutro, scudo vuoto) invece dello scudo verde; senza ZTL davanti grigio «Nessuna ZTL attiva davanti»; aree pedonali comprese
+• Siri: fuori città «Non conosciamo le ZTL di questo posto» (non più «Nessuna ZTL entro 5 km»), aree pedonali e fonti non ufficiali dette come in Varco
+• Widget: la risposta per il veicolo scelto nell'app con i suoi permessi (rosso, giallo, verde «Puoi entrare», grigio «ZTL non attiva»), i dati aggiornati dell'app (App Group) e, con dati più vecchi di 120 giorni, giallo «?» «Dati da ricontrollare»
+
 Novità della 1.19.2 (fiducia: cartello, verbale, permessi):
 • «Leggi il cartello» non dà mai il verde: a ZTL spenta secondo il cartello dice in giallo con il «?» «Secondo il cartello la ZTL sembra spenta adesso: controlla che non ci siano altri divieti» (il cartello non conosce veicolo, permessi, divieti Euro e aree pedonali, e la foto può essere letta male); accesa = rosso; testo illeggibile = giallo «Non riesco a leggerlo»
 • Il cartello si legge meglio: i giorni solo come parole intere (non più «mercoledì» dentro «merci», «martedì» dentro «marzo», «giovedì» dentro «giorni»); «feriali e festivi» = tutti i giorni, domenica e festivi compresi; «festivi» = domeniche e festivi nazionali (8 dicembre, Natale, 2 giugno…); «feriali» resta «festivi esclusi»

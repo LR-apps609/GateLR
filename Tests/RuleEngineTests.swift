@@ -422,26 +422,31 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertEqual(SignReader.parse("TUTTI I GIORNI 0-24").rules.first?.days.count, 7)
     }
 
-    /// Il guardiano: avvisa solo se ti avvicini a una zona dove non entri; segnala l'ingresso
+    /// Il guardiano (1.19.3: ThreatEvaluator, lo stesso calcolo di guida e avvisi ad app chiusa): avvisa solo se ti
+    /// avvicini a una zona dove non entri; segnala l'ingresso
     func testGuardianScan() throws {
         let florence = try XCTUnwrap(try bundledCities()["firenze"])
         let monday10 = date(2026, 10, 26, 10)
-        let answer: (Zone, Double) -> Answer = { z, _ in self.engine.answer(zone: z, vehicle: self.car, permits: [], hotelInside: false, at: monday10) }
+        let cands = florence.zones.map { ThreatCandidate(zone: $0, cityName: "Firenze") }
+        let answer: (ThreatCandidate, Double) -> Answer = { c, _ in self.engine.answer(zone: c.zone, vehicle: self.car, permits: [], hotelInside: false, at: monday10) }
+        func scan(_ p: Coordinate, _ last: [String: Double], _ a: (ThreatCandidate, Double) -> Answer = answer) -> ThreatEvaluator.Scan {
+            ThreatEvaluator.scan(at: p, course: nil, candidates: cands, last: last, covered: true, answer: a)
+        }
         let far = Coordinate(lat: 43.7900, lon: 11.2400), nearer = Coordinate(lat: 43.7850, lon: 11.2450)
-        let first = Guardian.scan(at: far, zones: florence.zones, last: [:], answer: answer)
+        let first = scan(far, [:])
         XCTAssertNotNil(first.threat)
-        let second = Guardian.scan(at: nearer, zones: florence.zones, last: first.distances, answer: answer)
+        let second = scan(nearer, first.distances)
         XCTAssertNotNil(second.threat)
         XCTAssertLessThan(second.threat!.meters, first.threat!.meters)
         // Allontanandosi: nessun avviso
-        let away = Guardian.scan(at: far, zones: florence.zones, last: second.distances, answer: answer)
+        let away = scan(far, second.distances)
         XCTAssertNil(away.threat)
         // Entrando nel settore A (Palazzo Vecchio): segnalato come ingresso
-        let inside = Guardian.scan(at: Coordinate(lat: 43.7696, lon: 11.2558), zones: florence.zones, last: second.distances, answer: answer)
-        XCTAssertTrue(inside.entered.contains { $0.0.id == "firenze-a" })
+        let inside = scan(Coordinate(lat: 43.7696, lon: 11.2558), second.distances)
+        XCTAssertTrue(inside.entered.contains { $0.zone.id == "firenze-a" })
         // Di notte (lunedì 22): niente da segnalare
-        let night: (Zone, Double) -> Answer = { z, _ in self.engine.answer(zone: z, vehicle: self.car, permits: [], hotelInside: false, at: self.date(2026, 10, 26, 22)) }
-        XCTAssertNil(Guardian.scan(at: nearer, zones: florence.zones, last: first.distances, answer: night).threat)
+        let night: (ThreatCandidate, Double) -> Answer = { c, _ in self.engine.answer(zone: c.zone, vehicle: self.car, permits: [], hotelInside: false, at: self.date(2026, 10, 26, 22)) }
+        XCTAssertNil(scan(nearer, first.distances, night).threat)
     }
 
     func testEaster() {

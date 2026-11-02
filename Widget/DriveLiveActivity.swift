@@ -10,13 +10,19 @@ struct DriveLiveActivity: Widget {
     private static let green = Color(hex: 0x34C26B)
     private static let amber = Color(hex: 0xF2B230)
 
-    /// Colore della risposta: rosso non entrare, giallo con condizioni, verde nessuna ZTL attiva davanti
+    private static let grey = Color(hex: 0xB8BEC9)
+    private static let neutral = Color(hex: 0xA9B3D1)
+
+    /// Colore della risposta: rosso non entrare, giallo con condizioni o «?», grigio nessuna ZTL attiva davanti
+    /// («clear»), neutro se non conosciamo le ZTL del posto («none», 1.19.3: prima era lo scudo verde anche lì)
     static func tint(_ s: DriveAttributes.ContentState) -> Color {
         if s.warning != nil && s.level == nil { return red }
         switch s.level {
         case "no": return Color(hex: 0xFF4D52)
         case "cond": return amber
         case "ok": return green
+        case "clear": return grey
+        case "none": return neutral
         default: return .white
         }
     }
@@ -26,7 +32,18 @@ struct DriveLiveActivity: Widget {
         case "no": return "exclamationmark.shield.fill"
         case "cond": return "shield.lefthalf.filled"
         case "ok": return "checkmark.shield.fill"
+        case "clear": return "checkmark.shield"
+        case "none": return "shield"
         default: return s.warning == nil ? s.symbol : "exclamationmark.triangle.fill"
+        }
+    }
+
+    /// Accanto allo scudo, senza distanza: «–» se non c'è niente davanti, «?» se non conosciamo il posto (mai «OK» verde)
+    static func idleMark(_ s: DriveAttributes.ContentState) -> String {
+        switch s.level {
+        case "none": return "?"
+        case "clear": return "–"
+        default: return "OK"
         }
     }
 
@@ -84,7 +101,7 @@ struct DriveLiveActivity: Widget {
                 Image(systemName: Self.shield(context.state)).foregroundStyle(Self.tint(context.state))
             } compactTrailing: {
                 if context.state.distance.isEmpty {
-                    Text("OK").font(.system(size: 13, weight: .bold)).foregroundStyle(Self.tint(context.state))
+                    Text(verbatim: Self.idleMark(context.state)).font(.system(size: 13, weight: .bold)).foregroundStyle(Self.tint(context.state))
                 } else {
                     Text(context.state.distance).font(.system(size: 13, weight: .semibold)).monospacedDigit()
                         .foregroundStyle(Self.tint(context.state))
