@@ -96,8 +96,6 @@ object Geocoder {
         return job.await()
     }
 
-    suspend fun search(q: String, near: Coordinate?): List<Place> = find(q, near ?: near()) ?: emptyList()
-
     private fun fetch(q: String, lang: String, near: Coordinate): List<Place>? {
         val url = URL("https://photon.komoot.io/api/?q=${URLEncoder.encode(q.trim(), "UTF-8")}&limit=8&lang=$lang&lat=${near.lat}&lon=${near.lon}")
         return runCatching {
