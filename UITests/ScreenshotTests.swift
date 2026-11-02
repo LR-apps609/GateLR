@@ -41,6 +41,16 @@ final class ScreenshotTests: XCTestCase {
         return true
     }
 
+    /// 1.19.3: l'app riaperta sulla scheda «Tu». Nel giro lungo (test1Tour) l'albero di accessibilità cresce pagina dopo
+    /// pagina e sul Mac di GitHub le ricerche andavano in tempo scaduto (corsa 41442656669: «Timed out while evaluating
+    /// UI query» su Impostazioni e nel tearDown). Il posto scelto resta
+    private func relaunchOnYou() {
+        app.terminate()
+        app.launch()
+        if youTab.waitForExistence(timeout: 15) { youTab.tap() }
+        sleep(1)
+    }
+
     /// Indietro con il gesto dal bordo sinistro: nessuna ricerca di elementi (sul Mac di GitHub la ricerca del pulsante
     /// «indietro» andava a volte in tempo scaduto e faceva fallire tutto il giro)
     private func back() {
@@ -108,6 +118,7 @@ final class ScreenshotTests: XCTestCase {
         }
 
         // Garage e il modulo del veicolo con «Cerca dalla targa» chiuso
+        relaunchOnYou()
         if openYou("garage") {
             snap("07-garage")
             let add = app.navigationBars.buttons["Add a vehicle"].firstMatch
@@ -121,6 +132,7 @@ final class ScreenshotTests: XCTestCase {
             back()
         }
 
+        relaunchOnYou()
         if openYou("fines") {
             snap("08-fines")
             let fine = app.buttons["Got a fine?"].firstMatch
@@ -147,6 +159,7 @@ final class ScreenshotTests: XCTestCase {
             back()
         }
 
+        relaunchOnYou()
         if openYou("settings") { snap("08f-settings"); back() }
         if openYou("subscription") { snap("08g-subscription"); back() }
     }
@@ -515,9 +528,12 @@ final class ScreenshotTests: XCTestCase {
         youTab.tap()
         sleep(1)
         guard openYou("fines") else { return XCTFail("manca Multe") }
-        let scan = app.buttons["fine.scan"].firstMatch
-        if !scan.waitForExistence(timeout: 3) { app.swipeUp(); sleep(1) }
-        guard scan.waitForExistence(timeout: 3) else { return XCTFail("manca «Fotografa il verbale»") }
+        snap("44a-it-fines")
+        // La riga «Fotografa il verbale» di Multe e passaggi è «fines.scan» (il riquadro dentro «Hai preso una multa?» è
+        // «fine.scan»: nella 1.19.2 il giro cercava quello e non lo trovava)
+        var scan = app.descendants(matching: .any)["fines.scan"].firstMatch
+        if !scan.waitForExistence(timeout: 5) { scan = app.staticTexts["Fotografa il verbale"].firstMatch }
+        guard scan.waitForExistence(timeout: 5) else { return XCTFail("manca «Fotografa il verbale»") }
         scan.tap()
         sleep(1)
         let t = app.descendants(matching: .any)["fine.text"].firstMatch
@@ -549,7 +565,7 @@ final class ScreenshotTests: XCTestCase {
         XCTAssertTrue(banner.waitForExistence(timeout: 30), "manca il riquadro del guardiano")
         XCTAssertTrue(app.staticTexts["Non conosciamo le ZTL di questo posto"].firstMatch.waitForExistence(timeout: 5),
                       "a Pistoia il guardiano deve dire «Non conosciamo le ZTL di questo posto»")
-        sleep(2)
+        sleep(4)
         snap("45-guardian-unknown")
 
         // Bologna, 400 m a nord di via Galliera, verso sud
@@ -561,7 +577,10 @@ final class ScreenshotTests: XCTestCase {
         XCTAssertTrue(alert.waitForExistence(timeout: 30), "manca l'avviso dentro l'app")
         XCTAssertTrue(alert.label.hasPrefix("Non entrare") || alert.label.contains("?") || alert.label.contains("condizione"),
                       "titolo dell'avviso senza le parole della risposta: \(alert.label)")
-        sleep(2)
+        // Anche il riquadro del guardiano, poi qualche secondo: nella prima corsa la foto era ancora quella di prima
+        // dell'avviso (il simulatore del Mac Intel disegna in ritardo)
+        _ = app.descendants(matching: .any)["guardian.banner"].firstMatch.waitForExistence(timeout: 10)
+        sleep(6)
         snap("46-guardian-alert")
         alert.tap()
         // «Parcheggia fuori» per la zona dell'avviso: si aspetta la fine della ricerca
