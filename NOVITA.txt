@@ -1,6 +1,6 @@
 Novità della 1.19.5 (più veloce, barra delle schede):
 • Parcheggi fuori: se il server di OpenStreetMap tarda, dopo 3 secondi parte quello di riserva e vale la prima risposta (prima i server uno dopo l'altro, fino a 40 secondi ciascuno: anche 2 minuti di «Cerco…»); i percorsi a piedi e in auto dei parcheggi proposti si calcolano tre alla volta. Mentre cerca si vede la forma delle righe in grigio, e se non arriva niente c'è «Riprova». Viaggio e «Parcheggia fuori» fanno una sola ricerca per città
-• Ricerca di un indirizzo: i suggerimenti già visti tornano subito (anche cancellando una lettera), un posto già scelto non si cerca di nuovo; in Mappa la ricerca segue la città scelta
+• Ricerca di un indirizzo: un posto già scelto non si cerca di nuovo; in Mappa la ricerca segue la città scelta
 • Aggiornamento dei dati delle città: chiede a GitHub solo se l'elenco è cambiato, non riscarica le città uguali e non resta appeso (20 secondi al massimo per richiesta)
 • Varco: la striscia di mappa mostra un fondo neutro finché la mappa 3D non è pronta; con il guardiano acceso si aggiorna solo il suo riquadro, non tutta la pagina
 • Guida: la mappa non si ridisegna quando l'auto è ferma (meno batteria al semaforo)

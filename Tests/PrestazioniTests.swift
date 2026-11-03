@@ -105,11 +105,4 @@ final class PrestazioniTests: XCTestCase {
         XCTAssertLessThanOrEqual(ParkingData.hostTimeout, 20)
         XCTAssertLessThan(ParkingData.hedgeDelay, ParkingData.hostTimeout)
     }
-
-    // MARK: Ricerca
-
-    func testSearchCacheKeyIgnoresCase() {
-        XCTAssertEqual(AddressSearch.key(region: "firenze", query: "Palazzo Vecchio"), AddressSearch.key(region: "firenze", query: "palazzo vecchio"))
-        XCTAssertNotEqual(AddressSearch.key(region: "firenze", query: "duomo"), AddressSearch.key(region: "milano", query: "duomo"))
-    }
 }
