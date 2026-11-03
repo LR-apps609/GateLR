@@ -1,7 +1,13 @@
-Novità (barra delle schede):
+Novità della 1.19.5 (più veloce, barra delle schede):
+• Parcheggi fuori: se il server di OpenStreetMap tarda, dopo 3 secondi parte quello di riserva e vale la prima risposta (prima i server uno dopo l'altro, fino a 40 secondi ciascuno: anche 2 minuti di «Cerco…»); i percorsi a piedi e in auto dei parcheggi proposti si calcolano tre alla volta. Mentre cerca si vede la forma delle righe in grigio, e se non arriva niente c'è «Riprova». Viaggio e «Parcheggia fuori» fanno una sola ricerca per città
+• Ricerca di un indirizzo: i suggerimenti già visti tornano subito (anche cancellando una lettera), un posto già scelto non si cerca di nuovo; in Mappa la ricerca segue la città scelta
+• Aggiornamento dei dati delle città: chiede a GitHub solo se l'elenco è cambiato, non riscarica le città uguali e non resta appeso (20 secondi al massimo per richiesta)
+• Varco: la striscia di mappa mostra un fondo neutro finché la mappa 3D non è pronta; con il guardiano acceso si aggiorna solo il suo riquadro, non tutta la pagina
+• Guida: la mappa non si ridisegna quando l'auto è ferma (meno batteria al semaforo)
 • Quando scegli una scheda la sua icona fa un piccolo rimbalzo, appena percepibile (meno di 0,3 s, solo la scala); la mappa si ingrandisce un attimo e torna com'era. La barra resta quella di sistema e il contenuto cambia subito; la vibrazione al cambio di scheda resta
 • Su Android lo stesso rimbalzo sull'icona e una dissolvenza breve tra le schede (0,15 s), senza scorrimento
 • Con «Riduci movimento» (iPhone) o con le animazioni spente (Android) niente animazioni: solo il cambio immediato
+• Nessuna risposta cambia: stesse regole, stessi dati delle città
 
 Novità della 1.19.4 (privacy onesta):
 • Nuova pagina Tu → Privacy: cosa resta sull'iPhone (veicoli, targhe, permessi, viaggi, diario dei passaggi; la posizione è usata sull'iPhone), cosa esce e verso chi (mappe, ricerca e percorsi ad Apple Mappe, mappe 3D a Mapbox, dati delle città da GitHub, parcheggi da OpenStreetMap con la zona della città, non la tua posizione). Nessun account, nessuna pubblicità, nessun tracciamento

@@ -401,3 +401,11 @@ Istruzioni passo passo in docs/prova-sul-campo.md.
 - [ ] Xcode → Product → Archive → Generate Privacy Report (o il rapporto dell'archivio): c'è il manifesto di GateLR, quello del widget e quello di Mapbox; nessun avviso di «API con motivo richiesto» mancante
 - [ ] Android: Account → Privacy (nessun account; cosa resta; cosa esce: OpenFreeMap, Photon con la posizione per ordinare i risultati, OSRM; ML Kit; targa) e il link «Informativa sulla privacy»; Diario → Condividi il diario: nessuna targa
 - [ ] Sito: https://lr-apps609.github.io/GateLR/privacy/ in italiano con l'inglese sotto, gli stessi servizi dell'app
+
+## 23. Più veloce (1.19.5)
+- [ ] Varco → cerca «Piazza dei Signori Treviso» (città senza parcheggi dentro l'app) → «Parcheggia fuori e cammina»: subito tre righe grigie ferme (nessun colore, nessun verde), poi i parcheggi in pochi secondi (prima anche 1–2 minuti di «Cerco…»). Con la modalità aereo: dopo al più ~30 secondi «Nessun parcheggio…» e il pulsante «Riprova»; togli la modalità aereo, «Riprova» → arrivano i parcheggi
+- [ ] Varco a freddo (app chiusa dal multitasking, poi riaperta) con un posto già scelto: la risposta compare senza attese visibili; la striscia di mappa in alto è blu notte con qualche via grigia finché la mappa 3D non è pronta, mai nera o vuota, e mai del colore della risposta prima che la mappa ci sia
+- [ ] Ricerca: scrivi «Palazzo Vecchio», cancella due lettere e riscrivile: i suggerimenti tornano subito; scegli il suggerimento, poi la croce e scegli di nuovo lo stesso: la risposta arriva subito. In Mappa cambia città dal menu: i suggerimenti sono della città nuova
+- [ ] Guardiano acceso (Viaggio → Avvia → un navigatore) per 10–15 minuti in città: la pagina Varco scorre fluida, il riquadro del guardiano cambia distanza; l'iPhone non scalda più del solito. Guida di GateLR: fermo a un semaforo la mappa resta ferma e liscia, alla ripartenza auto e camera riprendono subito senza scatti
+- [ ] iPhone più vecchio che hai (o Impostazioni → Accessibilità → Movimento → Riduci movimento) e rete lenta (Impostazioni sviluppatore → Network Link Conditioner «3G», se c'è): Varco, Mappa su Milano Area B (sposta e ingrandisci fino ai varchi) e «Parcheggia fuori» restano usabili; Account → «Aggiorna i dati» finisce entro circa 20 secondi o dice che non è riuscito
+
