@@ -11,6 +11,7 @@ import android.content.res.ColorStateList
 import android.os.Build
 import android.widget.RemoteViews
 import androidx.compose.ui.graphics.toArgb
+import app.gatelr.core.L
 import app.gatelr.core.Verdict
 import java.time.Instant
 
@@ -21,12 +22,15 @@ class ZoneWidget : AppWidgetProvider() {
         val now = Instant.now()
         val zone = Here.coordinate?.takeIf { System.currentTimeMillis() - Here.at < 10 * 60_000 }?.let { c -> app.gatelr.core.zonesAt(AppState.cities, c).minByOrNull { it.second.roughArea }?.second } ?: AppState.zone
         val a = AppState.answer(zone, now)
-        val color = when (a.verdict) { is Verdict.Yes -> Palette.green; is Verdict.No -> Palette.red; is Verdict.Conditional -> Palette.amber; is Verdict.Unsure -> Palette.muted }
+        // 1.20.0, come il widget dell'iPhone: rosso, giallo (anche «non sicuro» e fonte non ufficiale), verde «Puoi entrare»,
+        // grigio «ZTL non attiva»
+        val off = a.verdict is Verdict.Yes && !a.gatesOn
+        val color = when (a.verdict) { is Verdict.Yes -> if (off) Palette.muted else Palette.green; is Verdict.No -> Palette.red; is Verdict.Conditional, is Verdict.Unsure -> Palette.amber }
         val open = PendingIntent.getActivity(ctx, 0, Intent(ctx, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE)
         for (id in ids) {
             val v = RemoteViews(ctx.packageName, R.layout.widget)
             v.setTextViewText(R.id.widget_zone, zone.shortName + (AppState.cityOf(zone)?.let { " · " + it.localizedName } ?: ""))
-            v.setTextViewText(R.id.widget_verdict, a.verdict.short)
+            v.setTextViewText(R.id.widget_verdict, if (off) L("ZTL not active") else a.verdict.short)
             v.setTextViewText(R.id.widget_next, changeText(a, now) ?: "")
             if (Build.VERSION.SDK_INT >= 31) v.setColorStateList(R.id.widget_root, "setBackgroundTintList", ColorStateList.valueOf(color.toArgb()))
             else v.setInt(R.id.widget_root, "setBackgroundColor", color.toArgb())

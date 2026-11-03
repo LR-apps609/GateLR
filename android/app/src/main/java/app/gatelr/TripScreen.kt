@@ -71,8 +71,6 @@ import app.gatelr.core.Ticket
 import app.gatelr.core.Verdict
 import app.gatelr.core.Zone
 import app.gatelr.core.nearestZone
-import app.gatelr.core.pedestrianAreaAt
-import app.gatelr.core.zonesAt
 import kotlinx.coroutines.delay
 import java.time.Instant
 import java.time.LocalTime
@@ -167,10 +165,13 @@ private fun TripAnswer(p: Place) {
     // Viaggio salvato aperto: vale la sua ora d'arrivo finché non scegli un'altra opzione
     var saved by remember(p.key, AppState.tripAt) { mutableStateOf(AppState.tripAt) }
     val at = saved?.let { java.time.Instant.ofEpochMilli(it).atZone(ROME) } ?: arrival.at(nowZ)
-    val zone = zonesAt(AppState.cities, p.location).minByOrNull { it.second.roughArea }?.second
-    val pedestrian = pedestrianAreaAt(AppState.cities, p.location)
     var hotelInside by remember(p.key) { mutableStateOf(false) }
-    val answer = zone?.let { AppState.answer(it, at.toInstant(), hotelInside) }
+    // 1.20.0, come l'iPhone (PlaceCheck): decide la zona con la risposta peggiore tra tutte quelle del posto (Settore A
+    // dentro lo Scudo Verde, Area C dentro l'Area B), l'area pedonale vince, fuori dalle città che conosciamo neutro
+    val check = AppState.check(p.location, at.toInstant(), hotelInside)
+    val zone = check.zone
+    val pedestrian = check.pedestrian
+    val answer = check.answer?.let { it.copy(verdict = check.verdict) }
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         Column {
@@ -190,8 +191,18 @@ private fun TripAnswer(p: Place) {
                 Text(L("Cars can't drive here. Park outside and walk."), color = androidx.compose.ui.graphics.Color.White)
             }
             zone != null && answer != null -> {
-                VerdictCard(answer, if (saved == null && arrival == Arrival.NOW) L("Now") else F("Arriving %@", AppState.engine.describe(at.toInstant(), nowZ.toInstant())), onWhy = { Nav.zone = zone })
+                UnofficialNote(zone, hedgedYes = check.hedged)
+                VerdictCard(answer, if (saved == null && arrival == Arrival.NOW) L("Now") else F("Arriving %@", AppState.engine.describe(at.toInstant(), nowZ.toInstant())), onWhy = { Nav.zone = zone },
+                    title = if (check.hedged) L("Probably yes") else if (check.unofficial && answer.verdict is Verdict.No) L("Probably not") else null)
                 Text(zone.localizedName, fontSize = 13.sp, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f), modifier = Modifier.clickable { Nav.zone = zone })
+            }
+            // Fuori dalle città che conosciamo: neutro, mai «Fuori dalla ZTL» né verde (come l'iPhone dalla 1.19.0)
+            !check.covered -> CardBox {
+                Column {
+                    Pill(L("We don't know this place"), MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface)
+                    Spacer(Modifier.padding(3.dp))
+                    Text(L("We don't know the ZTLs of this place. Check the signs at the entrance."), fontWeight = FontWeight.SemiBold)
+                }
             }
             else -> {
                 val near = nearestZone(AppState.cities, p.location)
@@ -376,7 +387,7 @@ private fun savePermit(ctx: android.content.Context, place: Place, existing: Per
     }
     val from = arrival.truncatedTo(ChronoUnit.DAYS).toInstant().toEpochMilli()
     val to = departure.truncatedTo(ChronoUnit.DAYS).plusDays(1).minusSeconds(1).toInstant().toEpochMilli()
-    val p = Permit(id = existing?.id ?: java.util.UUID.randomUUID().toString(), kind = Permit.Kind.HOTEL, cityId = city.id, zoneId = null,
+    val p = Permit(id = existing?.id ?: java.util.UUID.randomUUID().toString(), kind = Permit.Kind.HOTEL, cityId = city.id, zoneId = zone.id,
         vehicleId = AppState.vehicle.id, from = from, to = to, status = status)
     AppState.permits = AppState.permits.filter { it.id != p.id } + p
     AppState.save()

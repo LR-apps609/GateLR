@@ -13,6 +13,7 @@ import app.gatelr.core.Fuel
 import app.gatelr.core.L
 import app.gatelr.core.Permit
 import app.gatelr.core.Place
+import app.gatelr.core.PlaceCheck
 import app.gatelr.core.RuleEngine
 import app.gatelr.core.Strings
 import app.gatelr.core.Vehicle
@@ -63,8 +64,8 @@ object AppState {
         }
         cities = (ctx.assets.list("Cities") ?: emptyArray()).filter { it.endsWith(".json") && it != "manifest.json" }
             .mapNotNull { runCatching { CityLoader.decode(ctx.assets.open("Cities/$it").bufferedReader().readText()) }.getOrNull() }
-            // L'app Android non ha ancora l'avviso «Fonte non ufficiale»: le città con zone da fonti non ufficiali restano fuori
-            .filter { c -> c.zones.all { it.source.isOfficial } }
+            // 1.20.0: anche le città con zone da fonti non ufficiali (Salerno, Cagliari…), come sull'iPhone: risposte con
+            // l'avviso «Fonte non ufficiale» e mai verdi (Verdict.shown)
             .sortedBy { it.localizedName }
 
         prefs = ctx.getSharedPreferences("gatelr", Context.MODE_PRIVATE)
@@ -100,11 +101,23 @@ object AppState {
     val zone: Zone get() = city.zones.firstOrNull { it.id == zoneId } ?: city.zones.first()
     val vehicle: Vehicle get() = vehicles.firstOrNull { it.id == activeVehicleId } ?: vehicles.first()
 
-    /** Un permesso vale solo nella sua città: la registrazione dell'hotel a Firenze non apre l'Area C di Milano */
+    /** La risposta come si MOSTRA (1.20.0, come l'iPhone): un «sì» da fonte non ufficiale è «non sicuro», giallo con il «?».
+     *  La usano elenchi, scheda della zona, percorso, guardiano e widget */
     fun answer(zone: Zone, at: Instant = Instant.now(), hotelInside: Boolean = false): Answer {
+        val a = rawAnswer(zone, at, hotelInside)
+        return a.copy(verdict = a.verdict.shown(zone.isUnofficial))
+    }
+
+    /** La risposta del motore. Un permesso vale solo nella sua città: la registrazione dell'hotel a Firenze non apre l'Area C di Milano */
+    fun rawAnswer(zone: Zone, at: Instant = Instant.now(), hotelInside: Boolean = false): Answer {
         val city = cityOf(zone)?.id
         return engine.answer(zone, vehicle, permits.filter { it.cityId == city }, hotelInside, at)
     }
+
+    /** 1.20.0: la risposta per un posto come l'iPhone (PlaceCheck): la zona peggiore tra tutte quelle del posto, l'area
+     *  pedonale che vince, fuori dalle città che conosciamo neutro */
+    fun check(c: Coordinate, at: Instant = Instant.now(), hotelInside: Boolean = false): PlaceCheck =
+        PlaceCheck.of(cities, c) { rawAnswer(it, at, hotelInside) }
 
     fun selectCity(id: String) {
         cityId = id

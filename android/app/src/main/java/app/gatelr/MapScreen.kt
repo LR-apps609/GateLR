@@ -62,7 +62,7 @@ import app.gatelr.core.SearchPlan
 import app.gatelr.core.Verdict
 import app.gatelr.core.ZoneKind
 import app.gatelr.core.nearestZone
-import app.gatelr.core.pedestrianAreaAt
+import app.gatelr.core.PlaceCheck
 import app.gatelr.core.zonesAt
 import kotlinx.coroutines.delay
 import org.maplibre.android.camera.CameraPosition
@@ -122,31 +122,29 @@ private fun pinGeoJson(p: Place?, color: Color): String =
     if (p == null) "{\"type\":\"FeatureCollection\",\"features\":[]}"
     else "{\"type\":\"Feature\",\"properties\":{\"color\":\"${hex(color)}\"},\"geometry\":{\"type\":\"Point\",\"coordinates\":[${p.location.lon},${p.location.lat}]}}"
 
-/** Il posto cercato come sull'iPhone (PlaceCheck): fuori, area pedonale o la risposta della zona */
-private enum class PlaceKind { OUTSIDE, OPEN, CLOSED, CONDITIONAL, UNSURE, PEDESTRIAN }
-
-private fun placeKind(pedestrian: Boolean, v: Verdict?): PlaceKind = when {
-    pedestrian -> PlaceKind.PEDESTRIAN
-    v == null -> PlaceKind.OUTSIDE
-    v is Verdict.Yes -> PlaceKind.OPEN; v is Verdict.No -> PlaceKind.CLOSED
-    v is Verdict.Conditional -> PlaceKind.CONDITIONAL; else -> PlaceKind.UNSURE
-}
-
-/** Verde si entra, rosso no, ambra con una condizione: colori accesi per la mappa scura */
-private fun PlaceKind.neon(): Color = when (this) {
-    PlaceKind.OUTSIDE, PlaceKind.OPEN -> Color(0xFF3DDC74)
-    PlaceKind.CLOSED, PlaceKind.PEDESTRIAN -> Color(0xFFFF4D4D)
+/** Il posto cercato come sull'iPhone (PlaceCheck, 1.20.0 nel motore comune): fuori, fuori copertura, area pedonale o la
+ *  risposta della zona peggiore. Verde si entra, rosso no, ambra con una condizione o da verificare (anche il «sì» da fonte
+ *  non ufficiale), neutro se non conosciamo il posto: colori accesi per la mappa scura */
+private fun PlaceCheck.neon(): Color = if (hedged) Color(0xFFF2C14E) else when (kind) {
+    PlaceCheck.Kind.UNCOVERED -> Color(0xFFA9B3D1)
+    PlaceCheck.Kind.OUTSIDE, PlaceCheck.Kind.OPEN -> Color(0xFF3DDC74)
+    PlaceCheck.Kind.CLOSED, PlaceCheck.Kind.PEDESTRIAN -> Color(0xFFFF4D4D)
     else -> Color(0xFFF2C14E)
 }
 
-/** La scritta del riquadro: «ZTL ATTIVA · NON ENTRARE», «FUORI DALLA ZTL»… */
-private fun PlaceKind.callout(gatesOn: Boolean): String = when (this) {
-    PlaceKind.OUTSIDE -> L("Outside the ZTL")
-    PlaceKind.PEDESTRIAN -> L("Pedestrian area · don't enter")
-    PlaceKind.CLOSED -> L("ZTL active · don't enter")
-    PlaceKind.OPEN -> if (gatesOn) L("You can enter") else L("ZTL off · you can enter")
-    PlaceKind.CONDITIONAL -> L("On one condition")
-    PlaceKind.UNSURE -> L("Not sure")
+/** La scritta del riquadro: «ZTL ATTIVA · NON ENTRARE», «FUORI DALLA ZTL»… (come PlaceCheck.callout dell'iPhone) */
+private fun PlaceCheck.callout(): String = when {
+    unofficial && kind == PlaceCheck.Kind.OPEN -> L("Probably yes")
+    unofficial && kind == PlaceCheck.Kind.CLOSED -> L("Probably not")
+    else -> when (kind) {
+        PlaceCheck.Kind.UNCOVERED -> L("We don't know this place")
+        PlaceCheck.Kind.OUTSIDE -> L("Outside the ZTL")
+        PlaceCheck.Kind.PEDESTRIAN -> L("Pedestrian area · don't enter")
+        PlaceCheck.Kind.CLOSED -> L("ZTL active · don't enter")
+        PlaceCheck.Kind.OPEN -> if (gatesOn == true) L("You can enter") else L("ZTL off · you can enter")
+        PlaceCheck.Kind.CONDITIONAL -> L("On one condition")
+        PlaceCheck.Kind.UNSURE -> L("Not sure")
+    }
 }
 
 /** Aggiunge sorgenti e strati delle zone e dello spillo a uno stile appena caricato */
@@ -235,11 +233,13 @@ fun MapScreen(modifier: Modifier) {
         results = r ?: emptyList()
     }
 
-    val pinZone = pin?.let { p -> zonesAt(AppState.cities, p.location).minByOrNull { it.second.roughArea }?.second }
-    val pinAnswer = pinZone?.let { AppState.answer(it, now) }
-    val pinPedestrian = pin?.let { pedestrianAreaAt(AppState.cities, it.location) }
-    val pinKind = pin?.let { placeKind(pinPedestrian != null, pinAnswer?.verdict) }
-    val pinColor = pinKind?.neon() ?: Palette.green
+    // 1.20.0: la zona che decide è la peggiore tra tutte quelle del posto (come l'iPhone)
+    val pinCheck = pin?.let { AppState.check(it.location, now) }
+    val pinZone = pinCheck?.zone
+    val pinAnswer = pinCheck?.answer?.let { it.copy(verdict = pinCheck.verdict) }
+    val pinPedestrian = pinCheck?.pedestrian
+    val pinKind = pinCheck?.let { it.kind to it.hedged }
+    val pinColor = pinCheck?.neon() ?: Palette.green
 
     // Con un posto cercato la mappa passa allo stile scuro (le zone accese si vedono meglio), poi torna com'era
     val wantStyle = if (dark || pin != null) STYLE_DARK else STYLE
@@ -321,7 +321,7 @@ fun MapScreen(modifier: Modifier) {
             Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().padding(12.dp)
                 .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(20.dp)).padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                pinKind?.let { k -> Callout(k.callout(pinAnswer?.gatesOn == true), k.neon()) }
+                pinCheck?.let { k -> Callout(k.callout(), k.neon()) }
                 Text(p.name, fontWeight = FontWeight.Bold, fontSize = 18.sp, maxLines = 1)
                 when {
                     pinPedestrian != null -> {
@@ -329,11 +329,16 @@ fun MapScreen(modifier: Modifier) {
                         Text(L("Cars can't drive here. Park outside and walk."), fontSize = 14.sp)
                     }
                     pinZone != null && pinAnswer != null -> {
+                        UnofficialNote(pinZone, hedgedYes = pinCheck?.hedged == true)
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             VerdictPill(pinAnswer.verdict); Spacer(Modifier.width(8.dp))
                             Text(pinZone.shortName, fontSize = 14.sp, modifier = Modifier.clickable { Nav.zone = pinZone })
                         }
                         Text(pinAnswer.verdict.detail, fontSize = 14.sp, maxLines = 3)
+                    }
+                    pinCheck?.covered == false -> {
+                        Pill(L("We don't know this place"), MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface)
+                        Text(L("We don't know the ZTLs of this place. Check the signs at the entrance."), fontSize = 14.sp)
                     }
                     else -> {
                         val near = nearestZone(AppState.cities, p.location)

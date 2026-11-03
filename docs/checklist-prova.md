@@ -415,3 +415,15 @@ Istruzioni passo passo in docs/prova-sul-campo.md.
 - [ ] Pagina di una città (es. …/firenze/): si legge subito, la mappa vera arriva dopo; Privacy e Supporto con gli stessi caratteri
 - [ ] Android → Mappa o Viaggio: cerca un hotel di Firenze mentre sei in un'altra città: i risultati sono a Firenze (la città scelta); vicino a casa vincono i posti vicino a te
 - [ ] Android in modalità aereo → cerca «duomo»: «La ricerca non funziona adesso. Controlla la connessione.» con «Riprova» (prima: «Nessun risultato»); riaccendi la rete e tocca «Riprova»: arrivano i risultati
+
+## 25. Motore unico (1.20.0)
+Le stesse risposte su iPhone, Android e sito: i casi di prova comuni sono in shared/engine-cases.json (li provano i test di tutte e tre a ogni modifica). Sul telefono basta controllare che si vedano come qui sotto.
+- [ ] iPhone, Android e sito, veicolo «Auto a noleggio» (benzina Euro 6), ora scelta martedì 8 dicembre alle 12:00, posto «Colli di Bergamo» (o un punto dentro la ZTL Colli): rosso «Non entrare» su tutti e tre, mai verde né «ZTL non attiva». Martedì 15 dicembre alle 12:00 lo stesso posto: grigio, ZTL non attiva
+- [ ] Android → Mappa e Viaggio: cerca «Duomo di Salerno»: in alto l'avviso giallo «Fonte non ufficiale: verifica sempre il cartello al varco» con «Dati da …»; la risposta dice «Probabilmente no». Cerca «Bastione di Saint Remy» (Cagliari) alle 12:00: giallo con il «?», «Probabilmente sì · fonte non ufficiale: controlla il cartello», mai verde né grigio. Le stesse risposte sull'iPhone
+- [ ] Android, veicolo diesel Euro 1, Palazzo Vecchio alle 23:00 di un martedì: «Non entrare» con lo Scudo Verde come zona che decide (prima Android: «sì» dal Settore A spento)
+- [ ] Android → Viaggio o Mappa: cerca «Prato» o «Venezia»: «Non conosciamo questo posto», neutro, mai «Fuori dalla ZTL» né verde. Cerca «Bologna Centrale»: «Fuori dalla ZTL», verde
+- [ ] Android: una zona con dati da ricontrollare o un festivo non confermato (es. Firenze Settore A l'8 dicembre alle 10): la risposta «Non sicuro» è gialla con il «?», non più grigio chiaro. Widget Android a ZTL spenta: grigio «ZTL non attiva»
+- [ ] Android → Viaggio con un hotel dentro una ZTL → «Chiesto» o «Confermato»: la risposta cambia solo per la zona dell'hotel (il permesso salvato prima della 1.20.0 senza zona non vale finché non lo tocchi di nuovo)
+- [ ] Sito: Pantheon, Roma, martedì 29 giugno 2027 alle 10:00: «ZTL non attiva» (festa del patrono); martedì 22 giugno alle 10:00: «No, non entrare». Cerca «Prato»: «Non conosciamo questo posto», riquadro neutro con il «?», pannello «ZONA NON COPERTA», mai verde
+- [ ] Sito: Cagliari, Bastione di Saint Remy alle 12:00: «Probabilmente sì» giallo con il «?» e l'avviso «Fonte non ufficiale»; sulla mappa la zona è gialla, mai verde né grigia
+- [ ] Sito: Palazzo Vecchio di notte con «Diesel Euro 4» e poi con «Auto a noleggio»: le risposte sono quelle della zona più severa (la zona scritta sotto la risposta è quella che decide)

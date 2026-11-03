@@ -65,18 +65,32 @@ fun GateTheme(content: @Composable () -> Unit) {
     MaterialTheme(colorScheme = scheme, content = content)
 }
 
+// 1.20.0: «non sicuro» (dati vecchi, festivo non confermato, fonte non ufficiale) è giallo con il «?», come sull'iPhone; il
+// grigio dice solo «ZTL non attiva»
 fun Verdict.fill(): Color = when (this) {
     is Verdict.Yes -> Palette.green; is Verdict.No -> Palette.red
-    is Verdict.Conditional -> Palette.amberSoft; is Verdict.Unsure -> Color(0xFFE3E6E8)
+    is Verdict.Conditional, is Verdict.Unsure -> Palette.amberSoft
 }
 fun Verdict.onFill(): Color = when (this) {
-    is Verdict.Yes, is Verdict.No -> Color.White; is Verdict.Conditional -> Palette.amberInk; is Verdict.Unsure -> Palette.ink
+    is Verdict.Yes, is Verdict.No -> Color.White; is Verdict.Conditional, is Verdict.Unsure -> Palette.amberInk
 }
 fun Verdict.pillFill(): Color = when (this) {
-    is Verdict.Yes -> Palette.greenSoft; is Verdict.No -> Palette.redSoft; is Verdict.Conditional -> Palette.amberSoft; is Verdict.Unsure -> Color(0xFFE3E6E8)
+    is Verdict.Yes -> Palette.greenSoft; is Verdict.No -> Palette.redSoft; is Verdict.Conditional, is Verdict.Unsure -> Palette.amberSoft
 }
 fun Verdict.pillInk(): Color = when (this) {
-    is Verdict.Yes -> Palette.greenInk; is Verdict.No -> Palette.redInk; is Verdict.Conditional -> Palette.amberInk; is Verdict.Unsure -> Palette.ink
+    is Verdict.Yes -> Palette.greenInk; is Verdict.No -> Palette.redInk; is Verdict.Conditional, is Verdict.Unsure -> Palette.amberInk
+}
+
+/** 1.20.0: l'avviso «Fonte non ufficiale» sopra le risposte di una zona con regole solo da fonti non ufficiali (come l'iPhone) */
+@Composable
+fun UnofficialNote(zone: app.gatelr.core.Zone, hedgedYes: Boolean = false) {
+    if (!zone.isUnofficial) return
+    Column(Modifier.fillMaxWidth().background(Palette.amberSoft, RoundedCornerShape(14.dp)).padding(12.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Text(L("Unofficial source: always check the sign at the gate"), color = Palette.amberInk, fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
+        if (hedgedYes) Text(L("Probably yes · unofficial source: check the sign"), color = Palette.amberInk, fontSize = 13.sp)
+        zone.source.unofficialSource?.let { Text(app.gatelr.core.F("Data from %@", it.name), color = Palette.amberInk, fontSize = 13.sp) }
+    }
 }
 
 @Composable
@@ -113,7 +127,7 @@ fun CardBox(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
 
 /** Il riquadro grande con la risposta */
 @Composable
-fun VerdictCard(answer: Answer, heading: String, onWhy: (() -> Unit)? = null) {
+fun VerdictCard(answer: Answer, heading: String, onWhy: (() -> Unit)? = null, title: String? = null) {
     val v = answer.verdict
     Column(
         Modifier.fillMaxWidth().background(v.fill(), RoundedCornerShape(26.dp)).padding(20.dp),
@@ -129,7 +143,7 @@ fun VerdictCard(answer: Answer, heading: String, onWhy: (() -> Unit)? = null) {
                 Icon(icon, null, tint = v.fill(), modifier = Modifier.size(30.dp))
             }
             Spacer(Modifier.width(14.dp))
-            Text(v.title, color = v.onFill(), fontSize = 30.sp, fontWeight = FontWeight.Bold, lineHeight = 32.sp)
+            Text(title ?: v.title, color = v.onFill(), fontSize = 30.sp, fontWeight = FontWeight.Bold, lineHeight = 32.sp)
         }
         Text(v.detail, color = v.onFill(), fontSize = 16.sp)
         if (onWhy != null) {

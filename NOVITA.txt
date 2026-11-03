@@ -1,3 +1,14 @@
+Novità della 1.20.0 (motore unico):
+• Un solo insieme di casi di prova per iPhone, Android e sito (shared/engine-cases.json): posto, ora e veicolo con la risposta attesa. Le tre versioni li provano a ogni modifica e devono dare lo stesso colore e la stessa zona che decide
+• Android come l'iPhone nei festivi: dove il Comune lo dice, nei festivi valgono gli orari della domenica. L'8 dicembre a Bergamo (Colli, Valverde) la risposta è «Non entrare», mai verde (prima Android usava gli orari del martedì: «ZTL non attiva»)
+• Android: anche Salerno e Cagliari, con l'avviso «Fonte non ufficiale: verifica sempre il cartello al varco» e il sito da cui vengono i dati; un «sì» da fonte non ufficiale è giallo con il «?» («Probabilmente sì»), mai verde né grigio
+• Android: se un posto è dentro più zone conta la più severa (a Palazzo Vecchio di notte un diesel Euro 1 riceve «Non entrare» per lo Scudo Verde); l'area pedonale vince sempre; fuori dalle città che conosciamo «Non conosciamo questo posto», neutro, mai «Fuori dalla ZTL»
+• Android: «Non sicuro» è giallo con il «?» (prima grigio chiaro); nel widget la ZTL spenta è grigia «ZTL non attiva»
+• Android: un permesso vale solo per la sua zona, come sull'iPhone dalla 1.19.2 (il soggiorno in hotel di Viaggio si salva con la zona dell'hotel)
+• Sito: conosce le feste del patrono (Roma il 29 giugno: varchi spenti), conta i festivi sul giorno in cui inizia la fascia come l'app e sceglie la zona più severa tra tutte quelle del posto
+• Sito: fuori dalle città coperte (a più di 2 km dalle loro zone, es. Prato o Venezia) «Non conosciamo questo posto», neutro, mai verde; «Non sicuro» e il «sì» da fonte non ufficiale sono gialli con il «?», anche sulla mappa
+• iPhone: nessuna risposta cambia; il colore del posto si calcola come quello della mappa, lo stesso calcolo provato su Android e sul sito
+
 Novità della 1.19.5 (più veloce, barra delle schede):
 • Parcheggi fuori: se il server di OpenStreetMap tarda, dopo 3 secondi parte quello di riserva e vale la prima risposta (prima i server uno dopo l'altro, fino a 40 secondi ciascuno: anche 2 minuti di «Cerco…»); i percorsi a piedi e in auto dei parcheggi proposti si calcolano tre alla volta. Mentre cerca si vede la forma delle righe in grigio, e se non arriva niente c'è «Riprova». Viaggio e «Parcheggia fuori» fanno una sola ricerca per città
 • Ricerca di un indirizzo: un posto già scelto non si cerca di nuovo; in Mappa la ricerca segue la città scelta

@@ -64,6 +64,8 @@ fun ZoneDetail(z: Zone) {
             Pill(z.type.title, Palette.kind(z.type).copy(alpha = 0.18f), MaterialTheme.colorScheme.onSurface)
             AppState.cityOf(z)?.let { Pill(it.localizedName, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface) }
         }
+        // 1.20.0: zona da fonti non ufficiali (Salerno, Cagliari…): l'avviso sopra la risposta, mai verde (come l'iPhone)
+        UnofficialNote(z, hedgedYes = z.isUnofficial && AppState.rawAnswer(z, now).verdict is app.gatelr.core.Verdict.Yes)
         VerdictCard(a, AppState.vehicle.name)
         changeText(a, now)?.let { Text(it, color = muted) }
         Text(z.localizedSummary, fontSize = 15.sp)

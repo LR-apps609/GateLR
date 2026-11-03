@@ -13,8 +13,8 @@ android {
         applicationId = "app.gatelr"
         minSdk = 26                 // Android 8 e successivi: circa il 97% dei telefoni
         targetSdk = 35
-        versionCode = 2
-        versionName = "0.2.0"
+        versionCode = 3
+        versionName = "1.20.0"     // dalla 1.20.0 la stessa versione dell'app iPhone
     }
 
     // Firma per gli store: il file .jks e le password arrivano dai segreti di GitHub (vedi docs/android-store.md)
