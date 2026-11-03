@@ -114,6 +114,19 @@ jobs:
           path: GateLR-*.ipa
           if-no-files-found: warn
 
+      # 1.19.5: il giro si compila qui, fuori dai 120 minuti del giro (la compilazione ne prendeva 15–25 e il giro
+      # arrivava al limite: corse 41582272752, 41613646908). Il giro usa poi test-without-building
+      - name: Compilazione del giro delle foto
+        timeout-minutes: 45
+        run: |
+          SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
+          status=0
+          xcodebuild build-for-testing -project GateLR.xcodeproj -scheme GateLRUITests \
+            -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
+            CODE_SIGNING_ALLOWED=NO > ui-build.log 2>&1 || status=$?
+          grep -E "error:" ui-build.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          exit $status
+
       - name: Foto dell'app (giro nel simulatore)
         timeout-minutes: 120
         run: |
@@ -146,7 +159,7 @@ jobs:
           status=0
           # La cartella delle foto come variabile d'ambiente (come per il Pro Max): come impostazione di compilazione
           # nella corsa 40782824915 non è arrivata al test e sono state pubblicate solo le 2 foto del Pro Max
-          TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" xcodebuild test -project GateLR.xcodeproj -scheme GateLRUITests \
+          TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
             -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
             CODE_SIGNING_ALLOWED=NO > ui.log 2>&1 || status=$?
           grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true
@@ -328,4 +341,5 @@ jobs:
           path: |
             build.log
             test.log
+            ui-build.log
             ui.log
