@@ -3,9 +3,9 @@ name: Android
 on:
   push:
     branches: [main]
-    paths: ["android/**", "Resources/Cities/**", "Rules/**", ".github/workflows/android.yml"]
+    paths: ["android/**", "Resources/Cities/**", "Rules/**", "shared/**", ".github/workflows/android.yml"]
   pull_request:
-    paths: ["android/**"]
+    paths: ["android/**", "shared/**"]
   workflow_dispatch:
 
 permissions:
@@ -29,6 +29,7 @@ jobs:
         with:
           gradle-version: "8.10.2"
 
+      # Con i casi comuni di iPhone e sito (shared/engine-cases.json, SharedEngineCasesTest)
       - name: Test del motore (stesse regole dell'iPhone)
         run: gradle -p android/core test --no-daemon
 

@@ -14,6 +14,8 @@ on:
       - 'Tools/build_site.py'
       - 'Tools/check_site_js.py'
       - 'Tools/check_site_answers.mjs'
+      - 'Tools/check_engine_cases.mjs'
+      - 'shared/**'
       - 'Tools/site_fonts/**'
       - 'Tools/site_img/**'
       - 'Tools/seasons.py'
@@ -48,6 +50,9 @@ jobs:
       # 1.19.5: i dati delle città si scaricano a richiesta; le risposte devono restare quelle di quando la home li aveva tutti
       - name: Controlla che le risposte non cambino
         run: node Tools/check_site_answers.mjs
+      # 1.20.0 «Motore unico»: gli stessi casi di prova dell'iPhone e di Android (shared/engine-cases.json)
+      - name: Casi comuni del motore
+        run: node Tools/check_engine_cases.mjs
       - name: Prepara i file
         run: |
           # tutta la cartella web/ (home in 3 lingue, pagine delle città, sitemap, robots), tranne il modello e il README
