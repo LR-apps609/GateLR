@@ -30,6 +30,24 @@ data class City(
     enum class Status { @SerialName("sample") SAMPLE, @SerialName("draft") DRAFT, @SerialName("verified") VERIFIED }
 
     val localizedName: String get() = pick(name, nameIt, nameDe)
+
+    /** Il rettangolo [latMin, lonMin, latMax, lonMax] di zone e aree pedonali (null se la città non ne ha) */
+    val coverage: DoubleArray? by lazy {
+        val pts = zones.flatMap { it.perimeter } + pedestrian.orEmpty().flatMap { it.perimeter }
+        if (pts.isEmpty()) null
+        else doubleArrayOf(pts.minOf { it.lat }, pts.minOf { it.lon }, pts.maxOf { it.lat }, pts.maxOf { it.lon })
+    }
+
+    /** 1.20.0, come City.covers dell'iPhone (1.19.0): il punto è entro 2 km dal rettangolo di zone e aree pedonali.
+     *  Solo lì «fuori da ogni zona» vuol dire davvero «fuori dalla ZTL»; oltre, il posto non lo conosciamo (neutro, mai verde) */
+    fun covers(lat: Double, lon: Double): Boolean {
+        val b = coverage ?: return false
+        val dLat = if (lat < b[0]) b[0] - lat else if (lat > b[2]) lat - b[2] else 0.0
+        val dLon = if (lon < b[1]) b[1] - lon else if (lon > b[3]) lon - b[3] else 0.0
+        return kotlin.math.hypot(dLat * 111_000, dLon * 111_000 * kotlin.math.cos(lat * Math.PI / 180)) <= COVERAGE_MARGIN
+    }
+
+    companion object { const val COVERAGE_MARGIN = 2_000.0 }
 }
 
 @Serializable
@@ -57,6 +75,9 @@ data class Zone(
     val gates: List<Gate>,
     val windows: List<TimeWindow>,
     val freeOnHolidays: Boolean? = null,
+    /** true = nei festivi valgono gli orari della domenica (es. Bergamo Colli e Valverde, Padova, San Giovanni Valdarno).
+     *  1.20.0: prima Android non lo leggeva e l'8 dicembre a Bergamo usava gli orari del martedì (ZTL «non attiva») */
+    val holidaysAsSunday: Boolean? = null,
     val exemptFuels: Set<Fuel> = emptySet(),
     /** Dalla 1.17.1 (iPhone): i tipi di veicolo che entrano sempre, es. ["motorcycle"]. Stringhe, così un tipo nuovo non rompe la lettura */
     val exemptVehicleTypes: List<String>? = null,
@@ -117,6 +138,9 @@ data class Zone(
 
     fun nextMotoBan(vehicle: Vehicle, after: Instant): MotoBan? =
         motoBans.orEmpty().filter { it.applies(vehicle) && it.date.isAfter(after) }.minByOrNull { it.date }
+
+    /** Le regole di questa zona vengono solo da fonti non ufficiali (come Zone.isUnofficial dell'iPhone) */
+    val isUnofficial: Boolean get() = !source.isOfficial
 
     /** Lasciare l'auto qui è un problema? Zone vietate o a pagamento sì; verdi solo se l'auto è vietata */
     fun closes(vehicle: Vehicle, at: Instant): Boolean = type != ZoneKind.GREEN || ban(vehicle, at) != null
@@ -322,8 +346,10 @@ data class Permit(
     @Serializable enum class Kind { @SerialName("hotelRegistration") HOTEL, @SerialName("resident") RESIDENT, @SerialName("disabledBadge") DISABLED, @SerialName("other") OTHER }
     @Serializable enum class Status { @SerialName("waiting") WAITING, @SerialName("confirmed") CONFIRMED }
 
+    /** Come l'iPhone dalla 1.19.2: ogni permesso vale solo per la sua zona; senza zona non copre niente (1.20.0: prima su
+     *  Android un permesso senza zona valeva per tutta la città) */
     fun covers(zone: Zone, vehicle: Vehicle, at: Instant): Boolean =
-        vehicleId == vehicle.id && (zoneId == null || zoneId == zone.id) && at.toEpochMilli() in from..to
+        zoneId != null && vehicleId == vehicle.id && zoneId == zone.id && at.toEpochMilli() in from..to
 }
 
 @Serializable

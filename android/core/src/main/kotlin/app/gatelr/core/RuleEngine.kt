@@ -27,6 +27,13 @@ sealed class Verdict {
     val detail: String get() = when (this) {
         is Yes -> reason; is No -> reason; is Unsure -> reason; is Conditional -> "$reason $condition"
     }
+
+    /** 1.19.0 dell'iPhone «Mai un verde che non sappiamo»: la risposta come si MOSTRA. Un «sì» da fonte non ufficiale
+     *  non è mai verde: «non sicuro» (giallo con «?», «Probabilmente sì · fonte non ufficiale: controlla il cartello») */
+    fun shown(unofficial: Boolean): Verdict = if (unofficial && this is Yes) Unsure(reason) else this
+
+    /** Quanto è grave, per scegliere la peggiore tra più zone dello stesso posto: no > condizione > non sicuro > sì */
+    val severity: Int get() = when (this) { is No -> 3; is Conditional -> 2; is Unsure -> 1; is Yes -> 0 }
 }
 
 data class Answer(val verdict: Verdict, val gatesOn: Boolean, val nextChange: Instant?)
@@ -121,10 +128,11 @@ class RuleEngine(
      *  tra sabato festivo e domenica è libera, quella tra venerdì e un sabato festivo no. */
     private fun activeStartDays(zone: Zone, at: Instant): List<LocalDate> {
         val d = at.atZone(ROME)
-        val wd = weekday(d)
         val minute = d.hour * 60 + d.minute
-        val yesterday = if (wd == 1) 7 else wd - 1
         val dayBefore = d.minusDays(1)
+        // Un festivo conta come domenica se la zona lo dice (holidaysAsSunday), come effectiveWeekday dell'iPhone
+        val wd = effectiveWeekday(zone, d)
+        val yesterday = effectiveWeekday(zone, dayBefore)
         val out = mutableListOf<LocalDate>()
         for (w in zone.windows) {
             if (w.end > w.start) {
@@ -137,6 +145,10 @@ class RuleEngine(
         }
         return out
     }
+
+    /** Il giorno della settimana per gli orari: un festivo conta come domenica se la zona lo dice (holidaysAsSunday) */
+    private fun effectiveWeekday(zone: Zone, d: ZonedDateTime): Int =
+        if (zone.holidaysAsSunday == true && isHoliday(zone, d.toLocalDate())) 1 else weekday(d)
 
     /** Festivo nazionale o festa del patrono della città della zona */
     fun isHoliday(zone: Zone, day: LocalDate): Boolean = ItalianHolidays.isHoliday(day, zone.localHolidays)
