@@ -191,7 +191,11 @@ p{margin:0}
 .answer[data-v=yes]{--v-bg:var(--green);--v-fg:#fff;--v-badge:#fff;--v-mark:var(--green)}
 .answer[data-v=no]{--v-bg:#C1272D;--v-fg:#fff;--v-badge:#fff;--v-mark:#C1272D}
 .answer[data-v=cond]{--v-bg:var(--amber-soft);--v-fg:var(--ink);--v-badge:#8A5A00;--v-mark:#fff}
-.answer[data-v=unsure]{--v-bg:var(--unsure);--v-fg:var(--ink);--v-badge:var(--muted);--v-mark:var(--paper)}
+/* 1.20.0: «non sicuro» (dati vecchi, festivo non confermato, fonte non ufficiale) è giallo con il «?», come nell'app */
+.answer[data-v=unsure]{--v-bg:var(--amber-soft);--v-fg:var(--ink);--v-badge:#8A5A00;--v-mark:#fff}
+/* 1.20.0: un posto che non conosciamo (fuori dalle città coperte): neutro, mai verde */
+.answer[data-v=unk]{--v-bg:var(--paper);--v-fg:var(--ink);--v-badge:var(--muted);--v-mark:var(--paper);border:1px solid var(--line)}
+.led[data-light=neutral]{--led:#A9B3D1}
 .answer[data-v=out]{--v-bg:var(--paper);--v-fg:var(--ink);--v-badge:var(--green);--v-mark:#fff;border:1px solid var(--line)}
 /* 1.19.5: in attesa della risposta (dati della città in arrivo) o senza un luogo: neutro, mai verde */
 .answer[data-v=wait]{--v-bg:var(--paper);--v-fg:var(--ink);--v-badge:var(--well);--v-mark:transparent;border:1px solid var(--line)}
@@ -525,7 +529,7 @@ const T = {
   today:"today at", tomorrow:"tomorrow at", on:"on", at:"at", d:"d", h:"h", min:"min", onSince:"On since", offSince:"Off since", onIn:"On in", offIn:"Off in",
   read:(d,c)=>`Read ${d} from the City of ${c}:`, official:"official page ↗", nights:"nights", open:"open to all", notConf:"not confirmed", asSun:"as on Sunday", hol:"Public holidays",
   loadErr:"Couldn't load the rules of this city. Check your connection.", retry:"Try again",
-  perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", far:"We don't cover this place yet. GateLR covers {{N}} Italian cities: see the ZTL guides below.",
+  perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", unk:"We don't know this place", unkWhere:"outside the cities we cover", far:"We don't cover this place yet. GateLR covers {{N}} Italian cities: see the ZTL guides below.",
   msg:(day,time,h,pl)=>`${h ? "Dear " + h + " team," : "Hello,"}\n\nI'm arriving by car on ${day} at about ${time}. Could you please register my plate ${pl || "[PLATE]"} for the ZTL, so I can reach the hotel without a fine?\n\nThank you!`},
  it:{
   cityL:"Città", carL:"Veicolo", whenL:"Quando", dToday:"Oggi", dTomorrow:"Domani", slideHint:"Trascina l'ora: la risposta cambia subito", ledCap:"Il pannello al varco", ledOut:"FUORI ZTL", vRental:"Auto a noleggio", vRentalS:"benzina Euro 6", vP3:"Benzina Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Ibrida", vEl:"Elettrica", vMoto:"Moto / scooter", vMotoS:"benzina Euro 5", whyMoto:"I varchi sono accesi, ma moto e scooter possono entrare.", whyMotoBan:"I varchi sono accesi. Qui le moto hanno limiti Euro loro: controlla la tua sul sito del Comune.", whyMotoNo:e=>`Moto e scooter Euro ${e} non possono entrare in questa zona quando è attiva.`, whyMotoOk:e=>`La tua moto (Euro ${e}) può entrare in questa zona a basse emissioni.`, moreC:n=>`e altre ${n}`, lessC:"Meno", lcond:"Con ticket o condizioni", allC:"Tutte le città",
@@ -559,7 +563,7 @@ const T = {
   today:"oggi alle", tomorrow:"domani alle", on:"", at:"alle", d:"g", h:"h", min:"min", onSince:"Accesi dalle", offSince:"Spenti dalle", onIn:"Si accendono tra", offIn:"Si spengono tra",
   read:(d,c)=>`Letto il ${d} dal sito del Comune di ${c}:`, official:"pagina ufficiale ↗", nights:"notti", open:"libero", notConf:"da confermare", asSun:"come la domenica", hol:"Festivi",
   loadErr:"Non riesco a caricare le regole di questa città. Controlla la connessione.", retry:"Riprova",
-  perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", far:"Questo luogo non è ancora coperto. GateLR copre {{N}} città italiane: vedi le guide ZTL qui sotto.",
+  perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", unk:"Non conosciamo questo posto", unkWhere:"fuori dalle città coperte", far:"Questo luogo non è ancora coperto. GateLR copre {{N}} città italiane: vedi le guide ZTL qui sotto.",
   msg:(day,time,h,pl)=>`${h ? "Gentile staff di " + h + "," : "Buongiorno,"}\n\narrivo in auto ${day} verso le ${time}. Potete registrare la mia targa ${pl || "[TARGA]"} per la ZTL, così raggiungo l'hotel senza multa?\n\nGrazie!`},
  de:{
   cityL:"Stadt", carL:"Fahrzeug", whenL:"Wann", dToday:"Heute", dTomorrow:"Morgen", slideHint:"Zieh an der Uhrzeit: die Antwort ändert sich sofort", ledCap:"Die Anzeige an der Einfahrt", ledOut:"KEINE ZTL", vRental:"Mietwagen", vRentalS:"Benzin Euro 6", vP3:"Benzin Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Hybrid", vEl:"Elektro", vMoto:"Motorrad / Roller", vMotoS:"Benzin Euro 5", whyMoto:"Die Kameras sind aktiv, aber Motorräder und Roller dürfen hinein.", whyMotoBan:"Die Kameras sind aktiv. Für Motorräder gelten hier eigene Euro-Grenzen: prüfe deins auf der Seite der Stadt.", whyMotoNo:e=>`Motorräder und Roller Euro ${e} dürfen nicht in diese Zone, solange sie aktiv ist.`, whyMotoOk:e=>`Dein Motorrad (Euro ${e}) darf in diese Umweltzone.`, moreC:n=>`und ${n} weitere`, lessC:"Weniger", lcond:"Mit Ticket oder Bedingung", allC:"Alle Städte",
@@ -593,7 +597,7 @@ const T = {
   today:"heute um", tomorrow:"morgen um", on:"am", at:"um", d:"T", h:"Std", min:"Min", onSince:"Aktiv seit", offSince:"Aus seit", onIn:"Aktiv in", offIn:"Aus in",
   read:(d,c)=>`Gelesen am ${d} bei der Stadt ${c}:`, official:"offizielle Seite ↗", nights:"Nächte", open:"frei", notConf:"unbestätigt", asSun:"wie sonntags", hol:"Feiertage",
   loadErr:"Die Regeln dieser Stadt lassen sich gerade nicht laden. Prüfe deine Verbindung.", retry:"Nochmal versuchen",
-  perDay:"pro Tag", verifying:"Betrag wird geprüft", stillChecking:"Beträge werden noch am offiziellen Text geprüft.", point:"Punkt auf der Karte", far:"Diesen Ort decken wir noch nicht ab. GateLR deckt {{N}} italienische Städte ab: siehe die ZTL-Ratgeber unten.",
+  perDay:"pro Tag", verifying:"Betrag wird geprüft", stillChecking:"Beträge werden noch am offiziellen Text geprüft.", point:"Punkt auf der Karte", unk:"Diesen Ort kennen wir nicht", unkWhere:"außerhalb der abgedeckten Städte", far:"Diesen Ort decken wir noch nicht ab. GateLR deckt {{N}} italienische Städte ab: siehe die ZTL-Ratgeber unten.",
   msg:(day,time,h,pl)=>`${h ? "Liebes Team von " + h + "," : "Guten Tag,"}\n\nich komme am ${day} gegen ${time} mit dem Auto an. Könnten Sie bitte mein Kennzeichen ${pl || "[KENNZEICHEN]"} für die ZTL anmelden, damit ich das Hotel ohne Bußgeld erreiche?\n\nVielen Dank!`}
 };
 const LOCALE = {en:"en-GB", it:"it-IT", de:"de-DE"};
@@ -636,8 +640,10 @@ function rome(t){ const p = {}; for (const x of fmtParts.formatToParts(t)) p[x.t
 function easter(y){ const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e=b%4,f=Math.floor((b+8)/25),g=Math.floor((b-f+1)/3),
   h=(19*a+b-d-g+15)%30,i=Math.floor(c/4),k=c%4,l=(32+2*e+2*i-h-k)%7,m=Math.floor((a+11*h+22*l)/451);
   return [Math.floor((h+l-7*m+114)/31), (h+l-7*m+114)%31+1]; }
-function isHoliday(r){ if (r.wd === 1) return false;
+// Festivo nazionale o (1.20.0) festa del patrono della città della zona («localHolidays», "MM-DD"), come ItalianHolidays nell'app
+function isHoliday(r, zone){ if (r.wd === 1) return false;
   const md = r.m*100 + r.d; if ([101,106,425,501,602,815,1101,1208,1225,1226].includes(md)) return true;
+  if (zone && (zone.localHolidays || []).includes(`${String(r.m).padStart(2,"0")}-${String(r.d).padStart(2,"0")}`)) return true;
   const [em, ed] = easter(r.y); const mon = new Date(Date.UTC(r.y, em-1, ed+1)); return mon.getUTCMonth()+1 === r.m && mon.getUTCDate() === r.d; }
 // Stagioni: date fisse o, dalla 1.17.1, regole «n-esimo giorno della settimana del mese» in from/to (Tools/seasons.py),
 // es. {month:4, weekday:5, nth:1} = primo giovedì di aprile; nth -1 = l'ultimo; offset in giorni. Come TimeWindow.Season nell'app
@@ -648,15 +654,26 @@ function seasonBounds(s, y){ const [fm, fd] = s.from ? ruleDay(s.from, y) : [s.f
   return [fm*100 + fd, tm*100 + td]; }
 function inSeason(w, r){ if (!w.season) return true; const md = r.m*100 + r.d, [a, b] = seasonBounds(w.season, r.y);
   return a <= b ? (md >= a && md <= b) : (md >= a || md <= b); }
+// Il giorno prima nel calendario (non 24 ore prima: il giorno dopo il cambio dell'ora sarebbe due giorni prima)
+function dayBefore(r){ const x = new Date(Date.UTC(r.y, r.m-1, r.d - 1));
+  return {y:x.getUTCFullYear(), m:x.getUTCMonth()+1, d:x.getUTCDate(), min:r.min, wd:x.getUTCDay() + 1}; }
+// I giorni in cui sono iniziate le fasce accese in questo momento, come activeStartDays dell'app (1.20.0): per la parte dopo
+// mezzanotte di una fascia notturna il giorno è quello prima (la notte tra sabato festivo e domenica è libera, quella tra
+// venerdì e un sabato festivo no). Festivi con gli orari della domenica (holidaysAsSunday)
+function startDays(zone, t){
+  const r = rome(t), prev = dayBefore(r), out = [];
+  const wd = x => zone.holidaysAsSunday === true && isHoliday(x, zone) ? 1 : x.wd, today = wd(r), yesterday = wd(prev);
+  for (const w of zone.windows){
+    if (w.end > w.start){ if (w.weekdays.includes(today) && inSeason(w, r) && r.min >= w.start && r.min < w.end) out.push(r); continue; }
+    if (w.weekdays.includes(today) && inSeason(w, r) && r.min >= w.start) out.push(r);
+    if (w.weekdays.includes(yesterday) && inSeason(w, prev) && r.min < w.end) out.push(prev);
+  }
+  return out;
+}
 function activeAt(zone, t, ignoreHolidays){
-  const r = rome(t);
-  if (!ignoreHolidays && zone.freeOnHolidays === true && isHoliday(r)) return false;
-  const prev = rome(new Date(t.getTime() - 86400000));
-  // Festivi con gli orari della domenica (holidaysAsSunday), come nell'app
-  const wd = x => zone.holidaysAsSunday === true && isHoliday(x) ? 1 : x.wd, today = wd(r), yesterday = wd(prev);
-  return zone.windows.some(w => w.end > w.start
-    ? w.weekdays.includes(today) && inSeason(w, r) && r.min >= w.start && r.min < w.end
-    : (w.weekdays.includes(today) && inSeason(w, r) && r.min >= w.start) || (w.weekdays.includes(yesterday) && inSeason(w, prev) && r.min < w.end));
+  const s = startDays(zone, t);
+  if (ignoreHolidays || zone.freeOnHolidays !== true) return s.length > 0;
+  return s.some(x => !isHoliday(x, zone));
 }
 function scan(zone, t, dir){ const on = activeAt(zone, t); let x = new Date(Math.floor(t.getTime()/300000)*300000);
   if (dir > 0) x = new Date(x.getTime() + 300000);
@@ -664,6 +681,8 @@ function scan(zone, t, dir){ const on = activeAt(zone, t); let x = new Date(Math
     if (activeAt(zone, probe) !== on) return x; x = new Date(x.getTime() + dir*300000); } return null; }
 // Tipo di zona: se manca, «pass» quando c'è il ticket, altrimenti «restricted»
 const kindOf = z => z.kind || (z.ticket ? "pass" : "restricted");
+// L'ora di adesso per i dati vecchi (i test la fissano: Tools/check_engine_cases.mjs)
+const CLOCK = {now: () => Date.now()};
 const ymd = t => { const r = rome(t); return `${r.y}-${String(r.m).padStart(2,"0")}-${String(r.d).padStart(2,"0")}`; };
 // Divieti per classe Euro in vigore alla data di arrivo: per ogni carburante la classe più alta vietata
 function bansAt(z, t){ const d = ymd(t), m = {};
@@ -686,9 +705,9 @@ function motoBannedAt(z, t, v){ const d = ymd(t), cat = v.motoClass || "motorcyc
 function bannedAt(z, t, v){ const g = banGroup(v.fuel), d = ymd(t); return !!g && (z.bans || []).some(b => b.fuel === g && v.euro <= b.maxEuro && b.since <= d); }
 function answer(zone, t, staying, v = CARS[0], quick = false){
   const on = activeAt(zone, t), next = quick ? null : scan(zone, t, 1), since = quick ? null : scan(zone, t, -1), k = kindOf(zone);
-  const age = Math.floor((Date.now() - new Date(zone.source.checkedOn)) / 86400000);
+  const age = Math.floor((CLOCK.now() - new Date(zone.source.checkedOn)) / 86400000);
   if (age > 120) return {v:"unsure", title:t_("unsure"), why:T[lang].whyStale(age), on, next, since};
-  if (zone.freeOnHolidays == null && isHoliday(rome(t)) && activeAt(zone, t, true))
+  if (zone.freeOnHolidays == null && startDays(zone, t).some(x => isHoliday(x, zone)))
     return {v:"unsure", title:t_("unsure"), why:t_("whyHol"), on:true, next, since};
   if (!on) return {v:"yes", title:t_("yes"), why:T[lang].whyOff(next ? when(next, new Date()) : ""), on, next, since};
   // Prima il tipo di veicolo (moto e scooter), poi alimentazione e classe Euro: lo stesso ordine dell'app
@@ -730,6 +749,36 @@ const ZONES_OF = {};
 function zoneAt(lat, lon){
   for (const c of CITIES){ if (!c.zones) continue; const z = ZONES_OF[c.id].find(z => contains(z, lat, lon)); if (z) return {city: c, zone: z}; }
   return null; }
+// Tutte le zone che contengono il punto, dalla più piccola (Area C dentro Area B, Settore A dentro lo Scudo Verde)
+function zonesAt(lat, lon){ const out = [];
+  for (const c of CITIES){ if (!c.zones) continue; for (const z of ZONES_OF[c.id]) if (contains(z, lat, lon)) out.push({city: c, zone: z}); }
+  return out.sort((a, b) => area(a.zone) - area(b.zone)); }
+// 1.20.0, come City.covers dell'app: il punto è entro 2 km dal riquadro di zone e aree pedonali di una città («ab» dell'indice)
+function covered(lat, lon){ return CITIES.some(c => { const b = c.ab; if (!b) return false;
+  const dLat = lat < b[0] ? b[0] - lat : lat > b[2] ? lat - b[2] : 0, dLon = lon < b[1] ? b[1] - lon : lon > b[3] ? lon - b[3] : 0;
+  return Math.hypot(dLat*111000, dLon*111000*Math.cos(lat*Math.PI/180)) <= 2000; }); }
+const unofficial = z => !!z && z.source.official === false;
+// La risposta come si mostra: un «sì» da fonte non ufficiale non è mai verde, è «non sicuro» (giallo con «?»)
+const shown = (v, z) => unofficial(z) && v === "yes" ? "unsure" : v;
+const SEV = {no:3, cond:2, unsure:1, yes:0};
+// Il colore di una zona, come la mappa dell'app (Access): non sicuro giallo, spenta grigia, fonte non ufficiale mai verde né grigia
+function zoneColour(r, z){ const c = r.v === "unsure" ? "yellow" : !r.on ? "grey" : r.v === "no" ? "red" : r.v === "cond" ? "yellow" : "green";
+  return unofficial(z) && (c === "green" || c === "grey") ? "yellow" : c; }
+// 1.20.0 «Motore unico»: la risposta per un posto, come PlaceCheck dell'app. Decide la zona con la risposta peggiore
+// (no > condizione > non sicuro > sì, come si mostra), a parità la più piccola: a Palazzo Vecchio di notte un diesel Euro 1
+// non entra per lo Scudo Verde anche con il Settore A spento. L'area pedonale vince; fuori dalle zone verde solo in una città
+// che conosciamo, altrimenti neutro. Gli stessi casi di prova dell'app: shared/engine-cases.json
+function placeAnswer(lat, lon, t, staying, v = CARS[0], quick = false){
+  const hits = zonesAt(lat, lon), ped = pedAt(lat, lon), cov = covered(lat, lon) || hits.length > 0 || !!ped;
+  let best = -1; const rs = hits.map(h => answer(h.zone, t, staying, v, quick));
+  rs.forEach((r, i) => { if (best < 0 || SEV[shown(r.v, hits[i].zone)] > SEV[shown(rs[best].v, hits[best].zone)]) best = i; });
+  const hit = best >= 0 ? hits[best] : null, r = hit ? rs[best] : null, z = hit ? hit.zone : null;
+  const unoff = !ped && unofficial(z);
+  const kind = ped ? "ped" : r ? shown(r.v, z) : cov ? "out" : "unk";
+  const colour = ped ? "red" : r ? zoneColour(r, z) : cov ? "green" : "neutral";
+  const verdict = ped ? "no" : r ? shown(r.v, z) : cov ? "yes" : "unsure";
+  return {hits, hit, zone: z, city: hit ? hit.city : null, r, ped, covered: cov, unoff, kind, colour, verdict};
+}
 // Aree pedonali: niente auto, mai
 function pedAt(lat, lon){ for (const c of CITIES) if (c.zones) for (const a of c.pedestrian || []) if (contains(a, lat, lon)) return {city: c, area: a}; return null; }
 function nearestZone(lat, lon){ let best = null, bc = null, bd = 1e9;
@@ -761,7 +810,10 @@ function loadCity(c){
   if (!LOADING[c.id]){
     const early = (window.__glr || {})[c.id]; if (window.__glr) delete window.__glr[c.id];   // partita dalla testa della pagina
     LOADING[c.id] = (early ? early.catch(() => getJSON(ROOT + c.f, 30000)) : getJSON(ROOT + c.f, 30000)).then(d => {
-      Object.assign(c, d); ZONES_OF[c.id] = [...c.zones].sort((a, b) => area(a) - area(b)); return c;
+      Object.assign(c, d);
+      // Il motore riceve solo la zona: le feste del patrono della città le porta lei (come CityLoader nell'app)
+      if (c.localHolidays) for (const z of c.zones) z.localHolidays = c.localHolidays;
+      ZONES_OF[c.id] = [...c.zones].sort((a, b) => area(a) - area(b)); return c;
     }, e => { delete LOADING[c.id]; throw e; });
   }
   return LOADING[c.id];
@@ -801,7 +853,7 @@ const MAP_THEME = {
 const mapTheme = () => MAP_THEME[DARK() ? "dark" : "light"];
 // Lo stato disegnato di una zona per il veicolo e l'ora scelti: c = colore (no, cond, yes, off), q = da verificare, on = attiva
 function look(z, t, v, r){ r = r || answer(z, t, false, v, true);
-  if (r.v === "unsure") return {c:"cond", q:true, on:!!r.on};
+  if (r.v === "unsure" || (unofficial(z) && (r.v === "yes" || !r.on))) return {c:"cond", q:true, on:!!r.on};
   if (!r.on) return {c:"off", q:false, on:false};
   return {c: r.v === "no" ? "no" : r.v === "cond" ? "cond" : "yes", q:false, on:true}; }
 const X = lon => (lon - box.minLon) / (box.maxLon - box.minLon) * W, Y = lat => (box.maxLat - lat) / (box.maxLat - box.minLat) * H;
@@ -909,7 +961,7 @@ function track(kind, z, staying){
   let css = "var(--line)";
   if (kind === "ped") css = "var(--red)"; else if (kind === "out") css = "var(--green)";
   else if (z){ const st = []; let prev = null, from = 0;
-    for (let i = 0; i <= 96; i++){ const v = i < 96 ? answer(z, romeInstant(r.y, r.m, r.d, i*15), staying, CARS[state.car], true).v : null;
+    for (let i = 0; i <= 96; i++){ const v = i < 96 ? shown(answer(z, romeInstant(r.y, r.m, r.d, i*15), staying, CARS[state.car], true).v, z) : null;
       if (v !== prev){ if (prev) st.push(`${VCOL[prev]} ${(from/96*100).toFixed(2)}% ${(i/96*100).toFixed(2)}%`); prev = v; from = i; } }
     css = `linear-gradient(90deg,${st.join(",")})`; }
   $("hour").style.setProperty("--track", css);
@@ -938,7 +990,10 @@ function render(){
   const t = arrivalTime(), p = state.place, a = $("answer"), v = CARS[state.car];
   syncTime(); chipsState();
   // la città del luogo (i suoi dati ci sono già: choose li aspetta)
-  const hit = p && zoneAt(p.lat, p.lon), near = !p || hit ? null : nearestZone(p.lat, p.lon), ped = p && pedAt(p.lat, p.lon);
+  // 1.20.0: la zona che decide è quella con la risposta peggiore tra tutte le zone del posto (placeAnswer, come l'app)
+  const staying = !!p && (/hotel|b&b|hostel|albergo|residence/i.test(p.name) || !!p.hotel);
+  const pa = p ? placeAnswer(p.lat, p.lon, t, staying, v) : null;
+  const hit = pa && pa.hit, near = !p || hit ? null : nearestZone(p.lat, p.lon), ped = p && pedAt(p.lat, p.lon);
   const c = p ? (ped ? ped.city : hit ? hit.city : near.city) : city;
   if (c && c !== city){ city = c; chipsState(); }
   // dati della città ancora in arrivo: lo scheletro, mai una risposta in anticipo
@@ -979,30 +1034,32 @@ function render(){
   if (!z){
     const n = near;
     updateRealMap(p, null, null, paintAll(t));
-    setVerdict("out"); led(t_("ledOut"), "green");
-    $("a-where").textContent = `${p.name} · ${t_("outside")}`;
+    // 1.20.0: fuori dalle città che conosciamo (oltre 2 km dalle loro zone) la risposta è neutra, mai verde
+    const known = !pa || pa.covered;
+    if (known){ setVerdict("out"); led(t_("ledOut"), "green"); } else { setVerdict("unk"); led("ZONA NON COPERTA", "neutral"); }
+    $("a-where").textContent = `${p.name} · ${known ? t_("outside") : t_("unkWhere")}`;
     $("a-gates").textContent = t_("noGates");
-    $("a-title").textContent = t_("out");
+    $("a-title").textContent = known ? t_("out") : t_("unk");
     $("a-until").textContent = "";
-    $("a-why").textContent = n.meters > 15000 ? t_("far") : T[lang].whyOut(Math.round(n.meters/50)*50, cityName(n.city));
-    $("a-mark").innerHTML = `<path d="${MARKS.out}"/>`;
+    $("a-why").textContent = known ? T[lang].whyOut(Math.round(n.meters/50)*50, cityName(n.city)) : t_("far");
+    $("a-mark").innerHTML = `<path d="${known ? MARKS.out : MARKS.unsure}"/>`;
     $("a-count").hidden = true;
-    track("out");
+    track(known ? "out" : "none");
     renderDetails(n.zone, t);
     sources(n.zone);
     return;
   }
-  const staying = /hotel|b&b|hostel|albergo|residence/i.test(p.name) || !!p.hotel;
-  const r = answer(z, t, staying, v);
+  const r = pa ? pa.r : answer(z, t, staying, v), shownV = pa ? pa.kind : r.v;
   updateRealMap(p, z, null, paintAll(t, {id: z.id, r}));
-  setVerdict(r.v);
-  led(r.on ? "VARCO ATTIVO" : "VARCO NON ATTIVO", r.on ? (r.v === "unsure" ? "amber" : "red") : "green");
+  // Il colore dice la risposta come si mostra: un «sì» da fonte non ufficiale è giallo con il «?» (mai verde)
+  setVerdict(shownV);
+  led(r.on ? "VARCO ATTIVO" : "VARCO NON ATTIVO", shownV === "no" ? "red" : shownV === "yes" ? "green" : "amber");
   $("a-where").textContent = `${p.name} · ${zoneLabel(z)} · ${stamp}`;
   $("a-gates").textContent = r.on ? t_("gOn") : t_("gOff");
   $("a-title").textContent = unoff && r.v === "yes" ? t_("probYes") : unoff && r.v === "no" ? t_("probNo") : r.title;
   $("a-until").textContent = r.next ? T[lang][r.on ? "untilOn" : "untilOff"](when(r.next, new Date())) : r.on ? t_("always") : "";
   $("a-why").textContent = r.why + (staying ? "" : (r.on && z.hotelCanRegister && r.v !== "yes" ? t_("hint") : ""));
-  $("a-mark").innerHTML = `<path d="${MARKS[r.v]}"/>`;
+  $("a-mark").innerHTML = `<path d="${MARKS[shownV]}"/>`;
   if (r.next && r.since){ $("a-count").hidden = false;
     const span = r.next - r.since, done = Math.min(1, Math.max(.03, (t - r.since)/span));
     $("a-bar").style.width = (done*100).toFixed(1) + "%";
@@ -1112,7 +1169,7 @@ function showSuggest(list){
 }
 // «in ZTL» / «fuori» accanto al suggerimento: subito se la città è già scaricata, altrimenti uno scheletro finché arriva
 function whereLabel(el, p){
-  const set = () => { const hit = zoneAt(p.lat, p.lon), ped = pedAt(p.lat, p.lon); el.classList.remove("skel"); el.textContent = ped ? t_("ped") : hit ? t_("inside") : t_("out2"); };
+  const set = () => { const hit = zoneAt(p.lat, p.lon), ped = pedAt(p.lat, p.lon); el.classList.remove("skel"); el.textContent = ped ? t_("ped") : hit ? t_("inside") : covered(p.lat, p.lon) ? t_("out2") : t_("unkWhere"); };
   const need = CITIES.filter(c => !c.zones && inBox(c.ab, p.lat, p.lon));
   if (!need.length) return set();
   el.classList.add("skel"); el.textContent = "\u00A0";
