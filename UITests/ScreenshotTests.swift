@@ -592,8 +592,7 @@ final class ScreenshotTests: XCTestCase {
     }
 
     /// 1.19.4 «Privacy onesta»: la pagina Privacy (foto 48), poi il diario dei passaggi con una targa nel Garage: la riga
-    /// nell'app mostra GX482KM (resta sul telefono), il testo da condividere no (foto 49) e nemmeno il foglio di
-    /// condivisione (foto 49b). L'ultimo test: la targa e il diario restano salvati nel simulatore
+    /// nell'app mostra GX482KM (resta sul telefono), il testo da condividere no (foto 49). L'ultimo test: la targa e il diario restano salvati nel simulatore
     func test9fPrivacy() {
         app.terminate()
         app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiPlate", "GX482KM"]
@@ -623,12 +622,8 @@ final class ScreenshotTests: XCTestCase {
         XCTAssertFalse(preview.label.isEmpty, "testo da condividere vuoto")
         sleep(1)
         snap("49-share-no-plate")
-        let share = app.descendants(matching: .any)["log.share"].firstMatch
-        if share.exists && share.isHittable {
-            share.tap()
-            sleep(4)
-            snap("49b-share-sheet-no-plate")
-        }
+        // Niente foglio di condivisione (foto 49b): aperto alla fine del giro teneva il simulatore occupato e la corsa
+        // 41537590174 è rimasta ferma fino al tempo massimo. Il testo che si condivide è già controllato qui sopra.
     }
 
     private func snap(_ name: String) {
