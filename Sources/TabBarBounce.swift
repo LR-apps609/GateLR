@@ -26,10 +26,9 @@ enum TabBarBounce {
         }
     }
 
-    /// 1 → 1,12 in 0,09 s, poi ritorno a 1 con una molla senza rimbalzo (smorzamento 1): circa 0,25 s in tutto
+    /// 1 → 1,12 in 0,09 s, poi ritorno a 1 con una molla senza rimbalzo (smorzamento 1): circa 0,25 s in tutto.
+    /// Interrompibile: con tocchi ravvicinati riparte dalla scala attuale (.beginFromCurrentState), senza scatti a 1.
     private static func scale(_ view: UIView) {
-        view.layer.removeAllAnimations()
-        view.transform = .identity
         UIView.animate(withDuration: 0.09, delay: 0, options: [.curveEaseOut, .allowUserInteraction, .beginFromCurrentState]) {
             view.transform = CGAffineTransform(scaleX: 1.12, y: 1.12)
         } completion: { _ in

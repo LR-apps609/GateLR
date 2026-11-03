@@ -1,6 +1,6 @@
 Novità (barra delle schede):
 • Quando scegli una scheda la sua icona fa un piccolo rimbalzo, appena percepibile (meno di 0,3 s, solo la scala); la mappa si ingrandisce un attimo e torna com'era. La barra resta quella di sistema e il contenuto cambia subito; la vibrazione al cambio di scheda resta
-• Su Android lo stesso rimbalzo sull'icona e una dissolvenza breve tra le schede (0,18 s), senza scorrimento
+• Su Android lo stesso rimbalzo sull'icona e una dissolvenza breve tra le schede (0,15 s), senza scorrimento
 • Con «Riduci movimento» (iPhone) o con le animazioni spente (Android) niente animazioni: solo il cambio immediato
 
 Novità della 1.19.4 (privacy onesta):

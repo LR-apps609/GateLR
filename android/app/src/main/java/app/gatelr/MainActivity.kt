@@ -125,8 +125,8 @@ fun Root() {
         }
     }) { pad ->
         val m = Modifier.padding(pad)
-        // Cambio di scheda: dissolvenza breve (180 ms), niente scorrimento; con le animazioni spente è immediato
-        Crossfade(targetState = Nav.tab, animationSpec = tween(if (animationsOn()) 180 else 0), label = "scheda") { tab ->
+        // Cambio di scheda: dissolvenza breve (150 ms, la barra si tocca spessissimo), niente scorrimento; con le animazioni spente è immediato
+        Crossfade(targetState = Nav.tab, animationSpec = tween(if (animationsOn()) 150 else 0), label = "scheda") { tab ->
             when (tab) {
                 0 -> HomeScreen(m)
                 1 -> MapScreen(m)
