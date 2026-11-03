@@ -96,6 +96,16 @@ struct PlaceCheck {
         }
     }
 
+    /// 1.20.0 «Motore unico»: il colore della risposta per il posto, come sulla mappa. Area pedonale rossa, fuori dalle zone
+    /// di una città che conosciamo verde, la zona che decide con i colori della mappa (spenta grigia, fonte non ufficiale mai
+    /// verde né grigia); nil = neutro, un posto che non conosciamo (mai verde). Lo stesso calcolo su Android (PlaceCheck.color)
+    /// e sul sito (placeAnswer), provato con gli stessi casi (shared/engine-cases.json)
+    var access: Access? {
+        if pedestrian != nil { return .closed }
+        guard let answer, let hit else { return covered ? .open : nil }
+        return Access.of(answer, zone: hit.zone, status: hit.city.status)
+    }
+
     /// Il colore di una zona sulla mappa (MapTheme): il bordo nel colore della SUA risposta, mai quella del posto
     static func zoneTint(_ access: Access, lit: Bool) -> Color { MapTheme.tone(access).line }
 

@@ -205,6 +205,14 @@ enum Access: CaseIterable, Hashable {
         self = Access(answer.verdict, status: status, pendingCritical: pendingCritical)
     }
 
+    /// La risposta di una zona come si mostra (mappa, legenda, PlaceCheck.access). Fonte non ufficiale (1.19.0): mai verde
+    /// né grigio, giallo con il «?» («Probabilmente sì», controlla il cartello). Gli stessi colori nei casi di prova comuni
+    /// di iPhone, Android e sito (shared/engine-cases.json, 1.20.0)
+    static func of(_ answer: Answer, zone: Zone, status: City.Status?) -> Access {
+        let access = Access(answer, status: status)
+        return zone.isUnofficial && (access == .open || access == .off) ? .check : access
+    }
+
     /// Come sopra, ma dati di esempio o un punto critico ancora da verificare non danno mai una risposta piena
     init(_ verdict: Verdict, status: City.Status?, pendingCritical: Bool = false) {
         let base = Access(verdict)
@@ -279,10 +287,7 @@ enum AccessCache {
         if k != key { key = k; values = [:] }
         if let hit = values[zone.id] { return hit }
         let answer = store.answer(at: date, zone: zone, hotelInside: false)
-        var access = Access(answer, status: status[zone.id])
-        // Fonte non ufficiale (1.19.0): mai verde né grigio, giallo con il «?» («Probabilmente sì», controlla il cartello)
-        if zone.isUnofficial && (access == .open || access == .off) { access = .check }
-        let l = Look(access: access, active: answer.gatesOn)
+        let l = Look(access: Access.of(answer, zone: zone, status: status[zone.id]), active: answer.gatesOn)
         values[zone.id] = l
         return l
     }
