@@ -257,6 +257,7 @@ p{margin:0}
 .answer .meta{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;opacity:.92;flex-wrap:wrap}
 .answer hr{border:0;border-top:1px solid color-mix(in srgb,var(--v-fg) 25%,transparent);margin:0}
 .answer .src{font-size:14px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.answer .src .ver{flex-basis:100%}
 .answer .src a{color:inherit;font-weight:600}
 .answer[data-v=cond] .draft{background:var(--sheet)}
 .draft{background:var(--amber-soft);color:var(--ink);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:400}
@@ -564,7 +565,7 @@ const T = {
   hint:" Staying at a hotel inside? Your hotel can register your plate.", whyOut:(m,c)=>`This place is outside ${c}'s ZTL. The restricted zone starts about ${m} m away: don't follow the satnav through it.`,
   outside:"outside the ZTL", inside:"inside the ZTL", out2:"outside", noGates:"No gates here", gOn:"Gates on", gOff:"Gates off", nowAt:"now",
   today:"today at", tomorrow:"tomorrow at", on:"on", at:"at", d:"d", h:"h", min:"min", onSince:"On since", offSince:"Off since", onIn:"On in", offIn:"Off in",
-  read:(d,c)=>`Read ${d} from the City of ${c}:`, official:"official page ↗", nights:"nights", open:"open to all", notConf:"not confirmed", asSun:"as on Sunday", hol:"Public holidays",
+  read:(d,c)=>`Read ${d} from the City of ${c}:`, verified:d=>`Verified ${d}.`, notVerified:"Not verified yet: check the sign.", whyUnverified:"This rule hasn't been verified yet: check the sign.", whyOldCheck:d=>`Last verified more than ${d} days ago: check the sign.`, whyChanged:"The city's page has changed: check the sign.", official:"official page ↗", nights:"nights", open:"open to all", notConf:"not confirmed", asSun:"as on Sunday", hol:"Public holidays",
   loadErr:"Couldn't load the rules of this city. Check your connection.", retry:"Try again",
   perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", unk:"We don't know this place", unkWhere:"outside the cities we cover", far:"We don't cover this place yet. GateLR covers 46 Italian cities: see the ZTL guides below.",
   msg:(day,time,h,pl)=>`${h ? "Dear " + h + " team," : "Hello,"}\n\nI'm arriving by car on ${day} at about ${time}. Could you please register my plate ${pl || "[PLATE]"} for the ZTL, so I can reach the hotel without a fine?\n\nThank you!`},
@@ -598,7 +599,7 @@ const T = {
   hint:" Dormi in un hotel dentro la zona? L'hotel può comunicare la tua targa.", whyOut:(m,c)=>`Questo luogo è fuori dalla ZTL di ${c}. La zona limitata inizia a circa ${m} m: non seguire il navigatore attraverso il centro.`,
   outside:"fuori ZTL", inside:"in ZTL", out2:"fuori", noGates:"Nessun varco", gOn:"Varchi accesi", gOff:"Varchi spenti", nowAt:"adesso",
   today:"oggi alle", tomorrow:"domani alle", on:"", at:"alle", d:"g", h:"h", min:"min", onSince:"Accesi dalle", offSince:"Spenti dalle", onIn:"Si accendono tra", offIn:"Si spengono tra",
-  read:(d,c)=>`Letto il ${d} dal sito del Comune di ${c}:`, official:"pagina ufficiale ↗", nights:"notti", open:"libero", notConf:"da confermare", asSun:"come la domenica", hol:"Festivi",
+  read:(d,c)=>`Letto il ${d} dal sito del Comune di ${c}:`, verified:d=>`Verificato il ${d}.`, notVerified:"Non ancora verificato: controlla il cartello.", whyUnverified:"Questa regola non è ancora stata verificata: controlla il cartello.", whyOldCheck:d=>`Verificata più di ${d} giorni fa: controlla il cartello.`, whyChanged:"La pagina del Comune è cambiata: controlla il cartello.", official:"pagina ufficiale ↗", nights:"notti", open:"libero", notConf:"da confermare", asSun:"come la domenica", hol:"Festivi",
   loadErr:"Non riesco a caricare le regole di questa città. Controlla la connessione.", retry:"Riprova",
   perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", unk:"Non conosciamo questo posto", unkWhere:"fuori dalle città coperte", far:"Questo luogo non è ancora coperto. GateLR copre 46 città italiane: vedi le guide ZTL qui sotto.",
   msg:(day,time,h,pl)=>`${h ? "Gentile staff di " + h + "," : "Buongiorno,"}\n\narrivo in auto ${day} verso le ${time}. Potete registrare la mia targa ${pl || "[TARGA]"} per la ZTL, così raggiungo l'hotel senza multa?\n\nGrazie!`},
@@ -632,7 +633,7 @@ const T = {
   hint:" Dein Hotel liegt in der Zone? Das Hotel kann dein Kennzeichen anmelden.", whyOut:(m,c)=>`Dieser Ort liegt außerhalb der ZTL von ${c}. Die gesperrte Zone beginnt etwa ${m} m entfernt: folge dem Navi nicht durch die Altstadt.`,
   outside:"außerhalb der ZTL", inside:"in der ZTL", out2:"außerhalb", noGates:"Keine Einfahrten", gOn:"Kameras aktiv", gOff:"Kameras aus", nowAt:"jetzt",
   today:"heute um", tomorrow:"morgen um", on:"am", at:"um", d:"T", h:"Std", min:"Min", onSince:"Aktiv seit", offSince:"Aus seit", onIn:"Aktiv in", offIn:"Aus in",
-  read:(d,c)=>`Gelesen am ${d} bei der Stadt ${c}:`, official:"offizielle Seite ↗", nights:"Nächte", open:"frei", notConf:"unbestätigt", asSun:"wie sonntags", hol:"Feiertage",
+  read:(d,c)=>`Gelesen am ${d} bei der Stadt ${c}:`, verified:d=>`Geprüft am ${d}.`, notVerified:"Noch nicht geprüft: achte auf das Schild.", whyUnverified:"Diese Regel wurde noch nicht geprüft: achte auf das Schild.", whyOldCheck:d=>`Zuletzt vor mehr als ${d} Tagen geprüft: achte auf das Schild.`, whyChanged:"Die Seite der Stadt hat sich geändert: achte auf das Schild.", official:"offizielle Seite ↗", nights:"Nächte", open:"frei", notConf:"unbestätigt", asSun:"wie sonntags", hol:"Feiertage",
   loadErr:"Die Regeln dieser Stadt lassen sich gerade nicht laden. Prüfe deine Verbindung.", retry:"Nochmal versuchen",
   perDay:"pro Tag", verifying:"Betrag wird geprüft", stillChecking:"Beträge werden noch am offiziellen Text geprüft.", point:"Punkt auf der Karte", unk:"Diesen Ort kennen wir nicht", unkWhere:"außerhalb der abgedeckten Städte", far:"Diesen Ort decken wir noch nicht ab. GateLR deckt 46 italienische Städte ab: siehe die ZTL-Ratgeber unten.",
   msg:(day,time,h,pl)=>`${h ? "Liebes Team von " + h + "," : "Guten Tag,"}\n\nich komme am ${day} gegen ${time} mit dem Auto an. Könnten Sie bitte mein Kennzeichen ${pl || "[KENNZEICHEN]"} für die ZTL anmelden, damit ich das Hotel ohne Bußgeld erreiche?\n\nVielen Dank!`}
@@ -740,7 +741,26 @@ const banGroup = f => f === "diesel" ? "diesel" : f === "electric" ? null : "pet
 function motoBannedAt(z, t, v){ const d = ymd(t), cat = v.motoClass || "motorcycle", st = v.stroke === 2 ? 2 : 4;
   return v.fuel !== "electric" && (z.motoBans || []).some(b => (!b.category || b.category === cat) && (!b.stroke || b.stroke === st) && v.euro <= b.maxEuro && b.since <= d); }
 function bannedAt(z, t, v){ const g = banGroup(v.fuel), d = ymd(t); return !!g && (z.bans || []).some(b => b.fuel === g && v.euro <= b.maxEuro && b.since <= d); }
+// 1.20.1 «Dati»: «letto il» (source.checkedOn) non è «verificato il» (source.verifiedOn, una persona o un controllo ha
+// confermato la regola; assente = non lo sappiamo = non verificata). Come RuleEngine.trust dell'app: una zona è sicura
+// solo se verificata da al più 120 giorni e senza la pagina del Comune cambiata dopo la verifica (source.pageChanged,
+// dalle impronte del controllo giornaliero, Tools/source_trust.py). Senza: un «sì» (verde o grigio) diventa «non sicuro»,
+// giallo con il «?»; con la pagina cambiata tutte le risposte della zona. Le zone da fonti non ufficiali restano come prima
+// (il «sì» è già giallo, vedi shown). Gli stessi casi di prova dell'app: shared/engine-cases.json
+const VERIFIED_DAYS = 120;
+function trustOf(zone){ const s = zone.source || {};
+  if (s.pageChanged === true) return "pageChanged";
+  if (!s.verifiedOn) return "unverified";
+  return Math.floor((CLOCK.now() - new Date(s.verifiedOn)) / 86400000) > VERIFIED_DAYS ? "old" : "verified"; }
 function answer(zone, t, staying, v = CARS[0], quick = false){
+  const r = rulesAnswer(zone, t, staying, v, quick), tr = trustOf(zone);
+  r.trust = tr;
+  if (tr === "pageChanged") return Object.assign(r, {v:"unsure", title:t_("unsure"), why:t_("whyChanged") + " " + r.why});
+  if (tr !== "verified" && r.v === "yes" && !unofficial(zone))
+    return Object.assign(r, {v:"unsure", title:t_("unsure"), why:(tr === "old" ? T[lang].whyOldCheck(VERIFIED_DAYS) : t_("whyUnverified")) + " " + r.why});
+  return r;
+}
+function rulesAnswer(zone, t, staying, v = CARS[0], quick = false){
   const on = activeAt(zone, t), next = quick ? null : scan(zone, t, 1), since = quick ? null : scan(zone, t, -1), k = kindOf(zone);
   const age = Math.floor((CLOCK.now() - new Date(zone.source.checkedOn)) / 86400000);
   if (age > 120) return {v:"unsure", title:t_("unsure"), why:T[lang].whyStale(age), on, next, since};
@@ -1112,7 +1132,11 @@ function sources(z){
   const s = z.source, read = new Date(s.checkedOn).toLocaleDateString(LOCALE[lang], {day:"numeric", month:"short", year:"numeric"});
   $("a-src").innerHTML = "";
   const span = document.createElement("span"); span.textContent = T[lang].read(read, cityName(city)); $("a-src").append(span);
-  const link = document.createElement("a"); link.href = s.pageURL; link.target = "_blank"; link.rel = "noopener"; link.textContent = t_("official"); $("a-src").append(link);
+  // 1.20.1: «letto il» e «verificato il» separati; la pagina del Comune cambiata dopo la verifica lo dice qui
+  const tr = trustOf(z), ver = document.createElement("span"); ver.className = "ver";
+  ver.textContent = tr === "pageChanged" ? t_("whyChanged") : s.verifiedOn
+    ? T[lang].verified(new Date(s.verifiedOn).toLocaleDateString(LOCALE[lang], {day:"numeric", month:"short", year:"numeric"})) : t_("notVerified");
+  const link = document.createElement("a"); link.href = s.pageURL; link.target = "_blank"; link.rel = "noopener"; link.textContent = t_("official"); $("a-src").append(link); $("a-src").append(ver);
   // Fonte non ufficiale: il sito da cui vengono i dati, sotto l'avviso
   const u = s.official === false ? s.unofficialSource : null;
   if (u && u.url && !$("a-unoff").hidden){

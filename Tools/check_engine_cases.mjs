@@ -22,7 +22,7 @@ const fakeFetch = async url => {
   return {ok: true, status: 200, json: async () => JSON.parse(text)};
 };
 const e = new Function("CITIES", "ROOT", "PAGE_LANG", "window", "fetch", "localStorage", code + `
-  return {CITIES, CLOCK, ensureFor, placeAnswer, setLang: l => { lang = l; }};`)(JSON.parse(JSON.stringify(index)), "", "it", {}, fakeFetch, undefined);
+  return {CITIES, CLOCK, ensureFor, placeAnswer, trustOf, setLang: l => { lang = l; }};`)(JSON.parse(JSON.stringify(index)), "", "it", {}, fakeFetch, undefined);
 
 const file = JSON.parse(fs.readFileSync(path.join(ROOT, "shared/engine-cases.json"), "utf8"));
 const VERDICT = {yes: "yes", no: "no", cond: "conditional", unsure: "unsure"};
@@ -30,18 +30,28 @@ const errors = [];
 if (!index.some(c => c.id === "salerno") || !index.some(c => c.id === "cagliari")) errors.push("mancano le città da fonti non ufficiali (Salerno, Cagliari)");
 if (file.cases.length < 30) errors.push(`solo ${file.cases.length} casi`);
 let passed = 0;
+const orig = new Map();
 for (const c of file.cases) {
   const now = Date.parse(c.now || file.now), at = new Date(c.at), v = file.vehicles[c.vehicle];
   if (!v || isNaN(now) || isNaN(at)) { errors.push(`${c.id}: caso scritto male`); continue; }
   e.CLOCK.now = () => now;
   await e.ensureFor(c.place.lat, c.place.lon);
+  // 1.20.1: verifica delle zone come dice il caso (di serie «assumeVerifiedOn»), su una copia dei campi veri
+  const src = c.source || {};
+  for (const city of e.CITIES) for (const z of city.zones || []) {
+    if (!orig.has(z)) orig.set(z, {verifiedOn: z.source.verifiedOn, pageChanged: z.source.pageChanged});
+    z.source.verifiedOn = "verifiedOn" in src ? src.verifiedOn : file.assumeVerifiedOn;
+    z.source.pageChanged = "pageChanged" in src ? src.pageChanged : orig.get(z).pageChanged;
+  }
   const p = e.placeAnswer(c.place.lat, c.place.lon, at, !!c.hotel, v);
   const got = {colour: p.colour, verdict: VERDICT[p.verdict] || p.verdict, zone: p.zone ? p.zone.id : null,
-    gatesOn: p.r ? !!p.r.on : undefined, unofficial: p.unoff, pedestrian: !!p.ped};
+    gatesOn: p.r ? !!p.r.on : undefined, unofficial: p.unoff, pedestrian: !!p.ped, trust: p.zone ? e.trustOf(p.zone) : undefined};
   const bad = Object.entries(c.expect).filter(([k, want]) => got[k] !== want).map(([k, want]) => `${k} atteso ${JSON.stringify(want)}, ottenuto ${JSON.stringify(got[k])}`);
   // Le regole fisse, qualunque cosa dica il file: mai verde fuori copertura o da fonte non ufficiale
   if (!p.covered && p.colour !== "neutral") bad.push("fuori copertura non neutro");
   if (p.unoff && p.colour === "green") bad.push("fonte non ufficiale verde");
+  // 1.20.1: mai verde né grigio da una zona non verificata, con verifica vecchia o con la pagina del Comune cambiata
+  if (p.zone && !p.ped && e.trustOf(p.zone) !== "verified" && (p.colour === "green" || p.colour === "grey")) bad.push("zona non sicura verde o grigia");
   if (bad.length) errors.push(`${c.id}: ${bad.join("; ")}`); else passed++;
 }
 for (const x of errors) console.log("::error::check_engine_cases: " + x);

@@ -25,6 +25,14 @@ cities = [json.loads((ROOT / "Resources/Cities" / m["file"]).read_text(encoding=
           for m in sorted(MANIFEST["cities"] + MANIFEST.get("unofficialCities", []), key=lambda m: m["file"])]
 
 
+def verified_text(s, p, lang):
+    """1.20.1 «Dati»: «verificato il» accanto a «letto il»; senza data «non ancora verificato» (sconosciuta = non verificata),
+    con la pagina del Comune cambiata dopo la verifica lo dice (Tools/source_trust.py)"""
+    if s.get("pageChanged") is True:
+        return p["changed"]
+    return p["verified"].format(d=day(s["verifiedOn"], lang)) if s.get("verifiedOn") else p["notVerified"]
+
+
 def unofficial(z):
     """Regole della zona solo da fonti non ufficiali (official assente = ufficiale)"""
     return z["source"].get("official", True) is False
@@ -289,7 +297,7 @@ NAMES = {"firenze": {"en": "Florence", "it": "Firenze", "de": "Florenz"}, "bolog
 
 P = {
  "en": {"title": "{c} ZTL: hours, gates, day ticket and hotel rules · GateLR",
-        "desc": "When the {c} ZTL is on, which zones you can't drive into, the day ticket, the fine and how your hotel can register your plate. From the city's official sources, checked {d}.",
+        "desc": "When the {c} ZTL is on, which zones you can't drive into, the day ticket, the fine and how your hotel can register your plate. From the city's official sources, read {d}.",
         "kicker": "Driving guide · limited traffic zones", "h1": "{c} <em>ZTL</em>",
         "lead": "Where you can't drive in {c}, when the cameras are on, what a ticket costs and what your hotel can do for you. Taken from the city's official pages.",
         "leadU": "Where you can't drive in {c}, when the cameras are on, what a ticket costs and what your hotel can do for you. Some of these rules come only from non-official sources.",
@@ -301,7 +309,7 @@ P = {
         "hotelN": "Hotels can't register your plate for this zone.",
         "rental": "A typical modern rental car (petrol Euro 6, hybrid or electric) can drive in.", "bansT": "Older cars banned while it's on",
         "since": "since {d}", "from": "from {d}", "electric": "Electric cars: always free.", "moto": "Motorbikes and scooters: always free.", "gates": "{n} camera gates",
-        "srcT": "Official source", "srcU": "Unofficial source", "dataFrom": "Data from {s} ↗", "checked": "Checked on {d}", "page": "Official page ↗", "pending": "Still being checked",
+        "srcT": "Official source", "srcU": "Unofficial source", "dataFrom": "Data from {s} ↗", "checked": "Read on {d}", "verified": "Verified on {d}", "notVerified": "Not verified yet: check the sign at the gate", "changed": "The city's page has changed since it was verified: check the sign at the gate", "page": "Official page ↗", "pending": "Still being checked",
         "pedT": "Pedestrian areas", "pedP": "{n} pedestrian areas: cars can't drive in at any time, not even with a permit or a ticket. Park outside and walk.",
         "pedAll": "Show all {n}", "fineL": "If you drive in by mistake", "perDay": "per day", "faqT": "Questions",
         "other": "Other cities", "mapL": "Map of the zones in {c}", "home": "Home",
@@ -314,7 +322,7 @@ P = {
         "qTicket": "Is there a day ticket for the {c} ZTL?", "qGreen": "Can I drive a rental car into {z}?",
         "qPed": "Can I drive into the pedestrian areas of {c}?", "aPed": "No. Cars can't drive into pedestrian areas at any time, not even with a permit or a ticket. Park outside and walk."},
  "it": {"title": "ZTL {c}: orari, varchi, ticket e regole per gli hotel · GateLR",
-        "desc": "Quando è attiva la ZTL di {c}, dove non si entra in auto, il ticket giornaliero, la multa e come l'hotel può registrare la targa. Dalle fonti ufficiali del Comune, controllate il {d}.",
+        "desc": "Quando è attiva la ZTL di {c}, dove non si entra in auto, il ticket giornaliero, la multa e come l'hotel può registrare la targa. Dalle fonti ufficiali del Comune, lette il {d}.",
         "kicker": "Guida per chi guida · zone a traffico limitato", "h1": "ZTL <em>{c}</em>",
         "lead": "Dove non si entra in auto a {c}, quando le telecamere sono accese, quanto costa il ticket e cosa può fare l'hotel per te. Dalle pagine ufficiali del Comune.",
         "leadU": "Dove non si entra in auto a {c}, quando le telecamere sono accese, quanto costa il ticket e cosa può fare l'hotel per te. Alcune di queste regole vengono solo da fonti non ufficiali.",
@@ -326,7 +334,7 @@ P = {
         "hotelN": "Gli hotel non possono registrare la tua targa per questa zona.",
         "rental": "Una tipica auto a noleggio recente (benzina Euro 6, ibrida o elettrica) può entrare.", "bansT": "Auto vecchie vietate quando è attiva",
         "since": "dal {d}", "from": "dal {d}", "electric": "Auto elettriche: entrano sempre.", "moto": "Moto e scooter: entrano sempre.", "gates": "{n} varchi con telecamera",
-        "srcT": "Fonte ufficiale", "srcU": "Fonte non ufficiale", "dataFrom": "Dati da {s} ↗", "checked": "Controllato il {d}", "page": "Pagina ufficiale ↗", "pending": "Ancora da verificare",
+        "srcT": "Fonte ufficiale", "srcU": "Fonte non ufficiale", "dataFrom": "Dati da {s} ↗", "checked": "Letto il {d}", "verified": "Verificato il {d}", "notVerified": "Non ancora verificato: controlla il cartello al varco", "changed": "La pagina del Comune è cambiata dopo la verifica: controlla il cartello al varco", "page": "Pagina ufficiale ↗", "pending": "Ancora da verificare",
         "pedT": "Aree pedonali", "pedP": "{n} aree pedonali: le auto non entrano mai, neanche con permesso o ticket. Parcheggia fuori e prosegui a piedi.",
         "pedAll": "Mostra tutte ({n})", "fineL": "Se entri per sbaglio", "perDay": "al giorno", "faqT": "Domande",
         "other": "Altre città", "mapL": "Mappa delle zone di {c}", "home": "Home",
@@ -339,7 +347,7 @@ P = {
         "qTicket": "C'è un ticket giornaliero per la ZTL di {c}?", "qGreen": "Posso entrare in {z} con un'auto a noleggio?",
         "qPed": "Posso entrare in auto nelle aree pedonali di {c}?", "aPed": "No. Nelle aree pedonali le auto non entrano mai, neanche con permesso o ticket. Parcheggia fuori e prosegui a piedi."},
  "de": {"title": "ZTL {c}: Zeiten, Einfahrten, Tagesticket und Hotel · GateLR",
-        "desc": "Wann die ZTL in {c} aktiv ist, wo du nicht hineinfahren darfst, das Tagesticket, das Bußgeld und wie dein Hotel dein Kennzeichen anmeldet. Aus offiziellen Quellen der Stadt, geprüft am {d}.",
+        "desc": "Wann die ZTL in {c} aktiv ist, wo du nicht hineinfahren darfst, das Tagesticket, das Bußgeld und wie dein Hotel dein Kennzeichen anmeldet. Aus offiziellen Quellen der Stadt, gelesen am {d}.",
         "kicker": "Ratgeber für Autofahrer · verkehrsberuhigte Zonen", "h1": "ZTL <em>{c}</em>",
         "lead": "Wo du in {c} nicht hineinfahren darfst, wann die Kameras aktiv sind, was ein Ticket kostet und was dein Hotel für dich tun kann. Aus den offiziellen Seiten der Stadt.",
         "leadU": "Wo du in {c} nicht hineinfahren darfst, wann die Kameras aktiv sind, was ein Ticket kostet und was dein Hotel für dich tun kann. Einige dieser Regeln stammen nur aus inoffiziellen Quellen.",
@@ -351,7 +359,7 @@ P = {
         "hotelN": "Hotels können dein Kennzeichen für diese Zone nicht anmelden.",
         "rental": "Ein typischer neuerer Mietwagen (Benzin Euro 6, Hybrid oder Elektro) darf hinein.", "bansT": "Ältere Autos verboten, wenn sie aktiv ist",
         "since": "seit {d}", "from": "ab {d}", "electric": "Elektroautos: immer frei.", "moto": "Motorräder und Roller: immer frei.", "gates": "{n} Kamera-Einfahrten",
-        "srcT": "Offizielle Quelle", "srcU": "Inoffizielle Quelle", "dataFrom": "Daten von {s} ↗", "checked": "Geprüft am {d}", "page": "Offizielle Seite ↗", "pending": "Wird noch geprüft",
+        "srcT": "Offizielle Quelle", "srcU": "Inoffizielle Quelle", "dataFrom": "Daten von {s} ↗", "checked": "Gelesen am {d}", "verified": "Geprüft am {d}", "notVerified": "Noch nicht geprüft: achte auf das Schild an der Einfahrt", "changed": "Die Seite der Stadt hat sich seit der Prüfung geändert: achte auf das Schild an der Einfahrt", "page": "Offizielle Seite ↗", "pending": "Wird noch geprüft",
         "pedT": "Fußgängerzonen", "pedP": "{n} Fußgängerzonen: Autos dürfen nie hinein, auch nicht mit Genehmigung oder Ticket. Parke außerhalb und geh zu Fuß.",
         "pedAll": "Alle {n} zeigen", "fineL": "Wenn du aus Versehen hineinfährst", "perDay": "pro Tag", "faqT": "Fragen",
         "other": "Andere Städte", "mapL": "Karte der Zonen in {c}", "home": "Start",
@@ -679,7 +687,7 @@ def build_city(c, lang):
                  + f'<p>{esc(s.get("authority") or "")} · <a href="{esc(s["pageURL"])}" rel="noopener">{esc(p["page"])}</a></p>'
                  + (f"<blockquote>{quote}</blockquote>" if quote else "")
                  + (f'<ul>' + "".join(f'<li><a href="{esc(l["url"])}" rel="noopener">{esc(loc(l, "title", lang) or l["url"])}</a></li>' for l in links) + "</ul>" if links else "")
-                 + f'<p class="muted">{esc(p["checked"].format(d=day(s["checkedOn"], lang)))}</p>'
+                 + f'<p class="muted">{esc(p["checked"].format(d=day(s["checkedOn"], lang)))} · {esc(verified_text(s, p, lang))}</p>'
                  + (f'<details><summary class="muted">{esc(p["pending"])}</summary><ul class="muted">' + "".join(f"<li>{esc(x)}</li>" for x in pend) + "</ul></details>" if pend else ""))
         B.append("".join(h) + "</section>")
     if peds:
