@@ -163,6 +163,8 @@ p{margin:0}
 .suggest button:last-child{border-bottom:0}
 .suggest button:hover,.suggest button[aria-selected=true]{background:var(--well)}
 .suggest small{color:var(--muted)}
+.suggest .fail{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;font:15px var(--text);color:var(--muted)}
+.suggest .fail button{width:auto;border:0;border-radius:999px;background:var(--well);padding:8px 14px;font-weight:600;color:var(--ink);white-space:nowrap}
 .ctl{display:grid;gap:8px;min-width:0}
 .crow{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;align-items:start;min-width:0}
 .crow > .label{font-size:12px;padding-top:9px}
@@ -546,7 +548,7 @@ const T = {
   whyPed:"This is a pedestrian area: cars can't drive here at any time, not even with a permit or a ticket. Park outside and walk.",
   dl:{beforeEntry:"activate it before you drive in", nextDayMidnight:"pay by midnight of the next day"}, dlL:"Ticket deadline", dlShort:{beforeEntry:"before entering", nextDayMidnight:"midnight next day"},
   whyStale:d=>`This zone hasn't been checked for ${d} days. Look at the city's page before driving in.`,
-  get:"Get the app", dayTicket:"Day ticket", always:"Every day, all day", closed:"closed", locate:"Use my location", noLoc:"Location not available: search a place instead.", hName:"Hotel name", hPlate:"Your plate", faqT:"Good to know", q1:"What is a ZTL?", a1:"A zona a traffico limitato is a limited traffic zone, usually an old town. Cameras at every entry read the plate of each car. If you don't have a permit while the gates are on, a fine is sent to the car's owner, which for a rental car means you, plus the rental company's fee.",
+  get:"Get the app", dayTicket:"Day ticket", always:"Every day, all day", closed:"closed", locate:"Use my location", noLoc:"Location not available: search a place instead.", sFail:"Search isn't working right now. Check your connection.", retry:"Try again", hName:"Hotel name", hPlate:"Your plate", faqT:"Good to know", q1:"What is a ZTL?", a1:"A zona a traffico limitato is a limited traffic zone, usually an old town. Cameras at every entry read the plate of each car. If you don't have a permit while the gates are on, a fine is sent to the car's owner, which for a rental car means you, plus the rental company's fee.",
   q2:"How do I know if a gate is on?", a2:"Each entry has a sign and usually a light panel that reads 'Varco attivo' (gate on) or 'Varco non attivo' (gate off). GateLR tells you in advance from the city's official hours, but the panel at the gate always wins.",
   q3:"My hotel is inside the ZTL. What do I do?", a3:"Write to the hotel before you arrive and ask them to register your plate with the city. Many hotels can do this for the day you arrive and leave. Use the message above: it's ready in English, Italian and German.",
   q4:"I drove in by mistake. What now?", a4:"Note the time and the gate. If your hotel is inside the zone, tell them at once: some cities accept a registration after the fact, within a short time. Otherwise the fine arrives by post; paying within 5 days of notification saves 30%.", whyTicket:(t,h,dl)=>`The gates are on. You can enter with the day ticket (€${t.price.toFixed(2)}${dl ? "; " + dl : ""}). ${h}`, h1:"Can I drive <em>in?</em>", lead:"Pick a city or search your hotel, then choose your car and the time: the answer changes as you go.",
@@ -580,7 +582,7 @@ const T = {
   whyPed:"Questa è un'area pedonale: le auto non possono entrare a nessuna ora, neanche con permesso o ticket. Parcheggia fuori e prosegui a piedi.",
   dl:{beforeEntry:"da attivare prima di entrare", nextDayMidnight:"da pagare entro la mezzanotte del giorno dopo"}, dlL:"Attivazione ticket", dlShort:{beforeEntry:"prima di entrare", nextDayMidnight:"mezzanotte del giorno dopo"},
   whyStale:d=>`Questa zona non è stata controllata da ${d} giorni. Guarda il sito del Comune prima di entrare.`,
-  get:"Scarica l'app", dayTicket:"Biglietto giornaliero", always:"Tutti i giorni, 24 ore", closed:"chiusa", locate:"Usa la mia posizione", noLoc:"Posizione non disponibile: cerca un luogo.", hName:"Nome dell'hotel", hPlate:"La tua targa", faqT:"Da sapere", q1:"Cos'è una ZTL?", a1:"Una zona a traffico limitato, di solito un centro storico. A ogni ingresso le telecamere leggono la targa. Se entri senza permesso mentre i varchi sono accesi, la multa arriva al proprietario dell'auto: per un noleggio vuol dire a te, più la commissione della società di noleggio.",
+  get:"Scarica l'app", dayTicket:"Biglietto giornaliero", always:"Tutti i giorni, 24 ore", closed:"chiusa", locate:"Usa la mia posizione", noLoc:"Posizione non disponibile: cerca un luogo.", sFail:"Non riesco a cercare adesso. Controlla la connessione.", retry:"Riprova", hName:"Nome dell'hotel", hPlate:"La tua targa", faqT:"Da sapere", q1:"Cos'è una ZTL?", a1:"Una zona a traffico limitato, di solito un centro storico. A ogni ingresso le telecamere leggono la targa. Se entri senza permesso mentre i varchi sono accesi, la multa arriva al proprietario dell'auto: per un noleggio vuol dire a te, più la commissione della società di noleggio.",
   q2:"Come capisco se un varco è acceso?", a2:"A ogni ingresso c'è un cartello e di solito un pannello luminoso con scritto «Varco attivo» o «Varco non attivo». GateLR te lo dice prima, dagli orari ufficiali del Comune, ma vale sempre il pannello al varco.",
   q3:"Il mio hotel è dentro la ZTL. Cosa faccio?", a3:"Scrivi all'hotel prima di arrivare e chiedi di comunicare la tua targa al Comune. Molti hotel possono farlo per il giorno di arrivo e di partenza. Usa il messaggio qui sopra: è pronto in italiano, inglese e tedesco.",
   q4:"Sono entrato per sbaglio. E adesso?", a4:"Annota l'ora e il varco. Se dormi in un hotel dentro la zona, avvisalo subito: alcuni Comuni accettano la comunicazione anche dopo, entro poco tempo. Altrimenti la multa arriva per posta; pagando entro 5 giorni dalla notifica risparmi il 30%.", whyTicket:(t,h,dl)=>`I varchi sono accesi. Puoi entrare con il biglietto giornaliero (${t.price.toFixed(2).replace(".",",")} €${dl ? ", " + dl : ""}). ${h}`, h1:"Posso <em>entrare?</em>", lead:"Scegli una città o cerca il tuo hotel, poi l'auto e l'ora: la risposta cambia mentre scegli.",
@@ -614,7 +616,7 @@ const T = {
   whyPed:"Das ist eine Fußgängerzone: Autos dürfen hier nie fahren, auch nicht mit Genehmigung oder Ticket. Parke außerhalb und geh zu Fuß.",
   dl:{beforeEntry:"vor der Einfahrt aktivieren", nextDayMidnight:"bis Mitternacht des Folgetags bezahlen"}, dlL:"Ticket-Frist", dlShort:{beforeEntry:"vor der Einfahrt", nextDayMidnight:"Mitternacht am Folgetag"},
   whyStale:d=>`Diese Zone wurde seit ${d} Tagen nicht geprüft. Schau vor der Einfahrt auf die Seite der Stadt.`,
-  get:"App holen", dayTicket:"Tagesticket", always:"Täglich, rund um die Uhr", closed:"gesperrt", locate:"Meinen Standort nutzen", noLoc:"Standort nicht verfügbar: suche stattdessen einen Ort.", hName:"Name des Hotels", hPlate:"Dein Kennzeichen", faqT:"Gut zu wissen", q1:"Was ist eine ZTL?", a1:"Eine zona a traffico limitato ist eine verkehrsberuhigte Zone, meist eine Altstadt. Kameras an jeder Einfahrt lesen das Kennzeichen. Wer ohne Genehmigung hineinfährt, während die Kameras aktiv sind, bekommt ein Bußgeld an den Halter – beim Mietwagen also an dich, plus Gebühr der Mietwagenfirma.",
+  get:"App holen", dayTicket:"Tagesticket", always:"Täglich, rund um die Uhr", closed:"gesperrt", locate:"Meinen Standort nutzen", noLoc:"Standort nicht verfügbar: suche stattdessen einen Ort.", sFail:"Die Suche funktioniert gerade nicht. Prüfe deine Verbindung.", retry:"Erneut versuchen", hName:"Name des Hotels", hPlate:"Dein Kennzeichen", faqT:"Gut zu wissen", q1:"Was ist eine ZTL?", a1:"Eine zona a traffico limitato ist eine verkehrsberuhigte Zone, meist eine Altstadt. Kameras an jeder Einfahrt lesen das Kennzeichen. Wer ohne Genehmigung hineinfährt, während die Kameras aktiv sind, bekommt ein Bußgeld an den Halter – beim Mietwagen also an dich, plus Gebühr der Mietwagenfirma.",
   q2:"Woran erkenne ich, ob eine Einfahrt aktiv ist?", a2:"An jeder Einfahrt steht ein Schild und meist eine Leuchtanzeige mit „Varco attivo“ (aktiv) oder „Varco non attivo“ (nicht aktiv). GateLR sagt es dir vorher anhand der offiziellen Zeiten der Stadt, aber die Anzeige an der Einfahrt gilt immer.",
   q3:"Mein Hotel liegt in der ZTL. Was tun?", a3:"Schreib dem Hotel vor der Ankunft und bitte es, dein Kennzeichen bei der Stadt anzumelden. Viele Hotels können das für An- und Abreisetag tun. Nutze die Nachricht oben: fertig auf Deutsch, Englisch und Italienisch.",
   q4:"Ich bin aus Versehen hineingefahren. Was jetzt?", a4:"Notiere Uhrzeit und Einfahrt. Wenn dein Hotel in der Zone liegt, sag sofort Bescheid: Manche Städte akzeptieren die Anmeldung auch kurz danach. Sonst kommt das Bußgeld per Post; wer innerhalb von 5 Tagen nach Zustellung zahlt, spart 30 %.", whyTicket:(t,h,dl)=>`Die Kameras sind aktiv. Du darfst mit dem Tagesticket hinein (${t.price.toFixed(2).replace(".",",")} €${dl ? ", " + dl : ""}). ${h}`, h1:"Darf ich <em>rein?</em>", lead:"Wähle eine Stadt oder suche dein Hotel, dann Auto und Uhrzeit: Die Antwort ändert sich sofort.",
@@ -1261,22 +1263,43 @@ async function remote(text){
       return {name, lat:f.geometry.coordinates[1], lon:f.geometry.coordinates[0], hotel: /hotel|guest_house|hostel|motel|apartment/.test(pr.osm_value || "")}; });
     SEARCHED.set(key, out); if (SEARCHED.size > 40) SEARCHED.delete(SEARCHED.keys().next().value);
     return out;
-  } catch (e) { if (!(ac && ac.signal.aborted && searching !== ac)) remoteOff = Date.now() + 30000; return []; }
+  } catch (e) { if (!(ac && ac.signal.aborted && searching !== ac)){ remoteOff = Date.now() + 30000; remoteFailed = true; } return []; }
   finally { if (t) clearTimeout(t); if (searching === ac) searching = null; }
+}
+// 1.20.2: la ricerca non ha risposto (rete): lo si dice sotto il campo, con «Riprova» (prima l'elenco spariva e basta)
+let remoteFailed = false;
+function showRetry(v, pick){
+  results = []; box2.innerHTML = ""; active = -1;
+  const row = document.createElement("div"); row.className = "fail"; row.setAttribute("role", "status");
+  const msg = document.createElement("span"); msg.textContent = t_("sFail");
+  const b = document.createElement("button"); b.type = "button"; b.textContent = t_("retry");
+  b.addEventListener("click", () => { remoteOff = 0; search(v, pick); q.focus(); });
+  row.append(msg, b); box2.append(row); box2.hidden = false; q.setAttribute("aria-expanded", "true");
+}
+// Cerca adesso (Invio, «Riprova»): i risultati, o il primo scelto subito con «pick»; senza risposta «Riprova»
+async function search(v, pick){
+  remoteFailed = false;
+  const r = await remote(v); if (q.value !== v) return;
+  const all = [...local(v), ...r].slice(0, 7);
+  if (pick && all.length) return choose(all[0]);
+  if (all.length) showSuggest(all); else if (remoteFailed) showRetry(v, pick);
 }
 q.addEventListener("input", () => { clearTimeout(timer); const v = q.value;
   showSuggest(local(v));
   const key = [lang, city.id, v.trim().toLowerCase()].join("|");
   if (SEARCHED.has(key)){ const r = SEARCHED.get(key); if (r.length) showSuggest([...local(v), ...r].slice(0, 7)); return; }
-  timer = setTimeout(async () => { const r = await remote(v); if (q.value === v && r.length) showSuggest([...local(v), ...r].slice(0, 7)); }, 280); });
+  timer = setTimeout(async () => { remoteFailed = false; const r = await remote(v); if (q.value !== v) return;
+    if (r.length) showSuggest([...local(v), ...r].slice(0, 7)); else if (remoteFailed && !local(v).length) showRetry(v, false); }, 280); });
 q.addEventListener("keydown", e => {
-  const opts = [...box2.querySelectorAll("button")]; if (box2.hidden || !opts.length) return;
+  const opts = [...box2.querySelectorAll("button[role=option]")]; if (box2.hidden || !opts.length || !results.length) return;
   if (e.key === "ArrowDown" || e.key === "ArrowUp"){ e.preventDefault(); active = (active + (e.key === "ArrowDown" ? 1 : -1) + opts.length) % opts.length;
     opts.forEach((o, i) => o.setAttribute("aria-selected", i === active)); q.setAttribute("aria-activedescendant", "opt" + active); }
   if (e.key === "Enter"){ e.preventDefault(); choose(results[Math.max(0, active)]); }
   if (e.key === "Escape") closeSuggest();
 });
-$("search").addEventListener("submit", e => { e.preventDefault(); if (results.length) choose(results[0]); });
+// 1.20.2: Invio senza suggerimenti (ancora in arrivo, o la ricerca non aveva risposto): si cerca subito e si sceglie il primo
+$("search").addEventListener("submit", e => { e.preventDefault(); if (results.length) return choose(results[0]);
+  const v = q.value; if (v.trim().length < 3) return; clearTimeout(timer); remoteOff = 0; search(v, true); });
 document.addEventListener("click", e => { if (!$("search").contains(e.target)) closeSuggest(); });
 
 // ── Comandi dello strumento: città, mete famose, veicolo, giorno e ora ──────────────
