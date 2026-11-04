@@ -187,7 +187,11 @@
       "title_de": "OpenStreetMap: die Straßen der ZTL (ODbL)",
       "url": "https://www.openstreetmap.org/#map=18/37.50405/15.08900"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.amts.ct.it/wp-content/uploads/Sostare/Disposizioni_%20operative_%20accesso_alle_ZTL_e_%20AP.pdf": "99d67e094696358c"
+    },
+    "readFingerprintsOf": "2026-10-26T23:55:00Z"
    }
   }
  ],

@@ -439,7 +439,15 @@
       "title_de": "Formular für Tages- oder Kurzzeitgenehmigungen (PDF)",
       "url": "https://municipium-images-production.s3-eu-west-1.amazonaws.com/s3/6918/allegati/ztl/mod-05-permesso-giornaliero-e-temporaneo.pdf"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.sirmione.bs.it/it/news/stagione-turistica-2026?type=1": "4a1cade78c9e6759",
+     "https://www.comune.sirmione.bs.it/it/public_documents/regolamentazione-della-ztl": "022ad8ebd553915c",
+     "https://www.comune.sirmione.bs.it/s3/6918/allegati/allegato-c.pdf": "c071be1b75b20af1",
+     "https://www.comune.sirmione.bs.it/s3/6918/allegati/ordinanza-ztl-2026-n-30.pdf": "ad4d3a5982fd0350"
+    },
+    "readFingerprintsOf": "2026-10-27T12:00:00Z",
+    "pageChanged": true
    }
   }
  ],

@@ -777,7 +777,9 @@
       "title_de": "OpenStreetMap: Relation 19164566 (Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/relation/19164566"
      }
-    ]
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -1004,7 +1006,9 @@
       "title_de": "OpenStreetMap: Relation 19164565 (Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/relation/19164565"
      }
-    ]
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -1202,7 +1206,9 @@
       "title_de": "OpenStreetMap: Relation 19164564 (Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/relation/19164564"
      }
-    ]
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -1801,7 +1807,9 @@
       "title_de": "OpenStreetMap: Relation 19164567 (Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/relation/19164567"
      }
-    ]
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   }
  ],

@@ -794,7 +794,17 @@
       "title_de": "Offizielle ZTL-Kartendatei (KMZ, Stadt Palermo)",
       "url": "https://docs.comune.palermo.it/kml/ZTL_2019.kmz"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://docs.comune.palermo.it/kml/ZTL_2019.kmz": "4e8aee15c6dac925",
+     "https://repository.comune.palermo.it/polizia-municipale-info.php": "3c3c31d72d93943b",
+     "https://www.amat.pa.it/la-ztl-tempi-e-perimetro-2/": "6cf309442a597c1f",
+     "https://www.comune.palermo.it/servizio/richiedere-permesso-di-accesso-ad-area-ztl-31/": "12cfe1868c8c9f4d",
+     "https://ztl.comune.palermo.it/": "62ab121fe9070040",
+     "https://ztl.comune.palermo.it/ztl//docs/news/82053/A2024/M08/G07/disciplinare_tecnico_ztl_maggio_2024.pdf": "7cc81bedc32b8197"
+    },
+    "readFingerprintsOf": "2026-10-26T09:00:00Z",
+    "pageChanged": true
    }
   }
  ],

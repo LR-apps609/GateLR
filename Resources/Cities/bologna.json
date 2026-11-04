@@ -6315,7 +6315,9 @@
       "title_de": "Offene Daten: ZTL-Grenze und Kameras (CC BY 4.0)",
       "url": "https://opendata.comune.bologna.it/explore/dataset/zona-a-traffico-limitato/"
      }
-    ]
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
    }
   },
   {
@@ -6482,7 +6484,9 @@
       "title_de": "Offene Daten: ZTL-Grenze und Kameras (CC BY 4.0)",
       "url": "https://opendata.comune.bologna.it/explore/dataset/zona-a-traffico-limitato/"
      }
-    ]
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
    }
   }
  ],

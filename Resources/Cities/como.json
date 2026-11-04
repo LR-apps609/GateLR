@@ -305,7 +305,16 @@
       "title_de": "Stadt Como: Reisebusse zu Hotels in der ZTL",
       "url": "https://www.comune.como.it/servizi/Bus-turistici-Accesso-alla-ZTL/"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.como.it/export/sites/comune-di-como/.galleries/PLocale-PrCivile/Allegato-planimetrico.pdf": "93d66e538aca5256",
+     "https://www.comune.como.it/export/sites/comune-di-como/.galleries/PLocale-PrCivile/Elenco_delle_vie_inserite_nella_Zona_a_Traffico_Limitato.pdf": "f369513d0bb2cc4f",
+     "https://www.comune.como.it/export/sites/comune-di-como/.galleries/PLocale-PrCivile/Permessi-orari-ingresso-tempi-sosta-e-limitazioni.pdf": "61d0ad756124c056",
+     "https://www.comune.como.it/export/sites/comune-di-como/.galleries/PLocale-PrCivile/ord_ztl_11-2017.pdf": "d015806eade83b46",
+     "https://www.comune.como.it/servizi/Accesso-alla-ZTL-Zona-a-Traffico-Limitato/": "8c72d32f1f51a7db",
+     "https://www.comune.como.it/servizi/Bus-turistici-Accesso-alla-ZTL/": "58e6164159e9d72e"
+    },
+    "readFingerprintsOf": "2026-10-27T11:00:00Z"
    }
   }
  ],

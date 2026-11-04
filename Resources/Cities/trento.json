@@ -439,7 +439,14 @@
       "title_de": "Trentino Mobilità: Genehmigungsbüro",
       "url": "https://www.trentinomobilita.it/"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.trento.it/Servizi/Utenti-occasionali-in-Ztl-richiesta-permessi": "7fd48b2546da57d2",
+     "https://www.comune.trento.it/Vivere-il-Comune/Guide/Guida-alla-Ztl": "b0a2dc640baed8a9",
+     "https://www.comune.trento.it/content/download/2623/41796/file/Disciplinare_Ztl_2023_det.59-33.pdf": "d515b29730dbbca1",
+     "https://www.comune.trento.it/content/download/27530/1058147/file/Atto.pdf": "3aebf937b304b4f0"
+    },
+    "readFingerprintsOf": "2026-10-27T11:40:00Z"
    }
   }
  ],

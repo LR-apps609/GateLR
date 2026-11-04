@@ -391,7 +391,14 @@
       "title_de": "OpenStreetMap: Straßen der Regelung (ODbL)",
       "url": "https://www.openstreetmap.org/way/462978262"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.cortona.ar.it/amministrazione/documenti-e-dati/atto-normativo/atti-normativi-ztl-rossa-ztl-gialla-e-ztl-di-via-benedetti": "b291e07cad03e44e",
+     "https://www.comune.cortona.ar.it/document/open?id=429": "08557e497560c59a",
+     "https://www.comune.cortona.ar.it/document/open?id=436": "efbff47b3eb31a5c",
+     "https://www.comune.cortona.ar.it/servizi/autorizzazioni/accesso-ztl": "f21d54de56c04166"
+    },
+    "readFingerprintsOf": "2026-10-27T14:00:00Z"
    }
   },
   {
@@ -887,7 +894,14 @@
       "title_de": "OpenStreetMap: Straßen der Regelung (ODbL)",
       "url": "https://www.openstreetmap.org/way/462978262"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.cortona.ar.it/amministrazione/documenti-e-dati/atto-normativo/atti-normativi-ztl-rossa-ztl-gialla-e-ztl-di-via-benedetti": "b291e07cad03e44e",
+     "https://www.comune.cortona.ar.it/document/open?id=429": "08557e497560c59a",
+     "https://www.comune.cortona.ar.it/document/open?id=436": "efbff47b3eb31a5c",
+     "https://www.comune.cortona.ar.it/servizi/autorizzazioni/accesso-ztl": "f21d54de56c04166"
+    },
+    "readFingerprintsOf": "2026-10-27T14:00:00Z"
    }
   }
  ],

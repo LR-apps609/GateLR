@@ -797,7 +797,14 @@
       "title_de": "Stadt Vicenza: Ausfahrtkameras bis 2026 (Pressemitteilung, 12.12.2025)",
       "url": "https://www.comune.vicenza.it/Novita/Comunicati/Vicenza-completa-il-sistema-di-controllo-della-Ztl-in-arrivo-12-telecamere-ai-varchi-di-uscita-e-3-sulle-corsie-riservate-a-bus-e-taxi"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.vicenza.it/Novita/Comunicati/Vicenza-completa-il-sistema-di-controllo-della-Ztl-in-arrivo-12-telecamere-ai-varchi-di-uscita-e-3-sulle-corsie-riservate-a-bus-e-taxi": "6ccbe93eaa89c9c6",
+     "https://www.comune.vicenza.it/Servizi/Permessi-per-accesso-ZTL-e-AP-tipologie-e-come-ottenerli": "9d6cf619e609ae3e",
+     "https://www.comune.vicenza.it/Servizi/Permessi-temporanei-ZTL": "29d9d537a48e978b",
+     "https://www.comune.vicenza.it/Servizi/ZTL-zona-a-traffico-limitato-informazioni-generali": "73267b70fe660d35"
+    },
+    "readFingerprintsOf": "2026-10-27T14:00:00Z"
    }
   }
  ],

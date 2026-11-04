@@ -533,7 +533,13 @@
       "title_de": "Offene Daten: ZTL-Kameratore",
       "url": "https://opendata.comune.fi.it/page_dataset_show?id=0fe68709-c864-4e21-b18e-07ee3e9328e2"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.firenze.it/istruzione/novita/area-stampa/comunicati-stampa/ztl-da-martedi-entra-vigore-la-revisione-della-disciplina-di": "c412c50e2cd2f991",
+     "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/ztl-estiva-dal-primo-giovedi-di-aprile-torna-lo-stop-serale-2": "10ade3c4b0e3a47a",
+     "https://www.comune.firenze.it/novita/notizie/ztl-dal-1deg-ottobre-torna-lorario-pre-covid-tutte-le-porte-telematiche": "73fbeefe57598fff"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
    }
   },
   {
@@ -1634,7 +1640,13 @@
       "title_de": "Offene Daten: ZTL-Kameratore",
       "url": "https://opendata.comune.fi.it/page_dataset_show?id=0fe68709-c864-4e21-b18e-07ee3e9328e2"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.firenze.it/istruzione/novita/area-stampa/comunicati-stampa/ztl-da-martedi-entra-vigore-la-revisione-della-disciplina-di": "c412c50e2cd2f991",
+     "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/ztl-estiva-dal-primo-giovedi-di-aprile-torna-lo-stop-serale-2": "10ade3c4b0e3a47a",
+     "https://www.comune.firenze.it/novita/notizie/ztl-dal-1deg-ottobre-torna-lorario-pre-covid-tutte-le-porte-telematiche": "73fbeefe57598fff"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
    }
   },
   {
@@ -2319,7 +2331,13 @@
       "title_de": "Offene Daten: ZTL-Kameratore",
       "url": "https://opendata.comune.fi.it/page_dataset_show?id=0fe68709-c864-4e21-b18e-07ee3e9328e2"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.firenze.it/istruzione/novita/area-stampa/comunicati-stampa/ztl-da-martedi-entra-vigore-la-revisione-della-disciplina-di": "c412c50e2cd2f991",
+     "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/ztl-estiva-dal-primo-giovedi-di-aprile-torna-lo-stop-serale-2": "10ade3c4b0e3a47a",
+     "https://www.comune.firenze.it/novita/notizie/ztl-dal-1deg-ottobre-torna-lorario-pre-covid-tutte-le-porte-telematiche": "73fbeefe57598fff"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
    }
   },
   {
@@ -3483,7 +3501,11 @@
       "title_de": "Offene Daten: ZTL-Kameratore",
       "url": "https://opendata.comune.fi.it/page_dataset_show?id=0fe68709-c864-4e21-b18e-07ee3e9328e2"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/ztl-estiva-dal-primo-giovedi-di-aprile-torna-lo-stop-serale-2": "10ade3c4b0e3a47a"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
    }
   },
   {
@@ -3666,7 +3688,11 @@
       "title_de": "Offene Daten: ZTL-Kameratore",
       "url": "https://opendata.comune.fi.it/page_dataset_show?id=0fe68709-c864-4e21-b18e-07ee3e9328e2"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/ztl-estiva-dal-primo-giovedi-di-aprile-torna-lo-stop-serale-2": "10ade3c4b0e3a47a"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
    }
   },
   {
@@ -7753,7 +7779,13 @@
       "title_de": "Ausnahmen und Kennzeichen-Registrierung: SAS",
       "url": "https://www.serviziallastrada.it/"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/domani-lattivazione-dello-scudo-verde-pre-esercizio": "17b4c96488a9bc9e",
+     "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/scudo-verde-da-dicembre-al-la-seconda-fase": "3c2db8459448c573",
+     "https://www.comune.firenze.it/novita/area-stampa/comunicati-stampa/scudo-verde-rinviata-al-1deg-luglio-lattivazione-del-sistema": "e37b19ef9c0cc2fb"
+    },
+    "readFingerprintsOf": "2026-10-24T12:00:00Z"
    }
   }
  ],

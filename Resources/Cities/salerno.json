@@ -806,7 +806,15 @@
       "title_de": "Stadt Salerno: ZTL-Genehmigungen",
       "url": "https://www.comune.salerno.it/servizi/richiesta-autorizzazione-transito-eo-sosta-ztl-eo-rinnovi"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.accessibilitacentristorici.it/ztl/campania/salerno.html": "8ed4f492668c2f26",
+     "https://www.comune.salerno.it/amministrazione/ufficio/ufficio-varchi-ztl": "085a7431e5f8b369",
+     "https://www.comune.salerno.it/servizi/comunicazione-transito-occasionale-ztl": "7043067e9476585e",
+     "https://www.comune.salerno.it/servizi/richiesta-autorizzazione-transito-eo-sosta-ztl-eo-rinnovi": "6ac702de314fddc2",
+     "https://www.comune.salerno.it/sites/default/files/documento_pubblico/modello-b1.pdf": "46025f2cab0d92f4"
+    },
+    "readFingerprintsOf": "2026-10-27T12:00:00Z"
    }
   }
  ],

@@ -1051,7 +1051,16 @@
       "title_de": "OpenStreetMap: ZTL-Relation (Kameras auf der Karte)",
       "url": "https://www.openstreetmap.org/relation/19584710"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Delibere-della-Giunta-Comunale-n.-518-2022-e-n.-17-2023": "f21fea3c7ab7f840",
+     "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Divieti-di-circolazione-per-limitare-l-inquinamento-dell-aria": "447ddb739b886810",
+     "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Polizia-Municipale-I-varchi-gates-con-le-telecamere-di-controllo-della-ZTL-in-centro-storico": "319e0e0af06c48a0",
+     "https://www.comune.bolzano.bz.it/Servizi/Polizia-Municipale-Permessi-varchi-elettronici-ZTL-ed-aree-pedonali": "083773b2ca4087de",
+     "https://www.comune.bolzano.bz.it/Vivere-il-Comune/Guide/Accesso-ZTL-e-sosta-nel-centro-abitato": "2c5d9d9809d33bc3"
+    },
+    "readFingerprintsOf": "2026-10-27T12:30:00Z",
+    "pageChanged": true
    }
   }
  ],

@@ -303,7 +303,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   },
   {
@@ -545,7 +554,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   },
   {
@@ -751,7 +769,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   },
   {
@@ -1033,7 +1060,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   },
   {
@@ -1275,7 +1311,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   },
   {
@@ -1425,7 +1470,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   },
   {
@@ -1791,7 +1845,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   },
   {
@@ -2109,7 +2172,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   },
   {
@@ -2239,7 +2311,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   },
   {
@@ -2465,7 +2546,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   },
   {
@@ -2802,7 +2892,16 @@
       "title_de": "Stadt Ferrara: offizielle ZTL-Grenzen, offene Daten (WFS)",
       "url": "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://sit.comune.fe.it/geoserverckan/Ferrara/ZTL_esistente_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "981aed90549828c5",
+     "https://www.comune.ferrara.it/b/17343/permessi-ztl-giornalieri-e-abbonamenti": "8e172fe2883ae38c",
+     "https://www.comune.ferrara.it/it/b/57142/casi-particolari": "9b28f42e18ff3e1a",
+     "https://www.comune.ferrara.it/it/b/57144/centro-unico-permessi": "00465f3461096900",
+     "https://www.comune.ferrara.it/it/b/58980/sportello-permessi-ztl-permessi-sosta-mimuovoelettrico": "7810726a691d0c27",
+     "https://www.comune.ferrara.it/static/d3/13/ea/d36133eac821d78bec5fd1f4d17c5aa3.pdf": "4cc9e7f721ec2fd9"
+    },
+    "readFingerprintsOf": "2026-10-26T23:45:00Z"
    }
   }
  ],

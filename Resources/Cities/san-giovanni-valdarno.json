@@ -428,7 +428,13 @@
       "title_de": "OpenStreetMap: Relationen 19456994 und 19456993 (ZTL-Grenzen, ODbL)",
       "url": "https://www.openstreetmap.org/relation/19456994"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.san-giovanni-valdarno.ar.it/documenti/2562266/mappa-ztl": "0aa9a8f71b80bc71",
+     "https://www.comune.san-giovanni-valdarno.ar.it/servizi/servizio-dettaglio/2562040": "33d14fdad7817538",
+     "https://www.comune.san-giovanni-valdarno.ar.it/servizi/servizio-dettaglio/3128251": "aa29406db0b94c94"
+    },
+    "readFingerprintsOf": "2026-10-25T08:00:00Z"
    }
   },
   {
@@ -602,7 +608,13 @@
       "title_de": "OpenStreetMap: Relationen 19456994 und 19456993 (ZTL-Grenzen, ODbL)",
       "url": "https://www.openstreetmap.org/relation/19456994"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.san-giovanni-valdarno.ar.it/documenti/2562266/mappa-ztl": "0aa9a8f71b80bc71",
+     "https://www.comune.san-giovanni-valdarno.ar.it/servizi/servizio-dettaglio/2562040": "33d14fdad7817538",
+     "https://www.comune.san-giovanni-valdarno.ar.it/servizi/servizio-dettaglio/3128251": "aa29406db0b94c94"
+    },
+    "readFingerprintsOf": "2026-10-25T08:00:00Z"
    }
   }
  ],

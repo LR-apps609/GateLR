@@ -1384,7 +1384,16 @@
       "title_de": "Stadt Lucca: Zufahrtsregeln Lucca Comics & Games 2026 (Anordnung 2393/2026, PDF)",
       "url": "https://www.comune.lucca.it/app/uploads/2026/10/ord_02393_21-10-2026-Accessi-ZTL.pdf"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.lucca.it/app/uploads/2026/01/dlg_00340_12-12-2025.pdf": "b99d2460899c26ce",
+     "https://www.comune.lucca.it/app/uploads/2026/03/ZTL-aggiornamento-dicembre-2025.pdf": "b1f7962c8463462b",
+     "https://www.comune.lucca.it/app/uploads/2026/03/disciplinare_2026_.pdf": "ad245a44c2398dce",
+     "https://www.comune.lucca.it/app/uploads/2026/10/ord_02393_21-10-2026-Accessi-ZTL.pdf": "6b6fba5e0a6f34ee",
+     "https://www.comune.lucca.it/documento_pubblico/planimetria-del-centro-storico-con-varchi-telematici-ztl-e-area-pedonale/": "f195e139d902af43",
+     "https://www.comune.lucca.it/notizia/ztl-da-oggi-19-gennaio-sono-attivi-i-nuovi-varchi-elettronici/": "b692fab77ff8abe3"
+    },
+    "readFingerprintsOf": "2026-10-25T12:00:00Z"
    }
   },
   {
@@ -3627,7 +3636,16 @@
       "title_de": "Stadt Lucca: Zufahrtsregeln Lucca Comics & Games 2026 (Anordnung 2393/2026, PDF)",
       "url": "https://www.comune.lucca.it/app/uploads/2026/10/ord_02393_21-10-2026-Accessi-ZTL.pdf"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.lucca.it/app/uploads/2026/01/dlg_00340_12-12-2025.pdf": "b99d2460899c26ce",
+     "https://www.comune.lucca.it/app/uploads/2026/03/ZTL-aggiornamento-dicembre-2025.pdf": "b1f7962c8463462b",
+     "https://www.comune.lucca.it/app/uploads/2026/03/disciplinare_2026_.pdf": "ad245a44c2398dce",
+     "https://www.comune.lucca.it/app/uploads/2026/10/ord_02393_21-10-2026-Accessi-ZTL.pdf": "6b6fba5e0a6f34ee",
+     "https://www.comune.lucca.it/documento_pubblico/planimetria-del-centro-storico-con-varchi-telematici-ztl-e-area-pedonale/": "f195e139d902af43",
+     "https://www.comune.lucca.it/notizia/ztl-da-oggi-19-gennaio-sono-attivi-i-nuovi-varchi-elettronici/": "b692fab77ff8abe3"
+    },
+    "readFingerprintsOf": "2026-10-25T12:00:00Z"
    }
   },
   {
@@ -3984,7 +4002,16 @@
       "title_de": "Stadt Lucca: Zufahrtsregeln Lucca Comics & Games 2026 (Anordnung 2393/2026, PDF)",
       "url": "https://www.comune.lucca.it/app/uploads/2026/10/ord_02393_21-10-2026-Accessi-ZTL.pdf"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.lucca.it/app/uploads/2026/01/dlg_00340_12-12-2025.pdf": "b99d2460899c26ce",
+     "https://www.comune.lucca.it/app/uploads/2026/03/ZTL-aggiornamento-dicembre-2025.pdf": "b1f7962c8463462b",
+     "https://www.comune.lucca.it/app/uploads/2026/03/disciplinare_2026_.pdf": "ad245a44c2398dce",
+     "https://www.comune.lucca.it/app/uploads/2026/10/ord_02393_21-10-2026-Accessi-ZTL.pdf": "6b6fba5e0a6f34ee",
+     "https://www.comune.lucca.it/documento_pubblico/planimetria-del-centro-storico-con-varchi-telematici-ztl-e-area-pedonale/": "f195e139d902af43",
+     "https://www.comune.lucca.it/notizia/ztl-da-oggi-19-gennaio-sono-attivi-i-nuovi-varchi-elettronici/": "b692fab77ff8abe3"
+    },
+    "readFingerprintsOf": "2026-10-25T12:00:00Z"
    }
   }
  ],

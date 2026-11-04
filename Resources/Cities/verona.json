@@ -318,7 +318,18 @@
       "title_de": "OpenStreetMap: Weg 1346972708 (ZTL-Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/way/1346972708"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://archive.comune.verona.it/media/_ComVR/Cdr2023/ComunicazioneURP/Allegati/Ordinanze/ord_01486_21-10-2024.pdf": "7f52d97ac65eee83",
+     "https://archive.comune.verona.it/media/_ComVR/Cdr2023/ComunicazioneURP/Allegati/Ordinanze/ord_01545_31-10-2024.pdf": "385873cbfbbc1acb",
+     "https://polizialocale.comune.verona.it/nqcontent.cfm?a_id=26103": "941edd83870b0539",
+     "https://polizialocale.comune.verona.it/nqcontent.cfm?a_id=26104": "cd693ba056bceb92",
+     "https://www.comune.verona.it/Novita/Notizie/La-Zona-a-Traffico-Limitato-di-Verona": "7ec92f4d8af97e3a",
+     "https://www.comune.verona.it/Servizi/Citypass-richiesta-di-adesione-al-Protocollo-d-Intesa-per-strutture-ricettive-situate-in-ZTL": "145ba71adc0bdca0",
+     "https://www.comune.verona.it/content/view/full/23692": "409835bf92c29bcd",
+     "https://www.comune.verona.it/content/view/full/7434": "02442586f5dbdc31"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -511,7 +522,18 @@
       "title_de": "OpenStreetMap: Weg 1346972708 (ZTL-Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/way/1346972708"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://archive.comune.verona.it/media/_ComVR/Cdr2023/ComunicazioneURP/Allegati/Ordinanze/ord_01486_21-10-2024.pdf": "7f52d97ac65eee83",
+     "https://archive.comune.verona.it/media/_ComVR/Cdr2023/ComunicazioneURP/Allegati/Ordinanze/ord_01545_31-10-2024.pdf": "385873cbfbbc1acb",
+     "https://polizialocale.comune.verona.it/nqcontent.cfm?a_id=26103": "941edd83870b0539",
+     "https://polizialocale.comune.verona.it/nqcontent.cfm?a_id=26104": "cd693ba056bceb92",
+     "https://www.comune.verona.it/Novita/Notizie/La-Zona-a-Traffico-Limitato-di-Verona": "7ec92f4d8af97e3a",
+     "https://www.comune.verona.it/Servizi/Citypass-richiesta-di-adesione-al-Protocollo-d-Intesa-per-strutture-ricettive-situate-in-ZTL": "145ba71adc0bdca0",
+     "https://www.comune.verona.it/content/view/full/23692": "409835bf92c29bcd",
+     "https://www.comune.verona.it/content/view/full/7434": "02442586f5dbdc31"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -671,7 +693,18 @@
       "title_de": "OpenStreetMap: Weg 1346972708 (ZTL-Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/way/1346972708"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://archive.comune.verona.it/media/_ComVR/Cdr2023/ComunicazioneURP/Allegati/Ordinanze/ord_01486_21-10-2024.pdf": "7f52d97ac65eee83",
+     "https://archive.comune.verona.it/media/_ComVR/Cdr2023/ComunicazioneURP/Allegati/Ordinanze/ord_01545_31-10-2024.pdf": "385873cbfbbc1acb",
+     "https://polizialocale.comune.verona.it/nqcontent.cfm?a_id=26103": "941edd83870b0539",
+     "https://polizialocale.comune.verona.it/nqcontent.cfm?a_id=26104": "cd693ba056bceb92",
+     "https://www.comune.verona.it/Novita/Notizie/La-Zona-a-Traffico-Limitato-di-Verona": "7ec92f4d8af97e3a",
+     "https://www.comune.verona.it/Servizi/Citypass-richiesta-di-adesione-al-Protocollo-d-Intesa-per-strutture-ricettive-situate-in-ZTL": "145ba71adc0bdca0",
+     "https://www.comune.verona.it/content/view/full/23692": "409835bf92c29bcd",
+     "https://www.comune.verona.it/content/view/full/7434": "02442586f5dbdc31"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   }
  ],

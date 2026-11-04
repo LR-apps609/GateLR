@@ -9125,7 +9125,13 @@
       "title_de": "Offene Daten: Area-C-Kameras (CC BY)",
       "url": "https://dati.comune.milano.it/dataset/ds82_infogeo_varchi_elettronici_localizzazione_"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.milano.it/argomenti/mobilita/area-c": "c7f8c45a72769550",
+     "https://www.comune.milano.it/argomenti/mobilita/area-c-calendario-dei-divieti": "db4fb405eb02b044",
+     "https://www.comune.milano.it/servizi/mobilita/area-c-acquista-il-ticket": "b93feca6c87b4cb7"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
    }
   },
   {
@@ -14044,7 +14050,12 @@
       "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
       "url": "https://dati.comune.milano.it/dataset/ds51_infogeo_aree_pedonali_ztl_localizzazione_"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.milano.it/argomenti/mobilita/area-b": "a719397361605e12",
+     "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti": "3380a9eb34404d9b"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
    }
   }
  ],

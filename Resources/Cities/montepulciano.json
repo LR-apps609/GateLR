@@ -912,7 +912,16 @@
       "title_de": "OpenStreetMap: Relation 18111528 «ZTL Montepulciano» (ODbL)",
       "url": "https://www.openstreetmap.org/relation/18111528"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.montepulciano.si.it/istruzioni-ztl/": "9977d2d315856ec7",
+     "https://www.comune.montepulciano.si.it/novita/da-lunedi-20-gennaio-entrano-in-funzione-i-varchi-in-uscita-per-il-controllo-della-ztl-nel-centro-storico/": "76bff2e504d6c954",
+     "https://www.comune.montepulciano.si.it/servizio/richiesta-permesso-di-accesso-temporaneo-alla-ztl/": "b957dc12b758fa5d",
+     "https://www.comune.montepulciano.si.it/wp-content/uploads/2024/11/DEF_ordinanza_ZTL_77_2022_EN.pdf": "0aad05047edacc2f",
+     "https://www.comune.montepulciano.si.it/wp-content/uploads/2025/01/OrdinanzadelResponsabile_Copia_9_2025-ztl-varchi-uscita.pdf": "5a63b34ab5079a8b"
+    },
+    "readFingerprintsOf": "2026-10-27T13:00:00Z",
+    "pageChanged": true
    }
   }
  ],

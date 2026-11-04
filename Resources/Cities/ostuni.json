@@ -434,7 +434,11 @@
     "unofficialSource": {
      "name": "accessibilitacentristorici.it",
      "url": "https://www.accessibilitacentristorici.it/ztl/puglia/ostuni.html"
-    }
+    },
+    "readFingerprints": {
+     "https://www.comune.ostuni.br.it/servizio/richiedere-permesso-di-accesso-ad-area-ztl/": "9b21dfc003a61e9e"
+    },
+    "readFingerprintsOf": "2026-10-27T17:00:00Z"
    }
   }
  ],

@@ -1,239 +1,239 @@
 {
- "version": "202610291701",
- "digest": "f91897c34b4d",
+ "version": "202611041119",
+ "digest": "57b621480170",
  "schema": 1,
  "cities": [
   {
    "id": "alghero",
    "file": "alghero.json",
-   "sha256": "946f7618a71461ab079f708d5bb558d37d267a2f618b3887ac33080c3cc268bc"
+   "sha256": "aeb2956c4ba9b0a17fe0542eb07892ed5e29bff42f16c62223b2d3d68436fc20"
   },
   {
    "id": "arezzo",
    "file": "arezzo.json",
-   "sha256": "87cbbf6c6e9e7e5217f53168657b4da34db082cdfeb658e229bb65a98a5c4910"
+   "sha256": "9e5f7fb429cf347717172c83376d0403d27cf6f03ed962e2f41769d0292bf519"
   },
   {
    "id": "ascoli-piceno",
    "file": "ascoli-piceno.json",
-   "sha256": "ef952e0ba6fc52dc25513a047248a17ab055d9c26081b367c9b0499a01f3f2d0"
+   "sha256": "512cac0573a47490365c08f5c5a81ddbbbc5fc3739325d975e991a788b713616"
   },
   {
    "id": "bari",
    "file": "bari.json",
-   "sha256": "91f2a8920ab5bc92b62c02bfa31e290ad7bfca6eba1a9f3dc4b955b32be4491d"
+   "sha256": "f8bc7298e6e3c39ec5305319ee884c70b5e8576468697e56b6ae020f650c91e1"
   },
   {
    "id": "bergamo",
    "file": "bergamo.json",
-   "sha256": "611af7e945999fa87468f791ebc623a57406edd3411e1766c92b9a6948aad18c"
+   "sha256": "c78046068d76b88e0acba4a5dbccd01bb3a86ffcee61f805e6ea407857b05e56"
   },
   {
    "id": "bologna",
    "file": "bologna.json",
-   "sha256": "9373bc5f803c8df4a198e42f6ff8274e28f22a9437bf6dd82d056cea868f0daf"
+   "sha256": "e6ab76be838ee124f81086a9e04f546473248671177ea74dc03de66ab5b8b37f"
   },
   {
    "id": "bolzano",
    "file": "bolzano.json",
-   "sha256": "f89c0f108b9461cee2e139e0908f42c523915e0d34f5971c48f594b711ed6f37"
+   "sha256": "1d1459df677d69f054bf1f2fb45c1bed0d8879d6c41de48ccde9c551399fd599"
   },
   {
    "id": "catania",
    "file": "catania.json",
-   "sha256": "8d756df690f025797697cfe50c413ac2f6c8cf07444bc93f93726112556ee8f2"
+   "sha256": "d3cf1bb917f1e2804c88f71840723e7183540f1e493ead1436754322a92da95a"
   },
   {
    "id": "como",
    "file": "como.json",
-   "sha256": "781e30c889aa6f000131d196bc2dec0f07897ec01c90cc1ef5e575ca0b7b9d30"
+   "sha256": "99bf0810b1308c8fd512edfd537871b84b41ac15fdce597089a822defd5bf40a"
   },
   {
    "id": "cortona",
    "file": "cortona.json",
-   "sha256": "4f7afe9c8dbe9ef86641ea3a78f2da7ff3de9333d8279308bb3eb49985e37ebd"
+   "sha256": "548e5f5e9d24a9b6547e0eca0eb37cddd647999d6a2ff3ad07a3ecba9bc72287"
   },
   {
    "id": "ferrara",
    "file": "ferrara.json",
-   "sha256": "2650309d67f04eb268adc1f181b4bf91f7a05ce4fef491ae02e7265c8f97befb"
+   "sha256": "6bab454145e3da5dfae29c373c55f86442e8fa71ae492f2e3041054f6c956014"
   },
   {
    "id": "firenze",
    "file": "firenze.json",
-   "sha256": "248954a49dee19e9315edc202f2dafee06afa0772b6abee7adf05dc1151beaa2"
+   "sha256": "688d53366152ebb2ccc1868bd3582b5a9c53cbb958bbb78d608105172dba4fdf"
   },
   {
    "id": "genova",
    "file": "genova.json",
-   "sha256": "3f6b946dc00f6b86c15d09b6940f826f24e480e5a91f5cd54ed6e7b7478a44bd"
+   "sha256": "5efc36bac0f4bef4d1e7c238c7bc2b931b9ff44272c027f4ef178476da726e7a"
   },
   {
    "id": "lecce",
    "file": "lecce.json",
-   "sha256": "8d768b77d1b20cafd7c9750f29ef9db9872cba16df3ea526a908af7aa8ee25bb"
+   "sha256": "70845ca252f0426d5692eacb5e7a3f40af0cf9af84f37a4ac007f72c977cbb36"
   },
   {
    "id": "lucca",
    "file": "lucca.json",
-   "sha256": "397b00bdaa55fb1f1e901ad75a0017020c956b0bdfe8c287fa1d08137ac84656"
+   "sha256": "85d09bf8bd9bae323ba786ad4f7fe1f514f48e8a2af090d0e12ac22b46d6eeea"
   },
   {
    "id": "matera",
    "file": "matera.json",
-   "sha256": "b9db446266656b704884e3543170ad365be269cc1732c7d7760035c1b3a3a44e"
+   "sha256": "b1d5dc8cb31d7306168c79049aa4c80b55b58990217414e545d7039fc2bd1a4e"
   },
   {
    "id": "milano",
    "file": "milano.json",
-   "sha256": "92b69c6db84e8e2b0715152b1b7696599039a3cc95abb727fa31e3bb0d2f8a97"
+   "sha256": "a51c8af7697ae28e9be2b394d3097d2c7fe39847480e4ef68190d3c590fb2e1d"
   },
   {
    "id": "modena",
    "file": "modena.json",
-   "sha256": "9ec3c4bbc9afdc9495020e1b06028ce5cfb261fae060b078de7a1ceebc03fdb7"
+   "sha256": "6e7ea32723b40c3f6051c04e6a6fea2866cd42d16d0e017b974136be628696b0"
   },
   {
    "id": "montepulciano",
    "file": "montepulciano.json",
-   "sha256": "3d7b8922646ba258b141f0ad7e7bf995514491fc6073bda40468c5cd819a92b0"
+   "sha256": "37f31e44059dd9a5244ecb1b965a81d6accf75e3f5db93801054d382f23cdfe5"
   },
   {
    "id": "napoli",
    "file": "napoli.json",
-   "sha256": "665711e726ee8c7aeeca3e2a134e14bdf154770b7fa004e3238aa3bb4f0df201"
+   "sha256": "48a1b6c7571709d1cd043c2537c4862c65b9767b0c10d3ff3273457235174d52"
   },
   {
    "id": "padova",
    "file": "padova.json",
-   "sha256": "073d72f4479bb483b2f5099ca442306eb37b1085e169bcbc134e7da3b80d1ce6"
+   "sha256": "94ee155f2b473dfa68d615bf5fb00a10f67fc47b6a911a9c91d6bf37f4d71235"
   },
   {
    "id": "palermo",
    "file": "palermo.json",
-   "sha256": "93f19e5e9dfecbf0e5d0a202092e92311f45fc71e204994918720b1812bc281d"
+   "sha256": "36df1eb9e25b382df602e229d36db2e93f20441bef1a26ca50ff293f00639173"
   },
   {
    "id": "parma",
    "file": "parma.json",
-   "sha256": "7cbbe405d4243ef0a6d07e3a76941646386c3782466a7ef0a908d49aa8c9b263"
+   "sha256": "2960fbbec1ecd920208bd1bd0b27e599b0618e19f3fb18ec0997b0b396632ca6"
   },
   {
    "id": "perugia",
    "file": "perugia.json",
-   "sha256": "1cd601baf19fede1651a8dca227d5cd1de8232287d2e25ed585a6d05274fdf36"
+   "sha256": "d1dff18e053ce122d4e8eb0c39816506d048a45141bd4da47da00fe3583981f6"
   },
   {
    "id": "pisa",
    "file": "pisa.json",
-   "sha256": "2aa2eab4ca5b32a55a445b86b373f99ee89696f9fbf720650c74284c6d7b909d"
+   "sha256": "ecd2d55fd460b2ef2991d24eaf43f330097737b4833fc64ede59a29da452ff0a"
   },
   {
    "id": "ravenna",
    "file": "ravenna.json",
-   "sha256": "03d0d8b61fef982664daabcdc3799692e36d7e6370ebcae4b1be4bf656cd6131"
+   "sha256": "01ccf6251fe23bd7e6930a61ea549e2ff3fe9033f806672626dbd838e43f898d"
   },
   {
    "id": "rimini",
    "file": "rimini.json",
-   "sha256": "accffadde32d1c5bcdc262019fe200e975b7cc2fa7d47903271b26f1693655b2"
+   "sha256": "fd60a8eb6974465117badd7db58bc6a74d7902562ec9d698047b469a2b2963f4"
   },
   {
    "id": "roma",
    "file": "roma.json",
-   "sha256": "7d67f29c4766edf37cc24949f4e19c58d5d7cafd893d3fdf2a827377044a77e7"
+   "sha256": "6444a1ca34c203828d15e2e950d85a4cf58e84479acdef68ef48ed1ddf5ddaca"
   },
   {
    "id": "san-gimignano",
    "file": "san-gimignano.json",
-   "sha256": "5b733b756d4abbe9b143e0765e17ade5b539374629ee7f547be0e8fa8a2ddefa"
+   "sha256": "6ae4242e78092a291cef09747022a885edaac5409c61571d4ff52e8c2a2bc7b5"
   },
   {
    "id": "san-giovanni-valdarno",
    "file": "san-giovanni-valdarno.json",
-   "sha256": "39d89974d7c1b78802e359c8a279e90a3d1e4fab5500d286c988c9124232383d"
+   "sha256": "d0bc619c334191d36c85aaab043dcfe40478a49b38d17a3e8fd9476e19209d11"
   },
   {
    "id": "siena",
    "file": "siena.json",
-   "sha256": "2f3d1ca7aaab2462292fac953b8f30cd68c06557bb8962ce50b2de86c2b2baa3"
+   "sha256": "5560918417e3ae4dc3febf74becc47f69c970fccd2769cdeeadb733eaab4e32e"
   },
   {
    "id": "siracusa",
    "file": "siracusa.json",
-   "sha256": "17dc9a7aadd4aca865d45926ec1ed9ca90ac90466f39f1bae0c6604240c80932"
+   "sha256": "5b1258abe5786d7bacece4c4ccf84a4102b8d2dbdfd8c26ce61924fde7dcf0e4"
   },
   {
    "id": "sirmione",
    "file": "sirmione.json",
-   "sha256": "013d9f17887cdbf31f5d2e2d3091ab2765dbf2c8bba7d12cb190a5af785082d3"
+   "sha256": "730980137d9730298004a87c0f24b1b31db6136774cd0492254461d637daa215"
   },
   {
    "id": "sorrento",
    "file": "sorrento.json",
-   "sha256": "dc8b903f8121295e3606f437684890bf438c6c630498529a96be8b32add798aa"
+   "sha256": "91e94a87585ab102c80c3e1a00866a40ee0469509a957e8b637ab7d2025157d2"
   },
   {
    "id": "torino",
    "file": "torino.json",
-   "sha256": "d1fd076da98f9ff987d7afb1c27c0433fa293d43b0bbceb23d929d028d125706"
+   "sha256": "22a062abfed5e2016363a7a80dcb40e4cbb4c45e38c35d47ebf772c935191c88"
   },
   {
    "id": "trento",
    "file": "trento.json",
-   "sha256": "77339ac631ac70ac80933cf59cd663094c130b33ba206c2bb03cd5b3857ef5a0"
+   "sha256": "a632ffca879e47949281032855923b10cd8e7ec82df3d45011746063e424046d"
   },
   {
    "id": "treviso",
    "file": "treviso.json",
-   "sha256": "ba7c801b4d3d88aa527fd4ecdb326a8c293dfb6331a83fa64b3b5916e585ca75"
+   "sha256": "f0584eb4796bfc4dfbd5193637e4b634202983e4b35187d6763750b175358a3c"
   },
   {
    "id": "trieste",
    "file": "trieste.json",
-   "sha256": "f899e0a39786f2c9f5f488c8499d0c3dcac49e11443a7a438e6ee8b7e5ffbdea"
+   "sha256": "1748663541138df32f1e3099810741c11e27161cf6d07a5c9a69453bfad70e35"
   },
   {
    "id": "verona",
    "file": "verona.json",
-   "sha256": "f07c2ed4b4094546bb0094f92b59b907539d0efc60d14418290481344a8e28fb"
+   "sha256": "9a0530e60a5d443026a06203b244f1b86f3ef9fbc6d0fdc0176077c3ed475b5c"
   },
   {
    "id": "vicenza",
    "file": "vicenza.json",
-   "sha256": "1eec4bbcd29e26fa6eb28afb47044226357b93685243bf64f1646e9201ec3977"
+   "sha256": "024bd5ab802f5ea23ebcfabe9f70ff328dc5b45330a912b58c07396773cf56a0"
   },
   {
    "id": "volterra",
    "file": "volterra.json",
-   "sha256": "ad90d345d9b4eb66adbb0c1b43af191c53fd6cdfcb7a0d4d41e0d625c5ed2a3e"
+   "sha256": "78e78b92475129c42007274e51abb464383d4da5b02ec048d140ddf94e98a3f8"
   }
  ],
  "unofficialCities": [
   {
    "id": "cagliari",
    "file": "cagliari.json",
-   "sha256": "ffa228817bf6a553d0ae743bf2ae4320d3c32d2f3373f67add0ef878c1973cb6"
+   "sha256": "6b58cd8da44e92e4ffd0517990e1247dec80ba9a8e11962828da2fc9f434d7e2"
   },
   {
    "id": "mantova",
    "file": "mantova.json",
-   "sha256": "c62cf23ddf846105154ffda9a273aa2eeb7417f5dcd3039b37bb5089e5128e86"
+   "sha256": "606f054404600f53239aad54ece110d0d8e660014b9003d378b54fd2c9bcf62e"
   },
   {
    "id": "ostuni",
    "file": "ostuni.json",
-   "sha256": "1fa44c4634ff9e71c44ae57daf8c1ab0cb14c7c8a0e95319859a39053a9cf73b"
+   "sha256": "d0f4ae5b1a61bfeb43055edd0bfb296815213e1211b88ced3f0aa66914cec84d"
   },
   {
    "id": "polignano-a-mare",
    "file": "polignano-a-mare.json",
-   "sha256": "93508f405bb1a3845313d34aa33f6c1fd2532db4b66c0998e8406946d3b73be2"
+   "sha256": "ddcccd615f6b0def0022740dd3a0232a51b671a149439bce0c5e578898eca1a9"
   },
   {
    "id": "salerno",
    "file": "salerno.json",
-   "sha256": "36f71135514c845644e2d8ba8522268b48574f6bb0c82caa77d3a75b18c106f2"
+   "sha256": "521bd1bcd6752910065600901fb593aa1208b6d6d17b46c70ea29557bfc4d960"
   }
  ]
 }

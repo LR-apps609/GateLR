@@ -900,7 +900,16 @@
       "title_de": "OpenStreetMap: Straßen der Verordnung (ODbL)",
       "url": "https://www.openstreetmap.org/way/220483714"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.sorrento.na.it/download/b81cb24c5b6b4de7a26a24f08057427e/ORD%20N.%20230.pdf": "3ad9f1948c3c48b4",
+     "https://www.comune.sorrento.na.it/it/novita/page/sorrento-viabilita-ritorna-la-zona-a-traffico-limitato": "23737c7b704e14dc",
+     "https://www.comune.sorrento.na.it/it/novita/page/z-t-l-centro": "f4d0e4613a484953",
+     "https://www.comune.sorrento.na.it/it/servizi/page/richiesta-autorizzazione-ztl-per-strutture": "05fe6732d0b61bbf",
+     "https://www.comune.sorrento.na.it/it/servizi/page/rilascio-autorizzazioni-ztl": "12369e3faa8596c5"
+    },
+    "readFingerprintsOf": "2026-10-27T11:30:00Z",
+    "pageChanged": true
    }
   }
  ],

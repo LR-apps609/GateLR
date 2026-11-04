@@ -953,7 +953,19 @@
       "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
       "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf": "6934ce7a5562d128",
+     "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf": "0c9fe5b3d627af48",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf": "185b27005961315a",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf": "802a7508d4c3930d",
+     "https://comune.matera.it/ztl-apu/": "bf975eeac282a656",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf": "f7cbc20daa681eee",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf": "ee9d2fcfba1b9483",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf": "2e17505b2828bfc9",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf": "61611d936c5092ef"
+    },
+    "readFingerprintsOf": "2026-10-26T23:50:00Z"
    }
   },
   {
@@ -1274,7 +1286,19 @@
       "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
       "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf": "6934ce7a5562d128",
+     "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf": "0c9fe5b3d627af48",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf": "185b27005961315a",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf": "802a7508d4c3930d",
+     "https://comune.matera.it/ztl-apu/": "bf975eeac282a656",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf": "f7cbc20daa681eee",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf": "ee9d2fcfba1b9483",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf": "2e17505b2828bfc9",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf": "61611d936c5092ef"
+    },
+    "readFingerprintsOf": "2026-10-26T23:50:00Z"
    }
   },
   {
@@ -1670,7 +1694,19 @@
       "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
       "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf": "6934ce7a5562d128",
+     "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf": "0c9fe5b3d627af48",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf": "185b27005961315a",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf": "802a7508d4c3930d",
+     "https://comune.matera.it/ztl-apu/": "bf975eeac282a656",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf": "f7cbc20daa681eee",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf": "ee9d2fcfba1b9483",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf": "2e17505b2828bfc9",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf": "61611d936c5092ef"
+    },
+    "readFingerprintsOf": "2026-10-26T23:50:00Z"
    }
   },
   {
@@ -1862,7 +1898,19 @@
       "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
       "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf": "6934ce7a5562d128",
+     "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf": "0c9fe5b3d627af48",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf": "185b27005961315a",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf": "802a7508d4c3930d",
+     "https://comune.matera.it/ztl-apu/": "bf975eeac282a656",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf": "f7cbc20daa681eee",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf": "ee9d2fcfba1b9483",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf": "2e17505b2828bfc9",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf": "61611d936c5092ef"
+    },
+    "readFingerprintsOf": "2026-10-26T23:50:00Z"
    }
   },
   {
@@ -2090,7 +2138,19 @@
       "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
       "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf": "6934ce7a5562d128",
+     "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf": "0c9fe5b3d627af48",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf": "185b27005961315a",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf": "802a7508d4c3930d",
+     "https://comune.matera.it/ztl-apu/": "bf975eeac282a656",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf": "f7cbc20daa681eee",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf": "ee9d2fcfba1b9483",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf": "2e17505b2828bfc9",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf": "61611d936c5092ef"
+    },
+    "readFingerprintsOf": "2026-10-26T23:50:00Z"
    }
   },
   {
@@ -2289,7 +2349,19 @@
       "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
       "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf": "6934ce7a5562d128",
+     "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf": "0c9fe5b3d627af48",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf": "185b27005961315a",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf": "802a7508d4c3930d",
+     "https://comune.matera.it/ztl-apu/": "bf975eeac282a656",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf": "f7cbc20daa681eee",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf": "ee9d2fcfba1b9483",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf": "2e17505b2828bfc9",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf": "61611d936c5092ef"
+    },
+    "readFingerprintsOf": "2026-10-26T23:50:00Z"
    }
   },
   {
@@ -2532,7 +2604,19 @@
       "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
       "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf": "6934ce7a5562d128",
+     "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf": "0c9fe5b3d627af48",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf": "185b27005961315a",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf": "802a7508d4c3930d",
+     "https://comune.matera.it/ztl-apu/": "bf975eeac282a656",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf": "f7cbc20daa681eee",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf": "ee9d2fcfba1b9483",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf": "2e17505b2828bfc9",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf": "61611d936c5092ef"
+    },
+    "readFingerprintsOf": "2026-10-26T23:50:00Z"
    }
   },
   {
@@ -3023,7 +3107,19 @@
       "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
       "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf": "6934ce7a5562d128",
+     "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf": "0c9fe5b3d627af48",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf": "185b27005961315a",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf": "802a7508d4c3930d",
+     "https://comune.matera.it/ztl-apu/": "bf975eeac282a656",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf": "f7cbc20daa681eee",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf": "ee9d2fcfba1b9483",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf": "2e17505b2828bfc9",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf": "61611d936c5092ef"
+    },
+    "readFingerprintsOf": "2026-10-26T23:50:00Z"
    }
   },
   {
@@ -3274,7 +3370,19 @@
       "title_de": "OpenStreetMap: Straßen von Matera (ODbL)",
       "url": "https://www.openstreetmap.org/#map=17/40.6660/16.6090"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.matera.it/wp-content/uploads/2024/01/Procedura-per-comunicazione-transiti-da-parte-di-strutture-ricettive-e-autorimesse.pdf": "6934ce7a5562d128",
+     "https://comune.matera.it/wp-content/uploads/2025/05/ORARI-TELECAMERE-BARRIERE.pdf": "0c9fe5b3d627af48",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_147_2025-ZTL-SASSI.pdf": "185b27005961315a",
+     "https://comune.matera.it/wp-content/uploads/2025/05/Ordinanza_Dirigenziale_148_2025-ZTL-PIAVE.pdf": "802a7508d4c3930d",
+     "https://comune.matera.it/ztl-apu/": "bf975eeac282a656",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Disciplinare-con-modifiche-D.G.C.-2019.pdf": "f7cbc20daa681eee",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ord.Dir_.-n.-270-2022-Attivazione-del-sistema-dei-varchi-elettronici-ZTL-Periodo-di-pre-esercizio.pdf": "ee9d2fcfba1b9483",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Ordinanza-Dirigenziale-n.2941-2021.pdf": "2e17505b2828bfc9",
+     "https://www.comune.matera.it/wp-content/uploads/2024/01/Planimetria-ZTL.pdf": "61611d936c5092ef"
+    },
+    "readFingerprintsOf": "2026-10-26T23:50:00Z"
    }
   }
  ],

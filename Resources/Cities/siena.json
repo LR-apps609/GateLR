@@ -759,7 +759,16 @@
       "title_de": "OpenStreetMap: Relation 4081506 (ZTL-Straßen und Kameras, ODbL)",
       "url": "https://www.openstreetmap.org/relation/4081506"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.siena.it/documento-pubblico/disciplinare-il-rilascio-dei-permessi-di-accesso-e-circolazione-zona-traffico": "4ffb27e44bf7f832",
+     "https://www.comune.siena.it/servizi/accesso-ztl-persone-fisiche": "6fc83ac55d2def54",
+     "https://www.comune.siena.it/servizi/accesso-ztl-strutture-ricettive": "7c2418e84c3a29ae",
+     "https://www.comune.siena.it/sites/default/files/2025-03/Planimetria%20Y%20storica%20ampliata%20%281%29.pdf": "8e1537dc2b15f336",
+     "https://www.comune.siena.it/sites/default/files/2025-06/Mappa%20ZTL%20con%20Varchi.pdf": "20f39f7589656948",
+     "https://www.comune.siena.it/sites/default/files/2025-09/Tabella%20Tariffe_%20GC_327_2025.pdf": "8364f275f9ad823a"
+    },
+    "readFingerprintsOf": "2026-10-24T12:00:00Z"
    }
   }
  ],

@@ -1064,7 +1064,14 @@
       "title_de": "OpenStreetMap: Relation 9342809 (ZTL-Kameras, ODbL)",
       "url": "https://www.openstreetmap.org/relation/9342809"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.pisa.it/Novita/Comunicati/Calcio-con-l-avvio-della-nuova-stagione-torna-attiva-la-ZTL-Stadio-in-occasione-delle-partite-casalinghe-del-Pisa-SC": "8ea86f5312771fed",
+     "https://www.comune.pisa.it/Novita/Comunicati/Contrassegno-unificato-disabili-europeo-CUDE-installata-la-nuova-cartellonistica-ai-varchi-della-ZTL": "28ff37b2516a68da",
+     "https://www.comune.pisa.it/Novita/Comunicati/Turismo-e-mobilita-in-centro-cambia-la-sosta-per-i-clienti-delle-strutture-ricettive": "4363f391dee056d4",
+     "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL": "c52dd85bc34450d1"
+    },
+    "readFingerprintsOf": "2026-10-25T08:00:00Z"
    }
   },
   {
@@ -1895,7 +1902,14 @@
       "title_de": "OpenStreetMap: Relation 9342809 (ZTL-Kameras, ODbL)",
       "url": "https://www.openstreetmap.org/relation/9342809"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.pisa.it/Novita/Comunicati/Calcio-con-l-avvio-della-nuova-stagione-torna-attiva-la-ZTL-Stadio-in-occasione-delle-partite-casalinghe-del-Pisa-SC": "8ea86f5312771fed",
+     "https://www.comune.pisa.it/Novita/Comunicati/Contrassegno-unificato-disabili-europeo-CUDE-installata-la-nuova-cartellonistica-ai-varchi-della-ZTL": "28ff37b2516a68da",
+     "https://www.comune.pisa.it/Novita/Comunicati/Turismo-e-mobilita-in-centro-cambia-la-sosta-per-i-clienti-delle-strutture-ricettive": "4363f391dee056d4",
+     "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL": "c52dd85bc34450d1"
+    },
+    "readFingerprintsOf": "2026-10-25T08:00:00Z"
    }
   },
   {
@@ -2469,7 +2483,14 @@
       "title_de": "OpenStreetMap: Relation 9342809 (ZTL-Kameras, ODbL)",
       "url": "https://www.openstreetmap.org/relation/9342809"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.pisa.it/Novita/Comunicati/Calcio-con-l-avvio-della-nuova-stagione-torna-attiva-la-ZTL-Stadio-in-occasione-delle-partite-casalinghe-del-Pisa-SC": "8ea86f5312771fed",
+     "https://www.comune.pisa.it/Novita/Comunicati/Contrassegno-unificato-disabili-europeo-CUDE-installata-la-nuova-cartellonistica-ai-varchi-della-ZTL": "28ff37b2516a68da",
+     "https://www.comune.pisa.it/Novita/Comunicati/Turismo-e-mobilita-in-centro-cambia-la-sosta-per-i-clienti-delle-strutture-ricettive": "4363f391dee056d4",
+     "https://www.comune.pisa.it/Servizi/Registrazione-Targhe-per-accesso-veicoli-in-ZTL": "c52dd85bc34450d1"
+    },
+    "readFingerprintsOf": "2026-10-25T08:00:00Z"
    }
   }
  ],

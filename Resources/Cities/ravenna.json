@@ -947,7 +947,15 @@
       "title_de": "Ravenna Tourismus: verkehrsberuhigte Zone",
       "url": "https://www.turismo.ra.it/en/getting-around-ravenna/limited-traffic-zone-ltz/"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.ravenna.it/altro-contenuto/sirio-controllo-accessi-in-ztl/": "7f1d05e693f9e05f",
+     "https://comune.ravenna.it/amministrazione/documenti-e-dati/modulistica/modulo-comunicazione-targhe-persone-invalide-accesso-sirio-ztl/": "afd70849d147ea8d",
+     "https://comune.ravenna.it/novita/comunicato-stampa/in-seguito-agli-incontri-pubblici-approvata-la-modifica-alla-delibera-del-piano-che-disciplina-circolazione-e-sosta-nel-comune-di-ravenna/": "ef2245c9bc9684ad",
+     "https://comune.ravenna.it/servizi/autorizzazioni/comunicazione-targhe-di-veicoli-abilitati-a-circolare-in-zona-a-traffico-limitato-di-ravenna-sirio/": "30937cc89698f765"
+    },
+    "readFingerprintsOf": "2026-10-27T07:00:00Z",
+    "pageChanged": true
    }
   }
  ],

@@ -1317,7 +1317,15 @@
       "title_de": "OpenStreetMap: Relation 19152919 «ZTL Zona A e B» (ODbL)",
       "url": "https://www.openstreetmap.org/relation/19152919"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.padova.it/sites/default/files/attachment/2023-08-31_ZTL_PadovaNet_Volantino%20A3.pdf": "460bfe0f5e047384",
+     "https://www.comune.padova.it/sites/default/files/attachment/Allegato%20A%20Disciplinare%20.pdf": "05c3a8f27a698ff4",
+     "https://www.comune.padova.it/sites/default/files/attachment/Allegato%20B_3.pdf": "8ef6f141dd11e137",
+     "https://www.comune.padova.it/sites/default/files/attachment/AreePedonali_0.pdf": "225e26f576bbf155",
+     "https://www.comune.padova.it/sites/default/files/attachment/ZTL.pdf": "a87ce96fb0933686"
+    },
+    "readFingerprintsOf": "2026-10-25T08:00:00Z"
    }
   },
   {
@@ -1701,7 +1709,15 @@
       "title_de": "OpenStreetMap: Relation 19152919 «ZTL Zona A e B» (ODbL)",
       "url": "https://www.openstreetmap.org/relation/19152919"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.padova.it/sites/default/files/attachment/2023-08-31_ZTL_PadovaNet_Volantino%20A3.pdf": "460bfe0f5e047384",
+     "https://www.comune.padova.it/sites/default/files/attachment/Allegato%20A%20Disciplinare%20.pdf": "05c3a8f27a698ff4",
+     "https://www.comune.padova.it/sites/default/files/attachment/Allegato%20B_3.pdf": "8ef6f141dd11e137",
+     "https://www.comune.padova.it/sites/default/files/attachment/AreePedonali_0.pdf": "225e26f576bbf155",
+     "https://www.comune.padova.it/sites/default/files/attachment/ZTL.pdf": "a87ce96fb0933686"
+    },
+    "readFingerprintsOf": "2026-10-25T08:00:00Z"
    }
   },
   {
@@ -2016,7 +2032,11 @@
       "title_de": "Stadt Padua: Verordnung 47/2026, autofreie Sonntage (PDF)",
       "url": "https://www.comune.padova.it/sites/default/files/2026-09/ordinanza_2026_47_firm_dig.pdf"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.padova.it/sites/default/files/2026-09/ordinanza_2026_47_firm_dig.pdf": "8763a795736137cd"
+    },
+    "readFingerprintsOf": "2026-10-25T08:00:00Z"
    }
   },
   {
@@ -2664,7 +2684,11 @@
       "title_de": "ISTAT-Gemeindegrenze (über openpolis/geojson-italy, CC BY)",
       "url": "https://raw.githubusercontent.com/openpolis/geojson-italy/master/geojson/limits_P_28_municipalities.geojson"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.padova.it/sites/default/files/2026-09/ordinanza_2026_46_firm_dig.pdf": "0d7b39a32e244598"
+    },
+    "readFingerprintsOf": "2026-10-25T08:00:00Z"
    }
   }
  ],

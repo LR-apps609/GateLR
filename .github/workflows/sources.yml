@@ -16,10 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0      # 1.20.1: la storia delle impronte, per le impronte della lettura (Tools/source_trust.py)
       - name: Controllo
         run: python3 Tools/check_sources.py --update | tee result.txt
-      # 1.20.1 «Dati»: se la pagina di una zona VERIFICATA è cambiata dopo la verifica, la zona riceve «pageChanged» e le
-      # app e il sito rispondono in giallo «?» («La pagina del Comune è cambiata: controlla il cartello»). Poi manifest e firma
+      # 1.20.1 «Dati»: se la pagina di una zona è cambiata dopo l'ultima lettura o verifica, la zona riceve «pageChanged» e
+      # le app e il sito rispondono in giallo «?» («La pagina del Comune è cambiata: controlla il cartello»). Poi manifest e firma
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -41,7 +43,7 @@ jobs:
         run: |
           if grep -q "^CAMBIATA" result.txt; then
             { echo "Pagine dei Comuni cambiate: rileggerle e aggiornare orari e regole in Tools/ e Resources/Cities/."; echo; grep "^CAMBIATA" result.txt | sed 's/^CAMBIATA /- /';
-              if grep -q "^PAGINA CAMBIATA DOPO LA VERIFICA" result.txt; then echo; echo "Zone verificate con la pagina cambiata dopo la verifica (le app ora rispondono in giallo «?», finché una persona non le riverifica con Tools/source_trust.py verify):"; grep "^PAGINA CAMBIATA DOPO LA VERIFICA" result.txt | sed 's/^PAGINA CAMBIATA DOPO LA VERIFICA /- /'; fi; } > body.md
+              if grep -q "^PAGINA CAMBIATA DOPO LA LETTURA O LA VERIFICA" result.txt; then echo; echo "Zone con la pagina cambiata dopo la lettura o la verifica (le app ora rispondono in giallo «?», finché una persona non le rilegge o le verifica con Tools/source_trust.py verify):"; grep "^PAGINA CAMBIATA DOPO LA LETTURA O LA VERIFICA" result.txt | sed 's/^PAGINA CAMBIATA DOPO LA LETTURA O LA VERIFICA /- /'; fi; } > body.md
             gh issue create --title "Pagine dei Comuni cambiate ($(date -u +%F))" --body-file body.md
           fi
           if ! git diff --quiet data/source-hashes.json Resources/Cities || ! git diff --cached --quiet; then

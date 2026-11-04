@@ -729,7 +729,13 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c",
+     "https://www.comune.bergamo.it/notizie/dal-12-dicembre-2025-attivate-le-telecamere-in-uscita-dalle-ztl-di-citt%C3%A0-alta-valverde-e-tassopignolo": "611c52fa1ba30a7c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -5230,7 +5236,13 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c",
+     "https://www.comune.bergamo.it/notizie/citt%C3%A0-alta-e-colli:-dal-21-giugno-domenica-e-festivi-entra-in-vigore-la-ztl-dalle-ore-10-alle-ore-24": "376cb2479188420c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    },
    "exemptVehicleTypes": [
     "motorcycle"
@@ -5523,7 +5535,13 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c",
+     "https://www.comune.bergamo.it/notizie/citt%C3%A0-alta-e-colli:-dal-21-giugno-domenica-e-festivi-entra-in-vigore-la-ztl-dalle-ore-10-alle-ore-24": "376cb2479188420c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    },
    "exemptVehicleTypes": [
     "motorcycle"
@@ -5977,7 +5995,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    },
    "holidaysAsSunday": true
   },
@@ -6497,7 +6520,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -6836,7 +6864,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -7083,7 +7116,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -7258,7 +7296,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -7465,7 +7508,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -7584,7 +7632,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -7719,7 +7772,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -8194,7 +8252,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -8669,7 +8732,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -8936,7 +9004,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -9083,7 +9156,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -9446,7 +9524,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   },
   {
@@ -9706,7 +9789,12 @@
       "title_de": "Stadt Bergamo: ZTL-Karte, offene Daten",
       "url": "https://www.comune.bergamo.it/node/748000"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato": "3b1102d1b553fbf0",
+     "https://www.comune.bergamo.it/action:c_a794:zona.traffico.limitato;comunicare;targhe": "91e0446fa619f74c"
+    },
+    "readFingerprintsOf": "2026-10-25T09:00:00Z"
    }
   }
  ],

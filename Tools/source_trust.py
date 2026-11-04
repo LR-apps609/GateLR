@@ -7,20 +7,26 @@
 #                        sappiamo = NON verificata. Non si inventa: la scrive solo «verify» qui sotto, dopo una verifica vera
 # - verifiedFingerprints le impronte delle pagine ufficiali della zona (Tools/check_sources.py, data/source-hashes.json)
 #                        nel momento della verifica
-# - pageChanged          true se l'impronta di oggi di una di quelle pagine è diversa da quella della verifica. La scrive
-#                        «mark» dalle impronte del controllo giornaliero («Controllo pagine dei Comuni»); mai a mano
+# - readFingerprints     le impronte delle stesse pagine al momento della lettura («letto il» = checkedOn), con
+#   readFingerprintsOf   il checkedOn a cui si riferiscono. Le scrive «mark» dalla storia di data/source-hashes.json (git):
+#                        la prima impronta registrata dal controllo giornaliero a partire dal giorno della lettura (la
+#                        storia comincia il 24 ottobre 2026: per le letture del 23 vale quella del 24). Niente di inventato
+# - pageChanged          true se l'impronta di oggi di una pagina è diversa da quella dell'ultimo evento (la verifica se è
+#                        più recente della lettura, altrimenti la lettura). La scrive «mark» ogni mattina («Controllo
+#                        pagine dei Comuni»); mai a mano. Un'impronta vuota (pagina non leggibile) non conta come cambiata
 #
-# Le app e il sito: una zona ufficiale è «sicura» solo se verificata da al più 120 giorni (VERIFIED_FRESH_DAYS, lo stesso
-# numero di RuleEngine.staleAfterDays su iPhone e Android e del sito) e senza pagina cambiata. Altrimenti un «sì» (verde o
-# grigio) diventa giallo con il «?» «Controlla il cartello»; con la pagina cambiata TUTTE le risposte della zona diventano
-# gialle («La pagina del Comune è cambiata: controlla il cartello»). Vedi docs/dati-verifica.md.
+# Regola A (1.20.1, decisa da Ledion): una zona UFFICIALE dà la risposta normale (anche verde) se è verificata da al più
+# 120 giorni, oppure, senza verifica recente, se è stata letta da al più 120 giorni; in tutti e due i casi senza la pagina
+# cambiata. Altrimenti giallo con il «?» («Controlla il cartello»); con la pagina cambiata TUTTE le risposte della zona
+# sono gialle («La pagina del Comune è cambiata: controlla il cartello»). 120 = VERIFIED_FRESH_DAYS, lo stesso numero di
+# RuleEngine.staleAfterDays su iPhone e Android e del sito. Vedi docs/dati-verifica.md.
 #
 # Uso:
 #   python3 Tools/source_trust.py mark                     # pageChanged dalle impronte di data/source-hashes.json
 #   python3 Tools/source_trust.py verify <città> [zona…]   # dopo una verifica umana: verifiedOn = adesso + impronte di adesso
 #   python3 Tools/source_trust.py --selftest
 # Dopo «mark» o «verify», se i file sono cambiati: python3 Tools/build_manifest.py (e la firma, in CI)
-import datetime, json, sys, tempfile
+import datetime, json, subprocess, sys, tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -37,18 +43,62 @@ def dump(city):
     return json.dumps(city, indent=1, ensure_ascii=False) + "\n"
 
 
+def when(iso):
+    return datetime.datetime.fromisoformat(iso.replace("Z", "+00:00"))
+
+
+def history(hashes_path=HASHES):
+    """Le impronte registrate nel tempo: [(quando, {url: impronta})], dalla più vecchia; in fondo il file di adesso"""
+    out = []
+    try:
+        rel = hashes_path.resolve().relative_to(ROOT)
+        log = subprocess.run(["git", "-C", str(ROOT), "log", "--format=%H %cI", "--", str(rel)], capture_output=True, text=True, check=True).stdout
+        for line in log.splitlines():
+            sha, t = line.split()
+            blob = subprocess.run(["git", "-C", str(ROOT), "show", f"{sha}:{rel}"], capture_output=True, text=True, check=True).stdout
+            out.append((when(t), json.loads(blob)))
+    except (subprocess.CalledProcessError, ValueError, FileNotFoundError):
+        pass
+    out.sort(key=lambda x: x[0])
+    if hashes_path.exists():
+        out.append((datetime.datetime.now(datetime.timezone.utc), json.loads(hashes_path.read_text())))
+    return out
+
+
+def read_baseline(z, hist):
+    """Le impronte delle pagine della zona al momento della lettura: la prima registrazione dal giorno della lettura in
+    poi (o la più recente, se la lettura è dopo l'ultima). Solo le impronte non vuote"""
+    if not hist:
+        return {}
+    read = when(z["source"]["checkedOn"])
+    snap = next((d for t, d in hist if t >= read), hist[-1][1])
+    return {u: snap[u] for u in zone_pages(z) if snap.get(u)}
+
+
+def baseline(source):
+    """Le impronte dell'ultimo evento: la verifica se è più recente (o uguale) della lettura, altrimenti la lettura"""
+    v = source.get("verifiedOn")
+    if v and source.get("verifiedFingerprints") is not None and when(v) >= when(source["checkedOn"]):
+        return source["verifiedFingerprints"]
+    return source.get("readFingerprints") or {}
+
+
 def changed_pages(source, hashes):
-    """Le pagine la cui impronta di oggi è diversa da quella della verifica. Un'impronta vuota (pagina non letta) o
-    mancante non dice niente: non conta come cambiata"""
-    vf = source.get("verifiedFingerprints") or {}
-    return sorted(u for u, h in vf.items() if h and hashes.get(u) and hashes[u] != h)
+    """Le pagine la cui impronta di oggi è diversa da quella dell'ultimo evento (verifica o lettura). Un'impronta vuota
+    (pagina non letta) o mancante non dice niente: non conta come cambiata"""
+    return sorted(u for u, h in baseline(source).items() if h and hashes.get(u) and hashes[u] != h)
 
 
-def mark_city(city, hashes):
-    """Scrive o toglie «pageChanged» in ogni zona. Vero se qualcosa è cambiato"""
+def mark_city(city, hashes, hist=None):
+    """Scrive le impronte della lettura dove mancano (o la lettura è cambiata) e scrive o toglie «pageChanged» in ogni
+    zona. Vero se qualcosa è cambiato"""
     touched = False
     for z in city.get("zones", []):
         s = z["source"]
+        if hist is not None and s.get("readFingerprintsOf") != s["checkedOn"]:
+            s["readFingerprints"] = read_baseline(z, hist)
+            s["readFingerprintsOf"] = s["checkedOn"]
+            touched = True
         want = bool(changed_pages(s, hashes))
         if want and s.get("pageChanged") is not True:
             s["pageChanged"] = True
@@ -59,17 +109,18 @@ def mark_city(city, hashes):
     return touched
 
 
-def mark(cities_dir=CITIES, hashes_path=HASHES, out=print):
+def mark(cities_dir=CITIES, hashes_path=HASHES, out=print, hist=None):
     hashes = json.loads(hashes_path.read_text()) if hashes_path.exists() else {}
+    hist = history(hashes_path) if hist is None else hist
     changed = []
     for f in sorted(p for p in cities_dir.glob("*.json") if p.name != "manifest.json"):
         city = json.loads(f.read_text(encoding="utf-8"))
-        if mark_city(city, hashes):
+        if mark_city(city, hashes, hist):
             f.write_text(dump(city), encoding="utf-8")
             changed.append(f.name)
         for z in city.get("zones", []):
             for u in changed_pages(z["source"], hashes):
-                out(f"PAGINA CAMBIATA DOPO LA VERIFICA {city['id']} {z['id']} {u}")
+                out(f"PAGINA CAMBIATA DOPO LA LETTURA O LA VERIFICA {city['id']} {z['id']} {u}")
     out(f"{len(changed)} file delle città aggiornati" + (": " + ", ".join(changed) if changed else ""))
     return changed
 
@@ -98,30 +149,39 @@ def verify(city_id, zone_ids, now=None, cities_dir=CITIES, hashes_path=HASHES):
 
 def selftest():
     url = "https://www.comune.example.it/ztl"
-    city = {"id": "prova", "zones": [{"id": "prova-a", "source": {"pageURL": url, "links": [], "checkedOn": "2026-10-01T00:00:00Z"}}]}
+    t = lambda d: datetime.datetime(2026, 10, d, 6, tzinfo=datetime.timezone.utc)
+    city = {"id": "prova", "zones": [{"id": "prova-a", "source": {"pageURL": url, "links": [], "checkedOn": "2026-10-25T12:00:00Z"}}]}
     with tempfile.TemporaryDirectory() as d:
         d = Path(d)
-        (d / "prova.json").write_text(dump(city), encoding="utf-8")
+        f = d / "prova.json"
+        f.write_text(dump(city), encoding="utf-8")
         hp = d / "hashes.json"
+        src = lambda: json.loads(f.read_text())["zones"][0]["source"]
+        quiet = lambda *_: None
+        # Lettura del 25: vale la prima impronta dal 25 in poi (quella del 26), non quella del 24
+        hist = [(t(24), {url: "old"}), (t(26), {url: "aaaa"}), (t(28), {url: "aaaa"})]
         hp.write_text(json.dumps({url: "aaaa"}))
-        # Non verificata: nessuna impronta della verifica, nessun «pageChanged»
-        assert mark(d, hp, out=lambda *_: None) == []
+        assert mark(d, hp, out=quiet, hist=hist) == ["prova.json"]
+        s = src()
+        assert s["readFingerprints"] == {url: "aaaa"} and s["readFingerprintsOf"] == "2026-10-25T12:00:00Z" and "pageChanged" not in s
+        assert mark(d, hp, out=quiet, hist=hist) == []                      # niente di nuovo
+        hp.write_text(json.dumps({url: ""}))                                 # pagina non letta oggi: non è «cambiata»
+        assert mark(d, hp, out=quiet, hist=hist) == []
+        hp.write_text(json.dumps({url: "bbbb"}))                             # cambiata dopo la lettura
+        assert mark(d, hp, out=quiet, hist=hist) == ["prova.json"] and src()["pageChanged"] is True
+        # Una verifica dopo il cambio: conta la verifica, non la lettura
         verify("prova", [], now=datetime.datetime(2026, 11, 1, tzinfo=datetime.timezone.utc), cities_dir=d, hashes_path=hp)
-        s = json.loads((d / "prova.json").read_text())["zones"][0]["source"]
-        assert s["verifiedOn"] == "2026-11-01T00:00:00Z" and s["verifiedFingerprints"] == {url: "aaaa"} and "pageChanged" not in s
-        # Stessa impronta: niente
-        assert mark(d, hp, out=lambda *_: None) == []
-        # Pagina non letta oggi (impronta vuota): non è «cambiata»
-        hp.write_text(json.dumps({url: ""}))
-        assert mark(d, hp, out=lambda *_: None) == []
-        # Impronta diversa: pageChanged
-        hp.write_text(json.dumps({url: "bbbb"}))
-        assert mark(d, hp, out=lambda *_: None) == ["prova.json"]
-        assert json.loads((d / "prova.json").read_text())["zones"][0]["source"]["pageChanged"] is True
-        # Nuova verifica: via il segno
-        verify("prova", ["prova-a"], cities_dir=d, hashes_path=hp)
-        s = json.loads((d / "prova.json").read_text())["zones"][0]["source"]
-        assert "pageChanged" not in s and s["verifiedFingerprints"] == {url: "bbbb"}
+        s = src()
+        assert s["verifiedOn"] == "2026-11-01T00:00:00Z" and s["verifiedFingerprints"] == {url: "bbbb"} and "pageChanged" not in s
+        assert mark(d, hp, out=quiet, hist=hist) == []
+        hp.write_text(json.dumps({url: "cccc"}))                             # cambiata dopo la verifica
+        assert mark(d, hp, out=quiet, hist=hist) == ["prova.json"] and src()["pageChanged"] is True
+        # Una nuova lettura (checkedOn nuovo) più recente della verifica: nuove impronte della lettura, si riparte da lì
+        c = json.loads(f.read_text()); c["zones"][0]["source"]["checkedOn"] = "2026-11-03T00:00:00Z"; f.write_text(dump(c))
+        hist2 = hist + [(datetime.datetime(2026, 11, 3, 6, tzinfo=datetime.timezone.utc), {url: "cccc"})]
+        assert mark(d, hp, out=quiet, hist=hist2) == ["prova.json"]
+        s = src()
+        assert s["readFingerprints"] == {url: "cccc"} and "pageChanged" not in s
     # I file veri si riscrivono identici (nessuna differenza di formato)
     for f in sorted(p for p in CITIES.glob("*.json") if p.name != "manifest.json"):
         t = f.read_text(encoding="utf-8")

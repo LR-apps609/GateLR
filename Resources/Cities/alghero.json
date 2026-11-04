@@ -367,7 +367,13 @@
       "title_de": "OpenStreetMap: Relation 14400850 «ZTL Centro Storico» (ODbL)",
       "url": "https://www.openstreetmap.org/relation/14400850"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.alghero.ss.it/.galleries/doc-documenti/ZTL2019_ALLEGATOA_NUOVOREGOLAMENTO_ZTL2018.pdf": "ec4662e58ce66602",
+     "https://comune.alghero.ss.it/.galleries/doc-documenti/ZTL2019_Ordinanza-dirigenziale-n.-4-del-07.01.2019.pdf": "f4d5f59a86bbb2d7",
+     "https://comune.alghero.ss.it/it/novita/notizia/Alghero-Fashion-Day/": "da9cdee9fca5a436"
+    },
+    "readFingerprintsOf": "2026-10-27T14:40:00Z"
    }
   }
  ],

@@ -9,34 +9,45 @@ Nei file delle città (`Resources/Cities/<città>.json`), in `zones[].source`:
 | `checkedOn` | **Letto il**: quando abbiamo letto le pagine da cui vengono le regole | gli script `Tools/build_*.py` (c'era già) |
 | `verifiedOn` | **Verificato il**: quando una persona (o un controllo) ha confermato la regola. Assente = non lo sappiamo = **non verificata** | solo `python3 Tools/source_trust.py verify <città> [zona…]`, dopo una verifica vera |
 | `verifiedFingerprints` | le impronte delle pagine ufficiali della zona al momento della verifica | `source_trust.py verify` (da `data/source-hashes.json`) |
-| `pageChanged` | `true` se una di quelle pagine ha un'impronta diversa da quella della verifica | `source_trust.py mark`, ogni mattina nel workflow «Controllo pagine dei Comuni» |
+| `readFingerprints`, `readFingerprintsOf` | le impronte delle stesse pagine al momento della lettura, e il `checkedOn` a cui si riferiscono: la prima registrazione del controllo giornaliero dal giorno della lettura in poi (storia git di `data/source-hashes.json`, che comincia il 24 ottobre 2026: per le letture del 23 vale quella del 24) | `source_trust.py mark` (di nuovo da sé quando `checkedOn` cambia) |
+| `pageChanged` | `true` se una di quelle pagine ha oggi un'impronta diversa da quella dell'ultimo evento (la verifica se è più recente della lettura, altrimenti la lettura). Un'impronta vuota (pagina non leggibile) non conta come cambiata | `source_trust.py mark`, ogni mattina nel workflow «Controllo pagine dei Comuni» |
 
-Le date di verifica non si inventano: oggi nessuna zona ha `verifiedOn`, quindi tutte sono «non verificate».
+Le date di verifica non si inventano: oggi nessuna zona ha `verifiedOn`.
 
-## La soglia: 120 giorni
+## La regola A e la soglia: 120 giorni
 
-Una zona ufficiale è **sicura** solo se `verifiedOn` è al più **120 giorni** prima di adesso e `pageChanged` non è `true`.
-È lo stesso numero di prima per «dati da ricontrollare» (`checkedOn` più vecchio di 120 giorni: ogni risposta «non
-sicuro»), lo stesso del widget e della verifica dei verbali: `RuleEngine.staleAfterDays` su iPhone e Android, `VERIFIED_DAYS`
-sul sito, `VERIFIED_FRESH_DAYS` in `Tools/source_trust.py`. I giorni si contano da `verifiedOn` a oggi; 120 giorni pieni
-valgono ancora, dal 121° no.
+Decisa da Ledion per la 1.20.1. Una zona **ufficiale** dà la risposta normale (anche verde) se:
 
-| Stato (iPhone `DataTrust`, Android `DataTrust`, sito `trustOf`) | Cosa cambia nella risposta |
+- è stata verificata (`verifiedOn`) da al più **120 giorni**, oppure, senza una verifica recente,
+- è stata letta (`checkedOn`) da al più **120 giorni**,
+
+e in tutti e due i casi `pageChanged` non è `true`. Una verifica più vecchia di 120 giorni senza una lettura più recente
+vale come «non verificata»: conta la lettura. 120 è lo stesso numero di prima per «dati da ricontrollare», del widget e
+della verifica dei verbali: `RuleEngine.staleAfterDays` su iPhone e Android, `VERIFIED_DAYS` sul sito, `VERIFIED_FRESH_DAYS`
+in `Tools/source_trust.py`. I giorni si contano dalla data a oggi; 120 giorni pieni valgono ancora, dal 121° no.
+
+| Stato (iPhone e Android `DataTrust`, sito `trustOf`) | Cosa cambia nella risposta |
 |---|---|
-| verificata (≤ 120 giorni, pagina non cambiata) | niente: verde, grigio, giallo e rosso come dicono le regole |
-| non verificata (`verifiedOn` assente) | un «sì» (verde, o grigio a ZTL spenta) diventa giallo con il «?»: «Questa regola non è ancora stata verificata: controlla il cartello». «No» e condizioni restano |
-| verifica vecchia (> 120 giorni) | come sopra, con «Verificata l'ultima volta più di 120 giorni fa: controlla il cartello» |
-| pagina cambiata (`pageChanged`) | **ogni** risposta della zona, anche il «no», diventa gialla con il «?»: «La pagina del Comune è cambiata: controlla il cartello» |
+| `verified` (verifica ≤ 120 giorni) | niente |
+| `read` (lettura ≤ 120 giorni, senza verifica recente): oggi tutte le zone | niente; sotto la fonte «Non ancora verificato da una persona» |
+| `unverified` / `old` (lettura e verifica più vecchie di 120 giorni) | ogni risposta gialla con il «?» (dati da ricontrollare); «Non ancora verificato: controlla il cartello» |
+| `pageChanged` | **ogni** risposta della zona, anche il «no», gialla con il «?»: «La pagina del Comune è cambiata: controlla il cartello» |
 
-Le zone da fonti non ufficiali restano come dalla 1.19.0 (il «sì» è sempre giallo). Fuori dalle zone di una città che
-conosciamo resta verde «Fuori dalla ZTL»; fuori copertura resta neutro. I casi di prova comuni di iPhone, Android e sito
-sono in `shared/engine-cases.json` (campo `trust`).
+Le zone da fonti non ufficiali restano come dalla 1.19.0 (il «sì» è sempre giallo). Il verbale («il varco non era attivo»)
+è verde solo con una verifica recente.
+
+## I colori (1.20.1)
+
+Rosso = non entrare; giallo = a una condizione o incerto («?»); **verde = puoi entrare, anche a ZTL spenta** (sulla mappa
+verde più leggero, senza righe, con il bordo più rado; il pannello dice «ZTL NON ATTIVA»); grigio/neutro = nessuna ZTL nota
+lì (fuori copertura: «Non conosciamo questo posto»). Fuori dalle zone di una città che conosciamo: verde «Fuori dalla ZTL».
+I casi di prova comuni di iPhone, Android e sito sono in `shared/engine-cases.json`.
 
 ## Dopo una verifica
 
 ```sh
 python3 Tools/source_trust.py verify firenze firenze-a firenze-b   # o solo «firenze» per tutte le zone
-python3 Tools/build_manifest.py
+python3 Tools/source_trust.py mark && python3 Tools/build_manifest.py
 git commit -am "Firenze: Settori A e B verificati"
 ```
 

@@ -274,7 +274,12 @@
       "title_de": "Stadt Modena: offizielle ZTL-Grenze, offene Daten (WFS)",
       "url": "https://geonext.comune.modena.it/geoservernext//Modena/Ztl_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://geonext.comune.modena.it/geoservernext//Modena/Ztl_preview/wfs?service=WFS&version=2.0.0&request=GetCapabilities": "4e7d223278cfdbd2",
+     "https://www.comune.modena.it/amministrazione/documenti-e-dati/atti-normativi/ordinanze/ordinanze-a-carattere-generale/testo-coordinato-ordinanza-ztl/testo-coordinato-ordinanza-ztl/@@download/file_principale": "f221021f4e7bf723"
+    },
+    "readFingerprintsOf": "2026-10-26T23:55:00Z"
    }
   }
  ],

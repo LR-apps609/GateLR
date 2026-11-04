@@ -336,7 +336,14 @@
     "unofficialSource": {
      "name": "accessibilitacentristorici.it",
      "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
-    }
+    },
+    "readFingerprints": {
+     "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363": "8c763145efe71a16",
+     "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350": "a17a80233e561ee6",
+     "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497": "240b038aa74e021a",
+     "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/": "68e861c6fb006476"
+    },
+    "readFingerprintsOf": "2026-10-27T17:00:00Z"
    }
   },
   {
@@ -539,7 +546,14 @@
     "unofficialSource": {
      "name": "accessibilitacentristorici.it",
      "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
-    }
+    },
+    "readFingerprints": {
+     "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363": "8c763145efe71a16",
+     "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350": "a17a80233e561ee6",
+     "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497": "240b038aa74e021a",
+     "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/": "68e861c6fb006476"
+    },
+    "readFingerprintsOf": "2026-10-27T17:00:00Z"
    }
   },
   {
@@ -826,7 +840,14 @@
     "unofficialSource": {
      "name": "accessibilitacentristorici.it",
      "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
-    }
+    },
+    "readFingerprints": {
+     "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363": "8c763145efe71a16",
+     "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350": "a17a80233e561ee6",
+     "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497": "240b038aa74e021a",
+     "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/": "68e861c6fb006476"
+    },
+    "readFingerprintsOf": "2026-10-27T17:00:00Z"
    }
   },
   {
@@ -1024,7 +1045,14 @@
     "unofficialSource": {
      "name": "accessibilitacentristorici.it",
      "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
-    }
+    },
+    "readFingerprints": {
+     "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363": "8c763145efe71a16",
+     "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350": "a17a80233e561ee6",
+     "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497": "240b038aa74e021a",
+     "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/": "68e861c6fb006476"
+    },
+    "readFingerprintsOf": "2026-10-27T17:00:00Z"
    }
   },
   {
@@ -1214,7 +1242,14 @@
     "unofficialSource": {
      "name": "accessibilitacentristorici.it",
      "url": "https://www.accessibilitacentristorici.it/ztl/sardegna/cagliari.html"
-    }
+    },
+    "readFingerprints": {
+     "https://www.comune.cagliari.it/portale/page/it/pass_ztl_per_strutture_ricettive?contentId=SRV10363": "8c763145efe71a16",
+     "https://www.comune.cagliari.it/portale/page/it/rilascio_pass_zone_a_traffico_limitato_ztl__persone_fisiche_it_1?contentId=SRV10350": "a17a80233e561ee6",
+     "https://www.comune.cagliari.it/portale/page/it/ztl_e_zone_pedonali?contentId=ORG9497": "240b038aa74e021a",
+     "https://www.comune.cagliari.it/portale/protected/247459/0/def/ref/DOC77600I/": "68e861c6fb006476"
+    },
+    "readFingerprintsOf": "2026-10-27T17:00:00Z"
    }
   }
  ],

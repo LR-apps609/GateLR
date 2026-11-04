@@ -847,7 +847,13 @@
       "title_de": "Pressemitteilung der Stadt Nr. 91 vom 27.04.2026 (PDF)",
       "url": "https://san-gimignano-api.cloud.municipiumapp.it/s3/6203/allegati/ufficio-stampa/cs-nuova-ztl-da-1-maggio.pdf"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://comune.sangimignano.si.it/it/news/ztl-centro-storico-di-san-gimignano": "f39a3f3ddf0639ad",
+     "https://visualizzatore.comune.sangimignano.si.it/AttiVisualizzatore/download/allegato/1919896?fId=1931869&sbustato=true": "3e1f3fddafccdb00"
+    },
+    "readFingerprintsOf": "2026-10-26T01:30:00Z",
+    "pageChanged": true
    }
   }
  ],

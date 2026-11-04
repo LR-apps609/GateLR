@@ -655,7 +655,12 @@
       "title_de": "OpenStreetMap: Relation 2459882 (Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/relation/2459882"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/": "dc25a432a6d6896b"
+    },
+    "readFingerprintsOf": "2026-10-24T18:00:00Z",
+    "pageChanged": true
    }
   },
   {
@@ -955,7 +960,12 @@
       "title_de": "OpenStreetMap: Relation 2459883 (Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/relation/2459883"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/": "dc25a432a6d6896b"
+    },
+    "readFingerprintsOf": "2026-10-24T18:00:00Z",
+    "pageChanged": true
    }
   },
   {
@@ -1334,7 +1344,12 @@
       "title_de": "OpenStreetMap: Relation 2572441 (Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/relation/2572441"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/": "dc25a432a6d6896b"
+    },
+    "readFingerprintsOf": "2026-10-24T18:00:00Z",
+    "pageChanged": true
    }
   },
   {
@@ -1752,7 +1767,12 @@
       "title_de": "OpenStreetMap: Relation 2691714 (Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/relation/2691714"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/": "dc25a432a6d6896b"
+    },
+    "readFingerprintsOf": "2026-10-24T18:00:00Z",
+    "pageChanged": true
    }
   },
   {
@@ -2014,7 +2034,12 @@
       "title_de": "OpenStreetMap: Relation 2573006 (Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/relation/2573006"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/": "dc25a432a6d6896b"
+    },
+    "readFingerprintsOf": "2026-10-24T18:00:00Z",
+    "pageChanged": true
    }
   },
   {
@@ -2275,7 +2300,12 @@
       "title_de": "OpenStreetMap: Relation 2573007 (Grenze, ODbL)",
       "url": "https://www.openstreetmap.org/relation/2573007"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://romamobilita.it/muoversi-a-roma/ztl-in-centro/": "dc25a432a6d6896b"
+    },
+    "readFingerprintsOf": "2026-10-24T18:00:00Z",
+    "pageChanged": true
    }
   }
  ],

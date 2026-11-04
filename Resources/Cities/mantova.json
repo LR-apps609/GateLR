@@ -1555,7 +1555,13 @@
       "title_de": "Stadt Mantua: Thema ZTL",
       "url": "https://www.comune.mantova.it/it/topics/ztl"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html": "42a28645f2e62a30",
+     "https://www.comune.mantova.it/it/services/prenotazione-accesso-zona-a-traffico-limitato-ztl-con-pass-disabile-altre-citta": "35fa0b6300ba6784",
+     "https://www.comune.mantova.it/it/topics/ztl": "707f6b8b7c73ab00"
+    },
+    "readFingerprintsOf": "2026-10-27T13:00:00Z"
    }
   },
   {
@@ -2625,7 +2631,13 @@
       "title_de": "Stadt Mantua: Thema ZTL",
       "url": "https://www.comune.mantova.it/it/topics/ztl"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html": "42a28645f2e62a30",
+     "https://www.comune.mantova.it/it/services/prenotazione-accesso-zona-a-traffico-limitato-ztl-con-pass-disabile-altre-citta": "35fa0b6300ba6784",
+     "https://www.comune.mantova.it/it/topics/ztl": "707f6b8b7c73ab00"
+    },
+    "readFingerprintsOf": "2026-10-27T13:00:00Z"
    }
   },
   {
@@ -3031,7 +3043,13 @@
       "title_de": "Stadt Mantua: Thema ZTL",
       "url": "https://www.comune.mantova.it/it/topics/ztl"
      }
-    ]
+    ],
+    "readFingerprints": {
+     "https://www.accessibilitacentristorici.it/ztl/lombardia/mantova.html": "42a28645f2e62a30",
+     "https://www.comune.mantova.it/it/services/prenotazione-accesso-zona-a-traffico-limitato-ztl-con-pass-disabile-altre-citta": "35fa0b6300ba6784",
+     "https://www.comune.mantova.it/it/topics/ztl": "707f6b8b7c73ab00"
+    },
+    "readFingerprintsOf": "2026-10-27T13:00:00Z"
    }
   }
  ],
