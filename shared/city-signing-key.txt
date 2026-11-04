@@ -1,0 +1,4 @@
+# Chiave pubblica Ed25519 dei dati delle città (base64, 32 byte), dentro l'app iPhone: Sources/CitySignature.swift.
+# La privata è il segreto CITY_DATA_SIGNING_KEY di GitHub, mai nel repository. Vedi docs/dati-verifica.md
+# Ancora nessuna chiave: finché qui non c'è una riga con la chiave, l'app ignora tutti i dati scaricati e usa i suoi.
+# Per crearla: python3 Tools/sign_cities.py new-key

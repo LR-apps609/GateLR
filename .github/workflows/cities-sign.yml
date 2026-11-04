@@ -1,0 +1,54 @@
+name: Firma dei dati delle città
+
+# 1.20.1 «Dati»: l'app iPhone usa i dati scaricati da GitHub solo se Resources/Cities/manifest.json è firmato
+# (Resources/Cities/manifest.sig, Ed25519, Tools/sign_cities.py, Sources/CitySignature.swift). Qui si firma con il segreto
+# CITY_DATA_SIGNING_KEY: la chiave privata non è mai nel repository. Senza il segreto non si firma niente e l'app ignora gli
+# aggiornamenti scaricati (restano i dati dentro l'app): vedi docs/dati-verifica.md.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Resources/Cities/**"
+      - "shared/city-signing-key.txt"
+      - "Tools/sign_cities.py"
+      - ".github/workflows/cities-sign.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cities-sign
+  cancel-in-progress: false
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install cryptography
+      # Le impronte del manifest devono tornare con i file, firma o no (se no: Tools/build_manifest.py)
+      - name: Controllo del manifest
+        run: python3 Tools/sign_cities.py verify
+      - name: Firma
+        env:
+          CITY_DATA_SIGNING_KEY: ${{ secrets.CITY_DATA_SIGNING_KEY }}
+        run: |
+          if [ -z "$CITY_DATA_SIGNING_KEY" ]; then
+            echo "::warning::Segreto CITY_DATA_SIGNING_KEY assente: dati NON firmati, l'app iPhone ignora gli aggiornamenti scaricati (docs/dati-verifica.md)"
+            exit 0
+          fi
+          # Si firma sempre il manifest più recente di main (se nel frattempo è cambiato, si rifirma quello)
+          for i in 1 2 3; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            python3 Tools/sign_cities.py sign
+            git add Resources/Cities/manifest.sig
+            if git diff --cached --quiet; then echo "firma già aggiornata"; exit 0; fi
+            git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Firma dei dati delle città"
+            git push -q origin HEAD:main && exit 0
+            sleep 5
+          done
+          echo "::error::firma non pubblicata"; exit 1

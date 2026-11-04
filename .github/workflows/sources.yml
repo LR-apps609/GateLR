@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: write        # 1.20.1: ricostruire il sito quando cambiano i dati delle città
 
 jobs:
   check:
@@ -17,15 +18,35 @@ jobs:
       - uses: actions/checkout@v5
       - name: Controllo
         run: python3 Tools/check_sources.py --update | tee result.txt
+      # 1.20.1 «Dati»: se la pagina di una zona VERIFICATA è cambiata dopo la verifica, la zona riceve «pageChanged» e le
+      # app e il sito rispondono in giallo «?» («La pagina del Comune è cambiata: controlla il cartello»). Poi manifest e firma
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install cryptography
+      - name: Pagine cambiate dopo la verifica
+        env:
+          CITY_DATA_SIGNING_KEY: ${{ secrets.CITY_DATA_SIGNING_KEY }}
+        run: |
+          python3 Tools/source_trust.py --selftest
+          python3 Tools/source_trust.py mark | tee -a result.txt
+          if ! git diff --quiet -- Resources/Cities; then
+            python3 Tools/build_manifest.py
+            if [ -n "$CITY_DATA_SIGNING_KEY" ]; then python3 Tools/sign_cities.py sign; git add Resources/Cities/manifest.sig; fi
+            echo "cities_changed=1" >> "$GITHUB_ENV"
+          fi
       - name: Segnalazione e nuove impronte
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           if grep -q "^CAMBIATA" result.txt; then
-            { echo "Pagine dei Comuni cambiate: rileggerle e aggiornare orari e regole in Tools/ e Resources/Cities/."; echo; grep "^CAMBIATA" result.txt | sed 's/^CAMBIATA /- /'; } > body.md
+            { echo "Pagine dei Comuni cambiate: rileggerle e aggiornare orari e regole in Tools/ e Resources/Cities/."; echo; grep "^CAMBIATA" result.txt | sed 's/^CAMBIATA /- /';
+              if grep -q "^PAGINA CAMBIATA DOPO LA VERIFICA" result.txt; then echo; echo "Zone verificate con la pagina cambiata dopo la verifica (le app ora rispondono in giallo «?», finché una persona non le riverifica con Tools/source_trust.py verify):"; grep "^PAGINA CAMBIATA DOPO LA VERIFICA" result.txt | sed 's/^PAGINA CAMBIATA DOPO LA VERIFICA /- /'; fi; } > body.md
             gh issue create --title "Pagine dei Comuni cambiate ($(date -u +%F))" --body-file body.md
           fi
-          if ! git diff --quiet data/source-hashes.json; then
+          if ! git diff --quiet data/source-hashes.json Resources/Cities || ! git diff --cached --quiet; then
             git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qam "Impronte delle pagine dei Comuni aggiornate"
             git push -q
+            # Un push fatto con il token del workflow non fa partire gli altri workflow: il sito si ricostruisce da qui
+            if [ -n "${cities_changed:-}" ]; then gh workflow run site.yml --ref main; fi
           fi
