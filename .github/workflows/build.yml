@@ -121,9 +121,13 @@ jobs:
         run: |
           SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
           status=0
-          xcodebuild build-for-testing -project GateLR.xcodeproj -scheme GateLRUITests \
+          # 1.20.0: l'app del giro in Release, come quella che si installa (project.yml: «quella di debug è molte volte
+          # più lenta»). In Debug il thread principale restava occupato (lettura delle città, risposta e striscia di
+          # mappa ricalcolate a ogni lettera della ricerca) e le ricerche del giro andavano in tempo scaduto
+          # (corse 41613646908, 41694171121, 41697591616). Solo l'architettura del simulatore, come in Debug
+          xcodebuild build-for-testing -project GateLR.xcodeproj -scheme GateLRUITests -configuration Release \
             -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
-            CODE_SIGNING_ALLOWED=NO > ui-build.log 2>&1 || status=$?
+            ONLY_ACTIVE_ARCH=YES CODE_SIGNING_ALLOWED=NO > ui-build.log 2>&1 || status=$?
           grep -E "error:" ui-build.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
           exit $status
 
@@ -159,11 +163,15 @@ jobs:
           status=0
           # La cartella delle foto come variabile d'ambiente (come per il Pro Max): come impostazione di compilazione
           # nella corsa 40782824915 non è arrivata al test e sono state pubblicate solo le 2 foto del Pro Max
+          # 1.20.0: un test fallito si ripete una volta, con l'app appena aperta (i test sono brevi: test1Tour è diviso)
           TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
             -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
+            -retry-tests-on-failure -test-iterations 2 \
             CODE_SIGNING_ALLOWED=NO > ui.log 2>&1 || status=$?
           grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true
-          grep -E "error:|Test Case .*failed" ui.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          # Con la ripetizione un test fallito e poi passato non blocca: i suoi errori restano come avvisi
+          level=error; [ "$status" = 0 ] && level=warning
+          grep -E "error:|Test Case .*failed" ui.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::$level::${l:0:400}"; done
           ls -la screenshots || true
           if [ "$status" != 0 ]; then
             # Dove si è fermato: righe sospette e coda del registro come avvisi (i registri interi non si scaricano)
@@ -188,6 +196,7 @@ jobs:
               pm=0
               TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots-pm" xcodebuild test-without-building -project GateLR.xcodeproj \
                 -scheme GateLRUITests -destination "platform=iOS Simulator,name=$PM" -derivedDataPath build-ui \
+                -retry-tests-on-failure -test-iterations 2 \
                 -only-testing:GateLRUITests/ScreenshotTests/test6VarcoProMax CODE_SIGNING_ALLOWED=NO > ui-pm.log 2>&1 || pm=$?
               [ "$pm" = 0 ] && break
               grep -q "Failed to initialize for UI testing\|Timed out waiting for AX" ui-pm.log || break
@@ -267,7 +276,7 @@ jobs:
           fi
           echo "::notice::Video: simulatore $SIM $UDID ($(date -u +%T))"
           [ -n "$UDID" ] || exit 1
-          APP=build-ui/Build/Products/Debug-iphonesimulator/GateLR.app
+          APP=build-ui/Build/Products/Release-iphonesimulator/GateLR.app
           [ -d "$APP" ] || APP=build/Build/Products/Debug-iphonesimulator/GateLR.app
           lim 120 xcrun simctl install "$UDID" "$APP"
           echo "::notice::App installata ($(date -u +%T)) da $APP"

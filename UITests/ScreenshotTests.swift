@@ -10,19 +10,13 @@ final class ScreenshotTests: XCTestCase {
         continueAfterFailure = true
     }
 
-    /// 1.19.2: alla fine di ogni test l'app si chiude, con un dialogo o un fumetto ancora aperto chiuso prima (Annulla o
-    /// un tocco fuori). Così il test dopo non deve chiudere un'app con la mappa grande o un dialogo sopra (corsa 41391461842:
-    /// «Failed to terminate» al lancio di test5) e il simulatore libera la memoria prima del lancio seguente
+    /// 1.20.0: alla fine di ogni test l'app si chiude e basta, senza ricerche nell'albero di accessibilità. Prima qui si
+    /// cercavano un foglio, un avviso e un fumetto (tre fotografie dell'albero intero, spesso con la mappa viva sotto) e
+    /// sul Mac Intel di GitHub andavano in tempo scaduto («Timed out while evaluating UI query» alla riga del controllo,
+    /// corse 41613646908, 41694171121, 41697591616): l'app non veniva chiusa e il test dopo falliva al lancio con
+    /// «Failed to terminate». I dialoghi aperti li chiudono i test stessi; lo stato del processo non è una ricerca
     override func tearDown() {
-        if app.state == .runningForeground {
-            let cancel = app.buttons["Annulla"].firstMatch
-            if app.sheets.firstMatch.exists || app.alerts.firstMatch.exists || app.popovers.firstMatch.exists {
-                if cancel.exists && cancel.isHittable { cancel.tap() }
-                else { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.85)).tap() }
-                sleep(1)
-            }
-            app.terminate()
-        }
+        if app.state != .notRunning { app.terminate() }
         super.tearDown()
     }
 
@@ -97,71 +91,77 @@ final class ScreenshotTests: XCTestCase {
         if seeMap.waitForExistence(timeout: 5) { seeMap.tap() } else { mapTab.tap() }
         sleep(6)                       // le mappe si caricano dalla rete
         snap("04-map-place")
+    }
 
-        // Dopo la mappa l'app si riapre: con la scheda Mappa viva l'albero di accessibilità è enorme e sul Mac di GitHub
-        // la ricerca delle righe di «Tu» andava in tempo scaduto (corse 40613295232 e 40612515432). Il posto scelto resta
-        app.terminate()
+    /// 1.20.0: le pagine di «Tu» del giro lungo, ognuna in un test a sé con l'app appena aperta (prima tutto in test1Tour:
+    /// un tempo scaduto a metà faceva perdere tutte le foto dopo). Dopo test1Tour nell'ordine dei test («1T» prima di
+    /// «1b»): il posto scelto in Varco resta
+    private func launchOnYou() -> Bool {
+        XCUIDevice.shared.appearance = .light
+        app.launchArguments = ["-uitest"]
         app.launch()
-        XCTAssertTrue(youTab.waitForExistence(timeout: 15))
+        guard youTab.waitForExistence(timeout: 15) else { XCTFail("manca la scheda Tu"); return false }
         youTab.tap()
         sleep(1)
-        snap("05-you")
+        return true
+    }
 
-        // Viaggio e hotel: il posto scelto in Varco, il messaggio per l'hotel
+    /// Viaggio e hotel: il posto scelto in Varco, il messaggio per l'hotel
+    func test1bYouTrip() {
+        guard launchOnYou() else { return }
+        snap("05-you")
         if openYou("trip") {
             sleep(2)
             snap("06-trip-answer")
             app.swipeUp()
             sleep(1)
             snap("06b-trip-hotel-message")
-            back()
         }
+    }
 
-        // Garage e il modulo del veicolo con «Cerca dalla targa» chiuso
-        relaunchOnYou()
-        if openYou("garage") {
-            snap("07-garage")
-            let add = app.navigationBars.buttons["Add a vehicle"].firstMatch
-            if add.waitForExistence(timeout: 3) {
-                add.tap(); sleep(1)
-                snap("07b-vehicle-form")
-                let cancel = app.buttons["Cancel"].firstMatch
-                if cancel.waitForExistence(timeout: 3) { cancel.tap() } else { app.swipeDown(velocity: .fast) }
+    /// Garage e il modulo del veicolo con «Cerca dalla targa» chiuso
+    func test1cGarage() {
+        guard launchOnYou(), openYou("garage") else { return }
+        snap("07-garage")
+        let add = app.navigationBars.buttons["Add a vehicle"].firstMatch
+        if add.waitForExistence(timeout: 3) {
+            add.tap(); sleep(1)
+            snap("07b-vehicle-form")
+            let cancel = app.buttons["Cancel"].firstMatch
+            if cancel.waitForExistence(timeout: 3) { cancel.tap() } else { app.swipeDown(velocity: .fast) }
+            sleep(1)
+        }
+    }
+
+    func test1dFines() {
+        guard launchOnYou(), openYou("fines") else { return }
+        snap("08-fines")
+        let fine = app.buttons["Got a fine?"].firstMatch
+        if fine.waitForExistence(timeout: 3) { fine.tap(); sleep(1); snap("08b-fine-guide"); back() }
+        let log = app.buttons["Drive log"].firstMatch
+        if log.waitForExistence(timeout: 3) { log.tap(); sleep(1); snap("08c-drive-log"); back() }
+    }
+
+    /// Cosa sono le ZTL → Leggi il cartello: testo scritto a mano (nel simulatore non c'è la fotocamera)
+    func test1eLearn() {
+        guard launchOnYou(), openYou("learn") else { return }
+        snap("08d-learn")
+        let sign = app.buttons["learn.sign"].firstMatch
+        if sign.waitForExistence(timeout: 3) {
+            sign.tap()
+            let t = app.descendants(matching: .any)["sign.text"]
+            if t.waitForExistence(timeout: 3) {
+                t.tap(); t.typeText("ZONA TRAFFICO LIMITATO\n7.30-20.00\nFERIALI")
                 sleep(1)
+                snap("08e-sign-reader")
             }
-            back()
         }
+    }
 
-        relaunchOnYou()
-        if openYou("fines") {
-            snap("08-fines")
-            let fine = app.buttons["Got a fine?"].firstMatch
-            if fine.waitForExistence(timeout: 3) { fine.tap(); sleep(1); snap("08b-fine-guide"); back() }
-            let log = app.buttons["Drive log"].firstMatch
-            if log.waitForExistence(timeout: 3) { log.tap(); sleep(1); snap("08c-drive-log"); back() }
-            back()
-        }
-
-        // Cosa sono le ZTL → Leggi il cartello: testo scritto a mano (nel simulatore non c'è la fotocamera)
-        if openYou("learn") {
-            snap("08d-learn")
-            let sign = app.buttons["learn.sign"].firstMatch
-            if sign.waitForExistence(timeout: 3) {
-                sign.tap()
-                let t = app.descendants(matching: .any)["sign.text"]
-                if t.waitForExistence(timeout: 3) {
-                    t.tap(); t.typeText("ZONA TRAFFICO LIMITATO\n7.30-20.00\nFERIALI")
-                    sleep(1)
-                    snap("08e-sign-reader")
-                }
-                back()
-            }
-            back()
-        }
-
-        relaunchOnYou()
+    func test1fSettings() {
+        guard launchOnYou() else { return }
         if openYou("settings") { snap("08f-settings"); back() }
-        if openYou("subscription") { snap("08g-subscription"); back() }
+        if openYou("subscription") { snap("08g-subscription") }
     }
 
     /// Il primo avvio: la presentazione 2.0, «Salta» porta all'ultima pagina, «Più tardi» all'app
@@ -192,6 +192,11 @@ final class ScreenshotTests: XCTestCase {
         mapTab.tap()
         sleep(6)
         snap("11-map-milan-dark")
+        // 1.20.0: dopo la mappa l'app si riapre, come in test1Tour: con la scheda Mappa viva la ricerca della riga
+        // «Viaggio» andava in tempo scaduto (riga di openYou, corse 41694171121 e 41697591616). Il posto torna con -uiPlace
+        app.terminate()
+        app.launch()
+        XCTAssertTrue(youTab.waitForExistence(timeout: 15))
         youTab.tap()
         sleep(1)
         snap("11b-you-dark")

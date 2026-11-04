@@ -245,6 +245,13 @@ schemes:
       config: Debug
       targets:
         - GateLRUITests
+      # 1.20.0: niente registrazione automatica dello schermo né Main Thread Checker nei test dell'interfaccia. Xcode
+      # registrava in video ogni test (VTEncoderXPCService, 0,6 GB e codifica senza scheda grafica sul Mac Intel di
+      # GitHub) mentre il simulatore disegna anche lui senza scheda grafica: l'app rispondeva tardi alle ricerche del
+      # giro delle foto («Timed out while evaluating UI query»). Le foto del giro sono allegati del test e restano
+      captureScreenshotsAutomatically: false
+      preferredScreenCaptureFormat: screenshots
+      disableMainThreadChecker: true
   GateLRTests:
     build:
       targets:
