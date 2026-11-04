@@ -9,8 +9,8 @@ options:
 # Versione unica per app e widget (si legge in Account → Versione)
 settings:
   base:
-    MARKETING_VERSION: "1.20.0"
-    CURRENT_PROJECT_VERSION: "53"
+    MARKETING_VERSION: "1.20.1"
+    CURRENT_PROJECT_VERSION: "54"
 
 # Mapbox Maps (v11, Swift Package Manager, nessun token segreto per scaricarlo): la mappa 3D della nuova
 # presentazione e della striscia di mappa della prima pagina (Varco). Se non si carica, resta la mappa di Apple (MapKit).
@@ -41,6 +41,9 @@ targets:
       # Le città: JSON costruiti dagli script in Tools/ dai dati aperti dei Comuni
       - path: Resources/Cities
         type: folder
+        buildPhase: resources
+      # 1.20.1: la chiave pubblica che controlla la firma dei dati scaricati (Sources/CitySignature.swift, Tools/sign_cities.py)
+      - path: shared/city-signing-key.txt
         buildPhase: resources
       # Le forme disegnate delle zone (corridoi delle vie, punti dei segni): Tools/build_map_shapes.py, le stesse del sito
       - path: Resources/Map
@@ -153,11 +156,14 @@ targets:
       - path: Sources/TestZone.swift          # la zona della modalità prova (Store la usa)
       - path: Sources/SharedData.swift        # App Group: città scaricate, veicolo e permessi dell'app (1.19.3)
       - path: Sources/PlatePrivacy.swift      # 1.19.4: mai la targa nel widget né nella Live Activity
+      - path: Sources/CitySignature.swift     # 1.20.1: il widget usa le città scaricate solo se firmate, come l'app
       # 1.19.4: il manifesto della privacy del widget (widget, guardiano e Live Activity)
       - path: Privacy/Widget/PrivacyInfo.xcprivacy
         buildPhase: resources
       - path: Resources/Cities
         type: folder
+        buildPhase: resources
+      - path: shared/city-signing-key.txt
         buildPhase: resources
       - path: Resources/Localizations
         buildPhase: resources

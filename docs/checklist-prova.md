@@ -427,3 +427,14 @@ Le stesse risposte su iPhone, Android e sito: i casi di prova comuni sono in sha
 - [ ] Sito: Pantheon, Roma, martedì 29 giugno 2027 alle 10:00: «ZTL non attiva» (festa del patrono); martedì 22 giugno alle 10:00: «No, non entrare». Cerca «Prato»: «Non conosciamo questo posto», riquadro neutro con il «?», pannello «ZONA NON COPERTA», mai verde
 - [ ] Sito: Cagliari, Bastione di Saint Remy alle 12:00: «Probabilmente sì» giallo con il «?» e l'avviso «Fonte non ufficiale»; sulla mappa la zona è gialla, mai verde né grigia
 - [ ] Sito: Palazzo Vecchio di notte con «Diesel Euro 4» e poi con «Auto a noleggio»: le risposte sono quelle della zona più severa (la zona scritta sotto la risposta è quella che decide)
+
+## 26. Dati (1.20.1)
+«Letto il» e «verificato il» separati, mai verde da dati non verificati o cambiati, dati scaricati solo se firmati. Regole e soglia: docs/dati-verifica.md.
+- [ ] iPhone → Varco: Palazzo Vecchio alle 23:00 di un martedì con «Auto a noleggio»: giallo con il «?», «Guarda il cartello.», sotto «Questa regola non è ancora stata verificata: controlla il cartello. La ZTL non è attiva…»; il pannello dice «ZTL NON ATTIVA». Mai verde né grigio. Alle 10:00 dello stesso giorno: rosso «Non entrare» (il «no» resta)
+- [ ] iPhone → «Perché?» / scheda della zona, in fondo: «Letto dalle fonti ufficiali il …» e, in giallo, «Non ancora verificato: controlla il cartello»; nel riquadro della risposta (Viaggio) «Letto il …» e sotto «Non verificato»
+- [ ] iPhone → Mappa a ZTL spenta: le zone ufficiali sono gialle con il «?» (non grigie); una moto o un'auto elettrica di giorno nell'Area C: giallo «?», non verde. Fuori dalle zone di Bologna (Bologna Centrale): verde «Fuori dalla ZTL»; Prato: neutro
+- [ ] iPhone → Tu → Impostazioni → «Controlla aggiornamenti»: finché la chiave di firma non è configurata (docs/dati-verifica.md) dice «Non firmati: restano i tuoi dati» e la versione dei dati resta quella dell'app; con la firma configurata e dati nuovi: «Aggiornati»
+- [ ] iPhone con dati scaricati da una versione precedente: dopo l'aggiornamento alla 1.20.1 la versione dei dati in Impostazioni è quella dell'app (i dati senza firma non si usano più); il widget mostra le stesse risposte dell'app
+- [ ] Android → scheda della zona → Fonti ufficiali: «Letto il …» e «Non ancora verificato: controlla il cartello»; Account → Regole e mappe: per ogni città «Letto il … · Non ancora verificato…». Palazzo Vecchio alle 23:00: giallo «Non sicuro», non grigio
+- [ ] Sito: Palazzo Vecchio alle 23:00: giallo con il «?», «Questa regola non è ancora stata verificata: controlla il cartello»; sotto la risposta «Letto il … dal sito del Comune di Firenze: pagina ufficiale ↗» e «Non ancora verificato: controlla il cartello.»; sulla mappa le zone spente sono gialle. Pagina di una città (es. /it/firenze/): sotto ogni fonte «Letto il … · Non ancora verificato: controlla il cartello al varco»
+
