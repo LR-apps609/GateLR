@@ -11,6 +11,8 @@ enum class AnswerColor { RED, YELLOW, GREEN, GREY, NEUTRAL }
  * - Tutte le zone che contengono il posto, dalla più piccola; decide la risposta PEGGIORE (no > condizione > non sicuro > sì,
  *   un «sì» da fonte non ufficiale conta come «non sicuro»), a parità la più piccola. Prima Android guardava solo la più
  *   piccola: a Palazzo Vecchio di notte un diesel Euro 1 riceveva «sì» dal Settore A spento, ma lo Scudo Verde lo vieta.
+ * - 1.20.1: le risposte arrivano già con la verifica dei dati (RuleEngine.trustedAnswer): una zona non verificata, con
+ *   verifica vecchia o con la pagina del Comune cambiata non dà mai verde né grigio.
  * - L'area pedonale vince sempre (rosso).
  * - Fuori dalle zone: verde solo in una città che conosciamo (City.covers), altrimenti neutro.
  * Gli stessi casi di prova dell'iPhone e del sito: shared/engine-cases.json.
@@ -100,6 +102,6 @@ class PlaceCheck(
         }
 
         fun of(cities: List<City>, c: Coordinate, engine: RuleEngine, vehicle: Vehicle, permits: List<Permit>, hotelInside: Boolean, at: Instant): PlaceCheck =
-            of(cities, c) { engine.answer(it, vehicle, permits, hotelInside, at) }
+            of(cities, c) { engine.trustedAnswer(it, vehicle, permits, hotelInside, at) }
     }
 }

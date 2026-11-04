@@ -108,10 +108,12 @@ object AppState {
         return a.copy(verdict = a.verdict.shown(zone.isUnofficial))
     }
 
-    /** La risposta del motore. Un permesso vale solo nella sua città: la registrazione dell'hotel a Firenze non apre l'Area C di Milano */
+    /** La risposta del motore. Un permesso vale solo nella sua città: la registrazione dell'hotel a Firenze non apre l'Area C di Milano.
+     *  1.20.1: con la verifica dei dati (RuleEngine.trustedAnswer): regola non verificata, verifica vecchia o pagina del
+     *  Comune cambiata = mai verde né grigio */
     fun rawAnswer(zone: Zone, at: Instant = Instant.now(), hotelInside: Boolean = false): Answer {
         val city = cityOf(zone)?.id
-        return engine.answer(zone, vehicle, permits.filter { it.cityId == city }, hotelInside, at)
+        return engine.trustedAnswer(zone, vehicle, permits.filter { it.cityId == city }, hotelInside, at)
     }
 
     /** 1.20.0: la risposta per un posto come l'iPhone (PlaceCheck): la zona peggiore tra tutte quelle del posto, l'area

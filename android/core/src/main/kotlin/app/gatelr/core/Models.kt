@@ -256,9 +256,19 @@ data class Source(
     val official: Boolean? = null,
     /** Il sito da cui vengono i dati quando la fonte non è ufficiale */
     val unofficialSource: UnofficialSource? = null,
+    /** 1.20.1 «Dati»: «verificato il», quando una persona (o un controllo) ha confermato la regola. «checkedOn» è solo
+     *  «letto il» (quando abbiamo letto le pagine). Assente = non lo sappiamo = NON verificata (RuleEngine.trust) */
+    val verifiedOn: String? = null,
+    /** Le impronte delle pagine ufficiali della zona al momento della verifica (Tools/source_trust.py) */
+    val verifiedFingerprints: Map<String, String>? = null,
+    /** La pagina del Comune è cambiata dopo la verifica: lo segna Tools/source_trust.py dalle impronte del controllo
+     *  giornaliero («Controllo pagine dei Comuni»). Assente = nessun cambio noto */
+    val pageChanged: Boolean? = null,
 ) {
     val isOfficial: Boolean get() = official ?: true
     val checked: Instant get() = Instant.parse(checkedOn)
+    /** La data della verifica (anche con l'ora con il fuso, «2026-11-01T12:00:00+01:00»); null = non verificata */
+    val verified: Instant? get() = verifiedOn?.let { runCatching { java.time.OffsetDateTime.parse(it).toInstant() }.getOrNull() }
     val localizedAuthority: String get() = L(authority)
     val localizedPending: List<String> get() = when (Strings.language) { "it" -> pendingIt ?: pending; "de" -> pendingDe ?: pending; else -> pending }
     val localizedTranslation: String? get() = when (Strings.language) { "it" -> null; "de" -> quoteTranslationDe ?: quoteTranslation; else -> quoteTranslation }

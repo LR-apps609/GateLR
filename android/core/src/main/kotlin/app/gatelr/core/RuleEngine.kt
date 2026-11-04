@@ -38,12 +38,51 @@ sealed class Verdict {
 
 data class Answer(val verdict: Verdict, val gatesOn: Boolean, val nextChange: Instant?)
 
+/** 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona (come DataTrust dell'iPhone e trustOf del sito) */
+enum class DataTrust {
+    /** Verificata da al più [RuleEngine.staleAfterDays] giorni e pagina del Comune non cambiata dopo la verifica */
+    VERIFIED,
+    /** Nessuna data di verifica: non lo sappiamo, quindi non verificata */
+    UNVERIFIED,
+    /** Verificata più di [RuleEngine.staleAfterDays] giorni fa */
+    OLD,
+    /** La pagina del Comune è cambiata dopo la verifica (source.pageChanged) */
+    PAGE_CHANGED,
+}
+
 class RuleEngine(
     var now: () -> Instant = { Instant.now() },
-    /** Dopo questi giorni senza un controllo umano la scheda non è più «sicura» */
+    /** Dopo questi giorni dalla lettura (checkedOn) la zona è «da ricontrollare»; 1.20.1: e dopo questi giorni dalla
+     *  verifica (verifiedOn) un «sì» non è più sicuro. 120 giorni su iPhone, Android e sito (docs/dati-verifica.md) */
     var staleAfterDays: Long = 120,
 ) {
     companion object { val ROME: ZoneId = ZoneId.of("Europe/Rome") }
+
+    /** 1.20.1 «Dati»: la pagina cambiata prima di tutto, poi la data della verifica (assente = non verificata) */
+    fun trust(zone: Zone): DataTrust {
+        if (zone.source.pageChanged == true) return DataTrust.PAGE_CHANGED
+        val v = zone.source.verified ?: return DataTrust.UNVERIFIED
+        return if (ChronoUnit.DAYS.between(v, now()) > staleAfterDays) DataTrust.OLD else DataTrust.VERIFIED
+    }
+
+    /** La risposta da mostrare (app, widget, guardiano, casi comuni): quella del motore con la verifica dei dati.
+     *  [answer] resta la sola regola, per i test delle regole */
+    fun trustedAnswer(zone: Zone, vehicle: Vehicle, permits: List<Permit>, hotelInside: Boolean, at: Instant): Answer =
+        applyTrust(answer(zone, vehicle, permits, hotelInside, at), zone)
+
+    /** Pagina del Comune cambiata dopo la verifica: ogni risposta diventa «non sicuro» (giallo «?»), anche il «no».
+     *  Zona ufficiale non verificata o con verifica vecchia: un «sì» (verde o grigio) diventa «non sicuro»; «no» e
+     *  condizioni restano. Le zone da fonti non ufficiali hanno già il «sì» giallo (Verdict.shown) */
+    fun applyTrust(a: Answer, zone: Zone): Answer {
+        val t = trust(zone)
+        val v = a.verdict
+        if (t == DataTrust.PAGE_CHANGED) return a.copy(verdict = Verdict.Unsure(L("The city's page has changed: check the sign.") + " " + v.detail))
+        if (t != DataTrust.VERIFIED && zone.source.isOfficial && v is Verdict.Yes) {
+            val why = if (t == DataTrust.OLD) F("Last verified more than %lld days ago: check the sign.", staleAfterDays) else L("This rule hasn't been verified yet: check the sign.")
+            return a.copy(verdict = Verdict.Unsure(why + " " + v.reason))
+        }
+        return a
+    }
 
     fun answer(zone: Zone, vehicle: Vehicle, permits: List<Permit>, hotelInside: Boolean, at: Instant): Answer {
         val on = isActive(zone, at)
