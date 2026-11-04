@@ -141,7 +141,9 @@ struct IntroSetupPage: View {
                 .focused($focused)
                 .autocorrectionDisabled()
                 .submitLabel(.search)
-                .onSubmit { if let first = search.results.first { choose(first) } }
+                // 1.20.2: Invio sceglie il primo suggerimento, anche se arriva dopo (SearchSubmit)
+                .onSubmit { search.submit() }
+                .onReceive(search.picks) { choose($0) }
                 .onChange(of: search.query) { _, q in if let c = chosen, q != c.name { chosen = nil } }
                 .accessibilityIdentifier("intro2.search")
             if resolving { ProgressView().tint(Notte.text) }
@@ -156,8 +158,11 @@ struct IntroSetupPage: View {
     private var suggestions: some View {
         VStack(alignment: .leading, spacing: 0) {
             if search.results.isEmpty {
-                Text(search.failed ? L("Search isn't working right now. Check your connection.") : L("Keep typing…"))
-                    .font(Notte.font(15)).foregroundStyle(Notte.muted).padding(14)
+                if search.failed {
+                    SearchFailedRow(dark: true) { search.retry() }
+                } else {
+                    Text(L("Keep typing…")).font(Notte.font(15)).foregroundStyle(Notte.muted).padding(14)
+                }
             }
             ForEach(Array(search.results.prefix(5).enumerated()), id: \.offset) { i, r in
                 Button { choose(r) } label: {

@@ -5,6 +5,7 @@ import SwiftUI
 struct YouView: View {
     @EnvironmentObject var store: Store
     @EnvironmentObject var router: AppRouter
+    @ObservedObject private var logBook = Store.shared.logBook      // 1.20.2: il numero sulla riga «Multe e passaggi»
     @Binding var showZone: Bool
     @Binding var tab: Tab
 
@@ -97,6 +98,7 @@ struct YouView: View {
 /// «Multe e passaggi»: il diario dei passaggi, cosa fare con una multa e la foto del verbale
 struct FinesHubView: View {
     @EnvironmentObject var store: Store
+    @ObservedObject private var logBook = Store.shared.logBook      // 1.20.2: il numero delle righe del diario
 
     var body: some View {
         List {

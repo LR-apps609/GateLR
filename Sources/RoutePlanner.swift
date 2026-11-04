@@ -99,7 +99,8 @@ final class RoutePlanner: ObservableObject {
 
     /// Il parcheggio fuori dalle zone vietate o a pagamento più vicino alla destinazione (ricerca di Apple)
     static func parkingOutside(near place: Place, zones: [Zone], vehicle: Vehicle, at date: Date) async -> Place? {
-        let region = MKCoordinateRegion(center: place.location.cl, latitudinalMeters: 3_000, longitudinalMeters: 3_000)
+        // 1.20.2: 4 km come «Parcheggia fuori e cammina» (prima 3 km qui): ParkingFallback
+        let region = ParkingFallback.region(around: place.location)
         let poi = MKLocalPointsOfInterestRequest(coordinateRegion: region)
         poi.pointOfInterestFilter = MKPointOfInterestFilter(including: [.parking])
         var items = (try? await MKLocalSearch(request: poi).start().mapItems) ?? []

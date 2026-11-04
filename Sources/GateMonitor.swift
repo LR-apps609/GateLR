@@ -10,6 +10,10 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
     static let shared = GateMonitor()
 
     @Published private(set) var location: CLLocation?
+    /// 1.20.2: la posizione non è ancora stata chiesta (il pulsante «Usa la mia posizione» la chiede al primo tocco)
+    @Published private(set) var canAskLocation = false
+    /// 1.20.2: gli avvisi sono accesi ma iOS non li ha ancora permessi (Impostazioni → «Consenti gli avvisi»)
+    @Published private(set) var alertsNeedPermission = false
     private let manager = CLLocationManager()
     private var monitor: CLMonitor?
     private weak var store: Store?
@@ -17,6 +21,7 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let maxRegions = 20
 
     private var started = false
+    private var alertsStarting = false
 
     /// «Attiva gli avvisi» nella presentazione: le due richieste di iOS, notifiche e posizione mentre usi l'app (gli avvisi
     /// «Varco attivo tra 250 m» servono a tutte e due). Un «no» va bene: si va avanti, l'app funziona lo stesso e i
@@ -40,22 +45,57 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
         await start(store: store)
     }
 
+    /// 1.20.2: all'apertura nessuna richiesta (PermissionPolicy, momento .launch): la posizione parte solo se è già
+    /// permessa, gli avvisi solo se notifiche e posizione ci sono già. Le richieste arrivano quando usi la cosa che
+    /// ne ha bisogno: «Usa la mia posizione», «Attiva gli avvisi», la guida, il guardiano
     func start(store: Store) async {
         self.store = store
         manager.delegate = self
         ThreatAlerts.shared.install()
-        manager.requestWhenInUseAuthorization()
         manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.distanceFilter = 50
-        manager.startUpdatingLocation()
-        await startAlerts()
+        canAskLocation = manager.authorizationStatus == .notDetermined
+        if PermissionPolicy.allowed(manager.authorizationStatus) { manager.startUpdatingLocation() }
+        await startAlerts(asking: false)
     }
 
-    /// Gli avvisi: permessi, cerchi attorno ai varchi più vicini, ascolto degli ingressi
-    private func startAlerts() async {
-        guard let store, store.alertsOn, monitor == nil else { return }
-        _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
-        manager.requestAlwaysAuthorization()
+    /// «Usa la mia posizione» senza permesso: la richiesta di iOS adesso, la posizione appena arriva il sì
+    func askLocation(store: Store) {
+        self.store = store
+        manager.delegate = self
+        guard !PermissionPolicy.uiTest else { return }
+        if manager.authorizationStatus == .notDetermined {
+            Task { await PermissionPolicy.request(.useMyLocation, manager: manager) }
+        } else if PermissionPolicy.allowed(manager.authorizationStatus) {
+            manager.startUpdatingLocation()
+        }
+    }
+
+    /// Impostazioni → «Consenti gli avvisi»: notifiche e posizione «Sempre», poi gli avvisi partono
+    func askAlertPermissions(store: Store) async {
+        self.store = store
+        manager.delegate = self
+        await startAlerts(asking: true)
+    }
+
+    /// Gli avvisi: permessi, cerchi attorno ai varchi più vicini, ascolto degli ingressi. Senza «asking» si parte solo
+    /// con i permessi già dati (all'apertura dell'app non compare nessuna richiesta)
+    private func startAlerts(asking: Bool) async {
+        guard let store, store.alertsOn, monitor == nil, !alertsStarting else { return }
+        // Una sola partenza alla volta (all'avvio arrivano insieme start e il cambio di permesso)
+        alertsStarting = true
+        defer { alertsStarting = false }
+        if asking {
+            await PermissionPolicy.request(.turnOnAlerts, manager: manager)
+        }
+        let notifications = await UNUserNotificationCenter.current().notificationSettings().authorizationStatus
+        guard PermissionPolicy.allowed(manager.authorizationStatus),
+              notifications == .authorized || notifications == .provisional else {
+            alertsNeedPermission = true
+            return
+        }
+        alertsNeedPermission = false
+        if PermissionPolicy.allowed(manager.authorizationStatus) { manager.startUpdatingLocation() }
 
         let monitor = await CLMonitor("gates")
         self.monitor = monitor
@@ -76,7 +116,8 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
             manager.stopMonitoringSignificantLocationChanges()
             Task { if let monitor { for id in await monitor.identifiers { await monitor.remove(id) } }; registeredAt = nil }
         } else if monitor == nil {
-            Task { await startAlerts() }
+            // Gli avvisi accesi a mano: è il momento di chiedere i permessi che servono
+            Task { await startAlerts(asking: true) }
         } else {
             manager.startMonitoringSignificantLocationChanges()
             Task { await registerNearest(to: location ?? manager.location) }
@@ -119,6 +160,8 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
 
     private func moved(to here: CLLocation) {
         location = here
+        // 1.20.2: alla prima posizione la pagina va sulla città dove sei (una volta, se non ne hai scelta una)
+        store?.adoptCity(near: Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude))
         guard monitor != nil, store?.alertsOn == true else { return }
         if registeredAt.map({ here.distance(from: $0) > 1_500 }) ?? true {
             Task { await registerNearest(to: here) }
@@ -191,6 +234,17 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
         let a = answer(c, meters)
         guard ThreatEvaluator.alerts(a.verdict, c) else { return nil }
         return ZoneThreat(candidate: c, meters: meters, answer: a, point: gate.location)
+    }
+
+    /// 1.20.2: la risposta alla richiesta (o un cambio da Impostazioni di iOS): con il sì la posizione parte subito
+    nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        let status = manager.authorizationStatus
+        Task { @MainActor in
+            self.canAskLocation = status == .notDetermined
+            guard PermissionPolicy.allowed(status) else { return }
+            self.manager.startUpdatingLocation()
+            if self.started, self.monitor == nil { await self.startAlerts(asking: false) }
+        }
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

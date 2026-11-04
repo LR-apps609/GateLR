@@ -1,5 +1,6 @@
 import Foundation
 import MapKit
+import Combine
 
 /// Ricerca di indirizzi e luoghi con Apple Maps (gratis): suggerimenti mentre scrivi, poi la posizione esatta.
 @MainActor
@@ -7,6 +8,10 @@ final class AddressSearch: NSObject, ObservableObject, MKLocalSearchCompleterDel
     @Published var query = "" { didSet { update() } }
     @Published private(set) var results: [MKLocalSearchCompletion] = []
     @Published private(set) var failed = false
+
+    /// 1.20.2: il suggerimento scelto con Invio (subito, o appena arriva): le pagine lo ricevono come un tocco
+    let picks = PassthroughSubject<MKLocalSearchCompletion, Never>()
+    private var pickWhenReady = false
 
     private let completer = MKLocalSearchCompleter()
     /// 1.19.5: un suggerimento già scelto non si cerca di nuovo (al più 60, solo in memoria). I suggerimenti invece vanno
@@ -28,10 +33,40 @@ final class AddressSearch: NSObject, ObservableObject, MKLocalSearchCompleterDel
     private func update() {
         let q = query.trimmingCharacters(in: .whitespaces)
         failed = false
+        pickWhenReady = false
         if q.count < 2 { results = []; completer.cancel() } else { completer.queryFragment = q }
     }
 
-    func clear() { query = ""; results = [] }
+    func clear() { query = ""; results = []; pickWhenReady = false }
+
+    /// 1.20.2: «Riprova» dopo una ricerca senza risposta: la stessa domanda di nuovo ad Apple
+    func retry() {
+        let q = query.trimmingCharacters(in: .whitespaces)
+        guard q.count >= 2 else { return }
+        failed = false
+        completer.cancel()
+        completer.queryFragment = ""
+        completer.queryFragment = q
+    }
+
+    /// 1.20.2: Invio (il tasto «Cerca» della tastiera): il primo suggerimento, come toccarlo. Se non è ancora arrivato
+    /// si sceglie appena arriva; se la ricerca non aveva risposto, prima si riprova (SearchSubmit)
+    func submit() {
+        switch SearchSubmit.action(query: query, results: results.count, failed: failed) {
+        case .pickFirst: if let first = results.first { picks.send(first) }
+        case .retry: pickWhenReady = true; retry()
+        case .wait: pickWhenReady = true
+        case .nothing: break
+        }
+    }
+
+    private func arrived(_ found: [MKLocalSearchCompletion]) {
+        results = found
+        if pickWhenReady, let first = found.first {
+            pickWhenReady = false
+            picks.send(first)
+        }
+    }
 
     /// Dal suggerimento alla posizione
     func resolve(_ completion: MKLocalSearchCompletion) async -> Place? {
@@ -52,7 +87,7 @@ final class AddressSearch: NSObject, ObservableObject, MKLocalSearchCompleterDel
 
     nonisolated func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         let found = Array(completer.results.prefix(6))
-        Task { @MainActor in self.results = found }
+        Task { @MainActor in self.arrived(found) }
     }
 
     nonisolated func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {

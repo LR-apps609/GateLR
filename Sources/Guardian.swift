@@ -54,13 +54,13 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         destination = place
         lastDistances = [:]; threat = nil; resting = .unknownPlace
         lastMove = Date(); startedAt = Date()
-        manager.requestAlwaysAuthorization()
+        // 1.20.2: posizione «Sempre» e notifiche quando parte il guardiano (PermissionPolicy, mai nel giro delle foto)
+        Task { await PermissionPolicy.request(.guardian, manager: manager) }
         if Bundle.main.object(forInfoDictionaryKey: "UIBackgroundModes") != nil {
             manager.allowsBackgroundLocationUpdates = true
             manager.showsBackgroundLocationIndicator = true
         }
         manager.startUpdatingLocation()
-        Task { _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) }
         VoiceSession.configure()
         SpeechVoice.prepare()
         active = true

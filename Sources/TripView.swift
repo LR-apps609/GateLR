@@ -20,6 +20,8 @@ struct TripView: View {
     @State private var language: MessageLanguage = .en
     @State private var copied = false
     @State private var saved = false
+    /// 1.20.2: il viaggio da cancellare, in attesa della conferma
+    @State private var deleting: PendingDelete?
     /// La prima pagina chiede il campo di ricerca già attivo quando si arriva da lì
     static var focusSearch = false
 
@@ -66,6 +68,7 @@ struct TripView: View {
         .onChange(of: store.cityId) { search.focus(on: store.city) }
         .onChange(of: store.place) { planner.clear(); hotelName = "" }
         .fullScreenCover(isPresented: $driving) { DriveView() }
+        .confirmDelete($deleting, store: store)
         .onChange(of: store.when) { planner.clear() }
         .onChange(of: store.activeVehicleId) { planner.clear() }
     }
@@ -78,7 +81,7 @@ struct TripView: View {
             Spacer()
             Menu {
                 ForEach(store.cities) { c in
-                    Button(c.localizedName) { store.place = nil; store.cityId = c.id }
+                    Button(c.localizedName) { store.chooseCity(c.id) }
                 }
             } label: {
                 Label(store.city.localizedName, systemImage: "mappin.and.ellipse")
@@ -97,6 +100,9 @@ struct TripView: View {
             TextField(String(format: L("Destination or hotel in %@"), store.city.localizedName), text: $search.query)
                 .focused($typing)
                 .submitLabel(.search)
+                // 1.20.2: Invio sceglie il primo suggerimento (SearchSubmit)
+                .onSubmit { search.submit() }
+                .onReceive(search.picks) { choose($0) }
                 .autocorrectionDisabled()
                 .accessibilityIdentifier("trip.search")
             if resolving { ProgressView() }
@@ -115,24 +121,29 @@ struct TripView: View {
         .card(14)
     }
 
+    private func choose(_ r: MKLocalSearchCompletion) {
+        Task {
+            resolving = true
+            if let place = await search.resolve(r) {
+                store.select(place)
+                search.query = ""
+                typing = false
+            }
+            resolving = false
+        }
+    }
+
     private var suggestions: some View {
         VStack(alignment: .leading, spacing: 0) {
             if search.results.isEmpty {
-                Text(search.failed ? L("Search isn't working right now. Check your connection.") : L("Keep typing…"))
-                    .font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
+                if search.failed {
+                    SearchFailedRow(dark: false) { search.retry() }
+                } else {
+                    Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
+                }
             }
             ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
-                Button {
-                    Task {
-                        resolving = true
-                        if let place = await search.resolve(r) {
-                            store.select(place)
-                            search.query = ""
-                            typing = false
-                        }
-                        resolving = false
-                    }
-                } label: {
+                Button { choose(r) } label: {
                     HStack(spacing: 12) {
                         Image(systemName: "mappin.circle.fill").font(.app(size: 22)).foregroundStyle(Theme.red)
                         VStack(alignment: .leading, spacing: 1) {
@@ -490,7 +501,7 @@ struct TripView: View {
                     }
                     .buttonStyle(.plain)
                     .contextMenu {
-                        Button(role: .destructive) { store.trips.removeAll { $0.id == t.id } } label: { Label("Delete", systemImage: "trash") }
+                        Button(role: .destructive) { deleting = .trip(t.id) } label: { Label("Delete", systemImage: "trash") }
                     }
                     if t.id != store.trips.last?.id { Divider().padding(.leading, 62) }
                 }

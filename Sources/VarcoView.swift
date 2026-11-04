@@ -24,6 +24,8 @@ struct VarcoView: View {
     @State private var mapReady = false
     @State private var parkSheet = false
     @State private var driving = false
+    /// 1.20.2: «Usa la mia posizione» toccato prima del permesso: la posizione si usa appena arriva
+    @State private var wantsLocation = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.requestReview) private var requestReview
 
@@ -66,6 +68,7 @@ struct VarcoView: View {
         .environment(\.colorScheme, .dark)
         .onAppear { search.focus(on: store.city) }
         .onChange(of: store.cityId) { search.focus(on: store.city) }
+        .onChange(of: monitor.location != nil) { _, has in if has && wantsLocation { useMyLocation() } }
         .sheet(isPresented: $parkSheet) { parkOutsideSheet }
         .fullScreenCover(isPresented: $driving) { DriveView() }
         // La recensione su App Store: 2 secondi dopo la risposta alla prima ricerca di un posto o di un hotel (ReviewPrompter)
@@ -115,7 +118,7 @@ struct VarcoView: View {
             Spacer()
             Menu {
                 ForEach(store.cities) { c in
-                    Button(c.localizedName) { store.place = nil; store.cityId = c.id }
+                    Button(c.localizedName) { store.chooseCity(c.id) }
                 }
             } label: {
                 Label(store.city.localizedName, systemImage: "building.2")
@@ -163,7 +166,7 @@ struct VarcoView: View {
                     Home2Map(place: place, zones: rings, mood: mood, mapMode: false, reduceMotion: reduceMotion,
                              ornamentBottom: 6, focusBottom: 0, marker: marker, user: user, stripPoints: height,
                              onFail: { mapFailed = true }, onReady: { mapReady = true })
-                        // Mapbox può metterci qualche secondo (fino a 10 prima della mappa di Apple): la striscia neutra,
+                        // Mapbox può metterci qualche secondo (fino a 5 prima della mappa di Apple, MapboxFallback): la striscia neutra,
                         // senza il colore della risposta, finché lo stile non è caricato
                         .overlay { if !mapReady { MapStripSkeleton() } }
                 }
@@ -218,6 +221,9 @@ struct VarcoView: View {
                       prompt: Text(L("Hotel, address or square")).foregroundColor(Notte.muted))
                 .focused($typing)
                 .submitLabel(.search)
+                // 1.20.2: Invio sceglie il primo suggerimento (o lo aspetta, o riprova la ricerca)
+                .onSubmit { search.submit() }
+                .onReceive(search.picks) { choose($0) }
                 .autocorrectionDisabled()
                 .foregroundStyle(Notte.text)
                 .accessibilityLabel(L("Hotel, address or square"))
@@ -228,9 +234,11 @@ struct VarcoView: View {
                     Image(systemName: "xmark.circle.fill").foregroundStyle(Notte.muted)
                 }
                 .accessibilityLabel(L("Clear"))
-            } else if monitor.location != nil {
+            } else if monitor.location != nil || monitor.canAskLocation {
+                // 1.20.2: c'è anche senza permesso: il primo tocco è il momento in cui iOS chiede la posizione
                 Button { useMyLocation() } label: { Image(systemName: "location.fill").foregroundStyle(Notte.text) }
                     .accessibilityLabel(L("Use my location"))
+                    .accessibilityIdentifier("varco.locate")
             }
         }
         .font(.app(size: 17))
@@ -243,8 +251,11 @@ struct VarcoView: View {
     private var suggestions: some View {
         VStack(alignment: .leading, spacing: 0) {
             if search.results.isEmpty {
-                Text(search.failed ? L("Search isn't working right now. Check your connection.") : L("Keep typing…"))
-                    .font(.app(size: 14)).foregroundStyle(Notte.muted).padding(14)
+                if search.failed {
+                    SearchFailedRow(dark: true) { search.retry() }
+                } else {
+                    Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Notte.muted).padding(14)
+                }
             }
             ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
                 Button { choose(r) } label: {
@@ -281,7 +292,9 @@ struct VarcoView: View {
     }
 
     private func useMyLocation() {
-        guard let here = monitor.location else { return }
+        // 1.20.2: senza permesso si chiede adesso (non più all'apertura dell'app); la risposta arriva con la posizione
+        guard let here = monitor.location else { wantsLocation = true; monitor.askLocation(store: store); return }
+        wantsLocation = false
         store.select(Place(name: L("My position"), address: "",
                            location: Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)))
     }
@@ -331,6 +344,9 @@ struct VarcoView: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
+        // 1.20.2: un identificatore solo della scheda della risposta (il giro delle foto aspetta questa, non la ricerca)
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("varco.answerCard")
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
         .overlay {
             RoundedRectangle(cornerRadius: 28, style: .continuous)

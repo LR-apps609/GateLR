@@ -4,7 +4,10 @@ import SwiftUI
 /// Serve a sapere subito se può arrivare una multa (che arriva mesi dopo) e come prova in caso di ricorso.
 struct DriveLogView: View {
     @EnvironmentObject var store: Store
+    /// 1.20.2: il diario ha il suo oggetto (DriveLogBook): questa pagina si ridisegna quando cambia
+    @ObservedObject private var logBook = Store.shared.logBook
     @State private var confirmClear = false
+    @State private var deleting: PendingDelete?
 
     private var shareText: String { Self.shareText(store.log, plates: store.vehicles.map(\.plate)) }
 
@@ -54,7 +57,8 @@ struct DriveLogView: View {
                             }
                         }
                     }
-                    .onDelete { store.log.remove(atOffsets: $0) }
+                    // 1.20.2: anche una riga sola si cancella dopo la conferma
+                    .onDelete { offsets in deleting = .logEntries(Set(offsets.map { store.log[$0].id })) }
                 } footer: {
                     Text("A row here doesn't mean you'll be fined: maybe you didn't cross the gate, or your plate was registered. It's a reminder, and a note of when and where.")
                 }
@@ -80,6 +84,7 @@ struct DriveLogView: View {
         }
         .navigationTitle("Drive log")
         .tint(Theme.blue)
+        .confirmDelete($deleting, store: store)
         .confirmationDialog(L("Delete the whole log?"), isPresented: $confirmClear) {
             Button(L("Delete the log"), role: .destructive) { store.log = [] }
         }

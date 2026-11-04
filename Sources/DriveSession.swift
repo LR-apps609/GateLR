@@ -184,7 +184,9 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         detector.reset(); needsReroute = false; routing = false; backOnRoute = 0
         lastRerouteAt = .distantPast; lastRecalcSpoken = .distantPast
         interpolator.reset(); here = nil
-        manager.requestWhenInUseAuthorization()
+        // 1.20.2: la posizione si chiede qui, quando parte la guida (PermissionPolicy); nel giro delle foto mai: la
+        // richiesta di iOS copriva la foto 14-drive-milan-dark (la partenza finta è RoutePlanner.testOrigin)
+        await PermissionPolicy.request(.drive, manager: manager)
         let origin = manager.location?.coordinate ?? RoutePlanner.testOrigin
         guard let r = await calculate(from: origin, to: place, course: nil) else {
             error = origin == nil ? L("Couldn't find your position. Allow location access to plan the drive.")

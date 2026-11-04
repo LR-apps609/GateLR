@@ -360,7 +360,13 @@ enum ParkOutsideSearch {
 /// Cerca e controlla i parcheggi per una destinazione
 @MainActor
 final class ParkOutsideFinder: ObservableObject {
-    enum Phase: Equatable { case idle, searching, done, empty }
+    /// 1.20.2: «failed» = nessun parcheggio e la ricerca di Apple non ha risposto (rete): lo si dice, con «Riprova»
+    enum Phase: Equatable { case idle, searching, done, empty, failed }
+
+    /// Come finisce una ricerca: le proposte, altrimenti «non ha risposto» se la rete è mancata, altrimenti «nessuno»
+    nonisolated static func phase(options: Int, appleFailed: Bool) -> Phase {
+        options > 0 ? .done : (appleFailed ? .failed : .empty)
+    }
     @Published private(set) var options: [ParkingOption] = []
     @Published private(set) var phase: Phase = .idle
     /// Vero se la lista viene dalla ricerca di Apple (senza orari né prezzi)
@@ -374,10 +380,13 @@ final class ParkOutsideFinder: ObservableObject {
         var spots = found.spots
         var ranked = found.ranked
         fromApple = spots.isEmpty
+        var appleFailed = false
         // Nel giro delle foto (-uitest) niente ricerche di Apple né percorsi: solo i dati dentro l'app
         let offline = ProcessInfo.processInfo.arguments.contains("-uitest") && !Misure.live
         if spots.isEmpty && !offline {
-            spots = await Self.appleParkings(near: destination)
+            let apple = await Self.appleParkings(near: destination)
+            appleFailed = apple == nil
+            spots = apple ?? []
             ranked = ParkOutsideSearch.rankOutside(spots, to: destination.location, at: arrival, city: found.city, store: store)
         }
         ranked = Array(ranked.prefix(5))
@@ -411,7 +420,7 @@ final class ParkOutsideFinder: ObservableObject {
             if Task.isCancelled { return }
         }
         options = ParkOutside.finalize(ranked)
-        phase = options.isEmpty ? .empty : .done
+        phase = Self.phase(options: options.count, appleFailed: appleFailed)
     }
 
     private static func walking(from a: Coordinate, to b: Coordinate) async -> Double? {
@@ -441,11 +450,17 @@ final class ParkOutsideFinder: ObservableObject {
     }
 
     /// Senza i dati di OpenStreetMap: i parcheggi della ricerca di Apple (nome e posizione)
-    private static func appleParkings(near place: Place) async -> [ParkingSpot] {
-        let region = MKCoordinateRegion(center: place.location.cl, latitudinalMeters: 4_000, longitudinalMeters: 4_000)
+    /// nil se Apple non ha risposto (rete), [] se ha risposto senza parcheggi
+    private static func appleParkings(near place: Place) async -> [ParkingSpot]? {
+        let region = ParkingFallback.region(around: place.location)      // 1.20.2: lo stesso lato del percorso di Viaggio
         let poi = MKLocalPointsOfInterestRequest(coordinateRegion: region)
         poi.pointOfInterestFilter = MKPointOfInterestFilter(including: [.parking])
-        let items = (try? await MKLocalSearch(request: poi).start().mapItems) ?? []
+        let items: [MKMapItem]
+        do { items = try await MKLocalSearch(request: poi).start().mapItems } catch {
+            // MKError.placemarkNotFound = nessun risultato, non un errore di rete
+            if (error as? MKError)?.code == .placemarkNotFound { return [] }
+            return nil
+        }
         return items.enumerated().map { i, item in
             let c = item.placemark.coordinate
             return ParkingSpot(id: "a\(i)", name: item.name, lat: c.latitude, lon: c.longitude)
@@ -455,6 +470,14 @@ final class ParkOutsideFinder: ObservableObject {
 
 /// Il riquadro «Parcheggia fuori e cammina»: i tre parcheggi migliori, uno scelto, «Avvia» con la nota «poi a piedi»
 struct ParkOutsideCard: View {
+    /// Il giro delle foto e le misure distinguono «nessun parcheggio» da «non risponde»
+    static func identifier(_ phase: ParkOutsideFinder.Phase) -> String {
+        switch phase {
+        case .failed: "park.failed"
+        default: "park.empty"
+        }
+    }
+
     @EnvironmentObject var store: Store
     var destination: Place
     var arrival: Date
@@ -489,17 +512,26 @@ struct ParkOutsideCard: View {
                     .accessibilityIdentifier("park.searching")
                 // 1.19.5: la forma delle righe che arrivano, ferma e grigia (niente colori né risposte prima del tempo)
                 ParkingSkeleton()
-            case .empty:
-                Text("No car parks found just outside the zone.").font(.app(size: 14)).foregroundStyle(Theme.muted)
-                    .accessibilityIdentifier("park.empty")
-                Button { attempt += 1 } label: {
-                    Label(L("Try again"), systemImage: "arrow.clockwise")
-                        .font(.app(size: 15, weight: .semibold)).foregroundStyle(Theme.blue)
-                        .frame(maxWidth: .infinity, minHeight: 44)
-                        .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+            case .empty, .failed:
+                // 1.20.2: il motivo e «Riprova» sulla stessa riga: il riquadro è più basso e il pulsante non finisce
+                // sotto la barra delle schede (foto 39); «non risponde» se è mancata la rete, non «nessun parcheggio»
+                HStack(alignment: .center, spacing: 10) {
+                    Text(finder.phase == .failed ? L("Couldn't search car parks right now. Check your connection.")
+                                                 : L("No car parks found just outside the zone."))
+                        .font(.app(size: 14)).foregroundStyle(Theme.muted)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .accessibilityIdentifier(Self.identifier(finder.phase))
+                    Button { attempt += 1 } label: {
+                        Label(L("Try again"), systemImage: "arrow.clockwise")
+                            .font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.blue)
+                            .padding(.horizontal, 12).frame(minHeight: 40)
+                            .background(Theme.blueSoft, in: Capsule())
+                    }
+                    .buttonStyle(.plain)
+                    .fixedSize()
+                    .accessibilityIdentifier("park.retry")
                 }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("park.retry")
             case .done:
                 VStack(spacing: 0) {
                     ForEach(Array(finder.options.enumerated()), id: \.element.id) { i, o in

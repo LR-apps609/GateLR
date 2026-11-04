@@ -27,8 +27,15 @@ final class Store: ObservableObject {
     @Published var trips: [Trip] { didSet { save() } }
     /// I soggiorni in hotel dentro la ZTL: date e stato della registrazione della targa (chiave: Place.key)
     @Published var stays: [String: HotelStay] = [:] { didSet { save() } }
-    /// Il diario dei passaggi: quando sei stato vicino o dentro una ZTL attiva (solo sul telefono)
-    @Published var log: [LogEntry] = [] { didSet { save() } }
+    /// Il diario dei passaggi: quando sei stato vicino o dentro una ZTL attiva (solo sul telefono).
+    /// 1.20.2: le righe stanno in un oggetto a parte (DriveLogBook): durante la guida e con il guardiano se ne aggiungono
+    /// spesso, e prima ogni riga ridisegnava tutte le pagine che osservano lo Store (Varco con la mappa, Mappa, Viaggio).
+    /// Ora si ridisegnano solo le viste che mostrano il diario (osservano logBook). Lettura e scrittura come prima
+    let logBook = DriveLogBook()
+    var log: [LogEntry] {
+        get { logBook.entries }
+        set { logBook.entries = newValue; save() }
+    }
     /// Il posto scelto nella pagina Varco (indirizzo, hotel, piazza); nil = solo la città
     @Published var place: Place?
     /// L'ora scelta nel chip «Adesso ▾» (ContextChips): nil = adesso. Non si salva: a ogni avvio si riparte da «Adesso».
@@ -61,7 +68,8 @@ final class Store: ObservableObject {
 
     init() {
         if let data = UserDefaults.standard.data(forKey: key), let s = try? JSONDecoder().decode(Saved.self, from: data) {
-            vehicles = s.vehicles; activeVehicleId = s.activeVehicleId; permits = s.permits; trips = s.trips ?? []; stays = s.stays ?? [:]; log = s.log ?? []
+            vehicles = s.vehicles; activeVehicleId = s.activeVehicleId; permits = s.permits; trips = s.trips ?? []; stays = s.stays ?? [:]
+            logBook.entries = s.log ?? []
             alertsOn = s.alertsOn; alertDistance = s.alertDistance
         } else {
             vehicles = [SampleData.rental]; activeVehicleId = SampleData.rental.id; permits = []; trips = []
@@ -211,6 +219,32 @@ final class Store: ObservableObject {
         cities.min { hypot($0.center.lat - c.lat, $0.center.lon - c.lon) < hypot($1.center.lat - c.lat, $1.center.lon - c.lon) }
     }
 
+    /// 1.20.2: la città scelta a mano in questa apertura dell'app (menu della città): la posizione non la cambia più
+    private(set) var cityChosenByHand = false
+    /// La posizione ha già scelto la città in questa apertura (una volta sola, alla prima posizione)
+    private(set) var cityFromPositionDone = false
+
+    /// La città scelta dal menu (Varco, Viaggio): vale fino alla prossima apertura, la posizione non la cambia
+    func chooseCity(_ id: String) {
+        cityChosenByHand = true
+        place = nil
+        cityId = id
+    }
+
+    /// 1.20.2: alla prima posizione dopo l'avvio (solo se la posizione è permessa: la chiede chi la usa) la pagina va
+    /// sulla città dove sei, invece di restare su Firenze o sull'ultima scelta. Non cambia niente se hai già scelto un
+    /// posto o una città, in modalità prova, o se non sei vicino a nessuna città che conosciamo (CityFromPosition)
+    @discardableResult
+    func adoptCity(near here: Coordinate) -> Bool {
+        guard loaded, !cityFromPositionDone else { return false }
+        cityFromPositionDone = true
+        guard place == nil, !cityChosenByHand, testMode == nil,
+              let pick = CityFromPosition.pick(here, cities: cities), pick.city.id != cityId else { return false }
+        cityId = pick.city.id
+        zoneId = pick.zone.id
+        return true
+    }
+
     /// Gli ultimi posti cercati (scorciatoie in Viaggio)
     @Published var recent: [Place] = {
         guard let d = UserDefaults.standard.data(forKey: "recent.places") else { return [] }
@@ -231,6 +265,27 @@ final class Store: ObservableObject {
         } else if let city = nearestCity(to: place.location), city.id != cityId {
             cityId = city.id; zoneId = city.zones[0].id
         }
+    }
+}
+
+/// 1.20.2: il diario dei passaggi, osservato solo da chi lo mostra (Tu, Diario dei passaggi). Lo Store lo salva con il garage
+@MainActor
+final class DriveLogBook: ObservableObject {
+    @Published var entries: [LogEntry] = []
+}
+
+/// 1.20.2: la città dalla tua posizione. Dentro la copertura di una città (zone e aree pedonali più 2 km, City.covers)
+/// quella; altrimenti la città della zona più vicina se è entro «near» metri (la periferia, l'aeroporto, il casello);
+/// più lontano nessuna: resta la città di prima
+enum CityFromPosition {
+    static let near: Double = 15_000
+
+    static func pick(_ here: Coordinate, cities: [City]) -> (city: City, zone: Zone)? {
+        let covering = cities.filter { $0.covers(lat: here.lat, lon: here.lon) }
+        if let hit = Store.zones(at: here, in: covering).first { return (hit.city, hit.zone) }
+        guard let best = Store.nearestZone(to: here, in: covering.isEmpty ? cities : covering) else { return nil }
+        guard !covering.isEmpty || best.meters <= near else { return nil }
+        return (best.city, best.zone)
     }
 }
 

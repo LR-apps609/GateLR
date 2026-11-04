@@ -12,6 +12,7 @@ struct SettingsView: View {
     @AppStorage("vehicleMarker") private var vehicleMarker = VehicleMarker.arrow.rawValue
     @AppStorage("vehicleColor") private var vehicleColor = VehicleColor.blue.rawValue
     @ObservedObject private var updater = CityUpdater.shared
+    @ObservedObject private var monitor = GateMonitor.shared
     /// Calcolato in sottofondo: speechVoices() è lento e prima si chiamava a ogni disegno della pagina
     @State private var basicVoice = false
 
@@ -19,6 +20,13 @@ struct SettingsView: View {
         List {
             Section {
                 Toggle("Gate alerts", isOn: $store.alertsOn)
+                // 1.20.2: i permessi non si chiedono più all'apertura: qui, quando servono agli avvisi
+                if store.alertsOn && monitor.alertsNeedPermission {
+                    Button {
+                        Task { await GateMonitor.shared.askAlertPermissions(store: store) }
+                    } label: { Label(L("Allow alerts"), systemImage: "bell.and.waves.left.and.right") }
+                    .accessibilityIdentifier("settings.allowAlerts")
+                }
                 Stepper(String(format: L("Warn me %lld m before a gate"), Int(store.alertDistance)),
                         value: $store.alertDistance, in: 200...1000, step: 100)
                 Button {

@@ -99,7 +99,8 @@ struct Home2Map: UIViewRepresentable {
                 Task { @MainActor in self?.fail() }
             }.store(in: &cancelables)
             Task { @MainActor [weak self] in
-                try? await Task.sleep(for: .seconds(10))
+                // 1.20.2: 5 secondi (prima 10) senza lo stile di Mapbox → mappa di Apple (MapboxFallback)
+                try? await Task.sleep(for: .seconds(MapboxFallback.seconds))
                 guard let self, !self.ready else { return }
                 self.fail()
             }

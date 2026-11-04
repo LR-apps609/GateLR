@@ -34,6 +34,8 @@ struct MapScreen: View {
     @State private var parkings: [Parking] = []
     @State private var searchingParking = false
     @State private var parkingMessage: String?
+    /// 1.20.2: la ricerca dei parcheggi non ha risposto (rete): sotto il messaggio c'è «Riprova» per quella zona
+    @State private var parkingFailedZone: Zone?
     @State private var selectedParking: Parking?
     @State private var lookAround: MKLookAroundScene?
     @State private var showLookAround = false
@@ -403,6 +405,9 @@ struct MapScreen: View {
                     Image(systemName: "magnifyingglass").foregroundStyle(Theme.muted)
                     TextField(String(format: L("Address or hotel in %@"), store.city.localizedName), text: $search.query)
                         .focused($typing).autocorrectionDisabled().submitLabel(.search)
+                        // 1.20.2: Invio sceglie il primo suggerimento (SearchSubmit)
+                        .onSubmit { search.submit() }
+                        .onReceive(search.picks) { choose($0) }
                         .accessibilityIdentifier("map.search")
                     if resolving { ProgressView() }
                     if !search.query.isEmpty || store.place != nil {
@@ -531,21 +536,14 @@ struct MapScreen: View {
     private var suggestions: some View {
         VStack(alignment: .leading, spacing: 0) {
             if search.results.isEmpty {
-                Text(search.failed ? L("Search isn't working right now. Check your connection.") : L("Keep typing…"))
-                    .font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
+                if search.failed {
+                    SearchFailedRow(dark: false) { search.retry() }
+                } else {
+                    Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
+                }
             }
             ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
-                Button {
-                    Task {
-                        resolving = true
-                        if let place = await search.resolve(r) {
-                            store.select(place)
-                            search.query = ""
-                            typing = false
-                        }
-                        resolving = false
-                    }
-                } label: {
+                Button { choose(r) } label: {
                     HStack(spacing: 12) {
                         Image(systemName: "mappin.circle.fill").font(.app(size: 22)).foregroundStyle(Theme.red)
                         VStack(alignment: .leading, spacing: 1) {
@@ -562,6 +560,18 @@ struct MapScreen: View {
             }
         }
         .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    }
+
+    private func choose(_ r: MKLocalSearchCompletion) {
+        Task {
+            resolving = true
+            if let place = await search.resolve(r) {
+                store.select(place)
+                search.query = ""
+                typing = false
+            }
+            resolving = false
+        }
     }
 
     /// La scheda del posto cercato: dov'è, in che zona, se adesso si entra
@@ -691,7 +701,21 @@ struct MapScreen: View {
             }
             if zone.isUnofficial { UnofficialBanner(source: zone.source.unofficialSource) }
             if let parkingMessage {
-                Text(parkingMessage).font(.app(size: 13)).foregroundStyle(Theme.muted)
+                HStack(spacing: 10) {
+                    Text(parkingMessage).font(.app(size: 13)).foregroundStyle(Theme.muted)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    if let failed = parkingFailedZone, !searchingParking {
+                        Button { Task { await findParking(zone: failed) } } label: {
+                            Label(L("Try again"), systemImage: "arrow.clockwise")
+                                .font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.blue)
+                                .padding(.horizontal, 10).frame(minHeight: 34)
+                                .background(Theme.blueSoft, in: Capsule())
+                        }
+                        .buttonStyle(.plain)
+                        .fixedSize()
+                        .accessibilityIdentifier("map.parkRetry")
+                    }
+                }
             }
             HStack(spacing: 10) {
                 WideButton(title: "Zone details", systemImage: "doc.text") { showZone = true }
@@ -710,18 +734,25 @@ struct MapScreen: View {
     /// Parcheggi da Apple Maps intorno alla zona, tenendo solo quelli fuori da tutti i settori
     private func findParking(zone: Zone) async {
         searchingParking = true
+        parkingFailedZone = nil
         defer { searchingParking = false }
         let request = MKLocalPointsOfInterestRequest(coordinateRegion: zone.region(padding: 2.2))
         request.pointOfInterestFilter = MKPointOfInterestFilter(including: [.parking])
         do {
-            var items = (try? await MKLocalSearch(request: request).start().mapItems) ?? []
+            // 1.20.2: un errore di rete anche nella prima ricerca porta a «Riprova» (prima si perdeva e si passava alla seconda)
+            var items: [MKMapItem] = []
+            do { items = try await MKLocalSearch(request: request).start().mapItems } catch {
+                if (error as? MKError)?.code != .placemarkNotFound { throw error }
+            }
             if items.isEmpty {
                 // Seconda strada: ricerca per parola nella stessa zona
                 let text = MKLocalSearch.Request()
                 text.naturalLanguageQuery = "parking"
                 text.region = zone.region(padding: 2.4)
                 text.resultTypes = .pointOfInterest
-                items = try await MKLocalSearch(request: text).start().mapItems
+                do { items = try await MKLocalSearch(request: text).start().mapItems } catch {
+                    if (error as? MKError)?.code != .placemarkNotFound { throw error }
+                }
             }
             // Fuori dalle zone vietate o a pagamento (dentro l'Area B verde si può parcheggiare)
             let outside = items.filter { item in
@@ -742,6 +773,7 @@ struct MapScreen: View {
             }
         } catch {
             parkingMessage = L("Couldn't search car parks right now. Check your connection.")
+            parkingFailedZone = zone
         }
     }
 }

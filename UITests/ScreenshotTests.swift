@@ -74,10 +74,18 @@ final class ScreenshotTests: XCTestCase {
             let first = app.buttons["varco.result.0"].firstMatch
             if first.waitForExistence(timeout: 5) {
                 first.tap()
-                // 1.20.1: si aspetta la risposta vera (il titolo «varco.answer», che c'è solo con il posto scelto) invece di
-                // 4 secondi fissi: la foto mostra la risposta, non la ricerca a metà. Poi un attimo per il pannello che si accende
-                let answer = app.descendants(matching: .any)["varco.answer"].firstMatch
-                XCTAssertTrue(answer.waitForExistence(timeout: 20), "la risposta di Varco non è comparsa")
+                // 1.20.2: si aspetta la SCHEDA della risposta («varco.answerCard», un identificatore che ha solo lei e che
+                // c'è solo quando la ricerca è chiusa). Con «varco.answer» l'attesa passava subito anche con l'elenco
+                // della ricerca e la tastiera ancora aperti (foto 03 e 03b della 1.20.1). Se il tocco non è arrivato,
+                // Invio sceglie il primo suggerimento (1.20.2) e si aspetta di nuovo
+                let card = app.descendants(matching: .any)["varco.answerCard"].firstMatch
+                if !card.waitForExistence(timeout: 12), field.exists {
+                    field.typeText("\n")
+                }
+                XCTAssertTrue(card.waitForExistence(timeout: 20), "la risposta di Varco non è comparsa")
+                // La tastiera si chiude con un'animazione: al massimo 3 secondi
+                for _ in 0..<6 where app.keyboards.firstMatch.exists { usleep(500_000) }
+                XCTAssertFalse(app.keyboards.firstMatch.exists, "la tastiera copre ancora la risposta")
                 sleep(1)
                 snap("03-varco-answer")
                 app.swipeUp()
@@ -433,6 +441,13 @@ final class ScreenshotTests: XCTestCase {
             for _ in 0..<20 where searching.exists { sleep(1) }
             sleep(3)
             snap(name)
+            // 1.20.2: il riquadro «Parcheggia fuori e cammina» un po' più su: «Riprova» intero sopra la barra delle schede
+            if name.hasPrefix("39") {
+                let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75))
+                from.press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)))
+                sleep(2)
+                snap("39b-trip-park-retry")
+            }
         }
     }
 

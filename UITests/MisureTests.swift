@@ -145,11 +145,11 @@ final class MisureTests: XCTestCase {
             startMeasuring()
             let t0 = Date()
             park.tap()
-            let hit = waitAny(["park.option.0", "park.empty"], timeout: timeout)
+            let hit = waitAny(["park.option.0", "park.empty", "park.failed"], timeout: timeout)   // 1.20.2: anche «non risponde»
             stopMeasuring()
             if let hit {
                 times.append(Date().timeIntervalSince(t0))
-                if hit.identifier == "park.empty" { empty += 1 }
+                if hit.identifier != "park.option.0" { empty += 1 }
             } else { XCTFail("nessun risultato dei parcheggi in \(Int(timeout)) s") }
             app.terminate()
         }

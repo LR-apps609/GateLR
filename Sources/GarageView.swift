@@ -9,6 +9,8 @@ struct GarageView: View {
     @State private var zoning: Permit?
     /// Il permesso da confermare (dialogo «Hai la conferma scritta?»)
     @State private var confirming: Permit?
+    /// 1.20.2: veicolo o permesso da cancellare, in attesa della conferma (PendingDelete)
+    @State private var deleting: PendingDelete?
 
     var body: some View {
         List {
@@ -42,12 +44,8 @@ struct GarageView: View {
                     .contentShape(Rectangle())
                     .onTapGesture { editing = v }
                 }
-                .onDelete { offsets in
-                    let gone = Set(offsets.map { store.vehicles[$0].id })
-                    store.vehicles.remove(atOffsets: offsets)
-                    store.permits.removeAll { gone.contains($0.vehicleId) }
-                    if let id = store.activeVehicleId, gone.contains(id) { store.activeVehicleId = store.vehicles.first?.id }
-                }
+                // 1.20.2: prima la conferma, poi si cancella (con i permessi del veicolo)
+                .onDelete { offsets in deleting = .vehicles(Set(offsets.map { store.vehicles[$0].id })) }
             }
 
             Section {
@@ -76,7 +74,7 @@ struct GarageView: View {
                         .accessibilityIdentifier("garage.permit.status")
                     }
                 }
-                .onDelete { store.permits.remove(atOffsets: $0) }
+                .onDelete { offsets in deleting = .permits(Set(offsets.map { store.permits[$0].id })) }
                 Button { addingPermit = true } label: { Label("Add a permit", systemImage: "plus.circle") }
                     .accessibilityIdentifier("garage.addPermit")
             } header: { Text("Permits") } footer: {
@@ -96,6 +94,7 @@ struct GarageView: View {
         .sheet(item: $editing) { v in VehicleForm(vehicle: v) }
         .sheet(isPresented: $addingPermit) { PermitForm() }
         .sheet(item: $zoning) { p in PermitForm(existing: p) }
+        .confirmDelete($deleting, store: store)
         .confirmationDialog(L("Do you have the written confirmation?"), isPresented: Binding(get: { confirming != nil }, set: { if !$0 { confirming = nil } }),
                             titleVisibility: .visible, presenting: confirming) { p in
             Button(L("Yes, I have it in writing")) {

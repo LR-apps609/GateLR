@@ -81,9 +81,10 @@ struct IntroMapboxMap: UIViewRepresentable {
                 guard error.type == .style else { return }
                 Task { @MainActor in self?.fail() }
             }.store(in: &cancelables)
-            // Niente stile dopo 9 secondi (rete lentissima, simulatore senza Metal): mappa di Apple
+            // Niente stile dopo 5 secondi (rete lentissima, simulatore senza Metal): mappa di Apple. 1.20.2: come la
+            // striscia di Varco (MapboxFallback, prima 9 secondi qui e 10 là)
             Task { @MainActor [weak self] in
-                try? await Task.sleep(for: .seconds(9))
+                try? await Task.sleep(for: .seconds(MapboxFallback.seconds))
                 guard let self, !self.ready else { return }
                 self.fail()
             }
