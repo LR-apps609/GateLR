@@ -21,7 +21,10 @@ permissions:
 jobs:
   build:
     # I Mac Apple Silicon di GitHub sono spesso esauriti: si usa il Mac Intel, come per AudioLR
-    runs-on: macos-15-intel
+    # 1.20.3: il 4 novembre 2026 il Mac Intel non è stato assegnato per quattro volte di fila («The job was not acquired
+    # by Runner of type hosted», corsa 41872991799): si torna al Mac Apple Silicon. Se resta in coda per ore, rimettere
+    # macos-15-intel
+    runs-on: macos-15
     # Il Mac Intel di GitHub ha giorni lenti: compilazione, test e .ipa da 15 a 30 minuti, il giro delle foto da 50 a
     # 70, il video 10. Con 100 minuti la corsa 40793867218 è stata fermata a metà giro; il giro ha poi il suo limite.
     # 1.19.3: il giro arrivava a 86–88 dei suoi 90 minuti: 120 per il giro, 190 per tutto
