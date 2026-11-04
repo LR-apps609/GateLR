@@ -34,6 +34,11 @@ jobs:
       - name: Script del sito
         run: python3 Tools/build_site.py > /dev/null && python3 Tools/check_site_js.py
 
+      # 1.20.3 «Parole»: ogni testo dell'app ha la traduzione (Tools/check_strings.py, senza falsi positivi: simboli SF,
+      # caratteri, «verbatim:») e le 7 lingue sono complete (Tools/check_translations.py); se no la corsa si ferma qui
+      - name: Testi e traduzioni
+        run: python3 Tools/check_strings.py && python3 Tools/check_translations.py
+
       - name: Xcode più recente disponibile
         run: |
           XCODE=$(ls -d /Applications/Xcode*.app | sort -V | tail -n 1)

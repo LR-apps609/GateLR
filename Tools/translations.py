@@ -347,7 +347,7 @@ T = {
 "Always use %@?": ("Usare sempre %@?", "Immer %@ verwenden?"),
 "Always %@": ("Sempre %@", "Immer %@"),
 "Just this time": ("Solo questa volta", "Nur dieses Mal"),
-"You can change it in Account → Preferred navigator.": ("Puoi cambiarlo in Account → Navigatore preferito.", "Du kannst es unter Konto → Bevorzugte Navigation ändern."),
+"You can change it in You → Preferred navigator.": ("Puoi cambiarlo in Tu → Navigatore preferito.", "Du kannst es unter Du → Bevorzugte Navigation ändern."),
 "Arrow": ("Freccia", "Pfeil"),
 "Sedan": ("Berlina", "Limousine"),
 "SUV": ("SUV", "SUV"),
@@ -702,7 +702,7 @@ T = {
 "Active now": ("Attiva adesso", "Jetzt aktiv"),
 "Off": ("Spenta", "Aus"),
 "Test car park": ("Parcheggio di prova", "Test-Parkplatz"),
-"Creates a fake ZTL about 400 m wide around you, with 1–2 gates on the nearby roads and a car park outside, to try answers, alerts, navigation and voice without travelling. Only on this phone: never synced or sent. See docs/prova-sul-campo.md.": ("Crea una ZTL finta larga circa 400 m intorno a te, con 1–2 varchi sulle strade vicine e un parcheggio fuori, per provare risposte, avvisi, navigazione e voce senza viaggiare. Solo su questo telefono: mai sincronizzata né inviata. Vedi docs/prova-sul-campo.md.", "Erstellt eine unechte ZTL von etwa 400 m um dich herum, mit 1–2 Einfahrten an den Straßen in der Nähe und einem Parkplatz außerhalb, um Antworten, Hinweise, Navigation und Stimme ohne Reise auszuprobieren. Nur auf diesem Handy: nie synchronisiert oder gesendet. Siehe docs/prova-sul-campo.md."),
+"Creates a fake ZTL about 400 m wide around you, with 1–2 gates on the nearby roads and a car park outside, to try answers, alerts, navigation and voice without travelling. Only on this phone: never synced or sent.": ("Crea una ZTL finta larga circa 400 m intorno a te, con 1–2 varchi sulle strade vicine e un parcheggio fuori, per provare risposte, avvisi, navigazione e voce senza viaggiare. Solo su questo telefono: mai sincronizzata né inviata.", "Erstellt eine unechte ZTL von etwa 400 m um dich herum, mit 1–2 Einfahrten an den Straßen in der Nähe und einem Parkplatz außerhalb, um Antworten, Hinweise, Navigation und Stimme ohne Reise auszuprobieren. Nur auf diesem Handy: nie synchronisiert oder gesendet."),
 "TEST ZONE": ("ZONA DI PROVA", "TESTZONE"),
 "active": ("attiva", "aktiv"),
 "off": ("spenta", "aus"),
@@ -817,6 +817,24 @@ T = {
 'City page changed': ('Pagina del Comune cambiata', 'Seite der Stadt geändert'),
 'Only updates signed by GateLR are used; otherwise the app keeps the data it has.': ("Si usano solo gli aggiornamenti firmati da GateLR; altrimenti l'app tiene i dati che ha.", 'Es werden nur von GateLR signierte Updates verwendet; sonst behält die App ihre Daten.'),
 'Not verified by a person yet.': ('Non ancora verificato da una persona.', 'Noch nicht von einer Person geprüft.'),
+# 1.20.3 «Parole»: titoli fissi della risposta, «Segnala un errore» nella tua lingua, pillole neutre
+"Don't|enter": ("Non|entrare", "Nicht|einfahren"),
+"You can|enter": ("Puoi|entrare", "Einfahrt|erlaubt"),
+"On one|condition": ("A una|condizione", "Mit|Bedingung"),
+"Check the|sign": ("Controlla il|cartello", "Achte auf|das Schild"),
+"We don't know|this place": ("Non conosciamo|questo posto", "Ort nicht|bekannt"),
+"Probably yes · unofficial source": ("Probabilmente sì · fonte non ufficiale", "Wahrscheinlich ja · inoffizielle Quelle"),
+"Probably not · unofficial source": ("Probabilmente no · fonte non ufficiale", "Wahrscheinlich nicht · inoffizielle Quelle"),
+"ZTL with pass": ("ZTL con pass", "ZTL mit Pass"),
+"(Italian time)": ("(ora italiana)", "(italienische Zeit)"),
+"now": ("adesso", "jetzt"),
+"chosen time": ("ora scelta", "gewählte Zeit"),
+"What: %@": ("Cosa: %@", "Was: %@"),
+"Zone: %@": ("Zona: %@", "Zone: %@"),
+"Date and time: %@": ("Data e ora: %@", "Datum und Uhrzeit: %@"),
+"Position: %@": ("Posizione: %@", "Standort: %@"),
+"Test zone (test mode)": ("Zona di prova (modalità prova)", "Testzone (Testmodus)"),
+"Ref.: %@": ("Rif.: %@", "Ref.: %@"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
@@ -900,13 +918,13 @@ ANDROID = {
 "Try again": ("Riprova", "Nochmal versuchen"),
 }
 
-# Gli stessi testi per l'app Android (assets/i18n/strings_it.json, strings_de.json)
+# Gli stessi testi per l'app Android (assets/i18n/strings_it.json, strings_de.json; dalla 1.20.3 anche fr, es, nl, pl, zh più sotto)
 import json as _json
 adir = Path(__file__).resolve().parent.parent / "android/app/src/main/assets/i18n"
 adir.mkdir(parents=True, exist_ok=True)
 for i, code in enumerate(["it", "de"]):
     (adir / f"strings_{code}.json").write_text(_json.dumps({k: v[i] for k, v in {**T, **ANDROID}.items()}, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
-# Le altre lingue (solo iPhone): Tools/lang/<codice>.py con T, INFO e SHORTCUTS, chiave = testo inglese
+# Le altre lingue: Tools/lang/<codice>.py con T, INFO, SHORTCUTS e (1.20.3, per Android) ANDROID, chiave = testo inglese
 import importlib.util, re as _re
 MORE = {"fr": "fr", "es": "es", "nl": "nl", "pl": "pl", "zh-Hans": "zh_Hans"}
 
@@ -931,6 +949,13 @@ for code, mod in MORE.items():
     (d / "Localizable.strings").write_text(head + "\n".join(f'"{esc(k)}" = "{esc(fix(lang.T[k]))}";' for k in T) + "\n", encoding="utf-8")
     (d / "InfoPlist.strings").write_text(head + "\n".join(f'"{k}" = "{esc(fix(lang.INFO[k]))}";' for k in INFO) + "\n", encoding="utf-8")
     (d / "AppShortcuts.strings").write_text("\n".join(f'"{esc(k)}" = "{esc(v)}";' for k, v in lang.SHORTCUTS.items()) + "\n", encoding="utf-8")
+    # 1.20.3: anche Android in questa lingua (assets/i18n/strings_<codice>.json: «zh» per zh-Hans), dalla stessa fonte
+    amissing = [k for k in ANDROID if k not in getattr(lang, "ANDROID", {}) and k not in lang.T]
+    if amissing:
+        raise SystemExit(f"{code}: mancano frasi Android {amissing[:5]} ({len(amissing)})")
+    table = {k: fix(lang.T[k]) for k in T}
+    table.update({k: fix(lang.ANDROID.get(k, lang.T.get(k, ""))) for k in ANDROID})
+    (adir / f"strings_{code.split('-')[0]}.json").write_text(_json.dumps(table, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
 
 en = root / "en.lproj"; en.mkdir(parents=True, exist_ok=True)
 (en / "Localizable.strings").write_text("/* Inglese: le chiavi sono già il testo */\n", encoding="utf-8")
