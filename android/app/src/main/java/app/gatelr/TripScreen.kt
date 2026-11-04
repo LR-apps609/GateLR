@@ -1,5 +1,9 @@
 package app.gatelr
 
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.ImeAction
+import app.gatelr.core.SearchSubmit
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -97,27 +101,40 @@ fun TripScreen(modifier: Modifier) {
 
     var searchFailed by remember { mutableStateOf(false) }
     var retry by remember { mutableStateOf(0) }
+    // 1.20.2: Invio con la ricerca ancora in corso: si cerca subito e si sceglie il primo risultato
+    var pickFirst by remember { mutableStateOf(false) }
     LaunchedEffect(query, retry) {
         searchFailed = false
         if (!SearchPlan.worthAsking(query)) { results = emptyList(); return@LaunchedEffect }
         val near = Geocoder.near()
         Geocoder.cached(query, near)?.let { results = it; return@LaunchedEffect }
-        delay(SearchPlan.DEBOUNCE_MS)
+        if (!pickFirst) delay(SearchPlan.DEBOUNCE_MS)
         searching = true
         try { val r = Geocoder.find(query, near); searchFailed = r == null; results = r ?: emptyList() } finally { searching = false }
     }
+    fun pick(p: Place) { AppState.select(p); query = ""; results = emptyList(); pickFirst = false }
+    LaunchedEffect(results, pickFirst) { if (pickFirst) results.firstOrNull()?.let { pick(it) } }
 
     LazyColumn(modifier.fillMaxSize().background(MaterialTheme.colorScheme.background), contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)) {
         item {
-            OutlinedTextField(value = query, onValueChange = { query = it }, singleLine = true,
+            OutlinedTextField(value = query, onValueChange = { query = it; pickFirst = false }, singleLine = true,
                 placeholder = { Text(L("Hotel, address or square")) },
+                // 1.20.2: Invio sceglie il primo risultato, o cerca subito, o riprova (SearchSubmit)
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+                keyboardActions = KeyboardActions(onSearch = {
+                    when (SearchSubmit.action(query, results.size, searchFailed)) {
+                        SearchSubmit.PICK_FIRST -> pick(results.first())
+                        SearchSubmit.RETRY, SearchSubmit.SEARCH_NOW -> { pickFirst = true; retry++ }
+                        SearchSubmit.NOTHING -> {}
+                    }
+                }),
                 leadingIcon = { Icon(Icons.Filled.Search, null) },
                 trailingIcon = { if (query.isNotEmpty() || place != null) IconButton(onClick = { query = ""; results = emptyList(); AppState.select(null) }) { Icon(Icons.Filled.Close, null) } },
                 shape = RoundedCornerShape(14.dp), modifier = Modifier.fillMaxWidth())
         }
         if (results.isNotEmpty()) {
-            items(results) { p -> PlaceRow(p) { AppState.select(p); query = ""; results = emptyList() } }
+            items(results) { p -> PlaceRow(p) { pick(p) } }
         } else if (searchFailed && !searching) {
             item { SearchRetry { retry++ } }
         } else if (SearchPlan.worthAsking(query) && !searching) {
@@ -421,9 +438,12 @@ fun StartControls(p: Place, modifier: Modifier = Modifier) {
     var ask by remember { mutableStateOf<Navigator?>(null) }
     val preferred = Navigator.entries.firstOrNull { it.id == AppState.preferredNavigator && it.installed(ctx) }
     fun go(n: Navigator) {
-        if (!GuardianService.canStart(ctx)) { Toast.makeText(ctx, L("Allow location access to see the ZTL near you."), Toast.LENGTH_LONG).show(); return }
-        GuardianService.start(ctx, p)
-        n.open(ctx, p)
+        // 1.20.2: posizione e notifiche si chiedono qui, quando parte il guardiano (non più all'apertura dell'app)
+        Permissions.ask(ctx, app.gatelr.core.PermissionPlan.Moment.GUARDIAN) {
+            if (!GuardianService.canStart(ctx)) { Toast.makeText(ctx, L("Allow location access to see the ZTL near you."), Toast.LENGTH_LONG).show(); return@ask }
+            GuardianService.start(ctx, p)
+            n.open(ctx, p)
+        }
     }
     fun choose(n: Navigator) { if (AppState.preferredNavigator.isEmpty()) ask = n else go(n) }
     Row(modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
@@ -455,6 +475,8 @@ fun shortWhen(ms: Long): String = java.time.Instant.ofEpochMilli(ms).atZone(ROME
 @Composable
 private fun TripRow(t: SavedTrip) {
     var menu by remember { mutableStateOf(false) }
+    var confirm by remember { mutableStateOf(false) }
+    if (confirm) ConfirmDelete("trip", onConfirm = { AppState.trips = AppState.trips.filter { it.id != t.id }; AppState.save() }, onDismiss = { confirm = false })
     val past = t.arrival < System.currentTimeMillis() - 24 * 3_600_000
     CardBox(Modifier.clickable { AppState.open(t) }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -465,7 +487,7 @@ private fun TripRow(t: SavedTrip) {
             Box {
                 IconButton(onClick = { menu = true }) { Icon(Icons.Filled.MoreHoriz, L("More")) }
                 DropdownMenu(expanded = menu, onDismissRequest = { menu = false }) {
-                    DropdownMenuItem(text = { Text(L("Delete")) }, onClick = { menu = false; AppState.trips = AppState.trips.filter { it.id != t.id }; AppState.save() })
+                    DropdownMenuItem(text = { Text(L("Delete")) }, onClick = { menu = false; confirm = true })
                 }
             }
         }

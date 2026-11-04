@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import app.gatelr.core.Answer
 import app.gatelr.core.City
+import app.gatelr.core.CityFromPosition
 import app.gatelr.core.CityLoader
 import app.gatelr.core.Coordinate
 import app.gatelr.core.Fuel
@@ -120,6 +121,25 @@ object AppState {
      *  pedonale che vince, fuori dalle città che conosciamo neutro */
     fun check(c: Coordinate, at: Instant = Instant.now(), hotelInside: Boolean = false): PlaceCheck =
         PlaceCheck.of(cities, c) { rawAnswer(it, at, hotelInside) }
+
+    /** 1.20.2: la città scelta a mano in questa apertura (la posizione non la cambia più) e la scelta dalla posizione fatta */
+    private var cityByHand = false
+    private var cityFromPositionDone = false
+
+    /** 1.20.2: alla prima posizione la pagina va sulla città dove sei (CityFromPosition), una volta sola per apertura,
+     *  se non hai già scelto un posto o una città. Vero se ha cambiato città */
+    fun adoptCity(here: Coordinate): Boolean {
+        if (cityFromPositionDone || !::cities.isInitialized) return false
+        cityFromPositionDone = true
+        if (place != null || cityByHand) return false
+        val (c, z) = CityFromPosition.pick(here, cities) ?: return false
+        if (c.id == cityId) return false
+        cityId = c.id; zoneId = z.id; save()
+        return true
+    }
+
+    /** La città scelta dal menu */
+    fun chooseCity(id: String) { cityByHand = true; selectCity(id) }
 
     fun selectCity(id: String) {
         cityId = id

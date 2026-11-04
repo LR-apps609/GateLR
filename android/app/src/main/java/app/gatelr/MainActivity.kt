@@ -66,38 +66,25 @@ object Nav {
 }
 
 class MainActivity : ComponentActivity() {
-    private val ask = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { r ->
-        Here.allowed = r[Manifest.permission.ACCESS_FINE_LOCATION] == true || r[Manifest.permission.ACCESS_COARSE_LOCATION] == true
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        // 1.20.2: nessuna richiesta all'apertura (prima posizione e notifiche subito, a ogni avvio): le chiede chi le usa
+        Permissions.install(this)
         Here.allowed = GuardianService.canStart(this)
         val prefs = getSharedPreferences("gatelr", MODE_PRIVATE)
-        if (prefs.getBoolean("welcomed", false)) askPermissions()
-        else welcome = true
+        if (!prefs.getBoolean("welcomed", false)) welcome = true
         setContent {
             GateTheme {
                 if (welcome) Onboarding {
                     prefs.edit().putBoolean("welcomed", true).apply()
                     welcome = false
-                    askPermissions()
                 } else Root()
             }
         }
     }
 
     private var welcome by mutableStateOf(false)
-
-    /** Posizione (se manca) e notifiche (Android 13+), dopo la spiegazione del benvenuto */
-    private fun askPermissions() {
-        val list = mutableListOf<String>()
-        if (!Here.allowed) list += listOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
-        if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED)
-            list += Manifest.permission.POST_NOTIFICATIONS
-        if (list.isNotEmpty()) ask.launch(list.toTypedArray())
-    }
 
     override fun onStop() {
         super.onStop()
@@ -181,12 +168,19 @@ fun LocationWhileOpen() {
     val lifecycle = androidx.compose.ui.platform.LocalLifecycleOwner.current.lifecycle
     DisposableEffect(allowed, lifecycle) {
         val lm = ctx.getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        val listener = LocationListener { l -> Here.coordinate = Coordinate(l.latitude, l.longitude); Here.at = System.currentTimeMillis() }
+        val listener = LocationListener { l ->
+            Here.coordinate = Coordinate(l.latitude, l.longitude); Here.at = System.currentTimeMillis()
+            AppState.adoptCity(Coordinate(l.latitude, l.longitude))      // 1.20.2: alla prima posizione, la città dove sei
+        }
         fun on() {
             if (!allowed) return
             for (p in listOf(LocationManager.NETWORK_PROVIDER, LocationManager.GPS_PROVIDER)) {
                 if (lm.allProviders.contains(p)) {
-                    runCatching { lm.getLastKnownLocation(p) }.getOrNull()?.let { if (Here.coordinate == null) Here.coordinate = Coordinate(it.latitude, it.longitude) }
+                    runCatching { lm.getLastKnownLocation(p) }.getOrNull()?.let {
+                        if (Here.coordinate == null) Here.coordinate = Coordinate(it.latitude, it.longitude)
+                        // L'ultima posizione nota va bene solo se recente (meno di 10 minuti): prima di andare altrove
+                        if (System.currentTimeMillis() - it.time < 10 * 60_000) AppState.adoptCity(Coordinate(it.latitude, it.longitude))
+                    }
                     runCatching { lm.requestLocationUpdates(p, 10_000L, 50f, listener, Looper.getMainLooper()) }
                 }
             }

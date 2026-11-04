@@ -47,6 +47,7 @@ import androidx.compose.ui.unit.sp
 import app.gatelr.core.F
 import app.gatelr.core.Geometry
 import app.gatelr.core.L
+import app.gatelr.core.PermissionPlan
 import app.gatelr.core.Verdict
 import app.gatelr.core.Zone
 import app.gatelr.core.nearestZone
@@ -117,7 +118,7 @@ fun HomeScreen(modifier: Modifier) {
                     val active = c.zones.count { AppState.engine.isActive(it, now) }
                     val sel = c.id == AppState.cityId
                     Column(Modifier.background(if (sel) Palette.blue else MaterialTheme.colorScheme.surface, RoundedCornerShape(14.dp))
-                        .clickable { AppState.selectCity(c.id) }.padding(horizontal = 14.dp, vertical = 10.dp)) {
+                        .clickable { AppState.chooseCity(c.id) }.padding(horizontal = 14.dp, vertical = 10.dp)) {
                         Text(c.localizedName, fontWeight = FontWeight.SemiBold, color = if (sel) Color.White else MaterialTheme.colorScheme.onSurface)
                         Text(if (active == 0) L("All open") else F("%lld active", active), fontSize = 12.sp,
                             color = if (sel) Color.White.copy(alpha = 0.85f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
@@ -155,11 +156,14 @@ fun HomeScreen(modifier: Modifier) {
 fun NearYou(now: Instant) {
     val here = Here.coordinate
     if (!Here.allowed || here == null) {
-        CardBox {
+        // 1.20.2: la posizione si chiede qui, al tocco (non più all'apertura dell'app)
+        val ctx = LocalContext.current
+        CardBox(Modifier.clickable(enabled = !Here.allowed) { Permissions.ask(ctx, PermissionPlan.Moment.USE_MY_LOCATION) }) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(Icons.Filled.LocationOff, null, tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
                 Spacer(Modifier.width(10.dp))
-                Text(L("Allow location access to see the ZTL near you."), fontSize = 14.sp)
+                Text(L("Allow location access to see the ZTL near you."), fontSize = 14.sp, modifier = Modifier.weight(1f))
+                if (!Here.allowed) Text(L("Use my location"), fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.primary)
             }
         }
         return

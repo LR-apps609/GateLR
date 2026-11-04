@@ -113,6 +113,8 @@ private fun PermitRow(p: Permit) {
     val f = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(Locale.getDefault())
     fun d(ms: Long) = Instant.ofEpochMilli(ms).atZone(ZoneId.systemDefault()).format(f)
     val city = AppState.cities.firstOrNull { it.id == p.cityId }?.localizedName ?: p.cityId
+    var confirm by remember { mutableStateOf(false) }
+    if (confirm) ConfirmDelete("permit", onConfirm = { AppState.permits = AppState.permits - p; AppState.save() }, onDismiss = { confirm = false })
     CardBox {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1f)) {
@@ -120,7 +122,8 @@ private fun PermitRow(p: Permit) {
                 Text("${d(p.from)} – ${d(p.to)}", fontSize = 13.sp)
                 if (p.status == Permit.Status.CONFIRMED) Pill(L("Confirmed"), Palette.greenSoft, Palette.greenInk) else Pill(L("Waiting"), Palette.amberSoft, Palette.amberInk)
             }
-            IconButton(onClick = { AppState.permits = AppState.permits - p; AppState.save() }) { Icon(Icons.Filled.Delete, L("Delete")) }
+            // 1.20.2: prima la conferma
+            IconButton(onClick = { confirm = true }) { Icon(Icons.Filled.Delete, L("Delete")) }
         }
     }
 }
@@ -128,6 +131,12 @@ private fun PermitRow(p: Permit) {
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun VehicleDialog(v: Vehicle?, close: () -> Unit) {
+    var confirmDelete by remember { mutableStateOf(false) }
+    if (confirmDelete && v != null) ConfirmDelete("vehicle", onConfirm = {
+        val after = app.gatelr.core.GarageEdit.deleteVehicle(app.gatelr.core.GarageState(AppState.vehicles, AppState.permits, AppState.activeVehicleId), v.id)
+        AppState.vehicles = after.vehicles; AppState.permits = after.permits; AppState.activeVehicleId = after.activeVehicleId
+        AppState.save(); close()
+    }, onDismiss = { confirmDelete = false })
     var name by remember { mutableStateOf(v?.name ?: L("My car")) }
     var model by remember { mutableStateOf(v?.model ?: "") }
     var plate by remember { mutableStateOf(v?.plate ?: "") }
@@ -176,11 +185,8 @@ private fun VehicleDialog(v: Vehicle?, close: () -> Unit) {
         },
         dismissButton = {
             Row {
-                if (v != null && AppState.vehicles.size > 1) TextButton(onClick = {
-                    AppState.vehicles = AppState.vehicles.filter { it.id != v.id }
-                    if (AppState.activeVehicleId == v.id) AppState.activeVehicleId = AppState.vehicles.first().id
-                    AppState.save(); close()
-                }) { Text(L("Delete"), color = MaterialTheme.colorScheme.error) }
+                // 1.20.2: prima la conferma; con il veicolo spariscono i suoi permessi (GarageEdit, come sull'iPhone)
+                if (v != null && AppState.vehicles.size > 1) TextButton(onClick = { confirmDelete = true }) { Text(L("Delete"), color = MaterialTheme.colorScheme.error) }
                 TextButton(onClick = close) { Text(L("Cancel")) }
             }
         })

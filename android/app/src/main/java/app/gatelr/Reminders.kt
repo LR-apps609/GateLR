@@ -19,6 +19,8 @@ object Reminders {
     private const val CHANNEL = "reminders"
 
     fun schedule(ctx: Context, key: String, atMillis: Long, title: String, body: String) {
+        // 1.20.2: le notifiche si chiedono qui, al primo promemoria (non più all'apertura dell'app)
+        Permissions.ask(ctx, app.gatelr.core.PermissionPlan.Moment.REMINDER)
         val when_ = maxOf(atMillis, System.currentTimeMillis() + 5_000)
         ctx.getSystemService(AlarmManager::class.java)?.set(AlarmManager.RTC_WAKEUP, when_, intent(ctx, key, title, body))
     }

@@ -1,5 +1,9 @@
 package app.gatelr
 
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.text.input.ImeAction
+import app.gatelr.core.SearchSubmit
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -176,6 +180,8 @@ fun MapScreen(modifier: Modifier) {
     var results by remember { mutableStateOf(listOf<Place>()) }
     var searchFailed by remember { mutableStateOf(false) }
     var retry by remember { mutableStateOf(0) }
+    // 1.20.2: Invio con la ricerca ancora in corso: si cerca subito e si sceglie il primo risultato
+    var pickFirst by remember { mutableStateOf(false) }
     var pin by remember { mutableStateOf<Place?>(null) }
     var legend by remember { mutableStateOf(false) }
     var styleUri by remember { mutableStateOf("") }
@@ -227,11 +233,14 @@ fun MapScreen(modifier: Modifier) {
         if (!SearchPlan.worthAsking(query)) { results = emptyList(); return@LaunchedEffect }
         val near = Geocoder.near()
         Geocoder.cached(query, near)?.let { results = it; return@LaunchedEffect }
-        delay(SearchPlan.DEBOUNCE_MS)
+        if (!pickFirst) delay(SearchPlan.DEBOUNCE_MS)
         val r = Geocoder.find(query, near)
         searchFailed = r == null
         results = r ?: emptyList()
     }
+    fun pick(p: Place) { pin = p; query = p.name; results = emptyList(); pickFirst = false; focus.clearFocus() }
+    // Il primo risultato arrivato dopo Invio
+    LaunchedEffect(results, pickFirst) { if (pickFirst) results.firstOrNull()?.let { pick(it) } }
 
     // 1.20.0: la zona che decide è la peggiore tra tutte quelle del posto (come l'iPhone)
     val pinCheck = pin?.let { AppState.check(it.location, now) }
@@ -278,8 +287,18 @@ fun MapScreen(modifier: Modifier) {
 
         Column(Modifier.fillMaxWidth().padding(12.dp)) {
             OutlinedTextField(
-                value = query, onValueChange = { query = it }, singleLine = true,
+                value = query, onValueChange = { query = it; pickFirst = false }, singleLine = true,
                 placeholder = { Text(L("Search hotel or address")) },
+                // 1.20.2: Invio (il tasto «Cerca») sceglie il primo risultato, o cerca subito, o riprova (SearchSubmit)
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+                keyboardActions = KeyboardActions(onSearch = {
+                    when (SearchSubmit.action(query, results.size, searchFailed)) {
+                        SearchSubmit.PICK_FIRST -> pick(results.first())
+                        SearchSubmit.RETRY -> { pickFirst = true; retry++ }
+                        SearchSubmit.SEARCH_NOW -> { pickFirst = true; retry++ }
+                        SearchSubmit.NOTHING -> {}
+                    }
+                }),
                 leadingIcon = { Icon(Icons.Filled.Search, null) },
                 trailingIcon = { if (query.isNotEmpty() || pin != null) IconButton(onClick = { query = ""; pin = null; results = emptyList() }) { Icon(Icons.Filled.Close, null) } },
                 shape = RoundedCornerShape(14.dp),
@@ -291,7 +310,7 @@ fun MapScreen(modifier: Modifier) {
                 LazyColumn(Modifier.fillMaxWidth().heightIn(max = 280.dp).padding(top = 4.dp)
                     .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(14.dp))) {
                     items(results) { p ->
-                        Column(Modifier.fillMaxWidth().clickable { pin = p; query = p.name; results = emptyList(); focus.clearFocus() }.padding(12.dp)) {
+                        Column(Modifier.fillMaxWidth().clickable { pick(p) }.padding(12.dp)) {
                             Text(p.name, fontWeight = FontWeight.SemiBold)
                             if (p.address.isNotEmpty()) Text(p.address, fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
                         }

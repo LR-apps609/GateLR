@@ -21,6 +21,7 @@ import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.PriorityHigh
 import androidx.compose.material.icons.filled.QuestionMark
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -174,3 +175,15 @@ fun shortDate(iso: String): String = runCatching {
     java.time.LocalDate.parse(iso.take(10)).format(java.time.format.DateTimeFormatter.ofLocalizedDate(java.time.format.FormatStyle.MEDIUM)
         .withLocale(java.util.Locale.forLanguageTag(app.gatelr.core.Strings.language)))
 }.getOrDefault(iso.take(10))
+
+/** 1.20.2: la conferma prima di cancellare (veicolo, permesso, viaggio, diario): «Elimina» in rosso o «Annulla» */
+@Composable
+fun ConfirmDelete(what: String, onConfirm: () -> Unit, onDismiss: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(app.gatelr.core.GarageEdit.question(what)) },
+        text = { Text(app.gatelr.core.GarageEdit.detail(what)) },
+        confirmButton = { TextButton(onClick = { onConfirm(); onDismiss() }) { Text(L("Delete"), color = MaterialTheme.colorScheme.error, fontWeight = FontWeight.SemiBold) } },
+        dismissButton = { TextButton(onClick = onDismiss) { Text(L("Cancel")) } }
+    )
+}

@@ -154,6 +154,8 @@ fun DriveLog() {
     val f = java.time.format.DateTimeFormatter.ofPattern("d MMM yyyy · HH:mm", java.util.Locale.forLanguageTag(Strings.language))
     fun d(ms: Long) = Instant.ofEpochMilli(ms).atZone(java.time.ZoneId.systemDefault()).format(f)
     val muted = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f)
+    var confirmLog by remember { mutableStateOf(false) }
+    if (confirmLog) ConfirmDelete("log", onConfirm = { AppState.log = emptyList(); AppState.save() }, onDismiss = { confirmLog = false })
     Column(Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp).padding(bottom = 32.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)) {
         Text(L("Drive log"), fontSize = 24.sp, fontWeight = FontWeight.Bold)
@@ -179,7 +181,8 @@ fun DriveLog() {
                             if (e.kind == "entered") L("Drove into the zone") else L("Near an active gate"), e.verdict, plates)
                     })
                 }) { Text(L("Share the log")) }
-                OutlinedButton(onClick = { AppState.log = emptyList(); AppState.save() }) { Text(L("Delete the log")) }
+                // 1.20.2: prima la conferma
+                OutlinedButton(onClick = { confirmLog = true }) { Text(L("Delete the log")) }
             }
         }
     }
