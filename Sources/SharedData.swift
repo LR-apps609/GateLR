@@ -76,7 +76,8 @@ struct WidgetAnswer: Equatable {
             w.tone = .amber; w.symbol = "questionmark"; w.title = L(stale ? "Data to recheck" : "Check the sign")
         case .yes:
             if a.gatesOn { w.tone = .green; w.symbol = "checkmark"; w.title = L("You can enter") }
-            else { w.tone = .grey; w.symbol = "moon.zzz"; w.title = L("ZTL not active") }
+            // 1.20.1: ZTL spenta = verde (puoi entrare), con le parole «ZTL non attiva»; il grigio non si usa più qui
+            else { w.tone = .green; w.symbol = "moon.zzz"; w.title = L("ZTL not active") }
         }
         return w
     }

@@ -397,13 +397,17 @@ struct Source: Codable, Hashable {
     /// Il sito da cui vengono i dati quando la fonte non è ufficiale
     var unofficialSource: UnofficialSource? = nil
     /// 1.20.1 «Dati»: «verificato il», quando una persona (o un controllo) ha confermato la regola. «checkedOn» è solo
-    /// «letto il» (quando abbiamo letto le pagine). Assente = non lo sappiamo = NON verificata (RuleEngine.trust): mai
-    /// una data inventata, la scrive solo Tools/source_trust.py dopo una verifica vera
+    /// «letto il» (quando abbiamo letto le pagine). Assente = non lo sappiamo = non verificata: vale allora la lettura se
+    /// recente (regola A, RuleEngine.trust). Mai una data inventata: la scrive solo Tools/source_trust.py dopo una verifica vera
     var verifiedOn: Date? = nil
     /// Le impronte delle pagine ufficiali della zona al momento della verifica (Tools/source_trust.py)
     var verifiedFingerprints: [String: String]? = nil
-    /// La pagina del Comune è cambiata dopo la verifica: lo segna Tools/source_trust.py dalle impronte del controllo
-    /// giornaliero («Controllo pagine dei Comuni», data/source-hashes.json). Assente = nessun cambio noto
+    /// Le impronte delle stesse pagine al momento della lettura (checkedOn), dalla storia del controllo giornaliero
+    /// (Tools/source_trust.py), e il checkedOn a cui si riferiscono
+    var readFingerprints: [String: String]? = nil
+    var readFingerprintsOf: String? = nil
+    /// La pagina del Comune è cambiata dopo l'ultima lettura o verifica: lo segna Tools/source_trust.py dalle impronte del
+    /// controllo giornaliero («Controllo pagine dei Comuni», data/source-hashes.json). Assente = nessun cambio noto
     var pageChanged: Bool? = nil
 
     /// Assente vuol dire ufficiale

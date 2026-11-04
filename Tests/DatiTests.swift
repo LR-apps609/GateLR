@@ -28,9 +28,9 @@ final class DatiTests: XCTestCase {
     private var night: Date { date(2026, 11, 10, 23) }     // Settore A spento
     private var day: Date { date(2026, 11, 10, 10) }       // Settore A acceso
 
-    // MARK: Verificato il
+    // MARK: Verificato il, letto il (regola A)
 
-    /// Nei file nessuna zona ha una data di verifica (non si inventa): sono tutte «non verificate»
+    /// Nei file nessuna zona ha una data di verifica (non si inventa); tutte hanno le impronte della lettura
     func testNoVerificationDatesInTheData() throws {
         let files = try FileManager.default.contentsOfDirectory(at: Self.citiesDir, includingPropertiesForKeys: nil)
             .filter { $0.pathExtension == "json" && $0.lastPathComponent != "manifest.json" }
@@ -39,40 +39,54 @@ final class DatiTests: XCTestCase {
             let city = try CityLoader.decode(Data(contentsOf: f))
             for z in city.zones {
                 XCTAssertNil(z.source.verifiedOn, z.id)
-                XCTAssertEqual(engine.trust(z), .unverified, z.id)
+                XCTAssertNotNil(z.source.readFingerprints, z.id)
             }
         }
     }
 
-    func testUnverifiedYesIsNeverGreenNorGrey() throws {
+    /// Regola A: senza verifica, una fonte ufficiale letta da al più 120 giorni e con la pagina non cambiata dà la risposta normale
+    func testRecentlyReadIsNormal() throws {
         var z = try zoneA()
         z.source.verifiedOn = nil
-        guard case .yes = engine.answer(zone: z, vehicle: car, permits: [], hotelInside: false, at: night).verdict else { return XCTFail("la regola: ZTL spenta") }
-        let shown = engine.trustedAnswer(zone: z, vehicle: car, permits: [], hotelInside: false, at: night)
-        guard case .unsure(let why) = shown.verdict else { return XCTFail("atteso non sicuro, ottenuto \(shown.verdict)") }
-        XCTAssertTrue(why.hasPrefix(L("This rule hasn't been verified yet: check the sign.")), why)
-        XCTAssertFalse(shown.gatesOn)
-        XCTAssertEqual(Access.of(shown, zone: z, status: .draft), .check)
-        // Un «no» non verificato resta «no»: la prudenza non diventa un via libera
-        guard case .no = engine.trustedAnswer(zone: z, vehicle: car, permits: [], hotelInside: false, at: day).verdict else { return XCTFail("atteso no") }
+        z.source.pageChanged = nil
+        z.source.checkedOn = date(2026, 10, 23, 12)
+        XCTAssertEqual(engine.trust(z), .read)
+        let off = engine.trustedAnswer(zone: z, vehicle: car, permits: [], hotelInside: false, at: night)
+        guard case .yes = off.verdict else { return XCTFail("letta da poco: sì, ottenuto \(off.verdict)") }
+        XCTAssertEqual(Access.of(off, zone: z, status: .draft), .off)
+        XCTAssertEqual(MapTheme.tone(Access.of(off, zone: z, status: .draft)).lineLight, MapTheme.green.lineLight, "ZTL spenta: verde")
+        XCTAssertEqual(engine.verifiedSentence(z.source), L("Not verified by a person yet."))
+    }
+
+    /// Letta più di 120 giorni fa e mai verificata: giallo «?» (anche il «no»: dati da ricontrollare)
+    func testOldReadIsUnsure() throws {
+        var z = try zoneA()
+        z.source.verifiedOn = nil
+        z.source.checkedOn = date(2026, 6, 1, 12)
+        XCTAssertEqual(engine.trust(z), .unverified)
+        for t in [day, night] {
+            guard case .unsure = engine.trustedAnswer(zone: z, vehicle: car, permits: [], hotelInside: false, at: t).verdict else { return XCTFail("\(t): non sicuro") }
+        }
+        XCTAssertEqual(engine.verifiedSentence(z.source), L("Not verified yet: check the sign."))
     }
 
     func testVerificationAge() throws {
         var z = try zoneA()
-        z.source.verifiedOn = date(2026, 7, 10, 12)        // 116 giorni prima
+        z.source.checkedOn = date(2026, 5, 1, 12)          // lettura vecchia
+        z.source.verifiedOn = date(2026, 7, 10, 12)        // verifica di 116 giorni prima: vale
         XCTAssertEqual(engine.trust(z), .verified)
         guard case .yes = engine.trustedAnswer(zone: z, vehicle: car, permits: [], hotelInside: false, at: night).verdict else { return XCTFail("verificata da poco: sì") }
-        XCTAssertEqual(Access.of(engine.trustedAnswer(zone: z, vehicle: car, permits: [], hotelInside: false, at: night), zone: z, status: .draft), .off)
-        z.source.verifiedOn = date(2026, 6, 30, 12)        // 126 giorni prima
+        z.source.verifiedOn = date(2026, 6, 30, 12)        // 126 giorni prima, e nessuna lettura più recente
         XCTAssertEqual(engine.trust(z), .old)
-        guard case .unsure(let why) = engine.trustedAnswer(zone: z, vehicle: car, permits: [], hotelInside: false, at: night).verdict else { return XCTFail("verifica vecchia: non sicuro") }
-        XCTAssertTrue(why.hasPrefix(String(format: L("Last verified more than %lld days ago: check the sign."), 120)), why)
+        guard case .unsure = engine.trustedAnswer(zone: z, vehicle: car, permits: [], hotelInside: false, at: night).verdict else { return XCTFail("verifica vecchia: non sicuro") }
+        z.source.checkedOn = date(2026, 10, 23, 12)        // verifica vecchia ma lettura recente: la regola A sulla lettura
+        XCTAssertEqual(engine.trust(z), .read)
     }
 
-    /// La pagina del Comune è cambiata dopo la verifica: tutte le risposte gialle con il «?», anche il «no»
+    /// La pagina del Comune è cambiata dopo la lettura o la verifica: tutte le risposte gialle con il «?», anche il «no»
     func testChangedPageMakesEverythingUnsure() throws {
         var z = try zoneA()
-        z.source.verifiedOn = date(2026, 10, 30, 12)
+        z.source.checkedOn = date(2026, 10, 23, 12)
         z.source.pageChanged = true
         XCTAssertEqual(engine.trust(z), .pageChanged)
         for t in [day, night] {
@@ -81,13 +95,14 @@ final class DatiTests: XCTestCase {
             XCTAssertTrue(why.hasPrefix(L("The city's page has changed: check the sign.")), why)
             XCTAssertEqual(Access.of(a, zone: z, status: .draft), .check)
         }
-        XCTAssertEqual(engine.verifiedSentence(z.source), L("The city's page has changed since it was verified: check the sign."))
+        XCTAssertEqual(engine.verifiedSentence(z.source), L("The city's page has changed since we last read or verified it: check the sign."))
     }
 
     /// Le zone da fonti non ufficiali restano come prima (il «sì» lo fa giallo Verdict.shown, il «no» resta «no»)
     func testUnofficialUnchanged() throws {
         let city = try CityLoader.decode(Data(contentsOf: Self.citiesDir.appendingPathComponent("salerno.json")))
-        let z = try XCTUnwrap(city.zones.first)
+        var z = try XCTUnwrap(city.zones.first)
+        z.source.pageChanged = nil
         XCTAssertEqual(engine.answer(zone: z, vehicle: car, permits: [], hotelInside: false, at: night),
                        engine.trustedAnswer(zone: z, vehicle: car, permits: [], hotelInside: false, at: night))
     }

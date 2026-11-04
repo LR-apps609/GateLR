@@ -29,13 +29,14 @@ final class SharedEngineCasesTests: XCTestCase {
         case .closed?: "red"
         case .conditional?, .check?: "yellow"
         case .open?: "green"
-        case .off?: "grey"
+        case .off?: "green"          // 1.20.1: ZTL spenta = verde
         }
     }
 
     private static func trustName(_ t: DataTrust) -> String {
         switch t {
         case .verified: "verified"
+        case .read: "read"
         case .unverified: "unverified"
         case .old: "old"
         case .pageChanged: "pageChanged"
@@ -65,7 +66,6 @@ final class SharedEngineCasesTests: XCTestCase {
         let cases = try XCTUnwrap(file["cases"] as? [[String: Any]])
         let vehicles = try XCTUnwrap(file["vehicles"] as? [String: [String: Any]])
         let defaultNow = try XCTUnwrap(Self.date(file["now"] as? String ?? ""))
-        let assumed = try XCTUnwrap(Self.date(file["assumeVerifiedOn"] as? String ?? ""), "assumeVerifiedOn")
         let cities = Self.cities
         XCTAssertGreaterThan(cities.count, 40, "le città di Resources/Cities")
         XCTAssertTrue(cities.contains { $0.id == "salerno" } && cities.contains { $0.id == "cagliari" }, "anche le città da fonti non ufficiali")
@@ -79,15 +79,16 @@ final class SharedEngineCasesTests: XCTestCase {
             let now = (c["now"] as? String).flatMap(Self.date) ?? defaultNow
             var engine = RuleEngine()
             engine.now = { now }
-            // 1.20.1: la verifica delle zone come dice il caso (di serie «assumeVerifiedOn»): solo nel test, i file non cambiano
-            let src = c["source"] as? [String: Any]
-            let verifiedOn: Date? = (src?.keys.contains("verifiedOn") ?? false) ? (src?["verifiedOn"] as? String).flatMap(Self.date) : assumed
-            let pageChanged = src?["pageChanged"] as? Bool
+            // 1.20.1: «pageChanged» dei file cambia ogni mattina: i casi lo ignorano (false) salvo «source»; «source» può
+            // anche dare «verifiedOn» e «checkedOn» a tutte le zone. Solo nel test, i file non cambiano
+            let src = c["source"] as? [String: Any] ?? [:]
+            let pageChanged = src["pageChanged"] as? Bool ?? false
             let caseCities = cities.map { city -> City in
                 var copy = city
                 for i in copy.zones.indices {
-                    copy.zones[i].source.verifiedOn = verifiedOn
-                    if let pageChanged { copy.zones[i].source.pageChanged = pageChanged }
+                    copy.zones[i].source.pageChanged = pageChanged
+                    if src.keys.contains("verifiedOn") { copy.zones[i].source.verifiedOn = (src["verifiedOn"] as? String).flatMap(Self.date) }
+                    if let read = (src["checkedOn"] as? String).flatMap(Self.date) { copy.zones[i].source.checkedOn = read }
                 }
                 return copy
             }
@@ -122,10 +123,10 @@ final class SharedEngineCasesTests: XCTestCase {
             if let want = expect["trust"] as? String {
                 XCTAssertEqual(trust.map(Self.trustName), want, "\(id): verifica")
             }
-            // 1.20.1: mai verde né grigio da una zona non verificata, con verifica vecchia o con la pagina del Comune cambiata
-            if check.pedestrian == nil, let trust, trust != .verified {
+            // 1.20.1 (regola A): mai verde da una zona senza verifica né lettura recente o con la pagina del Comune cambiata
+            if check.pedestrian == nil, let trust, trust != .verified, trust != .read {
                 XCTAssertNotEqual(check.access, .open, "\(id): zona non sicura verde")
-                XCTAssertNotEqual(check.access, .off, "\(id): zona non sicura grigia")
+                XCTAssertNotEqual(check.access, .off, "\(id): zona non sicura verde (spenta)")
             }
         }
     }

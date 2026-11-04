@@ -29,8 +29,8 @@ enum MapTheme {
         switch a {
         case .closed: red
         case .conditional, .check: yellow
-        case .open: green
-        case .off: grey
+        // 1.20.1: ZTL spenta = verde (puoi entrare), più leggera e senza righe; grigio/neutro solo dove non c'è ZTL nota
+        case .open, .off: green
         }
     }
 
@@ -41,7 +41,7 @@ enum MapTheme {
         case .closed: Badge(fill: 0xA82F2F, ink: 0xFFFFFF, ring: nil)
         case .conditional, .check: Badge(fill: 0xE8C21A, ink: 0x2B2300, ring: 0x8A6D00)
         case .open: Badge(fill: 0x2C7543, ink: 0xFFFFFF, ring: nil)
-        case .off: Badge(fill: 0x5B6573, ink: 0xFFFFFF, ring: nil)
+        case .off: Badge(fill: 0x2C7543, ink: 0xFFFFFF, ring: nil)
         }
     }
     static let pedestrianBadge = Badge(fill: 0x3A3F47, ink: 0xFFFFFF, ring: nil)

@@ -144,7 +144,8 @@ struct VerdictCard: View {
                         Text("· \(source.localizedAuthority)").lineLimit(1)
                     }
                     let engine = RuleEngine()
-                    Label(engine.verifiedShort(source), systemImage: engine.trust(source) == .verified ? "checkmark.seal" : "exclamationmark.triangle")
+                    let trust = engine.trust(source)
+                    Label(engine.verifiedShort(source), systemImage: trust == .verified ? "checkmark.seal" : trust == .read ? "person.crop.circle.badge.questionmark" : "exclamationmark.triangle")
                         .accessibilityIdentifier("verdict.verified")
                 }
                 .font(.app(size: 13)).opacity(0.92)

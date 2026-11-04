@@ -10,18 +10,17 @@ struct DriveLiveActivity: Widget {
     private static let green = Color(hex: 0x34C26B)
     private static let amber = Color(hex: 0xF2B230)
 
-    private static let grey = Color(hex: 0xB8BEC9)
     private static let neutral = Color(hex: 0xA9B3D1)
 
-    /// Colore della risposta: rosso non entrare, giallo con condizioni o «?», grigio nessuna ZTL attiva davanti
-    /// («clear»), neutro se non conosciamo le ZTL del posto («none», 1.19.3: prima era lo scudo verde anche lì)
+    /// Colore della risposta: rosso non entrare, giallo con condizioni o «?», verde nessuna ZTL attiva davanti
+    /// («clear», 1.20.1: prima grigio), neutro se non conosciamo le ZTL del posto («none», 1.19.3: prima era lo scudo verde anche lì)
     static func tint(_ s: DriveAttributes.ContentState) -> Color {
         if s.warning != nil && s.level == nil { return red }
         switch s.level {
         case "no": return Color(hex: 0xFF4D52)
         case "cond": return amber
         case "ok": return green
-        case "clear": return grey
+        case "clear": return green          // 1.20.1: nessuna ZTL attiva davanti = verde (si entra)
         case "none": return neutral
         default: return .white
         }

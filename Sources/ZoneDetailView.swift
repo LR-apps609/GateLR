@@ -145,13 +145,14 @@ struct ZoneDetailView: View {
                     } icon: {
                         Image(systemName: "doc.text.magnifyingglass")
                     }
-                    let trusted = store.engine.trust(zone) == .verified
+                    let trusted = [.verified, .read].contains(store.engine.trust(zone))
                     Label {
                         Text(verbatim: store.engine.verifiedSentence(zone.source))
                             .foregroundStyle(trusted ? Theme.muted : Theme.amberInk)
                             .fontWeight(trusted ? .regular : .semibold)
                     } icon: {
-                        Image(systemName: trusted ? "checkmark.circle" : "exclamationmark.triangle").foregroundStyle(trusted ? Theme.greenInk : Theme.amberInk)
+                        Image(systemName: store.engine.trust(zone) == .verified ? "checkmark.circle" : trusted ? "person.crop.circle.badge.questionmark" : "exclamationmark.triangle")
+                            .foregroundStyle(store.engine.trust(zone) == .verified ? Theme.greenInk : trusted ? Theme.muted : Theme.amberInk)
                     }
                     .accessibilityIdentifier("zone.verified")
                     Text("Road signs on site always win over the app.")

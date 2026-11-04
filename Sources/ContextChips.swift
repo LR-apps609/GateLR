@@ -180,8 +180,8 @@ private struct TimePickerSheet: View {
 // MARK: Le quattro risposte sulla mappa
 
 /// Il colore di una zona per l'ora e il VEICOLO scelti (la risposta del motore delle regole, mai «ZTL attiva in
-/// generale»): rosso non puoi entrare, giallo a una condizione (o da verificare, col «?»), verde puoi entrare, grigio
-/// nessuna ZTL attiva in quel momento. Lo stile del disegno (tratteggio, righe, segni) è in MapTheme.
+/// generale»): rosso non puoi entrare, giallo a una condizione (o da verificare, col «?»), verde puoi entrare (1.20.1:
+/// anche a ZTL spenta, «.off», più leggero e senza righe; prima grigio). Lo stile del disegno (tratteggio, righe, segni) è in MapTheme.
 enum Access: CaseIterable, Hashable {
     case closed, conditional, check, open, off
 
@@ -225,7 +225,7 @@ enum Access: CaseIterable, Hashable {
         case .conditional: L("You can enter, on one condition")
         case .check: L("To be checked")
         case .open: L("You can enter")
-        case .off: L("No ZTL active")
+        case .off: L("ZTL not active")
         }
     }
 

@@ -205,9 +205,9 @@ final class ThreatEvaluatorTests: XCTestCase {
         let red = widget(z, at: thursday10)
         XCTAssertEqual(red.tone, .red)
         XCTAssertEqual(red.title, L("Don't enter"))
-        // Varchi spenti: grigio «ZTL non attiva», non verde
+        // Varchi spenti: 1.20.1 verde (si entra) con le parole «ZTL non attiva»
         let off = widget(z, at: thursday22)
-        XCTAssertEqual(off.tone, .grey)
+        XCTAssertEqual(off.tone, .green)
         XCTAssertEqual(off.title, L("ZTL not active"))
         // Elettrica esente a varchi accesi: verde «Puoi entrare»
         var exempt = z

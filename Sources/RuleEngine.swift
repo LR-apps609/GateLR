@@ -59,14 +59,18 @@ struct Answer: Equatable {
     var nextChange: Date?       // quando i varchi si accendono o si spengono
 }
 
-/// 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona. Gli stessi quattro stati su Android (DataTrust) e sul
-/// sito (trustOf), provati dagli stessi casi (shared/engine-cases.json, «trust»)
+/// 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona. Gli stessi stati su Android (DataTrust) e sul sito
+/// (trustOf), provati dagli stessi casi (shared/engine-cases.json, «trust»). Regola A (decisa da Ledion): «verified» e
+/// «read» danno la risposta normale (anche verde), gli altri mai verde
 enum DataTrust: Equatable {
     /// Verificata da al più RuleEngine.staleAfterDays giorni, e la pagina del Comune non è cambiata dopo
     case verified
-    /// Nessuna data di verifica: non lo sappiamo, quindi non verificata (tutte le zone dei file, per ora)
+    /// Senza una verifica recente, ma letta da al più RuleEngine.staleAfterDays giorni e la pagina del Comune non è
+    /// cambiata da quella lettura (tutte le zone dei file, oggi): la risposta normale
+    case read
+    /// Mai verificata e letta più di RuleEngine.staleAfterDays giorni fa
     case unverified
-    /// Verificata più di RuleEngine.staleAfterDays giorni fa
+    /// Verificata più di RuleEngine.staleAfterDays giorni fa, e nessuna lettura più recente entro quei giorni
     case old
     /// La pagina del Comune è cambiata dopo la verifica (source.pageChanged, dalle impronte del controllo giornaliero)
     case pageChanged
@@ -88,22 +92,29 @@ struct RuleEngine {
 
     // MARK: Verifica dei dati (1.20.1 «Dati»)
 
-    /// La pagina cambiata prima di tutto, poi la data della verifica (assente = non verificata)
+    /// La pagina cambiata prima di tutto (rispetto alla verifica o alla lettura, Tools/source_trust.py), poi la verifica
+    /// recente, poi la lettura recente (regola A)
     func trust(_ zone: Zone) -> DataTrust { trust(zone.source) }
 
     func trust(_ source: Source) -> DataTrust {
         if source.pageChanged == true { return .pageChanged }
-        guard let v = source.verifiedOn else { return .unverified }
-        let age = calendar.dateComponents([.day], from: v, to: now()).day ?? 0
-        return age > staleAfterDays ? .old : .verified
+        if let v = source.verifiedOn, age(v) <= staleAfterDays { return .verified }
+        if age(source.checkedOn) <= staleAfterDays { return .read }
+        return source.verifiedOn == nil ? .unverified : .old
     }
+
+    /// Giorni da quella data a adesso
+    func age(_ d: Date) -> Int { calendar.dateComponents([.day], from: d, to: now()).day ?? 0 }
+
+    /// La data più recente tra lettura e verifica: da qui contano i giorni dei «dati da ricontrollare»
+    static func freshest(_ s: Source) -> Date { max(s.checkedOn, s.verifiedOn ?? .distantPast) }
 
     /// La riga breve accanto a «Letto il …» (risposta, CarPlay): «Verificato il 3 nov», «Non verificato», «Pagina del
     /// Comune cambiata». Una verifica vecchia mostra la sua data (il motivo del «?» lo dice la risposta)
     func verifiedShort(_ source: Source) -> String {
         switch trust(source) {
         case .pageChanged: L("City page changed")
-        case .unverified: L("Not verified")
+        case .unverified, .read: L("Not verified")
         case .verified, .old:
             source.verifiedOn.map { String(format: L("Verified %@"), Self.format($0, .dateTime.day().month(), calendar: calendar)) } ?? L("Not verified")
         }
@@ -113,8 +124,9 @@ struct RuleEngine {
     func verifiedSentence(_ source: Source) -> String {
         let long = { (d: Date) in self.day(d, style: .long) }
         switch trust(source) {
-        case .pageChanged: return L("The city's page has changed since it was verified: check the sign.")
+        case .pageChanged: return L("The city's page has changed since we last read or verified it: check the sign.")
         case .unverified: return L("Not verified yet: check the sign.")
+        case .read: return L("Not verified by a person yet.")
         case .old:
             guard let v = source.verifiedOn else { return L("Not verified yet: check the sign.") }
             return String(format: L("Verified on %@, more than %lld days ago: check the sign."), long(v), staleAfterDays)
@@ -139,11 +151,12 @@ struct RuleEngine {
         case .pageChanged:
             out.verdict = .unsure(reason: L("The city's page has changed: check the sign.") + " " + a.verdict.detailText)
         case .unverified, .old:
+            // Di solito c'è già il «non sicuro» dei dati da ricontrollare (answer): questa è la rete di sicurezza
             guard zone.source.isOfficial, case .yes(let r) = a.verdict else { return a }
             let why = trust(zone) == .old ? String(format: L("Last verified more than %lld days ago: check the sign."), staleAfterDays)
                                           : L("This rule hasn't been verified yet: check the sign.")
             out.verdict = .unsure(reason: why + " " + r)
-        case .verified:
+        case .verified, .read:
             break
         }
         return out
@@ -153,7 +166,8 @@ struct RuleEngine {
         let on = isActive(zone, at: date)
         let next = nextChange(zone, after: date)
 
-        if let age = calendar.dateComponents([.day], from: zone.source.checkedOn, to: now()).day, age > staleAfterDays {
+        // 1.20.1: dalla data più recente tra «letto il» e «verificato il»
+        if let age = calendar.dateComponents([.day], from: Self.freshest(zone.source), to: now()).day, age > staleAfterDays {
             return Answer(verdict: .unsure(reason: String(format: L("This zone hasn't been checked for %lld days. Look at the city's page before driving in."), age)),
                           gatesOn: on, nextChange: next)
         }

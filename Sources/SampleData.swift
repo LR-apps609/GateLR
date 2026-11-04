@@ -45,10 +45,7 @@ enum SampleData {
             checkedOn: Date(),
             reviewedByHuman: false,
             pending: [],
-            links: [],
-            // Dati di esempio, non reali (la città è «sample» e l'app lo scrive): «verificati adesso» solo perché le prove
-            // delle regole li usano come zona tipo. Le città vere non hanno date inventate (1.20.1)
-            verifiedOn: Date()))
+            links: []))
 
     static let rental = Vehicle(name: L("Rental car"), model: "Fiat 500", fuel: .petrol, euro: 6, plate: "", isRental: true)
 }

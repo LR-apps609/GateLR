@@ -102,10 +102,7 @@ enum TestZone {
                 // Sempre «controllata oggi»: il motore non la dà mai per vecchia
                 checkedOn: now,
                 reviewedByHuman: false,
-                pending: [], links: [],
-                // La zona finta della modalità prova la fa GateLR stessa: «verificata adesso», come «letta adesso»,
-                // così le risposte di prova restano quelle delle regole (la città è «sample»: mai una risposta piena)
-                verifiedOn: now))
+                pending: [], links: []))
         z.prepare()
         return z
     }

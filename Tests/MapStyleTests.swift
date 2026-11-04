@@ -37,14 +37,15 @@ final class MapStyleTests: XCTestCase {
         XCTAssertEqual(MapTheme.tone(.closed).lineLight, 0xA82F2F)
     }
 
-    /// Settore A: attivo il giovedì alle 13:25 → rosso per la benzina, grigio per tutti alle 22 (ZTL spenta, non «verde»)
-    func testInactiveZoneIsGreyForEveryVehicle() throws {
+    /// Settore A: attivo il giovedì alle 13:25 → rosso per la benzina; alle 22 ZTL spenta per tutti: 1.20.1 verde (si entra),
+    /// leggero e senza righe, non più grigio
+    func testInactiveZoneIsGreenForEveryVehicle() throws {
         let a = try XCTUnwrap(city("firenze").zones.first { $0.id == "firenze-a" })
         let petrol = Vehicle(name: "Golf", fuel: .petrol, euro: 6), diesel = Vehicle(name: "Panda", fuel: .diesel, euro: 2)
         XCTAssertEqual(access(a, petrol, date(2026, 10, 29, 13, 25)), .closed)
         XCTAssertEqual(access(a, petrol, date(2026, 10, 29, 22, 0)), .off)
         XCTAssertEqual(access(a, diesel, date(2026, 10, 29, 22, 0)), .off)
-        XCTAssertEqual(MapTheme.tone(.off).lineLight, MapTheme.grey.lineLight)
+        XCTAssertEqual(MapTheme.tone(.off).lineLight, MapTheme.green.lineLight)
     }
 
     /// «Da verificare» (dati vecchi) è giallo col «?», anche a varchi spenti: mai grigio, che direbbe «nessuna ZTL»
