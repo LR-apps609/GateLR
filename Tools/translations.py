@@ -790,6 +790,17 @@ T = {
 "This message includes your plate: the hotel needs it to register you with the city.": ("Questo messaggio contiene la tua targa: all'hotel serve per registrarti al Comune.", "Diese Nachricht enthält dein Kennzeichen: Das Hotel braucht es, um dich bei der Stadt anzumelden."),
 # 1.19.5 «Più veloce»: «Riprova» quando i parcheggi non arrivano
 "Try again": ("Riprova", "Erneut versuchen"),
+# 1.20.2: conferma prima di cancellare, avvisi chiesti quando servono
+"Delete this vehicle?": ("Eliminare questo veicolo?", "Dieses Fahrzeug löschen?"),
+"Delete %lld vehicles?": ("Eliminare %lld veicoli?", "%lld Fahrzeuge löschen?"),
+"Delete this permit?": ("Eliminare questo permesso?", "Diese Genehmigung löschen?"),
+"Delete %lld permits?": ("Eliminare %lld permessi?", "%lld Genehmigungen löschen?"),
+"Delete this row of the log?": ("Eliminare questa riga del diario?", "Diesen Eintrag im Protokoll löschen?"),
+"Delete %lld rows of the log?": ("Eliminare %lld righe del diario?", "%lld Einträge im Protokoll löschen?"),
+"Delete this trip?": ("Eliminare questo viaggio?", "Diese Reise löschen?"),
+"Its permits are deleted too. You can't undo this.": ("Vengono eliminati anche i suoi permessi. Non si può annullare.", "Seine Genehmigungen werden mitgelöscht. Das lässt sich nicht rückgängig machen."),
+"You can't undo this.": ("Non si può annullare.", "Das lässt sich nicht rückgängig machen."),
+"Allow alerts": ("Consenti gli avvisi", "Warnungen erlauben"),
 # 1.20.1 «Dati»: letto il / verificato il, pagina del Comune cambiata, dati firmati
 "The city's page has changed: check the sign.": ('La pagina del Comune è cambiata: controlla il cartello.', 'Die Seite der Stadt hat sich geändert: schau aufs Schild.'),
 "This rule hasn't been verified yet: check the sign.": ('Questa regola non è ancora stata verificata: controlla il cartello.', 'Diese Regel ist noch nicht geprüft: schau aufs Schild.'),

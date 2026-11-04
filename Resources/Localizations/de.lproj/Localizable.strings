@@ -885,6 +885,16 @@
 "The shared text never includes your plate." = "Der geteilte Text enthält nie dein Kennzeichen.";
 "This message includes your plate: the hotel needs it to register you with the city." = "Diese Nachricht enthält dein Kennzeichen: Das Hotel braucht es, um dich bei der Stadt anzumelden.";
 "Try again" = "Erneut versuchen";
+"Delete this vehicle?" = "Dieses Fahrzeug löschen?";
+"Delete %lld vehicles?" = "%lld Fahrzeuge löschen?";
+"Delete this permit?" = "Diese Genehmigung löschen?";
+"Delete %lld permits?" = "%lld Genehmigungen löschen?";
+"Delete this row of the log?" = "Diesen Eintrag im Protokoll löschen?";
+"Delete %lld rows of the log?" = "%lld Einträge im Protokoll löschen?";
+"Delete this trip?" = "Diese Reise löschen?";
+"Its permits are deleted too. You can't undo this." = "Seine Genehmigungen werden mitgelöscht. Das lässt sich nicht rückgängig machen.";
+"You can't undo this." = "Das lässt sich nicht rückgängig machen.";
+"Allow alerts" = "Warnungen erlauben";
 "The city's page has changed: check the sign." = "Die Seite der Stadt hat sich geändert: schau aufs Schild.";
 "This rule hasn't been verified yet: check the sign." = "Diese Regel ist noch nicht geprüft: schau aufs Schild.";
 "Last verified more than %lld days ago: check the sign." = "Zuletzt vor mehr als %lld Tagen geprüft: schau aufs Schild.";

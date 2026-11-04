@@ -885,6 +885,16 @@
 "The shared text never includes your plate." = "De gedeelde tekst bevat nooit je kenteken.";
 "This message includes your plate: the hotel needs it to register you with the city." = "Dit bericht bevat je kenteken: het hotel heeft het nodig om je bij de gemeente aan te melden.";
 "Try again" = "Opnieuw proberen";
+"Delete this vehicle?" = "Dit voertuig verwijderen?";
+"Delete %lld vehicles?" = "%lld voertuigen verwijderen?";
+"Delete this permit?" = "Deze vergunning verwijderen?";
+"Delete %lld permits?" = "%lld vergunningen verwijderen?";
+"Delete this row of the log?" = "Deze regel uit het logboek verwijderen?";
+"Delete %lld rows of the log?" = "%lld regels uit het logboek verwijderen?";
+"Delete this trip?" = "Deze reis verwijderen?";
+"Its permits are deleted too. You can't undo this." = "De vergunningen ervan worden ook verwijderd. Dit kan niet ongedaan worden.";
+"You can't undo this." = "Dit kan niet ongedaan worden.";
+"Allow alerts" = "Waarschuwingen toestaan";
 "The city's page has changed: check the sign." = "De pagina van de gemeente is gewijzigd: kijk naar het bord.";
 "This rule hasn't been verified yet: check the sign." = "Deze regel is nog niet gecontroleerd: kijk naar het bord.";
 "Last verified more than %lld days ago: check the sign." = "Laatst gecontroleerd meer dan %lld dagen geleden: kijk naar het bord.";

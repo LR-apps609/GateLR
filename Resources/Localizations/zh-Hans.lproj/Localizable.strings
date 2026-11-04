@@ -885,6 +885,16 @@
 "The shared text never includes your plate." = "分享的文字绝不包含你的车牌。";
 "This message includes your plate: the hotel needs it to register you with the city." = "此消息包含你的车牌：酒店需要它来向市政府为你登记。";
 "Try again" = "重试";
+"Delete this vehicle?" = "删除这辆车？";
+"Delete %lld vehicles?" = "删除 %lld 辆车？";
+"Delete this permit?" = "删除这张许可证？";
+"Delete %lld permits?" = "删除 %lld 张许可证？";
+"Delete this row of the log?" = "删除日志中的这一行？";
+"Delete %lld rows of the log?" = "删除日志中的 %lld 行？";
+"Delete this trip?" = "删除这次行程？";
+"Its permits are deleted too. You can't undo this." = "它的许可证也会被删除。此操作无法撤销。";
+"You can't undo this." = "此操作无法撤销。";
+"Allow alerts" = "允许提醒";
 "The city's page has changed: check the sign." = "市政府页面已更改：请看路牌。";
 "This rule hasn't been verified yet: check the sign." = "此规则尚未核实：请看路牌。";
 "Last verified more than %lld days ago: check the sign." = "上次核实已超过 %lld 天：请看路牌。";
