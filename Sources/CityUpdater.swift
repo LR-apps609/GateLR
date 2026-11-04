@@ -5,6 +5,8 @@ import WidgetKit
 /// Aggiornamento dei dati delle città senza una nuova versione dell'app: si legge l'elenco su GitHub
 /// (Resources/Cities/manifest.json); se è più nuovo, si scaricano le città, si controlla l'impronta
 /// e che si leggano bene, e solo allora si salvano. Alla prossima apertura l'app usa i dati nuovi.
+/// 1.20.1 «Dati»: l'elenco deve essere FIRMATO (manifest.sig, CitySignature): senza firma o con una firma sbagliata non si
+/// scarica niente, lo stato è «Non firmati: restano i tuoi dati» e l'app resta con quelli che ha.
 @MainActor
 final class CityUpdater: ObservableObject {
     static let shared = CityUpdater()
@@ -12,15 +14,21 @@ final class CityUpdater: ObservableObject {
     /// 1.19.5: ogni richiesta al più 20 secondi (prima il minuto di iOS, e lo scaricamento intero poteva durare di più)
     nonisolated static let timeout: TimeInterval = 20
     /// L'ETag dell'ultimo elenco letto: se GitHub risponde «non cambiato» (304) non si scarica niente
-    nonisolated static let etagKey = "cities.manifestETag"
+    /// 1.20.1: chiave nuova, così l'ETag salvato dalle versioni senza firma non fa saltare il primo controllo firmato
+    nonisolated static let etagKey = "cities.manifestETag.signed"
 
-    enum State: Equatable { case idle, checking, upToDate, updated(String), failed }
+    /// «rejected» (1.20.1): l'elenco su GitHub non è firmato o la firma non vale: niente scaricato, restano i dati che ci sono
+    enum State: Equatable { case idle, checking, upToDate, updated(String), failed, rejected }
     @Published private(set) var state: State = .idle
     @Published private(set) var lastCheck: Date? = UserDefaults.standard.object(forKey: "cities.lastCheck") as? Date
 
-    /// La versione dei dati in uso (scaricati o dentro l'app)
+    /// La versione dell'ultimo aggiornamento firmato sul telefono, letta una volta (controllare firma e impronte costa)
+    private var signedVersion: String? = CityLoader.verifiedDownloadedVersion
+
+    /// La versione dei dati in uso (l'aggiornamento firmato o i dati dentro l'app). Un aggiornamento senza firma delle
+    /// versioni fino alla 1.20.0 non conta: l'app non lo usa
     var currentVersion: String {
-        max(CityLoader.downloadedVersion ?? "", CityLoader.bundledVersion ?? "")
+        max(signedVersion ?? "", CityLoader.bundledVersion ?? "")
     }
 
     /// Al più una volta ogni 12 ore, all'apertura dell'app
@@ -52,6 +60,15 @@ final class CityUpdater: ObservableObject {
                 Self.saveETag(newTag)
                 return
             }
+            // 1.20.1: prima di scaricare le città, la firma dell'elenco (che ha l'impronta di ogni città). Senza firma
+            // valida niente: l'ETag non si salva, così al prossimo controllo si riprova (la firma arriva dal workflow
+            // qualche minuto dopo le città)
+            let (signature, sigResponse) = try await URLSession.shared.data(for: Self.request(Self.base.appendingPathComponent(CitySignature.signatureFile)))
+            let sigCode = (sigResponse as? HTTPURLResponse)?.statusCode
+            guard sigCode == nil || sigCode == 200, CitySignature.isValid(manifest: data, signature: signature, key: CitySignature.bundledKey) else {
+                state = .rejected
+                return
+            }
             // Anche le città con zone da fonti non ufficiali: questa versione mostra l'avviso (vedi Manifest.unofficialCities).
             // 1.19.5: insieme invece che una dopo l'altra, e quelle che il telefono ha già uguali (stessa impronta, nell'app
             // o già scaricate) non si scaricano di nuovo
@@ -71,19 +88,24 @@ final class CityUpdater: ObservableObject {
             }
             // Impronta, prova di lettura, salvataggio e nuova lettura delle città: tutto fuori dal thread principale
             // (prima si faceva qui, sul principale, e al ritorno dell'app la bloccava per qualche istante)
-            let version = manifest.version, all = files
+            let version = manifest.version, all = files, signedManifest = data
             let fresh: [City]? = try await Task.detached(priority: .utility) { () throws -> [City]? in
-                for (_, d, sha) in all {
-                    guard CityUpdater.sha256(d) == sha, (try? CityLoader.decode(d))?.zones.isEmpty == false else { return nil }
+                for (name, d, sha) in all {
+                    guard CitySignature.isPlainFileName(name), CitySignature.sha256(d) == sha,
+                          (try? CityLoader.decode(d))?.zones.isEmpty == false else { return nil }
                 }
                 guard let dir = CityLoader.downloadDir else { return nil }
                 try? FileManager.default.removeItem(at: dir)
                 try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
                 for (name, d, _) in all { try d.write(to: dir.appendingPathComponent(name), options: .atomic) }
+                // Elenco e firma accanto alle città: a ogni apertura (app e widget) CityLoader.best() li ricontrolla
+                try signedManifest.write(to: dir.appendingPathComponent(CitySignature.manifestFile), options: .atomic)
+                try signature.write(to: dir.appendingPathComponent(CitySignature.signatureFile), options: .atomic)
                 CityLoader.setDownloadedVersion(version)
                 return CityLoader.best()
             }.value
             guard let fresh else { state = .failed; return }
+            signedVersion = version
             Self.saveETag(newTag)
             store.replaceCities(fresh)
             state = .updated(manifest.version)
@@ -111,14 +133,13 @@ final class CityUpdater: ObservableObject {
                           Bundle.main.url(forResource: entry.file, withExtension: nil, subdirectory: "Cities")].compactMap { $0 }
         for url in candidates {
             guard let d = try? Data(contentsOf: url) else { continue }
-            if sha256(d) == entry.sha256 { return d }
+            if CitySignature.sha256(d) == entry.sha256 { return d }
         }
         return nil
     }
 
-    nonisolated static func sha256(_ d: Data) -> String {
-        SHA256.hash(data: d).map { String(format: "%02x", $0) }.joined()
-    }
+
+    nonisolated static func sha256(_ d: Data) -> String { CitySignature.sha256(d) }
 
     /// «24 ott 2026, 06:44» da «202610240644»
     static func label(_ version: String) -> String {

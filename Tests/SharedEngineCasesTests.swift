@@ -33,6 +33,15 @@ final class SharedEngineCasesTests: XCTestCase {
         }
     }
 
+    private static func trustName(_ t: DataTrust) -> String {
+        switch t {
+        case .verified: "verified"
+        case .unverified: "unverified"
+        case .old: "old"
+        case .pageChanged: "pageChanged"
+        }
+    }
+
     private static func name(_ v: Verdict) -> String {
         switch v {
         case .yes: "yes"
@@ -56,6 +65,7 @@ final class SharedEngineCasesTests: XCTestCase {
         let cases = try XCTUnwrap(file["cases"] as? [[String: Any]])
         let vehicles = try XCTUnwrap(file["vehicles"] as? [String: [String: Any]])
         let defaultNow = try XCTUnwrap(Self.date(file["now"] as? String ?? ""))
+        let assumed = try XCTUnwrap(Self.date(file["assumeVerifiedOn"] as? String ?? ""), "assumeVerifiedOn")
         let cities = Self.cities
         XCTAssertGreaterThan(cities.count, 40, "le città di Resources/Cities")
         XCTAssertTrue(cities.contains { $0.id == "salerno" } && cities.contains { $0.id == "cagliari" }, "anche le città da fonti non ufficiali")
@@ -69,13 +79,25 @@ final class SharedEngineCasesTests: XCTestCase {
             let now = (c["now"] as? String).flatMap(Self.date) ?? defaultNow
             var engine = RuleEngine()
             engine.now = { now }
+            // 1.20.1: la verifica delle zone come dice il caso (di serie «assumeVerifiedOn»): solo nel test, i file non cambiano
+            let src = c["source"] as? [String: Any]
+            let verifiedOn: Date? = (src?.keys.contains("verifiedOn") ?? false) ? (src?["verifiedOn"] as? String).flatMap(Self.date) : assumed
+            let pageChanged = src?["pageChanged"] as? Bool
+            let caseCities = cities.map { city -> City in
+                var copy = city
+                for i in copy.zones.indices {
+                    copy.zones[i].source.verifiedOn = verifiedOn
+                    if let pageChanged { copy.zones[i].source.pageChanged = pageChanged }
+                }
+                return copy
+            }
             let p = Coordinate(lat: lat, lon: lon)
-            let hits = Store.zones(at: p, in: cities)
-            let area = cities.lazy.compactMap { $0.pedestrian?.first(where: { $0.contains(lat: lat, lon: lon) }) }.first
+            let hits = Store.zones(at: p, in: caseCities)
+            let area = caseCities.lazy.compactMap { $0.pedestrian?.first(where: { $0.contains(lat: lat, lon: lon) }) }.first
             let hotel = c["hotel"] as? Bool ?? false
             let check = PlaceCheck(place: Place(name: place["name"] as? String ?? id, address: "", location: p), hits: hits, pedestrian: area,
-                                   answers: hits.map { engine.answer(zone: $0.zone, vehicle: v, permits: [], hotelInside: hotel, at: at) },
-                                   covered: Store.covers(p, in: cities))
+                                   answers: hits.map { engine.trustedAnswer(zone: $0.zone, vehicle: v, permits: [], hotelInside: hotel, at: at) },
+                                   covered: Store.covers(p, in: caseCities))
 
             XCTAssertEqual(Self.colour(check.access), expect["colour"] as? String, "\(id): colore")
             if let want = expect["verdict"] as? String {
@@ -96,6 +118,15 @@ final class SharedEngineCasesTests: XCTestCase {
             // Le regole fisse, qualunque cosa dica il file: mai verde fuori copertura o da fonte non ufficiale
             if !check.covered { XCTAssertNil(check.access, "\(id): fuori copertura è neutro") }
             if check.unofficial { XCTAssertNotEqual(check.access, .open, "\(id): fonte non ufficiale mai verde") }
+            let trust = check.zone.map { engine.trust($0) }
+            if let want = expect["trust"] as? String {
+                XCTAssertEqual(trust.map(Self.trustName), want, "\(id): verifica")
+            }
+            // 1.20.1: mai verde né grigio da una zona non verificata, con verifica vecchia o con la pagina del Comune cambiata
+            if check.pedestrian == nil, let trust, trust != .verified {
+                XCTAssertNotEqual(check.access, .open, "\(id): zona non sicura verde")
+                XCTAssertNotEqual(check.access, .off, "\(id): zona non sicura grigia")
+            }
         }
     }
 }

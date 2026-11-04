@@ -133,6 +133,8 @@ final class TrustFixTests: XCTestCase {
     private func zone(reviewed: Bool, official: Bool = true) throws -> Zone {
         var z = try XCTUnwrap(try firenze().zones.first { $0.id == "firenze-b" })
         z.source.reviewedByHuman = reviewed
+        // 1.20.1: «rivista» = verificata il giorno della lettura (solo nel test: i file veri non hanno date di verifica)
+        z.source.verifiedOn = reviewed ? z.source.checkedOn : nil
         z.source.official = official
         z.freeOnHolidays = false
         return z

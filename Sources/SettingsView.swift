@@ -95,6 +95,7 @@ struct SettingsView: View {
                         case .upToDate: Text("Up to date").foregroundStyle(Theme.greenInk)
                         case .updated: Text("Updated").foregroundStyle(Theme.greenInk)
                         case .failed: Text("Not available now").foregroundStyle(Theme.muted)
+                        case .rejected: Text("Not signed: kept your data").foregroundStyle(Theme.amberInk)
                         case .idle: EmptyView()
                         }
                     }
@@ -102,6 +103,7 @@ struct SettingsView: View {
                 .disabled(updater.state == .checking)
             } header: { Text("Rules and maps") } footer: {
                 Text("Hours, perimeters and gates are updated from GitHub, without a new app version. GateLR checks by itself twice a day.")
+                    + Text(verbatim: " ") + Text("Only updates signed by GateLR are used; otherwise the app keeps the data it has.")
             }
 
             Section("Offline cities") {

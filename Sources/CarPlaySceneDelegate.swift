@@ -48,7 +48,8 @@ final class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegat
         items += [
             CPInformationItem(title: answer.verdict.title, detail: detail(answer.verdict)),
             CPInformationItem(title: zone.localizedName, detail: answer.gatesOn ? L("ZTL active") : L("ZTL not active")),
-            CPInformationItem(title: L("Source"), detail: "\(zone.source.localizedAuthority) · " + String(format: L("Read %@"), zone.source.checkedOn.formatted(date: .abbreviated, time: .omitted))),
+            CPInformationItem(title: L("Source"), detail: "\(zone.source.localizedAuthority) · " + String(format: L("Read %@"), zone.source.checkedOn.formatted(date: .abbreviated, time: .omitted))
+                              + " · " + RuleEngine().verifiedShort(zone.source)),
         ]
         let refresh = CPTextButton(title: L("Refresh"), textStyle: .normal) { [weak self] _ in
             Task { @MainActor in

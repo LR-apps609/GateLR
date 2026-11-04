@@ -380,7 +380,9 @@ enum FineCheck {
         case .unsure: return .unsure
         case .inactive:
             guard dataIsReliable(zone, engine: engine, violation: violation) else { return .unknownData }
-            return zone.source.reviewedByHuman ? .inactive : .probablyInactive
+            // 1.20.1 «Dati»: verde solo con la regola verificata (verifiedOn entro 120 giorni, pagina del Comune non
+            // cambiata dopo); «reviewedByHuman» da solo non basta più
+            return engine.trust(zone) == .verified ? .inactive : .probablyInactive
         }
     }
 

@@ -135,11 +135,19 @@ struct VerdictCard: View {
             Text(detail).font(.app(size: 16)).fixedSize(horizontal: false, vertical: true)
             if let next = answer.nextChange { countdown(to: next) }
             Rectangle().fill(v.onFill.opacity(0.22)).frame(height: 1)
-            HStack {
-                Label(String(format: L(source.reviewedByHuman ? "Checked %@" : "Read %@"), source.checkedOn.formatted(.dateTime.day().month())),
-                      systemImage: source.reviewedByHuman ? "checkmark.seal" : "doc.text.magnifyingglass")
-                    .font(.app(size: 13)).opacity(0.92)
-                Text("· \(source.localizedAuthority)").font(.app(size: 13)).opacity(0.92).lineLimit(1)
+            HStack(alignment: .top) {
+                // 1.20.1 «Dati»: «letto il» (quando abbiamo letto la fonte) e, sotto, «verificato il» (o «non verificato»,
+                // «pagina del Comune cambiata»): non sono più la stessa data
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(spacing: 4) {
+                        Label(String(format: L("Read %@"), source.checkedOn.formatted(.dateTime.day().month())), systemImage: "doc.text.magnifyingglass")
+                        Text("· \(source.localizedAuthority)").lineLimit(1)
+                    }
+                    let engine = RuleEngine()
+                    Label(engine.verifiedShort(source), systemImage: engine.trust(source) == .verified ? "checkmark.seal" : "exclamationmark.triangle")
+                        .accessibilityIdentifier("verdict.verified")
+                }
+                .font(.app(size: 13)).opacity(0.92)
                 Spacer()
                 if let onWhy {
                     Button(action: onWhy) {

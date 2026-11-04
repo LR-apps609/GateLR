@@ -141,7 +141,9 @@ final class Store: ObservableObject {
         let z = zone ?? self.zone
         // Un permesso vale solo nella sua città: la registrazione dell'hotel a Firenze non apre l'Area C di Milano
         let city = cities.first { $0.zones.contains { $0.id == z.id } }?.id
-        return engine.answer(zone: z, vehicle: vehicle, permits: permits.filter { $0.cityId == city }, hotelInside: hotelInside, at: date)
+        // 1.20.1 «Dati»: con la verifica dei dati (RuleEngine.trustedAnswer): regola non verificata, verifica vecchia o
+        // pagina del Comune cambiata = mai verde né grigio
+        return engine.trustedAnswer(zone: z, vehicle: vehicle, permits: permits.filter { $0.cityId == city }, hotelInside: hotelInside, at: date)
     }
 
     /// Le zone che contengono il punto, dalla più piccola (es. Area C dentro Area B)
@@ -325,9 +327,13 @@ enum CityLoader {
     /// Se dal sito sono arrivati dati più nuovi di quelli dentro l'app, si usano quelli.
     static let shared: [City] = best()
 
+    /// 1.20.1 «Dati»: le città scaricate si usano solo se l'aggiornamento è firmato (CitySignature): manifest.json e
+    /// manifest.sig salvati con le città, firma valida con la chiave dentro l'app, ogni file con la sua impronta. I dati
+    /// scaricati dalle versioni fino alla 1.20.0 (senza firma) restano ignorati: si usano quelli dentro l'app
     static func best() -> [City] {
         moveDownloadsToSharedContainer()
-        guard (downloadedVersion ?? "") > (bundledVersion ?? ""), let newer = downloaded() else { return bundled() }
+        guard let signed = CitySignature.verifiedDownload(in: downloadDir), signed.version > (bundledVersion ?? ""),
+              let newer = decoded(signed) else { return bundled() }
         // Le città scaricate sostituiscono quelle dell'app con lo stesso id; le altre restano
         // (e quelle sostituite non si decodificano nemmeno: si risparmia metà del lavoro all'avvio)
         let ids = Set(newer.map(\.id))
@@ -402,10 +408,14 @@ enum CityLoader {
         } catch {}
     }
 
-    static func downloaded() -> [City]? {
-        guard let dir = downloadDir,
-              let files = try? FileManager.default.contentsOfDirectory(at: dir, includingPropertiesForKeys: nil) else { return nil }
-        let cities = decodeAll(files.filter { $0.pathExtension == "json" })
+    /// Le città di un aggiornamento firmato, dai byte già controllati (niente seconda lettura dei file)
+    static func decoded(_ signed: CitySignature.Verified) -> [City]? {
+        let cities = signed.files.compactMap { try? decode($0.data) }
         return cities.isEmpty ? nil : cities
+    }
+
+    /// La versione dell'aggiornamento firmato sul telefono (nil = nessuno, o non firmato)
+    static var verifiedDownloadedVersion: String? {
+        CitySignature.verifiedDownload(in: downloadDir)?.version
     }
 }

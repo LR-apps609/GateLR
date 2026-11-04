@@ -74,7 +74,11 @@ final class ScreenshotTests: XCTestCase {
             let first = app.buttons["varco.result.0"].firstMatch
             if first.waitForExistence(timeout: 5) {
                 first.tap()
-                sleep(4)
+                // 1.20.1: si aspetta la risposta vera (il titolo «varco.answer», che c'è solo con il posto scelto) invece di
+                // 4 secondi fissi: la foto mostra la risposta, non la ricerca a metà. Poi un attimo per il pannello che si accende
+                let answer = app.descendants(matching: .any)["varco.answer"].firstMatch
+                XCTAssertTrue(answer.waitForExistence(timeout: 20), "la risposta di Varco non è comparsa")
+                sleep(1)
                 snap("03-varco-answer")
                 app.swipeUp()
                 sleep(1)

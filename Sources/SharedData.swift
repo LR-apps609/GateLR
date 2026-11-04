@@ -61,7 +61,8 @@ struct WidgetAnswer: Equatable {
         let vehicle = garage?.vehicle ?? SampleData.rental
         // Un permesso vale solo nella sua città e nella sua zona (Permit.covers), come in Store.answer
         let permits = (garage?.permits ?? []).filter { $0.cityId == cityId }
-        let a = engine.answer(zone: zone, vehicle: vehicle, permits: permits, hotelInside: false, at: date)
+        // 1.20.1: la stessa verifica dei dati dell'app (mai verde né grigio da una regola non verificata o cambiata)
+        let a = engine.trustedAnswer(zone: zone, vehicle: vehicle, permits: permits, hotelInside: false, at: date)
         let age = engine.calendar.dateComponents([.day], from: zone.source.checkedOn, to: engine.now()).day ?? 0
         let stale = age > engine.staleAfterDays
         var w = WidgetAnswer(tone: .amber, symbol: "questionmark", title: L("Check the sign"), stale: stale,

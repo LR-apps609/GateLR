@@ -43,12 +43,33 @@ extension Verdict {
         if case .yes = self { return true }
         return false
     }
+
+    /// Il motivo (e la condizione) in una frase
+    var detailText: String {
+        switch self {
+        case .yes(let r), .no(let r), .unsure(let r): r
+        case .conditional(let r, let c): "\(r) \(c)"
+        }
+    }
 }
 
 struct Answer: Equatable {
     var verdict: Verdict
     var gatesOn: Bool
     var nextChange: Date?       // quando i varchi si accendono o si spengono
+}
+
+/// 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona. Gli stessi quattro stati su Android (DataTrust) e sul
+/// sito (trustOf), provati dagli stessi casi (shared/engine-cases.json, «trust»)
+enum DataTrust: Equatable {
+    /// Verificata da al più RuleEngine.staleAfterDays giorni, e la pagina del Comune non è cambiata dopo
+    case verified
+    /// Nessuna data di verifica: non lo sappiamo, quindi non verificata (tutte le zone dei file, per ora)
+    case unverified
+    /// Verificata più di RuleEngine.staleAfterDays giorni fa
+    case old
+    /// La pagina del Comune è cambiata dopo la verifica (source.pageChanged, dalle impronte del controllo giornaliero)
+    case pageChanged
 }
 
 struct RuleEngine {
@@ -60,8 +81,73 @@ struct RuleEngine {
     }()
     var calendar: Calendar = RuleEngine.rome
     var now: () -> Date = Date.init
-    /// Dopo questi giorni senza un controllo umano la scheda non è più «sicura».
+    /// Dopo questi giorni dalla lettura (checkedOn) la zona è «da ricontrollare» (ogni risposta «non sicuro»);
+    /// 1.20.1: e dopo questi giorni dalla verifica (verifiedOn) un «sì» non è più sicuro. 120 giorni su iPhone, Android
+    /// e sito (docs/dati-verifica.md)
     var staleAfterDays = 120
+
+    // MARK: Verifica dei dati (1.20.1 «Dati»)
+
+    /// La pagina cambiata prima di tutto, poi la data della verifica (assente = non verificata)
+    func trust(_ zone: Zone) -> DataTrust { trust(zone.source) }
+
+    func trust(_ source: Source) -> DataTrust {
+        if source.pageChanged == true { return .pageChanged }
+        guard let v = source.verifiedOn else { return .unverified }
+        let age = calendar.dateComponents([.day], from: v, to: now()).day ?? 0
+        return age > staleAfterDays ? .old : .verified
+    }
+
+    /// La riga breve accanto a «Letto il …» (risposta, CarPlay): «Verificato il 3 nov», «Non verificato», «Pagina del
+    /// Comune cambiata». Una verifica vecchia mostra la sua data (il motivo del «?» lo dice la risposta)
+    func verifiedShort(_ source: Source) -> String {
+        switch trust(source) {
+        case .pageChanged: L("City page changed")
+        case .unverified: L("Not verified")
+        case .verified, .old:
+            source.verifiedOn.map { String(format: L("Verified %@"), Self.format($0, .dateTime.day().month(), calendar: calendar)) } ?? L("Not verified")
+        }
+    }
+
+    /// La frase della scheda della zona, sotto «Letto dalle fonti ufficiali il …»
+    func verifiedSentence(_ source: Source) -> String {
+        let long = { (d: Date) in self.day(d, style: .long) }
+        switch trust(source) {
+        case .pageChanged: return L("The city's page has changed since it was verified: check the sign.")
+        case .unverified: return L("Not verified yet: check the sign.")
+        case .old:
+            guard let v = source.verifiedOn else { return L("Not verified yet: check the sign.") }
+            return String(format: L("Verified on %@, more than %lld days ago: check the sign."), long(v), staleAfterDays)
+        case .verified:
+            guard let v = source.verifiedOn else { return L("Not verified yet: check the sign.") }
+            return String(format: L("Verified by a person on %@."), long(v))
+        }
+    }
+
+    /// La risposta da MOSTRARE (Store.answer, widget, avvisi, casi comuni): quella delle regole con la verifica dei dati.
+    /// `answer` resta la sola regola, per i test delle regole
+    func trustedAnswer(zone: Zone, vehicle: Vehicle, permits: [Permit], hotelInside: Bool, at date: Date) -> Answer {
+        applyTrust(answer(zone: zone, vehicle: vehicle, permits: permits, hotelInside: hotelInside, at: date), zone: zone)
+    }
+
+    /// Pagina del Comune cambiata dopo la verifica: ogni risposta diventa «non sicuro» (giallo «?»), anche il «no».
+    /// Zona ufficiale non verificata o con la verifica vecchia: un «sì» (verde, o grigio a ZTL spenta) diventa «non sicuro»;
+    /// «no» e condizioni restano. Le zone da fonti non ufficiali hanno già il «sì» giallo (Verdict.shown(unofficial:))
+    func applyTrust(_ a: Answer, zone: Zone) -> Answer {
+        var out = a
+        switch trust(zone) {
+        case .pageChanged:
+            out.verdict = .unsure(reason: L("The city's page has changed: check the sign.") + " " + a.verdict.detailText)
+        case .unverified, .old:
+            guard zone.source.isOfficial, case .yes(let r) = a.verdict else { return a }
+            let why = trust(zone) == .old ? String(format: L("Last verified more than %lld days ago: check the sign."), staleAfterDays)
+                                          : L("This rule hasn't been verified yet: check the sign.")
+            out.verdict = .unsure(reason: why + " " + r)
+        case .verified:
+            break
+        }
+        return out
+    }
 
     func answer(zone: Zone, vehicle: Vehicle, permits: [Permit], hotelInside: Bool, at date: Date) -> Answer {
         let on = isActive(zone, at: date)

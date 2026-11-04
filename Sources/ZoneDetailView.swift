@@ -136,15 +136,25 @@ struct ZoneDetailView: View {
                     .card()
                 }
 
-                Label {
-                    Text(String(format: zone.isUnofficial
-                         ? L("Read from a non-official source on %@, not yet reviewed by a person. Road signs on site always win over the app.")
-                         : L(zone.source.reviewedByHuman
-                         ? "Checked by a person on %@. Road signs on site always win over the app."
-                         : "Read from official sources on %@, not yet reviewed by a person. Road signs on site always win over the app."),
-                         zone.source.checkedOn.formatted(date: .long, time: .omitted)))
-                } icon: {
-                    Image(systemName: zone.source.reviewedByHuman ? "checkmark.circle" : "clock").foregroundStyle(zone.source.reviewedByHuman ? Theme.greenInk : Theme.amberInk)
+                // 1.20.1 «Dati»: «letto il» e «verificato il» separati. Senza data di verifica (tutte le zone, per ora)
+                // «Non ancora verificato: controlla il cartello»; con la pagina del Comune cambiata dopo la verifica lo dice
+                VStack(alignment: .leading, spacing: 6) {
+                    Label {
+                        Text(String(format: L(zone.isUnofficial ? "Read from a non-official source on %@." : "Read from official sources on %@."),
+                                    store.engine.day(zone.source.checkedOn, style: .long)))
+                    } icon: {
+                        Image(systemName: "doc.text.magnifyingglass")
+                    }
+                    let trusted = store.engine.trust(zone) == .verified
+                    Label {
+                        Text(verbatim: store.engine.verifiedSentence(zone.source))
+                            .foregroundStyle(trusted ? Theme.muted : Theme.amberInk)
+                            .fontWeight(trusted ? .regular : .semibold)
+                    } icon: {
+                        Image(systemName: trusted ? "checkmark.circle" : "exclamationmark.triangle").foregroundStyle(trusted ? Theme.greenInk : Theme.amberInk)
+                    }
+                    .accessibilityIdentifier("zone.verified")
+                    Text("Road signs on site always win over the app.")
                 }
                 .font(.app(size: 13)).foregroundStyle(Theme.muted)
                 if let license = city.license {
