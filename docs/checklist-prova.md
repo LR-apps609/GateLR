@@ -439,3 +439,15 @@ Le stesse risposte su iPhone, Android e sito: i casi di prova comuni sono in sha
 - [ ] iPhone con dati scaricati da una versione precedente: dopo l'aggiornamento alla 1.20.1 la versione dei dati in Impostazioni è quella dell'app (i dati senza firma non si usano più); il widget mostra le stesse risposte dell'app
 - [ ] Android → Palazzo Vecchio alle 23:00: verde «ZTL non attiva». Widget Android a ZTL spenta: verde con «ZTL non attiva» (prima grigio). Scheda della zona → Fonti ufficiali: «Letto il …» e «Non ancora verificato da una persona.»; Account → Regole e mappe: per ogni città «Letto il … · Non ancora verificato da una persona.». Una zona di Roma: «La pagina del Comune è cambiata: controlla il cartello.», risposta gialla
 - [ ] Sito: Palazzo Vecchio alle 23:00: verde, sulla mappa le zone spente sono verdi chiare; legenda «ZTL non attiva: puoi entrare». Sotto la risposta «Letto il … dal sito del Comune di Firenze: pagina ufficiale ↗» e «Non ancora verificato da una persona.». Colosseo: giallo «?» con «La pagina del Comune è cambiata». Pagina di una città (es. /it/firenze/): sotto ogni fonte «Letto il … · Non ancora verificato da una persona»
+
+## 27. Comodità (1.20.2)
+Permessi quando servono, Invio e «Riprova» nella ricerca, conferma prima di cancellare, città dalla posizione.
+- [ ] iPhone appena installato: presentazione → «Più tardi»: nessuna richiesta di iOS (né posizione né notifiche). Varco → tocca l'icona della posizione nel campo di ricerca: solo adesso iOS chiede la posizione; con «Consenti» la pagina va sulla città dove sei e mostra «La tua posizione»
+- [ ] iPhone → Tu → Impostazioni con gli avvisi accesi ma senza permessi: c'è «Consenti gli avvisi»; il tocco chiede notifiche e posizione, poi la riga sparisce
+- [ ] iPhone → Varco: scrivi «Palazzo Vecchio» e premi «Cerca» sulla tastiera: si apre la risposta del primo suggerimento. In modalità aereo: «La ricerca non funziona adesso…» con «Riprova»; tolta la modalità aereo, «Riprova» mostra i suggerimenti. Lo stesso in Mappa e in Viaggio
+- [ ] iPhone → Garage: scorri a sinistra su un veicolo → Elimina: compare «Eliminare questo veicolo?» con «Vengono eliminati anche i suoi permessi»; «Annulla» lo lascia. Lo stesso per un permesso, un viaggio salvato (tieni premuto → Elimina) e una riga del diario dei passaggi
+- [ ] iPhone → Viaggio con un diesel Euro 1 alle 22 a Palazzo Vecchio, senza rete: «Parcheggia fuori e cammina» dice «Non riesco a cercare i parcheggi adesso…» con «Riprova» sulla stessa riga, tutto sopra la barra delle schede quando scorri
+- [ ] Android appena installato: benvenuto → nessuna richiesta. Prima pagina → tocca «Consenti l'accesso alla posizione…»: Android chiede la posizione. «Avvia» su una meta: chiede posizione (se manca) e notifiche
+- [ ] Android → Viaggio: scrivi un hotel e premi il tasto di ricerca della tastiera: si apre il primo risultato. Garage → elimina un permesso o un veicolo: prima il dialogo «Eliminare…?»
+- [ ] Sito: scrivi «Palazzo Vecchio» e premi Invio subito: la risposta del primo risultato. Senza rete: «Non riesco a cercare adesso…» con «Riprova»
+
