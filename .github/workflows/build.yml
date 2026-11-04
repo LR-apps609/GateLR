@@ -121,13 +121,9 @@ jobs:
         run: |
           SIM=$(xcrun simctl list devices available | grep -oE "iPhone [0-9]+[^()]*" | head -n 1 | sed 's/ *$//')
           status=0
-          # 1.20.0: l'app del giro in Release, come quella che si installa (project.yml: «quella di debug è molte volte
-          # più lenta»). In Debug il thread principale restava occupato (lettura delle città, risposta e striscia di
-          # mappa ricalcolate a ogni lettera della ricerca) e le ricerche del giro andavano in tempo scaduto
-          # (corse 41613646908, 41694171121, 41697591616). Solo l'architettura del simulatore, come in Debug
-          xcodebuild build-for-testing -project GateLR.xcodeproj -scheme GateLRUITests -configuration Release \
+          xcodebuild build-for-testing -project GateLR.xcodeproj -scheme GateLRUITests \
             -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
-            ONLY_ACTIVE_ARCH=YES CODE_SIGNING_ALLOWED=NO > ui-build.log 2>&1 || status=$?
+            CODE_SIGNING_ALLOWED=NO > ui-build.log 2>&1 || status=$?
           grep -E "error:" ui-build.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
           exit $status
 
@@ -177,6 +173,9 @@ jobs:
             # Dove si è fermato: righe sospette e coda del registro come avvisi (i registri interi non si scaricano)
             grep -nE "hung|crash|Crash|Timed out|timed out|Failed to|failed:|not hittable|Unable|Assertion|Fatal|t =  .*(Tap|Find|Wait)" ui.log | tail -n 25 | while IFS= read -r l; do echo "::warning::${l:0:300}"; done
             tail -n 30 ui.log | while IFS= read -r l; do echo "::notice::${l:0:300}"; done
+            # 1.20.0: anche il motivo quando non parte nessun test («Testing failed:» senza righe di test)
+            grep -nE -A3 "encountered an error|Underlying Error|Failure Reason|Early unexpected exit|crashed|Test runner exited" ui.log | head -n 20 | while IFS= read -r l; do echo "::warning::${l:0:300}"; done
+            ls build-ui/Build/Products build-ui/Logs/Test 2>&1 | tr '\n' ' ' | sed 's/^/::notice::Prodotti e risultati: /'; echo
           fi
           # 1.16.3: la scheda Varco con un posto su iPhone da 6,9" (Pro Max, 440×956 punti): «Guarda la mappa», «Perché?»
           # e «Dettagli del viaggio» senza scorrere (test6VarcoProMax, con la stessa app già compilata)
@@ -276,7 +275,7 @@ jobs:
           fi
           echo "::notice::Video: simulatore $SIM $UDID ($(date -u +%T))"
           [ -n "$UDID" ] || exit 1
-          APP=build-ui/Build/Products/Release-iphonesimulator/GateLR.app
+          APP=build-ui/Build/Products/Debug-iphonesimulator/GateLR.app
           [ -d "$APP" ] || APP=build/Build/Products/Debug-iphonesimulator/GateLR.app
           lim 120 xcrun simctl install "$UDID" "$APP"
           echo "::notice::App installata ($(date -u +%T)) da $APP"
