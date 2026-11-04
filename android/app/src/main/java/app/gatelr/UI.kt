@@ -89,7 +89,7 @@ fun UnofficialNote(zone: app.gatelr.core.Zone, hedgedYes: Boolean = false) {
     Column(Modifier.fillMaxWidth().background(Palette.amberSoft, RoundedCornerShape(14.dp)).padding(12.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Text(L("Unofficial source: always check the sign at the gate"), color = Palette.amberInk, fontWeight = FontWeight.SemiBold, fontSize = 14.sp)
-        if (hedgedYes) Text(L("Probably yes · unofficial source: check the sign"), color = Palette.amberInk, fontSize = 13.sp)
+        if (hedgedYes) Text(L("Probably yes · unofficial source"), color = Palette.amberInk, fontSize = 13.sp)
         zone.source.unofficialSource?.let { Text(app.gatelr.core.F("Data from %@", it.name), color = Palette.amberInk, fontSize = 13.sp) }
     }
 }
@@ -101,7 +101,8 @@ fun Pill(text: String, fill: Color, ink: Color) {
 }
 
 @Composable
-fun VerdictPill(v: Verdict) = Pill(v.short, v.pillFill(), v.pillInk())
+/** La risposta in breve con il titolo fisso (1.20.3); da fonte non ufficiale un «sì» è «Controlla il cartello», giallo */
+fun VerdictPill(v: Verdict, unofficial: Boolean = false) = v.shown(unofficial).let { look -> Pill(v.word(unofficial).title, look.pillFill(), look.pillInk()) }
 
 /** 1.19.5: la ricerca non ha avuto risposta (rete): lo si dice e si può riprovare, invece di «Nessun risultato» */
 @Composable

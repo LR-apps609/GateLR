@@ -64,6 +64,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.gatelr.core.Answer
+import app.gatelr.core.AnswerWord
 import app.gatelr.core.F
 import app.gatelr.core.Geometry
 import app.gatelr.core.L
@@ -204,19 +205,19 @@ private fun TripAnswer(p: Place) {
         when {
             pedestrian != null -> Column(Modifier.fillMaxWidth().background(Palette.red, RoundedCornerShape(22.dp)).padding(18.dp)) {
                 Text(L("Pedestrian area").uppercase(), color = androidx.compose.ui.graphics.Color.White, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
-                Text(L("No, don't enter"), color = androidx.compose.ui.graphics.Color.White, fontSize = 28.sp, fontWeight = FontWeight.Bold)
+                Text(AnswerWord.DONT_ENTER.title, color = androidx.compose.ui.graphics.Color.White, fontSize = 28.sp, fontWeight = FontWeight.Bold)
                 Text(L("Cars can't drive here. Park outside and walk."), color = androidx.compose.ui.graphics.Color.White)
             }
             zone != null && answer != null -> {
                 UnofficialNote(zone, hedgedYes = check.hedged)
                 VerdictCard(answer, if (saved == null && arrival == Arrival.NOW) L("Now") else F("Arriving %@", AppState.engine.describe(at.toInstant(), nowZ.toInstant())), onWhy = { Nav.zone = zone },
-                    title = if (check.hedged) L("Probably yes") else if (check.unofficial && answer.verdict is Verdict.No) L("Probably not") else null)
+                    title = check.word.title)
                 Text(zone.localizedName, fontSize = 13.sp, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f), modifier = Modifier.clickable { Nav.zone = zone })
             }
             // Fuori dalle città che conosciamo: neutro, mai «Fuori dalla ZTL» né verde (come l'iPhone dalla 1.19.0)
             !check.covered -> CardBox {
                 Column {
-                    Pill(L("We don't know this place"), MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface)
+                    Pill(AnswerWord.UNKNOWN_PLACE.title, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface)
                     Spacer(Modifier.padding(3.dp))
                     Text(L("We don't know the ZTLs of this place. Check the signs at the entrance."), fontWeight = FontWeight.SemiBold)
                 }
@@ -225,9 +226,10 @@ private fun TripAnswer(p: Place) {
                 val near = nearestZone(AppState.cities, p.location)
                 CardBox {
                     Column {
-                        Pill(L("Outside the ZTL"), Palette.greenSoft, Palette.greenInk)
+                        // 1.20.3: il titolo fisso «Puoi entrare»; «Fuori dalla ZTL» è la spiegazione
+                        Pill(AnswerWord.ENTER.title, Palette.greenSoft, Palette.greenInk)
                         Spacer(Modifier.padding(3.dp))
-                        Text(L("You can drive here freely."), fontWeight = FontWeight.SemiBold)
+                        Text(L("Outside the ZTL") + ". " + L("You can drive here freely."), fontWeight = FontWeight.SemiBold)
                         near?.let { Text(F("%@ is %@ away", it.second.shortName, Geometry.distanceText(it.third)), fontSize = 14.sp) }
                     }
                 }
@@ -462,7 +464,7 @@ fun StartControls(p: Place, modifier: Modifier = Modifier) {
         AlertDialog(
             onDismissRequest = { ask = null },
             title = { Text(F("Always use %@?", n.label)) },
-            text = { Text(L("You can change it in Account → Preferred navigator.")) },
+            text = { Text(L("You can change it in You → Preferred navigator.")) },
             confirmButton = { TextButton(onClick = { AppState.preferredNavigator = n.id; AppState.save(); ask = null; go(n) }) { Text(F("Always %@", n.label)) } },
             dismissButton = { TextButton(onClick = { ask = null; go(n) }) { Text(L("Just this time")) } }
         )

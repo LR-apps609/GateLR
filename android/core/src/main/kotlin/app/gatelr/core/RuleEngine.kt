@@ -16,13 +16,23 @@ sealed class Verdict {
     data class Conditional(val reason: String, val condition: String) : Verdict()
     data class Unsure(val reason: String) : Verdict()
 
-    val title: String get() = when (this) {
-        is Yes -> L("Yes, you can enter"); is No -> L("No, don't enter")
-        is Conditional -> L("You can enter, on one condition"); is Unsure -> L("Not sure")
+    /** 1.20.3 «Parole»: il titolo fisso (AnswerWord), lo stesso ovunque; prima «Sì, puoi entrare», «Non sicuro»… */
+    val title: String get() = word(false).title
+    val short: String get() = word(false).title
+
+    /** Il titolo fisso per questa risposta. Fonte non ufficiale: un «sì» si dice «Controlla il cartello», un «no» resta «Non entrare» */
+    fun word(unofficial: Boolean): AnswerWord = when (this) {
+        is No -> AnswerWord.DONT_ENTER
+        is Conditional -> AnswerWord.CONDITION
+        is Unsure -> AnswerWord.CHECK_SIGN
+        is Yes -> if (unofficial) AnswerWord.CHECK_SIGN else AnswerWord.ENTER
     }
-    val short: String get() = when (this) {
-        is Yes -> L("You can enter"); is No -> L("Don't enter")
-        is Conditional -> L("On one condition"); is Unsure -> L("Not sure")
+
+    /** La spiegazione delle risposte da fonte non ufficiale (mai titolo): «Probabilmente sì · fonte non ufficiale» */
+    fun unofficialNote(unofficial: Boolean): String? = if (!unofficial) null else when (this) {
+        is Yes -> L("Probably yes · unofficial source")
+        is No -> L("Probably not · unofficial source")
+        else -> L("Unofficial source")
     }
     val detail: String get() = when (this) {
         is Yes -> reason; is No -> reason; is Unsure -> reason; is Conditional -> "$reason $condition"
@@ -34,6 +44,22 @@ sealed class Verdict {
 
     /** Quanto è grave, per scegliere la peggiore tra più zone dello stesso posto: no > condizione > non sicuro > sì */
     val severity: Int get() = when (this) { is No -> 3; is Conditional -> 2; is Unsure -> 1; is Yes -> 0 }
+}
+
+/**
+ * 1.20.3 «Parole»: la risposta detta con UNA sola forma per lingua, come l'iPhone (AnswerWord in Sources/RuleEngine.swift)
+ * e il sito. Il titolo è sempre una di queste cinque frasi; «Probabilmente sì», «Fuori dalla ZTL», «Area pedonale»,
+ * «ZTL non attiva» sono la spiegazione, mai il titolo. Solo parole: colori e risposte non cambiano.
+ */
+enum class AnswerWord(val key: String, val lineKey: String, val symbol: String) {
+    DONT_ENTER("Don't enter", "Don't|enter", "✕"),
+    ENTER("You can enter", "You can|enter", "✓"),
+    CONDITION("On one condition", "On one|condition", "!"),
+    CHECK_SIGN("Check the sign", "Check the|sign", "?"),
+    UNKNOWN_PLACE("We don't know this place", "We don't know|this place", "?");
+
+    val title: String get() = L(key)
+    val lines: List<String> get() = L(lineKey).split("|")
 }
 
 data class Answer(val verdict: Verdict, val gatesOn: Boolean, val nextChange: Instant?)

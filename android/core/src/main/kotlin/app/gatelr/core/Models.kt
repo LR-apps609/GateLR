@@ -29,7 +29,7 @@ data class City(
     @Serializable
     enum class Status { @SerialName("sample") SAMPLE, @SerialName("draft") DRAFT, @SerialName("verified") VERIFIED }
 
-    val localizedName: String get() = pick(name, nameIt, nameDe)
+    val localizedName: String get() = pick(name, nameIt, nameDe, italianFallback = false)
 
     /** Il rettangolo [latMin, lonMin, latMax, lonMax] di zone e aree pedonali (null se la città non ne ha) */
     val coverage: DoubleArray? by lazy {
@@ -54,9 +54,11 @@ data class City(
 enum class ZoneKind {
     @SerialName("restricted") RESTRICTED, @SerialName("pass") PASS, @SerialName("green") GREEN;
 
+    /** Il nome del tipo nelle pillole, neutro (1.20.3: «ZTL», «ZTL con pass», «Zona verde»; prima «Accesso vietato» e
+     *  «Pass necessario» accanto a «Puoi entrare») */
     val title: String get() = when (this) {
-        RESTRICTED -> L("No entry")
-        PASS -> L("Pass needed")
+        RESTRICTED -> "ZTL"
+        PASS -> L("ZTL with pass")
         GREEN -> L("Green zone")
     }
 }
@@ -91,13 +93,15 @@ data class Zone(
     val localHolidays: List<String>? = null,
 ) {
     val localizedName: String get() = pick(name, nameIt, nameDe)
-    val localizedSummary: String get() = pick(summary, summaryIt, summaryDe)
+    val localizedSummary: String get() = pick(summary, summaryIt, summaryDe, long = true)
     val type: ZoneKind get() = kind ?: if (ticket != null) ZoneKind.PASS else ZoneKind.RESTRICTED
 
     /** «B» da «Sector B · Historic Centre» */
     val letter: String get() = name.split("·").first().trim().split(" ").last()
     /** «Settore B», «Area C», «Zona T» */
-    val shortName: String get() = localizedName.split("·").first().trim()
+    /** Il nome da spezzare: senza la traduzione in parentesi delle lingue che i dati non hanno (vale l'italiano dei cartelli) */
+    private val partsName: String get() = pick(name, nameIt, nameDe, italianFallback = false, language = if (Strings.language in listOf("en", "it", "de")) Strings.language else "it")
+    val shortName: String get() = partsName.split("·").first().trim()
 
     fun contains(lat: Double, lon: Double): Boolean = Geometry.inside(perimeter, lat, lon)
 
@@ -212,7 +216,7 @@ data class Ticket(
     val url: String? = null,
     val deadline: String? = null,
 ) {
-    val localizedHowTo: String get() = pick(howTo, howToIt, howToDe)
+    val localizedHowTo: String get() = pick(howTo, howToIt, howToDe, long = true)
 }
 
 @Serializable
@@ -273,7 +277,7 @@ data class Source(
     /** La data della verifica (anche con l'ora con il fuso, «2026-11-01T12:00:00+01:00»); null = non verificata */
     val verified: Instant? get() = verifiedOn?.let { runCatching { java.time.OffsetDateTime.parse(it).toInstant() }.getOrNull() }
     val localizedAuthority: String get() = L(authority)
-    val localizedPending: List<String> get() = when (Strings.language) { "it" -> pendingIt ?: pending; "de" -> pendingDe ?: pending; else -> pending }
+    val localizedPending: List<String> get() = pickList(pending, pendingIt, pendingDe)
     val localizedTranslation: String? get() = when (Strings.language) { "it" -> null; "de" -> quoteTranslationDe ?: quoteTranslation; else -> quoteTranslation }
 }
 
@@ -382,4 +386,25 @@ object CityLoader {
 }
 
 /** Il testo nella lingua del telefono, se c'è; altrimenti l'inglese */
-fun pick(en: String, it: String?, de: String?): String = when (Strings.language) { "it" -> it ?: en; "de" -> de ?: en; else -> en }
+/**
+ * Il testo nella lingua del telefono, se c'è. I dati delle città hanno inglese, italiano e tedesco: nelle altre lingue
+ * (francese, spagnolo, olandese, polacco, cinese), finché manca la traduzione, l'italiano originale con l'inglese
+ * (1.20.3, come l'iPhone; prima solo l'inglese). [long]: testo lungo in due paragrafi; altrimenti un nome «IT (EN)».
+ * [italianFallback] false: solo l'inglese (nomi delle città).
+ */
+fun pick(en: String, it: String?, de: String?, long: Boolean = false, italianFallback: Boolean = true, language: String = Strings.language): String =
+    when (language) {
+        "it" -> it ?: en
+        "de" -> de ?: en
+        "en" -> en
+        else -> if (!italianFallback || it.isNullOrEmpty() || it == en) en else if (long) "$it\n\n$en" else "$it ($en)"
+    }
+
+/** Le liste (note, punti da verificare): come [pick], voce per voce quando italiano e inglese hanno le stesse voci */
+fun pickList(en: List<String>, it: List<String>?, de: List<String>?, language: String = Strings.language): List<String> =
+    when (language) {
+        "it" -> it ?: en
+        "de" -> de ?: en
+        "en" -> en
+        else -> if (it == null || it.size != en.size) en else it.zip(en).map { (i, e) -> if (i == e) i else "$i\n$e" }
+    }

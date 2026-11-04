@@ -56,6 +56,7 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import app.gatelr.core.AnswerWord
 import app.gatelr.core.City
 import app.gatelr.core.Coordinate
 import app.gatelr.core.F
@@ -136,20 +137,9 @@ private fun PlaceCheck.neon(): Color = if (hedged) Color(0xFFF2C14E) else when (
     else -> Color(0xFFF2C14E)
 }
 
-/** La scritta del riquadro: «ZTL ATTIVA · NON ENTRARE», «FUORI DALLA ZTL»… (come PlaceCheck.callout dell'iPhone) */
-private fun PlaceCheck.callout(): String = when {
-    unofficial && kind == PlaceCheck.Kind.OPEN -> L("Probably yes")
-    unofficial && kind == PlaceCheck.Kind.CLOSED -> L("Probably not")
-    else -> when (kind) {
-        PlaceCheck.Kind.UNCOVERED -> L("We don't know this place")
-        PlaceCheck.Kind.OUTSIDE -> L("Outside the ZTL")
-        PlaceCheck.Kind.PEDESTRIAN -> L("Pedestrian area · don't enter")
-        PlaceCheck.Kind.CLOSED -> L("ZTL active · don't enter")
-        PlaceCheck.Kind.OPEN -> if (gatesOn == true) L("You can enter") else L("ZTL off · you can enter")
-        PlaceCheck.Kind.CONDITIONAL -> L("On one condition")
-        PlaceCheck.Kind.UNSURE -> L("Not sure")
-    }
-}
+/** La scritta del riquadro: il titolo fisso della risposta (1.20.3, come PlaceCheck.callout dell'iPhone; prima «ZTL
+ *  ATTIVA · NON ENTRARE», «PROBABILMENTE SÌ»…) */
+private fun PlaceCheck.callout(): String = word.title
 
 /** Aggiunge sorgenti e strati delle zone e dello spillo a uno stile appena caricato */
 private fun addLayers(style: Style, zones: String, pin: String) {
@@ -344,24 +334,25 @@ fun MapScreen(modifier: Modifier) {
                 Text(p.name, fontWeight = FontWeight.Bold, fontSize = 18.sp, maxLines = 1)
                 when {
                     pinPedestrian != null -> {
-                        Pill(L("Pedestrian area"), Palette.redSoft, Palette.redInk)
-                        Text(L("Cars can't drive here. Park outside and walk."), fontSize = 14.sp)
+                        Pill(AnswerWord.DONT_ENTER.title, Palette.redSoft, Palette.redInk)
+                        Text(L("Pedestrian area") + ". " + L("Cars can't drive here. Park outside and walk."), fontSize = 14.sp)
                     }
                     pinZone != null && pinAnswer != null -> {
                         UnofficialNote(pinZone, hedgedYes = pinCheck?.hedged == true)
                         Row(verticalAlignment = Alignment.CenterVertically) {
-                            VerdictPill(pinAnswer.verdict); Spacer(Modifier.width(8.dp))
+                            VerdictPill(pinAnswer.verdict, unofficial = pinCheck?.unofficial == true); Spacer(Modifier.width(8.dp))
                             Text(pinZone.shortName, fontSize = 14.sp, modifier = Modifier.clickable { Nav.zone = pinZone })
                         }
                         Text(pinAnswer.verdict.detail, fontSize = 14.sp, maxLines = 3)
                     }
                     pinCheck?.covered == false -> {
-                        Pill(L("We don't know this place"), MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface)
+                        Pill(AnswerWord.UNKNOWN_PLACE.title, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface)
                         Text(L("We don't know the ZTLs of this place. Check the signs at the entrance."), fontSize = 14.sp)
                     }
                     else -> {
                         val near = nearestZone(AppState.cities, p.location)
-                        Pill(L("Outside the ZTL"), Palette.greenSoft, Palette.greenInk)
+                        Pill(AnswerWord.ENTER.title, Palette.greenSoft, Palette.greenInk)
+                        Text(L("Outside the ZTL"), fontSize = 14.sp)
                         near?.let { Text(F("%@ is %@ away", it.second.shortName, Geometry.distanceText(it.third)), fontSize = 14.sp) }
                     }
                 }

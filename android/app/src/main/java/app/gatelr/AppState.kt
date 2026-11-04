@@ -36,6 +36,9 @@ data class LogEntry(val date: Long, val kind: String, val zoneId: String, val zo
 data class SavedTrip(val id: String = java.util.UUID.randomUUID().toString(), val place: Place, val arrival: Long)
 
 /** Lo stato dell'app: città, garage, posto scelto, impostazioni. Resta sul telefono. */
+/** Le lingue dei testi (assets/i18n/strings_<lingua>.json), le stesse dell'iPhone */
+val SUPPORTED_LANGUAGES = listOf("en", "it", "de", "fr", "es", "nl", "pl", "zh")
+
 object AppState {
     lateinit var cities: List<City>
     val engine = RuleEngine()
@@ -56,9 +59,10 @@ object AppState {
     var tripAt by mutableStateOf<Long?>(null)         // ora d'arrivo del viaggio salvato aperto
 
     fun init(ctx: Context) {
-        // Lingua: italiano, tedesco o inglese, come il telefono
+        // Lingua come il telefono: le 8 dell'iPhone (1.20.3: anche francese, spagnolo, olandese, polacco e cinese, dalla
+        // stessa fonte Tools/translations.py); le altre in inglese
         val lang = Locale.getDefault().language
-        Strings.language = if (lang == "it" || lang == "de") lang else "en"
+        Strings.language = if (lang in SUPPORTED_LANGUAGES) lang else "en"
         if (Strings.language != "en") {
             val text = ctx.assets.open("i18n/strings_${Strings.language}.json").bufferedReader().readText()
             Strings.table = json.parseToJsonElement(text).jsonObject.mapValues { it.value.jsonPrimitive.content }

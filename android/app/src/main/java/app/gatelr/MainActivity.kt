@@ -101,7 +101,7 @@ fun Root() {
         Triple("Map", Icons.Filled.Map, "map"),
         Triple("Trip", Icons.Filled.Luggage, "trip"),
         Triple("Garage", Icons.Filled.DirectionsCar, "garage"),
-        Triple("Account", Icons.Filled.Person, "account"),
+        Triple("You", Icons.Filled.Person, "account"),      // 1.20.3: «Tu», come l'iPhone (prima «Account»)
     )
     Scaffold(bottomBar = {
         NavigationBar {

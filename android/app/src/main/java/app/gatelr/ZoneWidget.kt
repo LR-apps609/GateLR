@@ -30,8 +30,9 @@ class ZoneWidget : AppWidgetProvider() {
         for (id in ids) {
             val v = RemoteViews(ctx.packageName, R.layout.widget)
             v.setTextViewText(R.id.widget_zone, zone.shortName + (AppState.cityOf(zone)?.let { " · " + it.localizedName } ?: ""))
-            v.setTextViewText(R.id.widget_verdict, if (off) L("ZTL not active") else a.verdict.short)
-            v.setTextViewText(R.id.widget_next, changeText(a, now) ?: "")
+            // 1.20.3: il titolo è sempre quello fisso («Puoi entrare»); «ZTL non attiva» va nella riga sotto
+            v.setTextViewText(R.id.widget_verdict, a.verdict.short)
+            v.setTextViewText(R.id.widget_next, listOfNotNull(if (off) L("ZTL not active") else null, changeText(a, now)).joinToString(" · "))
             if (Build.VERSION.SDK_INT >= 31) v.setColorStateList(R.id.widget_root, "setBackgroundTintList", ColorStateList.valueOf(color.toArgb()))
             else v.setInt(R.id.widget_root, "setBackgroundColor", color.toArgb())
             v.setOnClickPendingIntent(R.id.widget_root, open)

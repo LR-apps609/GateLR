@@ -81,7 +81,7 @@ fun HomeScreen(modifier: Modifier) {
         // Il riquadro d'impatto: cosa fa l'app, in cinque secondi
         item {
             Column(Modifier.fillMaxWidth().background(Palette.blue, RoundedCornerShape(26.dp)).padding(22.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                Text(L("Know before|the gate.").replace("|", "\n"), color = Color.White, fontSize = 32.sp, fontWeight = FontWeight.Bold, lineHeight = 34.sp)
+                Text(L("Gate"), color = Color.White, fontSize = 32.sp, fontWeight = FontWeight.Bold, lineHeight = 34.sp)
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                     Pill(L("Clear answer"), Color.White.copy(alpha = 0.16f), Color.White)
                     Pill(L("Official sources"), Color.White.copy(alpha = 0.16f), Color.White)

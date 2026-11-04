@@ -19,5 +19,7 @@ tasks.test {
     useJUnitPlatform()
     // I test leggono gli stessi file delle città dell'app iPhone
     systemProperty("gatelr.cities", rootDir.resolve("../../Resources/Cities").absolutePath)
+    // 1.20.3: i testi di Android nelle 8 lingue (generati da Tools/translations.py)
+    systemProperty("gatelr.i18n", rootDir.resolve("../app/src/main/assets/i18n").absolutePath)
     testLogging { events("failed"); exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL }
 }
