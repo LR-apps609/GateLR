@@ -127,7 +127,8 @@ final class UnofficialSourceTests: XCTestCase {
         let firenze = try CityLoader.decode(Data(contentsOf: Self.cities.appendingPathComponent("firenze.json")))
         let a = try XCTUnwrap(firenze.zones.first { $0.letter == "A" })
         XCTAssertEqual(a.kindLine, "ZTL · " + a.shortName)
-        XCTAssertFalse(a.kindLine.contains(ZoneKind.restricted.title))
+        // 1.20.3: la pillola della ZTL ora è proprio «ZTL»; nella riga non deve più comparire «Accesso vietato»
+        XCTAssertFalse(a.kindLine.contains(L("No entry")))
         let milano = try CityLoader.decode(Data(contentsOf: Self.cities.appendingPathComponent("milano.json")))
         let c = try XCTUnwrap(milano.zones.first { $0.id == "milano-c" })
         XCTAssertEqual(c.kindLine, L("Paid ZTL") + " · " + c.shortName)
