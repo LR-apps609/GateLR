@@ -53,7 +53,7 @@ adb emu geo fix 11.2486 43.7765 || true          # Stazione di Santa Maria Novel
 sleep 12
 tap "Check the drive" && sleep 8 && shot 04d-tragitto
 tap "Garage" && shot 05-garage
-tap "Account" && shot 06-account
+tap "You" && shot 06-account
 adb shell input swipe 500 1800 500 900; sleep 2
 tap "Read the sign ›" && sleep 2 && tap "e.g. 7.30-20.00 feriali" && adb shell input text "7.30-20.00%sferiali" && sleep 2 && adb shell input keyevent 4 && sleep 1 && shot 06b-cartello
 adb shell input keyevent 4; sleep 2
@@ -69,7 +69,7 @@ adb shell am force-stop app.gatelr; adb shell am start -W -n app.gatelr/.MainAct
 shot 08-it-scuro-varco
 tap "Viaggio" && shot 09-it-scuro-viaggio
 tap "Mappa" && sleep 6 && shot 10-it-scuro-mappa
-tap "Account" && shot 11-it-scuro-account
+tap "Tu" && shot 11-it-scuro-account
 
 adb logcat -d > "$OUT/logcat.txt"
 if grep -q "FATAL EXCEPTION" "$OUT/logcat.txt"; then
