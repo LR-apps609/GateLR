@@ -36,12 +36,15 @@ for (const c of file.cases) {
   if (!v || isNaN(now) || isNaN(at)) { errors.push(`${c.id}: caso scritto male`); continue; }
   e.CLOCK.now = () => now;
   await e.ensureFor(c.place.lat, c.place.lon);
-  // 1.20.1: verifica delle zone come dice il caso (di serie «assumeVerifiedOn»), su una copia dei campi veri
+  // 1.20.1: «pageChanged» dei file cambia ogni mattina: i casi lo ignorano (false) salvo «source», che può dare anche
+  // «verifiedOn» e «checkedOn» a tutte le zone (su una copia dei campi veri)
   const src = c.source || {};
   for (const city of e.CITIES) for (const z of city.zones || []) {
-    if (!orig.has(z)) orig.set(z, {verifiedOn: z.source.verifiedOn, pageChanged: z.source.pageChanged});
-    z.source.verifiedOn = "verifiedOn" in src ? src.verifiedOn : file.assumeVerifiedOn;
-    z.source.pageChanged = "pageChanged" in src ? src.pageChanged : orig.get(z).pageChanged;
+    if (!orig.has(z)) orig.set(z, {verifiedOn: z.source.verifiedOn, checkedOn: z.source.checkedOn});
+    const o = orig.get(z);
+    z.source.verifiedOn = "verifiedOn" in src ? src.verifiedOn : o.verifiedOn;
+    z.source.checkedOn = src.checkedOn || o.checkedOn;
+    z.source.pageChanged = "pageChanged" in src ? src.pageChanged : false;
   }
   const p = e.placeAnswer(c.place.lat, c.place.lon, at, !!c.hotel, v);
   const got = {colour: p.colour, verdict: VERDICT[p.verdict] || p.verdict, zone: p.zone ? p.zone.id : null,
@@ -50,8 +53,8 @@ for (const c of file.cases) {
   // Le regole fisse, qualunque cosa dica il file: mai verde fuori copertura o da fonte non ufficiale
   if (!p.covered && p.colour !== "neutral") bad.push("fuori copertura non neutro");
   if (p.unoff && p.colour === "green") bad.push("fonte non ufficiale verde");
-  // 1.20.1: mai verde né grigio da una zona non verificata, con verifica vecchia o con la pagina del Comune cambiata
-  if (p.zone && !p.ped && e.trustOf(p.zone) !== "verified" && (p.colour === "green" || p.colour === "grey")) bad.push("zona non sicura verde o grigia");
+  // 1.20.1 (regola A): mai verde da una zona senza verifica né lettura recente o con la pagina del Comune cambiata
+  if (p.zone && !p.ped && !["verified", "read"].includes(e.trustOf(p.zone)) && p.colour === "green") bad.push("zona non sicura verde");
   if (bad.length) errors.push(`${c.id}: ${bad.join("; ")}`); else passed++;
 }
 for (const x of errors) console.log("::error::check_engine_cases: " + x);
