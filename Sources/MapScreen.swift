@@ -592,15 +592,16 @@ struct MapScreen: View {
                         .font(.app(size: 14)).foregroundStyle(Theme.muted)
                 }
                 Spacer()
+                // 1.20.3: le parole fisse della risposta (PlaceCheck.word)
                 if pedestrian != nil {
-                    Pill(text: L("Don't enter"), fill: Verdict.no(reason: "").pillFill, ink: Verdict.no(reason: "").pillInk)
+                    Pill(text: check.word.title, fill: Verdict.no(reason: "").pillFill, ink: Verdict.no(reason: "").pillInk)
                 } else if let answer {
                     VerdictPill(verdict: answer.verdict, unofficial: check.unofficial)
                 } else if check.covered {
-                    Pill(text: L("You can enter"), fill: Theme.greenSoft, ink: Theme.greenInk)
+                    Pill(text: check.word.title, fill: Theme.greenSoft, ink: Theme.greenInk)
                 } else {
                     // Fuori copertura: neutro, mai verde (1.19.0)
-                    Pill(text: L("We don't know this place"), fill: Theme.muted.opacity(0.16), ink: Theme.muted)
+                    Pill(text: check.word.title, fill: Theme.muted.opacity(0.16), ink: Theme.muted)
                 }
             }
             if check.unofficial { UnofficialBanner(source: hit?.zone.source.unofficialSource) }

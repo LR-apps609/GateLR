@@ -96,26 +96,30 @@ final class UnofficialSourceTests: XCTestCase {
                 XCTAssertEqual(a.panel.lines, b.panel.lines)
                 XCTAssertEqual(b.panel.mood, .amber)
             }
-            XCTAssertNotEqual(a.headline, b.headline)
-            XCTAssertEqual(b.headline, gatesOn ? L("Probably not.") : L("Probably yes."))
+            // 1.20.3: titolo fisso («Non entrare» resta tale, un «sì» diventa «Controlla il cartello»); la prudenza è nella spiegazione
+            XCTAssertEqual(b.headline, gatesOn ? L("Don't enter") : L("Check the sign"))
+            XCTAssertEqual(a.headline, gatesOn ? L("Don't enter") : L("You can enter"))
+            XCTAssertEqual(b.detail, gatesOn ? L("Probably not · unofficial source") : L("Probably yes · unofficial source"))
+            XCTAssertNil(a.detail)
             let check = PlaceCheck(place: place, hits: [(city: unofficial, zone: unofficial.zones[0])], answer: answer)
             XCTAssertTrue(check.unofficial)
-            XCTAssertEqual(check.callout, gatesOn ? L("Probably not") : L("Probably yes"))
+            XCTAssertEqual(check.callout, b.headline, "il riquadro della mappa dice lo stesso titolo")
         }
         // Condizioni e «non sicuro» sono già prudenti: le parole non cambiano
         let cond = Answer(verdict: .conditional(reason: "r", condition: "c"), gatesOn: true, nextChange: nil)
         let c = Home2Answer(PlaceCheck(place: place, hits: [(city: unofficial, zone: unofficial.zones[0])], answer: cond), now: Date())
-        XCTAssertEqual(c.headline, L("You can enter, on one condition:"))
+        XCTAssertEqual(c.headline, L("On one condition"))
         XCTAssertEqual(c.detail, "c")      // 1.17.2: la condizione sotto il titolo, sempre in vista
         XCTAssertTrue(c.unofficial)
     }
 
-    func testVerdictShortTextOnlyHedgesYesAndNo() {
+    /// 1.20.3: da fonte non ufficiale solo il «sì» cambia titolo («Controlla il cartello»); il «no» resta «Non entrare»
+    func testVerdictShortTextOnlyHedgesYes() {
         XCTAssertEqual(Verdict.yes(reason: "").shortText(unofficial: false), Verdict.yes(reason: "").short)
-        XCTAssertEqual(Verdict.yes(reason: "").shortText(unofficial: true), L("Probably yes"))
-        XCTAssertEqual(Verdict.no(reason: "").shortText(unofficial: true), L("Probably not"))
+        XCTAssertEqual(Verdict.yes(reason: "").shortText(unofficial: true), L("Check the sign"))
+        XCTAssertEqual(Verdict.no(reason: "").shortText(unofficial: true), L("Don't enter"))
         XCTAssertEqual(Verdict.unsure(reason: "").shortText(unofficial: true), Verdict.unsure(reason: "").short)
-        XCTAssertEqual(Verdict.no(reason: "").titleLines(unofficial: true), [L("Probably not.")])
+        XCTAssertEqual(Verdict.no(reason: "").titleLines(unofficial: true), L("Don't|enter").components(separatedBy: "|"))
     }
 
     /// «Entra pure.» sopra «Accesso vietato · Settore A» si leggeva male: ora «ZTL · Settore A»

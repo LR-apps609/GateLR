@@ -57,25 +57,29 @@ struct ZoneReport: Equatable {
         f.timeZone = TimeZone(identifier: "Europe/Rome")
         f.locale = Locale(identifier: "en_US_POSIX")
         f.dateFormat = "yyyy-MM-dd HH:mm"
-        return f.string(from: d) + " (Europe/Rome)"
+        return f.string(from: d) + " " + L("(Italian time)")
     }
 
-    /// Le righe del contesto: le stesse che si vedono nel modulo prima di inviare
+    /// Le righe del contesto: le stesse che si vedono nel modulo prima di inviare. 1.20.3 «Parole»: nella lingua del
+    /// telefono (prima «What: hours (Orari)», «Date/time: …» in inglese anche in italiano o tedesco); gli identificativi
+    /// per noi (tipo, città, zona, versione, sistema, lingua) stanno tutti nell'ultima riga, «Rif.: firenze-a · 1.18.0»
     var context: [String] {
-        // Testo tecnico in inglese, come «Segnala un bug»: chi legge la mail lo capisce in ogni lingua
-        var moment = "chosen"
-        if whenIsNow { moment = "now" }
-        var lines = ["What: \(topic.rawValue) (\(topic.title))",
-                     "City: \(cityName) (\(cityId))",
-                     "Zone: \(zoneName) (\(zoneId))",
-                     "Date/time: \(Self.format(when)) · \(moment)",
-                     "Vehicle: \(vehicle)",
-                     "App: \(appVersion)"]
-        if !system.isEmpty { lines.append("iOS: \(system)") }
-        if !language.isEmpty { lines.append("Lang: \(language)") }
-        if let location { lines.append(String(format: "Position: %.5f, %.5f", location.lat, location.lon)) }
-        if testZone { lines.append("Test zone: yes (test mode)") }
+        let moment = L(whenIsNow ? "now" : "chosen time")
+        var lines = [String(format: L("What: %@"), topic.title),
+                     String(format: L("City: %@"), cityName),
+                     String(format: L("Zone: %@"), zoneName),
+                     String(format: L("Date and time: %@"), Self.format(when) + " · " + moment),
+                     String(format: L("Vehicle: %@"), vehicle)]
+        if let location { lines.append(String(format: L("Position: %@"), String(format: "%.5f, %.5f", location.lat, location.lon))) }
+        if testZone { lines.append(L("Test zone (test mode)")) }
+        lines.append(String(format: L("Ref.: %@"), reference))
         return lines
+    }
+
+    /// Gli identificativi in una riga sola, uguali in ogni lingua: «hours · firenze · firenze-a · 1.20.3 (56) · iOS 18.1 · it»
+    var reference: String {
+        [topic.rawValue, cityId, zoneId, appVersion, system.isEmpty ? "" : "iOS " + system, language, testZone ? "test" : ""]
+            .filter { !$0.isEmpty }.joined(separator: " · ")
     }
 
     var body: String {

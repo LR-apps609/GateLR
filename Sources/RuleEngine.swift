@@ -9,12 +9,81 @@ enum Verdict: Equatable {
     case conditional(reason: String, condition: String)
     case unsure(reason: String)
 
-    var title: String {
+    /// 1.20.3 «Parole»: il titolo fisso della risposta (AnswerWord), lo stesso ovunque
+    var title: String { word(unofficial: false).title }
+}
+
+/// 1.20.3 «Parole»: la risposta detta con UNA sola forma per lingua, ovunque (Varco, Mappa, Viaggio, notifiche, widget,
+/// Live Activity, CarPlay, Siri; le stesse parole su Android, AnswerWord.kt, e sul sito, «w*» in web/template.html).
+/// Il titolo è sempre una di queste cinque frasi; «Probabilmente sì», «Fuori dalla ZTL», «Area pedonale», «ZTL non attiva»…
+/// diventano la frase di spiegazione, mai il titolo. Solo parole: colori e risposte del motore non cambiano
+enum AnswerWord: String, CaseIterable {
+    /// Rosso: «no» del motore, area pedonale, «no» da fonte non ufficiale
+    case dontEnter
+    /// Verde: «sì» (anche a ZTL non attiva) e fuori dalle zone di una città che conosciamo
+    case enter
+    /// Giallo con «!»: la risposta con una condizione (ticket, hotel, permesso in attesa)
+    case condition
+    /// Giallo con «?»: «non sicuro» del motore e il «sì» da fonte non ufficiale
+    case checkSign
+    /// Neutro: fuori dalle città che conosciamo
+    case unknownPlace
+
+    /// La chiave (inglese) del titolo in Localizable.strings
+    var key: String {
         switch self {
-        case .yes: L("Yes, you can enter")
-        case .no: L("No, don't enter")
-        case .conditional: L("You can enter, on one condition")
-        case .unsure: L("Not sure")
+        case .dontEnter: "Don't enter"
+        case .enter: "You can enter"
+        case .condition: "On one condition"
+        case .checkSign: "Check the sign"
+        case .unknownPlace: "We don't know this place"
+        }
+    }
+
+    /// Il titolo nella lingua del telefono
+    var title: String { L(key) }
+
+    /// Lo stesso titolo spezzato a mano in righe («|»), per i riquadri grandi
+    var lineKey: String {
+        switch self {
+        case .dontEnter: "Don't|enter"
+        case .enter: "You can|enter"
+        case .condition: "On one|condition"
+        case .checkSign: "Check the|sign"
+        case .unknownPlace: "We don't know|this place"
+        }
+    }
+    var lines: [String] { L(lineKey).components(separatedBy: "|") }
+
+    var symbol: String {
+        switch self {
+        case .dontEnter: "xmark"
+        case .enter: "checkmark"
+        case .condition: "exclamationmark"
+        case .checkSign, .unknownPlace: "questionmark"
+        }
+    }
+}
+
+extension Verdict {
+    /// Il titolo fisso per la risposta del motore. Fonte non ufficiale (1.19.0): un «sì» si dice «Controlla il cartello»
+    /// (giallo, «Probabilmente sì» resta la spiegazione); un «no» resta «Non entrare»
+    func word(unofficial: Bool) -> AnswerWord {
+        switch self {
+        case .no: return .dontEnter
+        case .conditional: return .condition
+        case .unsure: return .checkSign
+        case .yes: return unofficial ? .checkSign : .enter
+        }
+    }
+
+    /// La frase di spiegazione delle risposte da fonte non ufficiale (mai titolo): «Probabilmente sì · fonte non ufficiale»
+    func unofficialNote(unofficial: Bool) -> String? {
+        guard unofficial else { return nil }
+        switch self {
+        case .yes: return L("Probably yes · unofficial source")
+        case .no: return L("Probably not · unofficial source")
+        case .conditional, .unsure: return L("Unofficial source")
         }
     }
 }

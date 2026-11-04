@@ -366,9 +366,10 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertEqual(PathMath.remaining(from: path[2], along: path), 0, accuracy: 1)
         XCTAssertLessThan(PathMath.distance(from: Coordinate(lat: 43.7701, lon: 11.2550), to: path), 15)
         XCTAssertGreaterThan(PathMath.distance(from: Coordinate(lat: 43.7750, lon: 11.2500), to: path), 300)
-        XCTAssertEqual(DriveView.symbol(for: "Svolta a sinistra in Via Roma"), "arrow.turn.up.left")
-        XCTAssertEqual(DriveView.symbol(for: "Turn right onto Via Roma"), "arrow.turn.up.right")
-        XCTAssertEqual(DriveView.symbol(for: "Im Kreisverkehr die zweite Ausfahrt nehmen"), "arrow.triangle.turn.up.right.circle")
+        // 1.20.3: le frecce dalla forma della strada (Maneuver), non dalle parole: verso est poi verso nord = a sinistra
+        XCTAssertEqual(Maneuver.symbol(turn: Maneuver.turn(from: Array(path[0...1]), into: Array(path[1...2]))), "arrow.turn.up.left")
+        XCTAssertEqual(Maneuver.symbols([Array(path[0...1]), Array(path[1...2]), [path[2], Coordinate(lat: 43.7801, lon: 11.2600)]]),
+                       ["arrow.up", "arrow.turn.up.left", "flag.checkered"])
     }
 
     /// L'elenco scaricato dall'app deve corrispondere ai file (altrimenti l'aggiornamento li scarterebbe)

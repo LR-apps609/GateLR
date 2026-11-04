@@ -76,6 +76,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     struct Step: Equatable {
         var instruction: String
         var path: [Coordinate]
+        /// La freccia della manovra (Maneuver, 1.20.3: dalla forma della strada, non dal testo)
+        var symbol = "arrow.up"
         var end: Coordinate { path.last ?? Coordinate(lat: 0, lon: 0) }
     }
 
@@ -148,6 +150,10 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
 
     /// La prossima manovra (l'istruzione del tratto successivo)
     var nextInstruction: String? { index + 1 < steps.count ? steps[index + 1].instruction : nil }
+    /// La freccia della prossima manovra (la bandiera all'arrivo)
+    var nextSymbol: String { !arrived && index + 1 < steps.count ? steps[index + 1].symbol : Maneuver.arrival }
+    /// La freccia della manovra dopo («Poi …»)
+    var thenSymbol: String { index + 2 < steps.count ? steps[index + 2].symbol : Maneuver.arrival }
     /// La manovra dopo quella successiva («Poi …»), se è vicina
     var thenInstruction: String? {
         guard index + 2 < steps.count, index + 1 < stepLengths.count, stepLengths[index + 1] < 250 else { return nil }
@@ -266,6 +272,8 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         steps = r.steps.map { s in
             Step(instruction: s.instructions, path: s.polyline.coordinates.map { Coordinate(lat: $0.latitude, lon: $0.longitude) })
         }.filter { !$0.path.isEmpty }
+        let arrows = Maneuver.symbols(steps.map(\.path))
+        for i in steps.indices { steps[i].symbol = arrows[i] }
         index = 0
         progress = 0
         along = 0
@@ -474,7 +482,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
 
     private var state: DriveAttributes.ContentState {
         DriveAttributes.ContentState(
-            symbol: DriveView.symbol(for: arrived ? "" : (nextInstruction ?? "")),
+            symbol: nextSymbol,
             distance: arrived ? "" : DriveSession.distanceText(toNext),
             instruction: arrived ? L("You have arrived") : (nextInstruction ?? destination?.name ?? ""),
             warning: warning, eta: eta, level: warning == nil ? nil : warningLevel)

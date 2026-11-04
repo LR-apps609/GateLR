@@ -104,20 +104,21 @@ final class ThreatEvaluatorTests: XCTestCase {
         let t = scan(c, course: 0, answer: yes).threat
         XCTAssertNotNil(t, "l'area pedonale avvisa anche con un «sì» del motore")
         XCTAssertEqual(t?.level, .stop)
-        XCTAssertEqual(t?.title, String(format: L("Don't enter · %@"), String(format: L("Pedestrian area · %@"), "Via Prova")))
+        XCTAssertEqual(t?.title, L("Don't enter") + " · " + String(format: L("Pedestrian area · %@"), "Via Prova"))
         XCTAssertEqual(t?.spoken, L("Don't enter"))
     }
 
-    /// Fonte non ufficiale: un «sì» è giallo con il «?» e avvisa («? Controlla il cartello»); un «no» resta rosso, detto con prudenza
+    /// Fonte non ufficiale: un «sì» è giallo con il «?» e avvisa («Controlla il cartello»); un «no» resta rosso, «Non entrare»
+    /// (1.20.3: il titolo fisso; «Probabilmente sì · fonte non ufficiale» è la spiegazione)
     func testUnofficialYesIsYellow() {
         let c = candidate(zone(official: false))
         let t = scan(c, course: 0, answer: yes).threat
         XCTAssertEqual(t?.level, .check)
-        XCTAssertEqual(t?.title, String(format: L("? Check the sign · %@"), c.name))
-        XCTAssertEqual(t?.spoken, L("Probably yes · unofficial source: check the sign"))
+        XCTAssertEqual(t?.title, L("Check the sign") + " · " + c.name)
+        XCTAssertEqual(t?.spoken, L("Check the sign") + " · " + L("Probably yes · unofficial source"))
         let red = scan(c, course: 0, answer: no).threat
         XCTAssertEqual(red?.level, .stop)
-        XCTAssertEqual(red?.title, String(format: L("Probably not · %@"), c.name))
+        XCTAssertEqual(red?.title, L("Don't enter") + " · " + c.name)
         // Ufficiale e «sì»: nessun avviso, mai un avviso verde
         XCTAssertNil(scan(candidate(zone()), course: 0, answer: yes).threat)
     }
@@ -126,10 +127,10 @@ final class ThreatEvaluatorTests: XCTestCase {
     func testTitleWords() {
         let c = candidate(zone())
         XCTAssertEqual(c.name, "Firenze " + c.zone.shortName)
-        XCTAssertEqual(ThreatEvaluator.title(shown: .no(reason: ""), candidate: c), String(format: L("Don't enter · %@"), c.name))
-        XCTAssertEqual(ThreatEvaluator.title(shown: .conditional(reason: "", condition: "ticket"), candidate: c),
-                       String(format: L("You can enter on one condition: %@"), c.name))
-        XCTAssertEqual(ThreatEvaluator.title(shown: .unsure(reason: ""), candidate: c), String(format: L("? Check the sign · %@"), c.name))
+        // 1.20.3: il titolo fisso della risposta e il nome della zona
+        XCTAssertEqual(ThreatEvaluator.title(shown: .no(reason: ""), candidate: c), L("Don't enter") + " · " + c.name)
+        XCTAssertEqual(ThreatEvaluator.title(shown: .conditional(reason: "", condition: "ticket"), candidate: c), L("On one condition") + " · " + c.name)
+        XCTAssertEqual(ThreatEvaluator.title(shown: .unsure(reason: ""), candidate: c), L("Check the sign") + " · " + c.name)
         XCTAssertNil(ThreatEvaluator.title(shown: .yes(reason: ""), candidate: c))
         // Il corpo: la distanza, la condizione, il tocco per i parcheggi
         let cond = Answer(verdict: .conditional(reason: "La ZTL è attiva.", condition: "Solo con il biglietto."), gatesOn: true, nextChange: nil)
@@ -205,10 +206,12 @@ final class ThreatEvaluatorTests: XCTestCase {
         let red = widget(z, at: thursday10)
         XCTAssertEqual(red.tone, .red)
         XCTAssertEqual(red.title, L("Don't enter"))
-        // Varchi spenti: 1.20.1 verde (si entra) con le parole «ZTL non attiva»
+        // Varchi spenti: 1.20.1 verde (si entra); 1.20.3 il titolo fisso «Puoi entrare», «ZTL non attiva» nella riga sotto
         let off = widget(z, at: thursday22)
         XCTAssertEqual(off.tone, .green)
-        XCTAssertEqual(off.title, L("ZTL not active"))
+        XCTAssertEqual(off.title, L("You can enter"))
+        XCTAssertEqual(off.symbol, "moon.zzz")
+        XCTAssertFalse(off.gatesOn)
         // Elettrica esente a varchi accesi: verde «Puoi entrare»
         var exempt = z
         exempt.exemptFuels = [.electric]
@@ -226,7 +229,7 @@ final class ThreatEvaluatorTests: XCTestCase {
         XCTAssertEqual(widget(z, vehicle: car, permits: [elsewhere], at: thursday10).tone, .red)
     }
 
-    /// Dati più vecchi di 120 giorni: giallo «?» «Dati da ricontrollare», anche a varchi spenti
+    /// Dati più vecchi di 120 giorni: giallo «?» «Controlla il cartello» (1.20.3: «Dati da ricontrollare» è la riga sotto), anche a varchi spenti
     func testWidgetStaleIsYellow() {
         var z = zone()
         z.source.checkedOn = engine.now().addingTimeInterval(-200 * 86_400)
@@ -234,7 +237,7 @@ final class ThreatEvaluatorTests: XCTestCase {
         XCTAssertTrue(w.stale)
         XCTAssertEqual(w.tone, .amber)
         XCTAssertEqual(w.symbol, "questionmark")
-        XCTAssertEqual(w.title, L("Data to recheck"))
+        XCTAssertEqual(w.title, L("Check the sign"))
         // Fonte non ufficiale a varchi spenti: giallo, mai verde né grigio
         let u = widget(zone(official: false), at: date(2026, 10, 29, 22))
         XCTAssertEqual(u.tone, .amber)

@@ -179,7 +179,7 @@ struct TestModeSection: View {
                 Label(L("Test car park"), systemImage: "parkingsign").font(.app(size: 14)).foregroundStyle(Theme.muted)
             }
         } header: { Text("Test mode") } footer: {
-            Text("Creates a fake ZTL about 400 m wide around you, with 1–2 gates on the nearby roads and a car park outside, to try answers, alerts, navigation and voice without travelling. Only on this phone: never synced or sent. See docs/prova-sul-campo.md.")
+            Text("Creates a fake ZTL about 400 m wide around you, with 1–2 gates on the nearby roads and a car park outside, to try answers, alerts, navigation and voice without travelling. Only on this phone: never synced or sent.")
         }
     }
 

@@ -54,6 +54,15 @@ extension Vehicle {
         let spec = fuel == .electric ? fuelText : "\(fuelText) Euro \(euro)"
         return car.isEmpty ? spec : "\(car) · \(spec)"
     }
+
+    /// 1.20.3: il chip in alto, corto per non andare a capo né troncarsi in tedesco o polacco: «Golf · E6»
+    /// (prima «Auto a noleggio · benzina E…»). Il modello prima del nome; l'elettrica con la sua parola, senza classe.
+    /// Il nome intero con l'alimentazione resta nel menu e per VoiceOver (chipLabel)
+    var chipShort: String {
+        let car = [model, name, make ?? ""].first { !$0.isEmpty } ?? (kind == .motorcycle ? kind.label : "")
+        let spec = fuel == .electric ? fuel.label : "E\(euro)"
+        return car.isEmpty ? spec : "\(car) · \(spec)"
+    }
 }
 
 extension Store {
@@ -117,7 +126,7 @@ struct ContextChips: View {
                 newVehicle = v
             } label: { Label(L("Add a vehicle"), systemImage: "plus") }
         } label: {
-            chip(symbol: store.vehicle.kind.symbol, text: store.vehicle.chipLabel, highlighted: false)
+            chip(symbol: store.vehicle.kind.symbol, text: store.vehicle.chipShort, highlighted: false)
         }
         .accessibilityLabel(String(format: L("Vehicle: %@"), store.vehicle.chipLabel))
         .accessibilityIdentifier("context.vehicle")
@@ -221,10 +230,11 @@ enum Access: CaseIterable, Hashable {
 
     var title: String {
         switch self {
-        case .closed: L("You can't enter")
-        case .conditional: L("You can enter, on one condition")
-        case .check: L("To be checked")
-        case .open: L("You can enter")
+        // 1.20.3: le stesse parole fisse della risposta (AnswerWord)
+        case .closed: AnswerWord.dontEnter.title
+        case .conditional: AnswerWord.condition.title
+        case .check: AnswerWord.checkSign.title
+        case .open: AnswerWord.enter.title
         case .off: L("ZTL not active")
         }
     }

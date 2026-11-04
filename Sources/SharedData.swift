@@ -65,19 +65,19 @@ struct WidgetAnswer: Equatable {
         let a = engine.trustedAnswer(zone: zone, vehicle: vehicle, permits: permits, hotelInside: false, at: date)
         let age = engine.calendar.dateComponents([.day], from: zone.source.checkedOn, to: engine.now()).day ?? 0
         let stale = age > engine.staleAfterDays
-        var w = WidgetAnswer(tone: .amber, symbol: "questionmark", title: L("Check the sign"), stale: stale,
+        var w = WidgetAnswer(tone: .amber, symbol: "questionmark", title: AnswerWord.checkSign.title, stale: stale,
                              gatesOn: a.gatesOn, next: a.nextChange, vehicleName: garage.map { PlatePrivacy.displayName($0.vehicle) })
         switch a.verdict.shown(unofficial: zone.isUnofficial) {
         case .no:
-            w.tone = .red; w.symbol = "xmark"; w.title = L(zone.isUnofficial ? "Probably not" : "Don't enter")
+            w.tone = .red; w.symbol = "xmark"; w.title = AnswerWord.dontEnter.title
         case .conditional:
-            w.tone = .amber; w.symbol = "exclamationmark"; w.title = L("On one condition")
+            w.tone = .amber; w.symbol = "exclamationmark"; w.title = AnswerWord.condition.title
         case .unsure:
-            w.tone = .amber; w.symbol = "questionmark"; w.title = L(stale ? "Data to recheck" : "Check the sign")
+            w.tone = .amber; w.symbol = "questionmark"; w.title = AnswerWord.checkSign.title
         case .yes:
-            if a.gatesOn { w.tone = .green; w.symbol = "checkmark"; w.title = L("You can enter") }
-            // 1.20.1: ZTL spenta = verde (puoi entrare), con le parole «ZTL non attiva»; il grigio non si usa più qui
-            else { w.tone = .green; w.symbol = "moon.zzz"; w.title = L("ZTL not active") }
+            // 1.20.1: ZTL spenta = verde (puoi entrare). 1.20.3: il titolo è sempre «Puoi entrare»; «ZTL non attiva» è
+            // la riga sotto del widget (GateLRWidget), come la luna
+            w.tone = .green; w.symbol = a.gatesOn ? "checkmark" : "moon.zzz"; w.title = AnswerWord.enter.title
         }
         return w
     }

@@ -88,8 +88,8 @@ struct GateWidgetView: View {
     private var letter: String { entry.zone?.letter ?? "–" }
     /// Sulla schermata di blocco c'è poco posto: un triangolo davanti se le regole vengono da fonti non ufficiali
     private var warn: String { entry.zone?.isUnofficial == true ? "⚠︎ " : "" }
-    /// 1.19.3: la risposta per il tuo veicolo («Non entrare», «A una condizione», «Controlla il cartello», «Dati da
-    /// ricontrollare», «Puoi entrare», «ZTL non attiva»), non più solo «attiva / non attiva»
+    /// 1.19.3: la risposta per il tuo veicolo, non più solo «attiva / non attiva». 1.20.3: sempre il titolo fisso
+    /// («Non entrare», «A una condizione», «Controlla il cartello», «Puoi entrare»)
     private var state: String { entry.answer?.title ?? (entry.on ? L("ZTL active") : L("ZTL not active")) }
     private var change: String {
         guard let next = entry.next else { return "" }
@@ -162,7 +162,9 @@ struct GateWidgetView: View {
                 Image(systemName: Self.filled(symbol))
                     .font(.system(size: 22, weight: .bold)).foregroundStyle(tint)
                 Text(state).font(.system(size: 22, weight: .bold)).foregroundStyle(tint).minimumScaleFactor(0.6).lineLimit(1)
-                Text(verbatim: [entry.on ? L("ZTL active") : L("ZTL not active"), change].filter { !$0.isEmpty }.joined(separator: " · "))
+                // 1.20.3: sotto il titolo fisso lo stato della ZTL (o «Dati da ricontrollare») e il prossimo cambio
+                Text(verbatim: [entry.answer?.stale == true ? L("Data to recheck") : entry.on ? L("ZTL active") : L("ZTL not active"), change]
+                        .filter { !$0.isEmpty }.joined(separator: " · "))
                     .font(.system(size: 12, weight: .medium)).foregroundStyle(.secondary).lineLimit(1).minimumScaleFactor(0.7)
                 if let v = entry.answer?.vehicleName {
                     Text(verbatim: v).font(.system(size: 11)).foregroundStyle(.secondary).lineLimit(1)

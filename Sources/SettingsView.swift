@@ -230,7 +230,8 @@ struct GatePanel: View {
         .frame(maxWidth: .infinity).padding(.vertical, 12)
         .background(Color(hex: 0x111111), in: RoundedRectangle(cornerRadius: 8))
         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color(hex: 0x555555), lineWidth: 3))
-        .accessibilityLabel(Text(verbatim: on ? "ZTL attiva" : "ZTL non attiva"))
+        // Il disegno resta in italiano, come il pannello vero; VoiceOver lo dice nella lingua del telefono (1.20.3)
+        .accessibilityLabel(Text(verbatim: L(on ? "ZTL active" : "ZTL not active")))
     }
 }
 

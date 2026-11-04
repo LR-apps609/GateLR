@@ -77,7 +77,7 @@ struct DriveView: View {
                      tint: VehicleColor(rawValue: markerColor) ?? .blue,
                      following: $following, overviewToken: overviewToken, routeVersion: drive.routeVersion,
                      maneuver: drive.arrived ? nil : drive.nextManeuverPoint,
-                     maneuverSymbol: Self.symbol(for: drive.nextInstruction ?? ""),
+                     maneuverSymbol: drive.nextSymbol,
                      colorScheme: colorScheme)
             .ignoresSafeArea()
     }
@@ -98,9 +98,9 @@ struct DriveView: View {
             VStack(alignment: .leading, spacing: 10) {
                 // La velocità in un cerchio bianco, numeri blu
                 VStack(spacing: -2) {
-                    Text("\(Int(drive.speed.rounded()))").font(.system(size: 26, weight: .heavy, design: .rounded)).monospacedDigit()
+                    Text(verbatim: Self.speedValue(drive.speed)).font(.system(size: 26, weight: .heavy, design: .rounded)).monospacedDigit()
                         .foregroundStyle(Color(hex: 0x2F6FE4))
-                    Text("km/h").font(.system(size: 10, weight: .semibold)).foregroundStyle(Color(hex: 0x5D6670))
+                    Text(verbatim: Self.speedUnit).font(.system(size: 10, weight: .semibold)).foregroundStyle(Color(hex: 0x5D6670))
                 }
                 .frame(width: 66, height: 66)
                 .background(.white, in: Circle())
@@ -166,7 +166,7 @@ struct DriveView: View {
     private var maneuver: some View {
         VStack(spacing: 0) {
             HStack(spacing: 14) {
-                Image(systemName: Self.symbol(for: drive.arrived ? "" : (drive.nextInstruction ?? "")))
+                Image(systemName: drive.nextSymbol)
                     .font(.app(size: 36, weight: .bold))
                     .frame(width: 58)
                 VStack(alignment: .leading, spacing: 2) {
@@ -186,7 +186,7 @@ struct DriveView: View {
             if let then = drive.thenInstruction, !drive.arrived {
                 HStack(spacing: 8) {
                     Text("Then").font(.app(size: 14, weight: .semibold)).opacity(0.8)
-                    Image(systemName: Self.symbol(for: then)).font(.app(size: 15, weight: .bold))
+                    Image(systemName: drive.thenSymbol).font(.app(size: 15, weight: .bold))
                     Text(then).font(.app(size: 14, weight: .semibold)).lineLimit(1)
                     Spacer()
                 }
@@ -245,8 +245,8 @@ struct DriveView: View {
             Spacer()
             if style != .guide {
                 VStack(spacing: 0) {
-                    Text("\(Int(drive.speed.rounded()))").font(Theme.display(20)).monospacedDigit()
-                    Text("km/h").font(.app(size: 10, weight: .semibold)).foregroundStyle(Theme.muted)
+                    Text(verbatim: Self.speedValue(drive.speed)).font(Theme.display(20)).monospacedDigit()
+                    Text(verbatim: Self.speedUnit).font(.app(size: 10, weight: .semibold)).foregroundStyle(Theme.muted)
                 }
                 .frame(width: 52, height: 52).background(Theme.raised, in: Circle())
                 .accessibilityElement(children: .combine)
@@ -278,6 +278,26 @@ struct DriveView: View {
         .shadow(color: .black.opacity(0.15), radius: 10, y: -2)
     }
 
+    /// 1.20.3: la velocità nell'unità del telefono (km/h, mph), come le distanze: Measurement<UnitSpeed> dal locale.
+    /// Prima «km/h» fisso accanto a piedi e miglia
+    nonisolated static func speed(_ kmh: Double, locale: Locale = .current) -> Measurement<UnitSpeed> {
+        let usesMiles = locale.measurementSystem == .us || locale.measurementSystem == .uk
+        return Measurement(value: max(0, kmh), unit: UnitSpeed.kilometersPerHour).converted(to: usesMiles ? .milesPerHour : .kilometersPerHour)
+    }
+    /// Il numero, senza decimali
+    nonisolated static func speedValue(_ kmh: Double, locale: Locale = .current) -> String {
+        String(Int(speed(kmh, locale: locale).value.rounded()))
+    }
+    /// L'unità abbreviata nella lingua del telefono («km/h», «mph», «公里/小时»)
+    nonisolated static func unitText(locale: Locale = .current) -> String {
+        let f = MeasurementFormatter()
+        f.locale = locale
+        f.unitOptions = .providedUnit
+        f.unitStyle = .short
+        return f.string(from: speed(0, locale: locale).unit)
+    }
+    nonisolated static var speedUnit: String { unitText() }
+
     private var remainingText: String {
         let left: TimeInterval = drive.eta.map { max(0, $0.timeIntervalSinceNow) } ?? 0
         let km: String = Measurement(value: drive.remaining, unit: UnitLength.meters).formatted(.measurement(width: .abbreviated, usage: .road))
@@ -292,18 +312,4 @@ struct DriveView: View {
         .accessibilityLabel(label)
     }
 
-    /// Il simbolo della manovra, dalle parole dell'istruzione (in inglese, italiano e tedesco)
-    nonisolated static func symbol(for instruction: String) -> String {
-        let s = instruction.lowercased()
-        func has(_ words: String...) -> Bool { words.contains { s.contains($0) } }
-        if s.isEmpty { return "flag.checkered" }
-        if has("roundabout", "rotonda", "rotatoria", "kreisverkehr") { return "arrow.triangle.turn.up.right.circle" }
-        if has("u-turn", "inversione", "wenden") { return "arrow.uturn.left" }
-        if has("slight left", "leggermente a sinistra", "leicht links") { return "arrow.up.left" }
-        if has("slight right", "leggermente a destra", "leicht rechts") { return "arrow.up.right" }
-        if has("left", "sinistra", "links") { return "arrow.turn.up.left" }
-        if has("right", "destra", "rechts") { return "arrow.turn.up.right" }
-        if has("arrive", "destinazione", "ziel") { return "flag.checkered" }
-        return "arrow.up"
-    }
 }

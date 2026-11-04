@@ -34,6 +34,61 @@ enum Heading {
     }
 }
 
+/// 1.20.3 «Parole»: la freccia della manovra dalla forma della strada, non dalle parole dell'istruzione. Le istruzioni
+/// arrivano nella lingua del telefono: prima le frecce si capivano solo in inglese, italiano e tedesco (in francese o in
+/// polacco ogni svolta era «dritto»). L'angolo fra la fine del tratto prima e l'inizio del tratto della manovra
+enum Maneuver {
+    /// La svolta all'inizio di «next» venendo da «previous», in gradi tra -180 e 180 (positivo = a destra); nil se i tratti
+    /// sono troppo corti per dirlo
+    static func turn(from previous: [Coordinate], into next: [Coordinate]) -> Double? {
+        guard let a = direction(previous, atEnd: true), let b = direction(next, atEnd: false) else { return nil }
+        return Heading.delta(a, b)
+    }
+
+    /// La direzione di marcia alla fine (o all'inizio) di un tratto, misurata su circa 20 m: i primi metri di una
+    /// polilinea sono spesso storti
+    static func direction(_ path: [Coordinate], atEnd: Bool) -> Double? {
+        let pts = atEnd ? Array(path.reversed()) : path
+        guard let first = pts.first else { return nil }
+        var far: Coordinate?
+        for p in pts.dropFirst() {
+            far = p
+            if meters(first, p) >= 20 { break }
+        }
+        guard let far, meters(first, far) > 2 else { return nil }
+        return atEnd ? Heading.bearing(far, first) : Heading.bearing(first, far)
+    }
+
+    /// Il simbolo SF della freccia: dritto sotto 20°, «leggermente» fino a 60°, svolta fino a 150°, poi inversione
+    static func symbol(turn: Double?) -> String {
+        guard let t = turn else { return "arrow.up" }
+        let left = t < 0
+        switch abs(t) {
+        case ..<20: return "arrow.up"
+        case ..<60: return left ? "arrow.up.left" : "arrow.up.right"
+        case ..<150: return left ? "arrow.turn.up.left" : "arrow.turn.up.right"
+        default: return left ? "arrow.uturn.left" : "arrow.uturn.right"
+        }
+    }
+
+    /// Le frecce di tutti i tratti: il primo dritto, l'ultimo la bandiera dell'arrivo
+    static func symbols(_ paths: [[Coordinate]]) -> [String] {
+        paths.indices.map { i in
+            if i == paths.count - 1 && i > 0 { return arrival }
+            if i == 0 { return "arrow.up" }
+            return symbol(turn: turn(from: paths[i - 1], into: paths[i]))
+        }
+    }
+
+    static let arrival = "flag.checkered"
+
+    private static func meters(_ a: Coordinate, _ b: Coordinate) -> Double {
+        let k = cos(a.lat * .pi / 180)
+        let dx = (b.lon - a.lon) * 111_320 * k, dy = (b.lat - a.lat) * 110_540
+        return (dx * dx + dy * dy).squareRoot()
+    }
+}
+
 /// Il percorso con la distanza dall'inizio già sommata a ogni punto: «quanto manca» costa O(1) e
 /// la posizione si cerca solo nei tratti vicini a quello raggiunto, non su tutta la strada a ogni posizione.
 struct RouteTrack {

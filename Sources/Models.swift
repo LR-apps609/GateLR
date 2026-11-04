@@ -60,7 +60,9 @@ struct City: Codable, Identifiable, Hashable {
     var name: String            // "Florence"
     var name_it: String?
     var name_de: String?
-    var localizedName: String { pick(name, it: name_it, de: name_de) }
+    /// Il nome della città: inglese, italiano o tedesco (nelle altre lingue il nome inglese, come prima: i nomi delle città
+    /// non sono testo da tradurre)
+    var localizedName: String { pick(name, it: name_it, de: name_de, fallback: .english) }
     var center: Coordinate
     var zones: [Zone]
     var status: Status
@@ -85,8 +87,8 @@ struct Zone: Codable, Identifiable, Hashable {
     var summary: String         // il riassunto «In short», con parole nostre
     var summary_it: String?
     var summary_de: String?
-    /// Il riassunto nella lingua del telefono, se c'è
-    var localizedSummary: String { pick(summary, it: summary_it, de: summary_de) }
+    /// Il riassunto nella lingua del telefono, se c'è; nelle altre lingue l'italiano originale e l'inglese (1.20.3)
+    var localizedSummary: String { pick(summary, it: summary_it, de: summary_de, fallback: .italianAndEnglish(long: true)) }
     var perimeter: [Coordinate]
     var gates: [Gate]
     var windows: [TimeWindow]   // quando i varchi sono accesi
@@ -143,10 +145,12 @@ struct Camera: Codable, Hashable, Identifiable {
 /// Rosso: accesso vietato senza permesso · giallo: si entra con il pass · verde: zona a basse emissioni
 enum ZoneKind: String, Codable, CaseIterable {
     case restricted, pass, green
+    /// Il nome del tipo nelle pillole: neutro, non contraddice la risposta (1.20.3: «ZTL», «ZTL con pass», «Zona verde»;
+    /// prima «Accesso vietato» / «Pass necessario» accanto a «Puoi entrare»)
     var title: String {
         switch self {
-        case .restricted: L("No entry")
-        case .pass: L("Pass needed")
+        case .restricted: "ZTL"
+        case .pass: L("ZTL with pass")
         case .green: L("Green zone")
         }
     }
@@ -161,12 +165,41 @@ enum ZoneKind: String, Codable, CaseIterable {
     }
 }
 
-/// Il testo nella lingua del telefono, se c'è; altrimenti l'inglese
-func pick(_ en: String, it: String?, de: String?) -> String {
-    switch Locale.current.language.languageCode?.identifier {
-    case "it": it ?? en
-    case "de": de ?? en
-    default: en
+/// Cosa mostrare quando i dati di una città non hanno la lingua del telefono
+enum DataFallback: Equatable {
+    /// Solo l'inglese (nomi delle città)
+    case english
+    /// 1.20.3 «Parole»: l'italiano originale con l'inglese. «long» = testo lungo (due paragrafi), altrimenti un nome
+    /// («Settore A · Centro storico (Sector A · Historic Centre)»)
+    case italianAndEnglish(long: Bool)
+}
+
+/// La lingua del telefono per i dati delle città (codice ISO: «it», «de», «fr»…)
+var dataLanguage: String { Locale.current.language.languageCode?.identifier ?? "en" }
+
+/// Il testo nella lingua del telefono, se c'è. I dati delle città hanno inglese, italiano e tedesco: in francese,
+/// spagnolo, olandese, polacco e cinese, finché manca la traduzione, l'italiano originale con l'inglese (1.20.3; prima
+/// solo l'inglese). Le traduzioni automatiche dei testi sulle regole non si inventano: meglio l'originale
+func pick(_ en: String, it: String?, de: String?, fallback: DataFallback = .italianAndEnglish(long: false), language: String = dataLanguage) -> String {
+    switch language {
+    case "it": return it ?? en
+    case "de": return de ?? en
+    case "en": return en
+    default:
+        guard case .italianAndEnglish(let long) = fallback, let it, !it.isEmpty, it != en else { return en }
+        return long ? it + "\n\n" + en : it + " (" + en + ")"
+    }
+}
+
+/// Le liste (note, punti da verificare): come pick, voce per voce quando italiano e inglese hanno le stesse voci
+func pickList(_ en: [String], it: [String]?, de: [String]?, language: String = dataLanguage) -> [String] {
+    switch language {
+    case "it": return it ?? en
+    case "de": return de ?? en
+    case "en": return en
+    default:
+        guard let it, it.count == en.count else { return en }
+        return zip(it, en).map { $0 == $1 ? $0 : $0 + "\n" + $1 }
     }
 }
 
@@ -257,7 +290,7 @@ struct Ticket: Codable, Hashable {
     /// Entro quando va attivato: «beforeEntry» (Bologna) o «nextDayMidnight» (Milano Area C)
     var deadline: String? = nil
 
-    var localizedHowTo: String { pick(howTo, it: howTo_it, de: howTo_de) }
+    var localizedHowTo: String { pick(howTo, it: howTo_it, de: howTo_de, fallback: .italianAndEnglish(long: true)) }
 
     var priceText: String { price.formatted(.currency(code: "EUR")) }
 }
@@ -468,13 +501,7 @@ extension Source {
         default: quoteTranslation
         }
     }
-    var localizedPending: [String] {
-        switch Locale.current.language.languageCode?.identifier {
-        case "it": pending_it ?? pending
-        case "de": pending_de ?? pending
-        default: pending
-        }
-    }
+    var localizedPending: [String] { pickList(pending, it: pending_it, de: pending_de) }
 }
 
 struct SourceLink: Codable, Hashable {
@@ -648,13 +675,7 @@ struct FineInfo: Codable {
     var notes_de: [String]?
     var status: String?
 
-    var localizedNotes: [String] {
-        switch Locale.current.language.languageCode?.identifier {
-        case "it": notes_it ?? notes
-        case "de": notes_de ?? notes
-        default: notes
-        }
-    }
+    var localizedNotes: [String] { pickList(notes, it: notes_it, de: notes_de) }
 
     static let bundled: FineInfo? = {
         guard let url = Bundle.main.url(forResource: "fine", withExtension: "json", subdirectory: "Rules"),
@@ -666,11 +687,14 @@ struct FineInfo: Codable {
 extension Zone {
     /// «B» da «Sector B · Historic Centre»
     var letter: String { name.split(separator: "·").first.map { String($0.split(separator: " ").last ?? "") } ?? "" }
+    /// Il nome da spezzare in «Settore B» e «Centro storico»: senza la traduzione in parentesi delle lingue che i dati
+    /// non hanno (1.20.3), dove vale il nome italiano, quello dei cartelli
+    private var partsName: String { pick(name, it: name_it, de: name_de, fallback: .english, language: ["en", "it", "de"].contains(dataLanguage) ? dataLanguage : "it") }
     /// «Centro storico» da «Settore B · Centro storico»
-    var place: String { localizedName.split(separator: "·").dropFirst().joined(separator: "·").trimmingCharacters(in: .whitespaces) }
+    var place: String { partsName.split(separator: "·").dropFirst().joined(separator: "·").trimmingCharacters(in: .whitespaces) }
     /// «Settore B», «Area C», «Zona T»
     var shortName: String {
-        localizedName.split(separator: "·").first.map { $0.trimmingCharacters(in: .whitespaces) } ?? localizedName
+        partsName.split(separator: "·").first.map { $0.trimmingCharacters(in: .whitespaces) } ?? partsName
     }
 
     /// «ZTL · Settore A», «ZTL a pagamento · Area C», «ZTL A» (se il nome dice già ZTL non si ripete)

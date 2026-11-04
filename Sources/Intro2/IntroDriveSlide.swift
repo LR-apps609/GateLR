@@ -3,12 +3,12 @@ import Network
 import SwiftUI
 
 /// Prima pagina, «il problema e la soluzione», con la stessa inquadratura di Firenze per tutti i passi:
-/// 1. Di giorno (martedì 11:30, mappa chiara), «La strada più diretta»: il pannello dice VARCO ATTIVO dal primo
+/// 1. Di giorno (martedì 11:30, mappa chiara), «La strada più diretta»: il pannello dice ZTL ATTIVA dal primo
 ///    fotogramma, la freccia va dritta al ristorante dentro la ZTL dal varco di via Alfieri, lampo e verbale.
 ///    «Evita multe con GateLR»
 /// 2. Ancora di giorno, «Con GateLR»: intorno lungo i viali fino al parcheggio che sceglierebbe l'app, fuori dalla ZTL;
 ///    «Adesso una passeggiata…» fa comparire le impronte fino al ristorante (stessa pagina), poi «E se entro la sera?»
-/// 3. La sera (martedì 21:00, mappa notte): la ZTL diventa verde, il pannello dice VARCO NON ATTIVO, la freccia entra
+/// 3. La sera (martedì 21:00, mappa notte): la ZTL diventa verde, il pannello dice ZTL NON ATTIVA, la freccia entra
 ///    dritta fino al ristorante senza multa; al posto del verbale la scheda «Alle 21:00 il varco è spento…».
 /// Giorno e ora sono veri per il Settore A (RuleEngine, Resources/Cities/firenze.json): vedi IntroScene.dayMoment.
 @MainActor final class IntroDrive: ObservableObject {
@@ -16,7 +16,7 @@ import SwiftUI
     enum Phase { case waiting, moving, done }
     @Published private(set) var step: Step = .direct
     @Published private(set) var phase: Phase = .waiting
-    /// VARCO ATTIVO fin dal primo fotogramma: di giorno il varco è acceso, prima ancora che la freccia arrivi
+    /// ZTL ATTIVA fin dal primo fotogramma: di giorno il varco è acceso, prima ancora che la freccia arrivi
     @Published var panel: LEDState = .active
     @Published var flash = 0.0
     @Published var showFine = false

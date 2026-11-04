@@ -141,18 +141,20 @@ final class TestModeTests: XCTestCase {
         XCTAssertTrue(r.subject.contains("Firenze") && r.subject.contains("Settore A"))
         let body = r.body
         XCTAssertTrue(body.contains("Il varco è 50 m più avanti\n"), "la nota senza spazi intorno")
-        XCTAssertTrue(body.contains("What: gate"))
-        XCTAssertTrue(body.contains("(firenze-a)"))
-        XCTAssertTrue(body.contains("Date/time: 2026-10-28 10:00 (Europe/Rome) · chosen"))
-        XCTAssertTrue(body.contains("Vehicle: Fiat 500 · Petrol · Euro 6"))
-        XCTAssertTrue(body.contains("App: 1.17.0 (41)"))
-        XCTAssertFalse(body.contains("Test zone"))
+        // 1.20.3: righe nella lingua del telefono, gli identificativi nell'ultima riga «Rif.: …»
+        XCTAssertTrue(body.contains(String(format: L("What: %@"), L("Gate"))))
+        XCTAssertTrue(body.contains(String(format: L("Zone: %@"), "Settore A · Centro storico")))
+        XCTAssertTrue(body.contains(String(format: L("Date and time: %@"), "2026-10-28 10:00 " + L("(Italian time)") + " · " + L("chosen time"))))
+        XCTAssertTrue(body.contains(String(format: L("Vehicle: %@"), "Fiat 500 · Petrol · Euro 6")))
+        XCTAssertTrue(body.hasSuffix(String(format: L("Ref.: %@"), "gate · firenze · firenze-a · 1.17.0 (41)")))
+        XCTAssertFalse(body.contains("What: gate"), "niente più righe tecniche in inglese")
+        XCTAssertFalse(body.contains(L("Test zone (test mode)")))
     }
 
     func testReportPositionOnlyWhenTicked() {
-        XCTAssertFalse(report().body.contains("Position"), "senza «Allega posizione» niente coordinate")
+        XCTAssertFalse(report().body.contains("43."), "senza «Allega posizione» niente coordinate")
         let r = report(location: Coordinate(lat: 43.771234, lon: 11.255678))
-        XCTAssertTrue(r.body.contains("Position: 43.77123, 11.25568"))
+        XCTAssertTrue(r.body.contains(String(format: L("Position: %@"), "43.77123, 11.25568")))
     }
 
     func testReportVehicleLineHasNoPlate() {

@@ -55,38 +55,21 @@ struct Home2Answer: Equatable {
         unofficial = check.unofficial
         unofficialSource = check.unofficial ? check.zone?.source.unofficialSource : nil
         let gatesOn = check.answer?.gatesOn ?? false
-        // Prima in variabili locali: il pannello si fa dal colore, prima che la struttura sia tutta pronta
-        let m: Mood, h: String
+        // Prima in variabili locali: il pannello si fa dal colore. 1.20.3 «Parole»: il titolo è sempre il titolo fisso
+        // (AnswerWord: «Non entrare», «Puoi entrare», «A una condizione», «Controlla il cartello», «Non conosciamo questo
+        // posto»); «Probabilmente sì», «Area pedonale»… sono la frase sotto. Prima «Entra pure.», «Arrivo sereno.»
+        let m: Mood
         switch check.kind {
-        case .closed:
-            m = .red; h = L("Don't enter.")
-        case .open:
-            // Fonte non ufficiale: mai verde (1.19.0). Giallo con il «?», «Probabilmente sì · fonte non ufficiale: controlla il cartello»
-            m = check.hedged ? .amber : .green; h = L("Drive in.")
-        case .outside:
-            m = .green; h = L("Easy arrival.")
-        case .uncovered:
-            m = .neutral; h = L("We don't know this place.")
-        case .conditional:
-            m = .amber; h = L("You can enter, on one condition:")
-        case .unsure:
-            m = .amber; h = L("Check the sign.")
-        case .pedestrian:
-            m = .red; h = L("Pedestrian area.")
+        case .closed, .pedestrian: m = .red
+        // Fonte non ufficiale: mai verde (1.19.0). Giallo con il «?»
+        case .open: m = check.hedged ? .amber : .green
+        case .outside: m = .green
+        case .uncovered: m = .neutral
+        case .conditional, .unsure: m = .amber
         }
-        mood = m; headline = h
+        mood = m; headline = check.word.title
         panel = GatePanelState.make(kind: check.kind, gatesOn: gatesOn, mood: m)
-        switch check.answer?.verdict {
-        case .conditional(_, let condition)? where check.kind == .conditional: detail = condition
-        case .unsure(let reason)? where check.kind == .unsure: detail = reason
-        default: detail = nil
-        }
-        if check.kind == .uncovered { detail = L("We don't know the ZTLs of this place. Check the signs at the entrance.") }
-        // Fonte non ufficiale: parole più prudenti; il «sì» anche giallo, con l'invito a guardare il cartello
-        if unofficial {
-            if check.kind == .closed { headline = L("Probably not.") }
-            if check.kind == .open { headline = L("Probably yes."); detail = L("Unofficial source: check the sign.") }
-        }
+        detail = check.explanation
         if check.kind == .pedestrian {
             timeLabel = L("At any time"); time = nil
         } else if let answer = check.answer, let next = answer.nextChange {

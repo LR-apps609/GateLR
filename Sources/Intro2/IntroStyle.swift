@@ -106,7 +106,7 @@ struct IntroButton: View {
     }
 }
 
-// MARK: Pannello «VARCO»
+// MARK: Pannello «ZTL ATTIVA»
 
 /// Uno stato del pannello: testo (quello vero del cartello, in italiano) e luce
 struct LEDState: Equatable {
@@ -124,10 +124,12 @@ struct LEDState: Equatable {
         }
     }
 
-    static let idle = LEDState(text: "VARCO", light: .red, dim: true)
-    static let active = LEDState(text: "VARCO ATTIVO", light: .red)
-    static let soon = LEDState(text: "ATTIVO TRA 15'", light: .amber)
-    static let off = LEDState(text: "VARCO NON ATTIVO", light: .green)
+    // 1.20.3: la dicitura ufficiale dei pannelli (linee guida MIT 2019, docs/parole.md): «ZTL ATTIVA / ZTL NON ATTIVA»,
+    // come il pannello di Varco; «Varco attivo» è la dicitura vecchia, spiegata in «Impara la ZTL»
+    static let idle = LEDState(text: "ZTL", light: .red, dim: true)
+    static let active = LEDState(text: "ZTL ATTIVA", light: .red)
+    static let soon = LEDState(text: "ATTIVA TRA 15'", light: .amber)
+    static let off = LEDState(text: "ZTL NON ATTIVA", light: .green)
     static var noFine: LEDState { LEDState(text: L("NO FINE"), light: .green) }
 }
 

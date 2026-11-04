@@ -50,7 +50,7 @@ final class NeverGreenTests: XCTestCase {
         XCTAssertEqual(c.kind, .closed)
         XCTAssertEqual(c.zone?.id, "firenze-scudo-verde", "la zona che decide si vede")
         let a = Home2Answer(c, now: date(2026, 11, 3, 21))
-        XCTAssertEqual(a.headline, L("Don't enter."))
+        XCTAssertEqual(a.headline, L("Don't enter"))
         XCTAssertEqual(a.mood, .red)
         XCTAssertEqual(a.panel.lines, ["ZTL", "ATTIVA"], "lo Scudo Verde è acceso")
         // La stessa auto Euro 6 entra: decide il Settore A (spento), come prima
@@ -102,8 +102,8 @@ final class NeverGreenTests: XCTestCase {
         XCTAssertEqual(c.symbol, "questionmark")
         let a = Home2Answer(c, now: Date())
         XCTAssertEqual(a.mood, .neutral)
-        XCTAssertNotEqual(a.headline, L("Easy arrival."))
-        XCTAssertEqual(a.headline, L("We don't know this place."))
+        XCTAssertNotEqual(a.headline, L("You can enter"))
+        XCTAssertEqual(a.headline, L("We don't know this place"))
         XCTAssertEqual(a.panel.lines, ["ZONA", "NON COPERTA"])
         XCTAssertEqual(a.panel.mood, .neutral)
     }
@@ -141,13 +141,13 @@ final class NeverGreenTests: XCTestCase {
         let a = Home2Answer(c, now: date(2026, 11, 3, 21))
         XCTAssertEqual(a.mood, .amber)
         XCTAssertEqual(a.panel.mood, .amber)
-        XCTAssertEqual(a.headline, L("Probably yes."))
-        XCTAssertEqual(a.detail, L("Unofficial source: check the sign."))
+        XCTAssertEqual(a.headline, L("Check the sign"))
+        XCTAssertEqual(a.detail, L("Probably yes · unofficial source"))
         // Il motore non cambia: la risposta è sì, si MOSTRA come «non sicuro»
         let yes = Verdict.yes(reason: "r")
         guard case .unsure = yes.shown(unofficial: true) else { return XCTFail("atteso non sicuro") }
         XCTAssertEqual(yes.shown(unofficial: false), yes)
-        XCTAssertEqual(yes.spokenText(unofficial: true), L("Probably yes · unofficial source: check the sign"))
+        XCTAssertEqual(yes.spokenText(unofficial: true), L("Check the sign") + " · " + L("Probably yes · unofficial source"))
         XCTAssertEqual(yes.spokenText(unofficial: false), yes.short)
         XCTAssertEqual(yes.shown(unofficial: true).symbol, "questionmark")
         // Il guardiano avvisa anche per un «sì» non ufficiale (prima lo saltava come via libera)

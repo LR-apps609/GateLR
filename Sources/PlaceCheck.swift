@@ -148,20 +148,38 @@ struct PlaceCheck {
     /// Le regole della zona vengono solo da fonti non ufficiali: la risposta si dice con prudenza
     var unofficial: Bool { pedestrian == nil && zone?.isUnofficial == true }
 
-    /// La scritta del riquadro sulla mappa (in maiuscolo dove si mostra)
-    var callout: String {
-        if unofficial, kind == .open { return L("Probably yes") }
-        if unofficial, kind == .closed { return L("Probably not") }
+    /// 1.20.3 «Parole»: il titolo fisso della risposta per il posto (lo stesso in Varco, Mappa e Viaggio). Area pedonale
+    /// «Non entrare», fuori dalle zone di una città che conosciamo «Puoi entrare», fuori copertura «Non conosciamo questo
+    /// posto», un «sì» da fonte non ufficiale «Controlla il cartello»
+    var word: AnswerWord {
         switch kind {
-        case .uncovered: return L("We don't know this place")
-        case .outside: return L("Outside the ZTL")
-        case .pedestrian: return L("Pedestrian area · don't enter")
-        case .closed: return L("ZTL active · don't enter")
-        case .open: return answer?.gatesOn == true ? L("You can enter") : L("ZTL off · you can enter")
-        case .conditional: return L("On one condition")
-        case .unsure: return L("Not sure")
+        case .uncovered: return .unknownPlace
+        case .outside: return .enter
+        case .closed, .pedestrian: return .dontEnter
+        case .open: return hedged ? .checkSign : .enter
+        case .conditional: return .condition
+        case .unsure: return .checkSign
         }
     }
+
+    /// La frase sotto il titolo (mai titolo): la condizione, il motivo del dubbio, «Probabilmente sì · fonte non ufficiale»
+    var explanation: String? {
+        switch kind {
+        case .uncovered: return L("We don't know the ZTLs of this place. Check the signs at the entrance.")
+        case .conditional:
+            if case .conditional(_, let condition)? = answer?.verdict { return condition }
+            return nil
+        case .unsure:
+            if case .unsure(let reason)? = answer?.verdict { return reason }
+            return nil
+        case .open, .closed: return unofficial ? answer?.verdict.unofficialNote(unofficial: true) : nil
+        case .outside, .pedestrian: return nil
+        }
+    }
+
+    /// La scritta del riquadro sulla mappa (in maiuscolo dove si mostra): il titolo fisso (1.20.3; prima «ZTL attiva ·
+    /// non entrare», «Probabilmente sì»…). Lo stato dei varchi è nella riga sotto («Attiva fino alle 20:00»)
+    var callout: String { word.title }
 
     /// «Attiva fino alle 20:00», «Spenta fino alle 7:30», «Sempre» per le aree pedonali
     var until: String? {

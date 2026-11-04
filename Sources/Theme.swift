@@ -89,50 +89,23 @@ extension Verdict {
         case .unsure: "questionmark"
         }
     }
-    /// Il titolo spezzato a mano in righe: Titillium ha un'interlinea ampia, così le righe stanno strette
-    var titleLines: [String] {
-        switch self {
-        case .yes: L("Yes, you can|enter").components(separatedBy: "|")
-        case .no: L("No, don't|enter").components(separatedBy: "|")
-        case .conditional: L("You can enter,|on one condition").components(separatedBy: "|")
-        case .unsure: [L("Not sure")]
-        }
-    }
-    /// Versione breve per pillole e liste
-    var short: String {
-        switch self {
-        case .yes: L("You can enter")
-        case .no: L("Don't enter")
-        case .conditional: L("On one condition")
-        case .unsure: L("Not sure")
-        }
-    }
-    /// La versione breve detta con prudenza quando le regole vengono da fonti non ufficiali: «Probabilmente sì/no».
-    /// Solo le parole: la risposta (sì, no, con condizioni, non sicuro) resta quella del motore
-    func shortText(unofficial: Bool) -> String {
-        guard unofficial else { return short }
-        switch self {
-        case .yes: return L("Probably yes")
-        case .no: return L("Probably not")
-        case .conditional, .unsure: return short
-        }
-    }
-    /// La frase breve da dire o scrivere da sola (Siri, Live Activity, avvisi): un «sì» da fonte non ufficiale
-    /// diventa «Probabilmente sì · fonte non ufficiale: controlla il cartello» (1.19.0, mai un verde che non sappiamo)
+    /// Il titolo spezzato a mano in righe: Titillium ha un'interlinea ampia, così le righe stanno strette (1.20.3: il
+    /// titolo fisso di AnswerWord, «Non|entrare», «Puoi|entrare», «A una|condizione», «Controlla il|cartello»)
+    var titleLines: [String] { word(unofficial: false).lines }
+    /// Versione breve per pillole e liste: lo stesso titolo fisso (1.20.3)
+    var short: String { word(unofficial: false).title }
+    /// Il titolo fisso detto con prudenza quando le regole vengono da fonti non ufficiali (1.20.3): un «sì» diventa
+    /// «Controlla il cartello»; «Probabilmente sì/no» è solo la spiegazione (unofficialNote)
+    func shortText(unofficial: Bool) -> String { word(unofficial: unofficial).title }
+    /// La frase breve da dire o scrivere da sola (Siri, Live Activity, avvisi): il titolo fisso e, da fonte non ufficiale,
+    /// la spiegazione («Controlla il cartello · Probabilmente sì · fonte non ufficiale»)
     func spokenText(unofficial: Bool) -> String {
-        guard unofficial else { return short }
-        if case .yes = self { return L("Probably yes · unofficial source: check the sign") }
-        return shortText(unofficial: true) + " · " + L("Unofficial source")
+        let title = word(unofficial: unofficial).title
+        guard let note = unofficialNote(unofficial: unofficial) else { return title }
+        return title + " · " + note
     }
     /// Il titolo in righe, con prudenza se la fonte non è ufficiale
-    func titleLines(unofficial: Bool) -> [String] {
-        guard unofficial else { return titleLines }
-        switch self {
-        case .yes: return [L("Probably yes.")]
-        case .no: return [L("Probably not.")]
-        case .conditional, .unsure: return titleLines
-        }
-    }
+    func titleLines(unofficial: Bool) -> [String] { word(unofficial: unofficial).lines }
     var pillFill: Color {
         switch self {
         case .yes: Theme.greenSoft

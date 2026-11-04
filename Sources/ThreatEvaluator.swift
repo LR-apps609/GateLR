@@ -102,14 +102,11 @@ enum ThreatEvaluator {
         return v.spokenText(unofficial: c.unofficial)
     }
 
-    /// Il titolo dell'avviso dalle parole della risposta. nil = verde: non si avvisa
+    /// Il titolo dell'avviso: il titolo fisso della risposta e il nome della zona (1.20.3: «Non entrare · Settore A»,
+    /// «A una condizione · …», «Controlla il cartello · …»; prima «Probabilmente no · …», «? Controlla…»). nil = verde
     static func title(shown: Verdict, candidate c: ThreatCandidate) -> String? {
-        switch shown {
-        case .yes: return nil
-        case .no: return String(format: L(c.unofficial ? "Probably not · %@" : "Don't enter · %@"), c.name)
-        case .conditional: return String(format: L("You can enter on one condition: %@"), c.name)
-        case .unsure: return String(format: L("? Check the sign · %@"), c.name)
-        }
+        if shown.isYes { return nil }
+        return shown.word(unofficial: false).title + " · " + c.name
     }
 
     /// «Tra 400 m. Puoi entrare solo con il biglietto… Tocca per i parcheggi fuori.»

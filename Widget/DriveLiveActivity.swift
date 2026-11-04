@@ -37,12 +37,15 @@ struct DriveLiveActivity: Widget {
         }
     }
 
-    /// Accanto allo scudo, senza distanza: «–» se non c'è niente davanti, «?» se non conosciamo il posto (mai «OK» verde)
+    /// Accanto allo scudo, senza distanza: un segno uguale in ogni lingua (1.20.3: prima «OK» fisso in inglese, anche
+    /// accanto al rosso). «✕» non entrare, «!» condizione, «✓» puoi entrare, «–» niente davanti, «?» non conosciamo il posto
     static func idleMark(_ s: DriveAttributes.ContentState) -> String {
         switch s.level {
+        case "no": return "✕"
+        case "cond": return "!"
+        case "ok": return "✓"
         case "none": return "?"
-        case "clear": return "–"
-        default: return "OK"
+        default: return "–"
         }
     }
 

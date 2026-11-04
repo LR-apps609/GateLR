@@ -153,7 +153,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     /// «Non conosciamo le ZTL di questo posto» (neutro, scudo vuoto). Mai verde per una cosa che non sappiamo
     nonisolated static func state(threat: Threat?, resting: ThreatResting) -> DriveAttributes.ContentState {
         if let t = threat {
-            // Fonte non ufficiale: «Probabilmente no · Fonte non ufficiale», «Probabilmente sì · fonte non ufficiale: controlla il cartello»
+            // Il titolo fisso e, da fonte non ufficiale, la spiegazione: «Controlla il cartello · Probabilmente sì · fonte non ufficiale» (1.20.3)
             let short = t.spoken
             let name = t.candidate.pedestrian != nil ? t.zone.localizedName : t.zone.shortName
             return DriveAttributes.ContentState(symbol: t.candidate.pedestrian != nil ? "figure.walk" : t.zone.type.symbol,

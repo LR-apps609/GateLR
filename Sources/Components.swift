@@ -80,7 +80,7 @@ struct Pill: View {
 /// La risposta in breve, con il simbolo (✓ ✕ ! ?) oltre al colore: si legge anche senza distinguere i colori
 struct VerdictPill: View {
     var verdict: Verdict
-    /// Regole da fonti non ufficiali: «Probabilmente sì/no»
+    /// Regole da fonti non ufficiali: il titolo fisso detto con prudenza (un «sì» diventa «Controlla il cartello»)
     var unofficial = false
     var body: some View {
         // 1.19.0: un «sì» da fonte non ufficiale è giallo con il «?», mai verde
@@ -129,7 +129,7 @@ struct VerdictCard: View {
                     }
                 }
                 .accessibilityElement(children: .ignore)
-                .accessibilityLabel(source.isOfficial ? words.title : words.titleLines(unofficial: true).joined(separator: " "))
+                .accessibilityLabel(words.word(unofficial: !source.isOfficial).title)
                 .accessibilityAddTraits(.isHeader)
             }
             Text(detail).font(.app(size: 16)).fixedSize(horizontal: false, vertical: true)

@@ -319,7 +319,7 @@ struct StartControls: View {
                 Button(L("Just this time")) { askDefault = nil; onGuardian(target, n) }
             }
         } message: {
-            Text("You can change it in Account → Preferred navigator.")
+            Text("You can change it in You → Preferred navigator.")
         }
     }
 }
