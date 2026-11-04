@@ -893,9 +893,10 @@
 "Read from official sources on %@." = "Gelezen uit officiële bronnen op %@.";
 "Read from a non-official source on %@." = "Gelezen uit een onofficiële bron op %@.";
 "Verified by a person on %@." = "Op %@ door een persoon gecontroleerd.";
-"The city's page has changed since it was verified: check the sign." = "De pagina van de gemeente is gewijzigd sinds de controle: kijk naar het bord.";
+"The city's page has changed since we last read or verified it: check the sign." = "De pagina van de gemeente is gewijzigd sinds de laatste keer lezen of controleren: kijk naar het bord.";
 "Verified on %@, more than %lld days ago: check the sign." = "Gecontroleerd op %@, meer dan %lld dagen geleden: kijk naar het bord.";
 "Not signed: kept your data" = "Niet ondertekend: je gegevens blijven";
 "Not verified" = "Niet gecontroleerd";
 "City page changed" = "Pagina van de gemeente gewijzigd";
 "Only updates signed by GateLR are used; otherwise the app keeps the data it has." = "Alleen updates die door GateLR zijn ondertekend worden gebruikt; anders houdt de app haar gegevens.";
+"Not verified by a person yet." = "Nog niet door een persoon gecontroleerd.";

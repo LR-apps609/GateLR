@@ -893,9 +893,10 @@
 "Read from official sources on %@." = "Odczytano z oficjalnych źródeł %@.";
 "Read from a non-official source on %@." = "Odczytano z nieoficjalnego źródła %@.";
 "Verified by a person on %@." = "Zweryfikowane przez człowieka %@.";
-"The city's page has changed since it was verified: check the sign." = "Strona gminy zmieniła się od weryfikacji: sprawdź znak.";
+"The city's page has changed since we last read or verified it: check the sign." = "Strona gminy zmieniła się od ostatniego odczytu lub weryfikacji: sprawdź znak.";
 "Verified on %@, more than %lld days ago: check the sign." = "Zweryfikowano %@, ponad %lld dni temu: sprawdź znak.";
 "Not signed: kept your data" = "Bez podpisu: zostają twoje dane";
 "Not verified" = "Niezweryfikowane";
 "City page changed" = "Strona gminy zmieniona";
 "Only updates signed by GateLR are used; otherwise the app keeps the data it has." = "Używane są tylko aktualizacje podpisane przez GateLR; w przeciwnym razie aplikacja zachowuje swoje dane.";
+"Not verified by a person yet." = "Jeszcze niezweryfikowane przez człowieka.";

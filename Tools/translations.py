@@ -799,12 +799,13 @@ T = {
 'Read from official sources on %@.': ('Letto dalle fonti ufficiali il %@.', 'Am %@ aus offiziellen Quellen gelesen.'),
 'Read from a non-official source on %@.': ('Letto da una fonte non ufficiale il %@.', 'Am %@ aus einer inoffiziellen Quelle gelesen.'),
 'Verified by a person on %@.': ('Verificato da una persona il %@.', 'Am %@ von einer Person geprüft.'),
-"The city's page has changed since it was verified: check the sign.": ('La pagina del Comune è cambiata dopo la verifica: controlla il cartello.', 'Die Seite der Stadt hat sich seit der Prüfung geändert: schau aufs Schild.'),
+"The city's page has changed since we last read or verified it: check the sign.": ("La pagina del Comune è cambiata dall'ultima lettura o verifica: controlla il cartello.", 'Die Seite der Stadt hat sich seit dem letzten Lesen oder Prüfen geändert: schau aufs Schild.'),
 'Verified on %@, more than %lld days ago: check the sign.': ('Verificato il %@, più di %lld giorni fa: controlla il cartello.', 'Geprüft am %@, vor mehr als %lld Tagen: schau aufs Schild.'),
 'Not signed: kept your data': ('Non firmati: restano i tuoi dati', 'Nicht signiert: deine Daten bleiben'),
 'Not verified': ('Non verificato', 'Nicht geprüft'),
 'City page changed': ('Pagina del Comune cambiata', 'Seite der Stadt geändert'),
 'Only updates signed by GateLR are used; otherwise the app keeps the data it has.': ("Si usano solo gli aggiornamenti firmati da GateLR; altrimenti l'app tiene i dati che ha.", 'Es werden nur von GateLR signierte Updates verwendet; sonst behält die App ihre Daten.'),
+'Not verified by a person yet.': ('Non ancora verificato da una persona.', 'Noch nicht von einer Person geprüft.'),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

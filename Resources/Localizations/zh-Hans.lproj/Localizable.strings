@@ -893,9 +893,10 @@
 "Read from official sources on %@." = "于 %@ 从官方来源读取。";
 "Read from a non-official source on %@." = "于 %@ 从非官方来源读取。";
 "Verified by a person on %@." = "于 %@ 由人工核实。";
-"The city's page has changed since it was verified: check the sign." = "核实后市政府页面已更改：请看路牌。";
+"The city's page has changed since we last read or verified it: check the sign." = "自上次读取或核实以来，市政府页面已更改：请看路牌。";
 "Verified on %@, more than %lld days ago: check the sign." = "核实于 %@，已超过 %lld 天：请看路牌。";
 "Not signed: kept your data" = "未签名：保留现有数据";
 "Not verified" = "未核实";
 "City page changed" = "市政府页面已更改";
 "Only updates signed by GateLR are used; otherwise the app keeps the data it has." = "仅使用 GateLR 签名的更新；否则应用保留现有数据。";
+"Not verified by a person yet." = "尚未经人工核实。";
