@@ -101,8 +101,9 @@ fun ZoneDetail(z: Zone) {
                 }
                 // 1.20.1 «Dati»: «letto il» (quando abbiamo letto le pagine) e «verificato il» (una persona ha confermato la regola)
                 Text(F("Read %@", shortDate(z.source.checkedOn)), fontSize = 12.sp, color = muted)
-                Text(verifiedText(z), fontSize = 12.sp, color = if (AppState.engine.trust(z) == DataTrust.VERIFIED) muted else MaterialTheme.colorScheme.onSurface,
-                    fontWeight = if (AppState.engine.trust(z) == DataTrust.VERIFIED) FontWeight.Normal else FontWeight.SemiBold)
+                val calm = AppState.engine.trust(z).let { it == DataTrust.VERIFIED || it == DataTrust.READ }
+                Text(verifiedText(z), fontSize = 12.sp, color = if (calm) muted else MaterialTheme.colorScheme.onSurface,
+                    fontWeight = if (calm) FontWeight.Normal else FontWeight.SemiBold)
                 Text(L("Official page") + " ›", color = MaterialTheme.colorScheme.primary, modifier = Modifier.clickable { open(z.source.pageURL) })
                 z.source.ordinanceURL?.let { u -> Text((z.source.ordinance ?: L("Ordinance")) + " ›", color = MaterialTheme.colorScheme.primary, modifier = Modifier.clickable { open(u) }) }
                 z.source.links.forEach { l -> Text(l.localizedTitle + " ›", color = MaterialTheme.colorScheme.primary, modifier = Modifier.clickable { open(l.url) }) }
@@ -120,6 +121,7 @@ fun ZoneDetail(z: Zone) {
 fun verifiedText(z: Zone): String = when (AppState.engine.trust(z)) {
     DataTrust.PAGE_CHANGED -> L("The city's page has changed: check the sign.")
     DataTrust.UNVERIFIED -> L("Not verified yet: check the sign.")
+    DataTrust.READ -> L("Not verified by a person yet.")
     DataTrust.OLD -> z.source.verifiedOn?.let { F("Verified %@", shortDate(it)) + " · " + F("Last verified more than %lld days ago: check the sign.", AppState.engine.staleAfterDays) } ?: L("Not verified yet: check the sign.")
     DataTrust.VERIFIED -> F("Verified %@", shortDate(z.source.verifiedOn ?: ""))
 }

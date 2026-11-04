@@ -92,7 +92,7 @@ fun AccountScreen(modifier: Modifier) {
                     AppState.cities.forEach { c ->
                         // 1.20.1 «Dati»: «letto il» (la lettura più vecchia della città) e se tutte le zone sono verificate
                         val read = c.zones.minOfOrNull { it.source.checkedOn }?.let(::shortDate) ?: ""
-                        val weakest = c.zones.minByOrNull { if (AppState.engine.trust(it) == app.gatelr.core.DataTrust.VERIFIED) 1 else 0 }
+                        val weakest = c.zones.minByOrNull { when (AppState.engine.trust(it)) { app.gatelr.core.DataTrust.VERIFIED -> 2; app.gatelr.core.DataTrust.READ -> 1; else -> 0 } }
                         Text("${c.localizedName} · ${F("Read %@", read)}" + (weakest?.let { " · " + verifiedText(it) } ?: ""), fontSize = 14.sp)
                     }
                     Text(L("Road signs on site always win over the app."), fontSize = 12.sp, color = muted)

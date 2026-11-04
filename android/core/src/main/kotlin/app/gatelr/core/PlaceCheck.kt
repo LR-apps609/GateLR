@@ -4,7 +4,7 @@ import java.time.Instant
 
 /** I colori delle risposte di GateLR: rosso non entrare, giallo a una condizione o da verificare («?»), verde puoi entrare,
  *  grigio ZTL non attiva, neutro un posto che non conosciamo (mai verde) */
-enum class AnswerColor { RED, YELLOW, GREEN, GREY, NEUTRAL }
+enum class AnswerColor { RED, YELLOW, GREEN, NEUTRAL }
 
 /**
  * 1.20.0 «Motore unico»: la risposta per un posto come PlaceCheck dell'iPhone (Sources/PlaceCheck.swift).
@@ -75,13 +75,13 @@ class PlaceCheck(
             val sample = status == City.Status.SAMPLE
             val c = when {
                 a.verdict is Verdict.Unsure -> AnswerColor.YELLOW
-                !a.gatesOn -> if (sample) AnswerColor.YELLOW else AnswerColor.GREY
+                !a.gatesOn -> if (sample) AnswerColor.YELLOW else AnswerColor.GREEN      // 1.20.1: ZTL spenta = verde
                 a.verdict is Verdict.No -> AnswerColor.RED
                 sample -> AnswerColor.YELLOW
                 a.verdict is Verdict.Conditional -> AnswerColor.YELLOW
                 else -> AnswerColor.GREEN
             }
-            return if (zone.isUnofficial && (c == AnswerColor.GREEN || c == AnswerColor.GREY)) AnswerColor.YELLOW else c
+            return if (zone.isUnofficial && c == AnswerColor.GREEN) AnswerColor.YELLOW else c
         }
 
         /** La zona con la risposta peggiore (come si mostra); a parità la prima, cioè la più piccola */

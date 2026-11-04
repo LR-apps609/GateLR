@@ -41,7 +41,7 @@ class SharedEngineCasesTest {
     )
 
     private fun trustName(t: DataTrust) = when (t) {
-        DataTrust.VERIFIED -> "verified"; DataTrust.UNVERIFIED -> "unverified"; DataTrust.OLD -> "old"; DataTrust.PAGE_CHANGED -> "pageChanged"
+        DataTrust.VERIFIED -> "verified"; DataTrust.READ -> "read"; DataTrust.UNVERIFIED -> "unverified"; DataTrust.OLD -> "old"; DataTrust.PAGE_CHANGED -> "pageChanged"
     }
 
     private fun name(v: Verdict) = when (v) { is Verdict.Yes -> "yes"; is Verdict.No -> "no"; is Verdict.Conditional -> "conditional"; is Verdict.Unsure -> "unsure" }
@@ -51,7 +51,6 @@ class SharedEngineCasesTest {
         assertTrue(cities.any { it.id == "salerno" } && cities.any { it.id == "cagliari" }, "anche le città da fonti non ufficiali")
         val vehicles = file["vehicles"]!!.jsonObject
         val defaultNow = OffsetDateTime.parse(file["now"]!!.jsonPrimitive.content).toInstant()
-        val assume = file["assumeVerifiedOn"]?.jsonPrimitive?.contentOrNull
         val cases = file["cases"]!!.jsonArray.map { it.jsonObject }
         assertTrue(cases.size >= 30)
         val errors = mutableListOf<String>()
@@ -63,12 +62,15 @@ class SharedEngineCasesTest {
             val v = vehicle(vehicles[c["vehicle"]!!.jsonPrimitive.content]!!.jsonObject)
             val engine = RuleEngine(now = { now })
             val hotel = c["hotel"]?.jsonPrimitive?.booleanOrNull ?: false
-            // 1.20.1: la verifica delle zone come dice il caso (di serie «assumeVerifiedOn»): solo nel test, i file non cambiano
+            // 1.20.1: «pageChanged» dei file cambia ogni mattina: i casi lo ignorano (false) salvo «source»; «source» può
+            // anche dare «verifiedOn» e «checkedOn» a tutte le zone. Solo nel test, i file non cambiano
             val src = c["source"]?.jsonObject
-            val verifiedOn = if (src != null && "verifiedOn" in src) src["verifiedOn"]!!.jsonPrimitive.contentOrNull else assume
-            val pageChanged = src?.get("pageChanged")?.jsonPrimitive?.booleanOrNull
+            val pageChanged = src?.get("pageChanged")?.jsonPrimitive?.booleanOrNull ?: false
+            val read = src?.get("checkedOn")?.jsonPrimitive?.contentOrNull?.let { OffsetDateTime.parse(it).toInstant().toString() }
             val cities = cities.map { city -> city.copy(zones = city.zones.map { z ->
-                z.copy(source = z.source.copy(verifiedOn = verifiedOn, pageChanged = pageChanged ?: z.source.pageChanged)) }) }
+                z.copy(source = z.source.copy(pageChanged = pageChanged,
+                    verifiedOn = if (src != null && "verifiedOn" in src) src["verifiedOn"]!!.jsonPrimitive.contentOrNull else z.source.verifiedOn,
+                    checkedOn = read ?: z.source.checkedOn)) }) }
             val p = PlaceCheck.of(cities, Coordinate(place["lat"]!!.jsonPrimitive.double, place["lon"]!!.jsonPrimitive.double), engine, v, emptyList(), hotel, at)
             val expect = c["expect"]!!.jsonObject
             fun check(what: String, want: Any?, got: Any?) { if (want != got) errors += "$id: $what atteso $want, ottenuto $got" }
@@ -83,9 +85,9 @@ class SharedEngineCasesTest {
             if (p.unofficial && p.color == AnswerColor.GREEN) errors += "$id: fonte non ufficiale verde"
             val trust = p.zone?.let { engine.trust(it) }
             expect["trust"]?.let { check("verifica", it.jsonPrimitive.content, trust?.let(::trustName)) }
-            // 1.20.1: mai verde né grigio da una zona non verificata, con verifica vecchia o con la pagina del Comune cambiata
-            if (p.pedestrian == null && trust != null && trust != DataTrust.VERIFIED && (p.color == AnswerColor.GREEN || p.color == AnswerColor.GREY))
-                errors += "$id: zona non sicura verde o grigia"
+            // 1.20.1 (regola A): mai verde da una zona senza verifica né lettura recente o con la pagina del Comune cambiata
+            if (p.pedestrian == null && trust != null && trust != DataTrust.VERIFIED && trust != DataTrust.READ && p.color == AnswerColor.GREEN)
+                errors += "$id: zona non sicura verde"
         }
         assertEquals(emptyList(), errors, errors.joinToString("\n"))
     }

@@ -38,13 +38,16 @@ sealed class Verdict {
 
 data class Answer(val verdict: Verdict, val gatesOn: Boolean, val nextChange: Instant?)
 
-/** 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona (come DataTrust dell'iPhone e trustOf del sito) */
+/** 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona (come DataTrust dell'iPhone e trustOf del sito).
+ *  Regola A (decisa da Ledion): VERIFIED e READ danno la risposta normale (anche verde), gli altri mai verde */
 enum class DataTrust {
     /** Verificata da al più [RuleEngine.staleAfterDays] giorni e pagina del Comune non cambiata dopo la verifica */
     VERIFIED,
-    /** Nessuna data di verifica: non lo sappiamo, quindi non verificata */
+    /** Senza verifica recente ma letta da al più [RuleEngine.staleAfterDays] giorni, pagina non cambiata da allora */
+    READ,
+    /** Mai verificata e letta più di [RuleEngine.staleAfterDays] giorni fa */
     UNVERIFIED,
-    /** Verificata più di [RuleEngine.staleAfterDays] giorni fa */
+    /** Verificata più di [RuleEngine.staleAfterDays] giorni fa e nessuna lettura più recente entro quei giorni */
     OLD,
     /** La pagina del Comune è cambiata dopo la verifica (source.pageChanged) */
     PAGE_CHANGED,
@@ -58,12 +61,17 @@ class RuleEngine(
 ) {
     companion object { val ROME: ZoneId = ZoneId.of("Europe/Rome") }
 
-    /** 1.20.1 «Dati»: la pagina cambiata prima di tutto, poi la data della verifica (assente = non verificata) */
+    /** 1.20.1 «Dati»: la pagina cambiata prima di tutto, poi la verifica recente, poi la lettura recente (regola A) */
     fun trust(zone: Zone): DataTrust {
         if (zone.source.pageChanged == true) return DataTrust.PAGE_CHANGED
-        val v = zone.source.verified ?: return DataTrust.UNVERIFIED
-        return if (ChronoUnit.DAYS.between(v, now()) > staleAfterDays) DataTrust.OLD else DataTrust.VERIFIED
+        val v = zone.source.verified
+        if (v != null && ChronoUnit.DAYS.between(v, now()) <= staleAfterDays) return DataTrust.VERIFIED
+        if (ChronoUnit.DAYS.between(zone.source.checked, now()) <= staleAfterDays) return DataTrust.READ
+        return if (v == null) DataTrust.UNVERIFIED else DataTrust.OLD
     }
+
+    /** La data più recente tra lettura e verifica: da qui contano i giorni dei «dati da ricontrollare» */
+    fun freshest(s: Source): Instant = s.verified?.takeIf { it > s.checked } ?: s.checked
 
     /** La risposta da mostrare (app, widget, guardiano, casi comuni): quella del motore con la verifica dei dati.
      *  [answer] resta la sola regola, per i test delle regole */
@@ -77,7 +85,7 @@ class RuleEngine(
         val t = trust(zone)
         val v = a.verdict
         if (t == DataTrust.PAGE_CHANGED) return a.copy(verdict = Verdict.Unsure(L("The city's page has changed: check the sign.") + " " + v.detail))
-        if (t != DataTrust.VERIFIED && zone.source.isOfficial && v is Verdict.Yes) {
+        if ((t == DataTrust.UNVERIFIED || t == DataTrust.OLD) && zone.source.isOfficial && v is Verdict.Yes) {
             val why = if (t == DataTrust.OLD) F("Last verified more than %lld days ago: check the sign.", staleAfterDays) else L("This rule hasn't been verified yet: check the sign.")
             return a.copy(verdict = Verdict.Unsure(why + " " + v.reason))
         }
@@ -88,7 +96,7 @@ class RuleEngine(
         val on = isActive(zone, at)
         val next = nextChange(zone, at)
 
-        val age = ChronoUnit.DAYS.between(zone.source.checked, now())
+        val age = ChronoUnit.DAYS.between(freshest(zone.source), now())      // 1.20.1: lettura o verifica, la più recente
         if (age > staleAfterDays) {
             return Answer(Verdict.Unsure(F("This zone hasn't been checked for %lld days. Look at the city's page before driving in.", age)), on, next)
         }

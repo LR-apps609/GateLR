@@ -261,6 +261,9 @@ data class Source(
     val verifiedOn: String? = null,
     /** Le impronte delle pagine ufficiali della zona al momento della verifica (Tools/source_trust.py) */
     val verifiedFingerprints: Map<String, String>? = null,
+    /** Le impronte delle stesse pagine al momento della lettura (checkedOn) e il checkedOn a cui si riferiscono */
+    val readFingerprints: Map<String, String>? = null,
+    val readFingerprintsOf: String? = null,
     /** La pagina del Comune è cambiata dopo la verifica: lo segna Tools/source_trust.py dalle impronte del controllo
      *  giornaliero («Controllo pagine dei Comuni»). Assente = nessun cambio noto */
     val pageChanged: Boolean? = null,

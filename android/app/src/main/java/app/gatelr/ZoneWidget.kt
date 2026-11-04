@@ -23,9 +23,9 @@ class ZoneWidget : AppWidgetProvider() {
         val zone = Here.coordinate?.takeIf { System.currentTimeMillis() - Here.at < 10 * 60_000 }?.let { c -> app.gatelr.core.zonesAt(AppState.cities, c).minByOrNull { it.second.roughArea }?.second } ?: AppState.zone
         val a = AppState.answer(zone, now)
         // 1.20.0, come il widget dell'iPhone: rosso, giallo (anche «non sicuro» e fonte non ufficiale), verde «Puoi entrare»,
-        // grigio «ZTL non attiva»
+        // 1.20.1: verde anche a ZTL spenta, con le parole «ZTL non attiva»
         val off = a.verdict is Verdict.Yes && !a.gatesOn
-        val color = when (a.verdict) { is Verdict.Yes -> if (off) Palette.muted else Palette.green; is Verdict.No -> Palette.red; is Verdict.Conditional, is Verdict.Unsure -> Palette.amber }
+        val color = when (a.verdict) { is Verdict.Yes -> Palette.green; is Verdict.No -> Palette.red; is Verdict.Conditional, is Verdict.Unsure -> Palette.amber }
         val open = PendingIntent.getActivity(ctx, 0, Intent(ctx, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE)
         for (id in ids) {
             val v = RemoteViews(ctx.packageName, R.layout.widget)
