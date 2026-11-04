@@ -1,3 +1,15 @@
+Novità della 1.20.3 (parole):
+• Una sola risposta, sempre con le stesse parole: «Non entrare», «Puoi entrare», «A una condizione», «Controlla il cartello» (e «Non conosciamo questo posto» dove non conosciamo le ZTL). Uguali in Varco, Mappa, Viaggio, avvisi, widget, Live Activity, CarPlay, Siri, su Android e sul sito, in ogni lingua. Le altre frasi («Probabilmente sì», «Fuori dalla ZTL», «ZTL non attiva») stanno sotto, come spiegazione; prima c'erano «Entra pure.», «Arrivo sereno.», «Probabilmente sì.» come titolo
+• Fonte non ufficiale: un «sì» si legge «Controlla il cartello» (giallo, come prima) e un «no» «Non entrare» (rosso, come prima); sotto «Probabilmente sì · fonte non ufficiale» o «Probabilmente no · fonte non ufficiale»
+• Pillole neutre: il tipo di zona è «ZTL», «ZTL con pass» o «Zona verde», mai più «Accesso vietato» o «Pass necessario» accanto a «Puoi entrare»
+• Pannelli con la dicitura ufficiale «ZTL ATTIVA / ZTL NON ATTIVA» anche nella presentazione e sul sito; in «Impara la ZTL» la spiegazione della vecchia «Varco attivo»
+• Le regole delle città nelle altre lingue: in francese, spagnolo, olandese, polacco e cinese «In breve», i nomi delle zone, «Come pagare» del ticket e i titoli delle fonti sono in italiano (l'originale) con l'inglese sotto, invece del solo inglese, finché non c'è una traduzione verificata
+• «Segnala un errore»: le righe aggiunte per te sono nella tua lingua («Cosa», «Città», «Zona», «Data e ora», «Veicolo»); i codici per noi in una riga sola in fondo, «Rif.: …»
+• Guida: la velocità nell'unità del telefono (km/h o mph); le frecce delle svolte dalla forma della strada, giuste in ogni lingua; nella Dynamic Island un segno («✕», «!», «✓») al posto di «OK»
+• Chip del veicolo corto («Golf · E6»): non va più a capo né si taglia in tedesco o polacco
+• Android anche in francese, spagnolo, olandese, polacco e cinese, con le stesse parole dell'iPhone; la quinta scheda si chiama «Tu» (prima «Account») e la prima pagina «Varco»
+• Nessuna risposta cambia: stesse regole, stessi colori, stessi dati delle città
+
 Novità della 1.20.2 (comodità):
 • Permessi quando servono: aprendo l'app non compare più nessuna richiesta di iOS o di Android. La posizione si chiede al primo tocco su «Usa la mia posizione» (Varco; su Android il riquadro «Consenti l'accesso alla posizione…» della prima pagina), quando parte la guida o il guardiano; le notifiche con il guardiano, un promemoria o «Attiva gli avvisi». Se gli avvisi sono accesi ma non permessi, in Tu → Impostazioni c'è «Consenti gli avvisi». Nel giro delle foto nessuna richiesta (prima copriva la foto della guida)
 • Ricerca: Invio (il tasto «Cerca» della tastiera) sceglie il primo suggerimento, anche se arriva un attimo dopo; se la ricerca non risponde, sotto il campo «La ricerca non funziona adesso…» con «Riprova» (Varco, Mappa, Viaggio, presentazione, Android e sito). Sul sito Invio cerca subito, senza aspettare
