@@ -10,13 +10,20 @@ STORE = ROOT / "data/source-hashes.json"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
 
 
+def zone_pages(z):
+    """Le pagine ufficiali di una zona di cui si prende l'impronta: la pagina della fonte e i link ai siti dei Comuni
+    (non i dati aperti). Le usa anche Tools/source_trust.py per «verifiedFingerprints» e «pageChanged» (1.20.1)"""
+    s = z["source"]
+    urls = {s["pageURL"]}
+    urls.update(l["url"] for l in s["links"] if "comune." in l["url"] and "opendata" not in l["url"] and "dati." not in l["url"])
+    return sorted(urls)
+
+
 def pages():
     urls = set()
     for f in sorted(p for p in (ROOT / "Resources/Cities").glob("*.json") if p.name != "manifest.json"):
         for z in json.loads(f.read_text())["zones"]:
-            s = z["source"]
-            urls.add(s["pageURL"])
-            urls.update(l["url"] for l in s["links"] if "comune." in l["url"] and "opendata" not in l["url"] and "dati." not in l["url"])
+            urls.update(zone_pages(z))
     return sorted(urls)
 
 

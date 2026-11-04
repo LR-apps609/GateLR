@@ -1,6 +1,7 @@
 {
-  "about": "Casi di prova comuni del motore delle regole (1.20.0 «Motore unico»): posto + ora + veicolo → risposta attesa. Li leggono i test dell'iPhone (Tests/SharedEngineCasesTests.swift), di Android (android/core/src/test/.../SharedEngineCasesTest.kt) e del sito (Tools/check_engine_cases.mjs), con i dati veri di Resources/Cities (anche le città da fonti non ufficiali). Colori: red = non entrare, yellow = a una condizione o da verificare («?», controlla il cartello), green = puoi entrare, grey = ZTL non attiva, neutral = posto che non conosciamo (mai verde). Il colore è quello della mappa (Access dell'iPhone, con la fonte non ufficiale mai verde né grigia); verdict è la risposta come si mostra (un «sì» da fonte non ufficiale è «unsure»); zone è la zona che decide (la risposta peggiore tra tutte le zone del posto, a parità la più piccola), null fuori dalle zone.",
+  "about": "Casi di prova comuni del motore delle regole (1.20.0 «Motore unico»): posto + ora + veicolo → risposta attesa. Li leggono i test dell'iPhone (Tests/SharedEngineCasesTests.swift), di Android (android/core/src/test/.../SharedEngineCasesTest.kt) e del sito (Tools/check_engine_cases.mjs), con i dati veri di Resources/Cities (anche le città da fonti non ufficiali). Colori: red = non entrare, yellow = a una condizione o da verificare («?», controlla il cartello), green = puoi entrare, grey = ZTL non attiva, neutral = posto che non conosciamo (mai verde). Il colore è quello della mappa (Access dell'iPhone, con la fonte non ufficiale mai verde né grigia); verdict è la risposta come si mostra (un «sì» da fonte non ufficiale è «unsure»); zone è la zona che decide (la risposta peggiore tra tutte le zone del posto, a parità la più piccola), null fuori dalle zone. 1.20.1 «Dati»: nessuna zona dei file ha ancora «verifiedOn» (sconosciuta = non verificata, e un «sì» non verificato è giallo «?»); per provare le regole i casi danno per verificate tutte le zone il giorno «assumeVerifiedOn» (solo nei test, i file delle città non cambiano). «source» in un caso cambia questo per tutte le zone: «verifiedOn»: null = non verificata (come i dati veri), una data = verificata quel giorno (oltre 120 giorni prima di «now» = verifica vecchia), «pageChanged»: true = la pagina del Comune è cambiata dopo la verifica (impronte di Tools/check_sources.py, segnate da Tools/source_trust.py). trust = lo stato della zona che decide: verified, unverified, old, pageChanged.",
   "now": "2026-11-03T12:00:00+01:00",
+  "assumeVerifiedOn": "2026-11-01T12:00:00+01:00",
   "vehicles": {
     "rental": {"name": "Rental car", "fuel": "petrol", "euro": 6},
     "diesel1": {"name": "Diesel Euro 1", "fuel": "diesel", "euro": 1},
@@ -105,6 +106,33 @@
      "expect": {"colour": "neutral", "verdict": "unsure", "zone": null}},
     {"id": "venezia-fuori-copertura", "covers": "fuori copertura: neutro, mai verde",
      "place": {"name": "Venezia", "lat": 45.4380, "lon": 12.3358}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "rental",
-     "expect": {"colour": "neutral", "verdict": "unsure", "zone": null}}
+     "expect": {"colour": "neutral", "verdict": "unsure", "zone": null}},
+    {"id": "firenze-palazzo-vecchio-giorno-moto-non-verificata", "covers": "1.20.1: un «sì» con la regola non verificata (verifiedOn sconosciuta) è giallo «?», mai verde",
+     "place": {"name": "Palazzo Vecchio", "lat": 43.7693, "lon": 11.2563}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "moto", "source": {"verifiedOn": null},
+     "expect": {"colour": "yellow", "verdict": "unsure", "zone": "firenze-a", "gatesOn": true, "trust": "unverified"}},
+    {"id": "firenze-palazzo-vecchio-notte-benzina-non-verificata", "covers": "1.20.1: ZTL spenta ma regola non verificata: giallo «?», mai grigio",
+     "place": {"name": "Palazzo Vecchio", "lat": 43.7693, "lon": 11.2563}, "at": "2026-11-10T23:00:00+01:00", "vehicle": "rental", "source": {"verifiedOn": null},
+     "expect": {"colour": "yellow", "verdict": "unsure", "zone": "firenze-a", "gatesOn": false, "trust": "unverified"}},
+    {"id": "firenze-palazzo-vecchio-notte-diesel-euro1-non-verificata", "covers": "1.20.1: un «no» non verificato resta rosso (la prudenza non diventa un via libera)",
+     "place": {"name": "Palazzo Vecchio", "lat": 43.7693, "lon": 11.2563}, "at": "2026-11-10T23:00:00+01:00", "vehicle": "diesel1", "source": {"verifiedOn": null},
+     "expect": {"colour": "red", "verdict": "no", "zone": "firenze-scudo-verde", "gatesOn": true, "trust": "unverified"}},
+    {"id": "milano-area-c-benzina-non-verificata", "covers": "1.20.1: una condizione non verificata resta gialla a una condizione",
+     "place": {"name": "Via Manzoni", "lat": 45.4700, "lon": 9.1925}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "rental", "source": {"verifiedOn": null},
+     "expect": {"colour": "yellow", "verdict": "conditional", "zone": "milano-c", "gatesOn": true, "trust": "unverified"}},
+    {"id": "milano-area-c-elettrica-verifica-vecchia", "covers": "1.20.1: verificata più di 120 giorni prima (155): il «sì» è giallo «?»",
+     "place": {"name": "Via Manzoni", "lat": 45.4700, "lon": 9.1925}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "electric", "source": {"verifiedOn": "2026-06-01T12:00:00+02:00"},
+     "expect": {"colour": "yellow", "verdict": "unsure", "zone": "milano-c", "gatesOn": true, "trust": "old"}},
+    {"id": "milano-area-c-elettrica-verifica-recente", "covers": "1.20.1: verificata 94 giorni prima (entro 120): verde",
+     "place": {"name": "Via Manzoni", "lat": 45.4700, "lon": 9.1925}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "electric", "source": {"verifiedOn": "2026-08-01T12:00:00+02:00"},
+     "expect": {"colour": "green", "verdict": "yes", "zone": "milano-c", "gatesOn": true, "trust": "verified"}},
+    {"id": "bologna-ztl-notte-pagina-cambiata", "covers": "1.20.1: la pagina del Comune è cambiata dopo la verifica: ZTL spenta ma giallo «?»",
+     "place": {"name": "Via Castiglione", "lat": 44.4920, "lon": 11.3480}, "at": "2026-11-03T23:58:00+01:00", "vehicle": "rental", "source": {"pageChanged": true},
+     "expect": {"colour": "yellow", "verdict": "unsure", "zone": "bologna-ztl", "gatesOn": false, "trust": "pageChanged"}},
+    {"id": "firenze-scudo-verde-diesel-euro1-pagina-cambiata", "covers": "1.20.1: pagina cambiata: anche il «no» diventa giallo «?» (controlla il cartello)",
+     "place": {"name": "Piazzale Michelangelo", "lat": 43.7629, "lon": 11.2650}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "diesel1", "source": {"pageChanged": true},
+     "expect": {"colour": "yellow", "verdict": "unsure", "zone": "firenze-scudo-verde", "gatesOn": true, "trust": "pageChanged"}},
+    {"id": "bologna-centrale-fuori-ztl-non-verificata", "covers": "1.20.1: fuori dalle zone di una città che conosciamo resta verde anche senza verifica (nessuna regola da verificare)",
+     "place": {"name": "Bologna Centrale", "lat": 44.5058, "lon": 11.3427}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "rental", "source": {"verifiedOn": null},
+     "expect": {"colour": "green", "verdict": "yes", "zone": null, "pedestrian": false}}
   ]
 }
