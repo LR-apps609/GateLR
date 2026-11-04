@@ -893,6 +893,21 @@ T = {
 "The shared text never includes your plate.": "De gedeelde tekst bevat nooit je kenteken.",
 "This message includes your plate: the hotel needs it to register you with the city.": "Dit bericht bevat je kenteken: het hotel heeft het nodig om je bij de gemeente aan te melden.",
 "Try again": "Opnieuw proberen",
+# 1.20.1
+"The city's page has changed: check the sign.": 'De pagina van de gemeente is gewijzigd: kijk naar het bord.',
+"This rule hasn't been verified yet: check the sign.": 'Deze regel is nog niet gecontroleerd: kijk naar het bord.',
+'Last verified more than %lld days ago: check the sign.': 'Laatst gecontroleerd meer dan %lld dagen geleden: kijk naar het bord.',
+'Verified %@': 'Gecontroleerd op %@',
+'Not verified yet: check the sign.': 'Nog niet gecontroleerd: kijk naar het bord.',
+'Read from official sources on %@.': 'Gelezen uit officiële bronnen op %@.',
+'Read from a non-official source on %@.': 'Gelezen uit een onofficiële bron op %@.',
+'Verified by a person on %@.': 'Op %@ door een persoon gecontroleerd.',
+"The city's page has changed since it was verified: check the sign.": 'De pagina van de gemeente is gewijzigd sinds de controle: kijk naar het bord.',
+'Verified on %@, more than %lld days ago: check the sign.': 'Gecontroleerd op %@, meer dan %lld dagen geleden: kijk naar het bord.',
+'Not signed: kept your data': 'Niet ondertekend: je gegevens blijven',
+'Not verified': 'Niet gecontroleerd',
+'City page changed': 'Pagina van de gemeente gewijzigd',
+'Only updates signed by GateLR are used; otherwise the app keeps the data it has.': 'Alleen updates die door GateLR zijn ondertekend worden gebruikt; anders houdt de app haar gegevens.',
 }
 
 INFO = {

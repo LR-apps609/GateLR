@@ -885,3 +885,17 @@
 "The shared text never includes your plate." = "Udostępniany tekst nigdy nie zawiera twojej tablicy.";
 "This message includes your plate: the hotel needs it to register you with the city." = "Ta wiadomość zawiera twoją tablicę: hotel potrzebuje jej, aby zgłosić cię w urzędzie miasta.";
 "Try again" = "Spróbuj ponownie";
+"The city's page has changed: check the sign." = "Strona gminy się zmieniła: sprawdź znak.";
+"This rule hasn't been verified yet: check the sign." = "Ta zasada nie została jeszcze zweryfikowana: sprawdź znak.";
+"Last verified more than %lld days ago: check the sign." = "Ostatnia weryfikacja ponad %lld dni temu: sprawdź znak.";
+"Verified %@" = "Zweryfikowano %@";
+"Not verified yet: check the sign." = "Jeszcze niezweryfikowane: sprawdź znak.";
+"Read from official sources on %@." = "Odczytano z oficjalnych źródeł %@.";
+"Read from a non-official source on %@." = "Odczytano z nieoficjalnego źródła %@.";
+"Verified by a person on %@." = "Zweryfikowane przez człowieka %@.";
+"The city's page has changed since it was verified: check the sign." = "Strona gminy zmieniła się od weryfikacji: sprawdź znak.";
+"Verified on %@, more than %lld days ago: check the sign." = "Zweryfikowano %@, ponad %lld dni temu: sprawdź znak.";
+"Not signed: kept your data" = "Bez podpisu: zostają twoje dane";
+"Not verified" = "Niezweryfikowane";
+"City page changed" = "Strona gminy zmieniona";
+"Only updates signed by GateLR are used; otherwise the app keeps the data it has." = "Używane są tylko aktualizacje podpisane przez GateLR; w przeciwnym razie aplikacja zachowuje swoje dane.";

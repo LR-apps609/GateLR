@@ -790,6 +790,21 @@ T = {
 "This message includes your plate: the hotel needs it to register you with the city.": ("Questo messaggio contiene la tua targa: all'hotel serve per registrarti al Comune.", "Diese Nachricht enthält dein Kennzeichen: Das Hotel braucht es, um dich bei der Stadt anzumelden."),
 # 1.19.5 «Più veloce»: «Riprova» quando i parcheggi non arrivano
 "Try again": ("Riprova", "Erneut versuchen"),
+# 1.20.1 «Dati»: letto il / verificato il, pagina del Comune cambiata, dati firmati
+"The city's page has changed: check the sign.": ('La pagina del Comune è cambiata: controlla il cartello.', 'Die Seite der Stadt hat sich geändert: schau aufs Schild.'),
+"This rule hasn't been verified yet: check the sign.": ('Questa regola non è ancora stata verificata: controlla il cartello.', 'Diese Regel ist noch nicht geprüft: schau aufs Schild.'),
+'Last verified more than %lld days ago: check the sign.': ("Verificata l'ultima volta più di %lld giorni fa: controlla il cartello.", 'Zuletzt vor mehr als %lld Tagen geprüft: schau aufs Schild.'),
+'Verified %@': ('Verificato il %@', 'Geprüft am %@'),
+'Not verified yet: check the sign.': ('Non ancora verificato: controlla il cartello.', 'Noch nicht geprüft: schau aufs Schild.'),
+'Read from official sources on %@.': ('Letto dalle fonti ufficiali il %@.', 'Am %@ aus offiziellen Quellen gelesen.'),
+'Read from a non-official source on %@.': ('Letto da una fonte non ufficiale il %@.', 'Am %@ aus einer inoffiziellen Quelle gelesen.'),
+'Verified by a person on %@.': ('Verificato da una persona il %@.', 'Am %@ von einer Person geprüft.'),
+"The city's page has changed since it was verified: check the sign.": ('La pagina del Comune è cambiata dopo la verifica: controlla il cartello.', 'Die Seite der Stadt hat sich seit der Prüfung geändert: schau aufs Schild.'),
+'Verified on %@, more than %lld days ago: check the sign.': ('Verificato il %@, più di %lld giorni fa: controlla il cartello.', 'Geprüft am %@, vor mehr als %lld Tagen: schau aufs Schild.'),
+'Not signed: kept your data': ('Non firmati: restano i tuoi dati', 'Nicht signiert: deine Daten bleiben'),
+'Not verified': ('Non verificato', 'Nicht geprüft'),
+'City page changed': ('Pagina del Comune cambiata', 'Seite der Stadt geändert'),
+'Only updates signed by GateLR are used; otherwise the app keeps the data it has.': ("Si usano solo gli aggiornamenti firmati da GateLR; altrimenti l'app tiene i dati che ha.", 'Es werden nur von GateLR signierte Updates verwendet; sonst behält die App ihre Daten.'),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
