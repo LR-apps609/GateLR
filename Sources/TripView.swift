@@ -22,6 +22,9 @@ struct TripView: View {
     @State private var saved = false
     /// 1.20.2: il viaggio da cancellare, in attesa della conferma
     @State private var deleting: PendingDelete?
+    /// 1.20.4: il posto per cui la pagina è già scesa fino a «Parcheggia fuori e cammina» (una volta sola per posto)
+    @State private var parkShownFor: String?
+    @State private var parkScroll: String?
     /// La prima pagina chiede il campo di ricerca già attivo quando si arriva da lì
     static var focusSearch = false
 
@@ -29,6 +32,7 @@ struct TripView: View {
         TimelineView(.everyMinute) { ctx in
             // L'ora scelta nei chip (la stessa della prima pagina e della mappa); rimasta nel passato vale «adesso»
             let date = store.moment(ctx.date)
+            ScrollViewReader { proxy in
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     header
@@ -55,6 +59,19 @@ struct TripView: View {
             }
             .scrollDismissesKeyboard(.immediately)
             .background(Theme.ground)
+            // 1.20.4 (foto 39): con il «no» il riquadro dei parcheggi viene subito sotto la risposta, ma la sua parte bassa
+            // («Riprova», il primo parcheggio) restava sotto la barra delle schede di iOS 26. La pagina scende quanto basta
+            // perché i primi 130 punti del riquadro stiano sopra la barra (la safe area della scheda); se ci stanno già
+            // non si muove niente. Una volta sola per posto: poi scorre chi guarda
+            .onChange(of: parkScroll) { _, key in
+                guard let key, parkShownFor != key else { return }
+                parkShownFor = key
+                Task {
+                    try? await Task.sleep(for: .milliseconds(350))
+                    withAnimation(.snappy) { proxy.scrollTo(Self.parkFold, anchor: .bottom) }
+                }
+            }
+            }
         }
         .onAppear {
             search.focus(on: store.city)
@@ -217,7 +234,14 @@ struct TripView: View {
                         since: atArrival ? nil : store.engine.previousChange(hit.zone, before: date),
                         onWhy: { store.cityId = hit.city.id; store.zoneId = hit.zone.id; showZone = true })
             // «No» (1.19.1): prima «Parcheggia fuori e cammina», poi il resto
-            if check.parkingFirst { parkOutside(place, at: date) }
+            if check.parkingFirst {
+                parkOutside(place, at: date)
+                    // 1.20.4: il segno fino a dove il riquadro deve stare sopra la barra delle schede (vedi parkScroll)
+                    .background(alignment: .top) {
+                        Color.clear.frame(height: Self.parkFoldHeight).id(Self.parkFold)
+                            .onAppear { parkScroll = place.key }
+                    }
+            }
             // Dopo la prima risposta: il guardiano accanto a Google Maps (un riquadro nella pagina, non sopra i pulsanti)
             TipView(StartGuardianTip()).tipBackground(Theme.card)
             if hits.count > 1 {
@@ -250,6 +274,11 @@ struct TripView: View {
             routeCard(place)
         }
     }
+
+    /// 1.20.4: il segno in cima al riquadro dei parcheggi e quanto deve stare sopra la barra delle schede: il titolo e
+    /// la prima riga (o «Nessun parcheggio… Riprova»)
+    static let parkFold = "trip.parkFold"
+    static let parkFoldHeight: CGFloat = 130
 
     /// «Parcheggia fuori e cammina»: i parcheggi fuori da ogni ZTL attiva all'ora scelta, poi a piedi
     private func parkOutside(_ place: Place, at date: Date) -> some View {
@@ -303,11 +332,13 @@ struct TripView: View {
     /// spunta verde «Fuori dalla ZTL» accanto al «no»
     private func placeCard(_ place: Place, inside zone: Zone?, covered: Bool, pedestrian: PedestrianArea? = nil) -> some View {
         HStack(spacing: 12) {
-            Image(systemName: pedestrian != nil ? "figure.walk" : zone?.type.symbol ?? Symbols.pick(covered, "checkmark", else: "questionmark"))
+            // 1.20.4: fuori dalla ZTL in una città che conosciamo il trattino grigio (prima la spunta verde)
+            let outside = pedestrian == nil && zone == nil && covered
+            Image(systemName: pedestrian != nil ? "figure.walk" : zone?.type.symbol ?? Symbols.pick(covered, "minus", else: "questionmark"))
                 .font(.app(size: 17, weight: .bold))
-                .foregroundStyle(.white)
+                .foregroundStyle(outside ? Theme.ground : .white)
                 .frame(width: 40, height: 40)
-                .background(pedestrian != nil ? Theme.red : zone?.type.color ?? (covered ? Theme.green : Theme.muted), in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                .background(pedestrian != nil ? Theme.red : zone?.type.color ?? (covered ? Theme.outside : Theme.muted), in: RoundedRectangle(cornerRadius: 11, style: .continuous))
             VStack(alignment: .leading, spacing: 1) {
                 Text(place.name).font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
                 Text(pedestrian.map { String(format: L("Pedestrian area · %@"), $0.name) }
@@ -344,12 +375,14 @@ struct TripView: View {
         .accessibilityIdentifier("trip.uncovered")
     }
 
+    /// «Fuori dalla ZTL» in una città che conosciamo. 1.20.4 (decisione di Ledion del 07/11): grigio neutro con il trattino,
+    /// le stesse parole di prima; prima era il riquadro verde con la spunta
     private func outsideCard(_ place: Place) -> some View {
         let near = store.nearestZone(to: place.location)
         return VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 12) {
-                Image(systemName: "checkmark").font(.app(size: 24, weight: .heavy)).foregroundStyle(Theme.green)
-                    .frame(width: 52, height: 52).background(.white, in: Circle())
+                Image(systemName: "minus").font(.app(size: 24, weight: .heavy)).foregroundStyle(Theme.outside)
+                    .frame(width: 52, height: 52).overlay(Circle().stroke(Theme.outside, lineWidth: 2))
                 VStack(alignment: .leading, spacing: -12) {
                     ForEach(L("Outside|the ZTL").components(separatedBy: "|"), id: \.self) { Text($0).font(Theme.display(34)) }
                 }
@@ -367,9 +400,11 @@ struct TripView: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .foregroundStyle(.white)
-        .background(Theme.green, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
-        .shadow(color: .black.opacity(0.08), radius: 14, y: 6)
+        .foregroundStyle(Theme.ink)
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 26, style: .continuous).stroke(Theme.outside.opacity(0.7), lineWidth: 1.5))
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("trip.outside")
     }
 
     // MARK: Senza destinazione
