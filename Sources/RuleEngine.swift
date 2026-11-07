@@ -15,8 +15,8 @@ enum Verdict: Equatable {
 
 /// 1.20.3 «Parole»: la risposta detta con UNA sola forma per lingua, ovunque (Varco, Mappa, Viaggio, notifiche, widget,
 /// Live Activity, CarPlay, Siri; le stesse parole su Android, AnswerWord.kt, e sul sito, «w*» in web/template.html).
-/// Il titolo è sempre una di queste cinque frasi; «Probabilmente sì», «Fuori dalla ZTL», «Area pedonale», «ZTL non attiva»…
-/// diventano la frase di spiegazione, mai il titolo. Solo parole: colori e risposte del motore non cambiano
+/// 2.1 «Una risposta, sette stati»: una parola per ogni stato della RispostaFinale (Stato.word); «ZTL non attiva» e «Fuori
+/// dalla ZTL» hanno la loro. «Probabilmente sì», «Area pedonale»… restano la frase di spiegazione, mai il titolo
 enum AnswerWord: String, CaseIterable {
     /// Rosso: «no» del motore, area pedonale, «no» da fonte non ufficiale
     case dontEnter
@@ -28,6 +28,10 @@ enum AnswerWord: String, CaseIterable {
     case checkSign
     /// Neutro: fuori dalle città che conosciamo
     case unknownPlace
+    /// 2.1: la ZTL non attiva (varchi spenti), con il suo colore (Theme.stateOff, oggi verde)
+    case notActive
+    /// 2.1: fuori dalle zone di una città che conosciamo (grigio)
+    case outside
 
     /// La chiave (inglese) del titolo in Localizable.strings
     var key: String {
@@ -37,6 +41,8 @@ enum AnswerWord: String, CaseIterable {
         case .condition: "On one condition"
         case .checkSign: "Check the sign"
         case .unknownPlace: "We don't know this place"
+        case .notActive: "ZTL not active"
+        case .outside: "Outside the ZTL"
         }
     }
 
@@ -51,6 +57,8 @@ enum AnswerWord: String, CaseIterable {
         case .condition: "On one|condition"
         case .checkSign: "Check the|sign"
         case .unknownPlace: "We don't know|this place"
+        case .notActive: "ZTL not|active"
+        case .outside: "Outside|the ZTL"
         }
     }
     var lines: [String] { L(lineKey).components(separatedBy: "|") }
@@ -61,6 +69,8 @@ enum AnswerWord: String, CaseIterable {
         case .enter: "checkmark"
         case .condition: "exclamationmark"
         case .checkSign, .unknownPlace: "questionmark"
+        case .notActive: "minus"
+        case .outside: "mappin.and.ellipse"
         }
     }
 }
@@ -126,6 +136,8 @@ struct Answer: Equatable {
     var verdict: Verdict
     var gatesOn: Bool
     var nextChange: Date?       // quando i varchi si accendono o si spengono
+    /// 2.1: il motivo del «non sicuro» (dati scaduti, festivo da confermare), per RispostaFinale (shared/risposta-finale.md)
+    var doubt: Motivo? = nil
 }
 
 /// 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona. Gli stessi stati su Android (DataTrust) e sul sito
@@ -219,12 +231,14 @@ struct RuleEngine {
         switch trust(zone) {
         case .pageChanged:
             out.verdict = .unsure(reason: L("The city's page has changed: check the sign.") + " " + a.verdict.detailText)
+            out.doubt = .scaduti
         case .unverified, .old:
             // Di solito c'è già il «non sicuro» dei dati da ricontrollare (answer): questa è la rete di sicurezza
             guard zone.source.isOfficial, case .yes(let r) = a.verdict else { return a }
             let why = trust(zone) == .old ? String(format: L("Last verified more than %lld days ago: check the sign."), staleAfterDays)
                                           : L("This rule hasn't been verified yet: check the sign.")
             out.verdict = .unsure(reason: why + " " + r)
+            out.doubt = .scaduti
         case .verified, .read:
             break
         }
@@ -238,11 +252,11 @@ struct RuleEngine {
         // 1.20.1: dalla data più recente tra «letto il» e «verificato il»
         if let age = calendar.dateComponents([.day], from: Self.freshest(zone.source), to: now()).day, age > staleAfterDays {
             return Answer(verdict: .unsure(reason: String(format: L("This zone hasn't been checked for %lld days. Look at the city's page before driving in."), age)),
-                          gatesOn: on, nextChange: next)
+                          gatesOn: on, nextChange: next, doubt: .scaduti)
         }
         if zone.freeOnHolidays == nil && activeStartDays(zone, at: date).contains(where: { isHoliday(zone, $0) }) {
             return Answer(verdict: .unsure(reason: L("It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate.")),
-                          gatesOn: true, nextChange: next)
+                          gatesOn: true, nextChange: next, doubt: .festivo)
         }
         guard on else {
             let until = next.map { " " + String(format: L("It becomes active again %@."), describe($0, from: date)) } ?? ""

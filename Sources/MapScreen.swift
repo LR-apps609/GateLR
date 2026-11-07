@@ -596,9 +596,10 @@ struct MapScreen: View {
                 if pedestrian != nil {
                     Pill(text: check.word.title, fill: Verdict.no(reason: "").pillFill, ink: Verdict.no(reason: "").pillInk)
                 } else if let answer {
-                    VerdictPill(verdict: answer.verdict, unofficial: check.unofficial)
+                    VerdictPill(verdict: answer.verdict, unofficial: check.unofficial, gatesOn: answer.gatesOn)
                 } else if check.covered {
-                    Pill(text: check.word.title, fill: Theme.greenSoft, ink: Theme.greenInk)
+                    // 2.1: «Fuori dalla ZTL» grigio (Stato.fuoriZTL), mai verde
+                    Pill(text: check.word.title, fill: Stato.fuoriZTL.tint.opacity(0.16), ink: Stato.fuoriZTL.tint)
                 } else {
                     // Fuori copertura: neutro, mai verde (1.19.0)
                     Pill(text: check.word.title, fill: Theme.muted.opacity(0.16), ink: Theme.muted)
@@ -698,7 +699,7 @@ struct MapScreen: View {
                     }
                 }
                 Spacer()
-                VerdictPill(verdict: answer.verdict, unofficial: zone.isUnofficial)
+                VerdictPill(verdict: answer.verdict, unofficial: zone.isUnofficial, gatesOn: answer.gatesOn)
             }
             if zone.isUnofficial { UnofficialBanner(source: zone.source.unofficialSource) }
             if let parkingMessage {

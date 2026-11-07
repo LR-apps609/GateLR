@@ -27,8 +27,9 @@ struct SettingsView: View {
                     } label: { Label(L("Allow alerts"), systemImage: "bell.and.waves.left.and.right") }
                     .accessibilityIdentifier("settings.allowAlerts")
                 }
-                Stepper(String(format: L("Warn me %lld m before a gate"), Int(store.alertDistance)),
-                        value: $store.alertDistance, in: 200...1000, step: 100)
+                // 2.1 (decisione 9): una sola distanza per tutti gli avvisi, 300 m in città e 600 m sopra 50 km/h
+                // (ThreatEvaluator.alertDistance); prima un valore da 200 a 1000 m che valeva solo per alcuni avvisi
+                Label(L("Alerts 300 m before a ZTL, 600 m above 50 km/h"), systemImage: "ruler")
                 Button {
                     GateMonitor.shared.sendTest(store: store)
                     testSent = true
@@ -141,7 +142,6 @@ struct SettingsView: View {
         .sheet(isPresented: $reporting) { BugReportView() }
         .task { basicVoice = await SpeechVoice.onlyBasicVoiceAsync() }
         .onChange(of: store.alertsOn) { GateMonitor.shared.settingsChanged() }
-        .onChange(of: store.alertDistance) { GateMonitor.shared.settingsChanged() }
     }
 }
 
