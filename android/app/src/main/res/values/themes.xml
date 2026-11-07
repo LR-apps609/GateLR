@@ -1,6 +1,7 @@
 <resources>
+    <!-- 2.0: Giorno (S-Colori); di notte values-night -->
     <style name="Theme.GateLR" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowBackground">#F3F4F2</item>
+        <item name="android:windowBackground">@color/gate_ground</item>
     </style>
 </resources>

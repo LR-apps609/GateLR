@@ -219,13 +219,13 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
         getSystemService(NotificationManager::class.java).notify(ID, ongoing(text, destination?.name ?: ""))
         bubble?.let { b ->
             b.text = text
-            (b.background as? GradientDrawable)?.setColor(if (inside != null) 0xEEC1272D.toInt() else color(threat))
+            (b.background as? GradientDrawable)?.setColor(if (inside != null) 0xEEC62A24.toInt() else color(threat))
         }
     }
 
     /** Il colore della bolla dalla RispostaFinale; senza minaccia davanti grigio (mai un verde «via libera») */
     private fun color(t: Threat?): Int = when (t?.finale?.color) {
-        Tono.ROSSO -> 0xEEC1272D.toInt(); Tono.GIALLO -> 0xEE8A5A00.toInt()
+        Tono.ROSSO -> 0xEEC62A24.toInt(); Tono.GIALLO -> 0xEE8A6100.toInt()
         else -> 0xEE6B7280.toInt()
     }
 
@@ -233,7 +233,7 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
         val open = PendingIntent.getActivity(this, 0, Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), PendingIntent.FLAG_IMMUTABLE)
         val stop = PendingIntent.getService(this, 1, Intent(this, GuardianService::class.java).setAction("stop"), PendingIntent.FLAG_IMMUTABLE)
         return NotificationCompat.Builder(this, CHANNEL_ON)
-            .setSmallIcon(R.drawable.ic_launcher)
+            .setSmallIcon(R.drawable.ic_stat_gatelr)
             .setContentTitle(text)
             .setContentText(if (sub.isEmpty()) L("Guardian on") else F("To %@", sub))
             .setOngoing(true).setOnlyAlertOnce(true).setSilent(true)
@@ -247,7 +247,7 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
     private fun alert(title: String, body: String, id: String, threat: Threat? = null) {
         if (Build.VERSION.SDK_INT >= 33 && ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) return
         val n = NotificationCompat.Builder(this, CHANNEL_ALERT)
-            .setSmallIcon(R.drawable.ic_launcher)
+            .setSmallIcon(R.drawable.ic_stat_gatelr)
             .setContentTitle(title).setContentText(body)
             .setStyle(NotificationCompat.BigTextStyle().bigText(body))
             .setPriority(NotificationCompat.PRIORITY_HIGH)

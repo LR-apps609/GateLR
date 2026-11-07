@@ -39,7 +39,7 @@ fun AccountScreen(modifier: Modifier) {
 
     LazyColumn(modifier.fillMaxSize().background(MaterialTheme.colorScheme.background), contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        item { Text(L("You"), fontSize = 28.sp, fontWeight = FontWeight.Bold) }
+        item { Text(L("Settings"), style = MaterialTheme.typography.headlineMedium) }
 
         item { SectionLabel("Preferred navigator") }
         item {
