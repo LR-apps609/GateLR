@@ -17,7 +17,7 @@ import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/bolzano"
-CHECKED = "2026-10-27T12:30:00Z"
+CHECKED = "2026-11-07T18:00:00Z"
 EVERY_DAY = [1, 2, 3, 4, 5, 6, 7]
 
 
@@ -48,7 +48,7 @@ check(GUIDE_F, QUOTE, "L'accesso è controllato da telecamere ai varchi",
       "Se il vostro albergo si trova nella ZTL, contattatelo in anticipo per comunicare la vostra targa e ottenere l'autorizzazione temporanea al passaggio.",
       "Divieto: L'accesso con veicoli privati è vietato",
       "Veicoli fino a 3,5 tonnellate possono accedere alla ZTL per carico e scarico dal lunedì al sabato dalle 6:00 alle 10:30 (esclusi i festivi infrasettimanali).",
-      "Euro 0, Euro 1, Euro 2 Diesel ed Euro 3 Diesel , dal lunedì al venerdì (esclusi i festivi), dalle 7:00 alle 10:00 e dalle 16:00 alle 19:00")
+      "Euro 0, Euro 1, Euro 2 Diesel ed Euro 3 Diesel, dal lunedì al venerdì (esclusi i festivi), dalle 7:00 alle 10:00 e dalle 16:00 alle 19:00")
 check(DEL_F, "a far data dal 01.02.2023 la Zona a Traffico Limitato del centro di Bolzano",
       "agli ospiti autorizzati degli esercizi ricettivi", "è consentito accedere e sostare per il tempo strettamente necessario alle sole operazioni di carico e scarico dei bagagli",
       "via Alto Adige nel tratto compreso tra", "via Laurin nel tratto compreso tra via Sciliar e via Grappoli",

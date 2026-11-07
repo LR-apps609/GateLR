@@ -1,6 +1,6 @@
 {
- "version": "202611071918",
- "digest": "c3be393b553a",
+ "version": "202611071920",
+ "digest": "702cf3cb3f2d",
  "schema": 1,
  "cities": [
   {
@@ -36,7 +36,7 @@
   {
    "id": "bolzano",
    "file": "bolzano.json",
-   "sha256": "1d1459df677d69f054bf1f2fb45c1bed0d8879d6c41de48ccde9c551399fd599"
+   "sha256": "95df714c2bb50f5e6a2a0e154a53be34797a2eb5e2f209bc236328b26c5a6cb2"
   },
   {
    "id": "catania",
