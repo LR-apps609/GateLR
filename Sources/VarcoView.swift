@@ -620,7 +620,8 @@ struct VarcoView: View {
             }
         }
         switch resting {
-        case .clear: return ("checkmark.shield", L("No active ZTL ahead"), Color(hex: 0x5B6476))
+        // 1.20.4: grigio con lo scudo vuoto, come la Live Activity (la spunta diceva «sì»)
+        case .clear: return ("shield", L("No active ZTL ahead"), Color(hex: 0x5B6476))
         case .unknownPlace: return ("shield", L("We don't know the ZTLs of this place"), Color(hex: 0x3A4A6B))
         }
     }

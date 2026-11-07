@@ -8,14 +8,16 @@ import SwiftUI
 /// La risposta del motore delle regole detta come sul pannello: colore, frase breve, ora del prossimo cambio
 struct Home2Answer: Equatable {
     enum Mood: Hashable, CaseIterable {
-        /// «neutral» (1.19.0): fuori copertura, non sappiamo. Né verde né giallo: un contorno grigio-azzurro
-        case red, green, amber, neutral
+        /// «neutral» (1.19.0): fuori copertura, non sappiamo. Né verde né giallo: un contorno grigio-azzurro.
+        /// «grey» (1.20.4, decisione di Ledion del 07/11): fuori dalla ZTL in una città che conosciamo, grigio neutro, mai verde
+        case red, green, amber, neutral, grey
         var color: Color {
             switch self {
             case .red: Notte.ledRed
             case .green: Notte.ledGreen
             case .amber: Notte.ledAmber
             case .neutral: Notte.muted
+            case .grey: Color(hex: 0xAEB4BC)
             }
         }
         var hex: UInt32 {
@@ -24,6 +26,7 @@ struct Home2Answer: Equatable {
             case .green: 0x3BE07A
             case .amber: 0xFFB21E
             case .neutral: 0xA9B3D1
+            case .grey: 0xAEB4BC
             }
         }
     }
@@ -63,7 +66,7 @@ struct Home2Answer: Equatable {
         case .closed, .pedestrian: m = .red
         // Fonte non ufficiale: mai verde (1.19.0). Giallo con il «?»
         case .open: m = check.hedged ? .amber : .green
-        case .outside: m = .green
+        case .outside: m = .grey          // 1.20.4: prima verde
         case .uncovered: m = .neutral
         case .conditional, .unsure: m = .amber
         }

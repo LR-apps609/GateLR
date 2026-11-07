@@ -164,7 +164,8 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         }
         switch resting {
         case .clear:
-            return DriveAttributes.ContentState(symbol: "checkmark.shield", distance: "",
+            // 1.20.4: grigio e scudo vuoto (fuori dalla ZTL in una città che conosciamo: mai verde né spunta)
+            return DriveAttributes.ContentState(symbol: "shield", distance: "",
                                                 instruction: L("No active ZTL ahead"), warning: nil, eta: nil, level: "clear", zone: nil)
         case .unknownPlace:
             return DriveAttributes.ContentState(symbol: "shield", distance: "",

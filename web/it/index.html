@@ -835,7 +835,8 @@ function placeAnswer(lat, lon, t, staying, v = CARS[0], quick = false){
   const hit = best >= 0 ? hits[best] : null, r = hit ? rs[best] : null, z = hit ? hit.zone : null;
   const unoff = !ped && unofficial(z);
   const kind = ped ? "ped" : r ? shown(r.v, z) : cov ? "out" : "unk";
-  const colour = ped ? "red" : r ? zoneColour(r, z) : cov ? "green" : "neutral";
+  // 1.20.4 (decisione di Ledion del 07/11): fuori dalle zone di una città che conosciamo grigio, mai verde (come «fuoriZTL»)
+  const colour = ped ? "red" : r ? zoneColour(r, z) : cov ? "grey" : "neutral";
   const verdict = ped ? "no" : r ? shown(r.v, z) : cov ? "yes" : "unsure";
   return {hits, hit, zone: z, city: hit ? hit.city : null, r, ped, covered: cov, unoff, kind, colour, verdict};
 }

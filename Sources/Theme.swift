@@ -12,6 +12,9 @@ enum Theme {
     static let raised = Color(light: 0xF7F8F7, dark: 0x222A33)      // campi dentro le schede
     static let ink = Color(light: 0x1B2128, dark: 0xE8ECEF)
     static let muted = Color(light: 0x5D6670, dark: 0x9BA5AE)
+    /// 1.20.4 (decisione di Ledion del 07/11): «Fuori dalla ZTL» in una città coperta è GRIGIO, mai verde. Un solo valore
+    /// per tutta l'app: contrasto 5,3:1 sul fondo chiaro (F3F4F2) e 6,5:1 sulle schede scure (1A2027)
+    static let outside = Color(light: 0x5D6670, dark: 0x9BA5AE)
     static let line = Color(light: 0xE6E9E7, dark: 0x2C343D)
     static let red = Color(light: 0xC1272D, dark: 0xEF5B55)
     static let blue = Color(light: 0x1F4E9E, dark: 0x8CB0EE)

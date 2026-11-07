@@ -2,9 +2,10 @@ package app.gatelr.core
 
 import java.time.Instant
 
-/** I colori delle risposte di GateLR: rosso non entrare, giallo a una condizione o da verificare («?»), verde puoi entrare,
- *  grigio ZTL non attiva, neutro un posto che non conosciamo (mai verde) */
-enum class AnswerColor { RED, YELLOW, GREEN, NEUTRAL }
+/** I colori delle risposte di GateLR: rosso non entrare, giallo a una condizione o da verificare («?»), verde puoi entrare
+ *  (anche a ZTL non attiva), grigio fuori dalla ZTL in una città che conosciamo (1.20.4, decisione di Ledion del 07/11),
+ *  neutro un posto che non conosciamo (mai verde) */
+enum class AnswerColor { RED, YELLOW, GREEN, GREY, NEUTRAL }
 
 /**
  * 1.20.0 «Motore unico»: la risposta per un posto come PlaceCheck dell'iPhone (Sources/PlaceCheck.swift).
@@ -14,7 +15,7 @@ enum class AnswerColor { RED, YELLOW, GREEN, NEUTRAL }
  * - 1.20.1: le risposte arrivano già con la verifica dei dati (RuleEngine.trustedAnswer): una zona non verificata, con
  *   verifica vecchia o con la pagina del Comune cambiata non dà mai verde né grigio.
  * - L'area pedonale vince sempre (rosso).
- * - Fuori dalle zone: verde solo in una città che conosciamo (City.covers), altrimenti neutro.
+ * - Fuori dalle zone: grigio in una città che conosciamo (City.covers; 1.20.4, prima verde), altrimenti neutro.
  * Gli stessi casi di prova dell'iPhone e del sito: shared/engine-cases.json.
  */
 class PlaceCheck(
@@ -76,11 +77,11 @@ class PlaceCheck(
     /** I varchi della zona che decide (anche nell'area pedonale: lo stato vero della ZTL a quell'ora) */
     val gatesOn: Boolean? get() = answer?.gatesOn
 
-    /** Il colore, come la mappa dell'iPhone (Access): pedonale rosso, fuori verde, fuori copertura neutro; la zona che
-     *  decide spenta grigia; non sicuro o fonte non ufficiale mai verde né grigio, ma giallo */
+    /** Il colore, come l'iPhone (PlaceCheck.colourName): pedonale rosso, fuori dalla ZTL grigio (1.20.4), fuori copertura
+     *  neutro; la zona che decide con il colore della sua risposta (spenta verde); non sicuro o fonte non ufficiale giallo */
     val color: AnswerColor get() {
         if (pedestrian != null) return AnswerColor.RED
-        val a = answer ?: return if (covered) AnswerColor.GREEN else AnswerColor.NEUTRAL
+        val a = answer ?: return if (covered) AnswerColor.GREY else AnswerColor.NEUTRAL
         return zoneColor(a, zone!!, city?.status)
     }
 

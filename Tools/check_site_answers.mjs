@@ -30,7 +30,7 @@ const fakeFetch = async url => {
 function engine() {
   const cities = JSON.parse(JSON.stringify(index));
   const api = new Function("CITIES", "ROOT", "PAGE_LANG", "window", "fetch", "localStorage", code + `
-    return {CITIES, CARS, PLACES, START, SAMPLES, zoneAt, pedAt, nearestZone, answer, ensureFor, loadCity, setLang: l => { lang = l; }};`);
+    return {CITIES, CARS, PLACES, START, SAMPLES, zoneAt, pedAt, nearestZone, answer, placeAnswer, ensureFor, loadCity, setLang: l => { lang = l; }};`);
   return api(cities, "", "", {}, fakeFetch, undefined);
 }
 
@@ -93,6 +93,11 @@ for (const p of pts) {
   const A = where(all, p), B = where(lazy, p);
   if (A.key !== B.key) { errors.push(`${p.name}: luogo diverso ${A.key} ≠ ${B.key}`); continue; }
   const z = A.hit ? A.hit.zone : null, zB = B.hit ? B.hit.zone : null;
+  // 1.20.4 (decisione di Ledion del 07/11): il colore della risposta per il posto è lo stesso nei due modi e, fuori dalle
+  // zone, grigio in una città che conosciamo e neutro fuori copertura: mai verde senza una zona
+  const pa = all.placeAnswer(p.lat, p.lon, T[1]), pb = lazy.placeAnswer(p.lat, p.lon, T[1]);
+  if (pa.colour !== pb.colour || pa.kind !== pb.kind) errors.push(`${p.name}: colore diverso ${pa.kind}/${pa.colour} ≠ ${pb.kind}/${pb.colour}`);
+  if (!pa.zone && !pa.ped && pa.colour !== (pa.covered ? "grey" : "neutral")) errors.push(`${p.name}: fuori dalle zone ${pa.colour} (atteso ${pa.covered ? "grey" : "neutral"})`);
   if (!z) { n++; continue; }
   // stessi dati della zona trovata, poi la risposta per alcune combinazioni (a rotazione: lingua, ora, veicolo, hotel;
   // ogni risposta guarda 8 giorni avanti e indietro, tutte le combinazioni sarebbero troppo lente)
