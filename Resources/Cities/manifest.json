@@ -1,6 +1,6 @@
 {
- "version": "202611071923",
- "digest": "b4fdef44f3d6",
+ "version": "202611071924",
+ "digest": "f31d2454b358",
  "schema": 1,
  "cities": [
   {
@@ -96,7 +96,7 @@
   {
    "id": "montepulciano",
    "file": "montepulciano.json",
-   "sha256": "37f31e44059dd9a5244ecb1b965a81d6accf75e3f5db93801054d382f23cdfe5"
+   "sha256": "a4b0e6ca700b0500785d576db20d1c099df0b051f9a69607835ec281c02c988c"
   },
   {
    "id": "napoli",
@@ -166,7 +166,7 @@
   {
    "id": "sirmione",
    "file": "sirmione.json",
-   "sha256": "730980137d9730298004a87c0f24b1b31db6136774cd0492254461d637daa215"
+   "sha256": "a87a183d618f4ba26694be8dcf490da316f2f04c0d779389d88776991604929c"
   },
   {
    "id": "sorrento",
