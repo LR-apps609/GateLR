@@ -58,15 +58,8 @@ class PlaceCheck(
         else -> answer!!.verdict.shown(unofficial)
     }
 
-    /** 1.20.3 «Parole»: il titolo fisso della risposta per il posto (lo stesso dell'iPhone, PlaceCheck.word) */
-    val word: AnswerWord get() = when (kind) {
-        Kind.UNCOVERED -> AnswerWord.UNKNOWN_PLACE
-        Kind.OUTSIDE -> AnswerWord.ENTER
-        Kind.CLOSED, Kind.PEDESTRIAN -> AnswerWord.DONT_ENTER
-        Kind.OPEN -> if (hedged) AnswerWord.CHECK_SIGN else AnswerWord.ENTER
-        Kind.CONDITIONAL -> AnswerWord.CONDITION
-        Kind.UNSURE -> AnswerWord.CHECK_SIGN
-    }
+    /** 2.1: il titolo è la parola della RispostaFinale ([finale]: sette stati); prima cinque parole (AnswerWord) */
+    val word: String get() = finale.title
 
     /** La frase sotto il titolo (mai titolo): condizione, motivo del dubbio, «Probabilmente sì · fonte non ufficiale» */
     val explanation: String? get() = when (kind) {
@@ -76,6 +69,9 @@ class PlaceCheck(
         Kind.OPEN, Kind.CLOSED -> if (unofficial) answer?.verdict?.unofficialNote(true) else null
         Kind.OUTSIDE, Kind.PEDESTRIAN -> null
     }
+
+    /** 2.1: la RispostaFinale del posto (sette stati): parola, forma e colore per ogni superficie */
+    val finale: RispostaFinale get() = RispostaFinale.of(this)
 
     /** I varchi della zona che decide (anche nell'area pedonale: lo stato vero della ZTL a quell'ora) */
     val gatesOn: Boolean? get() = answer?.gatesOn

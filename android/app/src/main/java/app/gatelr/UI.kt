@@ -51,6 +51,13 @@ object Palette {
     val groundDark = Color(0xFF0F1318); val cardDark = Color(0xFF1A2027); val inkDark = Color(0xFFE8ECEF)
     val brass = Color(0xFFA97E3F)
 
+    /** 2.1: il colore semantico della RispostaFinale (shared/risposta-finale.md). La ZTL non attiva arriva già come
+     *  RispostaFinale.STATE_OFF (oggi verde): qui SPENTO non c'è mai */
+    fun tone(t: app.gatelr.core.Tono): Color = when (t) {
+        app.gatelr.core.Tono.ROSSO -> red; app.gatelr.core.Tono.GIALLO -> amber; app.gatelr.core.Tono.VERDE, app.gatelr.core.Tono.SPENTO -> green
+        app.gatelr.core.Tono.GRIGIO -> Color(0xFF6B7280); app.gatelr.core.Tono.NEUTRO -> muted
+    }
+
     fun kind(k: ZoneKind): Color = when (k) {
         ZoneKind.RESTRICTED -> red; ZoneKind.PASS -> Color(0xFFD99A00); ZoneKind.GREEN -> Color(0xFF0FA34A)
     }
