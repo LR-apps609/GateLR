@@ -42,6 +42,8 @@ android {
         java.srcDir("../core/src/main/kotlin")
         // Le città e le regole: gli stessi file dell'app iPhone, copiati negli assets alla compilazione
         assets.srcDir(layout.buildDirectory.dir("generated/gatelrAssets"))
+        // 2.0: i caratteri dell'iPhone (Resources/Fonts): Titillium per i titoli, DotGothic16 per il pannello LED
+        res.srcDir(layout.buildDirectory.dir("generated/gatelrRes"))
     }
 
     compileOptions {
@@ -58,7 +60,17 @@ val copyCityData by tasks.registering(Copy::class) {
     }
     into(layout.buildDirectory.dir("generated/gatelrAssets"))
 }
-tasks.named("preBuild") { dependsOn(copyCityData) }
+val copyFonts by tasks.registering(Copy::class) {
+    from(rootDir.resolve("../Resources/Fonts")) {
+        include("TitilliumWeb-SemiBold.ttf", "TitilliumWeb-Bold.ttf", "TitilliumWeb-Black.ttf", "DotGothic16-Regular.ttf")
+        rename { n -> when (n) {
+            "TitilliumWeb-SemiBold.ttf" -> "titillium_semibold.ttf"; "TitilliumWeb-Bold.ttf" -> "titillium_bold.ttf"
+            "TitilliumWeb-Black.ttf" -> "titillium_black.ttf"; else -> "dotgothic16.ttf"
+        } }
+    }
+    into(layout.buildDirectory.dir("generated/gatelrRes/font"))
+}
+tasks.named("preBuild") { dependsOn(copyCityData, copyFonts) }
 
 dependencies {
     val composeBom = platform("androidx.compose:compose-bom:2024.10.01")
@@ -70,6 +82,8 @@ dependencies {
     implementation("androidx.activity:activity-compose:1.9.3")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
+    // 2.0: widget piccolo e medio con Glance (Compose per i widget)
+    implementation("androidx.glance:glance-appwidget:1.1.1")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
     // Mappe senza servizi Google (vanno anche sui Huawei): MapLibre + OpenFreeMap

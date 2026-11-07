@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="widget_description">你选择的 ZTL：现在可以进入吗？</string>
+    <string name="widget_description">你所在位置的答案，现在</string>
 </resources>

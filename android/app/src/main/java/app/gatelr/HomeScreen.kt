@@ -3,6 +3,7 @@ package app.gatelr
 import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -19,16 +21,19 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
+import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.ChevronRight
+import androidx.compose.material.icons.filled.DirectionsCar
+import androidx.compose.material.icons.filled.Description
+import androidx.compose.material.icons.filled.LocalParking
 import androidx.compose.material.icons.filled.LocationOff
+import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Shield
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -41,16 +46,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import app.gatelr.core.AnswerState
 import app.gatelr.core.F
-import app.gatelr.core.Geometry
+import app.gatelr.core.FinalAnswer
 import app.gatelr.core.L
 import app.gatelr.core.PermissionPlan
-import app.gatelr.core.Verdict
 import app.gatelr.core.Zone
-import app.gatelr.core.nearestZone
 import kotlinx.coroutines.delay
 import java.time.Instant
 
@@ -62,36 +69,68 @@ fun rememberNow(): Instant {
     return now
 }
 
+/** 2.0 «Adesso» (A-Adesso): la risposta per dove sei, adesso, per il tuo veicolo; la frase-contesto ora + veicolo;
+ *  «Parcheggia fuori» / «Naviga comunque»; il pannello come al varco; il perché con la fonte */
 @Composable
 fun HomeScreen(modifier: Modifier) {
     val now = rememberNow()
     val ctx = LocalContext.current
     LazyColumn(modifier.fillMaxSize().background(MaterialTheme.colorScheme.background),
-        contentPadding = androidx.compose.foundation.layout.PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(14.dp)) {
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 24.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)) {
 
-        if (GuardianService.active) item {
-            Row(Modifier.fillMaxWidth().background(Palette.blue, RoundedCornerShape(16.dp)).padding(14.dp), verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Filled.Shield, null, tint = Color.White)
-                Spacer(Modifier.width(10.dp))
-                Text(GuardianService.destination?.let { F("Guardian on · to %@", it.name) } ?: L("Guardian on"), color = Color.White, fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
-                TextButton(onClick = { GuardianService.stop(ctx) }) { Text(L("Stop"), color = Color.White) }
+        val here = Here.coordinate
+        val result = if (Here.allowed && here != null) NowAnswer.compute(here, Here.course, now) else null
+
+        if (result == null) item { LocationCard() }
+        else {
+            val f = result.final
+            val until = NowAnswer.untilText(result.answer, now)
+            item {
+                AnswerBlock(f, f.subtitle(until), result.line,
+                    f.spoken(until, NowAnswer.vehicleLabel(), L("now")))
             }
         }
 
-        // Il riquadro d'impatto: cosa fa l'app, in cinque secondi
-        item {
-            Column(Modifier.fillMaxWidth().background(Palette.blue, RoundedCornerShape(26.dp)).padding(22.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                Text(L("Gate"), color = Color.White, fontSize = 32.sp, fontWeight = FontWeight.Bold, lineHeight = 34.sp)
-                Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Pill(L("Clear answer"), Color.White.copy(alpha = 0.16f), Color.White)
-                    Pill(L("Official sources"), Color.White.copy(alpha = 0.16f), Color.White)
-                    Pill(L("Gate alerts"), Color.White.copy(alpha = 0.16f), Color.White)
+        // La frase-contesto: ora + veicolo (tocco sul veicolo: Garage e impostazioni) + leggi il cartello
+        item { ContextRow() }
+
+        if (result != null) {
+            val f = result.final
+            item {
+                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                    when (f.state) {
+                        AnswerState.NO, AnswerState.CHECK, AnswerState.CONDITION -> {
+                            PillButton(L("Park outside"), { parkOutside(ctx, f.zone, here!!) }, Modifier.weight(1f), Icons.Filled.LocalParking)
+                            PillButton(L("Navigate anyway"), { Nav.whereTo = "trip" }, Modifier.weight(1f), filled = false)
+                        }
+                        else -> PillButton(L("Where are you going?"), { Nav.whereTo = "trip" }, Modifier.weight(1f), Icons.Filled.Search)
+                    }
                 }
-                Button(onClick = { Nav.tab = 2 }, colors = ButtonDefaults.buttonColors(containerColor = Color.White, contentColor = Palette.blue),
-                    modifier = Modifier.fillMaxWidth().padding(top = 6.dp)) {
-                    Icon(Icons.Filled.Search, null); Spacer(Modifier.width(8.dp)); Text(L("Where are you going?"), fontWeight = FontWeight.SemiBold)
+            }
+            f.panel?.let { panel ->
+                item {
+                    Row(Modifier.fillMaxWidth().background(cardColor, RoundedCornerShape(16.dp)).padding(horizontal = 14.dp, vertical = 12.dp),
+                        verticalAlignment = Alignment.CenterVertically) {
+                        LedPanel(panel)
+                        Spacer(Modifier.width(14.dp))
+                        Text(listOfNotNull(f.panelLine ?: L("That's how you'll see it at the gate."), result.answer?.let { changeText(it, now) })
+                            .joinToString(" "), fontSize = 14.sp, color = Ink.text2, lineHeight = 19.sp)
+                    }
                 }
-                Text(L("Hotel, address or square: answer, route and hotel message"), color = Color.White.copy(alpha = 0.85f), fontSize = 13.sp)
+            }
+            f.zone?.let { z -> item { WhyRow(z) } }
+        } else item {
+            PillButton(L("Where are you going?"), { Nav.whereTo = "trip" }, Modifier.fillMaxWidth(), Icons.Filled.Search)
+        }
+
+        if (GuardianService.active) item {
+            Row(Modifier.fillMaxWidth().background(cardColor, RoundedCornerShape(16.dp)).padding(start = 14.dp, end = 4.dp, top = 4.dp, bottom = 4.dp),
+                verticalAlignment = Alignment.CenterVertically) {
+                Icon(Icons.Filled.Shield, null)
+                Spacer(Modifier.width(10.dp))
+                Text(GuardianService.destination?.let { F("Guardian on · to %@", it.name) } ?: L("Guardian on"), fontWeight = FontWeight.SemiBold, modifier = Modifier.weight(1f))
+                TextButton(onClick = { GuardianService.stop(ctx) }, modifier = Modifier.heightIn(min = 48.dp)) { Text(L("Stop")) }
             }
         }
 
@@ -100,106 +139,109 @@ fun HomeScreen(modifier: Modifier) {
             item {
                 CardBox(Modifier.clickable { AppState.open(t); Nav.tab = 2 }) {
                     Column {
-                        Text(L("Your next trip").uppercase(), fontSize = 12.sp, fontWeight = FontWeight.SemiBold, color = Palette.brass)
+                        Text(L("Your next trip").uppercase(), fontSize = 12.sp, fontWeight = FontWeight.SemiBold, color = Ink.text2)
                         Text(t.place.name, fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                        Text(shortWhen(t.arrival), fontSize = 13.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                        Text(shortWhen(t.arrival), fontSize = 13.sp, color = Ink.text2)
                     }
                 }
             }
         }
 
-        // La ZTL vicino a te
-        item { NearYou(now) }
-
+        // Le zone della città scelta
         item { SectionLabel("Cities") }
         item {
             LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 items(AppState.cities, key = { it.id }) { c ->
                     val active = c.zones.count { AppState.engine.isActive(it, now) }
                     val sel = c.id == AppState.cityId
-                    Column(Modifier.background(if (sel) Palette.blue else MaterialTheme.colorScheme.surface, RoundedCornerShape(14.dp))
-                        .clickable { AppState.chooseCity(c.id) }.padding(horizontal = 14.dp, vertical = 10.dp)) {
-                        Text(c.localizedName, fontWeight = FontWeight.SemiBold, color = if (sel) Color.White else MaterialTheme.colorScheme.onSurface)
+                    Column(Modifier.background(if (sel) MaterialTheme.colorScheme.primary else cardColor, RoundedCornerShape(14.dp))
+                        .clickable { AppState.chooseCity(c.id) }.heightIn(min = 48.dp).padding(horizontal = 14.dp, vertical = 10.dp)) {
+                        Text(c.localizedName, fontWeight = FontWeight.SemiBold, color = if (sel) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface)
                         Text(if (active == 0) L("All open") else F("%lld active", active), fontSize = 12.sp,
-                            color = if (sel) Color.White.copy(alpha = 0.85f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                            color = if (sel) MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.85f) else Ink.text2)
                     }
                 }
             }
         }
         items(AppState.city.zones, key = { it.id }) { z -> ZoneRow(z, now) }
-
-        item { SectionLabel("New to ZTLs?") }
         item {
-            CardBox(Modifier.clickable { ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://lr-apps609.github.io/GateLR/"))) }) {
-                Column {
-                    Text(L("New to ZTLs?"), fontWeight = FontWeight.SemiBold)
-                    Text(L("The signs, the panels and what to do if you drove in by mistake. 1 minute."), fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f))
-                }
-            }
-        }
-        item {
-            CardBox(Modifier.clickable { Nav.tool = "sign" }) {
-                Column {
-                    Text(L("Read the sign"), fontWeight = FontWeight.SemiBold)
-                    Text(L("Point the camera at the hours panel: GateLR explains it in your language."), fontSize = 14.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f))
-                }
-            }
-        }
-        item {
-            Text(L("Road signs on site always win over the app."), fontSize = 12.sp, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.55f),
+            Text(L("Road signs on site always win over the app."), fontSize = 12.sp, color = Ink.text2,
                 modifier = Modifier.padding(top = 4.dp, bottom = 12.dp))
         }
     }
 }
 
+/** Ora + veicolo, come una frase: «Adesso · Golf diesel Euro 5»; il veicolo apre Garage e impostazioni */
 @Composable
-fun NearYou(now: Instant) {
-    val here = Here.coordinate
-    if (!Here.allowed || here == null) {
-        // 1.20.2: la posizione si chiede qui, al tocco (non più all'apertura dell'app)
-        val ctx = LocalContext.current
-        CardBox(Modifier.clickable(enabled = !Here.allowed) { Permissions.ask(ctx, PermissionPlan.Moment.USE_MY_LOCATION) }) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Icon(Icons.Filled.LocationOff, null, tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
-                Spacer(Modifier.width(10.dp))
-                Text(L("Allow location access to see the ZTL near you."), fontSize = 14.sp, modifier = Modifier.weight(1f))
-                if (!Here.allowed) Text(L("Use my location"), fontSize = 14.sp, fontWeight = FontWeight.SemiBold, color = MaterialTheme.colorScheme.primary)
-            }
+fun ContextRow() {
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+        ContextChip(Icons.Filled.Schedule, L("Now"), null)
+        ContextChip(Icons.Filled.DirectionsCar, NowAnswer.vehicleLabel(), Modifier.weight(1f, fill = false)) { Nav.settings = true }
+        IconButton(onClick = { Nav.tool = "sign" }, modifier = Modifier.size(48.dp).border(1.dp, Ink.line, RoundedCornerShape(12.dp))) {
+            Icon(Icons.Filled.CameraAlt, L("Read the sign"))
         }
-        return
     }
-    val near = nearestZone(AppState.cities, here)
-    if (near == null || near.third > 5_000) {
-        CardBox { Text(L("No ZTL near you. GateLR covers Florence, Bologna and Milan for now."), fontSize = 14.sp) }
-        return
+}
+
+@Composable
+private fun ContextChip(icon: androidx.compose.ui.graphics.vector.ImageVector, text: String, modifier: Modifier?, onClick: (() -> Unit)? = null) {
+    val base = (modifier ?: Modifier).heightIn(min = 48.dp).border(1.dp, Ink.line, RoundedCornerShape(12.dp))
+    Row((if (onClick != null) base.clickable(role = Role.Button, onClickLabel = L("Garage and settings"), onClick = onClick) else base)
+        .padding(horizontal = 14.dp), verticalAlignment = Alignment.CenterVertically) {
+        Icon(icon, null, modifier = Modifier.size(18.dp))
+        Spacer(Modifier.width(8.dp))
+        Text(text, fontSize = 15.sp, fontWeight = FontWeight.SemiBold, maxLines = 1, modifier = Modifier.padding(vertical = 12.dp))
     }
-    val (_, z, d) = near
-    val a = AppState.answer(z, now)
-    val v = a.verdict
-    Column(Modifier.fillMaxWidth().background(v.fill(), RoundedCornerShape(20.dp)).clickable { Nav.zone = z }.padding(16.dp)) {
-        Text(if (d == 0.0) F("You're inside %@", z.shortName) else F("%@ is %@ away", z.shortName, Geometry.distanceText(d)),
-            color = v.onFill(), fontWeight = FontWeight.SemiBold)
-        Text(v.title, color = v.onFill(), fontSize = 24.sp, fontWeight = FontWeight.Bold)
-        changeText(a, now)?.let { Text(it, color = v.onFill().copy(alpha = 0.85f), fontSize = 13.sp) }
+}
+
+/** «Perché · Comune di Firenze, letto il 23 ott 2026 ›»: apre la scheda della zona */
+@Composable
+fun WhyRow(z: Zone) {
+    Row(Modifier.fillMaxWidth().heightIn(min = 52.dp).background(cardColor, RoundedCornerShape(16.dp))
+        .clickable(role = Role.Button) { Nav.zone = z }.padding(horizontal = 14.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
+        Icon(Icons.Filled.Description, null, tint = Ink.text2, modifier = Modifier.size(20.dp))
+        Spacer(Modifier.width(10.dp))
+        Text(F("Why · %@", z.source.localizedAuthority + ", " + F("Read %@", shortDate(z.source.checkedOn))), fontSize = 14.sp, color = Ink.text2, modifier = Modifier.weight(1f))
+        Icon(Icons.AutoMirrored.Filled.KeyboardArrowRight, null, tint = Ink.text2)
     }
+}
+
+/** Senza posizione: la si chiede qui, al tocco */
+@Composable
+private fun LocationCard() {
+    val ctx = LocalContext.current
+    CardBox(Modifier.clickable(enabled = !Here.allowed, role = Role.Button) { Permissions.ask(ctx, PermissionPlan.Moment.USE_MY_LOCATION) }) {
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.heightIn(min = 48.dp)) {
+            Icon(Icons.Filled.LocationOff, null, tint = Ink.text2)
+            Spacer(Modifier.width(10.dp))
+            Text(L("Allow location access to see the ZTL near you."), fontSize = 15.sp, modifier = Modifier.weight(1f))
+            if (!Here.allowed) Text(L("Use my location"), fontSize = 15.sp, fontWeight = FontWeight.SemiBold)
+        }
+    }
+}
+
+/** «Parcheggia fuori»: i parcheggi vicino alla zona nell'app di mappe */
+fun parkOutside(ctx: android.content.Context, zone: Zone?, here: app.gatelr.core.Coordinate) {
+    val c = zone?.let { app.gatelr.core.ThreatEvaluator.nearestPoint(it.perimeter, here).first } ?: here
+    runCatching { ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("geo:${c.lat},${c.lon}?q=" + Uri.encode(L("Parking"))))) }
 }
 
 @Composable
 fun ZoneRow(z: Zone, now: Instant) {
     val a = AppState.answer(z, now)
+    val f = FinalAnswer.of(z, AppState.cityOf(z), a, AppState.engine)
     CardBox(Modifier.clickable { Nav.zone = z }) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.heightIn(min = 48.dp)) {
             Text(z.letter.take(2), color = Color.White, fontWeight = FontWeight.Bold, fontSize = 13.sp,
                 modifier = Modifier.size(30.dp).background(Palette.kind(z.type), CircleShape).padding(top = 6.dp),
                 textAlign = androidx.compose.ui.text.style.TextAlign.Center)
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
-                Text(z.localizedName, fontWeight = FontWeight.SemiBold, maxLines = 1)
-                Text(z.type.title + " · " + (if (a.gatesOn) L("ZTL active") else L("ZTL not active")), fontSize = 12.sp,
-                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
+                Text(z.localizedName, fontWeight = FontWeight.SemiBold, maxLines = 2)
+                Text(z.type.title + " · " + (if (a.gatesOn) L("ZTL active") else L("ZTL not active")), fontSize = 12.sp, color = Ink.text2)
             }
-            VerdictPill(a.verdict)
-            Icon(Icons.Filled.ChevronRight, null, tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f))
+            AnswerPill(f)
+            Icon(Icons.Filled.ChevronRight, null, tint = Ink.text2)
         }
     }
 }

@@ -21,7 +21,7 @@ find() {
   local r="" i
   for i in $(seq 1 ${TRIES:-4}); do
     adb shell rm -f /sdcard/ui.xml; adb shell uiautomator dump /sdcard/ui.xml >/dev/null 2>&1
-    r=$(adb shell cat /sdcard/ui.xml 2>/dev/null | tr '>' '\n' | grep -F "text=\"$1\"" | sed -n "${2:-1}p" | grep -oE 'bounds="\[[0-9]+,[0-9]+\]\[[0-9]+,[0-9]+\]"' | grep -oE '[0-9]+' | tr '\n' ' ')
+    r=$(adb shell cat /sdcard/ui.xml 2>/dev/null | tr '>' '\n' | grep -E "(text|content-desc)=\"$(printf '%s' "$1" | sed 's/[][\.*^$?+(){}|]/\\&/g')\"" | sed -n "${2:-1}p" | grep -oE 'bounds="\[[0-9]+,[0-9]+\]\[[0-9]+,[0-9]+\]"' | grep -oE '[0-9]+' | tr '\n' ' ')
     [ -n "$r" ] && break; sleep 2
   done
   echo "$r"
@@ -37,39 +37,56 @@ tap() {
 
 shot 00-benvenuto
 tap "Continue"; sleep 4
-shot 01-varco
+# 2.0: quattro schede Now · Map · Trip · Help; Garage e impostazioni dietro l'icona del veicolo
+shot 01-adesso
 tap "Map" && sleep 8 && shot 02-mappa
-# Un posto cercato sulla mappa: zona accesa, riquadro «ZTL ATTIVA · NON ENTRARE» e «Avvia» nella scheda
-if tap "Search hotel or address"; then
+# Il foglio unico «Dove vai?» dalla mappa: zona accesa e risposta nel foglio in basso
+if tap "Where are you going? Hotel, address or square"; then
   adb shell input text "Palazzo%sVecchio"; sleep 8
   tap "Palazzo Vecchio" 2 && sleep 6 && shot 02c-mappa-posto || { adb shell input keyevent 4; sleep 2; }
 fi
 tap "Trip" && shot 03-viaggio
-adb shell input text "Palazzo%sVecchio"; sleep 8; shot 04-ricerca
-adb shell input keyevent 4; sleep 2
-tap "Palazzo Vecchio" 2 && sleep 3 && shot 04b-risposta
-adb shell input swipe 500 1800 500 500 && sleep 2 && shot 04c-risposta-sotto
+if tap "Where are you going? Hotel, address or square"; then
+  adb shell input text "Palazzo%sVecchio"; sleep 8; shot 04-ricerca
+  tap "Palazzo Vecchio" 2 && sleep 3 && shot 04b-risposta
+  adb shell input swipe 500 1800 500 500 && sleep 2 && shot 04c-risposta-sotto
+fi
 adb emu geo fix 11.2486 43.7765 || true          # Stazione di Santa Maria Novella, fuori dal Settore A
 sleep 12
 tap "Check the drive" && sleep 8 && shot 04d-tragitto
-tap "Garage" && shot 05-garage
-tap "You" && shot 06-account
-adb shell input swipe 500 1800 500 900; sleep 2
-tap "Read the sign ›" && sleep 2 && tap "e.g. 7.30-20.00 feriali" && adb shell input text "7.30-20.00%sferiali" && sleep 2 && adb shell input keyevent 4 && sleep 1 && shot 06b-cartello
+tap "Now" && sleep 3 && shot 01b-adesso-stazione
+tap "Help" && shot 06a-aiuto
+tap "Garage and settings" && sleep 3 && shot 05-garage
+tap "Settings" && sleep 2 && shot 06-impostazioni
 adb shell input keyevent 4; sleep 2
-tap "Got a fine? ›" && sleep 2 && shot 06c-multa
+tap "Read the sign" && sleep 2 && tap "e.g. 7.30-20.00 feriali" && adb shell input text "7.30-20.00%sferiali" && sleep 2 && adb shell input keyevent 4 && sleep 1 && shot 06b-cartello
 adb shell input keyevent 4; sleep 2
+tap "Got a fine?" && sleep 2 && shot 06c-multa
+adb shell input keyevent 4; sleep 2
+# Indietro da una scheda interna torna ad Adesso e non chiude l'app
+adb shell input keyevent 4; sleep 3
+if adb shell dumpsys activity activities | grep -E "mResumedActivity|topResumedActivity" | grep -q app.gatelr; then shot 07b-indietro-adesso
+else echo "::error::Indietro da Aiuto ha chiuso l'app"; adb shell am start -W -n app.gatelr/.MainActivity; sleep 6; fi
+adb emu geo fix 11.2558 43.7696 || true          # di nuovo Firenze, Settore A
 tap "Map" && sleep 6 && adb shell input tap 540 1200 && sleep 3 && shot 02b-mappa-zona
 adb shell input keyevent 4; sleep 2
-tap "Gate" && adb shell input swipe 500 1800 500 600 && sleep 2 && shot 07-varco-zone
+tap "Now" && sleep 3 && adb shell input swipe 500 1800 500 600 && sleep 2 && shot 07-adesso-zone
+
+# Testo grande (accessibilità)
+adb shell settings put system font_scale 1.3; sleep 3
+adb shell am force-stop app.gatelr; adb shell am start -W -n app.gatelr/.MainActivity; sleep 8
+shot 12-testo-grande
+adb shell settings put system font_scale 1.0
 
 # In italiano e al buio: lingua dell'app (Android 13+) e tema scuro
 adb shell cmd uimode night yes; adb shell cmd locale set-app-locales app.gatelr --locales it-IT; sleep 3
 adb shell am force-stop app.gatelr; adb shell am start -W -n app.gatelr/.MainActivity; sleep 8
-shot 08-it-scuro-varco
+shot 08-it-scuro-adesso
 tap "Viaggio" && shot 09-it-scuro-viaggio
 tap "Mappa" && sleep 6 && shot 10-it-scuro-mappa
-tap "Tu" && shot 11-it-scuro-account
+tap "Aiuto" && shot 11-it-scuro-aiuto
+tap "Garage e impostazioni" && sleep 3 && shot 11b-it-scuro-garage
+adb shell input keyevent 4; sleep 2
 
 adb logcat -d > "$OUT/logcat.txt"
 if grep -q "FATAL EXCEPTION" "$OUT/logcat.txt"; then

@@ -35,10 +35,12 @@ import androidx.core.content.ContextCompat
 import app.gatelr.core.Coordinate
 import app.gatelr.core.F
 import app.gatelr.core.Geometry
-import app.gatelr.core.GuardianScan
 import app.gatelr.core.L
 import app.gatelr.core.Place
-import app.gatelr.core.Threat
+import app.gatelr.core.ThreatDeduper
+import app.gatelr.core.ThreatEvaluator
+import app.gatelr.core.ThreatResting
+import app.gatelr.core.ZoneThreat
 import app.gatelr.core.Verdict
 import java.time.Instant
 import java.util.Locale
@@ -52,7 +54,7 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
 
     companion object {
         var active by mutableStateOf(false); private set
-        var threat by mutableStateOf<Threat?>(null); private set
+        var threat by mutableStateOf<ZoneThreat?>(null); private set
         var destination by mutableStateOf<Place?>(null); private set
         private const val CHANNEL_ON = "guardian"
         private const val CHANNEL_ALERT = "guardian-alerts"
@@ -76,7 +78,8 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
     private var anchor: Coordinate? = null              // ultimo punto in cui ti sei spostato di 50 m
     private var inside: Pair<app.gatelr.core.Zone, app.gatelr.core.Answer>? = null   // zona «No» in cui sei dentro
     private var lastDistances = mapOf<String, Double>()
-    private val alerted = mutableSetOf<String>()
+    private val deduper = ThreatDeduper()
+    private var resting = ThreatResting.CLEAR
     private var lastMove = System.currentTimeMillis()
     private val startedAt = System.currentTimeMillis()
     private var bubble: TextView? = null
@@ -165,35 +168,39 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
             }
         }
 
-        val zones = AppState.cities.flatMap { it.zones }
-        val scan = GuardianScan.scan(p, zones, lastDistances) { z, d -> AppState.answer(z, Instant.now().plusSeconds((d / 9).toLong())) }
+        // 2.0: lo stesso valutatore dell'iPhone (core/Threat.kt): solo le zone davanti nel verso di marcia, la risposta
+        // all'ora d'arrivo, avviso a 300 m in città e a 600 m sopra i 50 km/h, mai un avviso verde
+        val speed = if (l.hasSpeed()) l.speed.toDouble() else null
+        val course = if (l.hasBearing() && (speed ?: 0.0) > 2) l.bearing.toDouble() else null
+        val candidates = ThreatEvaluator.candidates(AppState.cities, p)
+        val covered = AppState.cities.any { it.covers(p.lat, p.lon) }
+        val scan = ThreatEvaluator.scan(p, course, candidates, lastDistances, covered) { c, d ->
+            if (c.pedestrian != null) ThreatEvaluator.pedestrianAnswer
+            else AppState.answer(c.zone, Instant.now().plusSeconds(ThreatEvaluator.secondsTo(d, speed)))
+        }
         lastDistances = scan.distances
-        for ((z, a) in scan.entered) {
-            AppState.record("entered", z, a.verdict)
-            if (a.verdict is Verdict.No && alerted.add("in|${z.id}")) {
+        deduper.moved(scan.distances)
+        resting = scan.resting
+        for (e in scan.entered) {
+            AppState.record("entered", e.zone, e.shown)
+            if (e.shown is Verdict.No && deduper.shouldAlert("in|${e.zone.id}")) {
                 val body = L("Leave by the nearest exit and don't drive around: every gate can mean another fine.")
-                say(F("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine.", z.shortName))
-                alert(F("You're inside %@", z.shortName), body, "in|${z.id}")
+                say(F("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine.", e.zone.shortName))
+                alert(F("You're inside %@", e.zone.shortName), body, "in|${e.zone.id}", e.shown)
             }
         }
-        inside = zones.filter { it.contains(p.lat, p.lon) }.minByOrNull { it.roughArea }
-            ?.let { z -> AppState.answer(z).takeIf { it.verdict is Verdict.No }?.let { z to it } }
+        inside = candidates.filter { it.zone.contains(p.lat, p.lon) }.minByOrNull { if (it.pedestrian != null) -1.0 else it.zone.roughArea }
+            ?.let { c -> val a = if (c.pedestrian != null) ThreatEvaluator.pedestrianAnswer else AppState.answer(c.zone); if (a.verdict is Verdict.No) c.zone to a else null }
         val t = scan.threat
         threat = t
         if (t != null) {
             val dist = Geometry.distanceText(t.meters)
-            if (t.meters < 550 && alerted.add("far|${t.zone.id}")) {
-                say(F("Attention: in %@ you enter %@. %@.", dist, t.zone.shortName, t.answer.verdict.short))
-                alert(F("%@ in %@", t.zone.shortName, dist), t.answer.verdict.short, "far|${t.zone.id}")
+            val word = t.shown.word(false).title
+            if (t.meters <= ThreatEvaluator.alertDistance(speed) && deduper.shouldAlert("far|${t.zone.id}")) {
+                AppState.record("nearGate", t.zone, t.shown)
+                say(F("Attention: in %@ you enter %@. %@.", dist, t.zone.shortName, word))
+                alert(t.title ?: word, F("In %@.", dist) + " " + t.shown.detail, "far|${t.zone.id}", t.shown)
             }
-            if (t.meters < 150 && alerted.add("near|${t.zone.id}")) {
-                AppState.record("nearGate", t.zone, t.answer.verdict)
-                say(F("Gate ahead: %@.", t.answer.verdict.short))
-                alert(F("Gate ahead: %@", t.zone.shortName), t.answer.verdict.short, "near|${t.zone.id}")
-            }
-        } else {
-            // Ti sei allontanato: gli avvisi si possono ripetere se torni verso la zona
-            alerted.retainAll { key -> lastDistances.any { key.endsWith("|${it.key}") && it.value < 900 } }
         }
         refresh()
     }
@@ -205,8 +212,10 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
 
     // ---- Notifica fissa e bolla
 
-    private fun line(): String = inside?.let { F("You're inside %@", it.first.shortName) + " · " + it.second.verdict.short } ?: threat?.let { "${it.zone.shortName} · ${Geometry.distanceText(it.meters)} · ${it.answer.verdict.short}" }
-        ?: L("No active ZTL ahead")
+    /** La riga della notifica fissa con le parole della risposta: «Non entrare · Firenze Settore A · 300 m» */
+    private fun line(): String = inside?.let { F("You're inside %@", it.first.shortName) + " · " + it.second.verdict.word(false).title }
+        ?: threat?.let { (it.title ?: it.zone.shortName) + " · " + Geometry.distanceText(it.meters) }
+        ?: if (resting == ThreatResting.UNKNOWN_PLACE) L("We don't know the ZTLs of this place. Check the signs at the entrance.") else L("No active ZTL ahead")
 
     private fun refresh() {
         val text = line()
@@ -215,20 +224,21 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
         getSystemService(NotificationManager::class.java).notify(ID, ongoing(text, destination?.name ?: ""))
         bubble?.let { b ->
             b.text = text
-            (b.background as? GradientDrawable)?.setColor(if (inside != null) 0xEEC1272D.toInt() else color(threat))
+            (b.background as? GradientDrawable)?.setColor(if (inside != null) 0xEEC62A24.toInt() else color(threat))
         }
     }
 
-    private fun color(t: Threat?): Int = when (t?.answer?.verdict) {
-        is Verdict.No -> 0xEEC1272D.toInt(); is Verdict.Conditional, is Verdict.Unsure -> 0xEE8A5A00.toInt()
-        else -> 0xEE2B7A47.toInt()
+    /** I colori della risposta (S-Colori): rosso no, giallo condizione o dubbio, neutro a riposo (mai verde) */
+    private fun color(t: ZoneThreat?): Int = when (t?.shown) {
+        is Verdict.No -> 0xEEC62A24.toInt(); is Verdict.Conditional, is Verdict.Unsure -> 0xEE8A6100.toInt()
+        else -> 0xEE142049.toInt()
     }
 
     private fun ongoing(text: String, sub: String): Notification {
         val open = PendingIntent.getActivity(this, 0, Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), PendingIntent.FLAG_IMMUTABLE)
         val stop = PendingIntent.getService(this, 1, Intent(this, GuardianService::class.java).setAction("stop"), PendingIntent.FLAG_IMMUTABLE)
         return NotificationCompat.Builder(this, CHANNEL_ON)
-            .setSmallIcon(R.drawable.ic_launcher)
+            .setSmallIcon(R.drawable.ic_stat_gatelr)
             .setContentTitle(text)
             .setContentText(if (sub.isEmpty()) L("Guardian on") else F("To %@", sub))
             .setOngoing(true).setOnlyAlertOnce(true).setSilent(true)
@@ -238,14 +248,15 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
             .build()
     }
 
-    private fun alert(title: String, body: String, id: String) {
+    private fun alert(title: String, body: String, id: String, shown: Verdict? = null) {
         if (Build.VERSION.SDK_INT >= 33 && ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) return
         val n = NotificationCompat.Builder(this, CHANNEL_ALERT)
-            .setSmallIcon(R.drawable.ic_launcher)
+            .setSmallIcon(R.drawable.ic_stat_gatelr)
             .setContentTitle(title).setContentText(body)
             .setStyle(NotificationCompat.BigTextStyle().bigText(body))
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setCategory(NotificationCompat.CATEGORY_NAVIGATION)
+            .also { b -> shown?.let { b.setColor(if (it is Verdict.No) 0xFFC62A24.toInt() else 0xFF8A6100.toInt()) } }
             .setAutoCancel(true)
             .build()
         getSystemService(NotificationManager::class.java).notify(id.hashCode(), n)

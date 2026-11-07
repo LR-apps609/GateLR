@@ -1,0 +1,7 @@
+<resources>
+    <!-- 2.0: Notte (S-Colori) -->
+    <style name="Theme.GateLR" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/gate_ground</item>
+    </style>
+</resources>

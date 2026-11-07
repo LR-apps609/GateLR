@@ -25,11 +25,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DirectionsCar
+import androidx.compose.material.icons.automirrored.filled.HelpOutline
+import androidx.compose.material.icons.filled.GpsFixed
 import androidx.compose.material.icons.filled.Map
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Shield
 import androidx.compose.material.icons.filled.Luggage
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.material3.NavigationBarItemDefaults
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ModalBottomSheet
@@ -54,13 +63,22 @@ import app.gatelr.core.Zone
 /** La posizione mentre l'app è aperta (per la prima pagina e la mappa) */
 object Here {
     var coordinate by mutableStateOf<Coordinate?>(null)
+    /** 2.0: la direzione di marcia (gradi), solo se ti muovi: «Adesso» guarda la zona davanti */
+    var course by mutableStateOf<Double?>(null)
     var at = 0L                       // quando è arrivata la posizione
     var allowed by mutableStateOf(false)
 }
 
 /** Navigazione tra le schede e la scheda della zona aperta */
 object Nav {
+    /** 2.0: 0 Adesso · 1 Mappa · 2 Viaggio · 3 Aiuto, lo stesso ordine dell'iPhone 2.0 */
     var tab by mutableIntStateOf(0)
+    /** Il foglio unico «Dove vai?» aperto: "trip" (da Adesso e Viaggio) o "map" */
+    var whereTo by mutableStateOf<String?>(null)
+    /** Il posto scelto dalla mappa */
+    var mapPin by mutableStateOf<app.gatelr.core.Place?>(null)
+    /** Garage e impostazioni, dietro l'icona del veicolo */
+    var settings by mutableStateOf(false)
     var zone by mutableStateOf<Zone?>(null)
     var tool by mutableStateOf<String?>(null)      // "sign" | "fines" | "log"
 }
@@ -72,6 +90,7 @@ class MainActivity : ComponentActivity() {
         // 1.20.2: nessuna richiesta all'apertura (prima posizione e notifiche subito, a ogni avvio): le chiede chi le usa
         Permissions.install(this)
         Here.allowed = GuardianService.canStart(this)
+        if (intent?.data?.host == "adesso") Nav.tab = 0          // 2.0: dal widget
         val prefs = getSharedPreferences("gatelr", MODE_PRIVATE)
         if (!prefs.getBoolean("welcomed", false)) welcome = true
         setContent {
@@ -96,18 +115,21 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Root() {
     LocationWhileOpen()
+    // 2.0: quattro schede come l'iPhone 2.0; Garage e impostazioni dietro l'icona del veicolo
     val tabs = listOf(
-        Triple("Gate", Icons.Filled.Shield, "varco"),
-        Triple("Map", Icons.Filled.Map, "map"),
-        Triple("Trip", Icons.Filled.Luggage, "trip"),
-        Triple("Garage", Icons.Filled.DirectionsCar, "garage"),
-        Triple("You", Icons.Filled.Person, "account"),      // 1.20.3: «Tu», come l'iPhone (prima «Account»)
+        Pair("Now", Icons.Filled.GpsFixed),
+        Pair("Map", Icons.Filled.Map),
+        Pair("Trip", Icons.Filled.Luggage),
+        Pair("Help", Icons.AutoMirrored.Filled.HelpOutline),
     )
+    // Indietro (anche «predictive back»): da una scheda interna torna ad Adesso, mai chiudere l'app da lì
+    BackHandler(enabled = Nav.tab != 0) { Nav.tab = 0 }
     Scaffold(bottomBar = {
-        NavigationBar {
+        NavigationBar(containerColor = cardColor) {
             tabs.forEachIndexed { i, t ->
                 NavigationBarItem(selected = Nav.tab == i, onClick = { Nav.tab = i },
-                    icon = { TabIcon(t.second, Nav.tab == i) }, label = { Text(L(t.first), maxLines = 1) })
+                    icon = { TabIcon(t.second, Nav.tab == i) }, label = { Text(L(t.first), maxLines = 1, fontWeight = if (Nav.tab == i) FontWeight.Bold else FontWeight.Medium) },
+                    colors = NavigationBarItemDefaults.colors(indicatorColor = Ink.surface2))
             }
         }
     }) { pad ->
@@ -118,8 +140,7 @@ fun Root() {
                 0 -> HomeScreen(m)
                 1 -> MapScreen(m)
                 2 -> TripScreen(m)
-                3 -> GarageScreen(m)
-                else -> AccountScreen(m)
+                else -> HelpScreen(m)
             }
         }
     }
@@ -131,6 +152,26 @@ fun Root() {
     Nav.tool?.let { t ->
         ModalBottomSheet(onDismissRequest = { Nav.tool = null }, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
             when (t) { "sign" -> SignReaderScreen(); "log" -> DriveLog(); else -> FineGuide() }
+        }
+    }
+    Nav.whereTo?.let { target ->
+        ModalBottomSheet(onDismissRequest = { Nav.whereTo = null }, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
+            WhereToSheet { p ->
+                Nav.whereTo = null
+                if (target == "map") Nav.mapPin = p else { AppState.select(p); Nav.tab = 2 }
+            }
+        }
+    }
+    if (Nav.settings) {
+        ModalBottomSheet(onDismissRequest = { Nav.settings = false }, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
+            var page by rememberSaveable { mutableIntStateOf(0) }
+            Column(Modifier.fillMaxHeight(0.94f)) {
+                TabRow(selectedTabIndex = page, containerColor = Color.Transparent) {
+                    Tab(selected = page == 0, onClick = { page = 0 }, text = { Text(L("Garage")) }, modifier = Modifier.heightIn(min = 48.dp))
+                    Tab(selected = page == 1, onClick = { page = 1 }, text = { Text(L("Settings")) }, modifier = Modifier.heightIn(min = 48.dp))
+                }
+                if (page == 0) GarageScreen(Modifier.weight(1f)) else AccountScreen(Modifier.weight(1f))
+            }
         }
     }
 }
@@ -170,6 +211,7 @@ fun LocationWhileOpen() {
         val lm = ctx.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         val listener = LocationListener { l ->
             Here.coordinate = Coordinate(l.latitude, l.longitude); Here.at = System.currentTimeMillis()
+            Here.course = if (l.hasBearing() && l.hasSpeed() && l.speed > 2f) l.bearing.toDouble() else null
             AppState.adoptCity(Coordinate(l.latitude, l.longitude))      // 1.20.2: alla prima posizione, la città dove sei
         }
         fun on() {

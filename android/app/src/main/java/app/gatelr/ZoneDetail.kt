@@ -6,6 +6,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.ui.Alignment
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -60,15 +61,23 @@ fun ZoneDetail(z: Zone) {
     val muted = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f)
     Column(Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp).padding(bottom = 32.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        Text(z.localizedName, fontSize = 24.sp, fontWeight = FontWeight.Bold)
+        Text(z.localizedName, style = MaterialTheme.typography.headlineSmall)
         Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             Pill(z.type.title, Palette.kind(z.type).copy(alpha = 0.18f), MaterialTheme.colorScheme.onSurface)
             AppState.cityOf(z)?.let { Pill(it.localizedName, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface) }
         }
         // 1.20.0: zona da fonti non ufficiali (Salerno, Cagliari…): l'avviso sopra la risposta, mai verde (come l'iPhone)
         UnofficialNote(z, hedgedYes = z.isUnofficial && AppState.rawAnswer(z, now).verdict is app.gatelr.core.Verdict.Yes)
-        VerdictCard(a, AppState.vehicle.name)
-        changeText(a, now)?.let { Text(it, color = muted) }
+        // 2.0: lo stesso blocco della risposta (taglia M), con il pannello come al varco
+        val f = app.gatelr.core.FinalAnswer.of(z, AppState.cityOf(z), a, AppState.engine)
+        val until = NowAnswer.untilText(a, now)
+        AnswerBlock(f, f.subtitle(until), f.detail, f.spoken(until, NowAnswer.vehicleLabel(), L("now")), size = AnswerSize.M)
+        f.panel?.let { panel ->
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                LedPanel(panel)
+                Text(f.panelLine ?: L("That's how you'll see it at the gate."), color = muted, fontSize = 14.sp)
+            }
+        }
         Text(z.localizedSummary, fontSize = 15.sp)
 
         SectionLabel(if (z.type == ZoneKind.GREEN) "Bans" else "Hours")

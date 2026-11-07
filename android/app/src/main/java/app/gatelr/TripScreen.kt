@@ -11,6 +11,11 @@ import android.provider.Settings
 import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.Arrangement
@@ -93,60 +98,18 @@ private enum class Arrival(val label: String) { NOW("Now"), HOUR("In 1 hour"), E
     }
 }
 
+/** 2.0 «Viaggio» (A-Viaggio): il campo «Dove vai?» apre il foglio unico; sotto la risposta per il posto e l'ora d'arrivo */
 @Composable
 fun TripScreen(modifier: Modifier) {
-    var query by remember { mutableStateOf("") }
-    var results by remember { mutableStateOf(listOf<Place>()) }
-    var searching by remember { mutableStateOf(false) }
     val place = AppState.place
-
-    var searchFailed by remember { mutableStateOf(false) }
-    var retry by remember { mutableStateOf(0) }
-    // 1.20.2: Invio con la ricerca ancora in corso: si cerca subito e si sceglie il primo risultato
-    var pickFirst by remember { mutableStateOf(false) }
-    LaunchedEffect(query, retry) {
-        searchFailed = false
-        if (!SearchPlan.worthAsking(query)) { results = emptyList(); return@LaunchedEffect }
-        val near = Geocoder.near()
-        Geocoder.cached(query, near)?.let { results = it; return@LaunchedEffect }
-        if (!pickFirst) delay(SearchPlan.DEBOUNCE_MS)
-        searching = true
-        try { val r = Geocoder.find(query, near); searchFailed = r == null; results = r ?: emptyList() } finally { searching = false }
-    }
-    fun pick(p: Place) { AppState.select(p); query = ""; results = emptyList(); pickFirst = false }
-    LaunchedEffect(results, pickFirst) { if (pickFirst) results.firstOrNull()?.let { pick(it) } }
-
     LazyColumn(modifier.fillMaxSize().background(MaterialTheme.colorScheme.background), contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        item {
-            OutlinedTextField(value = query, onValueChange = { query = it; pickFirst = false }, singleLine = true,
-                placeholder = { Text(L("Hotel, address or square")) },
-                // 1.20.2: Invio sceglie il primo risultato, o cerca subito, o riprova (SearchSubmit)
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-                keyboardActions = KeyboardActions(onSearch = {
-                    when (SearchSubmit.action(query, results.size, searchFailed)) {
-                        SearchSubmit.PICK_FIRST -> pick(results.first())
-                        SearchSubmit.RETRY, SearchSubmit.SEARCH_NOW -> { pickFirst = true; retry++ }
-                        SearchSubmit.NOTHING -> {}
-                    }
-                }),
-                leadingIcon = { Icon(Icons.Filled.Search, null) },
-                trailingIcon = { if (query.isNotEmpty() || place != null) IconButton(onClick = { query = ""; results = emptyList(); AppState.select(null) }) { Icon(Icons.Filled.Close, null) } },
-                shape = RoundedCornerShape(14.dp), modifier = Modifier.fillMaxWidth())
-        }
-        if (results.isNotEmpty()) {
-            items(results) { p -> PlaceRow(p) { pick(p) } }
-        } else if (searchFailed && !searching) {
-            item { SearchRetry { retry++ } }
-        } else if (SearchPlan.worthAsking(query) && !searching) {
-            item { Text(L("No results"), color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f)) }
-        } else if (place == null) {
+        item { ScreenTitle(L("Trip")) }
+        item { WhereToField(place?.name) }
+        if (place == null) {
             item {
-                Column(Modifier.padding(vertical = 12.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Text(L("Where are you going?"), fontSize = 28.sp, fontWeight = FontWeight.Bold)
-                    Text(L("Search your hotel or where you're going: GateLR tells you if you can drive in, when, and how to get the plate registered."),
-                        color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.7f))
-                }
+                Text(L("Search your hotel or where you're going: GateLR tells you if you can drive in, when, and how to get the plate registered."),
+                    color = Ink.text2, modifier = Modifier.padding(vertical = 4.dp))
             }
             if (AppState.trips.isNotEmpty()) {
                 item { SectionLabel("Saved trips") }
@@ -159,6 +122,31 @@ fun TripScreen(modifier: Modifier) {
         } else {
             item { TripAnswer(place) }
         }
+    }
+}
+
+/** Il campo «Dove vai?»: un tocco apre il foglio unico (lo stesso da Adesso e dalla Mappa) */
+@Composable
+fun WhereToField(current: String?, target: String = "trip") {
+    Row(Modifier.fillMaxWidth().heightIn(min = 56.dp).background(cardColor, RoundedCornerShape(28.dp))
+        .border(1.dp, Ink.line, RoundedCornerShape(28.dp))
+        .clickable(role = androidx.compose.ui.semantics.Role.Button) { Nav.whereTo = target }.padding(start = 16.dp, end = 4.dp),
+        verticalAlignment = Alignment.CenterVertically) {
+        Icon(Icons.Filled.Search, null, tint = Ink.text2)
+        Spacer(Modifier.width(12.dp))
+        Text(current ?: L("Where are you going? Hotel, address or square"), color = if (current == null) Ink.text2 else MaterialTheme.colorScheme.onSurface,
+            fontWeight = if (current == null) FontWeight.Normal else FontWeight.SemiBold, maxLines = 1, modifier = Modifier.weight(1f))
+        if (current != null && target == "trip") IconButton(onClick = { AppState.select(null) }, modifier = Modifier.size(48.dp)) { Icon(Icons.Filled.Close, L("Cancel")) }
+    }
+}
+
+/** Il titolo della scheda con l'icona del veicolo (Garage e impostazioni) */
+@Composable
+fun ScreenTitle(text: String) {
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+        Text(text, style = MaterialTheme.typography.headlineLarge, modifier = Modifier.weight(1f)
+            .semantics { heading() })
+        IconButton(onClick = { Nav.settings = true }, modifier = Modifier.size(48.dp)) { Icon(Icons.Filled.DirectionsCar, L("Garage and settings")) }
     }
 }
 
@@ -189,52 +177,28 @@ private fun TripAnswer(p: Place) {
     val check = AppState.check(p.location, at.toInstant(), hotelInside)
     val zone = check.zone
     val pedestrian = check.pedestrian
-    val answer = check.answer?.let { it.copy(verdict = check.verdict) }
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        Column {
-            Text(p.name, fontSize = 24.sp, fontWeight = FontWeight.Bold)
-            if (p.address.isNotEmpty()) Text(p.address, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f))
-        }
+        if (p.address.isNotEmpty()) Text(p.address, color = Ink.text2)
         // Le scelte dell'arrivo scorrono di lato: niente etichette spezzate su due righe
         Row(horizontalArrangement = Arrangement.spacedBy(6.dp), modifier = Modifier.horizontalScroll(rememberScrollState())) {
             saved?.let { s -> FilterChip(selected = true, onClick = {}, label = { Text(shortWhen(s), fontSize = 12.sp) }) }
             Arrival.entries.forEach { a -> FilterChip(selected = saved == null && arrival == a, onClick = { saved = null; arrival = a }, label = { Text(L(a.label), fontSize = 12.sp, maxLines = 1) }) }
         }
 
-        when {
-            pedestrian != null -> Column(Modifier.fillMaxWidth().background(Palette.red, RoundedCornerShape(22.dp)).padding(18.dp)) {
-                Text(L("Pedestrian area").uppercase(), color = androidx.compose.ui.graphics.Color.White, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
-                Text(AnswerWord.DONT_ENTER.title, color = androidx.compose.ui.graphics.Color.White, fontSize = 28.sp, fontWeight = FontWeight.Bold)
-                Text(L("Cars can't drive here. Park outside and walk."), color = androidx.compose.ui.graphics.Color.White)
-            }
-            zone != null && answer != null -> {
-                UnofficialNote(zone, hedgedYes = check.hedged)
-                VerdictCard(answer, if (saved == null && arrival == Arrival.NOW) L("Now") else F("Arriving %@", AppState.engine.describe(at.toInstant(), nowZ.toInstant())), onWhy = { Nav.zone = zone },
-                    title = check.word.title)
-                Text(zone.localizedName, fontSize = 13.sp, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f), modifier = Modifier.clickable { Nav.zone = zone })
-            }
-            // Fuori dalle città che conosciamo: neutro, mai «Fuori dalla ZTL» né verde (come l'iPhone dalla 1.19.0)
-            !check.covered -> CardBox {
-                Column {
-                    Pill(AnswerWord.UNKNOWN_PLACE.title, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface)
-                    Spacer(Modifier.padding(3.dp))
-                    Text(L("We don't know the ZTLs of this place. Check the signs at the entrance."), fontWeight = FontWeight.SemiBold)
-                }
-            }
-            else -> {
-                val near = nearestZone(AppState.cities, p.location)
-                CardBox {
-                    Column {
-                        // 1.20.3: il titolo fisso «Puoi entrare»; «Fuori dalla ZTL» è la spiegazione
-                        Pill(AnswerWord.ENTER.title, Palette.greenSoft, Palette.greenInk)
-                        Spacer(Modifier.padding(3.dp))
-                        Text(L("Outside the ZTL") + ". " + L("You can drive here freely."), fontWeight = FontWeight.SemiBold)
-                        near?.let { Text(F("%@ is %@ away", it.second.shortName, Geometry.distanceText(it.third)), fontSize = 14.sp) }
-                    }
-                }
-            }
+        // 2.0: lo stesso blocco della risposta di Adesso (sette risposte, forma + parola + colore)
+        val near = AppState.cities.firstOrNull { it.covers(p.location.lat, p.location.lon) }
+        val f = app.gatelr.core.FinalAnswer.of(check, AppState.engine, near)
+        val whenText = if (saved == null && arrival == Arrival.NOW) L("Now") else shortWhen(at.toInstant().toEpochMilli())
+        AnswerBlock(f, f.subtitle(whenText), f.detail, f.spoken(whenText, NowAnswer.vehicleLabel(), null))
+        if (f.state == app.gatelr.core.AnswerState.OUTSIDE) nearestZone(AppState.cities, p.location)?.let {
+            Text(F("%@ is %@ away", it.second.shortName, Geometry.distanceText(it.third)), fontSize = 14.sp, color = Ink.text2)
         }
+        zone?.let { WhyRow(it) }
+        PillButton(L("Share the answer"), {
+            val text = listOf(f.word, p.name, whenText).joinToString(" · ") + "\nhttps://lr-apps609.github.io/GateLR/"
+            runCatching { ctx.startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text), null)) }
+        }, Modifier.fillMaxWidth(), Icons.Filled.Share, filled = false)
 
         zone?.ticket?.let { TicketBox(it, zone, at) }
         if (zone != null && zone.hotelCanRegister && pedestrian == null) {
@@ -298,7 +262,7 @@ private fun RouteBox(p: Place, arrival: ZonedDateTime?) {
                 Spacer(Modifier.weight(1f))
                 Text(F("Arrive %@", hm(departure.plusSeconds(r.seconds.toLong()))), fontWeight = FontWeight.SemiBold)
             }
-            if (crossings.isEmpty()) Text(L("No ZTL on the way."), color = Palette.green, fontWeight = FontWeight.SemiBold)
+            if (crossings.isEmpty()) Text(L("No ZTL on the way."), color = Ink.yes, fontWeight = FontWeight.SemiBold)
             crossings.forEach { c ->
                 Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.clickable { Nav.zone = c.zone }) {
                     Column(Modifier.weight(1f)) {
@@ -306,11 +270,11 @@ private fun RouteBox(p: Place, arrival: ZonedDateTime?) {
                         Text(if (c.isDestination) F("Destination · at %@", hm(c.at)) else F("On the way · at %@", hm(c.at)), fontSize = 12.sp,
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
                     }
-                    VerdictPill(c.answer.verdict)
+                    AnswerPill(app.gatelr.core.FinalAnswer.of(c.zone, AppState.cityOf(c.zone), c.answer, AppState.engine))
                 }
             }
             if (crossings.any { !it.isDestination && it.answer.verdict !is Verdict.Yes })
-                Text(L("A zone on the way is active: your navigator may route you through it. Watch the signs and avoid the gates."), fontSize = 13.sp, color = Palette.amber)
+                Text(L("A zone on the way is active: your navigator may route you through it. Watch the signs and avoid the gates."), fontSize = 13.sp, color = Ink.amber)
         }
     }
 }
@@ -321,7 +285,7 @@ private fun TicketBox(t: Ticket, zone: Zone, entry: ZonedDateTime) {
     var reminded by remember(zone.id, entry.toEpochSecond() / 3600) { mutableStateOf(false) }
     CardBox {
         Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            Text(L("Ticket").uppercase(), fontSize = 13.sp, fontWeight = FontWeight.SemiBold, color = Palette.amber)
+            Text(L("Ticket").uppercase(), fontSize = 13.sp, fontWeight = FontWeight.SemiBold, color = Ink.amber)
             Text(String.format(Locale.ITALY, "€ %.2f", t.price), fontSize = 24.sp, fontWeight = FontWeight.Bold)
             Text(t.localizedHowTo, fontSize = 14.sp)
             when (t.deadline) {
@@ -374,7 +338,7 @@ private fun HotelBox(p: Place, zone: Zone, arrival: ZonedDateTime, inside: Boole
             Text(F("%lld days to register, including the day you leave.", nights + 1), fontSize = 13.sp)
             if (vehicle.plate.isBlank()) {
                 Text(if (vehicle.isRental) L("Rental car: you'll know the plate only at pick-up. Add it in Garage then, and send the message to the hotel straight away.")
-                     else L("Add your plate in Garage first."), fontSize = 13.sp, color = Palette.amber)
+                     else L("Add your plate in Garage first."), fontSize = 13.sp, color = Ink.amber)
             }
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 listOf("it" to "Italiano", "en" to "English", "de" to "Deutsch").forEach { (k, n) -> FilterChip(selected = lang == k, onClick = { lang = k }, label = { Text(n, fontSize = 12.sp) }) }

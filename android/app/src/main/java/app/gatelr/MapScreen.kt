@@ -36,6 +36,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.SmallFloatingActionButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -132,7 +133,8 @@ private fun pinGeoJson(p: Place?, color: Color): String =
  *  non ufficiale), neutro se non conosciamo il posto: colori accesi per la mappa scura */
 private fun PlaceCheck.neon(): Color = if (hedged) Color(0xFFF2C14E) else when (kind) {
     PlaceCheck.Kind.UNCOVERED -> Color(0xFFA9B3D1)
-    PlaceCheck.Kind.OUTSIDE, PlaceCheck.Kind.OPEN -> Color(0xFF3DDC74)
+    PlaceCheck.Kind.OUTSIDE -> Color(0xFF8E9AC0)          // 2.0: fuori dalla ZTL è grigio
+    PlaceCheck.Kind.OPEN -> Color(0xFF4FD18B)
     PlaceCheck.Kind.CLOSED, PlaceCheck.Kind.PEDESTRIAN -> Color(0xFFFF4D4D)
     else -> Color(0xFFF2C14E)
 }
@@ -172,7 +174,8 @@ fun MapScreen(modifier: Modifier) {
     var retry by remember { mutableStateOf(0) }
     // 1.20.2: Invio con la ricerca ancora in corso: si cerca subito e si sceglie il primo risultato
     var pickFirst by remember { mutableStateOf(false) }
-    var pin by remember { mutableStateOf<Place?>(null) }
+    // 2.0: il posto scelto dal foglio unico «Dove vai?» aperto dalla mappa
+    val pin = Nav.mapPin
     var legend by remember { mutableStateOf(false) }
     var styleUri by remember { mutableStateOf("") }
     val focus = LocalFocusManager.current
@@ -216,21 +219,6 @@ fun MapScreen(modifier: Modifier) {
             mapView.onDestroy()
         }
     }
-
-    // Ricerca con una piccola attesa mentre scrivi; la stessa domanda risponde subito dalla memoria; se Photon non risponde, «Riprova»
-    LaunchedEffect(query, retry) {
-        searchFailed = false
-        if (!SearchPlan.worthAsking(query)) { results = emptyList(); return@LaunchedEffect }
-        val near = Geocoder.near()
-        Geocoder.cached(query, near)?.let { results = it; return@LaunchedEffect }
-        if (!pickFirst) delay(SearchPlan.DEBOUNCE_MS)
-        val r = Geocoder.find(query, near)
-        searchFailed = r == null
-        results = r ?: emptyList()
-    }
-    fun pick(p: Place) { pin = p; query = p.name; results = emptyList(); pickFirst = false; focus.clearFocus() }
-    // Il primo risultato arrivato dopo Invio
-    LaunchedEffect(results, pickFirst) { if (pickFirst) results.firstOrNull()?.let { pick(it) } }
 
     // 1.20.0: la zona che decide è la peggiore tra tutte quelle del posto (come l'iPhone)
     val pinCheck = pin?.let { AppState.check(it.location, now) }
@@ -276,37 +264,8 @@ fun MapScreen(modifier: Modifier) {
         AndroidView(factory = { mapView }, modifier = Modifier.fillMaxSize())
 
         Column(Modifier.fillMaxWidth().padding(12.dp)) {
-            OutlinedTextField(
-                value = query, onValueChange = { query = it; pickFirst = false }, singleLine = true,
-                placeholder = { Text(L("Search hotel or address")) },
-                // 1.20.2: Invio (il tasto «Cerca») sceglie il primo risultato, o cerca subito, o riprova (SearchSubmit)
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-                keyboardActions = KeyboardActions(onSearch = {
-                    when (SearchSubmit.action(query, results.size, searchFailed)) {
-                        SearchSubmit.PICK_FIRST -> pick(results.first())
-                        SearchSubmit.RETRY -> { pickFirst = true; retry++ }
-                        SearchSubmit.SEARCH_NOW -> { pickFirst = true; retry++ }
-                        SearchSubmit.NOTHING -> {}
-                    }
-                }),
-                leadingIcon = { Icon(Icons.Filled.Search, null) },
-                trailingIcon = { if (query.isNotEmpty() || pin != null) IconButton(onClick = { query = ""; pin = null; results = emptyList() }) { Icon(Icons.Filled.Close, null) } },
-                shape = RoundedCornerShape(14.dp),
-                colors = OutlinedTextFieldDefaults.colors(focusedContainerColor = MaterialTheme.colorScheme.surface, unfocusedContainerColor = MaterialTheme.colorScheme.surface),
-                modifier = Modifier.fillMaxWidth()
-            )
-            if (searchFailed && pin?.name != query) SearchRetry { retry++ }
-            if (results.isNotEmpty() && pin?.name != query) {
-                LazyColumn(Modifier.fillMaxWidth().heightIn(max = 280.dp).padding(top = 4.dp)
-                    .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(14.dp))) {
-                    items(results) { p ->
-                        Column(Modifier.fillMaxWidth().clickable { pick(p) }.padding(12.dp)) {
-                            Text(p.name, fontWeight = FontWeight.SemiBold)
-                            if (p.address.isNotEmpty()) Text(p.address, fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
-                        }
-                    }
-                }
-            }
+            WhereToField(pin?.name, target = "map")
+            if (pin != null) TextButton(onClick = { Nav.mapPin = null }, modifier = Modifier.align(Alignment.End).heightIn(min = 48.dp)) { Text(L("Cancel")) }
         }
 
         Column(Modifier.align(Alignment.CenterEnd).padding(12.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -318,7 +277,7 @@ fun MapScreen(modifier: Modifier) {
 
         if (legend) {
             Column(Modifier.align(Alignment.TopEnd).padding(top = 80.dp, end = 64.dp)
-                .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(14.dp)).padding(12.dp),
+                .background(cardColor, RoundedCornerShape(14.dp)).padding(12.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 listOf(ZoneKind.RESTRICTED, ZoneKind.PASS, ZoneKind.GREEN).forEach { k -> LegendRow(Palette.kind(k), k.title) }
                 LegendRow(Color(0xFF7A1F5C), L("Pedestrian area"))
@@ -328,33 +287,12 @@ fun MapScreen(modifier: Modifier) {
         // La scheda in basso con la risposta per il posto cercato
         pin?.let { p ->
             Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().padding(12.dp)
-                .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(20.dp)).padding(16.dp),
+                .background(cardColor, RoundedCornerShape(24.dp)).padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                pinCheck?.let { k -> Callout(k.callout(), k.neon()) }
                 Text(p.name, fontWeight = FontWeight.Bold, fontSize = 18.sp, maxLines = 1)
-                when {
-                    pinPedestrian != null -> {
-                        Pill(AnswerWord.DONT_ENTER.title, Palette.redSoft, Palette.redInk)
-                        Text(L("Pedestrian area") + ". " + L("Cars can't drive here. Park outside and walk."), fontSize = 14.sp)
-                    }
-                    pinZone != null && pinAnswer != null -> {
-                        UnofficialNote(pinZone, hedgedYes = pinCheck?.hedged == true)
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            VerdictPill(pinAnswer.verdict, unofficial = pinCheck?.unofficial == true); Spacer(Modifier.width(8.dp))
-                            Text(pinZone.shortName, fontSize = 14.sp, modifier = Modifier.clickable { Nav.zone = pinZone })
-                        }
-                        Text(pinAnswer.verdict.detail, fontSize = 14.sp, maxLines = 3)
-                    }
-                    pinCheck?.covered == false -> {
-                        Pill(AnswerWord.UNKNOWN_PLACE.title, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f), MaterialTheme.colorScheme.onSurface)
-                        Text(L("We don't know the ZTLs of this place. Check the signs at the entrance."), fontSize = 14.sp)
-                    }
-                    else -> {
-                        val near = nearestZone(AppState.cities, p.location)
-                        Pill(AnswerWord.ENTER.title, Palette.greenSoft, Palette.greenInk)
-                        Text(L("Outside the ZTL"), fontSize = 14.sp)
-                        near?.let { Text(F("%@ is %@ away", it.second.shortName, Geometry.distanceText(it.third)), fontSize = 14.sp) }
-                    }
+                pinCheck?.let { k ->
+                    val f = app.gatelr.core.FinalAnswer.of(k, AppState.engine, AppState.cities.firstOrNull { it.covers(p.location.lat, p.location.lon) })
+                    AnswerBlock(f, f.place, f.detail, f.spoken(null, NowAnswer.vehicleLabel(), L("now")), size = AnswerSize.M)
                 }
                 // «Avvia» direttamente da qui: il navigatore preferito con il guardiano
                 StartControls(p, Modifier.padding(top = 4.dp))
