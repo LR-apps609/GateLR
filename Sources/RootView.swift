@@ -80,6 +80,10 @@ struct RootView: View {
             if Misure.fps {
                 FrameMeter().frame(width: 280, height: 12).allowsHitTesting(false)
             }
+            // 1.20.4: il contatore della memoria, solo nel test delle misure (-uitest -uiMemory)
+            if Misure.memory {
+                MemoryMeter().frame(width: 200, height: 12).padding(.top, 14).allowsHitTesting(false)
+            }
         }
         .onOpenURL { router.handle($0) }
     }
