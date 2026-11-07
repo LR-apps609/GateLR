@@ -29,6 +29,7 @@ Nell'app oggi: **non confermato** → nei festivi l'app risponde «Not sure».
 - [ ] Il **24 giugno** (San Giovanni, patrono di Firenze) conta come festivo per la ZTL?
 - Dove: disciplinare (punto 1), oppure FAQ / numero verde SAS.
 - Se è confermato «spenta nei festivi»: in `build_firenze.py` metti `"freeOnHolidays": True` e togli la riga sui festivi da `PENDING_COMMON`.
+- Trovato il 07/11/2026 (vedi `docs/fonti-firenze.md`, «Punti da verificare rivisti il 07/11/2026»): il disciplinare, punto 3, dice che la ZTL di giorno vale *"nei giorni feriali"*; per le notti d'estate non esclude i festivi. Da chiedere a SAS (055 4040202): «Nei festivi infrasettimanali la ZTL diurna è spenta? E la notturna estiva resta attiva anche se il giovedì, venerdì o sabato è festivo? Il 24 giugno conta come festivo?». Con «diurna spenta, notturna attiva» serve un cambio del motore (festivi diversi per fascia), non solo dei dati.
 
 ## 3. ZTL notturna estiva 2026
 
