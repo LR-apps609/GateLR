@@ -36,6 +36,9 @@ def fingerprint(url):
     t = re.sub(r"\s+", " ", t)
     # Le date di «ultimo aggiornamento» e i contatori cambiano senza che cambino le regole
     t = re.sub(r"(?i)ultimo aggiornamento:?\s*[\d/.-]+", "", t)
+    # 1.20.4: campo nascosto antispam («honeypot») con un nome casuale a ogni richiesta (es. «hnp_name_OYVc3BPvtH4RAC8a»
+    # nei moduli di valutazione delle pagine del Comune di Sorrento): non è contenuto, cambiava l'impronta ogni giorno
+    t = re.sub(r"hnp_name_[A-Za-z0-9]+", "", t)
     if len(t) < 1500:
         raise ValueError("pagina disegnata dal browser, testo non leggibile")    # es. il sito del Comune di Bologna
     return hashlib.sha256(t.encode()).hexdigest()[:16]
