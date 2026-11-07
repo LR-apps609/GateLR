@@ -1,6 +1,6 @@
 {
- "version": "202611060626",
- "digest": "16351c68e57a",
+ "version": "202611071918",
+ "digest": "c3be393b553a",
  "schema": 1,
  "cities": [
   {
@@ -141,7 +141,7 @@
   {
    "id": "roma",
    "file": "roma.json",
-   "sha256": "6444a1ca34c203828d15e2e950d85a4cf58e84479acdef68ef48ed1ddf5ddaca"
+   "sha256": "808249d8a6ddc0dfdddd6894060b29f32724a0beb387fc6275c3c991ff334687"
   },
   {
    "id": "san-gimignano",
