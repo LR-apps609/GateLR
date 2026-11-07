@@ -440,6 +440,15 @@ final class ScreenshotTests: XCTestCase {
             let searching = app.staticTexts["Cerco…"].firstMatch
             for _ in 0..<20 where searching.exists { sleep(1) }
             sleep(3)
+            // 1.20.4: nella vista iniziale il riquadro dei parcheggi sta sopra la barra delle schede (prima «Riprova» ci
+            // finiva sotto): la pagina scende da sola quanto basta
+            if name.hasPrefix("39") {
+                let retry = app.buttons["park.retry"].firstMatch
+                let bar = app.tabBars.firstMatch
+                if retry.exists && bar.exists {
+                    XCTAssertLessThanOrEqual(retry.frame.maxY, bar.frame.minY + 1, "39: «Riprova» sotto la barra delle schede")
+                }
+            }
             snap(name)
             // 1.20.2: il riquadro «Parcheggia fuori e cammina» un po' più su: «Riprova» intero sopra la barra delle schede
             if name.hasPrefix("39") {
