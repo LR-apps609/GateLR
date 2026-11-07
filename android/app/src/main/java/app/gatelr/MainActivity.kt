@@ -6,6 +6,7 @@ import android.content.Context
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Build
+import android.content.Intent
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
@@ -74,6 +75,7 @@ class MainActivity : ComponentActivity() {
         Here.allowed = GuardianService.canStart(this)
         val prefs = getSharedPreferences("gatelr", MODE_PRIVATE)
         if (!prefs.getBoolean("welcomed", false)) welcome = true
+        openZone(intent)
         setContent {
             GateTheme {
                 if (welcome) Onboarding {
@@ -85,6 +87,17 @@ class MainActivity : ComponentActivity() {
     }
 
     private var welcome by mutableStateOf(false)
+
+    /** 2.1: il tocco su un avviso del guardiano apre la scheda della zona davanti */
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        openZone(intent)
+    }
+
+    private fun openZone(intent: Intent?) {
+        val id = intent?.getStringExtra("zone") ?: return
+        AppState.cities.flatMap { it.zones }.firstOrNull { it.id == id }?.let { Nav.zone = it }
+    }
 
     override fun onStop() {
         super.onStop()

@@ -2,6 +2,10 @@ package app.gatelr.core
 
 import java.time.Instant
 import java.time.ZonedDateTime
+import kotlin.math.PI
+import kotlin.math.abs
+import kotlin.math.atan2
+import kotlin.math.cos
 
 // Le parti «pure» dell'app iPhone (RouteCheck, SignReader, Guardian.scan, CarCatalog, Store), in Kotlin.
 
@@ -53,33 +57,121 @@ object RouteCheck {
     }
 }
 
-// ---- Guardiano
+// ---- Avvisi in auto: un solo valutatore di minaccia (2.1, come ThreatEvaluator dell'iPhone, shared/risposta-finale.md)
 
-data class Threat(val zone: Zone, val meters: Double, val answer: Answer)
+/** Una zona o un'area pedonale che si può avere davanti */
+data class ThreatCandidate(val zone: Zone?, val city: City?, val pedestrian: PedestrianArea? = null) {
+    val id: String get() = pedestrian?.let { "ped-" + it.id } ?: zone!!.id
+    val perimeter: List<Coordinate> get() = pedestrian?.perimeter ?: zone!!.perimeter
+    fun contains(p: Coordinate): Boolean = pedestrian?.contains(p.lat, p.lon) ?: zone!!.contains(p.lat, p.lon)
+    /** «Firenze Settore A», «Area pedonale · Via Galliera» */
+    val name: String get() = pedestrian?.let { F("Pedestrian area · %@", it.name) }
+        ?: listOfNotNull(city?.localizedName, zone!!.shortName).joinToString(" ")
+}
 
-object GuardianScan {
-    data class Result(val threat: Threat?, val entered: List<Pair<Zone, Answer>>, val distances: Map<String, Double>)
+/** Una minaccia davanti: la risposta all'ora d'arrivo e la RispostaFinale da cui vengono titolo e colore */
+data class Threat(val candidate: ThreatCandidate, val meters: Double, val answer: Answer, val finale: RispostaFinale, val point: Coordinate) {
+    val zone: Zone? get() = candidate.zone
+    /** «Non entrare · Firenze Settore A»: la parola della RispostaFinale e il nome della zona */
+    val title: String get() = finale.title + " · " + candidate.name
+}
 
-    /** La ZTL più vicina verso cui ti avvicini dove non entri liberamente, e le zone in cui sei appena entrato */
-    fun scan(p: Coordinate, zones: List<Zone>, last: Map<String, Double>, answer: (Zone, Double) -> Answer): Result {
-        val distances = last.toMutableMap()
+object ThreatEvaluator {
+    /** Oltre questi metri una zona non conta */
+    const val LOOKAHEAD = 3_000.0
+    /** Davanti = entro questo angolo dal verso di marcia */
+    const val AHEAD_CONE = 70.0
+    /** Da qui in giù la zona è davanti in ogni caso */
+    const val ON_TOP = 30.0
+    /** Sopra questa velocità (50 km/h) l'avviso arriva prima */
+    const val FAST_MPS = 50.0 / 3.6
+
+    /** La distanza d'avviso: 300 m in città, 600 m sopra 50 km/h (decisione 9) */
+    fun alertDistance(speedMps: Double?): Double = if ((speedMps ?: 0.0) > FAST_MPS) 600.0 else 300.0
+
+    /** L'area pedonale: sempre «no», a ogni ora */
+    val pedestrianAnswer: Answer get() = Answer(Verdict.No(L("It's a pedestrian area: cars can't drive in at any time, whatever the ZTL hours.")), true, null)
+
+    /** Le zone e le aree pedonali entro [within] metri */
+    fun candidates(cities: List<City>, p: Coordinate, within: Double = LOOKAHEAD): List<ThreatCandidate> = cities.flatMap { c ->
+        c.zones.filter { it.distance(p.lat, p.lon) < within }.map { ThreatCandidate(it, c) } +
+            (c.pedestrian ?: emptyList()).filter { nearest(it.perimeter, p).second < within || it.contains(p.lat, p.lon) }.map { ThreatCandidate(null, c, it) }
+    }
+
+    /** L'angolo da a verso b (gradi, 0 = nord, in senso orario) */
+    fun bearing(a: Coordinate, b: Coordinate): Double {
+        val k = cos(a.lat * PI / 180)
+        val deg = atan2((b.lon - a.lon) * k, b.lat - a.lat) * 180 / PI
+        return if (deg < 0) deg + 360 else deg
+    }
+
+    /** La differenza tra due direzioni, da 0 a 180 gradi */
+    fun angle(a: Double, b: Double): Double { val d = abs(a - b) % 360; return if (d > 180) 360 - d else d }
+
+    /** Il punto del perimetro più vicino e la distanza in metri */
+    fun nearest(perimeter: List<Coordinate>, p: Coordinate): Pair<Coordinate, Double> =
+        perimeter.map { it to Geometry.meters(p, it) }.minByOrNull { it.second } ?: (p to Double.POSITIVE_INFINITY)
+
+    /** Davanti? Con la direzione di marcia solo entro ±70°; senza: se ti avvicini, o prudente se non lo sappiamo */
+    fun isAhead(from: Coordinate, to: Coordinate, meters: Double, course: Double?, approaching: Boolean?): Boolean {
+        if (meters < ON_TOP) return true
+        if (course != null && course >= 0) return angle(course, bearing(from, to)) <= AHEAD_CONE
+        return approaching ?: true
+    }
+
+    fun finale(c: ThreatCandidate, a: Answer): RispostaFinale =
+        if (c.pedestrian != null) RispostaFinale(Stato.NON_ENTRARE, city = c.city, pedestrian = true)
+        else RispostaFinale.forZone(a, c.zone!!, c.city?.status, c.city)
+
+    data class Result(val threat: Threat?, val entered: List<Threat>, val distances: Map<String, Double>)
+
+    /** La minaccia più vicina davanti in cui non entri liberamente e le zone in cui sei appena entrato. [answer] dà la
+     *  risposta del motore all'ora d'arrivo stimata a quella distanza (per le aree pedonali non si chiama) */
+    fun scan(p: Coordinate, course: Double?, candidates: List<ThreatCandidate>, last: Map<String, Double>,
+             answer: (ThreatCandidate, Double) -> Answer): Result {
+        val distances = mutableMapOf<String, Double>()
         var best: Threat? = null
-        val entered = mutableListOf<Pair<Zone, Answer>>()
-        for (z in zones) {
-            val d = z.distance(p.lat, p.lon)
-            val before = last[z.id]
-            distances[z.id] = d
-            if (d >= 3_000) continue
+        val entered = mutableListOf<Threat>()
+        for (c in candidates) {
+            val inside = c.contains(p)
+            val (point, d) = if (inside) p to 0.0 else nearest(c.perimeter, p)
+            val before = last[c.id]
+            distances[c.id] = d
+            if (d >= LOOKAHEAD) continue
+            val ask = { m: Double -> if (c.pedestrian != null) pedestrianAnswer else answer(c, m) }
             if (d == 0.0) {
-                if (before != null && before > 0) { val a = answer(z, 0.0); if (a.verdict !is Verdict.Yes) entered += z to a }
+                if (before != null && before > 0) { val a = ask(0.0); val f = finale(c, a); if (f.stato.alerts) entered += Threat(c, 0.0, a, f, p) }
                 continue
             }
-            val a = answer(z, d)
-            if (a.verdict is Verdict.Yes) continue
-            if (before != null && d >= before - 3) continue           // solo se ti stai avvicinando
-            if (best == null || d < best.meters) best = Threat(z, d, a)
+            if (!isAhead(p, point, d, course, before?.let { d < it - 3 })) continue
+            val a = ask(d)
+            val f = finale(c, a)
+            if (!f.stato.alerts) continue
+            val b = best
+            if (b != null && (b.meters < d || (b.meters == d && b.answer.verdict.severity >= a.verdict.severity))) continue
+            best = Threat(c, d, a, f, point)
         }
         return Result(best, entered, distances)
+    }
+
+    /** L'ora d'arrivo stimata: la velocità vera se ti muovi, altrimenti 9 m/s (32 km/h in città) */
+    fun arrival(meters: Double, speedMps: Double?, now: Instant = Instant.now()): Instant {
+        val v = if ((speedMps ?: 0.0) > 3) speedMps!! else 9.0
+        return now.plusMillis((meters / v * 1000).toLong())
+    }
+}
+
+/** Lo stesso avviso una volta sola per avvicinamento: di nuovo quando ti allontani oltre 900 m o dopo 30 minuti */
+class ThreatDeduper(private val resetDistance: Double = 900.0, private val cooldownMillis: Long = 30 * 60_000) {
+    private val fired = mutableMapOf<String, Long>()
+    fun shouldAlert(key: String, now: Long = System.currentTimeMillis()): Boolean {
+        val t = fired[key]
+        if (t != null && now - t < cooldownMillis) return false
+        fired[key] = now
+        return true
+    }
+    fun moved(distances: Map<String, Double>) {
+        fired.keys.toList().forEach { k -> val id = k.substringAfterLast("|"); if ((distances[id] ?: 0.0) > resetDistance) fired.remove(k) }
     }
 }
 

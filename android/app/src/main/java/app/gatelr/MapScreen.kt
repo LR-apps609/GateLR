@@ -139,7 +139,7 @@ private fun PlaceCheck.neon(): Color = if (hedged) Color(0xFFF2C14E) else when (
 
 /** La scritta del riquadro: il titolo fisso della risposta (1.20.3, come PlaceCheck.callout dell'iPhone; prima «ZTL
  *  ATTIVA · NON ENTRARE», «PROBABILMENTE SÌ»…) */
-private fun PlaceCheck.callout(): String = word.title
+private fun PlaceCheck.callout(): String = finale.title
 
 /** Aggiunge sorgenti e strati delle zone e dello spillo a uno stile appena caricato */
 private fun addLayers(style: Style, zones: String, pin: String) {
