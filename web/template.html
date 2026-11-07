@@ -468,7 +468,7 @@ const T = {
   skip:"Skip to the search", navCities:"Cities", navHow:"How it works", whereL:"Where", hourL:"Time of arrival", mapAl:"Map of the ZTL zones and gates. Tap a point to check it.",
   sNo:"Don't enter", sCond:"Only if…", sSi:"You can enter", sOff:"ZTL not active", sUnsure:"Check the sign", sOut:"Outside the ZTL", sUnk:"We don't know this place",
   pNo:"Don't enter", pCond:"Only if…", pSi:"You can enter", pOff:"ZTL not active", pUnsure:"Check the sign", pOut:"Outside the ZTL", pUnk:"Not covered",
-  mNonUfficiale:"Unofficial source", mScaduti:"Data out of date", mNonSicuro:"Not sure", mPed:"Pedestrian area",
+  mNonUfficiale:"Unofficial source", mScaduti:"Data out of date", mNonSicuro:"Not sure", mPed:"Pedestrian area", mFestivo:"Holiday not confirmed", mEuro:"Euro class unknown",
   shareB:"Copy the link to this answer", shareL:"Link to this answer", shareOk:"Link copied. It opens the same question: place, day and time, vehicle.", shareSel:"Select the link and copy it.", shareOwn:"Your position never goes into a link: search for the place to share it.", shareNone:"Choose a place first.",
   sharedL:"Shared answer", sharedPriv:"The link holds only the place, the day and time and the type of vehicle. No plate, no name, no position of whoever sent it.", sharedChange:"Change vehicle or time",
   pr1T:"For your car, at the time you choose", pr1P:"The same place can be green for an electric car and red for a Euro 2.",
@@ -513,7 +513,7 @@ const T = {
   skip:"Vai alla ricerca", navCities:"Città", navHow:"Come funziona", whereL:"Dove", hourL:"Ora di arrivo", mapAl:"Mappa delle ZTL e dei varchi. Tocca un punto per controllarlo.",
   sNo:"Non entrare", sCond:"Entri a una condizione", sSi:"Entra pure", sOff:"ZTL non attiva", sUnsure:"Controlla il cartello", sOut:"Fuori dalla ZTL", sUnk:"Non conosciamo questo posto",
   pNo:"Non entrare", pCond:"A una condizione", pSi:"Entra pure", pOff:"ZTL non attiva", pUnsure:"Controlla il cartello", pOut:"Fuori dalla ZTL", pUnk:"Posto non coperto",
-  mNonUfficiale:"Fonte non ufficiale", mScaduti:"Dati scaduti", mNonSicuro:"Non sicuro", mPed:"Area pedonale",
+  mNonUfficiale:"Fonte non ufficiale", mScaduti:"Dati scaduti", mNonSicuro:"Non sicuro", mPed:"Area pedonale", mFestivo:"Festivo da confermare", mEuro:"Classe Euro da sapere",
   shareB:"Copia il link della risposta", shareL:"Link della risposta", shareOk:"Link copiato. Riapre la stessa domanda: posto, giorno e ora, veicolo.", shareSel:"Seleziona il link e copialo.", shareOwn:"La tua posizione non va mai in un link: cerca il posto per condividerlo.", shareNone:"Prima scegli un posto.",
   sharedL:"Risposta condivisa", sharedPriv:"Il link contiene solo posto, giorno e ora e tipo di veicolo. Niente targa, niente nome, niente posizione di chi l'ha mandato.", sharedChange:"Cambia veicolo o ora",
   pr1T:"Per la tua auto, all'ora che scegli", pr1P:"Lo stesso posto può essere verde per un'elettrica e rosso per un Euro 2.",
@@ -558,7 +558,7 @@ const T = {
   skip:"Zur Suche springen", navCities:"Städte", navHow:"So funktioniert's", whereL:"Wo", hourL:"Ankunftszeit", mapAl:"Karte der ZTL-Zonen und Einfahrten. Tippe auf einen Punkt, um ihn zu prüfen.",
   sNo:"Nicht einfahren", sCond:"Nur wenn…", sSi:"Einfahrt frei", sOff:"ZTL nicht aktiv", sUnsure:"Schild prüfen", sOut:"Außerhalb der ZTL", sUnk:"Diesen Ort kennen wir nicht",
   pNo:"Nicht einfahren", pCond:"Nur wenn…", pSi:"Einfahrt frei", pOff:"ZTL nicht aktiv", pUnsure:"Schild prüfen", pOut:"Außerhalb der ZTL", pUnk:"Nicht abgedeckt",
-  mNonUfficiale:"Inoffizielle Quelle", mScaduti:"Daten veraltet", mNonSicuro:"Nicht sicher", mPed:"Fußgängerzone",
+  mNonUfficiale:"Inoffizielle Quelle", mScaduti:"Daten veraltet", mNonSicuro:"Nicht sicher", mPed:"Fußgängerzone", mFestivo:"Feiertag unbestätigt", mEuro:"Euro-Klasse unbekannt",
   shareB:"Link zu dieser Antwort kopieren", shareL:"Link zu dieser Antwort", shareOk:"Link kopiert. Er öffnet dieselbe Frage: Ort, Tag und Uhrzeit, Fahrzeug.", shareSel:"Markiere den Link und kopiere ihn.", shareOwn:"Dein Standort kommt nie in einen Link: suche den Ort, um ihn zu teilen.", shareNone:"Wähle zuerst einen Ort.",
   sharedL:"Geteilte Antwort", sharedPriv:"Der Link enthält nur Ort, Tag und Uhrzeit und die Art des Fahrzeugs. Kein Kennzeichen, kein Name, kein Standort der Person, die ihn geschickt hat.", sharedChange:"Fahrzeug oder Zeit ändern",
   pr1T:"Für dein Auto, zur Uhrzeit deiner Wahl", pr1P:"Derselbe Ort kann für ein Elektroauto grün und für einen Euro 2 rot sein.",
@@ -719,18 +719,19 @@ function trustOf(zone){ const s = zone.source || {};
 function answer(zone, t, staying, v = CARS[0], quick = false){
   const r = rulesAnswer(zone, t, staying, v, quick), tr = trustOf(zone);
   r.trust = tr;
-  if (tr === "pageChanged") return Object.assign(r, {v:"unsure", title:t_("unsure"), why:t_("whyChanged") + " " + r.why});
+  // 2.1: il motivo del «?» (doubt) per la RispostaFinale: la pagina cambiata o la verifica vecchia sono «dati scaduti»
+  if (tr === "pageChanged") return Object.assign(r, {v:"unsure", title:t_("unsure"), why:t_("whyChanged") + " " + r.why, doubt:"scaduti"});
   if ((tr === "unverified" || tr === "old") && r.v === "yes" && !unofficial(zone))
-    return Object.assign(r, {v:"unsure", title:t_("unsure"), why:(tr === "old" ? T[lang].whyOldCheck(VERIFIED_DAYS) : t_("whyUnverified")) + " " + r.why});
+    return Object.assign(r, {v:"unsure", title:t_("unsure"), why:(tr === "old" ? T[lang].whyOldCheck(VERIFIED_DAYS) : t_("whyUnverified")) + " " + r.why, doubt:"scaduti"});
   return r;
 }
 function rulesAnswer(zone, t, staying, v = CARS[0], quick = false){
   const on = activeAt(zone, t), next = quick ? null : scan(zone, t, 1), since = quick ? null : scan(zone, t, -1), k = kindOf(zone);
   // 1.20.1: dalla data più recente tra lettura e verifica
   const s0 = zone.source, age = Math.min(daysSince(s0.checkedOn), s0.verifiedOn ? daysSince(s0.verifiedOn) : Infinity);
-  if (age > 120) return {v:"unsure", title:t_("unsure"), why:T[lang].whyStale(age), on, next, since};
+  if (age > 120) return {v:"unsure", title:t_("unsure"), why:T[lang].whyStale(age), on, next, since, doubt:"scaduti"};
   if (zone.freeOnHolidays == null && startDays(zone, t).some(x => isHoliday(x, zone)))
-    return {v:"unsure", title:t_("unsure"), why:t_("whyHol"), on:true, next, since};
+    return {v:"unsure", title:t_("unsure"), why:t_("whyHol"), on:true, next, since, doubt:"festivo"};
   if (!on) return {v:"yes", title:t_("yes"), why:T[lang].whyOff(next ? when(next, new Date()) : ""), on, next, since};
   // Prima il tipo di veicolo (moto e scooter), poi alimentazione e classe Euro: lo stesso ordine dell'app
   if ((zone.exemptVehicleTypes || []).includes(v.type || "car")) return {v:"yes", title:t_("yes"), why:t_("whyMoto"), on, next, since};
@@ -800,7 +801,8 @@ function placeAnswer(lat, lon, t, staying, v = CARS[0], quick = false){
   const kind = ped ? "ped" : r ? shown(r.v, z) : cov ? "out" : "unk";
   const colour = ped ? "red" : r ? zoneColour(r, z) : cov ? "green" : "neutral";
   const verdict = ped ? "no" : r ? shown(r.v, z) : cov ? "yes" : "unsure";
-  return {hits, hit, zone: z, city: hit ? hit.city : null, r, ped, covered: cov, unoff, kind, colour, verdict};
+  const f = finale(ped, r, z, cov);
+  return {hits, hit, zone: z, city: hit ? hit.city : null, r, ped, covered: cov, unoff, kind, colour, verdict, stato: f.stato, motivo: f.motivo};
 }
 // Aree pedonali: niente auto, mai
 function pedAt(lat, lon){ for (const c of CITIES) if (c.zones) for (const a of c.pedestrian || []) if (contains(a, lat, lon)) return {city: c, area: a}; return null; }
@@ -851,24 +853,37 @@ function missing(lat, lon){
 }
 async function ensureFor(lat, lon){ for (let m; (m = missing(lat, lon)).length; ) await Promise.all(m.map(loadCity)); }
 
-// ── Risposta finale (2.0): i sette stati, uguali su tutte le superfici ───────────────────
-// rispostaFinale() traduce il risultato di placeAnswer in uno dei sette stati (no, condizione, si, nonAttiva, nonSicuro,
-// fuoriZTL, fuoriCopertura) con il motivo del giallo; la pagina disegna solo questo (showFinal). Quando arriverà il modulo
-// comune RispostaFinale in JavaScript (agente «risposta-2.0») basta sostituire questa funzione. Provata da
-// Tools/check_engine_cases.mjs con i casi comuni: mai verde fuori copertura, da fonte non ufficiale o da dati non sicuri.
+// ── 2.1 «Una risposta, sette stati» (shared/risposta-finale.md) ─────────────
+// finale(): la RispostaFinale del motore, la stessa dell'app (Sources/RispostaFinale.swift) e di Android (RispostaFinale.kt),
+// provata dagli stessi casi (shared/engine-cases.json, «stato» e «motivo»). Area pedonale «nonEntrare»; fuori dalle zone
+// «fuoriZTL» in una città che conosciamo, altrimenti «nonCoperto»; poi la zona che decide: no → «nonEntrare» (anche da fonte
+// non ufficiale: Salerno resta rossa), condizione → «condizione», non sicuro → «controllaCartello» col suo motivo (doubt del
+// motore: scaduti, festivo), sì da fonte non ufficiale → «controllaCartello» (nonUfficiale), sì → «entraPure» a varchi accesi,
+// «ztlNonAttiva» a varchi spenti
+const MOTIVI = ["nonSicuro", "scaduti", "nonUfficiale", "festivo", "euroSconosciuto"];
+function finale(ped, r, z, cov){
+  if (ped) return {stato:"nonEntrare", motivo:null};
+  if (!r) return {stato: cov ? "fuoriZTL" : "nonCoperto", motivo:null};
+  if (r.v === "no") return {stato:"nonEntrare", motivo:null};
+  if (r.v === "cond") return {stato:"condizione", motivo:null};
+  if (r.v === "unsure") return {stato:"controllaCartello", motivo: r.doubt || (unofficial(z) ? "nonUfficiale" : "nonSicuro")};
+  if (unofficial(z)) return {stato:"controllaCartello", motivo:"nonUfficiale"};
+  return {stato: r.on ? "entraPure" : "ztlNonAttiva", motivo:null};
+}
+// Il colore semantico di ogni stato. «spento» (ZTL non attiva) è UN SOLO token: STATE_OFF qui, --state-off nel CSS (oggi verde)
+const STATE_OFF = "verde";
+const TONO = {nonEntrare:"rosso", condizione:"giallo", entraPure:"verde", ztlNonAttiva:"spento", controllaCartello:"giallo", nonCoperto:"neutro", fuoriZTL:"grigio"};
+const tono = stato => TONO[stato] === "spento" ? STATE_OFF : TONO[stato];
+
+// La presentazione del sito (showFinal, CSS .answer[data-s=…], forme SHAPES) usa i suoi nomi brevi: rispostaFinale() li
+// prende dalla RispostaFinale del motore, senza rifare la decisione. Il motivo sotto il titolo: quello del motore, per un
+// «no» o una condizione da fonte non ufficiale «Fonte non ufficiale», nell'area pedonale «Area pedonale»
 const STATI = ["no", "condizione", "si", "nonAttiva", "nonSicuro", "fuoriZTL", "fuoriCopertura"];
-// Età dei dati di una zona in giorni (la più recente tra lettura e verifica, come rulesAnswer)
-const dataAge = z => Math.min(daysSince(z.source.checkedOn), z.source.verifiedOn ? daysSince(z.source.verifiedOn) : Infinity);
+const PRESENTA = {nonEntrare:"no", condizione:"condizione", entraPure:"si", ztlNonAttiva:"nonAttiva", controllaCartello:"nonSicuro", nonCoperto:"fuoriCopertura", fuoriZTL:"fuoriZTL"};
 function rispostaFinale(pa){
   if (!pa) return null;
   if (pa.ped) return {stato:"no", motivo:"pedonale"};
-  if (pa.kind === "unk") return {stato:"fuoriCopertura", motivo:null};
-  if (pa.kind === "out") return {stato:"fuoriZTL", motivo:null};
-  const r = pa.r, z = pa.zone, v = shown(r.v, z), unoff = pa.unoff ? "nonUfficiale" : null;
-  if (v === "no") return {stato:"no", motivo:unoff};
-  if (v === "cond") return {stato:"condizione", motivo:unoff};
-  if (v === "unsure") return {stato:"nonSicuro", motivo:unoff || (r.trust !== "pageChanged" && dataAge(z) > VERIFIED_DAYS ? "scaduti" : "nonSicuro")};
-  return {stato: r.on ? "si" : "nonAttiva", motivo:null};
+  return {stato: PRESENTA[pa.stato], motivo: pa.motivo || (pa.unoff && (pa.stato === "nonEntrare" || pa.stato === "condizione") ? "nonUfficiale" : null)};
 }
 // Il link di una risposta (tavola X-SitoLink): #p=lat,lon&n=nome&t=2026-11-06T18:00&v=diesel-4[&h=1]. Solo posto, giorno e
 // ora (ora italiana; senza «t» vale «adesso») e tipo di veicolo: mai targa, nome dell'hotel del messaggio o posizione del telefono
@@ -1002,7 +1017,7 @@ const RM = matchMedia("(prefers-reduced-motion: reduce)");
 // La presentazione non guarda il motore: legge solo {stato, motivo} da rispostaFinale() (sopra, accanto al motore). Gli stati e i loro colori sono in CSS (.answer[data-s=…]): «ZTL non attiva» usa un solo token
 // (--state-off, oggi verde), «Fuori dalla ZTL» è grigio, fuori copertura neutro tratteggiato, mai verde.
 const TITOLO = {no:"sNo", condizione:"sCond", si:"sSi", nonAttiva:"sOff", nonSicuro:"sUnsure", fuoriZTL:"sOut", fuoriCopertura:"sUnk"};
-const MOTIVO = {nonUfficiale:"mNonUfficiale", scaduti:"mScaduti", nonSicuro:"mNonSicuro", pedonale:"mPed"};
+const MOTIVO = {nonUfficiale:"mNonUfficiale", scaduti:"mScaduti", nonSicuro:"mNonSicuro", pedonale:"mPed", festivo:"mFestivo", euroSconosciuto:"mEuro"};
 // Le forme (S-Risposta), in un quadrato di 32: currentColor è l'inchiostro del blocco, var(--v-bg) il suo fondo. Anche nei
 // segni della pagina (build_site.py le copia nella legenda delle sette risposte): JSON, una per riga.
 const SHAPES = {
