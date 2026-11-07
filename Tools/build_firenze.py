@@ -93,13 +93,17 @@ NAMES_DE = {
     "G": "Sektor G · Piazza Piave – Cavalleggeri (Sommernächte)",
 }
 
+# 1.20.4: orari di giorno confrontati con il disciplinare (punto 3), data/raw/firenze/disciplinare-ztl.txt: la frase deve
+# esserci, parola per parola (spazi a parte). Le notti d'estate seguono la delibera 2026/0099 (sas-ztl-notturna-2026.txt)
+_DISC = " ".join((Path(__file__).resolve().parent.parent / "data/raw/firenze/disciplinare-ztl.txt").read_text(encoding="utf-8").split())
+assert ("La ZTL nei settori A, B ed O ha validità nei giorni feriali, dal lunedì al venerdì nell’orario dalle 7,30 alle 20,00 "
+        "ed il sabato dalle 7,30 alle 16,00 (di seguito denominata ZTL DIURNA).") in _DISC, "disciplinare: orario diurno cambiato"
+
 PENDING_COMMON_IT = [
     "Festivi: le pagine del Comune che abbiamo letto non dicono se i varchi sono spenti. Nei festivi l'app risponde «Non sicuro».",
-    "Gli orari esatti vengono dai comunicati del Comune; da confrontare con il disciplinare in vigore (Provv. Dir. 2011/M/04192 e aggiornamenti).",
 ]
 PENDING_COMMON_DE = [
     "Feiertage: Die gelesenen Seiten der Stadt sagen nicht, ob die Kameras aus sind. An Feiertagen antwortet die App «Nicht sicher».",
-    "Die genauen Zeiten stammen aus Pressemitteilungen der Stadt; noch mit der geltenden Regelung abzugleichen (Provv. Dir. 2011/M/04192 und Folgende).",
 ]
 HOTEL_PENDING = "Hotel guests: SAS has a form for hotels to add plates; the current online procedure is still to be confirmed."
 HOTEL_PENDING_IT = "Ospiti degli hotel: SAS ha un modulo per comunicare le targhe; la procedura online attuale è da confermare."
@@ -107,7 +111,6 @@ HOTEL_PENDING_DE = "Hotelgäste: SAS hat ein Formular, mit dem Hotels Kennzeiche
 
 PENDING_COMMON = [
     "Public holidays: the city pages we read don't say whether the gates are off. The app answers \"Not sure\" on holidays.",
-    "Exact gate times come from city news releases; still to be checked against the current disciplinare (Provv. Dir. 2011/M/04192 and later updates).",
 ]
 
 
