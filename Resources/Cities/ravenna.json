@@ -887,7 +887,7 @@
     "quote": "Attraverso una rete di telecamere, le targhe dei veicoli che accedono attraverso i “varchi” vengono riconosciute e confrontate con la lista delle targhe dei veicoli abilitati al transito",
     "quoteTranslation": "Through a network of cameras, the plates of vehicles entering through the «gates» are recognised and checked against the list of plates of vehicles allowed through",
     "quoteTranslation_de": "Über ein Kameranetz werden die Kennzeichen der Fahrzeuge, die durch die «Tore» einfahren, erkannt und mit der Liste der zugelassenen Kennzeichen abgeglichen",
-    "checkedOn": "2026-10-27T07:00:00Z",
+    "checkedOn": "2026-11-07T19:24:00Z",
     "reviewedByHuman": false,
     "pending": [
      "Gate hours: Via di Roma, Via Guaccimanni, Via Baccarini, Via Rondinelli, Via Cavour (from Piazzetta Gandhi) and Via Ponte Marino 24 hours a day; Via Mariani, Via Guerrini and Via Matteucci only 7:30–20:30. GateLR uses 24 hours for the whole zone, to be safe.",
@@ -951,11 +951,10 @@
     "readFingerprints": {
      "https://comune.ravenna.it/altro-contenuto/sirio-controllo-accessi-in-ztl/": "7f1d05e693f9e05f",
      "https://comune.ravenna.it/amministrazione/documenti-e-dati/modulistica/modulo-comunicazione-targhe-persone-invalide-accesso-sirio-ztl/": "afd70849d147ea8d",
-     "https://comune.ravenna.it/novita/comunicato-stampa/in-seguito-agli-incontri-pubblici-approvata-la-modifica-alla-delibera-del-piano-che-disciplina-circolazione-e-sosta-nel-comune-di-ravenna/": "ef2245c9bc9684ad",
+     "https://comune.ravenna.it/novita/comunicato-stampa/in-seguito-agli-incontri-pubblici-approvata-la-modifica-alla-delibera-del-piano-che-disciplina-circolazione-e-sosta-nel-comune-di-ravenna/": "ea178397d94d6961",
      "https://comune.ravenna.it/servizi/autorizzazioni/comunicazione-targhe-di-veicoli-abilitati-a-circolare-in-zona-a-traffico-limitato-di-ravenna-sirio/": "30937cc89698f765"
     },
-    "readFingerprintsOf": "2026-10-27T07:00:00Z",
-    "pageChanged": true
+    "readFingerprintsOf": "2026-11-07T19:24:00Z"
    }
   }
  ],

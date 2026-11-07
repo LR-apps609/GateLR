@@ -1,5 +1,5 @@
 URL: https://www.azimut-spa.it/ita/Servizi/Sosta/Permessi-giornalieri-ZTL
-Letto il: 2026-10-26 (Azimut S.p.A. (società dei Comuni di Ravenna, Faenza, Cervia e Castel Bolognese), «Permessi giornalieri ZTL»: fonte ufficiale (gestore della sosta); testo estratto dall'HTML)
+Letto il: 2026-11-07 (Azimut S.p.A. (società dei Comuni di Ravenna, Faenza, Cervia e Castel Bolognese), «Permessi giornalieri ZTL»: fonte ufficiale (gestore della sosta); testo estratto dall'HTML)
 
 Permessi giornalieri ZTL - AZIMUT S.p.A. - Società dei Comuni di Ravenna, Faenza, Cervia e Castel Bolognese
 Home
@@ -24,7 +24,7 @@ In particolare:
 - Largo Firenze - Parcometro codice 7.
 I parcometri modello Strada T-pal Parkeon (della medesima tipologia di quelli installati nelle principali aree di Ravenna) sono immediatamente riconoscibili come emettitrici di permessi ZTL per la specifica caratterizzazione (hanno colore grigio scuro "titanium").
 Presentano un display a colori dal quale è possibile accedere in modo semplice ed intuitivo alle informazioni sulle funzionalità disponibili, con possibilità di scelta della lingua (italiano, inglese, francese, tedesco).
-Gli 11 parcometri sono di default programmati per consentire il pagamento della sosta. Per accedere al menù relativo al PERMESSO ZTL è necessario seguire le istruzioni a display .
+Gli 11 parcometri sono di default programmati per consentire il pagamento della sosta. Per accedere al menù relativo al PERMESSO ZTL è necessario seguire le istruzioni a display.
 Il pagamento è consentito con monete (la macchina non dà resto) e mediante carta di credito.
 L’Ufficio Permessi della Polizia Municipale continua a mantenere inalterata la funzione di rilascio di tutti i contrassegni giornalieri (negli orari di apertura).
 Trova così attuazione un progetto proposto da Azimut SpA al Comune di Ravenna un paio di anni fa e che Azimut SpA ha sviluppato insieme a Parkeon SpA (fornitore dei parcometri e del relativo software di gestione), tenendo conto delle esigenze di interfacciamento con il sistema Sirio ZTL.

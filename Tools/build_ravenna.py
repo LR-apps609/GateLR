@@ -21,7 +21,7 @@ import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/ravenna"
-CHECKED = "2026-10-27T07:00:00Z"
+CHECKED = "2026-11-07T19:24:00Z"
 EVERY_DAY = [1, 2, 3, 4, 5, 6, 7]
 
 
