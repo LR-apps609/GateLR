@@ -991,7 +991,7 @@
     "quote": "La ZTL del centro storico di Bolzano è attiva 24 ore su 24, tutti i giorni",
     "quoteTranslation": "The ZTL of Bolzano's historic centre is active 24 hours a day, every day",
     "quoteTranslation_de": "Die verkehrsberuhigte Zone der Bozner Altstadt ist rund um die Uhr, jeden Tag, aktiv",
-    "checkedOn": "2026-10-27T12:30:00Z",
+    "checkedOn": "2026-11-07T18:00:00Z",
     "reviewedByHuman": false,
     "pending": [
      "Hotel inside the zone: contact it before arriving and give your plate; it obtains the temporary authorisation. The rules let authorised hotel guests drive in and stop only for the time needed to load and unload luggage; the City's pages give no deadline for the hotel to register the plate, so ask the hotel.",
@@ -1053,14 +1053,13 @@
      }
     ],
     "readFingerprints": {
-     "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Delibere-della-Giunta-Comunale-n.-518-2022-e-n.-17-2023": "f21fea3c7ab7f840",
-     "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Divieti-di-circolazione-per-limitare-l-inquinamento-dell-aria": "447ddb739b886810",
-     "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Polizia-Municipale-I-varchi-gates-con-le-telecamere-di-controllo-della-ZTL-in-centro-storico": "319e0e0af06c48a0",
-     "https://www.comune.bolzano.bz.it/Servizi/Polizia-Municipale-Permessi-varchi-elettronici-ZTL-ed-aree-pedonali": "083773b2ca4087de",
-     "https://www.comune.bolzano.bz.it/Vivere-il-Comune/Guide/Accesso-ZTL-e-sosta-nel-centro-abitato": "2c5d9d9809d33bc3"
+     "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Delibere-della-Giunta-Comunale-n.-518-2022-e-n.-17-2023": "e4f490d87a5e550a",
+     "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Divieti-di-circolazione-per-limitare-l-inquinamento-dell-aria": "34b5d47e717133f4",
+     "https://www.comune.bolzano.bz.it/Amministrazione/Documenti-e-dati/Documenti-tecnici-di-supporto/Polizia-Municipale-I-varchi-gates-con-le-telecamere-di-controllo-della-ZTL-in-centro-storico": "cfcd4f5fb948dc82",
+     "https://www.comune.bolzano.bz.it/Servizi/Polizia-Municipale-Permessi-varchi-elettronici-ZTL-ed-aree-pedonali": "42b202c95bc72a4e",
+     "https://www.comune.bolzano.bz.it/Vivere-il-Comune/Guide/Accesso-ZTL-e-sosta-nel-centro-abitato": "f8577ea336f8c985"
     },
-    "readFingerprintsOf": "2026-10-27T12:30:00Z",
-    "pageChanged": true
+    "readFingerprintsOf": "2026-11-07T18:00:00Z"
    }
   }
  ],

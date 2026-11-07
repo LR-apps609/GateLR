@@ -35,3 +35,11 @@ Procedura albergo (nessun termine ufficiale per la registrazione della targa); n
 
 ## Moto e scooter (1.17.1)
 Nessuna esenzione: elettriche e moto non esenti nella ZTL → «Non entrare».
+
+## Rilettura del 07/11/2026
+
+Il controllo giornaliero segnava cambiate, dal 29/10, le cinque pagine del Comune (guida «Accesso ZTL e sosta», servizio permessi, varchi, divieti per l'aria, pagina delle delibere). Rilette il 07/11/2026 con la pagina tedesca del servizio; i testi in `data/raw/bolzano/` sono quelli del 07/11 (le delibere 518/2022 e 17/2023 sono PDF e non sono cambiate).
+
+- **Niente di sostanza è cambiato**: ZTL *"attiva 24 ore su 24, tutti i giorni"*, carico e scarico 6:00–10:30, divieti Euro 0–2 e diesel Euro 3 *"dal lunedì al venerdì (esclusi i festivi), dalle 7:00 alle 10:00 e dalle 16:00 alle 19:00"*, hotel e numeri di telefono sono uguali.
+- Cambiati solo menu e cornice del sito (il nuovo modello di pagina con «Formati disponibili», «Licenza di distribuzione», «Ultimo aggiornamento»). Una frase citata in `Tools/build_bolzano.py` è stata adattata allo spazio prima della virgola del testo nuovo.
+- `checkedOn` = 2026-11-07T18:00:00Z: la zona non è più «pagina cambiata».
