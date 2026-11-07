@@ -916,6 +916,27 @@ ANDROID = {
 "Privacy policy": ("Informativa sulla privacy", "Datenschutzerklärung"),
 # 1.19.5: ricerca senza risposta
 "Try again": ("Riprova", "Nochmal versuchen"),
+# 2.0 «Android alla pari»
+"Data out of date": ("Dati scaduti", "Daten veraltet"),
+"Navigate anyway": ("Naviga comunque", "Trotzdem navigieren"),
+"Garage and settings": ("Garage e impostazioni", "Garage und Einstellungen"),
+"Share the answer": ("Condividi la risposta", "Antwort teilen"),
+"The panel will say ZTL ATTIVA: that's fine for you.": ("Il pannello dirà ZTL ATTIVA: per te va bene.", "Die Tafel zeigt ZTL ATTIVA: für dich ist das in Ordnung."),
+"If the panel says so, don't enter.": ("Se il pannello dice così, non entrare.", "Wenn die Tafel das zeigt, fahr nicht ein."),
+"For %@": ("Per %@", "Für %@"),
+"until %@": ("fino alle %@", "bis %@"),
+"That's how you'll see it at the gate.": ("Così lo vedrai al varco.", "So siehst du es an der Einfahrt."),
+"Why · %@": ("Perché · %@", "Warum · %@"),
+"Location denied: car alerts are off.": ("Posizione negata: gli avvisi in auto sono spenti.", "Standort verweigert: die Hinweise beim Fahren sind aus."),
+"Open settings": ("Apri impostazioni", "Einstellungen öffnen"),
+"Point the camera at the sign: days and hours": ("Inquadra il cartello: giorni e ore", "Richte die Kamera auf das Schild: Tage und Uhrzeiten"),
+"What to do, in 4 steps": ("Cosa fare, in 4 passi", "Was tun, in 4 Schritten"),
+"The signs and the «ZTL ATTIVA» panel": ("I cartelli e la dicitura «ZTL attiva»", "Die Schilder und die Anzeige «ZTL ATTIVA»"),
+"No ZTL within 300 m ahead.": ("Nessuna ZTL entro 300 m davanti a te.", "Keine ZTL in 300 m vor dir."),
+"%@ in %@, ahead of you.": ("%@ a %@, davanti a te.", "%@ in %@, vor dir."),
+"Passages near the gates, only on this phone": ("Passaggi vicino ai varchi, solo su questo telefono", "Durchfahrten an den Einfahrten, nur auf diesem Handy"),
+"The answer where you are, now": ("La risposta dove sei, adesso", "Die Antwort, wo du bist, jetzt"),
+"Where are you going? Hotel, address or square": ("Dove vai? Hotel, indirizzo o piazza", "Wohin fährst du? Hotel, Adresse oder Platz"),
 }
 
 # Gli stessi testi per l'app Android (assets/i18n/strings_it.json, strings_de.json; dalla 1.20.3 anche fr, es, nl, pl, zh più sotto)
