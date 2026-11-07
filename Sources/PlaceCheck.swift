@@ -148,19 +148,9 @@ struct PlaceCheck {
     /// Le regole della zona vengono solo da fonti non ufficiali: la risposta si dice con prudenza
     var unofficial: Bool { pedestrian == nil && zone?.isUnofficial == true }
 
-    /// 1.20.3 «Parole»: il titolo fisso della risposta per il posto (lo stesso in Varco, Mappa e Viaggio). Area pedonale
-    /// «Non entrare», fuori dalle zone di una città che conosciamo «Puoi entrare», fuori copertura «Non conosciamo questo
-    /// posto», un «sì» da fonte non ufficiale «Controlla il cartello»
-    var word: AnswerWord {
-        switch kind {
-        case .uncovered: return .unknownPlace
-        case .outside: return .enter
-        case .closed, .pedestrian: return .dontEnter
-        case .open: return hedged ? .checkSign : .enter
-        case .conditional: return .condition
-        case .unsure: return .checkSign
-        }
-    }
+    /// Il titolo fisso della risposta per il posto (lo stesso in Varco, Mappa e Viaggio): 2.1, la parola della
+    /// RispostaFinale (sette stati: «ZTL non attiva» e «Fuori dalla ZTL» hanno la loro; prima «Puoi entrare»)
+    var word: AnswerWord { finale.word }
 
     /// La frase sotto il titolo (mai titolo): la condizione, il motivo del dubbio, «Probabilmente sì · fonte non ufficiale»
     var explanation: String? {
@@ -170,8 +160,10 @@ struct PlaceCheck {
             if case .conditional(_, let condition)? = answer?.verdict { return condition }
             return nil
         case .unsure:
-            if case .unsure(let reason)? = answer?.verdict { return reason }
-            return nil
+            // 2.1: il motivo del «?» in testa alla riga sotto («Dati scaduti · …», «Festivo da confermare · …»)
+            guard case .unsure(let reason)? = answer?.verdict else { return nil }
+            if let m = finale.motivo, m != .nonSicuro, m != .nonUfficiale { return m.label + " · " + reason }
+            return reason
         case .open, .closed: return unofficial ? answer?.verdict.unofficialNote(unofficial: true) : nil
         case .outside, .pedestrian: return nil
         }
@@ -203,5 +195,17 @@ extension PlaceCheck {
     init(place: Place, hits: [(city: City, zone: Zone)], pedestrian: PedestrianArea? = nil, answer: Answer?, covered: Bool = true) {
         self.init(place: place, hits: hits, pedestrian: pedestrian,
                   answers: answer.map { a in hits.map { _ in a } } ?? [], covered: covered)
+    }
+}
+
+extension PlaceCheck {
+    /// 2.1: la RispostaFinale del posto. Area pedonale «Non entrare»; fuori dalle zone «Fuori dalla ZTL» in una città che
+    /// conosciamo, altrimenti «Posto non coperto»; poi la zona che decide (la peggiore, vedi `decider`)
+    var finale: RispostaFinale {
+        if pedestrian != nil {
+            return RispostaFinale(stato: .nonEntrare, zoneId: zone?.id, gatesOn: answer?.gatesOn, pedestrian: true)
+        }
+        guard let answer, let hit else { return RispostaFinale(stato: covered ? .fuoriZTL : .nonCoperto) }
+        return RispostaFinale.of(answer, zone: hit.zone, status: hit.city.status)
     }
 }
