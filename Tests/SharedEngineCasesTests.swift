@@ -100,7 +100,10 @@ final class SharedEngineCasesTests: XCTestCase {
                                    answers: hits.map { engine.trustedAnswer(zone: $0.zone, vehicle: v, permits: [], hotelInside: hotel, at: at) },
                                    covered: Store.covers(p, in: caseCities))
 
-            XCTAssertEqual(Self.colour(check.access), expect["colour"] as? String, "\(id): colore")
+            XCTAssertEqual(check.colourName, expect["colour"] as? String, "\(id): colore")
+            // Lo stesso nome del colore della mappa quando decide una zona (1.20.4: fuori dalla ZTL «grey», senza zona)
+            if check.access != nil { XCTAssertEqual(check.colourName, Self.colour(check.access), "\(id): colore della mappa") }
+            if check.showsOutside { XCTAssertEqual(check.colourName, "grey", "\(id): fuori dalla ZTL è grigio") }
             if let want = expect["verdict"] as? String {
                 XCTAssertEqual(Self.name(check.verdict.shown(unofficial: check.unofficial)), want, "\(id): risposta")
             }

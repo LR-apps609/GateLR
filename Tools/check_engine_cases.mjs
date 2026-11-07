@@ -53,6 +53,8 @@ for (const c of file.cases) {
   // Le regole fisse, qualunque cosa dica il file: mai verde fuori copertura o da fonte non ufficiale
   if (!p.covered && p.colour !== "neutral") bad.push("fuori copertura non neutro");
   if (p.unoff && p.colour === "green") bad.push("fonte non ufficiale verde");
+  // 1.20.4: fuori dalla ZTL in una città che conosciamo è grigio, mai verde
+  if (p.covered && !p.zone && !p.ped && p.colour !== "grey") bad.push("fuori dalla ZTL non grigio");
   // 1.20.1 (regola A): mai verde da una zona senza verifica né lettura recente o con la pagina del Comune cambiata
   if (p.zone && !p.ped && !["verified", "read"].includes(e.trustOf(p.zone)) && p.colour === "green") bad.push("zona non sicura verde");
   if (bad.length) errors.push(`${c.id}: ${bad.join("; ")}`); else passed++;

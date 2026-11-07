@@ -47,6 +47,8 @@ object Palette {
     val amber = Color(0xFF8A5A00); val amberSoft = Color(0xFFFBECC8); val amberInk = Color(0xFF5C3C00)
     val greenSoft = Color(0xFFDCEFE2); val greenInk = Color(0xFF22653A)
     val redSoft = Color(0xFFF8DADB); val redInk = Color(0xFF9E1F25)
+    /** 1.20.4: «Fuori dalla ZTL» in una città coperta, grigio neutro (mai verde): scritta 6,5:1 sul fondo della pillola */
+    val greySoft = Color(0xFFE8EBEA); val greyInk = Color(0xFF4A535C)
     val ground = Color(0xFFF3F4F2); val card = Color.White; val ink = Color(0xFF1B2128); val muted = Color(0xFF5D6670)
     val groundDark = Color(0xFF0F1318); val cardDark = Color(0xFF1A2027); val inkDark = Color(0xFFE8ECEF)
     val brass = Color(0xFFA97E3F)

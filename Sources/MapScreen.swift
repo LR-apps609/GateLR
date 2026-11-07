@@ -598,7 +598,8 @@ struct MapScreen: View {
                 } else if let answer {
                     VerdictPill(verdict: answer.verdict, unofficial: check.unofficial)
                 } else if check.covered {
-                    Pill(text: check.word.title, fill: Theme.greenSoft, ink: Theme.greenInk)
+                    // 1.20.4: fuori dalla ZTL in una città che conosciamo: grigio, mai verde
+                    Pill(text: check.word.title, fill: Theme.outside.opacity(0.14), ink: Theme.outside)
                 } else {
                     // Fuori copertura: neutro, mai verde (1.19.0)
                     Pill(text: check.word.title, fill: Theme.muted.opacity(0.16), ink: Theme.muted)
@@ -989,7 +990,8 @@ struct ParkingSheet: View {
     var parking: Parking
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Label("Outside the ZTL", systemImage: "checkmark.circle.fill").font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.greenInk)
+            // 1.20.4: «Fuori dalla ZTL» grigio, mai verde (decisione di Ledion del 07/11)
+            Label("Outside the ZTL", systemImage: "parkingsign.circle.fill").font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.outside)
             Text(parking.name).font(Theme.display(26))
             if let address = parking.item.placemark.title {
                 Text(address).font(.app(size: 14)).foregroundStyle(Theme.muted)

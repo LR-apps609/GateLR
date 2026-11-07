@@ -14,6 +14,19 @@ class MotoreUnicoTest {
     private fun date(y: Int, m: Int, d: Int, h: Int) = LocalDateTime.of(y, m, d, h, 0).atZone(RuleEngine.ROME).toInstant()
     private val car = Vehicle(id = "car", name = "Rental car", fuel = Fuel.PETROL, euro = 6)
 
+    /** 1.20.4 (decisione di Ledion del 07/11): fuori dalle zone di una città che conosciamo grigio, mai verde; la stessa
+     *  parola di prima («Puoi entrare»); fuori copertura resta neutro */
+    @Test fun outsideIsGreyNeverGreen() {
+        val cities = listOf(city("bologna"))
+        val engine = RuleEngine(now = { date(2026, 11, 3, 12) })
+        val station = PlaceCheck.of(cities, Coordinate(44.5058, 11.3427), engine, car, emptyList(), false, date(2026, 11, 10, 10))
+        assertEquals(PlaceCheck.Kind.OUTSIDE, station.kind)
+        assertEquals(AnswerColor.GREY, station.color)
+        assertEquals(AnswerWord.ENTER, station.word)
+        val pistoia = PlaceCheck.of(cities, Coordinate(43.9330, 10.9170), engine, car, emptyList(), false, date(2026, 11, 10, 10))
+        assertEquals(AnswerColor.NEUTRAL, pistoia.color)
+    }
+
     /** holidaysAsSunday si legge dal file (prima Android lo ignorava) */
     @Test fun holidaysAsSundayDecodes() {
         val b = city("bergamo")
