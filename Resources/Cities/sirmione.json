@@ -379,7 +379,7 @@
     "quote": "È istituito il divieto, nella Z.T.L. come sopra definita, di circolazione dinamica e statica per tutte le categorie di veicoli non compresi e/o autorizzati ai sensi del predetto Disciplinare di Gestione della Z.T.L.",
     "quoteTranslation": "In the ZTL defined above, driving and parking are prohibited for all categories of vehicles not included in and/or authorised under the said ZTL Management Rules.",
     "quoteTranslation_de": "In der oben bestimmten ZTL ist das Fahren und Parken für alle Fahrzeugkategorien verboten, die nicht nach der genannten ZTL-Verwaltungsregelung erfasst und/oder zugelassen sind.",
-    "checkedOn": "2026-10-27T12:00:00Z",
+    "checkedOn": "2026-11-07T19:26:00Z",
     "reviewedByHuman": false,
     "pending": [
      "Hotel guests («soggiornanti»): the hotel enters your plate in the City's portal before you arrive, and the barrier opens by itself. You get two entries a day. Annex C limits the hours: in the off-season (from 14 October) weekdays 0–24 and holidays 0–9 and 19–24; in summer (23 March–13 October 2026) weekdays 0–24, days before holidays 0–10, 12–14, 19–21, 22:30–24, holidays 0–10, 19–21, 22:30–24. GateLR does not model these windows: check with the hotel.",
@@ -441,13 +441,12 @@
      }
     ],
     "readFingerprints": {
-     "https://www.comune.sirmione.bs.it/it/news/stagione-turistica-2026?type=1": "4a1cade78c9e6759",
+     "https://www.comune.sirmione.bs.it/it/news/stagione-turistica-2026?type=1": "a8a061233e06e610",
      "https://www.comune.sirmione.bs.it/it/public_documents/regolamentazione-della-ztl": "022ad8ebd553915c",
      "https://www.comune.sirmione.bs.it/s3/6918/allegati/allegato-c.pdf": "c071be1b75b20af1",
      "https://www.comune.sirmione.bs.it/s3/6918/allegati/ordinanza-ztl-2026-n-30.pdf": "ad4d3a5982fd0350"
     },
-    "readFingerprintsOf": "2026-10-27T12:00:00Z",
-    "pageChanged": true
+    "readFingerprintsOf": "2026-11-07T19:26:00Z"
    }
   }
  ],

@@ -29,3 +29,10 @@ sirmione-api.municipiumapp.it (gli stessi allegati sono stati letti da www.comun
 - Perimetro: relazione OSM 19456915 «ZTL Sirmione» (`boundary=limited_traffic_zone`, operator Polizia Locale di Sirmione, source Comune di Sirmione, check_date 2025-08-13, v2 del 15/06/2026), il contorno della penisola chiuso al fossato del castello; 0,40 km².
 - Controlli: le 21 vie dell'ordinanza presenti in OSM stanno dentro (almeno l'80% dei punti: fuori solo il ponte del castello di via Vittorio Emanuele e un pontile in legno di piazza Carducci); Grotte di Catullo e Santa Maria Maggiore dentro; piazzale Porto, Grifo Parking e piazzale Europa fuori. Non trovate in OSM per nome: piazzale Orti Manara, via S. Pietro in Mavino, via Faustina, via Piana, piazza Flaminia, piazza Castello, piazzetta Mosaici, via Campane, sentiero dei Pini.
 - Varco: sbarra OSM (nodo 10041235164, `barrier=lift_gate`) su largo Goethe a 5 m da via Marconi, cioè il limite sud dell'ordinanza; circa 50 m a sud del bordo disegnato (il tratto largo Goethe–fossato non è nella relazione OSM).
+
+## Rilettura del 07/11/2026
+
+Il controllo giornaliero segnava cambiata, dal 03/11, la notizia «Stagione turistica 2026» (https://www.comune.sirmione.bs.it/it/news/stagione-turistica-2026?type=1). Rilette il 07/11/2026 la notizia e la pagina «Regolamentazione della ZTL»; testi in `data/raw/sirmione/` aggiornati. Ordinanza n. 30/2026, allegato C, FAQ e volantino sono PDF con la stessa impronta di prima.
+
+- **Niente di sostanza è cambiato**: *"Dal 23 marzo al 13 ottobre 2026 verrà applicata la regolamentazione estiva della ZTL"*, orari, pedonalizzazione e permessi sono uguali. Cambiati solo cornice del sito e l'elenco delle altre notizie (es. *"“Voci silenziose”: al via il progetto fotografico dedicato alla terza età"* non c'è più). Una frase citata in `Tools/build_sirmione.py` è stata adattata allo spazio prima dei due punti.
+- `checkedOn` = 2026-11-07T19:26:00Z: la zona non è più «pagina cambiata».
