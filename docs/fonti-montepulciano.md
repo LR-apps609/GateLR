@@ -26,3 +26,10 @@ In `Tools/build_site.py` e `web/template.html` la riga «tutto il giorno chiuso�
 
 ## Host bloccati
 Nessuno.
+
+## Rilettura del 07/11/2026
+
+Il controllo giornaliero segnava cambiata, dal 03/11, la pagina del permesso temporaneo (https://www.comune.montepulciano.si.it/servizio/richiesta-permesso-di-accesso-temporaneo-alla-ztl/). Rilette il 07/11/2026 le tre pagine del Comune citate (permesso temporaneo, «Istruzioni ZTL», notizia dei varchi in uscita); testi in `data/raw/montepulciano/` aggiornati. Le due ordinanze (77/2022 in inglese, 9/2025) sono PDF con la stessa impronta di prima.
+
+- **Niente di sostanza è cambiato**: orari, zone A–D, varchi in uscita, permessi e ordinanze citate (32/2023, 9/2025) sono uguali. Cambiati solo cornice del sito e spazi prima di virgole e parentesi; una frase citata in `Tools/build_montepulciano.py` è stata adattata.
+- `checkedOn` = 2026-11-07T19:26:00Z: la zona non è più «pagina cambiata».

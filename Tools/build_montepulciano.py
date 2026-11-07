@@ -21,7 +21,7 @@ import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/montepulciano"
-CHECKED = "2026-10-27T13:00:00Z"
+CHECKED = "2026-11-07T19:26:00Z"
 ALL = [1, 2, 3, 4, 5, 6, 7]
 OSM_ZTL = 18111528
 
@@ -56,7 +56,7 @@ check("comune-istruzioni-ztl", QUOTE,
 check("comune-news-2025-01-15-varchi-uscita",
       "dal 1° maggio al 30 settembre, ZTL chiusa 24 ore (dalle ore 00.00 alle ore 24.00); nei mesi di aprile ed ottobre, ZTL chiusa dalle 8.00 alle 20.00; dal 1° novembre al 31 marzo, ZTL chiusa dalle 8.00 alle 17.00.",
       "Dal 20 gennaio 2025 entreranno in funzione i nuovi varchi elettronici in uscita",
-      "Via di Ciliano , Via di Gozzano (Borgo Buio) , Via dell’Opio (via del Teatro) e Via dei Grassi")
+      "Via di Ciliano, Via di Gozzano (Borgo Buio), Via dell’Opio (via del Teatro) e Via dei Grassi")
 check("ord-77-2022-en", "The Limited Traffic Zone is effective every day (weekdays and holidays) in the following hours:",
       "1 May to 30 September, for 24 hours per day;", "In the months of April and October, from 8 a.m. to 8 p.m.;",
       "the rest of the year, from 8:00 a.m. to 5:00 p.m.", "No exemptions are provided for vehicles with electric and/or hybrid engines.",
