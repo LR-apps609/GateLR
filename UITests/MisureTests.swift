@@ -295,6 +295,14 @@ final class MisureTests: XCTestCase {
         _ = memorySeries("varco-fermo", args: ["-uiPlace", "Duomo di Milano", "45.4641", "9.1919"], seconds: 120)
     }
 
+    /// 1.20.4: Varco senza un posto e senza guardiano (la striscia mostra tutta la zona scelta, vista dall'alto): la memoria
+    /// della striscia di mappa da sola. Fallisce se cresce più di 40 MB
+    func testM7eVarcoNoPlaceMemory() {
+        let v = memorySeries("varco-senza-posto", args: [], seconds: 120)
+        guard let first = v.first, let last = v.last else { return XCTFail("nessuna misura della memoria") }
+        XCTAssertLessThan(last - first, 40, "la memoria della striscia di Varco cresce: \(v)")
+    }
+
     // MARK: 6. Guida di GateLR da fermo (la mappa della guida)
 
     /// La guida dentro l'app verso il Duomo, con l'auto ferma (posizione del simulatore fissa): 30 secondi di processore
