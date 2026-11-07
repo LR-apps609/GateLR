@@ -11,8 +11,7 @@ import android.content.res.ColorStateList
 import android.os.Build
 import android.widget.RemoteViews
 import androidx.compose.ui.graphics.toArgb
-import app.gatelr.core.L
-import app.gatelr.core.Verdict
+import app.gatelr.core.RispostaFinale
 import java.time.Instant
 
 /** Widget: la zona scelta nell'app (o quella più vicina) con la risposta di adesso. Tocco → apre GateLR. */
@@ -22,17 +21,18 @@ class ZoneWidget : AppWidgetProvider() {
         val now = Instant.now()
         val zone = Here.coordinate?.takeIf { System.currentTimeMillis() - Here.at < 10 * 60_000 }?.let { c -> app.gatelr.core.zonesAt(AppState.cities, c).minByOrNull { it.second.roughArea }?.second } ?: AppState.zone
         val a = AppState.answer(zone, now)
-        // 1.20.0, come il widget dell'iPhone: rosso, giallo (anche «non sicuro» e fonte non ufficiale), verde «Puoi entrare»,
-        // 1.20.1: verde anche a ZTL spenta, con le parole «ZTL non attiva»
-        val off = a.verdict is Verdict.Yes && !a.gatesOn
-        val color = when (a.verdict) { is Verdict.Yes -> Palette.green; is Verdict.No -> Palette.red; is Verdict.Conditional, is Verdict.Unsure -> Palette.amber }
+        // 2.1: la RispostaFinale della zona (sette stati, shared/risposta-finale.md): parola e colore uguali all'iPhone.
+        // Fonte non ufficiale mai verde (prima il «sì» non ufficiale era verde qui), ZTL non attiva col suo token (oggi verde)
+        val city = AppState.cityOf(zone)
+        val f = RispostaFinale.forZone(a, zone, city?.status, city)
+        val color = Palette.tone(f.color)
         val open = PendingIntent.getActivity(ctx, 0, Intent(ctx, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE)
         for (id in ids) {
             val v = RemoteViews(ctx.packageName, R.layout.widget)
             v.setTextViewText(R.id.widget_zone, zone.shortName + (AppState.cityOf(zone)?.let { " · " + it.localizedName } ?: ""))
             // 1.20.3: il titolo è sempre quello fisso («Puoi entrare»); «ZTL non attiva» va nella riga sotto
-            v.setTextViewText(R.id.widget_verdict, a.verdict.short)
-            v.setTextViewText(R.id.widget_next, listOfNotNull(if (off) L("ZTL not active") else null, changeText(a, now)).joinToString(" · "))
+            v.setTextViewText(R.id.widget_verdict, f.stato.symbol + " " + f.title)
+            v.setTextViewText(R.id.widget_next, listOfNotNull(f.reasonLine, changeText(a, now)).joinToString(" · "))
             if (Build.VERSION.SDK_INT >= 31) v.setColorStateList(R.id.widget_root, "setBackgroundTintList", ColorStateList.valueOf(color.toArgb()))
             else v.setInt(R.id.widget_root, "setBackgroundColor", color.toArgb())
             v.setOnClickPendingIntent(R.id.widget_root, open)

@@ -211,7 +211,7 @@ private fun TripAnswer(p: Place) {
             zone != null && answer != null -> {
                 UnofficialNote(zone, hedgedYes = check.hedged)
                 VerdictCard(answer, if (saved == null && arrival == Arrival.NOW) L("Now") else F("Arriving %@", AppState.engine.describe(at.toInstant(), nowZ.toInstant())), onWhy = { Nav.zone = zone },
-                    title = check.word.title)
+                    title = check.finale.title)
                 Text(zone.localizedName, fontSize = 13.sp, color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.6f), modifier = Modifier.clickable { Nav.zone = zone })
             }
             // Fuori dalle città che conosciamo: neutro, mai «Fuori dalla ZTL» né verde (come l'iPhone dalla 1.19.0)

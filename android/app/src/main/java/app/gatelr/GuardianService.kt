@@ -35,11 +35,13 @@ import androidx.core.content.ContextCompat
 import app.gatelr.core.Coordinate
 import app.gatelr.core.F
 import app.gatelr.core.Geometry
-import app.gatelr.core.GuardianScan
 import app.gatelr.core.L
 import app.gatelr.core.Place
 import app.gatelr.core.Threat
-import app.gatelr.core.Verdict
+import app.gatelr.core.Stato
+import app.gatelr.core.ThreatDeduper
+import app.gatelr.core.ThreatEvaluator
+import app.gatelr.core.Tono
 import java.time.Instant
 import java.util.Locale
 
@@ -74,9 +76,9 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
     private val handler = Handler(Looper.getMainLooper())
     private var here: Coordinate? = null
     private var anchor: Coordinate? = null              // ultimo punto in cui ti sei spostato di 50 m
-    private var inside: Pair<app.gatelr.core.Zone, app.gatelr.core.Answer>? = null   // zona «No» in cui sei dentro
+    private var inside: Threat? = null                   // zona o area pedonale «Non entrare» in cui sei dentro
     private var lastDistances = mapOf<String, Double>()
-    private val alerted = mutableSetOf<String>()
+    private val deduper = ThreatDeduper()
     private var lastMove = System.currentTimeMillis()
     private val startedAt = System.currentTimeMillis()
     private var bubble: TextView? = null
@@ -165,35 +167,37 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
             }
         }
 
-        val zones = AppState.cities.flatMap { it.zones }
-        val scan = GuardianScan.scan(p, zones, lastDistances) { z, d -> AppState.answer(z, Instant.now().plusSeconds((d / 9).toLong())) }
+        // 2.1: un solo valutatore di minaccia (ThreatEvaluator, come l'iPhone): zone e aree pedonali, risposta all'ora
+        // d'arrivo, solo davanti nel verso di marcia, un solo avviso a 300 m (600 m sopra 50 km/h) con il titolo della
+        // RispostaFinale. Prima: solo zone, nessuna direzione, due avvisi (550 e 150 m), un «sì» non ufficiale taceva
+        val speed = if (l.hasSpeed()) l.speed.toDouble() else null
+        val course = if (l.hasBearing() && (speed ?: 0.0) > 2) l.bearing.toDouble() else null
+        val candidates = ThreatEvaluator.candidates(AppState.cities, p)
+        val scan = ThreatEvaluator.scan(p, course, candidates, lastDistances) { c, d ->
+            AppState.answer(c.zone!!, ThreatEvaluator.arrival(d, speed))
+        }
         lastDistances = scan.distances
-        for ((z, a) in scan.entered) {
-            AppState.record("entered", z, a.verdict)
-            if (a.verdict is Verdict.No && alerted.add("in|${z.id}")) {
+        deduper.moved(scan.distances)
+        for (e in scan.entered) {
+            e.zone?.let { AppState.record("entered", it, e.answer.verdict) }
+            if (e.finale.stato == Stato.NON_ENTRARE && deduper.shouldAlert("in|${e.candidate.id}")) {
                 val body = L("Leave by the nearest exit and don't drive around: every gate can mean another fine.")
-                say(F("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine.", z.shortName))
-                alert(F("You're inside %@", z.shortName), body, "in|${z.id}")
+                say(F("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine.", e.candidate.name))
+                alert(F("You're inside %@", e.candidate.name), body, "in|${e.candidate.id}")
             }
         }
-        inside = zones.filter { it.contains(p.lat, p.lon) }.minByOrNull { it.roughArea }
-            ?.let { z -> AppState.answer(z).takeIf { it.verdict is Verdict.No }?.let { z to it } }
+        inside = scan.entered.firstOrNull { it.finale.stato == Stato.NON_ENTRARE }
+            ?: candidates.filter { it.contains(p) }.firstNotNullOfOrNull { c ->
+                val a = if (c.pedestrian != null) ThreatEvaluator.pedestrianAnswer else AppState.answer(c.zone!!)
+                ThreatEvaluator.finale(c, a).takeIf { it.stato == Stato.NON_ENTRARE }?.let { Threat(c, 0.0, a, it, p) }
+            }
         val t = scan.threat
         threat = t
-        if (t != null) {
+        if (t != null && t.meters < ThreatEvaluator.alertDistance(speed) && deduper.shouldAlert(t.candidate.id)) {
+            t.zone?.let { AppState.record("nearGate", it, t.answer.verdict) }
             val dist = Geometry.distanceText(t.meters)
-            if (t.meters < 550 && alerted.add("far|${t.zone.id}")) {
-                say(F("Attention: in %@ you enter %@. %@.", dist, t.zone.shortName, t.answer.verdict.short))
-                alert(F("%@ in %@", t.zone.shortName, dist), t.answer.verdict.short, "far|${t.zone.id}")
-            }
-            if (t.meters < 150 && alerted.add("near|${t.zone.id}")) {
-                AppState.record("nearGate", t.zone, t.answer.verdict)
-                say(F("Gate ahead: %@.", t.answer.verdict.short))
-                alert(F("Gate ahead: %@", t.zone.shortName), t.answer.verdict.short, "near|${t.zone.id}")
-            }
-        } else {
-            // Ti sei allontanato: gli avvisi si possono ripetere se torni verso la zona
-            alerted.retainAll { key -> lastDistances.any { key.endsWith("|${it.key}") && it.value < 900 } }
+            say(F("Attention: in %@ you enter %@. %@.", dist, t.candidate.name, t.finale.title))
+            alert(t.title, listOfNotNull(F("In %@.", dist), t.finale.reasonLine).joinToString(" "), "threat|${t.candidate.id}", t)
         }
         refresh()
     }
@@ -205,7 +209,7 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
 
     // ---- Notifica fissa e bolla
 
-    private fun line(): String = inside?.let { F("You're inside %@", it.first.shortName) + " · " + it.second.verdict.short } ?: threat?.let { "${it.zone.shortName} · ${Geometry.distanceText(it.meters)} · ${it.answer.verdict.short}" }
+    private fun line(): String = inside?.let { F("You're inside %@", it.candidate.name) + " · " + it.finale.title } ?: threat?.let { "${it.candidate.name} · ${Geometry.distanceText(it.meters)} · ${it.finale.title}" }
         ?: L("No active ZTL ahead")
 
     private fun refresh() {
@@ -219,9 +223,10 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
         }
     }
 
-    private fun color(t: Threat?): Int = when (t?.answer?.verdict) {
-        is Verdict.No -> 0xEEC1272D.toInt(); is Verdict.Conditional, is Verdict.Unsure -> 0xEE8A5A00.toInt()
-        else -> 0xEE2B7A47.toInt()
+    /** Il colore della bolla dalla RispostaFinale; senza minaccia davanti grigio (mai un verde «via libera») */
+    private fun color(t: Threat?): Int = when (t?.finale?.color) {
+        Tono.ROSSO -> 0xEEC1272D.toInt(); Tono.GIALLO -> 0xEE8A5A00.toInt()
+        else -> 0xEE6B7280.toInt()
     }
 
     private fun ongoing(text: String, sub: String): Notification {
@@ -238,7 +243,8 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
             .build()
     }
 
-    private fun alert(title: String, body: String, id: String) {
+    /** Un avviso. Con la minaccia, il tocco apre la scheda della zona (Android non ha ancora «Parcheggia fuori») */
+    private fun alert(title: String, body: String, id: String, threat: Threat? = null) {
         if (Build.VERSION.SDK_INT >= 33 && ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) return
         val n = NotificationCompat.Builder(this, CHANNEL_ALERT)
             .setSmallIcon(R.drawable.ic_launcher)
@@ -247,6 +253,8 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setCategory(NotificationCompat.CATEGORY_NAVIGATION)
             .setAutoCancel(true)
+            .setContentIntent(PendingIntent.getActivity(this, id.hashCode(), Intent(this, MainActivity::class.java)
+                .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP).putExtra("zone", threat?.zone?.id), PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT))
             .build()
         getSystemService(NotificationManager::class.java).notify(id.hashCode(), n)
     }

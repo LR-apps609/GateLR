@@ -142,15 +142,17 @@ class CoreTest {
     }
 
     @Test fun guardian() {
-        val zones = cities["firenze"]!!.zones
+        // 2.1: lo stesso valutatore di minaccia dell'iPhone (ThreatEvaluator), senza direzione: conta se ti avvicini
+        val florence = cities["firenze"]!!
         val monday10 = date(2026, 10, 26, 10)
-        val ans: (Zone, Double) -> Answer = { z, _ -> engine.answer(z, car, emptyList(), false, monday10) }
-        val first = GuardianScan.scan(Coordinate(43.79, 11.24), zones, emptyMap(), ans)
-        val second = GuardianScan.scan(Coordinate(43.785, 11.245), zones, first.distances, ans)
+        val ans: (ThreatCandidate, Double) -> Answer = { c, _ -> engine.answer(c.zone!!, car, emptyList(), false, monday10) }
+        val cands = florence.zones.map { ThreatCandidate(it, florence) }
+        val first = ThreatEvaluator.scan(Coordinate(43.79, 11.24), null, cands, emptyMap(), ans)
+        val second = ThreatEvaluator.scan(Coordinate(43.785, 11.245), null, cands, first.distances, ans)
         assertNotNull(second.threat); assertTrue(second.threat!!.meters < first.threat!!.meters)
-        assertNull(GuardianScan.scan(Coordinate(43.79, 11.24), zones, second.distances, ans).threat)
-        val inside = GuardianScan.scan(Coordinate(43.7696, 11.2558), zones, second.distances, ans)
-        assertTrue(inside.entered.any { it.first.id == "firenze-a" })
+        assertNull(ThreatEvaluator.scan(Coordinate(43.79, 11.24), null, cands, second.distances, ans).threat)
+        val inside = ThreatEvaluator.scan(Coordinate(43.7696, 11.2558), null, cands, second.distances, ans)
+        assertTrue(inside.entered.any { it.zone?.id == "firenze-a" })
     }
 
     @Test fun signReader() {
