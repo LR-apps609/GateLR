@@ -936,6 +936,10 @@ T = {
 "Position: %@": "Positie: %@",
 "Test zone (test mode)": "Testzone (testmodus)",
 "Ref.: %@": "Ref.: %@",
+"ZTL not|active": "ZTL niet|actief",
+"Data out of date": "Gegevens verouderd",
+"Holiday not confirmed": "Feestdag niet bevestigd",
+"Euro class unknown": "Euroklasse onbekend",
 }
 
 INFO = {

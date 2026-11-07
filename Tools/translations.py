@@ -835,6 +835,11 @@ T = {
 "Position: %@": ("Posizione: %@", "Standort: %@"),
 "Test zone (test mode)": ("Zona di prova (modalità prova)", "Testzone (Testmodus)"),
 "Ref.: %@": ("Rif.: %@", "Ref.: %@"),
+# 2.1 «Una risposta, sette stati»: la parola della ZTL non attiva in righe e i motivi del «Controlla il cartello»
+"ZTL not|active": ("ZTL non|attiva", "ZTL nicht|aktiv"),
+"Data out of date": ("Dati scaduti", "Daten veraltet"),
+"Holiday not confirmed": ("Festivo da confermare", "Feiertag unbestätigt"),
+"Euro class unknown": ("Classe Euro da sapere", "Euro-Klasse unbekannt"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

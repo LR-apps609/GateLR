@@ -927,3 +927,7 @@
 "Position: %@" = "Standort: %@";
 "Test zone (test mode)" = "Testzone (Testmodus)";
 "Ref.: %@" = "Ref.: %@";
+"ZTL not|active" = "ZTL nicht|aktiv";
+"Data out of date" = "Daten veraltet";
+"Holiday not confirmed" = "Feiertag unbestätigt";
+"Euro class unknown" = "Euro-Klasse unbekannt";
