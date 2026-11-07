@@ -243,6 +243,58 @@ final class MisureTests: XCTestCase {
         }
     }
 
+    // MARK: 7. Memoria durante una guida simulata (1.20.4)
+
+    /// La memoria dell'app (MB, phys_footprint) letta dal contatore «misure.memory» ogni 10 secondi per «seconds»
+    /// secondi. Ritorna la serie (il primo valore dopo 15 secondi dall'avvio)
+    private func memorySeries(_ name: String, args: [String], seconds: Int, setup: () -> Void = {}) -> [Double] {
+        app.launchArguments = it + ["-uiMemory"] + args
+        app.launch()
+        let meter = app.descendants(matching: .any)["misure.memory"].firstMatch
+        guard meter.waitForExistence(timeout: 40) else { print("MISURA memoria-\(name) manca-contatore"); return [] }
+        setup()
+        sleep(15)
+        func read() -> Double? {
+            let label = meter.label
+            guard let r = label.range(of: #"mb=([0-9.]+)"#, options: .regularExpression) else { return nil }
+            return Double(label[r].dropFirst(3))
+        }
+        var values: [Double] = []
+        for _ in 0...(seconds / 10) {
+            if let v = read() { values.append(v) }
+            sleep(10)
+        }
+        reportSeries("memoria-\(name)", values, unit: "MB")
+        if let first = values.first, let last = values.last {
+            report("memoria-\(name)-crescita", last - first, unit: "MB")
+        }
+        app.terminate()
+        return values
+    }
+
+    /// Il guardiano a Milano con una posizione al secondo per 150 secondi, la pagina Varco davanti: la memoria non deve
+    /// crescere con le posizioni (1.19.5: da 115 a 243 MB). Fallisce se cresce più di 40 MB dal primo valore
+    func testM7aGuardianDriveMemory() {
+        let v = memorySeries("guardiano-guida", args: ["-uiGuardian", "45.4642", "9.1600", "90", "-uiGuardianDrive", "150", "12"], seconds: 120)
+        guard let first = v.first, let last = v.last else { return XCTFail("nessuna misura della memoria") }
+        XCTAssertLessThan(last - first, 40, "la memoria cresce durante la guida del guardiano: \(v)")
+    }
+
+    /// Lo stesso senza la striscia di mappa in Varco: quanto pesa la mappa e quanto il guardiano
+    func testM7bGuardianDriveMemoryNoStrip() {
+        _ = memorySeries("guardiano-senza-striscia", args: ["-uiGuardian", "45.4642", "9.1600", "90", "-uiGuardianDrive", "150", "12", "-uiNoStrip"], seconds: 120)
+    }
+
+    /// Il guardiano acceso ma fermo (nessuna posizione nuova), la pagina Varco davanti
+    func testM7cGuardianStillMemory() {
+        _ = memorySeries("guardiano-fermo", args: ["-uiGuardian", "45.4642", "9.1600", "90"], seconds: 120)
+    }
+
+    /// Varco a Milano senza guardiano: la base
+    func testM7dVarcoIdleMemory() {
+        _ = memorySeries("varco-fermo", args: ["-uiPlace", "Duomo di Milano", "45.4641", "9.1919"], seconds: 120)
+    }
+
     // MARK: 6. Guida di GateLR da fermo (la mappa della guida)
 
     /// La guida dentro l'app verso il Duomo, con l'auto ferma (posizione del simulatore fissa): 30 secondi di processore
