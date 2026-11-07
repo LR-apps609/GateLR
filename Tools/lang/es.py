@@ -940,6 +940,7 @@ T = {
 "Data out of date": "Datos caducados",
 "Holiday not confirmed": "Festivo sin confirmar",
 "Euro class unknown": "Clase Euro desconocida",
+"Alerts 300 m before a ZTL, 600 m above 50 km/h": "Avisos 300 m antes de una ZTL, 600 m a más de 50 km/h",
 }
 
 INFO = {
