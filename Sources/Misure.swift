@@ -16,6 +16,24 @@ enum Misure {
     static var noParkingCache: Bool { uitest && args.contains("-uiNoParkingCache") }
     /// «-uiFps»: il contatore dei fotogrammi (FrameMeter), letto dal test
     static var fps: Bool { uitest && args.contains("-uiFps") }
+    /// «-uiMemory» (1.20.4): il contatore della memoria (MemoryMeter), letto dal test della memoria del guardiano
+    static var memory: Bool { uitest && args.contains("-uiMemory") }
+    /// «-uiNoStrip» (1.20.4): Varco senza la striscia di mappa, per separare la memoria della mappa da quella del guardiano
+    static var noStrip: Bool { uitest && args.contains("-uiNoStrip") }
+
+    /// La memoria dell'app in MB: «footprint» è quella che iOS conta per chiudere l'app (phys_footprint), «resident»
+    /// quella residente (la «Memory Physical» di XCTMemoryMetric)
+    static func memoryMB() -> (footprint: Double, resident: Double) {
+        var info = task_vm_info_data_t()
+        var count = mach_msg_type_number_t(MemoryLayout<task_vm_info_data_t>.size / MemoryLayout<integer_t>.size)
+        let kr = withUnsafeMutablePointer(to: &info) {
+            $0.withMemoryRebound(to: integer_t.self, capacity: Int(count)) {
+                task_info(mach_task_self_, task_flavor_t(TASK_VM_INFO), $0, &count)
+            }
+        }
+        guard kr == KERN_SUCCESS else { return (-1, -1) }
+        return (Double(info.phys_footprint) / 1_048_576, Double(info.resident_size) / 1_048_576)
+    }
 
     /// «-uiGuardianDrive 60 12»: dopo -uiGuardian, il guardiano riceve una posizione al secondo per 60 secondi,
     /// 12 m/s nella stessa direzione (un giro in auto accorciato, per il consumo del processore)
@@ -37,6 +55,47 @@ enum Misure {
                 Guardian.shared.update(here, course: course, speed: drive.speed)
             }
         }
+    }
+}
+
+/// 1.20.4: il contatore della memoria per il test delle misure: ogni secondo scrive nell'etichetta di accessibilità
+/// «misure.memory» la memoria dell'app (MB) e il massimo visto, senza ridisegnare SwiftUI
+struct MemoryMeter: UIViewRepresentable {
+    func makeUIView(context: Context) -> MemoryMeterView { MemoryMeterView() }
+    func updateUIView(_ view: MemoryMeterView, context: Context) {}
+}
+
+final class MemoryMeterView: UILabel {
+    private var timer: Timer?
+    private var peak = 0.0
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        isAccessibilityElement = true
+        accessibilityIdentifier = "misure.memory"
+        font = .monospacedDigitSystemFont(ofSize: 9, weight: .regular)
+        textColor = .white
+        backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        isUserInteractionEnabled = false
+        tick()
+    }
+    required init?(coder: NSCoder) { fatalError() }
+
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        timer?.invalidate()
+        guard window != nil else { timer = nil; return }
+        let t = Timer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
+        RunLoop.main.add(t, forMode: .common)
+        timer = t
+    }
+
+    @objc private func tick() {
+        let m = Misure.memoryMB()
+        peak = max(peak, m.footprint)
+        let s = String(format: "mb=%.1f peak=%.1f res=%.1f", m.footprint, peak, m.resident)
+        accessibilityLabel = s
+        text = s
     }
 }
 

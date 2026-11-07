@@ -37,7 +37,7 @@ struct VarcoView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     header
-                    mapStrip(check: check, mood: answer?.mood ?? cityMood(at: moment), at: moment)
+                    if !Misure.noStrip { mapStrip(check: check, mood: answer?.mood ?? cityMood(at: moment), at: moment) }
                     ContextChips(material: true)
                     GuardianBannerSlot()
                     searchField
