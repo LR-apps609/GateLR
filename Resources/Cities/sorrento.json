@@ -834,7 +834,7 @@
     "quote": "Periodi di vigenza della ZTL: • dal 1 aprile al 25 ottobre; dal 7 dicembre al 6 gennaio (limitatamente ai festivi ed ai prefestivi). Orari di vigenza della ZTL: • giorni feriali: dalle ore 19:30 alle ore 04:00 giorni festivi: dalle ore 10:00 alle ore 13:00 e dalle ore 19:30 alle ore 04:00.",
     "quoteTranslation": "ZTL periods: from 1 April to 25 October; from 7 December to 6 January (only on holidays and the days before holidays). ZTL hours: weekdays from 19:30 to 04:00; holidays from 10:00 to 13:00 and from 19:30 to 04:00.",
     "quoteTranslation_de": "Geltungszeiträume der ZTL: vom 1. April bis 25. Oktober; vom 7. Dezember bis 6. Januar (nur an Feiertagen und deren Vortagen). Zeiten der ZTL: werktags 19:30 bis 04:00 Uhr; feiertags 10:00 bis 13:00 und 19:30 bis 04:00 Uhr.",
-    "checkedOn": "2026-10-27T11:30:00Z",
+    "checkedOn": "2026-11-07T18:00:00Z",
     "reviewedByHuman": false,
     "pending": [
      "Winter (7 December – 6 January) the ZTL works only on holidays and on the days before them: GateLR counts as such the Saturdays and 7, 24 and 31 December and 5 January (weekday hours 7:30 pm–4 am), and Sundays plus 8, 25, 26 December, 1 and 6 January (10 am–1 pm and 7:30 pm–4 am). This reading of «prefestivi» is ours.",
@@ -903,13 +903,12 @@
     ],
     "readFingerprints": {
      "https://www.comune.sorrento.na.it/download/b81cb24c5b6b4de7a26a24f08057427e/ORD%20N.%20230.pdf": "3ad9f1948c3c48b4",
-     "https://www.comune.sorrento.na.it/it/novita/page/sorrento-viabilita-ritorna-la-zona-a-traffico-limitato": "23737c7b704e14dc",
-     "https://www.comune.sorrento.na.it/it/novita/page/z-t-l-centro": "f4d0e4613a484953",
-     "https://www.comune.sorrento.na.it/it/servizi/page/richiesta-autorizzazione-ztl-per-strutture": "05fe6732d0b61bbf",
-     "https://www.comune.sorrento.na.it/it/servizi/page/rilascio-autorizzazioni-ztl": "12369e3faa8596c5"
+     "https://www.comune.sorrento.na.it/it/novita/page/sorrento-viabilita-ritorna-la-zona-a-traffico-limitato": "63b79e1f8fb0d97d",
+     "https://www.comune.sorrento.na.it/it/novita/page/z-t-l-centro": "cf2f3139cd168f6c",
+     "https://www.comune.sorrento.na.it/it/servizi/page/richiesta-autorizzazione-ztl-per-strutture": "ca6724c118edde72",
+     "https://www.comune.sorrento.na.it/it/servizi/page/rilascio-autorizzazioni-ztl": "d2dbfd96af595a53"
     },
-    "readFingerprintsOf": "2026-10-27T11:30:00Z",
-    "pageChanged": true
+    "readFingerprintsOf": "2026-11-07T18:00:00Z"
    }
   }
  ],

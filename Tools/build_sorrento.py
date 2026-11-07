@@ -22,7 +22,7 @@ import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/sorrento"
-CHECKED = "2026-10-27T11:30:00Z"
+CHECKED = "2026-11-07T18:00:00Z"
 ALL, SAT, SUN = [1, 2, 3, 4, 5, 6, 7], [7], [1]
 
 B = "https://www.comune.sorrento.na.it/it"

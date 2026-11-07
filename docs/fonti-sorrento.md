@@ -32,3 +32,11 @@ Il regolamento dei permessi (`nuovo-regolamento-ZTLCentro-DCC28-2023.pdf`, 7 MB)
 
 ## Pending (nella scheda)
 Lettura dei prefestivi invernali; stagione 2026 confermata solo dalla stampa; termine per la targa degli ospiti non indicato; elettriche/moto/disabili non verificati (regolamento scansionato); area non ufficiale.
+
+## Rilettura del 07/11/2026 e pagine «sempre cambiate»
+
+Dal 29/10 il controllo giornaliero segnava cambiate, ogni giorno, le quattro pagine del Comune (notizia «ritorna la ZTL», «Z.T.L. Centro», permessi per strutture e temporanei), e la zona restava gialla «pagina cambiata».
+
+- **Causa**: ogni pagina ha un campo nascosto antispam nel modulo «Quanto sono chiare le informazioni su questa pagina?» con un nome casuale a ogni richiesta (es. `hnp_name_OYVc3BPvtH4RAC8a`). Due letture a pochi minuti di distanza davano impronte diverse; il testo, tolto quel nome, è identico.
+- **Rimedio**: `Tools/check_sources.py` toglie `hnp_name_…` prima dell'impronta (solo quel nome generato, non il testo della pagina). Le impronte delle quattro pagine in `data/source-hashes.json` sono ricalcolate così il 07/11 (due letture uguali di fila).
+- **Rilettura**: rilette il 07/11/2026; testi in `data/raw/sorrento/` aggiornati. **Niente di sostanza è cambiato**: orari 19:30–4, stagione 1 aprile–25 ottobre, festivi 10–13, 7 dicembre–6 gennaio, ordinanza n. 230 del 16/06/2023 e permessi sono uguali. `checkedOn` = 2026-11-07T18:00:00Z.
