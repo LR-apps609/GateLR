@@ -840,6 +840,7 @@ T = {
 "Data out of date": ("Dati scaduti", "Daten veraltet"),
 "Holiday not confirmed": ("Festivo da confermare", "Feiertag unbestätigt"),
 "Euro class unknown": ("Classe Euro da sapere", "Euro-Klasse unbekannt"),
+"Alerts 300 m before a ZTL, 600 m above 50 km/h": ("Avvisi 300 m prima di una ZTL, 600 m sopra i 50 km/h", "Hinweise 300 m vor einer ZTL, ab 50 km/h 600 m"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

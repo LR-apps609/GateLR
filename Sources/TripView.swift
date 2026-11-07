@@ -434,7 +434,7 @@ struct TripView: View {
                                 .font(.app(size: 12)).foregroundStyle(Theme.muted)
                         }
                         Spacer()
-                        VerdictPill(verdict: a.verdict, unofficial: z.isUnofficial)
+                        VerdictPill(verdict: a.verdict, unofficial: z.isUnofficial, gatesOn: a.gatesOn)
                     }
                     .padding(.horizontal, 14).padding(.vertical, 10)
                     .contentShape(Rectangle())

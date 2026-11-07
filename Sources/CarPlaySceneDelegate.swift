@@ -46,7 +46,7 @@ final class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegat
             }
         }
         items += [
-            CPInformationItem(title: answer.verdict.word(unofficial: zone.isUnofficial).title, detail: detail(answer.verdict)),
+            CPInformationItem(title: RispostaFinale.of(answer, zone: zone).title, detail: detail(answer.verdict)),
             CPInformationItem(title: zone.localizedName, detail: answer.gatesOn ? L("ZTL active") : L("ZTL not active")),
             CPInformationItem(title: L("Source"), detail: "\(zone.source.localizedAuthority) · " + String(format: L("Read %@"), zone.source.checkedOn.formatted(date: .abbreviated, time: .omitted))
                               + " · " + RuleEngine().verifiedShort(zone.source)),

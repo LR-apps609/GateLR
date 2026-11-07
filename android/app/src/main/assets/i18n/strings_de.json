@@ -931,6 +931,7 @@
 "Data out of date": "Daten veraltet",
 "Holiday not confirmed": "Feiertag unbestätigt",
 "Euro class unknown": "Euro-Klasse unbekannt",
+"Alerts 300 m before a ZTL, 600 m above 50 km/h": "Hinweise 300 m vor einer ZTL, ab 50 km/h 600 m",
 "%@ up to Euro %lld: banned since %@": "%@ bis Euro %lld: verboten seit %@",
 "Activate it before you drive in.": "Vor der Einfahrt aktivieren.",
 "Activate it by midnight of the next day.": "Bis Mitternacht des Folgetags aktivieren.",

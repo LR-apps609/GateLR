@@ -940,6 +940,7 @@ T = {
 "Data out of date": "Gegevens verouderd",
 "Holiday not confirmed": "Feestdag niet bevestigd",
 "Euro class unknown": "Euroklasse onbekend",
+"Alerts 300 m before a ZTL, 600 m above 50 km/h": "Meldingen 300 m voor een ZTL, 600 m boven 50 km/u",
 }
 
 INFO = {
