@@ -114,7 +114,9 @@ fun AnswerBlock(f: RispostaFinale, subtitle: String?, line: String?, spoken: Str
             AnswerMark(f.stato.forma, tone, if (size == AnswerSize.L) 46.dp else 38.dp)
             Spacer(Modifier.width(14.dp))
             Text(f.title.uppercase(java.util.Locale.forLanguageTag(app.gatelr.core.Strings.language)), color = ink, fontFamily = Titillium, fontWeight = FontWeight.Black,
-                fontSize = if (size == AnswerSize.L) 38.sp else 30.sp, lineHeight = if (size == AnswerSize.L) 40.sp else 32.sp)
+                // Le parole lunghe («Non conosciamo questo posto») un po' più piccole: al massimo due righe
+                fontSize = if (size == AnswerSize.M) 30.sp else if (f.title.length > 16) 32.sp else 38.sp,
+                lineHeight = if (size == AnswerSize.M) 32.sp else if (f.title.length > 16) 34.sp else 40.sp)
         }
         val sub = subtitle.orEmpty()
         if (sub.isNotEmpty()) Text(sub, color = ink, fontFamily = Titillium, fontWeight = FontWeight.Bold,
