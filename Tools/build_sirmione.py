@@ -22,7 +22,7 @@ import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/sirmione"
-CHECKED = "2026-10-27T12:00:00Z"
+CHECKED = "2026-11-07T19:26:00Z"
 EVERY_DAY = [1, 2, 3, 4, 5, 6, 7]
 OSM_ZTL, OSM_GATE = 19456915, 10041235164
 
@@ -68,7 +68,7 @@ check(PAGE_F, "La Z.T.L. di Sirmione ha un unico punto di ingresso dotato di imp
       "Per accedere alla ZTL è necessario che il veicolo sia preventivamente autorizzato e che i dati della targa siano inseriti nel sistema di controllo.",
       "I permessi giornalieri e/o temporanei sono rilasciati entro gg. 7 dal ricevimento dell’apposito modulo",
       "sanzione amministrativa del pagamento di una somma da Euro 83,00 ad Euro 333,00 ai sensi dell’art. 7, comma 14 del Codice della Strada",
-      "Dal 23 marzo al 13 ottobre 2026 verrà applicata la regolamentazione estiva della ZTL", "Ultimo aggiornamento : 26 marzo 2026")
+      "Dal 23 marzo al 13 ottobre 2026 verrà applicata la regolamentazione estiva della ZTL", "Ultimo aggiornamento: 26 marzo 2026")
 check(ALLC_F, "SOGGIORNANTI", "due accessi", "2 accessi/giorno", "PERIODO ESTIVO 2026: DAL 23 MARZO AL 13 OTTOBRE COMPRESI",
       "DIVIETO DI ACCESSO E CIRCOLAZIONE NELLA ZTL PER TUTTE LE CATEGORIE DI UTENTI DALLE 14:00 ALLE",
       "eccetto veicoli Grifoparking, mezzi di soccorso, veicoli residenti in uscita per emergenze",
