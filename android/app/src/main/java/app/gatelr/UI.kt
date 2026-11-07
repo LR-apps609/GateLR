@@ -30,6 +30,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.material3.Typography
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -41,21 +48,37 @@ import app.gatelr.core.L
 import app.gatelr.core.Verdict
 import app.gatelr.core.ZoneKind
 
-/** Gli stessi colori dell'app iPhone (Sources/Theme.swift): segnaletica italiana e famiglia LR */
+/** 2.0: i colori veri dai token di S-Colori (direzione C). I colori della risposta sono semantici e uguali di giorno e di
+ *  notte; niente colore dinamico per la risposta e le superfici */
 object Palette {
-    val red = Color(0xFFC1272D); val blue = Color(0xFF1F4E9E); val green = Color(0xFF2B7A47)
-    val amber = Color(0xFF8A5A00); val amberSoft = Color(0xFFFBECC8); val amberInk = Color(0xFF5C3C00)
-    val greenSoft = Color(0xFFDCEFE2); val greenInk = Color(0xFF22653A)
-    val redSoft = Color(0xFFF8DADB); val redInk = Color(0xFF9E1F25)
-    val ground = Color(0xFFF3F4F2); val card = Color.White; val ink = Color(0xFF1B2128); val muted = Color(0xFF5D6670)
-    val groundDark = Color(0xFF0F1318); val cardDark = Color(0xFF1A2027); val inkDark = Color(0xFFE8ECEF)
-    val brass = Color(0xFFA97E3F)
+    // Risposta, uguale di giorno e di notte
+    val red = Color(0xFFC62A24); val green = Color(0xFF147A3C); val amberFill = Color(0xFFFFC629); val off = Color(0xFF5E6982)
+    /** Il giallo come testo su fondo chiaro (al posto del giallo su bianco) */
+    val amber = Color(0xFF8A6100)
+    val amberSoft = Color(0xFFFFF1C2); val amberInk = Color(0xFF5C4100)
+    val greenSoft = Color(0xFFD9F0E2); val greenInk = Color(0xFF0F5E2E)
+    val redSoft = Color(0xFFF9DCDA); val redInk = Color(0xFFB3261E)
+    // Notte
+    val night = Color(0xFF0B1530); val nightSurface = Color(0xFF142049); val nightSurface2 = Color(0xFF1B2A5C); val nightLine = Color(0xFF2A3A70)
+    val nightText = Color(0xFFF2F4FA); val nightText2 = Color(0xFFB4BEDB); val nightText3 = Color(0xFF8E9AC0)
+    // Giorno
+    val day = Color(0xFFF4F6FA); val daySurface = Color.White; val daySurface2 = Color(0xFFE9EDF5); val dayLine = Color(0xFFD5DAE6)
+    val dayText = Color(0xFF0B1530); val dayText2 = Color(0xFF4A5675)
+    /** Il rosso del marchio: solo nel logo, mai sui pulsanti */
+    val brand = Color(0xFFE5322D)
+    /** Pannello LED: luce neutra bianco caldo, non contraddice mai la risposta */
+    val led = Color(0xFFFFE7B0); val ledGround = Color(0xFF050505)
+    /** Il segno «P» dei parcheggi, come i cartelli */
+    val parking = Color(0xFF0A4FB8)
+    // Nomi di prima, sui token nuovi
+    val blue = night; val ground = day; val card = daySurface; val ink = dayText; val muted = dayText2
+    val groundDark = night; val cardDark = nightSurface; val inkDark = nightText; val brass = Color(0xFF8A6100)
 
     /** 2.1: il colore semantico della RispostaFinale (shared/risposta-finale.md). La ZTL non attiva arriva già come
      *  RispostaFinale.STATE_OFF (oggi verde): qui SPENTO non c'è mai */
     fun tone(t: app.gatelr.core.Tono): Color = when (t) {
         app.gatelr.core.Tono.ROSSO -> red; app.gatelr.core.Tono.GIALLO -> amber; app.gatelr.core.Tono.VERDE, app.gatelr.core.Tono.SPENTO -> green
-        app.gatelr.core.Tono.GRIGIO -> Color(0xFF6B7280); app.gatelr.core.Tono.NEUTRO -> muted
+        app.gatelr.core.Tono.GRIGIO -> off; app.gatelr.core.Tono.NEUTRO -> muted
     }
 
     fun kind(k: ZoneKind): Color = when (k) {
@@ -63,24 +86,80 @@ object Palette {
     }
 }
 
+/** Il tema è Notte? (Giorno e Notte automatici, dal telefono) */
+val LocalNight = staticCompositionLocalOf { false }
+
+/** Gli inchiostri che cambiano tra Giorno e Notte (S-Colori: parola su fondo, testo secondario, linea) */
+object Ink {
+    val no: Color @Composable @ReadOnlyComposable get() = if (LocalNight.current) Color(0xFFFF6B5E) else Color(0xFFB3261E)
+    val yes: Color @Composable @ReadOnlyComposable get() = if (LocalNight.current) Color(0xFF4FD18B) else Color(0xFF147A3C)
+    val amber: Color @Composable @ReadOnlyComposable get() = if (LocalNight.current) Palette.amberFill else Palette.amber
+    val text2: Color @Composable @ReadOnlyComposable get() = if (LocalNight.current) Palette.nightText2 else Palette.dayText2
+    val line: Color @Composable @ReadOnlyComposable get() = if (LocalNight.current) Palette.nightLine else Palette.dayLine
+    val surface2: Color @Composable @ReadOnlyComposable get() = if (LocalNight.current) Palette.nightSurface2 else Palette.daySurface2
+}
+
+/** Titillium per i titoli (famiglia LR), il carattere di sistema per il corpo; DotGothic per il pannello LED */
+val Titillium = FontFamily(
+    Font(R.font.titillium_semibold, FontWeight.SemiBold),
+    Font(R.font.titillium_bold, FontWeight.Bold),
+    Font(R.font.titillium_black, FontWeight.Black),
+)
+val LedFont = FontFamily(Font(R.font.dotgothic16, FontWeight.Normal))
+
 @Composable
 fun GateTheme(content: @Composable () -> Unit) {
-    val dark = isSystemInDarkTheme()
-    val scheme = if (dark) darkColorScheme(primary = Color(0xFF8CB0EE), background = Palette.groundDark, surface = Palette.cardDark,
-        onBackground = Palette.inkDark, onSurface = Palette.inkDark, error = Color(0xFFEF5B55))
-    else lightColorScheme(primary = Palette.blue, background = Palette.ground, surface = Palette.card,
-        onBackground = Palette.ink, onSurface = Palette.ink, error = Palette.red)
-    MaterialTheme(colorScheme = scheme, content = content)
+    val night = isSystemInDarkTheme()
+    val scheme = if (night) darkColorScheme(
+        primary = Palette.nightText, onPrimary = Palette.night,
+        primaryContainer = Palette.nightSurface2, onPrimaryContainer = Palette.nightText,
+        secondary = Palette.nightText2, onSecondary = Palette.night,
+        secondaryContainer = Palette.nightSurface2, onSecondaryContainer = Palette.nightText,
+        background = Palette.night, onBackground = Palette.nightText,
+        surface = Palette.night, onSurface = Palette.nightText,
+        surfaceVariant = Palette.nightSurface2, onSurfaceVariant = Palette.nightText2,
+        surfaceTint = Color.Transparent, outline = Palette.nightText2, outlineVariant = Palette.nightLine,
+        error = Color(0xFFFF6B5E), onError = Palette.night,
+        surfaceContainerLowest = Palette.night, surfaceContainerLow = Palette.nightSurface, surfaceContainer = Palette.nightSurface,
+        surfaceContainerHigh = Palette.nightSurface, surfaceContainerHighest = Palette.nightSurface2,
+        surfaceBright = Palette.nightSurface2, surfaceDim = Palette.night,
+    ) else lightColorScheme(
+        primary = Palette.dayText, onPrimary = Color.White,
+        primaryContainer = Palette.daySurface2, onPrimaryContainer = Palette.dayText,
+        secondary = Palette.dayText2, onSecondary = Color.White,
+        secondaryContainer = Palette.daySurface2, onSecondaryContainer = Palette.dayText,
+        background = Palette.day, onBackground = Palette.dayText,
+        surface = Palette.day, onSurface = Palette.dayText,
+        surfaceVariant = Palette.daySurface2, onSurfaceVariant = Palette.dayText2,
+        surfaceTint = Color.Transparent, outline = Palette.dayText2, outlineVariant = Palette.dayLine,
+        error = Color(0xFFB3261E), onError = Color.White,
+        surfaceContainerLowest = Color.White, surfaceContainerLow = Color.White, surfaceContainer = Color.White,
+        surfaceContainerHigh = Color.White, surfaceContainerHighest = Palette.daySurface2,
+        surfaceBright = Color.White, surfaceDim = Palette.daySurface2,
+    )
+    val base = Typography()
+    fun TextStyle.title() = copy(fontFamily = Titillium, fontWeight = FontWeight.Bold)
+    val type = base.copy(
+        displayLarge = base.displayLarge.title(), displayMedium = base.displayMedium.title(), displaySmall = base.displaySmall.title(),
+        headlineLarge = base.headlineLarge.title(), headlineMedium = base.headlineMedium.title(), headlineSmall = base.headlineSmall.title(),
+        titleLarge = base.titleLarge.title(),
+    )
+    CompositionLocalProvider(LocalNight provides night) {
+        MaterialTheme(colorScheme = scheme, typography = type, content = content)
+    }
 }
+
+/** Le superfici delle schede (card): bianco di giorno, #142049 di notte */
+val cardColor: Color @Composable @ReadOnlyComposable get() = if (LocalNight.current) Palette.nightSurface else Palette.daySurface
 
 // 1.20.0: «non sicuro» (dati vecchi, festivo non confermato, fonte non ufficiale) è giallo con il «?», come sull'iPhone; il
 // grigio dice solo «ZTL non attiva»
 fun Verdict.fill(): Color = when (this) {
     is Verdict.Yes -> Palette.green; is Verdict.No -> Palette.red
-    is Verdict.Conditional, is Verdict.Unsure -> Palette.amberSoft
+    is Verdict.Conditional, is Verdict.Unsure -> Palette.amberFill
 }
 fun Verdict.onFill(): Color = when (this) {
-    is Verdict.Yes, is Verdict.No -> Color.White; is Verdict.Conditional, is Verdict.Unsure -> Palette.amberInk
+    is Verdict.Yes, is Verdict.No -> Color.White; is Verdict.Conditional, is Verdict.Unsure -> Palette.night
 }
 fun Verdict.pillFill(): Color = when (this) {
     is Verdict.Yes -> Palette.greenSoft; is Verdict.No -> Palette.redSoft; is Verdict.Conditional, is Verdict.Unsure -> Palette.amberSoft
@@ -114,7 +193,7 @@ fun VerdictPill(v: Verdict, unofficial: Boolean = false) = v.shown(unofficial).l
 /** 1.19.5: la ricerca non ha avuto risposta (rete): lo si dice e si può riprovare, invece di «Nessun risultato» */
 @Composable
 fun SearchRetry(onRetry: () -> Unit) {
-    Row(Modifier.fillMaxWidth().padding(top = 4.dp).background(MaterialTheme.colorScheme.surface, RoundedCornerShape(14.dp)).padding(start = 12.dp, end = 4.dp),
+    Row(Modifier.fillMaxWidth().padding(top = 4.dp).background(cardColor, RoundedCornerShape(14.dp)).padding(start = 12.dp, end = 4.dp),
         verticalAlignment = Alignment.CenterVertically) {
         Text(L("Search isn't working right now. Check your connection."), fontSize = 14.sp, modifier = Modifier.weight(1f).padding(vertical = 10.dp),
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f))
@@ -130,7 +209,7 @@ fun SectionLabel(text: String) {
 
 @Composable
 fun CardBox(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
-    Surface(shape = RoundedCornerShape(16.dp), color = MaterialTheme.colorScheme.surface, tonalElevation = 1.dp,
+    Surface(shape = RoundedCornerShape(16.dp), color = cardColor, tonalElevation = 0.dp,
         modifier = modifier.fillMaxWidth()) { Box(Modifier.padding(14.dp)) { content() } }
 }
 
