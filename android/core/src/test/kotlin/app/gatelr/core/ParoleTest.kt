@@ -43,18 +43,19 @@ class ParoleTest {
         fun pc(hit: Pair<City, Zone>?, ans: Answer?, covered: Boolean = true, ped: PedestrianArea? = null) =
             PlaceCheck(listOfNotNull(hit), ped, listOfNotNull(ans), covered)
         val cases = listOf(
-            Triple(pc(null, null, covered = false), AnswerWord.UNKNOWN_PLACE, "fuori copertura"),
-            Triple(pc(null, null), AnswerWord.ENTER, "fuori dalla ZTL"),
-            Triple(pc(firenze to zone, a(yes)), AnswerWord.ENTER, "sì"),
-            Triple(pc(firenze to zone, a(yes, on = false)), AnswerWord.ENTER, "ZTL non attiva"),
-            Triple(pc(unofficial, a(yes)), AnswerWord.CHECK_SIGN, "sì non ufficiale"),
-            Triple(pc(firenze to zone, a(no)), AnswerWord.DONT_ENTER, "no"),
-            Triple(pc(unofficial, a(no)), AnswerWord.DONT_ENTER, "no non ufficiale"),
-            Triple(pc(firenze to zone, a(cond)), AnswerWord.CONDITION, "condizione"),
-            Triple(pc(firenze to zone, a(unsure)), AnswerWord.CHECK_SIGN, "non sicuro"),
-            Triple(pc(null, null, ped = area), AnswerWord.DONT_ENTER, "area pedonale"),
+            Triple(pc(null, null, covered = false), Stato.NON_COPERTO, "fuori copertura"),
+            Triple(pc(null, null), Stato.FUORI_ZTL, "fuori dalla ZTL"),
+            Triple(pc(firenze to zone, a(yes)), Stato.ENTRA_PURE, "sì"),
+            Triple(pc(firenze to zone, a(yes, on = false)), Stato.ZTL_NON_ATTIVA, "ZTL non attiva"),
+            Triple(pc(unofficial, a(yes)), Stato.CONTROLLA_CARTELLO, "sì non ufficiale"),
+            Triple(pc(firenze to zone, a(no)), Stato.NON_ENTRARE, "no"),
+            Triple(pc(unofficial, a(no)), Stato.NON_ENTRARE, "no non ufficiale"),
+            Triple(pc(firenze to zone, a(cond)), Stato.CONDIZIONE, "condizione"),
+            Triple(pc(firenze to zone, a(unsure)), Stato.CONTROLLA_CARTELLO, "non sicuro"),
+            Triple(pc(null, null, ped = area), Stato.NON_ENTRARE, "area pedonale"),
         )
-        for ((check, word, what) in cases) assertEquals(word, check.word, what)
+        // 2.1: sette stati, ognuno con la sua parola (ZTL non attiva e Fuori dalla ZTL hanno la loro)
+        for ((check, stato, what) in cases) { assertEquals(stato, check.finale.stato, what); assertEquals(stato.title, check.finale.title, what) }
         assertEquals("Solo con il ticket.", pc(firenze to zone, a(cond)).explanation)
         assertEquals(L("Probably yes · unofficial source"), pc(unofficial, a(yes)).explanation)
         assertEquals(L("Probably not · unofficial source"), pc(unofficial, a(no)).explanation)
@@ -68,6 +69,12 @@ class ParoleTest {
             val t = table(lang)
             val titles = AnswerWord.entries.map { assertNotNull(t[it.key], "$lang: manca «${it.key}»") }
             assertEquals(titles.size, titles.toSet().size, "$lang: titoli ripetuti")
+            val stati = Stato.entries.map { assertNotNull(t[it.key], "$lang: manca «${it.key}»") }
+            assertEquals(stati.size, stati.toSet().size, "$lang: parole dei sette stati ripetute")
+            for (w in Stato.entries) {
+                val lines = assertNotNull(t[w.lineKey], "$lang: manca «${w.lineKey}»")
+                assertEquals(t[w.key]!!.replace(" ", ""), lines.replace("|", "").replace(" ", ""), "$lang: «$lines»")
+            }
             for (w in AnswerWord.entries) {
                 val lines = assertNotNull(t[w.lineKey], "$lang: manca «${w.lineKey}»")
                 assertEquals(t[w.key]!!.replace(" ", ""), lines.replace("|", "").replace(" ", ""), "$lang: «$lines»")

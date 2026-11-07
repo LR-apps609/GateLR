@@ -62,7 +62,8 @@ enum class AnswerWord(val key: String, val lineKey: String, val symbol: String) 
     val lines: List<String> get() = L(lineKey).split("|")
 }
 
-data class Answer(val verdict: Verdict, val gatesOn: Boolean, val nextChange: Instant?)
+/** 2.1: [doubt] è il motivo del «non sicuro» (dati scaduti, festivo da confermare), per RispostaFinale */
+data class Answer(val verdict: Verdict, val gatesOn: Boolean, val nextChange: Instant?, val doubt: Motivo? = null)
 
 /** 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona (come DataTrust dell'iPhone e trustOf del sito).
  *  Regola A (decisa da Ledion): VERIFIED e READ danno la risposta normale (anche verde), gli altri mai verde */
@@ -110,10 +111,10 @@ class RuleEngine(
     fun applyTrust(a: Answer, zone: Zone): Answer {
         val t = trust(zone)
         val v = a.verdict
-        if (t == DataTrust.PAGE_CHANGED) return a.copy(verdict = Verdict.Unsure(L("The city's page has changed: check the sign.") + " " + v.detail))
+        if (t == DataTrust.PAGE_CHANGED) return a.copy(verdict = Verdict.Unsure(L("The city's page has changed: check the sign.") + " " + v.detail), doubt = Motivo.SCADUTI)
         if ((t == DataTrust.UNVERIFIED || t == DataTrust.OLD) && zone.source.isOfficial && v is Verdict.Yes) {
             val why = if (t == DataTrust.OLD) F("Last verified more than %lld days ago: check the sign.", staleAfterDays) else L("This rule hasn't been verified yet: check the sign.")
-            return a.copy(verdict = Verdict.Unsure(why + " " + v.reason))
+            return a.copy(verdict = Verdict.Unsure(why + " " + v.reason), doubt = Motivo.SCADUTI)
         }
         return a
     }
@@ -124,10 +125,10 @@ class RuleEngine(
 
         val age = ChronoUnit.DAYS.between(freshest(zone.source), now())      // 1.20.1: lettura o verifica, la più recente
         if (age > staleAfterDays) {
-            return Answer(Verdict.Unsure(F("This zone hasn't been checked for %lld days. Look at the city's page before driving in.", age)), on, next)
+            return Answer(Verdict.Unsure(F("This zone hasn't been checked for %lld days. Look at the city's page before driving in.", age)), on, next, Motivo.SCADUTI)
         }
         if (zone.freeOnHolidays == null && activeStartDays(zone, at).any { isHoliday(zone, it) }) {
-            return Answer(Verdict.Unsure(L("It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate.")), true, next)
+            return Answer(Verdict.Unsure(L("It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate.")), true, next, Motivo.FESTIVO)
         }
         if (!on) {
             val until = next?.let { " " + F("It becomes active again %@.", describe(it, at)) } ?: ""
