@@ -141,7 +141,9 @@ fun AnswerPill(f: RispostaFinale) {
 fun LedPanel(text: String) {
     Box(Modifier.background(Palette.ledGround, RoundedCornerShape(10.dp)).border(3.dp, Ink.line, RoundedCornerShape(10.dp))
         .padding(horizontal = 14.dp, vertical = 8.dp), contentAlignment = Alignment.Center) {
-        Text(text, color = Palette.led, fontFamily = LedFont, fontSize = 16.sp, letterSpacing = 1.9.sp, maxLines = 1)
+        // Il pannello è un'immagine del cartello in strada: non cresce con il testo grande (la riga accanto sì)
+        val scale = androidx.compose.ui.platform.LocalDensity.current.fontScale
+        Text(text, color = Palette.led, fontFamily = LedFont, fontSize = (16f / scale).sp, letterSpacing = (1.9f / scale).sp, maxLines = 1)
     }
 }
 
