@@ -82,6 +82,8 @@ class SharedEngineCasesTest {
             expect["pedestrian"]?.let { check("area pedonale", it.jsonPrimitive.boolean, p.pedestrian != null) }
             // Le regole fisse, qualunque cosa dica il file
             if (!p.covered && p.color != AnswerColor.NEUTRAL) errors += "$id: fuori copertura non neutro"
+            // 1.20.4: fuori dalla ZTL in una città che conosciamo è grigio, mai verde
+            if (p.kind == PlaceCheck.Kind.OUTSIDE && p.color != AnswerColor.GREY) errors += "$id: fuori dalla ZTL non grigio"
             if (p.unofficial && p.color == AnswerColor.GREEN) errors += "$id: fonte non ufficiale verde"
             val trust = p.zone?.let { engine.trust(it) }
             expect["trust"]?.let { check("verifica", it.jsonPrimitive.content, trust?.let(::trustName)) }
