@@ -1,5 +1,5 @@
 {
-  "about": "Casi di prova comuni del motore delle regole (1.20.0 «Motore unico»): posto + ora + veicolo → risposta attesa. Li leggono i test dell'iPhone (Tests/SharedEngineCasesTests.swift), di Android (android/core/src/test/.../SharedEngineCasesTest.kt) e del sito (Tools/check_engine_cases.mjs), con i dati veri di Resources/Cities (anche le città da fonti non ufficiali). Colori: red = non entrare, yellow = a una condizione o da verificare («?», controlla il cartello), green = puoi entrare (1.20.1: anche a ZTL spenta), neutral = posto che non conosciamo (mai verde). Il colore è quello della mappa (Access dell'iPhone, con la fonte non ufficiale mai verde); verdict è la risposta come si mostra (un «sì» da fonte non ufficiale è «unsure»); zone è la zona che decide (la risposta peggiore tra tutte le zone del posto, a parità la più piccola), null fuori dalle zone. 1.20.1 «Dati» (regola A, decisa da Ledion): una zona ufficiale dà la risposta normale se è verificata (verifiedOn) da al più 120 giorni o, senza verifica recente, letta (checkedOn) da al più 120 giorni, e la pagina del Comune non è cambiata da allora; altrimenti mai verde (giallo «?»); con la pagina cambiata ogni risposta è gialla. La ZTL spenta è VERDE (non più grigia): green = puoi entrare, anche a ZTL spenta. «pageChanged» dei file cambia ogni mattina (impronte del controllo dei Comuni): i casi lo ignorano (false) salvo «source». «source» in un caso vale per tutte le zone: «verifiedOn» (null = non verificata), «checkedOn», «pageChanged». trust = lo stato della zona che decide: verified, read, unverified, old, pageChanged.",
+  "about": "Casi di prova comuni del motore delle regole (1.20.0 «Motore unico»): posto + ora + veicolo → risposta attesa. Li leggono i test dell'iPhone (Tests/SharedEngineCasesTests.swift), di Android (android/core/src/test/.../SharedEngineCasesTest.kt) e del sito (Tools/check_engine_cases.mjs), con i dati veri di Resources/Cities (anche le città da fonti non ufficiali). Colori: red = non entrare, yellow = a una condizione o da verificare («?», controlla il cartello), green = puoi entrare (1.20.1: anche a ZTL spenta), grey = fuori dalla ZTL in una città che conosciamo (1.20.4, decisione di Ledion del 07/11: prima green), neutral = posto che non conosciamo (mai verde). Il colore è quello della mappa (Access dell'iPhone, con la fonte non ufficiale mai verde); verdict è la risposta come si mostra (un «sì» da fonte non ufficiale è «unsure»); zone è la zona che decide (la risposta peggiore tra tutte le zone del posto, a parità la più piccola), null fuori dalle zone. 1.20.1 «Dati» (regola A, decisa da Ledion): una zona ufficiale dà la risposta normale se è verificata (verifiedOn) da al più 120 giorni o, senza verifica recente, letta (checkedOn) da al più 120 giorni, e la pagina del Comune non è cambiata da allora; altrimenti mai verde (giallo «?»); con la pagina cambiata ogni risposta è gialla. La ZTL spenta è VERDE (non più grigia): green = puoi entrare, anche a ZTL spenta. «pageChanged» dei file cambia ogni mattina (impronte del controllo dei Comuni): i casi lo ignorano (false) salvo «source». «source» in un caso vale per tutte le zone: «verifiedOn» (null = non verificata), «checkedOn», «pageChanged». trust = lo stato della zona che decide: verified, read, unverified, old, pageChanged.",
   "now": "2026-11-03T12:00:00+01:00",
   "vehicles": {
     "rental": {"name": "Rental car", "fuel": "petrol", "euro": 6},
@@ -94,9 +94,9 @@
     {"id": "bologna-ztl-dati-vecchi", "covers": "dati non controllati da più di 120 giorni: giallo «?»",
      "place": {"name": "Via Castiglione", "lat": 44.4920, "lon": 11.3480}, "at": "2027-06-01T10:00:00+02:00", "now": "2027-06-01T12:00:00+02:00", "vehicle": "rental",
      "expect": {"colour": "yellow", "verdict": "unsure", "zone": "bologna-ztl"}},
-    {"id": "bologna-centrale-fuori-ztl", "covers": "fuori dalle zone di una città che conosciamo: puoi andarci",
+    {"id": "bologna-centrale-fuori-ztl", "covers": "fuori dalle zone di una città che conosciamo: puoi andarci, grigio (1.20.4)",
      "place": {"name": "Bologna Centrale", "lat": 44.5058, "lon": 11.3427}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "rental",
-     "expect": {"colour": "green", "verdict": "yes", "zone": null, "pedestrian": false}},
+     "expect": {"colour": "grey", "verdict": "yes", "zone": null, "pedestrian": false}},
     {"id": "prato-fuori-copertura", "covers": "fuori copertura: neutro, mai verde",
      "place": {"name": "Prato", "lat": 43.8777, "lon": 11.1022}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "rental",
      "expect": {"colour": "neutral", "verdict": "unsure", "zone": null}},
@@ -133,8 +133,8 @@
     {"id": "firenze-scudo-verde-diesel-euro1-pagina-cambiata", "covers": "1.20.1: pagina cambiata: anche il «no» diventa giallo «?» (controlla il cartello)",
      "place": {"name": "Piazzale Michelangelo", "lat": 43.7629, "lon": 11.2650}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "diesel1", "source": {"pageChanged": true},
      "expect": {"colour": "yellow", "verdict": "unsure", "zone": "firenze-scudo-verde", "gatesOn": true, "trust": "pageChanged"}},
-    {"id": "bologna-centrale-fuori-ztl-letta-vecchia", "covers": "1.20.1: fuori dalle zone di una città che conosciamo resta verde «Fuori dalla ZTL»",
+    {"id": "bologna-centrale-fuori-ztl-letta-vecchia", "covers": "1.20.1: fuori dalle zone di una città che conosciamo «Fuori dalla ZTL» non dipende dai dati delle zone (1.20.4: grigio)",
      "place": {"name": "Bologna Centrale", "lat": 44.5058, "lon": 11.3427}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "rental", "source": {"checkedOn": "2026-06-01T12:00:00+02:00"},
-     "expect": {"colour": "green", "verdict": "yes", "zone": null, "pedestrian": false}}
+     "expect": {"colour": "grey", "verdict": "yes", "zone": null, "pedestrian": false}}
   ]
 }

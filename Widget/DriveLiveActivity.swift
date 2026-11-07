@@ -11,16 +11,19 @@ struct DriveLiveActivity: Widget {
     private static let amber = Color(hex: 0xF2B230)
 
     private static let neutral = Color(hex: 0xA9B3D1)
+    /// 1.20.4: fuori dalla ZTL in una città che conosciamo, grigio neutro (decisione di Ledion del 07/11, mai verde)
+    private static let outside = Color(hex: 0xAEB4BC)
 
-    /// Colore della risposta: rosso non entrare, giallo con condizioni o «?», verde nessuna ZTL attiva davanti
-    /// («clear», 1.20.1: prima grigio), neutro se non conosciamo le ZTL del posto («none», 1.19.3: prima era lo scudo verde anche lì)
+    /// Colore della risposta: rosso non entrare, giallo con condizioni o «?», grigio nessuna ZTL attiva davanti in una città
+    /// che conosciamo («clear», 1.20.4: fuori dalla ZTL è grigio; 1.20.1–1.20.3 verde), neutro se non conosciamo le ZTL del
+    /// posto («none», 1.19.3: prima era lo scudo verde anche lì)
     static func tint(_ s: DriveAttributes.ContentState) -> Color {
         if s.warning != nil && s.level == nil { return red }
         switch s.level {
         case "no": return Color(hex: 0xFF4D52)
         case "cond": return amber
         case "ok": return green
-        case "clear": return green          // 1.20.1: nessuna ZTL attiva davanti = verde (si entra)
+        case "clear": return outside        // 1.20.4: grigio, come il riquadro del guardiano in Varco
         case "none": return neutral
         default: return .white
         }
@@ -31,7 +34,7 @@ struct DriveLiveActivity: Widget {
         case "no": return "exclamationmark.shield.fill"
         case "cond": return "shield.lefthalf.filled"
         case "ok": return "checkmark.shield.fill"
-        case "clear": return "checkmark.shield"
+        case "clear": return "shield"       // 1.20.4: forma neutra (prima lo scudo con la spunta), accanto il «–»
         case "none": return "shield"
         default: return s.warning == nil ? s.symbol : "exclamationmark.triangle.fill"
         }

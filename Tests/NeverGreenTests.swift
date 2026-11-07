@@ -108,8 +108,8 @@ final class NeverGreenTests: XCTestCase {
         XCTAssertEqual(a.panel.mood, .neutral)
     }
 
-    /// Dentro una città che conosciamo ma fuori dalle sue zone: «Fuori dalla ZTL», verde. A Prato (10 km dallo Scudo
-    /// Verde) no: è fuori copertura
+    /// Dentro una città che conosciamo ma fuori dalle sue zone: «Fuori dalla ZTL», grigio (1.20.4, prima verde). A Prato
+    /// (10 km dallo Scudo Verde) no: è fuori copertura
     func testOutsideOnlyInsideACoveredCity() throws {
         let all = try allCities()
         // Lucca, 1 km fuori dalle zone → fuori dalla ZTL; 5,5 km → fuori copertura
@@ -119,11 +119,44 @@ final class NeverGreenTests: XCTestCase {
         XCTAssertTrue(Store.covers(near, in: all))
         let c = check("Lucca sud", near.lat, near.lon, in: all, vehicle: SampleData.rental, at: date(2026, 11, 3, 10))
         XCTAssertEqual(c.kind, .outside)
-        XCTAssertEqual(Home2Answer(c, now: Date()).mood, .green)
+        XCTAssertEqual(Home2Answer(c, now: Date()).mood, .grey)
         let far = Coordinate(lat: box.minLat - 0.05, lon: (box.minLon + box.maxLon) / 2)        // ~5,5 km a sud
         XCTAssertFalse(Store.covers(far, in: all))
         XCTAssertFalse(Store.covers(Coordinate(lat: 43.8777, lon: 11.1022), in: all), "Prato")
         XCTAssertTrue(Store.covers(Coordinate(lat: 43.7696, lon: 11.2558), in: all), "Palazzo Vecchio")
+    }
+
+    /// 1.20.4 (decisione di Ledion del 07/11): «Fuori dalla ZTL» in una città coperta è grigio neutro, con la stessa parola
+    /// di prima e una forma neutra (il trattino, non la spunta): mai verde, né in Varco né sulla mappa né in Viaggio
+    @MainActor
+    func testOutsideIsGreyNeverGreen() throws {
+        let all = try allCities()
+        let lucca = try city("lucca")
+        let box = try XCTUnwrap(lucca.coverage)
+        let near = Coordinate(lat: box.minLat - 0.009, lon: (box.minLon + box.maxLon) / 2)
+        let c = check("Lucca sud", near.lat, near.lon, in: all, vehicle: SampleData.rental, at: date(2026, 11, 3, 10))
+        XCTAssertEqual(c.kind, .outside)
+        XCTAssertTrue(c.showsOutside)
+        XCTAssertEqual(c.colourName, "grey")
+        XCTAssertNil(c.access, "fuori dalla ZTL non ha il colore di una zona")
+        XCTAssertEqual(c.tint, Theme.outside)
+        XCTAssertNotEqual(c.tint, Theme.green)
+        XCTAssertEqual(c.symbol, "minus")
+        XCTAssertNotEqual(c.symbol, "checkmark")
+        // La stessa parola di prima
+        XCTAssertEqual(c.zoneLine, L("Outside the ZTL"))
+        XCTAssertEqual(c.word, .enter)
+        let a = Home2Answer(c, now: Date())
+        XCTAssertEqual(a.mood, .grey)
+        XCTAssertEqual(a.panel.mood, .grey)
+        XCTAssertEqual(a.panel.lines, ["FUORI", "ZTL"])
+        XCTAssertNotEqual(a.mood.hex, Home2Answer.Mood.green.hex)
+        // Il grigio non è il neutro del posto che non conosciamo (quello resta con il «?»)
+        XCTAssertNotEqual(a.mood, .neutral)
+        // Il riquadro del guardiano e la Live Activity senza zone davanti: grigio, scudo vuoto
+        let look = VarcoView.guardianLook(threat: nil, resting: .clear)
+        XCTAssertEqual(look.symbol, "shield")
+        XCTAssertEqual(Guardian.state(threat: nil, resting: .clear).symbol, "shield")
     }
 
     // MARK: #1 Fonte non ufficiale

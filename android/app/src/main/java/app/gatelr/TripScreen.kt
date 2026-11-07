@@ -227,7 +227,8 @@ private fun TripAnswer(p: Place) {
                 CardBox {
                     Column {
                         // 1.20.3: il titolo fisso «Puoi entrare»; «Fuori dalla ZTL» è la spiegazione
-                        Pill(AnswerWord.ENTER.title, Palette.greenSoft, Palette.greenInk)
+                        // 1.20.4: grigio, mai verde (decisione di Ledion del 07/11)
+                        Pill(AnswerWord.ENTER.title, Palette.greySoft, Palette.greyInk)
                         Spacer(Modifier.padding(3.dp))
                         Text(L("Outside the ZTL") + ". " + L("You can drive here freely."), fontWeight = FontWeight.SemiBold)
                         near?.let { Text(F("%@ is %@ away", it.second.shortName, Geometry.distanceText(it.third)), fontSize = 14.sp) }

@@ -75,7 +75,7 @@ struct PlaceCheck {
     /// Un «sì» da fonte non ufficiale: si mostra giallo con il «?» (1.19.0, mai un verde che non sappiamo)
     var hedged: Bool { unofficial && kind == .open }
 
-    /// La risposta come in Viaggio: fuori dalle zone di una città che conosciamo si entra, nell'area pedonale mai
+    /// La risposta come in Viaggio: fuori dalle zone di una città che conosciamo si entra (grigio, 1.20.4), nell'area pedonale mai
     var verdict: Verdict {
         switch kind {
         case .uncovered: return .unsure(reason: L("We don't know the ZTLs of this place. Check the signs at the entrance."))
@@ -85,25 +85,39 @@ struct PlaceCheck {
         }
     }
 
-    /// Verde si entra, rosso no, ambra con una condizione o se non si sa; neutro se non conosciamo il posto
+    /// Verde si entra, rosso no, ambra con una condizione o se non si sa; neutro se non conosciamo il posto.
+    /// 1.20.4: fuori dalle zone di una città che conosciamo grigio (Theme.outside), mai verde
     var tint: Color {
         if hedged { return Color(hex: 0xD99A00) }
         switch kind {
         case .uncovered: return Theme.muted
-        case .outside, .open: return Theme.green
+        case .outside: return Theme.outside
+        case .open: return Theme.green
         case .closed, .pedestrian: return Theme.red
         case .conditional, .unsure: return Color(hex: 0xD99A00)
         }
     }
 
-    /// 1.20.0 «Motore unico»: il colore della risposta per il posto, come sulla mappa. Area pedonale rossa, fuori dalle zone
-    /// di una città che conosciamo verde, la zona che decide con i colori della mappa (spenta grigia, fonte non ufficiale mai
-    /// verde né grigia); nil = neutro, un posto che non conosciamo (mai verde). Lo stesso calcolo su Android (PlaceCheck.color)
-    /// e sul sito (placeAnswer), provato con gli stessi casi (shared/engine-cases.json)
+    /// 1.20.0 «Motore unico»: il colore della risposta per il posto, come sulla mappa. Area pedonale rossa, la zona che
+    /// decide con i colori della mappa (fonte non ufficiale mai verde); nil = nessuna zona: fuori dalla ZTL in una città che
+    /// conosciamo (grigio, 1.20.4) o un posto che non conosciamo (neutro). Mai verde senza una zona
     var access: Access? {
         if pedestrian != nil { return .closed }
-        guard let answer, let hit else { return covered ? .open : nil }
+        guard let answer, let hit else { return nil }
         return Access.of(answer, zone: hit.zone, status: hit.city.status)
+    }
+
+    /// 1.20.4: il nome del colore come nei casi di prova comuni (shared/engine-cases.json), lo stesso su Android
+    /// (PlaceCheck.color) e sul sito (placeAnswer): red, yellow, green, grey (fuori dalla ZTL in una città coperta),
+    /// neutral (un posto che non conosciamo)
+    var colourName: String {
+        if kind == .outside { return "grey" }
+        switch access {
+        case nil: return "neutral"
+        case .closed?: return "red"
+        case .conditional?, .check?: return "yellow"
+        case .open?, .off?: return "green"          // 1.20.1: ZTL spenta = verde
+        }
     }
 
     /// Il colore di una zona sulla mappa (MapTheme): il bordo nel colore della SUA risposta, mai quella del posto
@@ -113,7 +127,8 @@ struct PlaceCheck {
         if hedged { return Color(hex: 0xF2C14E) }
         switch kind {
         case .uncovered: return Color(hex: 0xA9B3D1)
-        case .outside, .open: return Color(hex: 0x3DDC74)
+        case .outside: return Color(hex: 0xAEB4BC)       // 1.20.4: grigio, mai verde
+        case .open: return Color(hex: 0x3DDC74)
         case .closed, .pedestrian: return Color(hex: 0xFF4D4D)
         case .conditional, .unsure: return Color(hex: 0xF2C14E)
         }
@@ -123,7 +138,9 @@ struct PlaceCheck {
         if hedged { return "questionmark" }
         switch kind {
         case .uncovered: return "questionmark"
-        case .outside, .open: return "checkmark"
+        // 1.20.4: fuori dalla ZTL una forma neutra (il trattino), non la spunta del «sì» di una zona
+        case .outside: return "minus"
+        case .open: return "checkmark"
         case .closed, .pedestrian: return "xmark"
         case .conditional: return "exclamationmark"
         case .unsure: return "questionmark"

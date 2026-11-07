@@ -132,7 +132,8 @@ private fun pinGeoJson(p: Place?, color: Color): String =
  *  non ufficiale), neutro se non conosciamo il posto: colori accesi per la mappa scura */
 private fun PlaceCheck.neon(): Color = if (hedged) Color(0xFFF2C14E) else when (kind) {
     PlaceCheck.Kind.UNCOVERED -> Color(0xFFA9B3D1)
-    PlaceCheck.Kind.OUTSIDE, PlaceCheck.Kind.OPEN -> Color(0xFF3DDC74)
+    PlaceCheck.Kind.OUTSIDE -> Color(0xFFAEB4BC)       // 1.20.4: fuori dalla ZTL grigio, mai verde
+    PlaceCheck.Kind.OPEN -> Color(0xFF3DDC74)
     PlaceCheck.Kind.CLOSED, PlaceCheck.Kind.PEDESTRIAN -> Color(0xFFFF4D4D)
     else -> Color(0xFFF2C14E)
 }
@@ -351,7 +352,8 @@ fun MapScreen(modifier: Modifier) {
                     }
                     else -> {
                         val near = nearestZone(AppState.cities, p.location)
-                        Pill(AnswerWord.ENTER.title, Palette.greenSoft, Palette.greenInk)
+                        // 1.20.4: fuori dalla ZTL grigio (decisione di Ledion del 07/11), le stesse parole
+                        Pill(AnswerWord.ENTER.title, Palette.greySoft, Palette.greyInk)
                         Text(L("Outside the ZTL"), fontSize = 14.sp)
                         near?.let { Text(F("%@ is %@ away", it.second.shortName, Geometry.distanceText(it.third)), fontSize = 14.sp) }
                     }

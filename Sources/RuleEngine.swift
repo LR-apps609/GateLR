@@ -20,7 +20,7 @@ enum Verdict: Equatable {
 enum AnswerWord: String, CaseIterable {
     /// Rosso: «no» del motore, area pedonale, «no» da fonte non ufficiale
     case dontEnter
-    /// Verde: «sì» (anche a ZTL non attiva) e fuori dalle zone di una città che conosciamo
+    /// Verde: «sì» (anche a ZTL non attiva). Fuori dalle zone di una città che conosciamo la stessa parola, ma grigia (1.20.4)
     case enter
     /// Giallo con «!»: la risposta con una condizione (ticket, hotel, permesso in attesa)
     case condition
