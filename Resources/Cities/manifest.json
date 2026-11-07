@@ -1,6 +1,6 @@
 {
- "version": "202611071924",
- "digest": "f31d2454b358",
+ "version": "202611071928",
+ "digest": "f62580554b19",
  "schema": 1,
  "cities": [
   {
@@ -61,7 +61,7 @@
   {
    "id": "firenze",
    "file": "firenze.json",
-   "sha256": "688d53366152ebb2ccc1868bd3582b5a9c53cbb958bbb78d608105172dba4fdf"
+   "sha256": "5be0db6d5bafcbc58234512a99f8ed51a9eafca21bb90a4e2b96ee3d07e489b9"
   },
   {
    "id": "genova",
