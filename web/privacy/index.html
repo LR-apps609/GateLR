@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>GateLR Privacy</title>
+<meta name="description" content="Cosa usa GateLR, sul sito e nell'app: nessun account, nessun tracciamento, i dati restano sul telefono.">
+<meta name="theme-color" content="#F4F6FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B1530" media="(prefers-color-scheme: dark)">
 <!--FONTS--><link rel="preload" href="../fonts/atkinson-next-latin.18b2a1a39a.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Atkinson Hyperlegible Next";font-style:normal;font-weight:400 700;font-display:swap;src:url(../fonts/atkinson-next-latin.18b2a1a39a.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
@@ -15,20 +18,42 @@
 @font-face{font-family:"Titillium Web";font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/titillium-700-latin.9e3162d81e.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 @font-face{font-family:"Titillium Web";font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/titillium-700-latin-ext.ecacf58d79.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:"DotGothic16";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/dotgothic16-400-latin.d29abf8174.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
-</style><!--/FONTS-->
+</style>
+<link rel="icon" type="image/png" sizes="48x48" href="../img/favicon.b317ce8ade.png"><!--/FONTS-->
 <link rel="stylesheet" href="../_page.css">
 </head>
 <body>
+<header class="top"><a class="brand" href="../"><svg viewBox="0 0 120 150" aria-hidden="true"><path d="M60 4C28 4 6 28 6 58c0 38 54 88 54 88s54-50 54-88C114 28 92 4 60 4Z" fill="#E5322D"/><circle cx="60" cy="58" r="36" fill="#0B1530"/><rect x="24" y="48" width="72" height="20" rx="4" fill="#E5322D"/></svg>GateLR</a>
+<nav class="langs" aria-label="Lingua · Language · Sprache"><a href="#it" lang="it">IT</a><a href="#en" lang="en">EN</a><a href="#de" lang="de">DE</a></nav></header>
 <main>
-  <a class="brand" href="../">Gate<span>LR</span></a>
   <h1>Privacy</h1>
-  <p class="muted">Ultimo aggiornamento: 2 novembre 2026 (app iPhone 1.19.4) · <a href="#en">English below</a></p>
-  <section>
+  <p class="muted">Ultimo aggiornamento: 7 novembre 2026 (sito 2.0, app iPhone e Android) · <a href="#en" lang="en">English</a> · <a href="#de" lang="de">Deutsch</a></p>
+
+  <section id="it">
     <h2>In breve</h2>
-    <p>Nessun account, nessuna pubblicità, nessun tracciamento. GateLR non ha server che raccolgono i tuoi dati.</p>
+    <p>Nessun account, nessuna pubblicità, nessun tracciamento, nessun cookie. GateLR non ha server che raccolgono i tuoi dati: quello che scegli resta sul tuo telefono o nel tuo browser.</p>
   </section>
   <section>
-    <h2>Cosa resta sul telefono</h2>
+    <h2>Il sito</h2>
+    <h3>Cosa resta nel tuo browser</h3>
+    <ul>
+      <li>La lingua che scegli (EN, IT, DE), salvata nel browser (<code>localStorage</code>, chiave <code>gatelr.lang</code>). Niente altro viene salvato.</li>
+      <li>Il nome dell'hotel e la targa che scrivi per il messaggio all'hotel restano nella pagina: non vengono salvati né inviati. Escono solo se copi il messaggio e lo mandi tu.</li>
+      <li>«Usa la mia posizione»: il browser ti chiede il permesso; la posizione serve solo nella pagina per la risposta e non ci arriva. Non finisce mai in un link.</li>
+    </ul>
+    <h3>Cosa usa il sito, e cosa riceve</h3>
+    <ul>
+      <li><strong>GitHub Pages</strong> ospita il sito e i dati delle città: come ogni sito, riceve l'indirizzo IP e le pagine richieste.</li>
+      <li><strong>Photon (komoot)</strong>, la ricerca dei luoghi: riceve il testo che scrivi (da 3 lettere), la lingua e il centro della città mostrata, non la tua posizione.</li>
+      <li><strong>MapLibre</strong>, il programma della mappa, si scarica da <strong>unpkg.com</strong> quando la mappa entra nello schermo o al primo tocco.</li>
+      <li><strong>OpenFreeMap</strong> manda i pezzi della mappa e i caratteri dei nomi: riceve la zona della mappa che guardi (anche quella intorno alla tua posizione, se la usi). Se non risponde, la mappa viene da <strong>CARTO</strong> (basemaps.cartocdn.com), che riceve le stesse richieste.</li>
+      <li>I caratteri del sito stanno sul sito stesso: niente Google Fonts. Nessuno strumento di statistica o di pubblicità.</li>
+    </ul>
+    <h3>Il link di una risposta</h3>
+    <p>«Copia il link della risposta» crea un indirizzo con il posto scelto (nome e coordinate), il giorno e l'ora e il tipo di veicolo. Niente targa, niente nome, niente posizione del telefono. Queste parti stanno dopo il «#»: quando qualcuno apre il link, il browser non le manda al sito. Chi riceve il link vede il posto che hai scelto.</p>
+  </section>
+  <section>
+    <h2>L'app: cosa resta sul telefono</h2>
     <p>I tuoi veicoli e le targhe, i permessi, i viaggi e il diario dei passaggi sono salvati solo sul tuo telefono (iPhone o Android). La posizione è usata sul telefono per la risposta, gli avvisi e il guardiano: GateLR non la raccoglie. Le foto di cartelli, libretti e verbali sono lette sul telefono e non vengono caricate.</p>
   </section>
   <section>
@@ -46,29 +71,36 @@
   </section>
   <section>
     <h2>La tua targa</h2>
-    <p>La targa non compare mai nei testi condivisi o copiati (diario dei passaggi, bozza del ricorso), nel widget, in Siri, nelle notifiche o nella Live Activity. Unica eccezione: il messaggio per l'hotel, che ha bisogno della targa per registrarti al Comune; lo mandi tu, all'app e alla persona che scegli.</p>
+    <p>La targa non compare mai nei testi condivisi o copiati (diario dei passaggi, bozza del ricorso, link di una risposta), nel widget, in Siri, nelle notifiche o nella Live Activity. Unica eccezione: il messaggio per l'hotel, che ha bisogno della targa per registrarti al Comune; lo mandi tu, all'app e alla persona che scegli.</p>
   </section>
   <section>
     <h2>Quello che mandi tu</h2>
-    <p>Il messaggio per l'hotel, le segnalazioni di un errore e il diario dei passaggi partono solo se li mandi tu, con l'app che scegli. Ogni servizio in rete vede il tuo indirizzo IP, come ogni richiesta su internet, ma non sa chi sei in GateLR: non c'è un account.</p>
-  </section>
-  <section>
-    <h2>Il sito</h2>
-    <p>Quando cerchi un luogo su questo sito, il testo che scrivi va a un servizio di ricerca sulle mappe (Photon di komoot, o Apple Mappe) e la mappa usa OpenFreeMap. Non salviamo le tue ricerche.</p>
+    <p>Il messaggio per l'hotel, le segnalazioni di un errore, il diario dei passaggi e il link di una risposta partono solo se li mandi tu, con l'app che scegli. Ogni servizio in rete vede il tuo indirizzo IP, come ogni richiesta su internet, ma non sa chi sei in GateLR: non c'è un account.</p>
   </section>
 
-  <section id="en">
+  <section id="en" lang="en">
     <h2>English</h2>
-    <p><strong>No account, no ads, no tracking.</strong> GateLR has no servers that collect your data.</p>
-    <p><strong>Stays on your phone:</strong> your vehicles and plates, permits, trips and the drive log. Your location is used on the phone for the answer, the alerts and the guardian; GateLR doesn't collect it. Photos of signs, registration documents and fines are read on the phone and never uploaded.</p>
+    <p><strong>No account, no ads, no tracking, no cookies.</strong> GateLR has no servers that collect your data.</p>
+    <p><strong>The website keeps in your browser</strong> only the language you pick (<code>localStorage</code>, key <code>gatelr.lang</code>). The hotel name and plate you type for the hotel message stay in the page: they are neither saved nor sent. «Use my location» is used only in the page for the answer, and never goes into a link.</p>
+    <p><strong>What the website uses:</strong> GitHub Pages hosts the site and the city data (it sees your IP address and the pages requested, like any website). Place search goes to Photon (komoot) with the text you type (from 3 letters), the language and the centre of the city shown, not your position. The map program, MapLibre, is downloaded from unpkg.com when the map comes into view; map tiles and label fonts come from OpenFreeMap, which receives the map area you look at; if it doesn't answer, the map comes from CARTO (basemaps.cartocdn.com). The site's fonts are on the site itself. No analytics, no ads.</p>
+    <p><strong>The link to an answer</strong> holds only the place (name and coordinates), the day and time and the type of vehicle: no plate, no name, no phone position. It sits after the «#», so the browser doesn't send it to the site when someone opens it.</p>
+    <p><strong>The app keeps on your phone</strong> your vehicles and plates, permits, trips and the drive log. Your location is used on the phone for the answer, the alerts and the guardian; GateLR doesn't collect it. Photos of signs, registration documents and fines are read on the phone and never uploaded.</p>
     <p><strong>What goes out (iPhone):</strong> maps, search and routes go to Apple Maps (the map area, what you search and, for a route, start and destination); the 3D maps come from Mapbox, which receives the map requests and a usage count for billing, with its telemetry off by default; city data is downloaded from GitHub; car parks not already in the app are looked up on OpenStreetMap (Overpass) for the area around the city's zones, not your position.</p>
     <p><strong>What goes out (Android):</strong> map tiles from OpenFreeMap, place search to Photon (komoot) with what you search and your position (to sort nearby results), routes to OSRM (OpenStreetMap) with start and destination. Reading a sign happens on the phone with Google ML Kit, which may send Google anonymous usage and performance statistics.</p>
-    <p><strong>Your plate</strong> never appears in shared or copied texts, the widget, Siri, notifications or the Live Activity. The only exception is the message for the hotel, which needs your plate to register you; you send it yourself.</p>
-    <p>Every online service sees your IP address, like any internet request. When you search a place on this website, the text goes to a map search service (Photon by komoot, or Apple Maps) and the map uses OpenFreeMap tiles. We don't store your searches.</p>
+    <p><strong>Your plate</strong> never appears in shared or copied texts, links to an answer, the widget, Siri, notifications or the Live Activity. The only exception is the message for the hotel, which needs your plate to register you; you send it yourself. Every online service sees your IP address, like any internet request.</p>
+  </section>
+
+  <section id="de" lang="de">
+    <h2>Deutsch</h2>
+    <p><strong>Kein Konto, keine Werbung, kein Tracking, keine Cookies.</strong> GateLR hat keine Server, die deine Daten sammeln.</p>
+    <p><strong>Die Website speichert in deinem Browser</strong> nur die gewählte Sprache (<code>localStorage</code>, Schlüssel <code>gatelr.lang</code>). Hotelname und Kennzeichen für die Nachricht an das Hotel bleiben auf der Seite: Sie werden weder gespeichert noch gesendet. «Meinen Standort nutzen» wird nur auf der Seite für die Antwort verwendet und kommt nie in einen Link.</p>
+    <p><strong>Was die Website nutzt:</strong> GitHub Pages hostet die Seite und die Daten der Städte (sieht wie jede Website deine IP-Adresse und die aufgerufenen Seiten). Die Ortssuche geht an Photon (komoot) mit dem eingegebenen Text (ab 3 Buchstaben), der Sprache und der Mitte der gezeigten Stadt, nicht deinem Standort. Das Kartenprogramm MapLibre wird von unpkg.com geladen, wenn die Karte sichtbar wird; Kartenkacheln und Schriften kommen von OpenFreeMap, das den angezeigten Kartenausschnitt erhält; antwortet es nicht, kommt die Karte von CARTO (basemaps.cartocdn.com). Die Schriften liegen auf der Website selbst. Keine Statistik, keine Werbung.</p>
+    <p><strong>Der Link zu einer Antwort</strong> enthält nur den Ort (Name und Koordinaten), Tag und Uhrzeit und die Art des Fahrzeugs: kein Kennzeichen, kein Name, kein Standort des Telefons. Er steht nach dem «#» und wird beim Öffnen nicht an die Website gesendet.</p>
+    <p><strong>Die App speichert auf deinem Telefon</strong> Fahrzeuge und Kennzeichen, Genehmigungen, Reisen und das Fahrtenbuch. Der Standort wird auf dem Telefon für Antwort, Warnungen und Wächter genutzt; GateLR sammelt ihn nicht. Was die App an Apple Karten, Mapbox, GitHub, OpenStreetMap, OpenFreeMap, Photon, OSRM und Google ML Kit sendet, steht oben auf Italienisch und Englisch.</p>
   </section>
   <section>
-    <h2>Domande · Questions</h2>
-    <p>Vedi la <a href="../support/">pagina di supporto</a> · See the <a href="../support/">support page</a>.</p>
+    <h2>Domande · Questions · Fragen</h2>
+    <p>Vedi la <a href="../support/">pagina di supporto</a> · <span lang="en">See the <a href="../support/">support page</a></span> · <span lang="de">Siehe die <a href="../support/">Support-Seite</a></span> · <a href="mailto:support@example.com">support@example.com</a></p>
   </section>
 </main>
 </body>
