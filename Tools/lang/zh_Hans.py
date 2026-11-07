@@ -936,6 +936,10 @@ T = {
 "Position: %@": "位置：%@",
 "Test zone (test mode)": "测试区域（测试模式）",
 "Ref.: %@": "编号：%@",
+"ZTL not|active": "ZTL|未生效",
+"Data out of date": "数据已过期",
+"Holiday not confirmed": "节假日未确认",
+"Euro class unknown": "欧标等级未知",
 }
 
 INFO = {
