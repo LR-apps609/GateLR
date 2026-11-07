@@ -303,6 +303,14 @@ final class MisureTests: XCTestCase {
         XCTAssertLessThan(last - first, 40, "la memoria della striscia di Varco cresce: \(v)")
     }
 
+    func testM7gGuardianStillWithPlaceMemory() {
+        _ = memorySeries("guardiano-fermo-con-posto", args: ["-uiPlace", "Duomo di Milano", "45.4641", "9.1919", "-uiGuardian", "45.4642", "9.1600", "90"], seconds: 120)
+    }
+
+    func testM7hGuardianStillMilanZoneMemory() {
+        _ = memorySeries("guardiano-fermo-banner-no", args: ["-uiGuardian", "43.9333", "10.9167", "90"], seconds: 120)
+    }
+
     // MARK: 6. Guida di GateLR da fermo (la mappa della guida)
 
     /// La guida dentro l'app verso il Duomo, con l'auto ferma (posizione del simulatore fissa): 30 secondi di processore
