@@ -27,10 +27,28 @@ def pages():
     return sorted(urls)
 
 
+# 1.20.4: parti di una pagina che cambiano quasi ogni giorno senza che cambino le regole, da togliere prima dell'impronta.
+# Chiave: inizio dell'indirizzo; valore: le sezioni HTML da togliere (espressioni regolari). Solo blocchi che non
+# contengono regole: per esempio la lista «Contenuti correlati» con le ultime notizie del Comune. Vedi docs/dati-verifica.md
+DROP = {
+    # Comune di Ravenna, comunicati stampa: in fondo «Contenuti correlati» con le ultime 10 notizie del Comune
+    "https://comune.ravenna.it/novita/comunicato-stampa/": [r'<section id="contenuti-correlati"[^>]*>.*?</section>'],
+}
+
+
+def drop_volatile(url, t):
+    for prefix, patterns in DROP.items():
+        if url.startswith(prefix):
+            for pat in patterns:
+                t = re.sub("(?is)" + pat, " ", t)
+    return t
+
+
 def fingerprint(url):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=60) as r:
         t = r.read().decode("utf-8", "ignore")
+    t = drop_volatile(url, t)
     t = re.sub(r"(?is)<(script|style|nav|header|footer)\b.*?</\1>", " ", t)
     t = html.unescape(re.sub(r"<[^>]+>", " ", t))
     t = re.sub(r"\s+", " ", t)

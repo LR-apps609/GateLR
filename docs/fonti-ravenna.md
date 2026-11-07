@@ -25,3 +25,11 @@ La regola dei «cinque giorni» della vecchia pagina Rapida non è più citata (
 - Controlli: le 9 vie dei varchi ufficiali sono tutte tra quelle strade; i 7 nodi OSM «Varco» (via di Roma, Guaccimanni, Baccarini, Guerrini, Mariani, Ponte Marino, Matteucci) sono entro 50 m dal bordo; Piazza del Popolo e Tomba di Dante dentro, stazione fuori.
 - Varchi nella scheda: quei 7 nodi OSM con il nome dell'elenco ufficiale; mancano via Rondinelli e via Cavour (piazzetta Gandhi) (nei pending).
 - In OSM via Ponte Marino è segnata «private @ 07:30-20:30», il Comune la dà 24 ore su 24: vale il Comune (la zona è comunque 0–24).
+
+## Rilettura del 07/11/2026 e comunicato «sempre cambiato»
+
+Il controllo giornaliero segnava cambiato quasi ogni giorno il comunicato sul piano della sosta (https://comune.ravenna.it/novita/comunicato-stampa/in-seguito-agli-incontri-pubblici-approvata-la-modifica-alla-delibera-del-piano-che-disciplina-circolazione-e-sosta-nel-comune-di-ravenna/), e la zona restava gialla «pagina cambiata».
+
+- **Causa**: in fondo alla pagina c'è il riquadro «Contenuti correlati» con le ultime notizie del Comune (il 26/10 *"Martedì 27 ottobre si riunisce il Consiglio comunale…"*, il 07/11 *"“Ri-conoscersi nel Patrimonio”: il 17 novembre a Ravenna…"*). Cambia a ogni notizia nuova; il testo del comunicato è identico.
+- **Rimedio**: `Tools/check_sources.py` (`DROP`) toglie, solo dai comunicati stampa di comune.ravenna.it, la sezione HTML `<section id="contenuti-correlati">` prima dell'impronta. Impronta ricalcolata il 07/11 in `data/source-hashes.json` (due letture uguali di fila).
+- **Rilettura**: rilette il 07/11/2026 le pagine del Comune (SIRIO, comunicazione targhe, comunicato) e la pagina dei permessi giornalieri di Azimut; testi in `data/raw/ravenna/` aggiornati. **Niente di sostanza è cambiato** (orari, permessi giornalieri, prezzi, varchi). `checkedOn` = 2026-11-07T19:24:00Z.
