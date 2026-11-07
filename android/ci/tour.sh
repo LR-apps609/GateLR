@@ -54,7 +54,9 @@ fi
 adb emu geo fix 11.2486 43.7765 || true          # Stazione di Santa Maria Novella, fuori dal Settore A
 sleep 12
 tap "Check the drive" && sleep 8 && shot 04d-tragitto
-tap "Now" && sleep 3 && shot 01b-adesso-stazione
+tap "Help" && tap "Now" && sleep 3 && shot 01b-adesso-stazione
+adb emu geo fix 10.9180 43.9330 || true          # Pistoia: posto che non conosciamo (neutro, tratteggiato)
+sleep 14 && shot 01c-adesso-non-coperto
 tap "Help" && shot 06a-aiuto
 tap "Garage and settings" && sleep 3 && shot 05-garage
 tap "Settings" && sleep 2 && shot 06-impostazioni
@@ -70,7 +72,7 @@ else echo "::error::Indietro da Aiuto ha chiuso l'app"; adb shell am start -W -n
 adb emu geo fix 11.2558 43.7696 || true          # di nuovo Firenze, Settore A
 tap "Map" && sleep 6 && adb shell input tap 540 1200 && sleep 3 && shot 02b-mappa-zona
 adb shell input keyevent 4; sleep 2
-tap "Now" && sleep 3 && adb shell input swipe 500 1800 500 600 && sleep 2 && shot 07-adesso-zone
+tap "Help" && tap "Now" && sleep 3 && adb shell input swipe 500 1800 500 600 && sleep 2 && shot 07-adesso-zone
 
 # Testo grande (accessibilità)
 adb shell settings put system font_scale 1.3; sleep 3
@@ -80,7 +82,8 @@ adb shell settings put system font_scale 1.0
 
 # In italiano e al buio: lingua dell'app (Android 13+) e tema scuro
 adb shell cmd uimode night yes; adb shell cmd locale set-app-locales app.gatelr --locales it-IT; sleep 3
-adb shell am force-stop app.gatelr; adb shell am start -W -n app.gatelr/.MainActivity; sleep 8
+adb emu geo fix 9.1919 45.4641 || true           # Milano, piazza del Duomo: area pedonale, «Non entrare» a ogni ora
+adb shell am force-stop app.gatelr; adb shell am start -W -n app.gatelr/.MainActivity; sleep 12
 shot 08-it-scuro-adesso
 tap "Viaggio" && shot 09-it-scuro-viaggio
 tap "Mappa" && sleep 6 && shot 10-it-scuro-mappa

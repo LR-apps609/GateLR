@@ -194,7 +194,7 @@ private fun ContextChip(icon: androidx.compose.ui.graphics.vector.ImageVector, t
         .padding(horizontal = 14.dp), verticalAlignment = Alignment.CenterVertically) {
         Icon(icon, null, modifier = Modifier.size(18.dp))
         Spacer(Modifier.width(8.dp))
-        Text(text, fontSize = 15.sp, fontWeight = FontWeight.SemiBold, maxLines = 1, modifier = Modifier.padding(vertical = 12.dp))
+        Text(text, fontSize = 15.sp, fontWeight = FontWeight.SemiBold, maxLines = 2, lineHeight = 18.sp, modifier = Modifier.padding(vertical = 8.dp))
     }
 }
 
