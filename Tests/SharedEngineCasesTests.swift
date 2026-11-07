@@ -70,6 +70,12 @@ final class SharedEngineCasesTests: XCTestCase {
         XCTAssertGreaterThan(cities.count, 40, "le città di Resources/Cities")
         XCTAssertTrue(cities.contains { $0.id == "salerno" } && cities.contains { $0.id == "cagliari" }, "anche le città da fonti non ufficiali")
         XCTAssertGreaterThanOrEqual(cases.count, 30)
+        // 2.1: gli stessi stati, motivi e colori semantici del file su iPhone, Android e sito
+        XCTAssertEqual(file["stati"] as? [String], Stato.allCases.map(\.rawValue))
+        XCTAssertEqual(file["motivi"] as? [String], Motivo.allCases.map(\.rawValue))
+        let toni = try XCTUnwrap(file["toni"] as? [String: String])
+        for s in Stato.allCases { XCTAssertEqual(toni[s.rawValue], s.tono.rawValue, "tono di \(s)") }
+        XCTAssertEqual(file["statoSpento"] as? String, RispostaFinale.stateOff.rawValue, "ZTL non attiva: un solo token")
 
         for c in cases {
             let id = c["id"] as? String ?? "?"
@@ -116,6 +122,13 @@ final class SharedEngineCasesTests: XCTestCase {
             if let want = expect["pedestrian"] as? Bool {
                 XCTAssertEqual(check.pedestrian != nil, want, "\(id): area pedonale")
             }
+            // 2.1 «Una risposta, sette stati»: la RispostaFinale del posto (shared/risposta-finale.md)
+            let f = check.finale
+            XCTAssertEqual(f.stato.rawValue, expect["stato"] as? String, "\(id): stato")
+            XCTAssertEqual(f.motivo?.rawValue, expect["motivo"] as? String, "\(id): motivo")
+            XCTAssertEqual(f.motivo != nil, f.stato == .controllaCartello, "\(id): il motivo solo con «Controlla il cartello»")
+            XCTAssertEqual(check.word, f.word, "\(id): il titolo è la parola dello stato")
+            if f.color == .verde { XCTAssertTrue(check.covered && !check.unofficial, "\(id): \(f.stato) verde dove non sappiamo") }
             // Le regole fisse, qualunque cosa dica il file: mai verde fuori copertura o da fonte non ufficiale
             if !check.covered { XCTAssertNil(check.access, "\(id): fuori copertura è neutro") }
             if check.unofficial { XCTAssertNotEqual(check.access, .open, "\(id): fonte non ufficiale mai verde") }

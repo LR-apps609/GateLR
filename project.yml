@@ -148,6 +148,7 @@ targets:
       - path: Widget
       - path: Sources/Models.swift
       - path: Sources/RuleEngine.swift
+      - path: Sources/RispostaFinale.swift    # 2.1: la stessa RispostaFinale dell'app (sette stati)
       - path: Sources/SampleData.swift
       - path: Sources/Store.swift
       - path: Sources/Theme.swift

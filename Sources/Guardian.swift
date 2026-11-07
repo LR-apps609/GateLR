@@ -123,7 +123,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         if scan.resting != resting { resting = scan.resting }
 
         // Un avviso per avvicinamento (lo stesso ThreatDeduper della guida e degli avvisi ad app chiusa)
-        if let t = scan.threat, t.meters < max(store.alertDistance, 300), ThreatAlerts.shared.post(t) {
+        if let t = scan.threat, t.meters < ThreatEvaluator.alertDistance(speed: speed), ThreatAlerts.shared.post(t) {
             say(String(format: L("Attention: in %@ you enter %@. %@."), DriveSession.distanceText(t.meters), t.candidate.name, t.spoken))
         }
         refreshActivity()

@@ -431,7 +431,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
             let t = ZoneThreat(candidate: cand, meters: a.meters, answer: a.answer, point: a.crossing.entry ?? p)
             newWarning = String(format: L("%@ in %@: %@"), a.crossing.title, Self.distanceText(a.meters), t.spoken)
             warningLevel = t.level.activity
-            if a.meters < max(store?.alertDistance ?? 500, 300), ThreatAlerts.shared.post(t) {
+            if a.meters < ThreatEvaluator.alertDistance(speed: speed / 3.6), ThreatAlerts.shared.post(t) {
                 say(String(format: L("Attention: in %@ you enter %@. %@."), Self.distanceText(a.meters), a.crossing.title, t.spoken))
             }
             break

@@ -36,9 +36,13 @@ final class ParoleTests: XCTestCase {
         XCTAssertEqual(AnswerWord.condition.key, "On one condition")
         XCTAssertEqual(AnswerWord.checkSign.key, "Check the sign")
         XCTAssertEqual(AnswerWord.unknownPlace.key, "We don't know this place")
+        // 2.1: sette parole, una per stato della RispostaFinale
+        XCTAssertEqual(AnswerWord.notActive.key, "ZTL not active")
+        XCTAssertEqual(AnswerWord.outside.key, "Outside the ZTL")
+        XCTAssertEqual(Set(Stato.allCases.map(\.word)), Set(AnswerWord.allCases))
     }
 
-    /// Ogni stato del posto (PlaceCheck.Kind) ha il suo titolo fisso, lo stesso in Varco, Mappa e notifiche
+    /// Ogni stato del posto ha il suo titolo fisso (2.1: la parola della RispostaFinale), lo stesso in Varco, Mappa e notifiche
     func testEveryPlaceKindHasAFixedTitle() {
         let city = SampleData.florence, zone = SampleData.sectorA
         var unofficialZone = zone; unofficialZone.source.official = false
@@ -49,9 +53,9 @@ final class ParoleTests: XCTestCase {
         let area = PedestrianArea(id: "p", name: "Via Prova", perimeter: zone.perimeter)
         let cases: [(PlaceCheck, AnswerWord, String)] = [
             (pc(nil, nil, covered: false), .unknownPlace, "fuori copertura"),
-            (pc(nil, nil), .enter, "fuori dalla ZTL"),
+            (pc(nil, nil), .outside, "fuori dalla ZTL"),
             (pc(zone, answer(yes)), .enter, "sì"),
-            (pc(zone, answer(yes, on: false)), .enter, "ZTL non attiva"),
+            (pc(zone, answer(yes, on: false)), .notActive, "ZTL non attiva"),
             (pc(unofficialZone, answer(yes)), .checkSign, "sì non ufficiale"),
             (pc(zone, answer(no)), .dontEnter, "no"),
             (pc(unofficialZone, answer(no)), .dontEnter, "no non ufficiale"),
