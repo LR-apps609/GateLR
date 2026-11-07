@@ -43,6 +43,22 @@ verde più leggero, senza righe, con il bordo più rado; il pannello dice «ZTL 
 lì (fuori copertura: «Non conosciamo questo posto»). Fuori dalle zone di una città che conosciamo: verde «Fuori dalla ZTL».
 I casi di prova comuni di iPhone, Android e sito sono in `shared/engine-cases.json`.
 
+
+## Pagine che cambiano senza che cambino le regole (1.20.4)
+
+`Tools/check_sources.py` prende l'impronta del testo della pagina. Prima toglie script, stili, menu, intestazione, piè di pagina, le date «ultimo aggiornamento», e dalla 1.20.4:
+
+- il nome casuale dei campi antispam (`hnp_name_…`, Sorrento: cambiava a ogni richiesta);
+- le sezioni elencate in `DROP` (inizio dell'indirizzo → espressioni regolari dei blocchi HTML da togliere). Oggi solo i comunicati stampa di comune.ravenna.it: `<section id="contenuti-correlati">`, la lista delle ultime notizie del Comune.
+
+Per aggiungere una pagina a `DROP`: scaricarla due volte a distanza di un giorno, trovare il blocco che cambia, controllare che **non contenga regole** (orari, prezzi, eccezioni), aggiungere il prefisso più stretto possibile, ricalcolare la sua impronta in `data/source-hashes.json` e rileggere la città (sotto). Cambiare la pulizia di tutte le pagine insieme cambia tutte le impronte: le zone diventerebbero «pagina cambiata».
+
+## Rileggere una città (togliere «pagina cambiata»)
+
+1. Scaricare di nuovo le pagine citate e confrontarle con i testi in `data/raw/<città>/`; se è cambiato qualcosa di sostanza, aggiornare `Tools/build_<città>.py` e `docs/fonti-<città>.md` con la citazione.
+2. Salvare i testi nuovi in `data/raw/<città>/` (stessa intestazione, data nuova) e mettere `CHECKED` in `Tools/build_<città>.py` all'ora della lettura, **dopo** l'ultimo commit che ha cambiato `data/source-hashes.json` (le impronte della lettura sono la prima registrazione da quel momento in poi).
+3. `python3 Tools/build_<città>.py && python3 Tools/source_trust.py mark && python3 Tools/build_manifest.py`: le frasi citate devono esserci ancora e la zona non ha più `pageChanged`.
+
 ## Dopo una verifica
 
 ```sh
