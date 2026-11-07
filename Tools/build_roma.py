@@ -17,7 +17,7 @@ import osm_geo
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw/roma"
 OUT = ROOT / "Resources/Cities/roma.json"
-CHECKED = "2026-10-24T18:00:00Z"
+CHECKED = "2026-11-07T18:00:00Z"
 AUTHORITY = "Roma Servizi per la Mobilità"   # agenzia di Roma Capitale che pubblica orari e permessi ZTL
 
 MON_FRI, SAT, FRI_SAT, WED_THU, MON_SAT = [2, 3, 4, 5, 6], [7], [6, 7], [4, 5], [2, 3, 4, 5, 6, 7]
@@ -169,18 +169,18 @@ def osm_link(rid):
 def zones():
     # Le frasi citate vengono ricontrollate sui testi salvati: se RSM cambia la pagina, lo script si ferma.
     check("ztl-in-centro",
-          "La ZTL Centro Storico diurna è interdetta ai veicoli non autorizzati nei seguenti orari: 6.30-18.00 da lunedì a venerdì (esclusi i festivi) 14.00-18.00 il sabato (esclusi i festivi)",
-          "La ZTL Centro Storico notturna è interdetta ai veicoli non autorizzati nei seguenti orari: 23.00-3.00 venerdì e sabato (esclusi i festivi) nel mese di agosto la ZTL notturna non è attiva",
+          "La ZTL Centro Storico DIURNA è interdetta ai veicoli non autorizzati nei seguenti orari: 6.30-18.00 da lunedì a venerdì (esclusi i festivi) 14.00-18.00 il sabato (esclusi i festivi)",
+          "La ZTL Centro Storico NOTTURNA è interdetta ai veicoli non autorizzati nei seguenti orari: 23.00-3.00 venerdì e sabato (esclusi i festivi) nel mese di agosto la ZTL notturna non è attiva",
           "6.30-19.00 da lunedì a venerdì (esclusi i festivi); 10.00-19.00 il sabato (esclusi i festivi)",
           "diurna Trastevere è interdetta ai veicoli non autorizzati: dalle 6.30 alle 10.00 dal lunedì al sabato (esclusi i festivi)",
           "notturna Trastevere è interdetta ai veicoli non autorizzati ed il limite di velocità è 30 Km/h: dalle 21.30 alle 3.00 venerdì e sabato (anche se festivi) da maggio a ottobre è attiva anche il mercoledì e il giovedì (anche se festivi) con gli stessi orari nel mese di agosto la ZTL notturna non è attiva",
           "notturna San Lorenzo è chiusa alle automobili: dalle 21.30 alle 3.00 venerdì e sabato (anche se festivi) da maggio ad ottobre è attiva anche il mercoledì e il giovedì (anche se festivi) con gli stessi orari nel mese di agosto la ZTL non è attiva",
           "notturna Testaccio è interdetta ai veicoli non autorizzati: dalle 23.00 alle 3.00 venerdì e sabato (esclusi i festivi); nel mese di agosto la ZTL non è attiva")
     check("ztl-tutti-gli-orari", "sono in funzione dal mercoledì al sabato dalle 21.30 alle 3.00")
-    check("ztl-in-centro", "moto e ciclomotori hanno libero accesso alla ZTL tutti i giorni, in tutte le ore, e possono sostare al suo interno negli spazi per i veicoli a due ruote ( ad eccezione della ZTL Tridente A1 )",
+    check("ztl-in-centro", "moto e ciclomotori hanno libero accesso alla ZTL tutti i giorni, in tutte le ore, e possono sostare al suo interno negli spazi per i veicoli a due ruote (ad eccezione della ZTL Tridente A1)",
           "La ZTL Tridente (A1) è interdetta ai veicoli non autorizzati (automobili, ciclomotori e motocicli)")
     check("permesso-x-circolazione-e-sosta", "1 permesso ogni 10 stanze a disposizione degli istituti alberghieri",
-          "(ad eccezione della ZTL A1 – Tridente ) e “Trastevere”", "cliccando su “Hotel, autorizzazione per i clienti”")
+          "(ad eccezione della ZTL A1 – Tridente) e “Trastevere”", "cliccando su “Hotel, autorizzazione per i clienti”")
     check("ZTL_Regolamento_Alberghi", "notturna (dalle 23:00 alle 03:00 – nelle sole giornate del venerdì e sabato)",
           "entro la medesima giornata dell’effettivo accesso nelle Zona a Traffico")
     check("accesso-in-ztl-di-veicoli-elettrici-o-a-idrogeno-novita-dal-1-luglio-2026",

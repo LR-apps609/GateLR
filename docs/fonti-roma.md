@@ -1,6 +1,6 @@
 # Roma: fonti dei dati (bozza)
 
-Stato: **draft**, ma dal 24/10/2026 **nell'app** (`Resources/Cities/roma.json`, in `manifest.json`) con perimetri e varchi da OpenStreetMap (vedi sezione 4). Fonti lette il **24/10/2026**. Nessuna verifica umana (`reviewedByHuman: false`).
+Stato: **draft**, ma dal 24/10/2026 **nell'app** (`Resources/Cities/roma.json`, in `manifest.json`) con perimetri e varchi da OpenStreetMap (vedi sezione 4). Fonti lette il **24/10/2026**, rilette il **07/11/2026** (vedi «Rilettura del 07/11/2026»). Nessuna verifica umana (`reviewedByHuman: false`).
 File generato: `Resources/Cities/roma.json`, con lo script `Tools/build_roma.py`. Lo script legge i testi salvati in `data/raw/roma/` e si ferma se una delle frasi citate non c'è più parola per parola.
 Tutte le pagine sono di **Roma Servizi per la Mobilità (RSM)**, l'agenzia di Roma Capitale che gestisce le ZTL e i permessi.
 
@@ -25,6 +25,15 @@ Tutte le pagine sono di **Roma Servizi per la Mobilità (RSM)**, l'agenzia di Ro
 | ZTL Appia Antica: dal 19/09/2026, sabato e domenica 7–19, escluso agosto; si può entrare solo se si esce dallo stesso varco nello stesso giorno (vietato l'attraversamento) | https://romamobilita.it/muoversi-a-roma/ztl-appia-antica/ (08/09/2026) e https://romamobilita.it/servizi-al-pubblico/permesso-ztl-appia-antica/ | `ztl-appia-antica.txt`, `permesso-ztl-appia-antica.txt` | verificato, ma **non inserita** (vedi 3.4) |
 | Orari speciali di Capodanno (esempio 2022/23) | https://romamobilita.it/comunicato/ztl-orari-capodanno-centro-varchi-attivi-630-31-dicembre-20-primo-gennaio/ | `ztl-orari-capodanno-2022.txt` | solo come esempio di eccezione (nota «pending») |
 | Dati geografici: «dataset … in formato GeoServices REST», licenza CC BY 3.0 IT (link a https://creativecommons.org/licenses/by/3.0/it/), hub https://data-rsm.opendata.arcgis.com; la pagina open data cita «i confini e i varchi delle ZTL» | https://romamobilita.it/sistemi-e-tecnologie/dataset-geografici/ (27/11/2023), https://romamobilita.it/sistemi-e-tecnologie/open-data/ | `dataset-geografici.txt`, `open-data.txt` | licenza dichiarata dalla pagina; dati **non scaricati** |
+
+
+## Rilettura del 07/11/2026
+
+Il controllo giornaliero (`.github/workflows/sources.yml`) segnava cambiata https://romamobilita.it/muoversi-a-roma/ztl-in-centro/ dopo la lettura del 24/10. Rilette quel giorno la pagina e le altre quattro pagine RSM citate (`ztl-tutti-gli-orari`, `permesso-x-circolazione-e-sosta`, `accesso-in-ztl-di-veicoli-elettrici…`, `permessi-temporanei`); i testi in `data/raw/roma/` sono quelli del 07/11.
+
+- **Niente di sostanza è cambiato**: orari, giorni, «esclusi i festivi» / «anche se festivi», agosto, esenzioni e prezzi sono identici.
+- Cambiata solo la forma della pagina: il paragrafo «Autorizzati all'accesso nelle ZTL» ora sta in testa, una volta sola invece che sotto ogni zona; il punto sul CUDE ha una nota in più (*"Per la sola indicazione dell'ingresso in ZTL senza il/la titolare del contrassegno CUDE a bordo sono disponibili il canale telefonico ChiamaRoma 060606 e l'App Julia"*); «diurna»/«notturna» sono scritti in maiuscolo (*"La ZTL Centro Storico DIURNA è interdetta ai veicoli non autorizzati nei seguenti orari: 6.30-18.00 da lunedì a venerdì (esclusi i festivi) 14.00-18.00 il sabato (esclusi i festivi)"*). Le frasi citate in `Tools/build_roma.py` sono state adattate a maiuscole e spazi del testo nuovo.
+- `checkedOn` = 2026-11-07T18:00:00Z: con le impronte di oggi la zona non è più «pagina cambiata».
 
 ## 2. Come sono state modellate le regole
 
