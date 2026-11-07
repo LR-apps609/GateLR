@@ -22,13 +22,19 @@ const fakeFetch = async url => {
   return {ok: true, status: 200, json: async () => JSON.parse(text)};
 };
 const e = new Function("CITIES", "ROOT", "PAGE_LANG", "window", "fetch", "localStorage", code + `
-  return {CITIES, CLOCK, ensureFor, placeAnswer, trustOf, rispostaFinale, STATI, linkHash, readLink, CARS, setLang: l => { lang = l; }};`)(JSON.parse(JSON.stringify(index)), "", "it", {}, fakeFetch, undefined);
+  return {CITIES, CLOCK, ensureFor, placeAnswer, trustOf, rispostaFinale, STATI, linkHash, readLink, CARS, tono, TONO, STATE_OFF, MOTIVI, setLang: l => { lang = l; }};`)(JSON.parse(JSON.stringify(index)), "", "it", {}, fakeFetch, undefined);
 
 const file = JSON.parse(fs.readFileSync(path.join(ROOT, "shared/engine-cases.json"), "utf8"));
 const VERDICT = {yes: "yes", no: "no", cond: "conditional", unsure: "unsure"};
 const errors = [];
 if (!index.some(c => c.id === "salerno") || !index.some(c => c.id === "cagliari")) errors.push("mancano le città da fonti non ufficiali (Salerno, Cagliari)");
 if (file.cases.length < 30) errors.push(`solo ${file.cases.length} casi`);
+// 2.1 «Una risposta, sette stati»: gli stessi stati, motivi e colori semantici del file (shared/risposta-finale.md)
+if (JSON.stringify(Object.keys(e.TONO)) !== JSON.stringify(file.stati)) errors.push(`stati del sito ${Object.keys(e.TONO)} diversi da ${file.stati}`);
+if (JSON.stringify(e.MOTIVI) !== JSON.stringify(file.motivi)) errors.push(`motivi del sito ${e.MOTIVI} diversi da ${file.motivi}`);
+for (const [s, t] of Object.entries(file.toni)) if (e.TONO[s] !== t) errors.push(`tono di ${s}: atteso ${t}, sul sito ${e.TONO[s]}`);
+if (e.STATE_OFF !== file.statoSpento) errors.push(`ZTL non attiva: atteso ${file.statoSpento}, sul sito ${e.STATE_OFF}`);
+if (file.cases.filter(c => c.expect.stato).length < file.cases.length) errors.push("ogni caso dice lo stato (2.1)");
 let passed = 0;
 const orig = new Map();
 for (const c of file.cases) {
@@ -48,11 +54,15 @@ for (const c of file.cases) {
   }
   const p = e.placeAnswer(c.place.lat, c.place.lon, at, !!c.hotel, v);
   const got = {colour: p.colour, verdict: VERDICT[p.verdict] || p.verdict, zone: p.zone ? p.zone.id : null,
-    gatesOn: p.r ? !!p.r.on : undefined, unofficial: p.unoff, pedestrian: !!p.ped, trust: p.zone ? e.trustOf(p.zone) : undefined};
+    gatesOn: p.r ? !!p.r.on : undefined, unofficial: p.unoff, pedestrian: !!p.ped, trust: p.zone ? e.trustOf(p.zone) : undefined,
+    stato: p.stato, motivo: p.motivo || undefined};
   const bad = Object.entries(c.expect).filter(([k, want]) => got[k] !== want).map(([k, want]) => `${k} atteso ${JSON.stringify(want)}, ottenuto ${JSON.stringify(got[k])}`);
   // Le regole fisse, qualunque cosa dica il file: mai verde fuori copertura o da fonte non ufficiale
   if (!p.covered && p.colour !== "neutral") bad.push("fuori copertura non neutro");
   if (p.unoff && p.colour === "green") bad.push("fonte non ufficiale verde");
+  // 2.1: il motivo solo con «Controlla il cartello»; mai verde fuori copertura, da fonte non ufficiale o con dati scaduti
+  if ((p.stato === "controllaCartello") !== !!p.motivo) bad.push(`motivo ${p.motivo} con lo stato ${p.stato}`);
+  if (e.tono(p.stato) === "verde" && (!p.covered || p.unoff)) bad.push(`stato ${p.stato} verde dove non sappiamo`);
   // 1.20.1 (regola A): mai verde da una zona senza verifica né lettura recente o con la pagina del Comune cambiata
   if (p.zone && !p.ped && !["verified", "read"].includes(e.trustOf(p.zone)) && p.colour === "green") bad.push("zona non sicura verde");
   // 2.0 «Risposta finale» (le sette risposte della pagina): fuori copertura neutro, fuori dalla ZTL grigio, ZTL non attiva
