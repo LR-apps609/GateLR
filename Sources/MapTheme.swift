@@ -48,6 +48,9 @@ enum MapTheme {
 
     /// Il fondo della mappa (alone sotto il bordo)
     static let base = Color(light: 0xF2F3F0, dark: 0x1C1923)
+    /// L'alone sotto il bordo di una zona: in chiaro il colore del fondo (stacca il bordo dalla mappa), al buio il colore
+    /// della zona (1.20.4: il fondo quasi nero faceva righe scure sulla mappa scura di Milano, foto 11)
+    static func halo(_ tone: Tone, dark: Bool) -> Color { dark ? tone.line : base }
     static func fillOpacity(_ a: Access, dark: Bool) -> Double {
         a == .off ? (dark ? 0.07 : 0.05) : (dark ? 0.16 : 0.12)
     }
@@ -302,17 +305,20 @@ struct ZoneOverlay: MapContent {
         let k = dim ? 0.4 : 1
         let w = MapTheme.lineWidth(zoom: zoom)
         let fill = MapTheme.fillOpacity(access, dark: dark) * (big ? 0.4 : 1) * (picked ? 1.6 : k)
+        // 1.20.4 (foto 11): sulla mappa scura l'alone nel colore del fondo (quasi nero, 6 punti) disegnava righe scure
+        // lungo i bordi e i varchi della zona; al buio l'alone è il colore della zona, leggero (in chiaro come prima)
+        let halo = MapTheme.halo(tone, dark: dark)
         if picked {
             MapPolygon(coordinates: coords)
                 .foregroundStyle(tone.fill.opacity(fill))
-                .stroke(MapTheme.base.opacity(0.55), lineWidth: 6)
+                .stroke(halo.opacity(dark ? 0.22 : 0.55), lineWidth: 6)
             MapPolygon(coordinates: coords)
                 .foregroundStyle(.clear)
                 .stroke(tone.line, style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
         } else {
             MapPolygon(coordinates: coords)
                 .foregroundStyle(tone.fill.opacity(fill))
-                .stroke(MapTheme.base.opacity(0.4 * k), lineWidth: w + 3)
+                .stroke(halo.opacity((dark ? 0.16 : 0.4) * k), lineWidth: w + 3)
             MapPolygon(coordinates: coords)
                 .foregroundStyle(.clear)
                 .stroke(tone.line.opacity((access == .off ? 0.7 : 0.85) * k),
