@@ -4,8 +4,8 @@
 # Milano Area B (fotogrammi e scatti), processore del guardiano in un giro simulato e della guida da ferma.
 # I numeri finiscono nelle annotazioni della corsa (i registri non si scaricano). Gira sui rami prestazioni-* e a mano.
 # Nessuna telemetria: niente esce dal simulatore.
-# 1.20.4: la memoria durante la guida simulata del guardiano (MisureTests.testM7a…) BLOCCA: il passo «Controllo della
-# memoria» fallisce se cresce più di 40 MB in 2 minuti di posizioni (nella 1.19.5 era passata da 115 a 243 MB).
+# 1.20.4: la memoria (MisureTests.testM7a guardiano in guida, testM7e Varco senza posto) BLOCCA: il passo «Controllo della
+# memoria» fallisce se varia più di 40 MB in 100 secondi (nella 1.19.5 era passata da 115 a 243 MB).
 name: Misure iPhone
 
 on:
@@ -118,20 +118,27 @@ jobs:
           # La memoria sì: il passo dopo
           exit 0
 
-      # 1.20.4: la memoria del guardiano in guida non deve crescere (testM7a: da 15 a 135 secondi di posizioni)
+      # 1.20.4: la memoria non deve crescere né salire a ondate: il guardiano in guida (testM7a) e la pagina Varco senza un
+      # posto (testM7e), tra 35 e 135 secondi dall'avvio. Prima, nella 1.19.5–1.20.3: da 100 a 250 MB e ritorno
       - name: Controllo della memoria
-        if: env.SOLO == '' || contains(env.SOLO, 'testM7a')
+        if: env.SOLO == '' || contains(env.SOLO, 'testM7')
         run: |
-          LINE=$(grep -E "^MISURA memoria-guardiano-guida-crescita " misure.log | tail -n 1 || true)
-          if [ -z "$LINE" ]; then
-            echo "::error::Manca la misura della memoria del guardiano (testM7aGuardianDriveMemory)"; exit 1
-          fi
-          GROWTH=$(echo "$LINE" | awk '{print $3}')
-          echo "::notice::Memoria del guardiano in guida: $(grep -E "^MISURA memoria-guardiano-guida " misure.log | tail -n 1 | cut -c1-400)"
-          if awk -v g="$GROWTH" 'BEGIN { exit !(g > 40) }'; then
-            echo "::error::La memoria cresce di $GROWTH MB in 2 minuti di guida simulata (limite 40 MB)"; exit 1
-          fi
-          echo "::notice::Crescita della memoria in guida: $GROWTH MB (limite 40 MB)"
+          status=0
+          for name in guardiano-guida varco-senza-posto; do
+            LINE=$(grep -E "^MISURA memoria-$name-crescita " misure.log | tail -n 1 || true)
+            if [ -z "$LINE" ]; then
+              if [ -z "$SOLO" ]; then echo "::error::Manca la misura della memoria «$name»"; status=1; fi
+              continue
+            fi
+            GROWTH=$(echo "$LINE" | awk '{print $3}')
+            echo "::notice::Memoria «$name»: $(grep -E "^MISURA memoria-$name " misure.log | tail -n 1 | cut -c1-400)"
+            if awk -v g="$GROWTH" 'BEGIN { exit !(g > 40) }'; then
+              echo "::error::Memoria «$name»: varia di $GROWTH MB in 100 secondi (limite 40 MB)"; status=1
+            else
+              echo "::notice::Memoria «$name»: varia di $GROWTH MB (limite 40 MB)"
+            fi
+          done
+          exit $status
 
       - name: Registri
         if: always()
