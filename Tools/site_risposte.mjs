@@ -25,6 +25,8 @@ for (const scheme of ["light", "dark"]) for (const w of [390, 1280]) {
   const ctx = await b.newContext({viewport: {width: w, height: 900}, colorScheme: scheme, locale: "it-IT", timezoneId: "Europe/Rome", permissions: ["clipboard-read", "clipboard-write"]});
   const p = await ctx.newPage();
   p.on("pageerror", e => errors.push(`errore nella pagina: ${e.message}`));
+  // 2.0.1: l'orologio fisso (venerdì 6 novembre 2026), così le date dei casi restano «martedì 10» qualunque giorno giri la prova
+  await p.clock.install({time: new Date("2026-11-06T12:00:00+01:00")});
   for (const [want, name, lat, lon, t, v] of CASI) {
     const hash = "#" + new URLSearchParams([["p", `${lat},${lon}`], ["n", name], ["t", t], ["v", v]]).toString();
     await p.goto(base + "it/" + hash, {waitUntil: "load"});
@@ -45,7 +47,8 @@ for (const scheme of ["light", "dark"]) for (const w of [390, 1280]) {
     if (out) await p.locator("#answer").screenshot({path: `${out}/risposta-${want}-${name.replace(/\W+/g, "-")}-${w}-${scheme}.png`});
   }
   // il link copiato: stessa domanda, niente targa (anche se scritta nel messaggio per l'hotel)
-  await p.fill("#h-plate", "AB123CD"); await p.fill("#h-name", "Hotel Prova");
+  // (il riquadro dell'hotel è nascosto dove l'hotel non può registrare la targa, come nell'area pedonale: si scrive lo stesso)
+  await p.evaluate(() => { for (const [id, v] of [["h-plate", "AB123CD"], ["h-name", "Hotel Prova"]]){ const x = document.getElementById(id); x.value = v; x.dispatchEvent(new Event("input", {bubbles: true})); } });
   await p.click("#share");
   const url = await p.inputValue("#share-url");
   if (/AB123CD|Hotel%20Prova|Hotel\+Prova/i.test(url)) errors.push(`${scheme} ${w}px: il link porta la targa o l'hotel: ${url}`);
