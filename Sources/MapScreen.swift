@@ -45,6 +45,12 @@ struct MapScreen: View {
     /// La mappa scura solo mentre la scheda Mappa è davanti: dietro alle altre schede resta quella normale
     @State private var visible = false
     @Environment(\.colorScheme) private var scheme
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dynamicTypeSize) private var typeSize
+    /// 2.0 (B15): l'ora per cui la mappa risponde. Si sposta in avanti a ogni minuto quando una risposta cambia (la ZTL che
+    /// si accende alle 7:30): prima restava «Puoi entrare» verde finché non si muoveva la mappa. Non a ogni minuto se
+    /// non cambia niente: la mappa (centinaia di forme e varchi) non si ridisegna per niente
+    @State private var clock = Date()
 
     enum Style: String, CaseIterable, Identifiable {
         case standard, hybrid, imagery
@@ -80,7 +86,7 @@ struct MapScreen: View {
     var body: some View {
         let zone = store.zone
         // L'ora e il veicolo dei chip: colori delle zone, varchi, scheda della zona e del posto
-        let moment = store.moment()
+        let moment = store.moment(clock)
         // Nessuna destinazione qui: la zona scelta, senza la condizione dell'hotel (1.19.0)
         let answer = store.answer(at: moment, hotelInside: false)
         // Le forme pronte (ordinate, grandi sotto) si calcolano una volta per ogni versione dei dati, non a ogni disegno
@@ -130,7 +136,7 @@ struct MapScreen: View {
                             ZoneMark(text: MapTheme.badgeText(look.access, kind: z.type), badge: MapTheme.badge(look.access),
                                      name: zoom >= MapTheme.nameZoom ? z.shortName : nil, selected: picked)
                                 .opacity(dim ? 0.4 : 1)
-                                .onTapGesture { withAnimation(.snappy) { select(z) } }
+                                .onTapGesture { tapped(z, lit: lit) }
                                 .accessibilityLabel("\(z.localizedName), \(z.type.title), \(look.access.title)")
                                 .accessibilityAddTraits(.isButton)
                         }
@@ -172,7 +178,9 @@ struct MapScreen: View {
                                     .frame(width: 20, height: 20)
                                     .background(cam.kind == .bus ? Theme.blueFill : Color(hex: MapTheme.pedestrianBadge.fill), in: RoundedRectangle(cornerRadius: 5, style: .continuous))
                                     .overlay(RoundedRectangle(cornerRadius: 5, style: .continuous).stroke(.white, lineWidth: 1.5))
-                                    .accessibilityHidden(true)
+                                    // 2.0 (B153): VoiceOver dice che cos'è e il suo nome (prima nascoste)
+                                    .accessibilityElement()
+                                    .accessibilityLabel("\(L(cam.kind == .bus ? "Bus lane camera" : "Pedestrian area camera")), \(cam.name)")
                             }
                             .annotationTitles(.hidden)
                         }
@@ -221,28 +229,37 @@ struct MapScreen: View {
                     .annotationTitles(.hidden)
                 }
                 // I parcheggi di «Parcheggia fuori e cammina» per il posto cercato
+                // 2.0 (B123, B126): pulsanti veri, 44×44 punti da toccare (il disegno resta di 30), letti da VoiceOver come pulsanti
                 ForEach(outsideSpots) { o in
                     Annotation(o.spot.displayName, coordinate: o.spot.location.cl) {
-                        Text("P").font(.app(size: 15, weight: .heavy)).foregroundStyle(.white)
-                            .frame(width: 30, height: 30)
-                            .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-                            .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous).stroke(.white, lineWidth: 2))
-                            .overlay(alignment: .bottomTrailing) {
-                                Image(systemName: "figure.walk").font(.system(size: 7, weight: .bold)).foregroundStyle(Theme.blueFill)
-                                    .frame(width: 12, height: 12).background(.white, in: Circle()).accessibilityHidden(true)
-                            }
-                            .onTapGesture { parkSheet = true }
+                        Button { parkSheet = true } label: {
+                            Text("P").font(.app(size: 15, weight: .heavy)).foregroundStyle(.white)
+                                .frame(width: 30, height: 30)
+                                .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
+                                .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous).stroke(.white, lineWidth: 2))
+                                .overlay(alignment: .bottomTrailing) {
+                                    Image(systemName: "figure.walk").font(.system(size: 7, weight: .bold)).foregroundStyle(Theme.blueFill)
+                                        .frame(width: 12, height: 12).background(.white, in: Circle()).accessibilityHidden(true)
+                                }
+                                .frame(width: 44, height: 44).contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityLabel(Text(verbatim: "\(L("Park outside and walk")): \(o.spot.displayName)"))
                     }
                 }
                 ForEach(parkings) { p in
                     Annotation(p.name, coordinate: p.coordinate) {
-                        Text("P")
-                            .font(.app(size: 15, weight: .heavy))
-                            .foregroundStyle(.white)
-                            .frame(width: 28, height: 28)
-                            .background(Color(hex: 0x1F4E9E), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-                            .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous).stroke(.white, lineWidth: 2))
-                            .onTapGesture { selectedParking = p }
+                        Button { selectedParking = p } label: {
+                            Text("P")
+                                .font(.app(size: 15, weight: .heavy))
+                                .foregroundStyle(.white)
+                                .frame(width: 30, height: 30)
+                                .background(Color(hex: 0x1F4E9E), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
+                                .overlay(RoundedRectangle(cornerRadius: 7, style: .continuous).stroke(.white, lineWidth: 2))
+                                .frame(width: 44, height: 44).contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityLabel(Text(verbatim: "\(L("Car park")): \(p.name)"))
                     }
                 }
                 UserAnnotation()
@@ -274,10 +291,16 @@ struct MapScreen: View {
             }
             .onTapGesture { point in
                 guard let c = proxy.convert(point, from: .local) else { return }
-                // Le forme sono già ordinate dalla più grande: l'ultima che contiene il punto è la più piccola
-                if let z = MapShapes.zones(store).last(where: { $0.zone.contains(c) })?.zone, z.id != zone.id {
-                    withAnimation(.snappy) { select(z) }
+                let tap = Coordinate(lat: c.latitude, lon: c.longitude)
+                // 2.0 (B28): su un'area pedonale (rossa) la risposta del punto toccato, «Non entrare», come il sito: prima si
+                // sceglieva la ZTL sotto e la scheda diceva «Puoi entrare» verde sulla piazza disegnata rossa
+                if let area = store.pedestrianArea(at: tap) {
+                    withAnimation(.snappy) { store.select(Place(name: area.name, address: "", location: tap)) }
+                    return
                 }
+                // Le forme sono già ordinate dalla più grande: l'ultima che contiene il punto è la più piccola
+                guard let z = MapShapes.zones(store).last(where: { $0.zone.contains(c) })?.zone else { return }
+                tapped(z, lit: lit)
             }
         }
         // La legenda aperta si chiude con un tocco fuori (anche sulla mappa): questo velo trasparente prende quel tocco,
@@ -295,17 +318,46 @@ struct MapScreen: View {
         .safeAreaInset(edge: .bottom) {
             if !typing {
                 Group {
-                    if let check { placeSheet(check) } else { sheet(zone: zone, answer: answer) }
+                    if let check {
+                        // 2.0 (B64): con «Testo più grande» la scheda del posto scorre (prima «Naviga» e «Dettagli zona»
+                        // uscivano dallo schermo di un iPhone SE)
+                        if typeSize.isAccessibilitySize {
+                            ScrollView { placeSheet(check) }.frame(maxHeight: 380)
+                        } else {
+                            placeSheet(check)
+                        }
+                    } else { sheet(zone: zone, answer: answer) }
                 }
                 .readableFrame()
             }
         }
         .onAppear { search.focus(on: store.city) }
-        .onAppear { visible = true; focus() }
+        .onAppear { visible = true; clock = Date(); focus() }
         .onDisappear { visible = false }
+        // 2.0 (B15): a ogni minuto, se una risposta è cambiata (o almeno ogni 10 minuti), la mappa risponde per l'ora nuova
+        .task(id: visible) {
+            guard visible else { return }
+            while !Task.isCancelled {
+                let now = Date()
+                try? await Task.sleep(for: .seconds(60.5 - now.timeIntervalSinceReferenceDate.truncatingRemainder(dividingBy: 60)))
+                guard !Task.isCancelled else { return }
+                let fresh = Date()
+                let zones = MapShapes.visible(store, bucket: bucket, in: visibleBox, selected: store.zone.id).map(\.zone)
+                if fresh.timeIntervalSince(clock) >= 600
+                    || Self.signature(store, zones: zones, place: store.place, at: store.moment(clock))
+                        != Self.signature(store, zones: zones, place: store.place, at: store.moment(fresh)) {
+                    clock = fresh
+                }
+            }
+        }
+        .onChange(of: store.when) { clock = Date() }
         // 1.19.5: i suggerimenti della ricerca dalla città scelta anche quando cambia (prima solo all'apertura)
-        .onChange(of: store.cityId) { parkings = []; focus(); search.focus(on: store.city) }
+        .onChange(of: store.cityId) { parkings = []; resetParkingMessage(); focus(); search.focus(on: store.city) }
+        // 2.0 (B150): messaggio dei parcheggi e «Riprova» valgono per la zona di prima: si tolgono con le P
+        .onChange(of: store.zoneId) { parkings = []; resetParkingMessage() }
         .onChange(of: store.place) {
+            clock = Date()
+            resetParkingMessage()
             outsideSpots = []
             focus()
             if store.place != nil { MapSearchTip().invalidate(reason: .actionPerformed) }
@@ -319,6 +371,31 @@ struct MapScreen: View {
                 .ignoresSafeArea()
                 .presentationDetents([.medium, .large])
         }
+    }
+
+    /// «5 varchi · accesi ora», o con un'ora scelta «5 varchi · accesi · Domani 09:00» (2.0, B151)
+    static func gatesLine(on: Bool, count: Int, when: Date?, now: Date = Date()) -> String {
+        guard let when, when > now else { return String(format: L(on ? "%lld gates · on now" : "%lld gates · off now"), count) }
+        return String(format: L(on ? "%lld gates · on · %@" : "%lld gates · off · %@"), count, TimeChoice.label(when, now: now))
+    }
+
+    private func resetParkingMessage() {
+        parkingMessage = nil
+        parkingFailedZone = nil
+    }
+
+    /// 2.0 (B15): quello che la mappa mostra a quell'ora, in breve (risposta e varchi di ogni zona in vista, la parola del
+    /// posto scelto): se cambia da un minuto all'altro la mappa si ridisegna. Senza la cache (AccessCache tiene un minuto)
+    @MainActor static func signature(_ store: Store, zones: [Zone], place: Place?, at date: Date) -> [String] {
+        var out = zones.map { z -> String in
+            let a = store.answer(at: date, zone: z, hotelInside: false)
+            return "\(z.id)|\(a.gatesOn)|\(a.verdict.shown(unofficial: z.isUnofficial).symbol)"
+        }
+        if let place {
+            let c = PlaceCheck(place, store: store, at: date)
+            out.append("place|\(c.word.rawValue)|\(c.answer?.gatesOn ?? false)")
+        }
+        return out
     }
 
     /// La regione allargata verso nord quanto basta perché il posto stia almeno a «fraction» dell'altezza dal bordo alto:
@@ -346,6 +423,17 @@ struct MapScreen: View {
     private func isNear(_ p: CLLocationCoordinate2D) -> Bool {
         let c = center ?? store.city.center.cl
         return abs(p.latitude - c.latitude) < 0.08 && abs(p.longitude - c.longitude) < 0.11
+    }
+
+    /// Il tocco su una zona (segno o forma). 2.0 (B154): con un posto scelto, una zona che non è sua toglie il posto e
+    /// mostra la zona; una delle sue zone non cambia niente (prima la sceglieva di nascosto, anche per il widget)
+    private func tapped(_ z: Zone, lit: Set<String>) {
+        if store.place != nil {
+            guard !lit.contains(z.id) else { return }
+            withAnimation(.snappy) { store.place = nil; select(z) }
+        } else if z.id != store.zone.id {
+            withAnimation(.snappy) { select(z) }
+        }
     }
 
     private func select(_ z: Zone) {
@@ -447,7 +535,7 @@ struct MapScreen: View {
             if typing && !search.query.isEmpty {
                 suggestions
             } else if showLegend {
-                legend.transition(.opacity.combined(with: .move(edge: .top)))
+                legend.transition(reduceMotion ? .opacity : .opacity.combined(with: .move(edge: .top)))
             } else if store.place == nil {
                 // Le quattro risposte, in vista finché non c'è un posto scelto: un tocco apre la legenda intera.
                 // Con un posto (1.19.1) la riga sparisce: copriva l'etichetta del posto sulla mappa («Legenda» sopra
@@ -484,6 +572,8 @@ struct MapScreen: View {
             }
             legendRow(L("Camera gate"), GateMark(badge: MapTheme.badge(.closed)).scaleEffect(0.7))
             legendRow(L("Bus lane camera"), RoundedRectangle(cornerRadius: 3).fill(Theme.blueFill))
+            // 2.0 (B153): la telecamera delle aree pedonali (Firenze), come sulla mappa
+            legendRow(L("Pedestrian area camera"), RoundedRectangle(cornerRadius: 3).fill(Color(hex: MapTheme.pedestrianBadge.fill)))
         }
         .padding(14)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -535,12 +625,11 @@ struct MapScreen: View {
 
     private var suggestions: some View {
         VStack(alignment: .leading, spacing: 0) {
-            if search.results.isEmpty {
-                if search.failed {
-                    SearchFailedRow(dark: false) { search.retry() }
-                } else {
-                    Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
-                }
+            // 2.0 (B132): l'errore anche con i suggerimenti già in vista (il tocco su un suggerimento senza rete)
+            if search.failed {
+                SearchFailedRow(dark: false) { search.retry() }
+            } else if search.results.isEmpty {
+                Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
             }
             ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
                 Button { choose(r) } label: {
@@ -583,11 +672,14 @@ struct MapScreen: View {
         let answer = check.answer
         let here = GateMonitor.shared.location     // letta, non osservata: la mappa non si ridisegna a ogni passo
         let meters = here.map { CLLocation(latitude: place.location.lat, longitude: place.location.lon).distance(from: $0) }
+        // 2.0 (B64): ai tipi grandi la pillola va sotto il nome (prima il nome restava in 134 punti, «Palaz/zo V…»)
+        let row = typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(alignment: .leading, spacing: 8))
+                                               : AnyLayout(HStackLayout(alignment: .top, spacing: 12))
         return VStack(alignment: .leading, spacing: 12) {
-            HStack(alignment: .top, spacing: 12) {
+            row {
                 Image(systemName: "mappin.circle.fill").font(.app(size: 30)).foregroundStyle(check.tint)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(place.name).font(Theme.display(21)).lineLimit(2).foregroundStyle(Theme.ink)
+                    Text(place.name).font(Theme.display(21)).lineLimit(3).minimumScaleFactor(0.8).foregroundStyle(Theme.ink)
                     Text(check.zoneLine)
                         .font(.app(size: 14)).foregroundStyle(Theme.muted)
                 }
@@ -694,7 +786,8 @@ struct MapScreen: View {
                     }
                     HStack(spacing: 6) {
                         Circle().fill(zone.type.color).frame(width: 8, height: 8)
-                        Text("\(zone.type.title) · " + String(format: L(answer.gatesOn ? "%lld gates · on now" : "%lld gates · off now"), zone.gates.count))
+                        // 2.0 (B151): con un'ora scelta non «ora»: «accesi · Domani 09:00»
+                        Text("\(zone.type.title) · " + Self.gatesLine(on: answer.gatesOn, count: zone.gates.count, when: store.when))
                             .font(.app(size: 14)).foregroundStyle(Theme.muted)
                     }
                 }
@@ -1040,15 +1133,22 @@ extension Zone {
 /// Il riquadro sulla mappa scura: «ZTL ATTIVA · NON ENTRARE» o «FUORI DALLA ZTL», con la linea fino al posto
 private struct PlaceCallout: View {
     let check: PlaceCheck
+    @Environment(\.dynamicTypeSize) private var typeSize
     var body: some View {
+        // 2.0 (B121): le parole lunghe («CONTROLLA IL CARTELLO», «NON CONOSCIAMO QUESTO POSTO») e il testo grande vanno a
+        // capo dentro il riquadro (largo al massimo 236 punti), invece di uscire dal bordo e dallo schermo
+        let wraps = typeSize.isAccessibilitySize || check.callout.count > 18
         VStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 3) {
                 HStack(spacing: 6) {
                     Image(systemName: check.symbol).font(.system(size: 11, weight: .heavy))
-                    Text(check.callout.uppercased()).font(Theme.label(13)).tracking(1.1).lineLimit(1)
+                    Text(check.callout.uppercased()).font(Theme.label(13)).tracking(1.1)
+                        .lineLimit(wraps ? 2 : 1).minimumScaleFactor(0.7)
+                        .fixedSize(horizontal: false, vertical: wraps)
                 }
                 .foregroundStyle(check.neon)
-                .fixedSize()
+                .frame(idealWidth: wraps ? 236 : nil, maxWidth: wraps ? 236 : nil, alignment: .leading)
+                .fixedSize(horizontal: !wraps, vertical: false)
                 if check.unofficial {
                     Label(L("Unofficial source").uppercased(), systemImage: "exclamationmark.triangle.fill")
                         .font(Theme.label(11)).tracking(0.8).lineLimit(1)

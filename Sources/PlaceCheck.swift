@@ -26,7 +26,7 @@ struct PlaceCheck {
         let hits = store.zones(at: place.location)
         let pedestrian = store.pedestrianArea(at: place.location)
         // L'hotel registra la targa solo se il posto è il tuo hotel (1.19.0, niente più «hotelInside» nascosto)
-        let hotel = store.isHotel(place)
+        let hotel = store.isHotel(place, at: date)      // 2.0 (B43): solo vicino alle date del soggiorno
         self.init(place: place, hits: hits, pedestrian: pedestrian,
                   answers: hits.map { store.answer(at: date, zone: $0.zone, hotelInside: hotel) },
                   covered: !hits.isEmpty || pedestrian != nil || store.covers(place.location))

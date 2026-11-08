@@ -940,12 +940,35 @@ T = {
 "Data out of date": "Dane nieaktualne",
 "Holiday not confirmed": "Święto niepotwierdzone",
 "Euro class unknown": "Klasa Euro nieznana",
+# 2.0 «bug iPhone»
+"Highway Code, art. 7 (ZTL)": "Włoski kodeks drogowy, art. 7 (ZTL)",
+"Highway Code, art. 201 (notification)": "Włoski kodeks drogowy, art. 201 (doręczenie)",
+"Highway Code, art. 202 (payment)": "Włoski kodeks drogowy, art. 202 (płatność)",
+"Highway Code, art. 203 (appeal to the Prefetto)": "Włoski kodeks drogowy, art. 203 (odwołanie do Prefetto)",
+"Highway Code, art. 204-bis (Giudice di Pace)": "Włoski kodeks drogowy, art. 204-bis (Giudice di Pace)",
+"Edit %@": "Edytuj %@",
+"Waiting for GPS…": "Czekam na GPS…",
+"Location is off for GateLR, so the guardian can't warn you before a gate. Turn it on in Settings → GateLR → Location.": "Lokalizacja jest wyłączona dla GateLR: strażnik nie ostrzeże cię przed bramką. Włącz ją w Ustawienia → GateLR → Lokalizacja.",
+"With approximate location the guardian can't tell which gate is ahead. Turn on Precise Location in Settings → GateLR → Location.": "Przy przybliżonej lokalizacji strażnik nie wie, która bramka jest przed tobą. Włącz Dokładną lokalizację w Ustawienia → GateLR → Lokalizacja.",
+"Precise location is needed for the gates": "Do bramek potrzebna jest dokładna lokalizacja",
+"The hotel registers the plate of %@. For this vehicle, ask the hotel again.": "Hotel rejestruje tablicę pojazdu %@. Dla tego pojazdu poproś hotel ponownie.",
+"Pedestrian area camera": "Kamera strefy pieszej",
+"%lld gates · on · %@": "Bramki: %lld · włączone · %@",
+"%lld gates · off · %@": "Bramki: %lld · wyłączone · %@",
+"No known ZTL on the way: outside the cities we cover, check the signs.": "Brak znanych ZTL na trasie: poza obsługiwanymi miastami patrz na znaki.",
+"Notifications are off: turn them on in Settings": "Powiadomienia są wyłączone: włącz je w Ustawieniach",
+"In progress": "W trakcie",
+"Approximate location: search the address instead.": "Przybliżona lokalizacja: wyszukaj lepiej adres.",
+"Not updated: open GateLR": "Nieaktualne: otwórz GateLR",
+"Add your plate in Garage first.": "Najpierw dodaj tablicę rejestracyjną w Garażu.",
+"Navigate anyway": "Nawiguj mimo to",
 }
 
 INFO = {
     "NSLocationWhenInUseUsageDescription": "GateLR używa twojej lokalizacji na iPhonie, aby pokazać, które bramki ZTL są w pobliżu. GateLR jej nie zbiera.",
     "NSLocationAlwaysAndWhenInUseUsageDescription": "GateLR ostrzega cię przed bramką ZTL, gdy jedziesz z inną nawigacją i gdy aplikacja jest zamknięta. Lokalizacja jest używana na iPhonie; GateLR jej nie zbiera.",
     "NSCameraUsageDescription": "GateLR odczytuje na twoim iPhonie godziny z tablic ZTL, dowody rejestracyjne i mandaty, które fotografujesz. Zdjęcia nie są wysyłane.",
+    "GateLRGates": "GateLR potrzebuje dokładnej lokalizacji, by wiedzieć, która bramka ZTL jest przed tobą i czy jesteś w strefie.",
 }
 
 SHORTCUTS = {

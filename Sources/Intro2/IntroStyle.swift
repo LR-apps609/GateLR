@@ -1,8 +1,9 @@
 import SwiftUI
 
-// Prototipo della nuova presentazione (GateLR 2.0, direzione «Notte»): colori, caratteri e i due segni del marchio,
-// la barretta rossa e il pannello «VARCO» a matrice di punti che gira come un tabellone a palette.
-// Si vede solo avviando l'app con -intro2 (vedi RootView); la presentazione attuale resta quella di Onboarding.swift.
+// La presentazione di GateLR 2.0 (direzione «Notte»): colori, caratteri e i due segni del marchio, la barretta rossa e
+// il pannello «VARCO» a matrice di punti che gira come un tabellone a palette. È l'unica presentazione: si vede al primo
+// avvio e da Tu → Cosa sono le ZTL → «Rivedi la presentazione» (RootView, AppRouter.showIntroAtLaunch); -intro2 la
+// mostra sempre (video su GitHub). 2.0 (B133): la vecchia Onboarding.swift, mai usata, è stata tolta.
 
 /// -intro2Autoplay: la presentazione va avanti da sola con i tempi di una persona (per il video registrato su GitHub)
 enum IntroAutoplay {
@@ -24,7 +25,13 @@ enum Notte {
     static let chalk = Color(hex: 0xF4F1E8)
 
     /// Titillium Web (Resources/Fonts, OFL)
+    /// Cresce con «Testo più grande» fino a +30% (2.0, B38/B39: prima senza tetto)
     static func font(_ size: CGFloat, _ weight: Font.Weight = .regular) -> Font {
+        fixed(Theme.capped(size), weight)
+    }
+    /// 2.0 (B38): la misura già decisa (con il tetto fatto a mano), senza un'altra crescita con «Testo più grande»:
+    /// Font.custom(size:) ingrandiva di nuovo il valore già ingrandito (~178 punti ad AX5, «Non entr…»)
+    static func fixed(_ size: CGFloat, _ weight: Font.Weight = .regular) -> Font {
         let name: String
         switch weight {
         case .black, .heavy: name = "TitilliumWeb-Black"
@@ -32,10 +39,11 @@ enum Notte {
         case .semibold, .medium: name = "TitilliumWeb-SemiBold"
         default: name = "TitilliumWeb-Regular"
         }
-        return .custom(name, size: size).leading(.tight)
+        return .custom(name, fixedSize: size).leading(.tight)
     }
-    /// DotGothic16 (Resources/Fonts, OFL): il carattere a punti dei pannelli
-    static func dots(_ size: CGFloat) -> Font { .custom("DotGothic16-Regular", size: size) }
+    /// DotGothic16 (Resources/Fonts, OFL): il carattere a punti dei pannelli. 2.0 (B66): misura fissa: il pannello è un
+    /// disegno di misura fissa (VoiceOver legge già la sua etichetta); prima «NON ATTIVA» usciva dal pannello
+    static func dots(_ size: CGFloat) -> Font { .custom("DotGothic16-Regular", fixedSize: size) }
 }
 
 /// La barretta rossa del logo: sopra i titoli

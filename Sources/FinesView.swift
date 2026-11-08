@@ -16,12 +16,20 @@ struct DriveLogView: View {
     static func shareText(_ log: [LogEntry], plates: [String]) -> String {
         let all = plates + log.map(\.plate)
         return log.map { e -> String in
-            let when: String = e.date.formatted(date: .abbreviated, time: .shortened)
+            let when: String = Self.when(e.date)
             let what = e.kind == .entered ? L("Drove into the zone") : L("Near an active gate")
             let parts: [String?] = [when, e.zoneName, e.gateName, what, e.verdict]
             return PlatePrivacy.scrub(parts.compactMap { $0 }.joined(separator: " · "), plates: all)
         }.joined(separator: "\n")
     }
+
+    /// 2.0 (B78): data e ora in ora italiana, come sul verbale (prima nel fuso del telefono, senza dirlo)
+    static func when(_ date: Date) -> String {
+        RuleEngine.format(date, Date.FormatStyle(date: .abbreviated, time: .shortened)) + " " + L("(Italian time)")
+    }
+
+    /// 2.0 (B155): rosso solo per «Non entrare», ambra per il resto (prima il colore veniva dal tipo di riga)
+    static func tint(_ e: LogEntry) -> Color { e.isNo ? Theme.red : Theme.amberInk }
 
     var body: some View {
         List {
@@ -35,7 +43,7 @@ struct DriveLogView: View {
                                    title: "No gates on your way yet",
                                    text: "When the guardian or an alert sees an active gate, the time and place appear here.",
                                    action: "Try an alert", actionSymbol: "bell.badge") {
-                        GateMonitor.shared.sendTest(store: store)
+                        Task { await GateMonitor.shared.sendTest(store: store) }
                     }
                     .listRowBackground(Color.clear)
                 }
@@ -44,16 +52,16 @@ struct DriveLogView: View {
                     ForEach(store.log) { e in
                         HStack(alignment: .top, spacing: 12) {
                             Image(systemName: e.kind == .entered ? "exclamationmark.triangle.fill" : "video.fill")
-                                .foregroundStyle(e.kind == .entered ? Theme.red : Theme.amberInk)   // amberInk: leggibile anche in modalità scura
+                                .foregroundStyle(Self.tint(e))   // amberInk: leggibile anche in modalità scura
                                 .frame(width: 24)
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(e.zoneName).font(.app(size: 15, weight: .semibold))
-                                Text([e.date.formatted(.dateTime.weekday(.abbreviated).day().month().hour().minute()),
+                                Text([RuleEngine.format(e.date, .dateTime.weekday(.abbreviated).day().month().hour().minute()) + " " + L("(Italian time)"),
                                       e.gateName, e.plate.isEmpty ? nil : e.plate].compactMap { $0 }.joined(separator: " · "))
                                     .font(.app(size: 13)).foregroundStyle(Theme.muted)
                                 Text(e.kind == .entered ? L("Drove into the zone") + " · " + e.verdict : L("Near an active gate") + " · " + e.verdict)
                                     .font(.app(size: 13, weight: .medium))
-                                    .foregroundStyle(e.kind == .entered ? Theme.red : Theme.amberInk)
+                                    .foregroundStyle(Self.tint(e))
                             }
                         }
                     }

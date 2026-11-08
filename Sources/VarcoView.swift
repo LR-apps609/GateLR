@@ -26,6 +26,8 @@ struct VarcoView: View {
     @State private var driving = false
     /// 1.20.2: «Usa la mia posizione» toccato prima del permesso: la posizione si usa appena arriva
     @State private var wantsLocation = false
+    /// 2.0 (B27): «Usa la mia posizione» con la posizione approssimativa: si chiede di cercare l'indirizzo
+    @State private var approximateNote = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.requestReview) private var requestReview
 
@@ -41,6 +43,11 @@ struct VarcoView: View {
                     ContextChips(material: true)
                     GuardianBannerSlot()
                     searchField
+                    if approximateNote && store.place == nil {
+                        Label(L("Approximate location: search the address instead."), systemImage: "location.slash")
+                            .font(.app(size: 14, weight: .medium)).foregroundStyle(Notte.text)
+                            .accessibilityIdentifier("varco.approximate")
+                    }
                     if typing && !search.query.isEmpty {
                         suggestions
                     } else {
@@ -90,7 +97,8 @@ struct VarcoView: View {
     /// Il posto cercato; se non c'è, la tua posizione quando sei dentro una ZTL
     private var subject: Place? {
         if let p = store.place { return p }
-        guard let here = monitor.location else { return nil }
+        // 2.0 (B27): solo una posizione precisa (l'approssimativa può essere in un'altra zona)
+        guard let here = monitor.answerLocation else { return nil }
         let c = Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)
         guard !store.zones(at: c).isEmpty else { return nil }
         return Place(name: L("My position"), address: "", location: c)
@@ -234,9 +242,13 @@ struct VarcoView: View {
                     Image(systemName: "xmark.circle.fill").foregroundStyle(Notte.muted)
                 }
                 .accessibilityLabel(L("Clear"))
-            } else if monitor.location != nil || monitor.canAskLocation {
-                // 1.20.2: c'è anche senza permesso: il primo tocco è il momento in cui iOS chiede la posizione
-                Button { useMyLocation() } label: { Image(systemName: "location.fill").foregroundStyle(Notte.text) }
+            } else if monitor.location != nil || monitor.canAskLocation || monitor.locationDenied {
+                // 1.20.2: c'è anche senza permesso: il primo tocco è il momento in cui iOS chiede la posizione.
+                // 2.0 (B68): con la posizione negata resta, e porta alle Impostazioni di iOS
+                Button { useMyLocation() } label: {
+                    Image(systemName: monitor.locationDenied ? "location.slash" : "location.fill").foregroundStyle(Notte.text)
+                        .frame(minWidth: 44, minHeight: 44).contentShape(Rectangle())
+                }
                     .accessibilityLabel(L("Use my location"))
                     .accessibilityIdentifier("varco.locate")
             }
@@ -250,12 +262,11 @@ struct VarcoView: View {
 
     private var suggestions: some View {
         VStack(alignment: .leading, spacing: 0) {
-            if search.results.isEmpty {
-                if search.failed {
-                    SearchFailedRow(dark: true) { search.retry() }
-                } else {
-                    Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Notte.muted).padding(14)
-                }
+            // 2.0 (B132): l'errore anche con i suggerimenti già in vista (il tocco su un suggerimento senza rete)
+            if search.failed {
+                SearchFailedRow(dark: true) { search.retry() }
+            } else if search.results.isEmpty {
+                Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Notte.muted).padding(14)
             }
             ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
                 Button { choose(r) } label: {
@@ -294,6 +305,15 @@ struct VarcoView: View {
     private func useMyLocation() {
         // 1.20.2: senza permesso si chiede adesso (non più all'apertura dell'app); la risposta arriva con la posizione
         guard let here = monitor.location else { wantsLocation = true; monitor.askLocation(store: store); return }
+        // 2.0 (B27): approssimativa → la richiesta di precisione temporanea; se resta approssimativa, si cerca l'indirizzo
+        guard monitor.answerLocation != nil else {
+            Task {
+                await monitor.askPrecise()
+                if monitor.answerLocation == nil { approximateNote = true; typing = true }
+            }
+            return
+        }
+        approximateNote = false
         wantsLocation = false
         store.select(Place(name: L("My position"), address: "",
                            location: Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)))
@@ -318,7 +338,8 @@ struct VarcoView: View {
                 .accessibilityAddTraits(.isHeader)
                 .accessibilityIdentifier("varco.answer")
                 .id(a.headline)
-                .transition(.opacity.combined(with: .offset(y: 8)))
+                // 2.0 (B125): con «Riduci movimento» il titolo non scivola, si dissolve soltanto
+                .transition(reduceMotion ? .opacity : .opacity.combined(with: .offset(y: 8)))
             // La condizione (o il motivo del dubbio) subito sotto il titolo, in testo normale
             if let detail = a.detail {
                 Text(verbatim: detail)
@@ -584,7 +605,7 @@ struct VarcoView: View {
     /// Solo una riga: la ZTL vicino a te (o quella in cui sei), se adesso è attiva
     @ViewBuilder
     private func nearYou(at date: Date) -> some View {
-        if let here = monitor.location {
+        if let here = monitor.answerLocation {
             let c = Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)
             let inside = store.zones(at: c).first
             let near = store.nearestZone(to: c)
@@ -611,12 +632,15 @@ struct VarcoView: View {
     }
 
     /// Simbolo, testo e colore del riquadro del guardiano (testabile)
-    static func guardianLook(threat: Guardian.Threat?, resting: ThreatResting) -> (symbol: String, text: String, fill: Color) {
+    /// 2.0 (B13): «waiting»: acceso ma ancora senza una posizione precisa, neutro «In attesa del GPS…» (mai il riposo).
+    /// 2.0 (B67): l'ambra del riquadro è scura (#946600, 5:1 con il testo bianco; prima #B07A00, 3,7:1)
+    static func guardianLook(threat: Guardian.Threat?, resting: ThreatResting, waiting: Bool = false) -> (symbol: String, text: String, fill: Color) {
+        if waiting { return ("location.slash", L("Waiting for GPS…"), Color(hex: 0x3A4A6B)) }
         if let t = threat {
             let text = "\(t.candidate.pedestrian != nil ? t.zone.localizedName : t.zone.shortName) · \(DriveSession.distanceText(t.meters)) · \(t.spoken)"
             switch t.level {
             case .stop: return ("exclamationmark.shield.fill", text, Theme.red)
-            case .condition, .check, .clear: return ("shield.lefthalf.filled", text, Color(hex: 0xB07A00))
+            case .condition, .check, .clear: return ("shield.lefthalf.filled", text, Self.guardianAmber)
             }
         }
         switch resting {
@@ -625,6 +649,9 @@ struct VarcoView: View {
         case .unknownPlace: return ("shield", L("We don't know the ZTLs of this place"), Color(hex: 0x3A4A6B))
         }
     }
+
+    /// L'ambra scura dei riquadri con il testo bianco (B67: almeno 4,5:1)
+    static let guardianAmber = Color(hex: 0x946600)
 
     private func tripRow(_ t: Trip) -> some View {
         Button {
@@ -681,7 +708,7 @@ struct VarcoView: View {
 
     /// Titillium Web come i cartelli, che cresce con «Testo più grande» fino a +30% (come Font.app)
     static func font(_ size: CGFloat, _ weight: Font.Weight) -> Font {
-        Notte.font(min(size * 1.3, UIFontMetrics.default.scaledValue(for: size)), weight)
+        Notte.font(size, weight)       // 2.0 (B38): il tetto una volta sola (Notte.font), poi misura fissa
     }
 }
 
@@ -698,7 +725,7 @@ private struct GuardianBannerSlot: View {
     }
 
     private var banner: some View {
-        let look = VarcoView.guardianLook(threat: guardian.threat, resting: guardian.resting)
+        let look = VarcoView.guardianLook(threat: guardian.threat, resting: guardian.resting, waiting: guardian.waitingForFix)
         return HStack(spacing: 12) {
             Image(systemName: look.symbol).font(.app(size: 22, weight: .bold))
             VStack(alignment: .leading, spacing: 2) {

@@ -69,6 +69,8 @@ struct RootView: View {
     @State private var whatsNew = false
     @ObservedObject private var alerts = ThreatAlerts.shared
     @State private var driving = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         // Finché le città non sono pronte (si leggono in sottofondo) si vede la stessa schermata d'avvio di iOS
@@ -105,7 +107,8 @@ struct RootView: View {
             if let b = alerts.banner {
                 ThreatBannerView(banner: b, onTap: { alerts.openBanner() }, onClose: { alerts.dismissBanner() })
                     .padding(.top, 4)
-                    .transition(.move(edge: .top).combined(with: .opacity))
+                    // 2.0 (B125): con «Riduci movimento» solo una dissolvenza
+                    .transition(reduceMotion ? .opacity : .move(edge: .top).combined(with: .opacity))
             }
         }
         .animation(.snappy, value: alerts.banner)
@@ -130,6 +133,12 @@ struct RootView: View {
             .environmentObject(store)
         }
         .fullScreenCover(isPresented: $driving) { DriveView().environmentObject(store) }
+        // 2.0 (B13): il guardiano non è partito (o si è fermato) per la posizione negata o approssimativa
+        .modifier(GuardianNoticeAlert())
+        // 2.0 (B68): al ritorno dalle Impostazioni di iOS si rileggono i permessi (posizione e notifiche)
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active { Task { await GateMonitor.shared.refreshPermissions() } }
+        }
         .environmentObject(router)
         .tint(Theme.red)
         .sensoryFeedback(.selection, trigger: router.tab)
@@ -160,8 +169,8 @@ struct RootView: View {
                 whatsNew = true
             }
         }
-        // La presentazione 2.0: al primo avvio, poi solo se la chiedi. Alla fine parte la posizione (la richiesta di iOS
-        // arriva dopo la presentazione, non prima)
+        // La presentazione 2.0: al primo avvio, poi solo se la chiedi. Alla fine partono gli avvisi con i permessi già dati
+        // (nessuna richiesta di iOS all'apertura: le chiedono «Attiva gli avvisi», «Usa la mia posizione», guida e guardiano)
         .fullScreenCover(isPresented: $router.showIntro) {
             Intro2View {
                 router.showIntro = false
@@ -184,6 +193,26 @@ struct RootView: View {
         let config = UIImage.SymbolConfiguration(pointSize: 27, weight: .semibold)
         return UIImage(systemName: "map.fill", withConfiguration: config) ?? UIImage()
     }()
+}
+
+/// 2.0 (B13): «Serve la posizione precisa per i varchi», con «Apri Impostazioni» e, se il viaggio non era ancora
+/// partito, «Naviga comunque» (il navigatore senza guardiano). Osserva solo GuardianNotice, non il guardiano
+private struct GuardianNoticeAlert: ViewModifier {
+    @ObservedObject private var notice = GuardianNotice.shared
+
+    func body(content: Content) -> some View {
+        content.alert(L("Precise location is needed for the gates"),
+                      isPresented: Binding(get: { notice.pending != nil }, set: { if !$0 { notice.pending = nil } }),
+                      presenting: notice.pending) { p in
+            Button(L("Open Settings")) { notice.pending = nil; LocationGate.openSettings() }
+            if let navigator = p.navigator {
+                Button(L("Navigate anyway")) { notice.pending = nil; navigator.open(to: p.place) }
+            }
+            Button(L("Cancel"), role: .cancel) { notice.pending = nil }
+        } message: { p in
+            Text(verbatim: p.message)
+        }
+    }
 }
 
 /// La stessa schermata d'avvio di iOS (UILaunchScreen in project.yml): fondo blu e logo al centro

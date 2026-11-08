@@ -940,12 +940,35 @@ T = {
 "Data out of date": "数据已过期",
 "Holiday not confirmed": "节假日未确认",
 "Euro class unknown": "欧标等级未知",
+# 2.0 «bug iPhone»
+"Highway Code, art. 7 (ZTL)": "意大利道路交通法第 7 条（ZTL）",
+"Highway Code, art. 201 (notification)": "意大利道路交通法第 201 条（送达）",
+"Highway Code, art. 202 (payment)": "意大利道路交通法第 202 条（缴款）",
+"Highway Code, art. 203 (appeal to the Prefetto)": "意大利道路交通法第 203 条（向省长 Prefetto 申诉）",
+"Highway Code, art. 204-bis (Giudice di Pace)": "意大利道路交通法第 204-bis 条（治安法官 Giudice di Pace）",
+"Edit %@": "编辑 %@",
+"Waiting for GPS…": "正在等待 GPS…",
+"Location is off for GateLR, so the guardian can't warn you before a gate. Turn it on in Settings → GateLR → Location.": "GateLR 的定位已关闭，守护无法在入口前提醒你。请在“设置 → GateLR → 位置”中打开。",
+"With approximate location the guardian can't tell which gate is ahead. Turn on Precise Location in Settings → GateLR → Location.": "使用大致位置时，守护无法判断前方是哪个入口。请在“设置 → GateLR → 位置”中打开“精确位置”。",
+"Precise location is needed for the gates": "入口提醒需要精确位置",
+"The hotel registers the plate of %@. For this vehicle, ask the hotel again.": "酒店登记的是 %@ 的车牌。这辆车请再向酒店申请一次。",
+"Pedestrian area camera": "步行区摄像头",
+"%lld gates · on · %@": "%lld 个入口 · 开启 · %@",
+"%lld gates · off · %@": "%lld 个入口 · 关闭 · %@",
+"No known ZTL on the way: outside the cities we cover, check the signs.": "路线上没有已知的 ZTL：在覆盖城市之外，请留意路标。",
+"Notifications are off: turn them on in Settings": "通知已关闭：请在“设置”中打开",
+"In progress": "进行中",
+"Approximate location: search the address instead.": "位置为大致位置：请改为搜索地址。",
+"Not updated: open GateLR": "未更新：请打开 GateLR",
+"Add your plate in Garage first.": "请先在车库中添加车牌。",
+"Navigate anyway": "仍然导航",
 }
 
 INFO = {
     "NSLocationWhenInUseUsageDescription": "GateLR 在你的 iPhone 上使用你的位置，告诉你附近有哪些 ZTL 入口。GateLR 不收集它。",
     "NSLocationAlwaysAndWhenInUseUsageDescription": "当你使用其他导航驾驶或应用关闭时，GateLR 会在 ZTL 入口前提醒你。位置在 iPhone 上使用；GateLR 不收集它。",
     "NSCameraUsageDescription": "GateLR 在你的 iPhone 上读取你拍摄的 ZTL 牌子上的时间、行驶证和罚单。照片不会上传。",
+    "GateLRGates": "GateLR 需要你的精确位置，才能判断前方是哪个 ZTL 入口，以及你是否在区域内。",
 }
 
 SHORTCUTS = {

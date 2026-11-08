@@ -52,29 +52,49 @@ struct DriveLiveActivity: Widget {
         }
     }
 
+    /// 2.0 (B73): il fondo dell'avviso: rosso per «no» (e per gli avvisi della guida senza livello), ambra per «cond»
+    static func warningFill(_ s: DriveAttributes.ContentState) -> Color { s.level == "cond" ? amber : red }
+    static func warningInk(_ s: DriveAttributes.ContentState) -> Color { s.level == "cond" ? Color(hex: 0x1B2128) : .white }
+    /// Il testo dell'avviso sul fondo scuro dell'isola espansa
+    static func warningText(_ s: DriveAttributes.ContentState) -> Color { s.level == "cond" ? amber : Color(hex: 0xFF4D52) }
+
+    /// 2.0 (B34): una Live Activity non più aggiornata (oltre la staleDate: GPS perso, app chiusa da iOS) si mostra
+    /// vecchia: neutra, senza avviso né distanza, con «Non aggiornato: apri GateLR». Mai verde congelata
+    static func shown(_ s: DriveAttributes.ContentState, stale: Bool) -> DriveAttributes.ContentState {
+        guard stale else { return s }
+        var out = s
+        out.level = "none"; out.warning = nil; out.distance = ""; out.eta = nil; out.symbol = "shield"
+        out.instruction = L("Not updated: open GateLR")
+        return out
+    }
+
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: DriveAttributes.self) { context in
+            let s = Self.shown(context.state, stale: context.isStale)
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 12) {
-                    Image(systemName: context.state.symbol).font(.system(size: 30, weight: .bold))
+                    Image(systemName: s.symbol).font(.system(size: 30, weight: .bold))
                         .frame(width: 44)
                     VStack(alignment: .leading, spacing: 1) {
-                        Text(context.state.distance).font(.system(size: 24, weight: .bold)).monospacedDigit()
-                        Text(context.state.instruction).font(.system(size: 15, weight: .semibold)).lineLimit(2)
+                        Text(s.distance).font(.system(size: 24, weight: .bold)).monospacedDigit()
+                        Text(s.instruction).font(.system(size: 15, weight: .semibold)).lineLimit(2)
                     }
                     Spacer(minLength: 0)
-                    if let eta = context.state.eta {
+                    if let eta = s.eta {
                         VStack(alignment: .trailing, spacing: 1) {
                             Text(eta, style: .time).font(.system(size: 17, weight: .bold)).monospacedDigit()
                             Text(context.attributes.destination).font(.system(size: 12)).lineLimit(1).opacity(0.85)
                         }
                     }
                 }
-                if let w = context.state.warning {
+                if let w = s.warning {
+                    // 2.0 (B73): la capsula del colore della risposta: rossa solo per «Non entrare», gialla con il testo
+                    // scuro per condizioni, «Controlla il cartello» e fonte non ufficiale (prima sempre rossa)
                     Label(w, systemImage: "exclamationmark.triangle.fill")
                         .font(.system(size: 14, weight: .bold))
                         .padding(.horizontal, 10).padding(.vertical, 6)
-                        .background(Self.red, in: Capsule())
+                        .background(Self.warningFill(s), in: Capsule())
+                        .foregroundStyle(Self.warningInk(s))
                 }
             }
             .foregroundStyle(.white)
@@ -82,40 +102,41 @@ struct DriveLiveActivity: Widget {
             .activityBackgroundTint(Self.blue)
             .activitySystemActionForegroundColor(.white)
         } dynamicIsland: { context in
-            DynamicIsland {
+            let s = Self.shown(context.state, stale: context.isStale)
+            return DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    Image(systemName: context.state.level == nil ? context.state.symbol : Self.shield(context.state))
-                        .font(.system(size: 28, weight: .bold)).foregroundStyle(context.state.level == nil ? .white : Self.tint(context.state))
+                    Image(systemName: s.level == nil ? s.symbol : Self.shield(s))
+                        .font(.system(size: 28, weight: .bold)).foregroundStyle(s.level == nil ? .white : Self.tint(s))
                         .padding(.leading, 4)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text(context.state.distance).font(.system(size: 22, weight: .bold)).monospacedDigit()
+                    Text(s.distance).font(.system(size: 22, weight: .bold)).monospacedDigit()
                 }
                 DynamicIslandExpandedRegion(.bottom) {
                     VStack(alignment: .leading, spacing: 6) {
-                        Text(context.state.instruction).font(.system(size: 15, weight: .semibold)).lineLimit(2)
-                        if let w = context.state.warning {
+                        Text(s.instruction).font(.system(size: 15, weight: .semibold)).lineLimit(2)
+                        if let w = s.warning {
                             Label(w, systemImage: "exclamationmark.triangle.fill")
-                                .font(.system(size: 13, weight: .bold)).foregroundStyle(Self.red)
+                                .font(.system(size: 13, weight: .bold)).foregroundStyle(Self.warningText(s))
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
             } compactLeading: {
                 // Lo scudo di GateLR colorato come la risposta: si riconosce anche accanto ad Apple Maps
-                Image(systemName: Self.shield(context.state)).foregroundStyle(Self.tint(context.state))
+                Image(systemName: Self.shield(s)).foregroundStyle(Self.tint(s))
             } compactTrailing: {
-                if context.state.distance.isEmpty {
-                    Text(verbatim: Self.idleMark(context.state)).font(.system(size: 13, weight: .bold)).foregroundStyle(Self.tint(context.state))
+                if s.distance.isEmpty {
+                    Text(verbatim: Self.idleMark(s)).font(.system(size: 13, weight: .bold)).foregroundStyle(Self.tint(s))
                 } else {
-                    Text(context.state.distance).font(.system(size: 13, weight: .semibold)).monospacedDigit()
-                        .foregroundStyle(Self.tint(context.state))
+                    Text(s.distance).font(.system(size: 13, weight: .semibold)).monospacedDigit()
+                        .foregroundStyle(Self.tint(s))
                 }
             } minimal: {
                 // Quando un'altra app (es. Apple Maps) occupa l'isola, resta questo pallino
-                Image(systemName: Self.shield(context.state)).foregroundStyle(Self.tint(context.state))
+                Image(systemName: Self.shield(s)).foregroundStyle(Self.tint(s))
             }
-            .keylineTint(Self.tint(context.state))
+            .keylineTint(Self.tint(s))
             .widgetURL(URL(string: "gatelr://varco"))
         }
     }

@@ -69,15 +69,20 @@ struct NearbyZTLIntent: AppIntent {
     /// La posizione: quella che GateLR sta già seguendo, oppure una nuova lettura veloce
     @MainActor
     static func location() async -> Coordinate? {
-        if let h = Guardian.shared.here ?? DriveSession.shared.here { return h }
-        if let l = CLLocationManager().location, l.timestamp.timeIntervalSinceNow > -120 {
+        // 2.0 (B75): la posizione del guardiano o della guida solo se sono accesi (azzerata quando si fermano)
+        if Guardian.shared.active, let h = Guardian.shared.here { return h }
+        if DriveSession.shared.active, let h = DriveSession.shared.here { return h }
+        // 2.0 (B27): mai una posizione approssimativa (può essere a chilometri: la risposta di un'altra zona)
+        let manager = CLLocationManager()
+        guard manager.accuracyAuthorization == .fullAccuracy else { return nil }
+        if let l = manager.location, LocationGate.usable(l, accuracy: manager.accuracyAuthorization) {
             return Coordinate(lat: l.coordinate.latitude, lon: l.coordinate.longitude)
         }
         return await withTaskGroup(of: Coordinate?.self) { group in
             group.addTask {
                 do {
                     for try await u in CLLocationUpdate.liveUpdates() {
-                        if let l = u.location, l.horizontalAccuracy < 200 { return Coordinate(lat: l.coordinate.latitude, lon: l.coordinate.longitude) }
+                        if let l = u.location, l.horizontalAccuracy >= 0, l.horizontalAccuracy <= LocationGate.answerAccuracy { return Coordinate(lat: l.coordinate.latitude, lon: l.coordinate.longitude) }
                     }
                 } catch {}
                 return nil

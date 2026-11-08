@@ -490,7 +490,7 @@ struct ParkOutsideCard: View {
     @State private var attempt = 0
 
     private var key: String {
-        "\(destination.key)|\(Int(arrival.timeIntervalSinceReferenceDate / 300))|\(store.vehicle.id)|\(store.vehicle.fuel.rawValue)\(store.vehicle.euro)|\(attempt)"
+        "\(destination.key)|\(Int(arrival.timeIntervalSinceReferenceDate / 300))|\(AccessCache.vehicleKey(store.vehicle))|\(attempt)"
     }
 
     var body: some View {

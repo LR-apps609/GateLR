@@ -14,6 +14,9 @@ struct RoutePlan: Equatable {
     var crossings: [RouteCrossing]
     var parking: Place?            // dove lasciare l'auto se non si può entrare
     var walkMeters: Double?        // dal parcheggio alla destinazione, in linea d'aria
+    /// 2.0 (B30): tutto il percorso passa per città che conosciamo. Se no «Nessuna ZTL sul percorso» non si può dire
+    /// (in verde): fuori dalle città coperte le ZTL non le conosciamo
+    var covered = true
 
     var arrival: Date { departure.addingTimeInterval(travelTime) }
     var worst: RouteCrossing? { RouteCheck.worst(crossings) }
@@ -63,12 +66,14 @@ final class RoutePlanner: ObservableObject {
             let path = RouteCheck.densify(raw)
             let departure = Self.departure(arriving: wanted, travelTime: route.expectedTravelTime)
             let zones = store.cities.flatMap(\.zones)
+            // 2.0 (B134): la zona della meta con l'hotel, se la meta è il tuo hotel (come la risposta e il guardiano): prima
+            // l'hotel giallo «a una condizione» era chiuso qui e si finiva al parcheggio
             let crossings = RouteCheck.crossings(path: path, zones: zones, pedestrian: store.cities.flatMap { $0.pedestrian ?? [] },
-                                                 departure: departure, travelTime: route.expectedTravelTime) {
-                store.answer(at: $1, zone: $0, hotelInside: false)
+                                                 departure: departure, travelTime: route.expectedTravelTime) { zone, at in
+                store.answer(at: at, zone: zone, hotelInside: Self.hotelInside(zone, place: place, at: at, store: store))
             }
             var plan = RoutePlan(destination: place, path: raw, distance: route.distance, travelTime: route.expectedTravelTime,
-                                 departure: departure, crossings: crossings)
+                                 departure: departure, crossings: crossings, covered: Self.covered(raw, cities: store.cities))
             if plan.destinationBlocked,
                let parking = await Self.parkingOutside(near: place, store: store, at: plan.arrival) {
                 plan.parking = parking
@@ -80,6 +85,18 @@ final class RoutePlanner: ObservableObject {
             self.error = origin == nil ? L("Couldn't find your position. Allow location access to plan the drive.")
                                        : L("Couldn't plan the drive right now. Check your connection.")
         }
+    }
+
+    /// L'hotel vale solo per la zona che contiene la meta, e solo se la meta è il tuo hotel a quell'ora
+    static func hotelInside(_ zone: Zone, place: Place, at date: Date, store: Store) -> Bool {
+        zone.contains(lat: place.location.lat, lon: place.location.lon) && store.isHotel(place, at: date)
+    }
+
+    /// 2.0 (B30): ogni punto del percorso (uno ogni 10, più l'ultimo) in una città che conosciamo
+    nonisolated static func covered(_ path: [Coordinate], cities: [City]) -> Bool {
+        guard !path.isEmpty else { return false }
+        let sample = stride(from: 0, to: path.count, by: 10).map { path[$0] } + [path[path.count - 1]]
+        return sample.allSatisfy { Store.covers($0, in: cities) }
     }
 
     /// Quando si parte: adesso, o in tempo per arrivare all'ora chiesta. Mai nel passato: con un arrivo troppo
@@ -181,7 +198,12 @@ struct RouteCard: View {
                 Text(String(format: L("Arrive %@"), RuleEngine.format(plan.arrival, .init(date: .omitted, time: .shortened))))
                     .font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.muted)
             }
-            if plan.crossings.isEmpty {
+            if plan.crossings.isEmpty && !plan.covered {
+                // 2.0 (B30): fuori dalle città coperte: neutro, mai il verde (Venezia, sotto «Non conosciamo le ZTL…»)
+                Label("No known ZTL on the way: outside the cities we cover, check the signs.", systemImage: "questionmark.circle")
+                    .font(.app(size: 15, weight: .semibold)).foregroundStyle(Theme.muted)
+                    .fixedSize(horizontal: false, vertical: true)
+            } else if plan.crossings.isEmpty {
                 Label("No ZTL on the way.", systemImage: "checkmark.circle.fill")
                     .font(.app(size: 15, weight: .semibold)).foregroundStyle(Theme.greenInk)
             } else {

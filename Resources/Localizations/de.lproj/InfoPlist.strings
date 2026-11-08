@@ -2,3 +2,4 @@
 "NSLocationWhenInUseUsageDescription" = "GateLR nutzt deinen Standort auf dem iPhone, um dir die ZTL-Einfahrten in deiner Nähe zu zeigen. GateLR sammelt ihn nicht.";
 "NSLocationAlwaysAndWhenInUseUsageDescription" = "GateLR warnt dich vor einer ZTL-Einfahrt, während du mit einem anderen Navi fährst, und wenn die App geschlossen ist. Der Standort wird auf dem iPhone genutzt; GateLR sammelt ihn nicht.";
 "NSCameraUsageDescription" = "GateLR liest auf deinem iPhone die Zeiten auf ZTL-Tafeln, Fahrzeugscheine und Bußgeldbescheide, die du fotografierst. Die Fotos werden nicht hochgeladen.";
+"GateLRGates" = "GateLR braucht deinen genauen Standort, um zu erkennen, welche ZTL-Einfahrt vor dir liegt und ob du in einer Zone bist.";

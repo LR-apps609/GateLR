@@ -146,7 +146,7 @@ T = {
 "Map style": ("Stile della mappa", "Kartenstil"), "Hybrid": ("Ibrida", "Hybrid"), "Satellite": ("Satellite", "Satellit"),
 "3D buildings": ("Edifici in 3D", "3D-Gebäude"), "Street view": ("Vista strada", "Straßenansicht"),
 "No street view here. Try another spot.": ("Qui non c'è la vista strada. Prova un altro punto.", "Hier gibt es keine Straßenansicht. Versuch eine andere Stelle."),
-"%lld gates · on now": ("%lld varchi · accesi ora", "%lld Kameras · jetzt aktiv"), "%lld gates · off now": ("%lld varchi · spenti ora", "%lld Kameras · jetzt aus"),
+"%lld gates · on now": ("%lld varchi · accesi ora", "%lld Einfahrten · jetzt aktiv"), "%lld gates · off now": ("%lld varchi · spenti ora", "%lld Einfahrten · jetzt aus"),
 "%lld car parks outside the ZTL. Tap a P for directions.": ("%lld parcheggi fuori dalla ZTL. Tocca una P per le indicazioni.", "%lld Parkplätze außerhalb der ZTL. Tippe auf ein P für die Route."),
 "Car park": ("Parcheggio", "Parkhaus"),
 # Scheda zona
@@ -340,8 +340,8 @@ T = {
 "No ZTL within 5 km of you.": ("Nessuna ZTL nel raggio di 5 km.", "Keine ZTL im Umkreis von 5 km."),
 "You're inside %@: %@.": ("Sei dentro %@: %@.", "Du bist in %@: %@."),
 "%@ is %@ away: %@.": ("%@ è a %@: %@.", "%@ ist %@ entfernt: %@."),
-"The gates switch off %@.": ("I varchi si spengono %@.", "Die Tore schalten sich %@ ab."),
-"The gates switch on %@.": ("I varchi si accendono %@.", "Die Tore schalten sich %@ ein."),
+"The gates switch off %@.": ("I varchi si spengono %@.", "Die Einfahrten schalten sich %@ ab."),
+"The gates switch on %@.": ("I varchi si accendono %@.", "Die Einfahrten schalten sich %@ ein."),
 "Tells you the nearest ZTL, how far it is and whether you can drive in now.": ("Ti dice la ZTL più vicina, a che distanza è e se adesso puoi entrare.", "Sagt dir die nächste ZTL, wie weit sie ist und ob du jetzt einfahren darfst."),
 "ZTL near me": ("ZTL vicine", "ZTL in der Nähe"),
 "Always use %@?": ("Usare sempre %@?", "Immer %@ verwenden?"),
@@ -589,7 +589,7 @@ T = {
 'No text found in this photo. Try again with more light, the document flat and filling the frame.': ("Nessun testo in questa foto. Riprova con più luce, il documento ben disteso e grande nell'inquadratura.", 'Kein Text auf diesem Foto. Versuch es noch einmal mit mehr Licht, das Dokument flach und bildfüllend.'),
 'Time not found: set it as written on the notice.': ('Ora non trovata: impostala come scritta sul verbale.', 'Uhrzeit nicht gefunden: stell sie so ein, wie sie im Bescheid steht.'),
 'Add the date and time of the violation': ('Aggiungi data e ora della violazione', 'Datum und Uhrzeit des Verstoßes hinzufügen'),
-'Gate or street': ('Varco o via', 'Tor oder Straße'),
+'Gate or street': ('Varco o via', 'Einfahrt oder Straße'),
 'e.g. Via Cavour': ('es. Via Cavour', 'z. B. Via Cavour'),
 'City': ('Città', 'Stadt'),
 'Amount': ('Importo', 'Betrag'),
@@ -840,6 +840,28 @@ T = {
 "Data out of date": ("Dati scaduti", "Daten veraltet"),
 "Holiday not confirmed": ("Festivo da confermare", "Feiertag unbestätigt"),
 "Euro class unknown": ("Classe Euro da sapere", "Euro-Klasse unbekannt"),
+# 2.0 «bug iPhone»: posizione precisa, guardiano, notifiche spente, hotel, mappa, diario, verbale
+"Highway Code, art. 7 (ZTL)": ("Codice della Strada, art. 7 (ZTL)", "Italienische Straßenverkehrsordnung, Art. 7 (ZTL)"),
+"Highway Code, art. 201 (notification)": ("Codice della Strada, art. 201 (notifica)", "Italienische Straßenverkehrsordnung, Art. 201 (Zustellung)"),
+"Highway Code, art. 202 (payment)": ("Codice della Strada, art. 202 (pagamento)", "Italienische Straßenverkehrsordnung, Art. 202 (Zahlung)"),
+"Highway Code, art. 203 (appeal to the Prefetto)": ("Codice della Strada, art. 203 (ricorso al Prefetto)", "Italienische Straßenverkehrsordnung, Art. 203 (Einspruch beim Prefetto)"),
+"Highway Code, art. 204-bis (Giudice di Pace)": ("Codice della Strada, art. 204-bis (Giudice di Pace)", "Italienische Straßenverkehrsordnung, Art. 204-bis (Giudice di Pace)"),
+"Edit %@": ("Modifica %@", "%@ bearbeiten"),
+"Waiting for GPS…": ("In attesa del GPS…", "Warte auf GPS…"),
+"Location is off for GateLR, so the guardian can't warn you before a gate. Turn it on in Settings → GateLR → Location.": ("La posizione è spenta per GateLR: il guardiano non può avvisarti prima di un varco. Attivala in Impostazioni → GateLR → Posizione.", "Der Standort ist für GateLR aus: Der Wächter kann dich nicht vor einer Einfahrt warnen. Schalte ihn ein unter Einstellungen → GateLR → Standort."),
+"With approximate location the guardian can't tell which gate is ahead. Turn on Precise Location in Settings → GateLR → Location.": ("Con la posizione approssimativa il guardiano non sa quale varco hai davanti. Attiva Posizione esatta in Impostazioni → GateLR → Posizione.", "Mit ungefährem Standort weiß der Wächter nicht, welche Einfahrt vor dir liegt. Schalte „Genauer Standort“ ein unter Einstellungen → GateLR → Standort."),
+"Precise location is needed for the gates": ("Serve la posizione esatta per i varchi", "Für die Einfahrten braucht es den genauen Standort"),
+"The hotel registers the plate of %@. For this vehicle, ask the hotel again.": ("L'hotel registra la targa di %@. Per questo veicolo chiedilo di nuovo all'hotel.", "Das Hotel meldet das Kennzeichen von %@ an. Für dieses Fahrzeug frag das Hotel noch einmal."),
+"Pedestrian area camera": ("Telecamera dell'area pedonale", "Kamera der Fußgängerzone"),
+"%lld gates · on · %@": ("%lld varchi · accesi · %@", "%lld Einfahrten · aktiv · %@"),
+"%lld gates · off · %@": ("%lld varchi · spenti · %@", "%lld Einfahrten · aus · %@"),
+"No known ZTL on the way: outside the cities we cover, check the signs.": ("Nessuna ZTL conosciuta sul percorso: fuori dalle città coperte controlla i cartelli.", "Keine bekannte ZTL auf dem Weg: außerhalb der abgedeckten Städte achte auf die Schilder."),
+"Notifications are off: turn them on in Settings": ("Le notifiche sono spente: attivale nelle Impostazioni", "Mitteilungen sind aus: schalte sie in den Einstellungen ein"),
+"In progress": ("In corso", "Läuft"),
+"Approximate location: search the address instead.": ("Posizione approssimativa: cerca l'indirizzo.", "Ungefährer Standort: such lieber die Adresse."),
+"Not updated: open GateLR": ("Non aggiornato: apri GateLR", "Nicht aktuell: öffne GateLR"),
+"Add your plate in Garage first.": ("Prima aggiungi la targa nel Garage.", "Trage zuerst dein Kennzeichen in der Garage ein."),
+"Navigate anyway": ("Naviga comunque", "Trotzdem navigieren"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
@@ -853,6 +875,7 @@ INFO = {
     "NSLocationWhenInUseUsageDescription": ("GateLR usa la tua posizione sull'iPhone per dirti quali varchi ZTL hai vicino. GateLR non la raccoglie.", "GateLR nutzt deinen Standort auf dem iPhone, um dir die ZTL-Einfahrten in deiner Nähe zu zeigen. GateLR sammelt ihn nicht."),
     "NSLocationAlwaysAndWhenInUseUsageDescription": ("GateLR ti avvisa prima di un varco ZTL mentre guidi con un altro navigatore e quando l'app è chiusa. La posizione è usata sull'iPhone; GateLR non la raccoglie.", "GateLR warnt dich vor einer ZTL-Einfahrt, während du mit einem anderen Navi fährst, und wenn die App geschlossen ist. Der Standort wird auf dem iPhone genutzt; GateLR sammelt ihn nicht."),
     "NSCameraUsageDescription": ("GateLR legge sul tuo iPhone gli orari dei pannelli ZTL, i libretti e i verbali che fotografi. Le foto non vengono caricate.", "GateLR liest auf deinem iPhone die Zeiten auf ZTL-Tafeln, Fahrzeugscheine und Bußgeldbescheide, die du fotografierst. Die Fotos werden nicht hochgeladen."),
+    "GateLRGates": ("GateLR ha bisogno della posizione esatta per capire quale varco ZTL hai davanti e se sei dentro una zona.", "GateLR braucht deinen genauen Standort, um zu erkennen, welche ZTL-Einfahrt vor dir liegt und ob du in einer Zone bist."),
 }
 for i, code in enumerate(["it", "de"]):
     lines = [f'"{k}" = "{esc(v[i])}";' for k, v in INFO.items()]
@@ -864,7 +887,6 @@ ANDROID = {
 "Activate it before you drive in.": ("Attivalo prima di entrare.", "Vor der Einfahrt aktivieren."),
 "Activate it by midnight of the next day.": ("Attivalo entro la mezzanotte del giorno dopo.", "Bis Mitternacht des Folgetags aktivieren."),
 "Add a car": ("Aggiungi un'auto", "Auto hinzufügen"),
-"Add your plate in Garage first.": ("Prima aggiungi la targa nel Garage.", "Trage zuerst dein Kennzeichen in der Garage ein."),
 "Allow «Display over other apps»": ("Consenti «Mostra sopra altre app»", "«Über anderen Apps einblenden» erlauben"),
 "Arriving %@": ("Arrivo %@", "Ankunft %@"),
 "Battery: if alerts stop, set GateLR to «Unrestricted» in the battery settings.": ("Batteria: se gli avvisi si fermano, imposta GateLR su «Senza restrizioni» nelle impostazioni della batteria.", "Akku: Wenn Hinweise ausbleiben, stelle GateLR in den Akku-Einstellungen auf «Nicht eingeschränkt»."),
@@ -922,7 +944,6 @@ ANDROID = {
 # 1.19.5: ricerca senza risposta
 "Try again": ("Riprova", "Nochmal versuchen"),
 # 2.0 «Android alla pari»
-"Navigate anyway": ("Naviga comunque", "Trotzdem navigieren"),
 "Garage and settings": ("Garage e impostazioni", "Garage und Einstellungen"),
 "Share the answer": ("Condividi la risposta", "Antwort teilen"),
 "The panel will say ZTL ATTIVA: that's fine for you.": ("Il pannello dirà ZTL ATTIVA: per te va bene.", "Die Tafel zeigt ZTL ATTIVA: für dich ist das in Ordnung."),

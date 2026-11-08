@@ -90,13 +90,15 @@ enum FineReader {
         return .other
     }
 
-    /// L'ora vicino alla data: «alle ore 10:32», «ora: 10.32», «- 10:32:15», o «ore 10:32 del» prima della data
+    /// L'ora vicino alla data: «alle ore 10:32», «ora: 10.32», «- 10:32:15», o «ore 10:32 del» prima della data.
+    /// 2.0 (B44): anche «ALLE 23:40» e l'ora col punto subito dopo la data («DATA E ORA: 12.07.2026 23.40»)
     static func time(near hit: DocumentText.DateHit, in ns: NSString) -> (Int, Int)? {
         let after = ns.substring(with: NSRange(location: hit.end, length: min(45, ns.length - hit.end)))
         let before = ns.substring(with: NSRange(location: max(0, hit.location - 40), length: min(40, hit.location)))
         let patterns: [(String, String)] = [
-            (after, #"^[^0-9]{0,30}?(?<![A-Z])(?:ORE|ORA|H)(?![A-Z])[^0-9]{0,15}?([0-2]?[0-9])\s?[:.,]\s?([0-5][0-9])"#),
+            (after, #"^[^0-9]{0,30}?(?<![A-Z])(?:ORE|ORA|H|ALLE)(?![A-Z])[^0-9]{0,15}?([0-2]?[0-9])\s?[:.,]\s?([0-5][0-9])"#),
             (after, #"^\s*[-,]?\s*([0-2]?[0-9]):([0-5][0-9])"#),
+            (after, #"^\s*[-,]?\s*([0-2]?[0-9])\.([0-5][0-9])(?![0-9.])"#),
             (before, #"(?<![A-Z])(?:ORE|ORA)(?![A-Z])\s*:?\s*([0-2]?[0-9])\s?[:.,]\s?([0-5][0-9])[^0-9]{0,30}$"#),
         ]
         for (s, p) in patterns {
@@ -249,6 +251,15 @@ enum FineCheck {
     }
 
     enum Status: Equatable { case active, inactive, unsure }
+
+    /// 2.0 (B44): l'ora della violazione è nota: letta dal verbale, o scritta a mano (l'ora del selettore non è più le
+    /// 12:00 di ripiego). Senza ora letta e con le 12:00 (anche cambiando solo la data) no: nessun esito sugli orari
+    static func timeKnown(read: FineReader.Notice, chosen: Date, calendar: Calendar = RuleEngine.rome) -> Bool {
+        if read.violationHasTime { return true }
+        guard let v = read.violation else { return true }       // data e ora messe a mano, nessuna lettura
+        let a = calendar.dateComponents([.hour, .minute], from: v), b = calendar.dateComponents([.hour, .minute], from: chosen)
+        return a.hour != b.hour || a.minute != b.minute
+    }
 
     static let stopwords: Set<String> = [
         "VIA", "VIALE", "PIAZZA", "PIAZZALE", "LARGO", "CORSO", "BORGO", "VICOLO", "LUNGARNO", "LUNGOTEVERE", "PONTE", "PORTA", "STRADA",
@@ -412,13 +423,14 @@ enum FineCheck {
         URL(string: "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art" + article)!
     }
 
-    static let references: [(String, URL)] = [
-        ("Codice della Strada, art. 7 (ZTL)", law("7")),
-        ("Codice della Strada, art. 201 (notifica)", law("201")),
-        ("Codice della Strada, art. 202 (pagamento)", law("202")),
-        ("Codice della Strada, art. 203 (ricorso al Prefetto)", law("203")),
-        ("Codice della Strada, art. 204-bis (Giudice di Pace)", law("204bis")),
-    ]
+    /// 2.0 (B156): i titoli nella lingua dell'app (prima in italiano in tutte le lingue)
+    static var references: [(String, URL)] { [
+        (L("Highway Code, art. 7 (ZTL)"), law("7")),
+        (L("Highway Code, art. 201 (notification)"), law("201")),
+        (L("Highway Code, art. 202 (payment)"), law("202")),
+        (L("Highway Code, art. 203 (appeal to the Prefetto)"), law("203")),
+        (L("Highway Code, art. 204-bis (Giudice di Pace)"), law("204bis")),
+    ] }
 
     // MARK: Bozza del ricorso
 

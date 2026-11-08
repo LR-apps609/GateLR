@@ -20,6 +20,8 @@ enum Theme {
     static let blue = Color(light: 0x1F4E9E, dark: 0x8CB0EE)
     /// Fondo dei pulsanti pieni: abbastanza scuro anche in modalità scura, per il testo bianco
     static let blueFill = Color(light: 0x1F4E9E, dark: 0x2F5FB3)
+    /// 2.0 (B79): il rosso dei fondi con il testo bianco, scuro anche al buio (6,5:1; Theme.red al buio è #EF5B55, 3,3:1)
+    static let redFill = Color(light: 0xC1272D, dark: 0xB3262C)
     static let blueSoft = Color(light: 0xE2EAF6, dark: 0x1D2B44)
     static let green = Color(hex: 0x2B7A47)
     static let greenSoft = Color(light: 0xDCEFE2, dark: 0x183021)
@@ -29,12 +31,19 @@ enum Theme {
     static let amberInk = Color(light: 0x5C3C00, dark: 0xF2CB79)
     static let brass = Color(light: 0xA97E3F, dark: 0xD6AA62)       // il filo della famiglia LR
 
-    /// Titoli: Titillium Web, il carattere dei cartelli (licenza OFL, in Resources/Fonts), interlinea stretta
+    /// Titoli: Titillium Web, il carattere dei cartelli (licenza OFL, in Resources/Fonts), interlinea stretta.
+    /// 2.0 (B64, B65): cresce con «Testo più grande» fino a +30%, come Font.app (prima Font.custom(size:) cresceva senza
+    /// tetto: nome del posto a 65 punti spezzato a metà parola, «condizi…» nel riquadro della risposta)
     static func display(_ size: CGFloat, _ weight: Font.Weight = .bold) -> Font {
         let name = weight == .black ? "TitilliumWeb-Black" : weight == .semibold ? "TitilliumWeb-SemiBold" : "TitilliumWeb-Bold"
-        return Font.custom(name, size: size).leading(.tight)
+        return Font.custom(name, fixedSize: capped(size)).leading(.tight)
     }
-    static func label(_ size: CGFloat = 13) -> Font { .custom("TitilliumWeb-SemiBold", size: size) }
+    static func label(_ size: CGFloat = 13) -> Font { .custom("TitilliumWeb-SemiBold", fixedSize: capped(size)) }
+
+    /// La misura con «Testo più grande», al massimo +30% (calcolata una volta: poi il carattere ha misura fissa)
+    static func capped(_ size: CGFloat, metrics: UIFontMetrics = .default, traits: UITraitCollection? = nil) -> CGFloat {
+        min(size * 1.3, traits.map { metrics.scaledValue(for: size, compatibleWith: $0) } ?? metrics.scaledValue(for: size))
+    }
 }
 
 extension Font {

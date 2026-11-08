@@ -269,9 +269,11 @@ extension Zone {
     func nextMotoBan(for vehicle: Vehicle, after date: Date) -> MotoBan? {
         (motoBans ?? []).filter { $0.applies(to: vehicle) && $0.date > date }.min { $0.date < $1.date }
     }
-    /// Lasciare l'auto qui è un problema? Zone vietate o a pagamento sì; zone verdi solo se l'auto è vietata
+    /// Lasciare l'auto qui è un problema? Zone vietate o a pagamento sì; zone verdi solo se l'auto è vietata.
+    /// 2.0 (B29): anche moto e ciclomotori vietati (motoBans): prima i parcheggi dentro lo Scudo Verde erano «Fuori dalla
+    /// ZTL» per un ciclomotore 2 tempi Euro 1
     func closes(to vehicle: Vehicle, at date: Date) -> Bool {
-        type != .green || ban(for: vehicle, at: date) != nil
+        type != .green || ban(for: vehicle, at: date) != nil || motoBan(for: vehicle, at: date) != nil
     }
     /// Il prossimo divieto che toccherà questa auto, se c'è
     func nextBan(for vehicle: Vehicle, after date: Date) -> EuroBan? {

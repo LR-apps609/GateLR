@@ -285,6 +285,12 @@ enum AccessCache {
 
     static func access(_ zone: Zone, store: Store, at date: Date) -> Access { look(zone, store: store, at: date).access }
 
+    /// Quello che il motore delle regole legge del veicolo (RuleEngine, Zone.ban, MotoBan.applies, Permit.covers):
+    /// se cambia una di queste cose le risposte si ricalcolano
+    nonisolated static func vehicleKey(_ v: Vehicle) -> String {
+        "\(v.id)|\(v.fuel.rawValue)|\(v.euro)|\(v.kind.rawValue)|\(v.motoCategory.rawValue)|\(v.strokes)|\(v.isRental)|\(v.plate.isEmpty)"
+    }
+
     static func look(_ zone: Zone, store: Store, at date: Date) -> Look {
         if statusVersion != store.citiesVersion {
             statusVersion = store.citiesVersion
@@ -292,8 +298,9 @@ enum AccessCache {
             for c in store.cities { for z in c.zones { status[z.id] = c.status } }
         }
         let minute = Int(date.timeIntervalSinceReferenceDate / 60)
-        let v = store.vehicle
-        let k = "\(store.citiesVersion)|\(minute)|\(v.id)|\(v.fuel.rawValue)\(v.euro)|\(v.kind)|\(store.permits.hashValue)"
+        // 2.0 (B14): nella chiave tutto quello che il motore legge del veicolo (prima mancavano ciclomotore e 2 tempi:
+        // la mappa restava verde dopo aver segnato «ciclomotore 2 tempi» nel Garage)
+        let k = "\(store.citiesVersion)|\(minute)|\(Self.vehicleKey(store.vehicle))|\(store.permits.hashValue)"
         if k != key { key = k; values = [:] }
         if let hit = values[zone.id] { return hit }
         let answer = store.answer(at: date, zone: zone, hotelInside: false)

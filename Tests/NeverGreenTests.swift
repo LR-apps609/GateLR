@@ -248,8 +248,9 @@ final class NeverGreenTests: XCTestCase {
         guard case .no = PlaceCheck(hotel, store: store, at: at).answer?.verdict else { return XCTFail("senza hotel: non entrare") }
         // La scheda zona, la mappa, gli avvisi e CarPlay passano false: niente condizione nascosta
         guard case .no = store.answer(at: at, zone: SampleData.sectorA, hotelInside: false).verdict else { return XCTFail("atteso no") }
-        store.trips = [Trip(hotel: hotel, hotelName: hotel.name, arrival: at, departure: at, vehicleId: nil)]
-        XCTAssertTrue(store.isHotel(hotel))
+        // 2.0 (B43): un viaggio salvato come hotel (prima bastava un viaggio qualunque)
+        store.trips = [Trip(hotel: hotel, hotelName: hotel.name, arrival: at, departure: at, vehicleId: nil, isHotel: true)]
+        XCTAssertTrue(store.isHotel(hotel, at: at))
         guard case .conditional = PlaceCheck(hotel, store: store, at: at).answer?.verdict else { return XCTFail("il tuo hotel: a una condizione") }
     }
 }

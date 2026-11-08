@@ -157,14 +157,21 @@ enum PendingDelete: Identifiable, Equatable {
         switch self {
         case .vehicles(let gone):
             store.vehicles.removeAll { gone.contains($0.id) }
+            store.forgetStayPermits(Set(store.permits.filter { gone.contains($0.vehicleId) }.map(\.id)))
             store.permits.removeAll { gone.contains($0.vehicleId) }
             if let id = store.activeVehicleId, gone.contains(id) { store.activeVehicleId = store.vehicles.first?.id }
         case .permits(let gone):
             store.permits.removeAll { gone.contains($0.id) }
+            // 2.0 (B71): il soggiorno di quel permesso torna «Non chiesto» (prima la scheda diceva ancora «Confermato»)
+            store.forgetStayPermits(gone)
         case .logEntries(let gone):
             store.log.removeAll { gone.contains($0.id) }
         case .trip(let id):
+            // 2.0 (B71): con il viaggio spariscono il suo soggiorno, i permessi dell'hotel e il promemoria (se nessun altro
+            // viaggio salvato va nello stesso hotel)
+            let hotel = store.trips.first { $0.id == id }?.hotel
             store.trips.removeAll { $0.id == id }
+            if let key = hotel?.key, !store.trips.contains(where: { $0.hotel?.key == key }) { store.removeStay(key: key) }
         }
     }
 }
