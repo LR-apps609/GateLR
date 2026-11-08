@@ -779,7 +779,11 @@ private struct VarcoAppleStrip: View {
                 UserAnnotation()
             }
         }
-        .mapStyle(.standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll))
+        // 1.20.4 (memoria): il rilievo e gli edifici in 3D solo nella ripresa inclinata sul posto. Vista dall'alto (tutta la
+        // zona scelta, senza un posto, o tu e il posto insieme) il 3D non si vede ma MapKit ne caricava i dati per tutta
+        // l'area, a ondate: nel simulatore da 100 a 250 MB e ritorno ogni minuto circa, con o senza guardiano
+        // (UITests/MisureTests.testM7a e testM7e, misure.yml)
+        .mapStyle(.standard(elevation: Self.elevation(pitched: isPitched), emphasis: .muted, pointsOfInterest: .excludingAll))
         // Una mappa nuova quando cambia il posto o la zona (la camera iniziale non si sposta da sola)
         // (e quando la tua posizione entra o esce dalla ripresa, o si sposta di qualche centinaio di metri)
         .id("\(place.location.lat),\(place.location.lon),\(focus?.id ?? ""),\(framing.includesUser),\(Int(framing.center.lat * 500)),\(Int(framing.center.lon * 500))")
@@ -802,6 +806,16 @@ private struct VarcoAppleStrip: View {
         let c = framing.includesUser ? framing.center : place.location
         return BBox(minLat: c.lat - 0.006, minLon: c.lon - 0.008, maxLat: c.lat + 0.006, maxLon: c.lon + 0.008)
     }
+
+    /// La ripresa è inclinata (camera a 55° sul posto) solo senza te nella ripresa e senza una zona piccola da mostrare intera
+    private var isPitched: Bool {
+        if framing.includesUser { return false }
+        if let focus, focus.widthMeters < 6_000 { return false }
+        return true
+    }
+
+    /// 1.20.4: 3D solo nella ripresa inclinata
+    static func elevation(pitched: Bool) -> MapStyle.Elevation { pitched ? .realistic : .flat }
 
     private var position: MapCameraPosition {
         if framing.includesUser {
