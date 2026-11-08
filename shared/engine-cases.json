@@ -192,6 +192,12 @@
      "expect": {"colour": "red", "verdict": "no", "pedestrian": true}},
     {"id": "firenze-ponte-vecchio-pedonale-elettrica", "covers": "1.20.4 (B08): Ponte Vecchio, area pedonale: rosso anche per l'elettrica",
      "place": {"name": "Ponte Vecchio", "lat": 43.767972, "lon": 11.253115}, "at": "2026-11-10T21:00:00+01:00", "vehicle": "electric",
-     "expect": {"colour": "red", "verdict": "no", "pedestrian": true}}
+     "expect": {"colour": "red", "verdict": "no", "pedestrian": true}},
+    {"id": "bergamo-piazza-dante-hotel", "covers": "1.20.4 (B119): area pedonale di piazza Dante: niente accesso per i clienti degli hotel (prima giallo «se l'hotel registra la targa»)",
+     "place": {"name": "Piazza Dante", "lat": 45.69603, "lon": 9.66985}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "rental", "hotel": true,
+     "expect": {"colour": "red", "verdict": "no", "zone": "bergamo-piazza-dante", "gatesOn": true}},
+    {"id": "bergamo-marconi-hotel", "covers": "1.20.4 (B119): corsie taxi e bus della stazione: niente accesso per i clienti degli hotel (prima giallo)",
+     "place": {"name": "Piazzale Marconi", "lat": 45.69107, "lon": 9.67519}, "at": "2026-11-10T10:00:00+01:00", "vehicle": "rental", "hotel": true,
+     "expect": {"colour": "red", "verdict": "no", "zone": "bergamo-marconi", "gatesOn": true}}
   ]
 }
