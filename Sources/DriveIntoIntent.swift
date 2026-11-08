@@ -18,9 +18,10 @@ struct CityZoneEntity: AppEntity {
 
     var displayRepresentation: DisplayRepresentation { DisplayRepresentation(title: "\(title)") }
 
-    init(city: City, zone: Zone) {
+    /// «unique»: il nome corto basta (2.0, B148: altrimenti il nome intero, «Ferrara ZTL B · …», tre voci uguali no)
+    init(city: City, zone: Zone, unique: Bool = true) {
         id = zone.id
-        title = "\(city.localizedName) \(zone.shortName)"
+        title = unique ? "\(city.localizedName) \(zone.shortName)" : "\(city.localizedName) \(zone.localizedName)"
         let cities = Set([city.name, city.name_it, city.name_de, city.localizedName, city.id].compactMap { $0 }.map(Self.fold))
         let zones = Set([zone.name, zone.name_it, zone.name_de, zone.localizedName].compactMap { $0 }
             .map { Self.fold(String($0.split(separator: "·").first ?? Substring($0))) })
@@ -36,13 +37,32 @@ struct CityZoneEntity: AppEntity {
     /// Tutte le zone, appena le città vere sono pronte
     @MainActor static func all() async -> [CityZoneEntity] {
         await Store.shared.whenLoaded()
-        return Store.shared.cities.flatMap { c in c.zones.map { CityZoneEntity(city: c, zone: $0) } }
+        return entities(Store.shared.cities)
+    }
+
+    /// 2.0 (B148): le zone con lo stesso nome corto nella stessa città prendono il nome intero (distinguibili a voce)
+    static func entities(_ cities: [City]) -> [CityZoneEntity] {
+        var count: [String: Int] = [:]
+        for c in cities { for z in c.zones { count["\(c.id)|\(z.shortName)", default: 0] += 1 } }
+        var list = cities.flatMap { c in c.zones.map { CityZoneEntity(city: c, zone: $0, unique: count["\(c.id)|\($0.shortName)"] == 1) } }
+        // Anche il nome intero uguale (Torino, tre «Via Venti Settembre»): un numero in fondo
+        var seen: [String: Int] = [:], total: [String: Int] = [:]
+        for e in list { total[e.title, default: 0] += 1 }
+        for i in list.indices where (total[list[i].title] ?? 0) > 1 {
+            let n = (seen[list[i].title] ?? 0) + 1
+            seen[list[i].title] = n
+            list[i].title += " \(n)"
+        }
+        return list
     }
 
     /// Le zone che corrispondono a quello che si è detto: prima città e zona insieme, poi solo la città
     static func matching(_ text: String, in all: [CityZoneEntity]) -> [CityZoneEntity] {
         let q = fold(text)
         guard !q.isEmpty else { return all }
+        // 2.0 (B148): prima il nome detto per intero (altrimenti «Settore A» trovava anche «Settore A1»…)
+        let whole = all.filter { $0.fullKeys.contains(q) || fold($0.title) == q }
+        if !whole.isEmpty { return whole }
         let exact = all.filter { $0.fullKeys.contains { q.contains($0) } }
         if !exact.isEmpty { return exact }
         let city = all.filter { $0.cityKeys.contains { q.contains($0) || $0.hasPrefix(q) } }

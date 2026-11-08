@@ -547,3 +547,19 @@ final class BugIphoneTests: XCTestCase {
         XCTAssertTrue(de.contains("Einfahrt oder Straße"))
     }
 }
+
+/// 2.0 (B148): Siri «Posso entrare in…»: nomi distinguibili e prima la corrispondenza esatta
+final class BugIphoneSiriTests: XCTestCase {
+    func testB148ZoneTitlesAreDistinct() throws {
+        let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
+        let ids = ["ferrara", "torino", "firenze", "milano"]
+        let cities = try ids.map { try CityLoader.decode(Data(contentsOf: root.appendingPathComponent("Resources/Cities/\($0).json"))) }
+        let all = CityZoneEntity.entities(cities)
+        let titles = all.map(\.title)
+        let shorts = Set(cities.flatMap { c in c.zones.map { "\(c.id)|\($0.shortName)" } })
+        XCTAssertGreaterThan(Set(titles).count, shorts.count, "più titoli distinti dei nomi corti")
+        XCTAssertEqual(Set(titles).count, titles.count, "nessun titolo uguale a un altro")
+        let first = try XCTUnwrap(all.first)
+        XCTAssertEqual(CityZoneEntity.matching(first.title, in: all).first?.id, first.id)
+    }
+}
