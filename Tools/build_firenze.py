@@ -334,6 +334,9 @@ def main():
     zones.append(scudo_verde())
     city = {"id": "firenze", "name": "Florence", "name_it": "Firenze", "name_de": "Florenz", "center": {"lat": 43.7712, "lon": 11.2550},
             "zones": zones, "cameras": sorted(cameras, key=lambda c: c["name"]), "status": "draft",
+            # 2.1: il 24 giugno (San Giovanni, patrono) il Comune non dice se i varchi sono accesi: «Controlla il cartello»
+            # (uncertainDays, non localHolidays: non sappiamo che sia un festivo per la ZTL)
+            "uncertainDays": ["06-24"],
             "license": ("Perimeters and gates: Comune di Firenze open data, CC-BY 4.0. Scudo Verde perimeter: © OpenStreetMap contributors, ODbL 1.0 "
                         "(traced from the Città Metropolitana di Firenze PUMS dataset, CC BY 4.0)")}
     out = Path(__file__).resolve().parent.parent / "Resources/Cities/firenze.json"

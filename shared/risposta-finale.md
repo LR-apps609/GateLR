@@ -31,6 +31,7 @@ dubbio** (`doubt`) quando la risposta è «non sicuro»:
 |---|---|
 | dati letti/verificati più di 120 giorni fa | `scaduti` |
 | festivo dove il Comune non dice se i varchi sono spenti (`freeOnHolidays` assente) | `festivo` |
+| giorno in cui la fonte ufficiale non dice se la ZTL è attiva (`uncertainDays` della città, "MM-DD": Firenze e Torino 06-24, Milano 12-07; non sono `localHolidays`) | `festivo` |
 | pagina del Comune cambiata dopo la lettura o la verifica | `scaduti` |
 | zona ufficiale non verificata o con verifica vecchia (rete di sicurezza della regola A) | `scaduti` |
 

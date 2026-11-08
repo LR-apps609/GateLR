@@ -5240,7 +5240,7 @@
      "Permits and hotel authorisations are only for cars that are at least Euro 3, or at least Euro 2 running on LPG/methane (city page); GTT: vehicles below Euro 3 without LPG cannot be authorised, nor Euro 0 LPG/methane. Also excluded: vehicles without valid inspection or insurance, or impounded.",
      "The 10-day retroactive exemption and the 11 am deadline for public garages come from search-engine extracts of the official pages, not from the page text itself.",
      "Summer: in 2026 the city switched the ZTL Centrale off from 10 to 23 August by a council decision; the dates change every year and are announced in June–July. GateLR doesn't model it.",
-     "24 June (St John, Turin's patron saint): the city page only says «working days», and only a non-official source (2019) says the ZTL Centrale is usually off that day, so GateLR shows it as active. Check the city's notice for that day.",
+     "24 June (St John, Turin's patron saint): the city page only says «working days», and only a non-official source (2019) says the ZTL Centrale is usually off that day, so GateLR answers «Check the sign» that day. Check the city's notice for that day.",
      "Electric cars are not exempt automatically: they need a free permit (Italian owners) or a retroactive exemption sent to GTT within 10 days, at most 12 a year.",
      "Motorbikes and mopeds may enter without a permit if at least Euro 1 and four-stroke (GTT list of exempt vehicles), but not the bus-only streets or pedestrian areas.",
      "Not on the map yet: ZTL Valentino (park roads, closed 24 h; the official map shows its entrance camera; extension approved in March 2026), the Statuto and Valperga areas (one camera each on the official map, rules not described on the city page), the night ZTL on the road up to Monte dei Cappuccini (11 pm–7 am every day) and the pedestrian area of Borgo Campidoglio (24 h). Watch the signs at the gates.",
@@ -5253,7 +5253,7 @@
      "Permessi e autorizzazioni degli hotel valgono solo per auto almeno Euro 3, o almeno Euro 2 a GPL/metano (scheda del Comune); per GTT non si autorizzano i veicoli sotto Euro 3 senza GPL, né gli Euro 0 GPL/metano. Esclusi anche i veicoli senza revisione o assicurazione valida, o sotto fermo amministrativo.",
      "L'esenzione a posteriori entro 10 giorni e il termine delle 11 per i parcheggi in struttura vengono dagli estratti di ricerca delle pagine ufficiali, non dal testo della pagina.",
      "Estate: nel 2026 il Comune ha spento la ZTL Centrale dal 10 al 23 agosto con una delibera di Giunta; le date cambiano ogni anno e sono annunciate a giugno–luglio. GateLR non ne tiene conto.",
-     "24 giugno (San Giovanni, patrono di Torino): la scheda del Comune dice solo «giorni feriali» e soltanto una fonte non ufficiale (2019) dice che di consueto quel giorno la ZTL Centrale non è attiva, quindi GateLR la mostra attiva. Controlla l'avviso del Comune per quel giorno.",
+     "24 giugno (San Giovanni, patrono di Torino): la scheda del Comune dice solo «giorni feriali» e soltanto una fonte non ufficiale (2019) dice che di consueto quel giorno la ZTL Centrale non è attiva, quindi quel giorno GateLR risponde «Controlla il cartello». Controlla l'avviso del Comune per quel giorno.",
      "Le auto elettriche non sono esenti in automatico: serve il permesso gratuito (per i proprietari italiani) o un'esenzione a posteriori inviata a GTT entro 10 giorni, al massimo 12 all'anno.",
      "Moto e ciclomotori entrano senza permesso se almeno Euro 1 e a 4 tempi (elenco GTT dei veicoli esentati), ma non nelle strade riservate ai mezzi pubblici né nelle aree pedonali.",
      "Non ancora sulla mappa: ZTL Valentino (viali del parco, chiusa h24; la mappa ufficiale mostra la telecamera all'ingresso; ampliamento approvato a marzo 2026), le aree Statuto e Valperga (una telecamera ciascuna sulla mappa ufficiale, regole non descritte nella scheda), la ZTL notturna della salita al Monte dei Cappuccini (23–7 tutti i giorni) e l'area pedonale di Borgo Campidoglio (h24). Guarda i cartelli ai varchi.",
@@ -5266,7 +5266,7 @@
      "Genehmigungen und Hotel-Freigaben gibt es nur für Autos ab Euro 3 oder ab Euro 2 mit LPG/Erdgas (Seite der Stadt); laut GTT werden Fahrzeuge unter Euro 3 ohne LPG nicht freigegeben, auch nicht Euro 0 LPG/Erdgas. Ebenfalls ausgeschlossen: Fahrzeuge ohne gültige Hauptuntersuchung oder Versicherung oder mit Stilllegung.",
      "Die nachträgliche Befreiung binnen 10 Tagen und die 11-Uhr-Frist für Parkhäuser stammen aus Suchmaschinen-Auszügen der offiziellen Seiten, nicht aus dem Seitentext selbst.",
      "Sommer: 2026 hat die Stadt die ZTL Centrale vom 10. bis 23. August per Beschluss abgeschaltet; die Daten ändern sich jedes Jahr und werden im Juni–Juli bekannt gegeben. GateLR berücksichtigt das nicht.",
-     "24. Juni (Johannes der Täufer, Stadtpatron): Die Seite der Stadt spricht nur von «Werktagen», und nur eine inoffizielle Quelle (2019) sagt, dass die ZTL Centrale an dem Tag üblicherweise aus ist; GateLR zeigt sie daher als aktiv. Prüfe die Mitteilung der Stadt für diesen Tag.",
+     "24. Juni (Johannes der Täufer, Stadtpatron): Die Seite der Stadt spricht nur von «Werktagen», und nur eine inoffizielle Quelle (2019) sagt, dass die ZTL Centrale an dem Tag üblicherweise aus ist; GateLR antwortet an dem Tag daher «Schild prüfen». Prüfe die Mitteilung der Stadt für diesen Tag.",
      "Elektroautos sind nicht automatisch befreit: Sie brauchen die kostenlose Genehmigung (für italienische Halter) oder eine nachträgliche Befreiung, binnen 10 Tagen bei GTT, höchstens 12 pro Jahr.",
      "Motorräder und Mopeds dürfen ohne Genehmigung hinein, wenn mindestens Euro 1 und Viertakter (GTT-Liste), aber nicht in die Busstraßen oder Fußgängerzonen.",
      "Noch nicht auf der Karte: ZTL Valentino (Parkstraßen, rund um die Uhr gesperrt; der offizielle Plan zeigt die Kamera an der Einfahrt; Erweiterung im März 2026 beschlossen), die Bereiche Statuto und Valperga (je eine Kamera auf dem offiziellen Plan, Regeln auf der Seite nicht beschrieben), die Nacht-ZTL an der Auffahrt zum Monte dei Cappuccini (täglich 23–7 Uhr) und die Fußgängerzone Borgo Campidoglio (rund um die Uhr). Achte auf die Schilder an den Kameras.",
@@ -9140,5 +9140,8 @@
   }
  ],
  "status": "draft",
+ "uncertainDays": [
+  "06-24"
+ ],
  "license": "Hours and rules: Comune di Torino and GTT pages and the city's official ZTL map. Perimeters and streets: © OpenStreetMap contributors, ODbL 1.0 (checked against the official map; Area Romana and camera positions traced from that map; approximate, not official)."
 }
