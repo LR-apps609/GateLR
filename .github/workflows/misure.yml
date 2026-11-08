@@ -127,15 +127,15 @@ jobs:
           for name in guardiano-guida varco-senza-posto; do
             LINE=$(grep -E "^MISURA memoria-$name-crescita " misure.log | tail -n 1 || true)
             if [ -z "$LINE" ]; then
-              if [ -z "$SOLO" ]; then echo "::error::Manca la misura della memoria «$name»"; status=1; fi
+              if [ -z "$SOLO" ]; then echo "::error::Manca la misura della memoria «${name}»"; status=1; fi
               continue
             fi
             GROWTH=$(echo "$LINE" | awk '{print $3}')
-            echo "::notice::Memoria «$name»: $(grep -E "^MISURA memoria-$name " misure.log | tail -n 1 | cut -c1-400)"
+            echo "::notice::Memoria «${name}»: $(grep -E "^MISURA memoria-$name " misure.log | tail -n 1 | cut -c1-400)"
             if awk -v g="$GROWTH" 'BEGIN { exit !(g > 40) }'; then
-              echo "::error::Memoria «$name»: varia di $GROWTH MB in 100 secondi (limite 40 MB)"; status=1
+              echo "::error::Memoria «${name}»: varia di $GROWTH MB in 100 secondi (limite 40 MB)"; status=1
             else
-              echo "::notice::Memoria «$name»: varia di $GROWTH MB (limite 40 MB)"
+              echo "::notice::Memoria «${name}»: varia di $GROWTH MB (limite 40 MB)"
             fi
           done
           exit $status

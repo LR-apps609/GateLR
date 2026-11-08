@@ -758,15 +758,12 @@ private struct VarcoAppleStrip: View {
 
     var body: some View {
         Map(initialPosition: position, interactionModes: []) {
+            // 1.20.4 (memoria): senza le righe a 45° delle zone attive. Erano fino a 80 MapPolyline per zona (a Firenze lo
+            // Scudo Verde è sempre attivo): MapKit le ridisegnava a ogni minuto (TimelineView di Varco) e la memoria saliva
+            // da 100 a 250 MB e ritorno, a ondate, con o senza guardiano (MisureTests.testM7a e testM7e). Il colore della zona
+            // dice già la risposta; le righe restano sulla Mappa e nella striscia di Mapbox
             ForEach(Self.layers(zones)) { z in
                 ZoneOverlay(coords: z.ring, access: z.look.access, picked: false, dim: false, big: false, zoom: 16, dark: true)
-                if z.look.active {
-                    // solo intorno al posto (la striscia ne mostra poche centinaia di metri), al massimo 80 righe per zona
-                    ForEach(HatchCache.lines(id: z.id, coords: z.ring, zoom: 16, box: stripBox, limit: 80)) { h in
-                        MapPolyline(coordinates: [h.a, h.b])
-                            .stroke(MapTheme.tone(z.look.access).line.opacity(MapTheme.hatchOpacity(dark: true)), lineWidth: 1)
-                    }
-                }
             }
             // Il cartello della ZTL o lo spillo della destinazione, con la base sul posto: mai un pallino
             if let marker {
@@ -779,11 +776,7 @@ private struct VarcoAppleStrip: View {
                 UserAnnotation()
             }
         }
-        // 1.20.4 (memoria): il rilievo e gli edifici in 3D solo nella ripresa inclinata sul posto. Vista dall'alto (tutta la
-        // zona scelta, senza un posto, o tu e il posto insieme) il 3D non si vede ma MapKit ne caricava i dati per tutta
-        // l'area, a ondate: nel simulatore da 100 a 250 MB e ritorno ogni minuto circa, con o senza guardiano
-        // (UITests/MisureTests.testM7a e testM7e, misure.yml)
-        .mapStyle(.standard(elevation: Self.elevation(pitched: isPitched), emphasis: .muted, pointsOfInterest: .excludingAll))
+        .mapStyle(.standard(elevation: .realistic, emphasis: .muted, pointsOfInterest: .excludingAll))
         // Una mappa nuova quando cambia il posto o la zona (la camera iniziale non si sposta da sola)
         // (e quando la tua posizione entra o esce dalla ripresa, o si sposta di qualche centinaio di metri)
         .id("\(place.location.lat),\(place.location.lon),\(focus?.id ?? ""),\(framing.includesUser),\(Int(framing.center.lat * 500)),\(Int(framing.center.lon * 500))")
@@ -801,21 +794,6 @@ private struct VarcoAppleStrip: View {
             (zones[look] ?? []).enumerated().map { Layer(id: "\(look.access)-\(look.active)-\($0.offset)", look: look, ring: $0.element) }
         }
     }
-
-    private var stripBox: BBox {
-        let c = framing.includesUser ? framing.center : place.location
-        return BBox(minLat: c.lat - 0.006, minLon: c.lon - 0.008, maxLat: c.lat + 0.006, maxLon: c.lon + 0.008)
-    }
-
-    /// La ripresa è inclinata (camera a 55° sul posto) solo senza te nella ripresa e senza una zona piccola da mostrare intera
-    private var isPitched: Bool {
-        if framing.includesUser { return false }
-        if let focus, focus.widthMeters < 6_000 { return false }
-        return true
-    }
-
-    /// 1.20.4: 3D solo nella ripresa inclinata
-    static func elevation(pitched: Bool) -> MapStyle.Elevation { pitched ? .realistic : .flat }
 
     private var position: MapCameraPosition {
         if framing.includesUser {
