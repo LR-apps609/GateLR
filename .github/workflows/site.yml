@@ -1,12 +1,14 @@
 # Pubblica il sito (cartella web/) su GitHub Pages.
 # Parte da solo a ogni aggiornamento del ramo main che tocca il sito, le città o i testi; si può anche avviare a mano.
 # Prima volta: Settings → Pages → Source: «GitHub Actions».
+# 2.0.1: i controlli girano anche sui rami di lavoro (lavoro/…), così si vede se il sito è verde prima di unire in main;
+# la pubblicazione solo da main.
 name: Pubblica il sito
 
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [main, 'lavoro/**']
     paths:
       - 'web/**'
       - 'Resources/Cities/**'
@@ -15,6 +17,9 @@ on:
       - 'Tools/check_site_js.py'
       - 'Tools/check_site_answers.mjs'
       - 'Tools/check_engine_cases.mjs'
+      - 'Tools/check_site_dates.mjs'
+      - 'Tools/check_site_bugs.mjs'
+      - 'Tools/site_risposte.mjs'
       - 'Tools/source_trust.py'
       - 'shared/**'
       - 'Tools/site_fonts/**'
@@ -28,15 +33,13 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  check:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
       - name: Costruisci la pagina
@@ -57,15 +60,39 @@ jobs:
       # 1.20.1 «Dati»: «pageChanged» dalle impronte delle pagine dei Comuni (Tools/source_trust.py) e formato dei file
       - name: Verifica dei dati
         run: python3 Tools/source_trust.py --selftest
+      # 2.0.1: giorni e ore di Roma (cambio dell'ora, mezzanotte), veicoli e risposta del posto per ogni quarto d'ora
+      - name: Giorni, ore e veicoli
+        run: node Tools/check_site_dates.mjs
+      # 2.0.1: nel browser (Chromium) le sette risposte aperte da un link (Tools/site_risposte.mjs) e i bug trovati dai tester,
+      # uno per uno con i loro passi (Tools/check_site_bugs.mjs: orologio finto, rete lenta o spenta, ricerca finta)
+      - name: Prepara il browser
+        run: npm install --no-save --no-audit --no-fund playwright@1.63.0 && npx playwright install --with-deps chromium
+      - name: Le sette risposte e i bug dei tester nel browser
+        run: |
+          (cd web && python3 -m http.server 8000 >/dev/null 2>&1 &)
+          sleep 2
+          node Tools/site_risposte.mjs http://localhost:8000/
+          node Tools/check_site_bugs.mjs http://localhost:8000/
       - name: Prepara i file
+        if: github.ref == 'refs/heads/main'
         run: |
           # tutta la cartella web/ (home in 3 lingue, pagine delle città, sitemap, robots), tranne il modello e il README
           mkdir -p _site
           cp -r web/. _site/
           rm -f _site/template.html _site/README.md
       - uses: actions/configure-pages@v5
+        if: github.ref == 'refs/heads/main'
       - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main'
         with:
           path: _site
+  deploy:
+    needs: check
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4

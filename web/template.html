@@ -76,7 +76,7 @@ p{margin:0}
 @media (max-width:980px){.tool{grid-template-columns:minmax(0,1fr)}.mapcard{grid-column:1;grid-row:auto;position:static}}
 .fld{display:grid;gap:6px;min-width:0}
 .search{position:relative;display:flex;align-items:center;gap:10px;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:0 14px;min-height:56px;transition:border-color .15s}
-.search:focus-within{border-color:var(--ink)}
+.search:focus-within{border-color:var(--ink);outline:3px solid var(--focus);outline-offset:2px}
 .search svg{flex:none;color:var(--ink2)}
 .search input[type=search]{border:0;background:transparent;font:600 18px var(--text);color:var(--ink);width:100%;min-width:0;padding-block:12px;outline:none}
 .search input::placeholder{color:var(--ink2);font-weight:400;opacity:1}
@@ -85,6 +85,7 @@ p{margin:0}
 .suggest button:last-child{border-bottom:0}
 .suggest button:hover,.suggest button[aria-selected=true]{background:var(--surface2)}
 .suggest small{color:var(--ink2)}
+.locmsg{font-size:15px;color:var(--ink2)}.locmsg:empty{margin-top:-6px}
 .suggest .fail{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;font:15px var(--text);color:var(--ink2)}
 .suggest .fail button{width:auto;border:0;border-radius:10px;background:var(--surface2);padding:8px 14px;font-weight:700;color:var(--ink);white-space:nowrap}
 .crow{display:flex;gap:6px;flex-wrap:wrap;align-items:center;min-width:0}
@@ -143,6 +144,8 @@ p{margin:0}
 .bar span{display:block;height:100%;background:var(--v-fg);border-radius:3px}
 .answer .meta{display:flex;justify-content:space-between;gap:4px 10px;font-size:14px;flex-wrap:wrap;margin-top:4px}
 .answer.pop{animation:pop .45s ease}
+/* 2.0.1: dentro i blocchi colorati l'anello del fuoco ha il colore del testo (il blu sparisce sul rosso e sul verde) */
+.answer :focus-visible{outline-color:currentColor}
 @keyframes pop{0%{transform:scale(.99)}50%{transform:scale(1.008)}100%{transform:scale(1)}}
 .skel{color:transparent!important;border-radius:8px;background:linear-gradient(90deg,var(--surface2) 30%,var(--line) 50%,var(--surface2) 70%) 0 0/300% 100%;animation:skel 1.4s linear infinite}
 .answer .skel{display:block;min-height:1em;width:9ch;max-width:100%}.answer .why.skel{width:auto;min-height:2.6em}
@@ -156,7 +159,7 @@ p{margin:0}
 .ledbox[hidden]{display:none}
 .ledbox small{font-size:14px}
 .led{position:relative;background:var(--led-bg);border:2px solid #30364A;border-radius:9px;padding:6px 14px;overflow:hidden;
-  font:400 clamp(17px,2vw,21px)/1.1 "DotGothic16",ui-monospace,monospace;letter-spacing:.08em;color:var(--led-fg);text-shadow:0 0 6px color-mix(in srgb,var(--led-fg) 60%,transparent);white-space:nowrap}
+  font:400 clamp(17px,2vw,21px)/1.1 "DotGothic16",ui-monospace,monospace;letter-spacing:.08em;color:var(--led-fg);text-shadow:0 0 6px color-mix(in srgb,var(--led-fg) 60%,transparent);white-space:pre-line;text-align:center}
 .led::before{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(255,255,255,.08) .7px,transparent 1px) 0 0/4px 4px;pointer-events:none}
 .led[data-dim=true]{color:var(--led-dim);text-shadow:none}
 .led.flip{animation:flip .5s cubic-bezier(.3,1.5,.5,1)}
@@ -182,6 +185,11 @@ p{margin:0}
 .mapcard{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:10px;display:grid;gap:8px;min-width:0}
 .mapcard svg{width:100%;height:auto;display:block;border-radius:18px;background:var(--map-land);cursor:crosshair;touch-action:manipulation}
 .mapbox{position:relative}
+/* 2.0.1: mentre arrivano i dati di un'altra città la mappa di prima resta, ma grigia e senza colori di risposta */
+.mapcard.wait .mapbox,.mapcard.wait .legend{filter:grayscale(1);opacity:.45;transition:opacity .2s}
+.answer:focus{outline:none}.answer:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.panel[hidden]{display:none}
+.panel .label.skel{display:block;width:16ch;max-width:100%}.note.skel{min-height:2.6em}
 #mlmap{position:absolute;inset:0;border-radius:18px;overflow:hidden;opacity:0;pointer-events:none;transition:opacity .3s}
 .mapbox.real #mlmap{opacity:1;pointer-events:auto}
 .mapbox.real svg{visibility:hidden}
@@ -210,7 +218,7 @@ p{margin:0}
 .pills [data-s=fuoriCopertura]{--v-bg:transparent;--v-fg:var(--ink);border:2px dashed var(--ink2)}
 
 /* dettagli della zona: orari, multa, hotel */
-.details{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;padding-block:8px 36px}
+.details{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:18px;padding-block:8px 36px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:grid;gap:12px;align-content:start;min-width:0}
 .panel h2{font-size:24px;font-weight:700}
 table{border-collapse:collapse;width:100%;font-size:16px}
@@ -284,7 +292,7 @@ footer a{color:var(--ink)}
       <a href="#guides" data-i18n="navCities">Cities</a><a href="#how" data-i18n="navHow">How it works</a><a href="{{ROOT}}privacy/">Privacy</a>
     </nav>
     <div class="end">
-      <div class="langs" role="group" aria-label="Language"><button type="button" data-lang="en" lang="en">EN</button><button type="button" data-lang="it" lang="it">IT</button><button type="button" data-lang="de" lang="de">DE</button></div>
+      <div class="langs" role="group" aria-label="Language" data-i18n-al="langL"><button type="button" data-lang="en" lang="en">EN</button><button type="button" data-lang="it" lang="it">IT</button><button type="button" data-lang="de" lang="de">DE</button></div>
       <a class="get" href="#app" data-i18n="get">Get the app</a>
     </div>
   </header>
@@ -304,6 +312,7 @@ footer a{color:var(--ink)}
           <input id="q" type="search" placeholder="Hotel, address or place in Florence" data-i18n-ph="ph" role="combobox" aria-autocomplete="list" aria-controls="suggest" aria-expanded="false">
           <div class="suggest" id="suggest" role="listbox" hidden></div>
         </form>
+        <p class="locmsg" id="loc-msg" role="status"></p>
       </div>
       <div class="picks">
         <div class="fld"><label class="label" for="day" data-i18n="whenL">When</label>
@@ -317,12 +326,12 @@ footer a{color:var(--ink)}
         <div class="ticks tnum" aria-hidden="true"><span>0</span><span>6</span><span>12</span><span>18</span><span>24</span></div>
       </div>
 
-      <article class="answer" id="answer" data-v="wait" data-s="wait" aria-busy="true" aria-labelledby="a-title">
+      <article class="answer" id="answer" data-v="wait" data-s="wait" aria-busy="true" aria-labelledby="a-title" tabindex="-1">
         <div class="verdict" aria-live="polite" aria-atomic="true">
           <svg class="shape" id="a-mark" viewBox="0 0 32 32" aria-hidden="true"></svg>
           <div><h2 id="a-title" class="skel">&nbsp;</h2><p class="motive" id="a-motive" hidden></p></div>
         </div>
-        <p class="where" id="a-where">Florence</p>
+        <p class="where skel" id="a-where">&nbsp;</p>
         <p class="until tnum" id="a-until"></p>
         <div class="unoff" id="a-unoff" role="note" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2 1 21h22L12 2zm1 15h-2v2h2v-2zm0-7h-2v5h2v-5z"/></svg><div><strong data-i18n="unoff">Unofficial source: always check the sign at the gate</strong><span id="a-unoff-src"></span></div></div>
         <p class="why skel" id="a-why">&nbsp;</p>
@@ -350,9 +359,9 @@ footer a{color:var(--ink)}
       <div class="crow"><span class="label" id="try-l" data-i18n="try">Try</span><div class="cscroll" id="tries" role="group" aria-labelledby="try-l"><button type="button" class="chip loc" id="locate" hidden data-i18n="locate">Use my location</button></div></div>
     </div>
 
-    <div class="mapcard">
+    <div class="mapcard" id="mapcard">
       <div class="mapbox" id="mapbox">
-        <svg id="map" role="img" aria-label="Map of the ZTL zones and gates. Tap a point to check it." data-i18n-al="mapAl" viewBox="0 0 1000 760"></svg>
+        <svg id="map" role="img" aria-label="Map of the ZTL zones and gates. The answer above says the same in words." data-i18n-al="mapAl" viewBox="0 0 1000 760"></svg>
         <div id="mlmap"></div>
       </div>
       <div class="legend" id="legend"></div>
@@ -380,9 +389,9 @@ footer a{color:var(--ink)}
     </div>
   </section>
 
-  <section class="details" aria-label="Details">
-    <div class="panel">
-      <span class="label" id="h-label">Florence · Sector B</span>
+  <section class="details" aria-label="Details of the zone" data-i18n-al="detailsL">
+    <div class="panel" id="hours-p">
+      <span class="label skel" id="h-label">&nbsp;</span>
       <h2 data-i18n="hoursT">When the gates are on</h2>
       <table class="tnum" id="hours"></table>
       <p class="note" id="h-note"></p>
@@ -393,7 +402,7 @@ footer a{color:var(--ink)}
       <div class="fine tnum" id="fine"></div>
       <ul class="list" id="fine-notes"></ul>
     </div>
-    <div class="panel">
+    <div class="panel" id="hotel">
       <span class="label" data-i18n="hotelL">Staying inside the ZTL?</span>
       <h2 data-i18n="hotelT">Ask your hotel first</h2>
       <p data-i18n="hotelP">Hotels inside the zone can register your plate with the city. Send this before you arrive.</p>
@@ -403,7 +412,7 @@ footer a{color:var(--ink)}
       </div>
       <div class="msg" id="hotel-msg"></div>
       <button class="btn dark" type="button" id="copy" data-i18n="copy">Copy message</button>
-      <p class="note" data-i18n="hotelN">The current online procedure in Florence is still being checked.</p>
+      <p class="note" id="hotel-n" data-i18n="hotelN">The current online procedure in Florence is still being checked.</p>
     </div>
   </section>
 
@@ -441,7 +450,7 @@ footer a{color:var(--ink)}
   </main>
 
   <footer>
-    <div class="fam" aria-label="The LR family">
+    <div class="fam" role="group" aria-label="The LR family" data-i18n-al="famL">
       <span>AudioLR</span><span>OrbitLR</span><span>WebcamLR</span><span>GateLR</span>
     </div>
     <p><a href="{{ROOT}}privacy/">Privacy</a> · <a href="{{ROOT}}support/">Support</a> · <a href="{{ROOT}}app/">App</a> · <a href="mailto:support@example.com">support@example.com</a></p>
@@ -465,7 +474,7 @@ const TZ = "Europe/Rome";
 // Testi del sito in inglese, italiano e tedesco
 const T = {
  en:{
-  skip:"Skip to the search", navCities:"Cities", navHow:"How it works", whereL:"Where", hourL:"Time of arrival", mapAl:"Map of the ZTL zones and gates. Tap a point to check it.",
+  skip:"Skip to the search", navCities:"Cities", navHow:"How it works", whereL:"Where", hourL:"Time of arrival", mapAl:"Map of the ZTL zones and gates. The answer above says the same in words.",
   sNo:"Don't enter", sCond:"Only if…", sSi:"You can enter", sOff:"ZTL not active", sUnsure:"Check the sign", sOut:"Outside the ZTL", sUnk:"We don't know this place",
   pNo:"Don't enter", pCond:"Only if…", pSi:"You can enter", pOff:"ZTL not active", pUnsure:"Check the sign", pOut:"Outside the ZTL", pUnk:"Not covered",
   mNonUfficiale:"Unofficial source", mScaduti:"Data out of date", mNonSicuro:"Not sure", mPed:"Pedestrian area",
@@ -476,7 +485,7 @@ const T = {
   pr3T:"If we don't know, we say so", pr3P:"Outside the {{N}} cities, with out-of-date data or unofficial sources we never say «you can enter».",
   answersL:"The possible answers, always the same", notReviewed:"Not reviewed by a person yet.",
   sharedP:d=>`Place, day and time and vehicle come from the link. The answer is worked out now${d ? ", with the city's hours read on " + d : ""}: if the rules change, the answer changes too.`, carLine:(c, u)=>[c, u].filter(Boolean).join(" · "),
-  cityL:"City", carL:"Vehicle", whenL:"When", dToday:"Today", dTomorrow:"Tomorrow", slideHint:"Drag the hour: the answer changes live", ledCap:"The panel at the gate", ledOut:"NO ZTL HERE", vRental:"Rental car", vRentalS:"petrol Euro 6", vP3:"Petrol Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Hybrid", vEl:"Electric", vMoto:"Motorbike / scooter", vMotoS:"petrol Euro 5", whyMoto:"The gates are on, but motorbikes and scooters may drive in.", whyMotoBan:"The gates are on. Motorbikes have their own Euro limits here: check yours on the city's page.", whyMotoNo:e=>`Motorbikes and scooters Euro ${e} can't enter this zone while it's active.`, whyMotoOk:e=>`Your motorbike (Euro ${e}) is allowed in this low-emission zone.`, moreC:n=>`+ ${n} more`, lessC:"Fewer", lcond:"With a ticket or condition", allC:"All cities",
+  cityL:"City", carL:"Vehicle", whenL:"When", dToday:"Today", dTomorrow:"Tomorrow", slideHint:"Drag the hour: the answer changes live", ledCap:"The panel at the gate", ledOut:"NO ZTL HERE", vRental:"Rental car", vRentalS:"petrol Euro 6", vP3:"Petrol Euro 3", vD4:"Diesel Euro 4", vD5:"Diesel Euro 5", vD6:"Diesel Euro 6", vP4:"Petrol Euro 4", vP5:"Petrol Euro 5", vHy:"Hybrid", vEl:"Electric", vMoto:"Motorbike / scooter", vMotoS:"petrol Euro 5", whyMoto:"The gates are on, but motorbikes and scooters may drive in.", whyMotoBan:"The gates are on. Motorbikes have their own Euro limits here: check yours on the city's page.", whyMotoNo:e=>`Motorbikes and scooters Euro ${e} can't enter this zone while it's active.`, whyMotoOk:e=>`Your motorbike (Euro ${e}) is allowed in this low-emission zone.`, moreC:n=>`+ ${n} more`, lessC:"Fewer", lcond:"With a ticket or condition", allC:"All cities",
   untilOn:n=>`On until ${n.replace(/^on /, "")}`, untilOff:n=>`Off until ${n.replace(/^on /, "")}`, carPl:(f,n)=>f==="electric"||f==="hybrid" ? `${T.en.fuel[f]} cars` : `${T.en.fuel[f]} Euro ${n} cars`, whyExempt:c=>`The gates are on, but ${c} may drive in.`, whyBan:c=>`The gates are on and ${c} can't drive in, not even with a ticket. Check the city's page for any free days.`, whyGreenOk:(c,l)=>`The low-emission zone is on, but ${c} may drive in.${l ? " Banned now: " + l + "." : ""}`,
   fL:"In the iPhone app", fT:"Everything you need before the gate", fP:"The app gives the same answers as this page, for {{N}} Italian cities, and helps you on the road.", f1T:"«Can I enter?»", f1P:"One clear answer for where you're going, with the city's official source and the date we read it.", st1:"You can enter", st2:"On one condition", st3:"Don't enter", st4:"Check the sign", f2T:"Your time, your car", f2P:"Tap «Now ▾» to pick tonight, tomorrow or any day and time, and choose the car you're driving: every answer, the map and your trip change together.", f3T:"The map", f3P:"ZTL zones coloured by the answer, camera gates and pedestrian areas, for the time and car you picked.", f4T:"Park outside and walk", f4P:"Destination in an active ZTL? Car parks outside it, the minutes on foot, prices and opening hours when known. Works offline.", f5T:"Hotel inside the ZTL", f5P:"A ready message asking your hotel to register your plate with the city for every day of your stay.", f6T:"Guardian", f6P:"Drive with Google Maps, Waze or Apple Maps: GateLR stays in the background, warns you before an active ZTL and shows it in the Dynamic Island, a Live Activity and the lock-screen widget.", f7T:"GateLR's own navigator", f7P:"Turn-by-turn voice directions on a smooth map, rerouting after a wrong turn and a warning before every active gate.", f8T:"Siri and Shortcuts", f8P:"«Can I enter Florence Sector A with GateLR?», the ZTL nearest to you, or stop the guardian, without opening the app.", f9T:"Read the sign", f9P:"Point the camera at the ZTL sign: GateLR reads the days and hours and explains them in your language.", f10T:"Garage", f10P:"«Photograph the registration document» reads fuel and Euro class from EU registration certificates; for a rental car, pick the model from a list.", f11T:"«Got a fine?»", f11P:"Photograph the notice: was the gate active according to our data, your deadlines, and a draft appeal to complete. General information, not legal advice.", f12T:"8 languages", f12P:"English, Italiano, Deutsch, Français, Español, Nederlands, Polski and 简体中文.", q5:"Where do the rules come from?", a5:"From each city's official pages, ordinances and open data, with the link and the date we read them. They are drafts: checked against the official sources but not yet reviewed on site by a person. The sign and the light panel at the gate always win.", q6:"Can I download the app?", a6:"Not yet: GateLR for iPhone is in testing and not yet on the App Store. Until then, this page gives you the same answer for every city, for now or for your arrival time.",title:"Can I drive into the ZTL? {{N}} Italian cities · GateLR", desc:"Driving to an Italian old town? Search your hotel and see at once if it's inside a ZTL in one of {{N}} Italian cities, from Florence, Rome and Milan to Siena and San Gimignano: whether you can drive in when you arrive, the hours, the day ticket and the fine. From the cities' official sources.",
   lcondOne:"On one condition", lcheck:"«?»: check the sign", loff:"You can enter · ZTL not active", lpass:"ZTL with pass", lgreen:"Green zone", lped:"Pedestrian area", ped:"Pedestrian area", guides:"ZTL guides", and:"and",
@@ -500,7 +509,7 @@ const T = {
   foot:"Data: the cities' official pages and documents, their open data and OpenStreetMap (sources and licences on each city page). GateLR is not affiliated with any city or with the police. Road signs on site always win.",
   pick:"Pick a place", pickWhy:"Search above, tap a suggestion, or tap the map.",
   yes:"You can enter", no:"Don't enter", cond:"On one condition", unsure:"Check the sign", out:"You can enter",
-  whyOff:n=>`The gates are off${n ? ". They switch on " + n : ""}.`, whyOn:n=>`The gates are on${n ? ". They switch off " + n : ""}. Park outside the zone, or come back later.`,
+  whyOff:n=>`The gates are off${n ? ". They switch on " + n : ""}.`, whyOn:n=>`The gates are on${n ? ". They switch off " + n : ""}. Park outside the zone${n ? ", or come back later" : ""}.`,
   whyCond:"The gates are on. You can drive to your hotel only if the hotel registers your plate with the city.", whyHol:"It's a public holiday and the city hasn't confirmed whether the gates are off. Check the panel at the gate.",
   hint:" Staying at a hotel inside? Your hotel can register your plate.", whyOut:(m,c)=>`This place is outside ${c}'s ZTL. The restricted zone starts about ${m} m away: don't follow the satnav through it.`,
   outside:"outside the ZTL", inside:"inside the ZTL", out2:"outside", noGates:"No gates here", gOn:"Gates on", gOff:"Gates off", nowAt:"now",
@@ -508,9 +517,10 @@ const T = {
   read:(d,c)=>`Read ${d} from the City of ${c}:`, verified:d=>`Verified ${d}.`, notVerified:"Not verified yet: check the sign.", notVerifiedPerson:"Not verified by a person yet.", whyUnverified:"This rule hasn't been verified yet: check the sign.", whyOldCheck:d=>`Last verified more than ${d} days ago: check the sign.`, whyChanged:"The city's page has changed: check the sign.", official:"official page ↗", nights:"nights", open:"open to all", notConf:"not confirmed", asSun:"as on Sunday", hol:"Public holidays",
   loadErr:"Couldn't load the rules of this city. Check your connection.", retry:"Try again",
   perDay:"per day", verifying:"Amount being verified", stillChecking:"Amounts still being checked against the official text.", point:"Point on the map", unk:"We don't know this place", unkWhere:"outside the cities we cover", far:"We don't cover this place yet. GateLR covers {{N}} Italian cities: see the ZTL guides below.",
+  langL:"Language", detailsL:"Details of the zone", famL:"The LR family", gExempt:"you may drive in", readU:d=>`Read ${d} on`, unoffShort:"(unofficial source)", myPos:"Your location", onSinceD:(d,h)=>`On since ${d} at ${h}`, offSinceD:(d,h)=>`Off since ${d} at ${h}`, checkL:"not confirmed",
   msg:(day,time,h,pl)=>`${h ? "Dear " + h + " team," : "Hello,"}\n\nI'm arriving by car on ${day} at about ${time}. Could you please register my plate ${pl || "[PLATE]"} for the ZTL, so I can reach the hotel without a fine?\n\nThank you!`},
  it:{
-  skip:"Vai alla ricerca", navCities:"Città", navHow:"Come funziona", whereL:"Dove", hourL:"Ora di arrivo", mapAl:"Mappa delle ZTL e dei varchi. Tocca un punto per controllarlo.",
+  skip:"Vai alla ricerca", navCities:"Città", navHow:"Come funziona", whereL:"Dove", hourL:"Ora di arrivo", mapAl:"Mappa delle ZTL e dei varchi. La risposta qui sopra dice lo stesso a parole.",
   sNo:"Non entrare", sCond:"Entri a una condizione", sSi:"Entra pure", sOff:"ZTL non attiva", sUnsure:"Controlla il cartello", sOut:"Fuori dalla ZTL", sUnk:"Non conosciamo questo posto",
   pNo:"Non entrare", pCond:"A una condizione", pSi:"Entra pure", pOff:"ZTL non attiva", pUnsure:"Controlla il cartello", pOut:"Fuori dalla ZTL", pUnk:"Posto non coperto",
   mNonUfficiale:"Fonte non ufficiale", mScaduti:"Dati scaduti", mNonSicuro:"Non sicuro", mPed:"Area pedonale",
@@ -521,8 +531,8 @@ const T = {
   pr3T:"Se non sappiamo, lo diciamo", pr3P:"Fuori dalle {{N}} città, con dati scaduti o fonti non ufficiali non diciamo mai «entra pure».",
   answersL:"Le risposte possibili, sempre uguali", notReviewed:"Non ancora rivista da una persona.",
   sharedP:d=>`Posto, giorno e ora e veicolo arrivano dal link. La risposta è calcolata adesso${d ? ", con gli orari del Comune letti il " + d : ""}: se le regole cambiano, cambia anche lei.`, carLine:(c, u)=>[c, u].filter(Boolean).join(" · "),
-  cityL:"Città", carL:"Veicolo", whenL:"Quando", dToday:"Oggi", dTomorrow:"Domani", slideHint:"Trascina l'ora: la risposta cambia subito", ledCap:"Il pannello al varco", ledOut:"FUORI ZTL", vRental:"Auto a noleggio", vRentalS:"benzina Euro 6", vP3:"Benzina Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Ibrida", vEl:"Elettrica", vMoto:"Moto / scooter", vMotoS:"benzina Euro 5", whyMoto:"I varchi sono accesi, ma moto e scooter possono entrare.", whyMotoBan:"I varchi sono accesi. Qui le moto hanno limiti Euro loro: controlla la tua sul sito del Comune.", whyMotoNo:e=>`Moto e scooter Euro ${e} non possono entrare in questa zona quando è attiva.`, whyMotoOk:e=>`La tua moto (Euro ${e}) può entrare in questa zona a basse emissioni.`, moreC:n=>`e altre ${n}`, lessC:"Meno", lcond:"Con ticket o condizioni", allC:"Tutte le città",
-  untilOn:n=>`Attivo fino a ${n}`, untilOff:n=>`Non attivo fino a ${n}`, carPl:(f,n)=>f==="electric"||f==="hybrid" ? `le auto ${T.it.fuel[f]}` : `le auto ${T.it.fuel[f]} Euro ${n}`, whyExempt:c=>`I varchi sono accesi, ma ${c} possono entrare.`, whyBan:c=>`I varchi sono accesi e ${c} non possono entrare, neanche con il ticket. Eventuali giornate libere sul sito del Comune.`, whyGreenOk:(c,l)=>`La zona a basse emissioni è attiva, ma ${c} possono entrare.${l ? " Ora sono vietate: " + l + "." : ""}`,
+  cityL:"Città", carL:"Veicolo", whenL:"Quando", dToday:"Oggi", dTomorrow:"Domani", slideHint:"Trascina l'ora: la risposta cambia subito", ledCap:"Il pannello al varco", ledOut:"FUORI ZTL", vRental:"Auto a noleggio", vRentalS:"benzina Euro 6", vP3:"Benzina Euro 3", vD4:"Diesel Euro 4", vD5:"Diesel Euro 5", vD6:"Diesel Euro 6", vP4:"Benzina Euro 4", vP5:"Benzina Euro 5", vHy:"Ibrida", vEl:"Elettrica", vMoto:"Moto / scooter", vMotoS:"benzina Euro 5", whyMoto:"I varchi sono accesi, ma moto e scooter possono entrare.", whyMotoBan:"I varchi sono accesi. Qui le moto hanno limiti Euro loro: controlla la tua sul sito del Comune.", whyMotoNo:e=>`Moto e scooter Euro ${e} non possono entrare in questa zona quando è attiva.`, whyMotoOk:e=>`La tua moto (Euro ${e}) può entrare in questa zona a basse emissioni.`, moreC:n=>`e altre ${n}`, lessC:"Meno", lcond:"Con ticket o condizioni", allC:"Tutte le città",
+  untilOn:n=>`Attiva fino a ${n}`, untilOff:n=>`Non attiva fino a ${n}`, carPl:(f,n)=>f==="electric"||f==="hybrid" ? `le auto ${T.it.fuel[f]}` : `le auto ${T.it.fuel[f]} Euro ${n}`, whyExempt:c=>`I varchi sono accesi, ma ${c} possono entrare.`, whyBan:c=>`I varchi sono accesi e ${c} non possono entrare, neanche con il ticket. Eventuali giornate libere sul sito del Comune.`, whyGreenOk:(c,l)=>`La zona a basse emissioni è attiva, ma ${c} possono entrare.${l ? " Ora sono vietate: " + l + "." : ""}`,
   fL:"Nell'app per iPhone", fT:"Tutto quello che serve prima del varco", fP:"L'app dà le stesse risposte di questa pagina, per {{N}} città italiane, e ti aiuta anche per strada.", f1T:"«Posso entrare?»", f1P:"Una risposta chiara per il posto dove vai, con la fonte ufficiale del Comune e la data in cui l'abbiamo letta.", st1:"Puoi entrare", st2:"A una condizione", st3:"Non entrare", st4:"Controlla il cartello", f2T:"La tua ora, la tua auto", f2P:"Tocca «Adesso ▾» per scegliere stasera, domani o un giorno e un'ora qualsiasi, e scegli l'auto che guidi: le risposte, la mappa e il viaggio cambiano insieme.", f3T:"La mappa", f3P:"Le zone ZTL colorate secondo la risposta, i varchi con le telecamere e le aree pedonali, per l'ora e l'auto che hai scelto.", f4T:"Parcheggia fuori e cammina", f4P:"Destinazione in una ZTL attiva? I parcheggi fuori dalla zona, i minuti a piedi, prezzi e orari quando si conoscono. Funziona anche offline.", f5T:"Hotel dentro la ZTL", f5P:"Un messaggio pronto per chiedere all'hotel di comunicare la tua targa al Comune per ogni giorno del soggiorno.", f6T:"Guardiano", f6P:"Guida con Google Maps, Waze o Apple Maps: GateLR resta in sottofondo, ti avvisa prima di una ZTL attiva e la mostra nella Dynamic Island, in una Live Activity e nel widget della schermata di blocco.", f7T:"Il navigatore di GateLR", f7P:"Indicazioni a voce svolta per svolta su una mappa fluida, ricalcolo dopo una svolta sbagliata e un avviso prima di ogni varco attivo.", f8T:"Siri e Comandi rapidi", f8P:"«Posso entrare a Firenze Settore A con GateLR?», la ZTL più vicina o «ferma il guardiano», senza aprire l'app.", f9T:"Leggi il cartello", f9P:"Inquadra il cartello della ZTL: GateLR legge giorni e orari e te li spiega nella tua lingua.", f10T:"Garage", f10P:"«Fotografa il libretto» legge alimentazione e classe Euro dalle carte di circolazione europee; per un'auto a noleggio scegli il modello da un elenco.", f11T:"«Ho preso una multa?»", f11P:"Fotografa il verbale: il varco era attivo secondo i nostri dati, le tue scadenze e una bozza di ricorso da completare. Informazioni generali, non consulenza legale.", f12T:"8 lingue", f12P:"English, Italiano, Deutsch, Français, Español, Nederlands, Polski e 简体中文.", q5:"Da dove vengono le regole?", a5:"Dalle pagine ufficiali, dalle ordinanze e dagli open data di ogni Comune, con il link e la data in cui le abbiamo lette. Sono bozze: controllate sulle fonti ufficiali ma non ancora verificate sul posto da una persona. Valgono sempre il cartello e il pannello luminoso al varco.", q6:"Posso scaricare l'app?", a6:"Non ancora: GateLR per iPhone è in prova e non è ancora sull'App Store. Nel frattempo questa pagina ti dà la stessa risposta per ogni città, per adesso o per l'ora di arrivo.",title:"Posso entrare in ZTL? {{N}} città italiane · GateLR", desc:"Vai in auto in un centro storico italiano? Cerca il tuo hotel e scopri subito se è in ZTL in una di {{N}} città italiane, da Firenze, Roma e Milano a Siena e San Gimignano: se puoi entrare all'ora di arrivo, gli orari, il ticket e la multa. Dalle fonti ufficiali dei Comuni.",
   lcondOne:"A una condizione", lcheck:"«?»: controlla il cartello", loff:"Puoi entrare · ZTL non attiva", lpass:"ZTL con pass", lgreen:"Zona verde", lped:"Area pedonale", ped:"Area pedonale", guides:"Guide ZTL", and:"e",
   phones:"Una versione per Android è in lavorazione, anche per i telefoni Huawei e Honor senza servizi Google.",   whyGreen0:"La zona a basse emissioni è attiva. Quasi tutte le auto possono entrare, le più inquinanti no. Controlla la tua auto sul sito del Comune.",
@@ -531,10 +541,10 @@ const T = {
   whyPed:"Questa è un'area pedonale: le auto non possono entrare a nessuna ora, neanche con permesso o ticket. Parcheggia fuori e prosegui a piedi.",
   dl:{beforeEntry:"da attivare prima di entrare", nextDayMidnight:"da pagare entro la mezzanotte del giorno dopo"}, dlL:"Attivazione ticket", dlShort:{beforeEntry:"prima di entrare", nextDayMidnight:"mezzanotte del giorno dopo"},
   whyStale:d=>`Questa zona non è stata controllata da ${d} giorni. Guarda il sito del Comune prima di entrare.`,
-  get:"Scarica l'app", dayTicket:"Biglietto giornaliero", always:"Tutti i giorni, 24 ore", closed:"chiusa", locate:"Usa la mia posizione", noLoc:"Posizione non disponibile: cerca un luogo.", sFail:"Non riesco a cercare adesso. Controlla la connessione.", retry:"Riprova", hName:"Nome dell'hotel", hPlate:"La tua targa", faqT:"Da sapere", q1:"Cos'è una ZTL?", a1:"Una zona a traffico limitato, di solito un centro storico. A ogni ingresso le telecamere leggono la targa. Se entri senza permesso mentre i varchi sono accesi, la multa arriva al proprietario dell'auto: per un noleggio vuol dire a te, più la commissione della società di noleggio.",
+  get:"Scarica l'app", dayTicket:"Ticket giornaliero", always:"Tutti i giorni, 24 ore", closed:"chiusa", locate:"Usa la mia posizione", noLoc:"Posizione non disponibile: cerca un luogo.", sFail:"Non riesco a cercare adesso. Controlla la connessione.", retry:"Riprova", hName:"Nome dell'hotel", hPlate:"La tua targa", faqT:"Da sapere", q1:"Cos'è una ZTL?", a1:"Una zona a traffico limitato, di solito un centro storico. A ogni ingresso le telecamere leggono la targa. Se entri senza permesso mentre i varchi sono accesi, la multa arriva al proprietario dell'auto: per un noleggio vuol dire a te, più la commissione della società di noleggio.",
   q2:"Come capisco se un varco è acceso?", a2:"A ogni ingresso c'è un cartello e di solito un pannello luminoso con scritto «ZTL attiva» (non entrare) o «ZTL non attiva» (puoi entrare); i pannelli più vecchi dicono ancora «Varco attivo» / «Varco non attivo», con lo stesso significato. GateLR te lo dice prima, dagli orari ufficiali del Comune, ma vale sempre il pannello al varco.",
   q3:"Il mio hotel è dentro la ZTL. Cosa faccio?", a3:"Scrivi all'hotel prima di arrivare e chiedi di comunicare la tua targa al Comune. Molti hotel possono farlo per il giorno di arrivo e di partenza. Usa il messaggio qui sopra: è pronto in italiano, inglese e tedesco.",
-  q4:"Sono entrato per sbaglio. E adesso?", a4:"Annota l'ora e il varco. Se dormi in un hotel dentro la zona, avvisalo subito: alcuni Comuni accettano la comunicazione anche dopo, entro poco tempo. Altrimenti la multa arriva per posta; pagando entro 5 giorni dalla notifica risparmi il 30%.", whyTicket:(t,h,dl)=>`I varchi sono accesi. Puoi entrare con il biglietto giornaliero (${t.price.toFixed(2).replace(".",",")} €${dl ? ", " + dl : ""}). ${h}`, h1:"Posso entrare nella ZTL?", lead:"Scegli posto, ora e veicolo. Nessun account, niente da installare.",
+  q4:"Sono entrato per sbaglio. E adesso?", a4:"Annota l'ora e il varco. Se dormi in un hotel dentro la zona, avvisalo subito: alcuni Comuni accettano la comunicazione anche dopo, entro poco tempo. Altrimenti la multa arriva per posta; pagando entro 5 giorni dalla notifica risparmi il 30%.", whyTicket:(t,h,dl)=>`I varchi sono accesi. Puoi entrare con il ticket giornaliero (${t.price.toFixed(2).replace(".",",")} €${dl ? ", " + dl : ""}). ${h}`, h1:"Posso entrare nella ZTL?", lead:"Scegli posto, ora e veicolo. Nessun account, niente da installare.",
   ph:"Hotel, indirizzo o luogo: Firenze, Roma, Milano…", now:"Adesso", arrival:"Arrivo", try:"Prova", draft:"Bozza: presa dalle fonti ufficiali del Comune, non ancora rivista da una persona. Vale sempre il cartello al varco.", unoff:"Fonte non ufficiale: verifica sempre il cartello al varco", dataFrom:"Dati da", probYes:"Probabilmente sì · fonte non ufficiale", probNo:"Probabilmente no · fonte non ufficiale",
   tap:"Tocca un punto per controllarlo", lsector:"ZTL", lgate:"Varco con telecamera", lplace:"Il tuo luogo", hoursT:"Quando i varchi sono accesi", fineL:"Se entri per sbaglio", fineT:"La multa",
   hotelL:"Dormi dentro la ZTL?", hotelT:"Prima scrivi all'hotel", hotelP:"Gli hotel dentro la zona possono comunicare la tua targa al Comune. Mandalo prima di arrivare.",
@@ -545,7 +555,7 @@ const T = {
   foot:"Dati: pagine e documenti ufficiali dei Comuni, i loro open data e OpenStreetMap (fonti e licenze nella pagina di ogni città). GateLR non è collegata ad alcun Comune né alla polizia. Vale sempre la segnaletica sul posto.",
   pick:"Scegli un luogo", pickWhy:"Cerca qui sopra, tocca un suggerimento o tocca la mappa.",
   yes:"Puoi entrare", no:"Non entrare", cond:"A una condizione", unsure:"Controlla il cartello", out:"Puoi entrare",
-  whyOff:n=>`I varchi sono spenti${n ? ". Si accendono " + n : ""}.`, whyOn:n=>`I varchi sono accesi${n ? ". Si spengono " + n : ""}. Parcheggia fuori dalla zona o torna più tardi.`,
+  whyOff:n=>`I varchi sono spenti${n ? ". Si accendono " + n : ""}.`, whyOn:n=>`I varchi sono accesi${n ? ". Si spengono " + n : ""}. Parcheggia fuori dalla zona${n ? " o torna più tardi" : ""}.`,
   whyCond:"I varchi sono accesi. Puoi arrivare all'hotel solo se l'hotel comunica la tua targa al Comune.", whyHol:"È festivo e il Comune non ha confermato se i varchi sono spenti. Controlla il pannello al varco.",
   hint:" Dormi in un hotel dentro la zona? L'hotel può comunicare la tua targa.", whyOut:(m,c)=>`Questo luogo è fuori dalla ZTL di ${c}. La zona limitata inizia a circa ${m} m: non seguire il navigatore attraverso il centro.`,
   outside:"fuori ZTL", inside:"in ZTL", out2:"fuori", noGates:"Nessun varco", gOn:"Varchi accesi", gOff:"Varchi spenti", nowAt:"adesso",
@@ -553,9 +563,10 @@ const T = {
   read:(d,c)=>`Letto il ${d} dal sito del Comune di ${c}:`, verified:d=>`Verificato il ${d}.`, notVerified:"Non ancora verificato: controlla il cartello.", notVerifiedPerson:"Non ancora verificato da una persona.", whyUnverified:"Questa regola non è ancora stata verificata: controlla il cartello.", whyOldCheck:d=>`Verificata più di ${d} giorni fa: controlla il cartello.`, whyChanged:"La pagina del Comune è cambiata: controlla il cartello.", official:"pagina ufficiale ↗", nights:"notti", open:"libero", notConf:"da confermare", asSun:"come la domenica", hol:"Festivi",
   loadErr:"Non riesco a caricare le regole di questa città. Controlla la connessione.", retry:"Riprova",
   perDay:"al giorno", verifying:"Importo in verifica", stillChecking:"Importi ancora da verificare sul testo ufficiale.", point:"Punto sulla mappa", unk:"Non conosciamo questo posto", unkWhere:"fuori dalle città coperte", far:"Questo luogo non è ancora coperto. GateLR copre {{N}} città italiane: vedi le guide ZTL qui sotto.",
+  langL:"Lingua", detailsL:"Dettagli della zona", famL:"La famiglia LR", gExempt:"sei esente", readU:d=>`Letto il ${d} su`, unoffShort:"(fonte non ufficiale)", myPos:"La tua posizione", onSinceD:(d,h)=>`Accesi da ${d} alle ${h}`, offSinceD:(d,h)=>`Spenti da ${d} alle ${h}`, checkL:"da verificare",
   msg:(day,time,h,pl)=>`${h ? "Gentile staff di " + h + "," : "Buongiorno,"}\n\narrivo in auto ${day} verso le ${time}. Potete registrare la mia targa ${pl || "[TARGA]"} per la ZTL, così raggiungo l'hotel senza multa?\n\nGrazie!`},
  de:{
-  skip:"Zur Suche springen", navCities:"Städte", navHow:"So funktioniert's", whereL:"Wo", hourL:"Ankunftszeit", mapAl:"Karte der ZTL-Zonen und Einfahrten. Tippe auf einen Punkt, um ihn zu prüfen.",
+  skip:"Zur Suche springen", navCities:"Städte", navHow:"So funktioniert's", whereL:"Wo", hourL:"Ankunftszeit", mapAl:"Karte der ZTL-Zonen und Einfahrten. Die Antwort oben sagt dasselbe in Worten.",
   sNo:"Nicht einfahren", sCond:"Nur wenn…", sSi:"Einfahrt frei", sOff:"ZTL nicht aktiv", sUnsure:"Schild prüfen", sOut:"Außerhalb der ZTL", sUnk:"Diesen Ort kennen wir nicht",
   pNo:"Nicht einfahren", pCond:"Nur wenn…", pSi:"Einfahrt frei", pOff:"ZTL nicht aktiv", pUnsure:"Schild prüfen", pOut:"Außerhalb der ZTL", pUnk:"Nicht abgedeckt",
   mNonUfficiale:"Inoffizielle Quelle", mScaduti:"Daten veraltet", mNonSicuro:"Nicht sicher", mPed:"Fußgängerzone",
@@ -566,7 +577,7 @@ const T = {
   pr3T:"Wenn wir es nicht wissen, sagen wir es", pr3P:"Außerhalb der {{N}} Städte, bei veralteten Daten oder inoffiziellen Quellen sagen wir nie «Einfahrt frei».",
   answersL:"Die möglichen Antworten, immer gleich", notReviewed:"Noch nicht von einer Person geprüft.",
   sharedP:d=>`Ort, Tag und Uhrzeit und Fahrzeug kommen aus dem Link. Die Antwort wird jetzt berechnet${d ? ", mit den am " + d + " gelesenen Zeiten der Stadt" : ""}: Ändern sich die Regeln, ändert sich auch die Antwort.`, carLine:(c, u)=>[c, u].filter(Boolean).join(" · "),
-  cityL:"Stadt", carL:"Fahrzeug", whenL:"Wann", dToday:"Heute", dTomorrow:"Morgen", slideHint:"Zieh an der Uhrzeit: die Antwort ändert sich sofort", ledCap:"Die Anzeige an der Einfahrt", ledOut:"KEINE ZTL", vRental:"Mietwagen", vRentalS:"Benzin Euro 6", vP3:"Benzin Euro 3", vD4:"Diesel Euro 4", vD6:"Diesel Euro 6", vHy:"Hybrid", vEl:"Elektro", vMoto:"Motorrad / Roller", vMotoS:"Benzin Euro 5", whyMoto:"Die Kameras sind aktiv, aber Motorräder und Roller dürfen hinein.", whyMotoBan:"Die Kameras sind aktiv. Für Motorräder gelten hier eigene Euro-Grenzen: prüfe deins auf der Seite der Stadt.", whyMotoNo:e=>`Motorräder und Roller Euro ${e} dürfen nicht in diese Zone, solange sie aktiv ist.`, whyMotoOk:e=>`Dein Motorrad (Euro ${e}) darf in diese Umweltzone.`, moreC:n=>`und ${n} weitere`, lessC:"Weniger", lcond:"Mit Ticket oder Bedingung", allC:"Alle Städte",
+  cityL:"Stadt", carL:"Fahrzeug", whenL:"Wann", dToday:"Heute", dTomorrow:"Morgen", slideHint:"Zieh an der Uhrzeit: die Antwort ändert sich sofort", ledCap:"Die Anzeige an der Einfahrt", ledOut:"KEINE ZTL", vRental:"Mietwagen", vRentalS:"Benzin Euro 6", vP3:"Benzin Euro 3", vD4:"Diesel Euro 4", vD5:"Diesel Euro 5", vD6:"Diesel Euro 6", vP4:"Benzin Euro 4", vP5:"Benzin Euro 5", vHy:"Hybrid", vEl:"Elektro", vMoto:"Motorrad / Roller", vMotoS:"Benzin Euro 5", whyMoto:"Die Kameras sind aktiv, aber Motorräder und Roller dürfen hinein.", whyMotoBan:"Die Kameras sind aktiv. Für Motorräder gelten hier eigene Euro-Grenzen: prüfe deins auf der Seite der Stadt.", whyMotoNo:e=>`Motorräder und Roller Euro ${e} dürfen nicht in diese Zone, solange sie aktiv ist.`, whyMotoOk:e=>`Dein Motorrad (Euro ${e}) darf in diese Umweltzone.`, moreC:n=>`und ${n} weitere`, lessC:"Weniger", lcond:"Mit Ticket oder Bedingung", allC:"Alle Städte",
   untilOn:n=>`Aktiv bis ${n.replace(/^am /, "")}`, untilOff:n=>`Aus bis ${n.replace(/^am /, "")}`, carPl:(f,n)=>f==="electric" ? "Elektroautos" : f==="hybrid" ? "Hybridautos" : `Autos mit ${T.de.fuel[f]} Euro ${n}`, whyExempt:c=>`Die Kameras sind aktiv, aber ${c} dürfen hinein.`, whyBan:c=>`Die Kameras sind aktiv und ${c} dürfen nicht hinein, auch nicht mit Ticket. Eventuelle freie Tage stehen auf der Seite der Stadt.`, whyGreenOk:(c,l)=>`Die Umweltzone ist aktiv, aber ${c} dürfen hinein.${l ? " Derzeit verboten: " + l + "." : ""}`,
   fL:"In der iPhone-App", fT:"Alles, was du vor der Einfahrt brauchst", fP:"Die App gibt dieselben Antworten wie diese Seite, für {{N}} italienische Städte, und hilft dir auch unterwegs.", f1T:"«Darf ich hinein?»", f1P:"Eine klare Antwort für dein Ziel, mit der offiziellen Quelle der Stadt und dem Datum, an dem wir sie gelesen haben.", st1:"Einfahrt erlaubt", st2:"Mit Bedingung", st3:"Nicht einfahren", st4:"Achte auf das Schild", f2T:"Deine Uhrzeit, dein Auto", f2P:"Tippe auf «Jetzt ▾» für heute Abend, morgen oder einen beliebigen Tag und eine Uhrzeit, und wähle das Auto, das du fährst: Antworten, Karte und Reise ändern sich zusammen.", f3T:"Die Karte", f3P:"ZTL-Zonen nach Antwort eingefärbt, Kamera-Einfahrten und Fußgängerzonen, für die gewählte Uhrzeit und dein Auto.", f4T:"Draußen parken und laufen", f4P:"Ziel in einer aktiven ZTL? Parkplätze außerhalb, die Minuten zu Fuß, Preise und Öffnungszeiten, wenn bekannt. Funktioniert auch offline.", f5T:"Hotel in der ZTL", f5P:"Eine fertige Nachricht, mit der dein Hotel dein Kennzeichen für jeden Tag deines Aufenthalts bei der Stadt anmeldet.", f6T:"Wächter", f6P:"Fahr mit Google Maps, Waze oder Apple Maps: GateLR bleibt im Hintergrund, warnt dich vor einer aktiven ZTL und zeigt sie in der Dynamic Island, einer Live-Aktivität und im Sperrbildschirm-Widget.", f7T:"GateLRs eigenes Navi", f7P:"Sprachansagen Abbiegung für Abbiegung auf einer flüssigen Karte, Neuberechnung nach einer falschen Abzweigung und eine Warnung vor jeder aktiven Einfahrt.", f8T:"Siri und Kurzbefehle", f8P:"«Darf ich mit GateLR in Florenz Sektor A?», die nächste ZTL oder den Wächter stoppen, ohne die App zu öffnen.", f9T:"Schild lesen", f9P:"Richte die Kamera auf das ZTL-Schild: GateLR liest Tage und Zeiten und erklärt sie dir in deiner Sprache.", f10T:"Garage", f10P:"«Fahrzeugschein fotografieren» liest Kraftstoff und Euro-Klasse aus EU-Zulassungsbescheinigungen; für einen Mietwagen wählst du das Modell aus einer Liste.", f11T:"«Bußgeld bekommen?»", f11P:"Fotografiere den Bescheid: War die Einfahrt laut unseren Daten aktiv, deine Fristen und ein Entwurf für den Einspruch zum Ergänzen. Allgemeine Informationen, keine Rechtsberatung.", f12T:"8 Sprachen", f12P:"English, Italiano, Deutsch, Français, Español, Nederlands, Polski und 简体中文.", q5:"Woher kommen die Regeln?", a5:"Aus den offiziellen Seiten, Verordnungen und Open Data jeder Stadt, mit Link und dem Datum, an dem wir sie gelesen haben. Es sind Entwürfe: an den offiziellen Quellen geprüft, aber noch nicht von einer Person vor Ort. Schild und Leuchttafel an der Einfahrt gelten immer.", q6:"Kann ich die App laden?", a6:"Noch nicht: GateLR für iPhone ist im Test und noch nicht im App Store. Bis dahin gibt dir diese Seite für jede Stadt dieselbe Antwort, für jetzt oder für deine Ankunftszeit.",title:"Darf ich in die ZTL? {{N}} italienische Städte · GateLR", desc:"Mit dem Auto in eine italienische Altstadt? Suche dein Hotel und sieh sofort, ob es in einer ZTL in einer von {{N}} italienischen Städten liegt, von Florenz, Rom und Mailand bis Siena und San Gimignano: ob du bei Ankunft hineinfahren darfst, die Zeiten, das Tagesticket und das Bußgeld. Aus offiziellen Quellen der Städte.",
   lcondOne:"Mit Bedingung", lcheck:"«?»: Schild prüfen", loff:"Einfahrt erlaubt · ZTL nicht aktiv", lpass:"ZTL mit Pass", lgreen:"Grüne Zone", lped:"Fußgängerzone", ped:"Fußgängerzone", guides:"ZTL-Ratgeber", and:"und",
@@ -590,14 +601,15 @@ const T = {
   foot:"Daten: offizielle Seiten und Dokumente der Städte, ihre Open Data und OpenStreetMap (Quellen und Lizenzen auf der Seite jeder Stadt). GateLR ist mit keiner Stadt und nicht mit der Polizei verbunden. Es gelten immer die Schilder vor Ort.",
   pick:"Wähle einen Ort", pickWhy:"Suche oben, tippe auf einen Vorschlag oder auf die Karte.",
   yes:"Einfahrt erlaubt", no:"Nicht einfahren", cond:"Mit Bedingung", unsure:"Achte auf das Schild", out:"Einfahrt erlaubt",
-  whyOff:n=>`Die Kameras sind aus${n ? ". Sie gehen " + n + " an" : ""}.`, whyOn:n=>`Die Kameras sind aktiv${n ? ". Sie gehen " + n + " aus" : ""}. Parke außerhalb der Zone oder komm später.`,
-  whyCond:"Die Kameras sind aktiv. Du darfst nur zum Hotel fahren, wenn das Hotel dein Kennzeichen bei der Stadt anmeldet.", whyHol:"Heute ist Feiertag und die Stadt hat nicht bestätigt, ob die Kameras aus sind. Achte auf die Anzeige an der Einfahrt.",
+  whyOff:n=>`Die Kameras sind aus${n ? ". Sie gehen " + n + " an" : ""}.`, whyOn:n=>`Die Kameras sind aktiv${n ? ". Sie gehen " + n + " aus" : ""}. Parke außerhalb der Zone${n ? " oder komm später" : ""}.`,
+  whyCond:"Die Kameras sind aktiv. Du darfst nur zum Hotel fahren, wenn das Hotel dein Kennzeichen bei der Stadt anmeldet.", whyHol:"Es ist ein Feiertag und die Stadt hat nicht bestätigt, ob die Kameras aus sind. Achte auf die Anzeige an der Einfahrt.",
   hint:" Dein Hotel liegt in der Zone? Das Hotel kann dein Kennzeichen anmelden.", whyOut:(m,c)=>`Dieser Ort liegt außerhalb der ZTL von ${c}. Die gesperrte Zone beginnt etwa ${m} m entfernt: folge dem Navi nicht durch die Altstadt.`,
   outside:"außerhalb der ZTL", inside:"in der ZTL", out2:"außerhalb", noGates:"Keine Einfahrten", gOn:"Kameras aktiv", gOff:"Kameras aus", nowAt:"jetzt",
   today:"heute um", tomorrow:"morgen um", on:"am", at:"um", d:"T", h:"Std", min:"Min", onSince:"Aktiv seit", offSince:"Aus seit", onIn:"Aktiv in", offIn:"Aus in",
   read:(d,c)=>`Gelesen am ${d} bei der Stadt ${c}:`, verified:d=>`Geprüft am ${d}.`, notVerified:"Noch nicht geprüft: achte auf das Schild.", notVerifiedPerson:"Noch nicht von einer Person geprüft.", whyUnverified:"Diese Regel wurde noch nicht geprüft: achte auf das Schild.", whyOldCheck:d=>`Zuletzt vor mehr als ${d} Tagen geprüft: achte auf das Schild.`, whyChanged:"Die Seite der Stadt hat sich geändert: achte auf das Schild.", official:"offizielle Seite ↗", nights:"Nächte", open:"frei", notConf:"unbestätigt", asSun:"wie sonntags", hol:"Feiertage",
   loadErr:"Die Regeln dieser Stadt lassen sich gerade nicht laden. Prüfe deine Verbindung.", retry:"Nochmal versuchen",
   perDay:"pro Tag", verifying:"Betrag wird geprüft", stillChecking:"Beträge werden noch am offiziellen Text geprüft.", point:"Punkt auf der Karte", unk:"Diesen Ort kennen wir nicht", unkWhere:"außerhalb der abgedeckten Städte", far:"Diesen Ort decken wir noch nicht ab. GateLR deckt {{N}} italienische Städte ab: siehe die ZTL-Ratgeber unten.",
+  langL:"Sprache", detailsL:"Details der Zone", famL:"Die LR-Familie", gExempt:"du bist befreit", readU:d=>`Gelesen am ${d} auf`, unoffShort:"(inoffizielle Quelle)", myPos:"Dein Standort", onSinceD:(d,h)=>`Aktiv seit ${d} um ${h}`, offSinceD:(d,h)=>`Aus seit ${d} um ${h}`, checkL:"zu prüfen",
   msg:(day,time,h,pl)=>`${h ? "Liebes Team von " + h + "," : "Guten Tag,"}\n\nich komme am ${day} gegen ${time} mit dem Auto an. Könnten Sie bitte mein Kennzeichen ${pl || "[KENNZEICHEN]"} für die ZTL anmelden, damit ich das Hotel ohne Bußgeld erreiche?\n\nVielen Dank!`}
 };
 const LOCALE = {en:"en-GB", it:"it-IT", de:"de-DE"};
@@ -610,21 +622,27 @@ const zoneLabel = z => (z["name_" + lang] || z.name).split("·")[0].trim();
 
 
 // Luoghi d'esempio: sul sito pubblico la ricerca usa un geocoder (vedi GEOCODER); qui servono quando la rete è chiusa
+// 2.0.1: [nome inglese, lat, lon, {it, de}]: si mostrano nella lingua della pagina (si trovano con il nome in ogni lingua)
 const PLACES = [
-  ["Duomo (Cathedral)", 43.7731, 11.2560], ["Ponte Vecchio", 43.7679, 11.2531], ["Piazza della Signoria", 43.7696, 11.2558],
-  ["Santa Maria Novella station", 43.7764, 11.2480], ["Mercato Centrale", 43.7765, 11.2534], ["Galleria dell'Accademia", 43.7768, 11.2587],
+  ["Florence Cathedral (Duomo)", 43.7731, 11.2560, {it:"Duomo di Firenze", de:"Dom von Florenz (Duomo)"}], ["Ponte Vecchio", 43.7679, 11.2531], ["Piazza della Signoria", 43.7696, 11.2558],
+  ["Santa Maria Novella station", 43.7764, 11.2480, {it:"Stazione di Santa Maria Novella", de:"Bahnhof Santa Maria Novella"}], ["Mercato Centrale", 43.7765, 11.2534], ["Galleria dell'Accademia", 43.7768, 11.2587],
   ["Santa Croce", 43.7686, 11.2622], ["Palazzo Pitti", 43.7651, 11.2500], ["Piazza del Carmine", 43.7680, 11.2440],
-  ["Sant'Ambrogio market", 43.7700, 11.2660], ["Fortezza da Basso", 43.7810, 11.2470], ["Piazzale Michelangelo", 43.7629, 11.2650],
-  ["Porta Romana", 43.7590, 11.2440], ["Florence airport", 43.8100, 11.2051],
-  ["Piazza Maggiore, Bologna", 44.4938, 11.3430], ["Two Towers, Bologna", 44.4943, 11.3467], ["Bologna Centrale station", 44.5058, 11.3427],
-  ["Duomo di Milano", 45.4642, 9.1900], ["Castello Sforzesco, Milan", 45.4705, 9.1795], ["Milano Centrale station", 45.4860, 9.2040], ["Darsena, Milan", 45.4520, 9.1770]
+  ["Sant'Ambrogio market", 43.7700, 11.2660, {it:"Mercato di Sant'Ambrogio", de:"Markt Sant'Ambrogio"}], ["Fortezza da Basso", 43.7810, 11.2470], ["Piazzale Michelangelo", 43.7629, 11.2650],
+  ["Porta Romana", 43.7590, 11.2440], ["Florence airport", 43.8100, 11.2051, {it:"Aeroporto di Firenze", de:"Flughafen Florenz"}],
+  ["Piazza Maggiore, Bologna", 44.4938, 11.3430], ["Two Towers, Bologna", 44.4943, 11.3467, {it:"Due Torri, Bologna", de:"Zwei Türme, Bologna"}], ["Bologna Centrale station", 44.5058, 11.3427, {it:"Stazione di Bologna Centrale", de:"Bahnhof Bologna Centrale"}],
+  ["Milan Cathedral (Duomo)", 45.4642, 9.1900, {it:"Duomo di Milano", de:"Mailänder Dom (Duomo)"}], ["Castello Sforzesco, Milan", 45.4705, 9.1795, {it:"Castello Sforzesco, Milano", de:"Castello Sforzesco, Mailand"}],
+  ["Milano Centrale station", 45.4860, 9.2040, {it:"Stazione di Milano Centrale", de:"Bahnhof Milano Centrale"}], ["Darsena, Milan", 45.4520, 9.1770, {it:"Darsena, Milano", de:"Darsena, Mailand"}]
 ];
 // Il punto di partenza di ogni città (link …/#firenze e pulsanti delle città)
 const START = {mantova:["Piazza delle Erbe, Mantua", 45.1597, 10.7967], salerno:["Duomo di Salerno", 40.6806, 14.7604], volterra:["Piazza dei Priori, Volterra", 43.4011, 10.8603], bergamo:["Piazza Vecchia, Bergamo", 45.7037, 9.6625], firenze:["Duomo (Cathedral)", 43.7731, 11.2560], bologna:["Piazza Maggiore, Bologna", 44.4938, 11.3430], milano:["Castello Sforzesco, Milan", 45.4705, 9.1795], roma:["Pantheon, Rome", 41.8986, 12.4769], siena:["Piazza del Campo, Siena", 43.3184, 11.3316], lucca:["Piazza dell'Anfiteatro, Lucca", 43.8457, 10.5065], pisa:["Piazza dei Cavalieri, Pisa", 43.7193, 10.4006], verona:["Arena, Verona", 45.4390, 10.9944], napoli:["San Gregorio Armeno, Naples", 40.8508, 14.2575], torino:["Piazza Castello, Turin", 45.0712, 7.6857], padova:["Palazzo della Ragione, Padua", 45.4075, 11.8750], parma:["Piazza Garibaldi, Parma", 44.8015, 10.3280], "san-giovanni-valdarno":["Palazzo d'Arnolfo, San Giovanni Valdarno", 43.5649, 11.5303], perugia:["Piazza IV Novembre, Perugia", 43.1122, 12.3888], arezzo:["Piazza Grande, Arezzo", 43.4647, 11.8842], palermo:["Quattro Canti, Palermo", 38.1157, 13.3618], "san-gimignano":["Piazza della Cisterna, San Gimignano", 43.4677, 11.0432], bari:["Basilica di San Nicola, Bari", 41.1305, 16.8701], genova:["Piazza De Ferrari, Genoa", 44.4072, 8.9339], ferrara:["Castello Estense, Ferrara", 44.8377, 11.6188], ravenna:["Piazza del Popolo, Ravenna", 44.4175, 12.1990], modena:["Piazza Grande, Modena", 44.6464, 10.9255], lecce:["Piazza Sant'Oronzo, Lecce", 40.3529, 18.1726], assisi:["Piazza del Comune, Assisi", 43.0707, 12.6171], matera:["Piazza Vittorio Veneto, Matera", 40.6668, 16.6064], catania:["Teatro Massimo Bellini, Catania", 37.5040, 15.0899], siracusa:["Piazza Duomo, Ortigia (Syracuse)", 37.0594, 15.2932], como:["Piazza del Duomo, Como", 45.8118, 9.0830], sorrento:["Piazza Tasso, Sorrento", 40.6263, 14.3759], sirmione:["Santa Maria Maggiore, Sirmione", 45.4933, 10.6082], montepulciano:["Piazza Grande, Montepulciano", 43.0927, 11.7810], vicenza:["Piazza dei Signori, Vicenza", 45.5473, 11.5465], rimini:["Piazza Tre Martiri, Rimini", 44.0594, 12.5683], trento:["Piazza Duomo, Trento", 46.0675, 11.1214], trieste:["Canal Grande, Trieste", 45.6527, 13.7718], bolzano:["Piazza Walther, Bolzano", 46.4983, 11.3548], cortona:["Piazza della Repubblica, Cortona", 43.2750, 11.9854], alghero:["Piazza Civica, Alghero", 40.5593, 8.3135], treviso:["Piazza dei Signori, Treviso", 45.6656, 12.2455], cagliari:["Bastione di Saint Remy, Cagliari", 39.2160, 9.1163], "polignano-a-mare":["Piazza Vittorio Emanuele II, Polignano a Mare", 40.9963, 17.2193], ostuni:["Cattedrale di Ostuni", 40.7345, 17.5786], "ascoli-piceno":["Piazza del Popolo, Ascoli Piceno", 42.8542, 13.5754]};
 // Veicoli da provare: alimentazione e classe Euro come nel Garage dell'app (il primo è la tipica auto a noleggio)
 const CARS = [{fuel:"petrol", euro:6, k:"vRental", s:"vRentalS"}, {fuel:"petrol", euro:3, k:"vP3"}, {fuel:"diesel", euro:4, k:"vD4"},
   {fuel:"diesel", euro:6, k:"vD6"}, {fuel:"hybrid", euro:6, k:"vHy"}, {fuel:"electric", euro:6, k:"vEl"},
-  {type:"motorcycle", fuel:"petrol", euro:5, k:"vMoto", s:"vMotoS"}];   // moto e scooter (come VehicleType nell'app); in fondo, così gli indici salvati restano
+  {type:"motorcycle", fuel:"petrol", euro:5, k:"vMoto", s:"vMotoS"},   // moto e scooter (come VehicleType nell'app); in fondo, così gli indici salvati restano
+  // 2.0.1: le classi di confine dei divieti (Area B, Parma, Padova: diesel fino a Euro 5, benzina fino a Euro 3-4), in fondo
+  {fuel:"diesel", euro:5, k:"vD5"}, {fuel:"petrol", euro:4, k:"vP4"}, {fuel:"petrol", euro:5, k:"vP5"}];
+// L'ordine nel menu «Veicolo»: benzina, diesel, ibrida, elettrica, moto (gli indici di CARS non cambiano)
+const CAR_ORDER = [0, 1, 8, 9, 2, 7, 3, 4, 5, 6];
 // Mete famose da provare con un tocco
 const SAMPLES = [[{en:"Florence Cathedral", it:"Duomo di Firenze", de:"Dom von Florenz"}, 43.7731, 11.2560], [{en:"Colosseum", it:"Colosseo", de:"Kolosseum"}, 41.8902, 12.4922],
   [{en:"Piazza Maggiore", it:"Piazza Maggiore", de:"Piazza Maggiore"}, 44.4938, 11.3430], [{en:"Milan Cathedral", it:"Duomo di Milano", de:"Mailänder Dom"}, 45.4642, 9.1900],
@@ -751,10 +769,23 @@ function rulesAnswer(zone, t, staying, v = CARS[0], quick = false){
   return {v:"no", title:t_("no"), why:T[lang].whyOn(next ? when(next, new Date()) : "") + note, on, next, since};
 }
 function hm(t){ return new Intl.DateTimeFormat(LOCALE[lang], {timeZone: TZ, hour:"numeric", minute:"2-digit", hour12: lang === "en"}).format(t).replace(" ", "\u202f"); }
-function when(t, ref){ const a = rome(t), b = rome(ref); if (a.y===b.y && a.m===b.m && a.d===b.d) return t_("today") + " " + hm(t);
-  const tm = rome(new Date(ref.getTime()+86400000)); if (a.y===tm.y && a.m===tm.m && a.d===tm.d) return t_("tomorrow") + " " + hm(t);
+function when(t, ref){ const a = rome(t), b = rome(ref); if (sameDay(a, b)) return t_("today") + " " + hm(t);
+  // «domani» è il giorno dopo nel calendario di Roma, non 24 ore dopo (nei giorni del cambio dell'ora sarebbe un altro giorno)
+  if (sameDay(a, addDays(b, 1))) return t_("tomorrow") + " " + hm(t);
   const day = new Intl.DateTimeFormat(LOCALE[lang], {timeZone: TZ, weekday:"long"}).format(t);
   return [t_("on"), day, t_("at"), hm(t)].filter(Boolean).join(" "); }
+// ── Giorni e ore di Roma (2.0.1): date di calendario, mai «adesso + n×24 ore» ──────────────────
+// Il giorno n giorni dopo r nel calendario (con il giorno della settimana, 1 = domenica)
+function addDays(r, n){ const x = new Date(Date.UTC(r.y, r.m-1, r.d + n)); return {y:x.getUTCFullYear(), m:x.getUTCMonth()+1, d:x.getUTCDate(), wd:x.getUTCDay() + 1}; }
+const sameDay = (a, b) => !!a && !!b && a.y === b.y && a.m === b.m && a.d === b.d;
+// Oggi + i giorni a Roma (0 = oggi, 1 = domani…)
+const dayRome = i => addDays(rome(new Date(CLOCK.now())), i);
+// L'istante che a Roma è il giorno y-m-d al minuto min. Roma è a +1 o +2 ore da UTC: si prova prima +2 (CEST), poi +1 (CET),
+// e vale quello che a Roma dà proprio quel giorno e quel minuto. Il 25 ottobre le 2:00-2:59 ci sono due volte: vale la prima;
+// l'ultima domenica di marzo le 2:00-2:59 non esistono: vale l'ora dopo il salto (2:30 → 3:30)
+function romeInstant(y, m, d, min){ const base = Date.UTC(y, m-1, d, Math.floor(min/60), min%60);
+  for (const off of [2, 1]){ const t = new Date(base - off*3600000), r = rome(t); if (r.y === y && r.m === m && r.d === d && r.min === min) return t; }
+  return new Date(base - 3600000); }
 function dur(ms){ const m = Math.round(ms/60000), h = Math.floor(m/60), d = Math.floor(h/24);
   return d >= 1 ? `${d} ${t_("d")} ${h%24} ${t_("h")}` : h >= 1 ? `${h} ${t_("h")} ${m%60} ${t_("min")}` : `${m} ${t_("min")}`; }
 
@@ -832,7 +863,9 @@ function loadCity(c){
   if (c.zones) return Promise.resolve(c);
   if (!LOADING[c.id]){
     const early = (window.__glr || {})[c.id]; if (window.__glr) delete window.__glr[c.id];   // partita dalla testa della pagina
-    LOADING[c.id] = (early ? early.catch(() => getJSON(ROOT + c.f, 30000)) : getJSON(ROOT + c.f, 30000)).then(d => {
+    // 2.0.1: la richiesta partita dalla testa della pagina ha anche lei un tempo massimo (rete che accetta e non risponde)
+    const late = early && Promise.race([early, new Promise((_, no) => setTimeout(() => no(new Error("timeout")), 15000))]);
+    LOADING[c.id] = (late ? late.catch(() => getJSON(ROOT + c.f, 20000)) : getJSON(ROOT + c.f, 30000)).then(d => {
       Object.assign(c, d);
       // Il motore riceve solo la zona: le feste del patrono della città le porta lei (come CityLoader nell'app)
       if (c.localHolidays) for (const z of c.zones) z.localHolidays = c.localHolidays;
@@ -918,6 +951,11 @@ function look(z, t, v, r){ r = r || answer(z, t, false, v, true);
   if (r.v === "unsure" || (unofficial(z) && (r.v === "yes" || !r.on))) return {c:"cond", q:true, on:!!r.on};
   if (!r.on) return {c:"off", q:false, on:false};
   return {c: r.v === "no" ? "no" : r.v === "cond" ? "cond" : "yes", q:false, on:true}; }
+// 2.0.1: il segno nel cerchio della mappa disegnata, dal nome nella lingua della pagina: la lettera del settore («Settore A» →
+// «A») o le iniziali («Scudo Verde» → «SV»), mai l'ultima parola del nome inglese («town», «centre», «Sundays»)
+function zoneMark(z){ const w = zoneLabel(z).replace(/[()«»"]/g, "").split(/[\s\-–/]+/).filter(Boolean), last = w[w.length - 1] || "";
+  if (last.length <= 2) return last.toUpperCase();
+  return w.filter(x => !/^(di|del|della|dei|delle|de|of|the|and|e|und|der|die|das|von|zona|zone|ztl)$/i.test(x)).map(x => x[0]).join("").slice(0, 3).toUpperCase() || last.slice(0, 3).toUpperCase(); }
 const X = lon => (lon - box.minLon) / (box.maxLon - box.minLon) * W, Y = lat => (box.maxLat - lat) / (box.maxLat - box.minLat) * H;
 function drawMap(c){
   if (drawn === c.id) return; drawn = c.id;
@@ -942,7 +980,8 @@ function drawMap(c){
     const cx = X((Math.min(...lons)+Math.max(...lons))/2), cy = green ? Y(Math.max(...lats)) + 46 : Y((Math.min(...lats)+Math.max(...lats))/2);
     el("circle", {cx, cy, r:22, fill:"var(--sheet)", stroke:"var(--line)", "stroke-width":2}, gZones);
     const t = el("text", {x:cx, y:cy+8.5, "text-anchor":"middle", "font-family":"Titillium Web, sans-serif", "font-weight":600, "font-size":24, fill:"var(--ink)"}, gZones);
-    t.textContent = z.name.split("·")[0].trim().split(" ").pop();
+    t.textContent = zoneMark(z);
+    el("title", {}, zoneEls[z.id]).textContent = zoneLabel(z);
   }
   for (const a of c.pedestrian || []){
     pedEls[a.id] = el("path", {d:path(a.perimeter), fill:MAP_THEME.light.no.fill, "fill-opacity":.35, stroke:MAP_THEME.light.no.line, "stroke-width":1.2, "stroke-linejoin":"round", "stroke-dasharray":"5 4"}, gPed);
@@ -993,9 +1032,11 @@ let city = CITIES.find(c => c.id === "firenze") || CITIES[0];   // disegnata qua
 const cityName = c => (CITY_NAMES[c.id] || {})[lang] || c.name;
 
 // ── Stato e disegno della risposta ─────────────────────────────────────────
-// later: ora scelta (giorno day da oggi, minuto min del giorno, ora italiana) invece di adesso; car: indice in CARS;
-// date: il giorno {y, m, d} di un link di una risposta quando non è tra i prossimi sette (allora vale al posto di day)
-const state = {place: null, later: false, day: 0, date: null, min: 18*60, car: 0};
+// later: ora scelta (giorno date, minuto min del giorno, ora italiana) invece di adesso; car: indice in CARS.
+// 2.0.1: date è la data di calendario {y, m, d} scelta (anche quella di un link), mai «oggi + n»: dopo la mezzanotte con la
+// pagina aperta resta lo stesso giorno. pending: il posto chiesto i cui dati stanno arrivando; failed: quello che non è
+// arrivato. Finché c'è uno dei due la scheda è a scheletro (o l'errore), mai la risposta del posto di prima
+const state = {place: null, later: false, date: null, min: 18*60, car: 0, pending: null, failed: null};
 const RM = matchMedia("(prefers-reduced-motion: reduce)");
 
 // ── Disegno della risposta finale (2.0): forma + parola + colore per ognuno dei sette stati ──────────
@@ -1029,13 +1070,8 @@ function showFinal(f){
 // Il veicolo scelto, in una riga: «Auto a noleggio · benzina Euro 6»
 const carText = () => { const v = CARS[state.car]; return t_(v.k) + (v.s ? " · " + t_(v.s) : ""); };
 
-// L'istante che a Roma è il giorno y-m-d al minuto min
-function romeInstant(y, m, d, min){ const h = Math.floor(min/60), mi = min%60, guess = new Date(Date.UTC(y, m-1, d, h, mi)), r = rome(guess);
-  const diff = (r.min - min) + (Date.UTC(r.y, r.m-1, r.d) - Date.UTC(y, m-1, d)) / 60000;
-  return new Date(guess.getTime() - diff*60000); }
-const dayRome = i => rome(new Date(Date.now() + i*86400000));
-// Il giorno scelto (a Roma): quello del link o «oggi + day»
-const chosenDay = () => state.later && state.date ? state.date : dayRome(state.later ? state.day : 0);
+// Il giorno scelto (a Roma), una data di calendario {y, m, d}: resta la stessa anche dopo la mezzanotte con la pagina aperta
+const chosenDay = () => state.later && state.date ? state.date : dayRome(0);
 function arrivalTime(){ if (!state.later) return new Date(); const r = chosenDay(); return romeInstant(r.y, r.m, r.d, state.min); }
 
 // Pannello del varco: luce neutra (S-Risposta), cambia testo con il giro della paletta (in dissolvenza con «riduci movimento»)
@@ -1049,44 +1085,61 @@ function led(text, light, dim){
   clearTimeout(led.timer); led.timer = setTimeout(apply, 150);
 }
 
-// La barra dell'ora colorata con le risposte del giorno scelto (ogni 15 minuti, stesso motore), negli stessi colori dei blocchi
-const VCOL = {yes:"var(--si)", out:"var(--grey)", no:"var(--no)", cond:"var(--cond)", unsure:"var(--cond)"};
-function track(kind, z, staying){
-  const r = chosenDay(), key = [kind, z ? z.id : "", r.y, r.m, r.d, state.car, staying, lang].join("|");
-  if (track.key === key) return; track.key = key;
-  let css = "var(--line)";
-  if (kind === "ped") css = VCOL.no; else if (kind === "out") css = VCOL.out;
-  else if (z){ const st = []; let prev = null, from = 0;
-    for (let i = 0; i <= 96; i++){ const v = i < 96 ? shown(answer(z, romeInstant(r.y, r.m, r.d, i*15), staying, CARS[state.car], true).v, z) : null;
-      if (v !== prev){ if (prev) st.push(`${VCOL[prev]} ${(from/96*100).toFixed(2)}% ${(i/96*100).toFixed(2)}%`); prev = v; from = i; } }
-    css = `linear-gradient(90deg,${st.join(",")})`; }
-  $("hour").style.setProperty("--track", css);
+// La barra dell'ora colorata con le risposte del giorno scelto (ogni 15 minuti), negli stessi colori dei blocchi.
+// 2.0.1: ogni quarto d'ora è la risposta del POSTO (placeAnswer: tutte le sue zone, vale la peggiore), come la scheda: prima
+// era la sola zona che decideva all'ora scelta, verde nelle ore in cui l'altra zona del posto è attiva. track.list: gli stati
+const VCOL = {no:"var(--no)", condizione:"var(--cond)", nonSicuro:"var(--cond)", si:"var(--si)", nonAttiva:"var(--state-off)", fuoriZTL:"var(--grey)", fuoriCopertura:"var(--line)"};
+function track(p, staying){
+  const r = chosenDay(), key = p ? [p.lat, p.lon, r.y, r.m, r.d, state.car, staying, lang].join("|") : "none";
+  if (track.key === key) return; track.key = key; clearTimeout(track.timer);
+  if (!p){ track.list = null; $("hour").style.setProperty("--track", "var(--line)"); return; }
+  // 96 risposte del posto, dopo il disegno della risposta e a pezzi di sei ore (compiti brevi: la pagina resta pronta)
+  const list = [], v = CARS[state.car];
+  const step = () => { if (track.key !== key) return;
+    for (const end = list.length + 24; list.length < end; ) list.push(rispostaFinale(placeAnswer(p.lat, p.lon, romeInstant(r.y, r.m, r.d, list.length*15), staying, v, true)).stato);
+    if (list.length < 96){ track.timer = setTimeout(step, 0); return; }
+    const st = []; let from = 0;
+    for (let i = 1; i <= 96; i++) if (i === 96 || list[i] !== list[from]){ st.push(`${VCOL[list[from]]} ${(from/96*100).toFixed(2)}% ${(i/96*100).toFixed(2)}%`); from = i; }
+    track.list = list; $("hour").style.setProperty("--track", `linear-gradient(90deg,${st.join(",")})`); };
+  track.timer = setTimeout(step, 0);
 }
 const dateLabel = r => new Intl.DateTimeFormat(LOCALE[lang], {weekday:"short", day:"numeric", month:"short", timeZone:"UTC"}).format(new Date(Date.UTC(r.y, r.m-1, r.d, 12)));
 function syncTime(){
   const t = arrivalTime(), r = rome(t);
   $("hour").value = state.later ? state.min : Math.floor(r.min/15)*15;
-  const day = !state.later ? t_("now") : state.date ? dateLabel(state.date) : dayChipLabel(state.day);
+  const day = !state.later ? t_("now") : dayLabel(chosenDay());
   $("hour-out").textContent = `${day} · ${hm(t)}`;
+  // 2.0.1: il lettore di schermo dice «Oggi · 20:45», non «1245»
+  $("hour").setAttribute("aria-valuetext", $("hour-out").textContent);
 }
 
 // Colora mappa disegnata, mappa vera e legenda con lo stato di ogni zona all'ora scelta
 function paintAll(t, sel){ const st = zoneStates(t, sel); paintSvg(st, sel ? sel.id : ""); legend(); ml.states = st; ml.selected = sel ? sel.id : ""; if (ml.ready) paintReal(); return st; }
-// In attesa dei dati: risposta neutra a scheletro (aria-busy), nessun colore; «Riprova» se non arrivano
+// In attesa dei dati: risposta neutra a scheletro (aria-busy), nessun colore; «Riprova» se non arrivano.
+// 2.0.1: anche mappa, barra dell'ora e orari senza colori né dati della città di prima (la mappa grigia, la barra neutra,
+// gli orari a scheletro); l'errore con «Riprova» resta finché si sceglie altro (render lo ridisegna uguale, il timer pure)
 function waiting(p, failed){
   const a = $("answer"); showFinal(null); a.setAttribute("aria-busy", failed ? "false" : "true");
   $("a-unoff").hidden = true; $("a-draft").hidden = true; $("a-count").hidden = true; $("a-until").textContent = ""; $("a-src").innerHTML = "";
-  if (p) $("a-where").textContent = p.name;
+  $("a-where").textContent = p ? p.name : " "; $("a-where").classList.toggle("skel", !p);
   $("a-gates").textContent = "–"; led("VARCO", "", true);     // il pannello spento, non quello del luogo di prima
+  $("mapcard").classList.add("wait"); track.key = null; track.list = null; clearTimeout(track.timer); $("hour").style.setProperty("--track", "var(--line)");
+  $("h-label").textContent = " "; $("h-label").classList.add("skel"); $("hours").innerHTML = ""; $("h-note").textContent = ""; $("hotel").hidden = true;
+  const key = failed ? "err|" + (p ? p.lat + "," + p.lon : "") + "|" + lang : "wait";
+  if (waiting.key === key) return; waiting.key = key;
   $("a-title").classList.toggle("skel", !failed); $("a-title").classList.toggle("err", !!failed); $("a-why").classList.toggle("skel", !failed);
   $("a-title").textContent = failed ? t_("loadErr") : " "; $("a-why").textContent = failed ? "" : " ";
-  if (failed){ const b = document.createElement("button"); b.type = "button"; b.className = "retry"; b.textContent = t_("retry"); b.addEventListener("click", () => choose(p)); $("a-why").append(b); }
+  // «Riprova»: il fuoco passa alla scheda della risposta (il pulsante sparisce), poi si richiede il posto
+  if (failed){ const b = document.createElement("button"); b.type = "button"; b.className = "retry"; b.textContent = t_("retry"); b.addEventListener("click", () => { a.focus(); choose(p); }); $("a-why").append(b); }
 }
-function ready(){ const a = $("answer"); a.removeAttribute("aria-busy"); $("a-title").classList.remove("skel", "err"); $("a-why").classList.remove("skel"); }
+function ready(){ const a = $("answer"); a.removeAttribute("aria-busy"); waiting.key = null; $("a-title").classList.remove("skel", "err"); $("a-why").classList.remove("skel"); $("a-where").classList.remove("skel");
+  $("mapcard").classList.remove("wait"); $("h-label").classList.remove("skel"); }
 function render(){
   const t = arrivalTime(), p = state.place, v = CARS[state.car];
   syncTime(); chipsState();
   if (!$("sharebox").hidden && $("share-url").value !== shareURL()) $("sharebox").hidden = true;
+  // 2.0.1: un posto chiesto i cui dati stanno arrivando (o non sono arrivati): lo scheletro o l'errore, mai il posto di prima
+  if (state.pending || state.failed){ waiting(state.pending || state.failed, !state.pending); return; }
   // la città del luogo (i suoi dati ci sono già: choose li aspetta)
   // 1.20.0: la zona che decide è quella con la risposta peggiore tra tutte le zone del posto (placeAnswer, come l'app)
   const staying = !!p && (/hotel|b&b|hostel|albergo|residence/i.test(p.name) || !!p.hotel);
@@ -1095,12 +1148,12 @@ function render(){
   const c = p ? (ped ? ped.city : hit ? hit.city : near.city) : city;
   if (c && c !== city){ city = c; chipsState(); }
   // dati della città ancora in arrivo: lo scheletro, mai una risposta in anticipo
-  if (!city.zones){ waiting(); return; }
+  if (!city.zones){ waiting(null); return; }
   drawMap(city);
   ready(); firstAnswer(); sharedNote(null);
   gPin.innerHTML = "";
   for (const id in pedEls){ pedEls[id].setAttribute("fill-opacity", .6); pedEls[id].setAttribute("stroke-width", 1.2); }
-  if (!p){ $("a-unoff").hidden = true; paintAll(t); showFinal(null); $("a-title").textContent = t_("pick"); $("a-why").textContent = t_("pickWhy"); $("a-until").textContent = ""; led("VARCO", "", true); track("none"); return; }
+  if (!p){ $("a-unoff").hidden = true; paintAll(t); showFinal(null); $("a-title").textContent = t_("pick"); $("a-why").textContent = t_("pickWhy"); $("a-until").textContent = ""; led("VARCO", "", true); track(null); return; }
   el("circle", {cx:X(p.lon), cy:Y(p.lat), r:24, fill:"var(--blue)", "fill-opacity":.18}, gPin);
   el("circle", {cx:X(p.lon), cy:Y(p.lat), r:12, fill:"var(--blue)", stroke:"var(--sheet)", "stroke-width":4}, gPin);
   const z = hit ? hit.zone : null;
@@ -1110,6 +1163,12 @@ function render(){
   $("a-unoff").hidden = !unoff;
   $("a-unoff-src").textContent = "";
   $("a-draft").hidden = city.status === "verified" || unoff;
+  // 2.0.1: il messaggio per l'hotel solo dove l'hotel può davvero registrare la targa: tutte le ZTL del posto con
+  // hotelCanRegister (nel Tridente dentro la ZTL Centro di Roma no; le zone a basse emissioni non contano); la nota sulla
+  // procedura online di Firenze solo a Firenze
+  const ztls = pa ? pa.hits.filter(h => kindOf(h.zone) !== "green") : [];
+  $("hotel").hidden = !!ped || !ztls.length || !ztls.every(h => h.zone.hotelCanRegister);
+  $("hotel-n").hidden = city.id !== "firenze";
   if (ped){
     // Area pedonale: risposta «no» a ogni ora, si parcheggia fuori e si va a piedi
     const zz = z || near.zone;
@@ -1122,8 +1181,9 @@ function render(){
     $("a-until").textContent = T[lang].carLine(carText(), t_("always"));
     $("a-why").textContent = t_("whyPed");
     $("a-count").hidden = true;
-    track("ped");
-    renderDetails(zz, t); sources(zz);
+    track(p, staying);
+    // 2.0.1: la scheda degli orari dell'area pedonale (sempre chiusa, niente ticket), non quella della ZTL vicina
+    renderDetails(zz, t, ped.area); sources(zz);
     return;
   }
   if (!z){
@@ -1139,9 +1199,9 @@ function render(){
     $("a-until").textContent = known ? T[lang].carLine(carText(), stamp) : "";
     $("a-why").textContent = known ? T[lang].whyOut(Math.round(n.meters/50)*50, cityName(n.city)) : t_("far");
     $("a-count").hidden = true;
-    track(known ? "out" : "none");
-    renderDetails(n.zone, t);
-    sources(n.zone);
+    track(known ? p : null, staying);
+    // 2.0.1: fuori copertura niente fonte, orari, bozza né messaggio per l'hotel della città più vicina
+    if (known){ renderDetails(n.zone, t); sources(n.zone); } else noDetails();
     return;
   }
   const r = pa ? pa.r : answer(z, t, staying, v);
@@ -1149,20 +1209,24 @@ function render(){
   // Forma, parola e colore dalla risposta finale: un «sì» da fonte non ufficiale è «Controlla il cartello» (mai verde);
   // il motivo del giallo va nella riga sotto il titolo, mai nel titolo
   showFinal(rispostaFinale(pa));
-  // il pannello si scrive come in strada, in italiano
-  led(r.on ? "ZTL ATTIVA" : "ZTL NON ATTIVA", "");
+  // il pannello si scrive come in strada, in italiano. 2.0.1: varchi accesi ma puoi entrare (veicolo esente, zona verde
+  // ammessa) «ZTL ATTIVA · SEI ESENTE», come l'app (GatePanelState); una zona a basse emissioni non si chiama ZTL
+  const exempt = r.on && r.v === "yes", lez = kindOf(z) === "green";
+  led((lez ? "ZONA AMBIENTALE" : "ZTL") + (exempt ? (lez ? "" : " ATTIVA") + "\nSEI ESENTE" : r.on ? (lez ? "\nATTIVA" : " ATTIVA") : (lez ? "\nNON ATTIVA" : " NON ATTIVA")), "");
   $("a-where").textContent = `${p.name} · ${zoneLabel(z)} · ${stamp}`;
-  $("a-gates").textContent = r.on ? t_("gOn") : t_("gOff");
+  $("a-gates").textContent = (lez ? t_("lgreen") + " · " : "") + (r.on ? t_("gOn") : t_("gOff")) + (exempt ? " · " + t_("gExempt") : "");
   $("a-until").textContent = T[lang].carLine(carText(), r.next ? T[lang][r.on ? "untilOn" : "untilOff"](when(r.next, new Date())) : r.on ? t_("always") : "");
   $("a-why").textContent = (unoff && (r.v === "yes" || r.v === "no") ? t_(r.v === "yes" ? "probYes" : "probNo") + ". " : "")
     + r.why + (staying ? "" : (r.on && z.hotelCanRegister && r.v !== "yes" ? t_("hint") : ""));
   if (r.next && r.since){ $("a-count").hidden = false;
     const span = r.next - r.since, done = Math.min(1, Math.max(.03, (t - r.since)/span));
     $("a-bar").style.width = (done*100).toFixed(1) + "%";
-    $("a-since").textContent = `${r.on ? t_("onSince") : t_("offSince")} ${hm(r.since)}`;
+    // 2.0.1: da un altro giorno con il giorno («Spenti da venerdì alle 10:30»), non solo l'ora
+    $("a-since").textContent = sameDay(rome(r.since), rome(t)) ? `${r.on ? t_("onSince") : t_("offSince")} ${hm(r.since)}`
+      : T[lang][r.on ? "onSinceD" : "offSinceD"](new Intl.DateTimeFormat(LOCALE[lang], {timeZone: TZ, weekday:"long"}).format(r.since), hm(r.since));
     $("a-next").textContent = `${r.on ? t_("offIn") : t_("onIn")} ${dur(r.next - t)}`;
   } else $("a-count").hidden = true;
-  track("zone", z, staying);
+  track(p, staying);
   renderDetails(z, t);
   sources(z);
   sharedNote(z);
@@ -1174,16 +1238,14 @@ function render(){
 // veicolo: mai la targa, il nome dell'hotel del messaggio o la posizione del telefono («Usa la mia posizione» non si condivide).
 // Sta dopo il «#»: il browser non lo manda al sito, quindi non finisce nemmeno nei registri del server.
 function shareURL(){
-  const p = state.place; if (!p || p.own) return null;
+  const p = state.place; if (!p || p.own || state.pending || state.failed) return null;
   const r = state.later ? chosenDay() : null;
   return location.href.split("#")[0] + linkHash(p, r ? {y:r.y, m:r.m, d:r.d, min:state.min} : null, CARS[state.car]);
 }
 function openLink(L){
   state.car = L.car;
-  if (L.at){ state.later = true; state.min = L.at.min; state.date = null; state.day = 0;
-    const i = [0, 1, 2, 3, 4, 5, 6].find(i => { const r = dayRome(i); return r.y === L.at.y && r.m === L.at.m && r.d === L.at.d; });
-    if (i === undefined) state.date = {y:L.at.y, m:L.at.m, d:L.at.d}; else state.day = i;
-  } else { state.later = false; state.date = null; }
+  if (L.at){ state.later = true; state.min = L.at.min; state.date = {y:L.at.y, m:L.at.m, d:L.at.d}; }
+  else { state.later = false; state.date = null; }
   buildControls();
   choose(Object.assign({}, L.place, {name: L.place.name || t_("point")}));
 }
@@ -1206,18 +1268,23 @@ $("share").addEventListener("click", () => {
 function sources(z){
   const s = z.source, read = new Date(s.checkedOn).toLocaleDateString(LOCALE[lang], {day:"numeric", month:"short", year:"numeric"});
   $("a-src").innerHTML = "";
+  // 2.0.1: da una fonte non ufficiale «Letto il … su <sito> (fonte non ufficiale)», con il link al sito che ha il suo nome;
+  // mai «dal sito del Comune» né «pagina ufficiale» per un sito privato
+  const u = s.official === false ? s.unofficialSource : null;
+  if (u && u.url){
+    const span = document.createElement("span"); span.textContent = T[lang].readU(read); $("a-src").append(span);
+    const a = document.createElement("a"); a.href = u.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = u.name + " \u2197"; $("a-src").append(a);
+    const n = document.createElement("span"); n.textContent = t_("unoffShort"); $("a-src").append(n);
+    if (!$("a-unoff").hidden){ const b = document.createElement("a"); b.href = u.url; b.target = "_blank"; b.rel = "noopener"; b.textContent = u.name;
+      $("a-unoff-src").append(document.createElement("br"), `${t_("dataFrom")} `, b); }
+    return;
+  }
   const span = document.createElement("span"); span.textContent = T[lang].read(read, cityName(city)); $("a-src").append(span);
   // 1.20.1: «letto il» e «verificato il» separati; la pagina del Comune cambiata dopo la verifica lo dice qui
   const tr = trustOf(z), ver = document.createElement("span"); ver.className = "ver";
   ver.textContent = tr === "pageChanged" ? t_("whyChanged") : tr === "read" && !s.verifiedOn ? t_("notReviewed") : s.verifiedOn
     ? T[lang].verified(new Date(s.verifiedOn).toLocaleDateString(LOCALE[lang], {day:"numeric", month:"short", year:"numeric"})) : t_("notVerified");
   const link = document.createElement("a"); link.href = s.pageURL; link.target = "_blank"; link.rel = "noopener"; link.textContent = t_("official"); $("a-src").append(link); $("a-src").append(ver);
-  // Fonte non ufficiale: il sito da cui vengono i dati, sotto l'avviso
-  const u = s.official === false ? s.unofficialSource : null;
-  if (u && u.url && !$("a-unoff").hidden){
-    const a = document.createElement("a"); a.href = u.url; a.target = "_blank"; a.rel = "noopener"; a.textContent = u.name;
-    $("a-unoff-src").append(document.createElement("br"), `${t_("dataFrom")} `, a);
-  }
 }
 
 const ORDER = [2,3,4,5,6,7,1];
@@ -1227,24 +1294,35 @@ const monthName = m => new Intl.DateTimeFormat(LOCALE[lang], {month: "short", ti
 function clock(m){ const h = Math.floor(m/60)%24, mm = m%60;
   if (lang !== "en") return `${h}:${String(mm).padStart(2,"0")}`;
   return `${h%12 || 12}${mm ? ":" + String(mm).padStart(2,"0") : ""}\u202f${h < 12 ? "am" : "pm"}`; }
-function renderDetails(z, t){
-  $("h-label").textContent = `${cityName(city)} · ${zoneLabel(z)}`;
+// 2.0.1: prezzi nel formato della lingua («7,50 €» in italiano e tedesco, «€7.50» in inglese)
+const money = (x, dec = 2) => new Intl.NumberFormat(LOCALE[lang], {style:"currency", currency:"EUR", minimumFractionDigits:dec, maximumFractionDigits:dec}).format(x);
+const moneyRange = (a, b) => { const f = new Intl.NumberFormat(LOCALE[lang], {style:"currency", currency:"EUR", maximumFractionDigits:0}); return f.formatRange ? f.formatRange(a, b) : f.format(a) + "–" + f.format(b); };
+// Scheda degli orari vuota (fuori copertura): niente dati di una città che non è quella del posto
+function noDetails(){ $("hours-p").hidden = true; $("hours").innerHTML = ""; $("h-note").textContent = ""; $("a-src").innerHTML = ""; $("a-draft").hidden = true; $("hotel").hidden = true; }
+function renderDetails(z, t, ped){
+  $("hours-p").hidden = false;
+  $("h-label").textContent = `${cityName(city)} · ${ped ? ped.name : zoneLabel(z)}`;
+  if (ped){ $("hours").innerHTML = ""; const tr = document.createElement("tr"), a = document.createElement("td"), b = document.createElement("td");
+    a.textContent = t_("always"); b.textContent = t_("closed"); tr.append(a, b); $("hours").append(tr); $("h-note").textContent = t_("whyPed"); hotelMessage(t); return; }
   const rows = z.windows.map(w => {
     const days = ORDER.filter(d => w.weekdays.includes(d));
     const contiguous = days.length > 2 && days.every((d, i) => i === 0 || ORDER.indexOf(d) === ORDER.indexOf(days[i-1]) + 1);
     let label = contiguous ? `${dayName(days[0], "short")} – ${dayName(days[days.length-1], "short")}` : days.map(d => dayName(d, "short")).join(", ");
+    // 2.0.1: «notti» solo per le fasce che passano la mezzanotte; le date della stagione per tutte quelle stagionali
     if (w.season){ const r = rome(t); let y = r.y, [a, b] = seasonBounds(w.season, y);
       if (a <= b && r.m*100 + r.d > b) [a, b] = seasonBounds(w.season, ++y);    // stagione finita: le date della prossima
-      label += ` ${t_("nights")} (${a%100} ${monthName(Math.floor(a/100))} – ${b%100} ${monthName(Math.floor(b/100))})`; }
+      label += `${w.end <= w.start ? " " + t_("nights") : ""} (${a%100} ${monthName(Math.floor(a/100))} – ${b%100} ${monthName(Math.floor(b/100))})`; }
+    else if (w.end <= w.start) label += " " + t_("nights");
     return [label, `${clock(w.start)} – ${clock(w.end)}`, ""];
   });
-  const covered = new Set(z.windows.filter(w => !w.season).flatMap(w => w.weekdays));
+  // 2.0.1: un giorno è «libero» solo se nessuna fascia lo tocca, nemmeno una stagionale o la coda dopo mezzanotte di una notturna
+  const covered = new Set(z.windows.flatMap(w => w.end <= w.start ? w.weekdays.flatMap(d => [d, d % 7 + 1]) : w.weekdays));
   const free = ORDER.filter(d => !covered.has(d)).map(d => dayName(d, "long"));
   if (free.length) rows.push([free.join(", "), t_("open"), "free"]);
   if (z.freeOnHolidays == null) rows.push([t_("hol"), t_("notConf"), ""]);
   else if (z.freeOnHolidays === true) rows.push([t_("hol"), t_("open"), "free"]);
   else if (z.holidaysAsSunday === true) rows.push([t_("hol"), t_("asSun"), ""]);
-  if (z.ticket){ rows.push([t_("dayTicket"), "€" + z.ticket.price.toFixed(2), ""]);
+  if (z.ticket){ rows.push([t_("dayTicket"), money(z.ticket.price), ""]);
     if (t_("dlShort")[z.ticket.deadline]) rows.push([t_("dlL"), t_("dlShort")[z.ticket.deadline], "wrap"]); }
   if (z.windows.some(w => w.start === 0 && w.end === 1440 && !w.season)) rows.splice(0, rows.length, [t_("always"), t_("closed"), ""]);
   $("hours").innerHTML = "";
@@ -1256,7 +1334,7 @@ function renderDetails(z, t){
 
 function renderFine(){
   if (FINE){
-    $("fine").innerHTML = `€${FINE.min}–${FINE.max} <small>${t_("perDay")}</small>`;
+    $("fine").innerHTML = `${moneyRange(FINE.min, FINE.max)} <small>${t_("perDay")}</small>`;
     $("fine-notes").innerHTML = "";
     for (const n of (FINE["notes_" + lang] || FINE.notes)){ const li = document.createElement("li"); li.textContent = n; $("fine-notes").append(li); }
     const st = document.createElement("li"); st.textContent = t_("stillChecking"); st.style.color = "var(--muted)"; $("fine-notes").append(st);
@@ -1286,17 +1364,17 @@ let results = [], active = -1, timer = null;
 // Il luogo scelto: prima i dati delle città che servono (scheletro intanto), poi la risposta. Vince sempre l'ultima scelta.
 let chosen = 0;
 async function choose(p){
-  const n = ++chosen; q.value = p.map ? "" : p.name; closeSuggest();
+  const n = ++chosen; q.value = p.map ? "" : p.name; closeSuggest(); locMsg("");
   if (missing(p.lat, p.lon).length){
-    waiting(p);
-    try { await ensureFor(p.lat, p.lon); } catch { if (n === chosen) waiting(p, true); return; }
+    state.pending = p; state.failed = null; render();
+    try { await ensureFor(p.lat, p.lon); } catch { if (n === chosen){ state.pending = null; state.failed = p; render(); } return; }
     if (n !== chosen) return;
   }
-  state.place = p; render();
+  state.pending = null; state.failed = null; state.place = p; render();
 }
-function closeSuggest(){ box2.hidden = true; q.setAttribute("aria-expanded", "false"); active = -1; }
+function closeSuggest(){ box2.hidden = true; q.setAttribute("aria-expanded", "false"); q.removeAttribute("aria-activedescendant"); active = -1; }
 function showSuggest(list){
-  results = list; box2.innerHTML = ""; active = -1;
+  results = list; box2.innerHTML = ""; active = -1; q.removeAttribute("aria-activedescendant");
   if (!list.length){ closeSuggest(); return; }
   list.forEach((p, i) => { const b = document.createElement("button"); b.type = "button"; b.setAttribute("role", "option"); b.id = "opt" + i;
     b.innerHTML = `<span></span><small></small>`; b.firstChild.textContent = p.name; whereLabel(b.lastChild, p);
@@ -1305,14 +1383,20 @@ function showSuggest(list){
 }
 // «in ZTL» / «fuori» accanto al suggerimento: subito se la città è già scaricata, altrimenti uno scheletro finché arriva
 function whereLabel(el, p){
-  const set = () => { const hit = zoneAt(p.lat, p.lon), ped = pedAt(p.lat, p.lon); el.classList.remove("skel"); el.textContent = ped ? t_("ped") : hit ? t_("inside") : covered(p.lat, p.lon) ? t_("out2") : t_("unkWhere"); };
+  // 2.0.1: «in ZTL» solo per una ZTL vera; un posto solo in una zona a basse emissioni (Scudo Verde, Area B) è «zona verde»
+  const set = () => { const hits = zonesAt(p.lat, p.lon), ped = pedAt(p.lat, p.lon); el.classList.remove("skel");
+    el.textContent = ped ? t_("ped") : hits.some(h => kindOf(h.zone) !== "green") ? t_("inside") : hits.length ? t_("lgreen") : covered(p.lat, p.lon) ? t_("out2") : t_("unkWhere"); };
   const need = CITIES.filter(c => !c.zones && inBox(c.ab, p.lat, p.lon));
   if (!need.length) return set();
   el.classList.add("skel"); el.textContent = "\u00A0";
-  Promise.all(need.map(loadCity)).then(set, () => { el.classList.remove("skel"); el.textContent = ""; });
+  Promise.all(need.map(loadCity)).then(set, () => { el.classList.remove("skel"); el.textContent = t_("checkL"); });
 }
+// I luoghi d'esempio che contengono il testo, nella lingua della pagina e dal più vicino alla città mostrata (2.0.1: a Milano
+// «Duomo» è il Duomo di Milano, non quello di Firenze)
 function local(text){ const s = text.trim().toLowerCase(); if (!s) return [];
-  return PLACES.filter(([n]) => n.toLowerCase().includes(s)).map(([name, lat, lon]) => ({name, lat, lon})); }
+  const c = city.center || {lat: 43.7712, lon: 11.2550}, d = p => (p.lat - c.lat)**2 + ((p.lon - c.lon)*0.72)**2;
+  return PLACES.filter(([n, , , o]) => [n, ...Object.values(o || {})].some(x => x.toLowerCase().includes(s)))
+    .map(([n, lat, lon, o]) => ({name: (o && o[lang]) || n, lat, lon})).sort((a, b) => d(a) - d(b)); }
 // Photon (1.19.5): almeno 3 lettere, 280 ms dopo l'ultimo tasto, la richiesta vecchia annullata, un tempo massimo di 6 s,
 // le risposte ricordate (stessa parola, lingua e città: niente seconda richiesta) e, se non risponde, una pausa di 30 s
 // invece di spegnerla fino alla prossima visita
@@ -1320,7 +1404,9 @@ const SEARCHED = new Map();
 let searching = null, remoteOff = 0;
 async function remote(text){
   const s = text.trim().toLowerCase(), near = city.center || {lat: 43.7712, lon: 11.2550};
-  if (s.length < 3 || Date.now() < remoteOff) return [];
+  if (s.length < 3) return [];
+  // 2.0.1: durante la pausa dopo un errore lo si dice («Riprova»), invece di non rispondere in silenzio
+  if (Date.now() < remoteOff){ remoteFailed = true; return []; }
   const key = [lang, city.id, s].join("|");
   if (SEARCHED.has(key)) return SEARCHED.get(key);
   if (searching) searching.abort();
@@ -1338,7 +1424,7 @@ async function remote(text){
 // 1.20.2: la ricerca non ha risposto (rete): lo si dice sotto il campo, con «Riprova» (prima l'elenco spariva e basta)
 let remoteFailed = false;
 function showRetry(v, pick){
-  results = []; box2.innerHTML = ""; active = -1;
+  results = []; box2.innerHTML = ""; active = -1; q.removeAttribute("aria-activedescendant");
   const row = document.createElement("div"); row.className = "fail"; row.setAttribute("role", "status");
   const msg = document.createElement("span"); msg.textContent = t_("sFail");
   const b = document.createElement("button"); b.type = "button"; b.textContent = t_("retry");
@@ -1370,6 +1456,10 @@ q.addEventListener("keydown", e => {
 $("search").addEventListener("submit", e => { e.preventDefault(); if (results.length) return choose(results[0]);
   const v = q.value; if (v.trim().length < 3) return; clearTimeout(timer); remoteOff = 0; search(v, true); });
 document.addEventListener("click", e => { if (!$("search").contains(e.target)) closeSuggest(); });
+// la rete è tornata: niente pausa
+addEventListener("online", () => { remoteOff = 0; });
+// 2.0.1: al tocco nel campo il testo si seleziona, così scrivendo il nome dell'hotel si sostituisce il posto di prima
+q.addEventListener("focus", () => { if (q.value) q.select(); });
 
 // ── Comandi dello strumento: città, mete famose, veicolo, giorno e ora ──────────────
 // Il punto di partenza di ogni città (START), con il nome della città nella lingua della pagina
@@ -1379,10 +1469,17 @@ function startPlace(c){ const s = START[c.id];
   const z = ZONES_OF[c.id][0], la = z.perimeter.map(p => p.lat), lo = z.perimeter.map(p => p.lon);
   return {name: cityName(c), lat: (Math.min(...la) + Math.max(...la))/2, lon: (Math.min(...lo) + Math.max(...lo))/2}; }
 // Una città dai pulsanti o dal link #città: i suoi dati, poi il punto di partenza
-async function pickCity(c){ const n = ++chosen; if (!c.zones){ waiting(startPlace(c)); try { await loadCity(c); } catch { if (n === chosen) waiting(startPlace(c), true); return; } if (n !== chosen) return; } choose(startPlace(c)); }
+async function pickCity(c){ const n = ++chosen;
+  if (!c.zones){ const p = Object.assign(startPlace(c), {city: c.id}); q.value = p.name; closeSuggest(); state.pending = p; state.failed = null; render();
+    try { await loadCity(c); } catch { if (n === chosen){ state.pending = null; state.failed = p; render(); } return; }
+    if (n !== chosen) return; }
+  choose(startPlace(c)); }
 const chip = (label, onClick, cls = "") => { const b = document.createElement("button"); b.type = "button"; b.className = "chip " + cls; b.textContent = label; b.addEventListener("click", onClick); return b; };
-function dayChipLabel(i){ if (i === 0) return t_("dToday"); if (i === 1) return t_("dTomorrow");
-  const r = dayRome(i); return new Intl.DateTimeFormat(LOCALE[lang], {weekday:"short", day:"numeric", timeZone:"UTC"}).format(new Date(Date.UTC(r.y, r.m-1, r.d, 12))); }
+// Il nome di un giorno nel menu: «Oggi», «Domani», «sab 14» nei prossimi sette giorni, altrimenti con il mese
+function dayLabel(r){ if (sameDay(r, dayRome(0))) return t_("dToday"); if (sameDay(r, dayRome(1))) return t_("dTomorrow");
+  if ([2, 3, 4, 5, 6].some(i => sameDay(r, dayRome(i)))) return new Intl.DateTimeFormat(LOCALE[lang], {weekday:"short", day:"numeric", timeZone:"UTC"}).format(new Date(Date.UTC(r.y, r.m-1, r.d, 12)));
+  return dateLabel(r); }
+const dayKey = r => `${r.y}-${pad2(r.m)}-${pad2(r.d)}`;
 // Le città più cercate stanno sempre in vista; le altre si aprono con «e altre N ▾»
 const TOP_CITIES = ["firenze", "roma", "milano", "bologna", "pisa", "siena"];
 const cityUI = {open: false};
@@ -1392,7 +1489,7 @@ function buildCities(){
   const top = TOP_CITIES.map(id => CITIES.find(c => c.id === id)).filter(Boolean);
   const rest = CITIES.filter(c => !top.includes(c)).sort(byName);
   // la città scelta resta visibile anche quando l'elenco è chiuso
-  const extra = !cityUI.open && state.place && rest.includes(city) ? [city] : [];
+  const sc = pressedCity(), extra = !cityUI.open && sc && rest.includes(sc) ? [sc] : [];
   const shown = cityUI.open ? [...top, ...rest] : [...top, ...extra];
   for (const c of shown){ const b = chip(cityName(c), () => pickCity(c)); b.dataset.city = c.id; b.setAttribute("aria-pressed", "false");
     // il dito o il mouse sul pulsante: i dati della città partono già (prima del tocco)
@@ -1405,39 +1502,58 @@ function buildCities(){
     m.setAttribute("aria-expanded", cityUI.open); m.setAttribute("aria-label", cityUI.open ? t_("lessC") : T[lang].moreC(hidden) + " · " + t_("allC"));
     cc.append(m);
   }
-  cityUI.shownFor = city.id;
+  cityUI.shownFor = (sc || city).id;
 }
+// La città del pulsante premuto: quella del posto chiesto mentre i suoi dati arrivano (o non sono arrivati), altrimenti
+// quella del posto scelto; nessuna prima di una scelta
+function pressedCity(){ const w = state.pending || state.failed;
+  if (w) return CITIES.find(c => c.id === w.city) || CITIES.find(c => c.ab && inBox(c.ab, w.lat, w.lon)) || null;
+  return state.place ? city : null; }
 function buildControls(){
   buildCities();
   for (const b of $("tries").querySelectorAll(".try")) b.remove();
   for (const [names, lat, lon] of SAMPLES) $("locate").before(chip(names[lang] || names.en, () => choose({name: names[lang] || names.en, lat, lon}), "try"));
   const cs = $("car"); cs.innerHTML = "";
-  CARS.forEach((v, i) => cs.append(new Option(t_(v.k) + (v.s ? " \u00B7 " + t_(v.s) : ""), i)));
+  for (const i of CAR_ORDER){ const v = CARS[i]; cs.append(new Option(t_(v.k) + (v.s ? " \u00B7 " + t_(v.s) : ""), i)); }
+  buildDays();
+}
+// Il menu «Quando»: adesso e i prossimi sette giorni di calendario (valore = la data, non un indice), più il giorno scelto se
+// non è tra questi (un link, o ieri dopo la mezzanotte). Si rifà quando a Roma cambia il giorno
+function buildDays(){
   const ds = $("day"); ds.innerHTML = ""; ds.append(new Option(t_("now"), "now"));
-  for (let i = 0; i < 7; i++) ds.append(new Option(dayChipLabel(i), i));
-  if (state.date) ds.append(new Option(dateLabel(state.date), "link"));
+  const days = [0, 1, 2, 3, 4, 5, 6].map(dayRome);
+  for (const r of days) ds.append(new Option(dayLabel(r), dayKey(r)));
+  if (state.date && !days.some(r => sameDay(r, state.date))) ds.append(new Option(dayLabel(state.date), dayKey(state.date)));
+  buildDays.today = dayKey(days[0]);
 }
 function chipsState(){
   // una città fuori dalle prime sei appena scelta: l'elenco chiuso la aggiunge
-  if (!cityUI.open && cityUI.shownFor !== city.id) buildCities();
-  for (const b of $("city-chips").querySelectorAll("[data-city]")) b.setAttribute("aria-pressed", !!state.place && b.dataset.city === city.id);
+  const pc = pressedCity();
+  if (!cityUI.open && cityUI.shownFor !== (pc || city).id) buildCities();
+  for (const b of $("city-chips").querySelectorAll("[data-city]")) b.setAttribute("aria-pressed", !!pc && b.dataset.city === pc.id);
   $("car").value = String(state.car);
-  $("day").value = !state.later ? "now" : state.date ? "link" : String(state.day);
+  if (state.later && state.date && ![...$("day").options].some(o => o.value === dayKey(state.date))) buildDays();
+  $("day").value = !state.later ? "now" : dayKey(chosenDay());
 }
 $("car").addEventListener("change", e => { state.car = +e.target.value; render(); });
 $("day").addEventListener("change", e => { const v = e.target.value;
   if (v === "now"){ state.later = false; state.date = null; }
-  else if (v !== "link"){ if (!state.later) state.min = Math.floor(rome(new Date()).min/15)*15; state.later = true; state.day = +v; state.date = null; }
+  else { const [y, m, d] = v.split("-").map(Number); if (!state.later) state.min = Math.floor(rome(new Date()).min/15)*15; state.later = true; state.date = {y, m, d}; }
   render(); });
-$("hour").addEventListener("input", () => { state.later = true; state.min = +$("hour").value; render(); });
+$("hour").addEventListener("input", () => { if (!state.later) state.date = dayRome(0); state.later = true; state.min = +$("hour").value; render(); });
 
+// 2.0.1: nella fila che scorre (telefono, zoom 200%) il pulsante con il fuoco si vede tutto (WCAG 2.4.11)
+for (const id of ["tries", "city-chips"]) $(id).addEventListener("focusin", e => { if (e.target.closest(".chip")) e.target.scrollIntoView({block: "nearest", inline: "nearest"}); });
 // La mia posizione (sul sito vero; nell'anteprima chiusa il browser la rifiuta)
 if (navigator.geolocation){
   $("locate").hidden = false;
   $("locate").addEventListener("click", () => navigator.geolocation.getCurrentPosition(
-    pos => choose({name: t_("locate"), lat: pos.coords.latitude, lon: pos.coords.longitude, map: true, own: true}),
-    () => { $("a-why").textContent = t_("noLoc"); }, {timeout: 8000, maximumAge: 60000}));
+    pos => choose({name: t_("myPos"), lat: pos.coords.latitude, lon: pos.coords.longitude, map: true, own: true}),
+    () => locMsg(t_("noLoc")), {timeout: 8000, maximumAge: 60000}));
 }
+
+// 2.0.1: un messaggio sotto la ricerca (posizione negata), annunciato e separato dalla risposta, che resta com'è
+function locMsg(text){ $("loc-msg").textContent = text; }
 
 // L'app: su iPhone porta all'App Store quando sarà pubblicata
 for (const e of document.querySelectorAll("[data-store]")){ const url = e.dataset.store === "ios" ? APP_STORE_URL : PLAY_URL; if (url){ e.href = url; e.removeAttribute("aria-disabled"); e.querySelector("small").remove(); } }
@@ -1452,11 +1568,20 @@ function applyLang(l){
   for (const e of document.querySelectorAll("[data-i18n-ph]")) e.placeholder = t_(e.dataset.i18nPh);
   for (const e of document.querySelectorAll("[data-i18n-al]")) e.setAttribute("aria-label", t_(e.dataset.i18nAl));
   for (const b of document.querySelectorAll(".langs button")) b.setAttribute("aria-pressed", b.dataset.lang === lang);
-  if (state.place && state.place.map) state.place.name = t_("point");
+  if (state.place && state.place.map) state.place.name = t_(state.place.own ? "myPos" : "point");
   for (const img of document.querySelectorAll("img[data-src-" + lang + "]")){ const ss = img.getAttribute("data-srcset-" + lang); if (ss) img.srcset = ss; img.src = img.getAttribute("data-src-" + lang); img.alt = img.getAttribute("data-alt-" + lang); }
-  buildControls(); track.key = null; renderFine(); legend(); render();
+  buildControls(); track.key = null; drawn = null; waiting.key = null; renderFine(); legend(); render();
 }
-for (const b of document.querySelectorAll(".langs button")) b.addEventListener("click", () => applyLang(b.dataset.lang));
+// 2.0.1: il tasto di una lingua porta alla pagina di quella lingua (/, /it/, /de/), con lo stesso posto (il «#…»): prima su
+// /de/ traduceva sul posto e l'indirizzo restava /de/, quindi ricaricando tornava il tedesco
+for (const b of document.querySelectorAll(".langs button")) b.addEventListener("click", () => {
+  const l = b.dataset.lang; if (l === lang) return;
+  try { localStorage.setItem("gatelr.lang", l); } catch {}
+  const to = new URL(ROOT + (l === "en" ? "" : l + "/"), location.href);
+  if (to.pathname === location.pathname) return applyLang(l);       // la home inglese (/) senza lingua fissa: si traduce qui
+  const L = shareURL(); to.hash = L ? L.split("#")[1] : location.hash;
+  location.href = to.href;
+});
 // ── Mappa vera (MapLibre + OpenFreeMap, gratuita, senza chiave). Se non si carica resta quella disegnata ──
 // Si scarica solo quando la mappa entra nello schermo o al primo tocco: la pagina parte leggera
 const ML = "https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl";
@@ -1644,7 +1769,8 @@ function startFromHash(){ const c = hashCity() || CITIES.find(x => x.id === "fir
 // solo i link a una città cambiano il luogo (#app, #check… no)
 window.addEventListener("hashchange", () => { const L = readLink(location.hash); if (L) openLink(L); else if (hashCity()) startFromHash(); });
 { const L = readLink(location.hash); if (L) openLink(L); else startFromHash(); }
-setInterval(() => { if (!state.later) render(); }, 60000);
+// Ogni minuto: «adesso» va avanti; a mezzanotte (di Roma) il menu dei giorni si rifà, con lo stesso giorno scelto
+setInterval(() => { const day = buildDays.today !== dayKey(dayRome(0)); if (day) buildDays(); if (!state.later || day) render(); }, 60000);
 // Per le prove automatiche (Playwright): scegliere un luogo e leggere la risposta
 window.gatelr = {choose, pedAt, zoneAt, cities: CITIES, loadCity, ensureFor, shareURL, readLink, state};
 })();

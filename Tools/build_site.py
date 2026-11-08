@@ -314,7 +314,7 @@ P = {
         "hotelY": "Hotels inside this zone can register your plate with the city, so you can drive to the hotel. Ask them before you arrive.",
         "hotelN": "Hotels can't register your plate for this zone.",
         "rental": "A typical modern rental car (petrol Euro 6, hybrid or electric) can drive in.", "bansT": "Older cars banned while it's on",
-        "since": "since {d}", "from": "from {d}", "electric": "Electric cars: always free.", "moto": "Motorbikes and scooters: always free.", "gates": "{n} camera gates",
+        "since": "since {d}", "from": "from {d}", "electric": "Electric cars: always free.", "moto": "Motorbikes and scooters: always free.", "gates": "{n} camera gates", "gate1": "1 camera gate", "srcLic": "Sources and licences (in English)", "aBans": " Older cars ({l}) can't enter, not even with the ticket.", "unoffA": "unofficial",
         "srcT": "Official source", "srcU": "Unofficial source", "dataFrom": "Data from {s} ↗", "checked": "Read on {d}", "verified": "Verified on {d}", "notVerified": "Not reviewed by a person yet", "changed": "The city's page has changed since we last read it: check the sign at the gate", "page": "Official page ↗", "pending": "Still being checked",
         "pedT": "Pedestrian areas", "pedP": "{n} pedestrian areas: cars can't drive in at any time, not even with a permit or a ticket. Park outside and walk.",
         "pedAll": "Show all {n}", "fineL": "If you drive in by mistake", "perDay": "per day", "faqT": "Questions",
@@ -341,7 +341,7 @@ P = {
         "hotelY": "Gli hotel dentro questa zona possono comunicare la tua targa al Comune, così arrivi all'hotel in auto. Chiedilo prima di arrivare.",
         "hotelN": "Gli hotel non possono registrare la tua targa per questa zona.",
         "rental": "Una tipica auto a noleggio recente (benzina Euro 6, ibrida o elettrica) può entrare.", "bansT": "Auto vecchie vietate quando è attiva",
-        "since": "dal {d}", "from": "dal {d}", "electric": "Auto elettriche: entrano sempre.", "moto": "Moto e scooter: entrano sempre.", "gates": "{n} varchi con telecamera",
+        "since": "dal {d}", "from": "dal {d}", "electric": "Auto elettriche: entrano sempre.", "moto": "Moto e scooter: entrano sempre.", "gates": "{n} varchi con telecamera", "gate1": "1 varco con telecamera", "srcLic": "Fonti e licenze (in inglese)", "aBans": " Le auto più vecchie ({l}) non entrano, neanche con il ticket.", "unoffA": "non ufficiale",
         "srcT": "Fonte ufficiale", "srcU": "Fonte non ufficiale", "dataFrom": "Dati da {s} ↗", "checked": "Letto il {d}", "verified": "Verificato il {d}", "notVerified": "Non ancora rivista da una persona", "changed": "La pagina del Comune è cambiata dall'ultima lettura: controlla il cartello al varco", "page": "Pagina ufficiale ↗", "pending": "Ancora da verificare",
         "pedT": "Aree pedonali", "pedP": "{n} aree pedonali: le auto non entrano mai, neanche con permesso o ticket. Parcheggia fuori e prosegui a piedi.",
         "pedAll": "Mostra tutte ({n})", "fineL": "Se entri per sbaglio", "perDay": "al giorno", "faqT": "Domande",
@@ -368,7 +368,7 @@ P = {
         "hotelY": "Hotels in dieser Zone können dein Kennzeichen bei der Stadt anmelden, damit du zum Hotel fahren darfst. Frag vor der Ankunft.",
         "hotelN": "Hotels können dein Kennzeichen für diese Zone nicht anmelden.",
         "rental": "Ein typischer neuerer Mietwagen (Benzin Euro 6, Hybrid oder Elektro) darf hinein.", "bansT": "Ältere Autos verboten, wenn sie aktiv ist",
-        "since": "seit {d}", "from": "ab {d}", "electric": "Elektroautos: immer frei.", "moto": "Motorräder und Roller: immer frei.", "gates": "{n} Kamera-Einfahrten",
+        "since": "seit {d}", "from": "ab {d}", "electric": "Elektroautos: immer frei.", "moto": "Motorräder und Roller: immer frei.", "gates": "{n} Kamera-Einfahrten", "gate1": "1 Kamera-Einfahrt", "srcLic": "Quellen und Lizenzen (auf Englisch)", "aBans": " Ältere Autos ({l}) dürfen nicht hinein, auch nicht mit Ticket.", "unoffA": "inoffiziell",
         "srcT": "Offizielle Quelle", "srcU": "Inoffizielle Quelle", "dataFrom": "Daten von {s} ↗", "checked": "Gelesen am {d}", "verified": "Geprüft am {d}", "notVerified": "Noch nicht von einer Person geprüft", "changed": "Die Seite der Stadt hat sich seit dem letzten Lesen geändert: achte auf das Schild an der Einfahrt", "page": "Offizielle Seite ↗", "pending": "Wird noch geprüft",
         "pedT": "Fußgängerzonen", "pedP": "{n} Fußgängerzonen: Autos dürfen nie hinein, auch nicht mit Genehmigung oder Ticket. Parke außerhalb und geh zu Fuß.",
         "pedAll": "Alle {n} zeigen", "fineL": "Wenn du aus Versehen hineinfährst", "perDay": "pro Tag", "faqT": "Fragen",
@@ -394,7 +394,17 @@ def city_name(c, lang): return NAMES.get(c["id"], {}).get(lang) or c.get("name_"
 def kind_of(z): return z.get("kind") or ("pass" if z.get("ticket") else "restricted")
 def loc(o, k, lang): return o.get(f"{k}_{lang}") or o.get(k) or ""
 def zone_label(z, lang): return loc(z, "name", lang).split("·")[0].strip()
-def money(x, lang): return f"€{x:.2f}" if lang == "en" else f"{x:.2f}".replace(".", ",") + " €"
+def money(x, lang): return f"€{x:.2f}" if lang == "en" else f"{x:.2f}".replace(".", ",") + "\u00a0€"
+def money_range(a, b, lang): return f"€{a}–{b}" if lang == "en" else f"{a}–{b}\u00a0€"
+
+
+# 2.0.1: chi pubblica le regole nella lingua della pagina («City of Milan» → «Comune di Milano», «Stadt Mailand»)
+def authority(s, lang):
+    a = s.get("authority_" + lang) or s.get("authority") or ""
+    if lang == "en": return a
+    by_en = {c["name"]: c for c in cities}
+    a = re.sub(r"City of ([^;/,()]+?)(?=\s*(?:[;/,()]|$))", lambda m: ("Comune di " if lang == "it" else "Stadt ") + (city_name(by_en[m.group(1).strip()], lang) if m.group(1).strip() in by_en else m.group(1).strip()), a)
+    return a.replace("(unofficial)", f"({P[lang]['unoffA']})")
 
 
 def day(d, lang):
@@ -416,12 +426,15 @@ def hour_rows(z, lang):
         days = [d for d in ORDER if d in w["weekdays"]]
         contiguous = len(days) > 2 and all(i == 0 or ORDER.index(d) == ORDER.index(days[i - 1]) + 1 for i, d in enumerate(days))
         label = f"{SHORT[lang][days[0] - 1]} – {SHORT[lang][days[-1] - 1]}" if contiguous else ", ".join(SHORT[lang][d - 1] for d in days)
+        night = f" {t['nights']}" if w["end"] <= w["start"] else ""     # 2.0.1: «notti» solo se la fascia passa la mezzanotte
         if w.get("season"):
             # Le date della stagione in corso o della prossima: con le regole («primo giovedì di aprile») cambiano ogni anno
             a, b = seasons.shown(w["season"], date.today())
-            label += f" {t['nights']} ({a.day} {MONTHS[lang][a.month - 1][:3]} – {b.day} {MONTHS[lang][b.month - 1][:3]})"
+            label += f"{night} ({a.day} {MONTHS[lang][a.month - 1][:3]} – {b.day} {MONTHS[lang][b.month - 1][:3]})"
+        else: label += night
         rows.append((label, f"{clock(w['start'], lang)} – {clock(w['end'], lang)}", ""))
-    covered = {d for w in z["windows"] if not w.get("season") for d in w["weekdays"]}
+    # 2.0.1: «libero» solo un giorno che nessuna fascia tocca (anche stagionale, anche la coda dopo mezzanotte di una notturna)
+    covered = {x for w in z["windows"] for d in w["weekdays"] for x in ((d, d % 7 + 1) if w["end"] <= w["start"] else (d,))}
     free = [DAYS[lang][d - 1] for d in ORDER if d not in covered]
     if free: rows.append((", ".join(free), t["open"], "free"))
     if z.get("freeOnHolidays") is None: rows.append((t["hol"], t["notConf"], ""))
@@ -658,6 +671,15 @@ LOCALE_OF = {"en": "en-GB", "it": "it-IT", "de": "de-DE"}
 def city_url(c, lang): return SITE + prefix(lang) + c["id"] + "/"
 
 
+def lic_html(c, lang, p):
+    """Fonti e licenze dei dati (scritte in inglese nei file delle città): nelle pagine IT/DE con il titolo tradotto e lang="en",
+    con un solo punto finale (prima «… (approximate, not official).. Dati: …»)"""
+    lic = (c.get("license_" + lang) or c.get("license") or "").strip().rstrip(".")
+    if not lic: return ""
+    if lang != "en" and not c.get("license_" + lang): return f'{esc(p["srcLic"])}: <span lang="en">{esc(lic)}</span>. '
+    return f"{esc(lic)}. "
+
+
 def build_city(c, lang):
     p, t, cn = P[lang], T[lang], city_name(c, lang)
     root = "../" if lang == "en" else "../../"
@@ -670,7 +692,14 @@ def build_city(c, lang):
     if fine:
         qas.append((p["qFine"].format(c=cn), p["aFine"].format(a=fine["min"], b=fine["max"]) + " " + (fine.get("notes_" + lang) or fine["notes"])[0]))
     hz = [zone_label(z, lang) for z in zones if z.get("hotelCanRegister")]
-    qas.append((p["qHotel"].format(c=cn), p["aHotelY"].format(z=join_and(hz, lang)) if hz else p["aHotelT"] if any(z.get("ticket") for z in zones) else p["aHotelN"]))
+    # 2.0.1: «puoi entrare con il ticket» dice anche chi non entra neanche con il ticket (divieti Euro in vigore oggi)
+    bans = {}
+    for z in zones:
+        if z.get("ticket"):
+            for b in z.get("bans") or []:
+                if b["since"] <= today: bans[b["fuel"]] = max(bans.get(b["fuel"], 0), b["maxEuro"])
+    bnote = p["aBans"].format(l=join_and([UPTO[lang].format(f=FUEL[lang].get(f, f), n=n) for f, n in bans.items()], lang)) if bans else ""
+    qas.append((p["qHotel"].format(c=cn), p["aHotelY"].format(z=join_and(hz, lang)) if hz else p["aHotelT"] + bnote if any(z.get("ticket") for z in zones) else p["aHotelN"]))
     for z in zones:
         if z.get("ticket"):
             tk = z["ticket"]
@@ -736,7 +765,7 @@ def build_city(c, lang):
         if k != "green":
             h.append(f'<h3>{esc(p["hotelT"])}</h3><p>{esc(p["hotelY"] if z.get("hotelCanRegister") else p["hotelN"])}</p>')
         if "motorcycle" in (z.get("exemptVehicleTypes") or []): h.append(f'<p class="muted">{esc(p["moto"])}</p>')
-        if z["gates"]: h.append(f'<p class="muted">{esc(p["gates"].format(n=len(z["gates"])))}</p>')
+        if z["gates"]: h.append(f'<p class="muted">{esc(p["gate1"] if len(z["gates"]) == 1 else p["gates"].format(n=len(z["gates"])))}</p>')
         quote = f'<p>“{esc(s["quote"])}”</p>' if s.get("quote") else ""
         tr = s.get("quoteTranslation_" + lang) if lang != "en" else s.get("quoteTranslation")
         if quote and lang != "it" and tr: quote += f"<p>{esc(tr)}</p>"
@@ -745,7 +774,8 @@ def build_city(c, lang):
         u = s.get("unofficialSource") if unofficial(z) else None
         h.append(f'<h3>{esc(p["srcU" if unofficial(z) else "srcT"])}</h3>'
                  + (f'<p><a href="{esc(u["url"])}" rel="noopener">{esc(p["dataFrom"].format(s=u["name"]))}</a></p>' if u and u.get("url") else "")
-                 + f'<p>{esc(s.get("authority") or "")} · <a href="{esc(s["pageURL"])}" rel="noopener">{esc(p["page"])}</a></p>'
+                 # 2.0.1: «Pagina ufficiale» solo se la pagina è davvero del Comune, non il sito privato da cui vengono i dati
+                 + (f'<p>{esc(authority(s, lang))} · <a href="{esc(s["pageURL"])}" rel="noopener">{esc(p["page"])}</a></p>' if not (u and s.get("pageURL") == u.get("url")) else f'<p>{esc(authority(s, lang))}</p>')
                  + (f"<blockquote>{quote}</blockquote>" if quote else "")
                  + (f'<ul>' + "".join(f'<li><a href="{esc(l["url"])}" rel="noopener">{esc(loc(l, "title", lang) or l["url"])}</a></li>' for l in links) + "</ul>" if links else "")
                  + f'<p class="muted">{esc(p["checked"].format(d=day(s["checkedOn"], lang)))} · {esc(verified_text(s, p, lang))}</p>'
@@ -759,7 +789,7 @@ def build_city(c, lang):
     if fine:
         notes = fine.get("notes_" + lang) or fine["notes"]
         B.append(f'<section class="card"><span class="label">{esc(p["fineL"])}</span><h2>{esc(t["fineT"])}</h2>'
-                 f'<p class="price" style="color:var(--red)">€{fine["min"]}–{fine["max"]} <span class="muted">{esc(p["perDay"])}</span></p>'
+                 f'<p class="price" style="color:var(--red)">{money_range(fine["min"], fine["max"], lang)} <span class="muted">{esc(p["perDay"])}</span></p>'
                  "<ul>" + "".join(f"<li>{esc(n)}</li>" for n in notes) + f'</ul><p class="muted">{esc(t["stillChecking"])}</p></section>')
     B.append(f'<section class="card faq"><h2>{esc(p["faqT"])}</h2>' + "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in qas) + "</section>")
     B.append(f'<p class="acts"><a class="btn dark" href="{home}#{c["id"]}">{CAR_SVG}{esc(p["pickV"])}</a></p>')
@@ -767,7 +797,7 @@ def build_city(c, lang):
     B.append(f'<nav class="cities" aria-labelledby="other-t"><h2 id="other-t">{esc(p["other"])}</h2>'
              + "".join(f'<a href="{root}{prefix(lang)}{o["id"]}/">ZTL {esc(city_name(o, lang))}</a>' for o in cities if o is not c) + "</nav></main>")
     B.append(f'<footer><p><a href="{home}">GateLR</a> · <a href="{root}privacy/">Privacy</a> · <a href="{root}support/">Support</a> · '
-             f'<a href="mailto:support@example.com">support@example.com</a></p><p>{esc(c.get("license", ""))}. {esc(t["foot"])}</p></footer>')
+             f'<a href="mailto:support@example.com">support@example.com</a></p><p>{lic_html(c, lang, p)}{esc(t["foot"])}</p></footer>')
     page = (f'<!doctype html>\n<html lang="{lang}">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
             f'{hd}\n{fonts_head(root, ["atkinson-next-latin.woff2", "titillium-700-latin.woff2"])}\n<style>\n{CITY_CSS}\n</style>\n</head>\n<body>\n<div class="wrap">\n' + "\n".join(B) + "\n</div>\n</body>\n</html>\n")
     out = WEB / prefix(lang) / c["id"] / "index.html"
@@ -784,6 +814,8 @@ def sitemap():
     for g in groups:
         alt = "".join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{u}"/>' for l, u in g.items()) + f'<xhtml:link rel="alternate" hreflang="x-default" href="{g["en"]}"/>'
         urls += [f"<url><loc>{u}</loc><lastmod>{lastmod}</lastmod>{alt}</url>" for u in g.values()]
+    # 2.0.1: anche Privacy e Supporto (una lingua sola, scritte a mano)
+    urls += [f"<url><loc>{SITE}{x}/</loc><lastmod>{lastmod}</lastmod></url>" for x in ("privacy", "support") if (WEB / x / "index.html").exists()]
     (WEB / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
                                      + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
     (WEB / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}sitemap.xml\n", encoding="utf-8")
