@@ -177,6 +177,8 @@ class ThreatDeduper(private val resetDistance: Double = 900.0, private val coold
         fired[key] = now
         return true
     }
+    /** Un viaggio nuovo: gli avvisi si possono ridare */
+    fun reset() = fired.clear()
     fun moved(distances: Map<String, Double>) {
         fired.keys.toList().forEach { k -> val id = k.substringAfterLast("|"); if ((distances[id] ?: 0.0) > resetDistance) fired.remove(k) }
     }

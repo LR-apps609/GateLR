@@ -80,7 +80,12 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
     private var lastDistances = mapOf<String, Double>()
     private val deduper = ThreatDeduper()
     private var lastMove = System.currentTimeMillis()
-    private val startedAt = System.currentTimeMillis()
+    private var startedAt = System.currentTimeMillis()
+    /** B171: le frasi chieste prima che la voce sia pronta (la prima, con la posizione già nota all'avvio) */
+    private val pendingSpeech = mutableListOf<String>()
+    /** B172: gli avvisi mandati, da togliere all'arrivo o quando il guardiano si ferma */
+    private val posted = mutableSetOf<Int>()
+    private var focus: android.media.AudioFocusRequest? = null
     private var bubble: TextView? = null
     private var lastText = ""
 
@@ -88,7 +93,8 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
         override fun run() {
             val now = System.currentTimeMillis()
             if (now - lastMove > 15 * 60_000 || now - startedAt > 4 * 3_600_000) { stopSelf(); return }
-            handler.postDelayed(this, 60_000)
+            syncBubble()
+            handler.postDelayed(this, 5_000)
         }
     }
 
@@ -102,6 +108,8 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
         ServiceCompat.startForeground(this, ID, ongoing(L("No active ZTL ahead"), destination?.name ?: ""), type)
         active = true
         locations = getSystemService(LOCATION_SERVICE) as LocationManager
+        // B171: la voce si prepara prima della prima posizione; le frasi chieste nel frattempo aspettano in coda
+        tts = TextToSpeech(this, this)
         if (canStart(this)) {
             // GPS e rete: va anche sui telefoni senza servizi Google (Huawei, Honor)
             for (p in listOf(LocationManager.GPS_PROVIDER, LocationManager.NETWORK_PROVIDER)) {
@@ -112,17 +120,33 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
                 ?.takeIf { android.os.SystemClock.elapsedRealtimeNanos() - it.elapsedRealtimeNanos < 120_000_000_000L }
                 ?.let { onLocationChanged(it) }
         }
-        tts = TextToSpeech(this, this)
         handler.postDelayed(watchdog, 60_000)
         if (AppState.overlayOn && Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(this)) showBubble()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        if (intent?.action == "stop") stopSelf()
+        if (intent?.action == "stop") { stopSelf(); return START_NOT_STICKY }
+        // B168: «Avvia» verso una meta nuova con il guardiano già acceso: tutto da capo (limite di 4 ore, avvisi già dati,
+        // notifica «Verso» la meta nuova), come sull'iPhone
+        if (startId > 1) {
+            startedAt = System.currentTimeMillis(); lastMove = startedAt
+            deduper.reset(); lastDistances = emptyMap(); inside = null; threat = null; anchor = null; lastText = ""
+            clearAlerts()
+            getSystemService(NotificationManager::class.java).notify(ID, ongoing(L("No active ZTL ahead"), destination?.name ?: ""))
+            refresh()
+        }
         return START_NOT_STICKY
     }
 
+    /** B172: toglie dal cassetto gli avvisi di questo viaggio (non «Sei arrivato») */
+    private fun clearAlerts() {
+        val nm = getSystemService(NotificationManager::class.java)
+        posted.forEach { nm.cancel(it) }; posted.clear()
+    }
+
     override fun onDestroy() {
+        clearAlerts()
+        abandonFocus()
         runCatching { locations.removeUpdates(this) }
         handler.removeCallbacksAndMessages(null)
         tts?.shutdown(); tts = null
@@ -148,7 +172,37 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
                 val r = t.setLanguage(Locale.forLanguageTag(lang))
                 r != TextToSpeech.LANG_MISSING_DATA && r != TextToSpeech.LANG_NOT_SUPPORTED
             }
+            // B171: la voce come quella di un navigatore (il navigatore si abbassa, non si ferma)
+            t.setAudioAttributes(android.media.AudioAttributes.Builder()
+                .setUsage(android.media.AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
+                .setContentType(android.media.AudioAttributes.CONTENT_TYPE_SPEECH).build())
+            t.setOnUtteranceProgressListener(object : android.speech.tts.UtteranceProgressListener() {
+                override fun onStart(utteranceId: String?) {}
+                override fun onDone(utteranceId: String?) { if (!t.isSpeaking) handler.post { abandonFocus() } }
+                @Deprecated("Deprecated in Java") override fun onError(utteranceId: String?) { handler.post { abandonFocus() } }
+            })
+            if (ttsReady) { val queued = pendingSpeech.toList(); pendingSpeech.clear(); queued.forEach { say(it) } }
         }
+    }
+
+    /** B171: chiede al navigatore di abbassarsi mentre GateLR parla (AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK) */
+    private fun requestFocus() {
+        val am = getSystemService(AUDIO_SERVICE) as android.media.AudioManager
+        if (Build.VERSION.SDK_INT >= 26) {
+            if (focus == null) focus = android.media.AudioFocusRequest.Builder(android.media.AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
+                .setAudioAttributes(android.media.AudioAttributes.Builder()
+                    .setUsage(android.media.AudioAttributes.USAGE_ASSISTANCE_NAVIGATION_GUIDANCE)
+                    .setContentType(android.media.AudioAttributes.CONTENT_TYPE_SPEECH).build()).build()
+            focus?.let { am.requestAudioFocus(it) }
+        } else {
+            @Suppress("DEPRECATION") am.requestAudioFocus(null, android.media.AudioManager.STREAM_MUSIC, android.media.AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK)
+        }
+    }
+
+    private fun abandonFocus() {
+        val am = getSystemService(AUDIO_SERVICE) as? android.media.AudioManager ?: return
+        if (Build.VERSION.SDK_INT >= 26) focus?.let { am.abandonAudioFocusRequest(it) }
+        else @Suppress("DEPRECATION") am.abandonAudioFocus(null)
     }
 
     // ---- A ogni posizione
@@ -209,12 +263,20 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
     private fun line(): String = inside?.let { F("You're inside %@", it.candidate.name) + " · " + it.finale.title } ?: threat?.let { "${it.candidate.name} · ${Geometry.distanceText(it.meters)} · ${it.finale.title}" }
         ?: L("No active ZTL ahead")
 
+    /** B174: «Bolla» spenta in Tu mentre il guardiano va: la bolla si toglie (e torna se la riaccendi) */
+    private fun syncBubble() {
+        if (!AppState.overlayOn) hideBubble()
+        else if (bubble == null && Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(this)) showBubble()
+    }
+
     private fun refresh() {
+        syncBubble()
         val text = line()
         if (text == lastText) return
         lastText = text
         getSystemService(NotificationManager::class.java).notify(ID, ongoing(text, destination?.name ?: ""))
         bubble?.let { b ->
+            b.contentDescription = text
             b.text = text
             (b.background as? GradientDrawable)?.setColor(color(inside ?: threat))
         }
@@ -254,6 +316,7 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
                 .addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP).putExtra("zone", threat?.zone?.id), PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT))
             .build()
         getSystemService(NotificationManager::class.java).notify(id.hashCode(), n)
+        if (id != "arrived") posted += id.hashCode()
     }
 
     private fun channels() {
@@ -264,7 +327,10 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
     }
 
     private fun say(text: String) {
-        if (ttsReady) tts?.speak(text, TextToSpeech.QUEUE_ADD, null, text.hashCode().toString())
+        val t = tts
+        if (!ttsReady || t == null) { if (pendingSpeech.size < 5) pendingSpeech += text; return }
+        requestFocus()
+        t.speak(text, TextToSpeech.QUEUE_ADD, null, text.hashCode().toString())
     }
 
     /** La bolla che resta sopra il navigatore; si sposta col dito */
@@ -288,13 +354,20 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
                 MotionEvent.ACTION_DOWN -> { sx = lp.x; sy = lp.y; tx = e.rawX; ty = e.rawY; true }
                 MotionEvent.ACTION_MOVE -> { lp.x = sx + (e.rawX - tx).toInt(); lp.y = sy + (e.rawY - ty).toInt(); wm.updateViewLayout(v, lp); true }
                 MotionEvent.ACTION_UP -> {
-                    if (Math.abs(e.rawX - tx) < 10 && Math.abs(e.rawY - ty) < 10)
-                        startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP))
+                    if (Math.abs(e.rawX - tx) < 10 && Math.abs(e.rawY - ty) < 10) v.performClick()
                     true
                 }
                 else -> false
             }
         }
+        // B174: con TalkBack il doppio tocco è un clic: apre GateLR; la bolla dice il suo testo
+        v.contentDescription = v.text
+        v.isClickable = true
+        v.setOnClickListener { startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP)) }
         runCatching { wm.addView(v, lp); bubble = v }
+    }
+
+    private fun hideBubble() {
+        bubble?.let { runCatching { (getSystemService(WINDOW_SERVICE) as WindowManager).removeView(it) } }; bubble = null
     }
 }
