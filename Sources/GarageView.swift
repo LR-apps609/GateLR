@@ -318,6 +318,13 @@ struct CarAdvice: View {
     struct Line: Hashable { var city: String; var zone: String; var text: String; var ok: Bool }
 
     nonisolated static func lines(for v: Vehicle, cities: [City], at date: Date = Date()) -> [Line] {
+        // 1.20.4: una zona di più parti (Area B di Milano) ha una zona per parte con lo stesso nome: una riga sola
+        // (le righe uguali erano anche id doppi nel ForEach)
+        var seen = Set<Line>()
+        return all(for: v, cities: cities, at: date).filter { seen.insert($0).inserted }
+    }
+
+    nonisolated private static func all(for v: Vehicle, cities: [City], at date: Date) -> [Line] {
         cities.flatMap { city in
             city.zones.compactMap { z -> Line? in
                 if z.exempts(v) {

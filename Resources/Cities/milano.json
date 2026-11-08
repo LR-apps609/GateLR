@@ -1793,6 +1793,128 @@
    ]
   },
   {
+   "id": "mi-ap-88-2",
+   "name": "Navigli - Ambito A - Alzaia Naviglio Grande",
+   "perimeter": [
+    {
+     "lat": 45.452029,
+     "lon": 9.175478
+    },
+    {
+     "lat": 45.452024,
+     "lon": 9.175484
+    },
+    {
+     "lat": 45.452058,
+     "lon": 9.175639
+    },
+    {
+     "lat": 45.452173,
+     "lon": 9.176076
+    },
+    {
+     "lat": 45.452247,
+     "lon": 9.176415
+    },
+    {
+     "lat": 45.452296,
+     "lon": 9.176599
+    },
+    {
+     "lat": 45.452416,
+     "lon": 9.176552
+    },
+    {
+     "lat": 45.452311,
+     "lon": 9.17679
+    },
+    {
+     "lat": 45.452282,
+     "lon": 9.176761
+    },
+    {
+     "lat": 45.452271,
+     "lon": 9.176735
+    },
+    {
+     "lat": 45.45228,
+     "lon": 9.176731
+    },
+    {
+     "lat": 45.452275,
+     "lon": 9.176716
+    },
+    {
+     "lat": 45.452265,
+     "lon": 9.176722
+    },
+    {
+     "lat": 45.452193,
+     "lon": 9.176449
+    },
+    {
+     "lat": 45.45212,
+     "lon": 9.176118
+    },
+    {
+     "lat": 45.452108,
+     "lon": 9.176106
+    },
+    {
+     "lat": 45.451628,
+     "lon": 9.173825
+    },
+    {
+     "lat": 45.451634,
+     "lon": 9.173823
+    },
+    {
+     "lat": 45.451626,
+     "lon": 9.173789
+    },
+    {
+     "lat": 45.451714,
+     "lon": 9.173746
+    },
+    {
+     "lat": 45.451827,
+     "lon": 9.17433
+    },
+    {
+     "lat": 45.451891,
+     "lon": 9.174487
+    },
+    {
+     "lat": 45.452054,
+     "lon": 9.174702
+    },
+    {
+     "lat": 45.452062,
+     "lon": 9.174687
+    },
+    {
+     "lat": 45.452291,
+     "lon": 9.174951
+    },
+    {
+     "lat": 45.452229,
+     "lon": 9.174991
+    },
+    {
+     "lat": 45.452021,
+     "lon": 9.175233
+    },
+    {
+     "lat": 45.452105,
+     "lon": 9.175412
+    },
+    {
+     "lat": 45.452029,
+     "lon": 9.175478
+    }
+   ]
+  },
+  {
    "id": "mi-ap-89",
    "name": "Navigli - Ambito B - Ripa di Porta Ticinese",
    "perimeter": [
@@ -2687,6 +2809,36 @@
    ]
   },
   {
+   "id": "mi-ap-107-2",
+   "name": "Spallanzani",
+   "perimeter": [
+    {
+     "lat": 45.476188,
+     "lon": 9.207606
+    },
+    {
+     "lat": 45.476103,
+     "lon": 9.207734
+    },
+    {
+     "lat": 45.47588,
+     "lon": 9.207322
+    },
+    {
+     "lat": 45.47583,
+     "lon": 9.207306
+    },
+    {
+     "lat": 45.475883,
+     "lon": 9.207103
+    },
+    {
+     "lat": 45.476188,
+     "lon": 9.207606
+    }
+   ]
+  },
+  {
    "id": "mi-ap-108",
    "name": "San Vittore",
    "perimeter": [
@@ -3399,6 +3551,82 @@
    ]
   },
   {
+   "id": "mi-ap-123-2",
+   "name": "Sarpi - sottoambito C",
+   "perimeter": [
+    {
+     "lat": 45.481687,
+     "lon": 9.179077
+    },
+    {
+     "lat": 45.481904,
+     "lon": 9.18131
+    },
+    {
+     "lat": 45.481791,
+     "lon": 9.181293
+    },
+    {
+     "lat": 45.481682,
+     "lon": 9.180157
+    },
+    {
+     "lat": 45.481673,
+     "lon": 9.180148
+    },
+    {
+     "lat": 45.481682,
+     "lon": 9.180145
+    },
+    {
+     "lat": 45.481584,
+     "lon": 9.179127
+    },
+    {
+     "lat": 45.481687,
+     "lon": 9.179077
+    }
+   ]
+  },
+  {
+   "id": "mi-ap-123-3",
+   "name": "Sarpi - sottoambito C",
+   "perimeter": [
+    {
+     "lat": 45.48149,
+     "lon": 9.177862
+    },
+    {
+     "lat": 45.481445,
+     "lon": 9.177332
+    },
+    {
+     "lat": 45.481554,
+     "lon": 9.17732
+    },
+    {
+     "lat": 45.481597,
+     "lon": 9.177871
+    },
+    {
+     "lat": 45.481626,
+     "lon": 9.177867
+    },
+    {
+     "lat": 45.481694,
+     "lon": 9.178848
+    },
+    {
+     "lat": 45.481563,
+     "lon": 9.17891
+    },
+    {
+     "lat": 45.48149,
+     "lon": 9.177862
+    }
+   ]
+  },
+  {
    "id": "mi-ap-124",
    "name": "Gambara",
    "perimeter": [
@@ -3835,6 +4063,52 @@
     {
      "lat": 45.448828,
      "lon": 9.177086
+    }
+   ]
+  },
+  {
+   "id": "mi-ap-127-2",
+   "name": "Navigli - Ambito C - Alzaia Naviglio Pavese",
+   "perimeter": [
+    {
+     "lat": 45.445979,
+     "lon": 9.176538
+    },
+    {
+     "lat": 45.445768,
+     "lon": 9.17648
+    },
+    {
+     "lat": 45.445561,
+     "lon": 9.17644
+    },
+    {
+     "lat": 45.445531,
+     "lon": 9.176426
+    },
+    {
+     "lat": 45.445535,
+     "lon": 9.176312
+    },
+    {
+     "lat": 45.446536,
+     "lon": 9.176556
+    },
+    {
+     "lat": 45.447147,
+     "lon": 9.17672
+    },
+    {
+     "lat": 45.447358,
+     "lon": 9.176769
+    },
+    {
+     "lat": 45.447356,
+     "lon": 9.176869
+    },
+    {
+     "lat": 45.445979,
+     "lon": 9.176538
     }
    ]
   },
@@ -4479,6 +4753,40 @@
    ]
   },
   {
+   "id": "mi-ap-142-2",
+   "name": "Piazza del Liberty",
+   "perimeter": [
+    {
+     "lat": 45.465086,
+     "lon": 9.193865
+    },
+    {
+     "lat": 45.465045,
+     "lon": 9.193885
+    },
+    {
+     "lat": 45.465045,
+     "lon": 9.193885
+    },
+    {
+     "lat": 45.465045,
+     "lon": 9.193884
+    },
+    {
+     "lat": 45.465084,
+     "lon": 9.193866
+    },
+    {
+     "lat": 45.465086,
+     "lon": 9.193865
+    },
+    {
+     "lat": 45.465086,
+     "lon": 9.193865
+    }
+   ]
+  },
+  {
    "id": "mi-ap-147",
    "name": "Piazzetta Gaetano Dell'Amore",
    "perimeter": [
@@ -4605,6 +4913,154 @@
     {
      "lat": 45.452845,
      "lon": 9.179626
+    }
+   ]
+  },
+  {
+   "id": "mi-ap-152-2",
+   "name": "Piazza XXIV Maggio",
+   "perimeter": [
+    {
+     "lat": 45.452889,
+     "lon": 9.180654
+    },
+    {
+     "lat": 45.452866,
+     "lon": 9.180699
+    },
+    {
+     "lat": 45.452314,
+     "lon": 9.180653
+    },
+    {
+     "lat": 45.452322,
+     "lon": 9.180613
+    },
+    {
+     "lat": 45.45237,
+     "lon": 9.18054
+    },
+    {
+     "lat": 45.452598,
+     "lon": 9.180396
+    },
+    {
+     "lat": 45.452787,
+     "lon": 9.180304
+    },
+    {
+     "lat": 45.452926,
+     "lon": 9.18031
+    },
+    {
+     "lat": 45.452889,
+     "lon": 9.180654
+    }
+   ]
+  },
+  {
+   "id": "mi-ap-152-3",
+   "name": "Piazza XXIV Maggio",
+   "perimeter": [
+    {
+     "lat": 45.452709,
+     "lon": 9.180243
+    },
+    {
+     "lat": 45.452567,
+     "lon": 9.180333
+    },
+    {
+     "lat": 45.452499,
+     "lon": 9.18036
+    },
+    {
+     "lat": 45.452351,
+     "lon": 9.180296
+    },
+    {
+     "lat": 45.452364,
+     "lon": 9.180057
+    },
+    {
+     "lat": 45.452492,
+     "lon": 9.180017
+    },
+    {
+     "lat": 45.452516,
+     "lon": 9.180022
+    },
+    {
+     "lat": 45.452709,
+     "lon": 9.180192
+    },
+    {
+     "lat": 45.452934,
+     "lon": 9.180248
+    },
+    {
+     "lat": 45.452934,
+     "lon": 9.180275
+    },
+    {
+     "lat": 45.452709,
+     "lon": 9.180243
+    }
+   ]
+  },
+  {
+   "id": "mi-ap-152-4",
+   "name": "Piazza XXIV Maggio",
+   "perimeter": [
+    {
+     "lat": 45.452337,
+     "lon": 9.180334
+    },
+    {
+     "lat": 45.452413,
+     "lon": 9.180376
+    },
+    {
+     "lat": 45.452501,
+     "lon": 9.180398
+    },
+    {
+     "lat": 45.452408,
+     "lon": 9.180435
+    },
+    {
+     "lat": 45.452332,
+     "lon": 9.180489
+    },
+    {
+     "lat": 45.452337,
+     "lon": 9.180334
+    }
+   ]
+  },
+  {
+   "id": "mi-ap-152-5",
+   "name": "Piazza XXIV Maggio",
+   "perimeter": [
+    {
+     "lat": 45.452983,
+     "lon": 9.179696
+    },
+    {
+     "lat": 45.452988,
+     "lon": 9.179621
+    },
+    {
+     "lat": 45.452936,
+     "lon": 9.179624
+    },
+    {
+     "lat": 45.45299,
+     "lon": 9.17962
+    },
+    {
+     "lat": 45.452983,
+     "lon": 9.179696
     }
    ]
   },
@@ -7895,6 +8351,168 @@
     {
      "lat": 45.422674,
      "lon": 9.167387
+    }
+   ]
+  },
+  {
+   "id": "mi-ap-1106-2",
+   "name": "Alzaia Naviglio Pavese",
+   "perimeter": [
+    {
+     "lat": 45.433366,
+     "lon": 9.173544
+    },
+    {
+     "lat": 45.433384,
+     "lon": 9.173397
+    },
+    {
+     "lat": 45.433332,
+     "lon": 9.173387
+    },
+    {
+     "lat": 45.432888,
+     "lon": 9.173131
+    },
+    {
+     "lat": 45.432625,
+     "lon": 9.172989
+    },
+    {
+     "lat": 45.432001,
+     "lon": 9.172624
+    },
+    {
+     "lat": 45.431932,
+     "lon": 9.172658
+    },
+    {
+     "lat": 45.429924,
+     "lon": 9.171512
+    },
+    {
+     "lat": 45.429908,
+     "lon": 9.17143
+    },
+    {
+     "lat": 45.42996,
+     "lon": 9.171243
+    },
+    {
+     "lat": 45.429928,
+     "lon": 9.171228
+    },
+    {
+     "lat": 45.429874,
+     "lon": 9.171412
+    },
+    {
+     "lat": 45.429841,
+     "lon": 9.171442
+    },
+    {
+     "lat": 45.429817,
+     "lon": 9.171449
+    },
+    {
+     "lat": 45.428544,
+     "lon": 9.170721
+    },
+    {
+     "lat": 45.427502,
+     "lon": 9.170111
+    },
+    {
+     "lat": 45.42718,
+     "lon": 9.169916
+    },
+    {
+     "lat": 45.426997,
+     "lon": 9.169795
+    },
+    {
+     "lat": 45.42674,
+     "lon": 9.169648
+    },
+    {
+     "lat": 45.426744,
+     "lon": 9.169627
+    },
+    {
+     "lat": 45.426712,
+     "lon": 9.169609
+    },
+    {
+     "lat": 45.426688,
+     "lon": 9.169689
+    },
+    {
+     "lat": 45.427028,
+     "lon": 9.169891
+    },
+    {
+     "lat": 45.427217,
+     "lon": 9.170022
+    },
+    {
+     "lat": 45.427379,
+     "lon": 9.170119
+    },
+    {
+     "lat": 45.430258,
+     "lon": 9.171776
+    },
+    {
+     "lat": 45.431357,
+     "lon": 9.172397
+    },
+    {
+     "lat": 45.431801,
+     "lon": 9.172667
+    },
+    {
+     "lat": 45.432626,
+     "lon": 9.173143
+    },
+    {
+     "lat": 45.432624,
+     "lon": 9.173153
+    },
+    {
+     "lat": 45.43271,
+     "lon": 9.173198
+    },
+    {
+     "lat": 45.432715,
+     "lon": 9.173178
+    },
+    {
+     "lat": 45.432769,
+     "lon": 9.173208
+    },
+    {
+     "lat": 45.432764,
+     "lon": 9.173227
+    },
+    {
+     "lat": 45.432873,
+     "lon": 9.173296
+    },
+    {
+     "lat": 45.432975,
+     "lon": 9.173353
+    },
+    {
+     "lat": 45.432978,
+     "lon": 9.173344
+    },
+    {
+     "lat": 45.433267,
+     "lon": 9.1735
+    },
+    {
+     "lat": 45.433366,
+     "lon": 9.173544
     }
    ]
   },
@@ -12459,22 +13077,6 @@
    ],
    "gates": [
     {
-     "id": "mi-b-952",
-     "name": "Abeti",
-     "location": {
-      "lat": 45.452432,
-      "lon": 9.084921
-     }
-    },
-    {
-     "id": "mi-b-147",
-     "name": "Achille Papa",
-     "location": {
-      "lat": 45.489231,
-      "lon": 9.142083
-     }
-    },
-    {
      "id": "mi-b-20",
      "name": "Adriano",
      "location": {
@@ -12488,14 +13090,6 @@
      "location": {
       "lat": 45.474962,
       "lon": 9.083144
-     }
-    },
-    {
-     "id": "mi-b-184",
-     "name": "Aldo Rossi",
-     "location": {
-      "lat": 45.485527,
-      "lon": 9.148792
      }
     },
     {
@@ -12627,14 +13221,6 @@
      }
     },
     {
-     "id": "mi-b-951",
-     "name": "Betulle",
-     "location": {
-      "lat": 45.452984,
-      "lon": 9.086031
-     }
-    },
-    {
      "id": "mi-b-100",
      "name": "Boffalora",
      "location": {
@@ -12728,14 +13314,6 @@
      "location": {
       "lat": 45.483265,
       "lon": 9.25881
-     }
-    },
-    {
-     "id": "mi-b-984",
-     "name": "Camaldoli",
-     "location": {
-      "lat": 45.43746,
-      "lon": 9.266137
      }
     },
     {
@@ -13139,14 +13717,6 @@
      }
     },
     {
-     "id": "mi-b-963",
-     "name": "Jemolo",
-     "location": {
-      "lat": 45.448998,
-      "lon": 9.067235
-     }
-    },
-    {
      "id": "mi-b-71",
      "name": "Jona",
      "location": {
@@ -13200,14 +13770,6 @@
      "location": {
       "lat": 45.456269,
       "lon": 9.228837
-     }
-    },
-    {
-     "id": "mi-b-192",
-     "name": "Lombroso 2",
-     "location": {
-      "lat": 45.456155,
-      "lon": 9.232869
      }
     },
     {
@@ -13347,35 +13909,11 @@
      }
     },
     {
-     "id": "mi-b-962",
-     "name": "Monti",
-     "location": {
-      "lat": 45.449287,
-      "lon": 9.070664
-     }
-    },
-    {
      "id": "mi-b-25",
      "name": "Monza",
      "location": {
       "lat": 45.516954,
       "lon": 9.225954
-     }
-    },
-    {
-     "id": "mi-b-961",
-     "name": "Mosca",
-     "location": {
-      "lat": 45.455736,
-      "lon": 9.078246
-     }
-    },
-    {
-     "id": "mi-b-964",
-     "name": "Muggiano",
-     "location": {
-      "lat": 45.448579,
-      "lon": 9.069026
      }
     },
     {
@@ -13416,14 +13954,6 @@
      "location": {
       "lat": 45.49196,
       "lon": 9.230057
-     }
-    },
-    {
-     "id": "mi-b-955",
-     "name": "Ontani",
-     "location": {
-      "lat": 45.454629,
-      "lon": 9.077997
      }
     },
     {
@@ -13480,14 +14010,6 @@
      "location": {
       "lat": 45.496051,
       "lon": 9.235613
-     }
-    },
-    {
-     "id": "mi-b-982",
-     "name": "Parea",
-     "location": {
-      "lat": 45.444393,
-      "lon": 9.262212
      }
     },
     {
@@ -13659,46 +14181,6 @@
      }
     },
     {
-     "id": "mi-b-953",
-     "name": "Salici 1",
-     "location": {
-      "lat": 45.451199,
-      "lon": 9.081079
-     }
-    },
-    {
-     "id": "mi-b-954",
-     "name": "Salici 2",
-     "location": {
-      "lat": 45.451978,
-      "lon": 9.078864
-     }
-    },
-    {
-     "id": "mi-b-970",
-     "name": "San Bernardo 1",
-     "location": {
-      "lat": 45.418116,
-      "lon": 9.237336
-     }
-    },
-    {
-     "id": "mi-b-971",
-     "name": "San Bernardo 2",
-     "location": {
-      "lat": 45.414658,
-      "lon": 9.241301
-     }
-    },
-    {
-     "id": "mi-b-185",
-     "name": "San Bernardo 3",
-     "location": {
-      "lat": 45.417214,
-      "lon": 9.237374
-     }
-    },
-    {
      "id": "mi-b-62",
      "name": "Sant'Elia",
      "location": {
@@ -13787,14 +14269,6 @@
      }
     },
     {
-     "id": "mi-b-144",
-     "name": "Serra 2",
-     "location": {
-      "lat": 45.485745,
-      "lon": 9.145221
-     }
-    },
-    {
      "id": "mi-b-28",
      "name": "Sesto San Giovanni",
      "location": {
@@ -13848,22 +14322,6 @@
      "location": {
       "lat": 45.489619,
       "lon": 9.071674
-     }
-    },
-    {
-     "id": "mi-b-956",
-     "name": "Ulivi 1",
-     "location": {
-      "lat": 45.455409,
-      "lon": 9.078508
-     }
-    },
-    {
-     "id": "mi-b-957",
-     "name": "Ulivi 2",
-     "location": {
-      "lat": 45.453517,
-      "lon": 9.086441
      }
     },
     {
@@ -13936,22 +14394,6 @@
      "location": {
       "lat": 45.521524,
       "lon": 9.22467
-     }
-    },
-    {
-     "id": "mi-b-981",
-     "name": "Vittorini 1",
-     "location": {
-      "lat": 45.444251,
-      "lon": 9.266431
-     }
-    },
-    {
-     "id": "mi-b-983",
-     "name": "Vittorini 2",
-     "location": {
-      "lat": 45.444199,
-      "lon": 9.260407
      }
     },
     {
@@ -14048,7 +14490,7 @@
       "title": "Open data: ZTL and Area B perimeters (CC BY)",
       "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
       "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
-      "url": "https://dati.comune.milano.it/dataset/ds51_infogeo_aree_pedonali_ztl_localizzazione_"
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
      }
     ],
     "readFingerprints": {
@@ -14057,6 +14499,6127 @@
     },
     "readFingerprintsOf": "2026-10-23T12:00:00Z"
    }
+  },
+  {
+   "id": "milano-b-2",
+   "name": "Area B · Low-emission zone",
+   "name_it": "Area B · Zona a basse emissioni",
+   "name_de": "Area B · Umweltzone",
+   "kind": "green",
+   "summary": "Almost the whole city. From Monday to Friday, 7:30 am to 7:30 pm (holidays excluded), the most polluting vehicles can't drive in. Cleaner cars enter free, no ticket.",
+   "summary_it": "Quasi tutta la città. Dal lunedì al venerdì, dalle 7:30 alle 19:30 (festivi esclusi), non entrano i veicoli più inquinanti. Le auto più pulite entrano gratis, senza ticket.",
+   "summary_de": "Fast die ganze Stadt. Montag bis Freitag, 7:30 bis 19:30 Uhr (außer Feiertage), dürfen die umweltschädlichsten Fahrzeuge nicht hinein. Sauberere Autos fahren kostenlos ein, ohne Ticket.",
+   "perimeter": [
+    {
+     "lat": 45.455732,
+     "lon": 9.078271
+    },
+    {
+     "lat": 45.456055,
+     "lon": 9.076988
+    },
+    {
+     "lat": 45.455945,
+     "lon": 9.076703
+    },
+    {
+     "lat": 45.455288,
+     "lon": 9.076603
+    },
+    {
+     "lat": 45.455092,
+     "lon": 9.076363
+    },
+    {
+     "lat": 45.455843,
+     "lon": 9.074722
+    },
+    {
+     "lat": 45.456071,
+     "lon": 9.073653
+    },
+    {
+     "lat": 45.455777,
+     "lon": 9.073103
+    },
+    {
+     "lat": 45.455067,
+     "lon": 9.073827
+    },
+    {
+     "lat": 45.454094,
+     "lon": 9.071682
+    },
+    {
+     "lat": 45.453537,
+     "lon": 9.069419
+    },
+    {
+     "lat": 45.453242,
+     "lon": 9.068673
+    },
+    {
+     "lat": 45.452767,
+     "lon": 9.066154
+    },
+    {
+     "lat": 45.452575,
+     "lon": 9.065883
+    },
+    {
+     "lat": 45.450584,
+     "lon": 9.06769
+    },
+    {
+     "lat": 45.450054,
+     "lon": 9.066347
+    },
+    {
+     "lat": 45.449823,
+     "lon": 9.066278
+    },
+    {
+     "lat": 45.448851,
+     "lon": 9.067084
+    },
+    {
+     "lat": 45.448935,
+     "lon": 9.06731
+    },
+    {
+     "lat": 45.448313,
+     "lon": 9.067829
+    },
+    {
+     "lat": 45.448265,
+     "lon": 9.068021
+    },
+    {
+     "lat": 45.448965,
+     "lon": 9.070565
+    },
+    {
+     "lat": 45.449122,
+     "lon": 9.070629
+    },
+    {
+     "lat": 45.449014,
+     "lon": 9.071134
+    },
+    {
+     "lat": 45.45017,
+     "lon": 9.074172
+    },
+    {
+     "lat": 45.451319,
+     "lon": 9.073346
+    },
+    {
+     "lat": 45.452075,
+     "lon": 9.075027
+    },
+    {
+     "lat": 45.453436,
+     "lon": 9.073663
+    },
+    {
+     "lat": 45.455014,
+     "lon": 9.076519
+    },
+    {
+     "lat": 45.455168,
+     "lon": 9.076709
+    },
+    {
+     "lat": 45.455887,
+     "lon": 9.077031
+    },
+    {
+     "lat": 45.455557,
+     "lon": 9.077999
+    },
+    {
+     "lat": 45.455732,
+     "lon": 9.078271
+    }
+   ],
+   "gates": [
+    {
+     "id": "mi-b-963",
+     "name": "Jemolo",
+     "location": {
+      "lat": 45.448998,
+      "lon": 9.067235
+     }
+    },
+    {
+     "id": "mi-b-962",
+     "name": "Monti",
+     "location": {
+      "lat": 45.449287,
+      "lon": 9.070664
+     }
+    },
+    {
+     "id": "mi-b-961",
+     "name": "Mosca",
+     "location": {
+      "lat": 45.455736,
+      "lon": 9.078246
+     }
+    },
+    {
+     "id": "mi-b-964",
+     "name": "Muggiano",
+     "location": {
+      "lat": 45.448579,
+      "lon": 9.069026
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 450,
+     "end": 1170
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [
+    "electric"
+   ],
+   "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 3,
+     "since": "2025-10-01"
+    },
+    {
+     "fuel": "petrol",
+     "maxEuro": 4,
+     "since": "2028-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 5,
+     "since": "2019-02-25"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 6,
+     "since": "2028-10-01"
+    }
+   ],
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://www.comune.milano.it/argomenti/mobilita/area-b",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "Area B è attiva dal lunedì al venerdì dalle 7:30 alle 19:30, festivi esclusi",
+    "quoteTranslation": "Area B is active from Monday to Friday, 7:30 am to 7:30 pm, public holidays excluded",
+    "quoteTranslation_de": "Area B ist Montag bis Freitag von 7:30 bis 19:30 Uhr aktiv, Feiertage ausgenommen",
+    "checkedOn": "2026-10-23T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Euro 6 diesel: classes A-B-C are banned from 1 Oct 2028, D-TEMP and D from 1 Oct 2030. GateLR uses the earlier date.",
+     "Free days: from 1 Oct 2026 every vehicle gets 5 days a year without registration, from the second year of its ban.",
+     "LPG and methane cars are treated like petrol cars of the same class: to be confirmed.",
+     "Foreign cars: registration rules for non-Italian plates to be checked."
+    ],
+    "pending_it": [
+     "Diesel Euro 6: le classi A-B-C sono vietate dal 1° ottobre 2028, D-TEMP e D dal 1° ottobre 2030. GateLR usa la data più vicina.",
+     "Giornate libere: dal 1° ottobre 2026 ogni veicolo ha 5 giornate all'anno senza registrazione, dal secondo anno di divieto.",
+     "Le auto a GPL e metano sono trattate come le benzina della stessa classe: da confermare.",
+     "Auto straniere: regole di registrazione per targhe non italiane da verificare."
+    ],
+    "pending_de": [
+     "Diesel Euro 6: Klassen A-B-C sind ab 1. Okt. 2028 gesperrt, D-TEMP und D ab 1. Okt. 2030. GateLR nimmt das frühere Datum.",
+     "Freie Tage: Ab 1. Okt. 2026 hat jedes Fahrzeug 5 Tage im Jahr ohne Registrierung, ab dem zweiten Jahr des Verbots.",
+     "Autogas- und Erdgasautos werden wie Benziner derselben Klasse behandelt: noch zu bestätigen.",
+     "Ausländische Autos: Registrierungsregeln für nicht-italienische Kennzeichen noch zu prüfen."
+    ],
+    "links": [
+     {
+      "title": "City of Milan: Area B",
+      "title_it": "Comune di Milano: Area B",
+      "title_de": "Stadt Mailand: Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b"
+     },
+     {
+      "title": "City of Milan: Area B ban calendar",
+      "title_it": "Comune di Milano: calendario dei divieti di Area B",
+      "title_de": "Stadt Mailand: Verbotskalender Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti"
+     },
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {
+     "https://www.comune.milano.it/argomenti/mobilita/area-b": "a719397361605e12",
+     "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti": "3380a9eb34404d9b"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
+   }
+  },
+  {
+   "id": "milano-b-3",
+   "name": "Area B · Low-emission zone",
+   "name_it": "Area B · Zona a basse emissioni",
+   "name_de": "Area B · Umweltzone",
+   "kind": "green",
+   "summary": "Almost the whole city. From Monday to Friday, 7:30 am to 7:30 pm (holidays excluded), the most polluting vehicles can't drive in. Cleaner cars enter free, no ticket.",
+   "summary_it": "Quasi tutta la città. Dal lunedì al venerdì, dalle 7:30 alle 19:30 (festivi esclusi), non entrano i veicoli più inquinanti. Le auto più pulite entrano gratis, senza ticket.",
+   "summary_de": "Fast die ganze Stadt. Montag bis Freitag, 7:30 bis 19:30 Uhr (außer Feiertage), dürfen die umweltschädlichsten Fahrzeuge nicht hinein. Sauberere Autos fahren kostenlos ein, ohne Ticket.",
+   "perimeter": [
+    {
+     "lat": 45.444255,
+     "lon": 9.266548
+    },
+    {
+     "lat": 45.44452,
+     "lon": 9.263181
+    },
+    {
+     "lat": 45.444225,
+     "lon": 9.260456
+    },
+    {
+     "lat": 45.443338,
+     "lon": 9.260461
+    },
+    {
+     "lat": 45.443176,
+     "lon": 9.26093
+    },
+    {
+     "lat": 45.442712,
+     "lon": 9.261572
+    },
+    {
+     "lat": 45.441937,
+     "lon": 9.261613
+    },
+    {
+     "lat": 45.441664,
+     "lon": 9.261016
+    },
+    {
+     "lat": 45.43962,
+     "lon": 9.261985
+    },
+    {
+     "lat": 45.438406,
+     "lon": 9.261811
+    },
+    {
+     "lat": 45.437898,
+     "lon": 9.262111
+    },
+    {
+     "lat": 45.437508,
+     "lon": 9.262536
+    },
+    {
+     "lat": 45.436117,
+     "lon": 9.262948
+    },
+    {
+     "lat": 45.436165,
+     "lon": 9.263731
+    },
+    {
+     "lat": 45.436675,
+     "lon": 9.266046
+    },
+    {
+     "lat": 45.437416,
+     "lon": 9.266028
+    },
+    {
+     "lat": 45.437473,
+     "lon": 9.266423
+    },
+    {
+     "lat": 45.439767,
+     "lon": 9.266448
+    },
+    {
+     "lat": 45.441437,
+     "lon": 9.266155
+    },
+    {
+     "lat": 45.442566,
+     "lon": 9.266383
+    },
+    {
+     "lat": 45.443282,
+     "lon": 9.266305
+    },
+    {
+     "lat": 45.444255,
+     "lon": 9.266548
+    }
+   ],
+   "gates": [
+    {
+     "id": "mi-b-984",
+     "name": "Camaldoli",
+     "location": {
+      "lat": 45.43746,
+      "lon": 9.266137
+     }
+    },
+    {
+     "id": "mi-b-982",
+     "name": "Parea",
+     "location": {
+      "lat": 45.444393,
+      "lon": 9.262212
+     }
+    },
+    {
+     "id": "mi-b-981",
+     "name": "Vittorini 1",
+     "location": {
+      "lat": 45.444251,
+      "lon": 9.266431
+     }
+    },
+    {
+     "id": "mi-b-983",
+     "name": "Vittorini 2",
+     "location": {
+      "lat": 45.444199,
+      "lon": 9.260407
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 450,
+     "end": 1170
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [
+    "electric"
+   ],
+   "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 3,
+     "since": "2025-10-01"
+    },
+    {
+     "fuel": "petrol",
+     "maxEuro": 4,
+     "since": "2028-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 5,
+     "since": "2019-02-25"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 6,
+     "since": "2028-10-01"
+    }
+   ],
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://www.comune.milano.it/argomenti/mobilita/area-b",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "Area B è attiva dal lunedì al venerdì dalle 7:30 alle 19:30, festivi esclusi",
+    "quoteTranslation": "Area B is active from Monday to Friday, 7:30 am to 7:30 pm, public holidays excluded",
+    "quoteTranslation_de": "Area B ist Montag bis Freitag von 7:30 bis 19:30 Uhr aktiv, Feiertage ausgenommen",
+    "checkedOn": "2026-10-23T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Euro 6 diesel: classes A-B-C are banned from 1 Oct 2028, D-TEMP and D from 1 Oct 2030. GateLR uses the earlier date.",
+     "Free days: from 1 Oct 2026 every vehicle gets 5 days a year without registration, from the second year of its ban.",
+     "LPG and methane cars are treated like petrol cars of the same class: to be confirmed.",
+     "Foreign cars: registration rules for non-Italian plates to be checked."
+    ],
+    "pending_it": [
+     "Diesel Euro 6: le classi A-B-C sono vietate dal 1° ottobre 2028, D-TEMP e D dal 1° ottobre 2030. GateLR usa la data più vicina.",
+     "Giornate libere: dal 1° ottobre 2026 ogni veicolo ha 5 giornate all'anno senza registrazione, dal secondo anno di divieto.",
+     "Le auto a GPL e metano sono trattate come le benzina della stessa classe: da confermare.",
+     "Auto straniere: regole di registrazione per targhe non italiane da verificare."
+    ],
+    "pending_de": [
+     "Diesel Euro 6: Klassen A-B-C sind ab 1. Okt. 2028 gesperrt, D-TEMP und D ab 1. Okt. 2030. GateLR nimmt das frühere Datum.",
+     "Freie Tage: Ab 1. Okt. 2026 hat jedes Fahrzeug 5 Tage im Jahr ohne Registrierung, ab dem zweiten Jahr des Verbots.",
+     "Autogas- und Erdgasautos werden wie Benziner derselben Klasse behandelt: noch zu bestätigen.",
+     "Ausländische Autos: Registrierungsregeln für nicht-italienische Kennzeichen noch zu prüfen."
+    ],
+    "links": [
+     {
+      "title": "City of Milan: Area B",
+      "title_it": "Comune di Milano: Area B",
+      "title_de": "Stadt Mailand: Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b"
+     },
+     {
+      "title": "City of Milan: Area B ban calendar",
+      "title_it": "Comune di Milano: calendario dei divieti di Area B",
+      "title_de": "Stadt Mailand: Verbotskalender Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti"
+     },
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {
+     "https://www.comune.milano.it/argomenti/mobilita/area-b": "a719397361605e12",
+     "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti": "3380a9eb34404d9b"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
+   }
+  },
+  {
+   "id": "milano-b-4",
+   "name": "Area B · Low-emission zone",
+   "name_it": "Area B · Zona a basse emissioni",
+   "name_de": "Area B · Umweltzone",
+   "kind": "green",
+   "summary": "Almost the whole city. From Monday to Friday, 7:30 am to 7:30 pm (holidays excluded), the most polluting vehicles can't drive in. Cleaner cars enter free, no ticket.",
+   "summary_it": "Quasi tutta la città. Dal lunedì al venerdì, dalle 7:30 alle 19:30 (festivi esclusi), non entrano i veicoli più inquinanti. Le auto più pulite entrano gratis, senza ticket.",
+   "summary_de": "Fast die ganze Stadt. Montag bis Freitag, 7:30 bis 19:30 Uhr (außer Feiertage), dürfen die umweltschädlichsten Fahrzeuge nicht hinein. Sauberere Autos fahren kostenlos ein, ohne Ticket.",
+   "perimeter": [
+    {
+     "lat": 45.454761,
+     "lon": 9.086919
+    },
+    {
+     "lat": 45.455089,
+     "lon": 9.086822
+    },
+    {
+     "lat": 45.455791,
+     "lon": 9.08457
+    },
+    {
+     "lat": 45.455316,
+     "lon": 9.084112
+    },
+    {
+     "lat": 45.455481,
+     "lon": 9.083133
+    },
+    {
+     "lat": 45.455239,
+     "lon": 9.082423
+    },
+    {
+     "lat": 45.4547,
+     "lon": 9.082063
+    },
+    {
+     "lat": 45.455325,
+     "lon": 9.079134
+    },
+    {
+     "lat": 45.455609,
+     "lon": 9.078515
+    },
+    {
+     "lat": 45.455355,
+     "lon": 9.078472
+    },
+    {
+     "lat": 45.455124,
+     "lon": 9.078079
+    },
+    {
+     "lat": 45.453672,
+     "lon": 9.077693
+    },
+    {
+     "lat": 45.451972,
+     "lon": 9.078867
+    },
+    {
+     "lat": 45.452017,
+     "lon": 9.079014
+    },
+    {
+     "lat": 45.451486,
+     "lon": 9.079366
+    },
+    {
+     "lat": 45.451221,
+     "lon": 9.079867
+    },
+    {
+     "lat": 45.451603,
+     "lon": 9.080401
+    },
+    {
+     "lat": 45.451149,
+     "lon": 9.081193
+    },
+    {
+     "lat": 45.451624,
+     "lon": 9.082635
+    },
+    {
+     "lat": 45.451741,
+     "lon": 9.083709
+    },
+    {
+     "lat": 45.452871,
+     "lon": 9.086075
+    },
+    {
+     "lat": 45.453502,
+     "lon": 9.086739
+    },
+    {
+     "lat": 45.454004,
+     "lon": 9.085441
+    },
+    {
+     "lat": 45.454343,
+     "lon": 9.085498
+    },
+    {
+     "lat": 45.454761,
+     "lon": 9.086919
+    }
+   ],
+   "gates": [
+    {
+     "id": "mi-b-952",
+     "name": "Abeti",
+     "location": {
+      "lat": 45.452432,
+      "lon": 9.084921
+     }
+    },
+    {
+     "id": "mi-b-951",
+     "name": "Betulle",
+     "location": {
+      "lat": 45.452984,
+      "lon": 9.086031
+     }
+    },
+    {
+     "id": "mi-b-955",
+     "name": "Ontani",
+     "location": {
+      "lat": 45.454629,
+      "lon": 9.077997
+     }
+    },
+    {
+     "id": "mi-b-953",
+     "name": "Salici 1",
+     "location": {
+      "lat": 45.451199,
+      "lon": 9.081079
+     }
+    },
+    {
+     "id": "mi-b-954",
+     "name": "Salici 2",
+     "location": {
+      "lat": 45.451978,
+      "lon": 9.078864
+     }
+    },
+    {
+     "id": "mi-b-956",
+     "name": "Ulivi 1",
+     "location": {
+      "lat": 45.455409,
+      "lon": 9.078508
+     }
+    },
+    {
+     "id": "mi-b-957",
+     "name": "Ulivi 2",
+     "location": {
+      "lat": 45.453517,
+      "lon": 9.086441
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 450,
+     "end": 1170
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [
+    "electric"
+   ],
+   "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 3,
+     "since": "2025-10-01"
+    },
+    {
+     "fuel": "petrol",
+     "maxEuro": 4,
+     "since": "2028-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 5,
+     "since": "2019-02-25"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 6,
+     "since": "2028-10-01"
+    }
+   ],
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://www.comune.milano.it/argomenti/mobilita/area-b",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "Area B è attiva dal lunedì al venerdì dalle 7:30 alle 19:30, festivi esclusi",
+    "quoteTranslation": "Area B is active from Monday to Friday, 7:30 am to 7:30 pm, public holidays excluded",
+    "quoteTranslation_de": "Area B ist Montag bis Freitag von 7:30 bis 19:30 Uhr aktiv, Feiertage ausgenommen",
+    "checkedOn": "2026-10-23T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Euro 6 diesel: classes A-B-C are banned from 1 Oct 2028, D-TEMP and D from 1 Oct 2030. GateLR uses the earlier date.",
+     "Free days: from 1 Oct 2026 every vehicle gets 5 days a year without registration, from the second year of its ban.",
+     "LPG and methane cars are treated like petrol cars of the same class: to be confirmed.",
+     "Foreign cars: registration rules for non-Italian plates to be checked."
+    ],
+    "pending_it": [
+     "Diesel Euro 6: le classi A-B-C sono vietate dal 1° ottobre 2028, D-TEMP e D dal 1° ottobre 2030. GateLR usa la data più vicina.",
+     "Giornate libere: dal 1° ottobre 2026 ogni veicolo ha 5 giornate all'anno senza registrazione, dal secondo anno di divieto.",
+     "Le auto a GPL e metano sono trattate come le benzina della stessa classe: da confermare.",
+     "Auto straniere: regole di registrazione per targhe non italiane da verificare."
+    ],
+    "pending_de": [
+     "Diesel Euro 6: Klassen A-B-C sind ab 1. Okt. 2028 gesperrt, D-TEMP und D ab 1. Okt. 2030. GateLR nimmt das frühere Datum.",
+     "Freie Tage: Ab 1. Okt. 2026 hat jedes Fahrzeug 5 Tage im Jahr ohne Registrierung, ab dem zweiten Jahr des Verbots.",
+     "Autogas- und Erdgasautos werden wie Benziner derselben Klasse behandelt: noch zu bestätigen.",
+     "Ausländische Autos: Registrierungsregeln für nicht-italienische Kennzeichen noch zu prüfen."
+    ],
+    "links": [
+     {
+      "title": "City of Milan: Area B",
+      "title_it": "Comune di Milano: Area B",
+      "title_de": "Stadt Mailand: Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b"
+     },
+     {
+      "title": "City of Milan: Area B ban calendar",
+      "title_it": "Comune di Milano: calendario dei divieti di Area B",
+      "title_de": "Stadt Mailand: Verbotskalender Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti"
+     },
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {
+     "https://www.comune.milano.it/argomenti/mobilita/area-b": "a719397361605e12",
+     "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti": "3380a9eb34404d9b"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
+   }
+  },
+  {
+   "id": "milano-b-5",
+   "name": "Area B · Low-emission zone",
+   "name_it": "Area B · Zona a basse emissioni",
+   "name_de": "Area B · Umweltzone",
+   "kind": "green",
+   "summary": "Almost the whole city. From Monday to Friday, 7:30 am to 7:30 pm (holidays excluded), the most polluting vehicles can't drive in. Cleaner cars enter free, no ticket.",
+   "summary_it": "Quasi tutta la città. Dal lunedì al venerdì, dalle 7:30 alle 19:30 (festivi esclusi), non entrano i veicoli più inquinanti. Le auto più pulite entrano gratis, senza ticket.",
+   "summary_de": "Fast die ganze Stadt. Montag bis Freitag, 7:30 bis 19:30 Uhr (außer Feiertage), dürfen die umweltschädlichsten Fahrzeuge nicht hinein. Sauberere Autos fahren kostenlos ein, ohne Ticket.",
+   "perimeter": [
+    {
+     "lat": 45.485826,
+     "lon": 9.149281
+    },
+    {
+     "lat": 45.486944,
+     "lon": 9.147903
+    },
+    {
+     "lat": 45.490239,
+     "lon": 9.14328
+    },
+    {
+     "lat": 45.490473,
+     "lon": 9.142774
+    },
+    {
+     "lat": 45.490559,
+     "lon": 9.141292
+    },
+    {
+     "lat": 45.49025,
+     "lon": 9.141558
+    },
+    {
+     "lat": 45.489218,
+     "lon": 9.142032
+    },
+    {
+     "lat": 45.489374,
+     "lon": 9.142752
+    },
+    {
+     "lat": 45.488281,
+     "lon": 9.141755
+    },
+    {
+     "lat": 45.485503,
+     "lon": 9.145432
+    },
+    {
+     "lat": 45.486925,
+     "lon": 9.147641
+    },
+    {
+     "lat": 45.486119,
+     "lon": 9.148739
+    },
+    {
+     "lat": 45.485641,
+     "lon": 9.148682
+    },
+    {
+     "lat": 45.485444,
+     "lon": 9.148808
+    },
+    {
+     "lat": 45.485486,
+     "lon": 9.149113
+    },
+    {
+     "lat": 45.485826,
+     "lon": 9.149281
+    }
+   ],
+   "gates": [
+    {
+     "id": "mi-b-147",
+     "name": "Achille Papa",
+     "location": {
+      "lat": 45.489231,
+      "lon": 9.142083
+     }
+    },
+    {
+     "id": "mi-b-184",
+     "name": "Aldo Rossi",
+     "location": {
+      "lat": 45.485527,
+      "lon": 9.148792
+     }
+    },
+    {
+     "id": "mi-b-144",
+     "name": "Serra 2",
+     "location": {
+      "lat": 45.485745,
+      "lon": 9.145221
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 450,
+     "end": 1170
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [
+    "electric"
+   ],
+   "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 3,
+     "since": "2025-10-01"
+    },
+    {
+     "fuel": "petrol",
+     "maxEuro": 4,
+     "since": "2028-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 5,
+     "since": "2019-02-25"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 6,
+     "since": "2028-10-01"
+    }
+   ],
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://www.comune.milano.it/argomenti/mobilita/area-b",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "Area B è attiva dal lunedì al venerdì dalle 7:30 alle 19:30, festivi esclusi",
+    "quoteTranslation": "Area B is active from Monday to Friday, 7:30 am to 7:30 pm, public holidays excluded",
+    "quoteTranslation_de": "Area B ist Montag bis Freitag von 7:30 bis 19:30 Uhr aktiv, Feiertage ausgenommen",
+    "checkedOn": "2026-10-23T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Euro 6 diesel: classes A-B-C are banned from 1 Oct 2028, D-TEMP and D from 1 Oct 2030. GateLR uses the earlier date.",
+     "Free days: from 1 Oct 2026 every vehicle gets 5 days a year without registration, from the second year of its ban.",
+     "LPG and methane cars are treated like petrol cars of the same class: to be confirmed.",
+     "Foreign cars: registration rules for non-Italian plates to be checked."
+    ],
+    "pending_it": [
+     "Diesel Euro 6: le classi A-B-C sono vietate dal 1° ottobre 2028, D-TEMP e D dal 1° ottobre 2030. GateLR usa la data più vicina.",
+     "Giornate libere: dal 1° ottobre 2026 ogni veicolo ha 5 giornate all'anno senza registrazione, dal secondo anno di divieto.",
+     "Le auto a GPL e metano sono trattate come le benzina della stessa classe: da confermare.",
+     "Auto straniere: regole di registrazione per targhe non italiane da verificare."
+    ],
+    "pending_de": [
+     "Diesel Euro 6: Klassen A-B-C sind ab 1. Okt. 2028 gesperrt, D-TEMP und D ab 1. Okt. 2030. GateLR nimmt das frühere Datum.",
+     "Freie Tage: Ab 1. Okt. 2026 hat jedes Fahrzeug 5 Tage im Jahr ohne Registrierung, ab dem zweiten Jahr des Verbots.",
+     "Autogas- und Erdgasautos werden wie Benziner derselben Klasse behandelt: noch zu bestätigen.",
+     "Ausländische Autos: Registrierungsregeln für nicht-italienische Kennzeichen noch zu prüfen."
+    ],
+    "links": [
+     {
+      "title": "City of Milan: Area B",
+      "title_it": "Comune di Milano: Area B",
+      "title_de": "Stadt Mailand: Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b"
+     },
+     {
+      "title": "City of Milan: Area B ban calendar",
+      "title_it": "Comune di Milano: calendario dei divieti di Area B",
+      "title_de": "Stadt Mailand: Verbotskalender Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti"
+     },
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {
+     "https://www.comune.milano.it/argomenti/mobilita/area-b": "a719397361605e12",
+     "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti": "3380a9eb34404d9b"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
+   }
+  },
+  {
+   "id": "milano-b-6",
+   "name": "Area B · Low-emission zone",
+   "name_it": "Area B · Zona a basse emissioni",
+   "name_de": "Area B · Umweltzone",
+   "kind": "green",
+   "summary": "Almost the whole city. From Monday to Friday, 7:30 am to 7:30 pm (holidays excluded), the most polluting vehicles can't drive in. Cleaner cars enter free, no ticket.",
+   "summary_it": "Quasi tutta la città. Dal lunedì al venerdì, dalle 7:30 alle 19:30 (festivi esclusi), non entrano i veicoli più inquinanti. Le auto più pulite entrano gratis, senza ticket.",
+   "summary_de": "Fast die ganze Stadt. Montag bis Freitag, 7:30 bis 19:30 Uhr (außer Feiertage), dürfen die umweltschädlichsten Fahrzeuge nicht hinein. Sauberere Autos fahren kostenlos ein, ohne Ticket.",
+   "perimeter": [
+    {
+     "lat": 45.4174,
+     "lon": 9.242483
+    },
+    {
+     "lat": 45.418483,
+     "lon": 9.240685
+    },
+    {
+     "lat": 45.419122,
+     "lon": 9.238974
+    },
+    {
+     "lat": 45.418041,
+     "lon": 9.238651
+    },
+    {
+     "lat": 45.418175,
+     "lon": 9.238187
+    },
+    {
+     "lat": 45.418083,
+     "lon": 9.23807
+    },
+    {
+     "lat": 45.41834,
+     "lon": 9.237358
+    },
+    {
+     "lat": 45.418156,
+     "lon": 9.23718
+    },
+    {
+     "lat": 45.417747,
+     "lon": 9.238204
+    },
+    {
+     "lat": 45.416891,
+     "lon": 9.238031
+    },
+    {
+     "lat": 45.416025,
+     "lon": 9.239431
+    },
+    {
+     "lat": 45.41484,
+     "lon": 9.240052
+    },
+    {
+     "lat": 45.414557,
+     "lon": 9.241266
+    },
+    {
+     "lat": 45.414893,
+     "lon": 9.242037
+    },
+    {
+     "lat": 45.415672,
+     "lon": 9.241649
+    },
+    {
+     "lat": 45.415733,
+     "lon": 9.241794
+    },
+    {
+     "lat": 45.416255,
+     "lon": 9.241564
+    },
+    {
+     "lat": 45.416827,
+     "lon": 9.242046
+    },
+    {
+     "lat": 45.41698,
+     "lon": 9.242017
+    },
+    {
+     "lat": 45.4174,
+     "lon": 9.242483
+    }
+   ],
+   "gates": [
+    {
+     "id": "mi-b-970",
+     "name": "San Bernardo 1",
+     "location": {
+      "lat": 45.418116,
+      "lon": 9.237336
+     }
+    },
+    {
+     "id": "mi-b-971",
+     "name": "San Bernardo 2",
+     "location": {
+      "lat": 45.414658,
+      "lon": 9.241301
+     }
+    },
+    {
+     "id": "mi-b-185",
+     "name": "San Bernardo 3",
+     "location": {
+      "lat": 45.417214,
+      "lon": 9.237374
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 450,
+     "end": 1170
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [
+    "electric"
+   ],
+   "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 3,
+     "since": "2025-10-01"
+    },
+    {
+     "fuel": "petrol",
+     "maxEuro": 4,
+     "since": "2028-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 5,
+     "since": "2019-02-25"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 6,
+     "since": "2028-10-01"
+    }
+   ],
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://www.comune.milano.it/argomenti/mobilita/area-b",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "Area B è attiva dal lunedì al venerdì dalle 7:30 alle 19:30, festivi esclusi",
+    "quoteTranslation": "Area B is active from Monday to Friday, 7:30 am to 7:30 pm, public holidays excluded",
+    "quoteTranslation_de": "Area B ist Montag bis Freitag von 7:30 bis 19:30 Uhr aktiv, Feiertage ausgenommen",
+    "checkedOn": "2026-10-23T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Euro 6 diesel: classes A-B-C are banned from 1 Oct 2028, D-TEMP and D from 1 Oct 2030. GateLR uses the earlier date.",
+     "Free days: from 1 Oct 2026 every vehicle gets 5 days a year without registration, from the second year of its ban.",
+     "LPG and methane cars are treated like petrol cars of the same class: to be confirmed.",
+     "Foreign cars: registration rules for non-Italian plates to be checked."
+    ],
+    "pending_it": [
+     "Diesel Euro 6: le classi A-B-C sono vietate dal 1° ottobre 2028, D-TEMP e D dal 1° ottobre 2030. GateLR usa la data più vicina.",
+     "Giornate libere: dal 1° ottobre 2026 ogni veicolo ha 5 giornate all'anno senza registrazione, dal secondo anno di divieto.",
+     "Le auto a GPL e metano sono trattate come le benzina della stessa classe: da confermare.",
+     "Auto straniere: regole di registrazione per targhe non italiane da verificare."
+    ],
+    "pending_de": [
+     "Diesel Euro 6: Klassen A-B-C sind ab 1. Okt. 2028 gesperrt, D-TEMP und D ab 1. Okt. 2030. GateLR nimmt das frühere Datum.",
+     "Freie Tage: Ab 1. Okt. 2026 hat jedes Fahrzeug 5 Tage im Jahr ohne Registrierung, ab dem zweiten Jahr des Verbots.",
+     "Autogas- und Erdgasautos werden wie Benziner derselben Klasse behandelt: noch zu bestätigen.",
+     "Ausländische Autos: Registrierungsregeln für nicht-italienische Kennzeichen noch zu prüfen."
+    ],
+    "links": [
+     {
+      "title": "City of Milan: Area B",
+      "title_it": "Comune di Milano: Area B",
+      "title_de": "Stadt Mailand: Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b"
+     },
+     {
+      "title": "City of Milan: Area B ban calendar",
+      "title_it": "Comune di Milano: calendario dei divieti di Area B",
+      "title_de": "Stadt Mailand: Verbotskalender Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti"
+     },
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {
+     "https://www.comune.milano.it/argomenti/mobilita/area-b": "a719397361605e12",
+     "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti": "3380a9eb34404d9b"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
+   }
+  },
+  {
+   "id": "milano-b-7",
+   "name": "Area B · Low-emission zone",
+   "name_it": "Area B · Zona a basse emissioni",
+   "name_de": "Area B · Umweltzone",
+   "kind": "green",
+   "summary": "Almost the whole city. From Monday to Friday, 7:30 am to 7:30 pm (holidays excluded), the most polluting vehicles can't drive in. Cleaner cars enter free, no ticket.",
+   "summary_it": "Quasi tutta la città. Dal lunedì al venerdì, dalle 7:30 alle 19:30 (festivi esclusi), non entrano i veicoli più inquinanti. Le auto più pulite entrano gratis, senza ticket.",
+   "summary_de": "Fast die ganze Stadt. Montag bis Freitag, 7:30 bis 19:30 Uhr (außer Feiertage), dürfen die umweltschädlichsten Fahrzeuge nicht hinein. Sauberere Autos fahren kostenlos ein, ohne Ticket.",
+   "perimeter": [
+    {
+     "lat": 45.456159,
+     "lon": 9.235225
+    },
+    {
+     "lat": 45.45638,
+     "lon": 9.235224
+    },
+    {
+     "lat": 45.45629,
+     "lon": 9.231976
+    },
+    {
+     "lat": 45.456158,
+     "lon": 9.231949
+    },
+    {
+     "lat": 45.456159,
+     "lon": 9.235225
+    }
+   ],
+   "gates": [
+    {
+     "id": "mi-b-192",
+     "name": "Lombroso 2",
+     "location": {
+      "lat": 45.456155,
+      "lon": 9.232869
+     }
+    }
+   ],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 450,
+     "end": 1170
+    }
+   ],
+   "freeOnHolidays": true,
+   "exemptFuels": [
+    "electric"
+   ],
+   "hotelCanRegister": false,
+   "bans": [
+    {
+     "fuel": "petrol",
+     "maxEuro": 3,
+     "since": "2025-10-01"
+    },
+    {
+     "fuel": "petrol",
+     "maxEuro": 4,
+     "since": "2028-10-01"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 5,
+     "since": "2019-02-25"
+    },
+    {
+     "fuel": "diesel",
+     "maxEuro": 6,
+     "since": "2028-10-01"
+    }
+   ],
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://www.comune.milano.it/argomenti/mobilita/area-b",
+    "ordinance": null,
+    "ordinanceURL": null,
+    "quote": "Area B è attiva dal lunedì al venerdì dalle 7:30 alle 19:30, festivi esclusi",
+    "quoteTranslation": "Area B is active from Monday to Friday, 7:30 am to 7:30 pm, public holidays excluded",
+    "quoteTranslation_de": "Area B ist Montag bis Freitag von 7:30 bis 19:30 Uhr aktiv, Feiertage ausgenommen",
+    "checkedOn": "2026-10-23T12:00:00Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "Euro 6 diesel: classes A-B-C are banned from 1 Oct 2028, D-TEMP and D from 1 Oct 2030. GateLR uses the earlier date.",
+     "Free days: from 1 Oct 2026 every vehicle gets 5 days a year without registration, from the second year of its ban.",
+     "LPG and methane cars are treated like petrol cars of the same class: to be confirmed.",
+     "Foreign cars: registration rules for non-Italian plates to be checked."
+    ],
+    "pending_it": [
+     "Diesel Euro 6: le classi A-B-C sono vietate dal 1° ottobre 2028, D-TEMP e D dal 1° ottobre 2030. GateLR usa la data più vicina.",
+     "Giornate libere: dal 1° ottobre 2026 ogni veicolo ha 5 giornate all'anno senza registrazione, dal secondo anno di divieto.",
+     "Le auto a GPL e metano sono trattate come le benzina della stessa classe: da confermare.",
+     "Auto straniere: regole di registrazione per targhe non italiane da verificare."
+    ],
+    "pending_de": [
+     "Diesel Euro 6: Klassen A-B-C sind ab 1. Okt. 2028 gesperrt, D-TEMP und D ab 1. Okt. 2030. GateLR nimmt das frühere Datum.",
+     "Freie Tage: Ab 1. Okt. 2026 hat jedes Fahrzeug 5 Tage im Jahr ohne Registrierung, ab dem zweiten Jahr des Verbots.",
+     "Autogas- und Erdgasautos werden wie Benziner derselben Klasse behandelt: noch zu bestätigen.",
+     "Ausländische Autos: Registrierungsregeln für nicht-italienische Kennzeichen noch zu prüfen."
+    ],
+    "links": [
+     {
+      "title": "City of Milan: Area B",
+      "title_it": "Comune di Milano: Area B",
+      "title_de": "Stadt Mailand: Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b"
+     },
+     {
+      "title": "City of Milan: Area B ban calendar",
+      "title_it": "Comune di Milano: calendario dei divieti di Area B",
+      "title_de": "Stadt Mailand: Verbotskalender Area B",
+      "url": "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti"
+     },
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {
+     "https://www.comune.milano.it/argomenti/mobilita/area-b": "a719397361605e12",
+     "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti": "3380a9eb34404d9b"
+    },
+    "readFingerprintsOf": "2026-10-23T12:00:00Z"
+   }
+  },
+  {
+   "id": "milano-ztl-194",
+   "name": "ZTL · Ticinese",
+   "name_it": "ZTL · Ticinese",
+   "name_de": "ZTL · Ticinese",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "97/2017,52000/2002 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "Ticinese: deroghe «transito: autoveicoli muniti di contrassegno, cicli e moto, taxi, veicoli da noleggio con conducente, pubblica utilità, altri autorizzati; transito e sosta: residenti, trasporto merci (06.00-08.00 e 10.00-12.00 feriali)»; note «integrata da ordinanza N64255 del 25/03/2010»",
+    "quoteTranslation": "Ticinese: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Ticinese: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.456121,
+     "lon": 9.180637
+    },
+    {
+     "lat": 45.456188,
+     "lon": 9.180669
+    },
+    {
+     "lat": 45.456186,
+     "lon": 9.180682
+    },
+    {
+     "lat": 45.456775,
+     "lon": 9.180762
+    },
+    {
+     "lat": 45.456773,
+     "lon": 9.180784
+    },
+    {
+     "lat": 45.456782,
+     "lon": 9.180792
+    },
+    {
+     "lat": 45.45696,
+     "lon": 9.180831
+    },
+    {
+     "lat": 45.457315,
+     "lon": 9.180854
+    },
+    {
+     "lat": 45.457331,
+     "lon": 9.180834
+    },
+    {
+     "lat": 45.457305,
+     "lon": 9.180968
+    },
+    {
+     "lat": 45.457217,
+     "lon": 9.180975
+    },
+    {
+     "lat": 45.457002,
+     "lon": 9.180948
+    },
+    {
+     "lat": 45.456996,
+     "lon": 9.180939
+    },
+    {
+     "lat": 45.4569,
+     "lon": 9.180923
+    },
+    {
+     "lat": 45.456742,
+     "lon": 9.180875
+    },
+    {
+     "lat": 45.45646,
+     "lon": 9.180819
+    },
+    {
+     "lat": 45.456448,
+     "lon": 9.180807
+    },
+    {
+     "lat": 45.456316,
+     "lon": 9.18078
+    },
+    {
+     "lat": 45.456308,
+     "lon": 9.180834
+    },
+    {
+     "lat": 45.45622,
+     "lon": 9.180823
+    },
+    {
+     "lat": 45.456166,
+     "lon": 9.181374
+    },
+    {
+     "lat": 45.456288,
+     "lon": 9.181398
+    },
+    {
+     "lat": 45.456289,
+     "lon": 9.181405
+    },
+    {
+     "lat": 45.456395,
+     "lon": 9.181392
+    },
+    {
+     "lat": 45.456542,
+     "lon": 9.181416
+    },
+    {
+     "lat": 45.456527,
+     "lon": 9.181578
+    },
+    {
+     "lat": 45.456497,
+     "lon": 9.181569
+    },
+    {
+     "lat": 45.456494,
+     "lon": 9.181588
+    },
+    {
+     "lat": 45.456101,
+     "lon": 9.181527
+    },
+    {
+     "lat": 45.456056,
+     "lon": 9.181901
+    },
+    {
+     "lat": 45.45602,
+     "lon": 9.181896
+    },
+    {
+     "lat": 45.456136,
+     "lon": 9.180815
+    },
+    {
+     "lat": 45.456121,
+     "lon": 9.180806
+    },
+    {
+     "lat": 45.455348,
+     "lon": 9.180695
+    },
+    {
+     "lat": 45.455342,
+     "lon": 9.18082
+    },
+    {
+     "lat": 45.455329,
+     "lon": 9.180827
+    },
+    {
+     "lat": 45.455315,
+     "lon": 9.181034
+    },
+    {
+     "lat": 45.455328,
+     "lon": 9.181038
+    },
+    {
+     "lat": 45.455392,
+     "lon": 9.181249
+    },
+    {
+     "lat": 45.455394,
+     "lon": 9.181286
+    },
+    {
+     "lat": 45.455251,
+     "lon": 9.181326
+    },
+    {
+     "lat": 45.455242,
+     "lon": 9.181307
+    },
+    {
+     "lat": 45.455238,
+     "lon": 9.181254
+    },
+    {
+     "lat": 45.455157,
+     "lon": 9.180998
+    },
+    {
+     "lat": 45.455184,
+     "lon": 9.180674
+    },
+    {
+     "lat": 45.454888,
+     "lon": 9.180642
+    },
+    {
+     "lat": 45.454036,
+     "lon": 9.180509
+    },
+    {
+     "lat": 45.453767,
+     "lon": 9.180456
+    },
+    {
+     "lat": 45.453372,
+     "lon": 9.180414
+    },
+    {
+     "lat": 45.453245,
+     "lon": 9.180423
+    },
+    {
+     "lat": 45.453111,
+     "lon": 9.180404
+    },
+    {
+     "lat": 45.453142,
+     "lon": 9.180186
+    },
+    {
+     "lat": 45.453401,
+     "lon": 9.18023
+    },
+    {
+     "lat": 45.453581,
+     "lon": 9.180283
+    },
+    {
+     "lat": 45.454048,
+     "lon": 9.180375
+    },
+    {
+     "lat": 45.454199,
+     "lon": 9.180387
+    },
+    {
+     "lat": 45.454209,
+     "lon": 9.180152
+    },
+    {
+     "lat": 45.454285,
+     "lon": 9.179436
+    },
+    {
+     "lat": 45.454308,
+     "lon": 9.179305
+    },
+    {
+     "lat": 45.454405,
+     "lon": 9.179075
+    },
+    {
+     "lat": 45.454578,
+     "lon": 9.178987
+    },
+    {
+     "lat": 45.454614,
+     "lon": 9.178962
+    },
+    {
+     "lat": 45.454966,
+     "lon": 9.178668
+    },
+    {
+     "lat": 45.455049,
+     "lon": 9.178756
+    },
+    {
+     "lat": 45.454475,
+     "lon": 9.179143
+    },
+    {
+     "lat": 45.454407,
+     "lon": 9.179208
+    },
+    {
+     "lat": 45.45436,
+     "lon": 9.179301
+    },
+    {
+     "lat": 45.454339,
+     "lon": 9.179399
+    },
+    {
+     "lat": 45.454282,
+     "lon": 9.179864
+    },
+    {
+     "lat": 45.454256,
+     "lon": 9.180374
+    },
+    {
+     "lat": 45.45485,
+     "lon": 9.180451
+    },
+    {
+     "lat": 45.455327,
+     "lon": 9.180529
+    },
+    {
+     "lat": 45.456121,
+     "lon": 9.180637
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-195",
+   "name": "ZTL · Garibaldi - Sottoambito 2",
+   "name_it": "ZTL · Garibaldi - Sottoambito 2",
+   "name_de": "ZTL · Garibaldi - Sottoambito 2",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "54515/2004,1109/2016 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "Garibaldi - Sottoambito 2: deroghe «residenti, velocipedi, motocicli, taxi, carico scarico merci lun-sab 8:00 - 11:00, altri autorizzati»; note «c/s 8-11 / 3 TELECAMERE»",
+    "quoteTranslation": "Garibaldi - Sottoambito 2: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Garibaldi - Sottoambito 2: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.47789,
+     "lon": 9.184846
+    },
+    {
+     "lat": 45.47793,
+     "lon": 9.184674
+    },
+    {
+     "lat": 45.47827,
+     "lon": 9.184909
+    },
+    {
+     "lat": 45.478323,
+     "lon": 9.184605
+    },
+    {
+     "lat": 45.478432,
+     "lon": 9.184578
+    },
+    {
+     "lat": 45.478347,
+     "lon": 9.184995
+    },
+    {
+     "lat": 45.479428,
+     "lon": 9.18589
+    },
+    {
+     "lat": 45.479335,
+     "lon": 9.186031
+    },
+    {
+     "lat": 45.479117,
+     "lon": 9.185867
+    },
+    {
+     "lat": 45.479085,
+     "lon": 9.185962
+    },
+    {
+     "lat": 45.478696,
+     "lon": 9.185632
+    },
+    {
+     "lat": 45.478311,
+     "lon": 9.18532
+    },
+    {
+     "lat": 45.478339,
+     "lon": 9.185189
+    },
+    {
+     "lat": 45.478231,
+     "lon": 9.185101
+    },
+    {
+     "lat": 45.477928,
+     "lon": 9.184894
+    },
+    {
+     "lat": 45.47789,
+     "lon": 9.184846
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-199",
+   "name": "ZTL · Corso Como",
+   "name_it": "ZTL · Corso Como",
+   "name_de": "ZTL · Corso Como",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "53660/2003 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "Corso Como: deroghe «residenti, velocipedi, carico scarico merci civica amministrazione»; note «c/s 8-11 / PILOMAT»",
+    "quoteTranslation": "Corso Como: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Corso Como: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.481077,
+     "lon": 9.186795
+    },
+    {
+     "lat": 45.481101,
+     "lon": 9.186804
+    },
+    {
+     "lat": 45.481083,
+     "lon": 9.186933
+    },
+    {
+     "lat": 45.482373,
+     "lon": 9.187313
+    },
+    {
+     "lat": 45.482347,
+     "lon": 9.187522
+    },
+    {
+     "lat": 45.481446,
+     "lon": 9.187276
+    },
+    {
+     "lat": 45.481345,
+     "lon": 9.187239
+    },
+    {
+     "lat": 45.481051,
+     "lon": 9.187155
+    },
+    {
+     "lat": 45.480998,
+     "lon": 9.187159
+    },
+    {
+     "lat": 45.481046,
+     "lon": 9.186824
+    },
+    {
+     "lat": 45.481063,
+     "lon": 9.186801
+    },
+    {
+     "lat": 45.481077,
+     "lon": 9.186795
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-200",
+   "name": "ZTL · Piazzale Governo Provvisorio",
+   "name_it": "ZTL · Piazzale Governo Provvisorio",
+   "name_de": "ZTL · Piazzale Governo Provvisorio",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "49284/2001 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "Piazzale Governo Provvisorio: deroghe «veicoli diretti alle proprieta' private,velocipedi»",
+    "quoteTranslation": "Piazzale Governo Provvisorio: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Piazzale Governo Provvisorio: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.49824,
+     "lon": 9.225338
+    },
+    {
+     "lat": 45.497433,
+     "lon": 9.225607
+    },
+    {
+     "lat": 45.497374,
+     "lon": 9.225287
+    },
+    {
+     "lat": 45.497995,
+     "lon": 9.225171
+    },
+    {
+     "lat": 45.497995,
+     "lon": 9.225162
+    },
+    {
+     "lat": 45.498461,
+     "lon": 9.225109
+    },
+    {
+     "lat": 45.498493,
+     "lon": 9.225363
+    },
+    {
+     "lat": 45.49824,
+     "lon": 9.225338
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-201",
+   "name": "ZTL · Via della Guastalla",
+   "name_it": "ZTL · Via della Guastalla",
+   "name_de": "ZTL · Via della Guastalla",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "56593/2005 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "Via della Guastalla: deroghe «velocipedi, altri veicoli autorizzati»; note «PILOMAT»",
+    "quoteTranslation": "Via della Guastalla: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Via della Guastalla: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.460613,
+     "lon": 9.198607
+    },
+    {
+     "lat": 45.460319,
+     "lon": 9.19867
+    },
+    {
+     "lat": 45.459828,
+     "lon": 9.198745
+    },
+    {
+     "lat": 45.45978,
+     "lon": 9.198643
+    },
+    {
+     "lat": 45.460624,
+     "lon": 9.198504
+    },
+    {
+     "lat": 45.460842,
+     "lon": 9.198475
+    },
+    {
+     "lat": 45.460872,
+     "lon": 9.198424
+    },
+    {
+     "lat": 45.460858,
+     "lon": 9.198565
+    },
+    {
+     "lat": 45.460613,
+     "lon": 9.198607
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-202",
+   "name": "ZTL · Garibaldi - Sottoambito 1",
+   "name_it": "ZTL · Garibaldi - Sottoambito 1",
+   "name_de": "ZTL · Garibaldi - Sottoambito 1",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "54515/2004,1109/2016 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "Garibaldi - Sottoambito 1: deroghe «residenti, velocipedi, motocicli, taxi, carico scarico merci lun-sab 8:00 - 11:00, veicoli a tre ruote simmetriche (cat. L5 Ae) con esclusione dei tricicli con carrozzeria e quelli non basculanti»; note «c/s 8-11 / 3 TELECAMERE»",
+    "quoteTranslation": "Garibaldi - Sottoambito 1: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Garibaldi - Sottoambito 1: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.473695,
+     "lon": 9.183645
+    },
+    {
+     "lat": 45.473571,
+     "lon": 9.183702
+    },
+    {
+     "lat": 45.473566,
+     "lon": 9.183683
+    },
+    {
+     "lat": 45.473255,
+     "lon": 9.183756
+    },
+    {
+     "lat": 45.4734,
+     "lon": 9.184469
+    },
+    {
+     "lat": 45.473306,
+     "lon": 9.184583
+    },
+    {
+     "lat": 45.473308,
+     "lon": 9.184596
+    },
+    {
+     "lat": 45.472447,
+     "lon": 9.184972
+    },
+    {
+     "lat": 45.472399,
+     "lon": 9.184796
+    },
+    {
+     "lat": 45.47244,
+     "lon": 9.184781
+    },
+    {
+     "lat": 45.472451,
+     "lon": 9.18483
+    },
+    {
+     "lat": 45.472503,
+     "lon": 9.184811
+    },
+    {
+     "lat": 45.472504,
+     "lon": 9.184819
+    },
+    {
+     "lat": 45.472557,
+     "lon": 9.184796
+    },
+    {
+     "lat": 45.472563,
+     "lon": 9.184827
+    },
+    {
+     "lat": 45.472793,
+     "lon": 9.184726
+    },
+    {
+     "lat": 45.47303,
+     "lon": 9.184606
+    },
+    {
+     "lat": 45.47301,
+     "lon": 9.184515
+    },
+    {
+     "lat": 45.473267,
+     "lon": 9.184397
+    },
+    {
+     "lat": 45.473144,
+     "lon": 9.18377
+    },
+    {
+     "lat": 45.472865,
+     "lon": 9.18383
+    },
+    {
+     "lat": 45.47286,
+     "lon": 9.18384
+    },
+    {
+     "lat": 45.472526,
+     "lon": 9.183917
+    },
+    {
+     "lat": 45.472518,
+     "lon": 9.1839
+    },
+    {
+     "lat": 45.472132,
+     "lon": 9.183982
+    },
+    {
+     "lat": 45.472061,
+     "lon": 9.183794
+    },
+    {
+     "lat": 45.472675,
+     "lon": 9.183674
+    },
+    {
+     "lat": 45.472816,
+     "lon": 9.183626
+    },
+    {
+     "lat": 45.472881,
+     "lon": 9.183612
+    },
+    {
+     "lat": 45.472912,
+     "lon": 9.183613
+    },
+    {
+     "lat": 45.472987,
+     "lon": 9.183634
+    },
+    {
+     "lat": 45.473198,
+     "lon": 9.183567
+    },
+    {
+     "lat": 45.473421,
+     "lon": 9.183508
+    },
+    {
+     "lat": 45.473736,
+     "lon": 9.183402
+    },
+    {
+     "lat": 45.473733,
+     "lon": 9.183353
+    },
+    {
+     "lat": 45.473906,
+     "lon": 9.183325
+    },
+    {
+     "lat": 45.473907,
+     "lon": 9.183247
+    },
+    {
+     "lat": 45.474032,
+     "lon": 9.183093
+    },
+    {
+     "lat": 45.474084,
+     "lon": 9.183086
+    },
+    {
+     "lat": 45.474037,
+     "lon": 9.182745
+    },
+    {
+     "lat": 45.474065,
+     "lon": 9.182723
+    },
+    {
+     "lat": 45.474157,
+     "lon": 9.182913
+    },
+    {
+     "lat": 45.474182,
+     "lon": 9.18291
+    },
+    {
+     "lat": 45.474492,
+     "lon": 9.182429
+    },
+    {
+     "lat": 45.474499,
+     "lon": 9.182397
+    },
+    {
+     "lat": 45.474557,
+     "lon": 9.18232
+    },
+    {
+     "lat": 45.474671,
+     "lon": 9.182097
+    },
+    {
+     "lat": 45.474692,
+     "lon": 9.182085
+    },
+    {
+     "lat": 45.474798,
+     "lon": 9.181858
+    },
+    {
+     "lat": 45.474811,
+     "lon": 9.181978
+    },
+    {
+     "lat": 45.474719,
+     "lon": 9.182184
+    },
+    {
+     "lat": 45.474657,
+     "lon": 9.182304
+    },
+    {
+     "lat": 45.474201,
+     "lon": 9.183022
+    },
+    {
+     "lat": 45.474107,
+     "lon": 9.183153
+    },
+    {
+     "lat": 45.474,
+     "lon": 9.183279
+    },
+    {
+     "lat": 45.474019,
+     "lon": 9.183398
+    },
+    {
+     "lat": 45.474403,
+     "lon": 9.183398
+    },
+    {
+     "lat": 45.474405,
+     "lon": 9.183289
+    },
+    {
+     "lat": 45.474722,
+     "lon": 9.183313
+    },
+    {
+     "lat": 45.47495,
+     "lon": 9.183341
+    },
+    {
+     "lat": 45.47496,
+     "lon": 9.183349
+    },
+    {
+     "lat": 45.474967,
+     "lon": 9.183421
+    },
+    {
+     "lat": 45.475162,
+     "lon": 9.183461
+    },
+    {
+     "lat": 45.475172,
+     "lon": 9.18339
+    },
+    {
+     "lat": 45.47546,
+     "lon": 9.183476
+    },
+    {
+     "lat": 45.475568,
+     "lon": 9.183643
+    },
+    {
+     "lat": 45.475717,
+     "lon": 9.183699
+    },
+    {
+     "lat": 45.475723,
+     "lon": 9.183691
+    },
+    {
+     "lat": 45.475742,
+     "lon": 9.183695
+    },
+    {
+     "lat": 45.47584,
+     "lon": 9.183736
+    },
+    {
+     "lat": 45.475861,
+     "lon": 9.18363
+    },
+    {
+     "lat": 45.476048,
+     "lon": 9.183709
+    },
+    {
+     "lat": 45.476058,
+     "lon": 9.183724
+    },
+    {
+     "lat": 45.476056,
+     "lon": 9.183821
+    },
+    {
+     "lat": 45.476315,
+     "lon": 9.183929
+    },
+    {
+     "lat": 45.476329,
+     "lon": 9.183927
+    },
+    {
+     "lat": 45.476331,
+     "lon": 9.183822
+    },
+    {
+     "lat": 45.476553,
+     "lon": 9.183916
+    },
+    {
+     "lat": 45.476669,
+     "lon": 9.184076
+    },
+    {
+     "lat": 45.477253,
+     "lon": 9.184285
+    },
+    {
+     "lat": 45.47728,
+     "lon": 9.184198
+    },
+    {
+     "lat": 45.47763,
+     "lon": 9.18434
+    },
+    {
+     "lat": 45.47767,
+     "lon": 9.184324
+    },
+    {
+     "lat": 45.477614,
+     "lon": 9.184598
+    },
+    {
+     "lat": 45.477463,
+     "lon": 9.184699
+    },
+    {
+     "lat": 45.477488,
+     "lon": 9.18456
+    },
+    {
+     "lat": 45.476604,
+     "lon": 9.184227
+    },
+    {
+     "lat": 45.476566,
+     "lon": 9.184415
+    },
+    {
+     "lat": 45.476601,
+     "lon": 9.184434
+    },
+    {
+     "lat": 45.476521,
+     "lon": 9.184853
+    },
+    {
+     "lat": 45.476457,
+     "lon": 9.184824
+    },
+    {
+     "lat": 45.476276,
+     "lon": 9.184767
+    },
+    {
+     "lat": 45.476298,
+     "lon": 9.184658
+    },
+    {
+     "lat": 45.476408,
+     "lon": 9.184698
+    },
+    {
+     "lat": 45.476471,
+     "lon": 9.184384
+    },
+    {
+     "lat": 45.476509,
+     "lon": 9.184393
+    },
+    {
+     "lat": 45.476543,
+     "lon": 9.184204
+    },
+    {
+     "lat": 45.475915,
+     "lon": 9.183952
+    },
+    {
+     "lat": 45.475904,
+     "lon": 9.183902
+    },
+    {
+     "lat": 45.475571,
+     "lon": 9.183774
+    },
+    {
+     "lat": 45.475459,
+     "lon": 9.183715
+    },
+    {
+     "lat": 45.475165,
+     "lon": 9.183609
+    },
+    {
+     "lat": 45.474837,
+     "lon": 9.183541
+    },
+    {
+     "lat": 45.474834,
+     "lon": 9.183515
+    },
+    {
+     "lat": 45.474816,
+     "lon": 9.183509
+    },
+    {
+     "lat": 45.47431,
+     "lon": 9.183515
+    },
+    {
+     "lat": 45.47378,
+     "lon": 9.183607
+    },
+    {
+     "lat": 45.473714,
+     "lon": 9.183613
+    },
+    {
+     "lat": 45.47369,
+     "lon": 9.183626
+    },
+    {
+     "lat": 45.473695,
+     "lon": 9.183645
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-202-2",
+   "name": "ZTL · Garibaldi - Sottoambito 1",
+   "name_it": "ZTL · Garibaldi - Sottoambito 1",
+   "name_de": "ZTL · Garibaldi - Sottoambito 1",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "54515/2004,1109/2016 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "Garibaldi - Sottoambito 1: deroghe «residenti, velocipedi, motocicli, taxi, carico scarico merci lun-sab 8:00 - 11:00, veicoli a tre ruote simmetriche (cat. L5 Ae) con esclusione dei tricicli con carrozzeria e quelli non basculanti»; note «c/s 8-11 / 3 TELECAMERE»",
+    "quoteTranslation": "Garibaldi - Sottoambito 1: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Garibaldi - Sottoambito 1: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.47369,
+     "lon": 9.184152
+    },
+    {
+     "lat": 45.473697,
+     "lon": 9.18418
+    },
+    {
+     "lat": 45.473688,
+     "lon": 9.184185
+    },
+    {
+     "lat": 45.473686,
+     "lon": 9.184176
+    },
+    {
+     "lat": 45.47369,
+     "lon": 9.184152
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-204",
+   "name": "ZTL · Via delle Betulle",
+   "name_it": "ZTL · Via delle Betulle",
+   "name_de": "ZTL · Via delle Betulle",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "69791/2013 (istituzione zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "Via delle Betulle: deroghe «veicoli diretti alle proprieta' private,veicoli degli operatori del mercato,velocipedi»",
+    "quoteTranslation": "Via delle Betulle: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Via delle Betulle: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.453266,
+     "lon": 9.0851
+    },
+    {
+     "lat": 45.453225,
+     "lon": 9.084563
+    },
+    {
+     "lat": 45.453212,
+     "lon": 9.08447
+    },
+    {
+     "lat": 45.453181,
+     "lon": 9.08437
+    },
+    {
+     "lat": 45.453077,
+     "lon": 9.084121
+    },
+    {
+     "lat": 45.453039,
+     "lon": 9.08388
+    },
+    {
+     "lat": 45.452984,
+     "lon": 9.082998
+    },
+    {
+     "lat": 45.45302,
+     "lon": 9.082542
+    },
+    {
+     "lat": 45.452926,
+     "lon": 9.081135
+    },
+    {
+     "lat": 45.452909,
+     "lon": 9.081
+    },
+    {
+     "lat": 45.452836,
+     "lon": 9.08062
+    },
+    {
+     "lat": 45.452832,
+     "lon": 9.080538
+    },
+    {
+     "lat": 45.452841,
+     "lon": 9.080402
+    },
+    {
+     "lat": 45.452858,
+     "lon": 9.080321
+    },
+    {
+     "lat": 45.452894,
+     "lon": 9.080233
+    },
+    {
+     "lat": 45.45297,
+     "lon": 9.080115
+    },
+    {
+     "lat": 45.453052,
+     "lon": 9.080023
+    },
+    {
+     "lat": 45.453197,
+     "lon": 9.07991
+    },
+    {
+     "lat": 45.453746,
+     "lon": 9.079585
+    },
+    {
+     "lat": 45.453792,
+     "lon": 9.079544
+    },
+    {
+     "lat": 45.453835,
+     "lon": 9.079488
+    },
+    {
+     "lat": 45.453865,
+     "lon": 9.079425
+    },
+    {
+     "lat": 45.45388,
+     "lon": 9.079365
+    },
+    {
+     "lat": 45.454085,
+     "lon": 9.078434
+    },
+    {
+     "lat": 45.454132,
+     "lon": 9.078452
+    },
+    {
+     "lat": 45.454146,
+     "lon": 9.078378
+    },
+    {
+     "lat": 45.454369,
+     "lon": 9.078479
+    },
+    {
+     "lat": 45.454302,
+     "lon": 9.078773
+    },
+    {
+     "lat": 45.454115,
+     "lon": 9.078697
+    },
+    {
+     "lat": 45.453931,
+     "lon": 9.079512
+    },
+    {
+     "lat": 45.45389,
+     "lon": 9.079614
+    },
+    {
+     "lat": 45.453836,
+     "lon": 9.079685
+    },
+    {
+     "lat": 45.453743,
+     "lon": 9.079764
+    },
+    {
+     "lat": 45.453056,
+     "lon": 9.080265
+    },
+    {
+     "lat": 45.453,
+     "lon": 9.080336
+    },
+    {
+     "lat": 45.452973,
+     "lon": 9.080437
+    },
+    {
+     "lat": 45.452974,
+     "lon": 9.080579
+    },
+    {
+     "lat": 45.453201,
+     "lon": 9.084033
+    },
+    {
+     "lat": 45.453238,
+     "lon": 9.084216
+    },
+    {
+     "lat": 45.453405,
+     "lon": 9.084706
+    },
+    {
+     "lat": 45.453437,
+     "lon": 9.084866
+    },
+    {
+     "lat": 45.453428,
+     "lon": 9.08522
+    },
+    {
+     "lat": 45.453347,
+     "lon": 9.085394
+    },
+    {
+     "lat": 45.453324,
+     "lon": 9.085391
+    },
+    {
+     "lat": 45.453257,
+     "lon": 9.0852
+    },
+    {
+     "lat": 45.453266,
+     "lon": 9.0851
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-210",
+   "name": "ZTL · Navigli notturna - Via Borsi",
+   "name_it": "ZTL · Navigli notturna - Via Borsi",
+   "name_de": "ZTL · Navigli notturna - Via Borsi",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1200,
+     "end": 420
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "648/2015",
+    "ordinanceURL": null,
+    "quote": "Navigli notturna - Via Borsi: deroghe «velocipedi, taxi, NCC fino a nove posti, c/s 5:00-7:30 15:00-17:30, residenti,domiciliati,autorizzati,possessori di box o posto auto»; note «attivo tutti i giorni dalle dalle 20:00 alle 07:00»",
+    "quoteTranslation": "Navigli notturna - Via Borsi: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Navigli notturna - Via Borsi: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.447606,
+     "lon": 9.176843
+    },
+    {
+     "lat": 45.447601,
+     "lon": 9.176905
+    },
+    {
+     "lat": 45.447437,
+     "lon": 9.176866
+    },
+    {
+     "lat": 45.447435,
+     "lon": 9.176882
+    },
+    {
+     "lat": 45.447356,
+     "lon": 9.176862
+    },
+    {
+     "lat": 45.447358,
+     "lon": 9.176786
+    },
+    {
+     "lat": 45.447381,
+     "lon": 9.176778
+    },
+    {
+     "lat": 45.447391,
+     "lon": 9.17675
+    },
+    {
+     "lat": 45.447417,
+     "lon": 9.175227
+    },
+    {
+     "lat": 45.44741,
+     "lon": 9.175208
+    },
+    {
+     "lat": 45.447391,
+     "lon": 9.175195
+    },
+    {
+     "lat": 45.447395,
+     "lon": 9.175184
+    },
+    {
+     "lat": 45.447655,
+     "lon": 9.175195
+    },
+    {
+     "lat": 45.44763,
+     "lon": 9.175217
+    },
+    {
+     "lat": 45.447626,
+     "lon": 9.175271
+    },
+    {
+     "lat": 45.447598,
+     "lon": 9.176808
+    },
+    {
+     "lat": 45.447606,
+     "lon": 9.176843
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-210-2",
+   "name": "ZTL · Navigli notturna - Via Borsi",
+   "name_it": "ZTL · Navigli notturna - Via Borsi",
+   "name_de": "ZTL · Navigli notturna - Via Borsi",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1200,
+     "end": 420
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "648/2015",
+    "ordinanceURL": null,
+    "quote": "Navigli notturna - Via Borsi: deroghe «velocipedi, taxi, NCC fino a nove posti, c/s 5:00-7:30 15:00-17:30, residenti,domiciliati,autorizzati,possessori di box o posto auto»; note «attivo tutti i giorni dalle dalle 20:00 alle 07:00»",
+    "quoteTranslation": "Navigli notturna - Via Borsi: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Navigli notturna - Via Borsi: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.447655,
+     "lon": 9.175195
+    },
+    {
+     "lat": 45.447656,
+     "lon": 9.175194
+    },
+    {
+     "lat": 45.447658,
+     "lon": 9.175195
+    },
+    {
+     "lat": 45.447655,
+     "lon": 9.175195
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-211",
+   "name": "ZTL · Navigli (Fumagalli)",
+   "name_it": "ZTL · Navigli (Fumagalli)",
+   "name_de": "ZTL · Navigli (Fumagalli)",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "648/2015",
+    "ordinanceURL": null,
+    "quote": "Navigli (Fumagalli): deroghe «velocipedi, residenti e domiciliati, possessori di box o posto auto, taxi e ncc fino a nove posti, residenti in ripa di porta ticinese tra via paoli e il ponte di via valenzs»; note «attivo tutti i giorni dalle dalle 00:00 alle 24:00»",
+    "quoteTranslation": "Navigli (Fumagalli): exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Navigli (Fumagalli): Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.450257,
+     "lon": 9.169815
+    },
+    {
+     "lat": 45.449207,
+     "lon": 9.170719
+    },
+    {
+     "lat": 45.449189,
+     "lon": 9.170667
+    },
+    {
+     "lat": 45.44957,
+     "lon": 9.170343
+    },
+    {
+     "lat": 45.449564,
+     "lon": 9.170326
+    },
+    {
+     "lat": 45.449653,
+     "lon": 9.17025
+    },
+    {
+     "lat": 45.44966,
+     "lon": 9.170266
+    },
+    {
+     "lat": 45.449896,
+     "lon": 9.170062
+    },
+    {
+     "lat": 45.44989,
+     "lon": 9.170046
+    },
+    {
+     "lat": 45.449963,
+     "lon": 9.169982
+    },
+    {
+     "lat": 45.449973,
+     "lon": 9.169975
+    },
+    {
+     "lat": 45.449979,
+     "lon": 9.16999
+    },
+    {
+     "lat": 45.450508,
+     "lon": 9.169538
+    },
+    {
+     "lat": 45.450519,
+     "lon": 9.169591
+    },
+    {
+     "lat": 45.450257,
+     "lon": 9.169815
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-212",
+   "name": "ZTL · Navigli notturna - Argelati Fusetti Magolfa",
+   "name_it": "ZTL · Navigli notturna - Argelati Fusetti Magolfa",
+   "name_de": "ZTL · Navigli notturna - Argelati Fusetti Magolfa",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1200,
+     "end": 420
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "648/2015",
+    "ordinanceURL": null,
+    "quote": "Navigli notturna - Argelati Fusetti Magolfa: deroghe «velocipedi, taxi, NCC fino a nove posti, c/s 5:00-7:30 15:00-17:30, residenti,domiciliati,autorizzati,possessori di box o posto auto»; note «attivo tutti i giorni dalle dalle 20:00 alle 07:00»",
+    "quoteTranslation": "Navigli notturna - Argelati Fusetti Magolfa: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Navigli notturna - Argelati Fusetti Magolfa: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.450167,
+     "lon": 9.175386
+    },
+    {
+     "lat": 45.4502,
+     "lon": 9.175448
+    },
+    {
+     "lat": 45.450119,
+     "lon": 9.175522
+    },
+    {
+     "lat": 45.449986,
+     "lon": 9.175339
+    },
+    {
+     "lat": 45.449981,
+     "lon": 9.175319
+    },
+    {
+     "lat": 45.449998,
+     "lon": 9.175293
+    },
+    {
+     "lat": 45.44999,
+     "lon": 9.175291
+    },
+    {
+     "lat": 45.449893,
+     "lon": 9.175081
+    },
+    {
+     "lat": 45.449836,
+     "lon": 9.174906
+    },
+    {
+     "lat": 45.449829,
+     "lon": 9.174903
+    },
+    {
+     "lat": 45.449761,
+     "lon": 9.174672
+    },
+    {
+     "lat": 45.449742,
+     "lon": 9.174647
+    },
+    {
+     "lat": 45.449718,
+     "lon": 9.174647
+    },
+    {
+     "lat": 45.449709,
+     "lon": 9.174654
+    },
+    {
+     "lat": 45.44971,
+     "lon": 9.174588
+    },
+    {
+     "lat": 45.44973,
+     "lon": 9.174568
+    },
+    {
+     "lat": 45.449684,
+     "lon": 9.174256
+    },
+    {
+     "lat": 45.449611,
+     "lon": 9.173922
+    },
+    {
+     "lat": 45.449536,
+     "lon": 9.17373
+    },
+    {
+     "lat": 45.449402,
+     "lon": 9.173501
+    },
+    {
+     "lat": 45.449474,
+     "lon": 9.173435
+    },
+    {
+     "lat": 45.449572,
+     "lon": 9.173596
+    },
+    {
+     "lat": 45.449677,
+     "lon": 9.17382
+    },
+    {
+     "lat": 45.449687,
+     "lon": 9.173812
+    },
+    {
+     "lat": 45.449754,
+     "lon": 9.174033
+    },
+    {
+     "lat": 45.449716,
+     "lon": 9.174058
+    },
+    {
+     "lat": 45.449732,
+     "lon": 9.174146
+    },
+    {
+     "lat": 45.449772,
+     "lon": 9.174219
+    },
+    {
+     "lat": 45.4498,
+     "lon": 9.174431
+    },
+    {
+     "lat": 45.449792,
+     "lon": 9.174498
+    },
+    {
+     "lat": 45.449834,
+     "lon": 9.174719
+    },
+    {
+     "lat": 45.449943,
+     "lon": 9.175041
+    },
+    {
+     "lat": 45.449984,
+     "lon": 9.175138
+    },
+    {
+     "lat": 45.450054,
+     "lon": 9.175274
+    },
+    {
+     "lat": 45.45005,
+     "lon": 9.175278
+    },
+    {
+     "lat": 45.450075,
+     "lon": 9.175311
+    },
+    {
+     "lat": 45.450094,
+     "lon": 9.175306
+    },
+    {
+     "lat": 45.450718,
+     "lon": 9.174699
+    },
+    {
+     "lat": 45.451205,
+     "lon": 9.174236
+    },
+    {
+     "lat": 45.451214,
+     "lon": 9.174236
+    },
+    {
+     "lat": 45.451281,
+     "lon": 9.174174
+    },
+    {
+     "lat": 45.451283,
+     "lon": 9.174165
+    },
+    {
+     "lat": 45.451267,
+     "lon": 9.174144
+    },
+    {
+     "lat": 45.451248,
+     "lon": 9.174149
+    },
+    {
+     "lat": 45.450865,
+     "lon": 9.17373
+    },
+    {
+     "lat": 45.450607,
+     "lon": 9.173473
+    },
+    {
+     "lat": 45.450247,
+     "lon": 9.173083
+    },
+    {
+     "lat": 45.450121,
+     "lon": 9.172907
+    },
+    {
+     "lat": 45.450145,
+     "lon": 9.172848
+    },
+    {
+     "lat": 45.450318,
+     "lon": 9.173066
+    },
+    {
+     "lat": 45.45047,
+     "lon": 9.173225
+    },
+    {
+     "lat": 45.450476,
+     "lon": 9.173261
+    },
+    {
+     "lat": 45.450803,
+     "lon": 9.173596
+    },
+    {
+     "lat": 45.451036,
+     "lon": 9.173818
+    },
+    {
+     "lat": 45.451165,
+     "lon": 9.173963
+    },
+    {
+     "lat": 45.451211,
+     "lon": 9.174026
+    },
+    {
+     "lat": 45.451263,
+     "lon": 9.174074
+    },
+    {
+     "lat": 45.451312,
+     "lon": 9.174104
+    },
+    {
+     "lat": 45.45146,
+     "lon": 9.174149
+    },
+    {
+     "lat": 45.451514,
+     "lon": 9.174254
+    },
+    {
+     "lat": 45.451512,
+     "lon": 9.17426
+    },
+    {
+     "lat": 45.451407,
+     "lon": 9.174186
+    },
+    {
+     "lat": 45.451382,
+     "lon": 9.174179
+    },
+    {
+     "lat": 45.451365,
+     "lon": 9.174184
+    },
+    {
+     "lat": 45.451092,
+     "lon": 9.174463
+    },
+    {
+     "lat": 45.450267,
+     "lon": 9.175264
+    },
+    {
+     "lat": 45.450269,
+     "lon": 9.175302
+    },
+    {
+     "lat": 45.450207,
+     "lon": 9.175366
+    },
+    {
+     "lat": 45.450176,
+     "lon": 9.175351
+    },
+    {
+     "lat": 45.450167,
+     "lon": 9.175386
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-213",
+   "name": "ZTL · Navigli notturna (Paoli)",
+   "name_it": "ZTL · Navigli notturna (Paoli)",
+   "name_de": "ZTL · Navigli notturna (Paoli)",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1200,
+     "end": 420
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "648/2015",
+    "ordinanceURL": null,
+    "quote": "Navigli notturna (Paoli): deroghe «velocipedi, taxi, NCC fino a nove posti, c/s 5:00-7:30 15:00-17:30, residenti,domiciliati,autorizzati,possessori di box o posto auto»; note «attivo tutti i giorni dalle dalle 20:00 alle 07:00»",
+    "quoteTranslation": "Navigli notturna (Paoli): exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Navigli notturna (Paoli): Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.450073,
+     "lon": 9.172289
+    },
+    {
+     "lat": 45.450027,
+     "lon": 9.172204
+    },
+    {
+     "lat": 45.450852,
+     "lon": 9.171393
+    },
+    {
+     "lat": 45.450885,
+     "lon": 9.171339
+    },
+    {
+     "lat": 45.450918,
+     "lon": 9.171497
+    },
+    {
+     "lat": 45.450844,
+     "lon": 9.171537
+    },
+    {
+     "lat": 45.450073,
+     "lon": 9.172289
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-214",
+   "name": "ZTL · Navigli notturna - Pichi Gola",
+   "name_it": "ZTL · Navigli notturna - Pichi Gola",
+   "name_de": "ZTL · Navigli notturna - Pichi Gola",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1200,
+     "end": 420
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "648/2015",
+    "ordinanceURL": null,
+    "quote": "Navigli notturna - Pichi Gola: deroghe «velocipedi, taxi, NCC fino a nove posti, c/s 5:00-7:30 15:00-17:30, residenti,domiciliati,autorizzati,possessori di box o posto auto»; note «attivo tutti i giorni dalle dalle 20:00 alle 07:00»",
+    "quoteTranslation": "Navigli notturna - Pichi Gola: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Navigli notturna - Pichi Gola: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.448837,
+     "lon": 9.175261
+    },
+    {
+     "lat": 45.447658,
+     "lon": 9.175195
+    },
+    {
+     "lat": 45.447664,
+     "lon": 9.175083
+    },
+    {
+     "lat": 45.448841,
+     "lon": 9.175148
+    },
+    {
+     "lat": 45.44886,
+     "lon": 9.175133
+    },
+    {
+     "lat": 45.448867,
+     "lon": 9.175108
+    },
+    {
+     "lat": 45.448863,
+     "lon": 9.173095
+    },
+    {
+     "lat": 45.448936,
+     "lon": 9.173099
+    },
+    {
+     "lat": 45.448942,
+     "lon": 9.175075
+    },
+    {
+     "lat": 45.448929,
+     "lon": 9.175084
+    },
+    {
+     "lat": 45.44893,
+     "lon": 9.17515
+    },
+    {
+     "lat": 45.448951,
+     "lon": 9.175157
+    },
+    {
+     "lat": 45.449398,
+     "lon": 9.175163
+    },
+    {
+     "lat": 45.449403,
+     "lon": 9.175186
+    },
+    {
+     "lat": 45.449527,
+     "lon": 9.175184
+    },
+    {
+     "lat": 45.449522,
+     "lon": 9.175288
+    },
+    {
+     "lat": 45.448955,
+     "lon": 9.175256
+    },
+    {
+     "lat": 45.448938,
+     "lon": 9.175259
+    },
+    {
+     "lat": 45.448923,
+     "lon": 9.175292
+    },
+    {
+     "lat": 45.448943,
+     "lon": 9.175307
+    },
+    {
+     "lat": 45.448868,
+     "lon": 9.175306
+    },
+    {
+     "lat": 45.448858,
+     "lon": 9.175271
+    },
+    {
+     "lat": 45.448837,
+     "lon": 9.175261
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-220",
+   "name": "ZTL · Via Dell' Unione",
+   "name_it": "ZTL · Via Dell' Unione",
+   "name_de": "ZTL · Via Dell' Unione",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "51405/2002 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "VIA DELL' UNIONE: deroghe «taxi, cicli-moto, carico scarico mercii (lun-sab dalle 10:00 alle 14:00 e dalle 19:00 alle 7.30)»",
+    "quoteTranslation": "Via Dell' Unione: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Via Dell' Unione: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.462355,
+     "lon": 9.1872
+    },
+    {
+     "lat": 45.462322,
+     "lon": 9.187134
+    },
+    {
+     "lat": 45.462499,
+     "lon": 9.186881
+    },
+    {
+     "lat": 45.462534,
+     "lon": 9.186926
+    },
+    {
+     "lat": 45.462508,
+     "lon": 9.186943
+    },
+    {
+     "lat": 45.462362,
+     "lon": 9.18715
+    },
+    {
+     "lat": 45.462355,
+     "lon": 9.1872
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-221",
+   "name": "ZTL · San Prospero",
+   "name_it": "ZTL · San Prospero",
+   "name_de": "ZTL · San Prospero",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "51401/2002 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "San Prospero: deroghe «taxi, cicli, moto, autorizzati»",
+    "quoteTranslation": "San Prospero: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "San Prospero: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.465985,
+     "lon": 9.185473
+    },
+    {
+     "lat": 45.46597,
+     "lon": 9.185308
+    },
+    {
+     "lat": 45.466026,
+     "lon": 9.185254
+    },
+    {
+     "lat": 45.466106,
+     "lon": 9.186124
+    },
+    {
+     "lat": 45.466085,
+     "lon": 9.186128
+    },
+    {
+     "lat": 45.466089,
+     "lon": 9.186155
+    },
+    {
+     "lat": 45.466041,
+     "lon": 9.186172
+    },
+    {
+     "lat": 45.465985,
+     "lon": 9.185473
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-224",
+   "name": "ZTL · Arco della Pace",
+   "name_it": "ZTL · Arco della Pace",
+   "name_de": "ZTL · Arco della Pace",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 1320,
+     "end": 360
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "64502/2010 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "Arco della Pace: deroghe «residenti e domiciliati,autorizzati,possessori di box o posto auto,veicoli adibiti al pronto soccorso,mezzi di emergenza,mezzi di polizia,taxi,ncc,velocipedi»; note «attivo tutti i giorni dalle 22:00 alle 6:00»",
+    "quoteTranslation": "Arco della Pace: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Arco della Pace: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.477227,
+     "lon": 9.174961
+    },
+    {
+     "lat": 45.477334,
+     "lon": 9.174807
+    },
+    {
+     "lat": 45.477318,
+     "lon": 9.174811
+    },
+    {
+     "lat": 45.477281,
+     "lon": 9.1748
+    },
+    {
+     "lat": 45.477254,
+     "lon": 9.174759
+    },
+    {
+     "lat": 45.477282,
+     "lon": 9.17472
+    },
+    {
+     "lat": 45.477245,
+     "lon": 9.174658
+    },
+    {
+     "lat": 45.476393,
+     "lon": 9.173337
+    },
+    {
+     "lat": 45.476361,
+     "lon": 9.17338
+    },
+    {
+     "lat": 45.476258,
+     "lon": 9.173236
+    },
+    {
+     "lat": 45.476185,
+     "lon": 9.173117
+    },
+    {
+     "lat": 45.476172,
+     "lon": 9.173078
+    },
+    {
+     "lat": 45.476172,
+     "lon": 9.173
+    },
+    {
+     "lat": 45.476243,
+     "lon": 9.172859
+    },
+    {
+     "lat": 45.476271,
+     "lon": 9.172779
+    },
+    {
+     "lat": 45.476323,
+     "lon": 9.172527
+    },
+    {
+     "lat": 45.476358,
+     "lon": 9.172502
+    },
+    {
+     "lat": 45.477684,
+     "lon": 9.172678
+    },
+    {
+     "lat": 45.477695,
+     "lon": 9.17271
+    },
+    {
+     "lat": 45.477825,
+     "lon": 9.174028
+    },
+    {
+     "lat": 45.477928,
+     "lon": 9.173927
+    },
+    {
+     "lat": 45.477894,
+     "lon": 9.173911
+    },
+    {
+     "lat": 45.477869,
+     "lon": 9.173866
+    },
+    {
+     "lat": 45.477822,
+     "lon": 9.173387
+    },
+    {
+     "lat": 45.47784,
+     "lon": 9.173382
+    },
+    {
+     "lat": 45.477844,
+     "lon": 9.17342
+    },
+    {
+     "lat": 45.477893,
+     "lon": 9.173408
+    },
+    {
+     "lat": 45.477833,
+     "lon": 9.172744
+    },
+    {
+     "lat": 45.477782,
+     "lon": 9.172739
+    },
+    {
+     "lat": 45.477787,
+     "lon": 9.172784
+    },
+    {
+     "lat": 45.477766,
+     "lon": 9.172786
+    },
+    {
+     "lat": 45.477763,
+     "lon": 9.172697
+    },
+    {
+     "lat": 45.477776,
+     "lon": 9.172686
+    },
+    {
+     "lat": 45.478287,
+     "lon": 9.172753
+    },
+    {
+     "lat": 45.478349,
+     "lon": 9.172771
+    },
+    {
+     "lat": 45.478371,
+     "lon": 9.172818
+    },
+    {
+     "lat": 45.478371,
+     "lon": 9.172866
+    },
+    {
+     "lat": 45.478429,
+     "lon": 9.172608
+    },
+    {
+     "lat": 45.478394,
+     "lon": 9.17266
+    },
+    {
+     "lat": 45.478357,
+     "lon": 9.172671
+    },
+    {
+     "lat": 45.47775,
+     "lon": 9.172593
+    },
+    {
+     "lat": 45.47774,
+     "lon": 9.172557
+    },
+    {
+     "lat": 45.477635,
+     "lon": 9.17139
+    },
+    {
+     "lat": 45.477644,
+     "lon": 9.17137
+    },
+    {
+     "lat": 45.47764,
+     "lon": 9.171359
+    },
+    {
+     "lat": 45.477987,
+     "lon": 9.170979
+    },
+    {
+     "lat": 45.478002,
+     "lon": 9.170996
+    },
+    {
+     "lat": 45.478105,
+     "lon": 9.170879
+    },
+    {
+     "lat": 45.47812,
+     "lon": 9.170902
+    },
+    {
+     "lat": 45.478184,
+     "lon": 9.17083
+    },
+    {
+     "lat": 45.478179,
+     "lon": 9.170805
+    },
+    {
+     "lat": 45.478184,
+     "lon": 9.170781
+    },
+    {
+     "lat": 45.478235,
+     "lon": 9.170729
+    },
+    {
+     "lat": 45.478281,
+     "lon": 9.170713
+    },
+    {
+     "lat": 45.478307,
+     "lon": 9.170718
+    },
+    {
+     "lat": 45.478339,
+     "lon": 9.170739
+    },
+    {
+     "lat": 45.478364,
+     "lon": 9.170771
+    },
+    {
+     "lat": 45.478289,
+     "lon": 9.170484
+    },
+    {
+     "lat": 45.478287,
+     "lon": 9.170518
+    },
+    {
+     "lat": 45.478261,
+     "lon": 9.170573
+    },
+    {
+     "lat": 45.478221,
+     "lon": 9.170623
+    },
+    {
+     "lat": 45.477631,
+     "lon": 9.171289
+    },
+    {
+     "lat": 45.477612,
+     "lon": 9.1713
+    },
+    {
+     "lat": 45.477599,
+     "lon": 9.171298
+    },
+    {
+     "lat": 45.47726,
+     "lon": 9.170777
+    },
+    {
+     "lat": 45.477155,
+     "lon": 9.170601
+    },
+    {
+     "lat": 45.477147,
+     "lon": 9.170541
+    },
+    {
+     "lat": 45.477104,
+     "lon": 9.170593
+    },
+    {
+     "lat": 45.477155,
+     "lon": 9.170651
+    },
+    {
+     "lat": 45.477216,
+     "lon": 9.170771
+    },
+    {
+     "lat": 45.477212,
+     "lon": 9.170777
+    },
+    {
+     "lat": 45.477235,
+     "lon": 9.170818
+    },
+    {
+     "lat": 45.477241,
+     "lon": 9.170892
+    },
+    {
+     "lat": 45.477569,
+     "lon": 9.171384
+    },
+    {
+     "lat": 45.477678,
+     "lon": 9.172514
+    },
+    {
+     "lat": 45.477679,
+     "lon": 9.172563
+    },
+    {
+     "lat": 45.477666,
+     "lon": 9.172582
+    },
+    {
+     "lat": 45.476342,
+     "lon": 9.172412
+    },
+    {
+     "lat": 45.476329,
+     "lon": 9.172396
+    },
+    {
+     "lat": 45.476307,
+     "lon": 9.172188
+    },
+    {
+     "lat": 45.476252,
+     "lon": 9.171954
+    },
+    {
+     "lat": 45.476255,
+     "lon": 9.171822
+    },
+    {
+     "lat": 45.476305,
+     "lon": 9.171659
+    },
+    {
+     "lat": 45.476653,
+     "lon": 9.171197
+    },
+    {
+     "lat": 45.476841,
+     "lon": 9.170929
+    },
+    {
+     "lat": 45.477104,
+     "lon": 9.170595
+    },
+    {
+     "lat": 45.477057,
+     "lon": 9.170522
+    },
+    {
+     "lat": 45.476638,
+     "lon": 9.171077
+    },
+    {
+     "lat": 45.476623,
+     "lon": 9.171071
+    },
+    {
+     "lat": 45.476498,
+     "lon": 9.170891
+    },
+    {
+     "lat": 45.476486,
+     "lon": 9.170825
+    },
+    {
+     "lat": 45.475909,
+     "lon": 9.169941
+    },
+    {
+     "lat": 45.475912,
+     "lon": 9.169707
+    },
+    {
+     "lat": 45.476195,
+     "lon": 9.169334
+    },
+    {
+     "lat": 45.476139,
+     "lon": 9.16925
+    },
+    {
+     "lat": 45.475967,
+     "lon": 9.169476
+    },
+    {
+     "lat": 45.475953,
+     "lon": 9.169483
+    },
+    {
+     "lat": 45.475861,
+     "lon": 9.169477
+    },
+    {
+     "lat": 45.475844,
+     "lon": 9.169464
+    },
+    {
+     "lat": 45.475835,
+     "lon": 9.169436
+    },
+    {
+     "lat": 45.475856,
+     "lon": 9.16868
+    },
+    {
+     "lat": 45.475865,
+     "lon": 9.168602
+    },
+    {
+     "lat": 45.475731,
+     "lon": 9.168623
+    },
+    {
+     "lat": 45.475745,
+     "lon": 9.168689
+    },
+    {
+     "lat": 45.475745,
+     "lon": 9.168765
+    },
+    {
+     "lat": 45.475728,
+     "lon": 9.169409
+    },
+    {
+     "lat": 45.475717,
+     "lon": 9.169456
+    },
+    {
+     "lat": 45.475703,
+     "lon": 9.169468
+    },
+    {
+     "lat": 45.475678,
+     "lon": 9.169472
+    },
+    {
+     "lat": 45.4756,
+     "lon": 9.169462
+    },
+    {
+     "lat": 45.475587,
+     "lon": 9.169452
+    },
+    {
+     "lat": 45.475189,
+     "lon": 9.168842
+    },
+    {
+     "lat": 45.47517,
+     "lon": 9.168791
+    },
+    {
+     "lat": 45.475168,
+     "lon": 9.168757
+    },
+    {
+     "lat": 45.475177,
+     "lon": 9.168726
+    },
+    {
+     "lat": 45.475047,
+     "lon": 9.168817
+    },
+    {
+     "lat": 45.475064,
+     "lon": 9.168821
+    },
+    {
+     "lat": 45.475081,
+     "lon": 9.16884
+    },
+    {
+     "lat": 45.475625,
+     "lon": 9.169674
+    },
+    {
+     "lat": 45.47562,
+     "lon": 9.169911
+    },
+    {
+     "lat": 45.475608,
+     "lon": 9.169947
+    },
+    {
+     "lat": 45.474848,
+     "lon": 9.17094
+    },
+    {
+     "lat": 45.474827,
+     "lon": 9.17095
+    },
+    {
+     "lat": 45.474807,
+     "lon": 9.170949
+    },
+    {
+     "lat": 45.474769,
+     "lon": 9.170908
+    },
+    {
+     "lat": 45.474145,
+     "lon": 9.16994
+    },
+    {
+     "lat": 45.47413,
+     "lon": 9.16991
+    },
+    {
+     "lat": 45.474126,
+     "lon": 9.169876
+    },
+    {
+     "lat": 45.474031,
+     "lon": 9.170002
+    },
+    {
+     "lat": 45.474093,
+     "lon": 9.170088
+    },
+    {
+     "lat": 45.474988,
+     "lon": 9.171465
+    },
+    {
+     "lat": 45.475002,
+     "lon": 9.171443
+    },
+    {
+     "lat": 45.4751,
+     "lon": 9.171588
+    },
+    {
+     "lat": 45.475154,
+     "lon": 9.171648
+    },
+    {
+     "lat": 45.475193,
+     "lon": 9.171674
+    },
+    {
+     "lat": 45.475252,
+     "lon": 9.171698
+    },
+    {
+     "lat": 45.475304,
+     "lon": 9.171699
+    },
+    {
+     "lat": 45.475335,
+     "lon": 9.171693
+    },
+    {
+     "lat": 45.475393,
+     "lon": 9.171666
+    },
+    {
+     "lat": 45.475514,
+     "lon": 9.17159
+    },
+    {
+     "lat": 45.475573,
+     "lon": 9.171568
+    },
+    {
+     "lat": 45.475704,
+     "lon": 9.171553
+    },
+    {
+     "lat": 45.47578,
+     "lon": 9.171564
+    },
+    {
+     "lat": 45.475861,
+     "lon": 9.171594
+    },
+    {
+     "lat": 45.476003,
+     "lon": 9.171693
+    },
+    {
+     "lat": 45.476049,
+     "lon": 9.171716
+    },
+    {
+     "lat": 45.476148,
+     "lon": 9.171729
+    },
+    {
+     "lat": 45.476254,
+     "lon": 9.1717
+    },
+    {
+     "lat": 45.47622,
+     "lon": 9.171869
+    },
+    {
+     "lat": 45.47622,
+     "lon": 9.171948
+    },
+    {
+     "lat": 45.476223,
+     "lon": 9.171997
+    },
+    {
+     "lat": 45.476259,
+     "lon": 9.172118
+    },
+    {
+     "lat": 45.476277,
+     "lon": 9.172216
+    },
+    {
+     "lat": 45.476291,
+     "lon": 9.172326
+    },
+    {
+     "lat": 45.476292,
+     "lon": 9.17248
+    },
+    {
+     "lat": 45.476251,
+     "lon": 9.172716
+    },
+    {
+     "lat": 45.476209,
+     "lon": 9.172842
+    },
+    {
+     "lat": 45.476145,
+     "lon": 9.172979
+    },
+    {
+     "lat": 45.476134,
+     "lon": 9.173053
+    },
+    {
+     "lat": 45.476147,
+     "lon": 9.17312
+    },
+    {
+     "lat": 45.476192,
+     "lon": 9.173204
+    },
+    {
+     "lat": 45.47633,
+     "lon": 9.173422
+    },
+    {
+     "lat": 45.476292,
+     "lon": 9.173474
+    },
+    {
+     "lat": 45.477185,
+     "lon": 9.174851
+    },
+    {
+     "lat": 45.477205,
+     "lon": 9.174825
+    },
+    {
+     "lat": 45.477219,
+     "lon": 9.174842
+    },
+    {
+     "lat": 45.477229,
+     "lon": 9.174896
+    },
+    {
+     "lat": 45.477227,
+     "lon": 9.174961
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-1023",
+   "name": "ZTL · San Siro Eventi",
+   "name_it": "ZTL · San Siro Eventi",
+   "name_de": "ZTL · San Siro Eventi",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "670/2017 (misure viabilistiche nelle località adiacenti lo stadio Meazza in occasione di eventi, spettacoli e manifestazioni sportive)",
+    "ordinanceURL": null,
+    "quote": "San Siro Eventi: deroghe «bus, taxi, disabili, veicoli diretti all'interno delle proprietà private, velocipedi, moto, veicoli diretti ai parcheggi a pagamento»; note «attiva nei giorni in cui si svolgono manifestazioni sportive»",
+    "quoteTranslation": "San Siro Eventi: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "San Siro Eventi: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.475611,
+     "lon": 9.127545
+    },
+    {
+     "lat": 45.47454,
+     "lon": 9.125822
+    },
+    {
+     "lat": 45.474442,
+     "lon": 9.12577
+    },
+    {
+     "lat": 45.471976,
+     "lon": 9.122541
+    },
+    {
+     "lat": 45.473487,
+     "lon": 9.120877
+    },
+    {
+     "lat": 45.473606,
+     "lon": 9.120681
+    },
+    {
+     "lat": 45.473491,
+     "lon": 9.120546
+    },
+    {
+     "lat": 45.473416,
+     "lon": 9.120676
+    },
+    {
+     "lat": 45.472653,
+     "lon": 9.119763
+    },
+    {
+     "lat": 45.473177,
+     "lon": 9.118872
+    },
+    {
+     "lat": 45.473483,
+     "lon": 9.118686
+    },
+    {
+     "lat": 45.473799,
+     "lon": 9.117975
+    },
+    {
+     "lat": 45.474719,
+     "lon": 9.116364
+    },
+    {
+     "lat": 45.475033,
+     "lon": 9.116703
+    },
+    {
+     "lat": 45.475176,
+     "lon": 9.116551
+    },
+    {
+     "lat": 45.475272,
+     "lon": 9.116663
+    },
+    {
+     "lat": 45.47554,
+     "lon": 9.116203
+    },
+    {
+     "lat": 45.475425,
+     "lon": 9.114963
+    },
+    {
+     "lat": 45.475879,
+     "lon": 9.113603
+    },
+    {
+     "lat": 45.475972,
+     "lon": 9.113286
+    },
+    {
+     "lat": 45.47626,
+     "lon": 9.113528
+    },
+    {
+     "lat": 45.476237,
+     "lon": 9.115406
+    },
+    {
+     "lat": 45.477375,
+     "lon": 9.115617
+    },
+    {
+     "lat": 45.478,
+     "lon": 9.115607
+    },
+    {
+     "lat": 45.479611,
+     "lon": 9.115379
+    },
+    {
+     "lat": 45.48162,
+     "lon": 9.114903
+    },
+    {
+     "lat": 45.484138,
+     "lon": 9.114486
+    },
+    {
+     "lat": 45.484246,
+     "lon": 9.115078
+    },
+    {
+     "lat": 45.484371,
+     "lon": 9.116222
+    },
+    {
+     "lat": 45.48456,
+     "lon": 9.11761
+    },
+    {
+     "lat": 45.483656,
+     "lon": 9.117839
+    },
+    {
+     "lat": 45.48226,
+     "lon": 9.118523
+    },
+    {
+     "lat": 45.482338,
+     "lon": 9.119002
+    },
+    {
+     "lat": 45.483543,
+     "lon": 9.118497
+    },
+    {
+     "lat": 45.484742,
+     "lon": 9.118446
+    },
+    {
+     "lat": 45.486713,
+     "lon": 9.118853
+    },
+    {
+     "lat": 45.487824,
+     "lon": 9.118576
+    },
+    {
+     "lat": 45.488614,
+     "lon": 9.119823
+    },
+    {
+     "lat": 45.488663,
+     "lon": 9.121005
+    },
+    {
+     "lat": 45.488982,
+     "lon": 9.121962
+    },
+    {
+     "lat": 45.48923,
+     "lon": 9.123217
+    },
+    {
+     "lat": 45.48878,
+     "lon": 9.125478
+    },
+    {
+     "lat": 45.488484,
+     "lon": 9.12646
+    },
+    {
+     "lat": 45.487444,
+     "lon": 9.129498
+    },
+    {
+     "lat": 45.487225,
+     "lon": 9.130413
+    },
+    {
+     "lat": 45.487018,
+     "lon": 9.130983
+    },
+    {
+     "lat": 45.486685,
+     "lon": 9.132753
+    },
+    {
+     "lat": 45.486527,
+     "lon": 9.134168
+    },
+    {
+     "lat": 45.485864,
+     "lon": 9.136843
+    },
+    {
+     "lat": 45.485563,
+     "lon": 9.137849
+    },
+    {
+     "lat": 45.48465,
+     "lon": 9.139617
+    },
+    {
+     "lat": 45.483786,
+     "lon": 9.141193
+    },
+    {
+     "lat": 45.48353,
+     "lon": 9.141646
+    },
+    {
+     "lat": 45.483294,
+     "lon": 9.142165
+    },
+    {
+     "lat": 45.482752,
+     "lon": 9.142592
+    },
+    {
+     "lat": 45.480825,
+     "lon": 9.142583
+    },
+    {
+     "lat": 45.480517,
+     "lon": 9.141588
+    },
+    {
+     "lat": 45.480197,
+     "lon": 9.141484
+    },
+    {
+     "lat": 45.479972,
+     "lon": 9.141447
+    },
+    {
+     "lat": 45.4795,
+     "lon": 9.141271
+    },
+    {
+     "lat": 45.479333,
+     "lon": 9.141557
+    },
+    {
+     "lat": 45.479216,
+     "lon": 9.141707
+    },
+    {
+     "lat": 45.478549,
+     "lon": 9.140523
+    },
+    {
+     "lat": 45.478235,
+     "lon": 9.139756
+    },
+    {
+     "lat": 45.477736,
+     "lon": 9.140411
+    },
+    {
+     "lat": 45.476493,
+     "lon": 9.138543
+    },
+    {
+     "lat": 45.47613,
+     "lon": 9.137982
+    },
+    {
+     "lat": 45.476132,
+     "lon": 9.136967
+    },
+    {
+     "lat": 45.475983,
+     "lon": 9.136956
+    },
+    {
+     "lat": 45.475997,
+     "lon": 9.135268
+    },
+    {
+     "lat": 45.476041,
+     "lon": 9.132783
+    },
+    {
+     "lat": 45.476034,
+     "lon": 9.131746
+    },
+    {
+     "lat": 45.47607,
+     "lon": 9.129944
+    },
+    {
+     "lat": 45.47608,
+     "lon": 9.128248
+    },
+    {
+     "lat": 45.475611,
+     "lon": 9.127545
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-1067",
+   "name": "ZTL · San Dalmazio, Paolo Ferrari, Filodrammatici",
+   "name_it": "ZTL · San Dalmazio, Paolo Ferrari, Filodrammatici",
+   "name_de": "ZTL · San Dalmazio, Paolo Ferrari, Filodrammatici",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "61945/2008 (zona a traffico limitato)",
+    "ordinanceURL": null,
+    "quote": "ZTL SAN DALMAZIO, PAOLO FERRARI, FILODRAMMATICI: deroghe «Solo transito: taxi, veicoli di pubblica utilita',veicoli autorizzati. Transito e sosta: trasporto merci, dalle 10 alle 14 dei giorni feriali, trasporto valori dalle 8 alle 18 dei giorni feriali»",
+    "quoteTranslation": "San Dalmazio, Paolo Ferrari, Filodrammatici: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "San Dalmazio, Paolo Ferrari, Filodrammatici: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.467042,
+     "lon": 9.189396
+    },
+    {
+     "lat": 45.467031,
+     "lon": 9.189348
+    },
+    {
+     "lat": 45.467038,
+     "lon": 9.18929
+    },
+    {
+     "lat": 45.467033,
+     "lon": 9.189283
+    },
+    {
+     "lat": 45.467245,
+     "lon": 9.188878
+    },
+    {
+     "lat": 45.467173,
+     "lon": 9.188805
+    },
+    {
+     "lat": 45.467162,
+     "lon": 9.188825
+    },
+    {
+     "lat": 45.467055,
+     "lon": 9.188712
+    },
+    {
+     "lat": 45.467081,
+     "lon": 9.188644
+    },
+    {
+     "lat": 45.467078,
+     "lon": 9.188632
+    },
+    {
+     "lat": 45.466922,
+     "lon": 9.188451
+    },
+    {
+     "lat": 45.466834,
+     "lon": 9.188574
+    },
+    {
+     "lat": 45.466619,
+     "lon": 9.188215
+    },
+    {
+     "lat": 45.466612,
+     "lon": 9.188222
+    },
+    {
+     "lat": 45.466438,
+     "lon": 9.187902
+    },
+    {
+     "lat": 45.466384,
+     "lon": 9.187953
+    },
+    {
+     "lat": 45.466496,
+     "lon": 9.18816
+    },
+    {
+     "lat": 45.466739,
+     "lon": 9.188552
+    },
+    {
+     "lat": 45.466771,
+     "lon": 9.188577
+    },
+    {
+     "lat": 45.466946,
+     "lon": 9.188813
+    },
+    {
+     "lat": 45.467105,
+     "lon": 9.188995
+    },
+    {
+     "lat": 45.466951,
+     "lon": 9.189285
+    },
+    {
+     "lat": 45.467042,
+     "lon": 9.189396
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-1102",
+   "name": "ZTL · Ascanio Sforza",
+   "name_it": "ZTL · Ascanio Sforza",
+   "name_de": "ZTL · Ascanio Sforza",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "start": 1140,
+     "end": 360
+    },
+    {
+     "weekdays": [
+      7,
+      1
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "1619/2021 (DISCIPLINA VIABILISTICA DELLA ZONA A TRAFFICO LIMITATO (ZTL))",
+    "ordinanceURL": null,
+    "quote": "ZTL Ascanio Sforza: deroghe «residenti e domiciliati, velocipedi, veicoli con contrassegno di parcheggio per disabili, mezzi di soccorso, emergenza e polizia, veicoli per supporto a manifestazioni, eventi e servizi essenziali, pulizia e manutenzione strade, taxi ed assimilati»; note «attiva dalle ore 19:00 alle ore 6:00 del giorno successivo: il lunedì, il martedì, il mercoledì e il giovedì; dalle ore 19:00 del venerdì alle ore 6:00 del lunedì»",
+    "quoteTranslation": "Ascanio Sforza: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Ascanio Sforza: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.451704,
+     "lon": 9.178735
+    },
+    {
+     "lat": 45.451564,
+     "lon": 9.178122
+    },
+    {
+     "lat": 45.451441,
+     "lon": 9.178091
+    },
+    {
+     "lat": 45.451439,
+     "lon": 9.178112
+    },
+    {
+     "lat": 45.451414,
+     "lon": 9.178106
+    },
+    {
+     "lat": 45.451417,
+     "lon": 9.17807
+    },
+    {
+     "lat": 45.451283,
+     "lon": 9.17804
+    },
+    {
+     "lat": 45.451212,
+     "lon": 9.178744
+    },
+    {
+     "lat": 45.45108,
+     "lon": 9.178718
+    },
+    {
+     "lat": 45.45115,
+     "lon": 9.178022
+    },
+    {
+     "lat": 45.450255,
+     "lon": 9.177806
+    },
+    {
+     "lat": 45.448951,
+     "lon": 9.177506
+    },
+    {
+     "lat": 45.448879,
+     "lon": 9.179586
+    },
+    {
+     "lat": 45.44877,
+     "lon": 9.179571
+    },
+    {
+     "lat": 45.448843,
+     "lon": 9.177479
+    },
+    {
+     "lat": 45.44875,
+     "lon": 9.177459
+    },
+    {
+     "lat": 45.448747,
+     "lon": 9.177476
+    },
+    {
+     "lat": 45.448686,
+     "lon": 9.177461
+    },
+    {
+     "lat": 45.448688,
+     "lon": 9.177445
+    },
+    {
+     "lat": 45.448672,
+     "lon": 9.177441
+    },
+    {
+     "lat": 45.448671,
+     "lon": 9.177457
+    },
+    {
+     "lat": 45.448484,
+     "lon": 9.177411
+    },
+    {
+     "lat": 45.448485,
+     "lon": 9.177384
+    },
+    {
+     "lat": 45.448351,
+     "lon": 9.177355
+    },
+    {
+     "lat": 45.448339,
+     "lon": 9.17736
+    },
+    {
+     "lat": 45.448106,
+     "lon": 9.177304
+    },
+    {
+     "lat": 45.448103,
+     "lon": 9.177326
+    },
+    {
+     "lat": 45.448034,
+     "lon": 9.177307
+    },
+    {
+     "lat": 45.448037,
+     "lon": 9.177286
+    },
+    {
+     "lat": 45.447613,
+     "lon": 9.177186
+    },
+    {
+     "lat": 45.447573,
+     "lon": 9.177982
+    },
+    {
+     "lat": 45.447303,
+     "lon": 9.17793
+    },
+    {
+     "lat": 45.44734,
+     "lon": 9.177126
+    },
+    {
+     "lat": 45.447058,
+     "lon": 9.177068
+    },
+    {
+     "lat": 45.447059,
+     "lon": 9.177098
+    },
+    {
+     "lat": 45.447025,
+     "lon": 9.177102
+    },
+    {
+     "lat": 45.447024,
+     "lon": 9.177061
+    },
+    {
+     "lat": 45.446338,
+     "lon": 9.1769
+    },
+    {
+     "lat": 45.446335,
+     "lon": 9.176883
+    },
+    {
+     "lat": 45.445872,
+     "lon": 9.176776
+    },
+    {
+     "lat": 45.445869,
+     "lon": 9.176796
+    },
+    {
+     "lat": 45.445776,
+     "lon": 9.17677
+    },
+    {
+     "lat": 45.44571,
+     "lon": 9.176633
+    },
+    {
+     "lat": 45.447395,
+     "lon": 9.177032
+    },
+    {
+     "lat": 45.44757,
+     "lon": 9.177066
+    },
+    {
+     "lat": 45.448717,
+     "lon": 9.177336
+    },
+    {
+     "lat": 45.448736,
+     "lon": 9.177347
+    },
+    {
+     "lat": 45.448943,
+     "lon": 9.177395
+    },
+    {
+     "lat": 45.448944,
+     "lon": 9.17738
+    },
+    {
+     "lat": 45.451681,
+     "lon": 9.178027
+    },
+    {
+     "lat": 45.451676,
+     "lon": 9.17804
+    },
+    {
+     "lat": 45.451765,
+     "lon": 9.178062
+    },
+    {
+     "lat": 45.451767,
+     "lon": 9.178047
+    },
+    {
+     "lat": 45.451816,
+     "lon": 9.178059
+    },
+    {
+     "lat": 45.451853,
+     "lon": 9.178219
+    },
+    {
+     "lat": 45.451798,
+     "lon": 9.178308
+    },
+    {
+     "lat": 45.451902,
+     "lon": 9.178776
+    },
+    {
+     "lat": 45.451704,
+     "lon": 9.178735
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-1104",
+   "name": "ZTL · Sant'Agostino - Cesare da Sesto",
+   "name_it": "ZTL · Sant'Agostino - Cesare da Sesto",
+   "name_de": "ZTL · Sant'Agostino - Cesare da Sesto",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "973/2020; 138/2022 (Delimitazione di Zona a Traffico Limitato (ZTL) in  piazza S. Agostino e nel tratto di via Cesare da Sesto compreso tra piazza S. Agostino e via Ausonio)",
+    "ordinanceURL": null,
+    "quote": "ZTL Sant'Agostino - Cesare da Sesto: deroghe «Transito e sosta : residenti e domiciliati, carico-scarico merci dalle 8:00-11:00 e 16:00-18:00, operatori del mercato, mezzi di soccorso, emergenza, polizia, manutenzione strade. Transito: possessori di box o posto auto, veicoli diretti al parcheggio»",
+    "quoteTranslation": "Sant'Agostino - Cesare da Sesto: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Sant'Agostino - Cesare da Sesto: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.45825,
+     "lon": 9.169903
+    },
+    {
+     "lat": 45.458255,
+     "lon": 9.169946
+    },
+    {
+     "lat": 45.459325,
+     "lon": 9.171104
+    },
+    {
+     "lat": 45.45937,
+     "lon": 9.171115
+    },
+    {
+     "lat": 45.459397,
+     "lon": 9.171087
+    },
+    {
+     "lat": 45.4594,
+     "lon": 9.171091
+    },
+    {
+     "lat": 45.459476,
+     "lon": 9.170955
+    },
+    {
+     "lat": 45.45948,
+     "lon": 9.170928
+    },
+    {
+     "lat": 45.459542,
+     "lon": 9.170996
+    },
+    {
+     "lat": 45.459522,
+     "lon": 9.171011
+    },
+    {
+     "lat": 45.459386,
+     "lon": 9.171267
+    },
+    {
+     "lat": 45.459361,
+     "lon": 9.171279
+    },
+    {
+     "lat": 45.459012,
+     "lon": 9.1709
+    },
+    {
+     "lat": 45.458974,
+     "lon": 9.170885
+    },
+    {
+     "lat": 45.458938,
+     "lon": 9.170936
+    },
+    {
+     "lat": 45.458942,
+     "lon": 9.170955
+    },
+    {
+     "lat": 45.458226,
+     "lon": 9.171992
+    },
+    {
+     "lat": 45.458198,
+     "lon": 9.171989
+    },
+    {
+     "lat": 45.458195,
+     "lon": 9.172011
+    },
+    {
+     "lat": 45.458156,
+     "lon": 9.171957
+    },
+    {
+     "lat": 45.458175,
+     "lon": 9.171941
+    },
+    {
+     "lat": 45.458172,
+     "lon": 9.171917
+    },
+    {
+     "lat": 45.458876,
+     "lon": 9.170896
+    },
+    {
+     "lat": 45.4589,
+     "lon": 9.170893
+    },
+    {
+     "lat": 45.458931,
+     "lon": 9.170844
+    },
+    {
+     "lat": 45.458922,
+     "lon": 9.170802
+    },
+    {
+     "lat": 45.458319,
+     "lon": 9.170137
+    },
+    {
+     "lat": 45.458312,
+     "lon": 9.170096
+    },
+    {
+     "lat": 45.45826,
+     "lon": 9.170035
+    },
+    {
+     "lat": 45.458225,
+     "lon": 9.169965
+    },
+    {
+     "lat": 45.45822,
+     "lon": 9.169945
+    },
+    {
+     "lat": 45.45825,
+     "lon": 9.169903
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-1107",
+   "name": "ZTL · Barsanti-Autari",
+   "name_it": "ZTL · Barsanti-Autari",
+   "name_de": "ZTL · Barsanti-Autari",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "459/2022 (DISCIPLINA VIABILISTICA DELLA ZONA A TRAFFICO LIMITATO (ZTL))",
+    "ordinanceURL": null,
+    "quote": "Barsanti-Autari: deroghe «residenti e domiciliati, mezzi di soccorsi e assistenza, artigiani e manutentori, disabili, taxi»",
+    "quoteTranslation": "Barsanti-Autari: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "Barsanti-Autari: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.448799,
+     "lon": 9.16689
+    },
+    {
+     "lat": 45.449673,
+     "lon": 9.166326
+    },
+    {
+     "lat": 45.44967,
+     "lon": 9.166289
+    },
+    {
+     "lat": 45.449692,
+     "lon": 9.166268
+    },
+    {
+     "lat": 45.449736,
+     "lon": 9.166246
+    },
+    {
+     "lat": 45.449758,
+     "lon": 9.166198
+    },
+    {
+     "lat": 45.449774,
+     "lon": 9.166192
+    },
+    {
+     "lat": 45.449793,
+     "lon": 9.166198
+    },
+    {
+     "lat": 45.449758,
+     "lon": 9.166036
+    },
+    {
+     "lat": 45.44975,
+     "lon": 9.166085
+    },
+    {
+     "lat": 45.44973,
+     "lon": 9.166129
+    },
+    {
+     "lat": 45.449661,
+     "lon": 9.166222
+    },
+    {
+     "lat": 45.449659,
+     "lon": 9.166207
+    },
+    {
+     "lat": 45.449594,
+     "lon": 9.166247
+    },
+    {
+     "lat": 45.448834,
+     "lon": 9.166744
+    },
+    {
+     "lat": 45.448561,
+     "lon": 9.165983
+    },
+    {
+     "lat": 45.448528,
+     "lon": 9.166008
+    },
+    {
+     "lat": 45.448501,
+     "lon": 9.165928
+    },
+    {
+     "lat": 45.44851,
+     "lon": 9.165895
+    },
+    {
+     "lat": 45.448192,
+     "lon": 9.165014
+    },
+    {
+     "lat": 45.448172,
+     "lon": 9.165012
+    },
+    {
+     "lat": 45.448137,
+     "lon": 9.164913
+    },
+    {
+     "lat": 45.448143,
+     "lon": 9.164867
+    },
+    {
+     "lat": 45.448053,
+     "lon": 9.164937
+    },
+    {
+     "lat": 45.448081,
+     "lon": 9.164954
+    },
+    {
+     "lat": 45.448122,
+     "lon": 9.165069
+    },
+    {
+     "lat": 45.448085,
+     "lon": 9.165099
+    },
+    {
+     "lat": 45.448404,
+     "lon": 9.165981
+    },
+    {
+     "lat": 45.448443,
+     "lon": 9.165953
+    },
+    {
+     "lat": 45.448478,
+     "lon": 9.166048
+    },
+    {
+     "lat": 45.448447,
+     "lon": 9.166071
+    },
+    {
+     "lat": 45.448727,
+     "lon": 9.166868
+    },
+    {
+     "lat": 45.448799,
+     "lon": 9.16689
+    }
+   ]
+  },
+  {
+   "id": "milano-ztl-1113",
+   "name": "ZTL · San Luigi, Scrivia, Don Bosco",
+   "name_it": "ZTL · San Luigi, Scrivia, Don Bosco",
+   "name_de": "ZTL · San Luigi, Scrivia, Don Bosco",
+   "kind": "restricted",
+   "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+   "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+   "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+   "gates": [],
+   "windows": [
+    {
+     "weekdays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "start": 0,
+     "end": 1440
+    }
+   ],
+   "freeOnHolidays": null,
+   "exemptFuels": [],
+   "hotelCanRegister": false,
+   "source": {
+    "authority": "City of Milan",
+    "pageURL": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl",
+    "ordinance": "697/2021 (DISCIPLINA VIABILISTICA DELLA ZONA A TRAFFICO LIMITATO (ZTL) IN PIAZZA SAN LUIGI, VIA SCRIVIA E VIA DON BOSCO)",
+    "ordinanceURL": null,
+    "quote": "SAN LUIGI, SCRIVIA, DON BOSCO: deroghe «Transito e sosta : residenti e domiciliati, carico e carico merci (dalle ore 5:00 alle ore 23:00), taxi, altri autorizzati. Solo transito:possessori di box non residenti o domiciliati, ospiti delle struutre ricettive che utilizzano i box»",
+    "quoteTranslation": "San Luigi, Scrivia, Don Bosco: exemptions and notes as written (in Italian) in the city's open data",
+    "quoteTranslation_de": "San Luigi, Scrivia, Don Bosco: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)",
+    "checkedOn": "2023-05-02T09:34:01Z",
+    "reviewedByHuman": false,
+    "pending": [
+     "The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here."
+    ],
+    "pending_it": [
+     "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello»."
+    ],
+    "pending_de": [
+     "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild»."
+    ],
+    "links": [
+     {
+      "title": "Open data: ZTL and Area B perimeters (CC BY)",
+      "title_it": "Dati aperti: perimetri ZTL e Area B (CC BY)",
+      "title_de": "Offene Daten: Grenzen von ZTL und Area B (CC BY)",
+      "url": "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+     }
+    ],
+    "readFingerprints": {},
+    "readFingerprintsOf": "2023-05-02T09:34:01Z"
+   },
+   "perimeter": [
+    {
+     "lat": 45.444419,
+     "lon": 9.214639
+    },
+    {
+     "lat": 45.444463,
+     "lon": 9.214553
+    },
+    {
+     "lat": 45.444393,
+     "lon": 9.21447
+    },
+    {
+     "lat": 45.444337,
+     "lon": 9.214421
+    },
+    {
+     "lat": 45.444336,
+     "lon": 9.214388
+    },
+    {
+     "lat": 45.444131,
+     "lon": 9.214131
+    },
+    {
+     "lat": 45.444107,
+     "lon": 9.214134
+    },
+    {
+     "lat": 45.444094,
+     "lon": 9.214114
+    },
+    {
+     "lat": 45.44408,
+     "lon": 9.214079
+    },
+    {
+     "lat": 45.444076,
+     "lon": 9.214036
+    },
+    {
+     "lat": 45.444081,
+     "lon": 9.213982
+    },
+    {
+     "lat": 45.444095,
+     "lon": 9.213948
+    },
+    {
+     "lat": 45.444119,
+     "lon": 9.213916
+    },
+    {
+     "lat": 45.444147,
+     "lon": 9.213894
+    },
+    {
+     "lat": 45.445061,
+     "lon": 9.213335
+    },
+    {
+     "lat": 45.445072,
+     "lon": 9.213331
+    },
+    {
+     "lat": 45.4451,
+     "lon": 9.213337
+    },
+    {
+     "lat": 45.445139,
+     "lon": 9.213376
+    },
+    {
+     "lat": 45.445187,
+     "lon": 9.213289
+    },
+    {
+     "lat": 45.445184,
+     "lon": 9.213259
+    },
+    {
+     "lat": 45.445011,
+     "lon": 9.213271
+    },
+    {
+     "lat": 45.444124,
+     "lon": 9.213817
+    },
+    {
+     "lat": 45.444077,
+     "lon": 9.213855
+    },
+    {
+     "lat": 45.444045,
+     "lon": 9.213899
+    },
+    {
+     "lat": 45.44402,
+     "lon": 9.213971
+    },
+    {
+     "lat": 45.444014,
+     "lon": 9.214054
+    },
+    {
+     "lat": 45.444031,
+     "lon": 9.21413
+    },
+    {
+     "lat": 45.444071,
+     "lon": 9.214197
+    },
+    {
+     "lat": 45.444071,
+     "lon": 9.214226
+    },
+    {
+     "lat": 45.444311,
+     "lon": 9.214525
+    },
+    {
+     "lat": 45.444335,
+     "lon": 9.214521
+    },
+    {
+     "lat": 45.444419,
+     "lon": 9.214639
+    }
+   ]
   }
  ],
  "status": "draft",
