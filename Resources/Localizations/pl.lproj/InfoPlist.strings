@@ -2,3 +2,4 @@
 "NSLocationWhenInUseUsageDescription" = "GateLR używa twojej lokalizacji na iPhonie, aby pokazać, które bramki ZTL są w pobliżu. GateLR jej nie zbiera.";
 "NSLocationAlwaysAndWhenInUseUsageDescription" = "GateLR ostrzega cię przed bramką ZTL, gdy jedziesz z inną nawigacją i gdy aplikacja jest zamknięta. Lokalizacja jest używana na iPhonie; GateLR jej nie zbiera.";
 "NSCameraUsageDescription" = "GateLR odczytuje na twoim iPhonie godziny z tablic ZTL, dowody rejestracyjne i mandaty, które fotografujesz. Zdjęcia nie są wysyłane.";
+"GateLRGates" = "GateLR potrzebuje dokładnej lokalizacji, by wiedzieć, która bramka ZTL jest przed tobą i czy jesteś w strefie.";

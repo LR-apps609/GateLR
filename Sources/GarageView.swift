@@ -43,6 +43,8 @@ struct GarageView: View {
                     }
                     .contentShape(Rectangle())
                     .onTapGesture { editing = v }
+                    // 2.0 (B126): VoiceOver sa che la riga si modifica («Modifica Fiat 500»), non solo il tocco
+                    .accessibilityAction(named: Text(String(format: L("Edit %@"), v.name))) { editing = v }
                 }
                 // 1.20.2: prima la conferma, poi si cancella (con i permessi del veicolo)
                 .onDelete { offsets in deleting = .vehicles(Set(offsets.map { store.vehicles[$0].id })) }

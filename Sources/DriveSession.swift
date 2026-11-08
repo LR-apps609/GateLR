@@ -125,6 +125,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     private var announced = Set<String>()
     private var activity: Activity<DriveAttributes>?
     private var lastShown: DriveAttributes.ContentState?
+    private var lastActivityAt = Date.distantPast
 
     // Percorso: fine di ogni tratto (metri dall'inizio) e lunghezza di ogni tratto
     private var stepEnds: [Double] = []
@@ -184,6 +185,9 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     // MARK: Inizio e fine
 
     func start(to place: Place, store: Store) async {
+        // 2.0 (B76): un solo viaggio attivo: il guardiano si ferma (due Live Activity e due voci)
+        if Guardian.shared.active { Guardian.shared.stop() }
+        if active { stop() }
         self.store = store
         destination = place
         error = nil; arrived = false; warning = nil; announced = []
@@ -193,6 +197,9 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         // 1.20.2: la posizione si chiede qui, quando parte la guida (PermissionPolicy); nel giro delle foto mai: la
         // richiesta di iOS copriva la foto 14-drive-milan-dark (la partenza finta è RoutePlanner.testOrigin)
         await PermissionPolicy.request(.drive, manager: manager)
+        // 2.0 (B69): alla prima guida iOS sta ancora chiedendo il permesso: si aspetta la risposta (e poi la prima
+        // posizione) invece di dire subito «Non trovo la tua posizione» sotto il dialogo
+        if !PermissionPolicy.uiTest { await waitForLocation() }
         let origin = manager.location?.coordinate ?? RoutePlanner.testOrigin
         guard let r = await calculate(from: origin, to: place, course: nil) else {
             error = origin == nil ? L("Couldn't find your position. Allow location access to plan the drive.")
@@ -218,6 +225,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     }
 
     func stop() {
+        arrivalStop?.cancel(); arrivalStop = nil
         manager.stopUpdatingLocation()
         manager.distanceFilter = 5
         if manager.allowsBackgroundLocationUpdates { manager.allowsBackgroundLocationUpdates = false }
@@ -236,7 +244,44 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
         routeVersion += 1
         // Anche lo stato del ricalcolo e dell'arrivo: alla guida dopo non deve restare «Ricalcolo…»
         rerouting = false; needsReroute = false; routing = false; detector.reset(); arrived = false; eta = nil
+        // 2.0 (B75): Siri non usa più la posizione di una guida finita
+        here = nil
     }
+
+    // MARK: Permesso e prima posizione (B69)
+
+    private var authWaiter: CheckedContinuation<Void, Never>?
+
+    /// Aspetta (al massimo 60 s) che iOS abbia la risposta sul permesso, poi (al massimo 8 s) una posizione
+    private func waitForLocation() async {
+        if manager.authorizationStatus == .notDetermined {
+            await withCheckedContinuation { (c: CheckedContinuation<Void, Never>) in
+                authWaiter = c
+                Task { @MainActor [weak self] in
+                    try? await Task.sleep(for: .seconds(60))
+                    self?.resumeAuthWaiter()
+                }
+            }
+        }
+        guard PermissionPolicy.allowed(manager.authorizationStatus), manager.location == nil else { return }
+        manager.startUpdatingLocation()
+        for _ in 0..<16 where manager.location == nil { try? await Task.sleep(for: .milliseconds(500)) }
+    }
+
+    private func resumeAuthWaiter() {
+        authWaiter?.resume()
+        authWaiter = nil
+    }
+
+    nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        guard manager.authorizationStatus != .notDetermined else { return }
+        Task { @MainActor in self.resumeAuthWaiter() }
+    }
+
+    /// 2.0 (B74): la guida finisce da sola qualche minuto dopo l'arrivo (prima restava accesa per ore: GPS in sottofondo,
+    /// Live Activity «Sei arrivato» e avvisi ad app chiusa bloccati)
+    private var arrivalStop: Task<Void, Never>?
+    nonisolated static let stopAfterArrival: TimeInterval = 120
 
     /// Il percorso Apple. Con la direzione di marcia (ricalcolo) si chiedono anche le alternative e si
     /// preferisce quella che parte nel verso in cui stai andando, invece di farti fare inversione.
@@ -363,7 +408,15 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
 
         // Arrivo
         if PathMath.meters(p, destination.location) < 35 {
-            if !arrived { arrived = true; say(L("You have arrived.")) }
+            if !arrived {
+                arrived = true; say(L("You have arrived."))
+                arrivalStop?.cancel()
+                arrivalStop = Task { @MainActor [weak self] in
+                    try? await Task.sleep(for: .seconds(DriveSession.stopAfterArrival))
+                    guard !Task.isCancelled, let self, self.active, self.arrived else { return }
+                    self.stop()
+                }
+            }
             refreshActivity()
             return
         }
@@ -494,7 +547,7 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     private func startActivity(to place: Place) {
         guard ActivityAuthorizationInfo().areActivitiesEnabled, activity == nil else { return }
         // 1.19.4: Dynamic Island e schermata di blocco senza targhe
-        let content = ActivityContent(state: state.withoutPlates(PlatePrivacy.knownPlates), staleDate: nil)
+        let content = ActivityContent(state: state.withoutPlates(PlatePrivacy.knownPlates), staleDate: DriveAttributes.staleDate())
         activity = try? Activity.request(attributes: DriveAttributes(destination: PlatePrivacy.clean(place.name)), content: content, pushType: nil)
         lastShown = state
     }
@@ -503,11 +556,15 @@ final class DriveSession: NSObject, ObservableObject, CLLocationManagerDelegate,
     private func refreshActivity() {
         guard let activity else { return }
         let s = state
-        guard s.symbol != lastShown?.symbol || s.distance != lastShown?.distance || s.warning != lastShown?.warning
+        // 2.0 (B34): almeno una volta al minuto anche senza cambiamenti, per spostare in avanti la data oltre cui la
+        // Live Activity è vecchia (senza GPS o con l'app chiusa da iOS dopo 3 minuti si mostra vecchia)
+        let due = Date().timeIntervalSince(lastActivityAt) > 60
+        guard due || s.symbol != lastShown?.symbol || s.distance != lastShown?.distance || s.warning != lastShown?.warning
                 || s.instruction != lastShown?.instruction else { return }
         lastShown = s
+        lastActivityAt = Date()
         let shown = s.withoutPlates(PlatePrivacy.knownPlates)
-        Task { await activity.update(ActivityContent(state: shown, staleDate: nil)) }
+        Task { await activity.update(ActivityContent(state: shown, staleDate: DriveAttributes.staleDate())) }
     }
 
     nonisolated static func distanceText(_ m: Double) -> String {

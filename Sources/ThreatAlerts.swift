@@ -56,9 +56,11 @@ final class ThreatAlerts: NSObject, ObservableObject, UNUserNotificationCenterDe
         if foreground {
             banner = Banner(title: title, body: body, level: level, park: park)
             UINotificationFeedbackGenerator().notificationOccurred(level == .stop ? .error : .warning)
+            // 2.0 (B124): VoiceOver lo dice subito, prima di ogni altra cosa (guardiano e guida parlano, il banner no)
+            UIAccessibility.post(notification: .announcement, argument: "\(title). \(body)")
             hide?.cancel()
-            // Nel giro delle foto resta, per la foto
-            guard !Self.uitest else { return }
+            // Nel giro delle foto resta, per la foto; con VoiceOver resta finché non lo chiudi (10 s non bastano)
+            guard Self.autoHides(uitest: Self.uitest, voiceOver: UIAccessibility.isVoiceOverRunning) else { return }
             hide = Task { [weak self] in
                 try? await Task.sleep(for: .seconds(10))
                 guard !Task.isCancelled else { return }
@@ -74,6 +76,9 @@ final class ThreatAlerts: NSObject, ObservableObject, UNUserNotificationCenterDe
         if let park, let url = ParkLink.url(zoneId: zoneId, name: park.name, at: park.location) { c.userInfo = ["url": url.absoluteString] }
         UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: id, content: c, trigger: nil))
     }
+
+    /// Il banner sparisce da solo dopo 10 secondi, tranne nel giro delle foto e con VoiceOver (B124)
+    nonisolated static func autoHides(uitest: Bool, voiceOver: Bool) -> Bool { !uitest && !voiceOver }
 
     /// Tocco sul banner: «Parcheggia fuori» per quella zona
     func openBanner() {
@@ -117,13 +122,16 @@ struct ThreatBannerView: View {
     var onTap: () -> Void
     var onClose: () -> Void
 
-    private var fill: Color {
-        switch banner.level {
-        case .stop: Color(hex: 0xC1272D)
-        case .condition, .check: Color(hex: 0xD99A00)
-        case .clear: Color(hex: 0x6B7280)
+    /// Fondo e testo per ogni livello (testabile). 2.0 (B67): sull'ambra il testo è scuro (6,6:1; bianco era 2,45:1)
+    static func colors(_ level: ThreatLevel) -> (fill: UInt32, ink: UInt32) {
+        switch level {
+        case .stop: (0xC1272D, 0xFFFFFF)
+        case .condition, .check: (0xD99A00, 0x1B2128)
+        case .clear: (0x5B6476, 0xFFFFFF)
         }
     }
+    private var fill: Color { Color(hex: Self.colors(banner.level).fill) }
+    private var ink: Color { Color(hex: Self.colors(banner.level).ink) }
 
     private var symbol: String {
         switch banner.level {
@@ -141,12 +149,15 @@ struct ThreatBannerView: View {
                 Text(verbatim: banner.body).font(.app(size: 13)).lineLimit(3).opacity(0.95)
             }
             Spacer(minLength: 0)
+            // 2.0 (B123): la croce prende 44×44 punti (prima ~29: chi la mancava apriva i parcheggi)
             Button(action: onClose) {
-                Image(systemName: "xmark").font(.app(size: 13, weight: .bold)).padding(6)
+                Image(systemName: "xmark").font(.app(size: 13, weight: .bold))
+                    .frame(width: 44, height: 44).contentShape(Rectangle())
             }
+            .padding(.top, -10).padding(.trailing, -10)
             .accessibilityLabel(Text("Close"))
         }
-        .foregroundStyle(.white)
+        .foregroundStyle(ink)
         .padding(14)
         .background(fill, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
         .shadow(color: .black.opacity(0.25), radius: 12, y: 4)

@@ -175,10 +175,20 @@ final class Store: ObservableObject {
         cities.contains { $0.covers(lat: c.lat, lon: c.lon) }
     }
 
-    /// Vero se il posto è il tuo hotel (un viaggio salvato o un soggiorno): solo lì vale «l'hotel registra la targa»
-    func isHotel(_ place: Place?) -> Bool {
+    /// Vero se il posto è il tuo hotel: solo lì vale «l'hotel registra la targa». 2.0 (B43): solo se hai detto che è un
+    /// hotel (nel riquadro «Registrazione della targa» hai chiesto all'hotel di registrarla, o un viaggio salvato come
+    /// hotel) e solo vicino alle date del soggiorno (un giorno prima dell'arrivo, un giorno dopo la partenza). Prima
+    /// bastava salvare un viaggio verso un posto qualunque (ristorante, «La mia posizione», anche passato) per avere il
+    /// giallo «solo se l'hotel registra la targa» per sempre
+    func isHotel(_ place: Place?, at date: Date = Date()) -> Bool {
         guard let place else { return false }
-        return stays[place.key] != nil || trips.contains { $0.hotel?.key == place.key }
+        if let stay = stays[place.key], stay.status != .notAsked, Self.near(date, from: stay.arrival, to: stay.departure) { return true }
+        return trips.contains { $0.isHotel == true && $0.hotel?.key == place.key && Self.near(date, from: $0.arrival, to: $0.departure) }
+    }
+
+    /// La data cade nel soggiorno, con un giorno di margine prima e dopo
+    nonisolated static func near(_ date: Date, from arrival: Date, to departure: Date) -> Bool {
+        date >= arrival.addingTimeInterval(-86_400) && date <= max(departure, arrival).addingTimeInterval(86_400)
     }
 
     /// L'area pedonale che contiene il punto, se c'è
@@ -309,6 +319,14 @@ struct HotelStay: Codable, Hashable {
     var departure: Date
     var status: Status = .notAsked
     var permitId: UUID? = nil
+    /// 2.0 (B72): un permesso per ogni zona che accetta la registrazione dell'hotel (zone annidate: Tridente e ZTL di Roma)
+    var permitIds: [UUID]? = nil
+    /// 2.0 (B16): il veicolo per cui l'hotel registra la targa, scelto alla richiesta: cambiando veicolo il permesso resta
+    /// a lui (prima passava all'auto attiva, senza consenso)
+    var vehicleId: UUID? = nil
+
+    /// Tutti i permessi del soggiorno (anche quello salvato dalle versioni fino alla 1.20)
+    var allPermitIds: [UUID] { (permitIds ?? []) + (permitId.map { [$0] } ?? []) }
 
     /// I giorni da coprire, dal giorno di arrivo a quello di partenza compresi, in ora italiana come il motore
     /// (con il calendario del telefono, da New York un arrivo alle 20 diventava il giorno dopo a Firenze)
@@ -332,6 +350,13 @@ struct LogEntry: Codable, Hashable, Identifiable {
     var gateName: String?
     var verdict: String              // «Non entrare», «A una condizione»…
     var plate: String
+    /// 2.0 (B155): «no» per un «Non entrare», «cond» per il resto (il colore della riga); nil nelle righe fino alla 1.20
+    var level: String? = nil
+
+    static let levelNo = "no", levelCond = "cond"
+
+    /// Rosso solo per un «Non entrare» (prima il colore veniva dal tipo di riga: «A una condizione» in rosso)
+    var isNo: Bool { level.map { $0 == Self.levelNo } ?? (verdict == Verdict.no(reason: "").short) }
 }
 
 extension Store {
@@ -339,7 +364,7 @@ extension Store {
     func record(_ kind: LogEntry.Kind, zone: Zone, gate: Gate? = nil, verdict: Verdict) {
         if let last = log.first(where: { $0.zoneId == zone.id && $0.kind == kind }), Date().timeIntervalSince(last.date) < 30 * 60 { return }
         log.insert(LogEntry(date: Date(), kind: kind, zoneId: zone.id, zoneName: zone.localizedName, gateName: gate?.name,
-                            verdict: verdict.short, plate: vehicle.plate), at: 0)
+                            verdict: verdict.short, plate: vehicle.plate, level: verdict.severity == 3 ? LogEntry.levelNo : LogEntry.levelCond), at: 0)
         if log.count > 500 { log.removeLast(log.count - 500) }
     }
 }
@@ -352,6 +377,8 @@ struct Trip: Codable, Hashable, Identifiable {
     var arrival: Date
     var departure: Date
     var vehicleId: UUID?
+    /// 2.0 (B43): il posto è il tuo hotel («È il tuo hotel?» acceso quando l'hai salvato); nil nei viaggi salvati fino alla 1.20
+    var isHotel: Bool? = nil
 }
 
 /// Le città incluse nell'app: Resources/Cities/*.json, costruiti dagli script in Tools/

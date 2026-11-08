@@ -55,6 +55,12 @@ enum SignReader {
         for (i, line) in lines.enumerated() {
             let times = timeRanges(in: line)
             guard !times.isEmpty else { continue }
+            // 2.0 (B45): più gruppi di giorni e orari sulla stessa riga («lun-ven 7.30-20.00 sab 7.30-14.00»): ogni orario con
+            // i giorni scritti subito prima (prima il sabato prendeva i giorni lun-ven)
+            if let pieces = splitByDays(line), pieces.count == times.count {
+                for (t, info) in zip(times, pieces) { rules.append(Rule(days: info.days, start: t.0, end: t.1, holidays: info.holidays)) }
+                continue
+            }
             var info = dayInfo(in: line)
             if info == nil, i + 1 < lines.count, timeRanges(in: lines[i + 1]).isEmpty { info = dayInfo(in: lines[i + 1]) }
             if info == nil, i > 0, timeRanges(in: lines[i - 1]).isEmpty { info = dayInfo(in: lines[i - 1]) }
@@ -72,19 +78,44 @@ enum SignReader {
     }
 
     /// «7.30-20», «7:30 - 20:00», «0-24», «dalle 23 alle 3»
-    static func timeRanges(in line: String) -> [(Int, Int)] {
+    static func timeRanges(in line: String) -> [(Int, Int)] { timeMatches(in: line).map(\.minutes) }
+
+    /// Gli orari della riga con dove stanno (per dividere la riga in gruppi di giorni e orari)
+    static func timeMatches(in line: String) -> [(minutes: (Int, Int), range: NSRange)] {
         let pattern = #"(?:dalle\s+)?(\d{1,2})(?:[.:,h](\d{2}))?\s*(?:-|alle|a)\s*(\d{1,2})(?:[.:,h](\d{2}))?"#
         guard let re = try? NSRegularExpression(pattern: pattern) else { return [] }
         let ns = line as NSString
-        return re.matches(in: line, range: NSRange(location: 0, length: ns.length)).compactMap { m -> (Int, Int)? in
+        return re.matches(in: line, range: NSRange(location: 0, length: ns.length)).compactMap { m -> (minutes: (Int, Int), range: NSRange)? in
             func n(_ i: Int) -> Int? { m.range(at: i).location == NSNotFound ? nil : Int(ns.substring(with: m.range(at: i))) }
             guard let h1 = n(1), let h2 = n(3), h1 <= 24, h2 <= 24 else { return nil }
             let m1 = n(2) ?? 0, m2 = n(4) ?? 0
             guard m1 < 60, m2 < 60 else { return nil }
             // Un intervallo di giorni («1-31») o di date non è un orario: serve almeno un minuto o un'ora plausibile
             if n(2) == nil && n(4) == nil && h1 == h2 { return nil }
-            return (h1 * 60 + m1, h2 * 60 + m2)
+            // 2.0 (B157): le classi Euro («EURO 0-1-2», «euro 3-4») non sono un orario: dopo «euro» o seguite da un altro «-n»
+            let before = ns.substring(to: m.range.location)
+            if before.range(of: #"euro\s*$"#, options: .regularExpression) != nil { return nil }
+            let after = ns.substring(from: m.range.location + m.range.length)
+            if n(2) == nil, n(4) == nil, h1 <= 6, h2 <= 6, after.range(of: #"^-\d(?!\d)"#, options: .regularExpression) != nil { return nil }
+            return ((h1 * 60 + m1, h2 * 60 + m2), m.range)
         }
+    }
+
+    /// 2.0 (B45): la riga divisa in pezzi «giorni + orario»: per ogni orario i giorni scritti tra l'orario prima e lui.
+    /// nil se c'è un solo orario o se un pezzo non ha giorni suoi (allora valgono i giorni di tutta la riga, come prima)
+    static func splitByDays(_ line: String) -> [(days: Set<Int>, holidays: Holidays)]? {
+        let matches = timeMatches(in: line)
+        guard matches.count > 1 else { return nil }
+        let ns = line as NSString
+        var start = 0
+        var out: [(days: Set<Int>, holidays: Holidays)] = []
+        for m in matches {
+            let piece = ns.substring(with: NSRange(location: start, length: m.range.location - start))
+            guard let info = dayInfo(in: piece) else { return nil }
+            out.append(info)
+            start = m.range.location + m.range.length
+        }
+        return out
     }
 
     /// Un giorno della settimana come parola intera: «lun», «lun.», «lunedì», «lunedi» (mai dentro «marzo», «merci»,

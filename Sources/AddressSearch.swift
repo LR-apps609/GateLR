@@ -30,6 +30,11 @@ final class AddressSearch: NSObject, ObservableObject, MKLocalSearchCompleterDel
         completer.region = MKCoordinateRegion(center: city.center.cl, latitudinalMeters: 30_000, longitudinalMeters: 30_000)
     }
 
+    /// 2.0 (B131): tutta l'Italia, quando non sappiamo ancora dove vai (né città scelta né posizione)
+    static let italy = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 41.9, longitude: 12.5),
+                                          latitudinalMeters: 1_300_000, longitudinalMeters: 1_100_000)
+    func focusOnItaly() { completer.region = Self.italy }
+
     private func update() {
         let q = query.trimmingCharacters(in: .whitespaces)
         failed = false

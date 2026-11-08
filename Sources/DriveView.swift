@@ -66,6 +66,8 @@ struct DriveView: View {
             .animation(.snappy, value: following)
         }
         .statusBarHidden(false)
+        // 2.0 (B74): la guida finita da sola dopo l'arrivo chiude anche questa schermata
+        .onChange(of: drive.active) { _, on in if !on { dismiss() } }
     }
 
     // MARK: Mappa
@@ -269,7 +271,7 @@ struct DriveView: View {
                 Text("End").font(.app(size: 17, weight: .bold))
                     .lineLimit(1).fixedSize()
                     .padding(.horizontal, 16).frame(height: 52)
-                    .background(Theme.red, in: Capsule()).foregroundStyle(.white)
+                    .background(Theme.redFill, in: Capsule()).foregroundStyle(.white)
             }
             .accessibilityIdentifier("drive.end")
         }

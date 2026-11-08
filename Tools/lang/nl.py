@@ -940,12 +940,35 @@ T = {
 "Data out of date": "Gegevens verouderd",
 "Holiday not confirmed": "Feestdag niet bevestigd",
 "Euro class unknown": "Euroklasse onbekend",
+# 2.0 «bug iPhone»
+"Highway Code, art. 7 (ZTL)": "Italiaanse verkeerswet, art. 7 (ZTL)",
+"Highway Code, art. 201 (notification)": "Italiaanse verkeerswet, art. 201 (betekening)",
+"Highway Code, art. 202 (payment)": "Italiaanse verkeerswet, art. 202 (betaling)",
+"Highway Code, art. 203 (appeal to the Prefetto)": "Italiaanse verkeerswet, art. 203 (bezwaar bij de Prefetto)",
+"Highway Code, art. 204-bis (Giudice di Pace)": "Italiaanse verkeerswet, art. 204-bis (Giudice di Pace)",
+"Edit %@": "%@ bewerken",
+"Waiting for GPS…": "Wachten op gps…",
+"Location is off for GateLR, so the guardian can't warn you before a gate. Turn it on in Settings → GateLR → Location.": "Locatie staat uit voor GateLR: de bewaker kan je niet waarschuwen voor een poort. Zet hem aan in Instellingen → GateLR → Locatie.",
+"With approximate location the guardian can't tell which gate is ahead. Turn on Precise Location in Settings → GateLR → Location.": "Met een geschatte locatie weet de bewaker niet welke poort voor je ligt. Zet Exacte locatie aan in Instellingen → GateLR → Locatie.",
+"Precise location is needed for the gates": "Voor de poorten is je exacte locatie nodig",
+"The hotel registers the plate of %@. For this vehicle, ask the hotel again.": "Het hotel registreert het kenteken van %@. Vraag het hotel opnieuw voor dit voertuig.",
+"Pedestrian area camera": "Camera voetgangersgebied",
+"%lld gates · on · %@": "%lld poorten · aan · %@",
+"%lld gates · off · %@": "%lld poorten · uit · %@",
+"No known ZTL on the way: outside the cities we cover, check the signs.": "Geen bekende ZTL onderweg: buiten de steden die we kennen, let op de borden.",
+"Notifications are off: turn them on in Settings": "Meldingen staan uit: zet ze aan in Instellingen",
+"In progress": "Bezig",
+"Approximate location: search the address instead.": "Geschatte locatie: zoek liever het adres.",
+"Not updated: open GateLR": "Niet bijgewerkt: open GateLR",
+"Add your plate in Garage first.": "Voeg eerst je kenteken toe in de Garage.",
+"Navigate anyway": "Toch navigeren",
 }
 
 INFO = {
     "NSLocationWhenInUseUsageDescription": "GateLR gebruikt je locatie op je iPhone om je te vertellen welke ZTL-poorten bij jou in de buurt zijn. GateLR verzamelt hem niet.",
     "NSLocationAlwaysAndWhenInUseUsageDescription": "GateLR waarschuwt je voor een ZTL-poort terwijl je met een andere navigatie-app rijdt, en als de app dicht is. Je locatie wordt op de iPhone gebruikt; GateLR verzamelt hem niet.",
     "NSCameraUsageDescription": "GateLR leest op je iPhone de tijden op ZTL-borden, kentekenbewijzen en boetes die je fotografeert. De foto's worden niet geüpload.",
+    "GateLRGates": "GateLR heeft je exacte locatie nodig om te weten welke ZTL-poort voor je ligt en of je in een zone bent.",
 }
 
 SHORTCUTS = {

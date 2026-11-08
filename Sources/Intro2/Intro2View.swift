@@ -48,6 +48,8 @@ struct Intro2View: View {
                         .padding(.horizontal, 14).frame(height: 36)
                         .background(Notte.surface.opacity(0.85), in: Capsule())
                         .overlay(Capsule().stroke(Notte.line, lineWidth: 1))
+                        // 2.0 (B123): 44 punti da toccare (il disegno resta di 36)
+                        .frame(minHeight: 44).contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
                 .accessibilityIdentifier("intro2.skip")
@@ -85,40 +87,56 @@ struct IntroSetupPage: View {
     @State private var shown = false
     @State private var chosen: Place?
     @State private var resolving = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Spacer(minLength: 70)
-            VStack(alignment: .leading, spacing: 14) {
-                IntroTitle(text: L("Where do you want to go?"), size: 40)
-                Text(L("We'll find the route that keeps you out of the ZTL."))
-                    .font(Notte.font(19)).foregroundStyle(Notte.muted)
-                    .fixedSize(horizontal: false, vertical: true)
+        // 2.0 (B39): la pagina scorre e «Cerca» / «Più tardi» restano fissi in basso: con «Testo più grande» (AX3–AX5) su
+        // un iPhone SE campo e «Più tardi» uscivano dallo schermo e la presentazione non si chiudeva più
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                Color.clear.frame(height: 70)
+                VStack(alignment: .leading, spacing: 14) {
+                    IntroTitle(text: L("Where do you want to go?"), size: 40)
+                    Text(L("We'll find the route that keeps you out of the ZTL."))
+                        .font(Notte.font(19)).foregroundStyle(Notte.muted)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .opacity(shown ? 1 : 0).offset(y: shown || reduceMotion ? 0 : 12)
+                field
+                    .padding(.top, 28)
+                    .opacity(shown ? 1 : 0).offset(y: shown || reduceMotion ? 0 : 18)
+                if chosen == nil && !search.query.isEmpty {
+                    suggestions.padding(.top, 10)
+                }
             }
-            .opacity(shown ? 1 : 0).offset(y: shown ? 0 : 12)
-            field
-                .padding(.top, 28)
-                .opacity(shown ? 1 : 0).offset(y: shown ? 0 : 18)
-            if chosen == nil && !search.query.isEmpty {
-                suggestions.padding(.top, 10)
-            }
-            Spacer()
-            if let chosen {
-                IntroButton(title: L("Search"), systemImage: "magnifyingglass", identifier: "intro2.go") { open(chosen) }
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-                    .padding(.bottom, 6)
-            }
-            Button(action: done) {
-                Text(L("Later")).font(Notte.font(17, .semibold)).foregroundStyle(Notte.muted)
-                    .frame(maxWidth: .infinity, minHeight: 44)
-            }
-            .buttonStyle(.plain)
-            .accessibilityIdentifier("intro2.later")
+            .padding(.horizontal, 20).padding(.bottom, 12)
         }
-        .padding(.horizontal, 20).padding(.bottom, 12)
+        .scrollBounceBehavior(.basedOnSize)
+        .scrollDismissesKeyboard(.interactively)
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            VStack(spacing: 6) {
+                if let chosen {
+                    IntroButton(title: L("Search"), systemImage: "magnifyingglass", identifier: "intro2.go") { open(chosen) }
+                        // 2.0 (B125): con «Riduci movimento» solo una dissolvenza
+                        .transition(reduceMotion ? .opacity : .move(edge: .bottom).combined(with: .opacity))
+                }
+                Button(action: done) {
+                    Text(L("Later")).font(Notte.font(17, .semibold)).foregroundStyle(Notte.muted)
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("intro2.later")
+            }
+            .padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 12)
+            .background(Notte.navy)
+        }
         .animation(.snappy, value: chosen)
         .animation(.snappy, value: search.results.count)
-        .onAppear { search.focus(on: store.city) }
+        // 2.0 (B131): senza una città scelta né la posizione, la ricerca su tutta l'Italia (prima 30 km intorno a Firenze:
+        // il primo suggerimento era il Duomo di Firenze)
+        .onAppear {
+            if store.cityChosenByHand || GateMonitor.shared.location != nil { search.focus(on: store.city) } else { search.focusOnItaly() }
+        }
         .task {
             withAnimation(.easeOut(duration: 0.6).delay(0.15)) { shown = true }
             // Nel video: si scrive come farebbe una persona e si sceglie il primo suggerimento, senza confermare
@@ -157,12 +175,11 @@ struct IntroSetupPage: View {
 
     private var suggestions: some View {
         VStack(alignment: .leading, spacing: 0) {
-            if search.results.isEmpty {
-                if search.failed {
-                    SearchFailedRow(dark: true) { search.retry() }
-                } else {
-                    Text(L("Keep typing…")).font(Notte.font(15)).foregroundStyle(Notte.muted).padding(14)
-                }
+            // 2.0 (B132): l'errore anche con i suggerimenti già in vista (il tocco su un suggerimento senza rete)
+            if search.failed {
+                SearchFailedRow(dark: true) { search.retry() }
+            } else if search.results.isEmpty {
+                Text(L("Keep typing…")).font(Notte.font(15)).foregroundStyle(Notte.muted).padding(14)
             }
             ForEach(Array(search.results.prefix(5).enumerated()), id: \.offset) { i, r in
                 Button { choose(r) } label: {

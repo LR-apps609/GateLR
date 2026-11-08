@@ -74,7 +74,8 @@ struct FineScanView: View {
         hasViolation = n.violation != nil
         if let v = n.violation { violation = v }
         place = n.place ?? ""
-        if let d = n.notificationDate { notified = d }
+        // 2.0 (B158): un secondo verbale senza data di notifica non tiene quella del primo
+        notified = n.notificationDate ?? Date()
         let m = FineCheck.match(n, text: text, cities: store.cities)
         cityId = m?.city.id
         zoneId = m?.zone?.id
@@ -146,8 +147,12 @@ struct FineScanView: View {
 
     // MARK: Il varco era attivo?
 
+    /// 2.0 (B44): l'ora della violazione si sa (letta dal verbale, o scritta a mano): senza, nessun esito e nessun motivo
+    /// basato sugli orari (prima si controllava alle 12:00 e la bozza diceva «nel giorno e nell'ora indicati»)
+    private var timeKnown: Bool { FineCheck.timeKnown(read: notice, chosen: violation, calendar: engine.calendar) }
+
     private var status: FineCheck.Status? {
-        guard hasViolation, let z = zone else { return nil }
+        guard hasViolation, timeKnown, let z = zone else { return nil }
         return FineCheck.status(z, at: violation, engine: engine)
     }
 
@@ -183,7 +188,8 @@ struct FineScanView: View {
                         .font(.app(size: 14, weight: .semibold))
                 }
             } else {
-                Text(hasViolation ? L("Choose the city and the zone to compare with the hours we know.")
+                Text(hasViolation && zone != nil ? L("Time not found: set it as written on the notice.")
+                     : hasViolation ? L("Choose the city and the zone to compare with the hours we know.")
                      : L("Add the date and time of the violation to compare with the hours we know."))
                     .font(.app(size: 14)).foregroundStyle(Theme.muted)
             }
@@ -194,7 +200,7 @@ struct FineScanView: View {
     /// 1.19.2: il verde solo con dati ufficiali, recenti e rivisti da una persona; altrimenti giallo con il «?»
     private static func look(_ s: FineCheck.Shown) -> (title: String, symbol: String, fill: Color, ink: Color) {
         switch s {
-        case .active: return (L("According to the rules we know, the gate was active"), "video.fill", Theme.red, Color.white)
+        case .active: return (L("According to the rules we know, the gate was active"), "video.fill", Theme.redFill, Color.white)
         case .inactive: return (L("According to the rules we know, the gate was not active"), "video.slash.fill", Theme.green, Color.white)
         case .probablyInactive:
             return (L("According to the data available, the gate would not have been active. The data haven't been checked by a person yet: check the official source."),
@@ -254,7 +260,8 @@ struct FineScanView: View {
 
     private var draft: String {
         var n = notice
-        if hasViolation { n.violation = violation; n.violationHasTime = n.violationHasTime || notice.violation != violation }
+        // 2.0 (B44): cambiare solo la data non vuol dire che l'ora (le 12:00 di ripiego) sia sul verbale
+        if hasViolation { n.violation = violation; n.violationHasTime = timeKnown }
         n.place = place.isEmpty ? nil : place
         n.notificationDate = notified
         return FineCheck.appealDraft(n, city: city?.name_it ?? city?.name ?? notice.city, zone: zone.map { $0.name_it ?? $0.name },

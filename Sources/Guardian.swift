@@ -21,8 +21,12 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     /// Senza minacce davanti: «nessuna zona nota qui» (neutro, fuori dalle città che conosciamo) o «nessuna ZTL attiva
     /// davanti» (in una città che conosciamo). Prima era sempre lo scudo verde con la spunta, anche a Pistoia
     @Published private(set) var resting: ThreatResting = .unknownPlace
-    /// Non pubblicata: cambia a ogni posizione e ridisegnerebbe la pagina Varco per niente (la legge solo Siri)
+    /// Non pubblicata: cambia a ogni posizione e ridisegnerebbe la pagina Varco per niente (la legge solo Siri).
+    /// 2.0 (B75): si azzera quando il guardiano si ferma, così Siri non risponde per l'ultimo punto del viaggio
     private(set) var here: Coordinate?
+    /// 2.0 (B13): acceso ma ancora senza una posizione precisa. Finché è vero la Live Activity e il riquadro dicono
+    /// «In attesa del GPS» (mai «Nessuna ZTL attiva davanti» né «Non conosciamo le ZTL di questo posto»)
+    @Published private(set) var waitingForFix = true
 
     private let manager = CLLocationManager()
     // La voce si crea solo quando serve: niente lavoro audio all'avvio dell'app
@@ -36,7 +40,11 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     private var lastShown: DriveAttributes.ContentState?
     private var lastDistances: [String: Double] = [:]
     private var lastMove = Date()
+    /// 2.0 (B143): il movimento si misura da un punto fermo (prima dal passo precedente: 15 m alla volta non contavano mai)
+    private var moveAnchor: Coordinate?
     private var startedAt = Date()
+    /// 2.0 (B34): l'ultima posizione buona; la Live Activity si rinnova solo finché arrivano posizioni
+    private var lastFixAt = Date.distantPast
     private var watchdog: Task<Void, Never>?
 
     override init() {
@@ -48,12 +56,36 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         manager.pausesLocationUpdatesAutomatically = false
     }
 
-    /// Parte il guardiano e si apre il navigatore scelto verso la meta
+    /// Parte il guardiano e si apre il navigatore scelto verso la meta. 2.0 (B13): con la posizione negata o
+    /// «approssimativa» il guardiano non parte in silenzio: prima la richiesta di precisione temporanea di iOS, poi,
+    /// se resta approssimativa o negata, il messaggio «Serve la posizione precisa per i varchi» (GuardianNotice) con il
+    /// link alle Impostazioni. Mai uno stato che sembri una protezione attiva
     func start(to place: Place, with navigator: Navigator, store: Store) {
+        // 2.0 (B76): un solo viaggio attivo: la guida dentro l'app si ferma (due Live Activity e due voci)
+        if DriveSession.shared.active { DriveSession.shared.stop() }
+        if active { stop() }
+        switch LocationGate.readiness(status: manager.authorizationStatus, accuracy: manager.accuracyAuthorization) {
+        case .denied:
+            GuardianNotice.shared.show(.denied, place: place, navigator: navigator)
+        case .approximate:
+            Task {
+                _ = try? await manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: LocationGate.purposeKey)
+                if manager.accuracyAuthorization == .fullAccuracy {
+                    begin(to: place, with: navigator, store: store)
+                } else {
+                    GuardianNotice.shared.show(.approximate, place: place, navigator: navigator)
+                }
+            }
+        case .ready, .notDetermined:
+            begin(to: place, with: navigator, store: store)
+        }
+    }
+
+    private func begin(to place: Place, with navigator: Navigator, store: Store) {
         self.store = store
         destination = place
-        lastDistances = [:]; threat = nil; resting = .unknownPlace
-        lastMove = Date(); startedAt = Date()
+        lastDistances = [:]; threat = nil; resting = .unknownPlace; waitingForFix = true; here = nil
+        lastMove = Date(); startedAt = Date(); moveAnchor = nil; lastFixAt = .distantPast
         // 1.20.2: posizione «Sempre» e notifiche quando parte il guardiano (PermissionPolicy, mai nel giro delle foto)
         Task { await PermissionPolicy.request(.guardian, manager: manager) }
         if Bundle.main.object(forInfoDictionaryKey: "UIBackgroundModes") != nil {
@@ -71,11 +103,30 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(60))
                 guard let self, self.active else { return }
-                if Date().timeIntervalSince(self.lastMove) > 15 * 60 || Date().timeIntervalSince(self.startedAt) > 4 * 3600 { self.stop() }
+                if let why = Self.autoStop(lastMove: self.lastMove, startedAt: self.startedAt, now: Date()) { self.stopped(why); return }
+                // 2.0 (B34): la Live Activity resta «fresca» solo finché arrivano posizioni: senza GPS (o con l'app
+                // chiusa da iOS) dopo tre minuti si mostra vecchia, mai verde congelata
+                if Date().timeIntervalSince(self.lastFixAt) < 120 { self.refreshActivity(force: true) }
             }
         }
-        if let p = manager.location { update(Coordinate(lat: p.coordinate.latitude, lon: p.coordinate.longitude), course: p.course) }
+        // 2.0 (B144): la posizione già nota solo se recente e precisa (una vecchia poteva dire subito «Sei arrivato»)
+        if let p = manager.location, LocationGate.usable(p, accuracy: manager.accuracyAuthorization, limit: LocationGate.guardAccuracy, maxAge: 15) {
+            update(Coordinate(lat: p.coordinate.latitude, lon: p.coordinate.longitude), course: p.course)
+        }
         navigator.open(to: place)
+    }
+
+    /// Perché il guardiano si ferma da solo: fermo da 15 minuti o acceso da più di 4 ore (testabile)
+    nonisolated static func autoStop(lastMove: Date, startedAt: Date, now: Date) -> String? {
+        if now.timeIntervalSince(lastMove) > 15 * 60 { return "still" }
+        if now.timeIntervalSince(startedAt) > 4 * 3600 { return "long" }
+        return nil
+    }
+
+    /// 2.0 (B143): uno stop automatico si dice (prima la Live Activity spariva in silenzio)
+    private func stopped(_ why: String) {
+        if !Self.demo { notify(title: L("Guardian stopped."), body: L("GateLR has stopped watching the gates."), id: "stopped") }
+        stop()
     }
 
     func stop() {
@@ -83,24 +134,37 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         if manager.allowsBackgroundLocationUpdates { manager.allowsBackgroundLocationUpdates = false }
         if let activity { Task { await activity.end(nil, dismissalPolicy: .immediate) } }
         activity = nil; lastShown = nil
+        // 2.0 (B149): «Ferma» ferma anche la frase che stava dicendo
+        if voiceMade { voice.stopSpeaking(at: .immediate) }
         VoiceSession.deactivate()
         watchdog?.cancel(); watchdog = nil
         active = false; threat = nil; destination = nil
+        // 2.0 (B75): Siri non usa più la posizione di un guardiano fermo
+        here = nil; moveAnchor = nil; waitingForFix = true
     }
+
+    /// Vero dopo la prima frase (la voce si crea solo quando serve)
+    private var voiceMade = false
 
     // MARK: A ogni posizione
 
     func update(_ p: Coordinate, course: Double = -1, speed: Double? = nil) {
         guard active, let store else { return }
-        if let here, PathMath.meters(here, p) > 20 { lastMove = Date() }
+        if let a = moveAnchor {
+            if PathMath.meters(a, p) > 50 { lastMove = Date(); moveAnchor = p }
+        } else {
+            moveAnchor = p; lastMove = Date()
+        }
         here = p
+        lastFixAt = Date()
+        if waitingForFix { waitingForFix = false }
 
         // Arrivo, fermo da 15 minuti o più di 4 ore: il guardiano si ferma da solo
         if let d = destination, PathMath.meters(p, d.location) < 120 {
             if !Self.demo { notify(title: L("You have arrived"), body: L("GateLR has stopped watching the gates."), id: "arrived") }
             stop(); return
         }
-        if Date().timeIntervalSince(lastMove) > 15 * 60 || Date().timeIntervalSince(startedAt) > 4 * 3600 { stop(); return }
+        if let why = Self.autoStop(lastMove: lastMove, startedAt: startedAt, now: Date()) { stopped(why); return }
 
         // 1.19.3: lo stesso calcolo della guida e degli avvisi ad app chiusa (ThreatEvaluator): zone E aree pedonali,
         // solo davanti nel verso di marcia, la risposta per il tuo veicolo all'ora d'arrivo (permessi, hotel della meta)
@@ -135,7 +199,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         self.store = store
         destination = Place(name: L("Guardian"), address: "", location: PathMath.offset(p, meters: 5_000, bearing: course))
         lastDistances = [:]; threat = nil; resting = .unknownPlace
-        lastMove = Date(); startedAt = Date()
+        lastMove = Date(); startedAt = Date(); moveAnchor = nil
         active = true
         update(p, course: course)
         // Un secondo punto 60 m più avanti: «ti avvicini» anche per il calcolo senza direzione
@@ -146,7 +210,15 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
 
     // MARK: Live Activity
 
-    private var state: DriveAttributes.ContentState { Self.state(threat: threat, resting: resting) }
+    private var state: DriveAttributes.ContentState {
+        waitingForFix ? Self.waitingState : Self.state(threat: threat, resting: resting)
+    }
+
+    /// 2.0 (B13): acceso ma senza ancora una posizione precisa: neutro, scudo vuoto, «In attesa del GPS…» (mai verde)
+    nonisolated static var waitingState: DriveAttributes.ContentState {
+        DriveAttributes.ContentState(symbol: "location.slash", distance: "", instruction: L("Waiting for GPS…"),
+                                     warning: nil, eta: nil, level: "none", zone: nil)
+    }
 
     /// Quello che mostrano Dynamic Island e schermata di blocco (testabile): la minaccia con le parole della risposta;
     /// senza, «Nessuna ZTL attiva davanti» (grigio, scudo con la spunta) o, fuori dalle città che conosciamo,
@@ -189,18 +261,19 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     private func startActivity() {
         guard !Self.demo, ActivityAuthorizationInfo().areActivitiesEnabled, activity == nil else { return }
         activity = try? Activity.request(attributes: DriveAttributes(destination: PlatePrivacy.clean(destination?.name ?? "GateLR")),
-                                         content: ActivityContent(state: state.withoutPlates(PlatePrivacy.knownPlates), staleDate: nil), pushType: nil)
+                                         content: ActivityContent(state: state.withoutPlates(PlatePrivacy.knownPlates), staleDate: DriveAttributes.staleDate()), pushType: nil)
         lastShown = state
     }
 
-    private func refreshActivity() {
+    /// «force»: anche senza cambiamenti, per spostare in avanti la data oltre cui la Live Activity è vecchia (B34)
+    private func refreshActivity(force: Bool = false) {
         guard let activity else { return }
         let s = state
         // Distanza arrotondata: si aggiorna ogni 50-100 metri, non a ogni passo
-        guard s != lastShown else { return }
+        guard force || s != lastShown else { return }
         lastShown = s
         let shown = s.withoutPlates(PlatePrivacy.knownPlates)
-        Task { await activity.update(ActivityContent(state: shown, staleDate: nil)) }
+        Task { await activity.update(ActivityContent(state: shown, staleDate: DriveAttributes.staleDate())) }
     }
 
     // MARK: Voce e notifiche
@@ -208,6 +281,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     private func say(_ text: String) {
         guard !Self.demo else { return }
         VoiceSession.activate()
+        voiceMade = true
         voice.speak(SpeechVoice.utterance(text))
     }
 
@@ -225,11 +299,64 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
     }
 
     nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let l = locations.last, l.horizontalAccuracy >= 0, l.horizontalAccuracy < 80 else { return }
+        // 2.0 (B144): solo posizioni recenti (quelle arrivate in ritardo tutte insieme non si usano)
+        guard let l = locations.last, l.horizontalAccuracy >= 0, l.horizontalAccuracy < LocationGate.guardAccuracy,
+              abs(l.timestamp.timeIntervalSinceNow) < 15 else { return }
         let c = Coordinate(lat: l.coordinate.latitude, lon: l.coordinate.longitude)
         // La direzione conta solo se il GPS la dà abbastanza precisa (come nella guida)
         let course = l.course >= 0 && (l.courseAccuracy < 0 || l.courseAccuracy <= 45) ? l.course : -1
         let speed = l.speed >= 0 ? l.speed : nil
         Task { @MainActor in self.update(c, course: course, speed: speed) }
     }
+
+    /// 2.0 (B13): se durante il viaggio la posizione diventa negata o approssimativa, il guardiano si ferma e lo dice
+    nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        let ready = LocationGate.readiness(status: manager.authorizationStatus, accuracy: manager.accuracyAuthorization)
+        Task { @MainActor in
+            guard self.active, let place = self.destination, ready == .denied || ready == .approximate else { return }
+            self.stop()
+            GuardianNotice.shared.show(ready == .denied ? .denied : .approximate, place: place, navigator: nil)
+        }
+    }
+}
+
+/// 2.0 (B13): il messaggio «Serve la posizione precisa per i varchi» quando il guardiano non può partire (o si ferma)
+/// perché la posizione è negata o approssimativa. Un oggetto a parte, osservato solo dall'avviso in RootView
+@MainActor
+final class GuardianNotice: ObservableObject {
+    static let shared = GuardianNotice()
+
+    struct Pending: Identifiable, Equatable {
+        enum Problem: Equatable { case denied, approximate }
+        var problem: Problem
+        var place: Place
+        /// Il navigatore scelto: «Apri comunque il navigatore» (senza guardiano); nil se il viaggio era già partito
+        var navigator: Navigator?
+        var id: String { "\(problem)|\(place.key)" }
+
+        /// Il testo del messaggio (testabile)
+        var message: String {
+            switch problem {
+            case .denied: L("Location is off for GateLR, so the guardian can't warn you before a gate. Turn it on in Settings → GateLR → Location.")
+            case .approximate: L("With approximate location the guardian can't tell which gate is ahead. Turn on Precise Location in Settings → GateLR → Location.")
+            }
+        }
+    }
+
+    @Published var pending: Pending?
+
+    func show(_ problem: Pending.Problem, place: Place, navigator: Navigator?) {
+        pending = Pending(problem: problem, place: place, navigator: navigator)
+        // Anche se GateLR non è davanti (il navigatore già aperto): una notifica, se permesse
+        let c = UNMutableNotificationContent()
+        c.title = L("Precise location is needed for the gates")
+        c.body = PlatePrivacy.clean(pending?.message ?? "")
+        c.sound = .default
+        UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "guardian|location", content: c, trigger: nil))
+    }
+}
+
+extension DriveAttributes {
+    /// 2.0 (B34): oltre questa data la Live Activity si mostra vecchia (grigia, mai verde): 3 minuti senza aggiornamenti
+    static func staleDate(from now: Date = Date()) -> Date { now.addingTimeInterval(180) }
 }

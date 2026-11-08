@@ -17,7 +17,8 @@ struct TripView: View {
     @State private var driving = false
     @State private var hotelName = ""
     // DriveSession non si osserva qui (pubblica a ogni posizione): l'errore lo mostra DriveErrorText
-    @State private var language: MessageLanguage = .en
+    /// 2.0 (B139): la lingua del messaggio parte da quella dell'app (prima sempre inglese)
+    @State private var language: MessageLanguage = .appDefault
     @State private var copied = false
     @State private var saved = false
     /// 1.20.2: il viaggio da cancellare, in attesa della conferma
@@ -111,7 +112,8 @@ struct TripView: View {
                     search.clear(); store.place = nil; typing = false
                 } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(Theme.muted) }
                 .accessibilityLabel(L("Clear"))
-            } else if monitor.location != nil {
+            } else if monitor.answerLocation != nil {
+                // 2.0 (B27): solo con una posizione precisa (l'approssimativa può essere in un'altra zona)
                 Button { useMyLocation() } label: { Image(systemName: "location.fill").foregroundStyle(Theme.blue) }
                     .accessibilityLabel(L("Use my location"))
             }
@@ -135,12 +137,11 @@ struct TripView: View {
 
     private var suggestions: some View {
         VStack(alignment: .leading, spacing: 0) {
-            if search.results.isEmpty {
-                if search.failed {
-                    SearchFailedRow(dark: false) { search.retry() }
-                } else {
-                    Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
-                }
+            // 2.0 (B132): l'errore anche con i suggerimenti già in vista (il tocco su un suggerimento senza rete)
+            if search.failed {
+                SearchFailedRow(dark: false) { search.retry() }
+            } else if search.results.isEmpty {
+                Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
             }
             ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
                 Button { choose(r) } label: {
@@ -166,7 +167,7 @@ struct TripView: View {
     }
 
     private func useMyLocation() {
-        guard let here = monitor.location else { return }
+        guard let here = monitor.answerLocation else { return }
         store.select(Place(name: L("My position"), address: "",
                            location: Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)))
     }
@@ -206,12 +207,12 @@ struct TripView: View {
             } icon: { Image(systemName: "figure.walk.circle.fill").font(.app(size: 24)) }
             .foregroundStyle(.white)
             .padding(14).frame(maxWidth: .infinity, alignment: .leading)
-            .background(Theme.red, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .background(Theme.redFill, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
             .accessibilityElement(children: .combine)
             .accessibilityIdentifier("trip.pedestrian")
         }
         if let hit = check.hit, let first = hits.first {
-            VerdictCard(answer: check.shownAnswer ?? store.answer(at: date, zone: hit.zone, hotelInside: store.isHotel(place)),
+            VerdictCard(answer: check.shownAnswer ?? store.answer(at: date, zone: hit.zone, hotelInside: store.isHotel(place, at: date)),
                         heading: heading(hit.zone, date),
                         source: hit.zone.source,
                         since: atArrival ? nil : store.engine.previousChange(hit.zone, before: date),
@@ -233,8 +234,10 @@ struct TripView: View {
             if let ticket = first.zone.ticket, store.engine.isActive(first.zone, at: date), check.pedestrian == nil {
                 TicketCard(zone: first.zone, ticket: ticket, entry: date)
             }
-            if first.zone.hotelCanRegister {
-                HotelStayCard(place: place, zone: first.zone, arrival: atArrival ? arrivalTime : Date())
+            // 2.0 (B72): l'hotel per ogni zona che lo accetta, anche quella grande che decide (zone annidate)
+            let hotelZones = hits.map(\.zone).filter(\.hotelCanRegister)
+            if !hotelZones.isEmpty {
+                HotelStayCard(place: place, zones: hotelZones, arrival: atArrival ? arrivalTime : Date())
                 hotelMessage
             }
         } else if check.pedestrian != nil {
@@ -463,12 +466,32 @@ struct TripView: View {
     private var saveButton: some View {
         WideButton(title: saved ? "Trip saved" : "Save this trip", systemImage: saved ? "checkmark" : "bookmark", prominent: false) {
             let when = atArrival ? arrivalTime : Date()
-            store.trips.insert(Trip(hotel: store.place, hotelName: hotelName.isEmpty ? (store.place?.name ?? "") : hotelName, arrival: when,
-                                    departure: when.addingTimeInterval(86_400 * 2), vehicleId: store.vehicle.id), at: 0)
+            // 2.0 (B137): un viaggio solo per posto e arrivo (prima un doppione a ogni tocco); partenza dal soggiorno
+            let stay = store.place.flatMap { store.stays[$0.key] }
+            let trip = Trip(hotel: store.place, hotelName: hotelName.isEmpty ? (store.place?.name ?? "") : hotelName, arrival: stay?.arrival ?? when,
+                            departure: stay?.departure ?? when.addingTimeInterval(86_400 * 2), vehicleId: store.vehicle.id,
+                            isHotel: stay.map { $0.status != .notAsked } ?? false)
+            store.trips = Self.saving(trip, into: store.trips)
+            // 2.0 (B141): il promemoria del soggiorno nasce anche salvando il viaggio, non solo toccando il riquadro
+            if let place = store.place, let stay { Task { await store.scheduleStayReminder(for: place, stay: stay) } }
             saved = true
             Task { try? await Task.sleep(for: .seconds(1.5)); saved = false }
         }
         .sensoryFeedback(.success, trigger: saved) { _, new in new }
+    }
+
+    /// 2.0 (B137): il viaggio nuovo sostituisce quello verso lo stesso posto con lo stesso arrivo (al minuto)
+    static func saving(_ trip: Trip, into trips: [Trip]) -> [Trip] {
+        let minute = { (d: Date) in Int(d.timeIntervalSinceReferenceDate / 60) }
+        let same = { (t: Trip) in t.hotel?.key == trip.hotel?.key && minute(t.arrival) == minute(trip.arrival) }
+        return [trip] + trips.filter { !same($0) }
+    }
+
+    /// 2.0 (B138): «In corso» tra arrivo e partenza, «Passato» solo dopo la partenza
+    static func tripTag(_ t: Trip, now: Date = Date()) -> String? {
+        if t.departure < now { return L("Past") }
+        if t.arrival <= now { return L("In progress") }
+        return nil
     }
 
     private var savedTrips: some View {
@@ -494,7 +517,7 @@ struct TripView: View {
                                     .font(.app(size: 13)).foregroundStyle(Theme.muted)
                             }
                             Spacer()
-                            if t.arrival < Date() { Pill(text: L("Past"), fill: Theme.raised, ink: Theme.muted) }
+                            if let tag = Self.tripTag(t) { Pill(text: tag, fill: Theme.raised, ink: Theme.muted) }
                         }
                         .padding(.horizontal, 14).padding(.vertical, 10)
                         .contentShape(Rectangle())
@@ -511,9 +534,11 @@ struct TripView: View {
         }
     }
 
+    /// 2.0 (B135): la riga del posto come nella risposta (PlaceCheck.zoneLine): area pedonale, fuori copertura «Non
+    /// conosciamo le ZTL di questo posto», non sempre «Fuori dalla ZTL»
     private func tripSubtitle(_ t: Trip, zone: Zone?) -> String {
         let when: String = store.engine.format(t.arrival, .dateTime.day().month().hour().minute())
-        let where_: String? = zone?.shortName ?? (t.hotel == nil ? nil : L("Outside the ZTL"))
+        let where_: String? = t.hotel.map { h in zone?.shortName ?? PlaceCheck(h, store: store, at: t.arrival).zoneLine }
         return [when, where_].compactMap { $0 }.joined(separator: " · ")
     }
 
@@ -521,11 +546,14 @@ struct TripView: View {
         let name = hotelName.isEmpty ? store.place?.name : hotelName
         // Le stesse date del riquadro «Registrazione della targa» (di serie: due notti)
         let stay = store.place.flatMap { store.stays[$0.key] }
-        let start: Date = stay?.arrival ?? (atArrival ? arrivalTime : Date())
+        // 2.0 (B136): l'ora d'arrivo è quella del chip (il soggiorno tiene solo il giorno: prima restava l'ora del primo tocco)
+        let chosen = atArrival ? arrivalTime : Date()
+        let start: Date = stay.map { MessageLanguage.combine(day: $0.arrival, time: chosen) } ?? chosen
         let end: Date = stay?.departure ?? (RuleEngine.rome.date(byAdding: .day, value: 2, to: start) ?? start)
+        // 2.0 (B139): segnaposto nella lingua del messaggio; «La mia posizione» non è un hotel: saluto senza nome
         let text = language.message(arrival: start,
-                                    plate: store.vehicle.plate.isEmpty ? "[PLATE]" : store.vehicle.plate,
-                                    hotel: name, departure: end)
+                                    plate: store.vehicle.plate.isEmpty ? language.platePlaceholder : store.vehicle.plate,
+                                    hotel: name == L("My position") ? nil : name, departure: end)
         return VStack(alignment: .leading, spacing: 10) {
             HStack {
                 SectionLabel("Message for the hotel")
@@ -538,7 +566,8 @@ struct TripView: View {
             Text(text).font(.app(size: 14)).padding(12)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Theme.raised, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                .textSelection(.enabled)
+                // 2.0 (B140): niente selezione del testo: la copia di sistema (senza scadenza) scavalcava quella protetta
+                // da 10 minuti di «Copia» (c'è la targa)
             if store.vehicle.plate.isEmpty {
                 Label("Add your plate in Garage to fill it in.", systemImage: "info.circle")
                     .font(.app(size: 12)).foregroundStyle(Theme.muted)
@@ -609,6 +638,26 @@ private struct DriveErrorText: View {
 enum MessageLanguage: String, CaseIterable, Identifiable {
     case it, en, de
     var id: String { rawValue }
+
+    /// 2.0 (B139): la lingua dell'app, se è una delle tre; altrimenti inglese
+    static var appDefault: MessageLanguage { from(Locale.current.language.languageCode?.identifier) }
+    static func from(_ code: String?) -> MessageLanguage { code.flatMap { MessageLanguage(rawValue: $0) } ?? .en }
+
+    /// La targa ancora da scrivere, nella lingua del messaggio (prima «[PLATE]» anche in italiano e tedesco)
+    var platePlaceholder: String {
+        switch self {
+        case .it: "[TARGA]"
+        case .en: "[PLATE]"
+        case .de: "[KENNZEICHEN]"
+        }
+    }
+
+    /// Il giorno di «day» con l'ora di «time», a Roma (l'arrivo del soggiorno con l'ora scelta nel chip)
+    static func combine(day: Date, time: Date) -> Date {
+        let c = RuleEngine.rome
+        let t = c.dateComponents([.hour, .minute], from: time)
+        return c.date(bySettingHour: t.hour ?? 12, minute: t.minute ?? 0, second: 0, of: day) ?? day
+    }
 
     func message(arrival: Date, plate: String, hotel: String? = nil, departure: Date? = nil) -> String {
         let locale = Locale(identifier: rawValue)

@@ -81,6 +81,9 @@ targets:
       path: Config/GateLR.entitlements
       properties:
         com.apple.security.application-groups: [group.it.ledion.GateLR]
+        # 2.0 (B41): gli avvisi ZTL sono «Time Sensitive» (ThreatAlerts, Guardian): senza questa capacità iOS li tratta come
+        # normali e con una Full immersione («Guida») li trattiene
+        com.apple.developer.usernotifications.time-sensitive: true
     info:
       path: Sources/Info.plist
       properties:
@@ -118,6 +121,10 @@ targets:
         # Navigazione: posizione e voce anche con lo schermo spento o un'altra app davanti
         UIBackgroundModes: [location, audio]
         NSSupportsLiveActivities: true
+        # 2.0 (B13, B27): la richiesta di precisione temporanea (posizione «approssimativa»): guardiano e «La mia posizione»
+        # (LocationGate.purposeKey); traduzioni in Tools/translations.py (INFO)
+        NSLocationTemporaryUsageDescriptionDictionary:
+          GateLRGates: "GateLR needs your precise location to tell which ZTL gate is ahead of you and whether you're inside a zone."
         NSLocationAlwaysAndWhenInUseUsageDescription: "GateLR warns you before a ZTL gate while you drive with another navigator, and when the app is closed. Your location is used on your iPhone; GateLR doesn't collect it."
         # CarPlay: la scena si attiva solo quando Apple concede l'autorizzazione «Driving Task»
         UIApplicationSceneManifest:

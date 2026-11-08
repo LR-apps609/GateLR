@@ -21,7 +21,8 @@ struct IntroSignsSlide: View {
             Spacer(minLength: 16)
             ztlSign.frame(maxWidth: .infinity)
             Spacer(minLength: 16)
-            carousel.frame(height: 104)
+            // 2.0 (B122): alto almeno 104 punti, di più con «Testo più grande» (prima il testo era tagliato da .clipped())
+            carousel.frame(minHeight: 104)
             Spacer(minLength: 16)
             IntroButton(title: L("Continue"), identifier: "intro2.next3", action: next)
         }
@@ -113,7 +114,8 @@ struct IntroSignsSlide: View {
                 }
             }
         }
-        .clipped()
+        .clipped(antialiased: false)
+        .fixedSize(horizontal: false, vertical: true)
     }
 
     private static let meanings = ["Pedestrian area: no cars at all.", "Camera off: you can drive in.", "End of the zone: you're out."]

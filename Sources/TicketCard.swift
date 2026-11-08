@@ -7,7 +7,8 @@ struct TicketCard: View {
     var zone: Zone
     var ticket: Ticket
     var entry: Date
-    @State private var reminded = false
+    /// nil = non ancora; false = le notifiche sono spente (2.0, B70: prima «Promemoria impostato» anche senza notifiche)
+    @State private var reminded: Bool?
 
     /// Entro quando va attivato per un ingresso a quell'ora
     var deadline: Date {
@@ -45,16 +46,17 @@ struct TicketCard: View {
                             .foregroundStyle(.white)
                     }
                 }
-                Button { remind() } label: {
-                    Label(reminded ? L("Reminder set") : L("Remind me"), systemImage: reminded ? "checkmark" : "bell")
+                Button { if reminded == false { LocationGate.openSettings() } else { remind() } } label: {
+                    Label(reminded == true ? L("Reminder set") : L("Remind me"), systemImage: reminded == true ? "checkmark" : "bell")
                         .font(.app(size: 15, weight: .semibold))
                         .frame(maxWidth: .infinity, minHeight: 46)
                         .background(Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                         .foregroundStyle(Theme.blue)
                 }
-                .disabled(reminded)
-                .sensoryFeedback(.success, trigger: reminded) { _, new in new }
+                .disabled(reminded == true)
+                .sensoryFeedback(.success, trigger: reminded == true) { _, new in new }
             }
+            if reminded == false { RemindersOffNote() }
         }
         .padding(14).card()
     }
@@ -74,9 +76,32 @@ struct TicketCard: View {
             ? UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: when), repeats: false)
             : UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         Task {
-            _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
-            try? await UNUserNotificationCenter.current().add(UNNotificationRequest(identifier: "ticket|\(zone.id)", content: content, trigger: trigger))
-            reminded = true
+            reminded = await Reminders.add(UNNotificationRequest(identifier: "ticket|\(zone.id)", content: content, trigger: trigger))
         }
+    }
+}
+
+/// 2.0 (B70): i promemoria (ticket, hotel) si dicono impostati solo se iOS li ha davvero accettati
+enum Reminders {
+    /// Chiede le notifiche se serve, poi aggiunge il promemoria. Falso se le notifiche sono spente o iOS lo rifiuta
+    static func add(_ request: UNNotificationRequest) async -> Bool {
+        let center = UNUserNotificationCenter.current()
+        _ = try? await center.requestAuthorization(options: [.alert, .sound])
+        guard await GateMonitor.notificationsAllowed() else { return false }
+        do { try await center.add(request) } catch { return false }
+        return true
+    }
+}
+
+/// «Le notifiche sono spente: attivale nelle Impostazioni», con il link (2.0, B70)
+struct RemindersOffNote: View {
+    var body: some View {
+        Button { LocationGate.openSettings() } label: {
+            Label(L("Notifications are off: turn them on in Settings"), systemImage: "bell.slash")
+                .font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.amberInk)
+                .multilineTextAlignment(.leading)
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("reminders.off")
     }
 }

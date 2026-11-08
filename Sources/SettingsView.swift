@@ -6,7 +6,8 @@ import TipKit
 /// informazioni. Prima versione senza login: tutto resta sul telefono.
 struct SettingsView: View {
     @EnvironmentObject var store: Store
-    @State private var testSent = false
+    /// 2.0 (B129): l'esito dell'avviso di prova: nil = non ancora provato, false = notifiche spente
+    @State private var testSent: Bool?
     @State private var reporting = false
     @AppStorage("navigator") private var preferredNavigator = ""
     @AppStorage("vehicleMarker") private var vehicleMarker = VehicleMarker.arrow.rawValue
@@ -30,9 +31,13 @@ struct SettingsView: View {
                 Stepper(String(format: L("Warn me %lld m before a gate"), Int(store.alertDistance)),
                         value: $store.alertDistance, in: 200...1000, step: 100)
                 Button {
-                    GateMonitor.shared.sendTest(store: store)
-                    testSent = true
-                } label: { Label(testSent ? L("Sent: check your notifications") : L("Try an alert"), systemImage: "bell.badge") }
+                    if testSent == false { LocationGate.openSettings(); return }
+                    Task { testSent = await GateMonitor.shared.sendTest(store: store) }
+                } label: {
+                    Label(testSent == true ? L("Sent: check your notifications")
+                          : testSent == false ? L("Notifications are off: turn them on in Settings") : L("Try an alert"),
+                          systemImage: testSent == false ? "bell.slash" : "bell.badge")
+                }
             } header: { Text("Alerts") } footer: {
                 Text("Alerts work with the app closed for the saved cities. They need location access \"Always\".")
             }

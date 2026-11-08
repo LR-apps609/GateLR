@@ -2,3 +2,4 @@
 "NSLocationWhenInUseUsageDescription" = "GateLR gebruikt je locatie op je iPhone om je te vertellen welke ZTL-poorten bij jou in de buurt zijn. GateLR verzamelt hem niet.";
 "NSLocationAlwaysAndWhenInUseUsageDescription" = "GateLR waarschuwt je voor een ZTL-poort terwijl je met een andere navigatie-app rijdt, en als de app dicht is. Je locatie wordt op de iPhone gebruikt; GateLR verzamelt hem niet.";
 "NSCameraUsageDescription" = "GateLR leest op je iPhone de tijden op ZTL-borden, kentekenbewijzen en boetes die je fotografeert. De foto's worden niet geüpload.";
+"GateLRGates" = "GateLR heeft je exacte locatie nodig om te weten welke ZTL-poort voor je ligt en of je in een zone bent.";

@@ -52,8 +52,14 @@ struct GateProvider: AppIntentTimelineProvider {
         if let city = cities.first(where: { $0.zones.contains { $0.id == id } }), let z = city.zones.first(where: { $0.id == id }) {
             return (city, z)
         }
-        guard let city = cities.first else { return nil }
-        return (city, city.zones[0])
+        return Self.fallback(cities)
+    }
+
+    /// 2.0 (B145): la zona scelta non c'è (la zona della modalità prova, o tolta da un aggiornamento): Firenze Settore B
+    /// come prima della scelta, se c'è; altrimenti nessuna zona (neutro). Prima il primo elenco: Alghero
+    static func fallback(_ cities: [City]) -> (City, Zone)? {
+        guard let city = cities.first(where: { $0.id == "firenze" }), let z = city.zones.first(where: { $0.id == "firenze-b" }) else { return nil }
+        return (city, z)
     }
 
     private func entry(at date: Date, zone wanted: String?, garage: SharedData.Garage? = SharedData.garage()) -> GateEntry {

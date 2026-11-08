@@ -10,7 +10,7 @@ src = (ROOT / "Tools/translations.py").read_text()
 ns = {}
 exec(src.split("def esc")[0], {}, ns)
 KEYS = list(ns["T"])
-INFO_KEYS = ["NSLocationWhenInUseUsageDescription", "NSLocationAlwaysAndWhenInUseUsageDescription", "NSCameraUsageDescription"]
+INFO_KEYS = ["NSLocationWhenInUseUsageDescription", "NSLocationAlwaysAndWhenInUseUsageDescription", "NSCameraUsageDescription", "GateLRGates"]
 # Le frasi di tutte le AppShortcut: «\(.applicationName)» → ${applicationName}, «\(\.$zone)» → ${zone}
 SHORTCUT_KEYS = [re.sub(r"\\\(\\\.\$(\w+)\)", r"${\1}", m.group(1).replace("\\(.applicationName)", "${applicationName}"))
                  for block in re.finditer(r"phrases:\s*\[(.*?)\]", (ROOT / "Sources/NearbyZTLIntent.swift").read_text(), re.S)

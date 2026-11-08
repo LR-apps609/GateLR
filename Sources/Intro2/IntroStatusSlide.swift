@@ -69,6 +69,14 @@ struct IntroStatusSlide: View {
                 }
             }
             .disabled(asking)
+            // 2.0 (B128): «Non ora» va avanti senza le richieste di iOS (prima c'era solo «Salta», che saltava anche i cartelli)
+            Button(action: next) {
+                Text(L("Not now")).font(Notte.font(17, .semibold)).foregroundStyle(Notte.muted)
+                    .frame(maxWidth: .infinity, minHeight: 44)
+            }
+            .buttonStyle(.plain)
+            .disabled(asking)
+            .accessibilityIdentifier("intro2.notNow")
         }
         .padding(.horizontal, 20).padding(.bottom, 12)
         .task { await cycle() }

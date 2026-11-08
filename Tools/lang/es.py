@@ -940,12 +940,35 @@ T = {
 "Data out of date": "Datos caducados",
 "Holiday not confirmed": "Festivo sin confirmar",
 "Euro class unknown": "Clase Euro desconocida",
+# 2.0 «bug iPhone»
+"Highway Code, art. 7 (ZTL)": "Código de circulación italiano, art. 7 (ZTL)",
+"Highway Code, art. 201 (notification)": "Código de circulación italiano, art. 201 (notificación)",
+"Highway Code, art. 202 (payment)": "Código de circulación italiano, art. 202 (pago)",
+"Highway Code, art. 203 (appeal to the Prefetto)": "Código de circulación italiano, art. 203 (recurso al Prefetto)",
+"Highway Code, art. 204-bis (Giudice di Pace)": "Código de circulación italiano, art. 204-bis (Giudice di Pace)",
+"Edit %@": "Editar %@",
+"Waiting for GPS…": "Esperando el GPS…",
+"Location is off for GateLR, so the guardian can't warn you before a gate. Turn it on in Settings → GateLR → Location.": "La ubicación está desactivada para GateLR: el guardián no puede avisarte antes de un acceso. Actívala en Ajustes → GateLR → Ubicación.",
+"With approximate location the guardian can't tell which gate is ahead. Turn on Precise Location in Settings → GateLR → Location.": "Con la ubicación aproximada el guardián no sabe qué acceso tienes delante. Activa Ubicación exacta en Ajustes → GateLR → Ubicación.",
+"Precise location is needed for the gates": "Se necesita la ubicación exacta para los accesos",
+"The hotel registers the plate of %@. For this vehicle, ask the hotel again.": "El hotel registra la matrícula de %@. Para este vehículo, vuelve a pedírselo al hotel.",
+"Pedestrian area camera": "Cámara de zona peatonal",
+"%lld gates · on · %@": "%lld accesos · activos · %@",
+"%lld gates · off · %@": "%lld accesos · apagados · %@",
+"No known ZTL on the way: outside the cities we cover, check the signs.": "Ninguna ZTL conocida en el trayecto: fuera de las ciudades cubiertas, mira las señales.",
+"Notifications are off: turn them on in Settings": "Las notificaciones están desactivadas: actívalas en Ajustes",
+"In progress": "En curso",
+"Approximate location: search the address instead.": "Ubicación aproximada: busca mejor la dirección.",
+"Not updated: open GateLR": "Sin actualizar: abre GateLR",
+"Add your plate in Garage first.": "Primero añade tu matrícula en el Garaje.",
+"Navigate anyway": "Navegar de todos modos",
 }
 
 INFO = {
     "NSLocationWhenInUseUsageDescription": "GateLR usa tu ubicación en el iPhone para decirte qué accesos de ZTL tienes cerca. GateLR no la recoge.",
     "NSLocationAlwaysAndWhenInUseUsageDescription": "GateLR te avisa antes de un acceso de ZTL mientras conduces con otro navegador y cuando la app está cerrada. La ubicación se usa en el iPhone; GateLR no la recoge.",
     "NSCameraUsageDescription": "GateLR lee en tu iPhone los horarios de los paneles ZTL, los permisos de circulación y las multas que fotografías. Las fotos no se suben.",
+    "GateLRGates": "GateLR necesita tu ubicación exacta para saber qué acceso ZTL tienes delante y si estás dentro de una zona.",
 }
 
 SHORTCUTS = {

@@ -1,9 +1,12 @@
 import SwiftUI
+import UIKit
 
 // Il punto d'ingresso dell'app, da solo in questo file: i test automatici compilano tutto il resto.
 @main
 struct GateLRApp: App {
     @StateObject private var store = Store.shared
+    // 2.0 (B42): il rilancio in sottofondo di iOS per un avviso ad app chiusa passa da qui, non dalla finestra
+    @UIApplicationDelegateAdaptor(GateLRAppDelegate.self) private var appDelegate
 
     init() {
         // 1.19.4: la telemetria di Mapbox spenta di serie, prima che si crei una mappa (poi decide chi usa l'app)
@@ -133,5 +136,24 @@ struct GateLRApp: App {
         guard let i = args.firstIndex(of: "-uiPlace"), args.count > i + 3,
               let lat = Double(args[i + 2]), let lon = Double(args[i + 3]) else { return }
         store.select(Place(name: args[i + 1], address: "", location: Coordinate(lat: lat, lon: lon)))
+    }
+}
+
+/// 2.0 (B42): quando iOS rilancia GateLR in sottofondo per un evento di CLMonitor (app chiusa da iOS), la finestra non si
+/// apre e il .task di RootView non parte: senza questo il monitor «gates» non veniva ricreato e l'avviso non arrivava.
+/// Qui, prima della UI, si ricrea (GateMonitor.startIfReady non parte due volte)
+final class GateLRAppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        let args = ProcessInfo.processInfo.arguments
+        if GateMonitor.startsAtLaunch(onboarded: UserDefaults.standard.bool(forKey: "onboarded"), uitest: args.contains("-uitest")) {
+            Task { @MainActor in
+                ThreatAlerts.shared.install()
+                let store = Store.shared
+                await store.whenLoaded()
+                await GateMonitor.shared.startIfReady(store: store)
+            }
+        }
+        return true
     }
 }

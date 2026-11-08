@@ -173,7 +173,7 @@ struct SignReaderView: View {
                 .font(.app(size: 17, weight: .bold))
                 .foregroundStyle(.white)
                 .padding(14).frame(maxWidth: .infinity, alignment: .leading)
-                .background(Theme.red, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .background(Theme.redFill, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                 .accessibilityIdentifier("sign.verdict.active")
         case .seemsOff:
             amberBox(title: L("According to the sign, the ZTL seems off right now: check that there are no other bans"),
