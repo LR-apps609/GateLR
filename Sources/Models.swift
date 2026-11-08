@@ -741,8 +741,28 @@ extension Zone {
     /// Distanza approssimata in metri dal perimetro (0 se dentro)
     func distance(lat: Double, lon: Double) -> Double {
         if contains(lat: lat, lon: lon) { return 0 }
-        guard !perimeter.isEmpty else { return .infinity }
-        let k = cos(lat * .pi / 180)
-        return perimeter.map { p in hypot((p.lat - lat) * 111_000, (p.lon - lon) * 111_000 * k) }.min() ?? .infinity
+        return PerimeterMath.nearest(perimeter, to: Coordinate(lat: lat, lon: lon)).meters
+    }
+}
+
+/// 2.1 (B09): la distanza da un perimetro si misura dai LATI, non dai vertici: su un lato lungo (Torino, 940 m) il vertice
+/// più vicino poteva essere a 470 m mentre il bordo era a 5 m. Stessa formula su Android (Geometry.nearestOnRing) e sul sito
+enum PerimeterMath {
+    /// Il punto del perimetro (chiuso) più vicino a p e la distanza in metri
+    static func nearest(_ perimeter: [Coordinate], to p: Coordinate) -> (point: Coordinate, meters: Double) {
+        var best = (point: p, meters: Double.infinity)
+        let n = perimeter.count
+        guard n > 0 else { return best }
+        let k = cos(p.lat * .pi / 180)
+        for i in 0..<n {
+            let a = perimeter[i], b = perimeter[(i + 1) % n]
+            let ax = (a.lon - p.lon) * 111_000 * k, ay = (a.lat - p.lat) * 111_000
+            let dx = (b.lon - a.lon) * 111_000 * k, dy = (b.lat - a.lat) * 111_000
+            let len2 = dx * dx + dy * dy
+            let t = len2 > 0 ? max(0, min(1, -(ax * dx + ay * dy) / len2)) : 0
+            let m = hypot(ax + t * dx, ay + t * dy)
+            if m < best.meters { best = (Coordinate(lat: a.lat + t * (b.lat - a.lat), lon: a.lon + t * (b.lon - a.lon)), m) }
+        }
+        return best
     }
 }

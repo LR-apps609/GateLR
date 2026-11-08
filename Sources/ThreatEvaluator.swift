@@ -166,13 +166,8 @@ enum ThreatEvaluator {
 
     /// Il punto del perimetro più vicino e la distanza in metri (la stessa misura di Zone.distance)
     static func nearestPoint(_ perimeter: [Coordinate], to p: Coordinate) -> (point: Coordinate, meters: Double) {
-        let k = cos(p.lat * .pi / 180)
-        var best = (point: p, meters: Double.infinity)
-        for q in perimeter {
-            let m = hypot((q.lat - p.lat) * 111_000, (q.lon - p.lon) * 111_000 * k)
-            if m < best.meters { best = (q, m) }
-        }
-        return best
+        // 2.1 (B09): dal lato più vicino, non dal vertice
+        PerimeterMath.nearest(perimeter, to: p)
     }
 
     /// La zona è davanti? Con la direzione di marcia (course ≥ 0): solo entro ±70°. Senza direzione (fermo, GPS
@@ -201,6 +196,9 @@ enum ThreatEvaluator {
                      covered: Bool, answer: (ThreatCandidate, Double) -> Answer) -> Scan {
         var distances: [String: Double] = [:]
         var best: ZoneThreat?
+        // 2.1 (B10): la zona peggiore che ti contiene (anche un'area pedonale) resta la minaccia, a 0 m, finché ci sei dentro:
+        // prima si saltava e il guardiano partito dentro il Settore A diceva verde «Nessuna ZTL attiva davanti»
+        var within: ZoneThreat?
         var entered: [ZoneThreat] = []
         for c in candidates {
             let inside = c.zone.contains(lat: p.lat, lon: p.lon)
@@ -210,10 +208,11 @@ enum ThreatEvaluator {
             distances[c.id] = d
             guard d < lookahead else { continue }
             if d == 0 {
-                if let before, before > 0 {
-                    let a = answer(c, 0)
-                    if alerts(a.verdict, c) { entered.append(ZoneThreat(candidate: c, meters: 0, answer: a, point: p)) }
-                }
+                let a = answer(c, 0)
+                guard alerts(a.verdict, c) else { continue }
+                let t = ZoneThreat(candidate: c, meters: 0, answer: a, point: p)
+                if let before, before > 0 { entered.append(t) }
+                if within.map({ t.shown.severity > $0.shown.severity }) ?? true { within = t }
                 continue
             }
             guard isAhead(from: p, to: point, meters: d, course: course, approaching: before.map { d < $0 - 3 }) else { continue }
@@ -223,7 +222,7 @@ enum ThreatEvaluator {
             if let b = best, b.meters < d || (b.meters == d && b.shown.severity >= t.shown.severity) { continue }
             best = t
         }
-        return Scan(threat: best, entered: entered, distances: distances,
+        return Scan(threat: within ?? best, entered: entered, distances: distances,
                     resting: covered ? .clear : .unknownPlace)
     }
 

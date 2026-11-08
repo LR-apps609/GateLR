@@ -163,9 +163,17 @@ final class ThreatEvaluatorTests: XCTestCase {
         let inside = Coordinate(lat: 43.8027, lon: 11.2500)
         let s = ThreatEvaluator.scan(at: inside, course: 0, candidates: [c], last: [c.id: 50], covered: true) { _, _ in self.no }
         XCTAssertEqual(s.entered.map(\.zone.id), [c.id])
-        XCTAssertNil(s.threat)
+        // 2.1 (B10): dentro la zona la minaccia resta, a 0 m (mai «Nessuna ZTL attiva davanti» verde)
+        XCTAssertEqual(s.threat?.meters, 0)
+        XCTAssertEqual(s.threat?.finale.stato, .nonEntrare)
         let again = ThreatEvaluator.scan(at: inside, course: 0, candidates: [c], last: s.distances, covered: true) { _, _ in self.no }
         XCTAssertTrue(again.entered.isEmpty)
+        XCTAssertEqual(again.threat?.meters, 0, "anche partendo già dentro")
+        let state = Guardian.state(threat: again.threat, resting: .clear)
+        XCTAssertEqual(state.level, "no")
+        XCTAssertTrue(state.instruction.hasPrefix(String(format: L("You're inside %@"), c.zone.shortName)))
+        // Dentro una zona dove si entra: nessuna minaccia
+        XCTAssertNil(ThreatEvaluator.scan(at: inside, course: 0, candidates: [c], last: [:], covered: true) { _, _ in self.yes }.threat)
     }
 
     // MARK: Avvisi ad app chiusa

@@ -33,6 +33,19 @@ object Geometry {
         return hypot(ax + t * dx, ay + t * dy) to t
     }
 
+    /** 2.1 (B09): il punto di un perimetro chiuso più vicino a p e la distanza in metri, dai LATI e non dai vertici
+     *  (come PerimeterMath.nearest dell'iPhone) */
+    fun nearestOnRing(ring: List<Coordinate>, p: Coordinate): Pair<Coordinate, Double> {
+        if (ring.isEmpty()) return p to Double.POSITIVE_INFINITY
+        var best = p to Double.POSITIVE_INFINITY
+        for (i in ring.indices) {
+            val a = ring[i]; val b = ring[(i + 1) % ring.size]
+            val (m, t) = project(p, a, b)
+            if (m < best.second) best = Coordinate(a.lat + t * (b.lat - a.lat), a.lon + t * (b.lon - a.lon)) to m
+        }
+        return best
+    }
+
     /** Distanza in metri da una linea (dal tratto più vicino) */
     fun distanceToPath(p: Coordinate, path: List<Coordinate>): Double {
         if (path.size < 2) return path.firstOrNull()?.let { meters(p, it) } ?: Double.POSITIVE_INFINITY

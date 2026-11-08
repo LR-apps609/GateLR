@@ -80,6 +80,11 @@ class SharedEngineCasesTest {
             expect["gatesOn"]?.let { check("varchi", it.jsonPrimitive.boolean, p.gatesOn) }
             expect["unofficial"]?.let { check("fonte non ufficiale", it.jsonPrimitive.boolean, p.unofficial) }
             expect["pedestrian"]?.let { check("area pedonale", it.jsonPrimitive.boolean, p.pedestrian != null) }
+            // 2.1 (B09): la distanza dal lato della zona più vicina (5 m di tolleranza)
+            expect["nearestMeters"]?.let { want ->
+                val m = nearestZone(cities, Coordinate(place["lat"]!!.jsonPrimitive.double, place["lon"]!!.jsonPrimitive.double))!!.third
+                if (kotlin.math.abs(m - want.jsonPrimitive.double) > 5) errors += "$id: distanza attesa ${want.jsonPrimitive.double}, ottenuta $m"
+            }
             // 2.1 «Una risposta, sette stati»: la RispostaFinale del posto (shared/risposta-finale.md)
             val f = p.finale
             if ("stato" in expect) {

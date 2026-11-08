@@ -175,6 +175,13 @@ final class Store: ObservableObject {
         cities.contains { $0.covers(lat: c.lat, lon: c.lon) }
     }
 
+    /// 2.1 (B22): il punto è coperto solo da città con le zone tutte da fonti non ufficiali (anche il confine viene da lì):
+    /// fuori dalle zone non diciamo «Fuori dalla ZTL» ma «Controlla il cartello». Come Android e il sito («uo»)
+    nonisolated static func coverUnofficial(_ c: Coordinate, in cities: [City]) -> Bool {
+        let cover = cities.filter { $0.covers(lat: c.lat, lon: c.lon) }
+        return !cover.isEmpty && cover.allSatisfy { !$0.zones.isEmpty && $0.zones.allSatisfy(\.isUnofficial) }
+    }
+
     /// Vero se il posto è il tuo hotel (un viaggio salvato o un soggiorno): solo lì vale «l'hotel registra la targa»
     func isHotel(_ place: Place?) -> Bool {
         guard let place else { return false }

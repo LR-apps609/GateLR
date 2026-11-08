@@ -96,9 +96,11 @@ struct VarcoView: View {
         return Place(name: L("My position"), address: "", location: c)
     }
 
-    /// Senza un posto: rosso se la zona scelta è attiva adesso, verde se no
+    /// Senza un posto: il colore della RispostaFinale della zona scelta (2.1, B26: prima rosso se attiva, verde se no,
+    /// anche con dati non sicuri o da fonte non ufficiale)
     private func cityMood(at date: Date) -> Home2Answer.Mood {
-        store.answer(at: date, zone: store.zone, hotelInside: false).gatesOn ? .red : .green
+        let f = RispostaFinale.of(store.answer(at: date, zone: store.zone, hotelInside: false), zone: store.zone, status: store.city.status)
+        return Home2Answer.Mood(f.color)
     }
 
     private func sceneBackground(_ mood: Home2Answer.Mood?) -> some View {
@@ -590,14 +592,16 @@ struct VarcoView: View {
             let near = store.nearestZone(to: c)
             let nearby: Zone? = (near?.meters ?? .infinity) < 30_000 ? near?.zone : nil
             if let zone = inside?.zone ?? nearby {
-                let on = store.answer(at: date, zone: zone, hotelInside: false).gatesOn
+                let a = store.answer(at: date, zone: zone, hotelInside: false), on = a.gatesOn
+                // 2.1 (B26): il colore dalla RispostaFinale (dati non sicuri o fonte non ufficiale: ambra, mai verde)
+                let tint = Home2Answer.Mood(RispostaFinale.of(a, zone: zone).color).color
                 let distance = inside != nil ? L("you're inside") : DriveSession.distanceText(near?.meters ?? 0)
                 Button { select(zone); showZone = true } label: {
                     HStack(spacing: 10) {
                         Image(systemName: "location.fill").font(.app(size: 13, weight: .semibold)).foregroundStyle(Notte.text)
                         (Text(verbatim: L("Near you") + ": ").foregroundStyle(Notte.muted)
                          + Text(verbatim: "\(zone.shortName) · \(distance) · ").foregroundStyle(Notte.text)
-                         + Text(verbatim: on ? L("active now") : L("not active now")).foregroundStyle(on ? Notte.ledRed : Notte.ledGreen))
+                         + Text(verbatim: on ? L("active now") : L("not active now")).foregroundStyle(tint))
                             .font(.app(size: 14, weight: .medium)).lineLimit(2).minimumScaleFactor(0.8)
                         Spacer(minLength: 4)
                         Image(systemName: "chevron.right").font(.app(size: 12, weight: .bold)).foregroundStyle(Notte.muted)
