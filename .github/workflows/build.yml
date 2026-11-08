@@ -165,10 +165,50 @@ jobs:
           # La cartella delle foto come variabile d'ambiente (come per il Pro Max): come impostazione di compilazione
           # nella corsa 40782824915 non è arrivata al test e sono state pubblicate solo le 2 foto del Pro Max
           # 1.20.0: un test fallito si ripete una volta, con l'app appena aperta (i test sono brevi: test1Tour è diviso)
-          TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
-            -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
-            -retry-tests-on-failure -test-iterations 2 \
-            CODE_SIGNING_ALLOWED=NO > ui.log 2>&1 || status=$?
+          # 1.20.4: corsa 42411691829 (ramo dati) e successive: dopo una ventina di minuti l'app e il runner dei test
+          # sparivano e xcodebuild restava fermo, senza scrivere niente, fino ai 120 minuti del passo (nessuna foto).
+          # Ora un guardiano del registro: se ui.log non cambia per 20 minuti (il test più lungo ne dura 9), si scrive dove si è fermato, si chiude
+          # xcodebuild e si riparte una volta con i soli test non ancora passati (le foto già fatte restano)
+          ui_round() {
+            local log=$1; shift
+            TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots" xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
+              -destination "platform=iOS Simulator,name=$SIM" -derivedDataPath build-ui \
+              -retry-tests-on-failure -test-iterations 2 "$@" \
+              CODE_SIGNING_ALLOWED=NO > "$log" 2>&1 &
+            local XB=$! last=$(date +%s) size=-1
+            while kill -0 $XB 2>/dev/null; do
+              sleep 30
+              local now=$(date +%s) cur=$(wc -c < "$log" 2>/dev/null || echo 0)
+              if [ "$cur" != "$size" ]; then size=$cur; last=$now; continue; fi
+              if [ $((now - last)) -ge 1200 ]; then
+                echo "::warning::Giro delle foto fermo da 20 minuti (nessuna riga nuova): si chiude xcodebuild. Ultime righe:"
+                tail -n 12 "$log" | while IFS= read -r l; do echo "::warning::${l:0:300}"; done
+                touch stalled
+                pkill -f "xcodebuild test-without-building" 2>/dev/null || true
+                sleep 10; kill -9 $XB 2>/dev/null || true
+                break
+              fi
+            done
+            wait $XB
+          }
+          rm -f stalled
+          ui_round ui.log || status=$?
+          if [ -f stalled ]; then
+            SKIP=()
+            for t in $(grep -oE "Test Case '-\[GateLRUITests\.[A-Za-z]+ [A-Za-z0-9_]+\]' passed" ui.log | sed -E "s/.*\[GateLRUITests\.([A-Za-z]+) ([A-Za-z0-9_]+)\].*/\1\/\2/" | sort -u); do
+              SKIP+=("-skip-testing:GateLRUITests/$t")
+            done
+            echo "::notice::Si riparte con i test non ancora passati (${#SKIP[@]} già passati saltati)"
+            xcrun simctl shutdown all 2>/dev/null || true
+            xcrun simctl boot "$SIM" 2>/dev/null || true
+            xcrun simctl bootstatus "$SIM" -b > /dev/null 2>&1 || true
+            mv ui.log ui-1.log
+            rm -f stalled
+            status=0
+            ui_round ui.log "${SKIP[@]}" || status=$?
+            cat ui-1.log ui.log > ui-all.log 2>/dev/null && mv ui-all.log ui.log
+            [ -f stalled ] && status=1
+          fi
           grep -E "error:|Test Case .*(passed|failed)|TEST (SUCCEEDED|FAILED)" ui.log | sort -u | head -n 40 || true
           # Con la ripetizione un test fallito e poi passato non blocca: i suoi errori restano come avvisi
           level=error; [ "$status" = 0 ] && level=warning
