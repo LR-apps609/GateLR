@@ -265,19 +265,26 @@ final class MisureTests: XCTestCase {
             sleep(10)
         }
         reportSeries("memoria-\(name)", values, unit: "MB")
-        if let first = values.first, let last = values.last {
-            report("memoria-\(name)-crescita", last - first, unit: "MB")
+        // La crescita dopo l'avvio (dai 35 secondi): il massimo meno il minimo. La memoria che sale e scende a ondate
+        // (1.19.5–1.20.3: da 100 a 250 MB e ritorno) conta anche se l'ultimo valore è basso
+        let settled = Array(values.dropFirst(2))
+        if let lo = settled.min(), let hi = settled.max() {
+            report("memoria-\(name)-crescita", hi - lo, unit: "MB")
         }
         app.terminate()
-        return values
+        return settled
+    }
+
+    private func assertSteady(_ v: [Double], _ what: String) {
+        guard let lo = v.min(), let hi = v.max() else { return XCTFail("nessuna misura della memoria") }
+        XCTAssertLessThan(hi - lo, 40, "\(what): \(v)")
     }
 
     /// Il guardiano a Milano con una posizione al secondo per 150 secondi, la pagina Varco davanti: la memoria non deve
-    /// crescere con le posizioni (1.19.5: da 115 a 243 MB). Fallisce se cresce più di 40 MB dal primo valore
+    /// crescere (1.19.5: da 115 a 243 MB). Fallisce se tra 35 e 135 secondi varia di più di 40 MB
     func testM7aGuardianDriveMemory() {
         let v = memorySeries("guardiano-guida", args: ["-uiGuardian", "45.4642", "9.1600", "90", "-uiGuardianDrive", "150", "12"], seconds: 120)
-        guard let first = v.first, let last = v.last else { return XCTFail("nessuna misura della memoria") }
-        XCTAssertLessThan(last - first, 40, "la memoria cresce durante la guida del guardiano: \(v)")
+        assertSteady(v, "la memoria cresce durante la guida del guardiano")
     }
 
     /// Lo stesso senza la striscia di mappa in Varco: quanto pesa la mappa e quanto il guardiano
@@ -285,22 +292,11 @@ final class MisureTests: XCTestCase {
         _ = memorySeries("guardiano-senza-striscia", args: ["-uiGuardian", "45.4642", "9.1600", "90", "-uiGuardianDrive", "150", "12", "-uiNoStrip"], seconds: 120)
     }
 
-    /// Il guardiano acceso ma fermo (nessuna posizione nuova), la pagina Varco davanti
-    func testM7cGuardianStillMemory() {
-        _ = memorySeries("guardiano-fermo", args: ["-uiGuardian", "45.4642", "9.1600", "90"], seconds: 120)
-    }
-
-    /// Varco a Milano senza guardiano: la base
-    func testM7dVarcoIdleMemory() {
-        _ = memorySeries("varco-fermo", args: ["-uiPlace", "Duomo di Milano", "45.4641", "9.1919"], seconds: 120)
-    }
-
     /// 1.20.4: Varco senza un posto e senza guardiano (la striscia mostra tutta la zona scelta, vista dall'alto): la memoria
     /// della striscia di mappa da sola. Fallisce se cresce più di 40 MB
     func testM7eVarcoNoPlaceMemory() {
         let v = memorySeries("varco-senza-posto", args: [], seconds: 120)
-        guard let first = v.first, let last = v.last else { return XCTFail("nessuna misura della memoria") }
-        XCTAssertLessThan(last - first, 40, "la memoria della striscia di Varco cresce: \(v)")
+        assertSteady(v, "la memoria della striscia di Varco cresce")
     }
 
     // MARK: 6. Guida di GateLR da fermo (la mappa della guida)
