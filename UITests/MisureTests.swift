@@ -53,7 +53,7 @@ final class MisureTests: XCTestCase {
 
     /// Dall'avvio dell'app al titolo della risposta («varco.answer») per Palazzo Vecchio (città lette, posto scelto, risposta)
     func testM1LaunchToAnswer() {
-        app.launchArguments = it + ["-uiPlace", "Palazzo Vecchio", "43.7693", "11.2556"]
+        app.launchArguments = it + ["-uiPlace", "Palazzo Vecchio", "43.7693", "11.2563"]
         var times: [Double] = []
         measure(metrics: [XCTClockMetric()], options: options(5)) {
             let t0 = Date()
@@ -159,7 +159,7 @@ final class MisureTests: XCTestCase {
 
     /// Dati dentro l'app (Firenze), senza rete: solo il lavoro dell'app (lettura, filtro, ordine, disegno)
     func testM3aParkingBundledOffline() {
-        parking("parcheggi-offline", args: it + ["-uiAt", "10:00", "-uiPlace", "Palazzo Vecchio", "43.7693", "11.2556"],
+        parking("parcheggi-offline", args: it + ["-uiAt", "10:00", "-uiPlace", "Palazzo Vecchio", "43.7693", "11.2563"],
                 iterations: 5, timeout: 60)
     }
 
