@@ -78,7 +78,7 @@ enum SignReader {
     }
 
     /// «7.30-20», «7:30 - 20:00», «0-24», «dalle 23 alle 3»
-    static func timeRanges(in line: String) -> [(Int, Int)] { timeMatches(in: line).map(\.minutes) }
+    static func timeRanges(in line: String) -> [(Int, Int)] { timeMatches(in: line).map { $0.minutes } }
 
     /// Gli orari della riga con dove stanno (per dividere la riga in gruppi di giorni e orari)
     static func timeMatches(in line: String) -> [(minutes: (Int, Int), range: NSRange)] {
