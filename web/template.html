@@ -501,7 +501,7 @@ const T = {
   pick:"Pick a place", pickWhy:"Search above, tap a suggestion, or tap the map.",
   yes:"You can enter", no:"Don't enter", cond:"On one condition", unsure:"Check the sign", out:"You can enter",
   whyOff:n=>`The gates are off${n ? ". They switch on " + n : ""}.`, whyOn:n=>`The gates are on${n ? ". They switch off " + n : ""}. Park outside the zone, or come back later.`,
-  whyCond:"The gates are on. You can drive to your hotel only if the hotel registers your plate with the city.", whyHol:"It's a public holiday and the city hasn't confirmed whether the gates are off. Check the panel at the gate.",
+  whyCond:"The gates are on. You can drive to your hotel only if the hotel registers your plate with the city.", whyUncertain:"On this day the city doesn't say whether the ZTL is active. Check the sign at the gate.", whyHol:"It's a public holiday and the city hasn't confirmed whether the gates are off. Check the panel at the gate.",
   hint:" Staying at a hotel inside? Your hotel can register your plate.", whyOut:(m,c)=>`This place is outside ${c}'s ZTL. The restricted zone starts about ${m} m away: don't follow the satnav through it.`,
   outside:"outside the ZTL", inside:"inside the ZTL", out2:"outside", noGates:"No gates here", gOn:"Gates on", gOff:"Gates off", nowAt:"now",
   today:"today at", tomorrow:"tomorrow at", on:"on", at:"at", d:"d", h:"h", min:"min", onSince:"On since", offSince:"Off since", onIn:"On in", offIn:"Off in",
@@ -546,7 +546,7 @@ const T = {
   pick:"Scegli un luogo", pickWhy:"Cerca qui sopra, tocca un suggerimento o tocca la mappa.",
   yes:"Puoi entrare", no:"Non entrare", cond:"A una condizione", unsure:"Controlla il cartello", out:"Puoi entrare",
   whyOff:n=>`I varchi sono spenti${n ? ". Si accendono " + n : ""}.`, whyOn:n=>`I varchi sono accesi${n ? ". Si spengono " + n : ""}. Parcheggia fuori dalla zona o torna più tardi.`,
-  whyCond:"I varchi sono accesi. Puoi arrivare all'hotel solo se l'hotel comunica la tua targa al Comune.", whyHol:"È festivo e il Comune non ha confermato se i varchi sono spenti. Controlla il pannello al varco.",
+  whyCond:"I varchi sono accesi. Puoi arrivare all'hotel solo se l'hotel comunica la tua targa al Comune.", whyUncertain:"In questo giorno il Comune non dice se la ZTL è attiva. Controlla il cartello al varco.", whyHol:"È festivo e il Comune non ha confermato se i varchi sono spenti. Controlla il pannello al varco.",
   hint:" Dormi in un hotel dentro la zona? L'hotel può comunicare la tua targa.", whyOut:(m,c)=>`Questo luogo è fuori dalla ZTL di ${c}. La zona limitata inizia a circa ${m} m: non seguire il navigatore attraverso il centro.`,
   outside:"fuori ZTL", inside:"in ZTL", out2:"fuori", noGates:"Nessun varco", gOn:"Varchi accesi", gOff:"Varchi spenti", nowAt:"adesso",
   today:"oggi alle", tomorrow:"domani alle", on:"", at:"alle", d:"g", h:"h", min:"min", onSince:"Accesi dalle", offSince:"Spenti dalle", onIn:"Si accendono tra", offIn:"Si spengono tra",
@@ -591,7 +591,7 @@ const T = {
   pick:"Wähle einen Ort", pickWhy:"Suche oben, tippe auf einen Vorschlag oder auf die Karte.",
   yes:"Einfahrt erlaubt", no:"Nicht einfahren", cond:"Mit Bedingung", unsure:"Achte auf das Schild", out:"Einfahrt erlaubt",
   whyOff:n=>`Die Kameras sind aus${n ? ". Sie gehen " + n + " an" : ""}.`, whyOn:n=>`Die Kameras sind aktiv${n ? ". Sie gehen " + n + " aus" : ""}. Parke außerhalb der Zone oder komm später.`,
-  whyCond:"Die Kameras sind aktiv. Du darfst nur zum Hotel fahren, wenn das Hotel dein Kennzeichen bei der Stadt anmeldet.", whyHol:"Heute ist Feiertag und die Stadt hat nicht bestätigt, ob die Kameras aus sind. Achte auf die Anzeige an der Einfahrt.",
+  whyCond:"Die Kameras sind aktiv. Du darfst nur zum Hotel fahren, wenn das Hotel dein Kennzeichen bei der Stadt anmeldet.", whyUncertain:"An diesem Tag sagt die Stadt nicht, ob die ZTL aktiv ist. Achte auf das Schild an der Einfahrt.", whyHol:"Heute ist Feiertag und die Stadt hat nicht bestätigt, ob die Kameras aus sind. Achte auf die Anzeige an der Einfahrt.",
   hint:" Dein Hotel liegt in der Zone? Das Hotel kann dein Kennzeichen anmelden.", whyOut:(m,c)=>`Dieser Ort liegt außerhalb der ZTL von ${c}. Die gesperrte Zone beginnt etwa ${m} m entfernt: folge dem Navi nicht durch die Altstadt.`,
   outside:"außerhalb der ZTL", inside:"in der ZTL", out2:"außerhalb", noGates:"Keine Einfahrten", gOn:"Kameras aktiv", gOff:"Kameras aus", nowAt:"jetzt",
   today:"heute um", tomorrow:"morgen um", on:"am", at:"um", d:"T", h:"Std", min:"Min", onSince:"Aktiv seit", offSince:"Aus seit", onIn:"Aktiv in", offIn:"Aus in",
@@ -730,6 +730,9 @@ function rulesAnswer(zone, t, staying, v = CARS[0], quick = false){
   // 1.20.1: dalla data più recente tra lettura e verifica
   const s0 = zone.source, age = Math.min(daysSince(s0.checkedOn), s0.verifiedOn ? daysSince(s0.verifiedOn) : Infinity);
   if (age > 120) return {v:"unsure", title:t_("unsure"), why:T[lang].whyStale(age), on, next, since, doubt:"scaduti"};
+  // 2.1: un giorno in cui la fonte ufficiale non dice se la ZTL è attiva (uncertainDays): mai una risposta certa
+  if (zone.uncertainDays && startDays(zone, t).some(x => zone.uncertainDays.includes(`${String(x.m).padStart(2,"0")}-${String(x.d).padStart(2,"0")}`)))
+    return {v:"unsure", title:t_("unsure"), why:t_("whyUncertain"), on:true, next, since, doubt:"festivo"};
   if (zone.freeOnHolidays == null && startDays(zone, t).some(x => isHoliday(x, zone)))
     return {v:"unsure", title:t_("unsure"), why:t_("whyHol"), on:true, next, since, doubt:"festivo"};
   if (!on) return {v:"yes", title:t_("yes"), why:T[lang].whyOff(next ? when(next, new Date()) : ""), on, next, since};
@@ -838,6 +841,8 @@ function loadCity(c){
       Object.assign(c, d);
       // Il motore riceve solo la zona: le feste del patrono della città le porta lei (come CityLoader nell'app)
       if (c.localHolidays) for (const z of c.zones) z.localHolidays = c.localHolidays;
+      // 2.1: i giorni in cui la fonte non dice se la ZTL è attiva (uncertainDays, "MM-DD")
+      if (c.uncertainDays) for (const z of c.zones) z.uncertainDays = c.uncertainDays;
       ZONES_OF[c.id] = [...c.zones].sort((a, b) => area(a) - area(b)); return c;
     }, e => { delete LOADING[c.id]; throw e; });
   }

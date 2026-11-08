@@ -70,6 +70,9 @@ struct City: Codable, Identifiable, Hashable {
     var pedestrian: [PedestrianArea]? = nil   // aree pedonali: chiuse alle auto sempre
     var cameras: [Camera]? = nil              // telecamere delle corsie bus e delle aree pedonali
     var localHolidays: [String]? = nil        // feste del patrono che valgono come festivi, "MM-DD" (es. Roma "06-29")
+    /// 2.1: i giorni ("MM-DD") in cui la fonte ufficiale non dice se la ZTL è attiva (Firenze e Torino "06-24", Milano
+    /// "12-07"): «Controlla il cartello» (festivo), mai una risposta certa. Non sono festivi: per quelli c'è localHolidays
+    var uncertainDays: [String]? = nil
 
     /// sample = dati inventati; draft = presi dalle fonti ufficiali ma non ancora rivisti da una persona
     enum Status: String, Codable { case sample, draft, verified }
@@ -109,6 +112,8 @@ struct Zone: Codable, Identifiable, Hashable {
     var source: Source
     /// Le feste del patrono della città ("MM-DD"): copiate dalla città quando si legge il file (CityLoader)
     var localHolidays: [String]? = nil
+    /// 2.1: i giorni incerti della città ("MM-DD"), copiati dalla città come localHolidays
+    var uncertainDays: [String]? = nil
     /// Calcolati una volta quando si legge la città (prepare()): rettangolo e area del perimetro
     var bounds: BBox? = nil
     var area: Double? = nil

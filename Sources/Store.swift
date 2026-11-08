@@ -364,6 +364,10 @@ enum CityLoader {
         if let local = city.localHolidays {
             for i in city.zones.indices { city.zones[i].localHolidays = local }
         }
+        // 2.1: i giorni in cui la fonte non dice se la ZTL è attiva
+        if let days = city.uncertainDays {
+            for i in city.zones.indices { city.zones[i].uncertainDays = days }
+        }
         prepare(&city)
         return city
     }

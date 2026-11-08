@@ -127,6 +127,11 @@ class RuleEngine(
         if (age > staleAfterDays) {
             return Answer(Verdict.Unsure(F("This zone hasn't been checked for %lld days. Look at the city's page before driving in.", age)), on, next, Motivo.SCADUTI)
         }
+        // 2.1: un giorno in cui la fonte ufficiale non dice se la ZTL è attiva (uncertainDays): mai una risposta certa
+        val uncertain = zone.uncertainDays
+        if (uncertain != null && activeStartDays(zone, at).any { "%02d-%02d".format(it.monthValue, it.dayOfMonth) in uncertain }) {
+            return Answer(Verdict.Unsure(L("On this day the city doesn't say whether the ZTL is active. Check the sign at the gate.")), true, next, Motivo.FESTIVO)
+        }
         if (zone.freeOnHolidays == null && activeStartDays(zone, at).any { isHoliday(zone, it) }) {
             return Answer(Verdict.Unsure(L("It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate.")), true, next, Motivo.FESTIVO)
         }

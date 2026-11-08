@@ -931,6 +931,7 @@
 "Data out of date": "Données périmées",
 "Holiday not confirmed": "Jour férié non confirmé",
 "Euro class unknown": "Classe Euro inconnue",
+"On this day the city doesn't say whether the ZTL is active. Check the sign at the gate.": "Ce jour-là, la commune ne dit pas si la ZTL est active. Vérifiez le panneau à l'entrée.",
 "Alerts 300 m before a ZTL, 600 m above 50 km/h": "Alertes 300 m avant une ZTL, 600 m au-dessus de 50 km/h",
 "%@ up to Euro %lld: banned since %@": "%@ jusqu'à Euro %lld : interdites depuis le %@",
 "Activate it before you drive in.": "Activez-le avant d'entrer.",

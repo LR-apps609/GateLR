@@ -254,6 +254,11 @@ struct RuleEngine {
             return Answer(verdict: .unsure(reason: String(format: L("This zone hasn't been checked for %lld days. Look at the city's page before driving in."), age)),
                           gatesOn: on, nextChange: next, doubt: .scaduti)
         }
+        // 2.1: un giorno in cui la fonte ufficiale non dice se la ZTL è attiva (uncertainDays): mai una risposta certa
+        if let days = zone.uncertainDays, activeStartDays(zone, at: date).contains(where: { days.contains(Self.monthDay($0, calendar: calendar)) }) {
+            return Answer(verdict: .unsure(reason: L("On this day the city doesn't say whether the ZTL is active. Check the sign at the gate.")),
+                          gatesOn: true, nextChange: next, doubt: .festivo)
+        }
         if zone.freeOnHolidays == nil && activeStartDays(zone, at: date).contains(where: { isHoliday(zone, $0) }) {
             return Answer(verdict: .unsure(reason: L("It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate.")),
                           gatesOn: true, nextChange: next, doubt: .festivo)
@@ -320,6 +325,11 @@ struct RuleEngine {
         }
         let off = next.map { " " + String(format: L("It ends %@."), describe($0, from: date)) } ?? ""
         return Answer(verdict: .no(reason: L("The ZTL is active.") + off), gatesOn: true, nextChange: next)
+    }
+
+    /// "MM-DD" di un giorno, in ora italiana (giorni incerti e feste del patrono)
+    static func monthDay(_ d: Date, calendar: Calendar) -> String {
+        String(format: "%02d-%02d", calendar.component(.month, from: d), calendar.component(.day, from: d))
     }
 
     /// «ciclomotore 2 tempi», «motociclo 4 tempi»

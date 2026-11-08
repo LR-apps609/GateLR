@@ -164,6 +164,21 @@
      "expect": {"stato": "controllaCartello", "motivo": "scaduti", "colour": "yellow", "verdict": "unsure", "zone": "bologna-ztl", "trust": "unverified"}},
     {"id": "salerno-diesel-euro5", "covers": "2.1 regola di Ledion «Salerno resta rossa»: fonte non ufficiale, ma il «no» resta «Non entrare» rosso (motivo nella riga sotto)",
      "place": {"name": "Duomo di Salerno", "lat": 40.6806, "lon": 14.7604}, "at": "2026-11-10T12:00:00+01:00", "vehicle": "diesel5",
-     "expect": {"stato": "nonEntrare", "colour": "red", "verdict": "no", "zone": "salerno-centro-storico", "unofficial": true}}
+     "expect": {"stato": "nonEntrare", "colour": "red", "verdict": "no", "zone": "salerno-centro-storico", "unofficial": true}},
+    {"id": "firenze-24-giugno-incerto", "covers": "2.1 uncertainDays: il 24 giugno (San Giovanni) il Comune di Firenze non dice se i varchi sono accesi → «Controlla il cartello» (festivo), mai rosso",
+     "place": {"name": "Palazzo Vecchio", "lat": 43.7693, "lon": 11.2563}, "at": "2027-06-24T11:00:00+02:00", "now": "2027-02-01T12:00:00+01:00", "vehicle": "rental", "source": {"checkedOn": "2027-01-20T12:00:00+01:00"},
+     "expect": {"stato": "controllaCartello", "motivo": "festivo", "colour": "yellow", "verdict": "unsure", "zone": "firenze-a"}},
+    {"id": "firenze-23-giugno", "covers": "il giorno prima del 24 giugno: la risposta normale («Non entrare»)",
+     "place": {"name": "Palazzo Vecchio", "lat": 43.7693, "lon": 11.2563}, "at": "2027-06-23T11:00:00+02:00", "now": "2027-02-01T12:00:00+01:00", "vehicle": "rental", "source": {"checkedOn": "2027-01-20T12:00:00+01:00"},
+     "expect": {"stato": "nonEntrare", "colour": "red", "verdict": "no", "zone": "firenze-a"}},
+    {"id": "milano-area-c-7-dicembre-incerto", "covers": "2.1 uncertainDays: il 7 dicembre (Sant'Ambrogio) le fonti non dicono se l'Area C è attiva → «Controlla il cartello», non «a una condizione»",
+     "place": {"name": "Via Manzoni", "lat": 45.4700, "lon": 9.1925}, "at": "2026-12-07T10:00:00+01:00", "vehicle": "rental",
+     "expect": {"stato": "controllaCartello", "motivo": "festivo", "colour": "yellow", "verdict": "unsure", "zone": "milano-c"}},
+    {"id": "milano-area-b-7-dicembre-incerto", "covers": "2.1 uncertainDays: anche l'Area B il 7 dicembre → «Controlla il cartello»",
+     "place": {"name": "Milano Centrale", "lat": 45.4860, "lon": 9.2040}, "at": "2026-12-07T10:00:00+01:00", "vehicle": "diesel4",
+     "expect": {"stato": "controllaCartello", "motivo": "festivo", "colour": "yellow", "verdict": "unsure", "zone": "milano-b"}},
+    {"id": "torino-24-giugno-incerto", "covers": "2.1 uncertainDays: il 24 giugno (San Giovanni) la scheda del Comune di Torino dice solo «giorni feriali» → «Controlla il cartello»",
+     "place": {"name": "Piazza Castello", "lat": 45.0712, "lon": 7.6857}, "at": "2027-06-24T09:00:00+02:00", "now": "2027-02-01T12:00:00+01:00", "vehicle": "rental", "source": {"checkedOn": "2027-01-20T12:00:00+01:00"},
+     "expect": {"stato": "controllaCartello", "motivo": "festivo", "colour": "yellow", "verdict": "unsure"}}
   ]
 }
