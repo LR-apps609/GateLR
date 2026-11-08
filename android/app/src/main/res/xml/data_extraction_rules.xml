@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 2.0.1: nessun dato dell'app nel backup di Google né nel trasferimento a un altro telefono (Android 12+):
+     targhe, permessi, viaggi e diario restano su questo telefono -->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="root" path="." />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="sharedpref" path="." />
+        <exclude domain="file" path="." />
+        <exclude domain="database" path="." />
+        <exclude domain="root" path="." />
+    </device-transfer>
+</data-extraction-rules>

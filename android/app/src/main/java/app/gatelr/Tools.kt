@@ -36,11 +36,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.gatelr.core.F
+import app.gatelr.core.Forma
+import app.gatelr.core.Tono
 import app.gatelr.core.L
 import app.gatelr.core.SignReader
 import app.gatelr.core.Strings
@@ -71,6 +74,7 @@ fun SignReaderScreen() {
         uri?.let { u -> runCatching { ctx.contentResolver.openInputStream(u)?.use { BitmapFactory.decodeStream(it) } }.getOrNull()?.let(::read) }
     }
     val result = remember(text) { SignReader.parse(text) }
+    val now = rememberNow()
     val muted = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f)
 
     Column(Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = 16.dp).padding(bottom = 32.dp),
@@ -84,24 +88,45 @@ fun SignReaderScreen() {
         OutlinedTextField(text, { text = it }, placeholder = { Text(L("e.g. 7.30-20.00 feriali")) }, minLines = 3, modifier = Modifier.fillMaxWidth())
         if (reading) Text(L("Reading…"), color = muted)
         if (text.isNotBlank()) {
-            if (!result.understood) {
-                CardBox { Text(L("I can't find days and hours in this text. Type them as on the panel, e.g. 7.30-20.00 feriali.")) }
+            // 2.0.1 (B03): come l'iPhone (SignReaderView.verdictBox) un cartello letto non dà mai verde: accesa = rosso,
+            // altrimenti giallo con il «?» «sembra spenta: controlla»
+            val verdict = SignReader.reading(result, now)
+            if (verdict == SignReader.Reading.UNREADABLE) {
+                AmberSignBox(L("I can't read it"), L("I can't find days and hours in this text. Try again closer to the panel, or type them."))
             } else {
-                val on = SignReader.isActive(result, Instant.now())
-                Column(Modifier.fillMaxWidth().background(if (on) Palette.red else Palette.green, RoundedCornerShape(20.dp)).padding(16.dp)) {
-                    Text(if (on) L("Active now, according to the sign: don't drive in") else L("Not active now, according to the sign: you may drive in"),
-                        color = Color.White, fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                }
+                if (verdict == SignReader.Reading.ACTIVE) {
+                    Row(Modifier.fillMaxWidth().background(Palette.red, RoundedCornerShape(20.dp)).padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+                        AnswerMark(Forma.DIVIETO, Tono.ROSSO, 30.dp)
+                        Spacer(Modifier.width(12.dp))
+                        Text(L("Active now, according to the sign: don't drive in"), color = Color.White, fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                    }
+                } else AmberSignBox(L("According to the sign, the ZTL seems off right now: check that there are no other bans"),
+                    L("The sign doesn't know your vehicle, your permits, Euro bans or pedestrian areas, and the photo can be misread. Check the sign."))
                 CardBox {
                     Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                         result.rules.forEach { r -> Text(TimeWindow(r.days, r.start, if (r.end == r.start) 1440 else r.end).text()) }
                         if (result.holidaysExcluded) Text(L("Public holidays: not active."), color = muted)
                         if (result.holidaysIncluded) Text(L("Also on public holidays."), color = muted)
+                        Text(L("Check that the days and hours above are the ones on the panel: the photo can be misread."), fontSize = 13.sp, color = muted)
                     }
                 }
             }
         }
         Text(L("GateLR reads the panel for you, but it can misread a photo: if in doubt, the sign wins."), fontSize = 12.sp, color = muted)
+    }
+}
+
+/** Il riquadro giallo con il «?» (mai verde), come amberBox dell'iPhone */
+@Composable
+private fun AmberSignBox(title: String, detail: String) {
+    Row(Modifier.fillMaxWidth().background(Palette.amberSoft, RoundedCornerShape(20.dp)).padding(16.dp).semantics(mergeDescendants = true) {},
+        verticalAlignment = Alignment.Top) {
+        AnswerMark(Forma.DOMANDA, Tono.GIALLO, 30.dp)
+        Spacer(Modifier.width(12.dp))
+        Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            Text(title, color = Palette.amberInk, fontWeight = FontWeight.Bold, fontSize = 17.sp)
+            Text(detail, color = Palette.amberInk, fontSize = 14.sp)
+        }
     }
 }
 

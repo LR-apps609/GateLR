@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -75,7 +76,8 @@ fun WhereToSheet(onPick: (Place) -> Unit) {
     fun pick(p: Place) { pickFirst = false; onPick(p) }
     LaunchedEffect(results, pickFirst) { if (pickFirst) results.firstOrNull()?.let { pick(it) } }
 
-    Column(Modifier.fillMaxWidth().fillMaxHeight(0.92f).padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
+    // 2.0.1 (B165): con edge-to-edge adjustResize non agisce: la lista si alza sopra la tastiera con imePadding
+    Column(Modifier.fillMaxWidth().fillMaxHeight(0.92f).imePadding().padding(horizontal = 16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
         Text(L("Where are you going?"), style = MaterialTheme.typography.headlineMedium)
         OutlinedTextField(value = query, onValueChange = { query = it; pickFirst = false }, singleLine = true,
             placeholder = { Text(L("Hotel, address or square")) },

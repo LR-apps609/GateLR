@@ -31,6 +31,7 @@ import androidx.compose.material.icons.filled.LocationOff
 import androidx.compose.material.icons.filled.Schedule
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -58,7 +59,9 @@ import app.gatelr.core.panel
 import app.gatelr.core.panelLine
 import app.gatelr.core.spoken
 import app.gatelr.core.subtitle
+import app.gatelr.core.CityBanner
 import app.gatelr.core.F
+import app.gatelr.core.HomeText
 import app.gatelr.core.L
 import app.gatelr.core.PermissionPlan
 import app.gatelr.core.Zone
@@ -83,13 +86,16 @@ fun HomeScreen(modifier: Modifier) {
         contentPadding = androidx.compose.foundation.layout.PaddingValues(start = 12.dp, end = 12.dp, top = 8.dp, bottom = 24.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)) {
 
-        val here = Here.coordinate
+        // 2.0.1 (B160): solo una posizione recente è «dove sei»
+        val here = Here.fresh
         val result = if (Here.allowed && here != null) NowAnswer.compute(here, Here.course, now) else null
 
         if (result == null) item { LocationCard() }
         else {
             val f = result.final
             val until = NowAnswer.untilText(result.answer, now)
+            // 2.0.1 (B88): «Bozza: dalle fonti ufficiali, non ancora rivista da una persona», come StatusBanner dell'iPhone
+            CityBanner.text(f.city, f.zone)?.let { b -> item { DraftBanner(b) } }
             item {
                 AnswerBlock(f, f.subtitle(until), result.line,
                     f.spoken(until, NowAnswer.vehicleLabel(), L("now")))
@@ -161,7 +167,7 @@ fun HomeScreen(modifier: Modifier) {
                     Column(Modifier.background(if (sel) MaterialTheme.colorScheme.primary else cardColor, RoundedCornerShape(14.dp))
                         .clickable { AppState.chooseCity(c.id) }.heightIn(min = 48.dp).padding(horizontal = 14.dp, vertical = 10.dp)) {
                         Text(c.localizedName, fontWeight = FontWeight.SemiBold, color = if (sel) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurface)
-                        Text(if (active == 0) L("All open") else F("%lld active", active), fontSize = 12.sp,
+                        Text(HomeText.activeCount(active), fontSize = 12.sp,
                             color = if (sel) MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.85f) else Ink.text2)
                     }
                 }
@@ -210,6 +216,17 @@ fun WhyRow(z: Zone) {
     }
 }
 
+/** 2.0.1 (B88): l'avviso ambra sopra la risposta per le città non ancora riviste (come StatusBanner dell'iPhone) */
+@Composable
+fun DraftBanner(text: String) {
+    Row(Modifier.fillMaxWidth().background(Palette.amberSoft, RoundedCornerShape(12.dp)).padding(horizontal = 12.dp, vertical = 8.dp),
+        verticalAlignment = Alignment.CenterVertically) {
+        Icon(Icons.Filled.Warning, null, tint = Palette.amberInk, modifier = Modifier.size(18.dp))
+        Spacer(Modifier.width(8.dp))
+        Text(text, color = Palette.amberInk, fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
+    }
+}
+
 /** Senza posizione: la si chiede qui, al tocco */
 @Composable
 private fun LocationCard() {
@@ -243,7 +260,7 @@ fun ZoneRow(z: Zone, now: Instant) {
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
                 Text(z.localizedName, fontWeight = FontWeight.SemiBold, maxLines = 2)
-                Text(z.type.title + " · " + (if (a.gatesOn) L("ZTL active") else L("ZTL not active")), fontSize = 12.sp, color = Ink.text2)
+                Text(HomeText.zoneLine(z.type, a.gatesOn), fontSize = 12.sp, color = Ink.text2)
             }
             AnswerPill(f)
             Icon(Icons.Filled.ChevronRight, null, tint = Ink.text2)

@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 2.0.1: i promemoria (ticket, conferma dell'hotel) ripianificati dopo il riavvio del telefono -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- La bolla sopra Google Maps / Waze, solo se la attivi tu -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
@@ -36,7 +38,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GateLR"
         android:localeConfig="@xml/locales_config"
-        android:enableOnBackInvokedCallback="true">
+        android:enableOnBackInvokedCallback="true"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules">
+        <!-- 2.0.1: targhe, permessi, viaggi e diario restano su questo telefono (niente backup di Google né trasferimento),
+             come dice la schermata Privacy -->
 
         <activity
             android:name=".MainActivity"
@@ -59,6 +65,11 @@
             android:exported="false"
             android:foregroundServiceType="location" />
         <receiver android:name=".ReminderReceiver" android:exported="false" />
+        <receiver android:name=".BootReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
         <receiver android:name=".ZoneWidget" android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

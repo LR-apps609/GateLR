@@ -45,9 +45,10 @@ import androidx.glance.unit.ColorProvider
 import app.gatelr.core.Answer
 import app.gatelr.core.Forma
 import app.gatelr.core.Tono
+import app.gatelr.core.WidgetSchedule
+import app.gatelr.core.WidgetText
 import app.gatelr.core.forma
 import app.gatelr.core.place
-import app.gatelr.core.reasonShort
 import app.gatelr.core.spoken
 import app.gatelr.core.Coordinate
 import app.gatelr.core.RispostaFinale
@@ -72,7 +73,9 @@ class GateWidget : GlanceAppWidget() {
 }
 
 /** Quello che il widget mostra */
-data class WidgetData(val final: RispostaFinale, val answer: Answer?, val place: String?, val until: String?, val spoken: String) {
+data class WidgetData(val final: RispostaFinale, val answer: Answer?, val place: String?, val until: String?, val spoken: String,
+                      /** 2.0.1 (B31): «Aggiornato alle 7:31», così si vede se il widget è vecchio */
+                      val updated: String = "") {
     companion object {
         @SuppressLint("MissingPermission")
         fun compute(ctx: Context): WidgetData {
@@ -90,7 +93,7 @@ data class WidgetData(val final: RispostaFinale, val answer: Answer?, val place:
             val (f, a) = if (here != null) NowAnswer.compute(here, null, now).let { it.final to it.answer }
             else AppState.zone.let { z -> val ans = AppState.answer(z, now); AppState.cityOf(z).let { city -> RispostaFinale.forZone(ans, z, city?.status, city) } to ans }
             val until = NowAnswer.untilText(a, now)
-            return WidgetData(f, a, f.place, until, f.spoken(until, null, null))
+            return WidgetData(f, a, f.place, until, f.spoken(until, null, null), WidgetSchedule.updatedLine(now))
         }
     }
 }
@@ -113,17 +116,24 @@ private fun WidgetContent(d: WidgetData) {
         .clickable(open).semantics { contentDescription = d.spoken }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             // La forma: un disco con il segno, come nell'app (forma + parola + colore)
-            Box(GlanceModifier.size(30.dp).background(ColorProvider(f.color.widgetInk())).cornerRadius(15.dp), contentAlignment = Alignment.Center) {
+            Box(GlanceModifier.size(if (medium) 30.dp else 26.dp).background(ColorProvider(f.color.widgetInk())).cornerRadius(if (medium) 15.dp else 13.dp), contentAlignment = Alignment.Center) {
                 Text(f.stato.forma.symbol(), style = TextStyle(color = ColorProvider(f.color.widgetFill()), fontSize = 17.sp, fontWeight = FontWeight.Bold))
             }
             Spacer(GlanceModifier.width(8.dp))
             if (medium) d.place?.let { Text(it, maxLines = 1, style = TextStyle(color = ink, fontSize = 13.sp, fontWeight = FontWeight.Medium)) }
+            // 2.0.1 (B31): nel piccolo l'ora dell'aggiornamento sta accanto alla forma
+            else if (d.updated.isNotEmpty()) Text(d.updated, maxLines = 1, style = TextStyle(color = ink, fontSize = 11.sp))
         }
-        Spacer(GlanceModifier.height(6.dp))
-        Text(f.title.uppercase(java.util.Locale.forLanguageTag(app.gatelr.core.Strings.language)), maxLines = 2, style = TextStyle(color = ink, fontSize = if (medium) 24.sp else 19.sp, fontWeight = FontWeight.Bold))
+        Spacer(GlanceModifier.height(4.dp))
+        // 2.0.1 (B169): il titolo va a capo dove lo dice la parola su due righe («CONTROLLA IL / CARTELLO»), più piccolo se
+        // una riga non ci sta: mai tagliato a metà; la riga dell'orario resta visibile
+        val width = LocalSize.current.width.value.toInt() - 28
+        val size = WidgetText.titleSize(f.stato, width, if (medium) 24 else 19)
+        Text(WidgetText.titleLines(f.stato).joinToString("\n"), maxLines = 2, style = TextStyle(color = ink, fontSize = size.sp, fontWeight = FontWeight.Bold))
+        // 2.0.1 (B173): «⚠︎ Fonte non ufficiale» come il widget dell'iPhone; prima del posto, che nel piccolo viene per ultimo
+        WidgetText.extra(f, d.until)?.let { Text(it, maxLines = if (medium) 2 else 1, style = TextStyle(color = ink, fontSize = 12.sp)) }
         if (!medium) d.place?.let { Text(it, maxLines = 1, style = TextStyle(color = ink, fontSize = 12.sp)) }
-        val extra = listOfNotNull(f.reasonShort, d.until).joinToString(" · ")
-        if (extra.isNotEmpty()) Text(extra, maxLines = if (medium) 2 else 1, style = TextStyle(color = ink, fontSize = 12.sp))
+        if (medium && d.updated.isNotEmpty()) Text(d.updated, maxLines = 1, style = TextStyle(color = ink, fontSize = 11.sp))
     }
 }
 
@@ -146,13 +156,16 @@ class ZoneWidget : GlanceAppWidgetReceiver() {
             scheduleNext(app)
         }
 
-        /** Si riaggiorna da solo quando la ZTL si accende o si spegne (allarme non esatto: nessun permesso speciale) */
-        private fun scheduleNext(ctx: Context) {
-            val next = runCatching { WidgetData.compute(ctx).answer?.nextChange }.getOrNull() ?: return
+        /** Si riaggiorna da solo quando la ZTL si accende o si spegne, e comunque ogni 30 minuti. 2.0.1 (B31): allarme che
+         *  sveglia il telefono anche in Doze (setAndAllowWhileIdle, nessun permesso speciale); prima set(RTC) poteva
+         *  lasciare il widget verde fino a mezz'ora dopo l'accensione della ZTL */
+        fun scheduleNext(ctx: Context) {
+            val now = Instant.now()
+            val next = WidgetSchedule.next(runCatching { WidgetData.compute(ctx).answer?.nextChange }.getOrNull(), now)
             val ids = AppWidgetManager.getInstance(ctx).getAppWidgetIds(ComponentName(ctx, ZoneWidget::class.java))
             val pi = PendingIntent.getBroadcast(ctx, 1, Intent(ctx, ZoneWidget::class.java).setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE)
                 .putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids), PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT)
-            ctx.getSystemService(AlarmManager::class.java)?.set(AlarmManager.RTC, next.toEpochMilli() + 60_000, pi)
+            ctx.getSystemService(AlarmManager::class.java)?.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next.toEpochMilli(), pi)
         }
     }
 }

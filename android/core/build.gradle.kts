@@ -21,5 +21,7 @@ tasks.test {
     systemProperty("gatelr.cities", rootDir.resolve("../../Resources/Cities").absolutePath)
     // 1.20.3: i testi di Android nelle 8 lingue (generati da Tools/translations.py)
     systemProperty("gatelr.i18n", rootDir.resolve("../app/src/main/assets/i18n").absolutePath)
+    // 2.0.1: i test dei bug Android controllano anche i sorgenti dell'app (manifest, schermate) che il JVM non può aprire
+    systemProperty("gatelr.app", rootDir.resolve("../app/src/main").absolutePath)
     testLogging { events("failed"); exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL }
 }

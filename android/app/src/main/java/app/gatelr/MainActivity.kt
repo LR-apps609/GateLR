@@ -57,13 +57,17 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import app.gatelr.core.BackStep
 import app.gatelr.core.Coordinate
+import app.gatelr.core.Freshness
 import app.gatelr.core.L
 import app.gatelr.core.Zone
 
 /** La posizione mentre l'app è aperta (per la prima pagina e la mappa) */
 object Here {
     var coordinate by mutableStateOf<Coordinate?>(null)
+    /** 2.0.1 (B160): la posizione vale come «dove sei» solo se recente (10 minuti, come il widget); altrimenti null */
+    val fresh: Coordinate? get() = coordinate?.takeIf { Freshness.isFresh(at, System.currentTimeMillis()) }
     /** 2.0: la direzione di marcia (gradi), solo se ti muovi: «Adesso» guarda la zona davanti */
     var course by mutableStateOf<Double?>(null)
     var at = 0L                       // quando è arrivata la posizione
@@ -87,6 +91,10 @@ object Nav {
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // 2.0.1 (B161): la lingua dell'app (Android 13+ la cambia per app e ricrea l'attività): i testi si ricaricano qui
+        AppState.loadStrings(this)
+        // 2.0.1 (B166): a ogni apertura (non alla rotazione) la città si sceglie di nuovo dalla posizione
+        if (savedInstanceState == null) AppState.newOpening()
         enableEdgeToEdge()
         // 1.20.2: nessuna richiesta all'apertura (prima posizione e notifiche subito, a ogni avvio): le chiede chi le usa
         Permissions.install(this)
@@ -118,6 +126,12 @@ class MainActivity : ComponentActivity() {
         AppState.cities.flatMap { it.zones }.firstOrNull { it.id == id }?.let { Nav.zone = it }
     }
 
+    override fun onResume() {
+        super.onResume()
+        // 2.0.1 (B80): il permesso dato dalle Impostazioni con l'app aperta si vede subito
+        Here.allowed = GuardianService.canStart(this)
+    }
+
     override fun onStop() {
         super.onStop()
         ZoneWidget.refresh(this)          // il widget segue la zona scelta nell'app
@@ -135,8 +149,17 @@ fun Root() {
         Pair("Trip", Icons.Filled.Luggage),
         Pair("Help", Icons.AutoMirrored.Filled.HelpOutline),
     )
-    // Indietro (anche «predictive back»): da una scheda interna torna ad Adesso, mai chiudere l'app da lì
-    BackHandler(enabled = Nav.tab != 0) { Nav.tab = 0 }
+    // Indietro (anche «predictive back»): 2.0.1 (B81) prima chiude il posto aperto in Viaggio o lo spillo sulla mappa,
+    // poi torna ad Adesso; da Adesso esce
+    val back = BackStep.next(Nav.tab, AppState.place != null, Nav.mapPin != null)
+    BackHandler(enabled = back != BackStep.Action.EXIT) {
+        when (back) {
+            BackStep.Action.CLOSE_PLACE -> AppState.select(null)
+            BackStep.Action.CLOSE_PIN -> Nav.mapPin = null
+            BackStep.Action.GO_NOW -> Nav.tab = 0
+            BackStep.Action.EXIT -> {}
+        }
+    }
     Scaffold(bottomBar = {
         NavigationBar(containerColor = cardColor) {
             tabs.forEachIndexed { i, t ->
@@ -232,9 +255,12 @@ fun LocationWhileOpen() {
             for (p in listOf(LocationManager.NETWORK_PROVIDER, LocationManager.GPS_PROVIDER)) {
                 if (lm.allProviders.contains(p)) {
                     runCatching { lm.getLastKnownLocation(p) }.getOrNull()?.let {
-                        if (Here.coordinate == null) Here.coordinate = Coordinate(it.latitude, it.longitude)
-                        // L'ultima posizione nota va bene solo se recente (meno di 10 minuti): prima di andare altrove
-                        if (System.currentTimeMillis() - it.time < 10 * 60_000) AppState.adoptCity(Coordinate(it.latitude, it.longitude))
+                        // 2.0.1 (B160): l'ultima posizione nota vale solo se recente (meno di 10 minuti), con la sua ora:
+                        // prima una posizione di ieri a Firenze diventava «dove sei» anche a Bologna
+                        if (Freshness.isFresh(it.time, System.currentTimeMillis()) && it.time > Here.at) {
+                            Here.coordinate = Coordinate(it.latitude, it.longitude); Here.at = it.time
+                            AppState.adoptCity(Coordinate(it.latitude, it.longitude))
+                        }
                     }
                     runCatching { lm.requestLocationUpdates(p, 10_000L, 50f, listener, Looper.getMainLooper()) }
                 }

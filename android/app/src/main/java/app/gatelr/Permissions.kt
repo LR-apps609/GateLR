@@ -31,6 +31,8 @@ object Permissions {
     /** Chiede quello che manca per quel momento, poi «then» (anche con un no: chi chiama controlla di nuovo) */
     fun ask(ctx: Context, moment: PermissionPlan.Moment, then: () -> Unit = {}) {
         val notif = Build.VERSION.SDK_INT < 33 || has(ctx, Manifest.permission.POST_NOTIFICATIONS)
+        // 2.0.1 (B80): il permesso può essere arrivato dalle Impostazioni con l'app aperta: lo si rilegge qui
+        Here.allowed = GuardianService.canStart(ctx)
         val needs = PermissionPlan.needs(moment, GuardianService.canStart(ctx), notif, Build.VERSION.SDK_INT)
         val l = launcher
         if (needs.isEmpty() || l == null) { then(); return }

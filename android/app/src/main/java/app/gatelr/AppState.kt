@@ -8,7 +8,9 @@ import androidx.compose.runtime.setValue
 import app.gatelr.core.Answer
 import app.gatelr.core.City
 import app.gatelr.core.CityFromPosition
+import app.gatelr.core.CityFromPositionGate
 import app.gatelr.core.CityLoader
+import app.gatelr.core.Lingua
 import app.gatelr.core.Coordinate
 import app.gatelr.core.Fuel
 import app.gatelr.core.L
@@ -61,12 +63,7 @@ object AppState {
     fun init(ctx: Context) {
         // Lingua come il telefono: le 8 dell'iPhone (1.20.3: anche francese, spagnolo, olandese, polacco e cinese, dalla
         // stessa fonte Tools/translations.py); le altre in inglese
-        val lang = Locale.getDefault().language
-        Strings.language = if (lang in SUPPORTED_LANGUAGES) lang else "en"
-        if (Strings.language != "en") {
-            val text = ctx.assets.open("i18n/strings_${Strings.language}.json").bufferedReader().readText()
-            Strings.table = json.parseToJsonElement(text).jsonObject.mapValues { it.value.jsonPrimitive.content }
-        }
+        loadStrings(ctx)
         cities = (ctx.assets.list("Cities") ?: emptyArray()).filter { it.endsWith(".json") && it != "manifest.json" }
             .mapNotNull { runCatching { CityLoader.decode(ctx.assets.open("Cities/$it").bufferedReader().readText()) }.getOrNull() }
             // 1.20.0: anche le città con zone da fonti non ufficiali (Salerno, Cagliari…), come sull'iPhone: risposte con
@@ -85,6 +82,18 @@ object AppState {
         trips = prefs.getString("trips", null)?.let { runCatching { json.decodeFromString(ListSerializer(SavedTrip.serializer()), it) }.getOrNull() } ?: emptyList()
         log = prefs.getString("log", null)?.let { runCatching { json.decodeFromString(ListSerializer(LogEntry.serializer()), it) }.getOrNull() } ?: emptyList()
         zoneId = prefs.getString("zone", zoneId) ?: zoneId
+    }
+
+    /** 2.0.1 (B161): i testi nella lingua dell'app, ricaricati a ogni creazione dell'attività: su Android 13+ la lingua
+     *  dell'app si cambia dalle Impostazioni e prima restava quella dell'avvio del processo (interfaccia in due lingue) */
+    fun loadStrings(ctx: Context) {
+        val locales = ctx.resources.configuration.locales
+        val lang = Lingua.pick(if (locales.isEmpty) Locale.getDefault().language else locales[0].language)
+        if (lang == Strings.language && (lang == "en" || Strings.table.isNotEmpty())) return
+        Strings.table = if (lang == "en") emptyMap() else runCatching {
+            json.parseToJsonElement(ctx.assets.open("i18n/strings_$lang.json").bufferedReader().readText()).jsonObject.mapValues { it.value.jsonPrimitive.content }
+        }.getOrDefault(emptyMap())
+        Strings.language = lang
     }
 
     fun save() {
@@ -126,16 +135,17 @@ object AppState {
     fun check(c: Coordinate, at: Instant = Instant.now(), hotelInside: Boolean = false): PlaceCheck =
         PlaceCheck.of(cities, c) { rawAnswer(it, at, hotelInside) }
 
-    /** 1.20.2: la città scelta a mano in questa apertura (la posizione non la cambia più) e la scelta dalla posizione fatta */
-    private var cityByHand = false
-    private var cityFromPositionDone = false
+    /** 1.20.2: la città dalla posizione una volta per apertura e mai dopo una scelta a mano. 2.0.1 (B166): «apertura» è
+     *  l'attività creata di nuovo (newOpening da MainActivity.onCreate), non più il processo */
+    private val cityGate = CityFromPositionGate()
 
-    /** 1.20.2: alla prima posizione la pagina va sulla città dove sei (CityFromPosition), una volta sola per apertura,
-     *  se non hai già scelto un posto o una città. Vero se ha cambiato città */
+    fun newOpening() = cityGate.newOpening()
+
+    /** Alla prima posizione di ogni apertura la pagina va sulla città dove sei (CityFromPosition), se non hai già
+     *  scelto un posto o una città. Vero se ha cambiato città */
     fun adoptCity(here: Coordinate): Boolean {
-        if (cityFromPositionDone || !::cities.isInitialized) return false
-        cityFromPositionDone = true
-        if (place != null || cityByHand) return false
+        if (!::cities.isInitialized || !cityGate.shouldAdopt()) return false
+        if (place != null) return false
         val (c, z) = CityFromPosition.pick(here, cities) ?: return false
         if (c.id == cityId) return false
         cityId = c.id; zoneId = z.id; save()
@@ -143,7 +153,7 @@ object AppState {
     }
 
     /** La città scelta dal menu */
-    fun chooseCity(id: String) { cityByHand = true; selectCity(id) }
+    fun chooseCity(id: String) { cityGate.choseByHand(); selectCity(id) }
 
     fun selectCity(id: String) {
         cityId = id

@@ -941,6 +941,12 @@ ANDROID = {
 "Passages near the gates, only on this phone": ("Passaggi vicino ai varchi, solo su questo telefono", "Durchfahrten an den Einfahrten, nur auf diesem Handy"),
 "The answer where you are, now": ("La risposta dove sei, adesso", "Die Antwort, wo du bist, jetzt"),
 "Where are you going? Hotel, address or square": ("Dove vai? Hotel, indirizzo o piazza", "Wohin fährst du? Hotel, Adresse oder Platz"),
+# 2.0.1: bug Android dei tester (ora d'arrivo, widget, prima pagina)
+"In 1 hour": ("Tra un'ora", "In einer Stunde"),
+"This evening": ("Stasera", "Heute Abend"),
+"Tomorrow morning": ("Domani mattina", "Morgen früh"),
+"Updated %@": ("Aggiornato alle %@", "Aktualisiert um %@"),
+"1 active": ("1 attiva", "1 aktiv"),
 }
 
 # Gli stessi testi per l'app Android (assets/i18n/strings_it.json, strings_de.json; dalla 1.20.3 anche fr, es, nl, pl, zh più sotto)

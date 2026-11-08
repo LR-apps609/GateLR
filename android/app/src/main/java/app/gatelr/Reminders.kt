@@ -10,6 +10,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import app.gatelr.core.ReminderBook
+import app.gatelr.core.SavedReminder
+import kotlinx.serialization.builtins.ListSerializer
+import kotlinx.serialization.json.Json
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import app.gatelr.core.L
@@ -22,11 +26,37 @@ object Reminders {
         // 1.20.2: le notifiche si chiedono qui, al primo promemoria (non più all'apertura dell'app)
         Permissions.ask(ctx, app.gatelr.core.PermissionPlan.Moment.REMINDER)
         val when_ = maxOf(atMillis, System.currentTimeMillis() + 5_000)
-        ctx.getSystemService(AlarmManager::class.java)?.set(AlarmManager.RTC_WAKEUP, when_, intent(ctx, key, title, body))
+        // 2.0.1 (B86): salvato sul telefono (si ripianifica dopo il riavvio) e con un allarme che suona anche in Doze
+        store(ctx, ReminderBook.add(load(ctx), SavedReminder(key, when_, title, body), System.currentTimeMillis()))
+        arm(ctx, SavedReminder(key, when_, title, body))
+    }
+
+    private fun arm(ctx: Context, r: SavedReminder) {
+        ctx.getSystemService(AlarmManager::class.java)?.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, r.at, intent(ctx, r.key, r.title, r.body))
     }
 
     fun cancel(ctx: Context, key: String) {
         ctx.getSystemService(AlarmManager::class.java)?.cancel(intent(ctx, key, "", ""))
+        store(ctx, ReminderBook.remove(load(ctx), key))
+    }
+
+    /** Dopo il riavvio (BootReceiver): gli allarmi spariscono, i promemoria salvati si rimettono */
+    fun rescheduleAll(ctx: Context) {
+        val now = System.currentTimeMillis()
+        val list = ReminderBook.toReschedule(load(ctx), now)
+        store(ctx, list)
+        list.forEach { arm(ctx, it) }
+    }
+
+    /** Il promemoria è arrivato: non serve più ripianificarlo */
+    fun delivered(ctx: Context, key: String) = store(ctx, ReminderBook.remove(load(ctx), key))
+
+    private val json = Json { ignoreUnknownKeys = true }
+    private fun prefs(ctx: Context) = ctx.getSharedPreferences("gatelr", Context.MODE_PRIVATE)
+    private fun load(ctx: Context): List<SavedReminder> = prefs(ctx).getString("reminders", null)
+        ?.let { runCatching { json.decodeFromString(ListSerializer(SavedReminder.serializer()), it) }.getOrNull() } ?: emptyList()
+    private fun store(ctx: Context, list: List<SavedReminder>) {
+        prefs(ctx).edit().putString("reminders", json.encodeToString(ListSerializer(SavedReminder.serializer()), list)).apply()
     }
 
     private fun intent(ctx: Context, key: String, title: String, body: String) = PendingIntent.getBroadcast(ctx, key.hashCode(),
@@ -46,6 +76,14 @@ object Reminders {
 
 class ReminderReceiver : BroadcastReceiver() {
     override fun onReceive(ctx: Context, i: Intent) {
+        (i.action ?: "").removePrefix("reminder|").takeIf { it.isNotEmpty() }?.let { Reminders.delivered(ctx, it) }
         Reminders.show(ctx, (i.action ?: "").hashCode(), i.getStringExtra("title") ?: "GateLR", i.getStringExtra("body") ?: "")
+    }
+}
+
+/** 2.0.1 (B86): al riavvio del telefono rimette i promemoria salvati (gli allarmi di Android non sopravvivono al riavvio) */
+class BootReceiver : BroadcastReceiver() {
+    override fun onReceive(ctx: Context, i: Intent) {
+        if (i.action == Intent.ACTION_BOOT_COMPLETED) Reminders.rescheduleAll(ctx)
     }
 }

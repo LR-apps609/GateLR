@@ -1,5 +1,9 @@
 package app.gatelr
 
+import androidx.compose.runtime.saveable.rememberSaveable
+import app.gatelr.core.CityBanner
+import app.gatelr.core.Money
+import app.gatelr.core.TicketShow
 import app.gatelr.core.detail
 import app.gatelr.core.panel
 import app.gatelr.core.panelLine
@@ -171,12 +175,13 @@ private fun PlaceRow(p: Place, recent: Boolean = false, onClick: () -> Unit) {
 @Composable
 private fun TripAnswer(p: Place) {
     val ctx = LocalContext.current
-    var arrival by remember(p.key) { mutableStateOf(Arrival.NOW) }
+    // 2.0.1 (B82): le scelte restano alla rotazione e al cambio di tema (rememberSaveable)
+    var arrival by rememberSaveable(p.key) { mutableStateOf(Arrival.NOW) }
     val nowZ = ZonedDateTime.now(ROME).also { rememberNow() }
     // Viaggio salvato aperto: vale la sua ora d'arrivo finché non scegli un'altra opzione
-    var saved by remember(p.key, AppState.tripAt) { mutableStateOf(AppState.tripAt) }
+    var saved by rememberSaveable(p.key, AppState.tripAt) { mutableStateOf(AppState.tripAt) }
     val at = saved?.let { java.time.Instant.ofEpochMilli(it).atZone(ROME) } ?: arrival.at(nowZ)
-    var hotelInside by remember(p.key) { mutableStateOf(false) }
+    var hotelInside by rememberSaveable(p.key) { mutableStateOf(false) }
     // 1.20.0, come l'iPhone (PlaceCheck): decide la zona con la risposta peggiore tra tutte quelle del posto (Settore A
     // dentro lo Scudo Verde, Area C dentro l'Area B), l'area pedonale vince, fuori dalle città che conosciamo neutro
     val check = AppState.check(p.location, at.toInstant(), hotelInside)
@@ -195,6 +200,8 @@ private fun TripAnswer(p: Place) {
         val near = AppState.cities.firstOrNull { it.covers(p.location.lat, p.location.lon) }
         val f = check.finale.let { if (it.stato == app.gatelr.core.Stato.FUORI_ZTL && it.city == null) it.copy(city = near) else it }
         val whenText = if (saved == null && arrival == Arrival.NOW) L("Now") else shortWhen(at.toInstant().toEpochMilli())
+        // 2.0.1 (B88): l'avviso «Bozza» sopra la risposta, come l'iPhone
+        CityBanner.text(f.city, f.zone)?.let { DraftBanner(it) }
         AnswerBlock(f, f.subtitle(whenText), f.detail(check.answer), f.spoken(whenText, NowAnswer.vehicleLabel(), null))
         if (f.stato == app.gatelr.core.Stato.FUORI_ZTL) nearestZone(AppState.cities, p.location)?.let {
             Text(F("%@ is %@ away", it.second.shortName, Geometry.distanceText(it.third)), fontSize = 14.sp, color = Ink.text2)
@@ -205,7 +212,8 @@ private fun TripAnswer(p: Place) {
             runCatching { ctx.startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text), null)) }
         }, Modifier.fillMaxWidth(), Icons.Filled.Share, filled = false)
 
-        zone?.ticket?.let { TicketBox(it, zone, at) }
+        // 2.0.1 (B87): il ticket solo con la zona attiva all'ora scelta e fuori dalle aree pedonali (come l'iPhone)
+        if (TicketShow.visible(zone, pedestrian, zone != null && AppState.engine.isActive(zone, at.toInstant()))) zone?.ticket?.let { TicketBox(it, zone, at) }
         if (zone != null && zone.hotelCanRegister && pedestrian == null) {
             HotelBox(p, zone, at, hotelInside) { hotelInside = it }
         }
@@ -230,7 +238,7 @@ private fun RouteBox(p: Place, arrival: ZonedDateTime?) {
     if (r == null) {
         Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
             OutlinedButton(onClick = {
-                val from = Here.coordinate
+                val from = Here.fresh
                 if (from == null) { error = L("Couldn't find your position. Allow location access to plan the drive."); return@OutlinedButton }
                 working = true; error = null
                 scope.launch {
@@ -291,7 +299,7 @@ private fun TicketBox(t: Ticket, zone: Zone, entry: ZonedDateTime) {
     CardBox {
         Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
             Text(L("Ticket").uppercase(), fontSize = 13.sp, fontWeight = FontWeight.SemiBold, color = Ink.amber)
-            Text(String.format(Locale.ITALY, "€ %.2f", t.price), fontSize = 24.sp, fontWeight = FontWeight.Bold)
+            Text(Money.euro(t.price), fontSize = 24.sp, fontWeight = FontWeight.Bold)
             Text(t.localizedHowTo, fontSize = 14.sp)
             when (t.deadline) {
                 "nextDayMidnight" -> Text(L("Activate it by midnight of the next day."), fontSize = 13.sp, fontWeight = FontWeight.SemiBold)
@@ -318,8 +326,8 @@ private fun TicketBox(t: Ticket, zone: Zone, entry: ZonedDateTime) {
 @Composable
 private fun HotelBox(p: Place, zone: Zone, arrival: ZonedDateTime, inside: Boolean, setInside: (Boolean) -> Unit) {
     val ctx = LocalContext.current
-    var nights by remember(p.key) { mutableIntStateOf(2) }
-    var lang by remember { mutableStateOf(if (Strings.language == "de") "de" else "it") }
+    var nights by rememberSaveable(p.key) { mutableIntStateOf(2) }
+    var lang by rememberSaveable { mutableStateOf(if (Strings.language == "de") "de" else "it") }
     val vehicle = AppState.vehicle
     val city = AppState.cityOf(zone)
     val departure = arrival.plusDays(nights.toLong())

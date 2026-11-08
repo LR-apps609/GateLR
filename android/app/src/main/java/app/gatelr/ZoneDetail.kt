@@ -99,7 +99,7 @@ fun ZoneDetail(z: Zone) {
             SectionLabel("Ticket")
             CardBox {
                 Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    Text(String.format(Locale.ITALY, "€ %.2f", t.price), fontSize = 22.sp, fontWeight = FontWeight.Bold)
+                    Text(app.gatelr.core.Money.euro(t.price), fontSize = 22.sp, fontWeight = FontWeight.Bold)
                     Text(t.localizedHowTo, fontSize = 14.sp)
                     t.url?.let { u -> Text(L("Pay the ticket") + " ›", color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.SemiBold, modifier = Modifier.clickable { open(u) }) }
                 }

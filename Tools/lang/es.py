@@ -1043,4 +1043,10 @@ ANDROID = {
 "Passages near the gates, only on this phone": "Pasos cerca de los accesos, solo en este teléfono",
 "The answer where you are, now": "La respuesta donde estás, ahora",
 "Where are you going? Hotel, address or square": "¿Adónde vas? Hotel, dirección o plaza",
+# 2.0.1: bug Android dei tester
+"In 1 hour": "En 1 hora",
+"This evening": "Esta noche",
+"Tomorrow morning": "Mañana por la mañana",
+"Updated %@": "Actualizado a las %@",
+"1 active": "1 activa",
 }

@@ -180,7 +180,7 @@ class RuleEngine(
             return Answer(Verdict.Conditional(L("The ZTL is active."), L("You can drive to the hotel only if the hotel registers your plate with the city.")), true, next)
         }
         zone.ticket?.let { t ->
-            return Answer(Verdict.Conditional(L("The ZTL is active."), F("You can enter with the day ticket (%@). %@", "€" + String.format("%.2f", t.price), t.localizedHowTo)), true, next)
+            return Answer(Verdict.Conditional(L("The ZTL is active."), F("You can enter with the day ticket (%@). %@", Money.euro(t.price), t.localizedHowTo)), true, next)
         }
         val off = next?.let { " " + F("It ends %@.", describe(it, at)) } ?: ""
         return Answer(Verdict.No(L("The ZTL is active.") + off), true, next)

@@ -212,23 +212,41 @@ object SignReader {
         (h1 * 60 + m1) to (h2 * 60 + m2)
     }.toList()
 
-    private val names = listOf("dom" to 1, "lun" to 2, "mar" to 3, "mer" to 4, "gio" to 5, "ven" to 6, "sab" to 7,
+    private val names = mapOf("dom" to 1, "lun" to 2, "mar" to 3, "mer" to 4, "gio" to 5, "ven" to 6, "sab" to 7,
         "sun" to 1, "mon" to 2, "tue" to 3, "wed" to 4, "thu" to 5, "fri" to 6, "sat" to 7)
-    private val rangeRe = Regex("""(dom|lun|mar|mer|gio|ven|sab|sun|mon|tue|wed|thu|fri|sat)[a-zì]*\.?\s*-\s*(dom|lun|mar|mer|gio|ven|sab|sun|mon|tue|wed|thu|fri|sat)""")
+
+    /** 2.0.1: un giorno come parola intera, come SignReader.dayWord dell'iPhone: «mar», «mar.», «martedì» (mai dentro
+     *  «marzo», «merci», «giorni», «venti», «domani»…). Prima «\bmar» leggeva «dal 1 marzo» come «solo martedì» */
+    private const val DAY_WORD = """(?<![a-zà-ü])(dom(?:enica)?|lun(?:ed[iìí])?|mar(?:ted[iìí])?|mer(?:coled[iìí])?|gio(?:ved[iìí])?|ven(?:erd[iìí])?|sab(?:ato)?|sun(?:day)?|mon(?:day)?|tue(?:s(?:day)?)?|wed(?:nesday)?|thu(?:rs(?:day)?)?|fri(?:day)?|sat(?:urday)?)(?![a-zà-ü])\.?"""
+    private val dayRe = Regex(DAY_WORD)
+    /** «lun-ven», «lunedì - sabato», «da lunedì a venerdì», «dal lun. al sab.» */
+    private val rangeRe = Regex(DAY_WORD + """\s*(?:-|/|\ba\b|\bal\b)\s*""" + DAY_WORD)
+    private fun dayNumber(w: String): Int? = names[w.take(3)]
 
     fun days(line: String): Set<Int>? {
         if ("tutti i giorni" in line || "every day" in line || "giornaliero" in line) return allDays
         rangeRe.find(line)?.let { m ->
-            val a = names.first { it.first == m.groupValues[1] }.second
-            val b = names.first { it.first == m.groupValues[2] }.second
-            val out = mutableSetOf<Int>(); var d = a
-            repeat(7) { out += d; if (d == b) return out; d = d % 7 + 1 }
-            return out
+            val a = dayNumber(m.groupValues[1]); val b = dayNumber(m.groupValues[2])
+            if (a != null && b != null) {
+                val out = mutableSetOf<Int>(); var d: Int = a
+                repeat(7) { out += d; if (d == b) return out; d = d % 7 + 1 }
+                return out
+            }
         }
         if ("feriali" in line) return setOf(2, 3, 4, 5, 6, 7)
         if ("festivi" in line && "esclus" !in line) return setOf(1)
-        val found = names.filter { Regex("""\b${it.first}""").containsMatchIn(line) }.map { it.second }.toSet()
+        val found = dayRe.findAll(line).mapNotNull { dayNumber(it.groupValues[1]) }.toSet()
         return found.ifEmpty { null }
+    }
+
+    /** 2.0.1: come SignReader.Reading dell'iPhone. Un cartello letto (foto o testo) non dà mai verde: accesa = rosso,
+     *  altrimenti giallo con il «?» («sembra spenta: controlla»), non letto = giallo */
+    enum class Reading(val tono: Tono) { ACTIVE(Tono.ROSSO), SEEMS_OFF(Tono.GIALLO), UNREADABLE(Tono.GIALLO) }
+
+    fun reading(r: Result, at: Instant): Reading = when {
+        !r.understood -> Reading.UNREADABLE
+        isActive(r, at) -> Reading.ACTIVE
+        else -> Reading.SEEMS_OFF
     }
 
     fun isActive(r: Result, at: Instant): Boolean {

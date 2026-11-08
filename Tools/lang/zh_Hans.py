@@ -1043,4 +1043,10 @@ ANDROID = {
 "Passages near the gates, only on this phone": "经过入口的记录，仅保存在此手机上",
 "The answer where you are, now": "你所在位置的答案，现在",
 "Where are you going? Hotel, address or square": "你要去哪里？酒店、地址或广场",
+# 2.0.1: bug Android dei tester
+"In 1 hour": "1 小时后",
+"This evening": "今晚",
+"Tomorrow morning": "明天上午",
+"Updated %@": "更新于 %@",
+"1 active": "1 个生效",
 }

@@ -10,6 +10,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.input.ImeAction
 import app.gatelr.core.SearchSubmit
 import androidx.compose.foundation.background
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -68,6 +69,8 @@ import app.gatelr.core.Coordinate
 import app.gatelr.core.F
 import app.gatelr.core.Geometry
 import app.gatelr.core.L
+import app.gatelr.core.MappaRisposte
+import app.gatelr.core.Tono
 import app.gatelr.core.Place
 import app.gatelr.core.SearchPlan
 import app.gatelr.core.Verdict
@@ -96,12 +99,20 @@ private const val STYLE_DARK = "https://tiles.openfreemap.org/styles/dark"
 
 private fun hex(c: Color) = String.format("#%06X", 0xFFFFFF and c.toArgb())
 
+/** 2.0.1 (B12): il colore di una risposta sulla mappa, pieno e ben visibile (il giallo più scuro del giallo del blocco) */
+private fun mapColor(t: Tono): Color = if (t == Tono.GIALLO) Color(0xFFD99A00) else Palette.tone(t)
+
+/** 2.0.1 (B12): il tono di ogni zona = la risposta per il tuo veicolo, i tuoi permessi e quell'ora (come Access.of
+ *  dell'iPhone). Prima il colore veniva dal tipo: Area B e Scudo Verde sempre verdi, anche per chi prende la multa */
+private fun zoneTones(cities: List<City>, at: Instant): Map<String, Tono> =
+    cities.flatMap { c -> c.zones.map { z -> z.id to MappaRisposte.tono(AppState.rawAnswer(z, at), z, c) } }.toMap()
+
 /**
- * Le zone in GeoJSON: colore per tipo (verde ben visibile), aree pedonali più piccole sopra.
+ * Le zone in GeoJSON: il colore della risposta ([tones]), aree pedonali («Non entrare») più piccole sopra.
  * Con un posto cercato ([lit] non nullo) le zone che lo contengono si accendono del colore della risposta
  * ([neon]) con un bagliore, le altre restano appena accennate: si vede subito se è dentro o fuori.
  */
-private fun zonesGeoJson(cities: List<City>, lit: Set<String>? = null, neon: Color = Palette.green): String {
+private fun zonesGeoJson(cities: List<City>, tones: Map<String, Tono>, lit: Set<String>? = null, neon: Color = Palette.green): String {
     val sb = StringBuilder("{\"type\":\"FeatureCollection\",\"features\":[")
     var first = true
     fun ring(points: List<Coordinate>) = (points + points.first()).joinToString(",") { "[${it.lon},${it.lat}]" }
@@ -109,14 +120,15 @@ private fun zonesGeoJson(cities: List<City>, lit: Set<String>? = null, neon: Col
     for (c in cities) for (z in c.zones.sortedByDescending { it.roughArea }) {
         if (!first) sb.append(','); first = false
         val green = z.type == ZoneKind.GREEN
+        val tone = tones[z.id] ?: Tono.GIALLO
         sb.append("{\"type\":\"Feature\",\"properties\":{\"id\":\"${z.id}\",")
-            .append(look(Palette.kind(z.type), if (green) 0.30 else 0.22, if (green) 4.0 else 2.5, lit, z.id, neon)).append("},")
+            .append(look(mapColor(tone), if (green) 0.26 else 0.24, if (green) 4.0 else 2.5, lit, z.id, neon)).append("},")
             .append("\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[${ring(z.perimeter)}]]}}")
     }
     for (c in cities) for (p in c.pedestrian.orEmpty()) {
         if (!first) sb.append(','); first = false
         sb.append("{\"type\":\"Feature\",\"properties\":{\"id\":\"${p.id}\",")
-            .append(look(Color(0xFF7A1F5C), 0.28, 1.5, lit, p.id, neon)).append("},")
+            .append(look(mapColor(MappaRisposte.pedestrian), 0.30, 1.5, lit, p.id, neon)).append("},")
             .append("\"geometry\":{\"type\":\"Polygon\",\"coordinates\":[[${ring(p.perimeter)}]]}}")
     }
     return sb.append("]}").toString()
@@ -240,16 +252,18 @@ fun MapScreen(modifier: Modifier) {
         if (styleUri == wantStyle) return@LaunchedEffect
         styleUri = wantStyle; styleReady = false
         m.setStyle(Style.Builder().fromUri(wantStyle)) { style ->
-            addLayers(style, zonesGeoJson(AppState.cities), pinGeoJson(null, Palette.green))
+            addLayers(style, zonesGeoJson(AppState.cities, zoneTones(AppState.cities, Instant.now())), pinGeoJson(null, Palette.green))
             styleReady = true
         }
     }
-    // Le sorgenti si aggiornano solo quando cambia il posto o la sua risposta, non a ogni minuto
-    LaunchedEffect(pin?.key, pinKind, styleReady) {
+    // Le sorgenti si aggiornano solo quando cambia il posto, la sua risposta o il colore di una zona (ora, veicolo,
+    // permessi), non a ogni minuto
+    val tones = remember(now.epochSecond / 60, AppState.activeVehicleId, AppState.vehicles, AppState.permits) { zoneTones(AppState.cities, now) }
+    LaunchedEffect(pin?.key, pinKind, styleReady, tones) {
         if (!styleReady) return@LaunchedEffect
         val style = map?.style ?: return@LaunchedEffect
         val lit = pin?.let { p -> (zonesAt(AppState.cities, p.location).map { it.second.id } + listOfNotNull(pinPedestrian?.id)).toSet() }
-        style.getSourceAs<GeoJsonSource>("zones")?.setGeoJson(zonesGeoJson(AppState.cities, lit, pinColor))
+        style.getSourceAs<GeoJsonSource>("zones")?.setGeoJson(zonesGeoJson(AppState.cities, tones, lit, pinColor))
         style.getSourceAs<GeoJsonSource>("pin")?.setGeoJson(pinGeoJson(pin, pinColor))
     }
     LaunchedEffect(pin?.key, map) {
@@ -284,15 +298,19 @@ fun MapScreen(modifier: Modifier) {
             Column(Modifier.align(Alignment.TopEnd).padding(top = 80.dp, end = 64.dp)
                 .background(cardColor, RoundedCornerShape(14.dp)).padding(12.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                listOf(ZoneKind.RESTRICTED, ZoneKind.PASS, ZoneKind.GREEN).forEach { k -> LegendRow(Palette.kind(k), k.title) }
-                LegendRow(Color(0xFF7A1F5C), L("Pedestrian area"))
+                // 2.0.1 (B12): la legenda delle risposte per il tuo veicolo adesso, non dei tipi di zona
+                MappaRisposte.legend.forEach { st -> LegendRow(mapColor(st.color), st.title) }
+                LegendRow(mapColor(MappaRisposte.pedestrian), L("Pedestrian area"))
             }
         }
 
         // La scheda in basso con la risposta per il posto cercato
+        // 2.0.1 (B164): in orizzontale la scheda resta entro il 60% dello schermo e scorre: «Avvia» e «Dettagli viaggio» si raggiungono
         pin?.let { p ->
-            Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().padding(12.dp)
-                .background(cardColor, RoundedCornerShape(24.dp)).padding(16.dp),
+            val maxH = (androidx.compose.ui.platform.LocalConfiguration.current.screenHeightDp * 0.6f).dp
+            Column(Modifier.align(Alignment.BottomCenter).fillMaxWidth().padding(12.dp).heightIn(max = maxH)
+                .background(cardColor, RoundedCornerShape(24.dp))
+                .verticalScroll(androidx.compose.foundation.rememberScrollState()).padding(16.dp),
                 verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 Text(p.name, fontWeight = FontWeight.Bold, fontSize = 18.sp, maxLines = 1)
                 pinCheck?.let { k ->

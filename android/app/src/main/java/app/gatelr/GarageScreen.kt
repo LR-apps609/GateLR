@@ -35,6 +35,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -59,8 +60,10 @@ import java.util.Locale
 
 @Composable
 fun GarageScreen(modifier: Modifier) {
-    var editing by remember { mutableStateOf<Vehicle?>(null) }
-    var adding by remember { mutableStateOf(false) }
+    // 2.0.1 (B82): il veicolo in modifica e i campi restano alla rotazione (rememberSaveable; il veicolo per id)
+    var editingId by rememberSaveable { mutableStateOf<String?>(null) }
+    val editing = AppState.vehicles.firstOrNull { it.id == editingId }
+    var adding by rememberSaveable { mutableStateOf(false) }
     val now = rememberNow()
     LazyColumn(modifier.fillMaxSize().background(MaterialTheme.colorScheme.background), contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -79,7 +82,7 @@ fun GarageScreen(modifier: Modifier) {
                             .filter { it.isNotBlank() }.joinToString(" · "), fontSize = 13.sp,
                             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f))
                     }
-                    TextButton(onClick = { editing = v }) { Text(L("Edit")) }
+                    TextButton(onClick = { editingId = v.id }) { Text(L("Edit")) }
                 }
             }
         }
@@ -105,7 +108,7 @@ fun GarageScreen(modifier: Modifier) {
         items(AppState.permits, key = { it.id }) { p -> PermitRow(p) }
     }
     if (adding) VehicleDialog(null) { adding = false }
-    editing?.let { v -> VehicleDialog(v) { editing = null } }
+    editing?.let { v -> VehicleDialog(v) { editingId = null } }
 }
 
 @Composable
@@ -137,14 +140,14 @@ private fun VehicleDialog(v: Vehicle?, close: () -> Unit) {
         AppState.vehicles = after.vehicles; AppState.permits = after.permits; AppState.activeVehicleId = after.activeVehicleId
         AppState.save(); close()
     }, onDismiss = { confirmDelete = false })
-    var name by remember { mutableStateOf(v?.name ?: L("My car")) }
-    var model by remember { mutableStateOf(v?.model ?: "") }
-    var plate by remember { mutableStateOf(v?.plate ?: "") }
-    var fuel by remember { mutableStateOf(v?.fuel ?: Fuel.PETROL) }
-    var euro by remember { mutableStateOf(v?.euro ?: 6) }
-    var year by remember { mutableStateOf(v?.year?.toString() ?: "") }
-    var rental by remember { mutableStateOf(v?.isRental ?: false) }
-    var type by remember { mutableStateOf(v?.kind ?: VehicleType.CAR) }
+    var name by rememberSaveable(v?.id) { mutableStateOf(v?.name ?: L("My car")) }
+    var model by rememberSaveable(v?.id) { mutableStateOf(v?.model ?: "") }
+    var plate by rememberSaveable(v?.id) { mutableStateOf(v?.plate ?: "") }
+    var fuel by rememberSaveable(v?.id) { mutableStateOf(v?.fuel ?: Fuel.PETROL) }
+    var euro by rememberSaveable(v?.id) { mutableStateOf(v?.euro ?: 6) }
+    var year by rememberSaveable(v?.id) { mutableStateOf(v?.year?.toString() ?: "") }
+    var rental by rememberSaveable(v?.id) { mutableStateOf(v?.isRental ?: false) }
+    var type by rememberSaveable(v?.id) { mutableStateOf(v?.kind ?: VehicleType.CAR) }
     AlertDialog(onDismissRequest = close,
         title = { Text(if (v == null) L("Add a car") else L("Edit")) },
         text = {
