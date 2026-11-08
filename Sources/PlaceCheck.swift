@@ -20,6 +20,8 @@ struct PlaceCheck {
     let decider: Int?
     /// Il posto è in una città che conosciamo
     let covered: Bool
+    /// 2.1 (B22): coperto solo da città con le zone (e i confini) da fonti non ufficiali
+    let coverUnofficial: Bool
 
     @MainActor
     init(_ place: Place, store: Store, at date: Date = Date()) {
@@ -29,12 +31,15 @@ struct PlaceCheck {
         let hotel = store.isHotel(place)
         self.init(place: place, hits: hits, pedestrian: pedestrian,
                   answers: hits.map { store.answer(at: date, zone: $0.zone, hotelInside: hotel) },
-                  covered: !hits.isEmpty || pedestrian != nil || store.covers(place.location))
+                  covered: !hits.isEmpty || pedestrian != nil || store.covers(place.location),
+                  coverUnofficial: hits.isEmpty && Store.coverUnofficial(place.location, in: store.cities))
     }
 
     /// Con le risposte già pronte (test e anteprime): una per zona di `hits`
-    init(place: Place, hits: [(city: City, zone: Zone)], pedestrian: PedestrianArea? = nil, answers: [Answer], covered: Bool = true) {
+    init(place: Place, hits: [(city: City, zone: Zone)], pedestrian: PedestrianArea? = nil, answers: [Answer], covered: Bool = true,
+         coverUnofficial: Bool = false) {
         self.place = place
+        self.coverUnofficial = coverUnofficial
         self.hits = hits
         self.pedestrian = pedestrian
         self.answers = answers
@@ -45,12 +50,15 @@ struct PlaceCheck {
     }
 
     /// La zona la cui risposta è la peggiore (come si mostra: un «sì» da fonte non ufficiale conta come «non sicuro»);
-    /// a parità vince la prima, cioè la più piccola
+    /// 2.1 (B36): a parità di gravità (non verde) quella con i varchi accesi; poi la prima, cioè la più piccola
     static func worst(_ zones: [Zone], _ answers: [Answer]) -> Int? {
+        func rank(_ i: Int) -> Int {
+            let s = answers[i].verdict.shown(unofficial: zones[i].isUnofficial).severity
+            return s * 2 + (s > 0 && answers[i].gatesOn ? 1 : 0)
+        }
         var best: Int?
         for i in answers.indices where i < zones.count {
-            let s = answers[i].verdict.shown(unofficial: zones[i].isUnofficial).severity
-            if best.map({ s > answers[$0].verdict.shown(unofficial: zones[$0].isUnofficial).severity }) ?? true { best = i }
+            if best.map({ rank(i) > rank($0) }) ?? true { best = i }
         }
         return best
     }
@@ -73,13 +81,15 @@ struct PlaceCheck {
     }
 
     /// Un «sì» da fonte non ufficiale: si mostra giallo con il «?» (1.19.0, mai un verde che non sappiamo)
-    var hedged: Bool { unofficial && kind == .open }
+    var hedged: Bool { unofficial && (kind == .open || kind == .outside) }
 
     /// La risposta come in Viaggio: fuori dalle zone di una città che conosciamo si entra, nell'area pedonale mai
     var verdict: Verdict {
         switch kind {
         case .uncovered: return .unsure(reason: L("We don't know the ZTLs of this place. Check the signs at the entrance."))
-        case .outside: return .yes(reason: L("This address isn't inside any ZTL we know. You can drive there."))
+        case .outside:
+            if unofficial { return .unsure(reason: L("Probably yes · unofficial source")) }
+            return .yes(reason: L("This address isn't inside any ZTL we know. You can drive there."))
         case .pedestrian: return .no(reason: L("It's a pedestrian area: cars can't drive in at any time, whatever the ZTL hours."))
         default: return answer?.verdict ?? .unsure(reason: "")
         }
@@ -102,7 +112,7 @@ struct PlaceCheck {
     /// e sul sito (placeAnswer), provato con gli stessi casi (shared/engine-cases.json)
     var access: Access? {
         if pedestrian != nil { return .closed }
-        guard let answer, let hit else { return covered ? .open : nil }
+        guard let answer, let hit else { return covered ? (unofficial ? .check : .open) : nil }
         return Access.of(answer, zone: hit.zone, status: hit.city.status)
     }
 
@@ -146,7 +156,7 @@ struct PlaceCheck {
     var parkingFirst: Bool { kind == .closed || kind == .pedestrian }
 
     /// Le regole della zona vengono solo da fonti non ufficiali: la risposta si dice con prudenza
-    var unofficial: Bool { pedestrian == nil && zone?.isUnofficial == true }
+    var unofficial: Bool { pedestrian == nil && (zone?.isUnofficial == true || (hits.isEmpty && covered && coverUnofficial)) }
 
     /// Il titolo fisso della risposta per il posto (lo stesso in Varco, Mappa e Viaggio): 2.1, la parola della
     /// RispostaFinale (sette stati: «ZTL non attiva» e «Fuori dalla ZTL» hanno la loro; prima «Puoi entrare»)
@@ -165,7 +175,8 @@ struct PlaceCheck {
             if let m = finale.motivo, m != .nonSicuro, m != .nonUfficiale { return m.label + " · " + reason }
             return reason
         case .open, .closed: return unofficial ? answer?.verdict.unofficialNote(unofficial: true) : nil
-        case .outside, .pedestrian: return nil
+        case .outside: return unofficial ? L("Probably yes · unofficial source") : nil
+        case .pedestrian: return nil
         }
     }
 
@@ -205,7 +216,11 @@ extension PlaceCheck {
         if pedestrian != nil {
             return RispostaFinale(stato: .nonEntrare, zoneId: zone?.id, gatesOn: answer?.gatesOn, pedestrian: true)
         }
-        guard let answer, let hit else { return RispostaFinale(stato: covered ? .fuoriZTL : .nonCoperto) }
+        guard let answer, let hit else {
+            // 2.1 (B22): fuori dalle zone di una città da fonti non ufficiali anche il confine non lo sappiamo
+            if covered && unofficial { return RispostaFinale(stato: .controllaCartello, motivo: .nonUfficiale, unofficial: true) }
+            return RispostaFinale(stato: covered ? .fuoriZTL : .nonCoperto)
+        }
         return RispostaFinale.of(answer, zone: hit.zone, status: hit.city.status)
     }
 }

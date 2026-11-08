@@ -179,22 +179,19 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
         lastDistances = scan.distances
         deduper.moved(scan.distances)
         for (e in scan.entered) {
-            e.zone?.let { AppState.record("entered", it, e.answer.verdict) }
+            e.zone?.let { AppState.record("entered", it, e.answer.verdict.shown(it.isUnofficial)) }      // 2.1 (B77)
             if (e.finale.stato == Stato.NON_ENTRARE && deduper.shouldAlert("in|${e.candidate.id}")) {
                 val body = L("Leave by the nearest exit and don't drive around: every gate can mean another fine.")
                 say(F("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine.", e.candidate.name))
                 alert(F("You're inside %@", e.candidate.name), body, "in|${e.candidate.id}")
             }
         }
-        inside = scan.entered.firstOrNull { it.finale.stato == Stato.NON_ENTRARE }
-            ?: candidates.filter { it.contains(p) }.firstNotNullOfOrNull { c ->
-                val a = if (c.pedestrian != null) ThreatEvaluator.pedestrianAnswer else AppState.answer(c.zone!!)
-                ThreatEvaluator.finale(c, a).takeIf { it.stato == Stato.NON_ENTRARE }?.let { Threat(c, 0.0, a, it, p) }
-            }
+        // 2.1 (B10): la zona peggiore che ti contiene (rossa o gialla, anche un'area pedonale) è la minaccia a 0 m
+        inside = scan.threat?.takeIf { it.meters == 0.0 }
         val t = scan.threat
         threat = t
-        if (t != null && t.meters < ThreatEvaluator.alertDistance(speed) && deduper.shouldAlert(t.candidate.id)) {
-            t.zone?.let { AppState.record("nearGate", it, t.answer.verdict) }
+        if (t != null && t.meters > 0 && t.meters < ThreatEvaluator.alertDistance(speed) && deduper.shouldAlert(t.candidate.id)) {
+            t.zone?.let { AppState.record("nearGate", it, t.answer.verdict.shown(it.isUnofficial)) }      // 2.1 (B77)
             val dist = Geometry.distanceText(t.meters)
             say(F("Attention: in %@ you enter %@. %@.", dist, t.candidate.name, t.finale.title))
             alert(t.title, listOfNotNull(F("In %@.", dist), t.finale.reasonLine).joinToString(" "), "threat|${t.candidate.id}", t)
@@ -219,7 +216,7 @@ class GuardianService : Service(), LocationListener, TextToSpeech.OnInitListener
         getSystemService(NotificationManager::class.java).notify(ID, ongoing(text, destination?.name ?: ""))
         bubble?.let { b ->
             b.text = text
-            (b.background as? GradientDrawable)?.setColor(if (inside != null) 0xEEC62A24.toInt() else color(threat))
+            (b.background as? GradientDrawable)?.setColor(color(inside ?: threat))
         }
     }
 

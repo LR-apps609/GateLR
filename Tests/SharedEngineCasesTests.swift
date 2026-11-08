@@ -104,7 +104,8 @@ final class SharedEngineCasesTests: XCTestCase {
             let hotel = c["hotel"] as? Bool ?? false
             let check = PlaceCheck(place: Place(name: place["name"] as? String ?? id, address: "", location: p), hits: hits, pedestrian: area,
                                    answers: hits.map { engine.trustedAnswer(zone: $0.zone, vehicle: v, permits: [], hotelInside: hotel, at: at) },
-                                   covered: Store.covers(p, in: caseCities))
+                                   covered: Store.covers(p, in: caseCities),
+                                   coverUnofficial: hits.isEmpty && Store.coverUnofficial(p, in: caseCities))
 
             XCTAssertEqual(Self.colour(check.access), expect["colour"] as? String, "\(id): colore")
             if let want = expect["verdict"] as? String {
@@ -121,6 +122,11 @@ final class SharedEngineCasesTests: XCTestCase {
             }
             if let want = expect["pedestrian"] as? Bool {
                 XCTAssertEqual(check.pedestrian != nil, want, "\(id): area pedonale")
+            }
+            // 2.1 (B09): la distanza dal lato della zona più vicina (5 m di tolleranza)
+            if let want = expect["nearestMeters"] as? Double {
+                let m = caseCities.flatMap(\.zones).map { $0.distance(lat: lat, lon: lon) }.min() ?? .infinity
+                XCTAssertEqual(m, want, accuracy: 5, "\(id): distanza dal lato")
             }
             // 2.1 «Una risposta, sette stati»: la RispostaFinale del posto (shared/risposta-finale.md)
             let f = check.finale

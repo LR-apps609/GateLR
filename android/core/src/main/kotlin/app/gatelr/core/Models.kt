@@ -120,8 +120,7 @@ data class Zone(
     /** Distanza approssimata in metri dal perimetro (0 se dentro) */
     fun distance(lat: Double, lon: Double): Double {
         if (contains(lat, lon)) return 0.0
-        val k = kotlin.math.cos(lat * Math.PI / 180)
-        return perimeter.minOfOrNull { kotlin.math.hypot((it.lat - lat) * 111_000, (it.lon - lon) * 111_000 * k) } ?: Double.POSITIVE_INFINITY
+        return Geometry.nearestOnRing(perimeter, Coordinate(lat, lon)).second      // 2.1 (B09): dal lato, non dal vertice
     }
 
     /** Questo tipo di veicolo entra sempre (es. moto e scooter dove il Comune dice «eccetto veicoli a due ruote») */

@@ -36,12 +36,18 @@ dubbio** (`doubt`) quando la risposta è «non sicuro»:
 | zona ufficiale non verificata o con verifica vecchia (rete di sicurezza della regola A) | `scaduti` |
 
 Decide la zona con la risposta **peggiore** come si mostra (no > condizione > non sicuro > sì; un «sì» da fonte non
-ufficiale conta come «non sicuro»), a parità la più piccola (vedi PlaceCheck).
+ufficiale conta come «non sicuro»); a parità di gravità non verde quella con i varchi accesi (B36), poi la più piccola.
+
+Regole comuni del motore (stesse su iPhone, Android e sito):
+- festivi nazionali: 1/1, 6/1, Pasquetta, 25/4, 1/5, 2/6, 15/8, **4/10 dal 2026** (L. 151/2025), 1/11, 8/12, 25/12, 26/12;
+- i giorni dall'ultima lettura o verifica si contano a **blocchi di 24 ore** (B33);
+- la distanza da una zona si misura dal **lato** più vicino, non dal vertice (B09).
 
 ## Gli stati, in quest'ordine
 
 1. Area pedonale → **nonEntrare** (vince su tutto, a ogni ora).
-2. Nessuna zona: in una città coperta → **fuoriZTL**; altrimenti → **nonCoperto**.
+2. Nessuna zona: in una città coperta → **fuoriZTL**; se le città che coprono il posto hanno le zone tutte da fonti non
+   ufficiali (anche il confine viene da lì) → **controllaCartello** (`nonUfficiale`, B22); altrimenti → **nonCoperto**.
 3. La zona che decide:
    - `no` → **nonEntrare**. Anche da fonte non ufficiale: regola di Ledion «Salerno resta rossa». La fonte non ufficiale
      va nella riga sotto («Probabilmente no · fonte non ufficiale»), il titolo resta «Non entrare».
@@ -81,6 +87,8 @@ dove contano i divieti Euro la risposta sarà **controllaCartello** (`euroSconos
 `ThreatEvaluator` (iPhone) e `ThreatScan` (Android) per guida, guardiano e avvisi ad app chiusa:
 
 - candidati: zone **e** aree pedonali entro 3 km;
+- dentro una zona dove non si entra liberamente la minaccia resta, a 0 m, finché ci sei (B10): «Sei dentro … · Non entrare»;
+  a riposo grigio in una città coperta, neutro fuori copertura, mai verde;
 - risposta all'**istante d'arrivo** stimato (velocità vera sopra 3 m/s, altrimenti 9 m/s);
 - solo **davanti** nel verso di marcia (±70°; senza direzione: se ti avvicini, o prudente);
 - distanza d'avviso: **300 m, 600 m sopra 50 km/h** (`ThreatEvaluator.alertDistance(speed:)`);

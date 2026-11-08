@@ -20,7 +20,8 @@ struct DriveLiveActivity: Widget {
         case "no": return Color(hex: 0xFF4D52)
         case "cond": return amber
         case "ok": return green
-        case "clear": return green          // 1.20.1: nessuna ZTL attiva davanti = verde (si entra)
+        // 2.1 (B10): nessuna ZTL davanti in una città coperta = grigio, come «Fuori dalla ZTL»: mai verde a riposo
+        case "clear": return Color(hex: 0x9BA5AE)
         case "none": return neutral
         default: return .white
         }

@@ -185,7 +185,10 @@ struct RuleEngine {
     }
 
     /// Giorni da quella data a adesso
-    func age(_ d: Date) -> Int { calendar.dateComponents([.day], from: d, to: now()).day ?? 0 }
+    /// 2.1 (B33): blocchi di 24 ore, come Android (ChronoUnit.DAYS) e il sito (Math.floor): prima giorni di calendario,
+    /// e per un'ora intorno al 120° giorno l'iPhone dava verde dove gli altri davano «?»
+    func age(_ d: Date) -> Int { Self.days(from: d, to: now()) }
+    static func days(from a: Date, to b: Date) -> Int { Int((b.timeIntervalSince(a) / 86_400).rounded(.towardZero)) }
 
     /// La data più recente tra lettura e verifica: da qui contano i giorni dei «dati da ricontrollare»
     static func freshest(_ s: Source) -> Date { max(s.checkedOn, s.verifiedOn ?? .distantPast) }
@@ -250,8 +253,9 @@ struct RuleEngine {
         let next = nextChange(zone, after: date)
 
         // 1.20.1: dalla data più recente tra «letto il» e «verificato il»
-        if let age = calendar.dateComponents([.day], from: Self.freshest(zone.source), to: now()).day, age > staleAfterDays {
-            return Answer(verdict: .unsure(reason: String(format: L("This zone hasn't been checked for %lld days. Look at the city's page before driving in."), age)),
+        let dataAge = age(Self.freshest(zone.source))
+        if dataAge > staleAfterDays {
+            return Answer(verdict: .unsure(reason: String(format: L("This zone hasn't been checked for %lld days. Look at the city's page before driving in."), dataAge)),
                           gatesOn: on, nextChange: next, doubt: .scaduti)
         }
         // 2.1: un giorno in cui la fonte ufficiale non dice se la ZTL è attiva (uncertainDays): mai una risposta certa
@@ -351,25 +355,27 @@ struct RuleEngine {
     private func activeStartDays(_ zone: Zone, at date: Date) -> [Date] {
         let minute = calendar.component(.hour, from: date) * 60 + calendar.component(.minute, from: date)
         let dayBefore = calendar.date(byAdding: .day, value: -1, to: date)!
-        let weekday = effectiveWeekday(zone, date)
-        let yesterday = effectiveWeekday(zone, dayBefore)
+        let weekday = effectiveWeekdays(zone, date)
+        let yesterday = effectiveWeekdays(zone, dayBefore)
         var out: [Date] = []
         for w in zone.windows {
+            let today = !weekday.isDisjoint(with: w.weekdays), before = !yesterday.isDisjoint(with: w.weekdays)
             if w.end > w.start {
-                if w.weekdays.contains(weekday) && inSeason(w, date) && minute >= w.start && minute < w.end { out.append(date) }
+                if today && inSeason(w, date) && minute >= w.start && minute < w.end { out.append(date) }
                 continue
             }
             // Fascia che passa la mezzanotte: la sera del giorno indicato o la notte dopo
-            if w.weekdays.contains(weekday) && inSeason(w, date) && minute >= w.start { out.append(date) }
-            if w.weekdays.contains(yesterday) && inSeason(w, dayBefore) && minute < w.end { out.append(dayBefore) }
+            if today && inSeason(w, date) && minute >= w.start { out.append(date) }
+            if before && inSeason(w, dayBefore) && minute < w.end { out.append(dayBefore) }
         }
         return out
     }
 
-    /// Il giorno della settimana per gli orari: un festivo conta come domenica se la zona lo dice (holidaysAsSunday)
-    private func effectiveWeekday(_ zone: Zone, _ day: Date) -> Int {
-        if zone.holidaysAsSunday == true && isHoliday(zone, day) { return 1 }
-        return calendar.component(.weekday, from: day)
+    /// I giorni della settimana per gli orari: un festivo conta come domenica se la zona lo dice (holidaysAsSunday)
+    private func effectiveWeekdays(_ zone: Zone, _ day: Date) -> Set<Int> {
+        let real = calendar.component(.weekday, from: day)
+        if zone.holidaysAsSunday == true && isHoliday(zone, day) { return [1] }
+        return [real]
     }
 
     /// Festivo nazionale o festa del patrono della città della zona
@@ -464,6 +470,8 @@ enum ItalianHolidays {
         if calendar.component(.weekday, from: date) == 1 { return false }   // la domenica la decide l'orario
         let fixed: Set<Int> = [101, 106, 425, 501, 602, 815, 1101, 1208, 1225, 1226]
         if fixed.contains(m * 100 + d) { return true }
+        // 2.1 (B24): San Francesco, 4 ottobre, festa nazionale dal 2026 (L. 8 ottobre 2025 n. 151)
+        if m == 10 && d == 4 && y >= 2026 { return true }
         if let local, local.contains(String(format: "%02d-%02d", m, d)) { return true }
         let easter = easterSunday(y)
         let monday = calendar.date(byAdding: .day, value: 1, to: calendar.date(from: easter)!)!

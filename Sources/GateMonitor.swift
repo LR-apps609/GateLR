@@ -203,7 +203,7 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
                                   answer: { c, d in store.threatAnswer(c, at: ThreatEvaluator.arrival(in: d, speed: fix.map(\.speed)), destination: nil) })
         else { return }
         if ThreatAlerts.shared.post(t), t.candidate.pedestrian == nil {
-            store.record(.nearGate, zone: t.zone, gate: target.gate, verdict: t.answer.verdict)
+            store.record(.nearGate, zone: t.zone, gate: target.gate, verdict: t.shown)      // 2.1 (B77): la risposta come si mostra
         }
     }
 

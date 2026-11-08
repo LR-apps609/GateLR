@@ -23,6 +23,8 @@ class PlaceCheck(
     /** La risposta di ogni zona in [hits], nello stesso ordine */
     val answers: List<Answer>,
     covered: Boolean,
+    /** 2.1 (B22): il posto è coperto solo da città con le zone tutte da fonti non ufficiali (anche il confine) */
+    val coverUnofficial: Boolean = false,
 ) {
     enum class Kind { UNCOVERED, OUTSIDE, OPEN, CLOSED, CONDITIONAL, UNSURE, PEDESTRIAN }
 
@@ -45,7 +47,7 @@ class PlaceCheck(
     }
 
     /** Le regole della zona che decide vengono solo da fonti non ufficiali: la risposta si dice con prudenza */
-    val unofficial: Boolean get() = pedestrian == null && zone?.isUnofficial == true
+    val unofficial: Boolean get() = pedestrian == null && (zone?.isUnofficial == true || (hits.isEmpty() && covered && coverUnofficial))
 
     /** Un «sì» da fonte non ufficiale: si mostra giallo con il «?» */
     val hedged: Boolean get() = unofficial && kind == Kind.OPEN
@@ -53,7 +55,8 @@ class PlaceCheck(
     /** La risposta come si mostra: area pedonale «no», fuori dalle zone conosciute «sì», fuori copertura «non sicuro» */
     val verdict: Verdict get() = when (kind) {
         Kind.UNCOVERED -> Verdict.Unsure(L("We don't know the ZTLs of this place. Check the signs at the entrance."))
-        Kind.OUTSIDE -> Verdict.Yes(L("This address isn't inside any ZTL we know. You can drive there."))
+        Kind.OUTSIDE -> if (unofficial) Verdict.Unsure(L("Probably yes · unofficial source"))
+            else Verdict.Yes(L("This address isn't inside any ZTL we know. You can drive there."))
         Kind.PEDESTRIAN -> Verdict.No(L("It's a pedestrian area: cars can't drive in at any time, whatever the ZTL hours."))
         else -> answer!!.verdict.shown(unofficial)
     }
@@ -80,7 +83,7 @@ class PlaceCheck(
      *  decide spenta grigia; non sicuro o fonte non ufficiale mai verde né grigio, ma giallo */
     val color: AnswerColor get() {
         if (pedestrian != null) return AnswerColor.RED
-        val a = answer ?: return if (covered) AnswerColor.GREEN else AnswerColor.NEUTRAL
+        val a = answer ?: return if (!covered) AnswerColor.NEUTRAL else if (unofficial) AnswerColor.YELLOW else AnswerColor.GREEN
         return zoneColor(a, zone!!, city?.status)
     }
 
@@ -101,11 +104,12 @@ class PlaceCheck(
 
         /** La zona con la risposta peggiore (come si mostra); a parità la prima, cioè la più piccola */
         fun worst(zones: List<Zone>, answers: List<Answer>): Int? {
+            // 2.1 (B36): a parità di gravità (non verde) decide la zona con i varchi accesi, poi la più piccola
+            fun rank(i: Int): Int { val s = answers[i].verdict.shown(zones[i].isUnofficial).severity; return s * 2 + if (s > 0 && answers[i].gatesOn) 1 else 0 }
             var best: Int? = null
             for (i in answers.indices) {
                 if (i >= zones.size) break
-                val s = answers[i].verdict.shown(zones[i].isUnofficial).severity
-                if (best == null || s > answers[best].verdict.shown(zones[best].isUnofficial).severity) best = i
+                if (best == null || rank(i) > rank(best)) best = i
             }
             return best
         }
@@ -113,7 +117,9 @@ class PlaceCheck(
         /** Le zone, l'area pedonale e la copertura del punto, con la risposta di ogni zona */
         fun of(cities: List<City>, c: Coordinate, answer: (Zone) -> Answer): PlaceCheck {
             val hits = zonesAt(cities, c)
-            return PlaceCheck(hits, pedestrianAreaAt(cities, c), hits.map { answer(it.second) }, cities.any { it.covers(c.lat, c.lon) })
+            val cover = cities.filter { it.covers(c.lat, c.lon) }
+            val uo = cover.isNotEmpty() && cover.all { city -> city.zones.isNotEmpty() && city.zones.all { it.isUnofficial } }
+            return PlaceCheck(hits, pedestrianAreaAt(cities, c), hits.map { answer(it.second) }, cover.isNotEmpty(), uo)
         }
 
         fun of(cities: List<City>, c: Coordinate, engine: RuleEngine, vehicle: Vehicle, permits: List<Permit>, hotelInside: Boolean, at: Instant): PlaceCheck =

@@ -22,7 +22,7 @@ const fakeFetch = async url => {
   return {ok: true, status: 200, json: async () => JSON.parse(text)};
 };
 const e = new Function("CITIES", "ROOT", "PAGE_LANG", "window", "fetch", "localStorage", code + `
-  return {CITIES, CLOCK, ensureFor, placeAnswer, trustOf, rispostaFinale, STATI, linkHash, readLink, CARS, tono, TONO, STATE_OFF, MOTIVI, setLang: l => { lang = l; }};`)(JSON.parse(JSON.stringify(index)), "", "it", {}, fakeFetch, undefined);
+  return {CITIES, CLOCK, ensureFor, placeAnswer, nearestZone, trustOf, rispostaFinale, STATI, linkHash, readLink, CARS, tono, TONO, STATE_OFF, MOTIVI, setLang: l => { lang = l; }};`)(JSON.parse(JSON.stringify(index)), "", "it", {}, fakeFetch, undefined);
 
 const file = JSON.parse(fs.readFileSync(path.join(ROOT, "shared/engine-cases.json"), "utf8"));
 const VERDICT = {yes: "yes", no: "no", cond: "conditional", unsure: "unsure"};
@@ -56,6 +56,8 @@ for (const c of file.cases) {
   const got = {colour: p.colour, verdict: VERDICT[p.verdict] || p.verdict, zone: p.zone ? p.zone.id : null,
     gatesOn: p.r ? !!p.r.on : undefined, unofficial: p.unoff, pedestrian: !!p.ped, trust: p.zone ? e.trustOf(p.zone) : undefined,
     stato: p.stato, motivo: p.motivo || undefined};
+  // 2.1 (B09): la distanza dal lato della zona più vicina, con 5 m di tolleranza
+  if ("nearestMeters" in c.expect) { const n = e.nearestZone(c.place.lat, c.place.lon); got.nearestMeters = Math.abs(n.meters - c.expect.nearestMeters) <= 5 ? c.expect.nearestMeters : Math.round(n.meters); }
   const bad = Object.entries(c.expect).filter(([k, want]) => got[k] !== want).map(([k, want]) => `${k} atteso ${JSON.stringify(want)}, ottenuto ${JSON.stringify(got[k])}`);
   // Le regole fisse, qualunque cosa dica il file: mai verde fuori copertura o da fonte non ufficiale
   if (!p.covered && p.colour !== "neutral") bad.push("fuori copertura non neutro");
@@ -67,7 +69,7 @@ for (const c of file.cases) {
   if (p.zone && !p.ped && !["verified", "read"].includes(e.trustOf(p.zone)) && p.colour === "green") bad.push("zona non sicura verde");
   // 2.0 «Risposta finale» (le sette risposte della pagina): fuori copertura neutro, fuori dalla ZTL grigio, ZTL non attiva
   // solo se i varchi sono spenti, e mai «Entra pure»/«ZTL non attiva» quando il colore non è verde (non ufficiale, non sicuro)
-  const f = e.rispostaFinale(p), want = !p.covered ? "fuoriCopertura" : p.ped ? "no" : !p.zone ? "fuoriZTL"
+  const f = e.rispostaFinale(p), want = !p.covered ? "fuoriCopertura" : p.ped ? "no" : !p.zone ? (p.unoff ? "nonSicuro" : "fuoriZTL")
     : {red: "no", yellow: p.verdict === "cond" ? "condizione" : "nonSicuro", green: p.r.on ? "si" : "nonAttiva"}[p.colour];
   if (!f || !e.STATI.includes(f.stato)) bad.push(`risposta finale sconosciuta ${JSON.stringify(f)}`);
   else if (f.stato !== want) bad.push(`risposta finale ${f.stato}, attesa ${want}`);

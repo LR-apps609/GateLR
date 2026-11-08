@@ -74,7 +74,7 @@ struct WidgetAnswer: Equatable {
         let permits = (garage?.permits ?? []).filter { $0.cityId == cityId }
         // 1.20.1: la stessa verifica dei dati dell'app (mai verde né grigio da una regola non verificata o cambiata)
         let a = engine.trustedAnswer(zone: zone, vehicle: vehicle, permits: permits, hotelInside: false, at: date)
-        let age = engine.calendar.dateComponents([.day], from: zone.source.checkedOn, to: engine.now()).day ?? 0
+        let age = engine.age(zone.source.checkedOn)
         let stale = age > engine.staleAfterDays
         // 2.1: la RispostaFinale della zona (shared/risposta-finale.md): parola, forma e colore come nell'app.
         // «ZTL non attiva» ha la sua parola e il colore del token unico (RispostaFinale.stateOff, oggi verde)
