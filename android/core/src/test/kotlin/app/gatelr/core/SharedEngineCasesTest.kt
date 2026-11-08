@@ -82,8 +82,10 @@ class SharedEngineCasesTest {
             expect["pedestrian"]?.let { check("area pedonale", it.jsonPrimitive.boolean, p.pedestrian != null) }
             // 2.1 «Una risposta, sette stati»: la RispostaFinale del posto (shared/risposta-finale.md)
             val f = p.finale
-            check("stato", expect["stato"]?.jsonPrimitive?.content, f.stato.raw)
-            check("motivo", expect["motivo"]?.jsonPrimitive?.content, f.motivo?.raw)
+            if ("stato" in expect) {
+                check("stato", expect["stato"]?.jsonPrimitive?.content, f.stato.raw)
+                check("motivo", expect["motivo"]?.jsonPrimitive?.content, f.motivo?.raw)
+            }
             if (f.color == Tono.VERDE && (!p.covered || p.unofficial)) errors += "$id: ${f.stato.raw} verde dove non sappiamo"
             // Le regole fisse, qualunque cosa dica il file
             if (!p.covered && p.color != AnswerColor.NEUTRAL) errors += "$id: fuori copertura non neutro"
@@ -95,10 +97,11 @@ class SharedEngineCasesTest {
                 errors += "$id: zona non sicura verde"
         }
         // 2.1: gli stessi stati, motivi e colori semantici del file
-        assertEquals(file["stati"]!!.jsonArray.map { it.jsonPrimitive.content }, Stato.entries.map { it.raw }, "stati")
-        assertEquals(file["motivi"]!!.jsonArray.map { it.jsonPrimitive.content }, Motivo.entries.map { it.raw }, "motivi")
-        for ((k, v) in file["toni"]!!.jsonObject) assertEquals(v.jsonPrimitive.content, Stato.entries.first { it.raw == k }.tono.raw, "tono di $k")
-        assertEquals(file["statoSpento"]!!.jsonPrimitive.content, RispostaFinale.STATE_OFF.raw, "ZTL non attiva: un solo token")
+        // (Android 2.0: si controllano quando il file li ha; arrivano con la specifica 2.1 in shared/)
+        file["stati"]?.let { s -> assertEquals(s.jsonArray.map { it.jsonPrimitive.content }, Stato.entries.map { it.raw }, "stati") }
+        file["motivi"]?.let { m -> assertEquals(m.jsonArray.map { it.jsonPrimitive.content }, Motivo.entries.map { it.raw }, "motivi") }
+        file["toni"]?.let { t -> for ((k, v) in t.jsonObject) assertEquals(v.jsonPrimitive.content, Stato.entries.first { it.raw == k }.tono.raw, "tono di $k") }
+        file["statoSpento"]?.let { assertEquals(it.jsonPrimitive.content, RispostaFinale.STATE_OFF.raw, "ZTL non attiva: un solo token") }
         assertEquals(emptyList(), errors, errors.joinToString("\n"))
     }
 }
