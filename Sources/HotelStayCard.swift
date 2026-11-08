@@ -198,12 +198,16 @@ extension Store {
         let ids = Set(s.allPermitIds)
         if !ids.isEmpty { permits.removeAll { ids.contains($0.id) } }
         stays[key] = nil
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["stay|\(key)"])
+        // Solo dentro l'app (nei test del motore non c'è il centro notifiche)
+        if Bundle.main.bundleURL.pathExtension == "app" {
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["stay|\(key)"])
+        }
     }
 
     /// 2.0 (B71): un permesso tolto dal Garage riporta il suo soggiorno a «Non chiesto»
     func forgetStayPermits(_ gone: Set<UUID>) {
-        for (key, var s) in stays where !Set(s.allPermitIds).isDisjoint(with: gone) {
+        for (key, old) in stays where !Set(old.allPermitIds).isDisjoint(with: gone) {
+            var s = old
             let left = s.allPermitIds.filter { !gone.contains($0) }
             s.permitId = nil
             s.permitIds = left.isEmpty ? nil : left
