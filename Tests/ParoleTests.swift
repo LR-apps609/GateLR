@@ -44,7 +44,9 @@ final class ParoleTests: XCTestCase {
 
     /// Ogni stato del posto ha il suo titolo fisso (2.1: la parola della RispostaFinale), lo stesso in Varco, Mappa e notifiche
     func testEveryPlaceKindHasAFixedTitle() {
-        let city = SampleData.florence, zone = SampleData.sectorA
+        // 2.1: una città vera (bozza): in una città di esempio un «sì» è «Controlla il cartello» (mai verde, come il colore)
+        var city = SampleData.florence; city.status = .draft
+        let zone = SampleData.sectorA
         var unofficialZone = zone; unofficialZone.source.official = false
         let place = Place(name: "Prova", address: "", location: city.center)
         func pc(_ z: Zone?, _ a: Answer?, covered: Bool = true, pedestrian: PedestrianArea? = nil) -> PlaceCheck {
