@@ -251,9 +251,9 @@ pending_centrale = [MAP_PENDING, (
     ("Summer: in 2026 the city switched the ZTL Centrale off from 10 to 23 August by a council decision; the dates change every year and are announced in June–July. GateLR doesn't model it.",
      "Estate: nel 2026 il Comune ha spento la ZTL Centrale dal 10 al 23 agosto con una delibera di Giunta; le date cambiano ogni anno e sono annunciate a giugno–luglio. GateLR non ne tiene conto.",
      "Sommer: 2026 hat die Stadt die ZTL Centrale vom 10. bis 23. August per Beschluss abgeschaltet; die Daten ändern sich jedes Jahr und werden im Juni–Juli bekannt gegeben. GateLR berücksichtigt das nicht."),
-    ("24 June (St John, Turin's patron saint): the city page only says «working days», and only a non-official source (2019) says the ZTL Centrale is usually off that day, so GateLR shows it as active. Check the city's notice for that day.",
-     "24 giugno (San Giovanni, patrono di Torino): la scheda del Comune dice solo «giorni feriali» e soltanto una fonte non ufficiale (2019) dice che di consueto quel giorno la ZTL Centrale non è attiva, quindi GateLR la mostra attiva. Controlla l'avviso del Comune per quel giorno.",
-     "24. Juni (Johannes der Täufer, Stadtpatron): Die Seite der Stadt spricht nur von «Werktagen», und nur eine inoffizielle Quelle (2019) sagt, dass die ZTL Centrale an dem Tag üblicherweise aus ist; GateLR zeigt sie daher als aktiv. Prüfe die Mitteilung der Stadt für diesen Tag."),
+    ("24 June (St John, Turin's patron saint): the city page only says «working days», and only a non-official source (2019) says the ZTL Centrale is usually off that day, so GateLR answers «Check the sign» that day. Check the city's notice for that day.",
+     "24 giugno (San Giovanni, patrono di Torino): la scheda del Comune dice solo «giorni feriali» e soltanto una fonte non ufficiale (2019) dice che di consueto quel giorno la ZTL Centrale non è attiva, quindi quel giorno GateLR risponde «Controlla il cartello». Controlla l'avviso del Comune per quel giorno.",
+     "24. Juni (Johannes der Täufer, Stadtpatron): Die Seite der Stadt spricht nur von «Werktagen», und nur eine inoffizielle Quelle (2019) sagt, dass die ZTL Centrale an dem Tag üblicherweise aus ist; GateLR antwortet an dem Tag daher «Schild prüfen». Prüfe die Mitteilung der Stadt für diesen Tag."),
     ("Electric cars are not exempt automatically: they need a free permit (Italian owners) or a retroactive exemption sent to GTT within 10 days, at most 12 a year.",
      "Le auto elettriche non sono esenti in automatico: serve il permesso gratuito (per i proprietari italiani) o un'esenzione a posteriori inviata a GTT entro 10 giorni, al massimo 12 all'anno.",
      "Elektroautos sind nicht automatisch befreit: Sie brauchen die kostenlose Genehmigung (für italienische Halter) oder eine nachträgliche Befreiung, binnen 10 Tagen bei GTT, höchstens 12 pro Jahr."),
@@ -343,6 +343,8 @@ pedestrian = [{"id": f"to-ap-{i}", "name": (g["names"][0] if g["names"] else "Ar
 city = {"id": "torino", "name": "Turin", "name_it": "Torino", "name_de": "Turin",
         "center": {"lat": 45.0712, "lon": 7.6857},
         "pedestrian": pedestrian, "zones": zones, "status": "draft",
+        # 2.1: il 24 giugno (San Giovanni) la scheda del Comune dice solo «giorni feriali»: «Controlla il cartello»
+        "uncertainDays": ["06-24"],
         "license": "Hours and rules: Comune di Torino and GTT pages and the city's official ZTL map. Perimeters and streets: " + osm_geo.ODBL
                    + " (checked against the official map; Area Romana and camera positions traced from that map; approximate, not official)."}
 

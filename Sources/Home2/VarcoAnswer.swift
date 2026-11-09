@@ -66,7 +66,8 @@ struct Home2Answer: Equatable {
         case .closed, .pedestrian: m = .red
         // Fonte non ufficiale: mai verde (1.19.0). Giallo con il «?»
         case .open: m = check.hedged ? .amber : .green
-        case .outside: m = .grey          // 1.20.4: prima verde
+        // 1.20.4: grigio (prima verde); 2.1 (B22): confine da fonte non ufficiale, giallo
+        case .outside: m = check.hedged ? .amber : .grey
         case .uncovered: m = .neutral
         case .conditional, .unsure: m = .amber
         }
@@ -294,5 +295,18 @@ private struct Screw: View {
             Rectangle().fill(Color.black.opacity(0.55)).frame(width: 6, height: 1.2).rotationEffect(.degrees(angle + 90))
         }
         .frame(width: 9, height: 9)
+    }
+}
+
+extension Home2Answer.Mood {
+    /// 2.1: la luce dal colore semantico della RispostaFinale («spento» è già risolto in RispostaFinale.stateOff)
+    init(_ t: Tono) {
+        switch t {
+        case .rosso: self = .red
+        case .giallo: self = .amber
+        case .verde, .spento: self = .green
+        case .grigio: self = .grey
+        case .neutro: self = .neutral
+        }
     }
 }

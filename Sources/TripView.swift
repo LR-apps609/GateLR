@@ -265,6 +265,10 @@ struct TripView: View {
             // Area pedonale fuori da ogni zona: solo la risposta rossa qui sopra, mai «Fuori dalla ZTL. Puoi andarci»
             parkOutside(place, at: date)
             routeCard(place, secondary: true)
+        } else if check.showsOutside && check.unofficial {
+            // 2.1 (B22): fuori dal perimetro di una città da fonti non ufficiali: il confine stesso non è sicuro
+            unofficialOutsideCard(check)
+            routeCard(place)
         } else if check.showsOutside {
             outsideCard(place)
             TipView(StartGuardianTip()).tipBackground(Theme.card)
@@ -356,6 +360,26 @@ struct TripView: View {
     }
 
     /// Fuori copertura (1.19.0): neutro, con il contorno e il «?», mai verde né «Arrivo sereno»
+    /// 2.1 (B22): giallo «Controlla il cartello», mai «Fuori dalla ZTL» verde, quando il confine viene da una fonte non ufficiale
+    private func unofficialOutsideCard(_ check: PlaceCheck) -> some View {
+        let f = check.finale
+        return VStack(alignment: .leading, spacing: 10) {
+            UnofficialBanner(source: nil)
+            HStack(spacing: 12) {
+                Image(systemName: f.symbol).font(.app(size: 24, weight: .heavy)).foregroundStyle(.white)
+                    .frame(width: 52, height: 52).background(f.stato.tint, in: Circle())
+                Text(verbatim: f.title).font(Theme.display(30)).foregroundStyle(Theme.ink)
+                    .lineLimit(2).minimumScaleFactor(0.7)
+            }
+            if let line = check.explanation { Text(verbatim: line).font(.app(size: 16)).foregroundStyle(Theme.ink) }
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.amberSoft, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("trip.unofficialOutside")
+    }
+
     private var uncoveredCard: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 12) {
@@ -469,7 +493,7 @@ struct TripView: View {
                                 .font(.app(size: 12)).foregroundStyle(Theme.muted)
                         }
                         Spacer()
-                        VerdictPill(verdict: a.verdict, unofficial: z.isUnofficial)
+                        VerdictPill(verdict: a.verdict, unofficial: z.isUnofficial, gatesOn: a.gatesOn)
                     }
                     .padding(.horizontal, 14).padding(.vertical, 10)
                     .contentShape(Rectangle())

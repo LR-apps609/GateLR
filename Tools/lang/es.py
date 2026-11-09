@@ -940,6 +940,8 @@ T = {
 "Data out of date": "Datos caducados",
 "Holiday not confirmed": "Festivo sin confirmar",
 "Euro class unknown": "Clase Euro desconocida",
+"On this day the city doesn't say whether the ZTL is active. Check the sign at the gate.": "Ese día el ayuntamiento no dice si la ZTL está activa. Mira la señal en la entrada.",
+"Alerts 300 m before a ZTL, 600 m above 50 km/h": "Avisos 300 m antes de una ZTL, 600 m a más de 50 km/h",
 }
 
 INFO = {

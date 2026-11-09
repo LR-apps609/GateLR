@@ -127,6 +127,11 @@ class RuleEngine(
         if (age > staleAfterDays) {
             return Answer(Verdict.Unsure(F("This zone hasn't been checked for %lld days. Look at the city's page before driving in.", age)), on, next, Motivo.SCADUTI)
         }
+        // 2.1: un giorno in cui la fonte ufficiale non dice se la ZTL è attiva (uncertainDays): mai una risposta certa
+        val uncertain = zone.uncertainDays
+        if (uncertain != null && activeStartDays(zone, at).any { "%02d-%02d".format(it.monthValue, it.dayOfMonth) in uncertain }) {
+            return Answer(Verdict.Unsure(L("On this day the city doesn't say whether the ZTL is active. Check the sign at the gate.")), true, next, Motivo.FESTIVO)
+        }
         if (zone.freeOnHolidays == null && activeStartDays(zone, at).any { isHoliday(zone, it) }) {
             return Answer(Verdict.Unsure(L("It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate.")), true, next, Motivo.FESTIVO)
         }
@@ -155,7 +160,7 @@ class RuleEngine(
                 return Answer(Verdict.No(F("Motorbikes and scooters Euro %lld (%@) can't enter this zone while it's active.", vehicle.euro, moto)), true, next)
             }
             if (zone.type == ZoneKind.GREEN) {
-                val until = zone.nextMotoBan(vehicle, at)?.let { " " + F("Until %@.", it.since) } ?: ""
+                val until = zone.nextMotoBan(vehicle, at)?.let { " " + F("Until %@.", longDate(it.since)) } ?: ""
                 return Answer(Verdict.Yes(F("Your motorbike (%@, Euro %lld) is allowed in this low-emission zone.", moto, vehicle.euro) + until), true, next)
             }
         }
@@ -169,7 +174,7 @@ class RuleEngine(
                 vehicle.fuel.label, vehicle.euro)), true, next)
         }
         if (zone.bans != null && zone.type == ZoneKind.GREEN) {
-            val until = zone.nextBan(vehicle, at)?.let { " " + F("Until %@.", it.since) } ?: ""
+            val until = zone.nextBan(vehicle, at)?.let { " " + F("Until %@.", longDate(it.since)) } ?: ""
             return Answer(Verdict.Yes(F("Your car (%@ Euro %lld) is allowed in this low-emission zone.", vehicle.fuel.label, vehicle.euro) + until), true, next)
         }
         if (zone.type == ZoneKind.GREEN) {
@@ -205,24 +210,26 @@ class RuleEngine(
         val minute = d.hour * 60 + d.minute
         val dayBefore = d.minusDays(1)
         // Un festivo conta come domenica se la zona lo dice (holidaysAsSunday), come effectiveWeekday dell'iPhone
-        val wd = effectiveWeekday(zone, d)
-        val yesterday = effectiveWeekday(zone, dayBefore)
+        val wd = effectiveWeekdays(zone, d)
+        val yesterday = effectiveWeekdays(zone, dayBefore)
         val out = mutableListOf<LocalDate>()
         for (w in zone.windows) {
+            val today = w.weekdays.any { it in wd }; val before = w.weekdays.any { it in yesterday }
             if (w.end > w.start) {
-                if (wd in w.weekdays && inSeason(w, d) && minute >= w.start && minute < w.end) out += d.toLocalDate()
+                if (today && inSeason(w, d) && minute >= w.start && minute < w.end) out += d.toLocalDate()
                 continue
             }
             // Fascia che passa la mezzanotte: la sera del giorno indicato o la notte dopo
-            if (wd in w.weekdays && inSeason(w, d) && minute >= w.start) out += d.toLocalDate()
-            if (yesterday in w.weekdays && inSeason(w, dayBefore) && minute < w.end) out += dayBefore.toLocalDate()
+            if (today && inSeason(w, d) && minute >= w.start) out += d.toLocalDate()
+            if (before && inSeason(w, dayBefore) && minute < w.end) out += dayBefore.toLocalDate()
         }
         return out
     }
 
     /** Il giorno della settimana per gli orari: un festivo conta come domenica se la zona lo dice (holidaysAsSunday) */
-    private fun effectiveWeekday(zone: Zone, d: ZonedDateTime): Int =
-        if (zone.holidaysAsSunday == true && isHoliday(zone, d.toLocalDate())) 1 else weekday(d)
+    /** Il giorno della settimana per gli orari: un festivo conta come domenica se la zona lo dice (holidaysAsSunday) */
+    private fun effectiveWeekdays(zone: Zone, d: ZonedDateTime): Set<Int> =
+        if (zone.holidaysAsSunday == true && isHoliday(zone, d.toLocalDate())) setOf(1) else setOf(weekday(d))
 
     /** Festivo nazionale o festa del patrono della città della zona */
     fun isHoliday(zone: Zone, day: LocalDate): Boolean = ItalianHolidays.isHoliday(day, zone.localHolidays)
@@ -276,6 +283,8 @@ object ItalianHolidays {
         if (d.dayOfWeek == DayOfWeek.SUNDAY) return false      // la domenica la decide l'orario
         val fixed = setOf(101, 106, 425, 501, 602, 815, 1101, 1208, 1225, 1226)
         if (d.monthValue * 100 + d.dayOfMonth in fixed) return true
+        // 2.1 (B24): San Francesco, 4 ottobre, festa nazionale dal 2026 (L. 8 ottobre 2025 n. 151)
+        if (d.monthValue == 10 && d.dayOfMonth == 4 && d.year >= 2026) return true
         if (local != null && String.format(java.util.Locale.ROOT, "%02d-%02d", d.monthValue, d.dayOfMonth) in local) return true
         return d == easterSunday(d.year).plusDays(1)
     }
@@ -290,3 +299,9 @@ object ItalianHolidays {
         return LocalDate.of(y, month, day)
     }
 }
+
+/** 2.1 (B175): una data dei dati («2028-10-01») scritta per esteso nella lingua dell'app («1 ottobre 2028»); prima la data ISO */
+fun longDate(iso: String): String = runCatching {
+    LocalDate.parse(iso.take(10)).format(java.time.format.DateTimeFormatter.ofLocalizedDate(java.time.format.FormatStyle.LONG)
+        .withLocale(java.util.Locale.forLanguageTag(Strings.language)))
+}.getOrDefault(iso)

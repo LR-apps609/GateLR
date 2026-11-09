@@ -82,12 +82,15 @@ struct VerdictPill: View {
     var verdict: Verdict
     /// Regole da fonti non ufficiali: il titolo fisso detto con prudenza (un «sì» diventa «Controlla il cartello»)
     var unofficial = false
+    /// 2.1: i varchi della zona; spenti con un «sì» la pillola dice «ZTL non attiva» (la parola della RispostaFinale)
+    var gatesOn = true
     var body: some View {
         // 1.19.0: un «sì» da fonte non ufficiale è giallo con il «?», mai verde
         let look = verdict.shown(unofficial: unofficial)
+        let word = RispostaFinale.decide(Answer(verdict: verdict, gatesOn: gatesOn, nextChange: nil), unofficial: unofficial).0.word
         HStack(spacing: 4) {
-            Image(systemName: unofficial && !verdict.isYes ? "exclamationmark.triangle.fill" : look.symbol).font(.system(size: 9, weight: .heavy)).accessibilityHidden(true)
-            Text(verdict.shortText(unofficial: unofficial))
+            Image(systemName: unofficial && !verdict.isYes ? "exclamationmark.triangle.fill" : word.symbol).font(.system(size: 9, weight: .heavy)).accessibilityHidden(true)
+            Text(word.title)
         }
         .font(.app(size: 12, weight: .semibold))
         .padding(.horizontal, 9).padding(.vertical, 4)
@@ -108,7 +111,8 @@ struct VerdictCard: View {
     var body: some View {
         // I colori e il simbolo dalla risposta come si mostra (un «sì» non ufficiale è giallo con «?»), le parole dal motore
         let v = answer.verdict.shown(unofficial: !source.isOfficial)
-        let words = answer.verdict
+        // 2.1: la parola della RispostaFinale (la ZTL non attiva ha la sua)
+        let word = RispostaFinale.decide(answer, unofficial: !source.isOfficial).0.word
         VStack(alignment: .leading, spacing: 14) {
             HStack {
                 Text(heading.uppercased()).font(Theme.label(13)).tracking(1.1).opacity(0.9)
@@ -117,19 +121,19 @@ struct VerdictCard: View {
             }
             if !source.isOfficial { UnofficialBanner(source: source.unofficialSource) }
             HStack(spacing: 14) {
-                Image(systemName: v.symbol)
+                Image(systemName: word.symbol)
                     .font(.app(size: 26, weight: .heavy))
                     .foregroundStyle(v.badgeInk)
                     .frame(width: 56, height: 56)
                     .background(v.badgeFill, in: Circle())
                     .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: -15) {
-                    ForEach(words.titleLines(unofficial: !source.isOfficial), id: \.self) { line in
+                    ForEach(word.lines, id: \.self) { line in
                         Text(line).font(Theme.display(36)).lineLimit(1).minimumScaleFactor(0.6)
                     }
                 }
                 .accessibilityElement(children: .ignore)
-                .accessibilityLabel(words.word(unofficial: !source.isOfficial).title)
+                .accessibilityLabel(word.title)
                 .accessibilityAddTraits(.isHeader)
             }
             Text(detail).font(.app(size: 16)).fixedSize(horizontal: false, vertical: true)

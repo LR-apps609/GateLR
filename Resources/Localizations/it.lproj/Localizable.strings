@@ -931,3 +931,5 @@
 "Data out of date" = "Dati scaduti";
 "Holiday not confirmed" = "Festivo da confermare";
 "Euro class unknown" = "Classe Euro da sapere";
+"On this day the city doesn't say whether the ZTL is active. Check the sign at the gate." = "In questo giorno il Comune non dice se la ZTL è attiva. Controlla il cartello al varco.";
+"Alerts 300 m before a ZTL, 600 m above 50 km/h" = "Avvisi 300 m prima di una ZTL, 600 m sopra i 50 km/h";

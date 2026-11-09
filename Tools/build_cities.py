@@ -191,6 +191,8 @@ def milano():
                   for f in areas if f["properties"]["tipo"] == "AP" and f["geometry"]]
     return {"id": "milano", "name": "Milan", "pedestrian": pedestrian, "name_it": "Milano", "name_de": "Mailand", "center": {"lat": 45.4642, "lon": 9.1900},
             "zones": [zone_c, zone_b], "status": "draft",
+            # 2.1: il 7 dicembre (Sant'Ambrogio) le fonti ufficiali non dicono se Area C e Area B sono attive: «Controlla il cartello»
+            "uncertainDays": ["12-07"],
             "license": "Perimeters and gates: Comune di Milano open data, CC BY"}
 
 
