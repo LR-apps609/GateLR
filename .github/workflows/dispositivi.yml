@@ -1,0 +1,277 @@
+# L'app su più dispositivi: un iPhone piccolo, uno medio, uno grande e un iPad, ognuno con i test del motore delle regole
+# e un giro breve (UITests/DispositiviTests.swift) su Adesso, Mappa, Viaggio, Aiuto e la presentazione, normale, in tema
+# scuro e con il testo più grande di Dynamic Type. Il giro controlla che gli elementi importanti siano dentro la finestra
+# e toccabili. Le foto: un artifact per dispositivo e il ramo «screenshots-dispositivi» (una cartella per dispositivo,
+# git fetch origin screenshots-dispositivi). Il giro grande delle foto resta in build.yml.
+name: Dispositivi
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["lavoro/dispositivi*"]
+  schedule:
+    # Ogni notte su main (il ramo predefinito): 02:17 UTC, fuori dalle ore di punta dei Mac di GitHub
+    - cron: "17 2 * * *"
+
+concurrency:
+  group: dispositivi-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write        # per pubblicare le foto nel ramo «screenshots-dispositivi»
+
+jobs:
+  dispositivo:
+    name: ${{ matrix.tipo }}
+    strategy:
+      fail-fast: false
+      matrix:
+        tipo: [piccolo, medio, grande, ipad]
+    # Come build.yml: i Mac Apple Silicon di GitHub sono spesso esauriti, si usa il Mac Intel
+    runs-on: macos-15-intel
+    # Due compilazioni (test e giro) da 15–25 minuti l'una sul Mac Intel, il giro da 20 a 40: mai ore ferme
+    timeout-minutes: 170
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Xcode più recente disponibile
+        run: |
+          XCODE=$(ls -d /Applications/Xcode*.app | sort -V | tail -n 1)
+          sudo xcode-select -s "$XCODE/Contents/Developer"
+          xcodebuild -version
+
+      - name: XcodeGen
+        run: brew install xcodegen
+
+      # Token pubblico di Mapbox dal segreto MAPBOX_ACCESS_TOKEN, se c'è (mai nei file): senza, la mappa di Apple
+      - name: Token Mapbox (facoltativo)
+        env:
+          MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
+        run: |
+          if [ -n "$MAPBOX_ACCESS_TOKEN" ]; then
+            printf 'MAPBOX_ACCESS_TOKEN = %s\n' "$MAPBOX_ACCESS_TOKEN" > Config/Local.xcconfig
+          fi
+
+      - name: Progetto
+        run: xcodegen generate
+
+      # Il nome esatto se c'è, se no il più vicino (Tools/scegli_simulatore.py); la destinazione è l'UDID, senza ambiguità
+      - name: Simulatore
+        run: |
+          xcrun simctl list devices available | grep -E "iPhone|iPad" | sed 's/^ *//' | sort -u | head -n 60
+          SEL=$(xcrun simctl list devices available -j | python3 Tools/scegli_simulatore.py "${{ matrix.tipo }}")
+          UDID=$(echo "$SEL" | cut -f1); NAME=$(echo "$SEL" | cut -f2); IOS=$(echo "$SEL" | cut -f3)
+          DIR="${{ matrix.tipo }}-$(echo "$NAME" | tr -c 'A-Za-z0-9' '-' | tr -s '-' | sed 's/-$//')"
+          echo "::notice::${{ matrix.tipo }}: $NAME (iOS $IOS, $UDID)"
+          { echo "UDID=$UDID"; echo "SIM_NAME=$NAME"; echo "SIM_IOS=$IOS"; echo "FOTO=$PWD/foto/$DIR"; } >> "$GITHUB_ENV"
+          mkdir -p "foto/$DIR"
+          printf '%s\niOS %s\n' "$NAME" "$IOS" > "foto/$DIR/DISPOSITIVO.txt"
+
+      - name: Test automatici (motore delle regole)
+        timeout-minutes: 50
+        run: |
+          xcrun simctl boot "$UDID" 2>/dev/null || true
+          xcrun simctl bootstatus "$UDID" -b > /dev/null 2>&1 || true
+          status=0
+          xcodebuild test -project GateLR.xcodeproj -scheme GateLRTests \
+            -destination "id=$UDID" -derivedDataPath build-test \
+            CODE_SIGNING_ALLOWED=NO > test.log 2>&1 || status=$?
+          grep -E "Executed|TEST (SUCCEEDED|FAILED)" test.log | sort -u | tail -n 4 || true
+          grep -E "error:|Test Case .*failed" test.log | sort -u | head -n 12 | while IFS= read -r l; do echo "::error::$SIM_NAME: ${l:0:400}"; done
+          exit $status
+
+      - name: Compilazione del giro
+        if: always()
+        timeout-minutes: 45
+        run: |
+          # Come build.yml: via i servizi e le cartelle dei test, la memoria del Mac Intel serve al simulatore
+          rm -rf build-test
+          killall -9 SWBBuildService XCBBuildService 2>/dev/null || true
+          status=0
+          xcodebuild build-for-testing -project GateLR.xcodeproj -scheme GateLRUITests \
+            -destination "id=$UDID" -derivedDataPath build-ui \
+            CODE_SIGNING_ALLOWED=NO > ui-build.log 2>&1 || status=$?
+          grep -E "error:" ui-build.log | sort -u | head -n 10 | while IFS= read -r l; do echo "::error::${l:0:400}"; done
+          exit $status
+
+      - name: Giro (normale, scuro, testo grande)
+        if: always()
+        timeout-minutes: 80
+        run: |
+          [ -d build-ui/Build/Products ] || { echo "::error::Giro non compilato"; exit 1; }
+          killall -9 SWBBuildService XCBBuildService 2>/dev/null || true
+          xcrun simctl shutdown all 2>/dev/null || true
+          sleep 3
+          boot() {
+            xcrun simctl boot "$UDID" 2>/dev/null || true
+            xcrun simctl bootstatus "$UDID" -b > /dev/null 2>&1 || true
+            xcrun simctl status_bar "$UDID" override --time 9:41 --batteryState charged --batteryLevel 100 2>/dev/null || true
+          }
+          boot
+          # Un giro di xcodebuild con il guardiano di build.yml: se il registro non cambia per 8 minuti si chiude e si riparte
+          ui_round() {
+            local log=$1 variant=$2; shift 2
+            TEST_RUNNER_DISPOSITIVI=1 TEST_RUNNER_DISPOSITIVI_VARIANTE="$variant" TEST_RUNNER_SCREENSHOT_DIR="$FOTO" \
+              xcodebuild test-without-building -project GateLR.xcodeproj -scheme GateLRUITests \
+              -destination "id=$UDID" -derivedDataPath build-ui \
+              -only-testing:GateLRUITests/DispositiviTests \
+              -retry-tests-on-failure -test-iterations 2 "$@" \
+              CODE_SIGNING_ALLOWED=NO > "$log" 2>&1 &
+            local XB=$! last=$(date +%s) size=-1
+            while kill -0 $XB 2>/dev/null; do
+              sleep 20
+              local now=$(date +%s) cur=$(wc -c < "$log" 2>/dev/null || echo 0)
+              if [ "$cur" != "$size" ]; then size=$cur; last=$now; continue; fi
+              if [ $((now - last)) -ge 480 ]; then
+                echo "::warning::$SIM_NAME [$variant]: giro fermo da 8 minuti, si chiude xcodebuild"
+                tail -n 8 "$log" | while IFS= read -r l; do echo "::warning::${l:0:300}"; done
+                touch stalled
+                pkill -f "xcodebuild test-without-building" 2>/dev/null || true
+                sleep 10; kill -9 $XB 2>/dev/null || true
+                break
+              fi
+            done
+            wait $XB
+          }
+          overall=0
+          for variant in normale scuro testo-grande; do
+            # Anche il simulatore nella variante (oltre agli argomenti di lancio dell'app): tema e grandezza del testo
+            case $variant in
+              scuro) xcrun simctl ui "$UDID" appearance dark || true; xcrun simctl ui "$UDID" content_size large || true ;;
+              testo-grande) xcrun simctl ui "$UDID" appearance light || true; xcrun simctl ui "$UDID" content_size accessibility-extra-extra-extra-large || true ;;
+              *) xcrun simctl ui "$UDID" appearance light || true; xcrun simctl ui "$UDID" content_size large || true ;;
+            esac
+            all="ui-$variant.log"; : > "$all"
+            status=1
+            # Un giro e fino a 2 ripartenze, solo per il simulatore che non risponde («Timed out waiting for AX loaded
+            # notification», «Failed to initialize for UI testing») o per il guardiano; i test già passati si saltano
+            for attempt in 0 1 2; do
+              SKIP=()
+              for t in $(grep -ohE "Test Case '-\[GateLRUITests\.DispositiviTests [A-Za-z0-9_]+\]' passed" "$all" | sed -E "s/.* ([A-Za-z0-9_]+)\].*/\1/" | sort -u); do
+                SKIP+=("-skip-testing:GateLRUITests/DispositiviTests/$t")
+              done
+              rm -f stalled
+              status=0
+              ui_round round.log "$variant" ${SKIP[@]+"${SKIP[@]}"} || status=$?
+              cat round.log >> "$all"
+              [ -f stalled ] && status=1
+              [ "$status" = 0 ] && break
+              if [ -f stalled ] || grep -qE "Timed out waiting for AX loaded notification|Failed to initialize for UI testing|Test runner exited|Early unexpected exit|Lost connection to the test manager" round.log; then
+                [ $attempt -lt 2 ] || break
+                echo "::warning::$SIM_NAME [$variant]: il simulatore non ha risposto, ripartenza $((attempt + 1)) di 2"
+                xcrun simctl shutdown "$UDID" 2>/dev/null || true
+                killall -9 Simulator 2>/dev/null || true
+                sleep 10
+                boot
+              else
+                break        # un test fallito davvero: niente ripartenze
+              fi
+            done
+            n_ok=$(grep -ohE "Test Case '.*DispositiviTests.*' passed" "$all" | sort -u | wc -l | tr -d ' ')
+            echo "::notice::$SIM_NAME [$variant]: $n_ok test passati, uscita $status"
+            if [ "$status" != 0 ]; then
+              overall=1
+              grep -E "error: .*DispositiviTests" "$all" | sed -E 's/.*error: -\[GateLRUITests\.DispositiviTests ([A-Za-z0-9_]+)\] : /\1: /' | sort -u | head -n 15 \
+                | while IFS= read -r l; do echo "::error::$SIM_NAME: ${l:0:400}"; done
+              grep -nE "Timed out|Failed to|crash|Underlying Error|Failure Reason" "$all" | tail -n 8 | while IFS= read -r l; do echo "::warning::${l:0:300}"; done
+            fi
+            {
+              echo "### $SIM_NAME · $variant"
+              echo "- test passati: $n_ok, uscita $status"
+              grep -E "error: .*DispositiviTests" "$all" | sed -E 's/.*error: -\[GateLRUITests\.DispositiviTests ([A-Za-z0-9_]+)\] : /\1: /' | sort -u | head -n 15 | sed 's/^/- /'
+            } >> "$GITHUB_STEP_SUMMARY"
+            grep -E "error: .*DispositiviTests" "$all" | sed -E 's/.*error: -\[GateLRUITests\.DispositiviTests ([A-Za-z0-9_]+)\] : /\1: /' | sort -u > "$FOTO/problemi-$variant.txt" || true
+          done
+          xcrun simctl ui "$UDID" appearance light 2>/dev/null || true
+          xcrun simctl ui "$UDID" content_size large 2>/dev/null || true
+          # Se il test non ha potuto scrivere le foto, dagli allegati dei risultati
+          if ! ls "$FOTO"/*.png > /dev/null 2>&1; then
+            i=0
+            for R in build-ui/Logs/Test/*.xcresult; do
+              i=$((i + 1)); xcrun xcresulttool export attachments --path "$R" --output-path "att-$i" || true
+            done
+            python3 - "$FOTO" <<'PY'
+          import json, shutil, pathlib, sys
+          out = pathlib.Path(sys.argv[1])
+          for src in sorted(pathlib.Path(".").glob("att-*")):
+              try:
+                  for test in json.loads((src / "manifest.json").read_text()):
+                      for a in test.get("attachments", []):
+                          name = a.get("suggestedHumanReadableName", a["exportedFileName"]).split("_")[0]
+                          shutil.copy(src / a["exportedFileName"], out / (name if name.endswith(".png") else name + ".png"))
+              except Exception as e:
+                  print("allegati non letti:", src, e)
+          PY
+          fi
+          echo "::notice::$SIM_NAME: $(ls "$FOTO" | grep -c png) foto"
+          exit $overall
+
+      - name: Foto come artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: foto-${{ matrix.tipo }}
+          path: foto
+          if-no-files-found: warn
+
+      - name: Registri
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: registri-${{ matrix.tipo }}
+          path: |
+            test.log
+            ui-build.log
+            ui-*.log
+
+  pubblica:
+    name: Pubblica le foto
+    needs: dispositivo
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: foto-*
+          path: arrivate
+      # Sul ramo «screenshots-dispositivi», con un commit nuovo sopra l'ultimo (senza riscriverlo): ogni dispositivo
+      # che ha foto nuove sostituisce la sua cartella, gli altri restano come erano
+      - name: Ramo «screenshots-dispositivi»
+        env:
+          TOKEN: ${{ github.token }}
+        run: |
+          URL="https://x-access-token:${TOKEN}@github.com/${{ github.repository }}.git"
+          if git clone -q --depth 1 --branch screenshots-dispositivi "$URL" pub 2>/dev/null; then
+            echo "Ramo esistente"
+          else
+            mkdir pub && cd pub && git init -q && git checkout -q --orphan screenshots-dispositivi && git remote add origin "$URL" && cd ..
+          fi
+          N=0
+          for d in arrivate/foto-*/*/; do
+            [ -d "$d" ] || continue
+            ls "$d"*.png > /dev/null 2>&1 || continue
+            base=$(basename "$d"); tipo=${base%%-*}
+            rm -rf pub/"$tipo"-*
+            cp -R "$d" "pub/$base"
+            N=$((N + $(ls "$d" | grep -c png)))
+          done
+          echo "::notice::Foto da pubblicare: $N"
+          [ "$N" -gt 0 ] || { echo "Nessuna foto"; exit 0; }
+          cd pub
+          {
+            echo "# Foto dei dispositivi"
+            echo
+            echo "Corsa ${{ github.run_id }} di ${{ github.sha }} (${{ github.ref_name }}), $(date -u +%Y-%m-%dT%H:%MZ)"
+            echo
+            for f in */DISPOSITIVO.txt; do echo "- $(dirname "$f"): $(tr '\n' ' ' < "$f")"; done
+          } > README.md
+          git add -A
+          git -c user.name="GateLR CI" -c user.email="ci@gatelr.invalid" commit -qm "Foto dei dispositivi per ${{ github.sha }}" || { echo "Niente di nuovo"; exit 0; }
+          for wait in 2 4 8 16; do
+            out=$(git push origin screenshots-dispositivi 2>&1) && { echo "::notice::Foto pubblicate nel ramo screenshots-dispositivi"; exit 0; }
+            echo "$out" | sed 's/x-access-token:[^@]*@/***@/' | tail -n 3
+            sleep $wait
+            git pull -q --rebase origin screenshots-dispositivi 2>/dev/null || true
+          done
+          echo "::error::Push delle foto non riuscito"; exit 1
