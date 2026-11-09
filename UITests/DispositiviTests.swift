@@ -70,11 +70,20 @@ final class DispositiviTests: XCTestCase {
 
     /// Un elemento importante: c'è, è dentro la finestra in larghezza e, scorrendo al massimo quattro volte, si può toccare
     private func checkReachable(_ element: XCUIElement, _ name: String, screen: String, scroll: Bool = true) {
-        guard element.waitForExistence(timeout: 6) else {
+        // Gli elenchi creano le righe solo quando si avvicinano allo schermo: se manca si scorre verso il basso
+        var found = element.waitForExistence(timeout: 6)
+        if scroll {
+            for _ in 0..<5 where !found { app.swipeUp(); sleep(1); found = element.waitForExistence(timeout: 2) }
+        }
+        guard found else {
             XCTFail("[\(variant)] \(screen): manca «\(name)»"); return
         }
         if scroll {
-            for _ in 0..<4 where !element.isHittable { app.swipeUp(); sleep(1) }
+            // Sopra la finestra (la pagina è già scesa, come Viaggio verso i parcheggi) si torna su, se no si scende
+            for _ in 0..<5 where !element.isHittable {
+                if element.frame.midY < window.midY { app.swipeDown() } else { app.swipeUp() }
+                sleep(1)
+            }
         }
         let f = element.frame, w = window
         XCTAssertTrue(element.isHittable,
@@ -148,7 +157,7 @@ final class DispositiviTests: XCTestCase {
         sleep(2)
         snap("03-viaggio")
         checkTabs(screen: "Viaggio")
-        checkReachable(app.descendants(matching: .any)["trip.search"].firstMatch, "ricerca", screen: "Viaggio", scroll: false)
+        checkReachable(app.descendants(matching: .any)["trip.search"].firstMatch, "ricerca", screen: "Viaggio")
         checkReachable(app.buttons["trip.route"].firstMatch, "Percorso", screen: "Viaggio")
         snap("03b-viaggio-sotto")
     }
