@@ -28,7 +28,7 @@ final class DispositiviTests: XCTestCase {
     // MARK: Avvio
 
     private var italian: [String] { ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT"] }
-    private var place: [String] { ["-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"] }
+    private var place: [String] { ["-uiPlace", "Palazzo Vecchio", "43.7693", "11.2563"] }
 
     /// Gli argomenti della variante: tema scuro o testo più grande di Dynamic Type
     private var variantArgs: [String] {

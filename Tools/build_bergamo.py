@@ -350,6 +350,10 @@ def source(z):
                            "Stadt Bergamo: diese ZTL (Zeiten und Kameras)", url_of(z["file"]))] + LINKS + z["extra_links"] + [GEO_LINK]}
 
 
+# 1.20.4 (B119): un'area pedonale e le corsie taxi/bus della stazione non hanno l'accesso per i clienti degli hotel
+# (giallo «se l'hotel registra la targa» invece di rosso)
+NO_HOTEL = {"bergamo-piazza-dante", "bergamo-marconi"}
+
 feats = od_features()
 taken, zones, skipped = set(), [], []
 for z in ZONES:
@@ -358,7 +362,7 @@ for z in ZONES:
         out = {"id": z["zid"] + (f"-{i + 1}" if i else ""), "name": z["name"][0], "name_it": z["name"][1], "name_de": z["name"][2],
                "kind": "restricted", "summary": z["summary"][0], "summary_it": z["summary"][1], "summary_de": z["summary"][2],
                "perimeter": shape, "gates": [], "windows": z["windows"],
-               "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True, "source": source(z)}
+               "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": z["zid"] not in NO_HOTEL, "source": source(z)}
         # «j) Ciclomotori e motocicli esclusivamente per la ZTL festiva e serale di Città Alta Colli» (documento operativo)
         if z["zid"] == "bergamo-colli":
             out["exemptVehicleTypes"] = ["motorcycle"]

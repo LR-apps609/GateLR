@@ -266,7 +266,8 @@ test("B47", async () => {
 test("HOTEL", async () => {
   const e = [];
   const p = await open("it/#firenze", {time: "2026-11-10T10:00:00+01:00"}); await settle(p);
-  await choose(p, "Hotel al Duomo", 43.7731, 11.2560);
+  // 1.20.4 (B08): piazza del Duomo è area pedonale (dati aperti del Comune): l'hotel in via de' Martelli, nel Settore A
+  await choose(p, "Hotel in via de' Martelli", 43.7745, 11.2545);
   const m = () => p.evaluate(() => ({s: document.getElementById("answer").dataset.s, motive: document.getElementById("a-motive").textContent,
     pressed: document.getElementById("h-reg").getAttribute("aria-pressed")}));
   let v = await m();

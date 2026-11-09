@@ -1,6 +1,6 @@
 {
- "version": "202611091251",
- "digest": "98a5e03ce074",
+ "version": "202611091716",
+ "digest": "f860ac19766c",
  "schema": 1,
  "cities": [
   {
@@ -26,12 +26,12 @@
   {
    "id": "bergamo",
    "file": "bergamo.json",
-   "sha256": "836b0804731b7e6b1b22113467ce7deb9728fbc4ba116c0bede9a35dcb848c7a"
+   "sha256": "703b725b8ca60ac2a20886b221e9b70a1eefafc089116a9b8aed631f7add40d9"
   },
   {
    "id": "bologna",
    "file": "bologna.json",
-   "sha256": "e6ab76be838ee124f81086a9e04f546473248671177ea74dc03de66ab5b8b37f"
+   "sha256": "16dfd9dd64930bd93efb83bde5309eae55aff129a3fa877e11909d72b0b3a590"
   },
   {
    "id": "bolzano",
@@ -61,7 +61,7 @@
   {
    "id": "firenze",
    "file": "firenze.json",
-   "sha256": "f2b50f51f0bbc121db9da959c736b9152b439f68607f69465e189a69ac26b475"
+   "sha256": "f53cacd0ab734ad114a275cafe5ad9f68c8d3bf1906fc9bafeb315d13ef6ffff"
   },
   {
    "id": "genova",
@@ -86,7 +86,7 @@
   {
    "id": "milano",
    "file": "milano.json",
-   "sha256": "3c19b9e9f7af7d71d8df89ec9f41690b703f7c1f097dd2af49ccc1f9fe2081d5"
+   "sha256": "bd984f4fe41c0b5da89a8837b24e0fde112fcbeba55bce015e0e845e06f24f35"
   },
   {
    "id": "modena",

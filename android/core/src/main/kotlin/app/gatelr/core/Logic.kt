@@ -301,4 +301,4 @@ fun carAdvice(v: Vehicle, cities: List<City>, at: Instant): List<AdviceLine> = c
             else -> AdviceLine(city.localizedName, z.shortName, L("Your car's class is allowed"), true)
         }
     }
-}
+}.distinct()   // 1.20.4: le parti di una stessa zona (Area B di Milano, stesso nome) danno una riga sola, come sull'iPhone

@@ -2,9 +2,10 @@
 # Costruisce Resources/Cities/bologna.json e milano.json dai dati aperti salvati in data/raw/
 # (scaricati dai portali dei Comuni, CC BY 4.0 / CC BY) e dalle pagine ufficiali citate in docs/citta-successive.md.
 # Uso: python3 Tools/build_cities.py
-import json, re
+import hashlib, json, re
 from pathlib import Path
 from build_firenze import simplify
+import osm_geo
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw"
@@ -14,10 +15,111 @@ MON_FRI = [2, 3, 4, 5, 6]
 
 
 def ring(geometry, tol=0.00001):
-    """Il contorno esterno più grande, semplificato, come lista di {lat, lon}"""
+    """Il contorno esterno più grande, semplificato, come lista di {lat, lon}. Solo per geometrie di una parte sola:
+    con più parti si ferma (1.20.4, B01/B05/B06: le parti staccate si perdevano), per quelle c'è rings()"""
+    rs = rings(geometry, tol)
+    if len(rs) != 1:
+        raise SystemExit(f"ring(): {len(rs)} parti, usare rings()")
+    return rs[0]
+
+
+def largest_ring(geometry, tol=0.00001):
+    """Il comportamento di prima del 1.20.4 (il contorno esterno con più punti), solo per Bologna: le parti staccate
+    (B05, B06) entrano quando la fonte si potrà ricontrollare"""
     polys = [geometry["coordinates"]] if geometry["type"] == "Polygon" else geometry["coordinates"]
     outer = max((p[0] for p in polys), key=len)
     return [{"lat": round(p[1], 6), "lon": round(p[0], 6)} for p in simplify(outer, tol)]
+
+
+def _shoelace(pts):
+    return abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(pts, pts[1:] + pts[:1]))) / 2
+
+
+def rings(geometry, tol=0.00001):
+    """1.20.4: TUTTE le parti di un Polygon o MultiPolygon (contorno esterno di ognuna, semplificato), dalla più grande.
+    I buchi interni restano pieni come prima (un punto in un buco risulta dentro: mai un verde in più). Una parte che la
+    semplificazione riduce a meno di 4 punti distinti si tiene senza semplificarla"""
+    polys = [geometry["coordinates"]] if geometry["type"] == "Polygon" else geometry["coordinates"]
+    out = []
+    for poly in sorted(polys, key=lambda p: -_shoelace(p[0])):
+        pts = simplify(poly[0], tol)
+        if len({tuple(p) for p in pts}) < 4:
+            pts = poly[0]
+        out.append([{"lat": round(p[1], 6), "lon": round(p[0], 6)} for p in pts])
+    return out
+
+
+def _km2(geometry):
+    """Area ufficiale (somma dei contorni esterni) in km², per il controllo delle parti esportate"""
+    polys = [geometry["coordinates"]] if geometry["type"] == "Polygon" else geometry["coordinates"]
+    return sum(osm_geo.area_km2(p[0]) for p in polys)
+
+
+def check_parts(name, geometry, parts, min_share=0.99):
+    """Le parti esportate coprono almeno il 99% dell'area ufficiale (B01: Area B ne perdeva 1,14 km²). Per le aree
+    piccole e strette conta la semplificazione: lì si controlla soprattutto che nessuna parte manchi"""
+    polys = [geometry["coordinates"]] if geometry["type"] == "Polygon" else geometry["coordinates"]
+    if len(parts) < len(polys):
+        raise SystemExit(f"{name}: esportate {len(parts)} parti su {len(polys)}")
+    official, exported = _km2(geometry), sum(osm_geo.area_km2(r) for r in parts)
+    if exported < min_share * official:
+        raise SystemExit(f"{name}: esportati {exported:.3f} km² su {official:.3f} ufficiali")
+
+
+def check_gates(name, gates, perimeters, max_m, allowed=()):
+    """Ogni varco dentro una delle parti o a non più di max_m metri dal bordo (salvo gli id in «allowed», lontani già
+    nei dati ufficiali)"""
+    for g in gates:
+        lat, lon = g["location"]["lat"], g["location"]["lon"]
+        d = min(0 if osm_geo.contains(r, lat, lon) else osm_geo.distance_m(r, lat, lon) for r in perimeters)
+        if d > max_m and g["id"] not in allowed:
+            raise SystemExit(f"{name}: il varco {g['id']} {g['name']} è a {d:.0f} m dal perimetro")
+
+
+def nearest_part(perimeters, loc):
+    """L'indice della parte più vicina a un punto (dentro = distanza 0)"""
+    return min(range(len(perimeters)), key=lambda i: 0 if osm_geo.contains(perimeters[i], loc["lat"], loc["lon"])
+               else osm_geo.distance_m(perimeters[i], loc["lat"], loc["lon"]))
+
+
+def split_zone(zone, perimeters, name_suffix=None, id_suffix=None):
+    """1.20.4: una zona per parte (le app leggono un solo perimetro per zona; così anche le app già installate vedono
+    tutte le parti). La prima parte tiene l'id della zona, le altre «<id>-2», «<id>-3»…; i varchi vanno alla parte più
+    vicina. name_suffix(i) e id_suffix(i): nome e id delle parti in più, se si vuole qualcosa di meglio di un numero"""
+    gates = [[] for _ in perimeters]
+    for g in zone["gates"]:
+        gates[nearest_part(perimeters, g["location"])].append(g)
+    out = []
+    for i, per in enumerate(perimeters):
+        z = json.loads(json.dumps(zone))
+        z["perimeter"], z["gates"] = per, sorted(gates[i], key=lambda g: g["name"])
+        if i:
+            z["id"] = f"{zone['id']}-{id_suffix(i) if id_suffix else i + 1}"
+            if name_suffix:
+                for k in ("name", "name_it", "name_de"):
+                    if k in z:
+                        z[k] = z[k] + name_suffix(i, k)
+        out.append(z)
+    return out
+
+
+def short_hash(perimeter):
+    """Un id stabile da un perimetro (B120: aree senza codice nei dati aperti)"""
+    return hashlib.sha1(json.dumps(perimeter, separators=(",", ":")).encode()).hexdigest()[:8]
+
+
+def check_unique_ids(city):
+    """B120: id unici per zone, aree pedonali e telecamere della città, e per i varchi di ogni zona (l'iPhone li usa come
+    chiavi della mappa)"""
+    seen = {}
+    items = [("zona", z["id"]) for z in city["zones"]] + [("area pedonale", a["id"]) for a in city.get("pedestrian") or []]
+    items += [("telecamera", c["id"]) for c in city.get("cameras") or []]
+    # un varco può servire due zone (diurna e notturna): unico dentro la sua zona
+    items += [(f"varco di {z['id']}", g["id"]) for z in city["zones"] for g in z["gates"]]
+    for kind, i in items:
+        if (kind, i) in seen:
+            raise SystemExit(f"{city['id']}: {kind} con id doppio {i}")
+        seen[(kind, i)] = True
 
 
 def source(page, quote, translation, links, pending, ordinance=None):
@@ -48,6 +150,8 @@ def link(en, it, de, url):
 
 def bologna():
     ztl = json.loads((RAW / "bologna/zona-a-traffico-limitato.geojson").read_text())
+    # 1.20.4: le parti staccate della ZTL (B05) restano fuori finché il portale dei dati aperti di Bologna non si può
+    # ricontrollare: per ora solo il contorno più grande del poligono «codice 40», come prima
     main = next(f for f in ztl["features"] if f["properties"]["codice"] == 40)
     zt = json.loads((RAW / "bologna/zona-t-centro-storico.geojson").read_text())["features"][0]
     varchi = json.loads((RAW / "bologna/varchi-bologna.geojson").read_text())["features"]
@@ -74,7 +178,7 @@ def bologna():
          "summary": "Every day from 7 am to 8 pm you can't drive in without a permit or a day ticket. Inside, Zona T and the pedestrian areas stay closed around the clock.",
          "summary_it": "Tutti i giorni dalle 7 alle 20 non si entra senza permesso o ticket giornaliero. Dentro, la zona T e le aree pedonali restano chiuse 24 ore su 24.",
          "summary_de": "Täglich von 7 bis 20 Uhr keine Einfahrt ohne Genehmigung oder Tagesticket. Zone T und Fußgängerzonen bleiben rund um die Uhr gesperrt.",
-         "perimeter": ring(main["geometry"]), "gates": sorted(gates, key=lambda g: g["name"]),
+         "perimeter": largest_ring(main["geometry"]), "gates": sorted(gates, key=lambda g: g["name"]),
          "windows": [{"weekdays": EVERY_DAY, "start": 7 * 60, "end": 20 * 60}],
          "freeOnHolidays": False, "exemptFuels": [], "hotelCanRegister": True,
          "ticket": {"price": 6.0, "howTo": "Buy and activate it on the Sosty website before you drive in, and wait for the confirmation. Max 3 per month per car.",
@@ -100,15 +204,79 @@ def bologna():
     for z in zones:
         z["source"]["authority"] = "City of Bologna"
     ped = json.loads((RAW / "bologna/zona-pedonale-centro-storico.geojson").read_text())["features"]
-    pedestrian = [{"id": f"bo-ap-{f['properties']['codice']}",
-                   "name": (f["properties"].get("nomevia1") or "").strip().title() or "Area pedonale",
-                   "perimeter": ring(f["geometry"], 0.000005)} for f in ped if f["geometry"]]
+    # 1.20.4 (B120): 21 aree senza codice avevano tutte l'id «bo-ap-None» (e 2 «bo-ap-71»): id dal codice se è unico,
+    # altrimenti dal perimetro (stabile finché il Comune non cambia l'area)
+    codes_ped = [f["properties"].get("codice") for f in ped if f["geometry"]]
+    pedestrian = []
+    for f in ped:
+        if not f["geometry"]:
+            continue
+        code = f["properties"].get("codice")
+        # geometria come prima (il contorno più grande): le parti in più di Bologna aspettano la verifica della fonte
+        for j, per in enumerate([largest_ring(f["geometry"], 0.000005)]):
+            unique = code is not None and codes_ped.count(code) == 1 and j == 0
+            pedestrian.append({"id": f"bo-ap-{code}" if unique else f"bo-ap-{code or 'x'}-{short_hash(per)}",
+                               "name": (f["properties"].get("nomevia1") or "").strip().title() or "Area pedonale",
+                               "perimeter": per})
     buses = [{"id": f"bo-c-{v['properties']['identificativo_varco']}", "name": v["properties"]["nome_varco"].strip(),
               "location": {"lat": round(v["geometry"]["coordinates"][1], 6), "lon": round(v["geometry"]["coordinates"][0], 6)},
               "kind": "bus"}
              for v in varchi if v["properties"].get("tipologia_varco") == "corsie" and v["geometry"]]
     return {"id": "bologna", "name": "Bologna", "pedestrian": pedestrian, "cameras": buses, "name_it": "Bologna", "name_de": "Bologna", "center": {"lat": 44.4938, "lon": 11.3430}, "zones": zones, "status": "draft",
             "license": "Perimeters and gates: Comune di Bologna open data, CC BY 4.0"}
+
+
+# 1.20.4 (B110): il vecchio indirizzo del dataset (…/ds51_infogeo_aree_pedonali_ztl_localizzazione_) dà 404
+OPEN_DATA_AREAS = "https://dati.comune.milano.it/dataset/ds51_trafficotrasporti_aree_pedonali_ztl"
+# Data dell'ultimo aggiornamento delle risorse del dataset (API del portale, letta l'8/11/2026)
+OPEN_DATA_AREAS_UPDATED = "2023-05-02T09:34:01Z"
+# Varchi di Area B lontani dal perimetro già nei dati ufficiali (Comboni 228 m, Assunta 189 m dal bordo più vicino)
+FAR_GATES_B = {"mi-b-36", "mi-b-117"}
+# B01: True = una zona per ognuna delle 7 parti di Area B (vedi milano()); da decidere, per ora False
+AREA_B_ALL_PARTS = False
+
+
+def local_ztl(f, links):
+    """1.20.4 (B07): una ZTL locale del dataset del Comune (zone a traffico limitato di poche vie: Ticinese, Garibaldi,
+    Navigli…). Il dataset è del 2023 e gli orari, quando ci sono, stanno solo nelle note: la zona entra con la data dei
+    dati («letto il» = ultimo aggiornamento del dataset), quindi la risposta è sempre «Controlla il cartello», mai verde
+    né rossa. Gli orari delle note si tengono come fasce, per la mappa e per quando la zona sarà verificata"""
+    p = f["properties"]
+    name = re.sub(r"^ZTL\s+", "", (p["nome"] or "").strip())
+    name = name.title() if name.isupper() else name
+    note = (p.get("note") or "").strip()
+    windows = LOCAL_WINDOWS.get(p["id_amat"], [{"weekdays": EVERY_DAY, "start": 0, "end": 24 * 60}])
+    deroghe = re.sub(r"\s+", " ", p.get("deroghe") or "").strip()
+    quote = f"{p['nome'].strip()}: deroghe «{deroghe}»" + (f"; note «{note}»" if note else "")
+    zone = {"id": f"milano-ztl-{p['id_amat']}", "name": f"ZTL · {name}", "name_it": f"ZTL · {name}", "name_de": f"ZTL · {name}",
+            "kind": "restricted",
+            "summary": "Local limited traffic zone of the City of Milan (open data updated in 2023). Only the vehicles listed by the city may enter (often residents, taxis, deliveries at set hours). Hours and exemptions are only in the notes of the data: check the sign.",
+            "summary_it": "ZTL locale del Comune di Milano (dati aperti aggiornati nel 2023). Entrano solo i veicoli indicati dal Comune (spesso residenti, taxi, carico e scarico a certe ore). Orari e deroghe sono solo nelle note dei dati: controlla il cartello.",
+            "summary_de": "Lokale verkehrsberuhigte Zone der Stadt Mailand (offene Daten von 2023). Nur die von der Stadt genannten Fahrzeuge dürfen hinein (oft Anwohner, Taxis, Lieferverkehr zu bestimmten Zeiten). Zeiten und Ausnahmen stehen nur in den Notizen der Daten: achte auf das Schild.",
+            "gates": [], "windows": windows, "freeOnHolidays": None, "exemptFuels": [], "hotelCanRegister": False,
+            "source": source(OPEN_DATA_AREAS, quote, (f"{name}: exemptions and notes as written (in Italian) in the city's open data",
+                                                     f"{name}: Ausnahmen und Notizen wie in den offenen Daten der Stadt (auf Italienisch)"), links,
+                             [("The open data are from 2023 and give the hours only in a note: GateLR always says «check the sign» here.",
+                               "I dati aperti sono del 2023 e danno gli orari solo in una nota: qui GateLR dice sempre «controlla il cartello».",
+                               "Die offenen Daten sind von 2023 und nennen die Zeiten nur in einer Notiz: GateLR sagt hier immer «achte auf das Schild».")],
+                             ordinance=(p.get("ordinanza") or None))}
+    zone["source"]["authority"] = "City of Milan"
+    zone["source"]["checkedOn"] = OPEN_DATA_AREAS_UPDATED
+    return zone
+
+
+# Le fasce scritte nelle note del dataset (id_amat → fasce); le altre ZTL locali: tutto il giorno
+NIGHT_20_7 = [{"weekdays": EVERY_DAY, "start": 20 * 60, "end": 7 * 60}]
+LOCAL_WINDOWS = {
+    210: NIGHT_20_7, 212: NIGHT_20_7, 213: NIGHT_20_7, 214: NIGHT_20_7,          # Navigli notturna: «dalle 20:00 alle 07:00»
+    224: [{"weekdays": EVERY_DAY, "start": 22 * 60, "end": 6 * 60}],                 # Arco della Pace: «dalle 22:00 alle 6:00»
+    # Ascanio Sforza: «dalle 19:00 alle 6:00 del giorno successivo: lunedì-giovedì; dalle 19:00 del venerdì alle 6:00 del lunedì»
+    1102: [{"weekdays": [2, 3, 4, 5, 6], "start": 19 * 60, "end": 6 * 60},
+           {"weekdays": [7, 1], "start": 0, "end": 24 * 60}],
+}
+# ZTL locali del dataset che non si importano: Via Lagrange (val_fine 30/09/2017, scaduta); Cavalcavia Monte Ceneri
+# (le deroghe ammettono autovetture e autocarri sotto 3,5 t: per un'auto non è una ZTL)
+LOCAL_SKIP = {209, 203}
 
 
 def milano():
@@ -139,7 +307,7 @@ def milano():
                link("City of Milan: Area B ban calendar", "Comune di Milano: calendario dei divieti di Area B", "Stadt Mailand: Verbotskalender Area B",
                     "https://www.comune.milano.it/argomenti/mobilita/area-b-calendario-dei-divieti"),
                link("Open data: ZTL and Area B perimeters (CC BY)", "Dati aperti: perimetri ZTL e Area B (CC BY)",
-                    "Offene Daten: Grenzen von ZTL und Area B (CC BY)", "https://dati.comune.milano.it/dataset/ds51_infogeo_aree_pedonali_ztl_localizzazione_")]
+                    "Offene Daten: Grenzen von ZTL und Area B (CC BY)", OPEN_DATA_AREAS)]
     zone_c = {"id": "milano-c", "name": "Area C · City Centre", "name_it": "Area C · Centro", "name_de": "Area C · Innenstadt", "kind": "pass",
             "summary": "A paid zone: from Monday to Friday, 7:30 am to 7:30 pm, you can drive in with a €7.50 ticket, activated by midnight of the next day. Public holidays are free. Electric cars enter free.",
             "summary_it": "Zona a pagamento: dal lunedì al venerdì, dalle 7:30 alle 19:30, si entra con il ticket da 7,50 €, da attivare entro la mezzanotte del giorno dopo. Festivi esclusi. Le auto elettriche entrano gratis.",
@@ -166,7 +334,7 @@ def milano():
               "summary": "Almost the whole city. From Monday to Friday, 7:30 am to 7:30 pm (holidays excluded), the most polluting vehicles can't drive in. Cleaner cars enter free, no ticket.",
               "summary_it": "Quasi tutta la città. Dal lunedì al venerdì, dalle 7:30 alle 19:30 (festivi esclusi), non entrano i veicoli più inquinanti. Le auto più pulite entrano gratis, senza ticket.",
               "summary_de": "Fast die ganze Stadt. Montag bis Freitag, 7:30 bis 19:30 Uhr (außer Feiertage), dürfen die umweltschädlichsten Fahrzeuge nicht hinein. Sauberere Autos fahren kostenlos ein, ohne Ticket.",
-              "perimeter": ring(area_b["geometry"], 0.00008), "gates": sorted(gates_b, key=lambda g: g["name"]),
+              "perimeter": None, "gates": gates_b,
               "windows": [{"weekdays": MON_FRI, "start": 7 * 60 + 30, "end": 19 * 60 + 30}],
               "freeOnHolidays": True, "exemptFuels": ["electric"], "hotelCanRegister": False, "bans": BANS_B,
               "source": source(page_b, "Area B è attiva dal lunedì al venerdì dalle 7:30 alle 19:30, festivi esclusi",
@@ -186,17 +354,45 @@ def milano():
                                  "Ausländische Autos: Registrierungsregeln für nicht-italienische Kennzeichen noch zu prüfen.")])}
     for z in (zone_c, zone_b):
         z["source"]["authority"] = "City of Milan"
-    pedestrian = [{"id": f"mi-ap-{f['properties']['id_amat']}", "name": (f["properties"].get("nome") or "Area pedonale").strip(),
-                   "perimeter": ring(f["geometry"], 0.000005)}
-                  for f in areas if f["properties"]["tipo"] == "AP" and f["geometry"]]
+    # 1.20.4 (B01): Area B è un MultiPolygon di 7 parti; prima si teneva solo la più grande e Muggiano, Baggio/Salici,
+    # Parea/Camaldoli, Achille Papa, San Bernardo restavano «fuori dalla ZTL» (verde a un diesel Euro 4 vietato).
+    # Ora una zona per parte («milano-b», «milano-b-2»…), con i varchi della parte più vicina
+    parts_b = rings(area_b["geometry"], 0.00008)
+    check_parts("milano-b", area_b["geometry"], parts_b)
+    check_gates("milano-b", gates_b, parts_b, 150, FAR_GATES_B)
+    # Stesso nome per tutte le parti: è la stessa zona (Consigli per l'auto in Garage ne mostra una riga sola)
+    # 1.20.4: le parti staccate di Area B restano FUORI finché non si decide (AREA_B_ALL_PARTS): dentro le parti un'auto
+    # ammessa passerebbe da «Fuori dalla ZTL» (grigio) a «Entra pure» (verde) e il riquadro della copertura si allarga di
+    # ~400 m a est (posti oggi «non coperti» diventerebbero «Fuori dalla ZTL»). Per ora solo la parte più grande, come prima
+    zones_b = split_zone(zone_b, parts_b) if AREA_B_ALL_PARTS else [dict(zone_b, perimeter=parts_b[0], gates=sorted(gates_b, key=lambda g: g["name"]))]
+    # 1.20.4 (B06): le aree pedonali di più parti (Alzaia Naviglio Pavese, Navigli A e C, Sarpi C, XXIV Maggio,
+    # Spallanzani) perdevano le parti minori: un'area per parte, «mi-ap-<id>», «mi-ap-<id>-2»…
+    pedestrian = []
+    for f in areas:
+        if f["properties"]["tipo"] != "AP" or not f["geometry"]:
+            continue
+        parts = rings(f["geometry"], 0.000005)
+        check_parts(f"mi-ap-{f['properties']['id_amat']}", f["geometry"], parts, 0.9)
+        for j, per in enumerate(parts):
+            pedestrian.append({"id": f"mi-ap-{f['properties']['id_amat']}" + (f"-{j + 1}" if j else ""),
+                               "name": (f["properties"].get("nome") or "Area pedonale").strip(), "perimeter": per})
+    # 1.20.4 (B07): le ZTL locali del dataset (prima ignorate: verde senza avvisi a Ticinese, Garibaldi, Navigli)
+    local = []
+    for f in areas:
+        if f["properties"]["tipo"] != "ZTL" or not f["geometry"] or f["properties"]["id_amat"] in LOCAL_SKIP:
+            continue
+        parts = rings(f["geometry"], 0.000005)
+        check_parts(f"milano-ztl-{f['properties']['id_amat']}", f["geometry"], parts, 0.9)
+        local += split_zone(local_ztl(f, [links_b[-1]]), parts)
     return {"id": "milano", "name": "Milan", "pedestrian": pedestrian, "name_it": "Milano", "name_de": "Mailand", "center": {"lat": 45.4642, "lon": 9.1900},
-            "zones": [zone_c, zone_b], "status": "draft",
+            "zones": [zone_c] + zones_b + local, "status": "draft",
             # 2.1: il 7 dicembre (Sant'Ambrogio) le fonti ufficiali non dicono se Area C e Area B sono attive: «Controlla il cartello»
             "uncertainDays": ["12-07"],
             "license": "Perimeters and gates: Comune di Milano open data, CC BY"}
 
 
 for city in (bologna(), milano()):
+    check_unique_ids(city)
     out = ROOT / f"Resources/Cities/{city['id']}.json"
     out.write_text(json.dumps(city, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(out.name, [(z["id"], len(z["perimeter"]), len(z["gates"])) for z in city["zones"]])
