@@ -1,3 +1,0 @@
-testD3Viaggio: XCTAssertTrue failed - [testo-grande] Viaggio: «ricerca» non si può toccare (cornice 68,-187 239×25, finestra 0,0 375×667)
-testD4Aiuto: failed - [testo-grande] Aiuto: manca «Cosa sono le ZTL»
-testD4Aiuto: failed - [testo-grande] Aiuto: manca «Segnala un errore»

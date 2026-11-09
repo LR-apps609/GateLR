@@ -1,2 +1,1 @@
-testD3Viaggio: XCTAssertTrue failed - [scuro] Viaggio: «ricerca» non si può toccare (cornice 63,-55 248×22, finestra 0,0 375×667)
-testD4Aiuto: failed - [scuro] Aiuto: manca «Segnala un errore»
+testD3Viaggio: XCTAssertTrue failed - [scuro] Viaggio: «Percorso» non si può toccare (cornice 20,666 335×48, finestra 0,0 375×667)
