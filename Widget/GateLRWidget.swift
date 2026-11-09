@@ -169,7 +169,7 @@ struct GateWidgetView: View {
                     .font(.system(size: 22, weight: .bold)).foregroundStyle(tint)
                 Text(state).font(.system(size: 22, weight: .bold)).foregroundStyle(tint).minimumScaleFactor(0.6).lineLimit(1)
                 // 1.20.3: sotto il titolo fisso lo stato della ZTL (o «Dati da ricontrollare») e il prossimo cambio
-                Text(verbatim: [entry.answer?.stale == true ? L("Data to recheck") : entry.on ? L("ZTL active") : L("ZTL not active"), change]
+                Text(verbatim: [entry.answer?.stale == true ? L("Data to recheck") : entry.answer?.stato == .ztlNonAttiva ? "" : entry.on ? L("ZTL active") : L("ZTL not active"), change]
                         .filter { !$0.isEmpty }.joined(separator: " · "))
                     .font(.system(size: 12, weight: .medium)).foregroundStyle(.secondary).lineLimit(1).minimumScaleFactor(0.7)
                 if let v = entry.answer?.vehicleName {

@@ -34,7 +34,8 @@ struct NearbyZTLIntent: AppIntent {
             return String(format: L("You're inside %@: %@."), String(format: L("Pedestrian area · %@"), area.name), L("Don't enter"))
         }
         if let zone = check.zone, let a = check.answer {
-            var text = String(format: L("You're inside %@: %@."), zone.shortName, a.verdict.spokenText(unofficial: check.unofficial))
+            // 2.1: le parole della RispostaFinale («ZTL non attiva», «Controlla il cartello · Dati scaduti»)
+            var text = String(format: L("You're inside %@: %@."), zone.shortName, check.finale.spoken)
             text += next(a, store: store, now: now)
             return text
         }

@@ -97,7 +97,9 @@ for (const p of pts) {
   // zone, grigio in una città che conosciamo e neutro fuori copertura: mai verde senza una zona
   const pa = all.placeAnswer(p.lat, p.lon, T[1]), pb = lazy.placeAnswer(p.lat, p.lon, T[1]);
   if (pa.colour !== pb.colour || pa.kind !== pb.kind) errors.push(`${p.name}: colore diverso ${pa.kind}/${pa.colour} ≠ ${pb.kind}/${pb.colour}`);
-  if (!pa.zone && !pa.ped && pa.colour !== (pa.covered ? "grey" : "neutral")) errors.push(`${p.name}: fuori dalle zone ${pa.colour} (atteso ${pa.covered ? "grey" : "neutral"})`);
+  // 2.1 (B22): fuori dal perimetro di una città con le zone tutte da fonti non ufficiali giallo «Controlla il cartello»
+  const outWant = !pa.covered ? "neutral" : pa.unoff ? "yellow" : "grey";
+  if (!pa.zone && !pa.ped && pa.colour !== outWant) errors.push(`${p.name}: fuori dalle zone ${pa.colour} (atteso ${outWant})`);
   if (!z) { n++; continue; }
   // stessi dati della zona trovata, poi la risposta per alcune combinazioni (a rotazione: lingua, ora, veicolo, hotel;
   // ogni risposta guarda 8 giorni avanti e indietro, tutte le combinazioni sarebbero troppo lente)

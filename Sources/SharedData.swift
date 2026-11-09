@@ -56,6 +56,17 @@ struct WidgetAnswer: Equatable {
     /// Il veicolo della risposta (nil = non lo sappiamo: auto a noleggio come nell'app appena installata). 1.19.4: mai
     /// la targa, nemmeno se scritta nel nome (il widget si vede anche a telefono bloccato)
     var vehicleName: String?
+    /// 2.1: lo stato della RispostaFinale (per la riga sotto: niente «ZTL non attiva» due volte)
+    var stato: Stato = .controllaCartello
+
+    static func tone(_ t: Tono) -> Tone {
+        switch t {
+        case .rosso: .red
+        case .giallo: .amber
+        case .verde, .spento: .green
+        case .grigio, .neutro: .grey
+        }
+    }
 
     static func make(zone: Zone, cityId: String?, garage: SharedData.Garage?, at date: Date, engine: RuleEngine = RuleEngine()) -> WidgetAnswer {
         let vehicle = garage?.vehicle ?? SampleData.rental
@@ -63,22 +74,15 @@ struct WidgetAnswer: Equatable {
         let permits = (garage?.permits ?? []).filter { $0.cityId == cityId }
         // 1.20.1: la stessa verifica dei dati dell'app (mai verde né grigio da una regola non verificata o cambiata)
         let a = engine.trustedAnswer(zone: zone, vehicle: vehicle, permits: permits, hotelInside: false, at: date)
-        let age = engine.calendar.dateComponents([.day], from: zone.source.checkedOn, to: engine.now()).day ?? 0
+        // B147: dalla data più recente tra lettura e verifica, come il motore
+        let age = engine.age(RuleEngine.freshest(zone.source))
         let stale = age > engine.staleAfterDays
-        var w = WidgetAnswer(tone: .amber, symbol: "questionmark", title: AnswerWord.checkSign.title, stale: stale,
+        // 2.1: la RispostaFinale della zona (shared/risposta-finale.md): parola, forma e colore come nell'app.
+        // «ZTL non attiva» ha la sua parola e il colore del token unico (RispostaFinale.stateOff, oggi verde)
+        let f = RispostaFinale.of(a, zone: zone)
+        var w = WidgetAnswer(tone: Self.tone(f.color), symbol: f.symbol, title: f.title, stale: stale,
                              gatesOn: a.gatesOn, next: a.nextChange, vehicleName: garage.map { PlatePrivacy.displayName($0.vehicle) })
-        switch a.verdict.shown(unofficial: zone.isUnofficial) {
-        case .no:
-            w.tone = .red; w.symbol = "xmark"; w.title = AnswerWord.dontEnter.title
-        case .conditional:
-            w.tone = .amber; w.symbol = "exclamationmark"; w.title = AnswerWord.condition.title
-        case .unsure:
-            w.tone = .amber; w.symbol = "questionmark"; w.title = AnswerWord.checkSign.title
-        case .yes:
-            // 1.20.1: ZTL spenta = verde (puoi entrare). 1.20.3: il titolo è sempre «Puoi entrare»; «ZTL non attiva» è
-            // la riga sotto del widget (GateLRWidget), come la luna
-            w.tone = .green; w.symbol = a.gatesOn ? "checkmark" : "moon.zzz"; w.title = AnswerWord.enter.title
-        }
+        w.stato = f.stato
         return w
     }
 }

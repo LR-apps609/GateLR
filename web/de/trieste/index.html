@@ -195,14 +195,17 @@ function easter(y){ const a=y%19,b=Math.floor(y/100),c=y%100,d=Math.floor(b/4),e
 // Festivo nazionale o (1.20.0) festa del patrono della città della zona («localHolidays», "MM-DD"), come ItalianHolidays nell'app
 function isHoliday(r, zone){ if (r.wd === 1) return false;
   const md = r.m*100 + r.d; if ([101,106,425,501,602,815,1101,1208,1225,1226].includes(md)) return true;
+  if (md === 1004 && r.y >= 2026) return true;     // 2.1 (B24): San Francesco, festa nazionale dal 2026 (L. 151/2025)
   if (zone && (zone.localHolidays || []).includes(`${String(r.m).padStart(2,"0")}-${String(r.d).padStart(2,"0")}`)) return true;
   const [em, ed] = easter(r.y); const mon = new Date(Date.UTC(r.y, em-1, ed+1)); return mon.getUTCMonth()+1 === r.m && mon.getUTCDate() === r.d; }
 // Stagioni: date fisse o, dalla 1.17.1, regole «n-esimo giorno della settimana del mese» in from/to (Tools/seasons.py),
 // es. {month:4, weekday:5, nth:1} = primo giovedì di aprile; nth -1 = l'ultimo; offset in giorni. Come TimeWindow.Season nell'app
 function ruleDay(q, y){ const len = new Date(Date.UTC(y, q.month, 0)).getUTCDate(), wd = d => new Date(Date.UTC(y, q.month-1, d)).getUTCDay() + 1;
   const d = q.nth > 0 ? 1 + (q.weekday - wd(1) + 7) % 7 + (q.nth - 1)*7 : len - (wd(len) - q.weekday + 7) % 7 + (q.nth + 1)*7;
+  // 2.1 (B117): un «n-esimo giorno» che non esiste nel mese (5° lunedì) non scivola nel mese dopo: date fisse, come l'app
+  if (d < 1 || d > len) return null;
   const x = new Date(Date.UTC(y, q.month-1, d + (q.offset || 0))); return [x.getUTCMonth()+1, x.getUTCDate()]; }
-function seasonBounds(s, y){ const [fm, fd] = s.from ? ruleDay(s.from, y) : [s.fromMonth, s.fromDay], [tm, td] = s.to ? ruleDay(s.to, y) : [s.toMonth, s.toDay];
+function seasonBounds(s, y){ const [fm, fd] = (s.from && ruleDay(s.from, y)) || [s.fromMonth, s.fromDay], [tm, td] = (s.to && ruleDay(s.to, y)) || [s.toMonth, s.toDay];
   return [fm*100 + fd, tm*100 + td]; }
 function inSeason(w, r){ if (!w.season) return true; const md = r.m*100 + r.d, [a, b] = seasonBounds(w.season, r.y);
   return a <= b ? (md >= a && md <= b) : (md >= a || md <= b); }
@@ -214,11 +217,13 @@ function dayBefore(r){ const x = new Date(Date.UTC(r.y, r.m-1, r.d - 1));
 // venerdì e un sabato festivo no). Festivi con gli orari della domenica (holidaysAsSunday)
 function startDays(zone, t){
   const r = rome(t), prev = dayBefore(r), out = [];
-  const wd = x => zone.holidaysAsSunday === true && isHoliday(x, zone) ? 1 : x.wd, today = wd(r), yesterday = wd(prev);
+  // Un festivo conta come domenica se la zona lo dice (holidaysAsSunday)
+  const wd = x => zone.holidaysAsSunday === true && isHoliday(x, zone) ? [1] : [x.wd], today = wd(r), yesterday = wd(prev);
+  const has = (w, days) => w.weekdays.some(d => days.includes(d));
   for (const w of zone.windows){
-    if (w.end > w.start){ if (w.weekdays.includes(today) && inSeason(w, r) && r.min >= w.start && r.min < w.end) out.push(r); continue; }
-    if (w.weekdays.includes(today) && inSeason(w, r) && r.min >= w.start) out.push(r);
-    if (w.weekdays.includes(yesterday) && inSeason(w, prev) && r.min < w.end) out.push(prev);
+    if (w.end > w.start){ if (has(w, today) && inSeason(w, r) && r.min >= w.start && r.min < w.end) out.push(r); continue; }
+    if (has(w, today) && inSeason(w, r) && r.min >= w.start) out.push(r);
+    if (has(w, yesterday) && inSeason(w, prev) && r.min < w.end) out.push(prev);
   }
   return out;
 }

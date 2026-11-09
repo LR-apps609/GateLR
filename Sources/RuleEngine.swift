@@ -15,8 +15,8 @@ enum Verdict: Equatable {
 
 /// 1.20.3 «Parole»: la risposta detta con UNA sola forma per lingua, ovunque (Varco, Mappa, Viaggio, notifiche, widget,
 /// Live Activity, CarPlay, Siri; le stesse parole su Android, AnswerWord.kt, e sul sito, «w*» in web/template.html).
-/// Il titolo è sempre una di queste cinque frasi; «Probabilmente sì», «Fuori dalla ZTL», «Area pedonale», «ZTL non attiva»…
-/// diventano la frase di spiegazione, mai il titolo. Solo parole: colori e risposte del motore non cambiano
+/// 2.1 «Una risposta, sette stati»: una parola per ogni stato della RispostaFinale (Stato.word); «ZTL non attiva» e «Fuori
+/// dalla ZTL» hanno la loro. «Probabilmente sì», «Area pedonale»… restano la frase di spiegazione, mai il titolo
 enum AnswerWord: String, CaseIterable {
     /// Rosso: «no» del motore, area pedonale, «no» da fonte non ufficiale
     case dontEnter
@@ -28,6 +28,10 @@ enum AnswerWord: String, CaseIterable {
     case checkSign
     /// Neutro: fuori dalle città che conosciamo
     case unknownPlace
+    /// 2.1: la ZTL non attiva (varchi spenti), con il suo colore (Theme.stateOff, oggi verde)
+    case notActive
+    /// 2.1: fuori dalle zone di una città che conosciamo (grigio)
+    case outside
 
     /// La chiave (inglese) del titolo in Localizable.strings
     var key: String {
@@ -37,6 +41,8 @@ enum AnswerWord: String, CaseIterable {
         case .condition: "On one condition"
         case .checkSign: "Check the sign"
         case .unknownPlace: "We don't know this place"
+        case .notActive: "ZTL not active"
+        case .outside: "Outside the ZTL"
         }
     }
 
@@ -51,6 +57,8 @@ enum AnswerWord: String, CaseIterable {
         case .condition: "On one|condition"
         case .checkSign: "Check the|sign"
         case .unknownPlace: "We don't know|this place"
+        case .notActive: "ZTL not|active"
+        case .outside: "Outside|the ZTL"
         }
     }
     var lines: [String] { L(lineKey).components(separatedBy: "|") }
@@ -61,6 +69,8 @@ enum AnswerWord: String, CaseIterable {
         case .enter: "checkmark"
         case .condition: "exclamationmark"
         case .checkSign, .unknownPlace: "questionmark"
+        case .notActive: "minus"
+        case .outside: "mappin.and.ellipse"
         }
     }
 }
@@ -126,6 +136,8 @@ struct Answer: Equatable {
     var verdict: Verdict
     var gatesOn: Bool
     var nextChange: Date?       // quando i varchi si accendono o si spengono
+    /// 2.1: il motivo del «non sicuro» (dati scaduti, festivo da confermare), per RispostaFinale (shared/risposta-finale.md)
+    var doubt: Motivo? = nil
 }
 
 /// 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona. Gli stessi stati su Android (DataTrust) e sul sito
@@ -173,7 +185,10 @@ struct RuleEngine {
     }
 
     /// Giorni da quella data a adesso
-    func age(_ d: Date) -> Int { calendar.dateComponents([.day], from: d, to: now()).day ?? 0 }
+    /// 2.1 (B33): blocchi di 24 ore, come Android (ChronoUnit.DAYS) e il sito (Math.floor): prima giorni di calendario,
+    /// e per un'ora intorno al 120° giorno l'iPhone dava verde dove gli altri davano «?»
+    func age(_ d: Date) -> Int { Self.days(from: d, to: now()) }
+    static func days(from a: Date, to b: Date) -> Int { Int((b.timeIntervalSince(a) / 86_400).rounded(.towardZero)) }
 
     /// La data più recente tra lettura e verifica: da qui contano i giorni dei «dati da ricontrollare»
     static func freshest(_ s: Source) -> Date { max(s.checkedOn, s.verifiedOn ?? .distantPast) }
@@ -219,12 +234,14 @@ struct RuleEngine {
         switch trust(zone) {
         case .pageChanged:
             out.verdict = .unsure(reason: L("The city's page has changed: check the sign.") + " " + a.verdict.detailText)
+            out.doubt = .scaduti
         case .unverified, .old:
             // Di solito c'è già il «non sicuro» dei dati da ricontrollare (answer): questa è la rete di sicurezza
             guard zone.source.isOfficial, case .yes(let r) = a.verdict else { return a }
             let why = trust(zone) == .old ? String(format: L("Last verified more than %lld days ago: check the sign."), staleAfterDays)
                                           : L("This rule hasn't been verified yet: check the sign.")
             out.verdict = .unsure(reason: why + " " + r)
+            out.doubt = .scaduti
         case .verified, .read:
             break
         }
@@ -236,13 +253,19 @@ struct RuleEngine {
         let next = nextChange(zone, after: date)
 
         // 1.20.1: dalla data più recente tra «letto il» e «verificato il»
-        if let age = calendar.dateComponents([.day], from: Self.freshest(zone.source), to: now()).day, age > staleAfterDays {
-            return Answer(verdict: .unsure(reason: String(format: L("This zone hasn't been checked for %lld days. Look at the city's page before driving in."), age)),
-                          gatesOn: on, nextChange: next)
+        let dataAge = age(Self.freshest(zone.source))
+        if dataAge > staleAfterDays {
+            return Answer(verdict: .unsure(reason: String(format: L("This zone hasn't been checked for %lld days. Look at the city's page before driving in."), dataAge)),
+                          gatesOn: on, nextChange: next, doubt: .scaduti)
+        }
+        // 2.1: un giorno in cui la fonte ufficiale non dice se la ZTL è attiva (uncertainDays): mai una risposta certa
+        if let days = zone.uncertainDays, activeStartDays(zone, at: date).contains(where: { days.contains(Self.monthDay($0, calendar: calendar)) }) {
+            return Answer(verdict: .unsure(reason: L("On this day the city doesn't say whether the ZTL is active. Check the sign at the gate.")),
+                          gatesOn: true, nextChange: next, doubt: .festivo)
         }
         if zone.freeOnHolidays == nil && activeStartDays(zone, at: date).contains(where: { isHoliday(zone, $0) }) {
             return Answer(verdict: .unsure(reason: L("It's a public holiday and we haven't confirmed whether the gates are off. Check the sign at the gate.")),
-                          gatesOn: true, nextChange: next)
+                          gatesOn: true, nextChange: next, doubt: .festivo)
         }
         guard on else {
             let until = next.map { " " + String(format: L("It becomes active again %@."), describe($0, from: date)) } ?? ""
@@ -308,6 +331,11 @@ struct RuleEngine {
         return Answer(verdict: .no(reason: L("The ZTL is active.") + off), gatesOn: true, nextChange: next)
     }
 
+    /// "MM-DD" di un giorno, in ora italiana (giorni incerti e feste del patrono)
+    static func monthDay(_ d: Date, calendar: Calendar) -> String {
+        String(format: "%02d-%02d", calendar.component(.month, from: d), calendar.component(.day, from: d))
+    }
+
     /// «ciclomotore 2 tempi», «motociclo 4 tempi»
     static func motoText(_ v: Vehicle) -> String {
         String(format: L(v.strokes == 2 ? "%@, 2-stroke" : "%@, 4-stroke"), v.motoCategory == .moped ? L("moped") : L("motorbike"))
@@ -327,25 +355,27 @@ struct RuleEngine {
     private func activeStartDays(_ zone: Zone, at date: Date) -> [Date] {
         let minute = calendar.component(.hour, from: date) * 60 + calendar.component(.minute, from: date)
         let dayBefore = calendar.date(byAdding: .day, value: -1, to: date)!
-        let weekday = effectiveWeekday(zone, date)
-        let yesterday = effectiveWeekday(zone, dayBefore)
+        let weekday = effectiveWeekdays(zone, date)
+        let yesterday = effectiveWeekdays(zone, dayBefore)
         var out: [Date] = []
         for w in zone.windows {
+            let today = !weekday.isDisjoint(with: w.weekdays), before = !yesterday.isDisjoint(with: w.weekdays)
             if w.end > w.start {
-                if w.weekdays.contains(weekday) && inSeason(w, date) && minute >= w.start && minute < w.end { out.append(date) }
+                if today && inSeason(w, date) && minute >= w.start && minute < w.end { out.append(date) }
                 continue
             }
             // Fascia che passa la mezzanotte: la sera del giorno indicato o la notte dopo
-            if w.weekdays.contains(weekday) && inSeason(w, date) && minute >= w.start { out.append(date) }
-            if w.weekdays.contains(yesterday) && inSeason(w, dayBefore) && minute < w.end { out.append(dayBefore) }
+            if today && inSeason(w, date) && minute >= w.start { out.append(date) }
+            if before && inSeason(w, dayBefore) && minute < w.end { out.append(dayBefore) }
         }
         return out
     }
 
-    /// Il giorno della settimana per gli orari: un festivo conta come domenica se la zona lo dice (holidaysAsSunday)
-    private func effectiveWeekday(_ zone: Zone, _ day: Date) -> Int {
-        if zone.holidaysAsSunday == true && isHoliday(zone, day) { return 1 }
-        return calendar.component(.weekday, from: day)
+    /// I giorni della settimana per gli orari: un festivo conta come domenica se la zona lo dice (holidaysAsSunday)
+    private func effectiveWeekdays(_ zone: Zone, _ day: Date) -> Set<Int> {
+        let real = calendar.component(.weekday, from: day)
+        if zone.holidaysAsSunday == true && isHoliday(zone, day) { return [1] }
+        return [real]
     }
 
     /// Festivo nazionale o festa del patrono della città della zona
@@ -440,6 +470,8 @@ enum ItalianHolidays {
         if calendar.component(.weekday, from: date) == 1 { return false }   // la domenica la decide l'orario
         let fixed: Set<Int> = [101, 106, 425, 501, 602, 815, 1101, 1208, 1225, 1226]
         if fixed.contains(m * 100 + d) { return true }
+        // 2.1 (B24): San Francesco, 4 ottobre, festa nazionale dal 2026 (L. 8 ottobre 2025 n. 151)
+        if m == 10 && d == 4 && y >= 2026 { return true }
         if let local, local.contains(String(format: "%02d-%02d", m, d)) { return true }
         let easter = easterSunday(y)
         let monday = calendar.date(byAdding: .day, value: 1, to: calendar.date(from: easter)!)!

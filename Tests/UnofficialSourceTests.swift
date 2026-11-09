@@ -98,7 +98,7 @@ final class UnofficialSourceTests: XCTestCase {
             }
             // 1.20.3: titolo fisso («Non entrare» resta tale, un «sì» diventa «Controlla il cartello»); la prudenza è nella spiegazione
             XCTAssertEqual(b.headline, gatesOn ? L("Don't enter") : L("Check the sign"))
-            XCTAssertEqual(a.headline, gatesOn ? L("Don't enter") : L("You can enter"))
+            XCTAssertEqual(a.headline, gatesOn ? L("Don't enter") : L("ZTL not active"), "2.1: la ZTL non attiva ha la sua parola")
             XCTAssertEqual(b.detail, gatesOn ? L("Probably not · unofficial source") : L("Probably yes · unofficial source"))
             XCTAssertNil(a.detail)
             let check = PlaceCheck(place: place, hits: [(city: unofficial, zone: unofficial.zones[0])], answer: answer)

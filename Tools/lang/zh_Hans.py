@@ -962,6 +962,8 @@ T = {
 "Not updated: open GateLR": "未更新：请打开 GateLR",
 "Add your plate in Garage first.": "请先在车库中添加车牌。",
 "Navigate anyway": "仍然导航",
+"On this day the city doesn't say whether the ZTL is active. Check the sign at the gate.": "这一天市政府没有说明 ZTL 是否生效。请查看入口处的标志。",
+"Alerts 300 m before a ZTL, 600 m above 50 km/h": "在 ZTL 前 300 米提醒，时速超过 50 公里时 600 米",
 }
 
 INFO = {

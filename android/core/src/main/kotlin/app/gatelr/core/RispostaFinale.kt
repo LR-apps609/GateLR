@@ -92,7 +92,12 @@ data class RispostaFinale(
             val a = p.answer
             if (p.pedestrian != null) return RispostaFinale(Stato.NON_ENTRARE, zone = p.zone, city = p.city, gatesOn = a?.gatesOn, pedestrian = true)
             val zone = p.zone
-            if (a == null || zone == null) return RispostaFinale(if (p.covered) Stato.FUORI_ZTL else Stato.NON_COPERTO)
+            if (a == null || zone == null) return when {
+                !p.covered -> RispostaFinale(Stato.NON_COPERTO)
+                // 2.1 (B22): fuori dalle zone di una città da fonti non ufficiali: anche il confine non lo sappiamo
+                p.unofficial -> RispostaFinale(Stato.CONTROLLA_CARTELLO, Motivo.NON_UFFICIALE, unofficial = true)
+                else -> RispostaFinale(Stato.FUORI_ZTL)
+            }
             return forZone(a, zone, p.city?.status, p.city)
         }
     }

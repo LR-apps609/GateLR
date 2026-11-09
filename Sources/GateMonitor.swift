@@ -233,7 +233,9 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
             }
         }
         for (zone, gate) in Self.nearest(points, to: here, limit: maxRegions) {
-            let condition = CLMonitor.CircularGeographicCondition(center: gate.location.cl, radius: store.alertDistance)
+            // 2.1: il cerchio della distanza d'avviso di città (300 m, ThreatEvaluator.alertDistance); ad app chiusa non sappiamo
+            // ancora la velocità
+            let condition = CLMonitor.CircularGeographicCondition(center: gate.location.cl, radius: ThreatEvaluator.cityAlert)
             await monitor.add(condition, identifier: "\(zone.id)|\(gate.id)", assuming: .unsatisfied)
         }
     }
@@ -274,7 +276,7 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
             let place = zone.gates.first?.location ?? zone.perimeter.first ?? store.city.center
             let cand = ThreatCandidate(zone: zone, cityName: store.city.localizedName)
             content.title = ThreatEvaluator.title(shown: .no(reason: ""), candidate: cand) ?? ""
-            content.body = String(format: L("In %@."), DriveSession.distanceText(store.alertDistance)) + " " + (zone.gates.first?.name ?? zone.shortName) + ". " + L("Tap for car parks outside.")
+            content.body = String(format: L("In %@."), DriveSession.distanceText(ThreatEvaluator.cityAlert)) + " " + (zone.gates.first?.name ?? zone.shortName) + ". " + L("Tap for car parks outside.")
             if let url = ParkLink.url(zoneId: zone.id, name: cand.name, at: place) { content.userInfo = ["url": url.absoluteString] }
             content.title = PlatePrivacy.clean(content.title); content.body = PlatePrivacy.clean(content.body)
             content.sound = .default
@@ -296,11 +298,11 @@ final class GateMonitor: NSObject, ObservableObject, CLLocationManagerDelegate {
         let fix = manager.location.flatMap { $0.timestamp.timeIntervalSinceNow > -120 && $0.horizontalAccuracy < 150 ? $0 : nil }
         guard let t = Self.threat(target.candidate, gate: target.gate, from: fix.map { Coordinate(lat: $0.coordinate.latitude, lon: $0.coordinate.longitude) },
                                   course: fix.flatMap { $0.course >= 0 && ($0.courseAccuracy < 0 || $0.courseAccuracy <= 45) ? $0.course : nil },
-                                  alertDistance: store.alertDistance,
+                                  alertDistance: ThreatEvaluator.alertDistance(speed: fix.map(\.speed)),
                                   answer: { c, d in store.threatAnswer(c, at: ThreatEvaluator.arrival(in: d, speed: fix.map(\.speed)), destination: nil) })
         else { return }
         if ThreatAlerts.shared.post(t), t.candidate.pedestrian == nil {
-            store.record(.nearGate, zone: t.zone, gate: target.gate, verdict: t.answer.verdict)
+            store.record(.nearGate, zone: t.zone, gate: target.gate, verdict: t.shown)      // 2.1 (B77): la risposta come si mostra
         }
     }
 

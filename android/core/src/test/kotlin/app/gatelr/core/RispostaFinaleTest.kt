@@ -100,10 +100,32 @@ class RispostaFinaleTest {
         val mc = ThreatEvaluator.candidates(listOf(milano), q).filter { it.zone?.id == "milano-c" }
         val t = ThreatEvaluator.scan(q, 180.0, mc, emptyMap()) { c, _ -> engine.trustedAnswer(c.zone!!, ev, emptyList(), false, monday10) }
         assertNull(t.threat, "verde: nessun avviso")
+        // 2.1 (B10): partendo già dentro il Settore A la minaccia resta, a 0 m, rossa
+        val inA = Coordinate(43.7696, 11.2558)
+        val inside = ThreatEvaluator.scan(inA, null, ThreatEvaluator.candidates(listOf(f), inA), emptyMap(), ans).threat
+        assertNotNull(inside); assertEquals(0.0, inside.meters); assertEquals(Stato.NON_ENTRARE, inside.finale.stato)
+        // 2.1 (B09): la distanza dal lato, non dal vertice (lato lungo di un rettangolo di 1 km)
+        val ring = listOf(Coordinate(45.0, 7.0), Coordinate(45.0, 7.0127), Coordinate(45.009, 7.0127), Coordinate(45.009, 7.0))
+        assertEquals(10.0, Geometry.nearestOnRing(ring, Coordinate(44.99991, 7.00635)).second, 2.0)
         // Un solo avviso per avvicinamento
         val d = ThreatDeduper()
         assertTrue(d.shouldAlert("firenze-a", 0)); assertFalse(d.shouldAlert("firenze-a", 1000))
         d.moved(mapOf("firenze-a" to 1200.0)); assertTrue(d.shouldAlert("firenze-a", 2000))
     }
 
+
+    /** B175: le date dei divieti per esteso, mai «2028-10-01» */
+    @Test fun longDates() {
+        val old = Strings.language
+        try {
+            Strings.language = "it"; assertEquals("1 ottobre 2028", longDate("2028-10-01"))
+            Strings.language = "en"; assertFalse(longDate("2028-10-01").contains("-"))
+        } finally { Strings.language = old }
+    }
+
+    /** B24: il 4 ottobre è festa nazionale dal 2026 */
+    @Test fun fourthOfOctober() {
+        assertTrue(ItalianHolidays.isHoliday(java.time.LocalDate.of(2027, 10, 4)))
+        assertFalse(ItalianHolidays.isHoliday(java.time.LocalDate.of(2025, 10, 4)))
+    }
 }

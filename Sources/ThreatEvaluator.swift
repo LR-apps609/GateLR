@@ -70,8 +70,11 @@ struct ZoneThreat: Equatable {
     var zone: Zone { candidate.zone }
     var shown: Verdict { ThreatEvaluator.shown(answer.verdict, candidate) }
     var level: ThreatLevel { ThreatLevel(shown) }
-    /// «Non entrare · Firenze Settore A»; nil se puoi entrare (mai un avviso verde)
-    var title: String? { ThreatEvaluator.title(shown: shown, candidate: candidate) }
+    /// 2.1: la RispostaFinale della zona davanti: da qui titolo, parola e colore dell'avviso (shared/risposta-finale.md)
+    var finale: RispostaFinale { RispostaFinale.of(answer, zone: zone, pedestrian: candidate.pedestrian != nil) }
+    /// «Non entrare · Firenze Settore A»: la parola della RispostaFinale e il nome; nil se non si avvisa (mai un avviso
+    /// verde, né per la ZTL non attiva)
+    var title: String? { finale.stato.alerts ? finale.title + " · " + candidate.name : nil }
     var body: String { ThreatEvaluator.body(self) }
     /// La frase breve: «Non entrare», «Probabilmente sì · fonte non ufficiale: controlla il cartello»
     var spoken: String { ThreatEvaluator.spoken(answer.verdict, candidate) }
@@ -84,6 +87,12 @@ enum ThreatEvaluator {
     static let aheadCone: Double = 70
     /// Da qui in giù la zona è «davanti» in ogni caso (ci sei sopra)
     static let onTop: Double = 30
+    /// 2.1 (decisione 9): l'avviso a 300 m in città, a 600 m sopra 50 km/h. Uguale su Android (ThreatEvaluator.alertDistance)
+    static let cityAlert: Double = 300, fastAlert: Double = 600
+    static let fastSpeed: Double = 50 / 3.6
+
+    /// La distanza d'avviso per la velocità (m/s); senza velocità quella di città
+    static func alertDistance(speed: Double?) -> Double { (speed ?? 0) > fastSpeed ? fastAlert : cityAlert }
 
     // MARK: La risposta come si mostra
 
@@ -157,13 +166,8 @@ enum ThreatEvaluator {
 
     /// Il punto del perimetro più vicino e la distanza in metri (la stessa misura di Zone.distance)
     static func nearestPoint(_ perimeter: [Coordinate], to p: Coordinate) -> (point: Coordinate, meters: Double) {
-        let k = cos(p.lat * .pi / 180)
-        var best = (point: p, meters: Double.infinity)
-        for q in perimeter {
-            let m = hypot((q.lat - p.lat) * 111_000, (q.lon - p.lon) * 111_000 * k)
-            if m < best.meters { best = (q, m) }
-        }
-        return best
+        // 2.1 (B09): dal lato più vicino, non dal vertice
+        PerimeterMath.nearest(perimeter, to: p)
     }
 
     /// La zona è davanti? Con la direzione di marcia (course ≥ 0): solo entro ±70°. Senza direzione (fermo, GPS
@@ -192,6 +196,9 @@ enum ThreatEvaluator {
                      covered: Bool, answer: (ThreatCandidate, Double) -> Answer) -> Scan {
         var distances: [String: Double] = [:]
         var best: ZoneThreat?
+        // 2.1 (B10): la zona peggiore che ti contiene (anche un'area pedonale) resta la minaccia, a 0 m, finché ci sei dentro:
+        // prima si saltava e il guardiano partito dentro il Settore A diceva verde «Nessuna ZTL attiva davanti»
+        var within: ZoneThreat?
         var entered: [ZoneThreat] = []
         for c in candidates {
             let inside = c.zone.contains(lat: p.lat, lon: p.lon)
@@ -201,10 +208,11 @@ enum ThreatEvaluator {
             distances[c.id] = d
             guard d < lookahead else { continue }
             if d == 0 {
-                if let before, before > 0 {
-                    let a = answer(c, 0)
-                    if alerts(a.verdict, c) { entered.append(ZoneThreat(candidate: c, meters: 0, answer: a, point: p)) }
-                }
+                let a = answer(c, 0)
+                guard alerts(a.verdict, c) else { continue }
+                let t = ZoneThreat(candidate: c, meters: 0, answer: a, point: p)
+                if let before, before > 0 { entered.append(t) }
+                if within.map({ t.shown.severity > $0.shown.severity }) ?? true { within = t }
                 continue
             }
             guard isAhead(from: p, to: point, meters: d, course: course, approaching: before.map { d < $0 - 3 }) else { continue }
@@ -214,7 +222,7 @@ enum ThreatEvaluator {
             if let b = best, b.meters < d || (b.meters == d && b.shown.severity >= t.shown.severity) { continue }
             best = t
         }
-        return Scan(threat: best, entered: entered, distances: distances,
+        return Scan(threat: within ?? best, entered: entered, distances: distances,
                     resting: covered ? .clear : .unknownPlace)
     }
 
@@ -278,7 +286,8 @@ extension Store {
     /// hotel ed è dentro quella zona (prima il guardiano diceva hotelInside false e gli avvisi ad app chiusa true)
     func threatAnswer(_ c: ThreatCandidate, at date: Date, destination: Place?) -> Answer {
         if c.pedestrian != nil { return RouteCheck.pedestrianAnswer }
-        let hotel = destination.map { isHotel($0) && c.zone.contains(lat: $0.location.lat, lon: $0.location.lon) } ?? false
+        // All'ora d'arrivo, non «adesso»: il soggiorno vale solo vicino alle sue date (B43)
+        let hotel = destination.map { isHotel($0, at: date) && c.zone.contains(lat: $0.location.lat, lon: $0.location.lon) } ?? false
         return answer(at: date, zone: c.zone, hotelInside: hotel)
     }
 

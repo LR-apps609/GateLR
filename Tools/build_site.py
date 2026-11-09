@@ -218,6 +218,8 @@ def box_of(polys):
 CITY_FILE = {c["id"]: asset("data", f"{c['id']}.json", json.dumps(dict(c, shapes=map_shapes(c)), ensure_ascii=False, separators=(",", ":"))) for c in cities}
 INDEX = [{k: c[k] for k in ("id", "name", "name_it", "name_de", "center", "status") if k in c}
          | {"ab": box_of([z["perimeter"] for z in c["zones"] + (c.get("pedestrian") or [])]), "zb": box_of([z["perimeter"] for z in c["zones"]]), "f": CITY_FILE[c["id"]]}
+         # 2.1 (B22): tutte le zone da fonti non ufficiali (anche il confine): fuori dalle zone «Controlla il cartello»
+         | ({"uo": True} if c["zones"] and all(z["source"].get("official") is False for z in c["zones"]) else {})
          for c in cities]
 CITIES_JSON = json.dumps(INDEX, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 

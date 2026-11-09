@@ -151,3 +151,28 @@ extension ZoneKind {
         }
     }
 }
+
+// MARK: 2.1 · I colori della RispostaFinale (shared/risposta-finale.md)
+
+extension Tono {
+    /// Il colore pieno di ogni tono semantico. «spento» passa da RispostaFinale.stateOff (oggi verde): il cambio sta lì
+    var color: Color {
+        switch self {
+        case .rosso: Theme.red
+        case .giallo: Color(hex: 0xD99A00)
+        case .verde: Theme.green
+        case .spento: RispostaFinale.stateOff == .spento ? Theme.muted : RispostaFinale.stateOff.color
+        case .grigio: Theme.outside          // lo stesso grigio di «Fuori dalla ZTL» (1.20.4)
+        case .neutro: Color(light: 0x7A86A8, dark: 0xA9B3D1)
+        }
+    }
+}
+
+extension Theme {
+    /// La ZTL non attiva: un solo token per tutta l'app (oggi verde per regola di Ledion)
+    static var stateOff: Color { Tono.spento.color }
+}
+
+extension Stato {
+    var tint: Color { color.color }
+}
