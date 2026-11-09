@@ -472,3 +472,17 @@ Una sola forma della risposta per lingua: «Non entrare», «Puoi entrare», «A
 - [ ] Android in francese, spagnolo, olandese, polacco e cinese (Impostazioni → App → GateLR → Lingua): l'app è tradotta (prima solo inglese); le schede sono «Varco, Mappa, Viaggio, Garage, Tu» (prima «Account»); in cima alla prima pagina «Varco» (prima «Sappilo prima del varco.»)
 - [ ] Android → Palazzo Vecchio di sera: «Puoi entrare»; il widget a ZTL spenta «Puoi entrare» con sotto «ZTL non attiva · …»; Cagliari: «Controlla il cartello», sotto «Probabilmente sì · fonte non ufficiale»; fuori dalle zone la pillola «Puoi entrare» e sotto «Fuori dalla ZTL»
 - [ ] Sito (EN, IT, DE): Palazzo Vecchio di giorno «Non entrare», di sera «Puoi entrare», il pannello «ZTL ATTIVA / ZTL NON ATTIVA» (prima «VARCO ATTIVO»); Cagliari «Controlla il cartello» con «Probabilmente sì · fonte non ufficiale.» all'inizio della spiegazione; legenda dei tipi «ZTL», «ZTL con pass», «Zona verde»; FAQ «Come capisco se un varco è acceso?» con «ZTL attiva» e la dicitura vecchia
+
+
+## 29. Solidità (1.20.4)
+«Fuori dalla ZTL» grigio, memoria di Varco, bug dei tester. Le regole delle città non cambiano.
+- [ ] iPhone → Varco: Bologna Centrale (fuori dalle zone): grigio «Fuori dalla ZTL» con il trattino, mai verde; Mappa, Viaggio e foglio del parcheggio uguali
+- [ ] iPhone → Varco senza un posto, 10 minuti con il guardiano acceso in città: tutto fluido, il telefono non scalda più del solito
+- [ ] iPhone → Mappa al buio (Milano): nessuna riga scura lungo i bordi delle zone
+- [ ] iPhone → Viaggio con un «no» (Palazzo Vecchio, diesel Euro 1, martedì 10:00): il riquadro dei parcheggi e «Riprova» sopra la barra delle schede
+- [ ] iPhone → Garage, hotel dentro la ZTL non ancora chiesto: «Non entrare»; dopo «Ho chiesto all'hotel» con targa e date giuste: giallo «A una condizione», mai verde
+- [ ] iPhone → posizione «Approssimativa», poi guardiano: «Serve la posizione esatta per i varchi» con «Impostazioni», mai un'icona di protezione
+- [ ] iPhone → Mappa alle 7:29 a Firenze, poi attendi le 7:30: il Settore A diventa rosso senza toccare niente
+- [ ] iPhone con testo grandissimo (Accessibilità): Varco, presentazione e pannello leggibili, niente parole tagliate
+- [ ] Siri: «Posso entrare in Area C con GateLR?»: risponde per Milano Area C, non per un'altra zona simile
+- [ ] Android: quattro schede Adesso · Mappa · Viaggio · Aiuto; Garage e Impostazioni dall'icona del veicolo; Indietro torna ad Adesso; widget con «Aggiornato alle»
