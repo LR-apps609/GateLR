@@ -529,6 +529,8 @@ struct MapScreen: View {
                         .foregroundStyle(Theme.ink)
                 }
                 .accessibilityLabel(L("Map style"))
+                // 2.2: la fotocamera del cartello e l'icona del veicolo, come in ogni scheda
+                TopActions(material: true)
             }
             // L'ora e il veicolo per cui sono colorate le zone (gli stessi della prima pagina)
             if !typing { ContextChips(material: true) }
@@ -733,7 +735,7 @@ struct MapScreen: View {
                     }
                 }
                 WideButton(title: "Trip details", systemImage: "suitcase.rolling", prominent: false) {
-                    store.select(place); router.open(.trip)
+                    store.select(place); router.tab = .trip
                 }
             }
             if check.suggestsParking {

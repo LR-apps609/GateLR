@@ -1,6 +1,5 @@
 import SwiftUI
 import MapKit
-import StoreKit
 import UIKit
 
 /// «Varco»: la prima pagina di GateLR 2.0, una sola domanda: «Posso entrare?». Sul blu notte dell'identità:
@@ -23,18 +22,21 @@ struct VarcoView: View {
     /// 1.19.5: Mapbox pronto (stile e zone): fino ad allora sopra la striscia c'è lo scheletro, non un rettangolo vuoto
     @State private var mapReady = false
     @State private var parkSheet = false
+    /// 2.2: il posto del foglio «Parcheggia fuori», fermato al tocco (la zona davanti cambia mentre ti muovi)
+    @State private var parkPlace: Place?
     @State private var driving = false
     /// 1.20.2: «Usa la mia posizione» toccato prima del permesso: la posizione si usa appena arriva
     @State private var wantsLocation = false
     /// 2.0 (B27): «Usa la mia posizione» con la posizione approssimativa: si chiede di cercare l'indirizzo
     @State private var approximateNote = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @Environment(\.requestReview) private var requestReview
 
     var body: some View {
         TimelineView(.everyMinute) { ctx in
             let moment = store.moment(ctx.date)
-            let check = subject.map { PlaceCheck($0, store: store, at: moment) }
+            // 2.2: il posto cercato; senza, dove sei o la zona davanti entro 300 m (Adesso)
+            let subject = Adesso.subject(store: store, place: store.place, location: monitor.answerLocation, at: moment)
+            let check = subject?.check
             let answer = check.map { Home2Answer($0, now: ctx.date) }
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
@@ -52,10 +54,11 @@ struct VarcoView: View {
                         suggestions
                     } else {
                         if let check, let answer {
-                            answerCard(check, answer)
+                            answerCard(check, answer, ahead: subject?.aheadMeters)
                         } else {
                             emptyCard
                         }
+                        inCarButton
                         nearYou(at: moment)
                         if let next = store.trips.filter({ $0.arrival > ctx.date }).min(by: { $0.arrival < $1.arrival }) { tripRow(next) }
                         StatusBanner(status: store.city.status, unofficial: store.city.hasUnofficialZones)
@@ -78,31 +81,11 @@ struct VarcoView: View {
         .onChange(of: monitor.location != nil) { _, has in if has && wantsLocation { useMyLocation() } }
         .sheet(isPresented: $parkSheet) { parkOutsideSheet }
         .fullScreenCover(isPresented: $driving) { DriveView() }
-        // La recensione su App Store: 2 secondi dopo la risposta alla prima ricerca di un posto o di un hotel (ReviewPrompter)
-        .onChange(of: store.place) { _, place in
-            guard let place, place.name != L("My position") else { return }
-            Task { @MainActor in
-                try? await Task.sleep(for: ReviewPrompter.delay)
-                let blocked = store.place != place || router.tab != .varco || router.showIntro || driving || parkSheet
-                    || showZone || DriveSession.shared.active
-                guard ReviewPrompter.shouldRequest(blocked: blocked) else { return }
-                ReviewPrompter.recordRequest()
-                requestReview()
-            }
-        }
+        // 2.2 (funzione 33): la richiesta di recensione non è più qui, dopo la prima risposta: arriva dopo un viaggio
+        // salvato (TripView), mai in mezzo a un momento di stress
     }
 
     // MARK: Il posto della risposta
-
-    /// Il posto cercato; se non c'è, la tua posizione quando sei dentro una ZTL
-    private var subject: Place? {
-        if let p = store.place { return p }
-        // 2.0 (B27): solo una posizione precisa (l'approssimativa può essere in un'altra zona)
-        guard let here = monitor.answerLocation else { return nil }
-        let c = Coordinate(lat: here.coordinate.latitude, lon: here.coordinate.longitude)
-        guard !store.zones(at: c).isEmpty else { return nil }
-        return Place(name: L("My position"), address: "", location: c)
-    }
 
     /// Senza un posto: il colore della RispostaFinale della zona scelta (2.1, B26: prima rosso se attiva, verde se no,
     /// anche con dati non sicuri o da fonte non ufficiale)
@@ -138,6 +121,8 @@ struct VarcoView: View {
                     .foregroundStyle(Notte.text)
             }
             .accessibilityLabel(String(format: L("City: %@"), store.city.localizedName))
+            // 2.2: la fotocamera del cartello e l'icona del veicolo (Garage e Impostazioni), in ogni scheda
+            TopActions(material: true, size: 36)
         }
     }
 
@@ -323,9 +308,9 @@ struct VarcoView: View {
 
     // MARK: La risposta
 
-    private func answerCard(_ check: PlaceCheck, _ a: Home2Answer) -> some View {
+    private func answerCard(_ check: PlaceCheck, _ a: Home2Answer, ahead: Double?) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            placeRow(check)
+            placeRow(check, ahead: ahead)
             if a.unofficial { UnofficialBanner(source: a.unofficialSource) }
             // Solo la scatola dei punti luminosi, senza palo: la pagina più corta, così «Guarda la mappa», «Perché?» e
             // «Dettagli del viaggio» si vedono senza scorrere anche su iPhone Pro Max (vedi ScreenshotTests.test5VarcoProMax)
@@ -405,7 +390,7 @@ struct VarcoView: View {
     }
 
     /// Il posto, con i recenti e gli hotel dei viaggi a un tocco, e la croce per tornare alla domanda
-    private func placeRow(_ check: PlaceCheck) -> some View {
+    private func placeRow(_ check: PlaceCheck, ahead: Double?) -> some View {
         HStack(spacing: 8) {
             Menu {
                 ForEach(Self.savedHotels(store.trips)) { p in
@@ -426,7 +411,7 @@ struct VarcoView: View {
                             .foregroundStyle(Notte.text.opacity(0.7))
                             .accessibilityHidden(true)
                     }
-                    Text(verbatim: placeSubtitle(check))
+                    Text(verbatim: placeSubtitle(check, ahead: ahead))
                         .font(.app(size: 14, weight: .semibold)).foregroundStyle(Notte.muted)
                         .lineLimit(1).minimumScaleFactor(0.85)
                 }
@@ -434,7 +419,7 @@ struct VarcoView: View {
                 .contentShape(Rectangle())
             }
             .accessibilityElement(children: .combine)
-            .accessibilityLabel("\(Self.placeTitle(check)), \(placeSubtitle(check))")
+            .accessibilityLabel("\(Self.placeTitle(check)), \(placeSubtitle(check, ahead: ahead))")
             .accessibilityAddTraits(.isHeader)
             .accessibilityIdentifier("varco.place")
             Spacer(minLength: 4)
@@ -457,10 +442,11 @@ struct VarcoView: View {
 
     /// La riga sotto il titolo: città e zona che decide («Firenze · Scudo Verde»), l'area pedonale o «Fuori dalla ZTL»;
     /// fuori copertura nessuna città (la più vicina può essere a 30 km) e «Non conosciamo le ZTL di questo posto»
-    private func placeSubtitle(_ check: PlaceCheck) -> String {
+    /// 2.2: per la zona davanti, prima «120 m davanti a te»
+    private func placeSubtitle(_ check: PlaceCheck, ahead: Double?) -> String {
         let city = check.city ?? (check.covered ? store.nearestCity(to: check.place.location) : nil)
         let where_ = check.pedestrian?.name ?? check.zone?.shortName ?? check.zoneLine
-        return [city?.localizedName, where_].compactMap { $0 }.joined(separator: " · ")
+        return [ahead.map(Adesso.aheadLine), city?.localizedName, where_].compactMap { $0 }.joined(separator: " · ")
     }
 
     private func actions(_ check: PlaceCheck) -> some View {
@@ -468,7 +454,7 @@ struct VarcoView: View {
             if check.parkingFirst {
                 // 1.19.1: «Non entrare.» → l'azione principale è «Parcheggia fuori e cammina», grande e per prima;
                 // la mappa diventa un pulsante secondario accanto a «Perché?» e «Dettagli del viaggio»
-                parkButton(primary: true)
+                parkButton(primary: true, place: check.place)
                 HStack(spacing: 10) {
                     Button { openMap(check) } label: {
                         Image(systemName: "map.fill").font(.app(size: 16, weight: .semibold)).foregroundStyle(Notte.text)
@@ -491,7 +477,7 @@ struct VarcoView: View {
                 .accessibilityIdentifier("varco.map")
                 HStack(spacing: 10) { whyAndDetails(check) }
                 // Ambra (sotto «Perché?» e «Dettagli», che devono stare nello schermo): i parcheggi fuori dalla ZTL, con i minuti a piedi
-                if check.suggestsParking { parkButton(primary: false) }
+                if check.suggestsParking { parkButton(primary: false, place: check.place) }
             }
         }
         .padding(.top, 4)
@@ -508,14 +494,14 @@ struct VarcoView: View {
         }
         secondary(L("Trip details"), "suitcase.rolling") {
             if store.place == nil { store.select(check.place) }
-            router.open(.trip)
+            router.tab = .trip
         }
         .accessibilityIdentifier("varco.details")
     }
 
     /// «Parcheggia fuori e cammina»: principale (più grande, per primo) quando la risposta è «no»
-    private func parkButton(primary: Bool) -> some View {
-        Button { parkSheet = true } label: {
+    private func parkButton(primary: Bool, place: Place) -> some View {
+        Button { parkPlace = place; parkSheet = true } label: {
             Label(L("Park outside and walk"), systemImage: "figure.walk")
                 .font(primary ? Self.font(18, .bold) : Font.app(size: 16, weight: .bold)).foregroundStyle(.white)
                 .lineLimit(1).minimumScaleFactor(0.8)
@@ -535,6 +521,19 @@ struct VarcoView: View {
                 .background(Color.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
         }
         .buttonStyle(.plain)
+    }
+
+    /// 2.2 La modalità «In auto» (tavola I-InAuto): la risposta per dove sei, a tutto schermo e con le parole grandi
+    private var inCarButton: some View {
+        Button { router.inCar = true } label: {
+            Label(L("In the car"), systemImage: "car.fill")
+                .font(.app(size: 16, weight: .bold)).foregroundStyle(Notte.text)
+                .frame(maxWidth: .infinity, minHeight: 48)
+                .background(Color.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        }
+        .buttonStyle(.plain)
+        .accessibilityHint(L("The answer where you are, in big letters"))
+        .accessibilityIdentifier("varco.incar")
     }
 
     /// Senza un posto: la domanda, con gli hotel dei viaggi e i posti recenti a un tocco
@@ -660,7 +659,7 @@ struct VarcoView: View {
     private func tripRow(_ t: Trip) -> some View {
         Button {
             if let h = t.hotel { store.select(h) }
-            router.open(.trip)
+            router.tab = .trip
         } label: {
             HStack(spacing: 12) {
                 Image(systemName: "suitcase.rolling.fill").foregroundStyle(Notte.text)
@@ -684,7 +683,7 @@ struct VarcoView: View {
     /// «Parcheggia fuori e cammina» per il posto della risposta (lo stesso foglio della mappa)
     @ViewBuilder
     private var parkOutsideSheet: some View {
-        if let place = subject {
+        if let place = parkPlace {
             ScrollView {
                 ParkOutsideCard(destination: place, arrival: store.moment(), onStart: { target in
                     parkSheet = false

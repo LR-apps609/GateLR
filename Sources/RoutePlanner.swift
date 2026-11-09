@@ -292,8 +292,11 @@ struct StartControls: View {
                     Button { choose(n) } label: { Label(n.title, systemImage: "shield.lefthalf.filled") }
                 }
             }
-            Section {
-                Button { onStart(target) } label: { Label(L("GateLR navigation"), systemImage: "location.north.fill") }
+            // 2.2 (funzione 28): il navigatore interno solo dietro il flag di sviluppo
+            if AppConfig.internalNavigator {
+                Section {
+                    Button { onStart(target) } label: { Label(L("GateLR navigation"), systemImage: "location.north.fill") }
+                }
             }
         } label: { label() }
     }
@@ -323,7 +326,7 @@ struct StartControls: View {
                     .buttonStyle(.plain)
                     .accessibilityIdentifier(identifier)
                 startMenu { moreLabel }
-            } else if preferred == "gatelr" {
+            } else if preferred == "gatelr" && AppConfig.internalNavigator {
                 Button { onStart(target) } label: { startLabel(L("Start")) }
                     .buttonStyle(.plain)
                     .accessibilityIdentifier(identifier)
@@ -341,7 +344,7 @@ struct StartControls: View {
                 Button(L("Just this time")) { askDefault = nil; onGuardian(target, n) }
             }
         } message: {
-            Text("You can change it in You → Preferred navigator.")
+            Text("You can change it in Settings → Preferred navigator.")
         }
     }
 }

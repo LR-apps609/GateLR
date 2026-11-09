@@ -1,7 +1,7 @@
 import SwiftUI
 import TipKit
 
-/// I consigli al momento giusto (TipKit, iOS 17): tre in tutto, ognuno si vede una volta e si chiude con la X.
+/// I consigli al momento giusto (TipKit, iOS 17): due in tutto, ognuno si vede una volta e si chiude con la X.
 /// Sono riquadri dentro la pagina (TipView), mai fumetti sopra i pulsanti. Nel giro automatico delle foto
 /// (-uitest) TipKit non si configura, quindi non compaiono.
 enum AppTips {
@@ -11,12 +11,7 @@ enum AppTips {
     }
 }
 
-/// Viaggio, dopo la prima risposta: il guardiano accanto a Google Maps
-struct StartGuardianTip: Tip {
-    var title: Text { Text("Gate alerts with Google Maps") }
-    var message: Text? { Text("Tap Start to get gate alerts while you use Google Maps") }
-    var image: Image? { Image(systemName: "shield.lefthalf.filled") }
-}
+// 2.2 (funzione 34): tolto il consiglio del guardiano in Viaggio: la scheda Viaggio rende già visibile «Avvia»
 
 /// Mappa: cerca l'hotel per vedere se è dentro la zona
 struct MapSearchTip: Tip {

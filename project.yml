@@ -103,6 +103,9 @@ targets:
         # Il numero dell'app su App Store (APP_STORE_ID in Config/Base.xcconfig), vuoto per ora: senza, niente riga
         # «Lascia una recensione» in Tu
         GateLRAppStoreID: "$(APP_STORE_ID)"
+        # 2.2: gli strumenti di sviluppo (modalità prova, navigatore interno) anche in Release, solo con
+        # GATELR_DEV_TOOLS = YES in Config/Local.xcconfig (AppConfig.devTools); vuoto = spenti
+        GateLRDevTools: "$(GATELR_DEV_TOOLS)"
         LSRequiresIPhoneOS: true
         UIAppFonts: [TitilliumWeb-Bold.ttf, TitilliumWeb-Black.ttf, TitilliumWeb-SemiBold.ttf, TitilliumWeb-Regular.ttf, DotGothic16-Regular.ttf]
         # Schermata d'avvio con il marchio (prima era vuota: nera in modalità scura per tutto il caricamento).

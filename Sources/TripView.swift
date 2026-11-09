@@ -1,7 +1,7 @@
 import SwiftUI
 import MapKit
 import UIKit
-import TipKit
+import StoreKit
 
 /// «Viaggio»: l'unico posto dove si cerca la destinazione o l'hotel. Risposta adesso o all'arrivo,
 /// percorso con il controllo delle ZTL, messaggio per l'hotel e viaggi salvati.
@@ -21,6 +21,7 @@ struct TripView: View {
     @State private var language: MessageLanguage = .appDefault
     @State private var copied = false
     @State private var saved = false
+    @Environment(\.requestReview) private var requestReview
     /// 1.20.2: il viaggio da cancellare, in attesa della conferma
     @State private var deleting: PendingDelete?
     /// 1.20.4: il posto per cui la pagina è già scesa fino a «Parcheggia fuori e cammina» (una volta sola per posto)
@@ -109,6 +110,8 @@ struct TripView: View {
                     .foregroundStyle(Theme.ink)
             }
             .accessibilityLabel(String(format: L("City: %@"), store.city.localizedName))
+            // 2.2: la fotocamera del cartello e l'icona del veicolo, come in ogni scheda
+            TopActions()
         }
     }
 
@@ -243,8 +246,6 @@ struct TripView: View {
                             .onAppear { parkScroll = place.key }
                     }
             }
-            // Dopo la prima risposta: il guardiano accanto a Google Maps (un riquadro nella pagina, non sopra i pulsanti)
-            TipView(StartGuardianTip()).tipBackground(Theme.card)
             if hits.count > 1 {
                 VStack(alignment: .leading, spacing: 8) {
                     SectionLabel("Also inside")
@@ -274,7 +275,6 @@ struct TripView: View {
             routeCard(place)
         } else if check.showsOutside {
             outsideCard(place)
-            TipView(StartGuardianTip()).tipBackground(Theme.card)
             routeCard(place)
         } else {
             uncoveredCard
@@ -311,7 +311,6 @@ struct TripView: View {
                     driving = DriveSession.shared.active
                 }
             }, onGuardian: { target, navigator in
-                StartGuardianTip().invalidate(reason: .actionPerformed)
                 Guardian.shared.start(to: target, with: navigator, store: store)
             })
             DriveErrorText()
@@ -535,6 +534,13 @@ struct TripView: View {
             if let place = store.place, let stay { Task { await store.scheduleStayReminder(for: place, stay: stay) } }
             saved = true
             Task { try? await Task.sleep(for: .seconds(1.5)); saved = false }
+            // 2.2 (funzione 33): la recensione su App Store dopo un viaggio salvato, non più dopo la prima risposta
+            Task { @MainActor in
+                try? await Task.sleep(for: ReviewPrompter.delay)
+                guard ReviewPrompter.shouldRequest(blocked: driving || DriveSession.shared.active) else { return }
+                ReviewPrompter.recordRequest()
+                requestReview()
+            }
         }
         .sensoryFeedback(.success, trigger: saved) { _, new in new }
     }

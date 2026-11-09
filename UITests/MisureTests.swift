@@ -304,15 +304,15 @@ final class MisureTests: XCTestCase {
     /// La guida dentro l'app verso il Duomo, con l'auto ferma (posizione del simulatore fissa): 30 secondi di processore
     func testM6DriveStillCPU() {
         XCUIDevice.shared.location = XCUILocation(location: CLLocation(latitude: 45.4850, longitude: 9.2040))
-        app.launchArguments = it + ["-uiPlace", "Duomo di Milano", "45.4641", "9.1919", "-uiOrigin", "45.4850", "9.2040"]
+        // 2.2: il navigatore interno è dietro il flag di sviluppo (AppConfig.internalNavigator)
+        app.launchArguments = it + ["-uiPlace", "Duomo di Milano", "45.4641", "9.1919", "-uiOrigin", "45.4850", "9.2040",
+                                    "-devInternalNavigator", "YES"]
         let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         measure(metrics: [XCTCPUMetric(application: app), XCTClockMetric()], options: options(2, manualStart: true)) {
             app.launch()
-            let you = app.tabBars.buttons.element(boundBy: 2)
-            guard you.waitForExistence(timeout: 30) else { startMeasuring(); stopMeasuring(); return }
-            you.tap(); sleep(1)
-            let trip = app.buttons["you.trip"].firstMatch
-            guard trip.waitForExistence(timeout: 5) else { print("MISURA guida-ferma manca-viaggio"); startMeasuring(); stopMeasuring(); return }
+            // 2.2: Viaggio è la terza scheda
+            let trip = app.tabBars.buttons.element(boundBy: 2)
+            guard trip.waitForExistence(timeout: 30) else { print("MISURA guida-ferma manca-viaggio"); startMeasuring(); stopMeasuring(); return }
             trip.tap(); sleep(2)
             let route = app.buttons["trip.route"].firstMatch
             guard route.waitForExistence(timeout: 5) else { print("MISURA guida-ferma manca-percorso"); startMeasuring(); stopMeasuring(); return }

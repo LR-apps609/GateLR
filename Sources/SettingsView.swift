@@ -8,8 +8,8 @@ struct SettingsView: View {
     @EnvironmentObject var store: Store
     /// 2.0 (B129): l'esito dell'avviso di prova: nil = non ancora provato, false = notifiche spente
     @State private var testSent: Bool?
-    @State private var reporting = false
     @AppStorage("navigator") private var preferredNavigator = ""
+    @AppStorage(AppConfig.devNavigatorKey) private var devNavigator = false
     @AppStorage("vehicleMarker") private var vehicleMarker = VehicleMarker.arrow.rawValue
     @AppStorage("vehicleColor") private var vehicleColor = VehicleColor.blue.rawValue
     @ObservedObject private var updater = CityUpdater.shared
@@ -43,14 +43,21 @@ struct SettingsView: View {
                 Text("Alerts work with the app closed for the saved cities. They need location access \"Always\".")
             }
 
-            // «Modalità prova»: una ZTL finta intorno a te per provare tutto sul posto (TestMode.swift)
-            TestModeSection()
+            // «Modalità prova»: una ZTL finta intorno a te per provare tutto sul posto (TestMode.swift). 2.2 (funzione 32):
+            // solo nelle build di sviluppo, con il navigatore interno (funzione 28)
+            if AppConfig.devTools {
+                TestModeSection()
+                Section {
+                    Toggle(L("GateLR navigation"), isOn: $devNavigator)
+                        .accessibilityIdentifier("settings.devNavigator")
+                } header: { Text(verbatim: "Dev") }
+            }
 
             Section {
                 Picker(L("Preferred navigator"), selection: $preferredNavigator) {
                     Text("Ask every time").tag("")
                     ForEach(Navigator.allCases) { Text($0.title).tag($0.rawValue) }
-                    Text("GateLR navigation").tag("gatelr")
+                    if devNavigator && AppConfig.devTools { Text("GateLR navigation").tag("gatelr") }
                 }
                 Button {
                     if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
@@ -62,7 +69,8 @@ struct SettingsView: View {
                 Text("GateLR speaks English, Italian, German, French, Spanish, Dutch, Polish and Chinese. The language is chosen in the iPhone Settings.")
             }
 
-            // Navigatore di GateLR: il segno dell'auto e la voce
+            // Navigatore di GateLR: il segno dell'auto e la voce (2.2: solo con il navigatore interno di sviluppo)
+            if devNavigator && AppConfig.devTools {
             Section {
                 Picker(L("Vehicle on the map"), selection: $vehicleMarker) {
                     ForEach(VehicleMarker.allCases) { m in Text(m.title).tag(m.rawValue) }
@@ -94,6 +102,7 @@ struct SettingsView: View {
                 }
             } header: { Text("GateLR navigation") } footer: {
                 Text("For clearer street names: Settings → Accessibility → Spoken Content → Voices → your language → a Premium or Enhanced voice (e.g. Alice). GateLR uses the best one installed.")
+            }
             }
 
             Section {
@@ -137,14 +146,11 @@ struct SettingsView: View {
                 NavigationLink { AboutView() } label: {
                     Label("Sources, licences and disclaimer", systemImage: "info.circle")
                 }
-                Button { reporting = true } label: { Label("Report a bug", systemImage: "ladybug") }
-                    .foregroundStyle(Theme.ink)
                 LabeledContent(L("Version"), value: Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "–")
             }
         }
         .navigationTitle("Settings")
         .tint(Theme.blue)
-        .sheet(isPresented: $reporting) { BugReportView() }
         .task { basicVoice = await SpeechVoice.onlyBasicVoiceAsync() }
         .onChange(of: store.alertsOn) { GateMonitor.shared.settingsChanged() }
     }

@@ -143,6 +143,22 @@ final class Store: ObservableObject {
     var zone: Zone { city.zones.first { $0.id == zoneId } ?? city.zones[0] }
     var vehicle: Vehicle { vehicles.first { $0.id == activeVehicleId } ?? vehicles.first ?? SampleData.rental }
 
+    /// 2.2 (funzione 17: «nessuna auto di serie»): il garage è ancora quello di partenza, con la sola auto a noleggio di
+    /// esempio mai toccata (nome, modello e dati di SampleData.rental, senza targa)
+    nonisolated static func isUntouchedSample(_ vehicles: [Vehicle]) -> Bool {
+        guard vehicles.count == 1, let v = vehicles.first else { return false }
+        let s = SampleData.rental
+        return v.name == s.name && v.model == s.model && v.fuel == s.fuel && v.euro == s.euro && v.plate.isEmpty && v.isRental
+            && v.make == nil && v.year == nil && v.type == nil && v.fuelUnknown == nil && v.euroUnknown == nil
+    }
+
+    /// 2.2 Il veicolo scelto nella presentazione: prende il posto dell'auto di esempio mai toccata, altrimenti si aggiunge
+    /// al garage; in tutti e due i casi diventa quello per cui rispondiamo
+    func adoptVehicle(_ v: Vehicle) {
+        if Store.isUntouchedSample(vehicles) { vehicles = [v] } else { vehicles.append(v) }
+        activeVehicleId = v.id
+    }
+
     /// «hotelInside»: vero solo se la destinazione è il tuo hotel (Store.isHotel). Prima era vero di nascosto
     /// (Store.hotelInside, mai cambiato dall'interfaccia): scheda zona, mappa, avvisi e CarPlay dicevano «a una condizione»
     func answer(at date: Date = Date(), zone: Zone? = nil, hotelInside: Bool) -> Answer {

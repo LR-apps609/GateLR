@@ -1,46 +1,99 @@
 import SwiftUI
 import UIKit
 
-/// Le tre schede di GateLR 2.0: «Varco» (la risposta), «Mappa» (al centro, la più grande) e «Tu» (tutto il resto)
-enum Tab: Hashable { case varco, map, you }
+/// 2.2 «Struttura» (tavole P24-Navigazione, P23-Funzioni): quattro schede, come Android. «Adesso» (la risposta qui e
+/// ora), «Mappa», «Viaggio» (pianificare l'arrivo) e «Aiuto» (cartello, multe, diario, impara). Garage, permessi e
+/// Impostazioni stanno dietro l'icona del veicolo in alto, la fotocamera del cartello accanto, in ogni scheda
+enum Tab: Hashable { case now, map, trip, help }
 
-/// Le pagine di «Tu»
-enum YouRoute: Hashable { case garage, trip, fines, learn, settings, privacy, subscription }
+/// Le pagine dietro l'icona del veicolo (foglio «Garage e impostazioni»)
+enum AccountRoute: Hashable { case garage, settings, privacy, about }
 
-/// Dove si va nell'app: la scheda scelta, le pagine aperte in «Tu» e la presentazione
+/// Le pagine di «Aiuto»
+enum HelpRoute: Hashable { case sign, fineGuide, fineScan, log, learn }
+
+/// Dove si va nell'app: la scheda scelta, le pagine aperte in «Aiuto», il foglio del veicolo e la presentazione
 @MainActor final class AppRouter: ObservableObject {
-    @Published var tab: Tab = .varco
-    @Published var youPath: [YouRoute] = []
-    /// La presentazione 2.0 a tutto schermo: al primo avvio e da Tu → Cosa sono le ZTL → «Rivedi la presentazione»
+    @Published var tab: Tab = .now
+    @Published var helpPath: [HelpRoute] = []
+    /// Il foglio dietro l'icona del veicolo e le sue pagine
+    @Published var showAccount = false
+    @Published var accountPath: [AccountRoute] = []
+    /// «Leggi il cartello» dalla fotocamera in alto, da ogni scheda
+    @Published var showSign = false
+    /// La modalità «In auto» a tutto schermo (tavola I-InAuto)
+    @Published var inCar = false
+    /// La presentazione 2.0 a tutto schermo: al primo avvio e da Aiuto → «Rivedi la presentazione»
     @Published var showIntro = false
 
-    /// Una pagina di «Tu», aperta da qualsiasi scheda
-    func open(_ route: YouRoute) {
-        youPath = [route]
-        tab = .you
+    /// Dove porta un indirizzo gatelr://
+    enum Destination: Equatable {
+        case tab(Tab)
+        case help(HelpRoute)
+        /// Il foglio del veicolo, su una sua pagina o sull'elenco (nil)
+        case account(AccountRoute?)
     }
 
-    /// gatelr://varco (widget, Live Activity), gatelr://map, gatelr://trip (widget), gatelr://garage, gatelr://account
+    /// Una pagina dietro l'icona del veicolo, da qualsiasi scheda
+    func open(_ route: AccountRoute) {
+        accountPath = [route]
+        showAccount = true
+    }
+
+    /// Una pagina di «Aiuto», da qualsiasi scheda
+    func open(_ route: HelpRoute) {
+        showAccount = false
+        helpPath = [route]
+        tab = .help
+    }
+
+    func go(_ d: Destination) {
+        switch d {
+        case .tab(let t):
+            showAccount = false
+            if t == .help { helpPath = [] }
+            tab = t
+        case .help(let r): open(r)
+        case .account(let r):
+            accountPath = r.map { [$0] } ?? []
+            showAccount = true
+        }
+    }
+
+    /// gatelr://adesso (widget, Live Activity; anche il vecchio gatelr://varco), gatelr://map, gatelr://trip (widget),
+    /// gatelr://guardian, gatelr://multe, gatelr://cartello, gatelr://garage, gatelr://account
     func handle(_ url: URL) {
         // gatelr://park?zone=…&lat=…&lon=… (1.19.3, il tocco su un avviso): «Parcheggia fuori» per quella zona
         if url.host?.lowercased() == "park" { ThreatAlerts.shared.open(url); return }
-        let (tab, route) = Self.destination(for: url.host)
-        youPath = route.map { [$0] } ?? []
-        self.tab = tab
+        go(Self.destination(for: url.host))
     }
 
-    /// I vecchi indirizzi delle cinque schede portano alle tre nuove (il sito e i widget già installati li usano ancora)
-    nonisolated static func destination(for host: String?) -> (Tab, YouRoute?) {
+    /// I vecchi indirizzi delle cinque e delle tre schede portano alle quattro nuove (il sito e i widget già installati
+    /// li usano ancora): «varco» e «now» ad Adesso, «you»/«tu»/«account» al foglio del veicolo
+    nonisolated static func destination(for host: String?) -> Destination {
         switch host?.lowercased() {
-        case "map", "mappa": (.map, nil)
-        case "trip", "viaggio": (.you, .trip)
-        case "garage": (.you, .garage)
-        case "fines", "multe": (.you, .fines)
-        case "learn": (.you, .learn)
-        case "settings": (.you, .settings)
-        case "privacy": (.you, .privacy)
-        case "account", "you", "tu": (.you, nil)
-        default: (.varco, nil)
+        case "map", "mappa": .tab(.map)
+        case "trip", "viaggio", "guardian", "guardiano": .tab(.trip)
+        case "help", "aiuto": .tab(.help)
+        case "fines", "multe": .help(.fineGuide)
+        case "log", "diario": .help(.log)
+        case "learn", "impara": .help(.learn)
+        case "cartello", "sign": .help(.sign)
+        case "garage": .account(.garage)
+        case "settings", "impostazioni": .account(.settings)
+        case "privacy": .account(.privacy)
+        case "account", "you", "tu": .account(nil)
+        default: .tab(.now)
+        }
+    }
+
+    /// La posizione della scheda nella barra (per il rimbalzo dell'icona): 0 Adesso, 1 Mappa, 2 Viaggio, 3 Aiuto
+    nonisolated static func index(of tab: Tab) -> Int {
+        switch tab {
+        case .now: 0
+        case .map: 1
+        case .trip: 2
+        case .help: 3
         }
     }
 
@@ -93,12 +146,15 @@ struct RootView: View {
     private var tabs: some View {
         TabView(selection: $router.tab) {
             VarcoView(showZone: $showZone, tab: $router.tab)
-                .tabItem { Label("Gate", systemImage: "smallcircle.filled.circle") }.tag(Tab.varco)
-            // La mappa al centro, con il simbolo più grande: è il punto forte dell'app
+                .tabItem { Label("Now", systemImage: "smallcircle.filled.circle") }.tag(Tab.now)
+            // La mappa con il simbolo più grande: è il punto forte dell'app
             MapScreen(showZone: $showZone, tab: $router.tab)
                 .tabItem { Label { Text("Map") } icon: { Image(uiImage: Self.mapIcon) } }.tag(Tab.map)
-            YouView(showZone: $showZone, tab: $router.tab)
-                .tabItem { Label("You", systemImage: "person.crop.circle") }.tag(Tab.you)
+            TripView(showZone: $showZone, tab: $router.tab)
+                .readableScrollWidth()
+                .tabItem { Label("Trip", systemImage: "suitcase.rolling.fill") }.tag(Tab.trip)
+            HelpView()
+                .tabItem { Label("Help", systemImage: "questionmark.circle") }.tag(Tab.help)
         }
         // «Modalità prova attiva» in cima a ogni scheda finché la modalità prova è accesa
         .testModeBar()
@@ -144,11 +200,34 @@ struct RootView: View {
         .sensoryFeedback(.selection, trigger: router.tab)
         // Il piccolo rimbalzo dell'icona della scheda scelta (simboli SF: rimbalzo di sistema; mappa: scala 1 → 1,12 → 1)
         .onChange(of: router.tab) { _, tab in
-            switch tab {
-            case .varco: TabBarBounce.play(index: 0, symbol: true)
-            case .map: TabBarBounce.play(index: 1, symbol: false)
-            case .you: TabBarBounce.play(index: 2, symbol: true)
+            TabBarBounce.play(index: AppRouter.index(of: tab), symbol: tab != .map)
+        }
+        // 2.2: Garage, permessi e Impostazioni dietro l'icona del veicolo in alto
+        .sheet(isPresented: $router.showAccount) {
+            AccountView()
+                .environmentObject(store)
+                .environmentObject(router)
+                .testModeBar()
+        }
+        // 2.2: «Leggi il cartello» dalla fotocamera in alto, da ogni scheda
+        .sheet(isPresented: $router.showSign) {
+            NavigationStack {
+                SignReaderView()
+                    .readableScrollWidth()
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button(L("Close")) { router.showSign = false }
+                                .accessibilityIdentifier("sign.close")
+                        }
+                    }
             }
+            .environmentObject(store)
+        }
+        // 2.2: la modalità «In auto» (tavola I-InAuto)
+        .fullScreenCover(isPresented: $router.inCar) {
+            InCarView()
+                .environmentObject(store)
+                .environmentObject(router)
         }
         .sheet(isPresented: $showZone) {
             NavigationStack { ZoneDetailView(zone: store.zone, city: store.city) }
@@ -188,7 +267,7 @@ struct RootView: View {
         }
     }
 
-    /// Il simbolo della mappa più grande degli altri due (le schede di iOS non lo ingrandiscono da sole)
+    /// Il simbolo della mappa più grande degli altri (le schede di iOS non lo ingrandiscono da sole)
     private static let mapIcon: UIImage = {
         let config = UIImage.SymbolConfiguration(pointSize: 27, weight: .semibold)
         return UIImage(systemName: "map.fill", withConfiguration: config) ?? UIImage()

@@ -2,7 +2,8 @@ import Foundation
 
 /// La richiesta di una recensione su App Store (SwiftUI, @Environment(\.requestReview) di StoreKit): nessuna domanda
 /// nostra prima (linea guida 5.6.1 di Apple), solo la richiesta di iOS, che decide da sé se mostrarla.
-/// Quando: circa 2 secondi dopo che la prima ricerca di un posto o di un hotel ha dato la sua risposta in Varco.
+/// Quando (2.2, funzione 33 di P23-Funzioni): circa 2 secondi dopo aver salvato un viaggio in Viaggio, mai dopo la prima
+/// risposta (un momento di stress).
 /// Poi al massimo una volta per versione dell'app e non prima di 120 giorni dall'ultima.
 /// Mai durante la navigazione, la presentazione o le pagine delle multe (la scheda Varco deve essere quella in vista),
 /// mai nel giro automatico delle foto (-uitest). Le date e la versione dell'ultima richiesta stanno in UserDefaults.

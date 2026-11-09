@@ -1,7 +1,7 @@
 import MapKit
 import SwiftUI
 
-/// Il prototipo della nuova presentazione: tre pagine animate (circa 40 s in tutto) e la pagina «Dove vai e con che auto?».
+/// La presentazione: tre pagine animate (circa 40 s in tutto) e, dalla 2.2, la pagina «Con cosa entri?» (il veicolo).
 /// «Salta» è sempre in alto a destra e porta all'ultima pagina. Con «Riduci movimento» le pagine si scambiano in
 /// dissolvenza, la camera sta ferma e l'auto non corre.
 struct Intro2View: View {
@@ -22,7 +22,7 @@ struct Intro2View: View {
                 case 0: IntroDriveSlide(next: advance)
                 case 1: IntroStatusSlide(gateName: IntroScene.load(store).gateName, next: advance)
                 case 2: IntroSignsSlide(next: advance)
-                default: IntroSetupPage(done: done)
+                default: IntroVehiclePage(done: done)
                 }
             }
             .id(page)
@@ -75,52 +75,56 @@ struct Intro2View: View {
     }
 }
 
-/// L'ultima pagina: un solo invito, «Dove vuoi andare?», con la ricerca e i suggerimenti mentre scrivi (la stessa ricerca
-/// di Apple Maps della scheda Varco, AddressSearch). Scelto un posto compare «Cerca»: la presentazione si chiude e la
-/// scheda Varco mostra quel posto con la risposta. L'auto si imposta poi nell'app (Garage).
-struct IntroSetupPage: View {
+/// 2.2 L'ultima pagina (tavola I-Veicolo, funzione 26 «3 pagine + veicolo»): con cosa entri? Tipo, alimentazione e classe
+/// Euro, ognuna con «Non so» (decisione 8: dove contano i divieti Euro diciamo «Controlla il cartello», mai «Entra pure»).
+/// Prima c'era «Dove vuoi andare?» con la promessa di un percorso fuori dalla ZTL, che GateLR non fa: la ricerca è in Adesso
+struct IntroVehiclePage: View {
     @EnvironmentObject var store: Store
-    @EnvironmentObject var router: AppRouter
     var done: () -> Void
-    @StateObject private var search = AddressSearch()
-    @FocusState private var focused: Bool
+    @State private var type: VehicleType = .car
+    /// nil = «Non so»
+    @State private var fuel: Fuel?
+    @State private var euro: Int?
     @State private var shown = false
-    @State private var chosen: Place?
-    @State private var resolving = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
-        // 2.0 (B39): la pagina scorre e «Cerca» / «Più tardi» restano fissi in basso: con «Testo più grande» (AX3–AX5) su
-        // un iPhone SE campo e «Più tardi» uscivano dallo schermo e la presentazione non si chiudeva più
         ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                Color.clear.frame(height: 70)
-                VStack(alignment: .leading, spacing: 14) {
-                    IntroTitle(text: L("Where do you want to go?"), size: 40)
-                    Text(L("We'll find the route that keeps you out of the ZTL."))
-                        .font(Notte.font(19)).foregroundStyle(Notte.muted)
+            VStack(alignment: .leading, spacing: 22) {
+                Color.clear.frame(height: 50)
+                VStack(alignment: .leading, spacing: 12) {
+                    IntroTitle(text: L("What are you driving?"), size: 38)
+                    Text(L("The answer changes with the vehicle: in the same place an electric car may enter and a Euro 2 diesel may not."))
+                        .font(Notte.font(17)).foregroundStyle(Notte.muted)
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 .opacity(shown ? 1 : 0).offset(y: shown || reduceMotion ? 0 : 12)
-                field
-                    .padding(.top, 28)
-                    .opacity(shown ? 1 : 0).offset(y: shown || reduceMotion ? 0 : 18)
-                if chosen == nil && !search.query.isEmpty {
-                    suggestions.padding(.top, 10)
+                group(L("Vehicle")) {
+                    ForEach(VehicleType.allCases) { t in chip(t.label, selected: type == t, id: "intro2.type.\(t.rawValue)") { type = t } }
                 }
+                group(L("Fuel")) {
+                    ForEach(Fuel.allCases) { f in chip(f.label, selected: fuel == f, id: "intro2.fuel.\(f.rawValue)") { fuel = f } }
+                    chip(L("Don't know"), selected: fuel == nil, id: "intro2.fuel.unknown") { fuel = nil }
+                }
+                // Per un'elettrica la classe Euro non conta
+                if fuel != .electric {
+                    group(L("Euro class (registration document, field V.9)")) {
+                        ForEach(0...6, id: \.self) { n in chip("\(n)", selected: euro == n, id: "intro2.euro.\(n)") { euro = n } }
+                        chip(L("Don't know"), selected: euro == nil, id: "intro2.euro.unknown") { euro = nil }
+                    }
+                }
+                Text(verbatim: Self.hint)
+                    .font(Notte.font(15)).foregroundStyle(Notte.muted)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .padding(.horizontal, 20).padding(.bottom, 12)
         }
         .scrollBounceBehavior(.basedOnSize)
-        .scrollDismissesKeyboard(.interactively)
+        // 2.0 (B39): i pulsanti restano fissi in basso anche con «Testo più grande»
         .safeAreaInset(edge: .bottom, spacing: 0) {
             VStack(spacing: 6) {
-                if let chosen {
-                    IntroButton(title: L("Search"), systemImage: "magnifyingglass", identifier: "intro2.go") { open(chosen) }
-                        // 2.0 (B125): con «Riduci movimento» solo una dissolvenza
-                        .transition(reduceMotion ? .opacity : .move(edge: .bottom).combined(with: .opacity))
-                }
-                Button(action: done) {
+                IntroButton(title: L("Done"), systemImage: "checkmark", identifier: "intro2.done") { save() }
+                Button(action: later) {
                     Text(L("Later")).font(Notte.font(17, .semibold)).foregroundStyle(Notte.muted)
                         .frame(maxWidth: .infinity, minHeight: 44)
                 }
@@ -130,96 +134,59 @@ struct IntroSetupPage: View {
             .padding(.horizontal, 20).padding(.top, 8).padding(.bottom, 12)
             .background(Notte.navy)
         }
-        .animation(.snappy, value: chosen)
-        .animation(.snappy, value: search.results.count)
-        // 2.0 (B131): senza una città scelta né la posizione, la ricerca su tutta l'Italia (prima 30 km intorno a Firenze:
-        // il primo suggerimento era il Duomo di Firenze)
-        .onAppear {
-            if store.cityChosenByHand || GateMonitor.shared.location != nil { search.focus(on: store.city) } else { search.focusOnItaly() }
-        }
-        .task {
-            withAnimation(.easeOut(duration: 0.6).delay(0.15)) { shown = true }
-            // Nel video: si scrive come farebbe una persona e si sceglie il primo suggerimento, senza confermare
-            guard IntroAutoplay.on else { return }
-            try? await Task.sleep(for: .milliseconds(1200))
-            for ch in "Palazzo Vecchio" {
-                search.query.append(ch)
-                try? await Task.sleep(for: .milliseconds(90))
-            }
-            try? await Task.sleep(for: .milliseconds(1800))
-            if let first = search.results.first { choose(first) }
-        }
+        .animation(.snappy, value: fuel)
+        .task { withAnimation(.easeOut(duration: 0.6).delay(0.15)) { shown = true } }
     }
 
-    private var field: some View {
-        HStack(spacing: 12) {
-            Image(systemName: "magnifyingglass").font(.system(size: 20, weight: .semibold)).foregroundStyle(Notte.action)
-            TextField("", text: $search.query, prompt: Text(L("Hotel, address or square")).foregroundColor(Notte.muted))
-                .font(Notte.font(20, .semibold)).foregroundStyle(Notte.text)
-                .focused($focused)
-                .autocorrectionDisabled()
-                .submitLabel(.search)
-                // 1.20.2: Invio sceglie il primo suggerimento, anche se arriva dopo (SearchSubmit)
-                .onSubmit { search.submit() }
-                .onReceive(search.picks) { choose($0) }
-                .onChange(of: search.query) { _, q in if let c = chosen, q != c.name { chosen = nil } }
-                .accessibilityIdentifier("intro2.search")
-            if resolving { ProgressView().tint(Notte.text) }
-        }
-        .padding(.horizontal, 18).frame(height: 64)
-        .background(Notte.surface, in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous)
-            .stroke(focused || !search.query.isEmpty ? Notte.action : Notte.line, lineWidth: focused || !search.query.isEmpty ? 2 : 1))
-        .shadow(color: Notte.action.opacity(focused || !search.query.isEmpty ? 0.25 : 0), radius: 18)
+    /// «Auto a noleggio? …»: con le parole vere delle risposte (Tools/translations.py, docs/parole.md)
+    static var hint: String {
+        String(format: L("Rental car? The Euro class is on the registration document in the glovebox. With «%@» we say «%@» where Euro bans matter, never «%@»."),
+               L("Don't know"), Stato.controllaCartello.word.title, Stato.entraPure.word.title)
     }
 
-    private var suggestions: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            // 2.0 (B132): l'errore anche con i suggerimenti già in vista (il tocco su un suggerimento senza rete)
-            if search.failed {
-                SearchFailedRow(dark: true) { search.retry() }
-            } else if search.results.isEmpty {
-                Text(L("Keep typing…")).font(Notte.font(15)).foregroundStyle(Notte.muted).padding(14)
-            }
-            ForEach(Array(search.results.prefix(5).enumerated()), id: \.offset) { i, r in
-                Button { choose(r) } label: {
-                    HStack(spacing: 12) {
-                        Image(systemName: "mappin.circle.fill").font(.system(size: 22)).foregroundStyle(Notte.action)
-                        VStack(alignment: .leading, spacing: 1) {
-                            Text(r.title).font(Notte.font(16, .semibold)).foregroundStyle(Notte.text).lineLimit(1)
-                            if !r.subtitle.isEmpty {
-                                Text(r.subtitle).font(Notte.font(13)).foregroundStyle(Notte.muted).lineLimit(1)
-                            }
-                        }
-                        Spacer()
-                    }
-                    .padding(.horizontal, 14).padding(.vertical, 9).contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("intro2.result.\(i)")
-                if i < min(search.results.count, 5) - 1 { Divider().overlay(Notte.line).padding(.leading, 48) }
-            }
-        }
-        .background(Notte.surface, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+    /// Il veicolo scelto (nil = «Non so» per alimentazione o classe Euro)
+    static func vehicle(type: VehicleType, fuel: Fuel?, euro: Int?) -> Vehicle {
+        var v = Vehicle.unknown(type)
+        if let fuel { v.fuel = fuel; v.fuelUnknown = nil }
+        if let euro { v.euro = euro; v.euroUnknown = nil }
+        if fuel == .electric { v.euroUnknown = nil }
+        return v
     }
 
-    /// Dal suggerimento al posto: il nome nel campo e «Cerca» in basso
-    private func choose(_ r: MKLocalSearchCompletion) {
-        Task {
-            resolving = true
-            if let place = await search.resolve(r) {
-                chosen = place
-                search.query = place.name
-                focused = false
-            }
-            resolving = false
-        }
-    }
-
-    /// «Cerca»: la presentazione si chiude sulla scheda Varco con quel posto e la sua risposta
-    private func open(_ place: Place) {
-        store.select(place)
-        router.tab = .varco
+    private func save() {
+        store.adoptVehicle(Self.vehicle(type: type, fuel: fuel, euro: euro))
         done()
+    }
+
+    /// «Più tardi»: niente auto di serie (funzione 17). L'auto di esempio mai toccata diventa il veicolo «Non so»
+    /// (mai nel giro delle foto, che risponde per l'auto di esempio)
+    private func later() {
+        if Store.isUntouchedSample(store.vehicles) && !ProcessInfo.processInfo.arguments.contains("-uitest") {
+            store.adoptVehicle(.unknown())
+        }
+        done()
+    }
+
+    private func group<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(title.uppercased()).font(Notte.font(13, .bold)).kerning(1.2).foregroundStyle(Notte.muted)
+                .accessibilityAddTraits(.isHeader)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) { content() }
+            }
+        }
+    }
+
+    private func chip(_ text: String, selected: Bool, id: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(verbatim: text).font(Notte.font(16, .semibold))
+                .foregroundStyle(selected ? Notte.navy : Notte.text)
+                .padding(.horizontal, 16).frame(minHeight: 44)
+                .background(selected ? Notte.text : Notte.surface, in: Capsule())
+                .overlay(Capsule().stroke(selected ? Notte.text : Notte.line, lineWidth: 1))
+        }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(selected ? .isSelected : [])
+        .accessibilityIdentifier(id)
     }
 }

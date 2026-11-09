@@ -248,6 +248,16 @@ struct RuleEngine {
         return out
     }
 
+    /// 2.2 (decisione 8): per il veicolo «Non so», alimentazione o classe Euro decidono in questa zona (ZTL attiva)?
+    /// Sì se la zona lascia entrare certe alimentazioni e non sai la tua, o se ha divieti per classe Euro (o è una zona
+    /// verde) e non sai la tua. Le moto: solo i divieti scritti per le moto (senza, la condizione di sempre)
+    static func specsMatter(_ zone: Zone, _ vehicle: Vehicle) -> Bool {
+        guard vehicle.specsUnknown else { return false }
+        if vehicle.fuelUnknown == true && !zone.exemptFuels.isEmpty { return true }
+        if vehicle.kind == .motorcycle { return zone.motoBans != nil }
+        return zone.bans != nil || zone.type == .green
+    }
+
     func answer(zone: Zone, vehicle: Vehicle, permits: [Permit], hotelInside: Bool, at date: Date) -> Answer {
         let on = isActive(zone, at: date)
         let next = nextChange(zone, after: date)
@@ -278,6 +288,11 @@ struct RuleEngine {
         // Prima il tipo di veicolo, poi alimentazione e classe Euro (lo stesso ordine nel sito e su Android)
         if zone.exempts(vehicle) {
             return Answer(verdict: .yes(reason: L("The ZTL is active, but motorbikes and scooters may enter.")), gatesOn: true, nextChange: next)
+        }
+        // 2.2 (decisione 8): il veicolo «Non so» dove alimentazione o classe Euro decidono: mai una risposta certa, né sì né no
+        if Self.specsMatter(zone, vehicle) {
+            return Answer(verdict: .unsure(reason: L("We don't know your vehicle's fuel or Euro class, and here they decide. Check the sign at the gate.")),
+                          gatesOn: true, nextChange: next, doubt: .euroSconosciuto)
         }
         if zone.exemptFuels.contains(vehicle.fuel) {
             return Answer(verdict: .yes(reason: String(format: L("The ZTL is active, but %@ vehicles may enter."), vehicle.fuel.label.lowercased())), gatesOn: true, nextChange: next)

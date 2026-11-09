@@ -7,4 +7,6 @@ MAPBOX_ACCESS_TOKEN =
 APP_STORE_ID =
 // Il Team di firma (Apple ID dello sviluppatore): vuoto qui, lo scrive in Config/Local.xcconfig lo script di installazione
 DEVELOPMENT_TEAM =
+// 2.2: modalità prova e navigatore interno anche in Release (solo per lo sviluppo): GATELR_DEV_TOOLS = YES in Local.xcconfig
+GATELR_DEV_TOOLS =
 #include? "Local.xcconfig"

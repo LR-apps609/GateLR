@@ -141,13 +141,22 @@ extension GarageView {
     /// «Fiat Panda · Benzina · Euro 6 · AB123CD»; per le moto «Moto / scooter · Honda SH 125 · Benzina · Euro 5»
     static func subtitle(_ v: Vehicle) -> String {
         let car: String = [v.make ?? "", v.model].filter { !$0.isEmpty }.joined(separator: " ")
-        let parts: [String] = [v.kind == .motorcycle ? v.kind.label : "", car, v.fuel.label, "Euro \(v.euro)", v.plate]
+        let fuel = v.fuelUnknown == true ? L("fuel not known") : v.fuel.label
+        let parts: [String] = [v.kind == .motorcycle ? v.kind.label : "", car, fuel, v.fuel == .electric && v.fuelUnknown != true ? "" : v.euroText, v.plate]
         return parts.filter { !$0.isEmpty }.joined(separator: " · ")
     }
 }
 
 struct VehicleForm: View {
     @EnvironmentObject var store: Store
+
+    /// L'alimentazione scelta, nil = «Non so»
+    private var fuelChoice: Binding<Fuel?> {
+        Binding(get: { vehicle.fuelUnknown == true ? nil : vehicle.fuel },
+                set: { f in
+                    if let f { vehicle.fuel = f; vehicle.fuelUnknown = nil } else { vehicle.fuelUnknown = true }
+                })
+    }
     @Environment(\.dismiss) private var dismiss
     @State var vehicle: Vehicle
     @State private var scanning = false
@@ -221,8 +230,18 @@ struct VehicleForm: View {
                     }
                 } header: { Text(vehicle.kind == .motorcycle ? L("Motorbike / scooter") : L("Car")) }
                 Section {
-                    Picker(L("Fuel"), selection: $vehicle.fuel) { ForEach(Fuel.allCases) { Text($0.label).tag($0) } }
-                    Stepper(String(format: L("Euro %lld"), vehicle.euro), value: $vehicle.euro, in: 0...7)
+                    // 2.2 (decisione 8): «Non so» per alimentazione e classe Euro: dove contano, «Controlla il cartello»
+                    Picker(L("Fuel"), selection: fuelChoice) {
+                        ForEach(Fuel.allCases) { Text($0.label).tag(Optional($0)) }
+                        Text("Don't know").tag(Fuel?.none)
+                    }
+                    .accessibilityIdentifier("vehicle.fuel")
+                    Toggle(L("Euro class unknown"), isOn: Binding(get: { vehicle.euroUnknown == true },
+                                                                   set: { vehicle.euroUnknown = $0 ? true : nil }))
+                        .accessibilityIdentifier("vehicle.euroUnknown")
+                    if vehicle.euroUnknown != true {
+                        Stepper(String(format: L("Euro %lld"), vehicle.euro), value: $vehicle.euro, in: 0...7)
+                    }
                     // 1.17.2: alcune zone a basse emissioni (Scudo Verde di Firenze) hanno limiti diversi per ciclomotori
                     // e motori a 2 tempi. Di serie motociclo e 4 tempi
                     if vehicle.kind == .motorcycle {
@@ -277,6 +296,9 @@ struct VehicleForm: View {
         vehicle.year = v.year
         vehicle.fuel = v.fuel
         vehicle.euro = v.euro
+        // 2.2: letti dal libretto (o dall'auto a noleggio), alimentazione e classe Euro non sono più «Non so»
+        vehicle.fuelUnknown = v.fuelUnknown
+        vehicle.euroUnknown = v.euroUnknown
         if let t = v.type { vehicle.type = t }
         if v.isRental { vehicle.isRental = true }
     }
@@ -325,6 +347,8 @@ struct CarAdvice: View {
                 if z.exempts(v) {
                     return Line(city: city.localizedName, zone: z.shortName, text: L("Motorbikes and scooters may enter"), ok: true)
                 }
+                // 2.2: senza alimentazione o classe Euro non diciamo dove entra (lo dice la risposta: «Controlla il cartello»)
+                if v.specsUnknown { return nil }
                 if z.exemptFuels.contains(v.fuel) {
                     return Line(city: city.localizedName, zone: z.shortName, text: String(format: L("%@ cars may enter"), v.fuel.label), ok: true)
                 }
@@ -349,7 +373,9 @@ struct CarAdvice: View {
     var body: some View {
         let lines = Self.lines(for: store.vehicle, cities: store.cities)
         Section {
-            if lines.isEmpty {
+            if store.vehicle.specsUnknown {
+                Text("Add fuel and Euro class to see where your car can enter.").font(.app(size: 14)).foregroundStyle(Theme.muted)
+            } else if lines.isEmpty {
                 Text("No emission rules for your car in the saved cities.").font(.app(size: 14)).foregroundStyle(Theme.muted)
             }
             ForEach(lines, id: \.self) { l in

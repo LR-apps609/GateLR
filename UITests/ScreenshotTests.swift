@@ -20,28 +20,52 @@ final class ScreenshotTests: XCTestCase {
         super.tearDown()
     }
 
-    // Le tre schede di GateLR 2.0: 0 «Varco», 1 «Mappa» (al centro), 2 «Tu»
+    // 2.2: le quattro schede, come Android: 0 «Adesso», 1 «Mappa», 2 «Viaggio», 3 «Aiuto». Garage, permessi e
+    // Impostazioni stanno nel foglio dietro l'icona del veicolo in alto («top.vehicle»)
     private var varcoTab: XCUIElement { app.tabBars.buttons.element(boundBy: 0) }
     private var mapTab: XCUIElement { app.tabBars.buttons.element(boundBy: 1) }
-    private var youTab: XCUIElement { app.tabBars.buttons.element(boundBy: 2) }
+    private var tripTab: XCUIElement { app.tabBars.buttons.element(boundBy: 2) }
+    private var helpTab: XCUIElement { app.tabBars.buttons.element(boundBy: 3) }
 
-    /// Una pagina di «Tu» (identificatore «you.<pagina>»)
+    /// Il foglio del veicolo e, se c'è, una sua pagina («account.<pagina>»). «shot»: la foto del foglio prima della pagina
     @discardableResult
-    private func openYou(_ page: String) -> Bool {
-        let row = app.buttons["you.\(page)"].firstMatch
+    private func openAccount(_ page: String? = nil, shot: String? = nil) -> Bool {
+        let vehicle = app.buttons["top.vehicle"].firstMatch
+        guard vehicle.waitForExistence(timeout: 5) else { return false }
+        vehicle.tap()
+        sleep(1)
+        if let shot { snap(shot) }
+        guard let page else { return true }
+        let row = app.buttons["account.\(page)"].firstMatch
         guard row.waitForExistence(timeout: 4) else { return false }
         row.tap()
         sleep(1)
         return true
     }
 
-    /// 1.19.3: l'app riaperta sulla scheda «Tu». Nel giro lungo (test1Tour) l'albero di accessibilità cresce pagina dopo
-    /// pagina e sul Mac di GitHub le ricerche andavano in tempo scaduto (corsa 41442656669: «Timed out while evaluating
-    /// UI query» su Impostazioni e nel tearDown). Il posto scelto resta
-    private func relaunchOnYou() {
+    /// Chiude il foglio del veicolo («Fine»), o con un colpo verso il basso
+    private func closeAccount() {
+        let done = app.buttons["account.done"].firstMatch
+        if done.waitForExistence(timeout: 3) { done.tap() } else { app.swipeDown(velocity: .fast) }
+        sleep(1)
+    }
+
+    /// Una riga di «Aiuto» (identificatore della riga), con la scheda Aiuto già aperta
+    @discardableResult
+    private func openHelp(_ id: String) -> Bool {
+        let row = app.buttons[id].firstMatch
+        guard row.waitForExistence(timeout: 4) else { return false }
+        row.tap()
+        sleep(1)
+        return true
+    }
+
+    /// 1.19.3: l'app riaperta sulla scheda «Aiuto» (nel giro lungo l'albero di accessibilità cresceva pagina dopo pagina e
+    /// le ricerche andavano in tempo scaduto, corsa 41442656669). Il posto scelto resta
+    private func relaunchOnHelp() {
         app.terminate()
         app.launch()
-        if youTab.waitForExistence(timeout: 15) { youTab.tap() }
+        if helpTab.waitForExistence(timeout: 15) { helpTab.tap() }
         sleep(1)
     }
 
@@ -105,35 +129,30 @@ final class ScreenshotTests: XCTestCase {
         snap("04-map-place")
     }
 
-    /// 1.20.0: le pagine di «Tu» del giro lungo, ognuna in un test a sé con l'app appena aperta (prima tutto in test1Tour:
-    /// un tempo scaduto a metà faceva perdere tutte le foto dopo). Dopo test1Tour nell'ordine dei test («1T» prima di
-    /// «1b»): il posto scelto in Varco resta
-    private func launchOnYou() -> Bool {
+    /// 1.20.0: le pagine del giro lungo, ognuna in un test a sé con l'app appena aperta (un tempo scaduto a metà faceva
+    /// perdere tutte le foto dopo). Dopo test1Tour nell'ordine dei test («1T» prima di «1b»): il posto scelto resta
+    private func launch() -> Bool {
         XCUIDevice.shared.appearance = .light
         app.launchArguments = ["-uitest"]
         app.launch()
-        guard youTab.waitForExistence(timeout: 15) else { XCTFail("manca la scheda Tu"); return false }
-        youTab.tap()
-        sleep(1)
+        guard varcoTab.waitForExistence(timeout: 15) else { XCTFail("mancano le schede"); return false }
         return true
     }
 
-    /// Viaggio e hotel: il posto scelto in Varco, il messaggio per l'hotel
-    func test1bYouTrip() {
-        guard launchOnYou() else { return }
-        snap("05-you")
-        if openYou("trip") {
-            sleep(2)
-            snap("06-trip-answer")
-            app.swipeUp()
-            sleep(1)
-            snap("06b-trip-hotel-message")
-        }
+    /// Viaggio (2.2: una scheda sua): il posto scelto in Adesso, il messaggio per l'hotel
+    func test1bTrip() {
+        guard launch() else { return }
+        tripTab.tap()
+        sleep(2)
+        snap("06-trip-answer")
+        app.swipeUp()
+        sleep(1)
+        snap("06b-trip-hotel-message")
     }
 
-    /// Garage e il modulo del veicolo con «Cerca dalla targa» chiuso
+    /// Il foglio del veicolo, il Garage e il modulo del veicolo con «Cerca dalla targa» chiuso e il «Non so»
     func test1cGarage() {
-        guard launchOnYou(), openYou("garage") else { return }
+        guard launch(), openAccount("garage", shot: "05-account") else { return }
         snap("07-garage")
         let add = app.navigationBars.buttons["Add a vehicle"].firstMatch
         if add.waitForExistence(timeout: 3) {
@@ -145,22 +164,23 @@ final class ScreenshotTests: XCTestCase {
         }
     }
 
+    /// Aiuto: la multa e il diario dei passaggi dentro Multe
     func test1dFines() {
-        guard launchOnYou(), openYou("fines") else { return }
-        snap("08-fines")
-        let fine = app.buttons["Got a fine?"].firstMatch
-        if fine.waitForExistence(timeout: 3) { fine.tap(); sleep(1); snap("08b-fine-guide"); back() }
-        let log = app.buttons["Drive log"].firstMatch
-        if log.waitForExistence(timeout: 3) { log.tap(); sleep(1); snap("08c-drive-log"); back() }
+        guard launch() else { return }
+        helpTab.tap()
+        sleep(1)
+        snap("08-help")
+        if openHelp("help.fine") { snap("08b-fine-guide"); back() }
+        if openHelp("fines.log") { snap("08c-drive-log"); back() }
     }
 
-    /// Cosa sono le ZTL → Leggi il cartello: testo scritto a mano (nel simulatore non c'è la fotocamera)
+    /// Aiuto → Cosa sono le ZTL, poi Leggi il cartello: testo scritto a mano (nel simulatore non c'è la fotocamera)
     func test1eLearn() {
-        guard launchOnYou(), openYou("learn") else { return }
-        snap("08d-learn")
-        let sign = app.buttons["learn.sign"].firstMatch
-        if sign.waitForExistence(timeout: 3) {
-            sign.tap()
+        guard launch() else { return }
+        helpTab.tap()
+        sleep(1)
+        if openHelp("help.learn") { snap("08d-learn"); back() }
+        if openHelp("learn.sign") {
             let t = app.descendants(matching: .any)["sign.text"]
             if t.waitForExistence(timeout: 3) {
                 t.tap(); t.typeText("ZONA TRAFFICO LIMITATO\n7.30-20.00\nFERIALI")
@@ -170,10 +190,21 @@ final class ScreenshotTests: XCTestCase {
         }
     }
 
+    /// Impostazioni, dietro l'icona del veicolo (2.2: niente più «Abbonamento»)
     func test1fSettings() {
-        guard launchOnYou() else { return }
-        if openYou("settings") { snap("08f-settings"); back() }
-        if openYou("subscription") { snap("08g-subscription") }
+        guard launch() else { return }
+        if openAccount("settings") { snap("08f-settings"); back() }
+        // 2.2: la modalità «In auto» a tutto schermo (senza posizione nel simulatore: «Aspetto la tua posizione…»)
+        closeAccount()
+        let inCar = app.buttons["varco.incar"].firstMatch
+        if !inCar.waitForExistence(timeout: 3) { app.swipeUp(); sleep(1) }
+        if inCar.waitForExistence(timeout: 3) {
+            inCar.tap()
+            sleep(2)
+            snap("08g-in-car")
+            let close = app.buttons["incar.close"].firstMatch
+            XCTAssertTrue(close.waitForExistence(timeout: 3), "manca la chiusura di «In auto»")
+        }
     }
 
     /// Il primo avvio: la presentazione 2.0, «Salta» porta all'ultima pagina, «Più tardi» all'app
@@ -185,7 +216,7 @@ final class ScreenshotTests: XCTestCase {
         let skip = app.buttons["intro2.skip"].firstMatch
         if skip.waitForExistence(timeout: 5) {
             skip.tap(); sleep(2)
-            snap("09b-intro-where")
+            snap("09b-intro-vehicle")
             let later = app.buttons["intro2.later"].firstMatch
             if later.waitForExistence(timeout: 3) {
                 later.tap(); sleep(3)
@@ -208,11 +239,9 @@ final class ScreenshotTests: XCTestCase {
         // «Viaggio» andava in tempo scaduto (riga di openYou, corse 41694171121 e 41697591616). Il posto torna con -uiPlace
         app.terminate()
         app.launch()
-        XCTAssertTrue(youTab.waitForExistence(timeout: 15))
-        youTab.tap()
-        sleep(1)
-        snap("11b-you-dark")
-        guard openYou("trip") else { return }
+        XCTAssertTrue(tripTab.waitForExistence(timeout: 15))
+        if openAccount(shot: "11b-account-dark") { closeAccount() }
+        tripTab.tap()
         sleep(1)
         snap("12-trip-milan-dark")
         let route = app.buttons["trip.route"].firstMatch
@@ -227,12 +256,8 @@ final class ScreenshotTests: XCTestCase {
                 start.tap()
                 sleep(1)
                 snap("13b-start-menu-dark")
-                let own = app.buttons["GateLR navigation"].firstMatch
-                if own.waitForExistence(timeout: 3) { own.tap() }
-                sleep(8)
-                snap("14-drive-milan-dark")
-                let end = app.buttons["drive.end"].firstMatch
-                if end.waitForExistence(timeout: 3) { end.tap(); sleep(1) }
+                // 2.2 (funzione 28): il navigatore interno non è più nel menu (resta dietro il flag di sviluppo)
+                XCTAssertFalse(app.buttons["GateLR navigation"].exists, "il navigatore interno è ancora nel menu «Avvia»")
             }
         }
     }
@@ -252,12 +277,14 @@ final class ScreenshotTests: XCTestCase {
             app.buttons["Fine"].firstMatch.tap()
             sleep(1)
         }
-        youTab.tap()
+        tripTab.tap()
         sleep(1)
-        snap("20-it-tu")
-        if openYou("trip") { sleep(1); snap("16-it-trip"); back() }
-        if openYou("learn") { snap("21-it-learn"); back() }
-        if openYou("settings") { snap("22-it-settings"); back() }
+        snap("16-it-trip")
+        helpTab.tap()
+        sleep(1)
+        snap("21-it-help")
+        if openAccount("settings", shot: "20-it-account") { snap("22-it-settings"); back() }
+        closeAccount()
         // La mappa per ultima: con tutte le città l'albero di accessibilità della mappa è grande e, sul Mac di GitHub,
         // la ricerca della scheda «Tu» subito dopo andava a volte in tempo scaduto (run 40556483108)
         mapTab.tap()
@@ -358,9 +385,8 @@ final class ScreenshotTests: XCTestCase {
             if done.waitForExistence(timeout: 3) { done.tap() } else { app.swipeDown(velocity: .fast) }
             sleep(1)
         }
-        youTab.tap()
-        sleep(1)
-        if openYou("settings") { sleep(1); snap("32-prova-impostazioni"); back() }
+        if openAccount("settings") { sleep(1); snap("32-prova-impostazioni"); back() }
+        closeAccount()
         // La mappa per ultima (albero di accessibilità grande, vedi test4Italian)
         mapTab.tap()
         sleep(5)
@@ -426,12 +452,11 @@ final class ScreenshotTests: XCTestCase {
             app.terminate()
             app.launchArguments = it + extra
             app.launch()
-            XCTAssertTrue(youTab.waitForExistence(timeout: 15))
-            // Prima la risposta di Varco (le città si leggono), poi Viaggio
+            XCTAssertTrue(tripTab.waitForExistence(timeout: 15))
+            // Prima la risposta di Adesso (le città si leggono), poi Viaggio
             XCTAssertTrue(app.descendants(matching: .any)["varco.answer"].firstMatch.waitForExistence(timeout: 30), "\(name): manca la risposta")
-            youTab.tap()
+            tripTab.tap()
             sleep(1)
-            guard openYou("trip") else { XCTFail("\(name): manca Viaggio"); continue }
             if name.hasPrefix("37") {
                 XCTAssertTrue(app.descendants(matching: .any)["trip.pedestrian"].firstMatch.waitForExistence(timeout: 10), "\(name): manca l'area pedonale")
                 XCTAssertFalse(app.staticTexts["Fuori"].exists, "\(name): c'è ancora «Fuori dalla ZTL»")
@@ -467,13 +492,13 @@ final class ScreenshotTests: XCTestCase {
         app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiAt", "22:00",
                                "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]
         app.launch()
-        XCTAssertTrue(youTab.waitForExistence(timeout: 15))
+        XCTAssertTrue(helpTab.waitForExistence(timeout: 15))
         XCTAssertTrue(app.descendants(matching: .any)["varco.answer"].firstMatch.waitForExistence(timeout: 30), "manca la risposta")
-        youTab.tap()
+        helpTab.tap()
         sleep(1)
 
         // Leggi il cartello alle 22 di un giorno feriale: «7.30-20.00 FERIALI» → spenta secondo il cartello, giallo con il «?»
-        if openYou("learn") {
+        do {
             let sign = app.buttons["learn.sign"].firstMatch
             if sign.waitForExistence(timeout: 3) {
                 sign.tap()
@@ -493,11 +518,10 @@ final class ScreenshotTests: XCTestCase {
                 }
                 back()
             }
-            back()
         }
 
         // Garage → Aggiungi un permesso: zona obbligatoria, poi il dialogo prima di salvare
-        if openYou("garage") {
+        if openAccount("garage") {
             let add = app.buttons["garage.addPermit"].firstMatch
             if !add.waitForExistence(timeout: 3) { app.swipeUp(); sleep(1) }
             if add.waitForExistence(timeout: 3) {
@@ -556,13 +580,12 @@ final class ScreenshotTests: XCTestCase {
         app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiAt", "22:00",
                                "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]
         app.launch()
-        XCTAssertTrue(youTab.waitForExistence(timeout: 15))
+        XCTAssertTrue(helpTab.waitForExistence(timeout: 15))
         XCTAssertTrue(app.descendants(matching: .any)["varco.answer"].firstMatch.waitForExistence(timeout: 30), "manca la risposta")
-        youTab.tap()
+        helpTab.tap()
         sleep(1)
-        guard openYou("fines") else { return XCTFail("manca Multe") }
         snap("44a-it-fines")
-        // La riga «Fotografa il verbale» di Multe e passaggi è «fines.scan» (il riquadro dentro «Hai preso una multa?» è
+        // La riga «Fotografa il verbale» di Aiuto → Multe è «fines.scan» (il riquadro dentro «Hai preso una multa?» è
         // «fine.scan»: nella 1.19.2 il giro cercava quello e non lo trovava)
         var scan = app.descendants(matching: .any)["fines.scan"].firstMatch
         if !scan.waitForExistence(timeout: 5) { scan = app.staticTexts["Fotografa il verbale"].firstMatch }
@@ -630,11 +653,9 @@ final class ScreenshotTests: XCTestCase {
         app.terminate()
         app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiPlate", "GX482KM"]
         app.launch()
-        XCTAssertTrue(youTab.waitForExistence(timeout: 15))
+        XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
         sleep(2)
-        youTab.tap()
-        sleep(1)
-        guard openYou("privacy") else { return XCTFail("manca Privacy in Tu") }
+        guard openAccount("privacy") else { return XCTFail("manca Privacy nel foglio del veicolo") }
         XCTAssertTrue(app.descendants(matching: .any)["privacy.header"].firstMatch.waitForExistence(timeout: 5), "manca la pagina Privacy")
         sleep(1)
         snap("48-privacy")
@@ -642,8 +663,7 @@ final class ScreenshotTests: XCTestCase {
         sleep(1)
         snap("48b-privacy-plate")
 
-        relaunchOnYou()
-        guard openYou("fines") else { return XCTFail("manca Multe") }
+        relaunchOnHelp()
         let log = app.descendants(matching: .any)["fines.log"].firstMatch
         guard log.waitForExistence(timeout: 5) else { return XCTFail("manca il diario dei passaggi") }
         log.tap()

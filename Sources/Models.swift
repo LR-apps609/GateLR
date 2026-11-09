@@ -550,8 +550,23 @@ struct Vehicle: Codable, Identifiable, Hashable {
     /// Dalla 1.17.2, solo per moto e scooter: motore a 2 o 4 tempi. Assente = 4 tempi (quasi tutte le moto e gli
     /// scooter dopo il 2000)
     var stroke: Int? = nil
+    /// 2.2 (decisione 8): «Non so» l'alimentazione (presentazione e Garage). Assente = nota. `fuel` resta un valore
+    /// qualsiasi che il motore non usa
+    var fuelUnknown: Bool? = nil
+    /// 2.2 (decisione 8): «Non so» la classe Euro. Assente = nota. `euro` resta un valore che il motore non usa
+    var euroUnknown: Bool? = nil
 
     var kind: VehicleType { type ?? .car }
+    /// Il motore non sa alimentazione o classe Euro (per un'elettrica la classe Euro non conta): dove contano i divieti
+    /// la risposta è «Controlla il cartello» (Motivo.euroSconosciuto), mai «Entra pure»
+    var specsUnknown: Bool { fuelUnknown == true || (euroUnknown == true && fuel != .electric) }
+    /// «Euro 5», «Euro ?» se non la sai
+    var euroText: String { "Euro " + (specsUnknown ? "?" : String(euro)) }
+
+    /// 2.2 Il veicolo «Non so» della presentazione (anche «Più tardi»): un'auto senza alimentazione né classe Euro
+    static func unknown(_ type: VehicleType = .car) -> Vehicle {
+        Vehicle(name: "", fuel: .petrol, euro: 6, type: type, fuelUnknown: true, euroUnknown: true)
+    }
     var motoCategory: MotoClass { motoClass ?? .motorcycle }
     var strokes: Int { stroke == 2 ? 2 : 4 }
 }

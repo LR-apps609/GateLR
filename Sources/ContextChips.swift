@@ -47,11 +47,12 @@ extension Vehicle {
     /// «Golf · benzina Euro 6» (le elettriche senza classe Euro)
     var chipLabel: String {
         var car = name.isEmpty ? [make ?? "", model].filter { !$0.isEmpty }.joined(separator: " ") : name
-        if car.isEmpty && kind == .motorcycle { car = kind.label }     // «Moto / scooter · benzina Euro 5»
+        // «Moto / scooter · benzina Euro 5»; 2.2: «Auto · alimentazione non nota» per il veicolo «Non so»
+        if car.isEmpty && (kind == .motorcycle || specsUnknown) { car = kind.label }
         // In tedesco i nomi restano maiuscoli («Benzin»)
         let german = Locale.current.language.languageCode?.identifier == "de"
         let fuelText = german ? fuel.label : fuel.label.lowercased()
-        let spec = fuel == .electric ? fuelText : "\(fuelText) Euro \(euro)"
+        let spec = fuelUnknown == true ? L("fuel not known") : fuel == .electric ? fuelText : "\(fuelText) \(euroText)"
         return car.isEmpty ? spec : "\(car) · \(spec)"
     }
 
@@ -59,8 +60,11 @@ extension Vehicle {
     /// (prima «Auto a noleggio · benzina E…»). Il modello prima del nome; l'elettrica con la sua parola, senza classe.
     /// Il nome intero con l'alimentazione resta nel menu e per VoiceOver (chipLabel)
     var chipShort: String {
-        let car = [model, name, make ?? ""].first { !$0.isEmpty } ?? (kind == .motorcycle ? kind.label : "")
-        let spec = fuel == .electric ? fuel.label : "E\(euro)"
+        let car = [model, name, make ?? ""].first { !$0.isEmpty } ?? (kind == .motorcycle || specsUnknown ? kind.label : "")
+        let spec: String
+        if fuelUnknown == true { spec = "?" }
+        else if fuel == .electric { spec = fuel.label }
+        else { spec = "E" + (specsUnknown ? "?" : String(euro)) }
         return car.isEmpty ? spec : "\(car) · \(spec)"
     }
 }
