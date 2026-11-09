@@ -252,6 +252,57 @@ final class NeverGreenTests: XCTestCase {
         // 2.0 (B43): un viaggio salvato come hotel (prima bastava un viaggio qualunque)
         store.trips = [Trip(hotel: hotel, hotelName: hotel.name, arrival: at, departure: at, vehicleId: nil, isHotel: true)]
         XCTAssertTrue(store.isHotel(hotel, at: at))
-        guard case .conditional = PlaceCheck(hotel, store: store, at: at).answer?.verdict else { return XCTFail("il tuo hotel: a una condizione") }
+        // 2.3 (decisione di Ledion del 09/11): il tuo hotel senza la conferma della targa è rosso, con «Chiedi all'hotel…»
+        let ask = PlaceCheck(hotel, store: store, at: at).finale
+        XCTAssertEqual(ask.stato, .nonEntrare, "il tuo hotel senza conferma: non entrare")
+        XCTAssertEqual(ask.hotel, .daChiedere)
+        XCTAssertEqual(ask.reasonLine, L("Ask the hotel to register your plate"))
+        // Con la conferma segnata (per questo veicolo, per questi giorni, nel Settore A): verde con i giorni
+        let c = RuleEngine.rome
+        let permit = Permit(kind: .hotelRegistration, cityId: SampleData.florence.id, zoneId: SampleData.sectorA.id, vehicleId: store.vehicle.id,
+                            from: c.startOfDay(for: at), to: c.date(bySettingHour: 23, minute: 59, second: 0, of: at)!, status: .confirmed)
+        store.permits = [permit]
+        let ok = PlaceCheck(hotel, store: store, at: at)
+        XCTAssertTrue(ok.answer?.verdict.isYes == true, "il tuo hotel con la conferma: sì")
+        XCTAssertEqual(ok.answer?.hotel, .registrata(from: permit.from, to: permit.to))
+        // La città di esempio non è mai verde: «Controlla il cartello», senza la riga dell'hotel
+        XCTAssertEqual(ok.finale.stato, .controllaCartello)
+        XCTAssertNil(ok.finale.hotel)
+        // La stessa risposta in una città vera è «Puoi entrare» con i giorni
+        let real = RispostaFinale.of(ok.answer!, zone: SampleData.sectorA)
+        XCTAssertEqual(real.stato, .entraPure)
+        XCTAssertEqual(real.reasonLine, String(format: L("The hotel registered your plate · from %@ to %@"),
+                                               RuleEngine.format(permit.from, .dateTime.day().month(.abbreviated)),
+                                               RuleEngine.format(permit.to, .dateTime.day().month(.abbreviated))))
+    }
+
+    /// 2.3: solo l'hotel confermato diventa verde. Il ticket resta mai verde («A una condizione», anche se segnato), un
+    /// permesso dell'hotel in una zona dove l'hotel non registra non vale, e la riga dell'hotel non va mai con un altro stato
+    func testOnlyTheConfirmedHotelIsGreen() {
+        var withTicket = SampleData.sectorA
+        withTicket.ticket = Ticket(price: 6, howTo: "Pay online before you drive in.", url: nil)
+        let car = SampleData.rental
+        let at = date(2026, 11, 3, 10)
+        for hotel in [false, true] {
+            let ticket = engine.answer(zone: withTicket, vehicle: car, permits: [], hotelInside: hotel, at: at)
+            XCTAssertEqual(RispostaFinale.of(ticket, zone: withTicket).stato, .condizione, "il ticket non è mai verde (resta anche per l'hotel)")
+        }
+        var noHotel = SampleData.sectorA
+        noHotel.hotelCanRegister = false
+        let p = Permit(kind: .hotelRegistration, cityId: "firenze", zoneId: noHotel.id, vehicleId: car.id,
+                       from: at.addingTimeInterval(-86_400), to: at.addingTimeInterval(86_400), status: .confirmed)
+        XCTAssertFalse(p.covers(zone: noHotel, vehicle: car, at: at))
+        let red = RispostaFinale.of(engine.answer(zone: noHotel, vehicle: car, permits: [p], hotelInside: true, at: at), zone: noHotel)
+        XCTAssertEqual(red.stato, .nonEntrare)
+        XCTAssertNil(red.hotel, "dove l'hotel non registra la targa niente riga dell'hotel")
+        // Fonte non ufficiale o area pedonale: la conferma non fa mai verde né porta la riga dell'hotel
+        var unofficial = SampleData.sectorA
+        unofficial.source.official = false
+        var yes = Answer(verdict: .yes(reason: "r"), gatesOn: true, nextChange: nil)
+        yes.hotel = .registrata(from: at, to: at)
+        XCTAssertEqual(RispostaFinale.of(yes, zone: unofficial).stato, .controllaCartello)
+        XCTAssertNil(RispostaFinale.of(yes, zone: unofficial).hotel)
+        XCTAssertEqual(RispostaFinale.of(yes, zone: SampleData.sectorA, pedestrian: true).stato, .nonEntrare)
+        XCTAssertNil(RispostaFinale.of(yes, zone: SampleData.sectorA, pedestrian: true).hotel)
     }
 }

@@ -138,6 +138,24 @@ struct Answer: Equatable {
     var nextChange: Date?       // quando i varchi si accendono o si spengono
     /// 2.1: il motivo del «non sicuro» (dati scaduti, festivo da confermare), per RispostaFinale (shared/risposta-finale.md)
     var doubt: Motivo? = nil
+    /// 2.3 (decisione di Ledion del 09/11): il tuo hotel nella zona, con o senza la conferma della targa
+    var hotel: HotelNote? = nil
+}
+
+/// 2.3 L'hotel dentro la ZTL (decisione di Ledion del 09/11, shared/risposta-finale.md). Senza la conferma della targa
+/// «Non entrare» con la riga «Chiedi all'hotel di registrare la targa»; con la conferma segnata (targa del veicolo scelto,
+/// giorni che coprono l'ora, zona dove l'hotel può registrare) «Puoi entrare» con «L'hotel ha registrato la targa · dal … al …».
+/// Gli stessi nomi su Android (HotelNota) e sul sito («hotel» della risposta): daChiedere, registrata
+enum HotelNote: Equatable {
+    case daChiedere
+    case registrata(from: Date, to: Date)
+
+    var raw: String {
+        switch self {
+        case .daChiedere: "daChiedere"
+        case .registrata: "registrata"
+        }
+    }
 }
 
 /// 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona. Gli stessi stati su Android (DataTrust) e sul sito
@@ -282,9 +300,17 @@ struct RuleEngine {
             return Answer(verdict: .yes(reason: L("The ZTL is not active.") + until), gatesOn: false, nextChange: next)
         }
         let mine = permits.filter { $0.covers(zone: zone, vehicle: vehicle, at: date) }
-        if mine.contains(where: { $0.status == .confirmed }) {
+        if mine.contains(where: { $0.status == .confirmed && $0.kind != .hotelRegistration }) {
             return Answer(verdict: .yes(reason: L("The ZTL is active, but your permit covers this vehicle.")), gatesOn: true, nextChange: next)
         }
+        // 2.3 (decisione di Ledion del 09/11): la conferma dell'hotel segnata, per questo veicolo, per questi giorni, in una
+        // zona dove l'hotel può registrare la targa (Permit.covers) → «Puoi entrare», con i giorni nella riga sotto
+        if let h = mine.first(where: { $0.status == .confirmed && $0.kind == .hotelRegistration }) {
+            return Answer(verdict: .yes(reason: L("The ZTL is active, but the hotel has registered your plate for these days.")), gatesOn: true,
+                          nextChange: next, hotel: .registrata(from: h.from, to: h.to))
+        }
+        // Il tuo hotel: la meta è il tuo hotel, o una richiesta all'hotel ancora senza conferma per questo veicolo e questi giorni
+        let hotelHere = hotelInside || mine.contains { $0.kind == .hotelRegistration }
         // Prima il tipo di veicolo, poi alimentazione e classe Euro (lo stesso ordine nel sito e su Android)
         if zone.exempts(vehicle) {
             return Answer(verdict: .yes(reason: L("The ZTL is active, but motorbikes and scooters may enter.")), gatesOn: true, nextChange: next)
@@ -297,7 +323,8 @@ struct RuleEngine {
         if zone.exemptFuels.contains(vehicle.fuel) {
             return Answer(verdict: .yes(reason: String(format: L("The ZTL is active, but %@ vehicles may enter."), vehicle.fuel.label.lowercased())), gatesOn: true, nextChange: next)
         }
-        if mine.contains(where: { $0.status == .waiting }) {
+        // La richiesta all'hotel in attesa non è una condizione: senza la conferma «Non entrare» (più sotto)
+        if mine.contains(where: { $0.status == .waiting && $0.kind != .hotelRegistration }) {
             return Answer(verdict: .conditional(reason: L("The ZTL is active."), condition: L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")),
                           gatesOn: true, nextChange: next)
         }
@@ -333,16 +360,18 @@ struct RuleEngine {
                                                 condition: L("Most cars can enter; the most polluting can't. Check your car on the city's page.")),
                           gatesOn: true, nextChange: next)
         }
-        if hotelInside && zone.hotelCanRegister {
-            return Answer(verdict: .conditional(reason: L("The ZTL is active."), condition: L("You can drive to the hotel only if the hotel registers your plate with the city.")),
-                          gatesOn: true, nextChange: next)
-        }
         if let ticket = zone.ticket {
             return Answer(verdict: .conditional(reason: L("The ZTL is active."),
                                                 condition: String(format: L("You can enter with the day ticket (%@). %@"), ticket.priceText, ticket.localizedHowTo)),
                           gatesOn: true, nextChange: next)
         }
         let off = next.map { " " + String(format: L("It ends %@."), describe($0, from: date)) } ?? ""
+        // 2.3 (decisione di Ledion del 09/11): il tuo hotel senza la conferma della targa è «Non entrare», non più «a una
+        // condizione»; la riga sotto dice di chiedere all'hotel (RispostaFinale.reasonLine). Dove c'è il ticket resta il ticket
+        if hotelHere && zone.hotelCanRegister {
+            return Answer(verdict: .no(reason: L("The ZTL is active.") + off + " " + L("Drive to the hotel only once it has confirmed that your plate is registered.")),
+                          gatesOn: true, nextChange: next, hotel: .daChiedere)
+        }
         return Answer(verdict: .no(reason: L("The ZTL is active.") + off), gatesOn: true, nextChange: next)
     }
 

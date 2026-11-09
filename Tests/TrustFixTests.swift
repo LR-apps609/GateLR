@@ -246,9 +246,14 @@ final class TrustFixTests: XCTestCase {
         XCTAssertTrue(e.answer(zone: a, vehicle: car, permits: [scoped], hotelInside: false, at: tuesday).verdict.isYes)
         XCTAssertEqual(e.answer(zone: b, vehicle: car, permits: [scoped], hotelInside: false, at: tuesday).verdict.severity, 3)
 
-        // In attesa: giallo solo nella sua zona
+        // In attesa: giallo solo nella sua zona. 2.3 (decisione di Ledion del 09/11): la richiesta all'hotel in attesa no,
+        // senza conferma è «Non entrare» con «Chiedi all'hotel…»
         scoped.status = .waiting
-        XCTAssertEqual(e.answer(zone: a, vehicle: car, permits: [scoped], hotelInside: false, at: tuesday).verdict.severity, 2)
+        XCTAssertEqual(e.answer(zone: a, vehicle: car, permits: [scoped], hotelInside: false, at: tuesday).verdict.severity, 3)
+        XCTAssertEqual(e.answer(zone: a, vehicle: car, permits: [scoped], hotelInside: false, at: tuesday).hotel, .daChiedere)
+        var resident = scoped
+        resident.kind = .resident
+        XCTAssertEqual(e.answer(zone: a, vehicle: car, permits: [resident], hotelInside: false, at: tuesday).verdict.severity, 2)
         // Un altro veicolo o fuori dai giorni: niente
         XCTAssertFalse(scoped.covers(zone: a, vehicle: Vehicle(name: "Altra", fuel: .petrol, euro: 6), at: tuesday))
         XCTAssertFalse(scoped.covers(zone: a, vehicle: car, at: date(2026, 11, 7, 10)))

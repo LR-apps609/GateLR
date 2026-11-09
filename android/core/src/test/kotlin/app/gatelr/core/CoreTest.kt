@@ -50,7 +50,10 @@ class CoreTest {
         assertTrue(night.verdict is Verdict.Yes)
         assertEquals(date(2026, 10, 24, 7, 30), night.nextChange)                       // sabato mattina
         assertEquals(date(2026, 10, 23, 20), engine.previousChange(b, date(2026, 10, 23, 21, 40)))
-        assertTrue(verdict(b, at = date(2026, 10, 26, 18), hotel = true) is Verdict.Conditional)
+        // 2.3 (decisione di Ledion del 09/11): il tuo hotel senza la conferma della targa è «Non entrare», non più giallo
+        val hotel = engine.answer(b, car, emptyList(), true, date(2026, 10, 26, 18))
+        assertTrue(hotel.verdict is Verdict.No)
+        assertEquals(HotelNota.DaChiedere, hotel.hotel)
     }
 
     @Test fun florenceScudoVerde() {

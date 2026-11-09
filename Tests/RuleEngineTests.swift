@@ -36,9 +36,12 @@ final class RuleEngineTests: XCTestCase {
         XCTAssertEqual(a.nextChange, date(2026, 10, 26, 20))
     }
 
-    func testHotelInsideIsConditional() {
+    /// 2.3 (decisione di Ledion del 09/11): il tuo hotel senza la conferma della targa è «Non entrare» (prima giallo)
+    func testHotelInsideWithoutConfirmationIsNo() {
         let a = engine.answer(zone: zone, vehicle: car, permits: [], hotelInside: true, at: date(2026, 10, 26, 18))
-        guard case .conditional = a.verdict else { return XCTFail("atteso con condizioni, ottenuto \(a.verdict)") }
+        guard case .no = a.verdict else { return XCTFail("atteso no, ottenuto \(a.verdict)") }
+        XCTAssertEqual(a.hotel, .daChiedere)
+        XCTAssertNil(engine.answer(zone: zone, vehicle: car, permits: [], hotelInside: false, at: date(2026, 10, 26, 18)).hotel)
     }
 
     func testConfirmedPermitIsYes() {
@@ -46,6 +49,7 @@ final class RuleEngineTests: XCTestCase {
                        from: date(2026, 10, 26, 0), to: date(2026, 10, 28, 23), status: .confirmed)
         let a = engine.answer(zone: zone, vehicle: car, permits: [p], hotelInside: true, at: date(2026, 10, 26, 18))
         guard case .yes = a.verdict else { return XCTFail("atteso sì, ottenuto \(a.verdict)") }
+        XCTAssertEqual(a.hotel, .registrata(from: p.from, to: p.to))
     }
 
     func testPermitForAnotherCarDoesNotCount() {

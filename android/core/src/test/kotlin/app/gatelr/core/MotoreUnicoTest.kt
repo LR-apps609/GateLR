@@ -50,6 +50,54 @@ class MotoreUnicoTest {
         assertTrue(engine.answer(b, car, listOf(forA), false, at).verdict is Verdict.No)
     }
 
+    /** 2.3 (decisione di Ledion del 09/11): l'hotel nella ZTL. Senza conferma rosso con «Chiedi all'hotel…»; con la conferma
+     *  per il veicolo scelto, nei giorni giusti e dove l'hotel può registrare verde con «L'hotel ha registrato la targa · dal … al …»;
+     *  date scadute, altra auto, zona senza registrazione dell'hotel, richiesta in attesa: rosso */
+    @Test fun hotelRegistration() {
+        val f = city("firenze")
+        val a = f.zones.first { it.id == "firenze-a" }
+        val at = date(2026, 11, 10, 10)
+        val engine = RuleEngine(now = { date(2026, 11, 3, 12) })
+        val day = 86_400_000L
+        val conf = Permit(kind = Permit.Kind.HOTEL, cityId = "firenze", zoneId = a.id, vehicleId = car.id,
+            from = at.toEpochMilli() - day, to = at.toEpochMilli() + day, status = Permit.Status.CONFIRMED)
+        val none = engine.answer(a, car, emptyList(), true, at)
+        assertTrue(none.verdict is Verdict.No)
+        val red = RispostaFinale.forZone(none, a)
+        assertEquals(Stato.NON_ENTRARE, red.stato)
+        assertEquals(HotelNota.DaChiedere, red.hotel)
+        assertEquals(L("Ask the hotel to register your plate"), red.reasonLine)
+
+        val ok = engine.answer(a, car, listOf(conf), true, at)
+        assertTrue(ok.verdict is Verdict.Yes)
+        val green = RispostaFinale.forZone(ok, a)
+        assertEquals(Stato.ENTRA_PURE, green.stato)
+        assertEquals(HotelNota.Registrata(conf.from, conf.to), green.hotel)
+        assertTrue(green.reasonLine!!.startsWith(L("The hotel registered your plate · from %@ to %@").substringBefore("%@")))
+
+        // Date scadute, altra auto, richiesta in attesa: rosso con la riga dell'hotel
+        val expired = conf.copy(from = at.toEpochMilli() - 5 * day, to = at.toEpochMilli() - 3 * day)
+        val other = conf.copy(vehicleId = "un'altra auto")
+        val waiting = conf.copy(status = Permit.Status.WAITING)
+        for (p in listOf(expired, other, waiting)) {
+            val r = RispostaFinale.forZone(engine.answer(a, car, listOf(p), true, at), a)
+            assertEquals(Stato.NON_ENTRARE, r.stato, p.toString())
+            assertEquals(HotelNota.DaChiedere, r.hotel, p.toString())
+        }
+        // Una zona dove l'hotel non può registrare la targa: la conferma non vale, rosso senza la riga dell'hotel
+        val noHotel = a.copy(hotelCanRegister = false)
+        assertFalse(conf.covers(noHotel, car, at))
+        val r = RispostaFinale.forZone(engine.answer(noHotel, car, listOf(conf), true, at), noHotel)
+        assertEquals(Stato.NON_ENTRARE, r.stato)
+        assertEquals(null, r.hotel)
+        // Un permesso di residente in attesa resta «a una condizione» (giallo): solo l'hotel cambia
+        val resident = conf.copy(kind = Permit.Kind.RESIDENT, status = Permit.Status.WAITING)
+        assertTrue(engine.answer(a, car, listOf(resident), false, at).verdict is Verdict.Conditional)
+        // Il ticket resta mai verde (giallo «A una condizione»)
+        val bologna = city("bologna").zones.first { it.id == "bologna-ztl" }
+        assertEquals(Stato.CONDIZIONE, RispostaFinale.forZone(engine.answer(bologna, car, emptyList(), false, at), bologna).stato)
+    }
+
     /** Fonte non ufficiale: il «sì» si mostra «non sicuro»; il «no» resta «no» (rosso, «Probabilmente no»), come l'iPhone */
     @Test fun unofficialYesIsShownUnsure() {
         assertTrue(Verdict.Yes("x").shown(true) is Verdict.Unsure)

@@ -178,7 +178,9 @@ final class RispostaFinaleTests: XCTestCase {
         let c = ThreatCandidate(zone: hit.zone, cityName: hit.city.localizedName)
         let atArrival = store.threatAnswer(c, at: d(11, 20, 15), destination: place)
         let later = store.threatAnswer(c, at: d(12, 15, 15), destination: place)
-        guard case .conditional = atArrival.verdict else { return XCTFail("all'arrivo: a una condizione (hotel), ottenuto \(atArrival.verdict)") }
-        if case .conditional = later.verdict { XCTFail("lontano dal soggiorno l'hotel non vale più") }
+        // 2.3 (decisione di Ledion del 09/11): chiesto ma non confermato = «Non entrare» con «Chiedi all'hotel…»
+        guard case .no = atArrival.verdict else { return XCTFail("all'arrivo: non entrare (hotel senza conferma), ottenuto \(atArrival.verdict)") }
+        XCTAssertEqual(atArrival.hotel, .daChiedere)
+        XCTAssertNil(later.hotel, "lontano dal soggiorno l'hotel non vale più")
     }
 }

@@ -59,9 +59,14 @@ class SharedEngineCasesTest {
             val place = c["place"]!!.jsonObject
             val at = OffsetDateTime.parse(c["at"]!!.jsonPrimitive.content).toInstant()
             val now = c["now"]?.jsonPrimitive?.contentOrNull?.let { OffsetDateTime.parse(it).toInstant() } ?: defaultNow
-            val v = vehicle(vehicles[c["vehicle"]!!.jsonPrimitive.content]!!.jsonObject)
+            // Lo stesso veicolo per la stessa chiave (la conferma dell'hotel vale per un veicolo preciso)
+            val byKey = vehicles.mapValues { (_, j) -> vehicle(j.jsonObject) }
+            val v = byKey[c["vehicle"]!!.jsonPrimitive.content]!!
             val engine = RuleEngine(now = { now })
-            val hotel = c["hotel"]?.jsonPrimitive?.booleanOrNull ?: false
+            // 2.3 «hotel»: il posto è il tuo hotel; «chiesto» e «confermato» diventano un permesso «registrazione hotel» per ogni
+            // zona del posto dove l'hotel può registrare, per il veicolo «veicolo», dalla mezzanotte di «dal» alle 23:59 di «al»
+            val h = c["hotel"]?.jsonObject
+            val hotel = h != null
             // 1.20.1: «pageChanged» dei file cambia ogni mattina: i casi lo ignorano (false) salvo «source»; «source» può
             // anche dare «verifiedOn» e «checkedOn» a tutte le zone. Solo nel test, i file non cambiano
             val src = c["source"]?.jsonObject
@@ -71,7 +76,18 @@ class SharedEngineCasesTest {
                 z.copy(source = z.source.copy(pageChanged = pageChanged,
                     verifiedOn = if (src != null && "verifiedOn" in src) src["verifiedOn"]!!.jsonPrimitive.contentOrNull else z.source.verifiedOn,
                     checkedOn = read ?: z.source.checkedOn)) }) }
-            val p = PlaceCheck.of(cities, Coordinate(place["lat"]!!.jsonPrimitive.double, place["lon"]!!.jsonPrimitive.double), engine, v, emptyList(), hotel, at)
+            val coord = Coordinate(place["lat"]!!.jsonPrimitive.double, place["lon"]!!.jsonPrimitive.double)
+            val permits = h?.let { hj ->
+                val stato = hj["stato"]!!.jsonPrimitive.content
+                if (stato == "nonChiesto") return@let emptyList()
+                val car = byKey[hj["veicolo"]!!.jsonPrimitive.content]!!
+                val from = java.time.LocalDate.parse(hj["dal"]!!.jsonPrimitive.content).atStartOfDay(RuleEngine.ROME).toInstant().toEpochMilli()
+                val to = java.time.LocalDate.parse(hj["al"]!!.jsonPrimitive.content).atTime(23, 59).atZone(RuleEngine.ROME).toInstant().toEpochMilli()
+                cities.flatMap { city -> city.zones.filter { it.hotelCanRegister && it.contains(coord.lat, coord.lon) }.map { z ->
+                    Permit(kind = Permit.Kind.HOTEL, cityId = city.id, zoneId = z.id, vehicleId = car.id, from = from, to = to,
+                        status = if (stato == "confermato") Permit.Status.CONFIRMED else Permit.Status.WAITING) } }
+            } ?: emptyList()
+            val p = PlaceCheck.of(cities, coord, engine, v, permits, hotel, at)
             val expect = c["expect"]!!.jsonObject
             fun check(what: String, want: Any?, got: Any?) { if (want != got) errors += "$id: $what atteso $want, ottenuto $got" }
             check("colore", expect["colour"]!!.jsonPrimitive.content, p.color.name.lowercase())
@@ -91,6 +107,8 @@ class SharedEngineCasesTest {
                 check("stato", expect["stato"]?.jsonPrimitive?.content, f.stato.raw)
                 check("motivo", expect["motivo"]?.jsonPrimitive?.content, f.motivo?.raw)
             }
+            // 2.3: la riga dell'hotel (assente = nessuna)
+            check("hotel", expect["hotel"]?.jsonPrimitive?.content, f.hotel?.raw)
             if (f.color == Tono.VERDE && (!p.covered || p.unofficial)) errors += "$id: ${f.stato.raw} verde dove non sappiamo"
             // Le regole fisse, qualunque cosa dica il file
             if (!p.covered && p.color != AnswerColor.NEUTRAL) errors += "$id: fuori copertura non neutro"

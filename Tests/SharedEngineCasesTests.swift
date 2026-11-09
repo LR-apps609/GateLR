@@ -23,6 +23,13 @@ final class SharedEngineCasesTests: XCTestCase {
         ISO8601DateFormatter().date(from: s)
     }
 
+    /// La mezzanotte di Roma del giorno "AAAA-MM-GG"
+    private static func romeDay(_ s: String) -> Date? {
+        let p = s.split(separator: "-").compactMap { Int($0) }
+        guard p.count == 3 else { return nil }
+        return RuleEngine.rome.date(from: DateComponents(year: p[0], month: p[1], day: p[2]))
+    }
+
     private static func colour(_ a: Access?) -> String {
         switch a {
         case nil: "neutral"
@@ -79,8 +86,10 @@ final class SharedEngineCasesTests: XCTestCase {
 
         for c in cases {
             let id = c["id"] as? String ?? "?"
+            // Lo stesso veicolo per la stessa chiave: la conferma dell'hotel vale per un veicolo preciso (Vehicle.id)
+            let byKey = vehicles.compactMapValues(Self.vehicle)
             guard let place = c["place"] as? [String: Any], let lat = place["lat"] as? Double, let lon = place["lon"] as? Double,
-                  let at = Self.date(c["at"] as? String ?? ""), let v = (c["vehicle"] as? String).flatMap({ vehicles[$0] }).flatMap(Self.vehicle),
+                  let at = Self.date(c["at"] as? String ?? ""), let v = (c["vehicle"] as? String).flatMap({ byKey[$0] }),
                   let expect = c["expect"] as? [String: Any] else { XCTFail("\(id): caso scritto male"); continue }
             let now = (c["now"] as? String).flatMap(Self.date) ?? defaultNow
             var engine = RuleEngine()
@@ -101,9 +110,23 @@ final class SharedEngineCasesTests: XCTestCase {
             let p = Coordinate(lat: lat, lon: lon)
             let hits = Store.zones(at: p, in: caseCities)
             let area = caseCities.lazy.compactMap { $0.pedestrian?.first(where: { $0.contains(lat: lat, lon: lon) }) }.first
-            let hotel = c["hotel"] as? Bool ?? false
+            // 2.3 «hotel»: il posto è il tuo hotel; «chiesto» e «confermato» diventano un permesso «registrazione hotel» per ogni
+            // zona del posto dove l'hotel può registrare (come HotelStayCard e Store.syncHotelPermits), per il veicolo «veicolo»,
+            // dalla mezzanotte di «dal» alle 23:59 di «al», ora italiana
+            let h = c["hotel"] as? [String: Any]
+            let hotel = h != nil
+            var permits: [Permit] = []
+            if let h, let stato = h["stato"] as? String, stato != "nonChiesto" {
+                guard let car = (h["veicolo"] as? String).flatMap({ byKey[$0] }),
+                      let from = (h["dal"] as? String).flatMap(Self.romeDay), let last = (h["al"] as? String).flatMap(Self.romeDay),
+                      let to = RuleEngine.rome.date(bySettingHour: 23, minute: 59, second: 0, of: last) else { XCTFail("\(id): hotel scritto male"); continue }
+                permits = hits.filter { $0.zone.hotelCanRegister }.map {
+                    Permit(kind: .hotelRegistration, cityId: $0.city.id, zoneId: $0.zone.id, vehicleId: car.id, from: from, to: to,
+                           status: stato == "confermato" ? .confirmed : .waiting)
+                }
+            }
             let check = PlaceCheck(place: Place(name: place["name"] as? String ?? id, address: "", location: p), hits: hits, pedestrian: area,
-                                   answers: hits.map { engine.trustedAnswer(zone: $0.zone, vehicle: v, permits: [], hotelInside: hotel, at: at) },
+                                   answers: hits.map { engine.trustedAnswer(zone: $0.zone, vehicle: v, permits: permits, hotelInside: hotel, at: at) },
                                    covered: Store.covers(p, in: caseCities),
                                    coverUnofficial: hits.isEmpty && Store.coverUnofficial(p, in: caseCities))
 
@@ -136,6 +159,10 @@ final class SharedEngineCasesTests: XCTestCase {
             XCTAssertEqual(f.stato.rawValue, expect["stato"] as? String, "\(id): stato")
             XCTAssertEqual(f.motivo?.rawValue, expect["motivo"] as? String, "\(id): motivo")
             XCTAssertEqual(f.motivo != nil, f.stato == .controllaCartello, "\(id): il motivo solo con «Controlla il cartello»")
+            // 2.3: la riga dell'hotel (assente = nessuna), solo con «Non entrare» (da chiedere) o «Puoi entrare» (registrata)
+            XCTAssertEqual(f.hotel?.raw, expect["hotel"] as? String, "\(id): hotel")
+            if case .some(.registrata) = f.hotel { XCTAssertEqual(f.stato, .entraPure, "\(id): hotel registrata senza verde") }
+            if f.hotel == .daChiedere { XCTAssertEqual(f.stato, .nonEntrare, "\(id): hotel da chiedere senza rosso") }
             XCTAssertEqual(check.word, f.word, "\(id): il titolo è la parola dello stato")
             if f.color == .verde { XCTAssertTrue(check.covered && !check.unofficial, "\(id): \(f.stato) verde dove non sappiamo") }
             // Le regole fisse, qualunque cosa dica il file: mai verde fuori copertura o da fonte non ufficiale

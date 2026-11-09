@@ -63,7 +63,18 @@ enum class AnswerWord(val key: String, val lineKey: String, val symbol: String) 
 }
 
 /** 2.1: [doubt] è il motivo del «non sicuro» (dati scaduti, festivo da confermare), per RispostaFinale */
-data class Answer(val verdict: Verdict, val gatesOn: Boolean, val nextChange: Instant?, val doubt: Motivo? = null)
+data class Answer(val verdict: Verdict, val gatesOn: Boolean, val nextChange: Instant?, val doubt: Motivo? = null,
+                  /** 2.3 (decisione di Ledion del 09/11): il tuo hotel nella zona, con o senza la conferma della targa */
+                  val hotel: HotelNota? = null)
+
+/** 2.3 L'hotel dentro la ZTL (shared/risposta-finale.md), come HotelNote dell'iPhone e «hotel» del sito. Senza la conferma
+ *  della targa «Non entrare» con «Chiedi all'hotel di registrare la targa»; con la conferma segnata (targa del veicolo scelto,
+ *  giorni che coprono l'ora, zona dove l'hotel può registrare) «Puoi entrare» con «L'hotel ha registrato la targa · dal … al …» */
+sealed class HotelNota(val raw: String) {
+    data object DaChiedere : HotelNota("daChiedere")
+    /** [from] e [to] in millisecondi, come Permit */
+    data class Registrata(val from: Long, val to: Long) : HotelNota("registrata")
+}
 
 /** 1.20.1 «Dati»: quanto ci si può fidare delle regole di una zona (come DataTrust dell'iPhone e trustOf del sito).
  *  Regola A (decisa da Ledion): VERIFIED e READ danno la risposta normale (anche verde), gli altri mai verde */
@@ -140,9 +151,17 @@ class RuleEngine(
             return Answer(Verdict.Yes(L("The ZTL is not active.") + until), false, next)
         }
         val mine = permits.filter { it.covers(zone, vehicle, at) }
-        if (mine.any { it.status == Permit.Status.CONFIRMED }) {
+        if (mine.any { it.status == Permit.Status.CONFIRMED && it.kind != Permit.Kind.HOTEL }) {
             return Answer(Verdict.Yes(L("The ZTL is active, but your permit covers this vehicle.")), true, next)
         }
+        // 2.3 (decisione di Ledion del 09/11): la conferma dell'hotel segnata, per questo veicolo, per questi giorni, in una
+        // zona dove l'hotel può registrare la targa (Permit.covers) → «Puoi entrare», con i giorni nella riga sotto
+        mine.firstOrNull { it.status == Permit.Status.CONFIRMED && it.kind == Permit.Kind.HOTEL }?.let { h ->
+            return Answer(Verdict.Yes(L("The ZTL is active, but the hotel has registered your plate for these days.")), true, next,
+                hotel = HotelNota.Registrata(h.from, h.to))
+        }
+        // Il tuo hotel: la meta è il tuo hotel, o una richiesta all'hotel ancora senza conferma per questo veicolo e questi giorni
+        val hotelHere = hotelInside || mine.any { it.kind == Permit.Kind.HOTEL }
         // Prima il tipo di veicolo, poi alimentazione e classe Euro (come Sources/RuleEngine.swift)
         if (zone.exempts(vehicle)) {
             return Answer(Verdict.Yes(L("The ZTL is active, but motorbikes and scooters may enter.")), true, next)
@@ -150,7 +169,8 @@ class RuleEngine(
         if (vehicle.fuel in zone.exemptFuels) {
             return Answer(Verdict.Yes(F("The ZTL is active, but %@ vehicles may enter.", vehicle.fuel.label.lowercase())), true, next)
         }
-        if (mine.any { it.status == Permit.Status.WAITING }) {
+        // La richiesta all'hotel in attesa non è una condizione: senza la conferma «Non entrare» (più sotto)
+        if (mine.any { it.status == Permit.Status.WAITING && it.kind != Permit.Kind.HOTEL }) {
             return Answer(Verdict.Conditional(L("The ZTL is active."), L("Your permit is still waiting for confirmation. Drive in only once it's confirmed.")), true, next)
         }
         // Moto e scooter: i limiti loro, dove una fonte ufficiale li scrive («motoBans», 1.17.2, come sull'iPhone)
@@ -181,13 +201,16 @@ class RuleEngine(
             return Answer(Verdict.Conditional(L("The low-emission zone is active."),
                 L("Most cars can enter; the most polluting can't. Check your car on the city's page.")), true, next)
         }
-        if (hotelInside && zone.hotelCanRegister) {
-            return Answer(Verdict.Conditional(L("The ZTL is active."), L("You can drive to the hotel only if the hotel registers your plate with the city.")), true, next)
-        }
         zone.ticket?.let { t ->
             return Answer(Verdict.Conditional(L("The ZTL is active."), F("You can enter with the day ticket (%@). %@", Money.euro(t.price), t.localizedHowTo)), true, next)
         }
         val off = next?.let { " " + F("It ends %@.", describe(it, at)) } ?: ""
+        // 2.3: il tuo hotel senza la conferma della targa è «Non entrare», non più «a una condizione»; la riga sotto dice di
+        // chiedere all'hotel (RispostaFinale.reasonLine). Dove c'è il ticket resta il ticket
+        if (hotelHere && zone.hotelCanRegister) {
+            return Answer(Verdict.No(L("The ZTL is active.") + off + " " + L("Drive to the hotel only once it has confirmed that your plate is registered.")),
+                true, next, hotel = HotelNota.DaChiedere)
+        }
         return Answer(Verdict.No(L("The ZTL is active.") + off), true, next)
     }
 

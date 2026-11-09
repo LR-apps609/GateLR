@@ -659,6 +659,8 @@ struct Permit: Codable, Identifiable, Hashable {
 
     func covers(zone: Zone, vehicle: Vehicle, at date: Date) -> Bool {
         guard let zoneId else { return false }
+        // 2.3: la registrazione dell'hotel vale solo dove l'hotel può registrare la targa (hotelCanRegister)
+        if kind == .hotelRegistration && !zone.hotelCanRegister { return false }
         return vehicleId == vehicle.id && zoneId == zone.id && from <= date && date <= to
     }
 

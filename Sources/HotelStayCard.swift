@@ -74,6 +74,16 @@ struct HotelStayCard: View {
                 Text("Confirmed").tag(HotelStay.Status.confirmed)
             }
             .pickerStyle(.segmented)
+            // 2.3 (decisione di Ledion del 09/11): senza la conferma la risposta è «Non entrare»; il pulsante per segnarla
+            // (con la targa e la conferma scritta, dopo il dialogo) fa diventare la risposta «Puoi entrare» per questi giorni
+            if s.status != .confirmed {
+                Button { choose(.confirmed, from: s) } label: {
+                    Label("The hotel has registered the plate", systemImage: "checkmark.seal")
+                        .font(.app(size: 15, weight: .semibold)).frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered).tint(Theme.ink)
+                .accessibilityIdentifier("stay.registered")
+            }
             if let other = otherVehicle {
                 Label(String(format: L("The hotel registers the plate of %@. For this vehicle, ask the hotel again."), PlatePrivacy.displayName(other)),
                       systemImage: "car.2.fill")
@@ -112,7 +122,7 @@ struct HotelStayCard: View {
         } message: {
             Text(verbatim: String(format: L(pending == .confirmed
                     ? "Confirm only if the hotel has confirmed in writing that your plate is registered for every day. GateLR will answer \"yes\" only in %@, only for these days."
-                    : "GateLR will answer \"on one condition\" in %@ for these days, until the hotel confirms in writing."),
+                    : "Until the hotel confirms in writing, GateLR keeps answering \"Don't enter\" in %@."),
                                   zones.map(\.localizedName).joined(separator: ", ")))
         }
     }
