@@ -95,7 +95,7 @@ final class RispostaFinaleTests: XCTestCase {
         XCTAssertEqual(ThreatEvaluator.alertDistance(speed: 14), 600, "sopra 50 km/h")
     }
 
-    /// Il titolo dell'avviso viene dalla RispostaFinale: mai un avviso per «Entra pure» né per la ZTL non attiva
+    /// Il titolo dell'avviso viene dalla RispostaFinale: mai un avviso per «Puoi entrare» né per la ZTL non attiva
     func testThreatTitleFromTheAnswer() {
         let c = ThreatCandidate(zone: zone, cityName: "Firenze")
         let p = Coordinate(lat: 43.77, lon: 11.25)

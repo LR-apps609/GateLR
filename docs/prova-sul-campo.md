@@ -27,7 +27,7 @@ E, quando qualcosa non torna sul posto, **«Segnala un errore»**.
 - **Attiva adesso** (di base): la ZTL è accesa tutto il giorno, ogni giorno, anche nei festivi. Varco risponde
   **«Non entrare.»** e il pannello dice VARCO ATTIVO.
 - **Spenta** (Impostazioni → «ZTL di prova» → Spenta, o menu ⋯ della striscia → «Spegni la ZTL di prova»): Varco risponde
-  **«Entra pure.»**, pannello verde. Così si provano tutti e due gli stati.
+  **«ZTL non attiva»**, pannello verde. Così si provano tutti e due gli stati.
 - La zona passa da tutto il resto dell'app come una zona vera:
   - **Varco**: la risposta per «La mia posizione» quando sei dentro; «Vicino a te: ZONA DI PROVA · … · attiva adesso».
   - **Mappa**: la zona colorata, i varchi, la scheda in basso, «Parcheggia fuori» (con il Parcheggio di prova per primo).

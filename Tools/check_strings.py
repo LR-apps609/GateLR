@@ -78,4 +78,21 @@ for f in sorted((ROOT / "Sources").rglob("*.swift")) + sorted((ROOT / "Widget").
 for k, w in sorted(missing.items(), key=lambda x: x[1]):
     print(f"{w}\t{k}")
 print(len(missing), "da tradurre", file=sys.stderr)
-sys.exit(1 if missing else 0)
+
+# 2.0 (decisione di Ledion del 09/11): sul sito i titoli delle sette risposte sono quelli dell'app, lingua per lingua,
+# nella risposta («s…») e nella legenda («p…»): «Puoi entrare», «A una condizione», mai «Entra pure»
+SITE = {"No": "Don't enter", "Cond": "On one condition", "Si": "You can enter", "Off": "ZTL not active",
+        "Unsure": "Check the sign", "Out": "Outside the ZTL", "Unk": "We don't know this place"}
+html = (ROOT / "web/template.html").read_text(encoding="utf-8")
+site_bad = []
+for i, lang in enumerate(("en", "it", "de")):
+    block = html[html.index(f"\n {lang}:{{"):]
+    for k, key in SITE.items():
+        want = key if lang == "en" else T["T"][key][i - 1]
+        for p in "sp":
+            m = re.search(rf' {p}{k}:"([^"]*)"', block)
+            if not m or m.group(1) != want:
+                site_bad.append(f"web/template.html {lang} {p}{k}: «{m.group(1) if m else '?'}» invece di «{want}» (come l'app)")
+for b in site_bad:
+    print(b)
+sys.exit(1 if missing or site_bad else 0)

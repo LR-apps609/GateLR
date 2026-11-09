@@ -115,6 +115,29 @@ final class ParoleTests: XCTestCase {
         XCTAssertEqual(try strings("it")["Check the sign"], "Controlla il cartello")
     }
 
+    /// 2.0 (decisione di Ledion del 09/11): il sito dice i sette titoli come l'app, in inglese, italiano e tedesco, nella
+    /// risposta («s…») e nella legenda delle risposte («p…»): «Puoi entrare», «A una condizione», mai «Entra pure»
+    func testSiteTitlesMatchTheApp() throws {
+        let html = try String(contentsOf: Self.root.appendingPathComponent("web/template.html"), encoding: .utf8)
+        let words: [(String, AnswerWord)] = [("No", .dontEnter), ("Cond", .condition), ("Si", .enter), ("Off", .notActive),
+                                             ("Unsure", .checkSign), ("Out", .outside), ("Unk", .unknownPlace)]
+        for lang in ["en", "it", "de"] {
+            let t: [String: String] = try lang == "en" ? [:] : strings(lang)
+            let start = try XCTUnwrap(html.range(of: "\n \(lang):{"), "sito: manca la lingua \(lang)")
+            let block = html[start.upperBound...]
+            for (k, w) in words {
+                let expected = lang == "en" ? w.key : (t[w.key] ?? "?")
+                for p in ["s", "p"] {
+                    let open = try XCTUnwrap(block.range(of: " \(p)\(k):\""), "sito \(lang): manca \(p)\(k)")
+                    let rest = block[open.upperBound...]
+                    let close = try XCTUnwrap(rest.firstIndex(of: "\""))
+                    let value = String(rest[..<close])
+                    XCTAssertEqual(value, expected, "sito \(lang): \(p)\(k) «\(value)» invece di «\(expected)» come nell'app")
+                }
+            }
+        }
+    }
+
     /// 10. Le lingue più lunghe (tedesco e polacco): i titoli nelle pillole (12 pt) stanno su una riga in 170 pt e ogni
     /// riga del titolo grande (36 pt) in 300 pt (lo spazio accanto al simbolo su un iPhone piccolo)
     func testLongLanguagesFit() throws {

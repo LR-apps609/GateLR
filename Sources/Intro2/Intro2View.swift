@@ -76,7 +76,7 @@ struct Intro2View: View {
 }
 
 /// 2.2 L'ultima pagina (tavola I-Veicolo, funzione 26 «3 pagine + veicolo»): con cosa entri? Tipo, alimentazione e classe
-/// Euro, ognuna con «Non so» (decisione 8: dove contano i divieti Euro diciamo «Controlla il cartello», mai «Entra pure»).
+/// Euro, ognuna con «Non so» (decisione 8: dove contano i divieti Euro diciamo «Controlla il cartello», mai «Puoi entrare»).
 /// Prima c'era «Dove vuoi andare?» con la promessa di un percorso fuori dalla ZTL, che GateLR non fa: la ricerca è in Adesso
 struct IntroVehiclePage: View {
     @EnvironmentObject var store: Store

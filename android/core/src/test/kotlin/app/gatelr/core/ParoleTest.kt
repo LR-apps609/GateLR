@@ -89,6 +89,27 @@ class ParoleTest {
         assertEquals("Varco", table("it")["Gate"]); assertEquals("Tu", table("it")["You"])
     }
 
+    /** 2.0 (decisione di Ledion del 09/11): il sito dice i sette titoli come l'app, in inglese, italiano e tedesco, nella
+     *  risposta («s…») e nella legenda delle risposte («p…»): «Puoi entrare», «A una condizione», mai «Entra pure» */
+    @Test fun siteTitlesMatchTheApp() {
+        val html = File(dir, "../../web/template.html").readText()
+        val site = mapOf(Stato.NON_ENTRARE to "No", Stato.CONDIZIONE to "Cond", Stato.ENTRA_PURE to "Si", Stato.ZTL_NON_ATTIVA to "Off",
+            Stato.CONTROLLA_CARTELLO to "Unsure", Stato.FUORI_ZTL to "Out", Stato.NON_COPERTO to "Unk")
+        assertEquals(Stato.entries.toSet(), site.keys)
+        for (lang in listOf("en", "it", "de")) {
+            val start = html.indexOf("\n $lang:{"); assertTrue(start >= 0, "sito: manca la lingua $lang")
+            val block = html.substring(start)
+            val t = if (lang == "en") emptyMap() else table(lang)
+            for ((stato, k) in site) {
+                val want = if (lang == "en") stato.key else assertNotNull(t[stato.key], "$lang: manca «${stato.key}»")
+                for (p in listOf("s", "p")) {
+                    val m = assertNotNull(Regex(" $p$k:\"([^\"]*)\"").find(block), "sito $lang: manca $p$k")
+                    assertEquals(want, m.groupValues[1], "sito $lang: $p$k diverso dall'app")
+                }
+            }
+        }
+    }
+
     /** 10. Le lingue lunghe (tedesco, polacco): i titoli stanno in una pillola corta (al massimo 24 caratteri) */
     @Test fun longLanguagesStayShort() {
         for (lang in listOf("de", "pl")) {
