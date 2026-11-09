@@ -19,7 +19,7 @@ struct ColorToken: Equatable {
     var color: Color { day == night ? Color(hex: day) : Color(light: day, dark: night) }
     func hex(night isNight: Bool) -> UInt32 { isNight ? night : day }
     /// Il valore di un tema solo (Live Activity e Dynamic Island hanno sempre il fondo scuro)
-    func color(night isNight: Bool) -> Color { Color(hex: hex(night: isNight)) }
+    func fixedColor(night isNight: Bool) -> Color { Color(hex: hex(night: isNight)) }
     /// Uguale di giorno e di notte?
     var fixed: Bool { day == night }
 }
