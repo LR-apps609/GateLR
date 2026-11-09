@@ -305,9 +305,9 @@ struct StartControls: View {
         Label(text, systemImage: "location.north.fill")
             .font(.app(size: 16, weight: .bold))
             .lineLimit(1).minimumScaleFactor(0.8)
-            .frame(maxWidth: .infinity, minHeight: 50)
-            .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-            .foregroundStyle(.white)
+            .frame(maxWidth: .infinity, minHeight: Theme.Target.standard)
+            .background(Theme.primary, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+            .foregroundStyle(Theme.onPrimary)
     }
 
     private var moreLabel: some View {

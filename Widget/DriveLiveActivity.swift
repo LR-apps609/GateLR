@@ -4,15 +4,17 @@ import ActivityKit
 
 /// La guida sulla schermata di blocco e nella Dynamic Island: prossima manovra, distanza, avviso ZTL
 struct DriveLiveActivity: Widget {
-    private static let blue = Color(hex: 0x1F4E9E)
-    private static let red = Color(hex: 0xC1272D)
+    // 2.3 (tavola X-LiveActivity): gli stessi token dell'app (Theme.swift, Tokens), sul fondo Notte della Live Activity
+    // e della Dynamic Island: le parole con gli inchiostri di Notte, gli avvisi con i pieni della risposta
+    private static let blue = Tokens.ground.color(night: true)
+    private static let red = Tokens.noFill.color
 
-    private static let green = Color(hex: 0x34C26B)
-    private static let amber = Color(hex: 0xF2B230)
+    private static let green = Tokens.yesInk.color(night: true)
+    private static let amber = Tokens.condInk.color(night: true)
 
-    private static let neutral = Color(hex: 0xA9B3D1)
+    private static let neutral = Tokens.text2.color(night: true)
     /// 1.20.4: fuori dalla ZTL in una città che conosciamo, grigio neutro (decisione di Ledion del 07/11, mai verde)
-    private static let outside = Color(hex: 0xAEB4BC)
+    private static let outside = Color(hex: 0xC9D1E8)
 
     /// Colore della risposta: rosso non entrare, giallo con condizioni o «?», grigio nessuna ZTL attiva davanti in una città
     /// che conosciamo («clear», 1.20.4: fuori dalla ZTL è grigio; 1.20.1–1.20.3 verde), neutro se non conosciamo le ZTL del
@@ -20,7 +22,7 @@ struct DriveLiveActivity: Widget {
     static func tint(_ s: DriveAttributes.ContentState) -> Color {
         if s.warning != nil && s.level == nil { return red }
         switch s.level {
-        case "no": return Color(hex: 0xFF4D52)
+        case "no": return Tokens.noInk.color(night: true)
         case "cond": return amber
         case "ok": return green
         case "clear": return outside        // 1.20.4: grigio, come il riquadro del guardiano in Varco (mai verde a riposo)
@@ -53,10 +55,10 @@ struct DriveLiveActivity: Widget {
     }
 
     /// 2.0 (B73): il fondo dell'avviso: rosso per «no» (e per gli avvisi della guida senza livello), ambra per «cond»
-    static func warningFill(_ s: DriveAttributes.ContentState) -> Color { s.level == "cond" ? amber : red }
-    static func warningInk(_ s: DriveAttributes.ContentState) -> Color { s.level == "cond" ? Color(hex: 0x1B2128) : .white }
+    static func warningFill(_ s: DriveAttributes.ContentState) -> Color { s.level == "cond" ? Tokens.condFill.color : red }
+    static func warningInk(_ s: DriveAttributes.ContentState) -> Color { s.level == "cond" ? Tokens.onCond.color : Tokens.onNo.color }
     /// Il testo dell'avviso sul fondo scuro dell'isola espansa
-    static func warningText(_ s: DriveAttributes.ContentState) -> Color { s.level == "cond" ? amber : Color(hex: 0xFF4D52) }
+    static func warningText(_ s: DriveAttributes.ContentState) -> Color { s.level == "cond" ? amber : Tokens.noInk.color(night: true) }
 
     /// 2.0 (B34): una Live Activity non più aggiornata (oltre la staleDate: GPS perso, app chiusa da iOS) si mostra
     /// vecchia: neutra, senza avviso né distanza, con «Non aggiornato: apri GateLR». Mai verde congelata
@@ -97,7 +99,7 @@ struct DriveLiveActivity: Widget {
                         .foregroundStyle(Self.warningInk(s))
                 }
             }
-            .foregroundStyle(.white)
+            .foregroundStyle(Tokens.text.color(night: true))
             .padding(16)
             .activityBackgroundTint(Self.blue)
             .activitySystemActionForegroundColor(.white)

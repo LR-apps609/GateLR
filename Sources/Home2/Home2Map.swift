@@ -20,6 +20,8 @@ struct Home2Map: UIViewRepresentable {
     var mood: Home2Answer.Mood
     var mapMode: Bool
     var reduceMotion: Bool
+    /// 2.3 (direzione C): la mappa di sera (crepuscolo «Notte») o di giorno, come il tema del telefono
+    var night = true
     /// Quanto alzare logo e attribuzione di Mapbox dal fondo sicuro (sopra il vetro con la risposta)
     var ornamentBottom: CGFloat
     /// Lo spazio sotto il posto nella ripresa vicina: 360 punti sotto il vetro a tutta pagina, 0 nella striscia della prima pagina
@@ -39,7 +41,7 @@ struct Home2Map: UIViewRepresentable {
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 
     func makeUIView(context: Context) -> MapView {
-        let mapView = MapView(frame: .zero, mapInitOptions: MapInitOptions(mapStyle: NotteMap.style(),
+        let mapView = MapView(frame: .zero, mapInitOptions: MapInitOptions(mapStyle: night ? NotteMap.style() : NotteMap.dayStyle(),
                                                                            cameraOptions: Coordinator.scenic(stripFrame, bearing: Coordinator.bearing0, bottom: focusBottom,
                                                                                                              points: stripPoints)))
         NotteMap.configure(mapView, ornamentBottom: ornamentBottom)
@@ -172,6 +174,7 @@ struct Home2Map: UIViewRepresentable {
             pinModel.marker = parent.marker
             guard ready, let mapView, let map = mapView.mapboxMap else { return }
             setPuck(mapView)
+            if old.night != parent.night { parent.night ? NotteMap.setEvening(map) : NotteMap.setDay(map) }
             if Self.key(parent.zones) != zoneKey { drawZones(map) }
             let c = parent.place.location.cl
             if old.place.location != parent.place.location || (!parent.mapMode && parent.stripFrame.differs(from: old.stripFrame)) {

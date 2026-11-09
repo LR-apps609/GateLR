@@ -30,6 +30,8 @@ struct VarcoView: View {
     /// 2.0 (B27): «Usa la mia posizione» con la posizione approssimativa: si chiede di cercare l'indirizzo
     @State private var approximateNote = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.colorScheme) private var scheme
+    @Environment(\.horizontalSizeClass) private var sizeClass
 
     var body: some View {
         TimelineView(.everyMinute) { ctx in
@@ -38,44 +40,33 @@ struct VarcoView: View {
             let subject = Adesso.subject(store: store, place: store.place, location: monitor.answerLocation, at: moment)
             let check = subject?.check
             let answer = check.map { Home2Answer($0, now: ctx.date) }
-            ScrollView {
-                VStack(alignment: .leading, spacing: 14) {
-                    header
-                    if !Misure.noStrip { mapStrip(check: check, mood: answer?.mood ?? cityMood(at: moment), at: moment) }
-                    ContextChips(material: true)
-                    GuardianBannerSlot()
-                    searchField
-                    if approximateNote && store.place == nil {
-                        Label(L("Approximate location: search the address instead."), systemImage: "location.slash")
-                            .font(.app(size: 14, weight: .medium)).foregroundStyle(Notte.text)
-                            .accessibilityIdentifier("varco.approximate")
-                    }
-                    if typing && !search.query.isEmpty {
-                        suggestions
-                    } else {
-                        if let check, let answer {
-                            answerCard(check, answer, ahead: subject?.aheadMeters)
-                        } else {
-                            emptyCard
+            Group {
+                if regular {
+                    // 2.3 iPad (tavola I-iPad): la mappa e la risposta affiancate; la risposta in una colonna leggibile
+                    HStack(alignment: .top, spacing: 16) {
+                        if !Misure.noStrip {
+                            mapStrip(check: check, mood: answer?.mood ?? cityMood(at: moment), at: moment, tall: true)
+                                .padding(.vertical, 12)
                         }
-                        inCarButton
-                        nearYou(at: moment)
-                        if let next = store.trips.filter({ $0.arrival > ctx.date }).min(by: { $0.arrival < $1.arrival }) { tripRow(next) }
-                        StatusBanner(status: store.city.status, unofficial: store.city.hasUnofficialZones)
-                        Text("Road signs on site always win over the app.")
-                            .font(.app(size: 12)).foregroundStyle(Notte.muted)
-                            .frame(maxWidth: .infinity)
+                        ScrollView {
+                            column(check: check, answer: answer, subject: subject, moment: moment, now: ctx.date)
+                                .padding(.top, 6).padding(.bottom, 24)
+                        }
+                        .frame(width: 440)
+                    }
+                    .padding(.horizontal, 16)
+                } else {
+                    ScrollView {
+                        column(check: check, answer: answer, subject: subject, moment: moment, now: ctx.date)
+                            .padding(.horizontal, 16).padding(.top, 6).padding(.bottom, 24)
+                            .readableFrame()
                     }
                 }
-                .padding(.horizontal, 16).padding(.top, 6).padding(.bottom, 24)
-                .readableFrame()
-                .animation(.snappy, value: store.place)
             }
             .scrollDismissesKeyboard(.immediately)
             .background(sceneBackground(answer?.mood).ignoresSafeArea())
         }
-        // Il blu notte dell'identità anche con il telefono in modalità chiara (solo questa scheda: la barra resta di iOS)
-        .environment(\.colorScheme, .dark)
+        // 2.3 (direzione C): Giorno e Notte automatici, dal telefono (prima sempre blu notte)
         .onAppear { search.focus(on: store.city) }
         .onChange(of: store.cityId) { search.focus(on: store.city) }
         .onChange(of: monitor.location != nil) { _, has in if has && wantsLocation { useMyLocation() } }
@@ -83,6 +74,42 @@ struct VarcoView: View {
         .fullScreenCover(isPresented: $driving) { DriveView() }
         // 2.2 (funzione 33): la richiesta di recensione non è più qui, dopo la prima risposta: arriva dopo un viaggio
         // salvato (TripView), mai in mezzo a un momento di stress
+    }
+
+    /// iPad e finestre larghe: mappa e risposta affiancate
+    private var regular: Bool { sizeClass == .regular }
+
+    /// La colonna della pagina: testata, contesto, ricerca e risposta
+    private func column(check: PlaceCheck?, answer: Home2Answer?, subject: Adesso.Subject?, moment: Date, now: Date) -> some View {
+        VStack(alignment: .leading, spacing: 14) {
+            header
+            if !Misure.noStrip && !regular { mapStrip(check: check, mood: answer?.mood ?? cityMood(at: moment), at: moment) }
+            ContextChips(material: true)
+            GuardianBannerSlot()
+            searchField
+            if approximateNote && store.place == nil {
+                Label(L("Approximate location: search the address instead."), systemImage: "location.slash")
+                    .font(.app(size: 14, weight: .medium)).foregroundStyle(Theme.ink)
+                    .accessibilityIdentifier("varco.approximate")
+            }
+            if typing && !search.query.isEmpty {
+                suggestions
+            } else {
+                if let check, let answer {
+                    answerCard(check, answer, ahead: subject?.aheadMeters)
+                } else {
+                    emptyCard
+                }
+                inCarButton
+                nearYou(at: moment)
+                if let next = store.trips.filter({ $0.arrival > now }).min(by: { $0.arrival < $1.arrival }) { tripRow(next) }
+                StatusBanner(status: store.city.status, unofficial: store.city.hasUnofficialZones)
+                Text("Road signs on site always win over the app.")
+                    .font(.app(size: 12)).foregroundStyle(Theme.muted)
+                    .frame(maxWidth: .infinity)
+            }
+        }
+        .animation(.snappy, value: store.place)
     }
 
     // MARK: Il posto della risposta
@@ -94,16 +121,8 @@ struct VarcoView: View {
         return Home2Answer.Mood(f.color)
     }
 
-    private func sceneBackground(_ mood: Home2Answer.Mood?) -> some View {
-        ZStack {
-            Notte.navy
-            // La luce del pannello che cade sulla pagina, dall'alto
-            if let mood {
-                RadialGradient(colors: [mood.color.opacity(0.28), mood.color.opacity(0.06), .clear],
-                               center: UnitPoint(x: 0.5, y: 0.42), startRadius: 10, endRadius: 460)
-            }
-        }
-    }
+    /// 2.3: il fondo del tema, senza la luce colorata del pannello (S-Movimento: niente effetti decorativi)
+    private func sceneBackground(_ mood: Home2Answer.Mood?) -> some View { Theme.ground }
 
     private var header: some View {
         HStack(spacing: 10) {
@@ -118,7 +137,7 @@ struct VarcoView: View {
                     .font(.app(size: 13, weight: .semibold)).lineLimit(1)
                     .padding(.horizontal, 12).frame(height: 32)
                     .background(.ultraThinMaterial, in: Capsule())
-                    .foregroundStyle(Notte.text)
+                    .foregroundStyle(Theme.ink)
             }
             .accessibilityLabel(String(format: L("City: %@"), store.city.localizedName))
             // 2.2: la fotocamera del cartello e l'icona del veicolo (Garage e Impostazioni), in ogni scheda
@@ -137,7 +156,7 @@ struct VarcoView: View {
     }
 
     /// La città dal vivo intorno al posto: un tocco apre la scheda Mappa sulla zona della risposta
-    private func mapStrip(check: PlaceCheck?, mood: Home2Answer.Mood, at moment: Date) -> some View {
+    private func mapStrip(check: PlaceCheck?, mood: Home2Answer.Mood, at moment: Date, tall: Bool = false) -> some View {
         // Senza un posto cercato: la zona scelta, al centro della zona, con il suo cartello (non il centro della città)
         let zoneCenter = store.zone.region(padding: 1).center
         let place = check?.place ?? Place(name: store.zone.shortName, address: "",
@@ -150,15 +169,16 @@ struct VarcoView: View {
         let marker = Self.stripMarker(check: check, zone: store.zone)
         // La tua posizione: c'è solo con il permesso. Il pallino blu, e la ripresa con te dentro se sei a meno di 5 km
         let user = monitor.location.map { Coordinate(lat: $0.coordinate.latitude, lon: $0.coordinate.longitude) }
-        let height: CGFloat = check == nil ? 168 : 112
+        let height: CGFloat = tall ? 600 : check == nil ? 168 : 112
         let framing = StripFrame.make(target: place.location, user: user)
         return ZStack(alignment: .bottomLeading) {
             Group {
                 if mapFailed {
                     VarcoAppleStrip(place: place, focus: check?.zone ?? (check == nil ? store.zone : nil),
-                                    zones: rings, tint: mood.color, marker: marker, framing: framing, showsUser: user != nil)
+                                    zones: rings, tint: mood.color, marker: marker, framing: framing, showsUser: user != nil,
+                                    dark: scheme == .dark)
                 } else {
-                    Home2Map(place: place, zones: rings, mood: mood, mapMode: false, reduceMotion: reduceMotion,
+                    Home2Map(place: place, zones: rings, mood: mood, mapMode: false, reduceMotion: reduceMotion, night: scheme == .dark,
                              ornamentBottom: 6, focusBottom: 0, marker: marker, user: user, stripPoints: height,
                              onFail: { mapFailed = true }, onReady: { mapReady = true })
                         // Mapbox può metterci qualche secondo (fino a 5 prima della mappa di Apple, MapboxFallback): la striscia neutra,
@@ -167,7 +187,7 @@ struct VarcoView: View {
                 }
             }
             .accessibilityHidden(true)
-            LinearGradient(colors: [.clear, Notte.navy.opacity(0.55)], startPoint: .center, endPoint: .bottom)
+            LinearGradient(colors: [.clear, Color.black.opacity(0.35)], startPoint: .center, endPoint: .bottom)
                 .allowsHitTesting(false)
             // Il tocco su tutta la striscia tranne il fondo, dove stanno logo e attribuzione di Mapbox
             Button { openMap(check) } label: {
@@ -187,7 +207,7 @@ struct VarcoView: View {
                     .allowsHitTesting(false)
             }
             Label(L("See the map"), systemImage: "arrow.up.left.and.arrow.down.right")
-                .font(.app(size: 12, weight: .bold)).foregroundStyle(Notte.text)
+                .font(.app(size: 12, weight: .bold)).foregroundStyle(Theme.ink)
                 .padding(.horizontal, 10).frame(height: 26)
                 .background(.ultraThinMaterial, in: Capsule())
                 .padding(.leading, 10).padding(.bottom, 34)
@@ -195,10 +215,10 @@ struct VarcoView: View {
                 .accessibilityHidden(true)
         }
         // Più bassa quando c'è una risposta: la risposta e i suoi pulsanti stanno nello schermo
-        .frame(height: height)
+        .frame(height: tall ? nil : height)
+        .frame(maxHeight: tall ? .infinity : nil)
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).stroke(mood.color.opacity(0.55), lineWidth: 1))
-        .shadow(color: mood.color.opacity(0.25), radius: 18, y: 6)
+        .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).stroke(Theme.line, lineWidth: 1))
     }
 
     /// La scheda Mappa sulla zona della risposta (la mappa va sul posto scelto o sulla zona scelta, vedi MapScreen.focus)
@@ -211,29 +231,29 @@ struct VarcoView: View {
 
     private var searchField: some View {
         HStack(spacing: 10) {
-            Image(systemName: "magnifyingglass").font(.app(size: 17, weight: .semibold)).foregroundStyle(Notte.action)
+            Image(systemName: "magnifyingglass").font(.app(size: 17, weight: .semibold)).foregroundStyle(Theme.muted)
             TextField("", text: $search.query,
-                      prompt: Text(L("Hotel, address or square")).foregroundColor(Notte.muted))
+                      prompt: Text(L("Hotel, address or square")).foregroundColor(Theme.muted))
                 .focused($typing)
                 .submitLabel(.search)
                 // 1.20.2: Invio sceglie il primo suggerimento (o lo aspetta, o riprova la ricerca)
                 .onSubmit { search.submit() }
                 .onReceive(search.picks) { choose($0) }
                 .autocorrectionDisabled()
-                .foregroundStyle(Notte.text)
+                .foregroundStyle(Theme.ink)
                 .accessibilityLabel(L("Hotel, address or square"))
                 .accessibilityIdentifier("varco.search")
             if resolving { ProgressView() }
             if !search.query.isEmpty {
                 Button { search.clear(); typing = false } label: {
-                    Image(systemName: "xmark.circle.fill").foregroundStyle(Notte.muted)
+                    Image(systemName: "xmark.circle.fill").foregroundStyle(Theme.muted)
                 }
                 .accessibilityLabel(L("Clear"))
             } else if monitor.location != nil || monitor.canAskLocation || monitor.locationDenied {
                 // 1.20.2: c'è anche senza permesso: il primo tocco è il momento in cui iOS chiede la posizione.
                 // 2.0 (B68): con la posizione negata resta, e porta alle Impostazioni di iOS
                 Button { useMyLocation() } label: {
-                    Image(systemName: monitor.locationDenied ? "location.slash" : "location.fill").foregroundStyle(Notte.text)
+                    Image(systemName: monitor.locationDenied ? "location.slash" : "location.fill").foregroundStyle(Theme.ink)
                         .frame(minWidth: 44, minHeight: 44).contentShape(Rectangle())
                 }
                     .accessibilityLabel(L("Use my location"))
@@ -242,27 +262,27 @@ struct VarcoView: View {
         }
         .font(.app(size: 17))
         .padding(.horizontal, 14).frame(minHeight: 52)
-        .background(Notte.surface, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous)
-            .stroke(typing ? Notte.action : Notte.line, lineWidth: typing ? 2 : 1))
+            .stroke(typing ? Theme.ink : Theme.line, lineWidth: typing ? 2 : 1))
     }
 
     private var suggestions: some View {
         VStack(alignment: .leading, spacing: 0) {
             // 2.0 (B132): l'errore anche con i suggerimenti già in vista (il tocco su un suggerimento senza rete)
             if search.failed {
-                SearchFailedRow(dark: true) { search.retry() }
+                SearchFailedRow(dark: false) { search.retry() }
             } else if search.results.isEmpty {
-                Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Notte.muted).padding(14)
+                Text(L("Keep typing…")).font(.app(size: 14)).foregroundStyle(Theme.muted).padding(14)
             }
             ForEach(Array(search.results.enumerated()), id: \.offset) { i, r in
                 Button { choose(r) } label: {
                     HStack(spacing: 12) {
-                        Image(systemName: "mappin.circle.fill").font(.app(size: 22)).foregroundStyle(Notte.action)
+                        Image(systemName: "mappin.circle.fill").font(.app(size: 22)).foregroundStyle(Theme.muted)
                         VStack(alignment: .leading, spacing: 1) {
-                            Text(r.title).font(.app(size: 15, weight: .semibold)).foregroundStyle(Notte.text).lineLimit(1)
+                            Text(r.title).font(.app(size: 15, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
                             if !r.subtitle.isEmpty {
-                                Text(r.subtitle).font(.app(size: 13)).foregroundStyle(Notte.muted).lineLimit(1)
+                                Text(r.subtitle).font(.app(size: 13)).foregroundStyle(Theme.muted).lineLimit(1)
                             }
                         }
                         Spacer()
@@ -271,10 +291,10 @@ struct VarcoView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityIdentifier("varco.result.\(i)")
-                if i < search.results.count - 1 { Divider().overlay(Notte.line).padding(.leading, 48) }
+                if i < search.results.count - 1 { Divider().overlay(Theme.line).padding(.leading, 48) }
             }
         }
-        .background(Notte.surface, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
     private func choose(_ r: MKLocalSearchCompletion) {
@@ -312,76 +332,54 @@ struct VarcoView: View {
         VStack(alignment: .leading, spacing: 12) {
             placeRow(check, ahead: ahead)
             if a.unofficial { UnofficialBanner(source: a.unofficialSource) }
-            // Solo la scatola dei punti luminosi, senza palo: la pagina più corta, così «Guarda la mappa», «Perché?» e
-            // «Dettagli del viaggio» si vedono senza scorrere anche su iPhone Pro Max (vedi ScreenshotTests.test5VarcoProMax)
-            // Più piccolo dalla 1.17.3: sopra c'è il nome del posto
-            GatePanelObject(panel: a.panel, showsPole: false)
-                .scaleEffect(0.64)
-                .frame(maxWidth: .infinity)
-                .frame(height: 92)
-            Text(a.headline)
-                .font(Self.font(44, .black)).foregroundStyle(Notte.text)
-                .lineLimit(2).minimumScaleFactor(0.6)
-                .accessibilityAddTraits(.isHeader)
-                .accessibilityIdentifier("varco.answer")
+            // 2.3 (tavole S-Risposta, I-No, I-Si): il blocco pieno della risposta, forma + parola + colore, identico di
+            // giorno e di notte. VoiceOver lo legge in un colpo solo, per primo («varco.answer», un solo elemento)
+            RispostaBlock(stato: a.stato, title: a.headline, line: InCarView.zoneLine(check), detail: a.detail,
+                          spokenExtra: spokenFor, identifier: "varco.answer")
                 .id(a.headline)
-                // 2.0 (B125): con «Riduci movimento» il titolo non scivola, si dissolve soltanto
-                .transition(reduceMotion ? .opacity : .opacity.combined(with: .offset(y: 8)))
-            // La condizione (o il motivo del dubbio) subito sotto il titolo, in testo normale
-            if let detail = a.detail {
-                Text(verbatim: detail)
-                    .font(.app(size: 17, weight: .medium)).foregroundStyle(Notte.text)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding(.top, -6)
-                    .accessibilityIdentifier("varco.condition")
-            }
+                // S-Movimento: solo una dissolvenza di 200 ms quando la risposta cambia
+                .transition(.opacity)
+            actions(check)
+            // Il pannello come lo vedrai al varco: sotto la risposta, più piccolo, luce neutra (non la contraddice mai)
+            if a.showsPanel { LEDPanel(text: a.ledText, caption: a.ledCaption) }
             if let label = a.timeLabel {
                 timeBlock(label, a)
             }
-            actions(check)
-            // Città e zona sono già sotto il titolo: qui resta solo l'ora scelta
+            // Città e zona sono già nel blocco: qui resta solo l'ora scelta
             if store.when != nil {
                 Text(verbatim: String(format: L("For %@"), TimeChoice.label(store.when)))
-                    .font(.app(size: 13, weight: .semibold)).foregroundStyle(Notte.muted)
+                    .font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.muted)
             }
             // «Segnala un errore» per la zona della risposta
             if let hit = check.hit {
-                ReportErrorButton(zone: hit.zone, city: hit.city, onDark: true)
+                ReportErrorButton(zone: hit.zone, city: hit.city)
                     .accessibilityIdentifier("varco.report")
             }
         }
-        .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
         // 1.20.2: un identificatore solo della scheda della risposta (il giro delle foto aspetta questa, non la ricerca)
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("varco.answerCard")
-        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 28, style: .continuous))
-        .overlay {
-            RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .fill(LinearGradient(colors: [a.mood.color.opacity(0.2), .clear], startPoint: .top, endPoint: .center))
-                .allowsHitTesting(false)
-        }
-        .overlay {
-            RoundedRectangle(cornerRadius: 28, style: .continuous)
-                .stroke(LinearGradient(colors: [a.mood.color.opacity(0.75), Color.white.opacity(0.1)],
-                                       startPoint: .top, endPoint: .bottom), lineWidth: 1)
-        }
-        .animation(.easeInOut(duration: 0.5), value: a.mood)
+        .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: a.headline)
+    }
+
+    /// Detto da VoiceOver alla fine della risposta: «Per Golf diesel Euro 5, adesso»
+    private var spokenFor: String {
+        String(format: L("For %@"), store.vehicle.chipLabel) + ", " + TimeChoice.label(store.when).lowercased()
     }
 
     private func timeBlock(_ label: String, _ a: Home2Answer) -> some View {
         VStack(alignment: .leading, spacing: -4) {
-            Text(label.uppercased()).font(Self.font(13, .bold)).kerning(1.4).foregroundStyle(Notte.muted)
+            Text(label.uppercased()).font(Self.font(13, .bold)).kerning(1.4).foregroundStyle(Theme.muted)
             if let time = a.time {
                 HStack(alignment: .firstTextBaseline, spacing: 10) {
                     Text(verbatim: time)
                         .font(Self.font(56, .black)).monospacedDigit()
-                        .foregroundStyle(Notte.text)
-                        .shadow(color: a.mood.color.opacity(0.55), radius: 20)
+                        .foregroundStyle(Theme.ink)
                         .lineLimit(1).minimumScaleFactor(0.5)
                         .contentTransition(.numericText())
                     if let day = a.day {
-                        Text(verbatim: day).font(Self.font(18, .semibold)).foregroundStyle(Notte.muted)
+                        Text(verbatim: day).font(Self.font(18, .semibold)).foregroundStyle(Theme.muted)
                     }
                 }
             }
@@ -403,16 +401,16 @@ struct VarcoView: View {
                 VStack(alignment: .leading, spacing: 3) {
                     HStack(alignment: .firstTextBaseline, spacing: 8) {
                         Text(verbatim: Self.placeTitle(check))
-                            .font(Self.font(30, .black)).foregroundStyle(Notte.text)
+                            .font(Self.font(30, .black)).foregroundStyle(Theme.ink)
                             .lineLimit(2).minimumScaleFactor(0.75)
                             .multilineTextAlignment(.leading)
                             .fixedSize(horizontal: false, vertical: true)
                         Image(systemName: "chevron.down").font(.app(size: 14, weight: .bold))
-                            .foregroundStyle(Notte.text.opacity(0.7))
+                            .foregroundStyle(Theme.ink.opacity(0.7))
                             .accessibilityHidden(true)
                     }
                     Text(verbatim: placeSubtitle(check, ahead: ahead))
-                        .font(.app(size: 14, weight: .semibold)).foregroundStyle(Notte.muted)
+                        .font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.muted)
                         .lineLimit(1).minimumScaleFactor(0.85)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -425,8 +423,9 @@ struct VarcoView: View {
             Spacer(minLength: 4)
             if store.place != nil {
                 Button { withAnimation(.snappy) { store.place = nil } } label: {
-                    Image(systemName: "xmark").font(.app(size: 13, weight: .bold)).foregroundStyle(Notte.text)
-                        .frame(width: 32, height: 32).background(Color.white.opacity(0.14), in: Circle())
+                    Image(systemName: "xmark").font(.app(size: 13, weight: .bold)).foregroundStyle(Theme.ink)
+                        .frame(width: 32, height: 32).background(Theme.raised, in: Circle())
+                        .frame(width: Theme.Target.minimum, height: Theme.Target.minimum).contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel(L("Clear"))
@@ -457,9 +456,9 @@ struct VarcoView: View {
                 parkButton(primary: true, place: check.place)
                 HStack(spacing: 10) {
                     Button { openMap(check) } label: {
-                        Image(systemName: "map.fill").font(.app(size: 16, weight: .semibold)).foregroundStyle(Notte.text)
-                            .frame(width: 52, height: 44)
-                            .background(Color.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        Image(systemName: "map.fill").font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink)
+                            .frame(width: 52, height: Theme.Target.minimum)
+                            .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(Theme.line, lineWidth: 2))
                     }
                     .buttonStyle(.plain)
                     .accessibilityLabel(L("See the map"))
@@ -469,9 +468,9 @@ struct VarcoView: View {
             } else {
                 Button { openMap(check) } label: {
                     Label(L("See the map"), systemImage: "map.fill")
-                        .font(Self.font(18, .bold)).foregroundStyle(Notte.navy)
-                        .frame(maxWidth: .infinity, minHeight: 52)
-                        .background(Notte.text, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                        .font(Self.font(18, .bold)).foregroundStyle(Theme.onPrimary)
+                        .frame(maxWidth: .infinity, minHeight: Theme.Target.standard)
+                        .background(Theme.primary, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                 }
                 .buttonStyle(.plain)
                 .accessibilityIdentifier("varco.map")
@@ -499,14 +498,17 @@ struct VarcoView: View {
         .accessibilityIdentifier("varco.details")
     }
 
-    /// «Parcheggia fuori e cammina»: principale (più grande, per primo) quando la risposta è «no»
+    /// «Parcheggia fuori e cammina»: principale (più grande, per primo) quando la risposta è «no». 2.3: il pulsante
+    /// principale chiaro su Notte e scuro su Giorno, il secondario con il bordo; mai rosso (S-Componenti)
     private func parkButton(primary: Bool, place: Place) -> some View {
         Button { parkPlace = place; parkSheet = true } label: {
             Label(L("Park outside and walk"), systemImage: "figure.walk")
-                .font(primary ? Self.font(18, .bold) : Font.app(size: 16, weight: .bold)).foregroundStyle(.white)
+                .font(primary ? Self.font(18, .bold) : Font.app(size: 16, weight: .bold))
+                .foregroundStyle(primary ? Theme.onPrimary : Theme.ink)
                 .lineLimit(1).minimumScaleFactor(0.8)
-                .frame(maxWidth: .infinity, minHeight: primary ? 52 : 48)
-                .background(Notte.action, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .frame(maxWidth: .infinity, minHeight: Theme.Target.standard)
+                .background(primary ? Theme.primary : Color.clear, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .overlay { if !primary { RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(Theme.line, lineWidth: 2) } }
         }
         .buttonStyle(.plain)
         .accessibilityIdentifier("varco.park")
@@ -515,10 +517,10 @@ struct VarcoView: View {
     private func secondary(_ title: String, _ symbol: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Label(title, systemImage: symbol)
-                .font(.app(size: 14, weight: .semibold)).foregroundStyle(Notte.text)
+                .font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.ink)
                 .lineLimit(1).minimumScaleFactor(0.8)
-                .frame(maxWidth: .infinity, minHeight: 44)
-                .background(Color.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .frame(maxWidth: .infinity, minHeight: Theme.Target.minimum)
+                .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(Theme.line, lineWidth: 2))
         }
         .buttonStyle(.plain)
     }
@@ -527,9 +529,9 @@ struct VarcoView: View {
     private var inCarButton: some View {
         Button { router.inCar = true } label: {
             Label(L("In the car"), systemImage: "car.fill")
-                .font(.app(size: 16, weight: .bold)).foregroundStyle(Notte.text)
-                .frame(maxWidth: .infinity, minHeight: 48)
-                .background(Color.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .font(.app(size: 16, weight: .bold)).foregroundStyle(Theme.ink)
+                .frame(maxWidth: .infinity, minHeight: Theme.Target.standard)
+                .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(Theme.line, lineWidth: 1))
         }
         .buttonStyle(.plain)
         .accessibilityHint(L("The answer where you are, in big letters"))
@@ -540,11 +542,11 @@ struct VarcoView: View {
     private var emptyCard: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(L("Can I drive in?").uppercased())
-                .font(Self.font(13, .bold)).kerning(1.4).foregroundStyle(Notte.muted)
+                .font(Self.font(13, .bold)).kerning(1.4).foregroundStyle(Theme.muted)
             // Una riga per parte, strette (con «\n» l'interlinea del carattere le allontanava troppo)
             VStack(alignment: .leading, spacing: -6) {
                 ForEach(L("Find out if you|can drive in").components(separatedBy: "|"), id: \.self) {
-                    Text(verbatim: $0).font(Self.font(36, .black)).foregroundStyle(Notte.text)
+                    Text(verbatim: $0).font(Self.font(36, .black)).foregroundStyle(Theme.ink)
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
@@ -552,7 +554,7 @@ struct VarcoView: View {
             .accessibilityLabel(L("Find out if you|can drive in").replacingOccurrences(of: "|", with: " "))
             .accessibilityAddTraits(.isHeader)
             Text("Search a hotel, address or square: GateLR tells you at once if your car can get there.")
-                .font(.app(size: 15)).foregroundStyle(Notte.muted)
+                .font(.app(size: 15)).foregroundStyle(Theme.muted)
                 .fixedSize(horizontal: false, vertical: true)
             let hotels = Self.savedHotels(store.trips)
             let recent = store.recent.filter { p in !hotels.contains { $0.key == p.key } }.prefix(max(0, 4 - hotels.count))
@@ -572,8 +574,8 @@ struct VarcoView: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Notte.surface.opacity(0.85), in: RoundedRectangle(cornerRadius: 28, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 28, style: .continuous).stroke(Notte.line, lineWidth: 1))
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: Theme.Radius.sheet, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: Theme.Radius.sheet, style: .continuous).stroke(Theme.line, lineWidth: 1))
     }
 
     private func chip(_ title: String, symbol: String, highlighted: Bool, action: @escaping () -> Void) -> some View {
@@ -581,8 +583,9 @@ struct VarcoView: View {
             Label { Text(verbatim: title) } icon: { Image(systemName: symbol) }
                 .font(.app(size: 13, weight: .semibold)).lineLimit(1)
                 .padding(.horizontal, 12).frame(height: 32)
-                .background(highlighted ? Notte.action : Color.white.opacity(0.1), in: Capsule())
-                .foregroundStyle(Notte.text)
+                .frame(minHeight: Theme.Target.minimum)
+                .background(highlighted ? Theme.primary : Theme.raised, in: Capsule().inset(by: 6))
+                .foregroundStyle(highlighted ? Theme.onPrimary : Theme.ink)
         }
         .buttonStyle(.plain)
     }
@@ -614,20 +617,20 @@ struct VarcoView: View {
             if let zone = inside?.zone ?? nearby {
                 let a = store.answer(at: date, zone: zone, hotelInside: false), on = a.gatesOn
                 // 2.1 (B26): il colore dalla RispostaFinale (dati non sicuri o fonte non ufficiale: ambra, mai verde)
-                let tint = Home2Answer.Mood(RispostaFinale.of(a, zone: zone).color).color
+                let tint = RispostaFinale.of(a, zone: zone).stato.tint
                 let distance = inside != nil ? L("you're inside") : DriveSession.distanceText(near?.meters ?? 0)
                 Button { select(zone); showZone = true } label: {
                     HStack(spacing: 10) {
-                        Image(systemName: "location.fill").font(.app(size: 13, weight: .semibold)).foregroundStyle(Notte.text)
-                        (Text(verbatim: L("Near you") + ": ").foregroundStyle(Notte.muted)
-                         + Text(verbatim: "\(zone.shortName) · \(distance) · ").foregroundStyle(Notte.text)
+                        Image(systemName: "location.fill").font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.ink)
+                        (Text(verbatim: L("Near you") + ": ").foregroundStyle(Theme.muted)
+                         + Text(verbatim: "\(zone.shortName) · \(distance) · ").foregroundStyle(Theme.ink)
                          + Text(verbatim: on ? L("active now") : L("not active now")).foregroundStyle(tint))
                             .font(.app(size: 14, weight: .medium)).lineLimit(2).minimumScaleFactor(0.8)
                         Spacer(minLength: 4)
-                        Image(systemName: "chevron.right").font(.app(size: 12, weight: .bold)).foregroundStyle(Notte.muted)
+                        Image(systemName: "chevron.right").font(.app(size: 12, weight: .bold)).foregroundStyle(Theme.muted)
                     }
                     .padding(.horizontal, 14).padding(.vertical, 12)
-                    .background(Notte.surface.opacity(0.85), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    .background(Theme.card, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
                 }
                 .buttonStyle(.plain)
             }
@@ -642,7 +645,7 @@ struct VarcoView: View {
         if let t = threat {
             let text = "\(t.candidate.pedestrian != nil ? t.zone.localizedName : t.zone.shortName) · \(DriveSession.distanceText(t.meters)) · \(t.spoken)"
             switch t.level {
-            case .stop: return ("exclamationmark.shield.fill", text, Theme.red)
+            case .stop: return ("exclamationmark.shield.fill", text, Theme.redFill)
             case .condition, .check, .clear: return ("shield.lefthalf.filled", text, Self.guardianAmber)
             }
         }
@@ -662,20 +665,20 @@ struct VarcoView: View {
             router.tab = .trip
         } label: {
             HStack(spacing: 12) {
-                Image(systemName: "suitcase.rolling.fill").foregroundStyle(Notte.text)
-                    .frame(width: 40, height: 40).background(Notte.action, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                Image(systemName: "suitcase.rolling.fill").foregroundStyle(Theme.ink)
+                    .frame(width: 40, height: 40).background(Theme.raised, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
                 VStack(alignment: .leading, spacing: 1) {
-                    Text("Your next trip").font(.app(size: 12, weight: .semibold)).foregroundStyle(Notte.muted)
+                    Text("Your next trip").font(.app(size: 12, weight: .semibold)).foregroundStyle(Theme.muted)
                     Text(t.hotelName.isEmpty ? (t.hotel?.name ?? L("Trip")) : t.hotelName)
-                        .font(.app(size: 16, weight: .semibold)).foregroundStyle(Notte.text).lineLimit(1)
+                        .font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink).lineLimit(1)
                     Text(store.engine.format(t.arrival, .dateTime.weekday(.wide).day().month().hour().minute()))
-                        .font(.app(size: 13)).foregroundStyle(Notte.muted)
+                        .font(.app(size: 13)).foregroundStyle(Theme.muted)
                 }
                 Spacer()
-                Image(systemName: "chevron.right").font(.app(size: 13, weight: .bold)).foregroundStyle(Notte.muted)
+                Image(systemName: "chevron.right").font(.app(size: 13, weight: .bold)).foregroundStyle(Theme.muted)
             }
             .padding(14)
-            .background(Notte.surface.opacity(0.85), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+            .background(Theme.card, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
         .buttonStyle(.plain)
     }
@@ -754,7 +757,7 @@ private struct GuardianBannerSlot: View {
 struct MapStripSkeleton: View {
     var body: some View {
         ZStack {
-            Notte.surface
+            Theme.card
             Canvas { ctx, size in
                 let streets: [(CGPoint, CGPoint, CGFloat)] = [
                     (CGPoint(x: 0, y: 0.62), CGPoint(x: 1, y: 0.38), 7), (CGPoint(x: 0.18, y: 0), CGPoint(x: 0.42, y: 1), 5),
@@ -765,7 +768,7 @@ struct MapStripSkeleton: View {
                     var p = Path()
                     p.move(to: CGPoint(x: a.x * size.width, y: a.y * size.height))
                     p.addLine(to: CGPoint(x: b.x * size.width, y: b.y * size.height))
-                    ctx.stroke(p, with: .color(Notte.line), lineWidth: w)
+                    ctx.stroke(p, with: .color(Theme.line), lineWidth: w)
                 }
             }
         }
@@ -785,6 +788,8 @@ private struct VarcoAppleStrip: View {
     var framing: StripFrame
     /// Il pallino blu di iOS, solo con il permesso della posizione
     var showsUser: Bool
+    /// 2.3: il tema del telefono (le zone con i toni scuri o chiari)
+    var dark = true
 
     var body: some View {
         Map(initialPosition: position, interactionModes: []) {
@@ -793,7 +798,7 @@ private struct VarcoAppleStrip: View {
             // da 100 a 250 MB e ritorno, a ondate, con o senza guardiano (MisureTests.testM7a e testM7e). Il colore della zona
             // dice già la risposta; le righe restano sulla Mappa e nella striscia di Mapbox
             ForEach(Self.layers(zones)) { z in
-                ZoneOverlay(coords: z.ring, access: z.look.access, picked: false, dim: false, big: false, zoom: 16, dark: true)
+                ZoneOverlay(coords: z.ring, access: z.look.access, picked: false, dim: false, big: false, zoom: 16, dark: dark)
             }
             // Il cartello della ZTL o lo spillo della destinazione, con la base sul posto: mai un pallino
             if let marker {

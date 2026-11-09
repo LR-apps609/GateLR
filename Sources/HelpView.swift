@@ -90,10 +90,12 @@ struct MenuRow: View {
 
     var body: some View {
         HStack(spacing: 14) {
+            // 2.3 (S-Componenti, «Righe e gruppi»): l'icona su un riquadro neutro, nel colore del testo; i colori della
+            // risposta restano alla risposta («tint» resta per chi la chiama, ma non colora più)
             Image(systemName: symbol)
-                .font(.app(size: 16, weight: .semibold)).foregroundStyle(.white)
+                .font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink)
                 .frame(width: 36, height: 36)
-                .background(tint, in: RoundedRectangle(cornerRadius: 9, style: .continuous))
+                .background(Theme.raised, in: RoundedRectangle(cornerRadius: 9, style: .continuous))
                 .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 2) {
                 Text(title).font(.app(size: 17, weight: .semibold)).foregroundStyle(Theme.ink)

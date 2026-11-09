@@ -33,8 +33,9 @@ final class MapStyleTests: XCTestCase {
         let at = date(2026, 12, 3, 13, 25)
         XCTAssertEqual(access(sv, Vehicle(name: "Mia", fuel: .petrol, euro: 6), at), .open)
         XCTAssertEqual(access(sv, Vehicle(name: "Amico", fuel: .diesel, euro: 2), at), .closed)
-        XCTAssertEqual(MapTheme.tone(.open).lineLight, 0x2C7543)
-        XCTAssertEqual(MapTheme.tone(.closed).lineLight, 0xA82F2F)
+        // 2.3: gli inchiostri della risposta (Tokens, S-Colori)
+        XCTAssertEqual(MapTheme.tone(.open).lineLight, Tokens.yesInk.day)
+        XCTAssertEqual(MapTheme.tone(.closed).lineLight, Tokens.noInk.day)
     }
 
     /// Settore A: attivo il giovedì alle 13:25 → rosso per la benzina; alle 22 ZTL spenta per tutti: 1.20.1 verde (si entra),
@@ -73,8 +74,9 @@ final class MapStyleTests: XCTestCase {
         XCTAssertEqual(Access(Answer(verdict: .yes(reason: ""), gatesOn: false), status: .sample), .check)
         XCTAssertEqual(MapTheme.badgeText(.closed, kind: .restricted), "ZTL")
         XCTAssertEqual(MapTheme.badgeText(.open, kind: .green), "LEZ")
-        XCTAssertEqual(MapTheme.dash(.closed), [5, 4])
-        XCTAssertEqual(MapTheme.dash(.off), [3, 5])
+        // 2.3 (S-Mappa): tratteggio 12/8, più rado se la zona è spenta
+        XCTAssertEqual(MapTheme.dash(.closed), [12, 8])
+        XCTAssertEqual(MapTheme.dash(.off), [6, 8])
     }
 
     /// Milano Area C (ticket) attiva: giallo per l'auto ammessa col ticket

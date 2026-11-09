@@ -42,8 +42,8 @@ struct TicketCard: View {
                         Label("Pay the ticket", systemImage: "creditcard")
                             .font(.app(size: 15, weight: .semibold))
                             .frame(maxWidth: .infinity, minHeight: 46)
-                            .background(Theme.blueFill, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-                            .foregroundStyle(.white)
+                            .background(Theme.primary, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                            .foregroundStyle(Theme.onPrimary)
                     }
                 }
                 Button { if reminded == false { LocationGate.openSettings() } else { remind() } } label: {

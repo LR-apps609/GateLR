@@ -119,7 +119,7 @@ struct MapScreen: View {
                         if look.active && zoom >= MapTheme.hatchZoom {
                             ForEach(HatchCache.lines(id: z.id, coords: coords, zoom: zoom, box: shownBox ?? visibleBox)) { h in
                                 MapPolyline(coordinates: [h.a, h.b])
-                                    .stroke(MapTheme.tone(look.access).line.opacity(MapTheme.hatchOpacity(dark: darkMap) * (dim ? 0.4 : 1)), lineWidth: 1)
+                                    .stroke(MapTheme.tone(look.access).line.opacity(MapTheme.hatchOpacity(dark: darkMap) * (dim ? 0.4 : 1)), lineWidth: MapTheme.hatchWidth)
                             }
                         }
                     }
@@ -687,18 +687,9 @@ struct MapScreen: View {
                 }
                 Spacer()
                 // 1.20.3: le parole fisse della risposta (PlaceCheck.word)
-                if pedestrian != nil {
-                    Pill(text: check.word.title, fill: Verdict.no(reason: "").pillFill, ink: Verdict.no(reason: "").pillInk)
-                } else if let answer {
-                    VerdictPill(verdict: answer.verdict, unofficial: check.unofficial, gatesOn: answer.gatesOn)
-                } else if check.covered {
-                    // 1.20.4: fuori dalla ZTL in una città che conosciamo: grigio, mai verde; 2.1 (B22) giallo se il confine è
-                    // da fonte non ufficiale. Il colore dalla RispostaFinale
-                    Pill(text: check.word.title, fill: check.finale.stato.tint.opacity(0.14), ink: check.finale.stato.tint)
-                } else {
-                    // Fuori copertura: neutro, mai verde (1.19.0)
-                    Pill(text: check.word.title, fill: Theme.muted.opacity(0.16), ink: Theme.muted)
-                }
+                // 2.3 (S-Risposta, taglia S): forma + parola + colore dalla RispostaFinale. Area pedonale rossa; fuori dalla
+                // ZTL grigio (giallo se il confine è da fonte non ufficiale, 2.1 B22); fuori copertura tratteggiato, mai verde
+                RispostaChip(stato: check.finale.stato, title: check.word.title)
             }
             if check.unofficial { UnofficialBanner(source: hit?.zone.source.unofficialSource) }
             // Riquadri sottili: fino a quando vale la risposta, quanto sei lontano

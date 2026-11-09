@@ -196,7 +196,9 @@ struct RootView: View {
             if phase == .active { Task { await GateMonitor.shared.refreshPermissions() } }
         }
         .environmentObject(router)
-        .tint(Theme.red)
+        // 2.3: i pulsanti e la scheda scelta nel colore del testo (chiari su Notte, scuri su Giorno); il rosso del marchio
+        // solo nel logo e per «Non entrare»
+        .tint(Theme.ink)
         .sensoryFeedback(.selection, trigger: router.tab)
         // Il piccolo rimbalzo dell'icona della scheda scelta (simboli SF: rimbalzo di sistema; mappa: scala 1 → 1,12 → 1)
         .onChange(of: router.tab) { _, tab in

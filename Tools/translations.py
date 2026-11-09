@@ -891,6 +891,10 @@ T = {
 "You can change it in Settings → Preferred navigator.": ("Puoi cambiarlo in Impostazioni → Navigatore preferito.", "Du kannst es unter Einstellungen → Bevorzugte Navigation ändern."),
 "We don't know your vehicle's fuel or Euro class, and here they decide. Check the sign at the gate.": ("Non conosciamo alimentazione o classe Euro del tuo veicolo, e qui contano. Controlla il cartello al varco.", "Wir kennen Kraftstoff oder Euro-Klasse deines Fahrzeugs nicht, und hier entscheiden sie. Achte auf das Schild an der Einfahrt."),
 "The answer where you are, in big letters": ("La risposta dove sei, a caratteri grandi", "Die Antwort, wo du bist, in großer Schrift"),
+# 2.3 Grafica: la riga accanto al pannello LED (tavola S-Risposta)
+"This is how you'll see it at the gate.": ("Così lo vedrai al varco.", "So siehst du es an der Einfahrt."),
+"The panel will say ZTL ATTIVA: that's fine for you.": ("Il pannello dirà ZTL ATTIVA: per te va bene.", "Auf der Anzeige steht ZTL ATTIVA: für dich ist das in Ordnung."),
+"If the panel says ZTL ATTIVA, don't enter.": ("Se il pannello dice ZTL ATTIVA, non entrare.", "Steht auf der Anzeige ZTL ATTIVA, fahr nicht hinein."),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

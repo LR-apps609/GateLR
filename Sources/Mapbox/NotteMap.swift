@@ -63,6 +63,14 @@ enum NotteMap {
         ])
     }
 
+    /// 2.3: dalla sera al giorno senza ricaricare lo stile (il tema Giorno del telefono): lo Standard chiaro, come dayStyle()
+    static func setDay(_ map: MapboxMap) {
+        try? map.setStyleImportConfigProperties(for: "basemap", configs: [
+            "theme": "default", "lightPreset": "day",
+            "colorMotorways": "#FFFFFF", "colorRoads": "#FFFFFF", "colorTrunks": "#FFFFFF",
+        ])
+    }
+
     static func uiColor(_ hex: UInt32, _ alpha: CGFloat = 1) -> UIColor {
         UIColor(red: CGFloat((hex >> 16) & 0xFF) / 255, green: CGFloat((hex >> 8) & 0xFF) / 255,
                 blue: CGFloat(hex & 0xFF) / 255, alpha: alpha)
@@ -168,8 +176,8 @@ enum NotteMap {
         edge.lineCap = .constant(.round)
         edge.lineJoin = .constant(.round)
         edge.lineColor = .constant(color(tone.lineHex(dark: true)))
-        edge.lineWidth = .constant(2)
-        edge.lineDasharray = .constant(MapTheme.dash(access).map { Double($0) / 2 })
+        edge.lineWidth = .constant(3)
+        edge.lineDasharray = .constant(MapTheme.dash(access).map { Double($0) / 3 })
         edge.lineOpacity = .constant(access == .off ? 0.7 : 0.9)
         edge.lineEmissiveStrength = .constant(1)
         try? map.addLayer(edge)
@@ -188,8 +196,8 @@ enum NotteMap {
         return UIGraphicsImageRenderer(size: CGSize(width: t, height: t), format: format).image { ctx in
             let g = ctx.cgContext
             g.setStrokeColor(uiColor(hex, CGFloat(MapTheme.hatchOpacity(dark: true))).cgColor)
-            g.setLineWidth(1)
-            g.setLineCap(.square)
+            g.setLineWidth(MapTheme.hatchWidth)
+            g.setLineCap(.butt)
             for o in [-t, 0, t] {
                 g.move(to: CGPoint(x: o, y: t)); g.addLine(to: CGPoint(x: o + t, y: 0))
             }

@@ -98,13 +98,13 @@ struct PlaceCheck {
     /// Verde si entra, rosso no, ambra con una condizione o se non si sa; neutro se non conosciamo il posto.
     /// 1.20.4: fuori dalle zone di una città che conosciamo grigio (Theme.outside), mai verde
     var tint: Color {
-        if hedged { return Color(hex: 0xD99A00) }
+        if hedged { return Tokens.condInk.color }
         switch kind {
         case .uncovered: return Theme.muted
         case .outside: return Theme.outside
         case .open: return Theme.green
         case .closed, .pedestrian: return Theme.red
-        case .conditional, .unsure: return Color(hex: 0xD99A00)
+        case .conditional, .unsure: return Tokens.condInk.color
         }
     }
 

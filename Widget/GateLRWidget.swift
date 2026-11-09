@@ -111,71 +111,90 @@ struct GateWidgetView: View {
         return symbol + ".circle.fill"
     }
 
-    /// Rosso non entrare, giallo condizione o «?», verde puoi entrare, grigio ZTL non attiva
+    /// Rosso non entrare, giallo condizione o «?», verde puoi entrare, grigio fuori dalla ZTL (2.3: gli inchiostri di
+    /// Theme.swift, leggibili sul fondo di giorno e di notte)
     static func color(_ tone: WidgetAnswer.Tone) -> Color {
         switch tone {
-        case .red: Color(hex: 0xC1272D)
-        case .amber: Color(hex: 0xD99A00)
-        case .green: Color(hex: 0x0FA34A)
-        case .grey: Color(hex: 0x7C8596)
+        case .red: Tokens.noInk.color
+        case .amber: Tokens.condInk.color
+        case .green: Tokens.yesInk.color
+        case .grey: Tokens.greyInk.color
         }
     }
 
+    /// 2.3 (tavola X-Widget): lo stato della risposta; senza risposta «Controlla il cartello», mai verde
+    private var stato: Stato { entry.answer?.stato ?? .controllaCartello }
+
     var body: some View {
+        content.containerBackground(for: .widget) { fillBackground }
+    }
+
+    @ViewBuilder
+    private var content: some View {
         switch family {
         case .accessoryCircular:
+            // Schermata di blocco monocromatica: la forma della risposta (disco con barra, rombo, cerchio con trattino,
+            // anello tratteggiato) si legge anche senza colori
             ZStack {
                 AccessoryWidgetBackground()
-                VStack(spacing: 0) {
-                    Text(letter).font(.system(size: 20, weight: .bold))
-                    Image(systemName: symbol).font(.system(size: 11, weight: .bold))
+                VStack(spacing: 1) {
+                    RispostaShape(stato: stato, size: 22, mono: true)
+                    Text(letter).font(.system(size: 12, weight: .bold))
                 }
             }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text(verbatim: "\(state), \(entry.city) \(letter)"))
         case .accessoryRectangular:
             VStack(alignment: .leading, spacing: 1) {
                 Text(verbatim: warn + "ZTL \(entry.city) · \(letter)").font(.system(size: 13, weight: .semibold))
-                Text(state).font(.system(size: 17, weight: .bold))
+                HStack(spacing: 5) {
+                    RispostaShape(stato: stato, size: 15, mono: true)
+                    Text(state).font(.system(size: 17, weight: .bold)).lineLimit(1).minimumScaleFactor(0.7)
+                }
                 Text(change).font(.system(size: 12))
             }
+            .accessibilityElement(children: .combine)
         case .accessoryInline:
             Text(verbatim: warn + "ZTL \(letter): \(state.lowercased()) · \(change)")
         default:
-            VStack(alignment: .leading, spacing: 6) {
-                HStack {
-                    LogoMark(size: 24)
-                    Spacer()
-                    Text("\(entry.city) · \(letter)").font(.system(size: 12, weight: .semibold)).foregroundStyle(.secondary)
-                }
-                if let z = entry.zone, z.isUnofficial {
-                    // Regole da fonti non ufficiali: l'avviso al posto del tipo di zona
-                    HStack(spacing: 4) {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                        Text(verbatim: L("Unofficial source"))
+            // 2.3 (tavola X-Widget): il blocco pieno della risposta, come nell'app: forma + parola + colore
+            let ink = stato.onFill
+            VStack(alignment: .leading, spacing: 3) {
+                HStack(alignment: .top) {
+                    RispostaShape(stato: stato, size: 30)
+                    Spacer(minLength: 4)
+                    if entry.zone?.isUnofficial == true {
+                        Image(systemName: "exclamationmark.triangle.fill").font(.system(size: 13, weight: .bold))
+                            .accessibilityLabel(Text(verbatim: L("Unofficial source")))
                     }
-                    .font(.system(size: 11, weight: .bold)).lineLimit(1)
-                    .padding(.horizontal, 6).padding(.vertical, 2)
-                    .background(UnofficialBanner.fill, in: Capsule())
-                    .foregroundStyle(UnofficialBanner.ink)
-                } else if let z = entry.zone {
-                    // Il tipo di zona con il suo colore (vietato, pass, verde)
-                    HStack(spacing: 4) {
-                        Image(systemName: z.type.symbol).foregroundStyle(z.type.color)
-                        Text(z.type.title).foregroundStyle(.secondary)
-                    }
-                    .font(.system(size: 11, weight: .semibold)).lineLimit(1)
                 }
                 Spacer(minLength: 0)
-                Image(systemName: Self.filled(symbol))
-                    .font(.system(size: 22, weight: .bold)).foregroundStyle(tint)
-                Text(state).font(.system(size: 22, weight: .bold)).foregroundStyle(tint).minimumScaleFactor(0.6).lineLimit(1)
+                Text(verbatim: state.uppercased(with: Locale.current))
+                    .font(.system(size: 20, weight: .black)).lineLimit(3).minimumScaleFactor(0.6)
+                Text(verbatim: "\(entry.city) · \(letter)").font(.system(size: 12, weight: .bold)).lineLimit(1)
                 // 1.20.3: sotto il titolo fisso lo stato della ZTL (o «Dati da ricontrollare») e il prossimo cambio
                 Text(verbatim: [entry.answer?.stale == true ? L("Data to recheck") : entry.answer?.stato == .ztlNonAttiva ? "" : entry.on ? L("ZTL active") : L("ZTL not active"), change]
                         .filter { !$0.isEmpty }.joined(separator: " · "))
-                    .font(.system(size: 12, weight: .medium)).foregroundStyle(.secondary).lineLimit(1).minimumScaleFactor(0.7)
+                    .font(.system(size: 11, weight: .medium)).lineLimit(2).minimumScaleFactor(0.7)
                 if let v = entry.answer?.vehicleName {
-                    Text(verbatim: v).font(.system(size: 11)).foregroundStyle(.secondary).lineLimit(1)
+                    Text(verbatim: v).font(.system(size: 11)).lineLimit(1).opacity(0.9)
                 }
             }
+            .foregroundStyle(ink)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .accessibilityElement(children: .combine)
+        }
+    }
+
+    /// Il fondo: il pieno dello stato (uguale di giorno e di notte); il posto che non conosciamo sul fondo del tema
+    @ViewBuilder
+    private var fillBackground: some View {
+        if family == .systemSmall, let fill = stato.color.fillToken {
+            fill.color
+        } else if family == .systemSmall {
+            Tokens.ground.color
+        } else {
+            Color.clear
         }
     }
 }
@@ -193,7 +212,6 @@ struct GateLRWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: "GateLRWidget", intent: SelectZoneIntent.self, provider: GateProvider()) { entry in
             GateWidgetView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
                 .widgetURL(URL(string: "gatelr://varco"))
         }
         .configurationDisplayName("ZTL gates")
@@ -251,10 +269,10 @@ struct GuardianWidgetView: View {
                     Text(change).font(.system(size: 12, weight: .medium)).foregroundStyle(.secondary).lineLimit(1)
                 }
                 Label(L("Start the guardian"), systemImage: "play.fill")
-                    .font(.system(size: 12, weight: .bold)).foregroundStyle(.white)
+                    .font(.system(size: 12, weight: .bold)).foregroundStyle(Theme.onPrimary)
                     .lineLimit(1).minimumScaleFactor(0.7)
                     .padding(.horizontal, 10).padding(.vertical, 6)
-                    .background(Color(hex: 0x1F4E9E), in: Capsule())
+                    .background(Theme.primary, in: Capsule())
             }
         }
     }

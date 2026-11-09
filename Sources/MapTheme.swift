@@ -19,11 +19,13 @@ enum MapTheme {
         func lineHex(dark: Bool) -> UInt32 { dark ? lineDark : lineLight }
     }
 
-    static let red = Tone(fillLight: 0xD64545, lineLight: 0xA82F2F, fillDark: 0xE5544F, lineDark: 0xFF8A80)
-    /// Giallo vero (non l'ambra di prima), bordo scuro per il contrasto (≥3:1 sulla mappa chiara)
-    static let yellow = Tone(fillLight: 0xE8C21A, lineLight: 0x8A6D00, fillDark: 0xE8C21A, lineDark: 0xF2D24B)
-    static let green = Tone(fillLight: 0x3E9F5C, lineLight: 0x2C7543, fillDark: 0x4DB56E, lineDark: 0x86E0A2)
-    static let grey = Tone(fillLight: 0x7A8594, lineLight: 0x5B6573, fillDark: 0x7A8594, lineDark: 0x9AA5B5)
+    // 2.3 (tavola S-Mappa): il colore della zona è la risposta, con i token di Theme.swift: il pieno per la velatura,
+    // l'inchiostro del tema per il bordo e le righe (Giorno sulla mappa chiara, Notte sulla scura)
+    static let red = Tone(fillLight: Tokens.noFill.day, lineLight: Tokens.noInk.day, fillDark: Tokens.noFill.night, lineDark: Tokens.noInk.night)
+    /// Il giallo pieno della risposta, bordo ambra scuro per il contrasto sulla mappa chiara
+    static let yellow = Tone(fillLight: Tokens.condFill.day, lineLight: Tokens.condInk.day, fillDark: Tokens.condFill.night, lineDark: Tokens.condInk.night)
+    static let green = Tone(fillLight: Tokens.yesFill.day, lineLight: Tokens.yesInk.day, fillDark: Tokens.yesInk.night, lineDark: Tokens.yesInk.night)
+    static let grey = Tone(fillLight: Tokens.greyFill.day, lineLight: Tokens.greyInk.day, fillDark: Tokens.greyFill.night, lineDark: Tokens.greyInk.night)
 
     static func tone(_ a: Access) -> Tone {
         switch a {
@@ -38,10 +40,10 @@ enum MapTheme {
     struct Badge { let fill: UInt32, ink: UInt32, ring: UInt32? }
     static func badge(_ a: Access) -> Badge {
         switch a {
-        case .closed: Badge(fill: 0xA82F2F, ink: 0xFFFFFF, ring: nil)
-        case .conditional, .check: Badge(fill: 0xE8C21A, ink: 0x2B2300, ring: 0x8A6D00)
-        case .open: Badge(fill: 0x2C7543, ink: 0xFFFFFF, ring: nil)
-        case .off: Badge(fill: 0x2C7543, ink: 0xFFFFFF, ring: nil)
+        case .closed: Badge(fill: Tokens.noFill.day, ink: Tokens.onNo.day, ring: nil)
+        case .conditional, .check: Badge(fill: Tokens.condFill.day, ink: Tokens.onCond.day, ring: Tokens.condInk.day)
+        case .open: Badge(fill: Tokens.yesFill.day, ink: Tokens.onYes.day, ring: nil)
+        case .off: Badge(fill: Tokens.yesFill.day, ink: Tokens.onYes.day, ring: nil)
         }
     }
     static let pedestrianBadge = Badge(fill: 0x3A3F47, ink: 0xFFFFFF, ring: nil)
@@ -54,15 +56,17 @@ enum MapTheme {
     static func fillOpacity(_ a: Access, dark: Bool) -> Double {
         a == .off ? (dark ? 0.07 : 0.05) : (dark ? 0.16 : 0.12)
     }
-    static func hatchOpacity(dark: Bool) -> Double { dark ? 0.28 : 0.22 }
+    /// 2.3 (S-Mappa): righe a 45°, passo 12, tratto 5, opacità 55 % = attiva all'ora scelta
+    static func hatchOpacity(dark: Bool) -> Double { 0.55 }
+    static let hatchWidth: CGFloat = 5
 
-    /// Tratteggio del bordo in punti: 5 pieni e 4 vuoti; zona spenta più rado
-    static func dash(_ a: Access) -> [CGFloat] { a == .off ? [3, 5] : [5, 4] }
-    /// Spessore del bordo per zoom (13 → 1, 14–16 → 1,5, 17 → 2)
+    /// Tratteggio del bordo in punti (S-Mappa): 12 pieni e 8 vuoti = è una ZTL; zona spenta più rado
+    static func dash(_ a: Access) -> [CGFloat] { a == .off ? [6, 8] : [12, 8] }
+    /// Spessore del bordo per zoom (S-Mappa, 3–4 punti; 2 da lontano)
     static func lineWidth(zoom: Double) -> CGFloat {
-        zoom < 13.5 ? 1 : zoom < 16.5 ? 1.5 : 2
+        zoom < 13.5 ? 2 : zoom < 16.5 ? 3 : 4
     }
-    static let hatchPitch: Double = 7            // punti fra le righe a 45°
+    static let hatchPitch: Double = 12           // punti fra le righe a 45°
     static let corridorZoom: Double = 15         // da qui le vie sono corridoi, prima solo il segno
     static let hatchZoom: Double = 15
     static let nameZoom: Double = 15

@@ -992,6 +992,9 @@ T = {
 "You can change it in Settings → Preferred navigator.": "Vous pouvez le changer dans Réglages → GPS préféré.",
 "We don't know your vehicle's fuel or Euro class, and here they decide. Check the sign at the gate.": "Nous ne connaissons pas le carburant ou la classe Euro de votre véhicule, et ici ils comptent. Regardez le panneau au portique.",
 "The answer where you are, in big letters": "La réponse là où vous êtes, en grand",
+"This is how you'll see it at the gate.": "C'est ce que vous verrez au portique.",
+"The panel will say ZTL ATTIVA: that's fine for you.": "Le panneau indiquera ZTL ATTIVA : pour vous, c'est bon.",
+"If the panel says ZTL ATTIVA, don't enter.": "Si le panneau indique ZTL ATTIVA, n'entrez pas.",
 }
 
 INFO = {

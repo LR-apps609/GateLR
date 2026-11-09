@@ -351,7 +351,7 @@ struct AccessSwatch: View {
                     while x < size.width + size.height {
                         path.move(to: CGPoint(x: x, y: size.height)); path.addLine(to: CGPoint(x: x + size.height, y: 0)); x += p
                     }
-                    ctx.stroke(path, with: .color(tone.line.opacity(MapTheme.hatchOpacity(dark: dark))), lineWidth: 1)
+                    ctx.stroke(path, with: .color(tone.line.opacity(MapTheme.hatchOpacity(dark: dark))), lineWidth: MapTheme.hatchWidth * 0.5)
                 }
                 .clipShape(shape)
             }

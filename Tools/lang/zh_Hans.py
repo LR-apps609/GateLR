@@ -991,6 +991,9 @@ T = {
 "You can change it in Settings → Preferred navigator.": "可在“设置 → 首选导航”中更改。",
 "We don't know your vehicle's fuel or Euro class, and here they decide. Check the sign at the gate.": "我们不知道你车辆的燃料或欧标等级，而这里它们起决定作用。请查看闸口的标志。",
 "The answer where you are, in big letters": "你所在位置的答案，大字显示",
+"This is how you'll see it at the gate.": '你在入口处会看到这样的显示。',
+"The panel will say ZTL ATTIVA: that's fine for you.": '显示屏会显示 ZTL ATTIVA：对你来说没问题。',
+"If the panel says ZTL ATTIVA, don't enter.": '如果显示屏显示 ZTL ATTIVA，请不要进入。',
 }
 
 INFO = {

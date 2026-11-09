@@ -31,7 +31,7 @@ struct Wordmark: View {
     var body: some View {
         HStack(spacing: 10) {
             LogoMark(size: size * 1.5)
-            (Text(verbatim: "Gate").foregroundStyle(Theme.ink) + Text(verbatim: "LR").foregroundStyle(Theme.red))
+            (Text(verbatim: "Gate").foregroundStyle(Theme.ink) + Text(verbatim: "LR").foregroundStyle(Theme.brand))
                 .font(Theme.display(size))
         }
         .accessibilityElement(children: .ignore)
@@ -77,7 +77,7 @@ struct Pill: View {
     }
 }
 
-/// La risposta in breve, con il simbolo (✓ ✕ ! ?) oltre al colore: si legge anche senza distinguere i colori
+/// La risposta in breve (S-Risposta, taglia S): forma + parola + colore, piena come il blocco, uguale nei due temi
 struct VerdictPill: View {
     var verdict: Verdict
     /// Regole da fonti non ufficiali: il titolo fisso detto con prudenza (un «sì» diventa «Controlla il cartello»)
@@ -86,17 +86,302 @@ struct VerdictPill: View {
     var gatesOn = true
     var body: some View {
         // 1.19.0: un «sì» da fonte non ufficiale è giallo con il «?», mai verde
-        let look = verdict.shown(unofficial: unofficial)
-        let word = RispostaFinale.decide(Answer(verdict: verdict, gatesOn: gatesOn, nextChange: nil), unofficial: unofficial).0.word
-        HStack(spacing: 4) {
-            Image(systemName: unofficial && !verdict.isYes ? "exclamationmark.triangle.fill" : word.symbol).font(.system(size: 9, weight: .heavy)).accessibilityHidden(true)
-            Text(word.title)
+        RispostaChip(stato: RispostaFinale.decide(Answer(verdict: verdict, gatesOn: gatesOn, nextChange: nil), unofficial: unofficial).0)
+    }
+}
+
+// MARK: 2.3 · Il componente «Risposta» (tavole S-Risposta, S-Movimento)
+
+/// La forma della risposta, disegnata su una griglia di 48 come nelle tavole: disco con barra (Non entrare), rombo con
+/// «!» (A una condizione), disco con spunta (Entra pure), cerchio con trattino (ZTL non attiva), rombo con «?»
+/// (Controlla il cartello), anello tratteggiato con «?» (posto che non conosciamo), anello con il punto (Fuori dalla ZTL).
+/// Si legge anche senza colori (schermata di blocco monocromatica, daltonismo)
+struct RispostaShape: View {
+    var stato: Stato
+    var size: CGFloat = 46
+    /// Monocromatica (schermata di blocco): la forma nel colore del testo, il segno ritagliato
+    var mono = false
+
+    var body: some View {
+        let fill = mono ? Color.clear : stato.fill
+        let on = mono ? Color.primary : stato.onFill
+        Canvas { ctx, s in
+            let u = s.width / 48
+            func pt(_ x: CGFloat, _ y: CGFloat) -> CGPoint { CGPoint(x: x * u, y: y * u) }
+            func circle(_ r: CGFloat, _ cx: CGFloat = 24, _ cy: CGFloat = 24) -> Path {
+                Path(ellipseIn: CGRect(x: (cx - r) * u, y: (cy - r) * u, width: 2 * r * u, height: 2 * r * u))
+            }
+            var diamond = Path()
+            diamond.move(to: pt(24, 2)); diamond.addLine(to: pt(46, 24)); diamond.addLine(to: pt(24, 46)); diamond.addLine(to: pt(2, 24))
+            diamond.closeSubpath()
+            func question(_ color: Color, _ fontSize: CGFloat) {
+                let q = ctx.resolve(Text(verbatim: "?").font(.custom("TitilliumWeb-Black", fixedSize: fontSize * u)).foregroundStyle(color))
+                ctx.draw(q, at: pt(24, 25), anchor: .center)
+            }
+            // Monocromatica: il segno «bucato» nella forma piena
+            var mark = ctx
+            if mono { mark.blendMode = .destinationOut }
+            let markColor = mono ? Color.black : fill
+            switch stato {
+            case .nonEntrare:
+                ctx.fill(circle(22), with: .color(on))
+                mark.fill(Path(roundedRect: CGRect(x: 10 * u, y: 19 * u, width: 28 * u, height: 10 * u), cornerRadius: 2 * u), with: .color(markColor))
+            case .entraPure:
+                ctx.fill(circle(22), with: .color(on))
+                var tick = Path()
+                tick.move(to: pt(13, 25)); tick.addLine(to: pt(20, 32)); tick.addLine(to: pt(35, 16))
+                mark.stroke(tick, with: .color(markColor), style: StrokeStyle(lineWidth: 5.5 * u, lineCap: .round, lineJoin: .round))
+            case .condizione:
+                ctx.fill(diamond, with: .color(on))
+                var bar = Path()
+                bar.move(to: pt(24, 13)); bar.addLine(to: pt(24, 27))
+                mark.stroke(bar, with: .color(markColor), style: StrokeStyle(lineWidth: 5.5 * u, lineCap: .round))
+                mark.fill(circle(3.2, 24, 34), with: .color(markColor))
+            case .controllaCartello:
+                ctx.fill(diamond, with: .color(on))
+                let q = mark.resolve(Text(verbatim: "?").font(.custom("TitilliumWeb-Black", fixedSize: 26 * u)).foregroundStyle(markColor))
+                mark.draw(q, at: pt(24, 25), anchor: .center)
+            case .ztlNonAttiva:
+                ctx.stroke(circle(20), with: .color(on), lineWidth: 4.5 * u)
+                var dash = Path()
+                dash.move(to: pt(14, 24)); dash.addLine(to: pt(34, 24))
+                ctx.stroke(dash, with: .color(on), style: StrokeStyle(lineWidth: 5 * u, lineCap: .round))
+            case .nonCoperto:
+                ctx.stroke(circle(20), with: .color(on), style: StrokeStyle(lineWidth: 3.5 * u, dash: [6 * u, 5 * u]))
+                question(on, 24)
+            case .fuoriZTL:
+                ctx.stroke(circle(20), with: .color(on), lineWidth: 4.5 * u)
+                ctx.fill(circle(6), with: .color(on))
+            }
         }
-        .font(.app(size: 12, weight: .semibold))
-        .padding(.horizontal, 9).padding(.vertical, 4)
-        .background(look.pillFill, in: Capsule())
-        .foregroundStyle(look.pillInk)
+        .frame(width: size, height: size)
+        .compositingGroup()
+        .accessibilityHidden(true)
+    }
+}
+
+/// Le parole della risposta in maiuscolo, a capo SOLO fra una parola e l'altra: una parola troppo lunga per la riga si
+/// stringe da sola (fino a «minScale»), mai spezzata a metà né tagliata con «…» (Dynamic Type fino ad AX5)
+struct AnswerWords: View {
+    var text: String
+    var font: Font
+    var color: Color
+    var minScale: CGFloat = 0.45
+    @ScaledMetric private var gap: CGFloat
+    @ScaledMetric private var lineGap: CGFloat
+
+    init(_ text: String, font: Font, color: Color, baseSize: CGFloat = 40, minScale: CGFloat = 0.45) {
+        self.text = text; self.font = font; self.color = color; self.minScale = minScale
+        _gap = ScaledMetric(wrappedValue: baseSize * 0.24, relativeTo: .largeTitle)
+        _lineGap = ScaledMetric(wrappedValue: -baseSize * 0.22, relativeTo: .largeTitle)
+    }
+
+    static func words(_ text: String) -> [String] {
+        text.uppercased(with: Locale.current).split(separator: " ").map(String.init)
+    }
+
+    var body: some View {
+        let words = Self.words(text)
+        WordFlow(gap: gap, lineGap: lineGap) {
+            ForEach(Array(words.enumerated()), id: \.offset) { _, w in
+                Text(verbatim: w).font(font).foregroundStyle(color)
+                    .lineLimit(1).minimumScaleFactor(minScale).allowsTightening(true)
+            }
+        }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text(verbatim: text))
+    }
+}
+
+/// Le parole una accanto all'altra, a capo quando la riga è piena; una parola più larga della riga riceve la riga
+/// intera (e si stringe con minimumScaleFactor)
+struct WordFlow: Layout {
+    var gap: CGFloat
+    var lineGap: CGFloat
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let f = frames(width: proposal.width ?? .infinity, subviews: subviews)
+        return CGSize(width: f.map(\.maxX).max() ?? 0, height: f.map(\.maxY).max() ?? 0)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        for (v, f) in zip(subviews, frames(width: bounds.width, subviews: subviews)) {
+            v.place(at: CGPoint(x: bounds.minX + f.minX, y: bounds.minY + f.minY), proposal: ProposedViewSize(width: f.width, height: f.height))
+        }
+    }
+
+    private func frames(width: CGFloat, subviews: Subviews) -> [CGRect] {
+        let sizes = subviews.map { v -> CGSize in
+            let ideal = v.sizeThatFits(.unspecified)
+            return ideal.width <= width ? ideal : v.sizeThatFits(ProposedViewSize(width: width, height: nil))
+        }
+        return Self.arrange(sizes, width: width, gap: gap, lineGap: lineGap)
+    }
+
+    /// Le parole in righe: a capo solo fra una parola e l'altra; nessuna parola più larga della riga
+    static func arrange(_ sizes: [CGSize], width: CGFloat, gap: CGFloat, lineGap: CGFloat) -> [CGRect] {
+        var out: [CGRect] = []
+        var x: CGFloat = 0, y: CGFloat = 0, row: CGFloat = 0
+        for size in sizes {
+            let w = min(size.width, width)
+            if x > 0, x + gap + w > width {
+                x = 0; y += row + lineGap; row = 0
+            }
+            let px = x > 0 ? x + gap : 0
+            out.append(CGRect(x: px, y: y, width: w, height: size.height))
+            x = px + w
+            row = max(row, size.height)
+        }
+        return out
+    }
+}
+
+/// Il blocco della risposta (S-Risposta, taglie L e M): pieno del colore dello stato, la forma, la parola in maiuscolo
+/// (Titillium 900, almeno 34 punti), la riga della zona e la frase. Identico di giorno e di notte. «Non conosciamo questo
+/// posto» non ha pieno: contorno tratteggiato sul fondo. Per VoiceOver un solo elemento, letto per primo
+struct RispostaBlock: View {
+    enum Size { case large, medium, car }
+    var stato: Stato
+    /// La parola (titolo fisso dello stato)
+    var title: String
+    /// «Firenze · Settore B · fino alle 20:00»
+    var line: String? = nil
+    /// La frase sotto: il motivo del «?», la condizione, il varco davanti
+    var detail: String? = nil
+    /// Detto solo da VoiceOver, alla fine («Per Golf diesel Euro 5, adesso»)
+    var spokenExtra: String? = nil
+    var size: Size = .large
+    var identifier = "risposta.block"
+    @Environment(\.dynamicTypeSize) private var typeSize
+
+    private var wordSize: CGFloat { size == .car ? 64 : size == .medium ? 34 : 40 }
+    /// Quanto può stringersi una parola troppo lunga per la riga, invece di andare a capo a metà (GraficaTests la prova
+    /// con la parola più lunga di ogni lingua ad AX5)
+    static let minScale: CGFloat = 0.45
+
+    /// Quello che VoiceOver legge, in un colpo solo: «Non entrare. Firenze · Settore B · fino alle 20:00. …»
+    static func spoken(title: String, line: String?, detail: String?, extra: String?) -> String {
+        [title, line, detail, extra].compactMap { $0?.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
+            .map { $0.hasSuffix(".") ? String($0.dropLast()) : $0 }.joined(separator: ". ") + "."
+    }
+
+    var body: some View {
+        let on = stato.onFill
+        // Alle misure di accessibilità la forma va sopra la parola: la parola ha tutta la riga
+        let stacked = typeSize.isAccessibilitySize || size == .car
+        VStack(alignment: .leading, spacing: 10) {
+            let layout = stacked ? AnyLayout(VStackLayout(alignment: .leading, spacing: 10)) : AnyLayout(HStackLayout(alignment: .top, spacing: 14))
+            layout {
+                RispostaShape(stato: stato, size: size == .car ? 72 : 46)
+                AnswerWords(title, font: Theme.answerWord(wordSize, car: size == .car), color: on, baseSize: wordSize,
+                            minScale: Self.minScale)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, stacked ? 0 : 2)
+            }
+            if let line, !line.isEmpty {
+                Text(verbatim: line).font(Theme.answerLine(size == .car ? 24 : 20)).foregroundStyle(on)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            if let detail, !detail.isEmpty {
+                Text(verbatim: detail).font(.app(size: size == .car ? 20 : 16, weight: .semibold)).foregroundStyle(on)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(.horizontal, 20).padding(.top, 18).padding(.bottom, 20)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(stato.fill, in: RoundedRectangle(cornerRadius: Theme.Radius.large, style: .continuous))
+        .overlay {
+            if stato.dashed {
+                RoundedRectangle(cornerRadius: Theme.Radius.large, style: .continuous)
+                    .strokeBorder(Theme.muted, style: StrokeStyle(lineWidth: 3, dash: [9, 6]))
+            }
+        }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text(verbatim: Self.spoken(title: title, line: line, detail: detail, extra: spokenExtra)))
+        .accessibilityAddTraits([.isHeader, .isStaticText])
+        .accessibilityIdentifier(identifier)
+        .accessibilitySortPriority(10)
+    }
+}
+
+/// La risposta in piccolo (S-Risposta, taglia S): pillola piena con la forma e la parola
+struct RispostaChip: View {
+    var stato: Stato
+    var title: String? = nil
+    var body: some View {
+        HStack(spacing: 6) {
+            RispostaShape(stato: stato, size: 18)
+            Text(verbatim: title ?? stato.word.title)
+        }
+        .font(.app(size: 13, weight: .heavy))
+        .lineLimit(1)
+        .padding(.leading, 6).padding(.trailing, 11).padding(.vertical, 5)
+        .foregroundStyle(stato.onFill)
+        .background(stato.fill, in: Capsule())
+        .overlay { if stato.dashed { Capsule().strokeBorder(Theme.muted, style: StrokeStyle(lineWidth: 1.5, dash: [4, 3])) } }
         .fixedSize()
+        .accessibilityElement(children: .combine)
+    }
+}
+
+/// Il pannello LED come lo vedrai al varco (S-Risposta, «Regole del pannello LED»): luce neutra bianco caldo su nero,
+/// sempre sotto la risposta e più piccolo. Il testo viene dal motore (varchi accesi o no), mai dalla risposta. Si gira
+/// solo quando cambia (400 ms); con «Riduci movimento» non si muove
+struct LEDPanel: View {
+    var text: String
+    var caption: String?
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var shown: String?
+    @State private var angle = 0.0
+    @State private var flipping = false
+    private static let uiTest = ProcessInfo.processInfo.arguments.contains("-uitest")
+    private static let settledWord = "settled", movingWord = "moving"
+
+    var body: some View {
+        HStack(spacing: 14) {
+            Text(verbatim: shown ?? text)
+                .font(Theme.led(16)).tracking(1.9)
+                .foregroundStyle(Tokens.led.color)
+                .shadow(color: Color(hex: 0xFFD68C).opacity(0.7), radius: 4)
+                .lineLimit(1).minimumScaleFactor(0.6)
+                .padding(.horizontal, 16).padding(.vertical, 8)
+                .background(Tokens.ledGround.color, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(Tokens.ledFrame.color, lineWidth: 3))
+                .rotation3DEffect(.degrees(angle), axis: (x: 1, y: 0, z: 0), perspective: 0.5)
+                .fixedSize()
+                .accessibilityElement()
+                .accessibilityLabel(Text(verbatim: text))
+                // Solo nel giro delle foto: «settled» quando il pannello è fermo (la foto aspetta questo)
+                .accessibilityIdentifier("gate.panel")
+                .accessibilityValue(Text(verbatim: Self.uiTest ? (!flipping && (shown ?? text) == text ? Self.settledWord : Self.movingWord) : ""))
+            if let caption {
+                Text(verbatim: caption).font(.app(size: 14, weight: .medium)).foregroundStyle(Theme.muted)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+        .padding(.horizontal, 14).padding(.vertical, 12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Theme.card, in: RoundedRectangle(cornerRadius: Theme.Radius.medium, style: .continuous))
+        .onAppear { shown = text }
+        .onChange(of: text) { _, new in flip(to: new) }
+    }
+
+    private func flip(to new: String) {
+        guard !reduceMotion else { shown = new; return }
+        flipping = true
+        withAnimation(.easeIn(duration: 0.2)) { angle = 90 } completion: {
+            shown = new
+            angle = -90
+            withAnimation(.easeOut(duration: 0.2)) { angle = 0 } completion: { flipping = false }
+        }
+        // Se il completamento non arriva (vista sparita a metà), il pannello torna dritto
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            guard flipping else { return }
+            var t = Transaction()
+            t.disablesAnimations = true
+            withTransaction(t) { shown = text; angle = 0; flipping = false }
+        }
     }
 }
 
@@ -109,36 +394,28 @@ struct VerdictCard: View {
     var onWhy: (() -> Void)? = nil
 
     var body: some View {
-        // I colori e il simbolo dalla risposta come si mostra (un «sì» non ufficiale è giallo con «?»), le parole dal motore
-        let v = answer.verdict.shown(unofficial: !source.isOfficial)
-        // 2.1: la parola della RispostaFinale (la ZTL non attiva ha la sua)
-        let word = RispostaFinale.decide(answer, unofficial: !source.isOfficial).0.word
+        // 2.3: i colori e la forma dallo stato della RispostaFinale (la ZTL non attiva ha la sua parola e il suo token)
+        let stato = RispostaFinale.decide(answer, unofficial: !source.isOfficial).0
+        let word = stato.word
+        let ink = stato.onFill
         VStack(alignment: .leading, spacing: 14) {
             HStack {
                 Text(heading.uppercased()).font(Theme.label(13)).tracking(1.1).opacity(0.9)
                 Spacer()
-                Pill(text: answer.gatesOn ? L("ZTL active") : L("ZTL not active"), fill: v.onFill.opacity(0.16), ink: v.onFill)
+                Pill(text: answer.gatesOn ? L("ZTL active") : L("ZTL not active"), fill: ink.opacity(0.16), ink: ink)
             }
             if !source.isOfficial { UnofficialBanner(source: source.unofficialSource) }
             HStack(spacing: 14) {
-                Image(systemName: word.symbol)
-                    .font(.app(size: 26, weight: .heavy))
-                    .foregroundStyle(v.badgeInk)
-                    .frame(width: 56, height: 56)
-                    .background(v.badgeFill, in: Circle())
-                    .accessibilityHidden(true)
-                VStack(alignment: .leading, spacing: -15) {
-                    ForEach(word.lines, id: \.self) { line in
-                        Text(line).font(Theme.display(36)).lineLimit(1).minimumScaleFactor(0.6)
-                    }
-                }
-                .accessibilityElement(children: .ignore)
+                RispostaShape(stato: stato, size: 46)
+                AnswerWords(word.title, font: Theme.answerWord(34), color: ink, baseSize: 34, minScale: 0.6)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .accessibilityElement(children: .ignore)
                 .accessibilityLabel(word.title)
                 .accessibilityAddTraits(.isHeader)
             }
             Text(detail).font(.app(size: 16)).fixedSize(horizontal: false, vertical: true)
             if let next = answer.nextChange { countdown(to: next) }
-            Rectangle().fill(v.onFill.opacity(0.22)).frame(height: 1)
+            Rectangle().fill(ink.opacity(0.22)).frame(height: 1)
             HStack(alignment: .top) {
                 // 1.20.1 «Dati»: «letto il» (quando abbiamo letto la fonte) e, sotto, «verificato il» (o «non verificato»,
                 // «pagina del Comune cambiata»): non sono più la stessa data
@@ -158,16 +435,15 @@ struct VerdictCard: View {
                     Button(action: onWhy) {
                         HStack(spacing: 3) { Text("Why?"); Image(systemName: "chevron.right").font(.app(size: 11, weight: .bold)) }
                     }
-                    .font(.app(size: 14, weight: .semibold)).foregroundStyle(v.onFill)
+                    .font(.app(size: 14, weight: .semibold)).foregroundStyle(ink)
                     .accessibilityLabel("Why?")
                     .accessibilityHint("Shows the official source")
                 }
             }
         }
         .padding(20)
-        .foregroundStyle(v.onFill)
-        .background(v.fill, in: RoundedRectangle(cornerRadius: 26, style: .continuous))
-        .shadow(color: .black.opacity(0.08), radius: 14, y: 6)
+        .foregroundStyle(ink)
+        .background(stato.fill, in: RoundedRectangle(cornerRadius: Theme.Radius.large, style: .continuous))
         .animation(.snappy, value: answer)
     }
 
@@ -180,8 +456,8 @@ struct VerdictCard: View {
             if span > 0 {
                 GeometryReader { g in
                     ZStack(alignment: .leading) {
-                        Capsule().fill(answer.verdict.shown(unofficial: !source.isOfficial).onFill.opacity(0.22))
-                        Capsule().fill(answer.verdict.shown(unofficial: !source.isOfficial).onFill)
+                        Capsule().fill(RispostaFinale.decide(answer, unofficial: !source.isOfficial).0.onFill.opacity(0.22))
+                        Capsule().fill(RispostaFinale.decide(answer, unofficial: !source.isOfficial).0.onFill)
                             .frame(width: g.size.width * min(1, max(0.03, 1 - left / span)))
                     }
                 }
@@ -221,8 +497,9 @@ struct UnofficialBanner: View {
     /// Una riga sola, per i riquadri piccoli (striscia della mappa, widget)
     var compact = false
 
-    static let fill = Color(hex: 0xFFB21E)
-    static let ink = Color(hex: 0x2B1A00)
+    /// 2.3: il giallo pieno della risposta con l'inchiostro scuro (11,5:1), uguale di giorno e di notte
+    static let fill = Tokens.condFill.color
+    static let ink = Tokens.onCond.color
 
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
@@ -281,9 +558,10 @@ struct WideButton: View {
                 Text(L(title))
             }
             .font(.app(size: 15, weight: .semibold))
-            .frame(maxWidth: .infinity, minHeight: 48)
-            .background(prominent ? Theme.blueFill : Theme.blueSoft, in: RoundedRectangle(cornerRadius: 14, style: .continuous))
-            .foregroundStyle(prominent ? Color.white : Theme.blue)
+            .frame(maxWidth: .infinity, minHeight: Theme.Target.standard)
+            // 2.3: chiaro su Notte, scuro su Giorno; mai rosso (S-Componenti)
+            .background(prominent ? Theme.primary : Theme.raised, in: RoundedRectangle(cornerRadius: Theme.Radius.medium, style: .continuous))
+            .foregroundStyle(prominent ? Theme.onPrimary : Theme.ink)
         }
         .buttonStyle(.plain)
     }
