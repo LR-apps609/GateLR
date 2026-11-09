@@ -205,8 +205,12 @@ struct Home2Map: UIViewRepresentable {
         }
 
         /// La deriva lenta: 24° in 40 secondi, poi indietro, finché non si guarda la mappa
+        /// 2.3: niente deriva nel giro delle foto: la mappa che si muove sempre teneva occupato l'albero di accessibilità
+        /// («Timed out while evaluating UI query» in test6VarcoProMax e test1dFines)
+        private static let uiTest = ProcessInfo.processInfo.arguments.contains("-uitest")
+
         private func startDrift(forward: Bool) {
-            guard !parent.reduceMotion, !parent.mapMode, let mapView else { return }
+            guard !parent.reduceMotion, !parent.mapMode, !Self.uiTest, let mapView else { return }
             let target = Self.bearing0 + (forward ? 24 : 0)
             drift = mapView.camera.ease(to: CameraOptions(bearing: target), duration: 40, curve: .linear) { [weak self] position in
                 guard position == .end else { return }

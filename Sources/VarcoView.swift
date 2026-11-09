@@ -32,6 +32,7 @@ struct VarcoView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.colorScheme) private var scheme
     @Environment(\.horizontalSizeClass) private var sizeClass
+    @Environment(\.dynamicTypeSize) private var typeSize
 
     var body: some View {
         TimelineView(.everyMinute) { ctx in
@@ -65,6 +66,7 @@ struct VarcoView: View {
             }
             .scrollDismissesKeyboard(.immediately)
             .background(sceneBackground(answer?.mood).ignoresSafeArea())
+            .statusBarBackground()
         }
         // 2.3 (direzione C): Giorno e Notte automatici, dal telefono (prima sempre blu notte)
         .onAppear { search.focus(on: store.city) }
@@ -134,7 +136,7 @@ struct VarcoView: View {
                 }
             } label: {
                 Label(store.city.localizedName, systemImage: "building.2")
-                    .font(.app(size: 13, weight: .semibold)).lineLimit(1)
+                    .font(.app(size: 13, weight: .semibold)).lineLimit(1).minimumScaleFactor(0.7)
                     .padding(.horizontal, 12).frame(height: 32)
                     .background(.ultraThinMaterial, in: Capsule())
                     .foregroundStyle(Theme.ink)
@@ -454,7 +456,7 @@ struct VarcoView: View {
                 // 1.19.1: «Non entrare.» → l'azione principale è «Parcheggia fuori e cammina», grande e per prima;
                 // la mappa diventa un pulsante secondario accanto a «Perché?» e «Dettagli del viaggio»
                 parkButton(primary: true, place: check.place)
-                HStack(spacing: 10) {
+                sideBySide {
                     Button { openMap(check) } label: {
                         Image(systemName: "map.fill").font(.app(size: 16, weight: .semibold)).foregroundStyle(Theme.ink)
                             .frame(width: 52, height: Theme.Target.minimum)
@@ -474,12 +476,19 @@ struct VarcoView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityIdentifier("varco.map")
-                HStack(spacing: 10) { whyAndDetails(check) }
+                sideBySide { whyAndDetails(check) }
                 // Ambra (sotto «Perché?» e «Dettagli», che devono stare nello schermo): i parcheggi fuori dalla ZTL, con i minuti a piedi
                 if check.suggestsParking { parkButton(primary: false, place: check.place) }
             }
         }
         .padding(.top, 4)
+    }
+
+    /// 2.3 (S-Tipo, Dispositivi su iPhone SE): i pulsanti secondari affiancati; con il testo grande uno sotto l'altro,
+    /// mai troncati («Dettagli d…»)
+    private func sideBySide<C: View>(@ViewBuilder _ content: () -> C) -> some View {
+        let layout = typeSize.isAccessibilitySize ? AnyLayout(VStackLayout(spacing: 10)) : AnyLayout(HStackLayout(spacing: 10))
+        return layout { content() }
     }
 
     @ViewBuilder
@@ -518,7 +527,8 @@ struct VarcoView: View {
         Button(action: action) {
             Label(title, systemImage: symbol)
                 .font(.app(size: 14, weight: .semibold)).foregroundStyle(Theme.ink)
-                .lineLimit(1).minimumScaleFactor(0.8)
+                .lineLimit(2).minimumScaleFactor(0.85).multilineTextAlignment(.center)
+                .padding(.horizontal, 6)
                 .frame(maxWidth: .infinity, minHeight: Theme.Target.minimum)
                 .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).strokeBorder(Theme.line, lineWidth: 2))
         }

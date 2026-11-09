@@ -193,9 +193,16 @@ jobs:
           }
           rm -f stalled ui-all.log
           ui_round ui.log || status=$?
-          # Fino a tre ripartenze, ognuna con i soli test non ancora passati
+          # Fino a tre ripartenze, ognuna con i soli test non ancora passati. 2.3: anche quando il simulatore non risponde
+          # («Timed out waiting for AX loaded notification», «Timed out while evaluating UI query», «Failed to initialize
+          # for UI testing»: problemi del simulatore, come in dispositivi.yml), non solo con il guardiano
+          AX_STUCK="Timed out waiting for AX loaded notification|Timed out while evaluating UI query|Failed to initialize for UI testing|Test runner exited|Early unexpected exit|Lost connection to the test manager"
           for again in 1 2 3; do
-            [ -f stalled ] || break
+            if [ ! -f stalled ]; then
+              [ "$status" != 0 ] && grep -qE "$AX_STUCK" ui.log || break
+              echo "::warning::Il simulatore non ha risposto (tempo scaduto dell'accessibilità): ripartenza"
+              touch stalled
+            fi
             cat ui.log >> ui-all.log
             SKIP=()
             for t in $(grep -ohE "Test Case '-\[GateLRUITests\.[A-Za-z]+ [A-Za-z0-9_]+\]' passed" ui-all.log | sed -E "s/.*\[GateLRUITests\.([A-Za-z]+) ([A-Za-z0-9_]+)\].*/\1\/\2/" | sort -u); do
@@ -239,16 +246,18 @@ jobs:
             # Una cartella a parte: le foto del giro arrivano dagli allegati del risultato solo se «screenshots» è vuota.
             # Un secondo tentativo se il simulatore appena acceso non risponde («Timed out waiting for AX loaded
             # notification», corsa 40713141400)
-            for attempt in 1 2; do
+            for attempt in 1 2 3; do
               pm=0
               TEST_RUNNER_SCREENSHOT_DIR="$PWD/screenshots-pm" xcodebuild test-without-building -project GateLR.xcodeproj \
                 -scheme GateLRUITests -destination "platform=iOS Simulator,name=$PM" -derivedDataPath build-ui \
                 -retry-tests-on-failure -test-iterations 2 \
                 -only-testing:GateLRUITests/ScreenshotTests/test6VarcoProMax CODE_SIGNING_ALLOWED=NO > ui-pm.log 2>&1 || pm=$?
               [ "$pm" = 0 ] && break
-              grep -q "Failed to initialize for UI testing\|Timed out waiting for AX" ui-pm.log || break
+              [ $attempt -lt 3 ] || break
+              grep -qE "$AX_STUCK" ui-pm.log || break
+              cp ui-pm.log "ui-pm-$attempt.log"
               # Senza spegnerlo: spento e riacceso, nella corsa 40727183750 xcodebuild non lo trovava più
-              echo "::warning::$PM: il simulatore non ha risposto, secondo tentativo tra 30 secondi"
+              echo "::warning::$PM: il simulatore non ha risposto (tentativo $attempt), si riprova tra 30 secondi"
               sleep 30
               xcrun simctl bootstatus "$PM" -b > /dev/null 2>&1 || true
             done

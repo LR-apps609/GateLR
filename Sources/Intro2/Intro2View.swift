@@ -36,10 +36,10 @@ struct Intro2View: View {
 
     private var header: some View {
         HStack {
+            // 2.3 (foto 09b): nell'ultima pagina la barretta rossa è già sopra il titolo (IntroTitle): qui niente, prima
+            // se ne vedevano due
             if page < 3 {
                 IntroProgress(page: page, fill: fill)
-            } else {
-                RedBar()
             }
             Spacer()
             if page < 3 {

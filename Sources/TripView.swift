@@ -24,9 +24,6 @@ struct TripView: View {
     @Environment(\.requestReview) private var requestReview
     /// 1.20.2: il viaggio da cancellare, in attesa della conferma
     @State private var deleting: PendingDelete?
-    /// 1.20.4: il posto per cui la pagina è già scesa fino a «Parcheggia fuori e cammina» (una volta sola per posto)
-    @State private var parkShownFor: String?
-    @State private var parkScroll: String?
     /// La prima pagina chiede il campo di ricerca già attivo quando si arriva da lì
     static var focusSearch = false
 
@@ -34,7 +31,7 @@ struct TripView: View {
         TimelineView(.everyMinute) { ctx in
             // L'ora scelta nei chip (la stessa della prima pagina e della mappa); rimasta nel passato vale «adesso»
             let date = store.moment(ctx.date)
-            ScrollViewReader { proxy in
+            ScrollViewReader { _ in
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     header
@@ -61,18 +58,9 @@ struct TripView: View {
             }
             .scrollDismissesKeyboard(.immediately)
             .background(Theme.ground)
-            // 1.20.4 (foto 39): con il «no» il riquadro dei parcheggi viene subito sotto la risposta, ma la sua parte bassa
-            // («Riprova», il primo parcheggio) restava sotto la barra delle schede di iOS 26. La pagina scende quanto basta
-            // perché i primi 130 punti del riquadro stiano sopra la barra (la safe area della scheda); se ci stanno già
-            // non si muove niente. Una volta sola per posto: poi scorre chi guarda
-            .onChange(of: parkScroll) { _, key in
-                guard let key, parkShownFor != key else { return }
-                parkShownFor = key
-                Task {
-                    try? await Task.sleep(for: .milliseconds(350))
-                    withAnimation(.snappy) { proxy.scrollTo(Self.parkFold, anchor: .bottom) }
-                }
-            }
+            // 2.3 (Dispositivi, iPhone SE): la pagina non scende più da sola verso i parcheggi (1.20.4): la risposta e i
+            // chip restavano sotto la barra di stato. I parcheggi vengono subito sotto la risposta; scorre chi guarda
+            .statusBarBackground()
             }
         }
         .onAppear {
@@ -240,11 +228,6 @@ struct TripView: View {
             // «No» (1.19.1): prima «Parcheggia fuori e cammina», poi il resto
             if check.parkingFirst {
                 parkOutside(place, at: date)
-                    // 1.20.4: il segno fino a dove il riquadro deve stare sopra la barra delle schede (vedi parkScroll)
-                    .background(alignment: .top) {
-                        Color.clear.frame(height: Self.parkFoldHeight).id(Self.parkFold)
-                            .onAppear { parkScroll = place.key }
-                    }
             }
             if hits.count > 1 {
                 VStack(alignment: .leading, spacing: 8) {
@@ -284,8 +267,6 @@ struct TripView: View {
 
     /// 1.20.4: il segno in cima al riquadro dei parcheggi e quanto deve stare sopra la barra delle schede: il titolo e
     /// la prima riga (o «Nessun parcheggio… Riprova»)
-    static let parkFold = "trip.parkFold"
-    static let parkFoldHeight: CGFloat = 130
 
     /// «Parcheggia fuori e cammina»: i parcheggi fuori da ogni ZTL attiva all'ora scelta, poi a piedi
     private func parkOutside(_ place: Place, at date: Date) -> some View {

@@ -342,15 +342,17 @@ final class ScreenshotTests: XCTestCase {
         // La legenda della mappa: si apre con un tocco e si richiude con un tocco sulla legenda stessa
         mapTab.tap()
         sleep(4)
+        // 2.3: sulla mappa l'albero di accessibilità è grande (zone, varchi, parcheggi): le ricerche con «any» andavano in
+        // tempo scaduto («Timed out while evaluating UI query», corsa 42599988327). Una ricerca sola, per i pulsanti; la
+        // legenda aperta si chiude con un tocco sullo stesso punto (la legenda intera si chiude a ogni tocco)
         let strip = app.buttons["map.legend"].firstMatch
-        if strip.waitForExistence(timeout: 4) {
+        if strip.waitForExistence(timeout: 6) {
+            let spot = strip.frame
             strip.tap(); sleep(1)
             snap(big ? "27-legend-open-69" : "27-legend-open")
-            let full = app.descendants(matching: .any)["map.legend.full"].firstMatch
-            if full.waitForExistence(timeout: 3) {
-                full.tap(); sleep(1)
-                XCTAssertTrue(app.buttons["map.legend"].firstMatch.waitForExistence(timeout: 3), "La legenda non si è richiusa")
-            }
+            app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: spot.midX, dy: spot.midY)).tap()
+            sleep(1)
+            XCTAssertTrue(app.buttons["map.legend"].firstMatch.waitForExistence(timeout: 6), "La legenda non si è richiusa")
         }
     }
 
@@ -465,21 +467,18 @@ final class ScreenshotTests: XCTestCase {
             let searching = app.staticTexts["Cerco…"].firstMatch
             for _ in 0..<20 where searching.exists { sleep(1) }
             sleep(3)
-            // 1.20.4: nella vista iniziale il riquadro dei parcheggi sta sopra la barra delle schede (prima «Riprova» ci
-            // finiva sotto): la pagina scende da sola quanto basta
-            if name.hasPrefix("39") {
-                let retry = app.buttons["park.retry"].firstMatch
-                let bar = app.tabBars.firstMatch
-                if retry.exists && bar.exists {
-                    XCTAssertLessThanOrEqual(retry.frame.maxY, bar.frame.minY + 1, "39: «Riprova» sotto la barra delle schede")
-                }
-            }
+            // 2.3: la pagina non scende più da sola (la risposta finiva sotto la barra di stato): la foto della vista
+            // iniziale, poi un colpo verso l'alto e «Riprova» intero sopra la barra delle schede
             snap(name)
-            // 1.20.2: il riquadro «Parcheggia fuori e cammina» un po' più su: «Riprova» intero sopra la barra delle schede
             if name.hasPrefix("39") {
                 let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75))
-                from.press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)))
+                from.press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45)))
                 sleep(2)
+                let retry = app.buttons["park.retry"].firstMatch
+                let bar = app.tabBars.firstMatch
+                if retry.exists && bar.exists && retry.isHittable {
+                    XCTAssertLessThanOrEqual(retry.frame.maxY, bar.frame.minY + 1, "39b: «Riprova» sotto la barra delle schede")
+                }
                 snap("39b-trip-park-retry")
             }
         }
