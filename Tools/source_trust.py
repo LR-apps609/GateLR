@@ -186,6 +186,15 @@ def selftest():
     for f in sorted(p for p in CITIES.glob("*.json") if p.name != "manifest.json"):
         t = f.read_text(encoding="utf-8")
         assert dump(json.loads(t)) == t, f"{f.name}: formato diverso da quello degli script"
+        # 1.20.4 (B120): id unici di zone, aree pedonali e telecamere, e dei varchi dentro ogni zona (l'iPhone li usa
+        # come chiavi della mappa: 21 aree di Bologna con «bo-ap-None» si evidenziavano tutte insieme)
+        city = json.loads(t)
+        ids = [z["id"] for z in city["zones"]] + [a["id"] for a in city.get("pedestrian") or []] + [c["id"] for c in city.get("cameras") or []]
+        doubles = sorted({i for i in ids if ids.count(i) > 1})
+        assert not doubles, f"{f.name}: id doppi {doubles[:5]}"
+        for z in city["zones"]:
+            g = [x["id"] for x in z["gates"]]
+            assert len(g) == len(set(g)), f"{f.name}: varchi con id doppio in {z['id']}"
     print("source_trust: prove passate")
 
 

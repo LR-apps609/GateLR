@@ -87,8 +87,9 @@ final class PedestrianWinsTests: XCTestCase {
         XCTAssertEqual(morning.kind, .conditional, "ZTL attiva con il biglietto giornaliero: a una condizione")
         XCTAssertFalse(morning.parkingFirst, "solo con il «no» «Parcheggia fuori» passa per primo")
         // Firenze, Palazzo Vecchio, diesel Euro 1 di notte: lo Scudo Verde dice no → «Parcheggia fuori» per primo
+        // (1.20.4: il punto è il palazzo, non Piazza della Signoria, che dai dati aperti del Comune è area pedonale)
         let firenze = try city("firenze")
-        let euro1 = check("Palazzo Vecchio", 43.7696, 11.2558, in: [firenze], vehicle: Vehicle(name: "", fuel: .diesel, euro: 1),
+        let euro1 = check("Palazzo Vecchio", 43.7693, 11.2563, in: [firenze], vehicle: Vehicle(name: "", fuel: .diesel, euro: 1),
                           at: date(2026, 11, 3, 22))
         XCTAssertEqual(euro1.kind, .closed)
         XCTAssertTrue(euro1.parkingFirst)

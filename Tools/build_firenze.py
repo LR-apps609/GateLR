@@ -26,6 +26,10 @@ for _f, _q in [("disciplinare-ztl.txt", "Nei settori A, B, O, F e G la ZTL avrà
 DIURNA = "https://datigis.comune.fi.it/json/ztl_diurna.json"
 NOTTURNA = "https://datigis.comune.fi.it/json/ztl_notturna.json"
 PORTE = "https://datigis.comune.fi.it/json/sas_porte_telematiche_od.json"
+# 1.20.4 (B08): le aree pedonali del Comune (dataset «Aree pedonali», CC-BY 4.0, data.comune.fi.it id
+# 4b49d9a5-6b91-451d-b7c3-73ea6cd3e83b): Signoria, Duomo, Pitti, Ponte Vecchio, Calzaiuoli… prima mancavano e la risposta
+# era «Puoi entrare» a ZTL spenta. Tutti i tipi (A–F, Cascine) come aree pedonali: chiuse alle auto a ogni ora
+AREE_PEDONALI = "https://datigis.comune.fi.it/json/areepedonali.json"
 CHECKED = "2026-10-23T12:00:00Z"
 
 OPEN_DATA = [
@@ -332,12 +336,27 @@ def main():
         })
 
     zones.append(scudo_verde())
+    pedestrian = []
+    for f in sorted(fetch(AREE_PEDONALI)["features"], key=lambda f: f["properties"]["id"]):
+        g, pr = f["geometry"], f["properties"]
+        if not g:
+            continue
+        polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]
+        for j, poly in enumerate(sorted(polys, key=lambda q: -abs(sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(q[0], q[0][1:] + q[0][:1]))))):
+            pts = simplify(poly[0], 0.000005)
+            if len({tuple(x) for x in pts}) < 4:
+                pts = poly[0]
+            pedestrian.append({"id": f"fi-ap-{pr['id']}" + (f"-{j + 1}" if j else ""),
+                               "name": (pr.get("luogo") or "Area pedonale").strip().title(),
+                               "perimeter": [{"lat": round(x[1], 6), "lon": round(x[0], 6)} for x in pts]})
+    if len(pedestrian) < 300:
+        raise SystemExit(f"Aree pedonali: solo {len(pedestrian)}")
     city = {"id": "firenze", "name": "Florence", "name_it": "Firenze", "name_de": "Florenz", "center": {"lat": 43.7712, "lon": 11.2550},
-            "zones": zones, "cameras": sorted(cameras, key=lambda c: c["name"]), "status": "draft",
+            "zones": zones, "pedestrian": pedestrian, "cameras": sorted(cameras, key=lambda c: c["name"]), "status": "draft",
             # 2.1: il 24 giugno (San Giovanni, patrono) il Comune non dice se i varchi sono accesi: «Controlla il cartello»
             # (uncertainDays, non localHolidays: non sappiamo che sia un festivo per la ZTL)
             "uncertainDays": ["06-24"],
-            "license": ("Perimeters and gates: Comune di Firenze open data, CC-BY 4.0. Scudo Verde perimeter: © OpenStreetMap contributors, ODbL 1.0 "
+            "license": ("Perimeters, gates and pedestrian areas: Comune di Firenze open data, CC-BY 4.0. Scudo Verde perimeter: © OpenStreetMap contributors, ODbL 1.0 "
                         "(traced from the Città Metropolitana di Firenze PUMS dataset, CC BY 4.0)")}
     out = Path(__file__).resolve().parent.parent / "Resources/Cities/firenze.json"
     out.parent.mkdir(parents=True, exist_ok=True)

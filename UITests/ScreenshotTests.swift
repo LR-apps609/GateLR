@@ -296,7 +296,7 @@ final class ScreenshotTests: XCTestCase {
     /// «Fonte non ufficiale: verifica sempre il cartello al varco» in Varco, nella scheda della zona e sulla mappa
     func test5Unofficial() {
         app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiUnofficial", "firenze",
-                               "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]
+                               "-uiPlace", "Palazzo Vecchio", "43.7693", "11.2563"]
         app.launch()
         XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
         sleep(4)
@@ -322,7 +322,7 @@ final class ScreenshotTests: XCTestCase {
     /// anche su un simulatore Pro Max; sugli altri iPhone fa solo la foto
     func test6VarcoProMax() {
         app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT",
-                               "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]
+                               "-uiPlace", "Palazzo Vecchio", "43.7693", "11.2563"]
         app.launch()
         XCTAssertTrue(varcoTab.waitForExistence(timeout: 15))
         sleep(5)
@@ -399,11 +399,11 @@ final class ScreenshotTests: XCTestCase {
         let it = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT"]
         let cases: [(String, [String])] = [
             // Fonte non ufficiale, varchi spenti (martedì 22:00): giallo con il «?», «Probabilmente sì»
-            ("33-varco-unofficial-yes", ["-uiUnofficial", "firenze", "-uiAt", "22:00", "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]),
+            ("33-varco-unofficial-yes", ["-uiUnofficial", "firenze", "-uiAt", "22:00", "-uiPlace", "Palazzo Vecchio", "43.7693", "11.2563"]),
             // Pistoia non è tra le città: neutro, «Non conosciamo questo posto»
             ("34-varco-uncovered", ["-uiPlace", "Piazza del Duomo Pistoia", "43.9333", "10.9167"]),
             // Diesel Euro 1 di notte a Palazzo Vecchio: Settore A spento, ma lo Scudo Verde lo vieta
-            ("35-varco-scudo-euro1-night", ["-uiVehicle", "diesel", "1", "-uiAt", "22:00", "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]),
+            ("35-varco-scudo-euro1-night", ["-uiVehicle", "diesel", "1", "-uiAt", "22:00", "-uiPlace", "Palazzo Vecchio", "43.7693", "11.2563"]),
             // Elettrica nell'Area C attiva (Corso Magenta, fuori dall'area pedonale del Duomo): verde «ZTL ATTIVA · SEI ESENTE»
             ("36-varco-active-exempt", ["-uiVehicle", "electric", "6", "-uiAt", "11:00", "-uiPlace", "Corso Magenta", "45.4658", "9.1780"]),
         ]
@@ -446,7 +446,7 @@ final class ScreenshotTests: XCTestCase {
             // Piazza Maggiore alle 23:58: «Non entrare» (area pedonale) ma «ZTL non attiva» (ZTL 7–20)
             ("38-trip-pedestrian-2358", ["-uiAt", "23:58", "-uiPlace", "Piazza Maggiore", "44.4939", "11.3426"]),
             // Diesel Euro 1 alle 22 a Palazzo Vecchio (Scudo Verde): «Parcheggia fuori e cammina» subito sotto la risposta
-            ("39-trip-euro1-park-first", ["-uiVehicle", "diesel", "1", "-uiAt", "22:00", "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]),
+            ("39-trip-euro1-park-first", ["-uiVehicle", "diesel", "1", "-uiAt", "22:00", "-uiPlace", "Palazzo Vecchio", "43.7693", "11.2563"]),
         ]
         for (name, extra) in cases {
             app.terminate()
@@ -490,7 +490,7 @@ final class ScreenshotTests: XCTestCase {
     func test9cTrustFix() {
         app.terminate()
         app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiAt", "22:00",
-                               "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]
+                               "-uiPlace", "Palazzo Vecchio", "43.7693", "11.2563"]
         app.launch()
         XCTAssertTrue(helpTab.waitForExistence(timeout: 15))
         XCTAssertTrue(app.descendants(matching: .any)["varco.answer"].firstMatch.waitForExistence(timeout: 30), "manca la risposta")
@@ -578,7 +578,7 @@ final class ScreenshotTests: XCTestCase {
     func test9dFine() {
         app.terminate()
         app.launchArguments = ["-uitest", "-AppleLanguages", "(it)", "-AppleLocale", "it_IT", "-uiAt", "22:00",
-                               "-uiPlace", "Palazzo Vecchio", "43.7696", "11.2558"]
+                               "-uiPlace", "Palazzo Vecchio", "43.7693", "11.2563"]
         app.launch()
         XCTAssertTrue(helpTab.waitForExistence(timeout: 15))
         XCTAssertTrue(app.descendants(matching: .any)["varco.answer"].firstMatch.waitForExistence(timeout: 30), "manca la risposta")

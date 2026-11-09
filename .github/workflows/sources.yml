@@ -35,6 +35,11 @@ jobs:
           if ! git diff --quiet -- Resources/Cities; then
             python3 Tools/build_manifest.py
             if [ -n "$CITY_DATA_SIGNING_KEY" ]; then python3 Tools/sign_cities.py sign; git add Resources/Cities/manifest.sig; fi
+            # 1.20.4 (B108): anche la cartella web/ in git, che anteprime e Tools/check_engine_cases.mjs leggono (prima
+            # restava quella vecchia: Genova rossa in web/, gialla «pagina cambiata» nei dati). I file dei dati del sito
+            # hanno l'impronta nel nome: quelli nuovi si aggiungono, i vecchi si tolgono
+            python3 Tools/build_site.py > /dev/null
+            git add -A web
             echo "cities_changed=1" >> "$GITHUB_ENV"
           fi
       - name: Segnalazione e nuove impronte
