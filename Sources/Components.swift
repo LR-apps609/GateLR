@@ -33,6 +33,8 @@ struct Wordmark: View {
             LogoMark(size: size * 1.5)
             (Text(verbatim: "Gate").foregroundStyle(Theme.ink) + Text(verbatim: "LR").foregroundStyle(Theme.brand))
                 .font(Theme.display(size))
+                // 2.3 (Dispositivi, iPhone SE con testo grande): mai a capo («GateL / R»)
+                .lineLimit(1).fixedSize()
         }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("GateLR")
@@ -61,6 +63,14 @@ struct CardBackground: ViewModifier {
 }
 extension View {
     func card(_ radius: CGFloat = 16) -> some View { modifier(CardBackground(radius: radius)) }
+
+    /// 2.3: il fondo del tema sotto la barra di stato, così chi scorre non finisce sotto l'ora e la batteria
+    /// (Dispositivi, iPhone SE: la risposta e i chip di Viaggio sotto la barra di stato)
+    func statusBarBackground(_ color: Color = Theme.ground) -> some View {
+        overlay(alignment: .top) {
+            color.frame(height: 0).ignoresSafeArea(edges: .top).allowsHitTesting(false).accessibilityHidden(true)
+        }
+    }
 }
 
 struct Pill: View {
@@ -420,10 +430,11 @@ struct VerdictCard: View {
                 // 1.20.1 «Dati»: «letto il» (quando abbiamo letto la fonte) e, sotto, «verificato il» (o «non verificato»,
                 // «pagina del Comune cambiata»): non sono più la stessa data
                 VStack(alignment: .leading, spacing: 4) {
-                    HStack(spacing: 4) {
-                        Label(String(format: L("Read %@"), source.checkedOn.formatted(.dateTime.day().month())), systemImage: "doc.text.magnifyingglass")
-                        Text("· \(source.localizedAuthority)").lineLimit(1)
-                    }
+                    // 2.3 (Dispositivi, testo grande): una sola riga che va a capo, mai «Comune di F…»
+                    Label {
+                        Text(verbatim: String(format: L("Read %@"), source.checkedOn.formatted(.dateTime.day().month())) + " · " + source.localizedAuthority)
+                            .fixedSize(horizontal: false, vertical: true)
+                    } icon: { Image(systemName: "doc.text.magnifyingglass") }
                     let engine = RuleEngine()
                     let trust = engine.trust(source)
                     Label(engine.verifiedShort(source), systemImage: trust == .verified ? "checkmark.seal" : trust == .read ? "person.crop.circle.badge.questionmark" : "exclamationmark.triangle")
