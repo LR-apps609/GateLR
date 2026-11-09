@@ -1,3 +1,26 @@
+Novità della 2.0 (una risposta, nuova struttura, nuova grafica):
+• Sette risposte uguali ovunque (iPhone, Android, sito, widget, Live Activity, avvisi, Siri, CarPlay): «Non entrare», «A una condizione», «Puoi entrare», «ZTL non attiva», «Controlla il cartello», «Non conosciamo questo posto», «Fuori dalla ZTL». Ognuna ha forma, parola e colore, mai solo colore. Il sito ora dice «Puoi entrare» e «A una condizione» come l'app
+• Quattro schede: Adesso, Mappa, Viaggio, Aiuto. Garage, permessi, impostazioni, privacy e fonti stanno dietro l'icona del veicolo in alto; «Leggi il cartello» accanto. La scheda «Tu» non c'è più
+• Adesso risponde da solo: per la zona in cui sei o per la più vicina entro 300 m nella direzione in cui vai («120 m davanti a te»); altrimenti «Fuori dalla ZTL» o «Non conosciamo questo posto». Modalità «In auto» a tutto schermo con parole grandi
+• Presentazione con «Con cosa entri?»: alimentazione e classe Euro anche «Non so». Con «Non so», dove contano i divieti Euro la risposta è «Controlla il cartello», mai «Puoi entrare»
+• Avvisi: un solo avviso per varco, a 300 m in città e a 600 m sopra i 50 km/h, solo nella direzione di marcia, con il titolo della risposta
+• Giorni incerti (Firenze e Torino il 24/6, Milano il 7/12): «Controlla il cartello»
+• Hotel nella ZTL (decisione del 09/11): senza la conferma della targa «Non entrare»; con «L'hotel ha registrato la targa», l'auto giusta e le date giuste «Puoi entrare»
+• Grafica nuova: Giorno e Notte seguono il telefono, il blocco della risposta è uguale nei due temi, pannello LED neutro bianco caldo con «Così lo vedrai al varco», rosso del marchio solo nel logo, iPad con mappa e risposta affiancate. Testo grande fino al massimo per le parole della risposta; VoiceOver legge la risposta in un colpo solo
+• Dati delle città riletti dalle fonti ufficiali: Firenze con 394 aree pedonali del Comune (Signoria, Duomo, Pitti, Ponte Vecchio: sempre «Non entrare»); Milano con tutte le parti delle aree pedonali e 22 ZTL locali («Controlla il cartello», dati del 2023); Bergamo piazza Dante e piazzale Marconi senza accesso hotel. Nessuna risposta diventa più permissiva
+• Tolti dall'app: navigatore interno e modalità prova (restano solo nelle build di sviluppo), abbonamento
+• Controlli automatici su iPhone SE, iPhone 17, iPhone 17 Pro Max e iPad, normale, scuro e testo grande
+
+Novità della 1.20.4 (solidità):
+• «Fuori dalla ZTL» è grigio, non più verde: in una città coperta un posto fuori dalle zone ha la parola «Fuori dalla ZTL» con un trattino, su iPhone (Varco, Mappa, Viaggio, parcheggio), Live Activity, guardiano, Android e sito. Mai verde
+• Memoria di Varco: la striscia di mappa in alto non ridisegna più le righe a 45° delle zone attive ogni minuto (fino a 80 linee per zona). Varco resta tra 92 e 98 MB, il guardiano in guida tra 96 e 106 MB (prima tra 100 e 250 MB a ondate). Le righe restano sulla Mappa
+• Mappa scura: l'alone sotto il bordo delle zone ha il colore della zona, niente più righe scure lungo bordi e varchi
+• Viaggio con il «no»: il riquadro dei parcheggi e «Riprova» stanno sopra la barra delle schede
+• 59 bug trovati dai 20 tester sull'iPhone, prima quelli che davano un verde sbagliato: guardiano con la posizione approssimativa o negata dice «Serve la posizione esatta per i varchi»; la Mappa cambia risposta quando una zona si accende; il permesso dell'hotel vale solo per il veicolo e le date chieste (un hotel non ancora chiesto risponde «Non entrare»); «Nessuna ZTL sul percorso» verde solo nelle città coperte; il cartello con più gruppi di giorni sulla stessa riga; avvisi pronti solo con la posizione «Sempre»; testo grande fino a +30% senza tagli; Siri «Posso entrare in…» con il nome giusto della zona
+• Android: quattro schede Adesso, Mappa, Viaggio, Aiuto (Garage e impostazioni dall'icona del veicolo), sette risposte con forma, parola e colore, widget nuovo che si aggiorna da solo almeno ogni 30 minuti; «Leggi il cartello» mai verde; 22 bug dei tester corretti
+• Sito 2.0.1: 41 bug dei tester corretti (giorni e ore di Roma giusti anche al cambio dell'ora, mai la risposta del posto di prima mentre carica, nuovi veicoli Euro 4 e 5)
+• Le regole delle città non cambiano in questa versione: le correzioni dei dati (Milano, Bologna, Firenze, Bergamo) arrivano dopo il tuo «ok»
+
 Novità della 1.20.3 (parole):
 • Una sola risposta, sempre con le stesse parole: «Non entrare», «Puoi entrare», «A una condizione», «Controlla il cartello» (e «Non conosciamo questo posto» dove non conosciamo le ZTL). Uguali in Varco, Mappa, Viaggio, avvisi, widget, Live Activity, CarPlay, Siri, su Android e sul sito, in ogni lingua. Le altre frasi («Probabilmente sì», «Fuori dalla ZTL», «ZTL non attiva») stanno sotto, come spiegazione; prima c'erano «Entra pure.», «Arrivo sereno.», «Probabilmente sì.» come titolo
 • Fonte non ufficiale: un «sì» si legge «Controlla il cartello» (giallo, come prima) e un «no» «Non entrare» (rosso, come prima); sotto «Probabilmente sì · fonte non ufficiale» o «Probabilmente no · fonte non ufficiale»
