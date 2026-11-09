@@ -327,7 +327,7 @@ struct RispostaChip: View {
 /// Il pannello LED come lo vedrai al varco (S-Risposta, «Regole del pannello LED»): luce neutra bianco caldo su nero,
 /// sempre sotto la risposta e più piccolo. Il testo viene dal motore (varchi accesi o no), mai dalla risposta. Si gira
 /// solo quando cambia (400 ms); con «Riduci movimento» non si muove
-struct LEDPanel: View {
+struct GateLEDPanel: View {
     var text: String
     var caption: String?
     @Environment(\.accessibilityReduceMotion) private var reduceMotion

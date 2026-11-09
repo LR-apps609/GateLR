@@ -341,7 +341,7 @@ struct VarcoView: View {
                 .transition(.opacity)
             actions(check)
             // Il pannello come lo vedrai al varco: sotto la risposta, più piccolo, luce neutra (non la contraddice mai)
-            if a.showsPanel { LEDPanel(text: a.ledText, caption: a.ledCaption) }
+            if a.showsPanel { GateLEDPanel(text: a.ledText, caption: a.ledCaption) }
             if let label = a.timeLabel {
                 timeBlock(label, a)
             }
