@@ -1,6 +1,6 @@
 {
- "version": "202611082123",
- "digest": "ce825203dda5",
+ "version": "202611091328",
+ "digest": "d451c8d76b64",
  "schema": 1,
  "cities": [
   {
@@ -176,7 +176,7 @@
   {
    "id": "torino",
    "file": "torino.json",
-   "sha256": "2ea11c060d8351b1bc803dc7d9ed59aef5767ebb0e025619302f1f8aca9a8def"
+   "sha256": "86382aaa23abb2f54a2e49ec9687129ac2b5a39248738b8114e4d9e41b99cc9a"
   },
   {
    "id": "trento",
