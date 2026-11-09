@@ -70,6 +70,12 @@ final class SharedEngineCasesTests: XCTestCase {
         XCTAssertGreaterThan(cities.count, 40, "le città di Resources/Cities")
         XCTAssertTrue(cities.contains { $0.id == "salerno" } && cities.contains { $0.id == "cagliari" }, "anche le città da fonti non ufficiali")
         XCTAssertGreaterThanOrEqual(cases.count, 30)
+        // 2.1: gli stessi stati, motivi e colori semantici del file su iPhone, Android e sito
+        XCTAssertEqual(file["stati"] as? [String], Stato.allCases.map(\.rawValue))
+        XCTAssertEqual(file["motivi"] as? [String], Motivo.allCases.map(\.rawValue))
+        let toni = try XCTUnwrap(file["toni"] as? [String: String])
+        for s in Stato.allCases { XCTAssertEqual(toni[s.rawValue], s.tono.rawValue, "tono di \(s)") }
+        XCTAssertEqual(file["statoSpento"] as? String, RispostaFinale.stateOff.rawValue, "ZTL non attiva: un solo token")
 
         for c in cases {
             let id = c["id"] as? String ?? "?"
@@ -98,12 +104,13 @@ final class SharedEngineCasesTests: XCTestCase {
             let hotel = c["hotel"] as? Bool ?? false
             let check = PlaceCheck(place: Place(name: place["name"] as? String ?? id, address: "", location: p), hits: hits, pedestrian: area,
                                    answers: hits.map { engine.trustedAnswer(zone: $0.zone, vehicle: v, permits: [], hotelInside: hotel, at: at) },
-                                   covered: Store.covers(p, in: caseCities))
+                                   covered: Store.covers(p, in: caseCities),
+                                   coverUnofficial: hits.isEmpty && Store.coverUnofficial(p, in: caseCities))
 
             XCTAssertEqual(check.colourName, expect["colour"] as? String, "\(id): colore")
             // Lo stesso nome del colore della mappa quando decide una zona (1.20.4: fuori dalla ZTL «grey», senza zona)
             if check.access != nil { XCTAssertEqual(check.colourName, Self.colour(check.access), "\(id): colore della mappa") }
-            if check.showsOutside { XCTAssertEqual(check.colourName, "grey", "\(id): fuori dalla ZTL è grigio") }
+            if check.showsOutside && !check.unofficial { XCTAssertEqual(check.colourName, "grey", "\(id): fuori dalla ZTL è grigio") }
             if let want = expect["verdict"] as? String {
                 XCTAssertEqual(Self.name(check.verdict.shown(unofficial: check.unofficial)), want, "\(id): risposta")
             }
@@ -119,6 +126,18 @@ final class SharedEngineCasesTests: XCTestCase {
             if let want = expect["pedestrian"] as? Bool {
                 XCTAssertEqual(check.pedestrian != nil, want, "\(id): area pedonale")
             }
+            // 2.1 (B09): la distanza dal lato della zona più vicina (5 m di tolleranza)
+            if let want = expect["nearestMeters"] as? Double {
+                let m = caseCities.flatMap(\.zones).map { $0.distance(lat: lat, lon: lon) }.min() ?? .infinity
+                XCTAssertEqual(m, want, accuracy: 5, "\(id): distanza dal lato")
+            }
+            // 2.1 «Una risposta, sette stati»: la RispostaFinale del posto (shared/risposta-finale.md)
+            let f = check.finale
+            XCTAssertEqual(f.stato.rawValue, expect["stato"] as? String, "\(id): stato")
+            XCTAssertEqual(f.motivo?.rawValue, expect["motivo"] as? String, "\(id): motivo")
+            XCTAssertEqual(f.motivo != nil, f.stato == .controllaCartello, "\(id): il motivo solo con «Controlla il cartello»")
+            XCTAssertEqual(check.word, f.word, "\(id): il titolo è la parola dello stato")
+            if f.color == .verde { XCTAssertTrue(check.covered && !check.unofficial, "\(id): \(f.stato) verde dove non sappiamo") }
             // Le regole fisse, qualunque cosa dica il file: mai verde fuori copertura o da fonte non ufficiale
             if !check.covered { XCTAssertNil(check.access, "\(id): fuori copertura è neutro") }
             if check.unofficial { XCTAssertNotEqual(check.access, .open, "\(id): fonte non ufficiale mai verde") }

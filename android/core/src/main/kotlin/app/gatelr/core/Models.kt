@@ -25,6 +25,8 @@ data class City(
     val cameras: List<Camera>? = null,
     /** Feste del patrono che valgono come festivi, "MM-DD" (es. Roma "06-29") */
     val localHolidays: List<String>? = null,
+    /** 2.1: i giorni ("MM-DD") in cui la fonte ufficiale non dice se la ZTL è attiva: «Controlla il cartello» (festivo) */
+    val uncertainDays: List<String>? = null,
 ) {
     @Serializable
     enum class Status { @SerialName("sample") SAMPLE, @SerialName("draft") DRAFT, @SerialName("verified") VERIFIED }
@@ -91,6 +93,8 @@ data class Zone(
     val source: Source,
     /** Le feste del patrono della città ("MM-DD"): copiate dalla città quando si legge il file (CityLoader) */
     val localHolidays: List<String>? = null,
+    /** 2.1: i giorni incerti della città, copiati dalla città come localHolidays */
+    val uncertainDays: List<String>? = null,
 ) {
     val localizedName: String get() = pick(name, nameIt, nameDe)
     val localizedSummary: String get() = pick(summary, summaryIt, summaryDe, long = true)
@@ -116,8 +120,7 @@ data class Zone(
     /** Distanza approssimata in metri dal perimetro (0 se dentro) */
     fun distance(lat: Double, lon: Double): Double {
         if (contains(lat, lon)) return 0.0
-        val k = kotlin.math.cos(lat * Math.PI / 180)
-        return perimeter.minOfOrNull { kotlin.math.hypot((it.lat - lat) * 111_000, (it.lon - lon) * 111_000 * k) } ?: Double.POSITIVE_INFINITY
+        return Geometry.nearestOnRing(perimeter, Coordinate(lat, lon)).second      // 2.1 (B09): dal lato, non dal vertice
     }
 
     /** Questo tipo di veicolo entra sempre (es. moto e scooter dove il Comune dice «eccetto veicoli a due ruote») */
@@ -380,8 +383,8 @@ object CityLoader {
     fun decode(text: String): City {
         val city = json.decodeFromString(City.serializer(), text)
         // Il motore riceve solo la zona: le feste del patrono della città le porta lei
-        val local = city.localHolidays ?: return city
-        return city.copy(zones = city.zones.map { it.copy(localHolidays = local) })
+        if (city.localHolidays == null && city.uncertainDays == null) return city
+        return city.copy(zones = city.zones.map { it.copy(localHolidays = city.localHolidays ?: it.localHolidays, uncertainDays = city.uncertainDays ?: it.uncertainDays) })
     }
 }
 

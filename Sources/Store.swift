@@ -175,6 +175,13 @@ final class Store: ObservableObject {
         cities.contains { $0.covers(lat: c.lat, lon: c.lon) }
     }
 
+    /// 2.1 (B22): il punto è coperto solo da città con le zone tutte da fonti non ufficiali (anche il confine viene da lì):
+    /// fuori dalle zone non diciamo «Fuori dalla ZTL» ma «Controlla il cartello». Come Android e il sito («uo»)
+    nonisolated static func coverUnofficial(_ c: Coordinate, in cities: [City]) -> Bool {
+        let cover = cities.filter { $0.covers(lat: c.lat, lon: c.lon) }
+        return !cover.isEmpty && cover.allSatisfy { !$0.zones.isEmpty && $0.zones.allSatisfy(\.isUnofficial) }
+    }
+
     /// Vero se il posto è il tuo hotel: solo lì vale «l'hotel registra la targa». 2.0 (B43): solo se hai detto che è un
     /// hotel (nel riquadro «Registrazione della targa» hai chiesto all'hotel di registrarla, o un viaggio salvato come
     /// hotel) e solo vicino alle date del soggiorno (un giorno prima dell'arrivo, un giorno dopo la partenza). Prima
@@ -390,6 +397,10 @@ enum CityLoader {
         // Il motore riceve solo la zona: le feste del patrono della città le porta lei
         if let local = city.localHolidays {
             for i in city.zones.indices { city.zones[i].localHolidays = local }
+        }
+        // 2.1: i giorni in cui la fonte non dice se la ZTL è attiva
+        if let days = city.uncertainDays {
+            for i in city.zones.indices { city.zones[i].uncertainDays = days }
         }
         prepare(&city)
         return city

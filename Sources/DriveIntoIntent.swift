@@ -123,7 +123,8 @@ struct CanIDriveIntoIntent: AppIntent {
         let name = "\(city.localizedName) \(z.shortName)"
         var text: String
         // Un «sì» da fonte non ufficiale si dice con prudenza (1.19.0)
-        let short = a.verdict.spokenText(unofficial: z.isUnofficial)
+        // 2.1: le parole della RispostaFinale, come in app («ZTL non attiva», motivo del «?» dopo il titolo)
+        let short = RispostaFinale.of(a, zone: z, status: city.status).spoken
         if let date, abs(date.timeIntervalSince(now)) > 10 * 60 {
             text = String(format: L("%@, %@: %@."), name, store.engine.describe(date, from: now), short)
         } else {

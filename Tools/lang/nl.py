@@ -962,6 +962,8 @@ T = {
 "Not updated: open GateLR": "Niet bijgewerkt: open GateLR",
 "Add your plate in Garage first.": "Voeg eerst je kenteken toe in de Garage.",
 "Navigate anyway": "Toch navigeren",
+"On this day the city doesn't say whether the ZTL is active. Check the sign at the gate.": "Op deze dag zegt de gemeente niet of de ZTL actief is. Kijk naar het bord bij de toegang.",
+"Alerts 300 m before a ZTL, 600 m above 50 km/h": "Meldingen 300 m voor een ZTL, 600 m boven 50 km/u",
 }
 
 INFO = {

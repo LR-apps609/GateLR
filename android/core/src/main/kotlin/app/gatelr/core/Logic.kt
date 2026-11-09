@@ -110,7 +110,7 @@ object ThreatEvaluator {
 
     /** Il punto del perimetro più vicino e la distanza in metri */
     fun nearest(perimeter: List<Coordinate>, p: Coordinate): Pair<Coordinate, Double> =
-        perimeter.map { it to Geometry.meters(p, it) }.minByOrNull { it.second } ?: (p to Double.POSITIVE_INFINITY)
+        Geometry.nearestOnRing(perimeter, p)       // 2.1 (B09): dal lato, non dal vertice
 
     /** Davanti? Con la direzione di marcia solo entro ±70°; senza: se ti avvicini, o prudente se non lo sappiamo */
     fun isAhead(from: Coordinate, to: Coordinate, meters: Double, course: Double?, approaching: Boolean?): Boolean {
@@ -131,6 +131,8 @@ object ThreatEvaluator {
              answer: (ThreatCandidate, Double) -> Answer): Result {
         val distances = mutableMapOf<String, Double>()
         var best: Threat? = null
+        // 2.1 (B10): la zona peggiore che ti contiene (anche un'area pedonale) resta la minaccia, a 0 m, finché ci sei dentro
+        var within: Threat? = null
         val entered = mutableListOf<Threat>()
         for (c in candidates) {
             val inside = c.contains(p)
@@ -140,7 +142,12 @@ object ThreatEvaluator {
             if (d >= LOOKAHEAD) continue
             val ask = { m: Double -> if (c.pedestrian != null) pedestrianAnswer else answer(c, m) }
             if (d == 0.0) {
-                if (before != null && before > 0) { val a = ask(0.0); val f = finale(c, a); if (f.stato.alerts) entered += Threat(c, 0.0, a, f, p) }
+                val a = ask(0.0); val f = finale(c, a)
+                if (!f.stato.alerts) continue
+                val t = Threat(c, 0.0, a, f, p)
+                if (before != null && before > 0) entered += t
+                val cur = within
+                if (cur == null || a.verdict.severity > cur.answer.verdict.severity) within = t
                 continue
             }
             if (!isAhead(p, point, d, course, before?.let { d < it - 3 })) continue
@@ -151,7 +158,7 @@ object ThreatEvaluator {
             if (b != null && (b.meters < d || (b.meters == d && b.answer.verdict.severity >= a.verdict.severity))) continue
             best = Threat(c, d, a, f, point)
         }
-        return Result(best, entered, distances)
+        return Result(within ?: best, entered, distances)
     }
 
     /** L'ora d'arrivo stimata: la velocità vera se ti muovi, altrimenti 9 m/s (32 km/h in città) */
@@ -170,6 +177,8 @@ class ThreatDeduper(private val resetDistance: Double = 900.0, private val coold
         fired[key] = now
         return true
     }
+    /** Un viaggio nuovo: gli avvisi si possono ridare */
+    fun reset() = fired.clear()
     fun moved(distances: Map<String, Double>) {
         fired.keys.toList().forEach { k -> val id = k.substringAfterLast("|"); if ((distances[id] ?: 0.0) > resetDistance) fired.remove(k) }
     }

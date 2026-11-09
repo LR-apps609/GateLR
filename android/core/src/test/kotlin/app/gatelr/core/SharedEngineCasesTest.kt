@@ -80,6 +80,11 @@ class SharedEngineCasesTest {
             expect["gatesOn"]?.let { check("varchi", it.jsonPrimitive.boolean, p.gatesOn) }
             expect["unofficial"]?.let { check("fonte non ufficiale", it.jsonPrimitive.boolean, p.unofficial) }
             expect["pedestrian"]?.let { check("area pedonale", it.jsonPrimitive.boolean, p.pedestrian != null) }
+            // 2.1 (B09): la distanza dal lato della zona più vicina (5 m di tolleranza)
+            expect["nearestMeters"]?.let { want ->
+                val m = nearestZone(cities, Coordinate(place["lat"]!!.jsonPrimitive.double, place["lon"]!!.jsonPrimitive.double))!!.third
+                if (kotlin.math.abs(m - want.jsonPrimitive.double) > 5) errors += "$id: distanza attesa ${want.jsonPrimitive.double}, ottenuta $m"
+            }
             // 2.1 «Una risposta, sette stati»: la RispostaFinale del posto (shared/risposta-finale.md)
             val f = p.finale
             if ("stato" in expect) {
@@ -90,7 +95,7 @@ class SharedEngineCasesTest {
             // Le regole fisse, qualunque cosa dica il file
             if (!p.covered && p.color != AnswerColor.NEUTRAL) errors += "$id: fuori copertura non neutro"
             // 1.20.4: fuori dalla ZTL in una città che conosciamo è grigio, mai verde
-            if (p.kind == PlaceCheck.Kind.OUTSIDE && p.color != AnswerColor.GREY) errors += "$id: fuori dalla ZTL non grigio"
+            if (p.kind == PlaceCheck.Kind.OUTSIDE && !p.unofficial && p.color != AnswerColor.GREY) errors += "$id: fuori dalla ZTL non grigio"
             if (p.unofficial && p.color == AnswerColor.GREEN) errors += "$id: fonte non ufficiale verde"
             val trust = p.zone?.let { engine.trust(it) }
             expect["trust"]?.let { check("verifica", it.jsonPrimitive.content, trust?.let(::trustName)) }

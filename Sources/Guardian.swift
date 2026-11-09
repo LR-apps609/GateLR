@@ -177,7 +177,7 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         lastDistances = scan.distances
         ThreatAlerts.shared.moved(scan.distances)
         for t in scan.entered {
-            store.record(.entered, zone: t.zone, verdict: t.answer.verdict)
+            store.record(.entered, zone: t.zone, verdict: t.shown)      // 2.1 (B77): la risposta come si mostra
             // Il consiglio che evita le multe a catena: non girare dentro cercando l'uscita
             if t.level == .stop, ThreatAlerts.shared.post(t, prefix: "in") {
                 say(String(format: L("You're inside %@. Leave by the nearest exit and don't drive around: every gate can mean another fine."), t.candidate.name))
@@ -187,7 +187,8 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
         if scan.resting != resting { resting = scan.resting }
 
         // Un avviso per avvicinamento (lo stesso ThreatDeduper della guida e degli avvisi ad app chiusa)
-        if let t = scan.threat, t.meters < max(store.alertDistance, 300), ThreatAlerts.shared.post(t) {
+        // Dentro una zona (0 m) l'avviso è già quello «Sei dentro» qui sopra: niente doppione
+        if let t = scan.threat, t.meters > 0, t.meters < ThreatEvaluator.alertDistance(speed: speed), ThreatAlerts.shared.post(t) {
             say(String(format: L("Attention: in %@ you enter %@. %@."), DriveSession.distanceText(t.meters), t.candidate.name, t.spoken))
         }
         refreshActivity()
@@ -228,6 +229,12 @@ final class Guardian: NSObject, ObservableObject, CLLocationManagerDelegate, AVS
             // Il titolo fisso e, da fonte non ufficiale, la spiegazione: «Controlla il cartello · Probabilmente sì · fonte non ufficiale» (1.20.3)
             let short = t.spoken
             let name = t.candidate.pedestrian != nil ? t.zone.localizedName : t.zone.shortName
+            // 2.1 (B10): dentro la zona, «Sei dentro Settore A · Non entrare» finché ci resti
+            if t.meters == 0 {
+                return DriveAttributes.ContentState(symbol: t.candidate.pedestrian != nil ? "figure.walk" : t.zone.type.symbol, distance: "",
+                                                    instruction: String(format: L("You're inside %@"), name) + " · " + short,
+                                                    warning: nil, eta: nil, level: t.level.activity, zone: name)
+            }
             return DriveAttributes.ContentState(symbol: t.candidate.pedestrian != nil ? "figure.walk" : t.zone.type.symbol,
                                                 distance: DriveSession.distanceText(t.meters),
                                                 instruction: "\(name) · \(short)",

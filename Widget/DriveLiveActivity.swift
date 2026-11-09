@@ -23,7 +23,7 @@ struct DriveLiveActivity: Widget {
         case "no": return Color(hex: 0xFF4D52)
         case "cond": return amber
         case "ok": return green
-        case "clear": return outside        // 1.20.4: grigio, come il riquadro del guardiano in Varco
+        case "clear": return outside        // 1.20.4: grigio, come il riquadro del guardiano in Varco (mai verde a riposo)
         case "none": return neutral
         default: return .white
         }

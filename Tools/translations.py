@@ -862,6 +862,8 @@ T = {
 "Not updated: open GateLR": ("Non aggiornato: apri GateLR", "Nicht aktuell: öffne GateLR"),
 "Add your plate in Garage first.": ("Prima aggiungi la targa nel Garage.", "Trage zuerst dein Kennzeichen in der Garage ein."),
 "Navigate anyway": ("Naviga comunque", "Trotzdem navigieren"),
+"On this day the city doesn't say whether the ZTL is active. Check the sign at the gate.": ("In questo giorno il Comune non dice se la ZTL è attiva. Controlla il cartello al varco.", "An diesem Tag sagt die Stadt nicht, ob die ZTL aktiv ist. Achte auf das Schild an der Einfahrt."),
+"Alerts 300 m before a ZTL, 600 m above 50 km/h": ("Avvisi 300 m prima di una ZTL, 600 m sopra i 50 km/h", "Hinweise 300 m vor einer ZTL, ab 50 km/h 600 m"),
 }
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")

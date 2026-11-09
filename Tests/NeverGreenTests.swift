@@ -143,9 +143,10 @@ final class NeverGreenTests: XCTestCase {
         XCTAssertNotEqual(c.tint, Theme.green)
         XCTAssertEqual(c.symbol, "minus")
         XCTAssertNotEqual(c.symbol, "checkmark")
-        // La stessa parola di prima
         XCTAssertEqual(c.zoneLine, L("Outside the ZTL"))
-        XCTAssertEqual(c.word, .enter)
+        // 2.1 «sette stati»: «Fuori dalla ZTL» ha la sua parola (prima «Puoi entrare»)
+        XCTAssertEqual(c.word, .outside)
+        XCTAssertEqual(c.finale.stato, .fuoriZTL)
         let a = Home2Answer(c, now: Date())
         XCTAssertEqual(a.mood, .grey)
         XCTAssertEqual(a.panel.mood, .grey)

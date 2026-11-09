@@ -1,6 +1,6 @@
 {
- "version": "202611071928",
- "digest": "f62580554b19",
+ "version": "202611082123",
+ "digest": "ce825203dda5",
  "schema": 1,
  "cities": [
   {
@@ -61,7 +61,7 @@
   {
    "id": "firenze",
    "file": "firenze.json",
-   "sha256": "5be0db6d5bafcbc58234512a99f8ed51a9eafca21bb90a4e2b96ee3d07e489b9"
+   "sha256": "f2b50f51f0bbc121db9da959c736b9152b439f68607f69465e189a69ac26b475"
   },
   {
    "id": "genova",
@@ -86,7 +86,7 @@
   {
    "id": "milano",
    "file": "milano.json",
-   "sha256": "a51c8af7697ae28e9be2b394d3097d2c7fe39847480e4ef68190d3c590fb2e1d"
+   "sha256": "3c19b9e9f7af7d71d8df89ec9f41690b703f7c1f097dd2af49ccc1f9fe2081d5"
   },
   {
    "id": "modena",
@@ -176,7 +176,7 @@
   {
    "id": "torino",
    "file": "torino.json",
-   "sha256": "22a062abfed5e2016363a7a80dcb40e4cbb4c45e38c35d47ebf772c935191c88"
+   "sha256": "2ea11c060d8351b1bc803dc7d9ed59aef5767ebb0e025619302f1f8aca9a8def"
   },
   {
    "id": "trento",

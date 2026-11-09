@@ -7867,5 +7867,8 @@
   }
  ],
  "status": "draft",
+ "uncertainDays": [
+  "06-24"
+ ],
  "license": "Perimeters and gates: Comune di Firenze open data, CC-BY 4.0. Scudo Verde perimeter: © OpenStreetMap contributors, ODbL 1.0 (traced from the Città Metropolitana di Firenze PUMS dataset, CC BY 4.0)"
 }
