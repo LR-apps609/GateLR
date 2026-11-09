@@ -558,7 +558,7 @@ struct Vehicle: Codable, Identifiable, Hashable {
 
     var kind: VehicleType { type ?? .car }
     /// Il motore non sa alimentazione o classe Euro (per un'elettrica la classe Euro non conta): dove contano i divieti
-    /// la risposta è «Controlla il cartello» (Motivo.euroSconosciuto), mai «Entra pure»
+    /// la risposta è «Controlla il cartello» (Motivo.euroSconosciuto), mai «Puoi entrare»
     var specsUnknown: Bool { fuelUnknown == true || (euroUnknown == true && fuel != .electric) }
     /// «Euro 5», «Euro ?» se non la sai
     var euroText: String { "Euro " + (specsUnknown ? "?" : String(euro)) }

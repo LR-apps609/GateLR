@@ -79,7 +79,7 @@ for (const c of file.cases) {
   // 1.20.1 (regola A): mai verde da una zona senza verifica né lettura recente o con la pagina del Comune cambiata
   if (p.zone && !p.ped && !["verified", "read"].includes(e.trustOf(p.zone)) && p.colour === "green") bad.push("zona non sicura verde");
   // 2.0 «Risposta finale» (le sette risposte della pagina): fuori copertura neutro, fuori dalla ZTL grigio, ZTL non attiva
-  // solo se i varchi sono spenti, e mai «Entra pure»/«ZTL non attiva» quando il colore non è verde (non ufficiale, non sicuro)
+  // solo se i varchi sono spenti, e mai «Puoi entrare»/«ZTL non attiva» quando il colore non è verde (non ufficiale, non sicuro)
   const f = e.rispostaFinale(p), want = !p.covered ? "fuoriCopertura" : p.ped ? "no" : !p.zone ? (p.unoff ? "nonSicuro" : "fuoriZTL")
     : {red: "no", yellow: p.verdict === "cond" ? "condizione" : "nonSicuro", green: p.r.on ? "si" : "nonAttiva"}[p.colour];
   if (!f || !e.STATI.includes(f.stato)) bad.push(`risposta finale sconosciuta ${JSON.stringify(f)}`);

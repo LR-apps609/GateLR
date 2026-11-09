@@ -149,7 +149,7 @@
     {"id": "bergamo-colli-benzina-8-dicembre-11", "covers": "2.1 PL-Prove: Bergamo, colli, 8 dicembre alle 11 con una benzina Euro 6: orari della domenica → «Non entrare»",
      "place": {"name": "Colli di Bergamo", "lat": 45.70876, "lon": 9.65029}, "at": "2026-12-08T11:00:00+01:00", "vehicle": "rental",
      "expect": {"stato": "nonEntrare", "colour": "red", "verdict": "no", "zone": "bergamo-colli"}},
-    {"id": "milano-area-c-elettrica-venerdi", "covers": "2.1 PL-Prove: Area C attiva, auto elettrica ammessa, venerdì alle 11:20 → «Entra pure»",
+    {"id": "milano-area-c-elettrica-venerdi", "covers": "2.1 PL-Prove: Area C attiva, auto elettrica ammessa, venerdì alle 11:20 → «Puoi entrare»",
      "place": {"name": "Via Manzoni", "lat": 45.4700, "lon": 9.1925}, "at": "2026-11-13T11:20:00+01:00", "vehicle": "electric",
      "expect": {"stato": "entraPure", "colour": "green", "verdict": "yes", "zone": "milano-c", "gatesOn": true}},
     {"id": "bologna-ztl-21-10", "covers": "2.1 PL-Prove: Bologna alle 21:10, varchi spenti → «ZTL non attiva» (oggi verde, token unico)",

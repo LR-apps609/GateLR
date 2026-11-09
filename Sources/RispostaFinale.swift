@@ -116,7 +116,7 @@ struct RispostaFinale: Equatable {
 
     /// La risposta di una zona come si mostra, nell'ordine della specifica. Area pedonale sempre «Non entrare»; «no» rosso
     /// anche da fonte non ufficiale (Salerno resta rossa); «non sicuro» col suo motivo; «sì» da fonte non ufficiale o da
-    /// una città di esempio «Controlla il cartello»; «sì» a varchi accesi «Entra pure», spenti «ZTL non attiva»
+    /// una città di esempio «Controlla il cartello»; «sì» a varchi accesi «Puoi entrare», spenti «ZTL non attiva»
     static func of(_ a: Answer, zone: Zone, status: City.Status? = nil, pedestrian: Bool = false) -> RispostaFinale {
         let (s, m) = decide(a, unofficial: zone.isUnofficial, sample: status == .sample, pedestrian: pedestrian)
         return RispostaFinale(stato: s, motivo: m, zoneId: zone.id, unofficial: !pedestrian && zone.isUnofficial, gatesOn: a.gatesOn,
