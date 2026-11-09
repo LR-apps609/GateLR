@@ -1,0 +1,1 @@
+testD3Viaggio: XCTAssertTrue failed - [testo-grande] Viaggio: «ricerca» non si può toccare (cornice 68,20 265×24, finestra 0,0 402×874)

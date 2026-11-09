@@ -1,0 +1,1 @@
+testD4Aiuto: failed - [testo-grande] Aiuto: manca «Segnala un errore»

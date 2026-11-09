@@ -1,0 +1,2 @@
+testD3Viaggio: XCTAssertTrue failed - [normale] Viaggio: «ricerca» non si può toccare (cornice 63,-55 248×22, finestra 0,0 375×667)
+testD4Aiuto: failed - [normale] Aiuto: manca «Segnala un errore»
