@@ -52,13 +52,22 @@ for (const c of file.cases) {
     z.source.checkedOn = src.checkedOn || o.checkedOn;
     z.source.pageChanged = "pageChanged" in src ? src.pageChanged : false;
   }
-  const p = e.placeAnswer(c.place.lat, c.place.lon, at, !!c.hotel, v);
+  // 2.3 «hotel»: il posto è il tuo hotel; con «confermato» la conferma segnata per il veicolo «veicolo» e i giorni dal–al
+  // (sul sito «chiesto» non c'è: vale come «nonChiesto», senza conferma)
+  const h = c.hotel, staying = !h ? false : h.stato === "confermato" ? {reg: {v: file.vehicles[h.veicolo], from: h.dal, to: h.al}} : true;
+  if (h && (!["nonChiesto", "chiesto", "confermato"].includes(h.stato) || !file.vehicles[h.veicolo] || !/^\d{4}-\d{2}-\d{2}$/.test(h.dal) || !/^\d{4}-\d{2}-\d{2}$/.test(h.al))) { errors.push(`${c.id}: hotel scritto male`); continue; }
+  const p = e.placeAnswer(c.place.lat, c.place.lon, at, staying, v);
+  const bad0 = [];
   const got = {colour: p.colour, verdict: VERDICT[p.verdict] || p.verdict, zone: p.zone ? p.zone.id : null,
     gatesOn: p.r ? !!p.r.on : undefined, unofficial: p.unoff, pedestrian: !!p.ped, trust: p.zone ? e.trustOf(p.zone) : undefined,
-    stato: p.stato, motivo: p.motivo || undefined};
+    stato: p.stato, motivo: p.motivo || undefined, hotel: p.hotel || undefined};
+  // 2.3: la riga dell'hotel solo dove il caso la dice (anche nessuna)
+  if (!("hotel" in c.expect) && p.hotel) bad0.push(`hotel ${p.hotel} non atteso`);
+  if (p.hotel === "registrata" && e.tono(p.stato) !== "verde") bad0.push("hotel registrata senza verde");
+  if (p.hotel === "daChiedere" && p.stato !== "nonEntrare") bad0.push("hotel da chiedere senza «Non entrare»");
   // 2.1 (B09): la distanza dal lato della zona più vicina, con 5 m di tolleranza
   if ("nearestMeters" in c.expect) { const n = e.nearestZone(c.place.lat, c.place.lon); got.nearestMeters = Math.abs(n.meters - c.expect.nearestMeters) <= 5 ? c.expect.nearestMeters : Math.round(n.meters); }
-  const bad = Object.entries(c.expect).filter(([k, want]) => got[k] !== want).map(([k, want]) => `${k} atteso ${JSON.stringify(want)}, ottenuto ${JSON.stringify(got[k])}`);
+  const bad = bad0.concat(Object.entries(c.expect).filter(([k, want]) => got[k] !== want).map(([k, want]) => `${k} atteso ${JSON.stringify(want)}, ottenuto ${JSON.stringify(got[k])}`));
   // Le regole fisse, qualunque cosa dica il file: mai verde fuori copertura o da fonte non ufficiale
   if (!p.covered && p.colour !== "neutral") bad.push("fuori copertura non neutro");
   if (p.unoff && p.colour === "green") bad.push("fonte non ufficiale verde");

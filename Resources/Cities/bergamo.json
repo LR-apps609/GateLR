@@ -7569,7 +7569,7 @@
    ],
    "freeOnHolidays": false,
    "exemptFuels": [],
-   "hotelCanRegister": true,
+   "hotelCanRegister": false,
    "source": {
     "authority": "City of Bergamo",
     "pageURL": "https://www.comune.bergamo.it/node/25709/",

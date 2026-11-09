@@ -51,14 +51,40 @@ Regole comuni del motore (stesse su iPhone, Android e sito):
 3. La zona che decide:
    - `no` → **nonEntrare**. Anche da fonte non ufficiale: regola di Ledion «Salerno resta rossa». La fonte non ufficiale
      va nella riga sotto («Probabilmente no · fonte non ufficiale»), il titolo resta «Non entrare».
-   - `condizione` → **condizione** (ticket, hotel, permesso in attesa, zona verde senza classe nota). I ticket e gli
-     hotel confermati restano qui: mai verde da un tocco.
+   - `condizione` → **condizione** (ticket, permesso in attesa, zona verde senza classe nota). Il ticket resta qui anche
+     segnato: mai verde da un tocco. L'hotel non è più qui (vedi «L'hotel dentro la ZTL»).
    - `non sicuro` → **controllaCartello**, motivo = `doubt`, altrimenti `nonUfficiale` se la fonte non è ufficiale,
      altrimenti `nonSicuro`.
    - `sì` da fonte non ufficiale → **controllaCartello** (`nonUfficiale`).
    - `sì` in una città di esempio (solo app, modalità prova) → **controllaCartello** (`nonSicuro`).
    - `sì` a varchi accesi → **entraPure** (esente, permesso confermato, classe ammessa).
    - `sì` a varchi spenti → **ztlNonAttiva**.
+
+## L'hotel dentro la ZTL (decisione di Ledion del 09/11)
+
+Ingresso in più: il posto è **il tuo hotel** (iPhone: `Store.isHotel`, vicino alle date del soggiorno; Android: «È il tuo
+hotel?»; sito: il nome dice hotel/B&B o il link ha `h=1`) e, se c'è, la **conferma segnata** dall'utente («L'hotel ha
+registrato la targa»): sull'iPhone e su Android un permesso «registrazione hotel» confermato (`Permit`, per un veicolo, una
+zona e dei giorni, dalla mezzanotte del primo alle 23:59 dell'ultimo, ora italiana), sul sito `staying.reg` (veicolo e
+giorni, solo nella pagina, mai nel link).
+
+| Caso | Stato | Riga sotto il titolo (`hotel` della risposta) |
+|---|---|---|
+| tuo hotel, nessuna conferma (anche «chiesto», in attesa) | **nonEntrare** | «Chiedi all'hotel di registrare la targa» (`daChiedere`) e il pulsante per segnarla |
+| conferma per il **veicolo scelto**, giorni che coprono l'ora (d'arrivo), zona con `hotelCanRegister` | **entraPure** | «L'hotel ha registrato la targa · dal … al …» (`registrata`) |
+| conferma scaduta, per un'altra auto | **nonEntrare** | `daChiedere` |
+| zona dove l'hotel non può registrare (`hotelCanRegister` false: Tridente di Roma, Piazza Dante di Bergamo) | **nonEntrare** | nessuna (la conferma lì non vale: `Permit.covers`) |
+| zona con il ticket giornaliero, senza conferma | **condizione** (il ticket, come per tutti) | nessuna |
+| area pedonale | **nonEntrare** | nessuna: vince sempre |
+| fonte non ufficiale, dati scaduti, pagina cambiata, città di esempio | **controllaCartello** (mai verde) | il motivo del «?», nessuna riga dell'hotel |
+
+- Nel motore: la conferma dell'hotel subito dopo i varchi spenti (come gli altri permessi confermati); l'hotel senza conferma
+  dopo il ticket, al posto del «no» semplice. Una richiesta all'hotel in attesa non è più «a una condizione».
+- La riga dell'hotel va solo con il suo stato: `daChiedere` con «Non entrare», `registrata` con «Puoi entrare», mai da fonte
+  non ufficiale (`RispostaFinale.hotelNote`, `hotelNota`, `finale()` del sito).
+- Avvisi in auto: la risposta all'ora d'arrivo (`Store.threatAnswer`) con i permessi del soggiorno: con la conferma giusta
+  nessun avviso (verde), senza un avviso «Non entrare».
+- Casi comuni: `hotel` in `shared/engine-cases.json` (`aboutHotel`), atteso `hotel`: `daChiedere`, `registrata` o assente.
 
 `euroSconosciuto` è riservato al veicolo «Non so» (decisione 8, arriva con la presentazione e il veicolo della 2.2):
 dove contano i divieti Euro la risposta sarà **controllaCartello** (`euroSconosciuto`). Oggi nessun veicolo lo produce.
@@ -77,9 +103,11 @@ dove contano i divieti Euro la risposta sarà **controllaCartello** (`euroSconos
 
 - Il colore della «ZTL non attiva» è UN SOLO token (`Theme.stateOff`, `RispostaFinale.STATE_OFF`, `STATE_OFF`): oggi
   verde per regola di Ledion; la bozza proponeva grigio. Il cambio sta in una riga per piattaforma.
-- Mai verde per: fuori copertura, fonte non ufficiale, dati scaduti, cartello letto da foto, condizioni segnate a mano.
+- Mai verde per: fuori copertura, fonte non ufficiale, dati scaduti, cartello letto da foto, condizioni segnate a mano
+  (il ticket). Unica eccezione decisa da Ledion il 09/11: la conferma dell'hotel segnata, alle condizioni qui sopra.
 - Il motivo del giallo va nella riga sotto, mai nel titolo: «Non sicuro», «Dati scaduti», «Fonte non ufficiale»,
-  «Festivo da confermare», «Classe Euro da sapere».
+  «Festivo da confermare», «Classe Euro da sapere». Per l'hotel: «Chiedi all'hotel di registrare la targa» (rosso),
+  «L'hotel ha registrato la targa · dal … al …» (verde).
 - Il pannello LED dice lo stato dei varchi dal motore («ZTL ATTIVA / ZTL NON ATTIVA»), mai la risposta.
 
 ## Avvisi in auto (un solo valutatore)

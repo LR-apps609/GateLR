@@ -364,6 +364,10 @@ for z in ZONES:
             out["exemptVehicleTypes"] = ["motorcycle"]
         if z["holidays"]:
             out["holidaysAsSunday"] = True
+        # 2.3: Piazza Dante è area pedonale 24 ore su 24: nessun hotel può registrarvi la targa (con la conferma segnata
+        # l'app direbbe «Puoi entrare»)
+        if z["zid"] == "bergamo-piazza-dante":
+            out["hotelCanRegister"] = False
         (zones if shape else skipped).append(out)
         print(f"{out['id']:26s}", f"{len(shape)} punti, {osm_geo.area_km2(shape):.4f} km²" if shape else "nessun perimetro ufficiale",
               (props or {}).get("nome_ztl", ""))

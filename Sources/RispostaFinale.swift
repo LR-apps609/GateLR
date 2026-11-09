@@ -84,6 +84,8 @@ struct RispostaFinale: Equatable {
     var gatesOn: Bool? = nil
     var nextChange: Date? = nil
     var pedestrian = false
+    /// 2.3 (decisione di Ledion del 09/11): solo con «Non entrare» (daChiedere) e «Puoi entrare» (registrata)
+    var hotel: HotelNote? = nil
 
     var word: AnswerWord { stato.word }
     var title: String { stato.word.title }
@@ -93,6 +95,14 @@ struct RispostaFinale: Equatable {
     /// La riga sotto il titolo: il motivo del «?»; per la fonte non ufficiale «Probabilmente sì/no · fonte non ufficiale»
     var reasonLine: String? {
         if let motivo, motivo != .nonUfficiale { return motivo.label }
+        if let hotel {
+            switch hotel {
+            case .daChiedere: return L("Ask the hotel to register your plate")
+            case .registrata(let from, let to):
+                let day = Date.FormatStyle.dateTime.day().month(.abbreviated)
+                return String(format: L("The hotel registered your plate · from %@ to %@"), RuleEngine.format(from, day), RuleEngine.format(to, day))
+            }
+        }
         guard unofficial else { return nil }
         switch stato {
         case .nonEntrare: return L("Probably not · unofficial source")
@@ -110,7 +120,18 @@ struct RispostaFinale: Equatable {
     static func of(_ a: Answer, zone: Zone, status: City.Status? = nil, pedestrian: Bool = false) -> RispostaFinale {
         let (s, m) = decide(a, unofficial: zone.isUnofficial, sample: status == .sample, pedestrian: pedestrian)
         return RispostaFinale(stato: s, motivo: m, zoneId: zone.id, unofficial: !pedestrian && zone.isUnofficial, gatesOn: a.gatesOn,
-                              nextChange: pedestrian ? nil : a.nextChange, pedestrian: pedestrian)
+                              nextChange: pedestrian ? nil : a.nextChange, pedestrian: pedestrian,
+                              hotel: hotelNote(pedestrian ? nil : a.hotel, stato: s, unofficial: zone.isUnofficial))
+    }
+
+    /// 2.3: la riga dell'hotel solo con la sua risposta: «Non entrare» senza conferma, «Puoi entrare» con la conferma. Mai
+    /// con un'area pedonale, una fonte non ufficiale o dati scaduti (allora vale «Controlla il cartello» e il suo motivo)
+    static func hotelNote(_ h: HotelNote?, stato: Stato, unofficial: Bool) -> HotelNote? {
+        guard let h, !unofficial else { return nil }
+        switch h {
+        case .daChiedere: return stato == .nonEntrare ? h : nil
+        case .registrata: return stato == .entraPure ? h : nil
+        }
     }
 
     /// Il cuore della specifica, senza la zona (pillole e riquadri che hanno solo risposta e fonte)

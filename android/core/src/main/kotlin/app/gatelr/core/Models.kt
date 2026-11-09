@@ -369,7 +369,9 @@ data class Permit(
     /** Come l'iPhone dalla 1.19.2: ogni permesso vale solo per la sua zona; senza zona non copre niente (1.20.0: prima su
      *  Android un permesso senza zona valeva per tutta la città) */
     fun covers(zone: Zone, vehicle: Vehicle, at: Instant): Boolean =
-        zoneId != null && vehicleId == vehicle.id && zoneId == zone.id && at.toEpochMilli() in from..to
+        zoneId != null && vehicleId == vehicle.id && zoneId == zone.id && at.toEpochMilli() in from..to &&
+            // 2.3: la registrazione dell'hotel vale solo dove l'hotel può registrare la targa (hotelCanRegister)
+            (kind != Kind.HOTEL || zone.hotelCanRegister)
 }
 
 @Serializable

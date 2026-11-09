@@ -260,6 +260,29 @@ test("B47", async () => {
   await p.context().close(); return e;
 });
 
+// ── 2.3 (decisione di Ledion del 09/11): l'hotel nella ZTL ─────────────────────────────
+// Senza conferma rosso «Non entrare» con «Chiedi all'hotel di registrare la targa»; il pulsante «L'hotel ha registrato la
+// targa» (giorni che coprono l'arrivo, veicolo scelto) dà «Puoi entrare» con «dal … al …»; con un altro veicolo torna rosso
+test("HOTEL", async () => {
+  const e = [];
+  const p = await open("it/#firenze", {time: "2026-11-10T10:00:00+01:00"}); await settle(p);
+  await choose(p, "Hotel al Duomo", 43.7731, 11.2560);
+  const m = () => p.evaluate(() => ({s: document.getElementById("answer").dataset.s, motive: document.getElementById("a-motive").textContent,
+    pressed: document.getElementById("h-reg").getAttribute("aria-pressed")}));
+  let v = await m();
+  if (v.s !== "no" || !/Chiedi all'hotel di registrare la targa/.test(v.motive)) e.push(`senza conferma: ${v.s} «${v.motive}»`);
+  await p.click("#h-reg"); await p.waitForTimeout(300);
+  v = await m();
+  if (v.s !== "si" || !/L'hotel ha registrato la targa · dal 10 nov al 12 nov/.test(v.motive) || v.pressed !== "true") e.push(`con la conferma: ${v.s} «${v.motive}» ${v.pressed}`);
+  // un altro veicolo: la conferma non vale
+  await p.evaluate(() => { const s = document.getElementById("car"); if (s) { s.value = "2"; s.dispatchEvent(new Event("change", {bubbles: true})); } });
+  await p.waitForTimeout(300);
+  v = await m();
+  if (v.s !== "no") e.push(`con un altro veicolo: ${v.s} «${v.motive}»`);
+  if (p.errs.length) e.push("errori: " + p.errs.join("; "));
+  await p.context().close(); return e;
+});
+
 // ── B48, B49, B50: contrasti nel tema scuro e chiaro ─────────────────────────────
 test("B48", async () => {
   const e = [];

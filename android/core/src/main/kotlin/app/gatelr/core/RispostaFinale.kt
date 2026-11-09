@@ -53,6 +53,8 @@ data class RispostaFinale(
     val gatesOn: Boolean? = null,
     val nextChange: Instant? = null,
     val pedestrian: Boolean = false,
+    /** 2.3 (decisione di Ledion del 09/11): solo con «Non entrare» (DaChiedere) e «Puoi entrare» (Registrata) */
+    val hotel: HotelNota? = null,
 ) {
     val title: String get() = stato.title
     val color: Tono get() = stato.color
@@ -60,6 +62,8 @@ data class RispostaFinale(
     /** La riga sotto il titolo: il motivo del «?», o «Probabilmente no · fonte non ufficiale» per un «no» da fonte non ufficiale */
     val reasonLine: String? get() = when {
         motivo != null && motivo != Motivo.NON_UFFICIALE -> motivo.label
+        hotel == HotelNota.DaChiedere -> L("Ask the hotel to register your plate")
+        hotel is HotelNota.Registrata -> F("The hotel registered your plate · from %@ to %@", shortDay(hotel.from), shortDay(hotel.to))
         unofficial && stato == Stato.NON_ENTRARE -> L("Probably not · unofficial source")
         unofficial && stato == Stato.CONTROLLA_CARTELLO -> L("Probably yes · unofficial source")
         else -> null
@@ -73,7 +77,7 @@ data class RispostaFinale(
         fun forZone(a: Answer, zone: Zone, status: City.Status? = null, city: City? = null, pedestrian: Boolean = false): RispostaFinale {
             if (pedestrian) return RispostaFinale(Stato.NON_ENTRARE, zone = zone, city = city, gatesOn = a.gatesOn, pedestrian = true)
             val unoff = zone.isUnofficial
-            fun r(s: Stato, m: Motivo? = null) = RispostaFinale(s, m, zone, city, unoff, a.gatesOn, a.nextChange)
+            fun r(s: Stato, m: Motivo? = null) = RispostaFinale(s, m, zone, city, unoff, a.gatesOn, a.nextChange, hotel = hotelNota(a.hotel, s, unoff))
             return when (a.verdict) {
                 is Verdict.No -> r(Stato.NON_ENTRARE)
                 is Verdict.Conditional -> r(Stato.CONDIZIONE)
@@ -86,6 +90,18 @@ data class RispostaFinale(
                 }
             }
         }
+
+        /** 2.3: la riga dell'hotel solo con la sua risposta: «Non entrare» senza conferma, «Puoi entrare» con la conferma. Mai
+         *  con un'area pedonale, una fonte non ufficiale o dati scaduti (allora vale «Controlla il cartello» e il suo motivo) */
+        fun hotelNota(h: HotelNota?, stato: Stato, unofficial: Boolean): HotelNota? = when {
+            h == null || unofficial -> null
+            h == HotelNota.DaChiedere -> h.takeIf { stato == Stato.NON_ENTRARE }
+            else -> h.takeIf { stato == Stato.ENTRA_PURE }
+        }
+
+        /** «9 nov» in ora italiana, nella lingua del telefono */
+        fun shortDay(ms: Long): String = java.time.Instant.ofEpochMilli(ms).atZone(java.time.ZoneId.of("Europe/Rome")).toLocalDate()
+            .format(java.time.format.DateTimeFormatter.ofPattern("d MMM", java.util.Locale.forLanguageTag(Strings.language)))
 
         /** La risposta per un posto: area pedonale, fuori dalle zone (coperto o no), poi la zona che decide */
         fun of(p: PlaceCheck): RispostaFinale {
