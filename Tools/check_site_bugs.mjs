@@ -255,7 +255,8 @@ test("B47", async () => {
   if (v.note) e.push("a Milano c'è la nota sulla procedura di Firenze");
   await choose(p, "Hotel de Russie", 41.9105, 12.4766);
   v = await vis(); if (v.panel) e.push("nel Tridente di Roma c'è il messaggio per l'hotel");
-  await choose(p, "Duomo di Firenze", 43.7731, 11.2560);
+  // 1.20.4 (B08): piazza del Duomo è area pedonale (dati aperti del Comune): l'hotel in via de' Martelli, nel Settore A
+  await choose(p, "Via de' Martelli", 43.7745, 11.2545);
   v = await vis(); if (!v.panel) e.push("a Firenze manca il messaggio per l'hotel");
   await p.context().close(); return e;
 });
