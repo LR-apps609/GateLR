@@ -1,6 +1,6 @@
 # Foto dei dispositivi
 
-Corsa 42599988288 di 9d1e77803e3c903ba1d13873ea9ac0a5983f1788 (lavoro/dispositivi), 2026-11-09T12:26Z
+Corsa 42746442735 di e93f2b1d73f2874a85e379feba20b25d76cd2c0e (main), 2026-11-10T04:08Z
 
 - grande-iPhone-17-Pro-Max: iPhone 17 Pro Max iOS 26.2.0 
 - ipad-iPad-A16: iPad (A16) iOS 26.2.0 

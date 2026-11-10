@@ -1,0 +1,1 @@
+testD1Adesso: XCTAssertTrue failed - [normale] Adesso: «pannello» non si può toccare (cornice 30,804 170×39, finestra 0,0 402×874)

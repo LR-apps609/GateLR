@@ -1,1 +1,1 @@
-testD3Viaggio: XCTAssertTrue failed - [scuro] Viaggio: «Percorso» non si può toccare (cornice 20,666 335×48, finestra 0,0 375×667)
+testD1Adesso: XCTAssertTrue failed - [scuro] Adesso: «pannello» non si può toccare (cornice 30,762 171×39, finestra 0,0 375×667)
