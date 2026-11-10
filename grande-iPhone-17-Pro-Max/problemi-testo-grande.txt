@@ -1,1 +1,0 @@
-testD5Presentazione: XCTAssertTrue failed - [testo-grande] Presentazione: «Più tardi» resta sotto la barra delle schede anche scorrendo (cornice 180,871 79×33, parte libera 0,0 440×873)
