@@ -1,6 +1,6 @@
 {
- "version": "202611091951",
- "digest": "ac3fe767b66d",
+ "version": "202611100620",
+ "digest": "2aee824e401a",
  "schema": 1,
  "cities": [
   {
@@ -11,7 +11,7 @@
   {
    "id": "arezzo",
    "file": "arezzo.json",
-   "sha256": "9e5f7fb429cf347717172c83376d0403d27cf6f03ed962e2f41769d0292bf519"
+   "sha256": "2180e0787c86021486148044d04880f7786735875e9012fafd64619642082f88"
   },
   {
    "id": "ascoli-piceno",
@@ -56,7 +56,7 @@
   {
    "id": "ferrara",
    "file": "ferrara.json",
-   "sha256": "6bab454145e3da5dfae29c373c55f86442e8fa71ae492f2e3041054f6c956014"
+   "sha256": "1c074426a2c179e446643d882664c5230be3aa0810e1bfc2d3d6f18efff5e806"
   },
   {
    "id": "firenze",
@@ -196,7 +196,7 @@
   {
    "id": "verona",
    "file": "verona.json",
-   "sha256": "9a0530e60a5d443026a06203b244f1b86f3ef9fbc6d0fdc0176077c3ed475b5c"
+   "sha256": "92a5f2d25d5cfc231e4f813dbd431ec41d5a4259bc6792d4a4842372cf817edf"
   },
   {
    "id": "vicenza",
