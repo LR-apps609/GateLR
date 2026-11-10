@@ -85,11 +85,11 @@ final class DispositiviTests: XCTestCase {
 
     /// 2.0.1: scorre a piccoli passi (un terzo di schermo, al massimo «maxSwipes» volte) finché l'elemento è tutto nella
     /// parte libera e toccabile. Il trascinamento parte a metà larghezza, sotto la striscia di mappa (che non scorre)
-    private func scrollToElement(_ element: XCUIElement, maxSwipes: Int = 6) {
+    private func scrollToElement(_ element: XCUIElement, maxSwipes: Int = 6, tabs: Bool = true) {
         for _ in 0..<maxSwipes {
             guard element.exists else { return }
-            if fullyVisible(element.frame) && element.isHittable { return }
-            let up = element.frame.midY > visibleArea.midY        // sotto: si scorre verso l'alto (la pagina sale)
+            if element.isHittable && (!tabs || fullyVisible(element.frame)) { return }
+            let up = element.frame.midY > (tabs ? visibleArea : window).midY        // sotto: si scorre verso l'alto (la pagina sale)
             let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: up ? 0.68 : 0.38))
             let to = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: up ? 0.38 : 0.68))
             from.press(forDuration: 0.05, thenDragTo: to)
@@ -99,7 +99,8 @@ final class DispositiviTests: XCTestCase {
 
     /// Un elemento importante: c'è, è dentro la finestra in larghezza e, scorrendo a piccoli passi (scrollToElement),
     /// si può toccare senza stare sotto la barra delle schede
-    private func checkReachable(_ element: XCUIElement, _ name: String, screen: String, scroll: Bool = true) {
+    /// «tabs: false» per le schermate a tutto schermo senza le schede (la presentazione: la barra resta nell'albero, dietro)
+    private func checkReachable(_ element: XCUIElement, _ name: String, screen: String, scroll: Bool = true, tabs: Bool = true) {
         // Gli elenchi creano le righe solo quando si avvicinano allo schermo: se manca si scorre verso il basso
         var found = element.waitForExistence(timeout: 6)
         if scroll {
@@ -108,11 +109,11 @@ final class DispositiviTests: XCTestCase {
         guard found else {
             XCTFail("[\(variant)] \(screen): manca «\(name)»"); return
         }
-        if scroll { scrollToElement(element) }
+        if scroll { scrollToElement(element, tabs: tabs) }
         let f = element.frame, w = window
         XCTAssertTrue(element.isHittable,
                       "[\(variant)] \(screen): «\(name)» non si può toccare (cornice \(rect(f)), finestra \(rect(w)))")
-        if scroll {
+        if scroll && tabs {
             XCTAssertTrue(fullyVisible(f),
                           "[\(variant)] \(screen): «\(name)» resta sotto la barra delle schede anche scorrendo (cornice \(rect(f)), parte libera \(rect(visibleArea)))")
         }
@@ -225,7 +226,7 @@ final class DispositiviTests: XCTestCase {
         sleep(2)
         snap("05b-presentazione-veicolo")
         let later = app.buttons["intro2.later"].firstMatch
-        checkReachable(later, "Più tardi", screen: "Presentazione")
+        checkReachable(later, "Più tardi", screen: "Presentazione", tabs: false)
         guard later.exists, later.isHittable else { return }
         later.tap()
         sleep(3)
