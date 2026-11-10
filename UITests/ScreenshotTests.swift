@@ -352,6 +352,15 @@ final class ScreenshotTests: XCTestCase {
             snap(big ? "27-legend-open-69" : "27-legend-open")
             app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: spot.midX, dy: spot.midY)).tap()
             sleep(1)
+            // 2.0.1: a volte il tocco arriva durante l'animazione e la legenda resta aperta (Compila 42687722728): si
+            // riprova al massimo due volte, sul pulsante «i» (che con la legenda aperta si chiama «map.legend.info») o, se
+            // non si può toccare, sullo stesso punto
+            for _ in 0..<2 where !app.buttons["map.legend"].firstMatch.waitForExistence(timeout: 3) {
+                let info = app.buttons["map.legend.info"].firstMatch
+                if info.exists && info.isHittable { info.tap() }
+                else { app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: spot.midX, dy: spot.midY)).tap() }
+                sleep(2)
+            }
             XCTAssertTrue(app.buttons["map.legend"].firstMatch.waitForExistence(timeout: 6), "La legenda non si è richiusa")
         }
     }
