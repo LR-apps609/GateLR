@@ -29,6 +29,8 @@ struct VarcoView: View {
     @State private var wantsLocation = false
     /// 2.0 (B27): «Usa la mia posizione» con la posizione approssimativa: si chiede di cercare l'indirizzo
     @State private var approximateNote = false
+    /// 2.0.1: nella pagina compatta (AdessoLayout) la ricerca aperta dalla lente accanto al nome del posto
+    @State private var searchOpen = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.colorScheme) private var scheme
     @Environment(\.horizontalSizeClass) private var sizeClass
@@ -57,10 +59,19 @@ struct VarcoView: View {
                     }
                     .padding(.horizontal, 16)
                 } else {
-                    ScrollView {
-                        column(check: check, answer: answer, subject: subject, moment: moment, now: ctx.date)
-                            .padding(.horizontal, 16).padding(.top, 6).padding(.bottom, 24)
-                            .readableFrame()
+                    // 2.0.1 (Dispositivi su iPhone SE e con il testo grande): l'altezza dello schermo intero (contenuto più
+                    // margini sicuri, che con la tastiera non cambia) decide quanto stringere la parte sopra la risposta
+                    GeometryReader { geo in
+                        let layout = AdessoLayout.make(screenHeight: geo.size.height + geo.safeAreaInsets.top + geo.safeAreaInsets.bottom,
+                                                       accessibilityText: typeSize.isAccessibilitySize, hasAnswer: check != nil)
+                        ScrollView {
+                            column(check: check, answer: answer, subject: subject, moment: moment, now: ctx.date, layout: layout)
+                                .padding(.horizontal, 16).padding(.top, layout == .full ? 6 : 2).padding(.bottom, 24)
+                                .readableFrame()
+                        }
+                        // Il fondo della pagina sale sopra la barra delle schede (il margine sicuro della barra più un po'
+                        // d'aria): l'ultimo pulsante non resta mai sotto la barra
+                        .contentMargins(.bottom, 12, for: .scrollContent)
                     }
                 }
             }
@@ -82,13 +93,19 @@ struct VarcoView: View {
     private var regular: Bool { sizeClass == .regular }
 
     /// La colonna della pagina: testata, contesto, ricerca e risposta
-    private func column(check: PlaceCheck?, answer: Home2Answer?, subject: Adesso.Subject?, moment: Date, now: Date) -> some View {
-        VStack(alignment: .leading, spacing: 14) {
+    private func column(check: PlaceCheck?, answer: Home2Answer?, subject: Adesso.Subject?, moment: Date, now: Date,
+                        layout: AdessoLayout = .full) -> some View {
+        VStack(alignment: .leading, spacing: layout.spacing) {
             header
-            if !Misure.noStrip && !regular { mapStrip(check: check, mood: answer?.mood ?? cityMood(at: moment), at: moment) }
+            if !Misure.noStrip && !regular && layout.showsStrip {
+                mapStrip(check: check, mood: answer?.mood ?? cityMood(at: moment), at: moment, compactHeight: layout.stripHeight)
+            }
             ContextChips(material: true)
             GuardianBannerSlot()
-            searchField
+            // 2.0.1: nella pagina compatta la ricerca si apre dalla lente accanto al nome del posto (una riga sola)
+            if layout == .full || searchOpen || typing || !search.query.isEmpty || check == nil {
+                searchField
+            }
             if approximateNote && store.place == nil {
                 Label(L("Approximate location: search the address instead."), systemImage: "location.slash")
                     .font(.app(size: 14, weight: .medium)).foregroundStyle(Theme.ink)
@@ -98,7 +115,7 @@ struct VarcoView: View {
                 suggestions
             } else {
                 if let check, let answer {
-                    answerCard(check, answer, ahead: subject?.aheadMeters)
+                    answerCard(check, answer, ahead: subject?.aheadMeters, compact: layout != .full)
                 } else {
                     emptyCard
                 }
@@ -112,6 +129,17 @@ struct VarcoView: View {
             }
         }
         .animation(.snappy, value: store.place)
+        .onChange(of: store.place) { searchOpen = false }
+        .onChange(of: typing) { _, focused in if !focused && search.query.isEmpty { searchOpen = false } }
+    }
+
+    /// 2.0.1: la lente della pagina compatta: mostra la ricerca e le dà il fuoco (dopo che il campo è comparso)
+    private func openSearch() {
+        searchOpen = true
+        Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(80))
+            typing = true
+        }
     }
 
     // MARK: Il posto della risposta
@@ -158,7 +186,8 @@ struct VarcoView: View {
     }
 
     /// La città dal vivo intorno al posto: un tocco apre la scheda Mappa sulla zona della risposta
-    private func mapStrip(check: PlaceCheck?, mood: Home2Answer.Mood, at moment: Date, tall: Bool = false) -> some View {
+    private func mapStrip(check: PlaceCheck?, mood: Home2Answer.Mood, at moment: Date, tall: Bool = false,
+                          compactHeight: CGFloat? = nil) -> some View {
         // Senza un posto cercato: la zona scelta, al centro della zona, con il suo cartello (non il centro della città)
         let zoneCenter = store.zone.region(padding: 1).center
         let place = check?.place ?? Place(name: store.zone.shortName, address: "",
@@ -171,7 +200,7 @@ struct VarcoView: View {
         let marker = Self.stripMarker(check: check, zone: store.zone)
         // La tua posizione: c'è solo con il permesso. Il pallino blu, e la ripresa con te dentro se sei a meno di 5 km
         let user = monitor.location.map { Coordinate(lat: $0.coordinate.latitude, lon: $0.coordinate.longitude) }
-        let height: CGFloat = tall ? 600 : check == nil ? 168 : 112
+        let height: CGFloat = tall ? 600 : check == nil ? 168 : compactHeight ?? 112
         let framing = StripFrame.make(target: place.location, user: user)
         return ZStack(alignment: .bottomLeading) {
             Group {
@@ -330,9 +359,9 @@ struct VarcoView: View {
 
     // MARK: La risposta
 
-    private func answerCard(_ check: PlaceCheck, _ a: Home2Answer, ahead: Double?) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            placeRow(check, ahead: ahead)
+    private func answerCard(_ check: PlaceCheck, _ a: Home2Answer, ahead: Double?, compact: Bool = false) -> some View {
+        VStack(alignment: .leading, spacing: compact ? 10 : 12) {
+            placeRow(check, ahead: ahead, compact: compact)
             if a.unofficial { UnofficialBanner(source: a.unofficialSource) }
             // 2.3 (tavole S-Risposta, I-No, I-Si): il blocco pieno della risposta, forma + parola + colore, identico di
             // giorno e di notte. VoiceOver lo legge in un colpo solo, per primo («varco.answer», un solo elemento)
@@ -359,6 +388,25 @@ struct VarcoView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        // 2.0.1: solo nei test dell'interfaccia (-uitest), un segno invisibile dove sta la parola della risposta: il giro
+        // «Dispositivi» controlla che la parola sia sopra la barra delle schede senza scorrere (il blocco per VoiceOver
+        // resta un elemento solo)
+        .overlayPreferenceValue(AnswerWordBounds.self) { anchor in
+            Group {
+                if Self.uiTest, let anchor {
+                    GeometryReader { proxy in
+                        let r = proxy[anchor]
+                        Rectangle().fill(Color.black.opacity(0.001))
+                            .frame(width: r.width, height: r.height)
+                            .position(x: r.midX, y: r.midY)
+                            .allowsHitTesting(false)
+                            .accessibilityElement()
+                            .accessibilityLabel(Text(verbatim: a.headline))
+                            .accessibilityIdentifier("varco.answerWord")
+                    }
+                }
+            }
+        }
         // 1.20.2: un identificatore solo della scheda della risposta (il giro delle foto aspetta questa, non la ricerca)
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("varco.answerCard")
@@ -390,8 +438,19 @@ struct VarcoView: View {
     }
 
     /// Il posto, con i recenti e gli hotel dei viaggi a un tocco, e la croce per tornare alla domanda
-    private func placeRow(_ check: PlaceCheck, ahead: Double?) -> some View {
+    private func placeRow(_ check: PlaceCheck, ahead: Double?, compact: Bool = false) -> some View {
         HStack(spacing: 8) {
+            // 2.0.1: nella pagina compatta la ricerca è una lente in questa riga (il campo si apre al tocco)
+            if compact && !searchOpen && !typing {
+                Button { openSearch() } label: {
+                    Image(systemName: "magnifyingglass").font(.app(size: 17, weight: .semibold)).foregroundStyle(Theme.ink)
+                        .frame(width: 36, height: 36).background(Theme.raised, in: Circle())
+                        .frame(width: Theme.Target.minimum, height: Theme.Target.minimum).contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(L("Hotel, address or square"))
+                .accessibilityIdentifier("varco.searchOpen")
+            }
             Menu {
                 ForEach(Self.savedHotels(store.trips)) { p in
                     Button { store.select(p) } label: { Label(p.name, systemImage: "suitcase.rolling.fill") }
@@ -403,8 +462,8 @@ struct VarcoView: View {
                 VStack(alignment: .leading, spacing: 3) {
                     HStack(alignment: .firstTextBaseline, spacing: 8) {
                         Text(verbatim: Self.placeTitle(check))
-                            .font(Self.font(30, .black)).foregroundStyle(Theme.ink)
-                            .lineLimit(2).minimumScaleFactor(0.75)
+                            .font(Self.font(compact ? 22 : 30, .black)).foregroundStyle(Theme.ink)
+                            .lineLimit(compact ? 1 : 2).minimumScaleFactor(compact ? 0.6 : 0.75)
                             .multilineTextAlignment(.leading)
                             .fixedSize(horizontal: false, vertical: true)
                         Image(systemName: "chevron.down").font(.app(size: 14, weight: .bold))
@@ -726,6 +785,39 @@ struct VarcoView: View {
     static func font(_ size: CGFloat, _ weight: Font.Weight) -> Font {
         Notte.font(size, weight)       // 2.0 (B38): il tetto una volta sola (Notte.font), poi misura fissa
     }
+
+    private static let uiTest = ProcessInfo.processInfo.arguments.contains("-uitest")
+}
+
+/// 2.0.1 (giro «Dispositivi», iPhone SE e testo grande): quanto stringere Adesso sopra la risposta perché la PAROLA della
+/// risposta stia sopra la barra delle schede senza scorrere (risposta prima di tutto). Il pannello e i pulsanti possono
+/// chiedere di scorrere. Solo su iPhone (l'iPad ha mappa e risposta affiancate) e solo con un posto e la sua risposta
+enum AdessoLayout: Equatable {
+    /// Come prima: striscia di mappa da 112 punti, ricerca intera, spazi da 14
+    case full
+    /// Schermo basso (≤ 700 punti, iPhone SE) o testo grande: striscia da 72, la ricerca diventa una lente nella riga del
+    /// posto (titolo su una riga), spazi da 8
+    case compact
+    /// Schermo basso E testo grande: come compact, senza la striscia (resta il pulsante «Guarda la mappa»)
+    case tight
+
+    /// Gli schermi «bassi»: iPhone SE (667), iPhone 8 e simili; gli iPhone mini (812) no
+    static let shortScreen: CGFloat = 700
+
+    static func make(screenHeight: CGFloat, accessibilityText: Bool, hasAnswer: Bool) -> AdessoLayout {
+        guard hasAnswer else { return .full }
+        let short = screenHeight > 0 && screenHeight <= shortScreen
+        switch (short, accessibilityText) {
+        case (true, true): return .tight
+        case (true, false), (false, true): return .compact
+        case (false, false): return .full
+        }
+    }
+
+    var spacing: CGFloat { self == .full ? 14 : 8 }
+    var showsStrip: Bool { self != .tight }
+    /// L'altezza della striscia con un posto scelto (nil: quella di sempre, 112)
+    var stripHeight: CGFloat? { self == .compact ? 72 : nil }
 }
 
 /// 1.19.5: il riquadro del guardiano in Varco, l'unica parte della pagina che osserva Guardian (la distanza cambia a ogni

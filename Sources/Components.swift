@@ -285,6 +285,8 @@ struct RispostaBlock: View {
                 RispostaShape(stato: stato, size: size == .car ? 72 : 46)
                 AnswerWords(title, font: Theme.answerWord(wordSize, car: size == .car), color: on, baseSize: wordSize,
                             minScale: Self.minScale)
+                    // 2.0.1: dove sta la parola, per il segno dei test dell'interfaccia in Adesso (VarcoView)
+                    .anchorPreference(key: AnswerWordBounds.self, value: .bounds) { $0 }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, stacked ? 0 : 2)
             }
@@ -311,6 +313,14 @@ struct RispostaBlock: View {
         .accessibilityAddTraits([.isHeader, .isStaticText])
         .accessibilityIdentifier(identifier)
         .accessibilitySortPriority(10)
+    }
+}
+
+/// 2.0.1: la cornice della parola della risposta nel blocco (il primo blocco della pagina che la chiede)
+struct AnswerWordBounds: PreferenceKey {
+    static let defaultValue: Anchor<CGRect>? = nil
+    static func reduce(value: inout Anchor<CGRect>?, nextValue: () -> Anchor<CGRect>?) {
+        value = value ?? nextValue()
     }
 }
 
