@@ -68,7 +68,37 @@ final class DispositiviTests: XCTestCase {
 
     private var window: CGRect { app.windows.firstMatch.frame }
 
-    /// Un elemento importante: c'è, è dentro la finestra in larghezza e, scorrendo al massimo quattro volte, si può toccare
+    /// La parte della finestra libera dalla barra delle schede: in basso su iPhone, in alto sull'iPad (barra in cima)
+    private var visibleArea: CGRect {
+        let w = window, bar = app.tabBars.firstMatch
+        guard bar.exists, bar.frame.height > 0 else { return w }
+        let b = bar.frame
+        if b.midY > w.midY { return CGRect(x: w.minX, y: w.minY, width: w.width, height: max(0, b.minY - w.minY)) }
+        return CGRect(x: w.minX, y: b.maxY, width: w.width, height: max(0, w.maxY - b.maxY))
+    }
+
+    /// Tutto dentro la parte libera (non sotto la barra delle schede, non sopra la finestra)
+    private func fullyVisible(_ f: CGRect) -> Bool {
+        let v = visibleArea
+        return f.height > 0 && f.minY >= v.minY - 1 && f.maxY <= v.maxY + 1
+    }
+
+    /// 2.0.1: scorre a piccoli passi (un terzo di schermo, al massimo «maxSwipes» volte) finché l'elemento è tutto nella
+    /// parte libera e toccabile. Il trascinamento parte a metà larghezza, sotto la striscia di mappa (che non scorre)
+    private func scrollToElement(_ element: XCUIElement, maxSwipes: Int = 6) {
+        for _ in 0..<maxSwipes {
+            guard element.exists else { return }
+            if fullyVisible(element.frame) && element.isHittable { return }
+            let up = element.frame.midY > visibleArea.midY        // sotto: si scorre verso l'alto (la pagina sale)
+            let from = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: up ? 0.68 : 0.38))
+            let to = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: up ? 0.38 : 0.68))
+            from.press(forDuration: 0.05, thenDragTo: to)
+            sleep(1)
+        }
+    }
+
+    /// Un elemento importante: c'è, è dentro la finestra in larghezza e, scorrendo a piccoli passi (scrollToElement),
+    /// si può toccare senza stare sotto la barra delle schede
     private func checkReachable(_ element: XCUIElement, _ name: String, screen: String, scroll: Bool = true) {
         // Gli elenchi creano le righe solo quando si avvicinano allo schermo: se manca si scorre verso il basso
         var found = element.waitForExistence(timeout: 6)
@@ -78,16 +108,14 @@ final class DispositiviTests: XCTestCase {
         guard found else {
             XCTFail("[\(variant)] \(screen): manca «\(name)»"); return
         }
-        if scroll {
-            // Sopra la finestra (la pagina è già scesa, come Viaggio verso i parcheggi) si torna su, se no si scende
-            for _ in 0..<5 where !element.isHittable {
-                if element.frame.midY < window.midY { app.swipeDown() } else { app.swipeUp() }
-                sleep(1)
-            }
-        }
+        if scroll { scrollToElement(element) }
         let f = element.frame, w = window
         XCTAssertTrue(element.isHittable,
                       "[\(variant)] \(screen): «\(name)» non si può toccare (cornice \(rect(f)), finestra \(rect(w)))")
+        if scroll {
+            XCTAssertTrue(fullyVisible(f),
+                          "[\(variant)] \(screen): «\(name)» resta sotto la barra delle schede anche scorrendo (cornice \(rect(f)), parte libera \(rect(visibleArea)))")
+        }
         XCTAssertTrue(f.width > 0 && f.minX >= w.minX - 1 && f.maxX <= w.maxX + 1,
                       "[\(variant)] \(screen): «\(name)» esce dalla finestra in larghezza (cornice \(rect(f)), finestra \(rect(w)))")
     }
@@ -129,10 +157,21 @@ final class DispositiviTests: XCTestCase {
             XCTAssertFalse(answer.label.isEmpty, "[\(variant)] Adesso: risposta vuota")
             XCTAssertTrue(f.minX >= w.minX - 1 && f.maxX <= w.maxX + 1,
                           "[\(variant)] Adesso: la risposta «\(answer.label)» esce dalla finestra (cornice \(rect(f)), finestra \(rect(w)))")
+            // 2.0.1: la PAROLA della risposta tutta sopra la barra delle schede, senza scorrere (risposta prima di tutto).
+            // Il segno «varco.answerWord» (solo con -uitest) ha la cornice della parola; se manca, la parte alta del blocco
+            let word = app.descendants(matching: .any)["varco.answerWord"].firstMatch
+            let wf: CGRect
+            if word.waitForExistence(timeout: 3), word.frame.height > 0 {
+                wf = word.frame
+            } else {
+                wf = CGRect(x: f.minX, y: f.minY, width: f.width, height: f.height * 0.6)
+            }
+            XCTAssertTrue(fullyVisible(wf),
+                          "[\(variant)] Adesso: la parola «\(answer.label.prefix(40))» è coperta dalla barra delle schede o fuori schermo (cornice \(rect(wf)), parte libera \(rect(visibleArea)))")
         } else {
             XCTFail("[\(variant)] Adesso: manca la risposta")
         }
-        checkReachable(app.descendants(matching: .any)["gate.panel"].firstMatch, "pannello", screen: "Adesso", scroll: false)
+        checkReachable(app.descendants(matching: .any)["gate.panel"].firstMatch, "pannello", screen: "Adesso")
         for (id, name) in [("varco.map", "Guarda la mappa"), ("varco.why", "Perché?"), ("varco.details", "Dettagli del viaggio")] {
             checkReachable(app.buttons[id].firstMatch, name, screen: "Adesso")
         }
