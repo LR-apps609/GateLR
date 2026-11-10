@@ -1,1 +1,2 @@
-testD1Adesso: XCTAssertTrue failed - [scuro] Adesso: «pannello» non si può toccare (cornice 30,804 170×39, finestra 0,0 402×874)
+testD5Presentazione: Failed to get screenshot: Timed out while requesting screenshot.
+testD5Presentazione: XCTAssertTrue failed - [scuro] Presentazione: «Più tardi» resta sotto la barra delle schede anche scorrendo (cornice 170,793 61×26, parte libera 0,0 402×791)

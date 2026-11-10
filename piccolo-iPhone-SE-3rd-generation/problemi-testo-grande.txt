@@ -1,1 +1,1 @@
-testD1Adesso: XCTAssertTrue failed - [testo-grande] Adesso: «pannello» non si può toccare (cornice 30,1291 171×39, finestra 0,0 375×667)
+testD5Presentazione: XCTAssertTrue failed - [testo-grande] Presentazione: «Più tardi» resta sotto la barra delle schede anche scorrendo (cornice 147,616 79×34, parte libera 0,0 375×584)

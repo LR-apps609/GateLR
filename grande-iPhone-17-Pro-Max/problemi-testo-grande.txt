@@ -1,6 +1,1 @@
-testD1Adesso: XCTAssertTrue failed - [testo-grande] Adesso: «pannello» non si può toccare (cornice 30,1272 170×39, finestra 0,0 440×956)
-testD2Mappa: failed - [testo-grande] mancano le schede
-testD2Mappa: Failed to get list of active applications: Accessibility error kAXErrorIPCTimeout from AXUIElementCopyMultipleAttributeValues for 1102
-testD3Viaggio: Failed to get list of active applications: Accessibility error kAXErrorIPCTimeout from AXUIElementCopyMultipleAttributeValues for 1102
-testD4Aiuto: Failed to get list of active applications: Accessibility error kAXErrorIPCTimeout from AXUIElementCopyMultipleAttributeValues for 1102
-testD5Presentazione: Failed to get list of active applications: Accessibility error kAXErrorIPCTimeout from AXUIElementCopyMultipleAttributeValues for 1102
+testD5Presentazione: XCTAssertTrue failed - [testo-grande] Presentazione: «Più tardi» resta sotto la barra delle schede anche scorrendo (cornice 180,871 79×33, parte libera 0,0 440×873)
