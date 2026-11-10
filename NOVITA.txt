@@ -1,3 +1,7 @@
+Novità della 2.0.1 (schermi piccoli):
+• iPhone SE e testo grande: in Adesso la risposta si vede intera sopra la barra delle schede, senza scorrere. Con un posto scelto la striscia di mappa è più bassa e la ricerca diventa una lente accanto al nome del posto; con schermo basso e testo grande insieme resta solo «Guarda la mappa»
+• Controlli automatici: su ogni iPhone la parola della risposta deve stare sopra la barra; la legenda della mappa si richiude anche se il primo tocco va perso
+
 Novità della 2.0 (una risposta, nuova struttura, nuova grafica):
 • Sette risposte uguali ovunque (iPhone, Android, sito, widget, Live Activity, avvisi, Siri, CarPlay): «Non entrare», «A una condizione», «Puoi entrare», «ZTL non attiva», «Controlla il cartello», «Non conosciamo questo posto», «Fuori dalla ZTL». Ognuna ha forma, parola e colore, mai solo colore. Il sito ora dice «Puoi entrare» e «A una condizione» come l'app
 • Quattro schede: Adesso, Mappa, Viaggio, Aiuto. Garage, permessi, impostazioni, privacy e fonti stanno dietro l'icona del veicolo in alto; «Leggi il cartello» accanto. La scheda «Tu» non c'è più

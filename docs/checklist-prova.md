@@ -503,3 +503,9 @@ Una sola forma della risposta per lingua: «Non entrare», «Puoi entrare», «A
 - [ ] Mappa: le righe delle zone si leggono bene di giorno e di sera
 - [ ] iPad: in Adesso mappa e risposta affiancate
 - [ ] Sito: «Puoi entrare» e «A una condizione» come nell'app
+
+## 31. 2.0.1 (schermi piccoli)
+- [ ] iPhone SE (o testo grande): scegli un posto in Adesso; la parola della risposta si vede intera sopra la barra delle schede, senza scorrere
+- [ ] Con un posto scelto la ricerca si apre dalla lente accanto al nome del posto
+- [ ] Testo grandissimo su iPhone SE: niente striscia di mappa, c'è «Guarda la mappa» che apre la Mappa
+- [ ] iPhone grandi e iPad: Adesso uguale alla 2.0
