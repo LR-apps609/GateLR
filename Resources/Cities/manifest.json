@@ -1,6 +1,6 @@
 {
- "version": "202611100620",
- "digest": "2aee824e401a",
+ "version": "202611110626",
+ "digest": "43568df64355",
  "schema": 1,
  "cities": [
   {
@@ -81,7 +81,7 @@
   {
    "id": "matera",
    "file": "matera.json",
-   "sha256": "b1d5dc8cb31d7306168c79049aa4c80b55b58990217414e545d7039fc2bd1a4e"
+   "sha256": "b89c2fd563c6a6d5a4c80ffb0e2067a64204f26af15c2287a91bb45bf815b633"
   },
   {
    "id": "milano",
@@ -96,7 +96,7 @@
   {
    "id": "montepulciano",
    "file": "montepulciano.json",
-   "sha256": "a4b0e6ca700b0500785d576db20d1c099df0b051f9a69607835ec281c02c988c"
+   "sha256": "22e99d80de0001f4558c7abda4060156f3d2b919a65557627966df5eb1de9e42"
   },
   {
    "id": "napoli",
