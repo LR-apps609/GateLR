@@ -130,6 +130,9 @@ fun HomeScreen(modifier: Modifier) {
                 }
             }
             f.zone?.let { z -> item { WhyRow(z) } }
+            // 2.0.2 «Fiducia»: data dell'ultimo controllo, verifica a mano, fonte, «Mandalo al tuo hotel / noleggio», le due pagine.
+            // Sotto la risposta e i suoi pulsanti: la risposta resta prima di tutto. Dove sei non si condivide: va la pagina della città
+            item { TrustBox(f.zone, f.city, null) }
         } else item {
             PillButton(L("Where are you going?"), { Nav.whereTo = "trip" }, Modifier.fillMaxWidth(), Icons.Filled.Search)
         }

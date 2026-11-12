@@ -17,6 +17,8 @@ on:
       - 'Tools/check_site_js.py'
       - 'Tools/check_site_answers.mjs'
       - 'Tools/check_engine_cases.mjs'
+      - 'Tools/check_fiducia.mjs'
+      - 'Tools/translations.py'
       - 'Tools/check_site_dates.mjs'
       - 'Tools/check_site_bugs.mjs'
       - 'Tools/site_risposte.mjs'
@@ -57,6 +59,9 @@ jobs:
       # 1.20.0 «Motore unico»: gli stessi casi di prova dell'iPhone e di Android (shared/engine-cases.json)
       - name: Casi comuni del motore
         run: node Tools/check_engine_cases.mjs
+      # 2.0.2 «Fiducia»: data del controllo, verifica a mano e link per l'hotel (shared/fiducia-cases.json) e le due pagine
+      - name: Fiducia (riga sotto la risposta, link, pagine)
+        run: node Tools/check_fiducia.mjs
       # 1.20.1 «Dati»: «pageChanged» dalle impronte delle pagine dei Comuni (Tools/source_trust.py) e formato dei file
       - name: Verifica dei dati
         run: python3 Tools/source_trust.py --selftest

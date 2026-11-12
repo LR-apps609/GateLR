@@ -106,6 +106,8 @@ fun ZoneDetail(z: Zone) {
             }
         }
 
+        // 2.0.2 «Fiducia»: data dell'ultimo controllo, verifica a mano, fonte, condivisione (pagina della città), le due pagine
+        TrustBox(z, AppState.cityOf(z), null)
         SectionLabel("Official sources")
         CardBox {
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {

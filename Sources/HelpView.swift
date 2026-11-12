@@ -35,6 +35,14 @@ struct HelpView: View {
                         badge: store.log.isEmpty ? nil : "\(store.log.count)", id: "fines.log")
                 } header: { Text("Fines") }
 
+                // 2.0.2 «Fiducia»: le due pagine anche da qui (oltre che sotto ogni risposta)
+                Section {
+                    row(.checks, "How we check the data", "checkmark.seal", Theme.blueFill, L("Sources, daily check, what we don't know yet"),
+                        id: "help.checks")
+                    row(.fineHelp, "What to do if you get a fine", "building.columns", Theme.blueFill, L("Check the notice, appeals, who to ask"),
+                        id: "help.fineHelp")
+                } header: { Text("About the answers") }
+
                 Section {
                     row(.learn, "What are ZTLs", "graduationcap.fill", Theme.red, L("The signs and the «ZTL ATTIVA» panel"), id: "help.learn")
                     Button { router.showIntro = true } label: {
@@ -76,6 +84,8 @@ struct HelpView: View {
         case .fineScan: FineScanView().readableScrollWidth()
         case .log: DriveLogView().readableScrollWidth()
         case .learn: LearnZTLView().readableScrollWidth()
+        case .checks: FiduciaPageView(page: .checks).readableScrollWidth()
+        case .fineHelp: FiduciaPageView(page: .fine).readableScrollWidth()
         }
     }
 }

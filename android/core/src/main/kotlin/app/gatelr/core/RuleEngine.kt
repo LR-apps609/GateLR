@@ -100,11 +100,14 @@ class RuleEngine(
     companion object { val ROME: ZoneId = ZoneId.of("Europe/Rome") }
 
     /** 1.20.1 «Dati»: la pagina cambiata prima di tutto, poi la verifica recente, poi la lettura recente (regola A) */
-    fun trust(zone: Zone): DataTrust {
-        if (zone.source.pageChanged == true) return DataTrust.PAGE_CHANGED
-        val v = zone.source.verified
+    fun trust(zone: Zone): DataTrust = trust(zone.source)
+
+    /** 2.0.2: la stessa regola per una fonte sola (la riga «Controllata …» sotto la risposta, Fiducia) */
+    fun trust(source: Source): DataTrust {
+        if (source.pageChanged == true) return DataTrust.PAGE_CHANGED
+        val v = source.verified
         if (v != null && ChronoUnit.DAYS.between(v, now()) <= staleAfterDays) return DataTrust.VERIFIED
-        if (ChronoUnit.DAYS.between(zone.source.checked, now()) <= staleAfterDays) return DataTrust.READ
+        if (ChronoUnit.DAYS.between(source.checked, now()) <= staleAfterDays) return DataTrust.READ
         return if (v == null) DataTrust.UNVERIFIED else DataTrust.OLD
     }
 

@@ -21,6 +21,14 @@ struct AboutView: View {
                 Label("GateLR is not affiliated with any city or with the police.", systemImage: "building.columns")
             }
             .font(.app(size: 14))
+            // 2.0.2 «Fiducia»: come controlliamo i dati e cosa fare se arriva una multa (GateLR non rimborsa multe)
+            Section {
+                NavigationLink { FiduciaPageView(page: .checks) } label: { Label("How we check the data", systemImage: "checkmark.seal") }
+                    .accessibilityIdentifier("about.checks")
+                NavigationLink { FiduciaPageView(page: .fine) } label: { Label("What to do if you get a fine", systemImage: "building.columns") }
+                    .accessibilityIdentifier("about.fineHelp")
+            }
+            .font(.app(size: 15))
             ForEach(store.cities) { city in
                 Section(city.localizedName) {
                     if let license = city.license { Text(L(license)).font(.app(size: 13)) }

@@ -10,7 +10,7 @@ enum Tab: Hashable { case now, map, trip, help }
 enum AccountRoute: Hashable { case garage, settings, privacy, about }
 
 /// Le pagine di «Aiuto»
-enum HelpRoute: Hashable { case sign, fineGuide, fineScan, log, learn }
+enum HelpRoute: Hashable { case sign, fineGuide, fineScan, log, learn, checks, fineHelp }
 
 /// Dove si va nell'app: la scheda scelta, le pagine aperte in «Aiuto», il foglio del veicolo e la presentazione
 @MainActor final class AppRouter: ObservableObject {

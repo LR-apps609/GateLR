@@ -23,6 +23,8 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.History
+import androidx.compose.material.icons.filled.FactCheck
+import androidx.compose.material.icons.filled.Gavel
 import androidx.compose.material.icons.filled.LocationOff
 import androidx.compose.material.icons.filled.ReceiptLong
 import androidx.compose.material3.Icon
@@ -60,6 +62,10 @@ fun HelpScreen(modifier: Modifier) {
         }
         item { HelpRow(Icons.Filled.ReceiptLong, L("Got a fine?"), L("What to do, in 4 steps")) { Nav.tool = "fines" } }
         item { HelpRow(Icons.Filled.History, L("Drive log"), L("Passages near the gates, only on this phone")) { Nav.tool = "log" } }
+        // 2.0.2 «Fiducia»: le due pagine, anche da qui (oltre che sotto ogni risposta)
+        item { SectionLabel("About the answers") }
+        item { HelpRow(Icons.Filled.FactCheck, L("How we check the data"), L("Sources, daily check, what we don't know yet")) { Nav.tool = "checks" } }
+        item { HelpRow(Icons.Filled.Gavel, L("What to do if you get a fine"), L("Check the notice, appeals, who to ask")) { Nav.tool = "finehelp" } }
         item {
             HelpRow(Icons.Filled.MenuBook, L("What is a ZTL?"), L("The signs and the «ZTL ATTIVA» panel")) {
                 runCatching { ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://lr-apps609.github.io/GateLR/"))) }

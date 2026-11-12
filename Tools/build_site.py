@@ -808,9 +808,88 @@ def build_city(c, lang):
     return out
 
 
+# ── 2.0.2 «Fiducia»: «Come controlliamo i dati» e «Cosa fare se ricevi una multa» ──────────────────
+# Gli stessi testi dell'app (chiavi inglesi di Tools/translations.py: italiano e tedesco da lì), in tre lingue, senza
+# JavaScript. Le fonti dei termini dei ricorsi sono quelle ufficiali (Normattiva, Prefettura): gli stessi link dell'app.
+_TR = {}
+exec((ROOT / "Tools/translations.py").read_text(encoding="utf-8").split("def esc")[0], {}, _TR)
+APP_T = _TR["T"]
+
+
+def tr(key, lang):
+    if lang == "en": return key
+    return APP_T[key][0 if lang == "it" else 1]
+
+
+INFO_PAGES = {
+    "come-controlliamo": {"title": "How we check the data", "intro": None, "sections": [
+        ("Where the data comes from", "Hours, rules and ZTL borders come from the official pages and open data of each city (the Comune). Where a city publishes nothing usable, the source is marked unofficial and those answers are never green."),
+        ("Checked automatically every morning", "Every morning a program opens the city pages we cite and compares them with the last reading. If a page has changed, the answers for that zone turn yellow («Check the sign») until a person reads it again."),
+        ("The date and the source on every answer", "Under every answer you see when we last checked the rules against the official sources, and a link to the city's page, so you can read it yourself."),
+        ("Verification by hand: still in progress", "A person still has to compare each zone with the signs and the official acts. Until that's done, the answer shows the yellow label «Not yet verified by hand». The colour of the answer doesn't change because of it."),
+        ("When we're not sure: yellow", "If the data is older than 120 days, the city's page has changed, the source is unofficial or it's a public holiday we couldn't confirm, the answer is yellow: «Check the sign». We'd rather say we're not sure than say green by mistake.")],
+        "links": [], "foot": ["Road signs on site always win over the app."]},
+    "multa": {"title": "What to do if you get a fine",
+        "intro": "GateLR can't refund fines, and we'd rather say so clearly. This page is general information, not legal advice: here is what you can check.",
+        "sections": [
+        ("Check the notice", "Read date, time, gate (camera) and plate. Check that the plate is yours and that you really drove there at that time."),
+        ("Compare with the city's page", "Open the city's official page (the link is under every answer) and check the hours that applied that day. Photos of the signs and panels help."),
+        ("Rental car or hotel?", "With a rental car the notice usually reaches the rental company first: ask them what they received and what they charged you. If your hotel was meant to register your plate, ask the hotel in writing whether and when it did."),
+        ("Appeals in Italy", "You can appeal to the Prefetto within 60 days of the notification, or to the Giudice di Pace (justice of the peace) within 30 days (Highway Code, art. 203 and 204-bis). If you pay first, you can no longer appeal. The notice says where and how: what it says counts.")],
+        "links": [
+        ("Highway Code, art. 203 (appeal to the Prefetto)", "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art203"),
+        ("Highway Code, art. 204-bis (Giudice di Pace)", "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1992-04-30;285~art204bis"),
+        ("Example: Prefecture of Turin, appeals against traffic fines", "https://prefettura.interno.gov.it/it/prefetture/torino/ricorso-violazioni-codice-strada")],
+        "foot": ["For advice on your own case, ask a lawyer or a consumer association.",
+                 "General information, not legal advice. The notice you receive always wins: read its deadlines and amounts."]},
+}
+INFO_CSS = CITY_CSS + """.info{max-width:760px;margin:0 auto;display:grid;gap:14px;padding-block:8px 24px}
+.info h1{font-size:clamp(30px,5vw,44px);font-weight:700}
+.info .intro{font-weight:700;font-size:18px}
+.info .card h2{font-size:22px;font-weight:700;margin-bottom:6px}
+.info ul{list-style:none;padding:0}
+.info ul a{display:inline-flex;min-height:44px;align-items:center;font-weight:700}
+"""
+
+
+def info_url(slug, lang): return SITE + prefix(lang) + slug + "/"
+
+
+def build_info(slug, lang):
+    d, p = INFO_PAGES[slug], P[lang]
+    root = "../" if lang == "en" else "../../"
+    home = root + prefix(lang)
+    title = tr(d["title"], lang)
+    desc = tr(d["intro"] or d["sections"][0][1], lang)
+    hd = head(lang, title + " · GateLR", desc, info_url(slug, lang), {l: info_url(slug, l) for l in LANGS}, root,
+              [{"@type": "WebPage", "name": title, "url": info_url(slug, lang), "inLanguage": lang, "isPartOf": {"@id": SITE + "#site"}}])
+    other = "multa" if slug == "come-controlliamo" else "come-controlliamo"
+    B = [f'<header class="top"><a class="brand" href="{home}" aria-label="GateLR {p["home"]}">{LOGO}GateLR</a>'
+         '<nav class="langs" aria-label="Language">' + "".join(
+             f'<a href="{root}{prefix(l)}{slug}/" hreflang="{l}" lang="{l}"{CUR if l == lang else ""}>{l.upper()}</a>' for l in LANGS) + "</nav></header>",
+         f'<main class="info"><h1>{esc(title)}</h1>']
+    if d["intro"]: B.append(f'<p class="intro" id="no-refund">{esc(tr(d["intro"], lang))}</p>')
+    for t, b in d["sections"]:
+        B.append(f'<section class="card"><h2>{esc(tr(t, lang))}</h2><p>{esc(tr(b, lang))}</p></section>')
+    if d["links"]:
+        B.append(f'<section class="card"><h2>{esc(tr("Official sources", lang))}</h2><ul>'
+                 + "".join(f'<li><a href="{esc(u)}" rel="noopener">{esc(tr(t, lang))} ↗</a></li>' for t, u in d["links"]) + "</ul></section>")
+    B += [f'<p class="muted">{esc(tr(x, lang))}</p>' for x in d["foot"]]
+    B.append(f'<p class="acts"><a class="btn dark" href="{home}#check">{CAR_SVG}{esc(p["cta"])}</a>'
+             f'<a class="btn" href="{root}{prefix(lang)}{other}/">{esc(tr(INFO_PAGES[other]["title"], lang))}</a></p></main>')
+    B.append(f'<footer><p><a href="{home}">GateLR</a> · <a href="{root}privacy/">Privacy</a> · <a href="{root}support/">Support</a> · '
+             f'<a href="mailto:support@example.com">support@example.com</a></p></footer>')
+    page = (f'<!doctype html>\n<html lang="{lang}">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
+            f'{hd}\n{fonts_head(root, ["atkinson-next-latin.woff2", "titillium-700-latin.woff2"])}\n<style>\n{INFO_CSS}\n</style>\n</head>\n<body>\n<div class="wrap">\n' + "\n".join(B) + "\n</div>\n</body>\n</html>\n")
+    out = WEB / prefix(lang) / slug / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(page, encoding="utf-8")
+    return out
+
+
 # ── Sitemap, robots e icona ───────────────────────────────────────────────────
 def sitemap():
-    groups = [HOME_ALT] + [{l: city_url(c, l) for l in LANGS} for c in cities]
+    groups = [HOME_ALT] + [{l: city_url(c, l) for l in LANGS} for c in cities] + [{l: info_url(x, l) for l in LANGS} for x in INFO_PAGES]
     lastmod = max(z["source"]["checkedOn"] for c in cities for z in c["zones"])[:10]
     urls = []
     for g in groups:
@@ -824,7 +903,7 @@ def sitemap():
 
 
 if __name__ == "__main__":
-    made = [build_home(l) for l in LANGS] + [build_city(c, l) for c in cities for l in LANGS]
+    made = [build_home(l) for l in LANGS] + [build_city(c, l) for c in cities for l in LANGS] + [build_info(x, l) for x in INFO_PAGES for l in LANGS]
     sitemap()
     # Privacy e Supporto (scritte a mano): gli stessi caratteri del sito al posto di Google Fonts, tra <!--FONTS--> e <!--/FONTS-->
     for f in (WEB / "privacy/index.html", WEB / "support/index.html"):

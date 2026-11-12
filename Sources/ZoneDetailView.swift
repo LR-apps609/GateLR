@@ -31,6 +31,9 @@ struct ZoneDetailView: View {
 
                 if zone.isUnofficial { unofficialCard }
 
+                // 2.0.2 «Fiducia»: data dell'ultimo controllo, verifica a mano, fonte, condivisione (pagina della città) e le due pagine
+                FiduciaFooter(zone: zone, city: city, place: nil)
+
                 VStack(alignment: .leading, spacing: 6) {
                     SectionLabel("In short")
                     Text(zone.localizedSummary).font(.app(size: 15))

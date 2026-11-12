@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Wie wir die Daten prüfen · GateLR</title>
+<meta name="description" content="Zeiten, Regeln und ZTL-Grenzen stammen von den offiziellen Seiten und offenen Daten jeder Stadt (Comune). Wo eine Stadt nichts Brauchbares veröffentlicht, ist die Quelle als nicht offiziell markiert und diese Antworten sind nie grün.">
+<link rel="canonical" href="https://lr-apps609.github.io/GateLR/de/come-controlliamo/">
+<link rel="alternate" hreflang="en" href="https://lr-apps609.github.io/GateLR/come-controlliamo/">
+<link rel="alternate" hreflang="it" href="https://lr-apps609.github.io/GateLR/it/come-controlliamo/">
+<link rel="alternate" hreflang="de" href="https://lr-apps609.github.io/GateLR/de/come-controlliamo/">
+<link rel="alternate" hreflang="x-default" href="https://lr-apps609.github.io/GateLR/come-controlliamo/">
+<link rel="icon" type="image/png" sizes="48x48" href="../../img/favicon.b317ce8ade.png">
+<link rel="apple-touch-icon" href="../../img/apple-touch-icon.a844d151fd.png">
+<meta name="theme-color" content="#F4F6FA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B1530" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GateLR">
+<meta property="og:title" content="Wie wir die Daten prüfen · GateLR">
+<meta property="og:description" content="Zeiten, Regeln und ZTL-Grenzen stammen von den offiziellen Seiten und offenen Daten jeder Stadt (Comune). Wo eine Stadt nichts Brauchbares veröffentlicht, ist die Quelle als nicht offiziell markiert und diese Antworten sind nie grün.">
+<meta property="og:url" content="https://lr-apps609.github.io/GateLR/de/come-controlliamo/">
+<meta property="og:image" content="https://lr-apps609.github.io/GateLR/icon.png">
+<meta property="og:image:alt" content="GateLR">
+<meta property="og:locale" content="de_DE">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wie wir die Daten prüfen · GateLR">
+<meta name="twitter:description" content="Zeiten, Regeln und ZTL-Grenzen stammen von den offiziellen Seiten und offenen Daten jeder Stadt (Comune). Wo eine Stadt nichts Brauchbares veröffentlicht, ist die Quelle als nicht offiziell markiert und diese Antworten sind nie grün.">
+<meta name="twitter:image" content="https://lr-apps609.github.io/GateLR/icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","name":"Wie wir die Daten prüfen","url":"https://lr-apps609.github.io/GateLR/de/come-controlliamo/","inLanguage":"de","isPartOf":{"@id":"https://lr-apps609.github.io/GateLR/#site"}}]}</script>
+<link rel="preload" href="../../fonts/atkinson-next-latin.18b2a1a39a.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../fonts/titillium-700-latin.9e3162d81e.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Atkinson Hyperlegible Next";font-style:normal;font-weight:400 700;font-display:swap;src:url(../../fonts/atkinson-next-latin.18b2a1a39a.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Atkinson Hyperlegible Next";font-style:normal;font-weight:400 700;font-display:swap;src:url(../../fonts/atkinson-next-latin-ext.7dae0c6c66.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:"Titillium Web";font-style:normal;font-weight:400;font-display:swap;src:url(../../fonts/titillium-400-latin.861b80b49d.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Titillium Web";font-style:normal;font-weight:400;font-display:swap;src:url(../../fonts/titillium-400-latin-ext.ecd15a1dce.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:"Titillium Web";font-style:normal;font-weight:600;font-display:swap;src:url(../../fonts/titillium-600-latin.f356ff5613.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Titillium Web";font-style:normal;font-weight:600;font-display:swap;src:url(../../fonts/titillium-600-latin-ext.99cebfd103.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:"Titillium Web";font-style:normal;font-weight:700;font-display:swap;src:url(../../fonts/titillium-700-latin.9e3162d81e.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:"Titillium Web";font-style:normal;font-weight:700;font-display:swap;src:url(../../fonts/titillium-700-latin-ext.ecacf58d79.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:"DotGothic16";font-style:normal;font-weight:400;font-display:swap;src:url(../../fonts/dotgothic16-400-latin.d29abf8174.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+</style>
+<style>
+:root{--bg:#F4F6FA;--surface:#FFFFFF;--surface2:#E9EDF5;--line:#D5DAE6;--ink:#0B1530;--ink2:#4A5675;--no-ink:#B3261E;--si-ink:#147A3C;--cond-ink:#8A6100;--btn:#0B1530;--on-btn:#FFFFFF;--focus:#0A4FB8;--map-land:#E9EDF5;--map-water:#C4D6EC;--grey:#5E6982;--cond:#FFC629;--on-cond:#0B1530;--led-bg:#050505;--led-fg:#FFE7B0;
+--display:"Titillium Web","Segoe UI",system-ui,sans-serif;--text:"Atkinson Hyperlegible Next",system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0B1530;--surface:#142049;--surface2:#1B2A5C;--line:#2A3A70;--ink:#F2F4FA;--ink2:#B4BEDB;--no-ink:#FF6B5E;--si-ink:#4FD18B;--cond-ink:#FFC629;--btn:#F2F4FA;--on-btn:#0B1530;--focus:#8CB0EE;--map-land:#142049;--map-water:#1F3A6B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1530;--surface:#142049;--surface2:#1B2A5C;--line:#2A3A70;--ink:#F2F4FA;--ink2:#B4BEDB;--no-ink:#FF6B5E;--si-ink:#4FD18B;--cond-ink:#FFC629;--btn:#F2F4FA;--on-btn:#0B1530;--focus:#8CB0EE;--map-land:#142049;--map-water:#1F3A6B;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 var(--text);padding:0 max(16px,env(safe-area-inset-right,0px)) 0 max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:1184px;margin:0 auto}
+a{color:inherit;text-underline-offset:.18em}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance}
+p{margin:0}
+.label{font:700 13px/1.3 var(--text);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.top{display:flex;align-items:center;gap:8px 22px;padding-block:14px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font:700 24px var(--display);min-height:44px}
+.brand svg{width:28px;height:35px;flex:none}
+.crumb{font-size:16px;color:var(--ink2)}.crumb a{color:var(--ink2)}
+.langs{display:flex;gap:2px;margin-left:auto}
+.langs a{font:700 14px var(--text);color:var(--ink);min-width:44px;min-height:40px;display:inline-grid;place-items:center;padding:0 8px;border-radius:10px;text-decoration:none}
+.langs a[aria-current]{background:var(--btn);color:var(--on-btn)}
+.city{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,500px);gap:18px 40px;align-items:start}
+.city > *{grid-column:1;min-width:0}
+.city > .side{grid-column:2;grid-row:1 / span 40;position:sticky;top:16px}
+@media (max-width:980px){.city{grid-template-columns:minmax(0,1fr)}.city > .side{grid-column:1;grid-row:auto;position:static}}
+.hero{display:grid;gap:14px;padding-bottom:6px}
+.hero h1{font-size:clamp(38px,6vw,56px);font-weight:700;letter-spacing:-.02em}
+.lead{font-size:18px;color:var(--ink2);max-width:60ch}
+.lead b{color:var(--ink)}
+.acts{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--ink);border-radius:12px;padding:0 18px;min-height:48px;font:700 16px var(--text);text-decoration:none;color:var(--ink);background:var(--surface)}
+.btn.dark{background:var(--btn);border-color:var(--btn);color:var(--on-btn)}
+.draft{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:8px 12px;font-size:15px}
+.unoff{background:var(--cond);color:var(--on-cond);border-radius:12px;padding:10px 12px;font-size:16px;font-weight:700;line-height:1.35}
+.unoff a{color:inherit}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px;display:grid;gap:12px;min-width:0}
+.card h2{font-size:28px;font-weight:700}
+.card h3{font-size:19px;font-weight:700;margin-top:4px}
+.zhead{display:flex;gap:12px 16px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap}
+.zhead > div{display:grid;gap:4px;min-width:0;flex:1 1 220px}
+.zhours{font-weight:700;color:var(--ink2)}
+.nr{justify-self:start;border:1.5px dashed var(--ink2);border-radius:999px;padding:2px 10px;font-size:14px;color:var(--ink2)}
+.ledw{display:grid;gap:4px;justify-items:end}
+.ledw[hidden]{display:none}
+.led{background:var(--led-bg);border:2px solid #30364A;border-radius:9px;padding:6px 12px;text-align:center;color:var(--led-fg);font:400 18px/1.15 "DotGothic16",ui-monospace,monospace;letter-spacing:.08em;white-space:nowrap;text-shadow:0 0 6px rgba(255,231,176,.55)}
+.led small{display:block;font-size:11px;letter-spacing:.1em}
+.ledw .tr{font-size:13px;color:var(--ink2)}
+.kind{display:inline-flex;align-items:center;gap:8px;font:700 13px var(--text);letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+.sw{width:18px;height:12px;border-radius:3px;display:inline-block;border:2px dashed var(--ink);background:color-mix(in srgb,var(--ink) 8%,transparent);flex:none}
+.sw.ped{border:2px solid var(--grey);background:var(--grey)}
+table{border-collapse:collapse;width:100%;font-size:16px}
+td{padding:8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td+td{text-align:right;font-weight:700;padding-left:12px}
+td.free{color:var(--si-ink)}
+.price{font:700 34px/1 var(--display)}
+ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.muted{color:var(--ink2);font-size:15px}
+blockquote{margin:0;border-left:3px solid var(--line);padding:2px 0 2px 12px;font-size:15px}
+blockquote p+p{color:var(--ink2)}
+.map{padding:10px;gap:8px}
+.map svg{width:100%;height:auto;display:block;border-radius:14px;background:var(--map-land)}
+.mapwrap{position:relative;min-height:340px}
+.mapwrap .real{position:absolute;inset:0;border-radius:14px;overflow:hidden;opacity:0;transition:opacity .3s}
+.mapwrap.on .real{opacity:1}.mapwrap.on svg{visibility:hidden}
+.mapwrap svg{min-height:340px;object-fit:cover}
+.maplibregl-ctrl-attrib{font-size:11px}
+.z{stroke-linejoin:round;fill:var(--ink);fill-opacity:.06;stroke:var(--ink);stroke-width:2.5;stroke-dasharray:10 7}
+.ped{fill:var(--grey);fill-opacity:.55;stroke:var(--grey);stroke-width:1}.gate{fill:var(--ink);stroke:var(--surface);stroke-width:2}.river{fill:none;stroke:var(--map-water);stroke-width:22;stroke-linecap:round}
+.lb rect{fill:var(--ink)}.lb text{font:700 22px var(--display);text-anchor:middle;fill:var(--bg);letter-spacing:.04em}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:14px;color:var(--ink2);padding-inline:6px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.mapnote{font-size:14.5px;padding:0 6px 4px}
+.dot{width:11px;height:11px;border-radius:50%;background:var(--ink)}
+details summary{cursor:pointer;font-weight:700}
+.faq details{border-top:1px solid var(--line);padding-block:10px}
+.faq details:first-of-type{border-top:0}
+.faq details p{margin-top:8px}
+.cities{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+.cities h2{flex-basis:100%;font-size:22px;font-weight:700}
+.cities a{font:400 15px var(--text);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:9px 14px;min-height:42px;text-decoration:none}
+footer{border-top:1px solid var(--line);margin-top:24px;padding-block:22px 40px;display:grid;gap:10px;color:var(--ink2);font-size:15px}
+footer a{color:var(--ink)}
+.maplibregl-ctrl-group button{width:44px;height:44px}
+.info{max-width:760px;margin:0 auto;display:grid;gap:14px;padding-block:8px 24px}
+.info h1{font-size:clamp(30px,5vw,44px);font-weight:700}
+.info .intro{font-weight:700;font-size:18px}
+.info .card h2{font-size:22px;font-weight:700;margin-bottom:6px}
+.info ul{list-style:none;padding:0}
+.info ul a{display:inline-flex;min-height:44px;align-items:center;font-weight:700}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="brand" href="../../de/" aria-label="GateLR Start"><svg viewBox="0 0 120 150" aria-hidden="true"><path d="M60 4C28 4 6 28 6 58c0 38 54 88 54 88s54-50 54-88C114 28 92 4 60 4Z" fill="#E5322D"/><circle cx="60" cy="58" r="36" fill="#0B1530"/><rect x="24" y="48" width="72" height="20" rx="4" fill="#E5322D"/></svg>GateLR</a><nav class="langs" aria-label="Language"><a href="../../come-controlliamo/" hreflang="en" lang="en">EN</a><a href="../../it/come-controlliamo/" hreflang="it" lang="it">IT</a><a href="../../de/come-controlliamo/" hreflang="de" lang="de" aria-current="page">DE</a></nav></header>
+<main class="info"><h1>Wie wir die Daten prüfen</h1>
+<section class="card"><h2>Woher die Daten kommen</h2><p>Zeiten, Regeln und ZTL-Grenzen stammen von den offiziellen Seiten und offenen Daten jeder Stadt (Comune). Wo eine Stadt nichts Brauchbares veröffentlicht, ist die Quelle als nicht offiziell markiert und diese Antworten sind nie grün.</p></section>
+<section class="card"><h2>Jeden Morgen automatisch geprüft</h2><p>Jeden Morgen öffnet ein Programm die zitierten Seiten der Städte und vergleicht sie mit dem letzten Lesen. Hat sich eine Seite geändert, werden die Antworten für diese Zone gelb («Achte auf das Schild»), bis eine Person sie neu liest.</p></section>
+<section class="card"><h2>Datum und Quelle bei jeder Antwort</h2><p>Unter jeder Antwort siehst du, wann wir die Regeln zuletzt mit den offiziellen Quellen abgeglichen haben, und einen Link zur Seite der Stadt, damit du selbst nachlesen kannst.</p></section>
+<section class="card"><h2>Prüfung von Hand: noch im Gange</h2><p>Eine Person muss jede Zone noch mit den Schildern und den amtlichen Akten abgleichen. Bis dahin zeigt die Antwort das gelbe Etikett «Noch nicht von Hand geprüft». Die Farbe der Antwort ändert sich dadurch nicht.</p></section>
+<section class="card"><h2>Wenn wir nicht sicher sind: gelb</h2><p>Sind die Daten älter als 120 Tage, hat sich die Seite der Stadt geändert, ist die Quelle nicht offiziell oder ist ein Feiertag, den wir nicht bestätigen konnten, ist die Antwort gelb: «Achte auf das Schild». Lieber sagen wir, dass wir nicht sicher sind, als aus Versehen grün.</p></section>
+<p class="muted">Es gelten immer die Schilder vor Ort, nicht die App.</p>
+<p class="acts"><a class="btn dark" href="../../de/#check"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16.5h16M5.5 16.5l1.6-5.2c.2-.8 1-1.3 1.8-1.3h6.2c.8 0 1.6.5 1.8 1.3l1.6 5.2M4 16.5V19h3v-2.5M17 16.5V19h3v-2.5"/></svg>Hotel oder Adresse prüfen</a><a class="btn" href="../../de/multa/">Was tun bei einem Bußgeld</a></p></main>
+<footer><p><a href="../../de/">GateLR</a> · <a href="../../privacy/">Privacy</a> · <a href="../../support/">Support</a> · <a href="mailto:support@example.com">support@example.com</a></p></footer>
+</div>
+</body>
+</html>

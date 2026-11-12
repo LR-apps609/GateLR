@@ -207,8 +207,13 @@ private fun TripAnswer(p: Place) {
             Text(F("%@ is %@ away", it.second.shortName, Geometry.distanceText(it.third)), fontSize = 14.sp, color = Ink.text2)
         }
         zone?.let { WhyRow(it) }
+        // 2.0.2 «Fiducia»: la riga sotto la risposta e il link per l'hotel o il noleggio (porta a questa risposta sul sito)
+        TrustBox(zone, f.city ?: near, p)
         PillButton(L("Share the answer"), {
-            val text = listOf(f.title, p.name, whenText).joinToString(" · ") + "\nhttps://lr-apps609.github.io/GateLR/"
+            // 2.0.2: il link porta alla risposta per questo posto sul sito (prima la home)
+            val link = app.gatelr.core.Fiducia.shareURL(app.gatelr.core.Strings.language, (f.city ?: near)?.id, p.name, p.location.lat, p.location.lon,
+                app.gatelr.core.Fiducia.vehicleKey(AppState.vehicle))
+            val text = listOf(f.title, p.name, whenText).joinToString(" · ") + "\n" + link
             runCatching { ctx.startActivity(Intent.createChooser(Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text), null)) }
         }, Modifier.fillMaxWidth(), Icons.Filled.Share, filled = false)
 

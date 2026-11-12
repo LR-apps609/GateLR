@@ -85,7 +85,7 @@ object Nav {
     /** Garage e impostazioni, dietro l'icona del veicolo */
     var settings by mutableStateOf(false)
     var zone by mutableStateOf<Zone?>(null)
-    var tool by mutableStateOf<String?>(null)      // "sign" | "fines" | "log"
+    var tool by mutableStateOf<String?>(null)      // "sign" | "fines" | "log" | 2.0.2: "checks" (come controlliamo i dati) | "finehelp" (se ricevi una multa)
 }
 
 class MainActivity : ComponentActivity() {
@@ -187,7 +187,7 @@ fun Root() {
     }
     Nav.tool?.let { t ->
         ModalBottomSheet(onDismissRequest = { Nav.tool = null }, sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)) {
-            when (t) { "sign" -> SignReaderScreen(); "log" -> DriveLog(); else -> FineGuide() }
+            when (t) { "sign" -> SignReaderScreen(); "log" -> DriveLog(); "checks" -> ChecksPage(); "finehelp" -> FineHelpPage(); else -> FineGuide() }
         }
     }
     Nav.whereTo?.let { target ->

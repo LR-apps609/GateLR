@@ -371,6 +371,11 @@ struct VarcoView: View {
                 // S-Movimento: solo una dissolvenza di 200 ms quando la risposta cambia
                 .transition(.opacity)
             actions(check)
+            // 2.0.2 «Fiducia» (bozza approvata): sotto la risposta e i suoi pulsanti (che restano nello schermo anche sui
+            // Pro Max, ScreenshotTests.test6VarcoProMax) la data dell'ultimo controllo, «Non ancora verificata a mano», la
+            // fonte, «Mandalo al tuo hotel / noleggio» e le due pagine. Nella pagina compatta (iPhone SE, testo grande) più
+            // giù, dopo pannello e orari: la risposta resta prima di tutto
+            if !compact { fiducia(check) }
             // Il pannello come lo vedrai al varco: sotto la risposta, più piccolo, luce neutra (non la contraddice mai)
             if a.showsPanel { GateLEDPanel(text: a.ledText, caption: a.ledCaption) }
             if let label = a.timeLabel {
@@ -381,6 +386,7 @@ struct VarcoView: View {
                 Text(verbatim: String(format: L("For %@"), TimeChoice.label(store.when)))
                     .font(.app(size: 13, weight: .semibold)).foregroundStyle(Theme.muted)
             }
+            if compact { fiducia(check) }
             // «Segnala un errore» per la zona della risposta
             if let hit = check.hit {
                 ReportErrorButton(zone: hit.zone, city: hit.city)
@@ -411,6 +417,13 @@ struct VarcoView: View {
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("varco.answerCard")
         .animation(reduceMotion ? nil : .easeInOut(duration: 0.2), value: a.headline)
+    }
+
+    /// 2.0.2 «Fiducia»: la riga sotto la risposta per la zona che decide; il link porta a questo posto sul sito (la tua
+    /// posizione no: la pagina della città)
+    private func fiducia(_ check: PlaceCheck) -> some View {
+        FiduciaFooter(zone: check.zone, city: check.city ?? (check.covered ? store.nearestCity(to: check.place.location) : nil),
+                      place: check.place)
     }
 
     /// Detto da VoiceOver alla fine della risposta: «Per Golf diesel Euro 5, adesso»
