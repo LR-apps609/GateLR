@@ -473,6 +473,43 @@ Una sola forma della risposta per lingua: «Non entrare», «Puoi entrare», «A
 - [ ] Android → Palazzo Vecchio di sera: «Puoi entrare»; il widget a ZTL spenta «Puoi entrare» con sotto «ZTL non attiva · …»; Cagliari: «Controlla il cartello», sotto «Probabilmente sì · fonte non ufficiale»; fuori dalle zone la pillola «Puoi entrare» e sotto «Fuori dalla ZTL»
 - [ ] Sito (EN, IT, DE): Palazzo Vecchio di giorno «Non entrare», di sera «Puoi entrare», il pannello «ZTL ATTIVA / ZTL NON ATTIVA» (prima «VARCO ATTIVO»); Cagliari «Controlla il cartello» con «Probabilmente sì · fonte non ufficiale.» all'inizio della spiegazione; legenda dei tipi «ZTL», «ZTL con pass», «Zona verde»; FAQ «Come capisco se un varco è acceso?» con «ZTL attiva» e la dicitura vecchia
 
+
+## 29. Solidità (1.20.4)
+«Fuori dalla ZTL» grigio, memoria di Varco, bug dei tester. Le regole delle città non cambiano.
+- [ ] iPhone → Varco: Bologna Centrale (fuori dalle zone): grigio «Fuori dalla ZTL» con il trattino, mai verde; Mappa, Viaggio e foglio del parcheggio uguali
+- [ ] iPhone → Varco senza un posto, 10 minuti con il guardiano acceso in città: tutto fluido, il telefono non scalda più del solito
+- [ ] iPhone → Mappa al buio (Milano): nessuna riga scura lungo i bordi delle zone
+- [ ] iPhone → Viaggio con un «no» (Palazzo Vecchio, diesel Euro 1, martedì 10:00): il riquadro dei parcheggi e «Riprova» sopra la barra delle schede
+- [ ] iPhone → Garage, hotel dentro la ZTL non ancora chiesto: «Non entrare»; dopo «Ho chiesto all'hotel» con targa e date giuste: giallo «A una condizione», mai verde
+- [ ] iPhone → posizione «Approssimativa», poi guardiano: «Serve la posizione esatta per i varchi» con «Impostazioni», mai un'icona di protezione
+- [ ] iPhone → Mappa alle 7:29 a Firenze, poi attendi le 7:30: il Settore A diventa rosso senza toccare niente
+- [ ] iPhone con testo grandissimo (Accessibilità): Varco, presentazione e pannello leggibili, niente parole tagliate
+- [ ] Siri: «Posso entrare in Area C con GateLR?»: risponde per Milano Area C, non per un'altra zona simile
+- [ ] Android: quattro schede Adesso · Mappa · Viaggio · Aiuto; Garage e Impostazioni dall'icona del veicolo; Indietro torna ad Adesso; widget con «Aggiornato alle»
+
+
+## 30. 2.0 (una risposta, struttura, grafica)
+- [ ] Prima apertura: presentazione in 3 pagine, poi «Con cosa entri?» con «Non so»; una sola barretta rossa in alto
+- [ ] Quattro schede in basso: Adesso, Mappa, Viaggio, Aiuto; in alto la fotocamera («Leggi il cartello») e l'icona del veicolo, che apre Garage, Impostazioni, Privacy, Fonti
+- [ ] Adesso con la posizione, in città: risposta per la zona in cui sei o per quella davanti a te entro 300 m («… m davanti a te»); fuori dalle zone grigio «Fuori dalla ZTL»
+- [ ] Tema del telefono chiaro e scuro: l'app cambia da sola; il blocco della risposta è uguale nei due temi
+- [ ] Firenze di sera: piazza della Signoria e Ponte Vecchio «Non entrare» (aree pedonali), Palazzo Vecchio (il palazzo) «ZTL non attiva» verde
+- [ ] Milano, Navigli o Ticinese: «Controlla il cartello» (ZTL locali, dati del 2023)
+- [ ] Hotel in Firenze Settore A senza conferma: «Non entrare»; dopo «L'hotel ha registrato la targa» con l'auto e le date del viaggio: «Puoi entrare» con «L'hotel ha registrato la targa · dal … al …»
+- [ ] Garage con alimentazione «Non so»: a Milano Area B «Controlla il cartello», mai «Puoi entrare»
+- [ ] «In auto» da Adesso: schermo intero, parole grandi, «Parcheggia fuori» quando è no
+- [ ] Testo grandissimo (Impostazioni → Accessibilità): le parole della risposta vanno a capo intere, niente pulsanti tagliati
+- [ ] VoiceOver su Adesso: legge la risposta in un colpo solo
+- [ ] Mappa: le righe delle zone si leggono bene di giorno e di sera
+- [ ] iPad: in Adesso mappa e risposta affiancate
+- [ ] Sito: «Puoi entrare» e «A una condizione» come nell'app
+
+## 31. 2.0.1 (schermi piccoli)
+- [ ] iPhone SE (o testo grande): scegli un posto in Adesso; la parola della risposta si vede intera sopra la barra delle schede, senza scorrere
+- [ ] Con un posto scelto la ricerca si apre dalla lente accanto al nome del posto
+- [ ] Testo grandissimo su iPhone SE: niente striscia di mappa, c'è «Guarda la mappa» che apre la Mappa
+- [ ] iPhone grandi e iPad: Adesso uguale alla 2.0
+
 ## 32. 2.0.2 (fiducia)
 Sotto ogni risposta: la data dell'ultimo controllo, «Non ancora verificata a mano», la fonte, «Mandalo al tuo hotel / noleggio» e due pagine («Come controlliamo i dati», «Cosa fare se ricevi una multa»). Il colore della risposta non cambia mai per la verifica a mano.
 - [ ] iPhone → Adesso: cerca «Via dei Serragli, Firenze». Sotto i pulsanti della risposta: chip verde «✓ Controllata il 23/10» (la data dei dati, mai un'ora), chip giallo «Non ancora verificata a mano», «Fonte: Comune di Firenze ›» che apre la pagina del Comune. La risposta resta dello stesso colore di prima. Con iPhone SE o testo grande la riga sta più giù, dopo pannello e orari, e la parola della risposta resta in vista senza scorrere
