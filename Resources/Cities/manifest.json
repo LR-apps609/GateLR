@@ -1,6 +1,6 @@
 {
- "version": "202611110626",
- "digest": "43568df64355",
+ "version": "202611140606",
+ "digest": "c29dbbe13a21",
  "schema": 1,
  "cities": [
   {
@@ -131,7 +131,7 @@
   {
    "id": "ravenna",
    "file": "ravenna.json",
-   "sha256": "26bacc7df58ed3bf281f0a98e6dae9e39fad813e547032498d7b3cf80dbb6220"
+   "sha256": "a1bfb98d3aad44c8dfa2ff69496cd1545be6b8a3584aedd3c3460f150ddeabbc"
   },
   {
    "id": "rimini",
