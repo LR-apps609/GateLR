@@ -1,0 +1,3 @@
+testD4Aiuto: Failed to application it.ledion.GateLR is not running
+testD4Aiuto: Failed to get list of active applications: Accessibility error kAXErrorIPCTimeout from AXUIElementCopyMultipleAttributeValues for 1102
+testD5Presentazione: Failed to get list of active applications: Accessibility error kAXErrorIPCTimeout from AXUIElementCopyMultipleAttributeValues for 1102
