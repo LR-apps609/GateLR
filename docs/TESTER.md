@@ -75,6 +75,24 @@ Segui una per una le voci della **sezione 32 «2.0.2 (fiducia)»** di `docs/chec
 - [ ] Per ogni voce scrivi riuscita, fallita o non provabile, sempre con il motivo e una foto.
 - [ ] Se resta tempo, passa anche alle sezioni 31 e 30.
 
+## Prova dal vivo (quando Ledion scrive «dal vivo»)
+
+Ledion vuole vedere ogni clic in tempo reale, sul suo schermo.
+
+- [ ] Usa il controllo del computer di Claude (computer use) sulla finestra del Simulatore, non le prove automatiche.
+  - Se non è attivo, chiedi a Ledion di attivarlo nell'app Claude e di dare al Mac i permessi «Accessibilità» e «Registrazione schermo».
+- [ ] Prima di cominciare:
+  - apri il Simulatore in primo piano, grande e al centro dello schermo;
+  - chiudi o metti da parte le altre finestre.
+- [ ] Un passo alla volta:
+  - scrivi in chat cosa stai per fare (per esempio «Tocco "Mandalo al tuo hotel"»);
+  - fai il clic;
+  - aspetta 1–2 secondi, così Ledion vede cosa succede;
+  - scrivi in una riga cosa vedi e se è giusto.
+- [ ] Per il sito usa Safari sul Mac o nel Simulatore, sempre visibile.
+- [ ] Se Ledion scrive «fermo» o muove il mouse, fermati subito e aspetta.
+- [ ] Le prove che dal vivo durano troppo (le stesse prove ripetute su tutti i dispositivi) lasciale alle prove automatiche del punto 2.
+
 ## 4. Foto
 
 - [ ] Metti le schermate in `~/Desktop/GateLR-tester/<data>/`, fuori dal progetto.
