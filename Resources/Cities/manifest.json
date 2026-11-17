@@ -1,6 +1,6 @@
 {
- "version": "202611140606",
- "digest": "c29dbbe13a21",
+ "version": "202611170619",
+ "digest": "b1e7668a8004",
  "schema": 1,
  "cities": [
   {
@@ -126,7 +126,7 @@
   {
    "id": "pisa",
    "file": "pisa.json",
-   "sha256": "ecd2d55fd460b2ef2991d24eaf43f330097737b4833fc64ede59a29da452ff0a"
+   "sha256": "96d09b686ea7d24e7fd1b026ac3e8065138efbf93881dd18266aae4ea044e070"
   },
   {
    "id": "ravenna",
