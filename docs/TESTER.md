@@ -51,6 +51,47 @@ Prima di cominciare leggi tutto questo file e poi **`docs/tester/INVENTARIO.md`*
 
 ---
 
+## Livello di profondità (obbligatorio, vale per ogni prova)
+
+Un giro superficiale non serve. Per **ogni** schermata, pulsante e risposta controlla tutti e 10 questi aspetti, e scrivi in `progresso.md` l'esito di ognuno:
+
+1. **Funziona**: fa esattamente quello che dice l'inventario. Prova anche tocchi doppi, tocchi veloci, il tasto indietro a metà, la chiusura del foglio con lo scorrimento.
+2. **Parole**: ogni testo, letto per intero, carattere per carattere, confrontato con l'inventario e con `Resources/Localizations/it.lproj/Localizable.strings`. Cerca refusi, maiuscole, punteggiatura, virgolette «», unità, orari 24 ore, date gg/mm.
+3. **Dato giusto**: la risposta è giusta per **quel** posto, ora e veicolo.
+   - Non fidarti dell'app: ricava tu la risposta attesa dal file della città in `Resources/Cities/<città>.json` (orari, giorni, stagioni, festivi, veicoli ammessi, perimetro).
+   - Confrontala con quello che vedi. Se non coincidono, è un 🔴.
+4. **Coerenza**: lo stesso posto, alla stessa ora e con lo stesso veicolo, deve dare la stessa risposta ovunque.
+   - Nell'app: Adesso, Mappa (colore della zona), Viaggio, scheda della zona, In auto, widget, avvisi.
+   - Sul sito: la stessa risposta dell'app.
+   - Ogni differenza è un bug.
+5. **Stati**: vuoto, caricamento, errore, senza permesso, permesso negato, posizione approssimativa, fuori copertura, ognuno dei 7 colori. Quelli che non riesci a far comparire, scrivili con il motivo.
+6. **Bordi**: prova i casi limite.
+   - Ore esatte del cambio (un minuto prima, all'ora esatta, un minuto dopo), mezzanotte, 23:59.
+   - Primo e ultimo giorno di una stagione, festivi, cambio dell'ora legale (ultima domenica di marzo e di ottobre).
+   - Un posto esattamente sul confine, due zone sovrapposte.
+   - Nomi lunghissimi e con accenti o apostrofi (per esempio «Piazza dell'Unità d'Italia»), 0 veicoli, 10 veicoli, targa con spazi o minuscole.
+7. **Memoria**: dopo la chiusura forzata e la riapertura resta quello che deve restare (veicoli, viaggi, permessi, impostazioni) e si azzera quello che deve azzerarsi (l'ora scelta, la città scelta).
+8. **Aspetto**:
+   - allineamenti, testo tagliato o sovrapposto, colori del tema chiaro e scuro, contrasto;
+   - animazioni che scattano;
+   - controlla la foto ingrandita, non a colpo d'occhio.
+9. **Accessibilità**: con Accessibility Inspector, l'etichetta di ogni pulsante, l'ordine di lettura e le aree da toccare di almeno 44 pt.
+10. **Sicurezza e privacy**: la targa non deve mai finire in un link, in un testo condiviso, nei registri della console (`xcrun simctl spawn booted log stream --predicate 'subsystem CONTAINS "GateLR"'`) o in una richiesta di rete.
+
+**Inoltre:**
+
+- **Prove libere**: alla fine di ogni fase dedica almeno 15 minuti a cercare di **rompere** quella parte dell'app, come farebbe un turista confuso o un utente frettoloso. Scrivi cosa hai provato.
+- **Leggi il codice quando serve**: se un comportamento ti sembra strano, apri il file Swift che lo produce (l'inventario dice quale) e capisci perché lo fa. Scrivi la causa nel bug.
+- **Mai «sembra ok»**: ogni ✅ deve dire cosa hai controllato (per esempio «✅ parola, colore rosso, ✕, riga "Firenze · Settore A", 3 pulsanti nell'ordine giusto, pannello "ZTL ATTIVA"»). Un ✅ senza questi dettagli non vale.
+- **Controllo di fine fase**: rileggi la sezione dell'inventario e spunta ogni riga. Se una riga non ha una prova, torna indietro e falla. Scrivi «Fase X: N righe dell'inventario, N provate».
+- **Numeri minimi**:
+  - fase C: almeno 60 prove;
+  - fase N: almeno 40 casi;
+  - fase O: tutti i 46 × posti × 3 momenti × 2 veicoli;
+  - fase P: tutte le 8 lingue.
+
+  Se ne fai di meno, spiega perché.
+
 ## Come lavori dal vivo
 
 1. Apri l'app nel pannello «iOS Simulator».
