@@ -1,6 +1,6 @@
 {
- "version": "202611170619",
- "digest": "b1e7668a8004",
+ "version": "202611190623",
+ "digest": "700aa1e362ec",
  "schema": 1,
  "cities": [
   {
@@ -166,7 +166,7 @@
   {
    "id": "sirmione",
    "file": "sirmione.json",
-   "sha256": "a87a183d618f4ba26694be8dcf490da316f2f04c0d779389d88776991604929c"
+   "sha256": "19204f60f22135344b56fced6208abeb8cc59a4d1953c2500b2d170da2cae055"
   },
   {
    "id": "sorrento",
