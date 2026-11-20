@@ -1,6 +1,6 @@
 {
- "version": "202611190623",
- "digest": "700aa1e362ec",
+ "version": "202611200628",
+ "digest": "f127f3a09850",
  "schema": 1,
  "cities": [
   {
@@ -218,7 +218,7 @@
   {
    "id": "mantova",
    "file": "mantova.json",
-   "sha256": "606f054404600f53239aad54ece110d0d8e660014b9003d378b54fd2c9bcf62e"
+   "sha256": "e0e67c935d856a59c252b40180770356655b4849dc2f2f7f51b3e982ad2c7af0"
   },
   {
    "id": "ostuni",
