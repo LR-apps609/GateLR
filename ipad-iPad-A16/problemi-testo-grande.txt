@@ -1,2 +1,0 @@
-testD5Presentazione: failed - [testo-grande] Presentazione: manca «Salta»
-testD5Presentazione: Failed to get list of active applications: Accessibility error kAXErrorServerNotFound from AXUIElementCopyMultipleAttributeValues for 1102
