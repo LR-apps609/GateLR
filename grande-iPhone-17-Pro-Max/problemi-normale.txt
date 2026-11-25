@@ -1,5 +1,1 @@
-testD2Mappa: XCTAssertTrue failed - [normale] Mappa: «scheda Adesso» fuori dallo schermo o non toccabile (cornice 25,877 104×54, finestra 0,0 440×956)
-testD4Aiuto: Failed to get launch progress for <XCUIApplicationImpl: 0x600000cf9d40 it.ledion.GateLR at /Users/runner/work/GateLR/GateLR/build-ui/Build/Products/Debug-iphonesimulator/GateLR.app>: Simulator device failed to launch it.ledion.GateLR. The process did launch, but has since exited or crashed. (Underlying Error: The request to open "it.ledion.GateLR" failed. The process did launch, but has since exited or crashed.)
-testD4Aiuto: Failed to get matching snapshots: Timed out while evaluating UI query.
-testD4Aiuto: Failed to terminate it.ledion.GateLR:40290: Failed to terminate it.ledion.GateLR:0
-testD5Presentazione: failed - [normale] Presentazione: manca «Salta»
+testD2Mappa: Failed to get matching snapshots: Timed out while evaluating UI query.
