@@ -1,6 +1,6 @@
 {
- "version": "202611200628",
- "digest": "f127f3a09850",
+ "version": "202611261527",
+ "digest": "b36e8e52a905",
  "schema": 1,
  "cities": [
   {
@@ -151,12 +151,12 @@
   {
    "id": "san-giovanni-valdarno",
    "file": "san-giovanni-valdarno.json",
-   "sha256": "d0bc619c334191d36c85aaab043dcfe40478a49b38d17a3e8fd9476e19209d11"
+   "sha256": "eaf2e7274ec17210e9940cbaefad61f93153c7cc75d778f60582f6d45b77a044"
   },
   {
    "id": "siena",
    "file": "siena.json",
-   "sha256": "5560918417e3ae4dc3febf74becc47f69c970fccd2769cdeeadb733eaab4e32e"
+   "sha256": "f03f9d6edaa3aab32a854397412eb52ba3ce161bf3f789e1086f0cdd2549f41c"
   },
   {
    "id": "siracusa",

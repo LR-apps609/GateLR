@@ -434,7 +434,8 @@
      "https://www.comune.san-giovanni-valdarno.ar.it/servizi/servizio-dettaglio/2562040": "33d14fdad7817538",
      "https://www.comune.san-giovanni-valdarno.ar.it/servizi/servizio-dettaglio/3128251": "aa29406db0b94c94"
     },
-    "readFingerprintsOf": "2026-10-25T08:00:00Z"
+    "readFingerprintsOf": "2026-10-25T08:00:00Z",
+    "pageChanged": true
    }
   },
   {
@@ -614,7 +615,8 @@
      "https://www.comune.san-giovanni-valdarno.ar.it/servizi/servizio-dettaglio/2562040": "33d14fdad7817538",
      "https://www.comune.san-giovanni-valdarno.ar.it/servizi/servizio-dettaglio/3128251": "aa29406db0b94c94"
     },
-    "readFingerprintsOf": "2026-10-25T08:00:00Z"
+    "readFingerprintsOf": "2026-10-25T08:00:00Z",
+    "pageChanged": true
    }
   }
  ],
