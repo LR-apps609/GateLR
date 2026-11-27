@@ -1,0 +1,2 @@
+testD2Mappa: failed - [normale] Mappa: manca «legenda»
+testD2Mappa: failed - [normale] Mappa: manca «ricerca»
