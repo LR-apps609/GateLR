@@ -1,0 +1,6 @@
+testD1Adesso: Failed to get launch progress for <XCUIApplicationImpl: 0x600000ccfba0 it.ledion.GateLR at /Users/runner/work/GateLR/GateLR/build-ui/Build/Products/Debug-iphonesimulator/GateLR.app>: Simulator device failed to launch it.ledion.GateLR. The system shell (SpringBoard:70195) probably crashed. (Underlying Error: The request to open "it.ledion.GateLR" failed. The system shell (SpringBoard:70195) probably crashed. (Underlying Error: The operation couldn’t be completed. XPC error received on message reply handler))
+testD1Adesso: Failed to get list of active applications: Accessibility error kAXErrorServerNotFound from AXUIElementCopyMultipleAttributeValues for 1102
+testD2Mappa: Failed to set appearance mode: Timed out while setting appearance mode to Dark.
+testD3Viaggio: Failed to set appearance mode: Timed out while setting appearance mode to Dark.
+testD4Aiuto: Failed to set appearance mode: Timed out while setting appearance mode to Dark.
+testD5Presentazione: Failed to set appearance mode: Timed out while setting appearance mode to Dark.
